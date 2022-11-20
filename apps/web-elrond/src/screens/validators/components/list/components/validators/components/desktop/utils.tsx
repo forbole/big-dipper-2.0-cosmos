@@ -7,8 +7,7 @@ export const fetchColumns = (): {
   component?: React.ReactNode;
   sortKey?: string;
   sort?: boolean;
-}[] => {
-  return [
+}[] => [
     {
       key: 'idx',
       width: 5,
@@ -61,4 +60,3 @@ export const fetchColumns = (): {
       sort: true,
     },
   ];
-};

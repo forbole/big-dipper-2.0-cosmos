@@ -1,7 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-const styles = makeStyles((theme) => {
-  return {
+const styles = makeStyles((theme) => ({
     root: {
       height: '100%',
       '& .MuiTypography-h2': {
@@ -48,9 +47,6 @@ const styles = makeStyles((theme) => {
         },
       },
     },
-  };
-});
+  }));
 
-export const useStyles = () => {
-  return styles();
-};
+export const useStyles = () => styles();

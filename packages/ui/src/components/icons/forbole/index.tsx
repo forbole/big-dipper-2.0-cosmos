@@ -1,7 +1,6 @@
 import React from 'react';
 
-const Forbole = () => {
-  return (
+const Forbole = () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="157.198"
@@ -22,6 +21,5 @@ const Forbole = () => {
       </g>
     </svg>
   );
-};
 
 export default Forbole;

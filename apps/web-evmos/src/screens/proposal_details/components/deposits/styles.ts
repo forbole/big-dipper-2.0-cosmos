@@ -1,7 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-const styles = makeStyles((theme) => {
-  return {
+const styles = makeStyles((theme) => ({
     root: {
       overflow: 'hidden',
     },
@@ -22,9 +21,6 @@ const styles = makeStyles((theme) => {
         display: 'flex',
       },
     },
-  };
-});
+  }));
 
-export const useStyles = () => {
-  return styles();
-};
+export const useStyles = () => styles();

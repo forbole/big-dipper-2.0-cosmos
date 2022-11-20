@@ -25,13 +25,11 @@ const TokenPrice: React.FC<{ items: TokenPriceType[] } & ComponentDefault> = (pr
   const { tickPriceFormatter, formatTime } = usePrice();
   const dateFormat = useRecoilValue(readDate);
 
-  const formatItems = props.items.map((x) => {
-    return {
+  const formatItems = props.items.map((x) => ({
       time: formatTime((dayjs as any).utc(x.time), dateFormat),
       fullTime: formatDayJs((dayjs as any).utc(x.time), dateFormat),
       value: x.value,
-    };
-  });
+    }));
   return (
     <div>
       <Typography variant="h2">{t('priceHistory')}</Typography>
@@ -73,16 +71,14 @@ const TokenPrice: React.FC<{ items: TokenPriceType[] } & ComponentDefault> = (pr
               cursor={false}
               content={
                 <CustomToolTip>
-                  {(x) => {
-                    return (
+                  {(x) => (
                       <>
                         <Typography variant="caption">{(x as any).fullTime}</Typography>
                         <Typography variant="body1">
                           ${numeral(x.value).format('0,0.00')}
                         </Typography>
                       </>
-                    );
-                  }}
+                    )}
                 </CustomToolTip>
               }
             />

@@ -52,8 +52,7 @@ const Mobile: FC<{
   return (
     <div className={classnames(className)}>
       <AutoSizer>
-        {({ height, width }) => {
-          return (
+        {({ height, width }) => (
             <List
               className="List"
               height={height}
@@ -66,8 +65,7 @@ const Mobile: FC<{
                 <ListItem {...{ index, style, setRowHeight, formattedItems }} />
               )}
             </List>
-          );
-        }}
+          )}
       </AutoSizer>
     </div>
   );

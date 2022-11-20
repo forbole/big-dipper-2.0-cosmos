@@ -1,7 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-const styles = makeStyles((theme) => {
-  return {
+const styles = makeStyles((theme) => ({
     root: {
       height: '100%',
     },
@@ -19,9 +18,6 @@ const styles = makeStyles((theme) => {
     even: {
       background: '#242424',
     },
-  };
-});
+  }));
 
-export const useStyles = () => {
-  return styles();
-};
+export const useStyles = () => styles();

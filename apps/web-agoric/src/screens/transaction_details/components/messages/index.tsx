@@ -25,9 +25,7 @@ const Messages: FC<{
 
   const { listRef, getRowHeight, setRowHeight } = useList();
 
-  const formattedItems = props.messages.map((x) => {
-    return getMessageByType(x, props.viewRaw, t);
-  });
+  const formattedItems = props.messages.map((x) => getMessageByType(x, props.viewRaw, t));
 
   return (
     <Box className={classnames(className, classes.root)}>
@@ -65,8 +63,7 @@ const Messages: FC<{
       <Divider />
       <div className={classes.list}>
         <AutoSizer>
-          {({ height, width }) => {
-            return (
+          {({ height, width }) => (
               <List
                 className="List"
                 height={height}
@@ -82,8 +79,7 @@ const Messages: FC<{
                   />
                 )}
               </List>
-            );
-          }}
+            )}
         </AutoSizer>
       </div>
     </Box>

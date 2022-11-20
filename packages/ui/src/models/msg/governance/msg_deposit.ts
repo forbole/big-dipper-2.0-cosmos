@@ -31,12 +31,10 @@ class MsgDeposit {
       type: json['@type'],
       proposalId: numeral(json.proposal_id).value() ?? '',
       depositor: json.depositor,
-      amount: json?.amount.map((x?: { denom?: string; amount?: number }) => {
-        return {
+      amount: json?.amount.map((x?: { denom?: string; amount?: number }) => ({
           denom: x?.denom,
           amount: R.pathOr('0', ['amount'], x),
-        };
-      }),
+        })),
     };
   }
 }

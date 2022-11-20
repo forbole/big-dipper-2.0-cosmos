@@ -28,16 +28,12 @@ export const useBlocks = () => {
     },
   });
 
-  const formatLastHundredBlocks = (data: LastHundredBlocksSubscription) => {
-    return data.block.map((x) => {
-      return {
+  const formatLastHundredBlocks = (data: LastHundredBlocksSubscription) => data.block.map((x) => ({
         height: x.height,
         txs: x.transactions.length,
         proposer: x.validator?.validatorInfo?.operatorAddress ?? '',
         signed: x.precommits.length === 1,
-      };
-    });
-  };
+      }));
 
   return {
     state,

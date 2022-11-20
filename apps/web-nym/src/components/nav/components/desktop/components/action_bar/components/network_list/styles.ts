@@ -1,7 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-const styles = makeStyles((theme) => {
-  return {
+const styles = makeStyles((theme) => ({
     root: {
       background: theme.palette.background.paper,
       '& svg': {
@@ -18,9 +17,6 @@ const styles = makeStyles((theme) => {
       gridTemplateColumns: 'repeat(4, 1fr)',
       gridGap: theme.spacing(3, 2),
     },
-  };
-});
+  }));
 
-export const useStyles = () => {
-  return styles();
-};
+export const useStyles = () => styles();

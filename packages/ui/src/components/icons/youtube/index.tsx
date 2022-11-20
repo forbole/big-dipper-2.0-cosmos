@@ -1,7 +1,6 @@
 import React from 'react';
 
-const YouTube = () => {
-  return (
+const YouTube = () => (
     <svg
       width="26px"
       height="26px"
@@ -19,6 +18,5 @@ const YouTube = () => {
       />
     </svg>
   );
-};
 
 export default YouTube;

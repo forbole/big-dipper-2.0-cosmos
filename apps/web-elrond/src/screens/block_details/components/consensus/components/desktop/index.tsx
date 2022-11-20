@@ -18,8 +18,7 @@ const Desktop: React.FC<{ items: ConsensusType[] } & ComponentDefault> = (props)
   return (
     <div className={classes.root}>
       <AutoSizer onResize={onResize}>
-        {({ height, width }) => {
-          return (
+        {({ height, width }) => (
             <>
               {/* ======================================= */}
               {/* Table Header */}
@@ -75,8 +74,7 @@ const Desktop: React.FC<{ items: ConsensusType[] } & ComponentDefault> = (props)
                 }}
               </Grid>
             </>
-          );
-        }}
+          )}
       </AutoSizer>
     </div>
   );

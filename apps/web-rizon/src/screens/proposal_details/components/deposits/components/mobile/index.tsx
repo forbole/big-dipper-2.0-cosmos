@@ -20,8 +20,7 @@ const Mobile: React.FC<{
   const dateFormat = useRecoilValue(readDate);
 
   const formattedItems =
-    items?.map((x) => {
-      return {
+    items?.map((x) => ({
         depositor: (
           <>
             {x.user.address ? (
@@ -36,13 +35,11 @@ const Mobile: React.FC<{
           x.amount.exponent
         )} ${x.amount.displayDenom.toUpperCase()}`,
         time: formatDayJs((dayjs as any).utc(x.timestamp), dateFormat),
-      };
-    }) ?? [];
+      })) ?? [];
 
   return (
     <div className={classnames(className)}>
-      {formattedItems?.map((x, i) => {
-        return (
+      {formattedItems?.map((x, i) => (
           <React.Fragment key={`depositors-mobile-${x.time}`}>
             <div className={classes.list}>
               <div className={classes.item}>
@@ -70,8 +67,7 @@ const Mobile: React.FC<{
             </div>
             {!!items && i !== items.length - 1 && <Divider />}
           </React.Fragment>
-        );
-      })}
+        ))}
     </div>
   );
 };

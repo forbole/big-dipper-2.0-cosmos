@@ -104,13 +104,11 @@ const Actions: React.FC<Props> = (props) => {
               onChange={handleRowOptionChange}
               input={<InputBase />}
             >
-              {rowsPerPageOptions.map((x) => {
-                return (
+              {rowsPerPageOptions.map((x) => (
                   <MenuItem value={x} key={x} className={classes.menuItem}>
                     <Typography variant="body2">{x}</Typography>
                   </MenuItem>
-                );
-              })}
+                ))}
             </Select>
           </FormControl>
         </li>

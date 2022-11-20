@@ -16,8 +16,7 @@ import type { OtherTokenType } from '../../../../types';
 const Desktop: React.FC<{ items: OtherTokenType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('accounts');
   const classes = useStyles();
-  const formattedItems = props.items.map((x) => {
-    return {
+  const formattedItems = props.items.map((x) => ({
       identifier: x.identifier,
       nft: (
         <Link href={NFT_DETAILS(x.identifier)} passHref>
@@ -27,16 +26,14 @@ const Desktop: React.FC<{ items: OtherTokenType[] } & ComponentDefault> = (props
         </Link>
       ),
       type: x.type,
-    };
-  });
+    }));
 
   return (
     <div className={classnames(props.className, classes.root)}>
       <Table>
         <TableHead>
           <TableRow>
-            {columns.map((column) => {
-              return (
+            {columns.map((column) => (
                 <TableCell
                   key={column.key}
                   align={column.align}
@@ -44,15 +41,13 @@ const Desktop: React.FC<{ items: OtherTokenType[] } & ComponentDefault> = (props
                 >
                   {t(column.key)}
                 </TableCell>
-              );
-            })}
+              ))}
           </TableRow>
         </TableHead>
         <TableBody>
           {formattedItems?.map((row: { [key: string]: unknown }) => (
             <TableRow key={`holders-row-${row.identifier}`}>
-              {columns.map((column) => {
-                return (
+              {columns.map((column) => (
                   <TableCell
                     key={`holders-row-${row.identifier}-${column.key}`}
                     align={column.align}
@@ -60,8 +55,7 @@ const Desktop: React.FC<{ items: OtherTokenType[] } & ComponentDefault> = (props
                   >
                     {row[column.key]}
                   </TableCell>
-                );
-              })}
+                ))}
             </TableRow>
           ))}
         </TableBody>

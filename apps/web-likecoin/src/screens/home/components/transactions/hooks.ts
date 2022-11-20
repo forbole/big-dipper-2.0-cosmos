@@ -23,8 +23,7 @@ export const useTransactions = () => {
     },
   });
 
-  const formatTransactions = (data: TransactionsListenerSubscription) => {
-    return (
+  const formatTransactions = (data: TransactionsListenerSubscription) => (
       data.transactions?.map((x: any) => {
         const msgType =
           x.messages?.map((eachMsg: any) => {
@@ -43,7 +42,6 @@ export const useTransactions = () => {
         };
       }) ?? []
     );
-  };
 
   return {
     state,

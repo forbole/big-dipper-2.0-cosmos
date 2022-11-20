@@ -49,8 +49,7 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = (props
         {t('overview')}
       </Typography>
       <div className={classes.body}>
-        {items?.map((x) => {
-          return (
+        {items?.map((x) => (
             <div key={x.key} className={classes.item}>
               <div className={classes.hash}>
                 <div className={classes.bullet} />
@@ -66,8 +65,7 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = (props
                 </div>
               </div>
             </div>
-          );
-        })}
+          ))}
       </div>
     </Box>
   );

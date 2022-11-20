@@ -1,7 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-const styles = makeStyles((theme) => {
-  return {
+const styles = makeStyles((theme) => ({
     root: {
       '& .MuiTypography-h2': {
         marginBottom: theme.spacing(2),
@@ -14,9 +13,6 @@ const styles = makeStyles((theme) => {
         minHeight: '65vh',
       },
     },
-  };
-});
+  }));
 
-export const useStyles = () => {
-  return styles();
-};
+export const useStyles = () => styles();

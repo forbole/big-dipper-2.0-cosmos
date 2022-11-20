@@ -1,7 +1,5 @@
 import TokenDetails from '@screens/token_details';
 
-const TokenDetailsPage = () => {
-  return <TokenDetails />;
-};
+const TokenDetailsPage = () => <TokenDetails />;
 
 export default TokenDetailsPage;

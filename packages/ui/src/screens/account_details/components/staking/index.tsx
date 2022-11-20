@@ -61,13 +61,11 @@ const Staking: React.FC<
   return (
     <Box className={classnames(className, classes.root)}>
       <Tabs tab={state.tab} handleTabChange={handleTabChange} tabs={tabs} />
-      {tabs.map((x) => {
-        return (
+      {tabs.map((x) => (
           <TabPanel key={x.id} index={x.id} value={state.tab}>
             {x.component}
           </TabPanel>
-        );
-      })}
+        ))}
     </Box>
   );
 };

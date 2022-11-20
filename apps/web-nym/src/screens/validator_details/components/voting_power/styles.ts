@@ -2,8 +2,7 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 import Color from 'color';
 
 const styles = makeStyles<Theme, { percentage: number }>(
-  (theme) => {
-    return {
+  (theme) => ({
       root: {
         '& .MuiTypography-h2': {
           marginBottom: theme.spacing(2),
@@ -58,11 +57,8 @@ const styles = makeStyles<Theme, { percentage: number }>(
           justifyContent: 'space-between',
         },
       },
-    };
-  },
+    }),
   { index: 1 }
 );
 
-export const useStyles = (percentage: number) => {
-  return styles({ percentage });
-};
+export const useStyles = (percentage: number) => styles({ percentage });

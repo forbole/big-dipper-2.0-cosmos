@@ -18,8 +18,7 @@ const Consensus: React.FC<{ consensus: ConsensusType } & ComponentDefault> = (pr
       <Typography variant="h2">{t('consensus')}</Typography>
       {props.consensus.length ? (
         <div className={classes.blocks}>
-          {props.consensus.map((x, i) => {
-            return (
+          {props.consensus.map((x, i) => (
               <Tooltip
                 // eslint-disable-next-line react/no-array-index-key
                 key={`blocks-tooltip-${i}`}
@@ -46,8 +45,7 @@ const Consensus: React.FC<{ consensus: ConsensusType } & ComponentDefault> = (pr
                   })}
                 />
               </Tooltip>
-            );
-          })}
+            ))}
         </div>
       ) : (
         <NoData />

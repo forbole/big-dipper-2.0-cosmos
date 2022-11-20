@@ -14,11 +14,9 @@ import type { ItemType } from '../../types';
 const Mobile: React.FC<{
   className?: string;
   items: ItemType[];
-}> = ({ className, items }) => {
-  return (
+}> = ({ className, items }) => (
     <div className={classnames(className)}>
-      {items?.map((x, i) => {
-        return (
+      {items?.map((x, i) => (
           <React.Fragment key={`${x.height}-${x.timestamp}`}>
             <SingleBlockMobile
               height={
@@ -44,10 +42,8 @@ const Mobile: React.FC<{
             />
             {!!items && i !== items.length - 1 && <Divider />}
           </React.Fragment>
-        );
-      })}
+        ))}
     </div>
   );
-};
 
 export default Mobile;

@@ -19,8 +19,7 @@ const Mobile: React.FC<{
   const { t } = useTranslation('accounts');
   const dateFormat = useRecoilValue(readDate);
   const formattedItems =
-    items?.map((x) => {
-      return {
+    items?.map((x) => ({
         address: (
           <AvatarName
             address={x.address.address}
@@ -34,13 +33,11 @@ const Mobile: React.FC<{
           x.amount.exponent
         )} ${x.amount.displayDenom.toUpperCase()}`,
         completionTime: formatDayJs((dayjs as any).utc(x.completionTime), dateFormat),
-      };
-    }) ?? [];
+      })) ?? [];
 
   return (
     <div className={classnames(className)}>
-      {formattedItems?.map((x) => {
-        return (
+      {formattedItems?.map((x) => (
           <React.Fragment key={`votes-mobile-${x.completionTime}`}>
             <div className={classes.list}>
               <div className={classes.item}>
@@ -70,8 +67,7 @@ const Mobile: React.FC<{
             </div>
             {!!items && i !== items.length - 1 && <Divider />}
           </React.Fragment>
-        );
-      })}
+        ))}
     </div>
   );
 };

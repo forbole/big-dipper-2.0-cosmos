@@ -7,9 +7,7 @@ export const useList = () => {
   const listRef = useRef({});
   const rowHeights = useRef<{ [key: keyof any]: number }>({});
 
-  const getRowHeight = useCallback((index: keyof any) => {
-    return rowHeights.current[index] + 16 || 100;
-  }, []);
+  const getRowHeight = useCallback((index: keyof any) => rowHeights.current[index] + 16 || 100, []);
 
   const setRowHeight = useCallback((idx: keyof any, size: number) => {
     R.pathOr(
@@ -70,16 +68,14 @@ export const useGrid = (
   }, [columnRef, gridRef]);
 
   const getColumnWidth = useCallback(
-    (width: number, index: number) => {
-      return (columns[index].width * width) / 100;
-    },
+    (width: number, index: number) => (columns[index].width * width) / 100,
     [columns]
   );
 
-  const getRowHeight = useCallback(() => {
+  const getRowHeight = useCallback(() => 
     // this matches mui table height setup
-    return 50;
-  }, []);
+     50
+  , []);
 
   return {
     gridRef,

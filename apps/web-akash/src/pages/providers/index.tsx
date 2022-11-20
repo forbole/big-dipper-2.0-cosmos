@@ -1,7 +1,5 @@
 import Providers from '@screens/providers';
 
-const ProvidersPage = () => {
-  return <Providers />;
-};
+const ProvidersPage = () => <Providers />;
 
 export default ProvidersPage;

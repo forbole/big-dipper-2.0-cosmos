@@ -1,8 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 const styles = makeStyles(
-  (theme) => {
-    return {
+  (theme) => ({
       mobile: {
         [theme.breakpoints.up('lg')]: {
           display: 'none',
@@ -14,11 +13,8 @@ const styles = makeStyles(
           display: 'block',
         },
       },
-    };
-  },
+    }),
   { index: 1 }
 );
 
-export const useStyles = () => {
-  return styles();
-};
+export const useStyles = () => styles();

@@ -27,8 +27,7 @@ const Desktop: React.FC<{
   const classes = useStyles();
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
 
-  const formattedItems = items?.map((x) => {
-    return {
+  const formattedItems = items?.map((x) => ({
       height: (
         <Link href={BLOCK_DETAILS(x.height)} passHref>
           <Typography variant="body1" className="value" component="a">
@@ -39,14 +38,12 @@ const Desktop: React.FC<{
       txs: numeral(x.txs).format('0,0'),
       time: (dayjs as any).utc(x.timestamp).fromNow(),
       hash: x.hash,
-    };
-  });
+    }));
 
   return (
     <div className={classnames(className, classes.root)}>
       <AutoSizer onResize={onResize}>
-        {({ height, width }) => {
-          return (
+        {({ height, width }) => (
             <>
               {/* ======================================= */}
               {/* Table Header */}
@@ -85,8 +82,7 @@ const Desktop: React.FC<{
                   })
                 }
               >
-                {({ onItemsRendered, ref }) => {
-                  return (
+                {({ onItemsRendered, ref }) => (
                     <Grid
                       onItemsRendered={({
                         visibleRowStartIndex,
@@ -144,12 +140,10 @@ const Desktop: React.FC<{
                         );
                       }}
                     </Grid>
-                  );
-                }}
+                  )}
               </InfiniteLoader>
             </>
-          );
-        }}
+          )}
       </AutoSizer>
     </div>
   );

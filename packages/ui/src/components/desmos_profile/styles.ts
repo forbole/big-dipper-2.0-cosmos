@@ -2,8 +2,7 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 import chainConfig from 'ui/chainConfig';
 
 const styles = makeStyles<Theme, { coverUrl?: string }>(
-  (theme) => {
-    return {
+  (theme) => ({
       root: {
         overflow: 'hidden',
       },
@@ -92,11 +91,8 @@ const styles = makeStyles<Theme, { coverUrl?: string }>(
           color: theme.palette.custom.fonts.fontFour,
         },
       },
-    };
-  },
+    }),
   { index: 1 }
 );
 
-export const useStyles = (coverUrl?: string) => {
-  return styles({ coverUrl });
-};
+export const useStyles = (coverUrl?: string) => styles({ coverUrl });

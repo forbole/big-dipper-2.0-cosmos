@@ -1,7 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-const styles = makeStyles(() => {
-  return {
+const styles = makeStyles(() => ({
     light: {
       '.mode-dark &': {
         display: 'none',
@@ -13,9 +12,6 @@ const styles = makeStyles(() => {
         display: 'initial',
       },
     },
-  };
-});
+  }));
 
-export const useStyles = () => {
-  return styles();
-};
+export const useStyles = () => styles();

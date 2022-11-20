@@ -104,15 +104,13 @@ export const useBlocks = () => {
     if (data.blocks.length === 51) {
       formattedData = data.blocks.slice(0, 51);
     }
-    return formattedData.map((x: any) => {
-      return {
+    return formattedData.map((x: any) => ({
         height: x.height,
         txs: x.txs,
         hash: x.hash,
         timestamp: x.timestamp,
         proposer: x.proposerAddress,
-      };
-    });
+      }));
   };
 
   const itemCount = state.hasNextPage ? state.items.length + 1 : state.items.length;

@@ -63,8 +63,7 @@ export const useValidatorDetails = () => {
         // contract
         // =====================================
         if (isProvider) {
-          const getContract = () => {
-            return {
+          const getContract = () => ({
               address: R.pathOr('', ['provider'], providerData),
               locked: formatToken(
                 R.pathOr('0', ['locked'], providerData),
@@ -78,8 +77,7 @@ export const useValidatorDetails = () => {
                 chainConfig.primaryTokenUnit
               ),
               delegators: R.pathOr(0, ['numUsers'], providerData),
-            };
-          };
+            });
 
           newState.contract = getContract();
         }
@@ -140,12 +138,10 @@ export const useValidatorDetails = () => {
           let distribution: any[] = [];
           if (identityData) {
             const keys = R.keys(R.pathOr([], ['distribution'], identityData));
-            distribution = keys.map((x: any) => {
-              return {
+            distribution = keys.map((x: any) => ({
                 key: x,
                 value: R.pathOr(0, ['distribution', x], identityData),
-              };
-            });
+              }));
           }
 
           return {

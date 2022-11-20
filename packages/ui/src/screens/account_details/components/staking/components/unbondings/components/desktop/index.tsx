@@ -20,8 +20,7 @@ const Desktop: React.FC<{
 }> = ({ className, items }) => {
   const { t } = useTranslation('accounts');
   const dateFormat = useRecoilValue(readDate);
-  const formattedItems = items?.map((x) => {
-    return {
+  const formattedItems = items?.map((x) => ({
       validator: (
         <AvatarName
           address={x.validator.address}
@@ -34,16 +33,14 @@ const Desktop: React.FC<{
         x.amount.exponent
       )} ${x.amount.displayDenom.toUpperCase()}`,
       completionTime: formatDayJs((dayjs as any).utc(x.completionTime), dateFormat),
-    };
-  });
+    }));
 
   return (
     <div className={classnames(className)}>
       <Table>
         <TableHead>
           <TableRow>
-            {columns.map((column) => {
-              return (
+            {columns.map((column) => (
                 <TableCell
                   key={column.key}
                   align={column.align}
@@ -51,8 +48,7 @@ const Desktop: React.FC<{
                 >
                   {t(column.key)}
                 </TableCell>
-              );
-            })}
+              ))}
           </TableRow>
         </TableHead>
         <TableBody>

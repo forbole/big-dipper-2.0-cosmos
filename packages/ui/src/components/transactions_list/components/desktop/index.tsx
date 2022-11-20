@@ -62,8 +62,7 @@ const Desktop: React.FC<TransactionsListState> = ({
   return (
     <div className={classnames(className, classes.root)}>
       <AutoSizer onResize={onResize}>
-        {({ height, width }) => {
-          return (
+        {({ height, width }) => (
             <>
               {/* ======================================= */}
               {/* Table Header */}
@@ -102,8 +101,7 @@ const Desktop: React.FC<TransactionsListState> = ({
                   })
                 }
               >
-                {({ onItemsRendered, ref }) => {
-                  return (
+                {({ onItemsRendered, ref }) => (
                     <Grid
                       onItemsRendered={({
                         visibleRowStartIndex,
@@ -161,12 +159,10 @@ const Desktop: React.FC<TransactionsListState> = ({
                         );
                       }}
                     </Grid>
-                  );
-                }}
+                  )}
               </InfiniteLoader>
             </>
-          );
-        }}
+          )}
       </AutoSizer>
     </div>
   );

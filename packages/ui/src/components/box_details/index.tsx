@@ -23,8 +23,7 @@ const BoxDetails: React.FC<{
           {!!titleAction && titleAction}
         </div>
       )}
-      {details.map((x, i) => {
-        return (
+      {details.map((x, i) => (
           // eslint-disable-next-line react/no-array-index-key
           <div className={classnames(classes.item, x.className)} key={`box-detail__item--${i}`}>
             {React.isValidElement(x.label) ? (
@@ -43,8 +42,7 @@ const BoxDetails: React.FC<{
               </Typography>
             )}
           </div>
-        );
-      })}
+        ))}
     </Box>
   );
 };

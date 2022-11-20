@@ -19,21 +19,18 @@ const Desktop: React.FC<{
   const { t } = useTranslation('accounts');
 
   const formattedItems =
-    items?.map((x) => {
-      return {
+    items?.map((x) => ({
         network: x.network.toUpperCase(),
         identifier: x.identifier,
         creationTime: formatDayJs((dayjs as any).utc(x.creationTime), dateFormat),
-      };
-    }) ?? [];
+      })) ?? [];
 
   return (
     <div className={classnames(className)}>
       <Table>
         <TableHead>
           <TableRow>
-            {columns.map((column) => {
-              return (
+            {columns.map((column) => (
                 <TableCell
                   key={column.key}
                   align={column.align}
@@ -41,15 +38,13 @@ const Desktop: React.FC<{
                 >
                   {t(column.key)}
                 </TableCell>
-              );
-            })}
+              ))}
           </TableRow>
         </TableHead>
         <TableBody>
           {formattedItems?.map((row: { [key: string]: unknown }) => (
             <TableRow key={`holders-row-${row.identifier}`}>
-              {columns.map((column) => {
-                return (
+              {columns.map((column) => (
                   <TableCell
                     key={`holders-row-${row.identifier}-${column.key}`}
                     align={column.align}
@@ -57,8 +52,7 @@ const Desktop: React.FC<{
                   >
                     {(row as any)?.[column.key]}
                   </TableCell>
-                );
-              })}
+                ))}
             </TableRow>
           ))}
         </TableBody>

@@ -146,14 +146,12 @@ export const useTransactionDetails = () => {
   );
 
   const filterMessages = useCallback(
-    (messages: any[]) => {
-      return messages.filter((x) => {
+    (messages: any[]) => messages.filter((x) => {
         if (state.messages.filterBy !== 'none') {
           return x.category === state.messages.filterBy;
         }
         return true;
-      });
-    },
+      }),
     [state.messages.filterBy]
   );
 

@@ -23,12 +23,10 @@ const Blocks = () => {
   const { state, loadMoreItems, itemCount, isItemLoaded } = useBlocks();
 
   const proposerProfiles = useProfilesRecoil(state.items.map((x) => x.proposer));
-  const mergedDataWithProfiles = state.items.map((x, i) => {
-    return {
+  const mergedDataWithProfiles = state.items.map((x, i) => ({
       ...(x as object),
       proposer: proposerProfiles[i],
-    };
-  });
+    }));
 
   return (
     <>

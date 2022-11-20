@@ -64,8 +64,7 @@ const TransactionList: FC<TransactionsListDetailsState> = ({
   return (
     <div className={classnames(className, classes.root)}>
       <AutoSizer>
-        {({ height, width }) => {
-          return (
+        {({ height, width }) => (
             <InfiniteLoader
               isItemLoaded={isItemLoaded ?? (() => true)}
               itemCount={itemCount}
@@ -92,8 +91,7 @@ const TransactionList: FC<TransactionsListDetailsState> = ({
                 </List>
               )}
             </InfiniteLoader>
-          );
-        }}
+          )}
       </AutoSizer>
     </div>
   );

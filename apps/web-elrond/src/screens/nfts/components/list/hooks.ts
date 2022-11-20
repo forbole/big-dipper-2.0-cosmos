@@ -32,15 +32,13 @@ export const useNFTs = () => {
           },
         });
 
-        const items = nftData.map((x: any) => {
-          return {
+        const items = nftData.map((x: any) => ({
             identifier: R.pathOr('', ['identifier'], x),
             name: R.pathOr('', ['name'], x),
             type: R.pathOr('', ['type'], x),
             creator: R.pathOr('', ['creator'], x),
             collection: R.pathOr('', ['collection'], x),
-          };
-        });
+          }));
 
         handleSetState({
           loading: false,

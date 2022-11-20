@@ -20,9 +20,7 @@ export const columns: {
   },
 ];
 
-export const formatRows = (data: ConsensusType[]) => {
-  return data.map((x, i) => {
-    return {
+export const formatRows = (data: ConsensusType[]) => data.map((x, i) => ({
       idx: numeral(i + 1).format('0,0'),
       validator: (
         <Link href={NODE_DETAILS(x)} passHref>
@@ -34,6 +32,4 @@ export const formatRows = (data: ConsensusType[]) => {
           </Typography>
         </Link>
       ),
-    };
-  });
-};
+    }));

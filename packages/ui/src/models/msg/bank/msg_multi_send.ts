@@ -32,30 +32,22 @@ class MsgMultiSend {
       json,
       type: json['@type'],
       inputs: json.inputs?.map(
-        (input?: { address?: string; coins?: Array<{ denom?: string }> }) => {
-          return {
+        (input?: { address?: string; coins?: Array<{ denom?: string }> }) => ({
             address: input?.address,
-            coins: input?.coins?.map((coin) => {
-              return {
+            coins: input?.coins?.map((coin) => ({
                 denom: coin?.denom,
                 amount: R.pathOr('0', ['amount'], coin),
-              };
-            }),
-          };
-        }
+              })),
+          })
       ),
       outputs: json.outputs?.map(
-        (output?: { address: string; coins?: Array<{ denom?: string }> }) => {
-          return {
+        (output?: { address: string; coins?: Array<{ denom?: string }> }) => ({
             address: output?.address,
-            coins: output?.coins?.map((coin) => {
-              return {
+            coins: output?.coins?.map((coin) => ({
                 denom: coin?.denom,
                 amount: R.pathOr('0', ['amount'], coin),
-              };
-            }),
-          };
-        }
+              })),
+          })
       ),
     };
   }

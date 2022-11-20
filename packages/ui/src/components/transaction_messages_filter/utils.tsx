@@ -1,5 +1,4 @@
-export const getFilterLabels = () => {
-  return [
+export const getFilterLabels = () => [
     {
       key: 'none',
       display: 'none',
@@ -49,4 +48,3 @@ export const getFilterLabels = () => {
       display: 'others',
     },
   ];
-};

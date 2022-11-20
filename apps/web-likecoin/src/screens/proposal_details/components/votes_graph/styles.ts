@@ -1,7 +1,6 @@
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 
-const styles = makeStyles((theme) => {
-  return {
+const styles = makeStyles((theme) => ({
     root: {
       [theme.breakpoints.up('lg')]: {
         display: 'flex',
@@ -70,8 +69,7 @@ const styles = makeStyles((theme) => {
         },
       },
     },
-  };
-});
+  }));
 
 export const useStyles = () => {
   const defaultTheme = useTheme();

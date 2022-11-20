@@ -19,8 +19,7 @@ import type { BlockType } from '../../types';
 const Desktop: React.FC<{ items: BlockType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('blocks');
   const classes = useStyles();
-  const formattedItems = props.items.map((x) => {
-    return {
+  const formattedItems = props.items.map((x) => ({
       block: numeral(x.block).format('0,0'),
       hash: (
         <Link href={BLOCK_DETAILS(x.hash)} passHref>
@@ -34,15 +33,13 @@ const Desktop: React.FC<{ items: BlockType[] } & ComponentDefault> = (props) => 
       ),
       txs: numeral(x.txs).format('0,0'),
       time: (dayjs as any).utc(dayjs.unix(x.timestamp)).fromNow(),
-    };
-  });
+    }));
   return (
     <div className={classnames(props.className, classes.root)}>
       <Table className={classes.table}>
         <TableHead>
           <TableRow>
-            {columns.map((column) => {
-              return (
+            {columns.map((column) => (
                 <TableCell
                   key={column.key}
                   align={column.align}
@@ -50,15 +47,13 @@ const Desktop: React.FC<{ items: BlockType[] } & ComponentDefault> = (props) => 
                 >
                   {t(column.key)}
                 </TableCell>
-              );
-            })}
+              ))}
           </TableRow>
         </TableHead>
         <TableBody>
           {formattedItems?.map((row: { [key: string]: unknown }) => (
             <TableRow key={`holders-row-${row.identifier}`}>
-              {columns.map((column) => {
-                return (
+              {columns.map((column) => (
                   <TableCell
                     key={`holders-row-${row.identifier}-${column.key}`}
                     align={column.align}
@@ -66,8 +61,7 @@ const Desktop: React.FC<{ items: BlockType[] } & ComponentDefault> = (props) => 
                   >
                     {row[column.key]}
                   </TableCell>
-                );
-              })}
+                ))}
             </TableRow>
           ))}
         </TableBody>

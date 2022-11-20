@@ -30,8 +30,7 @@ const Mobile: FC<{
   const { listRef, getRowHeight, setRowHeight } = useList();
 
   const formattedItems =
-    items?.map((x) => {
-      return {
+    items?.map((x) => ({
         height: (
           <Link href={BLOCK_DETAILS(x.height)} passHref>
             <Typography variant="body1" className="value" component="a">
@@ -52,14 +51,12 @@ const Mobile: FC<{
           beginning: 13,
           ending: 10,
         }),
-      };
-    }) ?? [];
+      })) ?? [];
 
   return (
     <div className={classnames(className, classes.root)}>
       <AutoSizer>
-        {({ height, width }) => {
-          return (
+        {({ height, width }) => (
             <InfiniteLoader
               isItemLoaded={isItemLoaded ?? (() => true)}
               itemCount={itemCount}
@@ -88,8 +85,7 @@ const Mobile: FC<{
                 </List>
               )}
             </InfiniteLoader>
-          );
-        }}
+          )}
       </AutoSizer>
     </div>
   );

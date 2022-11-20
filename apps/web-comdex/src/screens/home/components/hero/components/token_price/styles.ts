@@ -1,8 +1,7 @@
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 
 const styles = makeStyles(
-  () => {
-    return {
+  () => ({
       chart: {
         height: '285px',
         width: '100%',
@@ -10,14 +9,11 @@ const styles = makeStyles(
           display: 'none',
         },
       },
-    };
-  },
+    }),
   { index: 1 }
 );
 
-export const useStyles = () => {
-  return {
+export const useStyles = () => ({
     classes: styles(),
     theme: useTheme(),
-  };
-};
+  });

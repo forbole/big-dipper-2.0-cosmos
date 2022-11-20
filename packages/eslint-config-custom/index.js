@@ -45,11 +45,12 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/no-unused-vars': ['off', { argsIgnorePattern: '^_' }],
-    'arrow-body-style': 'off',
-    camelcase: 'off',
     'jsx-a11y/anchor-is-valid': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',
     'jsx-a11y/interactive-supports-focus': 'off',
+    /* https://eslint.org/docs/latest/rules/camelcase */
+    /* prefer not to migrate existing code to use default exports for now */
+    camelcase: 'off',
     /* https://eslint.org/docs/latest/rules/no-bitwise */
     'no-bitwise': 'off',
     /* https://eslint.org/docs/latest/rules/no-param-reassign */

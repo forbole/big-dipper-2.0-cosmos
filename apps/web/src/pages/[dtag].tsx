@@ -1,7 +1,5 @@
 import ProfileDetails from 'ui/screens/profile_details';
 
-const ProfileDetailsPage = () => {
-  return <ProfileDetails />;
-};
+const ProfileDetailsPage = () => <ProfileDetails />;
 
 export default ProfileDetailsPage;

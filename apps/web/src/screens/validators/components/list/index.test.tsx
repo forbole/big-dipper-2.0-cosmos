@@ -29,20 +29,17 @@ jest.mock('ui/components/load_and_exist', () => (props: JSX.IntrinsicElements['d
   <div id="LoadAndExist" {...props} />
 ));
 jest.mock('ui/hooks', () => ({
-  useScreenSize: () => {
-    return {
+  useScreenSize: () => ({
       windowSize: {
         width: 1280,
         height: 720,
       },
       isDesktop: false,
-    };
-  },
+    }),
 }));
 
 jest.mock('./hooks', () => ({
-  useValidators: () => {
-    return {
+  useValidators: () => ({
       state: {
         loading: true,
         exists: true,
@@ -77,8 +74,7 @@ jest.mock('./hooks', () => ({
       handleSort: () => jest.fn(),
       handleSearch: () => jest.fn(),
       sortItems: () => jest.fn(),
-    };
-  },
+    }),
 }));
 
 const mockValidatorsDocument = jest.fn().mockReturnValue({

@@ -1,7 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-const styles = makeStyles((theme) => {
-  return {
+const styles = makeStyles((theme) => ({
     networkList: {
       display: 'flex',
       alignItems: 'flex-start',
@@ -15,9 +14,6 @@ const styles = makeStyles((theme) => {
         minWidth: 0,
       },
     },
-  };
-});
+  }));
 
-export const useStyles = () => {
-  return styles();
-};
+export const useStyles = () => styles();

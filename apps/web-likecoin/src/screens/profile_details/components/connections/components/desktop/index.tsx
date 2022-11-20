@@ -46,8 +46,7 @@ const Desktop: React.FC<{
       <Table>
         <TableHead>
           <TableRow>
-            {columns.map((column) => {
-              return (
+            {columns.map((column) => (
                 <TableCell
                   key={column.key}
                   align={column.align}
@@ -55,15 +54,13 @@ const Desktop: React.FC<{
                 >
                   {t(column.key)}
                 </TableCell>
-              );
-            })}
+              ))}
           </TableRow>
         </TableHead>
         <TableBody>
           {formattedItems?.map((row: { [key: string]: unknown }) => (
             <TableRow key={`holders-row-${row.identifier}`}>
-              {columns.map((column) => {
-                return (
+              {columns.map((column) => (
                   <TableCell
                     key={`holders-row-${row.identifier}-${column.key}`}
                     align={column.align}
@@ -71,8 +68,7 @@ const Desktop: React.FC<{
                   >
                     {row[column.key]}
                   </TableCell>
-                );
-              })}
+                ))}
             </TableRow>
           ))}
         </TableBody>

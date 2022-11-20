@@ -26,17 +26,13 @@ export const useBlocks = () => {
     },
   });
 
-  const formatBlocks = (data: BlocksListenerSubscription) => {
-    return data.blocks.map((x) => {
-      return {
+  const formatBlocks = (data: BlocksListenerSubscription) => data.blocks.map((x) => ({
         height: x.height,
         txs: x.txs,
         hash: x.hash,
         timestamp: x.timestamp,
         proposer: x.proposerAddress,
-      };
-    });
-  };
+      }));
 
   return {
     state,

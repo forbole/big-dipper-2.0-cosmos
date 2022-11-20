@@ -25,13 +25,11 @@ const DepositProposal: React.FC<{ message: MsgDeposit }> = (props) => {
   const depositor = useProfileRecoil(message.depositor);
   const depositorMoniker = depositor ? depositor?.name : message.depositor;
 
-  const Proposal = () => {
-    return (
+  const Proposal = () => (
       <Link href={PROPOSAL_DETAILS(message.proposalId)} passHref>
         <Typography component="a">#{message.proposalId}</Typography>
       </Link>
     );
-  };
   return (
     <Typography>
       <Trans

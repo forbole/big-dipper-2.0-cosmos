@@ -22,8 +22,7 @@ const Desktop: React.FC<{
   const dateFormat = useRecoilValue(readDate);
 
   const formattedItems =
-    items?.map((x) => {
-      return {
+    items?.map((x) => ({
         depositor: (
           <>
             {x.user.address ? (
@@ -38,16 +37,14 @@ const Desktop: React.FC<{
           x.amount.exponent
         )} ${x.amount.displayDenom.toUpperCase()}`,
         time: formatDayJs((dayjs as any).utc(x.timestamp), dateFormat),
-      };
-    }) ?? [];
+      })) ?? [];
 
   return (
     <div className={classnames(className)}>
       <Table>
         <TableHead>
           <TableRow>
-            {columns.map((column) => {
-              return (
+            {columns.map((column) => (
                 <TableCell
                   key={column.key}
                   align={column.align}
@@ -55,15 +52,13 @@ const Desktop: React.FC<{
                 >
                   {t(column.key)}
                 </TableCell>
-              );
-            })}
+              ))}
           </TableRow>
         </TableHead>
         <TableBody>
           {formattedItems?.map((row: { [key: string]: unknown }) => (
             <TableRow key={`holders-row-${row.timestamp}`}>
-              {columns.map((column) => {
-                return (
+              {columns.map((column) => (
                   <TableCell
                     key={`holders-row-${row.timestamp}-${column.key}`}
                     align={column.align}
@@ -71,8 +66,7 @@ const Desktop: React.FC<{
                   >
                     {row[column.key]}
                   </TableCell>
-                );
-              })}
+                ))}
             </TableRow>
           ))}
         </TableBody>

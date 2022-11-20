@@ -1,7 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-const styles = makeStyles((theme) => {
-  return {
+const styles = makeStyles((theme) => ({
     root: {
       color: theme.palette.custom.fonts.highlight,
       wordBreak: 'break-all',
@@ -9,9 +8,6 @@ const styles = makeStyles((theme) => {
         cursor: 'pointer',
       },
     },
-  };
-});
+  }));
 
-export const useStyles = () => {
-  return styles();
-};
+export const useStyles = () => styles();

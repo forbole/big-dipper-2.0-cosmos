@@ -11,10 +11,6 @@ export const columns: {
   },
 ];
 
-export const formatRows = (data: AvatarName[]) => {
-  return data.map((x) => {
-    return {
+export const formatRows = (data: AvatarName[]) => data.map((x) => ({
       validator: <AvatarName address={x.address} imageUrl={x.imageUrl} name={x.name} />,
-    };
-  });
-};
+    }));

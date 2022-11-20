@@ -44,16 +44,14 @@ export const useBlocks = () => {
           },
         });
 
-        const items = blocksData.map((x: any) => {
-          return {
+        const items = blocksData.map((x: any) => ({
             block: x.round,
             timestamp: x.timestamp,
             hash: x.hash,
             txs: x.txCount,
             shard: x.shard,
             size: x.sizeTxs,
-          };
-        });
+          }));
 
         handleSetState({
           loading: false,

@@ -1,8 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 const styles = makeStyles(
-  (theme) => {
-    return {
+  (theme) => ({
       root: {
         display: 'grid',
         height: '100%',
@@ -25,11 +24,8 @@ const styles = makeStyles(
       activeLeases: {
         background: theme.palette.custom.primaryData.three,
       },
-    };
-  },
+    }),
   { index: 1 }
 );
 
-export const useStyles = () => {
-  return styles();
-};
+export const useStyles = () => styles();

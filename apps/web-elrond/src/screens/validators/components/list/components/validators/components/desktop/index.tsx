@@ -28,8 +28,7 @@ const Desktop: React.FC<{
 
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
 
-  const formattedItems = props.items.map((x, i) => {
-    return {
+  const formattedItems = props.items.map((x, i) => ({
       idx: `#${i + 1}`,
       validator: (
         <AvatarName
@@ -54,14 +53,12 @@ const Desktop: React.FC<{
       delegators: x.delegators ? numeral(x.delegators).format('0,0') : '-',
       commission: x.commission ? `${numeral(x.commission * 100).format('0,0.[00]')}%` : '-',
       apr: x.apr ? `${x.apr}%` : '-',
-    };
-  });
+    }));
 
   return (
     <div className={classnames(props.className, classes.root)}>
       <AutoSizer onResize={onResize}>
-        {({ height, width }) => {
-          return (
+        {({ height, width }) => (
             <>
               {/* ======================================= */}
               {/* Table Header */}
@@ -136,8 +133,7 @@ const Desktop: React.FC<{
                 }}
               </Grid>
             </>
-          );
-        }}
+          )}
       </AutoSizer>
     </div>
   );

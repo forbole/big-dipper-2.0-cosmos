@@ -1,7 +1,6 @@
 import React from 'react';
 
-const Medium = () => {
-  return (
+const Medium = () => (
     <svg
       width="26px"
       height="26px"
@@ -18,6 +17,5 @@ const Medium = () => {
       />
     </svg>
   );
-};
 
 export default Medium;

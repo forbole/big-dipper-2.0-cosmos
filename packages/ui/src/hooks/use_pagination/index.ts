@@ -40,9 +40,7 @@ export const usePagination = (options?: Options) => {
     return items.slice(start, end);
   };
 
-  const getTotal = (items: any[]) => {
-    return items.length;
-  };
+  const getTotal = (items: any[]) => items.length;
 
   const resetPagination = () => {
     setPage(0);

@@ -1,7 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-const styles = makeStyles((theme) => {
-  return {
+const styles = makeStyles((theme) => ({
     root: {
       zIndex: 500,
       width: '100%',
@@ -37,9 +36,6 @@ const styles = makeStyles((theme) => {
       height: '100%',
       overflow: 'auto',
     },
-  };
-});
+  }));
 
-export const useStyles = () => {
-  return styles();
-};
+export const useStyles = () => styles();

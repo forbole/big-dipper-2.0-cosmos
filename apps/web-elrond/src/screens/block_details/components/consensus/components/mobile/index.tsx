@@ -18,18 +18,15 @@ const Mobile: FC<{ items: ConsensusType[] } & ComponentDefault> = (props) => {
   const { listRef, getRowHeight, setRowHeight } = useList();
   const classes = useStyles();
 
-  const formattedItems = props.items.map((x) => {
-    return getMiddleEllipsis(x, {
+  const formattedItems = props.items.map((x) => getMiddleEllipsis(x, {
       beginning: 13,
       ending: 15,
-    });
-  });
+    }));
 
   return (
     <div className={classes.root}>
       <AutoSizer>
-        {({ height, width }) => {
-          return (
+        {({ height, width }) => (
             <List
               className="List"
               height={height}
@@ -45,8 +42,7 @@ const Mobile: FC<{ items: ConsensusType[] } & ComponentDefault> = (props) => {
                 />
               )}
             </List>
-          );
-        }}
+          )}
       </AutoSizer>
     </div>
   );

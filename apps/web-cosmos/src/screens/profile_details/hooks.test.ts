@@ -15,8 +15,7 @@ jest.mock('next/router', () => ({
 }));
 
 jest.mock('ui/hooks', () => ({
-  useDesmosProfile: (options) => {
-    return {
+  useDesmosProfile: (options) => ({
       fetchDesmosProfile: jest.fn((dtag) => {
         let results;
         if (dtag === '@happieSa') {
@@ -93,8 +92,7 @@ jest.mock('ui/hooks', () => ({
         }
         return results;
       }),
-    };
-  },
+    }),
 }));
 
 describe('hook: useProfileDetails', () => {

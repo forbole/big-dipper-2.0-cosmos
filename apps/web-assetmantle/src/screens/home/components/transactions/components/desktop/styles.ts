@@ -1,7 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-const styles = makeStyles(() => {
-  return {
+const styles = makeStyles(() => ({
     root: {
       overflow: 'auto',
     },
@@ -12,9 +11,6 @@ const styles = makeStyles(() => {
         },
       },
     },
-  };
-});
+  }));
 
-export const useStyles = () => {
-  return styles();
-};
+export const useStyles = () => styles();

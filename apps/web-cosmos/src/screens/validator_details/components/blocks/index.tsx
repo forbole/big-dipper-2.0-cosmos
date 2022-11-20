@@ -17,20 +17,17 @@ const Blocks: React.FC<{
   const { t } = useTranslation('validators');
   const { state } = useBlocks();
   const dataProfiles = useProfilesRecoil(state.map((x) => x.proposer));
-  const mergedDataWithProfiles = state.map((x, i) => {
-    return {
+  const mergedDataWithProfiles = state.map((x, i) => ({
       ...(x as object),
       proposer: dataProfiles[i],
-    };
-  });
+    }));
 
   const classes = useStyles();
   return (
     <Box className={classnames(className, classes.root)}>
       <Typography variant="h2">{t('lastBlocks')}</Typography>
       <div className={classes.blocks}>
-        {mergedDataWithProfiles.map((x: any, i) => {
-          return (
+        {mergedDataWithProfiles.map((x: any, i) => (
             <Tooltip
               key={`blocks-tooltip-${x.txs}`}
               enterTouchDelay={50}
@@ -79,8 +76,7 @@ const Blocks: React.FC<{
                 })}
               />
             </Tooltip>
-          );
-        })}
+          ))}
       </div>
     </Box>
   );

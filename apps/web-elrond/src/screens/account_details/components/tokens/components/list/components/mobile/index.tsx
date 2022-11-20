@@ -11,8 +11,7 @@ import type { OtherTokenType } from '../../../../types';
 const Mobile: React.FC<{ items: OtherTokenType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('accounts');
   const classes = useStyles();
-  const formattedItems = props.items.map((x) => {
-    return {
+  const formattedItems = props.items.map((x) => ({
       identifier: x.identifier,
       token: (
         <AvatarName
@@ -26,13 +25,11 @@ const Mobile: React.FC<{ items: OtherTokenType[] } & ComponentDefault> = (props)
         x.balance.value,
         x.balance.exponent
       )} ${x.balance.displayDenom.toUpperCase()}`,
-    };
-  });
+    }));
 
   return (
     <div className={props.className}>
-      {formattedItems?.map((x, i) => {
-        return (
+      {formattedItems?.map((x, i) => (
           // eslint-disable-next-line react/no-array-index-key
           <React.Fragment key={`${x.identifier}-${i}`}>
             <div className={classes.root}>
@@ -53,8 +50,7 @@ const Mobile: React.FC<{ items: OtherTokenType[] } & ComponentDefault> = (props)
             </div>
             {i !== formattedItems.length - 1 && <Divider />}
           </React.Fragment>
-        );
-      })}
+        ))}
     </div>
   );
 };

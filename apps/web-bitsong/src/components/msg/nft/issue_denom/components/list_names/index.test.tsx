@@ -6,20 +6,16 @@ import ListNames from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('ui/recoil/profiles', () => {
-  return {
-    useProfilesRecoil: jest.fn((addresses) => {
-      return addresses.map((address) => ({
+jest.mock('ui/recoil/profiles', () => ({
+    useProfilesRecoil: jest.fn((addresses) => addresses.map((address) => ({
         address,
         name:
           address === 'desmosvaloper14nfk5gm99gfrd7nwqtmtvzunzclz8720a6cqh7'
             ? 'AC Validator 🦦'
             : address,
         imageUrl: '',
-      }));
-    }),
-  };
-});
+      }))),
+  }));
 
 jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id={props.address} {...props} />

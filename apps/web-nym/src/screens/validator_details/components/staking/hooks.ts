@@ -58,9 +58,7 @@ export const useStaking = () => {
         });
       });
 
-      results.sort((a: any, b: any) => {
-        return a.completionTime < b.completionTime ? -1 : 1;
-      });
+      results.sort((a: any, b: any) => a.completionTime < b.completionTime ? -1 : 1);
 
       return results;
     };
@@ -85,8 +83,7 @@ export const useStaking = () => {
       return data;
     };
 
-    const formatDelegations = (data: any[]) => {
-      return data
+    const formatDelegations = (data: any[]) => data
         .map((x) => {
           const address = R.pathOr('', ['delegator_address'], x);
           const delegation = getDenom(x.coins, chainConfig.primaryTokenUnit);
@@ -95,10 +92,7 @@ export const useStaking = () => {
             amount: formatToken(delegation.amount, delegation.denom),
           };
         })
-        .sort((a, b) => {
-          return Big(a.amount.value).gt(b.amount.value) ? -1 : 1;
-        });
-    };
+        .sort((a, b) => Big(a.amount.value).gt(b.amount.value) ? -1 : 1);
 
     const formatRedelegations = (data: any) => {
       const results: any = [];
@@ -112,9 +106,7 @@ export const useStaking = () => {
           });
         });
       });
-      results.sort((a: any, b: any) => {
-        return a.completionTime < b.completionTime ? -1 : 1;
-      });
+      results.sort((a: any, b: any) => a.completionTime < b.completionTime ? -1 : 1);
 
       return results;
     };

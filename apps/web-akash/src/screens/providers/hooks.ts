@@ -96,8 +96,7 @@ export const useProviders = () => {
   });
 
   const formatCPUMemoryStorageData = (data: CpuMemoryStorageListenerSubscription) => {
-    const mappedData = data.specs.map((item) => {
-      return {
+    const mappedData = data.specs.map((item) => ({
         memory: {
           available: item.available.memory,
           used: item.active.memory,
@@ -111,12 +110,10 @@ export const useProviders = () => {
           used: item.active.storage_ephemeral,
           pending: item.pending.storage_ephemeral,
         },
-      };
-    });
+      }));
 
     return mappedData.reduce(
-      (total, row) => {
-        return {
+      (total, row) => ({
           memory: {
             available: total.memory.available + row.memory.available,
             used: total.memory.used + row.memory.used,
@@ -130,8 +127,7 @@ export const useProviders = () => {
             used: total.storage.used + row.storage.used,
             pending: total.storage.pending + row.storage.pending,
           },
-        };
-      },
+        }),
       {
         memory: {
           available: 0,
@@ -154,8 +150,7 @@ export const useProviders = () => {
   // tx query
   // ================================
 
-  const formatProviders = (data: ProvidersQuery['list']) => {
-    return data.map((item) => {
+  const formatProviders = (data: ProvidersQuery['list']) => data.map((item) => {
       const { attributes, hostUri, info, ownerAddress } = item;
       const organization = attributes?.find(
         (attribute: { key: string; value: string }) => attribute.key === 'organization'
@@ -172,7 +167,6 @@ export const useProviders = () => {
         website: info.website,
       };
     });
-  };
 
   const filterAndPaginateProviders = (items: ProviderInfo[], search: string) => {
     let filteredPaginatedItems = items;

@@ -20,8 +20,7 @@ const SmartContractResults: React.FC<{ results: ResultType[] } & ComponentDefaul
     return <NoData />;
   }
 
-  const formattedItems = props.results.map((x) => {
-    return {
+  const formattedItems = props.results.map((x) => ({
       hash: x.hash,
       sender: <AvatarName address={x.sender} name={x.sender} />,
       receiver: <AvatarName address={x.receiver} name={x.receiver} />,
@@ -30,8 +29,7 @@ const SmartContractResults: React.FC<{ results: ResultType[] } & ComponentDefaul
         x.value.exponent
       )} ${x.value.displayDenom.toUpperCase()}`,
       data: decodeBase64(x.data),
-    };
-  });
+    }));
 
   return (
     <Box className={classes.root}>
@@ -39,8 +37,7 @@ const SmartContractResults: React.FC<{ results: ResultType[] } & ComponentDefaul
         {t('smartContractResults')}
       </Typography>
       <div>
-        {formattedItems?.map((x, i) => {
-          return (
+        {formattedItems?.map((x, i) => (
             // eslint-disable-next-line react/no-array-index-key
             <React.Fragment key={`${x.data}-${i}`}>
               <div className={classes.itemWrap}>
@@ -91,8 +88,7 @@ const SmartContractResults: React.FC<{ results: ResultType[] } & ComponentDefaul
               </div>
               {i !== formattedItems.length - 1 && <Divider />}
             </React.Fragment>
-          );
-        })}
+          ))}
       </div>
     </Box>
   );

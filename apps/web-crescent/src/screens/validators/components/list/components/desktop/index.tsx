@@ -73,8 +73,7 @@ const Desktop: React.FC<{
   return (
     <div className={classnames(props.className, classes.root)}>
       <AutoSizer onResize={onResize}>
-        {({ height, width }) => {
-          return (
+        {({ height, width }) => (
             <>
               {/* ======================================= */}
               {/* Table Header */}
@@ -177,8 +176,7 @@ const Desktop: React.FC<{
                 }}
               </Grid>
             </>
-          );
-        }}
+          )}
       </AutoSizer>
     </div>
   );

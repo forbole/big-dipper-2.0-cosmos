@@ -21,8 +21,7 @@ const Mobile: FC<{
   const { listRef, getRowHeight, setRowHeight } = useList();
 
   const formattedItems =
-    items?.map((x, i) => {
-      return {
+    items?.map((x, i) => ({
         idx: `#${i + 1}`,
         validator: (
           <AvatarName
@@ -47,14 +46,12 @@ const Mobile: FC<{
         delegators: x.delegators ? numeral(x.delegators).format('0,0') : '-',
         commission: x.commission ? `${numeral(x.commission * 100).format('0,0.[00]')}%` : '-',
         apr: x.apr ? `${x.apr}%` : '-',
-      };
-    }) ?? [];
+      })) ?? [];
 
   return (
     <div className={classnames(className, classes.root)}>
       <AutoSizer>
-        {({ height, width }) => {
-          return (
+        {({ height, width }) => (
             <List
               className="List"
               height={height}
@@ -67,8 +64,7 @@ const Mobile: FC<{
                 <ListItem {...{ index, style, setRowHeight, formattedItems }} />
               )}
             </List>
-          );
-        }}
+          )}
       </AutoSizer>
     </div>
   );

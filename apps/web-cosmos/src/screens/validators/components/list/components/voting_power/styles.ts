@@ -1,8 +1,7 @@
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import Color from 'color';
 
-const styles = makeStyles<Theme, { percentage: number; topVotingPower: boolean }>((theme) => {
-  return {
+const styles = makeStyles<Theme, { percentage: number; topVotingPower: boolean }>((theme) => ({
     root: {
       '& .MuiTypography-body1': {
         color: (props) =>
@@ -43,9 +42,6 @@ const styles = makeStyles<Theme, { percentage: number; topVotingPower: boolean }
         marginBottom: 0,
       },
     },
-  };
-});
+  }));
 
-export const useStyles = (percentage: number, topVotingPower: boolean) => {
-  return styles({ percentage, topVotingPower });
-};
+export const useStyles = (percentage: number, topVotingPower: boolean) => styles({ percentage, topVotingPower });

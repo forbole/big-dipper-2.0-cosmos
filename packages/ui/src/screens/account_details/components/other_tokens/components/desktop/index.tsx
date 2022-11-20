@@ -16,22 +16,19 @@ const Desktop: React.FC<{
 }> = ({ className, items }) => {
   const { t } = useTranslation('accounts');
 
-  const formattedItems = items?.map((x) => {
-    return {
+  const formattedItems = items?.map((x) => ({
       token: x.denom.toUpperCase(),
       commission: formatNumber(x.commission.value, x.commission.exponent),
       available: formatNumber(x.available.value, x.available.exponent),
       reward: formatNumber(x.reward.value, x.reward.exponent),
-    };
-  });
+    }));
 
   return (
     <div className={classnames(className)}>
       <Table>
         <TableHead>
           <TableRow>
-            {columns.map((column) => {
-              return (
+            {columns.map((column) => (
                 <TableCell
                   key={column.key}
                   align={column.align}
@@ -39,15 +36,13 @@ const Desktop: React.FC<{
                 >
                   {t(column.key)}
                 </TableCell>
-              );
-            })}
+              ))}
           </TableRow>
         </TableHead>
         <TableBody>
           {formattedItems?.map((row: { [key: string]: unknown }) => (
             <TableRow key={`holders-row-${row.identifier}`}>
-              {columns.map((column) => {
-                return (
+              {columns.map((column) => (
                   <TableCell
                     key={`holders-row-${row.identifier}-${column.key}`}
                     align={column.align}
@@ -55,8 +50,7 @@ const Desktop: React.FC<{
                   >
                     {row[column.key]}
                   </TableCell>
-                );
-              })}
+                ))}
             </TableRow>
           ))}
         </TableBody>

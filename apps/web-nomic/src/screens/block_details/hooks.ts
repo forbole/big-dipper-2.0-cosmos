@@ -83,9 +83,7 @@ function formatRaws(data: BlockDetailsQuery) {
   const formatSignatures = () => {
     const signatures = data.preCommits
       .filter((x) => x?.operatorAddress)
-      .map((x) => {
-        return x.operatorAddress;
-      });
+      .map((x) => x.operatorAddress);
     return signatures;
   };
   stateChange.signatures = formatSignatures();
@@ -94,13 +92,11 @@ function formatRaws(data: BlockDetailsQuery) {
   // Transactions
   // ==========================
   const formatTransactions = () => {
-    const transactions = data.transaction.map((x) => {
-      return {
+    const transactions = data.transaction.map((x) => ({
         height: x.height,
         hash: x.hash,
         timestamp: stateChange.overview.timestamp,
-      };
-    });
+      }));
 
     return transactions;
   };

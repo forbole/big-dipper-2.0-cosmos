@@ -23,8 +23,7 @@ export const useTransactions = () => {
     },
   });
 
-  const formatTransactions = (data: TransactionsListenerSubscription) => {
-    return data.transactions.map((x: any) => {
+  const formatTransactions = (data: TransactionsListenerSubscription) => data.transactions.map((x: any) => {
       const msgType =
         x.messages?.map((eachMsg: any) => {
           const eachMsgType = R.pathOr('none type', ['@type'], eachMsg);
@@ -39,7 +38,6 @@ export const useTransactions = () => {
         timestamp: x.block.timestamp,
       };
     });
-  };
 
   return {
     state,

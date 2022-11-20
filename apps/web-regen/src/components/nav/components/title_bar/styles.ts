@@ -1,7 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-const styles = makeStyles((theme) => {
-  return {
+const styles = makeStyles((theme) => ({
     root: {
       padding: theme.spacing(1, 2),
       display: 'flex',
@@ -70,9 +69,6 @@ const styles = makeStyles((theme) => {
         width: 'auto',
       },
     },
-  };
-});
+  }));
 
-export const useStyles = () => {
-  return styles();
-};
+export const useStyles = () => styles();

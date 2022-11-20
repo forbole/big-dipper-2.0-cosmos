@@ -28,16 +28,14 @@ export const useBlocks = () => {
           },
         });
 
-        const items = tokensData.map((x: any) => {
-          return {
+        const items = tokensData.map((x: any) => ({
             identifier: R.pathOr('', ['identifier'], x),
             name: R.pathOr('', ['name'], x),
             owner: R.pathOr('', ['owner'], x),
             accounts: R.pathOr('', ['accounts'], x),
             transactions: R.pathOr('', ['transactions'], x),
             imageUrl: R.pathOr('', ['assets', 'pngUrl'], x),
-          };
-        });
+          }));
 
         handleSetState({
           loading: false,

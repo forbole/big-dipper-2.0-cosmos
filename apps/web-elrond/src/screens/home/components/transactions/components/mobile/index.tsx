@@ -15,8 +15,7 @@ const Mobile: React.FC<{ items: TransactionType[] } & ComponentDefault> = (props
   const classes = useStyles();
   const { t } = useTranslation('transactions');
 
-  const formattedItems = props.items.map((x) => {
-    return {
+  const formattedItems = props.items.map((x) => ({
       hash: (
         <Link href={TRANSACTION_DETAILS(x.hash)} passHref>
           <Typography variant="body1" className="value" component="a">
@@ -47,13 +46,11 @@ const Mobile: React.FC<{ items: TransactionType[] } & ComponentDefault> = (props
       ),
       status: <Result status={x.status} />,
       time: (dayjs as any).utc(dayjs.unix(x.timestamp)).fromNow(),
-    };
-  });
+    }));
 
   return (
     <div>
-      {formattedItems?.map((x, i) => {
-        return (
+      {formattedItems?.map((x, i) => (
           <React.Fragment key={`${x.hash}-${x.time}`}>
             <div className={classes.root}>
               <div className={classes.item}>
@@ -99,8 +96,7 @@ const Mobile: React.FC<{ items: TransactionType[] } & ComponentDefault> = (props
             </div>
             {i !== formattedItems.length - 1 && <Divider />}
           </React.Fragment>
-        );
-      })}
+        ))}
     </div>
   );
 };

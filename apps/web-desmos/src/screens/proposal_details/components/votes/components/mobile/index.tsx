@@ -16,19 +16,16 @@ const Mobile: React.FC<{
   const classes = useStyles();
 
   const formattedItems =
-    items?.map((x) => {
-      return {
+    items?.map((x) => ({
         voter: (
           <AvatarName address={x.user.address} imageUrl={x.user.imageUrl} name={x.user.name} />
         ),
         vote: t(getVoteKey(x.vote)),
-      };
-    }) ?? [];
+      })) ?? [];
 
   return (
     <div className={classnames(className)}>
-      {formattedItems?.map((x, i) => {
-        return (
+      {formattedItems?.map((x, i) => (
           // eslint-disable-next-line react/no-array-index-key
           <React.Fragment key={`votes-mobile-${i}`}>
             <div className={classes.list}>
@@ -57,8 +54,7 @@ const Mobile: React.FC<{
             </div>
             {i !== formattedItems.length - 1 && <Divider />}
           </React.Fragment>
-        );
-      })}
+        ))}
     </div>
   );
 };

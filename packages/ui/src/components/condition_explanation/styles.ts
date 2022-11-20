@@ -1,7 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-const styles = makeStyles((theme) => {
-  return {
+const styles = makeStyles((theme) => ({
     root: {
       flexDirection: 'column',
       height: '100%',
@@ -30,9 +29,6 @@ const styles = makeStyles((theme) => {
         background: theme.palette.custom.condition.three,
       },
     },
-  };
-});
+  }));
 
-export const useStyles = () => {
-  return styles();
-};
+export const useStyles = () => styles();

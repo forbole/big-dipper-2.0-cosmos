@@ -1,7 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-const styles = makeStyles((theme) => {
-  return {
+const styles = makeStyles((theme) => ({
     icon: {
       display: 'flex',
       alignItems: 'center',
@@ -52,9 +51,6 @@ const styles = makeStyles((theme) => {
       color: theme.palette.custom.fonts.fontFour,
       marginLeft: theme.spacing(1),
     },
-  };
-});
+  }));
 
-export const useStyles = () => {
-  return styles();
-};
+export const useStyles = () => styles();

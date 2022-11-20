@@ -25,8 +25,7 @@ jest.mock('ui/components/no_data', () => (props: JSX.IntrinsicElements['div']) =
 ));
 
 jest.mock('./hooks', () => ({
-  useBlocks: () => {
-    return {
+  useBlocks: () => ({
       state: {
         loading: false,
         exists: true,
@@ -53,13 +52,11 @@ jest.mock('./hooks', () => ({
       itemCount: 2,
       loadMoreItems: () => jest.fn(),
       isItemLoaded: () => true,
-    };
-  },
+    }),
 }));
 
 jest.mock('./hooks', () => ({
-  useBlocks: () => {
-    return {
+  useBlocks: () => ({
       state: {
         loading: false,
         exists: true,
@@ -71,8 +68,7 @@ jest.mock('./hooks', () => ({
       itemCount: 2,
       loadMoreItems: () => jest.fn(),
       isItemLoaded: () => true,
-    };
-  },
+    }),
 }));
 
 const mockBlocksListenerDocument = jest.fn().mockReturnValue({

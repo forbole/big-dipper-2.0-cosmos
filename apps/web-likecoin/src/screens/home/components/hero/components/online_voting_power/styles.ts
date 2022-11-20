@@ -2,8 +2,7 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 import Color from 'color';
 
 const styles = makeStyles<Theme, { percentage: number | string }>(
-  (theme) => {
-    return {
+  (theme) => ({
       root: {
         display: 'flex',
         flexDirection: 'column',
@@ -68,11 +67,8 @@ const styles = makeStyles<Theme, { percentage: number | string }>(
           justifyContent: 'space-between',
         },
       },
-    };
-  },
+    }),
   { index: 1 }
 );
 
-export const useStyles = (percentage: number | string) => {
-  return styles({ percentage });
-};
+export const useStyles = (percentage: number | string) => styles({ percentage });

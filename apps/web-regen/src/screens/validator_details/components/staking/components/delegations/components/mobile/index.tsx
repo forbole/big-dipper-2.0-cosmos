@@ -17,8 +17,7 @@ const Mobile: React.FC<{
 
   return (
     <div className={classnames(className)}>
-      {items?.map((x, i) => {
-        return (
+      {items?.map((x, i) => (
           // eslint-disable-next-line react/no-array-index-key
           <React.Fragment key={`votes-mobile-${i}`}>
             <div className={classes.list}>
@@ -44,8 +43,7 @@ const Mobile: React.FC<{
             </div>
             {!!items && i !== items.length - 1 && <Divider />}
           </React.Fragment>
-        );
-      })}
+        ))}
     </div>
   );
 };

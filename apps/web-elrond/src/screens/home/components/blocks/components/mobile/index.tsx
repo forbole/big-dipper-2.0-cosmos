@@ -10,8 +10,7 @@ import SingleBlockMobile from '@components/single_block_mobile';
 import type { BlockType } from '../../types';
 
 const Mobile: React.FC<{ items: BlockType[] } & ComponentDefault> = (props) => {
-  const formattedItems = props.items.map((x) => {
-    return {
+  const formattedItems = props.items.map((x) => ({
       block: numeral(x.block).format('0,0'),
       hash: (
         <Link href={BLOCK_DETAILS(x.hash)} passHref>
@@ -25,20 +24,17 @@ const Mobile: React.FC<{ items: BlockType[] } & ComponentDefault> = (props) => {
       ),
       txs: numeral(x.txs).format('0,0'),
       time: (dayjs as any).utc(dayjs.unix(x.timestamp)).fromNow(),
-    };
-  });
+    }));
 
   return (
     <div>
-      {formattedItems?.map((x, i) => {
-        return (
+      {formattedItems?.map((x, i) => (
           // eslint-disable-next-line react/no-array-index-key
           <React.Fragment key={`${x.block}-${i}`}>
             <SingleBlockMobile {...x} />
             {i !== formattedItems.length - 1 && <Divider />}
           </React.Fragment>
-        );
-      })}
+        ))}
     </div>
   );
 };

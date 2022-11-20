@@ -24,12 +24,10 @@ export const useHero = () => {
         loading: false,
       };
       if (data.tokenPrice.length === 10) {
-        newState.tokenPriceHistory = data.tokenPrice.reverse().map((x) => {
-          return {
+        newState.tokenPriceHistory = data.tokenPrice.reverse().map((x) => ({
             time: x.timestamp,
             value: x.price,
-          };
-        });
+          }));
       }
       handleSetState(newState);
     },

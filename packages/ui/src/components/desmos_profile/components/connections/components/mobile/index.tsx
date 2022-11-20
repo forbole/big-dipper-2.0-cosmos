@@ -18,8 +18,7 @@ const Mobile: React.FC<{
 
   return (
     <div className={classnames(className)}>
-      {items?.map((x, i) => {
-        return (
+      {items?.map((x, i) => (
           <React.Fragment key={`votes-mobile-${x.identifier}`}>
             <div className={classes.list}>
               <div className={classes.item}>
@@ -49,8 +48,7 @@ const Mobile: React.FC<{
             </div>
             {!!items && i !== items.length - 1 && <Divider />}
           </React.Fragment>
-        );
-      })}
+        ))}
     </div>
   );
 };

@@ -89,15 +89,11 @@ export const useVotes = (resetPagination: any) => {
     // Get data for active validators that did not vote
     // =====================================
     const validatorsNotVoted = validators
-      .filter((x) => {
-        return validatorDict[x] === false;
-      })
-      .map((address) => {
-        return {
+      .filter((x) => validatorDict[x] === false)
+      .map((address) => ({
           user: toValidatorAddress(address),
           vote: 'NOT_VOTED',
-        };
-      });
+        }));
 
     return {
       data: votes,

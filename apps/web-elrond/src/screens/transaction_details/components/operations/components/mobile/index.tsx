@@ -46,8 +46,7 @@ const Mobile: React.FC<{ items: OperationType[] } & ComponentDefault> = (props) 
 
   return (
     <div className={props.className}>
-      {formattedItems?.map((x, i) => {
-        return (
+      {formattedItems?.map((x, i) => (
           // eslint-disable-next-line react/no-array-index-key
           <React.Fragment key={`${x.action}-${i}`}>
             <div className={classes.root}>
@@ -79,8 +78,7 @@ const Mobile: React.FC<{ items: OperationType[] } & ComponentDefault> = (props) 
             </div>
             {i !== formattedItems.length - 1 && <Divider />}
           </React.Fragment>
-        );
-      })}
+        ))}
     </div>
   );
 };

@@ -1,8 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 import Color from 'color';
 
-const styles = makeStyles((theme) => {
-  return {
+const styles = makeStyles((theme) => ({
     root: {
       background: theme.palette.background.paper,
       padding: theme.spacing(6, 3, 6),
@@ -111,9 +110,6 @@ const styles = makeStyles((theme) => {
         },
       },
     },
-  };
-});
+  }));
 
-export const useStyles = () => {
-  return styles();
-};
+export const useStyles = () => styles();

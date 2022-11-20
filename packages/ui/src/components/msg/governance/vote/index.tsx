@@ -16,13 +16,11 @@ const Vote: React.FC<{ message: MsgVote }> = (props) => {
   const voter = useProfileRecoil(message.voter);
   const voterMoniker = voter ? voter?.name : message.voter;
 
-  const Proposal = () => {
-    return (
+  const Proposal = () => (
       <Link href={PROPOSAL_DETAILS(message.proposalId)} passHref>
         <Typography component="a">#{message.proposalId}</Typography>
       </Link>
     );
-  };
 
   return (
     <Typography>

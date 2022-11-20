@@ -67,6 +67,4 @@ const styles = makeStyles((theme) => {
   };
 });
 
-export const useStyles = () => {
-  return styles();
-};
+export const useStyles = () => styles();

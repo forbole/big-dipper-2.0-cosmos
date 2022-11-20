@@ -17,8 +17,7 @@ const MiniBlocks: React.FC<{ miniBlocks: MiniBlockType[] } & ComponentDefault> =
         {t('miniBlocks')}
       </Typography>
       <div className={classes.listContainer}>
-        {props.miniBlocks.map((x) => {
-          return (
+        {props.miniBlocks.map((x) => (
             <div key={x} className={classes.item}>
               <div className={classes.hash}>
                 <div className={classes.bullet} />
@@ -29,8 +28,7 @@ const MiniBlocks: React.FC<{ miniBlocks: MiniBlockType[] } & ComponentDefault> =
                 </Link>
               </div>
             </div>
-          );
-        })}
+          ))}
       </div>
     </Box>
   );

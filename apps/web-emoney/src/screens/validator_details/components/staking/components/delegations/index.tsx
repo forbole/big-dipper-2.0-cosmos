@@ -28,12 +28,10 @@ const Delegations: React.FC<
 
   const dataProfiles = useProfilesRecoil(pageItems.map((x: any) => x.address));
 
-  const mergedDataWithProfiles = pageItems.map((x, i) => {
-    return {
+  const mergedDataWithProfiles = pageItems.map((x, i) => ({
       ...(x as object),
       address: dataProfiles[i],
-    };
-  });
+    }));
 
   const items = mergedDataWithProfiles;
 

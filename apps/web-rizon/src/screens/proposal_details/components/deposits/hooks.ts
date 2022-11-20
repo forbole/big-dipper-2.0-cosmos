@@ -29,16 +29,14 @@ export const useDeposits = () => {
   });
 
   const foramtProposalDeposits = (data: ProposalDetailsDepositsQuery) => {
-    const format = data.proposalDeposit.map((x) => {
-      return {
+    const format = data.proposalDeposit.map((x) => ({
         amount: formatToken(
           R.pathOr('0', ['amount', 0, 'amount'], x),
           R.pathOr(chainConfig.primaryTokenUnit, ['amount', 0, 'denom'], x)
         ),
         user: R.pathOr('', ['depositorAddress'], x),
         timestamp: R.pathOr('', ['block', 'timestamp'], x),
-      };
-    });
+      }));
 
     return {
       data: format,

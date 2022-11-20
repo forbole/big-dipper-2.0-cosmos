@@ -1,7 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-const styles = makeStyles((theme) => {
-  return {
+const styles = makeStyles((theme) => ({
     root: {
       display: 'flex',
       alignItems: 'center',
@@ -26,9 +25,6 @@ const styles = makeStyles((theme) => {
     divider: {
       margin: theme.spacing(2, 0),
     },
-  };
-});
+  }));
 
-export const useStyles = () => {
-  return styles();
-};
+export const useStyles = () => styles();

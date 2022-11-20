@@ -30,9 +30,7 @@ export const usePrice = () => {
     getPrices();
   }, [handleSetState]);
 
-  const tickPriceFormatter = useCallback((num: number) => {
-    return `$${numeral(num).format('0,0')}`;
-  }, []);
+  const tickPriceFormatter = useCallback((num: number) => `$${numeral(num).format('0,0')}`, []);
 
   return {
     state,

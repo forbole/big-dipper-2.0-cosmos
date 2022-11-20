@@ -12,8 +12,7 @@ import type { TokenType } from '../../../../types';
 const Mobile: React.FC<{ items: TokenType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('tokens');
   const classes = useStyles();
-  const formattedItems = props.items.map((x) => {
-    return {
+  const formattedItems = props.items.map((x) => ({
       token: (
         <AvatarName
           imageUrl={x.imageUrl}
@@ -34,13 +33,11 @@ const Mobile: React.FC<{ items: TokenType[] } & ComponentDefault> = (props) => {
       ),
       transactions: numeral(x.transactions).format('0,0'),
       accounts: numeral(x.accounts).format('0,0'),
-    };
-  });
+    }));
 
   return (
     <div className={props.className}>
-      {formattedItems?.map((x, i) => {
-        return (
+      {formattedItems?.map((x, i) => (
           // eslint-disable-next-line react/no-array-index-key
           <React.Fragment key={`${x.identifier}-${i}`}>
             <div className={classes.root}>
@@ -86,8 +83,7 @@ const Mobile: React.FC<{ items: TokenType[] } & ComponentDefault> = (props) => {
             </div>
             {i !== formattedItems.length - 1 && <Divider />}
           </React.Fragment>
-        );
-      })}
+        ))}
     </div>
   );
 };

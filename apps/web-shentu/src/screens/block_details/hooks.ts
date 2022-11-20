@@ -89,9 +89,7 @@ function formatRaws(data: BlockDetailsQuery) {
   const formatSignatures = () => {
     const signatures = data.preCommits
       .filter((x) => x?.validator?.validatorInfo)
-      .map((x) => {
-        return x?.validator?.validatorInfo?.operatorAddress;
-      });
+      .map((x) => x?.validator?.validatorInfo?.operatorAddress);
     return signatures;
   };
   stateChange.signatures = formatSignatures();

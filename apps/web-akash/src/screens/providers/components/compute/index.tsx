@@ -56,15 +56,12 @@ const Compute: React.FC<{
             dataKey="rawValue"
             isAnimationActive={false}
           >
-            {data.map((entry) => {
-              return <Cell key={entry.legendKey} fill={entry.fill} />;
-            })}
+            {data.map((entry) => <Cell key={entry.legendKey} fill={entry.fill} />)}
           </Pie>
           <Tooltip
             content={
               <CustomToolTip>
-                {(x) => {
-                  return (
+                {(x) => (
                     <>
                       <Typography variant="caption">{t(x.legendKey)}</Typography>
                       <Typography variant="body1">
@@ -72,16 +69,14 @@ const Compute: React.FC<{
                         vCPUs ({x.percent})
                       </Typography>
                     </>
-                  );
-                }}
+                  )}
               </CustomToolTip>
             }
           />
         </PieChart>
 
         <div className={classes.legends}>
-          {data.map((x: any) => {
-            return (
+          {data.map((x: any) => (
               <div className="legends__item" key={x.legendKey}>
                 <Typography variant="caption" className="usage">
                   {t(x.legendKey)}{' '}
@@ -94,8 +89,7 @@ const Compute: React.FC<{
                   {x.percent}
                 </Typography>
               </div>
-            );
-          })}
+            ))}
         </div>
       </div>
     </Box>

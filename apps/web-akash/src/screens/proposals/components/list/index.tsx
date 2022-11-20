@@ -30,8 +30,7 @@ const ProposalsList: FC<{
   const { listRef, getRowHeight, setRowHeight } = useList();
 
   const formattedItems =
-    items?.map((x) => {
-      return {
+    items?.map((x) => ({
         description:
           x.description.length > 200 ? `${x.description.slice(0, 200)}...` : x.description,
         status: x.status,
@@ -43,8 +42,7 @@ const ProposalsList: FC<{
           </Link>
         ),
         id: `#${numeral(x.id).format('0,0')}`,
-      };
-    }) ?? [];
+      })) ?? [];
 
   return (
     <Box className={classnames(className, classes.root)}>
@@ -54,8 +52,7 @@ const ProposalsList: FC<{
       </div>
       <div className={classes.list}>
         <AutoSizer>
-          {({ height, width }) => {
-            return (
+          {({ height, width }) => (
               <InfiniteLoader
                 isItemLoaded={isItemLoaded ?? (() => true)}
                 itemCount={itemCount}
@@ -84,8 +81,7 @@ const ProposalsList: FC<{
                   </List>
                 )}
               </InfiniteLoader>
-            );
-          }}
+            )}
         </AutoSizer>
       </div>
     </Box>

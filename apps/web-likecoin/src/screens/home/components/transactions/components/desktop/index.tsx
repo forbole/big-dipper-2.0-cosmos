@@ -25,8 +25,7 @@ const Desktop: React.FC<{
   const classes = useStyles();
   const { t } = useTranslation('transactions');
 
-  const formattedData = items.map((x) => {
-    return {
+  const formattedData = items.map((x) => ({
       block: (
         <Link href={BLOCK_DETAILS(x.height)} passHref>
           <Typography variant="body1" component="a">
@@ -53,8 +52,7 @@ const Desktop: React.FC<{
       result: <Result success={x.success} />,
       time: (dayjs as any).utc(x.timestamp).fromNow(),
       messages: numeral(x.messages).format('0,0'),
-    };
-  });
+    }));
 
   return (
     <div className={classnames(className, classes.root)}>

@@ -13,8 +13,7 @@ const convertBySeconds = (seconds: number, t: any) => {
       });
 };
 
-export const formatStaking = (data: Staking, t: any) => {
-  return [
+export const formatStaking = (data: Staking, t: any) => [
     {
       label: t('bondDenom'),
       detail: data.bondDenom,
@@ -36,10 +35,8 @@ export const formatStaking = (data: Staking, t: any) => {
       detail: numeral(data.maxValidators).format('0,0'),
     },
   ];
-};
 
-export const formatSlashing = (data: Slashing, t: any) => {
-  return [
+export const formatSlashing = (data: Slashing, t: any) => [
     {
       label: t('downtimeJailDuration'),
       detail: t('seconds', {
@@ -63,10 +60,8 @@ export const formatSlashing = (data: Slashing, t: any) => {
       detail: `${data.slashFractionDowntime * 10000} / ${numeral(10000).format('0,0')}`,
     },
   ];
-};
 
-export const formatMinting = (data: Minting, t: any) => {
-  return [
+export const formatMinting = (data: Minting, t: any) => [
     {
       label: t('blocksPerYear'),
       detail: numeral(data.blocksPerYear).format('0,0'),
@@ -92,10 +87,8 @@ export const formatMinting = (data: Minting, t: any) => {
       detail: data.mintDenom,
     },
   ];
-};
 
-export const formatDistribution = (data: Distribution, t: any) => {
-  return [
+export const formatDistribution = (data: Distribution, t: any) => [
     {
       label: t('baseProposerReward'),
       detail: `${numeral(data.baseProposerReward * 100).format('0.[00]')}%`,
@@ -113,10 +106,8 @@ export const formatDistribution = (data: Distribution, t: any) => {
       detail: `${data.withdrawAddressEnabled}`.toUpperCase(),
     },
   ];
-};
 
-export const formatGov = (data: Gov, t: any) => {
-  return [
+export const formatGov = (data: Gov, t: any) => [
     {
       label: t('minDeposit'),
       detail: `${data.minDeposit.value} ${data.minDeposit.displayDenom.toUpperCase()}`,
@@ -142,10 +133,8 @@ export const formatGov = (data: Gov, t: any) => {
       detail: convertBySeconds(nanoToSeconds(data.votingPeriod), t),
     },
   ];
-};
 
-export const formatIscn = (data: Iscn, t: any) => {
-  return [
+export const formatIscn = (data: Iscn, t: any) => [
     {
       label: t('registryName'),
       detail: data.registryName,
@@ -155,4 +144,3 @@ export const formatIscn = (data: Iscn, t: any) => {
       detail: `${data.feePerByte.value} ${data.feePerByte.displayDenom.toUpperCase()}`,
     },
   ];
-};

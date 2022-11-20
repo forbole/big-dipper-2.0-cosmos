@@ -20,8 +20,7 @@ import type { TransactionType } from '../../types';
 const Desktop: React.FC<{ items: TransactionType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('transactions');
   const classes = useStyles();
-  const formattedItems = props.items.map((x) => {
-    return {
+  const formattedItems = props.items.map((x) => ({
       hash: (
         <Link href={TRANSACTION_DETAILS(x.hash)} passHref>
           <Typography variant="body1" className="value" component="a">
@@ -52,15 +51,13 @@ const Desktop: React.FC<{ items: TransactionType[] } & ComponentDefault> = (prop
       ),
       status: <Result status={x.status} />,
       time: (dayjs as any).utc(dayjs.unix(x.timestamp)).fromNow(),
-    };
-  });
+    }));
   return (
     <div className={classnames(props.className, classes.root)}>
       <Table className={classes.table}>
         <TableHead>
           <TableRow>
-            {columns.map((column) => {
-              return (
+            {columns.map((column) => (
                 <TableCell
                   key={column.key}
                   align={column.align}
@@ -68,15 +65,13 @@ const Desktop: React.FC<{ items: TransactionType[] } & ComponentDefault> = (prop
                 >
                   {t(column.key)}
                 </TableCell>
-              );
-            })}
+              ))}
           </TableRow>
         </TableHead>
         <TableBody>
           {formattedItems?.map((row: { [key: string]: unknown }) => (
             <TableRow key={`holders-row-${row.identifier}`}>
-              {columns.map((column) => {
-                return (
+              {columns.map((column) => (
                   <TableCell
                     key={`holders-row-${row.identifier}-${column.key}`}
                     align={column.align}
@@ -84,8 +79,7 @@ const Desktop: React.FC<{ items: TransactionType[] } & ComponentDefault> = (prop
                   >
                     {row[column.key]}
                   </TableCell>
-                );
-              })}
+                ))}
             </TableRow>
           ))}
         </TableBody>

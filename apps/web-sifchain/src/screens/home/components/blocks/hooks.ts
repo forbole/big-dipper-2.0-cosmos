@@ -26,8 +26,7 @@ export const useBlocks = () => {
     },
   });
 
-  const formatBlocks = (data: BlocksListenerSubscription) => {
-    return (
+  const formatBlocks = (data: BlocksListenerSubscription) => (
       data.blocks.map((x) => {
         const proposerAddress = R.pathOr('', ['validator', 'validatorInfo', 'operatorAddress'], x);
         return {
@@ -39,7 +38,6 @@ export const useBlocks = () => {
         };
       }) ?? []
     );
-  };
 
   return {
     state,

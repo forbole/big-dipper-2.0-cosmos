@@ -1,7 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-const styles = makeStyles((theme) => {
-  return {
+const styles = makeStyles((theme) => ({
     root: {
       display: 'inline-flex',
       alignItems: 'center',
@@ -23,9 +22,6 @@ const styles = makeStyles((theme) => {
         fill: theme.palette.custom.results.fail,
       },
     },
-  };
-});
+  }));
 
-export const useStyles = () => {
-  return styles();
-};
+export const useStyles = () => styles();

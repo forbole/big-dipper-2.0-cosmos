@@ -1,8 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 const styles = makeStyles(
-  (theme) => {
-    return {
+  (theme) => ({
       root: {},
       tag: {
         '& .MuiTypography-body1': {
@@ -135,11 +134,8 @@ const styles = makeStyles(
           marginLeft: theme.spacing(1),
         },
       },
-    };
-  },
+    }),
   { index: 1 }
 );
 
-export const useStyles = () => {
-  return styles();
-};
+export const useStyles = () => styles();

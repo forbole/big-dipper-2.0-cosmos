@@ -157,26 +157,20 @@ export const readDelegatorAddress = selectorFamily({
   key: 'profile.read.delegatorAddress',
   get:
     (address: string) =>
-    ({ get }): string => {
-      return getDelegatorAddress({
+    ({ get }): string => getDelegatorAddress({
         address,
         get,
-      });
-    },
+      }),
 });
 
 export const readDelegatorAddresses = selectorFamily({
   key: 'profile.read.delegatorAddresses',
   get:
     (addresses: string[]) =>
-    ({ get }): string[] => {
-      return addresses.map((x) => {
-        return getDelegatorAddress({
+    ({ get }): string[] => addresses.map((x) => getDelegatorAddress({
           address: x,
           get,
-        });
-      });
-    },
+        })),
 });
 
 export const readProfileExist = selectorFamily({

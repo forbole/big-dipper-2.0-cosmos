@@ -44,8 +44,7 @@ export const useBlocks = () => {
           },
         });
 
-        const items = transactionsData.map((x: any) => {
-          return {
+        const items = transactionsData.map((x: any) => ({
             hash: x.txHash,
             fromShard: x.senderShard,
             toShard: x.receiverShard,
@@ -53,8 +52,7 @@ export const useBlocks = () => {
             to: x.receiver,
             timestamp: x.timestamp,
             status: x.status,
-          };
-        });
+          }));
 
         handleSetState({
           loading: false,

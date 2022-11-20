@@ -1,15 +1,11 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-const styles = makeStyles(() => {
-  return {
+const styles = makeStyles(() => ({
     root: {
       '& .MuiTableCell-root': {
         whiteSpace: 'nowrap',
       },
     },
-  };
-});
+  }));
 
-export const useStyles = () => {
-  return styles();
-};
+export const useStyles = () => styles();

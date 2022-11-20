@@ -1,7 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-const styles = makeStyles((theme) => {
-  return {
+const styles = makeStyles((theme) => ({
     root: {
       height: '100%',
       '& .status': {
@@ -44,9 +43,6 @@ const styles = makeStyles((theme) => {
     body: {
       color: theme.palette.custom.fonts.fontTwo,
     },
-  };
-});
+  }));
 
-export const useStyles = () => {
-  return styles();
-};
+export const useStyles = () => styles();

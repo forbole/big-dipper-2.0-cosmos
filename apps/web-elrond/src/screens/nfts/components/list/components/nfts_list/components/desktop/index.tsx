@@ -17,8 +17,7 @@ import type { NFTTypes } from '../../../../types';
 const Desktop: React.FC<{ items: NFTTypes[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('nfts');
   const classes = useStyles();
-  const formattedItems = props.items.map((x) => {
-    return {
+  const formattedItems = props.items.map((x) => ({
       identifier: x.identifier,
       nft: (
         <Link href={NFT_DETAILS(x.identifier)} passHref>
@@ -29,15 +28,13 @@ const Desktop: React.FC<{ items: NFTTypes[] } & ComponentDefault> = (props) => {
       ),
       type: x.type,
       creator: <AvatarName name={x.creator} address={x.creator} />,
-    };
-  });
+    }));
   return (
     <div className={classnames(props.className, classes.root)}>
       <Table>
         <TableHead>
           <TableRow>
-            {columns.map((column) => {
-              return (
+            {columns.map((column) => (
                 <TableCell
                   key={column.key}
                   align={column.align}
@@ -45,15 +42,13 @@ const Desktop: React.FC<{ items: NFTTypes[] } & ComponentDefault> = (props) => {
                 >
                   {t(column.key)}
                 </TableCell>
-              );
-            })}
+              ))}
           </TableRow>
         </TableHead>
         <TableBody>
           {formattedItems?.map((row: { [key: string]: unknown }) => (
             <TableRow key={`holders-row-${row.identifier}`}>
-              {columns.map((column) => {
-                return (
+              {columns.map((column) => (
                   <TableCell
                     key={`holders-row-${row.identifier}-${column.key}`}
                     align={column.align}
@@ -61,8 +56,7 @@ const Desktop: React.FC<{ items: NFTTypes[] } & ComponentDefault> = (props) => {
                   >
                     {row[column.key]}
                   </TableCell>
-                );
-              })}
+                ))}
             </TableRow>
           ))}
         </TableBody>

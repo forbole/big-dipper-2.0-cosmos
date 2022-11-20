@@ -23,8 +23,7 @@ const Desktop: React.FC<{
   const { t } = useTranslation('blocks');
   const classes = useStyles();
 
-  const formattedData = items.map((x) => {
-    return {
+  const formattedData = items.map((x) => ({
       height: (
         <Link href={BLOCK_DETAILS(x.height)} passHref>
           <Typography variant="body1" className="value" component="a">
@@ -38,8 +37,7 @@ const Desktop: React.FC<{
         beginning: 15,
         ending: 15,
       }),
-    };
-  });
+    }));
 
   return (
     <div className={classnames(className, classes.root)}>

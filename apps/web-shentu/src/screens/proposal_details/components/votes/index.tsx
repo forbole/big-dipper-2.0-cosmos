@@ -37,12 +37,10 @@ const Votes: React.FC<ComponentDefault> = (props) => {
   const slicedItems = sliceItems(filteredItems);
 
   const userProfiles = useProfilesRecoil(slicedItems.map((x) => x.user));
-  const items = slicedItems.map((x, i) => {
-    return {
+  const items = slicedItems.map((x, i) => ({
       ...(x as object),
       user: userProfiles[i],
-    };
-  });
+    }));
 
   return (
     <Box className={classnames(props.className, classes.root)}>

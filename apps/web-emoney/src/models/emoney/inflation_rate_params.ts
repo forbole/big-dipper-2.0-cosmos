@@ -12,12 +12,10 @@ class InflationRateParams {
 
   static fromJson(data: Array<{ denom: string; amount: number }>): InflationRateParams {
     return {
-      inflation: data.map((x) => {
-        return {
+      inflation: data.map((x) => ({
           denom: R.pathOr('', ['denom'], x),
           inflation: R.pathOr('0', ['inflation'], x),
-        };
-      }),
+        })),
     };
   }
 }

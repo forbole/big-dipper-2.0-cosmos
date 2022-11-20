@@ -2,8 +2,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Color from 'color';
 
 const styles = makeStyles(
-  (theme) => {
-    return {
+  (theme) => ({
       root: {
         '& .MuiTypography-h2': {
           marginBottom: theme.spacing(2),
@@ -62,11 +61,8 @@ const styles = makeStyles(
           width: '50%',
         },
       },
-    };
-  },
+    }),
   { index: 1 }
 );
 
-export const useStyles = () => {
-  return styles();
-};
+export const useStyles = () => styles();

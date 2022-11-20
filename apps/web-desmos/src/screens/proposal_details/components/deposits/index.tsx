@@ -27,12 +27,10 @@ const Deposits: React.FC<ComponentDefault> = (props) => {
   let items = sliceItems(state.data);
 
   const dataProfiles = useProfilesRecoil(items.map((x) => x.user));
-  items = items.map((x, i) => {
-    return {
+  items = items.map((x, i) => ({
       ...(x as object),
       user: dataProfiles[i],
-    };
-  });
+    }));
 
   return (
     <Box className={classnames(props.className, classes.root)}>

@@ -16,8 +16,7 @@ const Mobile: React.FC<{
   className?: string;
   items: TransactionType[];
 }> = ({ className, items }) => {
-  const formattedData = items.map((x: any) => {
-    return {
+  const formattedData = items.map((x: any) => ({
       block: (
         <Link href={BLOCK_DETAILS(x.height)} passHref>
           <Typography variant="body1" component="a">
@@ -42,20 +41,17 @@ const Mobile: React.FC<{
         </div>
       ),
       time: (dayjs as any).utc(x.timestamp).fromNow(),
-    };
-  });
+    }));
 
   return (
     <div className={classnames(className)}>
-      {formattedData.map((x, i) => {
-        return (
+      {formattedData.map((x, i) => (
           // eslint-disable-next-line react/no-array-index-key
           <React.Fragment key={`${x.block}-${i}`}>
             <SingleTransactionMobile {...x} />
             {i !== formattedData.length - 1 && <Divider />}
           </React.Fragment>
-        );
-      })}
+        ))}
     </div>
   );
 };

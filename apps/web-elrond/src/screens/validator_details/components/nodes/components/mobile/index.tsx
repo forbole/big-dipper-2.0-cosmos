@@ -36,8 +36,7 @@ const Mobile: React.FC<{ items: NodeType[] } & ComponentDefault> = (props) => {
   });
   return (
     <div className={props.className}>
-      {formattedItems?.map((x, i) => {
-        return (
+      {formattedItems?.map((x, i) => (
           // eslint-disable-next-line react/no-array-index-key
           <React.Fragment key={`${x.pubkey}-${i}`}>
             <div className={classes.wrapper}>
@@ -82,8 +81,7 @@ const Mobile: React.FC<{ items: NodeType[] } & ComponentDefault> = (props) => {
             </div>
             {i !== formattedItems.length - 1 && <Divider />}
           </React.Fragment>
-        );
-      })}
+        ))}
     </div>
   );
 };

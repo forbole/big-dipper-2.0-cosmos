@@ -32,13 +32,11 @@ export const useTokens = () => {
           },
         });
 
-        const items = data.map((x: any) => {
-          return {
+        const items = data.map((x: any) => ({
             identifier: R.pathOr('', ['identifier'], x),
             name: R.pathOr('', ['name'], x),
             type: R.pathOr('', ['type'], x),
-          };
-        });
+          }));
 
         handleSetState({
           loading: false,

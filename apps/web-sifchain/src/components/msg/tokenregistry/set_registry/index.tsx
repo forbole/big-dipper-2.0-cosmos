@@ -14,9 +14,7 @@ const SetRegistry: React.FC<{ message: MsgSetRegistry }> = (props) => {
   const fromMoniker = from ? from?.name : message.from;
 
   const parsedDenoms = message?.registry
-    ?.map((x) => {
-      return x.denom.toUpperCase();
-    })
+    ?.map((x) => x.denom.toUpperCase())
     .reduce(
       (text, value, i, array) => text + (i < array.length - 1 ? ', ' : ` ${t('and')} `) + value
     );

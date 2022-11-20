@@ -15,9 +15,7 @@ const WithdrawReward: React.FC<{ message: MsgWithdrawDelegatorReward }> = (props
   const validatorMoniker = validator ? validator?.name : message.validatorAddress;
 
   const parsedAmount = message.amounts
-    .map((x) => {
-      return `${formatNumber(x.value, x.exponent)} ${x.displayDenom.toUpperCase()}`;
-    })
+    .map((x) => `${formatNumber(x.value, x.exponent)} ${x.displayDenom.toUpperCase()}`)
     .join(', ');
 
   return (

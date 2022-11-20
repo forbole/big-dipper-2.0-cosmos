@@ -12,8 +12,7 @@ import type { NFTTypes } from '../../../../types';
 const Mobile: React.FC<{ items: NFTTypes[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('nfts');
   const classes = useStyles();
-  const formattedItems = props.items.map((x) => {
-    return {
+  const formattedItems = props.items.map((x) => ({
       identifier: x.identifier,
       nft: (
         <Link href={NFT_DETAILS(x.identifier)} passHref>
@@ -32,13 +31,11 @@ const Mobile: React.FC<{ items: NFTTypes[] } & ComponentDefault> = (props) => {
           address={x.creator}
         />
       ),
-    };
-  });
+    }));
 
   return (
     <div className={props.className}>
-      {formattedItems?.map((x, i) => {
-        return (
+      {formattedItems?.map((x, i) => (
           // eslint-disable-next-line react/no-array-index-key
           <React.Fragment key={`${x.identifier}-${i}`}>
             <div className={classes.root}>
@@ -65,8 +62,7 @@ const Mobile: React.FC<{ items: NFTTypes[] } & ComponentDefault> = (props) => {
             </div>
             {i !== formattedItems.length - 1 && <Divider />}
           </React.Fragment>
-        );
-      })}
+        ))}
     </div>
   );
 };

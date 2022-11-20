@@ -23,13 +23,11 @@ class MsgParameterChangeProposal {
       type: json['@type'],
       title: json.title,
       description: json.description,
-      changes: json?.changes?.map((x?: { subspace: string; key: string; value: string }) => {
-        return {
+      changes: json?.changes?.map((x?: { subspace: string; key: string; value: string }) => ({
           subspace: x?.subspace,
           key: x?.key,
           value: x?.value,
-        };
-      }),
+        })),
     };
   }
 }

@@ -62,8 +62,7 @@ export const useProposals = () => {
       });
   };
 
-  const formatProposals = (data: ProposalsQuery) => {
-    return data.proposals.map((x) => {
+  const formatProposals = (data: ProposalsQuery) => data.proposals.map((x) => {
       const description = DOMPurify.sanitize(x.description);
       return {
         description,
@@ -72,7 +71,6 @@ export const useProposals = () => {
         status: x.status,
       };
     });
-  };
 
   const itemCount = state.hasNextPage ? state.items.length + 1 : state.items.length;
   const loadMoreItems = state.isNextPageLoading ? () => null : loadNextPage;

@@ -64,12 +64,10 @@ class MsgSubmitProposal {
       content,
       type: json['@type'],
       initialDeposit:
-        json?.initial_deposit?.map((x?: { denom?: string; amount?: number }) => {
-          return {
+        json?.initial_deposit?.map((x?: { denom?: string; amount?: number }) => ({
             denom: x?.denom,
             amount: R.pathOr('0', ['amount'], x),
-          };
-        }) ?? [],
+          })) ?? [],
       proposer: json.proposer,
     };
   }

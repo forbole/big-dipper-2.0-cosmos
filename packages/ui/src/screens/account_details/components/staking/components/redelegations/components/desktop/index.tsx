@@ -20,8 +20,7 @@ const Desktop: React.FC<{
 }> = ({ className, items }) => {
   const { t } = useTranslation('accounts');
   const dateFormat = useRecoilValue(readDate);
-  const formattedItems = items?.map((x) => {
-    return {
+  const formattedItems = items?.map((x) => ({
       to: <AvatarName address={x.to.address} imageUrl={x.to.imageUrl} name={x.to.name} />,
       from: <AvatarName address={x.from.address} imageUrl={x.from.imageUrl} name={x.from.name} />,
       amount: `${formatNumber(
@@ -29,16 +28,14 @@ const Desktop: React.FC<{
         x.amount.exponent
       )} ${x.amount.displayDenom.toUpperCase()}`,
       completionTime: formatDayJs((dayjs as any).utc(x.completionTime), dateFormat),
-    };
-  });
+    }));
 
   return (
     <div className={classnames(className)}>
       <Table>
         <TableHead>
           <TableRow>
-            {columns.map((column) => {
-              return (
+            {columns.map((column) => (
                 <TableCell
                   key={column.key}
                   align={column.align}
@@ -46,15 +43,13 @@ const Desktop: React.FC<{
                 >
                   {t(column.key)}
                 </TableCell>
-              );
-            })}
+              ))}
           </TableRow>
         </TableHead>
         <TableBody>
           {formattedItems?.map((row: { [key: string]: unknown }) => (
             <TableRow key={`holders-row-${row.identifier}`}>
-              {columns.map((column) => {
-                return (
+              {columns.map((column) => (
                   <TableCell
                     key={`holders-row-${row.identifier}-${column.key}`}
                     align={column.align}
@@ -62,8 +57,7 @@ const Desktop: React.FC<{
                   >
                     {row[column.key]}
                   </TableCell>
-                );
-              })}
+                ))}
             </TableRow>
           ))}
         </TableBody>

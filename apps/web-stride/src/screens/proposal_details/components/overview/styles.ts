@@ -1,7 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-const styles = makeStyles((theme) => {
-  return {
+const styles = makeStyles((theme) => ({
     root: {
       '& .label': {
         color: theme.palette.custom.fonts.fontThree,
@@ -33,9 +32,6 @@ const styles = makeStyles((theme) => {
         gridTemplateColumns: 'repeat(2, 1fr)',
       },
     },
-  };
-});
+  }));
 
-export const useStyles = () => {
-  return styles();
-};
+export const useStyles = () => styles();

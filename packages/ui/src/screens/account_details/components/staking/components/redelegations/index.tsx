@@ -28,13 +28,11 @@ const Redelegations: React.FC<
 
   const fromProfiles = useProfilesRecoil(pageItems.map((x: any) => x.from));
   const toProfiles = useProfilesRecoil(pageItems.map((x: any) => x.to));
-  const mergedDataWithProfiles = pageItems.map((x, i) => {
-    return {
+  const mergedDataWithProfiles = pageItems.map((x, i) => ({
       ...(x as object),
       from: fromProfiles[i],
       to: toProfiles[i],
-    };
-  });
+    }));
 
   const items = mergedDataWithProfiles;
 

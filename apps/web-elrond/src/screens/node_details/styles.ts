@@ -1,7 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-const styles = makeStyles((theme) => {
-  return {
+const styles = makeStyles((theme) => ({
     root: {
       ...theme.mixins.layout,
       '& a': {
@@ -41,9 +40,6 @@ const styles = makeStyles((theme) => {
         gridColumn: '1/4',
       },
     },
-  };
-});
+  }));
 
-export const useStyles = () => {
-  return styles();
-};
+export const useStyles = () => styles();

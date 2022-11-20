@@ -65,16 +65,13 @@ const TransactionList: FC<TransactionsListDetailsState> = ({
     result: <Result success={x.success} />,
     time: formatDayJs((dayjs as any).utc(x.timestamp), dateFormat),
     messageCount: numeral(x.messages.count).format('0,0'),
-    messages: x.messages.items.map((message) => {
-      return getMessageByType(message, false, t);
-    }),
+    messages: x.messages.items.map((message) => getMessageByType(message, false, t)),
   }));
 
   return (
     <div className={classnames(className, classes.root)}>
       <AutoSizer>
-        {({ height, width }) => {
-          return (
+        {({ height, width }) => (
             <InfiniteLoader
               isItemLoaded={isItemLoaded ?? (() => true)}
               itemCount={itemCount}
@@ -101,8 +98,7 @@ const TransactionList: FC<TransactionsListDetailsState> = ({
                 </List>
               )}
             </InfiniteLoader>
-          );
-        }}
+          )}
       </AutoSizer>
     </div>
   );

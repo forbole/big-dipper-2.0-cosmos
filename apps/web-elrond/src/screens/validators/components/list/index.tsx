@@ -32,13 +32,11 @@ const List: React.FC<{
           handleTabChange={handleTabChange}
           handleSearch={handleSearch}
         />
-        {tabs.map((x) => {
-          return (
+        {tabs.map((x) => (
             <TabPanel key={x.id} index={x.id} value={state.tab}>
               <div className={classes.list}>{x.component}</div>
             </TabPanel>
-          );
-        })}
+          ))}
       </Box>
     </LoadAndExist>
   );

@@ -8,8 +8,7 @@ const SocialMedia = (props: Props) => {
   const classes = useStyles();
   return (
     <div className={`${className} ${classes.root} social-media`}>
-      {socialMediaLinks.map((x) => {
-        return (
+      {socialMediaLinks.map((x) => (
           <a
             key={x.className}
             href={x.url}
@@ -19,8 +18,7 @@ const SocialMedia = (props: Props) => {
           >
             {x.component}
           </a>
-        );
-      })}
+        ))}
     </div>
   );
 };

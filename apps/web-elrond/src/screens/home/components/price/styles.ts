@@ -1,7 +1,6 @@
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 
-const styles = makeStyles((theme) => {
-  return {
+const styles = makeStyles((theme) => ({
     root: {},
     label: {
       marginBottom: theme.spacing(2),
@@ -13,12 +12,9 @@ const styles = makeStyles((theme) => {
         display: 'none',
       },
     },
-  };
-});
+  }));
 
-export const useStyles = () => {
-  return {
+export const useStyles = () => ({
     classes: styles(),
     theme: useTheme(),
-  };
-};
+  });

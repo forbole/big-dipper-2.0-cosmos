@@ -28,9 +28,7 @@ export const useValidatorRecoil = <TData, TVariables>(
   const [loading, setLoading] = useState(true);
 
   const { fetchDesmosProfile, formatDesmosProfile } = useDesmosProfile({
-    onComplete: (data) => {
-      return formatDesmosProfile(data);
-    },
+    onComplete: (data) => formatDesmosProfile(data),
   });
 
   useValidatorAddressesQuery({

@@ -1,7 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-const styles = makeStyles((theme) => {
-  return {
+const styles = makeStyles((theme) => ({
     addressRoot: {
       [theme.breakpoints.up('md')]: {
         display: 'grid',
@@ -119,9 +118,6 @@ const styles = makeStyles((theme) => {
     divider: {
       margin: theme.spacing(3, 0),
     },
-  };
-});
+  }));
 
-export const useStyles = () => {
-  return styles();
-};
+export const useStyles = () => styles();

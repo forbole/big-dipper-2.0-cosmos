@@ -1,8 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 import Color from 'color';
 
-const styles = makeStyles((theme) => {
-  return {
+const styles = makeStyles((theme) => ({
     root: {
       background: theme?.palette?.background.paper,
       display: 'flex',
@@ -40,9 +39,6 @@ const styles = makeStyles((theme) => {
     drawer: {
       background: Color(theme.palette.background.paper).alpha(0.5).string(),
     },
-  };
-});
+  }));
 
-export const useStyles = () => {
-  return styles();
-};
+export const useStyles = () => styles();

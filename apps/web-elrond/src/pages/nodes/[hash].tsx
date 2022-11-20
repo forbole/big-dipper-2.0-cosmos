@@ -1,7 +1,5 @@
 import NodeDetails from '@screens/node_details';
 
-const NodeDetailsPage = () => {
-  return <NodeDetails />;
-};
+const NodeDetailsPage = () => <NodeDetails />;
 
 export default NodeDetailsPage;

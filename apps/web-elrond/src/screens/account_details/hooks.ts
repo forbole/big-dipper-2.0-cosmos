@@ -49,17 +49,14 @@ export const useAccountDetails = () => {
         loading: false,
       };
 
-      const getProfile = () => {
-        return {
+      const getProfile = () => ({
           address: R.pathOr('', ['address'], accountData),
           username: R.pathOr('', ['username'], accountData),
-        };
-      };
+        });
 
       newState.profile = getProfile();
 
-      const getOverview = () => {
-        return {
+      const getOverview = () => ({
           balance: formatToken(
             R.pathOr('0', ['balance'], accountData),
             chainConfig.primaryTokenUnit
@@ -70,8 +67,7 @@ export const useAccountDetails = () => {
           ),
           shard: R.pathOr(0, ['shard'], accountData),
           tokenCount,
-        };
-      };
+        });
 
       newState.overview = getOverview();
 

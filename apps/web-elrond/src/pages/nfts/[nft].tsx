@@ -1,7 +1,5 @@
 import NFTDetails from '@screens/nft_details';
 
-const NFTDetailsPage = () => {
-  return <NFTDetails />;
-};
+const NFTDetailsPage = () => <NFTDetails />;
 
 export default NFTDetailsPage;

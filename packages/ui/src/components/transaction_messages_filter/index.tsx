@@ -40,19 +40,16 @@ const TransactionMessagesFilter: React.FC<{
       renderValue={
         selectedFilter !== ''
           ? undefined
-          : () => {
-              return (
+          : () => (
                 <Typography variant="body1" noWrap component="div" className={classes.filterLabel}>
                   <FilterIcon className={classes.filterIcon} />
                   {t('filterBy')}
                 </Typography>
-              );
-            }
+              )
       }
       input={<InputBase />}
     >
-      {filterLabels.map((x) => {
-        return (
+      {filterLabels.map((x) => (
           <MenuItem
             key={x.key}
             onClick={() => handleSelect(x)}
@@ -63,8 +60,7 @@ const TransactionMessagesFilter: React.FC<{
               {t(x.display)}
             </Typography>
           </MenuItem>
-        );
-      })}
+        ))}
     </Select>
   );
 };

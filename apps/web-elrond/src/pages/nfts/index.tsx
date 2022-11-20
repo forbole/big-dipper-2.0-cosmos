@@ -1,7 +1,5 @@
 import Nfts from '@screens/nfts';
 
-const NftsPage = () => {
-  return <Nfts />;
-};
+const NftsPage = () => <Nfts />;
 
 export default NftsPage;

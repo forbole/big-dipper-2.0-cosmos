@@ -1,7 +1,5 @@
 import Tokens from '@screens/tokens';
 
-const TokensPage = () => {
-  return <Tokens />;
-};
+const TokensPage = () => <Tokens />;
 
 export default TokensPage;

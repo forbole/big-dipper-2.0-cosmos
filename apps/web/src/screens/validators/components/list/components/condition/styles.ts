@@ -1,7 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-const styles = makeStyles((theme) => {
-  return {
+const styles = makeStyles((theme) => ({
     root: {
       width: '10px',
       height: '10px',
@@ -18,9 +17,6 @@ const styles = makeStyles((theme) => {
         background: theme.palette.custom.condition.three,
       },
     },
-  };
-});
+  }));
 
-export const useStyles = () => {
-  return styles();
-};
+export const useStyles = () => styles();
