@@ -6,7 +6,7 @@ node_modules/
 .pnp.js
 
 # next.js generates its own .tsbuildinfo at .next/cache
-**/*.tsbuildinfo
+**/.tsbuildinfo
 
 # testing
 coverage/

@@ -39,7 +39,6 @@ module.exports = {
     // TODO: disabled due to historical reason
     '@next/next/no-img-element': 'off',
     '@next/next/no-html-link-for-pages': 'off',
-    '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
     /* https://typescript-eslint.io/rules/no-unused-vars/ */
     '@typescript-eslint/no-unused-vars': [
