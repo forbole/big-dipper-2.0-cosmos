@@ -51,7 +51,8 @@ const Mobile: React.FC<{ items: TransactionType[] } & ComponentDefault> = (props
   return (
     <div>
       {formattedItems?.map((x, i) => (
-          <React.Fragment key={`${x.hash}-${x.time}`}>
+          // eslint-disable-next-line react/no-array-index-key
+          <React.Fragment key={`${x.hash}-${i}`}>
             <div className={classes.root}>
               <div className={classes.item}>
                 <Typography variant="h4" className="label">

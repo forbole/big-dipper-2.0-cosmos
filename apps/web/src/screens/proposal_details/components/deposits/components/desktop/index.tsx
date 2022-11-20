@@ -57,10 +57,11 @@ const Desktop: React.FC<{
         </TableHead>
         <TableBody>
           {formattedItems?.map((row: { [key: string]: unknown }, i) => (
-            <TableRow key={`holders-row-${row.timestamp}`}>
+            // eslint-disable-next-line react/no-array-index-key
+            <TableRow key={`holders-row-${i}`}>
               {columns.map((column) => (
                   <TableCell
-                    key={`holders-row-${row.timestamp}-${column.key}`}
+                    key={`holders-row-${i}-${column.key}`}
                     align={column.align}
                     style={{ width: `${column.width}%` }}
                   >

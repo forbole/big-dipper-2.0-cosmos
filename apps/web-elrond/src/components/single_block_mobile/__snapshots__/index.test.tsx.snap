@@ -15,6 +15,7 @@ exports[`component: SingleSlotMobile matches snapshot 1`] = `
       >
         block
       </h4>
+      block
     </div>
   </div>
   <div

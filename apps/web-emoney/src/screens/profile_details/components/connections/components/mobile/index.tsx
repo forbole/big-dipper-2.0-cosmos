@@ -24,7 +24,8 @@ const Mobile: React.FC<{
       {items?.map((x, i) => {
         const checkIdentifier = new RegExp(`^(${chainConfig.prefix.account})`).test(x.identifier);
         return (
-          <React.Fragment key={`votes-mobile-${x.creationTime}`}>
+          // eslint-disable-next-line react/no-array-index-key
+          <React.Fragment key={`votes-mobile-${i}`}>
             <div className={classes.list}>
               <div className={classes.item}>
                 <Typography variant="h4" className="label">

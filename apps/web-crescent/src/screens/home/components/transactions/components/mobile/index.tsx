@@ -49,7 +49,8 @@ const Mobile: React.FC<{
   return (
     <div className={classnames(className)}>
       {formattedData.map((x, i) => (
-        <React.Fragment key={`${x.block}-${x.time}`}>
+        // eslint-disable-next-line react/no-array-index-key
+        <React.Fragment key={`${x.block}-${i}`}>
           <SingleTransactionMobile {...x} />
           {i !== formattedData.length - 1 && <Divider />}
         </React.Fragment>

@@ -18,7 +18,7 @@ exports[`screen: TransactionDetails/CreateEthBridgeClaim matches snapshot 1`] = 
     id="Trans"
     values={
       {
-        "claimType": undefined,
+        "claimType": "CLAIM_TYPE_UNSPECIFIED",
       }
     }
   />

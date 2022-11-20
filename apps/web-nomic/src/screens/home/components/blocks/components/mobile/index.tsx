@@ -16,7 +16,8 @@ const Mobile: React.FC<{
 }> = ({ className, items }) => (
     <div className={classnames(className)}>
       {items?.map((x, i) => (
-          <React.Fragment key={`${x.height}-${x.timestamp}`}>
+          // eslint-disable-next-line react/no-array-index-key
+          <React.Fragment key={`${x.height}-${i}`}>
             <SingleBlockMobile
               height={
                 <Link href={BLOCK_DETAILS(x.height)} passHref>
