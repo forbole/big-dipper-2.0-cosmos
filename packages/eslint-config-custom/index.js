@@ -58,9 +58,12 @@ module.exports = {
     'no-shadow': 'off',
     'no-underscore-dangle': 'off',
     'no-console': ['off', { allow: ['warn', 'error'] }],
-    // turn on errors for missing imports
-    'import/no-cycle': 'off',
+    /* https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-cycle.md */
+    // 'import/no-cycle': 'off',
+    /* https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/extensions.md */
     'import/extensions': 'off',
+    /* https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/prefer-default-export.md */
+    /* prefer not to migrate existing code to use default exports for now */
     'import/prefer-default-export': 'off',
     /* https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-extraneous-dependencies.md */
     'import/no-extraneous-dependencies': [

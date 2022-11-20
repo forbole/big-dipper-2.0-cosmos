@@ -1,12 +1,11 @@
-/* eslint-disable max-len */
 import { useState } from 'react';
 import { useRecoilCallback } from 'recoil';
 import * as R from 'ramda';
 import { QueryHookOptions, QueryResult } from '@apollo/client';
 import chainConfig from 'ui/chainConfig';
 import { useDesmosProfile } from 'ui/hooks';
-import { atomFamilyState as validatorAtomState } from '@recoil/validators';
 import { atomFamilyState as profileAtomFamilyState } from 'ui/recoil/profiles';
+import { atomFamilyState as validatorAtomState } from 'ui/recoil/validators';
 
 export type UseValidatorAddressesQuery<TData, TVariables> = (
   baseOptions?: QueryHookOptions<TData, TVariables>
