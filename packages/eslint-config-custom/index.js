@@ -47,7 +47,6 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': ['off', { argsIgnorePattern: '^_' }],
     'jsx-a11y/anchor-is-valid': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',
-    'jsx-a11y/interactive-supports-focus': 'off',
     /* https://eslint.org/docs/latest/rules/camelcase */
     /* prefer not to migrate existing code to use default exports for now */
     camelcase: 'off',

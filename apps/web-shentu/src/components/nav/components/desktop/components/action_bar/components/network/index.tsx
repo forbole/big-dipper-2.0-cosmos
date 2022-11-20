@@ -15,7 +15,12 @@ const Network: React.FC<{
   const selected = useRecoilValue(readSelectedNetwork);
 
   return (
-    <div className={classnames(className, classes.root)} onClick={toggleNetwork} role="button">
+    <div
+      className={classnames(className, classes.root)}
+      onClick={toggleNetwork}
+      role="button"
+      tabIndex={0}
+    >
       <ChainIcon type="icon" className={classes.icon} alt="icon" />
       <Typography variant="body1">{selected}</Typography>
       <ExpandMore />

@@ -61,6 +61,7 @@ const Desktop: React.FC<{
             <TableRow key={`holders-row-${i}`}>
               {columns.map((column) => (
                   <TableCell
+                    // eslint-disable-next-line react/no-array-index-key
                     key={`holders-row-${i}-${column.key}`}
                     align={column.align}
                     style={{ width: `${column.width}%` }}

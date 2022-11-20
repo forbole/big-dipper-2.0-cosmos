@@ -32,7 +32,7 @@ const Navbar = (props: NavbarProps) => {
         {/* =================================== */}
         {/* Network */}
         {/* =================================== */}
-        <div className={classes.network} onClick={openNetwork} role="button">
+        <div className={classes.network} onClick={openNetwork} role="button" tabIndex={0}>
           <p className="text">{selected}</p>
           <ExpandMore fontSize="small" />
         </div>
@@ -45,6 +45,7 @@ const Navbar = (props: NavbarProps) => {
           className={classnames(classes.hamburger, {
             active: isOpen,
           })}
+          tabIndex={0}
         >
           <div className="hamburger-content" />
         </div>

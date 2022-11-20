@@ -87,12 +87,22 @@ const Menu = (props: MenuProps) => {
         {/* Footer Actions */}
         {/* ========================= */}
         <div className={classes.footerActions}>
-          <div className={classes.language} role="button" onClick={languageOptions.toggleDrawer}>
+          <div
+            className={classes.language}
+            role="button"
+            onClick={languageOptions.toggleDrawer}
+            tabIndex={0}
+          >
             <Language />
             <Typography variant="caption">{router.locale ? t(router.locale) : ''}</Typography>
             <ExpandMoreOutlined fontSize="small" />
           </div>
-          <div className={classes.theme} role="button" onClick={themeOptions.toggleDrawer}>
+          <div
+            className={classes.theme}
+            role="button"
+            onClick={themeOptions.toggleDrawer}
+            tabIndex={0}
+          >
             <span role="button">
               <ThemeIcon />
             </span>
