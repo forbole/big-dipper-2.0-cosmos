@@ -2,7 +2,7 @@ import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/clien
 import { MockedProvider } from '@apollo/client/testing';
 import { BlockDetailsDocument } from '@graphql/types/general_types';
 import React from 'react';
-import renderer, { ReactTestRendererJSON } from 'react-test-renderer';
+import renderer from 'react-test-renderer';
 import { MockTheme, wait } from 'ui/tests/utils';
 import BlockDetails from '.';
 

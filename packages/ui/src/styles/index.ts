@@ -1,5 +1,5 @@
 import chainConfig from 'ui/chainConfig';
-import { Theme, ThemeOptions } from '@material-ui/core/styles';
+import { ThemeOptions } from '@material-ui/core/styles';
 
 import { lightTemplate, darkTemplate, deuteranopiaTemplate, tritanopiaTemplate } from './theme';
 

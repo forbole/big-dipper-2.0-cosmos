@@ -1,5 +1,5 @@
 import React from 'react';
-import renderer, { ReactTestRendererJSON } from 'react-test-renderer';
+import renderer from 'react-test-renderer';
 import { MockTheme, wait } from 'ui/tests/utils';
 import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
 import { TokenomicsDocument } from '@graphql/types/general_types';

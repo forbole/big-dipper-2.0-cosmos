@@ -1,5 +1,5 @@
 import React from 'react';
-import { RecoilRoot, useRecoilValue } from 'recoil';
+import { useRecoilValue } from 'recoil';
 import renderer from 'react-test-renderer';
 import { MockTheme } from 'ui/tests/utils';
 import Networks from '.';

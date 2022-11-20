@@ -2,10 +2,8 @@ import React, { useCallback, useState } from 'react';
 import Typography from '@material-ui/core/Typography';
 import { useInterval } from 'ui/hooks';
 import dayjs from 'ui/utils/dayjs';
-import { useRecoilValue } from 'recoil';
 import chainConfig from 'ui/chainConfig';
 import ChainIcon from 'ui/components/ChainIcon';
-import { readTheme } from 'ui/recoil/settings';
 import Loading from 'ui/components/loading';
 import { useStyles } from './styles';
 

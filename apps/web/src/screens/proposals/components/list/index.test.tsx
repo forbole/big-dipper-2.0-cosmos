@@ -1,5 +1,5 @@
 import React from 'react';
-import renderer, { ReactTestRendererJSON } from 'react-test-renderer';
+import renderer from 'react-test-renderer';
 import { MockTheme, wait } from 'ui/tests/utils';
 import ProposalsList from '.';
 
@@ -14,9 +14,7 @@ jest.mock('next-translate/useTranslation', () => () => mockI18n);
 jest.mock('ui/components/box', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Box" {...props} />
 ));
-jest.mock('ui/components/loading', () => (props: JSX.IntrinsicElements['div']) => (
-  <div id="Loading" />
-));
+jest.mock('ui/components/loading', () => () => <div id="Loading" />);
 
 // jest.mock('./components/mobile', () => (props: JSX.IntrinsicElements['div']) => (
 //   <div id="Mobile" {...props} />

@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import * as R from 'ramda';
 import { useRouter } from 'next/router';
 import {
   useLastHundredBlocksSubscription,

@@ -1,5 +1,5 @@
 import React from 'react';
-import renderer, { ReactTestRendererJSON } from 'react-test-renderer';
+import renderer from 'react-test-renderer';
 import { MockTheme, wait } from 'ui/tests/utils';
 import List from '.';
 

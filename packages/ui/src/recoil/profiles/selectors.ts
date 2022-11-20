@@ -1,4 +1,4 @@
-import { selectorFamily, GetRecoilValue, DefaultValue } from 'recoil';
+import { selectorFamily, GetRecoilValue } from 'recoil';
 import * as R from 'ramda';
 import { bech32 } from 'bech32';
 import chainConfig from 'ui/chainConfig';

@@ -25,21 +25,21 @@ jest.mock('next-translate/Trans', () => (props: JSX.IntrinsicElements['div']) =>
 // unit tests
 // ==================================
 describe('screen: TransactionDetails/SubmitProposal', () => {
-  it('matches snapshot', () => {
-    const message = MsgSubmitProposal.fromJson({
-      type: {
-        '@type': '/cosmos.gov.v1beta1.MsgSubmitProposal',
-      },
-      content: 'content',
-      proposer: 'desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz',
-      initialDeposit: [
-        {
-          denom: 'udaric',
-          amount: '2000000',
-        },
-      ],
-    });
-  });
+  // it('matches snapshot', () => {
+  //   const message = MsgSubmitProposal.fromJson({
+  //     type: {
+  //       '@type': '/cosmos.gov.v1beta1.MsgSubmitProposal',
+  //     },
+  //     content: 'content',
+  //     proposer: 'desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz',
+  //     initialDeposit: [
+  //       {
+  //         denom: 'udaric',
+  //         amount: '2000000',
+  //       },
+  //     ],
+  //   });
+  // });
 
   it('matches snapshot with Text Proposal', () => {
     const messageTextProposal = MsgTextProposal.fromJson({

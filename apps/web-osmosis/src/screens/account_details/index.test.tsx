@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
-import renderer, { ReactTestRendererJSON } from 'react-test-renderer';
+import renderer from 'react-test-renderer';
 import { MockTheme, wait } from 'ui/tests/utils';
 import {
   // AccountDocument,
@@ -50,65 +50,65 @@ jest.mock(
   () => (props: JSX.IntrinsicElements['div']) => <div id="OtherTokens" {...props} />
 );
 
-const mockAccount = jest.fn().mockReturnValue({
-  data: {
-    commission: {
-      coins: [
-        {
-          amount: '935371507.295045102561007305',
-          denom: 'udsm',
-        },
-      ],
-    },
-    withdrawalAddress: {
-      address: 'desmos1ltpgdupjgtpqzsznltcptmfh6gfu5d8uehxggj',
-    },
-    accountBalances: {
-      coins: [
-        {
-          amount: '116306',
-          denom: 'udsm',
-        },
-      ],
-    },
-    delegationBalance: {
-      coins: [
-        {
-          amount: '1530000000',
-          denom: 'udsm',
-        },
-      ],
-    },
-    unbondingBalance: {
-      coins: [
-        {
-          amount: '0',
-          denom: 'udsm',
-        },
-      ],
-    },
-    delegationRewards: [
-      {
-        validatorAddress: 'desmosvaloper1gwr9l765vfxv4l4zz8glsxwkkphj2084xjwc68',
-        coins: [
-          {
-            amount: '1983411.761512021000000000',
-            denom: 'udsm',
-          },
-        ],
-      },
-      {
-        validatorAddress: 'desmosvaloper1mqfr567kvp659z0zjvpqudw3wx7hh3s7u9a8g9',
-        coins: [
-          {
-            amount: '1029160.218282986240000000',
-            denom: 'udsm',
-          },
-        ],
-      },
-    ],
-  },
-});
+// const mockAccount = jest.fn().mockReturnValue({
+//   data: {
+//     commission: {
+//       coins: [
+//         {
+//           amount: '935371507.295045102561007305',
+//           denom: 'udsm',
+//         },
+//       ],
+//     },
+//     withdrawalAddress: {
+//       address: 'desmos1ltpgdupjgtpqzsznltcptmfh6gfu5d8uehxggj',
+//     },
+//     accountBalances: {
+//       coins: [
+//         {
+//           amount: '116306',
+//           denom: 'udsm',
+//         },
+//       ],
+//     },
+//     delegationBalance: {
+//       coins: [
+//         {
+//           amount: '1530000000',
+//           denom: 'udsm',
+//         },
+//       ],
+//     },
+//     unbondingBalance: {
+//       coins: [
+//         {
+//           amount: '0',
+//           denom: 'udsm',
+//         },
+//       ],
+//     },
+//     delegationRewards: [
+//       {
+//         validatorAddress: 'desmosvaloper1gwr9l765vfxv4l4zz8glsxwkkphj2084xjwc68',
+//         coins: [
+//           {
+//             amount: '1983411.761512021000000000',
+//             denom: 'udsm',
+//           },
+//         ],
+//       },
+//       {
+//         validatorAddress: 'desmosvaloper1mqfr567kvp659z0zjvpqudw3wx7hh3s7u9a8g9',
+//         coins: [
+//           {
+//             amount: '1029160.218282986240000000',
+//             denom: 'udsm',
+//           },
+//         ],
+//       },
+//     ],
+//   },
+// });
 
 const mockAccountMessages = jest.fn().mockReturnValue({
   data: {

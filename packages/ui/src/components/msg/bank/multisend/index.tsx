@@ -1,5 +1,4 @@
 import React from 'react';
-import * as R from 'ramda';
 import Trans from 'next-translate/Trans';
 import useTranslation from 'next-translate/useTranslation';
 import Typography from '@material-ui/core/Typography';

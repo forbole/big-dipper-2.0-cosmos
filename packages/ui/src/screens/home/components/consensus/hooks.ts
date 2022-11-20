@@ -3,7 +3,7 @@ import numeral from 'numeral';
 import * as R from 'ramda';
 import { hexToBech32 } from 'ui/utils/hex_to_bech32';
 import chainConfig from 'ui/chainConfig';
-import WebSocket, { CertMeta } from 'isomorphic-ws';
+import WebSocket from 'isomorphic-ws';
 import { stringifyMessage, GRAPHQL_TRANSPORT_WS_PROTOCOL, MessageType } from 'graphql-ws';
 
 export const useConsensus = () => {

@@ -13,7 +13,6 @@ import { getValidatorStatus } from '@utils/get_validator_status';
 import { useStyles } from './styles';
 import { fetchColumns } from './utils';
 import type { ItemType } from '../../types';
-import Condition from '../condition';
 import VotingPower from '../voting_power';
 import VotingPowerExplanation from '../voting_power_explanation';
 

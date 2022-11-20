@@ -6,7 +6,7 @@ import dayjs from 'ui/utils/dayjs';
 import Link from 'next/link';
 import { TRANSACTION_DETAILS, BLOCK_DETAILS } from 'ui/utils/go_to_page';
 import InfiniteLoader from 'react-window-infinite-loader';
-import { VariableSizeGrid as Grid, VariableSizeGrid } from 'react-window';
+import { VariableSizeGrid as Grid } from 'react-window';
 import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import { mergeRefs } from 'ui/utils/merge_refs';

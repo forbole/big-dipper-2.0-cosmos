@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 /**
  * Helper hook to handle values that may need to be story throughout multiple sessions
