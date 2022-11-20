@@ -2,10 +2,15 @@ import type { Categories } from '../types';
 
 class MsgChannelCloseConfirm {
   public category: Categories;
+
   public type: string;
+
   public signer: string;
+
   public channelId: string;
+
   public portId: string;
+
   public json: any;
 
   constructor(payload: any) {

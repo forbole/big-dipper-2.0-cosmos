@@ -3,10 +3,15 @@ import type { Categories } from '../types';
 
 class MsgUnlinkChainAccount {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public owner: string;
+
   public chainName: string;
+
   public target: string;
 
   constructor(payload: any) {

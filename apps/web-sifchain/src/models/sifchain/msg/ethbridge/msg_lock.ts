@@ -3,8 +3,11 @@ import type { Categories } from '../types';
 
 class MsgLock {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public cosmosSender: string;
 
   constructor(payload: any) {

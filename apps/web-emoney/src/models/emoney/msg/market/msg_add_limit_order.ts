@@ -3,12 +3,19 @@ import type { Categories } from '../types';
 
 class MsgAddLimitOrder {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public owner: string;
+
   public clientOrderId: string;
+
   public timeInForce: 'Unspecified' | 'GoodTillCancel' | 'ImmediateOrCancel' | 'FillOrKill';
+
   public source: MsgCoin;
+
   public destination: MsgCoin;
 
   constructor(payload: any) {

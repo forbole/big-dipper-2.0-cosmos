@@ -2,10 +2,15 @@ import type { Categories } from '../types';
 
 class MsgDelegate {
   public category: Categories;
+
   public type: string;
+
   public delegatorAddress: string;
+
   public validatorAddress: string;
+
   public amount: MsgCoin;
+
   public json: any;
 
   constructor(payload: any) {

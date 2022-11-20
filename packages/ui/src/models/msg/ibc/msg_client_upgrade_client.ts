@@ -2,9 +2,13 @@ import type { Categories } from '../types';
 
 class MsgUpgradeClient {
   public category: Categories;
+
   public type: string;
+
   public signer: string;
+
   public clientId: string;
+
   public json: any;
 
   constructor(payload: any) {

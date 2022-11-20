@@ -2,14 +2,23 @@ import * as R from 'ramda';
 
 class OracleParams {
   public maxAskCount: number;
+
   public baseOwsmGas: number;
+
   public maxCalldataSize: number;
+
   public samplingTryCount: number;
+
   public maxReportDataSize: number;
+
   public maxRawRequestCount: number;
+
   public expirationBlockCount: number;
+
   public oracleRewardPercentage: number;
+
   public inactivePenaltyDuration: number;
+
   public perValidatorRequestGas: number;
 
   constructor(payload: any) {

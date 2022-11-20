@@ -3,9 +3,13 @@ import type { Categories } from '../types';
 
 class MsgCreateDataSource {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public name: string;
+
   // public description: string;
   // public executable: JSON;
   // public fee: MsgCoin[];

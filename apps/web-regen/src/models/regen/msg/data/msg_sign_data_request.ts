@@ -3,8 +3,11 @@ import type { Categories } from '../types';
 
 class MsgSignDataRequest {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public signers: string[];
 
   constructor(payload: any) {

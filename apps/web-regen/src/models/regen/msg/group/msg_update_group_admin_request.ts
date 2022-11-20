@@ -2,9 +2,13 @@ import type { Categories } from '../types';
 
 class MsgUpdateGroupAdminRequest {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public admin: string;
+
   public newAdmin: string;
 
   constructor(payload: any) {

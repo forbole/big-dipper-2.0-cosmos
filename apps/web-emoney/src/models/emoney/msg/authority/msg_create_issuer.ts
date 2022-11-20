@@ -3,10 +3,15 @@ import type { Categories } from '../types';
 
 class MsgCreateIssuer {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public authority: string;
+
   public issuer: string;
+
   public denominations: string[];
 
   constructor(payload: any) {

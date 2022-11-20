@@ -3,9 +3,13 @@ import type { Categories } from '../types';
 
 class MsgMintTokens {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public liquidityProvider: string;
+
   public amount: MsgCoin[];
 
   constructor(payload: any) {

@@ -3,7 +3,9 @@ import type { Categories } from '../types';
 
 class MsgEditValidator {
   public category: Categories;
+
   public type: string;
+
   public description: {
     moniker: string;
     identity: string;
@@ -11,9 +13,13 @@ class MsgEditValidator {
     securityContact: string;
     details: string;
   };
+
   public validatorAddress: string;
+
   public commissionRate: string | number;
+
   public minSelfDelegation: string | number;
+
   public json: any;
 
   constructor(payload: any) {

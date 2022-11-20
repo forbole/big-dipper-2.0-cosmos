@@ -2,10 +2,15 @@ import type { Categories } from '../types';
 
 class MsgVerifyInvariant {
   public category: Categories;
+
   public type: string;
+
   public sender: string;
+
   public invariantModuleName: string;
+
   public invariantRoute: string;
+
   public json: any;
 
   constructor(payload: any) {

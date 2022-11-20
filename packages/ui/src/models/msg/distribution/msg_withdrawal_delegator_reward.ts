@@ -5,10 +5,15 @@ import type { Categories } from '../types';
 
 class MsgWithdrawDelegatorReward {
   public category: Categories;
+
   public type: string;
+
   public delegatorAddress: string;
+
   public validatorAddress: string;
+
   public amounts: TokenUnit[];
+
   public json: any;
 
   constructor(payload: any) {

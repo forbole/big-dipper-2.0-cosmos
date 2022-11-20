@@ -3,14 +3,23 @@ import type { Categories } from '../types';
 
 class MsgCreateOracleScript {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public name: string;
+
   public description: string;
+
   public schema: string;
+
   public sourceCodeUrl: string;
+
   public code: JSON;
+
   public owner: string;
+
   public sender: string;
 
   constructor(payload: any) {

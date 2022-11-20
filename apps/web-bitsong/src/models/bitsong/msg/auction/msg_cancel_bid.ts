@@ -3,9 +3,13 @@ import type { Categories } from '../types';
 
 class MsgCancelBid {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public auctionId: number;
+
   public bidder: string;
 
   constructor(payload: any) {

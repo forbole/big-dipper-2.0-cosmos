@@ -2,10 +2,15 @@ import type { Categories } from '../types';
 
 class MsgDtagAcceptTransfer {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public sender: string;
+
   public receiver: string;
+
   public newDtag: string;
 
   constructor(payload: any) {

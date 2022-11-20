@@ -2,8 +2,11 @@ import type { Categories } from '../types';
 
 class MsgVoteRequest {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public voter: string;
 
   constructor(payload: any) {

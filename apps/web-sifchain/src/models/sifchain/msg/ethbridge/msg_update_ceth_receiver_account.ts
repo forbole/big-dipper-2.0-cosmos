@@ -3,9 +3,13 @@ import type { Categories } from '../types';
 
 class MsgUpdateCethReceiverAccount {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public cosmosSender: string;
+
   public cethReceiverAccount: string;
 
   constructor(payload: any) {

@@ -2,10 +2,15 @@ import type { Categories } from '../types';
 
 class MsgUpdateClient {
   public category: Categories;
+
   public type: string;
+
   public signer: string;
+
   public chainId: string;
+
   public clientId: string;
+
   public json: any;
 
   constructor(payload: any) {

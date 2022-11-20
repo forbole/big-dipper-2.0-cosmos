@@ -3,10 +3,15 @@ import type { Categories } from '../types';
 
 class MsgOpenBid {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public auctionId: number;
+
   public bidder: string;
+
   public bidAmount: MsgCoin;
 
   constructor(payload: any) {

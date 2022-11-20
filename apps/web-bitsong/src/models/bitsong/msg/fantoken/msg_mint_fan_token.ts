@@ -2,8 +2,11 @@ import type { Categories } from '../types';
 
 class MsgMintFanToken {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public recipient: string;
 
   constructor(payload: any) {

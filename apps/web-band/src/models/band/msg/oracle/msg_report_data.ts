@@ -3,9 +3,13 @@ import type { Categories } from '../types';
 
 class MsgReportData {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public requestId: number;
+
   // public rawReports: {
   //   externalId: number;
   //   exitCode: number;

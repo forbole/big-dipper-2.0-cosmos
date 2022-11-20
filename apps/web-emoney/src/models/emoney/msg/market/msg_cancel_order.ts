@@ -3,9 +3,13 @@ import type { Categories } from '../types';
 
 class MsgCancelOrder {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public owner: string;
+
   public clientOrderId: string;
 
   constructor(payload: any) {

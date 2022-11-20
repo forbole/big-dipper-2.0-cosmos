@@ -3,6 +3,7 @@ import numeral from 'numeral';
 
 class IscnParams {
   public registryName: string;
+
   public feePerByte: {
     denom: string;
     amount: string;

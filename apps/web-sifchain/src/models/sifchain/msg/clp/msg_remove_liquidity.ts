@@ -3,9 +3,13 @@ import type { Categories } from '../types';
 
 class MsgRemoveLiquidity {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public signer: string;
+
   public externalAsset: {
     symbol: string;
   };

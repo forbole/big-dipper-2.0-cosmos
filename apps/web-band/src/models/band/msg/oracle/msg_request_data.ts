@@ -3,9 +3,13 @@ import type { Categories } from '../types';
 
 class MsgRequestData {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public oracleScriptId: number;
+
   // public calldata: JSON;
   // public askCount: number;
   // public minCount: number;

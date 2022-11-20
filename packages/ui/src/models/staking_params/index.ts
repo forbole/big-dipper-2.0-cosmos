@@ -3,9 +3,13 @@ import chainConfig from 'ui/chainConfig';
 
 class StakingParams {
   public bondDenom: string;
+
   public unbondingTime: number;
+
   public maxEntries: number;
+
   public historicalEntries: number;
+
   public maxValidators: number;
 
   constructor(payload: any) {

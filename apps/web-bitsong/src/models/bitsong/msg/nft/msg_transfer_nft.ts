@@ -2,10 +2,15 @@ import type { Categories } from '../types';
 
 class MsgTransferNFT {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public sender: string;
+
   public id: string;
+
   public recipient: string;
 
   constructor(payload: any) {

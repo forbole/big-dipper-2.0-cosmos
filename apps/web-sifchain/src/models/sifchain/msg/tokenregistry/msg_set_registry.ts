@@ -3,9 +3,13 @@ import type { Categories } from '../types';
 
 class MsgSetRegistry {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public from: string;
+
   public registry: {
     denom: string;
   }[];

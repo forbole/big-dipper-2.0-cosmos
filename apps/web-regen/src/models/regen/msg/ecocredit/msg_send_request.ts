@@ -2,9 +2,13 @@ import type { Categories } from '../types';
 
 class MsgSendRequest {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public sender: string;
+
   public recipient: string;
 
   constructor(payload: any) {

@@ -3,15 +3,19 @@ import type { Categories } from '../types';
 
 class MsgMultiSend {
   public category: Categories;
+
   public type: string;
+
   public inputs: {
     address: string;
     coins: MsgCoin[];
   }[];
+
   public outputs: {
     address: string;
     coins: MsgCoin[];
   }[];
+
   public json: any;
 
   constructor(payload: any) {

@@ -3,9 +3,13 @@ import type { Categories } from '../types';
 
 class MsgFundCommunityPool {
   public category: Categories;
+
   public type: string;
+
   public depositor: string;
+
   public amount: MsgCoin[];
+
   public json: any;
 
   constructor(payload: any) {

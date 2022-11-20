@@ -3,14 +3,19 @@ import type { Categories } from '../types';
 
 class MsgVote {
   public category: Categories;
+
   public type: string;
+
   public proposalId: number | string;
+
   public voter: string;
+
   public option:
     | 'VOTE_OPTION_YES'
     | 'VOTE_OPTION_ABSTAIN'
     | 'VOTE_OPTION_NO'
     | 'VOTE_OPTION_NO_WITH_VETO';
+
   public json: any;
 
   constructor(payload: any) {

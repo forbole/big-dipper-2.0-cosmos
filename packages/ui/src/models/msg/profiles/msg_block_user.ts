@@ -2,11 +2,17 @@ import type { Categories } from '../types';
 
 class MsgBlockUser {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public reason?: string;
+
   public blocked: string;
+
   public blocker: string;
+
   public subspace: string;
 
   constructor(payload: any) {

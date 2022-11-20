@@ -3,10 +3,15 @@ import type { Categories } from '../types';
 
 class MsgIssueFanToken {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public owner: string;
+
   public name: string;
+
   public maxSupply: string;
 
   constructor(payload: any) {

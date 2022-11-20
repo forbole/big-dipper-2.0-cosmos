@@ -2,8 +2,11 @@ import type { Categories } from '../types';
 
 class MsgRetireRequest {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public holder: string;
 
   constructor(payload: any) {

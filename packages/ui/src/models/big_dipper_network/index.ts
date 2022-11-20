@@ -6,10 +6,15 @@ export type Link = {
 
 class BigDipperNetwork {
   public logo: string;
+
   public name: string;
+
   public mainnet: Link[];
+
   public testnet: Link[];
+
   public retired: Link[];
+
   public other: Link[];
 
   constructor(payload: any) {

@@ -2,8 +2,11 @@ import type { Categories } from '../types';
 
 class MsgEditFanToken {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public owner: string;
 
   constructor(payload: any) {

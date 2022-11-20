@@ -2,8 +2,11 @@ import type { Categories } from '../types';
 
 class MsgCreateProposalRequest {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public address: string;
 
   constructor(payload: any) {

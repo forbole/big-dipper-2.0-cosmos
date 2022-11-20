@@ -3,13 +3,21 @@ import type { Categories } from '../types';
 
 class MsgCancelReplaceLimitOrder {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public owner: string;
+
   public originalClientOrderId: string;
+
   public newClientOrderId: string;
+
   public timeInForce: 'Unspecified' | 'GoodTillCancel' | 'ImmediateOrCancel' | 'FillOrKill';
+
   public source: MsgCoin;
+
   public destination: MsgCoin;
 
   constructor(payload: any) {

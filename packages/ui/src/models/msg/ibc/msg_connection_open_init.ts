@@ -2,10 +2,15 @@ import type { Categories } from '../types';
 
 class MsgConnectionOpenInit {
   public category: Categories;
+
   public type: string;
+
   public signer: string;
+
   public clientId: string;
+
   public counterparty: string;
+
   public json: any;
 
   constructor(payload: any) {

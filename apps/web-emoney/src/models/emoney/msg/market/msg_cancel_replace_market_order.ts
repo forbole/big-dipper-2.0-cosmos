@@ -3,14 +3,23 @@ import type { Categories } from '../types';
 
 class MsgCancelReplaceMarketOrder {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public owner: string;
+
   public originalClientOrderId: string;
+
   public newClientOrderId: string;
+
   public timeInForce: 'Unspecified' | 'GoodTillCancel' | 'ImmediateOrCancel' | 'FillOrKill';
+
   public source: string;
+
   public destination: MsgCoin;
+
   public maximumSlippage: string;
 
   constructor(payload: any) {

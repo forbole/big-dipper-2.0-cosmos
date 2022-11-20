@@ -2,8 +2,11 @@ import type { Categories } from '../types';
 
 class MsgUnjail {
   public category: Categories;
+
   public type: string;
+
   public validatorAddress: string;
+
   public json: any;
 
   constructor(payload: any) {

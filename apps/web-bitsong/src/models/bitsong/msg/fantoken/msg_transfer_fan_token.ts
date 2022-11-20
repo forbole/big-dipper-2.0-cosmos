@@ -3,10 +3,15 @@ import type { Categories } from '../types';
 
 class MsgTransferFanTokenOwner {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public symbol: string;
+
   public srcOwner: string;
+
   public dstOwner: string;
 
   constructor(payload: any) {

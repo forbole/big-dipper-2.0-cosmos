@@ -2,9 +2,13 @@ import type { Categories } from '../types';
 
 class MsgSetWithdrawAddress {
   public category: Categories;
+
   public type: string;
+
   public delegatorAddress: string;
+
   public withdrawalAddress: string;
+
   public json: any;
 
   constructor(payload: any) {

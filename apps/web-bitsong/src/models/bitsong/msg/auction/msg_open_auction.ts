@@ -3,9 +3,13 @@ import type { Categories } from '../types';
 
 class MsgOpenAuction {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public owner: string;
+
   public nftId: string;
 
   constructor(payload: any) {

@@ -4,10 +4,15 @@ import type { Categories } from '../types';
 
 class MsgDeposit {
   public category: Categories;
+
   public type: string;
+
   public proposalId: number | string;
+
   public depositor: string;
+
   public amount: MsgCoin[];
+
   public json: any;
 
   constructor(payload: any) {

@@ -2,8 +2,11 @@ import type { Categories } from '../types';
 
 class MsgCreateGroupRequest {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public admin: string;
 
   constructor(payload: any) {

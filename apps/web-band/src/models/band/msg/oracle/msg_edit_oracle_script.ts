@@ -3,15 +3,25 @@ import type { Categories } from '../types';
 
 class MsgEditOracleScript {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public oracleScriptId: number;
+
   public name: string;
+
   public description: string;
+
   public schema: string;
+
   public sourceCodeUrl: string;
+
   public code: JSON;
+
   public owner: string;
+
   public sender: string;
 
   constructor(payload: any) {

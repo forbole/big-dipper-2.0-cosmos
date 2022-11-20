@@ -3,9 +3,13 @@ import type { Categories } from '../types';
 
 class MsgLinkChainAccount {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public signer: string;
+
   public chainConfig: {
     name: string;
   };

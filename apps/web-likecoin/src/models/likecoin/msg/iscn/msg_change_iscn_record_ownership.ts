@@ -2,10 +2,15 @@ import type { Categories } from '../types';
 
 class MsgChangeIscnRecordOwnership {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public from: string;
+
   public iscnId: string;
+
   public newOwner: string;
 
   constructor(payload: any) {

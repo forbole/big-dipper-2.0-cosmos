@@ -3,10 +3,15 @@ import type { Categories } from '../types';
 
 class MsgSend {
   public category: Categories;
+
   public type: string;
+
   public fromAddress: string;
+
   public toAddress: string;
+
   public amount: MsgCoin[];
+
   public json: any;
 
   constructor(payload: any) {

@@ -2,9 +2,13 @@ import type { Categories } from '../types';
 
 class MsgCancelAuction {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public owner: string;
+
   public id: number;
 
   constructor(payload: any) {

@@ -2,8 +2,11 @@ import type { Categories } from '../types';
 
 class MsgExecRequest {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public signer: string;
 
   constructor(payload: any) {

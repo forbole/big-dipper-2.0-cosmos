@@ -2,9 +2,13 @@ import type { Categories } from '../types';
 
 class MsgBurnNFT {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public sender: string;
+
   public id: string;
 
   constructor(payload: any) {

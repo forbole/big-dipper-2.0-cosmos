@@ -3,8 +3,11 @@ import type { Categories } from '../types';
 
 class MsgCreateEthBridgeClaim {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public ethBridgeClaim: {
     cosmosreceiver: string;
     claimType: 'CLAIM_TYPE_UNSPECIFIED' | 'CLAIM_TYPE_BURN' | 'CLAIM_TYPE_LOCK';

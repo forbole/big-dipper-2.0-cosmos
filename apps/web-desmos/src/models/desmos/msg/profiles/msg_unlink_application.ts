@@ -2,10 +2,15 @@ import type { Categories } from '../types';
 
 class MsgUnlinkApplication {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public application: string;
+
   public username: string;
+
   public signer: string;
 
   constructor(payload: any) {

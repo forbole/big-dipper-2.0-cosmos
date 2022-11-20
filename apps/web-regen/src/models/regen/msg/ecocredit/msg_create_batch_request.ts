@@ -2,8 +2,11 @@ import type { Categories } from '../types';
 
 class MsgCreateBatchRequest {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public issuer: string;
 
   constructor(payload: any) {

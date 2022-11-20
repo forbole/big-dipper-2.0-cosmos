@@ -2,9 +2,13 @@ import type { Categories } from '../types';
 
 class MsgAcknowledgement {
   public category: Categories;
+
   public type: string;
+
   public signer: string;
+
   public sourceChannel: string;
+
   public json: any;
 
   constructor(payload: any) {

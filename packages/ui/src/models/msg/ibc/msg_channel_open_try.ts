@@ -2,11 +2,17 @@ import type { Categories } from '../types';
 
 class MsgChannelOpenTry {
   public category: Categories;
+
   public type: string;
+
   public signer: string;
+
   public channel: string;
+
   public portId: string;
+
   public counterpartyVersion: string;
+
   public json: any;
 
   constructor(payload: any) {

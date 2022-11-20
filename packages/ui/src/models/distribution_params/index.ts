@@ -2,8 +2,11 @@ import * as R from 'ramda';
 
 class DistributionParams {
   public baseProposerReward: number;
+
   public bonusProposerReward: number;
+
   public communityTax: number;
+
   public withdrawAddressEnabled: boolean;
 
   constructor(payload: any) {

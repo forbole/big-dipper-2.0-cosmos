@@ -2,8 +2,11 @@ import type { Categories } from '../types';
 
 class MsgAnchorDataRequest {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public sender: string;
 
   constructor(payload: any) {

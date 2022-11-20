@@ -2,9 +2,13 @@ import type { Categories } from '../types';
 
 class MsgDeregister {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public from: string;
+
   public denom: string;
 
   constructor(payload: any) {

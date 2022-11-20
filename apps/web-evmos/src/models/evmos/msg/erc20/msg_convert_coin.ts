@@ -5,10 +5,15 @@ import type { Categories } from '../types';
 // registered on the token mapping.
 class MsgConvertCoin {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public coin: MsgCoin;
+
   public receiver: string;
+
   public sender: string;
 
   constructor(payload: any) {

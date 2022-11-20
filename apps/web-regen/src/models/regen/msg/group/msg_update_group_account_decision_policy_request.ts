@@ -2,9 +2,13 @@ import type { Categories } from '../types';
 
 class MsgUpdateGroupAccountDecisionPolicyRequest {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public admin: string;
+
   public address: string;
 
   constructor(payload: any) {

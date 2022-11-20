@@ -2,10 +2,15 @@ import type { Categories } from '../types';
 
 class MsgConnectionOpenAck {
   public category: Categories;
+
   public type: string;
+
   public signer: string;
+
   public connectionId: string;
+
   public counterpartyConnectionId: string;
+
   public json: any;
 
   constructor(payload: any) {

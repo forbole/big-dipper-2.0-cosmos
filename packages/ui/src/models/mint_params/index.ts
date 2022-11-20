@@ -2,10 +2,15 @@ import * as R from 'ramda';
 
 class MintParams {
   public blocksPerYear: number;
+
   public goalBonded: number;
+
   public inflationMax: number;
+
   public inflationMin: number;
+
   public inflationRateChange: number;
+
   public mintDenom: string;
 
   constructor(payload: any) {

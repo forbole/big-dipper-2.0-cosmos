@@ -2,8 +2,11 @@ import type { Categories } from '../types';
 
 class MsgHeight {
   public category: Categories;
+
   public type: string;
+
   public signer: string;
+
   public json: any;
 
   constructor(payload: any) {

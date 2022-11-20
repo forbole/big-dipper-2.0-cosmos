@@ -8,6 +8,7 @@ class GovParams {
     }[];
     maxDepositPeriod: number;
   };
+
   public tallyParams: {
     default: {
       quorum: string;
@@ -25,6 +26,7 @@ class GovParams {
       vetoThreshold: string;
     };
   };
+
   public votingParams: {
     votingPeriod: number;
   };

@@ -2,9 +2,13 @@ import * as R from 'ramda';
 
 class SlashingParams {
   public downtimeJailDuration: number;
+
   public minSignedPerWindow: number;
+
   public signedBlockWindow: number;
+
   public slashFractionDoubleSign: number;
+
   public slashFractionDowntime: number;
 
   constructor(payload: any) {

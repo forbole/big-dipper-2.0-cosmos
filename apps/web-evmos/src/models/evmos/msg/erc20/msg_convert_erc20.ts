@@ -5,11 +5,17 @@ import type { Categories } from '../types';
 // that is registered on the token mapping.
 class MsgConvertErc20 {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public contractAddress: string;
+
   public amount: string;
+
   public receiver: string;
+
   public sender: string;
 
   constructor(payload: any) {

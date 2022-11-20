@@ -3,13 +3,21 @@ import type { Categories } from '../types';
 
 class MsgAddMarketOrder {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public owner: string;
+
   public clientOrderId: string;
+
   public timeInForce: 'Unspecified' | 'GoodTillCancel' | 'ImmediateOrCancel' | 'FillOrKill';
+
   public source: string;
+
   public destination: MsgCoin;
+
   public maximumSlippage: string;
 
   constructor(payload: any) {

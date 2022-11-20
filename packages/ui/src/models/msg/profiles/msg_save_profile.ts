@@ -2,8 +2,11 @@ import type { Categories } from '../types';
 
 class MsgSaveProfile {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public creator: string;
 
   constructor(payload: any) {

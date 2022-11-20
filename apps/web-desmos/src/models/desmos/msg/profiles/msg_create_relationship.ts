@@ -2,10 +2,15 @@ import type { Categories } from '../types';
 
 class MsgCreateRelationship {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public sender: string;
+
   public receiver: string;
+
   public subspace: string;
 
   constructor(payload: any) {

@@ -3,17 +3,25 @@ import type { Categories } from '../types';
 
 class MsgSwap {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public signer: string;
+
   public sentAsset: {
     symbol: string;
   };
+
   public receivedAsset: {
     symbol: string;
   };
+
   public sentAmount: string;
+
   public minReceivingAmount: string;
+
   public receivedAmount: string;
 
   constructor(payload: any) {

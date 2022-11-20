@@ -3,11 +3,17 @@ import type { Categories } from '../types';
 
 class MsgTransfer {
   public category: Categories;
+
   public type: string;
+
   public sender: string;
+
   public receiver: string;
+
   public token: MsgCoin;
+
   public sourceChannel: string;
+
   public json: any;
 
   constructor(payload: any) {

@@ -2,8 +2,11 @@ import type { Categories } from '../types';
 
 class MsgVersion {
   public category: Categories;
+
   public type: string;
+
   public signer: string;
+
   public json: any;
 
   constructor(payload: any) {

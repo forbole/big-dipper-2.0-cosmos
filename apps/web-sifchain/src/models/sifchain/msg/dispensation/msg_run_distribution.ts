@@ -3,9 +3,13 @@ import type { Categories } from '../types';
 
 class MsgRunDistribution {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public authorizedRunner: string;
+
   public distributionType:
     | 'DISTRIBUTION_TYPE_UNSPECIFIED'
     | 'DISTRIBUTION_TYPE_AIRDROP'

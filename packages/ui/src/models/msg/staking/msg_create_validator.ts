@@ -3,7 +3,9 @@ import type { Categories } from '../types';
 
 class MsgCreateValidator {
   public category: Categories;
+
   public type: string;
+
   public description: {
     moniker: string;
     identity: string;
@@ -11,19 +13,26 @@ class MsgCreateValidator {
     securityContact: string;
     details: string;
   };
+
   public commission: {
     rate: string | number;
     maxRate: string | number;
     maxChangeRate: string | number;
   };
+
   public minSelfDelegation: string | number;
+
   public delegatorAddress: string;
+
   public validatorAddress: string;
+
   public pubkey: {
     type: string;
     key: string;
   };
+
   public value: MsgCoin;
+
   public json: any;
 
   constructor(payload: any) {

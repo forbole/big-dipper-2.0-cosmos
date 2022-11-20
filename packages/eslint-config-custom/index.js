@@ -50,8 +50,9 @@ module.exports = {
     'jsx-a11y/anchor-is-valid': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',
     'jsx-a11y/interactive-supports-focus': 'off',
-    'lines-between-class-members': 'off',
+    /* https://eslint.org/docs/latest/rules/no-bitwise */
     'no-bitwise': 'off',
+    /* https://eslint.org/docs/latest/rules/no-param-reassign */
     'no-param-reassign': 'off',
     /* https://eslint.org/docs/latest/rules/no-use-before-define */
     'no-use-before-define': ['error', { classes: false, functions: false, variables: false }],

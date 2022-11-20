@@ -2,8 +2,11 @@ import type { Categories } from '../types';
 
 class MsgDeleteProfile {
   public category: Categories;
+
   public type: string;
+
   public creator: string;
+
   public json: any;
 
   constructor(payload: any) {

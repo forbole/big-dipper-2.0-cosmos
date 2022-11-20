@@ -2,9 +2,13 @@ import type { Categories } from '../types';
 
 class MsgDecommissionPool {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public signer: string;
+
   public symbol: string;
 
   constructor(payload: any) {

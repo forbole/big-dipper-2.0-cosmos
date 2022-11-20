@@ -3,9 +3,13 @@ import type { Categories } from '../types';
 
 class MsgClawback {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public accountAddress: string;
+
   public destAddress: string;
 
   constructor(payload: any) {

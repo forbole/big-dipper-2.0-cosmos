@@ -2,8 +2,11 @@ import type { Categories } from '../types';
 
 class MsgActivate {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public validator: string;
 
   constructor(payload: any) {

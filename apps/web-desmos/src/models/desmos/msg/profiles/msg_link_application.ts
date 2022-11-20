@@ -3,9 +3,13 @@ import type { Categories } from '../types';
 
 class MsgLinkApplication {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public sender: string;
+
   public linkData: {
     application: string;
     username: string;

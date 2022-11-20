@@ -2,8 +2,11 @@ import numeral from 'numeral';
 
 class MsgSoftwareUpgradeProposal {
   public type: string;
+
   public title: string;
+
   public description: string;
+
   public plan: {
     name: string;
     time: string;

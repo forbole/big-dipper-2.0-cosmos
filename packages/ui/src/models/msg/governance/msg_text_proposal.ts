@@ -1,6 +1,8 @@
 class MsgTextProposal {
   public type: string;
+
   public title: string;
+
   public description: string;
 
   constructor(payload: any) {

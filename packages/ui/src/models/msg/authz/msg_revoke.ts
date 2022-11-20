@@ -2,9 +2,13 @@ import type { Categories } from '../types';
 
 class MsgRevoke {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public granter: string;
+
   public grantee: string;
 
   constructor(payload: any) {

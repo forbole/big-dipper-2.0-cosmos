@@ -2,9 +2,13 @@ import * as R from 'ramda';
 
 class MsgCommunityPoolSpendProposal {
   public type: string;
+
   public title: string;
+
   public description: string;
+
   public recipient: string;
+
   public amount: MsgCoin[];
 
   constructor(payload: any) {

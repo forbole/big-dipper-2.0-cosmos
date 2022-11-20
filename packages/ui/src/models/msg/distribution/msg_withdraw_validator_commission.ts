@@ -5,9 +5,13 @@ import type { Categories } from '../types';
 
 class MsgWithdrawValidatorCommission {
   public category: Categories;
+
   public type: string;
+
   public validatorAddress: string;
+
   public amounts: TokenUnit[];
+
   public json: any;
 
   constructor(payload: any) {

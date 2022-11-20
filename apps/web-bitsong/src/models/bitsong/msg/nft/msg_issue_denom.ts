@@ -3,8 +3,11 @@ import type { Categories } from '../types';
 
 class MsgIssueDenom {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public creators: string[];
 
   constructor(payload: any) {

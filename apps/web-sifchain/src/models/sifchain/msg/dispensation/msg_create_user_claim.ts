@@ -3,9 +3,13 @@ import type { Categories } from '../types';
 
 class MsgCreateUserClaim {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public userClaimAddress: string;
+
   public userClaimType:
     | 'DISTRIBUTION_TYPE_UNSPECIFIED'
     | 'DISTRIBUTION_TYPE_AIRDROP'

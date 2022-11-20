@@ -7,14 +7,19 @@ import type { Categories } from '../types';
 
 class MsgSubmitProposal {
   public category: Categories;
+
   public type: string;
+
   public content:
     | MsgTextProposal
     | MsgSoftwareUpgradeProposal
     | MsgParameterChangeProposal
     | MsgCommunityPoolSpendProposal;
+
   public initialDeposit: MsgCoin[];
+
   public proposer: string;
+
   public json: any;
 
   constructor(payload: any) {

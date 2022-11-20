@@ -3,9 +3,13 @@ import type { Categories } from '../types';
 
 class MsgCreateClawbackVestingAccount {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public fromAddress: string;
+
   public toAddress: string;
 
   constructor(payload: any) {

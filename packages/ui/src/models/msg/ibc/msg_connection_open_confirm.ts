@@ -2,9 +2,13 @@ import type { Categories } from '../types';
 
 class MsgConnectionOpenConfirm {
   public category: Categories;
+
   public type: string;
+
   public signer: string;
+
   public connectionId: string;
+
   public json: any;
 
   constructor(payload: any) {

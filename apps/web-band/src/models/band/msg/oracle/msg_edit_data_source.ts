@@ -3,15 +3,25 @@ import type { Categories } from '../types';
 
 class MsgEditDataSource {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public dataSourceId: number;
+
   public name: string;
+
   public description: string;
+
   public executable: JSON;
+
   public fee: MsgCoin[];
+
   public treasury: string;
+
   public owner: string;
+
   public sender: string;
 
   constructor(payload: any) {
