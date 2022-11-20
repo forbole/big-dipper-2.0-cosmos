@@ -30,6 +30,7 @@ describe('screen: TransactionDetails/SignDataRequest', () => {
         'desmos1hfhkduejung7g29wv863x369rndf3hu5xj4g93',
         'desmos1hfhkduejung7g29wv863x369rndf3hu5xj4g93',
       ],
+      json: {},
     };
 
     const component = renderer.create(

@@ -16,7 +16,7 @@ jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 describe('screen: TransactionDetails/CancelReplaceMarketOrder', () => {
   it('matches snapshot', () => {
-    const message = {
+    const message: MsgCancelReplaceMarketOrder = {
       category: 'market',
       type: 'MsgCancelReplaceMarketOrder',
       owner: 'owner',
@@ -26,9 +26,11 @@ describe('screen: TransactionDetails/CancelReplaceMarketOrder', () => {
       source: 'source',
       destination: {
         denom: 'udarics',
-        amount: 500000,
+        amount: '500000',
       },
-    } as MsgCancelReplaceMarketOrder;
+      maximumSlippage: '0.1',
+      json: {},
+    };
     const component = renderer.create(
       <MockTheme>
         <CancelReplaceMarketOrder message={message} />

@@ -25,6 +25,7 @@ describe('screen: TransactionDetails/VoteRequest', () => {
       category: 'group',
       type: 'MsgVoteRequest',
       voter: 'voter',
+      json: {},
     };
 
     const component = renderer.create(

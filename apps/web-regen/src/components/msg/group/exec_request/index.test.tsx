@@ -25,6 +25,7 @@ describe('screen: TransactionDetails/ExecRequest', () => {
       category: 'group',
       type: 'MsgExecRequest',
       signer: 'signer',
+      json: {},
     };
 
     const component = renderer.create(

@@ -9,6 +9,7 @@
     "clean": "rm -rf node_modules .next",
     "start": "NODE_ENV=production next start",
     "lint": "next lint",
+    "check-types": "tsc --noemit",
     "test": "jest --passWithNoTests --ci --no-watchman",
     "e2e": "cypress open"
   },

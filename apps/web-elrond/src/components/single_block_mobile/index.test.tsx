@@ -18,11 +18,12 @@ describe('component: SingleSlotMobile', () => {
       <MockTheme>
         <SingleSlotMobile
           hash="hash"
-          parentHash="parentHash"
+          // parentHash="parentHash"
           txs="txs"
           time="time"
-          proposer={<div id="proposer" />}
-          height={<div id="height" />}
+          // proposer={<div id="proposer" />}
+          // height={<div id="height" />}
+          block="block"
         />
       </MockTheme>
     );

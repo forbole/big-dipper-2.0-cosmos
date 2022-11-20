@@ -30,6 +30,7 @@
     "build": "tsup",
     "clean": "rm -rf dist",
     "lint": "next lint",
+    "check-types": "tsc --noemit",
     "dev": "tsup --watch",
     "test": "jest --passWithNoTests --ci --no-watchman",
     "graphql:codegen": "graphql-codegen"

@@ -21,12 +21,13 @@ jest.mock('next-translate/Trans', () => (props: JSX.IntrinsicElements['div']) =>
 // ==================================
 describe('screen: TransactionDetails/MsgBurn', () => {
   it('matches snapshot', () => {
-    const message = {
+    const message: MsgSetRegistry = {
       category: 'dispensation',
       type: 'MsgRegister',
       from: 'from',
       registry: [{ denom: 'daric' }, { denom: 'bar' }, { denom: 'etg' }],
-    } as MsgSetRegistry;
+      json: {},
+    };
     const component = renderer.create(
       <MockTheme>
         <SetRegistry message={message} />

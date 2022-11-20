@@ -1,3 +1,4 @@
+import type { useDesmosProfile } from '@src/hooks';
 import { renderHook, act, cleanup } from '@testing-library/react-hooks';
 import chainConfig from 'ui/chainConfig';
 import { useProfileDetails } from './hooks';
@@ -15,7 +16,7 @@ jest.mock('next/router', () => ({
 }));
 
 jest.mock('ui/hooks', () => ({
-  useDesmosProfile: (options) => ({
+  useDesmosProfile: (options: Parameters<typeof useDesmosProfile>[0]) => ({
       fetchDesmosProfile: jest.fn((dtag) => {
         let results;
         if (dtag === '@happieSa') {
@@ -50,7 +51,7 @@ jest.mock('ui/hooks', () => ({
         }
 
         return options.onComplete({
-          profile: [results],
+          profile: results ? [results] : [],
         });
       }),
       formatDesmosProfile: jest.fn((data) => {

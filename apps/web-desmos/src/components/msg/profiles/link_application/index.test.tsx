@@ -16,7 +16,7 @@ jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 describe('screen: TransactionDetails/MsgLinkApplication', () => {
   it('matches snapshot', () => {
-    const message = {
+    const message: MsgLinkApplication = {
       category: 'profiles',
       type: 'MsgLinkApplication',
       sender: 'sender',
@@ -24,7 +24,8 @@ describe('screen: TransactionDetails/MsgLinkApplication', () => {
         application: 'application',
         username: 'username',
       },
-    } as MsgLinkApplication;
+      json: {},
+    };
     const component = renderer.create(
       <MockTheme>
         <LinkApplication message={message} />

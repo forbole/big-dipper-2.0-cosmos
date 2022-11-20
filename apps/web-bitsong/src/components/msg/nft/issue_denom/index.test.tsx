@@ -16,7 +16,7 @@ jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 describe('screen: TransactionDetails/IssueDenom', () => {
   it('matches snapshot', () => {
-    const message = {
+    const message: MsgIssueDenom = {
       category: 'nft',
       type: 'MsgIssueDenom',
       creators: [
@@ -25,7 +25,8 @@ describe('screen: TransactionDetails/IssueDenom', () => {
         'desmosvaloper1jh753mzjy358jf86cfqqzkrrtqqefhjxctcre4',
         'desmosvaloper1rzhewpmmdl72lhnxj6zmxr4v94f522s4hyz467',
       ],
-    } as MsgIssueDenom;
+      json: {},
+    };
     const component = renderer.create(
       <MockTheme>
         <IssueDenom message={message} />

@@ -25,6 +25,7 @@ describe('screen: TransactionDetails/CreateGroupAccountRequest', () => {
       category: 'group',
       type: 'MsgCreateGroupAccountRequest',
       admin: 'admin',
+      json: {},
     };
 
     const component = renderer.create(

@@ -37,7 +37,7 @@ const Mobile: React.FC<{
       ),
       type: (
         <div>
-          <Tag value={x.type?.[0]} theme="six" />
+          <Tag value={x.type?.[0] ?? ''} theme="six" />
           {x.messages > 1 && ` + ${x.messages - 1}`}
         </div>
       ),
@@ -48,12 +48,12 @@ const Mobile: React.FC<{
 
   return (
     <div className={classnames(className)}>
-      {formattedData.map((x) => (
-          <React.Fragment key={`${x.block}-${x.timestamp}`}>
-            <SingleTransactionMobile {...x} />
-            {i !== formattedData.length - 1 && <Divider />}
-          </React.Fragment>
-        ))}
+      {formattedData.map((x, i) => (
+        <React.Fragment key={`${x.block}-${x.time}`}>
+          <SingleTransactionMobile {...x} />
+          {i !== formattedData.length - 1 && <Divider />}
+        </React.Fragment>
+      ))}
     </div>
   );
 };

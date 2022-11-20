@@ -17,7 +17,7 @@ jest.mock('copy-to-clipboard', () => ({
 
 describe('hook: useOverview', () => {
   test('handles open correctly', () => {
-    const { result } = renderHook(() => useOverview({ open: false }));
+    const { result } = renderHook(() => useOverview());
     expect(result.current.open).toBe(false);
 
     act(() => result.current.handleOpen());
@@ -25,7 +25,7 @@ describe('hook: useOverview', () => {
   });
 
   test('handles close correctly', () => {
-    const { result } = renderHook(() => useOverview({ open: false }));
+    const { result } = renderHook(() => useOverview());
     expect(result.current.open).toBe(false);
 
     act(() => result.current.handleOpen());

@@ -25,6 +25,7 @@ describe('screen: TransactionDetails/RetireRequest', () => {
       category: 'ecocredit',
       type: 'MsgRetireRequest',
       holder: 'holder',
+      json: {},
     };
 
     const component = renderer.create(

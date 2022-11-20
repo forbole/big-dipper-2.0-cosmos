@@ -21,7 +21,7 @@ jest.mock('next-translate/Trans', () => (props: JSX.IntrinsicElements['div']) =>
 // ==================================
 describe('screen: TransactionDetails/Swap', () => {
   it('matches snapshot', () => {
-    const message = {
+    const message: MsgSwap = {
       category: 'bank',
       type: 'MsgCreatePool',
       signer: 'signer',
@@ -34,7 +34,8 @@ describe('screen: TransactionDetails/Swap', () => {
       sentAmount: '4000000',
       minReceivingAmount: '51000000',
       receivedAmount: '51000000',
-    } as MsgSwap;
+      json: {},
+    };
 
     const component = renderer.create(
       <MockTheme>

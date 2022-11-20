@@ -31,11 +31,12 @@ describe('screen: BlockDetails/Overview', () => {
               displayDenom: 'daric',
               exponent: 6,
             },
-            gasUsed: 0,
-            gasWanted: 0,
-            success: false,
+            gas: 0,
+            // gasUsed: 0,
+            // gasWanted: 0,
+            // success: false,
             memo: '',
-            error: '',
+            // error: '',
           }}
         />
       </MockTheme>

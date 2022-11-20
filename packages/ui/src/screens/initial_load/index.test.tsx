@@ -6,7 +6,7 @@ import InitialLoad from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@material-ui/core/LinearProgress', () => (props) => (
+jest.mock('@material-ui/core/LinearProgress', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="LinearProgress" {...props} />
 ));
 

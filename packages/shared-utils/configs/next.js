@@ -74,6 +74,9 @@ function getBaseConfig(chainConfigJson) {
       // to speed up the build task
       ignoreDuringBuilds: true,
     },
+    typescript: {
+      ignoreBuildErrors: true,
+    },
   };
   return config;
 }

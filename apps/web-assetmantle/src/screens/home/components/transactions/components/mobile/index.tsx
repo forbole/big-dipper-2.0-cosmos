@@ -18,42 +18,42 @@ const Mobile: React.FC<{
   items: TransactionType[];
 }> = ({ className, items }) => {
   const formattedData = items.map((x) => ({
-      block: (
-        <Link href={BLOCK_DETAILS(x.height)} passHref>
-          <Typography variant="body1" component="a">
-            {numeral(x.height).format('0,0')}
-          </Typography>
-        </Link>
-      ),
-      hash: (
-        <Link href={TRANSACTION_DETAILS(x.hash)} passHref>
-          <Typography variant="body1" component="a">
-            {getMiddleEllipsis(x.hash, {
-              beginning: 15,
-              ending: 5,
-            })}
-          </Typography>
-        </Link>
-      ),
-      type: (
-        <div>
-          <Tag value={x.type?.[0]} theme="six" />
-          {x.messages > 1 && ` + ${x.messages - 1}`}
-        </div>
-      ),
-      result: <Result success={x.success} />,
-      time: (dayjs as any).utc(x.timestamp).fromNow(),
-      messages: numeral(x.messages).format('0,0'),
-    }));
+    block: (
+      <Link href={BLOCK_DETAILS(x.height)} passHref>
+        <Typography variant="body1" component="a">
+          {numeral(x.height).format('0,0')}
+        </Typography>
+      </Link>
+    ),
+    hash: (
+      <Link href={TRANSACTION_DETAILS(x.hash)} passHref>
+        <Typography variant="body1" component="a">
+          {getMiddleEllipsis(x.hash, {
+            beginning: 15,
+            ending: 5,
+          })}
+        </Typography>
+      </Link>
+    ),
+    type: (
+      <div>
+        <Tag value={x.type?.[0] ?? ''} theme="six" />
+        {x.messages > 1 && ` + ${x.messages - 1}`}
+      </div>
+    ),
+    result: <Result success={x.success} />,
+    time: (dayjs as any).utc(x.timestamp).fromNow(),
+    messages: numeral(x.messages).format('0,0'),
+  }));
 
   return (
     <div className={classnames(className)}>
-      {formattedData.map((x) => (
-          <React.Fragment key={`${x.block}-${x.timestamp}`}>
-            <SingleTransactionMobile {...x} />
-            {i !== formattedData.length - 1 && <Divider />}
-          </React.Fragment>
-        ))}
+      {formattedData.map((x, i) => (
+        <React.Fragment key={`${x.block}-${x.time}`}>
+          <SingleTransactionMobile {...x} />
+          {i !== formattedData.length - 1 && <Divider />}
+        </React.Fragment>
+      ))}
     </div>
   );
 };

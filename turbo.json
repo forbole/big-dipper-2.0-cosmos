@@ -28,8 +28,9 @@
       "dependsOn": ["ui#build"]
     },
     "start": {},
-    "type-check": {},
+    "check-types": {},
     "lint": {
+      "dependsOn": ["check-types"],
       "outputs": []
     },
     "test": {

@@ -21,12 +21,13 @@ jest.mock('next-translate/Trans', () => (props: JSX.IntrinsicElements['div']) =>
 // ==================================
 describe('screen: TransactionDetails/DecommissionPool', () => {
   it('matches snapshot', () => {
-    const message = {
+    const message: MsgDecommissionPool = {
       category: 'bank',
       type: 'MsgCreatePool',
       signer: 'signer',
       symbol: 'udaric',
-    } as MsgDecommissionPool;
+      json: {},
+    };
     const component = renderer.create(
       <MockTheme>
         <DecommissionPool message={message} />

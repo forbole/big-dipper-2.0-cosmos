@@ -45,7 +45,7 @@ const Desktop: React.FC<{
       ),
       type: (
         <div>
-          <Tag value={x.type?.[0]} theme="six" />
+          <Tag value={x.type?.[0] ?? ''} theme="six" />
           {x.messages > 1 && ` + ${x.messages - 1}`}
         </div>
       ),
@@ -71,8 +71,9 @@ const Desktop: React.FC<{
           </TableRow>
         </TableHead>
         <TableBody>
-          {formattedData.map((row: any) => (
-            <TableRow key={`row-${x.timestamp}`}>
+          {formattedData.map((row: any, i) => (
+            // eslint-disable-next-line react/no-array-index-key
+            <TableRow key={`row-${i}`}>
               {columns.map((column, index) => {
                 const { key, align } = column;
                 const item = row[key];

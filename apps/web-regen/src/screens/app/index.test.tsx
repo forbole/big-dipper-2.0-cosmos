@@ -26,9 +26,7 @@ describe('screen: _app', () => {
       <App
         router={{} as any}
         Component={() => <div id="component" />}
-        pageProps={{
-          props: 'props',
-        }}
+        pageProps={{}}
       />
     );
     const tree = component?.toJSON();

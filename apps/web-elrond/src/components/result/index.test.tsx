@@ -19,7 +19,7 @@ describe('components: Result', () => {
   it('matches snapshot', () => {
     const component = renderer.create(
       <MockTheme>
-        <Result />
+        <Result status='test' />
       </MockTheme>
     );
     const tree = component?.toJSON();
@@ -29,7 +29,7 @@ describe('components: Result', () => {
   it('matches snapshot success', () => {
     const component = renderer.create(
       <MockTheme>
-        <Result success />
+        <Result status='success' />
       </MockTheme>
     );
     const tree = component?.toJSON();

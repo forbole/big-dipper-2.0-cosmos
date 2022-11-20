@@ -38,6 +38,7 @@ describe('screen: Validators/Tabs', () => {
               jailed: true,
               status: 3,
               tombstoned: false,
+              liquidStaking: '',
             },
           ]}
         />

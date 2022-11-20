@@ -26,6 +26,7 @@ describe('screen: TransactionDetails/SendRequest', () => {
       type: 'MsgCreateBatchRequest',
       sender: 'sender',
       recipient: 'recipient',
+      json: {},
     };
 
     const component = renderer.create(

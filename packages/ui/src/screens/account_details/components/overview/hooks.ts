@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import copy from 'copy-to-clipboard';
 import { Translate } from 'next-translate';
 
-export const useOverview = (t: Translate) => {
+export const useOverview = (t?: Translate) => {
   const [open, setOpen] = useState(false);
 
   const handleClose = () => {
@@ -16,7 +16,7 @@ export const useOverview = (t: Translate) => {
 
   const handleCopyToClipboard = (value: string) => {
     copy(value);
-    toast(t('common:copied'));
+    toast(t ? t('common:copied') : 'copied');
   };
 
   return {

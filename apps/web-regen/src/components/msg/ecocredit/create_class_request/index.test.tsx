@@ -25,6 +25,7 @@ describe('screen: TransactionDetails/CreateClassRequest', () => {
       category: 'ecocredit',
       type: 'MsgCreateClassRequest',
       designer: 'sender',
+      json: {},
     };
 
     const component = renderer.create(

@@ -26,6 +26,7 @@ describe('screen: TransactionDetails/UpdateGroupAccountMetadataRequest', () => {
       type: 'MsgUpdateGroupAccountMetadataRequest',
       admin: 'admin',
       address: 'address',
+      json: {},
     };
 
     const component = renderer.create(

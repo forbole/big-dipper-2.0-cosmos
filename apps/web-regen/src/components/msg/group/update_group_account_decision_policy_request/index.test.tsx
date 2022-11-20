@@ -26,6 +26,7 @@ describe('screen: TransactionDetails/UpdateGroupAccountDecisionPolicyRequest', (
       type: 'MsgUpdateGroupAccountDecisionPolicyRequest',
       admin: 'admin',
       address: 'address',
+      json: {},
     };
 
     const component = renderer.create(

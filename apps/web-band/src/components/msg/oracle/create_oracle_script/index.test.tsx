@@ -16,11 +16,18 @@ jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 describe('screen: TransactionDetails/CreateDataSource', () => {
   it('matches snapshot', () => {
-    const message = {
+    const message: MsgCreateOracleScript = {
       type: 'MsgCreateOracleScript',
       name: 'name',
       sender: 'name',
-    } as MsgCreateOracleScript;
+      category: 'oracle',
+      description: 'description',
+      schema: 'schema',
+      code: JSON.parse('{}'),
+      owner: 'owner',
+      sourceCodeUrl: '',
+      json: {},
+    };
     const component = renderer.create(
       <MockTheme>
         <CreateOracleScript message={message} />

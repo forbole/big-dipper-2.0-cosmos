@@ -16,7 +16,7 @@ jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 describe('screen: TransactionDetails/AddLimitOrder', () => {
   it('matches snapshot', () => {
-    const message = {
+    const message: MsgAddLimitOrder = {
       category: 'market',
       type: 'MsgAddLimitOrder',
       owner: 'owner',
@@ -24,13 +24,14 @@ describe('screen: TransactionDetails/AddLimitOrder', () => {
       timeInForce: 'Unspecified',
       source: {
         denom: 'udaric',
-        amount: 100000,
+        amount: '100000',
       },
       destination: {
         denom: 'udarics',
-        amount: 500000,
+        amount: '500000',
       },
-    } as MsgAddLimitOrder;
+      json: {},
+    };
     const component = renderer.create(
       <MockTheme>
         <AddLimitOrder message={message} />

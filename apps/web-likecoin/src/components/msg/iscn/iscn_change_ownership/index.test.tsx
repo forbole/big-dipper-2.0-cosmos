@@ -16,13 +16,14 @@ jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 describe('screen: TransactionDetails/IscnChangeOwnership', () => {
   it('matches snapshot', () => {
-    const message = {
+    const message: MsgChangeIscnRecordOwnership = {
       category: 'iscn',
       type: 'MsgChangeIscnRecordOwnership',
       from: 'from',
       iscnId: '300',
       newOwner: 'newOwner',
-    } as MsgChangeIscnRecordOwnership;
+      json: {},
+    };
     const component = renderer.create(
       <MockTheme>
         <IscnChangeOwnership message={message} />

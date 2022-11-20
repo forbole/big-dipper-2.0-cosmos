@@ -25,6 +25,7 @@ describe('screen: TransactionDetails/CreateBatchRequest', () => {
       category: 'ecocredit',
       type: 'MsgCreateBatchRequest',
       issuer: 'issuer',
+      json: {},
     };
 
     const component = renderer.create(

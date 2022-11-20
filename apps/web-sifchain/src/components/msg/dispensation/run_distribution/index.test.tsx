@@ -21,12 +21,13 @@ jest.mock('next-translate/Trans', () => (props: JSX.IntrinsicElements['div']) =>
 // ==================================
 describe('screen: TransactionDetails/RunDistribution', () => {
   it('matches snapshot', () => {
-    const message = {
+    const message: MsgRunDistribution = {
       category: 'dispensation',
       type: 'MsgCreateDistribution',
       authorizedRunner: 'userClaimAddress',
       distributionType: 'DISTRIBUTION_TYPE_AIRDROP',
-    } as MsgRunDistribution;
+      json: {},
+    };
     const component = renderer.create(
       <MockTheme>
         <RunDistribution message={message} />

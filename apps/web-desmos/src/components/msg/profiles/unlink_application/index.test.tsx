@@ -16,13 +16,14 @@ jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 describe('screen: TransactionDetails/MsgUnlinkApplication', () => {
   it('matches snapshot', () => {
-    const message = {
+    const message: MsgUnlinkApplication = {
       category: 'profiles',
       type: 'MsgUnlinkChainAccount',
       signer: 'signer',
       application: 'application',
       username: 'username',
-    } as MsgUnlinkApplication;
+      json: {},
+    };
     const component = renderer.create(
       <MockTheme>
         <UnlinkApplication message={message} />

@@ -25,6 +25,7 @@ describe('screen: TransactionDetails/CreateProposalRequest', () => {
       category: 'group',
       type: 'MsgCreateProposalRequest',
       address: 'address',
+      json: {},
     };
 
     const component = renderer.create(

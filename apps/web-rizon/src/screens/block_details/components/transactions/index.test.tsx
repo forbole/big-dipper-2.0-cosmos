@@ -23,6 +23,7 @@ describe('screen: BlockDetails/Transactions', () => {
         <Transactions
           transactions={[
             {
+              type: [],
               height: 300,
               hash: 'hash',
               success: false,
@@ -33,6 +34,7 @@ describe('screen: BlockDetails/Transactions', () => {
               },
             },
             {
+              type: [],
               height: 300,
               hash: 'hash1',
               success: true,

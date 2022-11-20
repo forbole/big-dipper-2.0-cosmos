@@ -21,11 +21,12 @@ jest.mock('next-translate/Trans', () => (props: JSX.IntrinsicElements['div']) =>
 // ==================================
 describe('screen: TransactionDetails/MsgLock', () => {
   it('matches snapshot', () => {
-    const message = {
+    const message: MsgLock = {
       category: 'dispensation',
       type: 'MsgCreateDistribution',
       cosmosSender: 'cosmosSender',
-    } as MsgLock;
+      json: {},
+    };
     const component = renderer.create(
       <MockTheme>
         <Lock message={message} />

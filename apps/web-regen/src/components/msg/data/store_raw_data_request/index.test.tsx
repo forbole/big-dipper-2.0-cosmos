@@ -25,6 +25,7 @@ describe('screen: TransactionDetails/StoreRawDataRequest', () => {
       category: 'data',
       type: 'MsgStoreRawDataRequest',
       sender: 'sender',
+      json: {},
     };
 
     const component = renderer.create(

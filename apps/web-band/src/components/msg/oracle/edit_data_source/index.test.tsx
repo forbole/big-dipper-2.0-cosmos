@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockTheme } from 'ui/tests/utils';
-import MsgCreateDataSource from '@models/band/msg/oracle/msg_create_data_source';
+import MsgEditDataSource from '@models/band/msg/oracle/msg_edit_data_source';
 import CreateDataSource from '.';
 
 // ==================================
@@ -16,11 +16,19 @@ jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 describe('screen: TransactionDetails/CreateDataSource', () => {
   it('matches snapshot', () => {
-    const message = {
+    const message: MsgEditDataSource = {
       type: 'MsgCreateDataSource',
       name: 'name',
       sender: 'name',
-    } as MsgCreateDataSource;
+      category: 'oracle',
+      dataSourceId: 0,
+      description: '',
+      executable: JSON.parse('{}'),
+      fee: [],
+      treasury: '',
+      owner: '',
+      json: {},
+    };
     const component = renderer.create(
       <MockTheme>
         <CreateDataSource message={message} />

@@ -50,6 +50,7 @@ describe('screen: Validators/Desktop', () => {
               jailed: true,
               status: 3,
               tombstoned: false,
+              liquidStaking: '',
             },
           ]}
         />

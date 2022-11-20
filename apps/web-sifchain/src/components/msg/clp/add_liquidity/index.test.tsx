@@ -21,7 +21,7 @@ jest.mock('next-translate/Trans', () => (props: JSX.IntrinsicElements['div']) =>
 // ==================================
 describe('screen: TransactionDetails/AddLiquidity', () => {
   it('matches snapshot', () => {
-    const message = {
+    const message: MsgAddLiquidity = {
       category: 'bank',
       type: 'MsgAddLiquidity',
       signer: 'signer',
@@ -30,7 +30,8 @@ describe('screen: TransactionDetails/AddLiquidity', () => {
       },
       nativeAssetAmount: '4000000',
       externalAssetAmount: '0',
-    } as MsgAddLiquidity;
+      json: {},
+    };
     const component = renderer.create(
       <MockTheme>
         <AddLiquidity message={message} />

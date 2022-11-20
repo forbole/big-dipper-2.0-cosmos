@@ -20,13 +20,15 @@ jest.mock('next-translate/Trans', () => (props: JSX.IntrinsicElements['div']) =>
 // ==================================
 describe('screen: TransactionDetails/MsgConvertErc20', () => {
   it('matches snapshot', () => {
-    const message = {
+    const message: MsgConvertErc20 = {
       category: 'erc20',
       type: 'MsgSend',
       sender: '0x6B6A7D59f854d1d9F38881A6502f4970f96A0104',
       receiver: 'evmos1s9waleajyy7hzdzpml3kvhakea0vfepkw7x8a2',
       amount: '33600atevmos',
-    } as MsgConvertErc20;
+      contractAddress: '',
+      json: {},
+    };
     const component = renderer.create(
       <MockTheme>
         <ConvertErc20 message={message} />

@@ -16,13 +16,14 @@ jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 describe('screen: TransactionDetails/MsgCreateIssuer', () => {
   it('matches snapshot', () => {
-    const message = {
+    const message: MsgCreateIssuer = {
       category: 'authority',
       type: 'MsgCreateIssuer',
       authority: 'authority',
       issuer: 'issuer',
       denominations: ['donom 1', 'denom 2'],
-    } as MsgCreateIssuer;
+      json: {},
+    };
     const component = renderer.create(
       <MockTheme>
         <CreateIssuer message={message} />

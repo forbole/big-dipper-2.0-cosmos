@@ -25,6 +25,7 @@ describe('screen: TransactionDetails/AnchorDataRequest', () => {
       category: 'data',
       type: 'MsgAnchorDataRequest',
       sender: 'sender',
+      json: {},
     };
 
     const component = renderer.create(

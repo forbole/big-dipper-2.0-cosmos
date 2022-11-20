@@ -27,6 +27,7 @@ describe('screen: TransactionDetails/UpdateGroupAdminRequest', () => {
       type: 'MsgUpdateGroupAdminRequest',
       admin: 'admin',
       newAdmin: 'newAdmin',
+      json: {},
     };
 
     const component = renderer.create(

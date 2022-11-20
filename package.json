@@ -15,7 +15,7 @@
     "clean": "rm -rf node_modules; turbo run clean",
     "start": "turbo run start --filter=web...",
     "format": "prettier --ignore-path ./.gitignore --write \"**/*.{js,ts,tsx,mjs,cjs,md}\"",
-    "lint": "turbo run lint",
+    "lint": "turbo run lint --continue",
     "test": "turbo run test --continue --concurrency=30%",
     "test:web": "turbo run test --filter=web...",
     "e2e": "turbo run e2e --continue --concurrency=30%",

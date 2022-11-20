@@ -16,11 +16,13 @@ jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 describe('screen: TransactionDetails/CreateDataSource', () => {
   it('matches snapshot', () => {
-    const message = {
+    const message: MsgCreateDataSource = {
       type: 'MsgCreateDataSource',
       name: 'name',
       sender: 'name',
-    } as MsgCreateDataSource;
+      category: 'oracle',
+      json: {},
+    };
     const component = renderer.create(
       <MockTheme>
         <CreateDataSource message={message} />

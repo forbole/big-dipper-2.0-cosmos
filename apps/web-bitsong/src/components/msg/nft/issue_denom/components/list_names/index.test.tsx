@@ -1,5 +1,6 @@
+import type Name from 'ui/components/name';
 import { MockTheme } from 'ui/tests/utils';
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import renderer from 'react-test-renderer';
 import ListNames from '.';
 
@@ -7,7 +8,7 @@ import ListNames from '.';
 // mocks
 // ==================================
 jest.mock('ui/recoil/profiles', () => ({
-    useProfilesRecoil: jest.fn((addresses) => addresses.map((address) => ({
+    useProfilesRecoil: jest.fn((addresses) => addresses.map((address: string) => ({
         address,
         name:
           address === 'desmosvaloper14nfk5gm99gfrd7nwqtmtvzunzclz8720a6cqh7'
@@ -17,7 +18,7 @@ jest.mock('ui/recoil/profiles', () => ({
       }))),
   }));
 
-jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/name', () => (props: ComponentProps<typeof Name>) => (
   <div id={props.address} {...props} />
 ));
 
