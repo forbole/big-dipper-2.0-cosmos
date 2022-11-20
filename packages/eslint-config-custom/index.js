@@ -43,7 +43,6 @@ module.exports = {
     '@typescript-eslint/no-var-requires': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
-    '@typescript-eslint/no-non-null-assertion': 'off',
     /* https://typescript-eslint.io/rules/no-unused-vars/ */
     '@typescript-eslint/no-unused-vars': [
       'error',

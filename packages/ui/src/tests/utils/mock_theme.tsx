@@ -11,7 +11,7 @@ const StylesProviderWrapper = StylesProvider as FC<ComponentProps<typeof StylesP
  */
 const MockTheme = ({ children }: { children: ReactNode }) => {
   const generateClassName: StylesOptions['generateClassName'] = (rule, sheet): string =>
-    `${sheet!.options.classNamePrefix}-${rule.key}`;
+    `${sheet.options.classNamePrefix}-${rule.key}`;
 
   return (
     <StylesProviderWrapper generateClassName={generateClassName}>
