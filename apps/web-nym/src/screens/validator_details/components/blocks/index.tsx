@@ -29,7 +29,8 @@ const Blocks: React.FC<{
       <div className={classes.blocks}>
         {mergedDataWithProfiles.map((x: any, i) => (
           <Tooltip
-            key={`blocks-tooltip-${x.txs}`}
+            // eslint-disable-next-line react/no-array-index-key
+            key={`blocks-tooltip-${i}`}
             enterTouchDelay={50}
             title={
               <Box className={classes.toolTip}>
