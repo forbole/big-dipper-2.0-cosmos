@@ -72,7 +72,7 @@ export const useValidatorDetails = () => {
     if (!isValidAddress(router.query.address as string)) {
       handleSetState({
         loading: false,
-        exist: false,
+        exists: false,
       });
     } else if (chainConfig.extra.profile) {
       const address = validatorToDelegatorAddress(router.query.address as string);

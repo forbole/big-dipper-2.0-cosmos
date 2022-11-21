@@ -24,7 +24,6 @@ export const useDesmosProfile = (options: Options) => {
 
   const fetchDesmosProfile = useCallback(
     async (input: string) => {
-      debugger;
       let data: DesmosProfileQuery = {
         profile: [],
       };
@@ -50,7 +49,7 @@ export const useDesmosProfile = (options: Options) => {
         return onComplete(data);
       }
     },
-    []
+    [onComplete]
   );
 
   useEffect(() => {
