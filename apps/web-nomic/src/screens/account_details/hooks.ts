@@ -71,7 +71,8 @@ export const useAccountDetails = () => {
     } else if (chainConfig.extra.profile) {
       fetchDesmosProfile(router.query.address as string);
     }
-  }, [fetchDesmosProfile, handleSetState, router.query.address]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [router.query.address]);
 
   useEffect(() => {
     // ==========================

@@ -75,7 +75,8 @@ export const useValidatorDetails = () => {
       const address = validatorToDelegatorAddress(router.query.address as string);
       fetchDesmosProfile(address);
     }
-  }, [fetchDesmosProfile, handleSetState, router.query.address]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [router.query.address]);
 
   // ==========================
   // Fetch Data
