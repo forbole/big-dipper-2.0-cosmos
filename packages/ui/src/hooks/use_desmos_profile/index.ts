@@ -56,7 +56,7 @@ export const useDesmosProfile = (options: Options) => {
       fetchDesmosProfile(options.address, options.onComplete);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [options]);
+  }, [options.address]);
 
   return {
     loading,
