@@ -194,10 +194,10 @@
         "validator": "nvaloper",
         "account": "n"
       },
-      "primaryTokenUnit": "unym",
-      "votingPowerTokenUnit": "unym",
+      "primaryTokenUnit": "unyx",
+      "votingPowerTokenUnit": "unyx",
       "tokenUnits": {
-        "unym": {
+        "unyx": {
           "display": "nym",
           "exponent": 6
         }

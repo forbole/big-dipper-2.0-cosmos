@@ -124,10 +124,10 @@
         "validator": "sifvaloper",
         "account": "sif"
       },
-      "primaryTokenUnit": "uerowan",
-      "votingPowerTokenUnit": "uerowan",
+      "primaryTokenUnit": "rowan",
+      "votingPowerTokenUnit": "rowan",
       "tokenUnits": {
-        "uerowan": {
+        "rowan": {
           "display": "erowan",
           "exponent": 6
         }

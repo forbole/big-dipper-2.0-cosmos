@@ -127,10 +127,10 @@
         "validator": "pbvaloper",
         "account": "pb"
       },
-      "primaryTokenUnit": "uhash",
-      "votingPowerTokenUnit": "uhash",
+      "primaryTokenUnit": "nhash",
+      "votingPowerTokenUnit": "nhash",
       "tokenUnits": {
-        "uhash": {
+        "nhash": {
           "display": "hash",
           "exponent": 9
         }

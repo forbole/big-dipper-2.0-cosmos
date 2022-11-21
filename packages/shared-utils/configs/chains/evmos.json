@@ -124,10 +124,10 @@
         "validator": "evmosvaloper",
         "account": "evmos"
       },
-      "primaryTokenUnit": "uevmos",
-      "votingPowerTokenUnit": "uevmos",
+      "primaryTokenUnit": "aevmos",
+      "votingPowerTokenUnit": "aevmos",
       "tokenUnits": {
-        "uevmos": {
+        "aevmos": {
           "display": "evmos",
           "exponent": 18
         }
@@ -154,10 +154,11 @@
         "validator": "evmosvaloper",
         "account": "evmos"
       },
-      "primaryTokenUnit": "",
-      "votingPowerTokenUnit": "",
+      "primaryTokenUnit": "atevmos",
+      "votingPowerTokenUnit": "atevmos",
       "tokenUnits": {
-        "": {
+        "atevmos": {
+          "display": "evmos",
           "exponent": 0
         }
       },
