@@ -13,12 +13,15 @@ export const useInterval = (callback: () => void, delay: number) => {
     savedCallback.current();
   }, []);
 
+  const id = useRef<NodeJS.Timeout>();
+
   // Set up the interval.
   useEffect(() => {
     function tick() {
       savedCallback.current();
     }
-    const id = delay !== null ? setInterval(tick, delay) : undefined;
-    return () => clearInterval(id);
+    clearInterval(id.current)
+    id.current = delay !== null ? setInterval(tick, delay) : undefined;
+    return () => clearInterval(id.current);
   }, [delay]);
 };

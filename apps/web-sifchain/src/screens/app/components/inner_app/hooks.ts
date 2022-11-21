@@ -40,5 +40,6 @@ export function useChainHealthCheck<TData, TVariables>(
   useEffect(() => {
     if (!isClient) return;
     getLatestBlockTimestamp();
-  }, [getLatestBlockTimestamp]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 }

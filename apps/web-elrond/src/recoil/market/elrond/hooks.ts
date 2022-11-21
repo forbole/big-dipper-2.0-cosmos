@@ -27,5 +27,5 @@ export const useMarketRecoil = () => {
     };
 
     getEconomics();
-  }, [setMarket]);
+  }, []);
 };
