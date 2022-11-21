@@ -21,13 +21,16 @@
     "test:ci": "turbo run test --concurrency=30%",
     "e2e": "turbo run e2e --filter ${0:-web}...",
     "e2e:ci": "turbo run e2e --concurrency=30%",
-    "graphql:codegen": "turbo run graphql:codegen --continue --concurrency=2"
+    "graphql:codegen": "turbo run graphql:codegen --continue --concurrency=2",
+    "postinstall": "husky install"
   },
   "dependencies": {
     "@changesets/cli": "^2.25.0",
     "dotenv-cli": "^6.0.0"
   },
   "devDependencies": {
+    "husky": "^8.0.0",
+    "lint-staged": "^13.0.3",
     "prettier": "2.7.1",
     "turbo": "latest"
   },

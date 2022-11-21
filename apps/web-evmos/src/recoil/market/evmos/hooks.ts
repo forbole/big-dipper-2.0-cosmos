@@ -48,8 +48,6 @@ export function useMarketRecoil<TData, TVariables>(
       marketCap = data.tokenPrice[0]?.marketCap;
     }
 
-    console.log('communityPool', data);
-    console.log('primaryTokenUnit', chainConfig.primaryTokenUnit);
     const [communityPoolCoin] = R.pathOr([], ['communityPool', 0, 'coins'], data).filter(
       (x: any) => x.denom === chainConfig.primaryTokenUnit
     ) as any;

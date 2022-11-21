@@ -27,5 +27,6 @@ export const useMarketRecoil = () => {
     };
 
     getEconomics();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 };

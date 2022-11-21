@@ -19,8 +19,9 @@ exports[`screen: Home/Tokenomics matches snapshot 1`] = `
       <h4
         className="MuiTypography-root MuiTypography-h4"
       >
-        254,578,529,800
+        0
          
+        ROWAN
       </h4>
       <span
         className="MuiTypography-root MuiTypography-caption"
@@ -34,8 +35,9 @@ exports[`screen: Home/Tokenomics matches snapshot 1`] = `
       <h4
         className="MuiTypography-root MuiTypography-h4"
       >
-        -459,465,964,998
+        0
          
+        ROWAN
       </h4>
       <span
         className="MuiTypography-root MuiTypography-caption"

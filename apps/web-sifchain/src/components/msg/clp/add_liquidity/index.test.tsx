@@ -44,7 +44,7 @@ describe('screen: TransactionDetails/AddLiquidity', () => {
       'message_contents:MsgAddLiquidity'
     );
     expect(component.root.findByProps({ id: 'Trans' }).props.values.nativeAssetAmount).toEqual(
-      '4,000,000 UEROWAN'
+      '0.000000000004 ROWAN'
     );
   });
 

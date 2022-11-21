@@ -44,7 +44,7 @@ describe('screen: TransactionDetails/CreatePool', () => {
       'message_contents:MsgCreatePool'
     );
     expect(component.root.findByProps({ id: 'Trans' }).props.values.nativeAssetAmount).toEqual(
-      '4,000,000 UEROWAN'
+      '0.000000000004 ROWAN'
     );
   });
 
