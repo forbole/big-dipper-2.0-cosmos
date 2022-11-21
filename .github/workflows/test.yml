@@ -1,0 +1,49 @@
+name: Test
+on:
+  pull_request:
+
+env:
+  HUSKY: 0
+
+jobs:
+  Lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v2
+      with:
+        node-version: 18
+        cache: 'yarn'
+    - name: Install modules
+      run: corepack enable && yarn --immutable
+    - name: Run lint check
+      run: yarn lint:ci
+
+  Unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v2
+      with:
+        node-version: 18
+        cache: 'yarn'
+    - name: Install modules
+      run: corepack enable && yarn --immutable
+    - name: Run tests
+      run: yarn test:ci --coverage
+
+  Build-test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v2
+      with:
+        node-version: 18
+        cache: 'yarn'
+    - name: Install modules
+      run: corepack enable && yarn --immutable
+    - name: Run build check
+      run: yarn build:ci
