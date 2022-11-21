@@ -20,9 +20,10 @@ if (/^testnet$/i.test(process.env.NEXT_PUBLIC_CHAIN_TYPE || '')) {
 
 export const useDesmosProfile = (options: Options) => {
   const [loading, setLoading] = useState(false);
+  const { onComplete } = options;
 
   const fetchDesmosProfile = useCallback(
-    async (input: string, onComplete: Options['onComplete']) => {
+    async (input: string) => {
       let data: DesmosProfileQuery = {
         profile: [],
       };
@@ -42,18 +43,18 @@ export const useDesmosProfile = (options: Options) => {
           data = await fetchLink(input);
         }
         setLoading(false);
-        return onComplete?.(data);
+        return onComplete(data);
       } catch (error) {
         setLoading(false);
-        return onComplete?.(data);
+        return onComplete(data);
       }
     },
-    []
+    [onComplete]
   );
 
   useEffect(() => {
     if (options.address) {
-      fetchDesmosProfile(options.address, options.onComplete);
+      fetchDesmosProfile(options.address);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [options.address]);

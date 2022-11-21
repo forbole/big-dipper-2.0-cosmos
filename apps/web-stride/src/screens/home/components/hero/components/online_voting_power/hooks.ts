@@ -31,7 +31,7 @@ export const useOnlineVotingPower = () => {
     },
   });
 
-  const formatOnlineVotingPower = (data: OnlineVotingPowerQuery) => {
+  const formatOnlineVotingPower = (data: OnlineVotingPowerQuery): Partial<typeof state> => {
     const votingPower = R.pathOr(
       0,
       ['validatorVotingPowerAggregate', 'aggregate', 'sum', 'votingPower'],
@@ -45,7 +45,7 @@ export const useOnlineVotingPower = () => {
       votingPower,
       totalVotingPower: numeral(
         formatToken(bonded, chainConfig.votingPowerTokenUnit).value
-      ).value(),
+      ).value() ?? undefined,
     };
   };
 

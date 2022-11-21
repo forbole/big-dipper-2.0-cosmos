@@ -45,7 +45,7 @@ export const useOnlineVotingPower = () => {
       votingPower,
       totalVotingPower: numeral(
         formatToken(bonded, chainConfig.votingPowerTokenUnit).value
-      ).value(),
+      ).value() ?? undefined,
     };
   };
 

@@ -88,7 +88,7 @@ export const useAccountDetails = () => {
       const data = await fetchAccountWithdrawalAddress(router.query.address as string);
       handleSetState({
         overview: {
-          address: router.query.address,
+          address: router.query.address as string,
           withdrawalAddress: R.pathOr('', ['withdrawalAddress', 'address'], data),
         },
       });
