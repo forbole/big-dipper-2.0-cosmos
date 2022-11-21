@@ -40,3 +40,6 @@ test.js
 .sentryclirc
 
 .idea
+
+# IDE VSCode
+.vscode/*
