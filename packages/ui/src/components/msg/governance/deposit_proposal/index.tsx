@@ -5,9 +5,9 @@ import useTranslation from 'next-translate/useTranslation';
 import Typography from '@material-ui/core/Typography';
 import Name from '@components/name';
 import { MsgDeposit } from '@models';
-import { formatToken, formatNumber } from '@utils/format_token';
-import { useProfileRecoil } from '@recoil/profiles';
-import { PROPOSAL_DETAILS } from '@utils/go_to_page';
+import { formatToken, formatNumber } from 'ui/utils/format_token';
+import { useProfileRecoil } from 'ui/recoil/profiles';
+import { PROPOSAL_DETAILS } from 'ui/utils/go_to_page';
 
 const DepositProposal: React.FC<{ message: MsgDeposit }> = (props) => {
   const { t } = useTranslation('transactions');

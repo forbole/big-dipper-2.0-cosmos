@@ -3,7 +3,7 @@ import Trans from 'next-translate/Trans';
 import Typography from '@material-ui/core/Typography';
 import Name from '@components/name';
 import { type MsgChannelOpenAck } from '@models';
-import { useProfileRecoil } from '@recoil/profiles';
+import { useProfileRecoil } from 'ui/recoil/profiles';
 
 const ChannelOpenAck: React.FC<{ message: MsgChannelOpenAck }> = (props) => {
   const { message } = props;

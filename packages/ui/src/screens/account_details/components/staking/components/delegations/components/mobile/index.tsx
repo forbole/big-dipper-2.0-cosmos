@@ -4,7 +4,7 @@ import useTranslation from 'next-translate/useTranslation';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 import AvatarName from '@components/avatar_name';
-import { formatNumber } from '@utils/format_token';
+import { formatNumber } from 'ui/utils/format_token';
 import { useStyles } from './styles';
 import type { ItemType } from '../../types';
 

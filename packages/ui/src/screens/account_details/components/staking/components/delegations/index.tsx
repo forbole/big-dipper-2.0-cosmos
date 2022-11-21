@@ -6,7 +6,7 @@ import { usePagination, useScreenSize } from '@hooks';
 import Pagination from '@components/pagination';
 import NoData from '@components/no_data';
 import Loading from '@components/loading';
-import { useProfilesRecoil } from '@recoil/profiles';
+import { useProfilesRecoil } from 'ui/recoil/profiles';
 import { useStyles } from './styles';
 import type { DelegationsType } from '../../types';
 import type DesktopType from './components/desktop';

@@ -1,11 +1,11 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
-import { formatToken, formatNumber } from '@utils/format_token';
+import { formatToken, formatNumber } from 'ui/utils/format_token';
 import useTranslation from 'next-translate/useTranslation';
 import Typography from '@material-ui/core/Typography';
 import Name from '@components/name';
 import { MsgSend } from '@models';
-import { useProfileRecoil } from '@recoil/profiles';
+import { useProfileRecoil } from 'ui/recoil/profiles';
 
 const Send: React.FC<{ message: MsgSend }> = (props) => {
   const { t } = useTranslation('transactions');

@@ -27,11 +27,11 @@
     "dist/**"
   ],
   "scripts": {
-    "build": "tsup",
+    "build": "tsup --minify",
     "clean": "rm -rf dist",
     "lint": "next lint",
     "check-types": "tsc --noemit",
-    "watch": "tsup --watch",
+    "watch": "tsup --watch --sourcemap",
     "test": "jest --passWithNoTests --ci --no-watchman",
     "graphql:codegen": "graphql-codegen"
   },

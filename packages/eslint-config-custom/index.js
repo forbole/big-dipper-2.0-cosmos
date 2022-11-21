@@ -74,19 +74,8 @@ module.exports = {
     /* prefer not to migrate existing code to use default exports for now */
     'import/prefer-default-export': 'off',
     /* https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-extraneous-dependencies.md */
-    'import/no-extraneous-dependencies': [
-      'error',
-      {
-        devDependencies: [
-          '**/*.test.js',
-          '**/*.spec.js',
-          '**/*.test.ts',
-          '**/*.spec.ts',
-          '**/*.test.tsx',
-          '**/*.spec.tsx',
-        ],
-      },
-    ],
+    /* doesn't work well with monorepos in IDE */
+    'import/no-extraneous-dependencies': 'off',
     /* https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/destructuring-assignment.md */
     'react/destructuring-assignment': 'off',
     /* https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md */

@@ -1,3 +1,4 @@
+import { getMessageByType } from '@components/msg';
 import Divider from '@material-ui/core/Divider';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
@@ -8,7 +9,6 @@ import React, { FC } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
 import Box from 'ui/components/box';
-import { getMessageByType } from 'ui/components/msg';
 import TransactionMessagesFilter from 'ui/components/transaction_messages_filter';
 import { useList, useListRow } from 'ui/hooks';
 import { useStyles } from './styles';

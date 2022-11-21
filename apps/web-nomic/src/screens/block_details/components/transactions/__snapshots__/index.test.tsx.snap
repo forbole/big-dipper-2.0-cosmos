@@ -28,28 +28,12 @@ exports[`screen: BlockDetails/Transactions matches snapshot 1`] = `
         {
           "hash": "hash",
           "height": 300,
-          "messages": {
-            "count": 3,
-            "items": [],
-          },
-          "success": false,
           "timestamp": "",
-          "type": [
-            "",
-          ],
         },
         {
           "hash": "hash1",
           "height": 300,
-          "messages": {
-            "count": 13,
-            "items": [],
-          },
-          "success": true,
           "timestamp": "",
-          "type": [
-            "",
-          ],
         },
       ]
     }

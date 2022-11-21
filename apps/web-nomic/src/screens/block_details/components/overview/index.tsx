@@ -7,7 +7,7 @@ import { useRecoilValue } from 'recoil';
 import { useProfileRecoil } from 'ui/recoil/profiles';
 import { readDate } from 'ui/recoil/settings';
 import BoxDetails from 'ui/components/box_details';
-import AvatarName from '@components/avatar_name';
+import AvatarName from 'ui/components/avatar_name';
 import type { OverviewType } from '../../types';
 
 const Overview: React.FC<OverviewType & ComponentDefault> = (props, { className }) => {

@@ -1,7 +1,5 @@
 import Loading from 'ui/components/loading';
-import Result from 'ui/components/result';
 import SingleTransactionMobile from '@components/single_transaction_mobile';
-import Tag from 'ui/components/tag';
 import { useList, useListRow } from 'ui/hooks';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';

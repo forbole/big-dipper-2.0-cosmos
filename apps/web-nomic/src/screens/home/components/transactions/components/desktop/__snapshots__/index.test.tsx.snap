@@ -42,18 +42,6 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
         </th>
         <th
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-head"
-          scope="col"
-          style={
-            {
-              "width": "20%",
-            }
-          }
-        >
-          type
-        </th>
-        <th
-          aria-sort={null}
           className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight"
           scope="col"
           style={
@@ -111,23 +99,6 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
           >
             76nwV8zz8tLz97S...JDLQfF66jZhQ857
           </a>
-        </td>
-        <td
-          aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-body"
-          style={
-            {
-              "width": "20%",
-            }
-          }
-        >
-          <div>
-            <div
-              id="Tag"
-              theme="six"
-              value="Delegate"
-            />
-          </div>
         </td>
         <td
           aria-sort={null}

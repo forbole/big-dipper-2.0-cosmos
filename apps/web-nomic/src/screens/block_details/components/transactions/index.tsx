@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import TransactionsListDetails from '@components/transactions_list_details';
-import TransactionsList from 'ui/components/transactions_list';
+import TransactionsList from '@components/transactions_list';
 import Box from 'ui/components/box';
 import { useRecoilValue } from 'recoil';
 import { readTx } from 'ui/recoil/settings';

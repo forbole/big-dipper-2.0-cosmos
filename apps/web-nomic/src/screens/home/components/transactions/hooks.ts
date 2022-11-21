@@ -1,4 +1,3 @@
-import * as R from 'ramda';
 import { useState } from 'react';
 import {
   useTransactionsListenerSubscription,

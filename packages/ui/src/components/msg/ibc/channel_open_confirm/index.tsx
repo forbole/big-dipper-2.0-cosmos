@@ -3,7 +3,7 @@ import Trans from 'next-translate/Trans';
 import Typography from '@material-ui/core/Typography';
 import Name from '@components/name';
 import { type MsgChannelOpenConfirm } from '@models';
-import { useProfileRecoil } from '@recoil/profiles';
+import { useProfileRecoil } from 'ui/recoil/profiles';
 
 const ChannelOpenConfirm: React.FC<{ message: MsgChannelOpenConfirm }> = (props) => {
   const { message } = props;

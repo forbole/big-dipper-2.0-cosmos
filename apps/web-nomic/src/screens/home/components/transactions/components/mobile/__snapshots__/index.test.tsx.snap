@@ -32,15 +32,8 @@ exports[`screen: Home/Transactions/Mobile matches snapshot 1`] = `
       </ForwardRef(LinkComponent)>
     }
     id="SingleTransactionMobile"
+    messages="0"
     time="1 day ago"
-    type={
-      <div>
-        <Unknown
-          theme="six"
-          value="Delegate"
-        />
-      </div>
-    }
   />
 </div>
 `;

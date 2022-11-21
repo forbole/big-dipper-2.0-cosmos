@@ -8,7 +8,7 @@ import React, { FC } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
 import Box from 'ui/components/box';
-import { getMessageByType } from 'ui/components/msg';
+import { getMessageByType } from '@components/msg';
 import TransactionMessagesFilter from 'ui/components/transaction_messages_filter';
 import { useList, useListRow } from 'ui/hooks';
 import { useStyles } from './styles';

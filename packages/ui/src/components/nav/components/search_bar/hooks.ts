@@ -7,11 +7,11 @@ import {
   BLOCK_DETAILS,
   TRANSACTION_DETAILS,
   PROFILE_DETAILS,
-} from '@utils/go_to_page';
+} from 'ui/utils/go_to_page';
 import { useRecoilCallback } from 'recoil';
 import { readValidator } from '@recoil/validators';
 import { toast } from 'react-toastify';
-import { isValidAddress } from '@utils/prefix_convert';
+import { isValidAddress } from 'ui/utils/prefix_convert';
 import { Translate } from 'next-translate';
 
 export const useSearchBar = (t: Translate) => {

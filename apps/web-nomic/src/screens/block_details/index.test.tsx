@@ -24,7 +24,7 @@ jest.mock('ui/components/load_and_exist', () => (props: JSX.IntrinsicElements['d
 ));
 
 jest.mock(
-  'ui/screens/block_details/components/overview',
+  './components/overview',
   () => (props: JSX.IntrinsicElements['div']) => <div id="Overview" {...props} />
 );
 jest.mock('./components/transactions', () => (props: JSX.IntrinsicElements['div']) => (

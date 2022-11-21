@@ -1,6 +1,6 @@
 import Tag from '@components/tag';
 import type { Categories } from '@models/msg/types';
-import isKeyOf from '@utils/isKeyOf';
+import isKeyOf from 'ui/utils/isKeyOf';
 import { Translate } from 'next-translate';
 import * as MODELS from '@models';
 import Delegate from './staking/delegate';

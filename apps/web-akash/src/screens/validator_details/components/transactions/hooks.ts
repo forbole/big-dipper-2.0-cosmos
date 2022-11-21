@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import { useRouter } from 'next/router';
-import { convertMsgsToModels } from 'ui/components/msg';
-import * as R from 'ramda';
 import { QueryHookOptions, QueryResult } from '@apollo/client';
+import { convertMsgsToModels } from '@components/msg';
+import { useRouter } from 'next/router';
+import * as R from 'ramda';
+import { useState } from 'react';
 import { convertMsgType } from 'ui/utils/convert_msg_type';
 import type { TransactionState } from './types';
 

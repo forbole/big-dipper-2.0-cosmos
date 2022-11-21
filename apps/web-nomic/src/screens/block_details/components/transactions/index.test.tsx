@@ -9,7 +9,7 @@ import Transactions from '.';
 jest.mock('ui/components/box', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Box" {...props} />
 ));
-jest.mock('ui/components/transactions_list', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@components/transactions_list', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="TransactionsList" {...props} />
 ));
 

@@ -3,7 +3,7 @@ import Trans from 'next-translate/Trans';
 import Typography from '@material-ui/core/Typography';
 import Name from '@components/name';
 import { MsgDtagTransferRequest } from '@models';
-import { useProfileRecoil } from '@recoil/profiles';
+import { useProfileRecoil } from 'ui/recoil/profiles';
 
 const DtagTransferRequest: React.FC<{ message: MsgDtagTransferRequest }> = (props) => {
   const { message } = props;

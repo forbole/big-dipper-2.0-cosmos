@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 import chainConfig from 'ui/chainConfig';
-import { getItem, THEME_KEY, DATE_KEY, TX_KEY } from '@utils/localstorage';
+import { getItem, THEME_KEY, DATE_KEY, TX_KEY } from 'ui/utils/localstorage';
 import { atomState } from './atom';
 import { THEME_DICTIONARY } from './utils';
 import type { AtomState, Theme } from './types';

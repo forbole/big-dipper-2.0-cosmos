@@ -3,7 +3,7 @@ import Trans from 'next-translate/Trans';
 import Typography from '@material-ui/core/Typography';
 import Name from '@components/name';
 import { MsgGrantAllowance } from '@models';
-import { useProfileRecoil } from '@recoil/profiles';
+import { useProfileRecoil } from 'ui/recoil/profiles';
 
 const GrantAllowance: React.FC<{ message: MsgGrantAllowance }> = (props) => {
   const { message } = props;

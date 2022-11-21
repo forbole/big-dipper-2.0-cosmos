@@ -8,7 +8,6 @@ import { ListChildComponentProps, VariableSizeList as List } from 'react-window'
 import InfiniteLoader from 'react-window-infinite-loader';
 import { useRecoilValue } from 'recoil';
 import Loading from 'ui/components/loading';
-import Tag from 'ui/components/tag';
 import { useList, useListRow, useScreenSize } from 'ui/hooks';
 import { readDate } from 'ui/recoil/settings';
 import dayjs, { formatDayJs } from 'ui/utils/dayjs';

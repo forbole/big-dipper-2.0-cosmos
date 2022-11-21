@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { ComponentProps, FC } from 'react';
 import dynamic from 'next/dynamic';
 import NoData from 'ui/components/no_data';
 import { useScreenSize } from 'ui/hooks';
 import { useStyles } from './styles';
 import type { TransactionsListState } from './types';
+import type DesktopType from './components/desktop';
+import type MobileType from './components/mobile';
 
-const Desktop = dynamic(() => import('./components/desktop'));
-const Mobile = dynamic(() => import('./components/mobile'));
+const Desktop = dynamic(() => import('./components/desktop')) as FC<
+  ComponentProps<typeof DesktopType>
+>;
+const Mobile = dynamic(() => import('./components/mobile')) as FC<
+  ComponentProps<typeof MobileType>
+>;
 
-const TransactionsList: React.FC<TransactionsListState> = (props) => {
+const TransactionsList: FC<TransactionsListState> = (props) => {
   const { isDesktop } = useScreenSize();
   // setting fallback values
   const {
