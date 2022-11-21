@@ -6,7 +6,7 @@ import axios from 'axios';
 import { formatToken } from 'ui/utils/format_token';
 import { getDenom } from 'ui/utils/get_denom';
 import chainConfig from 'ui/chainConfig';
-import type { RedelegationType, StakingState } from './types';
+import type { DelegationType, RedelegationType, StakingState } from './types';
 import type { RewardsType } from '../../types';
 
 const stakingDefault = {
@@ -32,15 +32,18 @@ export const useStaking = (
     unbondings: stakingDefault,
   });
 
-  const handleSetState = useCallback((stateChange: any) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+  const handleSetState = useCallback((stateChange: Partial<StakingState>) => {
+    setState((prevState) => {
+      const newState = { ...prevState, ...stateChange };
+      return R.equals(prevState, newState) ? prevState : newState;
+    });
   }, []);
 
   useEffect(() => {
     const formatDelegations = (data: any[]) =>
       data
-        .map((x) => {
-          const validator = R.pathOr('', ['validator_address'], x);
+        .map((x): DelegationType => {
+          const validator = R.pathOr<string>('', ['validator_address'], x);
           const delegation = getDenom(x.coins, chainConfig.primaryTokenUnit);
           return {
             validator,
@@ -115,6 +118,8 @@ export const useStaking = (
       } catch (error) {
         handleSetState({
           delegations: {
+            data: {},
+            count: 0,
             loading: false,
           },
         });
@@ -173,6 +178,8 @@ export const useStaking = (
       } catch (error) {
         handleSetState({
           redelegations: {
+            data: {},
+            count: 0,
             loading: false,
           },
         });
@@ -231,6 +238,8 @@ export const useStaking = (
       } catch (error) {
         handleSetState({
           unbondings: {
+            data: {},
+            count: 0,
             loading: false,
           },
         });
@@ -256,8 +265,8 @@ export const useStaking = (
     }));
   }, []);
 
-  const createPagination = (data: any[]) => {
-    const pages: Record<number, unknown[]> = {};
+  const createPagination = <T>(data: T[]) => {
+    const pages: Record<number, T[]> = {};
     data.forEach((x, i) => {
       const selectedKey = Math.floor(i / PAGE_LIMIT);
       pages[selectedKey] = pages[selectedKey] || [];

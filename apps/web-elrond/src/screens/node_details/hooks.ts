@@ -7,7 +7,7 @@ import type { NodeDetailsState } from './types';
 
 export const useNodeDetails = () => {
   const router = useRouter();
-  const [state, setState] = useState<NodeDetailsState>({
+    const [state, setState] = useState<NodeDetailsState>({
     loading: true,
     exists: true,
     profile: {
@@ -36,8 +36,11 @@ export const useNodeDetails = () => {
     blocks: [],
   });
 
-  const handleSetState = useCallback((stateChange: any) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+  const handleSetState = useCallback((stateChange: Partial<NodeDetailsState>) => {
+    setState((prevState) => {
+      const newState = { ...prevState, ...stateChange };
+      return R.equals(prevState, newState) ? prevState : newState;
+    });
   }, []);
 
   useEffect(() => {

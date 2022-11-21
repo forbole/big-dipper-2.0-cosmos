@@ -51,8 +51,11 @@ export const useAccountDetails = () => {
   const router = useRouter();
   const [state, setState] = useState<AccountDetailState>(initialState);
 
-  const handleSetState = useCallback((stateChange: any) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+  const handleSetState = useCallback((stateChange: Partial<AccountDetailState>) => {
+    setState((prevState) => {
+      const newState = { ...prevState, ...stateChange };
+      return R.equals(prevState, newState) ? prevState : newState;
+    });
   }, []);
 
   // ==========================

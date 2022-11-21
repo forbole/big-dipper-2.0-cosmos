@@ -31,7 +31,10 @@ export function useTransactions<TData>(
   });
 
   const handleSetState = (stateChange: Partial<TransactionState>) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState) as TransactionState);
+    setState((prevState) => {
+      const newState = { ...prevState, ...stateChange };
+      return R.equals(prevState, newState) ? prevState : newState;
+    });
   };
 
   const transactionQuery = useGetMessagesByAddressQuery({

@@ -19,7 +19,7 @@ const defaultTokenUnit: TokenUnit = {
 
 export const useVotesGraph = () => {
   const router = useRouter();
-  const [state, setState] = useState<VotesGraphState>({
+    const [state, setState] = useState<VotesGraphState>({
     votes: {
       yes: defaultTokenUnit,
       no: defaultTokenUnit,
@@ -30,8 +30,11 @@ export const useVotesGraph = () => {
     quorum: 0,
   });
 
-  const handleSetState = useCallback((stateChange: any) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+  const handleSetState = useCallback((stateChange: Partial<VotesGraphState>) => {
+    setState((prevState) => {
+      const newState = { ...prevState, ...stateChange };
+      return R.equals(prevState, newState) ? prevState : newState;
+    });
   }, []);
 
   useProposalDetailsTallyQuery({

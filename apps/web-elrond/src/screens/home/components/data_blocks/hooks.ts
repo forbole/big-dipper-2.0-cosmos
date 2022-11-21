@@ -6,7 +6,7 @@ import { useInterval } from 'ui/hooks';
 import type { DataBlockState } from './types';
 
 export const useDataBlocks = () => {
-  const [state, setState] = useState<DataBlockState>({
+    const [state, setState] = useState<DataBlockState>({
     blockHeight: 0,
     transactions: 0,
     validators: {
@@ -15,8 +15,11 @@ export const useDataBlocks = () => {
     },
   });
 
-  const handleSetState = useCallback((stateChange: any) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+  const handleSetState = useCallback((stateChange: Partial<DataBlockState>) => {
+    setState((prevState) => {
+      const newState = { ...prevState, ...stateChange };
+      return R.equals(prevState, newState) ? prevState : newState;
+    });
   }, []);
 
   useEffect(() => {

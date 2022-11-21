@@ -9,15 +9,18 @@ export const PAGE_SIZE = 10;
 
 export const useTokens = () => {
   const router = useRouter();
-  const [state, setState] = useState<OtherTokensState>({
+    const [state, setState] = useState<OtherTokensState>({
     page: 0,
     loading: true,
     items: [],
     total: 0,
   });
 
-  const handleSetState = useCallback((stateChange: any) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+  const handleSetState = useCallback((stateChange: Partial<OtherTokensState>) => {
+    setState((prevState) => {
+      const newState = { ...prevState, ...stateChange };
+      return R.equals(prevState, newState) ? prevState : newState;
+    });
   }, []);
 
   const getTransactionsByPage = useCallback(

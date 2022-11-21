@@ -16,7 +16,7 @@ const defaultTokenUnit: TokenUnit = {
 
 export const useTransactionDetails = () => {
   const router = useRouter();
-  const [state, setState] = useState<TransactionDetailsState>({
+    const [state, setState] = useState<TransactionDetailsState>({
     loading: true,
     exists: true,
     overview: {
@@ -38,8 +38,11 @@ export const useTransactionDetails = () => {
     results: [],
   });
 
-  const handleSetState = useCallback((stateChange: any) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+  const handleSetState = useCallback((stateChange: Partial<TransactionDetailsState>) => {
+    setState((prevState) => {
+      const newState = { ...prevState, ...stateChange };
+      return R.equals(prevState, newState) ? prevState : newState;
+    });
   }, []);
 
   useEffect(() => {

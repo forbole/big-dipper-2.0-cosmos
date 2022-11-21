@@ -7,7 +7,7 @@ import type { BlockDetailsState } from './types';
 
 export const useBlockDetails = () => {
   const router = useRouter();
-  const [state, setState] = useState<BlockDetailsState>({
+    const [state, setState] = useState<BlockDetailsState>({
     loading: true,
     exists: true,
     overview: {
@@ -27,8 +27,11 @@ export const useBlockDetails = () => {
     consensus: [],
   });
 
-  const handleSetState = useCallback((stateChange: any) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+  const handleSetState = useCallback((stateChange: Partial<BlockDetailsState>) => {
+    setState((prevState) => {
+      const newState = { ...prevState, ...stateChange };
+      return R.equals(prevState, newState) ? prevState : newState;
+    });
   }, []);
 
   useEffect(() => {

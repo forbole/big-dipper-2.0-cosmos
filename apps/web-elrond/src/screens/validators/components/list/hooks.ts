@@ -8,7 +8,7 @@ import chainConfig from 'ui/chainConfig';
 import type { ValidatorsState } from './types';
 
 export const useValidators = () => {
-  const [state, setState] = useState<ValidatorsState>({
+    const [state, setState] = useState<ValidatorsState>({
     loading: true,
     exists: true,
     tab: 0,
@@ -23,8 +23,11 @@ export const useValidators = () => {
     }));
   }, []);
 
-  const handleSetState = useCallback((stateChange: any) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+  const handleSetState = useCallback((stateChange: Partial<ValidatorsState>) => {
+    setState((prevState) => {
+      const newState = { ...prevState, ...stateChange };
+      return R.equals(prevState, newState) ? prevState : newState;
+    });
   }, []);
 
   const handleSearch = useCallback(

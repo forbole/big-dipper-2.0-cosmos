@@ -5,14 +5,17 @@ import { STATS } from '@api';
 import type { EpochState } from './types';
 
 export const useEpoch = () => {
-  const [state, setState] = useState<EpochState>({
+    const [state, setState] = useState<EpochState>({
     epoch: 0,
     roundsPassed: 0,
     roundsPerEpoch: 0,
   });
 
-  const handleSetState = useCallback((stateChange: any) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+  const handleSetState = useCallback((stateChange: Partial<EpochState>) => {
+    setState((prevState) => {
+      const newState = { ...prevState, ...stateChange };
+      return R.equals(prevState, newState) ? prevState : newState;
+    });
   }, []);
 
   useEffect(() => {

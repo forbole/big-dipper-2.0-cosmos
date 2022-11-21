@@ -7,15 +7,18 @@ import type { TokenState } from './types';
 export const PAGE_SIZE = 25;
 
 export const useBlocks = () => {
-  const [state, setState] = useState<TokenState>({
+    const [state, setState] = useState<TokenState>({
     page: 0,
     loading: true,
     items: [],
     total: 0,
   });
 
-  const handleSetState = useCallback((stateChange: any) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+  const handleSetState = useCallback((stateChange: Partial<TokenState>) => {
+    setState((prevState) => {
+      const newState = { ...prevState, ...stateChange };
+      return R.equals(prevState, newState) ? prevState : newState;
+    });
   }, []);
 
   const getTransactionsByPage = useCallback(

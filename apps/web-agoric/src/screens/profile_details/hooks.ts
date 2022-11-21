@@ -15,6 +15,13 @@ export const useProfileDetails = () => {
   const router = useRouter();
   const [state, setState] = useState<ProfileDetailState>(initialState);
 
+  const handleSetState = useCallback((stateChange: Partial<ProfileDetailState>) => {
+    setState((prevState) => {
+      const newState = { ...prevState, ...stateChange };
+      return R.equals(prevState, newState) ? prevState : newState;
+    });
+  }, []);
+
   const shouldShowProfile = useCallback(() => {
     const dtagConnections = state.desmosProfile?.connections ?? [];
     const dtagConnectionsNetwork = dtagConnections.map((x) => x.identifier);
@@ -22,10 +29,6 @@ export const useProfileDetails = () => {
     const containNetwork = dtagConnectionsNetwork.some((x) => x.startsWith(chainPrefix));
     return !!containNetwork;
   }, [state.desmosProfile?.connections]);
-
-  const handleSetState = useCallback((stateChange: any) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-  }, []);
 
   // ==========================
   // Desmos Profile

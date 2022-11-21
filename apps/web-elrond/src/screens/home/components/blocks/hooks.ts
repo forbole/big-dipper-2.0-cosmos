@@ -8,12 +8,15 @@ import type { BlockState } from './types';
 export const PAGE_SIZE = 7;
 
 export const useBlocks = () => {
-  const [state, setState] = useState<BlockState>({
+    const [state, setState] = useState<BlockState>({
     items: [],
   });
 
-  const handleSetState = useCallback((stateChange: any) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+  const handleSetState = useCallback((stateChange: Partial<BlockState>) => {
+    setState((prevState) => {
+      const newState = { ...prevState, ...stateChange };
+      return R.equals(prevState, newState) ? prevState : newState;
+    });
   }, []);
 
   const getBlocksByPage = useCallback(async () => {

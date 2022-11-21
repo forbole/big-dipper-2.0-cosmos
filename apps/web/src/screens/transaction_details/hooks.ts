@@ -8,7 +8,7 @@ import type { TransactionState } from './types';
 
 export const useTransactionDetails = () => {
   const router = useRouter();
-  const [state, setState] = useState<TransactionState>({
+    const [state, setState] = useState<TransactionState>({
     exists: true,
     loading: true,
     overview: {
@@ -35,8 +35,11 @@ export const useTransactionDetails = () => {
     },
   });
 
-  const handleSetState = useCallback((stateChange: any) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+  const handleSetState = useCallback((stateChange: Partial<TransactionState>) => {
+    setState((prevState) => {
+      const newState = { ...prevState, ...stateChange };
+      return R.equals(prevState, newState) ? prevState : newState;
+    });
   }, []);
 
   useEffect(() => {

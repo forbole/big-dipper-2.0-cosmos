@@ -7,7 +7,7 @@ import type { TokenDetailsState } from './types';
 
 export const useTokenDetails = () => {
   const router = useRouter();
-  const [state, setState] = useState<TokenDetailsState>({
+    const [state, setState] = useState<TokenDetailsState>({
     loading: true,
     exists: true,
     profile: {
@@ -30,8 +30,11 @@ export const useTokenDetails = () => {
     },
   });
 
-  const handleSetState = useCallback((stateChange: any) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+  const handleSetState = useCallback((stateChange: Partial<TokenDetailsState>) => {
+    setState((prevState) => {
+      const newState = { ...prevState, ...stateChange };
+      return R.equals(prevState, newState) ? prevState : newState;
+    });
   }, []);
 
   useEffect(() => {

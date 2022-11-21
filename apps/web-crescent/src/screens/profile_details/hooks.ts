@@ -14,8 +14,11 @@ const initialState: ProfileDetailState = {
 export const useProfileDetails = () => {
   const router = useRouter();
   const [state, setState] = useState<ProfileDetailState>(initialState);
-  const handleSetState = useCallback((stateChange: any) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+  const handleSetState = useCallback((stateChange: Partial<ProfileDetailState>) => {
+    setState((prevState) => {
+      const newState = { ...prevState, ...stateChange };
+      return R.equals(prevState, newState) ? prevState : newState;
+    });
   }, []);
 
   // ==========================

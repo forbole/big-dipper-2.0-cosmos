@@ -18,8 +18,11 @@ const initialState: {
 export const useOnlineVotingPower = () => {
   const [onlineVPState, setOnlineVPState] = useState(initialState);
 
-  const handleSetState = (stateChange: any) => {
-    setOnlineVPState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+  const handleSetState = (stateChange: Partial<typeof onlineVPState>) => {
+    setOnlineVPState((prevState) => {
+      const newState = { ...prevState, ...stateChange };
+      return R.equals(prevState, newState) ? prevState : newState;
+    });
   };
 
   useOnlineVotingPowerQuery({

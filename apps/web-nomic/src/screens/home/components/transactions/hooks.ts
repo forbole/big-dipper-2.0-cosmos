@@ -3,7 +3,6 @@ import {
   useTransactionsListenerSubscription,
   TransactionsListenerSubscription,
 } from '@graphql/types/general_types';
-import { convertMsgType } from 'ui/utils/convert_msg_type';
 import type { TransactionsState } from './types';
 
 export const useTransactions = () => {

@@ -16,7 +16,7 @@ const defaultTokenUnit: TokenUnit = {
 
 export const useAccountDetails = () => {
   const router = useRouter();
-  const [state, setState] = useState<AccountDetailsType>({
+    const [state, setState] = useState<AccountDetailsType>({
     loading: true,
     exists: true,
     profile: {
@@ -31,8 +31,11 @@ export const useAccountDetails = () => {
     },
   });
 
-  const handleSetState = useCallback((stateChange: any) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+  const handleSetState = useCallback((stateChange: Partial<AccountDetailsType>) => {
+    setState((prevState) => {
+      const newState = { ...prevState, ...stateChange };
+      return R.equals(prevState, newState) ? prevState : newState;
+    });
   }, []);
 
   useEffect(() => {

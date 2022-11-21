@@ -20,7 +20,7 @@ export type OtherTokenType = {
 };
 
 export type RewardsType = {
-  [value: string]: TokenUnit[];
+  [value: string]: TokenUnit;
 };
 
 export type AccountDetailState = {

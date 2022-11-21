@@ -12,7 +12,7 @@ import {
 import type { ProviderInfo, ProvidersState } from './types';
 
 export const useProviders = () => {
-  const [state, setState] = useState<ProvidersState>({
+    const [state, setState] = useState<ProvidersState>({
     loading: true,
     exists: true,
     activeProvidersCount: 0,
@@ -42,8 +42,11 @@ export const useProviders = () => {
     },
   });
 
-  const handleSetState = useCallback((stateChange: any) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+  const handleSetState = useCallback((stateChange: Partial<ProvidersState>) => {
+    setState((prevState) => {
+      const newState = { ...prevState, ...stateChange };
+      return R.equals(prevState, newState) ? prevState : newState;
+    });
   }, []);
 
   /**

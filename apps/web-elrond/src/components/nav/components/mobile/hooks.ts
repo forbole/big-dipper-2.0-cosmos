@@ -16,8 +16,11 @@ export const useMobile = () => {
     isNetwork: false,
   });
 
-  const handleSetState = useCallback((stateChange: typeof state) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+  const handleSetState = useCallback((stateChange: Partial<typeof state>) => {
+    setState((prevState) => {
+      const newState = { ...prevState, ...stateChange };
+      return R.equals(prevState, newState) ? prevState : newState;
+    });
   }, []);
 
   /**

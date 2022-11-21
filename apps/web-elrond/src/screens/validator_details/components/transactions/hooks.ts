@@ -7,15 +7,18 @@ import type { TransactionState } from './types';
 export const PAGE_SIZE = 10;
 
 export const useTransactions = (provider: string) => {
-  const [state, setState] = useState<TransactionState>({
+    const [state, setState] = useState<TransactionState>({
     page: 0,
     loading: true,
     items: [],
     total: 0,
   });
 
-  const handleSetState = useCallback((stateChange: any) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+  const handleSetState = useCallback((stateChange: Partial<TransactionState>) => {
+    setState((prevState) => {
+      const newState = { ...prevState, ...stateChange };
+      return R.equals(prevState, newState) ? prevState : newState;
+    });
   }, []);
 
   const getTransactionsByPage = useCallback(

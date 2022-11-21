@@ -5,14 +5,17 @@ import { ECONOMICS } from '@api';
 import type { StakingState } from './types';
 
 export const useStaking = () => {
-  const [state, setState] = useState<StakingState>({
+    const [state, setState] = useState<StakingState>({
     staked: 0,
     circulatingSupply: 0,
     percentStaked: 0,
   });
 
-  const handleSetState = useCallback((stateChange: any) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+  const handleSetState = useCallback((stateChange: Partial<StakingState>) => {
+    setState((prevState) => {
+      const newState = { ...prevState, ...stateChange };
+      return R.equals(prevState, newState) ? prevState : newState;
+    });
   }, []);
 
   useEffect(() => {

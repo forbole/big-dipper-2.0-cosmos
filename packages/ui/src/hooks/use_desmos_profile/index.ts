@@ -22,7 +22,7 @@ export const useDesmosProfile = (options: Options) => {
   const [loading, setLoading] = useState(false);
 
   const fetchDesmosProfile = useCallback(
-    async (input: string) => {
+    async (input: string, onComplete: Options['onComplete']) => {
       let data: DesmosProfileQuery = {
         profile: [],
       };
@@ -42,20 +42,21 @@ export const useDesmosProfile = (options: Options) => {
           data = await fetchLink(input);
         }
         setLoading(false);
-        return options.onComplete(data);
+        return onComplete?.(data);
       } catch (error) {
         setLoading(false);
-        return options.onComplete(data);
+        return onComplete?.(data);
       }
     },
-    [options]
+    []
   );
 
   useEffect(() => {
     if (options.address) {
-      fetchDesmosProfile(options.address);
+      fetchDesmosProfile(options.address, options.onComplete);
     }
-  }, [fetchDesmosProfile, options.address]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [options]);
 
   return {
     loading,

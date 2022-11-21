@@ -5,7 +5,7 @@ import { useProposalsQuery, ProposalsQuery } from '@graphql/types/general_types'
 import type { ProposalsState } from './types';
 
 export const useProposals = () => {
-  const [state, setState] = useState<ProposalsState>({
+    const [state, setState] = useState<ProposalsState>({
     loading: true,
     exists: true,
     items: [],
@@ -14,8 +14,11 @@ export const useProposals = () => {
     rawDataTotal: 0,
   });
 
-  const handleSetState = useCallback((stateChange: any) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+  const handleSetState = useCallback((stateChange: Partial<ProposalsState>) => {
+    setState((prevState) => {
+      const newState = { ...prevState, ...stateChange };
+      return R.equals(prevState, newState) ? prevState : newState;
+    });
   }, []);
 
   // ================================

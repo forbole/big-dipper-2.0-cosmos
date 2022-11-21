@@ -12,7 +12,6 @@ import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import { BLOCK_DETAILS, TRANSACTION_DETAILS } from 'ui/utils/go_to_page';
-import Tag from 'ui/components/tag';
 import { useStyles } from './styles';
 import { columns } from './utils';
 import type { TransactionType } from '../../types';

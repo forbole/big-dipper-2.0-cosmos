@@ -6,12 +6,15 @@ import { PRICE_HISTORY } from '@api';
 import type { PriceState } from './types';
 
 export const usePrice = () => {
-  const [state, setState] = useState<PriceState>({
+    const [state, setState] = useState<PriceState>({
     items: [],
   });
 
-  const handleSetState = useCallback((stateChange: any) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+  const handleSetState = useCallback((stateChange: Partial<PriceState>) => {
+    setState((prevState) => {
+      const newState = { ...prevState, ...stateChange };
+      return R.equals(prevState, newState) ? prevState : newState;
+    });
   }, []);
 
   useEffect(() => {

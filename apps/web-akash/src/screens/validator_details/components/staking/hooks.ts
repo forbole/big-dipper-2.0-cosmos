@@ -24,15 +24,18 @@ const PAGE_LIMIT = 10;
 
 export const useStaking = () => {
   const router = useRouter();
-  const [state, setState] = useState<StakingState>({
+    const [state, setState] = useState<StakingState>({
     tab: 0,
     delegations: stakingDefault,
     redelegations: stakingDefault,
     unbondings: stakingDefault,
   });
 
-  const handleSetState = useCallback((stateChange: any) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+  const handleSetState = useCallback((stateChange: Partial<StakingState>) => {
+    setState((prevState) => {
+      const newState = { ...prevState, ...stateChange };
+      return R.equals(prevState, newState) ? prevState : newState;
+    });
   }, []);
 
   useEffect(() => {

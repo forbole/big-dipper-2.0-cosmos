@@ -11,7 +11,7 @@ import type { ValidatorsState, ItemType, ValidatorType } from './types';
 
 export const useValidators = () => {
   const [search, setSearch] = useState('');
-  const [state, setState] = useState<ValidatorsState>({
+    const [state, setState] = useState<ValidatorsState>({
     loading: true,
     exists: true,
     items: [],
@@ -21,8 +21,11 @@ export const useValidators = () => {
     sortDirection: 'asc',
   });
 
-  const handleSetState = useCallback((stateChange: any) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+  const handleSetState = useCallback((stateChange: Partial<ValidatorsState>) => {
+    setState((prevState) => {
+      const newState = { ...prevState, ...stateChange };
+      return R.equals(prevState, newState) ? prevState : newState;
+    });
   }, []);
 
   // ==========================

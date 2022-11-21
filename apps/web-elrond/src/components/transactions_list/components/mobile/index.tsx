@@ -8,7 +8,7 @@ import Result from '@components/result';
 import AvatarName from '@components/avatar_name';
 import { TRANSACTION_DETAILS } from '@utils/go_to_page';
 import { useStyles } from './styles';
-import { Shard } from '..';
+import Shard from '../shard';
 
 const Mobile: React.FC<{ items: TransactionType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('transactions');

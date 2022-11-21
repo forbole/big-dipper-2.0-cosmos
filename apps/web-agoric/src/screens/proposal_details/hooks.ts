@@ -6,7 +6,7 @@ import type { ProposalState } from './types';
 
 export const useProposalDetails = () => {
   const router = useRouter();
-  const [state, setState] = useState<ProposalState>({
+    const [state, setState] = useState<ProposalState>({
     loading: true,
     exists: true,
     overview: {
@@ -23,8 +23,11 @@ export const useProposalDetails = () => {
     },
   });
 
-  const handleSetState = useCallback((stateChange: any) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+  const handleSetState = useCallback((stateChange: Partial<ProposalState>) => {
+    setState((prevState) => {
+      const newState = { ...prevState, ...stateChange };
+      return R.equals(prevState, newState) ? prevState : newState;
+    });
   }, []);
 
   // ==========================
