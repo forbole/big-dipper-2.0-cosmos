@@ -194,10 +194,10 @@
         "validator": "likevaloper",
         "account": "like"
       },
-      "primaryTokenUnit": "ulike",
-      "votingPowerTokenUnit": "ulike",
+      "primaryTokenUnit": "nanolike",
+      "votingPowerTokenUnit": "nanolike",
       "tokenUnits": {
-        "ulike": {
+        "nanolike": {
           "display": "like",
           "exponent": 6
         }
