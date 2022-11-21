@@ -83,12 +83,12 @@ export const useNodeDetails = () => {
         // =============================================
 
         const formatOverview = () => ({
-            shard: R.pathOr(0, ['shard'], nodeData),
-            type: R.pathOr('', ['type'], nodeData),
-            status: R.pathOr('', ['status'], nodeData),
-            online: R.pathOr(false, ['online'], nodeData),
-            instances: R.pathOr(0, ['instances'], nodeData),
-          });
+          shard: R.pathOr(0, ['shard'], nodeData),
+          type: R.pathOr('', ['type'], nodeData),
+          status: R.pathOr('', ['status'], nodeData),
+          online: R.pathOr(false, ['online'], nodeData),
+          instances: R.pathOr(0, ['instances'], nodeData),
+        });
 
         newState.overview = formatOverview();
 
@@ -110,12 +110,12 @@ export const useNodeDetails = () => {
 
         if (R.pathOr('', ['type'], nodeData).toLowerCase() === 'validator') {
           const formatStats = () => ({
-              ignoredSignatures: R.pathOr(0, ['validatorIgnoredSignatures'], nodeData),
-              leaderSuccess: R.pathOr(0, ['leaderSuccess'], nodeData),
-              leaderFailure: R.pathOr(0, ['leaderFailure'], nodeData),
-              validatorSuccess: R.pathOr(0, ['validatorSuccess'], nodeData),
-              validatorFailure: R.pathOr(0, ['validatorFailure'], nodeData),
-            });
+            ignoredSignatures: R.pathOr(0, ['validatorIgnoredSignatures'], nodeData),
+            leaderSuccess: R.pathOr(0, ['leaderSuccess'], nodeData),
+            leaderFailure: R.pathOr(0, ['leaderFailure'], nodeData),
+            validatorSuccess: R.pathOr(0, ['validatorSuccess'], nodeData),
+            validatorFailure: R.pathOr(0, ['validatorFailure'], nodeData),
+          });
           newState.stats = formatStats();
         }
 

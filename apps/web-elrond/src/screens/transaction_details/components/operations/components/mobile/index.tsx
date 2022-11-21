@@ -47,38 +47,38 @@ const Mobile: React.FC<{ items: OperationType[] } & ComponentDefault> = (props) 
   return (
     <div className={props.className}>
       {formattedItems?.map((x, i) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <React.Fragment key={`${x.action}-${i}`}>
-            <div className={classes.root}>
-              <div className={classes.item}>
-                <Typography variant="h4" className="label">
-                  {t('action')}
-                </Typography>
-                {x.action}
-              </div>
-              <div className={classes.item}>
-                <Typography variant="h4" className="label">
-                  {t('sender')}
-                </Typography>
-                {x.sender}
-              </div>
-
-              <div className={classes.item}>
-                <Typography variant="h4" className="label">
-                  {t('receiver')}
-                </Typography>
-                {x.receiver}
-              </div>
-              <div className={classes.item}>
-                <Typography variant="h4" className="label">
-                  {t('value')}
-                </Typography>
-                {x.value}
-              </div>
+        // eslint-disable-next-line react/no-array-index-key
+        <React.Fragment key={`${x.action}-${i}`}>
+          <div className={classes.root}>
+            <div className={classes.item}>
+              <Typography variant="h4" className="label">
+                {t('action')}
+              </Typography>
+              {x.action}
             </div>
-            {i !== formattedItems.length - 1 && <Divider />}
-          </React.Fragment>
-        ))}
+            <div className={classes.item}>
+              <Typography variant="h4" className="label">
+                {t('sender')}
+              </Typography>
+              {x.sender}
+            </div>
+
+            <div className={classes.item}>
+              <Typography variant="h4" className="label">
+                {t('receiver')}
+              </Typography>
+              {x.receiver}
+            </div>
+            <div className={classes.item}>
+              <Typography variant="h4" className="label">
+                {t('value')}
+              </Typography>
+              {x.value}
+            </div>
+          </div>
+          {i !== formattedItems.length - 1 && <Divider />}
+        </React.Fragment>
+      ))}
     </div>
   );
 };

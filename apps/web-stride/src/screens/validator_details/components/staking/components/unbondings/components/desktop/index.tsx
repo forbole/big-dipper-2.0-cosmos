@@ -22,19 +22,19 @@ const Desktop: React.FC<{
   const dateFormat = useRecoilValue(readDate);
   const formattedItems =
     items?.map((x) => ({
-        address: (
-          <AvatarName
-            address={x.address.address}
-            imageUrl={x.address.imageUrl}
-            name={x.address.name}
-          />
-        ),
-        amount: `${formatNumber(
-          x.amount.value,
-          x.amount.exponent
-        )} ${x.amount.displayDenom.toUpperCase()}`,
-        completionTime: formatDayJs((dayjs as any).utc(x.completionTime), dateFormat),
-      })) ?? [];
+      address: (
+        <AvatarName
+          address={x.address.address}
+          imageUrl={x.address.imageUrl}
+          name={x.address.name}
+        />
+      ),
+      amount: `${formatNumber(
+        x.amount.value,
+        x.amount.exponent
+      )} ${x.amount.displayDenom.toUpperCase()}`,
+      completionTime: formatDayJs((dayjs as any).utc(x.completionTime), dateFormat),
+    })) ?? [];
 
   return (
     <div className={classnames(className)}>
@@ -42,14 +42,14 @@ const Desktop: React.FC<{
         <TableHead>
           <TableRow>
             {columns.map((column) => (
-                <TableCell
-                  key={column.key}
-                  align={column.align}
-                  style={{ width: `${column.width}%` }}
-                >
-                  {t(column.key)}
-                </TableCell>
-              ))}
+              <TableCell
+                key={column.key}
+                align={column.align}
+                style={{ width: `${column.width}%` }}
+              >
+                {t(column.key)}
+              </TableCell>
+            ))}
           </TableRow>
         </TableHead>
         <TableBody>

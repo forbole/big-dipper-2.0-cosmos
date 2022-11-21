@@ -37,7 +37,8 @@ export const useStaking = (
   }, []);
 
   useEffect(() => {
-    const formatDelegations = (data: any[]) => data
+    const formatDelegations = (data: any[]) =>
+      data
         .map((x) => {
           const validator = R.pathOr('', ['validator_address'], x);
           const delegation = getDenom(x.coins, chainConfig.primaryTokenUnit);
@@ -47,7 +48,7 @@ export const useStaking = (
             reward: rewards[validator],
           };
         })
-        .sort((a, b) => Big(a.amount.value).gt(b.amount.value) ? -1 : 1);
+        .sort((a, b) => (Big(a.amount.value).gt(b.amount.value) ? -1 : 1));
 
     // helper function to get rest of the staking items
     // if it is over the default limit
@@ -278,7 +279,7 @@ export const useStaking = (
       });
     });
 
-    results.sort((a: any, b: any) => a.completionTime < b.completionTime ? -1 : 1);
+    results.sort((a: any, b: any) => (a.completionTime < b.completionTime ? -1 : 1));
 
     return results;
   };
@@ -295,7 +296,7 @@ export const useStaking = (
       });
     });
 
-    results.sort((a: any, b: any) => a.completionTime < b.completionTime ? -1 : 1);
+    results.sort((a: any, b: any) => (a.completionTime < b.completionTime ? -1 : 1));
 
     return results;
   };

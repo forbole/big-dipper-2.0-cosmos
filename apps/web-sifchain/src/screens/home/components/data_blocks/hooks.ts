@@ -56,7 +56,8 @@ export const useDataBlocks = () => {
     },
   });
 
-  const formatAverageBlockTime = (data: AverageBlockTimeQuery) => data.averageBlockTime[0]?.averageTime ?? state.blockTime;
+  const formatAverageBlockTime = (data: AverageBlockTimeQuery) =>
+    data.averageBlockTime[0]?.averageTime ?? state.blockTime;
 
   // ====================================
   // token price
@@ -93,9 +94,9 @@ export const useDataBlocks = () => {
   });
 
   const formatActiveValidatorsCount = (data: ActiveValidatorCountQuery) => ({
-      active: data.activeTotal.aggregate?.count,
-      total: data.total?.aggregate?.count,
-    });
+    active: data.activeTotal.aggregate?.count,
+    total: data.total?.aggregate?.count,
+  });
 
   return {
     state,

@@ -6,7 +6,10 @@ import type { act } from 'react-test-renderer';
  * @param ms
  */
 export const wait = async (rendererAct: typeof act, ms = 50) => {
-  await rendererAct(() => new Promise((resolve) => {
-      setTimeout(resolve, ms);
-    }));
+  await rendererAct(
+    () =>
+      new Promise((resolve) => {
+        setTimeout(resolve, ms);
+      })
+  );
 };

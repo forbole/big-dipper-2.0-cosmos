@@ -21,19 +21,19 @@ const Desktop: React.FC<{
   const { t } = useTranslation('accounts');
   const dateFormat = useRecoilValue(readDate);
   const formattedItems = items?.map((x) => ({
-      validator: (
-        <AvatarName
-          address={x.validator.address}
-          imageUrl={x.validator.imageUrl}
-          name={x.validator.name}
-        />
-      ),
-      amount: `${formatNumber(
-        x.amount.value,
-        x.amount.exponent
-      )} ${x.amount.displayDenom.toUpperCase()}`,
-      completionTime: formatDayJs((dayjs as any).utc(x.completionTime), dateFormat),
-    }));
+    validator: (
+      <AvatarName
+        address={x.validator.address}
+        imageUrl={x.validator.imageUrl}
+        name={x.validator.name}
+      />
+    ),
+    amount: `${formatNumber(
+      x.amount.value,
+      x.amount.exponent
+    )} ${x.amount.displayDenom.toUpperCase()}`,
+    completionTime: formatDayJs((dayjs as any).utc(x.completionTime), dateFormat),
+  }));
 
   return (
     <div className={classnames(className)}>
@@ -41,14 +41,14 @@ const Desktop: React.FC<{
         <TableHead>
           <TableRow>
             {columns.map((column) => (
-                <TableCell
-                  key={column.key}
-                  align={column.align}
-                  style={{ width: `${column.width}%` }}
-                >
-                  {t(column.key)}
-                </TableCell>
-              ))}
+              <TableCell
+                key={column.key}
+                align={column.align}
+                style={{ width: `${column.width}%` }}
+              >
+                {t(column.key)}
+              </TableCell>
+            ))}
           </TableRow>
         </TableHead>
         <TableBody>

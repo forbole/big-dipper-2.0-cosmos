@@ -42,8 +42,8 @@ export const useBlocks = () => {
         handleSetState({
           total,
         });
-      } catch (error) {
-        console.error((error as any).message);
+      } catch (error: any) {
+        console.error(error.message);
       }
     };
 
@@ -68,20 +68,20 @@ export const useBlocks = () => {
         });
 
         const items = blocksData.map((x: any) => ({
-            pubkey: R.pathOr('', ['bls'], x),
-            name: R.pathOr('', ['name'], x),
-            shard: R.pathOr(0, ['shard'], x),
-            version: R.pathOr('', ['version'], x),
-            status: R.pathOr('', ['status'], x),
-            online: R.pathOr(false, ['online'], x),
-          }));
+          pubkey: R.pathOr('', ['bls'], x),
+          name: R.pathOr('', ['name'], x),
+          shard: R.pathOr(0, ['shard'], x),
+          version: R.pathOr('', ['version'], x),
+          status: R.pathOr('', ['status'], x),
+          online: R.pathOr(false, ['online'], x),
+        }));
 
         handleSetState({
           loading: false,
           items,
         });
-      } catch (error) {
-        console.error((error as any).message);
+      } catch (error: any) {
+        console.error(error.message);
       }
     },
     [handleSetState, router.query.identity]

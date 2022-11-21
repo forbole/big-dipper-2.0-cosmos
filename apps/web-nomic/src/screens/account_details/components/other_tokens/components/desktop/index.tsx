@@ -17,9 +17,9 @@ const Desktop: React.FC<{
   const { t } = useTranslation('accounts');
 
   const formattedItems = items?.map((x) => ({
-      token: x.denom.toUpperCase(),
-      available: formatNumber(x.available.value, x.available.exponent),
-    }));
+    token: x.denom.toUpperCase(),
+    available: formatNumber(x.available.value, x.available.exponent),
+  }));
 
   return (
     <div className={classnames(className)}>
@@ -27,28 +27,28 @@ const Desktop: React.FC<{
         <TableHead>
           <TableRow>
             {columns.map((column) => (
-                <TableCell
-                  key={column.key}
-                  align={column.align}
-                  style={{ width: `${column.width}%` }}
-                >
-                  {t(column.key)}
-                </TableCell>
-              ))}
+              <TableCell
+                key={column.key}
+                align={column.align}
+                style={{ width: `${column.width}%` }}
+              >
+                {t(column.key)}
+              </TableCell>
+            ))}
           </TableRow>
         </TableHead>
         <TableBody>
           {formattedItems?.map((row: { [key: string]: unknown }) => (
             <TableRow key={`holders-row-${row.identifier}`}>
               {columns.map((column) => (
-                  <TableCell
-                    key={`holders-row-${row.identifier}-${column.key}`}
-                    align={column.align}
-                    style={{ width: `${column.width}%` }}
-                  >
-                    {row[column.key]}
-                  </TableCell>
-                ))}
+                <TableCell
+                  key={`holders-row-${row.identifier}-${column.key}`}
+                  align={column.align}
+                  style={{ width: `${column.width}%` }}
+                >
+                  {row[column.key]}
+                </TableCell>
+              ))}
             </TableRow>
           ))}
         </TableBody>

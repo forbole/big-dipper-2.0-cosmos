@@ -26,49 +26,49 @@ jest.mock('ui/components/no_data', () => (props: JSX.IntrinsicElements['div']) =
 
 jest.mock('./hooks', () => ({
   useBlocks: () => ({
-      state: {
-        loading: false,
-        exists: true,
-        hasNextPage: true,
-        isNextPageLoading: false,
-        items: [
-          {
-            height: 1123213,
-            txs: 0,
-            timestamp: '2021-04-27T16:27:34.331769',
-            proposer: 'desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3',
-            hash: 'txhash',
-          },
-          {
-            height: 1123214,
-            txs: 1,
-            timestamp: '2021-04-33T16:27:34.331769',
-            proposer: 'desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3',
-            hash: 'txhash',
-          },
-        ],
-      },
-      loadNextPage: () => jest.fn(),
-      itemCount: 2,
-      loadMoreItems: () => jest.fn(),
-      isItemLoaded: () => true,
-    }),
+    state: {
+      loading: false,
+      exists: true,
+      hasNextPage: true,
+      isNextPageLoading: false,
+      items: [
+        {
+          height: 1123213,
+          txs: 0,
+          timestamp: '2021-04-27T16:27:34.331769',
+          proposer: 'desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3',
+          hash: 'txhash',
+        },
+        {
+          height: 1123214,
+          txs: 1,
+          timestamp: '2021-04-33T16:27:34.331769',
+          proposer: 'desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3',
+          hash: 'txhash',
+        },
+      ],
+    },
+    loadNextPage: () => jest.fn(),
+    itemCount: 2,
+    loadMoreItems: () => jest.fn(),
+    isItemLoaded: () => true,
+  }),
 }));
 
 jest.mock('./hooks', () => ({
   useBlocks: () => ({
-      state: {
-        loading: false,
-        exists: true,
-        hasNextPage: true,
-        isNextPageLoading: false,
-        items: [],
-      },
-      loadNextPage: () => jest.fn(),
-      itemCount: 2,
-      loadMoreItems: () => jest.fn(),
-      isItemLoaded: () => true,
-    }),
+    state: {
+      loading: false,
+      exists: true,
+      hasNextPage: true,
+      isNextPageLoading: false,
+      items: [],
+    },
+    loadNextPage: () => jest.fn(),
+    itemCount: 2,
+    loadMoreItems: () => jest.fn(),
+    isItemLoaded: () => true,
+  }),
 }));
 
 const mockBlocksListenerDocument = jest.fn().mockReturnValue({

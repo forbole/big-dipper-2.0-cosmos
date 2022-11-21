@@ -29,8 +29,8 @@ export const useDataBlocks = () => {
             active: R.pathOr(0, ['activeValidators'], validators),
           },
         });
-      } catch (error) {
-        console.error((error as any).message);
+      } catch (error: any) {
+        console.error(error.message);
       }
     };
 
@@ -43,8 +43,8 @@ export const useDataBlocks = () => {
       handleSetState({
         blockHeight,
       });
-    } catch (error) {
-      console.error((error as any).message);
+    } catch (error: any) {
+      console.error(error.message);
     }
   }, [handleSetState]);
 
@@ -54,8 +54,8 @@ export const useDataBlocks = () => {
       handleSetState({
         transactions,
       });
-    } catch (error) {
-      console.error((error as any).message);
+    } catch (error: any) {
+      console.error(error.message);
     }
   }, [handleSetState]);
 

@@ -97,37 +97,37 @@ export const useProviders = () => {
 
   const formatCPUMemoryStorageData = (data: CpuMemoryStorageListenerSubscription) => {
     const mappedData = data.specs.map((item) => ({
-        memory: {
-          available: item.available.memory,
-          used: item.active.memory,
-        },
-        cpu: {
-          available: item.available.cpu,
-          used: item.active.cpu,
-        },
-        storage: {
-          available: item.available.storage_ephemeral,
-          used: item.active.storage_ephemeral,
-          pending: item.pending.storage_ephemeral,
-        },
-      }));
+      memory: {
+        available: item.available.memory,
+        used: item.active.memory,
+      },
+      cpu: {
+        available: item.available.cpu,
+        used: item.active.cpu,
+      },
+      storage: {
+        available: item.available.storage_ephemeral,
+        used: item.active.storage_ephemeral,
+        pending: item.pending.storage_ephemeral,
+      },
+    }));
 
     return mappedData.reduce(
       (total, row) => ({
-          memory: {
-            available: total.memory.available + row.memory.available,
-            used: total.memory.used + row.memory.used,
-          },
-          cpu: {
-            available: total.cpu.available + row.cpu.available,
-            used: total.cpu.used + row.cpu.used,
-          },
-          storage: {
-            available: total.storage.available + row.storage.available,
-            used: total.storage.used + row.storage.used,
-            pending: total.storage.pending + row.storage.pending,
-          },
-        }),
+        memory: {
+          available: total.memory.available + row.memory.available,
+          used: total.memory.used + row.memory.used,
+        },
+        cpu: {
+          available: total.cpu.available + row.cpu.available,
+          used: total.cpu.used + row.cpu.used,
+        },
+        storage: {
+          available: total.storage.available + row.storage.available,
+          used: total.storage.used + row.storage.used,
+          pending: total.storage.pending + row.storage.pending,
+        },
+      }),
       {
         memory: {
           available: 0,
@@ -150,7 +150,8 @@ export const useProviders = () => {
   // tx query
   // ================================
 
-  const formatProviders = (data: ProvidersQuery['list']) => data.map((item) => {
+  const formatProviders = (data: ProvidersQuery['list']) =>
+    data.map((item) => {
       const { attributes, hostUri, info, ownerAddress } = item;
       const organization = attributes?.find(
         (attribute: { key: string; value: string }) => attribute.key === 'organization'

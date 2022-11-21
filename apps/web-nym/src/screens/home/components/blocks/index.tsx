@@ -28,9 +28,9 @@ const Blocks: React.FC<{
 
   const proposerProfiles = useProfilesRecoil(state.items.map((x) => x.proposer));
   const mergedDataWithProfiles = state.items.map((x, i) => ({
-      ...(x as object),
-      proposer: proposerProfiles[i],
-    }));
+    ...(x as object),
+    proposer: proposerProfiles[i],
+  }));
 
   return (
     <Box className={classnames(className, classes.root)}>

@@ -24,25 +24,25 @@ const BoxDetails: React.FC<{
         </div>
       )}
       {details.map((x, i) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <div className={classnames(classes.item, x.className)} key={`box-detail__item--${i}`}>
-            {React.isValidElement(x.label) ? (
-              <div className="label">{x.label}</div>
-            ) : (
-              <Typography variant="body1" className="label">
-                {x.label}
-              </Typography>
-            )}
+        // eslint-disable-next-line react/no-array-index-key
+        <div className={classnames(classes.item, x.className)} key={`box-detail__item--${i}`}>
+          {React.isValidElement(x.label) ? (
+            <div className="label">{x.label}</div>
+          ) : (
+            <Typography variant="body1" className="label">
+              {x.label}
+            </Typography>
+          )}
 
-            {React.isValidElement(x.detail) ? (
-              <div className="detail">{x.detail}</div>
-            ) : (
-              <Typography variant="body1" className="detail">
-                {x.detail}
-              </Typography>
-            )}
-          </div>
-        ))}
+          {React.isValidElement(x.detail) ? (
+            <div className="detail">{x.detail}</div>
+          ) : (
+            <Typography variant="body1" className="detail">
+              {x.detail}
+            </Typography>
+          )}
+        </div>
+      ))}
     </Box>
   );
 };

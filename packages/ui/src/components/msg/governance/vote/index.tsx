@@ -17,10 +17,10 @@ const Vote: React.FC<{ message: MsgVote }> = (props) => {
   const voterMoniker = voter ? voter?.name : message.voter;
 
   const Proposal = () => (
-      <Link href={PROPOSAL_DETAILS(message.proposalId)} passHref>
-        <Typography component="a">#{message.proposalId}</Typography>
-      </Link>
-    );
+    <Link href={PROPOSAL_DETAILS(message.proposalId)} passHref>
+      <Typography component="a">#{message.proposalId}</Typography>
+    </Link>
+  );
 
   return (
     <Typography>

@@ -1,32 +1,32 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 const styles = makeStyles((theme) => ({
-    root: {
-      padding: theme.spacing(2),
-      background: theme.palette.primary.main,
-      borderRadius: theme.shape.borderRadius,
-      height: '165px',
+  root: {
+    padding: theme.spacing(2),
+    background: theme.palette.primary.main,
+    borderRadius: theme.shape.borderRadius,
+    height: '165px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    justifyContent: 'space-between',
+    color: theme.palette.custom.fonts.fontFive,
+    '& .label': {
+      marginBottom: theme.spacing(2),
+    },
+    '& .content': {
+      width: '100%',
       display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'flex-start',
+      alignItems: 'flex-end',
       justifyContent: 'space-between',
-      color: theme.palette.custom.fonts.fontFive,
-      '& .label': {
-        marginBottom: theme.spacing(2),
-      },
-      '& .content': {
-        width: '100%',
-        display: 'flex',
-        alignItems: 'flex-end',
-        justifyContent: 'space-between',
-      },
-      '& .description': {
-        display: 'none',
-        [theme.breakpoints.up('md')]: {
-          display: 'block',
-        },
+    },
+    '& .description': {
+      display: 'none',
+      [theme.breakpoints.up('md')]: {
+        display: 'block',
       },
     },
-  }));
+  },
+}));
 
 export const useStyles = () => styles();

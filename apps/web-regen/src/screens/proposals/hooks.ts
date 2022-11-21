@@ -62,7 +62,8 @@ export const useProposals = () => {
       });
   };
 
-  const formatProposals = (data: ProposalsQuery) => data.proposals.map((x) => {
+  const formatProposals = (data: ProposalsQuery) =>
+    data.proposals.map((x) => {
       const description = DOMPurify.sanitize(x.description);
       return {
         description,

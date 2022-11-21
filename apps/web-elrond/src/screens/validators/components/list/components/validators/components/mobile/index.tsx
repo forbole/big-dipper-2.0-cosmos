@@ -22,49 +22,47 @@ const Mobile: FC<{
 
   const formattedItems =
     items?.map((x, i) => ({
-        idx: `#${i + 1}`,
-        validator: (
-          <AvatarName
-            address={x.validator.address}
-            imageUrl={x.validator.imageUrl}
-            name={x.validator.name}
-            href={x.isNode ? NODE_DETAILS : VALIDATOR_DETAILS}
-          />
-        ),
-        locked: (
-          <VotingPower
-            percentDisplay={`${x.stakePercent}%`}
-            percentage={x.stakePercent}
-            content={formatNumber(x.locked.value, 2)}
-          />
-        ),
-        stake: `${formatNumber(
-          x.stake.value,
-          x.stake.exponent
-        )} ${x.stake.displayDenom.toUpperCase()}`,
-        nodes: x.nodes ? numeral(x.nodes).format('0,0') : '-',
-        delegators: x.delegators ? numeral(x.delegators).format('0,0') : '-',
-        commission: x.commission ? `${numeral(x.commission * 100).format('0,0.[00]')}%` : '-',
-        apr: x.apr ? `${x.apr}%` : '-',
-      })) ?? [];
+      idx: `#${i + 1}`,
+      validator: (
+        <AvatarName
+          address={x.validator.address}
+          imageUrl={x.validator.imageUrl}
+          name={x.validator.name}
+          href={x.isNode ? NODE_DETAILS : VALIDATOR_DETAILS}
+        />
+      ),
+      locked: (
+        <VotingPower
+          percentDisplay={`${x.stakePercent}%`}
+          percentage={x.stakePercent}
+          content={formatNumber(x.locked.value, 2)}
+        />
+      ),
+      stake: `${formatNumber(
+        x.stake.value,
+        x.stake.exponent
+      )} ${x.stake.displayDenom.toUpperCase()}`,
+      nodes: x.nodes ? numeral(x.nodes).format('0,0') : '-',
+      delegators: x.delegators ? numeral(x.delegators).format('0,0') : '-',
+      commission: x.commission ? `${numeral(x.commission * 100).format('0,0.[00]')}%` : '-',
+      apr: x.apr ? `${x.apr}%` : '-',
+    })) ?? [];
 
   return (
     <div className={classnames(className, classes.root)}>
       <AutoSizer>
         {({ height, width }) => (
-            <List
-              className="List"
-              height={height}
-              itemCount={formattedItems.length}
-              itemSize={getRowHeight}
-              ref={listRef as React.LegacyRef<List>}
-              width={width}
-            >
-              {({ index, style }) => (
-                <ListItem {...{ index, style, setRowHeight, formattedItems }} />
-              )}
-            </List>
-          )}
+          <List
+            className="List"
+            height={height}
+            itemCount={formattedItems.length}
+            itemSize={getRowHeight}
+            ref={listRef as React.LegacyRef<List>}
+            width={width}
+          >
+            {({ index, style }) => <ListItem {...{ index, style, setRowHeight, formattedItems }} />}
+          </List>
+        )}
       </AutoSizer>
     </div>
   );

@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import * as R from 'ramda';
+import { equals } from 'ramda';
 import axios from 'axios';
 import { POLLING_INTERVAL, TRANSACTIONS, TRANSACTIONS_COUNT } from '@api';
 import { useInterval } from 'ui/hooks';
@@ -15,8 +15,11 @@ export const useBlocks = () => {
     total: 0,
   });
 
-  const handleSetState = useCallback((stateChange: any) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+  const handleSetState = useCallback((stateChange: Partial<TransactionState>) => {
+    setState((prevState) => {
+      const newState = { ...prevState, ...stateChange };
+      return equals(prevState, newState) ? prevState : newState;
+    });
   }, []);
 
   useEffect(() => {
@@ -26,8 +29,8 @@ export const useBlocks = () => {
         handleSetState({
           total,
         });
-      } catch (error) {
-        console.error((error as any).message);
+      } catch (error: any) {
+        console.error(error.message);
       }
     };
 
@@ -45,21 +48,21 @@ export const useBlocks = () => {
         });
 
         const items = transactionsData.map((x: any) => ({
-            hash: x.txHash,
-            fromShard: x.senderShard,
-            toShard: x.receiverShard,
-            from: x.sender,
-            to: x.receiver,
-            timestamp: x.timestamp,
-            status: x.status,
-          }));
+          hash: x.txHash,
+          fromShard: x.senderShard,
+          toShard: x.receiverShard,
+          from: x.sender,
+          to: x.receiver,
+          timestamp: x.timestamp,
+          status: x.status,
+        }));
 
         handleSetState({
           loading: false,
           items,
         });
-      } catch (error) {
-        console.error((error as any).message);
+      } catch (error: any) {
+        console.error(error.message);
       }
     },
     [handleSetState]

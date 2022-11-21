@@ -30,11 +30,7 @@ jest.mock('./hooks', () => ({
 describe('screen: _app', () => {
   it('matches snapshot', () => {
     const component = renderer.create(
-      <App
-        router={{} as any}
-        Component={() => <div id="component" />}
-        pageProps={{}}
-      />
+      <App router={{} as any} Component={() => <div id="component" />} pageProps={{}} />
     );
     const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();

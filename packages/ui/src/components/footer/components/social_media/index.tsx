@@ -9,16 +9,16 @@ const SocialMedia = (props: Props) => {
   return (
     <div className={`${className} ${classes.root} social-media`}>
       {socialMediaLinks.map((x) => (
-          <a
-            key={x.className}
-            href={x.url}
-            target="_blank"
-            rel="noreferrer"
-            className={`media ${x.className}`}
-          >
-            {x.component}
-          </a>
-        ))}
+        <a
+          key={x.className}
+          href={x.url}
+          target="_blank"
+          rel="noreferrer"
+          className={`media ${x.className}`}
+        >
+          {x.component}
+        </a>
+      ))}
     </div>
   );
 };

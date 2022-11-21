@@ -9,7 +9,6 @@
 export const useChainHealthCheck = () => {
   // const { t } = useTranslation('common');
   // const [_chainActive, _setChainActive] = useState(true);
-
   // const [useLatestBlockTimestamp] = useLatestBlockTimestampLazyQuery({
   //   onCompleted: (data) => {
   //     const timestamp = (dayjs as any).utc(R.pathOr('', ['block', 0, 'timestamp'], data));
@@ -26,7 +25,6 @@ export const useChainHealthCheck = () => {
   //     }
   //   },
   // });
-
   // useEffect(() => {
   //   if (!isClient) return;
   //   // useLatestBlockTimestamp();

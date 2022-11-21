@@ -44,15 +44,15 @@ const Footer: React.FC<{ className?: string }> = ({ className }) => {
         {/* ============================= */}
         <div className="footer__links">
           {footerLinks.map((group) => (
-              <div key={group.key} className={`${group.key} links__group`}>
-                <h3>{t(`common:${group.key}`)}</h3>
-                {group.links.map((x) => (
-                    <a key={x.url} href={x.url} target="_blank" rel="noreferrer">
-                      {t(`common:${x.key}`)}
-                    </a>
-                  ))}
-              </div>
-            ))}
+            <div key={group.key} className={`${group.key} links__group`}>
+              <h3>{t(`common:${group.key}`)}</h3>
+              {group.links.map((x) => (
+                <a key={x.url} href={x.url} target="_blank" rel="noreferrer">
+                  {t(`common:${x.key}`)}
+                </a>
+              ))}
+            </div>
+          ))}
           {/* ============================= */}
           {/* social */}
           {/* ============================= */}

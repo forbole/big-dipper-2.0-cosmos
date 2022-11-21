@@ -6,12 +6,14 @@ import Navbar from '.';
 // ==================================
 // mocks
 // ==================================
-jest.mock('shared-utils/assets/big-dipper-white.svg', () => (props: JSX.IntrinsicElements['div']) => (
-  <div id="WHITE" {...props} />
-));
-jest.mock('shared-utils/assets/big-dipper-red-sifchain.svg', () => (props: JSX.IntrinsicElements['div']) => (
-  <div id="RED" {...props} />
-));
+jest.mock(
+  'shared-utils/assets/big-dipper-white.svg',
+  () => (props: JSX.IntrinsicElements['div']) => <div id="WHITE" {...props} />
+);
+jest.mock(
+  'shared-utils/assets/big-dipper-red-sifchain.svg',
+  () => (props: JSX.IntrinsicElements['div']) => <div id="RED" {...props} />
+);
 // ==================================
 // global setup
 // ==================================

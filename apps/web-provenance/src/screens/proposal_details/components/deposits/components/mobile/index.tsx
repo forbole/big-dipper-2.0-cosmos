@@ -21,54 +21,54 @@ const Mobile: React.FC<{
 
   const formattedItems =
     items?.map((x) => ({
-        depositor: (
-          <>
-            {x.user.address ? (
-              <AvatarName address={x.user.address} imageUrl={x.user.imageUrl} name={x.user.name} />
-            ) : (
-              <>-</>
-            )}
-          </>
-        ),
-        amount: `${formatNumber(
-          x.amount.value,
-          x.amount.exponent
-        )} ${x.amount.displayDenom.toUpperCase()}`,
-        time: formatDayJs((dayjs as any).utc(x.timestamp), dateFormat),
-      })) ?? [];
+      depositor: (
+        <>
+          {x.user.address ? (
+            <AvatarName address={x.user.address} imageUrl={x.user.imageUrl} name={x.user.name} />
+          ) : (
+            <>-</>
+          )}
+        </>
+      ),
+      amount: `${formatNumber(
+        x.amount.value,
+        x.amount.exponent
+      )} ${x.amount.displayDenom.toUpperCase()}`,
+      time: formatDayJs((dayjs as any).utc(x.timestamp), dateFormat),
+    })) ?? [];
 
   return (
     <div className={classnames(className)}>
       {formattedItems?.map((x, i) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <React.Fragment key={`depositors-mobile-${i}`}>
-            <div className={classes.list}>
-              <div className={classes.item}>
-                <Typography variant="h4" className="label">
-                  {t('depositor')}
-                </Typography>
-                {x.depositor}
-              </div>
-              <div className={classes.item}>
-                <Typography variant="h4" className="label">
-                  {t('amount')}
-                </Typography>
-                <Typography variant="body1" className="value">
-                  {x.amount}
-                </Typography>
-              </div>
-              <div className={classes.item}>
-                <Typography variant="h4" className="label">
-                  {t('time')}
-                </Typography>
-                <Typography variant="body1" className="value">
-                  {x.time}
-                </Typography>
-              </div>
+        // eslint-disable-next-line react/no-array-index-key
+        <React.Fragment key={`depositors-mobile-${i}`}>
+          <div className={classes.list}>
+            <div className={classes.item}>
+              <Typography variant="h4" className="label">
+                {t('depositor')}
+              </Typography>
+              {x.depositor}
             </div>
-            {!!items && i !== items.length - 1 && <Divider />}
-          </React.Fragment>
-        ))}
+            <div className={classes.item}>
+              <Typography variant="h4" className="label">
+                {t('amount')}
+              </Typography>
+              <Typography variant="body1" className="value">
+                {x.amount}
+              </Typography>
+            </div>
+            <div className={classes.item}>
+              <Typography variant="h4" className="label">
+                {t('time')}
+              </Typography>
+              <Typography variant="body1" className="value">
+                {x.time}
+              </Typography>
+            </div>
+          </div>
+          {!!items && i !== items.length - 1 && <Divider />}
+        </React.Fragment>
+      ))}
     </div>
   );
 };

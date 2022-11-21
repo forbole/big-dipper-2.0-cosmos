@@ -179,12 +179,12 @@ const ValidatorOverview: React.FC<
         <Divider className={classes.divider} />
         <div className={classes.statusRoot}>
           {statusItems.map((x, i) => (
-              // eslint-disable-next-line react/no-array-index-key
-              <div className={classes.statusItem} key={`status-item-${i}`}>
-                {x.key}
-                {x.value}
-              </div>
-            ))}
+            // eslint-disable-next-line react/no-array-index-key
+            <div className={classes.statusItem} key={`status-item-${i}`}>
+              {x.key}
+              {x.value}
+            </div>
+          ))}
         </div>
       </Box>
     </>

@@ -29,20 +29,20 @@ export const useBlocks = () => {
         });
 
         const items = tokensData.map((x: any) => ({
-            identifier: R.pathOr('', ['identifier'], x),
-            name: R.pathOr('', ['name'], x),
-            owner: R.pathOr('', ['owner'], x),
-            accounts: R.pathOr('', ['accounts'], x),
-            transactions: R.pathOr('', ['transactions'], x),
-            imageUrl: R.pathOr('', ['assets', 'pngUrl'], x),
-          }));
+          identifier: R.pathOr('', ['identifier'], x),
+          name: R.pathOr('', ['name'], x),
+          owner: R.pathOr('', ['owner'], x),
+          accounts: R.pathOr('', ['accounts'], x),
+          transactions: R.pathOr('', ['transactions'], x),
+          imageUrl: R.pathOr('', ['assets', 'pngUrl'], x),
+        }));
 
         handleSetState({
           loading: false,
           items,
         });
-      } catch (error) {
-        console.error((error as any).message);
+      } catch (error: any) {
+        console.error(error.message);
       }
     },
     [handleSetState]
@@ -55,8 +55,8 @@ export const useBlocks = () => {
         handleSetState({
           total,
         });
-      } catch (error) {
-        console.error((error as any).message);
+      } catch (error: any) {
+        console.error(error.message);
       }
     };
 

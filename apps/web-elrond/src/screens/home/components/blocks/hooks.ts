@@ -26,17 +26,17 @@ export const useBlocks = () => {
       });
 
       const items = blocksData.map((x: any) => ({
-          block: x.round,
-          timestamp: x.timestamp,
-          hash: x.hash,
-          txs: x.txCount,
-        }));
+        block: x.round,
+        timestamp: x.timestamp,
+        hash: x.hash,
+        txs: x.txCount,
+      }));
 
       handleSetState({
         items,
       });
-    } catch (error) {
-      console.error((error as any).message);
+    } catch (error: any) {
+      console.error(error.message);
     }
   }, [handleSetState]);
 

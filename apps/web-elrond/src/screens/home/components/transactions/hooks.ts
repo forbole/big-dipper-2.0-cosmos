@@ -26,18 +26,18 @@ export const useBlocks = () => {
       });
 
       const items = transactionsData.map((x: any) => ({
-          hash: x.txHash,
-          from: x.sender,
-          to: x.receiver,
-          timestamp: x.timestamp,
-          status: x.status,
-        }));
+        hash: x.txHash,
+        from: x.sender,
+        to: x.receiver,
+        timestamp: x.timestamp,
+        status: x.status,
+      }));
 
       handleSetState({
         items,
       });
-    } catch (error) {
-      console.error((error as any).message);
+    } catch (error: any) {
+      console.error(error.message);
     }
   }, [handleSetState]);
 

@@ -33,17 +33,17 @@ export const useTokens = () => {
         });
 
         const items = data.map((x: any) => ({
-            identifier: R.pathOr('', ['identifier'], x),
-            name: R.pathOr('', ['name'], x),
-            type: R.pathOr('', ['type'], x),
-          }));
+          identifier: R.pathOr('', ['identifier'], x),
+          name: R.pathOr('', ['name'], x),
+          type: R.pathOr('', ['type'], x),
+        }));
 
         handleSetState({
           loading: false,
           items,
         });
-      } catch (error) {
-        console.error((error as any).message);
+      } catch (error: any) {
+        console.error(error.message);
       }
     },
     [handleSetState, router.query.address]

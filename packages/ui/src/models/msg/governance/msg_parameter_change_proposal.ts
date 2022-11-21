@@ -24,10 +24,10 @@ class MsgParameterChangeProposal {
       title: json.title,
       description: json.description,
       changes: json?.changes?.map((x?: { subspace: string; key: string; value: string }) => ({
-          subspace: x?.subspace,
-          key: x?.key,
-          value: x?.value,
-        })),
+        subspace: x?.subspace,
+        key: x?.key,
+        value: x?.value,
+      })),
     };
   }
 }

@@ -26,18 +26,17 @@ export const useBlocks = () => {
     },
   });
 
-  const formatBlocks = (data: BlocksListenerSubscription) => (
-      data.blocks.map((x) => {
-        const proposerAddress = R.pathOr('', ['validator', 'validatorInfo', 'operatorAddress'], x);
-        return {
-          height: x.height,
-          txs: x.txs ?? 0,
-          hash: x.hash,
-          timestamp: x.timestamp,
-          proposer: proposerAddress,
-        };
-      }) ?? []
-    );
+  const formatBlocks = (data: BlocksListenerSubscription) =>
+    data.blocks.map((x) => {
+      const proposerAddress = R.pathOr('', ['validator', 'validatorInfo', 'operatorAddress'], x);
+      return {
+        height: x.height,
+        txs: x.txs ?? 0,
+        hash: x.hash,
+        timestamp: x.timestamp,
+        proposer: proposerAddress,
+      };
+    }) ?? [];
 
   return {
     state,

@@ -43,10 +43,10 @@ const Staking: React.FC<ComponentDefault> = (props) => {
     <Box className={classnames(props.className, classes.root)}>
       <Tabs tab={state.tab} handleTabChange={handleTabChange} tabs={tabs} />
       {tabs.map((x) => (
-          <TabPanel key={x.id} index={x.id} value={state.tab}>
-            {x.component}
-          </TabPanel>
-        ))}
+        <TabPanel key={x.id} index={x.id} value={state.tab}>
+          {x.component}
+        </TabPanel>
+      ))}
     </Box>
   );
 };

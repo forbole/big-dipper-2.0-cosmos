@@ -32,18 +32,17 @@ const ProposalsList: FC<{
 
   const formattedItems =
     items?.map((x) => ({
-        description:
-          x.description.length > 200 ? `${x.description.slice(0, 200)}...` : x.description,
-        status: x.status,
-        title: (
-          <Link href={PROPOSAL_DETAILS(x.id)} passHref>
-            <Typography variant="h3" className="value" component="a">
-              {x.title}
-            </Typography>
-          </Link>
-        ),
-        id: `#${numeral(x.id).format('0,0')}`,
-      })) ?? [];
+      description: x.description.length > 200 ? `${x.description.slice(0, 200)}...` : x.description,
+      status: x.status,
+      title: (
+        <Link href={PROPOSAL_DETAILS(x.id)} passHref>
+          <Typography variant="h3" className="value" component="a">
+            {x.title}
+          </Typography>
+        </Link>
+      ),
+      id: `#${numeral(x.id).format('0,0')}`,
+    })) ?? [];
 
   return (
     <Box className={classnames(className, classes.root)}>
@@ -54,35 +53,35 @@ const ProposalsList: FC<{
       <div className={classes.list}>
         <AutoSizer>
           {({ height, width }) => (
-              <InfiniteLoader
-                isItemLoaded={isItemLoaded ?? (() => true)}
-                itemCount={itemCount}
-                loadMoreItems={
-                  loadMoreItems ??
-                  (() => {
-                    // do nothing
-                  })
-                }
-              >
-                {({ onItemsRendered, ref }) => (
-                  <List
-                    className="List"
-                    height={height}
-                    itemCount={itemCount}
-                    itemSize={getRowHeight}
-                    onItemsRendered={onItemsRendered}
-                    ref={mergeRefs(listRef, ref)}
-                    width={width}
-                  >
-                    {({ index, style }) => (
-                      <ListItem
-                        {...{ index, style, setRowHeight, isItemLoaded, formattedItems, itemCount }}
-                      />
-                    )}
-                  </List>
-                )}
-              </InfiniteLoader>
-            )}
+            <InfiniteLoader
+              isItemLoaded={isItemLoaded ?? (() => true)}
+              itemCount={itemCount}
+              loadMoreItems={
+                loadMoreItems ??
+                (() => {
+                  // do nothing
+                })
+              }
+            >
+              {({ onItemsRendered, ref }) => (
+                <List
+                  className="List"
+                  height={height}
+                  itemCount={itemCount}
+                  itemSize={getRowHeight}
+                  onItemsRendered={onItemsRendered}
+                  ref={mergeRefs(listRef, ref)}
+                  width={width}
+                >
+                  {({ index, style }) => (
+                    <ListItem
+                      {...{ index, style, setRowHeight, isItemLoaded, formattedItems, itemCount }}
+                    />
+                  )}
+                </List>
+              )}
+            </InfiniteLoader>
+          )}
         </AutoSizer>
       </div>
     </Box>

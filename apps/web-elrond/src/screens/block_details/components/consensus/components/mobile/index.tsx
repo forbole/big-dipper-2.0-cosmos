@@ -18,31 +18,33 @@ const Mobile: FC<{ items: ConsensusType[] } & ComponentDefault> = (props) => {
   const { listRef, getRowHeight, setRowHeight } = useList();
   const classes = useStyles();
 
-  const formattedItems = props.items.map((x) => getMiddleEllipsis(x, {
+  const formattedItems = props.items.map((x) =>
+    getMiddleEllipsis(x, {
       beginning: 13,
       ending: 15,
-    }));
+    })
+  );
 
   return (
     <div className={classes.root}>
       <AutoSizer>
         {({ height, width }) => (
-            <List
-              className="List"
-              height={height}
-              itemCount={props.items.length}
-              itemSize={getRowHeight}
-              ref={listRef as React.LegacyRef<List>}
-              width={width}
-            >
-              {({ index, style }) => (
-                <ListItem
-                  {...{ index, style, setRowHeight, classes, formattedItems, t }}
-                  items={props.items}
-                />
-              )}
-            </List>
-          )}
+          <List
+            className="List"
+            height={height}
+            itemCount={props.items.length}
+            itemSize={getRowHeight}
+            ref={listRef as React.LegacyRef<List>}
+            width={width}
+          >
+            {({ index, style }) => (
+              <ListItem
+                {...{ index, style, setRowHeight, classes, formattedItems, t }}
+                items={props.items}
+              />
+            )}
+          </List>
+        )}
       </AutoSizer>
     </div>
   );

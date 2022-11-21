@@ -47,14 +47,14 @@ const Desktop: React.FC<{
         <TableHead>
           <TableRow>
             {columns.map((column) => (
-                <TableCell
-                  key={column.key}
-                  align={column.align}
-                  style={{ width: `${column.width}%` }}
-                >
-                  {t(column.key)}
-                </TableCell>
-              ))}
+              <TableCell
+                key={column.key}
+                align={column.align}
+                style={{ width: `${column.width}%` }}
+              >
+                {t(column.key)}
+              </TableCell>
+            ))}
           </TableRow>
         </TableHead>
         <TableBody>
@@ -62,15 +62,15 @@ const Desktop: React.FC<{
             // eslint-disable-next-line react/no-array-index-key
             <TableRow key={`holders-row-${i}`}>
               {columns.map((column) => (
-                  <TableCell
-                    // eslint-disable-next-line react/no-array-index-key
-                    key={`holders-row-${i}-${column.key}`}
-                    align={column.align}
-                    style={{ width: `${column.width}%` }}
-                  >
-                    {row[column.key]}
-                  </TableCell>
-                ))}
+                <TableCell
+                  // eslint-disable-next-line react/no-array-index-key
+                  key={`holders-row-${i}-${column.key}`}
+                  align={column.align}
+                  style={{ width: `${column.width}%` }}
+                >
+                  {row[column.key]}
+                </TableCell>
+              ))}
             </TableRow>
           ))}
         </TableBody>

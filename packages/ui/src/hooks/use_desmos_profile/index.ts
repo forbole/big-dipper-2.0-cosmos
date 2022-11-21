@@ -121,16 +121,16 @@ function formatDesmosProfile(data: DesmosProfileQuery): DesmosProfile | null {
   };
 
   const applications = profile.applicationLinks.map((x) => ({
-      network: x.application,
-      identifier: x.username,
-      creationTime: x.creationTime,
-    }));
+    network: x.application,
+    identifier: x.username,
+    creationTime: x.creationTime,
+  }));
 
   const chains = profile.chainLinks.map((x) => ({
-      network: x.chainConfig.name,
-      identifier: x.externalAddress,
-      creationTime: x.creationTime,
-    }));
+    network: x.chainConfig.name,
+    identifier: x.externalAddress,
+    creationTime: x.creationTime,
+  }));
 
   const connectionsWithoutNativeSorted = [...applications, ...chains].sort((a, b) =>
     a.network.toLowerCase() > b.network.toLowerCase() ? 1 : -1

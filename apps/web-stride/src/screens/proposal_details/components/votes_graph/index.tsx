@@ -51,10 +51,10 @@ const VotesGraph: React.FC<ComponentDefault> = (props) => {
             fill="#8884d8"
             isAnimationActive={false}
           >
-            {formattedData.map((entry, index) => 
+            {formattedData.map((entry, index) => (
               // eslint-disable-next-line react/no-array-index-key
-               <Cell key={`cell-${index}`} fill={entry.color} stroke={entry.color} />
-            )}
+              <Cell key={`cell-${index}`} fill={entry.color} stroke={entry.color} />
+            ))}
           </Pie>
         </PieChart>
       </div>
@@ -73,13 +73,13 @@ const VotesGraph: React.FC<ComponentDefault> = (props) => {
         {formattedData
           .filter((x) => String(x.name) !== 'empty')
           .map((x) => (
-              <div key={x.name} className={classnames(classes.voteItem, x.name)}>
-                <Typography variant="caption">
-                  {t(x.name)} ({x.percentage})
-                </Typography>
-                <Typography>{x.display}</Typography>
-              </div>
-            ))}
+            <div key={x.name} className={classnames(classes.voteItem, x.name)}>
+              <Typography variant="caption">
+                {t(x.name)} ({x.percentage})
+              </Typography>
+              <Typography>{x.display}</Typography>
+            </div>
+          ))}
       </div>
       <div className={classes.popOver}>
         <InfoPopover content={<QuorumExplanation quorum={quorum} />} />

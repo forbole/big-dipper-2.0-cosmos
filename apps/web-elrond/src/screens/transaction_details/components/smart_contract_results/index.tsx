@@ -21,15 +21,12 @@ const SmartContractResults: React.FC<{ results: ResultType[] } & ComponentDefaul
   }
 
   const formattedItems = props.results.map((x) => ({
-      hash: x.hash,
-      sender: <AvatarName address={x.sender} name={x.sender} />,
-      receiver: <AvatarName address={x.receiver} name={x.receiver} />,
-      value: `${formatNumber(
-        x.value.value,
-        x.value.exponent
-      )} ${x.value.displayDenom.toUpperCase()}`,
-      data: decodeBase64(x.data),
-    }));
+    hash: x.hash,
+    sender: <AvatarName address={x.sender} name={x.sender} />,
+    receiver: <AvatarName address={x.receiver} name={x.receiver} />,
+    value: `${formatNumber(x.value.value, x.value.exponent)} ${x.value.displayDenom.toUpperCase()}`,
+    data: decodeBase64(x.data),
+  }));
 
   return (
     <Box className={classes.root}>
@@ -38,40 +35,17 @@ const SmartContractResults: React.FC<{ results: ResultType[] } & ComponentDefaul
       </Typography>
       <div>
         {formattedItems?.map((x, i) => (
-            // eslint-disable-next-line react/no-array-index-key
-            <React.Fragment key={`${x.data}-${i}`}>
-              <div className={classes.itemWrap}>
-                <div className={classes.desktopFlex}>
-                  <div className={classes.item}>
-                    <Typography variant="h4" className="label">
-                      {t('hash')}
-                    </Typography>
-                    {x.hash}
-                  </div>
-                  <div className={classnames(classes.item, classes.desktop)}>
-                    <Typography variant="h4" className="label">
-                      {t('value')}
-                    </Typography>
-                    <Typography variant="body1" className="value">
-                      {x.value}
-                    </Typography>
-                  </div>
+          // eslint-disable-next-line react/no-array-index-key
+          <React.Fragment key={`${x.data}-${i}`}>
+            <div className={classes.itemWrap}>
+              <div className={classes.desktopFlex}>
+                <div className={classes.item}>
+                  <Typography variant="h4" className="label">
+                    {t('hash')}
+                  </Typography>
+                  {x.hash}
                 </div>
-                <div className={classes.desktopFlex}>
-                  <div className={classes.item}>
-                    <Typography variant="h4" className="label">
-                      {t('sender')}
-                    </Typography>
-                    {x.sender}
-                  </div>
-                  <div className={classes.item}>
-                    <Typography variant="h4" className="label">
-                      {t('receiver')}
-                    </Typography>
-                    {x.receiver}
-                  </div>
-                </div>
-                <div className={classnames(classes.item, classes.mobile)}>
+                <div className={classnames(classes.item, classes.desktop)}>
                   <Typography variant="h4" className="label">
                     {t('value')}
                   </Typography>
@@ -79,16 +53,39 @@ const SmartContractResults: React.FC<{ results: ResultType[] } & ComponentDefaul
                     {x.value}
                   </Typography>
                 </div>
+              </div>
+              <div className={classes.desktopFlex}>
                 <div className={classes.item}>
                   <Typography variant="h4" className="label">
-                    {t('data')}
+                    {t('sender')}
                   </Typography>
-                  <CodeBlock message={x.data} />
+                  {x.sender}
+                </div>
+                <div className={classes.item}>
+                  <Typography variant="h4" className="label">
+                    {t('receiver')}
+                  </Typography>
+                  {x.receiver}
                 </div>
               </div>
-              {i !== formattedItems.length - 1 && <Divider />}
-            </React.Fragment>
-          ))}
+              <div className={classnames(classes.item, classes.mobile)}>
+                <Typography variant="h4" className="label">
+                  {t('value')}
+                </Typography>
+                <Typography variant="body1" className="value">
+                  {x.value}
+                </Typography>
+              </div>
+              <div className={classes.item}>
+                <Typography variant="h4" className="label">
+                  {t('data')}
+                </Typography>
+                <CodeBlock message={x.data} />
+              </div>
+            </div>
+            {i !== formattedItems.length - 1 && <Divider />}
+          </React.Fragment>
+        ))}
       </div>
     </Box>
   );

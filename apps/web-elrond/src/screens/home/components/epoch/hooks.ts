@@ -25,8 +25,8 @@ export const useEpoch = () => {
           roundsPassed: statsData.roundsPassed,
           roundsPerEpoch: statsData.roundsPerEpoch,
         });
-      } catch (error) {
-        console.error((error as any).message);
+      } catch (error: any) {
+        console.error(error.message);
       }
     };
 

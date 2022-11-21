@@ -37,51 +37,51 @@ const Mobile: React.FC<{ items: NodeType[] } & ComponentDefault> = (props) => {
   return (
     <div className={props.className}>
       {formattedItems?.map((x, i) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <React.Fragment key={`${x.pubkey}-${i}`}>
-            <div className={classes.wrapper}>
+        // eslint-disable-next-line react/no-array-index-key
+        <React.Fragment key={`${x.pubkey}-${i}`}>
+          <div className={classes.wrapper}>
+            <div className={classes.item}>
+              <Typography variant="h4" className="label">
+                {t('name')}
+              </Typography>
+              {x.name}
+            </div>
+            <div className={classes.item}>
+              <Typography variant="h4" className="label">
+                {t('pubkey')}
+              </Typography>
+              {x.pubkey}
+            </div>
+            <div className={classes.item}>
+              <Typography variant="h4" className="label">
+                {t('shard')}
+              </Typography>
+              <Typography variant="body1" className="value">
+                {x.shard}
+              </Typography>
+            </div>
+            <div className={classes.flex}>
               <div className={classes.item}>
                 <Typography variant="h4" className="label">
-                  {t('name')}
-                </Typography>
-                {x.name}
-              </div>
-              <div className={classes.item}>
-                <Typography variant="h4" className="label">
-                  {t('pubkey')}
-                </Typography>
-                {x.pubkey}
-              </div>
-              <div className={classes.item}>
-                <Typography variant="h4" className="label">
-                  {t('shard')}
+                  {t('version')}
                 </Typography>
                 <Typography variant="body1" className="value">
-                  {x.shard}
+                  {x.version}
                 </Typography>
               </div>
-              <div className={classes.flex}>
-                <div className={classes.item}>
-                  <Typography variant="h4" className="label">
-                    {t('version')}
-                  </Typography>
-                  <Typography variant="body1" className="value">
-                    {x.version}
-                  </Typography>
-                </div>
-                <div className={classes.item}>
-                  <Typography variant="h4" className="label">
-                    {t('status')}
-                  </Typography>
-                  <Typography variant="body1" className="value">
-                    {x.status}
-                  </Typography>
-                </div>
+              <div className={classes.item}>
+                <Typography variant="h4" className="label">
+                  {t('status')}
+                </Typography>
+                <Typography variant="body1" className="value">
+                  {x.status}
+                </Typography>
               </div>
             </div>
-            {i !== formattedItems.length - 1 && <Divider />}
-          </React.Fragment>
-        ))}
+          </div>
+          {i !== formattedItems.length - 1 && <Divider />}
+        </React.Fragment>
+      ))}
     </div>
   );
 };

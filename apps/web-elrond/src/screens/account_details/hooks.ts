@@ -50,24 +50,21 @@ export const useAccountDetails = () => {
       };
 
       const getProfile = () => ({
-          address: R.pathOr('', ['address'], accountData),
-          username: R.pathOr('', ['username'], accountData),
-        });
+        address: R.pathOr('', ['address'], accountData),
+        username: R.pathOr('', ['username'], accountData),
+      });
 
       newState.profile = getProfile();
 
       const getOverview = () => ({
-          balance: formatToken(
-            R.pathOr('0', ['balance'], accountData),
-            chainConfig.primaryTokenUnit
-          ),
-          developerReward: formatToken(
-            R.pathOr('0', ['developerReward'], accountData),
-            chainConfig.primaryTokenUnit
-          ),
-          shard: R.pathOr(0, ['shard'], accountData),
-          tokenCount,
-        });
+        balance: formatToken(R.pathOr('0', ['balance'], accountData), chainConfig.primaryTokenUnit),
+        developerReward: formatToken(
+          R.pathOr('0', ['developerReward'], accountData),
+          chainConfig.primaryTokenUnit
+        ),
+        shard: R.pathOr(0, ['shard'], accountData),
+        tokenCount,
+      });
 
       newState.overview = getOverview();
 

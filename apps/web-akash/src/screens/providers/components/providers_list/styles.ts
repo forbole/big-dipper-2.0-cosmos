@@ -1,52 +1,52 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 const styles = makeStyles((theme) => ({
-    root: {
-      height: '100%',
-      '& .MuiTypography-h2': {
-        marginBottom: theme.spacing(2),
-      },
+  root: {
+    height: '100%',
+    '& .MuiTypography-h2': {
+      marginBottom: theme.spacing(2),
     },
-    list: {
-      // [theme.breakpoints.up('lg')]: {
-      //   minHeight: '75vh',
-      //   // minHeight: '700px',
-      //   height: '70vh',
-      // },
+  },
+  list: {
+    // [theme.breakpoints.up('lg')]: {
+    //   minHeight: '75vh',
+    //   // minHeight: '700px',
+    //   height: '70vh',
+    // },
+  },
+  paginate: {
+    marginTop: theme.spacing(3),
+  },
+  providerHeader: {
+    [theme.breakpoints.up('lg')]: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
     },
-    paginate: {
-      marginTop: theme.spacing(3),
+  },
+  searchBar: {
+    width: '100%',
+    margin: theme.spacing(2, 0),
+    '& .MuiInputBase-root': {
+      background: theme.palette.custom.general.surfaceTwo,
     },
-    providerHeader: {
-      [theme.breakpoints.up('lg')]: {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-      },
-    },
-    searchBar: {
-      width: '100%',
-      margin: theme.spacing(2, 0),
+    [theme.breakpoints.up('lg')]: {
+      display: 'block',
+      width: '300px',
       '& .MuiInputBase-root': {
-        background: theme.palette.custom.general.surfaceTwo,
+        width: '100%',
+        // background: theme.palette.custom.general.surfaceTwo,
+        padding: theme.spacing(0.4, 1.2),
+        borderRadius: theme.shape.borderRadius,
       },
-      [theme.breakpoints.up('lg')]: {
-        display: 'block',
-        width: '300px',
-        '& .MuiInputBase-root': {
-          width: '100%',
-          // background: theme.palette.custom.general.surfaceTwo,
-          padding: theme.spacing(0.4, 1.2),
-          borderRadius: theme.shape.borderRadius,
-        },
-        '& .MuiInputBase-input': {
-          textOverflow: 'ellipsis',
-          '&::placeholder': {
-            color: theme.palette.custom.fonts.fontThree,
-          },
+      '& .MuiInputBase-input': {
+        textOverflow: 'ellipsis',
+        '&::placeholder': {
+          color: theme.palette.custom.fonts.fontThree,
         },
       },
     },
-  }));
+  },
+}));
 
 export const useStyles = () => styles();

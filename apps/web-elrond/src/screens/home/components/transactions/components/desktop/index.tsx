@@ -21,65 +21,65 @@ const Desktop: React.FC<{ items: TransactionType[] } & ComponentDefault> = (prop
   const { t } = useTranslation('transactions');
   const classes = useStyles();
   const formattedItems = props.items.map((x) => ({
-      hash: (
-        <Link href={TRANSACTION_DETAILS(x.hash)} passHref>
-          <Typography variant="body1" className="value" component="a">
-            {getMiddleEllipsis(x.hash, {
-              beginning: 10,
-              ending: 5,
-            })}
-          </Typography>
-        </Link>
-      ),
-      from: (
-        <AvatarName
-          address={x.from}
-          name={getMiddleEllipsis(x.from, {
-            beginning: 7,
+    hash: (
+      <Link href={TRANSACTION_DETAILS(x.hash)} passHref>
+        <Typography variant="body1" className="value" component="a">
+          {getMiddleEllipsis(x.hash, {
+            beginning: 10,
             ending: 5,
           })}
-        />
-      ),
-      to: (
-        <AvatarName
-          address={x.to}
-          name={getMiddleEllipsis(x.to, {
-            beginning: 7,
-            ending: 5,
-          })}
-        />
-      ),
-      status: <Result status={x.status} />,
-      time: (dayjs as any).utc(dayjs.unix(x.timestamp)).fromNow(),
-    }));
+        </Typography>
+      </Link>
+    ),
+    from: (
+      <AvatarName
+        address={x.from}
+        name={getMiddleEllipsis(x.from, {
+          beginning: 7,
+          ending: 5,
+        })}
+      />
+    ),
+    to: (
+      <AvatarName
+        address={x.to}
+        name={getMiddleEllipsis(x.to, {
+          beginning: 7,
+          ending: 5,
+        })}
+      />
+    ),
+    status: <Result status={x.status} />,
+    time: (dayjs as any).utc(dayjs.unix(x.timestamp)).fromNow(),
+  }));
   return (
     <div className={classnames(props.className, classes.root)}>
       <Table className={classes.table}>
         <TableHead>
           <TableRow>
             {columns.map((column) => (
-                <TableCell
-                  key={column.key}
-                  align={column.align}
-                  style={{ width: `${column.width}%` }}
-                >
-                  {t(column.key)}
-                </TableCell>
-              ))}
+              <TableCell
+                key={column.key}
+                align={column.align}
+                style={{ width: `${column.width}%` }}
+              >
+                {t(column.key)}
+              </TableCell>
+            ))}
           </TableRow>
         </TableHead>
         <TableBody>
           {formattedItems?.map((row: { [key: string]: unknown }) => (
             <TableRow key={`holders-row-${row.identifier}`}>
               {columns.map((column) => (
-                  <TableCell
-                    key={`holders-row-${row.identifier}-${column.key}`}
-                    align={column.align}
-                    style={{ width: `${column.width}%` }}
-                  >
-                    {row[column.key]}
-                  </TableCell>
-                ))}
+                <TableCell
+                  key={`holders-row-${row.identifier}-${column.key}`}
+                  align={column.align}
+                  style={{ width: `${column.width}%` }}
+                >
+                  {row[column.key]}
+                </TableCell>
+              ))}
             </TableRow>
           ))}
         </TableBody>

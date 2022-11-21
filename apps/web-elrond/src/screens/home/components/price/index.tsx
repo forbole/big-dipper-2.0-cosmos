@@ -25,9 +25,9 @@ const Price: React.FC<ComponentDefault> = (props) => {
   const { state, tickPriceFormatter } = usePrice();
 
   const formatItems = state.items.map((x) => ({
-      time: dayjs(x.time).format('MMM DD'),
-      value: x.value,
-    }));
+    time: dayjs(x.time).format('MMM DD'),
+    value: x.value,
+  }));
 
   return (
     <Box className={classnames(props.className, classes.root)}>
@@ -53,13 +53,11 @@ const Price: React.FC<ComponentDefault> = (props) => {
               content={
                 <CustomToolTip>
                   {(x: any) => (
-                      <>
-                        <Typography variant="caption">{x.time}</Typography>
-                        <Typography variant="body1">
-                          ${numeral(x.value).format('0,0.00')}
-                        </Typography>
-                      </>
-                    )}
+                    <>
+                      <Typography variant="caption">{x.time}</Typography>
+                      <Typography variant="body1">${numeral(x.value).format('0,0.00')}</Typography>
+                    </>
+                  )}
                 </CustomToolTip>
               }
             />

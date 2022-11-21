@@ -105,10 +105,10 @@ const Actions: React.FC<Props> = (props) => {
               input={<InputBase />}
             >
               {rowsPerPageOptions.map((x) => (
-                  <MenuItem value={x} key={x} className={classes.menuItem}>
-                    <Typography variant="body2">{x}</Typography>
-                  </MenuItem>
-                ))}
+                <MenuItem value={x} key={x} className={classes.menuItem}>
+                  <Typography variant="body2">{x}</Typography>
+                </MenuItem>
+              ))}
             </Select>
           </FormControl>
         </li>

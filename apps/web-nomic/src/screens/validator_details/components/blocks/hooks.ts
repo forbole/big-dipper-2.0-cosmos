@@ -26,12 +26,13 @@ export const useBlocks = () => {
     },
   });
 
-  const formatLastHundredBlocks = (data: LastHundredBlocksSubscription) => data.block.map((x) => ({
-        height: x.height,
-        txs: x.transactions.length,
-        proposer: x.precommits[0].validatorAddress,
-        signed: x.precommits.length === 1,
-      }));
+  const formatLastHundredBlocks = (data: LastHundredBlocksSubscription) =>
+    data.block.map((x) => ({
+      height: x.height,
+      txs: x.transactions.length,
+      proposer: x.precommits[0].validatorAddress,
+      signed: x.precommits.length === 1,
+    }));
 
   return {
     state,

@@ -139,7 +139,8 @@ export const useTransactionDetails = () => {
     });
   };
 
-  const filterMessages = (messages: any[]) => messages.filter((x) => {
+  const filterMessages = (messages: any[]) =>
+    messages.filter((x) => {
       if (state.messages.filterBy !== 'none') {
         return x.category === state.messages.filterBy;
       }

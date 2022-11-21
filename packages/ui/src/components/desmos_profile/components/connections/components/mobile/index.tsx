@@ -19,36 +19,36 @@ const Mobile: React.FC<{
   return (
     <div className={classnames(className)}>
       {items?.map((x, i) => (
-          <React.Fragment key={`votes-mobile-${x.identifier}`}>
-            <div className={classes.list}>
-              <div className={classes.item}>
-                <Typography variant="h4" className="label">
-                  {t('network')}
-                </Typography>
-                <Typography variant="body1" className="value">
-                  {x.network.toUpperCase()}
-                </Typography>
-              </div>
-              <div className={classes.item}>
-                <Typography variant="h4" className="label">
-                  {t('identifier')}
-                </Typography>
-                <Typography variant="body1" className="value">
-                  {x.identifier}
-                </Typography>
-              </div>
-              <div className={classes.item}>
-                <Typography variant="h4" className="label">
-                  {t('creationTime')}
-                </Typography>
-                <Typography variant="body1" className="value">
-                  {formatDayJs((dayjs as any).utc(x.creationTime), dateFormat)}
-                </Typography>
-              </div>
+        <React.Fragment key={`votes-mobile-${x.identifier}`}>
+          <div className={classes.list}>
+            <div className={classes.item}>
+              <Typography variant="h4" className="label">
+                {t('network')}
+              </Typography>
+              <Typography variant="body1" className="value">
+                {x.network.toUpperCase()}
+              </Typography>
             </div>
-            {!!items && i !== items.length - 1 && <Divider />}
-          </React.Fragment>
-        ))}
+            <div className={classes.item}>
+              <Typography variant="h4" className="label">
+                {t('identifier')}
+              </Typography>
+              <Typography variant="body1" className="value">
+                {x.identifier}
+              </Typography>
+            </div>
+            <div className={classes.item}>
+              <Typography variant="h4" className="label">
+                {t('creationTime')}
+              </Typography>
+              <Typography variant="body1" className="value">
+                {formatDayJs((dayjs as any).utc(x.creationTime), dateFormat)}
+              </Typography>
+            </div>
+          </div>
+          {!!items && i !== items.length - 1 && <Divider />}
+        </React.Fragment>
+      ))}
     </div>
   );
 };

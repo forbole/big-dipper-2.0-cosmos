@@ -40,7 +40,8 @@ const Mobile: FC<TransactionsListState> = ({
       <Link href={TRANSACTION_DETAILS(x.hash)} passHref>
         <Typography variant="body1" component="a">
           {getMiddleEllipsis(x.hash, {
-            beginning: 15, ending: 10,
+            beginning: 15,
+            ending: 10,
           })}
         </Typography>
       </Link>
@@ -52,33 +53,33 @@ const Mobile: FC<TransactionsListState> = ({
     <div className={classnames(className, classes.root)}>
       <AutoSizer>
         {({ height, width }) => (
-            <InfiniteLoader
-              isItemLoaded={isItemLoaded ?? (() => true)}
-              itemCount={itemCount}
-              loadMoreItems={
-                loadMoreItems ??
-                (() => {
-                  // do nothing
-                })
-              }
-            >
-              {({ onItemsRendered, ref }) => (
-                <List
-                  className="List"
-                  height={height}
-                  itemCount={itemCount}
-                  itemSize={getRowHeight}
-                  onItemsRendered={onItemsRendered}
-                  ref={mergeRefs(listRef, ref)}
-                  width={width}
-                >
-                  {({ index, style }) => (
-                    <ListItem {...{ index, style, setRowHeight, isItemLoaded, items, itemCount }} />
-                  )}
-                </List>
-              )}
-            </InfiniteLoader>
-          )}
+          <InfiniteLoader
+            isItemLoaded={isItemLoaded ?? (() => true)}
+            itemCount={itemCount}
+            loadMoreItems={
+              loadMoreItems ??
+              (() => {
+                // do nothing
+              })
+            }
+          >
+            {({ onItemsRendered, ref }) => (
+              <List
+                className="List"
+                height={height}
+                itemCount={itemCount}
+                itemSize={getRowHeight}
+                onItemsRendered={onItemsRendered}
+                ref={mergeRefs(listRef, ref)}
+                width={width}
+              >
+                {({ index, style }) => (
+                  <ListItem {...{ index, style, setRowHeight, isItemLoaded, items, itemCount }} />
+                )}
+              </List>
+            )}
+          </InfiniteLoader>
+        )}
       </AutoSizer>
     </div>
   );

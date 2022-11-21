@@ -18,17 +18,17 @@ const MiniBlocks: React.FC<{ miniBlocks: MiniBlockType[] } & ComponentDefault> =
       </Typography>
       <div className={classes.listContainer}>
         {props.miniBlocks.map((x) => (
-            <div key={x} className={classes.item}>
-              <div className={classes.hash}>
-                <div className={classes.bullet} />
-                <Link href={MINIBLOCK_DETAILS(x)} passHref>
-                  <Typography variant="body1" className={classes.block} component="a">
-                    {x}
-                  </Typography>
-                </Link>
-              </div>
+          <div key={x} className={classes.item}>
+            <div className={classes.hash}>
+              <div className={classes.bullet} />
+              <Link href={MINIBLOCK_DETAILS(x)} passHref>
+                <Typography variant="body1" className={classes.block} component="a">
+                  {x}
+                </Typography>
+              </Link>
             </div>
-          ))}
+          </div>
+        ))}
       </div>
     </Box>
   );

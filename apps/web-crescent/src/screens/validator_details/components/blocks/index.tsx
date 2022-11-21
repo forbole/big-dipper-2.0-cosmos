@@ -18,9 +18,9 @@ const Blocks: React.FC<{
   const { state } = useBlocks();
   const dataProfiles = useProfilesRecoil(state.map((x) => x.proposer));
   const mergedDataWithProfiles = state.map((x, i) => ({
-      ...(x as object),
-      proposer: dataProfiles[i],
-    }));
+    ...(x as object),
+    proposer: dataProfiles[i],
+  }));
 
   const classes = useStyles();
   return (
@@ -28,55 +28,55 @@ const Blocks: React.FC<{
       <Typography variant="h2">{t('lastBlocks')}</Typography>
       <div className={classes.blocks}>
         {mergedDataWithProfiles.map((x: any, i) => (
-            <Tooltip
-              key={`blocks-tooltip-${x.txs}`}
-              enterTouchDelay={50}
-              title={
-                <Box className={classes.toolTip}>
-                  <div className={classes.item}>
-                    <Typography variant="h4" className="label">
-                      {t('proposer')}
-                    </Typography>
-                    <AvatarName
-                      address={x.proposer.address}
-                      imageUrl={x.proposer.imageUrl}
-                      name={x.proposer.name}
-                    />
-                  </div>
-                  <div className={classes.item}>
-                    <Typography variant="h4" className="label">
-                      {t('block')}
-                    </Typography>
-                    <Typography variant="body1" className="value">
-                      {numeral(x.height).format('0,0')}
-                    </Typography>
-                  </div>
-                  <div className={classes.item}>
-                    <Typography variant="h4" className="label">
-                      {t('txs')}
-                    </Typography>
-                    <Typography variant="body1" className="value">
-                      {numeral(x.txs).format('0,0')}
-                    </Typography>
-                  </div>
-                  <div className={classes.item}>
-                    <Typography variant="h4" className="label">
-                      {t('signed')}
-                    </Typography>
-                    <Result success={x.signed} />
-                  </div>
-                </Box>
-              }
-              placement="top"
-            >
-              <div
-                key={x.txs}
-                className={classnames(classes.singleBlock, {
-                  signed: state[i].signed,
-                })}
-              />
-            </Tooltip>
-          ))}
+          <Tooltip
+            key={`blocks-tooltip-${x.txs}`}
+            enterTouchDelay={50}
+            title={
+              <Box className={classes.toolTip}>
+                <div className={classes.item}>
+                  <Typography variant="h4" className="label">
+                    {t('proposer')}
+                  </Typography>
+                  <AvatarName
+                    address={x.proposer.address}
+                    imageUrl={x.proposer.imageUrl}
+                    name={x.proposer.name}
+                  />
+                </div>
+                <div className={classes.item}>
+                  <Typography variant="h4" className="label">
+                    {t('block')}
+                  </Typography>
+                  <Typography variant="body1" className="value">
+                    {numeral(x.height).format('0,0')}
+                  </Typography>
+                </div>
+                <div className={classes.item}>
+                  <Typography variant="h4" className="label">
+                    {t('txs')}
+                  </Typography>
+                  <Typography variant="body1" className="value">
+                    {numeral(x.txs).format('0,0')}
+                  </Typography>
+                </div>
+                <div className={classes.item}>
+                  <Typography variant="h4" className="label">
+                    {t('signed')}
+                  </Typography>
+                  <Result success={x.signed} />
+                </div>
+              </Box>
+            }
+            placement="top"
+          >
+            <div
+              key={x.txs}
+              className={classnames(classes.singleBlock, {
+                signed: state[i].signed,
+              })}
+            />
+          </Tooltip>
+        ))}
       </div>
     </Box>
   );

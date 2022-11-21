@@ -20,16 +20,17 @@ export const columns: {
   },
 ];
 
-export const formatRows = (data: ConsensusType[]) => data.map((x, i) => ({
-      idx: numeral(i + 1).format('0,0'),
-      validator: (
-        <Link href={NODE_DETAILS(x)} passHref>
-          <Typography variant="body1" className="value" component="a">
-            {getMiddleEllipsis(x, {
-              beginning: 40,
-              ending: 30,
-            })}
-          </Typography>
-        </Link>
-      ),
-    }));
+export const formatRows = (data: ConsensusType[]) =>
+  data.map((x, i) => ({
+    idx: numeral(i + 1).format('0,0'),
+    validator: (
+      <Link href={NODE_DETAILS(x)} passHref>
+        <Typography variant="body1" className="value" component="a">
+          {getMiddleEllipsis(x, {
+            beginning: 40,
+            ending: 30,
+          })}
+        </Typography>
+      </Link>
+    ),
+  }));

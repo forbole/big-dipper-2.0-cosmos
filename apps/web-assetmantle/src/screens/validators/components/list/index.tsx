@@ -23,9 +23,9 @@ const List: React.FC<{
   const { state, handleTabChange, handleSearch, handleSort, sortItems } = useValidators();
   const dataProfiles = useProfilesRecoil(state.items.map((x) => x.validator));
   const mergedDataWithProfiles = state.items.map((x, i) => ({
-      ...(x as object),
-      validator: dataProfiles[i],
-    }));
+    ...(x as object),
+    validator: dataProfiles[i],
+  }));
   const items = sortItems(mergedDataWithProfiles as any);
 
   return (

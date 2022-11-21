@@ -93,10 +93,10 @@ function formatRaws(data: BlockDetailsQuery) {
   // ==========================
   const formatTransactions = () => {
     const transactions = data.transaction.map((x) => ({
-        height: x.height,
-        hash: x.hash,
-        timestamp: stateChange.overview.timestamp,
-      }));
+      height: x.height,
+      hash: x.hash,
+      timestamp: stateChange.overview.timestamp,
+    }));
 
     return transactions;
   };

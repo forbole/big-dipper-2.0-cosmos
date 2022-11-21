@@ -103,12 +103,12 @@ export const useTransactionDetails = () => {
 
         // results
         const results = R.pathOr([], ['results'], transactionData).map((x) => ({
-            hash: R.pathOr('', ['hash'], x),
-            sender: R.pathOr('', ['sender'], x),
-            receiver: R.pathOr('', ['receiver'], x),
-            data: R.pathOr('', ['data'], x),
-            value: formatToken(R.pathOr(0, ['value'], x), chainConfig.primaryTokenUnit),
-          }));
+          hash: R.pathOr('', ['hash'], x),
+          sender: R.pathOr('', ['sender'], x),
+          receiver: R.pathOr('', ['receiver'], x),
+          data: R.pathOr('', ['data'], x),
+          value: formatToken(R.pathOr(0, ['value'], x), chainConfig.primaryTokenUnit),
+        }));
 
         handleSetState({
           loading: false,

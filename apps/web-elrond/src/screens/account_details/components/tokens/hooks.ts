@@ -52,8 +52,8 @@ export const useTokens = () => {
           loading: false,
           items,
         });
-      } catch (error) {
-        console.error((error as any).message);
+      } catch (error: any) {
+        console.error(error.message);
       }
     },
     [handleSetState, router.query.address]
@@ -68,8 +68,8 @@ export const useTokens = () => {
         handleSetState({
           total,
         });
-      } catch (error) {
-        console.error((error as any).message);
+      } catch (error: any) {
+        console.error(error.message);
       }
     };
 

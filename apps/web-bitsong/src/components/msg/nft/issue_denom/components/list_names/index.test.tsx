@@ -8,15 +8,17 @@ import ListNames from '.';
 // mocks
 // ==================================
 jest.mock('ui/recoil/profiles', () => ({
-    useProfilesRecoil: jest.fn((addresses) => addresses.map((address: string) => ({
-        address,
-        name:
-          address === 'desmosvaloper14nfk5gm99gfrd7nwqtmtvzunzclz8720a6cqh7'
-            ? 'AC Validator 🦦'
-            : address,
-        imageUrl: '',
-      }))),
-  }));
+  useProfilesRecoil: jest.fn((addresses) =>
+    addresses.map((address: string) => ({
+      address,
+      name:
+        address === 'desmosvaloper14nfk5gm99gfrd7nwqtmtvzunzclz8720a6cqh7'
+          ? 'AC Validator 🦦'
+          : address,
+      imageUrl: '',
+    }))
+  ),
+}));
 
 jest.mock('ui/components/name', () => (props: ComponentProps<typeof Name>) => (
   <div id={props.address} {...props} />

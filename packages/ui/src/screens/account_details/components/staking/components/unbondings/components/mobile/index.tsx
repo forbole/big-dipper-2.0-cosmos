@@ -19,48 +19,48 @@ const Mobile: React.FC<{
   const { t } = useTranslation('accounts');
   const dateFormat = useRecoilValue(readDate);
   const formattedItems = items?.map((x) => ({
-      validator: (
-        <AvatarName
-          address={x.validator.address}
-          imageUrl={x.validator.imageUrl}
-          name={x.validator.name}
-        />
-      ),
-      amount: `${formatNumber(
-        x.amount.value,
-        x.amount.exponent
-      )} ${x.amount.displayDenom.toUpperCase()}`,
-      completionTime: formatDayJs((dayjs as any).utc(x.completionTime), dateFormat),
-    }));
+    validator: (
+      <AvatarName
+        address={x.validator.address}
+        imageUrl={x.validator.imageUrl}
+        name={x.validator.name}
+      />
+    ),
+    amount: `${formatNumber(
+      x.amount.value,
+      x.amount.exponent
+    )} ${x.amount.displayDenom.toUpperCase()}`,
+    completionTime: formatDayJs((dayjs as any).utc(x.completionTime), dateFormat),
+  }));
 
   return (
     <div className={classnames(className)}>
       {formattedItems?.map((x, i) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <React.Fragment key={`votes-mobile-${i}`}>
-            <div className={classes.list}>
-              <div className={classes.item}>
-                <Typography variant="h4" className="label">
-                  {t('validator')}
-                </Typography>
-                {x.validator}
-              </div>
-              <div className={classes.item}>
-                <Typography variant="h4" className="label">
-                  {t('completionTime')}
-                </Typography>
-                {x.completionTime}
-              </div>
-              <div className={classes.item}>
-                <Typography variant="h4" className="label">
-                  {t('amount')}
-                </Typography>
-                {x.amount}
-              </div>
+        // eslint-disable-next-line react/no-array-index-key
+        <React.Fragment key={`votes-mobile-${i}`}>
+          <div className={classes.list}>
+            <div className={classes.item}>
+              <Typography variant="h4" className="label">
+                {t('validator')}
+              </Typography>
+              {x.validator}
             </div>
-            {!!items && i !== items.length - 1 && <Divider />}
-          </React.Fragment>
-        ))}
+            <div className={classes.item}>
+              <Typography variant="h4" className="label">
+                {t('completionTime')}
+              </Typography>
+              {x.completionTime}
+            </div>
+            <div className={classes.item}>
+              <Typography variant="h4" className="label">
+                {t('amount')}
+              </Typography>
+              {x.amount}
+            </div>
+          </div>
+          {!!items && i !== items.length - 1 && <Divider />}
+        </React.Fragment>
+      ))}
     </div>
   );
 };

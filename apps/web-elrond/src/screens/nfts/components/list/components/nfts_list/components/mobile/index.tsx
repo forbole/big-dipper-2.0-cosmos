@@ -13,56 +13,56 @@ const Mobile: React.FC<{ items: NFTTypes[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('nfts');
   const classes = useStyles();
   const formattedItems = props.items.map((x) => ({
-      identifier: x.identifier,
-      nft: (
-        <Link href={NFT_DETAILS(x.identifier)} passHref>
-          <Typography variant="body1" className="value" component="a">
-            {x.name}
-          </Typography>
-        </Link>
-      ),
-      type: x.type,
-      creator: (
-        <AvatarName
-          name={getMiddleEllipsis(x.creator, {
-            beginning: 13,
-            ending: 15,
-          })}
-          address={x.creator}
-        />
-      ),
-    }));
+    identifier: x.identifier,
+    nft: (
+      <Link href={NFT_DETAILS(x.identifier)} passHref>
+        <Typography variant="body1" className="value" component="a">
+          {x.name}
+        </Typography>
+      </Link>
+    ),
+    type: x.type,
+    creator: (
+      <AvatarName
+        name={getMiddleEllipsis(x.creator, {
+          beginning: 13,
+          ending: 15,
+        })}
+        address={x.creator}
+      />
+    ),
+  }));
 
   return (
     <div className={props.className}>
       {formattedItems?.map((x, i) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <React.Fragment key={`${x.identifier}-${i}`}>
-            <div className={classes.root}>
-              <div className={classes.item}>
-                <Typography variant="h4" className="label">
-                  {t('nft')}
-                </Typography>
-                {x.nft}
-              </div>
-              <div className={classes.item}>
-                <Typography variant="h4" className="label">
-                  {t('type')}
-                </Typography>
-                <Typography variant="body1" className="value">
-                  {x.type}
-                </Typography>
-              </div>
-              <div className={classes.item}>
-                <Typography variant="h4" className="label">
-                  {t('creator')}
-                </Typography>
-                {x.creator}
-              </div>
+        // eslint-disable-next-line react/no-array-index-key
+        <React.Fragment key={`${x.identifier}-${i}`}>
+          <div className={classes.root}>
+            <div className={classes.item}>
+              <Typography variant="h4" className="label">
+                {t('nft')}
+              </Typography>
+              {x.nft}
             </div>
-            {i !== formattedItems.length - 1 && <Divider />}
-          </React.Fragment>
-        ))}
+            <div className={classes.item}>
+              <Typography variant="h4" className="label">
+                {t('type')}
+              </Typography>
+              <Typography variant="body1" className="value">
+                {x.type}
+              </Typography>
+            </div>
+            <div className={classes.item}>
+              <Typography variant="h4" className="label">
+                {t('creator')}
+              </Typography>
+              {x.creator}
+            </div>
+          </div>
+          {i !== formattedItems.length - 1 && <Divider />}
+        </React.Fragment>
+      ))}
     </div>
   );
 };

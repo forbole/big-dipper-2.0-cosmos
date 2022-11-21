@@ -23,19 +23,19 @@ const Mobile: FC<{
     <div className={classnames(className, classes.root)}>
       <AutoSizer>
         {({ height, width }) => (
-            <List
-              className="List"
-              height={height}
-              itemCount={signatures?.length ?? 0}
-              itemSize={getRowHeight}
-              ref={listRef as React.LegacyRef<List>}
-              width={width}
-            >
-              {({ index, style }) => (
-                <ListItem {...{ index, style, setRowHeight, signatures, classes, t }} />
-              )}
-            </List>
-          )}
+          <List
+            className="List"
+            height={height}
+            itemCount={signatures?.length ?? 0}
+            itemSize={getRowHeight}
+            ref={listRef as React.LegacyRef<List>}
+            width={width}
+          >
+            {({ index, style }) => (
+              <ListItem {...{ index, style, setRowHeight, signatures, classes, t }} />
+            )}
+          </List>
+        )}
       </AutoSizer>
     </div>
   );

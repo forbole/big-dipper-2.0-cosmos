@@ -20,13 +20,13 @@ const Tokenomics: React.FC<{
   const customToolTip = (
     <CustomToolTip>
       {(x) => (
-          <>
-            <Typography variant="caption">{t(x.legendKey)}</Typography>
-            <Typography variant="body1">
-              {x.value} ({x.percent})
-            </Typography>
-          </>
-        )}
+        <>
+          <Typography variant="caption">{t(x.legendKey)}</Typography>
+          <Typography variant="body1">
+            {x.value} ({x.percent})
+          </Typography>
+        </>
+      )}
     </CustomToolTip>
   );
 
@@ -88,17 +88,19 @@ const Tokenomics: React.FC<{
             // strokeWidth={3}
             isAnimationActive={false}
           >
-            {data.map((entry) => <Cell key={entry.legendKey} fill={entry.fill} />)}
+            {data.map((entry) => (
+              <Cell key={entry.legendKey} fill={entry.fill} />
+            ))}
           </Pie>
           <Tooltip content={customToolTip} />
         </PieChart>
 
         <div className={classes.legends}>
           {data.map((x: any) => (
-              <div className="legends__item" key={x.legendKey}>
-                <Typography variant="caption">{t(x.legendKey)}</Typography>
-              </div>
-            ))}
+            <div className="legends__item" key={x.legendKey}>
+              <Typography variant="caption">{t(x.legendKey)}</Typography>
+            </div>
+          ))}
         </div>
       </div>
     </Box>

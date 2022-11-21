@@ -39,28 +39,28 @@ const Desktop: React.FC<{ items: BlockType[] } & ComponentDefault> = (props) => 
         <TableHead>
           <TableRow>
             {columns.map((column) => (
-                <TableCell
-                  key={column.key}
-                  align={column.align}
-                  style={{ width: `${column.width}%` }}
-                >
-                  {t(column.key)}
-                </TableCell>
-              ))}
+              <TableCell
+                key={column.key}
+                align={column.align}
+                style={{ width: `${column.width}%` }}
+              >
+                {t(column.key)}
+              </TableCell>
+            ))}
           </TableRow>
         </TableHead>
         <TableBody>
           {formattedItems?.map((row: { [key: string]: unknown }) => (
             <TableRow key={`holders-row-${row.identifier}`}>
               {columns.map((column) => (
-                  <TableCell
-                    key={`holders-row-${row.identifier}-${column.key}`}
-                    align={column.align}
-                    style={{ width: `${column.width}%` }}
-                  >
-                    {row[column.key]}
-                  </TableCell>
-                ))}
+                <TableCell
+                  key={`holders-row-${row.identifier}-${column.key}`}
+                  align={column.align}
+                  style={{ width: `${column.width}%` }}
+                >
+                  {row[column.key]}
+                </TableCell>
+              ))}
             </TableRow>
           ))}
         </TableBody>

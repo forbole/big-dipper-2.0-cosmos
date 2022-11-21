@@ -26,9 +26,9 @@ export const useHero = () => {
       };
       if (data.tokenPrice.length === 10) {
         newState.tokenPriceHistory = data.tokenPrice.reverse().map((x) => ({
-            time: x.timestamp,
-            value: x.price,
-          }));
+          time: x.timestamp,
+          value: x.price,
+        }));
       }
       handleSetState(newState);
     },

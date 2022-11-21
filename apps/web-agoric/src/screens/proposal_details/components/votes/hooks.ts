@@ -91,9 +91,9 @@ export const useVotes = (resetPagination: any) => {
     const validatorsNotVoted = validators
       .filter((x) => validatorDict[x] === false)
       .map((address) => ({
-          user: toValidatorAddress(address),
-          vote: 'NOT_VOTED',
-        }));
+        user: toValidatorAddress(address),
+        vote: 'NOT_VOTED',
+      }));
 
     return {
       data: votes,

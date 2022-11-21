@@ -26,8 +26,8 @@ export const useBlocks = () => {
         handleSetState({
           total,
         });
-      } catch (error) {
-        console.error((error as any).message);
+      } catch (error: any) {
+        console.error(error.message);
       }
     };
 
@@ -45,20 +45,20 @@ export const useBlocks = () => {
         });
 
         const items = blocksData.map((x: any) => ({
-            block: x.round,
-            timestamp: x.timestamp,
-            hash: x.hash,
-            txs: x.txCount,
-            shard: x.shard,
-            size: x.sizeTxs,
-          }));
+          block: x.round,
+          timestamp: x.timestamp,
+          hash: x.hash,
+          txs: x.txCount,
+          shard: x.shard,
+          size: x.sizeTxs,
+        }));
 
         handleSetState({
           loading: false,
           items,
         });
-      } catch (error) {
-        console.error((error as any).message);
+      } catch (error: any) {
+        console.error(error.message);
       }
     },
     [handleSetState]

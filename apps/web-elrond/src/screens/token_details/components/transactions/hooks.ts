@@ -33,21 +33,21 @@ export const useTransactions = () => {
         });
 
         const items = transactionsData.map((x: any) => ({
-            hash: x.txHash,
-            fromShard: x.senderShard,
-            toShard: x.receiverShard,
-            from: x.sender,
-            to: x.receiver,
-            timestamp: x.timestamp,
-            status: x.status,
-          }));
+          hash: x.txHash,
+          fromShard: x.senderShard,
+          toShard: x.receiverShard,
+          from: x.sender,
+          to: x.receiver,
+          timestamp: x.timestamp,
+          status: x.status,
+        }));
 
         handleSetState({
           loading: false,
           items,
         });
-      } catch (error) {
-        console.error((error as any).message);
+      } catch (error: any) {
+        console.error(error.message);
       }
     },
     [handleSetState, router.query.token]
@@ -64,8 +64,8 @@ export const useTransactions = () => {
         handleSetState({
           total,
         });
-      } catch (error) {
-        console.error((error as any).message);
+      } catch (error: any) {
+        console.error(error.message);
       }
     };
 

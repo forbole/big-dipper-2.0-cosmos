@@ -17,25 +17,23 @@ const Mobile: React.FC<{
 
   const formattedItems =
     items?.map((x) => ({
-        voter: (
-          <AvatarName address={x.user.address} imageUrl={x.user.imageUrl} name={x.user.name} />
-        ),
-        vote: t(getVoteKey(x.vote)),
-      })) ?? [];
+      voter: <AvatarName address={x.user.address} imageUrl={x.user.imageUrl} name={x.user.name} />,
+      vote: t(getVoteKey(x.vote)),
+    })) ?? [];
 
   return (
     <div className={classnames(className)}>
       {formattedItems?.map((x, i) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <React.Fragment key={`votes-mobile-${i}`}>
-            <div className={classes.list}>
-              <div className={classes.item}>
-                <Typography variant="h4" className="label">
-                  {t('voter')}
-                </Typography>
-                {x.voter}
-              </div>
-              {/* <div className={classes.item}>
+        // eslint-disable-next-line react/no-array-index-key
+        <React.Fragment key={`votes-mobile-${i}`}>
+          <div className={classes.list}>
+            <div className={classes.item}>
+              <Typography variant="h4" className="label">
+                {t('voter')}
+              </Typography>
+              {x.voter}
+            </div>
+            {/* <div className={classes.item}>
                 <Typography variant="h4" className="label">
                   {t('votingPower')}
                 </Typography>
@@ -43,18 +41,18 @@ const Mobile: React.FC<{
                   {x.votingPower}
                 </Typography>
               </div> */}
-              <div className={classes.item}>
-                <Typography variant="h4" className="label">
-                  {t('vote')}
-                </Typography>
-                <Typography variant="body1" className="value">
-                  {x.vote}
-                </Typography>
-              </div>
+            <div className={classes.item}>
+              <Typography variant="h4" className="label">
+                {t('vote')}
+              </Typography>
+              <Typography variant="body1" className="value">
+                {x.vote}
+              </Typography>
             </div>
-            {i !== formattedItems.length - 1 && <Divider />}
-          </React.Fragment>
-        ))}
+          </div>
+          {i !== formattedItems.length - 1 && <Divider />}
+        </React.Fragment>
+      ))}
     </div>
   );
 };

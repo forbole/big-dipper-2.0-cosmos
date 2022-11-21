@@ -115,11 +115,14 @@ export const useTransactions = () => {
       formattedData = data.transactions.slice(0, 51);
     }
 
-    return formattedData.map((x: any) => ({
-        height: x.height,
-        hash: x.hash,
-        timestamp: x.block.timestamp,
-      } as any));
+    return formattedData.map(
+      (x: any) =>
+        ({
+          height: x.height,
+          hash: x.hash,
+          timestamp: x.block.timestamp,
+        } as any)
+    );
   };
 
   return {

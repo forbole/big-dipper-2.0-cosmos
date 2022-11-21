@@ -33,10 +33,10 @@ class BigDipperNetwork {
   }): BigDipperNetwork {
     const allLinks: Link[] =
       data?.links?.map((x) => ({
-          chainId: x.chain_id,
-          url: x.url,
-          name: x.name,
-        })) ?? [];
+        chainId: x.chain_id,
+        url: x.url,
+        name: x.name,
+      })) ?? [];
     const mainnet: Link[] = [];
     const testnet: Link[] = [];
     const retired: Link[] = [];

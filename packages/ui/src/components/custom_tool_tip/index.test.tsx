@@ -56,16 +56,18 @@ describe('component: CustomToolTip', () => {
             dataKey="rawValue"
             isAnimationActive={false}
           >
-            {dummyProps.map((entry) => <Cell key={entry.legendKey} fill={entry.fill} />)}
+            {dummyProps.map((entry) => (
+              <Cell key={entry.legendKey} fill={entry.fill} />
+            ))}
             <Tooltip
               content={
                 <CustomToolTip>
                   {(x) => (
-                      <>
-                        <div>{x.legendKey}</div>
-                        <div>{x.value}</div>
-                      </>
-                    )}
+                    <>
+                      <div>{x.legendKey}</div>
+                      <div>{x.value}</div>
+                    </>
+                  )}
                 </CustomToolTip>
               }
             />

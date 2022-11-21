@@ -41,26 +41,26 @@ const TransactionMessagesFilter: React.FC<{
         selectedFilter !== ''
           ? undefined
           : () => (
-                <Typography variant="body1" noWrap component="div" className={classes.filterLabel}>
-                  <FilterIcon className={classes.filterIcon} />
-                  {t('filterBy')}
-                </Typography>
-              )
+              <Typography variant="body1" noWrap component="div" className={classes.filterLabel}>
+                <FilterIcon className={classes.filterIcon} />
+                {t('filterBy')}
+              </Typography>
+            )
       }
       input={<InputBase />}
     >
       {filterLabels.map((x) => (
-          <MenuItem
-            key={x.key}
-            onClick={() => handleSelect(x)}
-            value={x.key}
-            className={classes.item}
-          >
-            <Typography variant="body1" noWrap>
-              {t(x.display)}
-            </Typography>
-          </MenuItem>
-        ))}
+        <MenuItem
+          key={x.key}
+          onClick={() => handleSelect(x)}
+          value={x.key}
+          className={classes.item}
+        >
+          <Typography variant="body1" noWrap>
+            {t(x.display)}
+          </Typography>
+        </MenuItem>
+      ))}
     </Select>
   );
 };

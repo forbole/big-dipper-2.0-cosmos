@@ -25,27 +25,27 @@ const Desktop: React.FC<{
   const classes = useStyles();
 
   const formattedData = items.map((x) => ({
-      height: (
-        <Link href={BLOCK_DETAILS(x.height)} passHref>
-          <Typography variant="body1" className="value" component="a">
-            {numeral(x.height).format('0,0')}
-          </Typography>
-        </Link>
-      ),
-      txs: numeral(x.txs).format('0,0'),
-      time: (dayjs as any).utc(x.timestamp).fromNow(),
-      proposer: (
-        <AvatarName
-          address={x.proposer.address}
-          imageUrl={x.proposer.imageUrl}
-          name={x.proposer.name}
-        />
-      ),
-      hash: getMiddleEllipsis(x.hash, {
-        beginning: 6,
-        ending: 5,
-      }),
-    }));
+    height: (
+      <Link href={BLOCK_DETAILS(x.height)} passHref>
+        <Typography variant="body1" className="value" component="a">
+          {numeral(x.height).format('0,0')}
+        </Typography>
+      </Link>
+    ),
+    txs: numeral(x.txs).format('0,0'),
+    time: (dayjs as any).utc(x.timestamp).fromNow(),
+    proposer: (
+      <AvatarName
+        address={x.proposer.address}
+        imageUrl={x.proposer.imageUrl}
+        name={x.proposer.name}
+      />
+    ),
+    hash: getMiddleEllipsis(x.hash, {
+      beginning: 6,
+      ending: 5,
+    }),
+  }));
 
   return (
     <div className={classnames(className, classes.root)}>

@@ -17,16 +17,16 @@ const Desktop: React.FC<{ items: OtherTokenType[] } & ComponentDefault> = (props
   const { t } = useTranslation('accounts');
   const classes = useStyles();
   const formattedItems = props.items.map((x) => ({
-      identifier: x.identifier,
-      nft: (
-        <Link href={NFT_DETAILS(x.identifier)} passHref>
-          <Typography variant="body1" className="value" component="a">
-            {x.name}
-          </Typography>
-        </Link>
-      ),
-      type: x.type,
-    }));
+    identifier: x.identifier,
+    nft: (
+      <Link href={NFT_DETAILS(x.identifier)} passHref>
+        <Typography variant="body1" className="value" component="a">
+          {x.name}
+        </Typography>
+      </Link>
+    ),
+    type: x.type,
+  }));
 
   return (
     <div className={classnames(props.className, classes.root)}>
@@ -34,28 +34,28 @@ const Desktop: React.FC<{ items: OtherTokenType[] } & ComponentDefault> = (props
         <TableHead>
           <TableRow>
             {columns.map((column) => (
-                <TableCell
-                  key={column.key}
-                  align={column.align}
-                  style={{ width: `${column.width}%` }}
-                >
-                  {t(column.key)}
-                </TableCell>
-              ))}
+              <TableCell
+                key={column.key}
+                align={column.align}
+                style={{ width: `${column.width}%` }}
+              >
+                {t(column.key)}
+              </TableCell>
+            ))}
           </TableRow>
         </TableHead>
         <TableBody>
           {formattedItems?.map((row: { [key: string]: unknown }) => (
             <TableRow key={`holders-row-${row.identifier}`}>
               {columns.map((column) => (
-                  <TableCell
-                    key={`holders-row-${row.identifier}-${column.key}`}
-                    align={column.align}
-                    style={{ width: `${column.width}%` }}
-                  >
-                    {row[column.key]}
-                  </TableCell>
-                ))}
+                <TableCell
+                  key={`holders-row-${row.identifier}-${column.key}`}
+                  align={column.align}
+                  style={{ width: `${column.width}%` }}
+                >
+                  {row[column.key]}
+                </TableCell>
+              ))}
             </TableRow>
           ))}
         </TableBody>

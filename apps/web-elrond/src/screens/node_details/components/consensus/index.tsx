@@ -19,33 +19,33 @@ const Consensus: React.FC<{ consensus: ConsensusType } & ComponentDefault> = (pr
       {props.consensus.length ? (
         <div className={classes.blocks}>
           {props.consensus.map((x, i) => (
-              <Tooltip
+            <Tooltip
+              // eslint-disable-next-line react/no-array-index-key
+              key={`blocks-tooltip-${i}`}
+              enterTouchDelay={50}
+              title={
+                <Box className={classes.toolTip}>
+                  <div className={classes.item}>
+                    <Typography variant="h4" className="label">
+                      {t('round')}
+                    </Typography>
+                    <Typography variant="body1" className="value">
+                      {numeral(x.round).format('0,0')}
+                    </Typography>
+                  </div>
+                </Box>
+              }
+              placement="top"
+            >
+              <div
                 // eslint-disable-next-line react/no-array-index-key
-                key={`blocks-tooltip-${i}`}
-                enterTouchDelay={50}
-                title={
-                  <Box className={classes.toolTip}>
-                    <div className={classes.item}>
-                      <Typography variant="h4" className="label">
-                        {t('round')}
-                      </Typography>
-                      <Typography variant="body1" className="value">
-                        {numeral(x.round).format('0,0')}
-                      </Typography>
-                    </div>
-                  </Box>
-                }
-                placement="top"
-              >
-                <div
-                  // eslint-disable-next-line react/no-array-index-key
-                  key={i}
-                  className={classnames(classes.singleBlock, {
-                    signed: x.proposed,
-                  })}
-                />
-              </Tooltip>
-            ))}
+                key={i}
+                className={classnames(classes.singleBlock, {
+                  signed: x.proposed,
+                })}
+              />
+            </Tooltip>
+          ))}
         </div>
       ) : (
         <NoData />

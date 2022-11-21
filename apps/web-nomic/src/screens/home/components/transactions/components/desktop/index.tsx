@@ -25,25 +25,25 @@ const Desktop: React.FC<{
   const { t } = useTranslation('transactions');
 
   const formattedData = items.map((x: any) => ({
-      block: (
-        <Link href={BLOCK_DETAILS(x.height)} passHref>
-          <Typography variant="body1" component="a">
-            {numeral(x.height).format('0,0')}
-          </Typography>
-        </Link>
-      ),
-      hash: (
-        <Link href={TRANSACTION_DETAILS(x.hash)} passHref>
-          <Typography variant="body1" component="a">
-            {getMiddleEllipsis(x.hash, {
-              beginning: 15,
-              ending: 15,
-            })}
-          </Typography>
-        </Link>
-      ),
-      time: (dayjs as any).utc(x.timestamp).fromNow(),
-    }));
+    block: (
+      <Link href={BLOCK_DETAILS(x.height)} passHref>
+        <Typography variant="body1" component="a">
+          {numeral(x.height).format('0,0')}
+        </Typography>
+      </Link>
+    ),
+    hash: (
+      <Link href={TRANSACTION_DETAILS(x.hash)} passHref>
+        <Typography variant="body1" component="a">
+          {getMiddleEllipsis(x.hash, {
+            beginning: 15,
+            ending: 15,
+          })}
+        </Typography>
+      </Link>
+    ),
+    time: (dayjs as any).utc(x.timestamp).fromNow(),
+  }));
 
   return (
     <div className={classnames(className, classes.root)}>

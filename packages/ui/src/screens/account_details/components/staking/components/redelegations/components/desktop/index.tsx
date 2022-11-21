@@ -21,14 +21,14 @@ const Desktop: React.FC<{
   const { t } = useTranslation('accounts');
   const dateFormat = useRecoilValue(readDate);
   const formattedItems = items?.map((x) => ({
-      to: <AvatarName address={x.to.address} imageUrl={x.to.imageUrl} name={x.to.name} />,
-      from: <AvatarName address={x.from.address} imageUrl={x.from.imageUrl} name={x.from.name} />,
-      amount: `${formatNumber(
-        x.amount.value,
-        x.amount.exponent
-      )} ${x.amount.displayDenom.toUpperCase()}`,
-      completionTime: formatDayJs((dayjs as any).utc(x.completionTime), dateFormat),
-    }));
+    to: <AvatarName address={x.to.address} imageUrl={x.to.imageUrl} name={x.to.name} />,
+    from: <AvatarName address={x.from.address} imageUrl={x.from.imageUrl} name={x.from.name} />,
+    amount: `${formatNumber(
+      x.amount.value,
+      x.amount.exponent
+    )} ${x.amount.displayDenom.toUpperCase()}`,
+    completionTime: formatDayJs((dayjs as any).utc(x.completionTime), dateFormat),
+  }));
 
   return (
     <div className={classnames(className)}>
@@ -36,28 +36,28 @@ const Desktop: React.FC<{
         <TableHead>
           <TableRow>
             {columns.map((column) => (
-                <TableCell
-                  key={column.key}
-                  align={column.align}
-                  style={{ width: `${column.width}%` }}
-                >
-                  {t(column.key)}
-                </TableCell>
-              ))}
+              <TableCell
+                key={column.key}
+                align={column.align}
+                style={{ width: `${column.width}%` }}
+              >
+                {t(column.key)}
+              </TableCell>
+            ))}
           </TableRow>
         </TableHead>
         <TableBody>
           {formattedItems?.map((row: { [key: string]: unknown }) => (
             <TableRow key={`holders-row-${row.identifier}`}>
               {columns.map((column) => (
-                  <TableCell
-                    key={`holders-row-${row.identifier}-${column.key}`}
-                    align={column.align}
-                    style={{ width: `${column.width}%` }}
-                  >
-                    {row[column.key]}
-                  </TableCell>
-                ))}
+                <TableCell
+                  key={`holders-row-${row.identifier}-${column.key}`}
+                  align={column.align}
+                  style={{ width: `${column.width}%` }}
+                >
+                  {row[column.key]}
+                </TableCell>
+              ))}
             </TableRow>
           ))}
         </TableBody>

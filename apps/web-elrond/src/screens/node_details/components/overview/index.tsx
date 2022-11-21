@@ -50,22 +50,22 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = (props
       </Typography>
       <div className={classes.body}>
         {items?.map((x) => (
-            <div key={x.key} className={classes.item}>
-              <div className={classes.hash}>
-                <div className={classes.bullet} />
-                <div>
-                  <Typography variant="body1" className="item__key">
-                    {x.key}
-                  </Typography>
-                  {React.isValidElement(x.value) ? (
-                    <div>{x.value}</div>
-                  ) : (
-                    <Typography variant="body1">{x.value}</Typography>
-                  )}
-                </div>
+          <div key={x.key} className={classes.item}>
+            <div className={classes.hash}>
+              <div className={classes.bullet} />
+              <div>
+                <Typography variant="body1" className="item__key">
+                  {x.key}
+                </Typography>
+                {React.isValidElement(x.value) ? (
+                  <div>{x.value}</div>
+                ) : (
+                  <Typography variant="body1">{x.value}</Typography>
+                )}
               </div>
             </div>
-          ))}
+          </div>
+        ))}
       </div>
     </Box>
   );

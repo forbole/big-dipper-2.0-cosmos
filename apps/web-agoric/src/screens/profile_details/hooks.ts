@@ -20,7 +20,7 @@ export const useProfileDetails = () => {
     const dtagConnectionsNetwork = dtagConnections.map((x) => x.identifier);
     const chainPrefix = chainConfig.prefix.account;
     const containNetwork = dtagConnectionsNetwork.some((x) => x.startsWith(chainPrefix));
-    return !!containNetwork
+    return !!containNetwork;
   }, [state.desmosProfile?.connections]);
 
   const handleSetState = useCallback((stateChange: any) => {

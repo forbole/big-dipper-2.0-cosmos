@@ -26,9 +26,9 @@ class MsgCommunityPoolSpendProposal {
       description: json.description,
       recipient: json.recipient,
       amount: json?.amount.map((x?: { denom: string; amount?: number }) => ({
-          denom: x?.denom,
-          amount: R.pathOr('0', ['amount'], x),
-        })),
+        denom: x?.denom,
+        amount: R.pathOr('0', ['amount'], x),
+      })),
     };
   }
 }

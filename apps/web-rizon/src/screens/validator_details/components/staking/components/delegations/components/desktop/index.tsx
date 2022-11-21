@@ -18,18 +18,18 @@ const Desktop: React.FC<{
   const { t } = useTranslation('accounts');
   const formattedItems =
     items?.map((x) => ({
-        address: (
-          <AvatarName
-            name={x.address.name}
-            address={x.address.address}
-            imageUrl={x.address.imageUrl}
-          />
-        ),
-        amount: `${formatNumber(
-          x.amount.value,
-          x.amount.exponent
-        )} ${x.amount.displayDenom.toUpperCase()}`,
-      })) ?? [];
+      address: (
+        <AvatarName
+          name={x.address.name}
+          address={x.address.address}
+          imageUrl={x.address.imageUrl}
+        />
+      ),
+      amount: `${formatNumber(
+        x.amount.value,
+        x.amount.exponent
+      )} ${x.amount.displayDenom.toUpperCase()}`,
+    })) ?? [];
 
   return (
     <div className={classnames(className)}>
@@ -37,14 +37,14 @@ const Desktop: React.FC<{
         <TableHead>
           <TableRow>
             {columns.map((column) => (
-                <TableCell
-                  key={column.key}
-                  align={column.align}
-                  style={{ width: `${column.width}%` }}
-                >
-                  {t(column.key)}
-                </TableCell>
-              ))}
+              <TableCell
+                key={column.key}
+                align={column.align}
+                style={{ width: `${column.width}%` }}
+              >
+                {t(column.key)}
+              </TableCell>
+            ))}
           </TableRow>
         </TableHead>
         <TableBody>
@@ -52,15 +52,15 @@ const Desktop: React.FC<{
             // eslint-disable-next-line react/no-array-index-key
             <TableRow key={`holders-row-${i}`}>
               {columns.map((column) => (
-                  <TableCell
-                    // eslint-disable-next-line react/no-array-index-key
-                    key={`holders-row-${i}-${column.key}`}
-                    align={column.align}
-                    style={{ width: `${column.width}%` }}
-                  >
-                    {row[column.key]}
-                  </TableCell>
-                ))}
+                <TableCell
+                  // eslint-disable-next-line react/no-array-index-key
+                  key={`holders-row-${i}-${column.key}`}
+                  align={column.align}
+                  style={{ width: `${column.width}%` }}
+                >
+                  {row[column.key]}
+                </TableCell>
+              ))}
             </TableRow>
           ))}
         </TableBody>

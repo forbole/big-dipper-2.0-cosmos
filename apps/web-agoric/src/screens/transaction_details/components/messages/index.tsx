@@ -64,22 +64,22 @@ const Messages: FC<{
       <div className={classes.list}>
         <AutoSizer>
           {({ height, width }) => (
-              <List
-                className="List"
-                height={height}
-                itemCount={props.messages.length}
-                itemSize={getRowHeight}
-                ref={listRef as React.LegacyRef<List>}
-                width={width}
-              >
-                {({ index, style }) => (
-                  <ListItem
-                    {...{ index, style, setRowHeight, classes, formattedItems }}
-                    messages={props.messages}
-                  />
-                )}
-              </List>
-            )}
+            <List
+              className="List"
+              height={height}
+              itemCount={props.messages.length}
+              itemSize={getRowHeight}
+              ref={listRef as React.LegacyRef<List>}
+              width={width}
+            >
+              {({ index, style }) => (
+                <ListItem
+                  {...{ index, style, setRowHeight, classes, formattedItems }}
+                  messages={props.messages}
+                />
+              )}
+            </List>
+          )}
         </AutoSizer>
       </div>
     </Box>

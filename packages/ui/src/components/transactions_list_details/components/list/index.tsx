@@ -72,33 +72,33 @@ const TransactionList: FC<TransactionsListDetailsState> = ({
     <div className={classnames(className, classes.root)}>
       <AutoSizer>
         {({ height, width }) => (
-            <InfiniteLoader
-              isItemLoaded={isItemLoaded ?? (() => true)}
-              itemCount={itemCount}
-              loadMoreItems={
-                loadMoreItems ??
-                (() => {
-                  // do nothing
-                })
-              }
-            >
-              {({ onItemsRendered, ref }) => (
-                <List
-                  className="List"
-                  height={height}
-                  itemCount={itemCount}
-                  itemSize={getRowHeight}
-                  onItemsRendered={onItemsRendered}
-                  ref={mergeRefs(listRef, ref)}
-                  width={width}
-                >
-                  {({ index, style }) => (
-                    <ListItem {...{ index, style, setRowHeight, isItemLoaded, items }} />
-                  )}
-                </List>
-              )}
-            </InfiniteLoader>
-          )}
+          <InfiniteLoader
+            isItemLoaded={isItemLoaded ?? (() => true)}
+            itemCount={itemCount}
+            loadMoreItems={
+              loadMoreItems ??
+              (() => {
+                // do nothing
+              })
+            }
+          >
+            {({ onItemsRendered, ref }) => (
+              <List
+                className="List"
+                height={height}
+                itemCount={itemCount}
+                itemSize={getRowHeight}
+                onItemsRendered={onItemsRendered}
+                ref={mergeRefs(listRef, ref)}
+                width={width}
+              >
+                {({ index, style }) => (
+                  <ListItem {...{ index, style, setRowHeight, isItemLoaded, items }} />
+                )}
+              </List>
+            )}
+          </InfiniteLoader>
+        )}
       </AutoSizer>
     </div>
   );

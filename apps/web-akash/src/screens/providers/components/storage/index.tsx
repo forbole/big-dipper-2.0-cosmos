@@ -73,19 +73,21 @@ const Storage: React.FC<{
             dataKey="rawValue"
             isAnimationActive={false}
           >
-            {data.map((entry) => <Cell key={entry.legendKey} fill={entry.fill} />)}
+            {data.map((entry) => (
+              <Cell key={entry.legendKey} fill={entry.fill} />
+            ))}
           </Pie>
           <Tooltip
             content={
               <CustomToolTip>
                 {(x) => (
-                    <>
-                      <Typography variant="caption">{t(x.legendKey)}</Typography>
-                      <Typography variant="body1">
-                        {x.value} ({x.percent})
-                      </Typography>
-                    </>
-                  )}
+                  <>
+                    <Typography variant="caption">{t(x.legendKey)}</Typography>
+                    <Typography variant="body1">
+                      {x.value} ({x.percent})
+                    </Typography>
+                  </>
+                )}
               </CustomToolTip>
             }
           />
@@ -93,19 +95,19 @@ const Storage: React.FC<{
 
         <div className={classes.legends}>
           {data.map((x: any) => (
-              <div className="legends__item" key={x.legendKey}>
-                <Typography variant="caption" className="usage">
-                  {t(x.legendKey)}{' '}
-                </Typography>
-                <Typography variant="caption" className="tb">
-                  ( {x.value} )
-                </Typography>
-                <Typography variant="caption" className="percent">
-                  {' '}
-                  {x.percent}
-                </Typography>
-              </div>
-            ))}
+            <div className="legends__item" key={x.legendKey}>
+              <Typography variant="caption" className="usage">
+                {t(x.legendKey)}{' '}
+              </Typography>
+              <Typography variant="caption" className="tb">
+                ( {x.value} )
+              </Typography>
+              <Typography variant="caption" className="percent">
+                {' '}
+                {x.percent}
+              </Typography>
+            </div>
+          ))}
         </div>
       </div>
     </Box>

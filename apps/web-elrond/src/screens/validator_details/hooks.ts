@@ -64,20 +64,20 @@ export const useValidatorDetails = () => {
         // =====================================
         if (isProvider) {
           const getContract = () => ({
-              address: R.pathOr('', ['provider'], providerData),
-              locked: formatToken(
-                R.pathOr('0', ['locked'], providerData),
-                chainConfig.primaryTokenUnit
-              ),
-              nodes: R.pathOr(0, ['numNodes'], providerData),
-              apr: R.pathOr(0, ['apr'], providerData),
-              commission: R.pathOr(0, ['serviceFee'], providerData),
-              delegationCap: formatToken(
-                R.pathOr('0', ['delegationCap'], providerData),
-                chainConfig.primaryTokenUnit
-              ),
-              delegators: R.pathOr(0, ['numUsers'], providerData),
-            });
+            address: R.pathOr('', ['provider'], providerData),
+            locked: formatToken(
+              R.pathOr('0', ['locked'], providerData),
+              chainConfig.primaryTokenUnit
+            ),
+            nodes: R.pathOr(0, ['numNodes'], providerData),
+            apr: R.pathOr(0, ['apr'], providerData),
+            commission: R.pathOr(0, ['serviceFee'], providerData),
+            delegationCap: formatToken(
+              R.pathOr('0', ['delegationCap'], providerData),
+              chainConfig.primaryTokenUnit
+            ),
+            delegators: R.pathOr(0, ['numUsers'], providerData),
+          });
 
           newState.contract = getContract();
         }
@@ -139,9 +139,9 @@ export const useValidatorDetails = () => {
           if (identityData) {
             const keys = R.keys(R.pathOr([], ['distribution'], identityData));
             distribution = keys.map((x: any) => ({
-                key: x,
-                value: R.pathOr(0, ['distribution', x], identityData),
-              }));
+              key: x,
+              value: R.pathOr(0, ['distribution', x], identityData),
+            }));
           }
 
           return {

@@ -1,14 +1,14 @@
-import React from 'react';
-import useTranslation from 'next-translate/useTranslation';
-import { usePagination } from 'ui/hooks';
-import Pagination from '@components/pagination';
 import NoData from '@components/no_data';
+import Pagination from '@components/pagination';
+import TransactionsList from '@components/transactions_list';
+import Typography from '@material-ui/core/Typography';
+import useTranslation from 'next-translate/useTranslation';
+import React from 'react';
 import Box from 'ui/components/box';
 import Loading from 'ui/components/loading';
-import TransactionsList from 'ui/components/transactions_list';
-import Typography from '@material-ui/core/Typography';
+import { usePagination } from 'ui/hooks';
+import { PAGE_SIZE, useTransactions } from './hooks';
 import { useStyles } from './styles';
-import { useTransactions, PAGE_SIZE } from './hooks';
 
 const Transactions: React.FC<{ provider: string } & ComponentDefault> = (props) => {
   const { t } = useTranslation('validators');

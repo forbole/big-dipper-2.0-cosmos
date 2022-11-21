@@ -30,51 +30,51 @@ jest.mock('ui/components/load_and_exist', () => (props: JSX.IntrinsicElements['d
 ));
 jest.mock('ui/hooks', () => ({
   useScreenSize: () => ({
-      windowSize: {
-        width: 1280,
-        height: 720,
-      },
-      isDesktop: false,
-    }),
+    windowSize: {
+      width: 1280,
+      height: 720,
+    },
+    isDesktop: false,
+  }),
 }));
 
 jest.mock('./hooks', () => ({
   useValidators: () => ({
-      state: {
-        loading: true,
-        exists: true,
-        tab: 1,
-        sortKey: 'height',
-        sortDirection: 'asc',
-        votingPowerOverall: 1123323e231,
-        items: [
-          {
-            validator: 'val',
-            votingPower: 323243,
-            votingPowerPercent: 11,
-            commission: 5,
-            condition: 1,
-            status: 3,
-            jailed: false,
-            tombstoned: false,
-          },
-          {
-            validator: 'val-2',
-            votingPower: 223243,
-            votingPowerPercent: 8,
-            commission: 4,
-            condition: 1,
-            status: 3,
-            jailed: false,
-            tombstoned: false,
-          },
-        ],
-      },
-      handleTabChange: () => jest.fn(),
-      handleSort: () => jest.fn(),
-      handleSearch: () => jest.fn(),
-      sortItems: () => jest.fn(),
-    }),
+    state: {
+      loading: true,
+      exists: true,
+      tab: 1,
+      sortKey: 'height',
+      sortDirection: 'asc',
+      votingPowerOverall: 1123323e231,
+      items: [
+        {
+          validator: 'val',
+          votingPower: 323243,
+          votingPowerPercent: 11,
+          commission: 5,
+          condition: 1,
+          status: 3,
+          jailed: false,
+          tombstoned: false,
+        },
+        {
+          validator: 'val-2',
+          votingPower: 223243,
+          votingPowerPercent: 8,
+          commission: 4,
+          condition: 1,
+          status: 3,
+          jailed: false,
+          tombstoned: false,
+        },
+      ],
+    },
+    handleTabChange: () => jest.fn(),
+    handleSort: () => jest.fn(),
+    handleSearch: () => jest.fn(),
+    sortItems: () => jest.fn(),
+  }),
 }));
 
 const mockValidatorsDocument = jest.fn().mockReturnValue({

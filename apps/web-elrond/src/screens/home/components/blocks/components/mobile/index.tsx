@@ -11,30 +11,30 @@ import type { BlockType } from '../../types';
 
 const Mobile: React.FC<{ items: BlockType[] } & ComponentDefault> = (props) => {
   const formattedItems = props.items.map((x) => ({
-      block: numeral(x.block).format('0,0'),
-      hash: (
-        <Link href={BLOCK_DETAILS(x.hash)} passHref>
-          <Typography variant="body1" className="value" component="a">
-            {getMiddleEllipsis(x.hash, {
-              beginning: 13,
-              ending: 15,
-            })}
-          </Typography>
-        </Link>
-      ),
-      txs: numeral(x.txs).format('0,0'),
-      time: (dayjs as any).utc(dayjs.unix(x.timestamp)).fromNow(),
-    }));
+    block: numeral(x.block).format('0,0'),
+    hash: (
+      <Link href={BLOCK_DETAILS(x.hash)} passHref>
+        <Typography variant="body1" className="value" component="a">
+          {getMiddleEllipsis(x.hash, {
+            beginning: 13,
+            ending: 15,
+          })}
+        </Typography>
+      </Link>
+    ),
+    txs: numeral(x.txs).format('0,0'),
+    time: (dayjs as any).utc(dayjs.unix(x.timestamp)).fromNow(),
+  }));
 
   return (
     <div>
       {formattedItems?.map((x, i) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <React.Fragment key={`${x.block}-${i}`}>
-            <SingleBlockMobile {...x} />
-            {i !== formattedItems.length - 1 && <Divider />}
-          </React.Fragment>
-        ))}
+        // eslint-disable-next-line react/no-array-index-key
+        <React.Fragment key={`${x.block}-${i}`}>
+          <SingleBlockMobile {...x} />
+          {i !== formattedItems.length - 1 && <Divider />}
+        </React.Fragment>
+      ))}
     </div>
   );
 };

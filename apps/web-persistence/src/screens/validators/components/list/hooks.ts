@@ -79,7 +79,7 @@ export const useValidators = () => {
       });
 
     // get the top 34% validators
-    formattedItems = formattedItems.sort((a, b) => a.votingPower > b.votingPower ? -1 : 1);
+    formattedItems = formattedItems.sort((a, b) => (a.votingPower > b.votingPower ? -1 : 1));
 
     // add key to indicate they are part of top 34%
     let cumulativeVotingPower = Big(0);
