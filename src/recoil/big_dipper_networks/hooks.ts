@@ -1,6 +1,5 @@
 /* eslint-disable max-len */
 import { useEffect } from 'react';
-import axios from 'axios';
 import * as R from 'ramda';
 import {
   useRecoilState,
@@ -20,7 +19,20 @@ import {
   Selected,
 } from '@recoil/big_dipper_networks/types';
 
-const NETWORK_LIST_API = 'https://raw.githubusercontent.com/forbole/big-dipper-networks/main/networks.json';
+const LAVA_NETWORK_TESTNET = [
+  {
+    name: 'Lava',
+    logo: '/icons/lava-icon.svg',
+    cover: '/icon/lava-icon.svg',
+    links: [
+      {
+        name: 'Testnet',
+        chain_id: 'lava-testnet',
+        url: 'http://bd.lavanet.xyz/',
+      },
+    ],
+  },
+];
 
 export const useBigDipperNetworksRecoil = () => {
   const [_, setNetworks] = useRecoilState(writeNetworks) as [Networks, SetterOrUpdater<Networks>];
@@ -28,14 +40,7 @@ export const useBigDipperNetworksRecoil = () => {
 
   useEffect(() => {
     const getNetworkList = async () => {
-      let data = [];
-      try {
-        const results = await axios.get(NETWORK_LIST_API);
-        data = results?.data ?? [];
-      } catch (error) {
-        console.error(error);
-      }
-      const formattedData = data
+      const formattedData = LAVA_NETWORK_TESTNET
         .map((x) => BigDipperNetwork.fromJson(x))
         .sort((a, b) => (a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1));
       setNetworks(formattedData);
