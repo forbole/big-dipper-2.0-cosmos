@@ -5,20 +5,6 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
   id="Box"
 >
   <div
-    className="makeStyles-root"
-  >
-    <div
-      className="makeStyles-content"
-    >
-      <svg />
-      <p
-        className="MuiTypography-root MuiTypography-body1"
-      >
-        nothingToShow
-      </p>
-    </div>
-  </div>
-  <div
     className="makeStyles-paginate"
     handleChangePage={[Function]}
     handleChangeRowsPerPage={[Function]}
