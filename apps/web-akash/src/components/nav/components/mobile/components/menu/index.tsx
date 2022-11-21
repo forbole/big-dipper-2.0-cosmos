@@ -92,7 +92,7 @@ const Menu = (props: MenuProps) => {
             role="button"
             onClick={languageOptions.toggleDrawer}
             tabIndex={0}
-            aria-hidden="true"
+            aria-label={router.locale ? t(router.locale) : ''}
           >
             <Language />
             <Typography variant="caption">{router.locale ? t(router.locale) : ''}</Typography>
@@ -103,7 +103,7 @@ const Menu = (props: MenuProps) => {
             role="button"
             onClick={themeOptions.toggleDrawer}
             tabIndex={0}
-            aria-hidden="true"
+            aria-label={t(themeOptions.theme)}
           >
             <span role="button">
               <ThemeIcon />

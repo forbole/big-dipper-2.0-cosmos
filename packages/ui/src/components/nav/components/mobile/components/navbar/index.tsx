@@ -37,7 +37,7 @@ const Navbar = (props: NavbarProps) => {
           onClick={openNetwork}
           role="button"
           tabIndex={0}
-          aria-hidden="true"
+          aria-label={selected}
         >
           <p className="text">{selected}</p>
           <ExpandMore fontSize="small" />
@@ -52,7 +52,7 @@ const Navbar = (props: NavbarProps) => {
             active: isOpen,
           })}
           tabIndex={0}
-          aria-hidden="true"
+          aria-label="open navigation menu"
         >
           <div className="hamburger-content" />
         </div>

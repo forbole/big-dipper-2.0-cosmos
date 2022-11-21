@@ -1,0 +1,37 @@
+name: ci
+on:
+  workflow_dispatch:
+    inputs:
+       project_name:
+        description: "Project to build"
+        required: true
+       chain_type:
+        description: "Chain Type to build"
+        required: false
+        default: mainnet
+jobs:
+  Build-and-Publish:
+    runs-on: ubuntu-latest
+    if: startsWith('web-', ${{ inputs.project_name }})
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Login to DockerHub 👤
+        if: github.event_name != 'pull_request'
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: Create the builder
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          file: ./apps/${{ inputs.project_name }}/Dockerfile
+          push: true
+          build-args: |
+            PROJECT_NAME=${{ inputs.project_name }}
+            NEXT_PUBLIC_CHAIN_TYPE=${{ inputs.chain_type }}
+            TURBO_TEAM=${{ secrets.TURBO_TEAM }}
+            TURBO_TOKEN=${{ secrets.TURBO_TOKEN }}
+            SENTRY_DSN=${{ secrets.SENTRY_DSN }}
+          tags: forbole/big-dipper-2.0-cosmos:monorepo-${{ inputs.project_name }}-${{ inputs.chain_type }}

@@ -57,6 +57,8 @@ module.exports = {
         aspects: ['invalidHref', 'preferButton'],
       },
     ],
+    /* https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/click-events-have-key-events.md */
+    'jsx-a11y/click-events-have-key-events': 'off',
     /* https://eslint.org/docs/latest/rules/camelcase */
     /* prefer not to migrate existing code to use default exports for now */
     camelcase: 'off',
@@ -76,6 +78,14 @@ module.exports = {
     /* https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-extraneous-dependencies.md */
     /* doesn't work well with monorepos in IDE */
     'import/no-extraneous-dependencies': 'off',
+    /* https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/function-component-definition.md */
+    'react/function-component-definition': [
+      'warn',
+      {
+        namedComponents: ['function-declaration', 'arrow-function'],
+        unnamedComponents: 'function-expression',
+      },
+    ],
     /* https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/destructuring-assignment.md */
     'react/destructuring-assignment': 'off',
     /* https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md */

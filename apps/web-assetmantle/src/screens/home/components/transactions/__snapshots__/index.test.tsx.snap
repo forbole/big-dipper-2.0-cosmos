@@ -14,6 +14,7 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
       latestTransactions
     </h2>
     <a
+      aria-label="see more txs"
       className="MuiTypography-root button MuiTypography-h4"
       href="/transactions"
       onClick={[Function]}

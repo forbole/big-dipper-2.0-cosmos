@@ -37,7 +37,7 @@ const Blocks: React.FC<{
       <div className={classes.label}>
         <Typography variant="h2">{t('latestBlocks')}</Typography>
         <Link href={BLOCKS} passHref>
-          <Typography variant="h4" className="button" component="a">
+          <Typography variant="h4" className="button" component="a" aria-label="see more blocks">
             {t('seeMore')}
           </Typography>
         </Link>
@@ -56,6 +56,7 @@ const Blocks: React.FC<{
             <Typography
               variant="h4"
               component="a"
+              aria-label="see more blocks"
               className={classnames(classes.seeMoreFooter, classes.mobile, 'button')}
             >
               {t('seeMore')}

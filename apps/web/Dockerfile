@@ -29,8 +29,10 @@ ARG SENTRY_DSN
 ENV SENTRY_DSN=${SENTRY_DSN}
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV NODE_ENV=production
-ENV TURBO_TEAM=
-ENV TURBO_TOKEN=
+ARG TURBO_TEAM
+ENV TURBO_TEAM=${TURBO_TEAM}
+ARG TURBO_TOKEN
+ENV TURBO_TOKEN=${TURBO_TOKEN}
 
 # First install the dependencies (as they change less often)
 COPY .gitignore ./.gitignore
@@ -42,7 +44,7 @@ RUN yarn install --immutable
 # Build the project
 COPY --from=builder /app/out/full/ ./
 COPY turbo.json ./turbo.json
-RUN yarn turbo run build --filter=${PROJECT_NAME}...
+RUN yarn turbo run build
 
 ARG NEXT_PUBLIC_CHAIN_TYPE
 ENV NEXT_PUBLIC_CHAIN_TYPE=${NEXT_PUBLIC_CHAIN_TYPE}

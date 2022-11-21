@@ -10,8 +10,7 @@
     "start": "NODE_ENV=production next start",
     "lint": "next lint",
     "check-types": "tsc --noemit",
-    "test": "jest --passWithNoTests --ci --no-watchman",
-    "e2e": "cypress open"
+    "test": "jest --passWithNoTests --ci --no-watchman"
   },
   "dependencies": {
     "@apollo/client": "^3.7.1",

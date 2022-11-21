@@ -3475,6 +3475,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@playwright/test@npm:^1.28.0":
+  version: 1.28.0
+  resolution: "@playwright/test@npm:1.28.0"
+  dependencies:
+    "@types/node": "*"
+    playwright-core: 1.28.0
+  bin:
+    playwright: cli.js
+  checksum: 5b90a4fd7a30e989f0b7ff97201eb3ab91d56b93ac5cd020ca6e36cd90a0f9386770214375b6c50471def75cbe0e7219f77f2c126d5d31655c5228bd16ab4f1a
+  languageName: node
+  linkType: hard
+
 "@repeaterjs/repeater@npm:3.0.4":
   version: 3.0.4
   resolution: "@repeaterjs/repeater@npm:3.0.4"
@@ -5428,6 +5440,8 @@ __metadata:
   resolution: "big-dipper-2.0-cosmos@workspace:."
   dependencies:
     "@changesets/cli": ^2.25.0
+    "@playwright/test": ^1.28.0
+    concurrently: ^7.6.0
     dotenv-cli: ^6.0.0
     husky: ^8.0.0
     lint-staged: ^13.0.3
@@ -6146,6 +6160,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"concurrently@npm:^7.6.0":
+  version: 7.6.0
+  resolution: "concurrently@npm:7.6.0"
+  dependencies:
+    chalk: ^4.1.0
+    date-fns: ^2.29.1
+    lodash: ^4.17.21
+    rxjs: ^7.0.0
+    shell-quote: ^1.7.3
+    spawn-command: ^0.0.2-1
+    supports-color: ^8.1.0
+    tree-kill: ^1.2.2
+    yargs: ^17.3.1
+  bin:
+    conc: dist/bin/concurrently.js
+    concurrently: dist/bin/concurrently.js
+  checksum: f705c9a7960f1b16559ca64958043faeeef6385c0bf30a03d1375e15ab2d96dba4f8166f1bbbb1c85e8da35ca0ce3c353875d71dff2aa132b2357bb533b3332e
+  languageName: node
+  linkType: hard
+
 "confusing-browser-globals@npm:^1.0.10":
   version: 1.0.11
   resolution: "confusing-browser-globals@npm:1.0.11"
@@ -6638,6 +6672,13 @@ __metadata:
   version: 2.1.0
   resolution: "dataloader@npm:2.1.0"
   checksum: bbd43496c41697766f8611f60ed3bae437b450985499140b9603a2447c10d45975d3a0661caaebaa9750bc1bc9fd154676a314423294916c8b8ca1a59a08d139
+  languageName: node
+  linkType: hard
+
+"date-fns@npm:^2.29.1":
+  version: 2.29.3
+  resolution: "date-fns@npm:2.29.3"
+  checksum: e01cf5b62af04e05dfff921bb9c9933310ed0e1ae9a81eb8653452e64dc841acf7f6e01e1a5ae5644d0337e9a7f936175fd2cb6819dc122fdd9c5e86c56be484
   languageName: node
   linkType: hard
 
@@ -7593,22 +7634,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"eslint-config-cypress@*, eslint-config-cypress@workspace:packages/eslint-config-cypress":
-  version: 0.0.0-use.local
-  resolution: "eslint-config-cypress@workspace:packages/eslint-config-cypress"
+"eslint-config-cypress@npm:*":
+  version: 0.28.0
+  resolution: "eslint-config-cypress@npm:0.28.0"
   dependencies:
-    "@typescript-eslint/eslint-plugin": ^5.40.0
-    "@typescript-eslint/parser": ^5.40.0
-    eslint: ^7.23.0
-    eslint-config-custom: "*"
-    eslint-import-resolver-typescript: ^3.5.2
-    eslint-plugin-cypress: ^2.12.1
-    eslint-plugin-import: ^2.26.0
-    jest: ^27.0.0
-    ts-jest: ^27.0.0
-    typescript: ^4.8.4
-  languageName: unknown
-  linkType: soft
+    eslint-plugin-cypress: ^2.0.1
+  peerDependencies:
+    eslint: "*"
+  checksum: 84e2cfe5ae1730a01dca6f6773e8adba180e84816ae871629f672fbd5ae8d5cac719c1e84c1b06f2a599df4b50f8be6b012425bdffd7a55daec0cd8b163de158
+  languageName: node
+  linkType: hard
 
 "eslint-config-next@npm:^12.0.8":
   version: 12.3.3
@@ -7734,7 +7769,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-cypress@npm:^2.12.1":
+"eslint-plugin-cypress@npm:^2.0.1, eslint-plugin-cypress@npm:^2.12.1":
   version: 2.12.1
   resolution: "eslint-plugin-cypress@npm:2.12.1"
   dependencies:
@@ -12945,6 +12980,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"playwright-core@npm:1.28.0":
+  version: 1.28.0
+  resolution: "playwright-core@npm:1.28.0"
+  bin:
+    playwright: cli.js
+  checksum: 4bd13bf83bca37f239f1573fcad7f3b559b3b5e28925f57fa66055446b2aef90c4403f9dbb4a9c34f6bd03a2461e61c97eb7fe5faed6b88f027c0bc3727cd096
+  languageName: node
+  linkType: hard
+
 "popper.js@npm:1.16.1-lts":
   version: 1.16.1-lts
   resolution: "popper.js@npm:1.16.1-lts"
@@ -13922,7 +13966,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rxjs@npm:^7.5.1, rxjs@npm:^7.5.5":
+"rxjs@npm:^7.0.0, rxjs@npm:^7.5.1, rxjs@npm:^7.5.5":
   version: 7.5.7
   resolution: "rxjs@npm:7.5.7"
   dependencies:
@@ -14333,6 +14377,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"spawn-command@npm:^0.0.2-1":
+  version: 0.0.2
+  resolution: "spawn-command@npm:0.0.2"
+  checksum: e35c5d28177b4d461d33c88cc11f6f3a5079e2b132c11e1746453bbb7a0c0b8a634f07541a2a234fa4758239d88203b758def509161b651e81958894c0b4b64b
+  languageName: node
+  linkType: hard
+
 "spawndamnit@npm:^2.0.0":
   version: 2.0.0
   resolution: "spawndamnit@npm:2.0.0"
@@ -14720,7 +14771,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"supports-color@npm:^8.0.0, supports-color@npm:^8.1.1":
+"supports-color@npm:^8.0.0, supports-color@npm:^8.1.0, supports-color@npm:^8.1.1":
   version: 8.1.1
   resolution: "supports-color@npm:8.1.1"
   dependencies:

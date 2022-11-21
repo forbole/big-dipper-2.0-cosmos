@@ -11,7 +11,6 @@
     "lint": "next lint",
     "check-types": "tsc --noemit",
     "test": "jest --passWithNoTests --ci --no-watchman",
-    "e2e": "cypress open",
     "graphql:codegen": "graphql-codegen"
   },
   "dependencies": {
