@@ -4,6 +4,15 @@ import { MockTheme } from 'ui/tests/utils';
 import Actions from '.';
 
 // ==================================
+// mocks
+// ==================================
+jest.mock('@material-ui/core/IconButton', () => (props) => <div id="iconButton" {...props} />);
+jest.mock('@material-ui/core/FormControl', () => (props) => <div id="formControl" {...props} />);
+jest.mock('@material-ui/core/Select', () => (props) => <div id="select" {...props} />);
+jest.mock('@material-ui/core/MenuItem', () => (props) => <div id="menuItem" {...props} />);
+jest.mock('@material-ui/core/InputBase', () => (props) => <div id="inputBase" {...props} />);
+
+// ==================================
 // unit tests
 // ==================================
 describe('components: Pagination/Actions', () => {
@@ -12,8 +21,8 @@ describe('components: Pagination/Actions', () => {
       <MockTheme>
         <Actions
           count={100}
-          onChangePage={jest.fn()}
-          handleChangeRowsPerPage={jest.fn()}
+          onChangePage={() => jest.fn()}
+          handleChangeRowsPerPage={() => jest.fn()}
           page={0}
           rowsPerPage={5}
         />

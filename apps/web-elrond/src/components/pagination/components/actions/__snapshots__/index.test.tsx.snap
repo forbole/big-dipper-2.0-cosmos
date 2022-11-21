@@ -7,62 +7,32 @@ exports[`components: Pagination/Actions matches snapshot 1`] = `
   <li
     className="first"
   >
-    <button
+    <div
       aria-label="first page"
-      className="MuiButtonBase-root MuiIconButton-root makeStyles-button MuiIconButton-disabled MuiButtonBase-disabled"
+      className="makeStyles-button"
+      disableRipple={true}
       disabled={true}
-      onBlur={[Function]}
+      id="iconButton"
       onClick={[Function]}
-      onDragLeave={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
-      onMouseDown={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      tabIndex={-1}
-      type="button"
     >
-      <span
-        className="MuiIconButton-label"
-      >
-        <svg
-          className="makeStyles-prev"
-        />
-      </span>
-    </button>
+      <svg
+        className="makeStyles-prev"
+      />
+    </div>
   </li>
   <li>
-    <button
+    <div
       aria-label="previous page"
-      className="MuiButtonBase-root MuiIconButton-root makeStyles-button MuiIconButton-disabled MuiButtonBase-disabled"
+      className="makeStyles-button"
+      disableRipple={true}
       disabled={true}
-      onBlur={[Function]}
+      id="iconButton"
       onClick={[Function]}
-      onDragLeave={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
-      onMouseDown={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      tabIndex={-1}
-      type="button"
     >
-      <span
-        className="MuiIconButton-label"
-      >
-        <svg
-          className="makeStyles-prev"
-        />
-      </span>
-    </button>
+      <svg
+        className="makeStyles-prev"
+      />
+    </div>
   </li>
   <li
     className="MuiTypography-root makeStyles-button makeStyles-pageButton selected MuiTypography-body2"
@@ -83,60 +53,30 @@ exports[`components: Pagination/Actions matches snapshot 1`] = `
     3
   </li>
   <li>
-    <button
+    <div
       aria-label="next page"
-      className="MuiButtonBase-root MuiIconButton-root makeStyles-button"
+      className="makeStyles-button"
+      disableRipple={true}
       disabled={false}
-      onBlur={[Function]}
+      id="iconButton"
       onClick={[Function]}
-      onDragLeave={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
-      onMouseDown={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      tabIndex={0}
-      type="button"
     >
-      <span
-        className="MuiIconButton-label"
-      >
-        <svg />
-      </span>
-    </button>
+      <svg />
+    </div>
   </li>
   <li
     className="last"
   >
-    <button
+    <div
       aria-label="last page"
-      className="MuiButtonBase-root MuiIconButton-root makeStyles-button"
+      className="makeStyles-button"
+      disableRipple={true}
       disabled={false}
-      onBlur={[Function]}
+      id="iconButton"
       onClick={[Function]}
-      onDragLeave={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
-      onMouseDown={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      tabIndex={0}
-      type="button"
     >
-      <span
-        className="MuiIconButton-label"
-      >
-        <svg />
-      </span>
-    </button>
+      <svg />
+    </div>
   </li>
 </ul>
 `;

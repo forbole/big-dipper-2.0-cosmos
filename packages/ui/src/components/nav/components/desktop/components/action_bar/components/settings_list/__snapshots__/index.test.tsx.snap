@@ -3,7 +3,6 @@
 exports[`screen: Nav/SettingList it renders 1`] = `
 <div>
   <div
-    aria-hidden="true"
     aria-label="settings-button"
     className="makeStyles-icon"
     onClick={[Function]}

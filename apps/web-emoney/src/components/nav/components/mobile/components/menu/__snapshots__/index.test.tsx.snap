@@ -383,7 +383,7 @@ exports[`screen: Nav/Menu it renders 1`] = `
       className="makeStyles-footerActions"
     >
       <div
-        aria-hidden="true"
+        aria-label=""
         className="makeStyles-language"
         onClick={[Function]}
         role="button"
@@ -408,7 +408,7 @@ exports[`screen: Nav/Menu it renders 1`] = `
         </svg>
       </div>
       <div
-        aria-hidden="true"
+        aria-label=""
         className="makeStyles-theme"
         onClick={[Function]}
         role="button"

@@ -250,7 +250,7 @@ exports[`component: Layout it renders 1`] = `
             className="makeStyles-footerActions"
           >
             <div
-              aria-hidden="true"
+              aria-label=""
               className="makeStyles-language"
               onClick={[Function]}
               role="button"
@@ -275,7 +275,7 @@ exports[`component: Layout it renders 1`] = `
               </svg>
             </div>
             <div
-              aria-hidden="true"
+              aria-label="dark"
               className="makeStyles-theme"
               onClick={[Function]}
               role="button"
@@ -319,7 +319,7 @@ exports[`component: Layout it renders 1`] = `
             className="makeStyles-actions"
           >
             <div
-              aria-hidden="true"
+              aria-label="mantle-1"
               className="makeStyles-network"
               onClick={[Function]}
               role="button"
@@ -343,7 +343,7 @@ exports[`component: Layout it renders 1`] = `
               </svg>
             </div>
             <div
-              aria-hidden="true"
+              aria-label="open navigation menu"
               className="makeStyles-hamburger"
               onClick={[Function]}
               role="button"

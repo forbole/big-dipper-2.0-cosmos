@@ -59,6 +59,37 @@ describe('screen: Validators/Desktop', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it('matches snapshot with active validator', () => {
+    const component = renderer.create(
+      <MockTheme>
+        <Desktop
+          sortDirection="desc"
+          sortKey="validator.voting_power"
+          handleSort={jest.fn().mockReturnValue('votingPower')}
+          items={[
+            {
+              validator: {
+                name: 'Validator',
+                address: 'desmosvaloper1jrld5g998gqm4yx26l6cvhxz7y5adgxqzfdpes',
+                imageUrl:
+                  'https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg',
+              },
+              votingPower: 20,
+              votingPowerPercent: 20,
+              commission: 30,
+              condition: 1,
+              jailed: false,
+              status: 1,
+              tombstoned: false,
+            },
+          ]}
+        />
+      </MockTheme>
+    );
+    const tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
   afterEach(() => {
     jest.clearAllMocks();
   });

@@ -19,7 +19,7 @@ jest.mock('next-translate/Trans', () => (props: JSX.IntrinsicElements['div']) =>
 // ==================================
 // unit tests
 // ==================================
-describe('screen: TransactionDetails/Grant', () => {
+describe('screen: TransactionDetails/CreatePeriodicVestingAccount', () => {
   it('matches snapshot', () => {
     const message = MsgCreatePeriodicVestingAccount.fromJson({
       category: 'vesting',

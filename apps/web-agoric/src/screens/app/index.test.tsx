@@ -17,6 +17,10 @@ const mockI18n = {
 
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
 
+jest.mock('./hooks', () => ({
+  useApp: () => jest.fn(),
+}));
+
 // ==================================
 // unit tests
 // ==================================

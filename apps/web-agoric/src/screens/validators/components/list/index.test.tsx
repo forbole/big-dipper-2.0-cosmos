@@ -87,6 +87,51 @@ const mockValidatorsDocument = jest.fn().mockReturnValue({
           },
         ],
       },
+      {
+        validatorStatuses: [
+          {
+            status: 3,
+            jailed: false,
+            height: 437042,
+          },
+        ],
+        validatorSigningInfos: [
+          {
+            missedBlocksCounter: 12,
+            tombstoned: false,
+          },
+        ],
+        validatorInfo: {
+          operatorAddress: 'desmosvaloper1zm3l7p8n5dxqeadsfxy3rd0j3c2knnx3chg77a',
+          selfDelegateAddress: 'desmos1zm3l7p8n5dxqeadsfxy3rd0j3c2knnx3x6q250',
+        },
+        validatorVotingPowers: [
+          {
+            votingPower: 44,
+          },
+        ],
+        validatorCommissions: [
+          {
+            commission: 0.14,
+          },
+        ],
+        delegations: [
+          {
+            amount: {
+              denom: 'udaric',
+              amount: '14000000',
+            },
+            delegatorAddress: 'desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr',
+          },
+          {
+            amount: {
+              denom: 'udaric',
+              amount: '30000000',
+            },
+            delegatorAddress: 'desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr',
+          },
+        ],
+      },
     ],
     slashingParams: [
       {

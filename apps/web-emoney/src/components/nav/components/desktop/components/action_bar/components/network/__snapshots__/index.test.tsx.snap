@@ -2,7 +2,7 @@
 
 exports[`screen: Nav/Network it renders 1`] = `
 <div
-  aria-hidden="true"
+  aria-label="emoney-3"
   className="makeStyles-root"
   onClick={[MockFunction]}
   role="button"

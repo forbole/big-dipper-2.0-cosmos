@@ -83,7 +83,7 @@ module.exports = {
       'warn',
       {
         namedComponents: ['function-declaration', 'arrow-function'],
-        unnamedComponents: 'function-expression',
+        unnamedComponents: 'arrow-function',
       },
     ],
     /* https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/destructuring-assignment.md */
