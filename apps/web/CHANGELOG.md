@@ -1,5 +1,7 @@
 # Unreleased
 
+# main-v2.2.0 - 2022-11-22
+
 ## Changes
 
 - Moved env variables to config ([\#1007](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1007))
