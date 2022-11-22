@@ -1,11 +1,11 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
-import { Typography } from '@material-ui/core';
-import Name from '@components/name';
+import Typography from '@material-ui/core/Typography';
+import Name from 'ui/components/name';
 import MsgUpdateCethReceiverAccount from '@models/sifchain/msg/ethbridge/msg_update_ceth_receiver_account';
-import { useProfileRecoil } from '@recoil/profiles';
+import { useProfileRecoil } from 'ui/recoil/profiles';
 
-const UpdateCethReceiverAccount = (props: { message: MsgUpdateCethReceiverAccount }) => {
+const UpdateCethReceiverAccount: React.FC<{ message: MsgUpdateCethReceiverAccount }> = (props) => {
   const { message } = props;
 
   const cosmosSender = useProfileRecoil(message.cosmosSender);

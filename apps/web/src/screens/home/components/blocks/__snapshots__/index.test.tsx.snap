@@ -14,6 +14,7 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
       latestBlocks
     </h2>
     <a
+      aria-label="see more blocks"
       className="MuiTypography-root button MuiTypography-h4"
       href="/blocks"
       onClick={[Function]}
@@ -23,17 +24,8 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
       seeMore
     </a>
   </div>
-  <hr
-    className="MuiDivider-root makeStyles-mobile"
+  <div
+    id="NoData"
   />
-  <a
-    className="MuiTypography-root makeStyles-seeMoreFooter makeStyles-mobile button MuiTypography-h4"
-    href="/blocks"
-    onClick={[Function]}
-    onMouseEnter={[Function]}
-    onTouchStart={[Function]}
-  >
-    seeMore
-  </a>
 </div>
 `;

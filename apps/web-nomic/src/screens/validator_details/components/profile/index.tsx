@@ -1,13 +1,14 @@
 import React from 'react';
 import classnames from 'classnames';
-import { Typography, Divider } from '@material-ui/core';
+import Divider from '@material-ui/core/Divider';
+import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
-import Box from '@components/box';
-import Avatar from '@components/avatar';
-import Markdown from '@components/markdown';
-import { useProfileRecoil } from '@recoil/profiles';
+import Box from 'ui/components/box';
+import Avatar from 'ui/components/avatar';
+import Markdown from 'ui/components/markdown';
+import { useProfileRecoil } from 'ui/recoil/profiles';
 import { useStyles } from './styles';
-import { OverviewType } from '../../types';
+import type { OverviewType } from '../../types';
 
 const Profile: React.FC<{ profile: OverviewType } & ComponentDefault> = ({
   className,
@@ -44,7 +45,7 @@ const Profile: React.FC<{ profile: OverviewType } & ComponentDefault> = ({
       <div className={classes.bio}>
         <Avatar
           address={profile.operatorAddress}
-          imageUrl={validator.imageUrl}
+          imageUrl={validator.imageUrl ?? undefined}
           className={classnames(classes.avatar, classes.desktopAvatar)}
         />
         <div>
@@ -55,7 +56,7 @@ const Profile: React.FC<{ profile: OverviewType } & ComponentDefault> = ({
             <div className={classes.header}>
               <Avatar
                 address={profile.operatorAddress}
-                imageUrl={validator.imageUrl}
+                imageUrl={validator.imageUrl ?? undefined}
                 className={classnames(classes.avatar, classes.mobile)}
               />
               <div className="header__content">

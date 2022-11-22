@@ -1,10 +1,10 @@
 import React from 'react';
 import classnames from 'classnames';
 import numeral from 'numeral';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
-import Box from '@components/box';
-import CustomToolTip, { CustomToolTipData } from '@components/custom_tool_tip';
+import Box from 'ui/components/box';
+import CustomToolTip, { type CustomToolTipData } from 'ui/components/custom_tool_tip';
 import { PieChart, Pie, Cell, Tooltip } from 'recharts';
 import chainConfig from 'ui/chainConfig';
 import { useStyles } from './styles';
@@ -19,16 +19,14 @@ const Tokenomics: React.FC<{
 
   const customToolTip = (
     <CustomToolTip>
-      {(x) => {
-        return (
-          <>
-            <Typography variant="caption">{t(x.legendKey)}</Typography>
-            <Typography variant="body1">
-              {x.value} ({x.percent})
-            </Typography>
-          </>
-        );
-      }}
+      {(x) => (
+        <>
+          <Typography variant="caption">{t(x.legendKey)}</Typography>
+          <Typography variant="body1">
+            {x.value} ({x.percent})
+          </Typography>
+        </>
+      )}
     </CustomToolTip>
   );
 
@@ -97,21 +95,19 @@ const Tokenomics: React.FC<{
             // strokeWidth={3}
             isAnimationActive={false}
           >
-            {data.map((entry) => {
-              return <Cell key={entry.legendKey} fill={entry.fill} />;
-            })}
+            {data.map((entry) => (
+              <Cell key={entry.legendKey} fill={entry.fill} />
+            ))}
           </Pie>
           <Tooltip content={customToolTip} />
         </PieChart>
 
         <div className={classes.legends}>
-          {data.map((x) => {
-            return (
-              <div className="legends__item" key={x.legendKey}>
-                <Typography variant="caption">{t(x.legendKey)}</Typography>
-              </div>
-            );
-          })}
+          {data.map((x: any) => (
+            <div className="legends__item" key={x.legendKey}>
+              <Typography variant="caption">{t(x.legendKey)}</Typography>
+            </div>
+          ))}
         </div>
       </div>
     </Box>

@@ -4,10 +4,11 @@ import useTranslation from 'next-translate/useTranslation';
 import { formatNumber } from 'ui/utils/format_token';
 import Link from 'next/link';
 import { TOKEN_DETAILS, NFT_DETAILS } from '@utils/go_to_page';
-import { Typography, Divider } from '@material-ui/core';
+import Divider from '@material-ui/core/Divider';
+import Typography from '@material-ui/core/Typography';
 import AvatarName from '@components/avatar_name';
 import { useStyles } from './styles';
-import { OperationType } from '../../../../types';
+import type { OperationType } from '../../../../types';
 
 const Mobile: React.FC<{ items: OperationType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('transactions');
@@ -45,40 +46,39 @@ const Mobile: React.FC<{ items: OperationType[] } & ComponentDefault> = (props) 
 
   return (
     <div className={props.className}>
-      {formattedItems.map((x, i) => {
-        return (
-          <React.Fragment key={`${x.action}-${i}`}>
-            <div className={classes.root}>
-              <div className={classes.item}>
-                <Typography variant="h4" className="label">
-                  {t('action')}
-                </Typography>
-                {x.action}
-              </div>
-              <div className={classes.item}>
-                <Typography variant="h4" className="label">
-                  {t('sender')}
-                </Typography>
-                {x.sender}
-              </div>
-
-              <div className={classes.item}>
-                <Typography variant="h4" className="label">
-                  {t('receiver')}
-                </Typography>
-                {x.receiver}
-              </div>
-              <div className={classes.item}>
-                <Typography variant="h4" className="label">
-                  {t('value')}
-                </Typography>
-                {x.value}
-              </div>
+      {formattedItems?.map((x, i) => (
+        // eslint-disable-next-line react/no-array-index-key
+        <React.Fragment key={`${x.action}-${i}`}>
+          <div className={classes.root}>
+            <div className={classes.item}>
+              <Typography variant="h4" className="label">
+                {t('action')}
+              </Typography>
+              {x.action}
             </div>
-            {i !== formattedItems.length - 1 && <Divider />}
-          </React.Fragment>
-        );
-      })}
+            <div className={classes.item}>
+              <Typography variant="h4" className="label">
+                {t('sender')}
+              </Typography>
+              {x.sender}
+            </div>
+
+            <div className={classes.item}>
+              <Typography variant="h4" className="label">
+                {t('receiver')}
+              </Typography>
+              {x.receiver}
+            </div>
+            <div className={classes.item}>
+              <Typography variant="h4" className="label">
+                {t('value')}
+              </Typography>
+              {x.value}
+            </div>
+          </div>
+          {i !== formattedItems.length - 1 && <Divider />}
+        </React.Fragment>
+      ))}
     </div>
   );
 };

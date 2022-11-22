@@ -1,17 +1,17 @@
 import { test, expect } from '@playwright/test';
 
-const deployURL = process.env.DEPLOY_URL ?? "http://localhost:3000";
+test('params page', async ({ page, isMobile }) => {
+  // Test url
+  await page.goto('.');
+  await expect(page).toHaveURL(/[^?#]*\/\/[^/]+\/$/);
+  await expect(page.getByRole('progressbar')).toHaveCount(0);
 
-test('params page', async ({ page }) => {
-    // Test url
-    await page.goto(deployURL);
-    await expect(page).toHaveURL(deployURL);
+  // Test click params section
+  if (isMobile) await page.getByRole('button', { name: 'open navigation menu' }).first().click();
+  await page.getByRole('link', { name: 'Params' }).first().click();
+  await expect(page).toHaveURL(/\/params/);
 
-    // Test click params section
-    await page.getByRole('link', { name: 'Params' }).click();
-    await expect(page).toHaveURL(/.*params/);
-
-    // Test params url
-    await page.goto(`${deployURL}/params`);
-    await expect(page).toHaveURL(`${deployURL}/params`);
+  // Test params url
+  await page.goto(`./params`);
+  await expect(page).toHaveURL(/\/params/);
 });

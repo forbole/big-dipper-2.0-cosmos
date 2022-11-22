@@ -1,9 +1,9 @@
+import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
+import { MockedProvider } from '@apollo/client/testing';
+import { OnlineVotingPowerDocument } from '@graphql/types/general_types';
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { ApolloProvider } from '@apollo/client';
-import { createMockClient } from 'mock-apollo-client';
-import { OnlineVotingPowerDocument } from '@graphql/types/general_types';
-import { MockTheme, wait } from '@tests/utils';
+import { MockTheme, wait } from 'ui/tests/utils';
 import OnlineVotingPower from '.';
 
 // ==================================
@@ -14,11 +14,11 @@ const mockI18n = {
   lang: 'en',
 };
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
-jest.mock('@components/box', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/box', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="box" {...props} />
 ));
 
-const mockOnlineVotingPower = jest.fn().mockResolvedValue({
+const mockOnlineVotingPower = jest.fn().mockReturnValue({
   data: {
     activeTotal: {
       aggregate: {
@@ -56,28 +56,30 @@ const mockOnlineVotingPower = jest.fn().mockResolvedValue({
 // ==================================
 describe('screen: Home/OnlineVotingPower', () => {
   it('matches snapshot', async () => {
-    const mockClient = createMockClient();
-
-    mockClient.setRequestHandler(OnlineVotingPowerDocument, mockOnlineVotingPower);
-
-    let component;
+    const mockClient = new ApolloClient({ link: from([]), cache: new InMemoryCache() });
+    let component: renderer.ReactTestRenderer | undefined;
 
     renderer.act(() => {
       component = renderer.create(
         <ApolloProvider client={mockClient}>
-          <MockTheme>
-            <OnlineVotingPower />
-          </MockTheme>
-          ,
+          <MockedProvider
+            mocks={[
+              { request: { query: OnlineVotingPowerDocument }, result: mockOnlineVotingPower },
+            ]}
+          >
+            <MockTheme>
+              <OnlineVotingPower />
+            </MockTheme>
+          </MockedProvider>
         </ApolloProvider>
       );
     });
-    await wait();
+    await wait(renderer.act);
 
-    let tree = component.toJSON();
+    let tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
 
-    tree = component.toJSON();
+    tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

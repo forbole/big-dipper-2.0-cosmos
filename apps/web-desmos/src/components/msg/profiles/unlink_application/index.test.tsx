@@ -1,13 +1,13 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
-import { MsgUnlinkApplication } from '@models';
+import { MockTheme } from 'ui/tests/utils';
+import MsgUnlinkApplication from '@models/desmos/msg/profiles/msg_unlink_application';
 import UnlinkApplication from '.';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 
@@ -16,19 +16,20 @@ jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 describe('screen: TransactionDetails/MsgUnlinkApplication', () => {
   it('matches snapshot', () => {
-    const message = new MsgUnlinkApplication({
+    const message: MsgUnlinkApplication = {
       category: 'profiles',
       type: 'MsgUnlinkChainAccount',
       signer: 'signer',
       application: 'application',
       username: 'username',
-    });
+      json: {},
+    };
     const component = renderer.create(
       <MockTheme>
         <UnlinkApplication message={message} />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

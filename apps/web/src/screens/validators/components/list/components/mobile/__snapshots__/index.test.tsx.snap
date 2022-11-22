@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`screen: Validators/Tabs matches snapshot 1`] = `
+exports[`screen: Validators/Mobile matches snapshot 1`] = `
 <div
   className=""
 >

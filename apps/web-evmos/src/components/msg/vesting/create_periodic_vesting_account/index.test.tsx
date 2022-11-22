@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import MsgCreatePeriodicVestingAccount from '@models/evmos/msg/vesting/msg_create_periodic_vesting_account';
 import CreatePeriodicVestingAccount from '.';
 
@@ -8,7 +8,7 @@ import CreatePeriodicVestingAccount from '.';
 // mocks
 // ==================================
 
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 
@@ -21,7 +21,7 @@ jest.mock('next-translate/Trans', () => (props: JSX.IntrinsicElements['div']) =>
 // ==================================
 describe('screen: TransactionDetails/Grant', () => {
   it('matches snapshot', () => {
-    const message = new MsgCreatePeriodicVestingAccount({
+    const message = MsgCreatePeriodicVestingAccount.fromJson({
       category: 'vesting',
       type: 'MsgGrant',
       toAddress: 'toAddress',
@@ -32,7 +32,7 @@ describe('screen: TransactionDetails/Grant', () => {
         <CreatePeriodicVestingAccount message={message} />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
 
     expect(component.root.findByProps({ id: 'Trans' }).props.i18nKey).toEqual(

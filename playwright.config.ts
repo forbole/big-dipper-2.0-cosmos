@@ -1,3 +1,4 @@
+/* eslint-disable */
 import type { PlaywrightTestConfig } from '@playwright/test';
 import { devices } from '@playwright/test';
 
@@ -6,6 +7,8 @@ import { devices } from '@playwright/test';
  * https://github.com/motdotla/dotenv
  */
 // require('dotenv').config();
+
+const port = process.env.PORT || 3900;
 
 /**
  * See https://playwright.dev/docs/test-configuration.
@@ -19,7 +22,7 @@ const config: PlaywrightTestConfig = {
      * Maximum time expect() should wait for the condition to be met.
      * For example in `await expect(locator).toHaveText();`
      */
-    timeout: 50000
+    timeout: 10 * 1000,
   },
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -36,14 +39,14 @@ const config: PlaywrightTestConfig = {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
     actionTimeout: 0,
     /* Base URL to use in actions like `await page.goto('/')`. */
-    // baseURL: 'http://localhost:3000',
+    baseURL: `http://localhost:${port}`,
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
+    trace: process.env.CI ? 'off' : 'on',
     /* Ignore https error in firefox */
     ignoreHTTPSErrors: true,
     viewport: { width: 1280, height: 720 },
-    video: 'on-first-retry',
+    video: process.env.CI ? 'off' : 'on-first-retry',
   },
 
   /* Configure projects for major browsers */
@@ -55,12 +58,14 @@ const config: PlaywrightTestConfig = {
       },
     },
 
-    {
-      name: 'firefox',
-      use: {
-        ...devices['Desktop Firefox'],
-      },
-    },
+    process.env.CI
+      ? {}
+      : {
+          name: 'firefox',
+          use: {
+            ...devices['Desktop Firefox'],
+          },
+        },
 
     {
       name: 'webkit',
@@ -70,18 +75,21 @@ const config: PlaywrightTestConfig = {
     },
 
     /* Test against mobile viewports. */
-    // {
-    //   name: 'Mobile Chrome',
-    //   use: {
-    //     ...devices['Pixel 5'],
-    //   },
-    // },
-    // {
-    //   name: 'Mobile Safari',
-    //   use: {
-    //     ...devices['iPhone 12'],
-    //   },
-    // },
+    process.env.CI
+      ? {}
+      : {
+          name: 'Mobile Chrome',
+          use: {
+            ...devices['Pixel 5'],
+          },
+        },
+
+    {
+      name: 'Mobile Safari',
+      use: {
+        ...devices['iPhone 12'],
+      },
+    },
 
     /* Test against branded browsers. */
     // {
@@ -96,16 +104,20 @@ const config: PlaywrightTestConfig = {
     //     channel: 'chrome',
     //   },
     // },
-  ],
+  ].filter((config) => !!config?.name),
 
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */
   // outputDir: 'test-results/',
 
   /* Run your local dev server before starting the tests */
-  // webServer: {
-  //   command: 'npm run start',
-  //   port: 3000,
-  // },
+  webServer: {
+    command: `PROJECT_NAME=${
+      process.env.PROJECT_NAME || 'web'
+    } yarn build && PORT=${port} PROJECT_NAME=${process.env.PROJECT_NAME || 'web'} yarn start`,
+    url: `http://localhost:${port}`,
+    timeout: 5 * 60 * 1000,
+    reuseExistingServer: process.env.CI ? undefined : true,
+  },
 };
 
 export default config;

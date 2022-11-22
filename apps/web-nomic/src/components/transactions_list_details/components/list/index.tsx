@@ -1,25 +1,24 @@
-import React from 'react';
+import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
-import numeral from 'numeral';
-import dayjs, { formatDayJs } from 'ui/utils/dayjs';
 import Link from 'next/link';
-import { TRANSACTION_DETAILS, BLOCK_DETAILS } from 'ui/utils/go_to_page';
-import { Typography } from '@material-ui/core';
-import { VariableSizeList as List } from 'react-window';
-import InfiniteLoader from 'react-window-infinite-loader';
+import numeral from 'numeral';
+import React, { ComponentProps, FC } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
-import { mergeRefs } from 'ui/utils/merge_refs';
-import Loading from '@components/loading';
-import Tag from '@components/tag';
-import { useList, useListRow, useScreenSize } from '@hooks';
-import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
+import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
+import InfiniteLoader from 'react-window-infinite-loader';
 import { useRecoilValue } from 'recoil';
-import { readDate } from '@recoil/settings';
+import Loading from 'ui/components/loading';
+import { useList, useListRow, useScreenSize } from 'ui/hooks';
+import { readDate } from 'ui/recoil/settings';
+import dayjs, { formatDayJs } from 'ui/utils/dayjs';
+import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
+import { BLOCK_DETAILS, TRANSACTION_DETAILS } from 'ui/utils/go_to_page';
+import { mergeRefs } from 'ui/utils/merge_refs';
+import type { TransactionsListDetailsState } from '../../types';
+import SingleTransaction from './components/single_transaction';
 import { useStyles } from './styles';
-import { TransactionsListDetailsState } from '../../types';
-import { SingleTransaction } from './components';
 
-const TransactionList: React.FC<TransactionsListDetailsState> = ({
+const TransactionList: FC<TransactionsListDetailsState> = ({
   className,
   itemCount,
   loadMoreItems,
@@ -52,66 +51,68 @@ const TransactionList: React.FC<TransactionsListDetailsState> = ({
         </Typography>
       </Link>
     ),
-    type: (
-      <div>
-        <Tag value="txDelegateLabel" theme="six" />
-        {x.messages.count > 1 && ' +'}
-      </div>
-    ),
-    time: formatDayJs(dayjs.utc(x.timestamp), dateFormat),
+    time: formatDayJs((dayjs as any).utc(x.timestamp), dateFormat),
   }));
 
   return (
     <div className={classnames(className, classes.root)}>
       <AutoSizer>
-        {({ height, width }) => {
-          return (
-            <InfiniteLoader
-              isItemLoaded={isItemLoaded ?? (() => true)}
-              itemCount={itemCount}
-              loadMoreItems={
-                loadMoreItems ??
-                (() => {
-                  // do nothing
-                })
-              }
-            >
-              {({ onItemsRendered, ref }) => (
-                <List
-                  className="List"
-                  height={height}
-                  itemCount={itemCount}
-                  itemSize={getRowHeight}
-                  onItemsRendered={onItemsRendered}
-                  ref={mergeRefs(listRef, ref)}
-                  width={width}
-                >
-                  {({ index, style }) => {
-                    const { rowRef } = useListRow(index, setRowHeight);
-                    if (!isItemLoaded?.(index)) {
-                      return (
-                        <div style={style}>
-                          <div ref={rowRef}>
-                            <Loading />
-                          </div>
-                        </div>
-                      );
-                    }
-                    const item = items[index];
-                    return (
-                      <div style={style}>
-                        <div ref={rowRef}>
-                          <SingleTransaction {...item} />
-                        </div>
-                      </div>
-                    );
-                  }}
-                </List>
-              )}
-            </InfiniteLoader>
-          );
-        }}
+        {({ height, width }) => (
+          <InfiniteLoader
+            isItemLoaded={isItemLoaded ?? (() => true)}
+            itemCount={itemCount}
+            loadMoreItems={
+              loadMoreItems ??
+              (() => {
+                // do nothing
+              })
+            }
+          >
+            {({ onItemsRendered, ref }) => (
+              <List
+                className="List"
+                height={height}
+                itemCount={itemCount}
+                itemSize={getRowHeight}
+                onItemsRendered={onItemsRendered}
+                ref={mergeRefs(listRef, ref)}
+                width={width}
+              >
+                {({ index, style }) => (
+                  <ListItem {...{ index, style, setRowHeight, items, isItemLoaded }} />
+                )}
+              </List>
+            )}
+          </InfiniteLoader>
+        )}
       </AutoSizer>
+    </div>
+  );
+};
+
+const ListItem: FC<
+  Pick<ListChildComponentProps, 'index' | 'style'> & {
+    setRowHeight: ReturnType<typeof useList>['setRowHeight'];
+    items: Array<ComponentProps<typeof SingleTransaction>>;
+    isItemLoaded: ((index: number) => boolean) | undefined;
+  }
+> = ({ index, style, setRowHeight, items, isItemLoaded }) => {
+  const { rowRef } = useListRow(index, setRowHeight);
+  if (!isItemLoaded?.(index)) {
+    return (
+      <div style={style}>
+        <div ref={rowRef}>
+          <Loading />
+        </div>
+      </div>
+    );
+  }
+  const item = items[index];
+  return (
+    <div style={style}>
+      <div ref={rowRef}>
+        <SingleTransaction {...item} />
+      </div>
     </div>
   );
 };

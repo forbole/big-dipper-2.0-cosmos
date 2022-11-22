@@ -1,10 +1,14 @@
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgUpdateGroupAccountAdminRequest {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public admin: string;
+
   public newAdmin: string;
 
   constructor(payload: any) {
@@ -15,13 +19,14 @@ class MsgUpdateGroupAccountAdminRequest {
     this.newAdmin = payload.newAdmin;
   }
 
-  static fromJson(json: any) {
-    return new MsgUpdateGroupAccountAdminRequest({
+  static fromJson(json: any): MsgUpdateGroupAccountAdminRequest {
+    return {
+      category: 'group',
       json,
       type: json['@type'],
       admin: json.admin,
       newAdmin: json.new_admin,
-    });
+    };
   }
 }
 

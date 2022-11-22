@@ -1,16 +1,21 @@
 import numeral from 'numeral';
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgVote {
   public category: Categories;
+
   public type: string;
+
   public proposalId: number | string;
+
   public voter: string;
+
   public option:
     | 'VOTE_OPTION_YES'
     | 'VOTE_OPTION_ABSTAIN'
     | 'VOTE_OPTION_NO'
     | 'VOTE_OPTION_NO_WITH_VETO';
+
   public json: any;
 
   constructor(payload: any) {
@@ -38,14 +43,30 @@ class MsgVote {
     return null;
   }
 
-  static fromJson(json: any) {
-    return new MsgVote({
+  static fromJson(json: any): MsgVote {
+    return {
+      category: 'governance',
       json,
       type: json['@type'],
-      proposalId: numeral(json?.proposal_id).value(),
+      proposalId: numeral(json?.proposal_id).value() ?? '',
       voter: json.voter,
       option: json.option,
-    });
+      getOptionTranslationKey() {
+        if (json.option === 'VOTE_OPTION_ABSTAIN') {
+          return 'abstain';
+        }
+        if (json.option === 'VOTE_OPTION_NO') {
+          return 'no';
+        }
+        if (json.option === 'VOTE_OPTION_NO_WITH_VETO') {
+          return 'noWithVeto';
+        }
+        if (json.option === 'VOTE_OPTION_YES') {
+          return 'yes';
+        }
+        return null;
+      },
+    };
   }
 }
 

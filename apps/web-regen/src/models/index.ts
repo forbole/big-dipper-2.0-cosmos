@@ -1,11 +1,80 @@
+export {
+  BigDipperNetwork,
+  DistributionParams,
+  GovParams,
+  MintParams,
+  SlashingParams,
+  StakingParams,
+
+  // ================================
+  // Transaction Message Types
+  // ================================
+  MsgUnknown,
+  MsgMultiSend,
+  MsgSend,
+  MsgVerifyInvariant,
+  MsgFundCommunityPool,
+  MsgSubmitProposal,
+  MsgSetWithdrawAddress,
+  MsgWithdrawDelegatorReward,
+  MsgCommunityPoolSpendProposal,
+  MsgParameterChangeProposal,
+  MsgSoftwareUpgradeProposal,
+  MsgTextProposal,
+  MsgDeposit,
+  MsgVote,
+  MsgUnjail,
+  MsgCreateValidator,
+  MsgDelegate,
+  MsgEditValidator,
+  MsgRedelegate,
+  MsgUndelegate,
+  MsgWithdrawValidatorCommission,
+  MsgBlockUser,
+  MsgCreateRelationship,
+  MsgDeleteProfile,
+  MsgDtagAcceptTransfer,
+  MsgDtagCancelTransfer,
+  MsgDtagRefuseTransfer,
+  MsgDtagTransferRequest,
+  MsgSaveProfile,
+  MsgUnblockUser,
+  MsgCreateClient,
+  MsgUpdateClient,
+  MsgUpgradeClient,
+  MsgSubmitMisbehaviour,
+  MsgHeight,
+  MsgAcknowledgement,
+  MsgChannelCloseConfirm,
+  MsgChannelCloseInit,
+  MsgChannelOpenAck,
+  MsgChannelOpenConfirm,
+  MsgChannelOpenInit,
+  MsgChannelOpenTry,
+  MsgChannel,
+  MsgCounterpartyChannel,
+  MsgPacket,
+  MsgReceivePacket,
+  MsgTimeout,
+  MsgTimeoutOnClose,
+  MsgConnectionEnd,
+  MsgConnectionOpenAck,
+  MsgConnectionOpenConfirm,
+  MsgConnectionOpenInit,
+  MsgConnectionOpenTry,
+  MsgCounterpartyConnection,
+  MsgVersion,
+  MsgTransfer,
+  MsgGrant,
+  MsgRevoke,
+  MsgGrantAllowance,
+  MsgRevokeAllowance,
+  MsgCreateVestingAccount,
+  MsgCreatePeriodicVestingAccount,
+} from 'ui/models';
 // ================================
 // Transaction Message Types
 // ================================
-export * from 'ui/models';
-// ================================
-// Transaction Message Types
-// ================================
-export * from 'ui/models';
 export { default as MsgAnchorDataRequest } from './regen/msg/data/msg_anchor_data_request';
 export { default as MsgSignDataRequest } from './regen/msg/data/msg_sign_data_request';
 export { default as MsgStoreRawDataRequest } from './regen/msg/data/msg_store_raw_data_request';

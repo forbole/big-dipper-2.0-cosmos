@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import chainConfig from 'ui/chainConfig';
 import axios from 'axios';
 import { ACCOUNT_DETAILS, ACCOUNT_DETAILS_TOKEN_COUNT } from '@api';
 import { formatToken } from 'ui/utils/format_token';
-import { AccountDetailsType } from './types';
+import type { AccountDetailsType } from './types';
 
 const defaultTokenUnit: TokenUnit = {
   value: '0',
@@ -16,7 +16,7 @@ const defaultTokenUnit: TokenUnit = {
 
 export const useAccountDetails = () => {
   const router = useRouter();
-  const [state, setState] = useState<AccountDetailsType>({
+    const [state, setState] = useState<AccountDetailsType>({
     loading: true,
     exists: true,
     profile: {
@@ -31,36 +31,35 @@ export const useAccountDetails = () => {
     },
   });
 
-  const handleSetState = (stateChange: any) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-  };
+  const handleSetState = useCallback((stateChange: Partial<AccountDetailsType>) => {
+    setState((prevState) => {
+      const newState = { ...prevState, ...stateChange };
+      return R.equals(prevState, newState) ? prevState : newState;
+    });
+  }, []);
 
   useEffect(() => {
-    getAccount();
-  }, [router.query.address]);
+    const getAccount = async () => {
+      const { data: accountData } = await axios.get(
+        ACCOUNT_DETAILS(router.query.address as string)
+      );
 
-  const getAccount = async () => {
-    const { data: accountData } = await axios.get(ACCOUNT_DETAILS(router.query.address as string));
+      const { data: tokenCount } = await axios.get(
+        ACCOUNT_DETAILS_TOKEN_COUNT(router.query.address as string)
+      );
 
-    const { data: tokenCount } = await axios.get(
-      ACCOUNT_DETAILS_TOKEN_COUNT(router.query.address as string)
-    );
+      const newState: any = {
+        loading: false,
+      };
 
-    const newState: any = {
-      loading: false,
-    };
-
-    const getProfile = () => {
-      return {
+      const getProfile = () => ({
         address: R.pathOr('', ['address'], accountData),
         username: R.pathOr('', ['username'], accountData),
-      };
-    };
+      });
 
-    newState.profile = getProfile();
+      newState.profile = getProfile();
 
-    const getOverview = () => {
-      return {
+      const getOverview = () => ({
         balance: formatToken(R.pathOr('0', ['balance'], accountData), chainConfig.primaryTokenUnit),
         developerReward: formatToken(
           R.pathOr('0', ['developerReward'], accountData),
@@ -68,13 +67,15 @@ export const useAccountDetails = () => {
         ),
         shard: R.pathOr(0, ['shard'], accountData),
         tokenCount,
-      };
+      });
+
+      newState.overview = getOverview();
+
+      handleSetState(newState);
     };
 
-    newState.overview = getOverview();
-
-    handleSetState(newState);
-  };
+    getAccount();
+  }, [handleSetState, router.query.address]);
 
   return {
     state,

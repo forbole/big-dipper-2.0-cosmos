@@ -1,11 +1,16 @@
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgChannelOpenConfirm {
   public category: Categories;
+
   public type: string;
+
   public signer: string;
+
   public channelId: string;
+
   public portId: string;
+
   public json: any;
 
   constructor(payload: any) {
@@ -17,14 +22,15 @@ class MsgChannelOpenConfirm {
     this.json = payload.json;
   }
 
-  static fromJson(json: any) {
-    return new MsgChannelOpenConfirm({
+  static fromJson(json: any): MsgChannelOpenConfirm {
+    return {
+      category: 'ibc',
       json,
       type: json['@type'],
       signer: json.signer,
       channelId: json.channel_id,
       portId: json.port_id,
-    });
+    };
   }
 }
 

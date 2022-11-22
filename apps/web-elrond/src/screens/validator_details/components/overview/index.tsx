@@ -1,14 +1,14 @@
 import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
-import BoxDetails from '@components/box_details';
+import BoxDetails from 'ui/components/box_details';
 import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
-import { OverviewType } from '../../types';
+import type { OverviewType } from '../../types';
 
 const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = (props) => {
   const { t } = useTranslation('validators');
   const details = [];
 
-  props.overview.stakeDistribution.forEach((x) => {
+  props.overview.stakeDistribution.forEach((x: any) => {
     const key = getMiddleEllipsis(x.key, {
       beginning: 10,
       ending: 7,

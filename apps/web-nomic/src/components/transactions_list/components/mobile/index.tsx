@@ -1,24 +1,23 @@
-import React from 'react';
-import classnames from 'classnames';
-import numeral from 'numeral';
-import dayjs from 'ui/utils/dayjs';
-import Link from 'next/link';
-import { TRANSACTION_DETAILS, BLOCK_DETAILS } from 'ui/utils/go_to_page';
-import { Typography, Divider } from '@material-ui/core';
-import { VariableSizeList as List } from 'react-window';
-import InfiniteLoader from 'react-window-infinite-loader';
-import AutoSizer from 'react-virtualized-auto-sizer';
-
-import { mergeRefs } from 'ui/utils/merge_refs';
+import Loading from 'ui/components/loading';
 import SingleTransactionMobile from '@components/single_transaction_mobile';
-import Loading from '@components/loading';
-import Tag from '@components/tag';
-import { useList, useListRow } from '@hooks';
+import { useList, useListRow } from 'ui/hooks';
+import Divider from '@material-ui/core/Divider';
+import Typography from '@material-ui/core/Typography';
 import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
+import { BLOCK_DETAILS, TRANSACTION_DETAILS } from 'ui/utils/go_to_page';
+import { mergeRefs } from 'ui/utils/merge_refs';
+import classnames from 'classnames';
+import Link from 'next/link';
+import numeral from 'numeral';
+import React, { ComponentProps, FC } from 'react';
+import AutoSizer from 'react-virtualized-auto-sizer';
+import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
+import InfiniteLoader from 'react-window-infinite-loader';
+import dayjs from 'ui/utils/dayjs';
+import type { TransactionsListState } from '../../types';
 import { useStyles } from './styles';
-import { TransactionsListState } from '../../types';
 
-const Mobile: React.FC<TransactionsListState> = ({
+const Mobile: FC<TransactionsListState> = ({
   className,
   itemCount,
   loadMoreItems,
@@ -47,67 +46,70 @@ const Mobile: React.FC<TransactionsListState> = ({
         </Typography>
       </Link>
     ),
-    type: (
-      <div>
-        <Tag value={x.type[0]} theme="six" />
-        {x.messages.count > 1 && ` + ${x.messages.count - 1}`}
-      </div>
-    ),
-    time: dayjs.utc(x.timestamp).fromNow(),
+    time: (dayjs as any).utc(x.timestamp).fromNow(),
   }));
 
   return (
     <div className={classnames(className, classes.root)}>
       <AutoSizer>
-        {({ height, width }) => {
-          return (
-            <InfiniteLoader
-              isItemLoaded={isItemLoaded ?? (() => true)}
-              itemCount={itemCount}
-              loadMoreItems={
-                loadMoreItems ??
-                (() => {
-                  // do nothing
-                })
-              }
-            >
-              {({ onItemsRendered, ref }) => (
-                <List
-                  className="List"
-                  height={height}
-                  itemCount={itemCount}
-                  itemSize={getRowHeight}
-                  onItemsRendered={onItemsRendered}
-                  ref={mergeRefs(listRef, ref)}
-                  width={width}
-                >
-                  {({ index, style }) => {
-                    const { rowRef } = useListRow(index, setRowHeight);
-                    if (!isItemLoaded?.(index)) {
-                      return (
-                        <div style={style}>
-                          <div ref={rowRef}>
-                            <Loading />
-                          </div>
-                        </div>
-                      );
-                    }
-                    const item = items[index];
-                    return (
-                      <div style={style}>
-                        <div ref={rowRef}>
-                          <SingleTransactionMobile {...item} />
-                          {index !== itemCount - 1 && <Divider />}
-                        </div>
-                      </div>
-                    );
-                  }}
-                </List>
-              )}
-            </InfiniteLoader>
-          );
-        }}
+        {({ height, width }) => (
+          <InfiniteLoader
+            isItemLoaded={isItemLoaded ?? (() => true)}
+            itemCount={itemCount}
+            loadMoreItems={
+              loadMoreItems ??
+              (() => {
+                // do nothing
+              })
+            }
+          >
+            {({ onItemsRendered, ref }) => (
+              <List
+                className="List"
+                height={height}
+                itemCount={itemCount}
+                itemSize={getRowHeight}
+                onItemsRendered={onItemsRendered}
+                ref={mergeRefs(listRef, ref)}
+                width={width}
+              >
+                {({ index, style }) => (
+                  <ListItem {...{ index, style, setRowHeight, isItemLoaded, items, itemCount }} />
+                )}
+              </List>
+            )}
+          </InfiniteLoader>
+        )}
       </AutoSizer>
+    </div>
+  );
+};
+
+const ListItem: FC<
+  Pick<ListChildComponentProps, 'index' | 'style'> & {
+    setRowHeight: ReturnType<typeof useList>['setRowHeight'];
+    isItemLoaded: ((index: number) => boolean) | undefined;
+    items: ComponentProps<typeof SingleTransactionMobile>[];
+    itemCount: number;
+  }
+> = ({ index, style, setRowHeight, isItemLoaded, items, itemCount }) => {
+  const { rowRef } = useListRow(index, setRowHeight);
+  if (!isItemLoaded?.(index)) {
+    return (
+      <div style={style}>
+        <div ref={rowRef}>
+          <Loading />
+        </div>
+      </div>
+    );
+  }
+  const item = items[index];
+  return (
+    <div style={style}>
+      <div ref={rowRef}>
+        <SingleTransactionMobile {...item} />
+        {index !== itemCount - 1 && <Divider />}
+      </div>
     </div>
   );
 };

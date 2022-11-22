@@ -1,15 +1,15 @@
 import React from 'react';
 import classnames from 'classnames';
 import Link from 'next/link';
-import { ExpandMore } from '@material-ui/icons';
+import ExpandMore from '@material-ui/icons/ExpandMore';
 import { useRecoilValue } from 'recoil';
-import { readSelectedNetwork } from '@recoil/big_dipper_networks';
+import { readSelectedNetwork } from 'ui/recoil/big_dipper_networks';
 import BigDipperLogoWhite from 'shared-utils/assets/big-dipper-white.svg';
 import BigDipperLogoRed from 'shared-utils/assets/big-dipper-red-sifchain.svg';
 import { HOME } from 'ui/utils/go_to_page';
-import { readTheme } from '@recoil/settings';
+import { readTheme } from 'ui/recoil/settings';
 import { useStyles } from './styles';
-import { NavbarProps } from './types';
+import type { NavbarProps } from './types';
 
 const Navbar = (props: NavbarProps) => {
   const classes = useStyles();
@@ -32,7 +32,13 @@ const Navbar = (props: NavbarProps) => {
         {/* =================================== */}
         {/* Network */}
         {/* =================================== */}
-        <div className={classes.network} onClick={openNetwork} role="button">
+        <div
+          className={classes.network}
+          onClick={openNetwork}
+          role="button"
+          tabIndex={0}
+          aria-label={selected}
+        >
           <p className="text">{selected}</p>
           <ExpandMore fontSize="small" />
         </div>
@@ -45,6 +51,8 @@ const Navbar = (props: NavbarProps) => {
           className={classnames(classes.hamburger, {
             active: isOpen,
           })}
+          tabIndex={0}
+          aria-label={isOpen ? 'close navigation menu' : 'open navigation menu'}
         >
           <div className="hamburger-content" />
         </div>

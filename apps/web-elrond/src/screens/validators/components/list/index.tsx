@@ -1,12 +1,13 @@
 import React from 'react';
 import classnames from 'classnames';
-import Box from '@components/box';
-import LoadAndExist from '@components/load_and_exist';
-import TabPanel from '@components/tab_panel';
-import { Validators, Tabs } from './components';
+import Box from 'ui/components/box';
+import LoadAndExist from 'ui/components/load_and_exist';
+import TabPanel from 'ui/components/tab_panel';
+import Validators from './components/validators';
+import Tabs from './components/tabs';
 import { useStyles } from './styles';
 import { useValidators } from './hooks';
-import { TabType } from './types';
+import type { TabType } from './types';
 
 const List: React.FC<{
   className?: string;
@@ -31,13 +32,11 @@ const List: React.FC<{
           handleTabChange={handleTabChange}
           handleSearch={handleSearch}
         />
-        {tabs.map((x) => {
-          return (
-            <TabPanel key={x.id} index={x.id} value={state.tab}>
-              <div className={classes.list}>{x.component}</div>
-            </TabPanel>
-          );
-        })}
+        {tabs.map((x) => (
+          <TabPanel key={x.id} index={x.id} value={state.tab}>
+            <div className={classes.list}>{x.component}</div>
+          </TabPanel>
+        ))}
       </Box>
     </LoadAndExist>
   );

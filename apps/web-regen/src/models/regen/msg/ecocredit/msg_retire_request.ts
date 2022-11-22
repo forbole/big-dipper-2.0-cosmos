@@ -1,9 +1,12 @@
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgRetireRequest {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public holder: string;
 
   constructor(payload: any) {
@@ -13,12 +16,13 @@ class MsgRetireRequest {
     this.holder = payload.holder;
   }
 
-  static fromJson(json: any) {
-    return new MsgRetireRequest({
+  static fromJson(json: any): MsgRetireRequest {
+    return {
+      category: 'ecocredit',
       json,
       type: json['@type'],
       holder: json.holder,
-    });
+    };
   }
 }
 

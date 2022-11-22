@@ -1,11 +1,15 @@
 import * as R from 'ramda';
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgUpdateCethReceiverAccount {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public cosmosSender: string;
+
   public cethReceiverAccount: string;
 
   constructor(payload: any) {
@@ -16,13 +20,14 @@ class MsgUpdateCethReceiverAccount {
     this.cethReceiverAccount = payload.cethReceiverAccount;
   }
 
-  static fromJson(json: any) {
-    return new MsgUpdateCethReceiverAccount({
+  static fromJson(json: any): MsgUpdateCethReceiverAccount {
+    return {
+      category: 'ethbridge',
       json,
       type: json['@type'],
       cosmosSender: R.pathOr('', ['cosmos_sender'], json),
       cethReceiverAccount: R.pathOr('', ['ceth_receiver_account'], json),
-    });
+    };
   }
 }
 

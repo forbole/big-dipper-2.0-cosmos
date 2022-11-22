@@ -1,15 +1,21 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import Transactions from '.';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/box', () => (props: JSX.IntrinsicElements['div']) => (
+const mockI18n = {
+  t: (key: string) => key,
+  lang: 'en',
+};
+jest.mock('next-translate/useTranslation', () => () => mockI18n);
+
+jest.mock('ui/components/box', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Box" {...props} />
 ));
-jest.mock('@components/transactions_list', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/transactions_list', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="TransactionsList" {...props} />
 ));
 
@@ -27,26 +33,75 @@ describe('screen: BlockDetails/Transactions', () => {
               hash: 'hash',
               success: false,
               timestamp: '',
+              type: [''],
               messages: {
-                count: 3,
-                items: [],
+                count: 2,
+                items: [
+                  {
+                    '@type': '/cosmos.staking.v1beta1.MsgDelegate',
+                    amount: {
+                      denom: 'udaric',
+                      amount: '8371578',
+                    },
+                    delegator_address: 'desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr',
+                    validator_address: 'desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3',
+                  },
+                  {
+                    '@type': '/cosmos.staking.v1beta1.MsgDelegate',
+                    amount: {
+                      denom: 'udaric',
+                      amount: '1233',
+                    },
+                    delegator_address: 'desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr',
+                    validator_address: 'desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3',
+                  },
+                ],
               },
             },
             {
-              height: 300,
+              height: 301,
               hash: 'hash1',
               success: true,
               timestamp: '',
+              type: [''],
               messages: {
-                count: 13,
-                items: [],
+                count: 3,
+                items: [
+                  {
+                    '@type': '/cosmos.staking.v1beta1.MsgDelegate',
+                    amount: {
+                      denom: 'udaric',
+                      amount: '44444',
+                    },
+                    delegator_address: 'desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr',
+                    validator_address: 'desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3',
+                  },
+                  {
+                    '@type': '/cosmos.staking.v1beta1.MsgDelegate',
+                    amount: {
+                      denom: 'udaric',
+                      amount: '12211',
+                    },
+                    delegator_address: 'desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr',
+                    validator_address: 'desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3',
+                  },
+                  {
+                    '@type': '/cosmos.staking.v1beta1.MsgDelegate',
+                    amount: {
+                      denom: 'udaric',
+                      amount: '11111',
+                    },
+                    delegator_address: 'desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr',
+                    validator_address: 'desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3',
+                  },
+                ],
               },
             },
           ]}
         />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

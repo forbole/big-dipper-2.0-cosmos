@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import * as R from 'ramda';
 import {
   useProvidersQuery,
@@ -9,10 +9,10 @@ import {
   CpuMemoryStorageListenerSubscription,
   ProvidersQuery,
 } from '@graphql/types/general_types';
-import { ProviderInfo, ProvidersState } from './types';
+import type { ProviderInfo, ProvidersState } from './types';
 
 export const useProviders = () => {
-  const [state, setState] = useState<ProvidersState>({
+    const [state, setState] = useState<ProvidersState>({
     loading: true,
     exists: true,
     activeProvidersCount: 0,
@@ -42,9 +42,12 @@ export const useProviders = () => {
     },
   });
 
-  const handleSetState = (stateChange: any) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-  };
+  const handleSetState = useCallback((stateChange: Partial<ProvidersState>) => {
+    setState((prevState) => {
+      const newState = { ...prevState, ...stateChange };
+      return R.equals(prevState, newState) ? prevState : newState;
+    });
+  }, []);
 
   /**
    * Paginates the given data by splitting it into a list of arrays,
@@ -96,42 +99,38 @@ export const useProviders = () => {
   });
 
   const formatCPUMemoryStorageData = (data: CpuMemoryStorageListenerSubscription) => {
-    const mappedData = data.specs.map((item) => {
-      return {
-        memory: {
-          available: item.available.memory,
-          used: item.active.memory,
-        },
-        cpu: {
-          available: item.available.cpu,
-          used: item.active.cpu,
-        },
-        storage: {
-          available: item.available.storage_ephemeral,
-          used: item.active.storage_ephemeral,
-          pending: item.pending.storage_ephemeral,
-        },
-      };
-    });
+    const mappedData = data.specs.map((item) => ({
+      memory: {
+        available: item.available.memory,
+        used: item.active.memory,
+      },
+      cpu: {
+        available: item.available.cpu,
+        used: item.active.cpu,
+      },
+      storage: {
+        available: item.available.storage_ephemeral,
+        used: item.active.storage_ephemeral,
+        pending: item.pending.storage_ephemeral,
+      },
+    }));
 
     return mappedData.reduce(
-      (total, row) => {
-        return {
-          memory: {
-            available: total.memory.available + row.memory.available,
-            used: total.memory.used + row.memory.used,
-          },
-          cpu: {
-            available: total.cpu.available + row.cpu.available,
-            used: total.cpu.used + row.cpu.used,
-          },
-          storage: {
-            available: total.storage.available + row.storage.available,
-            used: total.storage.used + row.storage.used,
-            pending: total.storage.pending + row.storage.pending,
-          },
-        };
-      },
+      (total, row) => ({
+        memory: {
+          available: total.memory.available + row.memory.available,
+          used: total.memory.used + row.memory.used,
+        },
+        cpu: {
+          available: total.cpu.available + row.cpu.available,
+          used: total.cpu.used + row.cpu.used,
+        },
+        storage: {
+          available: total.storage.available + row.storage.available,
+          used: total.storage.used + row.storage.used,
+          pending: total.storage.pending + row.storage.pending,
+        },
+      }),
       {
         memory: {
           available: 0,
@@ -154,8 +153,8 @@ export const useProviders = () => {
   // tx query
   // ================================
 
-  const formatProviders = (data: ProvidersQuery['list']) => {
-    return data.map((item) => {
+  const formatProviders = (data: ProvidersQuery['list']) =>
+    data.map((item) => {
       const { attributes, hostUri, info, ownerAddress } = item;
       const organization = attributes?.find(
         (attribute: { key: string; value: string }) => attribute.key === 'organization'
@@ -172,7 +171,6 @@ export const useProviders = () => {
         website: info.website,
       };
     });
-  };
 
   const filterAndPaginateProviders = (items: ProviderInfo[], search: string) => {
     let filteredPaginatedItems = items;

@@ -2,7 +2,7 @@ import React from 'react';
 import Color from 'color';
 import classnames from 'classnames';
 import numeral from 'numeral';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import {
   AreaChart,
@@ -13,8 +13,8 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from 'recharts';
-import Box from '@components/box';
-import CustomToolTip from '@components/custom_tool_tip';
+import Box from 'ui/components/box';
+import CustomToolTip from 'ui/components/custom_tool_tip';
 import dayjs from 'ui/utils/dayjs';
 import { useStyles } from './styles';
 import { usePrice } from './hooks';
@@ -24,12 +24,10 @@ const Price: React.FC<ComponentDefault> = (props) => {
   const { t } = useTranslation('home');
   const { state, tickPriceFormatter } = usePrice();
 
-  const formatItems = state.items.map((x) => {
-    return {
-      time: dayjs(x.time).format('MMM DD'),
-      value: x.value,
-    };
-  });
+  const formatItems = state.items.map((x) => ({
+    time: dayjs(x.time).format('MMM DD'),
+    value: x.value,
+  }));
 
   return (
     <Box className={classnames(props.className, classes.root)}>
@@ -54,16 +52,12 @@ const Price: React.FC<ComponentDefault> = (props) => {
               cursor={false}
               content={
                 <CustomToolTip>
-                  {(x) => {
-                    return (
-                      <>
-                        <Typography variant="caption">{x.time}</Typography>
-                        <Typography variant="body1">
-                          ${numeral(x.value).format('0,0.00')}
-                        </Typography>
-                      </>
-                    );
-                  }}
+                  {(x: any) => (
+                    <>
+                      <Typography variant="caption">{x.time}</Typography>
+                      <Typography variant="body1">${numeral(x.value).format('0,0.00')}</Typography>
+                    </>
+                  )}
                 </CustomToolTip>
               }
             />

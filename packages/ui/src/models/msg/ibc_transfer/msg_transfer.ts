@@ -1,13 +1,19 @@
 import * as R from 'ramda';
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgTransfer {
   public category: Categories;
+
   public type: string;
+
   public sender: string;
+
   public receiver: string;
+
   public token: MsgCoin;
+
   public sourceChannel: string;
+
   public json: any;
 
   constructor(payload: any) {
@@ -20,8 +26,9 @@ class MsgTransfer {
     this.json = payload.json;
   }
 
-  static fromJson(json: any) {
-    return new MsgTransfer({
+  static fromJson(json: any): MsgTransfer {
+    return {
+      category: 'ibc-transfer',
       json,
       type: json['@type'],
       sender: json.sender,
@@ -31,7 +38,7 @@ class MsgTransfer {
         amount: R.pathOr('0', ['token', 'amount'], json),
       },
       sourceChannel: json.source_channel,
-    });
+    };
   }
 }
 

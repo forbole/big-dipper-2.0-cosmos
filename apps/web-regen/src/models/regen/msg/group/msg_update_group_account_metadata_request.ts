@@ -1,10 +1,14 @@
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgUpdateGroupAccountMetadataRequest {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public admin: string;
+
   public address: string;
 
   constructor(payload: any) {
@@ -15,13 +19,14 @@ class MsgUpdateGroupAccountMetadataRequest {
     this.address = payload.address;
   }
 
-  static fromJson(json: any) {
-    return new MsgUpdateGroupAccountMetadataRequest({
+  static fromJson(json: any): MsgUpdateGroupAccountMetadataRequest {
+    return {
+      category: 'group',
       json,
       type: json['@type'],
       admin: json.admin,
       address: json.address,
-    });
+    };
   }
 }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import Layout from '.';
 
 // ==================================
@@ -8,21 +8,19 @@ import Layout from '.';
 // ==================================
 let component: renderer.ReactTestRenderer;
 
-// ==================================
-// mocks
-// ==================================
-
-jest.mock('@components/nav', () => (props: JSX.IntrinsicElements['div']) => (
-  <div id="Nav" {...props} />
-));
-jest.mock('@components/footer', () => (props: JSX.IntrinsicElements['div']) => (
-  <div id="Footer" {...props} />
-));
-
 const mockI18n = {
   t: (key: string) => key,
   lang: 'en',
 };
+// ==================================
+// mocks
+// ==================================
+jest.mock('@components/nav', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Nav" {...props} />
+));
+jest.mock('ui/components/footer', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Footer" {...props} />
+));
 
 jest.mock('next-seo', () => ({
   NextSeo: (props: JSX.IntrinsicElements['div']) => <div id="NextSeo" {...props} />,
@@ -45,7 +43,7 @@ describe('component: Layout', () => {
   });
 
   it('it renders', () => {
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

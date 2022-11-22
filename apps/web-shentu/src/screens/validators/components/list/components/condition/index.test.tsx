@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import Condition from '.';
 
 // ==================================
@@ -17,7 +17,7 @@ describe('screen: Validators/Condition', () => {
         <Condition />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

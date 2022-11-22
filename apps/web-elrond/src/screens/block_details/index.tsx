@@ -2,8 +2,10 @@ import React from 'react';
 import { NextSeo } from 'next-seo';
 import useTranslation from 'next-translate/useTranslation';
 import Layout from '@components/layout';
-import LoadAndExist from '@components/load_and_exist';
-import { Overview, Miniblocks, Consensus } from './components';
+import LoadAndExist from 'ui/components/load_and_exist';
+import Overview from './components/overview';
+import Miniblocks from './components/miniblocks';
+import Consensus from './components/consensus';
 import { useBlockDetails } from './hooks';
 import { useStyles } from './styles';
 

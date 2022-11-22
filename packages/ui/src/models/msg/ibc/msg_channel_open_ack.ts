@@ -1,13 +1,20 @@
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgChannelCloseInit {
   public category: Categories;
+
   public type: string;
+
   public signer: string;
+
   public channelId: string;
+
   public portId: string;
+
   public counterpartyChannelId: string;
+
   public counterpartyVersion: string;
+
   public json: any;
 
   constructor(payload: any) {
@@ -21,8 +28,9 @@ class MsgChannelCloseInit {
     this.json = payload.json;
   }
 
-  static fromJson(json: any) {
-    return new MsgChannelCloseInit({
+  static fromJson(json: any): MsgChannelCloseInit {
+    return {
+      category: 'ibc',
       json,
       type: json['@type'],
       signer: json.signer,
@@ -30,7 +38,7 @@ class MsgChannelCloseInit {
       portId: json.port_id,
       counterpartyChannelId: json.counterparty_channel_id,
       counterpartyVersion: json.counterparty_version,
-    });
+    };
   }
 }
 

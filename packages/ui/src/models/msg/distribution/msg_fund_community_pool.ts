@@ -1,11 +1,15 @@
 import * as R from 'ramda';
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgFundCommunityPool {
   public category: Categories;
+
   public type: string;
+
   public depositor: string;
+
   public amount: MsgCoin[];
+
   public json: any;
 
   constructor(payload: any) {
@@ -16,18 +20,17 @@ class MsgFundCommunityPool {
     this.json = payload.json;
   }
 
-  static fromJson(json: any) {
-    return new MsgFundCommunityPool({
+  static fromJson(json: any): MsgFundCommunityPool {
+    return {
+      category: 'distribution',
       json,
       type: json['@type'],
       depositor: json.depositor,
-      amount: json?.amount.map((x?: { denom?: string; amount?: number }) => {
-        return {
-          denom: x?.denom,
-          amount: R.pathOr('0', ['amount'], x),
-        };
-      }),
-    });
+      amount: json?.amount.map((x?: { denom?: string; amount?: number }) => ({
+        denom: x?.denom,
+        amount: R.pathOr('0', ['amount'], x),
+      })),
+    };
   }
 }
 

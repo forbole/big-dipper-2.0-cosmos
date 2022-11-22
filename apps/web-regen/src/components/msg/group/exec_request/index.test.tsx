@@ -1,14 +1,14 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
-import { MsgExecRequest } from '@models';
+import { MockTheme } from 'ui/tests/utils';
+import MsgExecRequest from '@models/regen/msg/group/msg_exec_request';
 import ExecRequest from '.';
 
 // ==================================
 // mocks
 // ==================================
 
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 
@@ -21,18 +21,19 @@ jest.mock('next-translate/Trans', () => (props: JSX.IntrinsicElements['div']) =>
 // ==================================
 describe('screen: TransactionDetails/ExecRequest', () => {
   it('matches snapshot', () => {
-    const message = new MsgExecRequest({
+    const message: MsgExecRequest = {
       category: 'group',
       type: 'MsgExecRequest',
       signer: 'signer',
-    });
+      json: {},
+    };
 
     const component = renderer.create(
       <MockTheme>
         <ExecRequest message={message} />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
 
     expect(component.root.findByProps({ id: 'Trans' }).props.i18nKey).toEqual(

@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import * as R from 'ramda';
 import { useTokenPriceHistoryQuery } from '@graphql/types/general_types';
-import { HeroState } from './types';
+import type { HeroState } from './types';
 
 export const useHero = () => {
   const [state, setState] = useState<HeroState>({
@@ -10,9 +10,12 @@ export const useHero = () => {
     tokenPriceHistory: [],
   });
 
-  const handleSetState = (stateChange: any) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-  };
+  const handleSetState = useCallback((stateChange: Partial<HeroState>) => {
+    setState((prevState) => {
+      const newState = { ...prevState, ...stateChange };
+      return R.equals(prevState, newState) ? prevState : newState;
+    });
+  }, []);
 
   useTokenPriceHistoryQuery({
     variables: {
@@ -24,12 +27,10 @@ export const useHero = () => {
         loading: false,
       };
       if (data.tokenPrice.length === 10) {
-        newState.tokenPriceHistory = data.tokenPrice.reverse().map((x) => {
-          return {
-            time: x.timestamp,
-            value: x.price,
-          };
-        });
+        newState.tokenPriceHistory = data.tokenPrice.reverse().map((x) => ({
+          time: x.timestamp,
+          value: x.price,
+        }));
       }
       handleSetState(newState);
     },

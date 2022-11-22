@@ -1,16 +1,25 @@
 import * as R from 'ramda';
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgCancelReplaceMarketOrder {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public owner: string;
+
   public originalClientOrderId: string;
+
   public newClientOrderId: string;
+
   public timeInForce: 'Unspecified' | 'GoodTillCancel' | 'ImmediateOrCancel' | 'FillOrKill';
+
   public source: string;
+
   public destination: MsgCoin;
+
   public maximumSlippage: string;
 
   constructor(payload: any) {
@@ -26,8 +35,9 @@ class MsgCancelReplaceMarketOrder {
     this.maximumSlippage = payload.maximumSlippage;
   }
 
-  static fromJson(json: any) {
-    return new MsgCancelReplaceMarketOrder({
+  static fromJson(json: any): MsgCancelReplaceMarketOrder {
+    return {
+      category: 'market',
       json,
       type: json['@type'],
       owner: json.owner,
@@ -40,7 +50,7 @@ class MsgCancelReplaceMarketOrder {
         amount: R.pathOr('', ['destination', 'amount'], json),
       },
       maximumSlippage: R.pathOr('', ['maximum_slippage'], json),
-    });
+    };
   }
 }
 

@@ -1,14 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import { useTransactionDetailsQuery, TransactionDetailsQuery } from '@graphql/types/general_types';
 import { formatToken } from 'ui/utils/format_token';
-import { convertMsgsToModels } from '@msg';
-import { TransactionState } from './types';
+import { convertMsgsToModels } from 'ui/components/msg';
+import type { TransactionState } from './types';
 
 export const useTransactionDetails = () => {
   const router = useRouter();
-  const [state, setState] = useState<TransactionState>({
+    const [state, setState] = useState<TransactionState>({
     exists: true,
     loading: true,
     overview: {
@@ -35,16 +35,19 @@ export const useTransactionDetails = () => {
     },
   });
 
-  const handleSetState = (stateChange: any) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-  };
+  const handleSetState = useCallback((stateChange: Partial<TransactionState>) => {
+    setState((prevState) => {
+      const newState = { ...prevState, ...stateChange };
+      return R.equals(prevState, newState) ? prevState : newState;
+    });
+  }, []);
 
   useEffect(() => {
     handleSetState({
       loading: true,
       exists: true,
     });
-  }, [router.query.tx]);
+  }, [handleSetState]);
 
   // ===============================
   // Fetch data
@@ -139,14 +142,13 @@ export const useTransactionDetails = () => {
     });
   };
 
-  const filterMessages = (messages: any[]) => {
-    return messages.filter((x) => {
+  const filterMessages = (messages: any[]) =>
+    messages.filter((x) => {
       if (state.messages.filterBy !== 'none') {
         return x.category === state.messages.filterBy;
       }
       return true;
     });
-  };
 
   return {
     state,

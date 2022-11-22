@@ -1,5 +1,5 @@
-import { Typography } from '@material-ui/core';
-import { readMarket } from '@recoil/market';
+import Typography from '@material-ui/core/Typography';
+import { readMarket } from '@recoil/market/osmosis';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import React from 'react';
@@ -16,7 +16,7 @@ const TitleBar: React.FC<{
   const classes = useStyles();
   const marketState = useRecoilValue(readMarket);
 
-  const market = formatMarket(marketState);
+  const market = formatMarket(marketState as any);
 
   return (
     <div className={classnames(className, classes.root)}>

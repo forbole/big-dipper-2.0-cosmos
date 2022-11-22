@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Validators/VotingPowerExplanation matches snapshot 1`] = `
+<div
+  className="makeStyles-root"
+>
+  <p
+    className="MuiTypography-root MuiTypography-body1"
+  >
+    validators:votingPowerExplanation
+  </p>
+</div>
+`;

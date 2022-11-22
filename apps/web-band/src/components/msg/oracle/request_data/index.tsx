@@ -1,12 +1,12 @@
 import React from 'react';
 import numeral from 'numeral';
 import Trans from 'next-translate/Trans';
-import { Typography } from '@material-ui/core';
-import Name from '@components/name';
-import { MsgRequestData } from '@models';
-import { useProfileRecoil } from '@recoil/profiles';
+import Typography from '@material-ui/core/Typography';
+import Name from 'ui/components/name';
+import MsgRequestData from '@models/band/msg/oracle/msg_request_data';
+import { useProfileRecoil } from 'ui/recoil/profiles';
 
-const RequestData = (props: { message: MsgRequestData }) => {
+const RequestData: React.FC<{ message: MsgRequestData }> = (props) => {
   const { message } = props;
 
   const sender = useProfileRecoil(message.sender);

@@ -1,11 +1,15 @@
 import * as R from 'ramda';
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgRemoveLiquidity {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public signer: string;
+
   public externalAsset: {
     symbol: string;
   };
@@ -18,15 +22,16 @@ class MsgRemoveLiquidity {
     this.externalAsset = payload.externalAsset;
   }
 
-  static fromJson(json: any) {
-    return new MsgRemoveLiquidity({
+  static fromJson(json: any): MsgRemoveLiquidity {
+    return {
+      category: 'clp',
       json,
       type: json['@type'],
       signer: json.signer,
       externalAsset: {
         symbol: R.pathOr('', ['external_asset', 'symbol'], json),
       },
-    });
+    };
   }
 }
 

@@ -1,10 +1,14 @@
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgUpgradeClient {
   public category: Categories;
+
   public type: string;
+
   public signer: string;
+
   public clientId: string;
+
   public json: any;
 
   constructor(payload: any) {
@@ -15,13 +19,14 @@ class MsgUpgradeClient {
     this.json = payload.json;
   }
 
-  static fromJson(json: any) {
-    return new MsgUpgradeClient({
+  static fromJson(json: any): MsgUpgradeClient {
+    return {
+      category: 'ibc',
       json,
       type: json['@type'],
       signer: json.signer,
       clientId: json.client_id,
-    });
+    };
   }
 }
 

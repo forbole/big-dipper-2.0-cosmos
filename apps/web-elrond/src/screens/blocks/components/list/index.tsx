@@ -1,9 +1,9 @@
 import React from 'react';
-import { usePagination } from '@hooks';
+import { usePagination } from 'ui/hooks';
 import Pagination from '@components/pagination';
 import NoData from '@components/no_data';
-import Box from '@components/box';
-import Loading from '@components/loading';
+import Box from 'ui/components/box';
+import Loading from 'ui/components/loading';
 import BlocksList from '@components/blocks_list';
 import { useStyles } from './styles';
 import { useBlocks, PAGE_SIZE } from './hooks';

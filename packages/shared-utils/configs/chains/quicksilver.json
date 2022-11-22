@@ -2,7 +2,8 @@
   "chainName": "quicksilver",
   "title": "Quicksilver Block Explorer",
   "extra": {
-    "profile": false
+    "profile": false,
+    "graphqlWs": false
   },
   "previewImage": "https://s3.bigdipper.live/quicksilver.png",
   "themes": {
@@ -39,7 +40,8 @@
           "fontTwo": "#C4C4C4",
           "fontThree": "#818181",
           "fontFour": "#999999",
-          "fontFive": "#FFFFFF"
+          "fontFive": "#FFFFFF",
+          "highlight": "#4092CD"
         },
         "primaryData": {
           "one": "#3B3D48",
@@ -121,7 +123,8 @@
           "fontTwo": "#414141",
           "fontThree": "#777777",
           "fontFour": "#999999",
-          "fontFive": "#FFFFFF"
+          "fontFive": "#FFFFFF",
+          "highlight": "#4092CD"
         },
         "primaryData": {
           "one": "#3B3D48",

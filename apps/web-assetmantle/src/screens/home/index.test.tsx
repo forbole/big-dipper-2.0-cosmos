@@ -1,8 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme, wait } from '@tests/utils';
-import { createMockClient } from 'mock-apollo-client';
-import { ApolloProvider } from '@apollo/client';
+import { MockTheme, wait } from 'ui/tests/utils';
+import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
+import { MockedProvider } from '@apollo/client/testing';
 import { LatestBlockTimestampDocument } from '@graphql/types/general_types';
 import Home from '.';
 
@@ -13,16 +13,26 @@ jest.mock('@components/layout', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Layout" {...props} />
 ));
 
-jest.mock('./components', () => ({
-  DataBlocks: (props: JSX.IntrinsicElements['div']) => <div id="DataBlocks" {...props} />,
-  Hero: (props: JSX.IntrinsicElements['div']) => <div id="Hero" {...props} />,
-  Consensus: (props: JSX.IntrinsicElements['div']) => <div id="Consensus" {...props} />,
-  Tokenomics: (props: JSX.IntrinsicElements['div']) => <div id="Tokenomics" {...props} />,
-  Blocks: (props: JSX.IntrinsicElements['div']) => <div id="Blocks" {...props} />,
-  Transactions: (props: JSX.IntrinsicElements['div']) => <div id="Transactions" {...props} />,
-}));
+jest.mock('./components/data_blocks', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="DataBlocks" {...props} />
+));
+jest.mock('./components/hero', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Hero" {...props} />
+));
+jest.mock('ui/screens/home/components/consensus', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Consensus" {...props} />
+));
+jest.mock('./components/tokenomics', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Tokenomics" {...props} />
+));
+jest.mock('./components/blocks', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Blocks" {...props} />
+));
+jest.mock('./components/transactions', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Transactions" {...props} />
+));
 
-const mockBlockTime = jest.fn().mockResolvedValue({
+const mockBlockTime = jest.fn().mockReturnValue({
   data: {
     block: [
       {
@@ -37,23 +47,24 @@ const mockBlockTime = jest.fn().mockResolvedValue({
 // ==================================
 describe('screen: Home', () => {
   it('matches snapshot', async () => {
-    const mockClient = createMockClient();
-    mockClient.setRequestHandler(LatestBlockTimestampDocument, mockBlockTime);
-    let tree: ReactTestRendererJSON | ReactTestRendererJSON[] | null = null;
+    let component: renderer.ReactTestRenderer | undefined;
 
     renderer.act(() => {
-      tree = renderer
-        .create(
-          <ApolloProvider client={mockClient}>
+      component = renderer.create(
+        <ApolloProvider client={new ApolloClient({ link: from([]), cache: new InMemoryCache() })}>
+          <MockedProvider
+            mocks={[{ request: { query: LatestBlockTimestampDocument }, result: mockBlockTime }]}
+          >
             <MockTheme>
               <Home />
             </MockTheme>
-          </ApolloProvider>
-        )
-        .toJSON();
+          </MockedProvider>
+        </ApolloProvider>
+      );
     });
-    await wait();
+    await wait(renderer.act);
 
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

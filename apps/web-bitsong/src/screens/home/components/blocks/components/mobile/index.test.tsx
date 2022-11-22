@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import Mobile from '.';
 
 // ==================================
@@ -11,10 +11,10 @@ const mockI18n = {
   lang: 'en',
 };
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
-jest.mock('@components/single_block_mobile', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/single_block_mobile', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="SingleBlockMobile" {...props} />
 ));
-jest.mock('@components/avatar_name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/avatar_name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="AvatarName" {...props} />
 ));
 
@@ -42,7 +42,7 @@ describe('screen: Home/Blocks/Mobile', () => {
         />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

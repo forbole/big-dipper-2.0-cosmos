@@ -1,21 +1,31 @@
-import { makeStyles } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 
-export const useStyles = () => {
-  const styles = makeStyles(() => {
-    return {
-      light: {
-        '.mode-dark &': {
-          display: 'none',
-        },
-      },
-      dark: {
-        display: 'none',
-        '.mode-dark &': {
-          display: 'initial',
-        },
-      },
-    };
-  })();
+const styles = makeStyles(() => ({
+  container: {
+    display: 'inline-flex',
+  },
+  light: {
+    width: 'auto',
+    height: 'auto',
+    maxWidth: '100%',
+    maxHeight: '100%',
+    minWidth: '100%',
+    objectFit: 'contain',
+    '.mode-dark &': {
+      display: 'none',
+    },
+  },
+  dark: {
+    width: 'auto',
+    height: 'auto',
+    maxWidth: '100%',
+    maxHeight: '100%',
+    minWidth: '100%',
+    display: 'none',
+    '.mode-dark &': {
+      display: 'initial',
+    },
+  },
+}));
 
-  return styles;
-};
+export const useStyles = () => styles();

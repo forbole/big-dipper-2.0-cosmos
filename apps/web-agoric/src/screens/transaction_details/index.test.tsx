@@ -1,9 +1,9 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { createMockClient } from 'mock-apollo-client';
-import { ApolloProvider } from '@apollo/client';
-import { MockTheme, wait } from '@tests/utils';
+import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
+import { MockTheme, wait } from 'ui/tests/utils';
 import { TransactionDetailsDocument } from '@graphql/types/general_types';
+import { MockedProvider } from '@apollo/client/testing';
 import TransactionDetails from '.';
 
 // ==================================
@@ -22,20 +22,24 @@ const mockI18n = {
   lang: 'en',
 };
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
-jest.mock('@components/layout', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/layout', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Layout" {...props} />
 ));
-jest.mock('@components/load_and_exist', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/load_and_exist', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="LoadAndExist" {...props} />
 ));
 
-jest.mock('./components', () => ({
-  Overview: (props: JSX.IntrinsicElements['div']) => <div id="Overview" {...props} />,
-  Messages: (props: JSX.IntrinsicElements['div']) => <div id="Messages" {...props} />,
-  Logs: (props: JSX.IntrinsicElements['div']) => <div id="Logs" {...props} />,
-}));
+jest.mock('./components/overview', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Overview" {...props} />
+));
+jest.mock('./components/messages', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Messages" {...props} />
+));
+jest.mock('./components/logs', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Logs" {...props} />
+));
 
-const mockTransactionDetailsDocument = jest.fn().mockResolvedValue({
+const mockTransactionDetailsDocument = jest.fn().mockReturnValue({
   data: {
     transaction: [
       {
@@ -139,24 +143,30 @@ const mockTransactionDetailsDocument = jest.fn().mockResolvedValue({
 // ==================================
 describe('screen: Blocks/List', () => {
   it('matches snapshot', async () => {
-    const mockClient = createMockClient();
-    mockClient.setRequestHandler(TransactionDetailsDocument, mockTransactionDetailsDocument);
-
-    let tree: ReactTestRendererJSON | ReactTestRendererJSON[] | null = null;
+    const mockClient = new ApolloClient({ link: from([]), cache: new InMemoryCache() });
+    let component: renderer.ReactTestRenderer | undefined;
 
     renderer.act(() => {
-      tree = renderer
-        .create(
-          <ApolloProvider client={mockClient}>
+      component = renderer.create(
+        <ApolloProvider client={mockClient}>
+          <MockedProvider
+            mocks={[
+              {
+                request: { query: TransactionDetailsDocument },
+                result: mockTransactionDetailsDocument,
+              },
+            ]}
+          >
             <MockTheme>
               <TransactionDetails />
             </MockTheme>
-          </ApolloProvider>
-        )
-        .toJSON();
+          </MockedProvider>
+        </ApolloProvider>
+      );
     });
-    await wait();
+    await wait(renderer.act);
 
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

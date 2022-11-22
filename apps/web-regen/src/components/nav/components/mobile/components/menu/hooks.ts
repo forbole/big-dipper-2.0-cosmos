@@ -1,7 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useRecoilState, SetterOrUpdater } from 'recoil';
-import { Theme } from '@recoil/settings/types';
-import { writeTheme } from '@recoil/settings';
+import { type Theme, writeTheme } from 'ui/recoil/settings';
 
 export const useLanguageDrawer = (lang: string, toggleNavMenus: () => void) => {
   const [currentLang, setLang] = useState(lang);
@@ -13,11 +12,11 @@ export const useLanguageDrawer = (lang: string, toggleNavMenus: () => void) => {
       toggleNavMenus();
       setLang(lang);
     }
-  }, [lang]);
+  }, [currentLang, lang, toggleNavMenus]);
 
-  const toggleDrawer = () => {
+  const toggleDrawer = useCallback(() => {
     setDrawerOpen(!drawerOpen);
-  };
+  }, [drawerOpen]);
 
   return {
     toggleDrawer,
@@ -37,15 +36,18 @@ export const useThemeDrawer = (toggleNavMenus: () => void) => {
       toggleNavMenus();
       setCurrentTheme(theme);
     }
-  }, [theme]);
+  }, [currentTheme, theme, toggleNavMenus]);
 
-  const toggleDrawer = () => {
+  const toggleDrawer = useCallback(() => {
     setDrawerOpen(!drawerOpen);
-  };
+  }, [drawerOpen]);
 
-  const handleChangeTheme = (newTheme: Theme) => {
-    setTheme(newTheme);
-  };
+  const handleChangeTheme = useCallback(
+    (newTheme: Theme) => {
+      setTheme(newTheme);
+    },
+    [setTheme]
+  );
 
   return {
     toggleDrawer,

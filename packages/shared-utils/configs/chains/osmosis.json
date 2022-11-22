@@ -2,7 +2,8 @@
   "chainName": "osmosis",
   "title": "Osmosis Block Explorer",
   "extra": {
-    "profile": true
+    "profile": true,
+    "graphqlWs": false
   },
   "previewImage": "https://s3.bigdipper.live/osmosis.png",
   "themes": {
@@ -38,7 +39,8 @@
           "fontTwo": "#C4C4C4",
           "fontThree": "#818181",
           "fontFour": "#999999",
-          "fontFive": "#FFFFFF"
+          "fontFive": "#FFFFFF",
+          "highlight": "#56B4E9"
         },
         "primaryData": {
           "one": "#9D35FF",

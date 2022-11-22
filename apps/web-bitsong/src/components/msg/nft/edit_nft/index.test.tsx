@@ -1,13 +1,13 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import MsgEditNFT from '@models/bitsong/msg/nft/msg_edit_nft';
 import EditNFT from '.';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 
@@ -16,18 +16,19 @@ jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 describe('screen: TransactionDetails/EditNFT', () => {
   it('matches snapshot', () => {
-    const message = new MsgEditNFT({
+    const message: MsgEditNFT = {
       category: 'nft',
       type: 'MsgEditNFT',
       sender: 'desmosvaloper14nfk5gm99gfrd7nwqtmtvzunzclz8720a6cqh7',
       id: 'goodGoodDayDay',
-    });
+      json: {},
+    };
     const component = renderer.create(
       <MockTheme>
         <EditNFT message={message} />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

@@ -1,11 +1,16 @@
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgCreateRelationship {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public sender: string;
+
   public receiver: string;
+
   public subspace: string;
 
   constructor(payload: any) {
@@ -17,14 +22,15 @@ class MsgCreateRelationship {
     this.subspace = payload.subspace;
   }
 
-  static fromJson(json: any) {
-    return new MsgCreateRelationship({
+  static fromJson(json: any): MsgCreateRelationship {
+    return {
+      category: 'profiles',
       json,
       type: json['@type'],
       sender: json.sender,
       receiver: json.receiver,
       subspace: json.subspace,
-    });
+    };
   }
 }
 

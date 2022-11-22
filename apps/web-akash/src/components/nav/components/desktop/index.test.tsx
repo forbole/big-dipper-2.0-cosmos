@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import Desktop from '.';
 
 // ==================================
@@ -11,14 +11,16 @@ let component: renderer.ReactTestRenderer;
 // ==================================
 // mocks
 // ==================================
-jest.mock('./components', () => ({
-  ActionBar: (props: JSX.IntrinsicElements['div']) => <div id="actionBar" {...props} />,
-}));
+jest.mock('./components/action_bar', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="actionBar" {...props} />
+));
 
-jest.mock('..', () => ({
-  MenuItems: (props: JSX.IntrinsicElements['div']) => <div id="MenuItems" {...props} />,
-  TitleBar: (props: JSX.IntrinsicElements['div']) => <div id="TitleBar" {...props} />,
-}));
+jest.mock('../menu_items', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="MenuItems" {...props} />
+));
+jest.mock('ui/components/nav/components/title_bar', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="TitleBar" {...props} />
+));
 // ==================================
 // unit tests
 // ==================================
@@ -32,7 +34,7 @@ describe('screen: Nav/Desktop', () => {
   });
 
   it('it renders', () => {
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 
@@ -40,7 +42,7 @@ describe('screen: Nav/Desktop', () => {
     renderer.act(() => {
       component.root.findByProps({ className: 'makeStyles-logo' }).props.onClick();
     });
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

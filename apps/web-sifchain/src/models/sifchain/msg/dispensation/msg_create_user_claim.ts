@@ -1,11 +1,15 @@
 import * as R from 'ramda';
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgCreateUserClaim {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public userClaimAddress: string;
+
   public userClaimType:
     | 'DISTRIBUTION_TYPE_UNSPECIFIED'
     | 'DISTRIBUTION_TYPE_AIRDROP'
@@ -20,13 +24,14 @@ class MsgCreateUserClaim {
     this.userClaimType = payload.userClaimType;
   }
 
-  static fromJson(json: any) {
-    return new MsgCreateUserClaim({
+  static fromJson(json: any): MsgCreateUserClaim {
+    return {
+      category: 'dispensation',
       json,
       type: json['@type'],
       userClaimAddress: R.pathOr('', ['user_claim_address'], json),
       userClaimType: R.pathOr('DISTRIBUTION_TYPE_UNSPECIFIED', ['user_claim_type'], json),
-    });
+    };
   }
 }
 

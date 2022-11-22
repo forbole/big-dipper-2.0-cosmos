@@ -1,19 +1,27 @@
 import * as R from 'ramda';
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgSwap {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public signer: string;
+
   public sentAsset: {
     symbol: string;
   };
+
   public receivedAsset: {
     symbol: string;
   };
+
   public sentAmount: string;
+
   public minReceivingAmount: string;
+
   public receivedAmount: string;
 
   constructor(payload: any) {
@@ -29,15 +37,18 @@ class MsgSwap {
   }
 
   static getReceivedAmount(log: any): string {
-    const swapEvents = R.pathOr([], ['events'], log).filter((x) => x.type === 'swap_successful');
+    const swapEvents = R.pathOr([], ['events'], log).filter(
+      (x: any) => x.type === 'swap_successful'
+    );
     const amount = R.pathOr([], [0, 'attributes'], swapEvents).filter(
-      (x) => x.key === 'swap_amount'
+      (x: any) => x.key === 'swap_amount'
     );
     return R.pathOr('0', [0, 'value'], amount);
   }
 
-  static fromJson(json: any, log?: any) {
-    return new MsgSwap({
+  static fromJson(json: any, log?: any): MsgSwap {
+    return {
+      category: 'clp',
       json,
       type: json['@type'],
       signer: json.signer,
@@ -50,7 +61,7 @@ class MsgSwap {
       sentAmount: R.pathOr('0', ['sent_amount'], json),
       minReceivingAmount: R.pathOr('0', ['min_receiving_amount'], json),
       receivedAmount: this.getReceivedAmount(log),
-    });
+    };
   }
 }
 

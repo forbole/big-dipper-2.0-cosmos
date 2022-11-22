@@ -1,4 +1,4 @@
-import AvatarName from '@components/avatar_name';
+import AvatarName from 'ui/components/avatar_name';
 
 export const columns: {
   key: string;
@@ -11,10 +11,7 @@ export const columns: {
   },
 ];
 
-export const formatRows = (data: AvatarName[]) => {
-  return data.map((x) => {
-    return {
-      validator: <AvatarName address={x.address} imageUrl={x.imageUrl} name={x.name} />,
-    };
-  });
-};
+export const formatRows = (data: AvatarName[]) =>
+  data.map((x) => ({
+    validator: <AvatarName address={x.address} imageUrl={x.imageUrl} name={x.name} />,
+  }));

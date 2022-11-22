@@ -1,7 +1,5 @@
-import AccountDetails from '@src/screens/account_details';
+import AccountDetails from '@screens/account_details';
 
-const AccountDetailsPage = () => {
-  return <AccountDetails />;
-};
+const AccountDetailsPage = () => <AccountDetails />;
 
 export default AccountDetailsPage;

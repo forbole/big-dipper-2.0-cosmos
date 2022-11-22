@@ -1,14 +1,21 @@
 import * as R from 'ramda';
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgAddLimitOrder {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public owner: string;
+
   public clientOrderId: string;
+
   public timeInForce: 'Unspecified' | 'GoodTillCancel' | 'ImmediateOrCancel' | 'FillOrKill';
+
   public source: MsgCoin;
+
   public destination: MsgCoin;
 
   constructor(payload: any) {
@@ -22,8 +29,9 @@ class MsgAddLimitOrder {
     this.destination = payload.destination;
   }
 
-  static fromJson(json: any) {
-    return new MsgAddLimitOrder({
+  static fromJson(json: any): MsgAddLimitOrder {
+    return {
+      category: 'market',
       json,
       type: json['@type'],
       owner: json.owner,
@@ -35,9 +43,9 @@ class MsgAddLimitOrder {
       },
       destination: {
         denom: R.pathOr('', ['destination', 'denom'], json),
-        amount: R.pathOr(0, ['destination', 'amount'], json),
+        amount: R.pathOr('0', ['destination', 'amount'], json),
       },
-    });
+    };
   }
 }
 

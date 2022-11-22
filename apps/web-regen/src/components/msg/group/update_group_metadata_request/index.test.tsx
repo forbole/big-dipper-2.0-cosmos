@@ -1,14 +1,14 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
-import { MsgUpdateGroupMetadataRequest } from '@models';
+import { MockTheme } from 'ui/tests/utils';
+import MsgUpdateGroupMetadataRequest from '@models/regen/msg/group/msg_update_group_metadata_request';
 import UpdateGroupMetadataRequest from '.';
 
 // ==================================
 // mocks
 // ==================================
 
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 
@@ -21,18 +21,19 @@ jest.mock('next-translate/Trans', () => (props: JSX.IntrinsicElements['div']) =>
 // ==================================
 describe('screen: TransactionDetails/UpdateGroupMetadataRequest', () => {
   it('matches snapshot', () => {
-    const message = new MsgUpdateGroupMetadataRequest({
+    const message: MsgUpdateGroupMetadataRequest = {
       category: 'group',
       type: 'MsgUpdateGroupMembersRequest',
       admin: 'admin',
-    });
+      json: {},
+    };
 
     const component = renderer.create(
       <MockTheme>
         <UpdateGroupMetadataRequest message={message} />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
 
     expect(component.root.findByProps({ id: 'Trans' }).props.i18nKey).toEqual(

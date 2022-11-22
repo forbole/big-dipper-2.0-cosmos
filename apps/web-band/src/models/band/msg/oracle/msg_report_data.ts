@@ -1,11 +1,15 @@
 import * as R from 'ramda';
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgReportData {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public requestId: number;
+
   // public rawReports: {
   //   externalId: number;
   //   exitCode: number;
@@ -22,14 +26,15 @@ class MsgReportData {
     this.validator = payload.validator;
   }
 
-  static fromJson(json: any) {
-    return new MsgReportData({
+  static fromJson(json: any): MsgReportData {
+    return {
+      category: 'oracle',
       json,
       type: json['@type'],
       requestId: R.pathOr(0, ['request_id'], json),
       // rawReports: R.pathOr([], ['raw_reports'], json),
       validator: json.validator,
-    });
+    };
   }
 }
 

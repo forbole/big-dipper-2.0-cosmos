@@ -5,7 +5,7 @@ exports[`screen: Blocks/List matches snapshot 1`] = `
   id="Box"
 >
   <div
-    id="Loading"
+    id="NoData"
   />
   <div
     className="makeStyles-paginate"

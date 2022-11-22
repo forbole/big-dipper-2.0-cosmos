@@ -1,6 +1,6 @@
 import React from 'react';
 import numeral from 'numeral';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import { useStyles } from './styles';
 import { useOnlineVotingPower } from './hooks';
@@ -14,7 +14,7 @@ const OnlineVotingPower: React.FC<ComponentDefault> = () => {
       ? numeral(0)
       : numeral((state.votingPower / state.totalVotingPower) * 100);
 
-  const classes = useStyles(votingPowerPercent.format(0));
+  const classes = useStyles(votingPowerPercent.format('0'));
 
   return (
     <div className={classes.root}>

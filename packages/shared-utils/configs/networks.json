@@ -1,0 +1,431 @@
+[
+  {
+    "name": "Cosmos Hub",
+    "chainName": "cosmos",
+    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/cosmoshub.svg?sanitize=true",
+    "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/cosmos.png?sanitize=true",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "cosmoshub-4",
+        "url": "https://cosmos.bigdipper.live"
+      },
+      {
+        "name": "Testnet",
+        "chain_id": "theta-testnet-001",
+        "url": "https://testnet.cosmos.bigdipper.live/"
+      },
+      {
+        "name": "Testnet",
+        "chain_id": "stargate-final",
+        "url": "https://gaia.bigdipper.live/"
+      },
+      {
+        "name": "Retired",
+        "chain_id": "cosmoshub-3",
+        "url": "https://cosmoshub-3.bigdipper.live"
+      },
+      {
+        "name": "Retired",
+        "chain_id": "cosmoshub-2",
+        "url": "https://cosmoshub-2.bigdipper.live"
+      },
+      {
+        "name": "Retired",
+        "chain_id": "cosmoshub-1",
+        "url": "https://cosmoshub-1.bigdipper.live"
+      }
+    ]
+  },
+  {
+    "name": "Akash",
+    "chainName": "akash",
+    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/akash.svg?sanitize=true",
+    "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/akash.png?sanitize=true",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "akashnet-2",
+        "url": "https://akash.bigdipper.live"
+      },
+      {
+        "name": "Retired",
+        "chain_id": "akashnet-1",
+        "url": "https://akashnet-1.bigdipper.live"
+      }
+    ]
+  },
+  {
+    "name": "e-Money",
+    "chainName": "emoney",
+    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/e-money.svg?sanitize=true",
+    "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/e-money.png?sanitize=true",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "emoney-3",
+        "url": "https://emoney.bigdipper.live"
+      }
+    ]
+  },
+  {
+    "name": "Band Protocol",
+    "chainName": "band",
+    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/band.svg?sanitize=true",
+    "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/band-protocol.png?sanitize=true",
+    "links": [
+      {
+        "name": "Retired",
+        "chain_id": "band-guanyu-mainnet",
+        "url": "https://band-guanyu.bigdipper.live"
+      },
+      {
+        "name": "Mainnet",
+        "chain_id": "laozi-mainnet",
+        "url": "https://band.bigdipper.live"
+      }
+    ]
+  },
+  {
+    "name": "Kava",
+    "chainName": "",
+    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/kava.svg?sanitize=true",
+    "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/kava.png?sanitize=true",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "kava-7",
+        "url": "https://kava.bigdipper.live"
+      },
+      {
+        "name": "Retired",
+        "chain_id": "kava-3",
+        "url": "https://kava-3.bigdipper.live"
+      },
+      {
+        "name": "Retired",
+        "chain_id": "kava-2",
+        "url": "https://kava-2.bigdipper.live"
+      }
+    ]
+  },
+  {
+    "name": "LikeCoin",
+    "chainName": "likecoin",
+    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/likecoin.svg?sanitize=true",
+    "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/likecoin.png?sanitize=true",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "likecoin-mainnet-2",
+        "url": "https://bigdipper.live/likecoin"
+      },
+      {
+        "name": "Testnet",
+        "chain_id": "likecoin-public-testnet-5",
+        "url": "https://testnet.likecoin.bigdipper.live"
+      }
+    ]
+  },
+  {
+    "name": "Fetch.AI",
+    "chainName": "",
+    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/fetch.ai.svg?sanitize=true",
+    "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/fetch-ai.png?sanitize=true",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "fetchhub-1",
+        "url": "https://explore.fetch.ai/"
+      }
+    ]
+  },
+  {
+    "name": "Desmos",
+    "chainName": "desmos",
+    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/desmos.svg?sanitize=true",
+    "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/desmos.png?sanitize=true",
+    "links": [
+      {
+        "name": "Testnet",
+        "chain_id": "morpheus-apollo-3",
+        "url": "https://morpheus.desmos.network"
+      },
+      {
+        "name": "Mainnet",
+        "chain_id": "desmos-mainnet",
+        "url": "https://explorer.desmos.network"
+      }
+    ]
+  },
+  {
+    "name": "Flow",
+    "chainName": "flow",
+    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/flow.svg?sanitize=true",
+    "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/flow.png?sanitize=true",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "mainnet",
+        "url": "https://flow.bigdipper.live/"
+      }
+    ]
+  },
+  {
+    "name": "Crypto.org Chain",
+    "chainName": "",
+    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/crypto.org.svg?sanitize=true",
+    "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/crypto.png?sanitize=true",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "crypto-org-chain-mainnet-1",
+        "url": "https://crypto-org.bigdipper.live/"
+      }
+    ]
+  },
+  {
+    "name": "Osmosis",
+    "chainName": "osmosis",
+    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/osmosis.svg?sanitize=true",
+    "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/osmosis.png?sanitize=true",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "osmosis-1",
+        "url": "https://osmosis.bigdipper.live/"
+      }
+    ]
+  },
+  {
+    "name": "Bitsong",
+    "chainName": "bitsong",
+    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/bitsong.svg?sanitize=true",
+    "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/bitsong.png?sanitize=true",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "bitsong-2b",
+        "url": "https://bitsong.bigdipper.live/"
+      }
+    ]
+  },
+  {
+    "name": "Regen Network",
+    "chainName": "regen",
+    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/regen.png?sanitize=true",
+    "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/regen.png?sanitize=true",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "regen-1",
+        "url": "https://regen.bigdipper.live/"
+      }
+    ]
+  },
+  {
+    "name": "Agoric",
+    "chainName": "agoric",
+    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/agoric.png?sanitize=true",
+    "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/agoric.png?sanitize=true",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "agoric-3",
+        "url": "https://agoric.bigdipper.live/"
+      }
+    ]
+  },
+  {
+    "name": "Rizon",
+    "chainName": "rizon",
+    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/rizon.png?sanitize=true",
+    "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/rizon.png?sanitize=true",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "titan-1",
+        "url": "https://bigdipper.live/rizon"
+      }
+    ]
+  },
+  {
+    "name": "Elrond",
+    "chainName": "elrond",
+    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/elrond.png?sanitize=true",
+    "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/elrond.png?sanitize=true",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "mainnet",
+        "url": "https://elrond.bigdipper.live/"
+      }
+    ]
+  },
+  {
+    "name": "Evmos",
+    "chainName": "evmos",
+    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/evmos.svg?sanitize=true",
+    "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/evmos.png?sanitize=true",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "evmos_9001-2",
+        "url": "https://evmos.bigdipper.live/"
+      },
+      {
+        "name": "Testnet",
+        "chain_id": "evmos_9000-4",
+        "url": "https://testnet.evmos.bigdipper.live/"
+      }
+    ]
+  },
+  {
+    "name": "Cheqd",
+    "chainName": "",
+    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/cheqd.png?sanitize=true",
+    "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/cheqd.png?sanitize=true",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "cheqd-mainnet-1",
+        "url": "https://explorer.cheqd.io"
+      },
+      {
+        "name": "Testnet",
+        "chain_id": "cheqd-testnet-4",
+        "url": "https://testnet-explorer.cheqd.io"
+      }
+    ]
+  },
+  {
+    "name": "Comdex",
+    "chainName": "comdex",
+    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/comdex.svg?sanitize=true",
+    "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/comdex.png?sanitize=true",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "comdex-1",
+        "url": "https://comdex.bigdipper.live/"
+      }
+    ]
+  },
+  {
+    "name": "Crescent",
+    "chainName": "crescent",
+    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/crescent.svg?sanitize=true",
+    "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/crescent.png?sanitize=true",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "crescent-1",
+        "url": "https://crescent.bigdipper.live/"
+      }
+    ]
+  },
+  {
+    "name": "Sifchain",
+    "chainName": "sifchain",
+    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/sifchain.svg?sanitize=true",
+    "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/sifchain.png?sanitize=true",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "sifchain-1",
+        "url": "https://bigdipper.live/sifchain"
+      }
+    ]
+  },
+  {
+    "name": "AssetMantle",
+    "chainName": "assetmantle",
+    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/assetmantle.svg?sanitize=true",
+    "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/assetmantle.png?sanitize=true",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "mantle-1",
+        "url": "https://bigdipper.live/assetmantle"
+      }
+    ]
+  },
+  {
+    "name": "Provenance",
+    "chainName": "provenance",
+    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/provenance.svg?sanitize=true",
+    "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/provenance.png?sanitize=true",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "pio-mainnet-1",
+        "url": "https://bigdipper.live/provenance"
+      }
+    ]
+  },
+  {
+    "name": "Nomic",
+    "chainName": "nomic",
+    "logo": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nomic/images/nomic.svg",
+    "cover": "",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "nomic-stakenet-2",
+        "url": "https://bigdipper.live/nomic"
+      }
+    ]
+  },
+  {
+    "name": "Shentu",
+    "chainName": "shentu",
+    "logo": "https://raw.githubusercontent.com/cosmos/chain-registry/master/shentu/images/ctk.png",
+    "cover": "",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "shentu-2.2",
+        "url": "https://bigdipper.live/shentu"
+      }
+    ]
+  },
+  {
+    "name": "Persistence",
+    "chainName": "persistence",
+    "logo": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/xprt.svg",
+    "cover": "",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "core-1",
+        "url": "https://bigdipper.live/persistence"
+      }
+    ]
+  },
+  {
+    "name": "Stride",
+    "chainName": "stride",
+    "logo": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/strd.svg",
+    "cover": "",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "stride-1",
+        "url": "https://bigdipper.live/stride"
+      }
+    ]
+  },
+  {
+    "name": "NYM",
+    "chainName": "nym",
+    "logo": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/nym.svg",
+    "cover": "",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "nyx",
+        "url": "https://bigdipper.live/nym"
+      }
+    ]
+  }
+]

@@ -1,9 +1,9 @@
 import React from 'react';
-import renderer, { ReactTestRendererJSON } from 'react-test-renderer';
-import { MockTheme, wait } from '@tests/utils';
-import { ApolloProvider } from '@apollo/client';
-import { createMockClient } from 'mock-apollo-client';
+import renderer from 'react-test-renderer';
+import { MockTheme, wait } from 'ui/tests/utils';
+import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
 import { TokenomicsDocument } from '@graphql/types/general_types';
+import { MockedProvider } from '@apollo/client/testing';
 import Tokenomics from '.';
 
 // ==================================
@@ -14,15 +14,16 @@ const mockI18n = {
   lang: 'en',
 };
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
-jest.mock('@components/box', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/box', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="box" {...props} />
 ));
+// to fix error, this.wrapperNode is null node_modules/recharts/src/component/Tooltip.tsx:143
 jest.mock('recharts', () => ({
   ...jest.requireActual('recharts'),
-  Tooltip: () => <div id="tooltip" />,
+  Tooltip: () => <div id="test-tooltip" />,
 }));
 
-const mockTokenomics = jest.fn().mockResolvedValue({
+const mockTokenomics = jest.fn().mockReturnValue({
   data: {
     stakingParams: [
       {
@@ -57,25 +58,25 @@ const mockTokenomics = jest.fn().mockResolvedValue({
 // ==================================
 describe('screen: Home/Tokenomics', () => {
   it('matches snapshot', async () => {
-    const mockClient = createMockClient();
-
-    mockClient.setRequestHandler(TokenomicsDocument, mockTokenomics);
-
-    let tree: ReactTestRendererJSON | ReactTestRendererJSON[] | null = null;
+    const mockClient = new ApolloClient({ link: from([]), cache: new InMemoryCache() });
+    let component: renderer.ReactTestRenderer | undefined;
 
     renderer.act(() => {
-      tree = renderer
-        .create(
-          <ApolloProvider client={mockClient}>
+      component = renderer.create(
+        <ApolloProvider client={mockClient}>
+          <MockedProvider
+            mocks={[{ request: { query: TokenomicsDocument }, result: mockTokenomics }]}
+          >
             <MockTheme>
               <Tokenomics />
             </MockTheme>
-          </ApolloProvider>
-        )
-        .toJSON();
+          </MockedProvider>
+        </ApolloProvider>
+      );
     });
-    await wait();
+    await wait(renderer.act);
 
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

@@ -1,12 +1,17 @@
 import * as R from 'ramda';
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgIssueFanToken {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public owner: string;
+
   public name: string;
+
   public maxSupply: string;
 
   constructor(payload: any) {
@@ -18,14 +23,15 @@ class MsgIssueFanToken {
     this.maxSupply = payload.maxSupply;
   }
 
-  static fromJson(json: any) {
-    return new MsgIssueFanToken({
+  static fromJson(json: any): MsgIssueFanToken {
+    return {
+      category: 'fantoken',
       json,
       type: json['@type'],
       owner: json.owner,
       name: json.name,
       maxSupply: R.pathOr('', ['max_supply'], json),
-    });
+    };
   }
 }
 

@@ -2,7 +2,8 @@
   "chainName": "bitsong",
   "title": "Bitsong Block Explorer",
   "extra": {
-    "profile": true
+    "profile": true,
+    "graphqlWs": true
   },
   "previewImage": "https://s3.bigdipper.live/bitsong.png",
   "themes": {
@@ -38,7 +39,8 @@
           "fontTwo": "#C4C4C4",
           "fontThree": "#818181",
           "fontFour": "#999999",
-          "fontFive": "#FFFFFF"
+          "fontFive": "#FFFFFF",
+          "highlight": "#6AA6FF"
         },
         "primaryData": {
           "one": "#D3356F",

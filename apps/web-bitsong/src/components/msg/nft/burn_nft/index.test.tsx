@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import MsgBurnNFT from '@models/bitsong/msg/nft/msg_burn_nft';
 import BurnNFT from '.';
 
@@ -8,7 +8,7 @@ import BurnNFT from '.';
 // mocks
 // ==================================
 
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 
@@ -17,18 +17,19 @@ jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 describe('screen: TransactionDetails/BurnNFT', () => {
   it('matches snapshot', () => {
-    const message = new MsgBurnNFT({
+    const message: MsgBurnNFT = {
       category: 'nft',
       type: 'MsgBurnNFT',
       sender: 'desmosvaloper14nfk5gm99gfrd7nwqtmtvzunzclz8720a6cqh7',
       id: 'goodGoodDayDay',
-    });
+      json: {},
+    };
     const component = renderer.create(
       <MockTheme>
         <BurnNFT message={message} />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

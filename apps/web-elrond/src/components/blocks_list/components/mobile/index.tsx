@@ -5,7 +5,8 @@ import Link from 'next/link';
 import useTranslation from 'next-translate/useTranslation';
 import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
 import { getShardDisplay } from '@utils/get_shard_display';
-import { Divider, Typography } from '@material-ui/core';
+import Divider from '@material-ui/core/Divider';
+import Typography from '@material-ui/core/Typography';
 import { BLOCK_DETAILS } from '@utils/go_to_page';
 import SingleBlockMobile from '@components/single_block_mobile';
 
@@ -29,19 +30,18 @@ const Mobile: React.FC<{ items: BlockType[] } & ComponentDefault> = (props) => {
         </Link>
       ),
       txs: numeral(x.txs).format('0,0'),
-      time: dayjs.utc(dayjs.unix(x.timestamp)).fromNow(),
+      time: (dayjs as any).utc(dayjs.unix(x.timestamp)).fromNow(),
     };
   });
   return (
     <div className={props.className}>
-      {formattedItems.map((x, i) => {
-        return (
-          <React.Fragment key={`${x.block}-${i}`}>
-            <SingleBlockMobile {...x} />
-            {i !== formattedItems.length - 1 && <Divider />}
-          </React.Fragment>
-        );
-      })}
+      {formattedItems?.map((x, i) => (
+        // eslint-disable-next-line react/no-array-index-key
+        <React.Fragment key={`${x.block}-${i}`}>
+          <SingleBlockMobile {...x} />
+          {i !== formattedItems.length - 1 && <Divider />}
+        </React.Fragment>
+      ))}
     </div>
   );
 };

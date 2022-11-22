@@ -1,22 +1,23 @@
-import React from 'react';
+import React, { ComponentProps, FC } from 'react';
 import numeral from 'numeral';
 import classnames from 'classnames';
 import Link from 'next/link';
 import { mergeRefs } from 'ui/utils/merge_refs';
-import { Typography, Divider } from '@material-ui/core';
-import { VariableSizeList as List } from 'react-window';
+import Divider from '@material-ui/core/Divider';
+import Typography from '@material-ui/core/Typography';
+import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
 import AutoSizer from 'react-virtualized-auto-sizer';
-
 import { PROPOSAL_DETAILS } from '@utils/go_to_page';
-import { useList, useListRow } from '@hooks';
-import Loading from '@components/loading';
-import Box from '@components/box';
-import { Total, SingleProposal } from './components';
+import { useList, useListRow } from 'ui/hooks';
+import Loading from 'ui/components/loading';
+import Box from 'ui/components/box';
+import SingleProposal from 'ui/components/single_proposal';
+import Total from './components/total';
 import { useStyles } from './styles';
-import { ProposalType } from '../../types';
+import type { ProposalType } from '../../types';
 
-const ProposalsList: React.FC<{
+const ProposalsList: FC<{
   className?: string;
   items: ProposalType[];
   rawDataTotal: number;
@@ -28,8 +29,8 @@ const ProposalsList: React.FC<{
 
   const { listRef, getRowHeight, setRowHeight } = useList();
 
-  const formattedItems = items.map((x) => {
-    return {
+  const formattedItems =
+    items?.map((x) => ({
       description: x.description.length > 200 ? `${x.description.slice(0, 200)}...` : x.description,
       status: x.status,
       title: (
@@ -40,8 +41,7 @@ const ProposalsList: React.FC<{
         </Link>
       ),
       id: `#${numeral(x.id).format('0,0')}`,
-    };
-  });
+    })) ?? [];
 
   return (
     <Box className={classnames(className, classes.root)}>
@@ -51,57 +51,68 @@ const ProposalsList: React.FC<{
       </div>
       <div className={classes.list}>
         <AutoSizer>
-          {({ height, width }) => {
-            return (
-              <InfiniteLoader
-                isItemLoaded={isItemLoaded ?? (() => true)}
-                itemCount={itemCount}
-                loadMoreItems={
-                  loadMoreItems ??
-                  (() => {
-                    // do nothing
-                  })
-                }
-              >
-                {({ onItemsRendered, ref }) => (
-                  <List
-                    className="List"
-                    height={height}
-                    itemCount={itemCount}
-                    itemSize={getRowHeight}
-                    onItemsRendered={onItemsRendered}
-                    ref={mergeRefs(listRef, ref)}
-                    width={width}
-                  >
-                    {({ index, style }) => {
-                      const { rowRef } = useListRow(index, setRowHeight);
-                      if (!isItemLoaded?.(index)) {
-                        return (
-                          <div style={style}>
-                            <div ref={rowRef}>
-                              <Loading />
-                            </div>
-                          </div>
-                        );
-                      }
-                      const item = formattedItems[index];
-                      return (
-                        <div style={style}>
-                          <div ref={rowRef}>
-                            <SingleProposal {...item} />
-                            {index !== itemCount - 1 && <Divider />}
-                          </div>
-                        </div>
-                      );
-                    }}
-                  </List>
-                )}
-              </InfiniteLoader>
-            );
-          }}
+          {({ height, width }) => (
+            <InfiniteLoader
+              isItemLoaded={isItemLoaded ?? (() => true)}
+              itemCount={itemCount}
+              loadMoreItems={
+                loadMoreItems ??
+                (() => {
+                  // do nothing
+                })
+              }
+            >
+              {({ onItemsRendered, ref }) => (
+                <List
+                  className="List"
+                  height={height}
+                  itemCount={itemCount}
+                  itemSize={getRowHeight}
+                  onItemsRendered={onItemsRendered}
+                  ref={mergeRefs(listRef, ref)}
+                  width={width}
+                >
+                  {({ index, style }) => (
+                    <ListItem
+                      {...{ index, style, setRowHeight, isItemLoaded, formattedItems, itemCount }}
+                    />
+                  )}
+                </List>
+              )}
+            </InfiniteLoader>
+          )}
         </AutoSizer>
       </div>
     </Box>
+  );
+};
+
+const ListItem: FC<
+  Pick<ListChildComponentProps, 'index' | 'style'> & {
+    setRowHeight: ReturnType<typeof useList>['setRowHeight'];
+    isItemLoaded: ((index: number) => boolean) | undefined;
+    formattedItems: Array<ComponentProps<typeof SingleProposal>>;
+    itemCount: number;
+  }
+> = ({ index, style, setRowHeight, isItemLoaded, formattedItems, itemCount }) => {
+  const { rowRef } = useListRow(index, setRowHeight);
+  if (!isItemLoaded?.(index)) {
+    return (
+      <div style={style}>
+        <div ref={rowRef}>
+          <Loading />
+        </div>
+      </div>
+    );
+  }
+  const item = formattedItems[index];
+  return (
+    <div style={style}>
+      <div ref={rowRef}>
+        <SingleProposal {...item} />
+        {index !== itemCount - 1 && <Divider />}
+      </div>
+    </div>
   );
 };
 

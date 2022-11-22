@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import Mobile from '.';
 
 // ==================================
@@ -14,7 +14,7 @@ jest.mock('next-translate/useTranslation', () => () => mockI18n);
 jest.mock('@components/single_block_mobile', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="SingleBlockMobile" {...props} />
 ));
-jest.mock('@components/avatar_name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/avatar_name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="AvatarName" {...props} />
 ));
 
@@ -32,17 +32,12 @@ describe('screen: Home/Blocks/Mobile', () => {
               txs: 12,
               timestamp: '2021-02-18T09:02:28.668623',
               hash: '76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857',
-              proposer: {
-                address: 'desmosvalcons1why72hjk945yhckcy5hzk2z2w9d5h65t9am0kd',
-                imageUrl: '',
-                name: 'name',
-              },
             },
           ]}
         />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

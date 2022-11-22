@@ -1,11 +1,11 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
-import { Typography } from '@material-ui/core';
-import Name from '@components/name';
-import { MsgUpdateWhitelistValidator } from '@models';
-import { useProfileRecoil } from '@recoil/profiles';
+import Typography from '@material-ui/core/Typography';
+import Name from 'ui/components/name';
+import MsgUpdateWhitelistValidator from '@models/sifchain/msg/ethbridge/msg_update_whitelist_validator';
+import { useProfileRecoil } from 'ui/recoil/profiles';
 
-const UpdateWhiteListValidator = (props: { message: MsgUpdateWhitelistValidator }) => {
+const UpdateWhiteListValidator: React.FC<{ message: MsgUpdateWhitelistValidator }> = (props) => {
   const { message } = props;
 
   const cosmosSender = useProfileRecoil(message.cosmosSender);

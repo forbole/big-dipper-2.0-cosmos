@@ -1,11 +1,15 @@
 import * as R from 'ramda';
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgSetRegistry {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public from: string;
+
   public registry: {
     denom: string;
   }[];
@@ -18,15 +22,16 @@ class MsgSetRegistry {
     this.registry = payload.registry;
   }
 
-  static fromJson(json: any) {
-    return new MsgSetRegistry({
+  static fromJson(json: any): MsgSetRegistry {
+    return {
+      category: 'tokenregistry',
       json,
       type: json['@type'],
       from: json.from,
       registry: R.pathOr([], ['registry'], json).map((x) => ({
         denom: R.pathOr('', ['denom'], x),
       })),
-    });
+    };
   }
 }
 

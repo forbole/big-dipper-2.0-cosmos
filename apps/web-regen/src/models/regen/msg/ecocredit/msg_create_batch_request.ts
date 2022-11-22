@@ -1,9 +1,12 @@
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgCreateBatchRequest {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public issuer: string;
 
   constructor(payload: any) {
@@ -13,12 +16,13 @@ class MsgCreateBatchRequest {
     this.issuer = payload.issuer;
   }
 
-  static fromJson(json: any) {
-    return new MsgCreateBatchRequest({
+  static fromJson(json: any): MsgCreateBatchRequest {
+    return {
+      category: 'ecocredit',
       json,
       type: json['@type'],
       issuer: json.issuer,
-    });
+    };
   }
 }
 

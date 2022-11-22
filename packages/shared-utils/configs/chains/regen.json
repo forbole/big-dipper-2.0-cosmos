@@ -2,13 +2,16 @@
   "chainName": "regen",
   "title": "Regen Network Block Explorer",
   "extra": {
-    "profile": true
+    "profile": true,
+    "graphqlWs": false
   },
   "previewImage": "https://s3.bigdipper.live/regen.png",
   "themes": {
     "default": "light",
     "themeList": [
-      "light"
+      "light",
+      "deuteranopia",
+      "tritanopia"
     ],
     "dark": {
       "primary": {},
@@ -50,7 +53,8 @@
           "fontTwo": "#414141",
           "fontThree": "#777777",
           "fontFour": "#999999",
-          "fontFive": "#FFFFFF"
+          "fontFive": "#FFFFFF",
+          "highlight": "#197CD8"
         },
         "primaryData": {
           "one": "#53B577",

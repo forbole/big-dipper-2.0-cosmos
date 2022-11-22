@@ -1,12 +1,12 @@
 import React from 'react';
 import classnames from 'classnames';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import TransactionsListDetails from '@components/transactions_list_details';
 import TransactionsList from '@components/transactions_list';
-import Box from '@components/box';
+import Box from 'ui/components/box';
 import { useRecoilValue } from 'recoil';
-import { readTx } from '@recoil/settings';
+import { readTx } from 'ui/recoil/settings';
 import { useStyles } from './styles';
 
 const Transactions: React.FC<

@@ -1,9 +1,7 @@
-import { jest } from '@jest/globals';
-import '@testing-library/jest-dom/extend-expect';
 import 'jest-localstorage-mock';
-import nextConfig from './next.config.mjs';
+import nextConfig from './next.config.js';
 
-const chainConfig = JSON.parse(nextConfig.env.NEXT_PUBLIC_CHAIN_CONFIG || '');
+const chainConfig = JSON.parse(nextConfig.env.CHAIN_CONFIG || '');
 chainConfig.tokenUnits = {
   udaric: {
     display: 'daric',
@@ -25,8 +23,32 @@ chainConfig.tokenUnits = {
 process.env = {
   ...process.env,
   ...nextConfig.env,
-  NEXT_PUBLIC_CHAIN_CONFIG: JSON.stringify(chainConfig),
+  CHAIN_CONFIG: JSON.stringify(chainConfig),
 };
+
+jest.mock('ui/utils/dayjs', () => {
+  const mockTest = () => ({
+    format: jest.fn(() => '2020-08-10 12:00:00'),
+  });
+
+  mockTest.utc = jest.fn(() => {
+    const format = jest.fn(() => '2020-08-10 12:00:00');
+    return {
+      format,
+      fromNow: jest.fn(() => '1 day ago'),
+      diff: jest.fn(() => 30),
+      local: jest.fn(() => ({
+        format,
+      })),
+    };
+  });
+
+  return {
+    __esModule: true,
+    default: mockTest,
+    formatDayJs: jest.fn(() => '2020-08-10 12:00:00'),
+  };
+});
 
 jest.mock('next/dynamic', () => () => {
   const DynamicComponent = () => null;
@@ -34,3 +56,16 @@ jest.mock('next/dynamic', () => () => {
   DynamicComponent.preload = jest.fn();
   return DynamicComponent;
 });
+
+jest.mock('ui/recoil/profiles', () => ({
+  useProfileRecoil: jest.fn((address) => ({
+    address,
+    name: address,
+    imageUrl: '',
+  })),
+  useProfilesRecoil: jest.fn((address) => ({
+    address,
+    name: address,
+    imageUrl: '',
+  })),
+}));

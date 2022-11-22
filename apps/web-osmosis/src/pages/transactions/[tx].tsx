@@ -1,7 +1,5 @@
-import TransactionDetails from '@src/screens/transaction_details';
+import TransactionDetails from '@screens/transaction_details';
 
-const TransactionDetailsPage = () => {
-  return <TransactionDetails />;
-};
+const TransactionDetailsPage = () => <TransactionDetails />;
 
 export default TransactionDetailsPage;

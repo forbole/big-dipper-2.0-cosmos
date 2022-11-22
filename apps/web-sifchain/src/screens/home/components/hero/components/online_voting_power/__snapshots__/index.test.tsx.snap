@@ -1,199 +1,193 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: Home/OnlineVotingPower matches snapshot 1`] = `
-[
-  <div
-    className="makeStyles-root"
+<div
+  className="makeStyles-root"
+>
+  <h2
+    className="MuiTypography-root MuiTypography-h2"
   >
-    <h2
-      className="MuiTypography-root MuiTypography-h2"
+    onlineVotingPower
+  </h2>
+  <div
+    className="makeStyles-data"
+  >
+    <h3
+      className="MuiTypography-root primary__data MuiTypography-h3"
     >
-      onlineVotingPower
-    </h2>
+      -13,065,256.96%
+    </h3>
+    <p
+      className="MuiTypography-root MuiTypography-body1"
+    >
+      76,341,043
+       /
+       
+      0
+    </p>
+  </div>
+  <div
+    className="makeStyles-chart"
+  >
     <div
-      className="makeStyles-data"
+      className="makeStyles-active makeStyles-active"
+    />
+  </div>
+  <div
+    className="makeStyles-itemsContainer"
+  >
+    <div
+      className="makeStyles-item"
     >
-      <h3
-        className="MuiTypography-root primary__data MuiTypography-h3"
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
       >
-        100.00%
-      </h3>
+        validators
+      </h4>
       <p
-        className="MuiTypography-root MuiTypography-body1"
+        className="MuiTypography-root value MuiTypography-body1"
       >
-        76,341,043
-         /
-         
+        109
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        votingPowerPercent
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        -13,065,256.96%
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        votingPower
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
         76,341,043
       </p>
     </div>
     <div
-      className="makeStyles-chart"
+      className="makeStyles-item"
     >
-      <div
-        className="makeStyles-active"
-      />
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        totalVotingPower
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        0
+      </p>
     </div>
-    <div
-      className="makeStyles-itemsContainer"
-    >
-      <div
-        className="makeStyles-item"
-      >
-        <h4
-          className="MuiTypography-root label MuiTypography-h4"
-        >
-          validators
-        </h4>
-        <p
-          className="MuiTypography-root value MuiTypography-body1"
-        >
-          109
-        </p>
-      </div>
-      <div
-        className="makeStyles-item"
-      >
-        <h4
-          className="MuiTypography-root label MuiTypography-h4"
-        >
-          votingPowerPercent
-        </h4>
-        <p
-          className="MuiTypography-root value MuiTypography-body1"
-        >
-          100.00%
-        </p>
-      </div>
-      <div
-        className="makeStyles-item"
-      >
-        <h4
-          className="MuiTypography-root label MuiTypography-h4"
-        >
-          votingPower
-        </h4>
-        <p
-          className="MuiTypography-root value MuiTypography-body1"
-        >
-          76,341,043
-        </p>
-      </div>
-      <div
-        className="makeStyles-item"
-      >
-        <h4
-          className="MuiTypography-root label MuiTypography-h4"
-        >
-          totalVotingPower
-        </h4>
-        <p
-          className="MuiTypography-root value MuiTypography-body1"
-        >
-          76,341,043
-        </p>
-      </div>
-    </div>
-  </div>,
-  ",",
-]
+  </div>
+</div>
 `;
 
 exports[`screen: Home/OnlineVotingPower matches snapshot 2`] = `
-[
-  <div
-    className="makeStyles-root"
+<div
+  className="makeStyles-root"
+>
+  <h2
+    className="MuiTypography-root MuiTypography-h2"
   >
-    <h2
-      className="MuiTypography-root MuiTypography-h2"
+    onlineVotingPower
+  </h2>
+  <div
+    className="makeStyles-data"
+  >
+    <h3
+      className="MuiTypography-root primary__data MuiTypography-h3"
     >
-      onlineVotingPower
-    </h2>
+      -13,065,256.96%
+    </h3>
+    <p
+      className="MuiTypography-root MuiTypography-body1"
+    >
+      76,341,043
+       /
+       
+      0
+    </p>
+  </div>
+  <div
+    className="makeStyles-chart"
+  >
     <div
-      className="makeStyles-data"
+      className="makeStyles-active makeStyles-active"
+    />
+  </div>
+  <div
+    className="makeStyles-itemsContainer"
+  >
+    <div
+      className="makeStyles-item"
     >
-      <h3
-        className="MuiTypography-root primary__data MuiTypography-h3"
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
       >
-        100.00%
-      </h3>
+        validators
+      </h4>
       <p
-        className="MuiTypography-root MuiTypography-body1"
+        className="MuiTypography-root value MuiTypography-body1"
       >
-        76,341,043
-         /
-         
+        109
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        votingPowerPercent
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        -13,065,256.96%
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        votingPower
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
         76,341,043
       </p>
     </div>
     <div
-      className="makeStyles-chart"
+      className="makeStyles-item"
     >
-      <div
-        className="makeStyles-active"
-      />
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        totalVotingPower
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        0
+      </p>
     </div>
-    <div
-      className="makeStyles-itemsContainer"
-    >
-      <div
-        className="makeStyles-item"
-      >
-        <h4
-          className="MuiTypography-root label MuiTypography-h4"
-        >
-          validators
-        </h4>
-        <p
-          className="MuiTypography-root value MuiTypography-body1"
-        >
-          109
-        </p>
-      </div>
-      <div
-        className="makeStyles-item"
-      >
-        <h4
-          className="MuiTypography-root label MuiTypography-h4"
-        >
-          votingPowerPercent
-        </h4>
-        <p
-          className="MuiTypography-root value MuiTypography-body1"
-        >
-          100.00%
-        </p>
-      </div>
-      <div
-        className="makeStyles-item"
-      >
-        <h4
-          className="MuiTypography-root label MuiTypography-h4"
-        >
-          votingPower
-        </h4>
-        <p
-          className="MuiTypography-root value MuiTypography-body1"
-        >
-          76,341,043
-        </p>
-      </div>
-      <div
-        className="makeStyles-item"
-      >
-        <h4
-          className="MuiTypography-root label MuiTypography-h4"
-        >
-          totalVotingPower
-        </h4>
-        <p
-          className="MuiTypography-root value MuiTypography-body1"
-        >
-          76,341,043
-        </p>
-      </div>
-    </div>
-  </div>,
-  ",",
-]
+  </div>
+</div>
 `;

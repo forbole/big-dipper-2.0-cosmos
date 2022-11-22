@@ -1,15 +1,15 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import Overview from '.';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/box_details', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/box_details', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="BoxDetails" {...props} />
 ));
-jest.mock('@components/result', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/result', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Result" {...props} />
 ));
 
@@ -40,7 +40,7 @@ describe('screen: BlockDetails/Overview', () => {
         />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

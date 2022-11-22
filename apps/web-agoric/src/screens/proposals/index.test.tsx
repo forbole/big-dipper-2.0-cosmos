@@ -1,24 +1,23 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme, wait } from '@tests/utils';
-
-import { ApolloProvider } from '@apollo/client';
-import { createMockClient } from 'mock-apollo-client';
+import { MockTheme, wait } from 'ui/tests/utils';
+import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
+import { MockedProvider } from '@apollo/client/testing';
 import { ProposalsDocument } from '@graphql/types/general_types';
 import Proposals from '.';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/layout', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/layout', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Layout" {...props} />
 ));
 
-jest.mock('./components', () => ({
-  List: (props: JSX.IntrinsicElements['div']) => <div id="List" {...props} />,
-}));
+jest.mock('./components/list', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="List" {...props} />
+));
 
-const mockProposals = jest.fn().mockResolvedValue({
+const mockProposals = jest.fn().mockReturnValue({
   data: {
     proposals: [
       {
@@ -59,24 +58,25 @@ const mockProposals = jest.fn().mockResolvedValue({
 // ==================================
 describe('screen: Proposals', () => {
   it('matches snapshot', async () => {
-    const mockClient = createMockClient();
-
-    mockClient.setRequestHandler(ProposalsDocument, mockProposals);
-    let tree: ReactTestRendererJSON | ReactTestRendererJSON[] | null = null;
+    const mockClient = new ApolloClient({ link: from([]), cache: new InMemoryCache() });
+    let component: renderer.ReactTestRenderer | undefined;
 
     renderer.act(() => {
-      tree = renderer
-        .create(
-          <ApolloProvider client={mockClient}>
+      component = renderer.create(
+        <ApolloProvider client={mockClient}>
+          <MockedProvider
+            mocks={[{ request: { query: ProposalsDocument }, result: mockProposals }]}
+          >
             <MockTheme>
               <Proposals />
             </MockTheme>
-          </ApolloProvider>
-        )
-        .toJSON();
+          </MockedProvider>
+        </ApolloProvider>
+      );
     });
-    await wait();
+    await wait(renderer.act);
 
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

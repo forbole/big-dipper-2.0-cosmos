@@ -1,15 +1,15 @@
-import React from 'react';
+import NoData from '@components/no_data';
+import Pagination from '@components/pagination';
+import TransactionsList from '@components/transactions_list';
+import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import { usePagination } from '@hooks';
-import Pagination from '@components/pagination';
-import NoData from '@components/no_data';
-import Box from '@components/box';
-import Loading from '@components/loading';
-import TransactionsList from '@components/transactions_list';
-import { Typography } from '@material-ui/core';
+import React from 'react';
+import Box from 'ui/components/box';
+import Loading from 'ui/components/loading';
+import { usePagination } from 'ui/hooks';
+import { PAGE_SIZE, useTransactions } from './hooks';
 import { useStyles } from './styles';
-import { useTransactions, PAGE_SIZE } from './hooks';
 
 const Transactions: React.FC<ComponentDefault> = (props) => {
   const { t } = useTranslation('accounts');
@@ -27,7 +27,7 @@ const Transactions: React.FC<ComponentDefault> = (props) => {
   } else if (!state.items.length) {
     component = <NoData />;
   } else {
-    component = <TransactionsList items={state.items} />;
+    component = <TransactionsList {...({ items: state.items } as any)} />;
   }
 
   return (

@@ -3,23 +3,30 @@ import useTranslation from 'next-translate/useTranslation';
 import dayjs from 'ui/utils/dayjs';
 import { toast } from 'react-toastify';
 import * as R from 'ramda';
-import { useLatestBlockTimestampLazyQuery } from '@graphql/types/general_types';
+import { LazyQueryHookOptions, LazyQueryResultTuple } from '@apollo/client';
 
-export const useChainHealthCheck = () => {
+export type UseLatestBlockTimestampLazyQuery<TData, TVariables> = (
+  baseOptions?: LazyQueryHookOptions<TData, TVariables>
+) => LazyQueryResultTuple<TData, TVariables>;
+
+const isClient = typeof window === 'object';
+
+export function useChainHealthCheck<TData, TVariables>(
+  useLatestBlockTimestampLazyQuery: UseLatestBlockTimestampLazyQuery<TData, TVariables>
+) {
   const { t } = useTranslation('common');
   const [chainActive, setChainActive] = useState(true);
-  const isClient = typeof window === 'object';
 
-  const [useLatestBlockTimestamp] = useLatestBlockTimestampLazyQuery({
+  const [getLatestBlockTimestamp] = useLatestBlockTimestampLazyQuery({
     onCompleted: (data) => {
-      const timestamp = dayjs.utc(R.pathOr('', ['block', 0, 'timestamp'], data));
-      const timeNow = dayjs.utc();
+      const timestamp = (dayjs as any).utc(R.pathOr('', ['block', 0, 'timestamp'], data));
+      const timeNow = (dayjs as any).utc();
       const timeDifference = timeNow.diff(timestamp, 's');
       // if latest block has been over two minute ago
       if (timeDifference > 120 && chainActive) {
         toast.error(
           t('blockTimeAgo', {
-            time: dayjs.utc(timestamp).fromNow(),
+            time: (dayjs as any).utc(timestamp).fromNow(),
           }),
           {
             autoClose: false,
@@ -30,10 +37,9 @@ export const useChainHealthCheck = () => {
     },
   });
 
-  useEffect((): any => {
-    if (!isClient) {
-      return false;
-    }
-    useLatestBlockTimestamp();
+  useEffect(() => {
+    if (!isClient) return;
+    getLatestBlockTimestamp();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-};
+}

@@ -1,3 +1,5 @@
+const isClient = typeof window === 'object';
+
 /**
  * Util to get item from localstorage
  * @param key
@@ -5,7 +7,6 @@
  * @returns the localstorage item
  */
 export const getItem = <P>(key: string, value: P): P => {
-  const isClient = typeof window === 'object';
   if (isClient) {
     const persistedString = localStorage.getItem(key);
     if (persistedString === null) {
@@ -24,7 +25,6 @@ export const getItem = <P>(key: string, value: P): P => {
  * @param value
  */
 export const setItem = <P>(key: string, value: P) => {
-  const isClient = typeof window === 'object';
   if (isClient) {
     localStorage.setItem(key, JSON.stringify(value));
   }

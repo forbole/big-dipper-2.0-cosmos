@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import Desktop from '.';
 
 // ==================================
@@ -12,7 +12,7 @@ const mockI18n = {
 };
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
 
-jest.mock('@components/avatar_name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/avatar_name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="AvatarName" {...props} />
 ));
 // ==================================
@@ -39,7 +39,7 @@ describe('screen: Home/Blocks/Desktop', () => {
         />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

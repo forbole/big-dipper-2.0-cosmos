@@ -2,14 +2,23 @@ import * as R from 'ramda';
 
 class OracleParams {
   public maxAskCount: number;
+
   public baseOwsmGas: number;
+
   public maxCalldataSize: number;
+
   public samplingTryCount: number;
+
   public maxReportDataSize: number;
+
   public maxRawRequestCount: number;
+
   public expirationBlockCount: number;
+
   public oracleRewardPercentage: number;
+
   public inactivePenaltyDuration: number;
+
   public perValidatorRequestGas: number;
 
   constructor(payload: any) {
@@ -25,9 +34,9 @@ class OracleParams {
     this.perValidatorRequestGas = payload.perValidatorRequestGas;
   }
 
-  static fromJson(data: any) {
-    console.log(data, 'data');
-    return new OracleParams({
+  static fromJson(data: any): OracleParams {
+    // console.log(data, 'data');
+    return {
       maxAskCount: R.pathOr(0, ['max_ask_count'], data),
       baseOwsmGas: R.pathOr(0, ['base_owasm_gas'], data),
       maxCalldataSize: R.pathOr(0, ['max_calldata_size'], data),
@@ -38,7 +47,7 @@ class OracleParams {
       oracleRewardPercentage: R.pathOr(0, ['oracle_reward_percentage'], data),
       inactivePenaltyDuration: R.pathOr(0, ['inactive_penalty_duration'], data),
       perValidatorRequestGas: R.pathOr(0, ['per_validator_request_gas'], data),
-    });
+    };
   }
 }
 

@@ -1,13 +1,20 @@
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgConnectionOpenTry {
   public category: Categories;
+
   public type: string;
+
   public signer: string;
+
   public chainId: string;
+
   public clientId: string;
+
   public counterpartyClientId: string;
+
   public counterpartyConnectionId: string;
+
   public json: any;
 
   constructor(payload: any) {
@@ -21,8 +28,9 @@ class MsgConnectionOpenTry {
     this.json = payload.json;
   }
 
-  static fromJson(json: any) {
-    return new MsgConnectionOpenTry({
+  static fromJson(json: any): MsgConnectionOpenTry {
+    return {
+      category: 'ibc',
       json,
       type: json['@type'],
       signer: json.signer,
@@ -30,7 +38,7 @@ class MsgConnectionOpenTry {
       clientId: json.client_id,
       counterpartyClientId: json.counterparty?.client_id,
       counterpartyConnectionId: json.counterparty?.connection_id,
-    });
+    };
   }
 }
 

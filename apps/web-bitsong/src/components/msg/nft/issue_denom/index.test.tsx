@@ -1,13 +1,13 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import MsgIssueDenom from '@models/bitsong/msg/nft/msg_issue_denom';
 import IssueDenom from '.';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 
@@ -16,7 +16,7 @@ jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 describe('screen: TransactionDetails/IssueDenom', () => {
   it('matches snapshot', () => {
-    const message = new MsgIssueDenom({
+    const message: MsgIssueDenom = {
       category: 'nft',
       type: 'MsgIssueDenom',
       creators: [
@@ -25,13 +25,14 @@ describe('screen: TransactionDetails/IssueDenom', () => {
         'desmosvaloper1jh753mzjy358jf86cfqqzkrrtqqefhjxctcre4',
         'desmosvaloper1rzhewpmmdl72lhnxj6zmxr4v94f522s4hyz467',
       ],
-    });
+      json: {},
+    };
     const component = renderer.create(
       <MockTheme>
         <IssueDenom message={message} />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

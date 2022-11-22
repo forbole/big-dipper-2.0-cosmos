@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import MsgDecommissionPool from '@models/sifchain/msg/clp/msg_decommission_pool';
 import DecommissionPool from '.';
 
@@ -8,7 +8,7 @@ import DecommissionPool from '.';
 // mocks
 // ==================================
 
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 
@@ -21,18 +21,19 @@ jest.mock('next-translate/Trans', () => (props: JSX.IntrinsicElements['div']) =>
 // ==================================
 describe('screen: TransactionDetails/DecommissionPool', () => {
   it('matches snapshot', () => {
-    const message = new MsgDecommissionPool({
+    const message: MsgDecommissionPool = {
       category: 'bank',
       type: 'MsgCreatePool',
       signer: 'signer',
       symbol: 'udaric',
-    });
+      json: {},
+    };
     const component = renderer.create(
       <MockTheme>
         <DecommissionPool message={message} />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
 
     expect(component.root.findByProps({ id: 'Trans' }).props.i18nKey).toEqual(

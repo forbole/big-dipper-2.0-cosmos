@@ -1,13 +1,13 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import { formatToken, formatNumber } from 'ui/utils/format_token';
-import Name from '@components/name';
+import Name from 'ui/components/name';
 import MsgCreatePool from '@models/sifchain/msg/clp/msg_create_pool';
-import { useProfileRecoil } from '@recoil/profiles';
+import { useProfileRecoil } from 'ui/recoil/profiles';
 import chainConfig from 'ui/chainConfig';
 
-const CreatePool = (props: { message: MsgCreatePool }) => {
+const CreatePool: React.FC<{ message: MsgCreatePool }> = (props) => {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);

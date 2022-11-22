@@ -1,19 +1,19 @@
 import { test, expect } from '@playwright/test';
 
-const deployURL = process.env.DEPLOY_URL ?? "http://localhost:3000";
-const transactionHash = '5922EA68378A74989E95BF477BF107A120CA1D006FDDA84BC93630BBF9A8E75B'
+const transactionHash = '5922EA68378A74989E95BF477BF107A120CA1D006FDDA84BC93630BBF9A8E75B';
 
-test('transactions page', async ({ page }) => {
-    // Test url
-    await page.goto(deployURL);
-    await expect(page).toHaveURL(deployURL);
+test('transactions page', async ({ page, isMobile }) => {
+  // Test url
+  await page.goto('.');
+  await expect(page).toHaveURL(/[^?#]*\/\/[^/]+\/$/);
+  await expect(page.getByRole('progressbar')).toHaveCount(0);
 
-    // Test click transactions section
-    await page.getByRole('link', { name: 'Transactions' }).click();
-    await expect(page).toHaveURL(/.*transactions/);
+  // Test click transactions section
+  if (isMobile) await page.getByRole('button', { name: 'open navigation menu' }).first().click();
+  await page.getByRole('link', { name: 'Transactions' }).first().click();
+  await expect(page).toHaveURL(/\/transactions/);
 
-    // Test single transaction url
-    await page.goto(`${deployURL}/transactions/${transactionHash}`);
-    await expect(page).toHaveURL(`${deployURL}/transactions/${transactionHash}`);
+  // Test single transaction url
+  await page.goto(`./transactions/${transactionHash}`);
+  await expect(page).toHaveURL(new RegExp(`/transactions/${transactionHash}`));
 });
-

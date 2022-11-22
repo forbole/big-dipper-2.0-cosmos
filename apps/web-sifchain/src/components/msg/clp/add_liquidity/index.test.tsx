@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import MsgAddLiquidity from '@models/sifchain/msg/clp/msg_add_liquidity';
 import AddLiquidity from '.';
 
@@ -8,7 +8,7 @@ import AddLiquidity from '.';
 // mocks
 // ==================================
 
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 
@@ -21,7 +21,7 @@ jest.mock('next-translate/Trans', () => (props: JSX.IntrinsicElements['div']) =>
 // ==================================
 describe('screen: TransactionDetails/AddLiquidity', () => {
   it('matches snapshot', () => {
-    const message = new MsgAddLiquidity({
+    const message: MsgAddLiquidity = {
       category: 'bank',
       type: 'MsgAddLiquidity',
       signer: 'signer',
@@ -30,20 +30,21 @@ describe('screen: TransactionDetails/AddLiquidity', () => {
       },
       nativeAssetAmount: '4000000',
       externalAssetAmount: '0',
-    });
+      json: {},
+    };
     const component = renderer.create(
       <MockTheme>
         <AddLiquidity message={message} />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
 
     expect(component.root.findByProps({ id: 'Trans' }).props.i18nKey).toEqual(
       'message_contents:MsgAddLiquidity'
     );
     expect(component.root.findByProps({ id: 'Trans' }).props.values.nativeAssetAmount).toEqual(
-      '4,000,000 UEROWAN'
+      '0.000000000004 ROWAN'
     );
   });
 

@@ -1,9 +1,12 @@
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgEditFanToken {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public owner: string;
 
   constructor(payload: any) {
@@ -13,12 +16,13 @@ class MsgEditFanToken {
     this.owner = payload.owner;
   }
 
-  static fromJson(json: any) {
-    return new MsgEditFanToken({
+  static fromJson(json: any): MsgEditFanToken {
+    return {
+      category: 'fantoken',
       json,
       type: json['@type'],
       owner: json.owner,
-    });
+    };
   }
 }
 

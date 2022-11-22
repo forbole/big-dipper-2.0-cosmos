@@ -1,12 +1,12 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import Transactions from '.';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/box', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/box', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Box" {...props} />
 ));
 jest.mock('@components/transactions_list', () => (props: JSX.IntrinsicElements['div']) => (
@@ -25,28 +25,18 @@ describe('screen: BlockDetails/Transactions', () => {
             {
               height: 300,
               hash: 'hash',
-              success: false,
               timestamp: '',
-              messages: {
-                count: 3,
-                items: [],
-              },
             },
             {
               height: 300,
               hash: 'hash1',
-              success: true,
               timestamp: '',
-              messages: {
-                count: 13,
-                items: [],
-              },
             },
           ]}
         />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

@@ -2,13 +2,16 @@
   "chainName": "shentu",
   "title": "Shentu Block Explorer",
   "extra": {
-    "profile": true
+    "profile": true,
+    "graphqlWs": true
   },
   "previewImage": "https://s3.bigdipper.live/shentu.png",
   "themes": {
     "default": "light",
     "themeList": [
-      "light"
+      "light",
+      "deuteranopia",
+      "tritanopia"
     ],
     "dark": {
       "primary": {},
@@ -50,7 +53,8 @@
           "fontTwo": "#414141",
           "fontThree": "#777777",
           "fontFour": "#999999",
-          "fontFive": "#FFFFFF"
+          "fontFive": "#FFFFFF",
+          "highlight": "#0075FF"
         },
         "primaryData": {
           "one": "#E7BD74",

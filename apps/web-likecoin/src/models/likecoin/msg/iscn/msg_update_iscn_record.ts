@@ -1,12 +1,17 @@
 import * as R from 'ramda';
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgUpdateIscnRecord {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public from: string;
+
   public iscnId: string;
+
   public record: {
     recordNotes: string;
     contentFingerprints: string[];
@@ -23,8 +28,9 @@ class MsgUpdateIscnRecord {
     this.record = payload.record;
   }
 
-  static fromJson(json: any) {
-    return new MsgUpdateIscnRecord({
+  static fromJson(json: any): MsgUpdateIscnRecord {
+    return {
+      category: 'iscn',
       json,
       type: json['@type'],
       from: json.from,
@@ -33,9 +39,9 @@ class MsgUpdateIscnRecord {
         recordNotes: R.pathOr('', ['record', 'recordNotes'], json),
         contentFingerprints: R.pathOr([], ['record', 'contentFingerprints'], json),
         stakeholders: R.pathOr([], ['record', 'stakeholders'], json),
-        contentMetadata: R.pathOr('', ['record', 'contentMetadata'], json),
+        contentMetadata: R.pathOr('', ['record', 'contentMetadata'], json) as unknown as JSON,
       },
-    });
+    };
   }
 }
 

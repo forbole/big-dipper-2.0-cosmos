@@ -1,14 +1,14 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import Link from 'next/link';
-import BoxDetails from '@components/box_details';
+import BoxDetails from 'ui/components/box_details';
 import dayjs, { formatDayJs } from 'ui/utils/dayjs';
 import useTranslation from 'next-translate/useTranslation';
 import { useRecoilValue } from 'recoil';
-import { readDate } from '@recoil/settings';
+import { readDate } from 'ui/recoil/settings';
 import { BLOCK_DETAILS } from '@utils/go_to_page';
 import { getShardDisplay } from '@utils/get_shard_display';
-import { OverviewType } from '../../types';
+import type { OverviewType } from '../../types';
 
 const Overview: React.FC<OverviewType & ComponentDefault> = (props) => {
   const { t } = useTranslation('blocks');
@@ -55,7 +55,7 @@ const Overview: React.FC<OverviewType & ComponentDefault> = (props) => {
     },
     {
       label: t('time'),
-      detail: formatDayJs(dayjs.utc(dayjs.unix(props.timestamp)), dateFormat),
+      detail: formatDayJs((dayjs as any).utc(dayjs.unix(props.timestamp)), dateFormat),
     },
     {
       label: t('type'),

@@ -1,17 +1,27 @@
 import * as R from 'ramda';
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgEditDataSource {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public dataSourceId: number;
+
   public name: string;
+
   public description: string;
+
   public executable: JSON;
+
   public fee: MsgCoin[];
+
   public treasury: string;
+
   public owner: string;
+
   public sender: string;
 
   constructor(payload: any) {
@@ -28,22 +38,23 @@ class MsgEditDataSource {
     this.sender = payload.sender;
   }
 
-  static fromJson(json: any) {
-    return new MsgEditDataSource({
+  static fromJson(json: any): MsgEditDataSource {
+    return {
+      category: 'oracle',
       json,
       type: json['@type'],
       dataSourceId: R.pathOr(0, ['data_source_id'], json),
       name: json.name,
       description: json.description,
-      executable: R.pathOr('', ['executable'], json),
-      fee: R.pathOr([], ['fee'], json).map((x) => ({
+      executable: R.pathOr('', ['executable'], json) as unknown as JSON,
+      fee: R.pathOr<MsgCoin[]>([], ['fee'], json).map((x: any) => ({
         denom: x.denom,
-        amount: R.pathOr(0, ['amount'], x),
+        amount: R.pathOr('0', ['amount'], x),
       })),
       treasury: json.treasury,
       owner: json.owner,
       sender: json.sender,
-    });
+    };
   }
 }
 

@@ -2,7 +2,10 @@ import React from 'react';
 import classnames from 'classnames';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
 import useTranslation from 'next-translate/useTranslation';
 import { useStyles } from './styles';
 import { getMenuItems } from './utils';
@@ -15,7 +18,7 @@ const MenuItems = () => {
 
   return (
     <List>
-      {items.map((x) => {
+      {items?.map((x) => {
         let isActive = false;
         if (x.url === router?.asPath) {
           isActive = true;

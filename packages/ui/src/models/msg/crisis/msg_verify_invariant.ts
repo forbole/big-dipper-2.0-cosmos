@@ -1,11 +1,16 @@
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgVerifyInvariant {
   public category: Categories;
+
   public type: string;
+
   public sender: string;
+
   public invariantModuleName: string;
+
   public invariantRoute: string;
+
   public json: any;
 
   constructor(payload: any) {
@@ -17,14 +22,15 @@ class MsgVerifyInvariant {
     this.invariantRoute = payload.invariantRoute;
   }
 
-  static fromJson(json: any) {
-    return new MsgVerifyInvariant({
+  static fromJson(json: any): MsgVerifyInvariant {
+    return {
+      category: 'crisis',
       json,
       type: json['@type'],
       sender: json.sender,
       invariantModuleName: json.invariant_module_name,
       invariantRoute: json.invariant_route,
-    });
+    };
   }
 }
 

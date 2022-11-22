@@ -1,17 +1,19 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme, wait } from '@tests/utils';
+import { MockTheme, wait } from 'ui/tests/utils';
 import Navbar from '.';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('shared-utils/assets/big-dipper-white.svg', () => (props) => (
-  <div id="WHITE" {...props} />
-));
-jest.mock('shared-utils/assets/big-dipper-red-sifchain.svg', () => (props) => (
-  <div id="RED" {...props} />
-));
+jest.mock(
+  'shared-utils/assets/big-dipper-white.svg',
+  () => (props: JSX.IntrinsicElements['div']) => <div id="WHITE" {...props} />
+);
+jest.mock(
+  'shared-utils/assets/big-dipper-red-sifchain.svg',
+  () => (props: JSX.IntrinsicElements['div']) => <div id="RED" {...props} />
+);
 // ==================================
 // global setup
 // ==================================
@@ -32,11 +34,11 @@ describe('screen: Nav/mobile/navbar', () => {
         <Navbar isOpen={false} openNetwork={openNetwork} toggleNavMenus={toggleNavMenus} />
       </MockTheme>
     );
-    await wait();
+    await wait(renderer.act);
   });
 
   it('it renders', () => {
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 
@@ -52,7 +54,7 @@ describe('screen: Nav/mobile/navbar', () => {
       component.root.findByProps({ className: 'makeStyles-hamburger' }).props.onClick();
     });
     expect(toggleNavMenus).toBeCalled();
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

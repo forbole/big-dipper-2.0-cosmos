@@ -1,10 +1,14 @@
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgCancelAuction {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public owner: string;
+
   public id: number;
 
   constructor(payload: any) {
@@ -15,13 +19,14 @@ class MsgCancelAuction {
     this.id = payload.id;
   }
 
-  static fromJson(json: any) {
-    return new MsgCancelAuction({
+  static fromJson(json: any): MsgCancelAuction {
+    return {
+      category: 'auction',
       json,
       type: json['@type'],
       owner: json.owner,
       id: json.id,
-    });
+    };
   }
 }
 

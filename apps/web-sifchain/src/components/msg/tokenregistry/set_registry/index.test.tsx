@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import MsgSetRegistry from '@models/sifchain/msg/tokenregistry/msg_set_registry';
 import SetRegistry from '.';
 
@@ -8,7 +8,7 @@ import SetRegistry from '.';
 // mocks
 // ==================================
 
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 
@@ -21,18 +21,19 @@ jest.mock('next-translate/Trans', () => (props: JSX.IntrinsicElements['div']) =>
 // ==================================
 describe('screen: TransactionDetails/MsgBurn', () => {
   it('matches snapshot', () => {
-    const message = new MsgSetRegistry({
+    const message: MsgSetRegistry = {
       category: 'dispensation',
       type: 'MsgRegister',
       from: 'from',
       registry: [{ denom: 'daric' }, { denom: 'bar' }, { denom: 'etg' }],
-    });
+      json: {},
+    };
     const component = renderer.create(
       <MockTheme>
         <SetRegistry message={message} />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
 
     expect(component.root.findByProps({ id: 'Trans' }).props.i18nKey).toEqual(

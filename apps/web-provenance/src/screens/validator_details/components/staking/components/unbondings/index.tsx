@@ -2,13 +2,13 @@ import React from 'react';
 import * as R from 'ramda';
 import dynamic from 'next/dynamic';
 import classnames from 'classnames';
-import { usePagination, useScreenSize } from '@hooks';
-import Pagination from '@components/pagination';
-import NoData from '@components/no_data';
-import Loading from '@components/loading';
-import { useProfilesRecoil } from '@recoil/profiles';
+import { usePagination, useScreenSize } from 'ui/hooks';
+import Pagination from 'ui/components/pagination';
+import NoData from 'ui/components/no_data';
+import Loading from 'ui/components/loading';
+import { useProfilesRecoil } from 'ui/recoil/profiles';
 import { useStyles } from './styles';
-import { UnbondingsType } from '../../types';
+import type { UnbondingsType } from '../../types';
 import type DesktopType from './components/desktop';
 import type MobileType from './components/mobile';
 
@@ -25,13 +25,11 @@ const Unbondings: React.FC<
   const { isDesktop } = useScreenSize();
 
   const pageItems = R.pathOr([], ['unbondings', 'data', page], props);
-  const dataProfiles = useProfilesRecoil(pageItems.map((x) => x.address));
-  const mergedDataWithProfiles = pageItems.map((x, i) => {
-    return {
-      ...x,
-      address: dataProfiles[i],
-    };
-  });
+  const dataProfiles = useProfilesRecoil(pageItems.map((x: any) => x.address));
+  const mergedDataWithProfiles = pageItems.map((x, i) => ({
+    ...(x as object),
+    address: dataProfiles[i],
+  }));
 
   const items = mergedDataWithProfiles;
 
@@ -42,9 +40,9 @@ const Unbondings: React.FC<
   } else if (!items.length) {
     component = <NoData />;
   } else if (isDesktop) {
-    component = <Desktop items={items} />;
+    component = <Desktop items={items as any} />;
   } else {
-    component = <Mobile items={items} />;
+    component = <Mobile items={items as any} />;
   }
 
   return (

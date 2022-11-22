@@ -1,13 +1,13 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import MsgCancelReplaceLimitOrder from '@models/emoney/msg/market/msg_cancel_replace_limit_order';
 import CancelReplaceLimitOrder from '.';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 
@@ -16,7 +16,7 @@ jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 describe('screen: TransactionDetails/CancelReplaceLimitOrder', () => {
   it('matches snapshot', () => {
-    const message = new MsgCancelReplaceLimitOrder({
+    const message: MsgCancelReplaceLimitOrder = {
       category: 'market',
       type: 'MsgAddLimitOrder',
       owner: 'owner',
@@ -25,19 +25,20 @@ describe('screen: TransactionDetails/CancelReplaceLimitOrder', () => {
       timeInForce: 'Unspecified',
       source: {
         denom: 'udaric',
-        amount: 100000,
+        amount: '100000',
       },
       destination: {
         denom: 'udarics',
-        amount: 500000,
+        amount: '500000',
       },
-    });
+      json: {},
+    };
     const component = renderer.create(
       <MockTheme>
         <CancelReplaceLimitOrder message={message} />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

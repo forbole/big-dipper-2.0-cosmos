@@ -1,9 +1,12 @@
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgStoreRawDataRequest {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public sender: string;
 
   constructor(payload: any) {
@@ -13,12 +16,13 @@ class MsgStoreRawDataRequest {
     this.sender = payload.sender;
   }
 
-  static fromJson(json: any) {
-    return new MsgStoreRawDataRequest({
+  static fromJson(json: any): MsgStoreRawDataRequest {
+    return {
+      category: 'data',
       json,
       type: json['@type'],
       sender: json.sender,
-    });
+    };
   }
 }
 

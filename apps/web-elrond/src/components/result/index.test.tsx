@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import Result from '.';
 
 // ==================================
@@ -19,20 +19,20 @@ describe('components: Result', () => {
   it('matches snapshot', () => {
     const component = renderer.create(
       <MockTheme>
-        <Result />
+        <Result status="test" />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it('matches snapshot success', () => {
     const component = renderer.create(
       <MockTheme>
-        <Result success />
+        <Result status="success" />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

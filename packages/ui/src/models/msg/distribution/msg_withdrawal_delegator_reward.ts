@@ -1,14 +1,19 @@
 import * as R from 'ramda';
 import { formatToken } from 'ui/utils/format_token';
 import chainConfig from 'ui/chainConfig';
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgWithdrawDelegatorReward {
   public category: Categories;
+
   public type: string;
+
   public delegatorAddress: string;
+
   public validatorAddress: string;
+
   public amounts: TokenUnit[];
+
   public json: any;
 
   constructor(payload: any) {
@@ -38,16 +43,17 @@ class MsgWithdrawDelegatorReward {
     return amounts;
   }
 
-  static fromJson(json: any, log?: any) {
+  static fromJson(json: any, log?: any): MsgWithdrawDelegatorReward {
     const amounts = this.getWithdrawalAmount(log);
 
-    return new MsgWithdrawDelegatorReward({
+    return {
+      category: 'distribution',
       json,
       type: json['@type'],
       delegatorAddress: json.delegator_address,
       validatorAddress: json.validator_address,
       amounts,
-    });
+    };
   }
 }
 

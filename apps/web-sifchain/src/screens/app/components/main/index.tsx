@@ -3,13 +3,18 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ToastContainer } from 'react-toastify';
 import { AppProps } from 'next/app';
-import Countdown from '@screens/countdown';
-import InitialLoad from '@screens/initial_load';
-import { useSettingsRecoil } from '@recoil/settings';
-import { useBigDipperNetworksRecoil } from '@recoil/big_dipper_networks';
-import { useMarketRecoil } from '@recoil/market';
-import { useValidatorRecoil } from '@recoil/validators';
-import { InnerApp } from '..';
+import Countdown from 'ui/screens/countdown';
+import InitialLoad from 'ui/screens/initial_load';
+import { useSettingsRecoil } from 'ui/recoil/settings';
+import {
+  useChainIdQuery,
+  useMarketDataQuery,
+  useValidatorAddressesQuery,
+} from '@graphql/types/general_types';
+import { useBigDipperNetworksRecoil } from 'ui/recoil/big_dipper_networks';
+import { useMarketRecoil } from 'ui/recoil/market';
+import { useValidatorRecoil } from 'ui/recoil/validators';
+import InnerApp from '../inner_app';
 import { useTheme, useGenesis } from './hooks';
 
 const Main = (props: AppProps) => {
@@ -17,9 +22,9 @@ const Main = (props: AppProps) => {
   // init recoil values
   // =====================================
   useSettingsRecoil();
-  useBigDipperNetworksRecoil();
-  useMarketRecoil();
-  const { loading } = useValidatorRecoil();
+  useBigDipperNetworksRecoil(useChainIdQuery);
+  useMarketRecoil(useMarketDataQuery);
+  const { loading } = useValidatorRecoil(useValidatorAddressesQuery);
 
   // =====================================
   // general setup
@@ -42,7 +47,7 @@ const Main = (props: AppProps) => {
     if (typeof document !== 'undefined' && document?.documentElement) {
       document.documentElement.classList.toggle('mode-dark', muiTheme.palette.type === 'dark');
     }
-  }, [muiTheme.palette.type]);
+  }, [muiTheme]);
 
   return (
     <ThemeProvider theme={muiTheme}>

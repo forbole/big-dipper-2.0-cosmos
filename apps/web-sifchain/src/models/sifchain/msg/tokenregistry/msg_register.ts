@@ -1,11 +1,15 @@
 import * as R from 'ramda';
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgRegister {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public from: string;
+
   public entry: {
     denom: string;
   };
@@ -18,15 +22,16 @@ class MsgRegister {
     this.entry = payload.entry;
   }
 
-  static fromJson(json: any) {
-    return new MsgRegister({
+  static fromJson(json: any): MsgRegister {
+    return {
+      category: 'tokenregistry',
       json,
       type: json['@type'],
       from: json.from,
       entry: {
         denom: R.pathOr('', ['entry', 'denom'], json),
       },
-    });
+    };
   }
 }
 

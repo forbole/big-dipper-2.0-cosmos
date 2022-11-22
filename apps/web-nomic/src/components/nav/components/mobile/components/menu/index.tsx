@@ -1,17 +1,19 @@
 import React from 'react';
 import classnames from 'classnames';
 import Link from 'next/link';
-import { Drawer, MenuItem, Typography } from '@material-ui/core';
+import Drawer from '@material-ui/core/Drawer';
+import MenuItem from '@material-ui/core/MenuItem';
+import Typography from '@material-ui/core/Typography';
 import { useRouter } from 'next/router';
 import useTranslation from 'next-translate/useTranslation';
 import Language from 'shared-utils/assets/icon-language.svg';
 import ThemeIcon from 'shared-utils/assets/icon-theme.svg';
-import { THEME_LIST } from '@recoil/settings';
-import { ExpandMoreOutlined } from '@material-ui/icons';
+import { THEME_LIST } from 'ui/recoil/settings';
+import ExpandMoreOutlined from '@material-ui/icons/ExpandMoreOutlined';
 import { useStyles } from './styles';
-import { MenuItems } from '../../..';
+import MenuItems from '../../../menu_items';
 import { useLanguageDrawer, useThemeDrawer } from './hooks';
-import { MenuProps } from './types';
+import type { MenuProps } from './types';
 
 const Menu = (props: MenuProps) => {
   const router = useRouter();
@@ -85,12 +87,24 @@ const Menu = (props: MenuProps) => {
         {/* Footer Actions */}
         {/* ========================= */}
         <div className={classes.footerActions}>
-          <div className={classes.language} role="button" onClick={languageOptions.toggleDrawer}>
+          <div
+            className={classes.language}
+            role="button"
+            onClick={languageOptions.toggleDrawer}
+            tabIndex={0}
+            aria-label={router.locale ? t(router.locale) : ''}
+          >
             <Language />
             <Typography variant="caption">{router.locale ? t(router.locale) : ''}</Typography>
             <ExpandMoreOutlined fontSize="small" />
           </div>
-          <div className={classes.theme} role="button" onClick={themeOptions.toggleDrawer}>
+          <div
+            className={classes.theme}
+            role="button"
+            onClick={themeOptions.toggleDrawer}
+            tabIndex={0}
+            aria-label={t(themeOptions.theme)}
+          >
             <span role="button">
               <ThemeIcon />
             </span>

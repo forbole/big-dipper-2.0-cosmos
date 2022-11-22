@@ -3,16 +3,16 @@ import classnames from 'classnames';
 import numeral from 'numeral';
 import Link from 'next/link';
 import dayjs, { formatDayJs } from 'ui/utils/dayjs';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import { useRecoilValue } from 'recoil';
-import { readDate } from '@recoil/settings';
+import { readDate } from 'ui/recoil/settings';
 import useTranslation from 'next-translate/useTranslation';
 import { BLOCK_DETAILS } from '@utils/go_to_page';
-import BoxDetails from '@components/box_details';
-import Result from '@components/result';
+import BoxDetails from 'ui/components/box_details';
+import Result from 'ui/components/result';
 import { formatNumber } from 'ui/utils/format_token';
 import { useStyles } from './styles';
-import { OverviewType } from '../../types';
+import type { OverviewType } from '../../types';
 
 const Overview: React.FC<{
   className?: string;
@@ -39,7 +39,7 @@ const Overview: React.FC<{
     },
     {
       label: t('time'),
-      detail: formatDayJs(dayjs.utc(data.timestamp), dateFormat),
+      detail: formatDayJs((dayjs as any).utc(data.timestamp), dateFormat),
     },
     {
       label: t('fee'),

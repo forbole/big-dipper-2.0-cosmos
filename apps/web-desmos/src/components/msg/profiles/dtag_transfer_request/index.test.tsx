@@ -1,14 +1,14 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
-import { MsgDtagTransferRequest } from '@models';
+import { MockTheme } from 'ui/tests/utils';
+import MsgDtagTransferRequest from '@models/desmos/msg/profiles/msg_dtag_transfer_request';
 import DtagTransferRequest from '.';
 
 // ==================================
 // mocks
 // ==================================
 
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 
@@ -17,18 +17,19 @@ jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 describe('screen: TransactionDetails/DtagTransferRequest', () => {
   it('matches snapshot', () => {
-    const message = new MsgDtagTransferRequest({
+    const message: MsgDtagTransferRequest = {
       category: 'profiles',
       type: 'MsgDtagCancelTransfer',
       sender: 'sender',
       receiver: 'receiver',
-    });
+      json: {},
+    };
     const component = renderer.create(
       <MockTheme>
         <DtagTransferRequest message={message} />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

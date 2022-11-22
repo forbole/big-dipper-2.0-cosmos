@@ -1,11 +1,15 @@
 import * as R from 'ramda';
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgCancelBid {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public auctionId: number;
+
   public bidder: string;
 
   constructor(payload: any) {
@@ -16,13 +20,14 @@ class MsgCancelBid {
     this.bidder = payload.bidder;
   }
 
-  static fromJson(json: any) {
-    return new MsgCancelBid({
+  static fromJson(json: any): MsgCancelBid {
+    return {
+      category: 'auction',
       json,
       type: json['@type'],
       auctionId: R.pathOr(0, ['auction_id'], json),
       bidder: json.bidder,
-    });
+    };
   }
 }
 

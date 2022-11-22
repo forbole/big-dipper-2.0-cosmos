@@ -19,7 +19,7 @@ exports[`screen: TransactionDetails/CreatePool matches snapshot 1`] = `
     values={
       {
         "externalAssetAmount": "0 BAR",
-        "nativeAssetAmount": "4,000,000 UEROWAN",
+        "nativeAssetAmount": "0.000000000004 ROWAN",
       }
     }
   />

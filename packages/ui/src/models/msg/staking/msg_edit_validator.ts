@@ -1,9 +1,11 @@
 import numeral from 'numeral';
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgEditValidator {
   public category: Categories;
+
   public type: string;
+
   public description: {
     moniker: string;
     identity: string;
@@ -11,9 +13,13 @@ class MsgEditValidator {
     securityContact: string;
     details: string;
   };
+
   public validatorAddress: string;
+
   public commissionRate: string | number;
+
   public minSelfDelegation: string | number;
+
   public json: any;
 
   constructor(payload: any) {
@@ -26,8 +32,9 @@ class MsgEditValidator {
     this.json = payload.json;
   }
 
-  static fromJson(json: any) {
-    return new MsgEditValidator({
+  static fromJson(json: any): MsgEditValidator {
+    return {
+      category: 'staking',
       json,
       type: json['@type'],
       description: {
@@ -38,9 +45,9 @@ class MsgEditValidator {
         details: json?.description?.details,
       },
       validatorAddress: json.validator_address,
-      commissionRate: numeral(json.commission_rate ?? 0).value(),
-      minSelfDelegation: numeral(json?.min_self_delegation ?? 0).value(),
-    });
+      commissionRate: numeral(json.commission_rate ?? 0).value() ?? 0,
+      minSelfDelegation: numeral(json?.min_self_delegation ?? 0).value() ?? 0,
+    };
   }
 }
 

@@ -1,11 +1,11 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
-import { Typography } from '@material-ui/core';
-import Name from '@components/name';
+import Typography from '@material-ui/core/Typography';
+import Name from 'ui/components/name';
 import MsgTransferFanTokenOwner from '@models/bitsong/msg/fantoken/msg_transfer_fan_token';
-import { useProfileRecoil } from '@recoil/profiles';
+import { useProfileRecoil } from 'ui/recoil/profiles';
 
-const TransferFanToken = (props: { message: MsgTransferFanTokenOwner }) => {
+const TransferFanToken: React.FC<{ message: MsgTransferFanTokenOwner }> = (props) => {
   const { message } = props;
 
   const src = useProfileRecoil(message.srcOwner);

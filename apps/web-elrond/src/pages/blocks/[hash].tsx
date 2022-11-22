@@ -1,7 +1,5 @@
-import BlockDetails from '@src/screens/block_details';
+import BlockDetails from '@screens/block_details';
 
-const BlockDetailsPage = () => {
-  return <BlockDetails />;
-};
+const BlockDetailsPage = () => <BlockDetails />;
 
 export default BlockDetailsPage;

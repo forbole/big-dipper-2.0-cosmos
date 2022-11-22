@@ -1,13 +1,14 @@
 import React from 'react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
-import { Typography, Divider } from '@material-ui/core';
+import Divider from '@material-ui/core/Divider';
+import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import { TRANSACTIONS } from 'ui/utils/go_to_page';
-import Box from '@components/box';
-import NoData from '@components/no_data';
-import { useScreenSize } from '@hooks';
+import Box from 'ui/components/box';
+import NoData from 'ui/components/no_data';
+import { useScreenSize } from 'ui/hooks';
 import { useStyles } from './styles';
 import { useTransactions } from './hooks';
 import type DesktopType from './components/desktop';
@@ -47,6 +48,7 @@ const Transactions: React.FC<{
             <Typography
               variant="h4"
               component="a"
+              aria-label="see more blocks"
               className={classnames(classes.seeMoreFooter, classes.mobile, 'button')}
             >
               {t('seeMore')}

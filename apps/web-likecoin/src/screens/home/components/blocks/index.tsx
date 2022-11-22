@@ -2,13 +2,14 @@ import React from 'react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import classnames from 'classnames';
-import { Typography, Divider } from '@material-ui/core';
+import Divider from '@material-ui/core/Divider';
+import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import { BLOCKS } from '@utils/go_to_page';
-import Box from '@components/box';
-import NoData from '@components/no_data';
-import { useScreenSize } from '@hooks';
-import { useProfilesRecoil } from '@recoil/profiles';
+import Box from 'ui/components/box';
+import NoData from 'ui/components/no_data';
+import { useScreenSize } from 'ui/hooks';
+import { useProfilesRecoil } from 'ui/recoil/profiles';
 import { useStyles } from './styles';
 import { useBlocks } from './hooks';
 import type DesktopType from './components/desktop';
@@ -26,12 +27,10 @@ const Blocks: React.FC<{
   const { state } = useBlocks();
 
   const proposerProfiles = useProfilesRecoil(state.items.map((x) => x.proposer));
-  const mergedDataWithProfiles = state.items.map((x, i) => {
-    return {
-      ...x,
-      proposer: proposerProfiles[i],
-    };
-  });
+  const mergedDataWithProfiles = state.items.map((x, i) => ({
+    ...(x as object),
+    proposer: proposerProfiles[i],
+  }));
 
   return (
     <Box className={classnames(className, classes.root)}>
@@ -48,9 +47,9 @@ const Blocks: React.FC<{
       ) : (
         <>
           {isDesktop ? (
-            <Desktop className={classes.desktop} items={mergedDataWithProfiles} />
+            <Desktop className={classes.desktop} items={mergedDataWithProfiles as any} />
           ) : (
-            <Mobile className={classes.mobile} items={mergedDataWithProfiles} />
+            <Mobile className={classes.mobile} items={mergedDataWithProfiles as any} />
           )}
           <Divider className={classes.mobile} />
           <Link href={BLOCKS} passHref>

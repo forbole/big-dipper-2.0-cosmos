@@ -1,12 +1,12 @@
 import React from 'react';
 import numeral from 'numeral';
 import Trans from 'next-translate/Trans';
-import { Typography } from '@material-ui/core';
-import Name from '@components/name';
+import Typography from '@material-ui/core/Typography';
+import Name from 'ui/components/name';
 import MsgEditAuction from '@models/bitsong/msg/auction/msg_edit_auction';
-import { useProfileRecoil } from '@recoil/profiles';
+import { useProfileRecoil } from 'ui/recoil/profiles';
 
-const EditAuction = (props: { message: MsgEditAuction }) => {
+const EditAuction: React.FC<{ message: MsgEditAuction }> = (props) => {
   const { message } = props;
 
   const owner = useProfileRecoil(message.owner);

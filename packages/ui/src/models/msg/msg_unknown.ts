@@ -1,8 +1,10 @@
-import { Categories } from './types';
+import type { Categories } from './types';
 
 class MsgUnknown {
   public category: Categories;
+
   public type: string;
+
   public json: JSON;
 
   constructor(payload: any) {
@@ -11,11 +13,12 @@ class MsgUnknown {
     this.json = payload.json;
   }
 
-  static fromJson(json: any) {
-    return new MsgUnknown({
+  static fromJson(json: any): MsgUnknown {
+    return {
+      category: 'others',
       type: json['@type'] ?? '',
       json,
-    });
+    };
   }
 }
 

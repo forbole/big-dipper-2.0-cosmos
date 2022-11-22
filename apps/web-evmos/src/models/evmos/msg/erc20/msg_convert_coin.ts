@@ -1,14 +1,19 @@
 import * as R from 'ramda';
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 // ConvertCoin mints a ERC20 representation of the SDK Coin denom that is
 // registered on the token mapping.
 class MsgConvertCoin {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public coin: MsgCoin;
+
   public receiver: string;
+
   public sender: string;
 
   constructor(payload: any) {
@@ -20,8 +25,9 @@ class MsgConvertCoin {
     this.sender = payload.sender; // bech32
   }
 
-  static fromJson(json: any) {
-    return new MsgConvertCoin({
+  static fromJson(json: any): MsgConvertCoin {
+    return {
+      category: 'erc20',
       json,
       type: json['@type'],
       coin: {
@@ -30,7 +36,7 @@ class MsgConvertCoin {
       },
       receiver: json.receiver,
       sender: json.sender,
-    });
+    };
   }
 }
 

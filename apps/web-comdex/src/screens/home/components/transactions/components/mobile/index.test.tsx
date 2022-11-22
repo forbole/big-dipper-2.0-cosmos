@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import Mobile from '.';
 
 // ==================================
@@ -11,13 +11,14 @@ const mockI18n = {
   lang: 'en',
 };
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
-jest.mock('@components/single_transaction_mobile', () => (props: JSX.IntrinsicElements['div']) => (
-  <div id="SingleTransactionMobile" {...props} />
-));
-jest.mock('@components/result', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock(
+  'ui/components/single_transaction_mobile',
+  () => (props: JSX.IntrinsicElements['div']) => <div id="SingleTransactionMobile" {...props} />
+);
+jest.mock('ui/components/result', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Result" {...props} />
 ));
-jest.mock('@components/tag', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/tag', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Tag" {...props} />
 ));
 
@@ -42,7 +43,7 @@ describe('screen: Home/Transactions/Mobile', () => {
         />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

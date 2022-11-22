@@ -1,11 +1,15 @@
 import * as R from 'ramda';
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgMintTokens {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public liquidityProvider: string;
+
   public amount: MsgCoin[];
 
   constructor(payload: any) {
@@ -16,18 +20,17 @@ class MsgMintTokens {
     this.amount = payload.amount;
   }
 
-  static fromJson(json: any) {
-    return new MsgMintTokens({
+  static fromJson(json: any): MsgMintTokens {
+    return {
+      category: 'liquidityProvider',
       json,
       type: json['@type'],
       liquidityProvider: json.liquidity_provider,
-      amount: R.pathOr([], ['amount'], json).map((x) => {
-        return {
-          denom: R.pathOr('', ['denom'], x),
-          amount: R.pathOr('0', ['amount'], x),
-        };
-      }),
-    });
+      amount: R.pathOr([], ['amount'], json).map((x) => ({
+        denom: R.pathOr('', ['denom'], x),
+        amount: R.pathOr('0', ['amount'], x),
+      })),
+    };
   }
 }
 

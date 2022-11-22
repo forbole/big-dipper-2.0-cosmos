@@ -1,11 +1,11 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
-import { Typography } from '@material-ui/core';
-import Name from '@components/name';
+import Typography from '@material-ui/core/Typography';
+import Name from 'ui/components/name';
 import MsgEditFanToken from '@models/bitsong/msg/fantoken/msg_edit_fan_token';
-import { useProfileRecoil } from '@recoil/profiles';
+import { useProfileRecoil } from 'ui/recoil/profiles';
 
-const EditFanToken = (props: { message: MsgEditFanToken }) => {
+const EditFanToken: React.FC<{ message: MsgEditFanToken }> = (props) => {
   const { message } = props;
 
   const owner = useProfileRecoil(message.owner);

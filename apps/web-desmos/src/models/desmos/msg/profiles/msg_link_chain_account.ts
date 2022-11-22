@@ -1,11 +1,15 @@
 import * as R from 'ramda';
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgLinkChainAccount {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public signer: string;
+
   public chainConfig: {
     name: string;
   };
@@ -18,15 +22,16 @@ class MsgLinkChainAccount {
     this.chainConfig = payload.chainConfig;
   }
 
-  static fromJson(json: any) {
-    return new MsgLinkChainAccount({
+  static fromJson(json: any): MsgLinkChainAccount {
+    return {
+      category: 'profiles',
       json,
       type: json['@type'],
       signer: json.signer,
       chainConfig: {
         name: R.pathOr('', ['chain_config', 'name'], json),
       },
-    });
+    };
   }
 }
 

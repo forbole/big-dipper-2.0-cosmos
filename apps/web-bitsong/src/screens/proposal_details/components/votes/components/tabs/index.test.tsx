@@ -1,12 +1,12 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import TabsHeader from '.';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/search', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/search', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Search" {...props} />
 ));
 
@@ -32,7 +32,7 @@ describe('screen: Validators/Tabs', () => {
         />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

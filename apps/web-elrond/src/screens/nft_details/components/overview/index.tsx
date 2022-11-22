@@ -1,12 +1,12 @@
 import React from 'react';
-import BoxDetails from '@components/box_details';
+import BoxDetails from 'ui/components/box_details';
 import AvatarName from '@components/avatar_name';
 import dayjs, { formatDayJs } from 'ui/utils/dayjs';
 import useTranslation from 'next-translate/useTranslation';
 import { useRecoilValue } from 'recoil';
-import { readDate } from '@recoil/settings';
+import { readDate } from 'ui/recoil/settings';
 import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
-import { OverviewType } from '../../types';
+import type { OverviewType } from '../../types';
 
 const Overview: React.FC<OverviewType & ComponentDefault> = (props) => {
   const { t } = useTranslation('nfts');
@@ -62,7 +62,7 @@ const Overview: React.FC<OverviewType & ComponentDefault> = (props) => {
     ...[
       {
         label: t('minted'),
-        detail: formatDayJs(dayjs.utc(dayjs.unix(props.minted)), dateFormat),
+        detail: formatDayJs((dayjs as any).utc(dayjs.unix(props.minted)), dateFormat),
       },
     ]
   );

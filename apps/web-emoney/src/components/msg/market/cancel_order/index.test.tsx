@@ -1,13 +1,13 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import MsgCancelOrder from '@models/emoney/msg/market/msg_cancel_order';
 import CancelOrder from '.';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 
@@ -16,18 +16,19 @@ jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 describe('screen: TransactionDetails/CancelOrder', () => {
   it('matches snapshot', () => {
-    const message = new MsgCancelOrder({
+    const message: MsgCancelOrder = {
       category: 'market',
       type: 'MsgCancelOrder',
       owner: 'owner',
       clientOrderId: 'clientOrderId',
-    });
+      json: {},
+    };
     const component = renderer.create(
       <MockTheme>
         <CancelOrder message={message} />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

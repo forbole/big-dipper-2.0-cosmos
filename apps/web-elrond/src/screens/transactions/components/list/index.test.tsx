@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import { TRANSACTIONS, TRANSACTIONS_COUNT } from '@api';
-import { MockTheme, wait } from '@tests/utils';
+import { MockTheme, wait } from 'ui/tests/utils';
 import List from '.';
 
 // ==================================
@@ -16,10 +16,10 @@ jest.mock('@components/pagination', () => (props: JSX.IntrinsicElements['div']) 
 jest.mock('@components/no_data', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="NoData" {...props} />
 ));
-jest.mock('@components/box', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/box', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Box" {...props} />
 ));
-jest.mock('@components/loading', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/loading', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Loading" {...props} />
 ));
 
@@ -53,7 +53,7 @@ describe('screen: Transactions/List', () => {
       },
     ]);
 
-    let component;
+    let component: renderer.ReactTestRenderer | undefined;
     renderer.act(() => {
       component = renderer.create(
         <MockTheme>
@@ -61,9 +61,9 @@ describe('screen: Transactions/List', () => {
         </MockTheme>
       );
     });
-    await wait(3000);
+    await wait(renderer.act, 3000);
 
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

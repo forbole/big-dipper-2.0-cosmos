@@ -1,21 +1,20 @@
-import React from 'react';
+import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
-import AutoSizer from 'react-virtualized-auto-sizer';
-import numeral from 'numeral';
-import dayjs from 'ui/utils/dayjs';
-import Link from 'next/link';
-import { TRANSACTION_DETAILS, BLOCK_DETAILS } from 'ui/utils/go_to_page';
-import InfiniteLoader from 'react-window-infinite-loader';
-import { VariableSizeGrid as Grid } from 'react-window';
-import { Typography } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
+import Link from 'next/link';
+import numeral from 'numeral';
+import React from 'react';
+import AutoSizer from 'react-virtualized-auto-sizer';
+import { VariableSizeGrid as Grid } from 'react-window';
+import InfiniteLoader from 'react-window-infinite-loader';
+import Loading from 'ui/components/loading';
+import { useGrid } from 'ui/hooks';
+import dayjs from 'ui/utils/dayjs';
+import { BLOCK_DETAILS, TRANSACTION_DETAILS } from 'ui/utils/go_to_page';
 import { mergeRefs } from 'ui/utils/merge_refs';
-import Loading from '@components/loading';
-import Tag from '@components/tag';
-import { useGrid } from '@hooks';
-import { TransactionsListState } from '../../types';
-import { columns } from './utils';
+import type { TransactionsListState } from '../../types';
 import { useStyles } from './styles';
+import { columns } from './utils';
 
 const Desktop: React.FC<TransactionsListState> = ({
   className,
@@ -40,129 +39,116 @@ const Desktop: React.FC<TransactionsListState> = ({
     hash: (
       <Link href={TRANSACTION_DETAILS(x.hash)} passHref>
         <Typography variant="body1" component="a">
-          {getMiddleEllipsis(x.hash, {
-            beginning: 4,
-            ending: 4,
-          })}
+          {x.hash}
         </Typography>
       </Link>
     ),
-    type: (
-      <div>
-        <Tag value={x.type[0]} theme="six" />
-        {x.messages.count > 1 && ` + ${x.messages.count - 1}`}
-      </div>
-    ),
-    time: dayjs.utc(x.timestamp).fromNow(),
+    time: (dayjs as any).utc(x.timestamp).fromNow(),
   }));
   return (
     <div className={classnames(className, classes.root)}>
       <AutoSizer onResize={onResize}>
-        {({ height, width }) => {
-          return (
-            <>
-              {/* ======================================= */}
-              {/* Table Header */}
-              {/* ======================================= */}
-              <Grid
-                ref={columnRef as React.LegacyRef<VariableSizeGrid>}
-                columnCount={columns.length}
-                columnWidth={(index) => getColumnWidth(width, index)}
-                height={50}
-                rowCount={1}
-                rowHeight={() => 50}
-                width={width}
-              >
-                {({ columnIndex, style }) => {
-                  const { key, align } = columns[columnIndex];
+        {({ height, width }) => (
+          <>
+            {/* ======================================= */}
+            {/* Table Header */}
+            {/* ======================================= */}
+            <Grid
+              ref={columnRef as React.LegacyRef<Grid>}
+              columnCount={columns.length}
+              columnWidth={(index) => getColumnWidth(width, index)}
+              height={50}
+              rowCount={1}
+              rowHeight={() => 50}
+              width={width}
+            >
+              {({ columnIndex, style }) => {
+                const { key, align } = columns[columnIndex];
 
-                  return (
-                    <div style={style} className={classes.cell}>
-                      <Typography variant="h4" align={align}>
-                        {t(key)}
-                      </Typography>
-                    </div>
-                  );
-                }}
-              </Grid>
-              {/* ======================================= */}
-              {/* Table Body */}
-              {/* ======================================= */}
-              <InfiniteLoader
-                isItemLoaded={isItemLoaded ?? (() => true)}
-                itemCount={itemCount}
-                loadMoreItems={
-                  loadMoreItems ??
-                  (() => {
-                    // do nothing
-                  })
-                }
-              >
-                {({ onItemsRendered, ref }) => {
-                  return (
-                    <Grid
-                      onItemsRendered={({
-                        visibleRowStartIndex,
-                        visibleRowStopIndex,
-                        overscanRowStopIndex,
-                        overscanRowStartIndex,
-                      }) => {
-                        onItemsRendered({
-                          overscanStartIndex: overscanRowStartIndex,
-                          overscanStopIndex: overscanRowStopIndex,
-                          visibleStartIndex: visibleRowStartIndex,
-                          visibleStopIndex: visibleRowStopIndex,
-                        });
-                      }}
-                      ref={mergeRefs(gridRef, ref)}
-                      columnCount={columns.length}
-                      columnWidth={(index) => getColumnWidth(width, index)}
-                      height={height - 50}
-                      rowCount={itemCount}
-                      rowHeight={getRowHeight}
-                      width={width}
-                      className="scrollbar"
-                    >
-                      {({ columnIndex, rowIndex, style }) => {
-                        if (!isItemLoaded?.(rowIndex) && columnIndex === 0) {
-                          return (
-                            <div
-                              style={{
-                                ...style,
-                                width,
-                              }}
-                            >
-                              <Loading />
-                            </div>
-                          );
-                        }
+                return (
+                  <div style={style} className={classes.cell}>
+                    <Typography variant="h4" align={align}>
+                      {t(key)}
+                    </Typography>
+                  </div>
+                );
+              }}
+            </Grid>
+            {/* ======================================= */}
+            {/* Table Body */}
+            {/* ======================================= */}
+            <InfiniteLoader
+              isItemLoaded={isItemLoaded ?? (() => true)}
+              itemCount={itemCount}
+              loadMoreItems={
+                loadMoreItems ??
+                (() => {
+                  // do nothing
+                })
+              }
+            >
+              {({ onItemsRendered, ref }) => (
+                <Grid
+                  onItemsRendered={({
+                    visibleRowStartIndex,
+                    visibleRowStopIndex,
+                    overscanRowStopIndex,
+                    overscanRowStartIndex,
+                  }) => {
+                    onItemsRendered({
+                      overscanStartIndex: overscanRowStartIndex,
+                      overscanStopIndex: overscanRowStopIndex,
+                      visibleStartIndex: visibleRowStartIndex,
+                      visibleStopIndex: visibleRowStopIndex,
+                    });
+                  }}
+                  ref={mergeRefs(gridRef, ref)}
+                  columnCount={columns.length}
+                  columnWidth={(index) => getColumnWidth(width, index)}
+                  height={height - 50}
+                  rowCount={itemCount}
+                  rowHeight={getRowHeight}
+                  width={width}
+                  className="scrollbar"
+                >
+                  {({ columnIndex, rowIndex, style }) => {
+                    if (!isItemLoaded?.(rowIndex) && columnIndex === 0) {
+                      return (
+                        <div
+                          style={{
+                            ...style,
+                            width,
+                          }}
+                        >
+                          <Loading />
+                        </div>
+                      );
+                    }
 
-                        if (!isItemLoaded?.(rowIndex)) {
-                          return null;
-                        }
+                    if (!isItemLoaded?.(rowIndex)) {
+                      return null;
+                    }
 
-                        const { key, align } = columns[columnIndex];
-                        const item = items[rowIndex][key as keyof typeof items[number]];
-                        return (
-                          <div
-                            style={style}
-                            className={classnames(classes.cell, classes.body, {
-                              odd: !(rowIndex % 2),
-                            })}
-                          >
-                            <Typography variant="body1" align={align} component="div">
-                              {item}
-                            </Typography>
-                          </div>
-                        );
-                      }}
-                    </Grid>
-                  );
-                }}
-              </InfiniteLoader>
-            </>
-          );
-        }}
+                    const { key, align } = columns[columnIndex];
+                    const item = items[rowIndex][key as keyof typeof items[number]];
+                    return (
+                      <div
+                        style={style}
+                        className={classnames(classes.cell, classes.body, {
+                          odd: !(rowIndex % 2),
+                        })}
+                      >
+                        <Typography variant="body1" align={align} component="div">
+                          {item}
+                        </Typography>
+                      </div>
+                    );
+                  }}
+                </Grid>
+              )}
+            </InfiniteLoader>
+          </>
+        )}
       </AutoSizer>
     </div>
   );

@@ -1,13 +1,13 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import MsgActivate from '@models/band/msg/oracle/msg_activate';
 import Activate from '.';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 
@@ -16,7 +16,7 @@ jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 describe('screen: TransactionDetails/Activate', () => {
   it('matches snapshot', () => {
-    const message = new MsgActivate({
+    const message = MsgActivate.fromJson({
       type: 'MsgCreateDataSource',
       validator: 'validator',
     });
@@ -25,7 +25,7 @@ describe('screen: TransactionDetails/Activate', () => {
         <Activate message={message} />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

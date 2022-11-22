@@ -1,35 +1,36 @@
-import React from 'react';
+import React, { ComponentProps, FC } from 'react';
 import classnames from 'classnames';
 import numeral from 'numeral';
 import dayjs from 'ui/utils/dayjs';
 import Link from 'next/link';
 import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
-import AvatarName from '@components/avatar_name';
-import SingleBlockMobile from '@components/single_block_mobile';
-import Loading from '@components/loading';
-import { Typography, Divider } from '@material-ui/core';
-import { VariableSizeList as List } from 'react-window';
+import AvatarName from 'ui/components/avatar_name';
+import SingleBlockMobile from 'ui/components/single_block_mobile';
+import Loading from 'ui/components/loading';
+import Divider from '@material-ui/core/Divider';
+import Typography from '@material-ui/core/Typography';
+import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { BLOCK_DETAILS } from '@utils/go_to_page';
 import { mergeRefs } from 'ui/utils/merge_refs';
-import { useList, useListRow } from '@hooks';
+import { useList, useListRow } from 'ui/hooks';
 import { useStyles } from './styles';
-import { ItemType } from '../../types';
+import type { ItemType } from '../../types';
 
-const Mobile: React.FC<{
+const Mobile: FC<{
   className?: string;
   items: ItemType[];
   itemCount: number;
-  loadMoreItems: (any) => void;
+  loadMoreItems: (...arg: unknown[]) => void;
   isItemLoaded?: (index: number) => boolean;
 }> = ({ className, items, itemCount, loadMoreItems, isItemLoaded }) => {
   const classes = useStyles();
 
   const { listRef, getRowHeight, setRowHeight } = useList();
 
-  const formattedItems = items.map((x) => {
-    return {
+  const formattedItems =
+    items?.map((x) => ({
       height: (
         <Link href={BLOCK_DETAILS(x.height)} passHref>
           <Typography variant="body1" className="value" component="a">
@@ -38,7 +39,7 @@ const Mobile: React.FC<{
         </Link>
       ),
       txs: numeral(x.txs).format('0,0'),
-      time: dayjs.utc(x.timestamp).fromNow(),
+      time: (dayjs as any).utc(x.timestamp).fromNow(),
       proposer: (
         <AvatarName
           address={x.proposer.address}
@@ -50,61 +51,71 @@ const Mobile: React.FC<{
         beginning: 13,
         ending: 10,
       }),
-    };
-  });
+    })) ?? [];
 
   return (
     <div className={classnames(className, classes.root)}>
       <AutoSizer>
-        {({ height, width }) => {
-          return (
-            <InfiniteLoader
-              isItemLoaded={isItemLoaded ?? (() => true)}
-              itemCount={itemCount}
-              loadMoreItems={
-                loadMoreItems ??
-                (() => {
-                  // do nothing
-                })
-              }
-            >
-              {({ onItemsRendered, ref }) => (
-                <List
-                  className="List"
-                  height={height}
-                  itemCount={itemCount}
-                  itemSize={getRowHeight}
-                  onItemsRendered={onItemsRendered}
-                  ref={mergeRefs(listRef, ref)}
-                  width={width}
-                >
-                  {({ index, style }) => {
-                    const { rowRef } = useListRow(index, setRowHeight);
-                    if (!isItemLoaded?.(index)) {
-                      return (
-                        <div style={style}>
-                          <div ref={rowRef}>
-                            <Loading />
-                          </div>
-                        </div>
-                      );
-                    }
-                    const item = formattedItems[index];
-                    return (
-                      <div style={style}>
-                        <div ref={rowRef}>
-                          <SingleBlockMobile {...item} />
-                          {index !== itemCount - 1 && <Divider />}
-                        </div>
-                      </div>
-                    );
-                  }}
-                </List>
-              )}
-            </InfiniteLoader>
-          );
-        }}
+        {({ height, width }) => (
+          <InfiniteLoader
+            isItemLoaded={isItemLoaded ?? (() => true)}
+            itemCount={itemCount}
+            loadMoreItems={
+              loadMoreItems ??
+              (() => {
+                // do nothing
+              })
+            }
+          >
+            {({ onItemsRendered, ref }) => (
+              <List
+                className="List"
+                height={height}
+                itemCount={itemCount}
+                itemSize={getRowHeight}
+                onItemsRendered={onItemsRendered}
+                ref={mergeRefs(listRef, ref)}
+                width={width}
+              >
+                {({ index, style }) => (
+                  <ListItem
+                    {...{ index, style, setRowHeight, formattedItems, isItemLoaded, itemCount }}
+                  />
+                )}
+              </List>
+            )}
+          </InfiniteLoader>
+        )}
       </AutoSizer>
+    </div>
+  );
+};
+
+const ListItem: FC<
+  Pick<ListChildComponentProps, 'index' | 'style'> & {
+    setRowHeight: ReturnType<typeof useList>['setRowHeight'];
+    formattedItems: Array<ComponentProps<typeof SingleBlockMobile>>;
+    itemCount: number;
+    isItemLoaded: ((index: number) => boolean) | undefined;
+  }
+> = ({ index, style, setRowHeight, formattedItems, isItemLoaded, itemCount }) => {
+  const { rowRef } = useListRow(index, setRowHeight);
+  if (!isItemLoaded?.(index)) {
+    return (
+      <div style={style}>
+        <div ref={rowRef}>
+          <Loading />
+        </div>
+      </div>
+    );
+  }
+  const item = formattedItems[index];
+  return (
+    <div style={style}>
+      <div ref={rowRef}>
+        <SingleBlockMobile {...item} />
+        {index !== itemCount - 1 && <Divider />}
+      </div>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import Big from 'big.js';
 import * as R from 'ramda';
 import numeral from 'numeral';
@@ -7,11 +7,11 @@ import { getValidatorCondition } from 'ui/utils/get_validator_condition';
 import { formatToken } from 'ui/utils/format_token';
 import { SlashingParams } from '@models';
 import chainConfig from 'ui/chainConfig';
-import { ValidatorsState, ItemType, ValidatorType } from './types';
+import type { ValidatorsState, ItemType, ValidatorType } from './types';
 
 export const useValidators = () => {
   const [search, setSearch] = useState('');
-  const [state, setState] = useState<ValidatorsState>({
+    const [state, setState] = useState<ValidatorsState>({
     loading: true,
     exists: true,
     items: [],
@@ -21,26 +21,17 @@ export const useValidators = () => {
     sortDirection: 'asc',
   });
 
-  const handleSetState = (stateChange: any) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-  };
-
-  // ==========================
-  // Fetch Data
-  // ==========================
-  useValidatorsQuery({
-    onCompleted: (data) => {
-      handleSetState({
-        loading: false,
-        ...formatValidators(data),
-      });
-    },
-  });
+  const handleSetState = useCallback((stateChange: Partial<ValidatorsState>) => {
+    setState((prevState) => {
+      const newState = { ...prevState, ...stateChange };
+      return R.equals(prevState, newState) ? prevState : newState;
+    });
+  }, []);
 
   // ==========================
   // Parse data
   // ==========================
-  const formatValidators = (data: ValidatorsQuery) => {
+  const formatValidators = useCallback((data: ValidatorsQuery) => {
     const slashingParams = SlashingParams.fromJson(
       R.pathOr({}, ['slashingParams', 0, 'params'], data)
     );
@@ -57,7 +48,7 @@ export const useValidators = () => {
       .filter((x) => x.validatorInfo)
       .map((x) => {
         const votingPower = R.pathOr(0, ['validatorVotingPowers', 0, 'votingPower'], x);
-        const votingPowerPercent = numeral((votingPower / votingPowerOverall) * 100).value();
+        const votingPowerPercent = numeral((votingPower / (votingPowerOverall ?? 0)) * 100).value();
 
         const missedBlockCounter = R.pathOr(
           0,
@@ -67,9 +58,9 @@ export const useValidators = () => {
         const condition = getValidatorCondition(signedBlockWindow, missedBlockCounter);
 
         return {
-          validator: x.validatorInfo.operatorAddress,
-          votingPower,
-          votingPowerPercent,
+          validator: x.validatorInfo?.operatorAddress ?? '',
+          votingPower: votingPower ?? 0,
+          votingPowerPercent: votingPowerPercent ?? 0,
           commission: R.pathOr(0, ['validatorCommissions', 0, 'commission'], x) * 100,
           condition,
           status: R.pathOr(0, ['validatorStatuses', 0, 'status'], x),
@@ -79,14 +70,12 @@ export const useValidators = () => {
       });
 
     // get the top 34% validators
-    formattedItems = formattedItems.sort((a, b) => {
-      return a.votingPower > b.votingPower ? -1 : 1;
-    });
+    formattedItems = formattedItems.sort((a, b) => (a.votingPower > b.votingPower ? -1 : 1));
 
     // add key to indicate they are part of top 34%
     let cumulativeVotingPower = Big(0);
     let reached = false;
-    formattedItems.forEach((x) => {
+    formattedItems.forEach((x: any) => {
       if (x.status === 3) {
         const totalVp = cumulativeVotingPower.add(x.votingPowerPercent);
         if (totalVp.lte(34) && !reached) {
@@ -106,77 +95,95 @@ export const useValidators = () => {
       votingPowerOverall,
       items: formattedItems,
     };
-  };
+  }, []);
 
-  const handleTabChange = (_event: any, newValue: number) => {
+  // ==========================
+  // Fetch Data
+  // ==========================
+  useValidatorsQuery({
+    onCompleted: (data) => {
+      handleSetState({
+        loading: false,
+        ...formatValidators(data),
+      });
+    },
+  });
+
+  const handleTabChange = useCallback((_event: any, newValue: number) => {
     setState((prevState) => ({
       ...prevState,
       tab: newValue,
     }));
-  };
+  }, []);
 
-  const handleSort = (key: string) => {
-    if (key === state.sortKey) {
-      setState((prevState) => ({
-        ...prevState,
-        sortDirection: prevState.sortDirection === 'asc' ? 'desc' : 'asc',
-      }));
-    } else {
-      setState((prevState) => ({
-        ...prevState,
-        sortKey: key,
-        sortDirection: 'asc', // new key so we start the sort by asc
-      }));
-    }
-  };
+  const handleSort = useCallback(
+    (key: string) => {
+      if (key === state.sortKey) {
+        setState((prevState) => ({
+          ...prevState,
+          sortDirection: prevState.sortDirection === 'asc' ? 'desc' : 'asc',
+        }));
+      } else {
+        setState((prevState) => ({
+          ...prevState,
+          sortKey: key,
+          sortDirection: 'asc', // new key so we start the sort by asc
+        }));
+      }
+    },
+    [state.sortKey]
+  );
 
-  const sortItems = (items: ItemType[]) => {
-    let sorted: ItemType[] = R.clone(items);
-
-    if (state.tab === 0) {
-      sorted = sorted.filter((x) => x.status === 3);
-    }
-
-    if (state.tab === 1) {
-      sorted = sorted.filter((x) => x.status !== 3);
-    }
-
-    if (search) {
-      sorted = sorted.filter((x) => {
-        const formattedSearch = search.toLowerCase().replace(/ /g, '');
-        return (
-          x.validator.name.toLowerCase().replace(/ /g, '').includes(formattedSearch) ||
-          x.validator.address.toLowerCase().includes(formattedSearch)
-        );
-      });
-    }
-
-    if (state.sortKey && state.sortDirection) {
-      sorted.sort((a, b) => {
-        let compareA = R.pathOr(undefined, [...state.sortKey.split('.')], a);
-        let compareB = R.pathOr(undefined, [...state.sortKey.split('.')], b);
-
-        if (typeof compareA === 'string') {
-          compareA = compareA.toLowerCase();
-          compareB = compareB.toLowerCase();
-        }
-
-        if (compareA < compareB) {
-          return state.sortDirection === 'asc' ? -1 : 1;
-        }
-        if (compareA > compareB) {
-          return state.sortDirection === 'asc' ? 1 : -1;
-        }
-        return 0;
-      });
-    }
-
-    return sorted;
-  };
-
-  const handleSearch = (value: string) => {
+  const handleSearch = useCallback((value: string) => {
     setSearch(value);
-  };
+  }, []);
+
+  const sortItems = useCallback(
+    (items: ItemType[]) => {
+      let sorted: ItemType[] = R.clone(items);
+
+      if (state.tab === 0) {
+        sorted = sorted.filter((x) => x.status === 3);
+      }
+
+      if (state.tab === 1) {
+        sorted = sorted.filter((x) => x.status !== 3);
+      }
+
+      if (search) {
+        sorted = sorted.filter((x) => {
+          const formattedSearch = search.toLowerCase().replace(/ /g, '');
+          return (
+            x.validator.name.toLowerCase().replace(/ /g, '').includes(formattedSearch) ||
+            x.validator.address.toLowerCase().includes(formattedSearch)
+          );
+        });
+      }
+
+      if (state.sortKey && state.sortDirection) {
+        sorted.sort((a, b) => {
+          let compareA: any = R.pathOr(undefined, [...state.sortKey.split('.')], a);
+          let compareB: any = R.pathOr(undefined, [...state.sortKey.split('.')], b);
+
+          if (typeof compareA === 'string') {
+            compareA = compareA.toLowerCase();
+            compareB = compareB.toLowerCase();
+          }
+
+          if (compareA < compareB) {
+            return state.sortDirection === 'asc' ? -1 : 1;
+          }
+          if (compareA > compareB) {
+            return state.sortDirection === 'asc' ? 1 : -1;
+          }
+          return 0;
+        });
+      }
+
+      return sorted;
+    },
+    [search, state.sortDirection, state.sortKey, state.tab]
+  );
 
   return {
     state,

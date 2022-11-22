@@ -1,12 +1,12 @@
 import React from 'react';
 import numeral from 'numeral';
 import Trans from 'next-translate/Trans';
-import { Typography } from '@material-ui/core';
-import Name from '@components/name';
+import Typography from '@material-ui/core/Typography';
+import Name from 'ui/components/name';
 import MsgWithdraw from '@models/bitsong/msg/auction/msg_withdraw';
-import { useProfileRecoil } from '@recoil/profiles';
+import { useProfileRecoil } from 'ui/recoil/profiles';
 
-const Withdraw = (props: { message: MsgWithdraw }) => {
+const Withdraw: React.FC<{ message: MsgWithdraw }> = (props) => {
   const { message } = props;
 
   const recipient = useProfileRecoil(message.recipient);

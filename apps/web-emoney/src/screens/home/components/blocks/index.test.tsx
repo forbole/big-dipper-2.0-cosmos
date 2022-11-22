@@ -1,8 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme, wait } from '@tests/utils';
-import { createMockClient, createMockSubscription } from 'mock-apollo-client';
-import { ApolloProvider } from '@apollo/client';
+import { MockTheme, wait } from 'ui/tests/utils';
+import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
+import { MockedProvider } from '@apollo/client/testing';
 import { BlocksListenerDocument } from '@graphql/types/general_types';
 import Blocks from '.';
 
@@ -14,19 +14,21 @@ const mockI18n = {
   lang: 'en',
 };
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
-jest.mock('@components/box', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/box', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Box" {...props} />
 ));
-jest.mock('@components/no_data', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/no_data', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="NoData" {...props} />
 ));
 
-jest.mock('./components', () => ({
-  Mobile: (props: JSX.IntrinsicElements['div']) => <div id="Mobile" {...props} />,
-  Desktop: (props: JSX.IntrinsicElements['div']) => <div id="Desktop" {...props} />,
-}));
+jest.mock('./components/mobile', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Mobile" {...props} />
+));
+jest.mock('./components/desktop', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Desktop" {...props} />
+));
 
-const mockBlocksListenerDocument = {
+const mockBlocksListenerDocument = jest.fn().mockReturnValue({
   data: {
     blocks: [
       {
@@ -42,36 +44,34 @@ const mockBlocksListenerDocument = {
       },
     ],
   },
-};
+});
 
 // ==================================
 // unit tests
 // ==================================
 describe('screen: Home/Blocks/Mobile', () => {
   it('matches snapshot', async () => {
-    const mockClient = createMockClient();
-    const mockSubscription = createMockSubscription();
-    mockClient.setRequestHandler(BlocksListenerDocument, () => mockSubscription);
-
-    let component;
+    const mockClient = new ApolloClient({ link: from([]), cache: new InMemoryCache() });
+    let component: renderer.ReactTestRenderer | undefined;
 
     renderer.act(() => {
       component = renderer.create(
         <ApolloProvider client={mockClient}>
-          <MockTheme>
-            <Blocks />
-          </MockTheme>
+          <MockedProvider
+            mocks={[
+              { request: { query: BlocksListenerDocument }, result: mockBlocksListenerDocument },
+            ]}
+          >
+            <MockTheme>
+              <Blocks />
+            </MockTheme>
+          </MockedProvider>
         </ApolloProvider>
       );
     });
 
-    await wait();
-
-    renderer.act(() => {
-      mockSubscription.next(mockBlocksListenerDocument);
-    });
-
-    const tree = component.toJSON();
+    await wait(renderer.act);
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

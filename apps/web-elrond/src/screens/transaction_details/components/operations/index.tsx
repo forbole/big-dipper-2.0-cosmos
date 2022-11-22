@@ -1,11 +1,11 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 import NoData from '@components/no_data';
-import Box from '@components/box';
-import { Typography } from '@material-ui/core';
+import Box from 'ui/components/box';
+import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
-import { useScreenSize } from '@hooks';
-import { OperationType } from '../../types';
+import { useScreenSize } from 'ui/hooks';
+import type { OperationType } from '../../types';
 import { useStyles } from './styles';
 import type DesktopType from './components/desktop';
 import type MobileType from './components/mobile';

@@ -1,14 +1,3 @@
-export type ProvidersState = {
-  loading: boolean;
-  exists: boolean;
-  activeProvidersCount: number;
-  activeLeasesCount: number;
-  memory: MemoryState;
-  cpu: CPUState;
-  storage: StorageState;
-  providers: ProvidersListState;
-};
-
 export type MemoryState = {
   available: number;
   used: number;
@@ -25,18 +14,6 @@ export type StorageState = {
   pending: number;
 };
 
-export type ProvidersListState = {
-  isNextPageLoading: boolean;
-
-  // Providers items
-  items: ProviderInfo[];
-
-  // Paginated providers list
-  pages: ProviderInfo[][];
-
-  pagination: ProvidersListPaginationState;
-};
-
 export type ProvidersListPaginationState = {
   itemsPerPage: number;
   currentPage: number;
@@ -50,4 +27,27 @@ export type ProviderInfo = {
   organization?: string;
   emailAddress?: string;
   website?: string;
+};
+
+export type ProvidersListState = {
+  isNextPageLoading: boolean;
+
+  // Providers items
+  items: ProviderInfo[];
+
+  // Paginated providers list
+  pages: ProviderInfo[][];
+
+  pagination: ProvidersListPaginationState;
+};
+
+export type ProvidersState = {
+  loading: boolean;
+  exists: boolean;
+  activeProvidersCount: number;
+  activeLeasesCount: number;
+  memory: MemoryState;
+  cpu: CPUState;
+  storage: StorageState;
+  providers: ProvidersListState;
 };

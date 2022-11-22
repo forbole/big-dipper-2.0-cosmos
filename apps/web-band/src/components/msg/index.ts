@@ -1,143 +1,73 @@
 // =========================
 // utils
 // =========================
-import { getMessageModelByType, getMessageByType, convertMsgsToModels } from './utils';
+export { getMessageModelByType, getMessageByType, convertMsgsToModels } from 'ui/components/msg';
 
 // =========================
 // msg components
 // =========================
-import Delegate from './staking/delegate';
-import Unknown from './unknown';
-import Redelegate from './staking/redelegate';
-import Undelegate from './staking/undelegate';
-import CreateValidator from './staking/create_validator';
-import EditValidator from './staking/edit_validator';
-import Send from './bank/send';
-import Multisend from './bank/multisend';
-import VerifyInvariant from './crisis/verify_invariant';
-import Unjail from './slashing/unjail';
-import Fund from './distribution/fund';
-import SetWithdrawalAddress from './distribution/set_withdrawal_address';
-import WithdrawReward from './distribution/withdraw_reward';
-import DepositProposal from './governance/deposit_proposal';
-import Vote from './governance/vote';
-import SubmitProposal from './governance/submit_proposal';
-import WithdrawCommission from './distribution/withdraw_commission';
-import SaveProfile from './profiles/save_profile';
-import DeleteProfile from './profiles/delete_profile';
-import CreateRelationship from './profiles/create_relationship';
-import DtagTransferRequest from './profiles/dtag_transfer_request';
-import DtagAcceptTransfer from './profiles/dtag_accept_transfer';
-import DtagCancelTransfer from './profiles/dtag_cancel_transfer';
-import DtagRefuseTransfer from './profiles/dtag_refuse_transfer';
-import BlockUser from './profiles/block_user';
-import UnBlockUser from './profiles/unblock_user';
-import CreateClient from './ibc/client_create_client';
-import UpdateClient from './ibc/client_update_client';
-import UpgradeClient from './ibc/client_upgrade_client';
-import SubmitMisbehaviour from './ibc/client_submit_misbehaviour';
-import Height from './ibc/client_height';
-import Acknowledgement from './ibc/channel_acknowledgement';
-import Channel from './ibc/channel';
-import ChannelCloseConfirm from './ibc/channel_close_confirm';
-import ChannelCloseInit from './ibc/channel_close_init';
-import ChannelOpenAck from './ibc/channel_open_ack';
-import ChannelOpenConfirm from './ibc/channel_open_confirm';
-import ChannelOpenInit from './ibc/channel_open_init';
-import ChannelOpenTry from './ibc/channel_open_try';
-import CounterpartyChannel from './ibc/channel_counterparty';
-import Packet from './ibc/channel_packet';
-import ReceivePacket from './ibc/channel_receive_packet';
-import Timeout from './ibc/channel_timeout';
-import TimeoutOnClose from './ibc/channel_timeout_on_close';
-import ConnectionEnd from './ibc/connection_end';
-import ConnectionOpenAck from './ibc/connection_open_ack';
-import ConnectionOpenConfirm from './ibc/connection_open_confirm';
-import ConnectionOpenInit from './ibc/connection_open_init';
-import ConnectionOpenTry from './ibc/connection_open_try';
-import CounterpartyConnection from './ibc/connection_counterparty';
-import Version from './ibc/connection_version';
-import Transfer from './ibc_transfer/transfer';
-import RequestData from './oracle/request_data';
-import ReportData from './oracle/report_data';
-import CreateDataSource from './oracle/create_data_source';
-import EditDataSource from './oracle/edit_data_source';
-import CreateOracleScript from './oracle/create_oracle_script';
-import EditOracleScript from './oracle/edit_oracle_script';
-import Activate from './oracle/activate';
-import Grant from './authz/grant';
-import Revoke from './authz/revoke';
-import GrantAllowance from './feegrant/grant_allowance';
-import RevokeAllowance from './feegrant/revoke_allowance';
-import CreateVestingAccount from './vesting/create_vesting_account';
-import CreatePeriodicVestingAccount from './vesting/create_periodic_vesting_account';
-
-export { getMessageModelByType, getMessageByType, convertMsgsToModels };
-
-export {
-  Delegate,
-  Unknown,
-  Redelegate,
-  Undelegate,
-  CreateValidator,
-  EditValidator,
-  Send,
-  Multisend,
-  VerifyInvariant,
-  Unjail,
-  Fund,
-  SetWithdrawalAddress,
-  WithdrawReward,
-  DepositProposal,
-  Vote,
-  SubmitProposal,
-  WithdrawCommission,
-  SaveProfile,
-  DeleteProfile,
-  CreateRelationship,
-  DtagTransferRequest,
-  DtagAcceptTransfer,
-  DtagCancelTransfer,
-  DtagRefuseTransfer,
-  BlockUser,
-  UnBlockUser,
-  CreateClient,
-  UpdateClient,
-  UpgradeClient,
-  SubmitMisbehaviour,
-  Height,
-  Acknowledgement,
-  Channel,
-  ChannelCloseConfirm,
-  ChannelCloseInit,
-  ChannelOpenAck,
-  ChannelOpenConfirm,
-  ChannelOpenInit,
-  ChannelOpenTry,
-  CounterpartyChannel,
-  Packet,
-  ReceivePacket,
-  Timeout,
-  TimeoutOnClose,
-  ConnectionEnd,
-  ConnectionOpenAck,
-  ConnectionOpenConfirm,
-  ConnectionOpenInit,
-  ConnectionOpenTry,
-  CounterpartyConnection,
-  Version,
-  Transfer,
-  RequestData,
-  ReportData,
-  CreateDataSource,
-  EditDataSource,
-  CreateOracleScript,
-  EditOracleScript,
-  Activate,
-  Grant,
-  Revoke,
-  GrantAllowance,
-  RevokeAllowance,
-  CreateVestingAccount,
-  CreatePeriodicVestingAccount,
-};
+export { default as Delegate } from 'ui/components/msg/staking/delegate';
+export { default as Unknown } from 'ui/components/msg/unknown';
+export { default as Redelegate } from 'ui/components/msg/staking/redelegate';
+export { default as Undelegate } from 'ui/components/msg/staking/undelegate';
+export { default as CreateValidator } from 'ui/components/msg/staking/create_validator';
+export { default as EditValidator } from 'ui/components/msg/staking/edit_validator';
+export { default as Send } from 'ui/components/msg/bank/send';
+export { default as Multisend } from 'ui/components/msg/bank/multisend';
+export { default as VerifyInvariant } from 'ui/components/msg/crisis/verify_invariant';
+export { default as Unjail } from 'ui/components/msg/slashing/unjail';
+export { default as Fund } from 'ui/components/msg/distribution/fund';
+export { default as SetWithdrawalAddress } from 'ui/components/msg/distribution/set_withdrawal_address';
+export { default as WithdrawReward } from 'ui/components/msg/distribution/withdraw_reward';
+export { default as DepositProposal } from 'ui/components/msg/governance/deposit_proposal';
+export { default as Vote } from 'ui/components/msg/governance/vote';
+export { default as SubmitProposal } from 'ui/components/msg/governance/submit_proposal';
+export { default as WithdrawCommission } from 'ui/components/msg/distribution/withdraw_commission';
+export { default as SaveProfile } from 'ui/components/msg/profiles/save_profile';
+export { default as DeleteProfile } from 'ui/components/msg/profiles/delete_profile';
+export { default as CreateRelationship } from 'ui/components/msg/profiles/create_relationship';
+export { default as DtagTransferRequest } from 'ui/components/msg/profiles/dtag_transfer_request';
+export { default as DtagAcceptTransfer } from 'ui/components/msg/profiles/dtag_accept_transfer';
+export { default as Transfer } from 'ui/components/msg/ibc_transfer/transfer';
+export { default as DtagCancelTransfer } from 'ui/components/msg/profiles/dtag_cancel_transfer';
+export { default as DtagRefuseTransfer } from 'ui/components/msg/profiles/dtag_refuse_transfer';
+export { default as BlockUser } from 'ui/components/msg/profiles/block_user';
+export { default as UnBlockUser } from 'ui/components/msg/profiles/unblock_user';
+export { default as Grant } from 'ui/components/msg/authz/grant';
+export { default as Revoke } from 'ui/components/msg/authz/revoke';
+export { default as GrantAllowance } from 'ui/components/msg/feegrant/grant_allowance';
+export { default as RevokeAllowance } from 'ui/components/msg/feegrant/revoke_allowance';
+export { default as CreateVestingAccount } from 'ui/components/msg/vesting/create_vesting_account';
+export { default as CreateClient } from 'ui/components/msg/ibc/client_create_client';
+export { default as UpdateClient } from 'ui/components/msg/ibc/client_update_client';
+export { default as UpgradeClient } from 'ui/components/msg/ibc/client_upgrade_client';
+export { default as SubmitMisbehaviour } from 'ui/components/msg/ibc/client_submit_misbehaviour';
+export { default as Height } from 'ui/components/msg/ibc/client_height';
+export { default as Acknowledgement } from 'ui/components/msg/ibc/channel_acknowledgement';
+export { default as Channel } from 'ui/components/msg/ibc/channel';
+export { default as ChannelCloseConfirm } from 'ui/components/msg/ibc/channel_close_confirm';
+export { default as ChannelCloseInit } from 'ui/components/msg/ibc/channel_close_init';
+export { default as ChannelOpenAck } from 'ui/components/msg/ibc/channel_open_ack';
+export { default as ChannelOpenConfirm } from 'ui/components/msg/ibc/channel_open_confirm';
+export { default as ChannelOpenInit } from 'ui/components/msg/ibc/channel_open_init';
+export { default as ChannelOpenTry } from 'ui/components/msg/ibc/channel_open_try';
+export { default as CounterpartyChannel } from 'ui/components/msg/ibc/channel_counterparty';
+export { default as Packet } from 'ui/components/msg/ibc/channel_packet';
+export { default as ReceivePacket } from 'ui/components/msg/ibc/channel_receive_packet';
+export { default as Timeout } from 'ui/components/msg/ibc/channel_timeout';
+export { default as TimeoutOnClose } from 'ui/components/msg/ibc/channel_timeout_on_close';
+export { default as ConnectionEnd } from 'ui/components/msg/ibc/connection_end';
+export { default as ConnectionOpenAck } from 'ui/components/msg/ibc/connection_open_ack';
+export { default as ConnectionOpenConfirm } from 'ui/components/msg/ibc/connection_open_confirm';
+export { default as ConnectionOpenInit } from 'ui/components/msg/ibc/connection_open_init';
+export { default as ConnectionOpenTry } from 'ui/components/msg/ibc/connection_open_try';
+export { default as CounterpartyConnection } from 'ui/components/msg/ibc/connection_counterparty';
+export { default as Version } from 'ui/components/msg/ibc/connection_version';
+export { default as RequestData } from './oracle/request_data';
+export { default as ReportData } from './oracle/report_data';
+export { default as CreateDataSource } from './oracle/create_data_source';
+export { default as EditDataSource } from './oracle/edit_data_source';
+export { default as CreateOracleScript } from './oracle/create_oracle_script';
+export { default as EditOracleScript } from './oracle/edit_oracle_script';
+export { default as Activate } from './oracle/activate';
+export { default as CreatePeriodicVestingAccount } from './vesting/create_periodic_vesting_account';

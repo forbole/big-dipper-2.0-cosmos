@@ -1,22 +1,25 @@
 import * as R from 'ramda';
-import {
-  MsgTextProposal,
-  MsgSoftwareUpgradeProposal,
-  MsgParameterChangeProposal,
-  MsgCommunityPoolSpendProposal,
-} from '../..';
-import { Categories } from '../types';
+import MsgTextProposal from './msg_text_proposal';
+import MsgSoftwareUpgradeProposal from './msg_software_upgrade_proposal';
+import MsgParameterChangeProposal from './msg_parameter_change_proposal';
+import MsgCommunityPoolSpendProposal from './msg_community_pool_spend_proposal';
+import type { Categories } from '../types';
 
 class MsgSubmitProposal {
   public category: Categories;
+
   public type: string;
+
   public content:
     | MsgTextProposal
     | MsgSoftwareUpgradeProposal
     | MsgParameterChangeProposal
     | MsgCommunityPoolSpendProposal;
+
   public initialDeposit: MsgCoin[];
+
   public proposer: string;
+
   public json: any;
 
   constructor(payload: any) {
@@ -28,7 +31,7 @@ class MsgSubmitProposal {
     this.json = payload.json;
   }
 
-  static fromJson(json: any) {
+  static fromJson(json: any): MsgSubmitProposal {
     const contentDetailsRaw = json?.content;
     const contentType = contentDetailsRaw?.['@type'];
     let content = null;
@@ -55,19 +58,18 @@ class MsgSubmitProposal {
         break;
     }
 
-    return new MsgSubmitProposal({
+    return {
+      category: 'governance',
       json,
       content,
       type: json['@type'],
       initialDeposit:
-        json?.initial_deposit?.map((x?: { denom?: string; amount?: number }) => {
-          return {
-            denom: x?.denom,
-            amount: R.pathOr('0', ['amount'], x),
-          };
-        }) ?? [],
+        json?.initial_deposit?.map((x?: { denom?: string; amount?: number }) => ({
+          denom: x?.denom,
+          amount: R.pathOr('0', ['amount'], x),
+        })) ?? [],
       proposer: json.proposer,
-    });
+    };
   }
 }
 

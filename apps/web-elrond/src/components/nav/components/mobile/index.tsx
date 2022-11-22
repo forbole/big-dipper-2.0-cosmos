@@ -1,10 +1,13 @@
 import React from 'react';
 import classnames from 'classnames';
-import { useGetComponentDimension } from '@hooks';
+import { useGetComponentDimension } from 'ui/hooks';
+import Networks from 'ui/components/nav/components/networks';
 import { useStyles } from './styles';
 import { useMobile } from './hooks';
-import { Networks, TitleBar } from '..';
-import { Menu, Navbar, SearchBar } from './components';
+import TitleBar from '../title_bar';
+import Menu from './components/menu';
+import Navbar from './components/navbar';
+import SearchBar from '../search_bar';
 
 const Mobile: React.FC<{
   className?: string;

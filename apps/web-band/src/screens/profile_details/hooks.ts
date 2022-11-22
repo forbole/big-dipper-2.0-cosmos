@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
 import chainConfig from 'ui/chainConfig';
-import { useDesmosProfile } from '@hooks';
-import { ProfileDetailState } from './types';
+import { useDesmosProfile } from 'ui/hooks';
+import type { ProfileDetailState } from './types';
 
 const initialState: ProfileDetailState = {
   loading: true,
@@ -14,9 +14,12 @@ const initialState: ProfileDetailState = {
 export const useProfileDetails = () => {
   const router = useRouter();
   const [state, setState] = useState<ProfileDetailState>(initialState);
-  const handleSetState = (stateChange: any) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-  };
+  const handleSetState = useCallback((stateChange: Partial<ProfileDetailState>) => {
+    setState((prevState) => {
+      const newState = { ...prevState, ...stateChange };
+      return R.equals(prevState, newState) ? prevState : newState;
+    });
+  }, []);
 
   // ==========================
   // Desmos Profile
@@ -31,21 +34,18 @@ export const useProfileDetails = () => {
     },
   });
 
-  const shouldShowProfile = () => {
-    const dtagConnections = state.desmosProfile.connections;
-    const dtagConnectionsNetwork = dtagConnections.map((x) => {
-      return x.identifier;
-    });
+  const shouldShowProfile = useCallback(() => {
+    const dtagConnections = state.desmosProfile?.connections ?? [];
+    const dtagConnectionsNetwork = dtagConnections.map((x) => x.identifier);
     const chainPrefix = chainConfig.prefix.account;
     const containNetwork = dtagConnectionsNetwork.some((x) => x.startsWith(chainPrefix));
-    if (containNetwork) {
-      return true;
-    }
-  };
+    return !!containNetwork;
+  }, [state.desmosProfile?.connections]);
+
+  const profileDtag: string = (router?.query?.dtag as string) ?? '';
 
   useEffect(() => {
     const regex = /^@/;
-    const profileDtag = router.query.dtag as string;
     const regexCheck = regex.test(profileDtag);
     const configProfile = chainConfig.extra.profile;
     handleSetState(initialState);
@@ -54,9 +54,10 @@ export const useProfileDetails = () => {
       router.replace('/');
     }
     if (configProfile) {
-      fetchDesmosProfile(R.pathOr('', ['query', 'dtag'], router));
+      fetchDesmosProfile(profileDtag);
     }
-  }, [R.pathOr('', ['query', 'dtag'], router)]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [profileDtag]);
 
   useEffect(() => {
     if (state.desmosProfile) {
@@ -80,6 +81,7 @@ export const useProfileDetails = () => {
         });
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.desmosProfile]);
 
   return {

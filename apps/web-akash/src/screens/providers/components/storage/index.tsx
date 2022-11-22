@@ -1,10 +1,10 @@
 import React from 'react';
 import classnames from 'classnames';
 import numeral from 'numeral';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
-import Box from '@components/box';
-import CustomToolTip from '@components/custom_tool_tip';
+import Box from 'ui/components/box';
+import CustomToolTip from 'ui/components/custom_tool_tip';
 import { PieChart, Pie, Cell, Tooltip } from 'recharts';
 import { useStyles } from './styles';
 
@@ -19,13 +19,9 @@ const Storage: React.FC<{
   const { t } = useTranslation('providers');
   const { classes, theme } = useStyles();
 
-  const convertBytesToTB = (bytes: number) => {
-    return bytes / 10 ** 12;
-  };
+  const convertBytesToTB = (bytes: number) => bytes / 10 ** 12;
 
-  const convertBytesToGB = (bytes: number) => {
-    return bytes / 10 ** 9;
-  };
+  const convertBytesToGB = (bytes: number) => bytes / 10 ** 9;
 
   const total = storage.available + storage.used + storage.pending;
 
@@ -77,45 +73,41 @@ const Storage: React.FC<{
             dataKey="rawValue"
             isAnimationActive={false}
           >
-            {data.map((entry) => {
-              return <Cell key={entry.legendKey} fill={entry.fill} />;
-            })}
+            {data.map((entry) => (
+              <Cell key={entry.legendKey} fill={entry.fill} />
+            ))}
           </Pie>
           <Tooltip
             content={
               <CustomToolTip>
-                {(x) => {
-                  return (
-                    <>
-                      <Typography variant="caption">{t(x.legendKey)}</Typography>
-                      <Typography variant="body1">
-                        {x.value} ({x.percent})
-                      </Typography>
-                    </>
-                  );
-                }}
+                {(x) => (
+                  <>
+                    <Typography variant="caption">{t(x.legendKey)}</Typography>
+                    <Typography variant="body1">
+                      {x.value} ({x.percent})
+                    </Typography>
+                  </>
+                )}
               </CustomToolTip>
             }
           />
         </PieChart>
 
         <div className={classes.legends}>
-          {data.map((x) => {
-            return (
-              <div className="legends__item" key={x.legendKey}>
-                <Typography variant="caption" className="usage">
-                  {t(x.legendKey)}{' '}
-                </Typography>
-                <Typography variant="caption" className="tb">
-                  ( {x.value} )
-                </Typography>
-                <Typography variant="caption" className="percent">
-                  {' '}
-                  {x.percent}
-                </Typography>
-              </div>
-            );
-          })}
+          {data.map((x: any) => (
+            <div className="legends__item" key={x.legendKey}>
+              <Typography variant="caption" className="usage">
+                {t(x.legendKey)}{' '}
+              </Typography>
+              <Typography variant="caption" className="tb">
+                ( {x.value} )
+              </Typography>
+              <Typography variant="caption" className="percent">
+                {' '}
+                {x.percent}
+              </Typography>
+            </div>
+          ))}
         </div>
       </div>
     </Box>

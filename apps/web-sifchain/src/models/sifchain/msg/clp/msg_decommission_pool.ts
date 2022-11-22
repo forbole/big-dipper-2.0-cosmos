@@ -1,10 +1,14 @@
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgDecommissionPool {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public signer: string;
+
   public symbol: string;
 
   constructor(payload: any) {
@@ -15,13 +19,14 @@ class MsgDecommissionPool {
     this.symbol = payload.symbol;
   }
 
-  static fromJson(json: any) {
-    return new MsgDecommissionPool({
+  static fromJson(json: any): MsgDecommissionPool {
+    return {
+      category: 'clp',
       json,
       type: json['@type'],
       signer: json.signer,
       symbol: json.symbol,
-    });
+    };
   }
 }
 

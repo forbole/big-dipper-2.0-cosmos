@@ -1,10 +1,13 @@
 import * as R from 'ramda';
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgCreateEthBridgeClaim {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public ethBridgeClaim: {
     cosmosreceiver: string;
     claimType: 'CLAIM_TYPE_UNSPECIFIED' | 'CLAIM_TYPE_BURN' | 'CLAIM_TYPE_LOCK';
@@ -17,15 +20,16 @@ class MsgCreateEthBridgeClaim {
     this.ethBridgeClaim = payload.ethBridgeClaim;
   }
 
-  static fromJson(json: any) {
-    return new MsgCreateEthBridgeClaim({
+  static fromJson(json: any): MsgCreateEthBridgeClaim {
+    return {
+      category: 'ethbridge',
       json,
       type: json['@type'],
       ethBridgeClaim: {
         cosmosreceiver: R.pathOr('', ['eth_bridge_claim', 'cosmos_receiver'], json),
         claimType: R.pathOr('CLAIM_TYPE_UNSPECIFIED', ['eth_bridge_claim', 'claim_type'], json),
       },
-    });
+    };
   }
 }
 

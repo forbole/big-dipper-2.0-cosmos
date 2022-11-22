@@ -3,8 +3,9 @@ import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import dayjs, { formatDayJs } from 'ui/utils/dayjs';
 import { useRecoilValue } from 'recoil';
-import { readDate } from '@recoil/settings';
-import { Divider, Typography } from '@material-ui/core';
+import { readDate } from 'ui/recoil/settings';
+import Divider from '@material-ui/core/Divider';
+import Typography from '@material-ui/core/Typography';
 import chainConfig from 'ui/chainConfig';
 import Link from 'next/link';
 import { ACCOUNT_DETAILS } from 'ui/utils/go_to_page';
@@ -20,9 +21,10 @@ const Mobile: React.FC<{
 
   return (
     <div className={classnames(className)}>
-      {items.map((x, i) => {
+      {items?.map((x, i) => {
         const checkIdentifier = new RegExp(`^(${chainConfig.prefix.account})`).test(x.identifier);
         return (
+          // eslint-disable-next-line react/no-array-index-key
           <React.Fragment key={`votes-mobile-${i}`}>
             <div className={classes.list}>
               <div className={classes.item}>
@@ -54,11 +56,11 @@ const Mobile: React.FC<{
                   {t('creationTime')}
                 </Typography>
                 <Typography variant="body1" className="value">
-                  {formatDayJs(dayjs.utc(x.creationTime), dateFormat)}
+                  {formatDayJs((dayjs as any).utc(x.creationTime), dateFormat)}
                 </Typography>
               </div>
             </div>
-            {i !== items.length - 1 && <Divider />}
+            {!!items && i !== items.length - 1 && <Divider />}
           </React.Fragment>
         );
       })}

@@ -9,12 +9,17 @@
   "publishConfig": {
     "access": "public"
   },
+  "dependencies": {
+    "@sentry/nextjs": "^7.16.0",
+    "eslint": "^8.27.0",
+    "next": "^12.3.3",
+    "next-translate": "^1.6.0",
+    "next-transpile-modules": "^10.0.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
   "devDependencies": {
-    "eslint": "^8.26.0",
     "eslint-config-custom": "*",
-    "jest": "^27.0.0",
-    "jest-presets": "*",
-    "ts-jest": "^27.0.0",
     "typescript": "^4.8.4"
   }
 }

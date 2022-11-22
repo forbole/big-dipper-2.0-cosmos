@@ -1,13 +1,13 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
-import { MsgUpdateIscnRecord } from '@models';
+import { MockTheme } from 'ui/tests/utils';
+import MsgUpdateIscnRecord from '@models/likecoin/msg/iscn/msg_update_iscn_record';
 import UpdateIscnRecord from '.';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 
@@ -16,7 +16,7 @@ jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 describe('screen: TransactionDetails/UpdateIscnRecord', () => {
   it('matches snapshot', () => {
-    const message = new MsgUpdateIscnRecord({
+    const message: MsgUpdateIscnRecord = {
       category: 'iscn',
       type: 'MsgUpdateIscnRecord',
       from: 'from',
@@ -25,15 +25,16 @@ describe('screen: TransactionDetails/UpdateIscnRecord', () => {
         recordNotes: 'recordNotes',
         contentFingerprints: ['contentFingerprints'],
         stakeholders: [],
-        contentMetadata: '{}',
+        contentMetadata: JSON.parse('{}'),
       },
-    });
+      json: {},
+    };
     const component = renderer.create(
       <MockTheme>
         <UpdateIscnRecord message={message} />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

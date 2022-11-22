@@ -1,11 +1,11 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
-import { Typography } from '@material-ui/core';
-import Name from '@components/name';
+import Typography from '@material-ui/core/Typography';
+import Name from 'ui/components/name';
 import MsgCreateEthBridgeClaim from '@models/sifchain/msg/ethbridge/msg_create_eth_bridge_claim';
-import { useProfileRecoil } from '@recoil/profiles';
+import { useProfileRecoil } from 'ui/recoil/profiles';
 
-const CreateEthBridgeClaim = (props: { message: MsgCreateEthBridgeClaim }) => {
+const CreateEthBridgeClaim: React.FC<{ message: MsgCreateEthBridgeClaim }> = (props) => {
   const { message } = props;
 
   const cosmosreceiver = useProfileRecoil(message.ethBridgeClaim.cosmosreceiver);

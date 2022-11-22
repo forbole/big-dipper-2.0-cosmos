@@ -1,13 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import { useTransactionDetailsQuery, TransactionDetailsQuery } from '@graphql/types/general_types';
 import { formatToken } from 'ui/utils/format_token';
-import { TransactionState } from './types';
+import type { TransactionState } from './types';
 
 export const useTransactionDetails = () => {
   const router = useRouter();
-  const [state, setState] = useState<TransactionState>({
+    const [state, setState] = useState<TransactionState>({
     exists: true,
     loading: true,
     overview: {
@@ -25,16 +25,19 @@ export const useTransactionDetails = () => {
     },
   });
 
-  const handleSetState = (stateChange: any) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-  };
+  const handleSetState = useCallback((stateChange: Partial<TransactionState>) => {
+    setState((prevState) => {
+      const newState = { ...prevState, ...stateChange };
+      return R.equals(prevState, newState) ? prevState : newState;
+    });
+  }, []);
 
   useEffect(() => {
     handleSetState({
       loading: true,
       exists: true,
     });
-  }, [router.query.tx]);
+  }, [handleSetState]);
 
   // ===============================
   // Fetch data

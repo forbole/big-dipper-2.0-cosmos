@@ -1,14 +1,14 @@
 import React from 'react';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
-import { createMockClient } from 'mock-apollo-client';
-import { ApolloProvider } from '@apollo/client';
-import renderer, { ReactTestRendererJSON } from 'react-test-renderer';
-import { MockTheme, wait } from '@tests/utils';
+import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
+import renderer from 'react-test-renderer';
+import { MockTheme, wait } from 'ui/tests/utils';
 import {
   // AccountDocument,
   GetMessagesByAddressDocument,
 } from '@graphql/types/general_types';
+import { MockedProvider } from '@apollo/client/testing';
 import AccountDetails from '.';
 
 // ==================================
@@ -24,82 +24,93 @@ jest.mock('next/router', () => ({
 jest.mock('@components/layout', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Layout" {...props} />
 ));
-jest.mock('@components/load_and_exist', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/load_and_exist', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="LoadAndExist" {...props} />
 ));
-jest.mock('@components/desmos_profile', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/desmos_profile', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="DesmosProfile" {...props} />
 ));
 
-jest.mock('./components', () => ({
-  Overview: (props: JSX.IntrinsicElements['div']) => <div id="Overview" {...props} />,
-  Balance: (props: JSX.IntrinsicElements['div']) => <div id="Balance" {...props} />,
-  Staking: (props: JSX.IntrinsicElements['div']) => <div id="Staking" {...props} />,
-  Transactions: (props: JSX.IntrinsicElements['div']) => <div id="Transactions" {...props} />,
-  OtherTokens: (props: JSX.IntrinsicElements['div']) => <div id="OtherTokens" {...props} />,
-}));
+jest.mock(
+  'ui/screens/account_details/components/overview',
+  () => (props: JSX.IntrinsicElements['div']) => <div id="Overview" {...props} />
+);
+jest.mock('./components/balance', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Balance" {...props} />
+));
+jest.mock(
+  'ui/screens/account_details/components/staking',
+  () => (props: JSX.IntrinsicElements['div']) => <div id="Staking" {...props} />
+);
+jest.mock('./components/transactions', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Transactions" {...props} />
+));
+jest.mock(
+  'ui/screens/account_details/components/other_tokens',
+  () => (props: JSX.IntrinsicElements['div']) => <div id="OtherTokens" {...props} />
+);
 
-const mockAccount = jest.fn().mockResolvedValue({
-  data: {
-    commission: {
-      coins: [
-        {
-          amount: '935371507.295045102561007305',
-          denom: 'udsm',
-        },
-      ],
-    },
-    withdrawalAddress: {
-      address: 'desmos1ltpgdupjgtpqzsznltcptmfh6gfu5d8uehxggj',
-    },
-    accountBalances: {
-      coins: [
-        {
-          amount: '116306',
-          denom: 'udsm',
-        },
-      ],
-    },
-    delegationBalance: {
-      coins: [
-        {
-          amount: '1530000000',
-          denom: 'udsm',
-        },
-      ],
-    },
-    unbondingBalance: {
-      coins: [
-        {
-          amount: '0',
-          denom: 'udsm',
-        },
-      ],
-    },
-    delegationRewards: [
-      {
-        validatorAddress: 'desmosvaloper1gwr9l765vfxv4l4zz8glsxwkkphj2084xjwc68',
-        coins: [
-          {
-            amount: '1983411.761512021000000000',
-            denom: 'udsm',
-          },
-        ],
-      },
-      {
-        validatorAddress: 'desmosvaloper1mqfr567kvp659z0zjvpqudw3wx7hh3s7u9a8g9',
-        coins: [
-          {
-            amount: '1029160.218282986240000000',
-            denom: 'udsm',
-          },
-        ],
-      },
-    ],
-  },
-});
+// const mockAccount = jest.fn().mockReturnValue({
+//   data: {
+//     commission: {
+//       coins: [
+//         {
+//           amount: '935371507.295045102561007305',
+//           denom: 'udsm',
+//         },
+//       ],
+//     },
+//     withdrawalAddress: {
+//       address: 'desmos1ltpgdupjgtpqzsznltcptmfh6gfu5d8uehxggj',
+//     },
+//     accountBalances: {
+//       coins: [
+//         {
+//           amount: '116306',
+//           denom: 'udsm',
+//         },
+//       ],
+//     },
+//     delegationBalance: {
+//       coins: [
+//         {
+//           amount: '1530000000',
+//           denom: 'udsm',
+//         },
+//       ],
+//     },
+//     unbondingBalance: {
+//       coins: [
+//         {
+//           amount: '0',
+//           denom: 'udsm',
+//         },
+//       ],
+//     },
+//     delegationRewards: [
+//       {
+//         validatorAddress: 'desmosvaloper1gwr9l765vfxv4l4zz8glsxwkkphj2084xjwc68',
+//         coins: [
+//           {
+//             amount: '1983411.761512021000000000',
+//             denom: 'udsm',
+//           },
+//         ],
+//       },
+//       {
+//         validatorAddress: 'desmosvaloper1mqfr567kvp659z0zjvpqudw3wx7hh3s7u9a8g9',
+//         coins: [
+//           {
+//             amount: '1029160.218282986240000000',
+//             denom: 'udsm',
+//           },
+//         ],
+//       },
+//     ],
+//   },
+// });
 
-const mockAccountMessages = jest.fn().mockResolvedValue({
+const mockAccountMessages = jest.fn().mockReturnValue({
   data: {
     messagesByAddress: [
       {
@@ -152,29 +163,28 @@ describe('screen: BlockDetails', () => {
       },
     });
 
-    const mockClient = createMockClient();
-    mockClient.setRequestHandler(
-      // AccountDocument,
-      mockAccount
-    );
-
-    mockClient.setRequestHandler(GetMessagesByAddressDocument, mockAccountMessages);
-
-    let tree: ReactTestRendererJSON | ReactTestRendererJSON[] | null = null;
+    const mockClient = new ApolloClient({ link: from([]), cache: new InMemoryCache() });
+    let component: renderer.ReactTestRenderer | undefined;
 
     renderer.act(() => {
-      tree = renderer
-        .create(
-          <ApolloProvider client={mockClient}>
+      component = renderer.create(
+        <ApolloProvider client={mockClient}>
+          <MockedProvider
+            mocks={[
+              // {request: { query: AccountDocument }, result: mockAccount},
+              { request: { query: GetMessagesByAddressDocument }, result: mockAccountMessages },
+            ]}
+          >
             <MockTheme>
               <AccountDetails />
             </MockTheme>
-          </ApolloProvider>
-        )
-        .toJSON();
+          </MockedProvider>
+        </ApolloProvider>
+      );
     });
-    await wait();
+    await wait(renderer.act);
 
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

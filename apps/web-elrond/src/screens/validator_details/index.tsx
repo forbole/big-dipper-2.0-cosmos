@@ -2,9 +2,14 @@ import React from 'react';
 import { NextSeo } from 'next-seo';
 import useTranslation from 'next-translate/useTranslation';
 import Layout from '@components/layout';
-import LoadAndExist from '@components/load_and_exist';
+import LoadAndExist from 'ui/components/load_and_exist';
 import { useValidatorDetails } from './hooks';
-import { Profile, Stake, Overview, ContractDetails, Nodes, Transactions } from './components';
+import Profile from './components/profile';
+import Stake from './components/stake';
+import Overview from './components/overview';
+import ContractDetails from './components/contract_details';
+import Nodes from './components/nodes';
+import Transactions from './components/transactions';
 import { useStyles } from './styles';
 
 const ValidatorDetails = () => {
@@ -26,11 +31,17 @@ const ValidatorDetails = () => {
             <Stake className={classes.stake} stake={state.stake} />
             <Overview className={classes.overview} overview={state.overview} />
             {state.isProvider && (
-              <ContractDetails className={classes.contractDetails} contract={state.contract} />
+              <ContractDetails
+                className={classes.contractDetails}
+                contract={state.contract as any}
+              />
             )}
             <Nodes className={classes.nodes} />
             {state.isProvider && (
-              <Transactions provider={state.contract.address} className={classes.transaction} />
+              <Transactions
+                provider={state.contract?.address as any}
+                className={classes.transaction as any}
+              />
             )}
           </div>
         </LoadAndExist>

@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import Nav from '.';
 
 // ==================================
@@ -12,10 +12,12 @@ let component: renderer.ReactTestRenderer;
 // mocks
 // ==================================
 
-jest.mock('./components', () => ({
-  Desktop: (props: JSX.IntrinsicElements['div']) => <div id="Desktop" {...props} />,
-  Mobile: (props: JSX.IntrinsicElements['div']) => <div id="Mobile" {...props} />,
-}));
+jest.mock('./components/desktop', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Desktop" {...props} />
+));
+jest.mock('./components/mobile', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Mobile" {...props} />
+));
 
 // ==================================
 // unit tests
@@ -30,7 +32,7 @@ describe('Component: Nav', () => {
   });
 
   it('it renders', () => {
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

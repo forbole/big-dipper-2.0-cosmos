@@ -1,10 +1,10 @@
 import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
 import dynamic from 'next/dynamic';
-import { Typography } from '@material-ui/core';
-import Pagination from '@components/pagination';
-import Box from '@components/box';
-import { usePagination, useScreenSize } from '@hooks';
+import Typography from '@material-ui/core/Typography';
+import Pagination from 'ui/components/pagination';
+import Box from 'ui/components/box';
+import { usePagination, useScreenSize } from 'ui/hooks';
 import { useStyles } from './styles';
 import type DesktopType from './components/desktop';
 import type MobileType from './components/mobile';

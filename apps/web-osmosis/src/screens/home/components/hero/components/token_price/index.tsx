@@ -1,6 +1,6 @@
 import React from 'react';
 import numeral from 'numeral';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import { useRecoilValue } from 'recoil';
 import {
@@ -12,10 +12,10 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from 'recharts';
-import CustomToolTip from '@components/custom_tool_tip';
-import { readDate } from '@recoil/settings';
+import CustomToolTip from 'ui/components/custom_tool_tip';
+import { readDate } from 'ui/recoil/settings';
 import dayjs, { formatDayJs } from 'ui/utils/dayjs';
-import { TokenPriceType } from '../../types';
+import type { TokenPriceType } from '../../types';
 import { useStyles } from './styles';
 import { usePrice } from './hooks';
 
@@ -25,13 +25,11 @@ const TokenPrice: React.FC<{ items: TokenPriceType[] } & ComponentDefault> = (pr
   const { tickPriceFormatter, formatTime } = usePrice();
   const dateFormat = useRecoilValue(readDate);
 
-  const formatItems = props.items.map((x) => {
-    return {
-      time: formatTime(dayjs.utc(x.time), dateFormat),
-      fullTime: formatDayJs(dayjs.utc(x.time), dateFormat),
-      value: x.value,
-    };
-  });
+  const formatItems = props.items.map((x) => ({
+    time: formatTime((dayjs as any).utc(x.time), dateFormat),
+    fullTime: formatDayJs((dayjs as any).utc(x.time), dateFormat),
+    value: x.value,
+  }));
   return (
     <div>
       <Typography variant="h2">{t('priceHistory')}</Typography>
@@ -73,16 +71,12 @@ const TokenPrice: React.FC<{ items: TokenPriceType[] } & ComponentDefault> = (pr
               cursor={false}
               content={
                 <CustomToolTip>
-                  {(x) => {
-                    return (
-                      <>
-                        <Typography variant="caption">{x.fullTime}</Typography>
-                        <Typography variant="body1">
-                          ${numeral(x.value).format('0,0.00')}
-                        </Typography>
-                      </>
-                    );
-                  }}
+                  {(x) => (
+                    <>
+                      <Typography variant="caption">{(x as any).fullTime}</Typography>
+                      <Typography variant="body1">${numeral(x.value).format('0,0.00')}</Typography>
+                    </>
+                  )}
                 </CustomToolTip>
               }
             />

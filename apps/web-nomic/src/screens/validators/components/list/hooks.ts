@@ -1,14 +1,13 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import Big from 'big.js';
 import * as R from 'ramda';
 import numeral from 'numeral';
 import { useValidatorsQuery, ValidatorsQuery } from '@graphql/types/general_types';
-import { useOnlineVotingPower } from '../../../home/components/hero/components/online_voting_power/hooks';
-import { ValidatorsState, ItemType, ValidatorType } from './types';
+import type { ValidatorsState, ItemType, ValidatorType } from './types';
 
 export const useValidators = () => {
   const [search, setSearch] = useState('');
-  const [state, setState] = useState<ValidatorsState>({
+    const [state, setState] = useState<ValidatorsState>({
     loading: true,
     exists: true,
     items: [],
@@ -17,11 +16,13 @@ export const useValidators = () => {
     sortKey: 'validator.name',
     sortDirection: 'asc',
   });
-  const { onlineVPState } = useOnlineVotingPower();
 
-  const handleSetState = (stateChange: any) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-  };
+  const handleSetState = useCallback((stateChange: Partial<ValidatorsState>) => {
+    setState((prevState) => {
+      const newState = { ...prevState, ...stateChange };
+      return R.equals(prevState, newState) ? prevState : newState;
+    });
+  }, []);
 
   // ==========================
   // Fetch Data
@@ -39,19 +40,21 @@ export const useValidators = () => {
   // Parse data
   // ==========================
   const formatValidators = (data: ValidatorsQuery) => {
-    const votingPowerOverall = onlineVPState.votingPower;
+    const votingPowerOverall = numeral(
+      R.pathOr(0, ['stakingPool', 0, 'bondedTokens'], data)
+    ).value();
 
     let formattedItems: ValidatorType[] = data.validator.map((x) => {
       const inActiveSetString = R.pathOr('false', ['validatorStatuses', 'in_active_set'], x);
       const jailedString = R.pathOr('false', ['validatorStatuses', 'jailed'], x);
       const tombstonedString = R.pathOr('false', ['validatorStatuses', 'tombstoned'], x);
       const votingPower = R.pathOr(0, ['validatorVotingPowers', 0, 'votingPower'], x);
-      const votingPowerPercent = numeral((votingPower / votingPowerOverall) * 100).value();
+      const votingPowerPercent = numeral((votingPower / (votingPowerOverall ?? 0)) * 100).value();
 
       return {
         validator: x.selfDelegateAddress,
         votingPower,
-        votingPowerPercent,
+        votingPowerPercent: votingPowerPercent ?? 0,
         commission: R.pathOr(0, ['validatorCommissions', 0, 'commission'], x) * 100,
         inActiveSet: inActiveSetString,
         jailed: jailedString,
@@ -60,15 +63,13 @@ export const useValidators = () => {
     });
 
     // get the top 34% validators
-    formattedItems = formattedItems.sort((a, b) => {
-      return a.votingPower > b.votingPower ? -1 : 1;
-    });
+    formattedItems = formattedItems.sort((a, b) => (a.votingPower > b.votingPower ? -1 : 1));
 
     // add key to indicate they are part of top 34%
     let cumulativeVotingPower = Big(0);
     let reached = false;
-    formattedItems.forEach((x) => {
-      if (x.inActiveSet) {
+    formattedItems.forEach((x: any) => {
+      if (x.inActiveSet === 'true') {
         const totalVp = cumulativeVotingPower.add(x.votingPowerPercent);
         if (totalVp.lte(34) && !reached) {
           x.topVotingPower = true;
@@ -134,8 +135,8 @@ export const useValidators = () => {
 
     if (state.sortKey && state.sortDirection) {
       sorted.sort((a, b) => {
-        let compareA = R.pathOr(undefined, [...state.sortKey.split('.')], a);
-        let compareB = R.pathOr(undefined, [...state.sortKey.split('.')], b);
+        let compareA: any = R.pathOr(undefined, [...state.sortKey.split('.')], a);
+        let compareB: any = R.pathOr(undefined, [...state.sortKey.split('.')], b);
 
         if (typeof compareA === 'string') {
           compareA = compareA.toLowerCase();

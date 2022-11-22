@@ -1,7 +1,5 @@
-import Params from '@src/screens/params';
+import Params from '@screens/params';
 
-const ParamsPage = () => {
-  return <Params />;
-};
+const ParamsPage = () => <Params />;
 
 export default ParamsPage;

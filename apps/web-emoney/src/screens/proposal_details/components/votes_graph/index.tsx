@@ -2,15 +2,15 @@ import React from 'react';
 import classnames from 'classnames';
 import numeral from 'numeral';
 import Big from 'big.js';
-import Box from '@components/box';
-import InfoPopover from '@components/info_popover';
+import Box from 'ui/components/box';
+import InfoPopover from 'ui/components/info_popover';
 import useTranslation from 'next-translate/useTranslation';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import { PieChart, Pie, Cell } from 'recharts';
 import { useStyles } from './styles';
 import { formatGraphData } from './utils';
 import { useVotesGraph } from './hooks';
-import { QuorumExplanation } from './components';
+import QuorumExplanation from './components/quorum_explanation';
 
 const VotesGraph: React.FC<ComponentDefault> = (props) => {
   const { classes, theme } = useStyles();
@@ -50,9 +50,10 @@ const VotesGraph: React.FC<ComponentDefault> = (props) => {
             fill="#8884d8"
             isAnimationActive={false}
           >
-            {formattedData.map((entry, index) => {
-              return <Cell key={`cell-${index}`} fill={entry.color} stroke={entry.color} />;
-            })}
+            {formattedData.map((entry, index) => (
+              // eslint-disable-next-line react/no-array-index-key
+              <Cell key={`cell-${index}`} fill={entry.color} stroke={entry.color} />
+            ))}
           </Pie>
         </PieChart>
       </div>
@@ -69,17 +70,15 @@ const VotesGraph: React.FC<ComponentDefault> = (props) => {
         </div>
 
         {formattedData
-          .filter((x) => x.name !== 'empty')
-          .map((x) => {
-            return (
-              <div key={x.name} className={classnames(classes.voteItem, x.name)}>
-                <Typography variant="caption">
-                  {t(x.name)} ({x.percentage})
-                </Typography>
-                <Typography>{x.display}</Typography>
-              </div>
-            );
-          })}
+          .filter((x) => String(x.name) !== 'empty')
+          .map((x) => (
+            <div key={x.name} className={classnames(classes.voteItem, x.name)}>
+              <Typography variant="caption">
+                {t(x.name)} ({x.percentage})
+              </Typography>
+              <Typography>{x.display}</Typography>
+            </div>
+          ))}
       </div>
       <div className={classes.popOver}>
         <InfoPopover content={<QuorumExplanation quorum={quorum} />} />

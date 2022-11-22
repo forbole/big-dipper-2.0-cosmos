@@ -6,10 +6,15 @@ export type Link = {
 
 class BigDipperNetwork {
   public logo: string;
+
   public name: string;
+
   public mainnet: Link[];
+
   public testnet: Link[];
+
   public retired: Link[];
+
   public other: Link[];
 
   constructor(payload: any) {
@@ -25,21 +30,19 @@ class BigDipperNetwork {
     links?: Array<{ chain_id: string; url: string; name: string }>;
     name: string;
     logo: string;
-  }) {
+  }): BigDipperNetwork {
     const allLinks: Link[] =
-      data?.links?.map((x) => {
-        return {
-          chainId: x.chain_id,
-          url: x.url,
-          name: x.name,
-        };
-      }) ?? [];
+      data?.links?.map((x) => ({
+        chainId: x.chain_id,
+        url: x.url,
+        name: x.name,
+      })) ?? [];
     const mainnet: Link[] = [];
     const testnet: Link[] = [];
     const retired: Link[] = [];
     const other: Link[] = [];
 
-    allLinks.forEach((x) => {
+    allLinks.forEach((x: any) => {
       // main
       if (x.name.toLowerCase().includes('mainnet')) {
         mainnet.push(x);
@@ -52,14 +55,14 @@ class BigDipperNetwork {
       }
     });
 
-    return new BigDipperNetwork({
+    return {
       mainnet,
       testnet,
       retired,
       other,
-      name: data?.name,
-      logo: data?.logo,
-    });
+      name: data?.name ?? '',
+      logo: data?.logo ?? '',
+    };
   }
 }
 

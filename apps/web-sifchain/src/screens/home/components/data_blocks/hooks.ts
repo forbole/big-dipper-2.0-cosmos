@@ -56,9 +56,8 @@ export const useDataBlocks = () => {
     },
   });
 
-  const formatAverageBlockTime = (data: AverageBlockTimeQuery) => {
-    return data.averageBlockTime[0]?.averageTime ?? state.blockTime;
-  };
+  const formatAverageBlockTime = (data: AverageBlockTimeQuery) =>
+    data.averageBlockTime[0]?.averageTime ?? state.blockTime;
 
   // ====================================
   // token price
@@ -89,17 +88,15 @@ export const useDataBlocks = () => {
     onCompleted: (data) => {
       setState((prevState) => ({
         ...prevState,
-        validators: formatActiveValidatorsCount(data),
+        validators: formatActiveValidatorsCount(data) as any,
       }));
     },
   });
 
-  const formatActiveValidatorsCount = (data: ActiveValidatorCountQuery) => {
-    return {
-      active: data.activeTotal.aggregate.count,
-      total: data.total.aggregate.count,
-    };
-  };
+  const formatActiveValidatorsCount = (data: ActiveValidatorCountQuery) => ({
+    active: data.activeTotal.aggregate?.count,
+    total: data.total?.aggregate?.count,
+  });
 
   return {
     state,

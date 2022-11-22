@@ -2,13 +2,13 @@ import React from 'react';
 import * as R from 'ramda';
 import dynamic from 'next/dynamic';
 import classnames from 'classnames';
-import { usePagination, useScreenSize } from '@hooks';
-import NoData from '@components/no_data';
-import Pagination from '@components/pagination';
-import Loading from '@components/loading';
-import { useProfilesRecoil } from '@recoil/profiles';
+import { usePagination, useScreenSize } from 'ui/hooks';
+import NoData from 'ui/components/no_data';
+import Pagination from 'ui/components/pagination';
+import Loading from 'ui/components/loading';
+import { useProfilesRecoil } from 'ui/recoil/profiles';
 import { useStyles } from './styles';
-import { RedelegationsType } from '../../types';
+import type { RedelegationsType } from '../../types';
 import type DesktopType from './components/desktop';
 import type MobileType from './components/mobile';
 
@@ -26,15 +26,13 @@ const Redelegations: React.FC<
 
   const pageItems = R.pathOr([], ['redelegations', 'data', page], props);
 
-  const toProfiles = useProfilesRecoil(pageItems.map((x) => x.to));
-  const addressProfiles = useProfilesRecoil(pageItems.map((x) => x.address));
-  const mergedDataWithProfiles = pageItems.map((x, i) => {
-    return {
-      ...x,
-      to: toProfiles[i],
-      address: addressProfiles[i],
-    };
-  });
+  const toProfiles = useProfilesRecoil(pageItems.map((x: any) => x.to));
+  const addressProfiles = useProfilesRecoil(pageItems.map((x: any) => x.address));
+  const mergedDataWithProfiles = pageItems.map((x, i) => ({
+    ...(x as object),
+    to: toProfiles[i],
+    address: addressProfiles[i],
+  }));
 
   const items = mergedDataWithProfiles;
 
@@ -45,9 +43,9 @@ const Redelegations: React.FC<
   } else if (!items.length) {
     component = <NoData />;
   } else if (isDesktop) {
-    component = <Desktop items={items} />;
+    component = <Desktop items={items as any} />;
   } else {
-    component = <Mobile items={items} />;
+    component = <Mobile items={items as any} />;
   }
 
   return (

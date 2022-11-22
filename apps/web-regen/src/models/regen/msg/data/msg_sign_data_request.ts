@@ -1,10 +1,13 @@
 import * as R from 'ramda';
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgSignDataRequest {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public signers: string[];
 
   constructor(payload: any) {
@@ -14,12 +17,13 @@ class MsgSignDataRequest {
     this.signers = payload.signers;
   }
 
-  static fromJson(json: any) {
-    return new MsgSignDataRequest({
+  static fromJson(json: any): MsgSignDataRequest {
+    return {
+      category: 'data',
       json,
       type: json['@type'],
-      signer: R.pathOr([], ['signers'], json),
-    });
+      signers: R.pathOr<string[]>([], ['signers'], json),
+    };
   }
 }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import ActionBar from '.';
 
 // ==================================
@@ -13,11 +13,15 @@ let component: renderer.ReactTestRenderer;
 // ==================================
 let isNetwork = false;
 const toggleNetwork = jest.fn();
-jest.mock('./components', () => ({
-  Network: (props: JSX.IntrinsicElements['div']) => <div id="network" {...props} />,
-  NetworkList: (props: JSX.IntrinsicElements['div']) => <div id="NetworkList" {...props} />,
-  SettingsList: (props: JSX.IntrinsicElements['div']) => <div id="SettingsList" {...props} />,
-}));
+jest.mock('./components/network', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="network" {...props} />
+));
+jest.mock('./components/network_list', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="NetworkList" {...props} />
+));
+jest.mock('./components/settings_list', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="SettingsList" {...props} />
+));
 // ==================================
 // unit tests
 // ==================================
@@ -31,7 +35,7 @@ describe('screen: Nav/ActionBar', () => {
   });
 
   it('it renders', () => {
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 
@@ -42,7 +46,7 @@ describe('screen: Nav/ActionBar', () => {
         <ActionBar isNetwork={isNetwork} toggleNetwork={toggleNetwork} />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

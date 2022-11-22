@@ -1,19 +1,19 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import numeral from 'numeral';
 import Link from 'next/link';
-import BoxDetails from '@components/box_details';
+import BoxDetails from 'ui/components/box_details';
 import Result from '@components/result';
 import AvatarName from '@components/avatar_name';
 import dayjs, { formatDayJs } from 'ui/utils/dayjs';
 import useTranslation from 'next-translate/useTranslation';
 import { useRecoilValue } from 'recoil';
-import { readDate } from '@recoil/settings';
+import { readDate } from 'ui/recoil/settings';
 import { MINIBLOCK_DETAILS } from '@utils/go_to_page';
 import { formatNumber } from 'ui/utils/format_token';
 import { getShardDisplay } from '@utils/get_shard_display';
 import chainConfig from 'ui/chainConfig';
-import { OverviewType } from '../../types';
+import type { OverviewType } from '../../types';
 import { useStyles } from './styles';
 
 const Overview: React.FC<OverviewType & ComponentDefault> = (props) => {
@@ -89,7 +89,7 @@ const Overview: React.FC<OverviewType & ComponentDefault> = (props) => {
     },
     {
       label: t('time'),
-      detail: formatDayJs(dayjs.utc(dayjs.unix(props.timestamp)), dateFormat),
+      detail: formatDayJs((dayjs as any).utc(dayjs.unix(props.timestamp)), dateFormat),
     },
   ];
 

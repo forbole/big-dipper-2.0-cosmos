@@ -2,7 +2,7 @@ queue_rules:
   - name: default
     conditions:
       - or:
-        - base=base
+        - base=main
         - base~=chains/
 
 pull_request_rules:

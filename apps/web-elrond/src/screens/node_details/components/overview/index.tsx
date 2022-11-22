@@ -2,11 +2,11 @@ import React from 'react';
 import numeral from 'numeral';
 import useTranslation from 'next-translate/useTranslation';
 import classnames from 'classnames';
-import { Typography } from '@material-ui/core';
-import Box from '@components/box';
+import Typography from '@material-ui/core/Typography';
+import Box from 'ui/components/box';
 import { getShardDisplay } from '@utils/get_shard_display';
-import { useStyles } from './style';
-import { OverviewType } from '../../types';
+import { useStyles } from './styles';
+import type { OverviewType } from '../../types';
 
 const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = (props) => {
   const { t } = useTranslation('nodes');
@@ -49,25 +49,23 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = (props
         {t('overview')}
       </Typography>
       <div className={classes.body}>
-        {items.map((x) => {
-          return (
-            <div key={x.key} className={classes.item}>
-              <div className={classes.hash}>
-                <div className={classes.bullet} />
-                <div>
-                  <Typography variant="body1" className="item__key">
-                    {x.key}
-                  </Typography>
-                  {React.isValidElement(x.value) ? (
-                    <div>{x.value}</div>
-                  ) : (
-                    <Typography variant="body1">{x.value}</Typography>
-                  )}
-                </div>
+        {items?.map((x) => (
+          <div key={x.key} className={classes.item}>
+            <div className={classes.hash}>
+              <div className={classes.bullet} />
+              <div>
+                <Typography variant="body1" className="item__key">
+                  {x.key}
+                </Typography>
+                {React.isValidElement(x.value) ? (
+                  <div>{x.value}</div>
+                ) : (
+                  <Typography variant="body1">{x.value}</Typography>
+                )}
               </div>
             </div>
-          );
-        })}
+          </div>
+        ))}
       </div>
     </Box>
   );

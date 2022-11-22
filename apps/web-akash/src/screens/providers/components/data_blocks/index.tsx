@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import numeral from 'numeral';
 import useTranslation from 'next-translate/useTranslation';
-import { SingleBlock } from './components';
+import SingleBlock from './components/single_block';
 import { useStyles } from './styles';
 
 const DataBlocks: React.FC<{

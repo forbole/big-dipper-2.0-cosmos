@@ -1,65 +1,31 @@
-import Layout from './layout';
-import Nav from './nav';
-import Footer from './footer';
-import SingleBlockMobile from './single_block_mobile';
-import Avatar from './avatar';
-import AvatarName from './avatar_name';
-import Tag from './tag';
-import Result from './result';
-import SingleTransactionMobile from './single_transaction_mobile';
-import Box from './box';
-import Loading from './loading';
-import TransactionMessagesFilter from './transaction_messages_filter';
-import BoxDetails from './box_details';
-import Pagination from './pagination';
-import Search from './search';
-import InfoPopover from './info_popover';
-import SortArrows from './sort_arrows';
-import SingleProposal from './single_proposal';
-import TabPanel from './tab_panel';
-import NoData from './no_data';
-import CustomToolTip from './custom_tool_tip';
-import NotFound from './not_found';
-import LinearLoading from './linear_loading';
-import Name from './name';
-import Markdown from './markdown';
-import ConditionExplanation from './condition_explanation';
-import TransactionsList from './transactions_list';
-import LoadAndExist from './load_and_exist';
-import DesmosProfile from './desmos_profile';
-import TransactionsListDetails from './transactions_list_details';
-import AvatarNameListMsg from './avatar_name_list_msg';
-
-export {
-  Layout,
-  Nav,
-  Footer,
-  SingleBlockMobile,
-  Avatar,
-  AvatarName,
-  Tag,
-  Result,
-  SingleTransactionMobile,
-  Box,
-  Loading,
-  TransactionsList,
-  TransactionMessagesFilter,
-  BoxDetails,
-  Pagination,
-  Search,
-  InfoPopover,
-  SortArrows,
-  SingleProposal,
-  TabPanel,
-  NoData,
-  CustomToolTip,
-  NotFound,
-  LinearLoading,
-  Name,
-  Markdown,
-  ConditionExplanation,
-  LoadAndExist,
-  DesmosProfile,
-  TransactionsListDetails,
-  AvatarNameListMsg,
-};
+export { default as Layout } from '@components/layout';
+export { default as Footer } from 'ui/components/footer';
+export { default as SingleBlockMobile } from 'ui/components/single_block_mobile';
+export { default as Avatar } from 'ui/components/avatar';
+export { default as AvatarName } from 'ui/components/avatar_name';
+export { default as Tag } from 'ui/components/tag';
+export { default as Result } from 'ui/components/result';
+export { default as SingleTransactionMobile } from 'ui/components/single_transaction_mobile';
+export { default as Box } from 'ui/components/box';
+export { default as Loading } from 'ui/components/loading';
+export { default as TransactionMessagesFilter } from 'ui/components/transaction_messages_filter';
+export { default as BoxDetails } from 'ui/components/box_details';
+export { default as Pagination } from 'ui/components/pagination';
+export { default as Search } from 'ui/components/search';
+export { default as InfoPopover } from 'ui/components/info_popover';
+export { default as SortArrows } from 'ui/components/sort_arrows';
+export { default as SingleProposal } from 'ui/components/single_proposal';
+export { default as TabPanel } from 'ui/components/tab_panel';
+export { default as NoData } from 'ui/components/no_data';
+export { default as CustomToolTip } from 'ui/components/custom_tool_tip';
+export { default as NotFound } from 'ui/components/not_found';
+export { default as LinearLoading } from 'ui/components/linear_loading';
+export { default as Name } from 'ui/components/name';
+export { default as Markdown } from 'ui/components/markdown';
+export { default as ConditionExplanation } from 'ui/components/condition_explanation';
+export { default as TransactionsList } from 'ui/components/transactions_list';
+export { default as LoadAndExist } from 'ui/components/load_and_exist';
+export { default as DesmosProfile } from 'ui/components/desmos_profile';
+export { default as TransactionsListDetails } from 'ui/components/transactions_list_details';
+export { default as AvatarNameListMsg } from 'ui/components/avatar_name_list_msg';
+export { default as Nav } from './nav';

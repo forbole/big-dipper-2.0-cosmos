@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import Desktop from '.';
 
 // ==================================
@@ -11,14 +11,16 @@ const mockI18n = {
   lang: 'en',
 };
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
-jest.mock('..', () => ({
-  VotingPower: (props: JSX.IntrinsicElements['div']) => <div id="VotingPower" {...props} />,
-  Condition: (props: JSX.IntrinsicElements['div']) => <div id="Condition" {...props} />,
-}));
-jest.mock('@components/avatar_name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('../condition', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Condition" {...props} />
+));
+jest.mock('../voting_power', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="VotingPower" {...props} />
+));
+jest.mock('ui/components/avatar_name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="AvatarName" {...props} />
 ));
-jest.mock('@components/sort_arrows', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/sort_arrows', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="SortArrows" {...props} />
 ));
 
@@ -51,7 +53,7 @@ describe('screen: Validators/Desktop', () => {
         />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

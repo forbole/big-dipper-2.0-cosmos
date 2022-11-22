@@ -1,12 +1,17 @@
 import * as R from 'ramda';
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgSend {
   public category: Categories;
+
   public type: string;
+
   public fromAddress: string;
+
   public toAddress: string;
+
   public amount: MsgCoin[];
+
   public json: any;
 
   constructor(payload: any) {
@@ -18,19 +23,18 @@ class MsgSend {
     this.json = payload.json;
   }
 
-  static fromJson(json: any) {
-    return new MsgSend({
+  static fromJson(json: any): MsgSend {
+    return {
+      category: 'bank',
       json,
       type: json['@type'],
       fromAddress: json.from_address,
       toAddress: json.to_address,
-      amount: json?.amount.map((x?: { denom: string; amount?: number }) => {
-        return {
-          denom: x?.denom,
-          amount: R.pathOr('0', ['amount'], x),
-        };
-      }),
-    });
+      amount: json?.amount.map((x?: { denom: string; amount?: number }) => ({
+        denom: x?.denom,
+        amount: R.pathOr('0', ['amount'], x),
+      })),
+    };
   }
 }
 

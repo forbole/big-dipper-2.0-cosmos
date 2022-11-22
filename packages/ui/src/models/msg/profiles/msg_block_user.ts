@@ -1,12 +1,18 @@
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgBlockUser {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public reason?: string;
+
   public blocked: string;
+
   public blocker: string;
+
   public subspace: string;
 
   constructor(payload: any) {
@@ -18,14 +24,15 @@ class MsgBlockUser {
     this.subspace = payload.subspace;
   }
 
-  static fromJson(json: any) {
-    return new MsgBlockUser({
+  static fromJson(json: any): MsgBlockUser {
+    return {
+      category: 'profiles',
       json,
       type: json['@type'],
       blocked: json.blocked,
       blocker: json.blocker,
       subspace: json.subspace,
-    });
+    };
   }
 }
 

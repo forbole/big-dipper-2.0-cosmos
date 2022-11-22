@@ -2,12 +2,12 @@ import React from 'react';
 import classnames from 'classnames';
 import Link from 'next/link';
 import numeral from 'numeral';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
-import Box from '@components/box';
+import Box from 'ui/components/box';
 import { BLOCK_DETAILS } from 'ui/utils/go_to_page';
 import { useStyles } from './styles';
-import { VotingPowerType } from '../../types';
+import type { VotingPowerType } from '../../types';
 
 const VotingPower: React.FC<{
   className?: string;
@@ -17,10 +17,10 @@ const VotingPower: React.FC<{
   const { t } = useTranslation('validators');
   const votingPowerPercent =
     inActiveSet === 'true'
-      ? numeral((data.self / numeral(data.overall.value).value()) * 100)
+      ? numeral((data.self / (numeral(data.overall.value).value() ?? 0)) * 100)
       : numeral(0);
 
-  const classes = useStyles(votingPowerPercent.format(0, Math.floor));
+  const classes = useStyles(parseFloat(votingPowerPercent.format('0', Math.floor)));
 
   const votingPower = inActiveSet === 'true' ? numeral(data.self).format('0,0') : '0';
 

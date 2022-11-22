@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import { CheckCircle, Cancel, Help } from '@material-ui/icons';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import { useStyles } from './styles';
 
 const Result: React.FC<{

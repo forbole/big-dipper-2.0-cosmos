@@ -1,16 +1,14 @@
+import { ApolloClient, from, InMemoryCache } from '@apollo/client';
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { createMockClient } from 'mock-apollo-client';
 import App from '.';
 
-const mockClient = createMockClient();
+const mockClient = new ApolloClient({ link: from([]), cache: new InMemoryCache() });
 
 jest.mock('next-translate/useTranslation', () => () => ({
   lang: 'en',
 }));
-jest.mock('@src/graphql/client', () => ({
-  useApollo: () => mockClient,
-}));
+jest.mock('ui/graphql/useApollo', () => () => mockClient);
 
 const mockI18n = {
   t: (key: string) => key,
@@ -25,15 +23,9 @@ jest.mock('next-translate/useTranslation', () => () => mockI18n);
 describe('screen: _app', () => {
   it('matches snapshot', () => {
     const component = renderer.create(
-      <App
-        router={{} as any}
-        Component={() => <div id="component" />}
-        pageProps={{
-          props: 'props',
-        }}
-      />
+      <App router={{} as any} Component={() => <div id="component" />} pageProps={{}} />
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

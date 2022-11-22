@@ -119,6 +119,7 @@ export interface ChainConfig extends ChainSettings {
   title: string;
   extra: {
     profile: boolean;
+    graphqlWs: boolean;
   };
   previewImage?: string;
   themes: {

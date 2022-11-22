@@ -1,8 +1,9 @@
 import Link from 'next/link';
 import useTranslation from 'next-translate/useTranslation';
 import Trans from 'next-translate/Trans';
-import { Typography } from '@material-ui/core';
-import general from 'shared-utils/configs/general.json';
+import { HOME } from 'ui/utils/go_to_page';
+import Typography from '@material-ui/core/Typography';
+import generalConfig from 'shared-utils/configs/general.json';
 
 /**
  * NOTE: This requires `@sentry/nextjs` version 7.3.0 or higher.
@@ -21,7 +22,6 @@ import general from 'shared-utils/configs/general.json';
  *  - https://nextjs.org/docs/api-reference/data-fetching/get-initial-props
  *  - https://reactjs.org/docs/error-boundaries.html
  */
-
 import React from 'react';
 import * as Sentry from '@sentry/nextjs';
 import { NextPageContext, NextPage } from 'next';
@@ -40,14 +40,14 @@ const Error: NextPage = () => {
             i18nKey="common:errorDetails"
             components={[
               // eslint-disable-next-line
-              <a target="_blank" rel="noreferrer" href={general.github.reportIssue} />,
+              <a target="_blank" rel="noreferrer" href={generalConfig.github.reportIssue} />,
             ]}
             values={{
-              issue: general.github.reportIssue,
+              issue: generalConfig.github.reportIssue,
             }}
           />
         </Typography>
-        <Link href="/" passHref>
+        <Link href={HOME} passHref>
           <Typography component="a">{t('common:errorHome')}</Typography>
         </Link>
       </div>

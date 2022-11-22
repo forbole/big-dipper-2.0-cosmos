@@ -1,8 +1,9 @@
 import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import { Divider, Typography } from '@material-ui/core';
-import { OtherTokenType } from '@src/screens/account_details/types';
+import Divider from '@material-ui/core/Divider';
+import Typography from '@material-ui/core/Typography';
+import type { OtherTokenType } from '@screens/account_details/types';
 import { formatNumber } from 'ui/utils/format_token';
 import { useStyles } from './styles';
 
@@ -14,9 +15,10 @@ const Mobile: React.FC<{
   const { t } = useTranslation('accounts');
   return (
     <div className={classnames(className)}>
-      {items.map((x, i) => {
+      {items?.map((x, i) => {
         const available = formatNumber(x.available.value, x.available.exponent);
         return (
+          // eslint-disable-next-line react/no-array-index-key
           <React.Fragment key={`votes-mobile-${i}`}>
             <div className={classes.list}>
               <div className={classes.item}>
@@ -36,7 +38,7 @@ const Mobile: React.FC<{
                 </Typography>
               </div>
             </div>
-            {i !== items.length - 1 && <Divider />}
+            {!!items && i !== items.length - 1 && <Divider />}
           </React.Fragment>
         );
       })}

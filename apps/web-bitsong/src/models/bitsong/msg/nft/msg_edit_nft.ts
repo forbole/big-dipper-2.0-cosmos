@@ -1,10 +1,14 @@
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgEditNFT {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public sender: string;
+
   public id: string;
 
   constructor(payload: any) {
@@ -15,13 +19,14 @@ class MsgEditNFT {
     this.id = payload.id;
   }
 
-  static fromJson(json: any) {
-    return new MsgEditNFT({
+  static fromJson(json: any): MsgEditNFT {
+    return {
+      category: 'nft',
       json,
       type: json['@type'],
       sender: json?.sender,
       id: json?.id,
-    });
+    };
   }
 }
 

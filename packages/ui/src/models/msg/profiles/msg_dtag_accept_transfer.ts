@@ -1,11 +1,16 @@
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgDtagAcceptTransfer {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public sender: string;
+
   public receiver: string;
+
   public newDtag: string;
 
   constructor(payload: any) {
@@ -17,14 +22,15 @@ class MsgDtagAcceptTransfer {
     this.newDtag = payload.newDtag;
   }
 
-  static fromJson(json: any) {
-    return new MsgDtagAcceptTransfer({
+  static fromJson(json: any): MsgDtagAcceptTransfer {
+    return {
+      category: 'profiles',
       json,
       type: json['@type'],
       sender: json.sender,
       receiver: json.receiver,
       newDtag: json.new_dtag,
-    });
+    };
   }
 }
 

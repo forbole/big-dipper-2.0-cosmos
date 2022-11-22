@@ -1,31 +1,35 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme, wait } from '@tests/utils';
-import { createMockClient } from 'mock-apollo-client';
-import { ApolloProvider } from '@apollo/client';
+import { MockTheme, wait } from 'ui/tests/utils';
+import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
 import { ValidatorsDocument } from '@graphql/types/general_types';
+import { MockedProvider } from '@apollo/client/testing';
 import List from '.';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('./components', () => ({
-  Mobile: (props: JSX.IntrinsicElements['div']) => <div id="Mobile" {...props} />,
-  Desktop: (props: JSX.IntrinsicElements['div']) => <div id="Desktop" {...props} />,
-  Tabs: (props: JSX.IntrinsicElements['div']) => <div id="Tabs" {...props} />,
-}));
+jest.mock('./components/mobile', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Mobile" {...props} />
+));
+jest.mock('./components/desktop', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Desktop" {...props} />
+));
+jest.mock('./components/tabs', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Tabs" {...props} />
+));
 
-jest.mock('@components/box', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/box', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Box" {...props} />
 ));
-jest.mock('@components/no_data', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/no_data', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="NoData" {...props} />
 ));
-jest.mock('@components/load_and_exist', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/load_and_exist', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="LoadAndExist" {...props} />
 ));
 
-const mockValidatorsDocument = jest.fn().mockResolvedValue({
+const mockValidatorsDocument = jest.fn().mockReturnValue({
   data: {
     stakingParams: [
       {
@@ -83,6 +87,51 @@ const mockValidatorsDocument = jest.fn().mockResolvedValue({
           },
         ],
       },
+      {
+        validatorStatuses: [
+          {
+            status: 3,
+            jailed: false,
+            height: 437042,
+          },
+        ],
+        validatorSigningInfos: [
+          {
+            missedBlocksCounter: 12,
+            tombstoned: false,
+          },
+        ],
+        validatorInfo: {
+          operatorAddress: 'desmosvaloper1zm3l7p8n5dxqeadsfxy3rd0j3c2knnx3chg77a',
+          selfDelegateAddress: 'desmos1zm3l7p8n5dxqeadsfxy3rd0j3c2knnx3x6q250',
+        },
+        validatorVotingPowers: [
+          {
+            votingPower: 44,
+          },
+        ],
+        validatorCommissions: [
+          {
+            commission: 0.14,
+          },
+        ],
+        delegations: [
+          {
+            amount: {
+              denom: 'udaric',
+              amount: '14000000',
+            },
+            delegatorAddress: 'desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr',
+          },
+          {
+            amount: {
+              denom: 'udaric',
+              amount: '30000000',
+            },
+            delegatorAddress: 'desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr',
+          },
+        ],
+      },
     ],
     slashingParams: [
       {
@@ -97,23 +146,30 @@ const mockValidatorsDocument = jest.fn().mockResolvedValue({
 // ==================================
 describe('screen: Validators/List', () => {
   it('matches snapshot', async () => {
-    const mockClient = createMockClient();
-    mockClient.setRequestHandler(ValidatorsDocument, mockValidatorsDocument);
-
-    let component;
+    const mockClient = new ApolloClient({ link: from([]), cache: new InMemoryCache() });
+    let component: renderer.ReactTestRenderer | undefined;
 
     renderer.act(() => {
       component = renderer.create(
         <ApolloProvider client={mockClient}>
-          <MockTheme>
-            <List />
-          </MockTheme>
+          <MockedProvider
+            mocks={[
+              {
+                request: { query: ValidatorsDocument },
+                result: mockValidatorsDocument,
+              },
+            ]}
+          >
+            <MockTheme>
+              <List />
+            </MockTheme>
+          </MockedProvider>
         </ApolloProvider>
       );
     });
-    await wait();
+    await wait(renderer.act);
 
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

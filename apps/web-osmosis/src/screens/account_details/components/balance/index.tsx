@@ -4,25 +4,23 @@ import Big from 'big.js';
 import numeral from 'numeral';
 import * as R from 'ramda';
 import { useRecoilValue } from 'recoil';
-import { readMarket } from '@recoil/market';
-import { Typography, Divider } from '@material-ui/core';
+import { readMarket } from '@recoil/market/osmosis';
+import Divider from '@material-ui/core/Divider';
+import Typography from '@material-ui/core/Typography';
 import { PieChart, Pie, ResponsiveContainer, Cell } from 'recharts';
 import useTranslation from 'next-translate/useTranslation';
-import Box from '@components/box';
+import Box from 'ui/components/box';
 import chainConfig from 'ui/chainConfig';
 import { formatNumber } from 'ui/utils/format_token';
 import { useStyles } from './styles';
 import { formatBalanceData } from './utils';
 
-const Balance: React.FC<{
+type Props = Parameters<typeof formatBalanceData>[0] & {
   className?: string;
-  available: TokenUnit;
-  delegate: TokenUnit;
-  unbonding: TokenUnit;
-  reward: TokenUnit;
-  commission?: TokenUnit;
   total: TokenUnit;
-}> = (props) => {
+};
+
+const Balance: React.FC<Props> = (props) => {
   const { t } = useTranslation('accounts');
   const { classes, theme } = useStyles();
   const market = useRecoilValue(readMarket);
@@ -44,14 +42,14 @@ const Balance: React.FC<{
   ];
 
   const formatData = formattedChartData.map((x, i) => ({
-    ...x,
+    ...(x as object),
     value: numeral(x.value).value(),
     background: backgrounds[i],
   }));
 
-  const notEmpty = formatData.some((x) => Big(x.value).gt(0));
+  const notEmpty = formatData.some((x) => x.value && Big(x.value).gt(0));
 
-  const dataCount = formatData.filter((x) => Big(x.value).gt(0)).length;
+  const dataCount = formatData.filter((x) => x.value && Big(x.value).gt(0)).length;
   const data = notEmpty ? formatData : [...formatData, empty];
   const totalAmount = `$${numeral(
     Big(market.price || 0)
@@ -81,6 +79,7 @@ const Balance: React.FC<{
                 stroke="none"
               >
                 {data.map((entry, index) => (
+                  // eslint-disable-next-line react/no-array-index-key
                   <Cell key={`cell-${index}`} fill={entry.background} stroke={entry.background} />
                 ))}
               </Pie>
@@ -88,7 +87,7 @@ const Balance: React.FC<{
           </ResponsiveContainer>
         </div>
         <div className={classes.legends}>
-          {data.map((x) => {
+          {data.map((x: any) => {
             if (x.key.toLowerCase() === 'empty') {
               return null;
             }

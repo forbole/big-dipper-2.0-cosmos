@@ -1,10 +1,11 @@
 import numeral from 'numeral';
-import * as R from 'ramda';
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgCreateValidator {
   public category: Categories;
+
   public type: string;
+
   public description: {
     moniker: string;
     identity: string;
@@ -12,19 +13,26 @@ class MsgCreateValidator {
     securityContact: string;
     details: string;
   };
+
   public commission: {
     rate: string | number;
     maxRate: string | number;
     maxChangeRate: string | number;
   };
+
   public minSelfDelegation: string | number;
+
   public delegatorAddress: string;
+
   public validatorAddress: string;
+
   public pubkey: {
     type: string;
     key: string;
   };
+
   public value: MsgCoin;
+
   public json: any;
 
   constructor(payload: any) {
@@ -41,7 +49,8 @@ class MsgCreateValidator {
   }
 
   static fromJson(json: any) {
-    return new MsgCreateValidator({
+    return {
+      category: 'staking',
       json,
       type: json['@type'],
       description: {
@@ -65,9 +74,9 @@ class MsgCreateValidator {
       },
       value: {
         denom: json?.value?.denom,
-        amount: R.pathOr('0', ['value', 'amount'], json),
+        amount: json?.value?.amount ?? '0',
       },
-    });
+    } as MsgCreateValidator;
   }
 }
 

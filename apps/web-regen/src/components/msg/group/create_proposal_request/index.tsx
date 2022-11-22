@@ -1,11 +1,11 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
-import { Typography } from '@material-ui/core';
-import Name from '@components/name';
-import { MsgCreateProposalRequest } from '@models';
-import { useProfileRecoil } from '@recoil/profiles';
+import Typography from '@material-ui/core/Typography';
+import Name from 'ui/components/name';
+import MsgCreateProposalRequest from '@models/regen/msg/group/msg_create_proposal_request';
+import { useProfileRecoil } from 'ui/recoil/profiles';
 
-const CreateProposalRequest = (props: { message: MsgCreateProposalRequest }) => {
+const CreateProposalRequest: React.FC<{ message: MsgCreateProposalRequest }> = (props) => {
   const { message } = props;
 
   const address = useProfileRecoil(message.address);

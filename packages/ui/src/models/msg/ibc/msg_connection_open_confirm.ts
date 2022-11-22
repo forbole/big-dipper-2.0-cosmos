@@ -1,10 +1,14 @@
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgConnectionOpenConfirm {
   public category: Categories;
+
   public type: string;
+
   public signer: string;
+
   public connectionId: string;
+
   public json: any;
 
   constructor(payload: any) {
@@ -15,13 +19,14 @@ class MsgConnectionOpenConfirm {
     this.json = payload.json;
   }
 
-  static fromJson(json: any) {
-    return new MsgConnectionOpenConfirm({
+  static fromJson(json: any): MsgConnectionOpenConfirm {
+    return {
+      category: 'ibc',
       json,
       type: json['@type'],
       signer: json.signer,
       connectionId: json.connection_id,
-    });
+    };
   }
 }
 

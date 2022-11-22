@@ -1,27 +1,26 @@
-import { MockTheme } from '@tests/utils';
-import React from 'react';
+import type Name from 'ui/components/name';
+import { MockTheme } from 'ui/tests/utils';
+import React, { ComponentProps } from 'react';
 import renderer from 'react-test-renderer';
 import ListNames from '.';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('@recoil/profiles', () => {
-  return {
-    useProfilesRecoil: jest.fn((addresses) => {
-      return addresses.map((address) => ({
-        address,
-        name:
-          address === 'desmosvaloper14nfk5gm99gfrd7nwqtmtvzunzclz8720a6cqh7'
-            ? 'AC Validator 🦦'
-            : address,
-        imageUrl: '',
-      }));
-    }),
-  };
-});
+jest.mock('ui/recoil/profiles', () => ({
+  useProfilesRecoil: jest.fn((addresses) =>
+    addresses.map((address: string) => ({
+      address,
+      name:
+        address === 'desmosvaloper14nfk5gm99gfrd7nwqtmtvzunzclz8720a6cqh7'
+          ? 'AC Validator 🦦'
+          : address,
+      imageUrl: '',
+    }))
+  ),
+}));
 
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/name', () => (props: ComponentProps<typeof Name>) => (
   <div id={props.address} {...props} />
 ));
 
@@ -42,7 +41,7 @@ describe('screen: TransactionDetails/IssueDenom', () => {
         />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
     expect(component.root.findAllByType('div').length).toBeGreaterThan(2);
     expect(

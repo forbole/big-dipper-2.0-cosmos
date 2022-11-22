@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import Desktop from '.';
 
 // ==================================
@@ -12,15 +12,15 @@ const mockI18n = {
 };
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
 
-jest.mock(
-  'react-virtualized-auto-sizer',
-  () =>
-    ({ children }: any) =>
-      children({
-        height: 600,
-        width: 600,
-      })
-);
+// jest.mock(
+//   'react-virtualized-auto-sizer',
+//   () =>
+//     ({ children }: AutoSizerProps) =>
+//       children({
+//         height: 600,
+//         width: 600,
+//       })
+// );
 
 // ==================================
 // unit tests
@@ -45,7 +45,7 @@ describe('screen: ProfileDetails/Connections/Desktop', () => {
         />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

@@ -358,9 +358,11 @@ exports[`screen: Nav/Menu it renders 1`] = `
       className="makeStyles-footerActions"
     >
       <div
+        aria-label=""
         className="makeStyles-language"
         onClick={[Function]}
         role="button"
+        tabIndex={0}
       >
         <svg />
         <span
@@ -381,9 +383,11 @@ exports[`screen: Nav/Menu it renders 1`] = `
         </svg>
       </div>
       <div
+        aria-label="dark"
         className="makeStyles-theme"
         onClick={[Function]}
         role="button"
+        tabIndex={0}
       >
         <span
           role="button"

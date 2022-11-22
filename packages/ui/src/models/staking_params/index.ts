@@ -3,9 +3,13 @@ import chainConfig from 'ui/chainConfig';
 
 class StakingParams {
   public bondDenom: string;
+
   public unbondingTime: number;
+
   public maxEntries: number;
+
   public historicalEntries: number;
+
   public maxValidators: number;
 
   constructor(payload: any) {
@@ -16,14 +20,14 @@ class StakingParams {
     this.maxValidators = payload.maxValidators;
   }
 
-  static fromJson(data: any) {
-    return new StakingParams({
+  static fromJson(data: any): StakingParams {
+    return {
       bondDenom: R.pathOr(chainConfig.primaryTokenUnit, ['bond_denom'], data),
       unbondingTime: R.pathOr(0, ['unbonding_time'], data),
       maxEntries: R.pathOr(0, ['max_entries'], data),
       historicalEntries: R.pathOr(0, ['historical_entries'], data),
       maxValidators: R.pathOr(0, ['max_validators'], data),
-    });
+    };
   }
 }
 

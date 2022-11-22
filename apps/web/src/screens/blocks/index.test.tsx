@@ -1,28 +1,77 @@
+import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
+import { MockedProvider } from '@apollo/client/testing';
+import { BlocksDocument, BlocksListenerDocument } from '@graphql/types/general_types';
 import React from 'react';
-import { createMockClient, createMockSubscription } from 'mock-apollo-client';
-import { ApolloProvider } from '@apollo/client';
 import renderer from 'react-test-renderer';
-import { MockTheme, wait } from '@tests/utils';
-import { BlocksListenerDocument, BlocksDocument } from '@graphql/types/general_types';
+import { MockTheme, wait } from 'ui/tests/utils';
 import Blocks from '.';
+
+let component: renderer.ReactTestRenderer;
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/layout', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/layout', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Layout" {...props} />
 ));
-jest.mock('@components/box', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/box', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Box" {...props} />
 ));
-jest.mock('@components/load_and_exist', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/load_and_exist', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="LoadAndExist" {...props} />
 ));
-jest.mock('@components/no_data', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/no_data', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="NoData" {...props} />
 ));
 
-const mockBlocksListenerDocument = {
+jest.mock('./hooks', () => ({
+  useBlocks: () => ({
+    state: {
+      loading: false,
+      exists: true,
+      hasNextPage: true,
+      isNextPageLoading: false,
+      items: [
+        {
+          height: 1123213,
+          txs: 0,
+          timestamp: '2021-04-27T16:27:34.331769',
+          proposer: 'desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3',
+          hash: 'txhash',
+        },
+        {
+          height: 1123214,
+          txs: 1,
+          timestamp: '2021-04-33T16:27:34.331769',
+          proposer: 'desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3',
+          hash: 'txhash',
+        },
+      ],
+    },
+    loadNextPage: () => jest.fn(),
+    itemCount: 2,
+    loadMoreItems: () => jest.fn(),
+    isItemLoaded: () => true,
+  }),
+}));
+
+jest.mock('./hooks', () => ({
+  useBlocks: () => ({
+    state: {
+      loading: false,
+      exists: true,
+      hasNextPage: true,
+      isNextPageLoading: false,
+      items: [],
+    },
+    loadNextPage: () => jest.fn(),
+    itemCount: 2,
+    loadMoreItems: () => jest.fn(),
+    isItemLoaded: () => true,
+  }),
+}));
+
+const mockBlocksListenerDocument = jest.fn().mockReturnValue({
   data: {
     blocks: [
       {
@@ -38,9 +87,9 @@ const mockBlocksListenerDocument = {
       },
     ],
   },
-};
+});
 
-const mockBlocksDocument = jest.fn().mockResolvedValue({
+const mockBlocksDocument = jest.fn().mockReturnValue({
   data: {
     blocks: [
       {
@@ -75,31 +124,24 @@ const mockBlocksDocument = jest.fn().mockResolvedValue({
 // ==================================
 describe('screen: Blocks', () => {
   it('matches snapshot', async () => {
-    const mockClient = createMockClient();
-    const mockSubscription = createMockSubscription();
-
-    mockClient.setRequestHandler(BlocksListenerDocument, () => mockSubscription);
-
-    mockClient.setRequestHandler(BlocksDocument, mockBlocksDocument);
-
-    let component;
-
     renderer.act(() => {
       component = renderer.create(
-        <ApolloProvider client={mockClient}>
-          <MockTheme>
-            <Blocks />
-          </MockTheme>
+        <ApolloProvider client={new ApolloClient({ link: from([]), cache: new InMemoryCache() })}>
+          <MockedProvider
+            mocks={[
+              { request: { query: BlocksDocument }, result: mockBlocksDocument },
+              { request: { query: BlocksListenerDocument }, result: mockBlocksListenerDocument },
+            ]}
+          >
+            <MockTheme>
+              <Blocks />
+            </MockTheme>
+          </MockedProvider>
         </ApolloProvider>
       );
     });
-    await wait();
-
-    renderer.act(() => {
-      mockSubscription.next(mockBlocksListenerDocument);
-    });
-
-    const tree = component.toJSON();
+    await wait(renderer.act);
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

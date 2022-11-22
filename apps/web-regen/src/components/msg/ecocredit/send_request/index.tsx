@@ -1,11 +1,11 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
-import { Typography } from '@material-ui/core';
-import Name from '@components/name';
+import Typography from '@material-ui/core/Typography';
+import Name from 'ui/components/name';
 import MsgSendRequest from '@models/regen/msg/ecocredit/msg_send_request';
-import { useProfileRecoil } from '@recoil/profiles';
+import { useProfileRecoil } from 'ui/recoil/profiles';
 
-const SendRequest = (props: { message: MsgSendRequest }) => {
+const SendRequest: React.FC<{ message: MsgSendRequest }> = (props) => {
   const { message } = props;
 
   const sender = useProfileRecoil(message.sender);

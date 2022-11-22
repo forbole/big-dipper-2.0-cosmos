@@ -1,9 +1,9 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { createMockClient } from 'mock-apollo-client';
-import { ApolloProvider } from '@apollo/client';
-import { MockTheme, wait } from '@tests/utils';
+import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
+import { MockTheme, wait } from 'ui/tests/utils';
 import { ProposalDetailsDocument } from '@graphql/types/general_types';
+import { MockedProvider } from '@apollo/client/testing';
 import ProposalDetails from '.';
 
 // ==================================
@@ -16,21 +16,27 @@ jest.mock('next/router', () => ({
     },
   }),
 }));
-jest.mock('@components/layout', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/layout', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Layout" {...props} />
 ));
-jest.mock('@components/load_and_exist', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/load_and_exist', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="LoadAndExist" {...props} />
 ));
 
-jest.mock('./components', () => ({
-  Overview: (props: JSX.IntrinsicElements['div']) => <div id="Overview" {...props} />,
-  Votes: (props: JSX.IntrinsicElements['div']) => <div id="Votes" {...props} />,
-  Deposits: (props: JSX.IntrinsicElements['div']) => <div id="Deposits" {...props} />,
-  VotesGraph: (props: JSX.IntrinsicElements['div']) => <div id="VotesGraph" {...props} />,
-}));
+jest.mock('./components/overview', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Overview" {...props} />
+));
+jest.mock('./components/votes', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Votes" {...props} />
+));
+jest.mock('./components/deposits', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Deposits" {...props} />
+));
+jest.mock('./components/votes_graph', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="VotesGraph" {...props} />
+));
 
-const mockProposalDetailsDocument = jest.fn().mockResolvedValue({
+const mockProposalDetailsDocument = jest.fn().mockReturnValue({
   data: {
     proposal: [
       {
@@ -60,24 +66,27 @@ const mockProposalDetailsDocument = jest.fn().mockResolvedValue({
 // ==================================
 describe('screen: ProposalDetails', () => {
   it('matches snapshot', async () => {
-    const mockClient = createMockClient();
-
-    mockClient.setRequestHandler(ProposalDetailsDocument, mockProposalDetailsDocument);
-
-    let component;
+    const mockClient = new ApolloClient({ link: from([]), cache: new InMemoryCache() });
+    let component: renderer.ReactTestRenderer | undefined;
 
     renderer.act(() => {
       component = renderer.create(
         <ApolloProvider client={mockClient}>
-          <MockTheme>
-            <ProposalDetails />
-          </MockTheme>
+          <MockedProvider
+            mocks={[
+              { request: { query: ProposalDetailsDocument }, result: mockProposalDetailsDocument },
+            ]}
+          >
+            <MockTheme>
+              <ProposalDetails />
+            </MockTheme>
+          </MockedProvider>
         </ApolloProvider>
       );
     });
-    await wait();
+    await wait(renderer.act);
 
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

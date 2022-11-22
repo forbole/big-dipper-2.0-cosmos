@@ -1,15 +1,15 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import Connections from '.';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/box', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/box', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Box" {...props} />
 ));
-jest.mock('@components/pagination', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/pagination', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Pagination" {...props} />
 ));
 
@@ -36,7 +36,7 @@ describe('screen: ProfileDetails/Connections', () => {
         />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

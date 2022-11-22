@@ -1,11 +1,11 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
-import { Typography } from '@material-ui/core';
-import Name from '@components/name';
-import { MsgBlockUser } from '@models';
-import { useProfileRecoil } from '@recoil/profiles';
+import Typography from '@material-ui/core/Typography';
+import Name from 'ui/components/name';
+import MsgBlockUser from '@models/desmos/msg/profiles/msg_block_user';
+import { useProfileRecoil } from 'ui/recoil/profiles';
 
-const BlockUser = (props: { message: MsgBlockUser }) => {
+const BlockUser: React.FC<{ message: MsgBlockUser }> = (props) => {
   const { message } = props;
 
   const blocker = useProfileRecoil(message.blocker);

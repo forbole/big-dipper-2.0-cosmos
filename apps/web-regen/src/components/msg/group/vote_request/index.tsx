@@ -1,11 +1,11 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
-import { Typography } from '@material-ui/core';
-import Name from '@components/name';
-import { MsgVoteRequest } from '@models';
-import { useProfileRecoil } from '@recoil/profiles';
+import Typography from '@material-ui/core/Typography';
+import Name from 'ui/components/name';
+import MsgVoteRequest from '@models/regen/msg/group/msg_vote_request';
+import { useProfileRecoil } from 'ui/recoil/profiles';
 
-const VoteRequest = (props: { message: MsgVoteRequest }) => {
+const VoteRequest: React.FC<{ message: MsgVoteRequest }> = (props) => {
   const { message } = props;
 
   const voter = useProfileRecoil(message.voter);

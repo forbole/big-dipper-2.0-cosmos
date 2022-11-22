@@ -2,10 +2,13 @@ import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
 import { NextSeo } from 'next-seo';
 import Layout from '@components/layout';
-import LoadAndExist from '@components/load_and_exist';
-import DesmosProfile from '@components/desmos_profile';
+import LoadAndExist from 'ui/components/load_and_exist';
+import DesmosProfile from 'ui/components/desmos_profile';
 import { useStyles } from './styles';
-import { Profile, VotingPower, Blocks, ValidatorOverview } from './components';
+import Profile from './components/profile';
+import VotingPower from './components/voting_power';
+import Blocks from './components/blocks';
+import ValidatorOverview from './components/validator_overview';
 import { useValidatorDetails } from './hooks';
 
 const ValidatorDetails = () => {

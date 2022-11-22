@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import Desktop from '.';
 
 // ==================================
@@ -12,10 +12,10 @@ const mockI18n = {
 };
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
 
-jest.mock('@components/result', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/result', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Result" {...props} />
 ));
-jest.mock('@components/tag', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/tag', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Tag" {...props} />
 ));
 
@@ -40,7 +40,7 @@ describe('screen: Home/Transactions/Desktop', () => {
         />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

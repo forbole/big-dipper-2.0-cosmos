@@ -1,6 +1,8 @@
 class MsgTextProposal {
   public type: string;
+
   public title: string;
+
   public description: string;
 
   constructor(payload: any) {
@@ -9,12 +11,12 @@ class MsgTextProposal {
     this.description = payload.description;
   }
 
-  static fromJson(json: any) {
-    return new MsgTextProposal({
+  static fromJson(json: any): MsgTextProposal {
+    return {
       type: json['@type'],
       title: json.title,
       description: json.description,
-    });
+    };
   }
 }
 

@@ -1,3 +1,155 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`screen: Home/Tokenomics matches snapshot 1`] = `null`;
+exports[`screen: Home/Tokenomics matches snapshot 1`] = `
+<div
+  className="makeStyles-root"
+  id="box"
+>
+  <h2
+    className="MuiTypography-root makeStyles-label MuiTypography-h2"
+  >
+    tokenomics
+  </h2>
+  <div
+    className="makeStyles-data"
+  >
+    <div
+      className="data__item"
+    >
+      <h4
+        className="MuiTypography-root MuiTypography-h4"
+      >
+        254,578,529,800
+         
+      </h4>
+      <span
+        className="MuiTypography-root MuiTypography-caption"
+      >
+        bondedPercent
+      </span>
+    </div>
+    <div
+      className="data__item"
+    >
+      <h4
+        className="MuiTypography-root MuiTypography-h4"
+      >
+        204,887,435,198
+         
+      </h4>
+      <span
+        className="MuiTypography-root MuiTypography-caption"
+      >
+        unbondedPercent
+      </span>
+    </div>
+  </div>
+  <div
+    className="makeStyles-content"
+  >
+    <div
+      className="recharts-wrapper"
+      style={
+        {
+          "cursor": "default",
+          "height": 100,
+          "position": "relative",
+          "width": 200,
+        }
+      }
+    >
+      <svg
+        className="recharts-surface"
+        cx="50%"
+        cy={100}
+        height={100}
+        version="1.1"
+        viewBox="0 0 200 100"
+        width={200}
+      >
+        <title />
+        <desc />
+        <defs>
+          <clipPath
+            id="recharts1-clip"
+          >
+            <rect
+              height={90}
+              width={190}
+              x={5}
+              y={5}
+            />
+          </clipPath>
+        </defs>
+        <g
+          className="recharts-layer recharts-pie"
+        >
+          <g
+            className="recharts-layer recharts-pie-sector"
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+          >
+            <path
+              className="recharts-sector"
+              cx={100}
+              cy={95}
+              d="M 10,94.99999999999999
+    A 90,90,0,
+    0,1,
+    115.21586559461512,6.295561361301608
+  L 100,95 Z"
+              fill="#6366F1"
+              name={0}
+              stroke="none"
+            />
+          </g>
+          <g
+            className="recharts-layer recharts-pie-sector"
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+          >
+            <path
+              className="recharts-sector"
+              cx={100}
+              cy={95}
+              d="M 115.21586559461512,6.295561361301608
+    A 90,90,0,
+    0,1,
+    190,95
+  L 100,95 Z"
+              fill="#03B5AA"
+              name={1}
+              stroke="none"
+            />
+          </g>
+        </g>
+      </svg>
+      <div
+        id="test-tooltip"
+      />
+    </div>
+    <div
+      className="makeStyles-legends"
+    >
+      <div
+        className="legends__item"
+      >
+        <span
+          className="MuiTypography-root MuiTypography-caption"
+        >
+          bonded
+        </span>
+      </div>
+      <div
+        className="legends__item"
+      >
+        <span
+          className="MuiTypography-root MuiTypography-caption"
+        >
+          unbonded
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;

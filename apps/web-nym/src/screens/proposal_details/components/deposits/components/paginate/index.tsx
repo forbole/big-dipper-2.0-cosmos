@@ -1,8 +1,8 @@
 import React from 'react';
-import Pagination from '@components/pagination';
+import Pagination from 'ui/components/pagination';
 import { useStyles } from './styles';
 
-const Paginate = ({ total, page, rowsPerPage, handleChangePage, handleChangeRowsPerPage }) => {
+const Paginate = ({ total, page, rowsPerPage, handleChangePage, handleChangeRowsPerPage }: any) => {
   const classes = useStyles();
   return (
     <Pagination

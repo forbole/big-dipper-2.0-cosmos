@@ -1,9 +1,12 @@
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgCreateProposalRequest {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public address: string;
 
   constructor(payload: any) {
@@ -13,12 +16,13 @@ class MsgCreateProposalRequest {
     this.address = payload.address;
   }
 
-  static fromJson(json: any) {
-    return new MsgCreateProposalRequest({
+  static fromJson(json: any): MsgCreateProposalRequest {
+    return {
+      category: 'group',
       json,
       type: json['@type'],
       address: json.address,
-    });
+    };
   }
 }
 

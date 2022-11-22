@@ -1,9 +1,12 @@
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgActivate {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public validator: string;
 
   constructor(payload: any) {
@@ -13,12 +16,13 @@ class MsgActivate {
     this.validator = payload.validator;
   }
 
-  static fromJson(json: any) {
-    return new MsgActivate({
+  static fromJson(json: any): MsgActivate {
+    return {
+      category: 'oracle',
       json,
       type: json['@type'],
       validator: json.validator,
-    });
+    };
   }
 }
 

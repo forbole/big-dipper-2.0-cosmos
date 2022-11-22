@@ -2,20 +2,20 @@ import React from 'react';
 import classnames from 'classnames';
 import dynamic from 'next/dynamic';
 import useTranslation from 'next-translate/useTranslation';
-import Pagination from '@components/pagination';
-import Box from '@components/box';
+import Pagination from 'ui/components/pagination';
+import Box from 'ui/components/box';
 
-import { usePagination, useScreenSize } from '@hooks';
-import { Typography } from '@material-ui/core';
+import { usePagination, useScreenSize } from 'ui/hooks';
+import Typography from '@material-ui/core/Typography';
 import { useStyles } from './styles';
-import { OtherTokenType } from '../../types';
+import type { OtherTokenType } from '../../types';
 import type DesktopType from './components/desktop';
 import type MobileType from './components/mobile';
 
 const Desktop = dynamic(() => import('./components/desktop')) as typeof DesktopType;
 const Mobile = dynamic(() => import('./components/mobile')) as typeof MobileType;
 
-export const OtherTokens: React.FC<{
+const OtherTokens: React.FC<{
   className?: string;
   otherTokens: {
     data: OtherTokenType[];
@@ -41,9 +41,9 @@ export const OtherTokens: React.FC<{
       <Typography variant="h2">{t('otherTokens')}</Typography>
 
       {isDesktop ? (
-        <Desktop className={classes.desktop} items={items} />
+        <Desktop className={classes.desktop} items={items as any} />
       ) : (
-        <Mobile className={classes.mobile} items={items} />
+        <Mobile className={classes.mobile} items={items as any} />
       )}
       <Pagination
         className={classes.paginate}

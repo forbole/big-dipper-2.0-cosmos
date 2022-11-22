@@ -2,8 +2,8 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
-import { LATEST_BLOCK_HEIGHT, BLOCKS } from '@api';
-import { MockTheme, wait } from '@tests/utils';
+import { LATEST_BLOCK_HEIGHT, BLOCKS, NFTS, NFTS_COUNT } from '@api';
+import { MockTheme, wait } from 'ui/tests/utils';
 import List from '.';
 
 // ==================================
@@ -16,10 +16,10 @@ jest.mock('@components/pagination', () => (props: JSX.IntrinsicElements['div']) 
 jest.mock('@components/no_data', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="NoData" {...props} />
 ));
-jest.mock('@components/box', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/box', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Box" {...props} />
 ));
-jest.mock('@components/loading', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/loading', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Loading" {...props} />
 ));
 jest.mock('@components/blocks_list', () => (props: JSX.IntrinsicElements['div']) => (
@@ -33,7 +33,8 @@ describe('screen: Blocks/List', () => {
   it('matches snapshot', async () => {
     const mockAxios = new MockAdapter(axios);
     mockAxios.onGet(LATEST_BLOCK_HEIGHT).reply(200, 5005);
-
+    mockAxios.onGet(NFTS).reply(200, []);
+    mockAxios.onGet(NFTS_COUNT).reply(200, 0);
     mockAxios.onGet(BLOCKS).reply(200, [
       {
         hash: '24b6a32c87896b6b529db9faf74dfed9d0972b62c632e60c08f014ebbbcb892b',
@@ -56,7 +57,7 @@ describe('screen: Blocks/List', () => {
       },
     ]);
 
-    let component;
+    let component: renderer.ReactTestRenderer | undefined;
     renderer.act(() => {
       component = renderer.create(
         <MockTheme>
@@ -64,9 +65,9 @@ describe('screen: Blocks/List', () => {
         </MockTheme>
       );
     });
-    await wait(3000);
+    await wait(renderer.act, 3000);
 
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

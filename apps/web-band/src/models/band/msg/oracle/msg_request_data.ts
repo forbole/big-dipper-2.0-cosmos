@@ -1,11 +1,15 @@
 import * as R from 'ramda';
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgRequestData {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public oracleScriptId: number;
+
   // public calldata: JSON;
   // public askCount: number;
   // public minCount: number;
@@ -30,8 +34,9 @@ class MsgRequestData {
     this.sender = payload.sender;
   }
 
-  static fromJson(json: any) {
-    return new MsgRequestData({
+  static fromJson(json: any): MsgRequestData {
+    return {
+      category: 'oracle',
       json,
       type: json['@type'],
       oracleScriptId: R.pathOr(0, ['oracle_script_id'], json),
@@ -46,7 +51,7 @@ class MsgRequestData {
       // prepareGas: R.pathOr(0, ['prepare_gas'], json),
       // executeGas: R.pathOr(0, ['executeGas'], json),
       sender: R.pathOr('', ['sender'], json),
-    });
+    };
   }
 }
 

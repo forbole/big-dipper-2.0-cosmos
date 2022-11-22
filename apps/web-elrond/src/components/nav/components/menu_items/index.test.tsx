@@ -1,7 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
-import { RecoilRoot } from 'recoil';
+import { MockTheme } from 'ui/tests/utils';
 import MenuItems from '.';
 // ==================================
 // global setup
@@ -30,7 +29,7 @@ describe('screen: Nav/MenuItems', () => {
   });
 
   it('it renders', () => {
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

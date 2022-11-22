@@ -1,12 +1,12 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
 import useTranslation from 'next-translate/useTranslation';
-import { Typography } from '@material-ui/core';
-import Name from '@components/name';
+import Typography from '@material-ui/core/Typography';
+import Name from 'ui/components/name';
 import MsgCreateIssuer from '@models/emoney/msg/authority/msg_create_issuer';
-import { useProfileRecoil } from '@recoil/profiles';
+import { useProfileRecoil } from 'ui/recoil/profiles';
 
-const CreateIssuer = (props: { message: MsgCreateIssuer }) => {
+const CreateIssuer: React.FC<{ message: MsgCreateIssuer }> = (props) => {
   const { message } = props;
   const { t } = useTranslation('transactions');
 

@@ -6,14 +6,316 @@ services:
     build:
       context: .
       dockerfile: ./apps/web/Dockerfile
+      args:
+        PROJECT_NAME: web
+    platform: linux/arm64
     restart: always
     ports:
       - 3000:3000
     networks:
       - app_network
+  web-cosmos:
+    container_name: web-cosmos
+    build:
+      context: .
+      dockerfile: ./apps/web-cosmos/Dockerfile
+      args:
+        PROJECT_NAME: web-cosmos
+    platform: linux/arm64
+    restart: always
+    ports:
+      - 3001:3000
+    networks:
+      - app_network
+  web-akash:
+    container_name: web-akash
+    build:
+      context: .
+      dockerfile: ./apps/web-akash/Dockerfile
+      args:
+        PROJECT_NAME: web-akash
+    platform: linux/arm64
+    restart: always
+    ports:
+      - 3002:3000
+    networks:
+      - app_network
+  web-emoney:
+    container_name: web-emoney
+    build:
+      context: .
+      dockerfile: ./apps/web-emoney/Dockerfile
+      args:
+        PROJECT_NAME: web-emoney
+    platform: linux/arm64
+    restart: always
+    ports:
+      - 3003:3000
+    networks:
+      - app_network
+  web-band:
+    container_name: web-band
+    build:
+      context: .
+      dockerfile: ./apps/web-band/Dockerfile
+      args:
+        PROJECT_NAME: web-band
+    platform: linux/arm64
+    restart: always
+    ports:
+      - 3004:3000
+    networks:
+      - app_network
+  web-likecoin:
+    container_name: web-likecoin
+    build:
+      context: .
+      dockerfile: ./apps/web-likecoin/Dockerfile
+      args:
+        PROJECT_NAME: web-likecoin
+    platform: linux/arm64
+    restart: always
+    ports:
+      - 3005:3000
+    networks:
+      - app_network
+  web-desmos:
+    container_name: web-desmos
+    build:
+      context: .
+      dockerfile: ./apps/web-desmos/Dockerfile
+      args:
+        PROJECT_NAME: web-desmos
+    platform: linux/arm64
+    restart: always
+    ports:
+      - 3006:3000
+    networks:
+      - app_network
+  web-osmosis:
+    container_name: web-osmosis
+    build:
+      context: .
+      dockerfile: ./apps/web-osmosis/Dockerfile
+      args:
+        PROJECT_NAME: web-osmosis
+    platform: linux/arm64
+    restart: always
+    ports:
+      - 3008:3000
+    networks:
+      - app_network
+  web-bitsong:
+    container_name: web-bitsong
+    build:
+      context: .
+      dockerfile: ./apps/web-bitsong/Dockerfile
+      args:
+        PROJECT_NAME: web-bitsong
+    platform: linux/arm64
+    restart: always
+    ports:
+      - 3009:3000
+    networks:
+      - app_network
+  web-regen:
+    container_name: web-regen
+    build:
+      context: .
+      dockerfile: ./apps/web-regen/Dockerfile
+      args:
+        PROJECT_NAME: web-regen
+    platform: linux/arm64
+    restart: always
+    ports:
+      - 3010:3000
+    networks:
+      - app_network
+  web-agoric:
+    container_name: web-agoric
+    build:
+      context: .
+      dockerfile: ./apps/web-agoric/Dockerfile
+      args:
+        PROJECT_NAME: web-agoric
+    platform: linux/arm64
+    restart: always
+    ports:
+      - 3011:3000
+    networks:
+      - app_network
+  web-rizon:
+    container_name: web-rizon
+    build:
+      context: .
+      dockerfile: ./apps/web-rizon/Dockerfile
+      args:
+        PROJECT_NAME: web-rizon
+    platform: linux/arm64
+    restart: always
+    ports:
+      - 3012:3000
+    networks:
+      - app_network
+  web-elrond:
+    container_name: web-elrond
+    build:
+      context: .
+      dockerfile: ./apps/web-elrond/Dockerfile
+      args:
+        PROJECT_NAME: web-elrond
+    platform: linux/arm64
+    restart: always
+    ports:
+      - 3013:3000
+    networks:
+      - app_network
+  web-evmos:
+    container_name: web-evmos
+    build:
+      context: .
+      dockerfile: ./apps/web-evmos/Dockerfile
+      args:
+        PROJECT_NAME: web-evmos
+    platform: linux/arm64
+    restart: always
+    ports:
+      - 3014:3000
+    networks:
+      - app_network
+  web-comdex:
+    container_name: web-comdex
+    build:
+      context: .
+      dockerfile: ./apps/web-comdex/Dockerfile
+      args:
+        PROJECT_NAME: web-comdex
+    platform: linux/arm64
+    restart: always
+    ports:
+      - 3015:3000
+    networks:
+      - app_network
+  web-crescent:
+    container_name: web-crescent
+    build:
+      context: .
+      dockerfile: ./apps/web-crescent/Dockerfile
+      args:
+        PROJECT_NAME: web-crescent
+    platform: linux/arm64
+    restart: always
+    ports:
+      - 3016:3000
+    networks:
+      - app_network
+  web-sifchain:
+    container_name: web-sifchain
+    build:
+      context: .
+      dockerfile: ./apps/web-sifchain/Dockerfile
+      args:
+        PROJECT_NAME: web-sifchain
+    platform: linux/arm64
+    restart: always
+    ports:
+      - 3017:3000
+    networks:
+      - app_network
+  web-assetmantle:
+    container_name: web-assetmantle
+    build:
+      context: .
+      dockerfile: ./apps/web-assetmantle/Dockerfile
+      args:
+        PROJECT_NAME: web-assetmantle
+    platform: linux/arm64
+    restart: always
+    ports:
+      - 3018:3000
+    networks:
+      - app_network
+  web-provenance:
+    container_name: web-provenance
+    build:
+      context: .
+      dockerfile: ./apps/web-provenance/Dockerfile
+      args:
+        PROJECT_NAME: web-provenance
+    platform: linux/arm64
+    restart: always
+    ports:
+      - 3019:3000
+    networks:
+      - app_network
+  web-nomic:
+    container_name: web-nomic
+    build:
+      context: .
+      dockerfile: ./apps/web-nomic/Dockerfile
+      args:
+        PROJECT_NAME: web-nomic
+    platform: linux/arm64
+    restart: always
+    ports:
+      - 3020:3000
+    networks:
+      - app_network
+  web-shentu:
+    container_name: web-shentu
+    build:
+      context: .
+      dockerfile: ./apps/web-shentu/Dockerfile
+      args:
+        PROJECT_NAME: web-shentu
+    platform: linux/arm64
+    restart: always
+    ports:
+      - 3021:3000
+    networks:
+      - app_network
+  web-persistence:
+    container_name: web-persistence
+    build:
+      context: .
+      dockerfile: ./apps/web-persistence/Dockerfile
+      args:
+        PROJECT_NAME: web-persistence
+    platform: linux/arm64
+    restart: always
+    ports:
+      - 3022:3000
+    networks:
+      - app_network
+  web-stride:
+    container_name: web-stride
+    build:
+      context: .
+      dockerfile: ./apps/web-stride/Dockerfile
+      args:
+        PROJECT_NAME: web-stride
+    platform: linux/arm64
+    restart: always
+    ports:
+      - 3023:3000
+    networks:
+      - app_network
+  web-nym:
+    container_name: web-nym
+    build:
+      context: .
+      dockerfile: ./apps/web-nym/Dockerfile
+      args:
+        PROJECT_NAME: web-nym
+    platform: linux/arm64
+    restart: always
+    ports:
+      - 3024:3000
+    networks:
+      - app_network
+
 
 # Define a network, which allows containers to communicate
 # with each other, by using their container name as a hostname
 networks:
   app_network:
-    external: true

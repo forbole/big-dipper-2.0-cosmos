@@ -38,16 +38,6 @@ type TokenUnit = {
   value: string;
 };
 
-type DesmosProfile = {
-  dtag: string;
-  nickname: string;
-  imageUrl: string;
-  coverUrl: string;
-  bio: string;
-  connections: ProfileConnectionType[];
-  validator?: ValidatorProfile;
-};
-
 type ProfileConnectionType = {
   network: string;
   identifier: string;
@@ -62,6 +52,16 @@ type ValidatorProfile = {
   signedBlockWindow: number;
   missedBlockCounter: number;
   lastSeen: string;
+};
+
+type DesmosProfile = {
+  dtag: string;
+  nickname: string;
+  imageUrl: string;
+  coverUrl: string;
+  bio: string;
+  connections: ProfileConnectionType[];
+  validator?: ValidatorProfile;
 };
 
 type TagTheme =

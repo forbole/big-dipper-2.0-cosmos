@@ -1,14 +1,14 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
-import { MsgDeleteProfile } from '@models';
+import { MockTheme } from 'ui/tests/utils';
+import MsgDeleteProfile from '@models/desmos/msg/profiles/msg_delete_profile';
 import DeleteProfile from '.';
 
 // ==================================
 // mocks
 // ==================================
 
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 
@@ -17,17 +17,18 @@ jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 describe('screen: TransactionDetails/DeleteProfile', () => {
   it('matches snapshot', () => {
-    const message = new MsgDeleteProfile({
+    const message: MsgDeleteProfile = {
       category: 'profiles',
       type: 'MsgDeleteProfile',
       creator: 'creator',
-    });
+      json: {},
+    };
     const component = renderer.create(
       <MockTheme>
         <DeleteProfile message={message} />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

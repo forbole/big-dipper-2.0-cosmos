@@ -1,11 +1,11 @@
 import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import { Typography } from '@material-ui/core';
-import Box from '@components/box';
+import Typography from '@material-ui/core/Typography';
+import Box from 'ui/components/box';
 import BlocksList from '@components/blocks_list';
 import NoData from '@components/no_data';
-import { useStyles } from './style';
+import { useStyles } from './styles';
 
 const Blocks: React.FC<{ blocks: BlockType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('nodes');

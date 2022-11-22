@@ -1,13 +1,17 @@
 import * as R from 'ramda';
 import chainConfig from 'ui/chainConfig';
 import { formatToken } from 'ui/utils/format_token';
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgWithdrawValidatorCommission {
   public category: Categories;
+
   public type: string;
+
   public validatorAddress: string;
+
   public amounts: TokenUnit[];
+
   public json: any;
 
   constructor(payload: any) {
@@ -36,15 +40,16 @@ class MsgWithdrawValidatorCommission {
     return amounts;
   }
 
-  static fromJson(json: any, log?: any) {
+  static fromJson(json: any, log?: any): MsgWithdrawValidatorCommission {
     const amounts = this.getWithdrawalAmount(log);
 
-    return new MsgWithdrawValidatorCommission({
+    return {
+      category: 'distribution',
       json,
       type: json['@type'],
       validatorAddress: json.validator_address,
       amounts,
-    });
+    };
   }
 }
 

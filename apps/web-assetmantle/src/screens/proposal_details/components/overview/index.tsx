@@ -5,17 +5,19 @@ import classnames from 'classnames';
 import dayjs, { formatDayJs } from 'ui/utils/dayjs';
 import useTranslation from 'next-translate/useTranslation';
 import { useRecoilValue } from 'recoil';
-import { readDate } from '@recoil/settings';
-import { Typography, Divider } from '@material-ui/core';
-import SingleProposal from '@components/single_proposal';
-import Box from '@components/box';
-import Markdown from '@components/markdown';
-import Name from '@components/name';
-import { useProfileRecoil } from '@recoil/profiles';
-import { ParamsChange, SoftwareUpgrade } from './components';
+import { readDate } from 'ui/recoil/settings';
+import Divider from '@material-ui/core/Divider';
+import Typography from '@material-ui/core/Typography';
+import SingleProposal from 'ui/components/single_proposal';
+import Box from 'ui/components/box';
+import Markdown from 'ui/components/markdown';
+import Name from 'ui/components/name';
+import { useProfileRecoil } from 'ui/recoil/profiles';
+import ParamsChange from './components/params_change';
+import SoftwareUpgrade from './components/software_upgrade';
 import { useStyles } from './styles';
 import { getProposalType } from '../../utils';
-import { OverviewType } from '../../types';
+import type { OverviewType } from '../../types';
 
 const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
   className,
@@ -86,7 +88,7 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
               {t('submitTime')}
             </Typography>
             <Typography variant="body1" className="value">
-              {formatDayJs(dayjs.utc(overview.submitTime), dateFormat)}
+              {formatDayJs((dayjs as any).utc(overview.submitTime), dateFormat)}
             </Typography>
           </>
         )}
@@ -96,7 +98,7 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
               {t('depositEndTime')}
             </Typography>
             <Typography variant="body1" className="value">
-              {formatDayJs(dayjs.utc(overview.depositEndTime), dateFormat)}
+              {formatDayJs((dayjs as any).utc(overview.depositEndTime), dateFormat)}
             </Typography>
           </>
         )}
@@ -106,7 +108,7 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
               {t('votingStartTime')}
             </Typography>
             <Typography variant="body1" className="value">
-              {formatDayJs(dayjs.utc(overview.votingStartTime), dateFormat)}
+              {formatDayJs((dayjs as any).utc(overview.votingStartTime), dateFormat)}
             </Typography>
           </>
         )}
@@ -116,7 +118,7 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
               {t('votingEndTime')}
             </Typography>
             <Typography variant="body1" className="value">
-              {formatDayJs(dayjs.utc(overview.votingEndTime), dateFormat)}
+              {formatDayJs((dayjs as any).utc(overview.votingEndTime), dateFormat)}
             </Typography>
           </>
         )}

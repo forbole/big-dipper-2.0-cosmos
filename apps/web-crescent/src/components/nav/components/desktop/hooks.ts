@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useScreenSize } from '@hooks';
+import { useScreenSize } from 'ui/hooks';
 
 export const useDesktop = () => {
   const { isDesktop } = useScreenSize();

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import {
@@ -6,7 +6,7 @@ import {
   ProposalDetailsVotesQuery,
 } from '@graphql/types/general_types';
 import { toValidatorAddress } from 'ui/utils/prefix_convert';
-import { VoteState } from './types';
+import type { VoteState } from './types';
 
 export const useVotes = (resetPagination: any) => {
   const router = useRouter();
@@ -23,9 +23,12 @@ export const useVotes = (resetPagination: any) => {
     tab: 0,
   });
 
-  const handleSetState = (stateChange: any) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-  };
+  const handleSetState = useCallback((stateChange: Partial<VoteState>) => {
+    setState((prevState) => {
+      const newState = { ...prevState, ...stateChange };
+      return R.equals(prevState, newState) ? prevState : newState;
+    });
+  }, []);
 
   const handleTabChange = (_event: any, newValue: number) => {
     if (resetPagination) {
@@ -38,7 +41,7 @@ export const useVotes = (resetPagination: any) => {
 
   useProposalDetailsVotesQuery({
     variables: {
-      proposalId: R.pathOr('', ['query', 'id'], router),
+      proposalId: parseInt(R.pathOr('', ['query', 'id'], router), 10),
     },
     onCompleted: (data) => {
       handleSetState(formatVotes(data));
@@ -46,7 +49,7 @@ export const useVotes = (resetPagination: any) => {
   });
 
   const formatVotes = (data: ProposalDetailsVotesQuery) => {
-    const validatorDict = {};
+    const validatorDict: { [key: string]: any } = {};
     const validators = data.validatorStatuses.map((x) => {
       const selfDelegateAddress = R.pathOr(
         '',
@@ -89,15 +92,11 @@ export const useVotes = (resetPagination: any) => {
     // Get data for active validators that did not vote
     // =====================================
     const validatorsNotVoted = validators
-      .filter((x) => {
-        return validatorDict[x] === false;
-      })
-      .map((address) => {
-        return {
-          user: toValidatorAddress(address),
-          vote: 'NOT_VOTED',
-        };
-      });
+      .filter((x) => validatorDict[x] === false)
+      .map((address) => ({
+        user: toValidatorAddress(address),
+        vote: 'NOT_VOTED',
+      }));
 
     return {
       data: votes,

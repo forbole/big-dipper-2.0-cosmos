@@ -1,12 +1,17 @@
 import * as R from 'ramda';
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgCreateIssuer {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public authority: string;
+
   public issuer: string;
+
   public denominations: string[];
 
   constructor(payload: any) {
@@ -18,14 +23,15 @@ class MsgCreateIssuer {
     this.denominations = payload.denominations;
   }
 
-  static fromJson(json: any) {
-    return new MsgCreateIssuer({
+  static fromJson(json: any): MsgCreateIssuer {
+    return {
+      category: 'authority',
       json,
       type: json['@type'],
       authority: json.authority,
       issuer: R.pathOr('', ['issuer'], json),
       denominations: R.pathOr([], ['denominations'], json),
-    });
+    };
   }
 }
 

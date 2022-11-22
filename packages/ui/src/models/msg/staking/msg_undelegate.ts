@@ -1,12 +1,16 @@
-import * as R from 'ramda';
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgUndelegate {
   public category: Categories;
+
   public type: string;
+
   public delegatorAddress: string;
+
   public validatorAddress: string;
+
   public amount: MsgCoin;
+
   public json: any;
 
   constructor(payload: any) {
@@ -18,17 +22,18 @@ class MsgUndelegate {
     this.json = payload.json;
   }
 
-  static fromJson(json: any) {
-    return new MsgUndelegate({
+  static fromJson(json: any): MsgUndelegate {
+    return {
+      category: 'staking',
       json,
       type: json['@type'],
       delegatorAddress: json?.delegator_address,
       validatorAddress: json?.validator_address,
       amount: {
         denom: json?.amount?.denom,
-        amount: R.pathOr('0', ['amount', 'amount'], json),
+        amount: json?.amount?.amount ?? '0',
       },
-    });
+    };
   }
 }
 

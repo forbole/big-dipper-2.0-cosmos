@@ -1,9 +1,12 @@
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgVersion {
   public category: Categories;
+
   public type: string;
+
   public signer: string;
+
   public json: any;
 
   constructor(payload: any) {
@@ -13,12 +16,13 @@ class MsgVersion {
     this.json = payload.json;
   }
 
-  static fromJson(json: any) {
-    return new MsgVersion({
+  static fromJson(json: any): MsgVersion {
+    return {
+      category: 'ibc',
       json,
       type: json['@type'],
       signer: json.signer,
-    });
+    };
   }
 }
 

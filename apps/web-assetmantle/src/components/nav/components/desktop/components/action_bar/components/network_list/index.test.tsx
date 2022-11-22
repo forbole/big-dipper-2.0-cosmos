@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import NetworkList from '.';
 
 // ==================================
@@ -11,9 +11,7 @@ let component: renderer.ReactTestRenderer;
 // ==================================
 // mocks
 // ==================================
-jest.mock('@src/components/nav/components', () => ({
-  Networks: 'Networks',
-}));
+jest.mock('ui/components/nav/components/networks', () => 'Networks');
 
 // ==================================
 // unit tests
@@ -28,7 +26,7 @@ describe('screen: Nav/NetworkList', () => {
   });
 
   it('it renders', () => {
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

@@ -1,6 +1,7 @@
 import React from 'react';
-import Box from '@components/box';
-import { OnlineVotingPower, TokenPrice } from './components';
+import Box from 'ui/components/box';
+import OnlineVotingPower from './components/online_voting_power';
+import TokenPrice from './components/token_price';
 import { useHero } from './hooks';
 
 const Hero: React.FC<ComponentDefault> = (props) => {

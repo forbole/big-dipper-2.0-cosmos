@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import MsgRunDistribution from '@models/sifchain/msg/dispensation/msg_run_distribution';
 import RunDistribution from '.';
 
@@ -8,7 +8,7 @@ import RunDistribution from '.';
 // mocks
 // ==================================
 
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 
@@ -21,18 +21,19 @@ jest.mock('next-translate/Trans', () => (props: JSX.IntrinsicElements['div']) =>
 // ==================================
 describe('screen: TransactionDetails/RunDistribution', () => {
   it('matches snapshot', () => {
-    const message = new MsgRunDistribution({
+    const message: MsgRunDistribution = {
       category: 'dispensation',
       type: 'MsgCreateDistribution',
       authorizedRunner: 'userClaimAddress',
       distributionType: 'DISTRIBUTION_TYPE_AIRDROP',
-    });
+      json: {},
+    };
     const component = renderer.create(
       <MockTheme>
         <RunDistribution message={message} />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
 
     expect(component.root.findByProps({ id: 'Trans' }).props.i18nKey).toEqual(

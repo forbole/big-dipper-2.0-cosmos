@@ -1,3 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`screen: Blocks/List matches snapshot 1`] = `null`;
+exports[`screen: Blocks/List matches snapshot 1`] = `
+<div
+  id="Layout"
+  navTitle="transactionDetails"
+>
+  <div
+    exists={true}
+    id="LoadAndExist"
+    loading={true}
+  >
+    <span
+      className="makeStyles-root"
+    >
+      <div
+        data={
+          {
+            "fee": {
+              "baseDenom": "",
+              "displayDenom": "",
+              "exponent": 0,
+              "value": "0",
+            },
+            "gas": 0,
+            "hash": "",
+            "height": 0,
+            "memo": "",
+            "timestamp": "",
+          }
+        }
+        id="Overview"
+      />
+    </span>
+  </div>
+</div>
+`;

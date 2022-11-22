@@ -1,11 +1,11 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import MsgSignDataRequest from '@models/regen/msg/data/msg_sign_data_request';
-import { useProfilesRecoil } from '@recoil/profiles';
-import { Signers } from './components';
+import { useProfilesRecoil } from 'ui/recoil/profiles';
+import Signers from './components/signers';
 
-const SignDataRequest = (props: { message: MsgSignDataRequest }) => {
+const SignDataRequest: React.FC<{ message: MsgSignDataRequest }> = (props) => {
   const { message } = props;
   const signersProfiles = useProfilesRecoil(message.signers);
 

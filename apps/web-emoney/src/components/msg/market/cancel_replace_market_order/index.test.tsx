@@ -1,13 +1,13 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import MsgCancelReplaceMarketOrder from '@models/emoney/msg/market/msg_cancel_replace_market_order';
 import CancelReplaceMarketOrder from '.';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 
@@ -16,7 +16,7 @@ jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 describe('screen: TransactionDetails/CancelReplaceMarketOrder', () => {
   it('matches snapshot', () => {
-    const message = new MsgCancelReplaceMarketOrder({
+    const message: MsgCancelReplaceMarketOrder = {
       category: 'market',
       type: 'MsgCancelReplaceMarketOrder',
       owner: 'owner',
@@ -26,15 +26,17 @@ describe('screen: TransactionDetails/CancelReplaceMarketOrder', () => {
       source: 'source',
       destination: {
         denom: 'udarics',
-        amount: 500000,
+        amount: '500000',
       },
-    });
+      maximumSlippage: '0.1',
+      json: {},
+    };
     const component = renderer.create(
       <MockTheme>
         <CancelReplaceMarketOrder message={message} />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

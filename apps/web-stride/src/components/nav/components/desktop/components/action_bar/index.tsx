@@ -1,9 +1,11 @@
 import React from 'react';
 import classnames from 'classnames';
-import { useGetComponentDimension } from '@hooks';
+import { useGetComponentDimension } from 'ui/hooks';
+import SearchBar from 'ui/components/nav/components/search_bar';
 import { useStyles } from './styles';
-import { Network, NetworkList, SettingsList } from './components';
-import { SearchBar } from '../../..';
+import Network from './components/network';
+import NetworkList from './components/network_list';
+import SettingsList from './components/settings_list';
 
 const ActionBar: React.FC<{
   isNetwork: boolean;

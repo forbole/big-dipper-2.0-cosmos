@@ -34,6 +34,7 @@ exports[`screen: BlockDetails/Transactions matches snapshot 1`] = `
           },
           "success": false,
           "timestamp": "",
+          "type": [],
         },
         {
           "hash": "hash1",
@@ -44,6 +45,7 @@ exports[`screen: BlockDetails/Transactions matches snapshot 1`] = `
           },
           "success": true,
           "timestamp": "",
+          "type": [],
         },
       ]
     }

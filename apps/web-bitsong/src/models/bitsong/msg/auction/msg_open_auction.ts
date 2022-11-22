@@ -1,11 +1,15 @@
 import * as R from 'ramda';
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgOpenAuction {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public owner: string;
+
   public nftId: string;
 
   constructor(payload: any) {
@@ -16,13 +20,14 @@ class MsgOpenAuction {
     this.nftId = payload.nftId;
   }
 
-  static fromJson(json: any) {
-    return new MsgOpenAuction({
+  static fromJson(json: any): MsgOpenAuction {
+    return {
+      category: 'auction',
       json,
       type: json['@type'],
       owner: json.owner,
       nftId: R.pathOr('', ['nft_id'], json),
-    });
+    };
   }
 }
 

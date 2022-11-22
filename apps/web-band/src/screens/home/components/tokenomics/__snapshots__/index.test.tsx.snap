@@ -1,3 +1,122 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`screen: Home/Tokenomics matches snapshot 1`] = `null`;
+exports[`screen: Home/Tokenomics matches snapshot 1`] = `
+<div
+  className="makeStyles-root"
+  id="box"
+>
+  <h2
+    className="MuiTypography-root makeStyles-label MuiTypography-h2"
+  >
+    tokenomics
+  </h2>
+  <div
+    className="makeStyles-data"
+  >
+    <div
+      className="data__item"
+    >
+      <h4
+        className="MuiTypography-root MuiTypography-h4"
+      >
+        254,578,529,800
+         
+      </h4>
+      <span
+        className="MuiTypography-root MuiTypography-caption"
+      >
+        bondedPercent
+      </span>
+    </div>
+    <div
+      className="data__item"
+    >
+      <h4
+        className="MuiTypography-root MuiTypography-h4"
+      >
+        -459,465,964,998
+         
+      </h4>
+      <span
+        className="MuiTypography-root MuiTypography-caption"
+      >
+        unbondedPercent
+      </span>
+    </div>
+  </div>
+  <div
+    className="makeStyles-content"
+  >
+    <div
+      className="recharts-wrapper"
+      style={
+        {
+          "cursor": "default",
+          "height": 100,
+          "position": "relative",
+          "width": 200,
+        }
+      }
+    >
+      <svg
+        className="recharts-surface"
+        cx="50%"
+        cy={100}
+        height={100}
+        version="1.1"
+        viewBox="0 0 200 100"
+        width={200}
+      >
+        <title />
+        <desc />
+        <defs>
+          <clipPath
+            id="recharts1-clip"
+          >
+            <rect
+              height={90}
+              width={190}
+              x={5}
+              y={5}
+            />
+          </clipPath>
+        </defs>
+      </svg>
+      <div
+        id="test-tooltip"
+      />
+    </div>
+    <div
+      className="makeStyles-legends"
+    >
+      <div
+        className="legends__item"
+      >
+        <span
+          className="MuiTypography-root MuiTypography-caption"
+        >
+          bonded
+        </span>
+      </div>
+      <div
+        className="legends__item"
+      >
+        <span
+          className="MuiTypography-root MuiTypography-caption"
+        >
+          unbonded
+        </span>
+      </div>
+      <div
+        className="legends__item"
+      >
+        <span
+          className="MuiTypography-root MuiTypography-caption"
+        >
+          unbonding
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;

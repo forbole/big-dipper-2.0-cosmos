@@ -3,8 +3,13 @@ import chainConfig from 'ui/chainConfig';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import { useRecoilValue } from 'recoil';
-import { readDate } from '@recoil/settings';
-import { Table, TableHead, TableRow, TableCell, TableBody, Typography } from '@material-ui/core';
+import { readDate } from 'ui/recoil/settings';
+import Table from '@material-ui/core/Table';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import TableCell from '@material-ui/core/TableCell';
+import TableBody from '@material-ui/core/TableBody';
+import Typography from '@material-ui/core/Typography';
 import dayjs, { formatDayJs } from 'ui/utils/dayjs';
 import Link from 'next/link';
 import { ACCOUNT_DETAILS } from '@utils/go_to_page';
@@ -17,7 +22,7 @@ const Desktop: React.FC<{
   const dateFormat = useRecoilValue(readDate);
   const { t } = useTranslation('accounts');
 
-  const formattedItems = items.map((x) => {
+  const formattedItems = items?.map((x) => {
     let identity: string | React.ReactNode = x.identifier;
     if (new RegExp(`^(${chainConfig.prefix.account})`).test(x.identifier)) {
       identity = (
@@ -32,7 +37,7 @@ const Desktop: React.FC<{
     return {
       network: x.network.toUpperCase(),
       identifier: identity,
-      creationTime: formatDayJs(dayjs.utc(x.creationTime), dateFormat),
+      creationTime: formatDayJs((dayjs as any).utc(x.creationTime), dateFormat),
     };
   });
 
@@ -41,33 +46,29 @@ const Desktop: React.FC<{
       <Table>
         <TableHead>
           <TableRow>
-            {columns.map((column) => {
-              return (
-                <TableCell
-                  key={column.key}
-                  align={column.align}
-                  style={{ width: `${column.width}%` }}
-                >
-                  {t(column.key)}
-                </TableCell>
-              );
-            })}
+            {columns.map((column) => (
+              <TableCell
+                key={column.key}
+                align={column.align}
+                style={{ width: `${column.width}%` }}
+              >
+                {t(column.key)}
+              </TableCell>
+            ))}
           </TableRow>
         </TableHead>
         <TableBody>
-          {formattedItems.map((row, i) => (
-            <TableRow key={`holders-row-${i}`}>
-              {columns.map((column) => {
-                return (
-                  <TableCell
-                    key={`holders-row-${i}-${column.key}`}
-                    align={column.align}
-                    style={{ width: `${column.width}%` }}
-                  >
-                    {row[column.key]}
-                  </TableCell>
-                );
-              })}
+          {formattedItems?.map((row: { [key: string]: unknown }) => (
+            <TableRow key={`holders-row-${row.identifier}`}>
+              {columns.map((column) => (
+                <TableCell
+                  key={`holders-row-${row.identifier}-${column.key}`}
+                  align={column.align}
+                  style={{ width: `${column.width}%` }}
+                >
+                  {row[column.key]}
+                </TableCell>
+              ))}
             </TableRow>
           ))}
         </TableBody>

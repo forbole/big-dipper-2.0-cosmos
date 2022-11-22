@@ -2,13 +2,16 @@
   "chainName": "agoric",
   "title": "Agoric Block Explorer",
   "extra": {
-    "profile": true
+    "profile": true,
+    "graphqlWs": true
   },
   "previewImage": "https://s3.bigdipper.live/agoric.png",
   "themes": {
     "default": "light",
     "themeList": [
-      "light"
+      "light",
+      "deuteranopia",
+      "tritanopia"
     ],
     "dark": {
       "primary": {},
@@ -50,7 +53,8 @@
           "fontTwo": "#414141",
           "fontThree": "#777777",
           "fontFour": "#999999",
-          "fontFive": "#FFFFFF"
+          "fontFive": "#FFFFFF",
+          "highlight": "#197CD8"
         },
         "primaryData": {
           "one": "#C64155",

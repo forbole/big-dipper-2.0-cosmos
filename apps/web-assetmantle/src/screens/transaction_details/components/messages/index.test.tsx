@@ -1,32 +1,32 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import { MsgUnknown } from '@models';
 import Messages from '.';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/box', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/box', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Box" {...props} />
 ));
-jest.mock('@components/tag', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/tag', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Tag" {...props} />
 ));
 jest.mock(
-  '@components/transaction_messages_filter',
+  'ui/components/transaction_messages_filter',
   () => (props: JSX.IntrinsicElements['div']) => <div id="TransactionMessagesFilter" {...props} />
 );
 
-jest.mock(
-  'react-virtualized-auto-sizer',
-  () =>
-    ({ children }: any) =>
-      children({
-        height: 600,
-        width: 600,
-      })
-);
+// jest.mock(
+//   'react-virtualized-auto-sizer',
+//   () =>
+//     ({ children }: AutoSizerProps) =>
+//       children({
+//         height: 600,
+//         width: 600,
+//       })
+// );
 
 // ==================================
 // unit tests
@@ -55,7 +55,7 @@ describe('screen: TransactionDetails/ Messages', () => {
         />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

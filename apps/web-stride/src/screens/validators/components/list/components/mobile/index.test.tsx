@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import TabsHeader from '.';
 
 // ==================================
@@ -12,9 +12,9 @@ const mockI18n = {
 };
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
 
-jest.mock('./component', () => ({
-  SingleValidator: (props: JSX.IntrinsicElements['div']) => <div id="SingleValidator" {...props} />,
-}));
+jest.mock('./component/single_validator', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="SingleValidator" {...props} />
+));
 
 // ==================================
 // unit tests
@@ -43,7 +43,7 @@ describe('screen: Validators/Tabs', () => {
         />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

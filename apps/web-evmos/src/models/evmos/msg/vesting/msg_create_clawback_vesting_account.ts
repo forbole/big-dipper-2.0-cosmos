@@ -1,11 +1,15 @@
 import * as R from 'ramda';
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgCreateClawbackVestingAccount {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public fromAddress: string;
+
   public toAddress: string;
 
   constructor(payload: any) {
@@ -16,13 +20,14 @@ class MsgCreateClawbackVestingAccount {
     this.toAddress = payload.toAddress;
   }
 
-  static fromJson(json: any) {
-    return new MsgCreateClawbackVestingAccount({
+  static fromJson(json: any): MsgCreateClawbackVestingAccount {
+    return {
+      category: 'vesting',
       json,
       type: json['@type'],
       fromAddress: R.pathOr('', ['from_address'], json),
-      toAddress: R.pathOr('', ['to_address'], json),
-    });
+      toAddress: json?.from_address ?? '',
+    };
   }
 }
 

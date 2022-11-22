@@ -1,10 +1,14 @@
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgSubmitMisbehaviour {
   public category: Categories;
+
   public type: string;
+
   public signer: string;
+
   public clientId: string;
+
   public json: any;
 
   constructor(payload: any) {
@@ -15,13 +19,14 @@ class MsgSubmitMisbehaviour {
     this.json = payload.json;
   }
 
-  static fromJson(json: any) {
-    return new MsgSubmitMisbehaviour({
+  static fromJson(json: any): MsgSubmitMisbehaviour {
+    return {
+      category: 'ibc',
       json,
       type: json['@type'],
       signer: json.signer,
       clientId: json.client_id,
-    });
+    };
   }
 }
 

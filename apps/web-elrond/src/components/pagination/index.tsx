@@ -2,8 +2,8 @@ import React from 'react';
 import numeral from 'numeral';
 import useTranslation from 'next-translate/useTranslation';
 import classnames from 'classnames';
-import { TablePagination } from '@material-ui/core';
-import { Actions } from './components';
+import TablePagination from '@material-ui/core/TablePagination';
+import Actions from './components/actions';
 import { useStyles } from './styles';
 
 const Pagination: React.FC<{

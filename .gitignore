@@ -4,7 +4,10 @@
 node_modules/
 .pnp
 .pnp.js
-**/*.tsbuildinfo
+
+# next.js generates its own .tsbuildinfo at .next/cache
+**/.tsbuildinfo
+.eslintcache
 
 # testing
 coverage/
@@ -43,6 +46,9 @@ test.js
 # Sentry
 .sentryclirc
 
+# WebStorm
+.idea/
+
 # Yarn Berry
 .pnp.*
 .yarn/*
@@ -51,6 +57,12 @@ test.js
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+.turbo
+
+# Playwright
+/test-results/
+/playwright-report/
+/playwright/.cache/
 /test-results/
 /playwright-report/
 /playwright/.cache/

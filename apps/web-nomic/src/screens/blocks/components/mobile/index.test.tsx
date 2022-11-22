@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import Mobile from '.';
 
 // ==================================
@@ -9,22 +9,22 @@ import Mobile from '.';
 jest.mock('@components/single_block_mobile', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="SingleBlockMobile" {...props} />
 ));
-jest.mock('@components/loading', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/loading', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Loading" {...props} />
 ));
-jest.mock('@components/avatar_name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/avatar_name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="AvatarName" {...props} />
 ));
 
-jest.mock(
-  'react-virtualized-auto-sizer',
-  () =>
-    ({ children }: any) =>
-      children({
-        height: 600,
-        width: 600,
-      })
-);
+// jest.mock(
+//   'react-virtualized-auto-sizer',
+//   () =>
+//     ({ children }: AutoSizerProps) =>
+//       children({
+//         height: 600,
+//         width: 600,
+//       })
+// );
 
 // ==================================
 // unit tests
@@ -39,20 +39,12 @@ describe('screen: Home/Blocks/Mobile', () => {
               height: 300,
               txs: 2,
               timestamp: '',
-              proposer: {
-                name: 'proposer',
-                address: 'address',
-              },
               hash: 'hash',
             },
             {
               height: 301,
               txs: 2,
               timestamp: '',
-              proposer: {
-                name: 'proposer',
-                address: 'address',
-              },
               hash: 'hash',
             },
           ]}
@@ -62,7 +54,7 @@ describe('screen: Home/Blocks/Mobile', () => {
         />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

@@ -1,7 +1,10 @@
 class MsgParameterChangeProposal {
   public type: string;
+
   public title: string;
+
   public description: string;
+
   public changes: {
     subspace: string;
     key: string;
@@ -15,19 +18,17 @@ class MsgParameterChangeProposal {
     this.changes = payload.changes;
   }
 
-  static fromJson(json: any) {
-    return new MsgParameterChangeProposal({
+  static fromJson(json: any): MsgParameterChangeProposal {
+    return {
       type: json['@type'],
       title: json.title,
       description: json.description,
-      changes: json?.changes?.map((x?: { subspace: string; key: string; value: string }) => {
-        return {
-          subspace: x?.subspace,
-          key: x?.key,
-          value: x?.value,
-        };
-      }),
-    });
+      changes: json?.changes?.map((x?: { subspace: string; key: string; value: string }) => ({
+        subspace: x?.subspace,
+        key: x?.key,
+        value: x?.value,
+      })),
+    };
   }
 }
 

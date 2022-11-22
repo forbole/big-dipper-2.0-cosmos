@@ -18,56 +18,90 @@ module.exports = {
     'prettier',
   ],
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint'],
+  plugins: ['@typescript-eslint', 'import'],
 
   settings: {
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx'],
+    },
     react: {
       version: 'detect',
     },
+    'import/resolver': {
+      typescript: {
+        alwaysTryTypes: true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
+        // use an array of glob patter
+        project: ['./**/tsconfig.json'],
+      },
+    },
   },
   rules: {
-    // TODO: disabled due to historical reason
-    // error off
-    '@typescript-eslint/no-loss-of-precision': 'off',
-    '@typescript-eslint/no-var-requires': 'off',
-    'arrow-body-style': 'off',
-    camelcase: 'off',
-    'consistent-return': 'off',
-    'jsx-a11y/anchor-is-valid': 'off',
-    'jsx-a11y/click-events-have-key-events': 'off',
-    'jsx-a11y/interactive-supports-focus': 'off',
-    'no-bitwise': 'off',
-    'no-param-reassign': 'off',
-    'no-use-before-define': 'off',
-    'no-shadow': 'off',
-    'import/extensions': 'off',
-    'import/prefer-default-export': 'off',
-    'lines-between-class-members': 'off',
-    'import/newline-after-import': 'off',
-    'import/no-extraneous-dependencies': 'off',
-    'import/no-unresolved': 'off',
-    'react/destructuring-assignment': 'off',
-    'react/jsx-filename-extension': 'off',
-    'react/jsx-props-no-spreading': 'off',
-    'react/no-array-index-key': 'off',
-    'react/no-unknown-property': 'off',
-    'react/no-unused-prop-types': 'off',
-    'react/prop-types': 'off',
-    'react/react-in-jsx-scope': 'off',
-    'react/require-default-props': 'off',
-    'react-hooks/exhaustive-deps': 'off',
-    'react-hooks/rules-of-hooks': 'off',
-    'no-underscore-dangle': 'off',
-    // warn off
-    '@next/next/no-img-element': 'off',
-    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    /* https://typescript-eslint.io/rules/no-explicit-any/ */
     '@typescript-eslint/no-explicit-any': 'off',
-    '@typescript-eslint/no-non-null-assertion': 'off',
-    '@typescript-eslint/no-unused-vars': ['off', { argsIgnorePattern: '^_' }],
-    'no-console': ['off', { allow: ['warn', 'error'] }],
-    // off for turborepo
+    /* https://typescript-eslint.io/rules/no-unused-vars/ */
+    '@typescript-eslint/no-unused-vars': [
+      'error',
+      {
+        ignoreRestSiblings: true,
+        argsIgnorePattern: '^_',
+        destructuredArrayIgnorePattern: '^_',
+        varsIgnorePattern: '^_',
+      },
+    ],
+    /* https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/anchor-is-valid.md */
+    'jsx-a11y/anchor-is-valid': [
+      'error',
+      {
+        components: ['Link'],
+        specialLink: ['hrefLeft', 'hrefRight'],
+        aspects: ['invalidHref', 'preferButton'],
+      },
+    ],
+    /* https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/click-events-have-key-events.md */
+    'jsx-a11y/click-events-have-key-events': 'off',
+    /* https://eslint.org/docs/latest/rules/camelcase */
+    /* prefer not to migrate existing code to use default exports for now */
+    camelcase: 'off',
+    /* https://eslint.org/docs/latest/rules/no-bitwise */
+    'no-bitwise': 'off',
+    /* https://eslint.org/docs/latest/rules/no-param-reassign */
+    'no-param-reassign': 'off',
+    /* https://eslint.org/docs/latest/rules/no-use-before-define */
+    'no-use-before-define': ['error', { classes: false, functions: false, variables: false }],
+    /* https://eslint.org/docs/latest/rules/no-console */
+    'no-console': ['error', { allow: ['warn', 'error'] }],
+    /* https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/extensions.md */
+    'import/extensions': 'off',
+    /* https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/prefer-default-export.md */
+    /* prefer not to migrate existing code to use default exports for now */
+    'import/prefer-default-export': 'off',
+    /* https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-extraneous-dependencies.md */
+    /* doesn't work well with monorepos in IDE */
+    'import/no-extraneous-dependencies': 'off',
+    /* https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/function-component-definition.md */
+    'react/function-component-definition': [
+      'warn',
+      {
+        namedComponents: ['function-declaration', 'arrow-function'],
+        unnamedComponents: 'arrow-function',
+      },
+    ],
+    /* https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/destructuring-assignment.md */
+    'react/destructuring-assignment': 'off',
+    /* https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md */
+    'react/jsx-filename-extension': [1, { extensions: ['.tsx', '.jsx'] }],
+    /* https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-props-no-spreading.md */
+    'react/jsx-props-no-spreading': 'off',
+    /* https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/react-in-jsx-scope.md */
+    /* nextjs has its own jsx transform */
+    'react/react-in-jsx-scope': 'off',
+    /* https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/require-default-props.md */
+    /* as per https://twitter.com/dan_abramov/status/1133878326358171650 this will eventually get deprecated. */
+    'react/require-default-props': 'off',
+    /* Https://github.com/facebook/react/issues/14920 */
+    'react-hooks/exhaustive-deps': 'warn',
+    /* https://nextjs.org/docs/messages/no-html-link-for-pages */
     '@next/next/no-html-link-for-pages': 'off',
-    'react/jsx-key': 'off',
   },
   env: {
     es6: true,
@@ -75,4 +109,14 @@ module.exports = {
     jest: true,
     node: true,
   },
+  ignorePatterns: [
+    '**/node_modules/*',
+    '**/out/*',
+    '**/.next/*',
+    '**/dist/*',
+    '**/cypress/support/*',
+    '**/cypress/plugins/*',
+    '**/cypress/fixtures/*',
+    '**/src/graphql/*',
+  ],
 };

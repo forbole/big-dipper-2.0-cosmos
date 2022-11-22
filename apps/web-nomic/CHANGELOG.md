@@ -9,3 +9,4 @@
 - Fix: production and staging Docker workflows [\#13](https://github.com/forbole/big-dipper-2.0-nomic/pull/13))
 - Fix: validators page ([\#14](https://github.com/forbole/big-dipper-2.0-nomic/pull/14))
 - Fix: blocks, validators, txs and account page display ([\#15](https://github.com/forbole/big-dipper-2.0-nomic/pull/15))
+- ([\#16](https://github.com/forbole/big-dipper-2.0-nomic/pull/16)) Fixed nomic missing features: removed block proposer from /blocks page, added total delegation display in account page & fixed balance chart, fixed tokenomics chart, updated overall VP calculations in /validators page

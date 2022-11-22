@@ -3,20 +3,21 @@ import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Big from 'big.js';
 import numeral from 'numeral';
-import { Divider, Typography } from '@material-ui/core';
-import { useScreenSize } from '@hooks';
+import Divider from '@material-ui/core/Divider';
+import Typography from '@material-ui/core/Typography';
+import { useScreenSize } from 'ui/hooks';
 import CopyIcon from 'shared-utils/assets/icon-copy.svg';
 import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
-import Box from '@components/box';
-import Tag from '@components/tag';
-import InfoPopover from '@components/info_popover';
-import ConditionExplanation from '@components/condition_explanation';
+import Box from 'ui/components/box';
+import Tag from 'ui/components/tag';
+import InfoPopover from 'ui/components/info_popover';
+import ConditionExplanation from 'ui/components/condition_explanation';
 import Link from 'next/link';
 import { ACCOUNT_DETAILS } from 'ui/utils/go_to_page';
 import { getValidatorStatus } from 'ui/utils/get_validator_status';
 import { useStyles } from './styles';
 import { getCondition } from './utils';
-import { StatusType, OverviewType } from '../../types';
+import type { StatusType, OverviewType } from '../../types';
 import { useAddress } from './hooks';
 
 const ValidatorOverview: React.FC<
@@ -64,7 +65,7 @@ const ValidatorOverview: React.FC<
       key: (
         <Typography variant="h4" className="label condition">
           {t('condition')}
-          <InfoPopover content={<ConditionExplanation />} />
+          <InfoPopover content={ConditionExplanation} />
         </Typography>
       ),
       value:
@@ -160,14 +161,13 @@ const ValidatorOverview: React.FC<
         </div>
         <Divider className={classes.divider} />
         <div className={classes.statusRoot}>
-          {statusItems.map((x, i) => {
-            return (
-              <div className={classes.statusItem} key={`status-item-${i}`}>
-                {x.key}
-                {x.value}
-              </div>
-            );
-          })}
+          {statusItems.map((x, i) => (
+            // eslint-disable-next-line react/no-array-index-key
+            <div className={classes.statusItem} key={`status-item-${i}`}>
+              {x.key}
+              {x.value}
+            </div>
+          ))}
         </div>
       </Box>
     </>

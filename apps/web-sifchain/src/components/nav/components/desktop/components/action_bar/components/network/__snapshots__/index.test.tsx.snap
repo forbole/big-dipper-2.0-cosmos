@@ -2,20 +2,50 @@
 
 exports[`screen: Nav/Network it renders 1`] = `
 <div
+  aria-label="sifchain-1"
   className="makeStyles-root"
   onClick={[MockFunction]}
   role="button"
+  tabIndex={0}
 >
-  <img
-    alt="icon"
-    className="makeStyles-icon makeStyles-dark"
-    src="svg"
-  />
-  <img
-    alt="icon"
-    className="makeStyles-icon makeStyles-light"
-    src="svg"
-  />
+  <span
+    className="makeStyles-icon makeStyles-container"
+  >
+    <img
+      alt="icon"
+      className="makeStyles-dark"
+      data-nimg="future"
+      decoding="async"
+      height={0}
+      loading="lazy"
+      onError={[Function]}
+      onLoad={[Function]}
+      src="svg"
+      style={
+        {
+          "color": "transparent",
+        }
+      }
+      width={0}
+    />
+    <img
+      alt="icon"
+      className="makeStyles-light"
+      data-nimg="future"
+      decoding="async"
+      height={0}
+      loading="lazy"
+      onError={[Function]}
+      onLoad={[Function]}
+      src="svg"
+      style={
+        {
+          "color": "transparent",
+        }
+      }
+      width={0}
+    />
+  </span>
   <p
     className="MuiTypography-root MuiTypography-body1"
   >

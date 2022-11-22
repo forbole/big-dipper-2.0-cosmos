@@ -1,58 +1,51 @@
 import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
 import { formatNumber } from 'ui/utils/format_token';
-import { Typography, Divider } from '@material-ui/core';
+import Divider from '@material-ui/core/Divider';
+import Typography from '@material-ui/core/Typography';
 import AvatarName from '@components/avatar_name';
 import { TOKEN_DETAILS } from '@utils/go_to_page';
 import { useStyles } from './styles';
-import { OtherTokenType } from '../../../../types';
+import type { OtherTokenType } from '../../../../types';
 
 const Mobile: React.FC<{ items: OtherTokenType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('accounts');
   const classes = useStyles();
-  const formattedItems = props.items.map((x) => {
-    return {
-      identifier: x.identifier,
-      token: (
-        <AvatarName
-          address={x.identifier}
-          name={x.name}
-          imageUrl={x.imageUrl}
-          href={TOKEN_DETAILS}
-        />
-      ),
-      balance: `${formatNumber(
-        x.balance.value,
-        x.balance.exponent
-      )} ${x.balance.displayDenom.toUpperCase()}`,
-    };
-  });
+  const formattedItems = props.items.map((x) => ({
+    identifier: x.identifier,
+    token: (
+      <AvatarName address={x.identifier} name={x.name} imageUrl={x.imageUrl} href={TOKEN_DETAILS} />
+    ),
+    balance: `${formatNumber(
+      x.balance.value,
+      x.balance.exponent
+    )} ${x.balance.displayDenom.toUpperCase()}`,
+  }));
 
   return (
     <div className={props.className}>
-      {formattedItems.map((x, i) => {
-        return (
-          <React.Fragment key={`${x.identifier}-${i}`}>
-            <div className={classes.root}>
-              <div className={classes.item}>
-                <Typography variant="h4" className="label">
-                  {t('token')}
-                </Typography>
-                {x.token}
-              </div>
-              <div className={classes.item}>
-                <Typography variant="h4" className="label">
-                  {t('balance')}
-                </Typography>
-                <Typography variant="body1" className="value">
-                  {x.balance}
-                </Typography>
-              </div>
+      {formattedItems?.map((x, i) => (
+        // eslint-disable-next-line react/no-array-index-key
+        <React.Fragment key={`${x.identifier}-${i}`}>
+          <div className={classes.root}>
+            <div className={classes.item}>
+              <Typography variant="h4" className="label">
+                {t('token')}
+              </Typography>
+              {x.token}
             </div>
-            {i !== formattedItems.length - 1 && <Divider />}
-          </React.Fragment>
-        );
-      })}
+            <div className={classes.item}>
+              <Typography variant="h4" className="label">
+                {t('balance')}
+              </Typography>
+              <Typography variant="body1" className="value">
+                {x.balance}
+              </Typography>
+            </div>
+          </div>
+          {i !== formattedItems.length - 1 && <Divider />}
+        </React.Fragment>
+      ))}
     </div>
   );
 };

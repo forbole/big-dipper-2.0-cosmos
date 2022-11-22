@@ -2,7 +2,8 @@
   "chainName": "akash",
   "title": "Akash Block Explorer",
   "extra": {
-    "profile": true
+    "profile": true,
+    "graphqlWs": true
   },
   "previewImage": "https://s3.bigdipper.live/akash.png",
   "themes": {
@@ -38,7 +39,8 @@
           "fontTwo": "#C4C4C4",
           "fontThree": "#818181",
           "fontFour": "#999999",
-          "fontFive": "#FFFFFF"
+          "fontFive": "#FFFFFF",
+          "highlight": "#379AFE"
         },
         "primaryData": {
           "one": "#D84839",

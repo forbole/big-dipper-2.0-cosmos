@@ -1,9 +1,9 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from '@tests/utils';
+import { MockTheme } from 'ui/tests/utils';
 import AvatarName from '.';
 
-jest.mock('@components/avatar', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('ui/components/avatar', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Avatar" {...props} />
 ));
 // ==================================
@@ -16,7 +16,7 @@ describe('component: AvatarName', () => {
         <AvatarName name="name" address="123" />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 
@@ -30,7 +30,7 @@ describe('component: AvatarName', () => {
         />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

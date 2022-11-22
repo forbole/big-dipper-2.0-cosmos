@@ -1,9 +1,9 @@
 import React from 'react';
 import classnames from 'classnames';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import { useStyles } from './styles';
-import { SingleBlockMobileType } from './types';
+import type { SingleBlockMobileType } from './types';
 
 const SingleBlockMobile: React.FC<SingleBlockMobileType & ComponentDefault> = (props) => {
   const { t } = useTranslation('blocks');

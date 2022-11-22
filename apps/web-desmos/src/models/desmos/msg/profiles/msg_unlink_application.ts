@@ -1,11 +1,16 @@
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgUnlinkApplication {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public application: string;
+
   public username: string;
+
   public signer: string;
 
   constructor(payload: any) {
@@ -17,14 +22,15 @@ class MsgUnlinkApplication {
     this.signer = payload.signer;
   }
 
-  static fromJson(json: any) {
-    return new MsgUnlinkApplication({
+  static fromJson(json: any): MsgUnlinkApplication {
+    return {
+      category: 'profiles',
       json,
       type: json['@type'],
       application: json.application,
       username: json.username,
       signer: json.signer,
-    });
+    };
   }
 }
 

@@ -29,21 +29,74 @@ exports[`screen: BlockDetails/Transactions matches snapshot 1`] = `
           "hash": "hash",
           "height": 300,
           "messages": {
-            "count": 3,
-            "items": [],
+            "count": 2,
+            "items": [
+              {
+                "@type": "/cosmos.staking.v1beta1.MsgDelegate",
+                "amount": {
+                  "amount": "8371578",
+                  "denom": "udaric",
+                },
+                "delegator_address": "desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr",
+                "validator_address": "desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3",
+              },
+              {
+                "@type": "/cosmos.staking.v1beta1.MsgDelegate",
+                "amount": {
+                  "amount": "1233",
+                  "denom": "udaric",
+                },
+                "delegator_address": "desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr",
+                "validator_address": "desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3",
+              },
+            ],
           },
           "success": false,
           "timestamp": "",
+          "type": [
+            "",
+          ],
         },
         {
           "hash": "hash1",
-          "height": 300,
+          "height": 301,
           "messages": {
-            "count": 13,
-            "items": [],
+            "count": 3,
+            "items": [
+              {
+                "@type": "/cosmos.staking.v1beta1.MsgDelegate",
+                "amount": {
+                  "amount": "44444",
+                  "denom": "udaric",
+                },
+                "delegator_address": "desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr",
+                "validator_address": "desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3",
+              },
+              {
+                "@type": "/cosmos.staking.v1beta1.MsgDelegate",
+                "amount": {
+                  "amount": "12211",
+                  "denom": "udaric",
+                },
+                "delegator_address": "desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr",
+                "validator_address": "desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3",
+              },
+              {
+                "@type": "/cosmos.staking.v1beta1.MsgDelegate",
+                "amount": {
+                  "amount": "11111",
+                  "denom": "udaric",
+                },
+                "delegator_address": "desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr",
+                "validator_address": "desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3",
+              },
+            ],
           },
           "success": true,
           "timestamp": "",
+          "type": [
+            "",
+          ],
         },
       ]
     }

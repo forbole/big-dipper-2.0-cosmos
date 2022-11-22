@@ -1,5 +1,3 @@
-import Mobile from './mobile';
-import Desktop from './desktop';
-import Shard from './shard';
-
-export { Mobile, Desktop, Shard };
+export { default as Desktop } from './desktop';
+export { default as Mobile } from './mobile';
+export { default as Shard } from './shard';

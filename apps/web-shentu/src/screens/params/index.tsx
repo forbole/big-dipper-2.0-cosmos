@@ -2,8 +2,8 @@ import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
 import { NextSeo } from 'next-seo';
 import Layout from '@components/layout';
-import LoadAndExist from '@components/load_and_exist';
-import BoxDetails from '@components/box_details';
+import LoadAndExist from 'ui/components/load_and_exist';
+import BoxDetails from 'ui/components/box_details';
 import { useStyles } from './styles';
 import { useParams } from './hooks';
 import {
@@ -69,7 +69,7 @@ const Params = () => {
             {slashing && <BoxDetails {...slashing} />}
             {minting && <BoxDetails {...minting} />}
             {distribution && <BoxDetails {...distribution} />}
-            {gov && <BoxDetails {...gov} />}
+            {gov && <BoxDetails {...(gov as any)} />}
           </span>
         </LoadAndExist>
       </Layout>

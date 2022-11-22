@@ -1,7 +1,7 @@
 import React from 'react';
-import NoData from '@components/no_data';
-import { TransactionsListDetailsState } from './types';
-import { List } from './components';
+import NoData from 'ui/components/no_data';
+import type { TransactionsListDetailsState } from './types';
+import List from './components/list';
 
 const TransactionsListDetails: React.FC<TransactionsListDetailsState> = (props) => {
   // setting fallback values
@@ -15,7 +15,7 @@ const TransactionsListDetails: React.FC<TransactionsListDetailsState> = (props) 
     transactions,
   } = props;
 
-  const formatProps = {
+  const formatProps: TransactionsListDetailsState = {
     hasNextPage,
     isNextPageLoading,
     isItemLoaded,

@@ -1,10 +1,13 @@
 import * as R from 'ramda';
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgLock {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public cosmosSender: string;
 
   constructor(payload: any) {
@@ -14,12 +17,13 @@ class MsgLock {
     this.cosmosSender = payload.cosmosSender;
   }
 
-  static fromJson(json: any) {
-    return new MsgLock({
+  static fromJson(json: any): MsgLock {
+    return {
+      category: 'ethbridge',
       json,
       type: json['@type'],
       cosmosSender: R.pathOr('', ['cosmos_sender'], json),
-    });
+    };
   }
 }
 

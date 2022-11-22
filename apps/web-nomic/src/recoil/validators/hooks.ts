@@ -1,20 +1,31 @@
-/* eslint-disable max-len */
 import { useState } from 'react';
 import { useRecoilCallback } from 'recoil';
 import * as R from 'ramda';
-import { useValidatorAddressesQuery, ValidatorAddressesQuery } from '@graphql/types/general_types';
+import { QueryHookOptions, QueryResult } from '@apollo/client';
 import chainConfig from 'ui/chainConfig';
-import { useDesmosProfile } from '@hooks';
-import { atomFamilyState as validatorAtomState } from '@recoil/validators';
-import { atomFamilyState as profileAtomFamilyState } from '@recoil/profiles';
+import { useDesmosProfile } from 'ui/hooks';
+import { atomFamilyState as profileAtomFamilyState } from 'ui/recoil/profiles';
+import { atomFamilyState as validatorAtomState } from 'ui/recoil/validators';
 
-export const useValidatorRecoil = () => {
+export type UseValidatorAddressesQuery<TData, TVariables> = (
+  baseOptions?: QueryHookOptions<TData, TVariables>
+) => QueryResult<TData, TVariables>;
+
+export type DataType = {
+  validator?: Array<{
+    consensusAddress: string;
+    operatorAddress: string;
+    selfDelegateAddress: string;
+  }>;
+};
+
+export const useValidatorRecoil = <TData, TVariables>(
+  useValidatorAddressesQuery: UseValidatorAddressesQuery<TData, TVariables>
+) => {
   const [loading, setLoading] = useState(true);
 
   const { fetchDesmosProfile, formatDesmosProfile } = useDesmosProfile({
-    onComplete: (data) => {
-      return formatDesmosProfile(data);
-    },
+    onComplete: (data) => formatDesmosProfile(data),
   });
 
   useValidatorAddressesQuery({
@@ -34,43 +45,40 @@ export const useValidatorRecoil = () => {
     },
   });
 
-  const formatAndSetValidatorsAddressList = useRecoilCallback(
-    ({ set }) =>
-      async (data: ValidatorAddressesQuery) => {
-        data?.validator
-          ?.filter((x) => x.consensusAddress || x.selfDelegateAddress)
-          .forEach((x) => {
-            // const validatorAddress = x.validatorInfo.operatorAddress;
-            const delegatorAddress = x.selfDelegateAddress;
-            const { consensusAddress } = x;
-            const imageUrl = R.pathOr('', ['validatorDescriptions', 0, 'avatarUrl'], x);
-            const moniker = R.pathOr('', ['validatorDescriptions', 0, 'moniker'], x);
+  const formatAndSetValidatorsAddressList = useRecoilCallback(({ set }) => async (data: TData) => {
+    (data as DataType)?.validator
+      ?.filter((x) => x.consensusAddress || x.selfDelegateAddress)
+      .forEach((x: any) => {
+        // const validatorAddress = x.validatorInfo.operatorAddress;
+        const delegatorAddress = x.selfDelegateAddress;
+        const { consensusAddress } = x;
+        const imageUrl = R.pathOr('', ['validatorDescriptions', 0, 'avatarUrl'], x);
+        const moniker = R.pathOr('', ['validatorDescriptions', 0, 'moniker'], x);
 
-            set(validatorAtomState(consensusAddress), {
-              delegator: delegatorAddress,
-              validator: consensusAddress, // need to check which address should be used to replace
-            });
+        set(validatorAtomState(consensusAddress), {
+          delegator: delegatorAddress,
+          validator: consensusAddress, // need to check which address should be used to replace
+        });
 
-            set(profileAtomFamilyState(delegatorAddress), {
-              moniker,
-              imageUrl,
-            });
-          });
-      }
-  );
+        set(profileAtomFamilyState(delegatorAddress), {
+          moniker,
+          imageUrl,
+        });
+      });
+  });
 
-  const setProfiles = useRecoilCallback(({ set }) => async (data: ValidatorAddressesQuery) => {
+  const setProfiles = useRecoilCallback(({ set }) => async (data: TData) => {
     if (chainConfig.extra.profile) {
-      let profiles = [];
-      data?.validator
+      let profiles: any[] = [];
+      (data as DataType)?.validator
         ?.filter((x) => x.consensusAddress || x.selfDelegateAddress)
-        .forEach((x) => {
+        .forEach((x: any) => {
           const delegatorAddress = x.selfDelegateAddress;
           profiles.push(fetchDesmosProfile(delegatorAddress));
         });
 
       profiles = await Promise.allSettled(profiles);
-      data?.validator
+      (data as DataType)?.validator
         ?.filter((x) => x.consensusAddress || x.selfDelegateAddress)
         .forEach((x, i) => {
           const delegatorAddress = x.selfDelegateAddress;

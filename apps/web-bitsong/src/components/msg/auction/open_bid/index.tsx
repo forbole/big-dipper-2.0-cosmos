@@ -1,13 +1,13 @@
 import React from 'react';
 import numeral from 'numeral';
 import Trans from 'next-translate/Trans';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import { formatToken, formatNumber } from 'ui/utils/format_token';
-import Name from '@components/name';
+import Name from 'ui/components/name';
 import MsgOpenBid from '@models/bitsong/msg/auction/msg_open_bid';
-import { useProfileRecoil } from '@recoil/profiles';
+import { useProfileRecoil } from 'ui/recoil/profiles';
 
-const OpenBid = (props: { message: MsgOpenBid }) => {
+const OpenBid: React.FC<{ message: MsgOpenBid }> = (props) => {
   const { message } = props;
 
   const amount = formatToken(message.bidAmount.amount, message.bidAmount.denom);

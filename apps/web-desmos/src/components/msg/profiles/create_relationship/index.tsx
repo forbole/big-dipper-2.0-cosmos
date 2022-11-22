@@ -1,11 +1,11 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
-import { Typography } from '@material-ui/core';
-import Name from '@components/name';
-import { MsgCreateRelationship } from '@models';
-import { useProfileRecoil } from '@recoil/profiles';
+import Typography from '@material-ui/core/Typography';
+import Name from 'ui/components/name';
+import MsgCreateRelationship from '@models/desmos/msg/profiles/msg_create_relationship';
+import { useProfileRecoil } from 'ui/recoil/profiles';
 
-const CreateRelationship = (props: { message: MsgCreateRelationship }) => {
+const CreateRelationship: React.FC<{ message: MsgCreateRelationship }> = (props) => {
   const { message } = props;
 
   const sender = useProfileRecoil(message.sender);

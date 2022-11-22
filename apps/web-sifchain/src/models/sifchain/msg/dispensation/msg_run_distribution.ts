@@ -1,11 +1,15 @@
 import * as R from 'ramda';
-import { Categories } from '../types';
+import type { Categories } from '../types';
 
 class MsgRunDistribution {
   public category: Categories;
+
   public type: string;
+
   public json: any;
+
   public authorizedRunner: string;
+
   public distributionType:
     | 'DISTRIBUTION_TYPE_UNSPECIFIED'
     | 'DISTRIBUTION_TYPE_AIRDROP'
@@ -20,13 +24,14 @@ class MsgRunDistribution {
     this.distributionType = payload.distributionType;
   }
 
-  static fromJson(json: any) {
-    return new MsgRunDistribution({
+  static fromJson(json: any): MsgRunDistribution {
+    return {
+      category: 'dispensation',
       json,
       type: json['@type'],
       authorizedRunner: R.pathOr('', ['authorized_runner'], json),
       distributionType: R.pathOr('DISTRIBUTION_TYPE_UNSPECIFIED', ['distribution_type'], json),
-    });
+    };
   }
 }
 
