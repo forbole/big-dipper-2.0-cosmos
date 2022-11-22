@@ -49,6 +49,7 @@ const mockProposalDetailsDocument = jest.fn().mockResolvedValue({
           description: 'Set the minimum commission to 5%. This will help ensure network stability. It also ensures that validators earn enough to support secure and stable validation. We must create a healthier network. If this proposal is accepted, it will mean that the blockchain needs to be updated so that the fee of all validators can be changed automatically.',
         },
         proposalId: 14,
+        proposalType: 'CommunityPoolSpend',
         submitTime: '2022-02-19T19:03:14.969688',
         depositEndTime: '2022-02-22T19:03:14.969688',
         votingStartTime: '2022-02-19T19:03:14.969688',

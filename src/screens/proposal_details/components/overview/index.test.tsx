@@ -36,6 +36,7 @@ describe('screen: BlockDetails/Overview', () => {
               description: 'description',
               status: 'status',
               submitTime: 'submitTime',
+              proposalType: 'CommunityPoolSpend',
               depositEndTime: 'depositEndTime',
               votingEndTime: null,
               votingStartTime: null,

@@ -65,6 +65,41 @@ exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
       id="Markdown"
       markdown="description"
     />
+    <p
+      className="MuiTypography-root label MuiTypography-body1"
+    >
+      content
+    </p>
+    <div
+      className="content"
+    >
+      <div
+        className="recipient"
+      >
+        <p
+          className="MuiTypography-root MuiTypography-body1"
+        >
+          recipient
+        </p>
+        <div
+          id="Name"
+        />
+      </div>
+      <div
+        className="amountRequested"
+      >
+        <p
+          className="MuiTypography-root MuiTypography-body1"
+        >
+          amountRequested
+        </p>
+        <p
+          className="MuiTypography-root MuiTypography-body1"
+        >
+          
+        </p>
+      </div>
+    </div>
   </div>
 </div>
 `;
