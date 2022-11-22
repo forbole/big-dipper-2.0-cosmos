@@ -8,6 +8,28 @@ export const useStyles = () => {
           '& .label': {
             color: theme.palette.custom.fonts.fontThree,
           },
+          '& .content': {
+            marginBottom: theme.spacing(2),
+            display: 'block',
+            [theme.breakpoints.up('lg')]: {
+              display: 'flex',
+            },
+          },
+          '& .recipient': {
+            marginBottom: theme.spacing(2),
+            [theme.breakpoints.up('lg')]: {
+              display: 'block',
+            },
+          },
+          '& .amountRequested': {
+            marginBottom: theme.spacing(2),
+            display: 'block',
+            padding: '0',
+            [theme.breakpoints.up('lg')]: {
+              display: 'block',
+              paddingLeft: '30px',
+            },
+          },
         },
         content: {
           marginTop: theme.spacing(2),

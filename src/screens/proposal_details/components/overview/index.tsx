@@ -18,6 +18,9 @@ import {
 } from '@components';
 import { useProfileRecoil } from '@recoil/profiles';
 import {
+  formatToken, formatNumber,
+} from '@utils/format_token';
+import {
   ParamsChange,
   SoftwareUpgrade,
 } from './components';
@@ -35,7 +38,16 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
   const type = getProposalType(R.pathOr('', ['@type'], overview.content));
 
   const proposer = useProfileRecoil(overview.proposer);
+  const recipient = overview?.content?.recipient
+    ? useProfileRecoil(overview?.content?.recipient) : null;
   const proposerMoniker = proposer ? proposer?.name : overview.proposer;
+  const recipientMoniker = recipient ? recipient?.name : overview?.content?.recipient;
+  const amountRequested = overview.content?.amount ? formatToken(
+    overview.content?.amount[0]?.amount,
+    overview.content?.amount[0]?.denom,
+  ) : null;
+  const parsedAmountRequested = amountRequested
+    ? `${formatNumber(amountRequested.value, amountRequested.exponent)} ${amountRequested.displayDenom.toUpperCase()}` : '';
 
   const getExtraDetails = () => {
     let extraDetails = null;
@@ -145,6 +157,38 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
         </Typography>
         <Markdown markdown={overview.description} />
         {extra}
+        {
+          !!overview.proposalType.includes('CommunityPoolSpend') && (
+            <>
+              <Typography variant="body1" className="label">
+                {t('content')}
+              </Typography>
+              <div className="content">
+                <div
+                  className="recipient"
+                >
+                  <Typography variant="body1">
+                    {t('recipient')}
+                  </Typography>
+                  <Name
+                    name={recipientMoniker}
+                    address={overview.content?.recipient}
+                  />
+                </div>
+                <div
+                  className="amountRequested"
+                >
+                  <Typography variant="body1">
+                    {t('amountRequested')}
+                  </Typography>
+                  <Typography variant="body1">
+                    {parsedAmountRequested}
+                  </Typography>
+                </div>
+              </div>
+            </>
+          )
+        }
       </div>
     </Box>
   );
