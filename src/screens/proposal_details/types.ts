@@ -6,6 +6,7 @@ export type OverviewType = {
   status: string;
   submitTime: string;
   depositEndTime: string;
+  proposalType: string;
   votingStartTime: string | null;
   votingEndTime: string | null;
   content: string;
