@@ -1,6 +1,9 @@
 name: Test
 on:
   pull_request:
+concurrency: 
+  group: ${{ github.ref }}
+  cancel-in-progress: true
 env:
   HUSKY: 0
   TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
