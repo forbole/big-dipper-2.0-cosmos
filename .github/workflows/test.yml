@@ -5,6 +5,8 @@ env:
   HUSKY: 0
   TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+  NEXT_TELEMETRY_DISABLED: 1
+  ENV NODE_ENV: production
 jobs:
   Lint:
     runs-on: ubuntu-latest

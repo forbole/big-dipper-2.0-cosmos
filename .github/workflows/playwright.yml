@@ -15,6 +15,8 @@ jobs:
       DEBUG: pw:webserver
       TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      NEXT_TELEMETRY_DISABLED: 1
+      ENV NODE_ENV: production
     steps:
     - uses: actions/checkout@v3
     - name: Setup Node.js environment
