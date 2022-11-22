@@ -16,13 +16,13 @@ const port = process.env.PORT || 3900;
 const config: PlaywrightTestConfig = {
   testDir: './e2e',
   /* Maximum time one test can run for. */
-  timeout: 30 * 1000,
+  timeout: 50 * 1000,
   expect: {
     /**
      * Maximum time expect() should wait for the condition to be met.
      * For example in `await expect(locator).toHaveText();`
      */
-    timeout: 30 * 1000,
+    timeout: 10 * 1000,
   },
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -58,27 +58,32 @@ const config: PlaywrightTestConfig = {
       },
     },
 
-    // {
-    //   name: 'firefox',
-    //   use: {
-    //     ...devices['Desktop Firefox'],
-    //   },
-    // },
+    process.env.CI
+      ? {}
+      : {
+          name: 'firefox',
+          use: {
+            ...devices['Desktop Firefox'],
+          },
+        },
 
-    // {
-    //   name: 'webkit',
-    //   use: {
-    //     ...devices['Desktop Safari'],
-    //   },
-    // },
+    {
+      name: 'webkit',
+      use: {
+        ...devices['Desktop Safari'],
+      },
+    },
 
     /* Test against mobile viewports. */
-    // {
-    //   name: 'Mobile Chrome',
-    //   use: {
-    //     ...devices['Pixel 5'],
-    //   },
-    // },
+    process.env.CI
+      ? {}
+      : {
+          name: 'Mobile Chrome',
+          use: {
+            ...devices['Pixel 5'],
+          },
+        },
+
     {
       name: 'Mobile Safari',
       use: {
@@ -99,7 +104,7 @@ const config: PlaywrightTestConfig = {
     //     channel: 'chrome',
     //   },
     // },
-  ].filter((_, i) => (process.env.CI ? i === 0 : true)),
+  ].filter((config) => !!config?.name),
 
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */
   // outputDir: 'test-results/',

@@ -44,8 +44,6 @@ test('validators list page', async ({ page, isMobile }) => {
     await page.getByPlaceholder('Search Validator').press('Enter');
   }
 
-  await page.waitForNavigation({ waitUntil: 'domcontentloaded' });
-
   // Test single validator url
   await page.goto(`./validators/${validatorAddress}`);
   await expect(page).toHaveURL(new RegExp(`/validators/${validatorAddress}`));

@@ -67,7 +67,7 @@ test('footer', async ({ page }) => {
     page.waitForEvent('popup'),
     page.getByRole('link', { name: 'LinkedIn' }).click(),
   ]);
-  await expect(linkedIn).toHaveURL('https://www.linkedin.com');
+  await expect(linkedIn).toHaveURL(/https:\/\/www\.linkedin\.com/);
 
   const [twitter] = await Promise.all([
     page.waitForEvent('popup'),

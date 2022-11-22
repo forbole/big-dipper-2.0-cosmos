@@ -8,7 +8,8 @@ test('blocks page', async ({ page }) => {
 
   // Test blocks url
   await page.getByRole('link', { name: 'Blocks' }).first().click();
-  await page.waitForNavigation({ url: /\/blocks/, waitUntil: 'domcontentloaded' });
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page).toHaveURL(/\/blocks/);
 
   // Test single block url
   await page.goto(`./blocks/1`);

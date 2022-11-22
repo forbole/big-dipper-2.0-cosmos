@@ -52,7 +52,7 @@ const Navbar = (props: NavbarProps) => {
             active: isOpen,
           })}
           tabIndex={0}
-          aria-label="open navigation menu"
+          aria-label={isOpen ? 'close navigation menu' : 'open navigation menu'}
         >
           <div className="hamburger-content" />
         </div>
