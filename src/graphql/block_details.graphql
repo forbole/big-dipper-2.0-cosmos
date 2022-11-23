@@ -1,4 +1,4 @@
-query BlockDetails($height: bigint, $signatureHeight: bigint) {
+query BlockDetails($height: bigint) {
   transaction(where: {height: {_eq: $height}}) {
     height
     hash
@@ -16,19 +16,19 @@ query BlockDetails($height: bigint, $signatureHeight: bigint) {
         operatorAddress: operator_address
       }
     }
-  }
-  preCommitsAggregate: pre_commit_aggregate(where: {height: {_eq: $signatureHeight}}) {
-      aggregate{
-        sum {
-          votingPower: voting_power
-        }
-      }
-  }
-  preCommits: pre_commit(where: {height: {_eq: $signatureHeight}}) {
-    validator {
+    preCommits: pre_commits {
+      validator {
         validatorInfo: validator_info {
           operatorAddress: operator_address
         }
       }
+    }
+    preCommitsAggregate: pre_commits_aggregate {
+      aggregate {
+        sum {
+          votingPower: voting_power
+        }
+    	}
+    }
   }
 }

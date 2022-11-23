@@ -44,7 +44,6 @@ export const useBlockDetails = () => {
   useBlockDetailsQuery({
     variables: {
       height: numeral(router.query.height).value(),
-      signatureHeight: numeral(router.query.height).value() + 1,
     },
     onCompleted: (data) => {
       handleSetState(formatRaws(data));
@@ -82,7 +81,7 @@ export const useBlockDetails = () => {
     // Signatures
     // ==========================
     const formatSignatures = () => {
-      const signatures = data.preCommits.filter((x) => x?.validator?.validatorInfo).map((x) => {
+      const signatures = data.block[0].preCommits.map((x) => {
         return x.validator.validatorInfo.operatorAddress;
       });
       return signatures;

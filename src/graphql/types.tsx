@@ -14,6 +14,7 @@ export type Scalars = {
   Float: number;
   ActionCoin: any;
   ActionDelegation: any;
+  ActionNftTransferEvent: any;
   ActionPagination: any;
   ActionRedelegation: any;
   ActionUnbondingDelegation: any;
@@ -25,8 +26,11 @@ export type Scalars = {
   json: any;
   jsonb: any;
   numeric: any;
+  proposal_executor_result: any;
+  proposal_status: any;
   smallint: any;
   timestamp: any;
+  vote_option: any;
 };
 
 
@@ -52,6 +56,12 @@ export type ActionDelegationReward = {
   __typename?: 'ActionDelegationReward';
   coins?: Maybe<Array<Maybe<Scalars['ActionCoin']>>>;
   validator_address: Scalars['String'];
+};
+
+
+export type ActionNftTransferEventsResponse = {
+  __typename?: 'ActionNftTransferEventsResponse';
+  events?: Maybe<Array<Maybe<Scalars['ActionNftTransferEvent']>>>;
 };
 
 
@@ -2576,6 +2586,376 @@ export type Cosmwasm_Update_Admin_Variance_Fields = {
   index?: Maybe<Scalars['Float']>;
 };
 
+/** columns and relationships of "cw20token_balance" */
+export type Cw20token_Balance = {
+  __typename?: 'cw20token_balance';
+  address: Scalars['String'];
+  balance: Scalars['String'];
+  /** An object relationship */
+  cw20token_info: Cw20token_Info;
+  token: Scalars['String'];
+};
+
+/** aggregated selection of "cw20token_balance" */
+export type Cw20token_Balance_Aggregate = {
+  __typename?: 'cw20token_balance_aggregate';
+  aggregate?: Maybe<Cw20token_Balance_Aggregate_Fields>;
+  nodes: Array<Cw20token_Balance>;
+};
+
+/** aggregate fields of "cw20token_balance" */
+export type Cw20token_Balance_Aggregate_Fields = {
+  __typename?: 'cw20token_balance_aggregate_fields';
+  count: Scalars['Int'];
+  max?: Maybe<Cw20token_Balance_Max_Fields>;
+  min?: Maybe<Cw20token_Balance_Min_Fields>;
+};
+
+
+/** aggregate fields of "cw20token_balance" */
+export type Cw20token_Balance_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Cw20token_Balance_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** order by aggregate values of table "cw20token_balance" */
+export type Cw20token_Balance_Aggregate_Order_By = {
+  count?: Maybe<Order_By>;
+  max?: Maybe<Cw20token_Balance_Max_Order_By>;
+  min?: Maybe<Cw20token_Balance_Min_Order_By>;
+};
+
+/** Boolean expression to filter rows from the table "cw20token_balance". All fields are combined with a logical 'AND'. */
+export type Cw20token_Balance_Bool_Exp = {
+  _and?: Maybe<Array<Cw20token_Balance_Bool_Exp>>;
+  _not?: Maybe<Cw20token_Balance_Bool_Exp>;
+  _or?: Maybe<Array<Cw20token_Balance_Bool_Exp>>;
+  address?: Maybe<String_Comparison_Exp>;
+  balance?: Maybe<String_Comparison_Exp>;
+  cw20token_info?: Maybe<Cw20token_Info_Bool_Exp>;
+  token?: Maybe<String_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Cw20token_Balance_Max_Fields = {
+  __typename?: 'cw20token_balance_max_fields';
+  address?: Maybe<Scalars['String']>;
+  balance?: Maybe<Scalars['String']>;
+  token?: Maybe<Scalars['String']>;
+};
+
+/** order by max() on columns of table "cw20token_balance" */
+export type Cw20token_Balance_Max_Order_By = {
+  address?: Maybe<Order_By>;
+  balance?: Maybe<Order_By>;
+  token?: Maybe<Order_By>;
+};
+
+/** aggregate min on columns */
+export type Cw20token_Balance_Min_Fields = {
+  __typename?: 'cw20token_balance_min_fields';
+  address?: Maybe<Scalars['String']>;
+  balance?: Maybe<Scalars['String']>;
+  token?: Maybe<Scalars['String']>;
+};
+
+/** order by min() on columns of table "cw20token_balance" */
+export type Cw20token_Balance_Min_Order_By = {
+  address?: Maybe<Order_By>;
+  balance?: Maybe<Order_By>;
+  token?: Maybe<Order_By>;
+};
+
+/** Ordering options when selecting data from "cw20token_balance". */
+export type Cw20token_Balance_Order_By = {
+  address?: Maybe<Order_By>;
+  balance?: Maybe<Order_By>;
+  cw20token_info?: Maybe<Cw20token_Info_Order_By>;
+  token?: Maybe<Order_By>;
+};
+
+/** select columns of table "cw20token_balance" */
+export enum Cw20token_Balance_Select_Column {
+  /** column name */
+  Address = 'address',
+  /** column name */
+  Balance = 'balance',
+  /** column name */
+  Token = 'token'
+}
+
+/** columns and relationships of "cw20token_code_id" */
+export type Cw20token_Code_Id = {
+  __typename?: 'cw20token_code_id';
+  id: Scalars['Int'];
+};
+
+/** Boolean expression to filter rows from the table "cw20token_code_id". All fields are combined with a logical 'AND'. */
+export type Cw20token_Code_Id_Bool_Exp = {
+  _and?: Maybe<Array<Cw20token_Code_Id_Bool_Exp>>;
+  _not?: Maybe<Cw20token_Code_Id_Bool_Exp>;
+  _or?: Maybe<Array<Cw20token_Code_Id_Bool_Exp>>;
+  id?: Maybe<Int_Comparison_Exp>;
+};
+
+/** Ordering options when selecting data from "cw20token_code_id". */
+export type Cw20token_Code_Id_Order_By = {
+  id?: Maybe<Order_By>;
+};
+
+/** select columns of table "cw20token_code_id" */
+export enum Cw20token_Code_Id_Select_Column {
+  /** column name */
+  Id = 'id'
+}
+
+/** columns and relationships of "cw20token_info" */
+export type Cw20token_Info = {
+  __typename?: 'cw20token_info';
+  address: Scalars['String'];
+  /** An array relationship */
+  balances: Array<Cw20token_Balance>;
+  /** An aggregate relationship */
+  balances_aggregate: Cw20token_Balance_Aggregate;
+  circulating_supply: Scalars['String'];
+  code_id: Scalars['Int'];
+  creator: Scalars['String'];
+  decimals: Scalars['Int'];
+  description?: Maybe<Scalars['String']>;
+  initial_supply: Scalars['String'];
+  logo?: Maybe<Scalars['String']>;
+  marketing_admin?: Maybe<Scalars['String']>;
+  max_supply?: Maybe<Scalars['String']>;
+  minter?: Maybe<Scalars['String']>;
+  name: Scalars['String'];
+  project_url?: Maybe<Scalars['String']>;
+  symbol: Scalars['String'];
+  type?: Maybe<Scalars['String']>;
+};
+
+
+/** columns and relationships of "cw20token_info" */
+export type Cw20token_InfoBalancesArgs = {
+  distinct_on?: Maybe<Array<Cw20token_Balance_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Cw20token_Balance_Order_By>>;
+  where?: Maybe<Cw20token_Balance_Bool_Exp>;
+};
+
+
+/** columns and relationships of "cw20token_info" */
+export type Cw20token_InfoBalances_AggregateArgs = {
+  distinct_on?: Maybe<Array<Cw20token_Balance_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Cw20token_Balance_Order_By>>;
+  where?: Maybe<Cw20token_Balance_Bool_Exp>;
+};
+
+/** aggregated selection of "cw20token_info" */
+export type Cw20token_Info_Aggregate = {
+  __typename?: 'cw20token_info_aggregate';
+  aggregate?: Maybe<Cw20token_Info_Aggregate_Fields>;
+  nodes: Array<Cw20token_Info>;
+};
+
+/** aggregate fields of "cw20token_info" */
+export type Cw20token_Info_Aggregate_Fields = {
+  __typename?: 'cw20token_info_aggregate_fields';
+  avg?: Maybe<Cw20token_Info_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Cw20token_Info_Max_Fields>;
+  min?: Maybe<Cw20token_Info_Min_Fields>;
+  stddev?: Maybe<Cw20token_Info_Stddev_Fields>;
+  stddev_pop?: Maybe<Cw20token_Info_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Cw20token_Info_Stddev_Samp_Fields>;
+  sum?: Maybe<Cw20token_Info_Sum_Fields>;
+  var_pop?: Maybe<Cw20token_Info_Var_Pop_Fields>;
+  var_samp?: Maybe<Cw20token_Info_Var_Samp_Fields>;
+  variance?: Maybe<Cw20token_Info_Variance_Fields>;
+};
+
+
+/** aggregate fields of "cw20token_info" */
+export type Cw20token_Info_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Cw20token_Info_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type Cw20token_Info_Avg_Fields = {
+  __typename?: 'cw20token_info_avg_fields';
+  code_id?: Maybe<Scalars['Float']>;
+  decimals?: Maybe<Scalars['Float']>;
+};
+
+/** Boolean expression to filter rows from the table "cw20token_info". All fields are combined with a logical 'AND'. */
+export type Cw20token_Info_Bool_Exp = {
+  _and?: Maybe<Array<Cw20token_Info_Bool_Exp>>;
+  _not?: Maybe<Cw20token_Info_Bool_Exp>;
+  _or?: Maybe<Array<Cw20token_Info_Bool_Exp>>;
+  address?: Maybe<String_Comparison_Exp>;
+  balances?: Maybe<Cw20token_Balance_Bool_Exp>;
+  circulating_supply?: Maybe<String_Comparison_Exp>;
+  code_id?: Maybe<Int_Comparison_Exp>;
+  creator?: Maybe<String_Comparison_Exp>;
+  decimals?: Maybe<Int_Comparison_Exp>;
+  description?: Maybe<String_Comparison_Exp>;
+  initial_supply?: Maybe<String_Comparison_Exp>;
+  logo?: Maybe<String_Comparison_Exp>;
+  marketing_admin?: Maybe<String_Comparison_Exp>;
+  max_supply?: Maybe<String_Comparison_Exp>;
+  minter?: Maybe<String_Comparison_Exp>;
+  name?: Maybe<String_Comparison_Exp>;
+  project_url?: Maybe<String_Comparison_Exp>;
+  symbol?: Maybe<String_Comparison_Exp>;
+  type?: Maybe<String_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Cw20token_Info_Max_Fields = {
+  __typename?: 'cw20token_info_max_fields';
+  address?: Maybe<Scalars['String']>;
+  circulating_supply?: Maybe<Scalars['String']>;
+  code_id?: Maybe<Scalars['Int']>;
+  creator?: Maybe<Scalars['String']>;
+  decimals?: Maybe<Scalars['Int']>;
+  description?: Maybe<Scalars['String']>;
+  initial_supply?: Maybe<Scalars['String']>;
+  logo?: Maybe<Scalars['String']>;
+  marketing_admin?: Maybe<Scalars['String']>;
+  max_supply?: Maybe<Scalars['String']>;
+  minter?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  project_url?: Maybe<Scalars['String']>;
+  symbol?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+};
+
+/** aggregate min on columns */
+export type Cw20token_Info_Min_Fields = {
+  __typename?: 'cw20token_info_min_fields';
+  address?: Maybe<Scalars['String']>;
+  circulating_supply?: Maybe<Scalars['String']>;
+  code_id?: Maybe<Scalars['Int']>;
+  creator?: Maybe<Scalars['String']>;
+  decimals?: Maybe<Scalars['Int']>;
+  description?: Maybe<Scalars['String']>;
+  initial_supply?: Maybe<Scalars['String']>;
+  logo?: Maybe<Scalars['String']>;
+  marketing_admin?: Maybe<Scalars['String']>;
+  max_supply?: Maybe<Scalars['String']>;
+  minter?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  project_url?: Maybe<Scalars['String']>;
+  symbol?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+};
+
+/** Ordering options when selecting data from "cw20token_info". */
+export type Cw20token_Info_Order_By = {
+  address?: Maybe<Order_By>;
+  balances_aggregate?: Maybe<Cw20token_Balance_Aggregate_Order_By>;
+  circulating_supply?: Maybe<Order_By>;
+  code_id?: Maybe<Order_By>;
+  creator?: Maybe<Order_By>;
+  decimals?: Maybe<Order_By>;
+  description?: Maybe<Order_By>;
+  initial_supply?: Maybe<Order_By>;
+  logo?: Maybe<Order_By>;
+  marketing_admin?: Maybe<Order_By>;
+  max_supply?: Maybe<Order_By>;
+  minter?: Maybe<Order_By>;
+  name?: Maybe<Order_By>;
+  project_url?: Maybe<Order_By>;
+  symbol?: Maybe<Order_By>;
+  type?: Maybe<Order_By>;
+};
+
+/** select columns of table "cw20token_info" */
+export enum Cw20token_Info_Select_Column {
+  /** column name */
+  Address = 'address',
+  /** column name */
+  CirculatingSupply = 'circulating_supply',
+  /** column name */
+  CodeId = 'code_id',
+  /** column name */
+  Creator = 'creator',
+  /** column name */
+  Decimals = 'decimals',
+  /** column name */
+  Description = 'description',
+  /** column name */
+  InitialSupply = 'initial_supply',
+  /** column name */
+  Logo = 'logo',
+  /** column name */
+  MarketingAdmin = 'marketing_admin',
+  /** column name */
+  MaxSupply = 'max_supply',
+  /** column name */
+  Minter = 'minter',
+  /** column name */
+  Name = 'name',
+  /** column name */
+  ProjectUrl = 'project_url',
+  /** column name */
+  Symbol = 'symbol',
+  /** column name */
+  Type = 'type'
+}
+
+/** aggregate stddev on columns */
+export type Cw20token_Info_Stddev_Fields = {
+  __typename?: 'cw20token_info_stddev_fields';
+  code_id?: Maybe<Scalars['Float']>;
+  decimals?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Cw20token_Info_Stddev_Pop_Fields = {
+  __typename?: 'cw20token_info_stddev_pop_fields';
+  code_id?: Maybe<Scalars['Float']>;
+  decimals?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Cw20token_Info_Stddev_Samp_Fields = {
+  __typename?: 'cw20token_info_stddev_samp_fields';
+  code_id?: Maybe<Scalars['Float']>;
+  decimals?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate sum on columns */
+export type Cw20token_Info_Sum_Fields = {
+  __typename?: 'cw20token_info_sum_fields';
+  code_id?: Maybe<Scalars['Int']>;
+  decimals?: Maybe<Scalars['Int']>;
+};
+
+/** aggregate var_pop on columns */
+export type Cw20token_Info_Var_Pop_Fields = {
+  __typename?: 'cw20token_info_var_pop_fields';
+  code_id?: Maybe<Scalars['Float']>;
+  decimals?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type Cw20token_Info_Var_Samp_Fields = {
+  __typename?: 'cw20token_info_var_samp_fields';
+  code_id?: Maybe<Scalars['Float']>;
+  decimals?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type Cw20token_Info_Variance_Fields = {
+  __typename?: 'cw20token_info_variance_fields';
+  code_id?: Maybe<Scalars['Float']>;
+  decimals?: Maybe<Scalars['Float']>;
+};
+
 /** columns and relationships of "delegation" */
 export type Delegation = {
   __typename?: 'delegation';
@@ -2673,6 +3053,177 @@ export enum Delegation_Select_Column {
   /** column name */
   ValidatorAddress = 'validator_address'
 }
+
+export type Denoms_By_Data_Property_Args = {
+  limit?: Maybe<Scalars['bigint']>;
+  offset?: Maybe<Scalars['bigint']>;
+  property_name?: Maybe<Scalars['String']>;
+  property_value?: Maybe<Scalars['String']>;
+};
+
+/** columns and relationships of "distinct_message" */
+export type Distinct_Message = {
+  __typename?: 'distinct_message';
+  height?: Maybe<Scalars['bigint']>;
+  index?: Maybe<Scalars['bigint']>;
+  involved_accounts_addresses?: Maybe<Scalars['_text']>;
+  /** An object relationship */
+  transaction: Transaction;
+  transaction_hash: Scalars['String'];
+  type?: Maybe<Scalars['String']>;
+  value?: Maybe<Scalars['jsonb']>;
+};
+
+
+/** columns and relationships of "distinct_message" */
+export type Distinct_MessageValueArgs = {
+  path?: Maybe<Scalars['String']>;
+};
+
+/** aggregated selection of "distinct_message" */
+export type Distinct_Message_Aggregate = {
+  __typename?: 'distinct_message_aggregate';
+  aggregate?: Maybe<Distinct_Message_Aggregate_Fields>;
+  nodes: Array<Distinct_Message>;
+};
+
+/** aggregate fields of "distinct_message" */
+export type Distinct_Message_Aggregate_Fields = {
+  __typename?: 'distinct_message_aggregate_fields';
+  avg?: Maybe<Distinct_Message_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Distinct_Message_Max_Fields>;
+  min?: Maybe<Distinct_Message_Min_Fields>;
+  stddev?: Maybe<Distinct_Message_Stddev_Fields>;
+  stddev_pop?: Maybe<Distinct_Message_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Distinct_Message_Stddev_Samp_Fields>;
+  sum?: Maybe<Distinct_Message_Sum_Fields>;
+  var_pop?: Maybe<Distinct_Message_Var_Pop_Fields>;
+  var_samp?: Maybe<Distinct_Message_Var_Samp_Fields>;
+  variance?: Maybe<Distinct_Message_Variance_Fields>;
+};
+
+
+/** aggregate fields of "distinct_message" */
+export type Distinct_Message_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Distinct_Message_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type Distinct_Message_Avg_Fields = {
+  __typename?: 'distinct_message_avg_fields';
+  height?: Maybe<Scalars['Float']>;
+  index?: Maybe<Scalars['Float']>;
+};
+
+/** Boolean expression to filter rows from the table "distinct_message". All fields are combined with a logical 'AND'. */
+export type Distinct_Message_Bool_Exp = {
+  _and?: Maybe<Array<Distinct_Message_Bool_Exp>>;
+  _not?: Maybe<Distinct_Message_Bool_Exp>;
+  _or?: Maybe<Array<Distinct_Message_Bool_Exp>>;
+  height?: Maybe<Bigint_Comparison_Exp>;
+  index?: Maybe<Bigint_Comparison_Exp>;
+  involved_accounts_addresses?: Maybe<_Text_Comparison_Exp>;
+  transaction?: Maybe<Transaction_Bool_Exp>;
+  transaction_hash?: Maybe<String_Comparison_Exp>;
+  type?: Maybe<String_Comparison_Exp>;
+  value?: Maybe<Jsonb_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Distinct_Message_Max_Fields = {
+  __typename?: 'distinct_message_max_fields';
+  height?: Maybe<Scalars['bigint']>;
+  index?: Maybe<Scalars['bigint']>;
+  transaction_hash?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+};
+
+/** aggregate min on columns */
+export type Distinct_Message_Min_Fields = {
+  __typename?: 'distinct_message_min_fields';
+  height?: Maybe<Scalars['bigint']>;
+  index?: Maybe<Scalars['bigint']>;
+  transaction_hash?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+};
+
+/** Ordering options when selecting data from "distinct_message". */
+export type Distinct_Message_Order_By = {
+  height?: Maybe<Order_By>;
+  index?: Maybe<Order_By>;
+  involved_accounts_addresses?: Maybe<Order_By>;
+  transaction?: Maybe<Transaction_Order_By>;
+  transaction_hash?: Maybe<Order_By>;
+  type?: Maybe<Order_By>;
+  value?: Maybe<Order_By>;
+};
+
+/** select columns of table "distinct_message" */
+export enum Distinct_Message_Select_Column {
+  /** column name */
+  Height = 'height',
+  /** column name */
+  Index = 'index',
+  /** column name */
+  InvolvedAccountsAddresses = 'involved_accounts_addresses',
+  /** column name */
+  TransactionHash = 'transaction_hash',
+  /** column name */
+  Type = 'type',
+  /** column name */
+  Value = 'value'
+}
+
+/** aggregate stddev on columns */
+export type Distinct_Message_Stddev_Fields = {
+  __typename?: 'distinct_message_stddev_fields';
+  height?: Maybe<Scalars['Float']>;
+  index?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Distinct_Message_Stddev_Pop_Fields = {
+  __typename?: 'distinct_message_stddev_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+  index?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Distinct_Message_Stddev_Samp_Fields = {
+  __typename?: 'distinct_message_stddev_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+  index?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate sum on columns */
+export type Distinct_Message_Sum_Fields = {
+  __typename?: 'distinct_message_sum_fields';
+  height?: Maybe<Scalars['bigint']>;
+  index?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregate var_pop on columns */
+export type Distinct_Message_Var_Pop_Fields = {
+  __typename?: 'distinct_message_var_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+  index?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type Distinct_Message_Var_Samp_Fields = {
+  __typename?: 'distinct_message_var_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+  index?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type Distinct_Message_Variance_Fields = {
+  __typename?: 'distinct_message_variance_fields';
+  height?: Maybe<Scalars['Float']>;
+  index?: Maybe<Scalars['Float']>;
+};
 
 /** columns and relationships of "distribution_params" */
 export type Distribution_Params = {
@@ -3849,6 +4400,1123 @@ export type Gravity_Messages_By_Address_Args = {
   receiver_addr?: Maybe<Scalars['String']>;
 };
 
+/** columns and relationships of "group_member" */
+export type Group_Member = {
+  __typename?: 'group_member';
+  add_time: Scalars['timestamp'];
+  address: Scalars['String'];
+  group_id: Scalars['Int'];
+  /** An array relationship */
+  group_proposal_votes: Array<Group_Proposal_Vote>;
+  /** An aggregate relationship */
+  group_proposal_votes_aggregate: Group_Proposal_Vote_Aggregate;
+  /** An object relationship */
+  group_with_policy: Group_With_Policy;
+  metadata?: Maybe<Scalars['String']>;
+  weight: Scalars['Int'];
+};
+
+
+/** columns and relationships of "group_member" */
+export type Group_MemberGroup_Proposal_VotesArgs = {
+  distinct_on?: Maybe<Array<Group_Proposal_Vote_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Group_Proposal_Vote_Order_By>>;
+  where?: Maybe<Group_Proposal_Vote_Bool_Exp>;
+};
+
+
+/** columns and relationships of "group_member" */
+export type Group_MemberGroup_Proposal_Votes_AggregateArgs = {
+  distinct_on?: Maybe<Array<Group_Proposal_Vote_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Group_Proposal_Vote_Order_By>>;
+  where?: Maybe<Group_Proposal_Vote_Bool_Exp>;
+};
+
+/** aggregated selection of "group_member" */
+export type Group_Member_Aggregate = {
+  __typename?: 'group_member_aggregate';
+  aggregate?: Maybe<Group_Member_Aggregate_Fields>;
+  nodes: Array<Group_Member>;
+};
+
+/** aggregate fields of "group_member" */
+export type Group_Member_Aggregate_Fields = {
+  __typename?: 'group_member_aggregate_fields';
+  avg?: Maybe<Group_Member_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Group_Member_Max_Fields>;
+  min?: Maybe<Group_Member_Min_Fields>;
+  stddev?: Maybe<Group_Member_Stddev_Fields>;
+  stddev_pop?: Maybe<Group_Member_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Group_Member_Stddev_Samp_Fields>;
+  sum?: Maybe<Group_Member_Sum_Fields>;
+  var_pop?: Maybe<Group_Member_Var_Pop_Fields>;
+  var_samp?: Maybe<Group_Member_Var_Samp_Fields>;
+  variance?: Maybe<Group_Member_Variance_Fields>;
+};
+
+
+/** aggregate fields of "group_member" */
+export type Group_Member_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Group_Member_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** order by aggregate values of table "group_member" */
+export type Group_Member_Aggregate_Order_By = {
+  avg?: Maybe<Group_Member_Avg_Order_By>;
+  count?: Maybe<Order_By>;
+  max?: Maybe<Group_Member_Max_Order_By>;
+  min?: Maybe<Group_Member_Min_Order_By>;
+  stddev?: Maybe<Group_Member_Stddev_Order_By>;
+  stddev_pop?: Maybe<Group_Member_Stddev_Pop_Order_By>;
+  stddev_samp?: Maybe<Group_Member_Stddev_Samp_Order_By>;
+  sum?: Maybe<Group_Member_Sum_Order_By>;
+  var_pop?: Maybe<Group_Member_Var_Pop_Order_By>;
+  var_samp?: Maybe<Group_Member_Var_Samp_Order_By>;
+  variance?: Maybe<Group_Member_Variance_Order_By>;
+};
+
+/** aggregate avg on columns */
+export type Group_Member_Avg_Fields = {
+  __typename?: 'group_member_avg_fields';
+  group_id?: Maybe<Scalars['Float']>;
+  weight?: Maybe<Scalars['Float']>;
+};
+
+/** order by avg() on columns of table "group_member" */
+export type Group_Member_Avg_Order_By = {
+  group_id?: Maybe<Order_By>;
+  weight?: Maybe<Order_By>;
+};
+
+/** Boolean expression to filter rows from the table "group_member". All fields are combined with a logical 'AND'. */
+export type Group_Member_Bool_Exp = {
+  _and?: Maybe<Array<Group_Member_Bool_Exp>>;
+  _not?: Maybe<Group_Member_Bool_Exp>;
+  _or?: Maybe<Array<Group_Member_Bool_Exp>>;
+  add_time?: Maybe<Timestamp_Comparison_Exp>;
+  address?: Maybe<String_Comparison_Exp>;
+  group_id?: Maybe<Int_Comparison_Exp>;
+  group_proposal_votes?: Maybe<Group_Proposal_Vote_Bool_Exp>;
+  group_with_policy?: Maybe<Group_With_Policy_Bool_Exp>;
+  metadata?: Maybe<String_Comparison_Exp>;
+  weight?: Maybe<Int_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Group_Member_Max_Fields = {
+  __typename?: 'group_member_max_fields';
+  add_time?: Maybe<Scalars['timestamp']>;
+  address?: Maybe<Scalars['String']>;
+  group_id?: Maybe<Scalars['Int']>;
+  metadata?: Maybe<Scalars['String']>;
+  weight?: Maybe<Scalars['Int']>;
+};
+
+/** order by max() on columns of table "group_member" */
+export type Group_Member_Max_Order_By = {
+  add_time?: Maybe<Order_By>;
+  address?: Maybe<Order_By>;
+  group_id?: Maybe<Order_By>;
+  metadata?: Maybe<Order_By>;
+  weight?: Maybe<Order_By>;
+};
+
+/** aggregate min on columns */
+export type Group_Member_Min_Fields = {
+  __typename?: 'group_member_min_fields';
+  add_time?: Maybe<Scalars['timestamp']>;
+  address?: Maybe<Scalars['String']>;
+  group_id?: Maybe<Scalars['Int']>;
+  metadata?: Maybe<Scalars['String']>;
+  weight?: Maybe<Scalars['Int']>;
+};
+
+/** order by min() on columns of table "group_member" */
+export type Group_Member_Min_Order_By = {
+  add_time?: Maybe<Order_By>;
+  address?: Maybe<Order_By>;
+  group_id?: Maybe<Order_By>;
+  metadata?: Maybe<Order_By>;
+  weight?: Maybe<Order_By>;
+};
+
+/** Ordering options when selecting data from "group_member". */
+export type Group_Member_Order_By = {
+  add_time?: Maybe<Order_By>;
+  address?: Maybe<Order_By>;
+  group_id?: Maybe<Order_By>;
+  group_proposal_votes_aggregate?: Maybe<Group_Proposal_Vote_Aggregate_Order_By>;
+  group_with_policy?: Maybe<Group_With_Policy_Order_By>;
+  metadata?: Maybe<Order_By>;
+  weight?: Maybe<Order_By>;
+};
+
+/** select columns of table "group_member" */
+export enum Group_Member_Select_Column {
+  /** column name */
+  AddTime = 'add_time',
+  /** column name */
+  Address = 'address',
+  /** column name */
+  GroupId = 'group_id',
+  /** column name */
+  Metadata = 'metadata',
+  /** column name */
+  Weight = 'weight'
+}
+
+/** aggregate stddev on columns */
+export type Group_Member_Stddev_Fields = {
+  __typename?: 'group_member_stddev_fields';
+  group_id?: Maybe<Scalars['Float']>;
+  weight?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev() on columns of table "group_member" */
+export type Group_Member_Stddev_Order_By = {
+  group_id?: Maybe<Order_By>;
+  weight?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Group_Member_Stddev_Pop_Fields = {
+  __typename?: 'group_member_stddev_pop_fields';
+  group_id?: Maybe<Scalars['Float']>;
+  weight?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_pop() on columns of table "group_member" */
+export type Group_Member_Stddev_Pop_Order_By = {
+  group_id?: Maybe<Order_By>;
+  weight?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Group_Member_Stddev_Samp_Fields = {
+  __typename?: 'group_member_stddev_samp_fields';
+  group_id?: Maybe<Scalars['Float']>;
+  weight?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_samp() on columns of table "group_member" */
+export type Group_Member_Stddev_Samp_Order_By = {
+  group_id?: Maybe<Order_By>;
+  weight?: Maybe<Order_By>;
+};
+
+/** aggregate sum on columns */
+export type Group_Member_Sum_Fields = {
+  __typename?: 'group_member_sum_fields';
+  group_id?: Maybe<Scalars['Int']>;
+  weight?: Maybe<Scalars['Int']>;
+};
+
+/** order by sum() on columns of table "group_member" */
+export type Group_Member_Sum_Order_By = {
+  group_id?: Maybe<Order_By>;
+  weight?: Maybe<Order_By>;
+};
+
+/** aggregate var_pop on columns */
+export type Group_Member_Var_Pop_Fields = {
+  __typename?: 'group_member_var_pop_fields';
+  group_id?: Maybe<Scalars['Float']>;
+  weight?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_pop() on columns of table "group_member" */
+export type Group_Member_Var_Pop_Order_By = {
+  group_id?: Maybe<Order_By>;
+  weight?: Maybe<Order_By>;
+};
+
+/** aggregate var_samp on columns */
+export type Group_Member_Var_Samp_Fields = {
+  __typename?: 'group_member_var_samp_fields';
+  group_id?: Maybe<Scalars['Float']>;
+  weight?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_samp() on columns of table "group_member" */
+export type Group_Member_Var_Samp_Order_By = {
+  group_id?: Maybe<Order_By>;
+  weight?: Maybe<Order_By>;
+};
+
+/** aggregate variance on columns */
+export type Group_Member_Variance_Fields = {
+  __typename?: 'group_member_variance_fields';
+  group_id?: Maybe<Scalars['Float']>;
+  weight?: Maybe<Scalars['Float']>;
+};
+
+/** order by variance() on columns of table "group_member" */
+export type Group_Member_Variance_Order_By = {
+  group_id?: Maybe<Order_By>;
+  weight?: Maybe<Order_By>;
+};
+
+/** columns and relationships of "group_proposal" */
+export type Group_Proposal = {
+  __typename?: 'group_proposal';
+  /** An object relationship */
+  block: Block;
+  execution_log?: Maybe<Scalars['String']>;
+  execution_time?: Maybe<Scalars['timestamp']>;
+  executor?: Maybe<Scalars['String']>;
+  executor_result: Scalars['proposal_executor_result'];
+  group_id: Scalars['Int'];
+  /** An array relationship */
+  group_proposal_votes: Array<Group_Proposal_Vote>;
+  /** An aggregate relationship */
+  group_proposal_votes_aggregate: Group_Proposal_Vote_Aggregate;
+  /** An object relationship */
+  group_with_policy: Group_With_Policy;
+  height: Scalars['bigint'];
+  id: Scalars['Int'];
+  member_count: Scalars['Int'];
+  messages: Scalars['jsonb'];
+  metadata?: Maybe<Scalars['String']>;
+  proposer: Scalars['String'];
+  status: Scalars['proposal_status'];
+  submit_time: Scalars['timestamp'];
+  /** An object relationship */
+  transaction?: Maybe<Transaction>;
+  transaction_hash?: Maybe<Scalars['String']>;
+};
+
+
+/** columns and relationships of "group_proposal" */
+export type Group_ProposalGroup_Proposal_VotesArgs = {
+  distinct_on?: Maybe<Array<Group_Proposal_Vote_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Group_Proposal_Vote_Order_By>>;
+  where?: Maybe<Group_Proposal_Vote_Bool_Exp>;
+};
+
+
+/** columns and relationships of "group_proposal" */
+export type Group_ProposalGroup_Proposal_Votes_AggregateArgs = {
+  distinct_on?: Maybe<Array<Group_Proposal_Vote_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Group_Proposal_Vote_Order_By>>;
+  where?: Maybe<Group_Proposal_Vote_Bool_Exp>;
+};
+
+
+/** columns and relationships of "group_proposal" */
+export type Group_ProposalMessagesArgs = {
+  path?: Maybe<Scalars['String']>;
+};
+
+/** aggregated selection of "group_proposal" */
+export type Group_Proposal_Aggregate = {
+  __typename?: 'group_proposal_aggregate';
+  aggregate?: Maybe<Group_Proposal_Aggregate_Fields>;
+  nodes: Array<Group_Proposal>;
+};
+
+/** aggregate fields of "group_proposal" */
+export type Group_Proposal_Aggregate_Fields = {
+  __typename?: 'group_proposal_aggregate_fields';
+  avg?: Maybe<Group_Proposal_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Group_Proposal_Max_Fields>;
+  min?: Maybe<Group_Proposal_Min_Fields>;
+  stddev?: Maybe<Group_Proposal_Stddev_Fields>;
+  stddev_pop?: Maybe<Group_Proposal_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Group_Proposal_Stddev_Samp_Fields>;
+  sum?: Maybe<Group_Proposal_Sum_Fields>;
+  var_pop?: Maybe<Group_Proposal_Var_Pop_Fields>;
+  var_samp?: Maybe<Group_Proposal_Var_Samp_Fields>;
+  variance?: Maybe<Group_Proposal_Variance_Fields>;
+};
+
+
+/** aggregate fields of "group_proposal" */
+export type Group_Proposal_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Group_Proposal_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** order by aggregate values of table "group_proposal" */
+export type Group_Proposal_Aggregate_Order_By = {
+  avg?: Maybe<Group_Proposal_Avg_Order_By>;
+  count?: Maybe<Order_By>;
+  max?: Maybe<Group_Proposal_Max_Order_By>;
+  min?: Maybe<Group_Proposal_Min_Order_By>;
+  stddev?: Maybe<Group_Proposal_Stddev_Order_By>;
+  stddev_pop?: Maybe<Group_Proposal_Stddev_Pop_Order_By>;
+  stddev_samp?: Maybe<Group_Proposal_Stddev_Samp_Order_By>;
+  sum?: Maybe<Group_Proposal_Sum_Order_By>;
+  var_pop?: Maybe<Group_Proposal_Var_Pop_Order_By>;
+  var_samp?: Maybe<Group_Proposal_Var_Samp_Order_By>;
+  variance?: Maybe<Group_Proposal_Variance_Order_By>;
+};
+
+/** aggregate avg on columns */
+export type Group_Proposal_Avg_Fields = {
+  __typename?: 'group_proposal_avg_fields';
+  group_id?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+  member_count?: Maybe<Scalars['Float']>;
+};
+
+/** order by avg() on columns of table "group_proposal" */
+export type Group_Proposal_Avg_Order_By = {
+  group_id?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  member_count?: Maybe<Order_By>;
+};
+
+/** Boolean expression to filter rows from the table "group_proposal". All fields are combined with a logical 'AND'. */
+export type Group_Proposal_Bool_Exp = {
+  _and?: Maybe<Array<Group_Proposal_Bool_Exp>>;
+  _not?: Maybe<Group_Proposal_Bool_Exp>;
+  _or?: Maybe<Array<Group_Proposal_Bool_Exp>>;
+  block?: Maybe<Block_Bool_Exp>;
+  execution_log?: Maybe<String_Comparison_Exp>;
+  execution_time?: Maybe<Timestamp_Comparison_Exp>;
+  executor?: Maybe<String_Comparison_Exp>;
+  executor_result?: Maybe<Proposal_Executor_Result_Comparison_Exp>;
+  group_id?: Maybe<Int_Comparison_Exp>;
+  group_proposal_votes?: Maybe<Group_Proposal_Vote_Bool_Exp>;
+  group_with_policy?: Maybe<Group_With_Policy_Bool_Exp>;
+  height?: Maybe<Bigint_Comparison_Exp>;
+  id?: Maybe<Int_Comparison_Exp>;
+  member_count?: Maybe<Int_Comparison_Exp>;
+  messages?: Maybe<Jsonb_Comparison_Exp>;
+  metadata?: Maybe<String_Comparison_Exp>;
+  proposer?: Maybe<String_Comparison_Exp>;
+  status?: Maybe<Proposal_Status_Comparison_Exp>;
+  submit_time?: Maybe<Timestamp_Comparison_Exp>;
+  transaction?: Maybe<Transaction_Bool_Exp>;
+  transaction_hash?: Maybe<String_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Group_Proposal_Max_Fields = {
+  __typename?: 'group_proposal_max_fields';
+  execution_log?: Maybe<Scalars['String']>;
+  execution_time?: Maybe<Scalars['timestamp']>;
+  executor?: Maybe<Scalars['String']>;
+  group_id?: Maybe<Scalars['Int']>;
+  height?: Maybe<Scalars['bigint']>;
+  id?: Maybe<Scalars['Int']>;
+  member_count?: Maybe<Scalars['Int']>;
+  metadata?: Maybe<Scalars['String']>;
+  proposer?: Maybe<Scalars['String']>;
+  submit_time?: Maybe<Scalars['timestamp']>;
+  transaction_hash?: Maybe<Scalars['String']>;
+};
+
+/** order by max() on columns of table "group_proposal" */
+export type Group_Proposal_Max_Order_By = {
+  execution_log?: Maybe<Order_By>;
+  execution_time?: Maybe<Order_By>;
+  executor?: Maybe<Order_By>;
+  group_id?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  member_count?: Maybe<Order_By>;
+  metadata?: Maybe<Order_By>;
+  proposer?: Maybe<Order_By>;
+  submit_time?: Maybe<Order_By>;
+  transaction_hash?: Maybe<Order_By>;
+};
+
+/** aggregate min on columns */
+export type Group_Proposal_Min_Fields = {
+  __typename?: 'group_proposal_min_fields';
+  execution_log?: Maybe<Scalars['String']>;
+  execution_time?: Maybe<Scalars['timestamp']>;
+  executor?: Maybe<Scalars['String']>;
+  group_id?: Maybe<Scalars['Int']>;
+  height?: Maybe<Scalars['bigint']>;
+  id?: Maybe<Scalars['Int']>;
+  member_count?: Maybe<Scalars['Int']>;
+  metadata?: Maybe<Scalars['String']>;
+  proposer?: Maybe<Scalars['String']>;
+  submit_time?: Maybe<Scalars['timestamp']>;
+  transaction_hash?: Maybe<Scalars['String']>;
+};
+
+/** order by min() on columns of table "group_proposal" */
+export type Group_Proposal_Min_Order_By = {
+  execution_log?: Maybe<Order_By>;
+  execution_time?: Maybe<Order_By>;
+  executor?: Maybe<Order_By>;
+  group_id?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  member_count?: Maybe<Order_By>;
+  metadata?: Maybe<Order_By>;
+  proposer?: Maybe<Order_By>;
+  submit_time?: Maybe<Order_By>;
+  transaction_hash?: Maybe<Order_By>;
+};
+
+/** Ordering options when selecting data from "group_proposal". */
+export type Group_Proposal_Order_By = {
+  block?: Maybe<Block_Order_By>;
+  execution_log?: Maybe<Order_By>;
+  execution_time?: Maybe<Order_By>;
+  executor?: Maybe<Order_By>;
+  executor_result?: Maybe<Order_By>;
+  group_id?: Maybe<Order_By>;
+  group_proposal_votes_aggregate?: Maybe<Group_Proposal_Vote_Aggregate_Order_By>;
+  group_with_policy?: Maybe<Group_With_Policy_Order_By>;
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  member_count?: Maybe<Order_By>;
+  messages?: Maybe<Order_By>;
+  metadata?: Maybe<Order_By>;
+  proposer?: Maybe<Order_By>;
+  status?: Maybe<Order_By>;
+  submit_time?: Maybe<Order_By>;
+  transaction?: Maybe<Transaction_Order_By>;
+  transaction_hash?: Maybe<Order_By>;
+};
+
+/** select columns of table "group_proposal" */
+export enum Group_Proposal_Select_Column {
+  /** column name */
+  ExecutionLog = 'execution_log',
+  /** column name */
+  ExecutionTime = 'execution_time',
+  /** column name */
+  Executor = 'executor',
+  /** column name */
+  ExecutorResult = 'executor_result',
+  /** column name */
+  GroupId = 'group_id',
+  /** column name */
+  Height = 'height',
+  /** column name */
+  Id = 'id',
+  /** column name */
+  MemberCount = 'member_count',
+  /** column name */
+  Messages = 'messages',
+  /** column name */
+  Metadata = 'metadata',
+  /** column name */
+  Proposer = 'proposer',
+  /** column name */
+  Status = 'status',
+  /** column name */
+  SubmitTime = 'submit_time',
+  /** column name */
+  TransactionHash = 'transaction_hash'
+}
+
+/** aggregate stddev on columns */
+export type Group_Proposal_Stddev_Fields = {
+  __typename?: 'group_proposal_stddev_fields';
+  group_id?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+  member_count?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev() on columns of table "group_proposal" */
+export type Group_Proposal_Stddev_Order_By = {
+  group_id?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  member_count?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Group_Proposal_Stddev_Pop_Fields = {
+  __typename?: 'group_proposal_stddev_pop_fields';
+  group_id?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+  member_count?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_pop() on columns of table "group_proposal" */
+export type Group_Proposal_Stddev_Pop_Order_By = {
+  group_id?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  member_count?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Group_Proposal_Stddev_Samp_Fields = {
+  __typename?: 'group_proposal_stddev_samp_fields';
+  group_id?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+  member_count?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_samp() on columns of table "group_proposal" */
+export type Group_Proposal_Stddev_Samp_Order_By = {
+  group_id?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  member_count?: Maybe<Order_By>;
+};
+
+/** aggregate sum on columns */
+export type Group_Proposal_Sum_Fields = {
+  __typename?: 'group_proposal_sum_fields';
+  group_id?: Maybe<Scalars['Int']>;
+  height?: Maybe<Scalars['bigint']>;
+  id?: Maybe<Scalars['Int']>;
+  member_count?: Maybe<Scalars['Int']>;
+};
+
+/** order by sum() on columns of table "group_proposal" */
+export type Group_Proposal_Sum_Order_By = {
+  group_id?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  member_count?: Maybe<Order_By>;
+};
+
+/** aggregate var_pop on columns */
+export type Group_Proposal_Var_Pop_Fields = {
+  __typename?: 'group_proposal_var_pop_fields';
+  group_id?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+  member_count?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_pop() on columns of table "group_proposal" */
+export type Group_Proposal_Var_Pop_Order_By = {
+  group_id?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  member_count?: Maybe<Order_By>;
+};
+
+/** aggregate var_samp on columns */
+export type Group_Proposal_Var_Samp_Fields = {
+  __typename?: 'group_proposal_var_samp_fields';
+  group_id?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+  member_count?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_samp() on columns of table "group_proposal" */
+export type Group_Proposal_Var_Samp_Order_By = {
+  group_id?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  member_count?: Maybe<Order_By>;
+};
+
+/** aggregate variance on columns */
+export type Group_Proposal_Variance_Fields = {
+  __typename?: 'group_proposal_variance_fields';
+  group_id?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+  member_count?: Maybe<Scalars['Float']>;
+};
+
+/** order by variance() on columns of table "group_proposal" */
+export type Group_Proposal_Variance_Order_By = {
+  group_id?: Maybe<Order_By>;
+  height?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  member_count?: Maybe<Order_By>;
+};
+
+/** columns and relationships of "group_proposal_vote" */
+export type Group_Proposal_Vote = {
+  __typename?: 'group_proposal_vote';
+  group_id: Scalars['Int'];
+  /** An object relationship */
+  group_member?: Maybe<Group_Member>;
+  /** An object relationship */
+  group_proposal: Group_Proposal;
+  proposal_id: Scalars['Int'];
+  submit_time: Scalars['timestamp'];
+  vote_metadata?: Maybe<Scalars['String']>;
+  vote_option: Scalars['vote_option'];
+  voter: Scalars['String'];
+};
+
+/** aggregated selection of "group_proposal_vote" */
+export type Group_Proposal_Vote_Aggregate = {
+  __typename?: 'group_proposal_vote_aggregate';
+  aggregate?: Maybe<Group_Proposal_Vote_Aggregate_Fields>;
+  nodes: Array<Group_Proposal_Vote>;
+};
+
+/** aggregate fields of "group_proposal_vote" */
+export type Group_Proposal_Vote_Aggregate_Fields = {
+  __typename?: 'group_proposal_vote_aggregate_fields';
+  avg?: Maybe<Group_Proposal_Vote_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Group_Proposal_Vote_Max_Fields>;
+  min?: Maybe<Group_Proposal_Vote_Min_Fields>;
+  stddev?: Maybe<Group_Proposal_Vote_Stddev_Fields>;
+  stddev_pop?: Maybe<Group_Proposal_Vote_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Group_Proposal_Vote_Stddev_Samp_Fields>;
+  sum?: Maybe<Group_Proposal_Vote_Sum_Fields>;
+  var_pop?: Maybe<Group_Proposal_Vote_Var_Pop_Fields>;
+  var_samp?: Maybe<Group_Proposal_Vote_Var_Samp_Fields>;
+  variance?: Maybe<Group_Proposal_Vote_Variance_Fields>;
+};
+
+
+/** aggregate fields of "group_proposal_vote" */
+export type Group_Proposal_Vote_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Group_Proposal_Vote_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** order by aggregate values of table "group_proposal_vote" */
+export type Group_Proposal_Vote_Aggregate_Order_By = {
+  avg?: Maybe<Group_Proposal_Vote_Avg_Order_By>;
+  count?: Maybe<Order_By>;
+  max?: Maybe<Group_Proposal_Vote_Max_Order_By>;
+  min?: Maybe<Group_Proposal_Vote_Min_Order_By>;
+  stddev?: Maybe<Group_Proposal_Vote_Stddev_Order_By>;
+  stddev_pop?: Maybe<Group_Proposal_Vote_Stddev_Pop_Order_By>;
+  stddev_samp?: Maybe<Group_Proposal_Vote_Stddev_Samp_Order_By>;
+  sum?: Maybe<Group_Proposal_Vote_Sum_Order_By>;
+  var_pop?: Maybe<Group_Proposal_Vote_Var_Pop_Order_By>;
+  var_samp?: Maybe<Group_Proposal_Vote_Var_Samp_Order_By>;
+  variance?: Maybe<Group_Proposal_Vote_Variance_Order_By>;
+};
+
+/** aggregate avg on columns */
+export type Group_Proposal_Vote_Avg_Fields = {
+  __typename?: 'group_proposal_vote_avg_fields';
+  group_id?: Maybe<Scalars['Float']>;
+  proposal_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by avg() on columns of table "group_proposal_vote" */
+export type Group_Proposal_Vote_Avg_Order_By = {
+  group_id?: Maybe<Order_By>;
+  proposal_id?: Maybe<Order_By>;
+};
+
+/** Boolean expression to filter rows from the table "group_proposal_vote". All fields are combined with a logical 'AND'. */
+export type Group_Proposal_Vote_Bool_Exp = {
+  _and?: Maybe<Array<Group_Proposal_Vote_Bool_Exp>>;
+  _not?: Maybe<Group_Proposal_Vote_Bool_Exp>;
+  _or?: Maybe<Array<Group_Proposal_Vote_Bool_Exp>>;
+  group_id?: Maybe<Int_Comparison_Exp>;
+  group_member?: Maybe<Group_Member_Bool_Exp>;
+  group_proposal?: Maybe<Group_Proposal_Bool_Exp>;
+  proposal_id?: Maybe<Int_Comparison_Exp>;
+  submit_time?: Maybe<Timestamp_Comparison_Exp>;
+  vote_metadata?: Maybe<String_Comparison_Exp>;
+  vote_option?: Maybe<Vote_Option_Comparison_Exp>;
+  voter?: Maybe<String_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Group_Proposal_Vote_Max_Fields = {
+  __typename?: 'group_proposal_vote_max_fields';
+  group_id?: Maybe<Scalars['Int']>;
+  proposal_id?: Maybe<Scalars['Int']>;
+  submit_time?: Maybe<Scalars['timestamp']>;
+  vote_metadata?: Maybe<Scalars['String']>;
+  voter?: Maybe<Scalars['String']>;
+};
+
+/** order by max() on columns of table "group_proposal_vote" */
+export type Group_Proposal_Vote_Max_Order_By = {
+  group_id?: Maybe<Order_By>;
+  proposal_id?: Maybe<Order_By>;
+  submit_time?: Maybe<Order_By>;
+  vote_metadata?: Maybe<Order_By>;
+  voter?: Maybe<Order_By>;
+};
+
+/** aggregate min on columns */
+export type Group_Proposal_Vote_Min_Fields = {
+  __typename?: 'group_proposal_vote_min_fields';
+  group_id?: Maybe<Scalars['Int']>;
+  proposal_id?: Maybe<Scalars['Int']>;
+  submit_time?: Maybe<Scalars['timestamp']>;
+  vote_metadata?: Maybe<Scalars['String']>;
+  voter?: Maybe<Scalars['String']>;
+};
+
+/** order by min() on columns of table "group_proposal_vote" */
+export type Group_Proposal_Vote_Min_Order_By = {
+  group_id?: Maybe<Order_By>;
+  proposal_id?: Maybe<Order_By>;
+  submit_time?: Maybe<Order_By>;
+  vote_metadata?: Maybe<Order_By>;
+  voter?: Maybe<Order_By>;
+};
+
+/** Ordering options when selecting data from "group_proposal_vote". */
+export type Group_Proposal_Vote_Order_By = {
+  group_id?: Maybe<Order_By>;
+  group_member?: Maybe<Group_Member_Order_By>;
+  group_proposal?: Maybe<Group_Proposal_Order_By>;
+  proposal_id?: Maybe<Order_By>;
+  submit_time?: Maybe<Order_By>;
+  vote_metadata?: Maybe<Order_By>;
+  vote_option?: Maybe<Order_By>;
+  voter?: Maybe<Order_By>;
+};
+
+/** select columns of table "group_proposal_vote" */
+export enum Group_Proposal_Vote_Select_Column {
+  /** column name */
+  GroupId = 'group_id',
+  /** column name */
+  ProposalId = 'proposal_id',
+  /** column name */
+  SubmitTime = 'submit_time',
+  /** column name */
+  VoteMetadata = 'vote_metadata',
+  /** column name */
+  VoteOption = 'vote_option',
+  /** column name */
+  Voter = 'voter'
+}
+
+/** aggregate stddev on columns */
+export type Group_Proposal_Vote_Stddev_Fields = {
+  __typename?: 'group_proposal_vote_stddev_fields';
+  group_id?: Maybe<Scalars['Float']>;
+  proposal_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev() on columns of table "group_proposal_vote" */
+export type Group_Proposal_Vote_Stddev_Order_By = {
+  group_id?: Maybe<Order_By>;
+  proposal_id?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Group_Proposal_Vote_Stddev_Pop_Fields = {
+  __typename?: 'group_proposal_vote_stddev_pop_fields';
+  group_id?: Maybe<Scalars['Float']>;
+  proposal_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_pop() on columns of table "group_proposal_vote" */
+export type Group_Proposal_Vote_Stddev_Pop_Order_By = {
+  group_id?: Maybe<Order_By>;
+  proposal_id?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Group_Proposal_Vote_Stddev_Samp_Fields = {
+  __typename?: 'group_proposal_vote_stddev_samp_fields';
+  group_id?: Maybe<Scalars['Float']>;
+  proposal_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_samp() on columns of table "group_proposal_vote" */
+export type Group_Proposal_Vote_Stddev_Samp_Order_By = {
+  group_id?: Maybe<Order_By>;
+  proposal_id?: Maybe<Order_By>;
+};
+
+/** aggregate sum on columns */
+export type Group_Proposal_Vote_Sum_Fields = {
+  __typename?: 'group_proposal_vote_sum_fields';
+  group_id?: Maybe<Scalars['Int']>;
+  proposal_id?: Maybe<Scalars['Int']>;
+};
+
+/** order by sum() on columns of table "group_proposal_vote" */
+export type Group_Proposal_Vote_Sum_Order_By = {
+  group_id?: Maybe<Order_By>;
+  proposal_id?: Maybe<Order_By>;
+};
+
+/** aggregate var_pop on columns */
+export type Group_Proposal_Vote_Var_Pop_Fields = {
+  __typename?: 'group_proposal_vote_var_pop_fields';
+  group_id?: Maybe<Scalars['Float']>;
+  proposal_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_pop() on columns of table "group_proposal_vote" */
+export type Group_Proposal_Vote_Var_Pop_Order_By = {
+  group_id?: Maybe<Order_By>;
+  proposal_id?: Maybe<Order_By>;
+};
+
+/** aggregate var_samp on columns */
+export type Group_Proposal_Vote_Var_Samp_Fields = {
+  __typename?: 'group_proposal_vote_var_samp_fields';
+  group_id?: Maybe<Scalars['Float']>;
+  proposal_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_samp() on columns of table "group_proposal_vote" */
+export type Group_Proposal_Vote_Var_Samp_Order_By = {
+  group_id?: Maybe<Order_By>;
+  proposal_id?: Maybe<Order_By>;
+};
+
+/** aggregate variance on columns */
+export type Group_Proposal_Vote_Variance_Fields = {
+  __typename?: 'group_proposal_vote_variance_fields';
+  group_id?: Maybe<Scalars['Float']>;
+  proposal_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by variance() on columns of table "group_proposal_vote" */
+export type Group_Proposal_Vote_Variance_Order_By = {
+  group_id?: Maybe<Order_By>;
+  proposal_id?: Maybe<Order_By>;
+};
+
+/** columns and relationships of "group_with_policy" */
+export type Group_With_Policy = {
+  __typename?: 'group_with_policy';
+  address: Scalars['String'];
+  /** An array relationship */
+  group_members: Array<Group_Member>;
+  /** An aggregate relationship */
+  group_members_aggregate: Group_Member_Aggregate;
+  group_metadata?: Maybe<Scalars['String']>;
+  /** An array relationship */
+  group_proposals: Array<Group_Proposal>;
+  /** An aggregate relationship */
+  group_proposals_aggregate: Group_Proposal_Aggregate;
+  id: Scalars['Int'];
+  min_execution_period: Scalars['bigint'];
+  policy_metadata?: Maybe<Scalars['String']>;
+  threshold: Scalars['Int'];
+  voting_period: Scalars['bigint'];
+};
+
+
+/** columns and relationships of "group_with_policy" */
+export type Group_With_PolicyGroup_MembersArgs = {
+  distinct_on?: Maybe<Array<Group_Member_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Group_Member_Order_By>>;
+  where?: Maybe<Group_Member_Bool_Exp>;
+};
+
+
+/** columns and relationships of "group_with_policy" */
+export type Group_With_PolicyGroup_Members_AggregateArgs = {
+  distinct_on?: Maybe<Array<Group_Member_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Group_Member_Order_By>>;
+  where?: Maybe<Group_Member_Bool_Exp>;
+};
+
+
+/** columns and relationships of "group_with_policy" */
+export type Group_With_PolicyGroup_ProposalsArgs = {
+  distinct_on?: Maybe<Array<Group_Proposal_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Group_Proposal_Order_By>>;
+  where?: Maybe<Group_Proposal_Bool_Exp>;
+};
+
+
+/** columns and relationships of "group_with_policy" */
+export type Group_With_PolicyGroup_Proposals_AggregateArgs = {
+  distinct_on?: Maybe<Array<Group_Proposal_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Group_Proposal_Order_By>>;
+  where?: Maybe<Group_Proposal_Bool_Exp>;
+};
+
+/** aggregated selection of "group_with_policy" */
+export type Group_With_Policy_Aggregate = {
+  __typename?: 'group_with_policy_aggregate';
+  aggregate?: Maybe<Group_With_Policy_Aggregate_Fields>;
+  nodes: Array<Group_With_Policy>;
+};
+
+/** aggregate fields of "group_with_policy" */
+export type Group_With_Policy_Aggregate_Fields = {
+  __typename?: 'group_with_policy_aggregate_fields';
+  avg?: Maybe<Group_With_Policy_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Group_With_Policy_Max_Fields>;
+  min?: Maybe<Group_With_Policy_Min_Fields>;
+  stddev?: Maybe<Group_With_Policy_Stddev_Fields>;
+  stddev_pop?: Maybe<Group_With_Policy_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Group_With_Policy_Stddev_Samp_Fields>;
+  sum?: Maybe<Group_With_Policy_Sum_Fields>;
+  var_pop?: Maybe<Group_With_Policy_Var_Pop_Fields>;
+  var_samp?: Maybe<Group_With_Policy_Var_Samp_Fields>;
+  variance?: Maybe<Group_With_Policy_Variance_Fields>;
+};
+
+
+/** aggregate fields of "group_with_policy" */
+export type Group_With_Policy_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Group_With_Policy_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type Group_With_Policy_Avg_Fields = {
+  __typename?: 'group_with_policy_avg_fields';
+  id?: Maybe<Scalars['Float']>;
+  min_execution_period?: Maybe<Scalars['Float']>;
+  threshold?: Maybe<Scalars['Float']>;
+  voting_period?: Maybe<Scalars['Float']>;
+};
+
+/** Boolean expression to filter rows from the table "group_with_policy". All fields are combined with a logical 'AND'. */
+export type Group_With_Policy_Bool_Exp = {
+  _and?: Maybe<Array<Group_With_Policy_Bool_Exp>>;
+  _not?: Maybe<Group_With_Policy_Bool_Exp>;
+  _or?: Maybe<Array<Group_With_Policy_Bool_Exp>>;
+  address?: Maybe<String_Comparison_Exp>;
+  group_members?: Maybe<Group_Member_Bool_Exp>;
+  group_metadata?: Maybe<String_Comparison_Exp>;
+  group_proposals?: Maybe<Group_Proposal_Bool_Exp>;
+  id?: Maybe<Int_Comparison_Exp>;
+  min_execution_period?: Maybe<Bigint_Comparison_Exp>;
+  policy_metadata?: Maybe<String_Comparison_Exp>;
+  threshold?: Maybe<Int_Comparison_Exp>;
+  voting_period?: Maybe<Bigint_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Group_With_Policy_Max_Fields = {
+  __typename?: 'group_with_policy_max_fields';
+  address?: Maybe<Scalars['String']>;
+  group_metadata?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['Int']>;
+  min_execution_period?: Maybe<Scalars['bigint']>;
+  policy_metadata?: Maybe<Scalars['String']>;
+  threshold?: Maybe<Scalars['Int']>;
+  voting_period?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregate min on columns */
+export type Group_With_Policy_Min_Fields = {
+  __typename?: 'group_with_policy_min_fields';
+  address?: Maybe<Scalars['String']>;
+  group_metadata?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['Int']>;
+  min_execution_period?: Maybe<Scalars['bigint']>;
+  policy_metadata?: Maybe<Scalars['String']>;
+  threshold?: Maybe<Scalars['Int']>;
+  voting_period?: Maybe<Scalars['bigint']>;
+};
+
+/** Ordering options when selecting data from "group_with_policy". */
+export type Group_With_Policy_Order_By = {
+  address?: Maybe<Order_By>;
+  group_members_aggregate?: Maybe<Group_Member_Aggregate_Order_By>;
+  group_metadata?: Maybe<Order_By>;
+  group_proposals_aggregate?: Maybe<Group_Proposal_Aggregate_Order_By>;
+  id?: Maybe<Order_By>;
+  min_execution_period?: Maybe<Order_By>;
+  policy_metadata?: Maybe<Order_By>;
+  threshold?: Maybe<Order_By>;
+  voting_period?: Maybe<Order_By>;
+};
+
+/** select columns of table "group_with_policy" */
+export enum Group_With_Policy_Select_Column {
+  /** column name */
+  Address = 'address',
+  /** column name */
+  GroupMetadata = 'group_metadata',
+  /** column name */
+  Id = 'id',
+  /** column name */
+  MinExecutionPeriod = 'min_execution_period',
+  /** column name */
+  PolicyMetadata = 'policy_metadata',
+  /** column name */
+  Threshold = 'threshold',
+  /** column name */
+  VotingPeriod = 'voting_period'
+}
+
+/** aggregate stddev on columns */
+export type Group_With_Policy_Stddev_Fields = {
+  __typename?: 'group_with_policy_stddev_fields';
+  id?: Maybe<Scalars['Float']>;
+  min_execution_period?: Maybe<Scalars['Float']>;
+  threshold?: Maybe<Scalars['Float']>;
+  voting_period?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Group_With_Policy_Stddev_Pop_Fields = {
+  __typename?: 'group_with_policy_stddev_pop_fields';
+  id?: Maybe<Scalars['Float']>;
+  min_execution_period?: Maybe<Scalars['Float']>;
+  threshold?: Maybe<Scalars['Float']>;
+  voting_period?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Group_With_Policy_Stddev_Samp_Fields = {
+  __typename?: 'group_with_policy_stddev_samp_fields';
+  id?: Maybe<Scalars['Float']>;
+  min_execution_period?: Maybe<Scalars['Float']>;
+  threshold?: Maybe<Scalars['Float']>;
+  voting_period?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate sum on columns */
+export type Group_With_Policy_Sum_Fields = {
+  __typename?: 'group_with_policy_sum_fields';
+  id?: Maybe<Scalars['Int']>;
+  min_execution_period?: Maybe<Scalars['bigint']>;
+  threshold?: Maybe<Scalars['Int']>;
+  voting_period?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregate var_pop on columns */
+export type Group_With_Policy_Var_Pop_Fields = {
+  __typename?: 'group_with_policy_var_pop_fields';
+  id?: Maybe<Scalars['Float']>;
+  min_execution_period?: Maybe<Scalars['Float']>;
+  threshold?: Maybe<Scalars['Float']>;
+  voting_period?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type Group_With_Policy_Var_Samp_Fields = {
+  __typename?: 'group_with_policy_var_samp_fields';
+  id?: Maybe<Scalars['Float']>;
+  min_execution_period?: Maybe<Scalars['Float']>;
+  threshold?: Maybe<Scalars['Float']>;
+  voting_period?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type Group_With_Policy_Variance_Fields = {
+  __typename?: 'group_with_policy_variance_fields';
+  id?: Maybe<Scalars['Float']>;
+  min_execution_period?: Maybe<Scalars['Float']>;
+  threshold?: Maybe<Scalars['Float']>;
+  voting_period?: Maybe<Scalars['Float']>;
+};
+
 /** columns and relationships of "inflation" */
 export type Inflation = {
   __typename?: 'inflation';
@@ -4015,6 +5683,569 @@ export type Jsonb_Comparison_Exp = {
   _lte?: Maybe<Scalars['jsonb']>;
   _neq?: Maybe<Scalars['jsonb']>;
   _nin?: Maybe<Array<Scalars['jsonb']>>;
+};
+
+/** columns and relationships of "marketplace_collection" */
+export type Marketplace_Collection = {
+  __typename?: 'marketplace_collection';
+  creator: Scalars['String'];
+  denom_id: Scalars['String'];
+  id: Scalars['bigint'];
+  mint_royalties: Scalars['String'];
+  /** An object relationship */
+  nft_denom: Nft_Denom;
+  resale_royalties: Scalars['String'];
+  /** An object relationship */
+  transaction: Transaction;
+  transaction_hash: Scalars['String'];
+  verified: Scalars['Boolean'];
+};
+
+/** aggregated selection of "marketplace_collection" */
+export type Marketplace_Collection_Aggregate = {
+  __typename?: 'marketplace_collection_aggregate';
+  aggregate?: Maybe<Marketplace_Collection_Aggregate_Fields>;
+  nodes: Array<Marketplace_Collection>;
+};
+
+/** aggregate fields of "marketplace_collection" */
+export type Marketplace_Collection_Aggregate_Fields = {
+  __typename?: 'marketplace_collection_aggregate_fields';
+  avg?: Maybe<Marketplace_Collection_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Marketplace_Collection_Max_Fields>;
+  min?: Maybe<Marketplace_Collection_Min_Fields>;
+  stddev?: Maybe<Marketplace_Collection_Stddev_Fields>;
+  stddev_pop?: Maybe<Marketplace_Collection_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Marketplace_Collection_Stddev_Samp_Fields>;
+  sum?: Maybe<Marketplace_Collection_Sum_Fields>;
+  var_pop?: Maybe<Marketplace_Collection_Var_Pop_Fields>;
+  var_samp?: Maybe<Marketplace_Collection_Var_Samp_Fields>;
+  variance?: Maybe<Marketplace_Collection_Variance_Fields>;
+};
+
+
+/** aggregate fields of "marketplace_collection" */
+export type Marketplace_Collection_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Marketplace_Collection_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type Marketplace_Collection_Avg_Fields = {
+  __typename?: 'marketplace_collection_avg_fields';
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** Boolean expression to filter rows from the table "marketplace_collection". All fields are combined with a logical 'AND'. */
+export type Marketplace_Collection_Bool_Exp = {
+  _and?: Maybe<Array<Marketplace_Collection_Bool_Exp>>;
+  _not?: Maybe<Marketplace_Collection_Bool_Exp>;
+  _or?: Maybe<Array<Marketplace_Collection_Bool_Exp>>;
+  creator?: Maybe<String_Comparison_Exp>;
+  denom_id?: Maybe<String_Comparison_Exp>;
+  id?: Maybe<Bigint_Comparison_Exp>;
+  mint_royalties?: Maybe<String_Comparison_Exp>;
+  nft_denom?: Maybe<Nft_Denom_Bool_Exp>;
+  resale_royalties?: Maybe<String_Comparison_Exp>;
+  transaction?: Maybe<Transaction_Bool_Exp>;
+  transaction_hash?: Maybe<String_Comparison_Exp>;
+  verified?: Maybe<Boolean_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Marketplace_Collection_Max_Fields = {
+  __typename?: 'marketplace_collection_max_fields';
+  creator?: Maybe<Scalars['String']>;
+  denom_id?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['bigint']>;
+  mint_royalties?: Maybe<Scalars['String']>;
+  resale_royalties?: Maybe<Scalars['String']>;
+  transaction_hash?: Maybe<Scalars['String']>;
+};
+
+/** aggregate min on columns */
+export type Marketplace_Collection_Min_Fields = {
+  __typename?: 'marketplace_collection_min_fields';
+  creator?: Maybe<Scalars['String']>;
+  denom_id?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['bigint']>;
+  mint_royalties?: Maybe<Scalars['String']>;
+  resale_royalties?: Maybe<Scalars['String']>;
+  transaction_hash?: Maybe<Scalars['String']>;
+};
+
+/** Ordering options when selecting data from "marketplace_collection". */
+export type Marketplace_Collection_Order_By = {
+  creator?: Maybe<Order_By>;
+  denom_id?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  mint_royalties?: Maybe<Order_By>;
+  nft_denom?: Maybe<Nft_Denom_Order_By>;
+  resale_royalties?: Maybe<Order_By>;
+  transaction?: Maybe<Transaction_Order_By>;
+  transaction_hash?: Maybe<Order_By>;
+  verified?: Maybe<Order_By>;
+};
+
+/** select columns of table "marketplace_collection" */
+export enum Marketplace_Collection_Select_Column {
+  /** column name */
+  Creator = 'creator',
+  /** column name */
+  DenomId = 'denom_id',
+  /** column name */
+  Id = 'id',
+  /** column name */
+  MintRoyalties = 'mint_royalties',
+  /** column name */
+  ResaleRoyalties = 'resale_royalties',
+  /** column name */
+  TransactionHash = 'transaction_hash',
+  /** column name */
+  Verified = 'verified'
+}
+
+/** aggregate stddev on columns */
+export type Marketplace_Collection_Stddev_Fields = {
+  __typename?: 'marketplace_collection_stddev_fields';
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Marketplace_Collection_Stddev_Pop_Fields = {
+  __typename?: 'marketplace_collection_stddev_pop_fields';
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Marketplace_Collection_Stddev_Samp_Fields = {
+  __typename?: 'marketplace_collection_stddev_samp_fields';
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate sum on columns */
+export type Marketplace_Collection_Sum_Fields = {
+  __typename?: 'marketplace_collection_sum_fields';
+  id?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregate var_pop on columns */
+export type Marketplace_Collection_Var_Pop_Fields = {
+  __typename?: 'marketplace_collection_var_pop_fields';
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type Marketplace_Collection_Var_Samp_Fields = {
+  __typename?: 'marketplace_collection_var_samp_fields';
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type Marketplace_Collection_Variance_Fields = {
+  __typename?: 'marketplace_collection_variance_fields';
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** columns and relationships of "marketplace_nft" */
+export type Marketplace_Nft = {
+  __typename?: 'marketplace_nft';
+  creator: Scalars['String'];
+  denom_id: Scalars['String'];
+  id?: Maybe<Scalars['bigint']>;
+  /** An object relationship */
+  nft_denom: Nft_Denom;
+  /** An object relationship */
+  nft_nft: Nft_Nft;
+  price?: Maybe<Scalars['numeric']>;
+  token_id: Scalars['bigint'];
+  /** An object relationship */
+  transaction: Transaction;
+  transaction_hash: Scalars['String'];
+  uid?: Maybe<Scalars['String']>;
+};
+
+/** aggregated selection of "marketplace_nft" */
+export type Marketplace_Nft_Aggregate = {
+  __typename?: 'marketplace_nft_aggregate';
+  aggregate?: Maybe<Marketplace_Nft_Aggregate_Fields>;
+  nodes: Array<Marketplace_Nft>;
+};
+
+/** aggregate fields of "marketplace_nft" */
+export type Marketplace_Nft_Aggregate_Fields = {
+  __typename?: 'marketplace_nft_aggregate_fields';
+  avg?: Maybe<Marketplace_Nft_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Marketplace_Nft_Max_Fields>;
+  min?: Maybe<Marketplace_Nft_Min_Fields>;
+  stddev?: Maybe<Marketplace_Nft_Stddev_Fields>;
+  stddev_pop?: Maybe<Marketplace_Nft_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Marketplace_Nft_Stddev_Samp_Fields>;
+  sum?: Maybe<Marketplace_Nft_Sum_Fields>;
+  var_pop?: Maybe<Marketplace_Nft_Var_Pop_Fields>;
+  var_samp?: Maybe<Marketplace_Nft_Var_Samp_Fields>;
+  variance?: Maybe<Marketplace_Nft_Variance_Fields>;
+};
+
+
+/** aggregate fields of "marketplace_nft" */
+export type Marketplace_Nft_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Marketplace_Nft_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type Marketplace_Nft_Avg_Fields = {
+  __typename?: 'marketplace_nft_avg_fields';
+  id?: Maybe<Scalars['Float']>;
+  price?: Maybe<Scalars['Float']>;
+  token_id?: Maybe<Scalars['Float']>;
+};
+
+/** Boolean expression to filter rows from the table "marketplace_nft". All fields are combined with a logical 'AND'. */
+export type Marketplace_Nft_Bool_Exp = {
+  _and?: Maybe<Array<Marketplace_Nft_Bool_Exp>>;
+  _not?: Maybe<Marketplace_Nft_Bool_Exp>;
+  _or?: Maybe<Array<Marketplace_Nft_Bool_Exp>>;
+  creator?: Maybe<String_Comparison_Exp>;
+  denom_id?: Maybe<String_Comparison_Exp>;
+  id?: Maybe<Bigint_Comparison_Exp>;
+  nft_denom?: Maybe<Nft_Denom_Bool_Exp>;
+  nft_nft?: Maybe<Nft_Nft_Bool_Exp>;
+  price?: Maybe<Numeric_Comparison_Exp>;
+  token_id?: Maybe<Bigint_Comparison_Exp>;
+  transaction?: Maybe<Transaction_Bool_Exp>;
+  transaction_hash?: Maybe<String_Comparison_Exp>;
+  uid?: Maybe<String_Comparison_Exp>;
+};
+
+/** columns and relationships of "marketplace_nft_buy_history" */
+export type Marketplace_Nft_Buy_History = {
+  __typename?: 'marketplace_nft_buy_history';
+  btc_price: Scalars['numeric'];
+  buyer: Scalars['String'];
+  denom_id: Scalars['String'];
+  /** An object relationship */
+  nft_denom: Nft_Denom;
+  /** An object relationship */
+  nft_nft: Nft_Nft;
+  price: Scalars['numeric'];
+  seller: Scalars['String'];
+  timestamp: Scalars['bigint'];
+  token_id: Scalars['bigint'];
+  /** An object relationship */
+  transaction: Transaction;
+  transaction_hash: Scalars['String'];
+  usd_price: Scalars['numeric'];
+};
+
+/** aggregated selection of "marketplace_nft_buy_history" */
+export type Marketplace_Nft_Buy_History_Aggregate = {
+  __typename?: 'marketplace_nft_buy_history_aggregate';
+  aggregate?: Maybe<Marketplace_Nft_Buy_History_Aggregate_Fields>;
+  nodes: Array<Marketplace_Nft_Buy_History>;
+};
+
+/** aggregate fields of "marketplace_nft_buy_history" */
+export type Marketplace_Nft_Buy_History_Aggregate_Fields = {
+  __typename?: 'marketplace_nft_buy_history_aggregate_fields';
+  avg?: Maybe<Marketplace_Nft_Buy_History_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Marketplace_Nft_Buy_History_Max_Fields>;
+  min?: Maybe<Marketplace_Nft_Buy_History_Min_Fields>;
+  stddev?: Maybe<Marketplace_Nft_Buy_History_Stddev_Fields>;
+  stddev_pop?: Maybe<Marketplace_Nft_Buy_History_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Marketplace_Nft_Buy_History_Stddev_Samp_Fields>;
+  sum?: Maybe<Marketplace_Nft_Buy_History_Sum_Fields>;
+  var_pop?: Maybe<Marketplace_Nft_Buy_History_Var_Pop_Fields>;
+  var_samp?: Maybe<Marketplace_Nft_Buy_History_Var_Samp_Fields>;
+  variance?: Maybe<Marketplace_Nft_Buy_History_Variance_Fields>;
+};
+
+
+/** aggregate fields of "marketplace_nft_buy_history" */
+export type Marketplace_Nft_Buy_History_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Marketplace_Nft_Buy_History_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type Marketplace_Nft_Buy_History_Avg_Fields = {
+  __typename?: 'marketplace_nft_buy_history_avg_fields';
+  btc_price?: Maybe<Scalars['Float']>;
+  price?: Maybe<Scalars['Float']>;
+  timestamp?: Maybe<Scalars['Float']>;
+  token_id?: Maybe<Scalars['Float']>;
+  usd_price?: Maybe<Scalars['Float']>;
+};
+
+/** Boolean expression to filter rows from the table "marketplace_nft_buy_history". All fields are combined with a logical 'AND'. */
+export type Marketplace_Nft_Buy_History_Bool_Exp = {
+  _and?: Maybe<Array<Marketplace_Nft_Buy_History_Bool_Exp>>;
+  _not?: Maybe<Marketplace_Nft_Buy_History_Bool_Exp>;
+  _or?: Maybe<Array<Marketplace_Nft_Buy_History_Bool_Exp>>;
+  btc_price?: Maybe<Numeric_Comparison_Exp>;
+  buyer?: Maybe<String_Comparison_Exp>;
+  denom_id?: Maybe<String_Comparison_Exp>;
+  nft_denom?: Maybe<Nft_Denom_Bool_Exp>;
+  nft_nft?: Maybe<Nft_Nft_Bool_Exp>;
+  price?: Maybe<Numeric_Comparison_Exp>;
+  seller?: Maybe<String_Comparison_Exp>;
+  timestamp?: Maybe<Bigint_Comparison_Exp>;
+  token_id?: Maybe<Bigint_Comparison_Exp>;
+  transaction?: Maybe<Transaction_Bool_Exp>;
+  transaction_hash?: Maybe<String_Comparison_Exp>;
+  usd_price?: Maybe<Numeric_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Marketplace_Nft_Buy_History_Max_Fields = {
+  __typename?: 'marketplace_nft_buy_history_max_fields';
+  btc_price?: Maybe<Scalars['numeric']>;
+  buyer?: Maybe<Scalars['String']>;
+  denom_id?: Maybe<Scalars['String']>;
+  price?: Maybe<Scalars['numeric']>;
+  seller?: Maybe<Scalars['String']>;
+  timestamp?: Maybe<Scalars['bigint']>;
+  token_id?: Maybe<Scalars['bigint']>;
+  transaction_hash?: Maybe<Scalars['String']>;
+  usd_price?: Maybe<Scalars['numeric']>;
+};
+
+/** aggregate min on columns */
+export type Marketplace_Nft_Buy_History_Min_Fields = {
+  __typename?: 'marketplace_nft_buy_history_min_fields';
+  btc_price?: Maybe<Scalars['numeric']>;
+  buyer?: Maybe<Scalars['String']>;
+  denom_id?: Maybe<Scalars['String']>;
+  price?: Maybe<Scalars['numeric']>;
+  seller?: Maybe<Scalars['String']>;
+  timestamp?: Maybe<Scalars['bigint']>;
+  token_id?: Maybe<Scalars['bigint']>;
+  transaction_hash?: Maybe<Scalars['String']>;
+  usd_price?: Maybe<Scalars['numeric']>;
+};
+
+/** Ordering options when selecting data from "marketplace_nft_buy_history". */
+export type Marketplace_Nft_Buy_History_Order_By = {
+  btc_price?: Maybe<Order_By>;
+  buyer?: Maybe<Order_By>;
+  denom_id?: Maybe<Order_By>;
+  nft_denom?: Maybe<Nft_Denom_Order_By>;
+  nft_nft?: Maybe<Nft_Nft_Order_By>;
+  price?: Maybe<Order_By>;
+  seller?: Maybe<Order_By>;
+  timestamp?: Maybe<Order_By>;
+  token_id?: Maybe<Order_By>;
+  transaction?: Maybe<Transaction_Order_By>;
+  transaction_hash?: Maybe<Order_By>;
+  usd_price?: Maybe<Order_By>;
+};
+
+/** select columns of table "marketplace_nft_buy_history" */
+export enum Marketplace_Nft_Buy_History_Select_Column {
+  /** column name */
+  BtcPrice = 'btc_price',
+  /** column name */
+  Buyer = 'buyer',
+  /** column name */
+  DenomId = 'denom_id',
+  /** column name */
+  Price = 'price',
+  /** column name */
+  Seller = 'seller',
+  /** column name */
+  Timestamp = 'timestamp',
+  /** column name */
+  TokenId = 'token_id',
+  /** column name */
+  TransactionHash = 'transaction_hash',
+  /** column name */
+  UsdPrice = 'usd_price'
+}
+
+/** aggregate stddev on columns */
+export type Marketplace_Nft_Buy_History_Stddev_Fields = {
+  __typename?: 'marketplace_nft_buy_history_stddev_fields';
+  btc_price?: Maybe<Scalars['Float']>;
+  price?: Maybe<Scalars['Float']>;
+  timestamp?: Maybe<Scalars['Float']>;
+  token_id?: Maybe<Scalars['Float']>;
+  usd_price?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Marketplace_Nft_Buy_History_Stddev_Pop_Fields = {
+  __typename?: 'marketplace_nft_buy_history_stddev_pop_fields';
+  btc_price?: Maybe<Scalars['Float']>;
+  price?: Maybe<Scalars['Float']>;
+  timestamp?: Maybe<Scalars['Float']>;
+  token_id?: Maybe<Scalars['Float']>;
+  usd_price?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Marketplace_Nft_Buy_History_Stddev_Samp_Fields = {
+  __typename?: 'marketplace_nft_buy_history_stddev_samp_fields';
+  btc_price?: Maybe<Scalars['Float']>;
+  price?: Maybe<Scalars['Float']>;
+  timestamp?: Maybe<Scalars['Float']>;
+  token_id?: Maybe<Scalars['Float']>;
+  usd_price?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate sum on columns */
+export type Marketplace_Nft_Buy_History_Sum_Fields = {
+  __typename?: 'marketplace_nft_buy_history_sum_fields';
+  btc_price?: Maybe<Scalars['numeric']>;
+  price?: Maybe<Scalars['numeric']>;
+  timestamp?: Maybe<Scalars['bigint']>;
+  token_id?: Maybe<Scalars['bigint']>;
+  usd_price?: Maybe<Scalars['numeric']>;
+};
+
+/** aggregate var_pop on columns */
+export type Marketplace_Nft_Buy_History_Var_Pop_Fields = {
+  __typename?: 'marketplace_nft_buy_history_var_pop_fields';
+  btc_price?: Maybe<Scalars['Float']>;
+  price?: Maybe<Scalars['Float']>;
+  timestamp?: Maybe<Scalars['Float']>;
+  token_id?: Maybe<Scalars['Float']>;
+  usd_price?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type Marketplace_Nft_Buy_History_Var_Samp_Fields = {
+  __typename?: 'marketplace_nft_buy_history_var_samp_fields';
+  btc_price?: Maybe<Scalars['Float']>;
+  price?: Maybe<Scalars['Float']>;
+  timestamp?: Maybe<Scalars['Float']>;
+  token_id?: Maybe<Scalars['Float']>;
+  usd_price?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type Marketplace_Nft_Buy_History_Variance_Fields = {
+  __typename?: 'marketplace_nft_buy_history_variance_fields';
+  btc_price?: Maybe<Scalars['Float']>;
+  price?: Maybe<Scalars['Float']>;
+  timestamp?: Maybe<Scalars['Float']>;
+  token_id?: Maybe<Scalars['Float']>;
+  usd_price?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate max on columns */
+export type Marketplace_Nft_Max_Fields = {
+  __typename?: 'marketplace_nft_max_fields';
+  creator?: Maybe<Scalars['String']>;
+  denom_id?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['bigint']>;
+  price?: Maybe<Scalars['numeric']>;
+  token_id?: Maybe<Scalars['bigint']>;
+  transaction_hash?: Maybe<Scalars['String']>;
+  uid?: Maybe<Scalars['String']>;
+};
+
+/** aggregate min on columns */
+export type Marketplace_Nft_Min_Fields = {
+  __typename?: 'marketplace_nft_min_fields';
+  creator?: Maybe<Scalars['String']>;
+  denom_id?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['bigint']>;
+  price?: Maybe<Scalars['numeric']>;
+  token_id?: Maybe<Scalars['bigint']>;
+  transaction_hash?: Maybe<Scalars['String']>;
+  uid?: Maybe<Scalars['String']>;
+};
+
+/** Ordering options when selecting data from "marketplace_nft". */
+export type Marketplace_Nft_Order_By = {
+  creator?: Maybe<Order_By>;
+  denom_id?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  nft_denom?: Maybe<Nft_Denom_Order_By>;
+  nft_nft?: Maybe<Nft_Nft_Order_By>;
+  price?: Maybe<Order_By>;
+  token_id?: Maybe<Order_By>;
+  transaction?: Maybe<Transaction_Order_By>;
+  transaction_hash?: Maybe<Order_By>;
+  uid?: Maybe<Order_By>;
+};
+
+/** select columns of table "marketplace_nft" */
+export enum Marketplace_Nft_Select_Column {
+  /** column name */
+  Creator = 'creator',
+  /** column name */
+  DenomId = 'denom_id',
+  /** column name */
+  Id = 'id',
+  /** column name */
+  Price = 'price',
+  /** column name */
+  TokenId = 'token_id',
+  /** column name */
+  TransactionHash = 'transaction_hash',
+  /** column name */
+  Uid = 'uid'
+}
+
+/** aggregate stddev on columns */
+export type Marketplace_Nft_Stddev_Fields = {
+  __typename?: 'marketplace_nft_stddev_fields';
+  id?: Maybe<Scalars['Float']>;
+  price?: Maybe<Scalars['Float']>;
+  token_id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Marketplace_Nft_Stddev_Pop_Fields = {
+  __typename?: 'marketplace_nft_stddev_pop_fields';
+  id?: Maybe<Scalars['Float']>;
+  price?: Maybe<Scalars['Float']>;
+  token_id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Marketplace_Nft_Stddev_Samp_Fields = {
+  __typename?: 'marketplace_nft_stddev_samp_fields';
+  id?: Maybe<Scalars['Float']>;
+  price?: Maybe<Scalars['Float']>;
+  token_id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate sum on columns */
+export type Marketplace_Nft_Sum_Fields = {
+  __typename?: 'marketplace_nft_sum_fields';
+  id?: Maybe<Scalars['bigint']>;
+  price?: Maybe<Scalars['numeric']>;
+  token_id?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregate var_pop on columns */
+export type Marketplace_Nft_Var_Pop_Fields = {
+  __typename?: 'marketplace_nft_var_pop_fields';
+  id?: Maybe<Scalars['Float']>;
+  price?: Maybe<Scalars['Float']>;
+  token_id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type Marketplace_Nft_Var_Samp_Fields = {
+  __typename?: 'marketplace_nft_var_samp_fields';
+  id?: Maybe<Scalars['Float']>;
+  price?: Maybe<Scalars['Float']>;
+  token_id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type Marketplace_Nft_Variance_Fields = {
+  __typename?: 'marketplace_nft_variance_fields';
+  id?: Maybe<Scalars['Float']>;
+  price?: Maybe<Scalars['Float']>;
+  token_id?: Maybe<Scalars['Float']>;
 };
 
 /** columns and relationships of "message" */
@@ -4242,6 +6473,13 @@ export type Messages_By_Address_Args = {
   types?: Maybe<Scalars['_text']>;
 };
 
+export type Messages_By_Address_Distinct_On_Tx_Hash_Args = {
+  addresses?: Maybe<Scalars['_text']>;
+  limit?: Maybe<Scalars['bigint']>;
+  offset?: Maybe<Scalars['bigint']>;
+  types?: Maybe<Scalars['_text']>;
+};
+
 /** columns and relationships of "mint_params" */
 export type Mint_Params = {
   __typename?: 'mint_params';
@@ -4432,137 +6670,521 @@ export enum Modules_Select_Column {
   ModuleName = 'module_name'
 }
 
-/** columns and relationships of "nft_mint" */
-export type Nft_Mint = {
-  __typename?: 'nft_mint';
-  denom_id: Scalars['String'];
-  token_id: Scalars['bigint'];
+/** columns and relationships of "nft_denom" */
+export type Nft_Denom = {
+  __typename?: 'nft_denom';
+  contract_address_signer: Scalars['String'];
+  data_json: Scalars['jsonb'];
+  data_text?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+  id: Scalars['String'];
+  minter?: Maybe<Scalars['String']>;
+  name: Scalars['String'];
+  owner: Scalars['String'];
+  schema: Scalars['String'];
+  symbol: Scalars['String'];
+  traits?: Maybe<Scalars['String']>;
   /** An object relationship */
   transaction: Transaction;
   transaction_hash: Scalars['String'];
 };
 
-/** aggregated selection of "nft_mint" */
-export type Nft_Mint_Aggregate = {
-  __typename?: 'nft_mint_aggregate';
-  aggregate?: Maybe<Nft_Mint_Aggregate_Fields>;
-  nodes: Array<Nft_Mint>;
+
+/** columns and relationships of "nft_denom" */
+export type Nft_DenomData_JsonArgs = {
+  path?: Maybe<Scalars['String']>;
 };
 
-/** aggregate fields of "nft_mint" */
-export type Nft_Mint_Aggregate_Fields = {
-  __typename?: 'nft_mint_aggregate_fields';
-  avg?: Maybe<Nft_Mint_Avg_Fields>;
+/** aggregated selection of "nft_denom" */
+export type Nft_Denom_Aggregate = {
+  __typename?: 'nft_denom_aggregate';
+  aggregate?: Maybe<Nft_Denom_Aggregate_Fields>;
+  nodes: Array<Nft_Denom>;
+};
+
+/** aggregate fields of "nft_denom" */
+export type Nft_Denom_Aggregate_Fields = {
+  __typename?: 'nft_denom_aggregate_fields';
   count: Scalars['Int'];
-  max?: Maybe<Nft_Mint_Max_Fields>;
-  min?: Maybe<Nft_Mint_Min_Fields>;
-  stddev?: Maybe<Nft_Mint_Stddev_Fields>;
-  stddev_pop?: Maybe<Nft_Mint_Stddev_Pop_Fields>;
-  stddev_samp?: Maybe<Nft_Mint_Stddev_Samp_Fields>;
-  sum?: Maybe<Nft_Mint_Sum_Fields>;
-  var_pop?: Maybe<Nft_Mint_Var_Pop_Fields>;
-  var_samp?: Maybe<Nft_Mint_Var_Samp_Fields>;
-  variance?: Maybe<Nft_Mint_Variance_Fields>;
+  max?: Maybe<Nft_Denom_Max_Fields>;
+  min?: Maybe<Nft_Denom_Min_Fields>;
 };
 
 
-/** aggregate fields of "nft_mint" */
-export type Nft_Mint_Aggregate_FieldsCountArgs = {
-  columns?: Maybe<Array<Nft_Mint_Select_Column>>;
+/** aggregate fields of "nft_denom" */
+export type Nft_Denom_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Nft_Denom_Select_Column>>;
   distinct?: Maybe<Scalars['Boolean']>;
 };
 
-/** aggregate avg on columns */
-export type Nft_Mint_Avg_Fields = {
-  __typename?: 'nft_mint_avg_fields';
-  token_id?: Maybe<Scalars['Float']>;
-};
-
-/** Boolean expression to filter rows from the table "nft_mint". All fields are combined with a logical 'AND'. */
-export type Nft_Mint_Bool_Exp = {
-  _and?: Maybe<Array<Nft_Mint_Bool_Exp>>;
-  _not?: Maybe<Nft_Mint_Bool_Exp>;
-  _or?: Maybe<Array<Nft_Mint_Bool_Exp>>;
-  denom_id?: Maybe<String_Comparison_Exp>;
-  token_id?: Maybe<Bigint_Comparison_Exp>;
+/** Boolean expression to filter rows from the table "nft_denom". All fields are combined with a logical 'AND'. */
+export type Nft_Denom_Bool_Exp = {
+  _and?: Maybe<Array<Nft_Denom_Bool_Exp>>;
+  _not?: Maybe<Nft_Denom_Bool_Exp>;
+  _or?: Maybe<Array<Nft_Denom_Bool_Exp>>;
+  contract_address_signer?: Maybe<String_Comparison_Exp>;
+  data_json?: Maybe<Jsonb_Comparison_Exp>;
+  data_text?: Maybe<String_Comparison_Exp>;
+  description?: Maybe<String_Comparison_Exp>;
+  id?: Maybe<String_Comparison_Exp>;
+  minter?: Maybe<String_Comparison_Exp>;
+  name?: Maybe<String_Comparison_Exp>;
+  owner?: Maybe<String_Comparison_Exp>;
+  schema?: Maybe<String_Comparison_Exp>;
+  symbol?: Maybe<String_Comparison_Exp>;
+  traits?: Maybe<String_Comparison_Exp>;
   transaction?: Maybe<Transaction_Bool_Exp>;
   transaction_hash?: Maybe<String_Comparison_Exp>;
 };
 
 /** aggregate max on columns */
-export type Nft_Mint_Max_Fields = {
-  __typename?: 'nft_mint_max_fields';
-  denom_id?: Maybe<Scalars['String']>;
-  token_id?: Maybe<Scalars['bigint']>;
+export type Nft_Denom_Max_Fields = {
+  __typename?: 'nft_denom_max_fields';
+  contract_address_signer?: Maybe<Scalars['String']>;
+  data_text?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['String']>;
+  minter?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  owner?: Maybe<Scalars['String']>;
+  schema?: Maybe<Scalars['String']>;
+  symbol?: Maybe<Scalars['String']>;
+  traits?: Maybe<Scalars['String']>;
   transaction_hash?: Maybe<Scalars['String']>;
 };
 
 /** aggregate min on columns */
-export type Nft_Mint_Min_Fields = {
-  __typename?: 'nft_mint_min_fields';
-  denom_id?: Maybe<Scalars['String']>;
-  token_id?: Maybe<Scalars['bigint']>;
+export type Nft_Denom_Min_Fields = {
+  __typename?: 'nft_denom_min_fields';
+  contract_address_signer?: Maybe<Scalars['String']>;
+  data_text?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['String']>;
+  minter?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  owner?: Maybe<Scalars['String']>;
+  schema?: Maybe<Scalars['String']>;
+  symbol?: Maybe<Scalars['String']>;
+  traits?: Maybe<Scalars['String']>;
   transaction_hash?: Maybe<Scalars['String']>;
 };
 
-/** Ordering options when selecting data from "nft_mint". */
-export type Nft_Mint_Order_By = {
-  denom_id?: Maybe<Order_By>;
-  token_id?: Maybe<Order_By>;
+/** Ordering options when selecting data from "nft_denom". */
+export type Nft_Denom_Order_By = {
+  contract_address_signer?: Maybe<Order_By>;
+  data_json?: Maybe<Order_By>;
+  data_text?: Maybe<Order_By>;
+  description?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  minter?: Maybe<Order_By>;
+  name?: Maybe<Order_By>;
+  owner?: Maybe<Order_By>;
+  schema?: Maybe<Order_By>;
+  symbol?: Maybe<Order_By>;
+  traits?: Maybe<Order_By>;
   transaction?: Maybe<Transaction_Order_By>;
   transaction_hash?: Maybe<Order_By>;
 };
 
-/** select columns of table "nft_mint" */
-export enum Nft_Mint_Select_Column {
+/** select columns of table "nft_denom" */
+export enum Nft_Denom_Select_Column {
+  /** column name */
+  ContractAddressSigner = 'contract_address_signer',
+  /** column name */
+  DataJson = 'data_json',
+  /** column name */
+  DataText = 'data_text',
+  /** column name */
+  Description = 'description',
+  /** column name */
+  Id = 'id',
+  /** column name */
+  Minter = 'minter',
+  /** column name */
+  Name = 'name',
+  /** column name */
+  Owner = 'owner',
+  /** column name */
+  Schema = 'schema',
+  /** column name */
+  Symbol = 'symbol',
+  /** column name */
+  Traits = 'traits',
+  /** column name */
+  TransactionHash = 'transaction_hash'
+}
+
+/** columns and relationships of "nft_nft" */
+export type Nft_Nft = {
+  __typename?: 'nft_nft';
+  burned?: Maybe<Scalars['Boolean']>;
+  contract_address_signer: Scalars['String'];
+  data_json: Scalars['jsonb'];
+  data_text: Scalars['String'];
+  denom_id: Scalars['String'];
+  id: Scalars['bigint'];
+  name: Scalars['String'];
+  /** An object relationship */
+  nft_denom: Nft_Denom;
+  owner: Scalars['String'];
+  sender: Scalars['String'];
+  /** An object relationship */
+  transaction: Transaction;
+  transaction_hash: Scalars['String'];
+  uri: Scalars['String'];
+};
+
+
+/** columns and relationships of "nft_nft" */
+export type Nft_NftData_JsonArgs = {
+  path?: Maybe<Scalars['String']>;
+};
+
+/** aggregated selection of "nft_nft" */
+export type Nft_Nft_Aggregate = {
+  __typename?: 'nft_nft_aggregate';
+  aggregate?: Maybe<Nft_Nft_Aggregate_Fields>;
+  nodes: Array<Nft_Nft>;
+};
+
+/** aggregate fields of "nft_nft" */
+export type Nft_Nft_Aggregate_Fields = {
+  __typename?: 'nft_nft_aggregate_fields';
+  avg?: Maybe<Nft_Nft_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Nft_Nft_Max_Fields>;
+  min?: Maybe<Nft_Nft_Min_Fields>;
+  stddev?: Maybe<Nft_Nft_Stddev_Fields>;
+  stddev_pop?: Maybe<Nft_Nft_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Nft_Nft_Stddev_Samp_Fields>;
+  sum?: Maybe<Nft_Nft_Sum_Fields>;
+  var_pop?: Maybe<Nft_Nft_Var_Pop_Fields>;
+  var_samp?: Maybe<Nft_Nft_Var_Samp_Fields>;
+  variance?: Maybe<Nft_Nft_Variance_Fields>;
+};
+
+
+/** aggregate fields of "nft_nft" */
+export type Nft_Nft_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Nft_Nft_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type Nft_Nft_Avg_Fields = {
+  __typename?: 'nft_nft_avg_fields';
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** Boolean expression to filter rows from the table "nft_nft". All fields are combined with a logical 'AND'. */
+export type Nft_Nft_Bool_Exp = {
+  _and?: Maybe<Array<Nft_Nft_Bool_Exp>>;
+  _not?: Maybe<Nft_Nft_Bool_Exp>;
+  _or?: Maybe<Array<Nft_Nft_Bool_Exp>>;
+  burned?: Maybe<Boolean_Comparison_Exp>;
+  contract_address_signer?: Maybe<String_Comparison_Exp>;
+  data_json?: Maybe<Jsonb_Comparison_Exp>;
+  data_text?: Maybe<String_Comparison_Exp>;
+  denom_id?: Maybe<String_Comparison_Exp>;
+  id?: Maybe<Bigint_Comparison_Exp>;
+  name?: Maybe<String_Comparison_Exp>;
+  nft_denom?: Maybe<Nft_Denom_Bool_Exp>;
+  owner?: Maybe<String_Comparison_Exp>;
+  sender?: Maybe<String_Comparison_Exp>;
+  transaction?: Maybe<Transaction_Bool_Exp>;
+  transaction_hash?: Maybe<String_Comparison_Exp>;
+  uri?: Maybe<String_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Nft_Nft_Max_Fields = {
+  __typename?: 'nft_nft_max_fields';
+  contract_address_signer?: Maybe<Scalars['String']>;
+  data_text?: Maybe<Scalars['String']>;
+  denom_id?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['bigint']>;
+  name?: Maybe<Scalars['String']>;
+  owner?: Maybe<Scalars['String']>;
+  sender?: Maybe<Scalars['String']>;
+  transaction_hash?: Maybe<Scalars['String']>;
+  uri?: Maybe<Scalars['String']>;
+};
+
+/** aggregate min on columns */
+export type Nft_Nft_Min_Fields = {
+  __typename?: 'nft_nft_min_fields';
+  contract_address_signer?: Maybe<Scalars['String']>;
+  data_text?: Maybe<Scalars['String']>;
+  denom_id?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['bigint']>;
+  name?: Maybe<Scalars['String']>;
+  owner?: Maybe<Scalars['String']>;
+  sender?: Maybe<Scalars['String']>;
+  transaction_hash?: Maybe<Scalars['String']>;
+  uri?: Maybe<Scalars['String']>;
+};
+
+/** Ordering options when selecting data from "nft_nft". */
+export type Nft_Nft_Order_By = {
+  burned?: Maybe<Order_By>;
+  contract_address_signer?: Maybe<Order_By>;
+  data_json?: Maybe<Order_By>;
+  data_text?: Maybe<Order_By>;
+  denom_id?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  name?: Maybe<Order_By>;
+  nft_denom?: Maybe<Nft_Denom_Order_By>;
+  owner?: Maybe<Order_By>;
+  sender?: Maybe<Order_By>;
+  transaction?: Maybe<Transaction_Order_By>;
+  transaction_hash?: Maybe<Order_By>;
+  uri?: Maybe<Order_By>;
+};
+
+/** select columns of table "nft_nft" */
+export enum Nft_Nft_Select_Column {
+  /** column name */
+  Burned = 'burned',
+  /** column name */
+  ContractAddressSigner = 'contract_address_signer',
+  /** column name */
+  DataJson = 'data_json',
+  /** column name */
+  DataText = 'data_text',
   /** column name */
   DenomId = 'denom_id',
   /** column name */
-  TokenId = 'token_id',
+  Id = 'id',
+  /** column name */
+  Name = 'name',
+  /** column name */
+  Owner = 'owner',
+  /** column name */
+  Sender = 'sender',
+  /** column name */
+  TransactionHash = 'transaction_hash',
+  /** column name */
+  Uri = 'uri'
+}
+
+/** aggregate stddev on columns */
+export type Nft_Nft_Stddev_Fields = {
+  __typename?: 'nft_nft_stddev_fields';
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Nft_Nft_Stddev_Pop_Fields = {
+  __typename?: 'nft_nft_stddev_pop_fields';
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Nft_Nft_Stddev_Samp_Fields = {
+  __typename?: 'nft_nft_stddev_samp_fields';
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate sum on columns */
+export type Nft_Nft_Sum_Fields = {
+  __typename?: 'nft_nft_sum_fields';
+  id?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregate var_pop on columns */
+export type Nft_Nft_Var_Pop_Fields = {
+  __typename?: 'nft_nft_var_pop_fields';
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type Nft_Nft_Var_Samp_Fields = {
+  __typename?: 'nft_nft_var_samp_fields';
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type Nft_Nft_Variance_Fields = {
+  __typename?: 'nft_nft_variance_fields';
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** columns and relationships of "nft_transfer_history" */
+export type Nft_Transfer_History = {
+  __typename?: 'nft_transfer_history';
+  denom_id: Scalars['String'];
+  id: Scalars['bigint'];
+  new_owner: Scalars['String'];
+  /** An object relationship */
+  nft_denom: Nft_Denom;
+  old_owner: Scalars['String'];
+  timestamp: Scalars['bigint'];
+  /** An object relationship */
+  transaction: Transaction;
+  transaction_hash: Scalars['String'];
+};
+
+/** aggregated selection of "nft_transfer_history" */
+export type Nft_Transfer_History_Aggregate = {
+  __typename?: 'nft_transfer_history_aggregate';
+  aggregate?: Maybe<Nft_Transfer_History_Aggregate_Fields>;
+  nodes: Array<Nft_Transfer_History>;
+};
+
+/** aggregate fields of "nft_transfer_history" */
+export type Nft_Transfer_History_Aggregate_Fields = {
+  __typename?: 'nft_transfer_history_aggregate_fields';
+  avg?: Maybe<Nft_Transfer_History_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Nft_Transfer_History_Max_Fields>;
+  min?: Maybe<Nft_Transfer_History_Min_Fields>;
+  stddev?: Maybe<Nft_Transfer_History_Stddev_Fields>;
+  stddev_pop?: Maybe<Nft_Transfer_History_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Nft_Transfer_History_Stddev_Samp_Fields>;
+  sum?: Maybe<Nft_Transfer_History_Sum_Fields>;
+  var_pop?: Maybe<Nft_Transfer_History_Var_Pop_Fields>;
+  var_samp?: Maybe<Nft_Transfer_History_Var_Samp_Fields>;
+  variance?: Maybe<Nft_Transfer_History_Variance_Fields>;
+};
+
+
+/** aggregate fields of "nft_transfer_history" */
+export type Nft_Transfer_History_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Nft_Transfer_History_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type Nft_Transfer_History_Avg_Fields = {
+  __typename?: 'nft_transfer_history_avg_fields';
+  id?: Maybe<Scalars['Float']>;
+  timestamp?: Maybe<Scalars['Float']>;
+};
+
+/** Boolean expression to filter rows from the table "nft_transfer_history". All fields are combined with a logical 'AND'. */
+export type Nft_Transfer_History_Bool_Exp = {
+  _and?: Maybe<Array<Nft_Transfer_History_Bool_Exp>>;
+  _not?: Maybe<Nft_Transfer_History_Bool_Exp>;
+  _or?: Maybe<Array<Nft_Transfer_History_Bool_Exp>>;
+  denom_id?: Maybe<String_Comparison_Exp>;
+  id?: Maybe<Bigint_Comparison_Exp>;
+  new_owner?: Maybe<String_Comparison_Exp>;
+  nft_denom?: Maybe<Nft_Denom_Bool_Exp>;
+  old_owner?: Maybe<String_Comparison_Exp>;
+  timestamp?: Maybe<Bigint_Comparison_Exp>;
+  transaction?: Maybe<Transaction_Bool_Exp>;
+  transaction_hash?: Maybe<String_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Nft_Transfer_History_Max_Fields = {
+  __typename?: 'nft_transfer_history_max_fields';
+  denom_id?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['bigint']>;
+  new_owner?: Maybe<Scalars['String']>;
+  old_owner?: Maybe<Scalars['String']>;
+  timestamp?: Maybe<Scalars['bigint']>;
+  transaction_hash?: Maybe<Scalars['String']>;
+};
+
+/** aggregate min on columns */
+export type Nft_Transfer_History_Min_Fields = {
+  __typename?: 'nft_transfer_history_min_fields';
+  denom_id?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['bigint']>;
+  new_owner?: Maybe<Scalars['String']>;
+  old_owner?: Maybe<Scalars['String']>;
+  timestamp?: Maybe<Scalars['bigint']>;
+  transaction_hash?: Maybe<Scalars['String']>;
+};
+
+/** Ordering options when selecting data from "nft_transfer_history". */
+export type Nft_Transfer_History_Order_By = {
+  denom_id?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  new_owner?: Maybe<Order_By>;
+  nft_denom?: Maybe<Nft_Denom_Order_By>;
+  old_owner?: Maybe<Order_By>;
+  timestamp?: Maybe<Order_By>;
+  transaction?: Maybe<Transaction_Order_By>;
+  transaction_hash?: Maybe<Order_By>;
+};
+
+/** select columns of table "nft_transfer_history" */
+export enum Nft_Transfer_History_Select_Column {
+  /** column name */
+  DenomId = 'denom_id',
+  /** column name */
+  Id = 'id',
+  /** column name */
+  NewOwner = 'new_owner',
+  /** column name */
+  OldOwner = 'old_owner',
+  /** column name */
+  Timestamp = 'timestamp',
   /** column name */
   TransactionHash = 'transaction_hash'
 }
 
 /** aggregate stddev on columns */
-export type Nft_Mint_Stddev_Fields = {
-  __typename?: 'nft_mint_stddev_fields';
-  token_id?: Maybe<Scalars['Float']>;
+export type Nft_Transfer_History_Stddev_Fields = {
+  __typename?: 'nft_transfer_history_stddev_fields';
+  id?: Maybe<Scalars['Float']>;
+  timestamp?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate stddev_pop on columns */
-export type Nft_Mint_Stddev_Pop_Fields = {
-  __typename?: 'nft_mint_stddev_pop_fields';
-  token_id?: Maybe<Scalars['Float']>;
+export type Nft_Transfer_History_Stddev_Pop_Fields = {
+  __typename?: 'nft_transfer_history_stddev_pop_fields';
+  id?: Maybe<Scalars['Float']>;
+  timestamp?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate stddev_samp on columns */
-export type Nft_Mint_Stddev_Samp_Fields = {
-  __typename?: 'nft_mint_stddev_samp_fields';
-  token_id?: Maybe<Scalars['Float']>;
+export type Nft_Transfer_History_Stddev_Samp_Fields = {
+  __typename?: 'nft_transfer_history_stddev_samp_fields';
+  id?: Maybe<Scalars['Float']>;
+  timestamp?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate sum on columns */
-export type Nft_Mint_Sum_Fields = {
-  __typename?: 'nft_mint_sum_fields';
-  token_id?: Maybe<Scalars['bigint']>;
+export type Nft_Transfer_History_Sum_Fields = {
+  __typename?: 'nft_transfer_history_sum_fields';
+  id?: Maybe<Scalars['bigint']>;
+  timestamp?: Maybe<Scalars['bigint']>;
 };
 
 /** aggregate var_pop on columns */
-export type Nft_Mint_Var_Pop_Fields = {
-  __typename?: 'nft_mint_var_pop_fields';
-  token_id?: Maybe<Scalars['Float']>;
+export type Nft_Transfer_History_Var_Pop_Fields = {
+  __typename?: 'nft_transfer_history_var_pop_fields';
+  id?: Maybe<Scalars['Float']>;
+  timestamp?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate var_samp on columns */
-export type Nft_Mint_Var_Samp_Fields = {
-  __typename?: 'nft_mint_var_samp_fields';
-  token_id?: Maybe<Scalars['Float']>;
+export type Nft_Transfer_History_Var_Samp_Fields = {
+  __typename?: 'nft_transfer_history_var_samp_fields';
+  id?: Maybe<Scalars['Float']>;
+  timestamp?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate variance on columns */
-export type Nft_Mint_Variance_Fields = {
-  __typename?: 'nft_mint_variance_fields';
-  token_id?: Maybe<Scalars['Float']>;
+export type Nft_Transfer_History_Variance_Fields = {
+  __typename?: 'nft_transfer_history_variance_fields';
+  id?: Maybe<Scalars['Float']>;
+  timestamp?: Maybe<Scalars['Float']>;
+};
+
+export type Nfts_By_Data_Property_Args = {
+  limit?: Maybe<Scalars['bigint']>;
+  offset?: Maybe<Scalars['bigint']>;
+  property_name?: Maybe<Scalars['String']>;
+};
+
+export type Nfts_By_Expiration_Date_Args = {
+  expiration_date?: Maybe<Scalars['bigint']>;
+  limit?: Maybe<Scalars['bigint']>;
+  offset?: Maybe<Scalars['bigint']>;
 };
 
 
@@ -5285,6 +7907,20 @@ export type Proposal_Deposit_Variance_Order_By = {
   proposal_id?: Maybe<Order_By>;
 };
 
+
+/** Boolean expression to compare columns of type "proposal_executor_result". All fields are combined with logical 'AND'. */
+export type Proposal_Executor_Result_Comparison_Exp = {
+  _eq?: Maybe<Scalars['proposal_executor_result']>;
+  _gt?: Maybe<Scalars['proposal_executor_result']>;
+  _gte?: Maybe<Scalars['proposal_executor_result']>;
+  _in?: Maybe<Array<Scalars['proposal_executor_result']>>;
+  _is_null?: Maybe<Scalars['Boolean']>;
+  _lt?: Maybe<Scalars['proposal_executor_result']>;
+  _lte?: Maybe<Scalars['proposal_executor_result']>;
+  _neq?: Maybe<Scalars['proposal_executor_result']>;
+  _nin?: Maybe<Array<Scalars['proposal_executor_result']>>;
+};
+
 /** aggregate max on columns */
 export type Proposal_Max_Fields = {
   __typename?: 'proposal_max_fields';
@@ -5560,6 +8196,20 @@ export type Proposal_Staking_Pool_Snapshot_Variance_Fields = {
   height?: Maybe<Scalars['Float']>;
   not_bonded_tokens?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
+};
+
+
+/** Boolean expression to compare columns of type "proposal_status". All fields are combined with logical 'AND'. */
+export type Proposal_Status_Comparison_Exp = {
+  _eq?: Maybe<Scalars['proposal_status']>;
+  _gt?: Maybe<Scalars['proposal_status']>;
+  _gte?: Maybe<Scalars['proposal_status']>;
+  _in?: Maybe<Array<Scalars['proposal_status']>>;
+  _is_null?: Maybe<Scalars['Boolean']>;
+  _lt?: Maybe<Scalars['proposal_status']>;
+  _lte?: Maybe<Scalars['proposal_status']>;
+  _neq?: Maybe<Scalars['proposal_status']>;
+  _nin?: Maybe<Array<Scalars['proposal_status']>>;
 };
 
 /** aggregate stddev on columns */
@@ -6589,6 +9239,7 @@ export type Query_Root = {
   action_delegation_reward?: Maybe<Array<Maybe<ActionDelegationReward>>>;
   action_delegation_total?: Maybe<ActionBalance>;
   action_delegator_withdraw_address: ActionAddress;
+  action_nft_transfer_events?: Maybe<ActionNftTransferEventsResponse>;
   action_redelegation?: Maybe<ActionRedelegationResponse>;
   action_unbonding_delegation?: Maybe<ActionUnbondingDelegationResponse>;
   action_unbonding_delegation_total?: Maybe<ActionBalance>;
@@ -6666,12 +9317,34 @@ export type Query_Root = {
   cosmwasm_update_admin_aggregate: Cosmwasm_Update_Admin_Aggregate;
   /** fetch data from the table: "cosmwasm_update_admin" using primary key columns */
   cosmwasm_update_admin_by_pk?: Maybe<Cosmwasm_Update_Admin>;
+  /** fetch data from the table: "cw20token_balance" */
+  cw20token_balance: Array<Cw20token_Balance>;
+  /** fetch aggregated fields from the table: "cw20token_balance" */
+  cw20token_balance_aggregate: Cw20token_Balance_Aggregate;
+  /** fetch data from the table: "cw20token_balance" using primary key columns */
+  cw20token_balance_by_pk?: Maybe<Cw20token_Balance>;
+  /** fetch data from the table: "cw20token_code_id" */
+  cw20token_code_id: Array<Cw20token_Code_Id>;
+  /** fetch data from the table: "cw20token_code_id" using primary key columns */
+  cw20token_code_id_by_pk?: Maybe<Cw20token_Code_Id>;
+  /** fetch data from the table: "cw20token_info" */
+  cw20token_info: Array<Cw20token_Info>;
+  /** fetch aggregated fields from the table: "cw20token_info" */
+  cw20token_info_aggregate: Cw20token_Info_Aggregate;
+  /** fetch data from the table: "cw20token_info" using primary key columns */
+  cw20token_info_by_pk?: Maybe<Cw20token_Info>;
   /** fetch data from the table: "delegation" */
   delegation: Array<Delegation>;
   /** fetch aggregated fields from the table: "delegation" */
   delegation_aggregate: Delegation_Aggregate;
-  /** fetch data from the table: "delegation" using primary key columns */
-  delegation_by_pk?: Maybe<Delegation>;
+  /** execute function "denoms_by_data_property" which returns "nft_denom" */
+  denoms_by_data_property: Array<Nft_Denom>;
+  /** execute function "denoms_by_data_property" and query aggregates on result of table type "nft_denom" */
+  denoms_by_data_property_aggregate: Nft_Denom_Aggregate;
+  /** fetch data from the table: "distinct_message" */
+  distinct_message: Array<Distinct_Message>;
+  /** fetch aggregated fields from the table: "distinct_message" */
+  distinct_message_aggregate: Distinct_Message_Aggregate;
   /** fetch data from the table: "distribution_params" */
   distribution_params: Array<Distribution_Params>;
   /** fetch aggregated fields from the table: "distribution_params" */
@@ -6708,10 +9381,50 @@ export type Query_Root = {
   gravity_messages_by_address: Array<Message>;
   /** execute function "gravity_messages_by_address" and query aggregates on result of table type "message" */
   gravity_messages_by_address_aggregate: Message_Aggregate;
+  /** fetch data from the table: "group_member" */
+  group_member: Array<Group_Member>;
+  /** fetch aggregated fields from the table: "group_member" */
+  group_member_aggregate: Group_Member_Aggregate;
+  /** fetch data from the table: "group_member" using primary key columns */
+  group_member_by_pk?: Maybe<Group_Member>;
+  /** fetch data from the table: "group_proposal" */
+  group_proposal: Array<Group_Proposal>;
+  /** fetch aggregated fields from the table: "group_proposal" */
+  group_proposal_aggregate: Group_Proposal_Aggregate;
+  /** fetch data from the table: "group_proposal" using primary key columns */
+  group_proposal_by_pk?: Maybe<Group_Proposal>;
+  /** fetch data from the table: "group_proposal_vote" */
+  group_proposal_vote: Array<Group_Proposal_Vote>;
+  /** fetch aggregated fields from the table: "group_proposal_vote" */
+  group_proposal_vote_aggregate: Group_Proposal_Vote_Aggregate;
+  /** fetch data from the table: "group_proposal_vote" using primary key columns */
+  group_proposal_vote_by_pk?: Maybe<Group_Proposal_Vote>;
+  /** fetch data from the table: "group_with_policy" */
+  group_with_policy: Array<Group_With_Policy>;
+  /** fetch aggregated fields from the table: "group_with_policy" */
+  group_with_policy_aggregate: Group_With_Policy_Aggregate;
+  /** fetch data from the table: "group_with_policy" using primary key columns */
+  group_with_policy_by_pk?: Maybe<Group_With_Policy>;
   /** fetch data from the table: "inflation" */
   inflation: Array<Inflation>;
   /** fetch aggregated fields from the table: "inflation" */
   inflation_aggregate: Inflation_Aggregate;
+  /** fetch data from the table: "marketplace_collection" */
+  marketplace_collection: Array<Marketplace_Collection>;
+  /** fetch aggregated fields from the table: "marketplace_collection" */
+  marketplace_collection_aggregate: Marketplace_Collection_Aggregate;
+  /** fetch data from the table: "marketplace_collection" using primary key columns */
+  marketplace_collection_by_pk?: Maybe<Marketplace_Collection>;
+  /** fetch data from the table: "marketplace_nft" */
+  marketplace_nft: Array<Marketplace_Nft>;
+  /** fetch aggregated fields from the table: "marketplace_nft" */
+  marketplace_nft_aggregate: Marketplace_Nft_Aggregate;
+  /** fetch data from the table: "marketplace_nft_buy_history" */
+  marketplace_nft_buy_history: Array<Marketplace_Nft_Buy_History>;
+  /** fetch aggregated fields from the table: "marketplace_nft_buy_history" */
+  marketplace_nft_buy_history_aggregate: Marketplace_Nft_Buy_History_Aggregate;
+  /** fetch data from the table: "marketplace_nft" using primary key columns */
+  marketplace_nft_by_pk?: Maybe<Marketplace_Nft>;
   /** fetch data from the table: "message" */
   message: Array<Message>;
   /** fetch aggregated fields from the table: "message" */
@@ -6720,6 +9433,10 @@ export type Query_Root = {
   messages_by_address: Array<Message>;
   /** execute function "messages_by_address" and query aggregates on result of table type "message" */
   messages_by_address_aggregate: Message_Aggregate;
+  /** execute function "messages_by_address_distinct_on_tx_hash" which returns "distinct_message" */
+  messages_by_address_distinct_on_tx_hash: Array<Distinct_Message>;
+  /** execute function "messages_by_address_distinct_on_tx_hash" and query aggregates on result of table type "distinct_message" */
+  messages_by_address_distinct_on_tx_hash_aggregate: Distinct_Message_Aggregate;
   /** fetch data from the table: "mint_params" */
   mint_params: Array<Mint_Params>;
   /** fetch aggregated fields from the table: "mint_params" */
@@ -6732,12 +9449,30 @@ export type Query_Root = {
   modules_aggregate: Modules_Aggregate;
   /** fetch data from the table: "modules" using primary key columns */
   modules_by_pk?: Maybe<Modules>;
-  /** fetch data from the table: "nft_mint" */
-  nft_mint: Array<Nft_Mint>;
-  /** fetch aggregated fields from the table: "nft_mint" */
-  nft_mint_aggregate: Nft_Mint_Aggregate;
-  /** fetch data from the table: "nft_mint" using primary key columns */
-  nft_mint_by_pk?: Maybe<Nft_Mint>;
+  /** fetch data from the table: "nft_denom" */
+  nft_denom: Array<Nft_Denom>;
+  /** fetch aggregated fields from the table: "nft_denom" */
+  nft_denom_aggregate: Nft_Denom_Aggregate;
+  /** fetch data from the table: "nft_denom" using primary key columns */
+  nft_denom_by_pk?: Maybe<Nft_Denom>;
+  /** fetch data from the table: "nft_nft" */
+  nft_nft: Array<Nft_Nft>;
+  /** fetch aggregated fields from the table: "nft_nft" */
+  nft_nft_aggregate: Nft_Nft_Aggregate;
+  /** fetch data from the table: "nft_nft" using primary key columns */
+  nft_nft_by_pk?: Maybe<Nft_Nft>;
+  /** fetch data from the table: "nft_transfer_history" */
+  nft_transfer_history: Array<Nft_Transfer_History>;
+  /** fetch aggregated fields from the table: "nft_transfer_history" */
+  nft_transfer_history_aggregate: Nft_Transfer_History_Aggregate;
+  /** execute function "nfts_by_data_property" which returns "nft_nft" */
+  nfts_by_data_property: Array<Nft_Nft>;
+  /** execute function "nfts_by_data_property" and query aggregates on result of table type "nft_nft" */
+  nfts_by_data_property_aggregate: Nft_Nft_Aggregate;
+  /** execute function "nfts_by_expiration_date" which returns "nft_nft" */
+  nfts_by_expiration_date: Array<Nft_Nft>;
+  /** execute function "nfts_by_expiration_date" and query aggregates on result of table type "nft_nft" */
+  nfts_by_expiration_date_aggregate: Nft_Nft_Aggregate;
   /** fetch data from the table: "pre_commit" */
   pre_commit: Array<Pre_Commit>;
   /** fetch aggregated fields from the table: "pre_commit" */
@@ -6929,6 +9664,14 @@ export type Query_RootAction_Delegation_TotalArgs = {
 
 export type Query_RootAction_Delegator_Withdraw_AddressArgs = {
   address: Scalars['String'];
+};
+
+
+export type Query_RootAction_Nft_Transfer_EventsArgs = {
+  denom_id: Scalars['String'];
+  from_time?: Maybe<Scalars['Int']>;
+  to_time?: Maybe<Scalars['Int']>;
+  token_id: Scalars['Int'];
 };
 
 
@@ -7279,6 +10022,67 @@ export type Query_RootCosmwasm_Update_Admin_By_PkArgs = {
 };
 
 
+export type Query_RootCw20token_BalanceArgs = {
+  distinct_on?: Maybe<Array<Cw20token_Balance_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Cw20token_Balance_Order_By>>;
+  where?: Maybe<Cw20token_Balance_Bool_Exp>;
+};
+
+
+export type Query_RootCw20token_Balance_AggregateArgs = {
+  distinct_on?: Maybe<Array<Cw20token_Balance_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Cw20token_Balance_Order_By>>;
+  where?: Maybe<Cw20token_Balance_Bool_Exp>;
+};
+
+
+export type Query_RootCw20token_Balance_By_PkArgs = {
+  address: Scalars['String'];
+  token: Scalars['String'];
+};
+
+
+export type Query_RootCw20token_Code_IdArgs = {
+  distinct_on?: Maybe<Array<Cw20token_Code_Id_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Cw20token_Code_Id_Order_By>>;
+  where?: Maybe<Cw20token_Code_Id_Bool_Exp>;
+};
+
+
+export type Query_RootCw20token_Code_Id_By_PkArgs = {
+  id: Scalars['Int'];
+};
+
+
+export type Query_RootCw20token_InfoArgs = {
+  distinct_on?: Maybe<Array<Cw20token_Info_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Cw20token_Info_Order_By>>;
+  where?: Maybe<Cw20token_Info_Bool_Exp>;
+};
+
+
+export type Query_RootCw20token_Info_AggregateArgs = {
+  distinct_on?: Maybe<Array<Cw20token_Info_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Cw20token_Info_Order_By>>;
+  where?: Maybe<Cw20token_Info_Bool_Exp>;
+};
+
+
+export type Query_RootCw20token_Info_By_PkArgs = {
+  address: Scalars['String'];
+};
+
+
 export type Query_RootDelegationArgs = {
   distinct_on?: Maybe<Array<Delegation_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -7297,9 +10101,41 @@ export type Query_RootDelegation_AggregateArgs = {
 };
 
 
-export type Query_RootDelegation_By_PkArgs = {
-  delegator_address: Scalars['String'];
-  validator_address: Scalars['String'];
+export type Query_RootDenoms_By_Data_PropertyArgs = {
+  args: Denoms_By_Data_Property_Args;
+  distinct_on?: Maybe<Array<Nft_Denom_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Nft_Denom_Order_By>>;
+  where?: Maybe<Nft_Denom_Bool_Exp>;
+};
+
+
+export type Query_RootDenoms_By_Data_Property_AggregateArgs = {
+  args: Denoms_By_Data_Property_Args;
+  distinct_on?: Maybe<Array<Nft_Denom_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Nft_Denom_Order_By>>;
+  where?: Maybe<Nft_Denom_Bool_Exp>;
+};
+
+
+export type Query_RootDistinct_MessageArgs = {
+  distinct_on?: Maybe<Array<Distinct_Message_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Distinct_Message_Order_By>>;
+  where?: Maybe<Distinct_Message_Bool_Exp>;
+};
+
+
+export type Query_RootDistinct_Message_AggregateArgs = {
+  distinct_on?: Maybe<Array<Distinct_Message_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Distinct_Message_Order_By>>;
+  where?: Maybe<Distinct_Message_Bool_Exp>;
 };
 
 
@@ -7451,6 +10287,100 @@ export type Query_RootGravity_Messages_By_Address_AggregateArgs = {
 };
 
 
+export type Query_RootGroup_MemberArgs = {
+  distinct_on?: Maybe<Array<Group_Member_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Group_Member_Order_By>>;
+  where?: Maybe<Group_Member_Bool_Exp>;
+};
+
+
+export type Query_RootGroup_Member_AggregateArgs = {
+  distinct_on?: Maybe<Array<Group_Member_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Group_Member_Order_By>>;
+  where?: Maybe<Group_Member_Bool_Exp>;
+};
+
+
+export type Query_RootGroup_Member_By_PkArgs = {
+  address: Scalars['String'];
+  group_id: Scalars['Int'];
+};
+
+
+export type Query_RootGroup_ProposalArgs = {
+  distinct_on?: Maybe<Array<Group_Proposal_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Group_Proposal_Order_By>>;
+  where?: Maybe<Group_Proposal_Bool_Exp>;
+};
+
+
+export type Query_RootGroup_Proposal_AggregateArgs = {
+  distinct_on?: Maybe<Array<Group_Proposal_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Group_Proposal_Order_By>>;
+  where?: Maybe<Group_Proposal_Bool_Exp>;
+};
+
+
+export type Query_RootGroup_Proposal_By_PkArgs = {
+  id: Scalars['Int'];
+};
+
+
+export type Query_RootGroup_Proposal_VoteArgs = {
+  distinct_on?: Maybe<Array<Group_Proposal_Vote_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Group_Proposal_Vote_Order_By>>;
+  where?: Maybe<Group_Proposal_Vote_Bool_Exp>;
+};
+
+
+export type Query_RootGroup_Proposal_Vote_AggregateArgs = {
+  distinct_on?: Maybe<Array<Group_Proposal_Vote_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Group_Proposal_Vote_Order_By>>;
+  where?: Maybe<Group_Proposal_Vote_Bool_Exp>;
+};
+
+
+export type Query_RootGroup_Proposal_Vote_By_PkArgs = {
+  proposal_id: Scalars['Int'];
+  voter: Scalars['String'];
+};
+
+
+export type Query_RootGroup_With_PolicyArgs = {
+  distinct_on?: Maybe<Array<Group_With_Policy_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Group_With_Policy_Order_By>>;
+  where?: Maybe<Group_With_Policy_Bool_Exp>;
+};
+
+
+export type Query_RootGroup_With_Policy_AggregateArgs = {
+  distinct_on?: Maybe<Array<Group_With_Policy_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Group_With_Policy_Order_By>>;
+  where?: Maybe<Group_With_Policy_Bool_Exp>;
+};
+
+
+export type Query_RootGroup_With_Policy_By_PkArgs = {
+  id: Scalars['Int'];
+};
+
+
 export type Query_RootInflationArgs = {
   distinct_on?: Maybe<Array<Inflation_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -7466,6 +10396,71 @@ export type Query_RootInflation_AggregateArgs = {
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Inflation_Order_By>>;
   where?: Maybe<Inflation_Bool_Exp>;
+};
+
+
+export type Query_RootMarketplace_CollectionArgs = {
+  distinct_on?: Maybe<Array<Marketplace_Collection_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Marketplace_Collection_Order_By>>;
+  where?: Maybe<Marketplace_Collection_Bool_Exp>;
+};
+
+
+export type Query_RootMarketplace_Collection_AggregateArgs = {
+  distinct_on?: Maybe<Array<Marketplace_Collection_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Marketplace_Collection_Order_By>>;
+  where?: Maybe<Marketplace_Collection_Bool_Exp>;
+};
+
+
+export type Query_RootMarketplace_Collection_By_PkArgs = {
+  id: Scalars['bigint'];
+};
+
+
+export type Query_RootMarketplace_NftArgs = {
+  distinct_on?: Maybe<Array<Marketplace_Nft_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Marketplace_Nft_Order_By>>;
+  where?: Maybe<Marketplace_Nft_Bool_Exp>;
+};
+
+
+export type Query_RootMarketplace_Nft_AggregateArgs = {
+  distinct_on?: Maybe<Array<Marketplace_Nft_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Marketplace_Nft_Order_By>>;
+  where?: Maybe<Marketplace_Nft_Bool_Exp>;
+};
+
+
+export type Query_RootMarketplace_Nft_Buy_HistoryArgs = {
+  distinct_on?: Maybe<Array<Marketplace_Nft_Buy_History_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Marketplace_Nft_Buy_History_Order_By>>;
+  where?: Maybe<Marketplace_Nft_Buy_History_Bool_Exp>;
+};
+
+
+export type Query_RootMarketplace_Nft_Buy_History_AggregateArgs = {
+  distinct_on?: Maybe<Array<Marketplace_Nft_Buy_History_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Marketplace_Nft_Buy_History_Order_By>>;
+  where?: Maybe<Marketplace_Nft_Buy_History_Bool_Exp>;
+};
+
+
+export type Query_RootMarketplace_Nft_By_PkArgs = {
+  denom_id: Scalars['String'];
+  token_id: Scalars['bigint'];
 };
 
 
@@ -7504,6 +10499,26 @@ export type Query_RootMessages_By_Address_AggregateArgs = {
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Message_Order_By>>;
   where?: Maybe<Message_Bool_Exp>;
+};
+
+
+export type Query_RootMessages_By_Address_Distinct_On_Tx_HashArgs = {
+  args: Messages_By_Address_Distinct_On_Tx_Hash_Args;
+  distinct_on?: Maybe<Array<Distinct_Message_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Distinct_Message_Order_By>>;
+  where?: Maybe<Distinct_Message_Bool_Exp>;
+};
+
+
+export type Query_RootMessages_By_Address_Distinct_On_Tx_Hash_AggregateArgs = {
+  args: Messages_By_Address_Distinct_On_Tx_Hash_Args;
+  distinct_on?: Maybe<Array<Distinct_Message_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Distinct_Message_Order_By>>;
+  where?: Maybe<Distinct_Message_Bool_Exp>;
 };
 
 
@@ -7553,27 +10568,108 @@ export type Query_RootModules_By_PkArgs = {
 };
 
 
-export type Query_RootNft_MintArgs = {
-  distinct_on?: Maybe<Array<Nft_Mint_Select_Column>>;
+export type Query_RootNft_DenomArgs = {
+  distinct_on?: Maybe<Array<Nft_Denom_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Nft_Mint_Order_By>>;
-  where?: Maybe<Nft_Mint_Bool_Exp>;
+  order_by?: Maybe<Array<Nft_Denom_Order_By>>;
+  where?: Maybe<Nft_Denom_Bool_Exp>;
 };
 
 
-export type Query_RootNft_Mint_AggregateArgs = {
-  distinct_on?: Maybe<Array<Nft_Mint_Select_Column>>;
+export type Query_RootNft_Denom_AggregateArgs = {
+  distinct_on?: Maybe<Array<Nft_Denom_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Nft_Mint_Order_By>>;
-  where?: Maybe<Nft_Mint_Bool_Exp>;
+  order_by?: Maybe<Array<Nft_Denom_Order_By>>;
+  where?: Maybe<Nft_Denom_Bool_Exp>;
 };
 
 
-export type Query_RootNft_Mint_By_PkArgs = {
+export type Query_RootNft_Denom_By_PkArgs = {
+  id: Scalars['String'];
+};
+
+
+export type Query_RootNft_NftArgs = {
+  distinct_on?: Maybe<Array<Nft_Nft_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Nft_Nft_Order_By>>;
+  where?: Maybe<Nft_Nft_Bool_Exp>;
+};
+
+
+export type Query_RootNft_Nft_AggregateArgs = {
+  distinct_on?: Maybe<Array<Nft_Nft_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Nft_Nft_Order_By>>;
+  where?: Maybe<Nft_Nft_Bool_Exp>;
+};
+
+
+export type Query_RootNft_Nft_By_PkArgs = {
   denom_id: Scalars['String'];
-  token_id: Scalars['bigint'];
+  id: Scalars['bigint'];
+};
+
+
+export type Query_RootNft_Transfer_HistoryArgs = {
+  distinct_on?: Maybe<Array<Nft_Transfer_History_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Nft_Transfer_History_Order_By>>;
+  where?: Maybe<Nft_Transfer_History_Bool_Exp>;
+};
+
+
+export type Query_RootNft_Transfer_History_AggregateArgs = {
+  distinct_on?: Maybe<Array<Nft_Transfer_History_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Nft_Transfer_History_Order_By>>;
+  where?: Maybe<Nft_Transfer_History_Bool_Exp>;
+};
+
+
+export type Query_RootNfts_By_Data_PropertyArgs = {
+  args: Nfts_By_Data_Property_Args;
+  distinct_on?: Maybe<Array<Nft_Nft_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Nft_Nft_Order_By>>;
+  where?: Maybe<Nft_Nft_Bool_Exp>;
+};
+
+
+export type Query_RootNfts_By_Data_Property_AggregateArgs = {
+  args: Nfts_By_Data_Property_Args;
+  distinct_on?: Maybe<Array<Nft_Nft_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Nft_Nft_Order_By>>;
+  where?: Maybe<Nft_Nft_Bool_Exp>;
+};
+
+
+export type Query_RootNfts_By_Expiration_DateArgs = {
+  args: Nfts_By_Expiration_Date_Args;
+  distinct_on?: Maybe<Array<Nft_Nft_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Nft_Nft_Order_By>>;
+  where?: Maybe<Nft_Nft_Bool_Exp>;
+};
+
+
+export type Query_RootNfts_By_Expiration_Date_AggregateArgs = {
+  args: Nfts_By_Expiration_Date_Args;
+  distinct_on?: Maybe<Array<Nft_Nft_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Nft_Nft_Order_By>>;
+  where?: Maybe<Nft_Nft_Bool_Exp>;
 };
 
 
@@ -8623,12 +11719,34 @@ export type Subscription_Root = {
   cosmwasm_update_admin_aggregate: Cosmwasm_Update_Admin_Aggregate;
   /** fetch data from the table: "cosmwasm_update_admin" using primary key columns */
   cosmwasm_update_admin_by_pk?: Maybe<Cosmwasm_Update_Admin>;
+  /** fetch data from the table: "cw20token_balance" */
+  cw20token_balance: Array<Cw20token_Balance>;
+  /** fetch aggregated fields from the table: "cw20token_balance" */
+  cw20token_balance_aggregate: Cw20token_Balance_Aggregate;
+  /** fetch data from the table: "cw20token_balance" using primary key columns */
+  cw20token_balance_by_pk?: Maybe<Cw20token_Balance>;
+  /** fetch data from the table: "cw20token_code_id" */
+  cw20token_code_id: Array<Cw20token_Code_Id>;
+  /** fetch data from the table: "cw20token_code_id" using primary key columns */
+  cw20token_code_id_by_pk?: Maybe<Cw20token_Code_Id>;
+  /** fetch data from the table: "cw20token_info" */
+  cw20token_info: Array<Cw20token_Info>;
+  /** fetch aggregated fields from the table: "cw20token_info" */
+  cw20token_info_aggregate: Cw20token_Info_Aggregate;
+  /** fetch data from the table: "cw20token_info" using primary key columns */
+  cw20token_info_by_pk?: Maybe<Cw20token_Info>;
   /** fetch data from the table: "delegation" */
   delegation: Array<Delegation>;
   /** fetch aggregated fields from the table: "delegation" */
   delegation_aggregate: Delegation_Aggregate;
-  /** fetch data from the table: "delegation" using primary key columns */
-  delegation_by_pk?: Maybe<Delegation>;
+  /** execute function "denoms_by_data_property" which returns "nft_denom" */
+  denoms_by_data_property: Array<Nft_Denom>;
+  /** execute function "denoms_by_data_property" and query aggregates on result of table type "nft_denom" */
+  denoms_by_data_property_aggregate: Nft_Denom_Aggregate;
+  /** fetch data from the table: "distinct_message" */
+  distinct_message: Array<Distinct_Message>;
+  /** fetch aggregated fields from the table: "distinct_message" */
+  distinct_message_aggregate: Distinct_Message_Aggregate;
   /** fetch data from the table: "distribution_params" */
   distribution_params: Array<Distribution_Params>;
   /** fetch aggregated fields from the table: "distribution_params" */
@@ -8665,10 +11783,50 @@ export type Subscription_Root = {
   gravity_messages_by_address: Array<Message>;
   /** execute function "gravity_messages_by_address" and query aggregates on result of table type "message" */
   gravity_messages_by_address_aggregate: Message_Aggregate;
+  /** fetch data from the table: "group_member" */
+  group_member: Array<Group_Member>;
+  /** fetch aggregated fields from the table: "group_member" */
+  group_member_aggregate: Group_Member_Aggregate;
+  /** fetch data from the table: "group_member" using primary key columns */
+  group_member_by_pk?: Maybe<Group_Member>;
+  /** fetch data from the table: "group_proposal" */
+  group_proposal: Array<Group_Proposal>;
+  /** fetch aggregated fields from the table: "group_proposal" */
+  group_proposal_aggregate: Group_Proposal_Aggregate;
+  /** fetch data from the table: "group_proposal" using primary key columns */
+  group_proposal_by_pk?: Maybe<Group_Proposal>;
+  /** fetch data from the table: "group_proposal_vote" */
+  group_proposal_vote: Array<Group_Proposal_Vote>;
+  /** fetch aggregated fields from the table: "group_proposal_vote" */
+  group_proposal_vote_aggregate: Group_Proposal_Vote_Aggregate;
+  /** fetch data from the table: "group_proposal_vote" using primary key columns */
+  group_proposal_vote_by_pk?: Maybe<Group_Proposal_Vote>;
+  /** fetch data from the table: "group_with_policy" */
+  group_with_policy: Array<Group_With_Policy>;
+  /** fetch aggregated fields from the table: "group_with_policy" */
+  group_with_policy_aggregate: Group_With_Policy_Aggregate;
+  /** fetch data from the table: "group_with_policy" using primary key columns */
+  group_with_policy_by_pk?: Maybe<Group_With_Policy>;
   /** fetch data from the table: "inflation" */
   inflation: Array<Inflation>;
   /** fetch aggregated fields from the table: "inflation" */
   inflation_aggregate: Inflation_Aggregate;
+  /** fetch data from the table: "marketplace_collection" */
+  marketplace_collection: Array<Marketplace_Collection>;
+  /** fetch aggregated fields from the table: "marketplace_collection" */
+  marketplace_collection_aggregate: Marketplace_Collection_Aggregate;
+  /** fetch data from the table: "marketplace_collection" using primary key columns */
+  marketplace_collection_by_pk?: Maybe<Marketplace_Collection>;
+  /** fetch data from the table: "marketplace_nft" */
+  marketplace_nft: Array<Marketplace_Nft>;
+  /** fetch aggregated fields from the table: "marketplace_nft" */
+  marketplace_nft_aggregate: Marketplace_Nft_Aggregate;
+  /** fetch data from the table: "marketplace_nft_buy_history" */
+  marketplace_nft_buy_history: Array<Marketplace_Nft_Buy_History>;
+  /** fetch aggregated fields from the table: "marketplace_nft_buy_history" */
+  marketplace_nft_buy_history_aggregate: Marketplace_Nft_Buy_History_Aggregate;
+  /** fetch data from the table: "marketplace_nft" using primary key columns */
+  marketplace_nft_by_pk?: Maybe<Marketplace_Nft>;
   /** fetch data from the table: "message" */
   message: Array<Message>;
   /** fetch aggregated fields from the table: "message" */
@@ -8677,6 +11835,10 @@ export type Subscription_Root = {
   messages_by_address: Array<Message>;
   /** execute function "messages_by_address" and query aggregates on result of table type "message" */
   messages_by_address_aggregate: Message_Aggregate;
+  /** execute function "messages_by_address_distinct_on_tx_hash" which returns "distinct_message" */
+  messages_by_address_distinct_on_tx_hash: Array<Distinct_Message>;
+  /** execute function "messages_by_address_distinct_on_tx_hash" and query aggregates on result of table type "distinct_message" */
+  messages_by_address_distinct_on_tx_hash_aggregate: Distinct_Message_Aggregate;
   /** fetch data from the table: "mint_params" */
   mint_params: Array<Mint_Params>;
   /** fetch aggregated fields from the table: "mint_params" */
@@ -8689,12 +11851,30 @@ export type Subscription_Root = {
   modules_aggregate: Modules_Aggregate;
   /** fetch data from the table: "modules" using primary key columns */
   modules_by_pk?: Maybe<Modules>;
-  /** fetch data from the table: "nft_mint" */
-  nft_mint: Array<Nft_Mint>;
-  /** fetch aggregated fields from the table: "nft_mint" */
-  nft_mint_aggregate: Nft_Mint_Aggregate;
-  /** fetch data from the table: "nft_mint" using primary key columns */
-  nft_mint_by_pk?: Maybe<Nft_Mint>;
+  /** fetch data from the table: "nft_denom" */
+  nft_denom: Array<Nft_Denom>;
+  /** fetch aggregated fields from the table: "nft_denom" */
+  nft_denom_aggregate: Nft_Denom_Aggregate;
+  /** fetch data from the table: "nft_denom" using primary key columns */
+  nft_denom_by_pk?: Maybe<Nft_Denom>;
+  /** fetch data from the table: "nft_nft" */
+  nft_nft: Array<Nft_Nft>;
+  /** fetch aggregated fields from the table: "nft_nft" */
+  nft_nft_aggregate: Nft_Nft_Aggregate;
+  /** fetch data from the table: "nft_nft" using primary key columns */
+  nft_nft_by_pk?: Maybe<Nft_Nft>;
+  /** fetch data from the table: "nft_transfer_history" */
+  nft_transfer_history: Array<Nft_Transfer_History>;
+  /** fetch aggregated fields from the table: "nft_transfer_history" */
+  nft_transfer_history_aggregate: Nft_Transfer_History_Aggregate;
+  /** execute function "nfts_by_data_property" which returns "nft_nft" */
+  nfts_by_data_property: Array<Nft_Nft>;
+  /** execute function "nfts_by_data_property" and query aggregates on result of table type "nft_nft" */
+  nfts_by_data_property_aggregate: Nft_Nft_Aggregate;
+  /** execute function "nfts_by_expiration_date" which returns "nft_nft" */
+  nfts_by_expiration_date: Array<Nft_Nft>;
+  /** execute function "nfts_by_expiration_date" and query aggregates on result of table type "nft_nft" */
+  nfts_by_expiration_date_aggregate: Nft_Nft_Aggregate;
   /** fetch data from the table: "pre_commit" */
   pre_commit: Array<Pre_Commit>;
   /** fetch aggregated fields from the table: "pre_commit" */
@@ -9150,6 +12330,67 @@ export type Subscription_RootCosmwasm_Update_Admin_By_PkArgs = {
 };
 
 
+export type Subscription_RootCw20token_BalanceArgs = {
+  distinct_on?: Maybe<Array<Cw20token_Balance_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Cw20token_Balance_Order_By>>;
+  where?: Maybe<Cw20token_Balance_Bool_Exp>;
+};
+
+
+export type Subscription_RootCw20token_Balance_AggregateArgs = {
+  distinct_on?: Maybe<Array<Cw20token_Balance_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Cw20token_Balance_Order_By>>;
+  where?: Maybe<Cw20token_Balance_Bool_Exp>;
+};
+
+
+export type Subscription_RootCw20token_Balance_By_PkArgs = {
+  address: Scalars['String'];
+  token: Scalars['String'];
+};
+
+
+export type Subscription_RootCw20token_Code_IdArgs = {
+  distinct_on?: Maybe<Array<Cw20token_Code_Id_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Cw20token_Code_Id_Order_By>>;
+  where?: Maybe<Cw20token_Code_Id_Bool_Exp>;
+};
+
+
+export type Subscription_RootCw20token_Code_Id_By_PkArgs = {
+  id: Scalars['Int'];
+};
+
+
+export type Subscription_RootCw20token_InfoArgs = {
+  distinct_on?: Maybe<Array<Cw20token_Info_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Cw20token_Info_Order_By>>;
+  where?: Maybe<Cw20token_Info_Bool_Exp>;
+};
+
+
+export type Subscription_RootCw20token_Info_AggregateArgs = {
+  distinct_on?: Maybe<Array<Cw20token_Info_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Cw20token_Info_Order_By>>;
+  where?: Maybe<Cw20token_Info_Bool_Exp>;
+};
+
+
+export type Subscription_RootCw20token_Info_By_PkArgs = {
+  address: Scalars['String'];
+};
+
+
 export type Subscription_RootDelegationArgs = {
   distinct_on?: Maybe<Array<Delegation_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -9168,9 +12409,41 @@ export type Subscription_RootDelegation_AggregateArgs = {
 };
 
 
-export type Subscription_RootDelegation_By_PkArgs = {
-  delegator_address: Scalars['String'];
-  validator_address: Scalars['String'];
+export type Subscription_RootDenoms_By_Data_PropertyArgs = {
+  args: Denoms_By_Data_Property_Args;
+  distinct_on?: Maybe<Array<Nft_Denom_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Nft_Denom_Order_By>>;
+  where?: Maybe<Nft_Denom_Bool_Exp>;
+};
+
+
+export type Subscription_RootDenoms_By_Data_Property_AggregateArgs = {
+  args: Denoms_By_Data_Property_Args;
+  distinct_on?: Maybe<Array<Nft_Denom_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Nft_Denom_Order_By>>;
+  where?: Maybe<Nft_Denom_Bool_Exp>;
+};
+
+
+export type Subscription_RootDistinct_MessageArgs = {
+  distinct_on?: Maybe<Array<Distinct_Message_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Distinct_Message_Order_By>>;
+  where?: Maybe<Distinct_Message_Bool_Exp>;
+};
+
+
+export type Subscription_RootDistinct_Message_AggregateArgs = {
+  distinct_on?: Maybe<Array<Distinct_Message_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Distinct_Message_Order_By>>;
+  where?: Maybe<Distinct_Message_Bool_Exp>;
 };
 
 
@@ -9322,6 +12595,100 @@ export type Subscription_RootGravity_Messages_By_Address_AggregateArgs = {
 };
 
 
+export type Subscription_RootGroup_MemberArgs = {
+  distinct_on?: Maybe<Array<Group_Member_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Group_Member_Order_By>>;
+  where?: Maybe<Group_Member_Bool_Exp>;
+};
+
+
+export type Subscription_RootGroup_Member_AggregateArgs = {
+  distinct_on?: Maybe<Array<Group_Member_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Group_Member_Order_By>>;
+  where?: Maybe<Group_Member_Bool_Exp>;
+};
+
+
+export type Subscription_RootGroup_Member_By_PkArgs = {
+  address: Scalars['String'];
+  group_id: Scalars['Int'];
+};
+
+
+export type Subscription_RootGroup_ProposalArgs = {
+  distinct_on?: Maybe<Array<Group_Proposal_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Group_Proposal_Order_By>>;
+  where?: Maybe<Group_Proposal_Bool_Exp>;
+};
+
+
+export type Subscription_RootGroup_Proposal_AggregateArgs = {
+  distinct_on?: Maybe<Array<Group_Proposal_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Group_Proposal_Order_By>>;
+  where?: Maybe<Group_Proposal_Bool_Exp>;
+};
+
+
+export type Subscription_RootGroup_Proposal_By_PkArgs = {
+  id: Scalars['Int'];
+};
+
+
+export type Subscription_RootGroup_Proposal_VoteArgs = {
+  distinct_on?: Maybe<Array<Group_Proposal_Vote_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Group_Proposal_Vote_Order_By>>;
+  where?: Maybe<Group_Proposal_Vote_Bool_Exp>;
+};
+
+
+export type Subscription_RootGroup_Proposal_Vote_AggregateArgs = {
+  distinct_on?: Maybe<Array<Group_Proposal_Vote_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Group_Proposal_Vote_Order_By>>;
+  where?: Maybe<Group_Proposal_Vote_Bool_Exp>;
+};
+
+
+export type Subscription_RootGroup_Proposal_Vote_By_PkArgs = {
+  proposal_id: Scalars['Int'];
+  voter: Scalars['String'];
+};
+
+
+export type Subscription_RootGroup_With_PolicyArgs = {
+  distinct_on?: Maybe<Array<Group_With_Policy_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Group_With_Policy_Order_By>>;
+  where?: Maybe<Group_With_Policy_Bool_Exp>;
+};
+
+
+export type Subscription_RootGroup_With_Policy_AggregateArgs = {
+  distinct_on?: Maybe<Array<Group_With_Policy_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Group_With_Policy_Order_By>>;
+  where?: Maybe<Group_With_Policy_Bool_Exp>;
+};
+
+
+export type Subscription_RootGroup_With_Policy_By_PkArgs = {
+  id: Scalars['Int'];
+};
+
+
 export type Subscription_RootInflationArgs = {
   distinct_on?: Maybe<Array<Inflation_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -9337,6 +12704,71 @@ export type Subscription_RootInflation_AggregateArgs = {
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Inflation_Order_By>>;
   where?: Maybe<Inflation_Bool_Exp>;
+};
+
+
+export type Subscription_RootMarketplace_CollectionArgs = {
+  distinct_on?: Maybe<Array<Marketplace_Collection_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Marketplace_Collection_Order_By>>;
+  where?: Maybe<Marketplace_Collection_Bool_Exp>;
+};
+
+
+export type Subscription_RootMarketplace_Collection_AggregateArgs = {
+  distinct_on?: Maybe<Array<Marketplace_Collection_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Marketplace_Collection_Order_By>>;
+  where?: Maybe<Marketplace_Collection_Bool_Exp>;
+};
+
+
+export type Subscription_RootMarketplace_Collection_By_PkArgs = {
+  id: Scalars['bigint'];
+};
+
+
+export type Subscription_RootMarketplace_NftArgs = {
+  distinct_on?: Maybe<Array<Marketplace_Nft_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Marketplace_Nft_Order_By>>;
+  where?: Maybe<Marketplace_Nft_Bool_Exp>;
+};
+
+
+export type Subscription_RootMarketplace_Nft_AggregateArgs = {
+  distinct_on?: Maybe<Array<Marketplace_Nft_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Marketplace_Nft_Order_By>>;
+  where?: Maybe<Marketplace_Nft_Bool_Exp>;
+};
+
+
+export type Subscription_RootMarketplace_Nft_Buy_HistoryArgs = {
+  distinct_on?: Maybe<Array<Marketplace_Nft_Buy_History_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Marketplace_Nft_Buy_History_Order_By>>;
+  where?: Maybe<Marketplace_Nft_Buy_History_Bool_Exp>;
+};
+
+
+export type Subscription_RootMarketplace_Nft_Buy_History_AggregateArgs = {
+  distinct_on?: Maybe<Array<Marketplace_Nft_Buy_History_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Marketplace_Nft_Buy_History_Order_By>>;
+  where?: Maybe<Marketplace_Nft_Buy_History_Bool_Exp>;
+};
+
+
+export type Subscription_RootMarketplace_Nft_By_PkArgs = {
+  denom_id: Scalars['String'];
+  token_id: Scalars['bigint'];
 };
 
 
@@ -9375,6 +12807,26 @@ export type Subscription_RootMessages_By_Address_AggregateArgs = {
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Message_Order_By>>;
   where?: Maybe<Message_Bool_Exp>;
+};
+
+
+export type Subscription_RootMessages_By_Address_Distinct_On_Tx_HashArgs = {
+  args: Messages_By_Address_Distinct_On_Tx_Hash_Args;
+  distinct_on?: Maybe<Array<Distinct_Message_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Distinct_Message_Order_By>>;
+  where?: Maybe<Distinct_Message_Bool_Exp>;
+};
+
+
+export type Subscription_RootMessages_By_Address_Distinct_On_Tx_Hash_AggregateArgs = {
+  args: Messages_By_Address_Distinct_On_Tx_Hash_Args;
+  distinct_on?: Maybe<Array<Distinct_Message_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Distinct_Message_Order_By>>;
+  where?: Maybe<Distinct_Message_Bool_Exp>;
 };
 
 
@@ -9424,27 +12876,108 @@ export type Subscription_RootModules_By_PkArgs = {
 };
 
 
-export type Subscription_RootNft_MintArgs = {
-  distinct_on?: Maybe<Array<Nft_Mint_Select_Column>>;
+export type Subscription_RootNft_DenomArgs = {
+  distinct_on?: Maybe<Array<Nft_Denom_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Nft_Mint_Order_By>>;
-  where?: Maybe<Nft_Mint_Bool_Exp>;
+  order_by?: Maybe<Array<Nft_Denom_Order_By>>;
+  where?: Maybe<Nft_Denom_Bool_Exp>;
 };
 
 
-export type Subscription_RootNft_Mint_AggregateArgs = {
-  distinct_on?: Maybe<Array<Nft_Mint_Select_Column>>;
+export type Subscription_RootNft_Denom_AggregateArgs = {
+  distinct_on?: Maybe<Array<Nft_Denom_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Nft_Mint_Order_By>>;
-  where?: Maybe<Nft_Mint_Bool_Exp>;
+  order_by?: Maybe<Array<Nft_Denom_Order_By>>;
+  where?: Maybe<Nft_Denom_Bool_Exp>;
 };
 
 
-export type Subscription_RootNft_Mint_By_PkArgs = {
+export type Subscription_RootNft_Denom_By_PkArgs = {
+  id: Scalars['String'];
+};
+
+
+export type Subscription_RootNft_NftArgs = {
+  distinct_on?: Maybe<Array<Nft_Nft_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Nft_Nft_Order_By>>;
+  where?: Maybe<Nft_Nft_Bool_Exp>;
+};
+
+
+export type Subscription_RootNft_Nft_AggregateArgs = {
+  distinct_on?: Maybe<Array<Nft_Nft_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Nft_Nft_Order_By>>;
+  where?: Maybe<Nft_Nft_Bool_Exp>;
+};
+
+
+export type Subscription_RootNft_Nft_By_PkArgs = {
   denom_id: Scalars['String'];
-  token_id: Scalars['bigint'];
+  id: Scalars['bigint'];
+};
+
+
+export type Subscription_RootNft_Transfer_HistoryArgs = {
+  distinct_on?: Maybe<Array<Nft_Transfer_History_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Nft_Transfer_History_Order_By>>;
+  where?: Maybe<Nft_Transfer_History_Bool_Exp>;
+};
+
+
+export type Subscription_RootNft_Transfer_History_AggregateArgs = {
+  distinct_on?: Maybe<Array<Nft_Transfer_History_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Nft_Transfer_History_Order_By>>;
+  where?: Maybe<Nft_Transfer_History_Bool_Exp>;
+};
+
+
+export type Subscription_RootNfts_By_Data_PropertyArgs = {
+  args: Nfts_By_Data_Property_Args;
+  distinct_on?: Maybe<Array<Nft_Nft_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Nft_Nft_Order_By>>;
+  where?: Maybe<Nft_Nft_Bool_Exp>;
+};
+
+
+export type Subscription_RootNfts_By_Data_Property_AggregateArgs = {
+  args: Nfts_By_Data_Property_Args;
+  distinct_on?: Maybe<Array<Nft_Nft_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Nft_Nft_Order_By>>;
+  where?: Maybe<Nft_Nft_Bool_Exp>;
+};
+
+
+export type Subscription_RootNfts_By_Expiration_DateArgs = {
+  args: Nfts_By_Expiration_Date_Args;
+  distinct_on?: Maybe<Array<Nft_Nft_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Nft_Nft_Order_By>>;
+  where?: Maybe<Nft_Nft_Bool_Exp>;
+};
+
+
+export type Subscription_RootNfts_By_Expiration_Date_AggregateArgs = {
+  args: Nfts_By_Expiration_Date_Args;
+  distinct_on?: Maybe<Array<Nft_Nft_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Nft_Nft_Order_By>>;
+  where?: Maybe<Nft_Nft_Bool_Exp>;
 };
 
 
@@ -13387,6 +16920,20 @@ export type Vesting_Period_Variance_Order_By = {
   vesting_account_id?: Maybe<Order_By>;
 };
 
+
+/** Boolean expression to compare columns of type "vote_option". All fields are combined with logical 'AND'. */
+export type Vote_Option_Comparison_Exp = {
+  _eq?: Maybe<Scalars['vote_option']>;
+  _gt?: Maybe<Scalars['vote_option']>;
+  _gte?: Maybe<Scalars['vote_option']>;
+  _in?: Maybe<Array<Scalars['vote_option']>>;
+  _is_null?: Maybe<Scalars['Boolean']>;
+  _lt?: Maybe<Scalars['vote_option']>;
+  _lte?: Maybe<Scalars['vote_option']>;
+  _neq?: Maybe<Scalars['vote_option']>;
+  _nin?: Maybe<Array<Scalars['vote_option']>>;
+};
+
 export type AccountCommissionQueryVariables = Exact<{
   validatorAddress: Scalars['String'];
 }>;
@@ -13510,7 +17057,6 @@ export type ActiveValidatorCountQuery = { activeTotal: (
 
 export type BlockDetailsQueryVariables = Exact<{
   height?: Maybe<Scalars['bigint']>;
-  signatureHeight?: Maybe<Scalars['bigint']>;
 }>;
 
 
@@ -13527,23 +17073,23 @@ export type BlockDetailsQuery = { transaction: Array<(
         { __typename?: 'validator_info' }
         & { operatorAddress: Validator_Info['operator_address'] }
       )> }
-    )> }
-  )>, preCommitsAggregate: (
-    { __typename?: 'pre_commit_aggregate' }
-    & { aggregate?: Maybe<(
-      { __typename?: 'pre_commit_aggregate_fields' }
-      & { sum?: Maybe<(
-        { __typename?: 'pre_commit_sum_fields' }
-        & { votingPower: Pre_Commit_Sum_Fields['voting_power'] }
-      )> }
-    )> }
-  ), preCommits: Array<(
-    { __typename?: 'pre_commit' }
-    & { validator: (
-      { __typename?: 'validator' }
-      & { validatorInfo?: Maybe<(
-        { __typename?: 'validator_info' }
-        & { operatorAddress: Validator_Info['operator_address'] }
+    )>, preCommits: Array<(
+      { __typename?: 'pre_commit' }
+      & { validator: (
+        { __typename?: 'validator' }
+        & { validatorInfo?: Maybe<(
+          { __typename?: 'validator_info' }
+          & { operatorAddress: Validator_Info['operator_address'] }
+        )> }
+      ) }
+    )>, preCommitsAggregate: (
+      { __typename?: 'pre_commit_aggregate' }
+      & { aggregate?: Maybe<(
+        { __typename?: 'pre_commit_aggregate_fields' }
+        & { sum?: Maybe<(
+          { __typename?: 'pre_commit_sum_fields' }
+          & { votingPower: Pre_Commit_Sum_Fields['voting_power'] }
+        )> }
       )> }
     ) }
   )> };
@@ -14458,7 +18004,7 @@ export type ActiveValidatorCountQueryHookResult = ReturnType<typeof useActiveVal
 export type ActiveValidatorCountLazyQueryHookResult = ReturnType<typeof useActiveValidatorCountLazyQuery>;
 export type ActiveValidatorCountQueryResult = Apollo.QueryResult<ActiveValidatorCountQuery, ActiveValidatorCountQueryVariables>;
 export const BlockDetailsDocument = gql`
-    query BlockDetails($height: bigint, $signatureHeight: bigint) {
+    query BlockDetails($height: bigint) {
   transaction(where: {height: {_eq: $height}}) {
     height
     hash
@@ -14476,20 +18022,18 @@ export const BlockDetailsDocument = gql`
         operatorAddress: operator_address
       }
     }
-  }
-  preCommitsAggregate: pre_commit_aggregate(
-    where: {height: {_eq: $signatureHeight}}
-  ) {
-    aggregate {
-      sum {
-        votingPower: voting_power
+    preCommits: pre_commits {
+      validator {
+        validatorInfo: validator_info {
+          operatorAddress: operator_address
+        }
       }
     }
-  }
-  preCommits: pre_commit(where: {height: {_eq: $signatureHeight}}) {
-    validator {
-      validatorInfo: validator_info {
-        operatorAddress: operator_address
+    preCommitsAggregate: pre_commits_aggregate {
+      aggregate {
+        sum {
+          votingPower: voting_power
+        }
       }
     }
   }
@@ -14509,7 +18053,6 @@ export const BlockDetailsDocument = gql`
  * const { data, loading, error } = useBlockDetailsQuery({
  *   variables: {
  *      height: // value for 'height'
- *      signatureHeight: // value for 'signatureHeight'
  *   },
  * });
  */
