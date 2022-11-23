@@ -8,8 +8,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import InputBase from '@material-ui/core/InputBase';
 import NextIcon from 'shared-utils/assets/icon-next.svg';
 import NextFastIcon from 'shared-utils/assets/icon-next-fast.svg';
-import { useStyles } from './styles';
-import { useTablePaginationActions } from './hooks';
+import { useStyles } from '@/components/pagination/components/actions/styles';
+import { useTablePaginationActions } from '@/components/pagination/components/actions/hooks';
 
 type Props = Parameters<typeof useTablePaginationActions>[0] & {
   rowsPerPageOptions?: number[];

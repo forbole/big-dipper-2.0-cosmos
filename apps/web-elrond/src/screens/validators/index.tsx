@@ -1,9 +1,9 @@
 import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
 import { NextSeo } from 'next-seo';
-import Layout from '@components/layout';
-import List from './components/list';
-import { useStyles } from './styles';
+import Layout from '@/components/layout';
+import List from '@/screens/validators/components/list';
+import { useStyles } from '@/screens/validators/styles';
 
 const Validators = () => {
   const { t } = useTranslation('validators');

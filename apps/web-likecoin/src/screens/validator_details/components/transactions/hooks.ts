@@ -1,10 +1,10 @@
 import { QueryHookOptions, QueryResult } from '@apollo/client';
-import { convertMsgsToModels } from '@components/msg';
+import { convertMsgsToModels } from '@/components/msg/utils';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import { useState } from 'react';
-import { convertMsgType } from 'ui/utils/convert_msg_type';
-import type { TransactionState } from './types';
+import { convertMsgType } from '@/utils/convert_msg_type';
+import type { TransactionState } from '@/screens/validator_details/components/transactions/types';
 
 const LIMIT = 50;
 

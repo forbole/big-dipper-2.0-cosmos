@@ -1,13 +1,13 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import { MsgUnblockUser } from '@models';
-import UnBlockUser from '.';
+import { MockTheme } from '@/tests/utils';
+import { MsgUnblockUser } from '@/models';
+import UnBlockUser from '@/components/msg/profiles/unblock_user';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 

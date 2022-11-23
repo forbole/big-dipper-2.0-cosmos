@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import NetworkList from '.';
+import { MockTheme } from '@/tests/utils';
+import NetworkList from '@/components/nav/components/desktop/components/action_bar/components/network_list';
 
 // ==================================
 // global setup
@@ -11,7 +11,7 @@ let component: renderer.ReactTestRenderer;
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/nav/components/networks', () => 'Networks');
+jest.mock('@/components/nav/components/networks', () => 'Networks');
 
 // ==================================
 // unit tests

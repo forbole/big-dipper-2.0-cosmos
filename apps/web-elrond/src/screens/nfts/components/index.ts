@@ -1,3 +1,3 @@
-import List from './list';
+import List from '@/screens/nfts/components/list';
 
 export { List };

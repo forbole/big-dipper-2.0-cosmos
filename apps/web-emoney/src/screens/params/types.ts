@@ -1,55 +1,55 @@
-export type Staking = {
+export interface Staking {
   bondDenom: string;
   unbondingTime: number;
   maxEntries: number;
   historicalEntries: number;
   maxValidators: number;
-};
+}
 
-export type Slashing = {
+export interface Slashing {
   downtimeJailDuration: number;
   minSignedPerWindow: number;
   signedBlockWindow: number;
   slashFractionDoubleSign: number;
   slashFractionDowntime: number;
-};
+}
 
-export type Minting = {
+export interface Minting {
   blocksPerYear: number;
   goalBonded: number;
   inflationMax: number;
   inflationMin: number;
   inflationRateChange: number;
   mintDenom: string;
-};
+}
 
-export type Distribution = {
+export interface Distribution {
   baseProposerReward: number;
   bonusProposerReward: number;
   communityTax: number;
   withdrawAddressEnabled: boolean;
-};
+}
 
-export type Gov = {
+export interface Gov {
   minDeposit: TokenUnit;
   maxDepositPeriod: number;
   quorum: number;
   threshold: number;
   vetoThreshold: number;
   votingPeriod: number;
-};
+}
 
-export type InflationRate = {
+export type InflationRate = Array<{
   denom: string;
   inflation: string;
-}[];
+}>;
 
-export type GasPrice = {
+export type GasPrice = Array<{
   denom: string;
   amount: string;
-}[];
+}>;
 
-export type ParamsState = {
+export interface ParamsState {
   loading: boolean;
   exists: boolean;
   staking: Staking | null;
@@ -59,4 +59,4 @@ export type ParamsState = {
   gov: Gov | null;
   inflationRate: InflationRate | null;
   gasPrice: GasPrice | null;
-};
+}

@@ -1,11 +1,11 @@
 import React, { useCallback, useState } from 'react';
 import Typography from '@material-ui/core/Typography';
-import { useInterval } from '@hooks';
-import dayjs from 'ui/utils/dayjs';
-import chainConfig from 'ui/chainConfig';
-import ChainIcon from '@components/ChainIcon';
-import Loading from '@components/loading';
-import { useStyles } from './styles';
+import { useInterval } from '@/hooks';
+import dayjs from '@/utils/dayjs';
+import chainConfig from '@/chainConfig';
+import ChainIcon from '@/components/ChainIcon';
+import Loading from '@/components/loading';
+import { useStyles } from '@/screens/countdown/styles';
 
 const Countdown: React.FC<{
   startGenesis: () => void;

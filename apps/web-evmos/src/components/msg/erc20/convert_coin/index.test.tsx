@@ -1,14 +1,14 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import MsgConvertCoin from '@models/evmos/msg/erc20/msg_convert_coin';
-import ConvertCoin from '.';
+import { MockTheme } from '@/tests/utils';
+import MsgConvertCoin from '@/models/msg/erc20/msg_convert_coin';
+import ConvertCoin from '@/components/msg/erc20/convert_coin';
 
 // ==================================
 // mocks
 // ==================================
 
-jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 

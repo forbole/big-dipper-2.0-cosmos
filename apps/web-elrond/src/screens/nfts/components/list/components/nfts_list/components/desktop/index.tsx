@@ -2,17 +2,17 @@ import React from 'react';
 import Link from 'next/link';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import AvatarName from '@components/avatar_name';
+import AvatarName from '@/components/avatar_name';
 import Table from '@material-ui/core/Table';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import TableBody from '@material-ui/core/TableBody';
 import Typography from '@material-ui/core/Typography';
-import { NFT_DETAILS } from '@utils/go_to_page';
-import { columns } from './utils';
-import { useStyles } from './styles';
-import type { NFTTypes } from '../../../../types';
+import { NFT_DETAILS } from '@/utils/go_to_page';
+import type { NFTTypes } from '@/screens/nfts/components/list/types';
+import { columns } from '@/screens/nfts/components/list/components/nfts_list/components/desktop/utils';
+import { useStyles } from '@/screens/nfts/components/list/components/nfts_list/components/desktop/styles';
 
 const Desktop: React.FC<{ items: NFTTypes[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('nfts');

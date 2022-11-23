@@ -4,8 +4,8 @@ import {
   useTransactionsQuery,
   useTransactionsListenerSubscription,
   TransactionsListenerSubscription,
-} from '@graphql/types/general_types';
-import type { TransactionsState } from './types';
+} from '@/graphql/types/general_types';
+import type { TransactionsState } from '@/screens/transactions/types';
 
 export const useTransactions = () => {
   const [state, setState] = useState<TransactionsState>({

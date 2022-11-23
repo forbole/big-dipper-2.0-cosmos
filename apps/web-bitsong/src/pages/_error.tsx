@@ -1,4 +1,4 @@
-import Error, { getInitialProps } from 'ui/screens/error';
+import Error, { getInitialProps } from '@/screens/error';
 
 export { getInitialProps };
 export default Error;

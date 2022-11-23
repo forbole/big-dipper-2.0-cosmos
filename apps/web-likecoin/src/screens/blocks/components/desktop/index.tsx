@@ -1,22 +1,22 @@
 import React from 'react';
 import classnames from 'classnames';
 import numeral from 'numeral';
-import dayjs from 'ui/utils/dayjs';
+import dayjs from '@/utils/dayjs';
 import Link from 'next/link';
-import { BLOCK_DETAILS } from '@utils/go_to_page';
+import { BLOCK_DETAILS } from '@/utils/go_to_page';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import InfiniteLoader from 'react-window-infinite-loader';
 import useTranslation from 'next-translate/useTranslation';
 import Typography from '@material-ui/core/Typography';
-import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { VariableSizeGrid as Grid } from 'react-window';
-import Loading from 'ui/components/loading';
-import AvatarName from 'ui/components/avatar_name';
-import { useGrid } from 'ui/hooks';
-import { mergeRefs } from 'ui/utils/merge_refs';
-import { useStyles } from './styles';
-import { columns } from './utils';
-import type { ItemType } from '../../types';
+import Loading from '@/components/loading';
+import AvatarName from '@/components/avatar_name';
+import { useGrid } from '@/hooks';
+import { mergeRefs } from '@/utils/merge_refs';
+import { useStyles } from '@/screens/blocks/components/desktop/styles';
+import { columns } from '@/screens/blocks/components/desktop/utils';
+import type { ItemType } from '@/screens/blocks/types';
 
 const Desktop: React.FC<{
   className?: string;

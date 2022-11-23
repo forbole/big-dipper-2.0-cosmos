@@ -1,10 +1,10 @@
 import { selectorFamily, GetRecoilValue } from 'recoil';
 import * as R from 'ramda';
 import { bech32 } from 'bech32';
-import chainConfig from 'ui/chainConfig';
-import { readValidator } from '../validators';
-import type { AtomState as ProfileAtomState } from './types';
-import { atomFamilyState } from './atom';
+import chainConfig from '@/chainConfig';
+import { readValidator } from '@/recoil/validators';
+import type { AtomState as ProfileAtomState } from '@/recoil/profiles/types';
+import { atomFamilyState } from '@/recoil/profiles/atom';
 
 // ======================================================================
 // selector utils

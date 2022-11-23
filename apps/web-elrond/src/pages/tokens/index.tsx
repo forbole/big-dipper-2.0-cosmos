@@ -1,4 +1,4 @@
-import Tokens from '@screens/tokens';
+import Tokens from '@/screens/tokens';
 
 const TokensPage = () => <Tokens />;
 

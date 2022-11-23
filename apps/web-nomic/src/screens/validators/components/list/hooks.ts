@@ -2,12 +2,16 @@ import { useCallback, useState } from 'react';
 import Big from 'big.js';
 import * as R from 'ramda';
 import numeral from 'numeral';
-import { useValidatorsQuery, ValidatorsQuery } from '@graphql/types/general_types';
-import type { ValidatorsState, ItemType, ValidatorType } from './types';
+import { useValidatorsQuery, ValidatorsQuery } from '@/graphql/types/general_types';
+import type {
+  ValidatorsState,
+  ItemType,
+  ValidatorType,
+} from '@/screens/validators/components/list/types';
 
 export const useValidators = () => {
   const [search, setSearch] = useState('');
-    const [state, setState] = useState<ValidatorsState>({
+  const [state, setState] = useState<ValidatorsState>({
     loading: true,
     exists: true,
     items: [],

@@ -1,13 +1,13 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import MsgUnlinkChainAccount from '@models/desmos/msg/profiles/msg_unlink_chain_account';
-import UnlinkChainAccount from '.';
+import { MockTheme } from '@/tests/utils';
+import MsgUnlinkChainAccount from '@/models/msg/profiles/msg_unlink_chain_account';
+import UnlinkChainAccount from '@/components/msg/profiles/unlink_chain_account';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 

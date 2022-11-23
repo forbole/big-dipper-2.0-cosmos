@@ -4,10 +4,10 @@ import numeral from 'numeral';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
 import useTranslation from 'next-translate/useTranslation';
-import Box from 'ui/components/box';
+import Box from '@/components/box';
 import { RadialBarChart, PolarAngleAxis, RadialBar, Tooltip } from 'recharts';
-import { useStyles } from './styles';
-import { useEpoch } from './hooks';
+import { useStyles } from '@/screens/home/components/epoch/styles';
+import { useEpoch } from '@/screens/home/components/epoch/hooks';
 
 const Epoch: React.FC<ComponentDefault> = (props) => {
   const { classes, theme } = useStyles();

@@ -6,9 +6,9 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import TableBody from '@material-ui/core/TableBody';
-import type { OtherTokenType } from '@screens/account_details/types';
-import { formatNumber } from 'ui/utils/format_token';
-import { columns } from './utils';
+import type { OtherTokenType } from '@/screens/account_details/types';
+import { formatNumber } from '@/utils/format_token';
+import { columns } from '@/screens/account_details/components/other_tokens/components/desktop/utils';
 
 const Desktop: React.FC<{
   className?: string;

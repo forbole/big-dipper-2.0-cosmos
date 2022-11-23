@@ -1,4 +1,4 @@
-export type ContractType = {
+export interface ContractType {
   address: string;
   locked: TokenUnit;
   nodes: number;
@@ -6,23 +6,23 @@ export type ContractType = {
   commission: number;
   delegationCap: TokenUnit;
   delegators: number;
-};
+}
 
-export type StakeType = {
+export interface StakeType {
   totalStaked: TokenUnit;
   locked: TokenUnit;
   stakePercent: number;
   stake: TokenUnit;
   topUp: TokenUnit;
-};
+}
 
-export type ProfileType = {
+export interface ProfileType {
   name: string;
   imageUrl: string;
   description: string;
-};
+}
 
-export type OverviewType = {
+export interface OverviewType {
   location: string;
   website: string;
   identity: string;
@@ -30,9 +30,9 @@ export type OverviewType = {
     key: string;
     value: number;
   }[];
-};
+}
 
-export type ValidatorDetailsState = {
+export interface ValidatorDetailsState {
   loading: boolean;
   exists: boolean;
   isProvider: boolean;
@@ -40,4 +40,4 @@ export type ValidatorDetailsState = {
   stake: StakeType;
   profile: ProfileType;
   overview: OverviewType;
-};
+}

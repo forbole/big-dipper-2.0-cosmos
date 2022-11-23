@@ -2,10 +2,10 @@ import React from 'react';
 import * as R from 'ramda';
 import Trans from 'next-translate/Trans';
 import Typography from '@material-ui/core/Typography';
-import Name from 'ui/components/name';
-import MsgDecommissionPool from '@models/sifchain/msg/clp/msg_decommission_pool';
-import { useProfileRecoil } from 'ui/recoil/profiles';
-import chainConfig from 'ui/chainConfig';
+import Name from '@/components/name';
+import MsgDecommissionPool from '@/models/msg/clp/msg_decommission_pool';
+import { useProfileRecoil } from '@/recoil/profiles';
+import chainConfig from '@/chainConfig';
 
 const DecommissionPool: React.FC<{ message: MsgDecommissionPool }> = (props) => {
   const { message } = props;

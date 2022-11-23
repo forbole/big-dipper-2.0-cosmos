@@ -72,6 +72,9 @@ module.exports = {
     'no-console': ['error', { allow: ['warn', 'error'] }],
     /* https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/extensions.md */
     'import/extensions': 'off',
+    /* https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/named.md */
+    /* doesn't work work in ide */
+    'import/named': 'off',
     /* https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/prefer-default-export.md */
     /* prefer not to migrate existing code to use default exports for now */
     'import/prefer-default-export': 'off',

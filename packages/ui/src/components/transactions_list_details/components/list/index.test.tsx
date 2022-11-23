@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import TransactionList from '.';
+import { MockTheme } from '@/tests/utils';
+import TransactionList from '@/components/transactions_list_details/components/list';
 
 // ==================================
 // mocks
@@ -11,13 +11,14 @@ jest.mock('react-window-infinite-loader', () => ({
   InfiniteLoader: (props: JSX.IntrinsicElements['div']) => <div id="InfiniteLoader" {...props} />,
 }));
 
-jest.mock('@components/loading', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/loading', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Loading" {...props} />
 ));
 
-jest.mock('./components/single_transaction', () => (props: JSX.IntrinsicElements['div']) => (
-  <div id="SingleTransaction" {...props} />
-));
+jest.mock(
+  '@/components/transactions_list_details/components/list/components/single_transaction',
+  () => (props: JSX.IntrinsicElements['div']) => <div id="SingleTransaction" {...props} />
+);
 
 const mockI18n = {
   t: (key: string) => key,

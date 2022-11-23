@@ -1,14 +1,14 @@
 import React from 'react';
 import numeral from 'numeral';
-import dayjs from 'ui/utils/dayjs';
+import dayjs from '@/utils/dayjs';
 import Link from 'next/link';
 import useTranslation from 'next-translate/useTranslation';
-import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
-import { getShardDisplay } from '@utils/get_shard_display';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
+import { getShardDisplay } from '@/utils/get_shard_display';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
-import { BLOCK_DETAILS } from '@utils/go_to_page';
-import SingleBlockMobile from '@components/single_block_mobile';
+import { BLOCK_DETAILS } from '@/utils/go_to_page';
+import SingleBlockMobile from '@/components/single_block_mobile';
 
 const Mobile: React.FC<{ items: BlockType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('blocks');

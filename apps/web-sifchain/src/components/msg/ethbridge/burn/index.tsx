@@ -1,9 +1,9 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
 import Typography from '@material-ui/core/Typography';
-import Name from 'ui/components/name';
-import MsgBurn from '@models/sifchain/msg/ethbridge/msg_burn';
-import { useProfileRecoil } from 'ui/recoil/profiles';
+import Name from '@/components/name';
+import MsgBurn from '@/models/msg/ethbridge/msg_burn';
+import { useProfileRecoil } from '@/recoil/profiles';
 
 const Burn: React.FC<{ message: MsgBurn }> = (props) => {
   const { message } = props;

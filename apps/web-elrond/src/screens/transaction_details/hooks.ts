@@ -2,10 +2,10 @@ import { useCallback, useEffect, useState } from 'react';
 import axios from 'axios';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
-import chainConfig from 'ui/chainConfig';
-import { formatToken, formatTokenByExponent } from 'ui/utils/format_token';
-import { TRANSACTION_DETAILS } from '@api';
-import type { TransactionDetailsState } from './types';
+import chainConfig from '@/chainConfig';
+import { formatToken, formatTokenByExponent } from '@/utils/format_token';
+import { TRANSACTION_DETAILS } from '@/api';
+import type { TransactionDetailsState } from '@/screens/transaction_details/types';
 
 const defaultTokenUnit: TokenUnit = {
   value: '0',
@@ -16,7 +16,7 @@ const defaultTokenUnit: TokenUnit = {
 
 export const useTransactionDetails = () => {
   const router = useRouter();
-    const [state, setState] = useState<TransactionDetailsState>({
+  const [state, setState] = useState<TransactionDetailsState>({
     loading: true,
     exists: true,
     overview: {

@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED=false next dev",
     "build": "next build",
-    "clean": "rm -rf node_modules .next",
+    "clean": "rm -rf .next .swc .turbo coverage node_modules",
     "start": "NODE_ENV=production next start",
     "lint": "next lint",
     "check-types": "tsc --noemit",
@@ -54,7 +54,6 @@
     "shared-utils": "*",
     "sharp": "^0.31.2",
     "subscriptions-transport-ws": "^0.11.0",
-    "ui": "*",
     "ws": "^8.10.0"
   },
   "devDependencies": {
@@ -88,16 +87,13 @@
     "@typescript-eslint/eslint-plugin": "^5.42.1",
     "@typescript-eslint/parser": "^5.42.1",
     "axios-mock-adapter": "^1.19.0",
-    "cypress": "^10.11.0",
     "eslint": "^8.27.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-custom": "*",
-    "eslint-config-cypress": "*",
     "eslint-config-next": "^13.0.3",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-turbo": "latest",
     "eslint-import-resolver-typescript": "^3.5.2",
-    "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.6.1",
     "eslint-plugin-react": "^7.31.10",

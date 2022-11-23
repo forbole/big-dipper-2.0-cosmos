@@ -1,16 +1,17 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import MsgSignDataRequest from '@models/regen/msg/data/msg_sign_data_request';
-import SignDataRequest from '.';
+import { MockTheme } from '@/tests/utils';
+import MsgSignDataRequest from '@/models/msg/data/msg_sign_data_request';
+import SignDataRequest from '@/components/msg/data/sign_data_request';
 
 // ==================================
 // mocks
 // ==================================
 
-jest.mock('./components/signers', () => (props: JSX.IntrinsicElements['div']) => (
-  <div id="Signers" {...props} />
-));
+jest.mock(
+  '@/components/msg/data/sign_data_request/components/signers',
+  () => (props: JSX.IntrinsicElements['div']) => <div id="Signers" {...props} />
+);
 
 jest.mock('next-translate/Trans', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Trans" {...props} />

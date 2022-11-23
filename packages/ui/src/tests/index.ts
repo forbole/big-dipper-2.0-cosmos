@@ -1,1 +1,1 @@
-export { MockTheme, wait } from './utils';
+export { MockTheme, wait } from '@/tests/utils';

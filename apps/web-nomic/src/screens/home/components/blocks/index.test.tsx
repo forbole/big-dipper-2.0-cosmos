@@ -1,10 +1,10 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
+import { MockTheme } from '@/tests/utils';
 import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
 import { MockedProvider } from '@apollo/client/testing';
-import { BlocksListenerDocument } from '@graphql/types/general_types';
-import Blocks from '.';
+import { BlocksListenerDocument } from '@/graphql/types/general_types';
+import Blocks from '@/screens/home/components/blocks';
 
 // ==================================
 // mocks
@@ -14,19 +14,21 @@ const mockI18n = {
   lang: 'en',
 };
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
-jest.mock('ui/components/box', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/box', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Box" {...props} />
 ));
-jest.mock('ui/components/no_data', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/no_data', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="NoData" {...props} />
 ));
 
-jest.mock('./components/mobile', () => (props: JSX.IntrinsicElements['div']) => (
-  <div id="Mobile" {...props} />
-));
-jest.mock('./components/desktop', () => (props: JSX.IntrinsicElements['div']) => (
-  <div id="Desktop" {...props} />
-));
+jest.mock(
+  '@/screens/home/components/blocks/components/mobile',
+  () => (props: JSX.IntrinsicElements['div']) => <div id="Mobile" {...props} />
+);
+jest.mock(
+  '@/screens/home/components/blocks/components/desktop',
+  () => (props: JSX.IntrinsicElements['div']) => <div id="Desktop" {...props} />
+);
 
 const mockBlocksListenerDocument = jest.fn().mockReturnValue({
   data: {

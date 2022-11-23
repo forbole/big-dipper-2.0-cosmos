@@ -1,21 +1,21 @@
 import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
-import Layout from '@components/layout';
-import LoadAndExist from 'ui/components/load_and_exist';
-import DesmosProfile from 'ui/components/desmos_profile';
+import Layout from '@/components/layout';
+import LoadAndExist from '@/components/load_and_exist';
+import DesmosProfile from '@/components/desmos_profile';
 import { NextSeo } from 'next-seo';
-import Overview from 'ui/screens/account_details/components/overview';
-import Staking from 'ui/screens/account_details/components/staking';
-import OtherTokens from 'ui/screens/account_details/components/other_tokens';
+import Overview from '@/screens/account_details/components/overview';
+import Staking from '@/screens/account_details/components/staking';
+import OtherTokens from '@/screens/account_details/components/other_tokens';
 import {
   AccountDelegationsDocument,
   AccountRedelegationsDocument,
   AccountUndelegationsDocument,
-} from '@graphql/general/account_details_documents';
-import { useStyles } from './styles';
-import Balance from './components/balance';
-import Transactions from './components/transactions';
-import { useAccountDetails } from './hooks';
+} from '@/graphql/general/account_details_documents';
+import { useStyles } from '@/screens/account_details/styles';
+import Balance from '@/screens/account_details/components/balance';
+import Transactions from '@/screens/account_details/components/transactions';
+import { useAccountDetails } from '@/screens/account_details/hooks';
 
 const AccountDetails = () => {
   const { t } = useTranslation('accounts');

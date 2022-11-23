@@ -4,9 +4,9 @@ import {
   AccountBalancesDocument,
   // AccountWithdrawalAddressDocument,
   AccountDelegationBalanceDocument,
-} from '@graphql/general/account_details_documents';
+} from '@/graphql/general/account_details_documents';
 
-import chainConfig from 'ui/chainConfig';
+import chainConfig from '@/chainConfig';
 
 export const fetchAvailableBalances = async (address: string) => {
   const defaultReturnValue = {

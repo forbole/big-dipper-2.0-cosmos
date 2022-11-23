@@ -4,16 +4,16 @@ import Link from 'next/link';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
-import { useList, useListRow } from 'ui/hooks';
-import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
+import { useList, useListRow } from '@/hooks';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import EmailIcon from 'shared-utils/assets/icon-email.svg';
 import WebArrowIcon from 'shared-utils/assets/icon-web-arrow.svg';
 import CopyIcon from 'shared-utils/assets/icon-copy.svg';
-import { useAddress } from '@utils/copy_to_clipboard';
+import { useAddress } from '@/utils/copy_to_clipboard';
 import useTranslation from 'next-translate/useTranslation';
-import type { ProviderInfo } from '../../../../types';
-import { useStyles } from './styles';
-import SingleProvider from './component/single_provider';
+import type { ProviderInfo } from '@/screens/providers/types';
+import { useStyles } from '@/screens/providers/components/providers_list/components/mobile/styles';
+import SingleProvider from '@/screens/providers/components/providers_list/components/mobile/component/single_provider';
 
 const Mobile: FC<{ list: ProviderInfo[] }> = ({ list }) => {
   const classes = useStyles();

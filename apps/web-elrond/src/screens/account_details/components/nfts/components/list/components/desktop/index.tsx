@@ -8,10 +8,10 @@ import TableCell from '@material-ui/core/TableCell';
 import TableBody from '@material-ui/core/TableBody';
 import Typography from '@material-ui/core/Typography';
 import Link from 'next/link';
-import { NFT_DETAILS } from '@utils/go_to_page';
-import { columns } from './utils';
-import { useStyles } from './styles';
-import type { OtherTokenType } from '../../../../types';
+import { NFT_DETAILS } from '@/utils/go_to_page';
+import type { OtherTokenType } from '@/screens/account_details/components/nfts/types';
+import { columns } from '@/screens/account_details/components/nfts/components/list/components/desktop/utils';
+import { useStyles } from '@/screens/account_details/components/nfts/components/list/components/desktop/styles';
 
 const Desktop: React.FC<{ items: OtherTokenType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('accounts');

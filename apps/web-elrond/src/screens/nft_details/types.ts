@@ -1,4 +1,4 @@
-export type OverviewType = {
+export interface OverviewType {
   identifier: string;
   collection: string;
   name: string;
@@ -7,10 +7,10 @@ export type OverviewType = {
   owner: string; // may be null
   minted: number;
   ticker: string;
-};
+}
 
-export type BlockDetailsState = {
+export interface BlockDetailsState {
   loading: boolean;
   exists: boolean;
   overview: OverviewType;
-};
+}

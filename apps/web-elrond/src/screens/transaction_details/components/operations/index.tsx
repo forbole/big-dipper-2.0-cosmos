@@ -1,17 +1,21 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
-import NoData from '@components/no_data';
-import Box from 'ui/components/box';
+import NoData from '@/components/no_data';
+import Box from '@/components/box';
 import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
-import { useScreenSize } from 'ui/hooks';
-import type { OperationType } from '../../types';
-import { useStyles } from './styles';
-import type DesktopType from './components/desktop';
-import type MobileType from './components/mobile';
+import { useScreenSize } from '@/hooks';
+import type { OperationType } from '@/screens/transaction_details/types';
+import { useStyles } from '@/screens/transaction_details/components/operations/styles';
+import type DesktopType from '@/screens/transaction_details/components/operations/components/desktop';
+import type MobileType from '@/screens/transaction_details/components/operations/components/mobile';
 
-const Desktop = dynamic(() => import('./components/desktop')) as typeof DesktopType;
-const Mobile = dynamic(() => import('./components/mobile')) as typeof MobileType;
+const Desktop = dynamic(
+  () => import('@/screens/transaction_details/components/operations/components/desktop')
+) as typeof DesktopType;
+const Mobile = dynamic(
+  () => import('@/screens/transaction_details/components/operations/components/mobile')
+) as typeof MobileType;
 
 const Operations: React.FC<{ items: OperationType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('transactions');

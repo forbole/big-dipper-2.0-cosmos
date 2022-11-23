@@ -1,12 +1,13 @@
 /* eslint-disable */
 import { renderHook, act } from '@testing-library/react-hooks';
 import { RecoilRoot } from 'recoil';
-import chainConfig from 'ui/chainConfig';
-import { useSearchBar } from './hooks';
+import chainConfig from '@/chainConfig';
+import { useSearchBar } from '@/components/nav/components/search_bar/hooks';
 
 const mockPush = jest.fn();
 
 jest.mock('next/router', () => ({
+  ...jest.requireActual('next/router'),
   useRouter: () => ({
     push: mockPush,
   }),

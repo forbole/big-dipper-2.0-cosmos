@@ -1,12 +1,12 @@
 import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
-import { formatNumber } from 'ui/utils/format_token';
+import { formatNumber } from '@/utils/format_token';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
-import AvatarName from '@components/avatar_name';
-import { TOKEN_DETAILS } from '@utils/go_to_page';
-import { useStyles } from './styles';
-import type { OtherTokenType } from '../../../../types';
+import AvatarName from '@/components/avatar_name';
+import { TOKEN_DETAILS } from '@/utils/go_to_page';
+import type { OtherTokenType } from '@/screens/account_details/components/tokens/types';
+import { useStyles } from '@/screens/account_details/components/tokens/components/list/components/mobile/styles';
 
 const Mobile: React.FC<{ items: OtherTokenType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('accounts');

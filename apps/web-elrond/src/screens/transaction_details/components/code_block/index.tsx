@@ -1,5 +1,5 @@
 import React from 'react';
-import { useGetStyles } from './styles';
+import { useGetStyles } from '@/screens/transaction_details/components/code_block/styles';
 
 const CodeBlock: React.FC<{ message: string }> = (props) => {
   const { message } = props;

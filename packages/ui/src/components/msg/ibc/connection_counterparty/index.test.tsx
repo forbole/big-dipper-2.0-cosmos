@@ -1,14 +1,14 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import { MsgCounterpartyConnection } from '@models';
-import CounterpartyConnection from '.';
+import { MockTheme } from '@/tests/utils';
+import { MsgCounterpartyConnection } from '@/models';
+import CounterpartyConnection from '@/components/msg/ibc/connection_counterparty';
 
 // ==================================
 // mocks
 // ==================================
 
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 

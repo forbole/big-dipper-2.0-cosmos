@@ -3,12 +3,12 @@ import numeral from 'numeral';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Typography from '@material-ui/core/Typography';
-import Box from '@components/box';
-import Avatar from '@components/avatar';
-import Markdown from '@components/markdown';
-import { useStyles } from './styles';
-import { useDesmosProfile } from './hooks';
-import Connections from './components/connections';
+import Box from '@/components/box';
+import Avatar from '@/components/avatar';
+import Markdown from '@/components/markdown';
+import { useStyles } from '@/components/desmos_profile/styles';
+import { useDesmosProfile } from '@/components/desmos_profile/hooks';
+import Connections from '@/components/desmos_profile/components/connections';
 
 const DesmosProfile: React.FC<
   {

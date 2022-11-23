@@ -1,9 +1,9 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
 import Typography from '@material-ui/core/Typography';
-import Name from 'ui/components/name';
-import MsgLock from '@models/sifchain/msg/ethbridge/msg_lock';
-import { useProfileRecoil } from 'ui/recoil/profiles';
+import Name from '@/components/name';
+import MsgLock from '@/models/msg/ethbridge/msg_lock';
+import { useProfileRecoil } from '@/recoil/profiles';
 
 const Lock: React.FC<{ message: MsgLock }> = (props) => {
   const { message } = props;

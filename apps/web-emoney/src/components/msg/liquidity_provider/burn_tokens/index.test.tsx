@@ -1,13 +1,13 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import MsgBurnTokens from '@models/emoney/msg/liquidity_provider/msg_burn_tokens';
-import BurnTokens from '.';
+import { MockTheme } from '@/tests/utils';
+import MsgBurnTokens from '@/models/msg/liquidity_provider/msg_burn_tokens';
+import BurnTokens from '@/components/msg/liquidity_provider/burn_tokens';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 

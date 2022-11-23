@@ -4,14 +4,14 @@ import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import { useRecoilValue } from 'recoil';
-import { readTheme } from 'ui/recoil/settings';
+import { readTheme } from '@/recoil/settings';
 import BigDipperLogoWhite from 'shared-utils/assets/big-dipper-white.svg';
 import BigDipperLogoRed from 'shared-utils/assets/big-dipper-red.svg';
-import { useStyles } from './styles';
-import { useDesktop } from './hooks';
-import MenuItems from '../menu_items';
-import TitleBar from '../title_bar';
-import ActionBar from './components/action_bar';
+import { useStyles } from '@/components/nav/components/desktop/styles';
+import { useDesktop } from '@/components/nav/components/desktop/hooks';
+import MenuItems from '@/components/nav/components/menu_items';
+import TitleBar from '@/components/nav/components/title_bar';
+import ActionBar from '@/components/nav/components/desktop/components/action_bar';
 
 const Desktop: React.FC<{
   className?: string;

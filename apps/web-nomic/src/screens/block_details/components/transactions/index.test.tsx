@@ -1,15 +1,15 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import Transactions from '.';
+import { MockTheme } from '@/tests/utils';
+import Transactions from '@/screens/block_details/components/transactions';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('ui/components/box', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/box', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Box" {...props} />
 ));
-jest.mock('@components/transactions_list', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/transactions_list', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="TransactionsList" {...props} />
 ));
 

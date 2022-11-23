@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 const address = 'desmos134zrg6jn3a5l5jjpzv9eucdlw3nl2qelgz330c';
 
-test('account page', async ({ page, context }) => {
+test('account page', async ({ page, context, isMobile }) => {
   // Test account url
   await page.goto(`./accounts/${address}`);
   await expect(page).toHaveURL(new RegExp(`/accounts/${address}`));
@@ -22,22 +22,22 @@ test('account page', async ({ page, context }) => {
   const copy = await page.evaluate(async () => navigator.clipboard.readText());
   expect(typeof copy).toEqual('string');
   expect(copy).toEqual(address);
-  await page.waitForLoadState('domcontentloaded');
   page.on('dialog', async (dialog) => {
     expect(dialog.message()).toContain('Copied');
     await dialog.accept();
   });
+  await page.waitForLoadState('domcontentloaded');
 
   // Test copy reward address to clipboard
   await page.locator(':nth-match(#icon-copy_svg__Layer_1, 2)').first().click();
   const copyRewardAddress = await page.evaluate(async () => navigator.clipboard.readText());
   expect(typeof copyRewardAddress).toEqual('string');
   expect(copyRewardAddress).toEqual(address);
-  await page.waitForLoadState('domcontentloaded');
   page.on('dialog', async (dialog) => {
     expect(dialog.message()).toContain('Copied');
     await dialog.accept();
   });
+  await page.waitForLoadState('domcontentloaded');
 
   // Test share button
   await page.locator('#icon-share_svg__Layer_1').first().click();
@@ -69,7 +69,7 @@ test('account page', async ({ page, context }) => {
     page.waitForEvent('popup'),
     page.getByRole('button', { name: 'whatsapp' }).click(),
   ]);
-  await expect(whatsapp).toHaveURL(/https:\/\/web.whatsapp.com\/*/);
+  if (!isMobile) await expect(whatsapp).toHaveURL(/https:\/\/web.whatsapp.com\/*/);
 });
 
 test('account page tabs', async ({ page }) => {

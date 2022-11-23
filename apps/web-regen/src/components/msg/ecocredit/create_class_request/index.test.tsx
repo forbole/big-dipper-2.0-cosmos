@@ -1,14 +1,14 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import MsgCreateClassRequest from '@models/regen/msg/ecocredit/msg_create_class_request';
-import CreateClassRequest from '.';
+import { MockTheme } from '@/tests/utils';
+import MsgCreateClassRequest from '@/models/msg/ecocredit/msg_create_class_request';
+import CreateClassRequest from '@/components/msg/ecocredit/create_class_request';
 
 // ==================================
 // mocks
 // ==================================
 
-jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 

@@ -1,12 +1,12 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import SearchBar from '.';
+import { MockTheme } from '@/tests/utils';
+import SearchBar from '@/components/nav/components/search_bar';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/search', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/search', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Search" {...props} />
 ));
 // ==================================

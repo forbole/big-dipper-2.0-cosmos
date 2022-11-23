@@ -1,14 +1,14 @@
-export type OverviewType = {
+export interface OverviewType {
   hash: string;
   height: number;
   timestamp: string;
   fee: TokenUnit;
   gas: number;
   memo: string;
-};
+}
 
-export type TransactionState = {
+export interface TransactionState {
   loading: boolean;
   exists: boolean;
   overview: OverviewType;
-};
+}

@@ -9,12 +9,12 @@ import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import TableBody from '@material-ui/core/TableBody';
 import Typography from '@material-ui/core/Typography';
-import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
-import { BLOCK_DETAILS } from '@utils/go_to_page';
-import dayjs from 'ui/utils/dayjs';
-import { useStyles } from './styles';
-import { columns } from './utils';
-import type { BlockType } from '../../types';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
+import { BLOCK_DETAILS } from '@/utils/go_to_page';
+import dayjs from '@/utils/dayjs';
+import { useStyles } from '@/screens/home/components/blocks/components/desktop/styles';
+import { columns } from '@/screens/home/components/blocks/components/desktop/utils';
+import type { BlockType } from 'src/screens/home/components/blocks/types';
 
 const Desktop: React.FC<{ items: BlockType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('blocks');

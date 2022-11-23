@@ -1,8 +1,7 @@
-/* eslint-disable max-len */
 import { useEffect } from 'react';
 import { useRecoilValue, useRecoilCallback } from 'recoil';
-import chainConfig from 'ui/chainConfig';
-import type { AtomState as ProfileAtomState } from './types';
+import chainConfig from '@/chainConfig';
+import type { AtomState as ProfileAtomState } from '@/recoil/profiles/types';
 import {
   writeProfile,
   readProfilesExist,
@@ -11,8 +10,8 @@ import {
   readProfiles,
   readDelegatorAddress,
   readDelegatorAddresses,
-} from './selectors';
-import { getProfile } from './utils';
+} from '@/recoil/profiles/selectors';
+import { getProfile } from '@/recoil/profiles/utils';
 
 /**
  * Accepts a delegator address and returns the appropriate profile

@@ -1,6 +1,6 @@
 import React from 'react';
-import { type MsgUnknown } from '@models';
-import { useGetStyles } from './styles';
+import { type MsgUnknown } from '@/models';
+import { useGetStyles } from '@/components/msg/unknown/styles';
 
 const Unknown: React.FC<{ message: MsgUnknown }> = (props) => {
   const { message } = props;

@@ -2,16 +2,16 @@ import { useCallback, useEffect, useState } from 'react';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
 import axios from 'axios';
-import { isBech32 } from '@utils/bech32';
-import { POLLING_INTERVAL, NODES_COUNT, NODES } from '@api';
-import { useInterval } from 'ui/hooks';
-import type { NodeState } from './types';
+import { isBech32 } from '@/utils/bech32';
+import { POLLING_INTERVAL, NODES_COUNT, NODES } from '@/api';
+import { useInterval } from '@/hooks';
+import type { NodeState } from '@/screens/validator_details/components/nodes/types';
 
 export const PAGE_SIZE = 10;
 
 export const useBlocks = () => {
   const router = useRouter();
-    const [state, setState] = useState<NodeState>({
+  const [state, setState] = useState<NodeState>({
     page: 0,
     loading: true,
     items: [],

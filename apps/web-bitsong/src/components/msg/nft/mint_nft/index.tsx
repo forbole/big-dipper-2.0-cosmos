@@ -1,9 +1,9 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
 import Typography from '@material-ui/core/Typography';
-import Name from 'ui/components/name';
-import MsgMintNFT from '@models/bitsong/msg/nft/msg_mint_nft';
-import { useProfileRecoil } from 'ui/recoil/profiles';
+import Name from '@/components/name';
+import MsgMintNFT from '@/models/msg/nft/msg_mint_nft';
+import { useProfileRecoil } from '@/recoil/profiles';
 
 const MintNFT: React.FC<{ message: MsgMintNFT }> = (props) => {
   const { message } = props;

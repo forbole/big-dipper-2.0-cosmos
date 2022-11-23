@@ -1,5 +1,5 @@
 import { renderHook, act, cleanup } from '@testing-library/react-hooks';
-import { useScreenSize } from '.';
+import { useScreenSize } from '@/hooks/use_screen_size';
 
 describe('hook: useScreenSize', () => {
   test('returns correct definitions', async () => {

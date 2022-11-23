@@ -1,12 +1,12 @@
 import Typography from '@material-ui/core/Typography';
-import { readMarket } from '@recoil/market';
+import { readMarket } from '@/recoil/market';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import React from 'react';
 import { useRecoilValue } from 'recoil';
-import ChainIcon from '@components/ChainIcon';
-import { useStyles } from './styles';
-import { formatMarket } from './utils';
+import ChainIcon from '@/components/ChainIcon';
+import { useStyles } from '@/components/nav/components/title_bar/styles';
+import { formatMarket } from '@/components/nav/components/title_bar/utils';
 
 const TitleBar: React.FC<{
   className?: string;

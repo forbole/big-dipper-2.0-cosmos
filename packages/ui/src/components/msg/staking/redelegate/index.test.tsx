@@ -1,13 +1,13 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import { MsgRedelegate } from '@models';
-import Redelegate from '.';
+import { MockTheme } from '@/tests/utils';
+import { MsgRedelegate } from '@/models';
+import Redelegate from '@/components/msg/staking/redelegate';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 

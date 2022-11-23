@@ -1,8 +1,8 @@
 import React from 'react';
 import numeral from 'numeral';
 import useTranslation from 'next-translate/useTranslation';
-import BoxDetails from 'ui/components/box_details';
-import type { StatsType } from '../../types';
+import BoxDetails from '@/components/box_details';
+import type { StatsType } from '@/screens/token_details/types';
 
 const Stats: React.FC<{ stats: StatsType } & ComponentDefault> = (props) => {
   const { t } = useTranslation('tokens');

@@ -1,4 +1,4 @@
-export { atomFamilyState } from './atom';
-export { useValidatorRecoil } from './hooks';
-export { readValidator, writeValidator } from './selectors';
-export type { AtomState } from './types';
+export { atomFamilyState } from '@/recoil/validators/atom';
+export { useValidatorRecoil } from '@/recoil/validators/hooks';
+export { readValidator, writeValidator } from '@/recoil/validators/selectors';
+export type { AtomState } from '@/recoil/validators/types';

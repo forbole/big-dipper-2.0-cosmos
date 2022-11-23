@@ -1,14 +1,14 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import MsgSetRegistry from '@models/sifchain/msg/tokenregistry/msg_set_registry';
-import SetRegistry from '.';
+import { MockTheme } from '@/tests/utils';
+import MsgSetRegistry from '@/models/msg/tokenregistry/msg_set_registry';
+import SetRegistry from '@/components/msg/tokenregistry/set_registry';
 
 // ==================================
 // mocks
 // ==================================
 
-jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 

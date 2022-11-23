@@ -1,11 +1,11 @@
 import { useCallback, useState, useEffect } from 'react';
 import axios from 'axios';
-import { DesmosProfileQuery } from '../../graphql/types/profile_types';
+import { DesmosProfileQuery } from '@/graphql/types/profile_types';
 import {
   DesmosProfileDocument,
   DesmosProfileLinkDocument,
   DesmosProfileDtagDocument,
-} from '../../graphql/profiles/desmos_profile_graphql';
+} from '@/graphql/profiles/desmos_profile_graphql';
 
 type Options = {
   address?: string;

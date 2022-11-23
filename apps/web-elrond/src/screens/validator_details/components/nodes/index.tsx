@@ -1,20 +1,24 @@
 import React from 'react';
 import classnames from 'classnames';
 import dynamic from 'next/dynamic';
-import { usePagination, useScreenSize } from 'ui/hooks';
+import { usePagination, useScreenSize } from '@/hooks';
 import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
-import Pagination from '@components/pagination';
-import NoData from '@components/no_data';
-import Box from 'ui/components/box';
-import Loading from 'ui/components/loading';
-import { useStyles } from './styles';
-import { useBlocks, PAGE_SIZE } from './hooks';
-import type DesktopType from './components/desktop';
-import type MobileType from './components/mobile';
+import Pagination from '@/components/pagination';
+import NoData from '@/components/no_data';
+import Box from '@/components/box';
+import Loading from '@/components/loading';
+import { useStyles } from '@/screens/validator_details/components/nodes/styles';
+import { useBlocks, PAGE_SIZE } from '@/screens/validator_details/components/nodes/hooks';
+import type DesktopType from '@/screens/validator_details/components/nodes/components/desktop';
+import type MobileType from '@/screens/validator_details/components/nodes/components/mobile';
 
-const Desktop = dynamic(() => import('./components/desktop')) as typeof DesktopType;
-const Mobile = dynamic(() => import('./components/mobile')) as typeof MobileType;
+const Desktop = dynamic(
+  () => import('@/screens/validator_details/components/nodes/components/desktop')
+) as typeof DesktopType;
+const Mobile = dynamic(
+  () => import('@/screens/validator_details/components/nodes/components/mobile')
+) as typeof MobileType;
 
 const Nodes: React.FC<ComponentDefault> = (props) => {
   const { t } = useTranslation('validators');

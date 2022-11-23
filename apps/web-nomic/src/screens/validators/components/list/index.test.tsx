@@ -1,30 +1,33 @@
 import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
 import { MockedProvider } from '@apollo/client/testing';
-import { ValidatorsDocument } from '@graphql/types/general_types';
+import { ValidatorsDocument } from '@/graphql/types/general_types';
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme, wait } from 'ui/tests/utils';
-import List from '.';
+import { MockTheme, wait } from '@/tests/utils';
+import List from '@/screens/validators/components/list';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('./components/mobile', () => (props: JSX.IntrinsicElements['div']) => (
-  <div id="Mobile" {...props} />
-));
-jest.mock('./components/desktop', () => (props: JSX.IntrinsicElements['div']) => (
-  <div id="Desktop" {...props} />
-));
-jest.mock('./components/tabs', () => (props: JSX.IntrinsicElements['div']) => (
-  <div id="Tabs" {...props} />
-));
-jest.mock('ui/components/box', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock(
+  '@/screens/validators/components/list/components/mobile',
+  () => (props: JSX.IntrinsicElements['div']) => <div id="Mobile" {...props} />
+);
+jest.mock(
+  '@/screens/validators/components/list/components/desktop',
+  () => (props: JSX.IntrinsicElements['div']) => <div id="Desktop" {...props} />
+);
+jest.mock(
+  '@/screens/validators/components/list/components/tabs',
+  () => (props: JSX.IntrinsicElements['div']) => <div id="Tabs" {...props} />
+);
+jest.mock('@/components/box', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Box" {...props} />
 ));
-jest.mock('ui/components/no_data', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/no_data', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="NoData" {...props} />
 ));
-jest.mock('ui/components/load_and_exist', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/load_and_exist', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="LoadAndExist" {...props} />
 ));
 

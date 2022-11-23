@@ -1,13 +1,13 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import MsgChangeIscnRecordOwnership from '@models/likecoin/msg/iscn/msg_change_iscn_record_ownership';
-import IscnChangeOwnership from '.';
+import { MockTheme } from '@/tests/utils';
+import MsgChangeIscnRecordOwnership from '@/models/msg/iscn/msg_change_iscn_record_ownership';
+import IscnChangeOwnership from '@/components/msg/iscn/iscn_change_ownership';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 

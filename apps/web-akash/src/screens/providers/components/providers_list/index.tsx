@@ -3,22 +3,26 @@ import classnames from 'classnames';
 import dynamic from 'next/dynamic';
 import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
-import Box from 'ui/components/box';
-import Pagination from 'ui/components/pagination';
-import Search from 'ui/components/search';
-import { usePagination, useScreenSize } from 'ui/hooks';
-import { useStyles } from './styles';
-import type { ProvidersListState } from '../../types';
-import type DesktopType from './components/desktop';
-import type MobileType from './components/mobile';
+import Box from '@/components/box';
+import Pagination from '@/components/pagination';
+import Search from '@/components/search';
+import { usePagination, useScreenSize } from '@/hooks';
+import type { ProvidersListState } from '@/screens/providers/types';
+import { useStyles } from '@/screens/providers/components/providers_list/styles';
+import type DesktopType from '@/screens/providers/components/providers_list/components/desktop';
+import type MobileType from '@/screens/providers/components/providers_list/components/mobile';
 
-const Desktop = dynamic(() => import('./components/desktop')) as typeof DesktopType;
-const Mobile = dynamic(() => import('./components/mobile')) as typeof MobileType;
+const Desktop = dynamic(
+  () => import('@/screens/providers/components/providers_list/components/desktop')
+) as typeof DesktopType;
+const Mobile = dynamic(
+  () => import('@/screens/providers/components/providers_list/components/mobile')
+) as typeof MobileType;
 
-export type ProvidersListProps = ComponentDefault & {
+export interface ProvidersListProps extends ComponentDefault {
   list: ProvidersListState;
   handleSearch: (value: string) => void;
-};
+}
 
 const ProvidersList: React.FC<ProvidersListProps> = (props) => {
   const { isDesktop } = useScreenSize();

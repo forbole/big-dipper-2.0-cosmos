@@ -1,14 +1,14 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import MsgRescueCeth from '@models/sifchain/msg/ethbridge/msg_rescue_ceth';
-import RescueCeth from '.';
+import { MockTheme } from '@/tests/utils';
+import MsgRescueCeth from '@/models/msg/ethbridge/msg_rescue_ceth';
+import RescueCeth from '@/components/msg/ethbridge/rescue_ceth';
 
 // ==================================
 // mocks
 // ==================================
 
-jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 

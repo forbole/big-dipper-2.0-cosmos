@@ -1,14 +1,14 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import MsgCreateProposalRequest from '@models/regen/msg/group/msg_create_proposal_request';
-import CreateProposalRequest from '.';
+import { MockTheme } from '@/tests/utils';
+import MsgCreateProposalRequest from '@/models/msg/group/msg_create_proposal_request';
+import CreateProposalRequest from '@/components/msg/group/create_proposal_request';
 
 // ==================================
 // mocks
 // ==================================
 
-jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 

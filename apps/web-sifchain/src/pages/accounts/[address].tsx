@@ -1,4 +1,4 @@
-import AccountDetails from '@screens/account_details';
+import AccountDetails from '@/screens/account_details';
 
 const AccountDetailsPage = () => <AccountDetails />;
 

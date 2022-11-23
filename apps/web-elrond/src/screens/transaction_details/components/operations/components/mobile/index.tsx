@@ -1,14 +1,14 @@
 import React from 'react';
 import * as R from 'ramda';
 import useTranslation from 'next-translate/useTranslation';
-import { formatNumber } from 'ui/utils/format_token';
+import { formatNumber } from '@/utils/format_token';
 import Link from 'next/link';
-import { TOKEN_DETAILS, NFT_DETAILS } from '@utils/go_to_page';
+import { TOKEN_DETAILS, NFT_DETAILS } from '@/utils/go_to_page';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
-import AvatarName from '@components/avatar_name';
-import { useStyles } from './styles';
-import type { OperationType } from '../../../../types';
+import AvatarName from '@/components/avatar_name';
+import type { OperationType } from '@/screens/transaction_details/types';
+import { useStyles } from '@/screens/transaction_details/components/operations/components/mobile/styles';
 
 const Mobile: React.FC<{ items: OperationType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('transactions');

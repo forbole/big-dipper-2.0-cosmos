@@ -1,4 +1,4 @@
-export type OverviewType = {
+export interface OverviewType {
   hash: string;
   fromShard: number;
   toShard: number;
@@ -11,33 +11,33 @@ export type OverviewType = {
   gasLimit: number;
   gasPrice: TokenUnit;
   price: number;
-};
+}
 
 export type DataType = string;
 
-export type ActionType = {
+export interface ActionType {
   category: string;
   name: string;
   description: string;
-};
+}
 
-export type OperationType = {
+export interface OperationType {
   action: string;
   sender: string;
   receiver: string;
   identifier: string;
   value: TokenUnit;
-};
+}
 
-export type ResultType = {
+export interface ResultType {
   hash: string;
   sender: string;
   receiver: string;
   data: string;
   value: TokenUnit;
-};
+}
 
-export type TransactionDetailsState = {
+export interface TransactionDetailsState {
   loading: boolean;
   exists: boolean;
   overview: OverviewType;
@@ -45,4 +45,4 @@ export type TransactionDetailsState = {
   action?: ActionType;
   operations: OperationType[];
   results: ResultType[];
-};
+}

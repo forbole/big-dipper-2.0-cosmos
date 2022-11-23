@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import TransactionMessagesFilter from '.';
+import { MockTheme } from '@/tests/utils';
+import TransactionMessagesFilter from '@/components/transaction_messages_filter';
 
 // ==================================
 // global setup

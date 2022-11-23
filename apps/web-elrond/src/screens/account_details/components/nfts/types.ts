@@ -1,12 +1,12 @@
-export type OtherTokenType = {
+export interface OtherTokenType {
   name: string;
   identifier: string;
   type: string;
-};
+}
 
-export type OtherTokensState = {
+export interface OtherTokensState {
   page: number;
   loading: boolean;
   total: number;
   items: OtherTokenType[];
-};
+}

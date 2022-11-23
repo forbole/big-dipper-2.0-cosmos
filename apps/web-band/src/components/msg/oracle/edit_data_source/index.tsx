@@ -1,9 +1,9 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
 import Typography from '@material-ui/core/Typography';
-import Name from 'ui/components/name';
-import MsgEditDataSource from '@models/band/msg/oracle/msg_edit_data_source';
-import { useProfileRecoil } from 'ui/recoil/profiles';
+import Name from '@/components/name';
+import MsgEditDataSource from '@/models/msg/oracle/msg_edit_data_source';
+import { useProfileRecoil } from '@/recoil/profiles';
 
 const EditDataSource: React.FC<{ message: MsgEditDataSource }> = (props) => {
   const { message } = props;

@@ -1,5 +1,5 @@
 import configFromPreset from 'jest-presets/jest/node/jest-preset';
-import nextJest from 'next/jest.js';
+import nextJest from 'next/jest';
 import { pathsToModuleNameMapper } from 'ts-jest';
 import tsconfig from './tsconfig.json';
 

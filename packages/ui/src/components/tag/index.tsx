@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import Typography from '@material-ui/core/Typography';
-import { useStyles } from './styles';
+import { useStyles } from '@/components/tag/styles';
 
 const Tag: React.FC<{
   className?: string;

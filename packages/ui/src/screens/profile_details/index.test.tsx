@@ -3,13 +3,14 @@ import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
 import renderer from 'react-test-renderer';
-import { MockTheme, wait } from 'ui/tests/utils';
-import ProfileDetails from '.';
+import { MockTheme, wait } from '@/tests/utils';
+import ProfileDetails from '@/screens/profile_details';
 
 // ==================================
 // mocks
 // ==================================
 jest.mock('next/router', () => ({
+  ...jest.requireActual('next/router'),
   useRouter: () => ({
     query: {
       dtag: '@dtag',
@@ -19,19 +20,20 @@ jest.mock('next/router', () => ({
     push: jest.fn(() => '/@dtag'),
   }),
 }));
-jest.mock('@components/layout', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/layout', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Layout" {...props} />
 ));
-jest.mock('@components/load_and_exist', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/load_and_exist', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="LoadAndExist" {...props} />
 ));
-jest.mock('@components/desmos_profile', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/desmos_profile', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="DesmosProfile" {...props} />
 ));
 
-jest.mock('./components/connections', () => (props: JSX.IntrinsicElements['div']) => (
-  <div id="Connections" {...props} />
-));
+jest.mock(
+  '@/screens/profile_details/components/connections',
+  () => (props: JSX.IntrinsicElements['div']) => <div id="Connections" {...props} />
+);
 
 // ==================================
 // unit tests

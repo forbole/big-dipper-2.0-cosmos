@@ -1,10 +1,10 @@
-export type TabType = {
+export interface TabType {
   id: number;
   key: string;
   component?: React.ReactNode;
-};
+}
 
-export type ValidatorType = {
+export interface ValidatorType {
   validator: AvatarName;
   locked: TokenUnit;
   stake: TokenUnit;
@@ -14,14 +14,14 @@ export type ValidatorType = {
   apr: number;
   delegators: number;
   isNode: boolean;
-};
+}
 
 export type SearchType = string;
 
-export type ValidatorsState = {
+export interface ValidatorsState {
   loading: boolean;
   exists: boolean;
   tab: number;
   search: SearchType;
   validators: ValidatorType[];
-};
+}

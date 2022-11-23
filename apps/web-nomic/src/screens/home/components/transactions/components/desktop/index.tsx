@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import numeral from 'numeral';
-import dayjs from 'ui/utils/dayjs';
+import dayjs from '@/utils/dayjs';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import Typography from '@material-ui/core/Typography';
@@ -10,11 +10,11 @@ import TableHead from '@material-ui/core/TableHead';
 import TableCell from '@material-ui/core/TableCell';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
-import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
-import { BLOCK_DETAILS, TRANSACTION_DETAILS } from 'ui/utils/go_to_page';
-import { useStyles } from './styles';
-import { columns } from './utils';
-import type { TransactionType } from '../../types';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
+import { BLOCK_DETAILS, TRANSACTION_DETAILS } from '@/utils/go_to_page';
+import { useStyles } from '@/screens/home/components/transactions/components/desktop/styles';
+import { columns } from '@/screens/home/components/transactions/components/desktop/utils';
+import type { TransactionType } from '@/screens/home/components/transactions/types';
 
 const Desktop: React.FC<{
   className?: string;

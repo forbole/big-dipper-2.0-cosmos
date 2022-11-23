@@ -1,14 +1,14 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import MsgCreateBatchRequest from '@models/regen/msg/ecocredit/msg_create_batch_request';
-import CreateBatchRequest from '.';
+import { MockTheme } from '@/tests/utils';
+import MsgCreateBatchRequest from '@/models/msg/ecocredit/msg_create_batch_request';
+import CreateBatchRequest from '@/components/msg/ecocredit/create_batch_request';
 
 // ==================================
 // mocks
 // ==================================
 
-jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 

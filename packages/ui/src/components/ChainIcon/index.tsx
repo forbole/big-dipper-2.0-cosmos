@@ -60,8 +60,8 @@ import solanaLogoLight from 'shared-utils/assets/logos/solana-dark.svg?url';
 import strideIconDark from 'shared-utils/assets/icons/stride-dark.svg?url';
 import strideLogoDark from 'shared-utils/assets/logos/stride-dark.svg?url';
 import strideLogoLight from 'shared-utils/assets/logos/stride-light.svg?url';
-import chainCoing from 'ui/chainConfig';
-import { useStyles } from './useStyles';
+import chainCoing from '@/chainConfig';
+import { useStyles } from '@/components/ChainIcon/useStyles';
 
 type IconProps = Omit<ImageProps, 'id' | 'src'> & {
   type: 'icon' | 'logo';

@@ -1,13 +1,13 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import MsgCreateIscnRecord from '@models/likecoin/msg/iscn/msg_create_iscn_record';
-import CreateIscnRecord from '.';
+import { MockTheme } from '@/tests/utils';
+import MsgCreateIscnRecord from '@/models/msg/iscn/msg_create_iscn_record';
+import CreateIscnRecord from '@/components/msg/iscn/create_iscn_record';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 

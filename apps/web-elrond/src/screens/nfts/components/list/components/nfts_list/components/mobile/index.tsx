@@ -1,13 +1,13 @@
 import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
-import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 import Link from 'next/link';
-import AvatarName from '@components/avatar_name';
-import { NFT_DETAILS } from '@utils/go_to_page';
-import { useStyles } from './styles';
-import type { NFTTypes } from '../../../../types';
+import AvatarName from '@/components/avatar_name';
+import { NFT_DETAILS } from '@/utils/go_to_page';
+import type { NFTTypes } from '@/screens/nfts/components/list/types';
+import { useStyles } from '@/screens/nfts/components/list/components/nfts_list/components/mobile/styles';
 
 const Mobile: React.FC<{ items: NFTTypes[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('nfts');

@@ -1,0 +1,34 @@
+import * as R from 'ramda';
+import type { Categories } from '@/models/msg/types';
+
+class MsgCancelBid {
+  public category: Categories;
+
+  public type: string;
+
+  public json: any;
+
+  public auctionId: number;
+
+  public bidder: string;
+
+  constructor(payload: any) {
+    this.category = 'auction';
+    this.type = payload.type;
+    this.json = payload.json;
+    this.auctionId = payload.auctionId;
+    this.bidder = payload.bidder;
+  }
+
+  static fromJson(json: any): MsgCancelBid {
+    return {
+      category: 'auction',
+      json,
+      type: json['@type'],
+      auctionId: R.pathOr(0, ['auction_id'], json),
+      bidder: json.bidder,
+    };
+  }
+}
+
+export default MsgCancelBid;

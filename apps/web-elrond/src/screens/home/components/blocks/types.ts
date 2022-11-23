@@ -1,10 +1,10 @@
-export type BlockType = {
+export interface BlockType {
   block: number; // round
   timestamp: number;
   txs: number;
   hash: string;
-};
+}
 
-export type BlockState = {
+export interface BlockState {
   items: BlockType[];
-};
+}

@@ -4,7 +4,7 @@ import useTranslation from 'next-translate/useTranslation';
 import Typography from '@material-ui/core/Typography';
 import LiquidStakingTrueIcon from 'shared-utils/assets/liquid-staking-true.svg';
 import LiquidStakingFalseIcon from 'shared-utils/assets/liquid-staking-false.svg';
-import { useStyles } from './styles';
+import { useStyles } from '@/screens/validators/components/list/components/mobile/component/single_validator/styles';
 
 const SingleValidator: React.FC<{
   className?: string;

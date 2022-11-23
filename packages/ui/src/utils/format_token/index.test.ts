@@ -1,4 +1,4 @@
-import { removeEndingZeros, formatNumber, formatToken } from '.';
+import { removeEndingZeros, formatNumber, formatToken } from '@/utils/format_token';
 
 // ==================================
 // unit tests

@@ -1,14 +1,14 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import MsgCreatePool from '@models/sifchain/msg/clp/msg_create_pool';
-import CreatePool from '.';
+import { MockTheme } from '@/tests/utils';
+import MsgCreatePool from '@/models/msg/clp/msg_create_pool';
+import CreatePool from '@/components/msg/clp/create_pool';
 
 // ==================================
 // mocks
 // ==================================
 
-jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 

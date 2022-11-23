@@ -1,18 +1,18 @@
 import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
 import { NextSeo } from 'next-seo';
-import Layout from '@components/layout';
-import LoadAndExist from 'ui/components/load_and_exist';
-import BoxDetails from 'ui/components/box_details';
-import { useStyles } from './styles';
-import { useParams } from './hooks';
+import Layout from '@/components/layout';
+import LoadAndExist from '@/components/load_and_exist';
+import BoxDetails from '@/components/box_details';
+import { useStyles } from '@/screens/params/styles';
+import { useParams } from '@/screens/params/hooks';
 import {
   formatStaking,
   formatSlashing,
   formatMinting,
   formatDistribution,
   formatGov,
-} from './utils';
+} from '@/screens/params/utils';
 
 const Params = () => {
   const { t } = useTranslation('params');

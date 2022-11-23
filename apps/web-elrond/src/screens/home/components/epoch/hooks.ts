@@ -1,11 +1,11 @@
 import { useCallback, useEffect, useState } from 'react';
 import * as R from 'ramda';
 import axios from 'axios';
-import { STATS } from '@api';
-import type { EpochState } from './types';
+import { STATS } from '@/api';
+import type { EpochState } from '@/screens/home/components/epoch/types';
 
 export const useEpoch = () => {
-    const [state, setState] = useState<EpochState>({
+  const [state, setState] = useState<EpochState>({
     epoch: 0,
     roundsPassed: 0,
     roundsPerEpoch: 0,

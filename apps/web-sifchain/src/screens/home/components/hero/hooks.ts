@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react';
 import * as R from 'ramda';
-import { useTokenPriceHistoryQuery } from '@graphql/types/general_types';
-import type { HeroState } from './types';
+import { useTokenPriceHistoryQuery } from '@/graphql/types/general_types';
+import type { HeroState } from '@/screens/home/components/hero/types';
 
 export const useHero = () => {
   const [state, setState] = useState<HeroState>({

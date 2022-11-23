@@ -28,7 +28,7 @@ process.env = {
   CHAIN_CONFIG: JSON.stringify(chainConfig),
 };
 
-jest.mock('ui/utils/dayjs', () => {
+jest.mock('@/utils/dayjs', () => {
   const mockTest = () => ({
     format: jest.fn(() => '2020-08-10 12:00:00'),
   });
@@ -59,7 +59,7 @@ jest.mock('next/dynamic', () => () => {
   return DynamicComponent;
 });
 
-jest.mock('ui/recoil/profiles', () => {
+jest.mock('@/recoil/profiles', () => {
   return {
     useProfileRecoil: jest.fn((address) => ({
       address,

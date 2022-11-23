@@ -1,13 +1,13 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import MsgMintTokens from '@models/emoney/msg/liquidity_provider/msg_mint_tokens';
-import MintTokens from '.';
+import { MockTheme } from '@/tests/utils';
+import MsgMintTokens from '@/models/msg/liquidity_provider/msg_mint_tokens';
+import MintTokens from '@/components/msg/liquidity_provider/mint_tokens';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 

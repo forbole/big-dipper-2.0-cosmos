@@ -3,14 +3,14 @@ import { ListChildComponentProps, VariableSizeList as List } from 'react-window'
 import useTranslation from 'next-translate/useTranslation';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import Link from 'next/link';
-import { NODE_DETAILS } from '@utils/go_to_page';
+import { NODE_DETAILS } from '@/utils/go_to_page';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
-import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
-import { useList, useListRow } from 'ui/hooks';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
+import { useList, useListRow } from '@/hooks';
 import { Translate } from 'next-translate';
-import { useStyles } from './styles';
-import type { ConsensusType } from '../../../../types';
+import type { ConsensusType } from '@/screens/block_details/types';
+import { useStyles } from '@/screens/block_details/components/consensus/components/mobile/styles';
 
 const Mobile: FC<{ items: ConsensusType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('blocks');

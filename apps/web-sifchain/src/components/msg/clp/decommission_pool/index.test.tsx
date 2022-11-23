@@ -1,14 +1,14 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import MsgDecommissionPool from '@models/sifchain/msg/clp/msg_decommission_pool';
-import DecommissionPool from '.';
+import { MockTheme } from '@/tests/utils';
+import MsgDecommissionPool from '@/models/msg/clp/msg_decommission_pool';
+import DecommissionPool from '@/components/msg/clp/decommission_pool';
 
 // ==================================
 // mocks
 // ==================================
 
-jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 

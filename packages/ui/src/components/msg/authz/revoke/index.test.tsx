@@ -1,13 +1,13 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import { MsgRevoke } from '@models';
-import Revoke from '.';
+import { MockTheme } from '@/tests/utils';
+import { MsgRevoke } from '@/models';
+import Revoke from '@/components/msg/authz/revoke';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 

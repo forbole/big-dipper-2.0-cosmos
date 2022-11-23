@@ -1,4 +1,4 @@
-import NFTDetails from '@screens/nft_details';
+import NFTDetails from '@/screens/nft_details';
 
 const NFTDetailsPage = () => <NFTDetails />;
 

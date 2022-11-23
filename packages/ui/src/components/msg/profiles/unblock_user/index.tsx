@@ -1,9 +1,9 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
 import Typography from '@material-ui/core/Typography';
-import Name from '@components/name';
-import { MsgUnblockUser } from '@models';
-import { useProfileRecoil } from 'ui/recoil/profiles';
+import Name from '@/components/name';
+import { MsgUnblockUser } from '@/models';
+import { useProfileRecoil } from '@/recoil/profiles';
 
 const UnBlockUser: React.FC<{ message: MsgUnblockUser }> = (props) => {
   const { message } = props;

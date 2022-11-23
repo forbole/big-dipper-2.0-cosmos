@@ -2,17 +2,17 @@ import { useCallback, useEffect, useState } from 'react';
 import * as R from 'ramda';
 import Big from 'big.js';
 import { useRouter } from 'next/router';
-import { getDenom } from 'ui/utils/get_denom';
-import { formatToken } from 'ui/utils/format_token';
-import chainConfig from 'ui/chainConfig';
-import { isValidAddress } from 'ui/utils/prefix_convert';
-import { useDesmosProfile } from 'ui/hooks';
-import type { AccountDetailState } from './types';
+import { getDenom } from '@/utils/get_denom';
+import { formatToken } from '@/utils/format_token';
+import chainConfig from '@/chainConfig';
+import { isValidAddress } from '@/utils/prefix_convert';
+import { useDesmosProfile } from '@/hooks';
+import type { AccountDetailState } from '@/screens/account_details/types';
 import {
   fetchAvailableBalances,
   fetchDelegationBalance,
   // fetchAccountWithdrawalAddress,
-} from './utils';
+} from '@/screens/account_details/utils';
 
 const defaultTokenUnit: TokenUnit = {
   value: '0',

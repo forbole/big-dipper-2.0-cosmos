@@ -1,14 +1,14 @@
-import NoData from '@components/no_data';
-import Pagination from '@components/pagination';
-import TransactionsList from '@components/transactions_list';
+import NoData from '@/components/no_data';
+import Pagination from '@/components/pagination';
+import TransactionsList from '@/components/transactions_list';
 import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import React from 'react';
-import Box from 'ui/components/box';
-import Loading from 'ui/components/loading';
-import { usePagination } from 'ui/hooks';
-import { PAGE_SIZE, useTransactions } from './hooks';
-import { useStyles } from './styles';
+import Box from '@/components/box';
+import Loading from '@/components/loading';
+import { usePagination } from '@/hooks';
+import { PAGE_SIZE, useTransactions } from '@/screens/token_details/components/transactions/hooks';
+import { useStyles } from '@/screens/token_details/components/transactions/styles';
 
 const Transactions: React.FC<ComponentDefault> = (props) => {
   const { t } = useTranslation('tokens');

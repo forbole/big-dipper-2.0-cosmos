@@ -1,14 +1,14 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import MsgUpdateGroupAccountDecisionPolicyRequest from '@models/regen/msg/group/msg_update_group_account_decision_policy_request';
-import UpdateGroupAccountDecisionPolicyRequest from '.';
+import { MockTheme } from '@/tests/utils';
+import MsgUpdateGroupAccountDecisionPolicyRequest from '@/models/msg/group/msg_update_group_account_decision_policy_request';
+import UpdateGroupAccountDecisionPolicyRequest from '@/components/msg/group/update_group_account_decision_policy_request';
 
 // ==================================
 // mocks
 // ==================================
 
-jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 

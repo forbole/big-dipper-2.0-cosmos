@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import Typography from '@material-ui/core/Typography';
-import { useStyles } from './styles';
+import { useStyles } from '@/screens/providers/components/data_blocks/components/single_block/styles';
 
 const SingleBlock: React.FC<{
   className?: string;

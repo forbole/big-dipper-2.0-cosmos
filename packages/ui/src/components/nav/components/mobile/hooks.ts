@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import * as R from 'ramda';
-import { useScreenSize } from '@hooks';
+import { useScreenSize } from '@/hooks';
 
 export const useMobile = () => {
   // ==========================

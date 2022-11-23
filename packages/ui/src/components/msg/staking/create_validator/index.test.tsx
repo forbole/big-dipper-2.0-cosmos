@@ -1,13 +1,13 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import { MsgCreateValidator } from '@models';
-import CreateValidator from '.';
+import { MockTheme } from '@/tests/utils';
+import { MsgCreateValidator } from '@/models';
+import CreateValidator from '@/components/msg/staking/create_validator';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 

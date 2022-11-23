@@ -3,9 +3,9 @@ import classnames from 'classnames';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import Typography from '@material-ui/core/Typography';
 import { useRecoilValue } from 'recoil';
-import { readSelectedNetwork } from '@recoil/big_dipper_networks';
-import ChainIcon from '@components/ChainIcon';
-import { useStyles } from './styles';
+import { readSelectedNetwork } from '@/recoil/big_dipper_networks';
+import ChainIcon from '@/components/ChainIcon';
+import { useStyles } from '@/components/nav/components/desktop/components/action_bar/components/network/styles';
 
 const Network: React.FC<{
   className?: string;

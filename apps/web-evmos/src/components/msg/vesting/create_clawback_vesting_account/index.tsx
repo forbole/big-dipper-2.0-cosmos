@@ -1,9 +1,9 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
 import Typography from '@material-ui/core/Typography';
-import Name from 'ui/components/name';
-import MsgCreateClawbackVestingAccount from '@models/evmos/msg/vesting/msg_create_clawback_vesting_account';
-import { useProfileRecoil } from 'ui/recoil/profiles';
+import Name from '@/components/name';
+import MsgCreateClawbackVestingAccount from '@/models/msg/vesting/msg_create_clawback_vesting_account';
+import { useProfileRecoil } from '@/recoil/profiles';
 
 const CreateClawbackVestingAccount: React.FC<{ message: MsgCreateClawbackVestingAccount }> = (
   props

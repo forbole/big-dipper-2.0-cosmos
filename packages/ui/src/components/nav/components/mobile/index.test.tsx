@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme, wait } from 'ui/tests/utils';
-import Mobile from '.';
+import { MockTheme, wait } from '@/tests/utils';
+import Mobile from '@/components/nav/components/mobile';
 // ==================================
 // global setup
 // ==================================
@@ -10,13 +10,15 @@ let component: renderer.ReactTestRenderer;
 // ==================================
 // global setup
 // ==================================
-jest.mock('./components/menu', () => (props: JSX.IntrinsicElements['div']) => (
-  <div id="menu" {...props} />
-));
-jest.mock('./components/navbar', () => (props: JSX.IntrinsicElements['div']) => (
-  <div id="navbar" {...props} />
-));
-jest.mock('../search_bar', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock(
+  '@/components/nav/components/mobile/components/menu',
+  () => (props: JSX.IntrinsicElements['div']) => <div id="menu" {...props} />
+);
+jest.mock(
+  '@/components/nav/components/mobile/components/navbar',
+  () => (props: JSX.IntrinsicElements['div']) => <div id="navbar" {...props} />
+);
+jest.mock('@/components/nav/components/search_bar', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="searchBar" {...props} />
 ));
 

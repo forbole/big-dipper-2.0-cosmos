@@ -1,10 +1,10 @@
 import * as R from 'ramda';
 import { ThemeOptions } from '@material-ui/core/styles';
 
-import { darkThemeOverride } from './dark';
-import { lightThemeOverride } from './light';
-import { deuteranopiaThemeOverride } from './deuteranopia';
-import { tritanopiaThemeOverride } from './tritanopia';
+import { darkThemeOverride } from '@/styles/theme/dark';
+import { lightThemeOverride } from '@/styles/theme/light';
+import { deuteranopiaThemeOverride } from '@/styles/theme/deuteranopia';
+import { tritanopiaThemeOverride } from '@/styles/theme/tritanopia';
 
 /** Common themes that don't change across light and dark theme */
 export const common: ThemeOptions = {

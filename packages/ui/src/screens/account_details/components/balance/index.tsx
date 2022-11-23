@@ -4,16 +4,16 @@ import Big from 'big.js';
 import numeral from 'numeral';
 import * as R from 'ramda';
 import { useRecoilValue } from 'recoil';
-import { readMarket } from '@recoil/market';
+import { readMarket } from '@/recoil/market';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 import { PieChart, Pie, ResponsiveContainer, Cell } from 'recharts';
 import useTranslation from 'next-translate/useTranslation';
-import Box from '@components/box';
-import chainConfig from 'ui/chainConfig';
-import { formatNumber } from 'ui/utils/format_token';
-import { useStyles } from './styles';
-import { formatBalanceData } from './utils';
+import Box from '@/components/box';
+import chainConfig from '@/chainConfig';
+import { formatNumber } from '@/utils/format_token';
+import { useStyles } from '@/screens/account_details/components/balance/styles';
+import { formatBalanceData } from '@/screens/account_details/components/balance/utils';
 
 type Props = Parameters<typeof formatBalanceData>[0] & {
   className?: string;

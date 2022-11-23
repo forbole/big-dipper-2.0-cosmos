@@ -2,12 +2,12 @@ import { useCallback, useEffect, useState } from 'react';
 import axios from 'axios';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
-import { TOKEN_DETAILS } from '@api';
-import type { TokenDetailsState } from './types';
+import { TOKEN_DETAILS } from '@/api';
+import type { TokenDetailsState } from '@/screens/token_details/types';
 
 export const useTokenDetails = () => {
   const router = useRouter();
-    const [state, setState] = useState<TokenDetailsState>({
+  const [state, setState] = useState<TokenDetailsState>({
     loading: true,
     exists: true,
     profile: {

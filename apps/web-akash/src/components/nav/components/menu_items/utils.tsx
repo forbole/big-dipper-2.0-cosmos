@@ -14,7 +14,7 @@ import {
   PROPOSALS,
   PARAMS,
   PROVIDERS,
-} from '@utils/go_to_page';
+} from '@/utils/go_to_page';
 
 export const getMenuItems = () => {
   const iconProps = {

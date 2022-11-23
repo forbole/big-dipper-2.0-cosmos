@@ -1,14 +1,14 @@
 import { useCallback, useEffect, useState } from 'react';
 import * as R from 'ramda';
 import axios from 'axios';
-import { POLLING_INTERVAL, BLOCKS, LATEST_BLOCK_HEIGHT } from '@api';
-import { useInterval } from 'ui/hooks';
-import type { BlockState } from './types';
+import { POLLING_INTERVAL, BLOCKS, LATEST_BLOCK_HEIGHT } from '@/api';
+import { useInterval } from '@/hooks';
+import type { BlockState } from '@/screens/blocks/components/list/types';
 
 export const PAGE_SIZE = 25;
 
 export const useBlocks = () => {
-    const [state, setState] = useState<BlockState>({
+  const [state, setState] = useState<BlockState>({
     page: 0,
     loading: true,
     items: [],

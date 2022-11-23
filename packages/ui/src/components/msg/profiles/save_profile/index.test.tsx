@@ -1,13 +1,13 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import { MsgSaveProfile } from '@models';
-import SaveProfile from '.';
+import { MockTheme } from '@/tests/utils';
+import { MsgSaveProfile } from '@/models';
+import SaveProfile from '@/components/msg/profiles/save_profile';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 

@@ -4,8 +4,8 @@ import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import { a11yProps } from 'ui/utils/a11yProps';
-import { useStyles } from './styles';
+import { a11yProps } from '@/utils/a11yProps';
+import { useStyles } from '@/screens/account_details/components/staking/components/tabs/styles';
 
 const TabsHeader: React.FC<{
   className?: string;

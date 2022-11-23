@@ -1,15 +1,15 @@
 import React from 'react';
-import dayjs from 'ui/utils/dayjs';
+import dayjs from '@/utils/dayjs';
 import Link from 'next/link';
-import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import useTranslation from 'next-translate/useTranslation';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
-import { TRANSACTION_DETAILS } from '@utils/go_to_page';
-import Result from '@components/result';
-import AvatarName from '@components/avatar_name';
-import type { TransactionType } from '../../types';
-import { useStyles } from './styles';
+import { TRANSACTION_DETAILS } from '@/utils/go_to_page';
+import Result from '@/components/result';
+import AvatarName from '@/components/avatar_name';
+import type { TransactionType } from '@/screens/home/components/transactions/types';
+import { useStyles } from '@/screens/home/components/transactions/components/mobile/styles';
 
 const Mobile: React.FC<{ items: TransactionType[] } & ComponentDefault> = (props) => {
   const classes = useStyles();

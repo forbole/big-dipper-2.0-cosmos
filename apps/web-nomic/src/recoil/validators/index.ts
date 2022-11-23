@@ -4,7 +4,11 @@ import {
   readValidator,
   writeValidator,
 } from 'ui/recoil/validators';
-import { type UseValidatorAddressesQuery, type DataType, useValidatorRecoil } from './hooks';
+import {
+  type UseValidatorAddressesQuery,
+  type DataType,
+  useValidatorRecoil,
+} from '@/recoil/validators/hooks';
 
 export {
   type AtomState,

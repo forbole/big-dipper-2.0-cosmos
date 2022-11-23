@@ -1,9 +1,9 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
 import Typography from '@material-ui/core/Typography';
-import Name from 'ui/components/name';
-import MsgLinkChainAccount from '@models/desmos/msg/profiles/msg_link_chain_account';
-import { useProfileRecoil } from 'ui/recoil/profiles';
+import Name from '@/components/name';
+import MsgLinkChainAccount from '@/models/msg/profiles/msg_link_chain_account';
+import { useProfileRecoil } from '@/recoil/profiles';
 
 const LinkChainAccount: React.FC<{ message: MsgLinkChainAccount }> = (props) => {
   const { message } = props;

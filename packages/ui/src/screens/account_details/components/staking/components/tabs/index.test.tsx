@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import TabsHeader from '.';
+import { MockTheme } from '@/tests/utils';
+import TabsHeader from '@/screens/account_details/components/staking/components/tabs';
 
 // ==================================
 // unit tests

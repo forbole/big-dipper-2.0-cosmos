@@ -1,4 +1,4 @@
-import type { Categories } from '../types';
+import type { Categories } from '@/models/msg/types';
 
 class MsgSetWithdrawAddress {
   public category: Categories;

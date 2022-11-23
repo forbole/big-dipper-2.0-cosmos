@@ -1,13 +1,13 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme, wait } from 'ui/tests/utils';
-import { MsgGrantAllowance } from '@models';
-import GrantAllowance from '.';
+import { MockTheme, wait } from '@/tests/utils';
+import { MsgGrantAllowance } from '@/models';
+import GrantAllowance from '@/components/msg/feegrant/grant_allowance';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 

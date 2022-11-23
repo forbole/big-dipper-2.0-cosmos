@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useState } from 'react';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
-import chainConfig from 'ui/chainConfig';
-import { useDesmosProfile } from '@hooks';
-import type { ProfileDetailState } from './types';
+import chainConfig from '@/chainConfig';
+import { useDesmosProfile } from '@/hooks';
+import type { ProfileDetailState } from '@/screens/profile_details/types';
 
 const initialState: ProfileDetailState = {
   loading: true,

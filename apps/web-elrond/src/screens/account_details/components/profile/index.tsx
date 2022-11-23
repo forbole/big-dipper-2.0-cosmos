@@ -2,13 +2,13 @@ import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Typography from '@material-ui/core/Typography';
-import { useScreenSize } from 'ui/hooks';
+import { useScreenSize } from '@/hooks';
 import CopyIcon from 'shared-utils/assets/icon-copy.svg';
-import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
-import Box from 'ui/components/box';
-import { useStyles } from './styles';
-import { useOverview } from './hooks';
-import type { ProfileType } from '../../types';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
+import Box from '@/components/box';
+import { useStyles } from '@/screens/account_details/components/profile/styles';
+import { useOverview } from '@/screens/account_details/components/profile/hooks';
+import type { ProfileType } from '@/screens/account_details/types';
 
 const Profile: React.FC<{ profile: ProfileType } & ComponentDefault> = ({ className, profile }) => {
   const { isDesktop } = useScreenSize();

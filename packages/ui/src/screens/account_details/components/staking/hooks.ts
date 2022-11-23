@@ -3,11 +3,15 @@ import * as R from 'ramda';
 import Big from 'big.js';
 import { useRouter } from 'next/router';
 import axios from 'axios';
-import { formatToken } from 'ui/utils/format_token';
-import { getDenom } from 'ui/utils/get_denom';
-import chainConfig from 'ui/chainConfig';
-import type { DelegationType, RedelegationType, StakingState } from './types';
-import type { RewardsType } from '../../types';
+import { formatToken } from '@/utils/format_token';
+import { getDenom } from '@/utils/get_denom';
+import chainConfig from '@/chainConfig';
+import type { RewardsType } from '@/screens/account_details/types';
+import type {
+  DelegationType,
+  RedelegationType,
+  StakingState,
+} from '@/screens/account_details/components/staking/types';
 
 const stakingDefault = {
   data: {},

@@ -1,9 +1,9 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
 import Typography from '@material-ui/core/Typography';
-import Name from 'ui/components/name';
-import MsgCreateEthBridgeClaim from '@models/sifchain/msg/ethbridge/msg_create_eth_bridge_claim';
-import { useProfileRecoil } from 'ui/recoil/profiles';
+import Name from '@/components/name';
+import MsgCreateEthBridgeClaim from '@/models/msg/ethbridge/msg_create_eth_bridge_claim';
+import { useProfileRecoil } from '@/recoil/profiles';
 
 const CreateEthBridgeClaim: React.FC<{ message: MsgCreateEthBridgeClaim }> = (props) => {
   const { message } = props;

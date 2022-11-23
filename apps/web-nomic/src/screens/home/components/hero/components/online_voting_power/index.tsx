@@ -2,8 +2,8 @@ import React from 'react';
 import numeral from 'numeral';
 import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
-import { useStyles } from './styles';
-import { useOnlineVotingPower } from './hooks';
+import { useStyles } from '@/screens/home/components/hero/components/online_voting_power/styles';
+import { useOnlineVotingPower } from '@/screens/home/components/hero/components/online_voting_power/hooks';
 
 const OnlineVotingPower: React.FC<ComponentDefault> = () => {
   const { t } = useTranslation('home');

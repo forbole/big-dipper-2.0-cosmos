@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import { CheckCircle, Cancel, Help } from '@material-ui/icons';
 import Typography from '@material-ui/core/Typography';
-import { useStyles } from './styles';
+import { useStyles } from '@/components/result/styles';
 
 const Result: React.FC<{
   className?: string;

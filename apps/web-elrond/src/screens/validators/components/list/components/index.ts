@@ -1,4 +1,4 @@
-import Validators from './validators';
-import Tabs from './tabs';
+import Validators from '@/screens/validators/components/list/components/validators';
+import Tabs from '@/screens/validators/components/list/components/tabs';
 
 export { Validators, Tabs };

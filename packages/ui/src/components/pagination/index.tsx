@@ -2,8 +2,8 @@ import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
 import classnames from 'classnames';
 import TablePagination from '@material-ui/core/TablePagination';
-import Actions from './components/actions';
-import { useStyles } from './styles';
+import Actions from '@/components/pagination/components/actions';
+import { useStyles } from '@/components/pagination/styles';
 
 const Pagination: React.FC<{
   className?: string;

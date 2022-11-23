@@ -1,5 +1,5 @@
 import numeral from 'numeral';
-import type { Categories } from '../types';
+import type { Categories } from '@/models/msg/types';
 
 class MsgEditValidator {
   public category: Categories;

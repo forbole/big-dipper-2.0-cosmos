@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import SettingIcon from 'shared-utils/assets/icon-setting.svg';
-import generalConfig from 'ui/generalConfig';
+import generalConfig from '@/generalConfig';
 import MenuItem from '@material-ui/core/MenuItem';
 import Typography from '@material-ui/core/Typography';
 import Dialog from '@material-ui/core/Dialog';
@@ -14,9 +14,9 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import Select from '@material-ui/core/Select';
 import CloseIcon from '@material-ui/icons/Close';
-import { THEME_LIST, DATE_LIST, TX_LIST } from 'ui/recoil/settings';
-import { useSettingList } from './hooks';
-import { useStyles } from './styles';
+import { THEME_LIST, DATE_LIST, TX_LIST } from '@/recoil/settings';
+import { useSettingList } from '@/components/nav/components/desktop/components/action_bar/components/settings_list/hooks';
+import { useStyles } from '@/components/nav/components/desktop/components/action_bar/components/settings_list/styles';
 
 const Settings: React.FC<{
   className?: string;

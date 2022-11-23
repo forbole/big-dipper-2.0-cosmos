@@ -3,11 +3,11 @@ import classnames from 'classnames';
 import numeral from 'numeral';
 import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
-import Box from 'ui/components/box';
-import CustomToolTip from 'ui/components/custom_tool_tip';
+import Box from '@/components/box';
+import CustomToolTip from '@/components/custom_tool_tip';
 import { PieChart, Pie, Cell, Tooltip } from 'recharts';
-import { useStyles } from './styles';
-import { useStaking } from './hooks';
+import { useStyles } from '@/screens/home/components/staking/styles';
+import { useStaking } from '@/screens/validator_details/components/staking/hooks';
 
 const Staking: React.FC<{
   className?: string;

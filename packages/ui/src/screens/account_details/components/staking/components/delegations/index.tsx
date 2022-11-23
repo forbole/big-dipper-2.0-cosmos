@@ -2,18 +2,24 @@ import React from 'react';
 import * as R from 'ramda';
 import classnames from 'classnames';
 import dynamic from 'next/dynamic';
-import { usePagination, useScreenSize } from '@hooks';
-import Pagination from '@components/pagination';
-import NoData from '@components/no_data';
-import Loading from '@components/loading';
-import { useProfilesRecoil } from 'ui/recoil/profiles';
-import { useStyles } from './styles';
-import type { DelegationsType } from '../../types';
-import type DesktopType from './components/desktop';
-import type MobileType from './components/mobile';
+import { usePagination, useScreenSize } from '@/hooks';
+import Pagination from '@/components/pagination';
+import NoData from '@/components/no_data';
+import Loading from '@/components/loading';
+import { useProfilesRecoil } from '@/recoil/profiles';
+import type { DelegationsType } from '@/screens/account_details/components/staking/types';
+import { useStyles } from '@/screens/account_details/components/staking/components/delegations/styles';
+import type DesktopType from '@/screens/account_details/components/staking/components/delegations/components/desktop';
+import type MobileType from '@/screens/account_details/components/staking/components/delegations/components/mobile';
 
-const Desktop = dynamic(() => import('./components/desktop')) as typeof DesktopType;
-const Mobile = dynamic(() => import('./components/mobile')) as typeof MobileType;
+const Desktop = dynamic(
+  () =>
+    import('@/screens/account_details/components/staking/components/delegations/components/desktop')
+) as typeof DesktopType;
+const Mobile = dynamic(
+  () =>
+    import('@/screens/account_details/components/staking/components/delegations/components/mobile')
+) as typeof MobileType;
 
 const Delegations: React.FC<
   {

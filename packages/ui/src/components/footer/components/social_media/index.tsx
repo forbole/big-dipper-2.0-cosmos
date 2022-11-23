@@ -1,7 +1,7 @@
 import React from 'react';
-import { socialMediaLinks } from './utils';
-import { useStyles } from './styles';
-import type { Props } from './types';
+import { socialMediaLinks } from '@/components/footer/components/social_media/utils';
+import { useStyles } from '@/components/footer/components/social_media/styles';
+import type { Props } from '@/components/footer/components/social_media/types';
 
 const SocialMedia = (props: Props) => {
   const { className = '' } = props;

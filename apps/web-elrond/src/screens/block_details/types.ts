@@ -1,4 +1,4 @@
-export type OverviewType = {
+export interface OverviewType {
   block: number; // round
   hash: string;
   proposer: string;
@@ -10,15 +10,15 @@ export type OverviewType = {
   gasProvided: number;
   gasRefunded: number;
   gasPenalized: number;
-};
+}
 
 export type MiniBlockType = string;
 export type ConsensusType = string;
 
-export type BlockDetailsState = {
+export interface BlockDetailsState {
   loading: boolean;
   exists: boolean;
   overview: OverviewType;
   miniBlocks: MiniBlockType[];
   consensus: ConsensusType[];
-};
+}

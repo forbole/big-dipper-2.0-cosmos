@@ -1,9 +1,9 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
 import Typography from '@material-ui/core/Typography';
-import Name from 'ui/components/name';
-import MsgCreatePeriodicVestingAccount from '@models/evmos/msg/vesting/msg_create_periodic_vesting_account';
-import { useProfileRecoil } from 'ui/recoil/profiles';
+import Name from '@/components/name';
+import MsgCreatePeriodicVestingAccount from '@/models/msg/vesting/msg_create_periodic_vesting_account';
+import { useProfileRecoil } from '@/recoil/profiles';
 
 const CreatePeriodicVestingAccount: React.FC<{ message: MsgCreatePeriodicVestingAccount }> = (
   props

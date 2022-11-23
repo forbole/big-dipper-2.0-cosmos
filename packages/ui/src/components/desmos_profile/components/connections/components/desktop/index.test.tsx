@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import Desktop from '.';
+import { MockTheme } from '@/tests/utils';
+import Desktop from '@/components/desmos_profile/components/connections/components/desktop';
 
 // ==================================
 // global setup

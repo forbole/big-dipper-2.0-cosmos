@@ -1,14 +1,14 @@
 import { useCallback, useState } from 'react';
 import * as R from 'ramda';
 import axios from 'axios';
-import { POLLING_INTERVAL, TRANSACTIONS } from '@api';
-import { useInterval } from 'ui/hooks';
-import type { TransactionState } from './types';
+import { POLLING_INTERVAL, TRANSACTIONS } from '@/api';
+import { useInterval } from '@/hooks';
+import type { TransactionState } from '@/screens/home/components/transactions/types';
 
 export const PAGE_SIZE = 7;
 
 export const useBlocks = () => {
-    const [state, setState] = useState<TransactionState>({
+  const [state, setState] = useState<TransactionState>({
     items: [],
   });
 

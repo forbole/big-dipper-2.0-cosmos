@@ -1,15 +1,15 @@
 import React from 'react';
 import classnames from 'classnames';
-import { useStyles } from './styles';
+import { useStyles } from '@/components/custom_tool_tip/styles';
 
-export type CustomToolTipData = {
+export interface CustomToolTipData {
   legendKey: string;
   percentKey?: string;
   value: string;
   rawValue: number;
   percent: string;
   fill: string;
-};
+}
 
 /**
  * Custom tooltips for recharts

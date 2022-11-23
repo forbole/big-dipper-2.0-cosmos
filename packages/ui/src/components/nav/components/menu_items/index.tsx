@@ -7,8 +7,8 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import useTranslation from 'next-translate/useTranslation';
-import { useStyles } from './styles';
-import { getMenuItems } from './utils';
+import { useStyles } from '@/components/nav/components/menu_items/styles';
+import { getMenuItems } from '@/components/nav/components/menu_items/utils';
 
 const MenuItems = () => {
   const classes = useStyles();

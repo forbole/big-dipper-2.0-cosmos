@@ -1,7 +1,7 @@
 import React from 'react';
-import Box from 'ui/components/box';
-import OnlineVotingPower from './components/online_voting_power';
-import { useHero } from './hooks';
+import Box from '@/components/box';
+import OnlineVotingPower from '@/screens/home/components/hero/components/online_voting_power';
+import { useHero } from '@/screens/home/components/hero/hooks';
 
 const Hero: React.FC<ComponentDefault> = (props) => {
   const { state } = useHero();

@@ -3,14 +3,14 @@ import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
-import NoData from '@components/no_data';
-import Box from 'ui/components/box';
-import AvatarName from '@components/avatar_name';
-import { formatNumber } from 'ui/utils/format_token';
-import { decodeBase64 } from '@utils/base64';
-import type { ResultType } from '../../types';
-import CodeBlock from '../code_block';
-import { useStyles } from './styles';
+import NoData from '@/components/no_data';
+import Box from '@/components/box';
+import AvatarName from '@/components/avatar_name';
+import { formatNumber } from '@/utils/format_token';
+import { decodeBase64 } from '@/utils/base64';
+import type { ResultType } from '@/screens/transaction_details/types';
+import CodeBlock from '@/screens/transaction_details/components/code_block';
+import { useStyles } from '@/screens/transaction_details/components/smart_contract_results/styles';
 
 const SmartContractResults: React.FC<{ results: ResultType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('transactions');

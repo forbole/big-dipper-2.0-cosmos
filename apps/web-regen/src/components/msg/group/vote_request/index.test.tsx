@@ -1,14 +1,14 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import MsgVoteRequest from '@models/regen/msg/group/msg_vote_request';
-import VoteRequest from '.';
+import { MockTheme } from '@/tests/utils';
+import MsgVoteRequest from '@/models/msg/group/msg_vote_request';
+import VoteRequest from '@/components/msg/group/vote_request';
 
 // ==================================
 // mocks
 // ==================================
 
-jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 

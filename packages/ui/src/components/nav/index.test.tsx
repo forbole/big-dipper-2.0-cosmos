@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import Nav from '.';
+import { MockTheme } from '@/tests/utils';
+import Nav from '@/components/nav';
 
 // ==================================
 // global setup
@@ -12,10 +12,10 @@ let component: renderer.ReactTestRenderer;
 // mocks
 // ==================================
 
-jest.mock('./components/desktop', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/nav/components/desktop', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Desktop" {...props} />
 ));
-jest.mock('./components/mobile', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/nav/components/mobile', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Mobile" {...props} />
 ));
 

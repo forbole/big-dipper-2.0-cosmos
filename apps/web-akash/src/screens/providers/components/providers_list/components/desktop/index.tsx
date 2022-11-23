@@ -5,16 +5,16 @@ import Link from 'next/link';
 import { VariableSizeGrid as Grid } from 'react-window';
 import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
-import Loading from 'ui/components/loading';
-import { useGrid } from 'ui/hooks';
-import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
+import Loading from '@/components/loading';
+import { useGrid } from '@/hooks';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import EmailIcon from 'shared-utils/assets/icon-email.svg';
 import WebArrowIcon from 'shared-utils/assets/icon-web-arrow.svg';
 import CopyIcon from 'shared-utils/assets/icon-copy.svg';
-import { useAddress } from '@utils/copy_to_clipboard';
-import { columns } from './utils';
-import { useStyles } from './styles';
-import type { ProviderInfo } from '../../../../types';
+import { useAddress } from '@/utils/copy_to_clipboard';
+import type { ProviderInfo } from '@/screens/providers/types';
+import { columns } from '@/screens/providers/components/providers_list/components/desktop/utils';
+import { useStyles } from '@/screens/providers/components/providers_list/components/desktop/styles';
 
 const Desktop: React.FC<{ list: ProviderInfo[] }> = ({ list }) => {
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);

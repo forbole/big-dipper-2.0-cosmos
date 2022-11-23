@@ -1,8 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import { MsgVote } from '@models';
-import Vote from '.';
+import { MockTheme } from '@/tests/utils';
+import { MsgVote } from '@/models';
+import Vote from '@/components/msg/governance/vote';
 
 const mockI18n = {
   t: (key: string) => key,
@@ -12,7 +12,7 @@ const mockI18n = {
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 

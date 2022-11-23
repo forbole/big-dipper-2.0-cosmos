@@ -4,14 +4,14 @@ import numeral from 'numeral';
 import React, { ComponentProps, FC } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
-import AvatarName from 'ui/components/avatar_name';
-import { useList, useListRow } from 'ui/hooks';
-import { getValidatorConditionClass } from 'ui/utils/get_validator_condition';
-import { getValidatorStatus } from 'ui/utils/get_validator_status';
-import type { ItemType } from '../../types';
-import Condition from '../condition';
-import VotingPower from '../voting_power';
-import SingleValidator from './component/single_validator';
+import AvatarName from '@/components/avatar_name';
+import { useList, useListRow } from '@/hooks';
+import { getValidatorConditionClass } from '@/utils/get_validator_condition';
+import { getValidatorStatus } from '@/utils/get_validator_status';
+import type { ItemType } from '@/screens/validators/components/list/types';
+import Condition from '@/screens/validators/components/list/components/condition';
+import VotingPower from '@/screens/validators/components/list/components/voting_power';
+import SingleValidator from '@/screens/validators/components/list/components/mobile/component/single_validator';
 
 const Mobile: FC<{
   className?: string;

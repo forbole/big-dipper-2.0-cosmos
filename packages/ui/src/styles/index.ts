@@ -1,7 +1,12 @@
-import chainConfig from 'ui/chainConfig';
+import chainConfig from '@/chainConfig';
 import { ThemeOptions } from '@material-ui/core/styles';
 
-import { lightTemplate, darkTemplate, deuteranopiaTemplate, tritanopiaTemplate } from './theme';
+import {
+  lightTemplate,
+  darkTemplate,
+  deuteranopiaTemplate,
+  tritanopiaTemplate,
+} from '@/styles/theme';
 
 type ThemeDictionaryType = { [theme: string]: ThemeOptions };
 

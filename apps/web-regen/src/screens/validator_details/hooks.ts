@@ -1,15 +1,15 @@
 import { useCallback, useEffect, useState } from 'react';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
-import { formatToken } from 'ui/utils/format_token';
-import { useValidatorDetailsQuery, ValidatorDetailsQuery } from '@graphql/types/general_types';
-import { useDesmosProfile } from 'ui/hooks';
-import { validatorToDelegatorAddress } from 'ui/recoil/profiles';
-import { getValidatorCondition } from 'ui/utils/get_validator_condition';
-import chainConfig from 'ui/chainConfig';
-import { SlashingParams } from '@models';
-import { isValidAddress } from 'ui/utils/prefix_convert';
-import type { ValidatorDetailsState } from './types';
+import { formatToken } from '@/utils/format_token';
+import { useValidatorDetailsQuery, ValidatorDetailsQuery } from '@/graphql/types/general_types';
+import { useDesmosProfile } from '@/hooks';
+import { validatorToDelegatorAddress } from '@/recoil/profiles';
+import { getValidatorCondition } from '@/utils/get_validator_condition';
+import chainConfig from '@/chainConfig';
+import { SlashingParams } from '@/models';
+import { isValidAddress } from '@/utils/prefix_convert';
+import type { ValidatorDetailsState } from '@/screens/validator_details/types';
 
 const initialTokenDenom: TokenUnit = {
   value: '0',
@@ -52,7 +52,7 @@ export const useValidatorDetails = () => {
 
   const handleSetState = useCallback((stateChange: Partial<ValidatorDetailsState>) => {
     setState((prevState) => {
-      const newState = { ...prevState, ...stateChange }
+      const newState = { ...prevState, ...stateChange };
       return R.equals(prevState, newState) ? prevState : newState;
     });
   }, []);

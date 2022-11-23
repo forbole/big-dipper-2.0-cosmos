@@ -1,4 +1,4 @@
-import Providers from '@screens/providers';
+import Providers from '@/screens/providers';
 
 const ProvidersPage = () => <Providers />;
 

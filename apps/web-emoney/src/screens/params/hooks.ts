@@ -1,13 +1,13 @@
 import { useCallback, useState } from 'react';
 import numeral from 'numeral';
 import * as R from 'ramda';
-import { useParamsQuery, ParamsQuery } from '@graphql/types/general_types';
-import { formatToken } from 'ui/utils/format_token';
-import chainConfig from 'ui/chainConfig';
-import { DistributionParams, GovParams, MintParams, StakingParams, SlashingParams } from '@models';
-import InflationRateParams from '@models/emoney/inflation_rate_params';
-import GasPriceParams from '@models/emoney/gas_price_params';
-import type { ParamsState } from './types';
+import { useParamsQuery, ParamsQuery } from '@/graphql/types/general_types';
+import { formatToken } from '@/utils/format_token';
+import chainConfig from '@/chainConfig';
+import { DistributionParams, GovParams, MintParams, StakingParams, SlashingParams } from '@/models';
+import type { ParamsState } from '@/screens/params/types';
+import InflationRateParams from '@/models/inflation_rate_params';
+import GasPriceParams from '@/models/gas_price_params';
 
 const initialState: ParamsState = {
   loading: true,

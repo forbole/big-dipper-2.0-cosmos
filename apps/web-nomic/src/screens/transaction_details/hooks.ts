@@ -1,13 +1,13 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
-import { useTransactionDetailsQuery, TransactionDetailsQuery } from '@graphql/types/general_types';
-import { formatToken } from 'ui/utils/format_token';
-import type { TransactionState } from './types';
+import { useTransactionDetailsQuery, TransactionDetailsQuery } from '@/graphql/types/general_types';
+import { formatToken } from '@/utils/format_token';
+import type { TransactionState } from '@/screens/transaction_details/types';
 
 export const useTransactionDetails = () => {
   const router = useRouter();
-    const [state, setState] = useState<TransactionState>({
+  const [state, setState] = useState<TransactionState>({
     exists: true,
     loading: true,
     overview: {

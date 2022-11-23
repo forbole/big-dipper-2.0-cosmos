@@ -1,14 +1,14 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import MsgBurn from '@models/sifchain/msg/ethbridge/msg_burn';
-import Burn from '.';
+import { MockTheme } from '@/tests/utils';
+import MsgBurn from '@/models/msg/ethbridge/msg_burn';
+import Burn from '@/components/msg/ethbridge/burn';
 
 // ==================================
 // mocks
 // ==================================
 
-jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 

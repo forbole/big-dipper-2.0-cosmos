@@ -1,4 +1,4 @@
-export type ValidatorsState = {
+export interface ValidatorsState {
   sortKey: string;
   sortDirection: 'asc' | 'desc';
-};
+}

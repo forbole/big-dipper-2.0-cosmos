@@ -2,22 +2,22 @@ import React from 'react';
 import classnames from 'classnames';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import numeral from 'numeral';
-import dayjs from 'ui/utils/dayjs';
+import dayjs from '@/utils/dayjs';
 import Link from 'next/link';
-import { TRANSACTION_DETAILS, BLOCK_DETAILS } from 'ui/utils/go_to_page';
+import { TRANSACTION_DETAILS, BLOCK_DETAILS } from '@/utils/go_to_page';
 import InfiniteLoader from 'react-window-infinite-loader';
 import { VariableSizeGrid as Grid } from 'react-window';
 import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
-import { mergeRefs } from 'ui/utils/merge_refs';
-import Loading from '@components/loading';
-import Result from '@components/result';
-import Tag from '@components/tag';
-import { useGrid } from '@hooks';
-import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
-import type { TransactionsListState } from '../../types';
-import { columns } from './utils';
-import { useStyles } from './styles';
+import { mergeRefs } from '@/utils/merge_refs';
+import Loading from '@/components/loading';
+import Result from '@/components/result';
+import Tag from '@/components/tag';
+import { useGrid } from '@/hooks';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
+import type { TransactionsListState } from '@/components/transactions_list/types';
+import { columns } from '@/components/transactions_list/components/desktop/utils';
+import { useStyles } from '@/components/transactions_list/components/desktop/styles';
 
 const Desktop: React.FC<TransactionsListState> = ({
   className,

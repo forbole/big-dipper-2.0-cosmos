@@ -6,7 +6,7 @@ export type AtomState =
   | null
   | boolean;
 
-export type Profile = {
+export interface Profile {
   moniker: string;
   imageUrl?: string;
-};
+}

@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Typography from '@material-ui/core/Typography';
 import { Face } from '@material-ui/icons';
-import { useStyles } from './styles';
+import { useStyles } from '@/components/no_data/styles';
 
 const NoData: React.FC<{
   className?: string;

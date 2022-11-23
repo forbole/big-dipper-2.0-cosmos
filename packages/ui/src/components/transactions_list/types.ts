@@ -1,4 +1,4 @@
-export type TransactionsListState = {
+export interface TransactionsListState {
   className?: string;
   hasNextPage?: boolean;
   isNextPageLoading?: boolean;
@@ -7,4 +7,4 @@ export type TransactionsListState = {
   isItemLoaded?: (index: number) => boolean;
   itemCount: number;
   transactions: Transactions[];
-};
+}

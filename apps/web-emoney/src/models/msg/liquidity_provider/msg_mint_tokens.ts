@@ -1,0 +1,37 @@
+import * as R from 'ramda';
+import type { Categories } from '@/models/msg/types';
+
+class MsgMintTokens {
+  public category: Categories;
+
+  public type: string;
+
+  public json: any;
+
+  public liquidityProvider: string;
+
+  public amount: MsgCoin[];
+
+  constructor(payload: any) {
+    this.category = 'liquidityProvider';
+    this.type = payload.type;
+    this.json = payload.json;
+    this.liquidityProvider = payload.liquidityProvider;
+    this.amount = payload.amount;
+  }
+
+  static fromJson(json: any): MsgMintTokens {
+    return {
+      category: 'liquidityProvider',
+      json,
+      type: json['@type'],
+      liquidityProvider: json.liquidity_provider,
+      amount: R.pathOr([], ['amount'], json).map((x) => ({
+        denom: R.pathOr('', ['denom'], x),
+        amount: R.pathOr('0', ['amount'], x),
+      })),
+    };
+  }
+}
+
+export default MsgMintTokens;

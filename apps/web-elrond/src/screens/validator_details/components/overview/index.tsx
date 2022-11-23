@@ -1,8 +1,8 @@
 import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
-import BoxDetails from 'ui/components/box_details';
-import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
-import type { OverviewType } from '../../types';
+import BoxDetails from '@/components/box_details';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
+import type { OverviewType } from '@/screens/validator_details/types';
 
 const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = (props) => {
   const { t } = useTranslation('validators');

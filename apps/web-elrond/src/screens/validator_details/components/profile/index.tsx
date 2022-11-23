@@ -1,13 +1,13 @@
 import React from 'react';
 import classnames from 'classnames';
 import Typography from '@material-ui/core/Typography';
-import Box from 'ui/components/box';
-import Avatar from 'ui/components/avatar';
-import Markdown from 'ui/components/markdown';
-import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
-import { isBech32 } from '@utils/bech32';
-import { useStyles } from './styles';
-import type { ProfileType } from '../../types';
+import Box from '@/components/box';
+import Avatar from '@/components/avatar';
+import Markdown from '@/components/markdown';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
+import { isBech32 } from '@/utils/bech32';
+import { useStyles } from '@/screens/validator_details/components/profile/styles';
+import type { ProfileType } from '@/screens/validator_details/types';
 
 const Profile: React.FC<{ profile: ProfileType } & ComponentDefault> = ({ className, profile }) => {
   const classes = useStyles();

@@ -3,9 +3,9 @@ import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
-import type { OtherTokenType } from '@screens/account_details/types';
-import { formatNumber } from 'ui/utils/format_token';
-import { useStyles } from './styles';
+import type { OtherTokenType } from '@/screens/account_details/types';
+import { formatNumber } from '@/utils/format_token';
+import { useStyles } from '@/screens/account_details/components/other_tokens/components/mobile/styles';
 
 const Mobile: React.FC<{
   className?: string;

@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import Mobile from '.';
+import { MockTheme } from '@/tests/utils';
+import Mobile from '@/screens/home/components/blocks/components/mobile';
 
 // ==================================
 // mocks
@@ -11,10 +11,10 @@ const mockI18n = {
   lang: 'en',
 };
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
-jest.mock('@components/single_block_mobile', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/single_block_mobile', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="SingleBlockMobile" {...props} />
 ));
-jest.mock('ui/components/avatar_name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/avatar_name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="AvatarName" {...props} />
 ));
 

@@ -1,9 +1,9 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
 import Typography from '@material-ui/core/Typography';
-import Name from 'ui/components/name';
-import MsgCreateDataSource from '@models/band/msg/oracle/msg_create_data_source';
-import { useProfileRecoil } from 'ui/recoil/profiles';
+import Name from '@/components/name';
+import MsgCreateDataSource from '@/models/msg/oracle/msg_create_data_source';
+import { useProfileRecoil } from '@/recoil/profiles';
 
 const CreateDataSource: React.FC<{ message: MsgCreateDataSource }> = (props) => {
   const { message } = props;

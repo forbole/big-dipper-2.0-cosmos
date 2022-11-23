@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import Layout from '.';
+import { MockTheme } from '@/tests/utils';
+import Layout from '@/components/layout';
 
 // ==================================
 // global setup
@@ -15,10 +15,10 @@ const mockI18n = {
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/nav', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/nav', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Nav" {...props} />
 ));
-jest.mock('@components/footer', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/footer', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Footer" {...props} />
 ));
 
@@ -27,6 +27,17 @@ jest.mock('next-seo', () => ({
 }));
 
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
+
+jest.mock('next/router', () => ({
+  ...jest.requireActual('next/router'),
+  useRouter: () => ({
+    locales: ['en', 'zh'],
+    pathname: '/app/home',
+    query: {
+      key: 'val',
+    },
+  }),
+}));
 
 // ==================================
 // unit tests

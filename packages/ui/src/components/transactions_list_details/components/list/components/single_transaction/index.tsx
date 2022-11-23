@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
-import { useStyles } from './styles';
+import { useStyles } from '@/components/transactions_list_details/components/list/components/single_transaction/styles';
 
 const SingleTransaction: React.FC<{
   className?: string;

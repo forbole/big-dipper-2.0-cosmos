@@ -1,5 +1,5 @@
 import { renderHook, cleanup, act } from '@testing-library/react-hooks';
-import { useOverview } from './hooks';
+import { useOverview } from '@/screens/account_details/components/overview/hooks';
 
 const mockI18n = {
   t: (key: string) => key,

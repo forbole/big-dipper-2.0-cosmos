@@ -2,13 +2,13 @@ import { useCallback, useEffect, useState } from 'react';
 import * as R from 'ramda';
 import axios from 'axios';
 import Big from 'big.js';
-import { IDENTITIES, PROVIDERS, STAKE } from '@api';
-import { formatToken, formatNumber } from 'ui/utils/format_token';
-import chainConfig from 'ui/chainConfig';
-import type { ValidatorsState } from './types';
+import { IDENTITIES, PROVIDERS, STAKE } from '@/api';
+import { formatToken, formatNumber } from '@/utils/format_token';
+import chainConfig from '@/chainConfig';
+import type { ValidatorsState } from '@/screens/validators/components/list/types';
 
 export const useValidators = () => {
-    const [state, setState] = useState<ValidatorsState>({
+  const [state, setState] = useState<ValidatorsState>({
     loading: true,
     exists: true,
     tab: 0,

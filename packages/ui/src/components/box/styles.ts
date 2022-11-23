@@ -7,7 +7,7 @@ const styles = makeStyles((theme) => ({
       padding: theme.spacing(2),
       borderRadius: theme.shape.borderRadius,
       background: theme.palette.background.paper,
-    }
+    },
   },
 }));
 

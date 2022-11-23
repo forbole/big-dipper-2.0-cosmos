@@ -1,1 +1,1 @@
-export { default as List } from './list';
+export { default as List } from '@/components/transactions_list_details/components/list';

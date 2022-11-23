@@ -1,13 +1,13 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import { MsgFundCommunityPool } from '@models';
-import Fund from '.';
+import { MockTheme } from '@/tests/utils';
+import { MsgFundCommunityPool } from '@/models';
+import Fund from '@/components/msg/distribution/fund';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 

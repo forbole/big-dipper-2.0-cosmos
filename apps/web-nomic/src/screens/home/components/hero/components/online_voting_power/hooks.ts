@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import numeral from 'numeral';
 import * as R from 'ramda';
-import { useOnlineVotingPowerQuery, OnlineVotingPowerQuery } from '@graphql/types/general_types';
-import chainConfig from 'ui/chainConfig';
-import { formatToken } from 'ui/utils/format_token';
+import { useOnlineVotingPowerQuery, OnlineVotingPowerQuery } from '@/graphql/types/general_types';
+import chainConfig from '@/chainConfig';
+import { formatToken } from '@/utils/format_token';
 
 const initialState: {
   votingPower: number;
@@ -43,9 +43,8 @@ export const useOnlineVotingPower = () => {
     return {
       activeValidators,
       votingPower,
-      totalVotingPower: numeral(
-        formatToken(bonded, chainConfig.votingPowerTokenUnit).value
-      ).value() ?? undefined,
+      totalVotingPower:
+        numeral(formatToken(bonded, chainConfig.votingPowerTokenUnit).value).value() ?? undefined,
     };
   };
 

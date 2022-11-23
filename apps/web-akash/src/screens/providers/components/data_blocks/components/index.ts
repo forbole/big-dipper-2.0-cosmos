@@ -1,3 +1,3 @@
-import SingleBlock from './single_block';
+import SingleBlock from '@/screens/providers/components/data_blocks/components/single_block';
 
 export { SingleBlock };

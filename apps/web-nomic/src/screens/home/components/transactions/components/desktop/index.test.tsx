@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import Desktop from '.';
+import { MockTheme } from '@/tests/utils';
+import Desktop from '@/screens/home/components/transactions/components/desktop';
 
 // ==================================
 // mocks
@@ -12,10 +12,10 @@ const mockI18n = {
 };
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
 
-jest.mock('ui/components/result', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/result', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Result" {...props} />
 ));
-jest.mock('ui/components/tag', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/tag', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Tag" {...props} />
 ));
 

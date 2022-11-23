@@ -1,9 +1,9 @@
 import * as R from 'ramda';
-import MsgTextProposal from './msg_text_proposal';
-import MsgSoftwareUpgradeProposal from './msg_software_upgrade_proposal';
-import MsgParameterChangeProposal from './msg_parameter_change_proposal';
-import MsgCommunityPoolSpendProposal from './msg_community_pool_spend_proposal';
-import type { Categories } from '../types';
+import MsgTextProposal from '@/models/msg/governance/msg_text_proposal';
+import MsgSoftwareUpgradeProposal from '@/models/msg/governance/msg_software_upgrade_proposal';
+import MsgParameterChangeProposal from '@/models/msg/governance/msg_parameter_change_proposal';
+import MsgCommunityPoolSpendProposal from '@/models/msg/governance/msg_community_pool_spend_proposal';
+import type { Categories } from '@/models/msg/types';
 
 class MsgSubmitProposal {
   public category: Categories;

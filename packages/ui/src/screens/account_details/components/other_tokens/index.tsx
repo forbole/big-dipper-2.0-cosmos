@@ -2,18 +2,22 @@ import React from 'react';
 import classnames from 'classnames';
 import dynamic from 'next/dynamic';
 import useTranslation from 'next-translate/useTranslation';
-import Pagination from '@components/pagination';
-import Box from '@components/box';
+import Pagination from '@/components/pagination';
+import Box from '@/components/box';
 
-import { usePagination, useScreenSize } from '@hooks';
+import { usePagination, useScreenSize } from '@/hooks';
 import Typography from '@material-ui/core/Typography';
-import { useStyles } from './styles';
-import type { OtherTokenType } from '../../types';
-import type DesktopType from './components/desktop';
-import type MobileType from './components/mobile';
+import type { OtherTokenType } from '@/screens/account_details/types';
+import { useStyles } from '@/screens/account_details/components/other_tokens/styles';
+import type DesktopType from '@/screens/account_details/components/other_tokens/components/desktop';
+import type MobileType from '@/screens/account_details/components/other_tokens/components/mobile';
 
-const Desktop = dynamic(() => import('./components/desktop')) as typeof DesktopType;
-const Mobile = dynamic(() => import('./components/mobile')) as typeof MobileType;
+const Desktop = dynamic(
+  () => import('@/screens/account_details/components/other_tokens/components/desktop')
+) as typeof DesktopType;
+const Mobile = dynamic(
+  () => import('@/screens/account_details/components/other_tokens/components/mobile')
+) as typeof MobileType;
 
 const OtherTokens: React.FC<{
   className?: string;

@@ -2,14 +2,14 @@ import { useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import axios from 'axios';
-import { ACCOUNT_DETAILS_NFTS, ACCOUNT_DETAILS_NFTS_COUNT } from '@api';
-import type { OtherTokensState } from './types';
+import { ACCOUNT_DETAILS_NFTS, ACCOUNT_DETAILS_NFTS_COUNT } from '@/api';
+import type { OtherTokensState } from '@/screens/account_details/components/nfts/types';
 
 export const PAGE_SIZE = 10;
 
 export const useTokens = () => {
   const router = useRouter();
-    const [state, setState] = useState<OtherTokensState>({
+  const [state, setState] = useState<OtherTokensState>({
     page: 0,
     loading: true,
     items: [],

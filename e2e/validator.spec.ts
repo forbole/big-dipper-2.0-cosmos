@@ -27,6 +27,7 @@ test('validator page', async ({ page, context }) => {
     expect(dialog.message()).toContain('Copied');
     await dialog.dismiss();
   });
+  await page.waitForLoadState('domcontentloaded');
 
   // Test copy reward address to clipboard
   await page.locator(':nth-match(#icon-copy_svg__Layer_1, 2)').first().click();
@@ -37,6 +38,7 @@ test('validator page', async ({ page, context }) => {
     expect(dialog.message()).toContain('Copied');
     await dialog.dismiss();
   });
+  await page.waitForLoadState('domcontentloaded');
 });
 
 test('validator page tabs', async ({ page }) => {

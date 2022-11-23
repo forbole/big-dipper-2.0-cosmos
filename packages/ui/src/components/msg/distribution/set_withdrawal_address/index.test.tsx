@@ -1,13 +1,13 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import { MsgSetWithdrawAddress } from '@models';
-import SetWithdrawalAddress from '.';
+import { MockTheme } from '@/tests/utils';
+import { MsgSetWithdrawAddress } from '@/models';
+import SetWithdrawalAddress from '@/components/msg/distribution/set_withdrawal_address';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 

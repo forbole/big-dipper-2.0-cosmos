@@ -1,15 +1,15 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import Connections from '.';
+import { MockTheme } from '@/tests/utils';
+import Connections from '@/screens/profile_details/components/connections';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/box', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/box', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Box" {...props} />
 ));
-jest.mock('@components/pagination', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/pagination', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Pagination" {...props} />
 ));
 

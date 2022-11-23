@@ -1,13 +1,13 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import MsgActivate from '@models/band/msg/oracle/msg_activate';
-import Activate from '.';
+import { MockTheme } from '@/tests/utils';
+import MsgActivate from '@/models/msg/oracle/msg_activate';
+import Activate from '@/components/msg/oracle/activate';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 

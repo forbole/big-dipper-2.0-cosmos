@@ -1,3 +1,3 @@
-export type BlockListType = {
+export interface BlockListType {
   items: BlockType[];
-};
+}

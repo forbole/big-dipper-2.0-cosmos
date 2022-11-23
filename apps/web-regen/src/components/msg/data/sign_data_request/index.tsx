@@ -1,9 +1,9 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
 import Typography from '@material-ui/core/Typography';
-import MsgSignDataRequest from '@models/regen/msg/data/msg_sign_data_request';
-import { useProfilesRecoil } from 'ui/recoil/profiles';
-import Signers from './components/signers';
+import MsgSignDataRequest from '@/models/msg/data/msg_sign_data_request';
+import { useProfilesRecoil } from '@/recoil/profiles';
+import Signers from '@/components/msg/data/sign_data_request/components/signers';
 
 const SignDataRequest: React.FC<{ message: MsgSignDataRequest }> = (props) => {
   const { message } = props;

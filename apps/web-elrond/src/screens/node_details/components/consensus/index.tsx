@@ -4,10 +4,10 @@ import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Typography from '@material-ui/core/Typography';
 import Tooltip from '@material-ui/core/Tooltip';
-import Box from 'ui/components/box';
-import NoData from '@components/no_data';
-import { useStyles } from './styles';
-import type { ConsensusType } from '../../types';
+import Box from '@/components/box';
+import NoData from '@/components/no_data';
+import { useStyles } from '@/screens/node_details/components/consensus/styles';
+import type { ConsensusType } from '@/screens/node_details/types';
 
 const Consensus: React.FC<{ consensus: ConsensusType } & ComponentDefault> = (props) => {
   const { t } = useTranslation('nodes');

@@ -1,13 +1,13 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import { MsgDtagRefuseTransfer } from '@models';
-import DtagRefuseTransfer from '.';
+import { MockTheme } from '@/tests/utils';
+import { MsgDtagRefuseTransfer } from '@/models';
+import DtagRefuseTransfer from '@/components/msg/profiles/dtag_refuse_transfer';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 

@@ -1,13 +1,13 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import MsgEditOracleScript from '@models/band/msg/oracle/msg_edit_oracle_script';
-import EditOracleScript from '.';
+import { MockTheme } from '@/tests/utils';
+import MsgEditOracleScript from '@/models/msg/oracle/msg_edit_oracle_script';
+import EditOracleScript from '@/components/msg/oracle/edit_oracle_script';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 

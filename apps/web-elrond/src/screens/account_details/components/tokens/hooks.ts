@@ -2,15 +2,15 @@ import { useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import axios from 'axios';
-import { formatTokenByExponent } from 'ui/utils/format_token';
-import { ACCOUNT_DETAILS_TOKENS, ACCOUNT_DETAILS_TOKENS_COUNT } from '@api';
-import type { OtherTokensState } from './types';
+import { formatTokenByExponent } from '@/utils/format_token';
+import { ACCOUNT_DETAILS_TOKENS, ACCOUNT_DETAILS_TOKENS_COUNT } from '@/api';
+import type { OtherTokensState } from '@/screens/account_details/components/tokens/types';
 
 export const PAGE_SIZE = 10;
 
 export const useTokens = () => {
   const router = useRouter();
-    const [state, setState] = useState<OtherTokensState>({
+  const [state, setState] = useState<OtherTokensState>({
     page: 0,
     loading: true,
     items: [],

@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import Avatar from '.';
+import { MockTheme } from '@/tests/utils';
+import Avatar from '@/components/avatar';
 
 jest.mock('jdenticon', () => ({
   update: jest.fn(),

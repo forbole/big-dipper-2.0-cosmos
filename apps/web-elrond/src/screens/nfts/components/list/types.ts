@@ -1,14 +1,14 @@
-export type NFTTypes = {
+export interface NFTTypes {
   identifier: string;
   name: string;
   type: string;
   creator: string;
   collection: string;
-};
+}
 
-export type BlockState = {
+export interface BlockState {
   page: number;
   loading: boolean;
   total: number;
   items: NFTTypes[];
-};
+}

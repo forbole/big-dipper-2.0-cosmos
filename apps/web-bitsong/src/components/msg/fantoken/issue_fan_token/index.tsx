@@ -1,9 +1,9 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
 import Typography from '@material-ui/core/Typography';
-import Name from 'ui/components/name';
-import MsgIssueFanToken from '@models/bitsong/msg/fantoken/msg_issue_fan_token';
-import { useProfileRecoil } from 'ui/recoil/profiles';
+import Name from '@/components/name';
+import MsgIssueFanToken from '@/models/msg/fantoken/msg_issue_fan_token';
+import { useProfileRecoil } from '@/recoil/profiles';
 
 const IssueFanToken: React.FC<{ message: MsgIssueFanToken }> = (props) => {
   const { message } = props;

@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import Settings from '.';
+import { MockTheme } from '@/tests/utils';
+import Settings from '@/components/nav/components/desktop/components/action_bar/components/settings_list';
 
 // ==================================
 // global setup
@@ -20,6 +20,7 @@ jest.mock('@material-ui/core/Select', () => (props: JSX.IntrinsicElements['div']
 ));
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
 jest.mock('next/router', () => ({
+  ...jest.requireActual('next/router'),
   useRouter: () => ({
     locales: ['en', 'zh'],
     pathname: '/app/home',

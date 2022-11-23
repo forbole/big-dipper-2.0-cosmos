@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import LinearProgress from '@material-ui/core/LinearProgress';
-import { useStyles } from './styles';
+import { useStyles } from '@/components/linear_loading/styles';
 
 const LinearLoading: React.FC<{
   className?: string;

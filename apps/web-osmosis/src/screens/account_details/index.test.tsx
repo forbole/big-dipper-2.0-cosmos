@@ -3,50 +3,53 @@ import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
 import renderer from 'react-test-renderer';
-import { MockTheme, wait } from 'ui/tests/utils';
+import { MockTheme, wait } from '@/tests/utils';
 import {
   // AccountDocument,
   GetMessagesByAddressDocument,
-} from '@graphql/types/general_types';
+} from '@/graphql/types/general_types';
 import { MockedProvider } from '@apollo/client/testing';
-import AccountDetails from '.';
+import AccountDetails from '@/screens/account_details';
 
 // ==================================
 // mocks
 // ==================================
 jest.mock('next/router', () => ({
+  ...jest.requireActual('next/router'),
   useRouter: () => ({
     query: {
       address: 'desmos1ltpgdupjgtpqzsznltcptmfh6gfu5d8uehxggj',
     },
   }),
 }));
-jest.mock('@components/layout', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/layout', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Layout" {...props} />
 ));
-jest.mock('ui/components/load_and_exist', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/load_and_exist', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="LoadAndExist" {...props} />
 ));
-jest.mock('ui/components/desmos_profile', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/desmos_profile', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="DesmosProfile" {...props} />
 ));
 
 jest.mock(
-  'ui/screens/account_details/components/overview',
+  '@/screens/account_details/components/overview',
   () => (props: JSX.IntrinsicElements['div']) => <div id="Overview" {...props} />
 );
-jest.mock('./components/balance', () => (props: JSX.IntrinsicElements['div']) => (
-  <div id="Balance" {...props} />
-));
 jest.mock(
-  'ui/screens/account_details/components/staking',
+  '@/screens/account_details/components/balance',
+  () => (props: JSX.IntrinsicElements['div']) => <div id="Balance" {...props} />
+);
+jest.mock(
+  '@/screens/account_details/components/staking',
   () => (props: JSX.IntrinsicElements['div']) => <div id="Staking" {...props} />
 );
-jest.mock('./components/transactions', () => (props: JSX.IntrinsicElements['div']) => (
-  <div id="Transactions" {...props} />
-));
 jest.mock(
-  'ui/screens/account_details/components/other_tokens',
+  '@/screens/account_details/components/transactions',
+  () => (props: JSX.IntrinsicElements['div']) => <div id="Transactions" {...props} />
+);
+jest.mock(
+  '@/screens/account_details/components/other_tokens',
   () => (props: JSX.IntrinsicElements['div']) => <div id="OtherTokens" {...props} />
 );
 

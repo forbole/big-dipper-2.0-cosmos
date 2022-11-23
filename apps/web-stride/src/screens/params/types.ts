@@ -1,45 +1,45 @@
-export type Staking = {
+export interface Staking {
   bondDenom: string;
   unbondingTime: number;
   maxEntries: number;
   historicalEntries: number;
   maxValidators: number;
-};
+}
 
-export type Slashing = {
+export interface Slashing {
   downtimeJailDuration: number;
   minSignedPerWindow: number;
   signedBlockWindow: number;
   slashFractionDoubleSign: number;
   slashFractionDowntime: number;
-};
+}
 
-export type Minting = {
+export interface Minting {
   blocksPerYear: number;
   goalBonded: number;
   inflationMax: number;
   inflationMin: number;
   inflationRateChange: number;
   mintDenom: string;
-};
+}
 
-export type Distribution = {
+export interface Distribution {
   baseProposerReward: number;
   bonusProposerReward: number;
   communityTax: number;
   withdrawAddressEnabled: boolean;
-};
+}
 
-export type Gov = {
+export interface Gov {
   minDeposit: TokenUnit;
   maxDepositPeriod: number;
   quorum: number;
   threshold: number;
   vetoThreshold: number;
   votingPeriod: number;
-};
+}
 
-export type Stakeibc = {
+export interface Stakeibc {
   bufferSize: number;
   depositInterval: number;
   rewardsInterval: number;
@@ -55,9 +55,9 @@ export type Stakeibc = {
   validatorRebalancingThreshold: number;
   safetyMaxRedemptionRateThreshold: number;
   safetyMinRedemptionRateThreshold: number;
-};
+}
 
-export type ParamsState = {
+export interface ParamsState {
   loading: boolean;
   exists: boolean;
   staking: Staking | null;
@@ -66,4 +66,4 @@ export type ParamsState = {
   distribution: Distribution | null;
   gov: Gov | null;
   stakeibc: Stakeibc | null;
-};
+}

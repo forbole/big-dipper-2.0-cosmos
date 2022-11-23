@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import Document, { Html, Main, NextScript, Head } from 'next/document';
 import { ServerStyleSheets } from '@material-ui/core/styles';
@@ -7,12 +6,7 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
-        <Head>
-          <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-          />
-        </Head>
+        <Head />
         <body>
           <Main />
           <NextScript />
@@ -32,8 +26,8 @@ MyDocument.getInitialProps = async (ctx) => {
   ctx.renderPage = () =>
     originalRenderPage({
       enhanceApp: (App) => {
-        const AppFC = App as React.FC;
-        return (props) => sheets.collect(<AppFC {...props} />);
+        const AppComponent = App as React.FC;
+        return (props) => sheets.collect(<AppComponent {...props} />);
       },
     });
 

@@ -4,10 +4,13 @@ import AutoSizer from 'react-virtualized-auto-sizer';
 import useTranslation from 'next-translate/useTranslation';
 import { VariableSizeGrid as Grid } from 'react-window';
 import Typography from '@material-ui/core/Typography';
-import { useGrid } from 'ui/hooks';
-import { columns, formatRows } from './utils';
-import { useStyles } from './styles';
-import type { ConsensusType } from '../../../../types';
+import { useGrid } from '@/hooks';
+import type { ConsensusType } from '@/screens/block_details/types';
+import {
+  columns,
+  formatRows,
+} from '@/screens/block_details/components/consensus/components/desktop/utils';
+import { useStyles } from '@/screens/block_details/components/consensus/components/desktop/styles';
 
 const Desktop: React.FC<{ items: ConsensusType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('blocks');

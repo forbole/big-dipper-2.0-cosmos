@@ -1,5 +1,5 @@
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import chainConfig from 'ui/chainConfig';
+import chainConfig from '@/chainConfig';
 
 const styles = makeStyles<Theme, { coverUrl?: string }>(
   (theme) => ({

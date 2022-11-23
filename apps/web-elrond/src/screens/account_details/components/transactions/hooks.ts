@@ -2,14 +2,14 @@ import { useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import axios from 'axios';
-import { ACCOUNT_DETAILS_TRANSACTIONS, ACCOUNT_DETAILS_TRANSACTIONS_COUNT } from '@api';
-import type { TransactionState } from './types';
+import { ACCOUNT_DETAILS_TRANSACTIONS, ACCOUNT_DETAILS_TRANSACTIONS_COUNT } from '@/api';
+import type { TransactionState } from '@/screens/account_details/components/transactions/types';
 
 export const PAGE_SIZE = 10;
 
 export const useTransactions = () => {
   const router = useRouter();
-    const [state, setState] = useState<TransactionState>({
+  const [state, setState] = useState<TransactionState>({
     page: 0,
     loading: true,
     items: [],

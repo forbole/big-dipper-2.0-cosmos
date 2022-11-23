@@ -1,11 +1,11 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
 import Typography from '@material-ui/core/Typography';
-import { formatToken, formatNumber } from 'ui/utils/format_token';
-import Name from 'ui/components/name';
-import MsgAddLiquidity from '@models/sifchain/msg/clp/msg_add_liquidity';
-import { useProfileRecoil } from 'ui/recoil/profiles';
-import chainConfig from 'ui/chainConfig';
+import { formatToken, formatNumber } from '@/utils/format_token';
+import Name from '@/components/name';
+import MsgAddLiquidity from '@/models/msg/clp/msg_add_liquidity';
+import { useProfileRecoil } from '@/recoil/profiles';
+import chainConfig from '@/chainConfig';
 
 const AddLiquidity: React.FC<{ message: MsgAddLiquidity }> = (props) => {
   const { message } = props;

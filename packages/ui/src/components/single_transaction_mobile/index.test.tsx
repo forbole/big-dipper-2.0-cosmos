@@ -1,9 +1,9 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import Tag from '@components/tag';
-import Result from '@components/result';
-import SingleTransactionMobile from '.';
+import { MockTheme } from '@/tests/utils';
+import Tag from '@/components/tag';
+import Result from '@/components/result';
+import SingleTransactionMobile from '@/components/single_transaction_mobile';
 
 // ==================================
 // mocks

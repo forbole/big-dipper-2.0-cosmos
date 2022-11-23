@@ -2,8 +2,8 @@ import { useCallback, useEffect, useState } from 'react';
 import * as R from 'ramda';
 import numeral from 'numeral';
 import { useRouter } from 'next/router';
-import { useBlockDetailsQuery, BlockDetailsQuery } from '@graphql/types/general_types';
-import type { BlockDetailState } from './types';
+import { useBlockDetailsQuery, BlockDetailsQuery } from '@/graphql/types/general_types';
+import type { BlockDetailState } from '@/screens/block_details/types';
 
 export const useBlockDetails = () => {
   const router = useRouter();

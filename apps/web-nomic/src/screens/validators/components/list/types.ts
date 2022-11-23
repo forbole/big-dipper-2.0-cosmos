@@ -1,4 +1,4 @@
-export type ValidatorType = {
+export interface ValidatorType {
   validator: string;
   votingPower: number;
   votingPowerPercent: number;
@@ -7,9 +7,9 @@ export type ValidatorType = {
   jailed: string;
   tombstoned: string;
   topVotingPower?: boolean; // top 34% VP
-};
+}
 
-export type ValidatorsState = {
+export interface ValidatorsState {
   loading: boolean;
   exists: boolean;
   tab: number;
@@ -17,6 +17,6 @@ export type ValidatorsState = {
   sortDirection: 'asc' | 'desc';
   votingPowerOverall: number;
   items: ValidatorType[];
-};
+}
 
 export type ItemType = Override<ValidatorType, { validator: AvatarName }>;

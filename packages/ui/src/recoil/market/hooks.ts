@@ -1,14 +1,13 @@
-/* eslint-disable max-len */
 import * as R from 'ramda';
 import numeral from 'numeral';
 import { useRecoilState, SetterOrUpdater } from 'recoil';
 import Big from 'big.js';
 import { QueryHookOptions, QueryResult } from '@apollo/client';
-import { formatToken } from 'ui/utils/format_token';
-import { getDenom } from 'ui/utils/get_denom';
-import chainConfig from 'ui/chainConfig';
-import type { AtomState } from './types';
-import { writeMarket } from './selectors';
+import { formatToken } from '@/utils/format_token';
+import { getDenom } from '@/utils/get_denom';
+import chainConfig from '@/chainConfig';
+import type { AtomState } from '@/recoil/market/types';
+import { writeMarket } from '@/recoil/market/selectors';
 
 export type UseMarketDataQuery<TData, TVariables> = (
   baseOptions?: QueryHookOptions<TData, TVariables>

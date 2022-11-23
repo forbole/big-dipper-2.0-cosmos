@@ -1,4 +1,4 @@
-import { nanoToSeconds, secondsToDays } from 'ui/utils/time';
+import { nanoToSeconds, secondsToDays } from '@/utils/time';
 import numeral from 'numeral';
 import type {
   Staking,
@@ -8,7 +8,7 @@ import type {
   Gov,
   InflationRate,
   GasPrice,
-} from './types';
+} from '@/screens/params/types';
 
 const convertBySeconds = (seconds: number, t: any) => {
   const SECONDS_IN_DAY = 86400;

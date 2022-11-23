@@ -6,9 +6,9 @@ import useTranslation from 'next-translate/useTranslation';
 import React, { FC } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
-import AvatarName from 'ui/components/avatar_name';
-import { useList, useListRow } from 'ui/hooks';
-import { useStyles } from './styles';
+import AvatarName from '@/components/avatar_name';
+import { useList, useListRow } from '@/hooks';
+import { useStyles } from '@/screens/block_details/components/signatures/components/mobile/styles';
 
 const Mobile: FC<{
   className?: string;

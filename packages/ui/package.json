@@ -3,35 +3,10 @@
   "version": "1.0.0",
   "license": "Apache-2.0",
   "private": true,
-  "sideEffects": false,
-  "main": "./dist/index.mjs",
-  "module": "./dist/index.mjs",
-  "exports": {
-    ".": "./dist/index.mjs",
-    "./*": "./dist/*/index.mjs"
-  },
-  "types": "./dist/index.d.ts",
-  "typesVersions": {
-    "*": {
-      "dist/*.d.ts": [
-        "dist/*.d.ts",
-        "dist/*/index.d.ts"
-      ],
-      "*": [
-        "dist/*.d.ts",
-        "dist/*/index.d.ts"
-      ]
-    }
-  },
-  "files": [
-    "dist/**"
-  ],
   "scripts": {
-    "build": "tsup --minify",
-    "clean": "rm -rf dist",
+    "clean": "rm -rf .next .swc .turbo coverage node_modules",
     "lint": "next lint",
     "check-types": "tsc --noemit",
-    "watch": "tsup --watch --sourcemap",
     "test": "jest --passWithNoTests --ci --no-watchman",
     "graphql:codegen": "graphql-codegen"
   },
@@ -117,7 +92,6 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-turbo": "latest",
     "eslint-import-resolver-typescript": "^3.5.2",
-    "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.6.1",
     "eslint-plugin-react": "^7.31.10",
@@ -135,7 +109,6 @@
     "ts-jest": "^29.0.3",
     "ts-node": "^10.9.1",
     "tsconfig": "*",
-    "tsup": "^6.3.0",
     "typescript": "^4.8.4"
   }
 }

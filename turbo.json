@@ -30,20 +30,15 @@
       "cache": false
     },
     "start": {},
-    "check-types": {
-      "dependsOn": ["ui#build"]
-    },
+    "check-types": {},
     "lint": {
       "dependsOn": ["^check-types"],
       "outputs": []
     },
     "test": {
-      "dependsOn": ["ui#build"],
       "outputs": ["coverage/**"]
     },
-    "e2e": {
-      "dependsOn": ["ui#build"]
-    },
+    "e2e": {},
     "graphql:codegen": {},
     "deploy": {
       "dependsOn": ["build", "test", "lint"],

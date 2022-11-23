@@ -1,14 +1,14 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import MsgUpdateWhitelistValidator from '@models/sifchain/msg/ethbridge/msg_update_whitelist_validator';
-import UpdateWhiteListValidator from '.';
+import { MockTheme } from '@/tests/utils';
+import MsgUpdateWhitelistValidator from '@/models/msg/ethbridge/msg_update_whitelist_validator';
+import UpdateWhiteListValidator from '@/components/msg/ethbridge/update_whitelist_validator';
 
 // ==================================
 // mocks
 // ==================================
 
-jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 

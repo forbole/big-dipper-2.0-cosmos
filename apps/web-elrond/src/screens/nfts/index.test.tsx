@@ -1,16 +1,16 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme, wait } from 'ui/tests/utils';
-import Blocks from '.';
+import { MockTheme, wait } from '@/tests/utils';
+import Blocks from '@/screens/nfts';
 
 // ==================================
 // unit tests
 // ==================================
-jest.mock('@components/layout', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/layout', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Layout" {...props} />
 ));
 
-jest.mock('./components/list', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/screens/nfts/components/list', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="List" {...props} />
 ));
 

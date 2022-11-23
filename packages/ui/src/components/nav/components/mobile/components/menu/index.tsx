@@ -8,12 +8,15 @@ import { useRouter } from 'next/router';
 import useTranslation from 'next-translate/useTranslation';
 import Language from 'shared-utils/assets/icon-language.svg';
 import ThemeIcon from 'shared-utils/assets/icon-theme.svg';
-import { THEME_LIST } from 'ui/recoil/settings';
+import { THEME_LIST } from '@/recoil/settings';
 import ExpandMoreOutlined from '@material-ui/icons/ExpandMoreOutlined';
-import { useStyles } from './styles';
-import MenuItems from '../../../menu_items';
-import { useLanguageDrawer, useThemeDrawer } from './hooks';
-import type { MenuProps } from './types';
+import MenuItems from '@/components/nav/components/menu_items';
+import { useStyles } from '@/components/nav/components/mobile/components/menu/styles';
+import {
+  useLanguageDrawer,
+  useThemeDrawer,
+} from '@/components/nav/components/mobile/components/menu/hooks';
+import type { MenuProps } from '@/components/nav/components/mobile/components/menu/types';
 
 const Menu = (props: MenuProps) => {
   const router = useRouter();

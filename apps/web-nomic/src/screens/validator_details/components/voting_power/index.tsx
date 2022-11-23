@@ -4,10 +4,10 @@ import Link from 'next/link';
 import numeral from 'numeral';
 import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
-import Box from 'ui/components/box';
-import { BLOCK_DETAILS } from 'ui/utils/go_to_page';
-import { useStyles } from './styles';
-import type { VotingPowerType } from '../../types';
+import Box from '@/components/box';
+import { BLOCK_DETAILS } from '@/utils/go_to_page';
+import { useStyles } from '@/screens/validator_details/components/voting_power/styles';
+import type { VotingPowerType } from '@/screens/validator_details/types';
 
 const VotingPower: React.FC<{
   className?: string;

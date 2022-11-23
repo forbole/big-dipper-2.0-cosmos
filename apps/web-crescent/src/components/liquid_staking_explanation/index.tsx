@@ -1,7 +1,7 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
 import Typography from '@material-ui/core/Typography';
-import { useStyles } from './styles';
+import { useStyles } from '@/components/liquid_staking_explanation/styles';
 
 const LiquidStakingExplanation = () => {
   const classes = useStyles();

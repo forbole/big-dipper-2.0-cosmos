@@ -1,35 +1,35 @@
-export type MemoryState = {
+export interface MemoryState {
   available: number;
   used: number;
-};
+}
 
-export type CPUState = {
+export interface CPUState {
   available: number;
   used: number;
-};
+}
 
-export type StorageState = {
+export interface StorageState {
   available: number;
   used: number;
   pending: number;
-};
+}
 
-export type ProvidersListPaginationState = {
+export interface ProvidersListPaginationState {
   itemsPerPage: number;
   currentPage: number;
   totalCount: number;
-};
+}
 
-export type ProviderInfo = {
+export interface ProviderInfo {
   ownerAddress: string;
   hostURI: string;
   region?: string;
   organization?: string;
   emailAddress?: string;
   website?: string;
-};
+}
 
-export type ProvidersListState = {
+export interface ProvidersListState {
   isNextPageLoading: boolean;
 
   // Providers items
@@ -39,9 +39,9 @@ export type ProvidersListState = {
   pages: ProviderInfo[][];
 
   pagination: ProvidersListPaginationState;
-};
+}
 
-export type ProvidersState = {
+export interface ProvidersState {
   loading: boolean;
   exists: boolean;
   activeProvidersCount: number;
@@ -50,4 +50,4 @@ export type ProvidersState = {
   cpu: CPUState;
   storage: StorageState;
   providers: ProvidersListState;
-};
+}

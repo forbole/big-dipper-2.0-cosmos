@@ -1,10 +1,10 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
 import Typography from '@material-ui/core/Typography';
-import Name from '@components/name';
-import { MsgRedelegate } from '@models';
-import { useProfileRecoil } from 'ui/recoil/profiles';
-import { formatToken, formatNumber } from 'ui/utils/format_token';
+import Name from '@/components/name';
+import { MsgRedelegate } from '@/models';
+import { useProfileRecoil } from '@/recoil/profiles';
+import { formatToken, formatNumber } from '@/utils/format_token';
 
 const Redelegate: React.FC<{ message: MsgRedelegate }> = (props) => {
   const { message } = props;

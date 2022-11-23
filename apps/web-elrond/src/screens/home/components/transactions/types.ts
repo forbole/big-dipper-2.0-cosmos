@@ -1,11 +1,11 @@
-export type TransactionType = {
+export interface TransactionType {
   hash: string;
   from: string;
   to: string;
   timestamp: number;
   status: string;
-};
+}
 
-export type TransactionState = {
+export interface TransactionState {
   items: TransactionType[];
-};
+}

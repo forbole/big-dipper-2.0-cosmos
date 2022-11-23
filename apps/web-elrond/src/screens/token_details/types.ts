@@ -1,28 +1,28 @@
-export type ProfileType = {
+export interface ProfileType {
   name: string;
   identifier: string;
   description: string;
   imageUrl: string;
-};
+}
 
-export type OverviewType = {
+export interface OverviewType {
   owner: string;
   decimals: number;
   website: string;
   email: string;
-};
+}
 
-export type StatsType = {
+export interface StatsType {
   identifier: string;
   accounts: number;
   transactions: number;
   supply: string;
-};
+}
 
-export type TokenDetailsState = {
+export interface TokenDetailsState {
   loading: boolean;
   exists: boolean;
   profile: ProfileType;
   overview: OverviewType;
   stats: StatsType;
-};
+}

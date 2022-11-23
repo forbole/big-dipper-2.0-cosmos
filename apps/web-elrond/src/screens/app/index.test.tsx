@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import App from '.';
+import App from '@/screens/app';
 
 jest.mock('next-translate/useTranslation', () => () => ({
   lang: 'en',

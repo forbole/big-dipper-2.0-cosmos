@@ -3,9 +3,9 @@ import { useEffect } from 'react';
 import axios from 'axios';
 import * as R from 'ramda';
 import { useRecoilState, SetterOrUpdater } from 'recoil';
-import { BigDipperNetwork } from '@models';
-import { writeNetworks, writeSelectedNetwork } from './selectors';
-import type { Networks, Selected } from './types';
+import { BigDipperNetwork } from '@/models';
+import { writeNetworks, writeSelectedNetwork } from '@/recoil/big_dipper_networks/selectors';
+import type { Networks, Selected } from '@/recoil/big_dipper_networks/types';
 
 export type UseChainIdQuery<TData, TVariables> = (
   baseOptions?: QueryHookOptions<TData, TVariables>

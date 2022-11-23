@@ -2,11 +2,11 @@ import React from 'react';
 import classnames from 'classnames';
 import numeral from 'numeral';
 import { useRecoilValue } from 'recoil';
-import { readMarket } from '@recoil/market/elrond';
+import { readMarket } from '@/recoil/market';
 import useTranslation from 'next-translate/useTranslation';
-import SingleBlock from './components/single_block';
-import { useStyles } from './styles';
-import { useDataBlocks } from './hooks';
+import SingleBlock from '@/screens/home/components/data_blocks/components/single_block';
+import { useStyles } from '@/screens/home/components/data_blocks/styles';
+import { useDataBlocks } from '@/screens/home/components/data_blocks/hooks';
 
 const DataBlocks: React.FC<ComponentDefault> = (props) => {
   const { t } = useTranslation('home');

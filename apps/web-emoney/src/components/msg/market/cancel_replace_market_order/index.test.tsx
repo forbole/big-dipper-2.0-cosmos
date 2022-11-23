@@ -1,13 +1,13 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import MsgCancelReplaceMarketOrder from '@models/emoney/msg/market/msg_cancel_replace_market_order';
-import CancelReplaceMarketOrder from '.';
+import { MockTheme } from '@/tests/utils';
+import MsgCancelReplaceMarketOrder from '@/models/msg/market/msg_cancel_replace_market_order';
+import CancelReplaceMarketOrder from '@/components/msg/market/cancel_replace_market_order';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 

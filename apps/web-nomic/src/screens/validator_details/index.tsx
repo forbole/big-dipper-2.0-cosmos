@@ -1,15 +1,15 @@
 import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
 import { NextSeo } from 'next-seo';
-import Layout from '@components/layout';
-import LoadAndExist from 'ui/components/load_and_exist';
-import DesmosProfile from 'ui/components/desmos_profile';
-import { useStyles } from './styles';
-import Profile from './components/profile';
-import VotingPower from './components/voting_power';
-import Blocks from './components/blocks';
-import ValidatorOverview from './components/validator_overview';
-import { useValidatorDetails } from './hooks';
+import Layout from '@/components/layout';
+import LoadAndExist from '@/components/load_and_exist';
+import DesmosProfile from '@/components/desmos_profile';
+import { useStyles } from '@/screens/validator_details/styles';
+import Profile from '@/screens/validator_details/components/profile';
+import VotingPower from '@/screens/validator_details/components/voting_power';
+import Blocks from '@/screens/validator_details/components/blocks';
+import ValidatorOverview from '@/screens/validator_details/components/validator_overview';
+import { useValidatorDetails } from '@/screens/validator_details/hooks';
 
 const ValidatorDetails = () => {
   const { t } = useTranslation('validators');

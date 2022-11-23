@@ -1,11 +1,12 @@
 import { renderHook, act } from '@testing-library/react-hooks';
 import { RecoilRoot } from 'recoil';
-import chainConfig from 'ui/chainConfig';
-import { useSearchBar } from './hooks';
+import chainConfig from '@/chainConfig';
+import { useSearchBar } from '@/components/nav/components/search_bar/hooks';
 
 const mockPush = jest.fn();
 
 jest.mock('next/router', () => ({
+  ...jest.requireActual('next/router'),
   useRouter: () => ({
     push: mockPush,
   }),
@@ -15,8 +16,8 @@ jest.mock('react-toastify', () => ({
   toast: jest.fn(),
 }));
 
-jest.mock('ui/utils/prefix_convert', () => ({
-  ...jest.requireActual('ui/utils/prefix_convert'),
+jest.mock('@/utils/prefix_convert', () => ({
+  ...jest.requireActual('@/utils/prefix_convert'),
   isValidAddress(address: string) {
     if (
       address === `${chainConfig.prefix.validator}1jrld5g998gqm4yx26l6cvhxz7y5adgxqzfdpes` ||
@@ -24,7 +25,7 @@ jest.mock('ui/utils/prefix_convert', () => ({
     ) {
       return true;
     }
-    return jest.requireActual('ui/utils/prefix_convert').isValidAddress(address);
+    return jest.requireActual('@/utils/prefix_convert').isValidAddress(address);
   },
 }));
 

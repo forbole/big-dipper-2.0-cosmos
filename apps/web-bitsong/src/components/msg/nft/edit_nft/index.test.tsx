@@ -1,13 +1,13 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import MsgEditNFT from '@models/bitsong/msg/nft/msg_edit_nft';
-import EditNFT from '.';
+import { MockTheme } from '@/tests/utils';
+import MsgEditNFT from '@/models/msg/nft/msg_edit_nft';
+import EditNFT from '@/components/msg/nft/edit_nft';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 

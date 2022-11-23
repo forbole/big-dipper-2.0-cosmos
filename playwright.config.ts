@@ -8,7 +8,8 @@ import { devices } from '@playwright/test';
  */
 // require('dotenv').config();
 
-const port = process.env.PORT || 3900;
+const port = process.env.PORT || '3000';
+const projectName = process.env.PROJECT_NAME || 'web';
 
 /**
  * See https://playwright.dev/docs/test-configuration.
@@ -16,13 +17,13 @@ const port = process.env.PORT || 3900;
 const config: PlaywrightTestConfig = {
   testDir: './e2e',
   /* Maximum time one test can run for. */
-  timeout: 50 * 1000,
+  timeout: process.env.CI ? 30 * 60 * 1000 : 10 * 60 * 1000,
   expect: {
     /**
      * Maximum time expect() should wait for the condition to be met.
      * For example in `await expect(locator).toHaveText();`
      */
-    timeout: 10 * 1000,
+    timeout: 30 * 1000,
   },
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -33,7 +34,7 @@ const config: PlaywrightTestConfig = {
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  reporter: process.env.CI ? 'github' : 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
@@ -46,7 +47,7 @@ const config: PlaywrightTestConfig = {
     /* Ignore https error in firefox */
     ignoreHTTPSErrors: true,
     viewport: { width: 1280, height: 720 },
-    video: process.env.CI ? 'off' : 'on-first-retry',
+    video: 'off',
   },
 
   /* Configure projects for major browsers */
@@ -111,11 +112,13 @@ const config: PlaywrightTestConfig = {
 
   /* Run your local dev server before starting the tests */
   webServer: {
-    command: `PROJECT_NAME=${
-      process.env.PROJECT_NAME || 'web'
-    } yarn build && PORT=${port} PROJECT_NAME=${process.env.PROJECT_NAME || 'web'} yarn start`,
+    command: `yarn build && yarn start`,
     url: `http://localhost:${port}`,
-    timeout: 5 * 60 * 1000,
+    env: {
+      PROJECT_NAME: projectName,
+      PORT: port,
+      DEBUG: 'pw:webserver',
+    },
     reuseExistingServer: process.env.CI ? undefined : true,
   },
 };

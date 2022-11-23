@@ -1,66 +1,9 @@
-import Delegate from 'ui/components/msg/staking/delegate';
-import Unknown from 'ui/components/msg/unknown';
-import Redelegate from 'ui/components/msg/staking/redelegate';
-import Undelegate from 'ui/components/msg/staking/undelegate';
-import CreateValidator from 'ui/components/msg/staking/create_validator';
-import EditValidator from 'ui/components/msg/staking/edit_validator';
-import Send from 'ui/components/msg/bank/send';
-import Multisend from 'ui/components/msg/bank/multisend';
-import VerifyInvariant from 'ui/components/msg/crisis/verify_invariant';
-import Unjail from 'ui/components/msg/slashing/unjail';
-import Fund from 'ui/components/msg/distribution/fund';
-import SetWithdrawalAddress from 'ui/components/msg/distribution/set_withdrawal_address';
-import WithdrawReward from 'ui/components/msg/distribution/withdraw_reward';
-import DepositProposal from 'ui/components/msg/governance/deposit_proposal';
-import Vote from 'ui/components/msg/governance/vote';
-import SubmitProposal from 'ui/components/msg/governance/submit_proposal';
-import WithdrawCommission from 'ui/components/msg/distribution/withdraw_commission';
-import SaveProfile from 'ui/components/msg/profiles/save_profile';
-import DeleteProfile from 'ui/components/msg/profiles/delete_profile';
-import CreateRelationship from 'ui/components/msg/profiles/create_relationship';
-import DtagTransferRequest from 'ui/components/msg/profiles/dtag_transfer_request';
-import DtagAcceptTransfer from 'ui/components/msg/profiles/dtag_accept_transfer';
-import DtagCancelTransfer from 'ui/components/msg/profiles/dtag_cancel_transfer';
-import DtagRefuseTransfer from 'ui/components/msg/profiles/dtag_refuse_transfer';
-import BlockUser from 'ui/components/msg/profiles/block_user';
-import UnBlockUser from 'ui/components/msg/profiles/unblock_user';
-import Transfer from 'ui/components/msg/ibc_transfer/transfer';
-import Grant from 'ui/components/msg/authz/grant';
-import Revoke from 'ui/components/msg/authz/revoke';
-import GrantAllowance from 'ui/components/msg/feegrant/grant_allowance';
-import RevokeAllowance from 'ui/components/msg/feegrant/revoke_allowance';
-import CreateVestingAccount from 'ui/components/msg/vesting/create_vesting_account';
-import CreateClient from 'ui/components/msg/ibc/client_create_client';
-import UpdateClient from 'ui/components/msg/ibc/client_update_client';
-import UpgradeClient from 'ui/components/msg/ibc/client_upgrade_client';
-import SubmitMisbehaviour from 'ui/components/msg/ibc/client_submit_misbehaviour';
-import Height from 'ui/components/msg/ibc/client_height';
-import Acknowledgement from 'ui/components/msg/ibc/channel_acknowledgement';
-import Channel from 'ui/components/msg/ibc/channel';
-import ChannelCloseConfirm from 'ui/components/msg/ibc/channel_close_confirm';
-import ChannelCloseInit from 'ui/components/msg/ibc/channel_close_init';
-import ChannelOpenAck from 'ui/components/msg/ibc/channel_open_ack';
-import ChannelOpenConfirm from 'ui/components/msg/ibc/channel_open_confirm';
-import ChannelOpenInit from 'ui/components/msg/ibc/channel_open_init';
-import ChannelOpenTry from 'ui/components/msg/ibc/channel_open_try';
-import CounterpartyChannel from 'ui/components/msg/ibc/channel_counterparty';
-import Packet from 'ui/components/msg/ibc/channel_packet';
-import ReceivePacket from 'ui/components/msg/ibc/channel_receive_packet';
-import Timeout from 'ui/components/msg/ibc/channel_timeout';
-import TimeoutOnClose from 'ui/components/msg/ibc/channel_timeout_on_close';
-import ConnectionEnd from 'ui/components/msg/ibc/connection_end';
-import ConnectionOpenAck from 'ui/components/msg/ibc/connection_open_ack';
-import ConnectionOpenConfirm from 'ui/components/msg/ibc/connection_open_confirm';
-import ConnectionOpenInit from 'ui/components/msg/ibc/connection_open_init';
-import ConnectionOpenTry from 'ui/components/msg/ibc/connection_open_try';
-import CounterpartyConnection from 'ui/components/msg/ibc/connection_counterparty';
-import Version from 'ui/components/msg/ibc/connection_version';
-import * as MODELS from '@models';
-import type { Categories } from 'ui/models/msg/types';
-import Tag from 'ui/components/tag';
-import isKeyOf from 'ui/utils/isKeyOf';
+import * as COMPONENTS from '@/components/msg';
+import * as MODELS from '@/models';
+import type { Categories } from '@/models/msg/types';
+import Tag from '@/components/tag';
+import isKeyOf from '@/utils/isKeyOf';
 import { Translate } from 'next-translate';
-import CreatePeriodicVestingAccount from './vesting/create_periodic_vesting_account';
 
 // =====================================
 // DO NOT UPDATE IF THIS IS A FORK.
@@ -73,31 +16,31 @@ const defaultTypeToModel = {
   // ========================
   '/cosmos.staking.v1beta1.MsgDelegate': {
     model: MODELS.MsgDelegate,
-    content: Delegate,
+    content: COMPONENTS.Delegate,
     tagTheme: 'one',
     tagDisplay: 'txDelegateLabel',
   },
   '/cosmos.staking.v1beta1.MsgBeginRedelegate': {
     model: MODELS.MsgRedelegate,
-    content: Redelegate,
+    content: COMPONENTS.Redelegate,
     tagTheme: 'one',
     tagDisplay: 'txRedelegateLabel',
   },
   '/cosmos.staking.v1beta1.MsgUndelegate': {
     model: MODELS.MsgUndelegate,
-    content: Undelegate,
+    content: COMPONENTS.Undelegate,
     tagTheme: 'one',
     tagDisplay: 'txUndelegateLabel',
   },
   '/cosmos.staking.v1beta1.MsgCreateValidator': {
     model: MODELS.MsgCreateValidator,
-    content: CreateValidator,
+    content: COMPONENTS.CreateValidator,
     tagTheme: 'one',
     tagDisplay: 'txCreateValidatorLabel',
   },
   '/cosmos.staking.v1beta1.MsgEditValidator': {
     model: MODELS.MsgEditValidator,
-    content: EditValidator,
+    content: COMPONENTS.EditValidator,
     tagTheme: 'one',
     tagDisplay: 'txEditValidatorLabel',
   },
@@ -106,13 +49,13 @@ const defaultTypeToModel = {
   // ========================
   '/cosmos.bank.v1beta1.MsgSend': {
     model: MODELS.MsgSend,
-    content: Send,
+    content: COMPONENTS.Send,
     tagTheme: 'two',
     tagDisplay: 'txSendLabel',
   },
   '/cosmos.bank.v1beta1.MsgMultiSend': {
     model: MODELS.MsgMultiSend,
-    content: Multisend,
+    content: COMPONENTS.Multisend,
     tagTheme: 'two',
     tagDisplay: 'txMultisendLabel',
   },
@@ -121,7 +64,7 @@ const defaultTypeToModel = {
   // ========================
   '/cosmos.crisis.v1beta1.MsgVerifyInvariant': {
     model: MODELS.MsgVerifyInvariant,
-    content: VerifyInvariant,
+    content: COMPONENTS.VerifyInvariant,
     tagTheme: 'three',
     tagDisplay: 'txVerifyInvariantLabel',
   },
@@ -130,7 +73,7 @@ const defaultTypeToModel = {
   // ========================
   '/cosmos.slashing.v1beta1.MsgUnjail': {
     model: MODELS.MsgUnjail,
-    content: Unjail,
+    content: COMPONENTS.Unjail,
     tagTheme: 'five',
     tagDisplay: 'txUnjailLabel',
   },
@@ -139,25 +82,25 @@ const defaultTypeToModel = {
   // ========================
   '/cosmos.distribution.v1beta1.MsgFundCommunityPool': {
     model: MODELS.MsgFundCommunityPool,
-    content: Fund,
+    content: COMPONENTS.Fund,
     tagTheme: 'six',
     tagDisplay: 'txFundLabel',
   },
   '/cosmos.distribution.v1beta1.MsgSetWithdrawAddress': {
     model: MODELS.MsgSetWithdrawAddress,
-    content: SetWithdrawalAddress,
+    content: COMPONENTS.SetWithdrawalAddress,
     tagTheme: 'six',
     tagDisplay: 'txsetRewardAddressLabel',
   },
   '/cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward': {
     model: MODELS.MsgWithdrawDelegatorReward,
-    content: WithdrawReward,
+    content: COMPONENTS.WithdrawReward,
     tagTheme: 'six',
     tagDisplay: 'txWithdrawRewardLabel',
   },
   '/cosmos.distribution.v1beta1.MsgWithdrawValidatorCommission': {
     model: MODELS.MsgWithdrawValidatorCommission,
-    content: WithdrawCommission,
+    content: COMPONENTS.WithdrawCommission,
     tagTheme: 'six',
     tagDisplay: 'txWithdrawCommissionLabel',
   },
@@ -166,19 +109,19 @@ const defaultTypeToModel = {
   // ========================
   '/cosmos.gov.v1beta1.MsgDeposit': {
     model: MODELS.MsgDeposit,
-    content: DepositProposal,
+    content: COMPONENTS.DepositProposal,
     tagTheme: 'seven',
     tagDisplay: 'txDepositLabel',
   },
   '/cosmos.gov.v1beta1.MsgVote': {
     model: MODELS.MsgVote,
-    content: Vote,
+    content: COMPONENTS.Vote,
     tagTheme: 'seven',
     tagDisplay: 'txVoteLabel',
   },
   '/cosmos.gov.v1beta1.MsgSubmitProposal': {
     model: MODELS.MsgSubmitProposal,
-    content: SubmitProposal,
+    content: COMPONENTS.SubmitProposal,
     tagTheme: 'seven',
     tagDisplay: 'txSubmitProposalLabel',
   },
@@ -187,31 +130,31 @@ const defaultTypeToModel = {
   // ========================
   '/ibc.core.client.v1.MsgCreateClient': {
     model: MODELS.MsgCreateClient,
-    content: CreateClient,
+    content: COMPONENTS.CreateClient,
     tagTheme: 'nine',
     tagDisplay: 'txCreateClientLabel',
   },
   '/ibc.core.client.v1.MsgUpdateClient': {
     model: MODELS.MsgUpdateClient,
-    content: UpdateClient,
+    content: COMPONENTS.UpdateClient,
     tagTheme: 'nine',
     tagDisplay: 'txUpdateClientLabel',
   },
   '/ibc.core.client.v1.MsgUpgradeClient': {
     model: MODELS.MsgUpgradeClient,
-    content: UpgradeClient,
+    content: COMPONENTS.UpgradeClient,
     tagTheme: 'nine',
     tagDisplay: 'txUpgradeClientLabel',
   },
   '/ibc.core.client.v1.MsgSubmitMisbehaviour': {
     model: MODELS.MsgSubmitMisbehaviour,
-    content: SubmitMisbehaviour,
+    content: COMPONENTS.SubmitMisbehaviour,
     tagTheme: 'nine',
     tagDisplay: 'txSubmitMisbehaviourLabel',
   },
   '/ibc.core.client.v1.Height': {
     model: MODELS.MsgHeight,
-    content: Height,
+    content: COMPONENTS.Height,
     tagTheme: 'nine',
     tagDisplay: 'txHeightLabel',
   },
@@ -220,79 +163,79 @@ const defaultTypeToModel = {
   // ========================
   '/ibc.core.channel.v1.MsgRecvPacket': {
     model: MODELS.MsgReceivePacket,
-    content: ReceivePacket,
+    content: COMPONENTS.ReceivePacket,
     tagTheme: 'nine',
     tagDisplay: 'txRecvPacketLabel',
   },
   '/ibc.core.channel.v1.Channel': {
     model: MODELS.MsgChannel,
-    content: Channel,
+    content: COMPONENTS.Channel,
     tagTheme: 'nine',
     tagDisplay: 'txChannelLabel',
   },
   '/ibc.core.channel.v1.Counterparty': {
     model: MODELS.MsgCounterpartyChannel,
-    content: CounterpartyChannel,
+    content: COMPONENTS.CounterpartyChannel,
     tagTheme: 'nine',
     tagDisplay: 'txCounterpartyLabel',
   },
   '/ibc.core.channel.v1.Packet': {
     model: MODELS.MsgPacket,
-    content: Packet,
+    content: COMPONENTS.Packet,
     tagTheme: 'nine',
     tagDisplay: 'txPacketLabel',
   },
   '/ibc.core.channel.v1.MsgAcknowledgement': {
     model: MODELS.MsgAcknowledgement,
-    content: Acknowledgement,
+    content: COMPONENTS.Acknowledgement,
     tagTheme: 'nine',
     tagDisplay: 'txAcknowledgementLabel',
   },
   '/ibc.core.channel.v1.MsgChannelCloseConfirm': {
     model: MODELS.MsgChannelCloseConfirm,
-    content: ChannelCloseConfirm,
+    content: COMPONENTS.ChannelCloseConfirm,
     tagTheme: 'nine',
     tagDisplay: 'txChannelCloseConfirmLabel',
   },
   '/ibc.core.channel.v1.MsgChannelCloseInit': {
     model: MODELS.MsgChannelCloseInit,
-    content: ChannelCloseInit,
+    content: COMPONENTS.ChannelCloseInit,
     tagTheme: 'nine',
     tagDisplay: 'txChannelCloseInitLabel',
   },
   '/ibc.core.channel.v1.MsgChannelOpenAck': {
     model: MODELS.MsgChannelOpenAck,
-    content: ChannelOpenAck,
+    content: COMPONENTS.ChannelOpenAck,
     tagTheme: 'nine',
     tagDisplay: 'txChannelOpenAckLabel',
   },
   '/ibc.core.channel.v1.MsgChannelOpenConfirm': {
     model: MODELS.MsgChannelOpenConfirm,
-    content: ChannelOpenConfirm,
+    content: COMPONENTS.ChannelOpenConfirm,
     tagTheme: 'nine',
     tagDisplay: 'txChannelOpenConfirmLabel',
   },
   '/ibc.core.channel.v1.MsgChannelOpenInit': {
     model: MODELS.MsgChannelOpenInit,
-    content: ChannelOpenInit,
+    content: COMPONENTS.ChannelOpenInit,
     tagTheme: 'nine',
     tagDisplay: 'txChannelOpenInitLabel',
   },
   '/ibc.core.channel.v1.MsgChannelOpenTry': {
     model: MODELS.MsgChannelOpenTry,
-    content: ChannelOpenTry,
+    content: COMPONENTS.ChannelOpenTry,
     tagTheme: 'nine',
     tagDisplay: 'txChannelOpenTryLabel',
   },
   '/ibc.core.channel.v1.MsgTimeout': {
     model: MODELS.MsgTimeout,
-    content: Timeout,
+    content: COMPONENTS.Timeout,
     tagTheme: 'nine',
     tagDisplay: 'txTimeoutLabel',
   },
   '/ibc.core.channel.v1.MsgTimeoutOnClose': {
     model: MODELS.MsgTimeoutOnClose,
-    content: TimeoutOnClose,
+    content: COMPONENTS.TimeoutOnClose,
     tagTheme: 'nine',
     tagDisplay: 'txTimeoutOnCloseLabel',
   },
@@ -301,43 +244,43 @@ const defaultTypeToModel = {
   // ========================
   '/ibc.core.connection.v1.MsgConnectionOpenAck': {
     model: MODELS.MsgConnectionOpenAck,
-    content: ConnectionOpenAck,
+    content: COMPONENTS.ConnectionOpenAck,
     tagTheme: 'nine',
     tagDisplay: 'txConnectionOpenAckLabel',
   },
   '/ibc.core.connection.v1.MsgConnectionOpenConfirm': {
     model: MODELS.MsgConnectionOpenConfirm,
-    content: ConnectionOpenConfirm,
+    content: COMPONENTS.ConnectionOpenConfirm,
     tagTheme: 'nine',
     tagDisplay: 'txConnectionOpenConfirmLabel',
   },
   '/ibc.core.connection.v1.MsgConnectionOpenInit': {
     model: MODELS.MsgConnectionOpenInit,
-    content: ConnectionOpenInit,
+    content: COMPONENTS.ConnectionOpenInit,
     tagTheme: 'nine',
     tagDisplay: 'txConnectionOpenInitLabel',
   },
   '/ibc.core.connection.v1.MsgConnectionOpenTry': {
     model: MODELS.MsgConnectionOpenTry,
-    content: ConnectionOpenTry,
+    content: COMPONENTS.ConnectionOpenTry,
     tagTheme: 'nine',
     tagDisplay: 'txConnectionOpenTryLabel',
   },
   '/ibc.core.connection.v1.ConnectionEnd': {
     model: MODELS.MsgConnectionEnd,
-    content: ConnectionEnd,
+    content: COMPONENTS.ConnectionEnd,
     tagTheme: 'nine',
     tagDisplay: 'txConnectionEndLabel',
   },
   '/ibc.core.connection.v1.Counterparty': {
     model: MODELS.MsgCounterpartyConnection,
-    content: CounterpartyConnection,
+    content: COMPONENTS.CounterpartyConnection,
     tagTheme: 'nine',
     tagDisplay: 'txCounterpartyLabel',
   },
   '/ibc.core.connection.v1.Version': {
     model: MODELS.MsgVersion,
-    content: Version,
+    content: COMPONENTS.Version,
     tagTheme: 'nine',
     tagDisplay: 'txVersionLabel',
   },
@@ -346,7 +289,7 @@ const defaultTypeToModel = {
   // ========================
   '/ibc.applications.transfer.v1.MsgTransfer': {
     model: MODELS.MsgTransfer,
-    content: Transfer,
+    content: COMPONENTS.Transfer,
     tagTheme: 'ten',
     tagDisplay: 'txTransferLabel',
   },
@@ -355,13 +298,13 @@ const defaultTypeToModel = {
   // ========================
   '/cosmos.authz.v1beta1.MsgGrant': {
     model: MODELS.MsgGrant,
-    content: Grant,
+    content: COMPONENTS.Grant,
     tagTheme: 'thirteen',
     tagDisplay: 'MsgGrant',
   },
   '/cosmos.authz.v1beta1.MsgRevoke': {
     model: MODELS.MsgRevoke,
-    content: Revoke,
+    content: COMPONENTS.Revoke,
     tagTheme: 'thirteen',
     tagDisplay: 'MsgRevoke',
   },
@@ -370,13 +313,13 @@ const defaultTypeToModel = {
   // ========================
   '/cosmos.feegrant.v1beta1.MsgGrantAllowance': {
     model: MODELS.MsgGrantAllowance,
-    content: GrantAllowance,
+    content: COMPONENTS.GrantAllowance,
     tagTheme: 'fourteen',
     tagDisplay: 'MsgGrantAllowance',
   },
   '/cosmos.feegrant.v1beta1.MsgRevokeAllowance': {
     model: MODELS.MsgRevokeAllowance,
-    content: RevokeAllowance,
+    content: COMPONENTS.RevokeAllowance,
     tagTheme: 'fourteen',
     tagDisplay: 'MsgRevokeAllowance',
   },
@@ -385,13 +328,13 @@ const defaultTypeToModel = {
   // ========================
   '/cosmos.vesting.v1beta1.MsgCreateVestingAccount': {
     model: MODELS.MsgCreateVestingAccount,
-    content: CreateVestingAccount,
+    content: COMPONENTS.CreateVestingAccount,
     tagTheme: 'fifteen',
     tagDisplay: 'MsgCreateVestingAccount',
   },
   '/cosmos.vesting.v1beta1.MsgCreatePeriodicVestingAccount': {
     model: MODELS.MsgCreatePeriodicVestingAccount,
-    content: CreatePeriodicVestingAccount,
+    content: COMPONENTS.CreatePeriodicVestingAccount,
     tagTheme: 'fifteen',
     tagDisplay: 'MsgCreatePeriodicVestingAccount',
   },
@@ -407,55 +350,55 @@ const customTypeToModel = {
   // ========================
   '/desmos.profiles.v1beta1.MsgSaveProfile': {
     model: MODELS.MsgSaveProfile,
-    content: SaveProfile,
+    content: COMPONENTS.SaveProfile,
     tagTheme: 'four',
     tagDisplay: 'txSaveProfileLabel',
   },
   '/desmos.profiles.v1beta1.MsgDeleteProfile': {
     model: MODELS.MsgDeleteProfile,
-    content: DeleteProfile,
+    content: COMPONENTS.DeleteProfile,
     tagTheme: 'four',
     tagDisplay: 'txDeleteProfileLabel',
   },
   '/desmos.profiles.v1beta1.MsgCreateRelationship': {
     model: MODELS.MsgCreateRelationship,
-    content: CreateRelationship,
+    content: COMPONENTS.CreateRelationship,
     tagTheme: 'four',
     tagDisplay: 'txCreateRelationshipLabel',
   },
   '/desmos.profiles.v1beta1.MsgRequestDTagTransfer': {
     model: MODELS.MsgDtagTransferRequest,
-    content: DtagTransferRequest,
+    content: COMPONENTS.DtagTransferRequest,
     tagTheme: 'four',
     tagDisplay: 'txRequestDTagTransferLabel',
   },
   '/desmos.profiles.v1beta1.MsgAcceptDTagTransfer': {
     model: MODELS.MsgDtagAcceptTransfer,
-    content: DtagAcceptTransfer,
+    content: COMPONENTS.DtagAcceptTransfer,
     tagTheme: 'four',
     tagDisplay: 'txAcceptDTagTransferLabel',
   },
   '/desmos.profiles.v1beta1.MsgCancelDTagTransfer': {
     model: MODELS.MsgDtagCancelTransfer,
-    content: DtagCancelTransfer,
+    content: COMPONENTS.DtagCancelTransfer,
     tagTheme: 'four',
     tagDisplay: 'txCancelDTagTransferLabel',
   },
   '/desmos.profiles.v1beta1.MsgRefuseDTagTransfer': {
     model: MODELS.MsgDtagRefuseTransfer,
-    content: DtagRefuseTransfer,
+    content: COMPONENTS.DtagRefuseTransfer,
     tagTheme: 'four',
     tagDisplay: 'txRefuseDTagTransferLabel',
   },
   '/desmos.profiles.v1beta1.MsgBlockUser': {
     model: MODELS.MsgBlockUser,
-    content: BlockUser,
+    content: COMPONENTS.BlockUser,
     tagTheme: 'four',
     tagDisplay: 'txBlockUserLabel',
   },
   '/desmos.profiles.v1beta1.MsgUnblockUser': {
     model: MODELS.MsgUnblockUser,
-    content: UnBlockUser,
+    content: COMPONENTS.UnBlockUser,
     tagTheme: 'four',
     tagDisplay: 'txUnblockUserLabel',
   },
@@ -504,7 +447,7 @@ export const getMessageByType = (
     tagTheme: Data extends { tagTheme: unknown } ? Data['tagTheme'] : 'zero';
   };
   let results: resultType = {
-    content: Unknown,
+    content: COMPONENTS.Unknown,
     tagDisplay: 'txUnknownLabel',
     tagTheme: 'zero',
   };
@@ -521,7 +464,7 @@ export const getMessageByType = (
 
   // If user asks to view the raw data
   if (viewRaw || !results.content) {
-    results.content = Unknown;
+    results.content = COMPONENTS.Unknown;
   }
 
   return {

@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import { useStyles } from './styles';
+import { useStyles } from '@/components/box/styles';
 
 const Box: React.FC<{
   className?: string;

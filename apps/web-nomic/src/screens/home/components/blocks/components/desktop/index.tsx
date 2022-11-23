@@ -8,13 +8,13 @@ import TableBody from '@material-ui/core/TableBody';
 import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
-import dayjs from 'ui/utils/dayjs';
+import dayjs from '@/utils/dayjs';
 import Link from 'next/link';
-import { BLOCK_DETAILS } from 'ui/utils/go_to_page';
-import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
-import { useStyles } from './styles';
-import { columns } from './utils';
-import type { BlockType } from '../../types';
+import { BLOCK_DETAILS } from '@/utils/go_to_page';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
+import { useStyles } from '@/screens/home/components/blocks/components/desktop/styles';
+import { columns } from '@/screens/home/components/blocks/components/desktop/utils';
+import type { BlockType } from 'src/screens/home/components/blocks/types';
 
 const Desktop: React.FC<{
   className?: string;

@@ -1,26 +1,26 @@
-export type OverviewType = {
+export interface OverviewType {
   address: string;
   withdrawalAddress: string;
-};
+}
 
-export type BalanceType = {
+export interface BalanceType {
   available: TokenUnit;
   delegate: TokenUnit;
   total: TokenUnit;
-};
+}
 
-export type OtherTokenType = {
+export interface OtherTokenType {
   denom: string;
   available: TokenUnit;
   reward: TokenUnit;
   commission: TokenUnit;
-};
+}
 
-export type RewardsType = {
+export interface RewardsType {
   [value: string]: TokenUnit[];
-};
+}
 
-export type AccountDetailState = {
+export interface AccountDetailState {
   loading: boolean;
   exists: boolean;
   desmosProfile: DesmosProfile | null;
@@ -30,4 +30,4 @@ export type AccountDetailState = {
     data: OtherTokenType[];
     count: number;
   };
-};
+}

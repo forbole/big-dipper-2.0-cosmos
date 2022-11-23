@@ -1,7 +1,7 @@
 import React from 'react';
-import NoData from '@components/no_data';
-import type { TransactionsListDetailsState } from './types';
-import List from './components/list';
+import NoData from '@/components/no_data';
+import type { TransactionsListDetailsState } from '@/components/transactions_list_details/types';
+import List from '@/components/transactions_list_details/components/list';
 
 const TransactionsListDetails: React.FC<TransactionsListDetailsState> = (props) => {
   // setting fallback values

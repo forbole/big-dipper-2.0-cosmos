@@ -2,14 +2,14 @@ import React from 'react';
 import classnames from 'classnames';
 import Link from 'next/link';
 import numeral from 'numeral';
-import dayjs from 'ui/utils/dayjs';
+import dayjs from '@/utils/dayjs';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
-import SingleTransactionMobile from '@components/single_transaction_mobile';
-import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
-import { BLOCK_DETAILS, TRANSACTION_DETAILS } from 'ui/utils/go_to_page';
+import SingleTransactionMobile from '@/components/single_transaction_mobile';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
+import { BLOCK_DETAILS, TRANSACTION_DETAILS } from '@/utils/go_to_page';
 
-import type { TransactionType } from '../../types';
+import type { TransactionType } from '@/screens/home/components/transactions/types';
 
 const Mobile: React.FC<{
   className?: string;

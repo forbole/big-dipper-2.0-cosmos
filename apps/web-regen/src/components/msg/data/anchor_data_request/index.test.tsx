@@ -1,14 +1,14 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import MsgAnchorDataRequest from '@models/regen/msg/data/msg_anchor_data_request';
-import AnchorDataRequest from '.';
+import { MockTheme } from '@/tests/utils';
+import MsgAnchorDataRequest from '@/models/msg/data/msg_anchor_data_request';
+import AnchorDataRequest from '@/components/msg/data/anchor_data_request';
 
 // ==================================
 // mocks
 // ==================================
 
-jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 

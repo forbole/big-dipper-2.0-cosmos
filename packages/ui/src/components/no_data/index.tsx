@@ -3,10 +3,10 @@ import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Typography from '@material-ui/core/Typography';
 import { useRecoilValue } from 'recoil';
-import { readTheme } from 'ui/recoil/settings';
+import { readTheme } from '@/recoil/settings';
 import NotFoundLight from 'shared-utils/assets/not-found-light.svg';
 import NotFoundDark from 'shared-utils/assets/not-found-dark.svg';
-import { useStyles } from './styles';
+import { useStyles } from '@/components/no_data/styles';
 
 const NoData: React.FC<{
   className?: string;

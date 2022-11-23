@@ -1,13 +1,13 @@
 import React from 'react';
 import numeral from 'numeral';
 import useTranslation from 'next-translate/useTranslation';
-import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
-import AvatarName from '@components/avatar_name';
-import { TOKEN_DETAILS } from '@utils/go_to_page';
-import { useStyles } from './styles';
-import type { TokenType } from '../../../../types';
+import AvatarName from '@/components/avatar_name';
+import { TOKEN_DETAILS } from '@/utils/go_to_page';
+import type { TokenType } from '@/screens/tokens/components/list/types';
+import { useStyles } from '@/screens/tokens/components/list/components/tokens_list/components/mobile/styles';
 
 const Mobile: React.FC<{ items: TokenType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('tokens');

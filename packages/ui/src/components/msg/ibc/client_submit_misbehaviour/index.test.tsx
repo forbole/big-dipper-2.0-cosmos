@@ -1,14 +1,14 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import { MsgSubmitMisbehaviour } from '@models';
-import SubmitMisbehaviour from '.';
+import { MockTheme } from '@/tests/utils';
+import { MsgSubmitMisbehaviour } from '@/models';
+import SubmitMisbehaviour from '@/components/msg/ibc/client_submit_misbehaviour';
 
 // ==================================
 // mocks
 // ==================================
 
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 

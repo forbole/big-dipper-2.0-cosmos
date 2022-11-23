@@ -1,4 +1,4 @@
-import Blocks from '@screens/blocks';
+import Blocks from '@/screens/blocks';
 
 const BlocksPage = () => <Blocks />;
 

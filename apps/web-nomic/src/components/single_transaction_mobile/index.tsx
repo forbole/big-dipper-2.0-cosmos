@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
-import { useStyles } from './styles';
+import { useStyles } from '@/components/single_transaction_mobile/styles';
 
 const SingleTransactionMobile: React.FC<{
   className?: string;

@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import SingleSlotMobile from '.';
+import { MockTheme } from '@/tests/utils';
+import SingleSlotMobile from '@/components/single_block_mobile';
 
 const mockI18n = {
   t: (key: string) => key,

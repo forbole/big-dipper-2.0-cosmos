@@ -8,7 +8,7 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "concurrently --kill-others \"turbo run watch\" \"turbo run dev --filter ${PROJECT_NAME:-web}... --concurrency=1\"",
+    "dev": "turbo run dev --filter ${PROJECT_NAME:-web}... --concurrency=1",
     "build": "turbo run build --filter ${PROJECT_NAME:-web}...",
     "build:ci": "turbo run build --concurrency=30%",
     "clean": "[ -d \"node_modules\" ] && turbo run clean && rm -rf node_modules",
@@ -19,8 +19,8 @@
     "test": "turbo run test --filter ${PROJECT_NAME:-web}...",
     "test:snapshot": "turbo run test --filter ${PROJECT_NAME:-web}... -- -u",
     "test:ci": "turbo run test --concurrency=30%",
-    "e2e": "npx playwright test",
-    "e2e:install": "yarn dlx playwright install --with-deps",
+    "e2e": "playwright test",
+    "e2e:install": "playwright install --with-deps",
     "graphql:codegen": "turbo run graphql:codegen --continue --concurrency=2",
     "postinstall": "husky install"
   },
@@ -30,7 +30,6 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.28.0",
-    "concurrently": "^7.6.0",
     "husky": "^8.0.0",
     "lint-staged": "^13.0.3",
     "prettier": "2.7.1",

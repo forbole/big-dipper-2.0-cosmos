@@ -1,4 +1,4 @@
-import TokenDetails from '@screens/token_details';
+import TokenDetails from '@/screens/token_details';
 
 const TokenDetailsPage = () => <TokenDetails />;
 

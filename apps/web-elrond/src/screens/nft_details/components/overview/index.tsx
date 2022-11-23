@@ -1,12 +1,12 @@
 import React from 'react';
-import BoxDetails from 'ui/components/box_details';
-import AvatarName from '@components/avatar_name';
-import dayjs, { formatDayJs } from 'ui/utils/dayjs';
+import BoxDetails from '@/components/box_details';
+import AvatarName from '@/components/avatar_name';
+import dayjs, { formatDayJs } from '@/utils/dayjs';
 import useTranslation from 'next-translate/useTranslation';
 import { useRecoilValue } from 'recoil';
-import { readDate } from 'ui/recoil/settings';
-import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
-import type { OverviewType } from '../../types';
+import { readDate } from '@/recoil/settings';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
+import type { OverviewType } from '@/screens/nft_details/types';
 
 const Overview: React.FC<OverviewType & ComponentDefault> = (props) => {
   const { t } = useTranslation('nfts');

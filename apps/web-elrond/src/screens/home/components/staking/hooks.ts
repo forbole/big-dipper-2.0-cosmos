@@ -1,11 +1,11 @@
 import { useCallback, useEffect, useState } from 'react';
 import * as R from 'ramda';
 import axios from 'axios';
-import { ECONOMICS } from '@api';
-import type { StakingState } from './types';
+import { ECONOMICS } from '@/api';
+import type { StakingState } from '@/screens/home/components/staking/types';
 
 export const useStaking = () => {
-    const [state, setState] = useState<StakingState>({
+  const [state, setState] = useState<StakingState>({
     staked: 0,
     circulatingSupply: 0,
     percentStaked: 0,

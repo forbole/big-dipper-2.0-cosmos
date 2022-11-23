@@ -6,12 +6,12 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import TableBody from '@material-ui/core/TableBody';
-import { formatNumber } from 'ui/utils/format_token';
-import { TOKEN_DETAILS } from '@utils/go_to_page';
-import AvatarName from '@components/avatar_name';
-import { columns } from './utils';
-import { useStyles } from './styles';
-import type { OtherTokenType } from '../../../../types';
+import { formatNumber } from '@/utils/format_token';
+import { TOKEN_DETAILS } from '@/utils/go_to_page';
+import AvatarName from '@/components/avatar_name';
+import type { OtherTokenType } from '@/screens/account_details/components/tokens/types';
+import { columns } from '@/screens/account_details/components/tokens/components/list/components/desktop/utils';
+import { useStyles } from '@/screens/account_details/components/tokens/components/list/components/desktop/styles';
 
 const Desktop: React.FC<{ items: OtherTokenType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('accounts');

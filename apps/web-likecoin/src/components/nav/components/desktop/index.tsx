@@ -6,12 +6,12 @@ import React from 'react';
 import { useRecoilValue } from 'recoil';
 import BigDipperLogoRed from 'shared-utils/assets/big-dipper-red.svg';
 import BigDipperLogoWhite from 'shared-utils/assets/big-dipper-white.svg';
-import MenuItems from 'ui/components/nav/components/menu_items';
-import TitleBar from 'ui/components/nav/components/title_bar';
-import { readTheme } from 'ui/recoil/settings';
-import ActionBar from './components/action_bar';
-import { useDesktop } from './hooks';
-import { useStyles } from './styles';
+import MenuItems from '@/components/nav/components/menu_items';
+import TitleBar from '@/components/nav/components/title_bar';
+import { readTheme } from '@/recoil/settings';
+import ActionBar from '@/components/nav/components/desktop/components/action_bar';
+import { useDesktop } from '@/components/nav/components/desktop/hooks';
+import { useStyles } from '@/components/nav/components/desktop/styles';
 
 const Desktop: React.FC<{
   className?: string;

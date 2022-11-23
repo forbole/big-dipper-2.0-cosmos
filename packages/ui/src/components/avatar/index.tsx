@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import classnames from 'classnames';
 import * as jdenticon from 'jdenticon';
 import Image from 'next/future/image';
-import { useStyles } from './styles';
+import { useStyles } from '@/components/avatar/styles';
 
 const Avatar: React.FC<{
   className?: string;

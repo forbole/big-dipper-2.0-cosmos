@@ -1,13 +1,13 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import { MsgCounterpartyChannel } from '@models';
-import CounterpartyChannel from '.';
+import { MockTheme } from '@/tests/utils';
+import { MsgCounterpartyChannel } from '@/models';
+import CounterpartyChannel from '@/components/msg/ibc/channel_counterparty';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 

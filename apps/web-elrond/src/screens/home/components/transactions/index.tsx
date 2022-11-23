@@ -5,17 +5,21 @@ import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
-import { TRANSACTIONS } from '@utils/go_to_page';
-import Box from 'ui/components/box';
-import NoData from '@components/no_data';
-import { useScreenSize } from 'ui/hooks';
-import { useStyles } from './styles';
-import { useBlocks } from './hooks';
-import type DesktopType from './components/desktop';
-import type MobileType from './components/mobile';
+import { TRANSACTIONS } from '@/utils/go_to_page';
+import Box from '@/components/box';
+import NoData from '@/components/no_data';
+import { useScreenSize } from '@/hooks';
+import { useStyles } from '@/screens/home/components/transactions/styles';
+import { useBlocks } from '@/screens/home/components/transactions/hooks';
+import type DesktopType from '@/screens/home/components/transactions/components/desktop';
+import type MobileType from '@/screens/home/components/transactions/components/mobile';
 
-const Desktop = dynamic(() => import('./components/desktop')) as typeof DesktopType;
-const Mobile = dynamic(() => import('./components/mobile')) as typeof MobileType;
+const Desktop = dynamic(
+  () => import('@/screens/home/components/transactions/components/desktop')
+) as typeof DesktopType;
+const Mobile = dynamic(
+  () => import('@/screens/home/components/transactions/components/mobile')
+) as typeof MobileType;
 
 const Transactions: React.FC<ComponentDefault> = (props) => {
   const classes = useStyles();

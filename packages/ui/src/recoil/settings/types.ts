@@ -2,8 +2,8 @@ export type Theme = 'light' | 'dark' | 'device' | 'deuteranopia' | 'tritanopia' 
 export type Date = 'locale' | 'utc';
 export type Tx = 'compact' | 'detailed';
 
-export type AtomState = {
+export interface AtomState {
   theme: Theme;
   dateFormat: Date;
   txListFormat: Tx;
-};
+}

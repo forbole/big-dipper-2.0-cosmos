@@ -1,13 +1,13 @@
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import { MsgChannelOpenInit } from '@models';
-import ChannelOpenInit from '.';
+import { MockTheme } from '@/tests/utils';
+import { MsgChannelOpenInit } from '@/models';
+import ChannelOpenInit from '@/components/msg/ibc/channel_open_init';
 
 // ==================================
 // mocks
 // ==================================
 
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 

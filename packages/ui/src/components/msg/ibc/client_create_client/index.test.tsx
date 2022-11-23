@@ -1,14 +1,14 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import { MsgCreateClient } from '@models';
-import CreateClient from '.';
+import { MockTheme } from '@/tests/utils';
+import { MsgCreateClient } from '@/models';
+import CreateClient from '@/components/msg/ibc/client_create_client';
 
 // ==================================
 // mocks
 // ==================================
 
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 

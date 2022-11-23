@@ -1,16 +1,16 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
 import useTranslation from 'next-translate/useTranslation';
-import Layout from '@components/layout';
-import LoadAndExist from 'ui/components/load_and_exist';
-import { useValidatorDetails } from './hooks';
-import Profile from './components/profile';
-import Stake from './components/stake';
-import Overview from './components/overview';
-import ContractDetails from './components/contract_details';
-import Nodes from './components/nodes';
-import Transactions from './components/transactions';
-import { useStyles } from './styles';
+import Layout from '@/components/layout';
+import LoadAndExist from '@/components/load_and_exist';
+import { useValidatorDetails } from '@/screens/validator_details/hooks';
+import Profile from '@/screens/validator_details/components/profile';
+import Stake from '@/screens/validator_details/components/stake';
+import Overview from '@/screens/validator_details/components/overview';
+import ContractDetails from '@/screens/validator_details/components/contract_details';
+import Nodes from '@/screens/validator_details/components/nodes';
+import Transactions from '@/screens/validator_details/components/transactions';
+import { useStyles } from '@/screens/validator_details/styles';
 
 const ValidatorDetails = () => {
   const classes = useStyles();

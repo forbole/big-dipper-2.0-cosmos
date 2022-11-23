@@ -1,14 +1,14 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import MsgStoreRawDataRequest from '@models/regen/msg/data/msg_store_raw_data_request';
-import StoreRawDataRequest from '.';
+import { MockTheme } from '@/tests/utils';
+import MsgStoreRawDataRequest from '@/models/msg/data/msg_store_raw_data_request';
+import StoreRawDataRequest from '@/components/msg/data/store_raw_data_request';
 
 // ==================================
 // mocks
 // ==================================
 
-jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 

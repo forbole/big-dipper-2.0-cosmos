@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import Desktop from '.';
+import { MockTheme } from '@/tests/utils';
+import Desktop from '@/screens/blocks/components/desktop';
 
 // ==================================
 // mocks
@@ -11,22 +11,22 @@ const mockI18n = {
   lang: 'en',
 };
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
-jest.mock('ui/components/loading', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/loading', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Loading" {...props} />
 ));
-jest.mock('ui/components/avatar_name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/avatar_name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="AvatarName" {...props} />
 ));
 
-// jest.mock(
-//   'react-virtualized-auto-sizer',
-//   () =>
-//     ({ children }: AutoSizerProps) =>
-//       children({
-//         height: 600,
-//         width: 600,
-//       })
-// );
+jest.mock(
+  'react-virtualized-auto-sizer',
+  () =>
+    ({ children }: AutoSizerProps) =>
+      children({
+        height: 600,
+        width: 600,
+      })
+);
 
 // ==================================
 // unit tests

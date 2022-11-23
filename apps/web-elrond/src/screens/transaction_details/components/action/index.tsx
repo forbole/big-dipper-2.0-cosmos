@@ -1,8 +1,8 @@
 import React from 'react';
-import BoxDetails from 'ui/components/box_details';
+import BoxDetails from '@/components/box_details';
 import useTranslation from 'next-translate/useTranslation';
-import type { ActionType } from '../../types';
-import { useStyles } from './styles';
+import type { ActionType } from '@/screens/transaction_details/types';
+import { useStyles } from '@/screens/transaction_details/components/action/styles';
 
 const Action: React.FC<ActionType & ComponentDefault> = (props) => {
   const classes = useStyles();

@@ -1,14 +1,14 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import MsgClawback from '@models/evmos/msg/vesting/msg_clawback';
-import Clawback from '.';
+import { MockTheme } from '@/tests/utils';
+import MsgClawback from '@/models/msg/vesting/msg_clawback';
+import Clawback from '@/components/msg/vesting/clawback';
 
 // ==================================
 // mocks
 // ==================================
 
-jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 

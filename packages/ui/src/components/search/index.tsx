@@ -3,8 +3,8 @@ import classnames from 'classnames';
 import InputBase from '@material-ui/core/InputBase';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import SearchIcon from '@material-ui/icons/Search';
-import { useStyles } from './styles';
-import { useSearch } from './hooks';
+import { useStyles } from '@/components/search/styles';
+import { useSearch } from '@/components/search/hooks';
 
 const Search: React.FC<{
   className?: string;

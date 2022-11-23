@@ -7,16 +7,16 @@ import AutoSizer from 'react-virtualized-auto-sizer';
 import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
 import { useRecoilValue } from 'recoil';
-import Loading from 'ui/components/loading';
-import { useList, useListRow, useScreenSize } from 'ui/hooks';
-import { readDate } from 'ui/recoil/settings';
-import dayjs, { formatDayJs } from 'ui/utils/dayjs';
-import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
-import { BLOCK_DETAILS, TRANSACTION_DETAILS } from 'ui/utils/go_to_page';
-import { mergeRefs } from 'ui/utils/merge_refs';
-import type { TransactionsListDetailsState } from '../../types';
-import SingleTransaction from './components/single_transaction';
-import { useStyles } from './styles';
+import Loading from '@/components/loading';
+import { useList, useListRow, useScreenSize } from '@/hooks';
+import { readDate } from '@/recoil/settings';
+import dayjs, { formatDayJs } from '@/utils/dayjs';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
+import { BLOCK_DETAILS, TRANSACTION_DETAILS } from '@/utils/go_to_page';
+import { mergeRefs } from '@/utils/merge_refs';
+import type { TransactionsListDetailsState } from '@/components/transactions_list_details/types';
+import SingleTransaction from '@/components/transactions_list_details/components/list/components/single_transaction';
+import { useStyles } from '@/components/transactions_list_details/components/list/styles';
 
 const TransactionList: FC<TransactionsListDetailsState> = ({
   className,

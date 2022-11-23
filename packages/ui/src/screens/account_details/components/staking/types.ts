@@ -6,32 +6,32 @@ export type StakingType<g> = {
   loading: boolean;
 };
 
-export type DelegationType = {
+export interface DelegationType {
   validator: string;
   amount: TokenUnit;
   reward: TokenUnit;
-};
+}
 
-export type RedelegationType = {
+export interface RedelegationType {
   from: string;
   to: string;
   amount: TokenUnit;
   completionTime: string;
-};
+}
 
-export type UnbondingType = {
+export interface UnbondingType {
   validator: string;
   amount: TokenUnit;
   completionTime: string;
-};
+}
 
 export type DelegationsType = StakingType<DelegationType>;
 export type RedelegationsType = StakingType<RedelegationType>;
 export type UnbondingsType = StakingType<UnbondingType>;
 
-export type StakingState = {
+export interface StakingState {
   tab: number;
   delegations: DelegationsType;
   redelegations: RedelegationsType;
   unbondings: UnbondingsType;
-};
+}

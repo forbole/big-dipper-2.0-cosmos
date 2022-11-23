@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import * as R from 'ramda';
-import type { ValidatorsState } from './types';
-import type { ValidatorType } from '../../types';
+import type { ValidatorsState } from '@/screens/validators/components/list/components/validators/types';
+import type { ValidatorType } from '@/screens/validators/components/list/types';
 
 export const useProviders = (search: string) => {
   const [state, setState] = useState<ValidatorsState>({

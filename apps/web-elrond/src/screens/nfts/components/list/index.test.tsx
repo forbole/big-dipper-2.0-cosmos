@@ -2,27 +2,27 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
-import { LATEST_BLOCK_HEIGHT, BLOCKS, NFTS, NFTS_COUNT } from '@api';
-import { MockTheme, wait } from 'ui/tests/utils';
-import List from '.';
+import { LATEST_BLOCK_HEIGHT, BLOCKS, NFTS, NFTS_COUNT } from '@/api';
+import { MockTheme, wait } from '@/tests/utils';
+import List from '@/screens/nfts/components/list';
 
 // ==================================
 // unit tests
 // ==================================
 
-jest.mock('@components/pagination', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/pagination', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Pagination" {...props} />
 ));
-jest.mock('@components/no_data', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/no_data', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="NoData" {...props} />
 ));
-jest.mock('ui/components/box', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/box', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Box" {...props} />
 ));
-jest.mock('ui/components/loading', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/loading', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Loading" {...props} />
 ));
-jest.mock('@components/blocks_list', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/blocks_list', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="BlocksList" {...props} />
 ));
 

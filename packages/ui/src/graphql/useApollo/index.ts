@@ -13,7 +13,7 @@ import { createClient } from 'graphql-ws';
 import webSocketImpl from 'isomorphic-ws';
 import { Kind, OperationTypeNode } from 'graphql';
 import { useEffect, useState } from 'react';
-import chainConfig from 'ui/chainConfig';
+import chainConfig from '@/chainConfig';
 
 /* A global variable that stores the Apollo Client. */
 let globalApolloClient: ApolloClient<NormalizedCacheObject>;

@@ -1,10 +1,10 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
 import Typography from '@material-ui/core/Typography';
-import Name from 'ui/components/name';
-import { formatToken, formatNumber } from 'ui/utils/format_token';
-import MsgCancelReplaceLimitOrder from '@models/emoney/msg/market/msg_cancel_replace_limit_order';
-import { useProfileRecoil } from 'ui/recoil/profiles';
+import Name from '@/components/name';
+import { formatToken, formatNumber } from '@/utils/format_token';
+import MsgCancelReplaceLimitOrder from '@/models/msg/market/msg_cancel_replace_limit_order';
+import { useProfileRecoil } from '@/recoil/profiles';
 
 const CancelReplaceLimitOrder: React.FC<{ message: MsgCancelReplaceLimitOrder }> = (props) => {
   const { message } = props;

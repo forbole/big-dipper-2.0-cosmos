@@ -1,4 +1,4 @@
-import ProfileDetails from '@screens/profile_details';
+import ProfileDetails from '@/screens/profile_details';
 
 const ProfileDetailsPage = () => <ProfileDetails />;
 

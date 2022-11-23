@@ -1,10 +1,10 @@
 import React from 'react';
 import numeral from 'numeral';
 import useTranslation from 'next-translate/useTranslation';
-import BoxDetails from 'ui/components/box_details';
-import AvatarName from '@components/avatar_name';
-import { formatNumber } from 'ui/utils/format_token';
-import type { ContractType } from '../../types';
+import BoxDetails from '@/components/box_details';
+import AvatarName from '@/components/avatar_name';
+import { formatNumber } from '@/utils/format_token';
+import type { ContractType } from '@/screens/validator_details/types';
 
 const ContractDetails: React.FC<{ contract: ContractType } & ComponentDefault> = (props) => {
   const { t } = useTranslation('validators');

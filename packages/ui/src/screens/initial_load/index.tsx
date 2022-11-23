@@ -1,11 +1,11 @@
 import LinearProgress from '@material-ui/core/LinearProgress';
-import { readTheme } from 'ui/recoil/settings';
+import { readTheme } from '@/recoil/settings';
 import React from 'react';
 import { useRecoilValue } from 'recoil';
 import BigDipperLogoRed from 'shared-utils/assets/big-dipper-red.svg';
 import BigDipperLogoWhite from 'shared-utils/assets/big-dipper-white.svg';
-import ChainIcon from '@components/ChainIcon';
-import { useStyles } from './styles';
+import ChainIcon from '@/components/ChainIcon';
+import { useStyles } from '@/screens/initial_load/styles';
 
 const InitialLoad = () => {
   const theme = useRecoilValue(readTheme);

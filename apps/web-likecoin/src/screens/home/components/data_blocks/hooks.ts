@@ -9,8 +9,8 @@ import {
   TokenPriceListenerSubscription,
   useActiveValidatorCountQuery,
   ActiveValidatorCountQuery,
-} from '@graphql/types/general_types';
-import chainConfig from 'ui/chainConfig';
+} from '@/graphql/types/general_types';
+import chainConfig from '@/chainConfig';
 
 export const useDataBlocks = () => {
   const [state, setState] = useState<{

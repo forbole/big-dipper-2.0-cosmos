@@ -8,10 +8,10 @@ import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import TableBody from '@material-ui/core/TableBody';
 import Typography from '@material-ui/core/Typography';
-import dayjs from 'ui/utils/dayjs';
-import { BLOCK_DETAILS } from '@utils/go_to_page';
-import { getShardDisplay } from '@utils/get_shard_display';
-import { columns } from './utils';
+import dayjs from '@/utils/dayjs';
+import { BLOCK_DETAILS } from '@/utils/go_to_page';
+import { getShardDisplay } from '@/utils/get_shard_display';
+import { columns } from '@/components/blocks_list/components/desktop/utils';
 
 const Desktop: React.FC<{ items: BlockType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('blocks');

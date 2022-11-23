@@ -2,14 +2,14 @@ import React from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import { useRecoilValue } from 'recoil';
-import { readDate } from 'ui/recoil/settings';
+import { readDate } from '@/recoil/settings';
 import Table from '@material-ui/core/Table';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import TableBody from '@material-ui/core/TableBody';
-import dayjs, { formatDayJs } from 'ui/utils/dayjs';
-import { columns } from './utils';
+import dayjs, { formatDayJs } from '@/utils/dayjs';
+import { columns } from '@/components/desmos_profile/components/connections/components/desktop/utils';
 
 const Desktop: React.FC<{
   className?: string;

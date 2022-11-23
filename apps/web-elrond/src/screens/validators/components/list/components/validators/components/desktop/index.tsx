@@ -5,15 +5,15 @@ import useTranslation from 'next-translate/useTranslation';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { VariableSizeGrid as Grid } from 'react-window';
 import Typography from '@material-ui/core/Typography';
-import { useGrid } from 'ui/hooks';
-import { formatNumber } from 'ui/utils/format_token';
-import SortArrows from 'ui/components/sort_arrows';
-import AvatarName from '@components/avatar_name';
-import { VALIDATOR_DETAILS, NODE_DETAILS } from '@utils/go_to_page';
-import { useStyles } from './styles';
-import { fetchColumns } from './utils';
-import VotingPower from '../voting_power';
-import type { ValidatorType } from '../../../../types';
+import { useGrid } from '@/hooks';
+import { formatNumber } from '@/utils/format_token';
+import SortArrows from '@/components/sort_arrows';
+import AvatarName from '@/components/avatar_name';
+import { VALIDATOR_DETAILS, NODE_DETAILS } from '@/utils/go_to_page';
+import type { ValidatorType } from '@/screens/validators/components/list/types';
+import { useStyles } from '@/screens/validators/components/list/components/validators/components/desktop/styles';
+import { fetchColumns } from '@/screens/validators/components/list/components/validators/components/desktop/utils';
+import VotingPower from '@/screens/validators/components/list/components/validators/components/voting_power';
 
 const Desktop: React.FC<{
   className?: string;

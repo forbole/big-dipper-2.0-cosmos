@@ -1,6 +1,6 @@
 import React from 'react';
 import { AppProps } from 'next/app';
-import { useChainHealthCheck } from './hooks';
+import { useChainHealthCheck } from '@/screens/app/components/inner_app/hooks';
 
 function InnerApp({ Component, pageProps }: AppProps) {
   useChainHealthCheck();

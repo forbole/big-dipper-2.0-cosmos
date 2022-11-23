@@ -8,14 +8,14 @@ import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import TableBody from '@material-ui/core/TableBody';
 import Typography from '@material-ui/core/Typography';
-import Result from '@components/result';
-import AvatarName from '@components/avatar_name';
-import { TRANSACTION_DETAILS } from '@utils/go_to_page';
-import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
-import dayjs from 'ui/utils/dayjs';
-import { columns } from './utils';
-import { useStyles } from './styles';
-import type { TransactionType } from '../../types';
+import Result from '@/components/result';
+import AvatarName from '@/components/avatar_name';
+import { TRANSACTION_DETAILS } from '@/utils/go_to_page';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
+import dayjs from '@/utils/dayjs';
+import { columns } from '@/screens/home/components/transactions/components/desktop/utils';
+import { useStyles } from '@/screens/home/components/transactions/components/desktop/styles';
+import type { TransactionType } from '@/screens/home/components/transactions/types';
 
 const Desktop: React.FC<{ items: TransactionType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('transactions');

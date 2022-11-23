@@ -1,7 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import Desktop from '.';
+import { MockTheme } from '@/tests/utils';
+import type { AutoSizerProps } from 'react-virtualized-auto-sizer';
+import Desktop from '@/screens/profile_details/components/connections/components/desktop';
 
 // ==================================
 // mocks
@@ -12,15 +13,15 @@ const mockI18n = {
 };
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
 
-// jest.mock(
-//   'react-virtualized-auto-sizer',
-//   () =>
-//     ({ children }: AutoSizerProps) =>
-//       children({
-//         height: 600,
-//         width: 600,
-//       })
-// );
+jest.mock(
+  'react-virtualized-auto-sizer',
+  () =>
+    ({ children }: AutoSizerProps) =>
+      children({
+        height: 600,
+        width: 600,
+      })
+);
 
 // ==================================
 // unit tests

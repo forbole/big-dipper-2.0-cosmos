@@ -1,14 +1,14 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import MsgCreateDistribution from '@models/sifchain/msg/dispensation/msg_create_distribution';
-import CreateDistribution from '.';
+import { MockTheme } from '@/tests/utils';
+import MsgCreateDistribution from '@/models/msg/dispensation/msg_create_distribution';
+import CreateDistribution from '@/components/msg/dispensation/create_distribution';
 
 // ==================================
 // mocks
 // ==================================
 
-jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 

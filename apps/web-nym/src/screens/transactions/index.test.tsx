@@ -2,27 +2,26 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
 import { MockedProvider } from '@apollo/client/testing';
-import { MockTheme, wait } from 'ui/tests/utils';
-import { TransactionsListenerDocument, TransactionsDocument } from '@graphql/types/general_types';
-import Transactions from '.';
+import { MockTheme, wait } from '@/tests/utils';
+import { TransactionsListenerDocument, TransactionsDocument } from '@/graphql/types/general_types';
+import Transactions from '@/screens/transactions';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/layout', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/layout', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Layout" {...props} />
 ));
-jest.mock('ui/components/transactions_list', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/transactions_list', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="TransactionsList" {...props} />
 ));
-jest.mock(
-  'ui/components/transactions_list_details',
-  () => (props: JSX.IntrinsicElements['div']) => <div id="TransactionsListDetails" {...props} />
-);
-jest.mock('ui/components/box', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/transactions_list_details', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="TransactionsListDetails" {...props} />
+));
+jest.mock('@/components/box', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Box" {...props} />
 ));
-jest.mock('ui/components/load_and_exist', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/load_and_exist', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="LoadAndExist" {...props} />
 ));
 

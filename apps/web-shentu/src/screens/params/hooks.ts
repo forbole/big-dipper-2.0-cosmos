@@ -1,12 +1,12 @@
 import { useCallback, useState } from 'react';
 import numeral from 'numeral';
 import * as R from 'ramda';
-import { useParamsQuery, ParamsQuery } from '@graphql/types/general_types';
-import { formatToken } from 'ui/utils/format_token';
-import chainConfig from 'ui/chainConfig';
-import { DistributionParams, MintParams, SlashingParams, StakingParams } from '@models';
-import GovParams from '@models/shentu/gov_params';
-import type { ParamsState } from './types';
+import { useParamsQuery, ParamsQuery } from '@/graphql/types/general_types';
+import { formatToken } from '@/utils/format_token';
+import chainConfig from '@/chainConfig';
+import { DistributionParams, MintParams, SlashingParams, StakingParams } from '@/models';
+import GovParams from '@/models/gov_params';
+import type { ParamsState } from '@/screens/params/types';
 
 const initialState = {
   loading: true,

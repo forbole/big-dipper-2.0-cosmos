@@ -2,12 +2,12 @@ import { useCallback, useEffect, useState } from 'react';
 import * as R from 'ramda';
 import Big from 'big.js';
 import axios from 'axios';
-import chainConfig from 'ui/chainConfig';
+import chainConfig from '@/chainConfig';
 import { useRouter } from 'next/router';
-import { IDENTITY, PROVIDERS, PROVIDER_DETAILS, STAKE } from '@api';
-import { isBech32 } from '@utils/bech32';
-import { formatToken, formatNumber } from 'ui/utils/format_token';
-import type { ValidatorDetailsState } from './types';
+import { IDENTITY, PROVIDERS, PROVIDER_DETAILS, STAKE } from '@/api';
+import { isBech32 } from '@/utils/bech32';
+import { formatToken, formatNumber } from '@/utils/format_token';
+import type { ValidatorDetailsState } from '@/screens/validator_details/types';
 
 const defaultTokenUnit: TokenUnit = {
   value: '0',
@@ -18,7 +18,7 @@ const defaultTokenUnit: TokenUnit = {
 
 export const useValidatorDetails = () => {
   const router = useRouter();
-    const [state, setState] = useState<ValidatorDetailsState>({
+  const [state, setState] = useState<ValidatorDetailsState>({
     loading: true,
     exists: true,
     isProvider: false,

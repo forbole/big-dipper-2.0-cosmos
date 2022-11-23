@@ -1,19 +1,25 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 import classnames from 'classnames';
-import Box from '@components/box';
-import TabPanel from '@components/tab_panel';
-import Tabs from './components/tabs';
-import { useStaking } from './hooks';
-import { useStyles } from './styles';
-import type { RewardsType } from '../../types';
-import type DelegationsFC from './components/delegations';
-import type RedelgationsFC from './components/redelegations';
-import type UnbondingsFC from './components/unbondings';
+import Box from '@/components/box';
+import TabPanel from '@/components/tab_panel';
+import type { RewardsType } from '@/screens/account_details/types';
+import Tabs from '@/screens/account_details/components/staking/components/tabs';
+import { useStaking } from '@/screens/account_details/components/staking/hooks';
+import { useStyles } from '@/screens/account_details/components/staking/styles';
+import type DelegationsFC from '@/screens/account_details/components/staking/components/delegations';
+import type RedelgationsFC from '@/screens/account_details/components/staking/components/redelegations';
+import type UnbondingsFC from '@/screens/account_details/components/staking/components/unbondings';
 
-const Delegations = dynamic(() => import('./components/delegations')) as typeof DelegationsFC;
-const Redelgations = dynamic(() => import('./components/redelegations')) as typeof RedelgationsFC;
-const Unbondings = dynamic(() => import('./components/unbondings')) as typeof UnbondingsFC;
+const Delegations = dynamic(
+  () => import('@/screens/account_details/components/staking/components/delegations')
+) as typeof DelegationsFC;
+const Redelgations = dynamic(
+  () => import('@/screens/account_details/components/staking/components/redelegations')
+) as typeof RedelgationsFC;
+const Unbondings = dynamic(
+  () => import('@/screens/account_details/components/staking/components/unbondings')
+) as typeof UnbondingsFC;
 
 const Staking: React.FC<
   {

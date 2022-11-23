@@ -3,7 +3,7 @@ const workaround = require('next-translate/lib/cjs/plugin/utils.js');
 
 // fix: Critical dependency: the request of a dependency is an expression
 workaround.defaultLoader =
-  '(l, n) => import(`@public/locales/${l}/${n}.json`).then(m => m.default)';
+  '(l, n) => import(`@/public/locales/${l}/${n}.json`).then(m => m.default)';
 
 module.exports = {
   locales: ['en'],

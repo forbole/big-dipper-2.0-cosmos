@@ -5,17 +5,17 @@ import Big from 'big.js';
 import numeral from 'numeral';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
-import { useScreenSize } from 'ui/hooks';
+import { useScreenSize } from '@/hooks';
 import CopyIcon from 'shared-utils/assets/icon-copy.svg';
-import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
-import Box from 'ui/components/box';
-import Tag from 'ui/components/tag';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
+import Box from '@/components/box';
+import Tag from '@/components/tag';
 import Link from 'next/link';
-import { ACCOUNT_DETAILS } from 'ui/utils/go_to_page';
-import { getValidatorStatus } from '@utils/get_validator_status';
-import { useStyles } from './styles';
-import type { StatusType, OverviewType } from '../../types';
-import { useAddress } from './hooks';
+import { ACCOUNT_DETAILS } from '@/utils/go_to_page';
+import { getValidatorStatus } from '@/utils/get_validator_status';
+import { useStyles } from '@/screens/validator_details/components/validator_overview/styles';
+import type { StatusType, OverviewType } from '@/screens/validator_details/types';
+import { useAddress } from '@/screens/validator_details/components/validator_overview/hooks';
 
 const ValidatorOverview: React.FC<
   {

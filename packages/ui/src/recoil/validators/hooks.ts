@@ -1,18 +1,17 @@
-/* eslint-disable max-len */
 import { useState } from 'react';
 import { useRecoilCallback } from 'recoil';
 import * as R from 'ramda';
 import { QueryHookOptions, QueryResult } from '@apollo/client';
-import chainConfig from 'ui/chainConfig';
-import { useDesmosProfile } from '@hooks';
-import { atomFamilyState as validatorAtomState } from './atom';
-import { atomFamilyState as profileAtomFamilyState } from '../profiles';
+import chainConfig from '@/chainConfig';
+import { useDesmosProfile } from '@/hooks';
+import { atomFamilyState as validatorAtomState } from '@/recoil/validators/atom';
+import { atomFamilyState as profileAtomFamilyState } from '@/recoil/profiles';
 
 export type UseValidatorAddressesQuery<TData, TVariables> = (
   baseOptions?: QueryHookOptions<TData, TVariables>
 ) => QueryResult<TData, TVariables>;
 
-export type DataType = {
+export interface DataType {
   validator: Array<{
     validatorInfo: {
       consensusAddress: string;
@@ -20,7 +19,7 @@ export type DataType = {
       selfDelegateAddress: string;
     };
   }>;
-};
+}
 
 export const useValidatorRecoil = <TData, TVariables>(
   useValidatorAddressesQuery: UseValidatorAddressesQuery<TData, TVariables>

@@ -7,9 +7,9 @@ import InputBase from '@material-ui/core/InputBase';
 import Typography from '@material-ui/core/Typography';
 import FilterIcon from 'shared-utils/assets/icon-filter.svg';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { getFilterLabels } from './utils';
-import { useStyles } from './styles';
-import { useTransactionsFilter } from './hooks';
+import { getFilterLabels } from '@/components/transaction_messages_filter/utils';
+import { useStyles } from '@/components/transaction_messages_filter/styles';
+import { useTransactionsFilter } from '@/components/transaction_messages_filter/hooks';
 
 const TransactionMessagesFilter: React.FC<{
   className?: string;

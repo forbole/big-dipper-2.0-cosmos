@@ -1,5 +1,5 @@
-export { atomFamilyState } from './atom';
-export { useProfileRecoil, useProfilesRecoil } from './hooks';
+export { atomFamilyState } from '@/recoil/profiles/atom';
+export { useProfileRecoil, useProfilesRecoil } from '@/recoil/profiles/hooks';
 export {
   readProfile,
   readProfiles,
@@ -9,4 +9,4 @@ export {
   readProfileExist,
   readProfilesExist,
   validatorToDelegatorAddress,
-} from './selectors';
+} from '@/recoil/profiles/selectors';

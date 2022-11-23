@@ -1,13 +1,13 @@
 import React from 'react';
 import classnames from 'classnames';
-import Box from 'ui/components/box';
-import LoadAndExist from 'ui/components/load_and_exist';
-import TabPanel from 'ui/components/tab_panel';
-import Validators from './components/validators';
-import Tabs from './components/tabs';
-import { useStyles } from './styles';
-import { useValidators } from './hooks';
-import type { TabType } from './types';
+import Box from '@/components/box';
+import LoadAndExist from '@/components/load_and_exist';
+import TabPanel from '@/components/tab_panel';
+import Validators from '@/screens/validators/components/list/components/validators';
+import Tabs from '@/screens/validators/components/list/components/tabs';
+import { useStyles } from '@/screens/validators/components/list/styles';
+import { useValidators } from '@/screens/validators/components/list/hooks';
+import type { TabType } from '@/screens/validators/components/list/types';
 
 const List: React.FC<{
   className?: string;

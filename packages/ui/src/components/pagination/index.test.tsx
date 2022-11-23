@@ -1,14 +1,15 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import Pagination from '.';
+import { MockTheme } from '@/tests/utils';
+import Pagination from '@/components/pagination';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('./components/actions', () => (props: JSX.IntrinsicElements['div']) => (
-  <div id="Actions" {...props} />
-));
+jest.mock(
+  '@/components/pagination/components/actions',
+  () => (props: JSX.IntrinsicElements['div']) => <div id="Actions" {...props} />
+);
 
 // ==================================
 // unit tests

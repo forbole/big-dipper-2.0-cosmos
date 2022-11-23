@@ -1,19 +1,19 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
+import { MockTheme } from '@/tests/utils';
 import {
   MsgSubmitProposal,
   MsgSoftwareUpgradeProposal,
   MsgTextProposal,
   MsgParameterChangeProposal,
   MsgCommunityPoolSpendProposal,
-} from '@models';
-import SubmitProposal from '.';
+} from '@/models';
+import SubmitProposal from '@/components/msg/governance/submit_proposal';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 

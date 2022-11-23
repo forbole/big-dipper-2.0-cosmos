@@ -2,12 +2,12 @@ import { useCallback, useEffect, useState } from 'react';
 import axios from 'axios';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
-import { MINIBLOCK_DETAILS } from '@api';
-import type { BlockDetailsState } from './types';
+import { MINIBLOCK_DETAILS } from '@/api';
+import type { BlockDetailsState } from '@/screens/miniblock_details/types';
 
 export const useBlockDetails = () => {
   const router = useRouter();
-    const [state, setState] = useState<BlockDetailsState>({
+  const [state, setState] = useState<BlockDetailsState>({
     loading: true,
     exists: true,
     overview: {

@@ -2,16 +2,16 @@ import React from 'react';
 import Link from 'next/link';
 import useTranslation from 'next-translate/useTranslation';
 import classnames from 'classnames';
-import { useScreenSize } from 'ui/hooks';
+import { useScreenSize } from '@/hooks';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
-import { VALIDATOR_DETAILS } from '@utils/go_to_page';
+import { VALIDATOR_DETAILS } from '@/utils/go_to_page';
 import CopyIcon from 'shared-utils/assets/icon-copy.svg';
-import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
-import Box from 'ui/components/box';
-import { useProfile } from './hooks';
-import { useStyles } from './styles';
-import type { ProfileType } from '../../types';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
+import Box from '@/components/box';
+import { useProfile } from '@/screens/node_details/components/profile/hooks';
+import { useStyles } from '@/screens/node_details/components/profile/styles';
+import type { ProfileType } from '@/screens/node_details/types';
 
 const Profile: React.FC<{ profile: ProfileType; showRating: boolean } & ComponentDefault> = (
   props

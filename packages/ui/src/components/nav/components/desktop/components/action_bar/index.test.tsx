@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import ActionBar from '.';
+import { MockTheme } from '@/tests/utils';
+import ActionBar from '@/components/nav/components/desktop/components/action_bar';
 
 // ==================================
 // global setup
@@ -13,15 +13,18 @@ let component: renderer.ReactTestRenderer;
 // ==================================
 let isNetwork = false;
 const toggleNetwork = jest.fn();
-jest.mock('./components/network', () => (props: JSX.IntrinsicElements['div']) => (
-  <div id="network" {...props} />
-));
-jest.mock('./components/network_list', () => (props: JSX.IntrinsicElements['div']) => (
-  <div id="NetworkList" {...props} />
-));
-jest.mock('./components/settings_list', () => (props: JSX.IntrinsicElements['div']) => (
-  <div id="SettingsList" {...props} />
-));
+jest.mock(
+  '@/components/nav/components/desktop/components/action_bar/components/network',
+  () => (props: JSX.IntrinsicElements['div']) => <div id="network" {...props} />
+);
+jest.mock(
+  '@/components/nav/components/desktop/components/action_bar/components/network_list',
+  () => (props: JSX.IntrinsicElements['div']) => <div id="NetworkList" {...props} />
+);
+jest.mock(
+  '@/components/nav/components/desktop/components/action_bar/components/settings_list',
+  () => (props: JSX.IntrinsicElements['div']) => <div id="SettingsList" {...props} />
+);
 // ==================================
 // unit tests
 // ==================================

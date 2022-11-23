@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import TransactionsList from '.';
+import { MockTheme } from '@/tests/utils';
+import TransactionsList from '@/components/transactions_list';
 
 // ==================================
 // global setup
@@ -11,7 +11,7 @@ let component: renderer.ReactTestRenderer;
 // ==================================
 // mocks
 // ==================================
-jest.mock('ui/components/no_data', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/no_data', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="NoData" {...props} />
 ));
 

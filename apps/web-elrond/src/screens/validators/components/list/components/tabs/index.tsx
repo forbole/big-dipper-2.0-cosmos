@@ -3,10 +3,10 @@ import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import { a11yProps } from 'ui/utils/a11yProps';
-import Search from 'ui/components/search';
-import { useStyles } from './styles';
-import type { TabType } from '../../types';
+import { a11yProps } from '@/utils/a11yProps';
+import Search from '@/components/search';
+import { useStyles } from '@/screens/validators/components/list/components/tabs/styles';
+import type { TabType } from '@/screens/validators/components/list/types';
 
 const TabsHeader: React.FC<{
   className?: string;

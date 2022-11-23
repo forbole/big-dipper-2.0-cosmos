@@ -1,5 +1,5 @@
 import { ThemeOptions } from '@material-ui/core';
-import hindMadurai from './hindMadurai';
+import hindMadurai from '@/styles/theme/hindMadurai';
 
 const backgroundDefault = '#0A0A0A';
 const surfaceOne = '#18181C';

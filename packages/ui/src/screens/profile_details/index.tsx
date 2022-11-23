@@ -1,12 +1,12 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
 import useTranslation from 'next-translate/useTranslation';
-import Layout from '@components/layout';
-import LoadAndExist from '@components/load_and_exist';
-import DesmosProfile from '@components/desmos_profile';
-import { useStyles } from './styles';
-import Connections from './components/connections';
-import { useProfileDetails } from './hooks';
+import Layout from '@/components/layout';
+import LoadAndExist from '@/components/load_and_exist';
+import DesmosProfile from '@/components/desmos_profile';
+import { useStyles } from '@/screens/profile_details/styles';
+import Connections from '@/screens/profile_details/components/connections';
+import { useProfileDetails } from '@/screens/profile_details/hooks';
 
 const ProfileDetails = () => {
   const { t } = useTranslation('profiles');

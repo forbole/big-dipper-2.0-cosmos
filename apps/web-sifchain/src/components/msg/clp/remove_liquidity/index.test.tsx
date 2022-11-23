@@ -1,14 +1,14 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import MsgRemoveLiquidity from '@models/sifchain/msg/clp/msg_remove_liquidity';
-import RemoveLiquidity from '.';
+import { MockTheme } from '@/tests/utils';
+import MsgRemoveLiquidity from '@/models/msg/clp/msg_remove_liquidity';
+import RemoveLiquidity from '@/components/msg/clp/remove_liquidity';
 
 // ==================================
 // mocks
 // ==================================
 
-jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 

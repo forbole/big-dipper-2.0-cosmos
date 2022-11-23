@@ -2,10 +2,10 @@ import React from 'react';
 import classnames from 'classnames';
 import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
-import Box from 'ui/components/box';
-import { formatNumber } from 'ui/utils/format_token';
-import { useStyles } from './styles';
-import type { StakeType } from '../../types';
+import Box from '@/components/box';
+import { formatNumber } from '@/utils/format_token';
+import { useStyles } from '@/screens/validator_details/components/stake/styles';
+import type { StakeType } from '@/screens/validator_details/types';
 
 const Stake: React.FC<{ stake: StakeType } & ComponentDefault> = ({ className, stake }) => {
   const { t } = useTranslation('validators');

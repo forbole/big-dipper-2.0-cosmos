@@ -1,8 +1,8 @@
-export type Link = {
+export interface Link {
   chainId: string;
   url: string;
   name: string;
-};
+}
 
 class BigDipperNetwork {
   public logo: string;

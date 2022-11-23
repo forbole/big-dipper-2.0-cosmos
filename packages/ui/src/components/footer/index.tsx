@@ -8,12 +8,12 @@ import FooterLogoDark from 'shared-utils/assets/big-dipper-white.svg';
 import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
-import chainConfig from 'ui/chainConfig';
-import generalConfig from 'ui/generalConfig';
-import { readTheme } from 'ui/recoil/settings';
-import SocialMedia from './components/social_media';
-import { footerLinks, donateLink } from './utils';
-import { useStyles } from './styles';
+import chainConfig from '@/chainConfig';
+import generalConfig from '@/generalConfig';
+import { readTheme } from '@/recoil/settings';
+import SocialMedia from '@/components/footer/components/social_media';
+import { footerLinks, donateLink } from '@/components/footer/utils';
+import { useStyles } from '@/components/footer/styles';
 
 const Footer: React.FC<{ className?: string }> = ({ className }) => {
   const { t } = useTranslation();

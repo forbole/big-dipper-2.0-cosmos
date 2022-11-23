@@ -1,4 +1,4 @@
-import type { ChainConfig } from './types';
+import type { ChainConfig } from '@/chainConfig/types';
 
 if (!process.env.CHAIN_CONFIG) {
   throw new Error('CHAIN_CONFIG is not defined.');

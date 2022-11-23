@@ -1,3 +1,3 @@
-import NftsList from './nfts_list';
+import NftsList from '@/screens/nfts/components/list/components/nfts_list';
 
 export { NftsList };

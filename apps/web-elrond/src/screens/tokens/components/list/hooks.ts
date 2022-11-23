@@ -1,13 +1,13 @@
 import { useCallback, useEffect, useState } from 'react';
 import * as R from 'ramda';
 import axios from 'axios';
-import { TOKENS, TOKENS_COUNT } from '@api';
-import type { TokenState } from './types';
+import { TOKENS, TOKENS_COUNT } from '@/api';
+import type { TokenState } from '@/screens/tokens/components/list/types';
 
 export const PAGE_SIZE = 25;
 
 export const useBlocks = () => {
-    const [state, setState] = useState<TokenState>({
+  const [state, setState] = useState<TokenState>({
     page: 0,
     loading: true,
     items: [],

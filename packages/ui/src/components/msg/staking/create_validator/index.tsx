@@ -1,9 +1,9 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
 import Typography from '@material-ui/core/Typography';
-import Name from '@components/name';
-import { MsgCreateValidator } from '@models';
-import { useProfileRecoil } from 'ui/recoil/profiles';
+import Name from '@/components/name';
+import { MsgCreateValidator } from '@/models';
+import { useProfileRecoil } from '@/recoil/profiles';
 
 const CreateValidator: React.FC<{ message: MsgCreateValidator }> = (props) => {
   const { message } = props;

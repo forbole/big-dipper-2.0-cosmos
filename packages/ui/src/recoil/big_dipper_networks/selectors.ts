@@ -1,7 +1,7 @@
 import { type ReadOnlySelectorOptions, selector } from 'recoil';
-import { mergeStateChange } from 'ui/utils/merge_state_change';
-import { atomState } from './atom';
-import type { Networks, Selected } from './types';
+import { mergeStateChange } from '@/utils/merge_state_change';
+import { atomState } from '@/recoil/big_dipper_networks/atom';
+import type { Networks, Selected } from '@/recoil/big_dipper_networks/types';
 
 const getNetworks: ReadOnlySelectorOptions<Networks>['get'] = ({ get }) => {
   const state = get(atomState);

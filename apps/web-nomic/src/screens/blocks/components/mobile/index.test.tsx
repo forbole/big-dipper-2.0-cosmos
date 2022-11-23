@@ -1,30 +1,30 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import Mobile from '.';
+import { MockTheme } from '@/tests/utils';
+import Mobile from '@/screens/blocks/components/mobile';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/single_block_mobile', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/single_block_mobile', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="SingleBlockMobile" {...props} />
 ));
-jest.mock('ui/components/loading', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/loading', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Loading" {...props} />
 ));
-jest.mock('ui/components/avatar_name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/avatar_name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="AvatarName" {...props} />
 ));
 
-// jest.mock(
-//   'react-virtualized-auto-sizer',
-//   () =>
-//     ({ children }: AutoSizerProps) =>
-//       children({
-//         height: 600,
-//         width: 600,
-//       })
-// );
+jest.mock(
+  'react-virtualized-auto-sizer',
+  () =>
+    ({ children }: AutoSizerProps) =>
+      children({
+        height: 600,
+        width: 600,
+      })
+);
 
 // ==================================
 // unit tests

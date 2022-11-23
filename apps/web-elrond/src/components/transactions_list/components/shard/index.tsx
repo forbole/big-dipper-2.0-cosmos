@@ -1,10 +1,10 @@
 import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
 import { ArrowForward } from '@material-ui/icons';
-import { getShardDisplay } from '@utils/get_shard_display';
-import { useStyles } from './styles';
+import { getShardDisplay } from '@/utils/get_shard_display';
+import { useStyles } from '@/components/transactions_list/components/shard/styles';
 
-const Shard: React.FC<{to: number, from: number} & ComponentDefault> = (props) => {
+const Shard: React.FC<{ to: number; from: number } & ComponentDefault> = (props) => {
   const { t } = useTranslation('common');
   const classes = useStyles();
   const from = getShardDisplay(props.from);

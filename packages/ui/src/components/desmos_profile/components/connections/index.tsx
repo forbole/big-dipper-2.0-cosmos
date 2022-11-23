@@ -6,11 +6,11 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import IconButton from '@material-ui/core/IconButton';
 import DialogContent from '@material-ui/core/DialogContent';
 import CloseIcon from '@material-ui/icons/Close';
-import Pagination from '@components/pagination';
-import { usePagination, useScreenSize } from '@hooks';
-import { useStyles } from './styles';
-import Desktop from './components/desktop';
-import Mobile from './components/mobile';
+import Pagination from '@/components/pagination';
+import { usePagination, useScreenSize } from '@/hooks';
+import { useStyles } from '@/components/desmos_profile/components/connections/styles';
+import Desktop from '@/components/desmos_profile/components/connections/components/desktop';
+import Mobile from '@/components/desmos_profile/components/connections/components/mobile';
 
 const Connections: React.FC<{
   handleClose: () => void;

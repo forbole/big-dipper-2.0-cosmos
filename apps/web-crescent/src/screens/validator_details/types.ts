@@ -1,12 +1,12 @@
-export type OverviewType = {
+export interface OverviewType {
   validator: string;
   operatorAddress: string;
   selfDelegateAddress: string;
   description: string;
   website: string;
-};
+}
 
-export type StatusType = {
+export interface StatusType {
   status: number;
   jailed: boolean;
   tombstoned: boolean;
@@ -16,19 +16,19 @@ export type StatusType = {
   signedBlockWindow: number;
   missedBlockCounter: number;
   maxRate: string;
-};
+}
 
-export type VotingPowerType = {
+export interface VotingPowerType {
   height: number;
   overall: TokenUnit;
   self: number;
-};
+}
 
-export type ValidatorDetailsState = {
+export interface ValidatorDetailsState {
   loading: boolean;
   exists: boolean;
   desmosProfile: DesmosProfile | null;
   overview: OverviewType;
   status: StatusType;
   votingPower: VotingPowerType;
-};
+}

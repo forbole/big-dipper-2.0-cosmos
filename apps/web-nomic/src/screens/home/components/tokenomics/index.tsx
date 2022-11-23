@@ -3,12 +3,12 @@ import classnames from 'classnames';
 import numeral from 'numeral';
 import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
-import Box from 'ui/components/box';
-import CustomToolTip, { type CustomToolTipData } from 'ui/components/custom_tool_tip';
+import Box from '@/components/box';
+import CustomToolTip, { type CustomToolTipData } from '@/components/custom_tool_tip';
 import { PieChart, Pie, Cell, Tooltip } from 'recharts';
-import chainConfig from 'ui/chainConfig';
-import { useStyles } from './styles';
-import { useTokenomics } from './hooks';
+import chainConfig from '@/chainConfig';
+import { useStyles } from '@/screens/home/components/tokenomics/styles';
+import { useTokenomics } from '@/screens/home/components/tokenomics/hooks';
 
 const Tokenomics: React.FC<{
   className?: string;

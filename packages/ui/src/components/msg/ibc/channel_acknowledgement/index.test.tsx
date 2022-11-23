@@ -1,13 +1,13 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import { MsgAcknowledgement } from '@models';
-import Acknowledgement from '.';
+import { MockTheme } from '@/tests/utils';
+import { MsgAcknowledgement } from '@/models';
+import Acknowledgement from '@/components/msg/ibc/channel_acknowledgement';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 

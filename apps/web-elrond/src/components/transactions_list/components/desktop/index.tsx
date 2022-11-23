@@ -8,14 +8,14 @@ import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import TableBody from '@material-ui/core/TableBody';
 import Typography from '@material-ui/core/Typography';
-import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
-import { TRANSACTION_DETAILS } from '@utils/go_to_page';
-import Result from '@components/result';
-import AvatarName from '@components/avatar_name';
-import dayjs from 'ui/utils/dayjs';
-import { columns } from './utils';
-import { useStyles } from './styles';
-import Shard from '../shard';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
+import { TRANSACTION_DETAILS } from '@/utils/go_to_page';
+import Result from '@/components/result';
+import AvatarName from '@/components/avatar_name';
+import dayjs from '@/utils/dayjs';
+import { columns } from '@/components/transactions_list/components/desktop/utils';
+import { useStyles } from '@/components/transactions_list/components/desktop/styles';
+import Shard from '@/components/transactions_list/components/shard';
 
 const Desktop: React.FC<{ items: TransactionType[] } & ComponentDefault> = (props) => {
   const { className, items } = props;

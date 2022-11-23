@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme, wait } from 'ui/tests/utils';
-import Menu from '.';
+import { MockTheme, wait } from '@/tests/utils';
+import Menu from '@/components/nav/components/mobile/components/menu';
 // ==================================
 // globals
 // ==================================
@@ -20,6 +20,7 @@ jest.mock('@material-ui/core/Drawer', () => (props: JSX.IntrinsicElements['div']
 ));
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
 jest.mock('next/router', () => ({
+  ...jest.requireActual('next/router'),
   useRouter: () => ({
     locales: ['en', 'zh'],
     pathname: '/app/home',

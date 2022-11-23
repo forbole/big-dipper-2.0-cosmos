@@ -1,8 +1,8 @@
-export type PriceType = {
+export interface PriceType {
   time: string;
   value: number;
-};
+}
 
-export type PriceState = {
+export interface PriceState {
   items: PriceType[];
-};
+}

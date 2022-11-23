@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import Result from '.';
+import { MockTheme } from '@/tests/utils';
+import Result from '@/components/result';
 
 // ==================================
 // mocks

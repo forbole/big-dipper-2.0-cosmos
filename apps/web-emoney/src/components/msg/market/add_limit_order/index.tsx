@@ -1,10 +1,10 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
 import Typography from '@material-ui/core/Typography';
-import Name from 'ui/components/name';
-import { formatToken, formatNumber } from 'ui/utils/format_token';
-import MsgAddLimitOrder from '@models/emoney/msg/market/msg_add_limit_order';
-import { useProfileRecoil } from 'ui/recoil/profiles';
+import Name from '@/components/name';
+import { formatToken, formatNumber } from '@/utils/format_token';
+import MsgAddLimitOrder from '@/models/msg/market/msg_add_limit_order';
+import { useProfileRecoil } from '@/recoil/profiles';
 
 const AddLimitOrder: React.FC<{ message: MsgAddLimitOrder }> = (props) => {
   const { message } = props;

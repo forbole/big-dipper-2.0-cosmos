@@ -1,9 +1,9 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
 import Typography from '@material-ui/core/Typography';
-import Name from 'ui/components/name';
-import MsgUpdateGroupMembersRequest from '@models/regen/msg/group/msg_update_group_members_request';
-import { useProfileRecoil } from 'ui/recoil/profiles';
+import Name from '@/components/name';
+import MsgUpdateGroupMembersRequest from '@/models/msg/group/msg_update_group_members_request';
+import { useProfileRecoil } from '@/recoil/profiles';
 
 const UpdateGroupMembersRequest: React.FC<{ message: MsgUpdateGroupMembersRequest }> = (props) => {
   const { message } = props;

@@ -1,4 +1,4 @@
-export type OverviewType = {
+export interface OverviewType {
   hash: string;
   receiverBlockHash: string;
   receiverShard: number;
@@ -6,10 +6,10 @@ export type OverviewType = {
   senderShard: number;
   timestamp: number;
   type: string;
-};
+}
 
-export type BlockDetailsState = {
+export interface BlockDetailsState {
   loading: boolean;
   exists: boolean;
   overview: OverviewType;
-};
+}

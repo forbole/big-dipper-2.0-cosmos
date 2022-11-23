@@ -1,13 +1,13 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import MsgEditDataSource from '@models/band/msg/oracle/msg_edit_data_source';
-import CreateDataSource from '.';
+import { MockTheme } from '@/tests/utils';
+import MsgEditDataSource from '@/models/msg/oracle/msg_edit_data_source';
+import CreateDataSource from '@/components/msg/oracle/edit_data_source';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 

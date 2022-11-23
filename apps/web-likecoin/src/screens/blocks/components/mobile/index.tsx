@@ -1,22 +1,22 @@
 import React, { ComponentProps, FC } from 'react';
 import classnames from 'classnames';
 import numeral from 'numeral';
-import dayjs from 'ui/utils/dayjs';
+import dayjs from '@/utils/dayjs';
 import Link from 'next/link';
-import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
-import AvatarName from 'ui/components/avatar_name';
-import SingleBlockMobile from 'ui/components/single_block_mobile';
-import Loading from 'ui/components/loading';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
+import AvatarName from '@/components/avatar_name';
+import SingleBlockMobile from '@/components/single_block_mobile';
+import Loading from '@/components/loading';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
 import AutoSizer from 'react-virtualized-auto-sizer';
-import { BLOCK_DETAILS } from '@utils/go_to_page';
-import { mergeRefs } from 'ui/utils/merge_refs';
-import { useList, useListRow } from 'ui/hooks';
-import { useStyles } from './styles';
-import type { ItemType } from '../../types';
+import { BLOCK_DETAILS } from '@/utils/go_to_page';
+import { mergeRefs } from '@/utils/merge_refs';
+import { useList, useListRow } from '@/hooks';
+import { useStyles } from '@/screens/blocks/components/mobile/styles';
+import type { ItemType } from '@/screens/blocks/types';
 
 const Mobile: FC<{
   className?: string;

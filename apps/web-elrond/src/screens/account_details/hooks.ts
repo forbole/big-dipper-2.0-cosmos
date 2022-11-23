@@ -1,11 +1,11 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
-import chainConfig from 'ui/chainConfig';
+import chainConfig from '@/chainConfig';
 import axios from 'axios';
-import { ACCOUNT_DETAILS, ACCOUNT_DETAILS_TOKEN_COUNT } from '@api';
-import { formatToken } from 'ui/utils/format_token';
-import type { AccountDetailsType } from './types';
+import { ACCOUNT_DETAILS, ACCOUNT_DETAILS_TOKEN_COUNT } from '@/api';
+import { formatToken } from '@/utils/format_token';
+import type { AccountDetailsType } from '@/screens/account_details/types';
 
 const defaultTokenUnit: TokenUnit = {
   value: '0',
@@ -16,7 +16,7 @@ const defaultTokenUnit: TokenUnit = {
 
 export const useAccountDetails = () => {
   const router = useRouter();
-    const [state, setState] = useState<AccountDetailsType>({
+  const [state, setState] = useState<AccountDetailsType>({
     loading: true,
     exists: true,
     profile: {

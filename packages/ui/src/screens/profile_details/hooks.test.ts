@@ -1,7 +1,7 @@
-import type { useDesmosProfile } from '@src/hooks';
+import type { useDesmosProfile } from '@/hooks';
 import { renderHook, act, cleanup } from '@testing-library/react-hooks';
-import chainConfig from 'ui/chainConfig';
-import { useProfileDetails } from './hooks';
+import chainConfig from '@/chainConfig';
+import { useProfileDetails } from '@/screens/profile_details/hooks';
 
 const mockRouter = {
   query: {
@@ -12,10 +12,11 @@ const mockRouter = {
 };
 
 jest.mock('next/router', () => ({
+  ...jest.requireActual('next/router'),
   useRouter: () => mockRouter,
 }));
 
-jest.mock('@hooks', () => ({
+jest.mock('@/hooks', () => ({
   useDesmosProfile: (options: Parameters<typeof useDesmosProfile>[0]) => ({
     fetchDesmosProfile: jest.fn((dtag) => {
       let results;

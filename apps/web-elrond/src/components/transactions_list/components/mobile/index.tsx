@@ -1,14 +1,14 @@
 import React from 'react';
-import dayjs from 'ui/utils/dayjs';
+import dayjs from '@/utils/dayjs';
 import Link from 'next/link';
 import useTranslation from 'next-translate/useTranslation';
-import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { Typography, Divider } from '@material-ui/core';
-import Result from '@components/result';
-import AvatarName from '@components/avatar_name';
-import { TRANSACTION_DETAILS } from '@utils/go_to_page';
-import { useStyles } from './styles';
-import Shard from '../shard';
+import Result from '@/components/result';
+import AvatarName from '@/components/avatar_name';
+import { TRANSACTION_DETAILS } from '@/utils/go_to_page';
+import { useStyles } from '@/components/transactions_list/components/mobile/styles';
+import Shard from '@/components/transactions_list/components/shard';
 
 const Mobile: React.FC<{ items: TransactionType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('transactions');

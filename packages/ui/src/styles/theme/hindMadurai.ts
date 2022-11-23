@@ -1,5 +1,5 @@
 import type { AtRule } from 'csstype';
-import chainConfig from 'ui/chainConfig';
+import chainConfig from '@/chainConfig';
 
 const basePath = (process.env.BASE_PATH || `${`/${chainConfig.chainName}`}`).replace(
   /^\/(|base)$/,

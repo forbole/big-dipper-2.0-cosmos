@@ -1,2 +1,2 @@
-export { wait } from './wait';
-export { default as MockTheme } from './mock_theme';
+export { wait } from '@/tests/utils/wait';
+export { default as MockTheme } from '@/tests/utils/mock_theme';

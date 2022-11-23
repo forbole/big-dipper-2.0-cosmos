@@ -1,14 +1,14 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import { MsgTransfer } from '@models';
-import Transfer from '.';
+import { MockTheme } from '@/tests/utils';
+import { MsgTransfer } from '@/models';
+import Transfer from '@/components/msg/ibc_transfer/transfer';
 
 // ==================================
 // mocks
 // ==================================
 
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 

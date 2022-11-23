@@ -1,6 +1,6 @@
 import { renderHook, cleanup, act } from '@testing-library/react-hooks';
 import { RecoilRoot } from 'recoil';
-import { useSettingList } from './hooks';
+import { useSettingList } from '@/components/nav/components/desktop/components/action_bar/components/settings_list/hooks';
 
 const mockI18n = {
   t: (key: string) => key,

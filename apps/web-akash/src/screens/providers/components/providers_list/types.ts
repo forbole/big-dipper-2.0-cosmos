@@ -1,15 +1,15 @@
-export type TitleListType = {
+export interface TitleListType {
   ownerAddress: string;
   hostUri: string;
   region: string;
   organization: string;
   email: string;
   website: string;
-};
+}
 
-export type TitleListState = {
+export interface TitleListState {
   hasNextPage: boolean;
   isNextPageLoading: boolean;
   offsetCount: number;
   data: TitleListType[];
-};
+}

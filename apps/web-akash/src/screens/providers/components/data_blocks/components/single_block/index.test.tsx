@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import SingleBlock from '.';
+import { MockTheme } from '@/tests/utils';
+import SingleBlock from '@/screens/providers/components/data_blocks/components/single_block';
 
 // ==================================
 // unit tests

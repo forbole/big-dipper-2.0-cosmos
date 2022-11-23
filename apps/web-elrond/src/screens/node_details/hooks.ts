@@ -2,12 +2,12 @@ import { useCallback, useEffect, useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
-import { ROUNDS, STATS, NODE_DETAILS, IDENTITY, BLOCKS } from '@api';
-import type { NodeDetailsState } from './types';
+import { ROUNDS, STATS, NODE_DETAILS, IDENTITY, BLOCKS } from '@/api';
+import type { NodeDetailsState } from '@/screens/node_details/types';
 
 export const useNodeDetails = () => {
   const router = useRouter();
-    const [state, setState] = useState<NodeDetailsState>({
+  const [state, setState] = useState<NodeDetailsState>({
     loading: true,
     exists: true,
     profile: {

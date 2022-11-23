@@ -1,14 +1,14 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import { MsgConnectionOpenInit } from '@models';
-import ConnectionOpenInit from '.';
+import { MockTheme } from '@/tests/utils';
+import { MsgConnectionOpenInit } from '@/models';
+import ConnectionOpenInit from '@/components/msg/ibc/connection_open_init';
 
 // ==================================
 // mocks
 // ==================================
 
-jest.mock('@components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 

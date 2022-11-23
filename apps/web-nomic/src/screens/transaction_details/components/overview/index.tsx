@@ -2,16 +2,16 @@ import React from 'react';
 import classnames from 'classnames';
 import numeral from 'numeral';
 import Link from 'next/link';
-import dayjs, { formatDayJs } from 'ui/utils/dayjs';
+import dayjs, { formatDayJs } from '@/utils/dayjs';
 import Typography from '@material-ui/core/Typography';
 import { useRecoilValue } from 'recoil';
-import { readDate } from 'ui/recoil/settings';
+import { readDate } from '@/recoil/settings';
 import useTranslation from 'next-translate/useTranslation';
-import { BLOCK_DETAILS } from 'ui/utils/go_to_page';
-import BoxDetails from 'ui/components/box_details';
-import { formatNumber } from 'ui/utils/format_token';
-import { useStyles } from './styles';
-import type { OverviewType } from '../../types';
+import { BLOCK_DETAILS } from '@/utils/go_to_page';
+import BoxDetails from '@/components/box_details';
+import { formatNumber } from '@/utils/format_token';
+import { useStyles } from '@/screens/transaction_details/components/overview/styles';
+import type { OverviewType } from '@/screens/transaction_details/types';
 
 const Overview: React.FC<{
   className?: string;

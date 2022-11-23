@@ -1,8 +1,8 @@
-import Networks from 'ui/components/nav/components/networks';
-import Mobile from './mobile';
-import Desktop from './desktop';
-import MenuItems from './menu_items';
-import SearchBar from './search_bar';
-import TitleBar from './title_bar';
+import Networks from '@/components/nav/components/networks';
+import Mobile from '@/components/nav/components/mobile';
+import Desktop from '@/components/nav/components/desktop';
+import MenuItems from '@/components/nav/components/menu_items';
+import SearchBar from '@/components/nav/components/search_bar';
+import TitleBar from '@/components/nav/components/title_bar';
 
 export { Mobile, Desktop, MenuItems, SearchBar, Networks, TitleBar };

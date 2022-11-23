@@ -1,13 +1,13 @@
-import type Name from 'ui/components/name';
-import { MockTheme } from 'ui/tests/utils';
+import type Name from '@/components/name';
+import { MockTheme } from '@/tests/utils';
 import React, { ComponentProps } from 'react';
 import renderer from 'react-test-renderer';
-import ListNames from '.';
+import ListNames from '@/components/msg/nft/issue_denom/components/list_names';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('ui/recoil/profiles', () => ({
+jest.mock('@/recoil/profiles', () => ({
   useProfilesRecoil: jest.fn((addresses) =>
     addresses.map((address: string) => ({
       address,
@@ -20,7 +20,7 @@ jest.mock('ui/recoil/profiles', () => ({
   ),
 }));
 
-jest.mock('ui/components/name', () => (props: ComponentProps<typeof Name>) => (
+jest.mock('@/components/name', () => (props: ComponentProps<typeof Name>) => (
   <div id={props.address} {...props} />
 ));
 

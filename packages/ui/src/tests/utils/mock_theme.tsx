@@ -2,7 +2,7 @@ import React, { ComponentProps, FC, ReactNode } from 'react';
 import { ThemeProvider, createTheme } from '@material-ui/core/styles';
 import { StylesProvider, StylesOptions } from '@material-ui/styles';
 import { RecoilRoot } from 'recoil';
-import { defaultTheme } from 'ui/styles';
+import { defaultTheme } from '@/styles';
 
 const StylesProviderWrapper = StylesProvider as FC<ComponentProps<typeof StylesProvider>>;
 

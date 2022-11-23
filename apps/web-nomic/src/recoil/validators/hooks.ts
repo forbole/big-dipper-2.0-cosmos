@@ -2,22 +2,22 @@ import { useState } from 'react';
 import { useRecoilCallback } from 'recoil';
 import * as R from 'ramda';
 import { QueryHookOptions, QueryResult } from '@apollo/client';
-import chainConfig from 'ui/chainConfig';
-import { useDesmosProfile } from 'ui/hooks';
-import { atomFamilyState as profileAtomFamilyState } from 'ui/recoil/profiles';
+import chainConfig from '@/chainConfig';
+import { useDesmosProfile } from '@/hooks';
+import { atomFamilyState as profileAtomFamilyState } from '@/recoil/profiles';
 import { atomFamilyState as validatorAtomState } from 'ui/recoil/validators';
 
 export type UseValidatorAddressesQuery<TData, TVariables> = (
   baseOptions?: QueryHookOptions<TData, TVariables>
 ) => QueryResult<TData, TVariables>;
 
-export type DataType = {
+export interface DataType {
   validator?: Array<{
     consensusAddress: string;
     operatorAddress: string;
     selfDelegateAddress: string;
   }>;
-};
+}
 
 export const useValidatorRecoil = <TData, TVariables>(
   useValidatorAddressesQuery: UseValidatorAddressesQuery<TData, TVariables>

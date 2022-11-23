@@ -1,14 +1,14 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme } from 'ui/tests/utils';
-import MsgUpdateGroupAdminRequest from '@models/regen/msg/group/msg_update_group_admin_request';
-import UpdateGroupAdminRequest from '.';
+import { MockTheme } from '@/tests/utils';
+import MsgUpdateGroupAdminRequest from '@/models/msg/group/msg_update_group_admin_request';
+import UpdateGroupAdminRequest from '@/components/msg/group/update_group_admin_request';
 
 // ==================================
 // mocks
 // ==================================
 
-jest.mock('ui/components/name', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 

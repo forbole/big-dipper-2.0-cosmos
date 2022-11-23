@@ -1,9 +1,9 @@
 import React from 'react';
 import Trans from 'next-translate/Trans';
 import Typography from '@material-ui/core/Typography';
-import Name from 'ui/components/name';
-import MsgClawback from '@models/evmos/msg/vesting/msg_clawback';
-import { useProfileRecoil } from 'ui/recoil/profiles';
+import Name from '@/components/name';
+import MsgClawback from '@/models/msg/vesting/msg_clawback';
+import { useProfileRecoil } from '@/recoil/profiles';
 
 const Clawback: React.FC<{ message: MsgClawback }> = (props) => {
   const { message } = props;

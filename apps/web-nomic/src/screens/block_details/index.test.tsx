@@ -1,37 +1,41 @@
 import React from 'react';
 import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
 import renderer from 'react-test-renderer';
-import { MockTheme, wait } from 'ui/tests/utils';
-import { BlockDetailsDocument } from '@graphql/types/general_types';
+import { MockTheme, wait } from '@/tests/utils';
+import { BlockDetailsDocument } from '@/graphql/types/general_types';
 import { MockedProvider } from '@apollo/client/testing';
-import BlockDetails from '.';
+import BlockDetails from '@/screens/block_details';
 
 // ==================================
 // mocks
 // ==================================
 jest.mock('next/router', () => ({
+  ...jest.requireActual('next/router'),
   useRouter: () => ({
     query: {
       height: 300,
     },
   }),
 }));
-jest.mock('@components/layout', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/layout', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Layout" {...props} />
 ));
-jest.mock('ui/components/load_and_exist', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@/components/load_and_exist', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="LoadAndExist" {...props} />
 ));
 
-jest.mock('./components/overview', () => (props: JSX.IntrinsicElements['div']) => (
-  <div id="Overview" {...props} />
-));
-jest.mock('./components/transactions', () => (props: JSX.IntrinsicElements['div']) => (
-  <div id="Transactions" {...props} />
-));
-jest.mock('./components/signatures', () => (props: JSX.IntrinsicElements['div']) => (
-  <div id="Signatures" {...props} />
-));
+jest.mock(
+  '@/screens/block_details/components/overview',
+  () => (props: JSX.IntrinsicElements['div']) => <div id="Overview" {...props} />
+);
+jest.mock(
+  '@/screens/block_details/components/transactions',
+  () => (props: JSX.IntrinsicElements['div']) => <div id="Transactions" {...props} />
+);
+jest.mock(
+  '@/screens/block_details/components/signatures',
+  () => (props: JSX.IntrinsicElements['div']) => <div id="Signatures" {...props} />
+);
 
 const mockAverageBlockTime = jest.fn().mockReturnValue({
   data: {

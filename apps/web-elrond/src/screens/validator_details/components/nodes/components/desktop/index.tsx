@@ -7,12 +7,12 @@ import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import TableBody from '@material-ui/core/TableBody';
 import Typography from '@material-ui/core/Typography';
-import { getMiddleEllipsis } from 'ui/utils/get_middle_ellipsis';
-import { NODE_DETAILS } from '@utils/go_to_page';
-import { getShardDisplay } from '@utils/get_shard_display';
-import { columns } from './utils';
-import type { NodeType } from '../../types';
-import { useStyles } from './styles';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
+import { NODE_DETAILS } from '@/utils/go_to_page';
+import { getShardDisplay } from '@/utils/get_shard_display';
+import { columns } from '@/screens/validator_details/components/nodes/components/desktop/utils';
+import type { NodeType } from '@/screens/validator_details/components/nodes/types';
+import { useStyles } from '@/screens/validator_details/components/nodes/components/desktop/styles';
 
 const Desktop: React.FC<{ items: NodeType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('nodes');

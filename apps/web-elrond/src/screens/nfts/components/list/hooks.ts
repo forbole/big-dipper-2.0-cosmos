@@ -1,13 +1,13 @@
 import { useCallback, useEffect, useState } from 'react';
 import * as R from 'ramda';
 import axios from 'axios';
-import { NFTS, NFTS_COUNT } from '@api';
-import type { BlockState } from './types';
+import { NFTS, NFTS_COUNT } from '@/api';
+import type { BlockState } from '@/screens/nfts/components/list/types';
 
 export const PAGE_SIZE = 25;
 
 export const useNFTs = () => {
-    const [state, setState] = useState<BlockState>({
+  const [state, setState] = useState<BlockState>({
     page: 0,
     loading: true,
     items: [],

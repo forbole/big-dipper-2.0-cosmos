@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import useTranslation from 'next-translate/useTranslation';
 import Trans from 'next-translate/Trans';
-import { HOME } from 'ui/utils/go_to_page';
+import { HOME } from '@/utils/go_to_page';
 import Typography from '@material-ui/core/Typography';
 import generalConfig from 'shared-utils/configs/general.json';
 
@@ -25,7 +25,7 @@ import generalConfig from 'shared-utils/configs/general.json';
 import React from 'react';
 import * as Sentry from '@sentry/nextjs';
 import { NextPageContext, NextPage } from 'next';
-import { useStyles } from './styles';
+import { useStyles } from '@/screens/error/styles';
 
 const Error: NextPage = () => {
   const classes = useStyles();

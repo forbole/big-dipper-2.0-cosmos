@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import numeral from 'numeral';
 import * as R from 'ramda';
-import { hexToBech32 } from 'ui/utils/hex_to_bech32';
-import chainConfig from 'ui/chainConfig';
+import { hexToBech32 } from '@/utils/hex_to_bech32';
+import chainConfig from '@/chainConfig';
 import WebSocket from 'isomorphic-ws';
 import { stringifyMessage, GRAPHQL_TRANSPORT_WS_PROTOCOL, MessageType } from 'graphql-ws';
 
