@@ -22,6 +22,7 @@ exports[`screen: ProposalDetails matches snapshot 1`] = `
             "depositEndTime": "",
             "description": "",
             "id": 0,
+            "proposalType": "",
             "proposer": "",
             "status": "",
             "submitTime": "",
