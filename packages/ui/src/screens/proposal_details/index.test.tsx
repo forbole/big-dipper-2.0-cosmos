@@ -58,6 +58,7 @@ const mockProposalDetailsDocument = jest.fn().mockReturnValue({
         },
         proposalId: 14,
         submitTime: '2022-02-19T19:03:14.969688',
+        proposalType: 'CommunityPoolSpend',
         depositEndTime: '2022-02-22T19:03:14.969688',
         votingStartTime: '2022-02-19T19:03:14.969688',
         votingEndTime: '2022-02-26T19:03:14.969688',
