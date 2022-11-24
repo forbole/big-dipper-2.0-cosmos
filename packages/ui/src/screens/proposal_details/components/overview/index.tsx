@@ -17,7 +17,9 @@ import { getProposalType } from '@/screens/proposal_details/utils';
 import type { OverviewType } from '@/screens/proposal_details/types';
 import ParamsChange from '@/screens/proposal_details/components/overview/components/params_change';
 import SoftwareUpgrade from '@/screens/proposal_details/components/overview/components/software_upgrade';
+import CommunityPoolSpend from '@/screens/proposal_details/components/overview/components/community_pool_spend';
 import { useStyles } from '@/screens/proposal_details/components/overview/styles';
+import { formatToken, formatNumber } from '@/utils/format_token';
 
 const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
   className,
@@ -30,7 +32,20 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
   const type = getProposalType(R.pathOr('', ['@type'], overview.content));
 
   const proposer = useProfileRecoil(overview.proposer);
+  const recipient = overview?.content?.recipient
+    ? useProfileRecoil(overview?.content?.recipient)
+    : null;
   const proposerMoniker = proposer ? proposer?.name : overview.proposer;
+  const recipientMoniker = recipient ? recipient?.name : overview?.content?.recipient;
+  const amountRequested = overview.content?.amount
+    ? formatToken(overview.content?.amount[0]?.amount, overview.content?.amount[0]?.denom)
+    : null;
+  const parsedAmountRequested = amountRequested
+    ? `${formatNumber(
+        amountRequested.value,
+        amountRequested.exponent
+      )} ${amountRequested.displayDenom.toUpperCase()}`
+    : '';
 
   const getExtraDetails = () => {
     let extraDetails = null;
@@ -53,6 +68,19 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
             height={R.pathOr('0', ['plan', 'height'], overview.content)}
             info={R.pathOr('', ['plan', 'info'], overview.content)}
             name={R.pathOr('', ['plan', 'name'], overview.content)}
+          />
+        </>
+      );
+    } else if (type === 'communityPoolSpendProposal') {
+      extraDetails = (
+        <>
+          <Typography variant="body1" className="label">
+            {t('content')}
+          </Typography>
+          <CommunityPoolSpend
+            recipient={overview?.content?.recipient}
+            recipientMoniker={recipientMoniker}
+            amountRequested={parsedAmountRequested}
           />
         </>
       );
