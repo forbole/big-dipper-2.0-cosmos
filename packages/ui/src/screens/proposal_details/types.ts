@@ -5,6 +5,7 @@ export interface OverviewType {
   description: string;
   status: string;
   submitTime: string;
+  proposalType: string;
   depositEndTime: string;
   votingStartTime: string | null;
   votingEndTime: string | null;

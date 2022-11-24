@@ -12408,6 +12408,7 @@ export const ProposalDetailsDocument = gql`
       content
       proposalId: id
       submitTime: submit_time
+      proposalType: proposal_type
       depositEndTime: deposit_end_time
       votingStartTime: voting_start_time
       votingEndTime: voting_end_time
