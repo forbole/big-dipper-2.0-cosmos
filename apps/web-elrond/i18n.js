@@ -6,6 +6,7 @@ workaround.defaultLoader =
   '(l, n) => import(`@/public/locales/${l}/${n}.json`).then(m => m.default)';
 
 module.exports = {
+  // locales: ['en', 'zht'],
   locales: ['en'],
   defaultLocale: 'en',
   localeDetection: false,

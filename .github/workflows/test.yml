@@ -11,7 +11,7 @@ env:
   NEXT_TELEMETRY_DISABLED: 1
   ENV NODE_ENV: production
 jobs:
-  Lint:
+  lint:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -25,7 +25,7 @@ jobs:
     - name: Run lint check
       run: yarn lint:ci
 
-  Unit-tests:
+  test:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -39,7 +39,7 @@ jobs:
     - name: Run tests
       run: yarn test:ci -- --coverage
 
-  Build-test:
+  build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3

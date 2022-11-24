@@ -8,46 +8,6 @@ const withSentry = require('shared-utils/configs/withSentry.js');
 const generalConfig = loadJson(join(__dirname, 'general.json'));
 
 /**
- * It loads the chain config file, then passes it to `getBaseConfig` to get the base config, then
- * passes that to `nextTranslate` to translate the config to Next.js, then passes that to `withSentry`
- * to add Sentry, then passes that to `withTM` to add TM, then returns the result
- * @param dirname - the directory of the current file
- * @returns A function that takes a directory name as an argument and returns a configuration object.
- */
-function getNextConfig(dirname) {
-  // each chain has its own chains/<chainName>.json
-  const [_match, configFile] = /web-(.+)$/.exec(basename(dirname)) ?? ['', 'base'];
-  const chainConfigJson = loadJson(`../../packages/shared-utils/configs/chains/${configFile}.json`);
-  return withTM(['ui'])(withSentry(nextTranslate(getBaseConfig(chainConfigJson))));
-}
-
-/**
- * It takes a JSON object and returns a JSON object
- * @param chainConfigJson - The JSON object that contains the chain configuration.
- * @returns The chainConfig object.
- */
-function getChainConfig(chainConfigJson) {
-  /* Setting the basePath, chainType, chains, and settings variables. */
-  const chainType = (process.env.NEXT_PUBLIC_CHAIN_TYPE || 'mainnet').toLowerCase();
-  const { chains, ...settings } = chainConfigJson;
-  let chain = chains.find((c) => c.chainType?.toLowerCase() === chainType);
-  if (!chain && chainType !== 'testnet') {
-    chain = chains.find((c) => c.chainType?.toLowerCase() === 'testnet');
-  }
-
-  /* If the chainType is not found, it will use the first chain in the array. */
-  if (!chain) [chain] = chains;
-  if (!chain) throw new Error(`Config not found for CHAIN_NAME ${chainConfigJson.chainName}`);
-
-  /* Merging the settings and chain objects. */
-  const chainConfig = {
-    ...settings,
-    ...chain,
-  };
-  return chainConfig;
-}
-
-/**
  * It takes the chainConfigJson and returns a baseConfig object
  * @param chainConfigJson - This is the chain config json file.
  * @returns The base config object.
@@ -109,6 +69,46 @@ function webpack(config) {
     ],
   });
   return config;
+}
+
+/**
+ * It loads the chain config file, then passes it to `getBaseConfig` to get the base config, then
+ * passes that to `nextTranslate` to translate the config to Next.js, then passes that to `withSentry`
+ * to add Sentry, then passes that to `withTM` to add TM, then returns the result
+ * @param dirname - the directory of the current file
+ * @returns A function that takes a directory name as an argument and returns a configuration object.
+ */
+function getNextConfig(dirname) {
+  // each chain has its own chains/<chainName>.json
+  const [_match, configFile] = /web-(.+)$/.exec(basename(dirname)) ?? ['', 'base'];
+  const chainConfigJson = loadJson(`../../packages/shared-utils/configs/chains/${configFile}.json`);
+  return withTM(['ui'])(withSentry(nextTranslate(getBaseConfig(chainConfigJson))));
+}
+
+/**
+ * It takes a JSON object and returns a JSON object
+ * @param chainConfigJson - The JSON object that contains the chain configuration.
+ * @returns The chainConfig object.
+ */
+function getChainConfig(chainConfigJson) {
+  /* Setting the basePath, chainType, chains, and settings variables. */
+  const chainType = (process.env.NEXT_PUBLIC_CHAIN_TYPE || 'mainnet').toLowerCase();
+  const { chains, ...settings } = chainConfigJson;
+  let chain = chains.find((c) => c.chainType?.toLowerCase() === chainType);
+  if (!chain && chainType !== 'testnet') {
+    chain = chains.find((c) => c.chainType?.toLowerCase() === 'testnet');
+  }
+
+  /* If the chainType is not found, it will use the first chain in the array. */
+  if (!chain) [chain] = chains;
+  if (!chain) throw new Error(`Config not found for CHAIN_NAME ${chainConfigJson.chainName}`);
+
+  /* Merging the settings and chain objects. */
+  const chainConfig = {
+    ...settings,
+    ...chain,
+  };
+  return chainConfig;
 }
 
 /**

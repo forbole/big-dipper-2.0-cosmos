@@ -29,7 +29,9 @@
     "watch": {
       "cache": false
     },
-    "start": {},
+    "start": {
+      "dependsOn": ["^build"]
+    },
     "check-types": {},
     "lint": {
       "dependsOn": ["^check-types"],

@@ -7,10 +7,11 @@
     "dev": "RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED=false next dev",
     "build": "next build",
     "clean": "rm -rf .next .swc .turbo coverage node_modules",
-    "start": "NODE_ENV=production next start",
+    "start": "next start",
     "lint": "next lint",
     "check-types": "tsc --noemit",
-    "test": "jest --passWithNoTests --ci --no-watchman"
+    "test": "jest --passWithNoTests --ci --no-watchman",
+    "graphql:codegen": "graphql-codegen"
   },
   "dependencies": {
     "@apollo/client": "^3.7.1",
@@ -56,7 +57,7 @@
     "subscriptions-transport-ws": "^0.11.0",
     "ws": "^8.10.0"
   },
-  "devDependencies": {
+  "devdependencies": {
     "@graphql-codegen/cli": "^2.13.11",
     "@graphql-codegen/client-preset": "^1.1.3",
     "@graphql-codegen/fragment-matcher": "^3.3.1",
@@ -111,6 +112,7 @@
     "ts-jest": "^29.0.3",
     "ts-node": "^10.9.1",
     "tsconfig": "*",
-    "typescript": "^4.8.4"
+    "typescript": "^4.8.4",
+    "ui": "*"
   }
 }

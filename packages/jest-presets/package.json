@@ -3,9 +3,11 @@
   "version": "0.0.0",
   "license": "Apache-2.0",
   "dependencies": {
+    "tsconfig": "*"
+  },
+  "devDependencies": {
     "jest": "^29.3.1",
     "ts-jest": "^29.0.3",
-    "tsconfig": "*",
     "typescript": "^4.8.4"
   },
   "publishConfig": {

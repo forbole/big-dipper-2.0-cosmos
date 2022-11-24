@@ -10,7 +10,7 @@ on:
         required: false
         default: mainnet
 jobs:
-  Build-and-Publish:
+  publish:
     runs-on: ubuntu-latest
     if: startsWith('web-', ${{ inputs.project_name }})
     steps:
@@ -29,7 +29,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          file: ./apps/${{ inputs.project_name }}/Dockerfile
+          file: ./docker/web.Dockerfile
           push: true
           build-args: |
             PROJECT_NAME=${{ inputs.project_name }}
