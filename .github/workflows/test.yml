@@ -2,7 +2,7 @@ name: Test
 on:
   pull_request:
 concurrency: 
-  group: ${{ github.ref }}
+  group: ${{ github.ref }}-test
   cancel-in-progress: true
 env:
   HUSKY: 0

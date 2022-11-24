@@ -7,7 +7,7 @@ on:
     branches:
       - main
 concurrency: 
-  group: ${{ github.ref }}
+  group: ${{ github.ref }}-playwright
   cancel-in-progress: true
 jobs:
   e2e:
