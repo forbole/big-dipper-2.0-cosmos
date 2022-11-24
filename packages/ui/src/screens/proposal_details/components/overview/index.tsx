@@ -32,9 +32,7 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
   const type = getProposalType(R.pathOr('', ['@type'], overview.content));
 
   const proposer = useProfileRecoil(overview.proposer);
-  const recipient = overview?.content?.recipient
-    ? useProfileRecoil(overview?.content?.recipient)
-    : null;
+  const recipient = useProfileRecoil(overview?.content?.recipient);
   const proposerMoniker = proposer ? proposer?.name : overview.proposer;
   const recipientMoniker = recipient ? recipient?.name : overview?.content?.recipient;
   const amountRequested = overview.content?.amount
