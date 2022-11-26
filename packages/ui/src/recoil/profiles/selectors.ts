@@ -1,5 +1,4 @@
 import { selectorFamily, GetRecoilValue } from 'recoil';
-import * as R from 'ramda';
 import { bech32 } from 'bech32';
 import chainConfig from '@/chainConfig';
 import { readValidator } from '@/recoil/validators';
@@ -79,8 +78,8 @@ const getProfile =
       get,
     });
     const state = get(atomFamilyState(delegatorAddress));
-    const name = R.pathOr(address, ['moniker'], state);
-    const imageUrl = R.pathOr('', ['imageUrl'], state);
+    const name = state && state !== true ? state.moniker ?? address : address;
+    const imageUrl = state && state !== true ? state.imageUrl ?? '' : '';
     return {
       address: returnAddress,
       name: name?.length ? name : address,
@@ -101,8 +100,8 @@ const getProfiles =
         get,
       });
       const state = get(atomFamilyState(delegatorAddress));
-      const name = R.pathOr(x, ['moniker'], state);
-      const imageUrl = R.pathOr('', ['imageUrl'], state);
+      const name = state && state !== true ? state?.moniker ?? x : x;
+      const imageUrl = state && state !== true ? state?.imageUrl ?? '' : '';
       return {
         address: returnAddress,
         name: name?.length ? name : x,
@@ -136,7 +135,7 @@ export const writeProfile = selectorFamily<AvatarName | null, string>({
         }
       }
 
-      function isAvatarName(x: unknown): x is AvatarName {
+      function isAvatarName(x: typeof profile): x is AvatarName {
         if (!x) return false;
         return 'name' in x && 'imageUrl' in x;
       }

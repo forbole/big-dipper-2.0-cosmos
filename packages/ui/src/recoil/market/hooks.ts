@@ -1,25 +1,17 @@
-import * as R from 'ramda';
 import numeral from 'numeral';
 import { useRecoilState, SetterOrUpdater } from 'recoil';
 import Big from 'big.js';
-import { QueryHookOptions, QueryResult } from '@apollo/client';
 import { formatToken } from '@/utils/format_token';
 import { getDenom } from '@/utils/get_denom';
 import chainConfig from '@/chainConfig';
 import type { AtomState } from '@/recoil/market/types';
 import { writeMarket } from '@/recoil/market/selectors';
-
-export type UseMarketDataQuery<TData, TVariables> = (
-  baseOptions?: QueryHookOptions<TData, TVariables>
-) => QueryResult<TData, TVariables>;
+import { MarketDataQuery, useMarketDataQuery } from '@/graphql/types/general_types';
 
 /**
  * It takes a query hook and returns a Recoil state hook
- * @param useMarketDataQuery - UseMarketDataQuery<TData, TVariables>
  */
-export function useMarketRecoil<TData, TVariables>(
-  useMarketDataQuery: UseMarketDataQuery<TData, TVariables>
-) {
+export function useMarketRecoil() {
   const [market, setMarket] = useRecoilState(writeMarket) as [
     AtomState,
     SetterOrUpdater<AtomState>
@@ -28,7 +20,7 @@ export function useMarketRecoil<TData, TVariables>(
   useMarketDataQuery({
     variables: {
       denom: chainConfig?.tokenUnits[chainConfig.primaryTokenUnit]?.display,
-    } as TVariables,
+    },
     onCompleted: (data) => {
       if (data) {
         setMarket(formatUseChainIdQuery(data));
@@ -39,7 +31,7 @@ export function useMarketRecoil<TData, TVariables>(
   /**
    * It takes in a data object and returns an object with the following properties: price, supply,
    * marketCap, inflation, communityPool, and apr
-   * @param {TData} data - TData
+   * @param {MarketDataQuery} data - MarketDataQuery
    * @returns return {
    *     price,
    *     supply,
@@ -49,15 +41,7 @@ export function useMarketRecoil<TData, TVariables>(
    *     apr,
    *   };
    */
-  function formatUseChainIdQuery(
-    data: TData & {
-      communityPool?: Array<{ coins?: Array<{ amount: number; denom: string }> }>;
-      tokenPrice?: Array<{
-        marketCap: number;
-        price: number;
-      }>;
-    }
-  ): AtomState {
+  function formatUseChainIdQuery(data: MarketDataQuery): AtomState {
     let { communityPool, price, marketCap } = market;
 
     if (data?.tokenPrice?.length) {
@@ -65,24 +49,21 @@ export function useMarketRecoil<TData, TVariables>(
       marketCap = data.tokenPrice[0]?.marketCap;
     }
 
-    const [communityPoolCoin] = (data?.communityPool?.[0].coins ?? []).filter(
-      (x: any) => x.denom === chainConfig.primaryTokenUnit
+    const [communityPoolCoin] = ((data?.communityPool?.[0].coins as MsgCoin[]) ?? []).filter(
+      (x) => x.denom === chainConfig.primaryTokenUnit
     );
-    const inflation = R.pathOr(0, ['inflation', 0, 'value'], data);
+    const inflation = data?.inflation?.[0]?.value ?? 0;
 
     /* Getting the supply amount and formatting it. */
-    const rawSupplyAmount = getDenom(
-      R.pathOr([], ['supply', 0, 'coins'], data),
-      chainConfig.primaryTokenUnit
-    ).amount;
+    const rawSupplyAmount = getDenom(data?.supply?.[0]?.coins, chainConfig.primaryTokenUnit).amount;
     const supply = formatToken(rawSupplyAmount, chainConfig.primaryTokenUnit);
 
     if (communityPoolCoin) {
       communityPool = formatToken(communityPoolCoin.amount, communityPoolCoin.denom);
     }
 
-    const bondedTokens = R.pathOr(1, ['bondedTokens', 0, 'bonded_tokens'], data);
-    const communityTax = R.pathOr('0', ['distributionParams', 0, 'params', 'community_tax'], data);
+    const bondedTokens = data?.bondedTokens?.[0]?.bonded_tokens ?? 1;
+    const communityTax = data?.distributionParams?.[0]?.params?.community_tax ?? '0';
 
     /* Calculating the APR. */
     const inflationWithCommunityTax = Big(1).minus(communityTax).times(inflation).toPrecision(2);

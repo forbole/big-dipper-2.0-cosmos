@@ -1,3 +1,4 @@
+/* eslint-disable */
 import type { Custom, PaletteOptions, Palette } from '@material-ui/core/styles/createPalette';
 
 declare module '@material-ui/core/styles/createPalette' {

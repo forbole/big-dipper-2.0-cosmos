@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import dynamic from 'next/dynamic';
 import classnames from 'classnames';
 import Box from '@/components/box';
@@ -42,9 +42,20 @@ const Votes: React.FC<ComponentDefault> = (props) => {
 
   const userProfiles = useProfilesRecoil(slicedItems.map((x) => x.user));
   const items = slicedItems.map((x, i) => ({
-    ...(x as object),
+    ...x,
     user: userProfiles[i],
+    vote: '',
   }));
+
+  let list: ReactNode;
+
+  if (!items.length) {
+    list = <NoData />;
+  } else if (isDesktop) {
+    list = <Desktop className={classes.desktop} items={items} />;
+  } else {
+    <Mobile className={classes.mobile} items={items} />;
+  }
 
   return (
     <Box className={classnames(props.className, classes.root)}>
@@ -59,19 +70,7 @@ const Votes: React.FC<ComponentDefault> = (props) => {
         tab={state.tab}
         handleTabChange={handleTabChange}
       />
-      <div className={classes.list}>
-        {items.length ? (
-          <>
-            {isDesktop ? (
-              <Desktop className={classes.desktop} items={items as any} />
-            ) : (
-              <Mobile className={classes.mobile} items={items as any} />
-            )}
-          </>
-        ) : (
-          <NoData />
-        )}
-      </div>
+      <div className={classes.list}>{list}</div>
       <Paginate
         total={filteredItems.length}
         page={page}

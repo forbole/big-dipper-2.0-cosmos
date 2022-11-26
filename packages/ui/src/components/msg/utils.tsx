@@ -1,9 +1,12 @@
 import * as COMPONENTS from '@/components/msg';
 import Tag from '@/components/tag';
 import * as MODELS from '@/models';
-import type { Categories } from '@/models/msg/types';
+import type { Log } from '@/models/msg/types';
 import isKeyOf from '@/utils/isKeyOf';
+import { Message } from '@material-ui/icons';
 import { Translate } from 'next-translate';
+import * as R from 'ramda';
+import { ComponentProps, FC } from 'react';
 
 // =====================================
 // DO NOT UPDATE IF THIS IS A FORK.
@@ -405,9 +408,13 @@ const customTypeToModel = {
 };
 type CustomTypeToModel = typeof customTypeToModel;
 
-type TypeToModel = DefaultTypeToModel & CustomTypeToModel;
+type TypeToModel = DefaultTypeToModel & CustomTypeToModel extends infer R1
+  ? { [K in keyof R1]: R1[K] }
+  : never;
 
-const getDataByType = (type: string): TypeToModel[keyof TypeToModel] | null => {
+type Data = TypeToModel[keyof TypeToModel];
+
+const getDataByType = (type: string): Data | null => {
   if (isKeyOf(type, defaultTypeToModel) && defaultTypeToModel[type])
     return defaultTypeToModel[type];
 
@@ -416,38 +423,34 @@ const getDataByType = (type: string): TypeToModel[keyof TypeToModel] | null => {
   return null;
 };
 
-type Data = ReturnType<typeof getDataByType>;
-
 /**
  * Helper function that helps get model by type
  * @param type Model type
  */
-export const getMessageModelByType = (type: string): typeof MODELS[keyof typeof MODELS] => {
+export const getMessageModelByType = (type: string): Data['model'] => {
   const data = getDataByType(type);
   if (data) {
     return data.model;
   }
 
-  return MODELS.MsgUnknown;
+  return MODELS.MsgUnknown as Data['model'];
 };
 
 /**
  * Helper function to correctly display the correct UI
  * @param type Model type
  */
-export const getMessageByType = (
-  message: { category: Categories; type: string; json: JSON },
-  viewRaw: boolean,
-  t: Translate
-) => {
-  const { type } = message;
-  type resultType = {
-    content: React.FC<{ message: any }>;
-    tagDisplay: Data extends { tagDisplay: unknown } ? Data['tagDisplay'] : 'txUnknownLabel';
-    tagTheme: Data extends { tagTheme: unknown } ? Data['tagTheme'] : 'zero';
+export const getMessageByType = <TMessage,>(message: TMessage, viewRaw: boolean, t: Translate) => {
+  const { type } = (message as { type: string }) ?? {};
+
+  type ResultType = {
+    content: FC<{ message: typeof Message }>;
+    tagDisplay: Data['tagDisplay'];
+    tagTheme: TagTheme;
   };
-  let results: resultType = {
-    content: COMPONENTS.Unknown,
+
+  let results: ResultType = {
+    content: COMPONENTS.Unknown as unknown as FC<{ message: typeof Message }>,
     tagDisplay: 'txUnknownLabel',
     tagTheme: 'zero',
   };
@@ -456,36 +459,43 @@ export const getMessageByType = (
 
   if (data) {
     results = {
-      content: data?.content as resultType['content'],
-      tagDisplay: data.tagDisplay as resultType['tagDisplay'],
-      tagTheme: data.tagTheme as resultType['tagTheme'],
+      content: data?.content as unknown as FC<{ message: typeof Message }>,
+      tagDisplay: data.tagDisplay as ResultType['tagDisplay'],
+      tagTheme: data.tagTheme as ResultType['tagTheme'],
     };
   }
 
   // If user asks to view the raw data
   if (viewRaw || !results.content) {
-    results.content = COMPONENTS.Unknown;
+    results.content = COMPONENTS.Unknown as unknown as FC<{ message: typeof Message }>;
   }
+
+  const Content = results.content;
 
   return {
     type: <Tag value={t(`message_labels:${results.tagDisplay}`)} theme={results.tagTheme} />,
-    message: <results.content message={message} />,
+    message: <Content message={message as unknown as ComponentProps<typeof Content>['message']} />,
   };
 };
 
-export const convertMsgsToModels = (transaction?: {
-  messages?: Array<{ '@type': string }>;
-  logs?: unknown[];
-}) => {
+export const convertMsgsToModels = (
+  transaction?: {
+    messages?: Array<{
+      '@type': string;
+    }>;
+    logs?: Array<Log>;
+  } | null
+) => {
   const messages =
-    transaction?.messages?.map((msg, i) => {
-      const model = getMessageModelByType(msg?.['@type']);
-      if (
-        model === MODELS.MsgWithdrawDelegatorReward ||
-        model === MODELS.MsgWithdrawValidatorCommission
-      ) {
-        const log = transaction?.logs?.[i] ?? null;
-        return model.fromJson(msg, log);
+    transaction?.messages?.map((msg: object, i: number) => {
+      const model = getMessageModelByType(R.pathOr<string>('', ['@type'], msg));
+      if (model === MODELS.MsgWithdrawDelegatorReward) {
+        const log = transaction?.logs?.[i];
+        return MODELS.MsgWithdrawDelegatorReward.fromJson(msg, log);
+      }
+      if (model === MODELS.MsgWithdrawValidatorCommission) {
+        const log = transaction?.logs?.[i];
+        return MODELS.MsgWithdrawValidatorCommission.fromJson(msg, log);
       }
       return model.fromJson(msg);
     }) ?? [];

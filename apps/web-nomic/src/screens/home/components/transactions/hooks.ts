@@ -16,13 +16,13 @@ export const useTransactions = () => {
   useTransactionsListenerSubscription({
     onData: (data) => {
       setState({
-        items: data.data.data ? (formatTransactions(data.data.data) as any) : [],
+        items: data.data.data ? formatTransactions(data.data.data) : [],
       });
     },
   });
 
   const formatTransactions = (data: TransactionsListenerSubscription) =>
-    data.transactions.map((x: any) => ({
+    data.transactions.map((x) => ({
       height: x.height,
       hash: x.hash,
       timestamp: x.block.timestamp,

@@ -114,5 +114,8 @@
     "tsconfig": "*",
     "typescript": "^4.8.4",
     "ui": "*"
+  },
+  "devDependencies": {
+    "jest": "^29.3.1"
   }
 }

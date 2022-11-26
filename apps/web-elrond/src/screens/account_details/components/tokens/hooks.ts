@@ -35,19 +35,19 @@ export const useTokens = () => {
           },
         });
 
-        const items = data.map((x: any) => {
-          const balance = R.pathOr('0', ['balance'], x);
-          const exponent = R.pathOr(0, ['decimals'], x);
+        const items = data.map((x) => {
+          const balance = x?.balance ?? '0';
+          const exponent = x?.decimals ?? 0;
           return {
-            identifier: R.pathOr('', ['identifier'], x),
-            name: R.pathOr('', ['name'], x),
+            identifier: x?.identifier ?? '',
+            name: x?.name ?? '',
             balance: {
-              displayDenom: R.pathOr('', ['name'], x),
-              baseDenom: R.pathOr('', ['name'], x),
-              exponent: R.pathOr(0, ['decimals'], x),
+              displayDenom: x?.name ?? '',
+              baseDenom: x?.name ?? '',
+              exponent: x?.decimals ?? 0,
               value: formatTokenByExponent(balance, exponent),
             },
-            imageUrl: R.pathOr('', ['assets', 'pngUrl'], x),
+            imageUrl: x?.assets?.pngUrl ?? '',
           };
         });
 
@@ -55,8 +55,8 @@ export const useTokens = () => {
           loading: false,
           items,
         });
-      } catch (error: any) {
-        console.error(error.message);
+      } catch (error) {
+        console.error((error as Error).message);
       }
     },
     [handleSetState, router.query.address]
@@ -71,8 +71,8 @@ export const useTokens = () => {
         handleSetState({
           total,
         });
-      } catch (error: any) {
-        console.error(error.message);
+      } catch (error) {
+        console.error((error as Error).message);
       }
     };
 

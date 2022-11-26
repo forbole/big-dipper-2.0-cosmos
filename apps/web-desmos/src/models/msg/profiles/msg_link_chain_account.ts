@@ -6,7 +6,7 @@ class MsgLinkChainAccount {
 
   public type: string;
 
-  public json: any;
+  public json: object;
 
   public signer: string;
 
@@ -14,23 +14,21 @@ class MsgLinkChainAccount {
     name: string;
   };
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'profiles';
-    this.type = payload.type;
-    this.json = payload.json;
-    this.signer = payload.signer;
-    this.chainConfig = payload.chainConfig;
+    this.type = R.pathOr('', ['type'], payload);
+    this.json = R.pathOr({}, ['json'], payload);
+    this.signer = R.pathOr('', ['signer'], payload);
+    this.chainConfig = R.pathOr({ name: '' }, ['chainConfig'], payload);
   }
 
-  static fromJson(json: any): MsgLinkChainAccount {
+  static fromJson(json: object): MsgLinkChainAccount {
     return {
       category: 'profiles',
       json,
-      type: json['@type'],
-      signer: json.signer,
-      chainConfig: {
-        name: R.pathOr('', ['chain_config', 'name'], json),
-      },
+      type: R.pathOr('', ['@type'], json),
+      signer: R.pathOr('', ['signer'], json),
+      chainConfig: R.pathOr({ name: '' }, ['chain_config', 'name'], json),
     };
   }
 }

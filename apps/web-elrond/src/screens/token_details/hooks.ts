@@ -44,26 +44,26 @@ export const useTokenDetails = () => {
 
         // profile
         const profile = {
-          name: R.pathOr('', ['name'], tokenData),
-          identifier: R.pathOr('', ['identifier'], tokenData),
-          description: R.pathOr('', ['assets', 'description'], tokenData),
-          imageUrl: R.pathOr('', ['assets', 'pngUrl'], tokenData),
+          name: tokenData?.name ?? '',
+          identifier: tokenData?.identifier ?? '',
+          description: tokenData?.assets?.description ?? '',
+          imageUrl: tokenData?.assets?.pngUrl ?? '',
         };
 
         // overview
         const overview = {
-          owner: R.pathOr('', ['owner'], tokenData),
-          decimals: R.pathOr(0, ['decimals'], tokenData),
-          website: R.pathOr('', ['assets', 'website'], tokenData),
-          email: R.pathOr('', ['assets', 'social', 'email'], tokenData),
+          owner: tokenData?.owner ?? '',
+          decimals: tokenData?.decimals ?? 0,
+          website: tokenData?.assets?.website ?? '',
+          email: tokenData?.assets?.social?.email ?? '',
         };
 
         // stats
         const stats = {
-          identifier: R.pathOr('', ['identifier'], tokenData),
-          accounts: R.pathOr(0, ['accounts'], tokenData),
-          transactions: R.pathOr(0, ['transactions'], tokenData),
-          supply: R.pathOr('', ['supply'], tokenData),
+          identifier: tokenData?.identifier ?? '',
+          accounts: tokenData?.accounts ?? 0,
+          transactions: tokenData?.transactions ?? 0,
+          supply: tokenData?.supply ?? '',
         };
 
         handleSetState({
@@ -77,7 +77,7 @@ export const useTokenDetails = () => {
           loading: false,
           exists: false,
         });
-        console.error((error as any).message);
+        console.error((error as Error).message);
       }
     };
 

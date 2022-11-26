@@ -29,7 +29,10 @@ export const useBlocks = () => {
    * Helps remove any possible duplication
    * and sorts by height in case it bugs out
    */
-  const uniqueAndSort = R.pipe(R.uniqBy(R.prop('height')), R.sort(R.descend(R.prop('height'))));
+  const uniqueAndSort = R.pipe(
+    R.uniqBy((r: BlockType) => r?.height),
+    R.sort(R.descend((r) => r?.height))
+  );
 
   // ================================
   // block subscription
@@ -107,7 +110,7 @@ export const useBlocks = () => {
     if (data.blocks.length === 51) {
       formattedData = data.blocks.slice(0, 51);
     }
-    return formattedData.map((x: any) => ({
+    return formattedData.map((x) => ({
       height: x.height,
       txs: x.txs,
       hash: x.hash,

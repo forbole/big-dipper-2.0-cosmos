@@ -6,11 +6,11 @@ class InflationRateParams {
     inflation: string;
   }[];
 
-  constructor(payload: any) {
-    this.inflation = payload.inflation;
+  constructor(payload: object) {
+    this.inflation = R.pathOr([], ['inflation'], payload);
   }
 
-  static fromJson(data: Array<{ denom: string; amount: number }>): InflationRateParams {
+  static fromJson(data: MsgCoin[]): InflationRateParams {
     return {
       inflation: data.map((x) => ({
         denom: R.pathOr('', ['denom'], x),

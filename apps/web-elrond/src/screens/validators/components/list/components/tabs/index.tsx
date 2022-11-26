@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Tabs from '@material-ui/core/Tabs';
@@ -12,7 +12,7 @@ const TabsHeader: React.FC<{
   className?: string;
   tabs: TabType[];
   tab: number;
-  handleTabChange: (event: any, newvalue: number) => void;
+  handleTabChange: ComponentProps<typeof Tabs>['onChange'];
   handleSearch: (value: string) => void;
 }> = (props) => {
   const classes = useStyles();

@@ -1,27 +1,28 @@
 import type { Categories } from '@/models/msg/types';
+import * as R from 'ramda';
 
 class MsgCreateProposalRequest {
   public category: Categories;
 
   public type: string;
 
-  public json: any;
+  public json: object;
 
   public address: string;
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'group';
-    this.json = payload.json;
-    this.type = payload.type;
-    this.address = payload.address;
+    this.json = R.pathOr({}, ['json'], payload);
+    this.type = R.pathOr('', ['type'], payload);
+    this.address = R.pathOr('', ['address'], payload);
   }
 
-  static fromJson(json: any): MsgCreateProposalRequest {
+  static fromJson(json: object): MsgCreateProposalRequest {
     return {
       category: 'group',
       json,
-      type: json['@type'],
-      address: json.address,
+      type: R.pathOr('', ['@type'], json),
+      address: R.pathOr('', ['address'], json),
     };
   }
 }

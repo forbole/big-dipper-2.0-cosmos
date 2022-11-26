@@ -43,7 +43,7 @@ const Desktop: React.FC<TransactionsListState> = ({
         </Typography>
       </Link>
     ),
-    time: (dayjs as any).utc(x.timestamp).fromNow(),
+    time: dayjs.utc(x.timestamp).fromNow(),
   }));
   return (
     <div className={classnames(className, classes.root)}>

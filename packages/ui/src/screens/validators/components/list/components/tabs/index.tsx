@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Tabs from '@material-ui/core/Tabs';
@@ -11,7 +11,7 @@ import { useStyles } from '@/screens/validators/components/list/components/tabs/
 const TabsHeader: React.FC<{
   className?: string;
   tab: number;
-  handleTabChange: (event: any, newvalue: number) => void;
+  handleTabChange: ComponentProps<typeof Tabs>['onChange'];
   handleSearch: (value: string) => void;
 }> = ({ className, tab, handleTabChange, handleSearch }) => {
   const classes = useStyles();

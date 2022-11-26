@@ -5,7 +5,7 @@
  * @returns an object with status and theme
  */
 export const getValidatorStatus = (status: number, jailed: boolean, tombstoned: boolean) => {
-  const results = {
+  const results: { status: string; theme: TagTheme } = {
     status: 'na',
     theme: 'zero',
   };

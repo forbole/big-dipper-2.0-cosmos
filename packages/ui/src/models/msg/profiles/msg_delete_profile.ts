@@ -1,4 +1,5 @@
 import type { Categories } from '@/models/msg/types';
+import * as R from 'ramda';
 
 class MsgDeleteProfile {
   public category: Categories;
@@ -7,20 +8,20 @@ class MsgDeleteProfile {
 
   public creator: string;
 
-  public json: any;
+  public json: object;
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'profiles';
-    this.type = payload.type;
-    this.creator = payload.creator;
-    this.json = payload.json;
+    this.type = R.pathOr('', ['type'], payload);
+    this.creator = R.pathOr('', ['creator'], payload);
+    this.json = R.pathOr({}, ['json'], payload);
   }
 
-  static fromJson(json: any): MsgDeleteProfile {
+  static fromJson(json: object): MsgDeleteProfile {
     return {
       category: 'profiles',
-      type: json['@type'],
-      creator: json.creator,
+      type: R.pathOr('', ['@type'], json),
+      creator: R.pathOr('', ['creator'], json),
       json,
     };
   }

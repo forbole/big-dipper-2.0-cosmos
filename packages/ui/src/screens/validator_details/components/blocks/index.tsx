@@ -18,7 +18,7 @@ const Blocks: React.FC<{
   const { state } = useBlocks();
   const dataProfiles = useProfilesRecoil(state.map((x) => x.proposer));
   const mergedDataWithProfiles = state.map((x, i) => ({
-    ...(x as object),
+    ...x,
     proposer: dataProfiles[i],
   }));
 
@@ -27,7 +27,7 @@ const Blocks: React.FC<{
     <Box className={classnames(className, classes.root)}>
       <Typography variant="h2">{t('lastBlocks')}</Typography>
       <div className={classes.blocks}>
-        {mergedDataWithProfiles.map((x: any, i) => (
+        {mergedDataWithProfiles.map((x, i) => (
           <Tooltip
             // eslint-disable-next-line react/no-array-index-key
             key={`blocks-tooltip-${i}`}

@@ -19,7 +19,7 @@ jest.mock('next-translate/useTranslation', () => () => mockI18n);
 describe('screen: _app', () => {
   it('matches snapshot', () => {
     const component = renderer.create(
-      <App router={{} as any} Component={() => <div id="component" />} pageProps={{}} />
+      <App router={{}} Component={() => <div id="component" />} pageProps={{}} />
     );
     const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();

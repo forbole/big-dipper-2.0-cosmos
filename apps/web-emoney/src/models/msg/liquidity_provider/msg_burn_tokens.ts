@@ -6,29 +6,29 @@ class MsgBurnTokens {
 
   public type: string;
 
-  public json: any;
+  public json: object;
 
   public liquidityProvider: string;
 
   public amount: MsgCoin[];
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'liquidityProvider';
-    this.type = payload.type;
-    this.json = payload.json;
-    this.liquidityProvider = payload.liquidityProvider;
-    this.amount = payload.amount;
+    this.type = R.pathOr('', ['type'], payload);
+    this.json = R.pathOr({}, ['json'], payload);
+    this.liquidityProvider = R.pathOr('', ['liquidityProvider'], payload);
+    this.amount = R.pathOr<MsgBurnTokens['amount']>([], ['amount'], payload);
   }
 
-  static fromJson(json: any): MsgBurnTokens {
+  static fromJson(json: object): MsgBurnTokens {
     return {
       category: 'liquidityProvider',
       json,
-      type: json['@type'],
-      liquidityProvider: json.liquidity_provider,
-      amount: R.pathOr([], ['amount'], json).map((x) => ({
-        denom: R.pathOr('', ['denom'], x),
-        amount: R.pathOr('0', ['amount'], x),
+      type: R.pathOr('', ['@type'], json),
+      liquidityProvider: R.pathOr('', ['liquidity_provider'], json),
+      amount: R.pathOr<MsgBurnTokens['amount']>([], ['amount'], json).map((x) => ({
+        denom: x?.denom ?? '',
+        amount: x?.amount ?? '0',
       })),
     };
   }

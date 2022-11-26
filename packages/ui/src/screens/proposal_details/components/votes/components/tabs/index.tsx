@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Tabs from '@material-ui/core/Tabs';
@@ -10,7 +10,7 @@ import { useStyles } from '@/screens/proposal_details/components/votes/component
 const TabsHeader: React.FC<{
   className?: string;
   tab: number;
-  handleTabChange: (_event: any, newValue: number) => void;
+  handleTabChange: ComponentProps<typeof Tabs>['onChange'];
   data: {
     yes: number;
     no: number;

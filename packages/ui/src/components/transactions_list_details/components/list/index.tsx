@@ -63,7 +63,7 @@ const TransactionList: FC<TransactionsListDetailsState> = ({
       </div>
     ),
     result: <Result success={x.success} />,
-    time: formatDayJs((dayjs as any).utc(x.timestamp), dateFormat),
+    time: formatDayJs(dayjs.utc(x.timestamp), dateFormat),
     messageCount: numeral(x.messages.count).format('0,0'),
     messages: x.messages.items.map((message) => getMessageByType(message, false, t)),
   }));
@@ -106,7 +106,7 @@ const TransactionList: FC<TransactionsListDetailsState> = ({
 
 const ListItem: FC<
   Pick<ListChildComponentProps, 'index' | 'style'> & {
-    setRowHeight: ReturnType<typeof useList>['setRowHeight'];
+    setRowHeight: Parameters<typeof useListRow>[1];
     isItemLoaded: TransactionsListDetailsState['isItemLoaded'];
     items: ComponentProps<typeof SingleTransaction>[];
   }

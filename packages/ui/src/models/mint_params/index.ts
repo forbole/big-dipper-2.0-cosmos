@@ -13,16 +13,16 @@ class MintParams {
 
   public mintDenom: string;
 
-  constructor(payload: any) {
-    this.blocksPerYear = payload.blocksPerYear;
-    this.goalBonded = payload.goalBonded;
-    this.inflationMax = payload.inflationMax;
-    this.inflationMin = payload.inflationMin;
-    this.inflationRateChange = payload.inflationRateChange;
-    this.mintDenom = payload.mintDenom;
+  constructor(payload: object) {
+    this.blocksPerYear = R.pathOr(0, ['blocks_per_year'], payload);
+    this.goalBonded = R.pathOr(0, ['goal_bonded'], payload);
+    this.inflationMax = R.pathOr(0, ['inflationMax'], payload);
+    this.inflationMin = R.pathOr(0, ['inflationMin'], payload);
+    this.inflationRateChange = R.pathOr(0, ['inflationRateChange'], payload);
+    this.mintDenom = R.pathOr('', ['mintDenom'], payload);
   }
 
-  static fromJson(data: any): MintParams {
+  static fromJson(data: object): MintParams {
     return {
       blocksPerYear: R.pathOr(0, ['blocks_per_year'], data),
       goalBonded: R.pathOr(0, ['goal_bonded'], data),

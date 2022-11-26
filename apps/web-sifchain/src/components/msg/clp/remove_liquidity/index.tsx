@@ -1,5 +1,4 @@
 import React from 'react';
-import * as R from 'ramda';
 import Trans from 'next-translate/Trans';
 import Typography from '@material-ui/core/Typography';
 import Name from '@/components/name';
@@ -13,10 +12,8 @@ const RemoveLiquidity: React.FC<{ message: MsgRemoveLiquidity }> = (props) => {
   const signer = useProfileRecoil(message.signer);
   const signerMoniker = signer ? signer?.name : message.signer;
 
-  const symbol = R.pathOr(
-    '',
-    ['tokenUnits', message.externalAsset.symbol, 'display'],
-    chainConfig
+  const symbol = (
+    chainConfig?.tokenUnits?.[message.externalAsset.symbol]?.display ?? ''
   ).toUpperCase();
   return (
     <Typography>

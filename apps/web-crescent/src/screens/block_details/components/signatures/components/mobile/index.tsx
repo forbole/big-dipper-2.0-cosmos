@@ -43,7 +43,7 @@ const Mobile: FC<{
 
 const ListItem: FC<
   Pick<ListChildComponentProps, 'index' | 'style'> & {
-    setRowHeight: ReturnType<typeof useList>['setRowHeight'];
+    setRowHeight: Parameters<typeof useListRow>[1];
     signatures: AvatarName[] | undefined;
     classes: ReturnType<typeof useStyles>;
     t: Translate;

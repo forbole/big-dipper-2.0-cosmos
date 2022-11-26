@@ -18,14 +18,14 @@ const CustomToolTip: React.FC<{
   className?: string;
   children: (data: CustomToolTipData) => React.ReactNode;
   active?: boolean;
-  payload?: any;
+  payload?: Array<{ payload: CustomToolTipData }>;
 }> = (props) => {
   const { active, payload, className, children } = props;
 
   const classes = useStyles();
 
   if (active && payload && payload.length) {
-    const { payload: data } = payload?.[0];
+    const { payload: data } = payload?.[0] ?? {};
     return <div className={classnames(classes.root, className)}>{children(data)}</div>;
   }
 

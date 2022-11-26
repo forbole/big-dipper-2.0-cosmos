@@ -1,16 +1,13 @@
 import * as R from 'ramda';
 
 class GasPriceParams {
-  public gasPrice: {
-    denom: string;
-    amount: string;
-  }[];
+  public gasPrice: MsgCoin[];
 
-  constructor(payload: any) {
-    this.gasPrice = payload.gasPrice;
+  constructor(payload: object) {
+    this.gasPrice = R.pathOr<MsgCoin[]>([], ['gasPrice'], payload);
   }
 
-  static fromJson(data: Array<{ denom: string; amount: number }>): GasPriceParams {
+  static fromJson(data: MsgCoin[]): GasPriceParams {
     return {
       gasPrice: data.map((x) => ({
         denom: R.pathOr('', ['denom'], x),

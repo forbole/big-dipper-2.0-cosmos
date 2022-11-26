@@ -2,7 +2,6 @@ import React from 'react';
 import classnames from 'classnames';
 import Big from 'big.js';
 import numeral from 'numeral';
-import * as R from 'ramda';
 import { useRecoilValue } from 'recoil';
 import { readMarket } from '@/recoil/market';
 import Divider from '@material-ui/core/Divider';
@@ -42,7 +41,7 @@ const Balance: React.FC<Props> = (props) => {
   ];
 
   const formatData = formattedChartData.map((x, i) => ({
-    ...(x as object),
+    ...x,
     value: numeral(x.value).value(),
     background: backgrounds[i],
   }));
@@ -87,7 +86,7 @@ const Balance: React.FC<Props> = (props) => {
           </ResponsiveContainer>
         </div>
         <div className={classes.legends}>
-          {data.map((x: any) => {
+          {data.map((x) => {
             if (x.key.toLowerCase() === 'empty') {
               return null;
             }
@@ -118,10 +117,8 @@ const Balance: React.FC<Props> = (props) => {
           <div className="total__secondary--container total__single--container">
             <Typography variant="body1" className="label">
               ${numeral(market.price).format('0,0.[00]', Math.floor)} /{' '}
-              {R.pathOr(
-                '',
-                ['tokenUnits', chainConfig.primaryTokenUnit, 'display'],
-                chainConfig
+              {(
+                chainConfig?.tokenUnits?.[chainConfig.primaryTokenUnit]?.display ?? ''
               ).toUpperCase()}
             </Typography>
             <Typography variant="body1">{totalAmount}</Typography>

@@ -32,10 +32,14 @@ const Unbondings: React.FC<
   const { page, rowsPerPage, handleChangePage, handleChangeRowsPerPage } = usePagination({});
   const { isDesktop } = useScreenSize();
 
-  const pageItems = R.pathOr([], ['unbondings', 'data', page], props);
-  const dataProfiles = useProfilesRecoil(pageItems.map((x: any) => x.address));
+  const pageItems = R.pathOr<NonNullable<typeof props['unbondings']['data'][number]>>(
+    [],
+    ['unbondings', 'data', page],
+    props
+  );
+  const dataProfiles = useProfilesRecoil(pageItems.map((x) => x.address));
   const mergedDataWithProfiles = pageItems.map((x, i) => ({
-    ...(x as object),
+    ...x,
     address: dataProfiles[i],
   }));
 
@@ -48,9 +52,9 @@ const Unbondings: React.FC<
   } else if (!items.length) {
     component = <NoData />;
   } else if (isDesktop) {
-    component = <Desktop items={items as any} />;
+    component = <Desktop items={items} />;
   } else {
-    component = <Mobile items={items as any} />;
+    component = <Mobile items={items} />;
   }
 
   return (

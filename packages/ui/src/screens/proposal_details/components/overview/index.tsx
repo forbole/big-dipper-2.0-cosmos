@@ -88,7 +88,7 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
               {t('submitTime')}
             </Typography>
             <Typography variant="body1" className="value">
-              {formatDayJs((dayjs as any).utc(overview.submitTime), dateFormat)}
+              {formatDayJs(dayjs.utc(overview.submitTime), dateFormat)}
             </Typography>
           </>
         )}
@@ -98,7 +98,7 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
               {t('depositEndTime')}
             </Typography>
             <Typography variant="body1" className="value">
-              {formatDayJs((dayjs as any).utc(overview.depositEndTime), dateFormat)}
+              {formatDayJs(dayjs.utc(overview.depositEndTime), dateFormat)}
             </Typography>
           </>
         )}
@@ -108,7 +108,7 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
               {t('votingStartTime')}
             </Typography>
             <Typography variant="body1" className="value">
-              {formatDayJs((dayjs as any).utc(overview.votingStartTime), dateFormat)}
+              {formatDayJs(dayjs.utc(overview.votingStartTime), dateFormat)}
             </Typography>
           </>
         )}
@@ -118,7 +118,7 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
               {t('votingEndTime')}
             </Typography>
             <Typography variant="body1" className="value">
-              {formatDayJs((dayjs as any).utc(overview.votingEndTime), dateFormat)}
+              {formatDayJs(dayjs.utc(overview.votingEndTime), dateFormat)}
             </Typography>
           </>
         )}

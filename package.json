@@ -16,7 +16,7 @@
     "start": "dotenv -- yarn exec 'turbo run start --filter=${PROJECT_NAME:-web}...'",
     "format": "prettier --ignore-path ./.gitignore --write \"**/*.{js,ts,tsx,mjs,cjs,md}\"",
     "lint": "dotenv -- yarn exec 'turbo run lint --filter=${PROJECT_NAME:-web}...'",
-    "lint:ci": "turbo run lint `--continue --concurrency=30%",
+    "lint:ci": "turbo run lint --continue --concurrency=30%",
     "test": "dotenv -- yarn exec '  turbo run test --filter=${PROJECT_NAME:-web}...",
     "test:ci": "turbo run test --continue --concurrency=30%",
     "e2e": "playwright test",

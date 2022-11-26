@@ -20,21 +20,25 @@ class MsgSubmitProposal {
 
   public proposer: string;
 
-  public json: any;
+  public json: object;
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'governance';
-    this.type = payload.type;
-    this.content = payload.content;
-    this.initialDeposit = payload.initialDeposit;
-    this.proposer = payload.proposer;
-    this.json = payload.json;
+    this.type = R.pathOr('', ['type'], payload);
+    this.content = R.pathOr(MsgTextProposal.fromJson({}), ['content'], payload);
+    this.initialDeposit = R.pathOr([], ['initialDeposit'], payload);
+    this.proposer = R.pathOr('', ['proposer'], payload);
+    this.json = R.pathOr({}, ['json'], payload);
   }
 
-  static fromJson(json: any): MsgSubmitProposal {
-    const contentDetailsRaw = json?.content;
-    const contentType = contentDetailsRaw?.['@type'];
-    let content = null;
+  static fromJson(json: object): MsgSubmitProposal {
+    const contentDetailsRaw = R.pathOr<MsgSubmitProposal['content']>(
+      MsgTextProposal.fromJson({}),
+      ['content'],
+      json
+    );
+    const contentType = '@type' in contentDetailsRaw ? (contentDetailsRaw['@type'] as string) : '';
+    let content: MsgSubmitProposal['content'] | null = null;
 
     switch (contentType) {
       case '/cosmos.gov.v1beta1.TextProposal': {
@@ -62,13 +66,12 @@ class MsgSubmitProposal {
       category: 'governance',
       json,
       content,
-      type: json['@type'],
-      initialDeposit:
-        json?.initial_deposit?.map((x?: { denom?: string; amount?: number }) => ({
-          denom: x?.denom,
-          amount: R.pathOr('0', ['amount'], x),
-        })) ?? [],
-      proposer: json.proposer,
+      type: R.pathOr('', ['@type'], json),
+      initialDeposit: R.pathOr<MsgCoin[]>([], ['initial_deposit'], json).map((x) => ({
+        denom: x?.denom ?? '',
+        amount: x?.amount ?? '0',
+      })),
+      proposer: R.pathOr('', ['proposer'], json),
     };
   }
 }

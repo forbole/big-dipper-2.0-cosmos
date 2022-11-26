@@ -56,7 +56,7 @@ const Mobile: FC<TransactionsListState> = ({
       </div>
     ),
     result: <Result success={x.success} />,
-    time: (dayjs as any).utc(x.timestamp).fromNow(),
+    time: dayjs.utc(x.timestamp).fromNow(),
     messages: numeral(x.messages.count).format('0,0'),
   }));
 
@@ -98,7 +98,7 @@ const Mobile: FC<TransactionsListState> = ({
 
 const ListItem: FC<
   Pick<ListChildComponentProps, 'index' | 'style'> & {
-    setRowHeight: ReturnType<typeof useList>['setRowHeight'];
+    setRowHeight: Parameters<typeof useListRow>[1];
     isItemLoaded: ((index: number) => boolean) | undefined;
     items: ComponentProps<typeof SingleTransactionMobile>[];
     itemCount: number;

@@ -1,27 +1,28 @@
 import type { Categories } from '@/models/msg/types';
+import * as R from 'ramda';
 
 class MsgMintFanToken {
   public category: Categories;
 
   public type: string;
 
-  public json: any;
+  public json: object;
 
   public recipient: string;
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'fantoken';
-    this.type = payload.type;
-    this.json = payload.json;
-    this.recipient = payload.recipient;
+    this.type = R.pathOr('', ['type'], payload);
+    this.json = R.pathOr({}, ['json'], payload);
+    this.recipient = R.pathOr('', ['recipient'], payload);
   }
 
-  static fromJson(json: any): MsgMintFanToken {
+  static fromJson(json: object): MsgMintFanToken {
     return {
       category: 'fantoken',
       json,
-      type: json['@type'],
-      recipient: json.recipient,
+      type: R.pathOr('', ['@type'], json),
+      recipient: R.pathOr('', ['recipient'], json),
     };
   }
 }

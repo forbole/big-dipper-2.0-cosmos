@@ -6,7 +6,7 @@ class MsgSwap {
 
   public type: string;
 
-  public json: any;
+  public json: object;
 
   public signer: string;
 
@@ -24,34 +24,44 @@ class MsgSwap {
 
   public receivedAmount: string;
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'clp';
-    this.json = payload.json;
-    this.type = payload.type;
-    this.signer = payload.signer;
-    this.sentAsset = payload.sentAsset;
-    this.receivedAsset = payload.receivedAsset;
-    this.sentAmount = payload.sentAmount;
-    this.minReceivingAmount = payload.minReceivingAmount;
-    this.receivedAmount = payload.receivedAmount;
+    this.json = R.pathOr({}, ['json'], payload);
+    this.type = R.pathOr('', ['type'], payload);
+    this.signer = R.pathOr('', ['signer'], payload);
+    this.sentAsset = R.pathOr({ symbol: '' }, ['sentAsset'], payload);
+    this.receivedAsset = R.pathOr({ symbol: '' }, ['receivedAsset'], payload);
+    this.sentAmount = R.pathOr('', ['sentAmount'], payload);
+    this.minReceivingAmount = R.pathOr('', ['minReceivingAmount'], payload);
+    this.receivedAmount = R.pathOr('', ['receivedAmount'], payload);
   }
 
-  static getReceivedAmount(log: any): string {
-    const swapEvents = R.pathOr([], ['events'], log).filter(
-      (x: any) => x.type === 'swap_successful'
-    );
-    const amount = R.pathOr([], [0, 'attributes'], swapEvents).filter(
-      (x: any) => x.key === 'swap_amount'
-    );
-    return R.pathOr('0', [0, 'value'], amount);
+  static getReceivedAmount(log: {
+    events: Array<{ type: string; attributes: Array<{ key: string; value: string }> }>;
+  }): string {
+    const swapEvents = log?.events ?? [].filter((x) => x.type === 'swap_successful');
+    const amount = swapEvents?.[0]?.attributes?.filter((x) => x.key === 'swap_amount') ?? [];
+    return amount?.[0]?.value ?? '0';
   }
 
-  static fromJson(json: any, log?: any): MsgSwap {
+  static fromJson(
+    json: {
+      '@type': string;
+      signer: string;
+      sent_asset: { symbol: string };
+      received_asset: { symbol: string };
+      sent_amount: string;
+      min_receiving_amount: string;
+    },
+    log: {
+      events: Array<{ type: string; attributes: Array<{ key: string }> }>;
+    }
+  ): MsgSwap {
     return {
       category: 'clp',
       json,
-      type: json['@type'],
-      signer: json.signer,
+      type: R.pathOr('', ['@type'], json),
+      signer: R.pathOr('', ['signer'], json),
       sentAsset: {
         symbol: R.pathOr('', ['sent_asset', 'symbol'], json),
       },

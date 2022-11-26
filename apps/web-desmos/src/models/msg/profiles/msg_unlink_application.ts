@@ -1,11 +1,12 @@
 import type { Categories } from '@/models/msg/types';
+import * as R from 'ramda';
 
 class MsgUnlinkApplication {
   public category: Categories;
 
   public type: string;
 
-  public json: any;
+  public json: object;
 
   public application: string;
 
@@ -13,23 +14,23 @@ class MsgUnlinkApplication {
 
   public signer: string;
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'profiles';
-    this.type = payload.type;
-    this.json = payload.json;
-    this.application = payload.application;
-    this.username = payload.username;
-    this.signer = payload.signer;
+    this.type = R.pathOr('', ['type'], payload);
+    this.json = R.pathOr({}, ['json'], payload);
+    this.application = R.pathOr('', ['application'], payload);
+    this.username = R.pathOr('', ['username'], payload);
+    this.signer = R.pathOr('', ['signer'], payload);
   }
 
-  static fromJson(json: any): MsgUnlinkApplication {
+  static fromJson(json: object): MsgUnlinkApplication {
     return {
       category: 'profiles',
       json,
-      type: json['@type'],
-      application: json.application,
-      username: json.username,
-      signer: json.signer,
+      type: R.pathOr('', ['@type'], json),
+      application: R.pathOr('', ['application'], json),
+      username: R.pathOr('', ['username'], json),
+      signer: R.pathOr('', ['signer'], json),
     };
   }
 }

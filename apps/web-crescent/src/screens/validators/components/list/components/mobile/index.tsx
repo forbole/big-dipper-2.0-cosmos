@@ -72,7 +72,7 @@ const Mobile: FC<{
 
 const ListItem: FC<
   Pick<ListChildComponentProps, 'index' | 'style'> & {
-    setRowHeight: ReturnType<typeof useList>['setRowHeight'];
+    setRowHeight: Parameters<typeof useListRow>[1];
     formattedItems: Array<ComponentProps<typeof SingleValidator>>;
   }
 > = ({ index, style, setRowHeight, formattedItems }) => {

@@ -4,8 +4,8 @@ import {
   TransactionsListenerSubscription,
 } from '@/graphql/types/general_types';
 import { convertMsgType } from '@/utils/convert_msg_type';
-import * as R from 'ramda';
 import type { TransactionsState } from '@/screens/home/components/transactions/types';
+import * as R from 'ramda';
 
 export const useTransactions = () => {
   const [state, setState] = useState<TransactionsState>({
@@ -18,15 +18,15 @@ export const useTransactions = () => {
   useTransactionsListenerSubscription({
     onData: (data) => {
       setState({
-        items: data.data.data ? (formatTransactions(data.data.data) as any) : [],
+        items: data.data.data ? formatTransactions(data.data.data) : [],
       });
     },
   });
 
   const formatTransactions = (data: TransactionsListenerSubscription) =>
-    data.transactions?.map((x: any) => {
+    data.transactions?.map((x) => {
       const msgType =
-        x.messages?.map((eachMsg: any) => {
+        x.messages?.map((eachMsg: object) => {
           const eachMsgType = R.pathOr('none type', ['@type'], eachMsg);
           return eachMsgType ?? '';
         }) ?? [];

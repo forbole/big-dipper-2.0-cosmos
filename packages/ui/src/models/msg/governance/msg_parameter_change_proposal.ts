@@ -1,3 +1,11 @@
+import * as R from 'ramda';
+
+type Change = {
+  subspace: string;
+  key: string;
+  value: string | number;
+};
+
 class MsgParameterChangeProposal {
   public type: string;
 
@@ -5,28 +13,24 @@ class MsgParameterChangeProposal {
 
   public description: string;
 
-  public changes: {
-    subspace: string;
-    key: string;
-    value: string | number;
-  }[];
+  public changes: Change[];
 
-  constructor(payload: any) {
-    this.type = payload.type;
-    this.title = payload.title;
-    this.description = payload.description;
-    this.changes = payload.changes;
+  constructor(payload: object) {
+    this.type = R.pathOr('', ['type'], payload);
+    this.title = R.pathOr('', ['title'], payload);
+    this.description = R.pathOr('', ['description'], payload);
+    this.changes = R.pathOr<MsgParameterChangeProposal['changes']>([], ['changes'], payload);
   }
 
-  static fromJson(json: any): MsgParameterChangeProposal {
+  static fromJson(json: object): MsgParameterChangeProposal {
     return {
-      type: json['@type'],
-      title: json.title,
-      description: json.description,
-      changes: json?.changes?.map((x?: { subspace: string; key: string; value: string }) => ({
-        subspace: x?.subspace,
-        key: x?.key,
-        value: x?.value,
+      type: R.pathOr('', ['@type'], json),
+      title: R.pathOr('', ['title'], json),
+      description: R.pathOr('', ['description'], json),
+      changes: R.pathOr<MsgParameterChangeProposal['changes']>([], ['changes'], json).map((x) => ({
+        subspace: x?.subspace ?? '',
+        key: x?.key ?? '',
+        value: x?.value ?? '',
       })),
     };
   }

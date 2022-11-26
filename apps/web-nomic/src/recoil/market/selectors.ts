@@ -3,7 +3,7 @@ import type { AtomState } from '@/recoil/market/types';
 import { mergeStateChange } from '@/utils/merge_state_change';
 import { selector } from 'recoil';
 
-const getMarket = ({ get }: any): AtomState => {
+const getMarket = ({ get }): AtomState => {
   const state = get(atomState);
   return state;
 };

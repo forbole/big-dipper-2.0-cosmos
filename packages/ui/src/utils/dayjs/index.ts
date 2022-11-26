@@ -45,5 +45,5 @@ export const formatDayJs = (time: dayjs.Dayjs, mode: 'locale' | 'utc' = 'locale'
     return time.format('MMM DD, YYYY hh:mm:ss A [(UTC)]');
   }
 
-  return (time as any).local().format('MMM DD, YYYY hh:mm:ss A (z)');
+  return time.local().format('MMM DD, YYYY hh:mm:ss A (z)');
 };

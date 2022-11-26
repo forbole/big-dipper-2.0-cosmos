@@ -6,27 +6,27 @@ class MsgCreatePeriodicVestingAccount {
 
   public type: string;
 
-  public json: any;
+  public json: object;
 
   public fromAddress: string;
 
   public toAddress: string;
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'vesting';
-    this.type = payload.type;
-    this.json = payload.json;
-    this.fromAddress = payload.fromAddress;
-    this.toAddress = payload.toAddress;
+    this.type = R.pathOr('', ['type'], payload);
+    this.json = R.pathOr({}, ['json'], payload);
+    this.fromAddress = R.pathOr('', ['fromAddress'], payload);
+    this.toAddress = R.pathOr('', ['toAddress'], payload);
   }
 
-  static fromJson(json: any): MsgCreatePeriodicVestingAccount {
+  static fromJson(json: object): MsgCreatePeriodicVestingAccount {
     return {
       category: 'vesting',
       json,
-      type: json['@type'],
+      type: R.pathOr('', ['@type'], json),
       fromAddress: R.pathOr('', ['from_address'], json),
-      toAddress: json?.from_address ?? '',
+      toAddress: R.pathOr('', ['to_address'], json),
     };
   }
 }

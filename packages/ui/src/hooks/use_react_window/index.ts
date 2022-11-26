@@ -1,15 +1,16 @@
 import { createRef, useCallback, useEffect, useRef } from 'react';
 import * as R from 'ramda';
+import type { VariableSizeGrid } from 'react-window';
 
 // reusable hook helpers for react window list components
 
 export const useList = () => {
   const listRef = useRef({});
-  const rowHeights = useRef<{ [key: keyof any]: number }>({});
+  const rowHeights = useRef<{ [key: number]: number }>({});
 
-  const getRowHeight = useCallback((index: keyof any) => rowHeights.current[index] + 16 || 100, []);
+  const getRowHeight = useCallback((index: number) => rowHeights.current[index] + 16 || 100, []);
 
-  const setRowHeight = useCallback((idx: keyof any, size: number) => {
+  const setRowHeight = useCallback((idx: number, size: number) => {
     R.pathOr(
       (_: number) => {
         console.error('something went wrong');
@@ -35,11 +36,11 @@ export const useListRow = (
   index: number,
   setRowHeight: (idx: number, clientHeight: number) => void
 ) => {
-  const rowRef: any = useRef({});
+  const rowRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (rowRef.current) {
-      setRowHeight(index, R.pathOr(0, ['current', 'clientHeight'], rowRef));
+      setRowHeight(index, rowRef?.current?.clientHeight ?? 0);
     }
   }, [index, rowRef, setRowHeight]);
 
@@ -55,15 +56,15 @@ export const useGrid = (
     width: number;
   }[]
 ) => {
-  const gridRef = createRef();
-  const columnRef = createRef();
+  const gridRef = createRef<VariableSizeGrid>();
+  const columnRef = createRef<VariableSizeGrid>();
 
   const onResize = useCallback(() => {
     if (gridRef.current != null) {
-      R.pathOr((_: number) => null, ['current', 'resetAfterColumnIndex'], gridRef)(0);
+      (gridRef?.current?.resetAfterColumnIndex ?? ((_: number) => null))(0);
     }
     if (columnRef.current != null) {
-      R.pathOr((_: number) => null, ['current', 'resetAfterColumnIndex'], columnRef)(0);
+      (columnRef?.current?.resetAfterColumnIndex ?? ((_: number) => null))(0);
     }
   }, [columnRef, gridRef]);
 

@@ -10,24 +10,24 @@ class MsgFundCommunityPool {
 
   public amount: MsgCoin[];
 
-  public json: any;
+  public json: object;
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'distribution';
-    this.type = payload.type;
-    this.depositor = payload.depositor;
-    this.amount = payload.amount;
-    this.json = payload.json;
+    this.type = R.pathOr('', ['type'], payload);
+    this.depositor = R.pathOr('', ['depositor'], payload);
+    this.amount = R.pathOr([], ['amount'], payload);
+    this.json = R.pathOr({}, ['json'], payload);
   }
 
-  static fromJson(json: any): MsgFundCommunityPool {
+  static fromJson(json: object): MsgFundCommunityPool {
     return {
       category: 'distribution',
       json,
-      type: json['@type'],
-      depositor: json.depositor,
-      amount: json?.amount.map((x?: { denom?: string; amount?: number }) => ({
-        denom: x?.denom,
+      type: R.pathOr('', ['@type'], json),
+      depositor: R.pathOr('', ['depositor'], json),
+      amount: R.pathOr([], ['amount'], json).map((x) => ({
+        denom: R.pathOr('', ['denom'], x),
         amount: R.pathOr('0', ['amount'], x),
       })),
     };

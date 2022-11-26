@@ -35,18 +35,18 @@ export const useTokens = () => {
           },
         });
 
-        const items = data.map((x: any) => ({
-          identifier: R.pathOr('', ['identifier'], x),
-          name: R.pathOr('', ['name'], x),
-          type: R.pathOr('', ['type'], x),
+        const items = data.map((x) => ({
+          identifier: x?.identifier ?? '',
+          name: x?.name ?? '',
+          type: x?.type ?? '',
         }));
 
         handleSetState({
           loading: false,
           items,
         });
-      } catch (error: any) {
-        console.error(error.message);
+      } catch (error) {
+        console.error((error as Error).message);
       }
     },
     [handleSetState, router.query.address]

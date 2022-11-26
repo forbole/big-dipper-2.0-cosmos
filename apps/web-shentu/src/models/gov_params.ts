@@ -31,16 +31,49 @@ class GovParams {
     votingPeriod: number;
   };
 
-  constructor(payload: any) {
-    this.depositParams = payload.depositParams;
-    this.tallyParams = payload.tallyParams;
-    this.votingParams = payload.votingParams;
+  constructor(payload: object) {
+    this.depositParams = R.pathOr(
+      {
+        minDeposit: [],
+        maxDepositPeriod: 0,
+      },
+      ['depositParams'],
+      payload
+    );
+    this.tallyParams = R.pathOr(
+      {
+        default: {
+          quorum: '0',
+          threshold: '0',
+          vetoThreshold: '0',
+        },
+        certifierStakeVote: {
+          quorum: '0',
+          threshold: '0',
+          vetoThreshold: '0',
+        },
+        certifierSecurityVote: {
+          quorum: '0',
+          threshold: '0',
+          vetoThreshold: '0',
+        },
+      },
+      ['tallyParams'],
+      payload
+    );
+    this.votingParams = R.pathOr(
+      {
+        votingPeriod: 0,
+      },
+      ['votingParams'],
+      payload
+    );
   }
 
-  static fromJson(data: any): GovParams {
+  static fromJson(data: object): GovParams {
     return {
       depositParams: {
-        minDeposit: R.pathOr<Array<{ denom: string; amount: number }>>(
+        minDeposit: R.pathOr<GovParams['depositParams']['minDeposit']>(
           [],
           ['depositParams', 'min_deposit'],
           data
@@ -48,13 +81,13 @@ class GovParams {
           denom: x.denom,
           amount: String(x.amount),
         })),
-        maxDepositPeriod: R.pathOr(0, ['depositParams', 'max_deposit_period'], data),
+        maxDepositPeriod: data?.depositParams?.max_deposit_period ?? 0,
       },
       tallyParams: {
         default: {
-          quorum: R.pathOr('0', ['tallyParams', 'default_tally', 'quorum'], data),
-          threshold: R.pathOr('0', ['tallyParams', 'default_tally', 'threshold'], data),
-          vetoThreshold: R.pathOr('0', ['tallyParams', 'default_tally', 'veto_threshold'], data),
+          quorum: data?.tallyParams?.default_tally?.quorum ?? '0',
+          threshold: data?.tallyParams?.default_tally?.threshold ?? '0',
+          vetoThreshold: data?.tallyParams?.default_tally?.veto_threshold ?? '0',
         },
         certifierStakeVote: {
           quorum: R.pathOr(
@@ -92,7 +125,7 @@ class GovParams {
         },
       },
       votingParams: {
-        votingPeriod: R.pathOr(0, ['votingParams', 'voting_period'], data),
+        votingPeriod: data?.votingParams?.voting_period ?? 0,
       },
     };
   }

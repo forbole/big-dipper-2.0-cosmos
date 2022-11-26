@@ -1,27 +1,28 @@
 import type { Categories } from '@/models/msg/types';
+import * as R from 'ramda';
 
 class MsgCreateGroupAccountRequest {
   public category: Categories;
 
   public type: string;
 
-  public json: any;
+  public json: object;
 
   public admin: string;
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'group';
-    this.json = payload.json;
-    this.type = payload.type;
-    this.admin = payload.admin;
+    this.json = R.pathOr({}, ['json'], payload);
+    this.type = R.pathOr('', ['type'], payload);
+    this.admin = R.pathOr('', ['admin'], payload);
   }
 
-  static fromJson(json: any): MsgCreateGroupAccountRequest {
+  static fromJson(json: object): MsgCreateGroupAccountRequest {
     return {
       category: 'group',
       json,
-      type: json['@type'],
-      admin: json.admin,
+      type: R.pathOr('', ['@type'], json),
+      admin: R.pathOr('', ['admin'], json),
     };
   }
 }

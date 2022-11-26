@@ -6,22 +6,22 @@ class MsgIssueDenom {
 
   public type: string;
 
-  public json: any;
+  public json: object;
 
   public creators: string[];
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'nft';
-    this.type = payload.type;
-    this.json = payload.json;
-    this.creators = payload.creators;
+    this.type = R.pathOr('', ['type'], payload);
+    this.json = R.pathOr({}, ['json'], payload);
+    this.creators = R.pathOr([], ['creators'], payload);
   }
 
-  static fromJson(json: any): MsgIssueDenom {
+  static fromJson(json: object): MsgIssueDenom {
     return {
       category: 'nft',
       json,
-      type: json['@type'],
+      type: R.pathOr('', ['@type'], json),
       creators: R.pathOr([], ['creators'], json),
     };
   }

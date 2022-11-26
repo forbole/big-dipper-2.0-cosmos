@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import Link from 'next/link';
 import Trans from 'next-translate/Trans';
 import useTranslation from 'next-translate/useTranslation';
@@ -25,10 +25,13 @@ const DepositProposal: React.FC<{ message: MsgDeposit }> = (props) => {
   const depositor = useProfileRecoil(message.depositor);
   const depositorMoniker = depositor ? depositor?.name : message.depositor;
 
-  const Proposal = () => (
-    <Link href={PROPOSAL_DETAILS(message.proposalId)} passHref>
-      <Typography component="a">#{message.proposalId}</Typography>
-    </Link>
+  const Proposal = useCallback(
+    () => (
+      <Link href={PROPOSAL_DETAILS(message.proposalId)} passHref>
+        <Typography component="a">#{message.proposalId}</Typography>
+      </Link>
+    ),
+    [message.proposalId]
   );
   return (
     <Typography>

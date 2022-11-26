@@ -78,7 +78,7 @@ const Compute: React.FC<{
         </PieChart>
 
         <div className={classes.legends}>
-          {data.map((x: any) => (
+          {data.map((x) => (
             <div className="legends__item" key={x.legendKey}>
               <Typography variant="caption" className="usage">
                 {t(x.legendKey)}{' '}

@@ -15,7 +15,7 @@ import { useStyles } from '@/screens/transaction_details/transaction_details/com
 
 const Messages: FC<{
   className?: string;
-  messages: any[];
+  messages: unknown[];
   viewRaw: boolean;
   toggleMessageDisplay: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onMessageFilterCallback: (value: string) => void;
@@ -88,7 +88,7 @@ const Messages: FC<{
 
 const ListItem: FC<
   Pick<ListChildComponentProps, 'index' | 'style'> & {
-    setRowHeight: ReturnType<typeof useList>['setRowHeight'];
+    setRowHeight: Parameters<typeof useListRow>[1];
     formattedItems: Array<{ type: unknown; message: unknown }>;
     classes: ReturnType<typeof useStyles>;
     messages: unknown[];

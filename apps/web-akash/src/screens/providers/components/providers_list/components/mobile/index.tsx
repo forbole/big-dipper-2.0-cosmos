@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { ComponentProps, FC } from 'react';
 import classnames from 'classnames';
 import Link from 'next/link';
 import Divider from '@material-ui/core/Divider';
@@ -115,9 +115,9 @@ const Mobile: FC<{ list: ProviderInfo[] }> = ({ list }) => {
 
 const ListItem: FC<
   Pick<ListChildComponentProps, 'index' | 'style'> & {
-    setRowHeight: ReturnType<typeof useList>['setRowHeight'];
+    setRowHeight: Parameters<typeof useListRow>[1];
     classes: ReturnType<typeof useStyles>;
-    itemsNew: unknown[];
+    itemsNew: Array<ComponentProps<typeof SingleProvider>>;
   }
 > = ({ index, style, setRowHeight, classes, itemsNew }) => {
   const { rowRef } = useListRow(index, setRowHeight);
@@ -125,7 +125,7 @@ const ListItem: FC<
   return (
     <div style={style} className={index % 2 ? classes.even : ''}>
       <div ref={rowRef}>
-        <SingleProvider {...(selectedItem as any)} />
+        <SingleProvider {...selectedItem} />
         {index !== itemsNew.length - 1 && <Divider />}
       </div>
     </div>

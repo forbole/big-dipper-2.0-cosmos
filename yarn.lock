@@ -13638,6 +13638,7 @@ __metadata:
     helmet: ^4.6.0
     isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
+    jest: ^29.3.1
     markdown-to-jsx: ^7.1.2
     next: ^12.3.3
     next-seo: ^4.26.0
@@ -13687,6 +13688,7 @@ __metadata:
     helmet: ^4.6.0
     isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
+    jest: ^29.3.1
     markdown-to-jsx: ^7.1.2
     next: ^12.3.3
     next-seo: ^4.26.0
@@ -13736,6 +13738,7 @@ __metadata:
     helmet: ^4.6.0
     isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
+    jest: ^29.3.1
     markdown-to-jsx: ^7.1.2
     next: ^12.3.3
     next-seo: ^4.26.0
@@ -13785,6 +13788,7 @@ __metadata:
     helmet: ^4.6.0
     isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
+    jest: ^29.3.1
     markdown-to-jsx: ^7.1.2
     next: ^12.3.3
     next-seo: ^4.26.0
@@ -13834,6 +13838,7 @@ __metadata:
     helmet: ^4.6.0
     isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
+    jest: ^29.3.1
     markdown-to-jsx: ^7.1.2
     next: ^12.3.3
     next-seo: ^4.26.0
@@ -13883,6 +13888,7 @@ __metadata:
     helmet: ^4.6.0
     isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
+    jest: ^29.3.1
     markdown-to-jsx: ^7.1.2
     next: ^12.3.3
     next-seo: ^4.26.0
@@ -13932,6 +13938,7 @@ __metadata:
     helmet: ^4.6.0
     isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
+    jest: ^29.3.1
     markdown-to-jsx: ^7.1.2
     next: ^12.3.3
     next-seo: ^4.26.0
@@ -13981,6 +13988,7 @@ __metadata:
     helmet: ^4.6.0
     isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
+    jest: ^29.3.1
     markdown-to-jsx: ^7.1.2
     next: ^12.3.3
     next-seo: ^4.26.0
@@ -14030,6 +14038,7 @@ __metadata:
     helmet: ^4.6.0
     isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
+    jest: ^29.3.1
     markdown-to-jsx: ^7.1.2
     next: ^12.3.3
     next-seo: ^4.26.0
@@ -14079,6 +14088,7 @@ __metadata:
     helmet: ^4.6.0
     isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
+    jest: ^29.3.1
     markdown-to-jsx: ^7.1.2
     next: ^12.3.3
     next-seo: ^4.26.0
@@ -14128,6 +14138,7 @@ __metadata:
     helmet: ^4.6.0
     isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
+    jest: ^29.3.1
     markdown-to-jsx: ^7.1.2
     next: ^12.3.3
     next-seo: ^4.26.0
@@ -14177,6 +14188,7 @@ __metadata:
     helmet: ^4.6.0
     isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
+    jest: ^29.3.1
     markdown-to-jsx: ^7.1.2
     next: ^12.3.3
     next-seo: ^4.26.0
@@ -14226,6 +14238,7 @@ __metadata:
     helmet: ^4.6.0
     isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
+    jest: ^29.3.1
     markdown-to-jsx: ^7.1.2
     next: ^12.3.3
     next-seo: ^4.26.0
@@ -14275,6 +14288,7 @@ __metadata:
     helmet: ^4.6.0
     isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
+    jest: ^29.3.1
     markdown-to-jsx: ^7.1.2
     next: ^12.3.3
     next-seo: ^4.26.0
@@ -14324,6 +14338,7 @@ __metadata:
     helmet: ^4.6.0
     isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
+    jest: ^29.3.1
     markdown-to-jsx: ^7.1.2
     next: ^12.3.3
     next-seo: ^4.26.0
@@ -14373,6 +14388,7 @@ __metadata:
     helmet: ^4.6.0
     isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
+    jest: ^29.3.1
     markdown-to-jsx: ^7.1.2
     next: ^12.3.3
     next-seo: ^4.26.0
@@ -14422,6 +14438,7 @@ __metadata:
     helmet: ^4.6.0
     isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
+    jest: ^29.3.1
     markdown-to-jsx: ^7.1.2
     next: ^12.3.3
     next-seo: ^4.26.0
@@ -14471,6 +14488,7 @@ __metadata:
     helmet: ^4.6.0
     isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
+    jest: ^29.3.1
     markdown-to-jsx: ^7.1.2
     next: ^12.3.3
     next-seo: ^4.26.0
@@ -14520,6 +14538,7 @@ __metadata:
     helmet: ^4.6.0
     isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
+    jest: ^29.3.1
     markdown-to-jsx: ^7.1.2
     next: ^12.3.3
     next-seo: ^4.26.0
@@ -14569,6 +14588,7 @@ __metadata:
     helmet: ^4.6.0
     isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
+    jest: ^29.3.1
     markdown-to-jsx: ^7.1.2
     next: ^12.3.3
     next-seo: ^4.26.0
@@ -14618,6 +14638,7 @@ __metadata:
     helmet: ^4.6.0
     isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
+    jest: ^29.3.1
     markdown-to-jsx: ^7.1.2
     next: ^12.3.3
     next-seo: ^4.26.0
@@ -14667,6 +14688,7 @@ __metadata:
     helmet: ^4.6.0
     isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
+    jest: ^29.3.1
     markdown-to-jsx: ^7.1.2
     next: ^12.3.3
     next-seo: ^4.26.0
@@ -14730,6 +14752,7 @@ __metadata:
     helmet: ^4.6.0
     isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
+    jest: ^29.3.1
     markdown-to-jsx: ^7.1.2
     next: ^12.3.3
     next-seo: ^4.26.0
@@ -14779,6 +14802,7 @@ __metadata:
     helmet: ^4.6.0
     isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
+    jest: ^29.3.1
     markdown-to-jsx: ^7.1.2
     next: ^12.3.3
     next-seo: ^4.26.0

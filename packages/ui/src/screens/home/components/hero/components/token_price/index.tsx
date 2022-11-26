@@ -18,6 +18,7 @@ import dayjs, { formatDayJs } from '@/utils/dayjs';
 import type { TokenPriceType } from '@/screens/home/components/hero/types';
 import { useStyles } from '@/screens/home/components/hero/components/token_price/styles';
 import { usePrice } from '@/screens/home/components/hero/components/token_price/hooks';
+import * as R from 'ramda';
 
 const TokenPrice: React.FC<{ items: TokenPriceType[] } & ComponentDefault> = (props) => {
   const { classes, theme } = useStyles();
@@ -26,8 +27,8 @@ const TokenPrice: React.FC<{ items: TokenPriceType[] } & ComponentDefault> = (pr
   const dateFormat = useRecoilValue(readDate);
 
   const formatItems = props.items.map((x) => ({
-    time: formatTime((dayjs as any).utc(x.time), dateFormat),
-    fullTime: formatDayJs((dayjs as any).utc(x.time), dateFormat),
+    time: formatTime(dayjs.utc(x.time), dateFormat),
+    fullTime: formatDayJs(dayjs.utc(x.time), dateFormat),
     value: x.value,
   }));
   return (
@@ -73,7 +74,7 @@ const TokenPrice: React.FC<{ items: TokenPriceType[] } & ComponentDefault> = (pr
                 <CustomToolTip>
                   {(x) => (
                     <>
-                      <Typography variant="caption">{(x as any).fullTime}</Typography>
+                      <Typography variant="caption">{R.pathOr('', ['fullTime'], x)}</Typography>
                       <Typography variant="body1">${numeral(x.value).format('0,0.00')}</Typography>
                     </>
                   )}

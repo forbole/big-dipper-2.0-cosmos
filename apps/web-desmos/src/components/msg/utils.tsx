@@ -1,9 +1,11 @@
 import * as COMPONENTS from '@/components/msg';
 import * as MODELS from '@/models';
-import type { Categories } from '@/models/msg/types';
 import Tag from '@/components/tag';
 import isKeyOf from '@/utils/isKeyOf';
 import { Translate } from 'next-translate';
+import { FC } from 'react';
+import type { Log } from '@/models/msg/types';
+import * as R from 'ramda';
 
 // =====================================
 // DO NOT UPDATE IF THIS IS A FORK.
@@ -429,9 +431,13 @@ const customTypeToModel = {
 };
 type CustomTypeToModel = typeof customTypeToModel;
 
-type TypeToModel = DefaultTypeToModel & CustomTypeToModel;
+type TypeToModel = DefaultTypeToModel & CustomTypeToModel extends infer R1
+  ? { [K in keyof R1]: R1[K] }
+  : never;
 
-const getDataByType = (type: string): TypeToModel[keyof TypeToModel] | null => {
+type Data = TypeToModel[keyof TypeToModel];
+
+const getDataByType = (type: string): Data | null => {
   if (isKeyOf(type, defaultTypeToModel) && defaultTypeToModel[type])
     return defaultTypeToModel[type];
 
@@ -440,38 +446,38 @@ const getDataByType = (type: string): TypeToModel[keyof TypeToModel] | null => {
   return null;
 };
 
-type Data = ReturnType<typeof getDataByType>;
-
 /**
  * Helper function that helps get model by type
  * @param type Model type
  */
-export const getMessageModelByType = (type: string): typeof MODELS[keyof typeof MODELS] => {
+export const getMessageModelByType = (type: string): Data['model'] => {
   const data = getDataByType(type);
   if (data) {
     return data.model;
   }
 
-  return MODELS.MsgUnknown;
+  return MODELS.MsgUnknown as Data['model'];
 };
 
 /**
  * Helper function to correctly display the correct UI
  * @param type Model type
  */
-export const getMessageByType = (
-  message: { category: Categories; type: string; json: JSON },
+export const getMessageByType = <
+  TMessage extends ReturnType<TypeToModel[keyof TypeToModel]['model']['fromJson']>
+>(
+  message: TMessage,
   viewRaw: boolean,
   t: Translate
 ) => {
   const { type } = message;
   type resultType = {
-    content: React.FC<{ message: any }>;
-    tagDisplay: Data extends { tagDisplay: unknown } ? Data['tagDisplay'] : 'txUnknownLabel';
-    tagTheme: Data extends { tagTheme: unknown } ? Data['tagTheme'] : 'zero';
+    content: FC<{ message: TMessage }>;
+    tagDisplay: string;
+    tagTheme: TagTheme;
   };
   let results: resultType = {
-    content: COMPONENTS.Unknown,
+    content: COMPONENTS.Unknown as resultType['content'],
     tagDisplay: 'txUnknownLabel',
     tagTheme: 'zero',
   };
@@ -488,7 +494,7 @@ export const getMessageByType = (
 
   // If user asks to view the raw data
   if (viewRaw || !results.content) {
-    results.content = COMPONENTS.Unknown;
+    results.content = COMPONENTS.Unknown as resultType['content'];
   }
 
   return {
@@ -497,19 +503,24 @@ export const getMessageByType = (
   };
 };
 
-export const convertMsgsToModels = (transaction?: {
-  messages?: Array<{ '@type': string }>;
-  logs?: unknown[];
-}) => {
+export const convertMsgsToModels = (
+  transaction?: {
+    messages?: Array<{
+      '@type': string;
+    }>;
+    logs?: Array<Log>;
+  } | null
+) => {
   const messages =
-    transaction?.messages?.map((msg, i) => {
-      const model = getMessageModelByType(msg?.['@type']);
-      if (
-        model === MODELS.MsgWithdrawDelegatorReward ||
-        model === MODELS.MsgWithdrawValidatorCommission
-      ) {
-        const log = transaction?.logs?.[i] ?? null;
-        return model.fromJson(msg, log);
+    transaction?.messages?.map((msg: object, i: number) => {
+      const model = getMessageModelByType(R.pathOr<string>('', ['@type'], msg));
+      if (model === MODELS.MsgWithdrawDelegatorReward) {
+        const log = transaction?.logs?.[i];
+        return MODELS.MsgWithdrawDelegatorReward.fromJson(msg, log);
+      }
+      if (model === MODELS.MsgWithdrawValidatorCommission) {
+        const log = transaction?.logs?.[i];
+        return MODELS.MsgWithdrawValidatorCommission.fromJson(msg, log);
       }
       return model.fromJson(msg);
     }) ?? [];

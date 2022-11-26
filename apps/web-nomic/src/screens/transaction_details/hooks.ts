@@ -55,7 +55,7 @@ export const useTransactionDetails = () => {
   // Parse data
   // ===============================
   const formatTransactionDetails = (data: TransactionDetailsQuery) => {
-    const stateChange: any = {
+    const stateChange = {
       loading: false,
     };
 
@@ -69,14 +69,10 @@ export const useTransactionDetails = () => {
     // =============================
     const formatOverview = () => {
       const { fee } = data.transaction[0];
-      const feeAmount = R.pathOr(
-        {
-          denom: '',
-          amount: 0,
-        },
-        ['amount', 0],
-        fee
-      );
+      const feeAmount = fee?.amount?.[0] ?? {
+        denom: '',
+        amount: 0,
+      };
 
       const overview = {
         hash: data.transaction[0].hash,

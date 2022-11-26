@@ -23,20 +23,16 @@ const Desktop: React.FC<{
 
   const formattedItems =
     items?.map((x) => ({
-      depositor: (
-        <>
-          {x.user.address ? (
-            <AvatarName address={x.user.address} imageUrl={x.user.imageUrl} name={x.user.name} />
-          ) : (
-            <>-</>
-          )}
-        </>
+      depositor: x.user.address ? (
+        <AvatarName address={x.user.address} imageUrl={x.user.imageUrl} name={x.user.name} />
+      ) : (
+        <>-</>
       ),
       amount: `${formatNumber(
         x.amount.value,
         x.amount.exponent
       )} ${x.amount.displayDenom.toUpperCase()}`,
-      time: formatDayJs((dayjs as any).utc(x.timestamp), dateFormat),
+      time: formatDayJs(dayjs.utc(x.timestamp), dateFormat),
     })) ?? [];
 
   return (

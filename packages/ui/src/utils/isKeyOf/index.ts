@@ -1,4 +1,4 @@
-function isKeyOf<T>(key: string, obj: T): key is keyof T & string {
+function isKeyOf<T extends object>(key: string, obj: T): key is keyof T & string {
   return key in obj;
 }
 

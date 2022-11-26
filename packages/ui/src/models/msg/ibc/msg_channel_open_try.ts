@@ -1,4 +1,5 @@
 import type { Categories } from '@/models/msg/types';
+import * as R from 'ramda';
 
 class MsgChannelOpenTry {
   public category: Categories;
@@ -13,27 +14,27 @@ class MsgChannelOpenTry {
 
   public counterpartyVersion: string;
 
-  public json: any;
+  public json: object;
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'ibc';
-    this.type = payload.type;
-    this.signer = payload.signer;
-    this.channel = payload.channel;
-    this.portId = payload.portId;
-    this.counterpartyVersion = payload.counterpartyVersion;
-    this.json = payload.json;
+    this.type = R.pathOr('', ['type'], payload);
+    this.signer = R.pathOr('', ['signer'], payload);
+    this.channel = R.pathOr('', ['channel'], payload);
+    this.portId = R.pathOr('', ['portId'], payload);
+    this.counterpartyVersion = R.pathOr('', ['counterpartyVersion'], payload);
+    this.json = R.pathOr({}, ['json'], payload);
   }
 
-  static fromJson(json: any): MsgChannelOpenTry {
+  static fromJson(json: object): MsgChannelOpenTry {
     return {
       category: 'ibc',
       json,
-      type: json['@type'],
-      signer: json.signer,
-      channel: json.channel,
-      portId: json.port_id,
-      counterpartyVersion: json.counterparty_version,
+      type: R.pathOr('', ['@type'], json),
+      signer: R.pathOr('', ['signer'], json),
+      channel: R.pathOr('', ['channel'], json),
+      portId: R.pathOr('', ['port_id'], json),
+      counterpartyVersion: R.pathOr('', ['counterparty_version'], json),
     };
   }
 }

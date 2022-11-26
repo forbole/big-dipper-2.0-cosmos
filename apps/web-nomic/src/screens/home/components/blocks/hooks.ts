@@ -32,7 +32,7 @@ export const useBlocks = () => {
   const formatBlocks = (data: BlocksListenerSubscription) =>
     data.blocks.map((x) => ({
       height: x.height,
-      txs: x.txs,
+      txs: x.txs ?? 0,
       hash: x.hash,
       timestamp: x.timestamp,
       proposer: x.proposerAddress,

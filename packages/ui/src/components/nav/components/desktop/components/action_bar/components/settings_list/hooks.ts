@@ -46,7 +46,7 @@ export const useSettingList = ({ lang }: { lang: string }) => {
     setOpen(false);
   };
 
-  const handleChange = (label: string, value: any) => {
+  const handleChange = (label: string, value: string) => {
     handleSetState({
       [label]: value,
     });
@@ -58,7 +58,7 @@ export const useSettingList = ({ lang }: { lang: string }) => {
     }
   };
 
-  const handleFormSubmit = (e: any) => {
+  const handleFormSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     if (state.theme !== theme) {
       changeTheme(state.theme);

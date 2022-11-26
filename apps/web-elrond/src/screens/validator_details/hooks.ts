@@ -57,7 +57,7 @@ export const useValidatorDetails = () => {
         const providerData = await getProvider();
         const isProvider = !!providerData;
 
-        const newState: any = {
+        const newState: Partial<ValidatorDetailsState> = {
           loading: false,
           isProvider,
         };
@@ -67,19 +67,16 @@ export const useValidatorDetails = () => {
         // =====================================
         if (isProvider) {
           const getContract = () => ({
-            address: R.pathOr('', ['provider'], providerData),
-            locked: formatToken(
-              R.pathOr('0', ['locked'], providerData),
-              chainConfig.primaryTokenUnit
-            ),
-            nodes: R.pathOr(0, ['numNodes'], providerData),
-            apr: R.pathOr(0, ['apr'], providerData),
-            commission: R.pathOr(0, ['serviceFee'], providerData),
+            address: providerData?.provider ?? '',
+            locked: formatToken(providerData?.locked ?? '0', chainConfig.primaryTokenUnit),
+            nodes: providerData?.numNodes ?? 0,
+            apr: providerData?.apr ?? 0,
+            commission: providerData?.serviceFee ?? 0,
             delegationCap: formatToken(
-              R.pathOr('0', ['delegationCap'], providerData),
+              providerData?.delegationCap ?? '0',
               chainConfig.primaryTokenUnit
             ),
-            delegators: R.pathOr(0, ['numUsers'], providerData),
+            delegators: providerData?.numUsers ?? 0,
           });
 
           newState.contract = getContract();
@@ -96,8 +93,8 @@ export const useValidatorDetails = () => {
           } else {
             reference = providerData;
           }
-          const locked = R.pathOr('0', ['locked'], reference);
-          const totalStaked = R.pathOr('0', ['totalStaked'], stakeData);
+          const locked = reference?.locked ?? '0';
+          const totalStaked = stakeData?.totalStaked ?? '0';
 
           const stakePercentString = Big(locked)
             .div(totalStaked === '0' ? 1 : totalStaked)
@@ -106,8 +103,8 @@ export const useValidatorDetails = () => {
 
           return {
             locked: formatToken(locked, chainConfig.primaryTokenUnit),
-            stake: formatToken(R.pathOr('0', ['stake'], reference), chainConfig.primaryTokenUnit),
-            topUp: formatToken(R.pathOr('0', ['topUp'], reference), chainConfig.primaryTokenUnit),
+            stake: formatToken(reference?.stake ?? '0', chainConfig.primaryTokenUnit),
+            topUp: formatToken(reference?.topUp ?? '0', chainConfig.primaryTokenUnit),
             totalStaked: formatToken(totalStaked, chainConfig.primaryTokenUnit),
             stakePercent: Number(formatNumber(stakePercentString, 2)),
           };
@@ -120,13 +117,13 @@ export const useValidatorDetails = () => {
         const getProfile = () => {
           if (identityData) {
             return {
-              name: R.pathOr('', ['name'], identityData),
-              imageUrl: R.pathOr('', ['avatar'], identityData),
-              description: R.pathOr('', ['description'], identityData),
+              name: identityData?.name ?? '',
+              imageUrl: identityData?.avatar ?? '',
+              description: identityData?.description ?? '',
             };
           }
           return {
-            name: R.pathOr('', ['provider'], providerData),
+            name: providerData?.provider ?? '',
             imageUrl: '',
             description: '',
           };
@@ -138,19 +135,19 @@ export const useValidatorDetails = () => {
         // =====================================
         const getOverview = () => {
           // distribution
-          let distribution: any[] = [];
+          let distribution: Array<{ key: string; value: number }> = [];
           if (identityData) {
-            const keys = R.keys(R.pathOr([], ['distribution'], identityData));
-            distribution = keys.map((x: any) => ({
-              key: x,
-              value: R.pathOr(0, ['distribution', x], identityData),
+            const keys = R.keys(identityData?.distribution);
+            distribution = keys.map((x) => ({
+              key: x as string,
+              value: identityData?.distribution?.[x] ?? 0,
             }));
           }
 
           return {
-            location: R.pathOr('', ['location'], identityData),
-            website: R.pathOr('', ['website'], identityData),
-            identity: R.pathOr('', ['identity'], identityData),
+            location: identityData?.location ?? '',
+            website: identityData?.website ?? '',
+            identity: identityData?.identity ?? '',
             stakeDistribution: distribution,
           };
         };
@@ -162,7 +159,7 @@ export const useValidatorDetails = () => {
           loading: false,
           exists: false,
         });
-        console.error((error as any).message);
+        console.error((error as Error).message);
       }
     };
 
@@ -193,7 +190,7 @@ export const useValidatorDetails = () => {
               identity: router.query.identity,
             },
           });
-          providerData = R.pathOr(null, [0], providerRawData);
+          providerData = providerRawData?.[0] ?? null;
         }
 
         return providerData;

@@ -1,1 +1,3 @@
-export { default } from 'ui/screens/blocks/components/desktop';
+import Desktop from 'ui/screens/blocks/components/desktop';
+
+export default Desktop;

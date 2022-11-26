@@ -11,13 +11,13 @@ export const useChainHealthCheck = () => {
   // const [_chainActive, _setChainActive] = useState(true);
   // const [useLatestBlockTimestamp] = useLatestBlockTimestampLazyQuery({
   //   onCompleted: (data) => {
-  //     const timestamp = (dayjs as any).utc(R.pathOr('', ['block', 0, 'timestamp'], data));
-  //     const timeNow = (dayjs as any).utc();
+  //     const timestamp = dayjs.utc(data?.block?.[0]?.timestamp ?? '');
+  //     const timeNow = dayjs.utc();
   //     const timeDifference = timeNow.diff(timestamp, 's');
   //     // if latest block has been over a minute ago
   //     if (timeDifference > 60 && chainActive) {
   //       toast.error(t('blockTimeAgo', {
-  //         time: (dayjs as any).utc(timestamp).fromNow(),
+  //         time: dayjs.utc(timestamp).fromNow(),
   //       }), {
   //         autoClose: false,
   //       });

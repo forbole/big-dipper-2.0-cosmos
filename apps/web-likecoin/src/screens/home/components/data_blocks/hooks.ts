@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import * as R from 'ramda';
 import numeral from 'numeral';
 import {
   useLatestBlockHeightListenerSubscription,
@@ -39,7 +38,7 @@ export const useDataBlocks = () => {
     onData: (data) => {
       setState((prevState) => ({
         ...prevState,
-        blockHeight: R.pathOr(0, ['height', 0, 'height'], data.data.data),
+        blockHeight: data.data.data?.height?.[0]?.height ?? 0,
       }));
     },
   });
@@ -88,7 +87,7 @@ export const useDataBlocks = () => {
     onCompleted: (data) => {
       setState((prevState) => ({
         ...prevState,
-        validators: formatActiveValidatorsCount(data) as any,
+        validators: formatActiveValidatorsCount(data),
       }));
     },
   });

@@ -1,4 +1,5 @@
 import type { Categories } from '@/models/msg/types';
+import * as R from 'ramda';
 
 class MsgUpdateClient {
   public category: Categories;
@@ -11,25 +12,25 @@ class MsgUpdateClient {
 
   public clientId: string;
 
-  public json: any;
+  public json: object;
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'ibc';
-    this.type = payload.type;
-    this.signer = payload.signer;
-    this.chainId = payload.chainId;
-    this.clientId = payload.clientId;
-    this.json = payload.json;
+    this.type = R.pathOr('', ['type'], payload);
+    this.signer = R.pathOr('', ['signer'], payload);
+    this.chainId = R.pathOr('', ['chainId'], payload);
+    this.clientId = R.pathOr('', ['clientId'], payload);
+    this.json = R.pathOr({}, ['json'], payload);
   }
 
-  static fromJson(json: any): MsgUpdateClient {
+  static fromJson(json: object): MsgUpdateClient {
     return {
       category: 'ibc',
       json,
-      type: json['@type'],
-      signer: json.signer,
-      chainId: json.header?.signed_header?.header?.chain_id,
-      clientId: json.client_id,
+      type: R.pathOr('', ['@type'], json),
+      signer: R.pathOr('', ['signer'], json),
+      chainId: R.pathOr('', ['header', 'signed_header', 'header', 'chain_id'], json),
+      clientId: R.pathOr('', ['client_id'], json),
     };
   }
 }

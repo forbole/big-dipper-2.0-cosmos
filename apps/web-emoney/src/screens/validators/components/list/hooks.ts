@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { ComponentProps, useCallback, useState } from 'react';
 import Big from 'big.js';
 import * as R from 'ramda';
 import numeral from 'numeral';
@@ -12,6 +12,7 @@ import type {
   ItemType,
   ValidatorType,
 } from '@/screens/validators/components/list/types';
+import Tabs from '@material-ui/core/Tabs';
 
 export const useValidators = () => {
   const [search, setSearch] = useState('');
@@ -48,14 +49,9 @@ export const useValidators = () => {
   // Parse data
   // ==========================
   const formatValidators = (data: ValidatorsQuery) => {
-    const slashingParams = SlashingParams.fromJson(
-      R.pathOr({}, ['slashingParams', 0, 'params'], data)
-    );
+    const slashingParams = SlashingParams.fromJson(data?.slashingParams?.[0]?.params ?? {});
     const votingPowerOverall = numeral(
-      formatToken(
-        R.pathOr(0, ['stakingPool', 0, 'bondedTokens'], data),
-        chainConfig.votingPowerTokenUnit
-      ).value
+      formatToken(data?.stakingPool?.[0]?.bondedTokens ?? 0, chainConfig.votingPowerTokenUnit).value
     ).value();
 
     const { signedBlockWindow } = slashingParams;
@@ -66,28 +62,24 @@ export const useValidators = () => {
         const votingPower =
           numeral(
             formatToken(
-              R.pathOr(0, ['validatorVotingPowers', 0, 'votingPower'], x),
+              x?.validatorVotingPowers?.[0]?.votingPower ?? 0,
               chainConfig.votingPowerTokenUnit
             ).value
           ).value() ?? 0;
         const votingPowerPercent = numeral((votingPower / (votingPowerOverall ?? 0)) * 100).value();
 
-        const missedBlockCounter = R.pathOr(
-          0,
-          ['validatorSigningInfos', 0, 'missedBlocksCounter'],
-          x
-        );
+        const missedBlockCounter = x?.validatorSigningInfos?.[0]?.missedBlocksCounter ?? 0;
         const condition = getValidatorCondition(signedBlockWindow, missedBlockCounter);
 
         return {
           validator: x.validatorInfo?.operatorAddress ?? '',
           votingPower: votingPower ?? 0,
           votingPowerPercent: votingPowerPercent ?? 0,
-          commission: R.pathOr(0, ['validatorCommissions', 0, 'commission'], x) * 100,
+          commission: (x?.validatorCommissions?.[0]?.commission ?? 0) * 100,
           condition,
-          status: R.pathOr(0, ['validatorStatuses', 0, 'status'], x),
-          jailed: R.pathOr(false, ['validatorStatuses', 0, 'jailed'], x),
-          tombstoned: R.pathOr(false, ['validatorSigningInfos', 0, 'tombstoned'], x),
+          status: x?.validatorStatuses?.[0]?.status ?? 0,
+          jailed: x?.validatorStatuses?.[0]?.jailed ?? false,
+          tombstoned: x?.validatorSigningInfos?.[0]?.tombstoned ?? false,
         };
       });
 
@@ -97,7 +89,7 @@ export const useValidators = () => {
     // add key to indicate they are part of top 34%
     let cumulativeVotingPower = Big(0);
     let reached = false;
-    formattedItems.forEach((x: any) => {
+    formattedItems.forEach((x) => {
       if (x.status === 3) {
         const totalVp = cumulativeVotingPower.add(x.votingPowerPercent);
         if (totalVp.lte(34) && !reached) {
@@ -119,7 +111,7 @@ export const useValidators = () => {
     };
   };
 
-  const handleTabChange = (_event: any, newValue: number) => {
+  const handleTabChange: ComponentProps<typeof Tabs>['onChange'] = (_event, newValue) => {
     setState((prevState) => ({
       ...prevState,
       tab: newValue,
@@ -164,10 +156,10 @@ export const useValidators = () => {
 
     if (state.sortKey && state.sortDirection) {
       sorted.sort((a, b) => {
-        let compareA: any = R.pathOr(undefined, [...state.sortKey.split('.')], a);
-        let compareB: any = R.pathOr(undefined, [...state.sortKey.split('.')], b);
+        let compareA = R.pathOr('', [...state.sortKey.split('.')], a);
+        let compareB = R.pathOr('', [...state.sortKey.split('.')], b);
 
-        if (typeof compareA === 'string') {
+        if (typeof compareA === 'string' && typeof compareB === 'string') {
           compareA = compareA.toLowerCase();
           compareB = compareB.toLowerCase();
         }

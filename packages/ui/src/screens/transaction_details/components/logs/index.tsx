@@ -6,7 +6,7 @@ import { useGetStyles } from '@/screens/transaction_details/components/logs/styl
 
 const Logs: React.FC<
   {
-    logs: null | any[];
+    logs: null | unknown[];
   } & ComponentDefault
 > = ({ logs }) => {
   const { classes } = useGetStyles();

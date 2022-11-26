@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import numeral from 'numeral';
 import useTranslation from 'next-translate/useTranslation';
 import classnames from 'classnames';
@@ -29,6 +29,28 @@ const Pagination: React.FC<{
   const { t } = useTranslation('common');
   const classes = useStyles();
 
+  const actionsComponents = useCallback(
+    (subProps) => {
+      const additionalProps = {
+        rowsPerPageOptions,
+        handleChangeRowsPerPage,
+      };
+
+      return (
+        <>
+          <Actions {...subProps} {...additionalProps} className={classes.mobile} />
+          <Actions
+            {...subProps}
+            {...additionalProps}
+            className={classes.tablet}
+            pageNeighbors={2}
+          />
+        </>
+      );
+    },
+    [classes.mobile, classes.tablet, handleChangeRowsPerPage, rowsPerPageOptions]
+  );
+
   // hides pagination if the total items is less than
   // the rows per page option (default 10)
   if (total <= rowsPerPage) {
@@ -53,24 +75,7 @@ const Pagination: React.FC<{
       rowsPerPage={rowsPerPage}
       page={page}
       onPageChange={handleChangePage}
-      ActionsComponent={(subProps) => {
-        const additionalProps = {
-          rowsPerPageOptions,
-          handleChangeRowsPerPage,
-        };
-
-        return (
-          <>
-            <Actions {...subProps} {...additionalProps} className={classes.mobile} />
-            <Actions
-              {...subProps}
-              {...additionalProps}
-              className={classes.tablet}
-              pageNeighbors={2}
-            />
-          </>
-        );
-      }}
+      ActionsComponent={actionsComponents}
     />
   );
 };

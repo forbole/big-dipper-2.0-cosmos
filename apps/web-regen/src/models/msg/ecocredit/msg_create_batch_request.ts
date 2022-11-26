@@ -1,27 +1,28 @@
 import type { Categories } from '@/models/msg/types';
+import * as R from 'ramda';
 
 class MsgCreateBatchRequest {
   public category: Categories;
 
   public type: string;
 
-  public json: any;
+  public json: object;
 
   public issuer: string;
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'ecocredit';
-    this.json = payload.json;
-    this.type = payload.type;
-    this.issuer = payload.issuer;
+    this.json = R.pathOr({}, ['json'], payload);
+    this.type = R.pathOr('', ['type'], payload);
+    this.issuer = R.pathOr('', ['issuer'], payload);
   }
 
-  static fromJson(json: any): MsgCreateBatchRequest {
+  static fromJson(json: object): MsgCreateBatchRequest {
     return {
       category: 'ecocredit',
       json,
-      type: json['@type'],
-      issuer: json.issuer,
+      type: R.pathOr('', ['@type'], json),
+      issuer: R.pathOr('', ['issuer'], json),
     };
   }
 }

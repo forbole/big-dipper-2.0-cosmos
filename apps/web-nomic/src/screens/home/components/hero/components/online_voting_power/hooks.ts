@@ -32,13 +32,9 @@ export const useOnlineVotingPower = () => {
   });
 
   const formatOnlineVotingPower = (data: OnlineVotingPowerQuery) => {
-    const votingPower = R.pathOr(
-      0,
-      ['validatorVotingPowerAggregate', 'aggregate', 'sum', 'votingPower'],
-      data
-    );
-    const bonded = R.pathOr(0, ['stakingPool', 0, 'bonded'], data);
-    const activeValidators = R.pathOr(0, ['activeTotal', 'aggregate', 'count'], data);
+    const votingPower = data?.validatorVotingPowerAggregate?.aggregate?.sum?.votingPower ?? 0;
+    const bonded = data?.stakingPool?.[0]?.bonded ?? 0;
+    const activeValidators = data?.activeTotal?.aggregate?.count ?? 0;
 
     return {
       activeValidators,

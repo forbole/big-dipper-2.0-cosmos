@@ -19,10 +19,10 @@ const Desktop: React.FC<{
   const { t } = useTranslation('accounts');
 
   const formattedItems =
-    items?.map((x) => ({
+    items?.map((x): { [key: string]: string } => ({
       network: x.network.toUpperCase(),
       identifier: x.identifier,
-      creationTime: formatDayJs((dayjs as any).utc(x.creationTime), dateFormat),
+      creationTime: formatDayJs(dayjs.utc(x.creationTime), dateFormat),
     })) ?? [];
 
   return (
@@ -42,7 +42,7 @@ const Desktop: React.FC<{
           </TableRow>
         </TableHead>
         <TableBody>
-          {formattedItems?.map((row: { [key: string]: unknown }) => (
+          {formattedItems?.map((row) => (
             <TableRow key={`holders-row-${row.identifier}`}>
               {columns.map((column) => (
                 <TableCell
@@ -50,7 +50,7 @@ const Desktop: React.FC<{
                   align={column.align}
                   style={{ width: `${column.width}%` }}
                 >
-                  {(row as any)?.[column.key]}
+                  {row?.[column.key]}
                 </TableCell>
               ))}
             </TableRow>

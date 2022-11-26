@@ -45,7 +45,7 @@ const Mobile: React.FC<{ items: TransactionType[] } & ComponentDefault> = (props
       />
     ),
     status: <Result status={x.status} />,
-    time: (dayjs as any).utc(dayjs.unix(x.timestamp)).fromNow(),
+    time: dayjs.utc(dayjs.unix(x.timestamp)).fromNow(),
   }));
 
   return (

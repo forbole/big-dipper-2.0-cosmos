@@ -1,4 +1,5 @@
 import type { Categories } from '@/models/msg/types';
+import * as R from 'ramda';
 
 class MsgSubmitMisbehaviour {
   public category: Categories;
@@ -9,23 +10,23 @@ class MsgSubmitMisbehaviour {
 
   public clientId: string;
 
-  public json: any;
+  public json: object;
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'ibc';
-    this.type = payload.type;
-    this.signer = payload.signer;
-    this.clientId = payload.clientId;
-    this.json = payload.json;
+    this.type = R.pathOr('', ['type'], payload);
+    this.signer = R.pathOr('', ['signer'], payload);
+    this.clientId = R.pathOr('', ['clientId'], payload);
+    this.json = R.pathOr({}, ['json'], payload);
   }
 
-  static fromJson(json: any): MsgSubmitMisbehaviour {
+  static fromJson(json: object): MsgSubmitMisbehaviour {
     return {
       category: 'ibc',
       json,
-      type: json['@type'],
-      signer: json.signer,
-      clientId: json.client_id,
+      type: R.pathOr('', ['@type'], json),
+      signer: R.pathOr('', ['signer'], json),
+      clientId: R.pathOr('', ['client_id'], json),
     };
   }
 }

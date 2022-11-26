@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { ComponentProps, useCallback, useEffect, useState } from 'react';
 import * as R from 'ramda';
 import Big from 'big.js';
 import { useRouter } from 'next/router';
@@ -12,6 +12,7 @@ import type {
   RedelegationType,
   StakingState,
 } from '@/screens/account_details/components/staking/types';
+import { Tabs } from '@material-ui/core';
 
 const stakingDefault = {
   data: {},
@@ -44,10 +45,15 @@ export const useStaking = (
   }, []);
 
   useEffect(() => {
-    const formatDelegations = (data: any[]) =>
+    const formatDelegations = (
+      data: Array<{
+        validator_address?: string;
+        coins?: MsgCoin[];
+      }>
+    ) =>
       data
         .map((x): DelegationType => {
-          const validator = R.pathOr<string>('', ['validator_address'], x);
+          const validator = x?.validator_address ?? '';
           const delegation = getDenom(x.coins, chainConfig.primaryTokenUnit);
           return {
             validator,
@@ -94,8 +100,10 @@ export const useStaking = (
             query: accountDelegationsDocument,
           }
         );
-        const count = R.pathOr(0, ['data', 'delegations', 'pagination', 'total'], data);
-        const allDelegations = R.pathOr([], ['data', 'delegations', 'delegations'], data);
+        const count = data?.data?.delegations?.pagination?.total ?? 0;
+        const allDelegations = R.pathOr<
+          NonNullable<typeof data['data']['delegations']['delegations']>
+        >([], ['data', 'delegations', 'delegations'], data);
         // if there are more than the default 100, grab the remaining delegations
         if (count > LIMIT) {
           const remainingFetchCount = Math.ceil(count / LIMIT) - 1;
@@ -106,8 +114,9 @@ export const useStaking = (
           const remainingDelegations = await Promise.allSettled(remainingDelegationsPromises);
           remainingDelegations
             .filter((x) => x.status === 'fulfilled')
-            .forEach((x: any) => {
-              const delegations = R.pathOr([], ['value', 'data', 'delegations', 'delegations'], x);
+            .forEach((x) => {
+              if (x?.status !== 'fulfilled') return;
+              const delegations = x.value?.data?.delegations?.delegations ?? [];
               allDelegations.push(...delegations);
             });
         }
@@ -147,8 +156,10 @@ export const useStaking = (
             query: accountRedelegationsDocument,
           }
         );
-        const count = R.pathOr(0, ['data', 'redelegations', 'pagination', 'total'], data);
-        const allData = R.pathOr([], ['data', 'redelegations', 'redelegations'], data);
+        const count = data?.data?.redelegations?.pagination?.total ?? 0;
+        const allData = R.pathOr<
+          NonNullable<typeof data['data']['redelegations']['redelegations']>
+        >([], ['data', 'redelegations', 'redelegations'], data);
 
         // if there are more than the default 100, grab the remaining delegations
         if (count > LIMIT) {
@@ -160,12 +171,9 @@ export const useStaking = (
           const remainingData = await Promise.allSettled(remainingPromises);
           remainingData
             .filter((x) => x.status === 'fulfilled')
-            .forEach((x: any) => {
-              const fullfilledData = R.pathOr(
-                [],
-                ['value', 'data', 'redelegations', 'redelegations'],
-                x
-              );
+            .forEach((x) => {
+              if (x?.status !== 'fulfilled') return;
+              const fullfilledData = x?.value?.data?.redelegations?.redelegations ?? [];
               allData.push(...fullfilledData);
             });
         }
@@ -207,8 +215,10 @@ export const useStaking = (
             query: accountUndelegationsDocument,
           }
         );
-        const count = R.pathOr(0, ['data', 'undelegations', 'pagination', 'total'], data);
-        const allData = R.pathOr([], ['data', 'undelegations', 'undelegations'], data);
+        const count = data?.data?.undelegations?.pagination?.total ?? 0;
+        const allData = R.pathOr<
+          NonNullable<typeof data['data']['undelegations']['undelegations']>
+        >([], ['data', 'undelegations', 'undelegations'], data);
 
         // if there are more than the default 100, grab the remaining delegations
         if (count > LIMIT) {
@@ -220,12 +230,9 @@ export const useStaking = (
           const remainingData = await Promise.allSettled(remainingPromises);
           remainingData
             .filter((x) => x.status === 'fulfilled')
-            .forEach((x: any) => {
-              const fullfilledData = R.pathOr(
-                [],
-                ['value', 'data', 'undelegations', 'undelegations'],
-                x
-              );
+            .forEach((x) => {
+              if (x?.status !== 'fulfilled') return;
+              const fullfilledData = x?.value?.data?.undelegations?.undelegations ?? [];
               allData.push(...fullfilledData);
             });
         }
@@ -262,12 +269,15 @@ export const useStaking = (
     router?.query?.address,
   ]);
 
-  const handleTabChange = useCallback((_event: any, newValue: number) => {
-    setState((prevState) => ({
-      ...prevState,
-      tab: newValue,
-    }));
-  }, []);
+  const handleTabChange: ComponentProps<typeof Tabs>['onChange'] = useCallback(
+    (_event, newValue) => {
+      setState((prevState) => ({
+        ...prevState,
+        tab: newValue,
+      }));
+    },
+    []
+  );
 
   const createPagination = <T>(data: T[]) => {
     const pages: Record<number, T[]> = {};
@@ -279,37 +289,48 @@ export const useStaking = (
     return pages;
   };
 
-  const formatRedelegations = (data: any[]) => {
+  const formatRedelegations = (
+    data: Array<{
+      entries?: Array<{ balance: string | number; completion_time?: string }>;
+      validator_src_address?: string;
+      validator_dst_address?: string;
+    }>
+  ) => {
     const results: RedelegationType[] = [];
-    data.forEach((x: any) => {
-      R.pathOr([], ['entries'], x).forEach((y: { balance: string | number }) => {
+    data.forEach((x) => {
+      x.entries?.forEach((y) => {
         results.push({
-          from: R.pathOr('', ['validator_src_address'], x),
-          to: R.pathOr('', ['validator_dst_address'], x),
+          from: x?.validator_src_address ?? '',
+          to: x?.validator_dst_address ?? '',
           amount: formatToken(y.balance, chainConfig.primaryTokenUnit),
-          completionTime: R.pathOr('', ['completion_time'], y),
+          completionTime: y?.completion_time ?? '',
         });
       });
     });
 
-    results.sort((a: any, b: any) => (a.completionTime < b.completionTime ? -1 : 1));
+    results.sort((a, b) => (a.completionTime < b.completionTime ? -1 : 1));
 
     return results;
   };
 
-  const formatUnbondings = (data: any[]) => {
+  const formatUnbondings = (
+    data: Array<{
+      entries?: Array<{ balance: string | number; completion_time?: string }>;
+      validator_address?: string;
+    }>
+  ) => {
     const results: Array<{ validator: string; amount: TokenUnit; completionTime: string }> = [];
-    data.forEach((x: any) => {
-      R.pathOr([], ['entries'], x).forEach((y: { balance: string | number }) => {
+    data.forEach((x) => {
+      x?.entries?.forEach((y) => {
         results.push({
-          validator: R.pathOr('', ['validator_address'], x),
+          validator: x?.validator_address ?? '',
           amount: formatToken(y.balance, chainConfig.primaryTokenUnit),
-          completionTime: R.pathOr('', ['completion_time'], y),
+          completionTime: y?.completion_time ?? '',
         });
       });
     });
 
-    results.sort((a: any, b: any) => (a.completionTime < b.completionTime ? -1 : 1));
+    results.sort((a, b) => (a.completionTime < b.completionTime ? -1 : 1));
 
     return results;
   };

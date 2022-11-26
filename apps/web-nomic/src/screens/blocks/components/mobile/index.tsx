@@ -38,7 +38,7 @@ const Mobile: FC<{
         </Link>
       ),
       txs: numeral(x.txs).format('0,0'),
-      time: (dayjs as any).utc(x.timestamp).fromNow(),
+      time: dayjs.utc(x.timestamp).fromNow(),
       hash: getMiddleEllipsis(x.hash, {
         beginning: 16,
         ending: 12,
@@ -85,7 +85,7 @@ const Mobile: FC<{
 
 const ListItem: FC<
   Pick<ListChildComponentProps, 'index' | 'style'> & {
-    setRowHeight: ReturnType<typeof useList>['setRowHeight'];
+    setRowHeight: Parameters<typeof useListRow>[1];
     isItemLoaded: ((index: number) => boolean) | undefined;
     formattedItems: ComponentProps<typeof SingleBlockMobile>[];
     itemCount: number;

@@ -49,7 +49,7 @@ const Overview: React.FC<OverviewType & ComponentDefault> = (props) => {
     },
     {
       label: t('time'),
-      detail: formatDayJs((dayjs as any).utc(dayjs.unix(props.timestamp)), dateFormat),
+      detail: formatDayJs(dayjs.utc(dayjs.unix(props.timestamp)), dateFormat),
     },
     {
       label: t('shard'),

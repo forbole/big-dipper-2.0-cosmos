@@ -45,7 +45,7 @@ type BlockType = {
 //   timestamp: string;
 //   messages: {
 //     count: number;
-//     items: any[];
+//     items: unknown[];
 //   };
 // }
 

@@ -16,7 +16,7 @@ const TitleBar: React.FC<{
   const classes = useStyles();
   const marketState = useRecoilValue(readMarket);
 
-  const market = formatMarket(marketState as any);
+  const market = formatMarket(marketState);
 
   return (
     <div className={classnames(className, classes.root)}>

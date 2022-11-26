@@ -38,11 +38,7 @@ const ValidatorOverview: React.FC<
         </Typography>
       ),
       value: (
-        <Tag
-          value={statusTheme.status}
-          theme={statusTheme.theme as any}
-          className={classes.statusTag}
-        />
+        <Tag value={statusTheme.status} theme={statusTheme.theme} className={classes.statusTag} />
       ),
     },
     {
@@ -72,63 +68,61 @@ const ValidatorOverview: React.FC<
   ];
 
   return (
-    <>
-      <Box className={classnames(className)}>
-        <div className={classes.addressRoot}>
-          <div className={classnames(classes.copyText, classes.item)}>
-            <Typography variant="body1" className="label">
-              {t('operatorAddress')}
+    <Box className={classnames(className)}>
+      <div className={classes.addressRoot}>
+        <div className={classnames(classes.copyText, classes.item)}>
+          <Typography variant="body1" className="label">
+            {t('operatorAddress')}
+          </Typography>
+          <div className="detail">
+            <CopyIcon
+              onClick={() => handleCopyToClipboard(overview.operatorAddress)}
+              className={classes.actionIcons}
+            />
+            <Typography variant="body1" className="value">
+              {!isDesktop
+                ? getMiddleEllipsis(overview.operatorAddress, {
+                    beginning: 15,
+                    ending: 5,
+                  })
+                : overview.operatorAddress}
             </Typography>
-            <div className="detail">
-              <CopyIcon
-                onClick={() => handleCopyToClipboard(overview.operatorAddress)}
-                className={classes.actionIcons}
-              />
-              <Typography variant="body1" className="value">
+          </div>
+        </div>
+
+        <div className={classnames(classes.copyText, classes.item)}>
+          <Typography variant="body1" className="label">
+            {t('selfDelegateAddress')}
+          </Typography>
+          <div className="detail">
+            <CopyIcon
+              className={classes.actionIcons}
+              onClick={() => handleCopyToClipboard(overview.selfDelegateAddress)}
+            />
+            <Link href={ACCOUNT_DETAILS(overview.selfDelegateAddress)} passHref>
+              <Typography variant="body1" className="value" component="a">
                 {!isDesktop
-                  ? getMiddleEllipsis(overview.operatorAddress, {
+                  ? getMiddleEllipsis(overview.selfDelegateAddress, {
                       beginning: 15,
                       ending: 5,
                     })
-                  : overview.operatorAddress}
+                  : overview.selfDelegateAddress}
               </Typography>
-            </div>
-          </div>
-
-          <div className={classnames(classes.copyText, classes.item)}>
-            <Typography variant="body1" className="label">
-              {t('selfDelegateAddress')}
-            </Typography>
-            <div className="detail">
-              <CopyIcon
-                className={classes.actionIcons}
-                onClick={() => handleCopyToClipboard(overview.selfDelegateAddress)}
-              />
-              <Link href={ACCOUNT_DETAILS(overview.selfDelegateAddress)} passHref>
-                <Typography variant="body1" className="value" component="a">
-                  {!isDesktop
-                    ? getMiddleEllipsis(overview.selfDelegateAddress, {
-                        beginning: 15,
-                        ending: 5,
-                      })
-                    : overview.selfDelegateAddress}
-                </Typography>
-              </Link>
-            </div>
+            </Link>
           </div>
         </div>
-        <Divider className={classes.divider} />
-        <div className={classes.statusRoot}>
-          {statusItems.map((x, i) => (
-            // eslint-disable-next-line react/no-array-index-key
-            <div className={classes.statusItem} key={`status-item-${i}`}>
-              {x.key}
-              {x.value}
-            </div>
-          ))}
-        </div>
-      </Box>
-    </>
+      </div>
+      <Divider className={classes.divider} />
+      <div className={classes.statusRoot}>
+        {statusItems.map((x, i) => (
+          // eslint-disable-next-line react/no-array-index-key
+          <div className={classes.statusItem} key={`status-item-${i}`}>
+            {x.key}
+            {x.value}
+          </div>
+        ))}
+      </div>
+    </Box>
   );
 };
 

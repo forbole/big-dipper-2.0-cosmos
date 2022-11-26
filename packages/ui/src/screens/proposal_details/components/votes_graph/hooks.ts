@@ -27,7 +27,7 @@ export const useVotesGraph = () => {
       veto: defaultTokenUnit,
     },
     bonded: defaultTokenUnit,
-    quorum: 0,
+    quorum: '0',
   });
 
   const handleSetState = useCallback((stateChange: Partial<VotesGraphState>) => {
@@ -39,7 +39,7 @@ export const useVotesGraph = () => {
 
   useProposalDetailsTallyQuery({
     variables: {
-      proposalId: parseInt(R.pathOr('', ['query', 'id'], router), 10),
+      proposalId: parseInt((router?.query?.id as string) ?? '', 10),
     },
     onCompleted: (data) => {
       handleSetState(foramtProposalTally(data));
@@ -47,29 +47,29 @@ export const useVotesGraph = () => {
   });
 
   const foramtProposalTally = (data: ProposalDetailsTallyQuery) => {
-    const quorumRaw = R.pathOr('0', [0, 'tallyParams', 'quorum'], data.quorum);
+    const quorumRaw = data.quorum?.[0]?.tallyParams?.quorum ?? '0';
 
     return {
       votes: {
         yes: formatToken(
-          R.pathOr('0', ['proposalTallyResult', 0, 'yes'], data),
+          data?.proposalTallyResult?.[0]?.yes ?? '0',
           chainConfig.votingPowerTokenUnit
         ),
         no: formatToken(
-          R.pathOr('0', ['proposalTallyResult', 0, 'no'], data),
+          data?.proposalTallyResult?.[0]?.no ?? '0',
           chainConfig.votingPowerTokenUnit
         ),
         veto: formatToken(
-          R.pathOr('0', ['proposalTallyResult', 0, 'noWithVeto'], data),
+          data?.proposalTallyResult?.[0]?.noWithVeto ?? '0',
           chainConfig.votingPowerTokenUnit
         ),
         abstain: formatToken(
-          R.pathOr('0', ['proposalTallyResult', 0, 'abstain'], data),
+          data?.proposalTallyResult?.[0]?.abstain ?? '0',
           chainConfig.votingPowerTokenUnit
         ),
       },
       bonded: formatToken(
-        R.pathOr('0', ['stakingPool', 0, 'bondedTokens'], data),
+        data?.stakingPool?.[0]?.bondedTokens ?? '0',
         chainConfig.votingPowerTokenUnit
       ),
       quorum: Big(quorumRaw).times(100).toFixed(2),

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import Link from 'next/link';
 import Trans from 'next-translate/Trans';
 import useTranslation from 'next-translate/useTranslation';
@@ -16,10 +16,13 @@ const Vote: React.FC<{ message: MsgVote }> = (props) => {
   const voter = useProfileRecoil(message.voter);
   const voterMoniker = voter ? voter?.name : message.voter;
 
-  const Proposal = () => (
-    <Link href={PROPOSAL_DETAILS(message.proposalId)} passHref>
-      <Typography component="a">#{message.proposalId}</Typography>
-    </Link>
+  const Proposal = useCallback(
+    () => (
+      <Link href={PROPOSAL_DETAILS(message.proposalId)} passHref>
+        <Typography component="a">#{message.proposalId}</Typography>
+      </Link>
+    ),
+    [message.proposalId]
   );
 
   return (

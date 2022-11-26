@@ -14,15 +14,12 @@ const Mobile = dynamic(
 
 const BlocksList: React.FC<BlockListType & ComponentDefault> = (props) => {
   const { isDesktop } = useScreenSize();
-  let component = null;
 
   if (isDesktop) {
-    component = <Desktop items={props.items} />;
-  } else {
-    component = <Mobile items={props.items} />;
+    return <Desktop items={props.items} />;
   }
 
-  return <>{component}</>;
+  return <Mobile items={props.items} />;
 };
 
 export default BlocksList;

@@ -50,7 +50,7 @@ const Desktop: React.FC<{ items: TransactionType[] } & ComponentDefault> = (prop
       />
     ),
     status: <Result status={x.status} />,
-    time: (dayjs as any).utc(dayjs.unix(x.timestamp)).fromNow(),
+    time: dayjs.utc(dayjs.unix(x.timestamp)).fromNow(),
   }));
   return (
     <div className={classnames(props.className, classes.root)}>

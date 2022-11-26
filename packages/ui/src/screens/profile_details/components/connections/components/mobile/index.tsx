@@ -55,7 +55,7 @@ const Mobile: React.FC<{
                   {t('creationTime')}
                 </Typography>
                 <Typography variant="body1" className="value">
-                  {formatDayJs((dayjs as any).utc(x.creationTime), dateFormat)}
+                  {formatDayJs(dayjs.utc(x.creationTime), dateFormat)}
                 </Typography>
               </div>
             </div>

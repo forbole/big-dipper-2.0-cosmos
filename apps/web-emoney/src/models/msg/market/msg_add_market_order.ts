@@ -6,7 +6,7 @@ class MsgAddMarketOrder {
 
   public type: string;
 
-  public json: any;
+  public json: object;
 
   public owner: string;
 
@@ -20,31 +20,28 @@ class MsgAddMarketOrder {
 
   public maximumSlippage: string;
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'market';
-    this.type = payload.type;
-    this.json = payload.json;
-    this.owner = payload.owner;
-    this.clientOrderId = payload.clientOrderId;
-    this.timeInForce = payload.timeInForce;
-    this.source = payload.source;
-    this.destination = payload.destination;
-    this.maximumSlippage = payload.maximumSlippage;
+    this.type = R.pathOr('', ['type'], payload);
+    this.json = R.pathOr({}, ['json'], payload);
+    this.owner = R.pathOr('', ['owner'], payload);
+    this.clientOrderId = R.pathOr('', ['clientOrderId'], payload);
+    this.timeInForce = R.pathOr('Unspecified', ['timeInForce'], payload);
+    this.source = R.pathOr('', ['source'], payload);
+    this.destination = R.pathOr({ denom: '', amount: '0' }, ['destination'], payload);
+    this.maximumSlippage = R.pathOr('', ['maximumSlippage'], payload);
   }
 
-  static fromJson(json: any): MsgAddMarketOrder {
+  static fromJson(json: object): MsgAddMarketOrder {
     return {
       category: 'market',
       json,
-      type: json['@type'],
-      owner: json.owner,
+      type: R.pathOr('', ['@type'], json),
+      owner: R.pathOr('', ['owner'], json),
       clientOrderId: R.pathOr('', ['client_order_id'], json),
       timeInForce: R.pathOr('Unspecified', ['time_in_force'], json),
       source: R.pathOr('', ['source'], json),
-      destination: {
-        denom: R.pathOr('', ['destinationsource', 'denom'], json),
-        amount: R.pathOr('', ['destination', 'amount'], json),
-      },
+      destination: R.pathOr({ denom: '', amount: '0' }, ['destinationsource', 'denom'], json),
       maximumSlippage: R.pathOr('', ['maximum_slippage'], json),
     };
   }

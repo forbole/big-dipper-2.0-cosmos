@@ -38,7 +38,7 @@ const Overview: React.FC<{
     },
     {
       label: t('time'),
-      detail: formatDayJs((dayjs as any).utc(data.timestamp), dateFormat),
+      detail: formatDayJs(dayjs.utc(data.timestamp), dateFormat),
     },
     {
       label: t('fee'),

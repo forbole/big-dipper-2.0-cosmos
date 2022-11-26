@@ -35,7 +35,7 @@ export const useProposalDetails = () => {
   // ==========================
   useProposalDetailsQuery({
     variables: {
-      proposalId: parseInt(R.pathOr('', ['query', 'id'], router), 10),
+      proposalId: parseInt((router?.query?.id as string) ?? '', 10),
     },
     onCompleted: (data) => {
       handleSetState(formatProposalQuery(data));
@@ -47,7 +47,7 @@ export const useProposalDetails = () => {
   // ==========================
 
   const formatProposalQuery = (data: ProposalDetailsQuery) => {
-    const stateChange: any = {
+    const stateChange: Partial<ProposalState> = {
       loading: false,
     };
 
@@ -61,20 +61,20 @@ export const useProposalDetails = () => {
     // =========================
     const formatOverview = () => {
       const DEFAULT_TIME = '0001-01-01T00:00:00';
-      let votingStartTime = R.pathOr(DEFAULT_TIME, ['proposal', 0, 'votingStartTime'], data);
+      let votingStartTime = data?.proposal?.[0]?.votingStartTime ?? DEFAULT_TIME;
       votingStartTime = votingStartTime === DEFAULT_TIME ? '' : votingStartTime;
-      let votingEndTime = R.pathOr(DEFAULT_TIME, ['proposal', 0, 'votingEndTime'], data);
+      let votingEndTime = data?.proposal?.[0]?.votingEndTime ?? DEFAULT_TIME;
       votingEndTime = votingEndTime === DEFAULT_TIME ? '' : votingEndTime;
 
       const overview = {
-        proposer: R.pathOr('', ['proposal', 0, 'proposer'], data),
-        content: R.pathOr('', ['proposal', 0, 'content'], data),
-        title: R.pathOr('', ['proposal', 0, 'title'], data),
-        id: R.pathOr('', ['proposal', 0, 'proposalId'], data),
-        description: R.pathOr('', ['proposal', 0, 'description'], data),
-        status: R.pathOr('', ['proposal', 0, 'status'], data),
-        submitTime: R.pathOr('', ['proposal', 0, 'submitTime'], data),
-        depositEndTime: R.pathOr('', ['proposal', 0, 'depositEndTime'], data),
+        proposer: data?.proposal?.[0]?.proposer ?? '',
+        content: data?.proposal?.[0]?.content ?? '',
+        title: data?.proposal?.[0]?.title ?? '',
+        id: data?.proposal?.[0]?.proposalId ?? '',
+        description: data?.proposal?.[0]?.description ?? '',
+        status: data?.proposal?.[0]?.status ?? '',
+        submitTime: data?.proposal?.[0]?.submitTime ?? '',
+        depositEndTime: data?.proposal?.[0]?.depositEndTime ?? '',
         votingStartTime,
         votingEndTime,
       };

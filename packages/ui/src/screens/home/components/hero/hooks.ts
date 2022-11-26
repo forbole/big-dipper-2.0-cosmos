@@ -24,7 +24,7 @@ export const useHero = () => {
       denom: chainConfig?.tokenUnits[chainConfig.primaryTokenUnit]?.display,
     },
     onCompleted: (data) => {
-      const newState: any = {
+      const newState: Partial<HeroState> = {
         loading: false,
       };
       if (data.tokenPrice.length === 10) {

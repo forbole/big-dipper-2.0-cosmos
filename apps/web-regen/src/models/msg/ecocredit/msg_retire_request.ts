@@ -1,27 +1,28 @@
 import type { Categories } from '@/models/msg/types';
+import * as R from 'ramda';
 
 class MsgRetireRequest {
   public category: Categories;
 
   public type: string;
 
-  public json: any;
+  public json: object;
 
   public holder: string;
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'ecocredit';
-    this.json = payload.json;
-    this.type = payload.type;
-    this.holder = payload.holder;
+    this.json = R.pathOr({}, ['json'], payload);
+    this.type = R.pathOr('', ['type'], payload);
+    this.holder = R.pathOr('', ['holder'], payload);
   }
 
-  static fromJson(json: any): MsgRetireRequest {
+  static fromJson(json: object): MsgRetireRequest {
     return {
       category: 'ecocredit',
       json,
-      type: json['@type'],
-      holder: json.holder,
+      type: R.pathOr('', ['@type'], json),
+      holder: R.pathOr('', ['holder'], json),
     };
   }
 }

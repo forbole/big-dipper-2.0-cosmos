@@ -51,7 +51,7 @@ const TransactionList: FC<TransactionsListDetailsState> = ({
         </Typography>
       </Link>
     ),
-    time: formatDayJs((dayjs as any).utc(x.timestamp), dateFormat),
+    time: formatDayJs(dayjs.utc(x.timestamp), dateFormat),
   }));
 
   return (
@@ -92,7 +92,7 @@ const TransactionList: FC<TransactionsListDetailsState> = ({
 
 const ListItem: FC<
   Pick<ListChildComponentProps, 'index' | 'style'> & {
-    setRowHeight: ReturnType<typeof useList>['setRowHeight'];
+    setRowHeight: Parameters<typeof useListRow>[1];
     items: Array<ComponentProps<typeof SingleTransaction>>;
     isItemLoaded: ((index: number) => boolean) | undefined;
   }

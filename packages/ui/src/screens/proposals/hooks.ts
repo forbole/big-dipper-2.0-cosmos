@@ -2,7 +2,7 @@ import { useCallback, useState } from 'react';
 import * as R from 'ramda';
 import DOMPurify from 'dompurify';
 import { useProposalsQuery, ProposalsQuery } from '@/graphql/types/general_types';
-import type { ProposalsState } from '@/screens/proposals/types';
+import type { ProposalsState, ProposalType } from '@/screens/proposals/types';
 
 export const useProposals = () => {
   const [state, setState] = useState<ProposalsState>({
@@ -66,13 +66,13 @@ export const useProposals = () => {
   };
 
   const formatProposals = (data: ProposalsQuery) =>
-    data.proposals.map((x) => {
+    data.proposals.map((x): ProposalType => {
       const description = DOMPurify.sanitize(x.description);
       return {
         description,
         id: x.proposalId,
         title: x.title,
-        status: x.status,
+        status: x.status ?? '',
       };
     });
 

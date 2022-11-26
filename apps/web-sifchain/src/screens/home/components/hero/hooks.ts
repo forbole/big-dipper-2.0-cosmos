@@ -23,7 +23,7 @@ export const useHero = () => {
       denom: 'erowan',
     },
     onCompleted: (data) => {
-      const newState: any = {
+      const newState = {
         loading: false,
       };
       if (data.tokenPrice.length === 10) {

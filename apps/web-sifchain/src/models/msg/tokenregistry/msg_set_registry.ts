@@ -6,7 +6,7 @@ class MsgSetRegistry {
 
   public type: string;
 
-  public json: any;
+  public json: object;
 
   public from: string;
 
@@ -14,22 +14,22 @@ class MsgSetRegistry {
     denom: string;
   }[];
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'tokenregistry';
-    this.type = payload.type;
-    this.json = payload.json;
-    this.from = payload.from;
-    this.registry = payload.registry;
+    this.type = R.pathOr('', ['type'], payload);
+    this.json = R.pathOr({}, ['json'], payload);
+    this.from = R.pathOr('', ['from'], payload);
+    this.registry = R.pathOr([], ['registry'], payload);
   }
 
-  static fromJson(json: any): MsgSetRegistry {
+  static fromJson(json: object): MsgSetRegistry {
     return {
       category: 'tokenregistry',
       json,
-      type: json['@type'],
-      from: json.from,
+      type: R.pathOr('', ['@type'], json),
+      from: R.pathOr('', ['from'], json),
       registry: R.pathOr([], ['registry'], json).map((x) => ({
-        denom: R.pathOr('', ['denom'], x),
+        denom: x?.denom ?? '',
       })),
     };
   }

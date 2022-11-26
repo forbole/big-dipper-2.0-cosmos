@@ -1,3 +1,5 @@
+import * as R from 'ramda';
+
 class MsgTextProposal {
   public type: string;
 
@@ -5,17 +7,17 @@ class MsgTextProposal {
 
   public description: string;
 
-  constructor(payload: any) {
-    this.type = payload.type;
-    this.title = payload.title;
-    this.description = payload.description;
+  constructor(payload: object) {
+    this.type = R.pathOr('', ['type'], payload);
+    this.title = R.pathOr('', ['title'], payload);
+    this.description = R.pathOr('', ['description'], payload);
   }
 
-  static fromJson(json: any): MsgTextProposal {
+  static fromJson(json: object): MsgTextProposal {
     return {
-      type: json['@type'],
-      title: json.title,
-      description: json.description,
+      type: R.pathOr('', ['@type'], json),
+      title: R.pathOr('', ['title'], json),
+      description: R.pathOr('', ['description'], json),
     };
   }
 }

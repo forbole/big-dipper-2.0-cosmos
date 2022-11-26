@@ -12,7 +12,7 @@ import type { VotingPowerType } from '@/screens/validator_details/types';
 const VotingPower: React.FC<{
   className?: string;
   data: VotingPowerType;
-  status: number;
+  status?: number;
 }> = ({ className, data, status }) => {
   const { t } = useTranslation('validators');
   const votingPowerPercent =

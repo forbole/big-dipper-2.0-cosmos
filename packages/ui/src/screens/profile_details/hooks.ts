@@ -26,11 +26,13 @@ export const useProfileDetails = () => {
   // ==========================
   const { fetchDesmosProfile, formatDesmosProfile } = useDesmosProfile({
     onComplete: (data) => {
+      const desmosProfile = formatDesmosProfile(data);
       handleSetState({
         loading: false,
         exists: !!data.profile.length,
-        desmosProfile: formatDesmosProfile(data),
+        desmosProfile,
       });
+      return desmosProfile;
     },
   });
 

@@ -9,7 +9,7 @@ import {
 
 type Options = {
   address?: string;
-  onComplete: (data: DesmosProfileQuery) => any;
+  onComplete: (data: DesmosProfileQuery) => DesmosProfile | null;
 };
 
 let PROFILE_API = 'https://gql.mainnet.desmos.network/v1/graphql';

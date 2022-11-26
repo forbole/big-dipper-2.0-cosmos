@@ -36,7 +36,7 @@ const Desktop: React.FC<{
       </Link>
     ),
     txs: numeral(x.txs).format('0,0'),
-    time: (dayjs as any).utc(x.timestamp).fromNow(),
+    time: dayjs.utc(x.timestamp).fromNow(),
     hash: x.hash,
   }));
 
@@ -125,7 +125,7 @@ const Desktop: React.FC<{
                     }
 
                     const { key, align } = columns[columnIndex];
-                    const item = (formattedItems as any)[rowIndex][key];
+                    const item = formattedItems[rowIndex][key];
                     return (
                       <div
                         style={style}

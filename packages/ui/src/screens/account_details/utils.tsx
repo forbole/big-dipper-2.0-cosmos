@@ -1,5 +1,4 @@
 import axios from 'axios';
-import * as R from 'ramda';
 import { toValidatorAddress } from '@/utils/prefix_convert';
 import {
   AccountCommissionDocument,
@@ -15,7 +14,7 @@ import chainConfig from '@/chainConfig';
 export const fetchCommission = async (address: string) => {
   const defaultReturnValue = {
     commission: {
-      coins: null,
+      coins: [],
     },
   };
   try {
@@ -30,7 +29,7 @@ export const fetchCommission = async (address: string) => {
         query: AccountCommissionDocument,
       }
     );
-    return R.pathOr(defaultReturnValue, ['data'], data);
+    return data?.data ?? defaultReturnValue;
   } catch (error) {
     return defaultReturnValue;
   }
@@ -54,7 +53,7 @@ export const fetchAccountWithdrawalAddress = async (address: string) => {
         query: AccountWithdrawalAddressDocument,
       }
     );
-    return R.pathOr(defaultReturnValue, ['data'], data);
+    return data?.data ?? defaultReturnValue;
   } catch (error) {
     return defaultReturnValue;
   }
@@ -78,7 +77,7 @@ export const fetchAvailableBalances = async (address: string) => {
         query: AccountBalancesDocument,
       }
     );
-    return R.pathOr(defaultReturnValue, ['data'], data);
+    return data?.data ?? defaultReturnValue;
   } catch (error) {
     return defaultReturnValue;
   }
@@ -102,7 +101,7 @@ export const fetchDelegationBalance = async (address: string) => {
         query: AccountDelegationBalanceDocument,
       }
     );
-    return R.pathOr(defaultReturnValue, ['data'], data);
+    return data?.data ?? defaultReturnValue;
   } catch (error) {
     return defaultReturnValue;
   }
@@ -126,7 +125,7 @@ export const fetchUnbondingBalance = async (address: string) => {
         query: AccountUnbondingBalanceDocument,
       }
     );
-    return R.pathOr(defaultReturnValue, ['data'], data);
+    return data?.data ?? defaultReturnValue;
   } catch (error) {
     return defaultReturnValue;
   }
@@ -148,7 +147,7 @@ export const fetchRewards = async (address: string) => {
         query: AccountDelegationRewardsDocument,
       }
     );
-    return R.pathOr(defaultReturnValue, ['data'], data);
+    return data?.data ?? defaultReturnValue;
   } catch (error) {
     return defaultReturnValue;
   }

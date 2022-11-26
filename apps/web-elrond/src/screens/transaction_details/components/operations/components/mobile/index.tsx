@@ -1,5 +1,4 @@
 import React from 'react';
-import * as R from 'ramda';
 import useTranslation from 'next-translate/useTranslation';
 import { formatNumber } from '@/utils/format_token';
 import Link from 'next/link';
@@ -14,8 +13,8 @@ const Mobile: React.FC<{ items: OperationType[] } & ComponentDefault> = (props) 
   const { t } = useTranslation('transactions');
   const classes = useStyles();
   const formattedItems = props.items.map((x) => {
-    const isToken = R.pathOr('', ['identifier'], x).split('-').length === 2;
-    const isNft = R.pathOr('', ['identifier'], x).split('-').length === 3;
+    const isToken = x?.identifier ?? ''.split('-').length === 2;
+    const isNft = x?.identifier ?? ''.split('-').length === 3;
     let link;
     if (isToken) {
       link = TOKEN_DETAILS;

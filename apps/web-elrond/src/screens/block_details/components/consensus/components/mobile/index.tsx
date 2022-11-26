@@ -52,7 +52,7 @@ const Mobile: FC<{ items: ConsensusType[] } & ComponentDefault> = (props) => {
 
 const ListItem: FC<
   Pick<ListChildComponentProps, 'index' | 'style'> & {
-    setRowHeight: ReturnType<typeof useList>['setRowHeight'];
+    setRowHeight: Parameters<typeof useListRow>[1];
     classes: ReturnType<typeof useStyles>;
     formattedItems: unknown[];
     items: string[];

@@ -1,27 +1,28 @@
 import type { Categories } from '@/models/msg/types';
+import * as R from 'ramda';
 
 class MsgStoreRawDataRequest {
   public category: Categories;
 
   public type: string;
 
-  public json: any;
+  public json: object;
 
   public sender: string;
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'data';
-    this.json = payload.json;
-    this.type = payload.type;
-    this.sender = payload.sender;
+    this.json = R.pathOr({}, ['json'], payload);
+    this.type = R.pathOr('', ['type'], payload);
+    this.sender = R.pathOr('', ['sender'], payload);
   }
 
-  static fromJson(json: any): MsgStoreRawDataRequest {
+  static fromJson(json: object): MsgStoreRawDataRequest {
     return {
       category: 'data',
       json,
-      type: json['@type'],
-      sender: json.sender,
+      type: R.pathOr('', ['@type'], json),
+      sender: R.pathOr('', ['sender'], json),
     };
   }
 }

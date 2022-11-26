@@ -1,4 +1,4 @@
-import { ReadOnlySelectorOptions, selector } from 'recoil';
+import { DefaultValue, ReadOnlySelectorOptions, selector } from 'recoil';
 import { mergeStateChange } from '@/utils/merge_state_change';
 import { THEME_KEY, DATE_KEY, TX_KEY, setItem } from '@/utils/localstorage';
 import { atomState } from '@/recoil/settings/atom';
@@ -13,6 +13,7 @@ export const writeTheme = selector({
   key: 'settings.write.theme',
   get: getTheme,
   set: ({ get, set }, newTheme) => {
+    if (newTheme instanceof DefaultValue) return;
     setItem(THEME_KEY, newTheme);
     const prevState = get(atomState);
     const newState = mergeStateChange(prevState, {
@@ -39,6 +40,7 @@ export const writeDate = selector({
   key: 'settings.write.date',
   get: getDate,
   set: ({ get, set }, newDate) => {
+    if (newDate instanceof DefaultValue) return;
     setItem(DATE_KEY, newDate);
     const prevState = get(atomState);
     const newState = mergeStateChange(prevState, {
@@ -65,6 +67,7 @@ export const writeTx = selector({
   key: 'settings.write.tx',
   get: getTx,
   set: ({ get, set }, newTx) => {
+    if (newTx instanceof DefaultValue) return;
     setItem(TX_KEY, newTx);
     const prevState = get(atomState);
     const newState = mergeStateChange(prevState, {

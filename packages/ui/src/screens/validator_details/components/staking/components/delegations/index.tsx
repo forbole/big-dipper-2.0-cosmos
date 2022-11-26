@@ -34,12 +34,16 @@ const Delegations: React.FC<
   const classes = useStyles();
   const { page, rowsPerPage, handleChangePage, handleChangeRowsPerPage } = usePagination({});
 
-  const pageItems = R.pathOr([], ['delegations', 'data', page], props);
+  const pageItems = R.pathOr<NonNullable<typeof props['delegations']['data'][number]>>(
+    [],
+    ['delegations', 'data', page],
+    props
+  );
 
-  const dataProfiles = useProfilesRecoil(pageItems.map((x: any) => x.address));
+  const dataProfiles = useProfilesRecoil(pageItems.map((x) => x.address));
 
   const mergedDataWithProfiles = pageItems.map((x, i) => ({
-    ...(x as object),
+    ...x,
     address: dataProfiles[i],
   }));
 
@@ -52,9 +56,9 @@ const Delegations: React.FC<
   } else if (!items.length) {
     component = <NoData />;
   } else if (isDesktop) {
-    component = <Desktop items={items as any} />;
+    component = <Desktop items={items} />;
   } else {
-    component = <Mobile items={items as any} />;
+    component = <Mobile items={items} />;
   }
 
   return (

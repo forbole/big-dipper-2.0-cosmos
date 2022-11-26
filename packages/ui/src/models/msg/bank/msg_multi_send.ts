@@ -6,47 +6,49 @@ class MsgMultiSend {
 
   public type: string;
 
-  public inputs: {
+  public inputs: Array<{
     address: string;
     coins: MsgCoin[];
-  }[];
+  }>;
 
-  public outputs: {
+  public outputs: Array<{
     address: string;
     coins: MsgCoin[];
-  }[];
+  }>;
 
-  public json: any;
+  public json: object;
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'bank';
-    this.type = payload.type;
-    this.inputs = payload.inputs;
-    this.outputs = payload.outputs;
-    this.json = payload.json;
+    this.type = R.pathOr('', ['type'], payload);
+    this.inputs = R.pathOr([], ['inputs'], payload);
+    this.outputs = R.pathOr([], ['outputs'], payload);
+    this.json = R.pathOr({}, ['json'], payload);
   }
 
-  static fromJson(json: any): MsgMultiSend {
+  static fromJson(json: object): MsgMultiSend {
     return {
       category: 'bank',
       json,
-      type: json['@type'],
-      inputs: json.inputs?.map(
-        (input?: { address?: string; coins?: Array<{ denom?: string }> }) => ({
-          address: input?.address,
-          coins: input?.coins?.map((coin) => ({
-            denom: coin?.denom,
-            amount: R.pathOr('0', ['amount'], coin),
-          })),
+      type: R.pathOr('', ['@type'], json),
+      inputs: R.pathOr<Array<{ address?: string; coins?: MsgCoin[] }>>([], ['inputs'], json).map(
+        (input) => ({
+          address: R.pathOr('', ['address'], input),
+          coins:
+            input?.coins?.map((coin) => ({
+              denom: R.pathOr('', ['denom'], coin),
+              amount: R.pathOr('0', ['amount'], coin),
+            })) ?? [],
         })
       ),
-      outputs: json.outputs?.map(
-        (output?: { address: string; coins?: Array<{ denom?: string }> }) => ({
-          address: output?.address,
-          coins: output?.coins?.map((coin) => ({
-            denom: coin?.denom,
-            amount: R.pathOr('0', ['amount'], coin),
-          })),
+      outputs: R.pathOr([], ['outputs'], json).map(
+        (output?: { address: string; coins?: MsgCoin[] }) => ({
+          address: output?.address ?? '',
+          coins:
+            output?.coins?.map((coin) => ({
+              denom: coin?.denom ?? '',
+              amount: coin?.amount ?? '0',
+            })) ?? [],
         })
       ),
     };

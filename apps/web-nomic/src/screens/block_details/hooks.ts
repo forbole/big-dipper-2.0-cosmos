@@ -54,7 +54,7 @@ export const useBlockDetails = () => {
 };
 
 function formatRaws(data: BlockDetailsQuery) {
-  const stateChange: any = {
+  const stateChange = {
     loading: false,
   };
 
@@ -67,7 +67,7 @@ function formatRaws(data: BlockDetailsQuery) {
   // Overview
   // ==========================
   const formatOverview = () => {
-    const proposerAddress = R.pathOr('', ['block', 0, 'operatorAddress'], data);
+    const proposerAddress = data?.block?.[0]?.operatorAddress ?? '';
     const overview = {
       height: data.block[0].height,
       hash: data.block[0].hash,

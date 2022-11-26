@@ -56,7 +56,7 @@ export const useBlockDetails = () => {
 };
 
 function formatRaws(data: BlockDetailsQuery) {
-  const stateChange: any = {
+  const stateChange: Partial<BlockDetailState> = {
     loading: false,
   };
 
@@ -69,15 +69,11 @@ function formatRaws(data: BlockDetailsQuery) {
   // Overview
   // ==========================
   const formatOverview = () => {
-    const proposerAddress = R.pathOr(
-      '',
-      ['block', 0, 'validator', 'validatorInfo', 'operatorAddress'],
-      data
-    );
+    const proposerAddress = data?.block?.[0]?.validator?.validatorInfo?.operatorAddress ?? '';
     const overview = {
       height: data.block[0].height,
       hash: data.block[0].hash,
-      txs: data.block[0].txs,
+      txs: data.block[0].txs ?? 0,
       timestamp: data.block[0].timestamp,
       proposer: proposerAddress,
     };
@@ -92,7 +88,7 @@ function formatRaws(data: BlockDetailsQuery) {
   const formatSignatures = () => {
     const signatures = data.preCommits
       .filter((x) => x?.validator?.validatorInfo)
-      .map((x) => x?.validator?.validatorInfo?.operatorAddress);
+      .map((x) => x?.validator?.validatorInfo?.operatorAddress ?? '');
     return signatures;
   };
   stateChange.signatures = formatSignatures();
@@ -104,10 +100,11 @@ function formatRaws(data: BlockDetailsQuery) {
     const transactions = data.transaction.map((x) => {
       const messages = convertMsgsToModels(x);
       return {
+        type: [],
         height: x.height,
         hash: x.hash,
         success: x.success,
-        timestamp: stateChange.overview.timestamp,
+        timestamp: stateChange.overview?.timestamp ?? '',
         messages: {
           count: x.messages.length,
           items: messages,

@@ -6,26 +6,26 @@ class MsgOpenAuction {
 
   public type: string;
 
-  public json: any;
+  public json: object;
 
   public owner: string;
 
   public nftId: string;
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'auction';
-    this.type = payload.type;
-    this.json = payload.json;
-    this.owner = payload.owner;
-    this.nftId = payload.nftId;
+    this.type = R.pathOr('', ['type'], payload);
+    this.json = R.pathOr({}, ['json'], payload);
+    this.owner = R.pathOr('', ['owner'], payload);
+    this.nftId = R.pathOr('', ['nftId'], payload);
   }
 
-  static fromJson(json: any): MsgOpenAuction {
+  static fromJson(json: object): MsgOpenAuction {
     return {
       category: 'auction',
       json,
-      type: json['@type'],
-      owner: json.owner,
+      type: R.pathOr('', ['@type'], json),
+      owner: R.pathOr('', ['owner'], json),
       nftId: R.pathOr('', ['nft_id'], json),
     };
   }

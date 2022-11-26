@@ -39,22 +39,22 @@ export const useProviders = (search: string) => {
 
     if (state.sortKey && state.sortDirection) {
       sorted.sort((a, b) => {
-        let compareA: any = R.pathOr(undefined, [...state.sortKey.split('.')], a);
-        let compareB: any = R.pathOr(undefined, [...state.sortKey.split('.')], b);
+        let compareA = R.pathOr('', [...state.sortKey.split('.')], a);
+        let compareB = R.pathOr('', [...state.sortKey.split('.')], b);
 
         if (state.sortKey === 'locked.value') {
-          compareA = Number(compareA);
-          compareB = Number(compareB);
-        } else if (typeof compareA === 'string') {
+          compareA = Number(compareA).toString();
+          compareB = Number(compareB).toString();
+        } else if (typeof compareA === 'string' && typeof compareB === 'string') {
           compareA = compareA.toLowerCase();
           compareB = compareB.toLowerCase();
         }
 
         const edgeCases = ['commission', 'apr', 'delegators'];
         if (edgeCases.includes(state.sortKey)) {
-          compareA = Number(compareA || 0);
-          compareB = Number(compareB || 0);
-        } else if (typeof compareA === 'string') {
+          compareA = Number(compareA || 0).toString();
+          compareB = Number(compareB || 0).toString();
+        } else if (typeof compareA === 'string' && typeof compareB === 'string') {
           compareA = compareA.toLowerCase();
           compareB = compareB.toLowerCase();
         }

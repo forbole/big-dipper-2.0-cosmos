@@ -19,7 +19,7 @@ const TransactionsList: FC<{ items: TransactionType[] } & ComponentDefault> = (p
     return <NoData />;
   }
 
-  return <>{isDesktop ? <Desktop items={props.items} /> : <Mobile items={props.items} />}</>;
+  return isDesktop ? <Desktop items={props.items} /> : <Mobile items={props.items} />;
 };
 
 export default TransactionsList;

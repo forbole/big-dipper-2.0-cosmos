@@ -61,7 +61,7 @@ const Desktop: React.FC<{ items: ConsensusType[] } & ComponentDefault> = (props)
             >
               {({ columnIndex, rowIndex, style }) => {
                 const { key, align } = columns[columnIndex];
-                const selectedItem = (rows as any)[rowIndex][key];
+                const selectedItem = rows[rowIndex][key];
                 return (
                   <div
                     style={style}

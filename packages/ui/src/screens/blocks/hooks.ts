@@ -29,8 +29,10 @@ export const useBlocks = () => {
    * Helps remove any possible duplication
    * and sorts by height in case it bugs out
    */
-  const uniqueAndSort = R.pipe(R.uniqBy(R.prop('height')), R.sort(R.descend(R.prop('height'))));
-
+  const uniqueAndSort = R.pipe(
+    R.uniqBy((r: BlockType) => r?.height),
+    R.sort(R.descend((r) => r?.height))
+  );
   // ================================
   // block subscription
   // ================================
@@ -109,7 +111,7 @@ export const useBlocks = () => {
     }
     return (
       formattedData?.map((x) => {
-        const proposerAddress = R.pathOr('', ['validator', 'validatorInfo', 'operatorAddress'], x);
+        const proposerAddress = x?.validator?.validatorInfo?.operatorAddress ?? '';
         return {
           height: x.height,
           txs: x.txs ?? 0,

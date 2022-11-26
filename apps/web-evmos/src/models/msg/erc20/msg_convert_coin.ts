@@ -8,7 +8,7 @@ class MsgConvertCoin {
 
   public type: string;
 
-  public json: any;
+  public json: object;
 
   public coin: MsgCoin;
 
@@ -16,26 +16,23 @@ class MsgConvertCoin {
 
   public sender: string;
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'erc20';
-    this.type = payload.type;
-    this.json = payload.json;
-    this.coin = payload.coin;
-    this.receiver = payload.receiver; // hex
-    this.sender = payload.sender; // bech32
+    this.type = R.pathOr('', ['type'], payload);
+    this.json = R.pathOr({}, ['json'], payload);
+    this.coin = R.pathOr({ denom: '', amount: '0' }, ['coin'], payload);
+    this.receiver = R.pathOr('', ['receiver'], payload); // hex
+    this.sender = R.pathOr('', ['sender'], payload); // bech32
   }
 
-  static fromJson(json: any): MsgConvertCoin {
+  static fromJson(json: object): MsgConvertCoin {
     return {
       category: 'erc20',
       json,
-      type: json['@type'],
-      coin: {
-        denom: R.pathOr('', ['coin', 'denom'], json),
-        amount: R.pathOr('0', ['coin', 'amount'], json),
-      },
-      receiver: json.receiver,
-      sender: json.sender,
+      type: R.pathOr('', ['@type'], json),
+      coin: R.pathOr({ denom: '', amount: '0' }, ['coin', 'denom'], json),
+      receiver: R.pathOr('', ['receiver'], json),
+      sender: R.pathOr('', ['sender'], json),
     };
   }
 }

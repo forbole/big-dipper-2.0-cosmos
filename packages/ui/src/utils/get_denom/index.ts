@@ -1,4 +1,3 @@
-import * as R from 'ramda';
 import chainConfig from '@/chainConfig';
 
 /**
@@ -6,25 +5,16 @@ import chainConfig from '@/chainConfig';
  * @param denom The denom you wish to convert to
  * @param value The value in base denom value
  */
-export const getDenom = (
-  list: { denom: string; amount: string | number }[] = [],
-  denom = chainConfig.primaryTokenUnit
-): {
-  denom: string;
-  amount: string | number;
-} => {
+export const getDenom = (list: MsgCoin[] = [], denom = chainConfig.primaryTokenUnit): MsgCoin => {
   const [selectedDenom] = list.filter((x) => x.denom === denom);
-  let results: {
-    denom: string;
-    amount: string | number;
-  } = {
+  let results: MsgCoin = {
     denom,
     amount: '0',
   };
   if (selectedDenom) {
     results = {
-      denom: R.pathOr('', ['denom'], selectedDenom),
-      amount: R.pathOr('0', ['amount'], selectedDenom),
+      denom: selectedDenom?.denom ?? '',
+      amount: selectedDenom?.amount ?? '0',
     };
   }
   return results;

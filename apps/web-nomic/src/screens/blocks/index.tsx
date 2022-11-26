@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import dynamic from 'next/dynamic';
 import useTranslation from 'next-translate/useTranslation';
 import { NextSeo } from 'next-seo';
@@ -21,6 +21,30 @@ const Blocks = () => {
   const classes = useStyles();
   const { state, loadMoreItems, itemCount, isItemLoaded } = useBlocks();
 
+  let box: ReactNode = null;
+
+  if (!state.items.length) {
+    box = <NoData />;
+  } else if (isDesktop) {
+    box = (
+      <Desktop
+        items={state.items}
+        itemCount={itemCount}
+        loadMoreItems={loadMoreItems}
+        isItemLoaded={isItemLoaded}
+      />
+    );
+  } else {
+    box = (
+      <Mobile
+        items={state.items}
+        itemCount={itemCount}
+        loadMoreItems={loadMoreItems}
+        isItemLoaded={isItemLoaded}
+      />
+    );
+  }
+
   return (
     <>
       <NextSeo
@@ -31,29 +55,7 @@ const Blocks = () => {
       />
       <Layout navTitle={t('blocks')} className={classes.root}>
         <LoadAndExist loading={state.loading} exists={state.exists}>
-          <Box className={classes.box}>
-            {!state.items.length ? (
-              <NoData />
-            ) : (
-              <>
-                {isDesktop ? (
-                  <Desktop
-                    items={state.items}
-                    itemCount={itemCount}
-                    loadMoreItems={loadMoreItems}
-                    isItemLoaded={isItemLoaded}
-                  />
-                ) : (
-                  <Mobile
-                    items={state.items}
-                    itemCount={itemCount}
-                    loadMoreItems={loadMoreItems}
-                    isItemLoaded={isItemLoaded}
-                  />
-                )}
-              </>
-            )}
-          </Box>
+          <Box className={classes.box}>{box}</Box>
         </LoadAndExist>
       </Layout>
     </>

@@ -1,31 +1,32 @@
 import type { Categories } from '@/models/msg/types';
+import * as R from 'ramda';
 
 class MsgSendRequest {
   public category: Categories;
 
   public type: string;
 
-  public json: any;
+  public json: object;
 
   public sender: string;
 
   public recipient: string;
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'ecocredit';
-    this.json = payload.json;
-    this.type = payload.type;
-    this.sender = payload.sender;
-    this.recipient = payload.recipient;
+    this.json = R.pathOr({}, ['json'], payload);
+    this.type = R.pathOr('', ['type'], payload);
+    this.sender = R.pathOr('', ['sender'], payload);
+    this.recipient = R.pathOr('', ['recipient'], payload);
   }
 
-  static fromJson(json: any): MsgSendRequest {
+  static fromJson(json: object): MsgSendRequest {
     return {
       category: 'ecocredit',
       json,
-      type: json['@type'],
-      sender: json.sender,
-      recipient: json.recipient,
+      type: R.pathOr('', ['@type'], json),
+      sender: R.pathOr('', ['sender'], json),
+      recipient: R.pathOr('', ['recipient'], json),
     };
   }
 }

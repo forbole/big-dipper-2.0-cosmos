@@ -35,20 +35,20 @@ export const useNFTs = () => {
           },
         });
 
-        const items = nftData.map((x: any) => ({
-          identifier: R.pathOr('', ['identifier'], x),
-          name: R.pathOr('', ['name'], x),
-          type: R.pathOr('', ['type'], x),
-          creator: R.pathOr('', ['creator'], x),
-          collection: R.pathOr('', ['collection'], x),
+        const items = nftData.map((x) => ({
+          identifier: x?.identifier ?? '',
+          name: x?.name ?? '',
+          type: x?.type ?? '',
+          creator: x?.creator ?? '',
+          collection: x?.collection ?? '',
         }));
 
         handleSetState({
           loading: false,
           items,
         });
-      } catch (error: any) {
-        console.error(NFTS, error.message);
+      } catch (error) {
+        console.error(NFTS, (error as Error).message);
       }
     },
     [handleSetState]
@@ -81,8 +81,8 @@ export const useNFTs = () => {
         handleSetState({
           total: total > maxSize ? maxSize : total,
         });
-      } catch (error: any) {
-        console.error(NFTS_COUNT, error.message);
+      } catch (error) {
+        console.error(NFTS_COUNT, (error as Error).message);
       }
     };
 

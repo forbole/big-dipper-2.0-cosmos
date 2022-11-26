@@ -52,7 +52,7 @@ const Price: React.FC<ComponentDefault> = (props) => {
               cursor={false}
               content={
                 <CustomToolTip>
-                  {(x: any) => (
+                  {(x) => (
                     <>
                       <Typography variant="caption">{x.time}</Typography>
                       <Typography variant="body1">${numeral(x.value).format('0,0.00')}</Typography>

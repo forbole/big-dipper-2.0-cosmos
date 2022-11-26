@@ -25,8 +25,8 @@ export const usePrice = () => {
         handleSetState({
           items: prices.slice(-7),
         });
-      } catch (error: any) {
-        console.error(error.message);
+      } catch (error) {
+        console.error((error as Error).message);
       }
     };
 

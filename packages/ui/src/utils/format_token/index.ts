@@ -1,5 +1,4 @@
 import numeral from 'numeral';
-import * as R from 'ramda';
 import Big from 'big.js';
 import chainConfig from '@/chainConfig';
 
@@ -10,7 +9,7 @@ import chainConfig from '@/chainConfig';
  * @param denom the denom to convert the amount in to
  * @returns TokenUnit
  */
-export const formatToken = (value: number | string, denom = ''): TokenUnit => {
+export const formatToken = (value: number | string | null | undefined, denom = ''): TokenUnit => {
   const selectedDenom = chainConfig.tokenUnits[denom];
 
   if (typeof value !== 'string' && typeof value !== 'number') {
@@ -25,7 +24,7 @@ export const formatToken = (value: number | string, denom = ''): TokenUnit => {
     value,
     displayDenom: denom,
     baseDenom: denom,
-    exponent: R.pathOr(0, ['exponent'], selectedDenom),
+    exponent: selectedDenom?.exponent ?? 0,
   };
 
   if (!selectedDenom) {
@@ -45,7 +44,7 @@ export const formatToken = (value: number | string, denom = ''): TokenUnit => {
  * @param exponent the exponent to div by
  * @returns string value of formatted
  */
-export const formatTokenByExponent = (value: number | string, exponent = 0): string => {
+export const formatTokenByExponent = (value: number | string | undefined, exponent = 0): string => {
   if (typeof value !== 'string' && typeof value !== 'number') {
     value = '0';
   }
@@ -70,9 +69,9 @@ export const formatNumber = (tokenUnit: string, toFixed: number | null = null): 
   // split whole number and decimal if any
   const split = `${tokenUnit}`.split('.');
   // whole number
-  const wholeNumber = R.pathOr('', [0], split);
+  const wholeNumber = split?.[0] ?? '';
   // decimal
-  const decimal: string = R.pathOr('', [1], split);
+  const decimal: string = split?.[1] ?? '';
   // add commas for fullnumber ex: 1000 -> 1,000
   const formatWholeNumber = numeral(wholeNumber).format('0,0');
 

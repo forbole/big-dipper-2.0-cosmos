@@ -53,7 +53,7 @@ export const useProviders = () => {
    * Paginates the given data by splitting it into a list of arrays,
    * each one having the selected number of items.
    */
-  const createPagination = (data: any[]): any[][] => {
+  const createPagination = (data: unknown[]): unknown[][] => {
     const pages: Array<unknown[]> = [];
     data.forEach((x, i) => {
       const selectedKey = Math.floor(i / state.providers.pagination.itemsPerPage);

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
@@ -10,7 +10,7 @@ import { useStyles } from '@/screens/validator_details/components/staking/compon
 const TabsHeader: React.FC<{
   className?: string;
   tab: number;
-  handleTabChange: (_event: any, newValue: number) => void;
+  handleTabChange: ComponentProps<typeof Tabs>['onChange'];
   tabs: {
     id: number;
     key: string;

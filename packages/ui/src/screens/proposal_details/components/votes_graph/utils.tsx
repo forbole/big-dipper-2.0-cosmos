@@ -11,7 +11,7 @@ type FormatGraphType = {
 };
 export const formatGraphData = ({ data, theme, total }: FormatGraphType) => {
   const keys = R.keys(data);
-  const color: any = {
+  const color: { [key: number]: string | undefined } = {
     0: theme.palette?.custom?.charts.four,
     1: theme.palette?.custom?.charts.one,
     2: theme.palette?.custom?.charts.three,
@@ -19,9 +19,9 @@ export const formatGraphData = ({ data, theme, total }: FormatGraphType) => {
   };
 
   const formattedData = keys.map((x, i) => {
-    const selectedData = data[x] as TokenUnit;
+    const selectedData = data[x];
     return {
-      name: x,
+      name: x as string,
       value: Big(selectedData.value).toNumber(),
       display: formatNumber(selectedData.value, selectedData.exponent),
       percentage: total.gt(0)
@@ -35,7 +35,7 @@ export const formatGraphData = ({ data, theme, total }: FormatGraphType) => {
 
   if (!notEmpty) {
     formattedData.push({
-      name: 'empty' as any,
+      name: 'empty',
       value: 2400,
       color: theme.palette?.custom?.charts.zero,
       percentage: '0%',

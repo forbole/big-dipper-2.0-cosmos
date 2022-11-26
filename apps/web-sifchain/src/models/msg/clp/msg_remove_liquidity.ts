@@ -6,7 +6,7 @@ class MsgRemoveLiquidity {
 
   public type: string;
 
-  public json: any;
+  public json: object;
 
   public signer: string;
 
@@ -14,20 +14,20 @@ class MsgRemoveLiquidity {
     symbol: string;
   };
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'clp';
-    this.json = payload.json;
-    this.type = payload.type;
-    this.signer = payload.signer;
-    this.externalAsset = payload.externalAsset;
+    this.json = R.pathOr({}, ['json'], payload);
+    this.type = R.pathOr('', ['type'], payload);
+    this.signer = R.pathOr('', ['signer'], payload);
+    this.externalAsset = R.pathOr({ symbol: '' }, ['externalAsset'], payload);
   }
 
-  static fromJson(json: any): MsgRemoveLiquidity {
+  static fromJson(json: object): MsgRemoveLiquidity {
     return {
       category: 'clp',
       json,
-      type: json['@type'],
-      signer: json.signer,
+      type: R.pathOr('', ['@type'], json),
+      signer: R.pathOr('', ['signer'], json),
       externalAsset: {
         symbol: R.pathOr('', ['external_asset', 'symbol'], json),
       },

@@ -46,16 +46,14 @@ export const useParams = () => {
   });
 
   const formatParam = (data: ParamsQuery) => {
-    const results: any = {};
+    const results = {};
 
     // ================================
     // staking
     // ================================
     const formatStaking = () => {
       if (data.stakingParams.length) {
-        const stakingParamsRaw = StakingParams.fromJson(
-          R.pathOr({}, ['stakingParams', 0, 'params'], data)
-        );
+        const stakingParamsRaw = StakingParams.fromJson(data?.stakingParams?.[0]?.params ?? {});
         return {
           bondDenom: stakingParamsRaw.bondDenom,
           unbondingTime: stakingParamsRaw.unbondingTime,
@@ -75,9 +73,7 @@ export const useParams = () => {
     // ================================
     const formatSlashing = () => {
       if (data.slashingParams.length) {
-        const slashingParamsRaw = SlashingParams.fromJson(
-          R.pathOr({}, ['slashingParams', 0, 'params'], data)
-        );
+        const slashingParamsRaw = SlashingParams.fromJson(data?.slashingParams?.[0]?.params ?? {});
         return {
           downtimeJailDuration: slashingParamsRaw.downtimeJailDuration,
           minSignedPerWindow: slashingParamsRaw.minSignedPerWindow,
@@ -96,7 +92,7 @@ export const useParams = () => {
     // ================================
     const formatMint = () => {
       if (data.mintParams.length) {
-        const mintParamsRaw = MintParams.fromJson(R.pathOr({}, ['mintParams', 0, 'params'], data));
+        const mintParamsRaw = MintParams.fromJson(data?.mintParams?.[0]?.params ?? {});
 
         return {
           blocksPerYear: mintParamsRaw.blocksPerYear,
@@ -120,7 +116,7 @@ export const useParams = () => {
     const formatDistribution = () => {
       if (data.distributionParams.length) {
         const distributionParamsRaw = DistributionParams.fromJson(
-          R.pathOr({}, ['distributionParams', 0, 'params'], data)
+          data?.distributionParams?.[0]?.params ?? {}
         );
         return {
           baseProposerReward: distributionParamsRaw.baseProposerReward,
@@ -141,16 +137,12 @@ export const useParams = () => {
 
     const formatGov = () => {
       if (data.govParams.length) {
-        const govParamsRaw = GovParams.fromJson(R.pathOr({}, ['govParams', 0], data));
+        const govParamsRaw = GovParams.fromJson(data?.govParams?.[0] ?? {});
 
         return {
           minDeposit: formatToken(
-            R.pathOr(0, [0, 'amount'], govParamsRaw.depositParams.minDeposit),
-            R.pathOr(
-              chainConfig.primaryTokenUnit,
-              [0, 'denom'],
-              govParamsRaw.depositParams.minDeposit
-            )
+            govParamsRaw.depositParams.minDeposit?.[0]?.amount ?? 0,
+            govParamsRaw.depositParams.minDeposit?.[0]?.denom ?? chainConfig.primaryTokenUnit
           ),
           maxDepositPeriod: govParamsRaw.depositParams.maxDepositPeriod,
           default: {

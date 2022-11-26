@@ -50,7 +50,7 @@ export const useBlockDetails = () => {
           loading: false,
           exists: false,
         });
-        console.error((error as any).message);
+        console.error((error as Error).message);
       }
     };
 

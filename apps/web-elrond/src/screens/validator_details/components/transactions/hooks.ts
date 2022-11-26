@@ -32,7 +32,7 @@ export const useTransactions = (provider: string) => {
           },
         });
 
-        const items = transactionsData.map((x: any) => ({
+        const items = transactionsData.map((x) => ({
           hash: x.txHash,
           fromShard: x.senderShard,
           toShard: x.receiverShard,
@@ -46,8 +46,8 @@ export const useTransactions = (provider: string) => {
           loading: false,
           items,
         });
-      } catch (error: any) {
-        console.error(error.message);
+      } catch (error) {
+        console.error((error as Error).message);
       }
     },
     [handleSetState, provider]
@@ -60,8 +60,8 @@ export const useTransactions = (provider: string) => {
         handleSetState({
           total,
         });
-      } catch (error: any) {
-        console.error(error.message);
+      } catch (error) {
+        console.error((error as Error).message);
       }
     };
 

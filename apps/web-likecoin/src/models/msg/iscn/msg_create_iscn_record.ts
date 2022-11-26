@@ -6,36 +6,45 @@ class MsgCreateIscnRecord {
 
   public type: string;
 
-  public json: any;
+  public json: object;
 
   public from: string;
 
   public record: {
     recordNotes: string;
     contentFingerprints: string[];
-    stakeholders: JSON[];
-    contentMetadata: JSON;
+    stakeholders: object[];
+    contentMetadata: object;
   };
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'iscn';
-    this.type = payload.type;
-    this.json = payload.json;
-    this.from = payload.from;
-    this.record = payload.record;
+    this.type = R.pathOr('', ['type'], payload);
+    this.json = R.pathOr({}, ['json'], payload);
+    this.from = R.pathOr('', ['from'], payload);
+    this.record = R.pathOr(
+      {
+        recordNotes: '',
+        contentFingerprints: [],
+        stakeholders: [],
+        contentMetadata: {},
+      },
+      ['record'],
+      payload
+    );
   }
 
-  static fromJson(json: any): MsgCreateIscnRecord {
+  static fromJson(json: object): MsgCreateIscnRecord {
     return {
       category: 'iscn',
       json,
-      type: json['@type'],
-      from: json.from,
+      type: R.pathOr('', ['@type'], json),
+      from: R.pathOr('', ['from'], json),
       record: {
         recordNotes: R.pathOr('', ['record', 'recordNotes'], json),
         contentFingerprints: R.pathOr([], ['record', 'contentFingerprints'], json),
         stakeholders: R.pathOr([], ['record', 'stakeholders'], json),
-        contentMetadata: R.pathOr('', ['record', 'contentMetadata'], json) as unknown as JSON,
+        contentMetadata: R.pathOr({}, ['record', 'contentMetadata'], json),
       },
     };
   }

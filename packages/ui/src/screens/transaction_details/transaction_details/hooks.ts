@@ -65,7 +65,7 @@ export const useTransactionDetails = () => {
   // Parse data
   // ===============================
   const formatTransactionDetails = (data: TransactionDetailsQuery) => {
-    const stateChange: any = {
+    const stateChange: Partial<TransactionState> = {
       loading: false,
     };
 
@@ -79,14 +79,10 @@ export const useTransactionDetails = () => {
     // =============================
     const formatOverview = () => {
       const { fee } = data.transaction[0];
-      const feeAmount = R.pathOr(
-        {
-          denom: '',
-          amount: 0,
-        },
-        ['amount', 0],
-        fee
-      );
+      const feeAmount = fee?.amount?.[0] ?? {
+        denom: '',
+        amount: 0,
+      };
       const { success } = data.transaction[0];
       const overview = {
         hash: data.transaction[0].hash,
@@ -96,8 +92,8 @@ export const useTransactionDetails = () => {
         gasUsed: data.transaction[0].gasUsed,
         gasWanted: data.transaction[0].gasWanted,
         success,
-        memo: data.transaction[0].memo,
-        error: success ? '' : data.transaction[0].rawLog,
+        memo: data.transaction[0].memo ?? '',
+        error: success ? '' : data.transaction[0].rawLog ?? '',
       };
       return overview;
     };
@@ -119,6 +115,8 @@ export const useTransactionDetails = () => {
     const formatMessages = () => {
       const messages = convertMsgsToModels(data.transaction[0]);
       return {
+        filterBy: '',
+        viewRaw: false,
         items: messages,
       };
     };
@@ -130,6 +128,8 @@ export const useTransactionDetails = () => {
     handleSetState({
       messages: {
         filterBy: value,
+        viewRaw: false,
+        items: [],
       },
     });
   };
@@ -137,15 +137,17 @@ export const useTransactionDetails = () => {
   const toggleMessageDisplay = (event: React.ChangeEvent<HTMLInputElement>) => {
     handleSetState({
       messages: {
+        filterBy: '',
         viewRaw: event.target.checked,
+        items: [],
       },
     });
   };
 
-  const filterMessages = (messages: any[]) =>
+  const filterMessages = (messages: unknown[]) =>
     messages.filter((x) => {
       if (state.messages.filterBy !== 'none') {
-        return x.category === state.messages.filterBy;
+        return (x as { category: string }).category === state.messages.filterBy;
       }
       return true;
     });

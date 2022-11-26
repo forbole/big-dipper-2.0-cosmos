@@ -23,7 +23,7 @@ const Desktop: React.FC<{
   const classes = useStyles();
   const { t } = useTranslation('transactions');
 
-  const formattedData = items.map((x: any) => ({
+  const formattedData = items.map((x) => ({
     block: (
       <Link href={BLOCK_DETAILS(x.height)} passHref>
         <Typography variant="body1" component="a">
@@ -41,7 +41,7 @@ const Desktop: React.FC<{
         </Typography>
       </Link>
     ),
-    time: (dayjs as any).utc(x.timestamp).fromNow(),
+    time: dayjs.utc(x.timestamp).fromNow(),
   }));
 
   return (
@@ -61,7 +61,7 @@ const Desktop: React.FC<{
           </TableRow>
         </TableHead>
         <TableBody>
-          {formattedData.map((row: any, i) => (
+          {formattedData.map((row, i) => (
             // eslint-disable-next-line react/no-array-index-key
             <TableRow key={`row-${i}`}>
               {columns.map((column, index) => {

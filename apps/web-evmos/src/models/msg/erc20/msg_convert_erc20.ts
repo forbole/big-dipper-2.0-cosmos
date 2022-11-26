@@ -8,7 +8,7 @@ class MsgConvertErc20 {
 
   public type: string;
 
-  public json: any;
+  public json: object;
 
   public contractAddress: string;
 
@@ -18,25 +18,25 @@ class MsgConvertErc20 {
 
   public sender: string;
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'erc20';
-    this.type = payload.type;
-    this.json = payload.json;
-    this.contractAddress = payload.contractAddress;
-    this.amount = payload.amount;
-    this.receiver = payload.receiver; // bech21
-    this.sender = payload.sender; // hex
+    this.type = R.pathOr('', ['type'], payload);
+    this.json = R.pathOr({}, ['json'], payload);
+    this.contractAddress = R.pathOr('', ['contractAddress'], payload);
+    this.amount = R.pathOr('', ['amount'], payload);
+    this.receiver = R.pathOr('', ['receiver'], payload); // bech21
+    this.sender = R.pathOr('', ['sender'], payload); // hex
   }
 
-  static fromJson(json: any): MsgConvertErc20 {
+  static fromJson(json: object): MsgConvertErc20 {
     return {
       category: 'erc20',
       json,
-      type: json['@type'],
+      type: R.pathOr('', ['@type'], json),
       contractAddress: R.pathOr('', ['contract_address'], json),
       amount: R.pathOr('', ['amount'], json),
-      receiver: json.receiver,
-      sender: json.sender,
+      receiver: R.pathOr('', ['receiver'], json),
+      sender: R.pathOr('', ['sender'], json),
     };
   }
 }

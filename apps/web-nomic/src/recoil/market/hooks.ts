@@ -3,18 +3,11 @@ import { writeMarket } from '@/recoil/market/selectors';
 import type { AtomState } from '@/recoil/market/types';
 import { formatToken } from '@/utils/format_token';
 import { getDenom } from '@/utils/get_denom';
-import { QueryHookOptions, QueryResult } from '@apollo/client';
 import numeral from 'numeral';
-import * as R from 'ramda';
 import { SetterOrUpdater, useRecoilState } from 'recoil';
+import { MarketDataQuery, useMarketDataQuery } from '@/graphql/types/general_types';
 
-export type UseMarketDataQuery<TData, TVariables> = (
-  baseOptions?: QueryHookOptions<TData, TVariables>
-) => QueryResult<TData, TVariables>;
-
-export function useMarketRecoil<TData, TVariables>(
-  useMarketDataQuery: UseMarketDataQuery<TData, TVariables>
-) {
+export function useMarketRecoil() {
   const [market, setMarket] = useRecoilState(writeMarket) as [
     AtomState,
     SetterOrUpdater<AtomState>
@@ -23,7 +16,7 @@ export function useMarketRecoil<TData, TVariables>(
   useMarketDataQuery({
     variables: {
       denom: chainConfig?.tokenUnits[chainConfig.primaryTokenUnit]?.display,
-    } as TVariables,
+    },
     onCompleted: (data) => {
       if (data) {
         setMarket(formatUseChainIdQuery(data));
@@ -31,15 +24,7 @@ export function useMarketRecoil<TData, TVariables>(
     },
   });
 
-  function formatUseChainIdQuery(
-    data: TData & {
-      communityPool?: Array<{ coins?: Array<{ amount: number; denom: string }> }>;
-      tokenPrice?: Array<{
-        marketCap: number;
-        price: number;
-      }>;
-    }
-  ): AtomState {
+  function formatUseChainIdQuery(data: MarketDataQuery): AtomState {
     let { price, marketCap } = market;
 
     if (data?.tokenPrice?.length) {
@@ -47,15 +32,12 @@ export function useMarketRecoil<TData, TVariables>(
       marketCap = data.tokenPrice[0]?.marketCap;
     }
 
-    const inflation = R.pathOr(0, ['inflation', 0, 'value'], data);
+    const inflation = parseInt(data?.inflation?.[0]?.value ?? '0', 10) ?? 0;
 
-    const rawSupplyAmount = getDenom(
-      R.pathOr([], ['supply', 0, 'coins'], data),
-      chainConfig.primaryTokenUnit
-    ).amount;
+    const rawSupplyAmount = getDenom(data?.supply?.[0]?.coins, chainConfig.primaryTokenUnit).amount;
     const supply = formatToken(rawSupplyAmount, chainConfig.primaryTokenUnit);
 
-    // const bondedTokens = R.pathOr(1, ['bondedTokens', 0, 'bonded_tokens'], data);
+    // const bondedTokens = data?.bondedTokens?.[0]?.bonded_tokens ?? 1;
 
     // const inflationWithCommunityTax = Big(1).times(inflation).toPrecision(2); // without community tax, need to change naming later
 

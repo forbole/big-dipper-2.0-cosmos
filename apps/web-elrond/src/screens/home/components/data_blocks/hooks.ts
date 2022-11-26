@@ -28,12 +28,12 @@ export const useDataBlocks = () => {
         const { data: validators } = await axios.get(STAKE);
         handleSetState({
           validators: {
-            total: R.pathOr(0, ['totalValidators'], validators),
-            active: R.pathOr(0, ['activeValidators'], validators),
+            total: validators?.totalValidators ?? 0,
+            active: validators?.activeValidators ?? 0,
           },
         });
-      } catch (error: any) {
-        console.error(error.message);
+      } catch (error) {
+        console.error((error as Error).message);
       }
     };
 
@@ -46,8 +46,8 @@ export const useDataBlocks = () => {
       handleSetState({
         blockHeight,
       });
-    } catch (error: any) {
-      console.error(error.message);
+    } catch (error) {
+      console.error((error as Error).message);
     }
   }, [handleSetState]);
 
@@ -57,8 +57,8 @@ export const useDataBlocks = () => {
       handleSetState({
         transactions,
       });
-    } catch (error: any) {
-      console.error(error.message);
+    } catch (error) {
+      console.error((error as Error).message);
     }
   }, [handleSetState]);
 

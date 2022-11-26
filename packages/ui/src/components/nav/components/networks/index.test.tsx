@@ -13,7 +13,7 @@ let component: renderer.ReactTestRenderer;
 // mocks
 // ==================================
 jest.mock('recoil', () => ({
-  ...(jest.requireActual('recoil') as any),
+  ...jest.requireActual('recoil'),
   useRecoilValue: jest.fn(),
 }));
 

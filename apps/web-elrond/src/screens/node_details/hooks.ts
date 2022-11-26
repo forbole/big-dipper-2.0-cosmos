@@ -52,7 +52,7 @@ export const useNodeDetails = () => {
       try {
         const { data: nodeData } = await axios.get(NODE_DETAILS(router.query.hash as string));
 
-        const newState: any = {
+        const newState = {
           loading: false,
         };
 
@@ -62,18 +62,18 @@ export const useNodeDetails = () => {
 
         const formatProfile = async () => {
           let validator = '';
-          const nodeDataIdentity = R.pathOr('', ['identity'], nodeData);
+          const nodeDataIdentity = nodeData?.identity ?? '';
           if (nodeDataIdentity) {
             const identity = await getIdentity(nodeDataIdentity);
-            const nodeDataProvider = R.pathOr('', ['provider'], nodeData);
+            const nodeDataProvider = nodeData?.provider ?? '';
             validator = identity || nodeDataProvider;
           }
 
           return {
-            name: R.pathOr('', ['name'], nodeData),
-            version: R.pathOr('', ['version'], nodeData),
-            pubkey: R.pathOr('', ['bls'], nodeData),
-            rating: R.pathOr(0, ['rating'], nodeData),
+            name: nodeData?.name ?? '',
+            version: nodeData?.version ?? '',
+            pubkey: nodeData?.bls ?? '',
+            rating: nodeData?.rating ?? 0,
             identity: nodeDataIdentity,
             validator,
           };
@@ -86,11 +86,11 @@ export const useNodeDetails = () => {
         // =============================================
 
         const formatOverview = () => ({
-          shard: R.pathOr(0, ['shard'], nodeData),
-          type: R.pathOr('', ['type'], nodeData),
-          status: R.pathOr('', ['status'], nodeData),
-          online: R.pathOr(false, ['online'], nodeData),
-          instances: R.pathOr(0, ['instances'], nodeData),
+          shard: nodeData?.shard ?? 0,
+          type: nodeData?.type ?? '',
+          status: nodeData?.status ?? '',
+          online: nodeData?.oneline ?? false,
+          instances: nodeData?.instances ?? 0,
         });
 
         newState.overview = formatOverview();
@@ -99,10 +99,10 @@ export const useNodeDetails = () => {
         // Epoch
         // =============================================
         let epoch = 0;
-        if (R.pathOr('', ['type'], nodeData).toLowerCase() === 'validator') {
+        if (nodeData?.type ?? ''.toLowerCase() === 'validator') {
           const getEpoch = async () => {
             const { data: statsData } = await axios.get(STATS);
-            return R.pathOr(0, ['epoch'], statsData);
+            return statsData?.epoch ?? 0;
           };
 
           epoch = await getEpoch();
@@ -111,13 +111,13 @@ export const useNodeDetails = () => {
         // Stats
         // =============================================
 
-        if (R.pathOr('', ['type'], nodeData).toLowerCase() === 'validator') {
+        if (nodeData?.type ?? ''.toLowerCase() === 'validator') {
           const formatStats = () => ({
-            ignoredSignatures: R.pathOr(0, ['validatorIgnoredSignatures'], nodeData),
-            leaderSuccess: R.pathOr(0, ['leaderSuccess'], nodeData),
-            leaderFailure: R.pathOr(0, ['leaderFailure'], nodeData),
-            validatorSuccess: R.pathOr(0, ['validatorSuccess'], nodeData),
-            validatorFailure: R.pathOr(0, ['validatorFailure'], nodeData),
+            ignoredSignatures: nodeData?.validatorIgnoredSignatures ?? 0,
+            leaderSuccess: nodeData?.leaderSuccess ?? 0,
+            leaderFailure: nodeData?.leaderFailure ?? 0,
+            validatorSuccess: nodeData?.validatorSuccess ?? 0,
+            validatorFailure: nodeData?.validatorFailure ?? 0,
           });
           newState.stats = formatStats();
         }
@@ -126,16 +126,16 @@ export const useNodeDetails = () => {
         // Consensus
         // =============================================
 
-        if (R.pathOr('', ['type'], nodeData).toLowerCase() === 'validator') {
+        if (nodeData?.type ?? ''.toLowerCase() === 'validator') {
           const formatConsensus = async () => {
-            const validator = R.pathOr('', ['bls'], nodeData);
-            const shard = R.pathOr('', ['shard'], nodeData);
+            const validator = nodeData?.bls ?? '';
+            const shard = nodeData?.shard ?? '';
             const consensusData = await getConsensus({
               validator,
               shard,
               epoch,
             });
-            return consensusData.map((x: any) => ({
+            return consensusData.map((x) => ({
               round: x.round,
               proposed: x.blockWasProposed,
             }));
@@ -147,17 +147,17 @@ export const useNodeDetails = () => {
         // Blocks
         // =============================================
 
-        if (R.pathOr('', ['type'], nodeData).toLowerCase() === 'validator') {
+        if (nodeData?.type ?? ''.toLowerCase() === 'validator') {
           const formatBlocks = async () => {
-            const validator = R.pathOr('', ['bls'], nodeData);
-            const shard = R.pathOr('', ['shard'], nodeData);
+            const validator = nodeData?.bls ?? '';
+            const shard = nodeData?.shard ?? '';
             const blocksData = await getBlocks({
               validator,
               shard,
               epoch,
             });
 
-            return blocksData.map((x: any) => ({
+            return blocksData.map((x) => ({
               block: x.round,
               timestamp: x.timestamp,
               hash: x.hash,
@@ -175,7 +175,7 @@ export const useNodeDetails = () => {
           loading: false,
           exists: false,
         });
-        console.error((error as any).message);
+        console.error((error as Error).message);
       }
     };
 
@@ -188,7 +188,7 @@ export const useNodeDetails = () => {
       }
     };
 
-    const getConsensus = async ({ validator, shard, epoch }: any) => {
+    const getConsensus = async ({ validator, shard, epoch }) => {
       const { data: roundsData } = await axios.get(ROUNDS, {
         params: {
           size: 138,
@@ -202,7 +202,7 @@ export const useNodeDetails = () => {
       return roundsData || [];
     };
 
-    const getBlocks = async ({ validator, shard, epoch }: any) => {
+    const getBlocks = async ({ validator, shard, epoch }) => {
       const { data: blocksData } = await axios.get(BLOCKS, {
         params: {
           // size: 25,

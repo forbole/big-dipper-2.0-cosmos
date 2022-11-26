@@ -6,7 +6,7 @@ class MsgCreatePool {
 
   public type: string;
 
-  public json: any;
+  public json: object;
 
   public signer: string;
 
@@ -18,22 +18,22 @@ class MsgCreatePool {
 
   public externalAssetAmount: string;
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'clp';
-    this.json = payload.json;
-    this.type = payload.type;
-    this.signer = payload.signer;
-    this.externalAsset = payload.externalAsset;
-    this.nativeAssetAmount = payload.nativeAssetAmount;
-    this.externalAssetAmount = payload.externalAssetAmount;
+    this.json = R.pathOr({}, ['json'], payload);
+    this.type = R.pathOr('', ['type'], payload);
+    this.signer = R.pathOr('', ['signer'], payload);
+    this.externalAsset = R.pathOr({ symbol: '' }, ['externalAsset'], payload);
+    this.nativeAssetAmount = R.pathOr('', ['nativeAssetAmount'], payload);
+    this.externalAssetAmount = R.pathOr('', ['externalAssetAmount'], payload);
   }
 
-  static fromJson(json: any): MsgCreatePool {
+  static fromJson(json: object): MsgCreatePool {
     return {
       category: 'clp',
       json,
-      type: json['@type'],
-      signer: json.signer,
+      type: R.pathOr('', ['@type'], json),
+      signer: R.pathOr('', ['signer'], json),
       externalAsset: {
         symbol: R.pathOr('', ['external_asset', 'symbol'], json),
       },

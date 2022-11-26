@@ -1,4 +1,4 @@
-import { type ReadOnlySelectorOptions, selector } from 'recoil';
+import { type ReadOnlySelectorOptions, selector, DefaultValue } from 'recoil';
 import { mergeStateChange } from '@/utils/merge_state_change';
 import { atomState } from '@/recoil/big_dipper_networks/atom';
 import type { Networks, Selected } from '@/recoil/big_dipper_networks/types';
@@ -12,6 +12,7 @@ export const writeNetworks = selector({
   key: 'bigDipperNetworksWriteNetwork',
   get: getNetworks,
   set: ({ get, set }, value) => {
+    if (value instanceof DefaultValue) return;
     const prevState = get(atomState);
     const newState = mergeStateChange(prevState, {
       networks: value,
@@ -34,6 +35,7 @@ export const writeSelectedNetwork = selector({
   key: 'bigDipperNetworks.write.selectedNetwork',
   get: getSelectedNetworks,
   set: ({ get, set }, value) => {
+    if (value instanceof DefaultValue) return;
     const prevState = get(atomState);
     const newState = mergeStateChange(prevState, {
       selected: value,

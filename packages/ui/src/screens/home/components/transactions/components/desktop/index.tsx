@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import classnames from 'classnames';
 import numeral from 'numeral';
 import dayjs from '@/utils/dayjs';
@@ -25,7 +25,7 @@ const Desktop: React.FC<{
   const classes = useStyles();
   const { t } = useTranslation('transactions');
 
-  const formattedData = items.map((x) => ({
+  const formattedData = items.map((x): { [key: string]: ReactNode } => ({
     block: (
       <Link href={BLOCK_DETAILS(x.height)} passHref>
         <Typography variant="body1" component="a">
@@ -50,7 +50,7 @@ const Desktop: React.FC<{
       </div>
     ),
     result: <Result success={x.success} />,
-    time: (dayjs as any).utc(x.timestamp).fromNow(),
+    time: dayjs.utc(x.timestamp).fromNow(),
     messages: numeral(x.messages).format('0,0'),
   }));
 
@@ -71,7 +71,7 @@ const Desktop: React.FC<{
           </TableRow>
         </TableHead>
         <TableBody>
-          {formattedData.map((row: any, i) => (
+          {formattedData.map((row, i) => (
             // eslint-disable-next-line react/no-array-index-key
             <TableRow key={`row-${i}`}>
               {columns.map((column, index) => {

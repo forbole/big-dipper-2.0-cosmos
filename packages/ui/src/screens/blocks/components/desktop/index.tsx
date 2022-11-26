@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import classnames from 'classnames';
 import numeral from 'numeral';
 import dayjs from '@/utils/dayjs';
@@ -30,7 +30,7 @@ const Desktop: React.FC<{
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
 
   const formattedItems =
-    items?.map((x) => ({
+    items?.map((x): { [key: string]: ReactNode } => ({
       height: (
         <Link href={BLOCK_DETAILS(x.height)} passHref>
           <Typography variant="body1" className="value" component="a">
@@ -39,7 +39,7 @@ const Desktop: React.FC<{
         </Link>
       ),
       txs: numeral(x.txs).format('0,0'),
-      time: (dayjs as any).utc(x.timestamp).fromNow(),
+      time: dayjs.utc(x.timestamp).fromNow(),
       proposer: (
         <AvatarName
           address={x.proposer.address}
@@ -138,7 +138,7 @@ const Desktop: React.FC<{
                     }
 
                     const { key, align } = columns[columnIndex];
-                    const item = (formattedItems as any)[rowIndex][key];
+                    const item = formattedItems[rowIndex][key];
                     return (
                       <div
                         style={style}

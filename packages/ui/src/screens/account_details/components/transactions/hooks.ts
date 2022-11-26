@@ -2,26 +2,16 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { convertMsgsToModels } from '@/components/msg/utils';
 import * as R from 'ramda';
-import { QueryHookOptions, QueryResult } from '@apollo/client';
 import { convertMsgType } from '@/utils/convert_msg_type';
 import type { TransactionState } from '@/screens/account_details/components/transactions/types';
+import type {
+  GetMessagesByAddressQuery,
+  useGetMessagesByAddressQuery,
+} from '@/graphql/types/general_types';
 
 const LIMIT = 50;
 
-type TVariables = {
-  address?: string;
-  limit?: number;
-  offset?: number;
-  types?: string;
-};
-
-export type UseGetMessagesByAddressQuery<TData> = (
-  baseOptions?: QueryHookOptions<TData, TVariables>
-) => QueryResult<TData, TVariables>;
-
-export function useTransactions<TData>(
-  useGetMessagesByAddressQuery: UseGetMessagesByAddressQuery<TData>
-) {
+export function useTransactions(useQuery: typeof useGetMessagesByAddressQuery) {
   const router = useRouter();
   const [state, setState] = useState<TransactionState>({
     data: [],
@@ -37,13 +27,13 @@ export function useTransactions<TData>(
     });
   };
 
-  const transactionQuery = useGetMessagesByAddressQuery({
+  const transactionQuery = useQuery({
     variables: {
       limit: LIMIT + 1, // to check if more exist
       offset: 0,
       address: `{${router?.query?.address ?? ''}}`,
     },
-    onCompleted: (data: any) => {
+    onCompleted: (data) => {
       const itemsLength = data.messagesByAddress.length;
       const newItems = R.uniq([...state.data, ...formatTransactions(data)]);
       const stateChange: TransactionState = {
@@ -69,7 +59,7 @@ export function useTransactions<TData>(
           limit: LIMIT + 1,
         },
       })
-      .then(({ data }: any) => {
+      .then(({ data }) => {
         const itemsLength = data.messagesByAddress.length;
         const newItems = R.uniq([...state.data, ...formatTransactions(data)]);
         const stateChange: TransactionState = {
@@ -82,32 +72,32 @@ export function useTransactions<TData>(
       });
   };
 
-  const formatTransactions = (data: any) => {
+  const formatTransactions = (data: GetMessagesByAddressQuery): Transactions[] => {
     let formattedData = data.messagesByAddress;
     if (data.messagesByAddress.length === 51) {
       formattedData = data.messagesByAddress.slice(0, 51);
     }
-    return formattedData.map((x: any) => {
+    return formattedData.map((x) => {
       const { transaction } = x;
 
       // =============================
       // messages
       // =============================
       const messages = convertMsgsToModels(transaction);
-      const msgType = messages.map((eachMsg: any) => {
-        const eachMsgType = R.pathOr('none type', ['type'], eachMsg);
+      const msgType = messages.map((eachMsg) => {
+        const eachMsgType = eachMsg?.type ?? 'none type';
         return eachMsgType ?? '';
       });
       const convertedMsgType = convertMsgType(msgType);
       return {
         height: transaction?.height,
-        hash: transaction?.hash,
+        hash: transaction?.hash ?? '',
         type: convertedMsgType,
         messages: {
           count: messages.length,
           items: messages,
         },
-        success: transaction?.success,
+        success: transaction?.success ?? false,
         timestamp: transaction?.block.timestamp,
       };
     });

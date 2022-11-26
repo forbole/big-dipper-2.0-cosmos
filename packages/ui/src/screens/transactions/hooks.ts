@@ -29,8 +29,8 @@ export const useTransactions = () => {
    * and sorts by height in case it bugs out
    */
   const uniqueAndSort = R.pipe(
-    R.uniqBy<TransactionsState['items'][number], TransactionsState['items']>(R.prop('hash')),
-    R.sort(R.descend<TransactionsState['items'][number]>(R.prop('height')))
+    R.uniqBy((r: Transactions) => r?.hash),
+    R.sort(R.descend((r) => r?.height))
   );
 
   // ================================
@@ -114,10 +114,10 @@ export const useTransactions = () => {
       formattedData = data.transactions.slice(0, 51);
     }
 
-    return formattedData.map((x: any) => {
+    return formattedData.map((x) => {
       const messages = convertMsgsToModels(x);
       const msgType =
-        x.messages?.map((eachMsg: any) => {
+        x.messages?.map((eachMsg: unknown) => {
           const eachMsgType = R.pathOr('none type', ['@type'], eachMsg);
           return eachMsgType ?? '';
         }) ?? [];

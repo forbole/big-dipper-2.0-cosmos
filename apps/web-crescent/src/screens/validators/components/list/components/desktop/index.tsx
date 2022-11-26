@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import classnames from 'classnames';
 import numeral from 'numeral';
 import useTranslation from 'next-translate/useTranslation';
@@ -35,7 +35,7 @@ const Desktop: React.FC<{
 
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
 
-  const formattedItems = props.items.map((x, i) => {
+  const formattedItems = props.items.map((x, i): { [key: string]: ReactNode } => {
     const status = getValidatorStatus(x.status, x.jailed, x.tombstoned);
     const condition = x.status === 3 ? getValidatorConditionClass(x.condition) : undefined;
     const percentDisplay =
@@ -162,7 +162,7 @@ const Desktop: React.FC<{
             >
               {({ columnIndex, rowIndex, style }) => {
                 const { key, align } = columns[columnIndex];
-                const item = (formattedItems as any)[rowIndex][key];
+                const item = formattedItems[rowIndex][key];
                 return (
                   <div
                     style={style}

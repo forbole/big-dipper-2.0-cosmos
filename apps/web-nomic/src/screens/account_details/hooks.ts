@@ -56,9 +56,9 @@ export const useAccountDetails = () => {
   // ==========================
   const { fetchDesmosProfile, formatDesmosProfile } = useDesmosProfile({
     onComplete: (data) => {
-      handleSetState({
-        desmosProfile: formatDesmosProfile(data),
-      });
+      const desmosProfile = formatDesmosProfile(data);
+      handleSetState({ desmosProfile });
+      return desmosProfile;
     },
   });
 
@@ -83,19 +83,25 @@ export const useAccountDetails = () => {
     //   handleSetState({
     //     overview: {
     //       address: router.query.address,
-    //       withdrawalAddress: R.pathOr('', ['withdrawalAddress', 'address'], data),
+    //       withdrawalAddress: data?.withdrawalAddress?.address ?? '',
     //     },
     //   });
     // };
 
     const fetchBalance = async () => {
       const address = router.query.address as string;
-      const promises = [fetchAvailableBalances(address), fetchDelegationBalance(address)];
+      const promises: [
+        ReturnType<typeof fetchAvailableBalances>,
+        ReturnType<typeof fetchDelegationBalance>
+      ] = [fetchAvailableBalances(address), fetchDelegationBalance(address)];
       const [available, delegation] = await Promise.allSettled(promises);
 
-      const formattedRawData: any = {};
-      formattedRawData.accountBalances = R.pathOr([], ['value', 'accountBalances'], available);
-      formattedRawData.delegationBalance = R.pathOr([], ['value', 'delegationBalance'], delegation);
+      if (available.status !== 'fulfilled') throw available.reason;
+      if (delegation.status !== 'fulfilled') throw delegation.reason;
+      const formattedRawData = {
+        accountBalances: available?.value?.accountBalances ?? [],
+        delegationBalance: delegation?.value?.delegationBalance ?? [],
+      };
 
       handleSetState(formatAllBalance(formattedRawData));
     };
@@ -103,8 +109,8 @@ export const useAccountDetails = () => {
     // ==========================
     // Format Data
     // ==========================
-    const formatAllBalance = (data: any) => {
-      const stateChange: any = {
+    const formatAllBalance = (data) => {
+      const stateChange = {
         loading: false,
       };
 
@@ -113,13 +119,13 @@ export const useAccountDetails = () => {
       // ============================
       const formatBalance = () => {
         const available = getDenom(
-          R.pathOr([], ['accountBalances', 'coins'], data),
+          data?.accountBalances?.coins ?? [],
           chainConfig.primaryTokenUnit
         );
         const availableAmount = formatToken(available.amount, chainConfig.primaryTokenUnit);
 
         const delegate = getDenom(
-          R.pathOr([], ['delegationBalance', 'coins'], data),
+          data?.delegationBalance?.coins ?? [],
           chainConfig.primaryTokenUnit
         );
         const delegateAmount = formatToken(delegate.amount, chainConfig.primaryTokenUnit);
@@ -149,11 +155,11 @@ export const useAccountDetails = () => {
       const formatOtherTokens = () => {
         // Loop through balance and delegation to figure out what the other tokens are
         const otherTokenUnits = new Set<string>();
-        const otherTokens: any[] = [];
+        const otherTokens: unknown[] = [];
         // available tokens
-        const available = R.pathOr([], ['accountBalances', 'coins'], data);
+        const available = data?.accountBalances?.coins ?? [];
 
-        available.forEach((x: any) => {
+        available.forEach((x) => {
           otherTokenUnits.add(x.denom);
         });
 
@@ -165,7 +171,7 @@ export const useAccountDetails = () => {
           const availableAmount = formatToken(availableRawAmount.amount, x);
 
           otherTokens.push({
-            denom: R.pathOr(x, ['tokenUnits', x, 'display'], chainConfig),
+            denom: chainConfig?.tokenUnits?.x?.display ?? x,
             available: availableAmount,
           });
         });

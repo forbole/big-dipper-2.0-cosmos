@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import * as R from 'ramda';
 import dynamic from 'next/dynamic';
 import classnames from 'classnames';
@@ -25,7 +25,7 @@ const Mobile = dynamic(
     )
 ) as typeof MobileType;
 
-const Redelegations: React.FC<
+const Redelegations: FC<
   {
     redelegations: RedelegationsType;
   } & ComponentDefault
@@ -34,12 +34,16 @@ const Redelegations: React.FC<
   const classes = useStyles();
   const { page, rowsPerPage, handleChangePage, handleChangeRowsPerPage } = usePagination({});
 
-  const pageItems = R.pathOr([], ['redelegations', 'data', page], props);
+  const pageItems = R.pathOr<NonNullable<typeof props['redelegations']['data'][number]>>(
+    [],
+    ['redelegations', 'data', page],
+    props
+  );
 
-  const toProfiles = useProfilesRecoil(pageItems.map((x: any) => x.to));
-  const addressProfiles = useProfilesRecoil(pageItems.map((x: any) => x.address));
+  const toProfiles = useProfilesRecoil(pageItems.map((x) => x.to));
+  const addressProfiles = useProfilesRecoil(pageItems.map((x) => x.address));
   const mergedDataWithProfiles = pageItems.map((x, i) => ({
-    ...(x as object),
+    ...x,
     to: toProfiles[i],
     address: addressProfiles[i],
   }));
@@ -53,9 +57,9 @@ const Redelegations: React.FC<
   } else if (!items.length) {
     component = <NoData />;
   } else if (isDesktop) {
-    component = <Desktop items={items as any} />;
+    component = <Desktop items={items} />;
   } else {
-    component = <Mobile items={items as any} />;
+    component = <Mobile items={items} />;
   }
 
   return (

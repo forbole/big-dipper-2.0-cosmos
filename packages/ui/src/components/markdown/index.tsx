@@ -73,7 +73,7 @@ const options = {
     // li: {
     //   component: withStyles(styles)(({
     //     classes, ...props
-    //   }: any) => (
+    //   }) => (
     //     <li className={classes.listItem}>
     //       <Typography component="span" {...props} />
     //     </li>

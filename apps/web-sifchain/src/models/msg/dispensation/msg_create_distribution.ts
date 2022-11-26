@@ -6,7 +6,7 @@ class MsgCreateDistribution {
 
   public type: string;
 
-  public json: any;
+  public json: object;
 
   public distributor: string;
 
@@ -16,20 +16,24 @@ class MsgCreateDistribution {
     | 'DISTRIBUTION_TYPE_VALIDATOR_SUBSIDY'
     | 'DISTRIBUTION_TYPE_LIQUIDITY_MINING';
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'dispensation';
-    this.json = payload.json;
-    this.type = payload.type;
-    this.distributor = payload.distributor;
-    this.distributionType = payload.distributionType;
+    this.json = R.pathOr({}, ['json'], payload);
+    this.type = R.pathOr('', ['type'], payload);
+    this.distributor = R.pathOr('', ['distributor'], payload);
+    this.distributionType = R.pathOr(
+      'DISTRIBUTION_TYPE_UNSPECIFIED',
+      ['distributionType'],
+      payload
+    );
   }
 
-  static fromJson(json: any): MsgCreateDistribution {
+  static fromJson(json: object): MsgCreateDistribution {
     return {
       category: 'dispensation',
       json,
-      type: json['@type'],
-      distributor: json.distributor,
+      type: R.pathOr('', ['@type'], json),
+      distributor: R.pathOr('', ['distributor'], json),
       distributionType: R.pathOr('DISTRIBUTION_TYPE_UNSPECIFIED', ['distribution_type'], json),
     };
   }

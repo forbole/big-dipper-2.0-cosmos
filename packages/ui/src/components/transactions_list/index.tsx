@@ -42,15 +42,11 @@ const TransactionsList: FC<TransactionsListState> = (props) => {
     return <NoData />;
   }
 
-  return (
-    <>
-      {isDesktop ? (
-        <Desktop className={classes.desktop} {...formatProps} />
-      ) : (
-        <Mobile className={classes.mobile} {...formatProps} />
-      )}
-    </>
-  );
+  if (isDesktop) {
+    return <Desktop className={classes.desktop} {...formatProps} />;
+  }
+
+  return <Mobile className={classes.mobile} {...formatProps} />;
 };
 
 export default TransactionsList;

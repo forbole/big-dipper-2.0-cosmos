@@ -24,9 +24,9 @@ export const useConsensus = () => {
   });
 
   useEffect(() => {
-    const formatNewRound = (data: any) => {
+    const formatNewRound = (data: object) => {
       const height =
-        numeral(R.pathOr('', ['result', 'data', 'value', 'height'], data)).value() ?? 0;
+        numeral(R.pathOr('0', ['result', 'data', 'value', 'height'] ?? '0')).value() ?? 0;
       const proposerHex = R.pathOr('', ['result', 'data', 'value', 'proposer', 'address'], data);
       const consensusAddress = hexToBech32(proposerHex, chainConfig.prefix.consensus);
 
@@ -37,7 +37,7 @@ export const useConsensus = () => {
       }));
     };
 
-    const formatNewStep = (data: any) => {
+    const formatNewStep = (data: object) => {
       const stepReference = {
         0: 0,
         RoundStepNewHeight: 1,
@@ -96,8 +96,8 @@ export const useConsensus = () => {
         enqueuePing();
       };
 
-      client.onmessage = (e: any) => {
-        const data = JSON.parse(e.data);
+      client.onmessage = (e) => {
+        const data = JSON.parse(e.data as string);
         const event = R.pathOr<string>('', ['result', 'data', 'type'], data);
         if (event === 'tendermint/event/NewRound') {
           formatNewRound(data);

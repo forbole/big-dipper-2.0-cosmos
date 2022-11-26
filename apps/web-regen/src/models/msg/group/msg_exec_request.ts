@@ -1,27 +1,28 @@
 import type { Categories } from '@/models/msg/types';
+import * as R from 'ramda';
 
 class MsgExecRequest {
   public category: Categories;
 
   public type: string;
 
-  public json: any;
+  public json: object;
 
   public signer: string;
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'group';
-    this.json = payload.json;
-    this.type = payload.type;
-    this.signer = payload.signer;
+    this.json = R.pathOr({}, ['json'], payload);
+    this.type = R.pathOr('', ['type'], payload);
+    this.signer = R.pathOr('', ['signer'], payload);
   }
 
-  static fromJson(json: any): MsgExecRequest {
+  static fromJson(json: object): MsgExecRequest {
     return {
       category: 'group',
       json,
-      type: json['@type'],
-      signer: json.signer,
+      type: R.pathOr('', ['@type'], json),
+      signer: R.pathOr('', ['signer'], json),
     };
   }
 }

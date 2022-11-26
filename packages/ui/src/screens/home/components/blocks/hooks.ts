@@ -31,7 +31,7 @@ export const useBlocks = () => {
 
   const formatBlocks = (data: BlocksListenerSubscription) =>
     data.blocks.map((x) => {
-      const proposerAddress = R.pathOr('', ['validator', 'validatorInfo', 'operatorAddress'], x);
+      const proposerAddress = x?.validator?.validatorInfo?.operatorAddress ?? '';
       return {
         height: x.height,
         txs: x.txs ?? 0,

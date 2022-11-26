@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import classnames from 'classnames';
 import dynamic from 'next/dynamic';
 import Box from '@/components/box';
@@ -27,34 +27,34 @@ const List: React.FC<{
   const { state, handleTabChange, handleSearch, handleSort, sortItems } = useValidators();
   const dataProfiles = useProfilesRecoil(state.items.map((x) => x.validator));
   const mergedDataWithProfiles = state.items.map((x, i) => ({
-    ...(x as object),
+    ...x,
     validator: dataProfiles[i],
   }));
-  const items = sortItems(mergedDataWithProfiles as any);
+  const items = sortItems(mergedDataWithProfiles);
+
+  let list: ReactNode;
+
+  if (!items.length) {
+    list = <NoData />;
+  } else if (isDesktop) {
+    list = (
+      <Desktop
+        className={classes.desktop}
+        sortDirection={state.sortDirection}
+        sortKey={state.sortKey}
+        handleSort={handleSort}
+        items={items}
+      />
+    );
+  } else {
+    list = <Mobile className={classes.mobile} items={items} />;
+  }
 
   return (
     <LoadAndExist loading={state.loading} exists={state.exists}>
       <Box className={classnames(className)}>
         <Tabs tab={state.tab} handleTabChange={handleTabChange} handleSearch={handleSearch} />
-        <div className={classes.list}>
-          {items.length ? (
-            <>
-              {isDesktop ? (
-                <Desktop
-                  className={classes.desktop}
-                  sortDirection={state.sortDirection}
-                  sortKey={state.sortKey}
-                  handleSort={handleSort}
-                  items={items}
-                />
-              ) : (
-                <Mobile className={classes.mobile} items={items as any} />
-              )}
-            </>
-          ) : (
-            <NoData />
-          )}
-        </div>
+        <div className={classes.list}>{list}</div>
       </Box>
     </LoadAndExist>
   );

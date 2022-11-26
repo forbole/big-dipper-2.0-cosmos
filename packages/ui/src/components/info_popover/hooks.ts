@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
 export const useInfoPopover = () => {
-  const [anchorEl, setAnchorEl] = useState(null);
+  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
 
-  const handlePopoverOpen = (event: any) => {
+  const handlePopoverOpen: React.MouseEventHandler<HTMLElement> = (event) => {
     setAnchorEl(event.currentTarget);
   };
 

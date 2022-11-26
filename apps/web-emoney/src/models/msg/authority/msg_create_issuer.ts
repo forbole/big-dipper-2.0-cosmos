@@ -6,7 +6,7 @@ class MsgCreateIssuer {
 
   public type: string;
 
-  public json: any;
+  public json: object;
 
   public authority: string;
 
@@ -14,21 +14,21 @@ class MsgCreateIssuer {
 
   public denominations: string[];
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'authority';
-    this.type = payload.type;
-    this.json = payload.json;
-    this.authority = payload.authority;
-    this.issuer = payload.issuer;
-    this.denominations = payload.denominations;
+    this.type = R.pathOr('', ['type'], payload);
+    this.json = R.pathOr({}, ['json'], payload);
+    this.authority = R.pathOr('', ['authority'], payload);
+    this.issuer = R.pathOr('', ['issuer'], payload);
+    this.denominations = R.pathOr([], ['denominations'], payload);
   }
 
-  static fromJson(json: any): MsgCreateIssuer {
+  static fromJson(json: object): MsgCreateIssuer {
     return {
       category: 'authority',
       json,
-      type: json['@type'],
-      authority: json.authority,
+      type: R.pathOr('', ['@type'], json),
+      authority: R.pathOr('', ['authority'], json),
       issuer: R.pathOr('', ['issuer'], json),
       denominations: R.pathOr([], ['denominations'], json),
     };

@@ -7,7 +7,7 @@ export const usePrice = () => {
       return time.format('HH:mm');
     }
 
-    return (time as any).local().format('HH:mm');
+    return time.local().format('HH:mm');
   };
 
   const tickPriceFormatter = (num: number) => `$${numeral(num).format('0,0.[00]')}`;

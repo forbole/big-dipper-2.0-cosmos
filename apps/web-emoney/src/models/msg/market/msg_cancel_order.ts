@@ -6,26 +6,26 @@ class MsgCancelOrder {
 
   public type: string;
 
-  public json: any;
+  public json: object;
 
   public owner: string;
 
   public clientOrderId: string;
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'market';
-    this.type = payload.type;
-    this.json = payload.json;
-    this.owner = payload.owner;
-    this.clientOrderId = payload.clientOrderId;
+    this.type = R.pathOr('', ['type'], payload);
+    this.json = R.pathOr({}, ['json'], payload);
+    this.owner = R.pathOr('', ['owner'], payload);
+    this.clientOrderId = R.pathOr('', ['clientOrderId'], payload);
   }
 
-  static fromJson(json: any): MsgCancelOrder {
+  static fromJson(json: object): MsgCancelOrder {
     return {
       category: 'market',
       json,
-      type: json['@type'],
-      owner: json.owner,
+      type: R.pathOr('', ['@type'], json),
+      owner: R.pathOr('', ['owner'], json),
       clientOrderId: R.pathOr('', ['client_order_id'], json),
     };
   }

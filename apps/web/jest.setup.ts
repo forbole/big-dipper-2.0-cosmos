@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { jest } from '@jest/globals';
 import '@testing-library/jest-dom/extend-expect';
 import 'jest-localstorage-mock';
@@ -59,17 +60,16 @@ jest.mock('next/dynamic', () => () => {
   return DynamicComponent;
 });
 
-jest.mock('@/recoil/profiles', () => {
-  return {
-    useProfileRecoil: jest.fn((address) => ({
-      address,
-      name: address,
-      imageUrl: '',
-    })),
-    useProfilesRecoil: jest.fn((address) => ({
-      address,
-      name: address,
-      imageUrl: '',
-    })),
-  };
-});
+jest.mock('@/recoil/profiles', () => ({
+  ...jest.requireActual<object>('@/recoil/profiles'),
+  useProfileRecoil: jest.fn((address) => ({
+    address,
+    name: address,
+    imageUrl: '',
+  })),
+  useProfilesRecoil: jest.fn((address) => ({
+    address,
+    name: address,
+    imageUrl: '',
+  })),
+}));

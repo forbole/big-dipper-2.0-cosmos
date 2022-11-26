@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
@@ -21,7 +21,7 @@ const Desktop: React.FC<{ items: TransactionType[] } & ComponentDefault> = (prop
   const { className, items } = props;
   const { t } = useTranslation('transactions');
   const classes = useStyles();
-  const formattedItems = items.map((x) => ({
+  const formattedItems = items.map((x): { [key: string]: ReactNode } => ({
     hash: (
       <Link href={TRANSACTION_DETAILS(x.hash)} passHref>
         <Typography variant="body1" className="value" component="a">
@@ -52,7 +52,7 @@ const Desktop: React.FC<{ items: TransactionType[] } & ComponentDefault> = (prop
       />
     ),
     status: <Result status={x.status} />,
-    time: (dayjs as any).utc(dayjs.unix(x.timestamp)).fromNow(),
+    time: dayjs.utc(dayjs.unix(x.timestamp)).fromNow(),
   }));
   return (
     <div className={classnames(className, classes.root)}>

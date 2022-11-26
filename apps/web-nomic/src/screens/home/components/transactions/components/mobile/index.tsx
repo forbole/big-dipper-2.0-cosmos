@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import classnames from 'classnames';
 import Link from 'next/link';
 import numeral from 'numeral';
@@ -15,7 +15,7 @@ const Mobile: React.FC<{
   className?: string;
   items: TransactionType[];
 }> = ({ className, items }) => {
-  const formattedData = items.map((x: any) => ({
+  const formattedData = items.map((x): { [key: string]: ReactNode } => ({
     block: (
       <Link href={BLOCK_DETAILS(x.height)} passHref>
         <Typography variant="body1" component="a">
@@ -33,7 +33,7 @@ const Mobile: React.FC<{
         </Typography>
       </Link>
     ),
-    time: (dayjs as any).utc(x.timestamp).fromNow(),
+    time: dayjs.utc(x.timestamp).fromNow(),
     messages: numeral(x.messages).format('0,0'),
   }));
 

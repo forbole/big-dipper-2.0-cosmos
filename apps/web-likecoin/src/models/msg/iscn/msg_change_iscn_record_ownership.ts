@@ -1,11 +1,12 @@
 import type { Categories } from '@/models/msg/types';
+import * as R from 'ramda';
 
 class MsgChangeIscnRecordOwnership {
   public category: Categories;
 
   public type: string;
 
-  public json: any;
+  public json: object;
 
   public from: string;
 
@@ -13,23 +14,23 @@ class MsgChangeIscnRecordOwnership {
 
   public newOwner: string;
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'iscn';
-    this.type = payload.type;
-    this.json = payload.json;
-    this.iscnId = payload.iscnId;
-    this.from = payload.from;
-    this.newOwner = payload.newOwner;
+    this.type = R.pathOr('', ['type'], payload);
+    this.json = R.pathOr({}, ['json'], payload);
+    this.iscnId = R.pathOr('', ['iscnId'], payload);
+    this.from = R.pathOr('', ['from'], payload);
+    this.newOwner = R.pathOr('', ['newOwner'], payload);
   }
 
-  static fromJson(json: any): MsgChangeIscnRecordOwnership {
+  static fromJson(json: object): MsgChangeIscnRecordOwnership {
     return {
       category: 'iscn',
       json,
-      type: json['@type'],
-      iscnId: json.iscn_id,
-      from: json.from,
-      newOwner: json.new_owner,
+      type: R.pathOr('', ['@type'], json),
+      iscnId: R.pathOr('', ['iscn_id'], json),
+      from: R.pathOr('', ['from'], json),
+      newOwner: R.pathOr('', ['new_owner'], json),
     };
   }
 }

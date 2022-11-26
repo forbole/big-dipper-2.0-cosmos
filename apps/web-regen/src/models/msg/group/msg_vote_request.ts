@@ -1,27 +1,28 @@
 import type { Categories } from '@/models/msg/types';
+import * as R from 'ramda';
 
 class MsgVoteRequest {
   public category: Categories;
 
   public type: string;
 
-  public json: any;
+  public json: object;
 
   public voter: string;
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'group';
-    this.json = payload.json;
-    this.type = payload.type;
-    this.voter = payload.voter;
+    this.json = R.pathOr({}, ['json'], payload);
+    this.type = R.pathOr('', ['type'], payload);
+    this.voter = R.pathOr('', ['voter'], payload);
   }
 
-  static fromJson(json: any): MsgVoteRequest {
+  static fromJson(json: object): MsgVoteRequest {
     return {
       category: 'group',
       json,
-      type: json['@type'],
-      voter: json.voter,
+      type: R.pathOr('', ['@type'], json),
+      voter: R.pathOr('', ['voter'], json),
     };
   }
 }

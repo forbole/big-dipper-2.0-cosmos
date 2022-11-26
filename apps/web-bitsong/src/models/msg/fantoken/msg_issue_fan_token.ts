@@ -6,7 +6,7 @@ class MsgIssueFanToken {
 
   public type: string;
 
-  public json: any;
+  public json: object;
 
   public owner: string;
 
@@ -14,22 +14,22 @@ class MsgIssueFanToken {
 
   public maxSupply: string;
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'fantoken';
-    this.type = payload.type;
-    this.json = payload.json;
-    this.owner = payload.owner;
-    this.name = payload.name;
-    this.maxSupply = payload.maxSupply;
+    this.type = R.pathOr('', ['type'], payload);
+    this.json = R.pathOr({}, ['json'], payload);
+    this.owner = R.pathOr('', ['owner'], payload);
+    this.name = R.pathOr('', ['name'], payload);
+    this.maxSupply = R.pathOr('', ['maxSupply'], payload);
   }
 
-  static fromJson(json: any): MsgIssueFanToken {
+  static fromJson(json: object): MsgIssueFanToken {
     return {
       category: 'fantoken',
       json,
-      type: json['@type'],
-      owner: json.owner,
-      name: json.name,
+      type: R.pathOr('', ['@type'], json),
+      owner: R.pathOr('', ['owner'], json),
+      name: R.pathOr('', ['name'], json),
       maxSupply: R.pathOr('', ['max_supply'], json),
     };
   }

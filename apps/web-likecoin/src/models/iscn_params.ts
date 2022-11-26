@@ -9,17 +9,17 @@ class IscnParams {
     amount: string;
   };
 
-  constructor(payload: any) {
-    this.registryName = payload.registryName;
-    this.feePerByte = payload.feePerByte;
+  constructor(payload: object) {
+    this.registryName = R.pathOr('', ['registryName'], payload);
+    this.feePerByte = R.pathOr({ denom: '', amount: '0' }, ['feePerByte'], payload);
   }
 
-  static fromJson(data: any): IscnParams {
+  static fromJson(data: object): IscnParams {
     return {
-      registryName: R.pathOr('', ['registry_name'], data),
+      registryName: data?.registry_name ?? '',
       feePerByte: {
-        amount: String(numeral(R.pathOr(0, ['fee_per_byte', 'amount'], data)).value() ?? ''),
-        denom: R.pathOr('', ['fee_per_byte', 'denom'], data),
+        amount: String(numeral(data?.fee_per_byte?.amount ?? 0).value() ?? ''),
+        denom: data?.fee_per_byte?.denom ?? '',
       },
     };
   }

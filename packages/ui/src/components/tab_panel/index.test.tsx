@@ -10,7 +10,7 @@ describe('component: TabPanel', () => {
   it('matches snapshot', () => {
     const component = renderer.create(
       <MockTheme>
-        <TabPanel index="1" value="2" />
+        <TabPanel index={1} value={2} />
       </MockTheme>
     );
     const tree = component?.toJSON();

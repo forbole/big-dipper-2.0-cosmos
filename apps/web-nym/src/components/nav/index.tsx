@@ -9,15 +9,10 @@ const Nav: React.FC<{
 }> = ({ title }) => {
   const classes = useStyles();
   const { isDesktop } = useScreenSize();
-  return (
-    <>
-      {isDesktop ? (
-        <Desktop className={classes.desktop} title={title ?? ''} />
-      ) : (
-        <Mobile className={classes.mobile} title={title ?? ''} />
-      )}
-    </>
-  );
+  if (isDesktop) {
+    return <Desktop className={classes.desktop} title={title ?? ''} />;
+  }
+  return <Mobile className={classes.mobile} title={title ?? ''} />;
 };
 
 export default Nav;

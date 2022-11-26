@@ -63,7 +63,7 @@ const Desktop: React.FC<{
             >
               {({ columnIndex, rowIndex, style }) => {
                 const { key, align } = columns[columnIndex];
-                const selectedItem = (rows as any)[rowIndex][key];
+                const selectedItem = rows[rowIndex][key];
                 return (
                   <div
                     style={style}

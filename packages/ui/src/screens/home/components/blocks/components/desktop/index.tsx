@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import classnames from 'classnames';
 import TableRow from '@material-ui/core/TableRow';
 import TableHead from '@material-ui/core/TableHead';
@@ -24,7 +24,7 @@ const Desktop: React.FC<{
   const { t } = useTranslation('blocks');
   const classes = useStyles();
 
-  const formattedData = items.map((x) => ({
+  const formattedData = items.map((x): { [key: string]: ReactNode } => ({
     height: (
       <Link href={BLOCK_DETAILS(x.height)} passHref>
         <Typography variant="body1" className="value" component="a">
@@ -33,7 +33,7 @@ const Desktop: React.FC<{
       </Link>
     ),
     txs: numeral(x.txs).format('0,0'),
-    time: (dayjs as any).utc(x.timestamp).fromNow(),
+    time: dayjs.utc(x.timestamp).fromNow(),
     proposer: (
       <AvatarName
         address={x.proposer.address}
@@ -60,7 +60,7 @@ const Desktop: React.FC<{
           </TableRow>
         </TableHead>
         <TableBody>
-          {formattedData.map((row: any, i) => (
+          {formattedData.map((row, i) => (
             <TableRow key={`${items[i].height}`}>
               {columns.map((column, index) => {
                 const { key, align } = column;

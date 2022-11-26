@@ -30,8 +30,8 @@ export const useStaking = () => {
             2
           ),
         });
-      } catch (error: any) {
-        console.error(error.message);
+      } catch (error) {
+        console.error((error as Error).message);
       }
     };
 

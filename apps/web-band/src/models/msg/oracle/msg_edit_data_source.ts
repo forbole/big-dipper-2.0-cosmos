@@ -6,7 +6,7 @@ class MsgEditDataSource {
 
   public type: string;
 
-  public json: any;
+  public json: object;
 
   public dataSourceId: number;
 
@@ -14,7 +14,7 @@ class MsgEditDataSource {
 
   public description: string;
 
-  public executable: JSON;
+  public executable: object;
 
   public fee: MsgCoin[];
 
@@ -24,36 +24,36 @@ class MsgEditDataSource {
 
   public sender: string;
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'oracle';
-    this.json = payload.json;
-    this.type = payload.type;
-    this.dataSourceId = payload.dataSourceId;
-    this.name = payload.name;
-    this.description = payload.description;
-    this.executable = payload.executable;
-    this.fee = payload.fee;
-    this.treasury = payload.treasury;
-    this.owner = payload.owner;
-    this.sender = payload.sender;
+    this.json = R.pathOr({}, ['json'], payload);
+    this.type = R.pathOr('', ['type'], payload);
+    this.dataSourceId = R.pathOr(0, ['dataSourceId'], payload);
+    this.name = R.pathOr('', ['name'], payload);
+    this.description = R.pathOr('', ['description'], payload);
+    this.executable = R.pathOr({}, ['executable'], payload);
+    this.fee = R.pathOr([], ['fee'], payload);
+    this.treasury = R.pathOr('', ['treasury'], payload);
+    this.owner = R.pathOr('', ['owner'], payload);
+    this.sender = R.pathOr('', ['sender'], payload);
   }
 
-  static fromJson(json: any): MsgEditDataSource {
+  static fromJson(json: object): MsgEditDataSource {
     return {
       category: 'oracle',
       json,
-      type: json['@type'],
+      type: R.pathOr('', ['@type'], json),
       dataSourceId: R.pathOr(0, ['data_source_id'], json),
-      name: json.name,
-      description: json.description,
-      executable: R.pathOr('', ['executable'], json) as unknown as JSON,
-      fee: R.pathOr<MsgCoin[]>([], ['fee'], json).map((x: any) => ({
+      name: R.pathOr('', ['name'], json),
+      description: R.pathOr('', ['description'], json),
+      executable: R.pathOr({}, ['executable'], json),
+      fee: R.pathOr<MsgEditDataSource['fee']>([], ['fee'], json).map((x) => ({
         denom: x.denom,
-        amount: R.pathOr('0', ['amount'], x),
+        amount: x?.amount ?? '0',
       })),
-      treasury: json.treasury,
-      owner: json.owner,
-      sender: json.sender,
+      treasury: R.pathOr('', ['treasury'], json),
+      owner: R.pathOr('', ['owner'], json),
+      sender: R.pathOr('', ['sender'], json),
     };
   }
 }

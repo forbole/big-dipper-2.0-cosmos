@@ -7,8 +7,8 @@ const Signers = (props: { signers: AvatarName[] }) => {
   const { signers } = props;
   return (
     <>
-      {signers.map((x: any, i) => {
-        const signerMoniker = x ? x?.name : x?.address;
+      {signers.map((x, i) => {
+        const signerMoniker = x?.name || x?.address;
         if (signers.length === 1) {
           return <Name address={x?.address} name={signerMoniker} />;
         }

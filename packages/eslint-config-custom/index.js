@@ -36,8 +36,6 @@ module.exports = {
     },
   },
   rules: {
-    /* https://typescript-eslint.io/rules/no-explicit-any/ */
-    '@typescript-eslint/no-explicit-any': 'off',
     /* https://typescript-eslint.io/rules/no-unused-vars/ */
     '@typescript-eslint/no-unused-vars': [
       'error',
@@ -62,8 +60,6 @@ module.exports = {
     /* https://eslint.org/docs/latest/rules/camelcase */
     /* prefer not to migrate existing code to use default exports for now */
     camelcase: 'off',
-    /* https://eslint.org/docs/latest/rules/no-bitwise */
-    'no-bitwise': 'off',
     /* https://eslint.org/docs/latest/rules/no-param-reassign */
     'no-param-reassign': 'off',
     /* https://eslint.org/docs/latest/rules/no-use-before-define */
@@ -112,14 +108,4 @@ module.exports = {
     jest: true,
     node: true,
   },
-  ignorePatterns: [
-    '**/node_modules/*',
-    '**/out/*',
-    '**/.next/*',
-    '**/dist/*',
-    '**/cypress/support/*',
-    '**/cypress/plugins/*',
-    '**/cypress/fixtures/*',
-    '**/src/graphql/*',
-  ],
 };

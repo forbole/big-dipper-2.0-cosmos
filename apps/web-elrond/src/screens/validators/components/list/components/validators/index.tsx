@@ -22,26 +22,22 @@ const Validators: React.FC<{ search: SearchType; items: ValidatorType[] } & Comp
 
   const items = sortItems(props.items);
 
-  return (
-    <>
-      {props.items.length ? (
-        <>
-          {isDesktop ? (
-            <Desktop
-              sortDirection={state.sortDirection}
-              sortKey={state.sortKey}
-              handleSort={handleSort}
-              items={items}
-            />
-          ) : (
-            <Mobile items={items} />
-          )}
-        </>
-      ) : (
-        <NoData />
-      )}
-    </>
-  );
+  if (!props.items.length) {
+    return <NoData />;
+  }
+
+  if (isDesktop) {
+    return (
+      <Desktop
+        sortDirection={state.sortDirection}
+        sortKey={state.sortKey}
+        handleSort={handleSort}
+        items={items}
+      />
+    );
+  }
+
+  return <Mobile items={items} />;
 };
 
 export default Validators;

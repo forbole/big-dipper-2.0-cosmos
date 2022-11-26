@@ -58,7 +58,7 @@ const Settings: React.FC<{
               <Select
                 variant="outlined"
                 value={state.theme}
-                onChange={(e) => handleChange('theme', e?.target?.value)}
+                onChange={(e) => handleChange('theme', (e?.target?.value as string) ?? '')}
                 MenuProps={{
                   MenuListProps: {
                     disablePadding: true,
@@ -78,7 +78,7 @@ const Settings: React.FC<{
               <Select
                 variant="outlined"
                 value={state.lang}
-                onChange={(e) => handleChange('lang', e?.target?.value)}
+                onChange={(e) => handleChange('lang', (e?.target?.value as string) ?? '')}
                 MenuProps={{
                   MenuListProps: {
                     disablePadding: true,
@@ -98,7 +98,7 @@ const Settings: React.FC<{
               <Select
                 variant="outlined"
                 value={state.dateFormat}
-                onChange={(e) => handleChange('dateFormat', e?.target?.value)}
+                onChange={(e) => handleChange('dateFormat', (e?.target?.value as string) ?? '')}
                 MenuProps={{
                   MenuListProps: {
                     disablePadding: true,
@@ -118,7 +118,7 @@ const Settings: React.FC<{
               <Select
                 variant="outlined"
                 value={state.txListFormat}
-                onChange={(e) => handleChange('txListFormat', e?.target?.value)}
+                onChange={(e) => handleChange('txListFormat', (e?.target?.value as string) ?? '')}
                 MenuProps={{
                   MenuListProps: {
                     disablePadding: true,

@@ -1,4 +1,5 @@
 import type { Categories } from '@/models/msg/types';
+import * as R from 'ramda';
 
 class MsgAcknowledgement {
   public category: Categories;
@@ -9,23 +10,23 @@ class MsgAcknowledgement {
 
   public sourceChannel: string;
 
-  public json: any;
+  public json: object;
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'ibc';
-    this.type = payload.type;
-    this.signer = payload.signer;
-    this.sourceChannel = payload.sourceChannel;
-    this.json = payload.json;
+    this.type = R.pathOr('', ['type'], payload);
+    this.signer = R.pathOr('', ['signer'], payload);
+    this.sourceChannel = R.pathOr('', ['sourceChannel'], payload);
+    this.json = R.pathOr({}, ['json'], payload);
   }
 
-  static fromJson(json: any): MsgAcknowledgement {
+  static fromJson(json: object): MsgAcknowledgement {
     return {
       category: 'ibc',
       json,
-      type: json['@type'],
-      signer: json.signer,
-      sourceChannel: json.packet?.source_channel,
+      type: R.pathOr('', ['@type'], json),
+      signer: R.pathOr('', ['signer'], json),
+      sourceChannel: R.pathOr('', ['packet', 'source_channel'], json),
     };
   }
 }

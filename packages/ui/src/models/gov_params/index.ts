@@ -2,10 +2,10 @@ import * as R from 'ramda';
 
 class GovParams {
   public depositParams: {
-    minDeposit: {
+    minDeposit: Array<{
       denom: string;
       amount: string;
-    }[];
+    }>;
     maxDepositPeriod: number;
   };
 
@@ -19,16 +19,37 @@ class GovParams {
     votingPeriod: number;
   };
 
-  constructor(payload: any) {
-    this.depositParams = payload.depositParams;
-    this.tallyParams = payload.tallyParams;
-    this.votingParams = payload.votingParams;
+  constructor(payload: object) {
+    this.depositParams = R.pathOr(
+      {
+        minDeposit: [],
+        maxDepositPeriod: 0,
+      },
+      ['depositParams'],
+      payload
+    );
+    this.tallyParams = R.pathOr(
+      {
+        quorum: '',
+        threshold: '',
+        vetoThreshold: '',
+      },
+      ['tallyParams'],
+      payload
+    );
+    this.votingParams = R.pathOr(
+      {
+        votingPeriod: 0,
+      },
+      ['votingParams'],
+      payload
+    );
   }
 
-  static fromJson(data: any): GovParams {
+  static fromJson(data: object): GovParams {
     return {
       depositParams: {
-        minDeposit: R.pathOr<Array<{ denom: string; amount: number }>>(
+        minDeposit: R.pathOr<GovParams['depositParams']['minDeposit']>(
           [],
           ['depositParams', 'min_deposit'],
           data
@@ -39,7 +60,7 @@ class GovParams {
         maxDepositPeriod: R.pathOr(0, ['depositParams', 'max_deposit_period'], data),
       },
       tallyParams: {
-        quorum: R.pathOr('0', ['tallyParams', 'quorum'], data),
+        quorum: R.pathOr('0', ['depositParams', 'quorum'], data),
         threshold: R.pathOr('0', ['tallyParams', 'threshold'], data),
         vetoThreshold: R.pathOr('0', ['tallyParams', 'veto_threshold'], data),
       },

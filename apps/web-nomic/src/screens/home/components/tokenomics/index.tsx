@@ -96,7 +96,7 @@ const Tokenomics: React.FC<{
         </PieChart>
 
         <div className={classes.legends}>
-          {data.map((x: any) => (
+          {data.map((x) => (
             <div className="legends__item" key={x.legendKey}>
               <Typography variant="caption">{t(x.legendKey)}</Typography>
             </div>

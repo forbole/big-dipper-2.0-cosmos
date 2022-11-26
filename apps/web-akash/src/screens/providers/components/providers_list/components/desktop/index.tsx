@@ -164,7 +164,7 @@ const Desktop: React.FC<{ list: ProviderInfo[] }> = ({ list }) => {
                 }
 
                 const { key, align } = columns[columnIndex];
-                const item = (itemsNew as any)[rowIndex][key];
+                const item = itemsNew[rowIndex][key];
                 return (
                   <div
                     style={style}

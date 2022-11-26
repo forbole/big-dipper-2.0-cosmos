@@ -6,23 +6,23 @@ class MsgSignDataRequest {
 
   public type: string;
 
-  public json: any;
+  public json: object;
 
   public signers: string[];
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'data';
-    this.json = payload.json;
-    this.type = payload.type;
-    this.signers = payload.signers;
+    this.json = R.pathOr({}, ['json'], payload);
+    this.type = R.pathOr('', ['type'], payload);
+    this.signers = R.pathOr([], ['signers'], payload);
   }
 
-  static fromJson(json: any): MsgSignDataRequest {
+  static fromJson(json: object): MsgSignDataRequest {
     return {
       category: 'data',
       json,
-      type: json['@type'],
-      signers: R.pathOr<string[]>([], ['signers'], json),
+      type: R.pathOr('', ['@type'], json),
+      signers: R.pathOr([], ['signers'], json),
     };
   }
 }

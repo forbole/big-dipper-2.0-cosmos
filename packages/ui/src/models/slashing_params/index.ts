@@ -11,15 +11,15 @@ class SlashingParams {
 
   public slashFractionDowntime: number;
 
-  constructor(payload: any) {
-    this.downtimeJailDuration = payload.downtimeJailDuration;
-    this.minSignedPerWindow = payload.minSignedPerWindow;
-    this.signedBlockWindow = payload.signedBlockWindow;
-    this.slashFractionDoubleSign = payload.slashFractionDoubleSign;
-    this.slashFractionDowntime = payload.slashFractionDowntime;
+  constructor(payload: object) {
+    this.downtimeJailDuration = R.pathOr(0, ['downtimeJailDuration'], payload);
+    this.minSignedPerWindow = R.pathOr(0, ['minSignedPerWindow'], payload);
+    this.signedBlockWindow = R.pathOr(0, ['signedBlockWindow'], payload);
+    this.slashFractionDoubleSign = R.pathOr(0, ['slashFractionDoubleSign'], payload);
+    this.slashFractionDowntime = R.pathOr(0, ['slashFractionDowntime'], payload);
   }
 
-  static fromJson(data: any): SlashingParams {
+  static fromJson(data: object): SlashingParams {
     return {
       downtimeJailDuration: R.pathOr(0, ['downtime_jail_duration'], data),
       minSignedPerWindow: R.pathOr(0, ['min_signed_per_window'], data),

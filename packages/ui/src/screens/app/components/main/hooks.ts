@@ -14,7 +14,7 @@ export const useTheme = () => {
 };
 
 export const useGenesis = () => {
-  const utcTimeNow = (dayjs as any).utc().format('YYYY-MM-DDTHH:mm:ss');
+  const utcTimeNow = dayjs.utc().format('YYYY-MM-DDTHH:mm:ss');
   const [genesisStarted, setGenesis] = useState(chainConfig.genesis.time < utcTimeNow);
 
   const startGenesis = () => {

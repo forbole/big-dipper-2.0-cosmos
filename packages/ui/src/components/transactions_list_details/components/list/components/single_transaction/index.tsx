@@ -12,7 +12,7 @@ const SingleTransaction: React.FC<{
   type: React.ReactNode;
   time: string;
   messageCount: string;
-  messages: any[];
+  messages: Array<{ type: JSX.Element; message: JSX.Element }>;
   result?: React.ReactNode;
 }> = ({ className, block, hash, type, time, messages, result, messageCount }) => {
   const { t } = useTranslation('transactions');
