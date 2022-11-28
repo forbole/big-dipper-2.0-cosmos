@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component: DesmosProfile matches snapshot 1`] = `
+<div
+  className="makeStyles-root makeStyles-root"
+>
+  <div
+    className="makeStyles-cover makeStyles-cover"
+  >
+    <div
+      className="cover"
+    />
+  </div>
+  <div
+    className="makeStyles-avatarContainer"
+  >
+    <div
+      className="makeStyles-avatar makeStyles-root"
+    >
+      <img
+        alt="address avatar"
+        className="makeStyles-img"
+        data-nimg="future"
+        decoding="async"
+        height={0}
+        loading="lazy"
+        onError={[Function]}
+        onLoad={[Function]}
+        src="testurl.com"
+        style={
+          {
+            "color": "transparent",
+          }
+        }
+        width={0}
+      />
+    </div>
+    <p
+      className="MuiTypography-root makeStyles-link MuiTypography-body1"
+      onClick={[Function]}
+      role="button"
+    >
+      connections
+    </p>
+  </div>
+  <div
+    className="makeStyles-nicknameWrapper"
+  >
+    <h2
+      className="MuiTypography-root MuiTypography-h2"
+    >
+      test_nickname
+    </h2>
+    <p
+      className="MuiTypography-root tag MuiTypography-body2"
+    >
+      @
+      test
+    </p>
+  </div>
+  <div>
+    <p
+      className="MuiTypography-root MuiTypography-body1"
+    >
+      test bio
+    </p>
+  </div>
+</div>
+`;

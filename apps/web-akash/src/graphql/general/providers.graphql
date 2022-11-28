@@ -1,0 +1,45 @@
+subscription ActiveProvidersListener {
+  activeProviders: akash_provider_inventory_aggregate(where: {active: {_eq: true}}) {
+    aggregate {
+      count
+    }
+  },
+},
+
+subscription ActiveLeasesListener {
+  activeLeases: akash_provider_inventory_aggregate(where: {active: {_eq: true}}) {
+    aggregate {
+      sum {
+        lease_count
+      }
+    }
+  },
+},
+
+subscription CPUMemoryStorageListener {
+  specs: akash_provider_inventory(where: {active: {_eq: true}}) {
+    active: active_inventory_sum,
+    available: available_inventory_sum,
+    pending: pending_inventory_sum,
+  }
+},
+
+query Providers {
+  list: akash_provider(order_by: {owner_address: asc}) {
+    attributes,
+    hostUri: host_uri,
+    info,
+    ownerAddress: owner_address,
+  },
+  total: akash_provider_aggregate {
+    aggregate {
+      count
+    }
+  }
+}
+
+
+
+
+  
+

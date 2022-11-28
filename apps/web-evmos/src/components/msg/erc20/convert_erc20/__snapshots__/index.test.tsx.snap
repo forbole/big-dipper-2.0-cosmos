@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: TransactionDetails/MsgConvertErc20 matches snapshot 1`] = `
+<p
+  className="MuiTypography-root MuiTypography-body1"
+>
+  <div
+    components={
+      [
+        <Unknown
+          address="evmos1s9waleajyy7hzdzpml3kvhakea0vfepkw7x8a2"
+          name="evmos1s9waleajyy7hzdzpml3kvhakea0vfepkw7x8a2"
+        />,
+        <b />,
+      ]
+    }
+    i18nKey="message_contents:MsgConvertErc20"
+    id="Trans"
+    values={
+      {
+        "amount": "33600atevmos",
+        "sender": "0x6B6A7D59f854d1d9F38881A6502f4970f96A0104",
+      }
+    }
+  />
+</p>
+`;

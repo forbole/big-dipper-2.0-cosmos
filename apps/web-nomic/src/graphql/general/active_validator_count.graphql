@@ -1,0 +1,12 @@
+query ActiveValidatorCount {
+  activeTotal: validator_status_aggregate(where: {in_active_set: {_eq: "true"}}) {
+    aggregate {
+      count
+    }
+  }
+  total: validator_status_aggregate {
+    aggregate {
+      count
+    }
+  }
+}

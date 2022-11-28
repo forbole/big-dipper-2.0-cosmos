@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: TransactionDetails/CreateGroupRequest matches snapshot 1`] = `
+<p
+  className="MuiTypography-root MuiTypography-body1"
+>
+  <div
+    components={
+      [
+        <Unknown
+          address="admin"
+          name="admin"
+        />,
+      ]
+    }
+    i18nKey="message_contents:MsgCreateGroupRequest"
+    id="Trans"
+  />
+</p>
+`;

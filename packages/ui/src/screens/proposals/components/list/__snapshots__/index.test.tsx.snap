@@ -1,0 +1,245 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Proposals/List matches snapshot 1`] = `
+<div
+  className="makeStyles-root"
+  id="Box"
+>
+  <div
+    className="makeStyles-topContent"
+  >
+    <div
+      className="makeStyles-total"
+      id="Total"
+      total="2"
+    />
+  </div>
+  <div
+    className="makeStyles-list"
+  >
+    <div
+      className="List"
+      onScroll={[Function]}
+      style={
+        {
+          "WebkitOverflowScrolling": "touch",
+          "direction": "ltr",
+          "height": 600,
+          "overflow": "auto",
+          "position": "relative",
+          "width": 600,
+          "willChange": "transform",
+        }
+      }
+    >
+      <div
+        style={
+          {
+            "height": 200,
+            "pointerEvents": undefined,
+            "width": "100%",
+          }
+        }
+      >
+        <div
+          style={
+            {
+              "height": 100,
+              "left": 0,
+              "position": "absolute",
+              "right": undefined,
+              "top": 0,
+              "width": "100%",
+            }
+          }
+        >
+          <div>
+            <div
+              className="makeStyles-root"
+            >
+              <div
+                className="makeStyles-header"
+              >
+                <h4
+                  className="MuiTypography-root makeStyles-id MuiTypography-h4"
+                >
+                  #3
+                </h4>
+                <span
+                  className="makeStyles-mobile"
+                >
+                  <div
+                    className="makeStyles-root makeStyles-four"
+                  >
+                    <p
+                      className="MuiTypography-root MuiTypography-body1"
+                    >
+                      passed
+                    </p>
+                  </div>
+                </span>
+              </div>
+              <div>
+                <div
+                  className="makeStyles-title"
+                >
+                  <a
+                    className="MuiTypography-root value MuiTypography-h3"
+                    href="/proposals/3"
+                    onClick={[Function]}
+                    onMouseEnter={[Function]}
+                    onTouchStart={[Function]}
+                  >
+                    Staking Param Change Part Three
+                  </a>
+                </div>
+                <p
+                  className="MuiTypography-root makeStyles-content MuiTypography-body2"
+                >
+                  Update max validators
+                </p>
+              </div>
+              <span
+                className="makeStyles-desktop"
+              >
+                <div
+                  className="makeStyles-root makeStyles-four"
+                >
+                  <p
+                    className="MuiTypography-root MuiTypography-body1"
+                  >
+                    passed
+                  </p>
+                </div>
+              </span>
+            </div>
+            <hr
+              className="MuiDivider-root"
+            />
+          </div>
+        </div>
+        <div
+          style={
+            {
+              "height": 100,
+              "left": 0,
+              "position": "absolute",
+              "right": undefined,
+              "top": 100,
+              "width": "100%",
+            }
+          }
+        >
+          <div>
+            <div
+              className="makeStyles-root"
+            >
+              <div
+                className="makeStyles-header"
+              >
+                <h4
+                  className="MuiTypography-root makeStyles-id MuiTypography-h4"
+                >
+                  #7
+                </h4>
+                <span
+                  className="makeStyles-mobile"
+                >
+                  <div
+                    className="makeStyles-root makeStyles-five"
+                  >
+                    <p
+                      className="MuiTypography-root MuiTypography-body1"
+                    >
+                      rejected
+                    </p>
+                  </div>
+                </span>
+              </div>
+              <div>
+                <div
+                  className="makeStyles-title"
+                >
+                  <a
+                    className="MuiTypography-root value MuiTypography-h3"
+                    href="/proposals/7"
+                    onClick={[Function]}
+                    onMouseEnter={[Function]}
+                    onTouchStart={[Function]}
+                  >
+                    Staking Param Change Part Two
+                  </a>
+                </div>
+                <p
+                  className="MuiTypography-root makeStyles-content MuiTypography-body2"
+                >
+                  Update max validators
+                </p>
+              </div>
+              <span
+                className="makeStyles-desktop"
+              >
+                <div
+                  className="makeStyles-root makeStyles-five"
+                >
+                  <p
+                    className="MuiTypography-root MuiTypography-body1"
+                  >
+                    rejected
+                  </p>
+                </div>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`screen: Proposals/List matches snapshot with empty proposal list 1`] = `
+<div
+  className="makeStyles-root"
+  id="Box"
+>
+  <div
+    className="makeStyles-topContent"
+  >
+    <div
+      className="makeStyles-total"
+      id="Total"
+      total="0"
+    />
+  </div>
+  <div
+    className="makeStyles-list"
+  >
+    <div
+      className="List"
+      onScroll={[Function]}
+      style={
+        {
+          "WebkitOverflowScrolling": "touch",
+          "direction": "ltr",
+          "height": 600,
+          "overflow": "auto",
+          "position": "relative",
+          "width": 600,
+          "willChange": "transform",
+        }
+      }
+    >
+      <div
+        style={
+          {
+            "height": 0,
+            "pointerEvents": undefined,
+            "width": "100%",
+          }
+        }
+      />
+    </div>
+  </div>
+</div>
+`;

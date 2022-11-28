@@ -1,0 +1,146 @@
+{
+  "chainName": "nomic",
+  "title": "Nomic Block Explorer",
+  "extra": {
+    "profile": true,
+    "graphqlWs": false
+  },
+  "previewImage": "https://s3.bigdipper.live/nomic.png",
+  "themes": {
+    "default": "dark",
+    "themeList": [
+      "dark",
+      "deuteranopia",
+      "tritanopia"
+    ],
+    "dark": {
+      "primary": {
+        "main": "#6000FF",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#000000",
+        "paper": "#1A1B1F"
+      },
+      "divider": "#707070",
+      "text": {
+        "primary": "#E6E6E6",
+        "secondary": "#C4C4C4"
+      },
+      "custom": {
+        "general": {
+          "background": "#000000",
+          "surfaceOne": "#1A1B1F",
+          "surfaceTwo": "#282828",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#E6E6E6",
+          "fontTwo": "#C4C4C4",
+          "fontThree": "#818181",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#0075FF"
+        },
+        "primaryData": {
+          "one": "#7D73C2",
+          "two": "#6A59DD",
+          "three": "#422FAF",
+          "four": "#2810B4"
+        },
+        "results": {
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "one": "#6366F1",
+          "two": "#F7931A",
+          "three": "#03B5AA"
+        },
+        "condition": {
+          "zero": "#E6E6E6",
+          "one": "#1EC490",
+          "two": "#FF9338",
+          "three": "#FF608A"
+        },
+        "charts": {
+          "zero": "#E8E8E8",
+          "one": "#8B5CF6",
+          "two": "#8B5CF6",
+          "three": "#ED254E",
+          "four": "#F7931A",
+          "five": "#FF608A"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA897",
+          "three": "#E79726",
+          "four": "#F17053",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9950",
+          "nine": "#B49F37",
+          "ten": "#E9A852",
+          "eleven": "#E94687",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        }
+      }
+    },
+    "light": {
+      "primary": {},
+      "background": {},
+      "text": {},
+      "custom": {
+        "general": {
+          "icon": "#999999"
+        },
+        "fonts": {},
+        "primaryData": {},
+        "results": {},
+        "tokenomics": {},
+        "condition": {},
+        "charts": {},
+        "tags": {}
+      }
+    }
+  },
+  "chains": [
+    {
+      "network": "nomic-stakenet-2",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "2022-07-04T00:00:00",
+        "height": 0
+      },
+      "prefix": {
+        "consensus": "nomicvalcons",
+        "validator": "nomicvaloper",
+        "account": "nomic"
+      },
+      "primaryTokenUnit": "usat",
+      "votingPowerTokenUnit": "usat",
+      "tokenUnits": {
+        "usat": {
+          "display": "sat",
+          "exponent": 8
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.nomic.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.nomic.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://gql.nomic.forbole.com/v1/graphql"
+      },
+      "marketing": {}
+    }
+  ]
+}

@@ -1,0 +1,176 @@
+{
+  "chainName": "akash",
+  "title": "Akash Block Explorer",
+  "extra": {
+    "profile": true,
+    "graphqlWs": true
+  },
+  "previewImage": "https://s3.bigdipper.live/akash.png",
+  "themes": {
+    "default": "dark",
+    "themeList": [
+      "dark",
+      "deuteranopia",
+      "tritanopia"
+    ],
+    "dark": {
+      "primary": {
+        "main": "#FF6557",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#000000",
+        "paper": "#171717"
+      },
+      "divider": "#282828",
+      "text": {
+        "primary": "#E6E6E6",
+        "secondary": "#C4C4C4"
+      },
+      "custom": {
+        "general": {
+          "background": "#000000",
+          "surfaceOne": "#171717",
+          "surfaceTwo": "#242424",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#E6E6E6",
+          "fontTwo": "#C4C4C4",
+          "fontThree": "#818181",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#379AFE"
+        },
+        "primaryData": {
+          "one": "#D84839",
+          "two": "#FE5834",
+          "three": "#B021F3",
+          "four": "#4C78EA"
+        },
+        "results": {
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "one": "#E46245",
+          "two": "#E3BB55",
+          "three": "#20D292"
+        },
+        "condition": {
+          "zero": "#E6E6E6",
+          "one": "#1EC490",
+          "two": "#FF9338",
+          "three": "#FF608A"
+        },
+        "charts": {
+          "zero": "#E6E6E6",
+          "one": "#5ACF78",
+          "two": "#5ACF78",
+          "three": "#D2463A",
+          "four": "#E46245",
+          "five": "#C25396"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA892",
+          "three": "#E79721",
+          "four": "#F17048",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9945",
+          "nine": "#B49F32",
+          "ten": "#E9A847",
+          "eleven": "#E94682",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        }
+      }
+    },
+    "light": {
+      "primary": {},
+      "background": {},
+      "text": {},
+      "custom": {
+        "general": {
+          "icon": "#999999"
+        },
+        "fonts": {},
+        "primaryData": {},
+        "results": {},
+        "tokenomics": {},
+        "condition": {},
+        "charts": {},
+        "tags": {}
+      }
+    }
+  },
+  "chains": [
+    {
+      "network": "akashnet-2",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "2021-03-08T15:00:00",
+        "height": 1
+      },
+      "prefix": {
+        "consensus": "akashvalcons",
+        "validator": "akashvaloper",
+        "account": "akash"
+      },
+      "primaryTokenUnit": "uakt",
+      "votingPowerTokenUnit": "uakt",
+      "tokenUnits": {
+        "uakt": {
+          "display": "akt",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.akash.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.akash.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc.akash.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "5"
+      }
+    },
+    {
+      "network": "akashnet-1",
+      "chainType": "Retired",
+      "genesis": {
+        "time": "",
+        "height": 0
+      },
+      "prefix": {
+        "consensus": "",
+        "validator": "",
+        "account": ""
+      },
+      "primaryTokenUnit": "",
+      "votingPowerTokenUnit": "",
+      "tokenUnits": {
+        "": {
+          "exponent": 0
+        }
+      },
+      "endpoints": {
+        "publicRpcWebsocket": "wss://akashnet-1.bigdipper.live/sockjs/148/5fvjwp4h/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "5"
+      }
+    }
+  ]
+}

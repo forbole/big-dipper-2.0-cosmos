@@ -1,0 +1,17 @@
+query OnlineVotingPower {
+  activeTotal: validator_status_aggregate(where: {in_active_set: {_eq: "true"}}) {
+    aggregate {
+      count
+    }
+  }
+  validatorVotingPowerAggregate: validator_voting_power_aggregate(where: {validator: {validator_status: {in_active_set: {_eq: "true"}}}}) {
+    aggregate {
+      sum {
+        votingPower: voting_power
+      }
+    }
+  }
+  stakingPool: staking_pool(order_by: {height: desc}, limit: 1) {
+    bonded: bonded_tokens
+  }
+}

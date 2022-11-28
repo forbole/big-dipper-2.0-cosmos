@@ -1,0 +1,146 @@
+{
+  "chainName": "regen",
+  "title": "Regen Network Block Explorer",
+  "extra": {
+    "profile": true,
+    "graphqlWs": false
+  },
+  "previewImage": "https://s3.bigdipper.live/regen.png",
+  "themes": {
+    "default": "light",
+    "themeList": [
+      "light",
+      "deuteranopia",
+      "tritanopia"
+    ],
+    "dark": {
+      "primary": {},
+      "background": {},
+      "text": {},
+      "custom": {
+        "general": {},
+        "fonts": {},
+        "primaryData": {},
+        "results": {},
+        "tokenomics": {},
+        "condition": {},
+        "charts": {},
+        "tags": {}
+      }
+    },
+    "light": {
+      "primary": {
+        "main": "#53B476",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#F8F8F8",
+        "paper": "#FFFFFF"
+      },
+      "divider": "#E8E8E8",
+      "text": {
+        "primary": "#000000",
+        "secondary": "#414141"
+      },
+      "custom": {
+        "general": {
+          "background": "#F8F8F8",
+          "surfaceOne": "#FFFFFF",
+          "surfaceTwo": "#F8F8F8"
+        },
+        "fonts": {
+          "fontOne": "#000000",
+          "fontTwo": "#414141",
+          "fontThree": "#777777",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#197CD8"
+        },
+        "primaryData": {
+          "one": "#53B577",
+          "two": "#1DAFB8",
+          "three": "#3BB39F",
+          "four": "#DFA431"
+        },
+        "results": {
+          "pass": "#53B577",
+          "fail": "#EF5562"
+        },
+        "tokenomics": {
+          "one": "#53B577",
+          "two": "#F2B235",
+          "three": "#ED7D5A"
+        },
+        "condition": {
+          "zero": "#D3D3D3",
+          "one": "#67B878",
+          "two": "#ED862E",
+          "three": "#EB5079"
+        },
+        "charts": {
+          "zero": "#D3D3D3",
+          "one": "#30A6E9",
+          "two": "#30A6E9",
+          "three": "#EB9E58",
+          "four": "#53B476",
+          "five": "#906CDE"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA891",
+          "three": "#E79720",
+          "four": "#F17047",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9944",
+          "nine": "#B49F31",
+          "ten": "#E9A846",
+          "eleven": "#E94681",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        }
+      }
+    }
+  },
+  "chains": [
+    {
+      "network": "regen-1",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "2021-04-15T15:00:00",
+        "height": 1
+      },
+      "prefix": {
+        "consensus": "regenvalcons",
+        "validator": "regenvaloper",
+        "account": "regen"
+      },
+      "primaryTokenUnit": "uregen",
+      "votingPowerTokenUnit": "uregen",
+      "tokenUnits": {
+        "uregen": {
+          "display": "regen",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.regen.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.regen.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc.regen.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "15"
+      }
+    }
+  ]
+}

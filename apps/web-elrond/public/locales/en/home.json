@@ -1,0 +1,18 @@
+{
+  "latestBlock": "Latest Block",
+  "transactions": "Transactions",
+  "price": "Price",
+  "nodes": "Nodes",
+  "latestBlocks": "Latest Blocks",
+  "latestTransactions": "Latest Transactions",
+  "seeMore": "See More",
+  "epoch": "Epoch",
+  "epochRoundsLeft": "{{rounds}} Rounds Left",
+  "stake": "Stake",
+  "staked": "Staked",
+  "notStaked": "Not Staked",
+  "stakedPercent": "Staked\n{{percent}}",
+  "notStakedPercent": "Not Staked\n{{percent}}",
+  "activeValidators": "Active Validators",
+  "outOfValidators": "out of {{count}} validators"
+}

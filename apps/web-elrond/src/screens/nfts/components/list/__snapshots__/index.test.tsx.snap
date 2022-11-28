@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Blocks/List matches snapshot 1`] = `
+<div
+  id="Box"
+>
+  <div
+    id="NoData"
+  />
+  <div
+    className="makeStyles-paginate"
+    handleChangePage={[Function]}
+    handleChangeRowsPerPage={[Function]}
+    id="Pagination"
+    page={0}
+    rowsPerPage={25}
+    total={0}
+  />
+</div>
+`;

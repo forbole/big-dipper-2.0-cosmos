@@ -1,28 +1,54 @@
 name: Test
 on:
   pull_request:
+concurrency: 
+  group: ${{ github.ref }}-test
+  cancel-in-progress: true
+env:
+  HUSKY: 0
+  TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
+  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+  NEXT_TELEMETRY_DISABLED: 1
+  ENV NODE_ENV: production
 jobs:
-  Lint:
+  lint:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+        cache: 'yarn'
     - name: Install modules
-      run: yarn install
+      run: corepack enable && yarn --immutable
     - name: Run lint check
-      run: yarn run lint
-  Unit-tests:
+      run: yarn lint:ci
+
+  test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+        cache: 'yarn'
     - name: Install modules
-      run: yarn install
+      run: corepack enable && yarn --immutable
     - name: Run tests
-      run: yarn test --coverage
-  Build-test:
+      run: yarn test:ci -- --coverage
+
+  build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+        cache: 'yarn'
     - name: Install modules
-      run: yarn install
+      run: corepack enable && yarn --immutable
     - name: Run build check
-      run: yarn run build
+      run: yarn build:ci

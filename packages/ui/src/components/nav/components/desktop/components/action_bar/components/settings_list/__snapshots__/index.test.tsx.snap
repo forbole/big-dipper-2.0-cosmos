@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Nav/SettingList it renders 1`] = `
+<div>
+  <div
+    aria-label="settings-button"
+    className="makeStyles-icon"
+    onClick={[Function]}
+    role="button"
+    tabIndex={0}
+  >
+    <svg />
+  </div>
+</div>
+`;

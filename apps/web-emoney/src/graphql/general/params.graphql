@@ -1,0 +1,28 @@
+query Params {
+  stakingParams: staking_params(limit: 1, order_by: { height: desc }) {
+    params
+  }
+  slashingParams: slashing_params(limit: 1, order_by: { height: desc }) {
+    params
+  }
+  mintParams: mint_params(limit: 1, order_by: { height: desc }) {
+    params
+  }
+  distributionParams: distribution_params(
+    limit: 1
+    order_by: { height: desc }
+  ) {
+    params
+  }
+  govParams: gov_params(limit: 1, order_by: { height: desc }) {
+    depositParams: deposit_params
+    tallyParams: tally_params
+    votingParams: voting_params
+  }
+  inflationRateParams: emoney_inflation(limit: 1, order_by: { height: desc }) {
+    inflation
+  }
+  gasPriceParams: emoney_gas_prices(limit: 1, order_by: { height: desc }) {
+    gas_prices
+  }
+}

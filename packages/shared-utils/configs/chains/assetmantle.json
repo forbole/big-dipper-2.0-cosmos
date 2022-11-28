@@ -1,0 +1,146 @@
+{
+  "chainName": "assetmantle",
+  "title": "AssetMantle Block Explorer",
+  "extra": {
+    "profile": true,
+    "graphqlWs": true
+  },
+  "previewImage": "https://s3.bigdipper.live/assetmantle.png",
+  "themes": {
+    "default": "dark",
+    "themeList": [
+      "dark",
+      "deuteranopia",
+      "tritanopia"
+    ],
+    "dark": {
+      "primary": {
+        "main": "#F3B211",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#000000",
+        "paper": "#1F1F1F"
+      },
+      "divider": "#494949",
+      "text": {
+        "primary": "#E6E6E6",
+        "secondary": "#C4C4C4"
+      },
+      "custom": {
+        "general": {
+          "background": "#000000",
+          "surfaceOne": "#1F1F1F",
+          "surfaceTwo": "#2C2C2C",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#E6E6E6",
+          "fontTwo": "#C4C4C4",
+          "fontThree": "#818181",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#0075FF"
+        },
+        "primaryData": {
+          "one": "#F3B211",
+          "two": "#C69006",
+          "three": "#B7B00A",
+          "four": "#C86002"
+        },
+        "results": {
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "one": "#F3B211",
+          "two": "#2665FF",
+          "three": "#12F3B3"
+        },
+        "condition": {
+          "zero": "#E8E8E8",
+          "one": "#1EC490",
+          "two": "#FF9338",
+          "three": "#FF608A"
+        },
+        "charts": {
+          "zero": "#E8E8E8",
+          "one": "#12F3B3",
+          "two": "#12F3B3",
+          "three": "#0D50E2",
+          "four": "#F26511",
+          "five": "#F312C2"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA897",
+          "three": "#E79726",
+          "four": "#F17053",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9950",
+          "nine": "#B49F37",
+          "ten": "#E9A852",
+          "eleven": "#E94687",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        }
+      }
+    },
+    "light": {
+      "primary": {},
+      "background": {},
+      "text": {},
+      "custom": {
+        "general": {
+          "icon": "#999999"
+        },
+        "fonts": {},
+        "primaryData": {},
+        "results": {},
+        "tokenomics": {},
+        "condition": {},
+        "charts": {},
+        "tags": {}
+      }
+    }
+  },
+  "chains": [
+    {
+      "network": "mantle-1",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "2022-07-12T02:34:54",
+        "height": 1
+      },
+      "prefix": {
+        "consensus": "mantlevalcons",
+        "validator": "mantlevaloper",
+        "account": "mantle"
+      },
+      "primaryTokenUnit": "umntl",
+      "votingPowerTokenUnit": "umntl",
+      "tokenUnits": {
+        "umntl": {
+          "display": "mntl",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.assetmantle.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.assetmantle.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc.assetmantle.forbole.com/websocket"
+      },
+      "marketing": {}
+    }
+  ]
+}

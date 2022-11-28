@@ -1,0 +1,204 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component: TransactionMessagesFilter it renders 1`] = `
+<div
+  IconComponent={
+    {
+      "$$typeof": Symbol(react.memo),
+      "compare": null,
+      "type": {
+        "$$typeof": Symbol(react.forward_ref),
+        "render": [Function],
+      },
+    }
+  }
+  MenuProps={
+    {
+      "anchorOrigin": {
+        "horizontal": "left",
+        "vertical": "bottom",
+      },
+      "getContentAnchorEl": null,
+      "transformOrigin": {
+        "horizontal": "left",
+        "vertical": "top",
+      },
+    }
+  }
+  className="makeStyles-select"
+  displayEmpty={true}
+  id="Select"
+  input={<Unknown />}
+  renderValue={[Function]}
+  value=""
+>
+  <div
+    className="makeStyles-item"
+    id="MenuItem"
+    onClick={[Function]}
+    value="none"
+  >
+    <div
+      id="Typography"
+      noWrap={true}
+      variant="body1"
+    >
+      none
+    </div>
+  </div>
+  <div
+    className="makeStyles-item"
+    id="MenuItem"
+    onClick={[Function]}
+    value="bank"
+  >
+    <div
+      id="Typography"
+      noWrap={true}
+      variant="body1"
+    >
+      bank
+    </div>
+  </div>
+  <div
+    className="makeStyles-item"
+    id="MenuItem"
+    onClick={[Function]}
+    value="crisis"
+  >
+    <div
+      id="Typography"
+      noWrap={true}
+      variant="body1"
+    >
+      crisis
+    </div>
+  </div>
+  <div
+    className="makeStyles-item"
+    id="MenuItem"
+    onClick={[Function]}
+    value="distribution"
+  >
+    <div
+      id="Typography"
+      noWrap={true}
+      variant="body1"
+    >
+      distribution
+    </div>
+  </div>
+  <div
+    className="makeStyles-item"
+    id="MenuItem"
+    onClick={[Function]}
+    value="governance"
+  >
+    <div
+      id="Typography"
+      noWrap={true}
+      variant="body1"
+    >
+      governance
+    </div>
+  </div>
+  <div
+    className="makeStyles-item"
+    id="MenuItem"
+    onClick={[Function]}
+    value="slashing"
+  >
+    <div
+      id="Typography"
+      noWrap={true}
+      variant="body1"
+    >
+      slashing
+    </div>
+  </div>
+  <div
+    className="makeStyles-item"
+    id="MenuItem"
+    onClick={[Function]}
+    value="staking"
+  >
+    <div
+      id="Typography"
+      noWrap={true}
+      variant="body1"
+    >
+      staking
+    </div>
+  </div>
+  <div
+    className="makeStyles-item"
+    id="MenuItem"
+    onClick={[Function]}
+    value="authz"
+  >
+    <div
+      id="Typography"
+      noWrap={true}
+      variant="body1"
+    >
+      authz
+    </div>
+  </div>
+  <div
+    className="makeStyles-item"
+    id="MenuItem"
+    onClick={[Function]}
+    value="feegrant"
+  >
+    <div
+      id="Typography"
+      noWrap={true}
+      variant="body1"
+    >
+      feegrant
+    </div>
+  </div>
+  <div
+    className="makeStyles-item"
+    id="MenuItem"
+    onClick={[Function]}
+    value="vesting"
+  >
+    <div
+      id="Typography"
+      noWrap={true}
+      variant="body1"
+    >
+      vesting
+    </div>
+  </div>
+  <div
+    className="makeStyles-item"
+    id="MenuItem"
+    onClick={[Function]}
+    value="profiles"
+  >
+    <div
+      id="Typography"
+      noWrap={true}
+      variant="body1"
+    >
+      profiles
+    </div>
+  </div>
+  <div
+    className="makeStyles-item"
+    id="MenuItem"
+    onClick={[Function]}
+    value="others"
+  >
+    <div
+      id="Typography"
+      noWrap={true}
+      variant="body1"
+    >
+      others
+    </div>
+  </div>
+</div>
+`;

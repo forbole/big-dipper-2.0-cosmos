@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: TransactionDetails/ExecRequest matches snapshot 1`] = `
+<p
+  className="MuiTypography-root MuiTypography-body1"
+>
+  <div
+    components={
+      [
+        <Unknown
+          address="signer"
+          name="signer"
+        />,
+      ]
+    }
+    i18nKey="message_contents:MsgExecRequest"
+    id="Trans"
+  />
+</p>
+`;

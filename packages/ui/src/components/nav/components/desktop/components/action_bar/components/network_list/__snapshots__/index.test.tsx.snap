@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Nav/NetworkList it renders 1`] = `
+<div
+  className="makeStyles-root makeStyles-root"
+>
+  <div
+    style={
+      {
+        "height": 30,
+      }
+    }
+  >
+    <svg />
+  </div>
+  <Networks
+    className="makeStyles-content"
+  />
+</div>
+`;

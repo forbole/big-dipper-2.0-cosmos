@@ -1,0 +1,146 @@
+{
+  "chainName": "osmosis",
+  "title": "Osmosis Block Explorer",
+  "extra": {
+    "profile": true,
+    "graphqlWs": false
+  },
+  "previewImage": "https://s3.bigdipper.live/osmosis.png",
+  "themes": {
+    "default": "dark",
+    "themeList": [
+      "dark",
+      "deuteranopia",
+      "tritanopia"
+    ],
+    "dark": {
+      "primary": {
+        "main": "#DC7BFC",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#0E0826",
+        "paper": "#1B173A"
+      },
+      "divider": "#262058",
+      "text": {
+        "primary": "#E6E6E6",
+        "secondary": "#C4C4C4"
+      },
+      "custom": {
+        "general": {
+          "background": "#0E0826",
+          "surfaceOne": "#1B173A",
+          "surfaceTwo": "#160F32",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#E6E6E6",
+          "fontTwo": "#C4C4C4",
+          "fontThree": "#818181",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#56B4E9"
+        },
+        "primaryData": {
+          "one": "#9D35FF",
+          "two": "#F372DB",
+          "three": "#36B9AB",
+          "four": "#4EABF0"
+        },
+        "results": {
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "one": "#2E9CED",
+          "two": "#E3AB55",
+          "three": "#5ACF78"
+        },
+        "condition": {
+          "zero": "#E8E8E8",
+          "one": "#1EC490",
+          "two": "#FF961B",
+          "three": "#FC6A8A"
+        },
+        "charts": {
+          "zero": "#E6E6E6",
+          "one": "#5E94FF",
+          "two": "#5E94FF",
+          "three": "#5ACF78",
+          "four": "#497BFF",
+          "five": "#C25396"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA897",
+          "three": "#E79726",
+          "four": "#F17053",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9950",
+          "nine": "#B49F37",
+          "ten": "#E9A852",
+          "eleven": "#E94687",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        }
+      }
+    },
+    "light": {
+      "primary": {},
+      "background": {},
+      "text": {},
+      "custom": {
+        "general": {
+          "icon": "#999999"
+        },
+        "fonts": {},
+        "primaryData": {},
+        "results": {},
+        "tokenomics": {},
+        "condition": {},
+        "charts": {},
+        "tags": {}
+      }
+    }
+  },
+  "chains": [
+    {
+      "network": "osmosis-1",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "2021-06-18T17:00:00",
+        "height": 1
+      },
+      "prefix": {
+        "consensus": "osmovalcons",
+        "validator": "osmovaloper",
+        "account": "osmo"
+      },
+      "primaryTokenUnit": "uosmo",
+      "votingPowerTokenUnit": "uosmo",
+      "tokenUnits": {
+        "uosmo": {
+          "display": "osmo",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.osmosis.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.osmosis.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc.osmosis.forbole.com/websocket"
+      },
+      "marketing": {}
+    }
+  ]
+}

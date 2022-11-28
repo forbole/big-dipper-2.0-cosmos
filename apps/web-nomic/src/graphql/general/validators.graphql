@@ -1,0 +1,21 @@
+query Validators {
+  stakingPool: staking_pool(limit: 1, order_by: {height: desc}) {
+    bondedTokens: bonded_tokens
+  }
+  validator {
+    consensusAddress: consensus_address
+    selfDelegateAddress: self_delegate_address
+    validatorStatuses: validator_status  {
+      in_active_set
+      jailed
+      tombstoned
+      height
+    }
+    validatorVotingPowers: validator_voting_powers(offset: 0, limit: 1, order_by: {height: desc}) {
+      votingPower: voting_power
+    }
+    validatorCommissions: validator_commissions(order_by: {height: desc}, limit: 1) {
+      commission
+    }
+  }
+}

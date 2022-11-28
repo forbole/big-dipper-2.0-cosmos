@@ -1,0 +1,10 @@
+subscription TokenPriceListener($denom: String) {
+  tokenPrice: token_price(where: {unit_name: {_eq: $denom}}) {
+    id
+    price
+    timestamp
+    marketCap: market_cap
+    unitName: unit_name
+  }
+}
+

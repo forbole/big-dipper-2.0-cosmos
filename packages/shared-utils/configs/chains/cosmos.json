@@ -1,0 +1,354 @@
+{
+  "chainName": "cosmos",
+  "title": "Cosmos Hub Block Explorer",
+  "extra": {
+    "profile": true,
+    "graphqlWs": true
+  },
+  "previewImage": "https://s3.bigdipper.live/cosmoshub.png",
+  "themes": {
+    "default": "dark",
+    "themeList": [
+      "dark",
+      "light",
+      "deuteranopia",
+      "tritanopia"
+    ],
+    "dark": {
+      "primary": {
+        "main": "#6B9EFF",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#020202",
+        "paper": "#191B26"
+      },
+      "divider": "#363A51",
+      "text": {
+        "primary": "#E6E6E6",
+        "secondary": "#C4C4C4"
+      },
+      "custom": {
+        "general": {
+          "background": "#020202",
+          "surfaceOne": "#191B26",
+          "surfaceTwo": "#282A36",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#E6E6E6",
+          "fontTwo": "#C4C4C4",
+          "fontThree": "#818181",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#6AA6FF"
+        },
+        "primaryData": {
+          "one": "#AE73F8",
+          "two": "#6B9EFF",
+          "three": "#5ACF78",
+          "four": "#E3AB55"
+        },
+        "results": {
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "one": "#5E94FF",
+          "two": "#E3AB55",
+          "three": "#5ACF78"
+        },
+        "condition": {
+          "zero": "#E8E8E8",
+          "one": "#1EC490",
+          "two": "#FF961B",
+          "three": "#FC6A8A"
+        },
+        "charts": {
+          "zero": "#E8E8E8",
+          "one": "#5ACF78",
+          "two": "#5ACF78",
+          "three": "#AE73F8",
+          "four": "#5E94FF",
+          "five": "#C25396"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA891",
+          "three": "#E79720",
+          "four": "#F17047",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9944",
+          "nine": "#B49F31",
+          "ten": "#E9A846",
+          "eleven": "#E94681",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        }
+      }
+    },
+    "light": {
+      "primary": {
+        "main": "#6B9EFF",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#F7F7FF",
+        "paper": "#FFFFFF"
+      },
+      "divider": "#707070",
+      "text": {
+        "primary": "#000000",
+        "secondary": "#414141"
+      },
+      "custom": {
+        "general": {
+          "background": "#F7F7FF",
+          "surfaceOne": "#FFFFFF",
+          "surfaceTwo": "#EFEFEF",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#000000",
+          "fontTwo": "#414141",
+          "fontThree": "#777777",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#6AA6FF"
+        },
+        "primaryData": {
+          "one": "#AE73F8",
+          "two": "#6B9EFF",
+          "three": "#5ACF78",
+          "four": "#E3AB55"
+        },
+        "results": {
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "one": "#5E94FF",
+          "two": "#E3AB55",
+          "three": "#5ACF78"
+        },
+        "condition": {
+          "zero": "#E8E8E8",
+          "one": "#1EC490",
+          "two": "#FF961B",
+          "three": "#FC6A8A"
+        },
+        "charts": {
+          "zero": "#E8E8E8",
+          "one": "#5ACF78",
+          "two": "#5ACF78",
+          "three": "#AE73F8",
+          "four": "#5E94FF",
+          "five": "#C25396"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA891",
+          "three": "#E79720",
+          "four": "#F17047",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9944",
+          "nine": "#B49F31",
+          "ten": "#E9A846",
+          "eleven": "#E94681",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        }
+      }
+    }
+  },
+  "chains": [
+    {
+      "network": "cosmoshub-4",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "2019-12-11T16:11:34",
+        "height": 5200791
+      },
+      "prefix": {
+        "consensus": "cosmosvalcons",
+        "validator": "cosmosvaloper",
+        "account": "cosmos"
+      },
+      "primaryTokenUnit": "uatom",
+      "votingPowerTokenUnit": "uatom",
+      "tokenUnits": {
+        "uatom": {
+          "display": "atom",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.cosmos.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.cosmos.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc.cosmoshub.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "4"
+      }
+    },
+    {
+      "network": "theta-testnet-001",
+      "chainType": "Testnet",
+      "genesis": {
+        "time": "2019-12-11T16:11:34",
+        "height": 9034670
+      },
+      "prefix": {
+        "consensus": "cosmosvalcons",
+        "validator": "cosmosvaloper",
+        "account": "cosmos"
+      },
+      "primaryTokenUnit": "uatom",
+      "votingPowerTokenUnit": "uatom",
+      "tokenUnits": {
+        "uatom": {
+          "display": "atom",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql-testnet.cosmos.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql-testnet.cosmos.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc-testnet.cosmos.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "4"
+      }
+    },
+    {
+      "network": "stargate-final",
+      "chainType": "Testnet",
+      "genesis": {
+        "time": "",
+        "height": 0
+      },
+      "prefix": {
+        "consensus": "",
+        "validator": "",
+        "account": ""
+      },
+      "primaryTokenUnit": "",
+      "votingPowerTokenUnit": "",
+      "tokenUnits": {
+        "": {
+          "exponent": 0
+        }
+      },
+      "endpoints": {
+        "publicRpcWebsocket": "wss://gaia.bigdipper.live/sockjs/580/arrnnrzd/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "4"
+      }
+    },
+    {
+      "network": "cosmoshub-3",
+      "chainType": "Retired",
+      "genesis": {
+        "time": "",
+        "height": 0
+      },
+      "prefix": {
+        "consensus": "",
+        "validator": "",
+        "account": ""
+      },
+      "primaryTokenUnit": "",
+      "votingPowerTokenUnit": "",
+      "tokenUnits": {
+        "": {
+          "exponent": 0
+        }
+      },
+      "endpoints": {
+        "publicRpcWebsocket": "wss://cosmoshub-3.bigdipper.live/sockjs/902/2yvx74io/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "4"
+      }
+    },
+    {
+      "network": "cosmoshub-2",
+      "chainType": "Retired",
+      "genesis": {
+        "time": "",
+        "height": 0
+      },
+      "prefix": {
+        "consensus": "",
+        "validator": "",
+        "account": ""
+      },
+      "primaryTokenUnit": "",
+      "votingPowerTokenUnit": "",
+      "tokenUnits": {
+        "": {
+          "exponent": 0
+        }
+      },
+      "endpoints": {
+        "publicRpcWebsocket": "wss://cosmoshub-2.bigdipper.live/sockjs/383/tbt49zsw/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "4"
+      }
+    },
+    {
+      "network": "cosmoshub-1",
+      "chainType": "Retired",
+      "genesis": {
+        "time": "",
+        "height": 0
+      },
+      "prefix": {
+        "consensus": "",
+        "validator": "",
+        "account": ""
+      },
+      "primaryTokenUnit": "",
+      "votingPowerTokenUnit": "",
+      "tokenUnits": {
+        "": {
+          "exponent": 0
+        }
+      },
+      "endpoints": {
+        "publicRpcWebsocket": "wss://cosmoshub-1.bigdipper.live/sockjs/795/sieku_si/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "4"
+      }
+    }
+  ]
+}

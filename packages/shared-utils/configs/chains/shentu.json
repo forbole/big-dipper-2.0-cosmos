@@ -1,0 +1,146 @@
+{
+  "chainName": "shentu",
+  "title": "Shentu Block Explorer",
+  "extra": {
+    "profile": true,
+    "graphqlWs": true
+  },
+  "previewImage": "https://s3.bigdipper.live/shentu.png",
+  "themes": {
+    "default": "light",
+    "themeList": [
+      "light",
+      "deuteranopia",
+      "tritanopia"
+    ],
+    "dark": {
+      "primary": {},
+      "background": {},
+      "text": {},
+      "custom": {
+        "general": {},
+        "fonts": {},
+        "primaryData": {},
+        "results": {},
+        "tokenomics": {},
+        "condition": {},
+        "charts": {},
+        "tags": {}
+      }
+    },
+    "light": {
+      "primary": {
+        "main": "#E1AB4C",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#F8F8F8",
+        "paper": "#FFFFFF"
+      },
+      "divider": "#E8E8E8",
+      "text": {
+        "primary": "#000000",
+        "secondary": "#414141"
+      },
+      "custom": {
+        "general": {
+          "background": "#F8F8F8",
+          "surfaceOne": "#FFFFFF",
+          "surfaceTwo": "#F9F9F9"
+        },
+        "fonts": {
+          "fontOne": "#000000",
+          "fontTwo": "#414141",
+          "fontThree": "#777777",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#0075FF"
+        },
+        "primaryData": {
+          "one": "#E7BD74",
+          "two": "#4D6380",
+          "three": "#354559",
+          "four": "#354559"
+        },
+        "results": {
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "one": "#E1AB4C",
+          "two": "#93B2A5",
+          "three": "#EC674C"
+        },
+        "condition": {
+          "zero": "#E6E6E6",
+          "one": "#1EC490",
+          "two": "#FF9338",
+          "three": "#FF608A"
+        },
+        "charts": {
+          "zero": "#E6E6E6",
+          "one": "#5494E4",
+          "two": "#5494E4",
+          "three": "#CE4C4C",
+          "four": "#E1AB4C",
+          "five": "#7E74BB"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA891",
+          "three": "#E79720",
+          "four": "#F17047",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9944",
+          "nine": "#B49F31",
+          "ten": "#E9A846",
+          "eleven": "#E94681",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        }
+      }
+    }
+  },
+  "chains": [
+    {
+      "network": "shentu-2.2",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "2020-10-24T14:24:00",
+        "height": 4602989
+      },
+      "prefix": {
+        "consensus": "certikvalcons",
+        "validator": "certikvaloper",
+        "account": "certik"
+      },
+      "primaryTokenUnit": "uctk",
+      "votingPowerTokenUnit": "uctk",
+      "tokenUnits": {
+        "uctk": {
+          "display": "ctk",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.certik.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.certik.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc.certik.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "27"
+      }
+    }
+  ]
+}

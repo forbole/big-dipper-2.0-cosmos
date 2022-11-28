@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: TransactionDetails/AnchorDataRequest matches snapshot 1`] = `
+<p
+  className="MuiTypography-root MuiTypography-body1"
+>
+  <div
+    components={
+      [
+        <Unknown
+          address="sender"
+          name="sender"
+        />,
+      ]
+    }
+    i18nKey="message_contents:MsgAnchorDataRequest"
+    id="Trans"
+  />
+</p>
+`;

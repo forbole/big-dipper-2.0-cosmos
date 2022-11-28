@@ -1,0 +1,149 @@
+{
+  "chainName": "persistence",
+  "title": "Persistence Block Explorer",
+  "extra": {
+    "profile": true,
+    "graphqlWs": true
+  },
+  "previewImage": "https://s3.bigdipper.live/persistence.pngg",
+  "themes": {
+    "default": "dark",
+    "themeList": [
+      "dark",
+      "deuteranopia",
+      "tritanopia"
+    ],
+    "dark": {
+      "primary": {
+        "main": "#FF3D47",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#000000",
+        "paper": "#1F1F1F"
+      },
+      "divider": "#504949",
+      "text": {
+        "primary": "#E6E6E6",
+        "secondary": "#C4C4C4"
+      },
+      "custom": {
+        "general": {
+          "background": "#000000",
+          "surfaceOne": "#1F1F1F",
+          "surfaceTwo": "#363636",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#E6E6E6",
+          "fontTwo": "#C4C4C4",
+          "fontThree": "#818181",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#0075FF"
+        },
+        "primaryData": {
+          "one": "#FF3D47",
+          "two": "#CD4A49",
+          "three": "#883434",
+          "four": "#451918"
+        },
+        "results": {
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "one": "#FF3D47",
+          "two": "#3DC8FF",
+          "three": "#A8FF3D"
+        },
+        "condition": {
+          "zero": "#E8E8E8",
+          "one": "#1EC490",
+          "two": "#FF9338",
+          "three": "#FF608A"
+        },
+        "charts": {
+          "zero": "#E8E8E8",
+          "one": "#31F6AB",
+          "two": "#31F6AB",
+          "three": "#313BF6",
+          "four": "#FF5D00",
+          "five": "#F631BF"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA897",
+          "three": "#E79726",
+          "four": "#F17053",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9950",
+          "nine": "#B49F37",
+          "ten": "#E9A852",
+          "eleven": "#E94687",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        }
+      }
+    },
+    "light": {
+      "primary": {},
+      "background": {},
+      "text": {},
+      "custom": {
+        "general": {
+          "icon": "#999999"
+        },
+        "fonts": {},
+        "primaryData": {},
+        "results": {},
+        "tokenomics": {},
+        "condition": {},
+        "charts": {},
+        "tags": {}
+      }
+    }
+  },
+  "chains": [
+    {
+      "network": "core-1",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "2021-03-30T12:08:46",
+        "height": 1
+      },
+      "prefix": {
+        "consensus": "persistencevalcons",
+        "validator": "persistencevaloper",
+        "account": "persistence"
+      },
+      "primaryTokenUnit": "uxprt",
+      "votingPowerTokenUnit": "uxprt",
+      "tokenUnits": {
+        "uxprt": {
+          "display": "xprt",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.persistence.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.persistence.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc.persistence.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "30"
+      }
+    }
+  ]
+}

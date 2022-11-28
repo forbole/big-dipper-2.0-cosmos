@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: TransactionDetails/CreatePool matches snapshot 1`] = `
+<p
+  className="MuiTypography-root MuiTypography-body1"
+>
+  <div
+    components={
+      [
+        <Unknown
+          address="signer"
+          name="signer"
+        />,
+        <b />,
+      ]
+    }
+    i18nKey="message_contents:MsgCreatePool"
+    id="Trans"
+    values={
+      {
+        "externalAssetAmount": "0 BAR",
+        "nativeAssetAmount": "0.000000000004 ROWAN",
+      }
+    }
+  />
+</p>
+`;

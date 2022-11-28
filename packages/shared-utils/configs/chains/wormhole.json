@@ -1,0 +1,47 @@
+{
+  "chainName": "wormhole",
+  "title": "Wormhole Block Explorer",
+  "extra": {
+    "profile": false,
+    "graphqlWs": false
+  },
+  "previewImage": "https://s3.bigdipper.live/wormhole.png",
+  "themes": {
+    "default": "",
+    "themeList": [
+      "deuteranopia",
+      "tritanopia"
+    ],
+    "dark": {
+      "primary": {},
+      "background": {},
+      "text": {},
+      "custom": {
+        "general": {},
+        "fonts": {},
+        "primaryData": {},
+        "results": {},
+        "tokenomics": {},
+        "condition": {},
+        "charts": {},
+        "tags": {}
+      }
+    },
+    "light": {
+      "primary": {},
+      "background": {},
+      "text": {},
+      "custom": {
+        "general": {},
+        "fonts": {},
+        "primaryData": {},
+        "results": {},
+        "tokenomics": {},
+        "condition": {},
+        "charts": {},
+        "tags": {}
+      }
+    }
+  },
+  "chains": []
+}

@@ -1,0 +1,61 @@
+{
+  "extends": "tsconfig/nextjs.json",
+  "compilerOptions": {
+    "rootDir": "../..",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*", "../../packages/ui/src/*"],
+      "@/public/*": ["public/*"],
+      "ui/*": ["../../packages/ui/src/*"]
+    }
+  },
+  "include": [
+    "*.d.ts",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "../../packages/ui/*.d.ts",
+    "../../packages/ui/src/**/*.ts",
+    "../../packages/ui/src/**/*.tsx"
+  ],
+  "exclude": [
+    "dist",
+    "build",
+    "node_modules",
+    "../../packages/ui/**/*.test.tsx",
+    "../../packages/ui/src/components/liquid_staking_explanation/index.tsx",
+    "../../packages/ui/src/components/liquid_staking_explanation/styles.ts",
+    "../../packages/ui/src/graphql/general/validator_details_documents.ts",
+    "../../packages/ui/src/graphql/types/general_types.ts",
+    "../../packages/ui/src/pages/404.tsx",
+    "../../packages/ui/src/pages/[dtag].tsx",
+    "../../packages/ui/src/pages/_app.tsx",
+    "../../packages/ui/src/pages/_document.tsx",
+    "../../packages/ui/src/pages/_error.tsx",
+    "../../packages/ui/src/pages/account/[address].tsx",
+    "../../packages/ui/src/pages/accounts/[address].tsx",
+    "../../packages/ui/src/pages/blocks/[height].tsx",
+    "../../packages/ui/src/pages/blocks/index.tsx",
+    "../../packages/ui/src/pages/index.tsx",
+    "../../packages/ui/src/pages/params/index.tsx",
+    "../../packages/ui/src/pages/proposals/[id].tsx",
+    "../../packages/ui/src/pages/proposals/index.tsx",
+    "../../packages/ui/src/pages/transaction/[tx].tsx",
+    "../../packages/ui/src/pages/transactions/[tx].tsx",
+    "../../packages/ui/src/pages/transactions/index.tsx",
+    "../../packages/ui/src/pages/validator/[address].tsx",
+    "../../packages/ui/src/pages/validators/[address].tsx",
+    "../../packages/ui/src/pages/validators/index.tsx",
+    "../../packages/ui/src/recoil/market/hooks.ts",
+    "../../packages/ui/src/screens/validator_details/components/validator_overview/index.tsx",
+    "../../packages/ui/src/screens/validator_details/components/validator_overview/styles.ts",
+    "../../packages/ui/src/screens/validator_details/hooks.ts",
+    "../../packages/ui/src/screens/validator_details/types.ts",
+    "../../packages/ui/src/screens/validators/components/list/components/desktop/index.tsx",
+    "../../packages/ui/src/screens/validators/components/list/components/desktop/utils.tsx",
+    "../../packages/ui/src/screens/validators/components/list/components/mobile/component/single_validator/index.tsx",
+    "../../packages/ui/src/screens/validators/components/list/components/mobile/index.tsx",
+    "../../packages/ui/src/screens/validators/components/list/hooks.ts",
+    "../../packages/ui/src/screens/validators/components/list/types.ts",
+    "../../packages/ui/src/utils/get_current_inflation.ts"
+  ]
+}

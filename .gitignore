@@ -1,43 +1,52 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
-/.pnp
-.pnp.js
+node_modules/
+
+# next.js generates its own .tsbuildinfo at .next/cache
+**/.tsbuildinfo
+.eslintcache
 
 # testing
-/coverage
+coverage/
 
 # next.js
-/.next/
-/out/
-
-# production
-/build
-/dist
+.next/
+out/
+build/
+dist/
+.swc/
 
 # misc
 .DS_Store
 *.pem
 
 # debug
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+.pnpm-debug.log*
 
 # local env files
 .env
 .env.*
 !.env.sample
 
+# turbo
+.turbo/
+
 # vercel
-.vercel
+.vercel/
 
 
 test.js
 
 # Sentry
 .sentryclirc
+
+# WebStorm
+.idea/
 
 # Yarn Berry
 .pnp.*
@@ -47,3 +56,9 @@ test.js
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+.turbo/
+
+# Playwright
+test-results/
+playwright-report/
+playwright/.cache/
