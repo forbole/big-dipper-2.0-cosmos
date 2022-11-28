@@ -38,7 +38,7 @@ const Banner: FC<Props> = ({ index = Math.floor(Math.random() * 2) }) => {
 
   return (
     <Box className={classes.root}>
-      <Link href={banner.url}>
+      <Link href={banner.url} target="_blank" rel="noreferrer">
         <Image src={banner.image} alt="banner" />
       </Link>
     </Box>
