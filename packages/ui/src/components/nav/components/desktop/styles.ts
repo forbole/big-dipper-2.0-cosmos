@@ -18,28 +18,30 @@ const styles = makeStyles((theme) => {
       },
     },
     appBar: {
-      ...theme.mixins.toolbar,
-      display: 'flex',
-      alignItems: 'flex-end',
-      justifyContent: 'flex-start',
-      background: theme?.palette?.background?.default,
-      color: theme?.palette?.custom?.fonts?.fontTwo ?? 'inherit',
-      width: `calc(100% - ${CLOSED_DRAWER_WIDTH}px)`,
-      zIndex: theme.zIndex.drawer + 1,
-      transition: theme.transitions.create(['width', 'margin'], {
-        easing: theme.transitions.easing.easeIn,
-        duration: theme.transitions.duration.enteringScreen,
-      }),
-      '&.MuiPaper-elevation4': {
-        boxShadow: 'none',
-      },
-      '&.open': {
-        marginLeft: OPEN_DRAWER_WIDTH,
-        width: `calc(100% - ${OPEN_DRAWER_WIDTH}px)`,
+      '&&': {
+        ...theme.mixins.toolbar,
+        display: 'flex',
+        alignItems: 'flex-end',
+        justifyContent: 'flex-start',
+        background: theme?.palette?.background?.default,
+        color: theme?.palette?.custom?.fonts?.fontTwo ?? 'inherit',
+        width: `calc(100% - ${CLOSED_DRAWER_WIDTH}px)`,
+        zIndex: theme.zIndex.drawer + 1,
         transition: theme.transitions.create(['width', 'margin'], {
           easing: theme.transitions.easing.easeIn,
           duration: theme.transitions.duration.enteringScreen,
         }),
+        '&.MuiPaper-elevation4': {
+          boxShadow: 'none',
+        },
+        '&.open': {
+          marginLeft: OPEN_DRAWER_WIDTH,
+          width: `calc(100% - ${OPEN_DRAWER_WIDTH}px)`,
+          transition: theme.transitions.create(['width', 'margin'], {
+            easing: theme.transitions.easing.easeIn,
+            duration: theme.transitions.duration.enteringScreen,
+          }),
+        },
       },
     },
     drawer: {

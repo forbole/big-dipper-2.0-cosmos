@@ -30,7 +30,7 @@ const Blocks = () => {
 
   let box: ReactNode;
 
-  if (state.items.length) {
+  if (!state.items.length) {
     box = <NoData />;
   } else if (isDesktop) {
     box = (
