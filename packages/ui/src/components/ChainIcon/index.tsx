@@ -6,13 +6,13 @@ import agoricIconLight from 'shared-utils/assets/icons/agoric-light.svg?url';
 import akashIconDark from 'shared-utils/assets/icons/akash-dark.svg?url';
 import assetmantleIconDark from 'shared-utils/assets/icons/assetmantle-dark.svg?url';
 import bandIconDark from 'shared-utils/assets/icons/band-dark.svg?url';
+import baseIconLight from 'shared-utils/assets/icons/base-light.svg?url';
 import bitsongIconDark from 'shared-utils/assets/icons/bitsong-dark.svg?url';
 import comdexIconDark from 'shared-utils/assets/icons/comdex-dark.svg?url';
 import comdexIconLight from 'shared-utils/assets/icons/comdex-light.svg?url';
 import cosmosIconLight from 'shared-utils/assets/icons/cosmosHub-light.svg?url';
 import crescentIconDark from 'shared-utils/assets/icons/crescent-dark.svg?url';
 import cryptoorgIconLight from 'shared-utils/assets/icons/cryptoorgChain-light.svg?url';
-import desmosIconLight from 'shared-utils/assets/icons/desmos-light.svg?url';
 import elrondIconLight from 'shared-utils/assets/icons/elrond-light.svg?url';
 import emoneyIconDark from 'shared-utils/assets/icons/emoney-dark.svg?url';
 import evmosIconLight from 'shared-utils/assets/icons/evmos-light.svg?url';
@@ -37,12 +37,12 @@ import agoricLogoLight from 'shared-utils/assets/logos/agoric-light.png';
 import akashLogoDark from 'shared-utils/assets/logos/akash-dark.svg?url';
 import assetmantleLogoDark from 'shared-utils/assets/logos/assetmantle-dark.svg?url';
 import bandLogoDark from 'shared-utils/assets/logos/band-dark.svg?url';
+import baseLogoLight from 'shared-utils/assets/logos/base-light.svg?url';
 import bitsongLogoDark from 'shared-utils/assets/logos/bitsong-dark.svg?url';
 import comdexLogoDark from 'shared-utils/assets/logos/comdex-dark.svg?url';
 import cosmosLogoDark from 'shared-utils/assets/logos/cosmos-dark.svg?url';
 import cosmosLogoLight from 'shared-utils/assets/logos/cosmos-light.svg?url';
 import crescentLogoDark from 'shared-utils/assets/logos/crescent-dark.svg?url';
-import desmosLogoLight from 'shared-utils/assets/logos/desmos-light.svg?url';
 import elrondLogoLight from 'shared-utils/assets/logos/elrond-light.svg?url';
 import emoneyLogoDark from 'shared-utils/assets/logos/emoney-dark.svg?url';
 import evmosLogoLight from 'shared-utils/assets/logos/evmos-light.svg?url';
@@ -71,7 +71,7 @@ const ChainIcon = ({ className, type, ...props }: IconProps) => {
   const { chainName } = chainCoing;
 
   let [iconDark, iconLight] =
-    type === 'icon' ? [desmosIconLight, desmosIconLight] : [desmosLogoLight, desmosLogoLight];
+    type === 'icon' ? [baseIconLight, baseIconLight] : [baseLogoLight, baseLogoLight];
   switch (chainName) {
     case 'agoric':
       [iconDark, iconLight] =
