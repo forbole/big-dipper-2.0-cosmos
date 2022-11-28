@@ -17,6 +17,30 @@ exports[`component: Layout it renders 1`] = `
         className="makeStyles-appBarPlaceholder"
       />
       <div
+        className="makeStyles-root makeStyles-root"
+      >
+        <img
+          alt="banner"
+          data-nimg="future"
+          decoding="async"
+          height={24}
+          loading="lazy"
+          onClick={[Function]}
+          onError={[Function]}
+          onLoad={[Function]}
+          onMouseEnter={[Function]}
+          onTouchStart={[Function]}
+          src="/_next/image?url=%2Fimg.jpg&w=48&q=75"
+          srcSet="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=48&q=75 2x"
+          style={
+            {
+              "color": "transparent",
+            }
+          }
+          width={24}
+        />
+      </div>
+      <div
         className="main-content"
       >
         <div>

@@ -23,7 +23,7 @@ const bannerLinks = [
  * @property {number} index - The index of the item in the list.
  */
 type Props = {
-  index: number;
+  index?: number;
 };
 
 /**
