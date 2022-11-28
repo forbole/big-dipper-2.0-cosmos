@@ -1,7 +1,7 @@
-import React from 'react';
-import classnames from 'classnames';
-import Typography from '@material-ui/core/Typography';
 import { useStyles } from '@/screens/validators/components/list/components/voting_power/styles';
+import Typography from '@material-ui/core/Typography';
+import classnames from 'classnames';
+import React from 'react';
 
 const VotingPower: React.FC<{
   className?: string;

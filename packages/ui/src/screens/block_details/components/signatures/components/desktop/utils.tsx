@@ -1,5 +1,5 @@
 import AvatarName from '@/components/avatar_name';
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 
 export const columns: {
   key: string;

@@ -1,7 +1,6 @@
-import React from 'react';
+import { useStyles } from '@/components/nav/components/networks/components/single_network/styles';
 import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
-import { useStyles } from '@/components/nav/components/networks/components/single_network/styles';
 
 const SingleNetwork = (props: {
   url: string;

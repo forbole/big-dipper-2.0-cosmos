@@ -1,20 +1,20 @@
-import React from 'react';
-import classnames from 'classnames';
-import AutoSizer from 'react-virtualized-auto-sizer';
-import Link from 'next/link';
-import { VariableSizeGrid as Grid } from 'react-window';
-import Typography from '@material-ui/core/Typography';
-import useTranslation from 'next-translate/useTranslation';
 import Loading from '@/components/loading';
 import { useGrid } from '@/hooks';
+import { useStyles } from '@/screens/providers/components/providers_list/components/desktop/styles';
+import { columns } from '@/screens/providers/components/providers_list/components/desktop/utils';
+import type { ProviderInfo } from '@/screens/providers/types';
+import { useAddress } from '@/utils/copy_to_clipboard';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
+import Typography from '@material-ui/core/Typography';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
+import Link from 'next/link';
+import React, { ReactNode } from 'react';
+import AutoSizer from 'react-virtualized-auto-sizer';
+import { VariableSizeGrid as Grid } from 'react-window';
+import CopyIcon from 'shared-utils/assets/icon-copy.svg';
 import EmailIcon from 'shared-utils/assets/icon-email.svg';
 import WebArrowIcon from 'shared-utils/assets/icon-web-arrow.svg';
-import CopyIcon from 'shared-utils/assets/icon-copy.svg';
-import { useAddress } from '@/utils/copy_to_clipboard';
-import type { ProviderInfo } from '@/screens/providers/types';
-import { columns } from '@/screens/providers/components/providers_list/components/desktop/utils';
-import { useStyles } from '@/screens/providers/components/providers_list/components/desktop/styles';
 
 const Desktop: React.FC<{ list: ProviderInfo[] }> = ({ list }) => {
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
@@ -28,7 +28,7 @@ const Desktop: React.FC<{ list: ProviderInfo[] }> = ({ list }) => {
   const itemCount = list.length;
   const isItemLoaded = (index: number) => index >= 0 && index < itemCount;
 
-  const itemsNew = list.map((eachProvider) => ({
+  const itemsNew = list.map((eachProvider): { [key: string]: ReactNode } => ({
     ownerAddress: (
       <>
         <Typography variant="body1" component="a">

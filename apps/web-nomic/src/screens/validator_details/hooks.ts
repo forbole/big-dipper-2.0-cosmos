@@ -1,13 +1,13 @@
-import { useCallback, useEffect, useState } from 'react';
-import * as R from 'ramda';
-import { useRouter } from 'next/router';
-import { formatToken } from '@/utils/format_token';
+import chainConfig from '@/chainConfig';
 import { useValidatorDetailsQuery, ValidatorDetailsQuery } from '@/graphql/types/general_types';
 import { useDesmosProfile } from '@/hooks';
 import { validatorToDelegatorAddress } from '@/recoil/profiles';
-import chainConfig from '@/chainConfig';
-import { isValidAddress } from '@/utils/prefix_convert';
 import type { ValidatorDetailsState } from '@/screens/validator_details/types';
+import { formatToken } from '@/utils/format_token';
+import { isValidAddress } from '@/utils/prefix_convert';
+import { useRouter } from 'next/router';
+import * as R from 'ramda';
+import { useCallback, useEffect, useState } from 'react';
 
 const initialTokenDenom: TokenUnit = {
   value: '0',
@@ -96,7 +96,7 @@ export const useValidatorDetails = () => {
 };
 
 function formatAccountQuery(data: ValidatorDetailsQuery) {
-  const stateChange = {
+  const stateChange: Partial<ValidatorDetailsState> = {
     loading: false,
   };
 
@@ -109,14 +109,17 @@ function formatAccountQuery(data: ValidatorDetailsQuery) {
   // overview
   // ============================
   const formatOverview = () => {
-    const operatorAddress = data?.validator?.[0]?.validatorInfo?.operatorAddress ?? '';
-    const selfDelegateAddress = data?.validator?.[0]?.validatorInfo?.selfDelegateAddress ?? '';
+    // const operatorAddress = data?.validator?.[0]?.validatorInfo?.operatorAddress ?? '';
+    const operatorAddress = '';
+    // const selfDelegateAddress = data?.validator?.[0]?.validatorInfo?.selfDelegateAddress ?? '';
+    const selfDelegateAddress = '';
     const profile = {
       validator: operatorAddress,
       operatorAddress,
       selfDelegateAddress,
       description: data.validator[0]?.validatorDescriptions?.[0]?.details ?? '',
-      website: data.validator[0]?.validatorDescriptions?.[0]?.website ?? '',
+      // website: data.validator[0]?.validatorDescriptions?.[0]?.website ?? '',
+      website: '',
     };
 
     return profile;
@@ -130,10 +133,14 @@ function formatAccountQuery(data: ValidatorDetailsQuery) {
   const formatStatus = () => {
     const profile = {
       inActiveSet: data.validator[0]?.validatorStatuses?.in_active_set ?? 'false',
-      jailed: data.validator[0]?.validatorStatuses?.[0]?.jailed ?? 'false',
-      tombstoned: data.validator[0]?.validatorSigningInfos?.[0]?.tombstoned ?? 'false',
-      commission: data.validator[0]?.validatorCommissions?.[0]?.commission ?? 0,
-      maxRate: data?.validator?.[0]?.validatorInfo?.maxRate ?? '0',
+      jailed: data.validator[0]?.validatorStatuses?.jailed ?? 'false',
+      // tombstoned: data.validator[0]?.validatorSigningInfos?.[0]?.tombstoned
+      tombstoned: 'false',
+      commission: parseFloat(data.validator[0]?.validatorCommissions?.[0]?.commission) ?? 0,
+      // maxRate: data?.validator?.[0]?.validatorInfo?.maxRate ?? '0',
+      signedBlockWindow: 0,
+      missedBlockCounter: 0,
+      maxRate: '0',
     };
 
     return profile;

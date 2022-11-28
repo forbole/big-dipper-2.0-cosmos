@@ -1,18 +1,18 @@
-import { ComponentProps, useCallback, useState } from 'react';
-import Big from 'big.js';
-import * as R from 'ramda';
-import numeral from 'numeral';
-import { useValidatorsQuery, ValidatorsQuery } from '@/graphql/types/general_types';
-import { getValidatorCondition } from '@/utils/get_validator_condition';
-import { formatToken } from '@/utils/format_token';
-import { SlashingParams } from '@/models';
 import chainConfig from '@/chainConfig';
+import { useValidatorsQuery, ValidatorsQuery } from '@/graphql/types/general_types';
+import { SlashingParams } from '@/models';
 import type {
-  ValidatorsState,
   ItemType,
+  ValidatorsState,
   ValidatorType,
 } from '@/screens/validators/components/list/types';
+import { formatToken } from '@/utils/format_token';
+import { getValidatorCondition } from '@/utils/get_validator_condition';
 import Tabs from '@material-ui/core/Tabs';
+import Big from 'big.js';
+import numeral from 'numeral';
+import * as R from 'ramda';
+import { ComponentProps, useCallback, useState } from 'react';
 
 export const useValidators = () => {
   const [search, setSearch] = useState('');
@@ -165,18 +165,18 @@ export const useValidators = () => {
 
       if (state.sortKey && state.sortDirection) {
         sorted.sort((a, b) => {
-          let compareA = R.pathOr<string | undefined>(undefined, [...state.sortKey.split('.')], a);
-          let compareB = R.pathOr<string | undefined>(undefined, [...state.sortKey.split('.')], b);
+          let compareA = R.pathOr('', [...state.sortKey.split('.')], a);
+          let compareB = R.pathOr('', [...state.sortKey.split('.')], b);
 
           if (typeof compareA === 'string' && typeof compareB === 'string') {
             compareA = compareA.toLowerCase();
             compareB = compareB.toLowerCase();
           }
 
-          if ((compareA ?? '') < (compareB ?? '')) {
+          if (compareA < compareB) {
             return state.sortDirection === 'asc' ? -1 : 1;
           }
-          if ((compareA ?? '') > (compareB ?? '')) {
+          if (compareA > compareB) {
             return state.sortDirection === 'asc' ? 1 : -1;
           }
           return 0;

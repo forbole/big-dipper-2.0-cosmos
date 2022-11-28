@@ -1,8 +1,7 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme } from '@/tests/utils';
-import MsgVoteRequest from '@/models/msg/group/msg_vote_request';
 import VoteRequest from '@/components/msg/group/vote_request';
+import MsgVoteRequest from '@/models/msg/group/msg_vote_request';
+import { MockTheme } from '@/tests/utils';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

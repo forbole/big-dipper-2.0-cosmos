@@ -1,5 +1,5 @@
-import * as R from 'ramda';
 import numeral from 'numeral';
+import * as R from 'ramda';
 
 class IscnParams {
   public registryName: string;
@@ -16,10 +16,10 @@ class IscnParams {
 
   static fromJson(data: object): IscnParams {
     return {
-      registryName: data?.registry_name ?? '',
+      registryName: R.pathOr('', ['registry_name'], data),
       feePerByte: {
-        amount: String(numeral(data?.fee_per_byte?.amount ?? 0).value() ?? ''),
-        denom: data?.fee_per_byte?.denom ?? '',
+        amount: String(numeral(R.pathOr('0', ['fee_per_byte', 'amount'], data)).value() ?? ''),
+        denom: R.pathOr('', ['fee_per_byte', 'denom'], data),
       },
     };
   }

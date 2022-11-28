@@ -1,8 +1,8 @@
-import { useCallback, useState } from 'react';
-import * as R from 'ramda';
-import { useRouter } from 'next/router';
-import { useProposalDetailsQuery, ProposalDetailsQuery } from '@/graphql/types/general_types';
+import { ProposalDetailsQuery, useProposalDetailsQuery } from '@/graphql/types/general_types';
 import type { ProposalState } from '@/screens/proposal_details/types';
+import { useRouter } from 'next/router';
+import * as R from 'ramda';
+import { useCallback, useState } from 'react';
 
 export const useProposalDetails = () => {
   const router = useRouter();
@@ -35,7 +35,7 @@ export const useProposalDetails = () => {
   // ==========================
   useProposalDetailsQuery({
     variables: {
-      proposalId: parseInt((router?.query?.id as string) ?? '', 10),
+      proposalId: parseFloat((router?.query?.id as string) ?? '0'),
     },
     onCompleted: (data) => {
       handleSetState(formatProposalQuery(data));

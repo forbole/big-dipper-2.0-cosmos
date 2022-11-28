@@ -1,6 +1,6 @@
-import React, { ComponentProps, FC } from 'react';
 import Pagination from '@/components/pagination';
 import { useStyles } from '@/screens/proposal_details/components/votes/components/paginate/styles';
+import { ComponentProps, FC } from 'react';
 
 type Props = Pick<
   ComponentProps<typeof Pagination>,

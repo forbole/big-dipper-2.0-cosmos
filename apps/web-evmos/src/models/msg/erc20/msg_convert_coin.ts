@@ -1,5 +1,5 @@
-import * as R from 'ramda';
 import type { Categories } from '@/models/msg/types';
+import * as R from 'ramda';
 
 // ConvertCoin mints a ERC20 representation of the SDK Coin denom that is
 // registered on the token mapping.

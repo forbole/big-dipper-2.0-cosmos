@@ -1,16 +1,16 @@
-import React from 'react';
-import * as R from 'ramda';
-import dynamic from 'next/dynamic';
-import classnames from 'classnames';
-import { usePagination, useScreenSize } from '@/hooks';
-import Pagination from '@/components/pagination';
-import NoData from '@/components/no_data';
 import Loading from '@/components/loading';
+import NoData from '@/components/no_data';
+import Pagination from '@/components/pagination';
+import { usePagination, useScreenSize } from '@/hooks';
 import { useProfilesRecoil } from '@/recoil/profiles';
-import type { UnbondingsType } from '@/screens/account_details/components/staking/types';
-import { useStyles } from '@/screens/account_details/components/staking/components/unbondings/styles';
 import type DesktopType from '@/screens/account_details/components/staking/components/unbondings/components/desktop';
 import type MobileType from '@/screens/account_details/components/staking/components/unbondings/components/mobile';
+import { useStyles } from '@/screens/account_details/components/staking/components/unbondings/styles';
+import type { UnbondingsType } from '@/screens/account_details/components/staking/types';
+import classnames from 'classnames';
+import dynamic from 'next/dynamic';
+import * as R from 'ramda';
+import React from 'react';
 
 const Desktop = dynamic(
   () =>

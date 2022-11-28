@@ -7,7 +7,11 @@ import { formatToken } from '@/utils/format_token';
 import chainConfig from '@/chainConfig';
 import { isValidAddress } from '@/utils/prefix_convert';
 import { useDesmosProfile } from '@/hooks';
-import type { AccountDetailState } from '@/screens/account_details/types';
+import type {
+  AccountDetailState,
+  BalanceType,
+  OtherTokenType,
+} from '@/screens/account_details/types';
 import {
   fetchAvailableBalances,
   fetchDelegationBalance,
@@ -109,8 +113,25 @@ export const useAccountDetails = () => {
     // ==========================
     // Format Data
     // ==========================
-    const formatAllBalance = (data) => {
-      const stateChange = {
+    const formatAllBalance = (data: {
+      delegationRewards?: Array<{
+        coins: Array<MsgCoin>;
+        validatorAddress?: string;
+      }>;
+      accountBalances?: {
+        coins: Array<MsgCoin>;
+      };
+      delegationBalance?: {
+        coins: Array<MsgCoin>;
+      };
+      unbondingBalance?: {
+        coins: Array<MsgCoin>;
+      };
+      commission?: {
+        coins: Array<MsgCoin>;
+      };
+    }) => {
+      const stateChange: Partial<AccountDetailState> = {
         loading: false,
       };
 
@@ -134,13 +155,19 @@ export const useAccountDetails = () => {
           .plus(delegateAmount.value)
           .toFixed(chainConfig.tokenUnits[chainConfig.primaryTokenUnit].exponent);
 
-        const balance = {
+        const balance: BalanceType = {
           available: availableAmount,
           total: {
             value: total,
             displayDenom: availableAmount.displayDenom,
             baseDenom: availableAmount.baseDenom,
             exponent: availableAmount.exponent,
+          },
+          delegate: {
+            value: delegateAmount.value,
+            displayDenom: delegateAmount.displayDenom,
+            baseDenom: delegateAmount.baseDenom,
+            exponent: delegateAmount.exponent,
           },
         };
 
@@ -155,7 +182,7 @@ export const useAccountDetails = () => {
       const formatOtherTokens = () => {
         // Loop through balance and delegation to figure out what the other tokens are
         const otherTokenUnits = new Set<string>();
-        const otherTokens: unknown[] = [];
+        const otherTokens: OtherTokenType[] = [];
         // available tokens
         const available = data?.accountBalances?.coins ?? [];
 
@@ -173,6 +200,8 @@ export const useAccountDetails = () => {
           otherTokens.push({
             denom: chainConfig?.tokenUnits?.x?.display ?? x,
             available: availableAmount,
+            reward: defaultTokenUnit,
+            commission: defaultTokenUnit,
           });
         });
 

@@ -1,15 +1,15 @@
-import { useState } from 'react';
-import numeral from 'numeral';
+import chainConfig from '@/chainConfig';
 import {
-  useLatestBlockHeightListenerSubscription,
-  useAverageBlockTimeQuery,
+  ActiveValidatorCountQuery,
   AverageBlockTimeQuery,
-  useTokenPriceListenerSubscription,
   TokenPriceListenerSubscription,
   useActiveValidatorCountQuery,
-  ActiveValidatorCountQuery,
+  useAverageBlockTimeQuery,
+  useLatestBlockHeightListenerSubscription,
+  useTokenPriceListenerSubscription,
 } from '@/graphql/types/general_types';
-import chainConfig from '@/chainConfig';
+import numeral from 'numeral';
+import { useState } from 'react';
 
 export const useDataBlocks = () => {
   const [state, setState] = useState<{

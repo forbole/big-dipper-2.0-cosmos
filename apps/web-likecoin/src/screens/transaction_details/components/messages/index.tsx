@@ -1,4 +1,8 @@
+import Box from '@/components/box';
 import { getMessageByType } from '@/components/msg/utils';
+import TransactionMessagesFilter from '@/components/transaction_messages_filter';
+import { useList, useListRow } from '@/hooks';
+import { useStyles } from '@/screens/transaction_details/components/messages/styles';
 import Divider from '@material-ui/core/Divider';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
@@ -8,10 +12,6 @@ import useTranslation from 'next-translate/useTranslation';
 import React, { FC } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
-import Box from '@/components/box';
-import TransactionMessagesFilter from '@/components/transaction_messages_filter';
-import { useList, useListRow } from '@/hooks';
-import { useStyles } from '@/screens/transaction_details/components/messages/styles';
 
 const Messages: FC<{
   className?: string;

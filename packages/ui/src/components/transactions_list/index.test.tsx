@@ -1,7 +1,7 @@
-import React, { ComponentProps } from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme } from '@/tests/utils';
 import TransactionsList from '@/components/transactions_list';
+import { MockTheme } from '@/tests/utils';
+import { ComponentProps } from 'react';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // global setup

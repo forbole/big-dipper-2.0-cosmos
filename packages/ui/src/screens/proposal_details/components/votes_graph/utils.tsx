@@ -1,8 +1,8 @@
-import * as R from 'ramda';
-import Big from 'big.js';
+import type { VotesType } from '@/screens/proposal_details/components/votes_graph/types';
 import { formatNumber } from '@/utils/format_token';
 import { ThemeOptions } from '@material-ui/core/styles';
-import type { VotesType } from '@/screens/proposal_details/components/votes_graph/types';
+import Big from 'big.js';
+import * as R from 'ramda';
 
 type FormatGraphType = {
   data: VotesType;

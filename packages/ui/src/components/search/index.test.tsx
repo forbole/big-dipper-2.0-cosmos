@@ -1,7 +1,6 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme } from '@/tests/utils';
 import Search from '@/components/search';
+import { MockTheme } from '@/tests/utils';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // global setup

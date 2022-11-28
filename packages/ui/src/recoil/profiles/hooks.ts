@@ -1,17 +1,17 @@
-import { useEffect } from 'react';
-import { useRecoilValue, useRecoilCallback } from 'recoil';
 import chainConfig from '@/chainConfig';
-import type { AtomState as ProfileAtomState } from '@/recoil/profiles/types';
 import {
-  writeProfile,
-  readProfilesExist,
-  readProfileExist,
-  readProfile,
-  readProfiles,
   readDelegatorAddress,
   readDelegatorAddresses,
+  readProfile,
+  readProfileExist,
+  readProfiles,
+  readProfilesExist,
+  writeProfile,
 } from '@/recoil/profiles/selectors';
+import type { AtomState as ProfileAtomState } from '@/recoil/profiles/types';
 import { getProfile } from '@/recoil/profiles/utils';
+import { useEffect } from 'react';
+import { useRecoilCallback, useRecoilValue } from 'recoil';
 
 /**
  * Accepts a delegator address and returns the appropriate profile

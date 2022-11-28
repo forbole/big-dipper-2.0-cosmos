@@ -1,22 +1,22 @@
-import React, { ReactNode } from 'react';
-import classnames from 'classnames';
-import numeral from 'numeral';
-import dayjs from '@/utils/dayjs';
-import Link from 'next/link';
-import { BLOCK_DETAILS } from '@/utils/go_to_page';
-import AutoSizer from 'react-virtualized-auto-sizer';
-import InfiniteLoader from 'react-window-infinite-loader';
-import useTranslation from 'next-translate/useTranslation';
-import Typography from '@material-ui/core/Typography';
-import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
-import { VariableSizeGrid as Grid } from 'react-window';
-import Loading from '@/components/loading';
 import AvatarName from '@/components/avatar_name';
+import Loading from '@/components/loading';
 import { useGrid } from '@/hooks';
-import { mergeRefs } from '@/utils/merge_refs';
-import type { ItemType } from '@/screens/blocks/types';
 import { useStyles } from '@/screens/blocks/components/desktop/styles';
 import { columns } from '@/screens/blocks/components/desktop/utils';
+import type { ItemType } from '@/screens/blocks/types';
+import dayjs from '@/utils/dayjs';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
+import { BLOCK_DETAILS } from '@/utils/go_to_page';
+import { mergeRefs } from '@/utils/merge_refs';
+import Typography from '@material-ui/core/Typography';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
+import Link from 'next/link';
+import numeral from 'numeral';
+import React, { ReactNode } from 'react';
+import AutoSizer from 'react-virtualized-auto-sizer';
+import { VariableSizeGrid as Grid } from 'react-window';
+import InfiniteLoader from 'react-window-infinite-loader';
 
 const Desktop: React.FC<{
   className?: string;

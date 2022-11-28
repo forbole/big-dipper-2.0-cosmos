@@ -1,9 +1,9 @@
-import { useCallback, useEffect, useState } from 'react';
-import * as R from 'ramda';
-import axios from 'axios';
-import { POLLING_INTERVAL, LATEST_BLOCK_HEIGHT, TRANSACTIONS_COUNT, STAKE } from '@/api';
+import { LATEST_BLOCK_HEIGHT, POLLING_INTERVAL, STAKE, TRANSACTIONS_COUNT } from '@/api';
 import { useInterval } from '@/hooks';
 import type { DataBlockState } from '@/screens/home/components/data_blocks/types';
+import axios from 'axios';
+import * as R from 'ramda';
+import { useCallback, useEffect, useState } from 'react';
 
 export const useDataBlocks = () => {
   const [state, setState] = useState<DataBlockState>({

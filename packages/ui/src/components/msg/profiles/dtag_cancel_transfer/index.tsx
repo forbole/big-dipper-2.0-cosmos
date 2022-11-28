@@ -1,9 +1,9 @@
-import React from 'react';
-import Trans from 'next-translate/Trans';
-import Typography from '@material-ui/core/Typography';
 import Name from '@/components/name';
 import { MsgDtagCancelTransfer } from '@/models';
 import { useProfileRecoil } from '@/recoil/profiles';
+import Typography from '@material-ui/core/Typography';
+import Trans from 'next-translate/Trans';
+import React from 'react';
 
 const DtagCancelTransfer: React.FC<{ message: MsgDtagCancelTransfer }> = (props) => {
   const { message } = props;

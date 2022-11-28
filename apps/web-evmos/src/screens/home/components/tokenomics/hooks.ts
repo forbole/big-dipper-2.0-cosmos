@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import numeral from 'numeral';
-import { useTokenomicsQuery, TokenomicsQuery } from '@/graphql/types/general_types';
+import { TokenomicsQuery, useTokenomicsQuery } from '@/graphql/types/general_types';
 import { StakingParams } from '@/models';
 import { formatToken } from '@/utils/format_token';
+import numeral from 'numeral';
+import { useState } from 'react';
 
 export const useTokenomics = () => {
   const [state, setState] = useState<{
@@ -30,7 +30,9 @@ export const useTokenomics = () => {
     const stakingParams = StakingParams.fromJson(data?.stakingParams?.[0]?.params ?? {});
     results.denom = stakingParams.bondDenom;
 
-    const [total] = (data?.supply?.[0]?.coins ?? []).filter((x) => x.denom === results.denom);
+    const [total] = ((data?.supply?.[0]?.coins as MsgCoin[]) ?? []).filter(
+      (x) => x.denom === results.denom
+    );
     if (total) {
       results.total = numeral(formatToken(total.amount, total.denom).value).value() ?? 0;
     }

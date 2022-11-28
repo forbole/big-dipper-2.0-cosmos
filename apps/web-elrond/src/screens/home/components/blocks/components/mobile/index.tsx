@@ -1,13 +1,13 @@
-import React from 'react';
-import numeral from 'numeral';
-import dayjs from '@/utils/dayjs';
-import Link from 'next/link';
-import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
-import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
-import { BLOCK_DETAILS } from '@/utils/go_to_page';
 import SingleBlockMobile from '@/components/single_block_mobile';
 import type { BlockType } from '@/screens/home/components/blocks/types';
+import dayjs from '@/utils/dayjs';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
+import { BLOCK_DETAILS } from '@/utils/go_to_page';
+import Divider from '@material-ui/core/Divider';
+import Typography from '@material-ui/core/Typography';
+import Link from 'next/link';
+import numeral from 'numeral';
+import React from 'react';
 
 const Mobile: React.FC<{ items: BlockType[] } & ComponentDefault> = (props) => {
   const formattedItems = props.items.map((x) => ({

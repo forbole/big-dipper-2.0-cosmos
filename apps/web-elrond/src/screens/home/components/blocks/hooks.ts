@@ -21,7 +21,14 @@ export const useBlocks = () => {
 
   const getBlocksByPage = useCallback(async () => {
     try {
-      const { data: blocksData } = await axios.get(BLOCKS, {
+      const { data: blocksData } = await axios.get<
+        Array<{
+          round: BlockState['items'][number]['block'];
+          timestamp: BlockState['items'][number]['timestamp'];
+          hash: BlockState['items'][number]['hash'];
+          txCount: BlockState['items'][number]['txs'];
+        }>
+      >(BLOCKS, {
         params: {
           from: 0,
           size: PAGE_SIZE,

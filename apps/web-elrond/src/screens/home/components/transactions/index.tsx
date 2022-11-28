@@ -1,18 +1,18 @@
-import React from 'react';
-import classnames from 'classnames';
-import useTranslation from 'next-translate/useTranslation';
-import Link from 'next/link';
-import dynamic from 'next/dynamic';
-import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
-import { TRANSACTIONS } from '@/utils/go_to_page';
 import Box from '@/components/box';
 import NoData from '@/components/no_data';
 import { useScreenSize } from '@/hooks';
-import { useStyles } from '@/screens/home/components/transactions/styles';
-import { useBlocks } from '@/screens/home/components/transactions/hooks';
 import type DesktopType from '@/screens/home/components/transactions/components/desktop';
 import type MobileType from '@/screens/home/components/transactions/components/mobile';
+import { useBlocks } from '@/screens/home/components/transactions/hooks';
+import { useStyles } from '@/screens/home/components/transactions/styles';
+import { TRANSACTIONS } from '@/utils/go_to_page';
+import Divider from '@material-ui/core/Divider';
+import Typography from '@material-ui/core/Typography';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
+import dynamic from 'next/dynamic';
+import Link from 'next/link';
+import React from 'react';
 
 const Desktop = dynamic(
   () => import('@/screens/home/components/transactions/components/desktop')

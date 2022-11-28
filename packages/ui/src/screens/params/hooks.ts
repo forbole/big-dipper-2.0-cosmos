@@ -1,11 +1,11 @@
-import { useCallback, useState } from 'react';
-import numeral from 'numeral';
-import * as R from 'ramda';
-import { useParamsQuery, ParamsQuery } from '@/graphql/types/general_types';
-import { formatToken } from '@/utils/format_token';
 import chainConfig from '@/chainConfig';
+import { ParamsQuery, useParamsQuery } from '@/graphql/types/general_types';
 import { DistributionParams, GovParams, MintParams, SlashingParams, StakingParams } from '@/models';
 import type { ParamsState } from '@/screens/params/types';
+import { formatToken } from '@/utils/format_token';
+import numeral from 'numeral';
+import * as R from 'ramda';
+import { useCallback, useState } from 'react';
 
 const initialState = {
   loading: true,
@@ -20,7 +20,7 @@ const initialState = {
 export const useParams = () => {
   const [state, setState] = useState<ParamsState>(initialState);
 
-  const handleSetState = useCallback((stateChange: Partial<typeof state>) => {
+  const handleSetState = useCallback((stateChange: Partial<ParamsState>) => {
     setState((prevState) => {
       const newState = { ...prevState, ...stateChange };
       return R.equals(prevState, newState) ? prevState : newState;

@@ -1,18 +1,18 @@
-import { ComponentProps, useCallback, useState } from 'react';
-import Big from 'big.js';
-import * as R from 'ramda';
-import numeral from 'numeral';
-import { useValidatorsQuery, ValidatorsQuery } from '@/graphql/types/general_types';
-import { getValidatorCondition } from '@/utils/get_validator_condition';
-import { formatToken } from '@/utils/format_token';
-import { SlashingParams } from '@/models';
 import chainConfig from '@/chainConfig';
+import { useValidatorsQuery, ValidatorsQuery } from '@/graphql/types/general_types';
+import { SlashingParams } from '@/models';
 import type {
-  ValidatorsState,
   ItemType,
+  ValidatorsState,
   ValidatorType,
 } from '@/screens/validators/components/list/types';
+import { formatToken } from '@/utils/format_token';
+import { getValidatorCondition } from '@/utils/get_validator_condition';
 import Tabs from '@material-ui/core/Tabs';
+import Big from 'big.js';
+import numeral from 'numeral';
+import * as R from 'ramda';
+import { ComponentProps, useCallback, useState } from 'react';
 
 export const useValidators = () => {
   const [search, setSearch] = useState('');
@@ -50,9 +50,11 @@ export const useValidators = () => {
   // ==========================
   const formatValidators = (data: ValidatorsQuery) => {
     const slashingParams = SlashingParams.fromJson(data?.slashingParams?.[0]?.params ?? {});
-    const votingPowerOverall = numeral(
-      formatToken(data?.stakingPool?.[0]?.bondedTokens ?? 0, chainConfig.votingPowerTokenUnit).value
-    ).value();
+    const votingPowerOverall =
+      numeral(
+        formatToken(data?.stakingPool?.[0]?.bondedTokens ?? 0, chainConfig.votingPowerTokenUnit)
+          .value
+      ).value() ?? undefined;
 
     const { signedBlockWindow } = slashingParams;
 
@@ -65,9 +67,9 @@ export const useValidators = () => {
         const missedBlockCounter = x?.validatorSigningInfos?.[0]?.missedBlocksCounter ?? 0;
         const condition = getValidatorCondition(signedBlockWindow, missedBlockCounter);
 
-        const liquidStakingReturn = x?.validatorLiquidStaking?.[0]?.liquidStaking ?? 'N/A';
-        let liquidStaking = liquidStakingReturn;
-        if (liquidStakingReturn !== 'N/A') {
+        const liquidStakingReturn = x?.validatorLiquidStaking?.[0]?.liquidStaking;
+        let liquidStaking = 'N/A';
+        if (liquidStakingReturn !== undefined) {
           if (liquidStakingReturn) {
             liquidStaking = 'Yes';
           } else {

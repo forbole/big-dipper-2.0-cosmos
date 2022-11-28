@@ -45,9 +45,10 @@ export const useValidators = () => {
   // Parse data
   // ==========================
   const formatValidators = (data: ValidatorsQuery) => {
-    const votingPowerOverall = numeral(data?.stakingPool?.[0]?.bondedTokens ?? 0).value();
+    const votingPowerOverall =
+      numeral(data?.stakingPool?.[0]?.bondedTokens ?? 0).value() ?? undefined;
 
-    let formattedItems: ValidatorType[] = data.validator.map((x) => {
+    let formattedItems = data.validator.map((x): ValidatorType => {
       const inActiveSetString = x?.validatorStatuses?.in_active_set ?? 'false';
       const jailedString = x?.validatorStatuses?.jailed ?? 'false';
       const tombstonedString = x?.validatorStatuses?.tombstoned ?? 'false';
@@ -58,7 +59,7 @@ export const useValidators = () => {
         validator: x.selfDelegateAddress,
         votingPower,
         votingPowerPercent: votingPowerPercent ?? 0,
-        commission: x?.validatorCommissions?.[0]?.commission ?? 0 * 100,
+        commission: parseFloat(x?.validatorCommissions?.[0]?.commission ?? '0') ?? 0 * 100,
         inActiveSet: inActiveSetString,
         jailed: jailedString,
         tombstoned: tombstonedString,

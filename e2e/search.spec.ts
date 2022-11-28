@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 
 const placeholder = 'Search for validator / tx hash / block height / address / @dtag';
 const address = 'desmos17lca9smrdlwkznr92hypzrgsjkelnxear4qhyj';

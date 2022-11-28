@@ -1,6 +1,6 @@
 import chainConfig from '@/chainConfig';
-import { defaultTheme, isThemeSupported, themeDictionary } from '@/styles';
 import type { Theme } from '@/recoil/settings/types';
+import { defaultTheme, isThemeSupported, themeDictionary } from '@/styles';
 
 // ================================
 // CONSTANTS

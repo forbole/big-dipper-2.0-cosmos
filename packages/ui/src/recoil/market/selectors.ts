@@ -1,7 +1,7 @@
-import { DefaultValue, ReadOnlySelectorOptions, selector } from 'recoil';
-import { mergeStateChange } from '@/utils/merge_state_change';
 import { atomState } from '@/recoil/market/atom';
 import type { AtomState } from '@/recoil/market/types';
+import { mergeStateChange } from '@/utils/merge_state_change';
+import { DefaultValue, ReadOnlySelectorOptions, selector } from 'recoil';
 
 const getMarket: ReadOnlySelectorOptions<AtomState>['get'] = ({ get }) => {
   const state = get(atomState);

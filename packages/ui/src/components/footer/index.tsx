@@ -1,19 +1,19 @@
-import React from 'react';
-import classnames from 'classnames';
-import Trans from 'next-translate/Trans';
-import { useRecoilValue } from 'recoil';
-import useTranslation from 'next-translate/useTranslation';
-import FooterLogoLight from 'shared-utils/assets/big-dipper-red.svg';
-import FooterLogoDark from 'shared-utils/assets/big-dipper-white.svg';
+import chainConfig from '@/chainConfig';
+import SocialMedia from '@/components/footer/components/social_media';
+import { useStyles } from '@/components/footer/styles';
+import { donateLink, footerLinks } from '@/components/footer/utils';
+import generalConfig from '@/generalConfig';
+import { readTheme } from '@/recoil/settings';
 import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
-import chainConfig from '@/chainConfig';
-import generalConfig from '@/generalConfig';
-import { readTheme } from '@/recoil/settings';
-import SocialMedia from '@/components/footer/components/social_media';
-import { footerLinks, donateLink } from '@/components/footer/utils';
-import { useStyles } from '@/components/footer/styles';
+import classnames from 'classnames';
+import Trans from 'next-translate/Trans';
+import useTranslation from 'next-translate/useTranslation';
+import React from 'react';
+import { useRecoilValue } from 'recoil';
+import FooterLogoLight from 'shared-utils/assets/big-dipper-red.svg';
+import FooterLogoDark from 'shared-utils/assets/big-dipper-white.svg';
 
 const Footer: React.FC<{ className?: string }> = ({ className }) => {
   const { t } = useTranslation();

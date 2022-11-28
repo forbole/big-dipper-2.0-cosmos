@@ -1,8 +1,7 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme } from '@/tests/utils';
-import { MsgCounterpartyChannel } from '@/models';
 import CounterpartyChannel from '@/components/msg/ibc/channel_counterparty';
+import { MsgCounterpartyChannel } from '@/models';
+import { MockTheme } from '@/tests/utils';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

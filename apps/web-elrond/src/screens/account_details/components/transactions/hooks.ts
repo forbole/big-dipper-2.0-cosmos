@@ -26,16 +26,23 @@ export const useTransactions = () => {
   const getTransactionsByPage = useCallback(
     async (page: number) => {
       try {
-        const { data: transactionsData } = await axios.get(
-          ACCOUNT_DETAILS_TRANSACTIONS(router.query.address as string),
-          {
-            params: {
-              from: page * PAGE_SIZE,
-              size: PAGE_SIZE,
-              withLogs: false,
-            },
-          }
-        );
+        const { data: transactionsData } = await axios.get<
+          Array<{
+            txHash: string;
+            senderShard: number;
+            receiverShard: number;
+            sender: string;
+            receiver: string;
+            timestamp: number;
+            status: string;
+          }>
+        >(ACCOUNT_DETAILS_TRANSACTIONS(router.query.address as string), {
+          params: {
+            from: page * PAGE_SIZE,
+            size: PAGE_SIZE,
+            withLogs: false,
+          },
+        });
 
         const items = transactionsData.map((x) => ({
           hash: x.txHash,

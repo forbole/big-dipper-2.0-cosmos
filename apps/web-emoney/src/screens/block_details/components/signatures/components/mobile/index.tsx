@@ -1,3 +1,6 @@
+import AvatarName from '@/components/avatar_name';
+import { useList, useListRow } from '@/hooks';
+import { useStyles } from '@/screens/block_details/components/signatures/components/mobile/styles';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
@@ -6,9 +9,6 @@ import useTranslation from 'next-translate/useTranslation';
 import React, { FC } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
-import AvatarName from '@/components/avatar_name';
-import { useList, useListRow } from '@/hooks';
-import { useStyles } from '@/screens/block_details/components/signatures/components/mobile/styles';
 
 const Mobile: FC<{
   className?: string;

@@ -1,15 +1,15 @@
-import React from 'react';
-import classnames from 'classnames';
-import useTranslation from 'next-translate/useTranslation';
+import { useTransactionsFilter } from '@/components/transaction_messages_filter/hooks';
+import { useStyles } from '@/components/transaction_messages_filter/styles';
+import { getFilterLabels } from '@/components/transaction_messages_filter/utils';
+import InputBase from '@material-ui/core/InputBase';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
-import InputBase from '@material-ui/core/InputBase';
 import Typography from '@material-ui/core/Typography';
-import FilterIcon from 'shared-utils/assets/icon-filter.svg';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { getFilterLabels } from '@/components/transaction_messages_filter/utils';
-import { useStyles } from '@/components/transaction_messages_filter/styles';
-import { useTransactionsFilter } from '@/components/transaction_messages_filter/hooks';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
+import React from 'react';
+import FilterIcon from 'shared-utils/assets/icon-filter.svg';
 
 const TransactionMessagesFilter: React.FC<{
   className?: string;

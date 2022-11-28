@@ -1,7 +1,6 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme } from '@/tests/utils';
 import Network from '@/components/nav/components/desktop/components/action_bar/components/network';
+import { MockTheme } from '@/tests/utils';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // global setup

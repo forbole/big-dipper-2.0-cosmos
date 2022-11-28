@@ -1,9 +1,8 @@
-import React from 'react';
-import classnames from 'classnames';
-import Nav from '@/components/nav';
 import Footer from '@/components/footer';
-import type { LayoutProps } from '@/components/layout/types';
 import { useStyles } from '@/components/layout/styles';
+import type { LayoutProps } from '@/components/layout/types';
+import Nav from '@/components/nav';
+import classnames from 'classnames';
 
 const Layout = (props: LayoutProps) => {
   const classes = useStyles();

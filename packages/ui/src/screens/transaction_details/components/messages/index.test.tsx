@@ -1,9 +1,8 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme } from '@/tests/utils';
 import { MsgUnknown } from '@/models';
-import type { AutoSizerProps } from 'react-virtualized-auto-sizer';
 import Messages from '@/screens/transaction_details/components/messages';
+import { MockTheme } from '@/tests/utils';
+import renderer from 'react-test-renderer';
+import type { AutoSizerProps } from 'react-virtualized-auto-sizer';
 
 // ==================================
 // mocks

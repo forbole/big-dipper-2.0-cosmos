@@ -1,6 +1,6 @@
-import numeral from 'numeral';
-import Big from 'big.js';
 import chainConfig from '@/chainConfig';
+import Big from 'big.js';
+import numeral from 'numeral';
 
 /**
  * Util to help me correctly transform a base denom amount

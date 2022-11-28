@@ -1,14 +1,14 @@
-import React from 'react';
-import numeral from 'numeral';
-import Typography from '@material-ui/core/Typography';
 import BoxDetails from '@/components/box_details';
-import dayjs, { formatDayJs } from '@/utils/dayjs';
-import useTranslation from 'next-translate/useTranslation';
-import { useRecoilValue } from 'recoil';
 import { readDate } from '@/recoil/settings';
+import type { OverviewType } from '@/screens/block_details/types';
+import dayjs, { formatDayJs } from '@/utils/dayjs';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { getShardDisplay } from '@/utils/get_shard_display';
-import type { OverviewType } from '@/screens/block_details/types';
+import Typography from '@material-ui/core/Typography';
+import useTranslation from 'next-translate/useTranslation';
+import numeral from 'numeral';
+import React from 'react';
+import { useRecoilValue } from 'recoil';
 
 const Overview: React.FC<OverviewType & ComponentDefault> = (props) => {
   const { t } = useTranslation('blocks');

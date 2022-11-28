@@ -1,11 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
-import * as R from 'ramda';
-import Big from 'big.js';
-import { useRouter } from 'next/router';
-import { getDenom } from '@/utils/get_denom';
-import { formatToken } from '@/utils/format_token';
 import chainConfig from '@/chainConfig';
-import { isValidAddress } from '@/utils/prefix_convert';
 import { useDesmosProfile } from '@/hooks';
 import type { AccountDetailState, OtherTokenType } from '@/screens/account_details/types';
 import {
@@ -16,6 +9,13 @@ import {
   fetchRewards,
   fetchUnbondingBalance,
 } from '@/screens/account_details/utils';
+import { formatToken } from '@/utils/format_token';
+import { getDenom } from '@/utils/get_denom';
+import { isValidAddress } from '@/utils/prefix_convert';
+import Big from 'big.js';
+import { useRouter } from 'next/router';
+import * as R from 'ramda';
+import { useCallback, useEffect, useState } from 'react';
 
 const defaultTokenUnit: TokenUnit = {
   value: '0',

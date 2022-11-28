@@ -1,5 +1,5 @@
-import Color from 'color';
 import { makeStyles } from '@material-ui/core/styles';
+import Color from 'color';
 
 const styles = makeStyles((theme) => {
   const iconFill =

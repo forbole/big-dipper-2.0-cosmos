@@ -1,13 +1,13 @@
-import { useCallback, useState } from 'react';
+import chainConfig from '@/chainConfig';
+import { ParamsQuery, useParamsQuery } from '@/graphql/types/general_types';
+import { DistributionParams, GovParams, MintParams, SlashingParams, StakingParams } from '@/models';
+import GasPriceParams from '@/models/gas_price_params';
+import InflationRateParams from '@/models/inflation_rate_params';
+import type { ParamsState } from '@/screens/params/types';
+import { formatToken } from '@/utils/format_token';
 import numeral from 'numeral';
 import * as R from 'ramda';
-import { useParamsQuery, ParamsQuery } from '@/graphql/types/general_types';
-import { formatToken } from '@/utils/format_token';
-import chainConfig from '@/chainConfig';
-import { DistributionParams, GovParams, MintParams, StakingParams, SlashingParams } from '@/models';
-import type { ParamsState } from '@/screens/params/types';
-import InflationRateParams from '@/models/inflation_rate_params';
-import GasPriceParams from '@/models/gas_price_params';
+import { useCallback, useState } from 'react';
 
 const initialState: ParamsState = {
   loading: true,
@@ -24,7 +24,7 @@ const initialState: ParamsState = {
 export const useParams = () => {
   const [state, setState] = useState<ParamsState>(initialState);
 
-  const handleSetState = useCallback((stateChange: Partial<typeof state>) => {
+  const handleSetState = useCallback((stateChange: Partial<ParamsState>) => {
     setState((prevState) => {
       const newState = { ...prevState, ...stateChange };
       return R.equals(prevState, newState) ? prevState : newState;
@@ -49,7 +49,7 @@ export const useParams = () => {
   });
 
   const formatParam = (data: ParamsQuery) => {
-    const results = {};
+    const results: Partial<ParamsState> = {};
 
     // ================================
     // staking
@@ -147,11 +147,11 @@ export const useParams = () => {
             govParamsRaw.depositParams.minDeposit?.[0]?.denom ?? chainConfig.primaryTokenUnit
           ),
           maxDepositPeriod: govParamsRaw.depositParams.maxDepositPeriod,
-          quorum: numeral(numeral(govParamsRaw.tallyParams.quorum).format('0.[00]')).value(),
-          threshold: numeral(numeral(govParamsRaw.tallyParams.threshold).format('0.[00]')).value(),
-          vetoThreshold: numeral(
-            numeral(govParamsRaw.tallyParams.vetoThreshold).format('0.[00]')
-          ).value(),
+          quorum: numeral(numeral(govParamsRaw.tallyParams.quorum).format('0.[00]')).value() ?? 0,
+          threshold:
+            numeral(numeral(govParamsRaw.tallyParams.threshold).format('0.[00]')).value() ?? 0,
+          vetoThreshold:
+            numeral(numeral(govParamsRaw.tallyParams.vetoThreshold).format('0.[00]')).value() ?? 0,
           votingPeriod: govParamsRaw.votingParams.votingPeriod,
         };
       }

@@ -1,8 +1,7 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme } from '@/tests/utils';
-import MsgAddMarketOrder from '@/models/msg/market/msg_add_market_order';
 import AddMarketOrder from '@/components/msg/market/add_market_order';
+import MsgAddMarketOrder from '@/models/msg/market/msg_add_market_order';
+import { MockTheme } from '@/tests/utils';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

@@ -1,8 +1,7 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme } from '@/tests/utils';
-import type { AutoSizerProps } from 'react-virtualized-auto-sizer';
 import Desktop from '@/screens/profile_details/components/connections/components/desktop';
+import { MockTheme } from '@/tests/utils';
+import renderer from 'react-test-renderer';
+import type { AutoSizerProps } from 'react-virtualized-auto-sizer';
 
 // ==================================
 // mocks

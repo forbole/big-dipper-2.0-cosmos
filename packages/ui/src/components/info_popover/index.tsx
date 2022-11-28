@@ -1,10 +1,10 @@
-import React from 'react';
-import Popover from '@material-ui/core/Popover';
-import Paper from '@material-ui/core/Paper';
-import HelpOutline from '@material-ui/icons/HelpOutline';
-import classnames from 'classnames';
 import { useInfoPopover } from '@/components/info_popover/hooks';
 import { useStyles } from '@/components/info_popover/styles';
+import Paper from '@material-ui/core/Paper';
+import Popover from '@material-ui/core/Popover';
+import HelpOutline from '@material-ui/icons/HelpOutline';
+import classnames from 'classnames';
+import React from 'react';
 
 const InfoPopover: React.FC<{
   className?: string;

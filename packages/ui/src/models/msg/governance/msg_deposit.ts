@@ -1,6 +1,6 @@
+import type { Categories } from '@/models/msg/types';
 import numeral from 'numeral';
 import * as R from 'ramda';
-import type { Categories } from '@/models/msg/types';
 
 class MsgDeposit {
   public category: Categories;

@@ -27,7 +27,15 @@ export const useTokens = () => {
   const getTransactionsByPage = useCallback(
     async (page: number) => {
       try {
-        const { data } = await axios.get(ACCOUNT_DETAILS_TOKENS(router.query.address as string), {
+        const { data } = await axios.get<
+          Array<{
+            balance?: string;
+            decimals?: number;
+            identifier?: string;
+            name?: string;
+            assets?: { pngUrl?: string };
+          }>
+        >(ACCOUNT_DETAILS_TOKENS(router.query.address as string), {
           params: {
             from: page * PAGE_SIZE,
             size: PAGE_SIZE,

@@ -3,7 +3,6 @@ import Tag from '@/components/tag';
 import * as MODELS from '@/models';
 import type { Log } from '@/models/msg/types';
 import isKeyOf from '@/utils/isKeyOf';
-import { Message } from '@material-ui/icons';
 import { Translate } from 'next-translate';
 import * as R from 'ramda';
 import { ComponentProps, FC } from 'react';
@@ -444,13 +443,13 @@ export const getMessageByType = <TMessage,>(message: TMessage, viewRaw: boolean,
   const { type } = (message as { type: string }) ?? {};
 
   type ResultType = {
-    content: FC<{ message: typeof Message }>;
+    content: FC<{ message: TMessage }>;
     tagDisplay: Data['tagDisplay'];
     tagTheme: TagTheme;
   };
 
   let results: ResultType = {
-    content: COMPONENTS.Unknown as unknown as FC<{ message: typeof Message }>,
+    content: COMPONENTS.Unknown as unknown as FC<{ message: TMessage }>,
     tagDisplay: 'txUnknownLabel',
     tagTheme: 'zero',
   };
@@ -459,7 +458,7 @@ export const getMessageByType = <TMessage,>(message: TMessage, viewRaw: boolean,
 
   if (data) {
     results = {
-      content: data?.content as unknown as FC<{ message: typeof Message }>,
+      content: data?.content as unknown as FC<{ message: TMessage }>,
       tagDisplay: data.tagDisplay as ResultType['tagDisplay'],
       tagTheme: data.tagTheme as ResultType['tagTheme'],
     };
@@ -467,7 +466,7 @@ export const getMessageByType = <TMessage,>(message: TMessage, viewRaw: boolean,
 
   // If user asks to view the raw data
   if (viewRaw || !results.content) {
-    results.content = COMPONENTS.Unknown as unknown as FC<{ message: typeof Message }>;
+    results.content = COMPONENTS.Unknown as unknown as FC<{ message: TMessage }>;
   }
 
   const Content = results.content;

@@ -1,6 +1,6 @@
-import { useRecoilValue } from 'recoil';
+import { getThemeTemplate, readTheme } from '@/recoil/settings';
 import { createTheme } from '@material-ui/core/styles';
-import { readTheme, getThemeTemplate } from '@/recoil/settings';
+import { useRecoilValue } from 'recoil';
 
 export const useTheme = () => {
   const theme = useRecoilValue(readTheme);

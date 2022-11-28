@@ -1,9 +1,9 @@
-import React from 'react';
-import Trans from 'next-translate/Trans';
-import Typography from '@material-ui/core/Typography';
 import Name from '@/components/name';
 import MsgCreateGroupAccountRequest from '@/models/msg/group/msg_create_group_account_request';
 import { useProfileRecoil } from '@/recoil/profiles';
+import Typography from '@material-ui/core/Typography';
+import Trans from 'next-translate/Trans';
+import React from 'react';
 
 const CreateGroupAccountRequest: React.FC<{ message: MsgCreateGroupAccountRequest }> = (props) => {
   const { message } = props;

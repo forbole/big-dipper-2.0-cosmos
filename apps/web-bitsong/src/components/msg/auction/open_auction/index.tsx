@@ -1,9 +1,9 @@
-import React from 'react';
-import Trans from 'next-translate/Trans';
-import Typography from '@material-ui/core/Typography';
 import Name from '@/components/name';
 import MsgOpenAuction from '@/models/msg/auction/msg_open_auction';
 import { useProfileRecoil } from '@/recoil/profiles';
+import Typography from '@material-ui/core/Typography';
+import Trans from 'next-translate/Trans';
+import React from 'react';
 
 const OpenAuction: React.FC<{ message: MsgOpenAuction }> = (props) => {
   const { message } = props;

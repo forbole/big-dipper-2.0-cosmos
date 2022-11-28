@@ -1,7 +1,6 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme } from '@/tests/utils';
 import VotingPowerExplanation from '@/screens/validators/components/list/components/voting_power_explanation';
+import { MockTheme } from '@/tests/utils';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // unit tests

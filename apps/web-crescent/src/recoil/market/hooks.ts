@@ -1,4 +1,5 @@
 import chainConfig from '@/chainConfig';
+import { MarketDataQuery, useMarketDataQuery } from '@/graphql/types/general_types';
 import { writeMarket } from '@/recoil/market/selectors';
 import type { AtomState } from '@/recoil/market/types';
 import { formatToken } from '@/utils/format_token';
@@ -6,7 +7,6 @@ import getCurrentInflationAmount from '@/utils/get_current_inflation';
 import { getDenom } from '@/utils/get_denom';
 import Big from 'big.js';
 import numeral from 'numeral';
-import { useMarketDataQuery, MarketDataQuery } from '@/graphql/types/general_types';
 import { SetterOrUpdater, useRecoilState } from 'recoil';
 
 export function useMarketRecoil() {

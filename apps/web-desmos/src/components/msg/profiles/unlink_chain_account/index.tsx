@@ -1,9 +1,9 @@
-import React from 'react';
-import Trans from 'next-translate/Trans';
-import Typography from '@material-ui/core/Typography';
 import Name from '@/components/name';
 import MsgUnlinkChainAccount from '@/models/msg/profiles/msg_unlink_chain_account';
 import { useProfileRecoil } from '@/recoil/profiles';
+import Typography from '@material-ui/core/Typography';
+import Trans from 'next-translate/Trans';
+import React from 'react';
 
 const UnlinkChainAccount: React.FC<{ message: MsgUnlinkChainAccount }> = (props) => {
   const { message } = props;

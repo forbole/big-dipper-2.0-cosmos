@@ -1,8 +1,7 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme } from '@/tests/utils';
-import { MsgChannelOpenAck } from '@/models';
 import ChannelOpenAck from '@/components/msg/ibc/channel_open_ack';
+import { MsgChannelOpenAck } from '@/models';
+import { MockTheme } from '@/tests/utils';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

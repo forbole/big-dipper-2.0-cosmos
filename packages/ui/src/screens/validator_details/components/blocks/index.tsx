@@ -1,15 +1,15 @@
-import React from 'react';
-import classnames from 'classnames';
-import numeral from 'numeral';
-import useTranslation from 'next-translate/useTranslation';
-import Typography from '@material-ui/core/Typography';
-import Tooltip from '@material-ui/core/Tooltip';
-import { useProfilesRecoil } from '@/recoil/profiles';
-import Box from '@/components/box';
 import AvatarName from '@/components/avatar_name';
+import Box from '@/components/box';
 import Result from '@/components/result';
-import { useStyles } from '@/screens/validator_details/components/blocks/styles';
+import { useProfilesRecoil } from '@/recoil/profiles';
 import { useBlocks } from '@/screens/validator_details/components/blocks/hooks';
+import { useStyles } from '@/screens/validator_details/components/blocks/styles';
+import Tooltip from '@material-ui/core/Tooltip';
+import Typography from '@material-ui/core/Typography';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
+import numeral from 'numeral';
+import React from 'react';
 
 const Blocks: React.FC<{
   className?: string;

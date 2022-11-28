@@ -1,8 +1,7 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme } from '@/tests/utils';
-import MsgUnlinkApplication from '@/models/msg/profiles/msg_unlink_application';
 import UnlinkApplication from '@/components/msg/profiles/unlink_application';
+import MsgUnlinkApplication from '@/models/msg/profiles/msg_unlink_application';
+import { MockTheme } from '@/tests/utils';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

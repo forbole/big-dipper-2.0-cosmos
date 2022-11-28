@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import { useRouter } from 'next/router';
 import {
-  useLastHundredBlocksSubscription,
   LastHundredBlocksSubscription,
+  useLastHundredBlocksSubscription,
 } from '@/graphql/types/general_types';
+import { useRouter } from 'next/router';
+import { useState } from 'react';
 
 export const useBlocks = () => {
   const [state, setState] = useState<

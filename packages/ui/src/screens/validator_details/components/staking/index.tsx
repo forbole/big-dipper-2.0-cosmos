@@ -1,14 +1,14 @@
-import React from 'react';
-import dynamic from 'next/dynamic';
-import classnames from 'classnames';
 import Box from '@/components/box';
 import TabPanel from '@/components/tab_panel';
-import { useStaking } from '@/screens/validator_details/components/staking/hooks';
-import Tabs from '@/screens/validator_details/components/staking/components/tabs';
-import { useStyles } from '@/screens/validator_details/components/staking/styles';
 import type DelegationsFC from '@/screens/validator_details/components/staking/components/delegations';
 import type RedelgationsFC from '@/screens/validator_details/components/staking/components/redelegations';
+import Tabs from '@/screens/validator_details/components/staking/components/tabs';
 import type UnbondingsFC from '@/screens/validator_details/components/staking/components/unbondings';
+import { useStaking } from '@/screens/validator_details/components/staking/hooks';
+import { useStyles } from '@/screens/validator_details/components/staking/styles';
+import classnames from 'classnames';
+import dynamic from 'next/dynamic';
+import React from 'react';
 
 const Delegations = dynamic(
   () => import('@/screens/validator_details/components/staking/components/delegations')

@@ -1,9 +1,9 @@
-import React from 'react';
-import Trans from 'next-translate/Trans';
-import Typography from '@material-ui/core/Typography';
 import Name from '@/components/name';
 import MsgUnlinkApplication from '@/models/msg/profiles/msg_unlink_application';
 import { useProfileRecoil } from '@/recoil/profiles';
+import Typography from '@material-ui/core/Typography';
+import Trans from 'next-translate/Trans';
+import React from 'react';
 
 const UnlinkApplication: React.FC<{ message: MsgUnlinkApplication }> = (props) => {
   const { message } = props;

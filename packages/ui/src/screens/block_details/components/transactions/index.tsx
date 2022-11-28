@@ -1,13 +1,13 @@
-import React from 'react';
-import classnames from 'classnames';
-import Typography from '@material-ui/core/Typography';
-import useTranslation from 'next-translate/useTranslation';
-import TransactionsListDetails from '@/components/transactions_list_details';
-import TransactionsList from '@/components/transactions_list';
 import Box from '@/components/box';
-import { useRecoilValue } from 'recoil';
+import TransactionsList from '@/components/transactions_list';
+import TransactionsListDetails from '@/components/transactions_list_details';
 import { readTx } from '@/recoil/settings';
 import { useStyles } from '@/screens/block_details/components/transactions/styles';
+import Typography from '@material-ui/core/Typography';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
+import React from 'react';
+import { useRecoilValue } from 'recoil';
 
 const Transactions: React.FC<
   ComponentDefault & {

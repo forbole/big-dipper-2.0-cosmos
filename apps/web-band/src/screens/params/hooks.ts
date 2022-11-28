@@ -1,12 +1,12 @@
-import { useCallback, useState } from 'react';
+import chainConfig from '@/chainConfig';
+import { ParamsQuery, useParamsQuery } from '@/graphql/types/general_types';
+import { DistributionParams, GovParams, MintParams, SlashingParams, StakingParams } from '@/models';
+import OracleParams from '@/models/oracle_params';
+import type { ParamsState } from '@/screens/params/types';
+import { formatToken } from '@/utils/format_token';
 import numeral from 'numeral';
 import * as R from 'ramda';
-import { useParamsQuery, ParamsQuery } from '@/graphql/types/general_types';
-import { formatToken } from '@/utils/format_token';
-import chainConfig from '@/chainConfig';
-import { DistributionParams, GovParams, MintParams, StakingParams, SlashingParams } from '@/models';
-import type { ParamsState } from '@/screens/params/types';
-import OracleParams from '@/models/oracle_params';
+import { useCallback, useState } from 'react';
 
 const initialState = {
   loading: true,
@@ -22,7 +22,7 @@ const initialState = {
 export const useParams = () => {
   const [state, setState] = useState<ParamsState>(initialState);
 
-  const handleSetState = useCallback((stateChange: Partial<typeof state>) => {
+  const handleSetState = useCallback((stateChange: Partial<ParamsState>) => {
     setState((prevState) => {
       const newState = { ...prevState, ...stateChange };
       return R.equals(prevState, newState) ? prevState : newState;

@@ -1,13 +1,13 @@
 import { convertMsgsToModels } from '@/components/msg/utils';
-import { useRouter } from 'next/router';
-import * as R from 'ramda';
-import { useState } from 'react';
-import { convertMsgType } from '@/utils/convert_msg_type';
-import type { TransactionState } from '@/screens/validator_details/components/transactions/types';
 import {
   GetMessagesByAddressQuery,
   useGetMessagesByAddressQuery,
 } from '@/graphql/types/general_types';
+import type { TransactionState } from '@/screens/validator_details/components/transactions/types';
+import { convertMsgType } from '@/utils/convert_msg_type';
+import { useRouter } from 'next/router';
+import * as R from 'ramda';
+import { useState } from 'react';
 
 const LIMIT = 50;
 
@@ -91,13 +91,13 @@ export function useTransactions() {
       const convertedMsgType = convertMsgType(msgType);
       return {
         height: transaction?.height,
-        hash: transaction?.hash,
+        hash: transaction?.hash ?? '',
         type: convertedMsgType,
         messages: {
           count: messages.length,
           items: messages,
         },
-        success: transaction?.success,
+        success: transaction?.success ?? false,
         timestamp: transaction?.block.timestamp,
       };
     });

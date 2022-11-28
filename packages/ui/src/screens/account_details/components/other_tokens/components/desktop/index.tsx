@@ -1,14 +1,14 @@
-import React from 'react';
-import classnames from 'classnames';
-import useTranslation from 'next-translate/useTranslation';
-import Table from '@material-ui/core/Table';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import TableCell from '@material-ui/core/TableCell';
-import TableBody from '@material-ui/core/TableBody';
+import { columns } from '@/screens/account_details/components/other_tokens/components/desktop/utils';
 import type { OtherTokenType } from '@/screens/account_details/types';
 import { formatNumber } from '@/utils/format_token';
-import { columns } from '@/screens/account_details/components/other_tokens/components/desktop/utils';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
+import React from 'react';
 
 const Desktop: React.FC<{
   className?: string;

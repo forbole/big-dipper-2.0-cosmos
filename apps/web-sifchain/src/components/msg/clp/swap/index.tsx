@@ -1,10 +1,10 @@
-import React from 'react';
-import Trans from 'next-translate/Trans';
-import Typography from '@material-ui/core/Typography';
-import { formatToken, formatNumber } from '@/utils/format_token';
 import Name from '@/components/name';
 import MsgSwap from '@/models/msg/clp/msg_swap';
 import { useProfileRecoil } from '@/recoil/profiles';
+import { formatNumber, formatToken } from '@/utils/format_token';
+import Typography from '@material-ui/core/Typography';
+import Trans from 'next-translate/Trans';
+import React from 'react';
 
 const Swap: React.FC<{ message: MsgSwap }> = (props) => {
   const { message } = props;

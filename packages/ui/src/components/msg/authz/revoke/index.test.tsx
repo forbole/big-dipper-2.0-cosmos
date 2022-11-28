@@ -1,8 +1,7 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme } from '@/tests/utils';
-import { MsgRevoke } from '@/models';
 import Revoke from '@/components/msg/authz/revoke';
+import { MsgRevoke } from '@/models';
+import { MockTheme } from '@/tests/utils';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

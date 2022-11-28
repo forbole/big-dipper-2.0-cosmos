@@ -1,21 +1,21 @@
-import React from 'react';
-import classnames from 'classnames';
-import useTranslation from 'next-translate/useTranslation';
-import Big from 'big.js';
-import numeral from 'numeral';
-import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
-import { useScreenSize } from '@/hooks';
-import CopyIcon from 'shared-utils/assets/icon-copy.svg';
-import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import Box from '@/components/box';
 import Tag from '@/components/tag';
-import Link from 'next/link';
-import { ACCOUNT_DETAILS } from '@/utils/go_to_page';
-import { getValidatorStatus } from '@/utils/get_validator_status';
-import { useStyles } from '@/screens/validator_details/components/validator_overview/styles';
-import type { StatusType, OverviewType } from '@/screens/validator_details/types';
+import { useScreenSize } from '@/hooks';
 import { useAddress } from '@/screens/validator_details/components/validator_overview/hooks';
+import { useStyles } from '@/screens/validator_details/components/validator_overview/styles';
+import type { OverviewType, StatusType } from '@/screens/validator_details/types';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
+import { getValidatorStatus } from '@/utils/get_validator_status';
+import { ACCOUNT_DETAILS } from '@/utils/go_to_page';
+import Divider from '@material-ui/core/Divider';
+import Typography from '@material-ui/core/Typography';
+import Big from 'big.js';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
+import Link from 'next/link';
+import numeral from 'numeral';
+import React from 'react';
+import CopyIcon from 'shared-utils/assets/icon-copy.svg';
 
 const ValidatorOverview: React.FC<
   {

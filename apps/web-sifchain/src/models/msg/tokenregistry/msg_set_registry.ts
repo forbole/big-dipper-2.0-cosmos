@@ -1,5 +1,5 @@
-import * as R from 'ramda';
 import type { Categories } from '@/models/msg/types';
+import * as R from 'ramda';
 
 class MsgSetRegistry {
   public category: Categories;
@@ -29,7 +29,7 @@ class MsgSetRegistry {
       type: R.pathOr('', ['@type'], json),
       from: R.pathOr('', ['from'], json),
       registry: R.pathOr([], ['registry'], json).map((x) => ({
-        denom: x?.denom ?? '',
+        denom: R.pathOr('', ['denom'], x),
       })),
     };
   }

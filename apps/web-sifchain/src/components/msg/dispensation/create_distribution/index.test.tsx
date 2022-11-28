@@ -1,8 +1,7 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme } from '@/tests/utils';
-import MsgCreateDistribution from '@/models/msg/dispensation/msg_create_distribution';
 import CreateDistribution from '@/components/msg/dispensation/create_distribution';
+import MsgCreateDistribution from '@/models/msg/dispensation/msg_create_distribution';
+import { MockTheme } from '@/tests/utils';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

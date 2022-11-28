@@ -1,8 +1,7 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme } from '@/tests/utils';
-import MsgRegister from '@/models/msg/tokenregistry/msg_register';
 import Register from '@/components/msg/tokenregistry/register';
+import MsgRegister from '@/models/msg/tokenregistry/msg_register';
+import { MockTheme } from '@/tests/utils';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

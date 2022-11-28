@@ -1,9 +1,9 @@
 import NoData from '@/components/no_data';
-import dynamic from 'next/dynamic';
-import React, { ComponentProps, FC } from 'react';
-import { useScreenSize } from '@/hooks/use_screen_size';
 import type DesktopType from '@/components/transactions_list/components/desktop';
 import type MobileType from '@/components/transactions_list/components/mobile';
+import { useScreenSize } from '@/hooks/use_screen_size';
+import dynamic from 'next/dynamic';
+import { ComponentProps, FC } from 'react';
 
 const Desktop = dynamic(() => import('@/components/transactions_list/components/desktop')) as FC<
   ComponentProps<typeof DesktopType>

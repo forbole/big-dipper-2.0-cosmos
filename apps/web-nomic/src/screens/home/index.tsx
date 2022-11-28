@@ -1,12 +1,11 @@
-import React from 'react';
 import Layout from '@/components/layout';
-import Consensus from '@/screens/home/components/consensus';
-import { useStyles } from '@/screens/home/styles';
-import DataBlocks from '@/screens/home/components/data_blocks';
-import Tokenomics from '@/screens/home/components/tokenomics';
 import Blocks from '@/screens/home/components/blocks';
-import Transactions from '@/screens/home/components/transactions';
+import Consensus from '@/screens/home/components/consensus';
+import DataBlocks from '@/screens/home/components/data_blocks';
 import Hero from '@/screens/home/components/hero';
+import Tokenomics from '@/screens/home/components/tokenomics';
+import Transactions from '@/screens/home/components/transactions';
+import { useStyles } from '@/screens/home/styles';
 
 const Home = () => {
   const classes = useStyles();

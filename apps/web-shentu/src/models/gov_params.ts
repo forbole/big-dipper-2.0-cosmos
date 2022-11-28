@@ -81,13 +81,13 @@ class GovParams {
           denom: x.denom,
           amount: String(x.amount),
         })),
-        maxDepositPeriod: data?.depositParams?.max_deposit_period ?? 0,
+        maxDepositPeriod: R.pathOr(0, ['depositParams', 'max_deposit_period'], data),
       },
       tallyParams: {
         default: {
-          quorum: data?.tallyParams?.default_tally?.quorum ?? '0',
-          threshold: data?.tallyParams?.default_tally?.threshold ?? '0',
-          vetoThreshold: data?.tallyParams?.default_tally?.veto_threshold ?? '0',
+          quorum: R.pathOr('0', ['tallyParams', 'default_tally', 'quorum'], data),
+          threshold: R.pathOr('0', ['tallyParams', 'default_tally', 'threshold'], data),
+          vetoThreshold: R.pathOr('0', ['tallyParams', 'default_tally', 'veto_threshold'], data),
         },
         certifierStakeVote: {
           quorum: R.pathOr(
@@ -125,7 +125,7 @@ class GovParams {
         },
       },
       votingParams: {
-        votingPeriod: data?.votingParams?.voting_period ?? 0,
+        votingPeriod: R.pathOr(0, ['votingParams', 'voting_period'], data),
       },
     };
   }

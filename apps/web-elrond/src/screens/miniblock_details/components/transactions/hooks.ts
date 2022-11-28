@@ -1,9 +1,9 @@
-import { useCallback, useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
-import * as R from 'ramda';
-import axios from 'axios';
 import { TRANSACTIONS, TRANSACTIONS_COUNT } from '@/api';
 import type { TransactionState } from '@/screens/miniblock_details/components/transactions/types';
+import axios from 'axios';
+import { useRouter } from 'next/router';
+import * as R from 'ramda';
+import { useCallback, useEffect, useState } from 'react';
 
 export const PAGE_SIZE = 10;
 
@@ -26,7 +26,17 @@ export const useTransactions = () => {
   const getTransactionsByPage = useCallback(
     async (page: number) => {
       try {
-        const { data: transactionsData } = await axios.get(TRANSACTIONS, {
+        const { data: transactionsData } = await axios.get<
+          Array<{
+            txHash: string;
+            senderShard: number;
+            receiverShard: number;
+            sender: string;
+            receiver: string;
+            timestamp: number;
+            status: string;
+          }>
+        >(TRANSACTIONS, {
           params: {
             from: page * PAGE_SIZE,
             size: PAGE_SIZE,

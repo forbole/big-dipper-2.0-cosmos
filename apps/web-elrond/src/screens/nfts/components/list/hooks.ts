@@ -1,8 +1,8 @@
-import { useCallback, useEffect, useState } from 'react';
-import * as R from 'ramda';
-import axios from 'axios';
 import { NFTS, NFTS_COUNT } from '@/api';
 import type { BlockState } from '@/screens/nfts/components/list/types';
+import axios from 'axios';
+import * as R from 'ramda';
+import { useCallback, useEffect, useState } from 'react';
 
 export const PAGE_SIZE = 25;
 
@@ -24,7 +24,15 @@ export const useNFTs = () => {
   const getNFTsByPage = useCallback(
     async (page: number) => {
       try {
-        const { data: nftData } = await axios.get(NFTS, {
+        const { data: nftData } = await axios.get<
+          Array<{
+            identifier?: string;
+            name?: string;
+            type?: string;
+            creator?: string;
+            collection?: string;
+          }>
+        >(NFTS, {
           headers: {
             accept: 'application/json',
           },

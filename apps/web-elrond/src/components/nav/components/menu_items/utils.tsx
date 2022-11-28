@@ -1,11 +1,10 @@
-import React from 'react';
+import { BLOCKS, HOME, NFTS, TOKENS, TRANSACTIONS, VALIDATORS } from '@/utils/go_to_page';
 import BlockIcon from 'shared-utils/assets/icon-block.svg';
 import HomeIcon from 'shared-utils/assets/icon-home.svg';
-import TransactionIcon from 'shared-utils/assets/icon-transaction.svg';
-import TokenIcon from 'shared-utils/assets/icon-token.svg';
-import UserIcon from 'shared-utils/assets/icon-user.svg';
 import NFTIcon from 'shared-utils/assets/icon-nft.svg';
-import { HOME, BLOCKS, VALIDATORS, TRANSACTIONS, TOKENS, NFTS } from '@/utils/go_to_page';
+import TokenIcon from 'shared-utils/assets/icon-token.svg';
+import TransactionIcon from 'shared-utils/assets/icon-transaction.svg';
+import UserIcon from 'shared-utils/assets/icon-user.svg';
 
 export const getMenuItems = () => {
   const iconProps = {

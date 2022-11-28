@@ -1,9 +1,8 @@
-import React from 'react';
-import { NextSeo } from 'next-seo';
-import useTranslation from 'next-translate/useTranslation';
 import Layout from '@/components/layout';
 import List from '@/screens/blocks/components/list';
 import { useStyles } from '@/screens/blocks/styles';
+import { NextSeo } from 'next-seo';
+import useTranslation from 'next-translate/useTranslation';
 
 const Blocks = () => {
   const classes = useStyles();

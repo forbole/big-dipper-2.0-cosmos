@@ -1,9 +1,9 @@
 import dayjs from 'dayjs';
-import relativeTime from 'dayjs/plugin/relativeTime';
-import utc from 'dayjs/plugin/utc';
-import updateLocal from 'dayjs/plugin/updateLocale';
 import advancedFormat from 'dayjs/plugin/advancedFormat';
+import relativeTime from 'dayjs/plugin/relativeTime';
 import timezone from 'dayjs/plugin/timezone';
+import updateLocal from 'dayjs/plugin/updateLocale';
+import utc from 'dayjs/plugin/utc';
 
 // ============================================
 // Dayjs addons setup here

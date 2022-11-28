@@ -1,14 +1,14 @@
-import { useCallback, useState } from 'react';
-import * as R from 'ramda';
-import { useRouter } from 'next/router';
-import {
-  useProposalDetailsTallyQuery,
-  ProposalDetailsTallyQuery,
-} from '@/graphql/types/general_types';
-import { formatToken } from '@/utils/format_token';
 import chainConfig from '@/chainConfig';
-import Big from 'big.js';
+import {
+  ProposalDetailsTallyQuery,
+  useProposalDetailsTallyQuery,
+} from '@/graphql/types/general_types';
 import type { VotesGraphState } from '@/screens/proposal_details/components/votes_graph/types';
+import { formatToken } from '@/utils/format_token';
+import Big from 'big.js';
+import { useRouter } from 'next/router';
+import * as R from 'ramda';
+import { useCallback, useState } from 'react';
 
 const defaultTokenUnit: TokenUnit = {
   value: '0',
@@ -39,7 +39,7 @@ export const useVotesGraph = () => {
 
   useProposalDetailsTallyQuery({
     variables: {
-      proposalId: parseInt((router?.query?.id as string) ?? '', 10),
+      proposalId: parseFloat((router?.query?.id as string) ?? '0'),
     },
     onCompleted: (data) => {
       handleSetState(foramtProposalTally(data));

@@ -1,8 +1,7 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme } from '@/tests/utils';
-import MsgCreateBatchRequest from '@/models/msg/ecocredit/msg_create_batch_request';
 import CreateBatchRequest from '@/components/msg/ecocredit/create_batch_request';
+import MsgCreateBatchRequest from '@/models/msg/ecocredit/msg_create_batch_request';
+import { MockTheme } from '@/tests/utils';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

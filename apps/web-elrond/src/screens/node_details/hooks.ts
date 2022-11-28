@@ -52,7 +52,7 @@ export const useNodeDetails = () => {
       try {
         const { data: nodeData } = await axios.get(NODE_DETAILS(router.query.hash as string));
 
-        const newState = {
+        const newState: Partial<NodeDetailsState> = {
           loading: false,
         };
 
@@ -188,8 +188,21 @@ export const useNodeDetails = () => {
       }
     };
 
-    const getConsensus = async ({ validator, shard, epoch }) => {
-      const { data: roundsData } = await axios.get(ROUNDS, {
+    const getConsensus = async ({
+      validator,
+      shard,
+      epoch,
+    }: {
+      validator: string;
+      shard: number;
+      epoch: number;
+    }) => {
+      const { data: roundsData } = await axios.get<
+        Array<{
+          round: number;
+          blockWasProposed: boolean;
+        }>
+      >(ROUNDS, {
         params: {
           size: 138,
           from: 0,
@@ -202,8 +215,25 @@ export const useNodeDetails = () => {
       return roundsData || [];
     };
 
-    const getBlocks = async ({ validator, shard, epoch }) => {
-      const { data: blocksData } = await axios.get(BLOCKS, {
+    const getBlocks = async ({
+      validator,
+      shard,
+      epoch,
+    }: {
+      validator: string;
+      shard: number;
+      epoch: number;
+    }) => {
+      const { data: blocksData } = await axios.get<
+        Array<{
+          round: number;
+          timestamp: number;
+          hash: string;
+          txCount: number;
+          shard: number;
+          sizeTxs: number;
+        }>
+      >(BLOCKS, {
         params: {
           // size: 25,
           size: 15,
@@ -215,7 +245,6 @@ export const useNodeDetails = () => {
       });
       return blocksData || [];
     };
-
     getData();
   }, [handleSetState, router.query.hash]);
 

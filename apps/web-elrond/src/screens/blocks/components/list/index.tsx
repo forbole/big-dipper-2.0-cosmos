@@ -1,12 +1,11 @@
-import React from 'react';
-import { usePagination } from '@/hooks';
-import Pagination from '@/components/pagination';
-import NoData from '@/components/no_data';
+import BlocksList from '@/components/blocks_list';
 import Box from '@/components/box';
 import Loading from '@/components/loading';
-import BlocksList from '@/components/blocks_list';
+import NoData from '@/components/no_data';
+import Pagination from '@/components/pagination';
+import { usePagination } from '@/hooks';
+import { PAGE_SIZE, useBlocks } from '@/screens/blocks/components/list/hooks';
 import { useStyles } from '@/screens/blocks/components/list/styles';
-import { useBlocks, PAGE_SIZE } from '@/screens/blocks/components/list/hooks';
 
 const List = () => {
   const classes = useStyles();

@@ -1,13 +1,13 @@
-import axios from 'axios';
-import { toValidatorAddress } from '@/utils/prefix_convert';
 import {
-  AccountCommissionDocument,
-  AccountWithdrawalAddressDocument,
   AccountBalancesDocument,
+  AccountCommissionDocument,
   AccountDelegationBalanceDocument,
-  AccountUnbondingBalanceDocument,
   AccountDelegationRewardsDocument,
+  AccountUnbondingBalanceDocument,
+  AccountWithdrawalAddressDocument,
 } from '@/graphql/general/account_details_documents';
+import { toValidatorAddress } from '@/utils/prefix_convert';
+import axios from 'axios';
 
 import chainConfig from '@/chainConfig';
 

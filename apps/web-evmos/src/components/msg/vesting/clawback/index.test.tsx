@@ -1,8 +1,7 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme } from '@/tests/utils';
-import MsgClawback from '@/models/msg/vesting/msg_clawback';
 import Clawback from '@/components/msg/vesting/clawback';
+import MsgClawback from '@/models/msg/vesting/msg_clawback';
+import { MockTheme } from '@/tests/utils';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

@@ -1,10 +1,10 @@
-import { useCallback, useEffect, useState } from 'react';
-import * as R from 'ramda';
-import numeral from 'numeral';
-import { useRouter } from 'next/router';
-import { useBlockDetailsQuery, BlockDetailsQuery } from '@/graphql/types/general_types';
 import { convertMsgsToModels } from '@/components/msg/utils';
+import { BlockDetailsQuery, useBlockDetailsQuery } from '@/graphql/types/general_types';
 import type { BlockDetailState } from '@/screens/block_details/types';
+import { useRouter } from 'next/router';
+import numeral from 'numeral';
+import * as R from 'ramda';
+import { useCallback, useEffect, useState } from 'react';
 
 export const useBlockDetails = () => {
   const router = useRouter();

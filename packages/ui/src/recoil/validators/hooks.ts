@@ -1,10 +1,10 @@
+import chainConfig from '@/chainConfig';
+import { useValidatorAddressesQuery, ValidatorAddressesQuery } from '@/graphql/types/general_types';
+import { useDesmosProfile } from '@/hooks';
+import { atomFamilyState as profileAtomFamilyState } from '@/recoil/profiles';
+import { atomFamilyState as validatorAtomState } from '@/recoil/validators/atom';
 import { useState } from 'react';
 import { useRecoilCallback } from 'recoil';
-import chainConfig from '@/chainConfig';
-import { useDesmosProfile } from '@/hooks';
-import { atomFamilyState as validatorAtomState } from '@/recoil/validators/atom';
-import { atomFamilyState as profileAtomFamilyState } from '@/recoil/profiles';
-import { useValidatorAddressesQuery, ValidatorAddressesQuery } from '@/graphql/types/general_types';
 
 export const useValidatorRecoil = () => {
   const [loading, setLoading] = useState(true);

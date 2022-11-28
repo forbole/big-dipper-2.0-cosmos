@@ -1,12 +1,12 @@
-import React from 'react';
-import Trans from 'next-translate/Trans';
-import useTranslation from 'next-translate/useTranslation';
-import Typography from '@material-ui/core/Typography';
-import { formatToken, formatNumber } from '@/utils/format_token';
+import { useStyles } from '@/components/msg/bank/multisend/styles';
 import Name from '@/components/name';
 import { MsgMultiSend } from '@/models';
 import { useProfileRecoil, useProfilesRecoil } from '@/recoil/profiles';
-import { useStyles } from '@/components/msg/bank/multisend/styles';
+import { formatNumber, formatToken } from '@/utils/format_token';
+import Typography from '@material-ui/core/Typography';
+import Trans from 'next-translate/Trans';
+import useTranslation from 'next-translate/useTranslation';
+import React from 'react';
 
 const Multisend: React.FC<{ message: MsgMultiSend }> = (props) => {
   const { t } = useTranslation('transactions');

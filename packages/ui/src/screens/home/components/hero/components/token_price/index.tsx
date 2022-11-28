@@ -1,24 +1,24 @@
-import React from 'react';
-import numeral from 'numeral';
-import Typography from '@material-ui/core/Typography';
-import useTranslation from 'next-translate/useTranslation';
-import { useRecoilValue } from 'recoil';
-import {
-  AreaChart,
-  Area,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-} from 'recharts';
 import CustomToolTip from '@/components/custom_tool_tip';
 import { readDate } from '@/recoil/settings';
-import dayjs, { formatDayJs } from '@/utils/dayjs';
-import type { TokenPriceType } from '@/screens/home/components/hero/types';
-import { useStyles } from '@/screens/home/components/hero/components/token_price/styles';
 import { usePrice } from '@/screens/home/components/hero/components/token_price/hooks';
+import { useStyles } from '@/screens/home/components/hero/components/token_price/styles';
+import type { TokenPriceType } from '@/screens/home/components/hero/types';
+import dayjs, { formatDayJs } from '@/utils/dayjs';
+import Typography from '@material-ui/core/Typography';
+import useTranslation from 'next-translate/useTranslation';
+import numeral from 'numeral';
 import * as R from 'ramda';
+import React from 'react';
+import {
+  Area,
+  AreaChart,
+  CartesianGrid,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from 'recharts';
+import { useRecoilValue } from 'recoil';
 
 const TokenPrice: React.FC<{ items: TokenPriceType[] } & ComponentDefault> = (props) => {
   const { classes, theme } = useStyles();

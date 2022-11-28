@@ -1,8 +1,7 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme } from '@/tests/utils';
-import MsgIssueDenom from '@/models/msg/nft/msg_issue_denom';
 import IssueDenom from '@/components/msg/nft/issue_denom';
+import MsgIssueDenom from '@/models/msg/nft/msg_issue_denom';
+import { MockTheme } from '@/tests/utils';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

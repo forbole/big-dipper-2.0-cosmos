@@ -8,6 +8,19 @@ import chainConfig from '@/chainConfig';
 import type { ValidatorsState } from '@/screens/validators/components/list/types';
 import Tabs from '@material-ui/core/Tabs';
 
+type ValidatorData = {
+  identity: string;
+  avatar: string;
+  name: string;
+  locked: string;
+  validators: number;
+  stake: number;
+  apr: number;
+  serviceFee: number;
+  numUsers: number;
+};
+type ProviderData = { identity: string; provider: string };
+
 export const useValidators = () => {
   const [state, setState] = useState<ValidatorsState>({
     loading: true,
@@ -56,12 +69,12 @@ export const useValidators = () => {
         if (providersDataRaw.status !== 'fulfilled') throw providersDataRaw.reason;
         if (stakeDataRaw.status !== 'fulfilled') throw stakeDataRaw.reason;
 
-        const validatorsData = validatorsDataRaw?.value?.data ?? {};
-        const providersData = providersDataRaw?.value?.data ?? {};
-        const stakeData = stakeDataRaw?.value?.data ?? {};
+        const validatorsData: Array<ValidatorData> = validatorsDataRaw?.value?.data ?? [];
+        const providersData: Array<ProviderData> = providersDataRaw?.value?.data ?? [];
+        const stakeData: { totalStaked: string } = stakeDataRaw?.value?.data ?? {};
 
         // identities
-        const identities: { [key: string]: unknown } = {};
+        const identities: { [key: string]: AvatarName } = {};
         validatorsData.forEach((x) => {
           const identity = x?.identity ?? '';
           const imageUrl = x?.avatar ?? '';
@@ -79,10 +92,10 @@ export const useValidators = () => {
         });
 
         // get the unique keys first
-        const allValidators = {};
-        const allValidatorData = {};
-        const allProviderData = {};
-        const allNodes = {};
+        const allValidators: { [k: string]: AvatarName } = {};
+        const allValidatorData: { [k: string]: ValidatorData } = {};
+        const allProviderData: { [k: string]: ProviderData } = {};
+        const allNodes: { [k: string]: boolean } = {};
 
         validatorsData.forEach((x) => {
           const identity = x?.identity ?? null;
@@ -124,7 +137,7 @@ export const useValidators = () => {
           const validatorData = allValidatorData[x] || {};
           const providerData = allProviderData[x] || {};
           const isNode = allNodes[x] || false;
-          const data = R.mergeAll([providerData, validatorData]);
+          const data = R.mergeAll([providerData, validatorData]) as ValidatorData & ProviderData;
 
           const locked = data?.locked ?? '0';
           const stakePercentString = Big(locked)

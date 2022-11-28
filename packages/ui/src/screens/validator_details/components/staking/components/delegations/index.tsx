@@ -1,16 +1,16 @@
-import React from 'react';
-import * as R from 'ramda';
-import classnames from 'classnames';
-import dynamic from 'next/dynamic';
-import { usePagination, useScreenSize } from '@/hooks';
-import Pagination from '@/components/pagination';
-import NoData from '@/components/no_data';
 import Loading from '@/components/loading';
+import NoData from '@/components/no_data';
+import Pagination from '@/components/pagination';
+import { usePagination, useScreenSize } from '@/hooks';
 import { useProfilesRecoil } from '@/recoil/profiles';
-import type { DelegationsType } from '@/screens/validator_details/components/staking/types';
-import { useStyles } from '@/screens/validator_details/components/staking/components/delegations/styles';
 import type DesktopType from '@/screens/validator_details/components/staking/components/delegations/components/desktop';
 import type MobileType from '@/screens/validator_details/components/staking/components/delegations/components/mobile';
+import { useStyles } from '@/screens/validator_details/components/staking/components/delegations/styles';
+import type { DelegationsType } from '@/screens/validator_details/components/staking/types';
+import classnames from 'classnames';
+import dynamic from 'next/dynamic';
+import * as R from 'ramda';
+import React from 'react';
 
 const Desktop = dynamic(
   () =>

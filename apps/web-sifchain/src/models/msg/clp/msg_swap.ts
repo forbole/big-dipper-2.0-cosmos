@@ -1,5 +1,5 @@
+import type { Categories, Log } from '@/models/msg/types';
 import * as R from 'ramda';
-import type { Categories } from '@/models/msg/types';
 
 class MsgSwap {
   public category: Categories;
@@ -36,25 +36,20 @@ class MsgSwap {
     this.receivedAmount = R.pathOr('', ['receivedAmount'], payload);
   }
 
-  static getReceivedAmount(log: {
-    events: Array<{ type: string; attributes: Array<{ key: string; value: string }> }>;
-  }): string {
-    const swapEvents = log?.events ?? [].filter((x) => x.type === 'swap_successful');
-    const amount = swapEvents?.[0]?.attributes?.filter((x) => x.key === 'swap_amount') ?? [];
-    return amount?.[0]?.value ?? '0';
+  static getReceivedAmount(log?: { events: Array<Log> }): string {
+    const swapEvents =
+      log?.events ?? [].filter((x) => R.pathOr<string>('', ['type'], x) === 'swap_successful');
+    const amount =
+      R.pathOr([], [0, 'attributes'], swapEvents)?.filter(
+        (x) => R.pathOr<string>('', ['key'], x) === 'swap_amount'
+      ) ?? [];
+    return R.pathOr('0', [0, 'value'], amount);
   }
 
   static fromJson(
-    json: {
-      '@type': string;
-      signer: string;
-      sent_asset: { symbol: string };
-      received_asset: { symbol: string };
-      sent_amount: string;
-      min_receiving_amount: string;
-    },
-    log: {
-      events: Array<{ type: string; attributes: Array<{ key: string }> }>;
+    json: object,
+    log?: {
+      events: Array<Log>;
     }
   ): MsgSwap {
     return {

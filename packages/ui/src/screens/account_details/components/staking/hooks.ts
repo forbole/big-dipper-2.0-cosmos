@@ -1,18 +1,18 @@
-import { ComponentProps, useCallback, useEffect, useState } from 'react';
-import * as R from 'ramda';
-import Big from 'big.js';
-import { useRouter } from 'next/router';
-import axios from 'axios';
-import { formatToken } from '@/utils/format_token';
-import { getDenom } from '@/utils/get_denom';
 import chainConfig from '@/chainConfig';
-import type { RewardsType } from '@/screens/account_details/types';
 import type {
   DelegationType,
   RedelegationType,
   StakingState,
 } from '@/screens/account_details/components/staking/types';
+import type { RewardsType } from '@/screens/account_details/types';
+import { formatToken } from '@/utils/format_token';
+import { getDenom } from '@/utils/get_denom';
 import { Tabs } from '@material-ui/core';
+import axios from 'axios';
+import Big from 'big.js';
+import { useRouter } from 'next/router';
+import * as R from 'ramda';
+import { ComponentProps, useCallback, useEffect, useState } from 'react';
 
 const stakingDefault = {
   data: {},

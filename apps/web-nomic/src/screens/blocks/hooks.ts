@@ -1,11 +1,11 @@
-import { useCallback, useState } from 'react';
-import * as R from 'ramda';
 import {
+  BlocksListenerSubscription,
   useBlocksListenerSubscription,
   useBlocksQuery,
-  BlocksListenerSubscription,
 } from '@/graphql/types/general_types';
 import type { BlocksState, BlockType } from '@/screens/blocks/types';
+import * as R from 'ramda';
+import { useCallback, useState } from 'react';
 
 export const useBlocks = () => {
   const [state, setState] = useState<BlocksState>({
@@ -112,7 +112,7 @@ export const useBlocks = () => {
     }
     return formattedData.map((x) => ({
       height: x.height,
-      txs: x.txs,
+      txs: x.txs ?? 0,
       hash: x.hash,
       timestamp: x.timestamp,
       proposer: x.proposerAddress,

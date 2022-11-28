@@ -1,6 +1,7 @@
 {
   "extends": "tsconfig/nextjs.json",
   "compilerOptions": {
+    "rootDir": "../..",
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*", "../../packages/ui/src/*"],
@@ -8,7 +9,6 @@
       "ui/*": ["../../packages/ui/src/*"]
     }
   },
-  "references": [{ "path": "../../packages/ui", "prepend": true }],
   "include": [
     "*.d.ts",
     "src/**/*.ts",
@@ -17,5 +17,32 @@
     "../../packages/ui/src/**/*.ts",
     "../../packages/ui/src/**/*.tsx"
   ],
-  "exclude": ["dist", "build", "node_modules", "cypress"]
+  "exclude": [
+    "dist",
+    "build",
+    "node_modules",
+    "../../packages/ui/**/*.test.tsx",
+    "../../packages/ui/src/graphql/general/account_details_documents.ts",
+    "../../packages/ui/src/graphql/general/validator_details_documents.ts",
+    "../../packages/ui/src/graphql/types/general_types.ts",
+    "../../packages/ui/src/pages/404.tsx",
+    "../../packages/ui/src/pages/[dtag].tsx",
+    "../../packages/ui/src/pages/_app.tsx",
+    "../../packages/ui/src/pages/_document.tsx",
+    "../../packages/ui/src/pages/_error.tsx",
+    "../../packages/ui/src/pages/account/[address].tsx",
+    "../../packages/ui/src/pages/accounts/[address].tsx",
+    "../../packages/ui/src/pages/blocks/[height].tsx",
+    "../../packages/ui/src/pages/blocks/index.tsx",
+    "../../packages/ui/src/pages/index.tsx",
+    "../../packages/ui/src/pages/params/index.tsx",
+    "../../packages/ui/src/pages/proposals/[id].tsx",
+    "../../packages/ui/src/pages/proposals/index.tsx",
+    "../../packages/ui/src/pages/transaction/[tx].tsx",
+    "../../packages/ui/src/pages/transactions/[tx].tsx",
+    "../../packages/ui/src/pages/transactions/index.tsx",
+    "../../packages/ui/src/pages/validator/[address].tsx",
+    "../../packages/ui/src/pages/validators/[address].tsx",
+    "../../packages/ui/src/pages/validators/index.tsx"
+  ]
 }

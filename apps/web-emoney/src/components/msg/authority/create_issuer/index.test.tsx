@@ -1,8 +1,7 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme } from '@/tests/utils';
-import MsgCreateIssuer from '@/models/msg/authority/msg_create_issuer';
 import CreateIssuer from '@/components/msg/authority/create_issuer';
+import MsgCreateIssuer from '@/models/msg/authority/msg_create_issuer';
+import { MockTheme } from '@/tests/utils';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

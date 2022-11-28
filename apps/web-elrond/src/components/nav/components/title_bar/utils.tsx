@@ -1,5 +1,5 @@
-import numeral from 'numeral';
 import { type AtomState } from '@/recoil/market';
+import numeral from 'numeral';
 
 export const formatMarket = (data: AtomState) => [
   {

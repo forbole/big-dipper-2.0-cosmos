@@ -1,13 +1,13 @@
-import { useState } from 'react';
-import * as R from 'ramda';
-import {
-  useTransactionsQuery,
-  useTransactionsListenerSubscription,
-  TransactionsListenerSubscription,
-} from '@/graphql/types/general_types';
 import { convertMsgsToModels } from '@/components/msg/utils';
-import { convertMsgType } from '@/utils/convert_msg_type';
+import {
+  TransactionsListenerSubscription,
+  useTransactionsListenerSubscription,
+  useTransactionsQuery,
+} from '@/graphql/types/general_types';
 import type { TransactionsState } from '@/screens/transactions/types';
+import { convertMsgType } from '@/utils/convert_msg_type';
+import * as R from 'ramda';
+import { useState } from 'react';
 
 export const useTransactions = () => {
   const [state, setState] = useState<TransactionsState>({

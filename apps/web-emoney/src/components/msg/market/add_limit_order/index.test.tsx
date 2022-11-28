@@ -1,8 +1,7 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme } from '@/tests/utils';
-import MsgAddLimitOrder from '@/models/msg/market/msg_add_limit_order';
 import AddLimitOrder from '@/components/msg/market/add_limit_order';
+import MsgAddLimitOrder from '@/models/msg/market/msg_add_limit_order';
+import { MockTheme } from '@/tests/utils';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

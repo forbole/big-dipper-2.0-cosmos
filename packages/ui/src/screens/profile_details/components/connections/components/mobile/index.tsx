@@ -1,15 +1,15 @@
-import React from 'react';
-import classnames from 'classnames';
-import useTranslation from 'next-translate/useTranslation';
-import dayjs, { formatDayJs } from '@/utils/dayjs';
-import { useRecoilValue } from 'recoil';
+import chainConfig from '@/chainConfig';
 import { readDate } from '@/recoil/settings';
+import { useStyles } from '@/screens/profile_details/components/connections/components/mobile/styles';
+import dayjs, { formatDayJs } from '@/utils/dayjs';
+import { ACCOUNT_DETAILS } from '@/utils/go_to_page';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
-import chainConfig from '@/chainConfig';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
-import { ACCOUNT_DETAILS } from '@/utils/go_to_page';
-import { useStyles } from '@/screens/profile_details/components/connections/components/mobile/styles';
+import React from 'react';
+import { useRecoilValue } from 'recoil';
 
 const Mobile: React.FC<{
   className?: string;

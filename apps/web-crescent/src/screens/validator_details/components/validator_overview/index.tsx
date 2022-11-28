@@ -1,27 +1,27 @@
-import React from 'react';
-import classnames from 'classnames';
-import useTranslation from 'next-translate/useTranslation';
-import Big from 'big.js';
-import numeral from 'numeral';
-import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
-import { useScreenSize } from '@/hooks';
-import CopyIcon from 'shared-utils/assets/icon-copy.svg';
-import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import Box from '@/components/box';
-import Tag from '@/components/tag';
-import InfoPopover from '@/components/info_popover';
 import ConditionExplanation from '@/components/condition_explanation';
+import InfoPopover from '@/components/info_popover';
 import LiquidStakingExplanation from '@/components/liquid_staking_explanation';
-import Link from 'next/link';
-import { ACCOUNT_DETAILS } from '@/utils/go_to_page';
-import { getValidatorStatus } from '@/utils/get_validator_status';
-import LiquidStakingTrueIcon from 'shared-utils/assets/liquid-staking-true.svg';
-import LiquidStakingFalseIcon from 'shared-utils/assets/liquid-staking-false.svg';
+import Tag from '@/components/tag';
+import { useScreenSize } from '@/hooks';
+import { useAddress } from '@/screens/validator_details/components/validator_overview/hooks';
 import { useStyles } from '@/screens/validator_details/components/validator_overview/styles';
 import { getCondition } from '@/screens/validator_details/components/validator_overview/utils';
-import type { StatusType, OverviewType } from '@/screens/validator_details/types';
-import { useAddress } from '@/screens/validator_details/components/validator_overview/hooks';
+import type { OverviewType, StatusType } from '@/screens/validator_details/types';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
+import { getValidatorStatus } from '@/utils/get_validator_status';
+import { ACCOUNT_DETAILS } from '@/utils/go_to_page';
+import Divider from '@material-ui/core/Divider';
+import Typography from '@material-ui/core/Typography';
+import Big from 'big.js';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
+import Link from 'next/link';
+import numeral from 'numeral';
+import React from 'react';
+import CopyIcon from 'shared-utils/assets/icon-copy.svg';
+import LiquidStakingFalseIcon from 'shared-utils/assets/liquid-staking-false.svg';
+import LiquidStakingTrueIcon from 'shared-utils/assets/liquid-staking-true.svg';
 
 const ValidatorOverview: React.FC<
   {

@@ -1,8 +1,7 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme } from '@/tests/utils';
-import { MsgDtagRefuseTransfer } from '@/models';
 import DtagRefuseTransfer from '@/components/msg/profiles/dtag_refuse_transfer';
+import { MsgDtagRefuseTransfer } from '@/models';
+import { MockTheme } from '@/tests/utils';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

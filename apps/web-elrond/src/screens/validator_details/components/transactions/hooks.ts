@@ -24,7 +24,17 @@ export const useTransactions = (provider: string) => {
   const getTransactionsByPage = useCallback(
     async (page: number) => {
       try {
-        const { data: transactionsData } = await axios.get(ACCOUNT_DETAILS_TRANSACTIONS(provider), {
+        const { data: transactionsData } = await axios.get<
+          Array<{
+            txHash: string;
+            senderShard: number;
+            receiverShard: number;
+            sender: string;
+            receiver: string;
+            timestamp: number;
+            status: string;
+          }>
+        >(ACCOUNT_DETAILS_TRANSACTIONS(provider), {
           params: {
             from: page * PAGE_SIZE,
             size: PAGE_SIZE,

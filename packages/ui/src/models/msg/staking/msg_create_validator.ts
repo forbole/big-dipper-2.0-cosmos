@@ -1,5 +1,5 @@
-import numeral from 'numeral';
 import type { Categories } from '@/models/msg/types';
+import numeral from 'numeral';
 import * as R from 'ramda';
 
 class MsgCreateValidator {

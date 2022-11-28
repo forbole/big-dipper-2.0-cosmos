@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
+import chainConfig from '@/chainConfig';
+import { hexToBech32 } from '@/utils/hex_to_bech32';
+import { GRAPHQL_TRANSPORT_WS_PROTOCOL, MessageType, stringifyMessage } from 'graphql-ws';
+import WebSocket from 'isomorphic-ws';
 import numeral from 'numeral';
 import * as R from 'ramda';
-import { hexToBech32 } from '@/utils/hex_to_bech32';
-import chainConfig from '@/chainConfig';
-import WebSocket from 'isomorphic-ws';
-import { stringifyMessage, GRAPHQL_TRANSPORT_WS_PROTOCOL, MessageType } from 'graphql-ws';
+import { useEffect, useState } from 'react';
 
 export const useConsensus = () => {
   const [state, setState] = useState<{

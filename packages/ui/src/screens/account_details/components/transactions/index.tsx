@@ -1,22 +1,21 @@
-import React from 'react';
-import classnames from 'classnames';
-import Typography from '@material-ui/core/Typography';
-import useTranslation from 'next-translate/useTranslation';
-import TransactionsListDetails from '@/components/transactions_list_details';
-import TransactionsList from '@/components/transactions_list';
 import Box from '@/components/box';
-import { useRecoilValue } from 'recoil';
+import TransactionsList from '@/components/transactions_list';
+import TransactionsListDetails from '@/components/transactions_list_details';
 import { readTx } from '@/recoil/settings';
-import { useGetMessagesByAddressQuery } from '@/graphql/types/general_types';
-import { useStyles } from '@/screens/account_details/components/transactions/styles';
 import { useTransactions } from '@/screens/account_details/components/transactions/hooks';
+import { useStyles } from '@/screens/account_details/components/transactions/styles';
+import Typography from '@material-ui/core/Typography';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
+import React from 'react';
+import { useRecoilValue } from 'recoil';
 
 const Transactions: React.FC<ComponentDefault> = (props) => {
   const txListFormat = useRecoilValue(readTx);
   const classes = useStyles();
   const { t } = useTranslation('validators');
 
-  const { state, loadNextPage } = useTransactions(useGetMessagesByAddressQuery);
+  const { state, loadNextPage } = useTransactions();
 
   const loadMoreItems = state.isNextPageLoading ? () => null : loadNextPage;
   const isItemLoaded = (index: number) => !state.hasNextPage || index < state.data.length;

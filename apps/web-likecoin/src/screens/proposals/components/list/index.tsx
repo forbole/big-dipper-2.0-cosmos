@@ -1,22 +1,22 @@
-import React, { ComponentProps, FC } from 'react';
-import numeral from 'numeral';
-import classnames from 'classnames';
-import Link from 'next/link';
 import { mergeRefs } from '@/utils/merge_refs';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
+import classnames from 'classnames';
+import Link from 'next/link';
+import numeral from 'numeral';
+import { ComponentProps, FC } from 'react';
+import AutoSizer from 'react-virtualized-auto-sizer';
 import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
-import AutoSizer from 'react-virtualized-auto-sizer';
 
-import { PROPOSAL_DETAILS } from '@/utils/go_to_page';
-import { useList, useListRow } from '@/hooks';
-import Loading from '@/components/loading';
 import Box from '@/components/box';
+import Loading from '@/components/loading';
 import SingleProposal from '@/components/single_proposal';
+import { useList, useListRow } from '@/hooks';
 import Total from '@/screens/proposals/components/list/components/total';
 import { useStyles } from '@/screens/proposals/components/list/styles';
 import type { ProposalType } from '@/screens/proposals/types';
+import { PROPOSAL_DETAILS } from '@/utils/go_to_page';
 
 const ProposalsList: FC<{
   className?: string;

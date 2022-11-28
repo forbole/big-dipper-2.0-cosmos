@@ -1,8 +1,8 @@
-import Link from 'next/link';
-import useTranslation from 'next-translate/useTranslation';
-import Trans from 'next-translate/Trans';
 import { HOME } from '@/utils/go_to_page';
 import Typography from '@material-ui/core/Typography';
+import Trans from 'next-translate/Trans';
+import useTranslation from 'next-translate/useTranslation';
+import Link from 'next/link';
 import generalConfig from 'shared-utils/configs/general.json';
 
 /**
@@ -22,10 +22,9 @@ import generalConfig from 'shared-utils/configs/general.json';
  *  - https://nextjs.org/docs/api-reference/data-fetching/get-initial-props
  *  - https://reactjs.org/docs/error-boundaries.html
  */
-import React from 'react';
-import * as Sentry from '@sentry/nextjs';
-import { NextPageContext, NextPage } from 'next';
 import { useStyles } from '@/screens/error/styles';
+import * as Sentry from '@sentry/nextjs';
+import { NextPage, NextPageContext } from 'next';
 
 const Error: NextPage = () => {
   const classes = useStyles();

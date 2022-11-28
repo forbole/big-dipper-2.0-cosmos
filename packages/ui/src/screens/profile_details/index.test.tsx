@@ -1,10 +1,9 @@
-import React from 'react';
+import ProfileDetails from '@/screens/profile_details';
+import { MockTheme, wait } from '@/tests/utils';
+import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
-import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
 import renderer from 'react-test-renderer';
-import { MockTheme, wait } from '@/tests/utils';
-import ProfileDetails from '@/screens/profile_details';
 
 // ==================================
 // mocks

@@ -1,14 +1,14 @@
-import React from 'react';
-import classnames from 'classnames';
-import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
-import useTranslation from 'next-translate/useTranslation';
-import Box from '@/components/box';
 import Avatar from '@/components/avatar';
+import Box from '@/components/box';
 import Markdown from '@/components/markdown';
 import { useProfileRecoil } from '@/recoil/profiles';
 import { useStyles } from '@/screens/validator_details/components/profile/styles';
 import type { OverviewType } from '@/screens/validator_details/types';
+import Divider from '@material-ui/core/Divider';
+import Typography from '@material-ui/core/Typography';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
+import React from 'react';
 
 const Profile: React.FC<{ profile: OverviewType } & ComponentDefault> = ({
   className,

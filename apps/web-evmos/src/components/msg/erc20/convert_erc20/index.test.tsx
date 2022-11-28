@@ -1,8 +1,7 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme } from '@/tests/utils';
-import MsgConvertErc20 from '@/models/msg/erc20/msg_convert_erc20';
 import ConvertErc20 from '@/components/msg/erc20/convert_erc20';
+import MsgConvertErc20 from '@/models/msg/erc20/msg_convert_erc20';
+import { MockTheme } from '@/tests/utils';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

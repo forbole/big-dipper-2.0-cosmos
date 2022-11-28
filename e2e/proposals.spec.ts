@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 
 test('proposals list page', async ({ page, isMobile }) => {
   // Test url

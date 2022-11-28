@@ -1,8 +1,7 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme } from '@/tests/utils';
-import MsgUpdateGroupAccountMetadataRequest from '@/models/msg/group/msg_update_group_account_metadata_request';
 import UpdateGroupAccountMetadataRequest from '@/components/msg/group/update_group_account_metadata_request';
+import MsgUpdateGroupAccountMetadataRequest from '@/models/msg/group/msg_update_group_account_metadata_request';
+import { MockTheme } from '@/tests/utils';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

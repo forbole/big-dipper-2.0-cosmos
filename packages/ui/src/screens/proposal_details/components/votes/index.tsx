@@ -1,17 +1,17 @@
-import React, { ReactNode } from 'react';
-import dynamic from 'next/dynamic';
-import classnames from 'classnames';
 import Box from '@/components/box';
 import NoData from '@/components/no_data';
 import { usePagination, useScreenSize } from '@/hooks';
 import { useProfilesRecoil } from '@/recoil/profiles';
-import { useStyles } from '@/screens/proposal_details/components/votes/styles';
-import Tabs from '@/screens/proposal_details/components/votes/components/tabs';
-import Paginate from '@/screens/proposal_details/components/votes/components/paginate';
-import { filterDataByTab } from '@/screens/proposal_details/components/votes/utils';
-import { useVotes } from '@/screens/proposal_details/components/votes/hooks';
 import type DesktopType from '@/screens/proposal_details/components/votes/components/desktop';
 import type MobileType from '@/screens/proposal_details/components/votes/components/mobile';
+import Paginate from '@/screens/proposal_details/components/votes/components/paginate';
+import Tabs from '@/screens/proposal_details/components/votes/components/tabs';
+import { useVotes } from '@/screens/proposal_details/components/votes/hooks';
+import { useStyles } from '@/screens/proposal_details/components/votes/styles';
+import { filterDataByTab } from '@/screens/proposal_details/components/votes/utils';
+import classnames from 'classnames';
+import dynamic from 'next/dynamic';
+import React, { ReactNode } from 'react';
 
 const Desktop = dynamic(
   () => import('@/screens/proposal_details/components/votes/components/desktop')

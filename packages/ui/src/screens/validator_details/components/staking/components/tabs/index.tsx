@@ -1,11 +1,11 @@
-import React, { ComponentProps } from 'react';
+import { useStyles } from '@/screens/validator_details/components/staking/components/tabs/styles';
+import { a11yProps } from '@/utils/a11yProps';
+import Tab from '@material-ui/core/Tab';
+import Tabs from '@material-ui/core/Tabs';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import { a11yProps } from '@/utils/a11yProps';
-import { useStyles } from '@/screens/validator_details/components/staking/components/tabs/styles';
+import React, { ComponentProps } from 'react';
 
 const TabsHeader: React.FC<{
   className?: string;

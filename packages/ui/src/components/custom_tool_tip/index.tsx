@@ -1,6 +1,6 @@
-import React from 'react';
-import classnames from 'classnames';
 import { useStyles } from '@/components/custom_tool_tip/styles';
+import classnames from 'classnames';
+import React from 'react';
 
 export interface CustomToolTipData {
   legendKey: string;

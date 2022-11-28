@@ -1,10 +1,10 @@
-import React from 'react';
-import dynamic from 'next/dynamic';
 import NoData from '@/components/no_data';
 import { useScreenSize } from '@/hooks';
-import type { TokenType } from '@/screens/tokens/components/list/types';
 import type DesktopType from '@/screens/tokens/components/list/components/tokens_list/components/desktop';
 import type MobileType from '@/screens/tokens/components/list/components/tokens_list/components/mobile';
+import type { TokenType } from '@/screens/tokens/components/list/types';
+import dynamic from 'next/dynamic';
+import React from 'react';
 
 const Desktop = dynamic(
   () => import('@/screens/tokens/components/list/components/tokens_list/components/desktop')

@@ -1,10 +1,10 @@
-import { useCallback, useEffect, useState } from 'react';
+import { convertMsgsToModels } from '@/components/msg/utils';
+import { TransactionDetailsQuery, useTransactionDetailsQuery } from '@/graphql/types/general_types';
+import type { TransactionState } from '@/screens/transaction_details/types';
+import { formatToken } from '@/utils/format_token';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
-import { useTransactionDetailsQuery, TransactionDetailsQuery } from '@/graphql/types/general_types';
-import { formatToken } from '@/utils/format_token';
-import { convertMsgsToModels } from '@/components/msg/utils';
-import type { TransactionState } from '@/screens/transaction_details/types';
+import { useCallback, useEffect, useState } from 'react';
 
 export const useTransactionDetails = () => {
   const router = useRouter();

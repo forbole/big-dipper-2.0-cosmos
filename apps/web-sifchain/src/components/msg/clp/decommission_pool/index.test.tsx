@@ -1,8 +1,7 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme } from '@/tests/utils';
-import MsgDecommissionPool from '@/models/msg/clp/msg_decommission_pool';
 import DecommissionPool from '@/components/msg/clp/decommission_pool';
+import MsgDecommissionPool from '@/models/msg/clp/msg_decommission_pool';
+import { MockTheme } from '@/tests/utils';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

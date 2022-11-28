@@ -59,17 +59,15 @@ jest.mock('next/dynamic', () => () => {
   return DynamicComponent;
 });
 
-jest.mock('@/recoil/profiles', () => {
-  return {
-    useProfileRecoil: jest.fn((address) => ({
-      address,
-      name: address,
-      imageUrl: '',
-    })),
-    useProfilesRecoil: jest.fn((address) => ({
-      address,
-      name: address,
-      imageUrl: '',
-    })),
-  };
-});
+jest.mock('@/recoil/profiles', () => ({
+  useProfileRecoil: jest.fn((address) => ({
+    address,
+    name: address,
+    imageUrl: '',
+  })),
+  useProfilesRecoil: jest.fn((address) => ({
+    address,
+    name: address,
+    imageUrl: '',
+  })),
+}));

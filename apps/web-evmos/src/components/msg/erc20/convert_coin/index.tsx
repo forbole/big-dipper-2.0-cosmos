@@ -1,10 +1,10 @@
-import React from 'react';
-import Trans from 'next-translate/Trans';
-import { formatToken, formatNumber } from '@/utils/format_token';
-import Typography from '@material-ui/core/Typography';
 import Name from '@/components/name';
 import MsgConvertCoin from '@/models/msg/erc20/msg_convert_coin';
 import { useProfileRecoil } from '@/recoil/profiles';
+import { formatNumber, formatToken } from '@/utils/format_token';
+import Typography from '@material-ui/core/Typography';
+import Trans from 'next-translate/Trans';
+import React from 'react';
 
 const ConvertCoin: React.FC<{ message: MsgConvertCoin }> = (props) => {
   const { message } = props;

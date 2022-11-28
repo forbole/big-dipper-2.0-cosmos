@@ -1,4 +1,4 @@
-/* eslint-disable no-template-curly-in-string */
+/* eslint-disable */
 const workaround = require('next-translate/lib/cjs/plugin/utils.js');
 
 // fix: Critical dependency: the request of a dependency is an expression

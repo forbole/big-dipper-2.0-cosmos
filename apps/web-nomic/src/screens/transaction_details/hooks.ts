@@ -1,9 +1,9 @@
-import { useCallback, useEffect, useState } from 'react';
+import { TransactionDetailsQuery, useTransactionDetailsQuery } from '@/graphql/types/general_types';
+import type { TransactionState } from '@/screens/transaction_details/types';
+import { formatToken } from '@/utils/format_token';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
-import { useTransactionDetailsQuery, TransactionDetailsQuery } from '@/graphql/types/general_types';
-import { formatToken } from '@/utils/format_token';
-import type { TransactionState } from '@/screens/transaction_details/types';
+import { useCallback, useEffect, useState } from 'react';
 
 export const useTransactionDetails = () => {
   const router = useRouter();
@@ -55,7 +55,7 @@ export const useTransactionDetails = () => {
   // Parse data
   // ===============================
   const formatTransactionDetails = (data: TransactionDetailsQuery) => {
-    const stateChange = {
+    const stateChange: Partial<TransactionState> = {
       loading: false,
     };
 
@@ -79,8 +79,8 @@ export const useTransactionDetails = () => {
         height: data.transaction[0].height,
         timestamp: data.transaction[0].block.timestamp,
         fee: formatToken(feeAmount.amount, feeAmount.denom),
-        gas: data.transaction[0].gasUsed,
-        memo: data.transaction[0].memo,
+        gas: parseFloat(data.transaction[0].gasUsed ?? '0') ?? 0,
+        memo: data.transaction[0].memo ?? '',
       };
       return overview;
     };

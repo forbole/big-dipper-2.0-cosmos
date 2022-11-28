@@ -1,10 +1,9 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
+import { BLOCKS, LATEST_BLOCK_HEIGHT } from '@/api';
+import List from '@/screens/blocks/components/list';
+import { MockTheme, wait } from '@/tests/utils';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
-import { LATEST_BLOCK_HEIGHT, BLOCKS } from '@/api';
-import { MockTheme, wait } from '@/tests/utils';
-import List from '@/screens/blocks/components/list';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // unit tests

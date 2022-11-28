@@ -1,9 +1,9 @@
-import React, { useCallback } from 'react';
-import useTranslation from 'next-translate/useTranslation';
-import classnames from 'classnames';
-import TablePagination from '@material-ui/core/TablePagination';
 import Actions from '@/components/pagination/components/actions';
 import { useStyles } from '@/components/pagination/styles';
+import TablePagination from '@material-ui/core/TablePagination';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
+import React, { useCallback } from 'react';
 
 const Pagination: React.FC<{
   className?: string;

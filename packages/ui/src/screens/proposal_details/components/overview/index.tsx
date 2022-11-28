@@ -1,23 +1,23 @@
-import React from 'react';
-import * as R from 'ramda';
-import numeral from 'numeral';
-import classnames from 'classnames';
-import dayjs, { formatDayJs } from '@/utils/dayjs';
-import useTranslation from 'next-translate/useTranslation';
-import { useRecoilValue } from 'recoil';
-import { readDate } from '@/recoil/settings';
-import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
-import SingleProposal from '@/components/single_proposal';
 import Box from '@/components/box';
 import Markdown from '@/components/markdown';
 import Name from '@/components/name';
+import SingleProposal from '@/components/single_proposal';
 import { useProfileRecoil } from '@/recoil/profiles';
-import { getProposalType } from '@/screens/proposal_details/utils';
-import type { OverviewType } from '@/screens/proposal_details/types';
+import { readDate } from '@/recoil/settings';
 import ParamsChange from '@/screens/proposal_details/components/overview/components/params_change';
 import SoftwareUpgrade from '@/screens/proposal_details/components/overview/components/software_upgrade';
 import { useStyles } from '@/screens/proposal_details/components/overview/styles';
+import type { OverviewType } from '@/screens/proposal_details/types';
+import { getProposalType } from '@/screens/proposal_details/utils';
+import dayjs, { formatDayJs } from '@/utils/dayjs';
+import Divider from '@material-ui/core/Divider';
+import Typography from '@material-ui/core/Typography';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
+import numeral from 'numeral';
+import * as R from 'ramda';
+import React from 'react';
+import { useRecoilValue } from 'recoil';
 
 const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
   className,

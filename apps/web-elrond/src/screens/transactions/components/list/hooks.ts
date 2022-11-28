@@ -40,7 +40,17 @@ export const useBlocks = () => {
   const getTransactionsByPage = useCallback(
     async (page: number) => {
       try {
-        const { data: transactionsData } = await axios.get(TRANSACTIONS, {
+        const { data: transactionsData } = await axios.get<
+          Array<{
+            txHash: string;
+            senderShard: number;
+            receiverShard: number;
+            sender: string;
+            receiver: string;
+            timestamp: number;
+            status: string;
+          }>
+        >(TRANSACTIONS, {
           params: {
             from: page * PAGE_SIZE,
             size: PAGE_SIZE,

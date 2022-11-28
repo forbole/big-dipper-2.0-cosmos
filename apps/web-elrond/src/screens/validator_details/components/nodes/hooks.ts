@@ -29,7 +29,10 @@ export const useBlocks = () => {
   useEffect(() => {
     const getNodesTotal = async () => {
       try {
-        const params = {
+        const params: {
+          provider?: string | string[] | undefined;
+          identity?: string | string[] | undefined;
+        } = {
           // come back to this later
           // brave will block the api if type validator is present
           // type: 'validator',
@@ -57,7 +60,13 @@ export const useBlocks = () => {
   const getBlocksByPage = useCallback(
     async (page: number) => {
       try {
-        const params = {
+        const params: {
+          from: number;
+          size: number;
+          type: string;
+          provider?: string | string[] | undefined;
+          identity?: string | string[] | undefined;
+        } = {
           from: page * PAGE_SIZE,
           size: PAGE_SIZE,
           type: 'validator',
@@ -67,11 +76,20 @@ export const useBlocks = () => {
         } else {
           params.identity = router.query.identity;
         }
-        const { data: blocksData } = await axios.get(NODES, {
+        const { data: blocksData } = await axios.get<
+          Array<{
+            bls?: string;
+            name?: string;
+            shard?: number;
+            version?: string;
+            status?: string;
+            online: boolean;
+          }>
+        >(NODES, {
           params,
         });
 
-        const items = blocksData.map((x) => ({
+        const items = blocksData.map((x): NodeState['items'][number] => ({
           pubkey: x?.bls ?? '',
           name: x?.name ?? '',
           shard: x?.shard ?? 0,

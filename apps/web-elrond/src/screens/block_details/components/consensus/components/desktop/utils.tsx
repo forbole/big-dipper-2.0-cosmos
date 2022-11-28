@@ -1,9 +1,10 @@
-import numeral from 'numeral';
-import Link from 'next/link';
-import Typography from '@material-ui/core/Typography';
-import { NODE_DETAILS } from '@/utils/go_to_page';
-import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import type { ConsensusType } from '@/screens/block_details/types';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
+import { NODE_DETAILS } from '@/utils/go_to_page';
+import Typography from '@material-ui/core/Typography';
+import Link from 'next/link';
+import numeral from 'numeral';
+import { ReactNode } from 'react';
 
 export const columns: {
   key: string;
@@ -21,7 +22,7 @@ export const columns: {
 ];
 
 export const formatRows = (data: ConsensusType[]) =>
-  data.map((x, i) => ({
+  data.map((x, i): { [key: string]: ReactNode } => ({
     idx: numeral(i + 1).format('0,0'),
     validator: (
       <Link href={NODE_DETAILS(x)} passHref>

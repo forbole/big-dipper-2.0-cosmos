@@ -1,7 +1,6 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme, wait } from '@/tests/utils';
 import Navbar from '@/components/nav/components/mobile/components/navbar';
+import { MockTheme, wait } from '@/tests/utils';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

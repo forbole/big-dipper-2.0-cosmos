@@ -37,16 +37,16 @@ class OracleParams {
   static fromJson(data: object): OracleParams {
     // console.log(data, 'data');
     return {
-      maxAskCount: data?.max_ask_count ?? 0,
-      baseOwsmGas: data?.base_owasm_gas ?? 0,
-      maxCalldataSize: data?.max_calldata_size ?? 0,
-      samplingTryCount: data?.sampling_try_count ?? 0,
-      maxReportDataSize: data?.max_report_data_size ?? 0,
-      maxRawRequestCount: data?.max_raw_request_count ?? 0,
-      expirationBlockCount: data?.expiration_block_count ?? 0,
-      oracleRewardPercentage: data?.oracle_reward_percentage ?? 0,
-      inactivePenaltyDuration: data?.inactive_penalty_duration ?? 0,
-      perValidatorRequestGas: data?.per_validator_request_gas ?? 0,
+      maxAskCount: R.pathOr(0, ['max_ask_count'], data),
+      baseOwsmGas: R.pathOr(0, ['base_owasm_gas'], data),
+      maxCalldataSize: R.pathOr(0, ['max_calldata_size'], data),
+      samplingTryCount: R.pathOr(0, ['sampling_try_count'], data),
+      maxReportDataSize: R.pathOr(0, ['max_report_data_size'], data),
+      maxRawRequestCount: R.pathOr(0, ['max_raw_request_count'], data),
+      expirationBlockCount: R.pathOr(0, ['expiration_block_count'], data),
+      oracleRewardPercentage: R.pathOr(0, ['oracle_reward_percentage'], data),
+      inactivePenaltyDuration: R.pathOr(0, ['inactive_penalty_duration'], data),
+      perValidatorRequestGas: R.pathOr(0, ['per_validator_request_gas'], data),
     };
   }
 }

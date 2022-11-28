@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import classnames from 'classnames';
 import numeral from 'numeral';
 import useTranslation from 'next-translate/useTranslation';

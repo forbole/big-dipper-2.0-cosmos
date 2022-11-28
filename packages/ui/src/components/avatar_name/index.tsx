@@ -1,10 +1,10 @@
-import React from 'react';
+import Avatar from '@/components/avatar';
+import { useStyles } from '@/components/avatar_name/styles';
+import { ADDRESS_DETAILS } from '@/utils/go_to_page';
+import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import Link from 'next/link';
-import Typography from '@material-ui/core/Typography';
-import Avatar from '@/components/avatar';
-import { ADDRESS_DETAILS } from '@/utils/go_to_page';
-import { useStyles } from '@/components/avatar_name/styles';
+import React from 'react';
 
 const AvatarName: React.FC<AvatarName> = ({
   className,

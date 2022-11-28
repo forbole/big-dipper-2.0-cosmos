@@ -1,19 +1,19 @@
-import React, { ComponentProps, FC } from 'react';
-import classnames from 'classnames';
-import Link from 'next/link';
+import { useList, useListRow } from '@/hooks';
+import SingleProvider from '@/screens/providers/components/providers_list/components/mobile/component/single_provider';
+import { useStyles } from '@/screens/providers/components/providers_list/components/mobile/styles';
+import type { ProviderInfo } from '@/screens/providers/types';
+import { useAddress } from '@/utils/copy_to_clipboard';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
+import Link from 'next/link';
+import React, { ComponentProps, FC } from 'react';
 import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
-import { useList, useListRow } from '@/hooks';
-import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
+import CopyIcon from 'shared-utils/assets/icon-copy.svg';
 import EmailIcon from 'shared-utils/assets/icon-email.svg';
 import WebArrowIcon from 'shared-utils/assets/icon-web-arrow.svg';
-import CopyIcon from 'shared-utils/assets/icon-copy.svg';
-import { useAddress } from '@/utils/copy_to_clipboard';
-import useTranslation from 'next-translate/useTranslation';
-import type { ProviderInfo } from '@/screens/providers/types';
-import { useStyles } from '@/screens/providers/components/providers_list/components/mobile/styles';
-import SingleProvider from '@/screens/providers/components/providers_list/components/mobile/component/single_provider';
 
 const Mobile: FC<{ list: ProviderInfo[] }> = ({ list }) => {
   const classes = useStyles();

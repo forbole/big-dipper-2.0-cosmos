@@ -1,8 +1,8 @@
-import { useCallback, useState } from 'react';
-import * as R from 'ramda';
-import DOMPurify from 'dompurify';
-import { useProposalsQuery, ProposalsQuery } from '@/graphql/types/general_types';
+import { ProposalsQuery, useProposalsQuery } from '@/graphql/types/general_types';
 import type { ProposalsState, ProposalType } from '@/screens/proposals/types';
+import DOMPurify from 'dompurify';
+import * as R from 'ramda';
+import { useCallback, useState } from 'react';
 
 export const useProposals = () => {
   const [state, setState] = useState<ProposalsState>({

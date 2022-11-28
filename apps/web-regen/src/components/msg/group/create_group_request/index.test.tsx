@@ -1,8 +1,7 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme } from '@/tests/utils';
-import MsgCreateGroupRequest from '@/models/msg/group/msg_create_group_request';
 import CreateGroupRequest from '@/components/msg/group/create_group_request';
+import MsgCreateGroupRequest from '@/models/msg/group/msg_create_group_request';
+import { MockTheme } from '@/tests/utils';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

@@ -1,13 +1,13 @@
-import { useCallback, useState } from 'react';
-import * as R from 'ramda';
-import { useRouter } from 'next/router';
-import {
-  useProposalDetailsDepositsQuery,
-  ProposalDetailsDepositsQuery,
-} from '@/graphql/types/general_types';
 import chainConfig from '@/chainConfig';
-import { formatToken } from '@/utils/format_token';
+import {
+  ProposalDetailsDepositsQuery,
+  useProposalDetailsDepositsQuery,
+} from '@/graphql/types/general_types';
 import type { DepositState } from '@/screens/proposal_details/components/deposits/types';
+import { formatToken } from '@/utils/format_token';
+import { useRouter } from 'next/router';
+import * as R from 'ramda';
+import { useCallback, useState } from 'react';
 
 export const useDeposits = () => {
   const router = useRouter();
@@ -24,7 +24,7 @@ export const useDeposits = () => {
 
   useProposalDetailsDepositsQuery({
     variables: {
-      proposalId: parseInt((router?.query?.id as string) ?? '', 10),
+      proposalId: parseFloat((router?.query?.id as string) ?? '0'),
     },
     onCompleted: (data) => {
       handleSetState(foramtProposalDeposits(data));

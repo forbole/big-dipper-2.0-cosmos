@@ -1,6 +1,6 @@
-import { atom } from 'recoil';
 import chainConfig from '@/chainConfig';
 import type { AtomState } from '@/recoil/big_dipper_networks/types';
+import { atom } from 'recoil';
 
 const initialState: AtomState = {
   networks: [],

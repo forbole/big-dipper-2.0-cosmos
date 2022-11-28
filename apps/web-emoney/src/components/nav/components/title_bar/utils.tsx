@@ -1,7 +1,7 @@
+import { type AtomState } from '@/recoil/market';
+import { formatNumber } from '@/utils/format_token';
 import Big from 'big.js';
 import numeral from 'numeral';
-import { formatNumber } from '@/utils/format_token';
-import { type AtomState } from '@/recoil/market';
 
 export const formatMarket = (data: AtomState) => {
   const exludedItems = [null, 0];
@@ -28,7 +28,7 @@ export const formatMarket = (data: AtomState) => {
     },
     {
       key: 'communityPool',
-      data: `${numeral(data.communityPool.value, 2).format(
+      data: `${numeral(data.communityPool.value).format(
         '0,0.00'
       )} ${data.communityPool.displayDenom.toUpperCase()}`,
     },

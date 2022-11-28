@@ -1,15 +1,15 @@
-import { useCallback, useEffect, useState } from 'react';
-import * as R from 'ramda';
-import { useRouter } from 'next/router';
-import { formatToken } from '@/utils/format_token';
+import chainConfig from '@/chainConfig';
 import { useValidatorDetailsQuery, ValidatorDetailsQuery } from '@/graphql/types/general_types';
 import { useDesmosProfile } from '@/hooks';
-import { validatorToDelegatorAddress } from '@/recoil/profiles';
-import { getValidatorCondition } from '@/utils/get_validator_condition';
-import chainConfig from '@/chainConfig';
 import { SlashingParams } from '@/models';
-import { isValidAddress } from '@/utils/prefix_convert';
+import { validatorToDelegatorAddress } from '@/recoil/profiles';
 import type { ValidatorDetailsState } from '@/screens/validator_details/types';
+import { formatToken } from '@/utils/format_token';
+import { getValidatorCondition } from '@/utils/get_validator_condition';
+import { isValidAddress } from '@/utils/prefix_convert';
+import { useRouter } from 'next/router';
+import * as R from 'ramda';
+import { useCallback, useEffect, useState } from 'react';
 
 const initialTokenDenom: TokenUnit = {
   value: '0',
@@ -100,7 +100,7 @@ export const useValidatorDetails = () => {
 };
 
 function formatAccountQuery(data: ValidatorDetailsQuery) {
-  const stateChange = {
+  const stateChange: Partial<ValidatorDetailsState> = {
     loading: false,
   };
 
@@ -138,10 +138,9 @@ function formatAccountQuery(data: ValidatorDetailsQuery) {
     const { signedBlockWindow } = slashingParams;
     const condition = getValidatorCondition(signedBlockWindow, missedBlockCounter);
 
-    const liquidStakingReturn =
-      data.validator[0]?.validatorLiquidStaking?.[0]?.liquidStaking ?? 'N/A';
-    let liquidStaking = liquidStakingReturn;
-    if (liquidStakingReturn !== 'N/A') {
+    const liquidStakingReturn = data.validator[0]?.validatorLiquidStaking?.[0]?.liquidStaking;
+    let liquidStaking = 'N/A';
+    if (liquidStakingReturn !== undefined) {
       if (liquidStakingReturn) {
         liquidStaking = 'Yes';
       } else {

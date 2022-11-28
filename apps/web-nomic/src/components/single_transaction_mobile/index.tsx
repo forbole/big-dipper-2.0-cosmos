@@ -1,8 +1,8 @@
-import React from 'react';
-import classnames from 'classnames';
-import Typography from '@material-ui/core/Typography';
-import useTranslation from 'next-translate/useTranslation';
 import { useStyles } from '@/components/single_transaction_mobile/styles';
+import Typography from '@material-ui/core/Typography';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
+import React from 'react';
 
 const SingleTransactionMobile: React.FC<{
   className?: string;

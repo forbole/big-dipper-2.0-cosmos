@@ -1,11 +1,11 @@
 import * as COMPONENTS from '@/components/msg';
-import * as MODELS from '@/models';
 import Tag from '@/components/tag';
+import * as MODELS from '@/models';
+import type { Log } from '@/models/msg/types';
 import isKeyOf from '@/utils/isKeyOf';
 import { Translate } from 'next-translate';
-import { FC } from 'react';
-import type { Log } from '@/models/msg/types';
 import * as R from 'ramda';
+import { ComponentProps, FC } from 'react';
 
 // =====================================
 // DO NOT UPDATE IF THIS IS A FORK.
@@ -427,21 +427,17 @@ export const getMessageModelByType = (type: string): Data['model'] => {
  * Helper function to correctly display the correct UI
  * @param type Model type
  */
-export const getMessageByType = <
-  TMessage extends ReturnType<TypeToModel[keyof TypeToModel]['model']['fromJson']>
->(
-  message: TMessage,
-  viewRaw: boolean,
-  t: Translate
-) => {
-  const { type } = message;
-  type resultType = {
+export const getMessageByType = <TMessage,>(message: TMessage, viewRaw: boolean, t: Translate) => {
+  const { type } = (message as { type: string }) ?? {};
+
+  type ResultType = {
     content: FC<{ message: TMessage }>;
-    tagDisplay: string;
+    tagDisplay: Data['tagDisplay'];
     tagTheme: TagTheme;
   };
-  let results: resultType = {
-    content: COMPONENTS.Unknown as resultType['content'],
+
+  let results: ResultType = {
+    content: COMPONENTS.Unknown as unknown as FC<{ message: TMessage }>,
     tagDisplay: 'txUnknownLabel',
     tagTheme: 'zero',
   };
@@ -450,20 +446,22 @@ export const getMessageByType = <
 
   if (data) {
     results = {
-      content: data?.content as resultType['content'],
-      tagDisplay: data.tagDisplay as resultType['tagDisplay'],
-      tagTheme: data.tagTheme as resultType['tagTheme'],
+      content: data?.content as unknown as FC<{ message: TMessage }>,
+      tagDisplay: data.tagDisplay as ResultType['tagDisplay'],
+      tagTheme: data.tagTheme as ResultType['tagTheme'],
     };
   }
 
   // If user asks to view the raw data
   if (viewRaw || !results.content) {
-    results.content = COMPONENTS.Unknown as resultType['content'];
+    results.content = COMPONENTS.Unknown as unknown as FC<{ message: TMessage }>;
   }
+
+  const Content = results.content;
 
   return {
     type: <Tag value={t(`message_labels:${results.tagDisplay}`)} theme={results.tagTheme} />,
-    message: <results.content message={message} />,
+    message: <Content message={message as unknown as ComponentProps<typeof Content>['message']} />,
   };
 };
 

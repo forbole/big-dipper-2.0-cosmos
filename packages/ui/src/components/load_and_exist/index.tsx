@@ -1,6 +1,6 @@
-import React, { FC, PropsWithChildren } from 'react';
-import NotFound from '@/components/not_found';
 import LinearLoading from '@/components/linear_loading';
+import NotFound from '@/components/not_found';
+import { FC, PropsWithChildren } from 'react';
 
 type Props = { loading: boolean; exists: boolean };
 

@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
 import { useTheme } from '@material-ui/core/styles';
+import { useEffect, useState } from 'react';
 
 const isClient = typeof window === 'object';
 

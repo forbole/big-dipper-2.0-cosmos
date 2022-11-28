@@ -1,9 +1,9 @@
-import { useCallback, useEffect, useState } from 'react';
-import * as R from 'ramda';
-import axios from 'axios';
-import { POLLING_INTERVAL, BLOCKS, LATEST_BLOCK_HEIGHT } from '@/api';
+import { BLOCKS, LATEST_BLOCK_HEIGHT, POLLING_INTERVAL } from '@/api';
 import { useInterval } from '@/hooks';
 import type { BlockState } from '@/screens/blocks/components/list/types';
+import axios from 'axios';
+import * as R from 'ramda';
+import { useCallback, useEffect, useState } from 'react';
 
 export const PAGE_SIZE = 25;
 
@@ -40,7 +40,16 @@ export const useBlocks = () => {
   const getBlocksByPage = useCallback(
     async (page: number) => {
       try {
-        const { data: blocksData } = await axios.get(BLOCKS, {
+        const { data: blocksData } = await axios.get<
+          Array<{
+            round: BlockState['items'][number]['block'];
+            timestamp: BlockState['items'][number]['timestamp'];
+            hash: BlockState['items'][number]['hash'];
+            txCount: BlockState['items'][number]['txs'];
+            shard: BlockState['items'][number]['shard'];
+            sizeTxs: BlockState['items'][number]['size'];
+          }>
+        >(BLOCKS, {
           params: {
             from: page * PAGE_SIZE,
             size: PAGE_SIZE,

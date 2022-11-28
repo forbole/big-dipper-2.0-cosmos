@@ -1,18 +1,18 @@
-import numeral from 'numeral';
 import chainConfig from '@/chainConfig';
-import { useRouter } from 'next/router';
+import { readValidator } from '@/recoil/validators';
 import {
-  VALIDATOR_DETAILS,
   ACCOUNT_DETAILS,
   BLOCK_DETAILS,
-  TRANSACTION_DETAILS,
   PROFILE_DETAILS,
+  TRANSACTION_DETAILS,
+  VALIDATOR_DETAILS,
 } from '@/utils/go_to_page';
-import { useRecoilCallback } from 'recoil';
-import { readValidator } from '@/recoil/validators';
-import { toast } from 'react-toastify';
 import { isValidAddress } from '@/utils/prefix_convert';
 import { Translate } from 'next-translate';
+import { useRouter } from 'next/router';
+import numeral from 'numeral';
+import { toast } from 'react-toastify';
+import { useRecoilCallback } from 'recoil';
 
 export const useSearchBar = (t: Translate) => {
   const router = useRouter();

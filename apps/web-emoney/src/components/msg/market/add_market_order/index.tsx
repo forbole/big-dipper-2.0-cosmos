@@ -1,10 +1,10 @@
-import React from 'react';
-import Trans from 'next-translate/Trans';
-import Typography from '@material-ui/core/Typography';
 import Name from '@/components/name';
-import { formatToken, formatNumber } from '@/utils/format_token';
 import MsgAddMarketOrder from '@/models/msg/market/msg_add_market_order';
 import { useProfileRecoil } from '@/recoil/profiles';
+import { formatNumber, formatToken } from '@/utils/format_token';
+import Typography from '@material-ui/core/Typography';
+import Trans from 'next-translate/Trans';
+import React from 'react';
 
 const AddMarketOrder: React.FC<{ message: MsgAddMarketOrder }> = (props) => {
   const { message } = props;

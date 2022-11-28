@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Github = () => (
   <svg
     width="26px"

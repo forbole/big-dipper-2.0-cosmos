@@ -1,13 +1,13 @@
-import { ComponentProps, useCallback, useState } from 'react';
+import {
+  ProposalDetailsVotesQuery,
+  useProposalDetailsVotesQuery,
+} from '@/graphql/types/general_types';
+import type { VoteState } from '@/screens/proposal_details/components/votes/types';
+import { toValidatorAddress } from '@/utils/prefix_convert';
+import Tabs from '@material-ui/core/Tabs';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
-import {
-  useProposalDetailsVotesQuery,
-  ProposalDetailsVotesQuery,
-} from '@/graphql/types/general_types';
-import { toValidatorAddress } from '@/utils/prefix_convert';
-import type { VoteState } from '@/screens/proposal_details/components/votes/types';
-import Tabs from '@material-ui/core/Tabs';
+import { ComponentProps, useCallback, useState } from 'react';
 
 export const useVotes = (resetPagination: () => void) => {
   const router = useRouter();
@@ -42,7 +42,7 @@ export const useVotes = (resetPagination: () => void) => {
 
   useProposalDetailsVotesQuery({
     variables: {
-      proposalId: parseInt((router?.query?.id as string) ?? '', 10),
+      proposalId: parseFloat((router?.query?.id as string) ?? '0'),
     },
     onCompleted: (data) => {
       handleSetState(formatVotes(data));

@@ -1,23 +1,24 @@
-import React from 'react';
-import Color from 'color';
-import classnames from 'classnames';
-import numeral from 'numeral';
-import Typography from '@material-ui/core/Typography';
-import useTranslation from 'next-translate/useTranslation';
-import {
-  AreaChart,
-  Area,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-} from 'recharts';
 import Box from '@/components/box';
 import CustomToolTip from '@/components/custom_tool_tip';
-import dayjs from '@/utils/dayjs';
-import { useStyles } from '@/screens/home/components/price/styles';
 import { usePrice } from '@/screens/home/components/price/hooks';
+import { useStyles } from '@/screens/home/components/price/styles';
+import dayjs from '@/utils/dayjs';
+import Typography from '@material-ui/core/Typography';
+import classnames from 'classnames';
+import Color from 'color';
+import useTranslation from 'next-translate/useTranslation';
+import numeral from 'numeral';
+import * as R from 'ramda';
+import React from 'react';
+import {
+  Area,
+  AreaChart,
+  CartesianGrid,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from 'recharts';
 
 const Price: React.FC<ComponentDefault> = (props) => {
   const { classes, theme } = useStyles();
@@ -54,7 +55,7 @@ const Price: React.FC<ComponentDefault> = (props) => {
                 <CustomToolTip>
                   {(x) => (
                     <>
-                      <Typography variant="caption">{x.time}</Typography>
+                      <Typography variant="caption">{R.pathOr('', ['time'], x)}</Typography>
                       <Typography variant="body1">${numeral(x.value).format('0,0.00')}</Typography>
                     </>
                   )}

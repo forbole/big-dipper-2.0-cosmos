@@ -1,10 +1,10 @@
-import { useEffect } from 'react';
-import axios from 'axios';
-import { useRecoilState, SetterOrUpdater } from 'recoil';
+import type { ChainIdQuery, useChainIdQuery } from '@/graphql/types/general_types';
 import { BigDipperNetwork } from '@/models';
 import { writeNetworks, writeSelectedNetwork } from '@/recoil/big_dipper_networks/selectors';
 import type { Networks, Selected } from '@/recoil/big_dipper_networks/types';
-import type { useChainIdQuery, ChainIdQuery } from '@/graphql/types/general_types';
+import axios from 'axios';
+import { useEffect } from 'react';
+import { SetterOrUpdater, useRecoilState } from 'recoil';
 
 const NETWORK_LIST_API =
   'https://raw.githubusercontent.com/forbole/big-dipper-networks/main/networks.json';

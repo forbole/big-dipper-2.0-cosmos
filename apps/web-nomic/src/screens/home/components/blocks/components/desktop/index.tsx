@@ -1,20 +1,20 @@
-import React, { ReactNode } from 'react';
-import classnames from 'classnames';
-import TableRow from '@material-ui/core/TableRow';
-import TableHead from '@material-ui/core/TableHead';
-import TableCell from '@material-ui/core/TableCell';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import Typography from '@material-ui/core/Typography';
-import useTranslation from 'next-translate/useTranslation';
-import numeral from 'numeral';
-import dayjs from '@/utils/dayjs';
-import Link from 'next/link';
-import { BLOCK_DETAILS } from '@/utils/go_to_page';
-import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { useStyles } from '@/screens/home/components/blocks/components/desktop/styles';
 import { columns } from '@/screens/home/components/blocks/components/desktop/utils';
-import type { BlockType } from 'src/screens/home/components/blocks/types';
+import type { BlockType } from '@/screens/home/components/blocks/types';
+import dayjs from '@/utils/dayjs';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
+import { BLOCK_DETAILS } from '@/utils/go_to_page';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Typography from '@material-ui/core/Typography';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
+import Link from 'next/link';
+import numeral from 'numeral';
+import React, { ReactNode } from 'react';
 
 const Desktop: React.FC<{
   className?: string;

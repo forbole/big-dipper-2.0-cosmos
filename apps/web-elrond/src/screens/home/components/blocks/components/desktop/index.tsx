@@ -1,20 +1,20 @@
-import React from 'react';
-import numeral from 'numeral';
+import { useStyles } from '@/screens/home/components/blocks/components/desktop/styles';
+import { columns } from '@/screens/home/components/blocks/components/desktop/utils';
+import type { BlockType } from '@/screens/home/components/blocks/types';
+import dayjs from '@/utils/dayjs';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
+import { BLOCK_DETAILS } from '@/utils/go_to_page';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
-import Table from '@material-ui/core/Table';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import TableCell from '@material-ui/core/TableCell';
-import TableBody from '@material-ui/core/TableBody';
-import Typography from '@material-ui/core/Typography';
-import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
-import { BLOCK_DETAILS } from '@/utils/go_to_page';
-import dayjs from '@/utils/dayjs';
-import { useStyles } from '@/screens/home/components/blocks/components/desktop/styles';
-import { columns } from '@/screens/home/components/blocks/components/desktop/utils';
-import type { BlockType } from 'src/screens/home/components/blocks/types';
+import numeral from 'numeral';
+import React from 'react';
 
 const Desktop: React.FC<{ items: BlockType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('blocks');

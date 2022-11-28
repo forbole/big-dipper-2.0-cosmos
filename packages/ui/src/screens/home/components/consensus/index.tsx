@@ -1,14 +1,14 @@
-import React from 'react';
-import classnames from 'classnames';
-import numeral from 'numeral';
-import Typography from '@material-ui/core/Typography';
-import useTranslation from 'next-translate/useTranslation';
-import Box from '@/components/box';
 import AvatarName from '@/components/avatar_name';
-import { RadialBarChart, PolarAngleAxis, RadialBar, Tooltip } from 'recharts';
+import Box from '@/components/box';
 import { useProfileRecoil } from '@/recoil/profiles';
-import { useStyles } from '@/screens/home/components/consensus/styles';
 import { useConsensus } from '@/screens/home/components/consensus/hooks';
+import { useStyles } from '@/screens/home/components/consensus/styles';
+import Typography from '@material-ui/core/Typography';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
+import numeral from 'numeral';
+import React from 'react';
+import { PolarAngleAxis, RadialBar, RadialBarChart, Tooltip } from 'recharts';
 
 const Consensus: React.FC<{
   className?: string;

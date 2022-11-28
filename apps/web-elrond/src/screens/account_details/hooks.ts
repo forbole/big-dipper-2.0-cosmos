@@ -48,7 +48,7 @@ export const useAccountDetails = () => {
         ACCOUNT_DETAILS_TOKEN_COUNT(router.query.address as string)
       );
 
-      const newState = {
+      const newState: Partial<AccountDetailsType> = {
         loading: false,
       };
 

@@ -1,10 +1,10 @@
-import { useState } from 'react';
-import { useRecoilCallback } from 'recoil';
 import chainConfig from '@/chainConfig';
+import { useValidatorAddressesQuery, ValidatorAddressesQuery } from '@/graphql/types/general_types';
 import { useDesmosProfile } from '@/hooks';
 import { atomFamilyState as profileAtomFamilyState } from '@/recoil/profiles';
+import { useState } from 'react';
+import { useRecoilCallback } from 'recoil';
 import { atomFamilyState as validatorAtomState } from 'ui/recoil/validators';
-import { useValidatorAddressesQuery, ValidatorAddressesQuery } from '@/graphql/types/general_types';
 
 export interface DataType {
   validator?: Array<{

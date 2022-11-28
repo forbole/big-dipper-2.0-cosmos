@@ -1,14 +1,14 @@
-import React from 'react';
-import classnames from 'classnames';
-import numeral from 'numeral';
-import Typography from '@material-ui/core/Typography';
-import useTranslation from 'next-translate/useTranslation';
+import chainConfig from '@/chainConfig';
 import Box from '@/components/box';
 import CustomToolTip, { type CustomToolTipData } from '@/components/custom_tool_tip';
-import { PieChart, Pie, Cell, Tooltip } from 'recharts';
-import chainConfig from '@/chainConfig';
-import { useStyles } from '@/screens/home/components/tokenomics/styles';
 import { useTokenomics } from '@/screens/home/components/tokenomics/hooks';
+import { useStyles } from '@/screens/home/components/tokenomics/styles';
+import Typography from '@material-ui/core/Typography';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
+import numeral from 'numeral';
+import React from 'react';
+import { Cell, Pie, PieChart, Tooltip } from 'recharts';
 
 const Tokenomics: React.FC<{
   className?: string;

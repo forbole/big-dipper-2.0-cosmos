@@ -1,16 +1,12 @@
-import Big from 'big.js';
+import type { AtomState } from '@/recoil/market';
 import { formatNumber } from '@/utils/format_token';
+import Big from 'big.js';
 
-export const formatMarket = (data: {
-  marketCap: number;
-  supply: TokenUnit;
-  inflation: number;
-  apr: number;
-}) => {
+export const formatMarket = (data: AtomState) => {
   const exludedItems = [null, 0];
   const marketCap = exludedItems.includes(data.marketCap)
     ? 'N/A'
-    : `$${formatNumber(data.marketCap.toString(), 2)}`;
+    : `$${formatNumber(data?.marketCap?.toString() ?? '0', 2)}`;
   const apr = exludedItems.includes(data.apr)
     ? 'N/A'
     : `${formatNumber(Big(data.apr).times(100).toPrecision(), 2)}%`;

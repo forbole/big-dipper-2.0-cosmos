@@ -1,22 +1,22 @@
-import { ComponentProps, useCallback, useEffect, useState } from 'react';
-import Big from 'big.js';
-import * as R from 'ramda';
-import axios from 'axios';
-import { useRouter } from 'next/router';
+import chainConfig from '@/chainConfig';
 import {
   ValidatorDelegationsDocument,
   ValidatorRedelegationsDocument,
   ValidatorUndelegationsDocument,
 } from '@/graphql/general/validator_details_documents';
-import { formatToken } from '@/utils/format_token';
-import { getDenom } from '@/utils/get_denom';
-import chainConfig from '@/chainConfig';
 import type {
   RedelegationType,
   StakingState,
   UnbondingType,
 } from '@/screens/validator_details/components/staking/types';
+import { formatToken } from '@/utils/format_token';
+import { getDenom } from '@/utils/get_denom';
 import Tabs from '@material-ui/core/Tabs';
+import axios from 'axios';
+import Big from 'big.js';
+import { useRouter } from 'next/router';
+import * as R from 'ramda';
+import { ComponentProps, useCallback, useEffect, useState } from 'react';
 
 const stakingDefault = {
   data: {},

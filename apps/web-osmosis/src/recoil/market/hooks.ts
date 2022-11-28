@@ -1,4 +1,5 @@
 import chainConfig from '@/chainConfig';
+import { MarketDataQuery, useMarketDataQuery } from '@/graphql/types/general_types';
 import { writeMarket } from '@/recoil/market/selectors';
 import type { AtomState } from '@/recoil/market/types';
 import { formatToken } from '@/utils/format_token';
@@ -6,7 +7,6 @@ import { getDenom } from '@/utils/get_denom';
 import Big from 'big.js';
 import numeral from 'numeral';
 import { SetterOrUpdater, useRecoilState } from 'recoil';
-import { useMarketDataQuery, MarketDataQuery } from '@/graphql/types/general_types';
 
 export function useMarketRecoil() {
   const [market, setMarket] = useRecoilState(writeMarket) as [
@@ -37,7 +37,7 @@ export function useMarketRecoil() {
       (data?.communityPool?.[0]?.coins as MsgCoin[])?.filter(
         (x) => x.denom === chainConfig.primaryTokenUnit
       ) ?? [];
-    const inflation = parseInt(data?.inflation?.[0]?.value ?? '0', 10) ?? 0;
+    const inflation = parseFloat(data?.inflation?.[0]?.value ?? '0') ?? 0;
 
     const rawSupplyAmount = getDenom(data?.supply?.[0]?.coins, chainConfig.primaryTokenUnit).amount;
     const supply = formatToken(rawSupplyAmount, chainConfig.primaryTokenUnit);

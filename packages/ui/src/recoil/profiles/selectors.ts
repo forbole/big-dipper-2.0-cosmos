@@ -1,9 +1,9 @@
-import { selectorFamily, GetRecoilValue } from 'recoil';
-import { bech32 } from 'bech32';
 import chainConfig from '@/chainConfig';
-import { readValidator } from '@/recoil/validators';
-import type { AtomState as ProfileAtomState } from '@/recoil/profiles/types';
 import { atomFamilyState } from '@/recoil/profiles/atom';
+import type { AtomState as ProfileAtomState } from '@/recoil/profiles/types';
+import { readValidator } from '@/recoil/validators';
+import { bech32 } from 'bech32';
+import { GetRecoilValue, selectorFamily } from 'recoil';
 
 // ======================================================================
 // selector utils

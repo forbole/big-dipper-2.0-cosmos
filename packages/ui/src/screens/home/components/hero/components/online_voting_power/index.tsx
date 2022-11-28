@@ -1,9 +1,9 @@
-import React from 'react';
-import numeral from 'numeral';
+import { useOnlineVotingPower } from '@/screens/home/components/hero/components/online_voting_power/hooks';
+import { useStyles } from '@/screens/home/components/hero/components/online_voting_power/styles';
 import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
-import { useStyles } from '@/screens/home/components/hero/components/online_voting_power/styles';
-import { useOnlineVotingPower } from '@/screens/home/components/hero/components/online_voting_power/hooks';
+import numeral from 'numeral';
+import React from 'react';
 
 const OnlineVotingPower: React.FC<ComponentDefault> = () => {
   const { t } = useTranslation('home');

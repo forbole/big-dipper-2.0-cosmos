@@ -1,9 +1,9 @@
-import { useCallback, useState } from 'react';
+import type { Date, Theme, Tx } from '@/recoil/settings';
+import { THEME_DICTIONARY, writeDate, writeTheme, writeTx } from '@/recoil/settings';
 import setLanguage from 'next-translate/setLanguage';
-import { useRecoilState, SetterOrUpdater } from 'recoil';
-import { writeTheme, writeDate, writeTx, THEME_DICTIONARY } from '@/recoil/settings';
-import type { Theme, Date, Tx } from '@/recoil/settings';
 import * as R from 'ramda';
+import { useCallback, useState } from 'react';
+import { SetterOrUpdater, useRecoilState } from 'recoil';
 
 export const useSettingList = ({ lang }: { lang: string }) => {
   const [theme, setTheme] = useRecoilState(writeTheme) as [Theme, SetterOrUpdater<Theme>];

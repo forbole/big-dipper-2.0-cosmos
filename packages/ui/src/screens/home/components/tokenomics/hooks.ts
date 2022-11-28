@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import numeral from 'numeral';
-import { useTokenomicsQuery, TokenomicsQuery } from '@/graphql/types/general_types';
+import { TokenomicsQuery, useTokenomicsQuery } from '@/graphql/types/general_types';
 import { StakingParams } from '@/models';
 import { formatToken } from '@/utils/format_token';
+import numeral from 'numeral';
+import { useState } from 'react';
 
 export const useTokenomics = () => {
   const [state, setState] = useState<{

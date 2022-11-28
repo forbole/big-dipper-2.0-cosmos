@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import chainConfig from '@/chainConfig';
+import { OnlineVotingPowerQuery, useOnlineVotingPowerQuery } from '@/graphql/types/general_types';
+import { formatToken } from '@/utils/format_token';
 import numeral from 'numeral';
 import * as R from 'ramda';
-import { useOnlineVotingPowerQuery, OnlineVotingPowerQuery } from '@/graphql/types/general_types';
-import chainConfig from '@/chainConfig';
-import { formatToken } from '@/utils/format_token';
+import { useState } from 'react';
 
 const initialState: {
   votingPower: number;

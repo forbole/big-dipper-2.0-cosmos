@@ -1,12 +1,12 @@
-import { useCallback, useState } from 'react';
-import numeral from 'numeral';
-import * as R from 'ramda';
-import { useParamsQuery, ParamsQuery } from '@/graphql/types/general_types';
-import { formatToken } from '@/utils/format_token';
 import chainConfig from '@/chainConfig';
+import { ParamsQuery, useParamsQuery } from '@/graphql/types/general_types';
 import { DistributionParams, MintParams, SlashingParams, StakingParams } from '@/models';
 import GovParams from '@/models/gov_params';
 import type { ParamsState } from '@/screens/params/types';
+import { formatToken } from '@/utils/format_token';
+import numeral from 'numeral';
+import * as R from 'ramda';
+import { useCallback, useState } from 'react';
 
 const initialState = {
   loading: true,
@@ -21,7 +21,7 @@ const initialState = {
 export const useParams = () => {
   const [state, setState] = useState<ParamsState>(initialState);
 
-  const handleSetState = useCallback((stateChange: Partial<typeof state>) => {
+  const handleSetState = useCallback((stateChange: Partial<ParamsState>) => {
     setState((prevState) => {
       const newState = { ...prevState, ...stateChange };
       return R.equals(prevState, newState) ? prevState : newState;
@@ -46,7 +46,7 @@ export const useParams = () => {
   });
 
   const formatParam = (data: ParamsQuery) => {
-    const results = {};
+    const results: Partial<ParamsState> = {};
 
     // ================================
     // staking
@@ -146,37 +146,47 @@ export const useParams = () => {
           ),
           maxDepositPeriod: govParamsRaw.depositParams.maxDepositPeriod,
           default: {
-            quorum: numeral(
-              numeral(govParamsRaw.tallyParams.default.quorum).format('0.[00]')
-            ).value(),
-            threshold: numeral(
-              numeral(govParamsRaw.tallyParams.default.threshold).format('0.[00]')
-            ).value(),
-            vetoThreshold: numeral(
-              numeral(govParamsRaw.tallyParams.default.vetoThreshold).format('0.[00]')
-            ).value(),
+            quorum:
+              numeral(numeral(govParamsRaw.tallyParams.default.quorum).format('0.[00]')).value() ??
+              0,
+            threshold:
+              numeral(
+                numeral(govParamsRaw.tallyParams.default.threshold).format('0.[00]')
+              ).value() ?? 0,
+            vetoThreshold:
+              numeral(
+                numeral(govParamsRaw.tallyParams.default.vetoThreshold).format('0.[00]')
+              ).value() ?? 0,
           },
           certifierStakeVote: {
-            quorum: numeral(
-              numeral(govParamsRaw.tallyParams.certifierStakeVote.quorum).format('0.[00]')
-            ).value(),
-            threshold: numeral(
-              numeral(govParamsRaw.tallyParams.certifierStakeVote.threshold).format('0.[00]')
-            ).value(),
-            vetoThreshold: numeral(
-              numeral(govParamsRaw.tallyParams.certifierStakeVote.vetoThreshold).format('0.[00]')
-            ).value(),
+            quorum:
+              numeral(
+                numeral(govParamsRaw.tallyParams.certifierStakeVote.quorum).format('0.[00]')
+              ).value() ?? 0,
+            threshold:
+              numeral(
+                numeral(govParamsRaw.tallyParams.certifierStakeVote.threshold).format('0.[00]')
+              ).value() ?? 0,
+            vetoThreshold:
+              numeral(
+                numeral(govParamsRaw.tallyParams.certifierStakeVote.vetoThreshold).format('0.[00]')
+              ).value() ?? 0,
           },
           certifierSecurityVote: {
-            quorum: numeral(
-              numeral(govParamsRaw.tallyParams.certifierSecurityVote.quorum).format('0.[00]')
-            ).value(),
-            threshold: numeral(
-              numeral(govParamsRaw.tallyParams.certifierSecurityVote.threshold).format('0.[00]')
-            ).value(),
-            vetoThreshold: numeral(
-              numeral(govParamsRaw.tallyParams.certifierSecurityVote.vetoThreshold).format('0.[00]')
-            ).value(),
+            quorum:
+              numeral(
+                numeral(govParamsRaw.tallyParams.certifierSecurityVote.quorum).format('0.[00]')
+              ).value() ?? 0,
+            threshold:
+              numeral(
+                numeral(govParamsRaw.tallyParams.certifierSecurityVote.threshold).format('0.[00]')
+              ).value() ?? 0,
+            vetoThreshold:
+              numeral(
+                numeral(govParamsRaw.tallyParams.certifierSecurityVote.vetoThreshold).format(
+                  '0.[00]'
+                )
+              ).value() ?? 0,
           },
           votingPeriod: govParamsRaw.votingParams.votingPeriod,
         };

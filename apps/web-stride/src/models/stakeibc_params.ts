@@ -1,3 +1,5 @@
+import * as R from 'ramda';
+
 /* eslint-disable camelcase */
 type Payload = {
   buffer_size?: number;

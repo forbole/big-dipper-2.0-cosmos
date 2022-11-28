@@ -2,9 +2,9 @@ import chainConfig from '@/chainConfig';
 import { ThemeOptions } from '@material-ui/core/styles';
 
 import {
-  lightTemplate,
   darkTemplate,
   deuteranopiaTemplate,
+  lightTemplate,
   tritanopiaTemplate,
 } from '@/styles/theme';
 

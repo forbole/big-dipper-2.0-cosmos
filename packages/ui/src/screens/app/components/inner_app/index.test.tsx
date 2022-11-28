@@ -1,7 +1,7 @@
-import { ApolloClient, from, InMemoryCache } from '@apollo/client';
-import renderer from 'react-test-renderer';
 import InnerApp from '@/screens/app/components/inner_app';
+import { ApolloClient, from, InMemoryCache } from '@apollo/client';
 import type { Router } from 'next/router';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // global setup

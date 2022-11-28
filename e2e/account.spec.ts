@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 
 const address = 'desmos134zrg6jn3a5l5jjpzv9eucdlw3nl2qelgz330c';
 

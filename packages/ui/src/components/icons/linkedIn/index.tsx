@@ -1,5 +1,3 @@
-import React from 'react';
-
 const LinkedIn = () => (
   <svg
     width="26px"

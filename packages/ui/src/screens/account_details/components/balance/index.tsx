@@ -1,18 +1,18 @@
-import React from 'react';
-import classnames from 'classnames';
-import Big from 'big.js';
-import numeral from 'numeral';
-import { useRecoilValue } from 'recoil';
-import { readMarket } from '@/recoil/market';
-import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
-import { PieChart, Pie, ResponsiveContainer, Cell } from 'recharts';
-import useTranslation from 'next-translate/useTranslation';
-import Box from '@/components/box';
 import chainConfig from '@/chainConfig';
-import { formatNumber } from '@/utils/format_token';
+import Box from '@/components/box';
+import { readMarket } from '@/recoil/market';
 import { useStyles } from '@/screens/account_details/components/balance/styles';
 import { formatBalanceData } from '@/screens/account_details/components/balance/utils';
+import { formatNumber } from '@/utils/format_token';
+import Divider from '@material-ui/core/Divider';
+import Typography from '@material-ui/core/Typography';
+import Big from 'big.js';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
+import numeral from 'numeral';
+import React from 'react';
+import { Cell, Pie, PieChart, ResponsiveContainer } from 'recharts';
+import { useRecoilValue } from 'recoil';
 
 type Props = Parameters<typeof formatBalanceData>[0] & {
   className?: string;

@@ -49,18 +49,18 @@ export const useTransactionDetails = () => {
     const getTransactionDetail = async () => {
       try {
         const { data: transactionData } = await axios.get<{
-          txHash: string;
-          senderShard: number;
-          receiverShard: number;
-          sender: string;
-          receiver: string;
-          timestamp: number;
-          status: string;
-          miniBlockHash: string;
-          gasUsed: number;
-          gasLimit: number;
-          gasPrice: string;
-          price: number;
+          txHash: TransactionDetailsState['overview']['hash'];
+          senderShard: TransactionDetailsState['overview']['fromShard'];
+          receiverShard: TransactionDetailsState['overview']['toShard'];
+          sender: TransactionDetailsState['overview']['from'];
+          receiver: TransactionDetailsState['overview']['to'];
+          timestamp: TransactionDetailsState['overview']['timestamp'];
+          status: TransactionDetailsState['overview']['status'];
+          miniBlockHash: TransactionDetailsState['overview']['miniblockHash'];
+          gasUsed: TransactionDetailsState['overview']['gasUsed'];
+          gasLimit: TransactionDetailsState['overview']['gasLimit'];
+          gasPrice: string | undefined;
+          price: TransactionDetailsState['overview']['price'];
           action?: {
             category: string;
             name: string;
@@ -70,6 +70,11 @@ export const useTransactionDetails = () => {
             type?: string;
             decimals?: number;
             value?: string;
+            action?: string;
+            sender?: string;
+            receiver?: string;
+            identifier?: string;
+            name?: string;
           }>;
           results: Array<{
             hash?: string;
@@ -78,6 +83,7 @@ export const useTransactionDetails = () => {
             data?: string;
             value?: number;
           }>;
+          data?: string;
         }>(TRANSACTION_DETAILS(router.query.hash as string));
 
         // overview

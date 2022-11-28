@@ -1,14 +1,13 @@
-import React from 'react';
-import useTranslation from 'next-translate/useTranslation';
-import { NextSeo } from 'next-seo';
 import Layout from '@/components/layout';
-import { useStyles } from '@/screens/providers/styles';
+import Compute from '@/screens/providers/components/compute';
 import DataBlocks from '@/screens/providers/components/data_blocks';
 import Memory from '@/screens/providers/components/memory';
-import Compute from '@/screens/providers/components/compute';
-import Storage from '@/screens/providers/components/storage';
 import ProvidersList from '@/screens/providers/components/providers_list';
+import Storage from '@/screens/providers/components/storage';
 import { useProviders } from '@/screens/providers/hooks';
+import { useStyles } from '@/screens/providers/styles';
+import { NextSeo } from 'next-seo';
+import useTranslation from 'next-translate/useTranslation';
 
 const Providers = () => {
   const { t } = useTranslation('providers');

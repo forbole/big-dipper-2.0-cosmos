@@ -4,8 +4,8 @@
  * @param jailed boolean
  * @returns an object with status and theme
  */
-export const getValidatorStatus = (inActiveSet, jailed, tombstoned: string) => {
-  const results = {
+export const getValidatorStatus = (inActiveSet: string, jailed: string, tombstoned: string) => {
+  const results: { status: string; theme: TagTheme } = {
     status: 'na',
     theme: 'zero',
   };

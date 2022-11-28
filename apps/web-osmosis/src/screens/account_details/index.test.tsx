@@ -1,15 +1,14 @@
-import React from 'react';
-import axios from 'axios';
-import MockAdapter from 'axios-mock-adapter';
-import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
-import renderer from 'react-test-renderer';
-import { MockTheme, wait } from '@/tests/utils';
 import {
   // AccountDocument,
   GetMessagesByAddressDocument,
 } from '@/graphql/types/general_types';
-import { MockedProvider } from '@apollo/client/testing';
 import AccountDetails from '@/screens/account_details';
+import { MockTheme, wait } from '@/tests/utils';
+import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
+import { MockedProvider } from '@apollo/client/testing';
+import axios from 'axios';
+import MockAdapter from 'axios-mock-adapter';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks
