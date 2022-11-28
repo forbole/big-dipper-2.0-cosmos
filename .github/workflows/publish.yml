@@ -36,5 +36,5 @@ jobs:
             NEXT_PUBLIC_CHAIN_TYPE=${{ github.event.inputs.chain_type }}
             TURBO_TEAM=${{ secrets.TURBO_TEAM }}
             TURBO_TOKEN=${{ secrets.TURBO_TOKEN }}
-            SENTRY_DSN=${{ secrets.SENTRY_DSN }}
+            NEXT_PUBLIC_SENTRY_DSN=${{ secrets.SENTRY_DSN }}
           tags: forbole/big-dipper-2.0-cosmos:monorepo-${{ github.event.inputs.project_name }}-${{ github.event.inputs.chain_type }}-${{ steps.vars.outputs.sha_short }}

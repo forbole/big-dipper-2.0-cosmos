@@ -17,7 +17,7 @@
     "format": "prettier --ignore-path ./.gitignore --write \"**/*.{js,ts,tsx,mjs,cjs,md}\"",
     "lint": "dotenv -- yarn exec 'turbo run check-types lint --filter=${PROJECT_NAME:-web}...'",
     "lint:ci": "turbo run check-types lint --continue --concurrency=30%",
-    "test": "dotenv -- yarn exec '  turbo run test --filter=${PROJECT_NAME:-web}...",
+    "test": "dotenv -- yarn exec 'turbo run test --filter=${PROJECT_NAME:-web}...'",
     "test:ci": "turbo run test --continue --concurrency=30%",
     "e2e": "playwright test",
     "e2e:install": "playwright install --with-deps",
