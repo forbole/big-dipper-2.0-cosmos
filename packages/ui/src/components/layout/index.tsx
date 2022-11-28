@@ -1,3 +1,4 @@
+import Banner from '@/components/banner';
 import Footer from '@/components/footer';
 import { useStyles } from '@/components/layout/styles';
 import type { LayoutProps } from '@/components/layout/types';
@@ -15,6 +16,7 @@ const Layout = (props: LayoutProps) => {
         <Nav title={navTitle} />
         <div className={classes.children}>
           <div className={classes.appBarPlaceholder} />
+          <Banner />
           <div className={classnames(className, 'main-content')}>{children}</div>
         </div>
       </div>
