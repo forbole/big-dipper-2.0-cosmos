@@ -60,10 +60,10 @@ export const useGrid = (
   const columnRef = createRef<VariableSizeGrid>();
 
   const onResize = useCallback(() => {
-    if (gridRef.current != null) {
+    if (gridRef.current !== null) {
       (gridRef?.current?.resetAfterColumnIndex ?? ((_: number) => null))(0);
     }
-    if (columnRef.current != null) {
+    if (columnRef.current !== null) {
       (columnRef?.current?.resetAfterColumnIndex ?? ((_: number) => null))(0);
     }
   }, [columnRef, gridRef]);
