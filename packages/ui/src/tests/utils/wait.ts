@@ -9,7 +9,7 @@ export const wait = async (rendererAct: typeof act, ms = 50) => {
   await rendererAct(
     () =>
       new Promise((resolve) => {
-        setTimeout(resolve, ms);
+        setTimeout(() => resolve(), ms);
       })
   );
 };

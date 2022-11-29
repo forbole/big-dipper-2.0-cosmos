@@ -57,7 +57,7 @@ function createWebSocketLink() {
           'ws://localhost:3000/websocket',
         lazy: true,
         retryAttempts: Number.MAX_VALUE,
-        retryWait: (_count) => new Promise((r) => setTimeout(r, 1000)),
+        retryWait: (_count) => new Promise((r) => setTimeout(() => r(), 1000)),
         shouldRetry() {
           return true;
         },
