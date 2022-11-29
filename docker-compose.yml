@@ -1,14 +1,6 @@
-version: "3"
+version: "3.8"
 
 services:
-  gateway:
-    build:
-      context: ./docker
-      dockerfile: ./gateway.Dockerfile
-    restart: always
-    platform: linux/amd64
-    ports:
-        - 8080:8080
   web:
     build:
       context: .
@@ -24,6 +16,11 @@ services:
       - 3000:3000
     networks:
       - app_network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.whowebami.rule=Host(`web`)"
+      - "traefik.http.routers.web.entrypoints=web"
+
   web-cosmos:
     build:
       context: .

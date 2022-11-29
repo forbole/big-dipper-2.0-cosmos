@@ -16,7 +16,8 @@ RUN turbo prune --scope=${PROJECT_NAME} --docker
 FROM node:18-alpine AS installer
 RUN apk add --no-cache libc6-compat && \
   apk update && \
-  corepack enable
+  corepack enable && \
+  yarn global add turbo
 WORKDIR /app
 
 # Setting up the environment variables for the docker container.
@@ -28,8 +29,6 @@ ARG CHAIN_CONFIG
 ENV CHAIN_CONFIG=${CHAIN_CONFIG}
 ARG BASE_PATH
 ENV BASE_PATH=${BASE_PATH}
-ARG NEXT_PUBLIC_SENTRY_DSN
-ENV NEXT_PUBLIC_SENTRY_DSN=${NEXT_PUBLIC_SENTRY_DSN}
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV HUSKY=0
 ENV NODE_ENV=production
@@ -37,19 +36,20 @@ ARG TURBO_TEAM
 ENV TURBO_TEAM=${TURBO_TEAM}
 ARG TURBO_TOKEN
 ENV TURBO_TOKEN=${TURBO_TOKEN}
+ARG NEXT_PUBLIC_SENTRY_DSN
+ENV NEXT_PUBLIC_SENTRY_DSN=${NEXT_PUBLIC_SENTRY_DSN}
 
 # First install the dependencies (as they change less often)
-COPY --from=builder /app/.gitignore ./
+COPY .gitignore .yarnrc.yml ./
+COPY .yarn/ ./.yarn/
 COPY --from=builder /app/out/json/ ./
 COPY --from=builder /app/out/yarn.lock ./
-COPY --from=builder /app/.yarnrc.yml ./
-COPY --from=builder /app/.yarn/ ./.yarn/
 RUN yarn install --immutable
 
 # Build the project
 COPY --from=builder /app/out/full/ ./
 COPY --from=builder /app/turbo.json ./
-RUN yarn turbo run build --filter=${PROJECT_NAME}...
+RUN turbo run build --filter=${PROJECT_NAME}...
 
 
 # Copy the built project to the final image
@@ -72,6 +72,8 @@ ARG TURBO_TEAM
 ENV TURBO_TEAM=${TURBO_TEAM}
 ARG TURBO_TOKEN
 ENV TURBO_TOKEN=${TURBO_TOKEN}
+ARG NEXT_PUBLIC_SENTRY_DSN
+ENV NEXT_PUBLIC_SENTRY_DSN=${NEXT_PUBLIC_SENTRY_DSN}
 ARG NEXT_PUBLIC_CHAIN_TYPE
 ENV NEXT_PUBLIC_CHAIN_TYPE=${NEXT_PUBLIC_CHAIN_TYPE}
 ARG NEXT_PUBLIC_GRAPHQL_URL
@@ -84,8 +86,6 @@ ARG NEXT_PUBLIC_MATOMO_SITE_ID
 ENV NEXT_PUBLIC_MATOMO_SITE_ID=${NEXT_PUBLIC_MATOMO_SITE_ID}
 ARG NEXT_PUBLIC_RPC_WEBSOCKET
 ENV NEXT_PUBLIC_RPC_WEBSOCKET=${NEXT_PUBLIC_RPC_WEBSOCKET}
-ARG NEXT_PUBLIC_SENTRY_DSN
-ENV NEXT_PUBLIC_SENTRY_DSN=${NEXT_PUBLIC_SENTRY_DSN}
 
 # Don't run production as root
 RUN addgroup --system --gid 1001 nodejs && \
