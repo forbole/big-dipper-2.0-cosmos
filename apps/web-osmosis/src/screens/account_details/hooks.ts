@@ -194,7 +194,7 @@ export const useAccountDetails = () => {
         const otherTokenUnits = new Set<string>();
         const otherTokens: OtherTokenType[] = [];
         // available tokens
-        const available = (data?.accountBalances?.coins as MsgCoin[]) ?? [];
+        const available = data?.accountBalances?.coins ?? [];
 
         available.forEach((x) => {
           otherTokenUnits.add(x.denom);

@@ -517,7 +517,7 @@ export const getMessageByType = (message: unknown, viewRaw: boolean, t: Translat
   if (data) {
     results = {
       content: data?.content as resultType['content'],
-      tagDisplay: data.tagDisplay as resultType['tagDisplay'],
+      tagDisplay: data.tagDisplay,
       tagTheme: data.tagTheme as resultType['tagTheme'],
     };
   }
