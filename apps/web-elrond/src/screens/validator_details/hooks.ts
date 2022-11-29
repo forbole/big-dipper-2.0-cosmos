@@ -128,7 +128,7 @@ export const useValidatorDetails = () => {
             description: '',
           };
         };
-        newState.profile = await getProfile();
+        newState.profile = getProfile();
 
         // =====================================
         // overview
@@ -151,7 +151,7 @@ export const useValidatorDetails = () => {
             stakeDistribution: distribution,
           };
         };
-        newState.overview = await getOverview();
+        newState.overview = getOverview();
 
         handleSetState(newState);
       } catch (error) {
