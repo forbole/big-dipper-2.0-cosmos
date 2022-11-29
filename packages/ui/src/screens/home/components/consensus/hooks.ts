@@ -116,7 +116,7 @@ export const useConsensus = () => {
 
       client.onerror = (err: WebSocket.ErrorEvent) => {
         client.close();
-        throw new Error(`Socket encountered error: ${err.message}Closing socket`);
+        console.error(`Socket encountered error: ${err.message}Closing socket`);
       };
 
       function enqueuePing() {
