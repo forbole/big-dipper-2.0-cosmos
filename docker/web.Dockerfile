@@ -16,8 +16,8 @@ RUN turbo prune --scope=${PROJECT_NAME} --docker
 FROM node:18-alpine AS installer
 RUN apk add --no-cache libc6-compat && \
   apk update && \
-  corepack enable && \
-  yarn global add turbo
+  corepack enable
+
 WORKDIR /app
 
 # Setting up the environment variables for the docker container.
@@ -49,7 +49,7 @@ RUN yarn install --immutable
 # Build the project
 COPY --from=builder /app/out/full/ ./
 COPY --from=builder /app/turbo.json ./
-RUN turbo run build --filter=${PROJECT_NAME}...
+RUN yarn turbo run build --filter=${PROJECT_NAME}...
 
 
 # Copy the built project to the final image
