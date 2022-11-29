@@ -15,8 +15,8 @@ export const useValidatorRecoil = () => {
 
   useValidatorAddressesQuery({
     onError: (error) => {
-      console.error((error as Error).message);
       setLoading(false);
+      throw error;
     },
     onCompleted: async (data) => {
       // Not very optimized but better than before.

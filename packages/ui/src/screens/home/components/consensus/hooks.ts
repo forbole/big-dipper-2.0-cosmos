@@ -108,15 +108,15 @@ export const useConsensus = () => {
       };
 
       client.onclose = () => {
-        console.warn('closing socket');
+        // console.warn('closing socket');
         setTimeout(() => {
           connect();
         }, 1000);
       };
 
       client.onerror = (err: WebSocket.ErrorEvent) => {
-        console.error('Socket encountered error: ', err.message, 'Closing socket');
         client.close();
+        throw new Error(`Socket encountered error: ${err.message}Closing socket`);
       };
 
       function enqueuePing() {
