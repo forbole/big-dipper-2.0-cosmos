@@ -36,7 +36,7 @@
   "packageManager": "yarn@3.2.4",
   "engines": {
     "node": ">=16.13.0",
-    "yarn": ">=1.21"
+    "yarn": ">=3.2.4"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,mjs,cjs,css,md}": "prettier --write"
