@@ -62,7 +62,7 @@ jobs:
         run: corepack enable && yarn --version
       - name: Set steps.jestvars.outputs.cacheDirectory
         id: jestvars
-        run: echo 'cacheDirectory='$(yarn dlx jest --showConfig | jq -cr '.configs[0].cacheDirectory') >> $GITHUB_OUTPUT
+        run: echo 'cacheDirectory='$(npx jest --showConfig | jq -cr '.configs[0].cacheDirectory') >> $GITHUB_OUTPUT
       - name: Setup Node.js environment
         uses: actions/setup-node@v3
         with:
