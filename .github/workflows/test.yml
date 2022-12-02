@@ -26,7 +26,8 @@ jobs:
           cache: 'yarn'
       - name: Install modules
         run: yarn --immutable
-      - id: vars
+      - name: Set needs.install.outputs.matrix
+        id: vars
         run: "echo 'matrix='$( ls apps | grep web | jq -scR '{\"project\": split(\"\\n\")[:-1]}' ) >> $GITHUB_OUTPUT"
   lint:
     if: ${{ success() }}
