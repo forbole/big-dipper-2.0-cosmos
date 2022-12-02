@@ -5,17 +5,13 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**", ".next/**", "public/dist/**"],
       "env": [
-        "npm_package_version",
         "BASE_PATH",
-        "NEXT_PUBLIC_CHAIN_TYPE",
         "NEXT_PUBLIC_GRAPHQL_URL",
         "NEXT_PUBLIC_GRAPHQL_WS",
         "NEXT_PUBLIC_MATOMO_SITE_ID",
         "NEXT_PUBLIC_MATOMO_URL",
         "NEXT_PUBLIC_RPC_WEBSOCKET",
         "NEXT_PUBLIC_SENTRY_DSN",
-        "NODE_ENV",
-        "PORT",
         "SENTRY_URL",
         "SENTRY_ORG",
         "SENTRY_PROJECT",
@@ -27,13 +23,24 @@
       "cache": false
     },
     "dev": {
-      "cache": false
+      "cache": false,
+      "env": [
+        "PORT",
+        "BASE_PATH",
+        "NEXT_PUBLIC_SENTRY_DSN",
+        "SENTRY_URL",
+        "SENTRY_ORG",
+        "SENTRY_PROJECT",
+        "SENTRY_ENVIRONMENT",
+        "SENTRY_AUTH_TOKEN"
+      ]
     },
     "watch": {
       "cache": false
     },
     "start": {
-      "dependsOn": ["^build"]
+      "dependsOn": ["^build"],
+      "env": ["PORT"]
     },
     "check-types": {},
     "lint": {
@@ -43,12 +50,19 @@
     "test": {
       "outputs": ["coverage/**"]
     },
-    "e2e": {},
-    "graphql:codegen": {},
-    "deploy": {
-      "dependsOn": ["build", "test", "lint"],
-      "outputs": []
-    }
+    "e2e": {
+      "env": ["PORT"]
+    },
+    "graphql:codegen": {}
   },
-  "globalDependencies": [".env", "tsconfig.json"]
+  "globalEnv": ["npm_package_version", "PROJECT_NAME", "NEXT_PUBLIC_CHAIN_TYPE"],
+  "globalDependencies": [
+    ".env",
+    ".eslintrc.js",
+    ".gitignore",
+    ".yarnrc.yml",
+    "package.json",
+    "yan.lock",
+    "shared-utils/**/*"
+  ]
 }
