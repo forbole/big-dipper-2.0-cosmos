@@ -44,7 +44,9 @@ jobs:
           cache: 'yarn'
       - uses: actions/cache@v3
         with:
-          path: ${{ github.workspace }}/apps/*/.next/cache
+          path: |
+            ${{ github.workspace }}/apps/*/.next/cache
+            ${{ github.workspace }}/packages/*/.next/cache
           key: ${{ runner.os }}-lint-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('apps/**/*.[jt]s', 'apps/**/*.[jt]sx', 'packages/**/*.[jt]s', 'packages/**/*.[jt]sx') }}
           restore-keys: ${{ runner.os }}-lint-${{ hashFiles('**/yarn.lock') }}-
       - name: Install modules
