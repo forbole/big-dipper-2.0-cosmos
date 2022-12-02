@@ -14,7 +14,7 @@ jobs:
   install:
     runs-on: ubuntu-latest
     outputs:
-      matrix: ${{ steps.install.outputs.matrix }}
+      matrix: ${{ steps.vars.outputs.matrix }}
     steps:
       - uses: actions/checkout@v3
       - name: Update yarn
@@ -26,8 +26,8 @@ jobs:
           cache: 'yarn'
       - name: Install modules
         run: yarn --immutable
-      - name: Set matrix
-        run: "echo '::set-output name=matrix::'$( ls apps | grep web | jq -scR '{\"project\": split(\"\\n\")[:-1]}' )"
+      - id: vars
+        run: "echo 'matrix='$( ls apps | grep web | jq -scR '{\"project\": split(\"\\n\")[:-1]}' ) >> $GITHUB_OUTPUT"
   lint:
     if: ${{ success() }}
     needs: install
