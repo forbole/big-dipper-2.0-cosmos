@@ -15,7 +15,6 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       matrix: ${{ steps.install.outputs.matrix }}
-      cache: ${{ steps.install.outputs.cache }}
     steps:
       - uses: actions/checkout@v3
       - name: Update yarn
@@ -29,8 +28,6 @@ jobs:
         run: yarn --immutable
       - name: Set matrix
         run: "echo '::set-output name=matrix::'$( ls apps | grep web | jq -scR '{\"project\": split(\"\\n\")[:-1]}' )"
-      - name: Set cache
-        run: "echo '::set-output name=cache::'$( yarn config get cacheFolder )"
   lint:
     if: ${{ success() }}
     needs: install
