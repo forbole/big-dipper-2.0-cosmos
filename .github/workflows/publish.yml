@@ -20,17 +20,6 @@ jobs:
       - name: Get yarn cache directory path
         id: vars
         run: echo "::set-output name=yarn-cache-folder::$(yarn config get cacheFolder)"
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: 'yarn'
-          path: |
-            ${{ steps.vars.outputs.yarn-cache-folder }}
-            ${{ github.workspace }}/apps/${{ github.event.inputs.project_name }}/.next/cache
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}-${{ github.event.inputs.project_name }}-${{ hashFiles(format('apps/{0}/**.[jt]s', github.event.inputs.project_name), format('apps/{0}/**.[jt]sx', github.event.inputs.project_name), 'packages/**.[jt]sx') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}-${{ github.event.inputs.project_name }}-
       - name: Login to DockerHub 👤
         uses: docker/login-action@v2
         with:
