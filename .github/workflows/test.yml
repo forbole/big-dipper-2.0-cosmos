@@ -29,6 +29,23 @@ jobs:
       - name: Set needs.install.outputs.matrix
         id: vars
         run: "echo 'matrix='$( ls apps | grep web | jq -scrRM '{\"project\": split(\"\\n\")[:-1]}' ) >> $GITHUB_OUTPUT"
+  check-types:
+    if: ${{ success() }}
+    needs: install
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Update yarn
+        run: corepack enable && yarn --version
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'yarn'
+      - name: Install modules
+        run: yarn --immutable
+      - name: Run check-types
+        run: yarn check-types:ci
   lint:
     if: ${{ success() }}
     needs: install
@@ -51,9 +68,8 @@ jobs:
           restore-keys: ${{ runner.os }}-lint-${{ hashFiles('**/yarn.lock') }}-
       - name: Install modules
         run: yarn --immutable
-      - name: Run check-types & lint check
-        run: yarn check-types:ci && yarn lint:ci
-
+      - name: Run lint check
+        run: yarn lint:ci
   test:
     if: ${{ success() }}
     needs: install
@@ -79,7 +95,6 @@ jobs:
         run: yarn --immutable
       - name: Run tests
         run: yarn test:ci -- --coverage
-
   build:
     if: ${{ success() }}
     needs: install
