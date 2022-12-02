@@ -17,6 +17,7 @@ COPY . .
 
 RUN turbo prune --scope=${PROJECT_NAME} --docker
 
+################################################################################
 
 # Stage: builder
 FROM ${BASE_IMAGE} AS builder
@@ -70,12 +71,12 @@ ARG NEXT_PUBLIC_RPC_WEBSOCKET
 ENV NEXT_PUBLIC_RPC_WEBSOCKET=${NEXT_PUBLIC_RPC_WEBSOCKET}
 RUN yarn install --immutable
 
-
 ## Build the project
 COPY turbo.json ./
 COPY --from=pruner /app/out/full/ ./
 RUN yarn turbo run build --filter=${PROJECT_NAME}...
 
+################################################################################
 
 # Stage: web
 FROM ${BASE_IMAGE} AS web
@@ -105,9 +106,13 @@ ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
 
 WORKDIR /app/apps/${PROJECT_NAME}
+
+ARG PORT=3000
+ENV PORT=${PORT}
 EXPOSE ${PORT:-3000}
 CMD yarn run next start
 
+################################################################################
 
 # Stage: e2e
 FROM ${BASE_IMAGE} AS e2e
