@@ -1,7 +1,7 @@
 name: Test
 on:
   pull_request:
-concurrency: 
+concurrency:
   group: ${{ github.ref }}-test
   cancel-in-progress: true
 env:
@@ -11,103 +11,135 @@ env:
   NEXT_TELEMETRY_DISABLED: 1
   ENV NODE_ENV: production
 jobs:
-  lint:
+  install:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - name: Update yarn
-      run: corepack enable && yarn --version
-    - name: Setup Node.js environment
-      uses: actions/setup-node@v3
-      with:
-        node-version: 18
-        cache: 'yarn'
-    - uses: actions/cache@v3
-      with:
-        path: ${{ github.workspace }}/apps/*/.next/cache
-        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
-        restore-keys: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}-
-    - name: Install modules
-      run: yarn --immutable
-    - name: Run check-types & lint check
-      run: yarn check-types:ci && yarn lint:ci
+      - uses: actions/checkout@v3
+      - name: Update yarn
+        run: corepack enable && yarn --version
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'yarn'
+      - name: Install modules
+        run: yarn --immutable
+  lint:
+    if: ${{ success() }}
+    needs: install
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Update yarn
+        run: corepack enable && yarn --version
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'yarn'
+      - name: Install modules
+        run: yarn --immutable
+      - name: Run check-types & lint check
+        run: yarn check-types:ci && yarn lint:ci
 
   test:
     if: ${{ success() }}
-    needs: lint
+    needs: install
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - name: Update yarn
-      run: corepack enable && yarn --version
-    - name: Setup Node.js environment
-      uses: actions/setup-node@v3
-      with:
-        node-version: 18
-        cache: 'yarn'
-    - uses: actions/cache@v3
-      with:
-        path: ${{ github.workspace }}/apps/*/.next/cache
-        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
-        restore-keys: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}-
-    - name: Install modules
-      run: yarn --immutable
-    - name: Run tests
-      run: yarn test:ci -- --coverage
+      - uses: actions/checkout@v3
+      - name: Update yarn
+        run: corepack enable && yarn --version
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'yarn'
+      - name: Install modules
+        run: yarn --immutable
+      - name: Run tests
+        run: yarn test:ci -- --coverage
 
   build:
     if: ${{ success() }}
-    needs: lint
+    needs: install
+    strategy:
+      fail-fast: false
+      matrix:
+        project:
+          - web
+          - web-agoric
+          - web-akash
+          - web-assetmantle
+          - web-band
+          - web-bitsong
+          - web-comdex
+          - web-cosmos
+          - web-crescent
+          - web-desmos
+          - web-elrond
+          - web-emoney
+          - web-evmos
+          - web-likecoin
+          - web-nomic
+          - web-nym
+          - web-osmosis
+          - web-persistence
+          - web-provenance
+          - web-regen
+          - web-rizon
+          - web-shentu
+          - web-sifchain
+          - web-stride
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - name: Update yarn
-      run: corepack enable && yarn --version
-    - name: Setup Node.js environment
-      uses: actions/setup-node@v3
-      with:
-        node-version: 18
-        cache: 'yarn'
-    - uses: actions/cache@v3
-      with:
-        path: ${{ github.workspace }}/apps/*/.next/cache
-        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
-        restore-keys: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}-
-    - name: Install modules
-      run: yarn --immutable
-    - name: Run build check
-      run: yarn build:ci
+      - uses: actions/checkout@v3
+      - name: Update yarn
+        run: corepack enable && yarn --version
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'yarn'
+      - uses: actions/cache@v3
+        with:
+          path: ${{ github.workspace }}/apps/${{ matrix.project }}/.next/cache
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}-${{ matrix.project }}-${{ hashFiles(format('apps/{0}/**.[jt]s', matrix.project), format('apps/{0}/**.[jt]sx', matrix.project), 'packages/**.[jt]sx') }}
+          restore-keys: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}-${{ matrix.project }}-
+      - name: Install modules
+        run: yarn --immutable
+      - name: Run build check
+        run: yarn build:ci --filter=${{ matrix.project }}
   e2e:
     if: ${{ success() }}
-    needs: lint
+    needs: build
     runs-on: ubuntu-latest
     container:
       image: mcr.microsoft.com/playwright:v1.28.1-focal
     timeout-minutes: 30
     steps:
-    - uses: actions/checkout@v3
-    - name: Update yarn
-      run: corepack enable && yarn --version
-    - name: Setup Node.js environment
-      uses: actions/setup-node@v3
-      with:
-        node-version: 18
-        cache: 'yarn'
-    - uses: actions/cache@v3
-      with:
-        path: ${{ github.workspace }}/apps/web/.next/cache
-        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}-web-${{ hashFiles(format('apps/{0}/**.[jt]s', 'web'), format('apps/{0}/**.[jt]sx', 'web'), 'packages/**.[jt]sx') }}
-        restore-keys: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}-web-
-    - name: Install modules
-      run: yarn --immutable
-    - name: Build Next.js app
-      run: yarn build
-    - name: Run Playwright tests
-      run: yarn playwright test
-    - uses: actions/upload-artifact@v3
-      if: ${{ always() }}
-      with:
-        name: playwright-report
-        path: playwright-report/
-        retention-days: 30
-
+      - uses: actions/checkout@v3
+      - name: Update yarn
+        run: corepack enable && yarn --version
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'yarn'
+      - uses: actions/cache@v3
+        with:
+          path: ${{ github.workspace }}/apps/web/.next/cache
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}-web-${{ hashFiles(format('apps/{0}/**.[jt]s', 'web'), format('apps/{0}/**.[jt]sx', 'web'), 'packages/**.[jt]sx') }}
+          restore-keys: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}-web-
+      - name: Install modules
+        run: yarn --immutable
+      - name: Build Next.js app
+        run: yarn build
+      - name: Run Playwright tests
+        run: yarn playwright test
+      - uses: actions/upload-artifact@v3
+        if: ${{ always() }}
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30

@@ -12,6 +12,64 @@ const port = process.env.PORT || '3000';
 const projectName = process.env.PROJECT_NAME || 'web';
 const [_, chainName] = /^web-(.+)$/.exec(projectName) ?? ['', 'base'];
 const basePath = chainName === 'base' ? '' : `/${chainName}`;
+const projects: Array<{ name?: string; use?: unknown }> = [
+  {
+    name: 'chromium',
+    use: {
+      ...devices['Desktop Chrome'],
+    },
+  },
+
+  process.env.CI
+    ? {}
+    : {
+        name: 'firefox',
+        use: {
+          ...devices['Desktop Firefox'],
+        },
+      },
+
+  process.env.CI
+    ? {}
+    : {
+        name: 'webkit',
+        use: {
+          ...devices['Desktop Safari'],
+        },
+      },
+
+  /* Test against mobile viewports. */
+  process.env.CI
+    ? {}
+    : {
+        name: 'Mobile Chrome',
+        use: {
+          ...devices['Pixel 5'],
+        },
+      },
+  process.env.CI
+    ? {}
+    : {
+        name: 'Mobile Safari',
+        use: {
+          ...devices['iPhone 12'],
+        },
+      },
+
+  /* Test against branded browsers. */
+  // {
+  //   name: 'Microsoft Edge',
+  //   use: {
+  //     channel: 'msedge',
+  //   },
+  // },
+  // {
+  //   name: 'Google Chrome',
+  //   use: {
+  //     channel: 'chrome',
+  //   },
+  // },
+];
 
 /**
  * See https://playwright.dev/docs/test-configuration.
@@ -54,62 +112,7 @@ const config: PlaywrightTestConfig = {
   },
 
   /* Configure projects for major browsers */
-  projects: [
-    {
-      name: 'chromium',
-      use: {
-        ...devices['Desktop Chrome'],
-      },
-    },
-
-    process.env.CI
-      ? {}
-      : {
-          name: 'firefox',
-          use: {
-            ...devices['Desktop Firefox'],
-          },
-        },
-
-    {
-      name: 'webkit',
-      use: {
-        ...devices['Desktop Safari'],
-      },
-    },
-
-    /* Test against mobile viewports. */
-    process.env.CI
-      ? {}
-      : {
-          name: 'Mobile Chrome',
-          use: {
-            ...devices['Pixel 5'],
-          },
-        },
-    process.env.CI
-      ? {}
-      : {
-          name: 'Mobile Safari',
-          use: {
-            ...devices['iPhone 12'],
-          },
-        },
-
-    /* Test against branded browsers. */
-    // {
-    //   name: 'Microsoft Edge',
-    //   use: {
-    //     channel: 'msedge',
-    //   },
-    // },
-    // {
-    //   name: 'Google Chrome',
-    //   use: {
-    //     channel: 'chrome',
-    //   },
-    // },
-  ].filter((config) => !!config?.name),
+  projects: projects.filter((config) => !!config?.name),
 
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */
   // outputDir: 'test-results/',

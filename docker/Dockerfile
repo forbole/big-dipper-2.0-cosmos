@@ -134,4 +134,4 @@ ENV NEXT_TELEMETRY_DISABLED=1
 ENV DEBUG=pw:webserver
 ENV CI=1
 
-CMD yarn playwright test home
+CMD yarn playwright test
