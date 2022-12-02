@@ -90,7 +90,7 @@ jobs:
     - name: Run build check
       run: yarn build:ci
   e2e:
-    if: ${{ ${{ success() }} }}
+    if: ${{ success() }}
     needs: lint
     runs-on: ubuntu-latest
     container:
