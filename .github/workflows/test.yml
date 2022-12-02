@@ -104,7 +104,7 @@ jobs:
       - uses: actions/cache@v3
         with:
           path: ${{ github.workspace }}/apps/${{ matrix.project }}/.next/cache
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}-${{ matrix.project }}-${{ hashFiles(format('apps/{0}/**.[jt]s', matrix.project), format('apps/{0}/**.[jt]sx', matrix.project), 'packages/**.[jt]sx') }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}-${{ matrix.project }}-${{ hashFiles(format('apps/{0}/**/*.[jt]s', matrix.project), format('apps/{0}/**/*.[jt]sx', matrix.project), 'packages/**/*.[jt]s', 'packages/**/*.[jt]sx') }}
           restore-keys: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}-${{ matrix.project }}-
       - name: Install modules
         run: yarn --immutable
@@ -129,7 +129,7 @@ jobs:
       - uses: actions/cache@v3
         with:
           path: ${{ github.workspace }}/apps/web/.next/cache
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}-web-${{ hashFiles(format('apps/{0}/**.[jt]s', 'web'), format('apps/{0}/**.[jt]sx', 'web'), 'packages/**.[jt]sx') }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}-web-${{ hashFiles(format('apps/{0}/**/*.[jt]s', 'web'), format('apps/{0}/**/*.[jt]sx', 'web'), 'packages/**/*.[jt]s', 'packages/**/*.[jt]sx') }}
           restore-keys: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}-web-
       - name: Install modules
         run: yarn --immutable
