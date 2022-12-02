@@ -13,6 +13,9 @@ env:
 jobs:
   install:
     runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.install.outputs.matrix }}
+      cache: ${{ steps.install.outputs.cache }}
     steps:
       - uses: actions/checkout@v3
       - name: Update yarn
@@ -24,6 +27,10 @@ jobs:
           cache: 'yarn'
       - name: Install modules
         run: yarn --immutable
+      - name: Set matrix
+        run: "echo '::set-output name=matrix::'$( ls apps | grep web | jq -scR '{\"project\": split(\"\\n\")[:-1]}' )"
+      - name: Set cache
+        run: "echo '::set-output name=cache::'$( yarn config get cacheFolder )"
   lint:
     if: ${{ success() }}
     needs: install
@@ -65,32 +72,7 @@ jobs:
     needs: install
     strategy:
       fail-fast: false
-      matrix:
-        project:
-          - web
-          - web-agoric
-          - web-akash
-          - web-assetmantle
-          - web-band
-          - web-bitsong
-          - web-comdex
-          - web-cosmos
-          - web-crescent
-          - web-desmos
-          - web-elrond
-          - web-emoney
-          - web-evmos
-          - web-likecoin
-          - web-nomic
-          - web-nym
-          - web-osmosis
-          - web-persistence
-          - web-provenance
-          - web-regen
-          - web-rizon
-          - web-shentu
-          - web-sifchain
-          - web-stride
+      matrix: ${{ fromJson(needs.install.outputs.matrix )}}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
