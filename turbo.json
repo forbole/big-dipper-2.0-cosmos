@@ -5,9 +5,8 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**", ".next/**", "public/dist/**"],
       "env": [
+        "npm_package_version",
         "BASE_PATH",
-        "CHAIN_CONFIG",
-        "GENERAL_CONFIG",
         "NEXT_PUBLIC_CHAIN_TYPE",
         "NEXT_PUBLIC_GRAPHQL_URL",
         "NEXT_PUBLIC_GRAPHQL_WS",
@@ -17,7 +16,11 @@
         "NEXT_PUBLIC_SENTRY_DSN",
         "NODE_ENV",
         "PORT",
-        "SENTRY_DSN"
+        "SENTRY_URL",
+        "SENTRY_ORG",
+        "SENTRY_PROJECT",
+        "SENTRY_ENVIRONMENT",
+        "SENTRY_AUTH_TOKEN"
       ]
     },
     "clean": {

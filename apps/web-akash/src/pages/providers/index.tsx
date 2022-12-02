@@ -1,5 +1,6 @@
+import type { NextPage } from 'next';
 import Providers from '@/screens/providers';
 
-const ProvidersPage = () => <Providers />;
+const ProvidersPage: NextPage = () => <Providers />;
 
 export default ProvidersPage;

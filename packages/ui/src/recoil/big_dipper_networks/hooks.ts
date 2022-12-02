@@ -43,7 +43,8 @@ export function useBigDipperNetworksRecoil(useQuery?: typeof useChainIdQuery) {
       setNetworks(formattedData);
     };
     getNetworkList();
-  }, [setNetworks]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   /* A function that takes in a useQuery and returns a function that takes in a
   useQuery and returns a function that takes in a useQuery and returns a function that

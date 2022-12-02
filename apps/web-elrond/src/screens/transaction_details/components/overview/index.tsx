@@ -73,7 +73,7 @@ const Overview: React.FC<OverviewType & ComponentDefault> = (props) => {
       detail: <AvatarName address={props.to} name={props.to} />,
     },
     {
-      label: t('tokenPrice', { token: chainConfig.primaryTokenUnit.toUpperCase() }),
+      label: t('tokenPrice', { token: chainConfig().primaryTokenUnit.toUpperCase() }),
       detail: `$${props.price}`,
     },
     {

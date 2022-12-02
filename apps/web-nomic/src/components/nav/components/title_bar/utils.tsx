@@ -9,7 +9,7 @@ export const formatMarket = (data: AtomState) => {
     : `$${formatNumber(data?.marketCap?.toString() ?? '0', 2)}`;
   const apr = exludedItems.includes(data.apr)
     ? 'N/A'
-    : `${formatNumber(Big(data.apr).times(100).toPrecision(), 2)}%`;
+    : `${formatNumber(Big(data.apr)?.times(100).toPrecision(), 2)}%`;
   const supply = data.supply.value
     ? 'N/A'
     : `${formatNumber(data.supply.value, 2)} ${data.supply.displayDenom.toUpperCase()}`;
@@ -21,7 +21,7 @@ export const formatMarket = (data: AtomState) => {
     },
     {
       key: 'inflation',
-      data: `${formatNumber(Big(data.inflation).times(100).toPrecision(), 0)}%`,
+      data: `${formatNumber(Big(data.inflation)?.times(100).toPrecision(), 0)}%`,
     },
     {
       key: 'apr',

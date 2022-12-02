@@ -52,7 +52,7 @@ export const useValidators = () => {
     const slashingParams = SlashingParams.fromJson(data?.slashingParams?.[0]?.params ?? {});
     const votingPowerOverall =
       numeral(
-        formatToken(data?.stakingPool?.[0]?.bondedTokens ?? 0, chainConfig.votingPowerTokenUnit)
+        formatToken(data?.stakingPool?.[0]?.bondedTokens ?? 0, chainConfig().votingPowerTokenUnit)
           .value
       ).value() ?? undefined;
 

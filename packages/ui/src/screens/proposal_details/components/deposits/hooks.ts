@@ -35,7 +35,7 @@ export const useDeposits = () => {
     const format = data.proposalDeposit.map((x) => ({
       amount: formatToken(
         x?.amount?.[0]?.amount ?? '0',
-        x?.amount?.[0]?.denom ?? chainConfig.primaryTokenUnit
+        x?.amount?.[0]?.denom ?? chainConfig().primaryTokenUnit
       ),
       user: x?.depositorAddress ?? '',
       timestamp: x?.block?.timestamp ?? '',

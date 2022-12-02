@@ -19,6 +19,6 @@ export const PROFILE_DETAILS = (dtag: string): string => `/${dtag}`;
  * @returns
  */
 export const ADDRESS_DETAILS = (address: string) =>
-  address.includes(chainConfig.prefix.validator)
+  address.includes(chainConfig().prefix.validator)
     ? VALIDATOR_DETAILS(address)
     : ACCOUNT_DETAILS(address);

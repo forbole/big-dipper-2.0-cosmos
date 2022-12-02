@@ -21,7 +21,7 @@ export const useHero = () => {
   useTokenPriceHistoryQuery({
     variables: {
       limit: 10,
-      denom: chainConfig?.tokenUnits[chainConfig.primaryTokenUnit]?.display,
+      denom: chainConfig().tokenUnits?.[chainConfig().primaryTokenUnit]?.display,
     },
     onCompleted: (data) => {
       const newState: Partial<HeroState> = {

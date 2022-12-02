@@ -60,10 +60,10 @@ export const useAccountDetails = () => {
       newState.profile = getProfile();
 
       const getOverview = () => ({
-        balance: formatToken(accountData?.balance ?? '0', chainConfig.primaryTokenUnit),
+        balance: formatToken(accountData?.balance ?? '0', chainConfig().primaryTokenUnit),
         developerReward: formatToken(
           accountData?.developerReward ?? '0',
-          chainConfig.primaryTokenUnit
+          chainConfig().primaryTokenUnit
         ),
         shard: accountData?.shard ?? 0,
         tokenCount,

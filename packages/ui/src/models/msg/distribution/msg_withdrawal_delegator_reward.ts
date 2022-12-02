@@ -31,7 +31,7 @@ class MsgWithdrawDelegatorReward {
       withdrawEvents?.[0]?.attributes?.filter((x) => x.key === 'amount') ?? [];
 
     const amounts = (withdrawAmounts?.[0]?.value ?? '0').split(',').map((x) => {
-      const [amount, denom = chainConfig.primaryTokenUnit] = x.match(/[a-z]+|[^a-z]+/gi) ?? [];
+      const [amount, denom = chainConfig().primaryTokenUnit] = x.match(/[a-z]+|[^a-z]+/gi) ?? [];
       return formatToken(amount, denom);
     });
 

@@ -1,2 +1,10 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-module.exports = require('shared-utils/configs/next.js')(__dirname);
+const { withSentryConfig } = require('@sentry/nextjs');
+const getNextConfig = require('shared-utils/configs/next.js');
+
+let nextConfig = getNextConfig(__dirname);
+if (process.env.NEXT_PUBLIC_SENTRY_DSN) {
+  nextConfig = withSentryConfig({ ...nextConfig, sentry: { hideSourceMaps: true } });
+}
+
+module.exports = nextConfig;

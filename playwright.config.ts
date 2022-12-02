@@ -10,6 +10,8 @@ import { devices } from '@playwright/test';
 
 const port = process.env.PORT || '3000';
 const projectName = process.env.PROJECT_NAME || 'web';
+const [_, chainName] = /^web-(.+)$/.exec(projectName) ?? ['', 'base'];
+const basePath = chainName === 'base' ? '' : `/${chainName}`;
 
 /**
  * See https://playwright.dev/docs/test-configuration.
@@ -34,20 +36,21 @@ const config: PlaywrightTestConfig = {
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: process.env.CI ? 'github' : 'html',
+  reporter: process.env.CI ? 'dot' : 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
     actionTimeout: 0,
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: `http://localhost:${port}`,
+    baseURL: `http://localhost:${port}${basePath}`,
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on',
+    trace: 'on-first-retry',
     /* Ignore https error in firefox */
     ignoreHTTPSErrors: true,
+    headless: true,
     viewport: { width: 1280, height: 720 },
-    video: 'off',
+    video: 'on-first-retry',
   },
 
   /* Configure projects for major browsers */
@@ -84,13 +87,14 @@ const config: PlaywrightTestConfig = {
             ...devices['Pixel 5'],
           },
         },
-
-    {
-      name: 'Mobile Safari',
-      use: {
-        ...devices['iPhone 12'],
-      },
-    },
+    process.env.CI
+      ? {}
+      : {
+          name: 'Mobile Safari',
+          use: {
+            ...devices['iPhone 12'],
+          },
+        },
 
     /* Test against branded browsers. */
     // {
@@ -112,14 +116,14 @@ const config: PlaywrightTestConfig = {
 
   /* Run your local dev server before starting the tests */
   webServer: {
-    command: `yarn start`,
-    url: `http://localhost:${port}`,
+    command: `yarn workspace ${projectName} next start`,
+    url: `http://localhost:${port}${basePath}`,
+    ignoreHTTPSErrors: true,
     env: {
-      PROJECT_NAME: projectName,
       PORT: port,
       DEBUG: 'pw:webserver',
     },
-    reuseExistingServer: process.env.CI ? undefined : true,
+    reuseExistingServer: !process.env.CI,
   },
 };
 

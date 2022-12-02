@@ -15,40 +15,115 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+    - name: Update yarn
+      run: corepack enable && yarn --version
+    - name: Get yarn cache directory path
+      id: vars
+      run: echo "::set-output name=yarn-cache-folder::$(yarn config get cacheFolder)"
     - name: Setup Node.js environment
       uses: actions/setup-node@v3
       with:
         node-version: 18
         cache: 'yarn'
+        path: |
+          ${{ steps.vars.outputs.yarn-cache-folder }}
+          ${{ github.workspace }}/apps/*/.next/cache
+        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+        restore-keys: |
+          ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}-
     - name: Install modules
-      run: corepack enable && yarn --immutable
-    - name: Run lint check
-      run: yarn lint:ci
+      run: yarn --immutable
+    - name: Run check-types & lint check
+      run: yarn check-types:ci && yarn lint:ci
 
   test:
+    if: ${{ success() }}
+    needs: lint
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+    - name: Update yarn
+      run: corepack enable && yarn --version
+    - name: Get yarn cache directory path
+      id: vars
+      run: echo "::set-output name=yarn-cache-folder::$(yarn config get cacheFolder)"
     - name: Setup Node.js environment
       uses: actions/setup-node@v3
       with:
         node-version: 18
         cache: 'yarn'
+        path: |
+          ${{ steps.vars.outputs.yarn-cache-folder }}
+          ${{ github.workspace }}/apps/*/.next/cache
+        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+        restore-keys: |
+          ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}-
     - name: Install modules
-      run: corepack enable && yarn --immutable
+      run: yarn --immutable
     - name: Run tests
       run: yarn test:ci -- --coverage
 
   build:
+    if: ${{ success() }}
+    needs: lint
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+    - name: Update yarn
+      run: corepack enable && yarn --version
+    - name: Get yarn cache directory path
+      id: vars
+      run: echo "::set-output name=yarn-cache-folder::$(yarn config get cacheFolder)"
     - name: Setup Node.js environment
       uses: actions/setup-node@v3
       with:
         node-version: 18
         cache: 'yarn'
+        path: |
+          ${{ steps.vars.outputs.yarn-cache-folder }}
+          ${{ github.workspace }}/apps/*/.next/cache
+        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+        restore-keys: |
+          ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}-
     - name: Install modules
-      run: corepack enable && yarn --immutable
+      run: yarn --immutable
     - name: Run build check
       run: yarn build:ci
+  e2e:
+    if: ${{ ${{ success() }} }}
+    needs: lint
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.28.1-focal
+    timeout-minutes: 30
+    steps:
+    - uses: actions/checkout@v3
+    - name: Update yarn
+      run: corepack enable && yarn --version
+    - name: Get yarn cache directory path
+      id: vars
+      run: echo "::set-output name=yarn-cache-folder::$(yarn config get cacheFolder)"
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+        cache: 'yarn'
+        path: |
+          ${{ steps.vars.outputs.yarn-cache-folder }}
+          ${{ github.workspace }}/apps/web/.next/cache
+        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}-web-${{ hashFiles(format('apps/{0}/**.[jt]s', 'web'), format('apps/{0}/**.[jt]sx', 'web'), 'packages/**.[jt]sx') }}
+        restore-keys: |
+          ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}-web-
+    - name: Install modules
+      run: yarn --immutable
+    - name: Build Next.js app
+      run: yarn build
+    - name: Run Playwright tests
+      run: yarn playwright test
+    - uses: actions/upload-artifact@v3
+      if: ${{ always() }}
+      with:
+        name: playwright-report
+        path: playwright-report/
+        retention-days: 30
+

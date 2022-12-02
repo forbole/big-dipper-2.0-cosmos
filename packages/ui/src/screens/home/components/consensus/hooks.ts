@@ -28,7 +28,7 @@ export const useConsensus = () => {
       const height =
         numeral(R.pathOr('0', ['result', 'data', 'value', 'height'] ?? '0')).value() ?? 0;
       const proposerHex = R.pathOr('', ['result', 'data', 'value', 'proposer', 'address'], data);
-      const consensusAddress = hexToBech32(proposerHex, chainConfig.prefix.consensus);
+      const consensusAddress = hexToBech32(proposerHex, chainConfig().prefix.consensus);
 
       setState((prevState) => ({
         ...prevState,
@@ -84,8 +84,8 @@ export const useConsensus = () => {
     function connect() {
       client = new WebSocket(
         process.env.NEXT_PUBLIC_RPC_WEBSOCKET ||
-          chainConfig.endpoints.publicRpcWebsocket ||
-          chainConfig.endpoints.graphqlWebsocket ||
+          chainConfig().endpoints.publicRpcWebsocket ||
+          chainConfig().endpoints.graphqlWebsocket ||
           'ws://localhost:3000/websocket',
         GRAPHQL_TRANSPORT_WS_PROTOCOL
       );

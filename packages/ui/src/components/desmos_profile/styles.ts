@@ -9,7 +9,7 @@ const styles = makeStyles<Theme, { coverUrl?: string }>(
     cover: {
       height: '150px',
       background: theme.palette.custom.fonts.fontFour,
-      backgroundImage: `url("${`/${chainConfig.chainName}`.replace(
+      backgroundImage: `url("${`/${chainConfig().chainName}`.replace(
         /^\/$/,
         ''
       )}/images/default_cover_pattern.png")`,

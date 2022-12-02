@@ -69,7 +69,7 @@ jest.mock('@/hooks', () => ({
           connections: [
             {
               network: 'native',
-              identifier: `${chainConfig.prefix.account}1kmw9et4e99ascgdw0mmkt63mggjuu0xuqjx30w`,
+              identifier: `${chainConfig().prefix.account}1kmw9et4e99ascgdw0mmkt63mggjuu0xuqjx30w`,
             },
           ],
         };
@@ -87,7 +87,7 @@ jest.mock('@/hooks', () => ({
           connections: [
             {
               network: 'native',
-              identifier: `${chainConfig.prefix.account}1pm6pmpsdw8kd5g6jneyq8rl3qw6tukcp7g57w3`,
+              identifier: `${chainConfig().prefix.account}1pm6pmpsdw8kd5g6jneyq8rl3qw6tukcp7g57w3`,
             },
           ],
         };
@@ -99,7 +99,7 @@ jest.mock('@/hooks', () => ({
 
 describe('hook: useProfileDetails', () => {
   it('correctly toggles profile open', async () => {
-    if (!chainConfig.extra.profile) return;
+    if (!chainConfig().extra.profile) return;
     const { result, rerender } = renderHook(() => useProfileDetails());
 
     expect(result.current.state.desmosProfile?.bio).toBe('hungry all the time');

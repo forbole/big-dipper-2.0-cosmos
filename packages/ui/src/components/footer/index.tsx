@@ -37,7 +37,7 @@ const Footer: React.FC<{ className?: string }> = ({ className }) => {
           ) : (
             <FooterLogoDark className="footer__logo" />
           )}
-          <p className="footer__slogan">{chainConfig.title}</p>
+          <p className="footer__slogan">{chainConfig().title}</p>
         </div>
         {/* ============================= */}
         {/* links */}

@@ -53,26 +53,26 @@ export const useVotesGraph = () => {
       votes: {
         yes: formatToken(
           data?.proposalTallyResult?.[0]?.yes ?? '0',
-          chainConfig.votingPowerTokenUnit
+          chainConfig().votingPowerTokenUnit
         ),
         no: formatToken(
           data?.proposalTallyResult?.[0]?.no ?? '0',
-          chainConfig.votingPowerTokenUnit
+          chainConfig().votingPowerTokenUnit
         ),
         veto: formatToken(
           data?.proposalTallyResult?.[0]?.noWithVeto ?? '0',
-          chainConfig.votingPowerTokenUnit
+          chainConfig().votingPowerTokenUnit
         ),
         abstain: formatToken(
           data?.proposalTallyResult?.[0]?.abstain ?? '0',
-          chainConfig.votingPowerTokenUnit
+          chainConfig().votingPowerTokenUnit
         ),
       },
       bonded: formatToken(
         data?.stakingPool?.[0]?.bondedTokens ?? '0',
-        chainConfig.votingPowerTokenUnit
+        chainConfig().votingPowerTokenUnit
       ),
-      quorum: Big(quorumRaw).times(100).toFixed(2),
+      quorum: Big(quorumRaw)?.times(100).toFixed(2),
     };
   };
 

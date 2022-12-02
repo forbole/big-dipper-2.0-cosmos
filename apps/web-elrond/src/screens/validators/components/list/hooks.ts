@@ -142,13 +142,13 @@ export const useValidators = () => {
           const locked = data?.locked ?? '0';
           const stakePercentString = Big(locked)
             .div(totalStaked === '0' ? 1 : totalStaked)
-            .times(100)
+            ?.times(100)
             .toFixed(3);
 
           return {
             validator,
-            stake: formatToken(data?.stake ?? '0', chainConfig.primaryTokenUnit),
-            locked: formatToken(locked, chainConfig.primaryTokenUnit),
+            stake: formatToken(data?.stake ?? '0', chainConfig().primaryTokenUnit),
+            locked: formatToken(locked, chainConfig().primaryTokenUnit),
             nodes: data?.validators ?? 0,
             commission: data?.serviceFee,
             apr: data?.apr,

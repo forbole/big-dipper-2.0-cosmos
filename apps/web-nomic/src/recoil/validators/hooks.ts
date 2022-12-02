@@ -64,7 +64,7 @@ export const useValidatorRecoil = () => {
   );
 
   const setProfiles = useRecoilCallback(({ set }) => async (data: ValidatorAddressesQuery) => {
-    if (chainConfig.extra.profile) {
+    if (chainConfig().extra.profile) {
       const profilesPromises: Array<Promise<DesmosProfile | null>> = [];
       data?.validator
         ?.filter((x) => x.consensusAddress || x.selfDelegateAddress)
