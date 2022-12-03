@@ -3671,13 +3671,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tsconfig/cypress@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "@tsconfig/cypress@npm:1.0.1"
-  checksum: 67974241de587d5d7f13f30caeec53427f37b6890a75e8b55f2ffb8989263b2fc07ed83eb1267f5e8e4a807791a5de752f796ccfdeff9d1027ea00f5bcd4b2e7
-  languageName: node
-  linkType: hard
-
 "@tsconfig/node10@npm:^1.0.7":
   version: 1.0.9
   resolution: "@tsconfig/node10@npm:1.0.9"
@@ -13039,8 +13032,6 @@ __metadata:
 "tsconfig@*, tsconfig@workspace:packages/tsconfig":
   version: 0.0.0-use.local
   resolution: "tsconfig@workspace:packages/tsconfig"
-  dependencies:
-    "@tsconfig/cypress": ^1.0.1
   languageName: unknown
   linkType: soft
 

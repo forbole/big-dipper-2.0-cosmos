@@ -14,7 +14,6 @@ const customJestConfig: Config = {
     '^.+\\.(svg)\\?url$': 'shared-utils/__mocks__/svg.js',
   },
   // '/node_modules/', '/.next/',  added by nextjs
-  testPathIgnorePatterns: ['/cypress/'],
   transform: {
     '^.+\\.(svg\\?url)$': 'jest-transform-stub',
   },

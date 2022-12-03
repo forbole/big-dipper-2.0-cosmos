@@ -134,8 +134,8 @@ jobs:
           - chromium
           # - firefox
           # - webkit
-          # - 'Mobile Chrome'
-          - 'Mobile Safari'
+          # - mobile-chrome
+          - mobile-safari
         shardIndex: [1, 2]
         shardTotal: [2]
     steps:
