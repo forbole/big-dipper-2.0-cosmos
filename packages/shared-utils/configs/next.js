@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { basename } = require('path');
+const { basename, join } = require('path');
 const nextTranslate = require('next-translate');
 const withTM = require('next-transpile-modules');
 
@@ -10,6 +10,7 @@ const withTM = require('next-transpile-modules');
  */
 function getBaseConfig(basePath) {
   const config = {
+    output: 'standalone',
     swcMinify: true,
     reactStrictMode: true,
     poweredByHeader: false,
@@ -24,6 +25,10 @@ function getBaseConfig(basePath) {
     },
     typescript: {
       ignoreBuildErrors: true,
+    },
+    experimental: {
+      // this includes files from the monorepo base two directories up
+      outputFileTracingRoot: join(__dirname, '../../'),
     },
   };
   return config;

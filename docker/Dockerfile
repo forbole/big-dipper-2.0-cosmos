@@ -92,15 +92,10 @@ USER nextjs
 # Copying the files from the builder stage to the web stage.
 ARG PROJECT_NAME
 ENV PROJECT_NAME=${PROJECT_NAME}
-COPY --from=builder --chown=nextjs:nodejs \
-  /app/apps/${PROJECT_NAME}/i18n.js \
-  /app/apps/${PROJECT_NAME}/next.config.js \
-  /app/apps/${PROJECT_NAME}/package.json \
-  /app/apps/${PROJECT_NAME}/sentry.client.config.ts \
-  /app/apps/${PROJECT_NAME}/sentry.server.config.ts \
-  ./apps/${PROJECT_NAME}/
-
-COPY --from=builder --chown=nextjs:nodejs /app/ ./
+COPY --from=builder --chown=nextjs:nodejs /app/apps/${PROJECT_NAME}/.next/apps/${PROJECT_NAME}/ ./
+COPY --from=builder --chown=nextjs:nodejs /app/node_modules/ ./node_modules/
+COPY --from=builder --chown=nextjs:nodejs /app/apps/${PROJECT_NAME}/.next/static/ ./.next/static/
+COPY --from=builder --chown=nextjs:nodejs /app/apps/${PROJECT_NAME}/public/ ./public/
 
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
@@ -110,7 +105,8 @@ WORKDIR /app/apps/${PROJECT_NAME}
 ARG PORT=3000
 ENV PORT=${PORT}
 EXPOSE ${PORT:-3000}
-CMD yarn run next start
+
+CMD node /app/server.js
 
 ################################################################################
 
@@ -121,13 +117,9 @@ WORKDIR /app
 # Copying the files from the builder stage to the e2e stage.
 ARG PROJECT_NAME
 ENV PROJECT_NAME=${PROJECT_NAME}
-COPY --from=builder --chown=nextjs:nodejs \
-  /app/apps/${PROJECT_NAME}/i18n.js \
-  /app/apps/${PROJECT_NAME}/next.config.js \
-  /app/apps/${PROJECT_NAME}/package.json \
-  /app/apps/${PROJECT_NAME}/sentry.client.config.ts \
-  /app/apps/${PROJECT_NAME}/sentry.server.config.ts \
-  ./apps/${PROJECT_NAME}/
+COPY --from=builder --chown=nextjs:nodejs /app/apps/${PROJECT_NAME}/.next/apps/${PROJECT_NAME}/ ./
+COPY --from=builder --chown=nextjs:nodejs /app/node_modules/next/ ./node_modules/next/
+COPY --from=builder --chown=nextjs:nodejs /app/apps/${PROJECT_NAME}/public/ ./public/
 
 COPY --from=builder --chown=nextjs:nodejs /app/ ./
 COPY playwright.config.ts ./
