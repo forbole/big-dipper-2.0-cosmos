@@ -71,6 +71,7 @@
     "@types/big.js": "^6.1.6",
     "@types/color": "^3.0.3",
     "@types/dompurify": "^2.4.0",
+    "@types/eslint": "^8",
     "@types/jest": "^29.2.3",
     "@types/node": "^16.18.4",
     "@types/numeral": "^2.0.2",

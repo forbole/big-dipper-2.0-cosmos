@@ -29,15 +29,19 @@
   "devDependencies": {
     "@changesets/cli": "^2.25.2",
     "@playwright/test": "^1.28.1",
+    "@types/eslint": "^8",
     "dotenv-cli": "^6.0.0",
+    "eslint": "^8.29.0",
     "husky": "^8.0.2",
     "lint-staged": "^13.0.4",
     "prettier": "2.8.0",
-    "turbo": "latest"
+    "turbo": "latest",
+    "typescript": "^4.9.3"
   },
   "resolutions": {
     "@types/node": "^18.11.10",
-    "@types/react": "^17.0.52"
+    "@types/react": "^17.0.52",
+    "react": "^17.0.2"
   },
   "packageManager": "yarn@3.2.4",
   "engines": {
