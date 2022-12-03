@@ -8,13 +8,11 @@ WORKDIR /app
 
 ARG BASE_IMAGE
 ENV BASE_IMAGE=${BASE_IMAGE}
-RUN apt update -y && apt install -y jq && \
-  yarn global add turbo
-
-ARG PROJECT_NAME
+RUN yarn global add turbo
 
 COPY . .
 
+ARG PROJECT_NAME
 RUN turbo prune --scope=${PROJECT_NAME} --docker
 
 ################################################################################

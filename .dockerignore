@@ -25,18 +25,20 @@
 **/node_modules
 **/out/
 
+# Yarn Berry
 .yarn/*
 !.yarn/patches
 !.yarn/plugins
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+.pnp.*
+
 .changeset
 .github
 .husky
 .idea/
 .mergify.yml
-.pnp.*
 .vscode
 docker-compose.yml
 docker/
