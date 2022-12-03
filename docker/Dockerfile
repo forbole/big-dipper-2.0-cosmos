@@ -69,7 +69,7 @@ ARG NEXT_PUBLIC_MATOMO_SITE_ID
 ENV NEXT_PUBLIC_MATOMO_SITE_ID=${NEXT_PUBLIC_MATOMO_SITE_ID}
 ARG NEXT_PUBLIC_RPC_WEBSOCKET
 ENV NEXT_PUBLIC_RPC_WEBSOCKET=${NEXT_PUBLIC_RPC_WEBSOCKET}
-RUN yarn install --immutable && yarn workspace ${PROJECT_NAME} add sharp
+RUN yarn install --immutable
 
 ## Build the project
 COPY turbo.json ./

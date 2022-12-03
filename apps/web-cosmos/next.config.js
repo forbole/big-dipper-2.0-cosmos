@@ -2,9 +2,9 @@
 const { withSentryConfig } = require('@sentry/nextjs');
 const getNextConfig = require('shared-utils/configs/next.js');
 
-const nextConfig = getNextConfig(__dirname);
-const nextConfigWithSentry = process.env.NEXT_PUBLIC_SENTRY_DSN
-  ? withSentryConfig({ ...nextConfig, sentry: { hideSourceMaps: true } })
-  : nextConfig;
+let nextConfig = getNextConfig(__dirname);
+if (process.env.NEXT_PUBLIC_SENTRY_DSN) {
+  nextConfig = withSentryConfig({ ...nextConfig, sentry: { hideSourceMaps: true } }, {});
+}
 
-module.exports = nextConfigWithSentry;
+module.exports = nextConfig;

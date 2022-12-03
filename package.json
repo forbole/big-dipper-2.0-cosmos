@@ -27,12 +27,12 @@
     "postinstall": "husky install"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.25.0",
+    "@changesets/cli": "^2.25.2",
     "@playwright/test": "^1.28.1",
     "dotenv-cli": "^6.0.0",
-    "husky": "^8.0.0",
-    "lint-staged": "^13.0.3",
-    "prettier": "2.7.1",
+    "husky": "^8.0.2",
+    "lint-staged": "^13.0.4",
+    "prettier": "2.8.0",
     "turbo": "latest"
   },
   "packageManager": "yarn@3.2.4",

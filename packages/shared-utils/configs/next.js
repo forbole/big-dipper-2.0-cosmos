@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { basename, join } = require('path');
+const { basename, resolve } = require('path');
 const nextTranslate = require('next-translate');
 const withTM = require('next-transpile-modules');
 
@@ -28,7 +28,7 @@ function getBaseConfig(basePath) {
     },
     experimental: {
       // this includes files from the monorepo base two directories up
-      outputFileTracingRoot: join(__dirname, '../../'),
+      outputFileTracingRoot: resolve(__dirname, '../../'),
     },
   };
   return config;
