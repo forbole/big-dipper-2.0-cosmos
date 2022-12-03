@@ -3836,7 +3836,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/eslint@npm:^8":
+"@types/eslint@npm:^8.4.10":
   version: 8.4.10
   resolution: "@types/eslint@npm:8.4.10"
   dependencies:
@@ -3996,7 +3996,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/prop-types@npm:*, @types/prop-types@npm:^15":
+"@types/prop-types@npm:*, @types/prop-types@npm:^15.7.5":
   version: 15.7.5
   resolution: "@types/prop-types@npm:15.7.5"
   checksum: 5b43b8b15415e1f298243165f1d44390403bb2bd42e662bca3b5b5633fdd39c938e91b7fce3a9483699db0f7a715d08cef220c121f723a634972fdf596aec980
@@ -4099,7 +4099,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/sharp@npm:^0":
+"@types/sharp@npm:^0.31.0":
   version: 0.31.0
   resolution: "@types/sharp@npm:0.31.0"
   dependencies:
@@ -4965,7 +4965,7 @@ __metadata:
   dependencies:
     "@changesets/cli": ^2.25.2
     "@playwright/test": ^1.28.1
-    "@types/eslint": ^8
+    "@types/eslint": ^8.4.10
     dotenv-cli: ^6.0.0
     eslint: ^8.29.0
     husky: ^8.0.2
@@ -13298,11 +13298,11 @@ __metadata:
     "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.4.0
-    "@types/eslint": ^8
+    "@types/eslint": ^8.4.10
     "@types/jest": ^29.2.3
     "@types/node": ^16.18.4
     "@types/numeral": ^2.0.2
-    "@types/prop-types": ^15
+    "@types/prop-types": ^15.7.5
     "@types/ramda": ^0.28.20
     "@types/react": ^17.0.52
     "@types/react-dom": ^17.0.18
@@ -13310,7 +13310,7 @@ __metadata:
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
-    "@types/sharp": ^0
+    "@types/sharp": ^0.31.0
     "@typescript-eslint/eslint-plugin": ^5.45.0
     "@typescript-eslint/parser": ^5.45.0
     axios: ^0.21.4
@@ -13641,11 +13641,11 @@ __metadata:
     "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.4.0
-    "@types/eslint": ^8
+    "@types/eslint": ^8.4.10
     "@types/jest": ^29.2.3
     "@types/node": ^18.11.10
     "@types/numeral": ^2.0.2
-    "@types/prop-types": ^15
+    "@types/prop-types": ^15.7.5
     "@types/ramda": ^0.28.20
     "@types/react": ^17.0.52
     "@types/react-dom": ^17.0.18
@@ -13653,7 +13653,7 @@ __metadata:
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
-    "@types/sharp": ^0
+    "@types/sharp": ^0.31.0
     "@typescript-eslint/eslint-plugin": ^5.45.0
     "@typescript-eslint/parser": ^5.45.0
     axios: ^0.21.4
@@ -13749,11 +13749,11 @@ __metadata:
     "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.4.0
-    "@types/eslint": ^8
+    "@types/eslint": ^8.4.10
     "@types/jest": ^29.2.3
     "@types/node": ^18.11.10
     "@types/numeral": ^2.0.2
-    "@types/prop-types": ^15
+    "@types/prop-types": ^15.7.5
     "@types/ramda": ^0.28.20
     "@types/react": ^17.0.52
     "@types/react-dom": ^17.0.18
@@ -13761,7 +13761,7 @@ __metadata:
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
-    "@types/sharp": ^0
+    "@types/sharp": ^0.31.0
     "@typescript-eslint/eslint-plugin": ^5.45.0
     "@typescript-eslint/parser": ^5.45.0
     axios: ^0.21.4
@@ -13857,11 +13857,11 @@ __metadata:
     "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.4.0
-    "@types/eslint": ^8
+    "@types/eslint": ^8.4.10
     "@types/jest": ^29.2.3
     "@types/node": ^18.11.10
     "@types/numeral": ^2.0.2
-    "@types/prop-types": ^15
+    "@types/prop-types": ^15.7.5
     "@types/ramda": ^0.28.20
     "@types/react": ^17.0.52
     "@types/react-dom": ^17.0.18
@@ -13869,7 +13869,7 @@ __metadata:
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
-    "@types/sharp": ^0
+    "@types/sharp": ^0.31.0
     "@typescript-eslint/eslint-plugin": ^5.45.0
     "@typescript-eslint/parser": ^5.45.0
     axios: ^0.21.4
@@ -13965,11 +13965,11 @@ __metadata:
     "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.4.0
-    "@types/eslint": ^8
+    "@types/eslint": ^8.4.10
     "@types/jest": ^29.2.3
     "@types/node": ^18.11.10
     "@types/numeral": ^2.0.2
-    "@types/prop-types": ^15
+    "@types/prop-types": ^15.7.5
     "@types/ramda": ^0.28.20
     "@types/react": ^17.0.52
     "@types/react-dom": ^17.0.18
@@ -13977,7 +13977,7 @@ __metadata:
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
-    "@types/sharp": ^0
+    "@types/sharp": ^0.31.0
     "@typescript-eslint/eslint-plugin": ^5.45.0
     "@typescript-eslint/parser": ^5.45.0
     axios: ^0.21.4
@@ -14073,11 +14073,11 @@ __metadata:
     "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.4.0
-    "@types/eslint": ^8
+    "@types/eslint": ^8.4.10
     "@types/jest": ^29.2.3
     "@types/node": ^18.11.10
     "@types/numeral": ^2.0.2
-    "@types/prop-types": ^15
+    "@types/prop-types": ^15.7.5
     "@types/ramda": ^0.28.20
     "@types/react": ^17.0.52
     "@types/react-dom": ^17.0.18
@@ -14085,7 +14085,7 @@ __metadata:
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
-    "@types/sharp": ^0
+    "@types/sharp": ^0.31.0
     "@typescript-eslint/eslint-plugin": ^5.45.0
     "@typescript-eslint/parser": ^5.45.0
     axios: ^0.21.4
@@ -14181,11 +14181,11 @@ __metadata:
     "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.4.0
-    "@types/eslint": ^8
+    "@types/eslint": ^8.4.10
     "@types/jest": ^29.2.3
     "@types/node": ^18.11.10
     "@types/numeral": ^2.0.2
-    "@types/prop-types": ^15
+    "@types/prop-types": ^15.7.5
     "@types/ramda": ^0.28.20
     "@types/react": ^17.0.52
     "@types/react-dom": ^17.0.18
@@ -14193,7 +14193,7 @@ __metadata:
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
-    "@types/sharp": ^0
+    "@types/sharp": ^0.31.0
     "@typescript-eslint/eslint-plugin": ^5.45.0
     "@typescript-eslint/parser": ^5.45.0
     axios: ^0.21.4
@@ -14289,11 +14289,11 @@ __metadata:
     "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.4.0
-    "@types/eslint": ^8
+    "@types/eslint": ^8.4.10
     "@types/jest": ^29.2.3
     "@types/node": ^18.11.10
     "@types/numeral": ^2.0.2
-    "@types/prop-types": ^15
+    "@types/prop-types": ^15.7.5
     "@types/ramda": ^0.28.20
     "@types/react": ^17.0.52
     "@types/react-dom": ^17.0.18
@@ -14301,7 +14301,7 @@ __metadata:
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
-    "@types/sharp": ^0
+    "@types/sharp": ^0.31.0
     "@typescript-eslint/eslint-plugin": ^5.45.0
     "@typescript-eslint/parser": ^5.45.0
     axios: ^0.21.4
@@ -14397,11 +14397,11 @@ __metadata:
     "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.4.0
-    "@types/eslint": ^8
+    "@types/eslint": ^8.4.10
     "@types/jest": ^29.2.3
     "@types/node": ^18.11.10
     "@types/numeral": ^2.0.2
-    "@types/prop-types": ^15
+    "@types/prop-types": ^15.7.5
     "@types/ramda": ^0.28.20
     "@types/react": ^17.0.52
     "@types/react-dom": ^17.0.18
@@ -14409,7 +14409,7 @@ __metadata:
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
-    "@types/sharp": ^0
+    "@types/sharp": ^0.31.0
     "@typescript-eslint/eslint-plugin": ^5.45.0
     "@typescript-eslint/parser": ^5.45.0
     axios: ^0.21.4
@@ -14505,11 +14505,11 @@ __metadata:
     "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.4.0
-    "@types/eslint": ^8
+    "@types/eslint": ^8.4.10
     "@types/jest": ^29.2.3
     "@types/node": ^18.11.10
     "@types/numeral": ^2.0.2
-    "@types/prop-types": ^15
+    "@types/prop-types": ^15.7.5
     "@types/ramda": ^0.28.20
     "@types/react": ^17.0.52
     "@types/react-dom": ^17.0.18
@@ -14517,7 +14517,7 @@ __metadata:
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
-    "@types/sharp": ^0
+    "@types/sharp": ^0.31.0
     "@typescript-eslint/eslint-plugin": ^5.45.0
     "@typescript-eslint/parser": ^5.45.0
     axios: ^0.21.4
@@ -14613,11 +14613,11 @@ __metadata:
     "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.4.0
-    "@types/eslint": ^8
+    "@types/eslint": ^8.4.10
     "@types/jest": ^29.2.3
     "@types/node": ^18.11.10
     "@types/numeral": ^2.0.2
-    "@types/prop-types": ^15
+    "@types/prop-types": ^15.7.5
     "@types/ramda": ^0.28.20
     "@types/react": ^17.0.52
     "@types/react-dom": ^17.0.18
@@ -14625,7 +14625,7 @@ __metadata:
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
-    "@types/sharp": ^0
+    "@types/sharp": ^0.31.0
     "@typescript-eslint/eslint-plugin": ^5.45.0
     "@typescript-eslint/parser": ^5.45.0
     axios: ^0.21.4
@@ -14721,11 +14721,11 @@ __metadata:
     "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.4.0
-    "@types/eslint": ^8
+    "@types/eslint": ^8.4.10
     "@types/jest": ^29.2.3
     "@types/node": ^18.11.10
     "@types/numeral": ^2.0.2
-    "@types/prop-types": ^15
+    "@types/prop-types": ^15.7.5
     "@types/ramda": ^0.28.20
     "@types/react": ^17.0.52
     "@types/react-dom": ^17.0.18
@@ -14733,7 +14733,7 @@ __metadata:
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
-    "@types/sharp": ^0
+    "@types/sharp": ^0.31.0
     "@typescript-eslint/eslint-plugin": ^5.45.0
     "@typescript-eslint/parser": ^5.45.0
     axios: ^0.21.4
@@ -14829,11 +14829,11 @@ __metadata:
     "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.4.0
-    "@types/eslint": ^8
+    "@types/eslint": ^8.4.10
     "@types/jest": ^29.2.3
     "@types/node": ^18.11.10
     "@types/numeral": ^2.0.2
-    "@types/prop-types": ^15
+    "@types/prop-types": ^15.7.5
     "@types/ramda": ^0.28.20
     "@types/react": ^17.0.52
     "@types/react-dom": ^17.0.18
@@ -14841,7 +14841,7 @@ __metadata:
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
-    "@types/sharp": ^0
+    "@types/sharp": ^0.31.0
     "@typescript-eslint/eslint-plugin": ^5.45.0
     "@typescript-eslint/parser": ^5.45.0
     axios: ^0.21.4
@@ -14937,11 +14937,11 @@ __metadata:
     "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.4.0
-    "@types/eslint": ^8
+    "@types/eslint": ^8.4.10
     "@types/jest": ^29.2.3
     "@types/node": ^18.11.10
     "@types/numeral": ^2.0.2
-    "@types/prop-types": ^15
+    "@types/prop-types": ^15.7.5
     "@types/ramda": ^0.28.20
     "@types/react": ^17.0.52
     "@types/react-dom": ^17.0.18
@@ -14949,7 +14949,7 @@ __metadata:
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
-    "@types/sharp": ^0
+    "@types/sharp": ^0.31.0
     "@typescript-eslint/eslint-plugin": ^5.45.0
     "@typescript-eslint/parser": ^5.45.0
     axios: ^0.21.4
@@ -15045,11 +15045,11 @@ __metadata:
     "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.4.0
-    "@types/eslint": ^8
+    "@types/eslint": ^8.4.10
     "@types/jest": ^29.2.3
     "@types/node": ^18.11.10
     "@types/numeral": ^2.0.2
-    "@types/prop-types": ^15
+    "@types/prop-types": ^15.7.5
     "@types/ramda": ^0.28.20
     "@types/react": ^17.0.52
     "@types/react-dom": ^17.0.18
@@ -15057,7 +15057,7 @@ __metadata:
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
-    "@types/sharp": ^0
+    "@types/sharp": ^0.31.0
     "@typescript-eslint/eslint-plugin": ^5.45.0
     "@typescript-eslint/parser": ^5.45.0
     axios: ^0.21.4
@@ -15153,11 +15153,11 @@ __metadata:
     "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.4.0
-    "@types/eslint": ^8
+    "@types/eslint": ^8.4.10
     "@types/jest": ^29.2.3
     "@types/node": ^18.11.10
     "@types/numeral": ^2.0.2
-    "@types/prop-types": ^15
+    "@types/prop-types": ^15.7.5
     "@types/ramda": ^0.28.20
     "@types/react": ^17.0.52
     "@types/react-dom": ^17.0.18
@@ -15165,7 +15165,7 @@ __metadata:
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
-    "@types/sharp": ^0
+    "@types/sharp": ^0.31.0
     "@typescript-eslint/eslint-plugin": ^5.45.0
     "@typescript-eslint/parser": ^5.45.0
     axios: ^0.21.4
@@ -15261,11 +15261,11 @@ __metadata:
     "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.4.0
-    "@types/eslint": ^8
+    "@types/eslint": ^8.4.10
     "@types/jest": ^29.2.3
     "@types/node": ^18.11.10
     "@types/numeral": ^2.0.2
-    "@types/prop-types": ^15
+    "@types/prop-types": ^15.7.5
     "@types/ramda": ^0.28.20
     "@types/react": ^17.0.52
     "@types/react-dom": ^17.0.18
@@ -15273,7 +15273,7 @@ __metadata:
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
-    "@types/sharp": ^0
+    "@types/sharp": ^0.31.0
     "@typescript-eslint/eslint-plugin": ^5.45.0
     "@typescript-eslint/parser": ^5.45.0
     axios: ^0.21.4
@@ -15369,11 +15369,11 @@ __metadata:
     "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.4.0
-    "@types/eslint": ^8
+    "@types/eslint": ^8.4.10
     "@types/jest": ^29.2.3
     "@types/node": ^18.11.10
     "@types/numeral": ^2.0.2
-    "@types/prop-types": ^15
+    "@types/prop-types": ^15.7.5
     "@types/ramda": ^0.28.20
     "@types/react": ^17.0.52
     "@types/react-dom": ^17.0.18
@@ -15381,7 +15381,7 @@ __metadata:
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
-    "@types/sharp": ^0
+    "@types/sharp": ^0.31.0
     "@typescript-eslint/eslint-plugin": ^5.45.0
     "@typescript-eslint/parser": ^5.45.0
     axios: ^0.21.4
@@ -15477,11 +15477,11 @@ __metadata:
     "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.4.0
-    "@types/eslint": ^8
+    "@types/eslint": ^8.4.10
     "@types/jest": ^29.2.3
     "@types/node": ^18.11.10
     "@types/numeral": ^2.0.2
-    "@types/prop-types": ^15
+    "@types/prop-types": ^15.7.5
     "@types/ramda": ^0.28.20
     "@types/react": ^17.0.52
     "@types/react-dom": ^17.0.18
@@ -15489,7 +15489,7 @@ __metadata:
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
-    "@types/sharp": ^0
+    "@types/sharp": ^0.31.0
     "@typescript-eslint/eslint-plugin": ^5.45.0
     "@typescript-eslint/parser": ^5.45.0
     axios: ^0.21.4
@@ -15585,11 +15585,11 @@ __metadata:
     "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.4.0
-    "@types/eslint": ^8
+    "@types/eslint": ^8.4.10
     "@types/jest": ^29.2.3
     "@types/node": ^18.11.10
     "@types/numeral": ^2.0.2
-    "@types/prop-types": ^15
+    "@types/prop-types": ^15.7.5
     "@types/ramda": ^0.28.20
     "@types/react": ^17.0.52
     "@types/react-dom": ^17.0.18
@@ -15597,7 +15597,7 @@ __metadata:
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
-    "@types/sharp": ^0
+    "@types/sharp": ^0.31.0
     "@typescript-eslint/eslint-plugin": ^5.45.0
     "@typescript-eslint/parser": ^5.45.0
     axios: ^0.21.4
@@ -15693,11 +15693,11 @@ __metadata:
     "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.4.0
-    "@types/eslint": ^8
+    "@types/eslint": ^8.4.10
     "@types/jest": ^29.2.3
     "@types/node": ^18.11.10
     "@types/numeral": ^2.0.2
-    "@types/prop-types": ^15
+    "@types/prop-types": ^15.7.5
     "@types/ramda": ^0.28.20
     "@types/react": ^17.0.52
     "@types/react-dom": ^17.0.18
@@ -15705,7 +15705,7 @@ __metadata:
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
-    "@types/sharp": ^0
+    "@types/sharp": ^0.31.0
     "@typescript-eslint/eslint-plugin": ^5.45.0
     "@typescript-eslint/parser": ^5.45.0
     axios: ^0.21.4
@@ -15801,11 +15801,11 @@ __metadata:
     "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.4.0
-    "@types/eslint": ^8
+    "@types/eslint": ^8.4.10
     "@types/jest": ^29.2.3
     "@types/node": ^18.11.10
     "@types/numeral": ^2.0.2
-    "@types/prop-types": ^15
+    "@types/prop-types": ^15.7.5
     "@types/ramda": ^0.28.20
     "@types/react": ^17.0.52
     "@types/react-dom": ^17.0.18
@@ -15813,7 +15813,7 @@ __metadata:
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
-    "@types/sharp": ^0
+    "@types/sharp": ^0.31.0
     "@typescript-eslint/eslint-plugin": ^5.45.0
     "@typescript-eslint/parser": ^5.45.0
     axios: ^0.21.4
@@ -15909,11 +15909,11 @@ __metadata:
     "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.4.0
-    "@types/eslint": ^8
+    "@types/eslint": ^8.4.10
     "@types/jest": ^29.2.3
     "@types/node": ^18.11.10
     "@types/numeral": ^2.0.2
-    "@types/prop-types": ^15
+    "@types/prop-types": ^15.7.5
     "@types/ramda": ^0.28.20
     "@types/react": ^17.0.52
     "@types/react-dom": ^17.0.18
@@ -15921,7 +15921,7 @@ __metadata:
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
-    "@types/sharp": ^0
+    "@types/sharp": ^0.31.0
     "@typescript-eslint/eslint-plugin": ^5.45.0
     "@typescript-eslint/parser": ^5.45.0
     axios: ^0.21.4
@@ -16031,11 +16031,11 @@ __metadata:
     "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.4.0
-    "@types/eslint": ^8
+    "@types/eslint": ^8.4.10
     "@types/jest": ^29.2.3
     "@types/node": ^18.11.10
     "@types/numeral": ^2.0.2
-    "@types/prop-types": ^15
+    "@types/prop-types": ^15.7.5
     "@types/ramda": ^0.28.20
     "@types/react": ^17.0.52
     "@types/react-dom": ^17.0.18
@@ -16043,7 +16043,7 @@ __metadata:
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
-    "@types/sharp": ^0
+    "@types/sharp": ^0.31.0
     "@typescript-eslint/eslint-plugin": ^5.45.0
     "@typescript-eslint/parser": ^5.45.0
     axios: ^0.21.4
@@ -16139,11 +16139,11 @@ __metadata:
     "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.4.0
-    "@types/eslint": ^8
+    "@types/eslint": ^8.4.10
     "@types/jest": ^29.2.3
     "@types/node": ^18.11.10
     "@types/numeral": ^2.0.2
-    "@types/prop-types": ^15
+    "@types/prop-types": ^15.7.5
     "@types/ramda": ^0.28.20
     "@types/react": ^17.0.52
     "@types/react-dom": ^17.0.18
@@ -16151,7 +16151,7 @@ __metadata:
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
-    "@types/sharp": ^0
+    "@types/sharp": ^0.31.0
     "@typescript-eslint/eslint-plugin": ^5.45.0
     "@typescript-eslint/parser": ^5.45.0
     axios: ^0.21.4

@@ -29,7 +29,7 @@
   "devDependencies": {
     "@changesets/cli": "^2.25.2",
     "@playwright/test": "^1.28.1",
-    "@types/eslint": "^8",
+    "@types/eslint": "^8.4.10",
     "dotenv-cli": "^6.0.0",
     "eslint": "^8.29.0",
     "husky": "^8.0.2",
