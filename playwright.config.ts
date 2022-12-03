@@ -1,5 +1,5 @@
 /* eslint-disable */
-import type { PlaywrightTestConfig } from '@playwright/test';
+import type { PlaywrightTestConfig, PlaywrightWorkerOptions, Project } from '@playwright/test';
 import { devices } from '@playwright/test';
 
 /**
@@ -12,7 +12,7 @@ const port = process.env.PORT || '3000';
 const projectName = process.env.PROJECT_NAME || 'web';
 const [_, chainName] = /^web-(.+)$/.exec(projectName) ?? ['', 'base'];
 const basePath = chainName === 'base' ? '' : `/${chainName}`;
-const projects: Array<{ name?: string; use?: unknown }> = [
+const projects: Array<Project<PlaywrightTestConfig, PlaywrightWorkerOptions>> = [
   {
     name: 'chromium',
     use: {
