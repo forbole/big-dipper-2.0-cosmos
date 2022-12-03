@@ -1,5 +1,6 @@
 ARG BASE_IMAGE=node:18
 ARG PROJECT_NAME=web
+ARG RUNTIME=yarn
 
 # Stage: pruner
 FROM ${BASE_IMAGE} AS pruner
@@ -7,8 +8,7 @@ WORKDIR /app
 
 ARG BASE_IMAGE
 ENV BASE_IMAGE=${BASE_IMAGE}
-RUN [ "${BASE_IMAGE}" == "node:18" ] && \
-  apk add --no-cache libc6-compat && apk update; \
+RUN apt update -y && apt install -y jq && \
   yarn global add turbo
 
 ARG PROJECT_NAME
@@ -25,9 +25,7 @@ WORKDIR /app
 
 ARG BASE_IMAGE
 ENV BASE_IMAGE=${BASE_IMAGE}
-RUN [ "${BASE_IMAGE}" == "node:18" ] && \
-  apk add --no-cache libc6-compat && apk update; \
-  corepack enable && yarn --version
+RUN corepack enable && yarn --version
 
 ### First install the dependencies (as they change less often)
 COPY .yarnrc.yml ./
@@ -37,7 +35,6 @@ COPY --from=pruner /app/out/yarn.lock ./
 
 ## Setting up the environment variables for the docker container.
 ARG PROJECT_NAME
-ENV PROJECT_NAME=${PROJECT_NAME}
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
 ARG NEXT_PUBLIC_SENTRY_DSN
@@ -91,7 +88,6 @@ USER nextjs
  
 # Copying the files from the builder stage to the web stage.
 ARG PROJECT_NAME
-ENV PROJECT_NAME=${PROJECT_NAME}
 COPY --from=builder --chown=nextjs:nodejs /app/apps/${PROJECT_NAME}/.next/apps/${PROJECT_NAME}/ ./
 COPY --from=builder --chown=nextjs:nodejs /app/node_modules/ ./node_modules/
 COPY --from=builder --chown=nextjs:nodejs /app/apps/${PROJECT_NAME}/.next/static/ ./.next/static/
@@ -116,7 +112,6 @@ WORKDIR /app
 
 # Copying the files from the builder stage to the e2e stage.
 ARG PROJECT_NAME
-ENV PROJECT_NAME=${PROJECT_NAME}
 COPY --from=builder --chown=nextjs:nodejs /app/apps/${PROJECT_NAME}/.next/apps/${PROJECT_NAME}/ ./
 COPY --from=builder --chown=nextjs:nodejs /app/node_modules/next/ ./node_modules/next/
 COPY --from=builder --chown=nextjs:nodejs /app/apps/${PROJECT_NAME}/public/ ./public/

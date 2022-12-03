@@ -54,7 +54,6 @@
     "ws": "^8.11.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.5",
     "@graphql-codegen/cli": "2.15.0",
     "@graphql-codegen/client-preset": "^1.2.1",
     "@graphql-codegen/fragment-matcher": "^3.3.1",

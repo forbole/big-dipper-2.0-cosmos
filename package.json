@@ -35,6 +35,10 @@
     "prettier": "2.8.0",
     "turbo": "latest"
   },
+  "resolutions": {
+    "@types/node": "^18.11.10",
+    "@types/react": "^17.0.52"
+  },
   "packageManager": "yarn@3.2.4",
   "engines": {
     "node": ">=16.13.0",

@@ -112,7 +112,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:^7.11.6, @babel/core@npm:^7.12.3, @babel/core@npm:^7.14.0, @babel/core@npm:^7.19.6, @babel/core@npm:^7.20.5":
+"@babel/core@npm:^7.11.6, @babel/core@npm:^7.12.3, @babel/core@npm:^7.14.0, @babel/core@npm:^7.19.6":
   version: 7.20.5
   resolution: "@babel/core@npm:7.20.5"
   dependencies:
@@ -3951,24 +3951,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^18.11.10":
+"@types/node@npm:^18.11.10":
   version: 18.11.10
   resolution: "@types/node@npm:18.11.10"
   checksum: 0f60cb090b2ee91fcd3dc4311bc1ed7889b92f14644c0069f100776f86474c12eebbcc6c75bc0d7d96b975a103b4d5d6b3c22b4e88bea6e7f4e2b1bb0daf5ea8
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:^12.7.1":
-  version: 12.20.55
-  resolution: "@types/node@npm:12.20.55"
-  checksum: e4f86785f4092706e0d3b0edff8dca5a13b45627e4b36700acd8dfe6ad53db71928c8dee914d4276c7fd3b6ccd829aa919811c9eb708a2c8e4c6eb3701178c37
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:^16.18.4":
-  version: 16.18.4
-  resolution: "@types/node@npm:16.18.4"
-  checksum: c2da162df295d81eed199d2b12f1edf9618d9f4099ba84a8553859b40e1dac2d44131c75b57803bd35cf9da881434d0abebe46994a2936b6b9c16d8e52db9146
   languageName: node
   linkType: hard
 
@@ -4071,18 +4057,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*":
-  version: 18.0.26
-  resolution: "@types/react@npm:18.0.26"
-  dependencies:
-    "@types/prop-types": "*"
-    "@types/scheduler": "*"
-    csstype: ^3.0.2
-  checksum: b62f0ea3cdfa68e106391728325057ad36f1bde7ba2dfae029472c47e01e482bc77c6ba4f1dad59f3f04ee81cb597618ff7c30a33c157c0a20462b6dd6aa2d4d
-  languageName: node
-  linkType: hard
-
-"@types/react@npm:^17, @types/react@npm:^17.0.52":
+"@types/react@npm:^17.0.52":
   version: 17.0.52
   resolution: "@types/react@npm:17.0.52"
   dependencies:
@@ -5201,9 +5176,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.30001400, caniuse-lite@npm:^1.0.30001406":
-  version: 1.0.30001435
-  resolution: "caniuse-lite@npm:1.0.30001435"
-  checksum: ec88b9c37f66095e26ddb8b43110e9564ebccb6de77e495b8e8b9d64fdbfe37f7762be8fd2578c3ecc181a183a159578c9bd8e9b90eb15b44b78e8a6d0e92530
+  version: 1.0.30001436
+  resolution: "caniuse-lite@npm:1.0.30001436"
+  checksum: 7928ac7d93741a81b3005ca4623b133e7d790828be70b26ee55e4860facc59bc344f4092e20034981070a4714f70814c8be4929be4b22728031784f267f69099
   languageName: node
   linkType: hard
 
@@ -13290,7 +13265,6 @@ __metadata:
   resolution: "ui@workspace:packages/ui"
   dependencies:
     "@apollo/client": ^3.7.1
-    "@babel/core": ^7.20.5
     "@graphql-codegen/cli": 2.15.0
     "@graphql-codegen/client-preset": ^1.2.1
     "@graphql-codegen/fragment-matcher": ^3.3.1
@@ -13633,7 +13607,6 @@ __metadata:
   resolution: "web-agoric@workspace:apps/web-agoric"
   dependencies:
     "@apollo/client": ^3.7.1
-    "@babel/core": ^7.20.5
     "@graphql-codegen/cli": ^2.15.0
     "@graphql-codegen/client-preset": ^1.2.1
     "@graphql-codegen/fragment-matcher": ^3.3.1
@@ -13741,7 +13714,6 @@ __metadata:
   resolution: "web-akash@workspace:apps/web-akash"
   dependencies:
     "@apollo/client": ^3.7.1
-    "@babel/core": ^7.20.5
     "@graphql-codegen/cli": ^2.15.0
     "@graphql-codegen/client-preset": ^1.2.1
     "@graphql-codegen/fragment-matcher": ^3.3.1
@@ -13849,7 +13821,6 @@ __metadata:
   resolution: "web-assetmantle@workspace:apps/web-assetmantle"
   dependencies:
     "@apollo/client": ^3.7.1
-    "@babel/core": ^7.20.5
     "@graphql-codegen/cli": ^2.15.0
     "@graphql-codegen/client-preset": ^1.2.1
     "@graphql-codegen/fragment-matcher": ^3.3.1
@@ -13957,7 +13928,6 @@ __metadata:
   resolution: "web-band@workspace:apps/web-band"
   dependencies:
     "@apollo/client": ^3.7.1
-    "@babel/core": ^7.20.5
     "@graphql-codegen/cli": ^2.15.0
     "@graphql-codegen/client-preset": ^1.2.1
     "@graphql-codegen/fragment-matcher": ^3.3.1
@@ -14065,7 +14035,6 @@ __metadata:
   resolution: "web-bitsong@workspace:apps/web-bitsong"
   dependencies:
     "@apollo/client": ^3.7.1
-    "@babel/core": ^7.20.5
     "@graphql-codegen/cli": ^2.15.0
     "@graphql-codegen/client-preset": ^1.2.1
     "@graphql-codegen/fragment-matcher": ^3.3.1
@@ -14173,7 +14142,6 @@ __metadata:
   resolution: "web-comdex@workspace:apps/web-comdex"
   dependencies:
     "@apollo/client": ^3.7.1
-    "@babel/core": ^7.20.5
     "@graphql-codegen/cli": ^2.15.0
     "@graphql-codegen/client-preset": ^1.2.1
     "@graphql-codegen/fragment-matcher": ^3.3.1
@@ -14281,7 +14249,6 @@ __metadata:
   resolution: "web-cosmos@workspace:apps/web-cosmos"
   dependencies:
     "@apollo/client": ^3.7.1
-    "@babel/core": ^7.20.5
     "@graphql-codegen/cli": ^2.15.0
     "@graphql-codegen/client-preset": ^1.2.1
     "@graphql-codegen/fragment-matcher": ^3.3.1
@@ -14389,7 +14356,6 @@ __metadata:
   resolution: "web-crescent@workspace:apps/web-crescent"
   dependencies:
     "@apollo/client": ^3.7.1
-    "@babel/core": ^7.20.5
     "@graphql-codegen/cli": ^2.15.0
     "@graphql-codegen/client-preset": ^1.2.1
     "@graphql-codegen/fragment-matcher": ^3.3.1
@@ -14497,7 +14463,6 @@ __metadata:
   resolution: "web-desmos@workspace:apps/web-desmos"
   dependencies:
     "@apollo/client": ^3.7.1
-    "@babel/core": ^7.20.5
     "@graphql-codegen/cli": ^2.15.0
     "@graphql-codegen/client-preset": ^1.2.1
     "@graphql-codegen/fragment-matcher": ^3.3.1
@@ -14605,7 +14570,6 @@ __metadata:
   resolution: "web-elrond@workspace:apps/web-elrond"
   dependencies:
     "@apollo/client": ^3.7.1
-    "@babel/core": ^7.20.5
     "@graphql-codegen/cli": ^2.15.0
     "@graphql-codegen/client-preset": ^1.2.1
     "@graphql-codegen/fragment-matcher": ^3.3.1
@@ -14713,7 +14677,6 @@ __metadata:
   resolution: "web-emoney@workspace:apps/web-emoney"
   dependencies:
     "@apollo/client": ^3.7.1
-    "@babel/core": ^7.20.5
     "@graphql-codegen/cli": ^2.15.0
     "@graphql-codegen/client-preset": ^1.2.1
     "@graphql-codegen/fragment-matcher": ^3.3.1
@@ -14821,7 +14784,6 @@ __metadata:
   resolution: "web-evmos@workspace:apps/web-evmos"
   dependencies:
     "@apollo/client": ^3.7.1
-    "@babel/core": ^7.20.5
     "@graphql-codegen/cli": ^2.15.0
     "@graphql-codegen/client-preset": ^1.2.1
     "@graphql-codegen/fragment-matcher": ^3.3.1
@@ -14929,7 +14891,6 @@ __metadata:
   resolution: "web-likecoin@workspace:apps/web-likecoin"
   dependencies:
     "@apollo/client": ^3.7.1
-    "@babel/core": ^7.20.5
     "@graphql-codegen/cli": ^2.15.0
     "@graphql-codegen/client-preset": ^1.2.1
     "@graphql-codegen/fragment-matcher": ^3.3.1
@@ -15037,7 +14998,6 @@ __metadata:
   resolution: "web-nomic@workspace:apps/web-nomic"
   dependencies:
     "@apollo/client": ^3.7.1
-    "@babel/core": ^7.20.5
     "@graphql-codegen/cli": ^2.15.0
     "@graphql-codegen/client-preset": ^1.2.1
     "@graphql-codegen/fragment-matcher": ^3.3.1
@@ -15145,7 +15105,6 @@ __metadata:
   resolution: "web-nym@workspace:apps/web-nym"
   dependencies:
     "@apollo/client": ^3.7.1
-    "@babel/core": ^7.20.5
     "@graphql-codegen/cli": ^2.15.0
     "@graphql-codegen/client-preset": ^1.2.1
     "@graphql-codegen/fragment-matcher": ^3.3.1
@@ -15253,7 +15212,6 @@ __metadata:
   resolution: "web-osmosis@workspace:apps/web-osmosis"
   dependencies:
     "@apollo/client": ^3.7.1
-    "@babel/core": ^7.20.5
     "@graphql-codegen/cli": ^2.15.0
     "@graphql-codegen/client-preset": ^1.2.1
     "@graphql-codegen/fragment-matcher": ^3.3.1
@@ -15361,7 +15319,6 @@ __metadata:
   resolution: "web-persistence@workspace:apps/web-persistence"
   dependencies:
     "@apollo/client": ^3.7.1
-    "@babel/core": ^7.20.5
     "@graphql-codegen/cli": ^2.15.0
     "@graphql-codegen/client-preset": ^1.2.1
     "@graphql-codegen/fragment-matcher": ^3.3.1
@@ -15469,7 +15426,6 @@ __metadata:
   resolution: "web-provenance@workspace:apps/web-provenance"
   dependencies:
     "@apollo/client": ^3.7.1
-    "@babel/core": ^7.20.5
     "@graphql-codegen/cli": ^2.15.0
     "@graphql-codegen/client-preset": ^1.2.1
     "@graphql-codegen/fragment-matcher": ^3.3.1
@@ -15577,7 +15533,6 @@ __metadata:
   resolution: "web-regen@workspace:apps/web-regen"
   dependencies:
     "@apollo/client": ^3.7.1
-    "@babel/core": ^7.20.5
     "@graphql-codegen/cli": ^2.15.0
     "@graphql-codegen/client-preset": ^1.2.1
     "@graphql-codegen/fragment-matcher": ^3.3.1
@@ -15685,7 +15640,6 @@ __metadata:
   resolution: "web-rizon@workspace:apps/web-rizon"
   dependencies:
     "@apollo/client": ^3.7.1
-    "@babel/core": ^7.20.5
     "@graphql-codegen/cli": ^2.15.0
     "@graphql-codegen/client-preset": ^1.2.1
     "@graphql-codegen/fragment-matcher": ^3.3.1
@@ -15793,7 +15747,6 @@ __metadata:
   resolution: "web-shentu@workspace:apps/web-shentu"
   dependencies:
     "@apollo/client": ^3.7.1
-    "@babel/core": ^7.20.5
     "@graphql-codegen/cli": ^2.15.0
     "@graphql-codegen/client-preset": ^1.2.1
     "@graphql-codegen/fragment-matcher": ^3.3.1
@@ -15901,7 +15854,6 @@ __metadata:
   resolution: "web-sifchain@workspace:apps/web-sifchain"
   dependencies:
     "@apollo/client": ^3.7.1
-    "@babel/core": ^7.20.5
     "@graphql-codegen/cli": ^2.15.0
     "@graphql-codegen/client-preset": ^1.2.1
     "@graphql-codegen/fragment-matcher": ^3.3.1
@@ -16023,7 +15975,6 @@ __metadata:
   resolution: "web-stride@workspace:apps/web-stride"
   dependencies:
     "@apollo/client": ^3.7.1
-    "@babel/core": ^7.20.5
     "@graphql-codegen/cli": ^2.15.0
     "@graphql-codegen/client-preset": ^1.2.1
     "@graphql-codegen/fragment-matcher": ^3.3.1
@@ -16131,7 +16082,6 @@ __metadata:
   resolution: "web@workspace:apps/web"
   dependencies:
     "@apollo/client": ^3.7.1
-    "@babel/core": ^7.20.5
     "@graphql-codegen/cli": ^2.15.0
     "@graphql-codegen/client-preset": ^1.2.1
     "@graphql-codegen/fragment-matcher": ^3.3.1
