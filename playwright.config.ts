@@ -19,42 +19,30 @@ const projects: Array<Project<PlaywrightTestConfig, PlaywrightWorkerOptions>> = 
       ...devices['Desktop Chrome'],
     },
   },
-
-  process.env.CI
-    ? {}
-    : {
-        name: 'firefox',
-        use: {
-          ...devices['Desktop Firefox'],
-        },
-      },
-
-  process.env.CI
-    ? {}
-    : {
-        name: 'webkit',
-        use: {
-          ...devices['Desktop Safari'],
-        },
-      },
-
-  /* Test against mobile viewports. */
-  process.env.CI
-    ? {}
-    : {
-        name: 'Mobile Chrome',
-        use: {
-          ...devices['Pixel 5'],
-        },
-      },
-  process.env.CI
-    ? {}
-    : {
-        name: 'Mobile Safari',
-        use: {
-          ...devices['iPhone 12'],
-        },
-      },
+  {
+    name: 'firefox',
+    use: {
+      ...devices['Desktop Firefox'],
+    },
+  },
+  {
+    name: 'webkit',
+    use: {
+      ...devices['Desktop Safari'],
+    },
+  },
+  {
+    name: 'Mobile Chrome',
+    use: {
+      ...devices['Pixel 5'],
+    },
+  },
+  {
+    name: 'Mobile Safari',
+    use: {
+      ...devices['iPhone 12'],
+    },
+  },
 
   /* Test against branded browsers. */
   // {
@@ -89,8 +77,8 @@ const config: PlaywrightTestConfig = {
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
-  /* Retry on CI only */
-  retries: process.env.CI ? 2 : 0,
+  /* Retry once */
+  retries: 1,
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */

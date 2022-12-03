@@ -127,6 +127,17 @@ jobs:
     container:
       image: mcr.microsoft.com/playwright:v1.28.1-focal
     timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        project:
+          - chromium
+          # - firefox
+          # - webkit
+          # - Mobile Chrome
+          - Mobile Safari
+        shardIndex: [1, 2]
+        shardTotal: [2]
     steps:
       - uses: actions/checkout@v3
       - name: Update yarn
@@ -146,7 +157,7 @@ jobs:
       - name: Build Next.js app
         run: yarn build
       - name: Run Playwright tests
-        run: yarn playwright test
+        run: yarn playwright test --project=${{ matrix.project }} --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
       - uses: actions/upload-artifact@v3
         if: ${{ always() }}
         with:

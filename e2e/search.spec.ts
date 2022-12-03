@@ -16,6 +16,7 @@ test('search box', async ({ page }) => {
   await page.getByPlaceholder(placeholder).first().fill(validatorAddress);
   await page.getByPlaceholder(placeholder).first().press('Enter');
   await page.waitForLoadState('domcontentloaded');
+  await expect(page.getByRole('progressbar')).toHaveCount(0);
   await expect(page).toHaveURL(new RegExp(`/validators/${validatorAddress}`));
 
   // Test address search
@@ -23,6 +24,7 @@ test('search box', async ({ page }) => {
   await page.getByPlaceholder(placeholder).first().fill(address);
   await page.getByPlaceholder(placeholder).first().press('Enter');
   await page.waitForLoadState('domcontentloaded');
+  await expect(page.getByRole('progressbar')).toHaveCount(0);
   await expect(page).toHaveURL(new RegExp(`/accounts/${address}`));
 
   // Test transaction hash search
@@ -30,5 +32,6 @@ test('search box', async ({ page }) => {
   await page.getByPlaceholder(placeholder).first().fill(transactionHash);
   await page.getByPlaceholder(placeholder).press('Enter');
   await page.waitForLoadState('domcontentloaded');
+  await expect(page.getByRole('progressbar')).toHaveCount(0);
   await expect(page).toHaveURL(new RegExp(`/transactions/${transactionHash}`));
 });
