@@ -159,11 +159,8 @@ jobs:
         run: yarn build
       - name: Run Playwright tests
         run: yarn playwright test --project=${{ matrix.project }} --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
-      - name: Check if any report generated.
-        id: playwrightvars
-        run: "[[ -d ./playwright-report ]] && [ $(ls -A ./playwright-report ) ] && echo hasReport=1 > $GITHUB_OUTPUT"
       - uses: actions/upload-artifact@v3
-        if: ${{ steps.playwrightvars.outputs.hasReport }}
+        if: ${{ always() }}
         with:
           name: playwright-report
           path: playwright-report/
