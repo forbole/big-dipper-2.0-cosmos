@@ -136,7 +136,7 @@ jobs:
           # - firefox
           # - webkit
           # - mobile-chrome
-          # - mobile-safari
+          - mobile-safari
         shardIndex: [1, 4]
         shardTotal: [4]
     steps:
