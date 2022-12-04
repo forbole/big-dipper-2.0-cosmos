@@ -10,6 +10,7 @@ env:
   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
   NEXT_TELEMETRY_DISABLED: 1
   ENV NODE_ENV: production
+  SENTRYCLI_SKIP_DOWNLOAD: 1
 jobs:
   install:
     runs-on: ubuntu-latest
