@@ -30,7 +30,7 @@ jobs:
         id: vars
         run: "echo 'matrix='$(
           yarn turbo run build --dry=json
-          --filter='web*...[${{ github.event.after }}]' |
+          --filter='web*...[${{ github.sha }}]' |
           jq -crM '{ project: .packages }'
           ) | tee -a $GITHUB_OUTPUT $GITHUB_STEP_SUMMARY"
   check-types:
