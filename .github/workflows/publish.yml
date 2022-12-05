@@ -3,10 +3,10 @@ on:
   workflow_dispatch:
     inputs:
        project_name:
-        description: "Project to build"
+        description: "Project to publish"
         required: true
        chain_type:
-        description: "Chain Type to build"
+        description: "Chain Type to publish"
         required: false
         default: mainnet
 jobs:

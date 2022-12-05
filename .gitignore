@@ -66,3 +66,6 @@ playwright/.cache/
 .turbo
 .vercel
 server.js
+
+# vercel config, generated via vercel.js
+vercel.json
