@@ -44,4 +44,4 @@ jobs:
           curl -i -X POST -H "Content-Type: application/json"
           -d '{"parameters":{"tag": "monorepo-${{ github.event.inputs.project_name }}-${{ github.event.inputs.chain_type }}-${{ steps.vars.outputs.sha_short }}"}}'
           -k $WEBHOOK_URL/${{ github.event.inputs.project_name }}/${{ github.event.inputs.chain_type }}
-          -u "deploy:$AKASH_WEBHOOK_SECRET"
+          -u "deploy:$AKASH_WEBHOOK_SECRET" >> $GITHUB_STEP_SUMMARY

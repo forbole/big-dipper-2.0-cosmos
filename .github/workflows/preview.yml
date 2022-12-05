@@ -26,4 +26,4 @@ jobs:
       - name: Generate vercel.json
         run: node vercel.js
       - name: Deploy preview to Vercel
-        run: vercel -t ${{ secrets.VERCEL_TOKEN }}
+        run: vercel -t ${{ secrets.VERCEL_TOKEN }} >> $GITHUB_STEP_SUMMARY
