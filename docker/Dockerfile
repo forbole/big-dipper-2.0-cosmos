@@ -92,7 +92,7 @@ COPY --chown=nextjs:nodejs --from=builder /app/apps/${PROJECT_NAME}/.next/standa
 COPY --chown=nextjs:nodejs --from=builder /app/apps/${PROJECT_NAME}/.next/static/ ./static/
 COPY --chown=nextjs:nodejs --from=builder /app/apps/${PROJECT_NAME}/public/ ./public/
 COPY --chown=nextjs:nodejs --from=builder /app/node_modules/next/ ./node_modules/next/
-COPY --chown=nextjs:nodejs --from=builder /app/node_modules/shape/ ./node_modules/shape/
+COPY --chown=nextjs:nodejs --from=builder /app/node_modules/sharp/ ./node_modules/sharp/
 
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
@@ -118,7 +118,7 @@ COPY --chown=nextjs:nodejs --from=builder /app/apps/${PROJECT_NAME}/.next/standa
 COPY --chown=nextjs:nodejs --from=builder /app/apps/${PROJECT_NAME}/.next/static/ ./static/
 COPY --chown=nextjs:nodejs --from=builder /app/apps/${PROJECT_NAME}/public/ ./public/
 COPY --chown=nextjs:nodejs --from=builder /app/node_modules/next/ ./node_modules/next/
-COPY --chown=nextjs:nodejs --from=builder /app/node_modules/shape/ ./node_modules/shape/
+COPY --chown=nextjs:nodejs --from=builder /app/node_modules/sharp/ ./node_modules/sharp/
 
 # Setting up the environment variables for the docker container.
 ENV NODE_ENV=production
