@@ -28,7 +28,11 @@ jobs:
         run: yarn install --immutable
       - name: Set needs.install.outputs.matrix
         id: vars
-        run: "echo 'matrix='$( yarn turbo run build --dry=json --filter='web*...[${{ github.ref_name }}]' | jq -crM '{ project: .packages }' ) >> $GITHUB_OUTPUT"
+        run: "echo 'matrix='$(
+          yarn turbo run build --dry=json
+          --filter='web*...[${{ github.ref_name }}]' |
+          jq -crM '{ project: .packages }'
+          ) | tee -a $GITHUB_OUTPUT $GITHUB_STEP_SUMMARY"
   check-types:
     if: ${{ success() }}
     needs: install
