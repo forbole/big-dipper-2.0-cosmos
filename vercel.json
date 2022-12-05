@@ -1,8 +1,8 @@
 {
-  "installCommand": "yarn install",
-  "buildCommand": "next build",
-  "devCommand": "next dev",
-  "outputDirectory": ".next",
+  "installCommand": "yarn workspaces focus --production ${PROJECT_NAME} && yarn add typescript -D",
+  "buildCommand": "yarn turbo run build --filter=${PROJECT_NAME}... && mv -f ../../node_modules apps/${PROJECT_NAME}/ && mv -f apps/${PROJECT_NAME} apps/out",
+  "devCommand": "yarn turbo run dev --filter=${PROJECT_NAME}...",
+  "outputDirectory": "apps/out/.next",
   "framework": "nextjs",
   "ignoreCommand": "echo 'always build' && exit 1"
 }

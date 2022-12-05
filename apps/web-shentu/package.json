@@ -37,6 +37,7 @@
     "next": "^12.3.4",
     "next-seo": "^4.29.0",
     "next-translate": "^1.6.0",
+    "next-transpile-modules": "^10.0.0",
     "numeral": "2.0.6",
     "qrcode.react": "^3.1.0",
     "ramda": "^0.28.0",
@@ -52,6 +53,7 @@
     "shared-utils": "*",
     "sharp": "^0.31.2",
     "subscriptions-transport-ws": "^0.11.0",
+    "ui": "*",
     "ws": "^8.11.0"
   },
   "devDependencies": {
@@ -108,13 +110,11 @@
     "jest-presets": "*",
     "jest-transform-stub": "^2.0.0",
     "jest-watch-typeahead": "^2.2.1",
-    "next-transpile-modules": "^10.0.0",
     "prop-types": "^15.8.1",
     "react-test-renderer": "^17.0.2",
     "ts-jest": "^29.0.3",
     "ts-node": "^10.9.1",
     "tsconfig": "*",
-    "typescript": "^4.9.3",
-    "ui": "*"
+    "typescript": "^4.9.3"
   }
 }

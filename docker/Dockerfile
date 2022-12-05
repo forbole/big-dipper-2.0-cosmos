@@ -23,7 +23,8 @@ WORKDIR /app
 
 ARG BASE_IMAGE
 ENV BASE_IMAGE=${BASE_IMAGE}
-RUN corepack enable && yarn --version
+RUN corepack enable && yarn --version && \
+  npm i -g turbo
 
 ### First install the dependencies (as they change less often)
 COPY .yarnrc.yml ./
@@ -65,13 +66,13 @@ ARG NEXT_PUBLIC_MATOMO_SITE_ID
 ENV NEXT_PUBLIC_MATOMO_SITE_ID=${NEXT_PUBLIC_MATOMO_SITE_ID}
 ARG NEXT_PUBLIC_RPC_WEBSOCKET
 ENV NEXT_PUBLIC_RPC_WEBSOCKET=${NEXT_PUBLIC_RPC_WEBSOCKET}
-RUN SENTRYCLI_SKIP_DOWNLOAD=$([ -z "${NEXT_PUBLIC_SENTRY_DSN}" ] && echo 1) yarn install --immutable
+RUN SENTRYCLI_SKIP_DOWNLOAD=$([ -z "${NEXT_PUBLIC_SENTRY_DSN}" ] && echo 1) \
+  yarn workspaces focus --production web && \
+  yarn add typescript -D
 
 ## Build the project
 COPY --from=pruner /app/out/full/ ./
-RUN yarn turbo run build --filter=${PROJECT_NAME}... && \
-  mv ./apps/${PROJECT_NAME}/.next/apps/${PROJECT_NAME}/.next/* ./apps/${PROJECT_NAME}/.next/standalone/ && \
-  mv ./apps/${PROJECT_NAME}/.next/apps/${PROJECT_NAME}/* ./apps/${PROJECT_NAME}/.next/standalone/
+RUN turbo run build --filter=${PROJECT_NAME}...
 
 ################################################################################
 
@@ -88,11 +89,12 @@ USER nextjs
  
 # Copying the files from the builder stage to the web stage.
 ARG PROJECT_NAME
-COPY --chown=nextjs:nodejs --from=builder /app/apps/${PROJECT_NAME}/.next/standalone/ ./
+ENV PROJECT_NAME=${PROJECT_NAME}
+COPY --chown=nextjs:nodejs --from=builder /app/apps/${PROJECT_NAME}/.next/apps/${PROJECT_NAME}/.next/ ./.next/
 COPY --chown=nextjs:nodejs --from=builder /app/apps/${PROJECT_NAME}/.next/static/ ./static/
 COPY --chown=nextjs:nodejs --from=builder /app/apps/${PROJECT_NAME}/public/ ./public/
-COPY --chown=nextjs:nodejs --from=builder /app/node_modules/next/ ./node_modules/next/
-COPY --chown=nextjs:nodejs --from=builder /app/node_modules/sharp/ ./node_modules/sharp/
+COPY --chown=nextjs:nodejs --from=builder /app/node_modules/ ./node_modules/
+COPY --chown=nextjs:nodejs --from=builder /app/apps/${PROJECT_NAME}/.next/apps/${PROJECT_NAME}/server.js ./
 
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
@@ -101,8 +103,7 @@ ARG PORT=3000
 ENV PORT=${PORT}
 EXPOSE ${PORT:-3000}
 
-CMD /bin/bash -s -c 'while :; do sleep 1; done'
-# CMD node /app/server.js
+CMD node /app/server.js
 
 ################################################################################
 
@@ -114,11 +115,8 @@ WORKDIR /app
 COPY --chown=nextjs:nodejs playwright.config.ts ./
 COPY --chown=nextjs:nodejs e2e/ ./e2e/
 ARG PROJECT_NAME
-COPY --chown=nextjs:nodejs --from=builder /app/apps/${PROJECT_NAME}/.next/standalone/ ./
-COPY --chown=nextjs:nodejs --from=builder /app/apps/${PROJECT_NAME}/.next/static/ ./static/
-COPY --chown=nextjs:nodejs --from=builder /app/apps/${PROJECT_NAME}/public/ ./public/
-COPY --chown=nextjs:nodejs --from=builder /app/node_modules/next/ ./node_modules/next/
-COPY --chown=nextjs:nodejs --from=builder /app/node_modules/sharp/ ./node_modules/sharp/
+ENV PROJECT_NAME=${PROJECT_NAME}
+COPY --chown=nextjs:nodejs --from=builder /app/ ./
 
 # Setting up the environment variables for the docker container.
 ENV NODE_ENV=production

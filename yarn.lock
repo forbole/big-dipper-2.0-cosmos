@@ -4971,8 +4971,9 @@ __metadata:
     husky: ^8.0.2
     lint-staged: ^13.0.4
     prettier: 2.8.0
-    turbo: latest
+    turbo: ^1.6.3
     typescript: ^4.9.3
+    typescritp: ^1.0.0
   languageName: unknown
   linkType: soft
 
@@ -13134,7 +13135,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"turbo@npm:latest":
+"turbo@npm:^1.6.3":
   version: 1.6.3
   resolution: "turbo@npm:1.6.3"
   dependencies:
@@ -13230,7 +13231,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^4.9.3":
+"typescript@npm:4.9.3, typescript@npm:^4.9.3":
   version: 4.9.3
   resolution: "typescript@npm:4.9.3"
   bin:
@@ -13240,13 +13241,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@^4.9.3#~builtin<compat/typescript>":
+"typescript@patch:typescript@4.9.3#~builtin<compat/typescript>, typescript@patch:typescript@^4.9.3#~builtin<compat/typescript>":
   version: 4.9.3
   resolution: "typescript@patch:typescript@npm%3A4.9.3#~builtin<compat/typescript>::version=4.9.3&hash=701156"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: ef65c22622d864497d0a0c5db693523329b3284c15fe632e93ad9aa059e8dc38ef3bd767d6f26b1e5ecf9446f49bd0f6c4e5714a2eeaf352805dc002479843d1
+  languageName: node
+  linkType: hard
+
+"typescritp@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "typescritp@npm:1.0.0"
+  checksum: e0b607e8329ba85ac81c87219b63edb6443378805080f0709a075b6d3dc03c69d3a1a4fb959020d5892e340c3462eaed7dd06daab80f632c183356567f59794a
   languageName: node
   linkType: hard
 
@@ -16175,7 +16183,7 @@ __metadata:
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
-    typescript: ^4.9.3
+    typescript: 4.9.3
     ui: "*"
     ws: ^8.11.0
   languageName: unknown

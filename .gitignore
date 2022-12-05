@@ -65,3 +65,4 @@ playwright-report/
 playwright/.cache/
 .turbo
 .vercel
+server.js
