@@ -10,7 +10,7 @@ const withTM = require('next-transpile-modules');
  */
 function getBaseConfig(basePath) {
   const config = {
-    output: 'standalone',
+    output: process.env.BUILD_STANDALONE ? 'standalone' : undefined,
     swcMinify: true,
     reactStrictMode: true,
     poweredByHeader: false,
@@ -26,10 +26,12 @@ function getBaseConfig(basePath) {
     typescript: {
       ignoreBuildErrors: true,
     },
-    experimental: {
-      // this includes files from the monorepo base two directories up
-      outputFileTracingRoot: resolve(__dirname, '../../'),
-    },
+    experimental: process.env.BUILD_STANDALONE
+      ? {
+          // this includes files from the monorepo base two directories up
+          outputFileTracingRoot: resolve(__dirname, '../../'),
+        }
+      : undefined,
   };
   return config;
 }

@@ -8,7 +8,7 @@ WORKDIR /app
 
 ARG BASE_IMAGE
 ENV BASE_IMAGE=${BASE_IMAGE}
-RUN yarn global add turbo
+RUN npm i -g add turbo
 
 COPY . .
 
@@ -52,6 +52,7 @@ ARG TURBO_TEAM
 ENV TURBO_TEAM=${TURBO_TEAM}
 ARG TURBO_TOKEN
 ENV TURBO_TOKEN=${TURBO_TOKEN}
+ENV BUILD_STANDALONE=1
 ARG NEXT_PUBLIC_CHAIN_TYPE
 ENV NEXT_PUBLIC_CHAIN_TYPE=${NEXT_PUBLIC_CHAIN_TYPE}
 ARG NEXT_PUBLIC_GRAPHQL_URL
@@ -64,12 +65,13 @@ ARG NEXT_PUBLIC_MATOMO_SITE_ID
 ENV NEXT_PUBLIC_MATOMO_SITE_ID=${NEXT_PUBLIC_MATOMO_SITE_ID}
 ARG NEXT_PUBLIC_RPC_WEBSOCKET
 ENV NEXT_PUBLIC_RPC_WEBSOCKET=${NEXT_PUBLIC_RPC_WEBSOCKET}
-RUN yarn install --immutable
+RUN SENTRYCLI_SKIP_DOWNLOAD=$([ -z "${NEXT_PUBLIC_SENTRY_DSN}" ] && echo 1) yarn install --immutable
 
 ## Build the project
-COPY turbo.json ./
 COPY --from=pruner /app/out/full/ ./
-RUN yarn turbo run build --filter=${PROJECT_NAME}...
+RUN yarn turbo run build --filter=${PROJECT_NAME}... && \
+  mv ./apps/${PROJECT_NAME}/.next/apps/${PROJECT_NAME}/.next/* ./apps/${PROJECT_NAME}/.next/standalone/ && \
+  mv ./apps/${PROJECT_NAME}/.next/apps/${PROJECT_NAME}/* ./apps/${PROJECT_NAME}/.next/standalone/
 
 ################################################################################
 
@@ -86,15 +88,13 @@ USER nextjs
  
 # Copying the files from the builder stage to the web stage.
 ARG PROJECT_NAME
-COPY --from=builder --chown=nextjs:nodejs /app/apps/${PROJECT_NAME}/.next/apps/${PROJECT_NAME}/ ./
-COPY --from=builder --chown=nextjs:nodejs /app/node_modules/ ./node_modules/
-COPY --from=builder --chown=nextjs:nodejs /app/apps/${PROJECT_NAME}/.next/static/ ./.next/static/
-COPY --from=builder --chown=nextjs:nodejs /app/apps/${PROJECT_NAME}/public/ ./public/
+COPY --chown=nextjs:nodejs --from=builder /app/apps/${PROJECT_NAME}/.next/standalone ./
+COPY --chown=nextjs:nodejs --from=builder /app/apps/${PROJECT_NAME}/.next/static ./
+COPY --chown=nextjs:nodejs --from=builder /app/apps/${PROJECT_NAME}/public ./
+COPY --chown=nextjs:nodejs --from=builder /app/node_modules/next ./node_modules/
 
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
-
-WORKDIR /app/apps/${PROJECT_NAME}
 
 ARG PORT=3000
 ENV PORT=${PORT}
@@ -109,14 +109,13 @@ FROM ${BASE_IMAGE} AS e2e
 WORKDIR /app
 
 # Copying the files from the builder stage to the e2e stage.
+COPY --chown=nextjs:nodejs playwright.config.ts ./
+COPY --chown=nextjs:nodejs e2e/ ./e2e/
 ARG PROJECT_NAME
-COPY --from=builder --chown=nextjs:nodejs /app/apps/${PROJECT_NAME}/.next/apps/${PROJECT_NAME}/ ./
-COPY --from=builder --chown=nextjs:nodejs /app/node_modules/next/ ./node_modules/next/
-COPY --from=builder --chown=nextjs:nodejs /app/apps/${PROJECT_NAME}/public/ ./public/
-
-COPY --from=builder --chown=nextjs:nodejs /app/ ./
-COPY playwright.config.ts ./
-COPY e2e/ ./e2e/
+COPY --chown=nextjs:nodejs --from=builder /app/apps/${PROJECT_NAME}/.next/standalone ./
+COPY --chown=nextjs:nodejs --from=builder /app/apps/${PROJECT_NAME}/.next/static ./
+COPY --chown=nextjs:nodejs --from=builder /app/apps/${PROJECT_NAME}/public ./
+COPY --chown=nextjs:nodejs --from=builder /app/node_modules/next ./node_modules/
 
 # Setting up the environment variables for the docker container.
 ENV NODE_ENV=production

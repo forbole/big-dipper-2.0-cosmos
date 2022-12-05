@@ -9,7 +9,7 @@ env:
   TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
   NEXT_TELEMETRY_DISABLED: 1
-  ENV NODE_ENV: production
+  NODE_ENV: production
   SENTRYCLI_SKIP_DOWNLOAD: 1
 jobs:
   install:
@@ -26,7 +26,7 @@ jobs:
           node-version: 18
           cache: 'yarn'
       - name: Install modules
-        run: yarn --immutable
+        run: yarn install --immutable
       - name: Set needs.install.outputs.matrix
         id: vars
         run: "echo 'matrix='$( ls apps | grep web | jq -scrRM '{\"project\": split(\"\\n\")[:-1]}' ) >> $GITHUB_OUTPUT"
@@ -44,7 +44,7 @@ jobs:
           node-version: 18
           cache: 'yarn'
       - name: Install modules
-        run: yarn --immutable
+        run: yarn install --immutable
       - name: Run check-types
         run: yarn check-types:ci
   lint:
@@ -68,7 +68,7 @@ jobs:
           key: ${{ runner.os }}-lint-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('apps/**/*.[jt]s', 'apps/**/*.[jt]sx', 'packages/**/*.[jt]s', 'packages/**/*.[jt]sx') }}
           restore-keys: ${{ runner.os }}-lint-${{ hashFiles('**/yarn.lock') }}-
       - name: Install modules
-        run: yarn --immutable
+        run: yarn install --immutable
       - name: Run lint check
         run: yarn lint:ci
   test:
@@ -93,7 +93,7 @@ jobs:
           key: ${{ runner.os }}-jest-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('apps/**/*.test.[jt]s', 'apps/**/*.test.[jt]sx', 'packages/**/*.test.[jt]s', 'packages/**/*.test.[jt]sx') }}
           restore-keys: ${{ runner.os }}-jest-${{ hashFiles('**/yarn.lock') }}-
       - name: Install modules
-        run: yarn --immutable
+        run: yarn install --immutable
       - name: Run tests
         run: yarn test:ci -- --coverage
   build:
@@ -118,7 +118,7 @@ jobs:
           key: ${{ runner.os }}-next-${{ hashFiles('**/yarn.lock') }}-${{ matrix.project }}-${{ hashFiles(format('apps/{0}/**/*.[jt]s', matrix.project), format('apps/{0}/**/*.[jt]sx', matrix.project), 'packages/**/*.[jt]s', 'packages/**/*.[jt]sx') }}
           restore-keys: ${{ runner.os }}-next-${{ hashFiles('**/yarn.lock') }}-${{ matrix.project }}-
       - name: Install modules
-        run: yarn --immutable
+        run: yarn install --immutable
       - name: Run build check
         run: yarn build:ci --filter=${{ matrix.project }}
   e2e:
@@ -154,7 +154,7 @@ jobs:
           key: ${{ runner.os }}-next-${{ hashFiles('**/yarn.lock') }}-web-${{ hashFiles(format('apps/{0}/**/*.[jt]s', 'web'), format('apps/{0}/**/*.[jt]sx', 'web'), 'packages/**/*.[jt]s', 'packages/**/*.[jt]sx') }}
           restore-keys: ${{ runner.os }}-next-${{ hashFiles('**/yarn.lock') }}-web-
       - name: Install modules
-        run: yarn --immutable
+        run: yarn install --immutable
       - name: Build Next.js app
         run: yarn build
       - name: Run Playwright tests

@@ -1,0 +1,8 @@
+{
+  "installCommand": "yarn install",
+  "buildCommand": "next build",
+  "devCommand": "next dev",
+  "outputDirectory": ".next",
+  "framework": "nextjs",
+  "ignoreCommand": "echo 'always build' && exit 1"
+}

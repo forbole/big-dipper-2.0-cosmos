@@ -6,6 +6,7 @@
       "outputs": ["dist/**", ".next/**", "public/dist/**"],
       "env": [
         "BASE_PATH",
+        "BUILD_STANDALONE",
         "NEXT_PUBLIC_GRAPHQL_URL",
         "NEXT_PUBLIC_GRAPHQL_WS",
         "NEXT_PUBLIC_MATOMO_SITE_ID",
@@ -55,7 +56,13 @@
     },
     "graphql:codegen": {}
   },
-  "globalEnv": ["npm_package_version", "PROJECT_NAME", "NEXT_PUBLIC_CHAIN_TYPE"],
+  "globalEnv": [
+    "BUILD_STANDALONE",
+    "npm_package_version",
+    "NEXT_PUBLIC_CHAIN_TYPE",
+    "NEXT_PUBLIC_SENTRY_DSN",
+    "PROJECT_NAME"
+  ],
   "globalDependencies": [
     ".env",
     ".eslintrc.js",
