@@ -17,6 +17,8 @@ jobs:
       matrix: ${{ steps.vars.outputs.matrix }}
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
       - name: Update yarn
         run: corepack enable && yarn --version
       - name: Setup Node.js environment
