@@ -82,8 +82,8 @@ jobs:
           # - webkit
           # - mobile-chrome
           - mobile-safari
-        shardIndex: [1, 4]
-        shardTotal: [4]
+        shardIndex: [1, 2, 3, 4, 5, 7]
+        shardTotal: [7]
     steps:
       - uses: actions/checkout@v3
         with:
@@ -112,7 +112,7 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 30
-  matrix:
+  web-:
     if: ${{ success() }}
     needs: install
     strategy:
