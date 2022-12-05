@@ -1,5 +1,5 @@
 {
-  "installCommand": "yarn install --immuable",
+  "installCommand": "yarn install",
   "buildCommand": "yarn next build && cp -rf ../../node_modules ./",
   "devCommand": "yarn next dev",
   "outputDirectory": ".next",
