@@ -1,8 +1,8 @@
 {
-  "installCommand": "yarn workspaces focus --production ${PROJECT_NAME} && yarn add typescript -D",
-  "buildCommand": "yarn turbo run build --filter=${PROJECT_NAME}... && cp -rf node_modules apps/${PROJECT_NAME}/ && cp -rf apps/${PROJECT_NAME} apps/vercel",
-  "devCommand": "yarn turbo run dev --filter=${PROJECT_NAME}...",
-  "outputDirectory": "apps/vercel/.next",
+  "installCommand": "yarn install --immuable",
+  "buildCommand": "yarn next build && cp -rf ../../node_modules ./",
+  "devCommand": "yarn next dev",
+  "outputDirectory": ".next",
   "framework": "nextjs",
   "ignoreCommand": "echo 'always build' && exit 1"
 }
