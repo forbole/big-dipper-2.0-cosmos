@@ -61,9 +61,7 @@ jobs:
       - name: Run lint check
         run: yarn lint:ci --filter=web
       - name: Run tests
-        run: yarn test:ci --filter=web -- --coverage
-      - name: Install modules
-        run: yarn install --immutable
+        run: yarn test:ci --filter=web -- --coverage | tee -a $GITHUB_STEP_SUMMARY
       - name: Run build check
         run: yarn build:ci --filter=web
   e2e:
@@ -135,15 +133,13 @@ jobs:
           path: ${{ github.workspace }}/apps/${{ matrix.project }}/.next/cache
           key: ${{ runner.os }}-next-${{ hashFiles('**/yarn.lock') }}-${{ matrix.project }}-${{ hashFiles(format('apps/{0}/**/*.[jt]s', matrix.project), format('apps/{0}/**/*.[jt]sx', matrix.project), 'packages/**/*.[jt]s', 'packages/**/*.[jt]sx') }}
           restore-keys: ${{ runner.os }}-next-${{ hashFiles('**/yarn.lock') }}-${{ matrix.project }}-
-      - name: Install modules
+      - name:  | tee -a $GITHUB_STEP_SUMMARY modules
         run: yarn install --immutable
       - name: Run check-types
         run: yarn check-types:ci --filter=${{ matrix.project }}
       - name: Run lint check
         run: yarn lint:ci --filter=${{ matrix.project }}
       - name: Run tests
-        run: yarn test:ci --filter=${{ matrix.project }} -- --coverage
-      - name: Install modules
-        run: yarn install --immutable
+        run: yarn test:ci --filter=${{ matrix.project }} -- --coverage | tee -a $GITHUB_STEP_SUMMARY
       - name: Run build check
         run: yarn build:ci --filter=${{ matrix.project }}
