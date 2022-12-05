@@ -1,5 +1,5 @@
 {
-  "installCommand": "yarn workspace web install",
+  "installCommand": "yarn install",
   "buildCommand": "yarn workspace web next build && mv -f node_modules apps/web/",
   "devCommand": "yarn workspaces web next dev",
   "outputDirectory": "apps/web/.next",
