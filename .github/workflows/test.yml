@@ -133,7 +133,7 @@ jobs:
           path: ${{ github.workspace }}/apps/${{ matrix.project }}/.next/cache
           key: ${{ runner.os }}-next-${{ hashFiles('**/yarn.lock') }}-${{ matrix.project }}-${{ hashFiles(format('apps/{0}/**/*.[jt]s', matrix.project), format('apps/{0}/**/*.[jt]sx', matrix.project), 'packages/**/*.[jt]s', 'packages/**/*.[jt]sx') }}
           restore-keys: ${{ runner.os }}-next-${{ hashFiles('**/yarn.lock') }}-${{ matrix.project }}-
-      - name:  | tee -a $GITHUB_STEP_SUMMARY modules
+      - name: Install modules
         run: yarn install --immutable
       - name: Run check-types
         run: yarn check-types:ci --filter=${{ matrix.project }}
