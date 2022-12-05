@@ -1,8 +1,8 @@
 {
-  "installCommand": "yarn install",
-  "buildCommand": "yarn next build && cp -rf ../../node_modules ./",
-  "devCommand": "yarn next dev",
-  "outputDirectory": ".next",
+  "installCommand": "yarn workspace web install",
+  "buildCommand": "yarn workspace web next build && mv -f node_modules apps/web/",
+  "devCommand": "yarn workspaces web next dev",
+  "outputDirectory": "apps/web/.next",
   "framework": "nextjs",
   "ignoreCommand": "echo 'always build' && exit 1"
 }
