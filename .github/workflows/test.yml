@@ -32,6 +32,9 @@ jobs:
   check-types:
     if: ${{ success() }}
     needs: install
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJson(needs.install.outputs.matrix )}}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -45,10 +48,13 @@ jobs:
       - name: Install modules
         run: yarn install --immutable
       - name: Run check-types
-        run: yarn check-types:ci
+        run: yarn check-types:ci --filter=${{ matrix.project }}
   lint:
     if: ${{ success() }}
     needs: install
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJson(needs.install.outputs.matrix )}}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -69,10 +75,13 @@ jobs:
       - name: Install modules
         run: yarn install --immutable
       - name: Run lint check
-        run: yarn lint:ci
+        run: yarn lint:ci --filter=${{ matrix.project }}
   test:
     if: ${{ success() }}
     needs: install
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJson(needs.install.outputs.matrix )}}
     runs-on: ubuntu-latest
     env:
       NODE_ENV: test
@@ -96,7 +105,7 @@ jobs:
       - name: Install modules
         run: yarn install --immutable
       - name: Run tests
-        run: yarn test:ci -- --coverage
+        run: yarn test:ci --filter=${{ matrix.project }} -- --coverage
   build:
     if: ${{ success() }}
     needs: install
