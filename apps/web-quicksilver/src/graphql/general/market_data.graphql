@@ -2,8 +2,8 @@ query MarketData ($denom: String) {
   communityPool: community_pool(order_by: {height: desc}, limit: 1) {
     coins
   }
-  # wait for mainnet relese
-  # supposed to be calculated by mint_params (distribution_proportions.staking) and epoch_provisions
+  # ==== Wait for mainnet relese ==== 
+  # ==== supposed to be calculated by mint_params (distribution_proportions.staking) and epoch_provisions ==== 
   # inflation: inflation(order_by: {height: desc}, limit: 1) {
   #   value
   # }
