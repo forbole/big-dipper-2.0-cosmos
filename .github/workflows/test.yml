@@ -30,10 +30,9 @@ jobs:
         run: yarn install --immutable
       - name: Set needs.install.outputs.matrix
         id: vars
-        run: "echo 'matrix='$(
-          yarn turbo run build --dry=json
-          --filter='web*...[HEAD^1]' |
-          jq -crM '{ project: .packages }'
+        run: "echo 'matrix='$( yarn turbo run build
+          --dry='json' --filter='web*' --since='${{ github.base_ref }}' |
+          jq -crM '{ project: [ .packages[] | select( startswith(\"web\") ) ] }'
           ) | tee -a $GITHUB_OUTPUT $GITHUB_STEP_SUMMARY"
   check-types:
     if: ${{ success() }}
@@ -44,6 +43,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
       - name: Update yarn
         run: corepack enable && yarn --version
       - name: Setup Node.js environment
@@ -64,6 +65,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
       - name: Update yarn
         run: corepack enable && yarn --version
       - name: Setup Node.js environment
@@ -93,6 +96,8 @@ jobs:
       NODE_ENV: test
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
       - name: Update yarn
         run: corepack enable && yarn --version
       - name: Set steps.jestvars.outputs.cacheDirectory
@@ -123,6 +128,8 @@ jobs:
       NODE_ENV: production
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
       - name: Update yarn
         run: corepack enable && yarn --version
       - name: Setup Node.js environment
@@ -159,6 +166,8 @@ jobs:
         shardTotal: [4]
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
       - name: Update yarn
         run: corepack enable && yarn --version
       - name: Setup Node.js environment
