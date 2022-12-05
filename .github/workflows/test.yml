@@ -9,7 +9,6 @@ env:
   TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
   NEXT_TELEMETRY_DISABLED: 1
-  NODE_ENV: production
   SENTRYCLI_SKIP_DOWNLOAD: 1
 jobs:
   install:
@@ -75,6 +74,8 @@ jobs:
     if: ${{ success() }}
     needs: install
     runs-on: ubuntu-latest
+    env:
+      NODE_ENV: test
     steps:
       - uses: actions/checkout@v3
       - name: Update yarn
@@ -103,6 +104,8 @@ jobs:
       fail-fast: false
       matrix: ${{ fromJson(needs.install.outputs.matrix )}}
     runs-on: ubuntu-latest
+    env:
+      NODE_ENV: production
     steps:
       - uses: actions/checkout@v3
       - name: Update yarn

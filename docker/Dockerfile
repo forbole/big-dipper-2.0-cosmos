@@ -88,10 +88,11 @@ USER nextjs
  
 # Copying the files from the builder stage to the web stage.
 ARG PROJECT_NAME
-COPY --chown=nextjs:nodejs --from=builder /app/apps/${PROJECT_NAME}/.next/standalone ./
-COPY --chown=nextjs:nodejs --from=builder /app/apps/${PROJECT_NAME}/.next/static ./
-COPY --chown=nextjs:nodejs --from=builder /app/apps/${PROJECT_NAME}/public ./
-COPY --chown=nextjs:nodejs --from=builder /app/node_modules/next ./node_modules/
+COPY --chown=nextjs:nodejs --from=builder /app/apps/${PROJECT_NAME}/.next/standalone/ ./
+COPY --chown=nextjs:nodejs --from=builder /app/apps/${PROJECT_NAME}/.next/static/ ./static/
+COPY --chown=nextjs:nodejs --from=builder /app/apps/${PROJECT_NAME}/public/ ./public/
+COPY --chown=nextjs:nodejs --from=builder /app/node_modules/next/ ./node_modules/next/
+COPY --chown=nextjs:nodejs --from=builder /app/node_modules/shape/ ./node_modules/shape/
 
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
@@ -100,7 +101,8 @@ ARG PORT=3000
 ENV PORT=${PORT}
 EXPOSE ${PORT:-3000}
 
-CMD node /app/server.js
+CMD /bin/bash -s -c 'while :; do sleep 1; done'
+# CMD node /app/server.js
 
 ################################################################################
 
@@ -112,10 +114,11 @@ WORKDIR /app
 COPY --chown=nextjs:nodejs playwright.config.ts ./
 COPY --chown=nextjs:nodejs e2e/ ./e2e/
 ARG PROJECT_NAME
-COPY --chown=nextjs:nodejs --from=builder /app/apps/${PROJECT_NAME}/.next/standalone ./
-COPY --chown=nextjs:nodejs --from=builder /app/apps/${PROJECT_NAME}/.next/static ./
-COPY --chown=nextjs:nodejs --from=builder /app/apps/${PROJECT_NAME}/public ./
-COPY --chown=nextjs:nodejs --from=builder /app/node_modules/next ./node_modules/
+COPY --chown=nextjs:nodejs --from=builder /app/apps/${PROJECT_NAME}/.next/standalone/ ./
+COPY --chown=nextjs:nodejs --from=builder /app/apps/${PROJECT_NAME}/.next/static/ ./static/
+COPY --chown=nextjs:nodejs --from=builder /app/apps/${PROJECT_NAME}/public/ ./public/
+COPY --chown=nextjs:nodejs --from=builder /app/node_modules/next/ ./node_modules/next/
+COPY --chown=nextjs:nodejs --from=builder /app/node_modules/shape/ ./node_modules/shape/
 
 # Setting up the environment variables for the docker container.
 ENV NODE_ENV=production
