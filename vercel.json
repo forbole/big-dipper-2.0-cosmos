@@ -1,8 +1,11 @@
 {
-  "buildCommand": "yarn turbo run build --filter=web...",
-  "outputDirectory": "apps/web/.next",
-  "installCommand": "yarn workspaces focus --production web && yarn add typescript -D",
-  "devCommand": "yarn turbo run dev --filter=web...",
+  "buildCommand": "NEXT_PUBLIC_CHAIN_TYPE=mainnet yarn turbo run build --filter=web-cosmos...",
+  "outputDirectory": "apps/web-cosmos/.next",
+  "installCommand": "yarn workspaces focus --production web-cosmos && yarn add typescript -D",
+  "devCommand": "yarn turbo run dev --filter=web-cosmos...",
   "framework": "nextjs",
-  "ignoreCommand": "echo 'always build' && exit 1"
+  "ignoreCommand": "echo 'always build' && exit 1",
+  "redirects": [
+    { "source": "/", "destination": "/cosmos" }
+  ]
 }
