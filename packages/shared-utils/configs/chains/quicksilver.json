@@ -2,7 +2,7 @@
   "chainName": "quicksilver",
   "title": "Quicksilver Block Explorer",
   "extra": {
-    "profile": false,
+    "profile": true,
     "graphqlWs": false
   },
   "previewImage": "https://s3.bigdipper.live/quicksilver.png",
@@ -181,5 +181,36 @@
       }
     }
   },
-  "chains": []
+  "chains": [
+    {
+      "network": "innuendo-3",
+      "chainType": "Testnet",
+      "genesis": {
+        "time": "2022-09-26T18:30:00",
+        "height": 1
+      },
+      "prefix": {
+        "consensus": "quickvalcons",
+        "validator": "quickvaloper",
+        "account": "quick"
+      },
+      "primaryTokenUnit": "uqck",
+      "votingPowerTokenUnit": "uqck",
+      "tokenUnits": {
+        "uqck": {
+          "display": "qck",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql-testnet.quicksilver.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql-testnet.quicksilver.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://gql-testnet.quicksilver.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": ""
+      }
+    }
+  ]
 }
