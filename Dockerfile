@@ -10,7 +10,7 @@ ARG BASE_IMAGE
 ENV BASE_IMAGE=${BASE_IMAGE}
 RUN npm i -g add turbo
 
-COPY . .
+COPY ./ ./
 
 ARG PROJECT_NAME
 RUN turbo prune --scope=${PROJECT_NAME} --docker
