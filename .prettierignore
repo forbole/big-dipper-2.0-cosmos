@@ -1,0 +1,72 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+node_modules/
+
+# next.js generates its own .tsbuildinfo at .next/cache
+**/.tsbuildinfo
+.eslintcache
+
+# testing
+coverage/
+
+# next.js
+.next/
+out/
+build/
+dist/
+.swc/
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# local env files
+.env
+.env.*
+!.env.sample
+
+# turbo
+.turbo/
+
+# vercel
+.vercel/
+
+
+test.js
+
+# Sentry
+.sentryclirc
+
+# WebStorm
+.idea/
+
+# Yarn Berry
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
+.turbo/
+
+# Playwright
+test-results/
+playwright-report/
+playwright/.cache/
+.turbo
+.vercel
+server.js
+
+# vercel config, generated via vercel.js
+vercel.json
+**/src/graphql/*

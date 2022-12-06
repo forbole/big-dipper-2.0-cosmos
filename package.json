@@ -14,7 +14,7 @@
     "build:ci": "turbo run build --continue --concurrency=1",
     "clean": "yarn cache clean --all && [ -d \"node_modules\" ] && turbo run clean && rm -rf node_modules",
     "start": "dotenv -- turbo run start --filter=$(dotenv -- printenv PROJECT_NAME || echo web)...",
-    "format": "prettier --ignore-path ./.gitignore --write \"{**/src/{,**/}*.{js,ts,tsx,mjs,cjs,md},e2e/{,**/}*.{js,ts,tsx,mjs,cjs,md}}\"",
+    "format": "prettier --write \"{**/src/{,**/}*.{js,ts,tsx,mjs,cjs,md},e2e/{,**/}*.{js,ts,tsx,mjs,cjs,md}}\"",
     "check-types": "dotenv -- turbo run check-types --filter=$(dotenv -- printenv PROJECT_NAME || echo web)...",
     "check-types:ci": "turbo run check-types --continue",
     "lint": "dotenv -- turbo run lint --filter=$(dotenv -- printenv PROJECT_NAME || echo web)...",

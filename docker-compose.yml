@@ -3,7 +3,6 @@ services:
   e2e:
     build:
       context: .
-      dockerfile: ./docker/Dockerfile
       args:
         BASE_IMAGE: mcr.microsoft.com/playwright:v1.28.1-focal
         PROJECT_NAME: ${PROJECT_NAME:-web}
@@ -22,7 +21,6 @@ services:
   web:
     build:
       context: .
-      dockerfile: ./docker/Dockerfile
       args:
         PROJECT_NAME: ${PROJECT_NAME:-web}
         NEXT_PUBLIC_CHAIN_TYPE: ${NEXT_PUBLIC_CHAIN_TYPE:-mainnet}
@@ -31,28 +29,6 @@ services:
         PORT: ${PORT:-3000}
         NEXT_PUBLIC_SENTRY_DSN: ${NEXT_PUBLIC_SENTRY_DSN:-}
         SENTRY_AUTH_TOKEN: ${SENTRY_AUTH_TOKEN:-}
-      target: web
-    restart: always
-    platform: linux/amd64
-    volumes:
-      - yarn-cache:/root/.yarn/berry/cache:rw
-    ports:
-      - ${PORT:-3000}:${PORT:-3000}
-    networks:
-      - app_network
-  bun:
-    build:
-      context: .
-      dockerfile: ./docker/Dockerfile
-      args:
-        PROJECT_NAME: ${PROJECT_NAME:-web}
-        NEXT_PUBLIC_CHAIN_TYPE: ${NEXT_PUBLIC_CHAIN_TYPE:-mainnet}
-        TURBO_TEAM: ${TURBO_TEAM:-}
-        TURBO_TOKEN: ${TURBO_TOKEN:-}
-        PORT: ${PORT:-3000}
-        NEXT_PUBLIC_SENTRY_DSN: ${NEXT_PUBLIC_SENTRY_DSN:-}
-        SENTRY_AUTH_TOKEN: ${SENTRY_AUTH_TOKEN:-}
-        RUNTIME: bun
       target: web
     restart: always
     platform: linux/amd64
