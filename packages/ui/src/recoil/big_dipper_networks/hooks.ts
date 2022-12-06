@@ -52,7 +52,7 @@ export function useBigDipperNetworksRecoil(useQuery?: typeof useChainIdQuery) {
   function that takes in a useQuery and returns a function that takes in a useChain */
   useQuery?.({
     onError: (error) => {
-      throw error;
+      console.error((error as Error).message);
     },
     onCompleted: (data) => {
       if (disabledSelection) return;
