@@ -2,8 +2,7 @@ import { expect, test } from '@playwright/test';
 
 test('footer', async ({ page }) => {
   // Test url
-  await page.goto('.');
-  await expect(page).toHaveURL(/[^?#]*\/\/[^/]+\/$/);
+  await Promise.all([page.waitForNavigation({ url: /[^?#]*\/\/[^/]+\/$/ }), page.goto('.')]);
   await expect(page.getByRole('progressbar')).toHaveCount(0);
 
   // Test company footer section

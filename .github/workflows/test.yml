@@ -116,7 +116,9 @@ jobs:
       - name: Run Playwright tests
         env:
           PLAYWRIGHT_HTML_REPORT: playwright-report/${{ matrix.project }}/${{ matrix.shardIndex }}
-        run: yarn playwright test --project=${{ matrix.project }} --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
+        run: |
+          echo Trace can be view at https://trace.playwright.dev/ | tee -a $GITHUB_STEP_SUMMARY
+          yarn playwright test --project=${{ matrix.project }} --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }} | tee -a $GITHUB_STEP_SUMMARY
       - uses: actions/upload-artifact@v3
         if: ${{ always() }}
         with:

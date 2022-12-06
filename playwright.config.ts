@@ -65,7 +65,7 @@ const projects: Array<Project<PlaywrightTestConfig, PlaywrightWorkerOptions>> = 
 const config: PlaywrightTestConfig = {
   testDir: './e2e',
   /* Maximum time one test can run for. */
-  timeout: process.env.CI ? 60 * 1000 : 10 * 60 * 1000,
+  timeout: 60 * 1000,
   expect: {
     /**
      * Maximum time expect() should wait for the condition to be met.
@@ -96,7 +96,7 @@ const config: PlaywrightTestConfig = {
     ignoreHTTPSErrors: true,
     headless: true,
     viewport: { width: 1280, height: 720 },
-    video: 'on-first-retry',
+    video: 'off',
   },
 
   /* Configure projects for major browsers */
