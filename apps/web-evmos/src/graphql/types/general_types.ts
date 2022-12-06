@@ -193,6 +193,7 @@ export type Account = {
   vesting_accounts_aggregate: Vesting_Account_Aggregate;
 };
 
+
 /** columns and relationships of "account" */
 export type AccountProposal_DepositsArgs = {
   distinct_on?: InputMaybe<Array<Proposal_Deposit_Select_Column>>;
@@ -201,6 +202,7 @@ export type AccountProposal_DepositsArgs = {
   order_by?: InputMaybe<Array<Proposal_Deposit_Order_By>>;
   where?: InputMaybe<Proposal_Deposit_Bool_Exp>;
 };
+
 
 /** columns and relationships of "account" */
 export type AccountProposal_Deposits_AggregateArgs = {
@@ -211,6 +213,7 @@ export type AccountProposal_Deposits_AggregateArgs = {
   where?: InputMaybe<Proposal_Deposit_Bool_Exp>;
 };
 
+
 /** columns and relationships of "account" */
 export type AccountProposal_VotesArgs = {
   distinct_on?: InputMaybe<Array<Proposal_Vote_Select_Column>>;
@@ -219,6 +222,7 @@ export type AccountProposal_VotesArgs = {
   order_by?: InputMaybe<Array<Proposal_Vote_Order_By>>;
   where?: InputMaybe<Proposal_Vote_Bool_Exp>;
 };
+
 
 /** columns and relationships of "account" */
 export type AccountProposal_Votes_AggregateArgs = {
@@ -229,6 +233,7 @@ export type AccountProposal_Votes_AggregateArgs = {
   where?: InputMaybe<Proposal_Vote_Bool_Exp>;
 };
 
+
 /** columns and relationships of "account" */
 export type AccountProposalsArgs = {
   distinct_on?: InputMaybe<Array<Proposal_Select_Column>>;
@@ -237,6 +242,7 @@ export type AccountProposalsArgs = {
   order_by?: InputMaybe<Array<Proposal_Order_By>>;
   where?: InputMaybe<Proposal_Bool_Exp>;
 };
+
 
 /** columns and relationships of "account" */
 export type AccountProposals_AggregateArgs = {
@@ -247,6 +253,7 @@ export type AccountProposals_AggregateArgs = {
   where?: InputMaybe<Proposal_Bool_Exp>;
 };
 
+
 /** columns and relationships of "account" */
 export type AccountValidator_InfosArgs = {
   distinct_on?: InputMaybe<Array<Validator_Info_Select_Column>>;
@@ -255,6 +262,7 @@ export type AccountValidator_InfosArgs = {
   order_by?: InputMaybe<Array<Validator_Info_Order_By>>;
   where?: InputMaybe<Validator_Info_Bool_Exp>;
 };
+
 
 /** columns and relationships of "account" */
 export type AccountValidator_Infos_AggregateArgs = {
@@ -265,6 +273,7 @@ export type AccountValidator_Infos_AggregateArgs = {
   where?: InputMaybe<Validator_Info_Bool_Exp>;
 };
 
+
 /** columns and relationships of "account" */
 export type AccountVesting_AccountsArgs = {
   distinct_on?: InputMaybe<Array<Vesting_Account_Select_Column>>;
@@ -273,6 +282,7 @@ export type AccountVesting_AccountsArgs = {
   order_by?: InputMaybe<Array<Vesting_Account_Order_By>>;
   where?: InputMaybe<Vesting_Account_Bool_Exp>;
 };
+
 
 /** columns and relationships of "account" */
 export type AccountVesting_Accounts_AggregateArgs = {
@@ -297,6 +307,7 @@ export type Account_Aggregate_Fields = {
   max?: Maybe<Account_Max_Fields>;
   min?: Maybe<Account_Min_Fields>;
 };
+
 
 /** aggregate fields of "account" */
 export type Account_Aggregate_FieldsCountArgs = {
@@ -344,7 +355,7 @@ export type Account_Order_By = {
 /** select columns of table "account" */
 export enum Account_Select_Column {
   /** column name */
-  Address = 'address',
+  Address = 'address'
 }
 
 /** columns and relationships of "average_block_time_from_genesis" */
@@ -376,6 +387,7 @@ export type Average_Block_Time_From_Genesis_Aggregate_Fields = {
   var_samp?: Maybe<Average_Block_Time_From_Genesis_Var_Samp_Fields>;
   variance?: Maybe<Average_Block_Time_From_Genesis_Variance_Fields>;
 };
+
 
 /** aggregate fields of "average_block_time_from_genesis" */
 export type Average_Block_Time_From_Genesis_Aggregate_FieldsCountArgs = {
@@ -424,7 +436,7 @@ export enum Average_Block_Time_From_Genesis_Select_Column {
   /** column name */
   AverageTime = 'average_time',
   /** column name */
-  Height = 'height',
+  Height = 'height'
 }
 
 /** aggregate stddev on columns */
@@ -506,6 +518,7 @@ export type Average_Block_Time_Per_Day_Aggregate_Fields = {
   variance?: Maybe<Average_Block_Time_Per_Day_Variance_Fields>;
 };
 
+
 /** aggregate fields of "average_block_time_per_day" */
 export type Average_Block_Time_Per_Day_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Average_Block_Time_Per_Day_Select_Column>>;
@@ -553,7 +566,7 @@ export enum Average_Block_Time_Per_Day_Select_Column {
   /** column name */
   AverageTime = 'average_time',
   /** column name */
-  Height = 'height',
+  Height = 'height'
 }
 
 /** aggregate stddev on columns */
@@ -635,6 +648,7 @@ export type Average_Block_Time_Per_Hour_Aggregate_Fields = {
   variance?: Maybe<Average_Block_Time_Per_Hour_Variance_Fields>;
 };
 
+
 /** aggregate fields of "average_block_time_per_hour" */
 export type Average_Block_Time_Per_Hour_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Average_Block_Time_Per_Hour_Select_Column>>;
@@ -682,7 +696,7 @@ export enum Average_Block_Time_Per_Hour_Select_Column {
   /** column name */
   AverageTime = 'average_time',
   /** column name */
-  Height = 'height',
+  Height = 'height'
 }
 
 /** aggregate stddev on columns */
@@ -764,6 +778,7 @@ export type Average_Block_Time_Per_Minute_Aggregate_Fields = {
   variance?: Maybe<Average_Block_Time_Per_Minute_Variance_Fields>;
 };
 
+
 /** aggregate fields of "average_block_time_per_minute" */
 export type Average_Block_Time_Per_Minute_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Average_Block_Time_Per_Minute_Select_Column>>;
@@ -811,7 +826,7 @@ export enum Average_Block_Time_Per_Minute_Select_Column {
   /** column name */
   AverageTime = 'average_time',
   /** column name */
-  Height = 'height',
+  Height = 'height'
 }
 
 /** aggregate stddev on columns */
@@ -909,6 +924,7 @@ export type Block = {
   validator_voting_powers_aggregate: Validator_Voting_Power_Aggregate;
 };
 
+
 /** columns and relationships of "block" */
 export type BlockPre_CommitsArgs = {
   distinct_on?: InputMaybe<Array<Pre_Commit_Select_Column>>;
@@ -917,6 +933,7 @@ export type BlockPre_CommitsArgs = {
   order_by?: InputMaybe<Array<Pre_Commit_Order_By>>;
   where?: InputMaybe<Pre_Commit_Bool_Exp>;
 };
+
 
 /** columns and relationships of "block" */
 export type BlockPre_Commits_AggregateArgs = {
@@ -927,6 +944,7 @@ export type BlockPre_Commits_AggregateArgs = {
   where?: InputMaybe<Pre_Commit_Bool_Exp>;
 };
 
+
 /** columns and relationships of "block" */
 export type BlockProposal_DepositsArgs = {
   distinct_on?: InputMaybe<Array<Proposal_Deposit_Select_Column>>;
@@ -935,6 +953,7 @@ export type BlockProposal_DepositsArgs = {
   order_by?: InputMaybe<Array<Proposal_Deposit_Order_By>>;
   where?: InputMaybe<Proposal_Deposit_Bool_Exp>;
 };
+
 
 /** columns and relationships of "block" */
 export type BlockProposal_Deposits_AggregateArgs = {
@@ -945,6 +964,7 @@ export type BlockProposal_Deposits_AggregateArgs = {
   where?: InputMaybe<Proposal_Deposit_Bool_Exp>;
 };
 
+
 /** columns and relationships of "block" */
 export type BlockProposal_VotesArgs = {
   distinct_on?: InputMaybe<Array<Proposal_Vote_Select_Column>>;
@@ -953,6 +973,7 @@ export type BlockProposal_VotesArgs = {
   order_by?: InputMaybe<Array<Proposal_Vote_Order_By>>;
   where?: InputMaybe<Proposal_Vote_Bool_Exp>;
 };
+
 
 /** columns and relationships of "block" */
 export type BlockProposal_Votes_AggregateArgs = {
@@ -963,6 +984,7 @@ export type BlockProposal_Votes_AggregateArgs = {
   where?: InputMaybe<Proposal_Vote_Bool_Exp>;
 };
 
+
 /** columns and relationships of "block" */
 export type BlockTransactionsArgs = {
   distinct_on?: InputMaybe<Array<Transaction_Select_Column>>;
@@ -971,6 +993,7 @@ export type BlockTransactionsArgs = {
   order_by?: InputMaybe<Array<Transaction_Order_By>>;
   where?: InputMaybe<Transaction_Bool_Exp>;
 };
+
 
 /** columns and relationships of "block" */
 export type BlockTransactions_AggregateArgs = {
@@ -981,6 +1004,7 @@ export type BlockTransactions_AggregateArgs = {
   where?: InputMaybe<Transaction_Bool_Exp>;
 };
 
+
 /** columns and relationships of "block" */
 export type BlockValidator_Voting_PowersArgs = {
   distinct_on?: InputMaybe<Array<Validator_Voting_Power_Select_Column>>;
@@ -989,6 +1013,7 @@ export type BlockValidator_Voting_PowersArgs = {
   order_by?: InputMaybe<Array<Validator_Voting_Power_Order_By>>;
   where?: InputMaybe<Validator_Voting_Power_Bool_Exp>;
 };
+
 
 /** columns and relationships of "block" */
 export type BlockValidator_Voting_Powers_AggregateArgs = {
@@ -1021,6 +1046,7 @@ export type Block_Aggregate_Fields = {
   var_samp?: Maybe<Block_Var_Samp_Fields>;
   variance?: Maybe<Block_Variance_Fields>;
 };
+
 
 /** aggregate fields of "block" */
 export type Block_Aggregate_FieldsCountArgs = {
@@ -1148,7 +1174,7 @@ export enum Block_Select_Column {
   /** column name */
   Timestamp = 'timestamp',
   /** column name */
-  TotalGas = 'total_gas',
+  TotalGas = 'total_gas'
 }
 
 /** aggregate stddev on columns */
@@ -1286,6 +1312,7 @@ export type Community_Pool_Aggregate_Fields = {
   variance?: Maybe<Community_Pool_Variance_Fields>;
 };
 
+
 /** aggregate fields of "community_pool" */
 export type Community_Pool_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Community_Pool_Select_Column>>;
@@ -1330,7 +1357,7 @@ export enum Community_Pool_Select_Column {
   /** column name */
   Coins = 'coins',
   /** column name */
-  Height = 'height',
+  Height = 'height'
 }
 
 /** aggregate stddev on columns */
@@ -1383,6 +1410,7 @@ export type Distribution_Params = {
   params: Scalars['jsonb'];
 };
 
+
 /** columns and relationships of "distribution_params" */
 export type Distribution_ParamsParamsArgs = {
   path?: InputMaybe<Scalars['String']>;
@@ -1410,6 +1438,7 @@ export type Distribution_Params_Aggregate_Fields = {
   var_samp?: Maybe<Distribution_Params_Var_Samp_Fields>;
   variance?: Maybe<Distribution_Params_Variance_Fields>;
 };
+
 
 /** aggregate fields of "distribution_params" */
 export type Distribution_Params_Aggregate_FieldsCountArgs = {
@@ -1459,7 +1488,7 @@ export enum Distribution_Params_Select_Column {
   /** column name */
   OneRowId = 'one_row_id',
   /** column name */
-  Params = 'params',
+  Params = 'params'
 }
 
 /** aggregate stddev on columns */
@@ -1538,6 +1567,7 @@ export type Double_Sign_Evidence_Aggregate_Fields = {
   var_samp?: Maybe<Double_Sign_Evidence_Var_Samp_Fields>;
   variance?: Maybe<Double_Sign_Evidence_Variance_Fields>;
 };
+
 
 /** aggregate fields of "double_sign_evidence" */
 export type Double_Sign_Evidence_Aggregate_FieldsCountArgs = {
@@ -1633,7 +1663,7 @@ export enum Double_Sign_Evidence_Select_Column {
   /** column name */
   VoteAId = 'vote_a_id',
   /** column name */
-  VoteBId = 'vote_b_id',
+  VoteBId = 'vote_b_id'
 }
 
 /** aggregate stddev on columns */
@@ -1764,6 +1794,7 @@ export type Double_Sign_Vote = {
   validator_index: Scalars['Int'];
 };
 
+
 /** columns and relationships of "double_sign_vote" */
 export type Double_Sign_VoteDoubleSignEvidencesByVoteBIdArgs = {
   distinct_on?: InputMaybe<Array<Double_Sign_Evidence_Select_Column>>;
@@ -1772,6 +1803,7 @@ export type Double_Sign_VoteDoubleSignEvidencesByVoteBIdArgs = {
   order_by?: InputMaybe<Array<Double_Sign_Evidence_Order_By>>;
   where?: InputMaybe<Double_Sign_Evidence_Bool_Exp>;
 };
+
 
 /** columns and relationships of "double_sign_vote" */
 export type Double_Sign_VoteDoubleSignEvidencesByVoteBId_AggregateArgs = {
@@ -1782,6 +1814,7 @@ export type Double_Sign_VoteDoubleSignEvidencesByVoteBId_AggregateArgs = {
   where?: InputMaybe<Double_Sign_Evidence_Bool_Exp>;
 };
 
+
 /** columns and relationships of "double_sign_vote" */
 export type Double_Sign_VoteDouble_Sign_EvidencesArgs = {
   distinct_on?: InputMaybe<Array<Double_Sign_Evidence_Select_Column>>;
@@ -1790,6 +1823,7 @@ export type Double_Sign_VoteDouble_Sign_EvidencesArgs = {
   order_by?: InputMaybe<Array<Double_Sign_Evidence_Order_By>>;
   where?: InputMaybe<Double_Sign_Evidence_Bool_Exp>;
 };
+
 
 /** columns and relationships of "double_sign_vote" */
 export type Double_Sign_VoteDouble_Sign_Evidences_AggregateArgs = {
@@ -1822,6 +1856,7 @@ export type Double_Sign_Vote_Aggregate_Fields = {
   var_samp?: Maybe<Double_Sign_Vote_Var_Samp_Fields>;
   variance?: Maybe<Double_Sign_Vote_Variance_Fields>;
 };
+
 
 /** aggregate fields of "double_sign_vote" */
 export type Double_Sign_Vote_Aggregate_FieldsCountArgs = {
@@ -1963,7 +1998,7 @@ export enum Double_Sign_Vote_Select_Column {
   /** column name */
   ValidatorAddress = 'validator_address',
   /** column name */
-  ValidatorIndex = 'validator_index',
+  ValidatorIndex = 'validator_index'
 }
 
 /** aggregate stddev on columns */
@@ -2133,6 +2168,7 @@ export type Evmos_Inflation_Data_Aggregate_Fields = {
   variance?: Maybe<Evmos_Inflation_Data_Variance_Fields>;
 };
 
+
 /** aggregate fields of "evmos_inflation_data" */
 export type Evmos_Inflation_Data_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Evmos_Inflation_Data_Select_Column>>;
@@ -2202,7 +2238,7 @@ export enum Evmos_Inflation_Data_Select_Column {
   /** column name */
   OneRowId = 'one_row_id',
   /** column name */
-  SkippedEpochs = 'skipped_epochs',
+  SkippedEpochs = 'skipped_epochs'
 }
 
 /** aggregate stddev on columns */
@@ -2276,6 +2312,7 @@ export type Evmos_Inflation_Params = {
   params: Scalars['jsonb'];
 };
 
+
 /** columns and relationships of "evmos_inflation_params" */
 export type Evmos_Inflation_ParamsParamsArgs = {
   path?: InputMaybe<Scalars['String']>;
@@ -2303,6 +2340,7 @@ export type Evmos_Inflation_Params_Aggregate_Fields = {
   var_samp?: Maybe<Evmos_Inflation_Params_Var_Samp_Fields>;
   variance?: Maybe<Evmos_Inflation_Params_Variance_Fields>;
 };
+
 
 /** aggregate fields of "evmos_inflation_params" */
 export type Evmos_Inflation_Params_Aggregate_FieldsCountArgs = {
@@ -2352,7 +2390,7 @@ export enum Evmos_Inflation_Params_Select_Column {
   /** column name */
   OneRowId = 'one_row_id',
   /** column name */
-  Params = 'params',
+  Params = 'params'
 }
 
 /** aggregate stddev on columns */
@@ -2411,6 +2449,7 @@ export type Fee_Grant_Allowance = {
   id: Scalars['Int'];
 };
 
+
 /** columns and relationships of "fee_grant_allowance" */
 export type Fee_Grant_AllowanceAllowanceArgs = {
   path?: InputMaybe<Scalars['String']>;
@@ -2438,6 +2477,7 @@ export type Fee_Grant_Allowance_Aggregate_Fields = {
   var_samp?: Maybe<Fee_Grant_Allowance_Var_Samp_Fields>;
   variance?: Maybe<Fee_Grant_Allowance_Variance_Fields>;
 };
+
 
 /** aggregate fields of "fee_grant_allowance" */
 export type Fee_Grant_Allowance_Aggregate_FieldsCountArgs = {
@@ -2506,7 +2546,7 @@ export enum Fee_Grant_Allowance_Select_Column {
   /** column name */
   Height = 'height',
   /** column name */
-  Id = 'id',
+  Id = 'id'
 }
 
 /** aggregate stddev on columns */
@@ -2589,6 +2629,7 @@ export type Genesis_Aggregate_Fields = {
   variance?: Maybe<Genesis_Variance_Fields>;
 };
 
+
 /** aggregate fields of "genesis" */
 export type Genesis_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Genesis_Select_Column>>;
@@ -2641,7 +2682,7 @@ export enum Genesis_Select_Column {
   /** column name */
   InitialHeight = 'initial_height',
   /** column name */
-  Time = 'time',
+  Time = 'time'
 }
 
 /** aggregate stddev on columns */
@@ -2696,15 +2737,18 @@ export type Gov_Params = {
   voting_params: Scalars['jsonb'];
 };
 
+
 /** columns and relationships of "gov_params" */
 export type Gov_ParamsDeposit_ParamsArgs = {
   path?: InputMaybe<Scalars['String']>;
 };
 
+
 /** columns and relationships of "gov_params" */
 export type Gov_ParamsTally_ParamsArgs = {
   path?: InputMaybe<Scalars['String']>;
 };
+
 
 /** columns and relationships of "gov_params" */
 export type Gov_ParamsVoting_ParamsArgs = {
@@ -2733,6 +2777,7 @@ export type Gov_Params_Aggregate_Fields = {
   var_samp?: Maybe<Gov_Params_Var_Samp_Fields>;
   variance?: Maybe<Gov_Params_Variance_Fields>;
 };
+
 
 /** aggregate fields of "gov_params" */
 export type Gov_Params_Aggregate_FieldsCountArgs = {
@@ -2790,7 +2835,7 @@ export enum Gov_Params_Select_Column {
   /** column name */
   TallyParams = 'tally_params',
   /** column name */
-  VotingParams = 'voting_params',
+  VotingParams = 'voting_params'
 }
 
 /** aggregate stddev on columns */
@@ -2865,6 +2910,7 @@ export type Inflation_Aggregate_Fields = {
   variance?: Maybe<Inflation_Variance_Fields>;
 };
 
+
 /** aggregate fields of "inflation" */
 export type Inflation_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Inflation_Select_Column>>;
@@ -2912,7 +2958,7 @@ export enum Inflation_Select_Column {
   /** column name */
   Height = 'height',
   /** column name */
-  Value = 'value',
+  Value = 'value'
 }
 
 /** aggregate stddev on columns */
@@ -3001,6 +3047,7 @@ export type Message = {
   value: Scalars['jsonb'];
 };
 
+
 /** columns and relationships of "message" */
 export type MessageValueArgs = {
   path?: InputMaybe<Scalars['String']>;
@@ -3028,6 +3075,7 @@ export type Message_Aggregate_Fields = {
   var_samp?: Maybe<Message_Var_Samp_Fields>;
   variance?: Maybe<Message_Variance_Fields>;
 };
+
 
 /** aggregate fields of "message" */
 export type Message_Aggregate_FieldsCountArgs = {
@@ -3105,7 +3153,7 @@ export enum Message_Select_Column {
   /** column name */
   Type = 'type',
   /** column name */
-  Value = 'value',
+  Value = 'value'
 }
 
 /** aggregate stddev on columns */
@@ -3179,6 +3227,7 @@ export type Mint_Params = {
   params: Scalars['jsonb'];
 };
 
+
 /** columns and relationships of "mint_params" */
 export type Mint_ParamsParamsArgs = {
   path?: InputMaybe<Scalars['String']>;
@@ -3206,6 +3255,7 @@ export type Mint_Params_Aggregate_Fields = {
   var_samp?: Maybe<Mint_Params_Var_Samp_Fields>;
   variance?: Maybe<Mint_Params_Variance_Fields>;
 };
+
 
 /** aggregate fields of "mint_params" */
 export type Mint_Params_Aggregate_FieldsCountArgs = {
@@ -3255,7 +3305,7 @@ export enum Mint_Params_Select_Column {
   /** column name */
   OneRowId = 'one_row_id',
   /** column name */
-  Params = 'params',
+  Params = 'params'
 }
 
 /** aggregate stddev on columns */
@@ -3321,6 +3371,7 @@ export type Modules_Aggregate_Fields = {
   min?: Maybe<Modules_Min_Fields>;
 };
 
+
 /** aggregate fields of "modules" */
 export type Modules_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Modules_Select_Column>>;
@@ -3355,7 +3406,7 @@ export type Modules_Order_By = {
 /** select columns of table "modules" */
 export enum Modules_Select_Column {
   /** column name */
-  ModuleName = 'module_name',
+  ModuleName = 'module_name'
 }
 
 /** Boolean expression to compare columns of type "numeric". All fields are combined with logical 'AND'. */
@@ -3384,7 +3435,7 @@ export enum Order_By {
   /** in descending order, nulls first */
   DescNullsFirst = 'desc_nulls_first',
   /** in descending order, nulls last */
-  DescNullsLast = 'desc_nulls_last',
+  DescNullsLast = 'desc_nulls_last'
 }
 
 /** columns and relationships of "pre_commit" */
@@ -3421,6 +3472,7 @@ export type Pre_Commit_Aggregate_Fields = {
   var_samp?: Maybe<Pre_Commit_Var_Samp_Fields>;
   variance?: Maybe<Pre_Commit_Variance_Fields>;
 };
+
 
 /** aggregate fields of "pre_commit" */
 export type Pre_Commit_Aggregate_FieldsCountArgs = {
@@ -3530,7 +3582,7 @@ export enum Pre_Commit_Select_Column {
   /** column name */
   ValidatorAddress = 'validator_address',
   /** column name */
-  VotingPower = 'voting_power',
+  VotingPower = 'voting_power'
 }
 
 /** aggregate stddev on columns */
@@ -3677,10 +3729,12 @@ export type Proposal = {
   voting_start_time?: Maybe<Scalars['timestamp']>;
 };
 
+
 /** columns and relationships of "proposal" */
 export type ProposalContentArgs = {
   path?: InputMaybe<Scalars['String']>;
 };
+
 
 /** columns and relationships of "proposal" */
 export type ProposalProposal_DepositsArgs = {
@@ -3691,6 +3745,7 @@ export type ProposalProposal_DepositsArgs = {
   where?: InputMaybe<Proposal_Deposit_Bool_Exp>;
 };
 
+
 /** columns and relationships of "proposal" */
 export type ProposalProposal_Deposits_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Proposal_Deposit_Select_Column>>;
@@ -3699,6 +3754,7 @@ export type ProposalProposal_Deposits_AggregateArgs = {
   order_by?: InputMaybe<Array<Proposal_Deposit_Order_By>>;
   where?: InputMaybe<Proposal_Deposit_Bool_Exp>;
 };
+
 
 /** columns and relationships of "proposal" */
 export type ProposalProposal_Tally_ResultsArgs = {
@@ -3709,6 +3765,7 @@ export type ProposalProposal_Tally_ResultsArgs = {
   where?: InputMaybe<Proposal_Tally_Result_Bool_Exp>;
 };
 
+
 /** columns and relationships of "proposal" */
 export type ProposalProposal_Tally_Results_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Proposal_Tally_Result_Select_Column>>;
@@ -3717,6 +3774,7 @@ export type ProposalProposal_Tally_Results_AggregateArgs = {
   order_by?: InputMaybe<Array<Proposal_Tally_Result_Order_By>>;
   where?: InputMaybe<Proposal_Tally_Result_Bool_Exp>;
 };
+
 
 /** columns and relationships of "proposal" */
 export type ProposalProposal_VotesArgs = {
@@ -3727,6 +3785,7 @@ export type ProposalProposal_VotesArgs = {
   where?: InputMaybe<Proposal_Vote_Bool_Exp>;
 };
 
+
 /** columns and relationships of "proposal" */
 export type ProposalProposal_Votes_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Proposal_Vote_Select_Column>>;
@@ -3736,6 +3795,7 @@ export type ProposalProposal_Votes_AggregateArgs = {
   where?: InputMaybe<Proposal_Vote_Bool_Exp>;
 };
 
+
 /** columns and relationships of "proposal" */
 export type ProposalValidator_Status_SnapshotsArgs = {
   distinct_on?: InputMaybe<Array<Proposal_Validator_Status_Snapshot_Select_Column>>;
@@ -3744,6 +3804,7 @@ export type ProposalValidator_Status_SnapshotsArgs = {
   order_by?: InputMaybe<Array<Proposal_Validator_Status_Snapshot_Order_By>>;
   where?: InputMaybe<Proposal_Validator_Status_Snapshot_Bool_Exp>;
 };
+
 
 /** columns and relationships of "proposal" */
 export type ProposalValidator_Status_Snapshots_AggregateArgs = {
@@ -3776,6 +3837,7 @@ export type Proposal_Aggregate_Fields = {
   var_samp?: Maybe<Proposal_Var_Samp_Fields>;
   variance?: Maybe<Proposal_Variance_Fields>;
 };
+
 
 /** aggregate fields of "proposal" */
 export type Proposal_Aggregate_FieldsCountArgs = {
@@ -3872,6 +3934,7 @@ export type Proposal_Deposit_Aggregate_Fields = {
   var_samp?: Maybe<Proposal_Deposit_Var_Samp_Fields>;
   variance?: Maybe<Proposal_Deposit_Variance_Fields>;
 };
+
 
 /** aggregate fields of "proposal_deposit" */
 export type Proposal_Deposit_Aggregate_FieldsCountArgs = {
@@ -3971,7 +4034,7 @@ export enum Proposal_Deposit_Select_Column {
   /** column name */
   Height = 'height',
   /** column name */
-  ProposalId = 'proposal_id',
+  ProposalId = 'proposal_id'
 }
 
 /** aggregate stddev on columns */
@@ -4175,7 +4238,7 @@ export enum Proposal_Select_Column {
   /** column name */
   VotingEndTime = 'voting_end_time',
   /** column name */
-  VotingStartTime = 'voting_start_time',
+  VotingStartTime = 'voting_start_time'
 }
 
 /** columns and relationships of "proposal_staking_pool_snapshot" */
@@ -4211,6 +4274,7 @@ export type Proposal_Staking_Pool_Snapshot_Aggregate_Fields = {
   var_samp?: Maybe<Proposal_Staking_Pool_Snapshot_Var_Samp_Fields>;
   variance?: Maybe<Proposal_Staking_Pool_Snapshot_Variance_Fields>;
 };
+
 
 /** aggregate fields of "proposal_staking_pool_snapshot" */
 export type Proposal_Staking_Pool_Snapshot_Aggregate_FieldsCountArgs = {
@@ -4273,7 +4337,7 @@ export enum Proposal_Staking_Pool_Snapshot_Select_Column {
   /** column name */
   NotBondedTokens = 'not_bonded_tokens',
   /** column name */
-  ProposalId = 'proposal_id',
+  ProposalId = 'proposal_id'
 }
 
 /** aggregate stddev on columns */
@@ -4405,6 +4469,7 @@ export type Proposal_Tally_Result_Aggregate_Fields = {
   variance?: Maybe<Proposal_Tally_Result_Variance_Fields>;
 };
 
+
 /** aggregate fields of "proposal_tally_result" */
 export type Proposal_Tally_Result_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Proposal_Tally_Result_Select_Column>>;
@@ -4519,7 +4584,7 @@ export enum Proposal_Tally_Result_Select_Column {
   /** column name */
   ProposalId = 'proposal_id',
   /** column name */
-  Yes = 'yes',
+  Yes = 'yes'
 }
 
 /** aggregate stddev on columns */
@@ -4652,6 +4717,7 @@ export type Proposal_Validator_Status_Snapshot_Aggregate_Fields = {
   variance?: Maybe<Proposal_Validator_Status_Snapshot_Variance_Fields>;
 };
 
+
 /** aggregate fields of "proposal_validator_status_snapshot" */
 export type Proposal_Validator_Status_Snapshot_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Proposal_Validator_Status_Snapshot_Select_Column>>;
@@ -4778,7 +4844,7 @@ export enum Proposal_Validator_Status_Snapshot_Select_Column {
   /** column name */
   ValidatorAddress = 'validator_address',
   /** column name */
-  VotingPower = 'voting_power',
+  VotingPower = 'voting_power'
 }
 
 /** aggregate stddev on columns */
@@ -4985,6 +5051,7 @@ export type Proposal_Vote_Aggregate_Fields = {
   variance?: Maybe<Proposal_Vote_Variance_Fields>;
 };
 
+
 /** aggregate fields of "proposal_vote" */
 export type Proposal_Vote_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Proposal_Vote_Select_Column>>;
@@ -5087,7 +5154,7 @@ export enum Proposal_Vote_Select_Column {
   /** column name */
   ProposalId = 'proposal_id',
   /** column name */
-  VoterAddress = 'voter_address',
+  VoterAddress = 'voter_address'
 }
 
 /** aggregate stddev on columns */
@@ -5427,6 +5494,7 @@ export type Query_Root = {
   vesting_period_aggregate: Vesting_Period_Aggregate;
 };
 
+
 export type Query_RootAccountArgs = {
   distinct_on?: InputMaybe<Array<Account_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -5434,6 +5502,7 @@ export type Query_RootAccountArgs = {
   order_by?: InputMaybe<Array<Account_Order_By>>;
   where?: InputMaybe<Account_Bool_Exp>;
 };
+
 
 export type Query_RootAccount_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Account_Select_Column>>;
@@ -5443,14 +5512,17 @@ export type Query_RootAccount_AggregateArgs = {
   where?: InputMaybe<Account_Bool_Exp>;
 };
 
+
 export type Query_RootAccount_By_PkArgs = {
   address: Scalars['String'];
 };
+
 
 export type Query_RootAction_Account_BalanceArgs = {
   address: Scalars['String'];
   height?: InputMaybe<Scalars['Int']>;
 };
+
 
 export type Query_RootAction_DelegationArgs = {
   address: Scalars['String'];
@@ -5460,19 +5532,23 @@ export type Query_RootAction_DelegationArgs = {
   offset?: InputMaybe<Scalars['Int']>;
 };
 
+
 export type Query_RootAction_Delegation_RewardArgs = {
   address: Scalars['String'];
   height?: InputMaybe<Scalars['Int']>;
 };
+
 
 export type Query_RootAction_Delegation_TotalArgs = {
   address: Scalars['String'];
   height?: InputMaybe<Scalars['Int']>;
 };
 
+
 export type Query_RootAction_Delegator_Withdraw_AddressArgs = {
   address: Scalars['String'];
 };
+
 
 export type Query_RootAction_RedelegationArgs = {
   address: Scalars['String'];
@@ -5482,6 +5558,7 @@ export type Query_RootAction_RedelegationArgs = {
   offset?: InputMaybe<Scalars['Int']>;
 };
 
+
 export type Query_RootAction_Unbonding_DelegationArgs = {
   address: Scalars['String'];
   count_total?: InputMaybe<Scalars['Boolean']>;
@@ -5490,14 +5567,17 @@ export type Query_RootAction_Unbonding_DelegationArgs = {
   offset?: InputMaybe<Scalars['Int']>;
 };
 
+
 export type Query_RootAction_Unbonding_Delegation_TotalArgs = {
   address: Scalars['String'];
   height?: InputMaybe<Scalars['Int']>;
 };
 
+
 export type Query_RootAction_Validator_Commission_AmountArgs = {
   address: Scalars['String'];
 };
+
 
 export type Query_RootAction_Validator_DelegationsArgs = {
   address: Scalars['String'];
@@ -5505,6 +5585,7 @@ export type Query_RootAction_Validator_DelegationsArgs = {
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
 };
+
 
 export type Query_RootAction_Validator_Redelegations_FromArgs = {
   address: Scalars['String'];
@@ -5514,12 +5595,14 @@ export type Query_RootAction_Validator_Redelegations_FromArgs = {
   offset?: InputMaybe<Scalars['Int']>;
 };
 
+
 export type Query_RootAction_Validator_Unbonding_DelegationsArgs = {
   address: Scalars['String'];
   count_total?: InputMaybe<Scalars['Boolean']>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
 };
+
 
 export type Query_RootAverage_Block_Time_From_GenesisArgs = {
   distinct_on?: InputMaybe<Array<Average_Block_Time_From_Genesis_Select_Column>>;
@@ -5529,6 +5612,7 @@ export type Query_RootAverage_Block_Time_From_GenesisArgs = {
   where?: InputMaybe<Average_Block_Time_From_Genesis_Bool_Exp>;
 };
 
+
 export type Query_RootAverage_Block_Time_From_Genesis_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Average_Block_Time_From_Genesis_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -5536,6 +5620,7 @@ export type Query_RootAverage_Block_Time_From_Genesis_AggregateArgs = {
   order_by?: InputMaybe<Array<Average_Block_Time_From_Genesis_Order_By>>;
   where?: InputMaybe<Average_Block_Time_From_Genesis_Bool_Exp>;
 };
+
 
 export type Query_RootAverage_Block_Time_Per_DayArgs = {
   distinct_on?: InputMaybe<Array<Average_Block_Time_Per_Day_Select_Column>>;
@@ -5545,6 +5630,7 @@ export type Query_RootAverage_Block_Time_Per_DayArgs = {
   where?: InputMaybe<Average_Block_Time_Per_Day_Bool_Exp>;
 };
 
+
 export type Query_RootAverage_Block_Time_Per_Day_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Average_Block_Time_Per_Day_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -5552,6 +5638,7 @@ export type Query_RootAverage_Block_Time_Per_Day_AggregateArgs = {
   order_by?: InputMaybe<Array<Average_Block_Time_Per_Day_Order_By>>;
   where?: InputMaybe<Average_Block_Time_Per_Day_Bool_Exp>;
 };
+
 
 export type Query_RootAverage_Block_Time_Per_HourArgs = {
   distinct_on?: InputMaybe<Array<Average_Block_Time_Per_Hour_Select_Column>>;
@@ -5561,6 +5648,7 @@ export type Query_RootAverage_Block_Time_Per_HourArgs = {
   where?: InputMaybe<Average_Block_Time_Per_Hour_Bool_Exp>;
 };
 
+
 export type Query_RootAverage_Block_Time_Per_Hour_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Average_Block_Time_Per_Hour_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -5568,6 +5656,7 @@ export type Query_RootAverage_Block_Time_Per_Hour_AggregateArgs = {
   order_by?: InputMaybe<Array<Average_Block_Time_Per_Hour_Order_By>>;
   where?: InputMaybe<Average_Block_Time_Per_Hour_Bool_Exp>;
 };
+
 
 export type Query_RootAverage_Block_Time_Per_MinuteArgs = {
   distinct_on?: InputMaybe<Array<Average_Block_Time_Per_Minute_Select_Column>>;
@@ -5577,6 +5666,7 @@ export type Query_RootAverage_Block_Time_Per_MinuteArgs = {
   where?: InputMaybe<Average_Block_Time_Per_Minute_Bool_Exp>;
 };
 
+
 export type Query_RootAverage_Block_Time_Per_Minute_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Average_Block_Time_Per_Minute_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -5584,6 +5674,7 @@ export type Query_RootAverage_Block_Time_Per_Minute_AggregateArgs = {
   order_by?: InputMaybe<Array<Average_Block_Time_Per_Minute_Order_By>>;
   where?: InputMaybe<Average_Block_Time_Per_Minute_Bool_Exp>;
 };
+
 
 export type Query_RootBlockArgs = {
   distinct_on?: InputMaybe<Array<Block_Select_Column>>;
@@ -5593,6 +5684,7 @@ export type Query_RootBlockArgs = {
   where?: InputMaybe<Block_Bool_Exp>;
 };
 
+
 export type Query_RootBlock_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Block_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -5601,9 +5693,11 @@ export type Query_RootBlock_AggregateArgs = {
   where?: InputMaybe<Block_Bool_Exp>;
 };
 
+
 export type Query_RootBlock_By_PkArgs = {
   height: Scalars['bigint'];
 };
+
 
 export type Query_RootCommunity_PoolArgs = {
   distinct_on?: InputMaybe<Array<Community_Pool_Select_Column>>;
@@ -5613,6 +5707,7 @@ export type Query_RootCommunity_PoolArgs = {
   where?: InputMaybe<Community_Pool_Bool_Exp>;
 };
 
+
 export type Query_RootCommunity_Pool_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Community_Pool_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -5620,6 +5715,7 @@ export type Query_RootCommunity_Pool_AggregateArgs = {
   order_by?: InputMaybe<Array<Community_Pool_Order_By>>;
   where?: InputMaybe<Community_Pool_Bool_Exp>;
 };
+
 
 export type Query_RootDistribution_ParamsArgs = {
   distinct_on?: InputMaybe<Array<Distribution_Params_Select_Column>>;
@@ -5629,6 +5725,7 @@ export type Query_RootDistribution_ParamsArgs = {
   where?: InputMaybe<Distribution_Params_Bool_Exp>;
 };
 
+
 export type Query_RootDistribution_Params_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Distribution_Params_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -5637,9 +5734,11 @@ export type Query_RootDistribution_Params_AggregateArgs = {
   where?: InputMaybe<Distribution_Params_Bool_Exp>;
 };
 
+
 export type Query_RootDistribution_Params_By_PkArgs = {
   one_row_id: Scalars['Boolean'];
 };
+
 
 export type Query_RootDouble_Sign_EvidenceArgs = {
   distinct_on?: InputMaybe<Array<Double_Sign_Evidence_Select_Column>>;
@@ -5649,6 +5748,7 @@ export type Query_RootDouble_Sign_EvidenceArgs = {
   where?: InputMaybe<Double_Sign_Evidence_Bool_Exp>;
 };
 
+
 export type Query_RootDouble_Sign_Evidence_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Double_Sign_Evidence_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -5656,6 +5756,7 @@ export type Query_RootDouble_Sign_Evidence_AggregateArgs = {
   order_by?: InputMaybe<Array<Double_Sign_Evidence_Order_By>>;
   where?: InputMaybe<Double_Sign_Evidence_Bool_Exp>;
 };
+
 
 export type Query_RootDouble_Sign_VoteArgs = {
   distinct_on?: InputMaybe<Array<Double_Sign_Vote_Select_Column>>;
@@ -5665,6 +5766,7 @@ export type Query_RootDouble_Sign_VoteArgs = {
   where?: InputMaybe<Double_Sign_Vote_Bool_Exp>;
 };
 
+
 export type Query_RootDouble_Sign_Vote_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Double_Sign_Vote_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -5673,9 +5775,11 @@ export type Query_RootDouble_Sign_Vote_AggregateArgs = {
   where?: InputMaybe<Double_Sign_Vote_Bool_Exp>;
 };
 
+
 export type Query_RootDouble_Sign_Vote_By_PkArgs = {
   id: Scalars['Int'];
 };
+
 
 export type Query_RootEvmos_Inflation_DataArgs = {
   distinct_on?: InputMaybe<Array<Evmos_Inflation_Data_Select_Column>>;
@@ -5685,6 +5789,7 @@ export type Query_RootEvmos_Inflation_DataArgs = {
   where?: InputMaybe<Evmos_Inflation_Data_Bool_Exp>;
 };
 
+
 export type Query_RootEvmos_Inflation_Data_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Evmos_Inflation_Data_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -5693,9 +5798,11 @@ export type Query_RootEvmos_Inflation_Data_AggregateArgs = {
   where?: InputMaybe<Evmos_Inflation_Data_Bool_Exp>;
 };
 
+
 export type Query_RootEvmos_Inflation_Data_By_PkArgs = {
   one_row_id: Scalars['Boolean'];
 };
+
 
 export type Query_RootEvmos_Inflation_ParamsArgs = {
   distinct_on?: InputMaybe<Array<Evmos_Inflation_Params_Select_Column>>;
@@ -5705,6 +5812,7 @@ export type Query_RootEvmos_Inflation_ParamsArgs = {
   where?: InputMaybe<Evmos_Inflation_Params_Bool_Exp>;
 };
 
+
 export type Query_RootEvmos_Inflation_Params_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Evmos_Inflation_Params_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -5713,9 +5821,11 @@ export type Query_RootEvmos_Inflation_Params_AggregateArgs = {
   where?: InputMaybe<Evmos_Inflation_Params_Bool_Exp>;
 };
 
+
 export type Query_RootEvmos_Inflation_Params_By_PkArgs = {
   one_row_id: Scalars['Boolean'];
 };
+
 
 export type Query_RootFee_Grant_AllowanceArgs = {
   distinct_on?: InputMaybe<Array<Fee_Grant_Allowance_Select_Column>>;
@@ -5725,6 +5835,7 @@ export type Query_RootFee_Grant_AllowanceArgs = {
   where?: InputMaybe<Fee_Grant_Allowance_Bool_Exp>;
 };
 
+
 export type Query_RootFee_Grant_Allowance_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Fee_Grant_Allowance_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -5733,9 +5844,11 @@ export type Query_RootFee_Grant_Allowance_AggregateArgs = {
   where?: InputMaybe<Fee_Grant_Allowance_Bool_Exp>;
 };
 
+
 export type Query_RootFee_Grant_Allowance_By_PkArgs = {
   id: Scalars['Int'];
 };
+
 
 export type Query_RootGenesisArgs = {
   distinct_on?: InputMaybe<Array<Genesis_Select_Column>>;
@@ -5745,6 +5858,7 @@ export type Query_RootGenesisArgs = {
   where?: InputMaybe<Genesis_Bool_Exp>;
 };
 
+
 export type Query_RootGenesis_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Genesis_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -5752,6 +5866,7 @@ export type Query_RootGenesis_AggregateArgs = {
   order_by?: InputMaybe<Array<Genesis_Order_By>>;
   where?: InputMaybe<Genesis_Bool_Exp>;
 };
+
 
 export type Query_RootGov_ParamsArgs = {
   distinct_on?: InputMaybe<Array<Gov_Params_Select_Column>>;
@@ -5761,6 +5876,7 @@ export type Query_RootGov_ParamsArgs = {
   where?: InputMaybe<Gov_Params_Bool_Exp>;
 };
 
+
 export type Query_RootGov_Params_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Gov_Params_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -5769,9 +5885,11 @@ export type Query_RootGov_Params_AggregateArgs = {
   where?: InputMaybe<Gov_Params_Bool_Exp>;
 };
 
+
 export type Query_RootGov_Params_By_PkArgs = {
   one_row_id: Scalars['Boolean'];
 };
+
 
 export type Query_RootInflationArgs = {
   distinct_on?: InputMaybe<Array<Inflation_Select_Column>>;
@@ -5781,6 +5899,7 @@ export type Query_RootInflationArgs = {
   where?: InputMaybe<Inflation_Bool_Exp>;
 };
 
+
 export type Query_RootInflation_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Inflation_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -5788,6 +5907,7 @@ export type Query_RootInflation_AggregateArgs = {
   order_by?: InputMaybe<Array<Inflation_Order_By>>;
   where?: InputMaybe<Inflation_Bool_Exp>;
 };
+
 
 export type Query_RootMessageArgs = {
   distinct_on?: InputMaybe<Array<Message_Select_Column>>;
@@ -5797,6 +5917,7 @@ export type Query_RootMessageArgs = {
   where?: InputMaybe<Message_Bool_Exp>;
 };
 
+
 export type Query_RootMessage_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Message_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -5804,6 +5925,7 @@ export type Query_RootMessage_AggregateArgs = {
   order_by?: InputMaybe<Array<Message_Order_By>>;
   where?: InputMaybe<Message_Bool_Exp>;
 };
+
 
 export type Query_RootMessages_By_AddressArgs = {
   args: Messages_By_Address_Args;
@@ -5814,6 +5936,7 @@ export type Query_RootMessages_By_AddressArgs = {
   where?: InputMaybe<Message_Bool_Exp>;
 };
 
+
 export type Query_RootMessages_By_Address_AggregateArgs = {
   args: Messages_By_Address_Args;
   distinct_on?: InputMaybe<Array<Message_Select_Column>>;
@@ -5823,6 +5946,7 @@ export type Query_RootMessages_By_Address_AggregateArgs = {
   where?: InputMaybe<Message_Bool_Exp>;
 };
 
+
 export type Query_RootMint_ParamsArgs = {
   distinct_on?: InputMaybe<Array<Mint_Params_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -5830,6 +5954,7 @@ export type Query_RootMint_ParamsArgs = {
   order_by?: InputMaybe<Array<Mint_Params_Order_By>>;
   where?: InputMaybe<Mint_Params_Bool_Exp>;
 };
+
 
 export type Query_RootMint_Params_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Mint_Params_Select_Column>>;
@@ -5839,9 +5964,11 @@ export type Query_RootMint_Params_AggregateArgs = {
   where?: InputMaybe<Mint_Params_Bool_Exp>;
 };
 
+
 export type Query_RootMint_Params_By_PkArgs = {
   one_row_id: Scalars['Boolean'];
 };
+
 
 export type Query_RootModulesArgs = {
   distinct_on?: InputMaybe<Array<Modules_Select_Column>>;
@@ -5851,6 +5978,7 @@ export type Query_RootModulesArgs = {
   where?: InputMaybe<Modules_Bool_Exp>;
 };
 
+
 export type Query_RootModules_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Modules_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -5859,9 +5987,11 @@ export type Query_RootModules_AggregateArgs = {
   where?: InputMaybe<Modules_Bool_Exp>;
 };
 
+
 export type Query_RootModules_By_PkArgs = {
   module_name: Scalars['String'];
 };
+
 
 export type Query_RootPre_CommitArgs = {
   distinct_on?: InputMaybe<Array<Pre_Commit_Select_Column>>;
@@ -5871,6 +6001,7 @@ export type Query_RootPre_CommitArgs = {
   where?: InputMaybe<Pre_Commit_Bool_Exp>;
 };
 
+
 export type Query_RootPre_Commit_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Pre_Commit_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -5878,6 +6009,7 @@ export type Query_RootPre_Commit_AggregateArgs = {
   order_by?: InputMaybe<Array<Pre_Commit_Order_By>>;
   where?: InputMaybe<Pre_Commit_Bool_Exp>;
 };
+
 
 export type Query_RootProposalArgs = {
   distinct_on?: InputMaybe<Array<Proposal_Select_Column>>;
@@ -5887,6 +6019,7 @@ export type Query_RootProposalArgs = {
   where?: InputMaybe<Proposal_Bool_Exp>;
 };
 
+
 export type Query_RootProposal_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Proposal_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -5895,9 +6028,11 @@ export type Query_RootProposal_AggregateArgs = {
   where?: InputMaybe<Proposal_Bool_Exp>;
 };
 
+
 export type Query_RootProposal_By_PkArgs = {
   id: Scalars['Int'];
 };
+
 
 export type Query_RootProposal_DepositArgs = {
   distinct_on?: InputMaybe<Array<Proposal_Deposit_Select_Column>>;
@@ -5907,6 +6042,7 @@ export type Query_RootProposal_DepositArgs = {
   where?: InputMaybe<Proposal_Deposit_Bool_Exp>;
 };
 
+
 export type Query_RootProposal_Deposit_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Proposal_Deposit_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -5914,6 +6050,7 @@ export type Query_RootProposal_Deposit_AggregateArgs = {
   order_by?: InputMaybe<Array<Proposal_Deposit_Order_By>>;
   where?: InputMaybe<Proposal_Deposit_Bool_Exp>;
 };
+
 
 export type Query_RootProposal_Staking_Pool_SnapshotArgs = {
   distinct_on?: InputMaybe<Array<Proposal_Staking_Pool_Snapshot_Select_Column>>;
@@ -5923,6 +6060,7 @@ export type Query_RootProposal_Staking_Pool_SnapshotArgs = {
   where?: InputMaybe<Proposal_Staking_Pool_Snapshot_Bool_Exp>;
 };
 
+
 export type Query_RootProposal_Staking_Pool_Snapshot_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Proposal_Staking_Pool_Snapshot_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -5931,9 +6069,11 @@ export type Query_RootProposal_Staking_Pool_Snapshot_AggregateArgs = {
   where?: InputMaybe<Proposal_Staking_Pool_Snapshot_Bool_Exp>;
 };
 
+
 export type Query_RootProposal_Staking_Pool_Snapshot_By_PkArgs = {
   proposal_id: Scalars['Int'];
 };
+
 
 export type Query_RootProposal_Tally_ResultArgs = {
   distinct_on?: InputMaybe<Array<Proposal_Tally_Result_Select_Column>>;
@@ -5943,6 +6083,7 @@ export type Query_RootProposal_Tally_ResultArgs = {
   where?: InputMaybe<Proposal_Tally_Result_Bool_Exp>;
 };
 
+
 export type Query_RootProposal_Tally_Result_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Proposal_Tally_Result_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -5951,9 +6092,11 @@ export type Query_RootProposal_Tally_Result_AggregateArgs = {
   where?: InputMaybe<Proposal_Tally_Result_Bool_Exp>;
 };
 
+
 export type Query_RootProposal_Tally_Result_By_PkArgs = {
   proposal_id: Scalars['Int'];
 };
+
 
 export type Query_RootProposal_Validator_Status_SnapshotArgs = {
   distinct_on?: InputMaybe<Array<Proposal_Validator_Status_Snapshot_Select_Column>>;
@@ -5963,6 +6106,7 @@ export type Query_RootProposal_Validator_Status_SnapshotArgs = {
   where?: InputMaybe<Proposal_Validator_Status_Snapshot_Bool_Exp>;
 };
 
+
 export type Query_RootProposal_Validator_Status_Snapshot_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Proposal_Validator_Status_Snapshot_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -5971,9 +6115,11 @@ export type Query_RootProposal_Validator_Status_Snapshot_AggregateArgs = {
   where?: InputMaybe<Proposal_Validator_Status_Snapshot_Bool_Exp>;
 };
 
+
 export type Query_RootProposal_Validator_Status_Snapshot_By_PkArgs = {
   id: Scalars['Int'];
 };
+
 
 export type Query_RootProposal_VoteArgs = {
   distinct_on?: InputMaybe<Array<Proposal_Vote_Select_Column>>;
@@ -5983,6 +6129,7 @@ export type Query_RootProposal_VoteArgs = {
   where?: InputMaybe<Proposal_Vote_Bool_Exp>;
 };
 
+
 export type Query_RootProposal_Vote_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Proposal_Vote_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -5990,6 +6137,7 @@ export type Query_RootProposal_Vote_AggregateArgs = {
   order_by?: InputMaybe<Array<Proposal_Vote_Order_By>>;
   where?: InputMaybe<Proposal_Vote_Bool_Exp>;
 };
+
 
 export type Query_RootSlashing_ParamsArgs = {
   distinct_on?: InputMaybe<Array<Slashing_Params_Select_Column>>;
@@ -5999,6 +6147,7 @@ export type Query_RootSlashing_ParamsArgs = {
   where?: InputMaybe<Slashing_Params_Bool_Exp>;
 };
 
+
 export type Query_RootSlashing_Params_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Slashing_Params_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -6007,9 +6156,11 @@ export type Query_RootSlashing_Params_AggregateArgs = {
   where?: InputMaybe<Slashing_Params_Bool_Exp>;
 };
 
+
 export type Query_RootSlashing_Params_By_PkArgs = {
   one_row_id: Scalars['Boolean'];
 };
+
 
 export type Query_RootStaking_ParamsArgs = {
   distinct_on?: InputMaybe<Array<Staking_Params_Select_Column>>;
@@ -6019,6 +6170,7 @@ export type Query_RootStaking_ParamsArgs = {
   where?: InputMaybe<Staking_Params_Bool_Exp>;
 };
 
+
 export type Query_RootStaking_Params_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Staking_Params_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -6027,9 +6179,11 @@ export type Query_RootStaking_Params_AggregateArgs = {
   where?: InputMaybe<Staking_Params_Bool_Exp>;
 };
 
+
 export type Query_RootStaking_Params_By_PkArgs = {
   one_row_id: Scalars['Boolean'];
 };
+
 
 export type Query_RootStaking_PoolArgs = {
   distinct_on?: InputMaybe<Array<Staking_Pool_Select_Column>>;
@@ -6039,6 +6193,7 @@ export type Query_RootStaking_PoolArgs = {
   where?: InputMaybe<Staking_Pool_Bool_Exp>;
 };
 
+
 export type Query_RootStaking_Pool_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Staking_Pool_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -6046,6 +6201,7 @@ export type Query_RootStaking_Pool_AggregateArgs = {
   order_by?: InputMaybe<Array<Staking_Pool_Order_By>>;
   where?: InputMaybe<Staking_Pool_Bool_Exp>;
 };
+
 
 export type Query_RootSupplyArgs = {
   distinct_on?: InputMaybe<Array<Supply_Select_Column>>;
@@ -6055,6 +6211,7 @@ export type Query_RootSupplyArgs = {
   where?: InputMaybe<Supply_Bool_Exp>;
 };
 
+
 export type Query_RootSupply_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Supply_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -6062,6 +6219,7 @@ export type Query_RootSupply_AggregateArgs = {
   order_by?: InputMaybe<Array<Supply_Order_By>>;
   where?: InputMaybe<Supply_Bool_Exp>;
 };
+
 
 export type Query_RootTokenArgs = {
   distinct_on?: InputMaybe<Array<Token_Select_Column>>;
@@ -6071,6 +6229,7 @@ export type Query_RootTokenArgs = {
   where?: InputMaybe<Token_Bool_Exp>;
 };
 
+
 export type Query_RootToken_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Token_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -6078,6 +6237,7 @@ export type Query_RootToken_AggregateArgs = {
   order_by?: InputMaybe<Array<Token_Order_By>>;
   where?: InputMaybe<Token_Bool_Exp>;
 };
+
 
 export type Query_RootToken_PriceArgs = {
   distinct_on?: InputMaybe<Array<Token_Price_Select_Column>>;
@@ -6087,6 +6247,7 @@ export type Query_RootToken_PriceArgs = {
   where?: InputMaybe<Token_Price_Bool_Exp>;
 };
 
+
 export type Query_RootToken_Price_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Token_Price_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -6095,9 +6256,11 @@ export type Query_RootToken_Price_AggregateArgs = {
   where?: InputMaybe<Token_Price_Bool_Exp>;
 };
 
+
 export type Query_RootToken_Price_By_PkArgs = {
   id: Scalars['Int'];
 };
+
 
 export type Query_RootToken_Price_HistoryArgs = {
   distinct_on?: InputMaybe<Array<Token_Price_History_Select_Column>>;
@@ -6107,6 +6270,7 @@ export type Query_RootToken_Price_HistoryArgs = {
   where?: InputMaybe<Token_Price_History_Bool_Exp>;
 };
 
+
 export type Query_RootToken_Price_History_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Token_Price_History_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -6114,6 +6278,7 @@ export type Query_RootToken_Price_History_AggregateArgs = {
   order_by?: InputMaybe<Array<Token_Price_History_Order_By>>;
   where?: InputMaybe<Token_Price_History_Bool_Exp>;
 };
+
 
 export type Query_RootToken_UnitArgs = {
   distinct_on?: InputMaybe<Array<Token_Unit_Select_Column>>;
@@ -6123,6 +6288,7 @@ export type Query_RootToken_UnitArgs = {
   where?: InputMaybe<Token_Unit_Bool_Exp>;
 };
 
+
 export type Query_RootToken_Unit_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Token_Unit_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -6130,6 +6296,7 @@ export type Query_RootToken_Unit_AggregateArgs = {
   order_by?: InputMaybe<Array<Token_Unit_Order_By>>;
   where?: InputMaybe<Token_Unit_Bool_Exp>;
 };
+
 
 export type Query_RootTransactionArgs = {
   distinct_on?: InputMaybe<Array<Transaction_Select_Column>>;
@@ -6139,6 +6306,7 @@ export type Query_RootTransactionArgs = {
   where?: InputMaybe<Transaction_Bool_Exp>;
 };
 
+
 export type Query_RootTransaction_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Transaction_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -6146,6 +6314,7 @@ export type Query_RootTransaction_AggregateArgs = {
   order_by?: InputMaybe<Array<Transaction_Order_By>>;
   where?: InputMaybe<Transaction_Bool_Exp>;
 };
+
 
 export type Query_RootValidatorArgs = {
   distinct_on?: InputMaybe<Array<Validator_Select_Column>>;
@@ -6155,6 +6324,7 @@ export type Query_RootValidatorArgs = {
   where?: InputMaybe<Validator_Bool_Exp>;
 };
 
+
 export type Query_RootValidator_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Validator_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -6163,9 +6333,11 @@ export type Query_RootValidator_AggregateArgs = {
   where?: InputMaybe<Validator_Bool_Exp>;
 };
 
+
 export type Query_RootValidator_By_PkArgs = {
   consensus_address: Scalars['String'];
 };
+
 
 export type Query_RootValidator_CommissionArgs = {
   distinct_on?: InputMaybe<Array<Validator_Commission_Select_Column>>;
@@ -6175,6 +6347,7 @@ export type Query_RootValidator_CommissionArgs = {
   where?: InputMaybe<Validator_Commission_Bool_Exp>;
 };
 
+
 export type Query_RootValidator_Commission_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Validator_Commission_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -6183,9 +6356,11 @@ export type Query_RootValidator_Commission_AggregateArgs = {
   where?: InputMaybe<Validator_Commission_Bool_Exp>;
 };
 
+
 export type Query_RootValidator_Commission_By_PkArgs = {
   validator_address: Scalars['String'];
 };
+
 
 export type Query_RootValidator_DescriptionArgs = {
   distinct_on?: InputMaybe<Array<Validator_Description_Select_Column>>;
@@ -6195,6 +6370,7 @@ export type Query_RootValidator_DescriptionArgs = {
   where?: InputMaybe<Validator_Description_Bool_Exp>;
 };
 
+
 export type Query_RootValidator_Description_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Validator_Description_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -6203,9 +6379,11 @@ export type Query_RootValidator_Description_AggregateArgs = {
   where?: InputMaybe<Validator_Description_Bool_Exp>;
 };
 
+
 export type Query_RootValidator_Description_By_PkArgs = {
   validator_address: Scalars['String'];
 };
+
 
 export type Query_RootValidator_InfoArgs = {
   distinct_on?: InputMaybe<Array<Validator_Info_Select_Column>>;
@@ -6215,6 +6393,7 @@ export type Query_RootValidator_InfoArgs = {
   where?: InputMaybe<Validator_Info_Bool_Exp>;
 };
 
+
 export type Query_RootValidator_Info_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Validator_Info_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -6223,9 +6402,11 @@ export type Query_RootValidator_Info_AggregateArgs = {
   where?: InputMaybe<Validator_Info_Bool_Exp>;
 };
 
+
 export type Query_RootValidator_Info_By_PkArgs = {
   consensus_address: Scalars['String'];
 };
+
 
 export type Query_RootValidator_Signing_InfoArgs = {
   distinct_on?: InputMaybe<Array<Validator_Signing_Info_Select_Column>>;
@@ -6235,6 +6416,7 @@ export type Query_RootValidator_Signing_InfoArgs = {
   where?: InputMaybe<Validator_Signing_Info_Bool_Exp>;
 };
 
+
 export type Query_RootValidator_Signing_Info_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Validator_Signing_Info_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -6243,9 +6425,11 @@ export type Query_RootValidator_Signing_Info_AggregateArgs = {
   where?: InputMaybe<Validator_Signing_Info_Bool_Exp>;
 };
 
+
 export type Query_RootValidator_Signing_Info_By_PkArgs = {
   validator_address: Scalars['String'];
 };
+
 
 export type Query_RootValidator_StatusArgs = {
   distinct_on?: InputMaybe<Array<Validator_Status_Select_Column>>;
@@ -6255,6 +6439,7 @@ export type Query_RootValidator_StatusArgs = {
   where?: InputMaybe<Validator_Status_Bool_Exp>;
 };
 
+
 export type Query_RootValidator_Status_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Validator_Status_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -6263,9 +6448,11 @@ export type Query_RootValidator_Status_AggregateArgs = {
   where?: InputMaybe<Validator_Status_Bool_Exp>;
 };
 
+
 export type Query_RootValidator_Status_By_PkArgs = {
   validator_address: Scalars['String'];
 };
+
 
 export type Query_RootValidator_Voting_PowerArgs = {
   distinct_on?: InputMaybe<Array<Validator_Voting_Power_Select_Column>>;
@@ -6275,6 +6462,7 @@ export type Query_RootValidator_Voting_PowerArgs = {
   where?: InputMaybe<Validator_Voting_Power_Bool_Exp>;
 };
 
+
 export type Query_RootValidator_Voting_Power_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Validator_Voting_Power_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -6283,9 +6471,11 @@ export type Query_RootValidator_Voting_Power_AggregateArgs = {
   where?: InputMaybe<Validator_Voting_Power_Bool_Exp>;
 };
 
+
 export type Query_RootValidator_Voting_Power_By_PkArgs = {
   validator_address: Scalars['String'];
 };
+
 
 export type Query_RootVesting_AccountArgs = {
   distinct_on?: InputMaybe<Array<Vesting_Account_Select_Column>>;
@@ -6295,6 +6485,7 @@ export type Query_RootVesting_AccountArgs = {
   where?: InputMaybe<Vesting_Account_Bool_Exp>;
 };
 
+
 export type Query_RootVesting_Account_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Vesting_Account_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -6303,9 +6494,11 @@ export type Query_RootVesting_Account_AggregateArgs = {
   where?: InputMaybe<Vesting_Account_Bool_Exp>;
 };
 
+
 export type Query_RootVesting_Account_By_PkArgs = {
   id: Scalars['Int'];
 };
+
 
 export type Query_RootVesting_PeriodArgs = {
   distinct_on?: InputMaybe<Array<Vesting_Period_Select_Column>>;
@@ -6314,6 +6507,7 @@ export type Query_RootVesting_PeriodArgs = {
   order_by?: InputMaybe<Array<Vesting_Period_Order_By>>;
   where?: InputMaybe<Vesting_Period_Bool_Exp>;
 };
+
 
 export type Query_RootVesting_Period_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Vesting_Period_Select_Column>>;
@@ -6330,6 +6524,7 @@ export type Slashing_Params = {
   one_row_id: Scalars['Boolean'];
   params: Scalars['jsonb'];
 };
+
 
 /** columns and relationships of "slashing_params" */
 export type Slashing_ParamsParamsArgs = {
@@ -6358,6 +6553,7 @@ export type Slashing_Params_Aggregate_Fields = {
   var_samp?: Maybe<Slashing_Params_Var_Samp_Fields>;
   variance?: Maybe<Slashing_Params_Variance_Fields>;
 };
+
 
 /** aggregate fields of "slashing_params" */
 export type Slashing_Params_Aggregate_FieldsCountArgs = {
@@ -6407,7 +6603,7 @@ export enum Slashing_Params_Select_Column {
   /** column name */
   OneRowId = 'one_row_id',
   /** column name */
-  Params = 'params',
+  Params = 'params'
 }
 
 /** aggregate stddev on columns */
@@ -6473,6 +6669,7 @@ export type Staking_Params = {
   params: Scalars['jsonb'];
 };
 
+
 /** columns and relationships of "staking_params" */
 export type Staking_ParamsParamsArgs = {
   path?: InputMaybe<Scalars['String']>;
@@ -6500,6 +6697,7 @@ export type Staking_Params_Aggregate_Fields = {
   var_samp?: Maybe<Staking_Params_Var_Samp_Fields>;
   variance?: Maybe<Staking_Params_Variance_Fields>;
 };
+
 
 /** aggregate fields of "staking_params" */
 export type Staking_Params_Aggregate_FieldsCountArgs = {
@@ -6549,7 +6747,7 @@ export enum Staking_Params_Select_Column {
   /** column name */
   OneRowId = 'one_row_id',
   /** column name */
-  Params = 'params',
+  Params = 'params'
 }
 
 /** aggregate stddev on columns */
@@ -6625,6 +6823,7 @@ export type Staking_Pool_Aggregate_Fields = {
   variance?: Maybe<Staking_Pool_Variance_Fields>;
 };
 
+
 /** aggregate fields of "staking_pool" */
 export type Staking_Pool_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Staking_Pool_Select_Column>>;
@@ -6677,7 +6876,7 @@ export enum Staking_Pool_Select_Column {
   /** column name */
   Height = 'height',
   /** column name */
-  NotBondedTokens = 'not_bonded_tokens',
+  NotBondedTokens = 'not_bonded_tokens'
 }
 
 /** aggregate stddev on columns */
@@ -6956,6 +7155,7 @@ export type Subscription_Root = {
   vesting_period_aggregate: Vesting_Period_Aggregate;
 };
 
+
 export type Subscription_RootAccountArgs = {
   distinct_on?: InputMaybe<Array<Account_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -6963,6 +7163,7 @@ export type Subscription_RootAccountArgs = {
   order_by?: InputMaybe<Array<Account_Order_By>>;
   where?: InputMaybe<Account_Bool_Exp>;
 };
+
 
 export type Subscription_RootAccount_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Account_Select_Column>>;
@@ -6972,9 +7173,11 @@ export type Subscription_RootAccount_AggregateArgs = {
   where?: InputMaybe<Account_Bool_Exp>;
 };
 
+
 export type Subscription_RootAccount_By_PkArgs = {
   address: Scalars['String'];
 };
+
 
 export type Subscription_RootAverage_Block_Time_From_GenesisArgs = {
   distinct_on?: InputMaybe<Array<Average_Block_Time_From_Genesis_Select_Column>>;
@@ -6984,6 +7187,7 @@ export type Subscription_RootAverage_Block_Time_From_GenesisArgs = {
   where?: InputMaybe<Average_Block_Time_From_Genesis_Bool_Exp>;
 };
 
+
 export type Subscription_RootAverage_Block_Time_From_Genesis_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Average_Block_Time_From_Genesis_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -6991,6 +7195,7 @@ export type Subscription_RootAverage_Block_Time_From_Genesis_AggregateArgs = {
   order_by?: InputMaybe<Array<Average_Block_Time_From_Genesis_Order_By>>;
   where?: InputMaybe<Average_Block_Time_From_Genesis_Bool_Exp>;
 };
+
 
 export type Subscription_RootAverage_Block_Time_Per_DayArgs = {
   distinct_on?: InputMaybe<Array<Average_Block_Time_Per_Day_Select_Column>>;
@@ -7000,6 +7205,7 @@ export type Subscription_RootAverage_Block_Time_Per_DayArgs = {
   where?: InputMaybe<Average_Block_Time_Per_Day_Bool_Exp>;
 };
 
+
 export type Subscription_RootAverage_Block_Time_Per_Day_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Average_Block_Time_Per_Day_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7007,6 +7213,7 @@ export type Subscription_RootAverage_Block_Time_Per_Day_AggregateArgs = {
   order_by?: InputMaybe<Array<Average_Block_Time_Per_Day_Order_By>>;
   where?: InputMaybe<Average_Block_Time_Per_Day_Bool_Exp>;
 };
+
 
 export type Subscription_RootAverage_Block_Time_Per_HourArgs = {
   distinct_on?: InputMaybe<Array<Average_Block_Time_Per_Hour_Select_Column>>;
@@ -7016,6 +7223,7 @@ export type Subscription_RootAverage_Block_Time_Per_HourArgs = {
   where?: InputMaybe<Average_Block_Time_Per_Hour_Bool_Exp>;
 };
 
+
 export type Subscription_RootAverage_Block_Time_Per_Hour_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Average_Block_Time_Per_Hour_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7023,6 +7231,7 @@ export type Subscription_RootAverage_Block_Time_Per_Hour_AggregateArgs = {
   order_by?: InputMaybe<Array<Average_Block_Time_Per_Hour_Order_By>>;
   where?: InputMaybe<Average_Block_Time_Per_Hour_Bool_Exp>;
 };
+
 
 export type Subscription_RootAverage_Block_Time_Per_MinuteArgs = {
   distinct_on?: InputMaybe<Array<Average_Block_Time_Per_Minute_Select_Column>>;
@@ -7032,6 +7241,7 @@ export type Subscription_RootAverage_Block_Time_Per_MinuteArgs = {
   where?: InputMaybe<Average_Block_Time_Per_Minute_Bool_Exp>;
 };
 
+
 export type Subscription_RootAverage_Block_Time_Per_Minute_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Average_Block_Time_Per_Minute_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7039,6 +7249,7 @@ export type Subscription_RootAverage_Block_Time_Per_Minute_AggregateArgs = {
   order_by?: InputMaybe<Array<Average_Block_Time_Per_Minute_Order_By>>;
   where?: InputMaybe<Average_Block_Time_Per_Minute_Bool_Exp>;
 };
+
 
 export type Subscription_RootBlockArgs = {
   distinct_on?: InputMaybe<Array<Block_Select_Column>>;
@@ -7048,6 +7259,7 @@ export type Subscription_RootBlockArgs = {
   where?: InputMaybe<Block_Bool_Exp>;
 };
 
+
 export type Subscription_RootBlock_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Block_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7056,9 +7268,11 @@ export type Subscription_RootBlock_AggregateArgs = {
   where?: InputMaybe<Block_Bool_Exp>;
 };
 
+
 export type Subscription_RootBlock_By_PkArgs = {
   height: Scalars['bigint'];
 };
+
 
 export type Subscription_RootCommunity_PoolArgs = {
   distinct_on?: InputMaybe<Array<Community_Pool_Select_Column>>;
@@ -7068,6 +7282,7 @@ export type Subscription_RootCommunity_PoolArgs = {
   where?: InputMaybe<Community_Pool_Bool_Exp>;
 };
 
+
 export type Subscription_RootCommunity_Pool_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Community_Pool_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7075,6 +7290,7 @@ export type Subscription_RootCommunity_Pool_AggregateArgs = {
   order_by?: InputMaybe<Array<Community_Pool_Order_By>>;
   where?: InputMaybe<Community_Pool_Bool_Exp>;
 };
+
 
 export type Subscription_RootDistribution_ParamsArgs = {
   distinct_on?: InputMaybe<Array<Distribution_Params_Select_Column>>;
@@ -7084,6 +7300,7 @@ export type Subscription_RootDistribution_ParamsArgs = {
   where?: InputMaybe<Distribution_Params_Bool_Exp>;
 };
 
+
 export type Subscription_RootDistribution_Params_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Distribution_Params_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7092,9 +7309,11 @@ export type Subscription_RootDistribution_Params_AggregateArgs = {
   where?: InputMaybe<Distribution_Params_Bool_Exp>;
 };
 
+
 export type Subscription_RootDistribution_Params_By_PkArgs = {
   one_row_id: Scalars['Boolean'];
 };
+
 
 export type Subscription_RootDouble_Sign_EvidenceArgs = {
   distinct_on?: InputMaybe<Array<Double_Sign_Evidence_Select_Column>>;
@@ -7104,6 +7323,7 @@ export type Subscription_RootDouble_Sign_EvidenceArgs = {
   where?: InputMaybe<Double_Sign_Evidence_Bool_Exp>;
 };
 
+
 export type Subscription_RootDouble_Sign_Evidence_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Double_Sign_Evidence_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7111,6 +7331,7 @@ export type Subscription_RootDouble_Sign_Evidence_AggregateArgs = {
   order_by?: InputMaybe<Array<Double_Sign_Evidence_Order_By>>;
   where?: InputMaybe<Double_Sign_Evidence_Bool_Exp>;
 };
+
 
 export type Subscription_RootDouble_Sign_VoteArgs = {
   distinct_on?: InputMaybe<Array<Double_Sign_Vote_Select_Column>>;
@@ -7120,6 +7341,7 @@ export type Subscription_RootDouble_Sign_VoteArgs = {
   where?: InputMaybe<Double_Sign_Vote_Bool_Exp>;
 };
 
+
 export type Subscription_RootDouble_Sign_Vote_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Double_Sign_Vote_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7128,9 +7350,11 @@ export type Subscription_RootDouble_Sign_Vote_AggregateArgs = {
   where?: InputMaybe<Double_Sign_Vote_Bool_Exp>;
 };
 
+
 export type Subscription_RootDouble_Sign_Vote_By_PkArgs = {
   id: Scalars['Int'];
 };
+
 
 export type Subscription_RootEvmos_Inflation_DataArgs = {
   distinct_on?: InputMaybe<Array<Evmos_Inflation_Data_Select_Column>>;
@@ -7140,6 +7364,7 @@ export type Subscription_RootEvmos_Inflation_DataArgs = {
   where?: InputMaybe<Evmos_Inflation_Data_Bool_Exp>;
 };
 
+
 export type Subscription_RootEvmos_Inflation_Data_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Evmos_Inflation_Data_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7148,9 +7373,11 @@ export type Subscription_RootEvmos_Inflation_Data_AggregateArgs = {
   where?: InputMaybe<Evmos_Inflation_Data_Bool_Exp>;
 };
 
+
 export type Subscription_RootEvmos_Inflation_Data_By_PkArgs = {
   one_row_id: Scalars['Boolean'];
 };
+
 
 export type Subscription_RootEvmos_Inflation_ParamsArgs = {
   distinct_on?: InputMaybe<Array<Evmos_Inflation_Params_Select_Column>>;
@@ -7160,6 +7387,7 @@ export type Subscription_RootEvmos_Inflation_ParamsArgs = {
   where?: InputMaybe<Evmos_Inflation_Params_Bool_Exp>;
 };
 
+
 export type Subscription_RootEvmos_Inflation_Params_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Evmos_Inflation_Params_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7168,9 +7396,11 @@ export type Subscription_RootEvmos_Inflation_Params_AggregateArgs = {
   where?: InputMaybe<Evmos_Inflation_Params_Bool_Exp>;
 };
 
+
 export type Subscription_RootEvmos_Inflation_Params_By_PkArgs = {
   one_row_id: Scalars['Boolean'];
 };
+
 
 export type Subscription_RootFee_Grant_AllowanceArgs = {
   distinct_on?: InputMaybe<Array<Fee_Grant_Allowance_Select_Column>>;
@@ -7180,6 +7410,7 @@ export type Subscription_RootFee_Grant_AllowanceArgs = {
   where?: InputMaybe<Fee_Grant_Allowance_Bool_Exp>;
 };
 
+
 export type Subscription_RootFee_Grant_Allowance_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Fee_Grant_Allowance_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7188,9 +7419,11 @@ export type Subscription_RootFee_Grant_Allowance_AggregateArgs = {
   where?: InputMaybe<Fee_Grant_Allowance_Bool_Exp>;
 };
 
+
 export type Subscription_RootFee_Grant_Allowance_By_PkArgs = {
   id: Scalars['Int'];
 };
+
 
 export type Subscription_RootGenesisArgs = {
   distinct_on?: InputMaybe<Array<Genesis_Select_Column>>;
@@ -7200,6 +7433,7 @@ export type Subscription_RootGenesisArgs = {
   where?: InputMaybe<Genesis_Bool_Exp>;
 };
 
+
 export type Subscription_RootGenesis_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Genesis_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7207,6 +7441,7 @@ export type Subscription_RootGenesis_AggregateArgs = {
   order_by?: InputMaybe<Array<Genesis_Order_By>>;
   where?: InputMaybe<Genesis_Bool_Exp>;
 };
+
 
 export type Subscription_RootGov_ParamsArgs = {
   distinct_on?: InputMaybe<Array<Gov_Params_Select_Column>>;
@@ -7216,6 +7451,7 @@ export type Subscription_RootGov_ParamsArgs = {
   where?: InputMaybe<Gov_Params_Bool_Exp>;
 };
 
+
 export type Subscription_RootGov_Params_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Gov_Params_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7224,9 +7460,11 @@ export type Subscription_RootGov_Params_AggregateArgs = {
   where?: InputMaybe<Gov_Params_Bool_Exp>;
 };
 
+
 export type Subscription_RootGov_Params_By_PkArgs = {
   one_row_id: Scalars['Boolean'];
 };
+
 
 export type Subscription_RootInflationArgs = {
   distinct_on?: InputMaybe<Array<Inflation_Select_Column>>;
@@ -7236,6 +7474,7 @@ export type Subscription_RootInflationArgs = {
   where?: InputMaybe<Inflation_Bool_Exp>;
 };
 
+
 export type Subscription_RootInflation_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Inflation_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7243,6 +7482,7 @@ export type Subscription_RootInflation_AggregateArgs = {
   order_by?: InputMaybe<Array<Inflation_Order_By>>;
   where?: InputMaybe<Inflation_Bool_Exp>;
 };
+
 
 export type Subscription_RootMessageArgs = {
   distinct_on?: InputMaybe<Array<Message_Select_Column>>;
@@ -7252,6 +7492,7 @@ export type Subscription_RootMessageArgs = {
   where?: InputMaybe<Message_Bool_Exp>;
 };
 
+
 export type Subscription_RootMessage_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Message_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7259,6 +7500,7 @@ export type Subscription_RootMessage_AggregateArgs = {
   order_by?: InputMaybe<Array<Message_Order_By>>;
   where?: InputMaybe<Message_Bool_Exp>;
 };
+
 
 export type Subscription_RootMessages_By_AddressArgs = {
   args: Messages_By_Address_Args;
@@ -7269,6 +7511,7 @@ export type Subscription_RootMessages_By_AddressArgs = {
   where?: InputMaybe<Message_Bool_Exp>;
 };
 
+
 export type Subscription_RootMessages_By_Address_AggregateArgs = {
   args: Messages_By_Address_Args;
   distinct_on?: InputMaybe<Array<Message_Select_Column>>;
@@ -7278,6 +7521,7 @@ export type Subscription_RootMessages_By_Address_AggregateArgs = {
   where?: InputMaybe<Message_Bool_Exp>;
 };
 
+
 export type Subscription_RootMint_ParamsArgs = {
   distinct_on?: InputMaybe<Array<Mint_Params_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7285,6 +7529,7 @@ export type Subscription_RootMint_ParamsArgs = {
   order_by?: InputMaybe<Array<Mint_Params_Order_By>>;
   where?: InputMaybe<Mint_Params_Bool_Exp>;
 };
+
 
 export type Subscription_RootMint_Params_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Mint_Params_Select_Column>>;
@@ -7294,9 +7539,11 @@ export type Subscription_RootMint_Params_AggregateArgs = {
   where?: InputMaybe<Mint_Params_Bool_Exp>;
 };
 
+
 export type Subscription_RootMint_Params_By_PkArgs = {
   one_row_id: Scalars['Boolean'];
 };
+
 
 export type Subscription_RootModulesArgs = {
   distinct_on?: InputMaybe<Array<Modules_Select_Column>>;
@@ -7306,6 +7553,7 @@ export type Subscription_RootModulesArgs = {
   where?: InputMaybe<Modules_Bool_Exp>;
 };
 
+
 export type Subscription_RootModules_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Modules_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7314,9 +7562,11 @@ export type Subscription_RootModules_AggregateArgs = {
   where?: InputMaybe<Modules_Bool_Exp>;
 };
 
+
 export type Subscription_RootModules_By_PkArgs = {
   module_name: Scalars['String'];
 };
+
 
 export type Subscription_RootPre_CommitArgs = {
   distinct_on?: InputMaybe<Array<Pre_Commit_Select_Column>>;
@@ -7326,6 +7576,7 @@ export type Subscription_RootPre_CommitArgs = {
   where?: InputMaybe<Pre_Commit_Bool_Exp>;
 };
 
+
 export type Subscription_RootPre_Commit_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Pre_Commit_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7333,6 +7584,7 @@ export type Subscription_RootPre_Commit_AggregateArgs = {
   order_by?: InputMaybe<Array<Pre_Commit_Order_By>>;
   where?: InputMaybe<Pre_Commit_Bool_Exp>;
 };
+
 
 export type Subscription_RootProposalArgs = {
   distinct_on?: InputMaybe<Array<Proposal_Select_Column>>;
@@ -7342,6 +7594,7 @@ export type Subscription_RootProposalArgs = {
   where?: InputMaybe<Proposal_Bool_Exp>;
 };
 
+
 export type Subscription_RootProposal_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Proposal_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7350,9 +7603,11 @@ export type Subscription_RootProposal_AggregateArgs = {
   where?: InputMaybe<Proposal_Bool_Exp>;
 };
 
+
 export type Subscription_RootProposal_By_PkArgs = {
   id: Scalars['Int'];
 };
+
 
 export type Subscription_RootProposal_DepositArgs = {
   distinct_on?: InputMaybe<Array<Proposal_Deposit_Select_Column>>;
@@ -7362,6 +7617,7 @@ export type Subscription_RootProposal_DepositArgs = {
   where?: InputMaybe<Proposal_Deposit_Bool_Exp>;
 };
 
+
 export type Subscription_RootProposal_Deposit_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Proposal_Deposit_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7369,6 +7625,7 @@ export type Subscription_RootProposal_Deposit_AggregateArgs = {
   order_by?: InputMaybe<Array<Proposal_Deposit_Order_By>>;
   where?: InputMaybe<Proposal_Deposit_Bool_Exp>;
 };
+
 
 export type Subscription_RootProposal_Staking_Pool_SnapshotArgs = {
   distinct_on?: InputMaybe<Array<Proposal_Staking_Pool_Snapshot_Select_Column>>;
@@ -7378,6 +7635,7 @@ export type Subscription_RootProposal_Staking_Pool_SnapshotArgs = {
   where?: InputMaybe<Proposal_Staking_Pool_Snapshot_Bool_Exp>;
 };
 
+
 export type Subscription_RootProposal_Staking_Pool_Snapshot_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Proposal_Staking_Pool_Snapshot_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7386,9 +7644,11 @@ export type Subscription_RootProposal_Staking_Pool_Snapshot_AggregateArgs = {
   where?: InputMaybe<Proposal_Staking_Pool_Snapshot_Bool_Exp>;
 };
 
+
 export type Subscription_RootProposal_Staking_Pool_Snapshot_By_PkArgs = {
   proposal_id: Scalars['Int'];
 };
+
 
 export type Subscription_RootProposal_Tally_ResultArgs = {
   distinct_on?: InputMaybe<Array<Proposal_Tally_Result_Select_Column>>;
@@ -7398,6 +7658,7 @@ export type Subscription_RootProposal_Tally_ResultArgs = {
   where?: InputMaybe<Proposal_Tally_Result_Bool_Exp>;
 };
 
+
 export type Subscription_RootProposal_Tally_Result_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Proposal_Tally_Result_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7406,9 +7667,11 @@ export type Subscription_RootProposal_Tally_Result_AggregateArgs = {
   where?: InputMaybe<Proposal_Tally_Result_Bool_Exp>;
 };
 
+
 export type Subscription_RootProposal_Tally_Result_By_PkArgs = {
   proposal_id: Scalars['Int'];
 };
+
 
 export type Subscription_RootProposal_Validator_Status_SnapshotArgs = {
   distinct_on?: InputMaybe<Array<Proposal_Validator_Status_Snapshot_Select_Column>>;
@@ -7418,6 +7681,7 @@ export type Subscription_RootProposal_Validator_Status_SnapshotArgs = {
   where?: InputMaybe<Proposal_Validator_Status_Snapshot_Bool_Exp>;
 };
 
+
 export type Subscription_RootProposal_Validator_Status_Snapshot_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Proposal_Validator_Status_Snapshot_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7426,9 +7690,11 @@ export type Subscription_RootProposal_Validator_Status_Snapshot_AggregateArgs = 
   where?: InputMaybe<Proposal_Validator_Status_Snapshot_Bool_Exp>;
 };
 
+
 export type Subscription_RootProposal_Validator_Status_Snapshot_By_PkArgs = {
   id: Scalars['Int'];
 };
+
 
 export type Subscription_RootProposal_VoteArgs = {
   distinct_on?: InputMaybe<Array<Proposal_Vote_Select_Column>>;
@@ -7438,6 +7704,7 @@ export type Subscription_RootProposal_VoteArgs = {
   where?: InputMaybe<Proposal_Vote_Bool_Exp>;
 };
 
+
 export type Subscription_RootProposal_Vote_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Proposal_Vote_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7445,6 +7712,7 @@ export type Subscription_RootProposal_Vote_AggregateArgs = {
   order_by?: InputMaybe<Array<Proposal_Vote_Order_By>>;
   where?: InputMaybe<Proposal_Vote_Bool_Exp>;
 };
+
 
 export type Subscription_RootSlashing_ParamsArgs = {
   distinct_on?: InputMaybe<Array<Slashing_Params_Select_Column>>;
@@ -7454,6 +7722,7 @@ export type Subscription_RootSlashing_ParamsArgs = {
   where?: InputMaybe<Slashing_Params_Bool_Exp>;
 };
 
+
 export type Subscription_RootSlashing_Params_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Slashing_Params_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7462,9 +7731,11 @@ export type Subscription_RootSlashing_Params_AggregateArgs = {
   where?: InputMaybe<Slashing_Params_Bool_Exp>;
 };
 
+
 export type Subscription_RootSlashing_Params_By_PkArgs = {
   one_row_id: Scalars['Boolean'];
 };
+
 
 export type Subscription_RootStaking_ParamsArgs = {
   distinct_on?: InputMaybe<Array<Staking_Params_Select_Column>>;
@@ -7474,6 +7745,7 @@ export type Subscription_RootStaking_ParamsArgs = {
   where?: InputMaybe<Staking_Params_Bool_Exp>;
 };
 
+
 export type Subscription_RootStaking_Params_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Staking_Params_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7482,9 +7754,11 @@ export type Subscription_RootStaking_Params_AggregateArgs = {
   where?: InputMaybe<Staking_Params_Bool_Exp>;
 };
 
+
 export type Subscription_RootStaking_Params_By_PkArgs = {
   one_row_id: Scalars['Boolean'];
 };
+
 
 export type Subscription_RootStaking_PoolArgs = {
   distinct_on?: InputMaybe<Array<Staking_Pool_Select_Column>>;
@@ -7494,6 +7768,7 @@ export type Subscription_RootStaking_PoolArgs = {
   where?: InputMaybe<Staking_Pool_Bool_Exp>;
 };
 
+
 export type Subscription_RootStaking_Pool_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Staking_Pool_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7501,6 +7776,7 @@ export type Subscription_RootStaking_Pool_AggregateArgs = {
   order_by?: InputMaybe<Array<Staking_Pool_Order_By>>;
   where?: InputMaybe<Staking_Pool_Bool_Exp>;
 };
+
 
 export type Subscription_RootSupplyArgs = {
   distinct_on?: InputMaybe<Array<Supply_Select_Column>>;
@@ -7510,6 +7786,7 @@ export type Subscription_RootSupplyArgs = {
   where?: InputMaybe<Supply_Bool_Exp>;
 };
 
+
 export type Subscription_RootSupply_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Supply_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7517,6 +7794,7 @@ export type Subscription_RootSupply_AggregateArgs = {
   order_by?: InputMaybe<Array<Supply_Order_By>>;
   where?: InputMaybe<Supply_Bool_Exp>;
 };
+
 
 export type Subscription_RootTokenArgs = {
   distinct_on?: InputMaybe<Array<Token_Select_Column>>;
@@ -7526,6 +7804,7 @@ export type Subscription_RootTokenArgs = {
   where?: InputMaybe<Token_Bool_Exp>;
 };
 
+
 export type Subscription_RootToken_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Token_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7533,6 +7812,7 @@ export type Subscription_RootToken_AggregateArgs = {
   order_by?: InputMaybe<Array<Token_Order_By>>;
   where?: InputMaybe<Token_Bool_Exp>;
 };
+
 
 export type Subscription_RootToken_PriceArgs = {
   distinct_on?: InputMaybe<Array<Token_Price_Select_Column>>;
@@ -7542,6 +7822,7 @@ export type Subscription_RootToken_PriceArgs = {
   where?: InputMaybe<Token_Price_Bool_Exp>;
 };
 
+
 export type Subscription_RootToken_Price_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Token_Price_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7550,9 +7831,11 @@ export type Subscription_RootToken_Price_AggregateArgs = {
   where?: InputMaybe<Token_Price_Bool_Exp>;
 };
 
+
 export type Subscription_RootToken_Price_By_PkArgs = {
   id: Scalars['Int'];
 };
+
 
 export type Subscription_RootToken_Price_HistoryArgs = {
   distinct_on?: InputMaybe<Array<Token_Price_History_Select_Column>>;
@@ -7562,6 +7845,7 @@ export type Subscription_RootToken_Price_HistoryArgs = {
   where?: InputMaybe<Token_Price_History_Bool_Exp>;
 };
 
+
 export type Subscription_RootToken_Price_History_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Token_Price_History_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7569,6 +7853,7 @@ export type Subscription_RootToken_Price_History_AggregateArgs = {
   order_by?: InputMaybe<Array<Token_Price_History_Order_By>>;
   where?: InputMaybe<Token_Price_History_Bool_Exp>;
 };
+
 
 export type Subscription_RootToken_UnitArgs = {
   distinct_on?: InputMaybe<Array<Token_Unit_Select_Column>>;
@@ -7578,6 +7863,7 @@ export type Subscription_RootToken_UnitArgs = {
   where?: InputMaybe<Token_Unit_Bool_Exp>;
 };
 
+
 export type Subscription_RootToken_Unit_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Token_Unit_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7585,6 +7871,7 @@ export type Subscription_RootToken_Unit_AggregateArgs = {
   order_by?: InputMaybe<Array<Token_Unit_Order_By>>;
   where?: InputMaybe<Token_Unit_Bool_Exp>;
 };
+
 
 export type Subscription_RootTransactionArgs = {
   distinct_on?: InputMaybe<Array<Transaction_Select_Column>>;
@@ -7594,6 +7881,7 @@ export type Subscription_RootTransactionArgs = {
   where?: InputMaybe<Transaction_Bool_Exp>;
 };
 
+
 export type Subscription_RootTransaction_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Transaction_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7601,6 +7889,7 @@ export type Subscription_RootTransaction_AggregateArgs = {
   order_by?: InputMaybe<Array<Transaction_Order_By>>;
   where?: InputMaybe<Transaction_Bool_Exp>;
 };
+
 
 export type Subscription_RootValidatorArgs = {
   distinct_on?: InputMaybe<Array<Validator_Select_Column>>;
@@ -7610,6 +7899,7 @@ export type Subscription_RootValidatorArgs = {
   where?: InputMaybe<Validator_Bool_Exp>;
 };
 
+
 export type Subscription_RootValidator_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Validator_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7618,9 +7908,11 @@ export type Subscription_RootValidator_AggregateArgs = {
   where?: InputMaybe<Validator_Bool_Exp>;
 };
 
+
 export type Subscription_RootValidator_By_PkArgs = {
   consensus_address: Scalars['String'];
 };
+
 
 export type Subscription_RootValidator_CommissionArgs = {
   distinct_on?: InputMaybe<Array<Validator_Commission_Select_Column>>;
@@ -7630,6 +7922,7 @@ export type Subscription_RootValidator_CommissionArgs = {
   where?: InputMaybe<Validator_Commission_Bool_Exp>;
 };
 
+
 export type Subscription_RootValidator_Commission_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Validator_Commission_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7638,9 +7931,11 @@ export type Subscription_RootValidator_Commission_AggregateArgs = {
   where?: InputMaybe<Validator_Commission_Bool_Exp>;
 };
 
+
 export type Subscription_RootValidator_Commission_By_PkArgs = {
   validator_address: Scalars['String'];
 };
+
 
 export type Subscription_RootValidator_DescriptionArgs = {
   distinct_on?: InputMaybe<Array<Validator_Description_Select_Column>>;
@@ -7650,6 +7945,7 @@ export type Subscription_RootValidator_DescriptionArgs = {
   where?: InputMaybe<Validator_Description_Bool_Exp>;
 };
 
+
 export type Subscription_RootValidator_Description_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Validator_Description_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7658,9 +7954,11 @@ export type Subscription_RootValidator_Description_AggregateArgs = {
   where?: InputMaybe<Validator_Description_Bool_Exp>;
 };
 
+
 export type Subscription_RootValidator_Description_By_PkArgs = {
   validator_address: Scalars['String'];
 };
+
 
 export type Subscription_RootValidator_InfoArgs = {
   distinct_on?: InputMaybe<Array<Validator_Info_Select_Column>>;
@@ -7670,6 +7968,7 @@ export type Subscription_RootValidator_InfoArgs = {
   where?: InputMaybe<Validator_Info_Bool_Exp>;
 };
 
+
 export type Subscription_RootValidator_Info_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Validator_Info_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7678,9 +7977,11 @@ export type Subscription_RootValidator_Info_AggregateArgs = {
   where?: InputMaybe<Validator_Info_Bool_Exp>;
 };
 
+
 export type Subscription_RootValidator_Info_By_PkArgs = {
   consensus_address: Scalars['String'];
 };
+
 
 export type Subscription_RootValidator_Signing_InfoArgs = {
   distinct_on?: InputMaybe<Array<Validator_Signing_Info_Select_Column>>;
@@ -7690,6 +7991,7 @@ export type Subscription_RootValidator_Signing_InfoArgs = {
   where?: InputMaybe<Validator_Signing_Info_Bool_Exp>;
 };
 
+
 export type Subscription_RootValidator_Signing_Info_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Validator_Signing_Info_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7698,9 +8000,11 @@ export type Subscription_RootValidator_Signing_Info_AggregateArgs = {
   where?: InputMaybe<Validator_Signing_Info_Bool_Exp>;
 };
 
+
 export type Subscription_RootValidator_Signing_Info_By_PkArgs = {
   validator_address: Scalars['String'];
 };
+
 
 export type Subscription_RootValidator_StatusArgs = {
   distinct_on?: InputMaybe<Array<Validator_Status_Select_Column>>;
@@ -7710,6 +8014,7 @@ export type Subscription_RootValidator_StatusArgs = {
   where?: InputMaybe<Validator_Status_Bool_Exp>;
 };
 
+
 export type Subscription_RootValidator_Status_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Validator_Status_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7718,9 +8023,11 @@ export type Subscription_RootValidator_Status_AggregateArgs = {
   where?: InputMaybe<Validator_Status_Bool_Exp>;
 };
 
+
 export type Subscription_RootValidator_Status_By_PkArgs = {
   validator_address: Scalars['String'];
 };
+
 
 export type Subscription_RootValidator_Voting_PowerArgs = {
   distinct_on?: InputMaybe<Array<Validator_Voting_Power_Select_Column>>;
@@ -7730,6 +8037,7 @@ export type Subscription_RootValidator_Voting_PowerArgs = {
   where?: InputMaybe<Validator_Voting_Power_Bool_Exp>;
 };
 
+
 export type Subscription_RootValidator_Voting_Power_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Validator_Voting_Power_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7738,9 +8046,11 @@ export type Subscription_RootValidator_Voting_Power_AggregateArgs = {
   where?: InputMaybe<Validator_Voting_Power_Bool_Exp>;
 };
 
+
 export type Subscription_RootValidator_Voting_Power_By_PkArgs = {
   validator_address: Scalars['String'];
 };
+
 
 export type Subscription_RootVesting_AccountArgs = {
   distinct_on?: InputMaybe<Array<Vesting_Account_Select_Column>>;
@@ -7750,6 +8060,7 @@ export type Subscription_RootVesting_AccountArgs = {
   where?: InputMaybe<Vesting_Account_Bool_Exp>;
 };
 
+
 export type Subscription_RootVesting_Account_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Vesting_Account_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7758,9 +8069,11 @@ export type Subscription_RootVesting_Account_AggregateArgs = {
   where?: InputMaybe<Vesting_Account_Bool_Exp>;
 };
 
+
 export type Subscription_RootVesting_Account_By_PkArgs = {
   id: Scalars['Int'];
 };
+
 
 export type Subscription_RootVesting_PeriodArgs = {
   distinct_on?: InputMaybe<Array<Vesting_Period_Select_Column>>;
@@ -7769,6 +8082,7 @@ export type Subscription_RootVesting_PeriodArgs = {
   order_by?: InputMaybe<Array<Vesting_Period_Order_By>>;
   where?: InputMaybe<Vesting_Period_Bool_Exp>;
 };
+
 
 export type Subscription_RootVesting_Period_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Vesting_Period_Select_Column>>;
@@ -7807,6 +8121,7 @@ export type Supply_Aggregate_Fields = {
   var_samp?: Maybe<Supply_Var_Samp_Fields>;
   variance?: Maybe<Supply_Variance_Fields>;
 };
+
 
 /** aggregate fields of "supply" */
 export type Supply_Aggregate_FieldsCountArgs = {
@@ -7852,7 +8167,7 @@ export enum Supply_Select_Column {
   /** column name */
   Coins = 'coins',
   /** column name */
-  Height = 'height',
+  Height = 'height'
 }
 
 /** aggregate stddev on columns */
@@ -7920,6 +8235,7 @@ export type Token = {
   token_units_aggregate: Token_Unit_Aggregate;
 };
 
+
 /** columns and relationships of "token" */
 export type TokenToken_UnitsArgs = {
   distinct_on?: InputMaybe<Array<Token_Unit_Select_Column>>;
@@ -7928,6 +8244,7 @@ export type TokenToken_UnitsArgs = {
   order_by?: InputMaybe<Array<Token_Unit_Order_By>>;
   where?: InputMaybe<Token_Unit_Bool_Exp>;
 };
+
 
 /** columns and relationships of "token" */
 export type TokenToken_Units_AggregateArgs = {
@@ -7952,6 +8269,7 @@ export type Token_Aggregate_Fields = {
   max?: Maybe<Token_Max_Fields>;
   min?: Maybe<Token_Min_Fields>;
 };
+
 
 /** aggregate fields of "token" */
 export type Token_Aggregate_FieldsCountArgs = {
@@ -8020,6 +8338,7 @@ export type Token_Price_Aggregate_Fields = {
   var_samp?: Maybe<Token_Price_Var_Samp_Fields>;
   variance?: Maybe<Token_Price_Variance_Fields>;
 };
+
 
 /** aggregate fields of "token_price" */
 export type Token_Price_Aggregate_FieldsCountArgs = {
@@ -8103,6 +8422,7 @@ export type Token_Price_History_Aggregate_Fields = {
   var_samp?: Maybe<Token_Price_History_Var_Samp_Fields>;
   variance?: Maybe<Token_Price_History_Variance_Fields>;
 };
+
 
 /** aggregate fields of "token_price_history" */
 export type Token_Price_History_Aggregate_FieldsCountArgs = {
@@ -8202,7 +8522,7 @@ export enum Token_Price_History_Select_Column {
   /** column name */
   Timestamp = 'timestamp',
   /** column name */
-  UnitName = 'unit_name',
+  UnitName = 'unit_name'
 }
 
 /** aggregate stddev on columns */
@@ -8355,7 +8675,7 @@ export enum Token_Price_Select_Column {
   /** column name */
   Timestamp = 'timestamp',
   /** column name */
-  UnitName = 'unit_name',
+  UnitName = 'unit_name'
 }
 
 /** aggregate stddev on columns */
@@ -8466,7 +8786,7 @@ export type Token_Price_Variance_Order_By = {
 /** select columns of table "token" */
 export enum Token_Select_Column {
   /** column name */
-  Name = 'name',
+  Name = 'name'
 }
 
 /** columns and relationships of "token_unit" */
@@ -8491,6 +8811,7 @@ export type Token_Unit = {
   token_prices_aggregate: Token_Price_Aggregate;
 };
 
+
 /** columns and relationships of "token_unit" */
 export type Token_UnitToken_Price_HistoriesArgs = {
   distinct_on?: InputMaybe<Array<Token_Price_History_Select_Column>>;
@@ -8499,6 +8820,7 @@ export type Token_UnitToken_Price_HistoriesArgs = {
   order_by?: InputMaybe<Array<Token_Price_History_Order_By>>;
   where?: InputMaybe<Token_Price_History_Bool_Exp>;
 };
+
 
 /** columns and relationships of "token_unit" */
 export type Token_UnitToken_Price_Histories_AggregateArgs = {
@@ -8509,6 +8831,7 @@ export type Token_UnitToken_Price_Histories_AggregateArgs = {
   where?: InputMaybe<Token_Price_History_Bool_Exp>;
 };
 
+
 /** columns and relationships of "token_unit" */
 export type Token_UnitToken_PricesArgs = {
   distinct_on?: InputMaybe<Array<Token_Price_Select_Column>>;
@@ -8517,6 +8840,7 @@ export type Token_UnitToken_PricesArgs = {
   order_by?: InputMaybe<Array<Token_Price_Order_By>>;
   where?: InputMaybe<Token_Price_Bool_Exp>;
 };
+
 
 /** columns and relationships of "token_unit" */
 export type Token_UnitToken_Prices_AggregateArgs = {
@@ -8549,6 +8873,7 @@ export type Token_Unit_Aggregate_Fields = {
   var_samp?: Maybe<Token_Unit_Var_Samp_Fields>;
   variance?: Maybe<Token_Unit_Variance_Fields>;
 };
+
 
 /** aggregate fields of "token_unit" */
 export type Token_Unit_Aggregate_FieldsCountArgs = {
@@ -8656,7 +8981,7 @@ export enum Token_Unit_Select_Column {
   /** column name */
   PriceId = 'price_id',
   /** column name */
-  TokenName = 'token_name',
+  TokenName = 'token_name'
 }
 
 /** aggregate stddev on columns */
@@ -8756,20 +9081,24 @@ export type Transaction = {
   success: Scalars['Boolean'];
 };
 
+
 /** columns and relationships of "transaction" */
 export type TransactionFeeArgs = {
   path?: InputMaybe<Scalars['String']>;
 };
+
 
 /** columns and relationships of "transaction" */
 export type TransactionLogsArgs = {
   path?: InputMaybe<Scalars['String']>;
 };
 
+
 /** columns and relationships of "transaction" */
 export type TransactionMessagesArgs = {
   path?: InputMaybe<Scalars['String']>;
 };
+
 
 /** columns and relationships of "transaction" */
 export type TransactionSigner_InfosArgs = {
@@ -8798,6 +9127,7 @@ export type Transaction_Aggregate_Fields = {
   var_samp?: Maybe<Transaction_Var_Samp_Fields>;
   variance?: Maybe<Transaction_Variance_Fields>;
 };
+
 
 /** aggregate fields of "transaction" */
 export type Transaction_Aggregate_FieldsCountArgs = {
@@ -8949,7 +9279,7 @@ export enum Transaction_Select_Column {
   /** column name */
   SignerInfos = 'signer_infos',
   /** column name */
-  Success = 'success',
+  Success = 'success'
 }
 
 /** aggregate stddev on columns */
@@ -9122,6 +9452,7 @@ export type Validator = {
   validator_voting_powers_aggregate: Validator_Voting_Power_Aggregate;
 };
 
+
 /** columns and relationships of "validator" */
 export type ValidatorBlocksArgs = {
   distinct_on?: InputMaybe<Array<Block_Select_Column>>;
@@ -9130,6 +9461,7 @@ export type ValidatorBlocksArgs = {
   order_by?: InputMaybe<Array<Block_Order_By>>;
   where?: InputMaybe<Block_Bool_Exp>;
 };
+
 
 /** columns and relationships of "validator" */
 export type ValidatorBlocks_AggregateArgs = {
@@ -9140,6 +9472,7 @@ export type ValidatorBlocks_AggregateArgs = {
   where?: InputMaybe<Block_Bool_Exp>;
 };
 
+
 /** columns and relationships of "validator" */
 export type ValidatorDouble_Sign_VotesArgs = {
   distinct_on?: InputMaybe<Array<Double_Sign_Vote_Select_Column>>;
@@ -9148,6 +9481,7 @@ export type ValidatorDouble_Sign_VotesArgs = {
   order_by?: InputMaybe<Array<Double_Sign_Vote_Order_By>>;
   where?: InputMaybe<Double_Sign_Vote_Bool_Exp>;
 };
+
 
 /** columns and relationships of "validator" */
 export type ValidatorDouble_Sign_Votes_AggregateArgs = {
@@ -9158,6 +9492,7 @@ export type ValidatorDouble_Sign_Votes_AggregateArgs = {
   where?: InputMaybe<Double_Sign_Vote_Bool_Exp>;
 };
 
+
 /** columns and relationships of "validator" */
 export type ValidatorPre_CommitsArgs = {
   distinct_on?: InputMaybe<Array<Pre_Commit_Select_Column>>;
@@ -9166,6 +9501,7 @@ export type ValidatorPre_CommitsArgs = {
   order_by?: InputMaybe<Array<Pre_Commit_Order_By>>;
   where?: InputMaybe<Pre_Commit_Bool_Exp>;
 };
+
 
 /** columns and relationships of "validator" */
 export type ValidatorPre_Commits_AggregateArgs = {
@@ -9176,6 +9512,7 @@ export type ValidatorPre_Commits_AggregateArgs = {
   where?: InputMaybe<Pre_Commit_Bool_Exp>;
 };
 
+
 /** columns and relationships of "validator" */
 export type ValidatorProposal_Validator_Status_SnapshotsArgs = {
   distinct_on?: InputMaybe<Array<Proposal_Validator_Status_Snapshot_Select_Column>>;
@@ -9184,6 +9521,7 @@ export type ValidatorProposal_Validator_Status_SnapshotsArgs = {
   order_by?: InputMaybe<Array<Proposal_Validator_Status_Snapshot_Order_By>>;
   where?: InputMaybe<Proposal_Validator_Status_Snapshot_Bool_Exp>;
 };
+
 
 /** columns and relationships of "validator" */
 export type ValidatorProposal_Validator_Status_Snapshots_AggregateArgs = {
@@ -9194,6 +9532,7 @@ export type ValidatorProposal_Validator_Status_Snapshots_AggregateArgs = {
   where?: InputMaybe<Proposal_Validator_Status_Snapshot_Bool_Exp>;
 };
 
+
 /** columns and relationships of "validator" */
 export type ValidatorValidator_CommissionsArgs = {
   distinct_on?: InputMaybe<Array<Validator_Commission_Select_Column>>;
@@ -9202,6 +9541,7 @@ export type ValidatorValidator_CommissionsArgs = {
   order_by?: InputMaybe<Array<Validator_Commission_Order_By>>;
   where?: InputMaybe<Validator_Commission_Bool_Exp>;
 };
+
 
 /** columns and relationships of "validator" */
 export type ValidatorValidator_Commissions_AggregateArgs = {
@@ -9212,6 +9552,7 @@ export type ValidatorValidator_Commissions_AggregateArgs = {
   where?: InputMaybe<Validator_Commission_Bool_Exp>;
 };
 
+
 /** columns and relationships of "validator" */
 export type ValidatorValidator_DescriptionsArgs = {
   distinct_on?: InputMaybe<Array<Validator_Description_Select_Column>>;
@@ -9220,6 +9561,7 @@ export type ValidatorValidator_DescriptionsArgs = {
   order_by?: InputMaybe<Array<Validator_Description_Order_By>>;
   where?: InputMaybe<Validator_Description_Bool_Exp>;
 };
+
 
 /** columns and relationships of "validator" */
 export type ValidatorValidator_Descriptions_AggregateArgs = {
@@ -9230,6 +9572,7 @@ export type ValidatorValidator_Descriptions_AggregateArgs = {
   where?: InputMaybe<Validator_Description_Bool_Exp>;
 };
 
+
 /** columns and relationships of "validator" */
 export type ValidatorValidator_InfosArgs = {
   distinct_on?: InputMaybe<Array<Validator_Info_Select_Column>>;
@@ -9238,6 +9581,7 @@ export type ValidatorValidator_InfosArgs = {
   order_by?: InputMaybe<Array<Validator_Info_Order_By>>;
   where?: InputMaybe<Validator_Info_Bool_Exp>;
 };
+
 
 /** columns and relationships of "validator" */
 export type ValidatorValidator_Infos_AggregateArgs = {
@@ -9248,6 +9592,7 @@ export type ValidatorValidator_Infos_AggregateArgs = {
   where?: InputMaybe<Validator_Info_Bool_Exp>;
 };
 
+
 /** columns and relationships of "validator" */
 export type ValidatorValidator_Signing_InfosArgs = {
   distinct_on?: InputMaybe<Array<Validator_Signing_Info_Select_Column>>;
@@ -9256,6 +9601,7 @@ export type ValidatorValidator_Signing_InfosArgs = {
   order_by?: InputMaybe<Array<Validator_Signing_Info_Order_By>>;
   where?: InputMaybe<Validator_Signing_Info_Bool_Exp>;
 };
+
 
 /** columns and relationships of "validator" */
 export type ValidatorValidator_Signing_Infos_AggregateArgs = {
@@ -9266,6 +9612,7 @@ export type ValidatorValidator_Signing_Infos_AggregateArgs = {
   where?: InputMaybe<Validator_Signing_Info_Bool_Exp>;
 };
 
+
 /** columns and relationships of "validator" */
 export type ValidatorValidator_StatusesArgs = {
   distinct_on?: InputMaybe<Array<Validator_Status_Select_Column>>;
@@ -9274,6 +9621,7 @@ export type ValidatorValidator_StatusesArgs = {
   order_by?: InputMaybe<Array<Validator_Status_Order_By>>;
   where?: InputMaybe<Validator_Status_Bool_Exp>;
 };
+
 
 /** columns and relationships of "validator" */
 export type ValidatorValidator_Statuses_AggregateArgs = {
@@ -9284,6 +9632,7 @@ export type ValidatorValidator_Statuses_AggregateArgs = {
   where?: InputMaybe<Validator_Status_Bool_Exp>;
 };
 
+
 /** columns and relationships of "validator" */
 export type ValidatorValidator_Voting_PowersArgs = {
   distinct_on?: InputMaybe<Array<Validator_Voting_Power_Select_Column>>;
@@ -9292,6 +9641,7 @@ export type ValidatorValidator_Voting_PowersArgs = {
   order_by?: InputMaybe<Array<Validator_Voting_Power_Order_By>>;
   where?: InputMaybe<Validator_Voting_Power_Bool_Exp>;
 };
+
 
 /** columns and relationships of "validator" */
 export type ValidatorValidator_Voting_Powers_AggregateArgs = {
@@ -9316,6 +9666,7 @@ export type Validator_Aggregate_Fields = {
   max?: Maybe<Validator_Max_Fields>;
   min?: Maybe<Validator_Min_Fields>;
 };
+
 
 /** aggregate fields of "validator" */
 export type Validator_Aggregate_FieldsCountArgs = {
@@ -9377,6 +9728,7 @@ export type Validator_Commission_Aggregate_Fields = {
   var_samp?: Maybe<Validator_Commission_Var_Samp_Fields>;
   variance?: Maybe<Validator_Commission_Variance_Fields>;
 };
+
 
 /** aggregate fields of "validator_commission" */
 export type Validator_Commission_Aggregate_FieldsCountArgs = {
@@ -9478,7 +9830,7 @@ export enum Validator_Commission_Select_Column {
   /** column name */
   MinSelfDelegation = 'min_self_delegation',
   /** column name */
-  ValidatorAddress = 'validator_address',
+  ValidatorAddress = 'validator_address'
 }
 
 /** aggregate stddev on columns */
@@ -9624,6 +9976,7 @@ export type Validator_Description_Aggregate_Fields = {
   variance?: Maybe<Validator_Description_Variance_Fields>;
 };
 
+
 /** aggregate fields of "validator_description" */
 export type Validator_Description_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Validator_Description_Select_Column>>;
@@ -9752,7 +10105,7 @@ export enum Validator_Description_Select_Column {
   /** column name */
   ValidatorAddress = 'validator_address',
   /** column name */
-  Website = 'website',
+  Website = 'website'
 }
 
 /** aggregate stddev on columns */
@@ -9861,6 +10214,7 @@ export type Validator_Info_Aggregate_Fields = {
   min?: Maybe<Validator_Info_Min_Fields>;
 };
 
+
 /** aggregate fields of "validator_info" */
 export type Validator_Info_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Validator_Info_Select_Column>>;
@@ -9948,7 +10302,7 @@ export enum Validator_Info_Select_Column {
   /** column name */
   OperatorAddress = 'operator_address',
   /** column name */
-  SelfDelegateAddress = 'self_delegate_address',
+  SelfDelegateAddress = 'self_delegate_address'
 }
 
 /** aggregate max on columns */
@@ -9988,7 +10342,7 @@ export enum Validator_Select_Column {
   /** column name */
   ConsensusAddress = 'consensus_address',
   /** column name */
-  ConsensusPubkey = 'consensus_pubkey',
+  ConsensusPubkey = 'consensus_pubkey'
 }
 
 /** columns and relationships of "validator_signing_info" */
@@ -10025,6 +10379,7 @@ export type Validator_Signing_Info_Aggregate_Fields = {
   var_samp?: Maybe<Validator_Signing_Info_Var_Samp_Fields>;
   variance?: Maybe<Validator_Signing_Info_Variance_Fields>;
 };
+
 
 /** aggregate fields of "validator_signing_info" */
 export type Validator_Signing_Info_Aggregate_FieldsCountArgs = {
@@ -10146,7 +10501,7 @@ export enum Validator_Signing_Info_Select_Column {
   /** column name */
   Tombstoned = 'tombstoned',
   /** column name */
-  ValidatorAddress = 'validator_address',
+  ValidatorAddress = 'validator_address'
 }
 
 /** aggregate stddev on columns */
@@ -10303,6 +10658,7 @@ export type Validator_Status_Aggregate_Fields = {
   variance?: Maybe<Validator_Status_Variance_Fields>;
 };
 
+
 /** aggregate fields of "validator_status" */
 export type Validator_Status_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Validator_Status_Select_Column>>;
@@ -10401,7 +10757,7 @@ export enum Validator_Status_Select_Column {
   /** column name */
   Tombstoned = 'tombstoned',
   /** column name */
-  ValidatorAddress = 'validator_address',
+  ValidatorAddress = 'validator_address'
 }
 
 /** aggregate stddev on columns */
@@ -10530,6 +10886,7 @@ export type Validator_Voting_Power_Aggregate_Fields = {
   variance?: Maybe<Validator_Voting_Power_Variance_Fields>;
 };
 
+
 /** aggregate fields of "validator_voting_power" */
 export type Validator_Voting_Power_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Validator_Voting_Power_Select_Column>>;
@@ -10622,7 +10979,7 @@ export enum Validator_Voting_Power_Select_Column {
   /** column name */
   ValidatorAddress = 'validator_address',
   /** column name */
-  VotingPower = 'voting_power',
+  VotingPower = 'voting_power'
 }
 
 /** aggregate stddev on columns */
@@ -10733,6 +11090,7 @@ export type Vesting_Account = {
   vesting_periods_aggregate: Vesting_Period_Aggregate;
 };
 
+
 /** columns and relationships of "vesting_account" */
 export type Vesting_AccountVesting_PeriodsArgs = {
   distinct_on?: InputMaybe<Array<Vesting_Period_Select_Column>>;
@@ -10741,6 +11099,7 @@ export type Vesting_AccountVesting_PeriodsArgs = {
   order_by?: InputMaybe<Array<Vesting_Period_Order_By>>;
   where?: InputMaybe<Vesting_Period_Bool_Exp>;
 };
+
 
 /** columns and relationships of "vesting_account" */
 export type Vesting_AccountVesting_Periods_AggregateArgs = {
@@ -10773,6 +11132,7 @@ export type Vesting_Account_Aggregate_Fields = {
   var_samp?: Maybe<Vesting_Account_Var_Samp_Fields>;
   variance?: Maybe<Vesting_Account_Variance_Fields>;
 };
+
 
 /** aggregate fields of "vesting_account" */
 export type Vesting_Account_Aggregate_FieldsCountArgs = {
@@ -10884,7 +11244,7 @@ export enum Vesting_Account_Select_Column {
   /** column name */
   StartTime = 'start_time',
   /** column name */
-  Type = 'type',
+  Type = 'type'
 }
 
 /** aggregate stddev on columns */
@@ -10998,6 +11358,7 @@ export type Vesting_Period_Aggregate_Fields = {
   variance?: Maybe<Vesting_Period_Variance_Fields>;
 };
 
+
 /** aggregate fields of "vesting_period" */
 export type Vesting_Period_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Vesting_Period_Select_Column>>;
@@ -11094,7 +11455,7 @@ export enum Vesting_Period_Select_Column {
   /** column name */
   PeriodOrder = 'period_order',
   /** column name */
-  VestingAccountId = 'vesting_account_id',
+  VestingAccountId = 'vesting_account_id'
 }
 
 /** aggregate stddev on columns */
@@ -11202,155 +11563,65 @@ export type Vesting_Period_Variance_Order_By = {
   vesting_account_id?: InputMaybe<Order_By>;
 };
 
-export type ActiveValidatorCountQueryVariables = Exact<{ [key: string]: never }>;
+export type ActiveValidatorCountQueryVariables = Exact<{ [key: string]: never; }>;
 
-export type ActiveValidatorCountQuery = {
-  activeTotal: {
-    __typename?: 'validator_status_aggregate';
-    aggregate?: { __typename?: 'validator_status_aggregate_fields'; count: number } | null;
-  };
-  inactiveTotal: {
-    __typename?: 'validator_status_aggregate';
-    aggregate?: { __typename?: 'validator_status_aggregate_fields'; count: number } | null;
-  };
-  total: {
-    __typename?: 'validator_status_aggregate';
-    aggregate?: { __typename?: 'validator_status_aggregate_fields'; count: number } | null;
-  };
-};
+
+export type ActiveValidatorCountQuery = { activeTotal: { __typename?: 'validator_status_aggregate', aggregate?: { __typename?: 'validator_status_aggregate_fields', count: number } | null }, inactiveTotal: { __typename?: 'validator_status_aggregate', aggregate?: { __typename?: 'validator_status_aggregate_fields', count: number } | null }, total: { __typename?: 'validator_status_aggregate', aggregate?: { __typename?: 'validator_status_aggregate_fields', count: number } | null } };
 
 export type BlockDetailsQueryVariables = Exact<{
   height?: InputMaybe<Scalars['bigint']>;
   signatureHeight?: InputMaybe<Scalars['bigint']>;
 }>;
 
-export type BlockDetailsQuery = {
-  transaction: Array<{
-    __typename?: 'transaction';
-    height: any;
-    hash: string;
-    messages: any;
-    success: boolean;
-    logs?: any | null;
-  }>;
-  block: Array<{
-    __typename?: 'block';
-    height: any;
-    hash: string;
-    timestamp: any;
-    txs?: number | null;
-    validator?: {
-      __typename?: 'validator';
-      validatorInfo?: { __typename?: 'validator_info'; operatorAddress: string } | null;
-    } | null;
-  }>;
-  preCommitsAggregate: {
-    __typename?: 'pre_commit_aggregate';
-    aggregate?: {
-      __typename?: 'pre_commit_aggregate_fields';
-      sum?: { __typename?: 'pre_commit_sum_fields'; votingPower?: any | null } | null;
-    } | null;
-  };
-  preCommits: Array<{
-    __typename?: 'pre_commit';
-    validator: {
-      __typename?: 'validator';
-      validatorInfo?: { __typename?: 'validator_info'; operatorAddress: string } | null;
-    };
-  }>;
-};
+
+export type BlockDetailsQuery = { transaction: Array<{ __typename?: 'transaction', height: any, hash: string, messages: any, success: boolean, logs?: any | null }>, block: Array<{ __typename?: 'block', height: any, hash: string, timestamp: any, txs?: number | null, validator?: { __typename?: 'validator', validatorInfo?: { __typename?: 'validator_info', operatorAddress: string } | null } | null }>, preCommitsAggregate: { __typename?: 'pre_commit_aggregate', aggregate?: { __typename?: 'pre_commit_aggregate_fields', sum?: { __typename?: 'pre_commit_sum_fields', votingPower?: any | null } | null } | null }, preCommits: Array<{ __typename?: 'pre_commit', validator: { __typename?: 'validator', validatorInfo?: { __typename?: 'validator_info', operatorAddress: string } | null } }> };
 
 export type LatestBlockHeightListenerSubscriptionVariables = Exact<{
   offset?: InputMaybe<Scalars['Int']>;
 }>;
 
-export type LatestBlockHeightListenerSubscription = {
-  height: Array<{ __typename?: 'block'; height: any }>;
-};
 
-export type AverageBlockTimeQueryVariables = Exact<{ [key: string]: never }>;
+export type LatestBlockHeightListenerSubscription = { height: Array<{ __typename?: 'block', height: any }> };
 
-export type AverageBlockTimeQuery = {
-  averageBlockTime: Array<{ __typename?: 'average_block_time_per_hour'; averageTime: any }>;
-};
+export type AverageBlockTimeQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type AverageBlockTimeQuery = { averageBlockTime: Array<{ __typename?: 'average_block_time_per_hour', averageTime: any }> };
 
 export type LatestBlockTimestampQueryVariables = Exact<{
   offset?: InputMaybe<Scalars['Int']>;
 }>;
 
-export type LatestBlockTimestampQuery = { block: Array<{ __typename?: 'block'; timestamp: any }> };
+
+export type LatestBlockTimestampQuery = { block: Array<{ __typename?: 'block', timestamp: any }> };
 
 export type BlocksListenerSubscriptionVariables = Exact<{
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
 }>;
 
-export type BlocksListenerSubscription = {
-  blocks: Array<{
-    __typename?: 'block';
-    height: any;
-    hash: string;
-    timestamp: any;
-    txs?: number | null;
-    validator?: {
-      __typename?: 'validator';
-      validatorInfo?: { __typename?: 'validator_info'; operatorAddress: string } | null;
-    } | null;
-  }>;
-};
+
+export type BlocksListenerSubscription = { blocks: Array<{ __typename?: 'block', height: any, hash: string, timestamp: any, txs?: number | null, validator?: { __typename?: 'validator', validatorInfo?: { __typename?: 'validator_info', operatorAddress: string } | null } | null }> };
 
 export type BlocksQueryVariables = Exact<{
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
 }>;
 
-export type BlocksQuery = {
-  blocks: Array<{
-    __typename?: 'block';
-    height: any;
-    hash: string;
-    timestamp: any;
-    txs?: number | null;
-    validator?: {
-      __typename?: 'validator';
-      validatorInfo?: {
-        __typename?: 'validator_info';
-        self_delegate_address?: string | null;
-        operatorAddress: string;
-      } | null;
-      validatorDescriptions: Array<{
-        __typename?: 'validator_description';
-        moniker?: string | null;
-        identity?: string | null;
-      }>;
-    } | null;
-  }>;
-};
 
-export type ChainIdQueryVariables = Exact<{ [key: string]: never }>;
+export type BlocksQuery = { blocks: Array<{ __typename?: 'block', height: any, hash: string, timestamp: any, txs?: number | null, validator?: { __typename?: 'validator', validatorInfo?: { __typename?: 'validator_info', self_delegate_address?: string | null, operatorAddress: string } | null, validatorDescriptions: Array<{ __typename?: 'validator_description', moniker?: string | null, identity?: string | null }> } | null }> };
 
-export type ChainIdQuery = {
-  genesis: Array<{ __typename?: 'genesis'; time: any; chainId: string }>;
-};
+export type ChainIdQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type ChainIdQuery = { genesis: Array<{ __typename?: 'genesis', time: any, chainId: string }> };
 
 export type MarketDataQueryVariables = Exact<{
   denom?: InputMaybe<Scalars['String']>;
 }>;
 
-export type MarketDataQuery = {
-  communityPool: Array<{ __typename?: 'community_pool'; coins: any }>;
-  inflation: Array<{ __typename?: 'inflation'; value: any }>;
-  tokenPrice: Array<{ __typename?: 'token_price'; price: any; marketCap: any }>;
-  supply: Array<{ __typename?: 'supply'; coins: any }>;
-  bondedTokens: Array<{ __typename?: 'staking_pool'; bonded_tokens: string }>;
-  distributionParams: Array<{ __typename?: 'distribution_params'; params: any }>;
-  evmosInflationData: Array<{
-    __typename?: 'evmos_inflation_data';
-    circulating_supply: any;
-    inflation_rate: any;
-  }>;
-  evmosInflationParams: Array<{ __typename?: 'evmos_inflation_params'; params: any }>;
-};
+
+export type MarketDataQuery = { communityPool: Array<{ __typename?: 'community_pool', coins: any }>, inflation: Array<{ __typename?: 'inflation', value: any }>, tokenPrice: Array<{ __typename?: 'token_price', price: any, marketCap: any }>, supply: Array<{ __typename?: 'supply', coins: any }>, bondedTokens: Array<{ __typename?: 'staking_pool', bonded_tokens: string }>, distributionParams: Array<{ __typename?: 'distribution_params', params: any }>, evmosInflationData: Array<{ __typename?: 'evmos_inflation_data', circulating_supply: any, inflation_rate: any }>, evmosInflationParams: Array<{ __typename?: 'evmos_inflation_params', params: any }> };
 
 export type GetMessagesByAddressQueryVariables = Exact<{
   address?: InputMaybe<Scalars['_text']>;
@@ -11359,288 +11630,118 @@ export type GetMessagesByAddressQueryVariables = Exact<{
   types?: InputMaybe<Scalars['_text']>;
 }>;
 
-export type GetMessagesByAddressQuery = {
-  messagesByAddress: Array<{
-    __typename?: 'message';
-    transaction?: {
-      __typename?: 'transaction';
-      height: any;
-      hash: string;
-      success: boolean;
-      messages: any;
-      logs?: any | null;
-      block: { __typename?: 'block'; height: any; timestamp: any };
-    } | null;
-  }>;
-};
 
-export type OnlineVotingPowerQueryVariables = Exact<{ [key: string]: never }>;
+export type GetMessagesByAddressQuery = { messagesByAddress: Array<{ __typename?: 'message', transaction?: { __typename?: 'transaction', height: any, hash: string, success: boolean, messages: any, logs?: any | null, block: { __typename?: 'block', height: any, timestamp: any } } | null }> };
 
-export type OnlineVotingPowerQuery = {
-  activeTotal: {
-    __typename?: 'validator_status_aggregate';
-    aggregate?: { __typename?: 'validator_status_aggregate_fields'; count: number } | null;
-  };
-  validatorVotingPowerAggregate: {
-    __typename?: 'validator_voting_power_aggregate';
-    aggregate?: {
-      __typename?: 'validator_voting_power_aggregate_fields';
-      sum?: { __typename?: 'validator_voting_power_sum_fields'; votingPower?: any | null } | null;
-    } | null;
-  };
-  stakingPool: Array<{ __typename?: 'staking_pool'; bonded: string }>;
-  stakingParams: Array<{ __typename?: 'staking_params'; params: any }>;
-};
+export type OnlineVotingPowerQueryVariables = Exact<{ [key: string]: never; }>;
 
-export type ParamsQueryVariables = Exact<{ [key: string]: never }>;
 
-export type ParamsQuery = {
-  stakingParams: Array<{ __typename?: 'staking_params'; params: any }>;
-  slashingParams: Array<{ __typename?: 'slashing_params'; params: any }>;
-  mintParams: Array<{ __typename?: 'mint_params'; params: any }>;
-  distributionParams: Array<{ __typename?: 'distribution_params'; params: any }>;
-  govParams: Array<{
-    __typename?: 'gov_params';
-    depositParams: any;
-    tallyParams: any;
-    votingParams: any;
-  }>;
-};
+export type OnlineVotingPowerQuery = { activeTotal: { __typename?: 'validator_status_aggregate', aggregate?: { __typename?: 'validator_status_aggregate_fields', count: number } | null }, validatorVotingPowerAggregate: { __typename?: 'validator_voting_power_aggregate', aggregate?: { __typename?: 'validator_voting_power_aggregate_fields', sum?: { __typename?: 'validator_voting_power_sum_fields', votingPower?: any | null } | null } | null }, stakingPool: Array<{ __typename?: 'staking_pool', bonded: string }>, stakingParams: Array<{ __typename?: 'staking_params', params: any }> };
+
+export type ParamsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type ParamsQuery = { stakingParams: Array<{ __typename?: 'staking_params', params: any }>, slashingParams: Array<{ __typename?: 'slashing_params', params: any }>, mintParams: Array<{ __typename?: 'mint_params', params: any }>, distributionParams: Array<{ __typename?: 'distribution_params', params: any }>, govParams: Array<{ __typename?: 'gov_params', depositParams: any, tallyParams: any, votingParams: any }> };
 
 export type ProposalDetailsQueryVariables = Exact<{
   proposalId?: InputMaybe<Scalars['Int']>;
 }>;
 
-export type ProposalDetailsQuery = {
-  proposal: Array<{
-    __typename?: 'proposal';
-    title: string;
-    description: string;
-    status?: string | null;
-    content: any;
-    proposer: string;
-    proposalId: number;
-    submitTime: any;
-    depositEndTime?: any | null;
-    votingStartTime?: any | null;
-    votingEndTime?: any | null;
-  }>;
-};
+
+export type ProposalDetailsQuery = { proposal: Array<{ __typename?: 'proposal', title: string, description: string, status?: string | null, content: any, proposer: string, proposalId: number, submitTime: any, depositEndTime?: any | null, votingStartTime?: any | null, votingEndTime?: any | null }> };
 
 export type ProposalDetailsTallyQueryVariables = Exact<{
   proposalId?: InputMaybe<Scalars['Int']>;
 }>;
 
-export type ProposalDetailsTallyQuery = {
-  proposalTallyResult: Array<{
-    __typename?: 'proposal_tally_result';
-    yes: string;
-    no: string;
-    abstain: string;
-    noWithVeto: string;
-  }>;
-  stakingPool: Array<{ __typename?: 'proposal_staking_pool_snapshot'; bondedTokens: string }>;
-  quorum: Array<{ __typename?: 'gov_params'; tallyParams: any }>;
-};
+
+export type ProposalDetailsTallyQuery = { proposalTallyResult: Array<{ __typename?: 'proposal_tally_result', yes: string, no: string, abstain: string, noWithVeto: string }>, stakingPool: Array<{ __typename?: 'proposal_staking_pool_snapshot', bondedTokens: string }>, quorum: Array<{ __typename?: 'gov_params', tallyParams: any }> };
 
 export type ProposalDetailsDepositsQueryVariables = Exact<{
   proposalId?: InputMaybe<Scalars['Int']>;
 }>;
 
-export type ProposalDetailsDepositsQuery = {
-  proposalDeposit: Array<{
-    __typename?: 'proposal_deposit';
-    amount?: any | null;
-    depositorAddress?: string | null;
-    block?: { __typename?: 'block'; timestamp: any } | null;
-  }>;
-};
+
+export type ProposalDetailsDepositsQuery = { proposalDeposit: Array<{ __typename?: 'proposal_deposit', amount?: any | null, depositorAddress?: string | null, block?: { __typename?: 'block', timestamp: any } | null }> };
 
 export type ProposalDetailsVotesQueryVariables = Exact<{
   proposalId?: InputMaybe<Scalars['Int']>;
 }>;
 
-export type ProposalDetailsVotesQuery = {
-  proposalVote: Array<{ __typename?: 'proposal_vote'; option: string; voterAddress: string }>;
-  validatorStatuses: Array<{
-    __typename?: 'proposal_validator_status_snapshot';
-    validator: {
-      __typename?: 'validator';
-      validatorInfo?: { __typename?: 'validator_info'; selfDelegateAddress?: string | null } | null;
-    };
-  }>;
-};
+
+export type ProposalDetailsVotesQuery = { proposalVote: Array<{ __typename?: 'proposal_vote', option: string, voterAddress: string }>, validatorStatuses: Array<{ __typename?: 'proposal_validator_status_snapshot', validator: { __typename?: 'validator', validatorInfo?: { __typename?: 'validator_info', selfDelegateAddress?: string | null } | null } }> };
 
 export type ProposalsQueryVariables = Exact<{
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
 }>;
 
-export type ProposalsQuery = {
-  proposals: Array<{
-    __typename?: 'proposal';
-    title: string;
-    status?: string | null;
-    description: string;
-    proposalId: number;
-  }>;
-  total: {
-    __typename?: 'proposal_aggregate';
-    aggregate?: { __typename?: 'proposal_aggregate_fields'; count: number } | null;
-  };
-};
+
+export type ProposalsQuery = { proposals: Array<{ __typename?: 'proposal', title: string, status?: string | null, description: string, proposalId: number }>, total: { __typename?: 'proposal_aggregate', aggregate?: { __typename?: 'proposal_aggregate_fields', count: number } | null } };
 
 export type TokenPriceListenerSubscriptionVariables = Exact<{
   denom?: InputMaybe<Scalars['String']>;
 }>;
 
-export type TokenPriceListenerSubscription = {
-  tokenPrice: Array<{
-    __typename?: 'token_price';
-    id: number;
-    price: any;
-    timestamp: any;
-    marketCap: any;
-    unitName: string;
-  }>;
-};
+
+export type TokenPriceListenerSubscription = { tokenPrice: Array<{ __typename?: 'token_price', id: number, price: any, timestamp: any, marketCap: any, unitName: string }> };
 
 export type TokenPriceHistoryQueryVariables = Exact<{
   denom?: InputMaybe<Scalars['String']>;
   limit?: InputMaybe<Scalars['Int']>;
 }>;
 
-export type TokenPriceHistoryQuery = {
-  tokenPrice: Array<{ __typename?: 'token_price_history'; price: any; timestamp: any }>;
-};
 
-export type TokenomicsQueryVariables = Exact<{ [key: string]: never }>;
+export type TokenPriceHistoryQuery = { tokenPrice: Array<{ __typename?: 'token_price_history', price: any, timestamp: any }> };
 
-export type TokenomicsQuery = {
-  stakingParams: Array<{ __typename?: 'staking_params'; params: any }>;
-  stakingPool: Array<{ __typename?: 'staking_pool'; bonded: string; unbonded: string }>;
-  supply: Array<{ __typename?: 'supply'; coins: any }>;
-};
+export type TokenomicsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type TokenomicsQuery = { stakingParams: Array<{ __typename?: 'staking_params', params: any }>, stakingPool: Array<{ __typename?: 'staking_pool', bonded: string, unbonded: string }>, supply: Array<{ __typename?: 'supply', coins: any }> };
 
 export type TransactionDetailsQueryVariables = Exact<{
   hash?: InputMaybe<Scalars['String']>;
 }>;
 
-export type TransactionDetailsQuery = {
-  transaction: Array<{
-    __typename?: 'transaction';
-    logs?: any | null;
-    hash: string;
-    height: any;
-    fee: any;
-    gasUsed?: any | null;
-    gasWanted?: any | null;
-    success: boolean;
-    memo?: string | null;
-    messages: any;
-    rawLog?: string | null;
-    block: { __typename?: 'block'; timestamp: any };
-  }>;
-};
+
+export type TransactionDetailsQuery = { transaction: Array<{ __typename?: 'transaction', logs?: any | null, hash: string, height: any, fee: any, gasUsed?: any | null, gasWanted?: any | null, success: boolean, memo?: string | null, messages: any, rawLog?: string | null, block: { __typename?: 'block', timestamp: any } }> };
 
 export type TransactionsListenerSubscriptionVariables = Exact<{
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
 }>;
 
-export type TransactionsListenerSubscription = {
-  transactions: Array<{
-    __typename?: 'transaction';
-    height: any;
-    hash: string;
-    success: boolean;
-    messages: any;
-    logs?: any | null;
-    block: { __typename?: 'block'; timestamp: any };
-  }>;
-};
+
+export type TransactionsListenerSubscription = { transactions: Array<{ __typename?: 'transaction', height: any, hash: string, success: boolean, messages: any, logs?: any | null, block: { __typename?: 'block', timestamp: any } }> };
 
 export type TransactionsQueryVariables = Exact<{
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
 }>;
 
-export type TransactionsQuery = {
-  transactions: Array<{
-    __typename?: 'transaction';
-    height: any;
-    hash: string;
-    success: boolean;
-    messages: any;
-    logs?: any | null;
-    block: { __typename?: 'block'; timestamp: any };
-  }>;
-};
+
+export type TransactionsQuery = { transactions: Array<{ __typename?: 'transaction', height: any, hash: string, success: boolean, messages: any, logs?: any | null, block: { __typename?: 'block', timestamp: any } }> };
 
 export type LastHundredBlocksSubscriptionVariables = Exact<{
   address?: InputMaybe<Scalars['String']>;
 }>;
 
-export type LastHundredBlocksSubscription = {
-  block: Array<{
-    __typename?: 'block';
-    height: any;
-    validator?: {
-      __typename?: 'validator';
-      validatorInfo?: { __typename?: 'validator_info'; operatorAddress: string } | null;
-    } | null;
-    transactions: Array<{ __typename?: 'transaction'; hash: string }>;
-    precommits: Array<{ __typename?: 'pre_commit'; validatorAddress: string }>;
-  }>;
-};
+
+export type LastHundredBlocksSubscription = { block: Array<{ __typename?: 'block', height: any, validator?: { __typename?: 'validator', validatorInfo?: { __typename?: 'validator_info', operatorAddress: string } | null } | null, transactions: Array<{ __typename?: 'transaction', hash: string }>, precommits: Array<{ __typename?: 'pre_commit', validatorAddress: string }> }> };
 
 export type ValidatorLastSeenListenerSubscriptionVariables = Exact<{
   address?: InputMaybe<Scalars['String']>;
 }>;
 
-export type ValidatorLastSeenListenerSubscription = {
-  preCommit: Array<{ __typename?: 'pre_commit'; height: any; timestamp: any }>;
-};
+
+export type ValidatorLastSeenListenerSubscription = { preCommit: Array<{ __typename?: 'pre_commit', height: any, timestamp: any }> };
 
 export type ValidatorDetailsQueryVariables = Exact<{
   address?: InputMaybe<Scalars['String']>;
 }>;
 
-export type ValidatorDetailsQuery = {
-  stakingPool: Array<{ __typename?: 'staking_pool'; height: any; bonded: string }>;
-  validator: Array<{
-    __typename?: 'validator';
-    validatorDescriptions: Array<{
-      __typename?: 'validator_description';
-      details?: string | null;
-      website?: string | null;
-    }>;
-    validatorStatuses: Array<{
-      __typename?: 'validator_status';
-      status: number;
-      jailed: boolean;
-      height: any;
-    }>;
-    validatorSigningInfos: Array<{
-      __typename?: 'validator_signing_info';
-      tombstoned: boolean;
-      missedBlocksCounter: any;
-    }>;
-    validatorInfo?: {
-      __typename?: 'validator_info';
-      operatorAddress: string;
-      selfDelegateAddress?: string | null;
-      maxRate: string;
-    } | null;
-    validatorCommissions: Array<{ __typename?: 'validator_commission'; commission: any }>;
-    validatorVotingPowers: Array<{
-      __typename?: 'validator_voting_power';
-      height: any;
-      votingPower: any;
-    }>;
-  }>;
-  slashingParams: Array<{ __typename?: 'slashing_params'; params: any }>;
-};
+
+export type ValidatorDetailsQuery = { stakingPool: Array<{ __typename?: 'staking_pool', height: any, bonded: string }>, validator: Array<{ __typename?: 'validator', validatorDescriptions: Array<{ __typename?: 'validator_description', details?: string | null, website?: string | null }>, validatorStatuses: Array<{ __typename?: 'validator_status', status: number, jailed: boolean, height: any }>, validatorSigningInfos: Array<{ __typename?: 'validator_signing_info', tombstoned: boolean, missedBlocksCounter: any }>, validatorInfo?: { __typename?: 'validator_info', operatorAddress: string, selfDelegateAddress?: string | null, maxRate: string } | null, validatorCommissions: Array<{ __typename?: 'validator_commission', commission: any }>, validatorVotingPowers: Array<{ __typename?: 'validator_voting_power', height: any, votingPower: any }> }>, slashingParams: Array<{ __typename?: 'slashing_params', params: any }> };
 
 export type ValidatorDelegationsQueryVariables = Exact<{
   validatorAddress: Scalars['String'];
@@ -11649,13 +11750,8 @@ export type ValidatorDelegationsQueryVariables = Exact<{
   pagination?: Scalars['Boolean'];
 }>;
 
-export type ValidatorDelegationsQuery = {
-  delegations?: {
-    __typename?: 'ActionDelegationResponse';
-    delegations?: Array<any | null> | null;
-    pagination?: any | null;
-  } | null;
-};
+
+export type ValidatorDelegationsQuery = { delegations?: { __typename?: 'ActionDelegationResponse', delegations?: Array<any | null> | null, pagination?: any | null } | null };
 
 export type ValidatorRedelegationsQueryVariables = Exact<{
   validatorAddress: Scalars['String'];
@@ -11664,13 +11760,8 @@ export type ValidatorRedelegationsQueryVariables = Exact<{
   pagination?: Scalars['Boolean'];
 }>;
 
-export type ValidatorRedelegationsQuery = {
-  redelegations?: {
-    __typename?: 'ActionRedelegationResponse';
-    redelegations?: Array<any | null> | null;
-    pagination?: any | null;
-  } | null;
-};
+
+export type ValidatorRedelegationsQuery = { redelegations?: { __typename?: 'ActionRedelegationResponse', redelegations?: Array<any | null> | null, pagination?: any | null } | null };
 
 export type ValidatorUndelegationsQueryVariables = Exact<{
   validatorAddress: Scalars['String'];
@@ -11679,100 +11770,44 @@ export type ValidatorUndelegationsQueryVariables = Exact<{
   pagination?: Scalars['Boolean'];
 }>;
 
-export type ValidatorUndelegationsQuery = {
-  undelegations?: {
-    __typename?: 'ActionUnbondingDelegationResponse';
-    pagination?: any | null;
-    undelegations?: Array<any | null> | null;
-  } | null;
-};
 
-export type ValidatorsQueryVariables = Exact<{ [key: string]: never }>;
+export type ValidatorUndelegationsQuery = { undelegations?: { __typename?: 'ActionUnbondingDelegationResponse', pagination?: any | null, undelegations?: Array<any | null> | null } | null };
 
-export type ValidatorsQuery = {
-  stakingPool: Array<{ __typename?: 'staking_pool'; bondedTokens: string }>;
-  validator: Array<{
-    __typename?: 'validator';
-    validatorStatuses: Array<{
-      __typename?: 'validator_status';
-      status: number;
-      jailed: boolean;
-      height: any;
-    }>;
-    validatorSigningInfos: Array<{
-      __typename?: 'validator_signing_info';
-      tombstoned: boolean;
-      missedBlocksCounter: any;
-    }>;
-    validatorInfo?: {
-      __typename?: 'validator_info';
-      operatorAddress: string;
-      selfDelegateAddress?: string | null;
-    } | null;
-    validatorVotingPowers: Array<{ __typename?: 'validator_voting_power'; votingPower: any }>;
-    validatorCommissions: Array<{ __typename?: 'validator_commission'; commission: any }>;
-  }>;
-  slashingParams: Array<{ __typename?: 'slashing_params'; params: any }>;
-};
+export type ValidatorsQueryVariables = Exact<{ [key: string]: never; }>;
 
-export type ValidatorsAddressListQueryVariables = Exact<{ [key: string]: never }>;
 
-export type ValidatorsAddressListQuery = {
-  validator: Array<{
-    __typename?: 'validator';
-    validatorInfo?: {
-      __typename?: 'validator_info';
-      operatorAddress: string;
-      selfDelegateAddress?: string | null;
-      consensusAddress: string;
-    } | null;
-    validatorDescriptions: Array<{
-      __typename?: 'validator_description';
-      moniker?: string | null;
-      identity?: string | null;
-      avatarUrl?: string | null;
-    }>;
-  }>;
-};
+export type ValidatorsQuery = { stakingPool: Array<{ __typename?: 'staking_pool', bondedTokens: string }>, validator: Array<{ __typename?: 'validator', validatorStatuses: Array<{ __typename?: 'validator_status', status: number, jailed: boolean, height: any }>, validatorSigningInfos: Array<{ __typename?: 'validator_signing_info', tombstoned: boolean, missedBlocksCounter: any }>, validatorInfo?: { __typename?: 'validator_info', operatorAddress: string, selfDelegateAddress?: string | null } | null, validatorVotingPowers: Array<{ __typename?: 'validator_voting_power', votingPower: any }>, validatorCommissions: Array<{ __typename?: 'validator_commission', commission: any }> }>, slashingParams: Array<{ __typename?: 'slashing_params', params: any }> };
 
-export type ValidatorAddressesQueryVariables = Exact<{ [key: string]: never }>;
+export type ValidatorsAddressListQueryVariables = Exact<{ [key: string]: never; }>;
 
-export type ValidatorAddressesQuery = {
-  validator: Array<{
-    __typename?: 'validator';
-    validatorInfo?: {
-      __typename?: 'validator_info';
-      operatorAddress: string;
-      selfDelegateAddress?: string | null;
-      consensusAddress: string;
-    } | null;
-    validatorDescriptions: Array<{
-      __typename?: 'validator_description';
-      moniker?: string | null;
-      avatarUrl?: string | null;
-    }>;
-  }>;
-};
+
+export type ValidatorsAddressListQuery = { validator: Array<{ __typename?: 'validator', validatorInfo?: { __typename?: 'validator_info', operatorAddress: string, selfDelegateAddress?: string | null, consensusAddress: string } | null, validatorDescriptions: Array<{ __typename?: 'validator_description', moniker?: string | null, identity?: string | null, avatarUrl?: string | null }> }> };
+
+export type ValidatorAddressesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type ValidatorAddressesQuery = { validator: Array<{ __typename?: 'validator', validatorInfo?: { __typename?: 'validator_info', operatorAddress: string, selfDelegateAddress?: string | null, consensusAddress: string } | null, validatorDescriptions: Array<{ __typename?: 'validator_description', moniker?: string | null, avatarUrl?: string | null }> }> };
+
 
 export const ActiveValidatorCountDocument = gql`
-  query ActiveValidatorCount {
-    activeTotal: validator_status_aggregate(where: { status: { _eq: 3 } }) {
-      aggregate {
-        count
-      }
-    }
-    inactiveTotal: validator_status_aggregate(where: { status: { _neq: 3 } }) {
-      aggregate {
-        count
-      }
-    }
-    total: validator_status_aggregate {
-      aggregate {
-        count
-      }
+    query ActiveValidatorCount {
+  activeTotal: validator_status_aggregate(where: {status: {_eq: 3}}) {
+    aggregate {
+      count
     }
   }
-`;
+  inactiveTotal: validator_status_aggregate(where: {status: {_neq: 3}}) {
+    aggregate {
+      count
+    }
+  }
+  total: validator_status_aggregate {
+    aggregate {
+      count
+    }
+  }
+}
+    `;
 
 /**
  * __useActiveValidatorCountQuery__
@@ -11789,74 +11824,55 @@ export const ActiveValidatorCountDocument = gql`
  *   },
  * });
  */
-export function useActiveValidatorCountQuery(
-  baseOptions?: Apollo.QueryHookOptions<
-    ActiveValidatorCountQuery,
-    ActiveValidatorCountQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<ActiveValidatorCountQuery, ActiveValidatorCountQueryVariables>(
-    ActiveValidatorCountDocument,
-    options
-  );
-}
-export function useActiveValidatorCountLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    ActiveValidatorCountQuery,
-    ActiveValidatorCountQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<ActiveValidatorCountQuery, ActiveValidatorCountQueryVariables>(
-    ActiveValidatorCountDocument,
-    options
-  );
-}
+export function useActiveValidatorCountQuery(baseOptions?: Apollo.QueryHookOptions<ActiveValidatorCountQuery, ActiveValidatorCountQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ActiveValidatorCountQuery, ActiveValidatorCountQueryVariables>(ActiveValidatorCountDocument, options);
+      }
+export function useActiveValidatorCountLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ActiveValidatorCountQuery, ActiveValidatorCountQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ActiveValidatorCountQuery, ActiveValidatorCountQueryVariables>(ActiveValidatorCountDocument, options);
+        }
 export type ActiveValidatorCountQueryHookResult = ReturnType<typeof useActiveValidatorCountQuery>;
-export type ActiveValidatorCountLazyQueryHookResult = ReturnType<
-  typeof useActiveValidatorCountLazyQuery
->;
-export type ActiveValidatorCountQueryResult = Apollo.QueryResult<
-  ActiveValidatorCountQuery,
-  ActiveValidatorCountQueryVariables
->;
+export type ActiveValidatorCountLazyQueryHookResult = ReturnType<typeof useActiveValidatorCountLazyQuery>;
+export type ActiveValidatorCountQueryResult = Apollo.QueryResult<ActiveValidatorCountQuery, ActiveValidatorCountQueryVariables>;
 export const BlockDetailsDocument = gql`
-  query BlockDetails($height: bigint, $signatureHeight: bigint) {
-    transaction(where: { height: { _eq: $height } }) {
-      height
-      hash
-      messages
-      success
-      logs
-    }
-    block(limit: 1, where: { height: { _eq: $height } }) {
-      height
-      hash
-      timestamp
-      txs: num_txs
-      validator {
-        validatorInfo: validator_info {
-          operatorAddress: operator_address
-        }
-      }
-    }
-    preCommitsAggregate: pre_commit_aggregate(where: { height: { _eq: $signatureHeight } }) {
-      aggregate {
-        sum {
-          votingPower: voting_power
-        }
-      }
-    }
-    preCommits: pre_commit(where: { height: { _eq: $signatureHeight } }) {
-      validator {
-        validatorInfo: validator_info {
-          operatorAddress: operator_address
-        }
+    query BlockDetails($height: bigint, $signatureHeight: bigint) {
+  transaction(where: {height: {_eq: $height}}) {
+    height
+    hash
+    messages
+    success
+    logs
+  }
+  block(limit: 1, where: {height: {_eq: $height}}) {
+    height
+    hash
+    timestamp
+    txs: num_txs
+    validator {
+      validatorInfo: validator_info {
+        operatorAddress: operator_address
       }
     }
   }
-`;
+  preCommitsAggregate: pre_commit_aggregate(
+    where: {height: {_eq: $signatureHeight}}
+  ) {
+    aggregate {
+      sum {
+        votingPower: voting_power
+      }
+    }
+  }
+  preCommits: pre_commit(where: {height: {_eq: $signatureHeight}}) {
+    validator {
+      validatorInfo: validator_info {
+        operatorAddress: operator_address
+      }
+    }
+  }
+}
+    `;
 
 /**
  * __useBlockDetailsQuery__
@@ -11875,37 +11891,24 @@ export const BlockDetailsDocument = gql`
  *   },
  * });
  */
-export function useBlockDetailsQuery(
-  baseOptions?: Apollo.QueryHookOptions<BlockDetailsQuery, BlockDetailsQueryVariables>
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<BlockDetailsQuery, BlockDetailsQueryVariables>(
-    BlockDetailsDocument,
-    options
-  );
-}
-export function useBlockDetailsLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<BlockDetailsQuery, BlockDetailsQueryVariables>
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<BlockDetailsQuery, BlockDetailsQueryVariables>(
-    BlockDetailsDocument,
-    options
-  );
-}
+export function useBlockDetailsQuery(baseOptions?: Apollo.QueryHookOptions<BlockDetailsQuery, BlockDetailsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<BlockDetailsQuery, BlockDetailsQueryVariables>(BlockDetailsDocument, options);
+      }
+export function useBlockDetailsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<BlockDetailsQuery, BlockDetailsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<BlockDetailsQuery, BlockDetailsQueryVariables>(BlockDetailsDocument, options);
+        }
 export type BlockDetailsQueryHookResult = ReturnType<typeof useBlockDetailsQuery>;
 export type BlockDetailsLazyQueryHookResult = ReturnType<typeof useBlockDetailsLazyQuery>;
-export type BlockDetailsQueryResult = Apollo.QueryResult<
-  BlockDetailsQuery,
-  BlockDetailsQueryVariables
->;
+export type BlockDetailsQueryResult = Apollo.QueryResult<BlockDetailsQuery, BlockDetailsQueryVariables>;
 export const LatestBlockHeightListenerDocument = gql`
-  subscription LatestBlockHeightListener($offset: Int = 0) {
-    height: block(order_by: { height: desc }, limit: 1, offset: $offset) {
-      height
-    }
+    subscription LatestBlockHeightListener($offset: Int = 0) {
+  height: block(order_by: {height: desc}, limit: 1, offset: $offset) {
+    height
   }
-`;
+}
+    `;
 
 /**
  * __useLatestBlockHeightListenerSubscription__
@@ -11923,30 +11926,22 @@ export const LatestBlockHeightListenerDocument = gql`
  *   },
  * });
  */
-export function useLatestBlockHeightListenerSubscription(
-  baseOptions?: Apollo.SubscriptionHookOptions<
-    LatestBlockHeightListenerSubscription,
-    LatestBlockHeightListenerSubscriptionVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useSubscription<
-    LatestBlockHeightListenerSubscription,
-    LatestBlockHeightListenerSubscriptionVariables
-  >(LatestBlockHeightListenerDocument, options);
-}
-export type LatestBlockHeightListenerSubscriptionHookResult = ReturnType<
-  typeof useLatestBlockHeightListenerSubscription
->;
-export type LatestBlockHeightListenerSubscriptionResult =
-  Apollo.SubscriptionResult<LatestBlockHeightListenerSubscription>;
+export function useLatestBlockHeightListenerSubscription(baseOptions?: Apollo.SubscriptionHookOptions<LatestBlockHeightListenerSubscription, LatestBlockHeightListenerSubscriptionVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useSubscription<LatestBlockHeightListenerSubscription, LatestBlockHeightListenerSubscriptionVariables>(LatestBlockHeightListenerDocument, options);
+      }
+export type LatestBlockHeightListenerSubscriptionHookResult = ReturnType<typeof useLatestBlockHeightListenerSubscription>;
+export type LatestBlockHeightListenerSubscriptionResult = Apollo.SubscriptionResult<LatestBlockHeightListenerSubscription>;
 export const AverageBlockTimeDocument = gql`
-  query AverageBlockTime {
-    averageBlockTime: average_block_time_per_hour(limit: 1, order_by: { height: desc }) {
-      averageTime: average_time
-    }
+    query AverageBlockTime {
+  averageBlockTime: average_block_time_per_hour(
+    limit: 1
+    order_by: {height: desc}
+  ) {
+    averageTime: average_time
   }
-`;
+}
+    `;
 
 /**
  * __useAverageBlockTimeQuery__
@@ -11963,37 +11958,24 @@ export const AverageBlockTimeDocument = gql`
  *   },
  * });
  */
-export function useAverageBlockTimeQuery(
-  baseOptions?: Apollo.QueryHookOptions<AverageBlockTimeQuery, AverageBlockTimeQueryVariables>
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<AverageBlockTimeQuery, AverageBlockTimeQueryVariables>(
-    AverageBlockTimeDocument,
-    options
-  );
-}
-export function useAverageBlockTimeLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<AverageBlockTimeQuery, AverageBlockTimeQueryVariables>
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<AverageBlockTimeQuery, AverageBlockTimeQueryVariables>(
-    AverageBlockTimeDocument,
-    options
-  );
-}
+export function useAverageBlockTimeQuery(baseOptions?: Apollo.QueryHookOptions<AverageBlockTimeQuery, AverageBlockTimeQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<AverageBlockTimeQuery, AverageBlockTimeQueryVariables>(AverageBlockTimeDocument, options);
+      }
+export function useAverageBlockTimeLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AverageBlockTimeQuery, AverageBlockTimeQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<AverageBlockTimeQuery, AverageBlockTimeQueryVariables>(AverageBlockTimeDocument, options);
+        }
 export type AverageBlockTimeQueryHookResult = ReturnType<typeof useAverageBlockTimeQuery>;
 export type AverageBlockTimeLazyQueryHookResult = ReturnType<typeof useAverageBlockTimeLazyQuery>;
-export type AverageBlockTimeQueryResult = Apollo.QueryResult<
-  AverageBlockTimeQuery,
-  AverageBlockTimeQueryVariables
->;
+export type AverageBlockTimeQueryResult = Apollo.QueryResult<AverageBlockTimeQuery, AverageBlockTimeQueryVariables>;
 export const LatestBlockTimestampDocument = gql`
-  query LatestBlockTimestamp($offset: Int = 0) {
-    block: block(order_by: { height: desc }, limit: 1, offset: $offset) {
-      timestamp
-    }
+    query LatestBlockTimestamp($offset: Int = 0) {
+  block: block(order_by: {height: desc}, limit: 1, offset: $offset) {
+    timestamp
   }
-`;
+}
+    `;
 
 /**
  * __useLatestBlockTimestampQuery__
@@ -12011,53 +11993,32 @@ export const LatestBlockTimestampDocument = gql`
  *   },
  * });
  */
-export function useLatestBlockTimestampQuery(
-  baseOptions?: Apollo.QueryHookOptions<
-    LatestBlockTimestampQuery,
-    LatestBlockTimestampQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<LatestBlockTimestampQuery, LatestBlockTimestampQueryVariables>(
-    LatestBlockTimestampDocument,
-    options
-  );
-}
-export function useLatestBlockTimestampLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    LatestBlockTimestampQuery,
-    LatestBlockTimestampQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<LatestBlockTimestampQuery, LatestBlockTimestampQueryVariables>(
-    LatestBlockTimestampDocument,
-    options
-  );
-}
-export type LatestBlockTimestampQueryHookResult = ReturnType<typeof useLatestBlockTimestampQuery>;
-export type LatestBlockTimestampLazyQueryHookResult = ReturnType<
-  typeof useLatestBlockTimestampLazyQuery
->;
-export type LatestBlockTimestampQueryResult = Apollo.QueryResult<
-  LatestBlockTimestampQuery,
-  LatestBlockTimestampQueryVariables
->;
-export const BlocksListenerDocument = gql`
-  subscription BlocksListener($limit: Int = 7, $offset: Int = 0) {
-    blocks: block(limit: $limit, offset: $offset, order_by: { height: desc }) {
-      height
-      txs: num_txs
-      hash
-      timestamp
-      validator {
-        validatorInfo: validator_info {
-          operatorAddress: operator_address
+export function useLatestBlockTimestampQuery(baseOptions?: Apollo.QueryHookOptions<LatestBlockTimestampQuery, LatestBlockTimestampQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<LatestBlockTimestampQuery, LatestBlockTimestampQueryVariables>(LatestBlockTimestampDocument, options);
+      }
+export function useLatestBlockTimestampLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<LatestBlockTimestampQuery, LatestBlockTimestampQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<LatestBlockTimestampQuery, LatestBlockTimestampQueryVariables>(LatestBlockTimestampDocument, options);
         }
+export type LatestBlockTimestampQueryHookResult = ReturnType<typeof useLatestBlockTimestampQuery>;
+export type LatestBlockTimestampLazyQueryHookResult = ReturnType<typeof useLatestBlockTimestampLazyQuery>;
+export type LatestBlockTimestampQueryResult = Apollo.QueryResult<LatestBlockTimestampQuery, LatestBlockTimestampQueryVariables>;
+export const BlocksListenerDocument = gql`
+    subscription BlocksListener($limit: Int = 7, $offset: Int = 0) {
+  blocks: block(limit: $limit, offset: $offset, order_by: {height: desc}) {
+    height
+    txs: num_txs
+    hash
+    timestamp
+    validator {
+      validatorInfo: validator_info {
+        operatorAddress: operator_address
       }
     }
   }
-`;
+}
+    `;
 
 /**
  * __useBlocksListenerSubscription__
@@ -12076,41 +12037,35 @@ export const BlocksListenerDocument = gql`
  *   },
  * });
  */
-export function useBlocksListenerSubscription(
-  baseOptions?: Apollo.SubscriptionHookOptions<
-    BlocksListenerSubscription,
-    BlocksListenerSubscriptionVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useSubscription<BlocksListenerSubscription, BlocksListenerSubscriptionVariables>(
-    BlocksListenerDocument,
-    options
-  );
-}
+export function useBlocksListenerSubscription(baseOptions?: Apollo.SubscriptionHookOptions<BlocksListenerSubscription, BlocksListenerSubscriptionVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useSubscription<BlocksListenerSubscription, BlocksListenerSubscriptionVariables>(BlocksListenerDocument, options);
+      }
 export type BlocksListenerSubscriptionHookResult = ReturnType<typeof useBlocksListenerSubscription>;
-export type BlocksListenerSubscriptionResult =
-  Apollo.SubscriptionResult<BlocksListenerSubscription>;
+export type BlocksListenerSubscriptionResult = Apollo.SubscriptionResult<BlocksListenerSubscription>;
 export const BlocksDocument = gql`
-  query Blocks($limit: Int = 7, $offset: Int = 0) {
-    blocks: block(limit: $limit, offset: $offset, order_by: { height: desc }) {
-      height
-      txs: num_txs
-      hash
-      timestamp
-      validator {
-        validatorInfo: validator_info {
-          operatorAddress: operator_address
-          self_delegate_address
-        }
-        validatorDescriptions: validator_descriptions(limit: 1, order_by: { height: desc }) {
-          moniker
-          identity
-        }
+    query Blocks($limit: Int = 7, $offset: Int = 0) {
+  blocks: block(limit: $limit, offset: $offset, order_by: {height: desc}) {
+    height
+    txs: num_txs
+    hash
+    timestamp
+    validator {
+      validatorInfo: validator_info {
+        operatorAddress: operator_address
+        self_delegate_address
+      }
+      validatorDescriptions: validator_descriptions(
+        limit: 1
+        order_by: {height: desc}
+      ) {
+        moniker
+        identity
       }
     }
   }
-`;
+}
+    `;
 
 /**
  * __useBlocksQuery__
@@ -12129,29 +12084,25 @@ export const BlocksDocument = gql`
  *   },
  * });
  */
-export function useBlocksQuery(
-  baseOptions?: Apollo.QueryHookOptions<BlocksQuery, BlocksQueryVariables>
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<BlocksQuery, BlocksQueryVariables>(BlocksDocument, options);
-}
-export function useBlocksLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<BlocksQuery, BlocksQueryVariables>
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<BlocksQuery, BlocksQueryVariables>(BlocksDocument, options);
-}
+export function useBlocksQuery(baseOptions?: Apollo.QueryHookOptions<BlocksQuery, BlocksQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<BlocksQuery, BlocksQueryVariables>(BlocksDocument, options);
+      }
+export function useBlocksLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<BlocksQuery, BlocksQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<BlocksQuery, BlocksQueryVariables>(BlocksDocument, options);
+        }
 export type BlocksQueryHookResult = ReturnType<typeof useBlocksQuery>;
 export type BlocksLazyQueryHookResult = ReturnType<typeof useBlocksLazyQuery>;
 export type BlocksQueryResult = Apollo.QueryResult<BlocksQuery, BlocksQueryVariables>;
 export const ChainIdDocument = gql`
-  query ChainId {
-    genesis(limit: 1, order_by: { time: desc }) {
-      chainId: chain_id
-      time
-    }
+    query ChainId {
+  genesis(limit: 1, order_by: {time: desc}) {
+    chainId: chain_id
+    time
   }
-`;
+}
+    `;
 
 /**
  * __useChainIdQuery__
@@ -12168,51 +12119,47 @@ export const ChainIdDocument = gql`
  *   },
  * });
  */
-export function useChainIdQuery(
-  baseOptions?: Apollo.QueryHookOptions<ChainIdQuery, ChainIdQueryVariables>
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<ChainIdQuery, ChainIdQueryVariables>(ChainIdDocument, options);
-}
-export function useChainIdLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<ChainIdQuery, ChainIdQueryVariables>
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<ChainIdQuery, ChainIdQueryVariables>(ChainIdDocument, options);
-}
+export function useChainIdQuery(baseOptions?: Apollo.QueryHookOptions<ChainIdQuery, ChainIdQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ChainIdQuery, ChainIdQueryVariables>(ChainIdDocument, options);
+      }
+export function useChainIdLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ChainIdQuery, ChainIdQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ChainIdQuery, ChainIdQueryVariables>(ChainIdDocument, options);
+        }
 export type ChainIdQueryHookResult = ReturnType<typeof useChainIdQuery>;
 export type ChainIdLazyQueryHookResult = ReturnType<typeof useChainIdLazyQuery>;
 export type ChainIdQueryResult = Apollo.QueryResult<ChainIdQuery, ChainIdQueryVariables>;
 export const MarketDataDocument = gql`
-  query MarketData($denom: String) {
-    communityPool: community_pool(order_by: { height: desc }, limit: 1) {
-      coins
-    }
-    inflation: inflation(order_by: { height: desc }, limit: 1) {
-      value
-    }
-    tokenPrice: token_price(where: { unit_name: { _eq: $denom } }) {
-      marketCap: market_cap
-      price
-    }
-    supply {
-      coins
-    }
-    bondedTokens: staking_pool(order_by: { height: desc }, limit: 1) {
-      bonded_tokens
-    }
-    distributionParams: distribution_params {
-      params
-    }
-    evmosInflationData: evmos_inflation_data {
-      circulating_supply
-      inflation_rate
-    }
-    evmosInflationParams: evmos_inflation_params {
-      params
-    }
+    query MarketData($denom: String) {
+  communityPool: community_pool(order_by: {height: desc}, limit: 1) {
+    coins
   }
-`;
+  inflation: inflation(order_by: {height: desc}, limit: 1) {
+    value
+  }
+  tokenPrice: token_price(where: {unit_name: {_eq: $denom}}) {
+    marketCap: market_cap
+    price
+  }
+  supply {
+    coins
+  }
+  bondedTokens: staking_pool(order_by: {height: desc}, limit: 1) {
+    bonded_tokens
+  }
+  distributionParams: distribution_params {
+    params
+  }
+  evmosInflationData: evmos_inflation_data {
+    circulating_supply
+    inflation_rate
+  }
+  evmosInflationParams: evmos_inflation_params {
+    params
+  }
+}
+    `;
 
 /**
  * __useMarketDataQuery__
@@ -12230,48 +12177,36 @@ export const MarketDataDocument = gql`
  *   },
  * });
  */
-export function useMarketDataQuery(
-  baseOptions?: Apollo.QueryHookOptions<MarketDataQuery, MarketDataQueryVariables>
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<MarketDataQuery, MarketDataQueryVariables>(MarketDataDocument, options);
-}
-export function useMarketDataLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<MarketDataQuery, MarketDataQueryVariables>
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<MarketDataQuery, MarketDataQueryVariables>(
-    MarketDataDocument,
-    options
-  );
-}
+export function useMarketDataQuery(baseOptions?: Apollo.QueryHookOptions<MarketDataQuery, MarketDataQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<MarketDataQuery, MarketDataQueryVariables>(MarketDataDocument, options);
+      }
+export function useMarketDataLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<MarketDataQuery, MarketDataQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<MarketDataQuery, MarketDataQueryVariables>(MarketDataDocument, options);
+        }
 export type MarketDataQueryHookResult = ReturnType<typeof useMarketDataQuery>;
 export type MarketDataLazyQueryHookResult = ReturnType<typeof useMarketDataLazyQuery>;
 export type MarketDataQueryResult = Apollo.QueryResult<MarketDataQuery, MarketDataQueryVariables>;
 export const GetMessagesByAddressDocument = gql`
-  query GetMessagesByAddress(
-    $address: _text
-    $limit: bigint = 50
-    $offset: bigint = 0
-    $types: _text = "{}"
+    query GetMessagesByAddress($address: _text, $limit: bigint = 50, $offset: bigint = 0, $types: _text = "{}") {
+  messagesByAddress: messages_by_address(
+    args: {addresses: $address, types: $types, limit: $limit, offset: $offset}
   ) {
-    messagesByAddress: messages_by_address(
-      args: { addresses: $address, types: $types, limit: $limit, offset: $offset }
-    ) {
-      transaction {
+    transaction {
+      height
+      hash
+      success
+      messages
+      logs
+      block {
         height
-        hash
-        success
-        messages
-        logs
-        block {
-          height
-          timestamp
-        }
+        timestamp
       }
     }
   }
-`;
+}
+    `;
 
 /**
  * __useGetMessagesByAddressQuery__
@@ -12292,62 +12227,41 @@ export const GetMessagesByAddressDocument = gql`
  *   },
  * });
  */
-export function useGetMessagesByAddressQuery(
-  baseOptions?: Apollo.QueryHookOptions<
-    GetMessagesByAddressQuery,
-    GetMessagesByAddressQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<GetMessagesByAddressQuery, GetMessagesByAddressQueryVariables>(
-    GetMessagesByAddressDocument,
-    options
-  );
-}
-export function useGetMessagesByAddressLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    GetMessagesByAddressQuery,
-    GetMessagesByAddressQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<GetMessagesByAddressQuery, GetMessagesByAddressQueryVariables>(
-    GetMessagesByAddressDocument,
-    options
-  );
-}
-export type GetMessagesByAddressQueryHookResult = ReturnType<typeof useGetMessagesByAddressQuery>;
-export type GetMessagesByAddressLazyQueryHookResult = ReturnType<
-  typeof useGetMessagesByAddressLazyQuery
->;
-export type GetMessagesByAddressQueryResult = Apollo.QueryResult<
-  GetMessagesByAddressQuery,
-  GetMessagesByAddressQueryVariables
->;
-export const OnlineVotingPowerDocument = gql`
-  query OnlineVotingPower {
-    activeTotal: validator_status_aggregate(where: { status: { _eq: 3 } }) {
-      aggregate {
-        count
+export function useGetMessagesByAddressQuery(baseOptions?: Apollo.QueryHookOptions<GetMessagesByAddressQuery, GetMessagesByAddressQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetMessagesByAddressQuery, GetMessagesByAddressQueryVariables>(GetMessagesByAddressDocument, options);
       }
-    }
-    validatorVotingPowerAggregate: validator_voting_power_aggregate(
-      where: { validator: { validator_statuses: { status: { _eq: 3 } } } }
-    ) {
-      aggregate {
-        sum {
-          votingPower: voting_power
+export function useGetMessagesByAddressLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetMessagesByAddressQuery, GetMessagesByAddressQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetMessagesByAddressQuery, GetMessagesByAddressQueryVariables>(GetMessagesByAddressDocument, options);
         }
-      }
-    }
-    stakingPool: staking_pool(order_by: { height: desc }, limit: 1) {
-      bonded: bonded_tokens
-    }
-    stakingParams: staking_params(limit: 1) {
-      params
+export type GetMessagesByAddressQueryHookResult = ReturnType<typeof useGetMessagesByAddressQuery>;
+export type GetMessagesByAddressLazyQueryHookResult = ReturnType<typeof useGetMessagesByAddressLazyQuery>;
+export type GetMessagesByAddressQueryResult = Apollo.QueryResult<GetMessagesByAddressQuery, GetMessagesByAddressQueryVariables>;
+export const OnlineVotingPowerDocument = gql`
+    query OnlineVotingPower {
+  activeTotal: validator_status_aggregate(where: {status: {_eq: 3}}) {
+    aggregate {
+      count
     }
   }
-`;
+  validatorVotingPowerAggregate: validator_voting_power_aggregate(
+    where: {validator: {validator_statuses: {status: {_eq: 3}}}}
+  ) {
+    aggregate {
+      sum {
+        votingPower: voting_power
+      }
+    }
+  }
+  stakingPool: staking_pool(order_by: {height: desc}, limit: 1) {
+    bonded: bonded_tokens
+  }
+  stakingParams: staking_params(limit: 1) {
+    params
+  }
+}
+    `;
 
 /**
  * __useOnlineVotingPowerQuery__
@@ -12364,51 +12278,38 @@ export const OnlineVotingPowerDocument = gql`
  *   },
  * });
  */
-export function useOnlineVotingPowerQuery(
-  baseOptions?: Apollo.QueryHookOptions<OnlineVotingPowerQuery, OnlineVotingPowerQueryVariables>
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<OnlineVotingPowerQuery, OnlineVotingPowerQueryVariables>(
-    OnlineVotingPowerDocument,
-    options
-  );
-}
-export function useOnlineVotingPowerLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<OnlineVotingPowerQuery, OnlineVotingPowerQueryVariables>
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<OnlineVotingPowerQuery, OnlineVotingPowerQueryVariables>(
-    OnlineVotingPowerDocument,
-    options
-  );
-}
+export function useOnlineVotingPowerQuery(baseOptions?: Apollo.QueryHookOptions<OnlineVotingPowerQuery, OnlineVotingPowerQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<OnlineVotingPowerQuery, OnlineVotingPowerQueryVariables>(OnlineVotingPowerDocument, options);
+      }
+export function useOnlineVotingPowerLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<OnlineVotingPowerQuery, OnlineVotingPowerQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<OnlineVotingPowerQuery, OnlineVotingPowerQueryVariables>(OnlineVotingPowerDocument, options);
+        }
 export type OnlineVotingPowerQueryHookResult = ReturnType<typeof useOnlineVotingPowerQuery>;
 export type OnlineVotingPowerLazyQueryHookResult = ReturnType<typeof useOnlineVotingPowerLazyQuery>;
-export type OnlineVotingPowerQueryResult = Apollo.QueryResult<
-  OnlineVotingPowerQuery,
-  OnlineVotingPowerQueryVariables
->;
+export type OnlineVotingPowerQueryResult = Apollo.QueryResult<OnlineVotingPowerQuery, OnlineVotingPowerQueryVariables>;
 export const ParamsDocument = gql`
-  query Params {
-    stakingParams: staking_params(limit: 1, order_by: { height: desc }) {
-      params
-    }
-    slashingParams: slashing_params(limit: 1, order_by: { height: desc }) {
-      params
-    }
-    mintParams: mint_params(limit: 1, order_by: { height: desc }) {
-      params
-    }
-    distributionParams: distribution_params(limit: 1, order_by: { height: desc }) {
-      params
-    }
-    govParams: gov_params(limit: 1, order_by: { height: desc }) {
-      depositParams: deposit_params
-      tallyParams: tally_params
-      votingParams: voting_params
-    }
+    query Params {
+  stakingParams: staking_params(limit: 1, order_by: {height: desc}) {
+    params
   }
-`;
+  slashingParams: slashing_params(limit: 1, order_by: {height: desc}) {
+    params
+  }
+  mintParams: mint_params(limit: 1, order_by: {height: desc}) {
+    params
+  }
+  distributionParams: distribution_params(limit: 1, order_by: {height: desc}) {
+    params
+  }
+  govParams: gov_params(limit: 1, order_by: {height: desc}) {
+    depositParams: deposit_params
+    tallyParams: tally_params
+    votingParams: voting_params
+  }
+}
+    `;
 
 /**
  * __useParamsQuery__
@@ -12425,37 +12326,33 @@ export const ParamsDocument = gql`
  *   },
  * });
  */
-export function useParamsQuery(
-  baseOptions?: Apollo.QueryHookOptions<ParamsQuery, ParamsQueryVariables>
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<ParamsQuery, ParamsQueryVariables>(ParamsDocument, options);
-}
-export function useParamsLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<ParamsQuery, ParamsQueryVariables>
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<ParamsQuery, ParamsQueryVariables>(ParamsDocument, options);
-}
+export function useParamsQuery(baseOptions?: Apollo.QueryHookOptions<ParamsQuery, ParamsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ParamsQuery, ParamsQueryVariables>(ParamsDocument, options);
+      }
+export function useParamsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ParamsQuery, ParamsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ParamsQuery, ParamsQueryVariables>(ParamsDocument, options);
+        }
 export type ParamsQueryHookResult = ReturnType<typeof useParamsQuery>;
 export type ParamsLazyQueryHookResult = ReturnType<typeof useParamsLazyQuery>;
 export type ParamsQueryResult = Apollo.QueryResult<ParamsQuery, ParamsQueryVariables>;
 export const ProposalDetailsDocument = gql`
-  query ProposalDetails($proposalId: Int) {
-    proposal(where: { id: { _eq: $proposalId } }) {
-      proposer: proposer_address
-      title
-      description
-      status
-      content
-      proposalId: id
-      submitTime: submit_time
-      depositEndTime: deposit_end_time
-      votingStartTime: voting_start_time
-      votingEndTime: voting_end_time
-    }
+    query ProposalDetails($proposalId: Int) {
+  proposal(where: {id: {_eq: $proposalId}}) {
+    proposer: proposer_address
+    title
+    description
+    status
+    content
+    proposalId: id
+    submitTime: submit_time
+    depositEndTime: deposit_end_time
+    votingStartTime: voting_start_time
+    votingEndTime: voting_end_time
   }
-`;
+}
+    `;
 
 /**
  * __useProposalDetailsQuery__
@@ -12473,46 +12370,37 @@ export const ProposalDetailsDocument = gql`
  *   },
  * });
  */
-export function useProposalDetailsQuery(
-  baseOptions?: Apollo.QueryHookOptions<ProposalDetailsQuery, ProposalDetailsQueryVariables>
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<ProposalDetailsQuery, ProposalDetailsQueryVariables>(
-    ProposalDetailsDocument,
-    options
-  );
-}
-export function useProposalDetailsLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<ProposalDetailsQuery, ProposalDetailsQueryVariables>
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<ProposalDetailsQuery, ProposalDetailsQueryVariables>(
-    ProposalDetailsDocument,
-    options
-  );
-}
+export function useProposalDetailsQuery(baseOptions?: Apollo.QueryHookOptions<ProposalDetailsQuery, ProposalDetailsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ProposalDetailsQuery, ProposalDetailsQueryVariables>(ProposalDetailsDocument, options);
+      }
+export function useProposalDetailsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ProposalDetailsQuery, ProposalDetailsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ProposalDetailsQuery, ProposalDetailsQueryVariables>(ProposalDetailsDocument, options);
+        }
 export type ProposalDetailsQueryHookResult = ReturnType<typeof useProposalDetailsQuery>;
 export type ProposalDetailsLazyQueryHookResult = ReturnType<typeof useProposalDetailsLazyQuery>;
-export type ProposalDetailsQueryResult = Apollo.QueryResult<
-  ProposalDetailsQuery,
-  ProposalDetailsQueryVariables
->;
+export type ProposalDetailsQueryResult = Apollo.QueryResult<ProposalDetailsQuery, ProposalDetailsQueryVariables>;
 export const ProposalDetailsTallyDocument = gql`
-  query ProposalDetailsTally($proposalId: Int) {
-    proposalTallyResult: proposal_tally_result(where: { proposal_id: { _eq: $proposalId } }) {
-      yes
-      no
-      noWithVeto: no_with_veto
-      abstain
-    }
-    stakingPool: proposal_staking_pool_snapshot(where: { proposal_id: { _eq: $proposalId } }) {
-      bondedTokens: bonded_tokens
-    }
-    quorum: gov_params(limit: 1, order_by: { height: desc }) {
-      tallyParams: tally_params
-    }
+    query ProposalDetailsTally($proposalId: Int) {
+  proposalTallyResult: proposal_tally_result(
+    where: {proposal_id: {_eq: $proposalId}}
+  ) {
+    yes
+    no
+    noWithVeto: no_with_veto
+    abstain
   }
-`;
+  stakingPool: proposal_staking_pool_snapshot(
+    where: {proposal_id: {_eq: $proposalId}}
+  ) {
+    bondedTokens: bonded_tokens
+  }
+  quorum: gov_params(limit: 1, order_by: {height: desc}) {
+    tallyParams: tally_params
+  }
+}
+    `;
 
 /**
  * __useProposalDetailsTallyQuery__
@@ -12530,52 +12418,31 @@ export const ProposalDetailsTallyDocument = gql`
  *   },
  * });
  */
-export function useProposalDetailsTallyQuery(
-  baseOptions?: Apollo.QueryHookOptions<
-    ProposalDetailsTallyQuery,
-    ProposalDetailsTallyQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<ProposalDetailsTallyQuery, ProposalDetailsTallyQueryVariables>(
-    ProposalDetailsTallyDocument,
-    options
-  );
-}
-export function useProposalDetailsTallyLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    ProposalDetailsTallyQuery,
-    ProposalDetailsTallyQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<ProposalDetailsTallyQuery, ProposalDetailsTallyQueryVariables>(
-    ProposalDetailsTallyDocument,
-    options
-  );
-}
-export type ProposalDetailsTallyQueryHookResult = ReturnType<typeof useProposalDetailsTallyQuery>;
-export type ProposalDetailsTallyLazyQueryHookResult = ReturnType<
-  typeof useProposalDetailsTallyLazyQuery
->;
-export type ProposalDetailsTallyQueryResult = Apollo.QueryResult<
-  ProposalDetailsTallyQuery,
-  ProposalDetailsTallyQueryVariables
->;
-export const ProposalDetailsDepositsDocument = gql`
-  query ProposalDetailsDeposits($proposalId: Int) {
-    proposalDeposit: proposal_deposit(
-      where: { proposal_id: { _eq: $proposalId } }
-      order_by: { height: desc }
-    ) {
-      amount
-      depositorAddress: depositor_address
-      block {
-        timestamp
+export function useProposalDetailsTallyQuery(baseOptions?: Apollo.QueryHookOptions<ProposalDetailsTallyQuery, ProposalDetailsTallyQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ProposalDetailsTallyQuery, ProposalDetailsTallyQueryVariables>(ProposalDetailsTallyDocument, options);
       }
+export function useProposalDetailsTallyLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ProposalDetailsTallyQuery, ProposalDetailsTallyQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ProposalDetailsTallyQuery, ProposalDetailsTallyQueryVariables>(ProposalDetailsTallyDocument, options);
+        }
+export type ProposalDetailsTallyQueryHookResult = ReturnType<typeof useProposalDetailsTallyQuery>;
+export type ProposalDetailsTallyLazyQueryHookResult = ReturnType<typeof useProposalDetailsTallyLazyQuery>;
+export type ProposalDetailsTallyQueryResult = Apollo.QueryResult<ProposalDetailsTallyQuery, ProposalDetailsTallyQueryVariables>;
+export const ProposalDetailsDepositsDocument = gql`
+    query ProposalDetailsDeposits($proposalId: Int) {
+  proposalDeposit: proposal_deposit(
+    where: {proposal_id: {_eq: $proposalId}}
+    order_by: {height: desc}
+  ) {
+    amount
+    depositorAddress: depositor_address
+    block {
+      timestamp
     }
   }
-`;
+}
+    `;
 
 /**
  * __useProposalDetailsDepositsQuery__
@@ -12593,60 +12460,37 @@ export const ProposalDetailsDepositsDocument = gql`
  *   },
  * });
  */
-export function useProposalDetailsDepositsQuery(
-  baseOptions?: Apollo.QueryHookOptions<
-    ProposalDetailsDepositsQuery,
-    ProposalDetailsDepositsQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<ProposalDetailsDepositsQuery, ProposalDetailsDepositsQueryVariables>(
-    ProposalDetailsDepositsDocument,
-    options
-  );
-}
-export function useProposalDetailsDepositsLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    ProposalDetailsDepositsQuery,
-    ProposalDetailsDepositsQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<ProposalDetailsDepositsQuery, ProposalDetailsDepositsQueryVariables>(
-    ProposalDetailsDepositsDocument,
-    options
-  );
-}
-export type ProposalDetailsDepositsQueryHookResult = ReturnType<
-  typeof useProposalDetailsDepositsQuery
->;
-export type ProposalDetailsDepositsLazyQueryHookResult = ReturnType<
-  typeof useProposalDetailsDepositsLazyQuery
->;
-export type ProposalDetailsDepositsQueryResult = Apollo.QueryResult<
-  ProposalDetailsDepositsQuery,
-  ProposalDetailsDepositsQueryVariables
->;
-export const ProposalDetailsVotesDocument = gql`
-  query ProposalDetailsVotes($proposalId: Int) {
-    proposalVote: proposal_vote(
-      where: { proposal_id: { _eq: $proposalId } }
-      order_by: { height: desc }
-    ) {
-      option
-      voterAddress: voter_address
-    }
-    validatorStatuses: proposal_validator_status_snapshot(
-      where: { proposal_id: { _eq: $proposalId }, status: { _eq: 3 } }
-    ) {
-      validator {
-        validatorInfo: validator_info {
-          selfDelegateAddress: self_delegate_address
+export function useProposalDetailsDepositsQuery(baseOptions?: Apollo.QueryHookOptions<ProposalDetailsDepositsQuery, ProposalDetailsDepositsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ProposalDetailsDepositsQuery, ProposalDetailsDepositsQueryVariables>(ProposalDetailsDepositsDocument, options);
+      }
+export function useProposalDetailsDepositsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ProposalDetailsDepositsQuery, ProposalDetailsDepositsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ProposalDetailsDepositsQuery, ProposalDetailsDepositsQueryVariables>(ProposalDetailsDepositsDocument, options);
         }
+export type ProposalDetailsDepositsQueryHookResult = ReturnType<typeof useProposalDetailsDepositsQuery>;
+export type ProposalDetailsDepositsLazyQueryHookResult = ReturnType<typeof useProposalDetailsDepositsLazyQuery>;
+export type ProposalDetailsDepositsQueryResult = Apollo.QueryResult<ProposalDetailsDepositsQuery, ProposalDetailsDepositsQueryVariables>;
+export const ProposalDetailsVotesDocument = gql`
+    query ProposalDetailsVotes($proposalId: Int) {
+  proposalVote: proposal_vote(
+    where: {proposal_id: {_eq: $proposalId}}
+    order_by: {height: desc}
+  ) {
+    option
+    voterAddress: voter_address
+  }
+  validatorStatuses: proposal_validator_status_snapshot(
+    where: {proposal_id: {_eq: $proposalId}, status: {_eq: 3}}
+  ) {
+    validator {
+      validatorInfo: validator_info {
+        selfDelegateAddress: self_delegate_address
       }
     }
   }
-`;
+}
+    `;
 
 /**
  * __useProposalDetailsVotesQuery__
@@ -12664,53 +12508,32 @@ export const ProposalDetailsVotesDocument = gql`
  *   },
  * });
  */
-export function useProposalDetailsVotesQuery(
-  baseOptions?: Apollo.QueryHookOptions<
-    ProposalDetailsVotesQuery,
-    ProposalDetailsVotesQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<ProposalDetailsVotesQuery, ProposalDetailsVotesQueryVariables>(
-    ProposalDetailsVotesDocument,
-    options
-  );
-}
-export function useProposalDetailsVotesLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    ProposalDetailsVotesQuery,
-    ProposalDetailsVotesQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<ProposalDetailsVotesQuery, ProposalDetailsVotesQueryVariables>(
-    ProposalDetailsVotesDocument,
-    options
-  );
-}
-export type ProposalDetailsVotesQueryHookResult = ReturnType<typeof useProposalDetailsVotesQuery>;
-export type ProposalDetailsVotesLazyQueryHookResult = ReturnType<
-  typeof useProposalDetailsVotesLazyQuery
->;
-export type ProposalDetailsVotesQueryResult = Apollo.QueryResult<
-  ProposalDetailsVotesQuery,
-  ProposalDetailsVotesQueryVariables
->;
-export const ProposalsDocument = gql`
-  query Proposals($limit: Int = 7, $offset: Int = 0) {
-    proposals: proposal(limit: $limit, offset: $offset, order_by: { id: desc }) {
-      title
-      proposalId: id
-      status
-      description
-    }
-    total: proposal_aggregate {
-      aggregate {
-        count
+export function useProposalDetailsVotesQuery(baseOptions?: Apollo.QueryHookOptions<ProposalDetailsVotesQuery, ProposalDetailsVotesQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ProposalDetailsVotesQuery, ProposalDetailsVotesQueryVariables>(ProposalDetailsVotesDocument, options);
       }
+export function useProposalDetailsVotesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ProposalDetailsVotesQuery, ProposalDetailsVotesQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ProposalDetailsVotesQuery, ProposalDetailsVotesQueryVariables>(ProposalDetailsVotesDocument, options);
+        }
+export type ProposalDetailsVotesQueryHookResult = ReturnType<typeof useProposalDetailsVotesQuery>;
+export type ProposalDetailsVotesLazyQueryHookResult = ReturnType<typeof useProposalDetailsVotesLazyQuery>;
+export type ProposalDetailsVotesQueryResult = Apollo.QueryResult<ProposalDetailsVotesQuery, ProposalDetailsVotesQueryVariables>;
+export const ProposalsDocument = gql`
+    query Proposals($limit: Int = 7, $offset: Int = 0) {
+  proposals: proposal(limit: $limit, offset: $offset, order_by: {id: desc}) {
+    title
+    proposalId: id
+    status
+    description
+  }
+  total: proposal_aggregate {
+    aggregate {
+      count
     }
   }
-`;
+}
+    `;
 
 /**
  * __useProposalsQuery__
@@ -12729,32 +12552,28 @@ export const ProposalsDocument = gql`
  *   },
  * });
  */
-export function useProposalsQuery(
-  baseOptions?: Apollo.QueryHookOptions<ProposalsQuery, ProposalsQueryVariables>
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<ProposalsQuery, ProposalsQueryVariables>(ProposalsDocument, options);
-}
-export function useProposalsLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<ProposalsQuery, ProposalsQueryVariables>
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<ProposalsQuery, ProposalsQueryVariables>(ProposalsDocument, options);
-}
+export function useProposalsQuery(baseOptions?: Apollo.QueryHookOptions<ProposalsQuery, ProposalsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ProposalsQuery, ProposalsQueryVariables>(ProposalsDocument, options);
+      }
+export function useProposalsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ProposalsQuery, ProposalsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ProposalsQuery, ProposalsQueryVariables>(ProposalsDocument, options);
+        }
 export type ProposalsQueryHookResult = ReturnType<typeof useProposalsQuery>;
 export type ProposalsLazyQueryHookResult = ReturnType<typeof useProposalsLazyQuery>;
 export type ProposalsQueryResult = Apollo.QueryResult<ProposalsQuery, ProposalsQueryVariables>;
 export const TokenPriceListenerDocument = gql`
-  subscription TokenPriceListener($denom: String) {
-    tokenPrice: token_price(where: { unit_name: { _eq: $denom } }) {
-      id
-      price
-      timestamp
-      marketCap: market_cap
-      unitName: unit_name
-    }
+    subscription TokenPriceListener($denom: String) {
+  tokenPrice: token_price(where: {unit_name: {_eq: $denom}}) {
+    id
+    price
+    timestamp
+    marketCap: market_cap
+    unitName: unit_name
   }
-`;
+}
+    `;
 
 /**
  * __useTokenPriceListenerSubscription__
@@ -12772,35 +12591,24 @@ export const TokenPriceListenerDocument = gql`
  *   },
  * });
  */
-export function useTokenPriceListenerSubscription(
-  baseOptions?: Apollo.SubscriptionHookOptions<
-    TokenPriceListenerSubscription,
-    TokenPriceListenerSubscriptionVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useSubscription<
-    TokenPriceListenerSubscription,
-    TokenPriceListenerSubscriptionVariables
-  >(TokenPriceListenerDocument, options);
-}
-export type TokenPriceListenerSubscriptionHookResult = ReturnType<
-  typeof useTokenPriceListenerSubscription
->;
-export type TokenPriceListenerSubscriptionResult =
-  Apollo.SubscriptionResult<TokenPriceListenerSubscription>;
+export function useTokenPriceListenerSubscription(baseOptions?: Apollo.SubscriptionHookOptions<TokenPriceListenerSubscription, TokenPriceListenerSubscriptionVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useSubscription<TokenPriceListenerSubscription, TokenPriceListenerSubscriptionVariables>(TokenPriceListenerDocument, options);
+      }
+export type TokenPriceListenerSubscriptionHookResult = ReturnType<typeof useTokenPriceListenerSubscription>;
+export type TokenPriceListenerSubscriptionResult = Apollo.SubscriptionResult<TokenPriceListenerSubscription>;
 export const TokenPriceHistoryDocument = gql`
-  query TokenPriceHistory($denom: String, $limit: Int = 10) {
-    tokenPrice: token_price_history(
-      where: { unit_name: { _eq: $denom } }
-      limit: $limit
-      order_by: { timestamp: desc }
-    ) {
-      price
-      timestamp
-    }
+    query TokenPriceHistory($denom: String, $limit: Int = 10) {
+  tokenPrice: token_price_history(
+    where: {unit_name: {_eq: $denom}}
+    limit: $limit
+    order_by: {timestamp: desc}
+  ) {
+    price
+    timestamp
   }
-`;
+}
+    `;
 
 /**
  * __useTokenPriceHistoryQuery__
@@ -12819,44 +12627,31 @@ export const TokenPriceHistoryDocument = gql`
  *   },
  * });
  */
-export function useTokenPriceHistoryQuery(
-  baseOptions?: Apollo.QueryHookOptions<TokenPriceHistoryQuery, TokenPriceHistoryQueryVariables>
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<TokenPriceHistoryQuery, TokenPriceHistoryQueryVariables>(
-    TokenPriceHistoryDocument,
-    options
-  );
-}
-export function useTokenPriceHistoryLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<TokenPriceHistoryQuery, TokenPriceHistoryQueryVariables>
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<TokenPriceHistoryQuery, TokenPriceHistoryQueryVariables>(
-    TokenPriceHistoryDocument,
-    options
-  );
-}
+export function useTokenPriceHistoryQuery(baseOptions?: Apollo.QueryHookOptions<TokenPriceHistoryQuery, TokenPriceHistoryQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<TokenPriceHistoryQuery, TokenPriceHistoryQueryVariables>(TokenPriceHistoryDocument, options);
+      }
+export function useTokenPriceHistoryLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<TokenPriceHistoryQuery, TokenPriceHistoryQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<TokenPriceHistoryQuery, TokenPriceHistoryQueryVariables>(TokenPriceHistoryDocument, options);
+        }
 export type TokenPriceHistoryQueryHookResult = ReturnType<typeof useTokenPriceHistoryQuery>;
 export type TokenPriceHistoryLazyQueryHookResult = ReturnType<typeof useTokenPriceHistoryLazyQuery>;
-export type TokenPriceHistoryQueryResult = Apollo.QueryResult<
-  TokenPriceHistoryQuery,
-  TokenPriceHistoryQueryVariables
->;
+export type TokenPriceHistoryQueryResult = Apollo.QueryResult<TokenPriceHistoryQuery, TokenPriceHistoryQueryVariables>;
 export const TokenomicsDocument = gql`
-  query Tokenomics {
-    stakingParams: staking_params(limit: 1) {
-      params
-    }
-    stakingPool: staking_pool(order_by: { height: desc }, limit: 1) {
-      bonded: bonded_tokens
-      unbonded: not_bonded_tokens
-    }
-    supply: supply(order_by: { height: desc }, limit: 1) {
-      coins
-    }
+    query Tokenomics {
+  stakingParams: staking_params(limit: 1) {
+    params
   }
-`;
+  stakingPool: staking_pool(order_by: {height: desc}, limit: 1) {
+    bonded: bonded_tokens
+    unbonded: not_bonded_tokens
+  }
+  supply: supply(order_by: {height: desc}, limit: 1) {
+    coins
+  }
+}
+    `;
 
 /**
  * __useTokenomicsQuery__
@@ -12873,43 +12668,36 @@ export const TokenomicsDocument = gql`
  *   },
  * });
  */
-export function useTokenomicsQuery(
-  baseOptions?: Apollo.QueryHookOptions<TokenomicsQuery, TokenomicsQueryVariables>
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<TokenomicsQuery, TokenomicsQueryVariables>(TokenomicsDocument, options);
-}
-export function useTokenomicsLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<TokenomicsQuery, TokenomicsQueryVariables>
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<TokenomicsQuery, TokenomicsQueryVariables>(
-    TokenomicsDocument,
-    options
-  );
-}
+export function useTokenomicsQuery(baseOptions?: Apollo.QueryHookOptions<TokenomicsQuery, TokenomicsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<TokenomicsQuery, TokenomicsQueryVariables>(TokenomicsDocument, options);
+      }
+export function useTokenomicsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<TokenomicsQuery, TokenomicsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<TokenomicsQuery, TokenomicsQueryVariables>(TokenomicsDocument, options);
+        }
 export type TokenomicsQueryHookResult = ReturnType<typeof useTokenomicsQuery>;
 export type TokenomicsLazyQueryHookResult = ReturnType<typeof useTokenomicsLazyQuery>;
 export type TokenomicsQueryResult = Apollo.QueryResult<TokenomicsQuery, TokenomicsQueryVariables>;
 export const TransactionDetailsDocument = gql`
-  query TransactionDetails($hash: String) {
-    transaction(where: { hash: { _eq: $hash } }, limit: 1) {
-      hash: hash
-      height: height
-      block: block {
-        timestamp: timestamp
-      }
-      fee: fee
-      gasUsed: gas_used
-      gasWanted: gas_wanted
-      success: success
-      memo: memo
-      messages: messages
-      logs
-      rawLog: raw_log
+    query TransactionDetails($hash: String) {
+  transaction(where: {hash: {_eq: $hash}}, limit: 1) {
+    hash: hash
+    height: height
+    block: block {
+      timestamp: timestamp
     }
+    fee: fee
+    gasUsed: gas_used
+    gasWanted: gas_wanted
+    success: success
+    memo: memo
+    messages: messages
+    logs
+    rawLog: raw_log
   }
-`;
+}
+    `;
 
 /**
  * __useTransactionDetailsQuery__
@@ -12927,49 +12715,35 @@ export const TransactionDetailsDocument = gql`
  *   },
  * });
  */
-export function useTransactionDetailsQuery(
-  baseOptions?: Apollo.QueryHookOptions<TransactionDetailsQuery, TransactionDetailsQueryVariables>
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<TransactionDetailsQuery, TransactionDetailsQueryVariables>(
-    TransactionDetailsDocument,
-    options
-  );
-}
-export function useTransactionDetailsLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    TransactionDetailsQuery,
-    TransactionDetailsQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<TransactionDetailsQuery, TransactionDetailsQueryVariables>(
-    TransactionDetailsDocument,
-    options
-  );
-}
-export type TransactionDetailsQueryHookResult = ReturnType<typeof useTransactionDetailsQuery>;
-export type TransactionDetailsLazyQueryHookResult = ReturnType<
-  typeof useTransactionDetailsLazyQuery
->;
-export type TransactionDetailsQueryResult = Apollo.QueryResult<
-  TransactionDetailsQuery,
-  TransactionDetailsQueryVariables
->;
-export const TransactionsListenerDocument = gql`
-  subscription TransactionsListener($limit: Int = 7, $offset: Int = 0) {
-    transactions: transaction(limit: $limit, offset: $offset, order_by: { height: desc }) {
-      height
-      hash
-      success
-      block {
-        timestamp
+export function useTransactionDetailsQuery(baseOptions?: Apollo.QueryHookOptions<TransactionDetailsQuery, TransactionDetailsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<TransactionDetailsQuery, TransactionDetailsQueryVariables>(TransactionDetailsDocument, options);
       }
-      messages
-      logs
+export function useTransactionDetailsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<TransactionDetailsQuery, TransactionDetailsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<TransactionDetailsQuery, TransactionDetailsQueryVariables>(TransactionDetailsDocument, options);
+        }
+export type TransactionDetailsQueryHookResult = ReturnType<typeof useTransactionDetailsQuery>;
+export type TransactionDetailsLazyQueryHookResult = ReturnType<typeof useTransactionDetailsLazyQuery>;
+export type TransactionDetailsQueryResult = Apollo.QueryResult<TransactionDetailsQuery, TransactionDetailsQueryVariables>;
+export const TransactionsListenerDocument = gql`
+    subscription TransactionsListener($limit: Int = 7, $offset: Int = 0) {
+  transactions: transaction(
+    limit: $limit
+    offset: $offset
+    order_by: {height: desc}
+  ) {
+    height
+    hash
+    success
+    block {
+      timestamp
     }
+    messages
+    logs
   }
-`;
+}
+    `;
 
 /**
  * __useTransactionsListenerSubscription__
@@ -12988,37 +12762,30 @@ export const TransactionsListenerDocument = gql`
  *   },
  * });
  */
-export function useTransactionsListenerSubscription(
-  baseOptions?: Apollo.SubscriptionHookOptions<
-    TransactionsListenerSubscription,
-    TransactionsListenerSubscriptionVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useSubscription<
-    TransactionsListenerSubscription,
-    TransactionsListenerSubscriptionVariables
-  >(TransactionsListenerDocument, options);
-}
-export type TransactionsListenerSubscriptionHookResult = ReturnType<
-  typeof useTransactionsListenerSubscription
->;
-export type TransactionsListenerSubscriptionResult =
-  Apollo.SubscriptionResult<TransactionsListenerSubscription>;
-export const TransactionsDocument = gql`
-  query Transactions($limit: Int = 7, $offset: Int = 0) {
-    transactions: transaction(limit: $limit, offset: $offset, order_by: { height: desc }) {
-      height
-      hash
-      success
-      block {
-        timestamp
+export function useTransactionsListenerSubscription(baseOptions?: Apollo.SubscriptionHookOptions<TransactionsListenerSubscription, TransactionsListenerSubscriptionVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useSubscription<TransactionsListenerSubscription, TransactionsListenerSubscriptionVariables>(TransactionsListenerDocument, options);
       }
-      messages
-      logs
+export type TransactionsListenerSubscriptionHookResult = ReturnType<typeof useTransactionsListenerSubscription>;
+export type TransactionsListenerSubscriptionResult = Apollo.SubscriptionResult<TransactionsListenerSubscription>;
+export const TransactionsDocument = gql`
+    query Transactions($limit: Int = 7, $offset: Int = 0) {
+  transactions: transaction(
+    limit: $limit
+    offset: $offset
+    order_by: {height: desc}
+  ) {
+    height
+    hash
+    success
+    block {
+      timestamp
     }
+    messages
+    logs
   }
-`;
+}
+    `;
 
 /**
  * __useTransactionsQuery__
@@ -13037,50 +12804,37 @@ export const TransactionsDocument = gql`
  *   },
  * });
  */
-export function useTransactionsQuery(
-  baseOptions?: Apollo.QueryHookOptions<TransactionsQuery, TransactionsQueryVariables>
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<TransactionsQuery, TransactionsQueryVariables>(
-    TransactionsDocument,
-    options
-  );
-}
-export function useTransactionsLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<TransactionsQuery, TransactionsQueryVariables>
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<TransactionsQuery, TransactionsQueryVariables>(
-    TransactionsDocument,
-    options
-  );
-}
+export function useTransactionsQuery(baseOptions?: Apollo.QueryHookOptions<TransactionsQuery, TransactionsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<TransactionsQuery, TransactionsQueryVariables>(TransactionsDocument, options);
+      }
+export function useTransactionsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<TransactionsQuery, TransactionsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<TransactionsQuery, TransactionsQueryVariables>(TransactionsDocument, options);
+        }
 export type TransactionsQueryHookResult = ReturnType<typeof useTransactionsQuery>;
 export type TransactionsLazyQueryHookResult = ReturnType<typeof useTransactionsLazyQuery>;
-export type TransactionsQueryResult = Apollo.QueryResult<
-  TransactionsQuery,
-  TransactionsQueryVariables
->;
+export type TransactionsQueryResult = Apollo.QueryResult<TransactionsQuery, TransactionsQueryVariables>;
 export const LastHundredBlocksDocument = gql`
-  subscription LastHundredBlocks($address: String) {
-    block(offset: 1, order_by: { height: desc }, limit: 100) {
-      height
-      validator {
-        validatorInfo: validator_info {
-          operatorAddress: operator_address
-        }
-      }
-      transactions {
-        hash
-      }
-      precommits: pre_commits(
-        where: { validator: { validator_info: { operator_address: { _eq: $address } } } }
-      ) {
-        validatorAddress: validator_address
+    subscription LastHundredBlocks($address: String) {
+  block(offset: 1, order_by: {height: desc}, limit: 100) {
+    height
+    validator {
+      validatorInfo: validator_info {
+        operatorAddress: operator_address
       }
     }
+    transactions {
+      hash
+    }
+    precommits: pre_commits(
+      where: {validator: {validator_info: {operator_address: {_eq: $address}}}}
+    ) {
+      validatorAddress: validator_address
+    }
   }
-`;
+}
+    `;
 
 /**
  * __useLastHundredBlocksSubscription__
@@ -13098,35 +12852,24 @@ export const LastHundredBlocksDocument = gql`
  *   },
  * });
  */
-export function useLastHundredBlocksSubscription(
-  baseOptions?: Apollo.SubscriptionHookOptions<
-    LastHundredBlocksSubscription,
-    LastHundredBlocksSubscriptionVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useSubscription<
-    LastHundredBlocksSubscription,
-    LastHundredBlocksSubscriptionVariables
-  >(LastHundredBlocksDocument, options);
-}
-export type LastHundredBlocksSubscriptionHookResult = ReturnType<
-  typeof useLastHundredBlocksSubscription
->;
-export type LastHundredBlocksSubscriptionResult =
-  Apollo.SubscriptionResult<LastHundredBlocksSubscription>;
+export function useLastHundredBlocksSubscription(baseOptions?: Apollo.SubscriptionHookOptions<LastHundredBlocksSubscription, LastHundredBlocksSubscriptionVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useSubscription<LastHundredBlocksSubscription, LastHundredBlocksSubscriptionVariables>(LastHundredBlocksDocument, options);
+      }
+export type LastHundredBlocksSubscriptionHookResult = ReturnType<typeof useLastHundredBlocksSubscription>;
+export type LastHundredBlocksSubscriptionResult = Apollo.SubscriptionResult<LastHundredBlocksSubscription>;
 export const ValidatorLastSeenListenerDocument = gql`
-  subscription ValidatorLastSeenListener($address: String) {
-    preCommit: pre_commit(
-      limit: 1
-      where: { validator: { validator_info: { operator_address: { _eq: $address } } } }
-      order_by: { height: desc }
-    ) {
-      height
-      timestamp
-    }
+    subscription ValidatorLastSeenListener($address: String) {
+  preCommit: pre_commit(
+    limit: 1
+    where: {validator: {validator_info: {operator_address: {_eq: $address}}}}
+    order_by: {height: desc}
+  ) {
+    height
+    timestamp
   }
-`;
+}
+    `;
 
 /**
  * __useValidatorLastSeenListenerSubscription__
@@ -13144,65 +12887,60 @@ export const ValidatorLastSeenListenerDocument = gql`
  *   },
  * });
  */
-export function useValidatorLastSeenListenerSubscription(
-  baseOptions?: Apollo.SubscriptionHookOptions<
-    ValidatorLastSeenListenerSubscription,
-    ValidatorLastSeenListenerSubscriptionVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useSubscription<
-    ValidatorLastSeenListenerSubscription,
-    ValidatorLastSeenListenerSubscriptionVariables
-  >(ValidatorLastSeenListenerDocument, options);
-}
-export type ValidatorLastSeenListenerSubscriptionHookResult = ReturnType<
-  typeof useValidatorLastSeenListenerSubscription
->;
-export type ValidatorLastSeenListenerSubscriptionResult =
-  Apollo.SubscriptionResult<ValidatorLastSeenListenerSubscription>;
+export function useValidatorLastSeenListenerSubscription(baseOptions?: Apollo.SubscriptionHookOptions<ValidatorLastSeenListenerSubscription, ValidatorLastSeenListenerSubscriptionVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useSubscription<ValidatorLastSeenListenerSubscription, ValidatorLastSeenListenerSubscriptionVariables>(ValidatorLastSeenListenerDocument, options);
+      }
+export type ValidatorLastSeenListenerSubscriptionHookResult = ReturnType<typeof useValidatorLastSeenListenerSubscription>;
+export type ValidatorLastSeenListenerSubscriptionResult = Apollo.SubscriptionResult<ValidatorLastSeenListenerSubscription>;
 export const ValidatorDetailsDocument = gql`
-  query ValidatorDetails($address: String) {
-    stakingPool: staking_pool(order_by: { height: desc }, limit: 1, offset: 0) {
+    query ValidatorDetails($address: String) {
+  stakingPool: staking_pool(order_by: {height: desc}, limit: 1, offset: 0) {
+    height
+    bonded: bonded_tokens
+  }
+  validator(where: {validator_info: {operator_address: {_eq: $address}}}) {
+    validatorDescriptions: validator_descriptions(
+      order_by: {height: desc}
+      limit: 1
+    ) {
+      details
+      website
+    }
+    validatorStatuses: validator_statuses(order_by: {height: desc}, limit: 1) {
+      status
+      jailed
       height
-      bonded: bonded_tokens
     }
-    validator(where: { validator_info: { operator_address: { _eq: $address } } }) {
-      validatorDescriptions: validator_descriptions(order_by: { height: desc }, limit: 1) {
-        details
-        website
-      }
-      validatorStatuses: validator_statuses(order_by: { height: desc }, limit: 1) {
-        status
-        jailed
-        height
-      }
-      validatorSigningInfos: validator_signing_infos(order_by: { height: desc }, limit: 1) {
-        missedBlocksCounter: missed_blocks_counter
-        tombstoned
-      }
-      validatorInfo: validator_info {
-        operatorAddress: operator_address
-        selfDelegateAddress: self_delegate_address
-        maxRate: max_rate
-      }
-      validatorCommissions: validator_commissions(order_by: { height: desc }, limit: 1) {
-        commission
-      }
-      validatorVotingPowers: validator_voting_powers(
-        offset: 0
-        limit: 1
-        order_by: { height: desc }
-      ) {
-        height
-        votingPower: voting_power
-      }
+    validatorSigningInfos: validator_signing_infos(
+      order_by: {height: desc}
+      limit: 1
+    ) {
+      missedBlocksCounter: missed_blocks_counter
+      tombstoned
     }
-    slashingParams: slashing_params(order_by: { height: desc }, limit: 1) {
-      params
+    validatorInfo: validator_info {
+      operatorAddress: operator_address
+      selfDelegateAddress: self_delegate_address
+      maxRate: max_rate
+    }
+    validatorCommissions: validator_commissions(order_by: {height: desc}, limit: 1) {
+      commission
+    }
+    validatorVotingPowers: validator_voting_powers(
+      offset: 0
+      limit: 1
+      order_by: {height: desc}
+    ) {
+      height
+      votingPower: voting_power
     }
   }
-`;
+  slashingParams: slashing_params(order_by: {height: desc}, limit: 1) {
+    params
+  }
+}
+    `;
 
 /**
  * __useValidatorDetailsQuery__
@@ -13220,48 +12958,30 @@ export const ValidatorDetailsDocument = gql`
  *   },
  * });
  */
-export function useValidatorDetailsQuery(
-  baseOptions?: Apollo.QueryHookOptions<ValidatorDetailsQuery, ValidatorDetailsQueryVariables>
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<ValidatorDetailsQuery, ValidatorDetailsQueryVariables>(
-    ValidatorDetailsDocument,
-    options
-  );
-}
-export function useValidatorDetailsLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<ValidatorDetailsQuery, ValidatorDetailsQueryVariables>
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<ValidatorDetailsQuery, ValidatorDetailsQueryVariables>(
-    ValidatorDetailsDocument,
-    options
-  );
-}
+export function useValidatorDetailsQuery(baseOptions?: Apollo.QueryHookOptions<ValidatorDetailsQuery, ValidatorDetailsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ValidatorDetailsQuery, ValidatorDetailsQueryVariables>(ValidatorDetailsDocument, options);
+      }
+export function useValidatorDetailsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ValidatorDetailsQuery, ValidatorDetailsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ValidatorDetailsQuery, ValidatorDetailsQueryVariables>(ValidatorDetailsDocument, options);
+        }
 export type ValidatorDetailsQueryHookResult = ReturnType<typeof useValidatorDetailsQuery>;
 export type ValidatorDetailsLazyQueryHookResult = ReturnType<typeof useValidatorDetailsLazyQuery>;
-export type ValidatorDetailsQueryResult = Apollo.QueryResult<
-  ValidatorDetailsQuery,
-  ValidatorDetailsQueryVariables
->;
+export type ValidatorDetailsQueryResult = Apollo.QueryResult<ValidatorDetailsQuery, ValidatorDetailsQueryVariables>;
 export const ValidatorDelegationsDocument = gql`
-  query ValidatorDelegations(
-    $validatorAddress: String!
-    $offset: Int = 0
-    $limit: Int = 10
-    $pagination: Boolean! = true
+    query ValidatorDelegations($validatorAddress: String!, $offset: Int = 0, $limit: Int = 10, $pagination: Boolean! = true) {
+  delegations: action_validator_delegations(
+    address: $validatorAddress
+    limit: $limit
+    offset: $offset
+    count_total: $pagination
   ) {
-    delegations: action_validator_delegations(
-      address: $validatorAddress
-      limit: $limit
-      offset: $offset
-      count_total: $pagination
-    ) {
-      delegations
-      pagination
-    }
+    delegations
+    pagination
   }
-`;
+}
+    `;
 
 /**
  * __useValidatorDelegationsQuery__
@@ -13282,56 +13002,30 @@ export const ValidatorDelegationsDocument = gql`
  *   },
  * });
  */
-export function useValidatorDelegationsQuery(
-  baseOptions: Apollo.QueryHookOptions<
-    ValidatorDelegationsQuery,
-    ValidatorDelegationsQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<ValidatorDelegationsQuery, ValidatorDelegationsQueryVariables>(
-    ValidatorDelegationsDocument,
-    options
-  );
-}
-export function useValidatorDelegationsLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    ValidatorDelegationsQuery,
-    ValidatorDelegationsQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<ValidatorDelegationsQuery, ValidatorDelegationsQueryVariables>(
-    ValidatorDelegationsDocument,
-    options
-  );
-}
+export function useValidatorDelegationsQuery(baseOptions: Apollo.QueryHookOptions<ValidatorDelegationsQuery, ValidatorDelegationsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ValidatorDelegationsQuery, ValidatorDelegationsQueryVariables>(ValidatorDelegationsDocument, options);
+      }
+export function useValidatorDelegationsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ValidatorDelegationsQuery, ValidatorDelegationsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ValidatorDelegationsQuery, ValidatorDelegationsQueryVariables>(ValidatorDelegationsDocument, options);
+        }
 export type ValidatorDelegationsQueryHookResult = ReturnType<typeof useValidatorDelegationsQuery>;
-export type ValidatorDelegationsLazyQueryHookResult = ReturnType<
-  typeof useValidatorDelegationsLazyQuery
->;
-export type ValidatorDelegationsQueryResult = Apollo.QueryResult<
-  ValidatorDelegationsQuery,
-  ValidatorDelegationsQueryVariables
->;
+export type ValidatorDelegationsLazyQueryHookResult = ReturnType<typeof useValidatorDelegationsLazyQuery>;
+export type ValidatorDelegationsQueryResult = Apollo.QueryResult<ValidatorDelegationsQuery, ValidatorDelegationsQueryVariables>;
 export const ValidatorRedelegationsDocument = gql`
-  query ValidatorRedelegations(
-    $validatorAddress: String!
-    $offset: Int = 0
-    $limit: Int = 10
-    $pagination: Boolean! = true
+    query ValidatorRedelegations($validatorAddress: String!, $offset: Int = 0, $limit: Int = 10, $pagination: Boolean! = true) {
+  redelegations: action_validator_redelegations_from(
+    address: $validatorAddress
+    limit: $limit
+    offset: $offset
+    count_total: $pagination
   ) {
-    redelegations: action_validator_redelegations_from(
-      address: $validatorAddress
-      limit: $limit
-      offset: $offset
-      count_total: $pagination
-    ) {
-      redelegations
-      pagination
-    }
+    redelegations
+    pagination
   }
-`;
+}
+    `;
 
 /**
  * __useValidatorRedelegationsQuery__
@@ -13352,58 +13046,30 @@ export const ValidatorRedelegationsDocument = gql`
  *   },
  * });
  */
-export function useValidatorRedelegationsQuery(
-  baseOptions: Apollo.QueryHookOptions<
-    ValidatorRedelegationsQuery,
-    ValidatorRedelegationsQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<ValidatorRedelegationsQuery, ValidatorRedelegationsQueryVariables>(
-    ValidatorRedelegationsDocument,
-    options
-  );
-}
-export function useValidatorRedelegationsLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    ValidatorRedelegationsQuery,
-    ValidatorRedelegationsQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<ValidatorRedelegationsQuery, ValidatorRedelegationsQueryVariables>(
-    ValidatorRedelegationsDocument,
-    options
-  );
-}
-export type ValidatorRedelegationsQueryHookResult = ReturnType<
-  typeof useValidatorRedelegationsQuery
->;
-export type ValidatorRedelegationsLazyQueryHookResult = ReturnType<
-  typeof useValidatorRedelegationsLazyQuery
->;
-export type ValidatorRedelegationsQueryResult = Apollo.QueryResult<
-  ValidatorRedelegationsQuery,
-  ValidatorRedelegationsQueryVariables
->;
+export function useValidatorRedelegationsQuery(baseOptions: Apollo.QueryHookOptions<ValidatorRedelegationsQuery, ValidatorRedelegationsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ValidatorRedelegationsQuery, ValidatorRedelegationsQueryVariables>(ValidatorRedelegationsDocument, options);
+      }
+export function useValidatorRedelegationsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ValidatorRedelegationsQuery, ValidatorRedelegationsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ValidatorRedelegationsQuery, ValidatorRedelegationsQueryVariables>(ValidatorRedelegationsDocument, options);
+        }
+export type ValidatorRedelegationsQueryHookResult = ReturnType<typeof useValidatorRedelegationsQuery>;
+export type ValidatorRedelegationsLazyQueryHookResult = ReturnType<typeof useValidatorRedelegationsLazyQuery>;
+export type ValidatorRedelegationsQueryResult = Apollo.QueryResult<ValidatorRedelegationsQuery, ValidatorRedelegationsQueryVariables>;
 export const ValidatorUndelegationsDocument = gql`
-  query ValidatorUndelegations(
-    $validatorAddress: String!
-    $offset: Int = 0
-    $limit: Int = 10
-    $pagination: Boolean! = true
+    query ValidatorUndelegations($validatorAddress: String!, $offset: Int = 0, $limit: Int = 10, $pagination: Boolean! = true) {
+  undelegations: action_validator_unbonding_delegations(
+    address: $validatorAddress
+    limit: $limit
+    offset: $offset
+    count_total: $pagination
   ) {
-    undelegations: action_validator_unbonding_delegations(
-      address: $validatorAddress
-      limit: $limit
-      offset: $offset
-      count_total: $pagination
-    ) {
-      undelegations: unbonding_delegations
-      pagination
-    }
+    undelegations: unbonding_delegations
+    pagination
   }
-`;
+}
+    `;
 
 /**
  * __useValidatorUndelegationsQuery__
@@ -13424,78 +13090,61 @@ export const ValidatorUndelegationsDocument = gql`
  *   },
  * });
  */
-export function useValidatorUndelegationsQuery(
-  baseOptions: Apollo.QueryHookOptions<
-    ValidatorUndelegationsQuery,
-    ValidatorUndelegationsQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<ValidatorUndelegationsQuery, ValidatorUndelegationsQueryVariables>(
-    ValidatorUndelegationsDocument,
-    options
-  );
-}
-export function useValidatorUndelegationsLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    ValidatorUndelegationsQuery,
-    ValidatorUndelegationsQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<ValidatorUndelegationsQuery, ValidatorUndelegationsQueryVariables>(
-    ValidatorUndelegationsDocument,
-    options
-  );
-}
-export type ValidatorUndelegationsQueryHookResult = ReturnType<
-  typeof useValidatorUndelegationsQuery
->;
-export type ValidatorUndelegationsLazyQueryHookResult = ReturnType<
-  typeof useValidatorUndelegationsLazyQuery
->;
-export type ValidatorUndelegationsQueryResult = Apollo.QueryResult<
-  ValidatorUndelegationsQuery,
-  ValidatorUndelegationsQueryVariables
->;
+export function useValidatorUndelegationsQuery(baseOptions: Apollo.QueryHookOptions<ValidatorUndelegationsQuery, ValidatorUndelegationsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ValidatorUndelegationsQuery, ValidatorUndelegationsQueryVariables>(ValidatorUndelegationsDocument, options);
+      }
+export function useValidatorUndelegationsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ValidatorUndelegationsQuery, ValidatorUndelegationsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ValidatorUndelegationsQuery, ValidatorUndelegationsQueryVariables>(ValidatorUndelegationsDocument, options);
+        }
+export type ValidatorUndelegationsQueryHookResult = ReturnType<typeof useValidatorUndelegationsQuery>;
+export type ValidatorUndelegationsLazyQueryHookResult = ReturnType<typeof useValidatorUndelegationsLazyQuery>;
+export type ValidatorUndelegationsQueryResult = Apollo.QueryResult<ValidatorUndelegationsQuery, ValidatorUndelegationsQueryVariables>;
 export const ValidatorsDocument = gql`
-  query Validators {
-    stakingPool: staking_pool(limit: 1, order_by: { height: desc }) {
-      bondedTokens: bonded_tokens
+    query Validators {
+  stakingPool: staking_pool(limit: 1, order_by: {height: desc}) {
+    bondedTokens: bonded_tokens
+  }
+  validator {
+    validatorStatuses: validator_statuses(order_by: {height: desc}, limit: 1) {
+      status
+      jailed
+      height
     }
-    validator {
-      validatorStatuses: validator_statuses(order_by: { height: desc }, limit: 1) {
-        status
-        jailed
-        height
-      }
-      validatorSigningInfos: validator_signing_infos(order_by: { height: desc }, limit: 1) {
-        missedBlocksCounter: missed_blocks_counter
-        tombstoned
-      }
-      validatorInfo: validator_info {
-        operatorAddress: operator_address
-        selfDelegateAddress: self_delegate_address
-      }
-      validatorVotingPowers: validator_voting_powers(
-        offset: 0
-        limit: 1
-        order_by: { height: desc }
-      ) {
-        votingPower: voting_power
-      }
-      validatorCommissions: validator_commissions(order_by: { height: desc }, limit: 1) {
-        commission
-      }
-      validatorSigningInfos: validator_signing_infos(order_by: { height: desc }, limit: 1) {
-        missedBlocksCounter: missed_blocks_counter
-      }
+    validatorSigningInfos: validator_signing_infos(
+      order_by: {height: desc}
+      limit: 1
+    ) {
+      missedBlocksCounter: missed_blocks_counter
+      tombstoned
     }
-    slashingParams: slashing_params(order_by: { height: desc }, limit: 1) {
-      params
+    validatorInfo: validator_info {
+      operatorAddress: operator_address
+      selfDelegateAddress: self_delegate_address
+    }
+    validatorVotingPowers: validator_voting_powers(
+      offset: 0
+      limit: 1
+      order_by: {height: desc}
+    ) {
+      votingPower: voting_power
+    }
+    validatorCommissions: validator_commissions(order_by: {height: desc}, limit: 1) {
+      commission
+    }
+    validatorSigningInfos: validator_signing_infos(
+      order_by: {height: desc}
+      limit: 1
+    ) {
+      missedBlocksCounter: missed_blocks_counter
     }
   }
-`;
+  slashingParams: slashing_params(order_by: {height: desc}, limit: 1) {
+    params
+  }
+}
+    `;
 
 /**
  * __useValidatorsQuery__
@@ -13512,40 +13161,36 @@ export const ValidatorsDocument = gql`
  *   },
  * });
  */
-export function useValidatorsQuery(
-  baseOptions?: Apollo.QueryHookOptions<ValidatorsQuery, ValidatorsQueryVariables>
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<ValidatorsQuery, ValidatorsQueryVariables>(ValidatorsDocument, options);
-}
-export function useValidatorsLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<ValidatorsQuery, ValidatorsQueryVariables>
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<ValidatorsQuery, ValidatorsQueryVariables>(
-    ValidatorsDocument,
-    options
-  );
-}
+export function useValidatorsQuery(baseOptions?: Apollo.QueryHookOptions<ValidatorsQuery, ValidatorsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ValidatorsQuery, ValidatorsQueryVariables>(ValidatorsDocument, options);
+      }
+export function useValidatorsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ValidatorsQuery, ValidatorsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ValidatorsQuery, ValidatorsQueryVariables>(ValidatorsDocument, options);
+        }
 export type ValidatorsQueryHookResult = ReturnType<typeof useValidatorsQuery>;
 export type ValidatorsLazyQueryHookResult = ReturnType<typeof useValidatorsLazyQuery>;
 export type ValidatorsQueryResult = Apollo.QueryResult<ValidatorsQuery, ValidatorsQueryVariables>;
 export const ValidatorsAddressListDocument = gql`
-  query ValidatorsAddressList {
-    validator {
-      validatorInfo: validator_info {
-        operatorAddress: operator_address
-        selfDelegateAddress: self_delegate_address
-        consensusAddress: consensus_address
-      }
-      validatorDescriptions: validator_descriptions(limit: 1, order_by: { height: desc }) {
-        moniker
-        identity
-        avatarUrl: avatar_url
-      }
+    query ValidatorsAddressList {
+  validator {
+    validatorInfo: validator_info {
+      operatorAddress: operator_address
+      selfDelegateAddress: self_delegate_address
+      consensusAddress: consensus_address
+    }
+    validatorDescriptions: validator_descriptions(
+      limit: 1
+      order_by: {height: desc}
+    ) {
+      moniker
+      identity
+      avatarUrl: avatar_url
     }
   }
-`;
+}
+    `;
 
 /**
  * __useValidatorsAddressListQuery__
@@ -13562,61 +13207,37 @@ export const ValidatorsAddressListDocument = gql`
  *   },
  * });
  */
-export function useValidatorsAddressListQuery(
-  baseOptions?: Apollo.QueryHookOptions<
-    ValidatorsAddressListQuery,
-    ValidatorsAddressListQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<ValidatorsAddressListQuery, ValidatorsAddressListQueryVariables>(
-    ValidatorsAddressListDocument,
-    options
-  );
-}
-export function useValidatorsAddressListLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    ValidatorsAddressListQuery,
-    ValidatorsAddressListQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<ValidatorsAddressListQuery, ValidatorsAddressListQueryVariables>(
-    ValidatorsAddressListDocument,
-    options
-  );
-}
-export type ValidatorsAddressListQueryHookResult = ReturnType<typeof useValidatorsAddressListQuery>;
-export type ValidatorsAddressListLazyQueryHookResult = ReturnType<
-  typeof useValidatorsAddressListLazyQuery
->;
-export type ValidatorsAddressListQueryResult = Apollo.QueryResult<
-  ValidatorsAddressListQuery,
-  ValidatorsAddressListQueryVariables
->;
-export const ValidatorAddressesDocument = gql`
-  query ValidatorAddresses {
-    validator(
-      where: {
-        validator_info: {
-          operator_address: { _is_null: false }
-          consensus_address: { _is_null: false }
-          self_delegate_address: { _is_null: false }
+export function useValidatorsAddressListQuery(baseOptions?: Apollo.QueryHookOptions<ValidatorsAddressListQuery, ValidatorsAddressListQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ValidatorsAddressListQuery, ValidatorsAddressListQueryVariables>(ValidatorsAddressListDocument, options);
+      }
+export function useValidatorsAddressListLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ValidatorsAddressListQuery, ValidatorsAddressListQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ValidatorsAddressListQuery, ValidatorsAddressListQueryVariables>(ValidatorsAddressListDocument, options);
         }
-      }
+export type ValidatorsAddressListQueryHookResult = ReturnType<typeof useValidatorsAddressListQuery>;
+export type ValidatorsAddressListLazyQueryHookResult = ReturnType<typeof useValidatorsAddressListLazyQuery>;
+export type ValidatorsAddressListQueryResult = Apollo.QueryResult<ValidatorsAddressListQuery, ValidatorsAddressListQueryVariables>;
+export const ValidatorAddressesDocument = gql`
+    query ValidatorAddresses {
+  validator(
+    where: {validator_info: {operator_address: {_is_null: false}, consensus_address: {_is_null: false}, self_delegate_address: {_is_null: false}}}
+  ) {
+    validatorInfo: validator_info {
+      operatorAddress: operator_address
+      selfDelegateAddress: self_delegate_address
+      consensusAddress: consensus_address
+    }
+    validatorDescriptions: validator_descriptions(
+      limit: 1
+      order_by: {height: desc}
     ) {
-      validatorInfo: validator_info {
-        operatorAddress: operator_address
-        selfDelegateAddress: self_delegate_address
-        consensusAddress: consensus_address
-      }
-      validatorDescriptions: validator_descriptions(limit: 1, order_by: { height: desc }) {
-        moniker
-        avatarUrl: avatar_url
-      }
+      moniker
+      avatarUrl: avatar_url
     }
   }
-`;
+}
+    `;
 
 /**
  * __useValidatorAddressesQuery__
@@ -13633,32 +13254,14 @@ export const ValidatorAddressesDocument = gql`
  *   },
  * });
  */
-export function useValidatorAddressesQuery(
-  baseOptions?: Apollo.QueryHookOptions<ValidatorAddressesQuery, ValidatorAddressesQueryVariables>
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<ValidatorAddressesQuery, ValidatorAddressesQueryVariables>(
-    ValidatorAddressesDocument,
-    options
-  );
-}
-export function useValidatorAddressesLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    ValidatorAddressesQuery,
-    ValidatorAddressesQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<ValidatorAddressesQuery, ValidatorAddressesQueryVariables>(
-    ValidatorAddressesDocument,
-    options
-  );
-}
+export function useValidatorAddressesQuery(baseOptions?: Apollo.QueryHookOptions<ValidatorAddressesQuery, ValidatorAddressesQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ValidatorAddressesQuery, ValidatorAddressesQueryVariables>(ValidatorAddressesDocument, options);
+      }
+export function useValidatorAddressesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ValidatorAddressesQuery, ValidatorAddressesQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ValidatorAddressesQuery, ValidatorAddressesQueryVariables>(ValidatorAddressesDocument, options);
+        }
 export type ValidatorAddressesQueryHookResult = ReturnType<typeof useValidatorAddressesQuery>;
-export type ValidatorAddressesLazyQueryHookResult = ReturnType<
-  typeof useValidatorAddressesLazyQuery
->;
-export type ValidatorAddressesQueryResult = Apollo.QueryResult<
-  ValidatorAddressesQuery,
-  ValidatorAddressesQueryVariables
->;
+export type ValidatorAddressesLazyQueryHookResult = ReturnType<typeof useValidatorAddressesLazyQuery>;
+export type ValidatorAddressesQueryResult = Apollo.QueryResult<ValidatorAddressesQuery, ValidatorAddressesQueryVariables>;
