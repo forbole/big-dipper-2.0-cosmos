@@ -44,32 +44,28 @@ test('account page', async ({ page, context, isMobile }) => {
   await page.waitForLoadState('domcontentloaded');
 
   // Test facebook button
-  const [facebook] = await Promise.all([
-    page.waitForEvent('popup'),
+  await Promise.all([
+    page.waitForEvent('popup', (p) => /^https:\/\/[^/]+.facebook.com\/?/.test(p.url())),
     page.getByRole('button', { name: 'facebook' }).click(),
   ]);
-  await expect(facebook).toHaveURL(/https:\/\/\S+.facebook.com\/*/);
 
   // Test twitter button
-  const [twitter] = await Promise.all([
-    page.waitForEvent('popup'),
+  await Promise.all([
+    page.waitForEvent('popup', (p) => /^https:\/\/twitter\.com\/?/.test(p.url())),
     page.getByRole('button', { name: 'twitter' }).click(),
   ]);
-  await expect(twitter).toHaveURL(/https:\/\/twitter.com\/*/);
 
   // Test telegram button
-  const [telegram] = await Promise.all([
-    page.waitForEvent('popup'),
+  await Promise.all([
+    page.waitForEvent('popup', (p) => /^https:\/\/telegram\.me\/?/.test(p.url())),
     page.getByRole('button', { name: 'telegram' }).click(),
   ]);
-  await expect(telegram).toHaveURL(/https:\/\/telegram.me\/*/);
 
   // Test whatsapp button
-  const [whatsapp] = await Promise.all([
-    page.waitForEvent('popup'),
+  await Promise.all([
+    page.waitForEvent('popup', (p) => isMobile || /^https:\/\/web.whatsapp.com\/?/.test(p.url())),
     page.getByRole('button', { name: 'whatsapp' }).click(),
   ]);
-  if (!isMobile) await expect(whatsapp).toHaveURL(/https:\/\/web.whatsapp.com\/*/);
 });
 
 test('account page tabs', async ({ page }) => {
