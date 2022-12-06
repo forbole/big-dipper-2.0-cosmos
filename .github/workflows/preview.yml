@@ -37,7 +37,7 @@ jobs:
             framework: 'nextjs',
             ignoreCommand: 'echo always build && exit 1',
             redirects: /^web-/.test(projectName)
-              ? [{ source: '/', destination: '/' + projectName.replace(/^web-/, '')} }]
+              ? [{ source: '/', destination: '/' + projectName.replace(/^web-/, '') }]
               : [],
           };
           writeFileSync('vercel.json', JSON.stringify(config, null, 2));
