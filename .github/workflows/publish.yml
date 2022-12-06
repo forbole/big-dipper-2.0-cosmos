@@ -37,7 +37,6 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          file: ./Dockerfile
           push: true
           build-args: |
             PROJECT_NAME=${{ github.event.inputs.project_name }}
