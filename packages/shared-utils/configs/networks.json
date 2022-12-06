@@ -427,5 +427,19 @@
         "url": "https://bigdipper.live/nym"
       }
     ]
+  },
+  {
+    "name": "Quicksilver",
+    "chainName": "quicksilver",
+    "logo": "",
+    "cover": "",
+    "links": [
+      {
+        "name": "Testnet",
+        "chain_id": "innuendo-3",
+        "url": "https://bigdipper.live/quicksilver"
+      }
+    ]
   }
 ]
+
