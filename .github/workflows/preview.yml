@@ -35,7 +35,7 @@ jobs:
             installCommand: 'yarn workspaces focus --production ' + projectName + ' && yarn add typescript -D',
             devCommand: 'yarn turbo run dev --filter=' + projectName + '...',
             framework: 'nextjs',
-            ignoreCommand: `echo 'always build' && exit 1`,
+            ignoreCommand: 'echo always build && exit 1',
             redirects: /^web-/.test(projectName)
               ? [{ source: '/', destination: '/' + projectName.replace(/^web-/, '') }]
               : [],
