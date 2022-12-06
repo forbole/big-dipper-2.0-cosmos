@@ -20,10 +20,13 @@ jobs:
         VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
         VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
     steps:
-      - uses: actions/checkout@v3
-      - name: Insall Vercel CLI
+      -
+        uses: actions/checkout@v3
+      -
+        name: Insall Vercel CLI
         run: npm i -g vercel
-      - name: Generate vercel.json
+      -
+        name: Generate vercel.json
         run: |
           node <<EOF
           const { writeFileSync } = require('fs');
@@ -42,5 +45,6 @@ jobs:
           };
           writeFileSync('vercel.json', JSON.stringify(config, null, 2));
           EOF
-      - name: Deploy preview to Vercel
+      -
+        name: Deploy preview to Vercel
         run: vercel -t ${{ secrets.VERCEL_TOKEN }} | tee -a $GITHUB_STEP_SUMMARY

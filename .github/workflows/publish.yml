@@ -14,23 +14,27 @@ jobs:
     runs-on: ubuntu-latest
     if: startsWith('web-', ${{ github.event.inputs.project_name }})
     steps:
-      - uses: actions/checkout@v3
-      - name: Set steps.vars.outputs.sha_short
+      -
+        uses: actions/checkout@v3
+      -
+        name: Set steps.vars.outputs.sha_short
         id: vars
         run: echo "sha_short=$(git rev-parse --short HEAD) >> $GITHUB_OUTPUT"
-      - name: Set up Docker Buildx
+      -
+        name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
-        with:
-          driver: docker
-      - name: Login to DockerHub 👤
+      -
+        name: Login to DockerHub 👤
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-      - name: Create the builder
+      -
+        name: Create the builder
         uses: docker/build-push-action@v3
         with:
           context: .
+          file: ./Dockerfile
           push: true
           build-args: |
             PROJECT_NAME="${{ github.event.inputs.project_name }}"
@@ -42,7 +46,8 @@ jobs:
           target: web
           tags: |
             forbole/big-dipper-2.0-cosmos:monorepo-${{ github.event.inputs.project_name }}-${{ github.event.inputs.chain_type }}-${{ steps.vars.outputs.sha_short }}
-      - name: Publish to akash
+      -
+        name: Publish to akash
         run: >
           curl -i -X POST -H "Content-Type: application/json"
           -d '{"parameters":{"tag": "monorepo-${{ github.event.inputs.project_name }}-${{ github.event.inputs.chain_type }}-${{ steps.vars.outputs.sha_short }}"}}'
