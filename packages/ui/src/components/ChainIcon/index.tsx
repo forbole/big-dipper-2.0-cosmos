@@ -169,7 +169,7 @@ const ChainIcon = ({
           ? [provenanceIconDark, provenanceIconDark]
           : [provenanceLogoDark, provenanceLogoDark];
       break;
-    case 'quicksliver':
+    case 'quicksilver':
       [iconDark, iconLight] = [quicksliverIconLight, quicksliverIconLight];
       break;
     case 'regen':

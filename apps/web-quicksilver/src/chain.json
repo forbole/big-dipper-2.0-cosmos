@@ -1,0 +1,219 @@
+{
+  "chainName": "quicksilver",
+  "title": "Quicksilver Block Explorer",
+  "extra": {
+    "profile": true,
+    "graphqlWs": false
+  },
+  "previewImage": "https://s3.bigdipper.live/quicksilver.png",
+  "themes": {
+    "default": "light",
+    "themeList": [
+      "light",
+      "dark",
+      "deuteranopia",
+      "tritanopia"
+    ],
+    "dark": {
+      "primary": {
+        "main": "#7F8397",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#000000",
+        "paper": "#1C1F1F"
+      },
+      "divider": "#525252",
+      "text": {
+        "primary": "#E6E6E6",
+        "secondary": "#C4C4C4"
+      },
+      "custom": {
+        "general": {
+          "background": "#000000",
+          "surfaceOne": "#1C1F1F",
+          "surfaceTwo": "#333333",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#E6E6E6",
+          "fontTwo": "#C4C4C4",
+          "fontThree": "#818181",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#4092CD"
+        },
+        "primaryData": {
+          "one": "#3B3D48",
+          "two": "#5C5F70",
+          "three": "#7F8397",
+          "four": "#9396A7"
+        },
+        "results": {
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "one": "#AFB1BD",
+          "two": "#D2B261",
+          "three": "#5D50AC"
+        },
+        "condition": {
+          "zero": "#E8E8E8",
+          "one": "#1EC490",
+          "two": "#FF9338",
+          "three": "#FF608A"
+        },
+        "charts": {
+          "zero": "#E8E8E8",
+          "one": "#8CD261",
+          "two": "#8CD261",
+          "three": "#9361D2",
+          "four": "#61AAD2",
+          "five": "#D261AC"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA897",
+          "three": "#E79726",
+          "four": "#F17053",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9950",
+          "nine": "#B49F37",
+          "ten": "#E9A852",
+          "eleven": "#E94687",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        }
+      }
+    },
+    "light": {
+      "primary": {
+        "main": "#7F8397",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#F6F6F6",
+        "paper": "#FEFFFF"
+      },
+      "divider": "#7A7A7A",
+      "text": {
+        "primary": "#000000",
+        "secondary": "#525252"
+      },
+      "custom": {
+        "general": {
+          "background": "#F6F6F6",
+          "surfaceOne": "#FEFFFF",
+          "surfaceTwo": "#EFEFEF",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#000000",
+          "fontTwo": "#414141",
+          "fontThree": "#777777",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#4092CD"
+        },
+        "primaryData": {
+          "one": "#3B3D48",
+          "two": "#5C5F70",
+          "three": "#7F8397",
+          "four": "#9396A7"
+        },
+        "results": {
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "one": "#AFB1BD",
+          "two": "#D2B261",
+          "three": "#5D50AC"
+        },
+        "condition": {
+          "zero": "#E8E8E8",
+          "one": "#1EC490",
+          "two": "#FF9338",
+          "three": "#FF608A"
+        },
+        "charts": {
+          "zero": "#D3D3D3",
+          "one": "#8CD261",
+          "two": "#8CD261",
+          "three": "#9361D2",
+          "four": "#61AAD2",
+          "five": "#D261AC"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA891",
+          "three": "#E79720",
+          "four": "#F17047",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9944",
+          "nine": "#B49F31",
+          "ten": "#E9A846",
+          "eleven": "#E94681",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        }
+      }
+    }
+  },
+  "chains": [
+    {
+      "network": "innuendo-3",
+      "chainType": "Testnet",
+      "genesis": {
+        "time": "2022-09-26T18:30:00",
+        "height": 1
+      },
+      "prefix": {
+        "consensus": "quickvalcons",
+        "validator": "quickvaloper",
+        "account": "quick"
+      },
+      "primaryTokenUnit": "uqck",
+      "votingPowerTokenUnit": "uqck",
+      "tokenUnits": {
+        "uqck": {
+          "display": "qck",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql-testnet.quicksilver.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql-testnet.quicksilver.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://gql-testnet.quicksilver.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": ""
+      }
+    }
+  ]
+}
+
+
+
