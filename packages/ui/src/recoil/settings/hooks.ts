@@ -17,7 +17,7 @@ export const useSettingsRecoil = () => {
       let currentTheme: Theme = settings.theme;
       if (savedTheme === 'device') {
         if (
-          chainConfig.themes.themeList.includes('dark') &&
+          chainConfig().themes.themeList.includes('dark') &&
           window?.matchMedia('(prefers-color-scheme: dark)')?.matches
         ) {
           currentTheme = 'dark';

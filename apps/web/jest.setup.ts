@@ -2,32 +2,31 @@
 import { jest } from '@jest/globals';
 import '@testing-library/jest-dom/extend-expect';
 import 'jest-localstorage-mock';
-import nextConfig from './next.config.js';
 
-const chainConfig = JSON.parse(nextConfig.env.CHAIN_CONFIG || '');
-chainConfig.tokenUnits = {
-  udaric: {
-    display: 'daric',
-    exponent: 6,
-  },
-  upotic: {
-    display: 'potic',
-    exponent: 0,
-  },
-  ubar: {
-    display: 'bar',
-    exponent: 8,
-  },
-  rowan: {
-    display: 'rowan',
-    exponent: 18,
-  },
-};
-process.env = {
-  ...process.env,
-  ...nextConfig.env,
-  CHAIN_CONFIG: JSON.stringify(chainConfig),
-};
+jest.mock('@/chainConfig', () => () => {
+  const { default: chainConfig }: { default: { tokenUnits: object } } =
+    jest.requireActual('@/chainConfig');
+  const config = chainConfig();
+  config.tokenUnits = {
+    udaric: {
+      display: 'daric',
+      exponent: 6,
+    },
+    upotic: {
+      display: 'potic',
+      exponent: 0,
+    },
+    ubar: {
+      display: 'bar',
+      exponent: 8,
+    },
+    rowan: {
+      display: 'rowan',
+      exponent: 18,
+    },
+  };
+  return config;
+});
 
 jest.mock('@/utils/dayjs', () => {
   const mockTest = () => ({

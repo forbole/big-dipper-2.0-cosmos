@@ -71,7 +71,7 @@ export const useValidatorDetails = () => {
         loading: false,
         exists: false,
       });
-    } else if (chainConfig.extra.profile) {
+    } else if (chainConfig().extra.profile) {
       const address = validatorToDelegatorAddress(router.query.address as string);
       fetchDesmosProfile(address);
     }
@@ -155,7 +155,7 @@ function formatAccountQuery(data: ValidatorDetailsQuery) {
 
     const votingPower = {
       self: selfVotingPower,
-      overall: formatToken(data?.stakingPool?.[0]?.bonded ?? 0, chainConfig.votingPowerTokenUnit),
+      overall: formatToken(data?.stakingPool?.[0]?.bonded ?? 0, chainConfig().votingPowerTokenUnit),
       height: data.validator[0]?.validatorVotingPowers?.[0]?.height ?? 0,
     };
 

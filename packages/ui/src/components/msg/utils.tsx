@@ -459,7 +459,7 @@ export const getMessageByType = <TMessage,>(message: TMessage, viewRaw: boolean,
   if (data) {
     results = {
       content: data?.content as unknown as FC<{ message: TMessage }>,
-      tagDisplay: data.tagDisplay as ResultType['tagDisplay'],
+      tagDisplay: data.tagDisplay,
       tagTheme: data.tagTheme as ResultType['tagTheme'],
     };
   }

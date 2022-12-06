@@ -9,7 +9,7 @@ const SearchBar: React.FC<{ className?: string }> = ({ className }) => {
   const { handleOnSubmit } = useSearchBar(t);
 
   let placeholderText;
-  if (chainConfig.extra.profile) {
+  if (chainConfig().extra.profile) {
     placeholderText = t('searchBarPlaceholderDtag');
   } else {
     placeholderText = t('searchBarPlaceholder');

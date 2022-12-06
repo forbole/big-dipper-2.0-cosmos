@@ -38,7 +38,7 @@ export const useProfileRecoil = (address: string): AvatarName => {
   });
 
   useEffect(() => {
-    if (chainConfig.extra.profile && delegatorAddress && rawProfile === null) {
+    if (chainConfig().extra.profile && delegatorAddress && rawProfile === null) {
       fetchProfile();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -80,7 +80,7 @@ export const useProfilesRecoil = (addresses: string[]): AvatarName[] => {
   });
 
   useEffect(() => {
-    if (chainConfig.extra.profile) {
+    if (chainConfig().extra.profile) {
       fetchProfiles();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

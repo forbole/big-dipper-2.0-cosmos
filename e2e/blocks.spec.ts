@@ -2,16 +2,17 @@ import { expect, test } from '@playwright/test';
 
 test('blocks page', async ({ page }) => {
   // Test url
-  await page.goto('.');
-  await expect(page).toHaveURL(/[^?#]*\/\/[^/]+\/$/);
+  await Promise.all([page.waitForNavigation(), page.goto('.')]);
   await expect(page.getByRole('progressbar')).toHaveCount(0);
 
   // Test blocks url
-  await page.getByRole('link', { name: 'Blocks' }).first().click();
-  await page.waitForLoadState('domcontentloaded');
-  await expect(page).toHaveURL(/\/blocks/);
+  await Promise.all([
+    page.waitForNavigation({ url: /\/blocks/ }),
+    page.getByRole('link', { name: 'Blocks' }).first().click(),
+  ]);
+  await expect(page.getByRole('progressbar')).toHaveCount(0);
 
   // Test single block url
-  await page.goto(`./blocks/1`);
-  await expect(page).toHaveURL(/\/blocks\/1/);
+  await Promise.all([page.waitForNavigation({ url: /\/blocks\/1/ }), page.goto(`./blocks/1`)]);
+  await expect(page.getByRole('progressbar')).toHaveCount(0);
 });

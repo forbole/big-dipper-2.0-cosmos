@@ -1,377 +1,70 @@
-version: "3"
-
+version: "3.8"
 services:
-  gateway:
+  e2e:
     build:
-      context: ./docker
-      dockerfile: ./gateway.Dockerfile
-    restart: always
+      context: .
+      dockerfile: ./docker/Dockerfile
+      args:
+        BASE_IMAGE: mcr.microsoft.com/playwright:v1.28.1-focal
+        PROJECT_NAME: ${PROJECT_NAME:-web}
+        NEXT_PUBLIC_CHAIN_TYPE: ${NEXT_PUBLIC_CHAIN_TYPE:-mainnet}
+        TURBO_TEAM: ${TURBO_TEAM:-}
+        TURBO_TOKEN: ${TURBO_TOKEN:-}
+      target: e2e
     platform: linux/amd64
-    ports:
-        - 8080:8080
+    ipc: host
+    cap_add:
+      - "SYS_ADMIN"
+    init: true
+    volumes:
+      - yarn-cache:/root/.yarn/berry/cache:rw
+      - ${PWD}/playwright-report:/app/playwright-report:rw
   web:
     build:
       context: .
-      dockerfile: ./docker/web.Dockerfile
+      dockerfile: ./docker/Dockerfile
       args:
-        PROJECT_NAME: web
+        PROJECT_NAME: ${PROJECT_NAME:-web}
         NEXT_PUBLIC_CHAIN_TYPE: ${NEXT_PUBLIC_CHAIN_TYPE:-mainnet}
         TURBO_TEAM: ${TURBO_TEAM:-}
         TURBO_TOKEN: ${TURBO_TOKEN:-}
+        PORT: ${PORT:-3000}
+        NEXT_PUBLIC_SENTRY_DSN: ${NEXT_PUBLIC_SENTRY_DSN:-}
+        SENTRY_AUTH_TOKEN: ${SENTRY_AUTH_TOKEN:-}
+      target: web
     restart: always
     platform: linux/amd64
+    volumes:
+      - yarn-cache:/root/.yarn/berry/cache:rw
     ports:
-      - 3000:3000
+      - ${PORT:-3000}:${PORT:-3000}
     networks:
       - app_network
-  web-cosmos:
+  bun:
     build:
       context: .
-      dockerfile: ./docker/web.Dockerfile
+      dockerfile: ./docker/Dockerfile
       args:
-        PROJECT_NAME: web-cosmos
+        PROJECT_NAME: ${PROJECT_NAME:-web}
         NEXT_PUBLIC_CHAIN_TYPE: ${NEXT_PUBLIC_CHAIN_TYPE:-mainnet}
         TURBO_TEAM: ${TURBO_TEAM:-}
         TURBO_TOKEN: ${TURBO_TOKEN:-}
+        PORT: ${PORT:-3000}
+        NEXT_PUBLIC_SENTRY_DSN: ${NEXT_PUBLIC_SENTRY_DSN:-}
+        SENTRY_AUTH_TOKEN: ${SENTRY_AUTH_TOKEN:-}
+        RUNTIME: bun
+      target: web
     restart: always
     platform: linux/amd64
+    volumes:
+      - yarn-cache:/root/.yarn/berry/cache:rw
     ports:
-      - 3001:3000
+      - ${PORT:-3000}:${PORT:-3000}
     networks:
       - app_network
-  web-akash:
-    build:
-      context: .
-      dockerfile: ./docker/web.Dockerfile
-      args:
-        PROJECT_NAME: web-akash
-        NEXT_PUBLIC_CHAIN_TYPE: ${NEXT_PUBLIC_CHAIN_TYPE:-mainnet}
-        TURBO_TEAM: ${TURBO_TEAM:-}
-        TURBO_TOKEN: ${TURBO_TOKEN:-}
-    restart: always
-    platform: linux/amd64
-    ports:
-      - 3002:3000
-    networks:
-      - app_network
-  web-emoney:
-    build:
-      context: .
-      dockerfile: ./docker/web.Dockerfile
-      args:
-        PROJECT_NAME: web-emoney
-        NEXT_PUBLIC_CHAIN_TYPE: ${NEXT_PUBLIC_CHAIN_TYPE:-mainnet}
-        TURBO_TEAM: ${TURBO_TEAM:-}
-        TURBO_TOKEN: ${TURBO_TOKEN:-}
-    restart: always
-    platform: linux/amd64
-    ports:
-      - 3003:3000
-    networks:
-      - app_network
-  web-band:
-    build:
-      context: .
-      dockerfile: ./docker/web.Dockerfile
-      args:
-        PROJECT_NAME: web-band
-        NEXT_PUBLIC_CHAIN_TYPE: ${NEXT_PUBLIC_CHAIN_TYPE:-mainnet}
-        TURBO_TEAM: ${TURBO_TEAM:-}
-        TURBO_TOKEN: ${TURBO_TOKEN:-}
-    restart: always
-    platform: linux/amd64
-    ports:
-      - 3004:3000
-    networks:
-      - app_network
-  web-likecoin:
-    build:
-      context: .
-      dockerfile: ./docker/web.Dockerfile
-      args:
-        PROJECT_NAME: web-likecoin
-        NEXT_PUBLIC_CHAIN_TYPE: ${NEXT_PUBLIC_CHAIN_TYPE:-mainnet}
-        TURBO_TEAM: ${TURBO_TEAM:-}
-        TURBO_TOKEN: ${TURBO_TOKEN:-}
-    restart: always
-    platform: linux/amd64
-    ports:
-      - 3005:3000
-    networks:
-      - app_network
-  web-desmos:
-    build:
-      context: .
-      dockerfile: ./docker/web.Dockerfile
-      args:
-        PROJECT_NAME: web-desmos
-        NEXT_PUBLIC_CHAIN_TYPE: ${NEXT_PUBLIC_CHAIN_TYPE:-mainnet}
-        TURBO_TEAM: ${TURBO_TEAM:-}
-        TURBO_TOKEN: ${TURBO_TOKEN:-}
-    restart: always
-    platform: linux/amd64
-    ports:
-      - 3006:3000
-    networks:
-      - app_network
-  web-osmosis:
-    build:
-      context: .
-      dockerfile: ./docker/web.Dockerfile
-      args:
-        PROJECT_NAME: web-osmosis
-        NEXT_PUBLIC_CHAIN_TYPE: ${NEXT_PUBLIC_CHAIN_TYPE:-mainnet}
-        TURBO_TEAM: ${TURBO_TEAM:-}
-        TURBO_TOKEN: ${TURBO_TOKEN:-}
-    restart: always
-    platform: linux/amd64
-    ports:
-      - 3007:3000
-    networks:
-      - app_network
-  web-bitsong:
-    build:
-      context: .
-      dockerfile: ./docker/web.Dockerfile
-      args:
-        PROJECT_NAME: web-bitsong
-        NEXT_PUBLIC_CHAIN_TYPE: ${NEXT_PUBLIC_CHAIN_TYPE:-mainnet}
-        TURBO_TEAM: ${TURBO_TEAM:-}
-        TURBO_TOKEN: ${TURBO_TOKEN:-}
-    restart: always
-    platform: linux/amd64
-    ports:
-      - 3008:3000
-    networks:
-      - app_network
-  web-regen:
-    build:
-      context: .
-      dockerfile: ./docker/web.Dockerfile
-      args:
-        PROJECT_NAME: web-regen
-        NEXT_PUBLIC_CHAIN_TYPE: ${NEXT_PUBLIC_CHAIN_TYPE:-mainnet}
-        TURBO_TEAM: ${TURBO_TEAM:-}
-        TURBO_TOKEN: ${TURBO_TOKEN:-}
-    restart: always
-    platform: linux/amd64
-    ports:
-      - 3009:3000
-    networks:
-      - app_network
-  web-agoric:
-    build:
-      context: .
-      dockerfile: ./docker/web.Dockerfile
-      args:
-        PROJECT_NAME: web-agoric
-        NEXT_PUBLIC_CHAIN_TYPE: ${NEXT_PUBLIC_CHAIN_TYPE:-mainnet}
-        TURBO_TEAM: ${TURBO_TEAM:-}
-        TURBO_TOKEN: ${TURBO_TOKEN:-}
-    restart: always
-    platform: linux/amd64
-    ports:
-      - 3010:3000
-    networks:
-      - app_network
-  web-rizon:
-    build:
-      context: .
-      dockerfile: ./docker/web.Dockerfile
-      args:
-        PROJECT_NAME: web-rizon
-        NEXT_PUBLIC_CHAIN_TYPE: ${NEXT_PUBLIC_CHAIN_TYPE:-mainnet}
-        TURBO_TEAM: ${TURBO_TEAM:-}
-        TURBO_TOKEN: ${TURBO_TOKEN:-}
-    restart: always
-    platform: linux/amd64
-    ports:
-      - 3011:3000
-    networks:
-      - app_network
-  web-elrond:
-    build:
-      context: .
-      dockerfile: ./docker/web.Dockerfile
-      args:
-        PROJECT_NAME: web-elrond
-        NEXT_PUBLIC_CHAIN_TYPE: ${NEXT_PUBLIC_CHAIN_TYPE:-mainnet}
-        TURBO_TEAM: ${TURBO_TEAM:-}
-        TURBO_TOKEN: ${TURBO_TOKEN:-}
-    restart: always
-    platform: linux/amd64
-    ports:
-      - 3012:3000
-    networks:
-      - app_network
-  web-evmos:
-    build:
-      context: .
-      dockerfile: ./docker/web.Dockerfile
-      args:
-        PROJECT_NAME: web-evmos
-        NEXT_PUBLIC_CHAIN_TYPE: ${NEXT_PUBLIC_CHAIN_TYPE:-mainnet}
-        TURBO_TEAM: ${TURBO_TEAM:-}
-        TURBO_TOKEN: ${TURBO_TOKEN:-}
-    restart: always
-    platform: linux/amd64
-    ports:
-      - 3013:3000
-    networks:
-      - app_network
-  web-comdex:
-    build:
-      context: .
-      dockerfile: ./docker/web.Dockerfile
-      args:
-        PROJECT_NAME: web-comdex
-        NEXT_PUBLIC_CHAIN_TYPE: ${NEXT_PUBLIC_CHAIN_TYPE:-mainnet}
-        TURBO_TEAM: ${TURBO_TEAM:-}
-        TURBO_TOKEN: ${TURBO_TOKEN:-}
-    restart: always
-    platform: linux/amd64
-    ports:
-      - 3014:3000
-    networks:
-      - app_network
-  web-crescent:
-    build:
-      context: .
-      dockerfile: ./docker/web.Dockerfile
-      args:
-        PROJECT_NAME: web-crescent
-        NEXT_PUBLIC_CHAIN_TYPE: ${NEXT_PUBLIC_CHAIN_TYPE:-mainnet}
-        TURBO_TEAM: ${TURBO_TEAM:-}
-        TURBO_TOKEN: ${TURBO_TOKEN:-}
-    restart: always
-    platform: linux/amd64
-    ports:
-      - 3015:3000
-    networks:
-      - app_network
-  web-sifchain:
-    build:
-      context: .
-      dockerfile: ./docker/web.Dockerfile
-      args:
-        PROJECT_NAME: web-sifchain
-        NEXT_PUBLIC_CHAIN_TYPE: ${NEXT_PUBLIC_CHAIN_TYPE:-mainnet}
-        TURBO_TEAM: ${TURBO_TEAM:-}
-        TURBO_TOKEN: ${TURBO_TOKEN:-}
-    restart: always
-    platform: linux/amd64
-    ports:
-      - 3016:3000
-    networks:
-      - app_network
-  web-assetmantle:
-    build:
-      context: .
-      dockerfile: ./docker/web.Dockerfile
-      args:
-        PROJECT_NAME: web-assetmantle
-        NEXT_PUBLIC_CHAIN_TYPE: ${NEXT_PUBLIC_CHAIN_TYPE:-mainnet}
-        TURBO_TEAM: ${TURBO_TEAM:-}
-        TURBO_TOKEN: ${TURBO_TOKEN:-}
-    restart: always
-    platform: linux/amd64
-    ports:
-      - 3017:3000
-    networks:
-      - app_network
-  web-provenance:
-    build:
-      context: .
-      dockerfile: ./docker/web.Dockerfile
-      args:
-        PROJECT_NAME: web-provenance
-        NEXT_PUBLIC_CHAIN_TYPE: ${NEXT_PUBLIC_CHAIN_TYPE:-mainnet}
-        TURBO_TEAM: ${TURBO_TEAM:-}
-        TURBO_TOKEN: ${TURBO_TOKEN:-}
-    restart: always
-    platform: linux/amd64
-    ports:
-      - 3018:3000
-    networks:
-      - app_network
-  web-nomic:
-    build:
-      context: .
-      dockerfile: ./docker/web.Dockerfile
-      args:
-        PROJECT_NAME: web-nomic
-        NEXT_PUBLIC_CHAIN_TYPE: ${NEXT_PUBLIC_CHAIN_TYPE:-mainnet}
-        TURBO_TEAM: ${TURBO_TEAM:-}
-        TURBO_TOKEN: ${TURBO_TOKEN:-}
-    restart: always
-    platform: linux/amd64
-    ports:
-      - 3019:3000
-    networks:
-      - app_network
-  web-shentu:
-    build:
-      context: .
-      dockerfile: ./docker/web.Dockerfile
-      args:
-        PROJECT_NAME: web-shentu
-        NEXT_PUBLIC_CHAIN_TYPE: ${NEXT_PUBLIC_CHAIN_TYPE:-mainnet}
-        TURBO_TEAM: ${TURBO_TEAM:-}
-        TURBO_TOKEN: ${TURBO_TOKEN:-}
-    restart: always
-    platform: linux/amd64
-    ports:
-      - 3020:3000
-    networks:
-      - app_network
-  web-persistence:
-    build:
-      context: .
-      dockerfile: ./docker/web.Dockerfile
-      args:
-        PROJECT_NAME: web-persistence
-        NEXT_PUBLIC_CHAIN_TYPE: ${NEXT_PUBLIC_CHAIN_TYPE:-mainnet}
-        TURBO_TEAM: ${TURBO_TEAM:-}
-        TURBO_TOKEN: ${TURBO_TOKEN:-}
-    restart: always
-    platform: linux/amd64
-    ports:
-      - 3021:3000
-    networks:
-      - app_network
-  web-stride:
-    build:
-      context: .
-      dockerfile: ./docker/web.Dockerfile
-      args:
-        PROJECT_NAME: web-stride
-        NEXT_PUBLIC_CHAIN_TYPE: ${NEXT_PUBLIC_CHAIN_TYPE:-mainnet}
-        TURBO_TEAM: ${TURBO_TEAM:-}
-        TURBO_TOKEN: ${TURBO_TOKEN:-}
-    restart: always
-    platform: linux/amd64
-    ports:
-      - 3022:3000
-    networks:
-      - app_network
-  web-nym:
-    build:
-      context: .
-      dockerfile: ./docker/web.Dockerfile
-      args:
-        PROJECT_NAME: web-nym
-        NEXT_PUBLIC_CHAIN_TYPE: ${NEXT_PUBLIC_CHAIN_TYPE:-mainnet}
-        TURBO_TEAM: ${TURBO_TEAM:-}
-        TURBO_TOKEN: ${TURBO_TOKEN:-}
-    restart: always
-    platform: linux/amd64
-    ports:
-      - 3023:3000
-    networks:
-      - app_network
-
-
 # Define a network, which allows containers to communicate
 # with each other, by using their container name as a hostname
 networks:
   app_network:
+volumes:
+  yarn-cache:

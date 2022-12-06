@@ -98,7 +98,7 @@ export const useTransactionDetails = () => {
           miniblockHash: transactionData.miniBlockHash,
           gasUsed: transactionData.gasUsed,
           gasLimit: transactionData.gasLimit,
-          gasPrice: formatToken(transactionData?.gasPrice ?? 0, chainConfig.primaryTokenUnit),
+          gasPrice: formatToken(transactionData?.gasPrice ?? 0, chainConfig().primaryTokenUnit),
           price: transactionData.price,
         };
 
@@ -117,8 +117,8 @@ export const useTransactionDetails = () => {
           // edge case if value is base token
           const type = x?.type ?? '';
           let decimals = x?.decimals ?? 0;
-          if (type === chainConfig.primaryTokenUnit) {
-            decimals = chainConfig.tokenUnits[chainConfig.primaryTokenUnit].exponent;
+          if (type === chainConfig().primaryTokenUnit) {
+            decimals = chainConfig().tokenUnits?.[chainConfig().primaryTokenUnit].exponent;
           }
           const value = formatTokenByExponent(x?.value ?? 0, decimals);
           return {
@@ -141,7 +141,7 @@ export const useTransactionDetails = () => {
           sender: x?.sender ?? '',
           receiver: x?.receiver ?? '',
           data: x?.data ?? '',
-          value: formatToken(x?.value ?? 0, chainConfig.primaryTokenUnit),
+          value: formatToken(x?.value ?? 0, chainConfig().primaryTokenUnit),
         }));
 
         handleSetState({

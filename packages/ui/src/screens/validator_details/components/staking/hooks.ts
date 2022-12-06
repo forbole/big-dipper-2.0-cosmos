@@ -114,7 +114,7 @@ export const useStaking = () => {
         R.pathOr<NonNullable<typeof x['entries']>>([], ['entries'], x).forEach((y) => {
           results.push({
             address: R.pathOr('', ['delegator_address'], x),
-            amount: formatToken(y.balance, chainConfig.primaryTokenUnit),
+            amount: formatToken(y.balance, chainConfig().primaryTokenUnit),
             completionTime: R.pathOr('', ['completion_time'], y),
           });
         });
@@ -130,7 +130,7 @@ export const useStaking = () => {
     const getStakeByPage = async (page: number, query: string) => {
       const { data } = await axios.post(
         process.env.NEXT_PUBLIC_GRAPHQL_URL ||
-          chainConfig.endpoints.graphql ||
+          chainConfig().endpoints.graphql ||
           'http://localhost:3000/v1/graphql',
         {
           variables: {
@@ -149,7 +149,7 @@ export const useStaking = () => {
       data
         .map((x): UnbondingType => {
           const address = R.pathOr('', ['delegator_address'], x);
-          const delegation = getDenom(x.coins, chainConfig.primaryTokenUnit);
+          const delegation = getDenom(x.coins, chainConfig().primaryTokenUnit);
           return {
             address,
             amount: formatToken(delegation.amount, delegation.denom),
@@ -164,7 +164,7 @@ export const useStaking = () => {
           results.push({
             address: x?.delegator_address ?? '',
             to: x?.validator_dst_address ?? '',
-            amount: formatToken(y.balance, chainConfig.primaryTokenUnit),
+            amount: formatToken(y.balance, chainConfig().primaryTokenUnit),
             completionTime: R.pathOr('', ['completion_time'], y),
           });
         });
@@ -181,7 +181,7 @@ export const useStaking = () => {
       try {
         const { data } = await axios.post<DataDelegations>(
           process.env.NEXT_PUBLIC_GRAPHQL_URL ||
-            chainConfig.endpoints.graphql ||
+            chainConfig().endpoints.graphql ||
             'http://localhost:3000/v1/graphql',
           {
             variables: {
@@ -235,7 +235,7 @@ export const useStaking = () => {
       try {
         const { data } = await axios.post<DataRedelegations>(
           process.env.NEXT_PUBLIC_GRAPHQL_URL ||
-            chainConfig.endpoints.graphql ||
+            chainConfig().endpoints.graphql ||
             'http://localhost:3000/v1/graphql',
           {
             variables: {
@@ -292,7 +292,7 @@ export const useStaking = () => {
       try {
         const { data } = await axios.post<DataUndelegations>(
           process.env.NEXT_PUBLIC_GRAPHQL_URL ||
-            chainConfig.endpoints.graphql ||
+            chainConfig().endpoints.graphql ||
             'http://localhost:3000/v1/graphql',
           {
             variables: {

@@ -1,5 +1,6 @@
+import type { NextPage } from 'next';
 import ProfileDetails from '@/screens/profile_details';
 
-const ProfileDetailsPage = () => <ProfileDetails />;
+const ProfileDetailsPage: NextPage = () => <ProfileDetails />;
 
 export default ProfileDetailsPage;

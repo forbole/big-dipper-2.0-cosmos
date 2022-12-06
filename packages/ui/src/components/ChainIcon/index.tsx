@@ -62,13 +62,18 @@ import solanaLogoLight from 'shared-utils/assets/logos/solana-dark.svg?url';
 import strideLogoDark from 'shared-utils/assets/logos/stride-dark.svg?url';
 import strideLogoLight from 'shared-utils/assets/logos/stride-light.svg?url';
 
-type IconProps = Omit<ImageProps, 'id' | 'src'> & {
+interface IconProps extends Omit<ImageProps, 'id' | 'src'> {
   type: 'icon' | 'logo';
-};
+  chainName?: string;
+}
 
-const ChainIcon = ({ className, type, ...props }: IconProps) => {
+const ChainIcon = ({
+  className,
+  type,
+  chainName = chainCoing().chainName,
+  ...props
+}: IconProps) => {
   const classes = useStyles();
-  const { chainName } = chainCoing;
 
   let [iconDark, iconLight] =
     type === 'icon' ? [baseIconLight, baseIconLight] : [baseLogoLight, baseLogoLight];

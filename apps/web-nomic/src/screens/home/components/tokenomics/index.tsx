@@ -58,7 +58,7 @@ const Tokenomics: React.FC<{
         {data.slice(0, 2).map((x) => (
           <div className="data__item" key={x.percentKey}>
             <Typography variant="h4">
-              {x.value} {chainConfig.tokenUnits[state.denom]?.display?.toUpperCase()}
+              {x.value} {chainConfig().tokenUnits?.[state.denom]?.display?.toUpperCase()}
             </Typography>
             <Typography variant="caption">
               {x.percentKey

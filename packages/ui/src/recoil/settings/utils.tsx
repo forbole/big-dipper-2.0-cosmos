@@ -6,7 +6,7 @@ import { defaultTheme, isThemeSupported, themeDictionary } from '@/styles';
 // CONSTANTS
 // ================================
 
-export const THEME_LIST: Theme[] = chainConfig.themes.themeList;
+export const THEME_LIST: Theme[] = chainConfig().themes.themeList;
 
 export const THEME_DICTIONARY = themeDictionary;
 

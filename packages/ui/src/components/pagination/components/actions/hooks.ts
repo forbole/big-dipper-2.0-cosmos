@@ -67,7 +67,7 @@ export const useTablePaginationActions = (props: {
   };
 
   const handleRowOptionChange = (event: React.ChangeEvent<{ value: unknown }>) => {
-    handleChangeRowsPerPage(Number(event.target.value) as number);
+    handleChangeRowsPerPage(Number(event.target.value));
   };
 
   return {

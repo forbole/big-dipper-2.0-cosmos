@@ -68,13 +68,13 @@ export const useValidatorDetails = () => {
         if (isProvider) {
           const getContract = () => ({
             address: providerData?.provider ?? '',
-            locked: formatToken(providerData?.locked ?? '0', chainConfig.primaryTokenUnit),
+            locked: formatToken(providerData?.locked ?? '0', chainConfig().primaryTokenUnit),
             nodes: providerData?.numNodes ?? 0,
             apr: providerData?.apr ?? 0,
             commission: providerData?.serviceFee ?? 0,
             delegationCap: formatToken(
               providerData?.delegationCap ?? '0',
-              chainConfig.primaryTokenUnit
+              chainConfig().primaryTokenUnit
             ),
             delegators: providerData?.numUsers ?? 0,
           });
@@ -98,14 +98,14 @@ export const useValidatorDetails = () => {
 
           const stakePercentString = Big(locked)
             .div(totalStaked === '0' ? 1 : totalStaked)
-            .times(100)
+            ?.times(100)
             .toFixed(3);
 
           return {
-            locked: formatToken(locked, chainConfig.primaryTokenUnit),
-            stake: formatToken(reference?.stake ?? '0', chainConfig.primaryTokenUnit),
-            topUp: formatToken(reference?.topUp ?? '0', chainConfig.primaryTokenUnit),
-            totalStaked: formatToken(totalStaked, chainConfig.primaryTokenUnit),
+            locked: formatToken(locked, chainConfig().primaryTokenUnit),
+            stake: formatToken(reference?.stake ?? '0', chainConfig().primaryTokenUnit),
+            topUp: formatToken(reference?.topUp ?? '0', chainConfig().primaryTokenUnit),
+            totalStaked: formatToken(totalStaked, chainConfig().primaryTokenUnit),
             stakePercent: Number(formatNumber(stakePercentString, 2)),
           };
         };
@@ -128,7 +128,7 @@ export const useValidatorDetails = () => {
             description: '',
           };
         };
-        newState.profile = await getProfile();
+        newState.profile = getProfile();
 
         // =====================================
         // overview
@@ -151,7 +151,7 @@ export const useValidatorDetails = () => {
             stakeDistribution: distribution,
           };
         };
-        newState.overview = await getOverview();
+        newState.overview = getOverview();
 
         handleSetState(newState);
       } catch (error) {

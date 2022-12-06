@@ -52,7 +52,7 @@ const Balance: React.FC<Props> = (props) => {
   const data = notEmpty ? formatData : [...formatData, empty];
   const totalAmount = `$${numeral(
     Big(market.price || 0)
-      .times(props.total.value)
+      ?.times(props.total.value)
       .toPrecision()
   ).format('0,0.00')}`;
 
@@ -118,7 +118,7 @@ const Balance: React.FC<Props> = (props) => {
             <Typography variant="body1" className="label">
               ${numeral(market.price).format('0,0.[00]', Math.floor)} /{' '}
               {(
-                chainConfig?.tokenUnits?.[chainConfig.primaryTokenUnit]?.display ?? ''
+                chainConfig().tokenUnits?.[chainConfig().primaryTokenUnit]?.display ?? ''
               ).toUpperCase()}
             </Typography>
             <Typography variant="body1">{totalAmount}</Typography>

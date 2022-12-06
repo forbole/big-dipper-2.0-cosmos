@@ -12,7 +12,7 @@ const DecommissionPool: React.FC<{ message: MsgDecommissionPool }> = (props) => 
   const signer = useProfileRecoil(message.signer);
   const signerMoniker = signer ? signer?.name : message.signer;
 
-  const symbol = (chainConfig?.tokenUnits?.[message.symbol]?.display ?? '').toUpperCase();
+  const symbol = (chainConfig().tokenUnits?.[message.symbol]?.display ?? '').toUpperCase();
 
   return (
     <Typography>

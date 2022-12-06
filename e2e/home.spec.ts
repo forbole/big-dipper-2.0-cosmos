@@ -2,18 +2,20 @@ import { expect, test } from '@playwright/test';
 
 test('home page', async ({ page, isMobile }) => {
   // Test url
-  await page.goto('.');
-  await expect(page).toHaveURL(/[^?#]*\/\/[^/]+\/$/);
+  await Promise.all([page.waitForNavigation(), page.goto('.')]);
   await expect(page.getByRole('progressbar')).toHaveCount(0);
 
   // Test click overview
   if (isMobile) await page.getByRole('button', { name: 'open navigation menu' }).first().click();
-  await page.getByRole('link', { name: 'Overview' }).first().click();
-  await page.waitForLoadState('domcontentloaded');
+  await Promise.all([
+    page.waitForNavigation(),
+    page.getByRole('link', { name: 'Overview' }).first().click(),
+  ]);
+  await expect(page.getByRole('progressbar')).toHaveCount(0);
+
   if (await page.getByRole('button', { name: 'close navigation menu' }).isVisible()) {
     await page.getByRole('button', { name: 'close navigation menu' }).click();
   }
-  await expect(page.getByRole('progressbar')).toHaveCount(0);
 
   // Test a title
   await expect(page).toHaveTitle(/Big Dipper/);
@@ -47,17 +49,23 @@ test('home page', async ({ page, isMobile }) => {
   }
 
   // Test 'See More' blocks button
-  await page.getByRole('link', { name: 'see more blocks' }).first().click();
-  await page.waitForLoadState('domcontentloaded');
-  await expect(page).toHaveURL(/\/blocks/);
+  await Promise.all([
+    page.waitForNavigation({ url: /\/blocks/ }),
+    page.getByRole('link', { name: 'see more blocks' }).first().click(),
+  ]);
+  await expect(page.getByRole('progressbar')).toHaveCount(0);
 
   if (isMobile) await page.getByRole('button', { name: 'open navigation menu' }).first().click();
-  await page.getByRole('link', { name: 'Overview' }).first().click();
-  await page.waitForLoadState('domcontentloaded');
+  await Promise.all([
+    page.waitForNavigation(),
+    page.getByRole('link', { name: 'Overview' }).first().click(),
+  ]);
   await expect(page.getByRole('progressbar')).toHaveCount(0);
 
   // Test 'See More' transactions button
-  await page.getByRole('link', { name: 'see more txs' }).first().click();
-  await page.waitForLoadState('domcontentloaded');
-  await expect(page).toHaveURL(/\/transactions/);
+  await Promise.all([
+    page.waitForNavigation({ url: /\/transactions/ }),
+    page.getByRole('link', { name: 'see more txs' }).first().click(),
+  ]);
+  await expect(page.getByRole('progressbar')).toHaveCount(0);
 });

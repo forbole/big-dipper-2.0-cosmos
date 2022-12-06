@@ -20,8 +20,8 @@ jest.mock('@/utils/prefix_convert', () => ({
   ...jest.requireActual('@/utils/prefix_convert'),
   isValidAddress(address: string) {
     if (
-      address === `${chainConfig.prefix.validator}1jrld5g998gqm4yx26l6cvhxz7y5adgxqzfdpes` ||
-      address === `${chainConfig.prefix.account}1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz`
+      address === `${chainConfig().prefix.validator}1jrld5g998gqm4yx26l6cvhxz7y5adgxqzfdpes` ||
+      address === `${chainConfig().prefix.account}1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz`
     ) {
       return true;
     }
@@ -38,11 +38,11 @@ describe('misc: useSearchBar', () => {
     });
     act(() => {
       result.current.handleOnSubmit(
-        `${chainConfig.prefix.validator}1jrld5g998gqm4yx26l6cvhxz7y5adgxqzfdpes`
+        `${chainConfig().prefix.validator}1jrld5g998gqm4yx26l6cvhxz7y5adgxqzfdpes`
       );
     });
     expect(mockPush).toBeCalledWith(
-      `/validators/${chainConfig.prefix.validator}1jrld5g998gqm4yx26l6cvhxz7y5adgxqzfdpes`
+      `/validators/${chainConfig().prefix.validator}1jrld5g998gqm4yx26l6cvhxz7y5adgxqzfdpes`
     );
   });
 
@@ -52,7 +52,7 @@ describe('misc: useSearchBar', () => {
     });
     act(() => {
       result.current.handleOnSubmit(
-        `${chainConfig.prefix.consensus}1rzhewpmmdl72lhnxj6zmxr4v94f522s4hyz467`
+        `${chainConfig().prefix.consensus}1rzhewpmmdl72lhnxj6zmxr4v94f522s4hyz467`
       );
     });
     expect(mockPush).toBeCalledTimes(0);
@@ -64,26 +64,26 @@ describe('misc: useSearchBar', () => {
     });
     act(() => {
       result.current.handleOnSubmit(
-        `${chainConfig.prefix.account}1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz`
+        `${chainConfig().prefix.account}1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz`
       );
     });
     expect(mockPush).toBeCalledWith(
-      `/accounts/${chainConfig.prefix.account}1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz`
+      `/accounts/${chainConfig().prefix.account}1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz`
     );
   });
 
   it('use a dtag', async () => {
-    if (!chainConfig.extra.profile) return;
+    if (!chainConfig().extra.profile) return;
     const { result } = renderHook(() => useSearchBar(t), {
       wrapper: RecoilRoot,
     });
     act(() => {
       result.current.handleOnSubmit(
-        `@${chainConfig.prefix.account}1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz`
+        `@${chainConfig().prefix.account}1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz`
       );
     });
     expect(mockPush).toBeCalledWith(
-      `/@${chainConfig.prefix.account}1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz`
+      `/@${chainConfig().prefix.account}1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz`
     );
   });
 

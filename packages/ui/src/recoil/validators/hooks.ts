@@ -15,8 +15,8 @@ export const useValidatorRecoil = () => {
 
   useValidatorAddressesQuery({
     onError: (error) => {
-      console.error((error as Error).message);
       setLoading(false);
+      console.error((error as Error).message);
     },
     onCompleted: async (data) => {
       // Not very optimized but better than before.
@@ -56,7 +56,7 @@ export const useValidatorRecoil = () => {
   );
 
   const setProfiles = useRecoilCallback(({ set }) => async (data: ValidatorAddressesQuery) => {
-    if (chainConfig.extra.profile) {
+    if (chainConfig().extra.profile) {
       const profilesPromises: Array<Promise<DesmosProfile | null>> = [];
       data?.validator
         ?.filter((x) => x.validatorInfo)

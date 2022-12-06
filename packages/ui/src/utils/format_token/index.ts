@@ -10,7 +10,7 @@ import numeral from 'numeral';
  * @returns TokenUnit
  */
 export const formatToken = (value: number | string | null | undefined, denom = ''): TokenUnit => {
-  const selectedDenom = chainConfig.tokenUnits[denom];
+  const selectedDenom = chainConfig().tokenUnits?.[denom];
 
   if (typeof value !== 'string' && typeof value !== 'number') {
     value = '0';
@@ -80,7 +80,7 @@ export const formatNumber = (tokenUnit: string, toFixed: number | null = null): 
   if (decimal && toFixed !== 0) {
     // if toFixed is null then we want to return the whole decimal
     // otherwise we respect the toFixed input
-    if (toFixed == null) {
+    if (toFixed === null) {
       toFixed = decimal.length;
     }
     // we remove any ending 0s ex - 100 -> 1

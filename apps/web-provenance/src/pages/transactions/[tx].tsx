@@ -1,5 +1,6 @@
+import type { NextPage } from 'next';
 import TransactionDetails from '@/screens/transaction_details';
 
-const TransactionDetailsPage = () => <TransactionDetails />;
+const TransactionDetailsPage: NextPage = () => <TransactionDetails />;
 
 export default TransactionDetailsPage;

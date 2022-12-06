@@ -1,5 +1,6 @@
+import type { NextPage } from 'next';
 import Params from '@/screens/params';
 
-const ParamsPage = () => <Params />;
+const ParamsPage: NextPage = () => <Params />;
 
 export default ParamsPage;

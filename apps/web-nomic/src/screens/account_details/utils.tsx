@@ -16,7 +16,7 @@ export const fetchAvailableBalances = async (address: string) => {
   try {
     const { data } = await axios.post(
       process.env.NEXT_PUBLIC_GRAPHQL_URL ||
-        chainConfig.endpoints.graphql ||
+        chainConfig().endpoints.graphql ||
         'http://localhost:3000/v1/graphql',
       {
         variables: {
@@ -40,7 +40,7 @@ export const fetchAvailableBalances = async (address: string) => {
 //   try {
 //     const { data } = await axios.post(
 //       process.env.NEXT_PUBLIC_GRAPHQL_URL ||
-//         chainConfig.endpoints.graphql ||
+//         chainConfig().endpoints.graphql ||
 //         'http://localhost:3000/v1/graphql',
 //       {
 //         variables: {
@@ -64,7 +64,7 @@ export const fetchDelegationBalance = async (address: string) => {
   try {
     const { data } = await axios.post(
       process.env.NEXT_PUBLIC_GRAPHQL_URL ||
-        chainConfig.endpoints.graphql ||
+        chainConfig().endpoints.graphql ||
         'http://localhost:3000/v1/graphql',
       {
         variables: {

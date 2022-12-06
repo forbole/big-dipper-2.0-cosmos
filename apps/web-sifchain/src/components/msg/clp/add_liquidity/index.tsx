@@ -13,7 +13,7 @@ const AddLiquidity: React.FC<{ message: MsgAddLiquidity }> = (props) => {
   const signer = useProfileRecoil(message.signer);
   const signerMoniker = signer ? signer?.name : message.signer;
 
-  const nativeAmount = formatToken(message.nativeAssetAmount, chainConfig.primaryTokenUnit);
+  const nativeAmount = formatToken(message.nativeAssetAmount, chainConfig().primaryTokenUnit);
 
   const parsedNativeAmount = `${formatNumber(
     nativeAmount.value,
