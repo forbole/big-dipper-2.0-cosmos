@@ -39,7 +39,7 @@ jobs:
         run: "
           echo 'matrix='$(
             yarn turbo run build
-            --dry='json' --filter='[${{ github.base_ref }}]' |
+            --dry='json' --filter='[${{ github.event.pull_request.base.sha }}]' |
             jq -rM '{ project: [ .packages[] | select( . | startswith(\"web\") ) ] }'
           ) | tee -a $GITHUB_OUTPUT $GITHUB_STEP_SUMMARY
 
