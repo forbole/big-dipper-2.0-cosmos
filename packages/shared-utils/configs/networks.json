@@ -418,7 +418,7 @@
   {
     "name": "NYM",
     "chainName": "nym",
-    "logo": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/nym.svg",
+    "logo": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nym/images/nym.svg",
     "cover": "",
     "links": [
       {
@@ -431,15 +431,14 @@
   {
     "name": "Quicksilver",
     "chainName": "quicksilver",
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/cosmos/chain-registry/master/quicksliver/images/quicksliver.svg",
     "cover": "",
     "links": [
       {
         "name": "Testnet",
         "chain_id": "innuendo-3",
-        "url": "https://bigdipper.live/quicksilver"
+        "url": "https://testnet.bigdipper.live/quicksilver"
       }
     ]
   }
 ]
-

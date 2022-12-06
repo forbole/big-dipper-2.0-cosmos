@@ -3,14 +3,14 @@
   "title": "Quicksilver Block Explorer",
   "extra": {
     "profile": true,
-    "graphqlWs": false
+    "graphqlWs": true
   },
   "previewImage": "https://s3.bigdipper.live/quicksilver.png",
   "themes": {
-    "default": "light",
+    "default": "",
     "themeList": [
-      "light",
       "dark",
+      "light",
       "deuteranopia",
       "tritanopia"
     ],
@@ -186,7 +186,7 @@
       "network": "innuendo-3",
       "chainType": "Testnet",
       "genesis": {
-        "time": "2022-09-26T18:30:00",
+        "time": "2022-09-26T10:30:00.000Z",
         "height": 1
       },
       "prefix": {
@@ -207,13 +207,7 @@
         "graphqlWebsocket": "wss://gql-testnet.quicksilver.forbole.com/v1/graphql",
         "publicRpcWebsocket": "wss://gql-testnet.quicksilver.forbole.com/websocket"
       },
-      "marketing": {
-        "matomoURL": "https://analytics.bigdipper.live",
-        "matomoSiteID": ""
-      }
+      "marketing": {}
     }
   ]
 }
-
-
-
