@@ -29,8 +29,8 @@ export const useBlocks = () => {
         handleSetState({
           total,
         });
-      } catch (error: any) {
-        console.error(error.message);
+      } catch (error) {
+        console.error((error as Error).message);
       }
     };
 
@@ -40,14 +40,24 @@ export const useBlocks = () => {
   const getTransactionsByPage = useCallback(
     async (page: number) => {
       try {
-        const { data: transactionsData } = await axios.get(TRANSACTIONS, {
+        const { data: transactionsData } = await axios.get<
+          Array<{
+            txHash: string;
+            senderShard: number;
+            receiverShard: number;
+            sender: string;
+            receiver: string;
+            timestamp: number;
+            status: string;
+          }>
+        >(TRANSACTIONS, {
           params: {
             from: page * PAGE_SIZE,
             size: PAGE_SIZE,
           },
         });
 
-        const items = transactionsData.map((x: any) => ({
+        const items = transactionsData.map((x) => ({
           hash: x.txHash,
           fromShard: x.senderShard,
           toShard: x.receiverShard,
@@ -61,8 +71,8 @@ export const useBlocks = () => {
           loading: false,
           items,
         });
-      } catch (error: any) {
-        console.error(error.message);
+      } catch (error) {
+        console.error((error as Error).message);
       }
     },
     [handleSetState]

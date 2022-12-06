@@ -1,8 +1,7 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme } from '@/tests/utils';
-import MsgLinkApplication from '@/models/msg/profiles/msg_link_application';
 import LinkApplication from '@/components/msg/profiles/link_application';
+import MsgLinkApplication from '@/models/msg/profiles/msg_link_application';
+import { MockTheme } from '@/tests/utils';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

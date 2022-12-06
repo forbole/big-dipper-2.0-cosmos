@@ -1,8 +1,7 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme } from '@/tests/utils';
-import { MsgUpgradeClient } from '@/models';
 import UpgradeClient from '@/components/msg/ibc/client_upgrade_client';
+import { MsgUpgradeClient } from '@/models';
+import { MockTheme } from '@/tests/utils';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

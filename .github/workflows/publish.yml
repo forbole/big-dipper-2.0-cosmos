@@ -1,40 +1,47 @@
-name: ci
+name: Publish
 on:
   workflow_dispatch:
     inputs:
        project_name:
-        description: "Project to build"
+        description: "Project to publish"
         required: true
        chain_type:
-        description: "Chain Type to build"
+        description: "Chain Type to publish"
         required: false
         default: mainnet
 jobs:
-  Build-and-Publish:
+  publish:
     runs-on: ubuntu-latest
-    if: startsWith('web-', ${{ inputs.project_name }})
+    if: startsWith('web-', ${{ github.event.inputs.project_name }})
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
       - name: Login to DockerHub 👤
-        if: github.event_name != 'pull_request'
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Set steps.vars.outputs.sha_short
         id: vars
-        run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
+        run: echo "sha_short=$(git rev-parse --short HEAD) >> $GITHUB_OUTPUT"
       - name: Create the builder
         uses: docker/build-push-action@v3
         with:
           context: .
-          file: ./apps/${{ inputs.project_name }}/Dockerfile
+          file: ./docker/Dockerfile
           push: true
           build-args: |
-            PROJECT_NAME=${{ inputs.project_name }}
-            NEXT_PUBLIC_CHAIN_TYPE=${{ inputs.chain_type }}
-            TURBO_TEAM=${{ secrets.TURBO_TEAM }}
-            TURBO_TOKEN=${{ secrets.TURBO_TOKEN }}
-            SENTRY_DSN=${{ secrets.SENTRY_DSN }}
-          tags: forbole/big-dipper-2.0-cosmos:monorepo-${{ inputs.project_name }}-${{ inputs.chain_type }}-${{ steps.vars.outputs.sha_short }}
+            PROJECT_NAME="${{ github.event.inputs.project_name }}"
+            NEXT_PUBLIC_CHAIN_TYPE="${{ github.event.inputs.chain_type }}"
+            TURBO_TEAM="${{ secrets.TURBO_TEAM }}"
+            TURBO_TOKEN="${{ secrets.TURBO_TOKEN }}"
+            NEXT_PUBLIC_SENTRY_DSN="${{ secrets.SENTRY_DSN }}"
+            SENTRY_AUTH_TOKEN="${{ secrets.SENTRY_AUTH_TOKEN }}"
+          target: web
+          tags: |
+            forbole/big-dipper-2.0-cosmos:monorepo-${{ github.event.inputs.project_name }}-${{ github.event.inputs.chain_type }}-${{ steps.vars.outputs.sha_short }}
+      - name: Publish to akash
+        run: >
+          curl -i -X POST -H "Content-Type: application/json"
+          -d '{"parameters":{"tag": "monorepo-${{ github.event.inputs.project_name }}-${{ github.event.inputs.chain_type }}-${{ steps.vars.outputs.sha_short }}"}}'
+          -k $WEBHOOK_URL/${{ github.event.inputs.project_name }}/${{ github.event.inputs.chain_type }}
+          -u "deploy:$AKASH_WEBHOOK_SECRET" | tee -a $GITHUB_STEP_SUMMARY

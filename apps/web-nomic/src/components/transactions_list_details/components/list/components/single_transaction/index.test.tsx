@@ -1,7 +1,6 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme } from '@/tests/utils';
 import SingleTransaction from '@/components/transactions_list_details/components/list/components/single_transaction';
+import { MockTheme } from '@/tests/utils';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // unit tests
@@ -14,7 +13,6 @@ describe('components: SingleTransaction', () => {
           block={<div>block</div>}
           hash={<div>hash</div>}
           time="2021-07-13T08:00:00"
-          type={<div>type</div>}
         />
       </MockTheme>
     );

@@ -1,12 +1,12 @@
-import * as R from 'ramda';
 import type { Categories } from '@/models/msg/types';
+import * as R from 'ramda';
 
 class MsgUnlinkChainAccount {
   public category: Categories;
 
   public type: string;
 
-  public json: any;
+  public json: object;
 
   public owner: string;
 
@@ -14,23 +14,23 @@ class MsgUnlinkChainAccount {
 
   public target: string;
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'profiles';
-    this.type = payload.type;
-    this.json = payload.json;
-    this.owner = payload.owner;
-    this.chainName = payload.chainName;
-    this.target = payload.target;
+    this.type = R.pathOr('', ['type'], payload);
+    this.json = R.pathOr({}, ['json'], payload);
+    this.owner = R.pathOr('', ['owner'], payload);
+    this.chainName = R.pathOr('', ['chainName'], payload);
+    this.target = R.pathOr('', ['target'], payload);
   }
 
-  static fromJson(json: any): MsgUnlinkChainAccount {
+  static fromJson(json: object): MsgUnlinkChainAccount {
     return {
       category: 'profiles',
       json,
-      type: json['@type'],
-      owner: json.owner,
+      type: R.pathOr('', ['@type'], json),
+      owner: R.pathOr('', ['owner'], json),
       chainName: R.pathOr('', ['chain_name'], json),
-      target: json.target,
+      target: R.pathOr('', ['target'], json),
     };
   }
 }

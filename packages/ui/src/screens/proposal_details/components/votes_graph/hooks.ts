@@ -1,14 +1,14 @@
-import { useCallback, useState } from 'react';
-import * as R from 'ramda';
-import { useRouter } from 'next/router';
-import {
-  useProposalDetailsTallyQuery,
-  ProposalDetailsTallyQuery,
-} from '@/graphql/types/general_types';
-import { formatToken } from '@/utils/format_token';
 import chainConfig from '@/chainConfig';
-import Big from 'big.js';
+import {
+  ProposalDetailsTallyQuery,
+  useProposalDetailsTallyQuery,
+} from '@/graphql/types/general_types';
 import type { VotesGraphState } from '@/screens/proposal_details/components/votes_graph/types';
+import { formatToken } from '@/utils/format_token';
+import Big from 'big.js';
+import { useRouter } from 'next/router';
+import * as R from 'ramda';
+import { useCallback, useState } from 'react';
 
 const defaultTokenUnit: TokenUnit = {
   value: '0',
@@ -27,7 +27,7 @@ export const useVotesGraph = () => {
       veto: defaultTokenUnit,
     },
     bonded: defaultTokenUnit,
-    quorum: 0,
+    quorum: '0',
   });
 
   const handleSetState = useCallback((stateChange: Partial<VotesGraphState>) => {
@@ -39,7 +39,7 @@ export const useVotesGraph = () => {
 
   useProposalDetailsTallyQuery({
     variables: {
-      proposalId: parseInt(R.pathOr('', ['query', 'id'], router), 10),
+      proposalId: parseFloat((router?.query?.id as string) ?? '0'),
     },
     onCompleted: (data) => {
       handleSetState(foramtProposalTally(data));
@@ -47,32 +47,32 @@ export const useVotesGraph = () => {
   });
 
   const foramtProposalTally = (data: ProposalDetailsTallyQuery) => {
-    const quorumRaw = R.pathOr('0', [0, 'tallyParams', 'quorum'], data.quorum);
+    const quorumRaw = data.quorum?.[0]?.tallyParams?.quorum ?? '0';
 
     return {
       votes: {
         yes: formatToken(
-          R.pathOr('0', ['proposalTallyResult', 0, 'yes'], data),
-          chainConfig.votingPowerTokenUnit
+          data?.proposalTallyResult?.[0]?.yes ?? '0',
+          chainConfig().votingPowerTokenUnit
         ),
         no: formatToken(
-          R.pathOr('0', ['proposalTallyResult', 0, 'no'], data),
-          chainConfig.votingPowerTokenUnit
+          data?.proposalTallyResult?.[0]?.no ?? '0',
+          chainConfig().votingPowerTokenUnit
         ),
         veto: formatToken(
-          R.pathOr('0', ['proposalTallyResult', 0, 'noWithVeto'], data),
-          chainConfig.votingPowerTokenUnit
+          data?.proposalTallyResult?.[0]?.noWithVeto ?? '0',
+          chainConfig().votingPowerTokenUnit
         ),
         abstain: formatToken(
-          R.pathOr('0', ['proposalTallyResult', 0, 'abstain'], data),
-          chainConfig.votingPowerTokenUnit
+          data?.proposalTallyResult?.[0]?.abstain ?? '0',
+          chainConfig().votingPowerTokenUnit
         ),
       },
       bonded: formatToken(
-        R.pathOr('0', ['stakingPool', 0, 'bondedTokens'], data),
-        chainConfig.votingPowerTokenUnit
+        data?.stakingPool?.[0]?.bondedTokens ?? '0',
+        chainConfig().votingPowerTokenUnit
       ),
-      quorum: Big(quorumRaw).times(100).toFixed(2),
+      quorum: Big(quorumRaw)?.times(100).toFixed(2),
     };
   };
 

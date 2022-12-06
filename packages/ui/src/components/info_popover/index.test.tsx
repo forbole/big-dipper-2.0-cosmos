@@ -1,8 +1,7 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme } from '@/tests/utils';
-import InfoPopover from '@/components/info_popover';
 import ConditionExplanation from '@/components/condition_explanation';
+import InfoPopover from '@/components/info_popover';
+import { MockTheme } from '@/tests/utils';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // unit tests

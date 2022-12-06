@@ -1,17 +1,17 @@
-import React from 'react';
+import Search from '@/components/search';
+import { useStyles } from '@/screens/validators/components/list/components/tabs/styles';
+import { tabLabels } from '@/screens/validators/components/list/components/tabs/utils';
+import { a11yProps } from '@/utils/a11yProps';
+import Tab from '@material-ui/core/Tab';
+import Tabs from '@material-ui/core/Tabs';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import { a11yProps } from '@/utils/a11yProps';
-import Search from '@/components/search';
-import { tabLabels } from '@/screens/validators/components/list/components/tabs/utils';
-import { useStyles } from '@/screens/validators/components/list/components/tabs/styles';
+import React, { ComponentProps } from 'react';
 
 const TabsHeader: React.FC<{
   className?: string;
   tab: number;
-  handleTabChange: (event: any, newvalue: number) => void;
+  handleTabChange: ComponentProps<typeof Tabs>['onChange'];
   handleSearch: (value: string) => void;
 }> = ({ className, tab, handleTabChange, handleSearch }) => {
   const classes = useStyles();

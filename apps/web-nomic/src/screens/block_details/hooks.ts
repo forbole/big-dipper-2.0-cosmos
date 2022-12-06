@@ -1,9 +1,9 @@
-import { useCallback, useEffect, useState } from 'react';
-import * as R from 'ramda';
-import numeral from 'numeral';
+import { BlockDetailsQuery, useBlockDetailsQuery } from '@/graphql/types/general_types';
+import type { BlockDetailState, OverviewType } from '@/screens/block_details/types';
 import { useRouter } from 'next/router';
-import { useBlockDetailsQuery, BlockDetailsQuery } from '@/graphql/types/general_types';
-import type { BlockDetailState } from '@/screens/block_details/types';
+import numeral from 'numeral';
+import * as R from 'ramda';
+import { useCallback, useEffect, useState } from 'react';
 
 export const useBlockDetails = () => {
   const router = useRouter();
@@ -54,7 +54,7 @@ export const useBlockDetails = () => {
 };
 
 function formatRaws(data: BlockDetailsQuery) {
-  const stateChange: any = {
+  const stateChange: Partial<BlockDetailState> = {
     loading: false,
   };
 
@@ -67,11 +67,11 @@ function formatRaws(data: BlockDetailsQuery) {
   // Overview
   // ==========================
   const formatOverview = () => {
-    const proposerAddress = R.pathOr('', ['block', 0, 'operatorAddress'], data);
-    const overview = {
+    const proposerAddress = data?.block?.[0]?.operatorAddress ?? '';
+    const overview: OverviewType = {
       height: data.block[0].height,
       hash: data.block[0].hash,
-      txs: data.block[0].txs,
+      txs: data.block[0].txs ?? 0,
       timestamp: data.block[0].timestamp,
       proposer: proposerAddress,
     };
@@ -98,7 +98,7 @@ function formatRaws(data: BlockDetailsQuery) {
     const transactions = data.transaction.map((x) => ({
       height: x.height,
       hash: x.hash,
-      timestamp: stateChange.overview.timestamp,
+      timestamp: stateChange.overview?.timestamp ?? '',
     }));
 
     return transactions;

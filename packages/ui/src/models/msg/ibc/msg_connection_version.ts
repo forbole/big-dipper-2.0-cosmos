@@ -1,4 +1,5 @@
 import type { Categories } from '@/models/msg/types';
+import * as R from 'ramda';
 
 class MsgVersion {
   public category: Categories;
@@ -7,21 +8,21 @@ class MsgVersion {
 
   public signer: string;
 
-  public json: any;
+  public json: object;
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'ibc';
-    this.type = payload.type;
-    this.signer = payload.signer;
-    this.json = payload.json;
+    this.type = R.pathOr('', ['type'], payload);
+    this.signer = R.pathOr('', ['signer'], payload);
+    this.json = R.pathOr({}, ['json'], payload);
   }
 
-  static fromJson(json: any): MsgVersion {
+  static fromJson(json: object): MsgVersion {
     return {
       category: 'ibc',
       json,
-      type: json['@type'],
-      signer: json.signer,
+      type: R.pathOr('', ['@type'], json),
+      signer: R.pathOr('', ['signer'], json),
     };
   }
 }

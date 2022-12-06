@@ -1,5 +1,5 @@
-import { atomFamily } from 'recoil';
 import type { AtomState } from '@/recoil/validators/types';
+import { atomFamily } from 'recoil';
 
 const initialState: AtomState = null;
 

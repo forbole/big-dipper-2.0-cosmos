@@ -1,10 +1,9 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
 import { OnlineVotingPowerDocument } from '@/graphql/types/general_types';
-import { MockTheme, wait } from '@/tests/utils';
-import { MockedProvider } from '@apollo/client/testing';
 import OnlineVotingPower from '@/screens/home/components/hero/components/online_voting_power';
+import { MockTheme, wait } from '@/tests/utils';
+import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
+import { MockedProvider } from '@apollo/client/testing';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

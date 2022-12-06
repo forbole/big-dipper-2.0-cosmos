@@ -1,10 +1,10 @@
-import React from 'react';
+import { useStyles } from '@/screens/validators/components/list/components/mobile/component/single_validator/styles';
+import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import Typography from '@material-ui/core/Typography';
-import LiquidStakingTrueIcon from 'shared-utils/assets/liquid-staking-true.svg';
+import React from 'react';
 import LiquidStakingFalseIcon from 'shared-utils/assets/liquid-staking-false.svg';
-import { useStyles } from '@/screens/validators/components/list/components/mobile/component/single_validator/styles';
+import LiquidStakingTrueIcon from 'shared-utils/assets/liquid-staking-true.svg';
 
 const SingleValidator: React.FC<{
   className?: string;

@@ -1,18 +1,12 @@
-import React, { ComponentProps, FC } from 'react';
-import dynamic from 'next/dynamic';
 import NoData from '@/components/no_data';
-import { useScreenSize } from '@/hooks';
 import { useStyles } from '@/components/transactions_list/styles';
 import type { TransactionsListState } from '@/components/transactions_list/types';
-import type DesktopType from '@/components/transactions_list/components/desktop';
-import type MobileType from '@/components/transactions_list/components/mobile';
+import { useScreenSize } from '@/hooks';
+import dynamic from 'next/dynamic';
+import { FC } from 'react';
 
-const Desktop = dynamic(() => import('@/components/transactions_list/components/desktop')) as FC<
-  ComponentProps<typeof DesktopType>
->;
-const Mobile = dynamic(() => import('@/components/transactions_list/components/mobile')) as FC<
-  ComponentProps<typeof MobileType>
->;
+const Desktop = dynamic(() => import('@/components/transactions_list/components/desktop'));
+const Mobile = dynamic(() => import('@/components/transactions_list/components/mobile'));
 
 const TransactionsList: FC<TransactionsListState> = (props) => {
   const { isDesktop } = useScreenSize();
@@ -42,15 +36,11 @@ const TransactionsList: FC<TransactionsListState> = (props) => {
     return <NoData />;
   }
 
-  return (
-    <>
-      {isDesktop ? (
-        <Desktop className={classes.desktop} {...formatProps} />
-      ) : (
-        <Mobile className={classes.mobile} {...formatProps} />
-      )}
-    </>
-  );
+  if (isDesktop) {
+    return <Desktop className={classes.desktop} {...formatProps} />;
+  }
+
+  return <Mobile className={classes.mobile} {...formatProps} />;
 };
 
 export default TransactionsList;

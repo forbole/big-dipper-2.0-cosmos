@@ -1,15 +1,15 @@
-import { useCallback, useState } from 'react';
-import * as R from 'ramda';
 import {
-  useProvidersQuery,
-  // ProvidersQuery,
-  useActiveProvidersListenerSubscription,
-  useActiveLeasesListenerSubscription,
-  useCpuMemoryStorageListenerSubscription,
   CpuMemoryStorageListenerSubscription,
   ProvidersQuery,
+  useActiveLeasesListenerSubscription,
+  // ProvidersQuery,
+  useActiveProvidersListenerSubscription,
+  useCpuMemoryStorageListenerSubscription,
+  useProvidersQuery,
 } from '@/graphql/types/general_types';
 import type { ProviderInfo, ProvidersState } from '@/screens/providers/types';
+import * as R from 'ramda';
+import { useCallback, useState } from 'react';
 
 export const useProviders = () => {
   const [state, setState] = useState<ProvidersState>({
@@ -53,8 +53,8 @@ export const useProviders = () => {
    * Paginates the given data by splitting it into a list of arrays,
    * each one having the selected number of items.
    */
-  const createPagination = (data: any[]): any[][] => {
-    const pages: Array<unknown[]> = [];
+  const createPagination = (data: ProviderInfo[]): ProviderInfo[][] => {
+    const pages: Array<ProviderInfo[]> = [];
     data.forEach((x, i) => {
       const selectedKey = Math.floor(i / state.providers.pagination.itemsPerPage);
       pages[selectedKey] = pages[selectedKey] || [];
@@ -193,6 +193,8 @@ export const useProviders = () => {
         pages: createPagination(filteredPaginatedItems),
         isNextPageLoading: false,
         pagination: {
+          itemsPerPage: state.providers.pagination.itemsPerPage,
+          currentPage: state.providers.pagination.currentPage,
           totalCount: filteredPaginatedItems.length,
         },
       },

@@ -21,20 +21,20 @@ class OracleParams {
 
   public perValidatorRequestGas: number;
 
-  constructor(payload: any) {
-    this.maxAskCount = payload.maxAskCount;
-    this.baseOwsmGas = payload.baseOwsmGas;
-    this.maxCalldataSize = payload.maxCalldataSize;
-    this.samplingTryCount = payload.samplingTryCount;
-    this.maxReportDataSize = payload.maxReportDataSize;
-    this.maxRawRequestCount = payload.maxRawRequestCount;
-    this.expirationBlockCount = payload.expirationBlockCount;
-    this.oracleRewardPercentage = payload.oracleRewardPercentage;
-    this.inactivePenaltyDuration = payload.inactivePenaltyDuration;
-    this.perValidatorRequestGas = payload.perValidatorRequestGas;
+  constructor(payload: object) {
+    this.maxAskCount = R.pathOr(0, ['maxAskCount'], payload);
+    this.baseOwsmGas = R.pathOr(0, ['baseOwsmGas'], payload);
+    this.maxCalldataSize = R.pathOr(0, ['maxCalldataSize'], payload);
+    this.samplingTryCount = R.pathOr(0, ['samplingTryCount'], payload);
+    this.maxReportDataSize = R.pathOr(0, ['maxReportDataSize'], payload);
+    this.maxRawRequestCount = R.pathOr(0, ['maxRawRequestCount'], payload);
+    this.expirationBlockCount = R.pathOr(0, ['expirationBlockCount'], payload);
+    this.oracleRewardPercentage = R.pathOr(0, ['oracleRewardPercentage'], payload);
+    this.inactivePenaltyDuration = R.pathOr(0, ['inactivePenaltyDuration'], payload);
+    this.perValidatorRequestGas = R.pathOr(0, ['perValidatorRequestGas'], payload);
   }
 
-  static fromJson(data: any): OracleParams {
+  static fromJson(data: object): OracleParams {
     // console.log(data, 'data');
     return {
       maxAskCount: R.pathOr(0, ['max_ask_count'], data),

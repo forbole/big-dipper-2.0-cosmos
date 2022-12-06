@@ -73,7 +73,7 @@ const Overview: React.FC<OverviewType & ComponentDefault> = (props) => {
       detail: <AvatarName address={props.to} name={props.to} />,
     },
     {
-      label: t('tokenPrice', { token: chainConfig.primaryTokenUnit.toUpperCase() }),
+      label: t('tokenPrice', { token: chainConfig().primaryTokenUnit.toUpperCase() }),
       detail: `$${props.price}`,
     },
     {
@@ -89,7 +89,7 @@ const Overview: React.FC<OverviewType & ComponentDefault> = (props) => {
     },
     {
       label: t('time'),
-      detail: formatDayJs((dayjs as any).utc(dayjs.unix(props.timestamp)), dateFormat),
+      detail: formatDayJs(dayjs.utc(dayjs.unix(props.timestamp)), dateFormat),
     },
   ];
 

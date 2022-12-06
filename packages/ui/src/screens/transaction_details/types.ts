@@ -18,6 +18,6 @@ export interface TransactionState {
   messages: {
     filterBy: string;
     viewRaw: boolean;
-    items: any[];
+    items: unknown[];
   };
 }

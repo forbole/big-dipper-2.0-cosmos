@@ -1,5 +1,4 @@
 import axios from 'axios';
-import * as R from 'ramda';
 import {
   AccountBalancesDocument,
   // AccountWithdrawalAddressDocument,
@@ -17,7 +16,7 @@ export const fetchAvailableBalances = async (address: string) => {
   try {
     const { data } = await axios.post(
       process.env.NEXT_PUBLIC_GRAPHQL_URL ||
-        chainConfig.endpoints.graphql ||
+        chainConfig().endpoints.graphql ||
         'http://localhost:3000/v1/graphql',
       {
         variables: {
@@ -26,7 +25,7 @@ export const fetchAvailableBalances = async (address: string) => {
         query: AccountBalancesDocument,
       }
     );
-    return R.pathOr(defaultReturnValue, ['data'], data);
+    return data?.data ?? defaultReturnValue;
   } catch (error) {
     return defaultReturnValue;
   }
@@ -41,7 +40,7 @@ export const fetchAvailableBalances = async (address: string) => {
 //   try {
 //     const { data } = await axios.post(
 //       process.env.NEXT_PUBLIC_GRAPHQL_URL ||
-//         chainConfig.endpoints.graphql ||
+//         chainConfig().endpoints.graphql ||
 //         'http://localhost:3000/v1/graphql',
 //       {
 //         variables: {
@@ -50,7 +49,7 @@ export const fetchAvailableBalances = async (address: string) => {
 //         query: AccountWithdrawalAddressDocument,
 //       }
 //     );
-//     return R.pathOr(defaultReturnValue, ['data'], data);
+//     return data?.data ?? defaultReturnValue;
 //   } catch (error) {
 //     return defaultReturnValue;
 //   }
@@ -65,7 +64,7 @@ export const fetchDelegationBalance = async (address: string) => {
   try {
     const { data } = await axios.post(
       process.env.NEXT_PUBLIC_GRAPHQL_URL ||
-        chainConfig.endpoints.graphql ||
+        chainConfig().endpoints.graphql ||
         'http://localhost:3000/v1/graphql',
       {
         variables: {
@@ -74,7 +73,7 @@ export const fetchDelegationBalance = async (address: string) => {
         query: AccountDelegationBalanceDocument,
       }
     );
-    return R.pathOr(defaultReturnValue, ['data'], data);
+    return data?.data ?? defaultReturnValue;
   } catch (error) {
     return defaultReturnValue;
   }

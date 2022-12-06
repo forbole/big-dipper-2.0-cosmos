@@ -1,5 +1,6 @@
+import type { NextPage } from 'next';
 import BlockDetails from '@/screens/block_details';
 
-const BlockDetailsPage = () => <BlockDetails />;
+const BlockDetailsPage: NextPage = () => <BlockDetails />;
 
 export default BlockDetailsPage;

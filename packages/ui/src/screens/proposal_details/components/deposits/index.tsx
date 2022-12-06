@@ -1,16 +1,16 @@
-import React from 'react';
-import classnames from 'classnames';
-import dynamic from 'next/dynamic';
-import Typography from '@material-ui/core/Typography';
-import useTranslation from 'next-translate/useTranslation';
 import Box from '@/components/box';
 import { usePagination, useScreenSize } from '@/hooks';
 import { useProfilesRecoil } from '@/recoil/profiles';
-import { useStyles } from '@/screens/proposal_details/components/deposits/styles';
-import Paginate from '@/screens/proposal_details/components/deposits/components/paginate';
-import { useDeposits } from '@/screens/proposal_details/components/deposits/hooks';
 import type DesktopType from '@/screens/proposal_details/components/deposits/components/desktop';
 import type MobileType from '@/screens/proposal_details/components/deposits/components/mobile';
+import Paginate from '@/screens/proposal_details/components/deposits/components/paginate';
+import { useDeposits } from '@/screens/proposal_details/components/deposits/hooks';
+import { useStyles } from '@/screens/proposal_details/components/deposits/styles';
+import Typography from '@material-ui/core/Typography';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
+import dynamic from 'next/dynamic';
+import React from 'react';
 
 const Desktop = dynamic(
   () => import('@/screens/proposal_details/components/deposits/components/desktop')
@@ -28,11 +28,11 @@ const Deposits: React.FC<ComponentDefault> = (props) => {
 
   const classes = useStyles();
 
-  let items = sliceItems(state.data);
+  const slicedItems = sliceItems(state.data);
 
-  const dataProfiles = useProfilesRecoil(items.map((x) => x.user));
-  items = items.map((x, i) => ({
-    ...(x as object),
+  const dataProfiles = useProfilesRecoil(slicedItems.map((x) => x.user));
+  const items = slicedItems.map((x, i) => ({
+    ...x,
     user: dataProfiles[i],
   }));
 
@@ -43,9 +43,9 @@ const Deposits: React.FC<ComponentDefault> = (props) => {
       </Typography>
       <div className={classes.list}>
         {isDesktop ? (
-          <Desktop className={classes.desktop} items={items as any} />
+          <Desktop className={classes.desktop} items={items} />
         ) : (
-          <Mobile className={classes.mobile} items={items as any} />
+          <Mobile className={classes.mobile} items={items} />
         )}
       </div>
       <Paginate

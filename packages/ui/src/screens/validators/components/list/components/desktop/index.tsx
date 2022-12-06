@@ -1,22 +1,22 @@
-import React from 'react';
-import classnames from 'classnames';
-import numeral from 'numeral';
-import useTranslation from 'next-translate/useTranslation';
-import AutoSizer from 'react-virtualized-auto-sizer';
-import { VariableSizeGrid as Grid } from 'react-window';
-import Typography from '@material-ui/core/Typography';
-import { useGrid } from 'ui/hooks';
-import SortArrows from 'ui/components/sort_arrows';
-import AvatarName from 'ui/components/avatar_name';
-import InfoPopover from 'ui/components/info_popover';
-import { getValidatorConditionClass } from 'ui/utils/get_validator_condition';
-import { getValidatorStatus } from 'ui/utils/get_validator_status';
-import type { ItemType } from '@/screens/validators/components/list/types';
+import AvatarName from '@/components/avatar_name';
+import InfoPopover from '@/components/info_popover';
+import SortArrows from '@/components/sort_arrows';
+import { useGrid } from '@/hooks';
+import Condition from '@/screens/validators/components/list/components/condition';
 import { useStyles } from '@/screens/validators/components/list/components/desktop/styles';
 import { fetchColumns } from '@/screens/validators/components/list/components/desktop/utils';
-import Condition from '@/screens/validators/components/list/components/condition';
 import VotingPower from '@/screens/validators/components/list/components/voting_power';
 import VotingPowerExplanation from '@/screens/validators/components/list/components/voting_power_explanation';
+import type { ItemType } from '@/screens/validators/components/list/types';
+import { getValidatorConditionClass } from '@/utils/get_validator_condition';
+import { getValidatorStatus } from '@/utils/get_validator_status';
+import Typography from '@material-ui/core/Typography';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
+import numeral from 'numeral';
+import React, { ReactNode } from 'react';
+import AutoSizer from 'react-virtualized-auto-sizer';
+import { VariableSizeGrid as Grid } from 'react-window';
 
 const Desktop: React.FC<{
   className?: string;
@@ -31,7 +31,7 @@ const Desktop: React.FC<{
 
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
 
-  const formattedItems = props.items.map((x, i) => {
+  const formattedItems = props.items.map((x, i): { [key: string]: ReactNode } => {
     const status = getValidatorStatus(x.status, x.jailed, x.tombstoned);
     const condition = x.status === 3 ? getValidatorConditionClass(x.condition) : undefined;
     const percentDisplay =
@@ -142,7 +142,7 @@ const Desktop: React.FC<{
             >
               {({ columnIndex, rowIndex, style }) => {
                 const { key, align } = columns[columnIndex];
-                const item = (formattedItems as any)[rowIndex][key];
+                const item = formattedItems[rowIndex][key];
                 return (
                   <div
                     style={style}

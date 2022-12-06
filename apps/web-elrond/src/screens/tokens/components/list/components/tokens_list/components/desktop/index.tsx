@@ -1,18 +1,18 @@
-import React from 'react';
-import numeral from 'numeral';
-import classnames from 'classnames';
-import useTranslation from 'next-translate/useTranslation';
 import AvatarName from '@/components/avatar_name';
-import Table from '@material-ui/core/Table';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import TableCell from '@material-ui/core/TableCell';
-import TableBody from '@material-ui/core/TableBody';
+import { useStyles } from '@/screens/tokens/components/list/components/tokens_list/components/desktop/styles';
+import { columns } from '@/screens/tokens/components/list/components/tokens_list/components/desktop/utils';
+import type { TokenType } from '@/screens/tokens/components/list/types';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { TOKEN_DETAILS } from '@/utils/go_to_page';
-import type { TokenType } from '@/screens/tokens/components/list/types';
-import { columns } from '@/screens/tokens/components/list/components/tokens_list/components/desktop/utils';
-import { useStyles } from '@/screens/tokens/components/list/components/tokens_list/components/desktop/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
+import numeral from 'numeral';
+import React from 'react';
 
 const Desktop: React.FC<{ items: TokenType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('tokens');

@@ -1,11 +1,10 @@
-import React from 'react';
-import * as R from 'ramda';
-import Trans from 'next-translate/Trans';
-import Typography from '@material-ui/core/Typography';
+import chainConfig from '@/chainConfig';
 import Name from '@/components/name';
 import MsgDecommissionPool from '@/models/msg/clp/msg_decommission_pool';
 import { useProfileRecoil } from '@/recoil/profiles';
-import chainConfig from '@/chainConfig';
+import Typography from '@material-ui/core/Typography';
+import Trans from 'next-translate/Trans';
+import React from 'react';
 
 const DecommissionPool: React.FC<{ message: MsgDecommissionPool }> = (props) => {
   const { message } = props;
@@ -13,7 +12,7 @@ const DecommissionPool: React.FC<{ message: MsgDecommissionPool }> = (props) => 
   const signer = useProfileRecoil(message.signer);
   const signerMoniker = signer ? signer?.name : message.signer;
 
-  const symbol = R.pathOr('', ['tokenUnits', message.symbol, 'display'], chainConfig).toUpperCase();
+  const symbol = (chainConfig().tokenUnits?.[message.symbol]?.display ?? '').toUpperCase();
 
   return (
     <Typography>

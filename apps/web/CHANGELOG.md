@@ -12,6 +12,7 @@
 - Setup monorepo ([\#1035](https://github.com/forbole/big-dipper-2.0-cosmos/issues/1035))
 - Incremented unit tests coverage ([\#1044](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1044))
 - Increment E2E tests coverage ([\#1047](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1047))
+- Added Affiliate Marketing advertising banners ([\#1056](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1056))
 
 # base-v2.1.2 - 2022-09-11
 

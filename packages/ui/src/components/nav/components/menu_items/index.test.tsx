@@ -1,7 +1,6 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme } from '@/tests/utils';
 import MenuItems from '@/components/nav/components/menu_items';
+import { MockTheme } from '@/tests/utils';
+import renderer from 'react-test-renderer';
 // ==================================
 // global setup
 // ==================================

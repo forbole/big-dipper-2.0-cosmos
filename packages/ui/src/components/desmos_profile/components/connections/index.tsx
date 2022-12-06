@@ -1,16 +1,16 @@
-import React from 'react';
-import useTranslation from 'next-translate/useTranslation';
-import Dialog from '@material-ui/core/Dialog';
-import Typography from '@material-ui/core/Typography';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import IconButton from '@material-ui/core/IconButton';
-import DialogContent from '@material-ui/core/DialogContent';
-import CloseIcon from '@material-ui/icons/Close';
-import Pagination from '@/components/pagination';
-import { usePagination, useScreenSize } from '@/hooks';
-import { useStyles } from '@/components/desmos_profile/components/connections/styles';
 import Desktop from '@/components/desmos_profile/components/connections/components/desktop';
 import Mobile from '@/components/desmos_profile/components/connections/components/mobile';
+import { useStyles } from '@/components/desmos_profile/components/connections/styles';
+import Pagination from '@/components/pagination';
+import { usePagination, useScreenSize } from '@/hooks';
+import Dialog from '@material-ui/core/Dialog';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import IconButton from '@material-ui/core/IconButton';
+import Typography from '@material-ui/core/Typography';
+import CloseIcon from '@material-ui/icons/Close';
+import useTranslation from 'next-translate/useTranslation';
+import React from 'react';
 
 const Connections: React.FC<{
   handleClose: () => void;

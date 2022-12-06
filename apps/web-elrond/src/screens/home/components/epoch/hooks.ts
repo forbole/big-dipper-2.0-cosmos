@@ -1,8 +1,8 @@
-import { useCallback, useEffect, useState } from 'react';
-import * as R from 'ramda';
-import axios from 'axios';
 import { STATS } from '@/api';
 import type { EpochState } from '@/screens/home/components/epoch/types';
+import axios from 'axios';
+import * as R from 'ramda';
+import { useCallback, useEffect, useState } from 'react';
 
 export const useEpoch = () => {
   const [state, setState] = useState<EpochState>({
@@ -28,8 +28,8 @@ export const useEpoch = () => {
           roundsPassed: statsData.roundsPassed,
           roundsPerEpoch: statsData.roundsPerEpoch,
         });
-      } catch (error: any) {
-        console.error(error.message);
+      } catch (error) {
+        console.error((error as Error).message);
       }
     };
 

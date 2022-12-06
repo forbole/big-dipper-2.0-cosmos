@@ -1,4 +1,5 @@
 import type { Categories } from '@/models/msg/types';
+import * as R from 'ramda';
 
 class MsgUnjail {
   public category: Categories;
@@ -7,21 +8,21 @@ class MsgUnjail {
 
   public validatorAddress: string;
 
-  public json: any;
+  public json: object;
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'slashing';
-    this.type = payload.type;
-    this.validatorAddress = payload.validatorAddress;
-    this.json = payload.json;
+    this.type = R.pathOr('', ['type'], payload);
+    this.validatorAddress = R.pathOr('', ['validatorAddress'], payload);
+    this.json = R.pathOr({}, ['json'], payload);
   }
 
-  static fromJson(json: any): MsgUnjail {
+  static fromJson(json: object): MsgUnjail {
     return {
       category: 'slashing',
       json,
-      type: json['@type'],
-      validatorAddress: json.validator_addr,
+      type: R.pathOr('', ['@type'], json),
+      validatorAddress: R.pathOr('', ['validator_addr'], json),
     };
   }
 }

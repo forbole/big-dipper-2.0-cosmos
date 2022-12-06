@@ -9,14 +9,14 @@ class DistributionParams {
 
   public withdrawAddressEnabled: boolean;
 
-  constructor(payload: any) {
-    this.baseProposerReward = payload.baseProposerReward;
-    this.bonusProposerReward = payload.bonusProposerReward;
-    this.communityTax = payload.communityTax;
-    this.withdrawAddressEnabled = payload.withdrawAddressEnabled;
+  constructor(payload: object) {
+    this.baseProposerReward = R.pathOr(0, ['baseProposerReward'], payload);
+    this.bonusProposerReward = R.pathOr(0, ['bonusProposerReward'], payload);
+    this.communityTax = R.pathOr(0, ['communityTax'], payload);
+    this.withdrawAddressEnabled = R.pathOr(false, ['withdrawAddressEnabled'], payload);
   }
 
-  static fromJson(data: any): DistributionParams {
+  static fromJson(data: object): DistributionParams {
     return {
       baseProposerReward: R.pathOr(0, ['base_proposer_reward'], data),
       bonusProposerReward: R.pathOr(0, ['bonus_proposer_reward'], data),

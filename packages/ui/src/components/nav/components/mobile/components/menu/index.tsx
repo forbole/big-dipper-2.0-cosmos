@@ -1,22 +1,21 @@
-import React from 'react';
-import classnames from 'classnames';
-import Link from 'next/link';
-import Drawer from '@material-ui/core/Drawer';
-import MenuItem from '@material-ui/core/MenuItem';
-import Typography from '@material-ui/core/Typography';
-import { useRouter } from 'next/router';
-import useTranslation from 'next-translate/useTranslation';
-import Language from 'shared-utils/assets/icon-language.svg';
-import ThemeIcon from 'shared-utils/assets/icon-theme.svg';
-import { THEME_LIST } from '@/recoil/settings';
-import ExpandMoreOutlined from '@material-ui/icons/ExpandMoreOutlined';
 import MenuItems from '@/components/nav/components/menu_items';
-import { useStyles } from '@/components/nav/components/mobile/components/menu/styles';
 import {
   useLanguageDrawer,
   useThemeDrawer,
 } from '@/components/nav/components/mobile/components/menu/hooks';
+import { useStyles } from '@/components/nav/components/mobile/components/menu/styles';
 import type { MenuProps } from '@/components/nav/components/mobile/components/menu/types';
+import { THEME_LIST } from '@/recoil/settings';
+import Drawer from '@material-ui/core/Drawer';
+import MenuItem from '@material-ui/core/MenuItem';
+import Typography from '@material-ui/core/Typography';
+import ExpandMoreOutlined from '@material-ui/icons/ExpandMoreOutlined';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import Language from 'shared-utils/assets/icon-language.svg';
+import ThemeIcon from 'shared-utils/assets/icon-theme.svg';
 
 const Menu = (props: MenuProps) => {
   const router = useRouter();

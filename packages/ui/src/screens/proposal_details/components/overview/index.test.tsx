@@ -1,7 +1,6 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme } from '@/tests/utils';
 import Overview from '@/screens/proposal_details/components/overview';
+import { MockTheme } from '@/tests/utils';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks
@@ -41,7 +40,10 @@ describe('screen: BlockDetails/Overview', () => {
       <MockTheme>
         <Overview
           overview={{
-            content: '',
+            content: {
+              recipient: '',
+              amount: [],
+            },
             proposer: '',
             title: 'title',
             id: 10,

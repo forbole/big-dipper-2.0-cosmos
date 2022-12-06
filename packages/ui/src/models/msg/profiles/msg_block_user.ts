@@ -1,11 +1,12 @@
 import type { Categories } from '@/models/msg/types';
+import * as R from 'ramda';
 
 class MsgBlockUser {
   public category: Categories;
 
   public type: string;
 
-  public json: any;
+  public json: object;
 
   public reason?: string;
 
@@ -15,23 +16,23 @@ class MsgBlockUser {
 
   public subspace: string;
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'profiles';
-    this.type = payload.type;
-    this.json = payload.json;
-    this.blocked = payload.blocked;
-    this.blocker = payload.blocker;
-    this.subspace = payload.subspace;
+    this.type = R.pathOr('', ['type'], payload);
+    this.json = R.pathOr({}, ['json'], payload);
+    this.blocked = R.pathOr('', ['blocked'], payload);
+    this.blocker = R.pathOr('', ['blocker'], payload);
+    this.subspace = R.pathOr('', ['subspace'], payload);
   }
 
-  static fromJson(json: any): MsgBlockUser {
+  static fromJson(json: object): MsgBlockUser {
     return {
       category: 'profiles',
       json,
-      type: json['@type'],
-      blocked: json.blocked,
-      blocker: json.blocker,
-      subspace: json.subspace,
+      type: R.pathOr('', ['@type'], json),
+      blocked: R.pathOr('', ['blocked'], json),
+      blocker: R.pathOr('', ['blocker'], json),
+      subspace: R.pathOr('', ['subspace'], json),
     };
   }
 }

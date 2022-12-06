@@ -1,4 +1,5 @@
 import type { Categories } from '@/models/msg/types';
+import * as R from 'ramda';
 
 class MsgConnectionOpenAck {
   public category: Categories;
@@ -11,25 +12,25 @@ class MsgConnectionOpenAck {
 
   public counterpartyConnectionId: string;
 
-  public json: any;
+  public json: object;
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'ibc';
-    this.type = payload.type;
-    this.signer = payload.signer;
-    this.connectionId = payload.connectionId;
-    this.counterpartyConnectionId = payload.counterpartyConnectionId;
-    this.json = payload.json;
+    this.type = R.pathOr('', ['type'], payload);
+    this.signer = R.pathOr('', ['signer'], payload);
+    this.connectionId = R.pathOr('', ['connectionId'], payload);
+    this.counterpartyConnectionId = R.pathOr('', ['counterpartyConnectionId'], payload);
+    this.json = R.pathOr({}, ['json'], payload);
   }
 
-  static fromJson(json: any): MsgConnectionOpenAck {
+  static fromJson(json: object): MsgConnectionOpenAck {
     return {
       category: 'ibc',
       json,
-      type: json['@type'],
-      signer: json.signer,
-      connectionId: json.connection_id,
-      counterpartyConnectionId: json.counterparty_connection_id,
+      type: R.pathOr('', ['@type'], json),
+      signer: R.pathOr('', ['signer'], json),
+      connectionId: R.pathOr('', ['connection_id'], json),
+      counterpartyConnectionId: R.pathOr('', ['counterparty_connection_id'], json),
     };
   }
 }

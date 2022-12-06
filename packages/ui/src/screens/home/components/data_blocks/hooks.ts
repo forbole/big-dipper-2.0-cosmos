@@ -1,16 +1,15 @@
-import { useState } from 'react';
-import * as R from 'ramda';
-import numeral from 'numeral';
+import chainConfig from '@/chainConfig';
 import {
-  useLatestBlockHeightListenerSubscription,
-  useAverageBlockTimeQuery,
+  ActiveValidatorCountQuery,
   AverageBlockTimeQuery,
-  useTokenPriceListenerSubscription,
   TokenPriceListenerSubscription,
   useActiveValidatorCountQuery,
-  ActiveValidatorCountQuery,
+  useAverageBlockTimeQuery,
+  useLatestBlockHeightListenerSubscription,
+  useTokenPriceListenerSubscription,
 } from '@/graphql/types/general_types';
-import chainConfig from '@/chainConfig';
+import numeral from 'numeral';
+import { useState } from 'react';
 
 export const useDataBlocks = () => {
   const [state, setState] = useState<{
@@ -39,7 +38,7 @@ export const useDataBlocks = () => {
     onData: (data) => {
       setState((prevState) => ({
         ...prevState,
-        blockHeight: R.pathOr(0, ['height', 0, 'height'], data.data.data),
+        blockHeight: data.data.data?.height?.[0]?.height ?? 0,
       }));
     },
   });
@@ -64,7 +63,7 @@ export const useDataBlocks = () => {
   // ====================================
   useTokenPriceListenerSubscription({
     variables: {
-      denom: chainConfig?.tokenUnits[chainConfig.primaryTokenUnit]?.display,
+      denom: chainConfig().tokenUnits?.[chainConfig().primaryTokenUnit]?.display,
     },
     onData: (data) => {
       setState((prevState) => ({
@@ -88,14 +87,14 @@ export const useDataBlocks = () => {
     onCompleted: (data) => {
       setState((prevState) => ({
         ...prevState,
-        validators: formatActiveValidatorsCount(data) as any,
+        validators: formatActiveValidatorsCount(data),
       }));
     },
   });
 
   const formatActiveValidatorsCount = (data: ActiveValidatorCountQuery) => ({
-    active: data.activeTotal.aggregate?.count,
-    total: data.total?.aggregate?.count,
+    active: data.activeTotal.aggregate?.count ?? 0,
+    total: data.total?.aggregate?.count ?? 0,
   });
 
   return {

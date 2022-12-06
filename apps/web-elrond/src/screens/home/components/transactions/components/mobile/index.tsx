@@ -1,15 +1,15 @@
-import React from 'react';
+import AvatarName from '@/components/avatar_name';
+import Result from '@/components/result';
+import { useStyles } from '@/screens/home/components/transactions/components/mobile/styles';
+import type { TransactionType } from '@/screens/home/components/transactions/types';
 import dayjs from '@/utils/dayjs';
-import Link from 'next/link';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
-import useTranslation from 'next-translate/useTranslation';
+import { TRANSACTION_DETAILS } from '@/utils/go_to_page';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
-import { TRANSACTION_DETAILS } from '@/utils/go_to_page';
-import Result from '@/components/result';
-import AvatarName from '@/components/avatar_name';
-import type { TransactionType } from '@/screens/home/components/transactions/types';
-import { useStyles } from '@/screens/home/components/transactions/components/mobile/styles';
+import useTranslation from 'next-translate/useTranslation';
+import Link from 'next/link';
+import React from 'react';
 
 const Mobile: React.FC<{ items: TransactionType[] } & ComponentDefault> = (props) => {
   const classes = useStyles();
@@ -45,7 +45,7 @@ const Mobile: React.FC<{ items: TransactionType[] } & ComponentDefault> = (props
       />
     ),
     status: <Result status={x.status} />,
-    time: (dayjs as any).utc(dayjs.unix(x.timestamp)).fromNow(),
+    time: dayjs.utc(dayjs.unix(x.timestamp)).fromNow(),
   }));
 
   return (

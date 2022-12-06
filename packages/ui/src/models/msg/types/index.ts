@@ -14,3 +14,12 @@ export type BaseCategories =
   | 'others';
 export type CustomCategories = ''; // custom modules
 export type Categories = BaseCategories | CustomCategories;
+export interface Log {
+  events?: Array<{
+    type?: string;
+    attributes?: Array<{
+      key?: string;
+      value?: string;
+    }>;
+  }>;
+}

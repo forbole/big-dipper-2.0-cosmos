@@ -1,7 +1,7 @@
-import React from 'react';
-import classnames from 'classnames';
-import SortDownIcon from 'shared-utils/assets/icon-sort-down.svg';
 import { useStyles } from '@/components/sort_arrows/styles';
+import classnames from 'classnames';
+import React from 'react';
+import SortDownIcon from 'shared-utils/assets/icon-sort-down.svg';
 
 const SortArrows: React.FC<{
   className?: string;

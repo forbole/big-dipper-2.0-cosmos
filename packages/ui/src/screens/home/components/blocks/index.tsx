@@ -1,19 +1,19 @@
-import React from 'react';
-import Link from 'next/link';
-import dynamic from 'next/dynamic';
-import classnames from 'classnames';
-import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
-import useTranslation from 'next-translate/useTranslation';
-import { BLOCKS } from '@/utils/go_to_page';
 import Box from '@/components/box';
 import NoData from '@/components/no_data';
 import { useScreenSize } from '@/hooks';
 import { useProfilesRecoil } from '@/recoil/profiles';
-import { useStyles } from '@/screens/home/components/blocks/styles';
-import { useBlocks } from '@/screens/home/components/blocks/hooks';
 import type DesktopType from '@/screens/home/components/blocks/components/desktop';
 import type MobileType from '@/screens/home/components/blocks/components/mobile';
+import { useBlocks } from '@/screens/home/components/blocks/hooks';
+import { useStyles } from '@/screens/home/components/blocks/styles';
+import { BLOCKS } from '@/utils/go_to_page';
+import Divider from '@material-ui/core/Divider';
+import Typography from '@material-ui/core/Typography';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
+import dynamic from 'next/dynamic';
+import Link from 'next/link';
+import React from 'react';
 
 const Desktop = dynamic(
   () => import('@/screens/home/components/blocks/components/desktop')
@@ -32,7 +32,7 @@ const Blocks: React.FC<{
 
   const proposerProfiles = useProfilesRecoil(state.items.map((x) => x.proposer));
   const mergedDataWithProfiles = state.items.map((x, i) => ({
-    ...(x as object),
+    ...x,
     proposer: proposerProfiles[i],
   }));
 
@@ -51,9 +51,9 @@ const Blocks: React.FC<{
       ) : (
         <>
           {isDesktop ? (
-            <Desktop className={classes.desktop} items={mergedDataWithProfiles as any} />
+            <Desktop className={classes.desktop} items={mergedDataWithProfiles} />
           ) : (
-            <Mobile className={classes.mobile} items={mergedDataWithProfiles as any} />
+            <Mobile className={classes.mobile} items={mergedDataWithProfiles} />
           )}
           <Divider className={classes.mobile} />
           <Link href={BLOCKS} passHref>

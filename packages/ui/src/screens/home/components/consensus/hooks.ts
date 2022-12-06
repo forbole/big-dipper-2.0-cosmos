@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
+import chainConfig from '@/chainConfig';
+import { hexToBech32 } from '@/utils/hex_to_bech32';
+import { GRAPHQL_TRANSPORT_WS_PROTOCOL, MessageType, stringifyMessage } from 'graphql-ws';
+import WebSocket from 'isomorphic-ws';
 import numeral from 'numeral';
 import * as R from 'ramda';
-import { hexToBech32 } from '@/utils/hex_to_bech32';
-import chainConfig from '@/chainConfig';
-import WebSocket from 'isomorphic-ws';
-import { stringifyMessage, GRAPHQL_TRANSPORT_WS_PROTOCOL, MessageType } from 'graphql-ws';
+import { useEffect, useState } from 'react';
 
 export const useConsensus = () => {
   const [state, setState] = useState<{
@@ -24,11 +24,11 @@ export const useConsensus = () => {
   });
 
   useEffect(() => {
-    const formatNewRound = (data: any) => {
+    const formatNewRound = (data: object) => {
       const height =
-        numeral(R.pathOr('', ['result', 'data', 'value', 'height'], data)).value() ?? 0;
+        numeral(R.pathOr('0', ['result', 'data', 'value', 'height'] ?? '0')).value() ?? 0;
       const proposerHex = R.pathOr('', ['result', 'data', 'value', 'proposer', 'address'], data);
-      const consensusAddress = hexToBech32(proposerHex, chainConfig.prefix.consensus);
+      const consensusAddress = hexToBech32(proposerHex, chainConfig().prefix.consensus);
 
       setState((prevState) => ({
         ...prevState,
@@ -37,7 +37,7 @@ export const useConsensus = () => {
       }));
     };
 
-    const formatNewStep = (data: any) => {
+    const formatNewStep = (data: object) => {
       const stepReference = {
         0: 0,
         RoundStepNewHeight: 1,
@@ -84,8 +84,8 @@ export const useConsensus = () => {
     function connect() {
       client = new WebSocket(
         process.env.NEXT_PUBLIC_RPC_WEBSOCKET ||
-          chainConfig.endpoints.publicRpcWebsocket ||
-          chainConfig.endpoints.graphqlWebsocket ||
+          chainConfig().endpoints.publicRpcWebsocket ||
+          chainConfig().endpoints.graphqlWebsocket ||
           'ws://localhost:3000/websocket',
         GRAPHQL_TRANSPORT_WS_PROTOCOL
       );
@@ -96,8 +96,8 @@ export const useConsensus = () => {
         enqueuePing();
       };
 
-      client.onmessage = (e: any) => {
-        const data = JSON.parse(e.data);
+      client.onmessage = (e) => {
+        const data = JSON.parse(e.data as string);
         const event = R.pathOr<string>('', ['result', 'data', 'type'], data);
         if (event === 'tendermint/event/NewRound') {
           formatNewRound(data);
@@ -108,15 +108,15 @@ export const useConsensus = () => {
       };
 
       client.onclose = () => {
-        console.warn('closing socket');
+        // console.warn('closing socket');
         setTimeout(() => {
           connect();
         }, 1000);
       };
 
       client.onerror = (err: WebSocket.ErrorEvent) => {
-        console.error('Socket encountered error: ', err.message, 'Closing socket');
         client.close();
+        console.error(`Socket encountered error: ${err.message}Closing socket`);
       };
 
       function enqueuePing() {

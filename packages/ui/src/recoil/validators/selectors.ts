@@ -1,6 +1,6 @@
-import { ReadOnlySelectorOptions, selectorFamily } from 'recoil';
 import { atomFamilyState } from '@/recoil/validators/atom';
 import type { AtomState } from '@/recoil/validators/types';
+import { ReadOnlySelectorOptions, selectorFamily } from 'recoil';
 
 /**
  * Takes a consensus address and returns the delegator and validator

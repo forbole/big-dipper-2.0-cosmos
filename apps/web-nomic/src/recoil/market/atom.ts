@@ -1,5 +1,5 @@
-import { atom } from 'recoil';
 import type { AtomState } from '@/recoil/market/types';
+import { atom } from 'recoil';
 
 const initialState: AtomState = {
   price: null,

@@ -1,10 +1,10 @@
-import React from 'react';
-import classnames from 'classnames';
-import InputBase from '@material-ui/core/InputBase';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import SearchIcon from '@material-ui/icons/Search';
-import { useStyles } from '@/components/search/styles';
 import { useSearch } from '@/components/search/hooks';
+import { useStyles } from '@/components/search/styles';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import InputBase from '@material-ui/core/InputBase';
+import SearchIcon from '@material-ui/icons/Search';
+import classnames from 'classnames';
+import React from 'react';
 
 const Search: React.FC<{
   className?: string;

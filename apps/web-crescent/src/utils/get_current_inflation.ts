@@ -1,5 +1,3 @@
-import * as R from 'ramda';
-
 /**
  * Helper Function to get inflation amount from a list
  */
@@ -14,7 +12,7 @@ const getCurrentInflationAmount = (
   );
   let result = 0;
   if (currentInflationSchedule) {
-    result = parseFloat(R.pathOr('0', ['amount'], currentInflationSchedule));
+    result = parseFloat(currentInflationSchedule?.amount ?? '0');
   }
   return result;
 };

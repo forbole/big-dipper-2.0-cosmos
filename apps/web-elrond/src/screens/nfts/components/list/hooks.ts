@@ -1,8 +1,8 @@
-import { useCallback, useEffect, useState } from 'react';
-import * as R from 'ramda';
-import axios from 'axios';
 import { NFTS, NFTS_COUNT } from '@/api';
 import type { BlockState } from '@/screens/nfts/components/list/types';
+import axios from 'axios';
+import * as R from 'ramda';
+import { useCallback, useEffect, useState } from 'react';
 
 export const PAGE_SIZE = 25;
 
@@ -24,7 +24,15 @@ export const useNFTs = () => {
   const getNFTsByPage = useCallback(
     async (page: number) => {
       try {
-        const { data: nftData } = await axios.get(NFTS, {
+        const { data: nftData } = await axios.get<
+          Array<{
+            identifier?: string;
+            name?: string;
+            type?: string;
+            creator?: string;
+            collection?: string;
+          }>
+        >(NFTS, {
           headers: {
             accept: 'application/json',
           },
@@ -35,20 +43,20 @@ export const useNFTs = () => {
           },
         });
 
-        const items = nftData.map((x: any) => ({
-          identifier: R.pathOr('', ['identifier'], x),
-          name: R.pathOr('', ['name'], x),
-          type: R.pathOr('', ['type'], x),
-          creator: R.pathOr('', ['creator'], x),
-          collection: R.pathOr('', ['collection'], x),
+        const items = nftData.map((x) => ({
+          identifier: x?.identifier ?? '',
+          name: x?.name ?? '',
+          type: x?.type ?? '',
+          creator: x?.creator ?? '',
+          collection: x?.collection ?? '',
         }));
 
         handleSetState({
           loading: false,
           items,
         });
-      } catch (error: any) {
-        console.error(NFTS, error.message);
+      } catch (error) {
+        console.error(NFTS, (error as Error).message);
       }
     },
     [handleSetState]
@@ -81,8 +89,8 @@ export const useNFTs = () => {
         handleSetState({
           total: total > maxSize ? maxSize : total,
         });
-      } catch (error: any) {
-        console.error(NFTS_COUNT, error.message);
+      } catch (error) {
+        console.error(NFTS_COUNT, (error as Error).message);
       }
     };
 

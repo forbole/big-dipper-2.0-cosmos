@@ -1,8 +1,9 @@
+import type { Distribution, Gov, Iscn, Minting, Slashing, Staking } from '@/screens/params/types';
 import { nanoToSeconds, secondsToDays } from '@/utils/time';
+import { Translate } from 'next-translate';
 import numeral from 'numeral';
-import type { Staking, Slashing, Minting, Distribution, Gov, Iscn } from '@/screens/params/types';
 
-const convertBySeconds = (seconds: number, t: any) => {
+const convertBySeconds = (seconds: number, t: Translate) => {
   const SECONDS_IN_DAY = 86400;
   return seconds >= SECONDS_IN_DAY
     ? t('days', {
@@ -13,7 +14,7 @@ const convertBySeconds = (seconds: number, t: any) => {
       });
 };
 
-export const formatStaking = (data: Staking, t: any) => [
+export const formatStaking = (data: Staking, t: Translate) => [
   {
     label: t('bondDenom'),
     detail: data.bondDenom,
@@ -36,7 +37,7 @@ export const formatStaking = (data: Staking, t: any) => [
   },
 ];
 
-export const formatSlashing = (data: Slashing, t: any) => [
+export const formatSlashing = (data: Slashing, t: Translate) => [
   {
     label: t('downtimeJailDuration'),
     detail: t('seconds', {
@@ -61,7 +62,7 @@ export const formatSlashing = (data: Slashing, t: any) => [
   },
 ];
 
-export const formatMinting = (data: Minting, t: any) => [
+export const formatMinting = (data: Minting, t: Translate) => [
   {
     label: t('blocksPerYear'),
     detail: numeral(data.blocksPerYear).format('0,0'),
@@ -88,7 +89,7 @@ export const formatMinting = (data: Minting, t: any) => [
   },
 ];
 
-export const formatDistribution = (data: Distribution, t: any) => [
+export const formatDistribution = (data: Distribution, t: Translate) => [
   {
     label: t('baseProposerReward'),
     detail: `${numeral(data.baseProposerReward * 100).format('0.[00]')}%`,
@@ -107,7 +108,7 @@ export const formatDistribution = (data: Distribution, t: any) => [
   },
 ];
 
-export const formatGov = (data: Gov, t: any) => [
+export const formatGov = (data: Gov, t: Translate) => [
   {
     label: t('minDeposit'),
     detail: `${data.minDeposit.value} ${data.minDeposit.displayDenom.toUpperCase()}`,
@@ -134,7 +135,7 @@ export const formatGov = (data: Gov, t: any) => [
   },
 ];
 
-export const formatIscn = (data: Iscn, t: any) => [
+export const formatIscn = (data: Iscn, t: Translate) => [
   {
     label: t('registryName'),
     detail: data.registryName,

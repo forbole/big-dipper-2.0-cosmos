@@ -1,11 +1,11 @@
-import React, { useCallback, useState } from 'react';
-import Typography from '@material-ui/core/Typography';
-import { useInterval } from '@/hooks';
-import dayjs from '@/utils/dayjs';
 import chainConfig from '@/chainConfig';
 import ChainIcon from '@/components/ChainIcon';
 import Loading from '@/components/loading';
+import { useInterval } from '@/hooks';
 import { useStyles } from '@/screens/countdown/styles';
+import dayjs from '@/utils/dayjs';
+import Typography from '@material-ui/core/Typography';
+import React, { useCallback, useState } from 'react';
 
 const Countdown: React.FC<{
   startGenesis: () => void;
@@ -22,8 +22,8 @@ const Countdown: React.FC<{
   });
 
   const intervalCallback = useCallback(() => {
-    const genesisTime = (dayjs as any).utc(chainConfig.genesis.time);
-    const timeNow = (dayjs as any).utc();
+    const genesisTime = dayjs.utc(chainConfig().genesis.time);
+    const timeNow = dayjs.utc();
     const difference = genesisTime.diff(timeNow);
     if (difference > 0) {
       setState((prevState) => ({
@@ -67,7 +67,7 @@ const Countdown: React.FC<{
         </div>
       </div>
       <Typography variant="h2" className={classes.chain}>
-        {chainConfig.network}
+        {chainConfig().network}
       </Typography>
       {state.loading && <Loading />}
     </div>

@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { ComponentProps, useCallback, useState } from 'react';
 import Big from 'big.js';
 import * as R from 'ramda';
 import numeral from 'numeral';
@@ -8,6 +8,7 @@ import type {
   ItemType,
   ValidatorType,
 } from '@/screens/validators/components/list/types';
+import Tabs from '@material-ui/core/Tabs';
 
 export const useValidators = () => {
   const [search, setSearch] = useState('');
@@ -44,22 +45,21 @@ export const useValidators = () => {
   // Parse data
   // ==========================
   const formatValidators = (data: ValidatorsQuery) => {
-    const votingPowerOverall = numeral(
-      R.pathOr(0, ['stakingPool', 0, 'bondedTokens'], data)
-    ).value();
+    const votingPowerOverall =
+      numeral(data?.stakingPool?.[0]?.bondedTokens ?? 0).value() ?? undefined;
 
-    let formattedItems: ValidatorType[] = data.validator.map((x) => {
-      const inActiveSetString = R.pathOr('false', ['validatorStatuses', 'in_active_set'], x);
-      const jailedString = R.pathOr('false', ['validatorStatuses', 'jailed'], x);
-      const tombstonedString = R.pathOr('false', ['validatorStatuses', 'tombstoned'], x);
-      const votingPower = R.pathOr(0, ['validatorVotingPowers', 0, 'votingPower'], x);
+    let formattedItems = data.validator.map((x): ValidatorType => {
+      const inActiveSetString = x?.validatorStatuses?.in_active_set ?? 'false';
+      const jailedString = x?.validatorStatuses?.jailed ?? 'false';
+      const tombstonedString = x?.validatorStatuses?.tombstoned ?? 'false';
+      const votingPower = x?.validatorVotingPowers?.[0]?.votingPower ?? 0;
       const votingPowerPercent = numeral((votingPower / (votingPowerOverall ?? 0)) * 100).value();
 
       return {
         validator: x.selfDelegateAddress,
         votingPower,
         votingPowerPercent: votingPowerPercent ?? 0,
-        commission: R.pathOr(0, ['validatorCommissions', 0, 'commission'], x) * 100,
+        commission: parseFloat(x?.validatorCommissions?.[0]?.commission ?? '0') ?? 0 * 100,
         inActiveSet: inActiveSetString,
         jailed: jailedString,
         tombstoned: tombstonedString,
@@ -72,7 +72,7 @@ export const useValidators = () => {
     // add key to indicate they are part of top 34%
     let cumulativeVotingPower = Big(0);
     let reached = false;
-    formattedItems.forEach((x: any) => {
+    formattedItems.forEach((x) => {
       if (x.inActiveSet === 'true') {
         const totalVp = cumulativeVotingPower.add(x.votingPowerPercent);
         if (totalVp.lte(34) && !reached) {
@@ -94,7 +94,7 @@ export const useValidators = () => {
     };
   };
 
-  const handleTabChange = (_event: any, newValue: number) => {
+  const handleTabChange: ComponentProps<typeof Tabs>['onChange'] = (_event, newValue) => {
     setState((prevState) => ({
       ...prevState,
       tab: newValue,
@@ -139,10 +139,10 @@ export const useValidators = () => {
 
     if (state.sortKey && state.sortDirection) {
       sorted.sort((a, b) => {
-        let compareA: any = R.pathOr(undefined, [...state.sortKey.split('.')], a);
-        let compareB: any = R.pathOr(undefined, [...state.sortKey.split('.')], b);
+        let compareA = R.pathOr('', [...state.sortKey.split('.')], a);
+        let compareB = R.pathOr('', [...state.sortKey.split('.')], b);
 
-        if (typeof compareA === 'string') {
+        if (typeof compareA === 'string' && typeof compareB === 'string') {
           compareA = compareA.toLowerCase();
           compareB = compareB.toLowerCase();
         }

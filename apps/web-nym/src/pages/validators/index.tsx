@@ -1,5 +1,6 @@
+import type { NextPage } from 'next';
 import Validators from '@/screens/validators';
 
-const ValidatorsPage = () => <Validators />;
+const ValidatorsPage: NextPage = () => <Validators />;
 
 export default ValidatorsPage;

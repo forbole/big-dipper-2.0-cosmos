@@ -1,9 +1,9 @@
-import React from 'react';
+import { useStyles } from '@/components/name/styles';
+import { ADDRESS_DETAILS } from '@/utils/go_to_page';
+import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import Link from 'next/link';
-import Typography from '@material-ui/core/Typography';
-import { ADDRESS_DETAILS } from '@/utils/go_to_page';
-import { useStyles } from '@/components/name/styles';
+import React from 'react';
 
 const Name: React.FC<{
   className?: string;

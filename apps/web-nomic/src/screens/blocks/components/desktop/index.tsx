@@ -1,20 +1,20 @@
-import React from 'react';
-import classnames from 'classnames';
-import numeral from 'numeral';
-import dayjs from '@/utils/dayjs';
-import Link from 'next/link';
-import { BLOCK_DETAILS } from '@/utils/go_to_page';
-import AutoSizer from 'react-virtualized-auto-sizer';
-import InfiniteLoader from 'react-window-infinite-loader';
-import useTranslation from 'next-translate/useTranslation';
-import Typography from '@material-ui/core/Typography';
-import { VariableSizeGrid as Grid } from 'react-window';
 import Loading from '@/components/loading';
 import { useGrid } from '@/hooks';
-import { mergeRefs } from '@/utils/merge_refs';
 import { useStyles } from '@/screens/blocks/components/desktop/styles';
 import { columns } from '@/screens/blocks/components/desktop/utils';
 import type { BlockType } from '@/screens/blocks/types';
+import dayjs from '@/utils/dayjs';
+import { BLOCK_DETAILS } from '@/utils/go_to_page';
+import { mergeRefs } from '@/utils/merge_refs';
+import Typography from '@material-ui/core/Typography';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
+import Link from 'next/link';
+import numeral from 'numeral';
+import React, { ReactNode } from 'react';
+import AutoSizer from 'react-virtualized-auto-sizer';
+import { VariableSizeGrid as Grid } from 'react-window';
+import InfiniteLoader from 'react-window-infinite-loader';
 
 const Desktop: React.FC<{
   className?: string;
@@ -27,7 +27,7 @@ const Desktop: React.FC<{
   const classes = useStyles();
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
 
-  const formattedItems = items?.map((x) => ({
+  const formattedItems = items?.map((x): { [key: string]: ReactNode } => ({
     height: (
       <Link href={BLOCK_DETAILS(x.height)} passHref>
         <Typography variant="body1" className="value" component="a">
@@ -36,7 +36,7 @@ const Desktop: React.FC<{
       </Link>
     ),
     txs: numeral(x.txs).format('0,0'),
-    time: (dayjs as any).utc(x.timestamp).fromNow(),
+    time: dayjs.utc(x.timestamp).fromNow(),
     hash: x.hash,
   }));
 
@@ -125,7 +125,7 @@ const Desktop: React.FC<{
                     }
 
                     const { key, align } = columns[columnIndex];
-                    const item = (formattedItems as any)[rowIndex][key];
+                    const item = formattedItems[rowIndex][key];
                     return (
                       <div
                         style={style}

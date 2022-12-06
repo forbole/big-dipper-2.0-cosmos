@@ -20,7 +20,7 @@ export interface OtherTokenType {
 }
 
 export interface RewardsType {
-  [value: string]: TokenUnit[];
+  [value: string]: TokenUnit;
 }
 
 export interface AccountDetailState {

@@ -1,13 +1,13 @@
-import React from 'react';
-import classnames from 'classnames';
-import { useGetComponentDimension } from '@/hooks';
-import Networks from '@/components/nav/components/networks';
-import TitleBar from '@/components/nav/components/title_bar';
-import SearchBar from '@/components/nav/components/search_bar';
-import { useStyles } from '@/components/nav/components/mobile/styles';
-import { useMobile } from '@/components/nav/components/mobile/hooks';
 import Menu from '@/components/nav/components/mobile/components/menu';
 import Navbar from '@/components/nav/components/mobile/components/navbar';
+import { useMobile } from '@/components/nav/components/mobile/hooks';
+import { useStyles } from '@/components/nav/components/mobile/styles';
+import Networks from '@/components/nav/components/networks';
+import SearchBar from '@/components/nav/components/search_bar';
+import TitleBar from '@/components/nav/components/title_bar';
+import { useGetComponentDimension } from '@/hooks';
+import classnames from 'classnames';
+import React from 'react';
 
 const Mobile: React.FC<{
   className?: string;

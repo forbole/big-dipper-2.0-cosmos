@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Twitter = () => (
   <svg
     width="26px"

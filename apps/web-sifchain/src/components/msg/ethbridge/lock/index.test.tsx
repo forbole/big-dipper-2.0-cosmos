@@ -1,8 +1,7 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme } from '@/tests/utils';
-import MsgLock from '@/models/msg/ethbridge/msg_lock';
 import Lock from '@/components/msg/ethbridge/lock';
+import MsgLock from '@/models/msg/ethbridge/msg_lock';
+import { MockTheme } from '@/tests/utils';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

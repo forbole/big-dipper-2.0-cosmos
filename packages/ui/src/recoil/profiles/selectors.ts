@@ -1,10 +1,9 @@
-import { selectorFamily, GetRecoilValue } from 'recoil';
-import * as R from 'ramda';
-import { bech32 } from 'bech32';
 import chainConfig from '@/chainConfig';
-import { readValidator } from '@/recoil/validators';
-import type { AtomState as ProfileAtomState } from '@/recoil/profiles/types';
 import { atomFamilyState } from '@/recoil/profiles/atom';
+import type { AtomState as ProfileAtomState } from '@/recoil/profiles/types';
+import { readValidator } from '@/recoil/validators';
+import { bech32 } from 'bech32';
+import { GetRecoilValue, selectorFamily } from 'recoil';
 
 // ======================================================================
 // selector utils
@@ -17,9 +16,9 @@ const getDelegatorAddress = ({
   address: string;
   get: GetRecoilValue;
 }): string => {
-  const consensusRegex = `^(${chainConfig.prefix.consensus})`;
-  const validatorRegex = `^(${chainConfig.prefix.validator})`;
-  const delegatorRegex = `^(${chainConfig.prefix.account})`;
+  const consensusRegex = `^(${chainConfig().prefix.consensus})`;
+  const validatorRegex = `^(${chainConfig().prefix.validator})`;
+  const delegatorRegex = `^(${chainConfig().prefix.account})`;
   let selectedAddress = '';
   if (new RegExp(consensusRegex).test(address)) {
     // address given is a consensus
@@ -30,7 +29,7 @@ const getDelegatorAddress = ({
   } else if (new RegExp(validatorRegex).test(address)) {
     // address given is a validator
     const decode = bech32.decode(address).words;
-    selectedAddress = bech32.encode(chainConfig.prefix.account, decode);
+    selectedAddress = bech32.encode(chainConfig().prefix.account, decode);
   } else if (new RegExp(delegatorRegex).test(address)) {
     // address given is a delegator
     selectedAddress = address;
@@ -40,7 +39,7 @@ const getDelegatorAddress = ({
 
 export const validatorToDelegatorAddress = (address: string) => {
   const decode = bech32.decode(address).words;
-  return bech32.encode(chainConfig.prefix.account, decode);
+  return bech32.encode(chainConfig().prefix.account, decode);
 };
 
 /**
@@ -48,7 +47,7 @@ export const validatorToDelegatorAddress = (address: string) => {
  * Returns address otherwise
  */
 const getReturnAddress = ({ address, get }: { address: string; get: GetRecoilValue }): string => {
-  const consensusRegex = `^(${chainConfig.prefix.consensus})`;
+  const consensusRegex = `^(${chainConfig().prefix.consensus})`;
   let selectedAddress = address;
   if (new RegExp(consensusRegex).test(address)) {
     // address given is a consensus
@@ -79,8 +78,8 @@ const getProfile =
       get,
     });
     const state = get(atomFamilyState(delegatorAddress));
-    const name = R.pathOr(address, ['moniker'], state);
-    const imageUrl = R.pathOr('', ['imageUrl'], state);
+    const name = state && state !== true ? state.moniker ?? address : address;
+    const imageUrl = state && state !== true ? state.imageUrl ?? '' : '';
     return {
       address: returnAddress,
       name: name?.length ? name : address,
@@ -101,8 +100,8 @@ const getProfiles =
         get,
       });
       const state = get(atomFamilyState(delegatorAddress));
-      const name = R.pathOr(x, ['moniker'], state);
-      const imageUrl = R.pathOr('', ['imageUrl'], state);
+      const name = state && state !== true ? state?.moniker ?? x : x;
+      const imageUrl = state && state !== true ? state?.imageUrl ?? '' : '';
       return {
         address: returnAddress,
         name: name?.length ? name : x,
@@ -136,7 +135,7 @@ export const writeProfile = selectorFamily<AvatarName | null, string>({
         }
       }
 
-      function isAvatarName(x: unknown): x is AvatarName {
+      function isAvatarName(x: typeof profile): x is AvatarName {
         if (!x) return false;
         return 'name' in x && 'imageUrl' in x;
       }

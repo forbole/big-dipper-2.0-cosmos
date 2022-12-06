@@ -1,10 +1,10 @@
+import chainConfig from '@/chainConfig';
+import { atomState } from '@/recoil/settings/atom';
+import type { AtomState, Theme } from '@/recoil/settings/types';
+import { THEME_DICTIONARY } from '@/recoil/settings/utils';
+import { DATE_KEY, getItem, THEME_KEY, TX_KEY } from '@/utils/localstorage';
 import { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
-import chainConfig from '@/chainConfig';
-import { getItem, THEME_KEY, DATE_KEY, TX_KEY } from '@/utils/localstorage';
-import { atomState } from '@/recoil/settings/atom';
-import { THEME_DICTIONARY } from '@/recoil/settings/utils';
-import type { AtomState, Theme } from '@/recoil/settings/types';
 
 const isClient = typeof window === 'object';
 
@@ -17,7 +17,7 @@ export const useSettingsRecoil = () => {
       let currentTheme: Theme = settings.theme;
       if (savedTheme === 'device') {
         if (
-          chainConfig.themes.themeList.includes('dark') &&
+          chainConfig().themes.themeList.includes('dark') &&
           window?.matchMedia('(prefers-color-scheme: dark)')?.matches
         ) {
           currentTheme = 'dark';

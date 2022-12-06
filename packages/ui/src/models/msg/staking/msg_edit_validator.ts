@@ -1,5 +1,6 @@
-import numeral from 'numeral';
 import type { Categories } from '@/models/msg/types';
+import numeral from 'numeral';
+import * as R from 'ramda';
 
 class MsgEditValidator {
   public category: Categories;
@@ -20,33 +21,43 @@ class MsgEditValidator {
 
   public minSelfDelegation: string | number;
 
-  public json: any;
+  public json: object;
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'staking';
-    this.type = payload.type;
-    this.description = payload.description;
-    this.validatorAddress = payload.validatorAddress;
-    this.commissionRate = payload.commissionRate;
-    this.minSelfDelegation = payload.minSelfDelegation;
-    this.json = payload.json;
+    this.type = R.pathOr('', ['type'], payload);
+    this.description = R.pathOr(
+      {
+        moniker: '',
+        identity: '',
+        website: '',
+        securityContact: '',
+        details: '',
+      },
+      ['description'],
+      payload
+    );
+    this.validatorAddress = R.pathOr('', ['validatorAddress'], payload);
+    this.commissionRate = R.pathOr('', ['commissionRate'], payload);
+    this.minSelfDelegation = R.pathOr('', ['minSelfDelegation'], payload);
+    this.json = R.pathOr({}, ['json'], payload);
   }
 
-  static fromJson(json: any): MsgEditValidator {
+  static fromJson(json: object): MsgEditValidator {
     return {
       category: 'staking',
       json,
-      type: json['@type'],
+      type: R.pathOr('', ['@type'], json),
       description: {
-        moniker: json?.description?.moniker,
-        identity: json?.description?.identity,
-        website: json?.description?.website,
-        securityContact: json?.description?.security_contact,
-        details: json?.description?.details,
+        moniker: R.pathOr('', ['description', 'moniker'], json),
+        identity: R.pathOr('', ['description', 'identity'], json),
+        website: R.pathOr('', ['description', 'website'], json),
+        securityContact: R.pathOr('', ['description', 'security_contact'], json),
+        details: R.pathOr('', ['description', 'details'], json),
       },
-      validatorAddress: json.validator_address,
-      commissionRate: numeral(json.commission_rate ?? 0).value() ?? 0,
-      minSelfDelegation: numeral(json?.min_self_delegation ?? 0).value() ?? 0,
+      validatorAddress: R.pathOr('', ['validator_address'], json),
+      commissionRate: numeral(R.pathOr('0', ['commission_rate'], json)).value() ?? 0,
+      minSelfDelegation: numeral(R.pathOr('0', ['min_self_delegation'], json)).value() ?? 0,
     };
   }
 }

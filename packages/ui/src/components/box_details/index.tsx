@@ -1,8 +1,8 @@
-import React from 'react';
-import classnames from 'classnames';
 import Box from '@/components/box';
-import Typography from '@material-ui/core/Typography';
 import { useStyles } from '@/components/box_details/styles';
+import Typography from '@material-ui/core/Typography';
+import classnames from 'classnames';
+import React from 'react';
 
 const BoxDetails: React.FC<{
   className?: string;
@@ -10,7 +10,7 @@ const BoxDetails: React.FC<{
   titleAction?: React.ReactNode;
   details: {
     label: string | number | React.ReactNode;
-    detail: string | number | React.ReactNode;
+    detail?: string | number | React.ReactNode;
     className?: string;
   }[];
 }> = ({ className, title, titleAction, details }) => {

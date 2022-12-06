@@ -1,25 +1,25 @@
-import React from 'react';
-import * as R from 'ramda';
-import numeral from 'numeral';
-import classnames from 'classnames';
-import dayjs, { formatDayJs } from '@/utils/dayjs';
-import useTranslation from 'next-translate/useTranslation';
-import { useRecoilValue } from 'recoil';
-import { readDate } from '@/recoil/settings';
-import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
-import SingleProposal from '@/components/single_proposal';
 import Box from '@/components/box';
 import Markdown from '@/components/markdown';
 import Name from '@/components/name';
+import SingleProposal from '@/components/single_proposal';
 import { useProfileRecoil } from '@/recoil/profiles';
-import { getProposalType } from '@/screens/proposal_details/utils';
-import type { OverviewType } from '@/screens/proposal_details/types';
+import { readDate } from '@/recoil/settings';
+import CommunityPoolSpend from '@/screens/proposal_details/components/overview/components/community_pool_spend';
 import ParamsChange from '@/screens/proposal_details/components/overview/components/params_change';
 import SoftwareUpgrade from '@/screens/proposal_details/components/overview/components/software_upgrade';
-import CommunityPoolSpend from '@/screens/proposal_details/components/overview/components/community_pool_spend';
 import { useStyles } from '@/screens/proposal_details/components/overview/styles';
-import { formatToken, formatNumber } from '@/utils/format_token';
+import type { OverviewType } from '@/screens/proposal_details/types';
+import { getProposalType } from '@/screens/proposal_details/utils';
+import dayjs, { formatDayJs } from '@/utils/dayjs';
+import { formatNumber, formatToken } from '@/utils/format_token';
+import Divider from '@material-ui/core/Divider';
+import Typography from '@material-ui/core/Typography';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
+import numeral from 'numeral';
+import * as R from 'ramda';
+import React from 'react';
+import { useRecoilValue } from 'recoil';
 
 const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
   className,
@@ -114,7 +114,7 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
               {t('submitTime')}
             </Typography>
             <Typography variant="body1" className="value">
-              {formatDayJs((dayjs as any).utc(overview.submitTime), dateFormat)}
+              {formatDayJs(dayjs.utc(overview.submitTime), dateFormat)}
             </Typography>
           </>
         )}
@@ -124,7 +124,7 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
               {t('depositEndTime')}
             </Typography>
             <Typography variant="body1" className="value">
-              {formatDayJs((dayjs as any).utc(overview.depositEndTime), dateFormat)}
+              {formatDayJs(dayjs.utc(overview.depositEndTime), dateFormat)}
             </Typography>
           </>
         )}
@@ -134,7 +134,7 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
               {t('votingStartTime')}
             </Typography>
             <Typography variant="body1" className="value">
-              {formatDayJs((dayjs as any).utc(overview.votingStartTime), dateFormat)}
+              {formatDayJs(dayjs.utc(overview.votingStartTime), dateFormat)}
             </Typography>
           </>
         )}
@@ -144,7 +144,7 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
               {t('votingEndTime')}
             </Typography>
             <Typography variant="body1" className="value">
-              {formatDayJs((dayjs as any).utc(overview.votingEndTime), dateFormat)}
+              {formatDayJs(dayjs.utc(overview.votingEndTime), dateFormat)}
             </Typography>
           </>
         )}

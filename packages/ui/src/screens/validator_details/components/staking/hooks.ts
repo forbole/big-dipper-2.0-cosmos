@@ -1,17 +1,22 @@
-import { useCallback, useEffect, useState } from 'react';
-import Big from 'big.js';
-import * as R from 'ramda';
-import axios from 'axios';
-import { useRouter } from 'next/router';
+import chainConfig from '@/chainConfig';
 import {
   ValidatorDelegationsDocument,
   ValidatorRedelegationsDocument,
   ValidatorUndelegationsDocument,
 } from '@/graphql/general/validator_details_documents';
+import type {
+  RedelegationType,
+  StakingState,
+  UnbondingType,
+} from '@/screens/validator_details/components/staking/types';
 import { formatToken } from '@/utils/format_token';
 import { getDenom } from '@/utils/get_denom';
-import chainConfig from '@/chainConfig';
-import type { StakingState } from '@/screens/validator_details/components/staking/types';
+import Tabs from '@material-ui/core/Tabs';
+import axios from 'axios';
+import Big from 'big.js';
+import { useRouter } from 'next/router';
+import * as R from 'ramda';
+import { ComponentProps, useCallback, useEffect, useState } from 'react';
 
 const stakingDefault = {
   data: {},
@@ -21,6 +26,60 @@ const stakingDefault = {
 
 const LIMIT = 100;
 const PAGE_LIMIT = 10;
+
+type Delegations = {
+  coins: MsgCoin[];
+  entries: Array<{
+    balance: string;
+  }>;
+};
+
+type Redelegations = {
+  delegator_address: string;
+  validator_dst_address: string;
+  entries: Array<{
+    balance: string;
+  }>;
+};
+
+type Undelegations = {
+  entries: Array<{
+    balance: string;
+  }>;
+};
+
+type DataDelegations = {
+  data: {
+    delegations: {
+      delegations: Array<Delegations>;
+      pagination: {
+        total: number;
+      };
+    };
+  };
+};
+
+type DataRedelegations = {
+  data: {
+    redelegations: {
+      redelegations: Array<Redelegations>;
+      pagination: {
+        total: number;
+      };
+    };
+  };
+};
+
+type DataUndelegations = {
+  data: {
+    undelegations: {
+      undelegations: Array<Undelegations>;
+      pagination: {
+        total: number;
+      };
+    };
+  };
+};
 
 export const useStaking = () => {
   const router = useRouter();
@@ -39,8 +98,8 @@ export const useStaking = () => {
   }, []);
 
   useEffect(() => {
-    const createPagination = (data: any[]) => {
-      const pages: { [key: string]: any } = {};
+    const createPagination = <T>(data: T[]) => {
+      const pages: { [key: string]: T[] } = {};
       data.forEach((x, i) => {
         const selectedKey = Math.floor(i / PAGE_LIMIT);
         pages[selectedKey] = pages[selectedKey] || [];
@@ -49,19 +108,19 @@ export const useStaking = () => {
       return pages;
     };
 
-    const formatUnbondings = (data: any) => {
-      const results: any = [];
-      data.forEach((x: any) => {
-        R.pathOr([], ['entries'], x).forEach((y: any) => {
+    const formatUnbondings = (data: Delegations[] | Redelegations[] | Undelegations[]) => {
+      const results: UnbondingType[] = [];
+      data.forEach((x) => {
+        R.pathOr<NonNullable<typeof x['entries']>>([], ['entries'], x).forEach((y) => {
           results.push({
             address: R.pathOr('', ['delegator_address'], x),
-            amount: formatToken(y.balance, chainConfig.primaryTokenUnit),
+            amount: formatToken(y.balance, chainConfig().primaryTokenUnit),
             completionTime: R.pathOr('', ['completion_time'], y),
           });
         });
       });
 
-      results.sort((a: any, b: any) => (a.completionTime < b.completionTime ? -1 : 1));
+      results.sort((a, b) => ((a.completionTime ?? '') < (b.completionTime ?? '') ? -1 : 1));
 
       return results;
     };
@@ -71,7 +130,7 @@ export const useStaking = () => {
     const getStakeByPage = async (page: number, query: string) => {
       const { data } = await axios.post(
         process.env.NEXT_PUBLIC_GRAPHQL_URL ||
-          chainConfig.endpoints.graphql ||
+          chainConfig().endpoints.graphql ||
           'http://localhost:3000/v1/graphql',
         {
           variables: {
@@ -86,11 +145,11 @@ export const useStaking = () => {
       return data;
     };
 
-    const formatDelegations = (data: any[]) =>
+    const formatDelegations = (data: Delegations[]) =>
       data
-        .map((x) => {
+        .map((x): UnbondingType => {
           const address = R.pathOr('', ['delegator_address'], x);
-          const delegation = getDenom(x.coins, chainConfig.primaryTokenUnit);
+          const delegation = getDenom(x.coins, chainConfig().primaryTokenUnit);
           return {
             address,
             amount: formatToken(delegation.amount, delegation.denom),
@@ -98,19 +157,19 @@ export const useStaking = () => {
         })
         .sort((a, b) => (Big(a.amount.value).gt(b.amount.value) ? -1 : 1));
 
-    const formatRedelegations = (data: any) => {
-      const results: any = [];
-      data.forEach((x: any) => {
-        R.pathOr([], ['entries'], x).forEach((y: any) => {
+    const formatRedelegations = (data: Array<Redelegations>) => {
+      const results: RedelegationType[] = [];
+      data.forEach((x) => {
+        R.pathOr<NonNullable<typeof x['entries']>>([], ['entries'], x).forEach((y) => {
           results.push({
-            address: R.pathOr('', ['delegator_address'], x),
-            to: R.pathOr('', ['validator_dst_address'], x),
-            amount: formatToken(y.balance, chainConfig.primaryTokenUnit),
+            address: x?.delegator_address ?? '',
+            to: x?.validator_dst_address ?? '',
+            amount: formatToken(y.balance, chainConfig().primaryTokenUnit),
             completionTime: R.pathOr('', ['completion_time'], y),
           });
         });
       });
-      results.sort((a: any, b: any) => (a.completionTime < b.completionTime ? -1 : 1));
+      results.sort((a, b) => (a.completionTime < b.completionTime ? -1 : 1));
 
       return results;
     };
@@ -120,9 +179,9 @@ export const useStaking = () => {
     // =====================================
     const getDelegations = async () => {
       try {
-        const { data } = await axios.post(
+        const { data } = await axios.post<DataDelegations>(
           process.env.NEXT_PUBLIC_GRAPHQL_URL ||
-            chainConfig.endpoints.graphql ||
+            chainConfig().endpoints.graphql ||
             'http://localhost:3000/v1/graphql',
           {
             variables: {
@@ -132,8 +191,10 @@ export const useStaking = () => {
             query: ValidatorDelegationsDocument,
           }
         );
-        const count = R.pathOr(0, ['data', 'delegations', 'pagination', 'total'], data);
-        const allDelegations = R.pathOr([], ['data', 'delegations', 'delegations'], data);
+        const count = data?.data?.delegations?.pagination?.total ?? 0;
+        const allDelegations = R.pathOr<
+          NonNullable<typeof data['data']['delegations']['delegations']>
+        >([], ['data', 'delegations', 'delegations'], data);
         // if there are more than the default 100, grab the remaining delegations
         if (count > LIMIT) {
           const remainingFetchCount = Math.ceil(count / LIMIT) - 1;
@@ -142,12 +203,11 @@ export const useStaking = () => {
             remainingDelegationsPromises.push(getStakeByPage(i + 1, ValidatorDelegationsDocument));
           }
           const remainingDelegations = await Promise.allSettled(remainingDelegationsPromises);
-          remainingDelegations
-            .filter((x) => x.status === 'fulfilled')
-            .forEach((x: any) => {
-              const delegations = R.pathOr([], ['value', 'data', 'delegations', 'delegations'], x);
-              allDelegations.push(...delegations);
-            });
+          remainingDelegations.forEach((x) => {
+            if (x.status !== 'fulfilled') return;
+            const delegations = x?.value?.data?.delegations?.delegations ?? [];
+            allDelegations.push(...delegations);
+          });
         }
 
         handleSetState({
@@ -160,6 +220,8 @@ export const useStaking = () => {
       } catch (error) {
         handleSetState({
           delegations: {
+            data: {},
+            count: 0,
             loading: false,
           },
         });
@@ -171,9 +233,9 @@ export const useStaking = () => {
     // =====================================
     const getRedelegations = async () => {
       try {
-        const { data } = await axios.post(
+        const { data } = await axios.post<DataRedelegations>(
           process.env.NEXT_PUBLIC_GRAPHQL_URL ||
-            chainConfig.endpoints.graphql ||
+            chainConfig().endpoints.graphql ||
             'http://localhost:3000/v1/graphql',
           {
             variables: {
@@ -183,8 +245,10 @@ export const useStaking = () => {
             query: ValidatorRedelegationsDocument,
           }
         );
-        const count = R.pathOr(0, ['data', 'redelegations', 'pagination', 'total'], data);
-        const allData = R.pathOr([], ['data', 'redelegations', 'redelegations'], data);
+        const count = data?.data?.redelegations?.pagination?.total ?? 0;
+        const allData = R.pathOr<
+          NonNullable<typeof data['data']['redelegations']['redelegations']>
+        >([], ['data', 'redelegations', 'redelegations'], data);
 
         // if there are more than the default 100, grab the remaining delegations
         if (count > LIMIT) {
@@ -194,16 +258,11 @@ export const useStaking = () => {
             remainingPromises.push(getStakeByPage(i + 1, ValidatorRedelegationsDocument));
           }
           const remainingData = await Promise.allSettled(remainingPromises);
-          remainingData
-            .filter((x) => x.status === 'fulfilled')
-            .forEach((x: any) => {
-              const fullfilledData = R.pathOr(
-                [],
-                ['value', 'data', 'redelegations', 'redelegations'],
-                x
-              );
-              allData.push(...fullfilledData);
-            });
+          remainingData.forEach((x) => {
+            if (x.status !== 'fulfilled') return;
+            const fullfilledData = x?.value?.data?.redelegations?.redelegations ?? [];
+            allData.push(...fullfilledData);
+          });
         }
 
         const formattedData = formatRedelegations(allData);
@@ -218,6 +277,8 @@ export const useStaking = () => {
       } catch (error) {
         handleSetState({
           redelegations: {
+            data: {},
+            count: 0,
             loading: false,
           },
         });
@@ -229,9 +290,9 @@ export const useStaking = () => {
     // =====================================
     const getUnbondings = async () => {
       try {
-        const { data } = await axios.post(
+        const { data } = await axios.post<DataUndelegations>(
           process.env.NEXT_PUBLIC_GRAPHQL_URL ||
-            chainConfig.endpoints.graphql ||
+            chainConfig().endpoints.graphql ||
             'http://localhost:3000/v1/graphql',
           {
             variables: {
@@ -241,8 +302,10 @@ export const useStaking = () => {
             query: ValidatorUndelegationsDocument,
           }
         );
-        const count = R.pathOr(0, ['data', 'undelegations', 'pagination', 'total'], data);
-        const allData = R.pathOr([], ['data', 'undelegations', 'undelegations'], data);
+        const count = data?.data?.undelegations?.pagination?.total ?? 0;
+        const allData = R.pathOr<
+          NonNullable<typeof data['data']['undelegations']['undelegations']>
+        >([], ['data', 'undelegations', 'undelegations'], data);
 
         // if there are more than the default 100, grab the remaining delegations
         if (count > LIMIT) {
@@ -252,30 +315,27 @@ export const useStaking = () => {
             remainingPromises.push(getStakeByPage(i + 1, ValidatorUndelegationsDocument));
           }
           const remainingData = await Promise.allSettled(remainingPromises);
-          remainingData
-            .filter((x) => x.status === 'fulfilled')
-            .forEach((x: any) => {
-              const fullfilledData = R.pathOr(
-                [],
-                ['value', 'data', 'undelegations', 'undelegations'],
-                x
-              );
-              allData.push(...fullfilledData);
-            });
+          remainingData.forEach((x) => {
+            if (x.status !== 'fulfilled') return;
+            const fullfilledData = x?.value?.data?.undelegations?.undelegations ?? [];
+            allData.push(...fullfilledData);
+          });
         }
 
         const formattedData = formatUnbondings(allData);
 
         handleSetState({
           unbondings: {
-            loading: false,
-            count: formattedData.length,
             data: createPagination(formattedData),
+            count: formattedData.length,
+            loading: false,
           },
         });
       } catch (error) {
         handleSetState({
           unbondings: {
+            data: {},
+            count: 0,
             loading: false,
           },
         });
@@ -287,12 +347,15 @@ export const useStaking = () => {
     getUnbondings();
   }, [handleSetState, router?.query?.address]);
 
-  const handleTabChange = useCallback((_event: any, newValue: number) => {
-    setState((prevState) => ({
-      ...prevState,
-      tab: newValue,
-    }));
-  }, []);
+  const handleTabChange: ComponentProps<typeof Tabs>['onChange'] = useCallback(
+    (_event, newValue) => {
+      setState((prevState) => ({
+        ...prevState,
+        tab: newValue,
+      }));
+    },
+    []
+  );
 
   return {
     state,

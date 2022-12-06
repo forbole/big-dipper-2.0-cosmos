@@ -2,7 +2,6 @@ import { ECONOMICS } from '@/api';
 import { writeMarket } from '@/recoil/market/selectors';
 import type { AtomState } from '@/recoil/market/types';
 import axios from 'axios';
-import * as R from 'ramda';
 import { useEffect } from 'react';
 import { SetterOrUpdater, useRecoilState } from 'recoil';
 
@@ -16,10 +15,10 @@ export const useMarketRecoil = () => {
       try {
         const { data } = await axios.get(ECONOMICS);
         setMarket({
-          marketCap: R.pathOr(0, ['marketCap'], data) as number,
-          price: R.pathOr(0, ['price'], data) as number,
-          supply: R.pathOr(0, ['totalSupply'], data) as number,
-          apr: R.pathOr(0, ['apr'], data) as number,
+          marketCap: data?.marketCap ?? 0,
+          price: data?.price ?? 0,
+          supply: data?.totalSupply ?? 0,
+          apr: data?.apr ?? 0,
         });
       } catch (error) {
         console.error(error);

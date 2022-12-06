@@ -1,29 +1,12 @@
+import chainConfig from '@/chainConfig';
+import { useValidatorAddressesQuery, ValidatorAddressesQuery } from '@/graphql/types/general_types';
+import { useDesmosProfile } from '@/hooks';
+import { atomFamilyState as profileAtomFamilyState } from '@/recoil/profiles';
+import { atomFamilyState as validatorAtomState } from '@/recoil/validators/atom';
 import { useState } from 'react';
 import { useRecoilCallback } from 'recoil';
-import * as R from 'ramda';
-import { QueryHookOptions, QueryResult } from '@apollo/client';
-import chainConfig from '@/chainConfig';
-import { useDesmosProfile } from '@/hooks';
-import { atomFamilyState as validatorAtomState } from '@/recoil/validators/atom';
-import { atomFamilyState as profileAtomFamilyState } from '@/recoil/profiles';
 
-export type UseValidatorAddressesQuery<TData, TVariables> = (
-  baseOptions?: QueryHookOptions<TData, TVariables>
-) => QueryResult<TData, TVariables>;
-
-export interface DataType {
-  validator: Array<{
-    validatorInfo: {
-      consensusAddress: string;
-      operatorAddress: string;
-      selfDelegateAddress: string;
-    };
-  }>;
-}
-
-export const useValidatorRecoil = <TData, TVariables>(
-  useValidatorAddressesQuery: UseValidatorAddressesQuery<TData, TVariables>
-) => {
+export const useValidatorRecoil = () => {
   const [loading, setLoading] = useState(true);
 
   const { fetchDesmosProfile, formatDesmosProfile } = useDesmosProfile({
@@ -32,8 +15,8 @@ export const useValidatorRecoil = <TData, TVariables>(
 
   useValidatorAddressesQuery({
     onError: (error) => {
-      console.error(error.message);
       setLoading(false);
+      console.error((error as Error).message);
     },
     onCompleted: async (data) => {
       // Not very optimized but better than before.
@@ -47,54 +30,55 @@ export const useValidatorRecoil = <TData, TVariables>(
     },
   });
 
-  const formatAndSetValidatorsAddressList = useRecoilCallback(({ set }) => async (data: TData) => {
-    (data as DataType)?.validator
-      ?.filter((x) => x.validatorInfo)
-      .forEach((x: any) => {
-        const validatorAddress = x.validatorInfo.operatorAddress;
-        const delegatorAddress = x.validatorInfo.selfDelegateAddress;
-        const { consensusAddress } = x.validatorInfo;
-        const imageUrl = R.pathOr('', ['validatorDescriptions', 0, 'avatarUrl'], x);
-        const moniker = R.pathOr('', ['validatorDescriptions', 0, 'moniker'], x);
+  const formatAndSetValidatorsAddressList = useRecoilCallback(
+    ({ set }) =>
+      async (data: ValidatorAddressesQuery) => {
+        data?.validator
+          ?.filter((x) => x.validatorInfo)
+          .forEach((x) => {
+            const validatorAddress = x.validatorInfo?.operatorAddress ?? '';
+            const delegatorAddress = x.validatorInfo?.selfDelegateAddress ?? '';
+            const consensusAddress = x.validatorInfo?.consensusAddress ?? '';
+            const imageUrl = x?.validatorDescriptions?.[0]?.avatarUrl ?? '';
+            const moniker = x?.validatorDescriptions?.[0]?.moniker ?? '';
 
-        set(validatorAtomState(consensusAddress), {
-          delegator: delegatorAddress,
-          validator: validatorAddress,
-        });
+            set(validatorAtomState(consensusAddress), {
+              delegator: delegatorAddress,
+              validator: validatorAddress,
+            });
 
-        set(profileAtomFamilyState(delegatorAddress), {
-          moniker,
-          imageUrl,
-        });
-      });
-  });
+            set(profileAtomFamilyState(delegatorAddress), {
+              moniker,
+              imageUrl,
+            });
+          });
+      }
+  );
 
-  const setProfiles = useRecoilCallback(({ set }) => async (data: TData) => {
-    if (chainConfig.extra.profile) {
-      const profilesPromises: Array<Promise<DataType>> = [];
-      (data as DataType)?.validator
+  const setProfiles = useRecoilCallback(({ set }) => async (data: ValidatorAddressesQuery) => {
+    if (chainConfig().extra.profile) {
+      const profilesPromises: Array<Promise<DesmosProfile | null>> = [];
+      data?.validator
         ?.filter((x) => x.validatorInfo)
-        .forEach((x: any) => {
-          const delegatorAddress = x.validatorInfo.selfDelegateAddress;
+        .forEach((x) => {
+          const delegatorAddress = x.validatorInfo?.selfDelegateAddress ?? '';
           profilesPromises.push(fetchDesmosProfile(delegatorAddress));
         });
 
       const profiles = await Promise.allSettled(profilesPromises);
-      (data as DataType)?.validator
+      data?.validator
         ?.filter((x) => x.validatorInfo)
         .forEach((x, i) => {
-          const delegatorAddress = x.validatorInfo.selfDelegateAddress;
-          const profile = R.pathOr(undefined, [i, 'value'], profiles);
+          const delegatorAddress = x.validatorInfo?.selfDelegateAddress ?? '';
+          const profile1 = profiles?.[i];
+          if (!profile1 || profile1.status !== 'fulfilled') return;
+          const profile = profile1.value;
 
           // ignore if profile doesnt exist
           if (profile) {
             // sets profile priority
-            const moniker =
-              R.pathOr(undefined, ['nickname'], profile) ||
-              R.pathOr('', ['validatorDescriptions', 0, 'moniker'], x);
-            const imageUrl =
-              R.pathOr('', ['imageUrl'], profile) ||
-              R.pathOr('', ['validatorDescriptions', 0, 'avatarUrl'], x);
+            const moniker = profile.nickname || x?.validatorDescriptions?.[0]?.moniker || '';
+            const imageUrl = profile.imageUrl || x?.validatorDescriptions?.[0]?.avatarUrl || '';
 
             set(profileAtomFamilyState(delegatorAddress), {
               moniker,

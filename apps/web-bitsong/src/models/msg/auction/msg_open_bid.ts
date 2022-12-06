@@ -1,12 +1,12 @@
-import * as R from 'ramda';
 import type { Categories } from '@/models/msg/types';
+import * as R from 'ramda';
 
 class MsgOpenBid {
   public category: Categories;
 
   public type: string;
 
-  public json: any;
+  public json: object;
 
   public auctionId: number;
 
@@ -14,26 +14,23 @@ class MsgOpenBid {
 
   public bidAmount: MsgCoin;
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'auction';
-    this.type = payload.type;
-    this.json = payload.json;
-    this.auctionId = payload.auctionId;
-    this.bidder = payload.bidder;
-    this.bidAmount = payload.bidAmount;
+    this.type = R.pathOr('', ['type'], payload);
+    this.json = R.pathOr({}, ['json'], payload);
+    this.auctionId = R.pathOr(0, ['auctionId'], payload);
+    this.bidder = R.pathOr('', ['bidder'], payload);
+    this.bidAmount = R.pathOr({ denom: '', amount: '0' }, ['bidAmount'], payload);
   }
 
-  static fromJson(json: any): MsgOpenBid {
+  static fromJson(json: object): MsgOpenBid {
     return {
       category: 'auction',
       json,
-      type: json['@type'],
+      type: R.pathOr('', ['@type'], json),
       auctionId: R.pathOr(0, ['auction_id'], json),
-      bidder: json.bidder,
-      bidAmount: {
-        denom: R.pathOr('', ['bid_amount', 'denom'], json),
-        amount: R.pathOr('0', ['bid_amount', 'amount'], json),
-      },
+      bidder: R.pathOr('', ['bidder'], json),
+      bidAmount: R.pathOr({ denom: '', amount: '0' }, ['bid_amount', 'denom'], json),
     };
   }
 }

@@ -1,12 +1,12 @@
-import * as R from 'ramda';
 import type { Categories } from '@/models/msg/types';
+import * as R from 'ramda';
 
 class MsgTransferFanTokenOwner {
   public category: Categories;
 
   public type: string;
 
-  public json: any;
+  public json: object;
 
   public symbol: string;
 
@@ -14,21 +14,21 @@ class MsgTransferFanTokenOwner {
 
   public dstOwner: string;
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'fantoken';
-    this.type = payload.type;
-    this.json = payload.json;
-    this.symbol = payload.symbol;
-    this.srcOwner = payload.srcOwner;
-    this.dstOwner = payload.dstOwner;
+    this.type = R.pathOr('', ['type'], payload);
+    this.json = R.pathOr({}, ['json'], payload);
+    this.symbol = R.pathOr('', ['symbol'], payload);
+    this.srcOwner = R.pathOr('', ['srcOwner'], payload);
+    this.dstOwner = R.pathOr('', ['dstOwner'], payload);
   }
 
-  static fromJson(json: any): MsgTransferFanTokenOwner {
+  static fromJson(json: object): MsgTransferFanTokenOwner {
     return {
       category: 'fantoken',
       json,
-      type: json['@type'],
-      symbol: json.symbol,
+      type: R.pathOr('', ['@type'], json),
+      symbol: R.pathOr('', ['symbol'], json),
       srcOwner: R.pathOr('', ['src_owner'], json),
       dstOwner: R.pathOr('', ['dst_owner'], json),
     };

@@ -1,8 +1,7 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme } from '@/tests/utils';
-import MsgAddLiquidity from '@/models/msg/clp/msg_add_liquidity';
 import AddLiquidity from '@/components/msg/clp/add_liquidity';
+import MsgAddLiquidity from '@/models/msg/clp/msg_add_liquidity';
+import { MockTheme } from '@/tests/utils';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

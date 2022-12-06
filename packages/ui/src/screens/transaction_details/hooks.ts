@@ -1,10 +1,10 @@
-import { useCallback, useEffect, useState } from 'react';
+import { convertMsgsToModels } from '@/components/msg/utils';
+import { TransactionDetailsQuery, useTransactionDetailsQuery } from '@/graphql/types/general_types';
+import type { TransactionState } from '@/screens/transaction_details/types';
+import { formatToken } from '@/utils/format_token';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
-import { useTransactionDetailsQuery, TransactionDetailsQuery } from '@/graphql/types/general_types';
-import { formatToken } from '@/utils/format_token';
-import { convertMsgsToModels } from '@/components/msg/utils';
-import type { TransactionState } from '@/screens/transaction_details/types';
+import { useCallback, useEffect, useState } from 'react';
 
 export const useTransactionDetails = () => {
   const router = useRouter();
@@ -65,7 +65,7 @@ export const useTransactionDetails = () => {
   // Parse data
   // ===============================
   const formatTransactionDetails = (data: TransactionDetailsQuery) => {
-    const stateChange: any = {
+    const stateChange: Partial<TransactionState> = {
       loading: false,
     };
 
@@ -79,14 +79,10 @@ export const useTransactionDetails = () => {
     // =============================
     const formatOverview = () => {
       const { fee } = data.transaction[0];
-      const feeAmount = R.pathOr(
-        {
-          denom: '',
-          amount: 0,
-        },
-        ['amount', 0],
-        fee
-      );
+      const feeAmount = fee?.amount?.[0] ?? {
+        denom: '',
+        amount: 0,
+      };
       const { success } = data.transaction[0];
       const overview = {
         hash: data.transaction[0].hash,
@@ -96,8 +92,8 @@ export const useTransactionDetails = () => {
         gasUsed: data.transaction[0].gasUsed,
         gasWanted: data.transaction[0].gasWanted,
         success,
-        memo: data.transaction[0].memo,
-        error: success ? '' : data.transaction[0].rawLog,
+        memo: data.transaction[0].memo ?? '',
+        error: success ? '' : data.transaction[0].rawLog ?? '',
       };
       return overview;
     };
@@ -119,6 +115,8 @@ export const useTransactionDetails = () => {
     const formatMessages = () => {
       const messages = convertMsgsToModels(data.transaction[0]);
       return {
+        filterBy: '',
+        viewRaw: false,
         items: messages,
       };
     };
@@ -131,6 +129,8 @@ export const useTransactionDetails = () => {
       handleSetState({
         messages: {
           filterBy: value,
+          viewRaw: false,
+          items: [],
         },
       });
     },
@@ -141,7 +141,9 @@ export const useTransactionDetails = () => {
     (event: React.ChangeEvent<HTMLInputElement>) => {
       handleSetState({
         messages: {
+          filterBy: '',
           viewRaw: event.target.checked,
+          items: [],
         },
       });
     },
@@ -149,10 +151,10 @@ export const useTransactionDetails = () => {
   );
 
   const filterMessages = useCallback(
-    (messages: any[]) =>
+    (messages: unknown[]) =>
       messages.filter((x) => {
         if (state.messages.filterBy !== 'none') {
-          return x.category === state.messages.filterBy;
+          return (x as { category: string }).category === state.messages.filterBy;
         }
         return true;
       }),

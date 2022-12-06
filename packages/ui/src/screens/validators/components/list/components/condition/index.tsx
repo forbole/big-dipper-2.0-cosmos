@@ -1,6 +1,6 @@
-import React from 'react';
-import classnames from 'classnames';
 import { useStyles } from '@/screens/validators/components/list/components/condition/styles';
+import classnames from 'classnames';
+import React from 'react';
 
 const Condition: React.FC<{
   className?: string;

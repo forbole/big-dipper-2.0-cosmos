@@ -1,14 +1,14 @@
-import React from 'react';
-import numeral from 'numeral';
+import SingleBlockMobile from '@/components/single_block_mobile';
 import dayjs from '@/utils/dayjs';
-import Link from 'next/link';
-import useTranslation from 'next-translate/useTranslation';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { getShardDisplay } from '@/utils/get_shard_display';
+import { BLOCK_DETAILS } from '@/utils/go_to_page';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
-import { BLOCK_DETAILS } from '@/utils/go_to_page';
-import SingleBlockMobile from '@/components/single_block_mobile';
+import useTranslation from 'next-translate/useTranslation';
+import Link from 'next/link';
+import numeral from 'numeral';
+import React from 'react';
 
 const Mobile: React.FC<{ items: BlockType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('blocks');
@@ -30,7 +30,7 @@ const Mobile: React.FC<{ items: BlockType[] } & ComponentDefault> = (props) => {
         </Link>
       ),
       txs: numeral(x.txs).format('0,0'),
-      time: (dayjs as any).utc(dayjs.unix(x.timestamp)).fromNow(),
+      time: dayjs.utc(dayjs.unix(x.timestamp)).fromNow(),
     };
   });
   return (

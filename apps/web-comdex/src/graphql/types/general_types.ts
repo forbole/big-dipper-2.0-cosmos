@@ -12200,6 +12200,7 @@ export type ProposalDetailsQuery = {
     proposer: string;
     proposalId: number;
     submitTime: any;
+    proposalType: string;
     depositEndTime?: any | null;
     votingStartTime?: any | null;
     votingEndTime?: any | null;

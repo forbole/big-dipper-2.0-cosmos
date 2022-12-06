@@ -1,10 +1,9 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
+import { TokenomicsDocument } from '@/graphql/types/general_types';
+import Tokenomics from '@/screens/home/components/tokenomics';
 import { MockTheme, wait } from '@/tests/utils';
 import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
-import { TokenomicsDocument } from '@/graphql/types/general_types';
 import { MockedProvider } from '@apollo/client/testing';
-import Tokenomics from '@/screens/home/components/tokenomics';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

@@ -1,8 +1,7 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme, wait } from '@/tests/utils';
-import type { AutoSizerProps } from 'react-virtualized-auto-sizer';
 import ProposalsList from '@/screens/proposals/components/list';
+import { MockTheme, wait } from '@/tests/utils';
+import renderer from 'react-test-renderer';
+import type { AutoSizerProps } from 'react-virtualized-auto-sizer';
 
 // ==================================
 // mocks

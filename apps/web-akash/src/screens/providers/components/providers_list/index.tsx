@@ -1,16 +1,16 @@
-import React from 'react';
-import classnames from 'classnames';
-import dynamic from 'next/dynamic';
-import Typography from '@material-ui/core/Typography';
-import useTranslation from 'next-translate/useTranslation';
 import Box from '@/components/box';
 import Pagination from '@/components/pagination';
 import Search from '@/components/search';
 import { usePagination, useScreenSize } from '@/hooks';
-import type { ProvidersListState } from '@/screens/providers/types';
-import { useStyles } from '@/screens/providers/components/providers_list/styles';
 import type DesktopType from '@/screens/providers/components/providers_list/components/desktop';
 import type MobileType from '@/screens/providers/components/providers_list/components/mobile';
+import { useStyles } from '@/screens/providers/components/providers_list/styles';
+import type { ProvidersListState } from '@/screens/providers/types';
+import Typography from '@material-ui/core/Typography';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
+import dynamic from 'next/dynamic';
+import React from 'react';
 
 const Desktop = dynamic(
   () => import('@/screens/providers/components/providers_list/components/desktop')

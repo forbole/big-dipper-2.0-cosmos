@@ -1,9 +1,9 @@
-import { useCallback, useState } from 'react';
-import * as R from 'ramda';
-import axios from 'axios';
 import { POLLING_INTERVAL, TRANSACTIONS } from '@/api';
 import { useInterval } from '@/hooks';
 import type { TransactionState } from '@/screens/home/components/transactions/types';
+import axios from 'axios';
+import * as R from 'ramda';
+import { useCallback, useState } from 'react';
 
 export const PAGE_SIZE = 7;
 
@@ -21,14 +21,22 @@ export const useBlocks = () => {
 
   const getTransactionsByPage = useCallback(async () => {
     try {
-      const { data: transactionsData } = await axios.get(TRANSACTIONS, {
+      const { data: transactionsData } = await axios.get<
+        Array<{
+          txHash: string;
+          sender: string;
+          receiver: string;
+          timestamp: number;
+          status: string;
+        }>
+      >(TRANSACTIONS, {
         params: {
           from: 0,
           size: PAGE_SIZE,
         },
       });
 
-      const items = transactionsData.map((x: any) => ({
+      const items = transactionsData.map((x) => ({
         hash: x.txHash,
         from: x.sender,
         to: x.receiver,
@@ -39,8 +47,8 @@ export const useBlocks = () => {
       handleSetState({
         items,
       });
-    } catch (error: any) {
-      console.error(error.message);
+    } catch (error) {
+      console.error((error as Error).message);
     }
   }, [handleSetState]);
 

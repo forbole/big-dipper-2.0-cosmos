@@ -1,12 +1,12 @@
-import * as R from 'ramda';
 import type { Categories } from '@/models/msg/types';
+import * as R from 'ramda';
 
 class MsgCancelReplaceMarketOrder {
   public category: Categories;
 
   public type: string;
 
-  public json: any;
+  public json: object;
 
   public owner: string;
 
@@ -22,25 +22,25 @@ class MsgCancelReplaceMarketOrder {
 
   public maximumSlippage: string;
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'market';
-    this.type = payload.type;
-    this.json = payload.json;
-    this.owner = payload.owner;
-    this.originalClientOrderId = payload.originalClientOrderId;
-    this.newClientOrderId = payload.newClientOrderId;
-    this.timeInForce = payload.timeInForce;
-    this.source = payload.source;
-    this.destination = payload.destination;
-    this.maximumSlippage = payload.maximumSlippage;
+    this.type = R.pathOr('', ['type'], payload);
+    this.json = R.pathOr({}, ['json'], payload);
+    this.owner = R.pathOr('', ['owner'], payload);
+    this.originalClientOrderId = R.pathOr('', ['originalClientOrderId'], payload);
+    this.newClientOrderId = R.pathOr('', ['newClientOrderId'], payload);
+    this.timeInForce = R.pathOr('Unspecified', ['timeInForce'], payload);
+    this.source = R.pathOr('', ['source'], payload);
+    this.destination = R.pathOr({ denom: '', amount: '0' }, ['destination'], payload);
+    this.maximumSlippage = R.pathOr('', ['maximumSlippage'], payload);
   }
 
-  static fromJson(json: any): MsgCancelReplaceMarketOrder {
+  static fromJson(json: object): MsgCancelReplaceMarketOrder {
     return {
       category: 'market',
       json,
-      type: json['@type'],
-      owner: json.owner,
+      type: R.pathOr('', ['@type'], json),
+      owner: R.pathOr('', ['owner'], json),
       originalClientOrderId: R.pathOr('', ['original_client_order_id'], json),
       newClientOrderId: R.pathOr('', ['new_client_order_id'], json),
       timeInForce: R.pathOr('Unspecified', ['time_in_force'], json),

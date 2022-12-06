@@ -1,6 +1,7 @@
 {
   "extends": "tsconfig/nextjs.json",
   "compilerOptions": {
+    "rootDir": "../..",
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
@@ -9,5 +10,5 @@
     }
   },
   "include": ["*.d.ts", "src/**/*.ts", "src/**/*.tsx"],
-  "exclude": ["dist", "build", "node_modules", "cypress"]
+  "exclude": ["dist", "build", "node_modules"]
 }

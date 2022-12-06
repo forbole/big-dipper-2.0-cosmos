@@ -1,10 +1,9 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
+import { ValidatorsDocument } from '@/graphql/types/general_types';
+import List from '@/screens/validators/components/list';
 import { MockTheme, wait } from '@/tests/utils';
 import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
-import { ValidatorsDocument } from '@/graphql/types/general_types';
 import { MockedProvider } from '@apollo/client/testing';
-import List from '@/screens/validators/components/list';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

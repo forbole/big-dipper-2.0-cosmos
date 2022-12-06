@@ -1,6 +1,5 @@
-import React from 'react';
-import ReactMarkdown from 'markdown-to-jsx';
 import DOMPurify from 'dompurify';
+import ReactMarkdown from 'markdown-to-jsx';
 // import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 // import Link from '@material-ui/core/Link';
@@ -73,7 +72,7 @@ const options = {
     // li: {
     //   component: withStyles(styles)(({
     //     classes, ...props
-    //   }: any) => (
+    //   }) => (
     //     <li className={classes.listItem}>
     //       <Typography component="span" {...props} />
     //     </li>

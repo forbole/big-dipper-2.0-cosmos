@@ -27,7 +27,7 @@ type Transactions = {
   timestamp: string;
   messages: {
     count: number;
-    items: any[];
+    items: unknown[];
   };
 };
 

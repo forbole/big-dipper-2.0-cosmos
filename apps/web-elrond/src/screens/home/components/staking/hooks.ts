@@ -1,8 +1,8 @@
-import { useCallback, useEffect, useState } from 'react';
-import * as R from 'ramda';
-import axios from 'axios';
 import { ECONOMICS } from '@/api';
 import type { StakingState } from '@/screens/home/components/staking/types';
+import axios from 'axios';
+import * as R from 'ramda';
+import { useCallback, useEffect, useState } from 'react';
 
 export const useStaking = () => {
   const [state, setState] = useState<StakingState>({
@@ -26,12 +26,12 @@ export const useStaking = () => {
         handleSetState({
           staked: economicsData.staked,
           circulatingSupply: economicsData.circulatingSupply,
-          percentStaked: ((economicsData.staked * 100) / economicsData.circulatingSupply).toFixed(
-            2
+          percentStaked: parseFloat(
+            ((economicsData.staked * 100) / economicsData.circulatingSupply).toFixed(2)
           ),
         });
-      } catch (error: any) {
-        console.error(error.message);
+      } catch (error) {
+        console.error((error as Error).message);
       }
     };
 

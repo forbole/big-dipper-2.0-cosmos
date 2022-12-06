@@ -1,27 +1,25 @@
-import React from 'react';
+import {
+  BLOCKS,
+  HOME,
+  PARAMS,
+  PROPOSALS,
+  PROVIDERS,
+  TRANSACTIONS,
+  VALIDATORS,
+} from '@/utils/go_to_page';
 import BlockIcon from 'shared-utils/assets/icon-block.svg';
 import HomeIcon from 'shared-utils/assets/icon-home.svg';
-import TransactionIcon from 'shared-utils/assets/icon-transaction.svg';
-import ProposalsIcon from 'shared-utils/assets/icon-proposals.svg';
-import UserIcon from 'shared-utils/assets/icon-user.svg';
 import ParamIcon from 'shared-utils/assets/icon-param.svg';
+import ProposalsIcon from 'shared-utils/assets/icon-proposals.svg';
 import ProviderIcon from 'shared-utils/assets/icon-provider.svg';
-import {
-  HOME,
-  BLOCKS,
-  VALIDATORS,
-  TRANSACTIONS,
-  PROPOSALS,
-  PARAMS,
-  PROVIDERS,
-} from '@/utils/go_to_page';
+import TransactionIcon from 'shared-utils/assets/icon-transaction.svg';
+import UserIcon from 'shared-utils/assets/icon-user.svg';
 
 export const getMenuItems = () => {
   const iconProps = {
     width: 24,
     height: 24,
   };
-
   return [
     {
       key: 'overview',

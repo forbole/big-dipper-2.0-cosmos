@@ -1,7 +1,7 @@
-import React from 'react';
-import classnames from 'classnames';
-import CircularProgress from '@material-ui/core/CircularProgress';
 import { useStyles } from '@/components/loading/styles';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import classnames from 'classnames';
+import React from 'react';
 
 const Loading: React.FC<{
   className?: string;

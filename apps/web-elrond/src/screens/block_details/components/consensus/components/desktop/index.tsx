@@ -1,16 +1,16 @@
-import React from 'react';
-import classnames from 'classnames';
-import AutoSizer from 'react-virtualized-auto-sizer';
-import useTranslation from 'next-translate/useTranslation';
-import { VariableSizeGrid as Grid } from 'react-window';
-import Typography from '@material-ui/core/Typography';
 import { useGrid } from '@/hooks';
-import type { ConsensusType } from '@/screens/block_details/types';
+import { useStyles } from '@/screens/block_details/components/consensus/components/desktop/styles';
 import {
   columns,
   formatRows,
 } from '@/screens/block_details/components/consensus/components/desktop/utils';
-import { useStyles } from '@/screens/block_details/components/consensus/components/desktop/styles';
+import type { ConsensusType } from '@/screens/block_details/types';
+import Typography from '@material-ui/core/Typography';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
+import React from 'react';
+import AutoSizer from 'react-virtualized-auto-sizer';
+import { VariableSizeGrid as Grid } from 'react-window';
 
 const Desktop: React.FC<{ items: ConsensusType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('blocks');
@@ -61,7 +61,7 @@ const Desktop: React.FC<{ items: ConsensusType[] } & ComponentDefault> = (props)
             >
               {({ columnIndex, rowIndex, style }) => {
                 const { key, align } = columns[columnIndex];
-                const selectedItem = (rows as any)[rowIndex][key];
+                const selectedItem = rows[rowIndex][key];
                 return (
                   <div
                     style={style}

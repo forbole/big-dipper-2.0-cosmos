@@ -1,15 +1,10 @@
-import type { QueryHookOptions, QueryResult } from '@apollo/client';
-import { useEffect } from 'react';
-import axios from 'axios';
-import * as R from 'ramda';
-import { useRecoilState, SetterOrUpdater } from 'recoil';
+import type { ChainIdQuery, useChainIdQuery } from '@/graphql/types/general_types';
 import { BigDipperNetwork } from '@/models';
 import { writeNetworks, writeSelectedNetwork } from '@/recoil/big_dipper_networks/selectors';
 import type { Networks, Selected } from '@/recoil/big_dipper_networks/types';
-
-export type UseChainIdQuery<TData, TVariables> = (
-  baseOptions?: QueryHookOptions<TData, TVariables>
-) => QueryResult<TData, TVariables>;
+import axios from 'axios';
+import { useEffect } from 'react';
+import { SetterOrUpdater, useRecoilState } from 'recoil';
 
 const NETWORK_LIST_API =
   'https://raw.githubusercontent.com/forbole/big-dipper-networks/main/networks.json';
@@ -17,16 +12,14 @@ const NETWORK_LIST_API =
 /**
  * `useBigDipperNetworksRecoil` is a React Hook that fetches a list of networks from the BigDipper API
  * and stores them in a Recoil state
- * @param [useChainIdQuery] - This is the query that will be used to get the chainId.
- * @returns A function that takes in a useChainIdQuery and returns a function that takes in a
- * useChainIdQuery and returns a function that takes in a useChainIdQuery and returns a function that
- * takes in a useChainIdQuery and returns a function that takes in a useChainIdQuery and returns a
- * function that takes in a useChainIdQuery and returns a function that takes in a useChain
+ * @param [useQuery] - This is the query that will be used to get the chainId.
+ * @returns A function that takes in a useQuery and returns a function that takes in a
+ * useQuery and returns a function that takes in a useQuery and returns a function that
+ * takes in a useQuery and returns a function that takes in a useQuery and returns a
+ * function that takes in a useQuery and returns a function that takes in a useChain
  */
-export function useBigDipperNetworksRecoil<TData, TVariables>(
-  useChainIdQuery?: UseChainIdQuery<TData, TVariables>
-) {
-  const disabledSelection = !useChainIdQuery;
+export function useBigDipperNetworksRecoil(useQuery?: typeof useChainIdQuery) {
+  const disabledSelection = !useQuery;
   const [_, setNetworks] = useRecoilState(writeNetworks) as [Networks, SetterOrUpdater<Networks>];
   const [selectedNetwork, setSelectedNetwork] = useSelectedHook(disabledSelection);
 
@@ -50,15 +43,16 @@ export function useBigDipperNetworksRecoil<TData, TVariables>(
       setNetworks(formattedData);
     };
     getNetworkList();
-  }, [setNetworks]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  /* A function that takes in a useChainIdQuery and returns a function that takes in a
-  useChainIdQuery and returns a function that takes in a useChainIdQuery and returns a function that
-  takes in a useChainIdQuery and returns a function that takes in a useChainIdQuery and returns a
-  function that takes in a useChainIdQuery and returns a function that takes in a useChain */
-  useChainIdQuery?.({
+  /* A function that takes in a useQuery and returns a function that takes in a
+  useQuery and returns a function that takes in a useQuery and returns a function that
+  takes in a useQuery and returns a function that takes in a useQuery and returns a
+  function that takes in a useQuery and returns a function that takes in a useChain */
+  useQuery?.({
     onError: (error) => {
-      console.error(error?.message);
+      console.error((error as Error).message);
     },
     onCompleted: (data) => {
       if (disabledSelection) return;
@@ -66,8 +60,8 @@ export function useBigDipperNetworksRecoil<TData, TVariables>(
     },
   });
 
-  function formatUseChainIdQuery(data: TData) {
-    return R.pathOr(selectedNetwork, ['genesis', 0, 'chainId'], data);
+  function formatUseChainIdQuery(data: ChainIdQuery) {
+    return data?.genesis?.[0]?.chainId ?? selectedNetwork;
   }
 }
 

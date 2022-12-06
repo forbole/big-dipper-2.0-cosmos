@@ -18,7 +18,10 @@ exports[`screen: ProposalDetails matches snapshot 1`] = `
         id="Overview"
         overview={
           {
-            "content": "",
+            "content": {
+              "amount": [],
+              "recipient": "",
+            },
             "depositEndTime": "",
             "description": "",
             "id": 0,

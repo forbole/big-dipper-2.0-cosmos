@@ -1,31 +1,31 @@
-import * as R from 'ramda';
 import type { Categories } from '@/models/msg/types';
+import * as R from 'ramda';
 
 class MsgWithdraw {
   public category: Categories;
 
   public type: string;
 
-  public json: any;
+  public json: object;
 
   public recipient: string;
 
   public auctionId: number;
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'auction';
-    this.type = payload.type;
-    this.json = payload.json;
-    this.recipient = payload.recipient;
-    this.auctionId = payload.auctionId;
+    this.type = R.pathOr('', ['type'], payload);
+    this.json = R.pathOr({}, ['json'], payload);
+    this.recipient = R.pathOr('', ['recipient'], payload);
+    this.auctionId = R.pathOr(0, ['auctionId'], payload);
   }
 
-  static fromJson(json: any): MsgWithdraw {
+  static fromJson(json: object): MsgWithdraw {
     return {
       category: 'auction',
       json,
-      type: json['@type'],
-      recipient: json.recipient,
+      type: R.pathOr('', ['@type'], json),
+      recipient: R.pathOr('', ['recipient'], json),
       auctionId: R.pathOr(0, ['auction_id'], json),
     };
   }

@@ -1,18 +1,20 @@
-import { test, expect } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 
 const validatorAddress = 'desmosvaloper17lca9smrdlwkznr92hypzrgsjkelnxeaacgrwq';
 
 test('validators list page', async ({ page, isMobile }) => {
   // Test url
-  await page.goto('.');
-  await expect(page).toHaveURL(/[^?#]*\/\/[^/]+\/$/);
+  await Promise.all([page.waitForNavigation({ url: /[^?#]*\/\/[^/]+\/$/ }), page.goto('.')]);
   await expect(page.getByRole('progressbar')).toHaveCount(0);
 
   if (isMobile) await page.getByRole('button', { name: 'open navigation menu' }).first().click();
 
   // Test click validators section
-  await page.getByRole('link', { name: 'Validators' }).first().click();
-  await expect(page).toHaveURL(/\/validators/);
+  await Promise.all([
+    page.waitForNavigation({ url: /\/validators/ }),
+    page.getByRole('link', { name: 'Validators' }).first().click(),
+  ]);
+  await expect(page.getByRole('progressbar')).toHaveCount(0);
 
   // Test change validators tabs
   await page.getByRole('tab', { name: 'Inactive' }).first().click();
@@ -45,6 +47,9 @@ test('validators list page', async ({ page, isMobile }) => {
   }
 
   // Test single validator url
-  await page.goto(`./validators/${validatorAddress}`);
-  await expect(page).toHaveURL(new RegExp(`/validators/${validatorAddress}`));
+  await Promise.all([
+    page.waitForNavigation({ url: new RegExp(`/validators/${validatorAddress}`) }),
+    page.goto(`./validators/${validatorAddress}`),
+  ]);
+  await expect(page.getByRole('progressbar')).toHaveCount(0);
 });

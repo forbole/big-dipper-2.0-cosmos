@@ -24,28 +24,37 @@ export const useBlocks = () => {
   const getTransactionsByPage = useCallback(
     async (page: number) => {
       try {
-        const { data: tokensData } = await axios.get(TOKENS, {
+        const { data: tokensData } = await axios.get<
+          Array<{
+            identifier?: string;
+            name?: string;
+            owner?: string;
+            accounts?: number;
+            transactions?: number;
+            assets?: { pngUrl?: string };
+          }>
+        >(TOKENS, {
           params: {
             from: page * PAGE_SIZE,
             size: PAGE_SIZE,
           },
         });
 
-        const items = tokensData.map((x: any) => ({
-          identifier: R.pathOr('', ['identifier'], x),
-          name: R.pathOr('', ['name'], x),
-          owner: R.pathOr('', ['owner'], x),
-          accounts: R.pathOr('', ['accounts'], x),
-          transactions: R.pathOr('', ['transactions'], x),
-          imageUrl: R.pathOr('', ['assets', 'pngUrl'], x),
+        const items = tokensData.map((x) => ({
+          identifier: x?.identifier ?? '',
+          name: x?.name ?? '',
+          owner: x?.owner ?? '',
+          accounts: x?.accounts ?? 0,
+          transactions: x?.transactions ?? 0,
+          imageUrl: x?.assets?.pngUrl ?? '',
         }));
 
         handleSetState({
           loading: false,
           items,
         });
-      } catch (error: any) {
-        console.error(error.message);
+      } catch (error) {
+        console.error((error as Error).message);
       }
     },
     [handleSetState]
@@ -58,8 +67,8 @@ export const useBlocks = () => {
         handleSetState({
           total,
         });
-      } catch (error: any) {
-        console.error(error.message);
+      } catch (error) {
+        console.error((error as Error).message);
       }
     };
 

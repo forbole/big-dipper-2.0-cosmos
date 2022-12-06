@@ -1,16 +1,16 @@
-import React from 'react';
-import * as R from 'ramda';
-import classnames from 'classnames';
-import dynamic from 'next/dynamic';
-import { usePagination, useScreenSize } from '@/hooks';
-import Pagination from '@/components/pagination';
-import NoData from '@/components/no_data';
 import Loading from '@/components/loading';
+import NoData from '@/components/no_data';
+import Pagination from '@/components/pagination';
+import { usePagination, useScreenSize } from '@/hooks';
 import { useProfilesRecoil } from '@/recoil/profiles';
-import type { DelegationsType } from '@/screens/account_details/components/staking/types';
-import { useStyles } from '@/screens/account_details/components/staking/components/delegations/styles';
 import type DesktopType from '@/screens/account_details/components/staking/components/delegations/components/desktop';
 import type MobileType from '@/screens/account_details/components/staking/components/delegations/components/mobile';
+import { useStyles } from '@/screens/account_details/components/staking/components/delegations/styles';
+import type { DelegationsType } from '@/screens/account_details/components/staking/types';
+import classnames from 'classnames';
+import dynamic from 'next/dynamic';
+import * as R from 'ramda';
+import React from 'react';
 
 const Desktop = dynamic(
   () =>
@@ -30,12 +30,16 @@ const Delegations: React.FC<
   const classes = useStyles();
   const { page, rowsPerPage, handleChangePage, handleChangeRowsPerPage } = usePagination({});
 
-  const pageItems = R.pathOr([], ['delegations', 'data', page], props);
+  const pageItems = R.pathOr<NonNullable<typeof props['delegations']['data'][number]>>(
+    [],
+    ['delegations', 'data', page],
+    props
+  );
 
-  const dataProfiles = useProfilesRecoil(pageItems.map((x: any) => x.validator));
+  const dataProfiles = useProfilesRecoil(pageItems.map((x) => x.validator));
 
   const mergedDataWithProfiles = pageItems.map((x, i) => ({
-    ...(x as object),
+    ...x,
     validator: dataProfiles[i],
   }));
 
@@ -48,9 +52,9 @@ const Delegations: React.FC<
   } else if (!items.length) {
     component = <NoData />;
   } else if (isDesktop) {
-    component = <Desktop items={items as any} />;
+    component = <Desktop items={items} />;
   } else {
-    component = <Mobile items={items as any} />;
+    component = <Mobile items={items} />;
   }
 
   return (

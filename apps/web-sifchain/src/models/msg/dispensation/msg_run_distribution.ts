@@ -1,12 +1,12 @@
-import * as R from 'ramda';
 import type { Categories } from '@/models/msg/types';
+import * as R from 'ramda';
 
 class MsgRunDistribution {
   public category: Categories;
 
   public type: string;
 
-  public json: any;
+  public json: object;
 
   public authorizedRunner: string;
 
@@ -16,19 +16,23 @@ class MsgRunDistribution {
     | 'DISTRIBUTION_TYPE_VALIDATOR_SUBSIDY'
     | 'DISTRIBUTION_TYPE_LIQUIDITY_MINING';
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'dispensation';
-    this.json = payload.json;
-    this.type = payload.type;
-    this.authorizedRunner = payload.authorizedRunner;
-    this.distributionType = payload.distributionType;
+    this.json = R.pathOr({}, ['json'], payload);
+    this.type = R.pathOr('', ['type'], payload);
+    this.authorizedRunner = R.pathOr('', ['authorizedRunner'], payload);
+    this.distributionType = R.pathOr(
+      'DISTRIBUTION_TYPE_UNSPECIFIED',
+      ['distributionType'],
+      payload
+    );
   }
 
-  static fromJson(json: any): MsgRunDistribution {
+  static fromJson(json: object): MsgRunDistribution {
     return {
       category: 'dispensation',
       json,
-      type: json['@type'],
+      type: R.pathOr('', ['@type'], json),
       authorizedRunner: R.pathOr('', ['authorized_runner'], json),
       distributionType: R.pathOr('DISTRIBUTION_TYPE_UNSPECIFIED', ['distribution_type'], json),
     };

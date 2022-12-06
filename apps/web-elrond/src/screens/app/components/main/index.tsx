@@ -1,9 +1,8 @@
-import React from 'react';
-import { ThemeProvider } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { ToastContainer } from 'react-toastify';
-import { AppProps } from 'next/app';
 import InitialLoad from '@/screens/initial_load';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { ThemeProvider } from '@material-ui/core/styles';
+import { AppProps } from 'next/app';
+import { ToastContainer } from 'react-toastify';
 // import { useSettingsRecoil } from '@/recoil/settings';
 import { useBigDipperNetworksRecoil } from '@/recoil/big_dipper_networks';
 import { useMarketRecoil } from '@/recoil/market';
@@ -18,7 +17,7 @@ const Main = (props: AppProps) => {
   // useSettingsRecoil();
   useBigDipperNetworksRecoil();
   useMarketRecoil();
-  // const { loading } = useValidatorRecoil(useValidatorAddressesQuery);
+  // const { loading } = useValidatorRecoil();
 
   // =====================================
   // general setup

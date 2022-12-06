@@ -1,8 +1,7 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme } from '@/tests/utils';
-import { MsgWithdrawDelegatorReward } from '@/models';
 import WithdrawReward from '@/components/msg/distribution/withdraw_reward';
+import { MsgWithdrawDelegatorReward } from '@/models';
+import { MockTheme } from '@/tests/utils';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

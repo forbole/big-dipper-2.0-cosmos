@@ -1,8 +1,8 @@
-import React from 'react';
-import Typography from '@material-ui/core/Typography';
-import InfoPopover from '@/components/info_popover';
 import ConditionExplanation from '@/components/condition_explanation';
+import InfoPopover from '@/components/info_popover';
+import Typography from '@material-ui/core/Typography';
 import { Translate } from 'next-translate';
+import React from 'react';
 
 export const fetchColumns = (
   t: Translate

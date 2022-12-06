@@ -1,3 +1,5 @@
+import * as R from 'ramda';
+
 export interface Link {
   chainId: string;
   url: string;
@@ -17,13 +19,13 @@ class BigDipperNetwork {
 
   public other: Link[];
 
-  constructor(payload: any) {
-    this.name = payload.name;
-    this.logo = payload.logo;
-    this.mainnet = payload.mainnet;
-    this.testnet = payload.testnet;
-    this.retired = payload.retired;
-    this.other = payload.other;
+  constructor(payload: object) {
+    this.name = R.pathOr('', ['name'], payload);
+    this.logo = R.pathOr('', ['logo'], payload);
+    this.mainnet = R.pathOr([], ['mainnet'], payload);
+    this.testnet = R.pathOr([], ['testnet'], payload);
+    this.retired = R.pathOr([], ['retired'], payload);
+    this.other = R.pathOr([], ['other'], payload);
   }
 
   static fromJson(data?: {
@@ -42,7 +44,7 @@ class BigDipperNetwork {
     const retired: Link[] = [];
     const other: Link[] = [];
 
-    allLinks.forEach((x: any) => {
+    allLinks.forEach((x) => {
       // main
       if (x.name.toLowerCase().includes('mainnet')) {
         mainnet.push(x);

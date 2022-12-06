@@ -37,9 +37,24 @@ export const useBlockDetails = () => {
   useEffect(() => {
     const getBlockDetails = async () => {
       try {
-        const { data: blockData } = await axios.get(BLOCK_DETAILS(router.query.hash as string));
-        const size = R.pathOr(0, ['size'], blockData);
-        const sizeTxs = R.pathOr(0, ['sizeTxs'], blockData);
+        const { data: blockData } = await axios.get<{
+          size: number | undefined;
+          round: BlockDetailsState['overview']['block'];
+          hash: BlockDetailsState['overview']['hash'];
+          proposer: BlockDetailsState['overview']['proposer'];
+          timestamp: BlockDetailsState['overview']['timestamp'];
+          txCount: BlockDetailsState['overview']['txs'];
+          sizeTxs: BlockDetailsState['overview']['size'];
+          shard: BlockDetailsState['overview']['shard'];
+          gasConsumed: BlockDetailsState['overview']['gasUsed'];
+          maxGasLimit: BlockDetailsState['overview']['gasProvided'];
+          gasRefunded: BlockDetailsState['overview']['gasRefunded'];
+          gasPenalized: BlockDetailsState['overview']['gasPenalized'];
+          miniBlocksHashes: BlockDetailsState['miniBlocks'];
+          validators: BlockDetailsState['consensus'];
+        }>(BLOCK_DETAILS(router.query.hash as string));
+        const size = blockData?.size ?? 0;
+        const sizeTxs = blockData?.sizeTxs ?? 0;
         handleSetState({
           loading: false,
           overview: {
@@ -55,7 +70,7 @@ export const useBlockDetails = () => {
             gasRefunded: blockData.gasRefunded,
             gasPenalized: blockData.gasPenalized,
           },
-          miniBlocks: R.pathOr([], ['miniBlocksHashes'], blockData),
+          miniBlocks: blockData?.miniBlocksHashes,
           consensus: blockData.validators,
         });
       } catch (error) {
@@ -63,7 +78,7 @@ export const useBlockDetails = () => {
           loading: false,
           exists: false,
         });
-        console.error((error as any).message);
+        console.error((error as Error).message);
       }
     };
 

@@ -1,4 +1,6 @@
-export const getStatusInfo = (status: string, t: any) => {
+import { Translate } from 'next-translate';
+
+export const getStatusInfo = (status: string, t: Translate) => {
   const statusDict: { [key: string]: { value: string; tag: string } } = {
     PROPOSAL_STATUS_DEPOSIT_PERIOD: {
       value: t('deposit'),

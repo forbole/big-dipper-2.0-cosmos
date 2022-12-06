@@ -1,12 +1,12 @@
-import React from 'react';
-import classnames from 'classnames';
-import useTranslation from 'next-translate/useTranslation';
-import dayjs, { formatDayJs } from '@/utils/dayjs';
-import { useRecoilValue } from 'recoil';
+import { useStyles } from '@/components/desmos_profile/components/connections/components/mobile/styles';
 import { readDate } from '@/recoil/settings';
+import dayjs, { formatDayJs } from '@/utils/dayjs';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
-import { useStyles } from '@/components/desmos_profile/components/connections/components/mobile/styles';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
+import React from 'react';
+import { useRecoilValue } from 'recoil';
 
 const Mobile: React.FC<{
   className?: string;
@@ -42,7 +42,7 @@ const Mobile: React.FC<{
                 {t('creationTime')}
               </Typography>
               <Typography variant="body1" className="value">
-                {formatDayJs((dayjs as any).utc(x.creationTime), dateFormat)}
+                {formatDayJs(dayjs.utc(x.creationTime), dateFormat)}
               </Typography>
             </div>
           </div>

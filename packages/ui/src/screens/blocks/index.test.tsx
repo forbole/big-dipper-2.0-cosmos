@@ -1,9 +1,8 @@
+import { BlocksDocument, BlocksListenerDocument } from '@/graphql/types/general_types';
+import { MockTheme, wait } from '@/tests/utils';
 import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
 import { MockedProvider } from '@apollo/client/testing';
-import { BlocksDocument, BlocksListenerDocument } from '@/graphql/types/general_types';
-import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockTheme, wait } from 'ui/tests/utils';
 import Blocks from '.';
 
 let component: renderer.ReactTestRenderer;

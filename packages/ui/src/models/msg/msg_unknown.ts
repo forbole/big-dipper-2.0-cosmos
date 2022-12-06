@@ -1,22 +1,23 @@
 import type { Categories } from '@/models/msg/types';
+import * as R from 'ramda';
 
 class MsgUnknown {
   public category: Categories;
 
   public type: string;
 
-  public json: JSON;
+  public json: object;
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'others';
-    this.type = payload.type;
-    this.json = payload.json;
+    this.type = R.pathOr('', ['type'], payload);
+    this.json = R.pathOr({}, ['json'], payload);
   }
 
-  static fromJson(json: any): MsgUnknown {
+  static fromJson(json: object): MsgUnknown {
     return {
       category: 'others',
-      type: json['@type'] ?? '',
+      type: R.pathOr('', ['@type'], json),
       json,
     };
   }

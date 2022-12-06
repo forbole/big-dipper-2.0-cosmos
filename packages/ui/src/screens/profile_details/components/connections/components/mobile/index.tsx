@@ -1,15 +1,15 @@
-import React from 'react';
-import classnames from 'classnames';
-import useTranslation from 'next-translate/useTranslation';
-import dayjs, { formatDayJs } from '@/utils/dayjs';
-import { useRecoilValue } from 'recoil';
+import chainConfig from '@/chainConfig';
 import { readDate } from '@/recoil/settings';
+import { useStyles } from '@/screens/profile_details/components/connections/components/mobile/styles';
+import dayjs, { formatDayJs } from '@/utils/dayjs';
+import { ACCOUNT_DETAILS } from '@/utils/go_to_page';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
-import chainConfig from '@/chainConfig';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
-import { ACCOUNT_DETAILS } from '@/utils/go_to_page';
-import { useStyles } from '@/screens/profile_details/components/connections/components/mobile/styles';
+import React from 'react';
+import { useRecoilValue } from 'recoil';
 
 const Mobile: React.FC<{
   className?: string;
@@ -22,7 +22,7 @@ const Mobile: React.FC<{
   return (
     <div className={classnames(className)}>
       {items?.map((x, i) => {
-        const checkIdentifier = new RegExp(`^(${chainConfig.prefix.account})`).test(x.identifier);
+        const checkIdentifier = new RegExp(`^(${chainConfig().prefix.account})`).test(x.identifier);
         return (
           <React.Fragment key={`votes-mobile-${x.identifier}`}>
             <div className={classes.list}>
@@ -46,7 +46,7 @@ const Mobile: React.FC<{
                       </Typography>
                     </Link>
                   )}
-                  {new RegExp(`^(${chainConfig.prefix.account})`).test(x.identifier) === false &&
+                  {new RegExp(`^(${chainConfig().prefix.account})`).test(x.identifier) === false &&
                     x.identifier}
                 </Typography>
               </div>
@@ -55,7 +55,7 @@ const Mobile: React.FC<{
                   {t('creationTime')}
                 </Typography>
                 <Typography variant="body1" className="value">
-                  {formatDayJs((dayjs as any).utc(x.creationTime), dateFormat)}
+                  {formatDayJs(dayjs.utc(x.creationTime), dateFormat)}
                 </Typography>
               </div>
             </div>

@@ -1,9 +1,9 @@
-import React from 'react';
-import Trans from 'next-translate/Trans';
-import Typography from '@material-ui/core/Typography';
 import Name from '@/components/name';
 import MsgRunDistribution from '@/models/msg/dispensation/msg_run_distribution';
 import { useProfileRecoil } from '@/recoil/profiles';
+import Typography from '@material-ui/core/Typography';
+import Trans from 'next-translate/Trans';
+import React from 'react';
 
 const RunDistribution: React.FC<{ message: MsgRunDistribution }> = (props) => {
   const { message } = props;

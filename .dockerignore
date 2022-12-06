@@ -1,33 +1,48 @@
-## Logs
 **/*.log
 **/npm-debug.log*
 **/yarn-debug.log*
 **/yarn-error.log*
+## Logs
 
 **/.dockerignore
-**/.git
-**/.github
-**/.vscode
 **/.DS_Store
 **/.env
 **/.env.*
-**/.mergify.yml
-**/.next
-**/.swc
-**/.turbo
-**/CHANGELOG.md
-**/coverage
-**/dist
+**/.eslintcache
+**/.git
+**/.github
+**/.next/
+**/.swc/
+**/.turbo/
+**/.vercel/
+**/.vscode
+**/*.pem
 **/*Dockerfile*
+**/build/
+**/coverage/
+**/dist/
 **/LICENSE
 **/node_modules
-**/README.md
-**/out
+**/out/
 
-.changeset
-.yarn/
+# Yarn Berry
+.yarn/*
 !.yarn/patches
 !.yarn/plugins
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+.pnp.*
+
+.changeset
+.github
+.husky
+.idea/
+.mergify.yml
+.vscode
+docker-compose.yml
+docker/
+LICENSE
+playwright-report/
+playwright/
+test-results/

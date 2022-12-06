@@ -1,8 +1,10 @@
-import React from 'react';
-import NotFound from '@/components/not_found';
 import LinearLoading from '@/components/linear_loading';
+import NotFound from '@/components/not_found';
+import { FC, PropsWithChildren } from 'react';
 
-const LoadAndExist = (props: { loading: boolean; exists: boolean; children: React.ReactNode }) => {
+type Props = { loading: boolean; exists: boolean };
+
+const LoadAndExist: FC<PropsWithChildren<Props>> = (props) => {
   const { loading, exists, children } = props;
 
   if (loading) {
@@ -11,6 +13,7 @@ const LoadAndExist = (props: { loading: boolean; exists: boolean; children: Reac
   if (!exists && !loading) {
     return <NotFound />;
   }
+  // eslint-disable-next-line react/jsx-no-useless-fragment
   return <>{children}</>;
 };
 

@@ -1,9 +1,9 @@
-import React from 'react';
-import numeral from 'numeral';
+import { useOnlineVotingPower } from '@/screens/home/components/hero/components/online_voting_power/hooks';
+import { useStyles } from '@/screens/home/components/hero/components/online_voting_power/styles';
 import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
-import { useStyles } from '@/screens/home/components/hero/components/online_voting_power/styles';
-import { useOnlineVotingPower } from '@/screens/home/components/hero/components/online_voting_power/hooks';
+import numeral from 'numeral';
+import React from 'react';
 
 const OnlineVotingPower: React.FC<ComponentDefault> = () => {
   const { t } = useTranslation('home');
@@ -21,7 +21,7 @@ const OnlineVotingPower: React.FC<ComponentDefault> = () => {
       <Typography variant="h2">{t('onlineVotingPower')}</Typography>
       <div className={classes.data}>
         <Typography variant="h3" className="primary__data">
-          {`${votingPowerPercent.format('0,0.00', (n) => ~~n)}%`}
+          {`${votingPowerPercent.format('0,0.00', (n) => Math.floor(n))}%`}
         </Typography>
         <Typography variant="body1">
           {numeral(onlineVPState.votingPower).format('0,0')} /{' '}
@@ -45,7 +45,7 @@ const OnlineVotingPower: React.FC<ComponentDefault> = () => {
             {t('votingPowerPercent')}
           </Typography>
           <Typography variant="body1" className="value">
-            {`${votingPowerPercent.format('0,0.00', (n) => ~~n)}%`}
+            {`${votingPowerPercent.format('0,0.00', (n) => Math.floor(n))}%`}
           </Typography>
         </div>
         <div className={classes.item}>

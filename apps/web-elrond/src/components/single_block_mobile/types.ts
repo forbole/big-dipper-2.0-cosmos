@@ -1,8 +1,6 @@
-import React from 'react';
-
 export interface SingleBlockMobileType {
   block: string;
-  shard?: any;
+  shard?: unknown;
   hash: string | React.ReactNode;
   txs: string;
   time: string;

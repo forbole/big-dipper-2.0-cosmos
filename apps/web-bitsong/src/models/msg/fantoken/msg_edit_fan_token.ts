@@ -1,27 +1,28 @@
 import type { Categories } from '@/models/msg/types';
+import * as R from 'ramda';
 
 class MsgEditFanToken {
   public category: Categories;
 
   public type: string;
 
-  public json: any;
+  public json: object;
 
   public owner: string;
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'fantoken';
-    this.type = payload.type;
-    this.json = payload.json;
-    this.owner = payload.owner;
+    this.type = R.pathOr('', ['type'], payload);
+    this.json = R.pathOr({}, ['json'], payload);
+    this.owner = R.pathOr('', ['owner'], payload);
   }
 
-  static fromJson(json: any): MsgEditFanToken {
+  static fromJson(json: object): MsgEditFanToken {
     return {
       category: 'fantoken',
       json,
-      type: json['@type'],
-      owner: json.owner,
+      type: R.pathOr('', ['@type'], json),
+      owner: R.pathOr('', ['owner'], json),
     };
   }
 }

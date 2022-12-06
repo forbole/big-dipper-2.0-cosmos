@@ -1,15 +1,15 @@
-import React from 'react';
-import classnames from 'classnames';
-import useTranslation from 'next-translate/useTranslation';
-import { useRecoilValue } from 'recoil';
+import { columns } from '@/components/desmos_profile/components/connections/components/desktop/utils';
 import { readDate } from '@/recoil/settings';
+import dayjs, { formatDayJs } from '@/utils/dayjs';
 import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import TableCell from '@material-ui/core/TableCell';
-import TableBody from '@material-ui/core/TableBody';
-import dayjs, { formatDayJs } from '@/utils/dayjs';
-import { columns } from '@/components/desmos_profile/components/connections/components/desktop/utils';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
+import React from 'react';
+import { useRecoilValue } from 'recoil';
 
 const Desktop: React.FC<{
   className?: string;
@@ -19,10 +19,10 @@ const Desktop: React.FC<{
   const { t } = useTranslation('accounts');
 
   const formattedItems =
-    items?.map((x) => ({
+    items?.map((x): { [key: string]: string } => ({
       network: x.network.toUpperCase(),
       identifier: x.identifier,
-      creationTime: formatDayJs((dayjs as any).utc(x.creationTime), dateFormat),
+      creationTime: formatDayJs(dayjs.utc(x.creationTime), dateFormat),
     })) ?? [];
 
   return (
@@ -42,7 +42,7 @@ const Desktop: React.FC<{
           </TableRow>
         </TableHead>
         <TableBody>
-          {formattedItems?.map((row: { [key: string]: unknown }) => (
+          {formattedItems?.map((row) => (
             <TableRow key={`holders-row-${row.identifier}`}>
               {columns.map((column) => (
                 <TableCell
@@ -50,7 +50,7 @@ const Desktop: React.FC<{
                   align={column.align}
                   style={{ width: `${column.width}%` }}
                 >
-                  {(row as any)?.[column.key]}
+                  {row?.[column.key]}
                 </TableCell>
               ))}
             </TableRow>

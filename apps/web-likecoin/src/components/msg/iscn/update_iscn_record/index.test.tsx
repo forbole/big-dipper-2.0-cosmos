@@ -1,8 +1,7 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme } from '@/tests/utils';
-import MsgUpdateIscnRecord from '@/models/msg/iscn/msg_update_iscn_record';
 import UpdateIscnRecord from '@/components/msg/iscn/update_iscn_record';
+import MsgUpdateIscnRecord from '@/models/msg/iscn/msg_update_iscn_record';
+import { MockTheme } from '@/tests/utils';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

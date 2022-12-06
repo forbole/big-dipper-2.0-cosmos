@@ -1,14 +1,15 @@
-import { useCallback, useState } from 'react';
+import {
+  ProposalDetailsVotesQuery,
+  useProposalDetailsVotesQuery,
+} from '@/graphql/types/general_types';
+import type { VoteState } from '@/screens/proposal_details/components/votes/types';
+import { toValidatorAddress } from '@/utils/prefix_convert';
+import Tabs from '@material-ui/core/Tabs';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
-import {
-  useProposalDetailsVotesQuery,
-  ProposalDetailsVotesQuery,
-} from '@/graphql/types/general_types';
-import { toValidatorAddress } from '@/utils/prefix_convert';
-import type { VoteState } from '@/screens/proposal_details/components/votes/types';
+import { ComponentProps, useCallback, useState } from 'react';
 
-export const useVotes = (resetPagination: any) => {
+export const useVotes = (resetPagination: () => void) => {
   const router = useRouter();
   const [state, setState] = useState<VoteState>({
     data: [],
@@ -30,7 +31,7 @@ export const useVotes = (resetPagination: any) => {
     });
   }, []);
 
-  const handleTabChange = (_event: any, newValue: number) => {
+  const handleTabChange: ComponentProps<typeof Tabs>['onChange'] = (_event, newValue) => {
     if (resetPagination) {
       resetPagination();
     }
@@ -41,7 +42,7 @@ export const useVotes = (resetPagination: any) => {
 
   useProposalDetailsVotesQuery({
     variables: {
-      proposalId: parseInt(R.pathOr('', ['query', 'id'], router), 10),
+      proposalId: parseFloat((router?.query?.id as string) ?? '0'),
     },
     onCompleted: (data) => {
       handleSetState(formatVotes(data));
@@ -49,13 +50,9 @@ export const useVotes = (resetPagination: any) => {
   });
 
   const formatVotes = (data: ProposalDetailsVotesQuery) => {
-    const validatorDict: { [key: string]: any } = {};
+    const validatorDict: { [key: string]: unknown } = {};
     const validators = data.validatorStatuses.map((x) => {
-      const selfDelegateAddress = R.pathOr(
-        '',
-        ['validator', 'validatorInfo', 'selfDelegateAddress'],
-        x
-      );
+      const selfDelegateAddress = x?.validator?.validatorInfo?.selfDelegateAddress ?? '';
       validatorDict[selfDelegateAddress] = false;
       return selfDelegateAddress;
     });

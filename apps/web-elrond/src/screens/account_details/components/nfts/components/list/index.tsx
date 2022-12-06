@@ -20,7 +20,11 @@ const List: React.FC<{ items: OtherTokenType[] } & ComponentDefault> = (props) =
     return <NoData />;
   }
 
-  return <>{isDesktop ? <Desktop items={props.items} /> : <Mobile items={props.items} />}</>;
+  if (isDesktop) {
+    return <Desktop items={props.items} />;
+  }
+
+  return <Mobile items={props.items} />;
 };
 
 export default List;

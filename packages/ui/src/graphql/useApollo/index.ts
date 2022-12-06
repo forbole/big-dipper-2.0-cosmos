@@ -1,3 +1,4 @@
+import chainConfig from '@/chainConfig';
 import {
   ApolloClient,
   DefaultOptions,
@@ -6,20 +7,16 @@ import {
   NormalizedCacheObject,
   split,
 } from '@apollo/client';
-import { getMainDefinition } from '@apollo/client/utilities';
 import { GraphQLWsLink } from '@apollo/client/link/subscriptions';
 import { WebSocketLink } from '@apollo/client/link/ws';
+import { getMainDefinition } from '@apollo/client/utilities';
+import { Kind, OperationTypeNode } from 'graphql';
 import { createClient } from 'graphql-ws';
 import webSocketImpl from 'isomorphic-ws';
-import { Kind, OperationTypeNode } from 'graphql';
 import { useEffect, useState } from 'react';
-import chainConfig from '@/chainConfig';
 
 /* A global variable that stores the Apollo Client. */
 let globalApolloClient: ApolloClient<NormalizedCacheObject>;
-
-// older version of Hasura doesn't support graphql-ws
-const enableGraphqlWs = chainConfig.extra.graphqlWs;
 
 /* Setting the default options for the Apollo Client. */
 const defaultOptions: DefaultOptions = {
@@ -34,13 +31,15 @@ const defaultOptions: DefaultOptions = {
 };
 
 /* Creating a new HttpLink object. */
-const httpLink = new HttpLink({
-  uri:
-    process.env.NEXT_PUBLIC_GRAPHQL_URL ||
-    chainConfig.endpoints.graphql ||
-    'http://localhost:3000/v1/graphql',
-  fetch,
-});
+function httpLink() {
+  return new HttpLink({
+    uri:
+      process.env.NEXT_PUBLIC_GRAPHQL_URL ||
+      chainConfig().endpoints.graphql ||
+      'http://localhost:3000/v1/graphql',
+    fetch,
+  });
+}
 
 /**
  * It creates a WebSocketLink object that connects to the GraphQL server via a WebSocket connection
@@ -48,16 +47,16 @@ const httpLink = new HttpLink({
  */
 function createWebSocketLink() {
   // older version of Hasura doesn't support graphql-ws
-  if (enableGraphqlWs) {
+  if (chainConfig().extra.graphqlWs) {
     return new GraphQLWsLink(
       createClient({
         url:
           process.env.NEXT_PUBLIC_GRAPHQL_WS ||
-          chainConfig.endpoints.graphqlWebsocket ||
+          chainConfig().endpoints.graphqlWebsocket ||
           'ws://localhost:3000/websocket',
         lazy: true,
         retryAttempts: Number.MAX_VALUE,
-        retryWait: (_count) => new Promise((r) => setTimeout(r, 1000)),
+        retryWait: (_count) => new Promise((r) => setTimeout(() => r(), 1000)),
         shouldRetry() {
           return true;
         },
@@ -70,7 +69,7 @@ function createWebSocketLink() {
   return new WebSocketLink({
     uri:
       process.env.NEXT_PUBLIC_GRAPHQL_WS ||
-      chainConfig.endpoints.graphqlWebsocket ||
+      chainConfig().endpoints.graphqlWebsocket ||
       'ws://localhost:3000/websocket',
     options: {
       lazy: true,
@@ -98,7 +97,7 @@ function createApolloClient(initialState = {}) {
   if the query is a subscription. If it is, it uses the WebSocketLink. If it is not, it uses the
   httpLink. */
   const link = ssrMode
-    ? httpLink
+    ? httpLink()
     : split(
         /* Checking if the query is a subscription. */
         ({ query }) => {
@@ -109,7 +108,7 @@ function createApolloClient(initialState = {}) {
           );
         },
         createWebSocketLink(),
-        httpLink
+        httpLink()
       );
 
   /* Creating a new Apollo Client. */

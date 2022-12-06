@@ -1,8 +1,7 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme } from '@/tests/utils';
-import MsgCancelReplaceMarketOrder from '@/models/msg/market/msg_cancel_replace_market_order';
 import CancelReplaceMarketOrder from '@/components/msg/market/cancel_replace_market_order';
+import MsgCancelReplaceMarketOrder from '@/models/msg/market/msg_cancel_replace_market_order';
+import { MockTheme } from '@/tests/utils';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

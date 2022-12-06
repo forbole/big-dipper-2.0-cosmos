@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Medium = () => (
   <svg
     width="26px"

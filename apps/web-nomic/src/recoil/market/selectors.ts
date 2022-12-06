@@ -1,9 +1,9 @@
 import { atomState } from '@/recoil/market/atom';
 import type { AtomState } from '@/recoil/market/types';
 import { mergeStateChange } from '@/utils/merge_state_change';
-import { selector } from 'recoil';
+import { DefaultValue, ReadOnlySelectorOptions, selector } from 'recoil';
 
-const getMarket = ({ get }: any): AtomState => {
+const getMarket: ReadOnlySelectorOptions<AtomState>['get'] = ({ get }) => {
   const state = get(atomState);
   return state;
 };
@@ -12,6 +12,7 @@ export const writeMarket = selector({
   key: 'nomic/market.write.market',
   get: getMarket,
   set: ({ get, set }, value) => {
+    if (value instanceof DefaultValue) return;
     const prevState = get(atomState);
     const newState = mergeStateChange(prevState, value);
     set(atomState, newState);

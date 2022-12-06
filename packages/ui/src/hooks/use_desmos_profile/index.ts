@@ -1,21 +1,23 @@
-import { useCallback, useState, useEffect } from 'react';
-import axios from 'axios';
-import { DesmosProfileQuery } from '@/graphql/types/profile_types';
+import chainConfig from '@/chainConfig';
 import {
   DesmosProfileDocument,
-  DesmosProfileLinkDocument,
   DesmosProfileDtagDocument,
+  DesmosProfileLinkDocument,
 } from '@/graphql/profiles/desmos_profile_graphql';
+import { DesmosProfileQuery } from '@/graphql/types/profile_types';
+import axios from 'axios';
+import { useCallback, useEffect, useState } from 'react';
 
 type Options = {
   address?: string;
-  onComplete: (data: DesmosProfileQuery) => any;
+  onComplete: (data: DesmosProfileQuery) => DesmosProfile | null;
 };
 
-let PROFILE_API = 'https://gql.mainnet.desmos.network/v1/graphql';
-
-if (/^testnet$/i.test(process.env.NEXT_PUBLIC_CHAIN_TYPE || '')) {
-  PROFILE_API = 'https://gql.morpheus.desmos.network/v1/graphql';
+function profileApi() {
+  if (/^testnet/i.test(chainConfig().chainType)) {
+    return 'https://gql.morpheus.desmos.network/v1/graphql';
+  }
+  return 'https://gql.mainnet.desmos.network/v1/graphql';
 }
 
 export const useDesmosProfile = (options: Options) => {
@@ -68,7 +70,7 @@ export const useDesmosProfile = (options: Options) => {
 
 async function fetchLink(address: string) {
   try {
-    const { data } = await axios.post(PROFILE_API, {
+    const { data } = await axios.post(profileApi(), {
       variables: {
         address,
       },
@@ -82,7 +84,7 @@ async function fetchLink(address: string) {
 
 async function fetchDesmos(address: string) {
   try {
-    const { data } = await axios.post(PROFILE_API, {
+    const { data } = await axios.post(profileApi(), {
       variables: {
         address,
       },
@@ -96,7 +98,7 @@ async function fetchDesmos(address: string) {
 
 async function fetchDtag(dtag: string) {
   try {
-    const { data } = await axios.post(PROFILE_API, {
+    const { data } = await axios.post(profileApi(), {
       variables: {
         dtag,
       },

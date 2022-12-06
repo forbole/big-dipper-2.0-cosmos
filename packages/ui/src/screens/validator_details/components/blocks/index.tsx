@@ -1,15 +1,15 @@
-import React from 'react';
-import classnames from 'classnames';
-import numeral from 'numeral';
-import useTranslation from 'next-translate/useTranslation';
-import Typography from '@material-ui/core/Typography';
-import Tooltip from '@material-ui/core/Tooltip';
-import { useProfilesRecoil } from '@/recoil/profiles';
-import Box from '@/components/box';
 import AvatarName from '@/components/avatar_name';
+import Box from '@/components/box';
 import Result from '@/components/result';
-import { useStyles } from '@/screens/validator_details/components/blocks/styles';
+import { useProfilesRecoil } from '@/recoil/profiles';
 import { useBlocks } from '@/screens/validator_details/components/blocks/hooks';
+import { useStyles } from '@/screens/validator_details/components/blocks/styles';
+import Tooltip from '@material-ui/core/Tooltip';
+import Typography from '@material-ui/core/Typography';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
+import numeral from 'numeral';
+import React from 'react';
 
 const Blocks: React.FC<{
   className?: string;
@@ -18,7 +18,7 @@ const Blocks: React.FC<{
   const { state } = useBlocks();
   const dataProfiles = useProfilesRecoil(state.map((x) => x.proposer));
   const mergedDataWithProfiles = state.map((x, i) => ({
-    ...(x as object),
+    ...x,
     proposer: dataProfiles[i],
   }));
 
@@ -27,7 +27,7 @@ const Blocks: React.FC<{
     <Box className={classnames(className, classes.root)}>
       <Typography variant="h2">{t('lastBlocks')}</Typography>
       <div className={classes.blocks}>
-        {mergedDataWithProfiles.map((x: any, i) => (
+        {mergedDataWithProfiles.map((x, i) => (
           <Tooltip
             // eslint-disable-next-line react/no-array-index-key
             key={`blocks-tooltip-${i}`}

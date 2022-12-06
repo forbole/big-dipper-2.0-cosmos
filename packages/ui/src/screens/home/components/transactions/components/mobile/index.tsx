@@ -1,15 +1,15 @@
-import React from 'react';
+import Result from '@/components/result';
+import SingleTransactionMobile from '@/components/single_transaction_mobile';
+import Tag from '@/components/tag';
+import dayjs from '@/utils/dayjs';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
+import { BLOCK_DETAILS, TRANSACTION_DETAILS } from '@/utils/go_to_page';
+import Divider from '@material-ui/core/Divider';
+import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import Link from 'next/link';
 import numeral from 'numeral';
-import dayjs from '@/utils/dayjs';
-import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
-import SingleTransactionMobile from '@/components/single_transaction_mobile';
-import Result from '@/components/result';
-import Tag from '@/components/tag';
-import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
-import { BLOCK_DETAILS, TRANSACTION_DETAILS } from '@/utils/go_to_page';
+import React from 'react';
 
 import type { TransactionType } from '@/screens/home/components/transactions/types';
 
@@ -42,7 +42,7 @@ const Mobile: React.FC<{
       </div>
     ),
     result: <Result success={x.success} />,
-    time: (dayjs as any).utc(x.timestamp).fromNow(),
+    time: dayjs.utc(x.timestamp).fromNow(),
     messages: numeral(x.messages).format('0,0'),
   }));
 

@@ -1,4 +1,5 @@
 import type { Categories } from '@/models/msg/types';
+import * as R from 'ramda';
 
 class MsgConnectionOpenTry {
   public category: Categories;
@@ -15,29 +16,29 @@ class MsgConnectionOpenTry {
 
   public counterpartyConnectionId: string;
 
-  public json: any;
+  public json: object;
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'ibc';
-    this.type = payload.type;
-    this.signer = payload.signer;
-    this.chainId = payload.chainId;
-    this.clientId = payload.clientId;
-    this.counterpartyClientId = payload.counterpartyClientId;
-    this.counterpartyConnectionId = payload.counterpartyConnectionId;
-    this.json = payload.json;
+    this.type = R.pathOr('', ['type'], payload);
+    this.signer = R.pathOr('', ['signer'], payload);
+    this.chainId = R.pathOr('', ['chainId'], payload);
+    this.clientId = R.pathOr('', ['clientId'], payload);
+    this.counterpartyClientId = R.pathOr('', ['counterpartyClientId'], payload);
+    this.counterpartyConnectionId = R.pathOr('', ['counterpartyConnectionId'], payload);
+    this.json = R.pathOr({}, ['json'], payload);
   }
 
-  static fromJson(json: any): MsgConnectionOpenTry {
+  static fromJson(json: object): MsgConnectionOpenTry {
     return {
       category: 'ibc',
       json,
-      type: json['@type'],
-      signer: json.signer,
-      chainId: json.chain_id,
-      clientId: json.client_id,
-      counterpartyClientId: json.counterparty?.client_id,
-      counterpartyConnectionId: json.counterparty?.connection_id,
+      type: R.pathOr('', ['@type'], json),
+      signer: R.pathOr('', ['signer'], json),
+      chainId: R.pathOr('', ['chain_id'], json),
+      clientId: R.pathOr('', ['client_id'], json),
+      counterpartyClientId: R.pathOr('', ['counterparty', 'client_id'], json),
+      counterpartyConnectionId: R.pathOr('', ['counterparty', 'connection_id'], json),
     };
   }
 }

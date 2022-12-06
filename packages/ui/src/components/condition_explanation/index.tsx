@@ -1,8 +1,7 @@
-import React from 'react';
+import { useStyles } from '@/components/condition_explanation/styles';
+import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import Typography from '@material-ui/core/Typography';
-import { useStyles } from '@/components/condition_explanation/styles';
 
 const ConditionExplanation = () => {
   const { t } = useTranslation('validators');

@@ -1,8 +1,7 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme } from '@/tests/utils';
-import { MsgChannelCloseInit } from '@/models';
 import Channel from '@/components/msg/ibc/channel_close_init';
+import { MsgChannelCloseInit } from '@/models';
+import { MockTheme } from '@/tests/utils';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

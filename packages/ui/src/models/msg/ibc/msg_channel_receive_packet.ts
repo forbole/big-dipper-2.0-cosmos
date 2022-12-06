@@ -1,4 +1,5 @@
 import type { Categories } from '@/models/msg/types';
+import * as R from 'ramda';
 
 class MsgReceivePacket {
   public category: Categories;
@@ -11,25 +12,25 @@ class MsgReceivePacket {
 
   public destinationChannel: string;
 
-  public json: any;
+  public json: object;
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'ibc';
-    this.type = payload.type;
-    this.signer = payload.signer;
-    this.sourceChannel = payload.sourceChannel;
-    this.destinationChannel = payload.destinationChannel;
-    this.json = payload.json;
+    this.type = R.pathOr('', ['type'], payload);
+    this.signer = R.pathOr('', ['signer'], payload);
+    this.sourceChannel = R.pathOr('', ['sourceChannel'], payload);
+    this.destinationChannel = R.pathOr('', ['destinationChannel'], payload);
+    this.json = R.pathOr({}, ['json'], payload);
   }
 
-  static fromJson(json: any): MsgReceivePacket {
+  static fromJson(json: object): MsgReceivePacket {
     return {
       category: 'ibc',
       json,
-      type: json['@type'],
-      signer: json.signer,
-      sourceChannel: json.packet?.source_channel,
-      destinationChannel: json.packet?.destination_channel,
+      type: R.pathOr('', ['@type'], json),
+      signer: R.pathOr('', ['signer'], json),
+      sourceChannel: R.pathOr('', ['packet', 'source_channel'], json),
+      destinationChannel: R.pathOr('', ['packet', 'destination_channel'], json),
     };
   }
 }

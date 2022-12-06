@@ -1,19 +1,18 @@
-import React from 'react';
-import classnames from 'classnames';
-import Big from 'big.js';
-import numeral from 'numeral';
-import * as R from 'ramda';
-import { useRecoilValue } from 'recoil';
-import { readMarket } from '@/recoil/market';
-import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
-import { PieChart, Pie, ResponsiveContainer, Cell } from 'recharts';
-import useTranslation from 'next-translate/useTranslation';
-import Box from '@/components/box';
 import chainConfig from '@/chainConfig';
-import { formatNumber } from '@/utils/format_token';
+import Box from '@/components/box';
+import { readMarket } from '@/recoil/market';
 import { useStyles } from '@/screens/account_details/components/balance/styles';
 import { formatBalanceData } from '@/screens/account_details/components/balance/utils';
+import { formatNumber } from '@/utils/format_token';
+import Divider from '@material-ui/core/Divider';
+import Typography from '@material-ui/core/Typography';
+import Big from 'big.js';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
+import numeral from 'numeral';
+import React from 'react';
+import { Cell, Pie, PieChart, ResponsiveContainer } from 'recharts';
+import { useRecoilValue } from 'recoil';
 
 type Props = Parameters<typeof formatBalanceData>[0] & {
   className?: string;
@@ -42,7 +41,7 @@ const Balance: React.FC<Props> = (props) => {
   ];
 
   const formatData = formattedChartData.map((x, i) => ({
-    ...(x as object),
+    ...x,
     value: numeral(x.value).value(),
     background: backgrounds[i],
   }));
@@ -53,7 +52,7 @@ const Balance: React.FC<Props> = (props) => {
   const data = notEmpty ? formatData : [...formatData, empty];
   const totalAmount = `$${numeral(
     Big(market.price || 0)
-      .times(props.total.value)
+      ?.times(props.total.value)
       .toPrecision()
   ).format('0,0.00')}`;
 
@@ -87,7 +86,7 @@ const Balance: React.FC<Props> = (props) => {
           </ResponsiveContainer>
         </div>
         <div className={classes.legends}>
-          {data.map((x: any) => {
+          {data.map((x) => {
             if (x.key.toLowerCase() === 'empty') {
               return null;
             }
@@ -118,10 +117,8 @@ const Balance: React.FC<Props> = (props) => {
           <div className="total__secondary--container total__single--container">
             <Typography variant="body1" className="label">
               ${numeral(market.price).format('0,0.[00]', Math.floor)} /{' '}
-              {R.pathOr(
-                '',
-                ['tokenUnits', chainConfig.primaryTokenUnit, 'display'],
-                chainConfig
+              {(
+                chainConfig().tokenUnits?.[chainConfig().primaryTokenUnit]?.display ?? ''
               ).toUpperCase()}
             </Typography>
             <Typography variant="body1">{totalAmount}</Typography>

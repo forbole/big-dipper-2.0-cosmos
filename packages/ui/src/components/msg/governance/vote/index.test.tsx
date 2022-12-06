@@ -1,8 +1,7 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme } from '@/tests/utils';
-import { MsgVote } from '@/models';
 import Vote from '@/components/msg/governance/vote';
+import { MsgVote } from '@/models';
+import { MockTheme } from '@/tests/utils';
+import renderer from 'react-test-renderer';
 
 const mockI18n = {
   t: (key: string) => key,

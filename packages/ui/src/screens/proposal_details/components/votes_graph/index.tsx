@@ -1,16 +1,16 @@
-import React from 'react';
-import classnames from 'classnames';
-import numeral from 'numeral';
-import Big from 'big.js';
 import Box from '@/components/box';
 import InfoPopover from '@/components/info_popover';
-import useTranslation from 'next-translate/useTranslation';
-import Typography from '@material-ui/core/Typography';
-import { PieChart, Pie, Cell } from 'recharts';
+import QuorumExplanation from '@/screens/proposal_details/components/votes_graph/components/quorum_explanation';
+import { useVotesGraph } from '@/screens/proposal_details/components/votes_graph/hooks';
 import { useStyles } from '@/screens/proposal_details/components/votes_graph/styles';
 import { formatGraphData } from '@/screens/proposal_details/components/votes_graph/utils';
-import { useVotesGraph } from '@/screens/proposal_details/components/votes_graph/hooks';
-import QuorumExplanation from '@/screens/proposal_details/components/votes_graph/components/quorum_explanation';
+import Typography from '@material-ui/core/Typography';
+import Big from 'big.js';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
+import numeral from 'numeral';
+import React from 'react';
+import { Cell, Pie, PieChart } from 'recharts';
 
 const VotesGraph: React.FC<ComponentDefault> = (props) => {
   const { classes, theme } = useStyles();
@@ -33,7 +33,7 @@ const VotesGraph: React.FC<ComponentDefault> = (props) => {
   const totalBondedFormat = numeral(state.bonded.value).format('0,0.[00]');
   const totalVotedPercent =
     total.gt(0) && state.bonded.value
-      ? `${numeral(Big(total.toFixed(2)).div(state.bonded.value).times(100).toFixed(2)).format(
+      ? `${numeral(Big(total.toFixed(2)).div(state.bonded?.value)?.times(100).toFixed(2)).format(
           '0.[00]'
         )}%`
       : '0%';

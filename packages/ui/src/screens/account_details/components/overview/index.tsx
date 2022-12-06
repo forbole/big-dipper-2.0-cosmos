@@ -1,28 +1,28 @@
-import React from 'react';
+import Box from '@/components/box';
+import { useScreenSize, useWindowOrigin } from '@/hooks';
+import { useOverview } from '@/screens/account_details/components/overview/hooks';
+import { useStyles } from '@/screens/account_details/components/overview/styles';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
+import Dialog from '@material-ui/core/Dialog';
+import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import Typography from '@material-ui/core/Typography';
-import Dialog from '@material-ui/core/Dialog';
 import { QRCodeSVG } from 'qrcode.react';
-import { useScreenSize, useWindowOrigin } from '@/hooks';
+import React from 'react';
 import {
-  FacebookShareButton,
-  FacebookIcon,
-  TwitterShareButton,
-  TwitterIcon,
-  TelegramShareButton,
-  TelegramIcon,
-  WhatsappShareButton,
-  WhatsappIcon,
-  EmailShareButton,
   EmailIcon,
+  EmailShareButton,
+  FacebookIcon,
+  FacebookShareButton,
+  TelegramIcon,
+  TelegramShareButton,
+  TwitterIcon,
+  TwitterShareButton,
+  WhatsappIcon,
+  WhatsappShareButton,
 } from 'react-share';
 import CopyIcon from 'shared-utils/assets/icon-copy.svg';
 import ShareIcon from 'shared-utils/assets/icon-share.svg';
-import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
-import Box from '@/components/box';
-import { useStyles } from '@/screens/account_details/components/overview/styles';
-import { useOverview } from '@/screens/account_details/components/overview/hooks';
 
 const Overview: React.FC<{
   className?: string;

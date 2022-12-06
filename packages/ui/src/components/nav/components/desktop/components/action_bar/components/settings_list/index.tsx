@@ -1,22 +1,22 @@
-import React from 'react';
-import { useRouter } from 'next/router';
-import classnames from 'classnames';
-import useTranslation from 'next-translate/useTranslation';
-import SettingIcon from 'shared-utils/assets/icon-setting.svg';
-import generalConfig from '@/generalConfig';
-import MenuItem from '@material-ui/core/MenuItem';
-import Typography from '@material-ui/core/Typography';
-import Dialog from '@material-ui/core/Dialog';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogActions from '@material-ui/core/DialogActions';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import Select from '@material-ui/core/Select';
-import CloseIcon from '@material-ui/icons/Close';
-import { THEME_LIST, DATE_LIST, TX_LIST } from '@/recoil/settings';
 import { useSettingList } from '@/components/nav/components/desktop/components/action_bar/components/settings_list/hooks';
 import { useStyles } from '@/components/nav/components/desktop/components/action_bar/components/settings_list/styles';
+import generalConfig from '@/generalConfig';
+import { DATE_LIST, THEME_LIST, TX_LIST } from '@/recoil/settings';
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import IconButton from '@material-ui/core/IconButton';
+import MenuItem from '@material-ui/core/MenuItem';
+import Select from '@material-ui/core/Select';
+import Typography from '@material-ui/core/Typography';
+import CloseIcon from '@material-ui/icons/Close';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
+import { useRouter } from 'next/router';
+import React from 'react';
+import SettingIcon from 'shared-utils/assets/icon-setting.svg';
 
 const Settings: React.FC<{
   className?: string;
@@ -58,7 +58,7 @@ const Settings: React.FC<{
               <Select
                 variant="outlined"
                 value={state.theme}
-                onChange={(e) => handleChange('theme', e?.target?.value)}
+                onChange={(e) => handleChange('theme', (e?.target?.value as string) ?? '')}
                 MenuProps={{
                   MenuListProps: {
                     disablePadding: true,
@@ -78,7 +78,7 @@ const Settings: React.FC<{
               <Select
                 variant="outlined"
                 value={state.lang}
-                onChange={(e) => handleChange('lang', e?.target?.value)}
+                onChange={(e) => handleChange('lang', (e?.target?.value as string) ?? '')}
                 MenuProps={{
                   MenuListProps: {
                     disablePadding: true,
@@ -98,7 +98,7 @@ const Settings: React.FC<{
               <Select
                 variant="outlined"
                 value={state.dateFormat}
-                onChange={(e) => handleChange('dateFormat', e?.target?.value)}
+                onChange={(e) => handleChange('dateFormat', (e?.target?.value as string) ?? '')}
                 MenuProps={{
                   MenuListProps: {
                     disablePadding: true,
@@ -118,7 +118,7 @@ const Settings: React.FC<{
               <Select
                 variant="outlined"
                 value={state.txListFormat}
-                onChange={(e) => handleChange('txListFormat', e?.target?.value)}
+                onChange={(e) => handleChange('txListFormat', (e?.target?.value as string) ?? '')}
                 MenuProps={{
                   MenuListProps: {
                     disablePadding: true,

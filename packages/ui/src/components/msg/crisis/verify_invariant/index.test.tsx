@@ -1,8 +1,7 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme } from '@/tests/utils';
-import { MsgVerifyInvariant } from '@/models';
 import VerifyInvariant from '@/components/msg/crisis/verify_invariant';
+import { MsgVerifyInvariant } from '@/models';
+import { MockTheme } from '@/tests/utils';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

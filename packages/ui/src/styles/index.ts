@@ -2,9 +2,9 @@ import chainConfig from '@/chainConfig';
 import { ThemeOptions } from '@material-ui/core/styles';
 
 import {
-  lightTemplate,
   darkTemplate,
   deuteranopiaTemplate,
+  lightTemplate,
   tritanopiaTemplate,
 } from '@/styles/theme';
 
@@ -35,10 +35,10 @@ const getThemeDictionary = (list: string[]): ThemeDictionaryType => {
   return themeDict;
 };
 
-const themeDictionary = getThemeDictionary(chainConfig.themes.themeList);
-const defaultTheme = isThemeSupported(chainConfig.themes.default)
-  ? themeDictionary[chainConfig.themes.default]
-  : themeDictionary[chainConfig.themes.themeList[0]];
+const themeDictionary = getThemeDictionary(chainConfig().themes.themeList);
+const defaultTheme = isThemeSupported(chainConfig().themes.default)
+  ? themeDictionary[chainConfig().themes.default]
+  : themeDictionary[chainConfig().themes.themeList[0]];
 
 function isThemeSupported(theme: string) {
   return theme in themeDictionary;

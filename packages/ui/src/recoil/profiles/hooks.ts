@@ -1,17 +1,17 @@
-import { useEffect } from 'react';
-import { useRecoilValue, useRecoilCallback } from 'recoil';
 import chainConfig from '@/chainConfig';
-import type { AtomState as ProfileAtomState } from '@/recoil/profiles/types';
 import {
-  writeProfile,
-  readProfilesExist,
-  readProfileExist,
-  readProfile,
-  readProfiles,
   readDelegatorAddress,
   readDelegatorAddresses,
+  readProfile,
+  readProfileExist,
+  readProfiles,
+  readProfilesExist,
+  writeProfile,
 } from '@/recoil/profiles/selectors';
+import type { AtomState as ProfileAtomState } from '@/recoil/profiles/types';
 import { getProfile } from '@/recoil/profiles/utils';
+import { useEffect } from 'react';
+import { useRecoilCallback, useRecoilValue } from 'recoil';
 
 /**
  * Accepts a delegator address and returns the appropriate profile
@@ -38,7 +38,7 @@ export const useProfileRecoil = (address: string): AvatarName => {
   });
 
   useEffect(() => {
-    if (chainConfig.extra.profile && delegatorAddress && rawProfile === null) {
+    if (chainConfig().extra.profile && delegatorAddress && rawProfile === null) {
       fetchProfile();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -80,7 +80,7 @@ export const useProfilesRecoil = (addresses: string[]): AvatarName[] => {
   });
 
   useEffect(() => {
-    if (chainConfig.extra.profile) {
+    if (chainConfig().extra.profile) {
       fetchProfiles();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

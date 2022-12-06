@@ -1,5 +1,5 @@
-import * as R from 'ramda';
 import type { Categories } from '@/models/msg/types';
+import * as R from 'ramda';
 
 class MsgTransfer {
   public category: Categories;
@@ -14,30 +14,30 @@ class MsgTransfer {
 
   public sourceChannel: string;
 
-  public json: any;
+  public json: object;
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'ibc-transfer';
-    this.type = payload.type;
-    this.sender = payload.sender;
-    this.receiver = payload.receiver;
-    this.token = payload.token;
-    this.sourceChannel = payload.sourceChannel;
-    this.json = payload.json;
+    this.type = R.pathOr('', ['type'], payload);
+    this.sender = R.pathOr('', ['sender'], payload);
+    this.receiver = R.pathOr('', ['receiver'], payload);
+    this.token = R.pathOr({ denom: '', amount: '0' }, ['token'], payload);
+    this.sourceChannel = R.pathOr('', ['sourceChannel'], payload);
+    this.json = R.pathOr({}, ['json'], payload);
   }
 
-  static fromJson(json: any): MsgTransfer {
+  static fromJson(json: object): MsgTransfer {
     return {
       category: 'ibc-transfer',
       json,
-      type: json['@type'],
-      sender: json.sender,
-      receiver: json.receiver,
+      type: R.pathOr('', ['@type'], json),
+      sender: R.pathOr('', ['sender'], json),
+      receiver: R.pathOr('', ['receiver'], json),
       token: {
         denom: R.pathOr('', ['token', 'denom'], json),
         amount: R.pathOr('0', ['token', 'amount'], json),
       },
-      sourceChannel: json.source_channel,
+      sourceChannel: R.pathOr('', ['source_channel'], json),
     };
   }
 }

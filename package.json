@@ -1,6 +1,6 @@
 {
   "name": "big-dipper-2.0-cosmos",
-  "version": "1.0.0",
+  "version": "2.2.0",
   "license": "Apache-2.0",
   "private": true,
   "workspaces": [
@@ -8,39 +8,47 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "turbo run dev --filter ${PROJECT_NAME:-web}... --concurrency=1",
-    "build": "turbo run build --filter ${PROJECT_NAME:-web}...",
-    "build:ci": "turbo run build --concurrency=30%",
-    "clean": "[ -d \"node_modules\" ] && turbo run clean && rm -rf node_modules",
-    "start": "turbo run start --filter=${PROJECT_NAME:-web}...",
-    "format": "prettier --ignore-path ./.gitignore --write \"**/*.{js,ts,tsx,mjs,cjs,md}\"",
-    "lint": "turbo run lint --filter ${PROJECT_NAME:-web}...",
-    "lint:ci": "turbo run lint --concurrency=30%",
-    "test": "turbo run test --filter ${PROJECT_NAME:-web}...",
-    "test:snapshot": "turbo run test --filter ${PROJECT_NAME:-web}... -- -u",
-    "test:ci": "turbo run test --concurrency=30%",
+    "dev": "dotenv -- turbo run dev --filter=$(dotenv -- printenv PROJECT_NAME || echo web)...",
+    "dev:ci": "turbo run dev --continue",
+    "build": "dotenv -- turbo run build --filter=$(dotenv -- printenv PROJECT_NAME || echo web)...",
+    "build:ci": "turbo run build --continue --concurrency=1",
+    "clean": "yarn cache clean --all && [ -d \"node_modules\" ] && turbo run clean && rm -rf node_modules",
+    "start": "dotenv -- turbo run start --filter=$(dotenv -- printenv PROJECT_NAME || echo web)...",
+    "format": "prettier --ignore-path ./.gitignore --write \"{**/src/{,**/}*.{js,ts,tsx,mjs,cjs,md},e2e/{,**/}*.{js,ts,tsx,mjs,cjs,md}}\"",
+    "check-types": "dotenv -- turbo run check-types --filter=$(dotenv -- printenv PROJECT_NAME || echo web)...",
+    "check-types:ci": "turbo run check-types --continue",
+    "lint": "dotenv -- turbo run lint --filter=$(dotenv -- printenv PROJECT_NAME || echo web)...",
+    "lint:ci": "turbo run lint --continue",
+    "test": "dotenv -- turbo run test --filter=$(dotenv -- printenv PROJECT_NAME || echo web)...",
+    "test:ci": "turbo run test --continue",
     "e2e": "playwright test",
     "e2e:install": "playwright install --with-deps",
-    "graphql:codegen": "turbo run graphql:codegen --continue --concurrency=2",
+    "graphql:codegen": "turbo run graphql:codegen --continue",
     "postinstall": "husky install"
   },
-  "dependencies": {
-    "@changesets/cli": "^2.25.0",
-    "dotenv-cli": "^6.0.0"
-  },
   "devDependencies": {
-    "@playwright/test": "^1.28.0",
-    "husky": "^8.0.0",
-    "lint-staged": "^13.0.3",
-    "prettier": "2.7.1",
-    "turbo": "latest"
+    "@changesets/cli": "^2.25.2",
+    "@playwright/test": "^1.28.1",
+    "@types/eslint": "^8.4.10",
+    "dotenv-cli": "^6.0.0",
+    "eslint": "^8.29.0",
+    "husky": "^8.0.2",
+    "lint-staged": "^13.0.4",
+    "prettier": "2.8.0",
+    "turbo": "^1.6.3",
+    "typescript": "^4.9.3",
+    "typescritp": "^1.0.0"
+  },
+  "resolutions": {
+    "@types/node": "^18.11.10",
+    "@types/react": "^17.0.52"
   },
   "packageManager": "yarn@3.2.4",
   "engines": {
     "node": ">=16.13.0",
-    "yarn": ">=3.2.4"
+    "yarn": ">=1.22"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx,mjs,cjs,css,md}": "prettier --write"
+    "*.{js,jsx,ts,tsx,mjs,cjs,css,md}": "npx prettier --write"
   }
 }

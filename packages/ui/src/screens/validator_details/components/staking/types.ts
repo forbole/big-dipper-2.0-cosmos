@@ -21,7 +21,7 @@ export interface RedelegationType {
 export interface UnbondingType {
   address: string;
   amount: TokenUnit;
-  completionTime: string;
+  completionTime?: string;
 }
 
 export type DelegationsType = StakingType<DelegationType>;

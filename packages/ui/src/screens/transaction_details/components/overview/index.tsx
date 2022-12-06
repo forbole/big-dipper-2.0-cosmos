@@ -1,18 +1,18 @@
-import React from 'react';
-import classnames from 'classnames';
-import numeral from 'numeral';
-import Link from 'next/link';
-import dayjs, { formatDayJs } from '@/utils/dayjs';
-import Typography from '@material-ui/core/Typography';
-import { useRecoilValue } from 'recoil';
-import { readDate } from '@/recoil/settings';
-import useTranslation from 'next-translate/useTranslation';
-import { BLOCK_DETAILS } from '@/utils/go_to_page';
 import BoxDetails from '@/components/box_details';
 import Result from '@/components/result';
-import { formatNumber } from '@/utils/format_token';
-import type { OverviewType } from '@/screens/transaction_details/types';
+import { readDate } from '@/recoil/settings';
 import { useStyles } from '@/screens/transaction_details/components/overview/styles';
+import type { OverviewType } from '@/screens/transaction_details/types';
+import dayjs, { formatDayJs } from '@/utils/dayjs';
+import { formatNumber } from '@/utils/format_token';
+import { BLOCK_DETAILS } from '@/utils/go_to_page';
+import Typography from '@material-ui/core/Typography';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
+import Link from 'next/link';
+import numeral from 'numeral';
+import React from 'react';
+import { useRecoilValue } from 'recoil';
 
 const Overview: React.FC<{
   className?: string;
@@ -39,7 +39,7 @@ const Overview: React.FC<{
     },
     {
       label: t('time'),
-      detail: formatDayJs((dayjs as any).utc(data.timestamp), dateFormat),
+      detail: formatDayJs(dayjs.utc(data.timestamp), dateFormat),
     },
     {
       label: t('fee'),

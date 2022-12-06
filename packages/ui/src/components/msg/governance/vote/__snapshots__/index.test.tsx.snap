@@ -12,7 +12,7 @@ exports[`screen: TransactionDetails/MsgVote matches snapshot 1`] = `
           name="desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz"
         />,
         <b />,
-        <Proposal />,
+        <Unknown />,
       ]
     }
     i18nKey="message_contents:txVoteContent"

@@ -1,8 +1,7 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme } from '@/tests/utils';
-import MsgTransferNFT from '@/models/msg/nft/msg_transfer_nft';
 import TransferNFT from '@/components/msg/nft/transfer_nft';
+import MsgTransferNFT from '@/models/msg/nft/msg_transfer_nft';
+import { MockTheme } from '@/tests/utils';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

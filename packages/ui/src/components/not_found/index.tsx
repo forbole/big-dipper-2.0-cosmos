@@ -1,12 +1,12 @@
-import React from 'react';
+import { useStyles } from '@/components/not_found/styles';
+import { readTheme } from '@/recoil/settings';
+import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import Typography from '@material-ui/core/Typography';
+import React from 'react';
 import { useRecoilValue } from 'recoil';
-import { readTheme } from '@/recoil/settings';
-import NotFoundLight from 'shared-utils/assets/not-found-light.svg';
 import NotFoundDark from 'shared-utils/assets/not-found-dark.svg';
-import { useStyles } from '@/components/not_found/styles';
+import NotFoundLight from 'shared-utils/assets/not-found-light.svg';
 
 const NotFound: React.FC<{
   className?: string;

@@ -1,12 +1,12 @@
 export { atomFamilyState } from '@/recoil/profiles/atom';
 export { useProfileRecoil, useProfilesRecoil } from '@/recoil/profiles/hooks';
 export {
-  readProfile,
-  readProfiles,
-  writeProfile,
   readDelegatorAddress,
   readDelegatorAddresses,
+  readProfile,
   readProfileExist,
+  readProfiles,
   readProfilesExist,
   validatorToDelegatorAddress,
+  writeProfile,
 } from '@/recoil/profiles/selectors';

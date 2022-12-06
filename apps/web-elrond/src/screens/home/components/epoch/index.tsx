@@ -1,13 +1,13 @@
-import React from 'react';
-import classnames from 'classnames';
-import numeral from 'numeral';
+import Box from '@/components/box';
+import { useEpoch } from '@/screens/home/components/epoch/hooks';
+import { useStyles } from '@/screens/home/components/epoch/styles';
 import Typography from '@material-ui/core/Typography';
+import classnames from 'classnames';
 import Trans from 'next-translate/Trans';
 import useTranslation from 'next-translate/useTranslation';
-import Box from '@/components/box';
-import { RadialBarChart, PolarAngleAxis, RadialBar, Tooltip } from 'recharts';
-import { useStyles } from '@/screens/home/components/epoch/styles';
-import { useEpoch } from '@/screens/home/components/epoch/hooks';
+import numeral from 'numeral';
+import React from 'react';
+import { PolarAngleAxis, RadialBar, RadialBarChart, Tooltip } from 'recharts';
 
 const Epoch: React.FC<ComponentDefault> = (props) => {
   const { classes, theme } = useStyles();

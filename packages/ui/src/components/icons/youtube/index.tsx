@@ -1,5 +1,3 @@
-import React from 'react';
-
 const YouTube = () => (
   <svg
     width="26px"

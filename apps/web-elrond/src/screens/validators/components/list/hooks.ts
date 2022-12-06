@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { ComponentProps, useCallback, useEffect, useState } from 'react';
 import * as R from 'ramda';
 import axios from 'axios';
 import Big from 'big.js';
@@ -6,6 +6,20 @@ import { IDENTITIES, PROVIDERS, STAKE } from '@/api';
 import { formatToken, formatNumber } from '@/utils/format_token';
 import chainConfig from '@/chainConfig';
 import type { ValidatorsState } from '@/screens/validators/components/list/types';
+import Tabs from '@material-ui/core/Tabs';
+
+type ValidatorData = {
+  identity: string;
+  avatar: string;
+  name: string;
+  locked: string;
+  validators: number;
+  stake: number;
+  apr: number;
+  serviceFee: number;
+  numUsers: number;
+};
+type ProviderData = { identity: string; provider: string };
 
 export const useValidators = () => {
   const [state, setState] = useState<ValidatorsState>({
@@ -16,12 +30,15 @@ export const useValidators = () => {
     validators: [],
   });
 
-  const handleTabChange = useCallback((_event: any, newValue: number) => {
-    setState((prevState) => ({
-      ...prevState,
-      tab: newValue,
-    }));
-  }, []);
+  const handleTabChange: ComponentProps<typeof Tabs>['onChange'] = useCallback(
+    (_event, newValue) => {
+      setState((prevState) => ({
+        ...prevState,
+        tab: newValue,
+      }));
+    },
+    []
+  );
 
   const handleSetState = useCallback((stateChange: Partial<ValidatorsState>) => {
     setState((prevState) => {
@@ -48,16 +65,20 @@ export const useValidators = () => {
           axios.get(STAKE),
         ]);
 
-        const validatorsData = R.pathOr([], ['value', 'data'], validatorsDataRaw);
-        const providersData = R.pathOr([], ['value', 'data'], providersDataRaw);
-        const stakeData = R.pathOr({}, ['value', 'data'], stakeDataRaw);
+        if (validatorsDataRaw.status !== 'fulfilled') throw validatorsDataRaw.reason;
+        if (providersDataRaw.status !== 'fulfilled') throw providersDataRaw.reason;
+        if (stakeDataRaw.status !== 'fulfilled') throw stakeDataRaw.reason;
+
+        const validatorsData: Array<ValidatorData> = validatorsDataRaw?.value?.data ?? [];
+        const providersData: Array<ProviderData> = providersDataRaw?.value?.data ?? [];
+        const stakeData: { totalStaked: string } = stakeDataRaw?.value?.data ?? {};
 
         // identities
-        const identities: { [key: string]: any } = {};
-        validatorsData.forEach((x: any) => {
-          const identity = R.pathOr('', ['identity'], x);
-          const imageUrl = R.pathOr('', ['avatar'], x);
-          const name = R.pathOr('', ['name'], x);
+        const identities: { [key: string]: AvatarName } = {};
+        validatorsData.forEach((x) => {
+          const identity = x?.identity ?? '';
+          const imageUrl = x?.avatar ?? '';
+          const name = x?.name ?? '';
 
           const validator: AvatarName = {
             address: identity,
@@ -71,22 +92,18 @@ export const useValidators = () => {
         });
 
         // get the unique keys first
-        const allValidators: any = {};
-        const allValidatorData: any = {};
-        const allProviderData: any = {};
-        const allNodes: any = {};
+        const allValidators: { [k: string]: AvatarName } = {};
+        const allValidatorData: { [k: string]: ValidatorData } = {};
+        const allProviderData: { [k: string]: ProviderData } = {};
+        const allNodes: { [k: string]: boolean } = {};
 
-        validatorsData.forEach((x: any) => {
-          const identity = R.pathOr(null, ['identity'], x);
-          const validator = R.pathOr(
-            {
-              address: R.pathOr('', ['name'], x),
-              imageUrl: '',
-              name: R.pathOr('', ['name'], x),
-            },
-            [identity ?? ''],
-            identities
-          );
+        validatorsData.forEach((x) => {
+          const identity = x?.identity ?? null;
+          const validator = identities?.[identity ?? ''] ?? {
+            address: x?.name ?? '',
+            imageUrl: '',
+            name: x?.name ?? '',
+          };
           if (!allValidators[validator.address]) {
             allValidators[validator.address] = validator;
           }
@@ -97,17 +114,13 @@ export const useValidators = () => {
           }
         });
 
-        providersData.forEach((x: any) => {
-          const identity = R.pathOr(null, ['identity'], x);
-          const validator = R.pathOr(
-            {
-              address: R.pathOr('', ['provider'], x),
-              imageUrl: '',
-              name: R.pathOr('', ['provider'], x),
-            },
-            [identity ?? ''],
-            identities
-          );
+        providersData.forEach((x) => {
+          const identity = x?.identity ?? null;
+          const validator = identities?.[identity ?? ''] ?? {
+            address: x?.provider ?? '',
+            imageUrl: '',
+            name: x?.provider ?? '',
+          };
 
           // validator should be unique
           if (!allValidators[validator.address]) {
@@ -117,29 +130,29 @@ export const useValidators = () => {
           allProviderData[validator.address] = x;
         });
 
-        const totalStaked = R.pathOr('0', ['totalStaked'], stakeData);
+        const totalStaked = stakeData?.totalStaked ?? '0';
 
         const validators = R.keys(allValidators).map((x) => {
           const validator = allValidators[x];
           const validatorData = allValidatorData[x] || {};
           const providerData = allProviderData[x] || {};
           const isNode = allNodes[x] || false;
-          const data = R.mergeAll([providerData, validatorData]);
+          const data = R.mergeAll([providerData, validatorData]) as ValidatorData & ProviderData;
 
-          const locked = R.pathOr('0', ['locked'], data);
+          const locked = data?.locked ?? '0';
           const stakePercentString = Big(locked)
             .div(totalStaked === '0' ? 1 : totalStaked)
-            .times(100)
+            ?.times(100)
             .toFixed(3);
 
           return {
             validator,
-            stake: formatToken(R.pathOr('0', ['stake'], data), chainConfig.primaryTokenUnit),
-            locked: formatToken(locked, chainConfig.primaryTokenUnit),
-            nodes: R.pathOr(0, ['validators'], data),
-            commission: R.pathOr(undefined, ['serviceFee'], data),
-            apr: R.pathOr(undefined, ['apr'], data),
-            delegators: R.pathOr(undefined, ['numUsers'], data),
+            stake: formatToken(data?.stake ?? '0', chainConfig().primaryTokenUnit),
+            locked: formatToken(locked, chainConfig().primaryTokenUnit),
+            nodes: data?.validators ?? 0,
+            commission: data?.serviceFee,
+            apr: data?.apr,
+            delegators: data?.numUsers,
             stakePercent: Number(formatNumber(stakePercentString, 2)),
             isNode,
           };
@@ -154,7 +167,7 @@ export const useValidators = () => {
           loading: false,
           exists: false,
         });
-        console.error((error as any).message);
+        console.error((error as Error).message);
       }
     };
 

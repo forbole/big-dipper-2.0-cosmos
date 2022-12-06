@@ -1,14 +1,13 @@
-import React from 'react';
-import classnames from 'classnames';
-import { useRouter } from 'next/router';
-import Link from 'next/link';
+import { useStyles } from '@/components/nav/components/menu_items/styles';
+import { getMenuItems } from '@/components/nav/components/menu_items/utils';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import { useStyles } from '@/components/nav/components/menu_items/styles';
-import { getMenuItems } from '@/components/nav/components/menu_items/utils';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const MenuItems = () => {
   const classes = useStyles();

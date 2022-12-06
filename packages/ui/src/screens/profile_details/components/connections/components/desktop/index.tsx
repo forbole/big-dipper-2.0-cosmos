@@ -1,19 +1,19 @@
-import React from 'react';
 import chainConfig from '@/chainConfig';
-import classnames from 'classnames';
-import useTranslation from 'next-translate/useTranslation';
-import { useRecoilValue } from 'recoil';
 import { readDate } from '@/recoil/settings';
+import { columns } from '@/screens/profile_details/components/connections/components/desktop/utils';
+import dayjs, { formatDayJs } from '@/utils/dayjs';
+import { ACCOUNT_DETAILS } from '@/utils/go_to_page';
 import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import TableCell from '@material-ui/core/TableCell';
-import TableBody from '@material-ui/core/TableBody';
 import Typography from '@material-ui/core/Typography';
-import dayjs, { formatDayJs } from '@/utils/dayjs';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
-import { ACCOUNT_DETAILS } from '@/utils/go_to_page';
-import { columns } from '@/screens/profile_details/components/connections/components/desktop/utils';
+import React from 'react';
+import { useRecoilValue } from 'recoil';
 
 const Desktop: React.FC<{
   className?: string;
@@ -24,7 +24,7 @@ const Desktop: React.FC<{
 
   const formattedItems = items?.map((x) => {
     let identity: string | React.ReactNode = x.identifier;
-    if (new RegExp(`^(${chainConfig.prefix.account})`).test(x.identifier)) {
+    if (new RegExp(`^(${chainConfig().prefix.account})`).test(x.identifier)) {
       identity = (
         <Link href={ACCOUNT_DETAILS(x.identifier)} passHref>
           <Typography variant="body1" className="value" component="a">
@@ -37,7 +37,7 @@ const Desktop: React.FC<{
     return {
       network: x.network.toUpperCase(),
       identifier: identity,
-      creationTime: formatDayJs((dayjs as any).utc(x.creationTime), dateFormat),
+      creationTime: formatDayJs(dayjs.utc(x.creationTime), dateFormat),
     };
   });
 

@@ -1,32 +1,25 @@
-import { useEffect, useState } from 'react';
-import useTranslation from 'next-translate/useTranslation';
+import { useLatestBlockTimestampLazyQuery } from '@/graphql/types/general_types';
 import dayjs from '@/utils/dayjs';
+import useTranslation from 'next-translate/useTranslation';
+import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
-import * as R from 'ramda';
-import { LazyQueryHookOptions, LazyQueryResultTuple } from '@apollo/client';
-
-export type UseLatestBlockTimestampLazyQuery<TData, TVariables> = (
-  baseOptions?: LazyQueryHookOptions<TData, TVariables>
-) => LazyQueryResultTuple<TData, TVariables>;
 
 const isClient = typeof window === 'object';
 
-export function useChainHealthCheck<TData, TVariables>(
-  useLatestBlockTimestampLazyQuery: UseLatestBlockTimestampLazyQuery<TData, TVariables>
-) {
+export function useChainHealthCheck() {
   const { t } = useTranslation('common');
   const [chainActive, setChainActive] = useState(true);
 
   const [getLatestBlockTimestamp] = useLatestBlockTimestampLazyQuery({
     onCompleted: (data) => {
-      const timestamp = (dayjs as any).utc(R.pathOr('', ['block', 0, 'timestamp'], data));
-      const timeNow = (dayjs as any).utc();
+      const timestamp = dayjs.utc(data?.block?.[0]?.timestamp ?? '');
+      const timeNow = dayjs.utc();
       const timeDifference = timeNow.diff(timestamp, 's');
       // if latest block has been over two minute ago
       if (timeDifference > 120 && chainActive) {
         toast.error(
           t('blockTimeAgo', {
-            time: (dayjs as any).utc(timestamp).fromNow(),
+            time: dayjs.utc(timestamp).fromNow(),
           }),
           {
             autoClose: false,

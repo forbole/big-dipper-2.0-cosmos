@@ -1,8 +1,8 @@
-import React from 'react';
+import { useStyles } from '@/screens/providers/components/providers_list/components/mobile/component/single_provider/styles';
+import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import Typography from '@material-ui/core/Typography';
-import { useStyles } from '@/screens/providers/components/providers_list/components/mobile/component/single_provider/styles';
+import React, { ReactNode } from 'react';
 
 const SingleProvider: React.FC<{
   className?: string;
@@ -14,12 +14,12 @@ const SingleProvider: React.FC<{
   // organization: string;
   // email: string;
   // website: string;
-  ownerAddress: string;
-  hostUri: string;
-  region: string;
-  organization: string;
-  email: string;
-  website: string;
+  ownerAddress: ReactNode;
+  hostUri: ReactNode;
+  region: ReactNode;
+  organization: ReactNode;
+  email: ReactNode;
+  website: ReactNode;
 }> = ({ className, ownerAddress, hostUri, region, organization, email, website }) => {
   const { t } = useTranslation('providers');
   const classes = useStyles();

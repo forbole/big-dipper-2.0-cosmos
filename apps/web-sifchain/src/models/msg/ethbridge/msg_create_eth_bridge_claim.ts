@@ -1,34 +1,45 @@
-import * as R from 'ramda';
 import type { Categories } from '@/models/msg/types';
+import * as R from 'ramda';
 
 class MsgCreateEthBridgeClaim {
   public category: Categories;
 
   public type: string;
 
-  public json: any;
+  public json: object;
 
   public ethBridgeClaim: {
     cosmosreceiver: string;
     claimType: 'CLAIM_TYPE_UNSPECIFIED' | 'CLAIM_TYPE_BURN' | 'CLAIM_TYPE_LOCK';
   };
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'ethbridge';
-    this.type = payload.type;
-    this.json = payload.json;
-    this.ethBridgeClaim = payload.ethBridgeClaim;
+    this.type = R.pathOr('', ['type'], payload);
+    this.json = R.pathOr({}, ['json'], payload);
+    this.ethBridgeClaim = R.pathOr(
+      {
+        cosmosreceiver: '',
+        claimType: 'CLAIM_TYPE_UNSPECIFIED',
+      },
+      ['ethBridgeClaim'],
+      payload
+    );
   }
 
-  static fromJson(json: any): MsgCreateEthBridgeClaim {
+  static fromJson(json: object): MsgCreateEthBridgeClaim {
     return {
       category: 'ethbridge',
       json,
-      type: json['@type'],
-      ethBridgeClaim: {
-        cosmosreceiver: R.pathOr('', ['eth_bridge_claim', 'cosmos_receiver'], json),
-        claimType: R.pathOr('CLAIM_TYPE_UNSPECIFIED', ['eth_bridge_claim', 'claim_type'], json),
-      },
+      type: R.pathOr('', ['@type'], json),
+      ethBridgeClaim: R.pathOr(
+        {
+          cosmosreceiver: '',
+          claimType: 'CLAIM_TYPE_UNSPECIFIED',
+        },
+        ['eth_bridge_claim', 'cosmos_receiver'],
+        json
+      ),
     };
   }
 }

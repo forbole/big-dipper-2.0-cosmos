@@ -6,34 +6,34 @@ class MsgReportData {
 
   public type: string;
 
-  public json: any;
+  public json: object;
 
   public requestId: number;
 
-  // public rawReports: {
+  // public rawReports: Array<{
   //   externalId: number;
   //   exitCode: number;
-  //   data: JSON;
-  // }[];
+  //   data: object;
+  // }>;
   public validator: string;
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'oracle';
-    this.json = payload.json;
-    this.type = payload.type;
-    this.requestId = payload.requestId;
-    // this.rawReports = payload.rawReports;
-    this.validator = payload.validator;
+    this.json = R.pathOr({}, ['json'], payload);
+    this.type = R.pathOr('', ['type'], payload);
+    this.requestId = R.pathOr(0, ['requestId'], payload);
+    // this.rawReports = R.pathOr('', ['rawReports'], payload);
+    this.validator = R.pathOr('', ['validator'], payload);
   }
 
-  static fromJson(json: any): MsgReportData {
+  static fromJson(json: object): MsgReportData {
     return {
       category: 'oracle',
       json,
-      type: json['@type'],
+      type: R.pathOr('', ['@type'], json),
       requestId: R.pathOr(0, ['request_id'], json),
       // rawReports: R.pathOr([], ['raw_reports'], json),
-      validator: json.validator,
+      validator: R.pathOr('', ['validator'], json),
     };
   }
 }

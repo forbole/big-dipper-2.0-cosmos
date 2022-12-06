@@ -1,7 +1,6 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme, wait } from '@/tests/utils';
 import Menu from '@/components/nav/components/mobile/components/menu';
+import { MockTheme, wait } from '@/tests/utils';
+import renderer from 'react-test-renderer';
 // ==================================
 // globals
 // ==================================

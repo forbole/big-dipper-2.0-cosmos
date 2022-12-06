@@ -1,21 +1,21 @@
 import Loading from '@/components/loading';
 import SingleTransactionMobile from '@/components/single_transaction_mobile';
+import { useStyles } from '@/components/transactions_list/components/mobile/styles';
+import type { TransactionsListState } from '@/components/transactions_list/types';
 import { useList, useListRow } from '@/hooks';
-import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
+import dayjs from '@/utils/dayjs';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { BLOCK_DETAILS, TRANSACTION_DETAILS } from '@/utils/go_to_page';
 import { mergeRefs } from '@/utils/merge_refs';
+import Divider from '@material-ui/core/Divider';
+import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import Link from 'next/link';
 import numeral from 'numeral';
-import React, { ComponentProps, FC } from 'react';
+import { ComponentProps, FC } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
-import dayjs from '@/utils/dayjs';
-import type { TransactionsListState } from '@/components/transactions_list/types';
-import { useStyles } from '@/components/transactions_list/components/mobile/styles';
 
 const Mobile: FC<TransactionsListState> = ({
   className,
@@ -46,7 +46,7 @@ const Mobile: FC<TransactionsListState> = ({
         </Typography>
       </Link>
     ),
-    time: (dayjs as any).utc(x.timestamp).fromNow(),
+    time: dayjs.utc(x.timestamp).fromNow(),
   }));
 
   return (
@@ -87,7 +87,7 @@ const Mobile: FC<TransactionsListState> = ({
 
 const ListItem: FC<
   Pick<ListChildComponentProps, 'index' | 'style'> & {
-    setRowHeight: ReturnType<typeof useList>['setRowHeight'];
+    setRowHeight: Parameters<typeof useListRow>[1];
     isItemLoaded: ((index: number) => boolean) | undefined;
     items: ComponentProps<typeof SingleTransactionMobile>[];
     itemCount: number;

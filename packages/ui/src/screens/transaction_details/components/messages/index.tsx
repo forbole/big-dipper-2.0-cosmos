@@ -1,3 +1,8 @@
+import Box from '@/components/box';
+import { getMessageByType } from '@/components/msg/utils';
+import TransactionMessagesFilter from '@/components/transaction_messages_filter';
+import { useList, useListRow } from '@/hooks';
+import { useStyles } from '@/screens/transaction_details/components/messages/styles';
 import Divider from '@material-ui/core/Divider';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
@@ -7,15 +12,10 @@ import useTranslation from 'next-translate/useTranslation';
 import React, { FC } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
-import Box from '@/components/box';
-import { getMessageByType } from '@/components/msg/utils';
-import TransactionMessagesFilter from '@/components/transaction_messages_filter';
-import { useList, useListRow } from '@/hooks';
-import { useStyles } from '@/screens/transaction_details/components/messages/styles';
 
 const Messages: FC<{
   className?: string;
-  messages: any[];
+  messages: unknown[];
   viewRaw: boolean;
   toggleMessageDisplay: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onMessageFilterCallback: (value: string) => void;
@@ -88,7 +88,7 @@ const Messages: FC<{
 
 const ListItem: FC<
   Pick<ListChildComponentProps, 'index' | 'style'> & {
-    setRowHeight: ReturnType<typeof useList>['setRowHeight'];
+    setRowHeight: Parameters<typeof useListRow>[1];
     formattedItems: Array<{ type: unknown; message: unknown }>;
     classes: ReturnType<typeof useStyles>;
     messages: unknown[];

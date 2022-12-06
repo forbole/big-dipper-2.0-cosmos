@@ -1,5 +1,5 @@
-import * as R from 'ramda';
 import type { Categories } from '@/models/msg/types';
+import * as R from 'ramda';
 
 class MsgSend {
   public category: Categories;
@@ -12,27 +12,27 @@ class MsgSend {
 
   public amount: MsgCoin[];
 
-  public json: any;
+  public json: object;
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'bank';
-    this.type = payload.type;
-    this.fromAddress = payload.fromAddress;
-    this.toAddress = payload.toAddress;
-    this.amount = payload.amount;
-    this.json = payload.json;
+    this.type = R.pathOr('', ['type'], payload);
+    this.fromAddress = R.pathOr('', ['fromAddress'], payload);
+    this.toAddress = R.pathOr('', ['toAddress'], payload);
+    this.amount = R.pathOr<MsgSend['amount']>([], ['amount'], payload);
+    this.json = R.pathOr({}, ['json'], payload);
   }
 
-  static fromJson(json: any): MsgSend {
+  static fromJson(json: object): MsgSend {
     return {
       category: 'bank',
       json,
-      type: json['@type'],
-      fromAddress: json.from_address,
-      toAddress: json.to_address,
-      amount: json?.amount.map((x?: { denom: string; amount?: number }) => ({
-        denom: x?.denom,
-        amount: R.pathOr('0', ['amount'], x),
+      type: R.pathOr('', ['@type'], json),
+      fromAddress: R.pathOr('', ['fromAddress'], json),
+      toAddress: R.pathOr('', ['toAddress'], json),
+      amount: R.pathOr<MsgSend['amount']>([], ['amount'], json).map((x) => ({
+        denom: x?.denom ?? '',
+        amount: x?.amount ?? '0',
       })),
     };
   }

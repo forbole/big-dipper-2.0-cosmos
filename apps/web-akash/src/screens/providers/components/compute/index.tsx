@@ -1,12 +1,12 @@
-import React from 'react';
-import classnames from 'classnames';
-import numeral from 'numeral';
-import Typography from '@material-ui/core/Typography';
-import useTranslation from 'next-translate/useTranslation';
 import Box from '@/components/box';
 import CustomToolTip from '@/components/custom_tool_tip';
-import { PieChart, Pie, Cell, Tooltip } from 'recharts';
 import { useStyles } from '@/screens/providers/components/compute/styles';
+import Typography from '@material-ui/core/Typography';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
+import numeral from 'numeral';
+import React from 'react';
+import { Cell, Pie, PieChart, Tooltip } from 'recharts';
 
 const Compute: React.FC<{
   className?: string;
@@ -78,7 +78,7 @@ const Compute: React.FC<{
         </PieChart>
 
         <div className={classes.legends}>
-          {data.map((x: any) => (
+          {data.map((x) => (
             <div className="legends__item" key={x.legendKey}>
               <Typography variant="caption" className="usage">
                 {t(x.legendKey)}{' '}

@@ -1,8 +1,7 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme } from '@/tests/utils';
-import { MsgCreateRelationship } from '@/models';
 import CreateRelationship from '@/components/msg/profiles/create_relationship';
+import { MsgCreateRelationship } from '@/models';
+import { MockTheme } from '@/tests/utils';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

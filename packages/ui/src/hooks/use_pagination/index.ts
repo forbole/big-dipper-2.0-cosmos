@@ -34,13 +34,13 @@ export const usePagination = (options?: Options) => {
     }
   };
 
-  const sliceItems = (items: any[]) => {
+  const sliceItems = <T>(items: T[]) => {
     const start = page * rowsPerPage;
     const end = start + rowsPerPage;
     return items.slice(start, end);
   };
 
-  const getTotal = (items: any[]) => items.length;
+  const getTotal = (items: unknown[]) => items.length;
 
   const resetPagination = () => {
     setPage(0);

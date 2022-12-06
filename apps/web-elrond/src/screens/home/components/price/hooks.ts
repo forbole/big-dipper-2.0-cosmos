@@ -1,9 +1,9 @@
-import { useCallback, useEffect, useState } from 'react';
-import numeral from 'numeral';
-import * as R from 'ramda';
-import axios from 'axios';
 import { PRICE_HISTORY } from '@/api';
 import type { PriceState } from '@/screens/home/components/price/types';
+import axios from 'axios';
+import numeral from 'numeral';
+import * as R from 'ramda';
+import { useCallback, useEffect, useState } from 'react';
 
 export const usePrice = () => {
   const [state, setState] = useState<PriceState>({
@@ -25,8 +25,8 @@ export const usePrice = () => {
         handleSetState({
           items: prices.slice(-7),
         });
-      } catch (error: any) {
-        console.error(error.message);
+      } catch (error) {
+        console.error((error as Error).message);
       }
     };
 

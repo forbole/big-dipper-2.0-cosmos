@@ -1,8 +1,7 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme } from '@/tests/utils';
-import { MsgCreatePeriodicVestingAccount } from '@/models';
 import CreatePeriodicVestingAccount from '@/components/msg/vesting/create_periodic_vesting_account';
+import { MsgCreatePeriodicVestingAccount } from '@/models';
+import { MockTheme } from '@/tests/utils';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

@@ -1,3 +1,5 @@
+import * as R from 'ramda';
+
 /* eslint-disable camelcase */
 type Payload = {
   buffer_size?: number;
@@ -19,21 +21,29 @@ type Payload = {
 
 function StakeibcParams(payload?: Payload) {
   return {
-    bufferSize: payload?.buffer_size ?? 0,
-    depositInterval: payload?.deposit_interval ?? 0,
-    rewardsInterval: payload?.rewards_interval ?? 0,
-    delegateInterval: payload?.delegate_interval ?? 0,
-    icaTimeoutNanos: payload?.ica_timeout_nanos ?? 0,
-    reinvestInterval: payload?.reinvest_interval ?? 0,
-    strideCommission: payload?.stride_commission ?? 0,
-    ibcTimeoutBlocks: payload?.ibc_timeout_blocks ?? 0,
-    redemptionRateInterval: payload?.redemption_rate_interval ?? 0,
-    feeTransferTimeoutNanos: payload?.fee_transfer_timeout_nanos ?? 0,
-    ibcTransferTimeoutNanos: payload?.ibc_transfer_timeout_nanos ?? 0,
-    maxStakeIcaCallsPerEpoch: payload?.max_stake_ica_calls_per_epoch ?? 0,
-    validatorRebalancingThreshold: payload?.validator_rebalancing_threshold ?? 0,
-    safetyMaxRedemptionRateThreshold: payload?.safety_max_redemption_rate_threshold ?? 0,
-    safetyMinRedemptionRateThreshold: payload?.safety_min_redemption_rate_threshold ?? 0,
+    bufferSize: R.pathOr(0, ['buffer_size'], payload),
+    depositInterval: R.pathOr(0, ['deposit_interval'], payload),
+    rewardsInterval: R.pathOr(0, ['rewards_interval'], payload),
+    delegateInterval: R.pathOr(0, ['delegate_interval'], payload),
+    icaTimeoutNanos: R.pathOr(0, ['ica_timeout_nanos'], payload),
+    reinvestInterval: R.pathOr(0, ['reinvest_interval'], payload),
+    strideCommission: R.pathOr(0, ['stride_commission'], payload),
+    ibcTimeoutBlocks: R.pathOr(0, ['ibc_timeout_blocks'], payload),
+    redemptionRateInterval: R.pathOr(0, ['redemption_rate_interval'], payload),
+    feeTransferTimeoutNanos: R.pathOr(0, ['fee_transfer_timeout_nanos'], payload),
+    ibcTransferTimeoutNanos: R.pathOr(0, ['ibc_transfer_timeout_nanos'], payload),
+    maxStakeIcaCallsPerEpoch: R.pathOr(0, ['max_stake_ica_calls_per_epoch'], payload),
+    validatorRebalancingThreshold: R.pathOr(0, ['validator_rebalancing_threshold'], payload),
+    safetyMaxRedemptionRateThreshold: R.pathOr(
+      0,
+      ['safety_max_redemption_rate_threshold'],
+      payload
+    ),
+    safetyMinRedemptionRateThreshold: R.pathOr(
+      0,
+      ['safety_min_redemption_rate_threshold'],
+      payload
+    ),
   };
 }
 

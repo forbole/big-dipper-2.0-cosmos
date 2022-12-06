@@ -1,8 +1,7 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme } from '@/tests/utils';
-import MsgSendRequest from '@/models/msg/ecocredit/msg_send_request';
 import SendRequest from '@/components/msg/ecocredit/send_request';
+import MsgSendRequest from '@/models/msg/ecocredit/msg_send_request';
+import { MockTheme } from '@/tests/utils';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

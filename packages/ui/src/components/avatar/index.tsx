@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useStyles } from '@/components/avatar/styles';
 import classnames from 'classnames';
 import * as jdenticon from 'jdenticon';
 import Image from 'next/future/image';
-import { useStyles } from '@/components/avatar/styles';
+import React, { useEffect, useRef, useState } from 'react';
 
 const Avatar: React.FC<{
   className?: string;

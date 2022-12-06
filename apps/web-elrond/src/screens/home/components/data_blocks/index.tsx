@@ -1,12 +1,12 @@
-import React from 'react';
-import classnames from 'classnames';
-import numeral from 'numeral';
-import { useRecoilValue } from 'recoil';
 import { readMarket } from '@/recoil/market';
-import useTranslation from 'next-translate/useTranslation';
 import SingleBlock from '@/screens/home/components/data_blocks/components/single_block';
-import { useStyles } from '@/screens/home/components/data_blocks/styles';
 import { useDataBlocks } from '@/screens/home/components/data_blocks/hooks';
+import { useStyles } from '@/screens/home/components/data_blocks/styles';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
+import numeral from 'numeral';
+import React from 'react';
+import { useRecoilValue } from 'recoil';
 
 const DataBlocks: React.FC<ComponentDefault> = (props) => {
   const { t } = useTranslation('home');

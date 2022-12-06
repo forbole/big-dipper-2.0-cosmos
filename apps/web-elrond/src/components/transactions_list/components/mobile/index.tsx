@@ -1,14 +1,14 @@
-import React from 'react';
-import dayjs from '@/utils/dayjs';
-import Link from 'next/link';
-import useTranslation from 'next-translate/useTranslation';
-import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
-import { Typography, Divider } from '@material-ui/core';
-import Result from '@/components/result';
 import AvatarName from '@/components/avatar_name';
-import { TRANSACTION_DETAILS } from '@/utils/go_to_page';
+import Result from '@/components/result';
 import { useStyles } from '@/components/transactions_list/components/mobile/styles';
 import Shard from '@/components/transactions_list/components/shard';
+import dayjs from '@/utils/dayjs';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
+import { TRANSACTION_DETAILS } from '@/utils/go_to_page';
+import { Divider, Typography } from '@material-ui/core';
+import useTranslation from 'next-translate/useTranslation';
+import Link from 'next/link';
+import React from 'react';
 
 const Mobile: React.FC<{ items: TransactionType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('transactions');
@@ -44,7 +44,7 @@ const Mobile: React.FC<{ items: TransactionType[] } & ComponentDefault> = (props
       />
     ),
     status: <Result status={x.status} />,
-    time: (dayjs as any).utc(dayjs.unix(x.timestamp)).fromNow(),
+    time: dayjs.utc(dayjs.unix(x.timestamp)).fromNow(),
   }));
 
   return (

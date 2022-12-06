@@ -1,8 +1,8 @@
-import React from 'react';
+import { useStyles } from '@/screens/validators/components/list/components/mobile/component/single_validator/styles';
+import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import Typography from '@material-ui/core/Typography';
-import { useStyles } from '@/screens/validators/components/list/components/mobile/component/single_validator/styles';
+import React from 'react';
 
 const SingleValidator: React.FC<{
   className?: string;

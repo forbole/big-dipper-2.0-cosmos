@@ -48,12 +48,46 @@ export const useTransactionDetails = () => {
   useEffect(() => {
     const getTransactionDetail = async () => {
       try {
-        const { data: transactionData } = await axios.get(
-          TRANSACTION_DETAILS(router.query.hash as string)
-        );
+        const { data: transactionData } = await axios.get<{
+          txHash: TransactionDetailsState['overview']['hash'];
+          senderShard: TransactionDetailsState['overview']['fromShard'];
+          receiverShard: TransactionDetailsState['overview']['toShard'];
+          sender: TransactionDetailsState['overview']['from'];
+          receiver: TransactionDetailsState['overview']['to'];
+          timestamp: TransactionDetailsState['overview']['timestamp'];
+          status: TransactionDetailsState['overview']['status'];
+          miniBlockHash: TransactionDetailsState['overview']['miniblockHash'];
+          gasUsed: TransactionDetailsState['overview']['gasUsed'];
+          gasLimit: TransactionDetailsState['overview']['gasLimit'];
+          gasPrice: string | undefined;
+          price: TransactionDetailsState['overview']['price'];
+          action?: {
+            category: string;
+            name: string;
+            description: string;
+          };
+          operations?: Array<{
+            type?: string;
+            decimals?: number;
+            value?: string;
+            action?: string;
+            sender?: string;
+            receiver?: string;
+            identifier?: string;
+            name?: string;
+          }>;
+          results: Array<{
+            hash?: string;
+            sender?: string;
+            receiver?: string;
+            data?: string;
+            value?: number;
+          }>;
+          data?: string;
+        }>(TRANSACTION_DETAILS(router.query.hash as string));
 
         // overview
-        const overview = {
+        const overview: TransactionDetailsState['overview'] = {
           hash: transactionData.txHash,
           fromShard: transactionData.senderShard,
           toShard: transactionData.receiverShard,
@@ -64,10 +98,7 @@ export const useTransactionDetails = () => {
           miniblockHash: transactionData.miniBlockHash,
           gasUsed: transactionData.gasUsed,
           gasLimit: transactionData.gasLimit,
-          gasPrice: formatToken(
-            R.pathOr(0, ['gasPrice'], transactionData),
-            chainConfig.primaryTokenUnit
-          ),
+          gasPrice: formatToken(transactionData?.gasPrice ?? 0, chainConfig().primaryTokenUnit),
           price: transactionData.price,
         };
 
@@ -75,49 +106,49 @@ export const useTransactionDetails = () => {
         let action = null;
         if (transactionData.action) {
           action = {
-            category: R.pathOr('', ['category'], transactionData.action),
-            name: R.pathOr('', ['name'], transactionData.action),
-            description: R.pathOr('', ['description'], transactionData.action),
+            category: transactionData.action?.category ?? '',
+            name: transactionData.action?.name ?? '',
+            description: transactionData.action?.description ?? '',
           };
         }
 
         // operations
-        const operations = R.pathOr([], ['operations'], transactionData).map((x) => {
+        const operations = transactionData?.operations?.map((x) => {
           // edge case if value is base token
-          const type = R.pathOr('', ['type'], x);
-          let decimals = R.pathOr(0, ['decimals'], x);
-          if (type === chainConfig.primaryTokenUnit) {
-            decimals = chainConfig.tokenUnits[chainConfig.primaryTokenUnit].exponent;
+          const type = x?.type ?? '';
+          let decimals = x?.decimals ?? 0;
+          if (type === chainConfig().primaryTokenUnit) {
+            decimals = chainConfig().tokenUnits?.[chainConfig().primaryTokenUnit].exponent;
           }
-          const value = formatTokenByExponent(R.pathOr('0', ['value'], x), decimals);
+          const value = formatTokenByExponent(x?.value ?? 0, decimals);
           return {
-            action: R.pathOr('', ['action'], x),
-            sender: R.pathOr('', ['sender'], x),
-            receiver: R.pathOr('', ['receiver'], x),
-            identifier: R.pathOr('', ['identifier'], x),
+            action: x?.action ?? '',
+            sender: x?.sender ?? '',
+            receiver: x?.receiver ?? '',
+            identifier: x?.identifier ?? '',
             value: {
               value,
-              baseDenom: R.pathOr('', ['name'], x) || type,
-              displayDenom: R.pathOr('', ['name'], x) || type,
+              baseDenom: x?.name || type,
+              displayDenom: x?.name || type,
               exponent: decimals,
             },
           };
         });
 
         // results
-        const results = R.pathOr([], ['results'], transactionData).map((x) => ({
-          hash: R.pathOr('', ['hash'], x),
-          sender: R.pathOr('', ['sender'], x),
-          receiver: R.pathOr('', ['receiver'], x),
-          data: R.pathOr('', ['data'], x),
-          value: formatToken(R.pathOr(0, ['value'], x), chainConfig.primaryTokenUnit),
+        const results = transactionData?.results?.map((x) => ({
+          hash: x?.hash ?? '',
+          sender: x?.sender ?? '',
+          receiver: x?.receiver ?? '',
+          data: x?.data ?? '',
+          value: formatToken(x?.value ?? 0, chainConfig().primaryTokenUnit),
         }));
 
         handleSetState({
           loading: false,
           overview,
-          data: R.pathOr('', ['data'], transactionData),
-          action,
+          data: transactionData?.data ?? '',
+          action: action ?? undefined,
           operations,
           results,
         });
@@ -126,7 +157,7 @@ export const useTransactionDetails = () => {
           loading: false,
           exists: false,
         });
-        console.error((error as any).message);
+        console.error((error as Error).message);
       }
     };
 

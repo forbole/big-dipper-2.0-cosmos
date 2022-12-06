@@ -1,17 +1,16 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme } from '@/tests/utils';
 import DesmosProfile from '@/components/desmos_profile';
+import { MockTheme } from '@/tests/utils';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks
 // ==================================
 jest.mock(
-  './components/connections/components/desktop',
+  '@/components/desmos_profile/components/connections/components/desktop',
   () => (props: JSX.IntrinsicElements['div']) => <div id="Desktop" {...props} />
 );
 jest.mock(
-  './components/connections/components/mobile',
+  '@/components/desmos_profile/components/connections/components/mobile',
   () => (props: JSX.IntrinsicElements['div']) => <div id="Mobile" {...props} />
 );
 

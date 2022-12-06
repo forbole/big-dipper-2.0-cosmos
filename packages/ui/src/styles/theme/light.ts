@@ -1,8 +1,8 @@
-import { ThemeOptions } from '@material-ui/core';
 import chainConfig from '@/chainConfig';
 import hindMadurai from '@/styles/theme/hindMadurai';
+import { ThemeOptions } from '@material-ui/core';
 
-const { light: theme } = chainConfig.themes;
+const { light: theme } = chainConfig().themes;
 
 type DeepPartial<T> = T extends object
   ? {

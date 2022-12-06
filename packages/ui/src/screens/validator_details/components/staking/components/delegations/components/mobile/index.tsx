@@ -1,12 +1,12 @@
-import React from 'react';
-import classnames from 'classnames';
-import useTranslation from 'next-translate/useTranslation';
+import AvatarName from '@/components/avatar_name';
+import { useStyles } from '@/screens/validator_details/components/staking/components/delegations/components/mobile/styles';
+import type { ItemType } from '@/screens/validator_details/components/staking/components/delegations/types';
+import { formatNumber } from '@/utils/format_token';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
-import AvatarName from '@/components/avatar_name';
-import { formatNumber } from '@/utils/format_token';
-import type { ItemType } from '@/screens/validator_details/components/staking/components/delegations/types';
-import { useStyles } from '@/screens/validator_details/components/staking/components/delegations/components/mobile/styles';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
+import React from 'react';
 
 const Mobile: React.FC<{
   className?: string;

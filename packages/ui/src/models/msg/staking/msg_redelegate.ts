@@ -1,4 +1,5 @@
 import type { Categories } from '@/models/msg/types';
+import * as R from 'ramda';
 
 class MsgRedelegate {
   public category: Categories;
@@ -13,29 +14,29 @@ class MsgRedelegate {
 
   public amount: MsgCoin;
 
-  public json: any;
+  public json: object;
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'staking';
-    this.type = payload.type;
-    this.delegatorAddress = payload.delegatorAddress;
-    this.validatorDstAddress = payload.validatorDstAddress;
-    this.validatorSrcAddress = payload.validatorSrcAddress;
-    this.amount = payload.amount;
-    this.json = payload.json;
+    this.type = R.pathOr('', ['type'], payload);
+    this.delegatorAddress = R.pathOr('', ['delegatorAddress'], payload);
+    this.validatorDstAddress = R.pathOr('', ['validatorDstAddress'], payload);
+    this.validatorSrcAddress = R.pathOr('', ['validatorSrcAddress'], payload);
+    this.amount = R.pathOr({ denom: '', amount: '0' }, ['amount'], payload);
+    this.json = R.pathOr({}, ['json'], payload);
   }
 
-  static fromJson(json: any): MsgRedelegate {
+  static fromJson(json: object): MsgRedelegate {
     return {
       category: 'staking',
       json,
-      type: json['@type'],
-      delegatorAddress: json?.delegator_address,
-      validatorSrcAddress: json?.validator_src_address,
-      validatorDstAddress: json?.validator_dst_address,
+      type: R.pathOr('', ['@type'], json),
+      delegatorAddress: R.pathOr('', ['delegator_address'], json),
+      validatorSrcAddress: R.pathOr('', ['validatorSrcAddress'], json),
+      validatorDstAddress: R.pathOr('', ['validatorDstAddress'], json),
       amount: {
-        denom: json?.amount?.denom,
-        amount: json?.amount?.amount ?? '0',
+        denom: R.pathOr('', ['amount', 'denom'], json),
+        amount: R.pathOr('0', ['amount', 'amount'], json),
       },
     };
   }

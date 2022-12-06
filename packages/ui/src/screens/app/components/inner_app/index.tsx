@@ -1,12 +1,10 @@
-import React from 'react';
-import { AppProps } from 'next/app';
-import { useLatestBlockTimestampLazyQuery } from '@/graphql/types/general_types';
 import { useChainHealthCheck } from '@/screens/app/components/inner_app/hooks';
+import { AppProps } from 'next/app';
+import React from 'react';
 
 function InnerApp({ Component, pageProps }: AppProps) {
-  useChainHealthCheck(useLatestBlockTimestampLazyQuery);
-  const ComponentFC = Component as React.FC;
-  return <ComponentFC {...pageProps} />;
+  useChainHealthCheck();
+  return <Component {...pageProps} />;
 }
 
 export default InnerApp;

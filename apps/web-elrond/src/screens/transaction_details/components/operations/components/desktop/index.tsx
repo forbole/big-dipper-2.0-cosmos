@@ -1,25 +1,24 @@
-import React from 'react';
-import * as R from 'ramda';
-import useTranslation from 'next-translate/useTranslation';
+import AvatarName from '@/components/avatar_name';
+import { columns } from '@/screens/transaction_details/components/operations/components/desktop/utils';
+import type { OperationType } from '@/screens/transaction_details/types';
 import { formatNumber } from '@/utils/format_token';
-import Link from 'next/link';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
+import { NFT_DETAILS, TOKEN_DETAILS } from '@/utils/go_to_page';
 import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import TableCell from '@material-ui/core/TableCell';
-import TableBody from '@material-ui/core/TableBody';
 import Typography from '@material-ui/core/Typography';
-import AvatarName from '@/components/avatar_name';
-import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
-import { TOKEN_DETAILS, NFT_DETAILS } from '@/utils/go_to_page';
-import type { OperationType } from '@/screens/transaction_details/types';
-import { columns } from '@/screens/transaction_details/components/operations/components/desktop/utils';
+import useTranslation from 'next-translate/useTranslation';
+import Link from 'next/link';
+import React from 'react';
 
 const Desktop: React.FC<{ items: OperationType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('transactions');
   const formattedItems = props.items.map((x) => {
-    const isToken = R.pathOr('', ['identifier'], x).split('-').length === 2;
-    const isNft = R.pathOr('', ['identifier'], x).split('-').length === 3;
+    const isToken = x?.identifier ?? ''.split('-').length === 2;
+    const isNft = x?.identifier ?? ''.split('-').length === 3;
     let link;
     if (isToken) {
       link = TOKEN_DETAILS;

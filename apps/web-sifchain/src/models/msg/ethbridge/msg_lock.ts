@@ -1,27 +1,27 @@
-import * as R from 'ramda';
 import type { Categories } from '@/models/msg/types';
+import * as R from 'ramda';
 
 class MsgLock {
   public category: Categories;
 
   public type: string;
 
-  public json: any;
+  public json: object;
 
   public cosmosSender: string;
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'ethbridge';
-    this.type = payload.type;
-    this.json = payload.json;
-    this.cosmosSender = payload.cosmosSender;
+    this.type = R.pathOr('', ['type'], payload);
+    this.json = R.pathOr({}, ['json'], payload);
+    this.cosmosSender = R.pathOr('', ['cosmosSender'], payload);
   }
 
-  static fromJson(json: any): MsgLock {
+  static fromJson(json: object): MsgLock {
     return {
       category: 'ethbridge',
       json,
-      type: json['@type'],
+      type: R.pathOr('', ['@type'], json),
       cosmosSender: R.pathOr('', ['cosmos_sender'], json),
     };
   }

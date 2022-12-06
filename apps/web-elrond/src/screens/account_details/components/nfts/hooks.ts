@@ -26,7 +26,13 @@ export const useTokens = () => {
   const getTransactionsByPage = useCallback(
     async (page: number) => {
       try {
-        const { data } = await axios.get(ACCOUNT_DETAILS_NFTS(router.query.address as string), {
+        const { data } = await axios.get<
+          Array<{
+            identifier?: string;
+            name?: string;
+            type?: string;
+          }>
+        >(ACCOUNT_DETAILS_NFTS(router.query.address as string), {
           params: {
             from: page * PAGE_SIZE,
             size: PAGE_SIZE,
@@ -35,18 +41,18 @@ export const useTokens = () => {
           },
         });
 
-        const items = data.map((x: any) => ({
-          identifier: R.pathOr('', ['identifier'], x),
-          name: R.pathOr('', ['name'], x),
-          type: R.pathOr('', ['type'], x),
+        const items = data.map((x) => ({
+          identifier: x?.identifier ?? '',
+          name: x?.name ?? '',
+          type: x?.type ?? '',
         }));
 
         handleSetState({
           loading: false,
           items,
         });
-      } catch (error: any) {
-        console.error(error.message);
+      } catch (error) {
+        console.error((error as Error).message);
       }
     },
     [handleSetState, router.query.address]

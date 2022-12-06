@@ -1,7 +1,7 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme } from '@/tests/utils';
 import TransactionsList from '@/components/transactions_list';
+import { MockTheme } from '@/tests/utils';
+import { ComponentProps } from 'react';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // global setup
@@ -15,7 +15,7 @@ jest.mock('@/components/no_data', () => (props: JSX.IntrinsicElements['div']) =>
   <div id="NoData" {...props} />
 ));
 
-const txs = [
+const txs: ComponentProps<typeof TransactionsList>['transactions'] = [
   {
     height: 1212131,
     hash: 'D0243447726B8BD7AE94BF4F98E536A647959194E870AB8566CB833A3CC847F6',
@@ -39,7 +39,7 @@ const txs = [
   },
 ];
 
-const props = {
+const props: ComponentProps<typeof TransactionsList> = {
   hasNextPage: true,
   isNextPageLoading: false,
   loadNextPage: () => jest.fn(),

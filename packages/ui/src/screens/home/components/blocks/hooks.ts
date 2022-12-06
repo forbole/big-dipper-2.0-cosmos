@@ -1,10 +1,10 @@
-import { useCallback, useState } from 'react';
-import * as R from 'ramda';
 import {
-  useBlocksListenerSubscription,
   BlocksListenerSubscription,
+  useBlocksListenerSubscription,
 } from '@/graphql/types/general_types';
 import type { BlocksState } from '@/screens/home/components/blocks/types';
+import * as R from 'ramda';
+import { useCallback, useState } from 'react';
 
 export const useBlocks = () => {
   const [state, setState] = useState<BlocksState>({
@@ -31,7 +31,7 @@ export const useBlocks = () => {
 
   const formatBlocks = (data: BlocksListenerSubscription) =>
     data.blocks.map((x) => {
-      const proposerAddress = R.pathOr('', ['validator', 'validatorInfo', 'operatorAddress'], x);
+      const proposerAddress = x?.validator?.validatorInfo?.operatorAddress ?? '';
       return {
         height: x.height,
         txs: x.txs ?? 0,

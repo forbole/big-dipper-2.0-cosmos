@@ -1,14 +1,14 @@
-import React from 'react';
-import numeral from 'numeral';
-import dayjs, { formatDayJs } from '@/utils/dayjs';
-import useTranslation from 'next-translate/useTranslation';
-import Typography from '@material-ui/core/Typography';
-import { useRecoilValue } from 'recoil';
+import AvatarName from '@/components/avatar_name';
+import BoxDetails from '@/components/box_details';
 import { useProfileRecoil } from '@/recoil/profiles';
 import { readDate } from '@/recoil/settings';
-import BoxDetails from '@/components/box_details';
-import AvatarName from '@/components/avatar_name';
 import type { OverviewType } from '@/screens/block_details/types';
+import dayjs, { formatDayJs } from '@/utils/dayjs';
+import Typography from '@material-ui/core/Typography';
+import useTranslation from 'next-translate/useTranslation';
+import numeral from 'numeral';
+import React from 'react';
+import { useRecoilValue } from 'recoil';
 
 const Overview: React.FC<OverviewType & ComponentDefault> = (props, { className }) => {
   const proposer = useProfileRecoil(props.proposer);
@@ -44,7 +44,7 @@ const Overview: React.FC<OverviewType & ComponentDefault> = (props, { className 
         },
         {
           label: t('time'),
-          detail: formatDayJs((dayjs as any).utc(props.timestamp), dateFormat),
+          detail: formatDayJs(dayjs.utc(props.timestamp), dateFormat),
         },
         {
           label: t('txs'),

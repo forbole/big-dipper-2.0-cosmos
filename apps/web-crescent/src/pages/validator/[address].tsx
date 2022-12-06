@@ -1,7 +1,8 @@
-import { useEffect } from 'react';
+import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 
-const ValidatorDetailsPage = () => {
+const ValidatorDetailsPage: NextPage = () => {
   const router = useRouter();
 
   useEffect(() => {

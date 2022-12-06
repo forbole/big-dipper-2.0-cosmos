@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Telegram = () => (
   <svg
     width="26px"

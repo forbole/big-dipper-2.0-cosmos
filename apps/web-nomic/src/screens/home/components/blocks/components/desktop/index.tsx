@@ -1,20 +1,20 @@
-import React from 'react';
-import classnames from 'classnames';
-import TableRow from '@material-ui/core/TableRow';
-import TableHead from '@material-ui/core/TableHead';
-import TableCell from '@material-ui/core/TableCell';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import Typography from '@material-ui/core/Typography';
-import useTranslation from 'next-translate/useTranslation';
-import numeral from 'numeral';
-import dayjs from '@/utils/dayjs';
-import Link from 'next/link';
-import { BLOCK_DETAILS } from '@/utils/go_to_page';
-import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { useStyles } from '@/screens/home/components/blocks/components/desktop/styles';
 import { columns } from '@/screens/home/components/blocks/components/desktop/utils';
-import type { BlockType } from 'src/screens/home/components/blocks/types';
+import type { BlockType } from '@/screens/home/components/blocks/types';
+import dayjs from '@/utils/dayjs';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
+import { BLOCK_DETAILS } from '@/utils/go_to_page';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Typography from '@material-ui/core/Typography';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
+import Link from 'next/link';
+import numeral from 'numeral';
+import React, { ReactNode } from 'react';
 
 const Desktop: React.FC<{
   className?: string;
@@ -23,7 +23,7 @@ const Desktop: React.FC<{
   const { t } = useTranslation('blocks');
   const classes = useStyles();
 
-  const formattedData = items.map((x) => ({
+  const formattedData = items.map((x): { [key: string]: ReactNode } => ({
     height: (
       <Link href={BLOCK_DETAILS(x.height)} passHref>
         <Typography variant="body1" className="value" component="a">
@@ -32,7 +32,7 @@ const Desktop: React.FC<{
       </Link>
     ),
     txs: numeral(x.txs).format('0,0'),
-    time: (dayjs as any).utc(x.timestamp).fromNow(),
+    time: dayjs.utc(x.timestamp).fromNow(),
     hash: getMiddleEllipsis(x.hash, {
       beginning: 15,
       ending: 15,
@@ -52,7 +52,7 @@ const Desktop: React.FC<{
           </TableRow>
         </TableHead>
         <TableBody>
-          {formattedData.map((row: any, i) => (
+          {formattedData.map((row, i) => (
             <TableRow key={`${items[i].height}`}>
               {columns.map((column, index) => {
                 const { key, align } = column;

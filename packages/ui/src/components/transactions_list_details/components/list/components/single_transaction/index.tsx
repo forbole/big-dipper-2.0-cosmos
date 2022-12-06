@@ -1,9 +1,9 @@
-import React from 'react';
-import classnames from 'classnames';
+import { useStyles } from '@/components/transactions_list_details/components/list/components/single_transaction/styles';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
+import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import { useStyles } from '@/components/transactions_list_details/components/list/components/single_transaction/styles';
+import React from 'react';
 
 const SingleTransaction: React.FC<{
   className?: string;
@@ -12,7 +12,7 @@ const SingleTransaction: React.FC<{
   type: React.ReactNode;
   time: string;
   messageCount: string;
-  messages: any[];
+  messages: Array<{ type: JSX.Element; message: JSX.Element }>;
   result?: React.ReactNode;
 }> = ({ className, block, hash, type, time, messages, result, messageCount }) => {
   const { t } = useTranslation('transactions');

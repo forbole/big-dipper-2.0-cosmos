@@ -1,7 +1,7 @@
-import { useRouter } from 'next/router';
 import { ACCOUNT_DETAILS } from '@/utils/go_to_page';
+import { useRouter } from 'next/router';
 
-export const useSearchBar = (_t: any) => {
+export const useSearchBar = () => {
   const router = useRouter();
 
   const handleOnSubmit = (value: string, clear?: () => void) => {

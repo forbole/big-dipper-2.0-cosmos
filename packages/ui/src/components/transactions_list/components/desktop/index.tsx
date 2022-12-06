@@ -1,23 +1,23 @@
-import React from 'react';
-import classnames from 'classnames';
-import AutoSizer from 'react-virtualized-auto-sizer';
-import numeral from 'numeral';
-import dayjs from '@/utils/dayjs';
-import Link from 'next/link';
-import { TRANSACTION_DETAILS, BLOCK_DETAILS } from '@/utils/go_to_page';
-import InfiniteLoader from 'react-window-infinite-loader';
-import { VariableSizeGrid as Grid } from 'react-window';
-import Typography from '@material-ui/core/Typography';
-import useTranslation from 'next-translate/useTranslation';
-import { mergeRefs } from '@/utils/merge_refs';
 import Loading from '@/components/loading';
 import Result from '@/components/result';
 import Tag from '@/components/tag';
-import { useGrid } from '@/hooks';
-import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
-import type { TransactionsListState } from '@/components/transactions_list/types';
-import { columns } from '@/components/transactions_list/components/desktop/utils';
 import { useStyles } from '@/components/transactions_list/components/desktop/styles';
+import { columns } from '@/components/transactions_list/components/desktop/utils';
+import type { TransactionsListState } from '@/components/transactions_list/types';
+import { useGrid } from '@/hooks';
+import dayjs from '@/utils/dayjs';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
+import { BLOCK_DETAILS, TRANSACTION_DETAILS } from '@/utils/go_to_page';
+import { mergeRefs } from '@/utils/merge_refs';
+import Typography from '@material-ui/core/Typography';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
+import Link from 'next/link';
+import numeral from 'numeral';
+import React from 'react';
+import AutoSizer from 'react-virtualized-auto-sizer';
+import { VariableSizeGrid as Grid } from 'react-window';
+import InfiniteLoader from 'react-window-infinite-loader';
 
 const Desktop: React.FC<TransactionsListState> = ({
   className,
@@ -56,7 +56,7 @@ const Desktop: React.FC<TransactionsListState> = ({
       </div>
     ),
     result: <Result success={x.success} />,
-    time: (dayjs as any).utc(x.timestamp).fromNow(),
+    time: dayjs.utc(x.timestamp).fromNow(),
     messages: numeral(x.messages.count).format('0,0'),
   }));
   return (

@@ -1,10 +1,8 @@
-import React, { ComponentProps, FC, ReactNode } from 'react';
-import { ThemeProvider, createTheme } from '@material-ui/core/styles';
-import { StylesProvider, StylesOptions } from '@material-ui/styles';
-import { RecoilRoot } from 'recoil';
 import { defaultTheme } from '@/styles';
-
-const StylesProviderWrapper = StylesProvider as FC<ComponentProps<typeof StylesProvider>>;
+import { createTheme, ThemeProvider } from '@material-ui/core/styles';
+import { StylesOptions, StylesProvider } from '@material-ui/styles';
+import { ReactNode } from 'react';
+import { RecoilRoot } from 'recoil';
 
 /**
  * Theme mocker to handle custom keys
@@ -14,11 +12,11 @@ const MockTheme = ({ children }: { children: ReactNode }) => {
     `${sheet?.options.classNamePrefix}-${rule.key}`;
 
   return (
-    <StylesProviderWrapper generateClassName={generateClassName}>
+    <StylesProvider generateClassName={generateClassName}>
       <ThemeProvider theme={createTheme(defaultTheme)}>
         <RecoilRoot>{children}</RecoilRoot>
       </ThemeProvider>
-    </StylesProviderWrapper>
+    </StylesProvider>
   );
 };
 

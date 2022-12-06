@@ -1,8 +1,8 @@
 export const useTablePaginationActions = (props: {
   className?: string;
-  backIconButtonProps?: any;
+  // backIconButtonProps?: any;
   count: number;
-  nextIconButtonProps?: any;
+  // nextIconButtonProps?: any;
   onChangePage: (event: React.MouseEvent<HTMLButtonElement> | null, page: number) => void;
   handleChangeRowsPerPage: (selectedRowsPerPage: number) => void;
   page: number;
@@ -67,7 +67,7 @@ export const useTablePaginationActions = (props: {
   };
 
   const handleRowOptionChange = (event: React.ChangeEvent<{ value: unknown }>) => {
-    handleChangeRowsPerPage(Number(event.target.value) as number);
+    handleChangeRowsPerPage(Number(event.target.value));
   };
 
   return {

@@ -1,31 +1,32 @@
 import type { Categories } from '@/models/msg/types';
+import * as R from 'ramda';
 
 class MsgDeregister {
   public category: Categories;
 
   public type: string;
 
-  public json: any;
+  public json: object;
 
   public from: string;
 
   public denom: string;
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'tokenregistry';
-    this.type = payload.type;
-    this.json = payload.json;
-    this.from = payload.from;
-    this.denom = payload.denom;
+    this.type = R.pathOr('', ['type'], payload);
+    this.json = R.pathOr({}, ['json'], payload);
+    this.from = R.pathOr('', ['from'], payload);
+    this.denom = R.pathOr('', ['denom'], payload);
   }
 
-  static fromJson(json: any): MsgDeregister {
+  static fromJson(json: object): MsgDeregister {
     return {
       category: 'tokenregistry',
       json,
-      type: json['@type'],
-      from: json.from,
-      denom: json.denom,
+      type: R.pathOr('', ['@type'], json),
+      from: R.pathOr('', ['from'], json),
+      denom: R.pathOr('', ['denom'], json),
     };
   }
 }

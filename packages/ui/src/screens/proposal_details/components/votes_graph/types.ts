@@ -7,5 +7,5 @@ export interface VotesType {
 export interface VotesGraphState {
   votes: VotesType;
   bonded: TokenUnit;
-  quorum: number;
+  quorum: string;
 }

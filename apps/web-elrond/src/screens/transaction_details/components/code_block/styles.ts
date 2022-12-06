@@ -1,7 +1,8 @@
-import { makeStyles, createStyles } from '@material-ui/styles';
+import { Theme } from '@material-ui/core';
+import { createStyles, makeStyles } from '@material-ui/styles';
 
 export const useGetStyles = () => {
-  const useStyles = makeStyles((theme: any) =>
+  const useStyles = makeStyles((theme: Theme) =>
     createStyles({
       root: {
         overflow: 'auto',

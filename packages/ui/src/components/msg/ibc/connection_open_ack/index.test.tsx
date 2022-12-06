@@ -1,8 +1,7 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme } from '@/tests/utils';
-import { MsgConnectionOpenAck } from '@/models';
 import ConnectionOpenAck from '@/components/msg/ibc/connection_open_ack';
+import { MsgConnectionOpenAck } from '@/models';
+import { MockTheme } from '@/tests/utils';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

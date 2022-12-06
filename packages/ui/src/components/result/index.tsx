@@ -1,9 +1,9 @@
-import React from 'react';
+import { useStyles } from '@/components/result/styles';
+import Typography from '@material-ui/core/Typography';
+import { Cancel, CheckCircle } from '@material-ui/icons';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import { CheckCircle, Cancel } from '@material-ui/icons';
-import Typography from '@material-ui/core/Typography';
-import { useStyles } from '@/components/result/styles';
+import React from 'react';
 
 const Result: React.FC<{
   className?: string;

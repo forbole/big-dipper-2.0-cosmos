@@ -1,8 +1,7 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme } from '@/tests/utils';
-import { MsgConnectionOpenTry } from '@/models';
 import ConnectionOpenTry from '@/components/msg/ibc/connection_open_try';
+import { MsgConnectionOpenTry } from '@/models';
+import { MockTheme } from '@/tests/utils';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

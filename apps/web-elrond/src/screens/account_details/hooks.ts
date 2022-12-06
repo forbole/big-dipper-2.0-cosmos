@@ -48,24 +48,24 @@ export const useAccountDetails = () => {
         ACCOUNT_DETAILS_TOKEN_COUNT(router.query.address as string)
       );
 
-      const newState: any = {
+      const newState: Partial<AccountDetailsType> = {
         loading: false,
       };
 
       const getProfile = () => ({
-        address: R.pathOr('', ['address'], accountData),
-        username: R.pathOr('', ['username'], accountData),
+        address: accountData?.address ?? '',
+        username: accountData?.username ?? '',
       });
 
       newState.profile = getProfile();
 
       const getOverview = () => ({
-        balance: formatToken(R.pathOr('0', ['balance'], accountData), chainConfig.primaryTokenUnit),
+        balance: formatToken(accountData?.balance ?? '0', chainConfig().primaryTokenUnit),
         developerReward: formatToken(
-          R.pathOr('0', ['developerReward'], accountData),
-          chainConfig.primaryTokenUnit
+          accountData?.developerReward ?? '0',
+          chainConfig().primaryTokenUnit
         ),
-        shard: R.pathOr(0, ['shard'], accountData),
+        shard: accountData?.shard ?? 0,
         tokenCount,
       });
 

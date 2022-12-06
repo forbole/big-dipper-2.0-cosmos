@@ -1,8 +1,7 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme } from '@/tests/utils';
-import MsgRetireRequest from '@/models/msg/ecocredit/msg_retire_request';
 import RetireRequest from '@/components/msg/ecocredit/retire_request';
+import MsgRetireRequest from '@/models/msg/ecocredit/msg_retire_request';
+import { MockTheme } from '@/tests/utils';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

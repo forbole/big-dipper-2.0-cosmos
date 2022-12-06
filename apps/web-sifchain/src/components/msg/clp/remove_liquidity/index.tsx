@@ -1,11 +1,10 @@
-import React from 'react';
-import * as R from 'ramda';
-import Trans from 'next-translate/Trans';
-import Typography from '@material-ui/core/Typography';
+import chainConfig from '@/chainConfig';
 import Name from '@/components/name';
 import MsgRemoveLiquidity from '@/models/msg/clp/msg_remove_liquidity';
 import { useProfileRecoil } from '@/recoil/profiles';
-import chainConfig from '@/chainConfig';
+import Typography from '@material-ui/core/Typography';
+import Trans from 'next-translate/Trans';
+import React from 'react';
 
 const RemoveLiquidity: React.FC<{ message: MsgRemoveLiquidity }> = (props) => {
   const { message } = props;
@@ -13,10 +12,8 @@ const RemoveLiquidity: React.FC<{ message: MsgRemoveLiquidity }> = (props) => {
   const signer = useProfileRecoil(message.signer);
   const signerMoniker = signer ? signer?.name : message.signer;
 
-  const symbol = R.pathOr(
-    '',
-    ['tokenUnits', message.externalAsset.symbol, 'display'],
-    chainConfig
+  const symbol = (
+    chainConfig().tokenUnits?.[message.externalAsset.symbol]?.display ?? ''
   ).toUpperCase();
   return (
     <Typography>

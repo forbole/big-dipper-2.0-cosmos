@@ -1,9 +1,9 @@
-import React from 'react';
-import Trans from 'next-translate/Trans';
-import Typography from '@material-ui/core/Typography';
 import Name from '@/components/name';
 import MsgTransferNFT from '@/models/msg/nft/msg_transfer_nft';
 import { useProfileRecoil } from '@/recoil/profiles';
+import Typography from '@material-ui/core/Typography';
+import Trans from 'next-translate/Trans';
+import React from 'react';
 
 const TransferNFT: React.FC<{ message: MsgTransferNFT }> = (props) => {
   const { message } = props;

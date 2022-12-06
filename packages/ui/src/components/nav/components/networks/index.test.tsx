@@ -1,8 +1,7 @@
-import React from 'react';
-import { useRecoilValue } from 'recoil';
-import renderer from 'react-test-renderer';
-import { MockTheme } from '@/tests/utils';
 import Networks from '@/components/nav/components/networks';
+import { MockTheme } from '@/tests/utils';
+import renderer from 'react-test-renderer';
+import { useRecoilValue } from 'recoil';
 
 // ==================================
 // global setup
@@ -13,7 +12,7 @@ let component: renderer.ReactTestRenderer;
 // mocks
 // ==================================
 jest.mock('recoil', () => ({
-  ...(jest.requireActual('recoil') as any),
+  ...jest.requireActual('recoil'),
   useRecoilValue: jest.fn(),
 }));
 

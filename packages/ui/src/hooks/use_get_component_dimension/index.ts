@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 /**
  * Nav hook helper to get the component height
@@ -6,7 +6,7 @@ import { useEffect, useState, useRef } from 'react';
 export const useGetComponentDimension = () => {
   const [height, setHeight] = useState(0);
   const [width, setWidth] = useState(0);
-  const ref: any = useRef(null);
+  const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (ref?.current?.clientHeight) {

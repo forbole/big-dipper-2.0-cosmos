@@ -31,16 +31,49 @@ class GovParams {
     votingPeriod: number;
   };
 
-  constructor(payload: any) {
-    this.depositParams = payload.depositParams;
-    this.tallyParams = payload.tallyParams;
-    this.votingParams = payload.votingParams;
+  constructor(payload: object) {
+    this.depositParams = R.pathOr(
+      {
+        minDeposit: [],
+        maxDepositPeriod: 0,
+      },
+      ['depositParams'],
+      payload
+    );
+    this.tallyParams = R.pathOr(
+      {
+        default: {
+          quorum: '0',
+          threshold: '0',
+          vetoThreshold: '0',
+        },
+        certifierStakeVote: {
+          quorum: '0',
+          threshold: '0',
+          vetoThreshold: '0',
+        },
+        certifierSecurityVote: {
+          quorum: '0',
+          threshold: '0',
+          vetoThreshold: '0',
+        },
+      },
+      ['tallyParams'],
+      payload
+    );
+    this.votingParams = R.pathOr(
+      {
+        votingPeriod: 0,
+      },
+      ['votingParams'],
+      payload
+    );
   }
 
-  static fromJson(data: any): GovParams {
+  static fromJson(data: object): GovParams {
     return {
       depositParams: {
-        minDeposit: R.pathOr<Array<{ denom: string; amount: number }>>(
+        minDeposit: R.pathOr<GovParams['depositParams']['minDeposit']>(
           [],
           ['depositParams', 'min_deposit'],
           data

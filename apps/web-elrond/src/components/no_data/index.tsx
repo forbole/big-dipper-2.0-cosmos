@@ -1,9 +1,9 @@
-import React from 'react';
-import classnames from 'classnames';
-import useTranslation from 'next-translate/useTranslation';
+import { useStyles } from '@/components/no_data/styles';
 import Typography from '@material-ui/core/Typography';
 import { Face } from '@material-ui/icons';
-import { useStyles } from '@/components/no_data/styles';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
+import React from 'react';
 
 const NoData: React.FC<{
   className?: string;

@@ -1,14 +1,13 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { MockTheme } from '@/tests/utils';
-import {
-  MsgSubmitProposal,
-  MsgSoftwareUpgradeProposal,
-  MsgTextProposal,
-  MsgParameterChangeProposal,
-  MsgCommunityPoolSpendProposal,
-} from '@/models';
 import SubmitProposal from '@/components/msg/governance/submit_proposal';
+import {
+  MsgCommunityPoolSpendProposal,
+  MsgParameterChangeProposal,
+  MsgSoftwareUpgradeProposal,
+  MsgSubmitProposal,
+  MsgTextProposal,
+} from '@/models';
+import { MockTheme } from '@/tests/utils';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

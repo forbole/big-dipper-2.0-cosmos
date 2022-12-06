@@ -1,7 +1,8 @@
-import { ApolloClient, from, InMemoryCache } from '@apollo/client';
-import React from 'react';
-import renderer from 'react-test-renderer';
 import InnerApp from '@/screens/app/components/inner_app';
+import { ApolloClient, from, InMemoryCache } from '@apollo/client';
+import type { Router } from 'next/router';
+import renderer from 'react-test-renderer';
+
 // ==================================
 // global setup
 // ==================================
@@ -24,7 +25,7 @@ describe('screen: _app/InnerApp', () => {
     renderer.act(() => {
       component = renderer.create(
         <InnerApp
-          router={{} as any}
+          router={{} as Router}
           Component={() => <div id="component" />}
           pageProps={{
             props: 'props',

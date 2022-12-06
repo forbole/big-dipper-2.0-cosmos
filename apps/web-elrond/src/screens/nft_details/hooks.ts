@@ -37,14 +37,14 @@ export const useBlockDetails = () => {
         handleSetState({
           loading: false,
           overview: {
-            identifier: R.pathOr('', ['identifier'], nftData),
-            collection: R.pathOr('', ['collection'], nftData),
-            name: R.pathOr('', ['name'], nftData),
-            type: R.pathOr('', ['type'], nftData),
-            creator: R.pathOr('', ['creator'], nftData),
-            owner: R.pathOr('', ['owner'], nftData),
-            minted: R.pathOr('', ['timestamp'], nftData),
-            ticker: R.pathOr('', ['ticker'], nftData),
+            identifier: nftData?.identifier ?? '',
+            collection: nftData?.collection ?? '',
+            name: nftData?.name ?? '',
+            type: nftData?.type ?? '',
+            creator: nftData?.creator ?? '',
+            owner: nftData?.owner ?? '',
+            minted: nftData?.timestamp ?? '',
+            ticker: nftData?.ticker ?? '',
           },
         });
       } catch (error) {
@@ -52,7 +52,7 @@ export const useBlockDetails = () => {
           loading: false,
           exists: false,
         });
-        console.error((error as any).message);
+        console.error((error as Error).message);
       }
     };
 

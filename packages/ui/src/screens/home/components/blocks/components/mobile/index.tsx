@@ -1,15 +1,15 @@
-import React from 'react';
-import classnames from 'classnames';
-import numeral from 'numeral';
+import AvatarName from '@/components/avatar_name';
+import SingleBlockMobile from '@/components/single_block_mobile';
+import type { ItemType } from '@/screens/home/components/blocks/types';
 import dayjs from '@/utils/dayjs';
-import Link from 'next/link';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { BLOCK_DETAILS } from '@/utils/go_to_page';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
-import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
-import SingleBlockMobile from '@/components/single_block_mobile';
-import AvatarName from '@/components/avatar_name';
-import type { ItemType } from '@/screens/home/components/blocks/types';
+import classnames from 'classnames';
+import Link from 'next/link';
+import numeral from 'numeral';
+import React from 'react';
 
 const Mobile: React.FC<{
   className?: string;
@@ -28,7 +28,7 @@ const Mobile: React.FC<{
             </Link>
           }
           txs={numeral(x.txs).format('0,0')}
-          time={(dayjs as any).utc(x.timestamp).fromNow()}
+          time={dayjs.utc(x.timestamp).fromNow()}
           proposer={
             <AvatarName
               address={x.proposer.address}

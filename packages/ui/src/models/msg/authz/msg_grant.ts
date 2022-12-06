@@ -1,31 +1,32 @@
 import type { Categories } from '@/models/msg/types';
+import * as R from 'ramda';
 
 class MsgGrant {
   public category: Categories;
 
   public type: string;
 
-  public json: any;
+  public json: object;
 
   public granter: string;
 
   public grantee: string;
 
-  constructor(payload: any) {
+  constructor(payload: object) {
     this.category = 'authz';
-    this.type = payload.type;
-    this.json = payload.json;
-    this.granter = payload.granter;
-    this.grantee = payload.grantee;
+    this.type = R.pathOr('', ['type'], payload);
+    this.json = R.pathOr({}, ['json'], payload);
+    this.granter = R.pathOr('', ['granter'], payload);
+    this.grantee = R.pathOr('', ['grantee'], payload);
   }
 
-  static fromJson(json: any): MsgGrant {
+  static fromJson(json: object): MsgGrant {
     return {
       category: 'authz',
       json,
-      type: json['@type'],
-      granter: json.granter,
-      grantee: json.grantee,
+      type: R.pathOr('', ['@type'], json),
+      granter: R.pathOr('', ['granter'], json),
+      grantee: R.pathOr('', ['grantee'], json),
     };
   }
 }

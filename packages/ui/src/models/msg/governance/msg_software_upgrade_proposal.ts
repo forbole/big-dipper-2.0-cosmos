@@ -1,5 +1,12 @@
-import numeral from 'numeral';
+import * as R from 'ramda';
 
+type Plan = {
+  name: string;
+  time: string;
+  height: string | number;
+  info: string;
+  upgradedClientState: unknown;
+};
 class MsgSoftwareUpgradeProposal {
   public type: string;
 
@@ -7,33 +14,29 @@ class MsgSoftwareUpgradeProposal {
 
   public description: string;
 
-  public plan: {
-    name: string;
-    time: string;
-    height: string | number;
-    info: string;
-    upgradedClientState: any;
-  };
+  public plan: Plan;
 
-  constructor(payload: any) {
-    this.type = payload.type;
-    this.title = payload.title;
-    this.description = payload.description;
-    this.plan = payload.plan;
+  constructor(payload: object) {
+    this.type = R.pathOr('', ['type'], payload);
+    this.title = R.pathOr('', ['title'], payload);
+    this.description = R.pathOr('', ['description'], payload);
+    this.plan = R.pathOr(
+      { name: '', time: '', height: '', info: '', upgradedClientState: {} },
+      ['plan'],
+      payload
+    );
   }
 
-  static fromJson(json: any): MsgSoftwareUpgradeProposal {
+  static fromJson(json: object): MsgSoftwareUpgradeProposal {
     return {
-      type: json['@type'],
-      title: json.title,
-      description: json.description,
-      plan: {
-        name: json?.plan?.name,
-        time: json?.plan?.time,
-        height: numeral(json?.plan?.height).value() ?? '',
-        info: json?.plan?.info,
-        upgradedClientState: json?.plan?.upgraded_client_state,
-      },
+      type: R.pathOr('', ['@type'], json),
+      title: R.pathOr('', ['title'], json),
+      description: R.pathOr('', ['description'], json),
+      plan: R.pathOr(
+        { name: '', time: '', height: '', info: '', upgradedClientState: {} },
+        ['plan'],
+        json
+      ),
     };
   }
 }
