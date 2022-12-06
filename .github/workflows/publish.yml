@@ -25,7 +25,6 @@ jobs:
       - name: Create the builder
         uses: docker/build-push-action@v3
         with:
-          context: "{{defaultContext}}"
           file: ./docker/Dockerfile
           push: true
           build-args: |
