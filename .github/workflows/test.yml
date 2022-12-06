@@ -114,12 +114,14 @@ jobs:
       - name: Build Next.js app
         run: yarn build
       - name: Run Playwright tests
+        env:
+          PLAYWRIGHT_HTML_REPORT: playwright-report/${{ matrix.project }}-${{ matrix.shardIndex }}-${{ matrix.shardTotal }}
         run: yarn playwright test --project=${{ matrix.project }} --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
       - uses: actions/upload-artifact@v3
         if: ${{ always() }}
         with:
-          name: playwright-report-${{ matrix.project }}-${{ matrix.shardIndex }}-${{ matrix.shardTotal }}
-          path: playwright-report/
+          name: playwright-report
+          path: playwright-report/-${{ matrix.shardIndex }}-${{ matrix.shardTotal }}
           retention-days: 30
   web-:
     if: ${{ success() }}
