@@ -13,7 +13,7 @@ RUN npm i -g add turbo
 COPY ./ ./
 
 ARG PROJECT_NAME
-RUN turbo prune --scope=${PROJECT_NAME} --docker
+RUN find . && turbo prune --scope=${PROJECT_NAME} --docker
 
 ################################################################################
 
