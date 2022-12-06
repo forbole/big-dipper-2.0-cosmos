@@ -10,7 +10,7 @@ import numeral from 'numeral';
  * @returns TokenUnit
  */
 export const formatToken = (value: number | string | null | undefined, denom = ''): TokenUnit => {
-  const selectedDenom = chainConfig.tokenUnits[denom];
+  const selectedDenom = chainConfig().tokenUnits?.[denom];
 
   if (typeof value !== 'string' && typeof value !== 'number') {
     value = '0';

@@ -52,7 +52,7 @@ export const useValidators = () => {
     const slashingParams = SlashingParams.fromJson(data?.slashingParams?.[0]?.params ?? {});
     const votingPowerOverall =
       numeral(
-        formatToken(data?.stakingPool?.[0]?.bondedTokens ?? 0, chainConfig.votingPowerTokenUnit)
+        formatToken(data?.stakingPool?.[0]?.bondedTokens ?? 0, chainConfig().votingPowerTokenUnit)
           .value
       ).value() ?? 0;
 
@@ -65,7 +65,7 @@ export const useValidators = () => {
           numeral(
             formatToken(
               x?.validatorVotingPowers?.[0]?.votingPower ?? 0,
-              chainConfig.votingPowerTokenUnit
+              chainConfig().votingPowerTokenUnit
             ).value
           ).value() ?? 0;
         const votingPowerPercent = numeral((votingPower / (votingPowerOverall ?? 0)) * 100).value();

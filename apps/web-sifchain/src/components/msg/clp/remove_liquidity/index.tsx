@@ -13,7 +13,7 @@ const RemoveLiquidity: React.FC<{ message: MsgRemoveLiquidity }> = (props) => {
   const signerMoniker = signer ? signer?.name : message.signer;
 
   const symbol = (
-    chainConfig?.tokenUnits?.[message.externalAsset.symbol]?.display ?? ''
+    chainConfig().tokenUnits?.[message.externalAsset.symbol]?.display ?? ''
   ).toUpperCase();
   return (
     <Typography>

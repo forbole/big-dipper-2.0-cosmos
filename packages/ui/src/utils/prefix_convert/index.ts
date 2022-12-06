@@ -6,7 +6,7 @@ export const toValidatorAddress = (address: string) => {
     return '';
   }
   const decode = bech32.decode(address).words;
-  return bech32.encode(chainConfig.prefix.validator, decode);
+  return bech32.encode(chainConfig().prefix.validator, decode);
 };
 
 export const isValidAddress = (address: string) => {

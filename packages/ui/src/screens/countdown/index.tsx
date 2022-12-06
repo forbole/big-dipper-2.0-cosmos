@@ -22,7 +22,7 @@ const Countdown: React.FC<{
   });
 
   const intervalCallback = useCallback(() => {
-    const genesisTime = dayjs.utc(chainConfig.genesis.time);
+    const genesisTime = dayjs.utc(chainConfig().genesis.time);
     const timeNow = dayjs.utc();
     const difference = genesisTime.diff(timeNow);
     if (difference > 0) {
@@ -67,7 +67,7 @@ const Countdown: React.FC<{
         </div>
       </div>
       <Typography variant="h2" className={classes.chain}>
-        {chainConfig.network}
+        {chainConfig().network}
       </Typography>
       {state.loading && <Loading />}
     </div>

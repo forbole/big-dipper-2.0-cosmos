@@ -17,7 +17,7 @@ export function useMarketRecoil() {
 
   useMarketDataQuery({
     variables: {
-      denom: chainConfig?.tokenUnits[chainConfig.primaryTokenUnit]?.display,
+      denom: chainConfig().tokenUnits?.[chainConfig().primaryTokenUnit]?.display,
     },
     onCompleted: (data) => {
       if (data) {
@@ -36,12 +36,15 @@ export function useMarketRecoil() {
 
     const [communityPoolCoin] =
       (data?.communityPool?.[0]?.coins as MsgCoin[])?.filter(
-        (x) => x.denom === chainConfig.primaryTokenUnit
+        (x) => x.denom === chainConfig().primaryTokenUnit
       ) ?? [];
     const inflation = data?.inflation?.[0]?.value ?? 0;
 
-    const rawSupplyAmount = getDenom(data?.supply?.[0]?.coins, chainConfig.primaryTokenUnit).amount;
-    const supply = formatToken(rawSupplyAmount, chainConfig.primaryTokenUnit);
+    const rawSupplyAmount = getDenom(
+      data?.supply?.[0]?.coins,
+      chainConfig().primaryTokenUnit
+    ).amount;
+    const supply = formatToken(rawSupplyAmount, chainConfig().primaryTokenUnit);
 
     if (communityPoolCoin) {
       communityPool = formatToken(communityPoolCoin.amount, communityPoolCoin.denom);
@@ -57,7 +60,7 @@ export function useMarketRecoil() {
     const stakingDistribution = 0.0625;
 
     const apr = bondedTokens
-      ? Big(inflationAmount).times(stakingDistribution).div(bondedTokens).toNumber()
+      ? Big(inflationAmount)?.times(stakingDistribution).div(bondedTokens).toNumber()
       : 0;
 
     return {

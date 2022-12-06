@@ -1,34 +1,34 @@
 import { ServerStyleSheets } from '@material-ui/core/styles';
-import Document, { Head, Html, Main, NextScript } from 'next/document';
-import React from 'react';
+import Document, {
+  DocumentContext,
+  DocumentInitialProps,
+  Head,
+  Html,
+  Main,
+  NextScript,
+} from 'next/document';
+import React, { FC } from 'react';
 
-export default class MyDocument extends Document {
-  render() {
-    return (
-      <Html lang="en">
-        <Head />
-        <body>
-          <Main />
-          <NextScript />
-        </body>
-      </Html>
-    );
-  }
-}
+const DocumentPage: FC = () => (
+  <Html lang="en">
+    <Head />
+    <body>
+      <Main />
+      <NextScript />
+    </body>
+  </Html>
+);
 
 // `getInitialProps` belongs to `_document` (instead of `_app`),
 // it's compatible with server-side generation (SSG).
-MyDocument.getInitialProps = async (ctx) => {
+export const getInitialProps = async (ctx: DocumentContext): Promise<DocumentInitialProps> => {
   // Render app and page and get the context of the page with collected side effects.
   const sheets = new ServerStyleSheets();
   const originalRenderPage = ctx.renderPage;
 
   ctx.renderPage = () =>
     originalRenderPage({
-      enhanceApp: (App) => {
-        const AppComponent = App as React.FC;
-        return (props) => sheets.collect(<AppComponent {...props} />);
-      },
+      enhanceApp: (App) => (props) => sheets.collect(<App {...props} />),
     });
 
   const initialProps = await Document.getInitialProps(ctx);
@@ -39,3 +39,5 @@ MyDocument.getInitialProps = async (ctx) => {
     styles: [...React.Children.toArray(initialProps.styles), sheets.getStyleElement()],
   };
 };
+
+export default DocumentPage;

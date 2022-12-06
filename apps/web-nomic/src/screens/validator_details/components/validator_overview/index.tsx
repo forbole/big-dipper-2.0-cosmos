@@ -61,7 +61,7 @@ const ValidatorOverview: React.FC<
       ),
       value: (
         <Typography variant="body1" className="value">
-          {Big(status.maxRate).times(100).toFixed(2)}%
+          {Big(status.maxRate)?.times(100).toFixed(2)}%
         </Typography>
       ),
     },

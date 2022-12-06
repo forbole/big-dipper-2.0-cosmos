@@ -25,11 +25,11 @@ function App(props: AppProps<{ initialApolloState?: NormalizedCacheObject }>) {
   return (
     <RecoilRoot>
       <DefaultSeo
-        titleTemplate={`%s | ${chainConfig.title}`}
+        titleTemplate={`%s | ${chainConfig().title}`}
         title={t('common:bigDipper')}
         description={t('common:description')}
         openGraph={{
-          title: `${t('common:bigDipper')} | ${chainConfig.title}`,
+          title: `${t('common:bigDipper')} | ${chainConfig().title}`,
           description: t('common:description'),
           url: location,
           ...OPEN_GRAPH_SEO,

@@ -6,8 +6,10 @@ Big Dipper is an open-source block explorer and token management tool serving ov
 
 ## Getting started
 
-```sh
-corepack enable && yarn
+Please migrate from yarn 1 to [yarn berry](https://yarnpkg.com/getting-started/install)
+
+```
+yarn install
 ```
 
 ## Documentation

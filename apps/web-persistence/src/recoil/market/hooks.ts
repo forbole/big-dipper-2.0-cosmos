@@ -16,7 +16,7 @@ export function useMarketRecoil() {
 
   useMarketDataQuery({
     variables: {
-      denom: chainConfig?.tokenUnits[chainConfig.primaryTokenUnit]?.display,
+      denom: chainConfig().tokenUnits?.[chainConfig().primaryTokenUnit]?.display,
     },
     onCompleted: (data) => {
       if (data) {
@@ -35,12 +35,15 @@ export function useMarketRecoil() {
 
     const [communityPoolCoin] =
       (data?.communityPool?.[0]?.coins as MsgCoin[])?.filter(
-        (x) => x.denom === chainConfig.primaryTokenUnit
+        (x) => x.denom === chainConfig().primaryTokenUnit
       ) ?? [];
     const inflation = data?.inflation?.[0]?.value ?? 0;
 
-    const rawSupplyAmount = getDenom(data?.supply?.[0]?.coins, chainConfig.primaryTokenUnit).amount;
-    const supply = formatToken(rawSupplyAmount, chainConfig.primaryTokenUnit);
+    const rawSupplyAmount = getDenom(
+      data?.supply?.[0]?.coins,
+      chainConfig().primaryTokenUnit
+    ).amount;
+    const supply = formatToken(rawSupplyAmount, chainConfig().primaryTokenUnit);
 
     if (communityPoolCoin) {
       communityPool = formatToken(communityPoolCoin.amount, communityPoolCoin.denom);
@@ -49,9 +52,9 @@ export function useMarketRecoil() {
     const bondedTokens = data?.bondedTokens?.[0]?.bonded_tokens ?? 1;
     const communityTax = data?.distributionParams?.[0]?.params?.community_tax ?? '0';
 
-    const inflationWithCommunityTax = Big(1).minus(communityTax).times(inflation).toPrecision(2);
+    const inflationWithCommunityTax = Big(1).minus(communityTax)?.times(inflation).toPrecision(2);
     const apr = bondedTokens
-      ? Big(rawSupplyAmount).times(inflationWithCommunityTax).div(bondedTokens).toNumber()
+      ? Big(rawSupplyAmount)?.times(inflationWithCommunityTax).div(bondedTokens).toNumber()
       : 0;
 
     return {

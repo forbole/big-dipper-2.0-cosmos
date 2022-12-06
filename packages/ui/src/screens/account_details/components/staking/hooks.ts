@@ -54,7 +54,7 @@ export const useStaking = (
       data
         .map((x): DelegationType => {
           const validator = x?.validator_address ?? '';
-          const delegation = getDenom(x.coins, chainConfig.primaryTokenUnit);
+          const delegation = getDenom(x.coins, chainConfig().primaryTokenUnit);
           return {
             validator,
             amount: formatToken(delegation.amount, delegation.denom),
@@ -68,7 +68,7 @@ export const useStaking = (
     const getStakeByPage = async (page: number, query: string) => {
       const { data } = await axios.post(
         process.env.NEXT_PUBLIC_GRAPHQL_URL ||
-          chainConfig.endpoints.graphql ||
+          chainConfig().endpoints.graphql ||
           'http://localhost:3000/v1/graphql',
         {
           variables: {
@@ -90,7 +90,7 @@ export const useStaking = (
       try {
         const { data } = await axios.post(
           process.env.NEXT_PUBLIC_GRAPHQL_URL ||
-            chainConfig.endpoints.graphql ||
+            chainConfig().endpoints.graphql ||
             'http://localhost:3000/v1/graphql',
           {
             variables: {
@@ -146,7 +146,7 @@ export const useStaking = (
       try {
         const { data } = await axios.post(
           process.env.NEXT_PUBLIC_GRAPHQL_URL ||
-            chainConfig.endpoints.graphql ||
+            chainConfig().endpoints.graphql ||
             'http://localhost:3000/v1/graphql',
           {
             variables: {
@@ -205,7 +205,7 @@ export const useStaking = (
       try {
         const { data } = await axios.post(
           process.env.NEXT_PUBLIC_GRAPHQL_URL ||
-            chainConfig.endpoints.graphql ||
+            chainConfig().endpoints.graphql ||
             'http://localhost:3000/v1/graphql',
           {
             variables: {
@@ -302,7 +302,7 @@ export const useStaking = (
         results.push({
           from: x?.validator_src_address ?? '',
           to: x?.validator_dst_address ?? '',
-          amount: formatToken(y.balance, chainConfig.primaryTokenUnit),
+          amount: formatToken(y.balance, chainConfig().primaryTokenUnit),
           completionTime: y?.completion_time ?? '',
         });
       });
@@ -324,7 +324,7 @@ export const useStaking = (
       x?.entries?.forEach((y) => {
         results.push({
           validator: x?.validator_address ?? '',
-          amount: formatToken(y.balance, chainConfig.primaryTokenUnit),
+          amount: formatToken(y.balance, chainConfig().primaryTokenUnit),
           completionTime: y?.completion_time ?? '',
         });
       });

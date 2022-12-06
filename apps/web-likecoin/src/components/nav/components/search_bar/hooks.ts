@@ -20,9 +20,9 @@ export const useSearchBar = (t: Translate) => {
   const handleOnSubmit = useRecoilCallback(
     ({ snapshot }) =>
       async (value: string, clear?: () => void) => {
-        const consensusRegex = `^(${chainConfig.prefix.consensus})`;
-        const validatorRegex = `^(${chainConfig.prefix.validator})`;
-        const userRegex = `^(${chainConfig.prefix.account})`;
+        const consensusRegex = `^(${chainConfig().prefix.consensus})`;
+        const validatorRegex = `^(${chainConfig().prefix.validator})`;
+        const userRegex = `^(${chainConfig().prefix.account})`;
         const cosmosUserRegex = '^(cosmos)';
         const parsedValue = value.replace(/\s+/g, '');
 
@@ -49,7 +49,7 @@ export const useSearchBar = (t: Translate) => {
             toast(t('common:invalidAddress'));
           }
         } else if (/^@/.test(parsedValue)) {
-          const configProfile = chainConfig.extra.profile;
+          const configProfile = chainConfig().extra.profile;
           if (!configProfile) {
             toast(t('common:profilesNotEnabled'));
           } else if (parsedValue === '@') {

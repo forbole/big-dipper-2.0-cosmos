@@ -25,7 +25,7 @@ export const formatGraphData = ({ data, theme, total }: FormatGraphType) => {
       value: Big(selectedData.value).toNumber(),
       display: formatNumber(selectedData.value, selectedData.exponent),
       percentage: total.gt(0)
-        ? `${Big(selectedData.value).div(total.toString()).times(100).toFixed(2)}%`
+        ? `${Big(selectedData.value).div(`${total}`)?.times(100).toFixed(2)}%`
         : '0%',
       color: color[i],
     };

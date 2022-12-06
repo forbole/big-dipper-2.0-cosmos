@@ -22,7 +22,7 @@ class StakingParams {
 
   static fromJson(data: object): StakingParams {
     return {
-      bondDenom: R.pathOr(chainConfig.primaryTokenUnit, ['bond_denom'], data),
+      bondDenom: R.pathOr(chainConfig().primaryTokenUnit, ['bond_denom'], data),
       unbondingTime: R.pathOr(0, ['unbonding_time'], data),
       maxEntries: R.pathOr(0, ['max_entries'], data),
       historicalEntries: R.pathOr(0, ['historical_entries'], data),

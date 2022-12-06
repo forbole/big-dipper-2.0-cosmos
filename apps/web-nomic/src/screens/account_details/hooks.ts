@@ -72,7 +72,7 @@ export const useAccountDetails = () => {
         loading: false,
         exists: false,
       });
-    } else if (chainConfig.extra.profile) {
+    } else if (chainConfig().extra.profile) {
       fetchDesmosProfile(router.query.address as string);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -141,19 +141,19 @@ export const useAccountDetails = () => {
       const formatBalance = () => {
         const available = getDenom(
           data?.accountBalances?.coins ?? [],
-          chainConfig.primaryTokenUnit
+          chainConfig().primaryTokenUnit
         );
-        const availableAmount = formatToken(available.amount, chainConfig.primaryTokenUnit);
+        const availableAmount = formatToken(available.amount, chainConfig().primaryTokenUnit);
 
         const delegate = getDenom(
           data?.delegationBalance?.coins ?? [],
-          chainConfig.primaryTokenUnit
+          chainConfig().primaryTokenUnit
         );
-        const delegateAmount = formatToken(delegate.amount, chainConfig.primaryTokenUnit);
+        const delegateAmount = formatToken(delegate.amount, chainConfig().primaryTokenUnit);
 
         const total = Big(availableAmount.value)
           .plus(delegateAmount.value)
-          .toFixed(chainConfig.tokenUnits[chainConfig.primaryTokenUnit].exponent);
+          .toFixed(chainConfig().tokenUnits?.[chainConfig().primaryTokenUnit].exponent);
 
         const balance: BalanceType = {
           available: availableAmount,
@@ -191,14 +191,14 @@ export const useAccountDetails = () => {
         });
 
         // remove the primary token unit thats being shown in balance
-        otherTokenUnits.delete(chainConfig.primaryTokenUnit);
+        otherTokenUnits.delete(chainConfig().primaryTokenUnit);
 
         otherTokenUnits.forEach((x: string) => {
           const availableRawAmount = getDenom(available, x);
           const availableAmount = formatToken(availableRawAmount.amount, x);
 
           otherTokens.push({
-            denom: chainConfig?.tokenUnits?.x?.display ?? x,
+            denom: chainConfig().tokenUnits?.x?.display ?? x,
             available: availableAmount,
             reward: defaultTokenUnit,
             commission: defaultTokenUnit,

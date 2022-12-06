@@ -1,11 +1,13 @@
 import chainConfig from '@/chainConfig';
 
+const { basePath, previewImage } = chainConfig();
+
 export const OPEN_GRAPH_SEO = {
   type: 'website',
   site_name: 'Big Dipper',
   images: [
     {
-      url: chainConfig.previewImage ?? '',
+      url: previewImage ?? '',
       width: 800,
       height: 600,
       alt: 'Preview Photo',
@@ -16,11 +18,6 @@ export const OPEN_GRAPH_SEO = {
 export const TWITTER_SEO = {
   cardType: 'summary_large_image',
 };
-
-const basePath = (process.env.BASE_PATH || `${`/${chainConfig.chainName}`}`).replace(
-  /^\/(|base)$/,
-  ''
-);
 
 export const ADDITIONAL_LINK_TAGS_SEO = [
   {

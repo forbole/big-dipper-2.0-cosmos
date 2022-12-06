@@ -1,5 +1,5 @@
 /* eslint-disable */
-import type { PlaywrightTestConfig } from '@playwright/test';
+import type { PlaywrightTestConfig, PlaywrightWorkerOptions, Project } from '@playwright/test';
 import { devices } from '@playwright/test';
 
 /**
@@ -10,6 +10,54 @@ import { devices } from '@playwright/test';
 
 const port = process.env.PORT || '3000';
 const projectName = process.env.PROJECT_NAME || 'web';
+const [_, chainName] = /^web-(.+)$/.exec(projectName) ?? ['', 'base'];
+const basePath = chainName === 'base' ? '' : `/${chainName}`;
+const projects: Array<Project<PlaywrightTestConfig, PlaywrightWorkerOptions>> = [
+  {
+    name: 'chromium',
+    use: {
+      ...devices['Desktop Chrome'],
+    },
+  },
+  {
+    name: 'firefox',
+    use: {
+      ...devices['Desktop Firefox'],
+    },
+  },
+  {
+    name: 'webkit',
+    use: {
+      ...devices['Desktop Safari'],
+    },
+  },
+  {
+    name: 'mobile-chrome',
+    use: {
+      ...devices['Pixel 5'],
+    },
+  },
+  {
+    name: 'mobile-safari',
+    use: {
+      ...devices['iPhone 12'],
+    },
+  },
+
+  /* Test against branded browsers. */
+  // {
+  //   name: 'microsoft-edge',
+  //   use: {
+  //     channel: 'msedge',
+  //   },
+  // },
+  // {
+  //   name: 'google-chrome',
+  //   use: {
+  //     channel: 'chrome',
+  //   },
+  // },
+];
 
 /**
  * See https://playwright.dev/docs/test-configuration.
@@ -17,7 +65,7 @@ const projectName = process.env.PROJECT_NAME || 'web';
 const config: PlaywrightTestConfig = {
   testDir: './e2e',
   /* Maximum time one test can run for. */
-  timeout: process.env.CI ? 30 * 60 * 1000 : 10 * 60 * 1000,
+  timeout: 60 * 1000,
   expect: {
     /**
      * Maximum time expect() should wait for the condition to be met.
@@ -29,97 +77,44 @@ const config: PlaywrightTestConfig = {
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
-  /* Retry on CI only */
-  retries: process.env.CI ? 2 : 0,
+  /* Retry twice on CI, once on non-CI */
+  retries: process.env.CI ? 2 : 1,
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: process.env.CI ? 'github' : 'html',
+  reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
     actionTimeout: 0,
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: `http://localhost:${port}`,
+    baseURL: `http://localhost:${port}${basePath}`,
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on',
+    trace: 'on-first-retry',
     /* Ignore https error in firefox */
     ignoreHTTPSErrors: true,
+    headless: true,
     viewport: { width: 1280, height: 720 },
     video: 'off',
   },
 
   /* Configure projects for major browsers */
-  projects: [
-    {
-      name: 'chromium',
-      use: {
-        ...devices['Desktop Chrome'],
-      },
-    },
-
-    process.env.CI
-      ? {}
-      : {
-          name: 'firefox',
-          use: {
-            ...devices['Desktop Firefox'],
-          },
-        },
-
-    {
-      name: 'webkit',
-      use: {
-        ...devices['Desktop Safari'],
-      },
-    },
-
-    /* Test against mobile viewports. */
-    process.env.CI
-      ? {}
-      : {
-          name: 'Mobile Chrome',
-          use: {
-            ...devices['Pixel 5'],
-          },
-        },
-
-    {
-      name: 'Mobile Safari',
-      use: {
-        ...devices['iPhone 12'],
-      },
-    },
-
-    /* Test against branded browsers. */
-    // {
-    //   name: 'Microsoft Edge',
-    //   use: {
-    //     channel: 'msedge',
-    //   },
-    // },
-    // {
-    //   name: 'Google Chrome',
-    //   use: {
-    //     channel: 'chrome',
-    //   },
-    // },
-  ].filter((config) => !!config?.name),
+  projects: projects.filter((config) => !!config?.name),
 
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */
   // outputDir: 'test-results/',
 
   /* Run your local dev server before starting the tests */
   webServer: {
-    command: `yarn start`,
-    url: `http://localhost:${port}`,
+    command: process.env.PLAYWRIGHT_SERVER_COMMAND || `yarn workspace ${projectName} next start`,
+    url: `http://localhost:${port}${basePath}`,
+    ignoreHTTPSErrors: true,
     env: {
-      PROJECT_NAME: projectName,
       PORT: port,
       DEBUG: 'pw:webserver',
     },
-    reuseExistingServer: process.env.CI ? undefined : true,
+    reuseExistingServer: !process.env.CI,
   },
 };
 

@@ -9,8 +9,5 @@
   ],
   "publishConfig": {
     "access": "public"
-  },
-  "devDependencies": {
-    "@tsconfig/cypress": "^1.0.1"
   }
 }

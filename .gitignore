@@ -49,16 +49,23 @@ test.js
 .idea/
 
 # Yarn Berry
-.pnp.*
 .yarn/*
+!.yarn/cache
 !.yarn/patches
 !.yarn/plugins
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+.pnp.*
 .turbo/
 
 # Playwright
 test-results/
 playwright-report/
 playwright/.cache/
+.turbo
+.vercel
+server.js
+
+# vercel config, generated via vercel.js
+vercel.json

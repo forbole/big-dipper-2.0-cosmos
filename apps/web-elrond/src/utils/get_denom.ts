@@ -5,7 +5,7 @@ import chainConfig from '@/chainConfig';
  * @param denom The denom you wish to convert to
  * @param value The value in base denom value
  */
-export const getDenom = (list: MsgCoin[], denom = chainConfig.primaryTokenUnit): MsgCoin => {
+export const getDenom = (list: MsgCoin[], denom = chainConfig().primaryTokenUnit): MsgCoin => {
   const [selectedDenom] = list.filter((x) => x.denom === denom);
   let results: MsgCoin = {
     denom,

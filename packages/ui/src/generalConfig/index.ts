@@ -1,9 +1,7 @@
 import type { GeneralConfig } from '@/generalConfig/types';
 
-if (!process.env.GENERAL_CONFIG) {
-  throw new Error('GENERAL_CONFIG is not defined.');
-}
+import generalJson from 'shared-utils/configs/general.json';
 
-const generalConfig = JSON.parse(process.env.GENERAL_CONFIG) as GeneralConfig;
+const generalConfig = generalJson as GeneralConfig;
 
 export default generalConfig;
