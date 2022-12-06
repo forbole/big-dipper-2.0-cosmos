@@ -36,16 +36,16 @@ jobs:
       -
         name: Set needs.install.outputs.matrix, needs.install.outputs.cacheDirectory
         id: vars
-        run: >
+        run: "
           echo 'matrix='$(
             yarn turbo run build
             --dry='json' --filter='[${{ github.base_ref }}]' |
-            jq -rM '{ project: [ .packages[] | select( . | startswith("web") ) ] }'
+            jq -rM '{ project: [ .packages[] | select( . | startswith(\"web\") ) ] }'
           ) | tee -a $GITHUB_OUTPUT $GITHUB_STEP_SUMMARY
 
           echo 'cacheDirectory='$(
             npx jest --showConfig | jq -cr '.configs[0].cacheDirectory'
-          ) | tee -a $GITHUB_OUTPUT
+          ) | tee -a $GITHUB_OUTPUT"
   web:
     if: ${{ success() }}
     needs: install
