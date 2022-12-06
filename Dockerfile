@@ -13,7 +13,8 @@ RUN npm i -g add turbo
 COPY ./ ./
 
 ARG PROJECT_NAME
-RUN find . && turbo prune --scope=${PROJECT_NAME} --docker
+ENV PROJECT_NAME=${PROJECT_NAME}
+RUN turbo prune --scope=${PROJECT_NAME} --docker
 
 ################################################################################
 
@@ -34,6 +35,7 @@ COPY --from=pruner /app/out/yarn.lock ./
 
 ## Setting up the environment variables for the docker container.
 ARG PROJECT_NAME
+ENV PROJECT_NAME=${PROJECT_NAME}
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
 ARG NEXT_PUBLIC_SENTRY_DSN
