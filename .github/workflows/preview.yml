@@ -27,7 +27,7 @@ jobs:
         run: |
           node <<EOF
           const { writeFileSync } = require('fs');
-          const projectName = process.env.PROJECT_NAME || 'web;
+          const projectName = process.env.PROJECT_NAME || 'web';
           const chainType = process.env.NEXT_PUBLIC_CHAIN_TYPE || 'mainnet';
           const config = {
             buildCommand: 'NEXT_PUBLIC_CHAIN_TYPE=' + chainType + ' yarn turbo run build --filter=' + projectName + '...',
