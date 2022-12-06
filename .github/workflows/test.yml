@@ -15,6 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       matrix: ${{ steps.vars.outputs.matrix }}
+      cacheDirectory: ${{ steps.vars.outputs.cacheDirectory }}
     steps:
       - uses: actions/checkout@v3
         with:
@@ -28,12 +29,17 @@ jobs:
           cache: 'yarn'
       - name: Install modules
         run: yarn install --immutable
-      - name: Set needs.install.outputs.matrix
+      - name: Set needs.install.outputs.matrix, Set needs.install.outputs.cacheDirectory
         id: vars
-        run: "echo 'matrix='$( yarn turbo run build
-          --dry='json' --filter='web-*' --since='[${{ github.base_ref }}]' |
-          jq -rM '{ project: .packages }'
-          ) | tee -a $GITHUB_OUTPUT $GITHUB_STEP_SUMMARY"
+        run: "echo 'matrix='$(
+            yarn turbo run build
+            --dry='json' --filter='web-*' --since='[${{ github.base_ref }}]' |
+            jq -rM '{ project: .packages }'
+          ) | tee -a $GITHUB_OUTPUT $GITHUB_STEP_SUMMARY
+
+          echo 'cacheDirectory='$(
+            yarn dlx jest --showConfig | jq -cr '.configs[0].cacheDirectory'
+          ) | tee -a $GITHUB_OUTPUT"
   web:
     if: ${{ success() }}
     needs: install
@@ -51,7 +57,9 @@ jobs:
           cache: 'yarn'
       - uses: actions/cache@v3
         with:
-          path: ${{ github.workspace }}/apps/web/.next/cache
+          path: |
+            ${{ github.workspace }}/apps/web/.next/cache
+            ${{ needs.install.outputs.cacheDirectory }}
           key: ${{ runner.os }}-next-${{ hashFiles('**/yarn.lock') }}-web-${{ hashFiles(format('apps/{0}/**/*.[jt]s', 'web'), format('apps/{0}/**/*.[jt]sx', 'web'), 'packages/**/*.[jt]s', 'packages/**/*.[jt]sx') }}
           restore-keys: ${{ runner.os }}-next-${{ hashFiles('**/yarn.lock') }}-web-
       - name: Install modules
@@ -133,7 +141,9 @@ jobs:
           cache: 'yarn'
       - uses: actions/cache@v3
         with:
-          path: ${{ github.workspace }}/apps/${{ matrix.project }}/.next/cache
+          path: |
+            ${{ github.workspace }}/apps/${{ matrix.project }}/.next/cache
+            ${{ needs.install.outputs.cacheDirectory }}
           key: ${{ runner.os }}-next-${{ hashFiles('**/yarn.lock') }}-${{ matrix.project }}-${{ hashFiles(format('apps/{0}/**/*.[jt]s', matrix.project), format('apps/{0}/**/*.[jt]sx', matrix.project), 'packages/**/*.[jt]s', 'packages/**/*.[jt]sx') }}
           restore-keys: ${{ runner.os }}-next-${{ hashFiles('**/yarn.lock') }}-${{ matrix.project }}-
       - name: Install modules
