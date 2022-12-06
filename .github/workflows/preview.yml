@@ -41,6 +41,6 @@ jobs:
               : [],
           };
           writeFileSync('vercel.json', JSON.stringify(config, null, 2));
-          EOF'
+          EOF
       - name: Deploy preview to Vercel
         run: vercel -t ${{ secrets.VERCEL_TOKEN }} | tee -a $GITHUB_STEP_SUMMARY
