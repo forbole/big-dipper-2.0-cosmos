@@ -18,7 +18,25 @@ jobs:
       -
         name: Set steps.vars.outputs.sha_short
         id: vars
-        run: echo 'sha_short='$(git rev-parse --short HEAD) | tee -a $GITHUB_OUTPUT
+        env:
+          PROJECT_NAME: ${{ github.event.inputs.project_name }}
+          NEXT_PUBLIC_CHAIN_TYPE: ${{ github.event.inputs.chain_type }}
+        run: |
+          echo 'sha_short='$(git rev-parse --short HEAD) | tee -a $GITHUB_OUTPUT
+
+          # assign chain_type
+          node <<EOF
+          const { appendFileSync } = require('fs');
+          const chainType = (process.env.NEXT_PUBLIC_CHAIN_TYPE || 'mainnet').toLowerCase();
+          const chainJson = require('./apps/' + process.env.PROJECT_NAME + '/src/chain.json');
+          const { chains, ...settings } = chainJson;
+          let chain = chains.find((c) => c.chainType?.toLowerCase() === chainType);
+          if (!chain && chainType !== 'testnet') {
+            chain = chains.find((c) => c.chainType?.toLowerCase() === 'testnet');
+          }
+          if (!chain) [chain] = chains;
+          appendFileSync("$GITHUB_OUTPUT", 'chain_type=' + (chain?.chainType || 'mainnet'));
+          EOF
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v2
@@ -39,18 +57,18 @@ jobs:
           push: true
           build-args: |
             PROJECT_NAME=${{ github.event.inputs.project_name }}
-            NEXT_PUBLIC_CHAIN_TYPE=${{ github.event.inputs.chain_type }}
+            NEXT_PUBLIC_CHAIN_TYPE=${{ steps.vars.outputs.chain_type }}
             TURBO_TEAM=${{ secrets.TURBO_TEAM }}
             TURBO_TOKEN=${{ secrets.TURBO_TOKEN }}
             NEXT_PUBLIC_SENTRY_DSN=${{ secrets.SENTRY_DSN }}
             SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }}
           target: web
           tags: |
-            forbole/big-dipper-2.0-cosmos:monorepo-${{ github.event.inputs.project_name }}-${{ github.event.inputs.chain_type }}-${{ steps.vars.outputs.sha_short }}
+            forbole/big-dipper-2.0-cosmos:monorepo-${{ github.event.inputs.project_name }}-${{ steps.vars.outputs.chain_type }}-${{ steps.vars.outputs.sha_short }}
       -
         name: Publish to akash
         run: >
           curl -i -X POST -H "Content-Type: application/json"
-          -d '{"parameters":{"tag": "monorepo-${{ github.event.inputs.project_name }}-${{ github.event.inputs.chain_type }}-${{ steps.vars.outputs.sha_short }}"}}'
-          -k ${{ secrets.WEBHOOK_URL }}/${{ github.event.inputs.project_name }}-${{ github.event.inputs.chain_type }}
+          -d '{"parameters":{"tag": "monorepo-${{ github.event.inputs.project_name }}-${{ steps.vars.outputs.chain_type }}-${{ steps.vars.outputs.sha_short }}"}}'
+          -k ${{ secrets.WEBHOOK_URL }}/${{ github.event.inputs.project_name }}-${{ steps.vars.outputs.chain_type }}
           -u "deploy:${{ secrets.AKASH_WEBHOOK_SECRET }}" | tee -a $GITHUB_STEP_SUMMARY
