@@ -152,7 +152,7 @@ export const useParams = () => {
           quorum: numeral(numeral(govParamsRaw.tallyParams.quorum).format('0.[00]')).value(),
           threshold: numeral(numeral(govParamsRaw.tallyParams.threshold).format('0.[00]')).value(),
           vetoThreshold: numeral(numeral(govParamsRaw.tallyParams.vetoThreshold).format('0.[00]')).value(),
-          votingPeriod: govParamsRaw.votingParams.votingPeriod * 1000,
+          votingPeriod: govParamsRaw.votingParams.votingPeriod,
         };
       }
 
