@@ -19,7 +19,7 @@ jobs:
       -
         name: Set steps.vars.outputs.sha_short
         id: vars
-        run: echo "sha_short=$(git rev-parse --short HEAD) | tee -a $GITHUB_OUTPUT"
+        run: echo 'sha_short='$(git rev-parse --short HEAD) | tee -a $GITHUB_OUTPUT
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v2
@@ -53,5 +53,5 @@ jobs:
         run: >
           curl -i -X POST -H "Content-Type: application/json"
           -d '{"parameters":{"tag": "monorepo-${{ github.event.inputs.project_name }}-${{ github.event.inputs.chain_type }}-${{ steps.vars.outputs.sha_short }}"}}'
-          -k ${{ secrets.WEBHOOK_URL }}/${{ github.event.inputs.project_name }}/${{ github.event.inputs.chain_type }}
+          -k ${{ secrets.WEBHOOK_URL }}/${{ github.event.inputs.project_name }}-${{ github.event.inputs.chain_type }}
           -u "deploy:${{ secrets.AKASH_WEBHOOK_SECRET }}" | tee -a $GITHUB_STEP_SUMMARY
