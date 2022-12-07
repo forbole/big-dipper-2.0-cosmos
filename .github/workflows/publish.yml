@@ -16,7 +16,7 @@ jobs:
       -
         uses: actions/checkout@v3
       -
-        name: Set steps.vars.outputs.sha_short
+        name: Set steps.vars.outputs.sha_short & steps.vars.outputs.chain_type
         id: vars
         env:
           PROJECT_NAME: ${{ github.event.inputs.project_name }}
@@ -35,7 +35,7 @@ jobs:
             chain = chains.find((c) => c.chainType?.toLowerCase() === 'testnet');
           }
           if (!chain) [chain] = chains;
-          appendFileSync("$GITHUB_OUTPUT", 'chain_type=' + (chain?.chainType || 'mainnet'));
+          appendFileSync("$GITHUB_OUTPUT", 'chain_type=' + (chain?.chainType?.toLowerCase() || 'mainnet'));
           EOF
       -
         name: Set up QEMU
