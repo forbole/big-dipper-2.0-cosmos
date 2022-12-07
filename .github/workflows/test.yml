@@ -50,7 +50,7 @@ jobs:
           ) | tee -a $GITHUB_OUTPUT $GITHUB_STEP_SUMMARY
 
           echo 'webHasChanged='$(
-            [ $(echo $PACKAGES  | jq -crM 'index(\"web\")') = \"null\" ] && echo yes || echo no
+            [ $(echo $PACKAGES  | jq -crM 'index(\"web\")') = \"null\" ] && echo no || echo yes
           ) | tee -a $GITHUB_OUTPUT $GITHUB_STEP_SUMMARY
 
           echo 'cacheDirectory='$(
