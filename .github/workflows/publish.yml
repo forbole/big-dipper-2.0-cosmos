@@ -3,12 +3,11 @@ on:
   workflow_dispatch:
     inputs:
        project_name:
-        description: "Project to publish"
+        description: "Project to publish (to Akash)"
         required: true
        chain_type:
-        description: "Chain Type to publish"
+        description: "Chain Type to publish (default: mainnet)"
         required: false
-        default: mainnet
 jobs:
   publish:
     runs-on: ubuntu-latest
