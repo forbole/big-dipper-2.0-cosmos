@@ -155,11 +155,11 @@ jobs:
           path: playwright-report/
           retention-days: 7
   web-:
-    if: ${{ success() }}
+    if: ${{ success() && needs.install.outputs.matrix != '{"project":[]}' }}
     needs: install
     strategy:
       fail-fast: false
-      matrix: ${{ fromJson(needs.install.outputs.matrix )}}
+      matrix: ${{ fromJson(needs.install.outputs.matrix)}}
     runs-on: ubuntu-latest
     steps:
       -
