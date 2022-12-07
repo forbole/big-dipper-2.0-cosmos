@@ -6,7 +6,7 @@ on:
         description: "Project to publish (to Akash)"
         required: true
        chain_type:
-        description: "Chain Type to publish (default: mainnet)"
+        description: "Chain Type to publish (default to mainnet when more than 1 was configured)"
         required: false
 jobs:
   publish:
