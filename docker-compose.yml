@@ -1,23 +1,5 @@
 version: "3.8"
 services:
-  e2e:
-    build:
-      context: .
-      args:
-        BASE_IMAGE: mcr.microsoft.com/playwright:v1.28.1-focal
-        PROJECT_NAME: ${PROJECT_NAME:-web}
-        NEXT_PUBLIC_CHAIN_TYPE: ${NEXT_PUBLIC_CHAIN_TYPE:-mainnet}
-        TURBO_TEAM: ${TURBO_TEAM:-}
-        TURBO_TOKEN: ${TURBO_TOKEN:-}
-      target: e2e
-    platform: linux/amd64
-    ipc: host
-    cap_add:
-      - "SYS_ADMIN"
-    init: true
-    volumes:
-      - yarn-cache:/root/.yarn/berry/cache:rw
-      - ${PWD}/playwright-report:/app/playwright-report:rw
   web:
     build:
       context: .
