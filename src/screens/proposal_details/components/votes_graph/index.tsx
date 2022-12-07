@@ -37,9 +37,10 @@ const VotesGraph: React.FC<ComponentDefault> = (props) => {
   });
   const totalVotedFormat = numeral(total.toFixed(2)).format('0,0.[00]');
   const totalBondedFormat = numeral(state.bonded.value).format('0,0.[00]');
+  const BondedValue = Number(state.bonded.value) === 0 ? 1 : state.bonded.value;
   const totalVotedPercent = total.gt(0)
     ? `${numeral(
-      Big(total.toFixed(2)).div(state.bonded.value).times(100).toFixed(2),
+      Big(total.toFixed(2)).div(BondedValue).times(100).toFixed(2),
     ).format('0.[00]')}%` : '0%';
 
   return (

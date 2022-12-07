@@ -354,13 +354,13 @@ const getDataByType = (type: string) => {
       tagTheme: 'four',
       tagDisplay: 'MsgCreateDid',
     },
-    '/cheqdid.cheqdnode.cheqd.v1.MsgupdateDid': {
+    '/cheqdid.cheqdnode.cheqd.v1.MsgUpdateDid': {
       model: MsgUpdateDid,
       content: COMPONENTS.CreateDID,
       tagTheme: 'four',
       tagDisplay: 'MsgUpdateDID',
     },
-    '/cheqresource.cheqdnode.cheqd.v1.MsgCreateResource': {
+    '/cheqdid.cheqdnode.resource.v1.MsgCreateResource': {
       model: MsgCreateResource,
       content: COMPONENTS.CreateDID,
       tagTheme: 'four',
