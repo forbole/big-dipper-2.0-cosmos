@@ -3,7 +3,8 @@
   "network": "lava-testnet-1",
   "icon": "/icons/lava-icon.svg",
   "logo": {
-    "default": "/icons/lava-logo-white.svg"
+    "default": "/icons/lava-logo-white.svg",
+    "text_black": "/icons/lava-logo-text-black.svg"
   },
   "prefix": {
     "consensus": "lava@valcons",

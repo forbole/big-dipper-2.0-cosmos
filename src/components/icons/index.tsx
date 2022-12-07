@@ -6,6 +6,7 @@ import MediumIcon from './medium';
 import TelegramIcon from './telegram';
 import YoutubeIcon from './youtube';
 import TwitterIcon from './twitter';
+import DiscordIcon from './discord';
 
 export {
   FacebookIcon,
@@ -16,4 +17,5 @@ export {
   TelegramIcon,
   YoutubeIcon,
   TwitterIcon,
+  DiscordIcon,
 };
