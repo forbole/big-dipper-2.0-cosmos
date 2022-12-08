@@ -1,4 +1,3 @@
-import chainConfig from '@/chainConfig';
 import Box from '@/components/box';
 import Image from 'next/future/image';
 import Link from 'next/link';
