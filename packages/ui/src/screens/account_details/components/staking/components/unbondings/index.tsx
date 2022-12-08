@@ -3,8 +3,6 @@ import NoData from '@/components/no_data';
 import Pagination from '@/components/pagination';
 import { usePagination, useScreenSize } from '@/hooks';
 import { useProfilesRecoil } from '@/recoil/profiles';
-import type DesktopType from '@/screens/account_details/components/staking/components/unbondings/components/desktop';
-import type MobileType from '@/screens/account_details/components/staking/components/unbondings/components/mobile';
 import { useStyles } from '@/screens/account_details/components/staking/components/unbondings/styles';
 import type { UnbondingsType } from '@/screens/account_details/components/staking/types';
 import classnames from 'classnames';
@@ -15,11 +13,11 @@ import React from 'react';
 const Desktop = dynamic(
   () =>
     import('@/screens/account_details/components/staking/components/unbondings/components/desktop')
-) as typeof DesktopType;
+);
 const Mobile = dynamic(
   () =>
     import('@/screens/account_details/components/staking/components/unbondings/components/mobile')
-) as typeof MobileType;
+);
 
 const Unbondings: React.FC<
   {

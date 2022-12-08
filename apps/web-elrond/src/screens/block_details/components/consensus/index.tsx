@@ -8,15 +8,13 @@ import NoData from '@/components/no_data';
 import { useScreenSize } from '@/hooks';
 import type { ConsensusType } from '@/screens/block_details/types';
 import { useStyles } from '@/screens/block_details/components/consensus/styles';
-import type DesktopType from '@/screens/block_details/components/consensus/components/desktop';
-import type MobileType from '@/screens/block_details/components/consensus/components/mobile';
 
 const Desktop = dynamic(
   () => import('@/screens/block_details/components/consensus/components/desktop')
-) as typeof DesktopType;
+);
 const Mobile = dynamic(
   () => import('@/screens/block_details/components/consensus/components/mobile')
-) as typeof MobileType;
+);
 
 const Consensus: React.FC<{ consensus: ConsensusType[] } & ComponentDefault> = (props) => {
   const { isDesktop } = useScreenSize();

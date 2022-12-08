@@ -3,8 +3,6 @@ import NoData from '@/components/no_data';
 import Pagination from '@/components/pagination';
 import { usePagination, useScreenSize } from '@/hooks';
 import { useProfilesRecoil } from '@/recoil/profiles';
-import type DesktopType from '@/screens/account_details/components/staking/components/redelegations/components/desktop';
-import type MobileType from '@/screens/account_details/components/staking/components/redelegations/components/mobile';
 import { useStyles } from '@/screens/account_details/components/staking/components/redelegations/styles';
 import type { RedelegationsType } from '@/screens/account_details/components/staking/types';
 import classnames from 'classnames';
@@ -17,13 +15,13 @@ const Desktop = dynamic(
     import(
       '@/screens/account_details/components/staking/components/redelegations/components/desktop'
     )
-) as typeof DesktopType;
+);
 const Mobile = dynamic(
   () =>
     import(
       '@/screens/account_details/components/staking/components/redelegations/components/mobile'
     )
-) as typeof MobileType;
+);
 
 const Redelegations: React.FC<
   {

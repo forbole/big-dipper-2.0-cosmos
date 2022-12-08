@@ -1,8 +1,6 @@
 import Box from '@/components/box';
 import Pagination from '@/components/pagination';
 import { usePagination, useScreenSize } from '@/hooks';
-import type DesktopType from '@/screens/account_details/components/other_tokens/components/desktop';
-import type MobileType from '@/screens/account_details/components/other_tokens/components/mobile';
 import { useStyles } from '@/screens/account_details/components/other_tokens/styles';
 import type { OtherTokenType } from '@/screens/account_details/types';
 import Typography from '@material-ui/core/Typography';
@@ -13,10 +11,10 @@ import React from 'react';
 
 const Desktop = dynamic(
   () => import('@/screens/account_details/components/other_tokens/components/desktop')
-) as typeof DesktopType;
+);
 const Mobile = dynamic(
   () => import('@/screens/account_details/components/other_tokens/components/mobile')
-) as typeof MobileType;
+);
 
 const OtherTokens: React.FC<{
   className?: string;
