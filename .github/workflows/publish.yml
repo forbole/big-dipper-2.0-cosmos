@@ -18,7 +18,7 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     if: startsWith('web-', ${{ github.event.inputs.project_name }}) && github.event.inputs.confirm == 'CONFIRM'
-    name: Publish ${{ github.event.inputs.project_name }}-${{ github.event.inputs.chain_type }}-${{ github.event.inputs.base_path }}
+    name: Publish ${{ github.event.inputs.project_name }}-${{ github.event.inputs.chain_type }}${{ github.event.inputs.base_path }}
     steps:
       -
         uses: actions/checkout@v3
