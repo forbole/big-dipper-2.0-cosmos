@@ -77,8 +77,8 @@ jobs:
         with:
           path: |
             ${{ needs.install.outputs.cacheDirectory }}
-          key: ${{ runner.os }}-next-${{ hashFiles('**/yarn.lock') }}-web-${{ hashFiles(format('apps/{0}/**/*.[jt]s', 'web'), format('apps/{0}/**/*.[jt]sx', 'web'), 'packages/**/*.[jt]s', 'packages/**/*.[jt]sx') }}
-          restore-keys: ${{ runner.os }}-next-${{ hashFiles('**/yarn.lock') }}-web-
+          key: ${{ runner.os }}-next-${{ hashFiles('**/yarn.lock') }}-ui-${{ hashFiles(format('apps/{0}/**/*.[jt]s', 'ui'), format('apps/{0}/**/*.[jt]sx', 'ui'), 'packages/**/*.[jt]s', 'packages/**/*.[jt]sx') }}
+          restore-keys: ${{ runner.os }}-next-${{ hashFiles('**/yarn.lock') }}-ui-
       -
         name: Install modules
         run: yarn install --immutable
