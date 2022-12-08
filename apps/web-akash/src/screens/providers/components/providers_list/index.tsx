@@ -2,8 +2,6 @@ import Box from '@/components/box';
 import Pagination from '@/components/pagination';
 import Search from '@/components/search';
 import { usePagination, useScreenSize } from '@/hooks';
-import type DesktopType from '@/screens/providers/components/providers_list/components/desktop';
-import type MobileType from '@/screens/providers/components/providers_list/components/mobile';
 import { useStyles } from '@/screens/providers/components/providers_list/styles';
 import type { ProvidersListState } from '@/screens/providers/types';
 import Typography from '@material-ui/core/Typography';
@@ -14,10 +12,10 @@ import React from 'react';
 
 const Desktop = dynamic(
   () => import('@/screens/providers/components/providers_list/components/desktop')
-) as typeof DesktopType;
+);
 const Mobile = dynamic(
   () => import('@/screens/providers/components/providers_list/components/mobile')
-) as typeof MobileType;
+);
 
 export interface ProvidersListProps extends ComponentDefault {
   list: ProvidersListState;

@@ -1,8 +1,6 @@
 import Box from '@/components/box';
 import NoData from '@/components/no_data';
 import { useScreenSize } from '@/hooks';
-import type DesktopType from '@/screens/home/components/blocks/components/desktop';
-import type MobileType from '@/screens/home/components/blocks/components/mobile';
 import { useBlocks } from '@/screens/home/components/blocks/hooks';
 import { useStyles } from '@/screens/home/components/blocks/styles';
 import { BLOCKS } from '@/utils/go_to_page';
@@ -14,12 +12,8 @@ import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import React from 'react';
 
-const Desktop = dynamic(
-  () => import('@/screens/home/components/blocks/components/desktop')
-) as typeof DesktopType;
-const Mobile = dynamic(
-  () => import('@/screens/home/components/blocks/components/mobile')
-) as typeof MobileType;
+const Desktop = dynamic(() => import('@/screens/home/components/blocks/components/desktop'));
+const Mobile = dynamic(() => import('@/screens/home/components/blocks/components/mobile'));
 
 const Blocks: React.FC<{
   className?: string;

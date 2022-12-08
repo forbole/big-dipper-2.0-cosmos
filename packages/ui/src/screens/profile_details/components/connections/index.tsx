@@ -1,8 +1,6 @@
 import Box from '@/components/box';
 import Pagination from '@/components/pagination';
 import { usePagination, useScreenSize } from '@/hooks';
-import type DesktopType from '@/screens/profile_details/components/connections/components/desktop';
-import type MobileType from '@/screens/profile_details/components/connections/components/mobile';
 import { useStyles } from '@/screens/profile_details/components/connections/styles';
 import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
@@ -11,10 +9,10 @@ import React from 'react';
 
 const Desktop = dynamic(
   () => import('@/screens/profile_details/components/connections/components/desktop')
-) as typeof DesktopType;
+);
 const Mobile = dynamic(
   () => import('@/screens/profile_details/components/connections/components/mobile')
-) as typeof MobileType;
+);
 
 const Connections: React.FC<{
   data: ProfileConnectionType[];
