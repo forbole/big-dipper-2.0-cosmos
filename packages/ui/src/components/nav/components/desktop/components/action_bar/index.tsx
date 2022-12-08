@@ -1,6 +1,7 @@
 import Network from '@/components/nav/components/desktop/components/action_bar/components/network';
 import NetworkList from '@/components/nav/components/desktop/components/action_bar/components/network_list';
 import SettingsList from '@/components/nav/components/desktop/components/action_bar/components/settings_list';
+import ConnectWallet from '@/components/nav/components/desktop/components/action_bar/components/connect_wallet';
 import { useStyles } from '@/components/nav/components/desktop/components/action_bar/styles';
 import SearchBar from '@/components/nav/components/search_bar';
 import { useGetComponentDimension } from '@/hooks';
@@ -22,6 +23,7 @@ const ActionBar: React.FC<{
           className={classnames(classes.network, { open: isNetwork })}
           toggleNetwork={toggleNetwork}
         />
+        <ConnectWallet />
         <SettingsList />
       </div>
       <NetworkList
