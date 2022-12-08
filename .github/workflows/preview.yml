@@ -31,7 +31,7 @@ jobs:
         run: |
           echo 'valid='$(
             yarn workspace ${{ github.event.inputs.project_name }} info 2>1 1>/dev/null && echo yes || echo no
-          )' | tee -a $GITHUB_OUTPUT
+          ) | tee -a $GITHUB_OUTPUT
       -
         name: Insall Vercel CLI
         if: steps.vars.outputs.valid == 'yes'
