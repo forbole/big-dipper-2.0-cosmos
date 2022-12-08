@@ -15,6 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       matrix: ${{ steps.vars.outputs.matrix }}
+      webHasChanged: ${{ steps.vars.outputs.webHasChanged }}
       cacheDirectory: ${{ steps.vars.outputs.cacheDirectory }}
     steps:
       -
@@ -37,17 +38,26 @@ jobs:
         name: Set needs.install.outputs.matrix, needs.install.outputs.cacheDirectory
         id: vars
         run: "
-          echo 'matrix='$(
+          PACKAGES=$(
             yarn turbo run build
             --dry='json' --filter='[${{ github.event.pull_request.base.sha }}]' |
-            jq -rM '{ project: [ .packages[] | select( . | startswith(\"web\") ) ] }'
+            jq -crM '.packages'
+          )
+
+          echo 'matrix='$(
+            echo $PACKAGES |
+            jq -crM '{ project: [ .[] | select( . | startswith(\"web-\") ) ] }'
+          ) | tee -a $GITHUB_OUTPUT $GITHUB_STEP_SUMMARY
+
+          echo 'webHasChanged='$(
+            [ $(echo $PACKAGES  | jq -crM 'index(\"web\")') = \"null\" ] && echo no || echo yes
           ) | tee -a $GITHUB_OUTPUT $GITHUB_STEP_SUMMARY
 
           echo 'cacheDirectory='$(
             npx jest --showConfig | jq -cr '.configs[0].cacheDirectory'
           ) | tee -a $GITHUB_OUTPUT"
   web:
-    if: ${{ success() }}
+    if: ${{ success() && needs.install.outputs.webHasChanged == 'yes' }}
     needs: install
     runs-on: ubuntu-latest
     steps:
@@ -145,11 +155,11 @@ jobs:
           path: playwright-report/
           retention-days: 7
   web-:
-    if: ${{ success() }}
+    if: ${{ success() && needs.install.outputs.matrix != '{"project":[]}' }}
     needs: install
     strategy:
       fail-fast: false
-      matrix: ${{ fromJson(needs.install.outputs.matrix )}}
+      matrix: ${{ fromJson(needs.install.outputs.matrix)}}
     runs-on: ubuntu-latest
     steps:
       -

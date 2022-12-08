@@ -3,12 +3,11 @@ on:
   workflow_dispatch:
     inputs:
        project_name:
-        description: "Project to publish"
+        description: "Project to publish (to Vercel)"
         required: true
        chain_type:
-        description: "Chain Type to publish"
+        description: "Chain Type to publish (default to mainnet when more than 1 was configured)"
         required: false
-        default: mainnet
 jobs:
   publish:
     runs-on: ubuntu-latest

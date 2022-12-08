@@ -93,7 +93,7 @@ USER nextjs
 ARG PROJECT_NAME
 ENV PROJECT_NAME=${PROJECT_NAME}
 COPY --chown=nextjs:nodejs --from=builder /app/apps/${PROJECT_NAME}/.next/apps/${PROJECT_NAME}/.next/ ./.next/
-COPY --chown=nextjs:nodejs --from=builder /app/apps/${PROJECT_NAME}/.next/static/ ./static/
+COPY --chown=nextjs:nodejs --from=builder /app/apps/${PROJECT_NAME}/.next/static/ ./.next/static/
 COPY --chown=nextjs:nodejs --from=builder /app/apps/${PROJECT_NAME}/public/ ./public/
 COPY --chown=nextjs:nodejs --from=builder /app/node_modules/ ./node_modules/
 COPY --chown=nextjs:nodejs --from=builder /app/apps/${PROJECT_NAME}/.next/apps/${PROJECT_NAME}/server.js ./
@@ -106,24 +106,3 @@ ENV PORT=${PORT}
 EXPOSE ${PORT:-3000}
 
 CMD node /app/server.js
-
-################################################################################
-
-# Stage: e2e
-FROM ${BASE_IMAGE} AS e2e
-WORKDIR /app
-
-# Copying the files from the builder stage to the e2e stage.
-COPY --chown=nextjs:nodejs playwright.config.ts ./
-COPY --chown=nextjs:nodejs e2e/ ./e2e/
-ARG PROJECT_NAME
-ENV PROJECT_NAME=${PROJECT_NAME}
-COPY --chown=nextjs:nodejs --from=builder /app/ ./
-
-# Setting up the environment variables for the docker container.
-ENV NODE_ENV=production
-ENV NEXT_TELEMETRY_DISABLED=1
-ENV DEBUG=pw:webserver
-ENV CI=1
-
-CMD yarn playwright test
