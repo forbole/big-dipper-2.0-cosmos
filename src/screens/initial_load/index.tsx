@@ -13,7 +13,7 @@ const InitialLoad = () => {
   const classes = useStyles();
 
   const logoUrl = R.pathOr(
-    chainConfig.logo.default,
+    theme === 'light' ? chainConfig.logo.text_black : chainConfig.logo.default,
     ['logo', theme],
     chainConfig,
   );
