@@ -20,6 +20,9 @@ jest.mock('@/components/nav', () => (props: JSX.IntrinsicElements['div']) => (
 jest.mock('@/components/footer', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Footer" {...props} />
 ));
+jest.mock('@/components/banner', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Banner" {...props} />
+));
 
 jest.mock('next-seo', () => ({
   NextSeo: (props: JSX.IntrinsicElements['div']) => <div id="NextSeo" {...props} />,
