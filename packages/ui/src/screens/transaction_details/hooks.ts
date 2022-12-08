@@ -115,7 +115,7 @@ export const useTransactionDetails = () => {
     const formatMessages = () => {
       const messages = convertMsgsToModels(data.transaction[0]);
       return {
-        filterBy: '',
+        filterBy: 'none',
         viewRaw: false,
         items: messages,
       };
@@ -141,7 +141,7 @@ export const useTransactionDetails = () => {
     (event: React.ChangeEvent<HTMLInputElement>) => {
       handleSetState({
         messages: {
-          filterBy: '',
+          filterBy: 'none',
           viewRaw: event.target.checked,
           items: [],
         },
