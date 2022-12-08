@@ -7,7 +7,7 @@ const styles = makeStyles((theme) => ({
       display: 'flex',
       justifyContent: 'center',
       position: 'relative',
-      height: 'min(150px, calc(100vw / 5))',
+      height: 'min(116px, calc(100vw / 5))',
       '& img': {
         padding: theme.spacing(2),
         maxWidth: '100%',
