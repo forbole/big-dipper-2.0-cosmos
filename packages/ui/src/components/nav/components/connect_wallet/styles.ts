@@ -2,11 +2,14 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const styles = makeStyles((theme) => ({
   icon: {
-    display: 'flex',
-    margin: theme.spacing(2),
-    alignItems: 'center',
-    textAlign: 'center',
-    justifyContent: 'center',
+    marginLeft: '20px',
+    [theme.breakpoints.up('lg')]: {
+      display: 'flex',
+      margin: theme.spacing(2),
+      alignItems: 'center',
+      textAlign: 'center',
+      justifyContent: 'center',
+    },
     '&:hover': {
       cursor: 'pointer',
     },
