@@ -15,6 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       matrix: ${{ steps.vars.outputs.matrix }}
+      uiHasChanged: ${{ steps.vars.outputs.uiHasChanged }}
       webHasChanged: ${{ steps.vars.outputs.webHasChanged }}
       cacheDirectory: ${{ steps.vars.outputs.cacheDirectory }}
     steps:
@@ -49,6 +50,10 @@ jobs:
             jq -crM '{ project: [ .[] | select( . | startswith(\"web-\") ) ] }'
           ) | tee -a $GITHUB_OUTPUT $GITHUB_STEP_SUMMARY
 
+          echo 'uiHasChanged='$(
+            [ $(echo $PACKAGES  | jq -crM 'index(\"ui\")') = \"null\" ] && echo no || echo yes
+          ) | tee -a $GITHUB_OUTPUT $GITHUB_STEP_SUMMARY
+
           echo 'webHasChanged='$(
             [ $(echo $PACKAGES  | jq -crM 'index(\"web\")') = \"null\" ] && echo no || echo yes
           ) | tee -a $GITHUB_OUTPUT $GITHUB_STEP_SUMMARY
@@ -57,7 +62,7 @@ jobs:
             npx jest --showConfig | jq -cr '.configs[0].cacheDirectory'
           ) | tee -a $GITHUB_OUTPUT"
   ui:
-    if: ${{ success() }}
+    if: ${{ success() && needs.install.outputs.uiHasChanged == 'yes' }}
     needs: install
     runs-on: ubuntu-latest
     steps:
