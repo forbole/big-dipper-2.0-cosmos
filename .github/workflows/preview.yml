@@ -51,7 +51,7 @@ jobs:
             devCommand: 'yarn turbo run dev --filter=' + projectName + '...',
             framework: 'nextjs',
             ignoreCommand: 'echo always build && exit 1',
-            redirects: "${{ github.event.inputs.base_path }}" !== "/" && /^web-/.test(projectName)
+            redirects: /^web-/.test(projectName)
               ? [{ source: '/', destination: '/' + projectName.replace(/^web-/, '') }]
               : [],
           };
