@@ -30,9 +30,12 @@ const styles = makeStyles((theme) => ({
   walletButton: {
     border: 'solid 1px',
     borderRadius: '15px',
-    width: '300px',
+    width: '200px',
     padding: '10px',
     fontSize: '16px',
+    [theme.breakpoints.up('md')]: {
+      width: '300px',
+    },
   },
   header: {
     display: 'flex',
