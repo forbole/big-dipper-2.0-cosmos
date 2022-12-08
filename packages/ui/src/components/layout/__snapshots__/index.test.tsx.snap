@@ -17,9 +17,6 @@ exports[`component: Layout it renders 1`] = `
         className="makeStyles-appBarPlaceholder"
       />
       <div
-        id="Banner"
-      />
-      <div
         className="main-content"
       >
         <div>
