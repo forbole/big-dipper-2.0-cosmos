@@ -1,22 +1,29 @@
+import chainConfig from '@/chainConfig';
 import Box from '@/components/box';
 import Image from 'next/future/image';
 import Link from 'next/link';
 import { FC, useRef } from 'react';
-import banner1 from 'shared-utils/assets/banner/Ledger.png';
-import banner2 from 'shared-utils/assets/banner/Trezor.png';
 import { useStyles } from './styles';
 
-/* An array of objects. */
-const bannerLinks = [
-  {
-    url: 'https://shop.ledger.com/?r=176df785f6da',
-    image: banner1,
-  },
-  {
-    url: 'https://shop.trezor.io/?offer_id=10&aff_id=10966',
-    image: banner2,
-  },
-];
+/**
+ * It returns an array of objects with two properties, `title` and `url`, which are used to render the
+ * banner links
+ * @returns An array of objects with a string key and a string value.
+ */
+export function getBannersLinks() {
+  let bannerLinks: Array<{ url: string; img: string }> = [];
+  if (process.env.NEXT_PUBLIC_BANNERS_JSON) {
+    try {
+      const bannersJson = JSON.parse(process.env.NEXT_PUBLIC_BANNERS_JSON);
+      if (Array.isArray(bannersJson)) bannerLinks = bannersJson;
+    } catch (e) {
+      // ignore
+    }
+  }
+  return bannerLinks;
+}
+
+const bannersLinks = getBannersLinks();
 
 /**
  * Props is an object with a property called index that is a number.
@@ -31,16 +38,16 @@ type Props = {
  * array of banners
  * @returns A Box component with a link to the banner url and an image of the banner.
  */
-const Banner: FC<Props> = ({ index = Math.floor(Math.random() * 2) }) => {
-  const bannerIndex = useRef(Math.abs(index) % bannerLinks.length);
-  const banner = bannerLinks[bannerIndex.current];
+const Banner: FC<Props> = ({ index = Math.floor(Math.random() * bannersLinks.length) }) => {
+  const bannerIndex = useRef(Math.abs(index) % bannersLinks.length);
+  const banner = bannersLinks[bannerIndex.current];
   const classes = useStyles();
 
   return (
     <Box className={classes.root}>
       <Link href={banner.url}>
         <a target="_blank" rel="noreferrer">
-          <Image src={banner.image} alt="banner" />
+          <Image src={banner.img} fill alt="banner" unoptimized />
         </a>
       </Link>
     </Box>

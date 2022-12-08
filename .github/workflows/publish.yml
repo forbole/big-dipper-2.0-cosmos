@@ -41,6 +41,7 @@ jobs:
           build-args: |
             PROJECT_NAME=${{ github.event.inputs.project_name }}
             NEXT_PUBLIC_CHAIN_TYPE=${{ github.event.inputs.chain_type }}
+            NEXT_PUBLIC_BANNERS_JSON=${{ secrets.BANNERS_JSON }}
             TURBO_TEAM=${{ secrets.TURBO_TEAM }}
             TURBO_TOKEN=${{ secrets.TURBO_TOKEN }}
             NEXT_PUBLIC_SENTRY_DSN=${{ secrets.SENTRY_DSN }}

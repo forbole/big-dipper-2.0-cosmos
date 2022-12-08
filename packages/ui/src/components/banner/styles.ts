@@ -6,9 +6,12 @@ const styles = makeStyles((theme) => ({
       background: theme.palette.background.paper,
       display: 'flex',
       justifyContent: 'center',
-      padding: theme.spacing(2),
+      position: 'relative',
+      height: 'min(150px, calc(100vw / 5))',
       '& img': {
+        padding: theme.spacing(2),
         maxWidth: '100%',
+        objectFit: 'contain',
       },
     },
   },
