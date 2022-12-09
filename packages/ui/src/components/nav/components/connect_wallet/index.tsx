@@ -19,23 +19,25 @@ const ConnectWallet: React.FC<{
   const { t } = useTranslation('common');
   const {
     open,
+    loggedIn,
     handleOpen,
     handleConnectKeplr,
     handleConnectForboleX,
     handleConnectWalletConnect,
     handleCancel,
+    handleDisconnect,
   } = useConnectWalletList();
 
   return (
     <div>
       <div
-        onClick={handleOpen}
+        onClick={!loggedIn ? handleOpen : handleDisconnect}
         role="button"
         className={classnames(props.className, classes.icon)}
         tabIndex={0}
         aria-label="connect-wallet-button"
       >
-        {t('connectWallet')}
+        {!loggedIn ? t('connectWallet') : t('connected')}
       </div>
       <Dialog maxWidth="md" onClose={handleCancel} open={open} className={classes.dialog}>
         <DialogTitle disableTypography className={classes.header}>
