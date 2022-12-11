@@ -38,7 +38,9 @@ jobs:
           # assign chain_type
           node <<EOF
           const { appendFileSync } = require('fs');
-          const chainType = (process.env.NEXT_PUBLIC_CHAIN_TYPE || 'mainnet').toLowerCase();
+          let chainType = process.env.NEXT_PUBLIC_CHAIN_TYPE;
+          if (!chainType) chainType = 'mainnet';
+          chainType = chainType.toLowerCase();
           const chainJson = require('./apps/' + process.env.PROJECT_NAME + '/src/chain.json');
           const { chains, ...settings } = chainJson;
           let chain = chains.find((c) => c.chainType?.toLowerCase() === chainType);
