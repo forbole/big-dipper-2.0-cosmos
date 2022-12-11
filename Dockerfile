@@ -53,7 +53,8 @@ ENV TURBO_TEAM=${TURBO_TEAM}
 ARG TURBO_TOKEN
 ENV TURBO_TOKEN=${TURBO_TOKEN}
 ENV BUILD_STANDALONE=1
-# add placeholder for env variables to be injected in Stage: web
+
+# add placeholder for env variables to be injected in web stage
 ENV NEXT_PUBLIC_CHAIN_TYPE={{NEXT_PUBLIC_CHAIN_TYPE}}
 ENV NEXT_PUBLIC_BANNERS_JSON={{NEXT_PUBLIC_BANNERS_JSON}}
 ENV NEXT_PUBLIC_GRAPHQL_URL={{NEXT_PUBLIC_GRAPHQL_URL}}
@@ -61,6 +62,7 @@ ENV NEXT_PUBLIC_GRAPHQL_WS={{NEXT_PUBLIC_GRAPHQL_WS}}
 ENV NEXT_PUBLIC_MATOMO_URL={{NEXT_PUBLIC_MATOMO_URL}}
 ENV NEXT_PUBLIC_MATOMO_SITE_ID={{NEXT_PUBLIC_MATOMO_SITE_ID}}
 ENV NEXT_PUBLIC_RPC_WEBSOCKET={{NEXT_PUBLIC_RPC_WEBSOCKET}}
+
 RUN SENTRYCLI_SKIP_DOWNLOAD=$([ -z "${NEXT_PUBLIC_SENTRY_DSN}" ] && echo 1) \
   yarn workspaces focus --production ${PROJECT_NAME} && \
   yarn add typescript -D
@@ -82,12 +84,6 @@ RUN addgroup --system --gid 1001 nodejs && \
 # Copying the files from the builder stage to the web stage.
 ARG PROJECT_NAME
 ENV PROJECT_NAME=${PROJECT_NAME}
-COPY --chown=nextjs:nodejs --from=builder /app/apps/${PROJECT_NAME}/.next/apps/${PROJECT_NAME}/.next/ ./.next/
-COPY --chown=nextjs:nodejs --from=builder /app/apps/${PROJECT_NAME}/.next/static/ ./.next/static/
-COPY --chown=nextjs:nodejs --from=builder /app/apps/${PROJECT_NAME}/public/ ./public/
-COPY --chown=nextjs:nodejs --from=builder /app/node_modules/ ./node_modules/
-COPY --chown=nextjs:nodejs --from=builder /app/apps/${PROJECT_NAME}/.next/apps/${PROJECT_NAME}/server.js ./
-
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
 ARG NEXT_PUBLIC_CHAIN_TYPE
@@ -105,8 +101,11 @@ ENV NEXT_PUBLIC_MATOMO_SITE_ID=${NEXT_PUBLIC_MATOMO_SITE_ID}
 ARG NEXT_PUBLIC_RPC_WEBSOCKET
 ENV NEXT_PUBLIC_RPC_WEBSOCKET=${NEXT_PUBLIC_RPC_WEBSOCKET}
 
-# Don't run production as root
-USER nextjs
+COPY --chown=nextjs:nodejs --from=builder /app/apps/${PROJECT_NAME}/.next/apps/${PROJECT_NAME}/.next/ ./.next/
+COPY --chown=nextjs:nodejs --from=builder /app/apps/${PROJECT_NAME}/.next/static/ ./.next/static/
+COPY --chown=nextjs:nodejs --from=builder /app/apps/${PROJECT_NAME}/public/ ./public/
+COPY --chown=nextjs:nodejs --from=builder /app/node_modules/ ./node_modules/
+COPY --chown=nextjs:nodejs --from=builder /app/apps/${PROJECT_NAME}/.next/apps/${PROJECT_NAME}/server.js ./
 
 # reference: https://github.com/vercel/next.js/discussions/34894
 RUN printf 'const { readFileSync, writeFileSync } = require("fs");\n\
@@ -139,6 +138,9 @@ NEXT_PUBLIC_RPC_WEBSOCKET\
 )[}][}]' \
   ./.next | \
   xargs -I{} printf 'inject("'{}'");\n' | tee -a ./inject.js
+
+# Don't run production as root
+USER nextjs
 
 ARG PORT=3000
 ENV PORT=${PORT}
