@@ -53,6 +53,7 @@ ENV TURBO_TEAM=${TURBO_TEAM}
 ARG TURBO_TOKEN
 ENV TURBO_TOKEN=${TURBO_TOKEN}
 ENV BUILD_STANDALONE=1
+# add placeholder for env variables to be injected in Stage: web
 ENV NEXT_PUBLIC_CHAIN_TYPE={{NEXT_PUBLIC_CHAIN_TYPE}}
 ENV NEXT_PUBLIC_BANNERS_JSON={{NEXT_PUBLIC_BANNERS_JSON}}
 ENV NEXT_PUBLIC_GRAPHQL_URL={{NEXT_PUBLIC_GRAPHQL_URL}}
@@ -69,8 +70,6 @@ COPY --from=pruner /app/out/full/ ./
 RUN turbo run build --filter=${PROJECT_NAME}...
 
 ################################################################################
-
-ARG RIPGREP=ripgrep_13.0.0_amd64.deb
 
 # Stage: web
 FROM ${BASE_IMAGE} AS web
