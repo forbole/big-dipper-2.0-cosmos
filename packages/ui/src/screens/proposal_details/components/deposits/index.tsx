@@ -20,7 +20,7 @@ const Mobile = dynamic(
 const Deposits: React.FC<ComponentDefault> = (props) => {
   const { isDesktop } = useScreenSize();
   const { t } = useTranslation('proposals');
-  const { page, rowsPerPage, handleChangePage, handleChangeRowsPerPage, sliceItems } =
+  const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange, sliceItems } =
     usePagination({});
   const { state } = useDeposits();
 
@@ -50,8 +50,8 @@ const Deposits: React.FC<ComponentDefault> = (props) => {
         total={state.data.length}
         page={page}
         rowsPerPage={rowsPerPage}
-        handleChangePage={handleChangePage}
-        handleChangeRowsPerPage={handleChangeRowsPerPage}
+        handlePageChange={handlePageChange}
+        handleRowsPerPageChange={handleRowsPerPageChange}
       />
     </Box>
   );

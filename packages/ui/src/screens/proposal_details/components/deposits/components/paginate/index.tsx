@@ -4,15 +4,15 @@ import { ComponentProps, FC } from 'react';
 
 type Props = Pick<
   ComponentProps<typeof Pagination>,
-  'total' | 'page' | 'rowsPerPage' | 'handleChangePage' | 'handleChangeRowsPerPage'
+  'total' | 'page' | 'rowsPerPage' | 'handlePageChange' | 'handleRowsPerPageChange'
 >;
 
 const Paginate: FC<Props> = ({
   total,
   page,
   rowsPerPage,
-  handleChangePage,
-  handleChangeRowsPerPage,
+  handlePageChange,
+  handleRowsPerPageChange,
 }) => {
   const classes = useStyles();
   return (
@@ -21,8 +21,8 @@ const Paginate: FC<Props> = ({
       total={total}
       rowsPerPage={rowsPerPage}
       page={page}
-      handleChangePage={handleChangePage}
-      handleChangeRowsPerPage={handleChangeRowsPerPage}
+      handlePageChange={handlePageChange}
+      handleRowsPerPageChange={handleRowsPerPageChange}
       rowsPerPageOptions={[10, 25, 50, 100]}
     />
   );

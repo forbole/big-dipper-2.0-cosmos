@@ -3,8 +3,8 @@ import { act, cleanup, renderHook } from '@testing-library/react-hooks';
 
 const props = {
   count: 100,
-  onChangePage: () => jest.fn(),
-  handleChangeRowsPerPage: () => jest.fn(),
+  onPageChange: () => jest.fn(),
+  handleRowsPerPageChange: () => jest.fn(),
   page: 0,
   rowsPerPage: 100,
 };
