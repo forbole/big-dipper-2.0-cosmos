@@ -21,10 +21,9 @@ const Mobile: React.FC<{
   const formattedItems = items?.map((x) => ({
     to: <AvatarName address={x.to.address} imageUrl={x.to.imageUrl} name={x.to.name} />,
     from: <AvatarName address={x.from.address} imageUrl={x.from.imageUrl} name={x.from.name} />,
-    amount: `${formatNumber(
-      x.amount.value,
-      x.amount.exponent
-    )} ${x.amount.displayDenom.toUpperCase()}`,
+    amount: x.amount
+      ? `${formatNumber(x.amount.value, x.amount.exponent)} ${x.amount.displayDenom.toUpperCase()}`
+      : '',
     completionTime: formatDayJs(dayjs.utc(x.completionTime), dateFormat),
   }));
 

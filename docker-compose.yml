@@ -1,25 +1,33 @@
 version: "3.8"
+x-web: &web
+  build:
+    context: .
+    args:
+      PROJECT_NAME: ${PROJECT_NAME:-web}
+      NEXT_PUBLIC_CHAIN_TYPE: ${NEXT_PUBLIC_CHAIN_TYPE:-}
+      TURBO_TEAM: ${TURBO_TEAM:-}
+      TURBO_TOKEN: ${TURBO_TOKEN:-}
+      PORT: ${PORT:-3000}
+      NEXT_PUBLIC_SENTRY_DSN: ${NEXT_PUBLIC_SENTRY_DSN:-}
+      SENTRY_AUTH_TOKEN: ${SENTRY_AUTH_TOKEN:-}
+    target: web
+  restart: always
+  platform: linux/amd64
+  volumes:
+    - yarn-cache:/root/.yarn/berry/cache:rw
+  ports:
+    - ${PORT:-3000}:${PORT:-3000}
+  networks:
+    - app_network
 services:
-  web:
+  # default web
+  web: *web
+  # for mac with M1/M2 chip
+  web-arm64v8:
+    <<: *web
     build:
-      context: .
       args:
-        PROJECT_NAME: ${PROJECT_NAME:-web}
-        NEXT_PUBLIC_CHAIN_TYPE: ${NEXT_PUBLIC_CHAIN_TYPE:-mainnet}
-        TURBO_TEAM: ${TURBO_TEAM:-}
-        TURBO_TOKEN: ${TURBO_TOKEN:-}
-        PORT: ${PORT:-3000}
-        NEXT_PUBLIC_SENTRY_DSN: ${NEXT_PUBLIC_SENTRY_DSN:-}
-        SENTRY_AUTH_TOKEN: ${SENTRY_AUTH_TOKEN:-}
-      target: web
-    restart: always
-    platform: linux/amd64
-    volumes:
-      - yarn-cache:/root/.yarn/berry/cache:rw
-    ports:
-      - ${PORT:-3000}:${PORT:-3000}
-    networks:
-      - app_network
+        BASE_IMAGE: arm64v8/node:18
 # Define a network, which allows containers to communicate
 # with each other, by using their container name as a hostname
 networks:

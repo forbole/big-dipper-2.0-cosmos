@@ -36,8 +36,8 @@ const Mobile: React.FC<{
                 {t('amount')}
               </Typography>
               <Typography variant="body1" className="value">
-                {formatNumber(x.amount.value, x.amount.exponent)}{' '}
-                {x.amount.displayDenom.toUpperCase()}
+                {x.amount ? formatNumber(x.amount.value, x.amount.exponent) : ''}{' '}
+                {x.amount?.displayDenom.toUpperCase()}
               </Typography>
             </div>
           </div>

@@ -35,12 +35,12 @@ const Profile: React.FC<{ profile: ProfileType; showRating: boolean } & Componen
 
   let validator = null;
 
-  if (props.profile.validator) {
+  if (props.profile?.validator) {
     validator = (
       <div className="detail">
-        <Link href={VALIDATOR_DETAILS(props.profile.identity)} passHref>
+        <Link href={VALIDATOR_DETAILS(props.profile?.identity)} passHref>
           <Typography variant="body1" className="value" component="a">
-            {getMiddleEllipsis(props.profile.validator, ellipsis)}
+            {getMiddleEllipsis(props.profile?.validator, ellipsis)}
           </Typography>
         </Link>
       </div>
@@ -60,13 +60,13 @@ const Profile: React.FC<{ profile: ProfileType; showRating: boolean } & Componen
       <div className={classes.topWrapper}>
         <div className={classes.nametag}>
           <Typography variant="h2" className="name">
-            {props.profile.name}
+            {props.profile?.name}
           </Typography>
-          <Typography className="version">({props.profile.version})</Typography>
+          <Typography className="version">({props.profile?.version})</Typography>
         </div>
         {!!props.showRating && (
           <Typography className={classes.rating}>
-            {t('rating')} {props.profile.rating}%
+            {t('rating')} {props.profile?.rating}%
           </Typography>
         )}
       </div>
@@ -78,11 +78,11 @@ const Profile: React.FC<{ profile: ProfileType; showRating: boolean } & Componen
           </Typography>
           <div className="detail">
             <CopyIcon
-              onClick={() => handleCopyToClipboard(props.profile.pubkey)}
+              onClick={() => handleCopyToClipboard(props.profile?.pubkey)}
               className={classes.actionIcons}
             />
             <Typography variant="body1" className="value">
-              {getMiddleEllipsis(props.profile.pubkey, ellipsis)}
+              {getMiddleEllipsis(props.profile?.pubkey, ellipsis)}
             </Typography>
           </div>
         </div>
