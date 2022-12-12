@@ -28,6 +28,7 @@ jobs:
       -
         name: Set steps.vars.outputs.valid
         id: vars
+        shell: bash
         run: |
           echo 'valid='$(
             yarn workspace ${{ github.event.inputs.project_name }} info 2>1 1>/dev/null && echo yes || echo no
@@ -35,10 +36,12 @@ jobs:
       -
         name: Insall Vercel CLI
         if: steps.vars.outputs.valid == 'yes'
+        shell: bash
         run: npm i -g vercel
       -
         name: Generate vercel.json
         if: steps.vars.outputs.valid == 'yes'
+        shell: bash
         run: |
           node <<EOF
           const { writeFileSync } = require('fs');
@@ -62,4 +65,5 @@ jobs:
       -
         name: Deploy preview to Vercel
         if: steps.vars.outputs.valid == 'yes'
+        shell: bash
         run: vercel -t ${{ secrets.VERCEL_TOKEN }} | tee -a $GITHUB_STEP_SUMMARY

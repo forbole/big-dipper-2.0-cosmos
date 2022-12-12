@@ -42,7 +42,7 @@ export const useThemeDrawer = (toggleNavMenus: () => void) => {
     setDrawerOpen(!drawerOpen);
   }, [drawerOpen]);
 
-  const handleChangeTheme = useCallback(
+  const handleThemeChange = useCallback(
     (newTheme: Theme) => {
       setTheme(newTheme);
     },
@@ -53,6 +53,6 @@ export const useThemeDrawer = (toggleNavMenus: () => void) => {
     toggleDrawer,
     drawerOpen,
     theme,
-    handleChangeTheme,
+    handleThemeChange,
   };
 };

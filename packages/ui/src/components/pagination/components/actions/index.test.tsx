@@ -30,8 +30,8 @@ describe('components: Pagination/Actions', () => {
       <MockTheme>
         <Actions
           count={100}
-          onChangePage={() => jest.fn()}
-          handleChangeRowsPerPage={() => jest.fn()}
+          onPageChange={() => jest.fn()}
+          handleRowsPerPageChange={() => jest.fn()}
           page={0}
           rowsPerPage={5}
         />
