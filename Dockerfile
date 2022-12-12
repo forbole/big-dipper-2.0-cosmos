@@ -111,7 +111,9 @@ COPY --chown=nextjs:nodejs --from=builder /app/apps/${PROJECT_NAME}/.next/apps/$
 RUN printf 'const { readFileSync, writeFileSync } = require("fs");\n\
 function inject(file) {\n\
   const code = readFileSync(file, "utf8")\n\
-    .replace(/(['"'"'"`])[{][{](\
+    .replace(/(['\
+"'"\
+'"`])[{][{](\
 NEXT_PUBLIC_CHAIN_TYPE|\
 NEXT_PUBLIC_BANNERS_JSON|\
 NEXT_PUBLIC_GRAPHQL_URL|\
