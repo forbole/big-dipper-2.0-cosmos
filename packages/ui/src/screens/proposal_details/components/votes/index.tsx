@@ -2,8 +2,6 @@ import Box from '@/components/box';
 import NoData from '@/components/no_data';
 import { usePagination, useScreenSize } from '@/hooks';
 import { useProfilesRecoil } from '@/recoil/profiles';
-import type DesktopType from '@/screens/proposal_details/components/votes/components/desktop';
-import type MobileType from '@/screens/proposal_details/components/votes/components/mobile';
 import Paginate from '@/screens/proposal_details/components/votes/components/paginate';
 import Tabs from '@/screens/proposal_details/components/votes/components/tabs';
 import { useVotes } from '@/screens/proposal_details/components/votes/hooks';
@@ -15,10 +13,10 @@ import React, { ReactNode } from 'react';
 
 const Desktop = dynamic(
   () => import('@/screens/proposal_details/components/votes/components/desktop')
-) as typeof DesktopType;
+);
 const Mobile = dynamic(
   () => import('@/screens/proposal_details/components/votes/components/mobile')
-) as typeof MobileType;
+);
 
 const Votes: React.FC<ComponentDefault> = (props) => {
   const { isDesktop } = useScreenSize();

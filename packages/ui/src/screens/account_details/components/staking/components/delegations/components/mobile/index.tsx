@@ -37,8 +37,8 @@ const Mobile: React.FC<{
                   {t('amount')}
                 </Typography>
                 <Typography variant="body1" className="value">
-                  {formatNumber(x.amount.value, x.amount.exponent)}{' '}
-                  {x.amount.displayDenom.toUpperCase()}
+                  {x.amount ? formatNumber(x.amount.value, x.amount.exponent) : ''}{' '}
+                  {x.amount?.displayDenom.toUpperCase()}
                 </Typography>
               </div>
               <div className={classes.item}>
@@ -46,8 +46,8 @@ const Mobile: React.FC<{
                   {t('reward')}
                 </Typography>
                 <Typography variant="body1" className="value">
-                  {formatNumber(x.reward.value, x.reward.exponent)}{' '}
-                  {x.reward.displayDenom.toUpperCase()}
+                  {x.reward ? formatNumber(x.reward.value, x.reward.exponent) : ''}{' '}
+                  {x.reward?.displayDenom.toUpperCase()}
                 </Typography>
               </div>
             </div>

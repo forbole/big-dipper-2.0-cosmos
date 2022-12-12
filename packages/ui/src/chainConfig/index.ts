@@ -1,9 +1,11 @@
-import type { ChainConfig } from '@/chainConfig/types';
 import chainJson from '@/chain.json';
+import type { ChainConfig } from '@/chainConfig/types';
 
 function chainConfig() {
   /* Setting the basePath, chainType, chains, and settings variables. */
-  const chainType = (process.env.NEXT_PUBLIC_CHAIN_TYPE || 'mainnet').toLowerCase();
+  let chainType = process.env.NEXT_PUBLIC_CHAIN_TYPE;
+  if (!chainType) chainType = 'mainnet';
+  chainType = chainType.toLowerCase();
   const { chains, ...settings } = chainJson;
   let chain = chains.find((c) => c.chainType?.toLowerCase() === chainType);
   if (!chain && chainType !== 'testnet') {

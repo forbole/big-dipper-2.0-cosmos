@@ -1,8 +1,14 @@
+import { useStyles } from '@/components/banner/styles';
 import Box from '@/components/box';
+
 import Image from 'next/future/image';
 import Link from 'next/link';
 import { FC, useRef } from 'react';
-import { useStyles } from './styles';
+
+export interface BannerLink {
+  url: string;
+  img: string;
+}
 
 /**
  * It returns an array of objects with two properties, `title` and `url`, which are used to render the
@@ -10,11 +16,13 @@ import { useStyles } from './styles';
  * @returns An array of objects with a string key and a string value.
  */
 export function getBannersLinks() {
-  let bannerLinks: Array<{ url: string; img: string }> = [];
-  if (process.env.NEXT_PUBLIC_BANNERS_JSON) {
+  const bannersJson = process.env.NEXT_PUBLIC_BANNERS_JSON;
+  let bannerLinks: BannerLink[] = [];
+
+  if (bannersJson) {
     try {
-      const bannersJson = JSON.parse(process.env.NEXT_PUBLIC_BANNERS_JSON);
-      if (Array.isArray(bannersJson)) bannerLinks = bannersJson;
+      const bannersArray = JSON.parse(bannersJson);
+      if (Array.isArray(bannersArray)) bannerLinks = bannersArray;
     } catch (e) {
       // ignore
     }

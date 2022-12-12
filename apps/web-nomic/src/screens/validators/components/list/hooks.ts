@@ -59,7 +59,7 @@ export const useValidators = () => {
         validator: x.selfDelegateAddress,
         votingPower,
         votingPowerPercent: votingPowerPercent ?? 0,
-        commission: parseFloat(x?.validatorCommissions?.[0]?.commission ?? '0') ?? 0 * 100,
+        commission: (parseFloat(x?.validatorCommissions?.[0]?.commission ?? '0') ?? 0) * 100,
         inActiveSet: inActiveSetString,
         jailed: jailedString,
         tombstoned: tombstonedString,

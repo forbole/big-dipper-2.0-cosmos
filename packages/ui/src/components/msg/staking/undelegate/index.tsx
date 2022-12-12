@@ -8,7 +8,7 @@ import React from 'react';
 
 const Undelegate: React.FC<{ message: MsgUndelegate }> = (props) => {
   const { message } = props;
-  const amount = formatToken(message.amount.amount, message.amount.denom);
+  const amount = formatToken(message.amount?.amount, message.amount?.denom);
 
   const parsedAmount = `${formatNumber(
     amount.value,

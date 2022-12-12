@@ -7,15 +7,13 @@ import useTranslation from 'next-translate/useTranslation';
 import { useScreenSize } from '@/hooks';
 import type { OperationType } from '@/screens/transaction_details/types';
 import { useStyles } from '@/screens/transaction_details/components/operations/styles';
-import type DesktopType from '@/screens/transaction_details/components/operations/components/desktop';
-import type MobileType from '@/screens/transaction_details/components/operations/components/mobile';
 
 const Desktop = dynamic(
   () => import('@/screens/transaction_details/components/operations/components/desktop')
-) as typeof DesktopType;
+);
 const Mobile = dynamic(
   () => import('@/screens/transaction_details/components/operations/components/mobile')
-) as typeof MobileType;
+);
 
 const Operations: React.FC<{ items: OperationType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('transactions');

@@ -61,7 +61,7 @@ export const useValidators = () => {
           validator: x.validatorInfo?.operatorAddress ?? '',
           votingPower: votingPower ?? 0,
           votingPowerPercent: votingPowerPercent ?? 0,
-          commission: x?.validatorCommissions?.[0]?.commission ?? 0 * 100,
+          commission: (x?.validatorCommissions?.[0]?.commission ?? 0) * 100,
           condition,
           status: x?.validatorStatuses?.[0]?.status ?? 0,
           jailed: x?.validatorStatuses?.[0]?.jailed ?? false,
