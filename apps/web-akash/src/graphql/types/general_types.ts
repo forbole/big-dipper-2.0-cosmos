@@ -12335,7 +12335,7 @@ export type ProposalDetailsQueryVariables = Exact<{
 }>;
 
 
-export type ProposalDetailsQuery = { proposal: Array<{ __typename?: 'proposal', title: string, description: string, status?: string | null, content: any, proposer: string, proposalId: number, submitTime: any, depositEndTime?: any | null, votingStartTime?: any | null, votingEndTime?: any | null }> };
+export type ProposalDetailsQuery = { proposal: Array<{ __typename?: 'proposal', title: string, description: string, status?: string | null, content: any, proposer: string, proposalId: number, submitTime: any, proposalType: string, depositEndTime?: any | null, votingStartTime?: any | null, votingEndTime?: any | null }> };
 
 export type ProposalDetailsTallyQueryVariables = Exact<{
   proposalId?: InputMaybe<Scalars['Int']>;
@@ -13047,6 +13047,7 @@ export const ProposalDetailsDocument = gql`
     content
     proposalId: id
     submitTime: submit_time
+    proposalType: proposal_type
     depositEndTime: deposit_end_time
     votingStartTime: voting_start_time
     votingEndTime: voting_end_time
