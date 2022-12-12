@@ -33,7 +33,7 @@
 - Updated graphql types generation structure (in preparation for third party modules)
 - Updated preview image location
 - Updated change url files ([\#972](https://github.com/forbole/big-dipper-2.0-cosmos/issues/972))
-- Added `MATOMO_URL` and `MATOMO_SITE_ID` to github workflow production ([\#972](https://github.com/forbole/big-dipper-2.0-cosmos/issues/972))
+- Added `NEXT_PUBLIC_MATOMO_URL` and `NEXT_PUBLIC_MATOMO_SITE_ID` to github workflow production ([\#972](https://github.com/forbole/big-dipper-2.0-cosmos/issues/972))
 
 # base-v2.1.0 - 2022-04-19
 
@@ -85,12 +85,12 @@
 
 ## Changes
 
-- Changed `NEXT_PUBLIC_WS_CHAIN_URL` to `RPC_WEBSOCKET` for clarification
+- Changed `NEXT_PUBLIC_WS_CHAIN_URL` to `NEXT_PUBLIC_RPC_WEBSOCKET` for clarification
 - Changed `NEXT_PUBLIC_CHAIN_STATUS` to `NEXT_PUBLIC_CHAIN_TYPE` for clarification
 
 ## Migration
 
-- Changed env `NEXT_PUBLIC_WS_CHAIN_URL` to `RPC_WEBSOCKET` or don't. It's backwards compatible
+- Changed env `NEXT_PUBLIC_WS_CHAIN_URL` to `NEXT_PUBLIC_RPC_WEBSOCKET` or don't. It's backwards compatible
 - Changed env `NEXT_PUBLIC_CHAIN_STATUS` to `NEXT_PUBLIC_CHAIN_TYPE` or don't. It's backwards compatible
 
 ## Breaking

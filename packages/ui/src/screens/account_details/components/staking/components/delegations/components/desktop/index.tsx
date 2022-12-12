@@ -17,8 +17,8 @@ const Desktop: React.FC<{
 }> = ({ className, items }) => {
   const { t } = useTranslation('accounts');
   const formattedItems = items?.map((x) => {
-    const amount = formatNumber(x.amount.value, x.amount.exponent);
-    const reward = formatNumber(x.reward.value, x.reward.exponent);
+    const amount = x.amount ? formatNumber(x.amount.value, x.amount.exponent) : '';
+    const reward = x.reward ? formatNumber(x.reward.value, x.reward.exponent) : '';
     return {
       validator: (
         <AvatarName
@@ -27,8 +27,8 @@ const Desktop: React.FC<{
           imageUrl={x.validator.imageUrl}
         />
       ),
-      amount: `${amount} ${x.amount.displayDenom.toUpperCase()}`,
-      reward: `${reward} ${x.reward.displayDenom.toUpperCase()}`,
+      amount: `${amount} ${x.amount?.displayDenom.toUpperCase()}`,
+      reward: `${reward} ${x.reward?.displayDenom.toUpperCase()}`,
     };
   });
 

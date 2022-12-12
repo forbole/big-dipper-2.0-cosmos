@@ -13,7 +13,7 @@ const Delegate: React.FC<{ message: MsgDelegate }> = (props) => {
 
   const validator = useProfileRecoil(message.validatorAddress);
   const validatorMoniker = validator ? validator?.name : message.validatorAddress;
-  const amount = formatToken(message.amount.amount, message.amount.denom);
+  const amount = formatToken(message.amount?.amount, message.amount?.denom);
 
   const parsedAmount = `${formatNumber(
     amount.value,

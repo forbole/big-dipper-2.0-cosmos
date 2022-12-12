@@ -2,8 +2,6 @@ import Box from '@/components/box';
 import NoData from '@/components/no_data';
 import { useScreenSize } from '@/hooks';
 import { useProfilesRecoil } from '@/recoil/profiles';
-import type DesktopType from '@/screens/block_details/components/signatures/components/desktop';
-import type MobileType from '@/screens/block_details/components/signatures/components/mobile';
 import { useStyles } from '@/screens/block_details/components/signatures/styles';
 import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
@@ -13,10 +11,10 @@ import React from 'react';
 
 const Desktop = dynamic(
   () => import('@/screens/block_details/components/signatures/components/desktop')
-) as typeof DesktopType;
+);
 const Mobile = dynamic(
   () => import('@/screens/block_details/components/signatures/components/mobile')
-) as typeof MobileType;
+);
 
 const Signatures: React.FC<
   ComponentDefault & {

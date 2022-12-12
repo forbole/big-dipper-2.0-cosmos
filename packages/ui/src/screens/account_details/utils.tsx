@@ -1,3 +1,4 @@
+import chainConfig from '@/chainConfig';
 import {
   AccountBalancesDocument,
   AccountCommissionDocument,
@@ -9,7 +10,12 @@ import {
 import { toValidatorAddress } from '@/utils/prefix_convert';
 import axios from 'axios';
 
-import chainConfig from '@/chainConfig';
+function getUrl() {
+  let url = process.env.NEXT_PUBLIC_GRAPHQL_URL;
+  if (!url) url = chainConfig().endpoints.graphql;
+  if (!url) url = 'http://localhost:3000/v1/graphql';
+  return url;
+}
 
 export const fetchCommission = async (address: string) => {
   const defaultReturnValue = {
@@ -18,17 +24,12 @@ export const fetchCommission = async (address: string) => {
     },
   };
   try {
-    const { data } = await axios.post(
-      process.env.NEXT_PUBLIC_GRAPHQL_URL ||
-        chainConfig().endpoints.graphql ||
-        'http://localhost:3000/v1/graphql',
-      {
-        variables: {
-          validatorAddress: toValidatorAddress(address),
-        },
-        query: AccountCommissionDocument,
-      }
-    );
+    const { data } = await axios.post(getUrl(), {
+      variables: {
+        validatorAddress: toValidatorAddress(address),
+      },
+      query: AccountCommissionDocument,
+    });
     return data?.data ?? defaultReturnValue;
   } catch (error) {
     return defaultReturnValue;
@@ -42,17 +43,12 @@ export const fetchAccountWithdrawalAddress = async (address: string) => {
     },
   };
   try {
-    const { data } = await axios.post(
-      process.env.NEXT_PUBLIC_GRAPHQL_URL ||
-        chainConfig().endpoints.graphql ||
-        'http://localhost:3000/v1/graphql',
-      {
-        variables: {
-          address,
-        },
-        query: AccountWithdrawalAddressDocument,
-      }
-    );
+    const { data } = await axios.post(getUrl(), {
+      variables: {
+        address,
+      },
+      query: AccountWithdrawalAddressDocument,
+    });
     return data?.data ?? defaultReturnValue;
   } catch (error) {
     return defaultReturnValue;
@@ -66,17 +62,12 @@ export const fetchAvailableBalances = async (address: string) => {
     },
   };
   try {
-    const { data } = await axios.post(
-      process.env.NEXT_PUBLIC_GRAPHQL_URL ||
-        chainConfig().endpoints.graphql ||
-        'http://localhost:3000/v1/graphql',
-      {
-        variables: {
-          address,
-        },
-        query: AccountBalancesDocument,
-      }
-    );
+    const { data } = await axios.post(getUrl(), {
+      variables: {
+        address,
+      },
+      query: AccountBalancesDocument,
+    });
     return data?.data ?? defaultReturnValue;
   } catch (error) {
     return defaultReturnValue;
@@ -90,17 +81,12 @@ export const fetchDelegationBalance = async (address: string) => {
     },
   };
   try {
-    const { data } = await axios.post(
-      process.env.NEXT_PUBLIC_GRAPHQL_URL ||
-        chainConfig().endpoints.graphql ||
-        'http://localhost:3000/v1/graphql',
-      {
-        variables: {
-          address,
-        },
-        query: AccountDelegationBalanceDocument,
-      }
-    );
+    const { data } = await axios.post(getUrl(), {
+      variables: {
+        address,
+      },
+      query: AccountDelegationBalanceDocument,
+    });
     return data?.data ?? defaultReturnValue;
   } catch (error) {
     return defaultReturnValue;
@@ -114,17 +100,12 @@ export const fetchUnbondingBalance = async (address: string) => {
     },
   };
   try {
-    const { data } = await axios.post(
-      process.env.NEXT_PUBLIC_GRAPHQL_URL ||
-        chainConfig().endpoints.graphql ||
-        'http://localhost:3000/v1/graphql',
-      {
-        variables: {
-          address,
-        },
-        query: AccountUnbondingBalanceDocument,
-      }
-    );
+    const { data } = await axios.post(getUrl(), {
+      variables: {
+        address,
+      },
+      query: AccountUnbondingBalanceDocument,
+    });
     return data?.data ?? defaultReturnValue;
   } catch (error) {
     return defaultReturnValue;
@@ -136,17 +117,12 @@ export const fetchRewards = async (address: string) => {
     delegationRewards: [],
   };
   try {
-    const { data } = await axios.post(
-      process.env.NEXT_PUBLIC_GRAPHQL_URL ||
-        chainConfig().endpoints.graphql ||
-        'http://localhost:3000/v1/graphql',
-      {
-        variables: {
-          address,
-        },
-        query: AccountDelegationRewardsDocument,
-      }
-    );
+    const { data } = await axios.post(getUrl(), {
+      variables: {
+        address,
+      },
+      query: AccountDelegationRewardsDocument,
+    });
     return data?.data ?? defaultReturnValue;
   } catch (error) {
     return defaultReturnValue;
