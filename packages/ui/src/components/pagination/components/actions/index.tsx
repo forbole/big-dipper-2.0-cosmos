@@ -65,7 +65,7 @@ const Actions: React.FC<Props> = (props) => {
           component="li"
           variant="body2"
           key={x}
-          onClick={() => onChangePage(null, x)}
+          onClick={() => onChangePage?.(null, x)}
           className={classnames(classes.button, classes.pageButton, {
             selected: page === x,
           })}

@@ -1,7 +1,7 @@
 import 'jest-localstorage-mock';
 
 jest.mock('@/chainConfig', () => () => {
-  const { default: chainConfig }: { default: { tokenUnits: object } } =
+  const { default: chainConfig }: { default(): { tokenUnits: object } } =
     jest.requireActual('@/chainConfig');
   const config = chainConfig();
   config.tokenUnits = {

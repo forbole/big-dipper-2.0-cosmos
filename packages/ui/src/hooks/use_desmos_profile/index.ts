@@ -41,7 +41,7 @@ export const useDesmosProfile = (options: Options) => {
         }
 
         // if the address is a link instead
-        if (!data.profile.length) {
+        if (!data.profile?.length) {
           data = await fetchLink(input);
         }
         setLoading(false);
@@ -112,7 +112,7 @@ async function fetchDtag(dtag: string) {
 }
 
 function formatDesmosProfile(data: DesmosProfileQuery): DesmosProfile | null {
-  if (!data.profile.length) {
+  if (!data.profile?.length) {
     return null;
   }
 

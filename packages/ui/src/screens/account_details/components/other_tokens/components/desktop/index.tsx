@@ -20,7 +20,7 @@ const Desktop: React.FC<{
     token: x.denom.toUpperCase(),
     commission: formatNumber(x.commission.value, x.commission.exponent),
     available: formatNumber(x.available.value, x.available.exponent),
-    reward: formatNumber(x.reward.value, x.reward.exponent),
+    reward: x.reward ? formatNumber(x.reward.value, x.reward.exponent) : '',
   }));
 
   return (

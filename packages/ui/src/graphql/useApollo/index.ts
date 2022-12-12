@@ -13,6 +13,7 @@ import { getMainDefinition } from '@apollo/client/utilities';
 import { Kind, OperationTypeNode } from 'graphql';
 import { createClient } from 'graphql-ws';
 import webSocketImpl from 'isomorphic-ws';
+
 import { useEffect, useState } from 'react';
 
 /* A global variable that stores the Apollo Client. */
@@ -30,15 +31,26 @@ const defaultOptions: DefaultOptions = {
   },
 };
 
+function getUrl() {
+  let url = process.env.NEXT_PUBLIC_GRAPHQL_URL;
+  if (!url) url = chainConfig().endpoints.graphql;
+  if (!url) url = 'http://localhost:3000/v1/graphql';
+  return url;
+}
+
 /* Creating a new HttpLink object. */
 function httpLink() {
   return new HttpLink({
-    uri:
-      process.env.NEXT_PUBLIC_GRAPHQL_URL ||
-      chainConfig().endpoints.graphql ||
-      'http://localhost:3000/v1/graphql',
+    uri: getUrl(),
     fetch,
   });
+}
+
+function getWs() {
+  let ws = process.env.NEXT_PUBLIC_GRAPHQL_WS;
+  if (!ws) ws = chainConfig().endpoints.graphqlWebsocket;
+  if (!ws) ws = 'ws://localhost:3000/websocket';
+  return ws;
 }
 
 /**
@@ -50,10 +62,7 @@ function createWebSocketLink() {
   if (chainConfig().extra.graphqlWs) {
     return new GraphQLWsLink(
       createClient({
-        url:
-          process.env.NEXT_PUBLIC_GRAPHQL_WS ||
-          chainConfig().endpoints.graphqlWebsocket ||
-          'ws://localhost:3000/websocket',
+        url: getWs(),
         lazy: true,
         retryAttempts: Number.MAX_VALUE,
         retryWait: (_count) => new Promise((r) => setTimeout(() => r(), 1000)),
@@ -67,10 +76,7 @@ function createWebSocketLink() {
   }
 
   return new WebSocketLink({
-    uri:
-      process.env.NEXT_PUBLIC_GRAPHQL_WS ||
-      chainConfig().endpoints.graphqlWebsocket ||
-      'ws://localhost:3000/websocket',
+    uri: getWs(),
     options: {
       lazy: true,
       reconnect: true,
@@ -155,7 +161,7 @@ function useApollo(initialState?: NormalizedCacheObject) {
   useEffect(() => {
     /* Setting the store with the new initial state. */
     setStore(initializeApollo(initialState));
-  }, [initialState]);
+  }, [getUrl(), getWs()]);
 
   return store;
 }
