@@ -23,8 +23,8 @@ const Votes: React.FC<ComponentDefault> = (props) => {
   const {
     page,
     rowsPerPage,
-    handleChangePage,
-    handleChangeRowsPerPage,
+    handlePageChange,
+    handleRowsPerPageChange,
     sliceItems,
     resetPagination,
   } = usePagination({});
@@ -73,8 +73,8 @@ const Votes: React.FC<ComponentDefault> = (props) => {
         total={filteredItems.length}
         page={page}
         rowsPerPage={rowsPerPage}
-        handleChangePage={handleChangePage}
-        handleChangeRowsPerPage={handleChangeRowsPerPage}
+        handlePageChange={handlePageChange}
+        handleRowsPerPageChange={handleRowsPerPageChange}
       />
     </Box>
   );

@@ -27,7 +27,7 @@ const OtherTokens: React.FC<{
   const { t } = useTranslation('accounts');
   const { isDesktop } = useScreenSize();
   const classes = useStyles();
-  const { page, rowsPerPage, handleChangePage, handleChangeRowsPerPage, sliceItems } =
+  const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange, sliceItems } =
     usePagination({});
 
   const { data } = otherTokens;
@@ -52,8 +52,8 @@ const OtherTokens: React.FC<{
         total={count}
         rowsPerPage={rowsPerPage}
         page={page}
-        handleChangePage={handleChangePage}
-        handleChangeRowsPerPage={handleChangeRowsPerPage}
+        handlePageChange={handlePageChange}
+        handleRowsPerPageChange={handleRowsPerPageChange}
         rowsPerPageOptions={[10, 25, 50, 100]}
       />
     </Box>

@@ -19,8 +19,8 @@ describe('components: Pagination', () => {
       <MockTheme>
         <Pagination
           total={100}
-          handleChangePage={jest.fn()}
-          handleChangeRowsPerPage={jest.fn()}
+          handlePageChange={jest.fn()}
+          handleRowsPerPageChange={jest.fn()}
           page={0}
           rowsPerPage={5}
         />
