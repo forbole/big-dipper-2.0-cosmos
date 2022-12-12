@@ -59,6 +59,18 @@ const styles = makeStyles((theme) => ({
     alignItems: 'center',
     textAlign: 'center',
   },
+  networkList: {
+    width: '20%',
+    opacity: 0,
+    visibility: 'hidden',
+    transition: '0.2s ease-in-out',
+    position: 'fixed',
+    right: 60,
+    '&.open': {
+      opacity: 1,
+      visibility: 'visible',
+    },
+  },
 }));
 
 export const useStyles = () => styles();

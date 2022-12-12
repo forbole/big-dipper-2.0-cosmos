@@ -11,6 +11,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import React from 'react';
+import ConnectWalletDropDown from '@/components/nav/components/connect_wallet_drop_down';
 
 const ConnectWallet: React.FC<{
   className?: string;
@@ -20,18 +21,19 @@ const ConnectWallet: React.FC<{
   const {
     open,
     loggedIn,
+    showWallet,
     handleOpen,
     handleConnectKeplr,
     handleConnectForboleX,
     handleConnectWalletConnect,
     handleCancel,
-    handleDisconnect,
+    handleShowWallet,
   } = useConnectWalletList();
 
   return (
     <div>
       <div
-        onClick={!loggedIn ? handleOpen : handleDisconnect}
+        onClick={!loggedIn ? handleOpen : handleShowWallet}
         role="button"
         className={classnames(props.className, classes.icon)}
         tabIndex={0}
@@ -39,6 +41,11 @@ const ConnectWallet: React.FC<{
       >
         {!loggedIn ? t('connectWallet') : t('connected')}
       </div>
+      <ConnectWalletDropDown
+        className={classnames(classes.networkList, {
+          open: showWallet,
+        })}
+      />
       <Dialog maxWidth="md" onClose={handleCancel} open={open} className={classes.dialog}>
         <DialogTitle disableTypography className={classes.header}>
           <div className={classes.title}>
