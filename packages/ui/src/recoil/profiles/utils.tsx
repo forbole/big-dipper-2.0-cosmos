@@ -43,7 +43,7 @@ async function fetchDesmosProfile(address: string) {
     }
 
     // if the address is a link instead
-    if (!data.profile.length) {
+    if (!data.profile?.length) {
       data = await fetchLink(address);
     }
 
@@ -55,7 +55,7 @@ async function fetchDesmosProfile(address: string) {
 }
 
 function formatDesmosProfile(data: DesmosProfileQuery) {
-  if (!data.profile.length) {
+  if (!data.profile?.length) {
     return null;
   }
 

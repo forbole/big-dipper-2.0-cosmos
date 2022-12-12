@@ -69,7 +69,7 @@ export const useStaking = (
             reward: rewards[validator],
           };
         })
-        .sort((a, b) => (Big(a.amount.value).gt(b.amount.value) ? -1 : 1));
+        .sort((a, b) => (Big(a.amount?.value).gt(b.amount?.value) ? -1 : 1));
 
     // helper function to get rest of the staking items
     // if it is over the default limit

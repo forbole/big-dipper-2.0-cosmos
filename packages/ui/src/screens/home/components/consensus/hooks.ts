@@ -2,7 +2,6 @@ import chainConfig from '@/chainConfig';
 import { hexToBech32 } from '@/utils/hex_to_bech32';
 import { GRAPHQL_TRANSPORT_WS_PROTOCOL, MessageType, stringifyMessage } from 'graphql-ws';
 import WebSocket from 'isomorphic-ws';
-
 import numeral from 'numeral';
 import * as R from 'ramda';
 import { useEffect, useState } from 'react';
@@ -117,9 +116,9 @@ export const useConsensus = () => {
         }, 1000);
       };
 
-      client.onerror = (err: WebSocket.ErrorEvent) => {
+      client.onerror = (err: unknown) => {
         client.close();
-        console.error(`Socket encountered error: ${err.message}Closing socket`);
+        console.error('Socket encountered error: Closing socket', err);
       };
 
       function enqueuePing() {

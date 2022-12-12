@@ -158,7 +158,7 @@ export const useStaking = () => {
             amount: formatToken(delegation.amount, delegation.denom),
           };
         })
-        .sort((a, b) => (Big(a.amount.value).gt(b.amount.value) ? -1 : 1));
+        .sort((a, b) => (Big(a.amount?.value).gt(b.amount?.value) ? -1 : 1));
 
     const formatRedelegations = (data: Array<Redelegations>) => {
       const results: RedelegationType[] = [];

@@ -25,10 +25,12 @@ const Desktop: React.FC<{
           imageUrl={x.address.imageUrl}
         />
       ),
-      amount: `${formatNumber(
-        x.amount.value,
-        x.amount.exponent
-      )} ${x.amount.displayDenom.toUpperCase()}`,
+      amount: x.amount
+        ? `${formatNumber(
+            x.amount.value,
+            x.amount.exponent
+          )} ${x.amount.displayDenom.toUpperCase()}`
+        : '',
     })) ?? [];
 
   return (
