@@ -11525,7 +11525,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"recharts@npm:^2.2.0":
+"recharts@npm:^2.1.16, recharts@npm:^2.2.0":
   version: 2.2.0
   resolution: "recharts@npm:2.2.0"
   dependencies:
