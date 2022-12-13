@@ -19,7 +19,7 @@ export const useConnectWalletList = () => {
     setOpen(false); // TO DO
   };
 
-  const handleConnectForboleX = () => {
+  const handleConnectButter = () => {
     setOpen(false); // TO DO
   };
 
@@ -27,13 +27,18 @@ export const useConnectWalletList = () => {
     setOpen(false); // TO DO
   };
 
+  const handleConnectWallet = () => {
+    setOpen(false);
+  };
+
   return {
     open,
     handleOpen,
     handleConnectKeplr,
-    handleConnectForboleX,
+    handleConnectButter,
     handleConnectWalletConnect,
     handleClose,
     handleCancel,
+    handleConnectWallet,
   };
 };
