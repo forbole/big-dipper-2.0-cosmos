@@ -38,7 +38,7 @@ const Desktop: React.FC<{
       ? `${numeral(x.votingPowerPercent).format('0.[00]')}%`
       : '0%';
     const { exponent } = tokenUnits[votingPowerTokenUnit];
-    const content = numeral(x.votingPower / 10 ** exponent).format('0,0.00');
+    const content = numeral(x.votingPower / 10 ** exponent).format('0,0');
 
     return {
       idx: `#${i + 1}`,
