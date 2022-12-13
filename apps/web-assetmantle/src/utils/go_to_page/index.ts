@@ -13,4 +13,4 @@ export {
   PROFILE_DETAILS,
   ADDRESS_DETAILS,
 } from 'ui/utils/go_to_page';
-export const PROVIDERS = '/providers';
+export const ASSETS = '/assets';
