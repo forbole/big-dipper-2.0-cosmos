@@ -5,7 +5,7 @@
     "profile": true,
     "graphqlWs": true
   },
-  "previewImage": "https://s3.bigdipper.live/persistence.pngg",
+  "previewImage": "https://s3.bigdipper.live/persistence.png",
   "themes": {
     "default": "dark",
     "themeList": [
