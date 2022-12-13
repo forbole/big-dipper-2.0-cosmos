@@ -23,8 +23,8 @@ const ActionBar: React.FC<{
           className={classnames(classes.network, { open: isNetwork })}
           toggleNetwork={toggleNetwork}
         />
-        <ConnectWallet />
         <SettingsList />
+        <ConnectWallet />
       </div>
       <NetworkList
         actionHeight={height}

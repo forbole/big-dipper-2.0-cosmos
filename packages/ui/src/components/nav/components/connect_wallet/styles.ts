@@ -5,7 +5,6 @@ const styles = makeStyles((theme) => ({
     marginLeft: '20px',
     [theme.breakpoints.up('lg')]: {
       display: 'flex',
-      margin: theme.spacing(2),
       alignItems: 'center',
       textAlign: 'center',
       justifyContent: 'center',
@@ -14,10 +13,7 @@ const styles = makeStyles((theme) => ({
       cursor: 'pointer',
     },
     '& svg': {
-      fill: theme.palette.custom.general.icon,
-      '& path': {
-        fill: theme.palette.custom.general.icon,
-      },
+      fill: 'none',
     },
   },
   connectButton: {
