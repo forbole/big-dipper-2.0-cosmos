@@ -61,5 +61,8 @@
   "profilesNotEnabled": "Profiles not enabled for this explorer",
   "insertValidDtag": "Please insert a valid dtag",
   "invalidAddress": "Invalid Address",
-  "connectWallet": "Connect Wallet"
+  "connectWallet": "Connect Wallet",
+  "welcomeToBigDipper": "Welcome to Big Dipper",
+  "logIn": "Log in",
+  "continue": "Continue"
 }

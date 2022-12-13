@@ -22,9 +22,10 @@ const ConnectWallet: React.FC<{
     open,
     handleOpen,
     handleConnectKeplr,
-    handleConnectForboleX,
+    handleConnectButter,
     handleConnectWalletConnect,
     handleCancel,
+    handleConnectWallet,
   } = useConnectWalletList();
 
   return (
@@ -39,52 +40,71 @@ const ConnectWallet: React.FC<{
         <LoginIcon />
       </div>
       <Dialog maxWidth="md" onClose={handleCancel} open={open} className={classes.dialog}>
-        <DialogTitle disableTypography className={classes.header}>
-          <div className={classes.title}>
-            <Typography variant="h2">{t('connectWallet')}</Typography>
+        <DialogTitle disableTypography>
+          <div className={classes.header}>
+            <div className={classes.title}>
+              <Typography variant="h2" gutterBottom>
+                {t('logIn')}
+              </Typography>
+            </div>
+            <div>
+              <Typography variant="h4">{t('welcomeToBigDipper')}</Typography>
+            </div>
+            <IconButton aria-label="close" onClick={handleCancel} className={classes.closeButton}>
+              <CloseIcon />
+            </IconButton>
           </div>
-          <IconButton aria-label="close" onClick={handleCancel} className={classes.closeButton}>
-            <CloseIcon />
-          </IconButton>
         </DialogTitle>
-        <DialogContent dividers>
-          <div className={classes.connectButton}>
-            <Button
-              onClick={handleConnectKeplr}
-              color="primary"
-              aria-label="connect-keplr-wallet-button"
-              className={classes.walletButton}
-            >
-              Keplr
-            </Button>
-          </div>
-          <div className={classes.connectButton}>
-            <Button
-              onClick={handleConnectForboleX}
-              color="primary"
-              aria-label="connect-desmos-x-wallet-button"
-              className={classes.walletButton}
-            >
-              Forbole X
-            </Button>
-          </div>
-          <div className={classes.connectButton}>
-            <Button
-              onClick={handleConnectWalletConnect}
-              color="primary"
-              aria-label="connect-walletconnect-wallet-button"
-              className={classes.walletButton}
-            >
-              WalletConnect
-            </Button>
+        <DialogContent style={{ overflow: 'visible' }}>
+          <div className={classes.dialogContent}>
+            <div className={classes.connectConnectWallet}>
+              <Button
+                onClick={handleConnectWalletConnect}
+                color="default"
+                aria-label="connect-walletconnect-wallet-button"
+                className={classes.walletButton}
+              >
+                <div className={classes.buttonLabel}>
+                  <Typography variant="h4" noWrap>
+                    Wallet connect
+                  </Typography>
+                </div>
+              </Button>
+            </div>
+            <div className={classes.connectKeplrButton}>
+              <Button
+                onClick={handleConnectKeplr}
+                color="default"
+                aria-label="connect-keplr-wallet-button"
+                className={classes.walletButton}
+              >
+                <div className={classes.buttonLabel}>
+                  <Typography variant="h4" align="left">
+                    Keplr
+                  </Typography>
+                </div>
+              </Button>
+            </div>
+            <div className={classes.connectButterButton}>
+              <Button
+                onClick={handleConnectButter}
+                color="default"
+                aria-label="connect-butter-wallet-button"
+                className={classes.walletButton}
+              >
+                <div className={classes.buttonLabel}>
+                  <Typography variant="h4">Butter</Typography>
+                </div>
+              </Button>
+            </div>
           </div>
         </DialogContent>
         <DialogActions>
-          <Typography variant="h5" className={classes.actions} gutterBottom>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.{' '}
-          </Typography>
+          <div className={classes.actions}>
+            <Button onClick={handleConnectWallet} color="primary" className={classes.button}>
+              <Typography variant="h3">{t('continue')}</Typography>
+            </Button>
+          </div>
         </DialogActions>
       </Dialog>
     </div>
