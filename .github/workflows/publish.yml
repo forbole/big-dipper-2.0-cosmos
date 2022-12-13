@@ -14,6 +14,7 @@ on:
        confirm:
         description: "enter \"CONFIRM\" to process"
         required: true
+concurrency: publish-to-akash
 jobs:
   publish:
     runs-on: ubuntu-latest

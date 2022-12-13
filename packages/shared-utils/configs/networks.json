@@ -418,7 +418,7 @@
   {
     "name": "NYM",
     "chainName": "nym",
-    "logo": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/nym.svg",
+    "logo": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nym/images/nym.svg",
     "cover": "",
     "links": [
       {
