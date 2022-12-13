@@ -10,6 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import CloseIcon from '@material-ui/icons/Close';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
+import LoginIcon from 'shared-utils/assets/icon-login.svg';
 import React from 'react';
 
 const ConnectWallet: React.FC<{
@@ -35,7 +36,7 @@ const ConnectWallet: React.FC<{
         tabIndex={0}
         aria-label="connect-wallet-button"
       >
-        {t('connectWallet')}
+        <LoginIcon />
       </div>
       <Dialog maxWidth="md" onClose={handleCancel} open={open} className={classes.dialog}>
         <DialogTitle disableTypography className={classes.header}>
