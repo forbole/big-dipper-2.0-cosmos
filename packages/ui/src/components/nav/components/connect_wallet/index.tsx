@@ -11,6 +11,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import LoginIcon from 'shared-utils/assets/icon-login.svg';
+import LogoutIcon from 'shared-utils/assets/icon-logout.svg';
 import React from 'react';
 import ConnectWalletDropDown from '@/components/nav/components/connect_wallet_drop_down';
 
@@ -28,20 +29,20 @@ const ConnectWallet: React.FC<{
     handleConnectButter,
     handleConnectWalletConnect,
     handleCancel,
-    handleShowWallet,
+    handleLogoutWallet,
     handleConnectWallet,
   } = useConnectWalletList();
 
   return (
     <div>
       <div
-        onClick={!loggedIn ? handleOpen : handleShowWallet}
+        onClick={!loggedIn ? handleOpen : handleLogoutWallet}
         role="button"
         className={classnames(props.className, classes.icon)}
         tabIndex={0}
         aria-label="connect-wallet-button"
       >
-        {!loggedIn ? <LoginIcon /> : null}
+        {!loggedIn ? <LoginIcon /> : <LogoutIcon />}
       </div>
       <ConnectWalletDropDown
         className={classnames(classes.networkList, {

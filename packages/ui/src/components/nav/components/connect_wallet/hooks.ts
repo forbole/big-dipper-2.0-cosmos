@@ -17,7 +17,7 @@ export const useConnectWalletList = () => {
     setOpen(false);
   };
 
-  const handleDisconnect = () => {
+  const handleLogoutWallet = () => {
     setLoggedIn(false);
   };
 
@@ -45,6 +45,7 @@ export const useConnectWalletList = () => {
 
   const handleConnectWallet = () => {
     setOpen(false);
+    setLoggedIn(true);
   };
 
   return {
@@ -57,7 +58,7 @@ export const useConnectWalletList = () => {
     handleConnectWalletConnect,
     handleClose,
     handleCancel,
-    handleDisconnect,
+    handleLogoutWallet,
     handleShowWallet,
     handleCloseWallet,
     handleConnectWallet,
