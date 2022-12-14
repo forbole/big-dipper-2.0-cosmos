@@ -48,7 +48,7 @@
     "react-virtualized-auto-sizer": "^1.0.7",
     "react-window": "^1.8.8",
     "react-window-infinite-loader": "^1.0.8",
-    "recharts": "^2.1.16",
+    "recharts": "^2.2.0",
     "recoil": "^0.7.6",
     "shared-utils": "*",
     "sharp": "^0.31.2",

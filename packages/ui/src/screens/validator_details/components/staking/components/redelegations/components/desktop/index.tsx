@@ -30,10 +30,12 @@ const Desktop: React.FC<{
         />
       ),
       to: <AvatarName address={x.to.address} imageUrl={x.to.imageUrl} name={x.to.name} />,
-      amount: `${formatNumber(
-        x.amount.value,
-        x.amount.exponent
-      )} ${x.amount.displayDenom.toUpperCase()}`,
+      amount: x.amount
+        ? `${formatNumber(
+            x.amount.value,
+            x.amount.exponent
+          )} ${x.amount.displayDenom.toUpperCase()}`
+        : '',
       completionTime: formatDayJs(dayjs.utc(x.completionTime), dateFormat),
     })) ?? [];
 

@@ -9,15 +9,13 @@ import { usePagination, useScreenSize } from '@/hooks';
 import Typography from '@material-ui/core/Typography';
 import { useStyles } from '@/screens/account_details/components/other_tokens/styles';
 import type { OtherTokenType } from '@/screens/account_details/types';
-import type DesktopType from '@/screens/account_details/components/other_tokens/components/desktop';
-import type MobileType from '@/screens/account_details/components/other_tokens/components/mobile';
 
 const Desktop = dynamic(
   () => import('@/screens/account_details/components/other_tokens/components/desktop')
-) as typeof DesktopType;
+);
 const Mobile = dynamic(
   () => import('@/screens/account_details/components/other_tokens/components/mobile')
-) as typeof MobileType;
+);
 
 const OtherTokens: React.FC<{
   className?: string;
@@ -29,7 +27,7 @@ const OtherTokens: React.FC<{
   const { t } = useTranslation('accounts');
   const { isDesktop } = useScreenSize();
   const classes = useStyles();
-  const { page, rowsPerPage, handleChangePage, handleChangeRowsPerPage, sliceItems } =
+  const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange, sliceItems } =
     usePagination({});
 
   const { data } = otherTokens;
@@ -54,8 +52,8 @@ const OtherTokens: React.FC<{
         total={count}
         rowsPerPage={rowsPerPage}
         page={page}
-        handleChangePage={handleChangePage}
-        handleChangeRowsPerPage={handleChangeRowsPerPage}
+        handlePageChange={handlePageChange}
+        handleRowsPerPageChange={handleRowsPerPageChange}
         rowsPerPageOptions={[10, 25, 50, 100]}
       />
     </Box>

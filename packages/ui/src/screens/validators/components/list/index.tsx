@@ -3,8 +3,6 @@ import LoadAndExist from '@/components/load_and_exist';
 import NoData from '@/components/no_data';
 import { useScreenSize } from '@/hooks';
 import { useProfilesRecoil } from '@/recoil/profiles';
-import type DesktopType from '@/screens/validators/components/list/components/desktop';
-import type MobileType from '@/screens/validators/components/list/components/mobile';
 import Tabs from '@/screens/validators/components/list/components/tabs';
 import { useValidators } from '@/screens/validators/components/list/hooks';
 import { useStyles } from '@/screens/validators/components/list/styles';
@@ -12,12 +10,8 @@ import classnames from 'classnames';
 import dynamic from 'next/dynamic';
 import React, { ReactNode } from 'react';
 
-const Desktop = dynamic(
-  () => import('@/screens/validators/components/list/components/desktop')
-) as typeof DesktopType;
-const Mobile = dynamic(
-  () => import('@/screens/validators/components/list/components/mobile')
-) as typeof MobileType;
+const Desktop = dynamic(() => import('@/screens/validators/components/list/components/desktop'));
+const Mobile = dynamic(() => import('@/screens/validators/components/list/components/mobile'));
 
 const List: React.FC<{
   className?: string;

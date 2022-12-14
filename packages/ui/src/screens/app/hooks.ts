@@ -2,6 +2,7 @@ import chainConfig from '@/chainConfig';
 import { init } from '@socialgouv/matomo-next';
 import * as jdenticon from 'jdenticon';
 import useTranslation from 'next-translate/useTranslation';
+
 import { useEffect } from 'react';
 
 export const useApp = () => {
@@ -11,13 +12,14 @@ export const useApp = () => {
   const { lang } = useTranslation();
 
   useEffect(() => {
-    const MATOMO_URL = process.env.NEXT_PUBLIC_MATOMO_URL || chainConfig().marketing.matomoURL;
-    const MATOMO_SITE_ID =
-      process.env.NEXT_PUBLIC_MATOMO_SITE_ID || chainConfig().marketing.matomoSiteID;
-    if (MATOMO_URL && MATOMO_SITE_ID) {
+    let matomoUrl = process.env.NEXT_PUBLIC_MATOMO_URL;
+    if (!matomoUrl) matomoUrl = chainConfig().marketing.matomoURL;
+    let matomoSiteId = process.env.NEXT_PUBLIC_MATOMO_SITE_ID;
+    if (!matomoSiteId) matomoSiteId = chainConfig().marketing.matomoSiteID;
+    if (matomoUrl && matomoSiteId) {
       init({
-        url: MATOMO_URL,
-        siteId: MATOMO_SITE_ID,
+        url: matomoUrl,
+        siteId: matomoSiteId,
       });
     }
     // jdenticon theme

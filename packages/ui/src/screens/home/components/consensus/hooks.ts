@@ -6,6 +6,14 @@ import numeral from 'numeral';
 import * as R from 'ramda';
 import { useEffect, useState } from 'react';
 
+function getWs() {
+  let ws = process.env.NEXT_PUBLIC_RPC_WEBSOCKET;
+  if (!ws) ws = chainConfig().endpoints.publicRpcWebsocket;
+  if (!ws) ws = chainConfig().endpoints.graphqlWebsocket;
+  if (!ws) ws = 'ws://localhost:3000/websocket';
+  return ws;
+}
+
 export const useConsensus = () => {
   const [state, setState] = useState<{
     height: number;
@@ -82,13 +90,7 @@ export const useConsensus = () => {
     };
 
     function connect() {
-      client = new WebSocket(
-        process.env.NEXT_PUBLIC_RPC_WEBSOCKET ||
-          chainConfig().endpoints.publicRpcWebsocket ||
-          chainConfig().endpoints.graphqlWebsocket ||
-          'ws://localhost:3000/websocket',
-        GRAPHQL_TRANSPORT_WS_PROTOCOL
-      );
+      client = new WebSocket(getWs(), GRAPHQL_TRANSPORT_WS_PROTOCOL);
 
       client.onopen = () => {
         client.send(JSON.stringify(stepHeader));
@@ -114,9 +116,9 @@ export const useConsensus = () => {
         }, 1000);
       };
 
-      client.onerror = (err: WebSocket.ErrorEvent) => {
+      client.onerror = (err: unknown) => {
         client.close();
-        console.error(`Socket encountered error: ${err.message}Closing socket`);
+        console.error('Socket encountered error: Closing socket', err);
       };
 
       function enqueuePing() {

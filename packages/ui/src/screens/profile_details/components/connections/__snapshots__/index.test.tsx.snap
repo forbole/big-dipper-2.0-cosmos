@@ -11,8 +11,8 @@ exports[`screen: ProfileDetails/Connections matches snapshot 1`] = `
   </h2>
   <div
     className="makeStyles-paginate"
-    handleChangePage={[Function]}
-    handleChangeRowsPerPage={[Function]}
+    handlePageChange={[Function]}
+    handleRowsPerPageChange={[Function]}
     id="Pagination"
     page={0}
     rowsPerPage={10}

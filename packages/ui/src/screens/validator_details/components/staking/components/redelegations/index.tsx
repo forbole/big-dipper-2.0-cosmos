@@ -3,8 +3,6 @@ import NoData from '@/components/no_data';
 import Pagination from '@/components/pagination';
 import { usePagination, useScreenSize } from '@/hooks';
 import { useProfilesRecoil } from '@/recoil/profiles';
-import type DesktopType from '@/screens/validator_details/components/staking/components/redelegations/components/desktop';
-import type MobileType from '@/screens/validator_details/components/staking/components/redelegations/components/mobile';
 import { useStyles } from '@/screens/validator_details/components/staking/components/redelegations/styles';
 import type { RedelegationsType } from '@/screens/validator_details/components/staking/types';
 import classnames from 'classnames';
@@ -17,13 +15,13 @@ const Desktop = dynamic(
     import(
       '@/screens/validator_details/components/staking/components/redelegations/components/desktop'
     )
-) as typeof DesktopType;
+);
 const Mobile = dynamic(
   () =>
     import(
       '@/screens/validator_details/components/staking/components/redelegations/components/mobile'
     )
-) as typeof MobileType;
+);
 
 const Redelegations: FC<
   {
@@ -32,7 +30,7 @@ const Redelegations: FC<
 > = (props) => {
   const { isDesktop } = useScreenSize();
   const classes = useStyles();
-  const { page, rowsPerPage, handleChangePage, handleChangeRowsPerPage } = usePagination({});
+  const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange } = usePagination({});
 
   const pageItems = R.pathOr<NonNullable<typeof props['redelegations']['data'][number]>>(
     [],
@@ -70,8 +68,8 @@ const Redelegations: FC<
         total={props.redelegations.count}
         rowsPerPage={rowsPerPage}
         page={page}
-        handleChangePage={handleChangePage}
-        handleChangeRowsPerPage={handleChangeRowsPerPage}
+        handlePageChange={handlePageChange}
+        handleRowsPerPageChange={handleRowsPerPageChange}
         rowsPerPageOptions={[10, 25, 50, 100]}
       />
     </div>

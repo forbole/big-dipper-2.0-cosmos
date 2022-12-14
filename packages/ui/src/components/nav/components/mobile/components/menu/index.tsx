@@ -72,7 +72,7 @@ const Menu = (props: MenuProps) => {
         <div className={classnames('content')}>
           {THEME_LIST.filter((l) => l !== themeOptions.theme).map((l) => (
             <div key={l}>
-              <MenuItem button component="a" onClick={() => themeOptions.handleChangeTheme(l)}>
+              <MenuItem button component="a" onClick={() => themeOptions.handleThemeChange(l)}>
                 {t(l)}
               </MenuItem>
             </div>

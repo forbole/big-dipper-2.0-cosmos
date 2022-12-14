@@ -21,8 +21,8 @@ describe('screen: TokenDetails/Paginate', () => {
             rowsPerPage: 10,
             page: 0,
             total: 100,
-            handleChangePage: jest.fn(),
-            handleChangeRowsPerPage: jest.fn(),
+            handlePageChange: jest.fn(),
+            handleRowsPerPageChange: jest.fn(),
           }}
         />
       </MockTheme>

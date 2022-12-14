@@ -1,8 +1,6 @@
 import Box from '@/components/box';
 import { usePagination, useScreenSize } from '@/hooks';
 import { useProfilesRecoil } from '@/recoil/profiles';
-import type DesktopType from '@/screens/proposal_details/components/deposits/components/desktop';
-import type MobileType from '@/screens/proposal_details/components/deposits/components/mobile';
 import Paginate from '@/screens/proposal_details/components/deposits/components/paginate';
 import { useDeposits } from '@/screens/proposal_details/components/deposits/hooks';
 import { useStyles } from '@/screens/proposal_details/components/deposits/styles';
@@ -14,15 +12,15 @@ import React from 'react';
 
 const Desktop = dynamic(
   () => import('@/screens/proposal_details/components/deposits/components/desktop')
-) as typeof DesktopType;
+);
 const Mobile = dynamic(
   () => import('@/screens/proposal_details/components/deposits/components/mobile')
-) as typeof MobileType;
+);
 
 const Deposits: React.FC<ComponentDefault> = (props) => {
   const { isDesktop } = useScreenSize();
   const { t } = useTranslation('proposals');
-  const { page, rowsPerPage, handleChangePage, handleChangeRowsPerPage, sliceItems } =
+  const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange, sliceItems } =
     usePagination({});
   const { state } = useDeposits();
 
@@ -52,8 +50,8 @@ const Deposits: React.FC<ComponentDefault> = (props) => {
         total={state.data.length}
         page={page}
         rowsPerPage={rowsPerPage}
-        handleChangePage={handleChangePage}
-        handleChangeRowsPerPage={handleChangeRowsPerPage}
+        handlePageChange={handlePageChange}
+        handleRowsPerPageChange={handleRowsPerPageChange}
       />
     </Box>
   );

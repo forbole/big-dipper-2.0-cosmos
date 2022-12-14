@@ -11,12 +11,12 @@ type Options = {
 export const usePagination = (options?: Options) => {
   const rowsPage = options?.rowsPage ?? null;
   const rowsChangeCallback = options?.rowsChangeCallback ?? null;
-  const pageChangeCallback = options?.rowsChangeCallback ?? null;
+  const pageChangeCallback = options?.pageChangeCallback ?? null;
 
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(rowsPage ?? 10);
 
-  const handleChangePage = (
+  const handlePageChange = (
     _event: React.MouseEvent<HTMLButtonElement, MouseEvent> | null,
     newPage: number
   ) => {
@@ -26,7 +26,7 @@ export const usePagination = (options?: Options) => {
     }
   };
 
-  const handleChangeRowsPerPage = (selectedRowsPerPage: number) => {
+  const handleRowsPerPageChange = (selectedRowsPerPage: number) => {
     setRowsPerPage(selectedRowsPerPage);
     setPage(0);
     if (rowsChangeCallback) {
@@ -50,8 +50,8 @@ export const usePagination = (options?: Options) => {
   return {
     page,
     rowsPerPage,
-    handleChangePage,
-    handleChangeRowsPerPage,
+    handlePageChange,
+    handleRowsPerPageChange,
     sliceItems,
     getTotal,
     resetPagination,
