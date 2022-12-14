@@ -44,8 +44,12 @@ const styles = makeStyles((theme) => ({
     overflow: 'visible',
     background: '#D9D9D9',
     '&:hover': {
-      background: theme.palette.primary.dark,
-      borderColor: theme.palette.primary.dark,
+      background: theme.palette.primary.main,
+      borderColor: theme.palette.primary.main,
+    },
+    '&:focus': {
+      background: theme.palette.primary.main,
+      borderColor: theme.palette.primary.main,
     },
   },
   header: {
@@ -77,7 +81,7 @@ const styles = makeStyles((theme) => ({
   buttonLabel: {
     justifyContent: 'left',
     fontSize: '16px',
-    marginTop: theme.spacing(18),
+    marginTop: theme.spacing(20),
     marginLeft: '-10px',
   },
   button: {
@@ -88,6 +92,11 @@ const styles = makeStyles((theme) => ({
     height: '44px',
     background: '#D9D9D9',
     borderRadius: '8px',
+    color: '#000000',
+    '&:hover': {
+      background: theme.palette.primary.main,
+      borderColor: theme.palette.primary.main,
+    },
   },
 }));
 

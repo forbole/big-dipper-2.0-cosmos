@@ -16,15 +16,15 @@ export const useConnectWalletList = () => {
   };
 
   const handleConnectKeplr = () => {
-    setOpen(false); // TO DO
+    setOpen(true); // TO DO
   };
 
   const handleConnectButter = () => {
-    setOpen(false); // TO DO
+    setOpen(true); // TO DO
   };
 
   const handleConnectWalletConnect = () => {
-    setOpen(false); // TO DO
+    setOpen(true); // TO DO
   };
 
   const handleConnectWallet = () => {
