@@ -57,7 +57,7 @@ const styles = makeStyles((theme) => ({
     },
   },
   walletButton: {
-    border: 'solid 1px',
+    border: 'solid 1px #D9D9D9',
     borderRadius: '24px',
     width: '70px',
     height: '70px',
