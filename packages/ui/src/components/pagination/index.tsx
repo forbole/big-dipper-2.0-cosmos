@@ -1,6 +1,7 @@
 import Actions from '@/components/pagination/components/actions';
 import { useStyles } from '@/components/pagination/styles';
 import TablePagination from '@material-ui/core/TablePagination';
+import { TablePaginationActionsProps } from '@material-ui/core/TablePagination/TablePaginationActions';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import React, { useCallback } from 'react';
@@ -11,28 +12,28 @@ const Pagination: React.FC<{
   rowsPerPage: number;
   rowsPerPageOptions?: number[];
   page: number;
-  handleChangePage: (
+  handlePageChange: (
     _event: React.MouseEvent<HTMLButtonElement, MouseEvent> | null,
     selectedRowsPerPage: number
   ) => void;
-  handleChangeRowsPerPage: (page: number) => void;
+  handleRowsPerPageChange: (page: number) => void;
 }> = ({
   className,
   total,
   rowsPerPage,
   page,
-  handleChangePage,
-  handleChangeRowsPerPage,
+  handlePageChange,
+  handleRowsPerPageChange,
   rowsPerPageOptions,
 }) => {
   const { t } = useTranslation('common');
   const classes = useStyles();
 
   const actionsComponent = useCallback(
-    (subProps) => {
+    (subProps: TablePaginationActionsProps) => {
       const additionalProps = {
         rowsPerPageOptions,
-        handleChangeRowsPerPage,
+        handleRowsPerPageChange,
       };
 
       return (
@@ -47,7 +48,7 @@ const Pagination: React.FC<{
         </>
       );
     },
-    [classes.mobile, classes.tablet, handleChangeRowsPerPage, rowsPerPageOptions]
+    [classes.mobile, classes.tablet, handleRowsPerPageChange, rowsPerPageOptions]
   );
 
   // hides pagination if the total items is less than
@@ -73,7 +74,7 @@ const Pagination: React.FC<{
       count={total}
       rowsPerPage={rowsPerPage}
       page={page}
-      onPageChange={handleChangePage}
+      onPageChange={handlePageChange}
       ActionsComponent={actionsComponent}
     />
   );

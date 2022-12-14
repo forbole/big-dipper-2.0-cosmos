@@ -8,6 +8,9 @@ on:
        chain_type:
         description: "Chain Type to publish (default to mainnet when more than 1 was configured)"
         required: false
+       base_path:
+        description: "Override basePath in next.config.js (default to chainConfig)"
+        required: false
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -18,27 +21,42 @@ jobs:
         VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
         VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+    name: Preview ${{ github.event.inputs.project_name }}-${{ github.event.inputs.chain_type }}${{ github.event.inputs.base_path }}
     steps:
       -
         uses: actions/checkout@v3
       -
+        name: Set steps.vars.outputs.valid
+        id: vars
+        shell: bash
+        run: |
+          echo 'valid='$(
+            yarn workspace ${{ github.event.inputs.project_name }} info 2>1 1>/dev/null && echo yes || echo no
+          ) | tee -a $GITHUB_OUTPUT
+      -
         name: Insall Vercel CLI
+        if: steps.vars.outputs.valid == 'yes'
+        shell: bash
         run: npm i -g vercel
       -
         name: Generate vercel.json
+        if: steps.vars.outputs.valid == 'yes'
+        shell: bash
         run: |
           node <<EOF
           const { writeFileSync } = require('fs');
           const projectName = process.env.PROJECT_NAME || 'web';
-          const chainType = process.env.NEXT_PUBLIC_CHAIN_TYPE || 'mainnet';
+          let chainType = process.env.NEXT_PUBLIC_CHAIN_TYPE;
+          if (!chainType) chainType = 'mainnet';
+          chainType = chainType.toLowerCase();
           const config = {
-            buildCommand: 'NEXT_PUBLIC_CHAIN_TYPE=' + chainType + ' yarn turbo run build --filter=' + projectName + '...',
+            buildCommand: 'NEXT_PUBLIC_CHAIN_TYPE=' + chainType + ' BASE_PATH=${{ github.event.inputs.base_path }} yarn turbo run build --filter=' + projectName + '...',
             outputDirectory: 'apps/' + projectName + '/.next',
             installCommand: 'yarn workspaces focus --production ' + projectName + ' && yarn add typescript -D',
             devCommand: 'yarn turbo run dev --filter=' + projectName + '...',
             framework: 'nextjs',
             ignoreCommand: 'echo always build && exit 1',
-            redirects: /^web-/.test(projectName)
+            redirects: "${{ github.event.inputs.base_path }}" !== "/" && /^web-/.test(projectName)
               ? [{ source: '/', destination: '/' + projectName.replace(/^web-/, '') }]
               : [],
           };
@@ -46,4 +64,6 @@ jobs:
           EOF
       -
         name: Deploy preview to Vercel
+        if: steps.vars.outputs.valid == 'yes'
+        shell: bash
         run: vercel -t ${{ secrets.VERCEL_TOKEN }} | tee -a $GITHUB_STEP_SUMMARY

@@ -24,7 +24,7 @@ exports[`components: Pagination matches snapshot 1`] = `
       }
       className="makeStyles-mobile"
       count={100}
-      handleChangeRowsPerPage={[MockFunction]}
+      handleRowsPerPageChange={[MockFunction]}
       id="Actions"
       nextIconButtonProps={
         {
@@ -45,7 +45,7 @@ exports[`components: Pagination matches snapshot 1`] = `
       }
       className="makeStyles-tablet"
       count={100}
-      handleChangeRowsPerPage={[MockFunction]}
+      handleRowsPerPageChange={[MockFunction]}
       id="Actions"
       nextIconButtonProps={
         {

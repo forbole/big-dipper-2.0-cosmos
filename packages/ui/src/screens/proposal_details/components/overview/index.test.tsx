@@ -26,6 +26,10 @@ jest.mock(
   '@/screens/proposal_details/components/overview/components/software_upgrade',
   () => (props: JSX.IntrinsicElements['div']) => <div id="SoftwareUpgrade" {...props} />
 );
+jest.mock(
+  '@/screens/proposal_details/components/overview/components/community_pool_spend',
+  () => (props: JSX.IntrinsicElements['div']) => <div id="CommunityPoolSpend" {...props} />
+);
 
 // ==================================
 // unit tests
@@ -36,13 +40,17 @@ describe('screen: BlockDetails/Overview', () => {
       <MockTheme>
         <Overview
           overview={{
-            content: '',
+            content: {
+              recipient: '',
+              amount: [],
+            },
             proposer: '',
             title: 'title',
             id: 10,
             description: 'description',
             status: 'status',
             submitTime: 'submitTime',
+            proposalType: 'CommunityPoolSpend',
             depositEndTime: 'depositEndTime',
             votingEndTime: null,
             votingStartTime: null,

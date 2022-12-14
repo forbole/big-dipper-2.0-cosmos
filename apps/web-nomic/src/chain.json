@@ -127,12 +127,12 @@
         "validator": "nomicvaloper",
         "account": "nomic"
       },
-      "primaryTokenUnit": "usat",
-      "votingPowerTokenUnit": "usat",
+      "primaryTokenUnit": "unom",
+      "votingPowerTokenUnit": "unom",
       "tokenUnits": {
-        "usat": {
-          "display": "sat",
-          "exponent": 8
+        "unom": {
+          "display": "nom",
+          "exponent": 6
         }
       },
       "endpoints": {

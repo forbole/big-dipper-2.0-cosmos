@@ -3,8 +3,6 @@ import NoData from '@/components/no_data';
 import Pagination from '@/components/pagination';
 import { usePagination, useScreenSize } from '@/hooks';
 import { useProfilesRecoil } from '@/recoil/profiles';
-import type DesktopType from '@/screens/account_details/components/staking/components/delegations/components/desktop';
-import type MobileType from '@/screens/account_details/components/staking/components/delegations/components/mobile';
 import { useStyles } from '@/screens/account_details/components/staking/components/delegations/styles';
 import type { DelegationsType } from '@/screens/account_details/components/staking/types';
 import classnames from 'classnames';
@@ -15,11 +13,11 @@ import React from 'react';
 const Desktop = dynamic(
   () =>
     import('@/screens/account_details/components/staking/components/delegations/components/desktop')
-) as typeof DesktopType;
+);
 const Mobile = dynamic(
   () =>
     import('@/screens/account_details/components/staking/components/delegations/components/mobile')
-) as typeof MobileType;
+);
 
 const Delegations: React.FC<
   {
@@ -28,7 +26,7 @@ const Delegations: React.FC<
 > = (props) => {
   const { isDesktop } = useScreenSize();
   const classes = useStyles();
-  const { page, rowsPerPage, handleChangePage, handleChangeRowsPerPage } = usePagination({});
+  const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange } = usePagination({});
 
   const pageItems = R.pathOr<NonNullable<typeof props['delegations']['data'][number]>>(
     [],
@@ -65,8 +63,8 @@ const Delegations: React.FC<
         total={props.delegations.count}
         rowsPerPage={rowsPerPage}
         page={page}
-        handleChangePage={handleChangePage}
-        handleChangeRowsPerPage={handleChangeRowsPerPage}
+        handlePageChange={handlePageChange}
+        handleRowsPerPageChange={handleRowsPerPageChange}
       />
     </div>
   );

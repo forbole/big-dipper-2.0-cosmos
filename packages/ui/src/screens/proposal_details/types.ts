@@ -5,10 +5,17 @@ export interface OverviewType {
   description: string;
   status: string;
   submitTime: string;
+  proposalType: string;
   depositEndTime: string;
   votingStartTime: string | null;
   votingEndTime: string | null;
-  content: string;
+  content: {
+    recipient: string;
+    amount: Array<{
+      amount: string;
+      denom: string;
+    }>;
+  };
 }
 
 export interface ProposalState {

@@ -32,18 +32,19 @@ export const useConnectWalletList = () => {
   };
 
   const handleConnectKeplr = () => {
-    setOpen(false); // TO DO
-    setLoggedIn(true);
+    setOpen(true); // TO DO
   };
 
-  const handleConnectForboleX = () => {
-    setOpen(false); // TO DO
-    setLoggedIn(true);
+  const handleConnectButter = () => {
+    setOpen(true); // TO DO
   };
 
   const handleConnectWalletConnect = () => {
-    setOpen(false); // TO DO
-    setLoggedIn(true);
+    setOpen(true); // TO DO
+  };
+
+  const handleConnectWallet = () => {
+    setOpen(false);
   };
 
   return {
@@ -52,12 +53,13 @@ export const useConnectWalletList = () => {
     showWallet,
     handleOpen,
     handleConnectKeplr,
-    handleConnectForboleX,
+    handleConnectButter,
     handleConnectWalletConnect,
     handleClose,
     handleCancel,
     handleDisconnect,
     handleShowWallet,
     handleCloseWallet,
+    handleConnectWallet,
   };
 };

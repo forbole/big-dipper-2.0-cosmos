@@ -20,7 +20,7 @@ const Connections: React.FC<{
   const { isDesktop } = useScreenSize();
   const classes = useStyles();
   const { t } = useTranslation('accounts');
-  const { page, rowsPerPage, handleChangePage, handleChangeRowsPerPage, sliceItems } =
+  const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange, sliceItems } =
     usePagination({});
   const items = sliceItems(data);
   return (
@@ -48,8 +48,8 @@ const Connections: React.FC<{
           total={data.length}
           rowsPerPage={rowsPerPage}
           page={page}
-          handleChangePage={handleChangePage}
-          handleChangeRowsPerPage={handleChangeRowsPerPage}
+          handlePageChange={handlePageChange}
+          handleRowsPerPageChange={handleRowsPerPageChange}
           rowsPerPageOptions={[10, 25, 50, 100]}
         />
       </DialogContent>

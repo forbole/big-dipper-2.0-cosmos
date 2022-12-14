@@ -3,8 +3,6 @@ import NoData from '@/components/no_data';
 import Pagination from '@/components/pagination';
 import { usePagination, useScreenSize } from '@/hooks';
 import { useProfilesRecoil } from '@/recoil/profiles';
-import type DesktopType from '@/screens/validator_details/components/staking/components/unbondings/components/desktop';
-import type MobileType from '@/screens/validator_details/components/staking/components/unbondings/components/mobile';
 import { useStyles } from '@/screens/validator_details/components/staking/components/unbondings/styles';
 import type { UnbondingsType } from '@/screens/validator_details/components/staking/types';
 import classnames from 'classnames';
@@ -17,11 +15,11 @@ const Desktop = dynamic(
     import(
       '@/screens/validator_details/components/staking/components/unbondings/components/desktop'
     )
-) as typeof DesktopType;
+);
 const Mobile = dynamic(
   () =>
     import('@/screens/validator_details/components/staking/components/unbondings/components/mobile')
-) as typeof MobileType;
+);
 
 const Unbondings: React.FC<
   {
@@ -29,7 +27,7 @@ const Unbondings: React.FC<
   } & ComponentDefault
 > = (props) => {
   const classes = useStyles();
-  const { page, rowsPerPage, handleChangePage, handleChangeRowsPerPage } = usePagination({});
+  const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange } = usePagination({});
   const { isDesktop } = useScreenSize();
 
   const pageItems = R.pathOr<NonNullable<typeof props['unbondings']['data'][number]>>(
@@ -65,8 +63,8 @@ const Unbondings: React.FC<
         total={props.unbondings.count}
         rowsPerPage={rowsPerPage}
         page={page}
-        handleChangePage={handleChangePage}
-        handleChangeRowsPerPage={handleChangeRowsPerPage}
+        handlePageChange={handlePageChange}
+        handleRowsPerPageChange={handleRowsPerPageChange}
       />
     </div>
   );

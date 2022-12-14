@@ -27,10 +27,12 @@ const Mobile: React.FC<{
           name={x.address.name}
         />
       ),
-      amount: `${formatNumber(
-        x.amount.value,
-        x.amount.exponent
-      )} ${x.amount.displayDenom.toUpperCase()}`,
+      amount: x.amount
+        ? `${formatNumber(
+            x.amount.value,
+            x.amount.exponent
+          )} ${x.amount.displayDenom.toUpperCase()}`
+        : '',
       completionTime: formatDayJs(dayjs.utc(x.completionTime), dateFormat),
     })) ?? [];
 

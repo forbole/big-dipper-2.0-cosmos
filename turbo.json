@@ -7,17 +7,18 @@
       "env": [
         "BASE_PATH",
         "BUILD_STANDALONE",
+        "NEXT_PUBLIC_BANNERS_JSON",
         "NEXT_PUBLIC_GRAPHQL_URL",
         "NEXT_PUBLIC_GRAPHQL_WS",
         "NEXT_PUBLIC_MATOMO_SITE_ID",
         "NEXT_PUBLIC_MATOMO_URL",
         "NEXT_PUBLIC_RPC_WEBSOCKET",
         "NEXT_PUBLIC_SENTRY_DSN",
-        "SENTRY_URL",
+        "SENTRY_AUTH_TOKEN",
+        "SENTRY_ENVIRONMENT",
         "SENTRY_ORG",
         "SENTRY_PROJECT",
-        "SENTRY_ENVIRONMENT",
-        "SENTRY_AUTH_TOKEN"
+        "SENTRY_URL"
       ]
     },
     "clean": {

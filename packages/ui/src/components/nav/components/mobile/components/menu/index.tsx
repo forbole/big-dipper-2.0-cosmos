@@ -15,6 +15,7 @@ import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Language from 'shared-utils/assets/icon-language.svg';
+import ConnectWallet from '@/components/nav/components/connect_wallet';
 import ThemeIcon from 'shared-utils/assets/icon-theme.svg';
 
 const Menu = (props: MenuProps) => {
@@ -71,7 +72,7 @@ const Menu = (props: MenuProps) => {
         <div className={classnames('content')}>
           {THEME_LIST.filter((l) => l !== themeOptions.theme).map((l) => (
             <div key={l}>
-              <MenuItem button component="a" onClick={() => themeOptions.handleChangeTheme(l)}>
+              <MenuItem button component="a" onClick={() => themeOptions.handleThemeChange(l)}>
                 {t(l)}
               </MenuItem>
             </div>
@@ -112,6 +113,7 @@ const Menu = (props: MenuProps) => {
             </span>
             <Typography variant="caption">{t(themeOptions.theme)}</Typography>
           </div>
+          <ConnectWallet />
         </div>
       </div>
     </>

@@ -1,14 +1,14 @@
-import { ComponentProps, useCallback, useState } from 'react';
-import Big from 'big.js';
-import * as R from 'ramda';
-import numeral from 'numeral';
 import { useValidatorsQuery, ValidatorsQuery } from '@/graphql/types/general_types';
 import type {
-  ValidatorsState,
   ItemType,
+  ValidatorsState,
   ValidatorType,
 } from '@/screens/validators/components/list/types';
 import Tabs from '@material-ui/core/Tabs';
+import Big from 'big.js';
+import numeral from 'numeral';
+import * as R from 'ramda';
+import { ComponentProps, useCallback, useState } from 'react';
 
 export const useValidators = () => {
   const [search, setSearch] = useState('');
@@ -59,7 +59,7 @@ export const useValidators = () => {
         validator: x.selfDelegateAddress,
         votingPower,
         votingPowerPercent: votingPowerPercent ?? 0,
-        commission: parseFloat(x?.validatorCommissions?.[0]?.commission ?? '0') ?? 0 * 100,
+        commission: (parseFloat(x?.validatorCommissions?.[0]?.commission ?? '0') ?? 0) * 100,
         inActiveSet: inActiveSetString,
         jailed: jailedString,
         tombstoned: tombstonedString,

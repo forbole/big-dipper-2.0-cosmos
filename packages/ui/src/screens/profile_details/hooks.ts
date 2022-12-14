@@ -29,7 +29,7 @@ export const useProfileDetails = () => {
       const desmosProfile = formatDesmosProfile(data);
       handleSetState({
         loading: false,
-        exists: !!data.profile.length,
+        exists: !!data.profile?.length,
         desmosProfile,
       });
       return desmosProfile;

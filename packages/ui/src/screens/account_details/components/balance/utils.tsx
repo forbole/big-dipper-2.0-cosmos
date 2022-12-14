@@ -36,11 +36,13 @@ export const formatBalanceData = (data: {
     },
     {
       key: 'balanceReward',
-      display: `${formatNumber(
-        data.reward.value,
-        data.reward.exponent
-      )} ${data.reward.displayDenom.toUpperCase()}`,
-      value: data.reward.value,
+      display: data.reward
+        ? `${formatNumber(
+            data.reward.value,
+            data.reward.exponent
+          )} ${data.reward.displayDenom.toUpperCase()}`
+        : '',
+      value: data.reward?.value,
     },
   ];
 

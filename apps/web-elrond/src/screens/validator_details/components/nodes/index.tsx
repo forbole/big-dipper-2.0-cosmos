@@ -10,22 +10,20 @@ import Box from '@/components/box';
 import Loading from '@/components/loading';
 import { useStyles } from '@/screens/validator_details/components/nodes/styles';
 import { useBlocks, PAGE_SIZE } from '@/screens/validator_details/components/nodes/hooks';
-import type DesktopType from '@/screens/validator_details/components/nodes/components/desktop';
-import type MobileType from '@/screens/validator_details/components/nodes/components/mobile';
 
 const Desktop = dynamic(
   () => import('@/screens/validator_details/components/nodes/components/desktop')
-) as typeof DesktopType;
+);
 const Mobile = dynamic(
   () => import('@/screens/validator_details/components/nodes/components/mobile')
-) as typeof MobileType;
+);
 
 const Nodes: React.FC<ComponentDefault> = (props) => {
   const { t } = useTranslation('validators');
   const { isDesktop } = useScreenSize();
   const classes = useStyles();
   const { state, handlePageChangeCallback } = useBlocks();
-  const { page, rowsPerPage, handleChangePage, handleChangeRowsPerPage } = usePagination({
+  const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange } = usePagination({
     rowsPage: PAGE_SIZE,
     pageChangeCallback: handlePageChangeCallback,
   });
@@ -51,8 +49,8 @@ const Nodes: React.FC<ComponentDefault> = (props) => {
         total={state.total}
         rowsPerPage={rowsPerPage}
         page={page}
-        handleChangePage={handleChangePage}
-        handleChangeRowsPerPage={handleChangeRowsPerPage}
+        handlePageChange={handlePageChange}
+        handleRowsPerPageChange={handleRowsPerPageChange}
       />
     </Box>
   );

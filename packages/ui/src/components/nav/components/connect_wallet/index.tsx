@@ -10,6 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import CloseIcon from '@material-ui/icons/Close';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
+import LoginIcon from 'shared-utils/assets/icon-login.svg';
 import React from 'react';
 import ConnectWalletDropDown from '@/components/nav/components/connect_wallet_drop_down';
 
@@ -24,10 +25,11 @@ const ConnectWallet: React.FC<{
     showWallet,
     handleOpen,
     handleConnectKeplr,
-    handleConnectForboleX,
+    handleConnectButter,
     handleConnectWalletConnect,
     handleCancel,
     handleShowWallet,
+    handleConnectWallet,
   } = useConnectWalletList();
 
   return (
@@ -39,7 +41,7 @@ const ConnectWallet: React.FC<{
         tabIndex={0}
         aria-label="connect-wallet-button"
       >
-        {!loggedIn ? t('connectWallet') : t('connected')}
+        {!loggedIn ? <LoginIcon /> : null}
       </div>
       <ConnectWalletDropDown
         className={classnames(classes.networkList, {
@@ -47,52 +49,61 @@ const ConnectWallet: React.FC<{
         })}
       />
       <Dialog maxWidth="md" onClose={handleCancel} open={open} className={classes.dialog}>
-        <DialogTitle disableTypography className={classes.header}>
-          <div className={classes.title}>
-            <Typography variant="h2">{t('connectWallet')}</Typography>
+        <DialogTitle disableTypography>
+          <div className={classes.header}>
+            <div className={classes.title}>
+              <Typography variant="h2" gutterBottom>
+                {t('logIn')}
+              </Typography>
+            </div>
+            <div>
+              <Typography variant="h4">{t('welcomeToBigDipper')}</Typography>
+            </div>
+            <IconButton aria-label="close" onClick={handleCancel} className={classes.closeButton}>
+              <CloseIcon />
+            </IconButton>
           </div>
-          <IconButton aria-label="close" onClick={handleCancel} className={classes.closeButton}>
-            <CloseIcon />
-          </IconButton>
         </DialogTitle>
-        <DialogContent dividers>
-          <div className={classes.connectButton}>
-            <Button
-              onClick={handleConnectKeplr}
-              color="primary"
-              aria-label="connect-keplr-wallet-button"
-              className={classes.walletButton}
-            >
-              Keplr
-            </Button>
-          </div>
-          <div className={classes.connectButton}>
-            <Button
-              onClick={handleConnectForboleX}
-              color="primary"
-              aria-label="connect-desmos-x-wallet-button"
-              className={classes.walletButton}
-            >
-              Forbole X
-            </Button>
-          </div>
-          <div className={classes.connectButton}>
-            <Button
-              onClick={handleConnectWalletConnect}
-              color="primary"
-              aria-label="connect-walletconnect-wallet-button"
-              className={classes.walletButton}
-            >
-              WalletConnect
-            </Button>
+        <DialogContent style={{ overflow: 'visible' }}>
+          <div className={classes.dialogContent}>
+            <div className={classes.connectWalletButton}>
+              <Button
+                onClick={handleConnectWalletConnect}
+                color="default"
+                aria-label="connect-walletconnect-wallet-button"
+                className={classes.walletButton}
+              >
+                <div className={classes.walletConnectLabel}>Wallet connect</div>
+              </Button>
+            </div>
+            <div className={classes.connectKeplrButton}>
+              <Button
+                onClick={handleConnectKeplr}
+                color="default"
+                aria-label="connect-keplr-wallet-button"
+                className={classes.walletButton}
+              >
+                <div className={classes.label}>Keplr</div>
+              </Button>
+            </div>
+            <div className={classes.connectButterButton}>
+              <Button
+                onClick={handleConnectButter}
+                color="default"
+                aria-label="connect-butter-wallet-button"
+                className={classes.walletButton}
+              >
+                <div className={classes.label}>Butter</div>
+              </Button>
+            </div>
           </div>
         </DialogContent>
         <DialogActions>
-          <Typography variant="h5" className={classes.actions} gutterBottom>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.{' '}
-          </Typography>
+          <div className={classes.actions}>
+            <Button onClick={handleConnectWallet} color="primary" className={classes.actionsButton}>
+              <Typography variant="h3">{t('continue')}</Typography>
+            </Button>
+          </div>
         </DialogActions>
       </Dialog>
     </div>

@@ -425,6 +425,17 @@ exports[`screen: Nav/Menu it renders 1`] = `
           light
         </span>
       </div>
+      <div>
+        <div
+          aria-label="connect-wallet-button"
+          className="makeStyles-icon"
+          onClick={[Function]}
+          role="button"
+          tabIndex={0}
+        >
+          <svg />
+        </div>
+      </div>
     </div>
   </div>,
 ]
