@@ -61,5 +61,8 @@
   "detailed": "Detailed",
   "profilesNotEnabled": "Profiles not enabled for this explorer",
   "insertValidDtag": "Please insert a valid dtag",
-  "invalidAddress": "Invalid Address"
+  "invalidAddress": "Invalid Address",
+  "welcomeToBigDipper": "Welcome to Big Dipper",
+  "logIn": "Log in",
+  "continue": "Continue"
 }

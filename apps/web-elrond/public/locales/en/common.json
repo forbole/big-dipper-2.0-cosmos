@@ -64,5 +64,8 @@
   "metachain": "Metachain",
   "shardNumber": "Shard {{num}}",
   "tokens": "Tokens",
-  "nfts": "NFTs"
+  "nfts": "NFTs",
+  "welcomeToBigDipper": "Welcome to Big Dipper",
+  "logIn": "Log in",
+  "continue": "Continue"
 }
