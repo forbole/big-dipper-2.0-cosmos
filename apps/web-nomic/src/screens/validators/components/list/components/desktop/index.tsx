@@ -8,7 +8,6 @@ import { fetchColumns } from '@/screens/validators/components/list/components/de
 import VotingPower from '@/screens/validators/components/list/components/voting_power';
 import VotingPowerExplanation from '@/screens/validators/components/list/components/voting_power_explanation';
 import type { ItemType } from '@/screens/validators/components/list/types';
-import { formatNumber } from '@/utils/format_token';
 import { getValidatorStatus } from '@/utils/get_validator_status';
 import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
