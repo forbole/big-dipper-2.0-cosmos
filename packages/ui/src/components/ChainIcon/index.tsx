@@ -25,7 +25,7 @@ import osmosisIconDark from 'shared-utils/assets/icons/osmosis-dark.svg?url';
 import osmosisIconLight from 'shared-utils/assets/icons/osmosis-light.svg?url';
 import persistenceIconDark from 'shared-utils/assets/icons/persistence-dark.svg?url';
 import provenanceIconDark from 'shared-utils/assets/icons/provenance-dark.svg?url';
-import quicksliverIconLight from 'shared-utils/assets/icons/quicksilver-light.svg?url';
+import quicksilverIconLight from 'shared-utils/assets/icons/quicksilver-light.svg?url';
 import regenIconLight from 'shared-utils/assets/icons/regen-light.svg?url';
 import rizonIconLight from 'shared-utils/assets/icons/rizon-dark.svg?url';
 import shentuIconLight from 'shared-utils/assets/icons/shentu-light.svg?url';
@@ -54,6 +54,8 @@ import nymLogoLight from 'shared-utils/assets/logos/nym-light.svg?url';
 import osmosisLogoDark from 'shared-utils/assets/logos/osmosis-dark.svg?url';
 import persistenceLogoDark from 'shared-utils/assets/logos/persistence-dark.svg?url';
 import provenanceLogoDark from 'shared-utils/assets/logos/provenance-dark.svg?url';
+import quicksilverLogoLight from 'shared-utils/assets/logos/quicksilver-light.svg?url';
+import quicksilverDarkLight from 'shared-utils/assets/logos/quicksilver-dark.svg?url';
 import regenLogoLight from 'shared-utils/assets/logos/regen-light.png';
 import rizonLogoLight from 'shared-utils/assets/logos/rizon-dark.svg?url';
 import shentuLogoLight from 'shared-utils/assets/logos/shentu-light.svg?url';
@@ -170,7 +172,10 @@ const ChainIcon = ({
           : [provenanceLogoDark, provenanceLogoDark];
       break;
     case 'quicksilver':
-      [iconDark, iconLight] = [quicksliverIconLight, quicksliverIconLight];
+      [iconDark, iconLight] =
+        type === 'icon'
+          ? [quicksilverIconLight, quicksilverIconLight]
+          : [quicksilverDarkLight, quicksilverLogoLight];
       break;
     case 'regen':
       [iconDark, iconLight] =
