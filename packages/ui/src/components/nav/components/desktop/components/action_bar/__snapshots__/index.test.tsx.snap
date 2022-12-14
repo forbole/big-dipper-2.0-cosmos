@@ -52,6 +52,17 @@ exports[`screen: Nav/ActionBar displays network 1`] = `
     <div
       id="SettingsList"
     />
+    <div>
+      <div
+        aria-label="connect-wallet-button"
+        className="makeStyles-icon"
+        onClick={[Function]}
+        role="button"
+        tabIndex={0}
+      >
+        <svg />
+      </div>
+    </div>
   </div>
   <div
     actionHeight={0}
@@ -113,6 +124,17 @@ exports[`screen: Nav/ActionBar it renders 1`] = `
     <div
       id="SettingsList"
     />
+    <div>
+      <div
+        aria-label="connect-wallet-button"
+        className="makeStyles-icon"
+        onClick={[Function]}
+        role="button"
+        tabIndex={0}
+      >
+        <svg />
+      </div>
+    </div>
   </div>
   <div
     actionHeight={0}
