@@ -16,19 +16,16 @@ const styles = makeStyles((theme) => ({
       fill: 'none',
     },
   },
-  connectButton: {
-    padding: '0px 40px',
-  },
-  connectConnectWallet: {
+  connectWalletButton: {
     padding: '0px 15px',
+    whiteSpace: 'nowrap',
+    textOverflow: 'ellipsis',
     [theme.breakpoints.down('sm')]: {
       padding: '0px 12px',
-      wrap: 'none',
+      whiteSpace: 'normal',
     },
     [theme.breakpoints.up('md')]: {
       padding: '0px 40px',
-      whiteSpace: 'nowrap',
-      textOverflow: 'ellipsis',
     },
   },
   connectKeplrButton: {
@@ -101,27 +98,38 @@ const styles = makeStyles((theme) => ({
       },
     },
   },
+  dialogContent: {
+    display: 'inline-flex',
+    paddingBottom: theme.spacing(3),
+    overflow: 'visible',
+  },
+  label: {
+    fontSize: '16px',
+    marginTop: theme.spacing(20),
+    marginLeft: '-10px',
+    textAlign: 'left',
+    lineHeight: 'normal',
+    [theme.breakpoints.up('md')]: {
+      marginTop: theme.spacing(20),
+    },
+  },
+  walletConnectLabel: {
+    fontSize: '16px',
+    marginTop: '182px',
+    marginLeft: '-10px',
+    textAlign: 'left',
+    lineHeight: 'normal',
+    [theme.breakpoints.up('md')]: {
+      marginTop: theme.spacing(20),
+    },
+  },
   actions: {
     display: 'flex',
     alignItems: 'center',
     textAlign: 'center',
     padding: '115px 16px 16px 16px',
   },
-  dialogContent: {
-    display: 'inline-flex',
-    paddingBottom: theme.spacing(3),
-    overflow: 'visible',
-  },
-  buttonLabel: {
-    justifyContent: 'left',
-    fontSize: '16px',
-    marginTop: theme.spacing(20),
-    marginLeft: '-10px',
-    [theme.breakpoints.up('md')]: {
-      marginTop: theme.spacing(20),
-    },
-  },
-  button: {
+  actionsButton: {
     display: 'flex',
     flexDirection: 'row',
     padding: '6px 16px',

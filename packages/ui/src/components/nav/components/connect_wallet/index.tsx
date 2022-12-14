@@ -57,18 +57,14 @@ const ConnectWallet: React.FC<{
         </DialogTitle>
         <DialogContent style={{ overflow: 'visible' }}>
           <div className={classes.dialogContent}>
-            <div className={classes.connectConnectWallet}>
+            <div className={classes.connectWalletButton}>
               <Button
                 onClick={handleConnectWalletConnect}
                 color="default"
                 aria-label="connect-walletconnect-wallet-button"
                 className={classes.walletButton}
               >
-                <div className={classes.buttonLabel}>
-                  <Typography variant="h4" noWrap>
-                    Wallet connect
-                  </Typography>
-                </div>
+                <div className={classes.walletConnectLabel}>Wallet connect</div>
               </Button>
             </div>
             <div className={classes.connectKeplrButton}>
@@ -78,11 +74,7 @@ const ConnectWallet: React.FC<{
                 aria-label="connect-keplr-wallet-button"
                 className={classes.walletButton}
               >
-                <div className={classes.buttonLabel}>
-                  <Typography variant="h4" align="left">
-                    Keplr
-                  </Typography>
-                </div>
+                <div className={classes.label}>Keplr</div>
               </Button>
             </div>
             <div className={classes.connectButterButton}>
@@ -92,16 +84,14 @@ const ConnectWallet: React.FC<{
                 aria-label="connect-butter-wallet-button"
                 className={classes.walletButton}
               >
-                <div className={classes.buttonLabel}>
-                  <Typography variant="h4">Butter</Typography>
-                </div>
+                <div className={classes.label}>Butter</div>
               </Button>
             </div>
           </div>
         </DialogContent>
         <DialogActions>
           <div className={classes.actions}>
-            <Button onClick={handleConnectWallet} color="primary" className={classes.button}>
+            <Button onClick={handleConnectWallet} color="primary" className={classes.actionsButton}>
               <Typography variant="h3">{t('continue')}</Typography>
             </Button>
           </div>
