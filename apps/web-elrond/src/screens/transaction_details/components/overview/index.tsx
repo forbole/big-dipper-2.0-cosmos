@@ -9,7 +9,7 @@ import dayjs, { formatDayJs } from '@/utils/dayjs';
 import useTranslation from 'next-translate/useTranslation';
 import { useRecoilValue } from 'recoil';
 import { readDate } from '@/recoil/settings';
-import { MINIBLOCK_DETAILS } from '@/utils/go_to_page';
+import { MINIBLOCK_DETAILS } from '@/api';
 import { formatNumber } from '@/utils/format_token';
 import { getShardDisplay } from '@/utils/get_shard_display';
 import chainConfig from '@/chainConfig';

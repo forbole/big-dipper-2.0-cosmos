@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Box from '@/components/box';
 import useTranslation from 'next-translate/useTranslation';
 import Typography from '@material-ui/core/Typography';
-import { MINIBLOCK_DETAILS } from '@/utils/go_to_page';
+import { MINIBLOCK_DETAILS } from '@/api';
 import type { MiniBlockType } from '@/screens/block_details/types';
 import { useStyles } from '@/screens/block_details/components/miniblocks/styles';
 
