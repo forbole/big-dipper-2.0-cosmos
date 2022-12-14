@@ -49,6 +49,7 @@ exports[`screen: Home/Tokenomics matches snapshot 1`] = `
   >
     <div
       className="recharts-wrapper"
+      role="region"
       style={
         {
           "cursor": "default",

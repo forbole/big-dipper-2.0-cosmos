@@ -1,8 +1,6 @@
 # Unreleased
 
-## Changes
-
-- Allow docker image to change config based on runtime environment variables ([\#1064](https://github.com/forbole/big-dipper-2.0-cosmos/issues/1064))
+- Display `requested amount` and `recipient` fields inside Community Pool Spend proposal details page ([\#1053](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1053))
 
 # main-v2.2.0 - 2022-11-22
 

@@ -18,7 +18,7 @@ const Transactions: React.FC<ComponentDefault> = (props) => {
   const { t } = useTranslation('blocks');
   const classes = useStyles();
   const { state, handlePageChangeCallback } = useTransactions();
-  const { page, rowsPerPage, handleChangePage, handleChangeRowsPerPage } = usePagination({
+  const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange } = usePagination({
     rowsPage: PAGE_SIZE,
     pageChangeCallback: handlePageChangeCallback,
   });
@@ -42,8 +42,8 @@ const Transactions: React.FC<ComponentDefault> = (props) => {
         total={state.total}
         rowsPerPage={rowsPerPage}
         page={page}
-        handleChangePage={handleChangePage}
-        handleChangeRowsPerPage={handleChangeRowsPerPage}
+        handlePageChange={handlePageChange}
+        handleRowsPerPageChange={handleRowsPerPageChange}
       />
     </Box>
   );

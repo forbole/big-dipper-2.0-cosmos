@@ -22,7 +22,7 @@ type Props = Parameters<typeof useTablePaginationActions>[0] & {
 const Actions: React.FC<Props> = (props) => {
   const classes = useStyles();
 
-  const { count, page, rowsPerPage, onChangePage, className, rowsPerPageOptions } = props;
+  const { count, page, rowsPerPage, onPageChange, className, rowsPerPageOptions } = props;
 
   const {
     handleFirstPage,
@@ -65,7 +65,7 @@ const Actions: React.FC<Props> = (props) => {
           component="li"
           variant="body2"
           key={x}
-          onClick={() => onChangePage?.(null, x)}
+          onClick={() => onPageChange(null, x)}
           className={classnames(classes.button, classes.pageButton, {
             selected: page === x,
           })}

@@ -30,7 +30,7 @@ const Delegations: React.FC<
 > = (props) => {
   const { isDesktop } = useScreenSize();
   const classes = useStyles();
-  const { page, rowsPerPage, handleChangePage, handleChangeRowsPerPage } = usePagination({});
+  const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange } = usePagination({});
 
   const pageItems = R.pathOr<NonNullable<typeof props['delegations']['data'][number]>>(
     [],
@@ -67,8 +67,8 @@ const Delegations: React.FC<
         total={props.delegations.count}
         rowsPerPage={rowsPerPage}
         page={page}
-        handleChangePage={handleChangePage}
-        handleChangeRowsPerPage={handleChangeRowsPerPage}
+        handlePageChange={handlePageChange}
+        handleRowsPerPageChange={handleRowsPerPageChange}
       />
     </div>
   );

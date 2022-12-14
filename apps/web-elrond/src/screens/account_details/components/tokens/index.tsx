@@ -14,7 +14,7 @@ const Tokens: React.FC<ComponentDefault> = (props) => {
   const { t } = useTranslation('accounts');
   const classes = useStyles();
   const { state, handlePageChangeCallback } = useTokens();
-  const { page, rowsPerPage, handleChangePage, handleChangeRowsPerPage } = usePagination({
+  const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange } = usePagination({
     rowsPage: PAGE_SIZE,
     pageChangeCallback: handlePageChangeCallback,
   });
@@ -38,8 +38,8 @@ const Tokens: React.FC<ComponentDefault> = (props) => {
         total={state.total}
         rowsPerPage={rowsPerPage}
         page={page}
-        handleChangePage={handleChangePage}
-        handleChangeRowsPerPage={handleChangeRowsPerPage}
+        handlePageChange={handlePageChange}
+        handleRowsPerPageChange={handleRowsPerPageChange}
       />
     </Box>
   );
