@@ -1,5 +1,9 @@
 # Unreleased
 
+## Changes
+
+- Added Connect Wallet pop up screen ([\#1068](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1068))
+
 # main-v2.2.0 - 2022-11-22
 
 ## Changes
