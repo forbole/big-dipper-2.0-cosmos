@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 
-test('footer', async ({ page }) => {
+test('footer', async ({ page, isMobile }) => {
   // Test url
   await Promise.all([page.waitForNavigation({ url: /[^?#]*\/\/[^/]+\/$/ }), page.goto('.')]);
   await expect(page.getByRole('progressbar')).toHaveCount(0);
@@ -50,10 +50,12 @@ test('footer', async ({ page }) => {
   ]);
 
   // Test community footer section
-  await Promise.all([
-    page.waitForEvent('popup', (p) => p.url().startsWith('https://t.me/forbole')),
-    page.getByRole('link', { name: 'Telegram' }).click(),
-  ]);
+  if (!isMobile) {
+    await Promise.all([
+      page.waitForEvent('popup', (p) => p.url().startsWith('https://t.me/forbole')),
+      page.getByRole('link', { name: 'Telegram' }).click(),
+    ]);
+  }
 
   await Promise.all([
     page.waitForEvent('popup', (p) => p.url().startsWith('https://www.linkedin.com')),
