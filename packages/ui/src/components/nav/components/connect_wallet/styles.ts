@@ -20,26 +20,51 @@ const styles = makeStyles((theme) => ({
     padding: '0px 40px',
   },
   connectConnectWallet: {
-    padding: '0px 40px',
+    padding: '0px 15px',
+    [theme.breakpoints.down('sm')]: {
+      padding: '0px 12px',
+      wrap: 'none',
+    },
+    [theme.breakpoints.up('md')]: {
+      padding: '0px 40px',
+      whiteSpace: 'nowrap',
+      textOverflow: 'ellipsis',
+    },
   },
   connectKeplrButton: {
-    padding: '0px 55px',
+    padding: '0px 20px',
+    [theme.breakpoints.down('sm')]: {
+      padding: '0px 12px',
+    },
+    [theme.breakpoints.up('md')]: {
+      padding: '0px 55px',
+    },
   },
   connectButterButton: {
-    padding: '0px 30px',
+    padding: '0px 15px',
+    [theme.breakpoints.down('sm')]: {
+      padding: '0px 12px',
+    },
+    [theme.breakpoints.up('md')]: {
+      padding: '0px 30px',
+    },
   },
   closeButton: {
     position: 'absolute',
     right: theme.spacing(1),
     top: theme.spacing(1),
     color: theme.palette.grey[500],
+    padding: '17px 24px',
+    [theme.breakpoints.down('xs')]: {
+      left: '250px',
+    },
   },
   walletButton: {
     border: 'solid 1px',
     borderRadius: '24px',
-    width: '100px',
-    height: '100px',
-    fontSize: '16px',
+    width: '70px',
+    height: '70px',
+    fontSize: '14px',
     justifyContent: 'left',
     overflow: 'visible',
     background: '#D9D9D9',
@@ -51,10 +76,16 @@ const styles = makeStyles((theme) => ({
       background: theme.palette.primary.main,
       borderColor: theme.palette.primary.main,
     },
+    [theme.breakpoints.up('md')]: {
+      borderRadius: '24px',
+      width: '100px',
+      height: '100px',
+    },
   },
   header: {
     alignItems: 'center',
-    [theme.breakpoints.up('lg')]: {
+    padding: '72px 32px 32px 19px',
+    [theme.breakpoints.up('md')]: {
       padding: '72px 32px 32px 37px',
     },
   },
@@ -64,7 +95,10 @@ const styles = makeStyles((theme) => ({
   },
   dialog: {
     '& .MuiDialog-paper': {
-      width: '600px',
+      width: '330px',
+      [theme.breakpoints.up('md')]: {
+        width: '600px',
+      },
     },
   },
   actions: {
@@ -83,19 +117,29 @@ const styles = makeStyles((theme) => ({
     fontSize: '16px',
     marginTop: theme.spacing(20),
     marginLeft: '-10px',
+    [theme.breakpoints.up('md')]: {
+      marginTop: theme.spacing(20),
+    },
   },
   button: {
     display: 'flex',
     flexDirection: 'row',
     padding: '6px 16px',
-    width: '114px',
-    height: '44px',
+    width: '103px',
+    height: '40px',
     background: '#D9D9D9',
     borderRadius: '8px',
     color: '#000000',
     '&:hover': {
       background: theme.palette.primary.main,
       borderColor: theme.palette.primary.main,
+    },
+    [theme.breakpoints.up('md')]: {
+      width: '114px',
+      height: '44px',
+    },
+    [theme.breakpoints.down('xs')]: {
+      left: '54px',
     },
   },
 }));
