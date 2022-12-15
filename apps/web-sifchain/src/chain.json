@@ -128,7 +128,7 @@
       "votingPowerTokenUnit": "rowan",
       "tokenUnits": {
         "rowan": {
-          "display": "erowan",
+          "display": "rowan",
           "exponent": 18
         }
       },
