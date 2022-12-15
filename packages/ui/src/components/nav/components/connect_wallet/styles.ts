@@ -158,8 +158,24 @@ const styles = makeStyles((theme) => ({
     position: 'fixed',
     right: 60,
     '&.open': {
-      opacity: 1,
+      opacity: '95%',
       visibility: 'visible',
+    },
+  },
+  avatar: {
+    margin: '0px 20px 0px 5px',
+    borderRadius: '100px',
+    [theme.breakpoints.up('lg')]: {
+      display: 'flex',
+      alignItems: 'center',
+      textAlign: 'center',
+      justifyContent: 'center',
+    },
+    '&:hover': {
+      cursor: 'pointer',
+    },
+    '& svg': {
+      fill: 'none',
     },
   },
 }));
