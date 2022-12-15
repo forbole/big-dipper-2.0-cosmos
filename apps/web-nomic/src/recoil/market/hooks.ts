@@ -40,12 +40,12 @@ export function useMarketRecoil() {
     ).amount;
     const supply = formatToken(rawSupplyAmount, chainConfig().primaryTokenUnit);
 
-    // const bondedTokens = data?.bondedTokens?.[0]?.bonded_tokens ?? 1;
+    // const bondedTokens = Big(data?.bondedTokens?.[0]?.bonded_tokens || 0);
 
     // const inflationWithCommunityTax = Big(1)?.times(inflation).toPrecision(2); // without community tax, need to change naming later
 
     const apr = 0;
-    // const apr = bondedTokens ? Big(rawSupplyAmount)?.times(inflationWithCommunityTax).div(bondedTokens).toNumber() : 0;
+    // const apr = !bondedTokens.eq(0) ? Big(rawSupplyAmount)?.times(inflationWithCommunityTax).div(bondedTokens).toNumber() : 0;
 
     return {
       price,

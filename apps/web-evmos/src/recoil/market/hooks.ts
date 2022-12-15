@@ -52,9 +52,13 @@ export function useMarketRecoil() {
     const inflation = data?.evmosInflationData?.[0]?.inflation_rate ?? 0;
 
     // Get Bonded token ratio: bonded tokens/ circulating supply
-    const bondedTokens = data?.bondedTokens?.[0]?.bonded_tokens ?? 1;
-    const circulatingSupply = data?.evmosInflationData?.[0]?.circulating_supply?.[0]?.amount ?? 1;
-    const bondedTokenRatio = Big(bondedTokens).div(circulatingSupply);
+    const bondedTokens = Big(data?.bondedTokens?.[0]?.bonded_tokens || 0);
+    const circulatingSupply = Big(
+      data?.evmosInflationData?.[0]?.circulating_supply?.[0]?.amount || 0
+    );
+    const bondedTokenRatio = !circulatingSupply.eq(0)
+      ? bondedTokens.div(circulatingSupply)
+      : Big(0);
 
     // Get inflation distributed to staking rewards
     const stakingDistribution =
@@ -63,7 +67,7 @@ export function useMarketRecoil() {
     const inflationWithStakingDistribution = Big(inflation)
       ?.times(stakingDistribution)
       .toPrecision(5);
-    const apr = bondedTokenRatio
+    const apr = !bondedTokenRatio.eq(0)
       ? Big(inflationWithStakingDistribution).div(bondedTokenRatio).toNumber()
       : 0;
 
