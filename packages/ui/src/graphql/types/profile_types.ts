@@ -3446,9 +3446,9 @@ export type Profile = {
   __typename?: 'profile';
   address: Scalars['String'];
   /** An array relationship */
-  application_links: Array<Application_Link>;
+  applications_links: Array<Application_Link>;
   /** An aggregate relationship */
-  application_links_aggregate: Application_Link_Aggregate;
+  applications_links_aggregate: Application_Link_Aggregate;
   bio: Scalars['String'];
   /** An array relationship */
   chain_links: Array<Chain_Link>;
@@ -3832,7 +3832,7 @@ export type Profile_Bool_Exp = {
   _not?: InputMaybe<Profile_Bool_Exp>;
   _or?: InputMaybe<Array<Profile_Bool_Exp>>;
   address?: InputMaybe<String_Comparison_Exp>;
-  application_links?: InputMaybe<Application_Link_Bool_Exp>;
+  applications_links?: InputMaybe<Application_Link_Bool_Exp>;
   bio?: InputMaybe<String_Comparison_Exp>;
   chain_links?: InputMaybe<Chain_Link_Bool_Exp>;
   cover_pic?: InputMaybe<String_Comparison_Exp>;
@@ -3884,7 +3884,7 @@ export type Profile_Min_Fields = {
 /** Ordering options when selecting data from "profile". */
 export type Profile_Order_By = {
   address?: InputMaybe<Order_By>;
-  application_links_aggregate?: InputMaybe<Application_Link_Aggregate_Order_By>;
+  applications_links_aggregate?: InputMaybe<Application_Link_Aggregate_Order_By>;
   bio?: InputMaybe<Order_By>;
   chain_links_aggregate?: InputMaybe<Chain_Link_Aggregate_Order_By>;
   cover_pic?: InputMaybe<Order_By>;
@@ -5849,18 +5849,18 @@ export type DesmosProfileQueryVariables = Exact<{
 }>;
 
 
-export type DesmosProfileQuery = { profile: Array<{ __typename?: 'profile', address: string, bio: string, dtag: string, nickname: string, profilePic: string, coverPic: string, creationTime: any, chainLinks: Array<{ __typename?: 'chain_link', creationTime: any, externalAddress: string, chainConfig: { __typename?: 'chain_link_chain_config', name: string, id: number } }>, applicationLinks: Array<{ __typename?: 'application_link', username: string, application: string, creationTime: any }> }> };
+export type DesmosProfileQuery = { profile: Array<{ __typename?: 'profile', address: string, bio: string, dtag: string, nickname: string, profilePic: string, coverPic: string, creationTime: any, chainLinks: Array<{ __typename?: 'chain_link', creationTime: any, externalAddress: string, chainConfig: { __typename?: 'chain_link_chain_config', name: string } }>, applicationLinks: Array<{ __typename?: 'application_link', username: string, application: string, creationTime: any }> }> };
 
 export type DesmosProfileLinkQueryVariables = Exact<{
   address?: InputMaybe<Scalars['String']>;
 }>;
 
 
-export type DesmosProfileLinkQuery = { profile: Array<{ __typename?: 'profile', address: string, bio: string, dtag: string, nickname: string, profilePic: string, coverPic: string, creationTime: any, chainLinks: Array<{ __typename?: 'chain_link', creationTime: any, externalAddress: string, chainConfig: { __typename?: 'chain_link_chain_config', name: string, id: number } }>, applicationLinks: Array<{ __typename?: 'application_link', username: string, application: string, creationTime: any }> }> };
+export type DesmosProfileLinkQuery = { profile: Array<{ __typename?: 'profile', address: string, bio: string, dtag: string, nickname: string, profilePic: string, coverPic: string, creationTime: any, chainLinks: Array<{ __typename?: 'chain_link', creationTime: any, externalAddress: string, chainConfig: { __typename?: 'chain_link_chain_config', name: string } }>, applicationLinks: Array<{ __typename?: 'application_link', username: string, application: string, creationTime: any }> }> };
 
 export type DesmosProfileDtagQueryVariables = Exact<{
   dtag?: InputMaybe<Scalars['String']>;
 }>;
 
 
-export type DesmosProfileDtagQuery = { profile: Array<{ __typename?: 'profile', address: string, bio: string, dtag: string, nickname: string, profilePic: string, coverPic: string, creationTime: any, chainLinks: Array<{ __typename?: 'chain_link', creationTime: any, externalAddress: string, chainConfig: { __typename?: 'chain_link_chain_config', name: string, id: number } }>, applicationLinks: Array<{ __typename?: 'application_link', username: string, application: string, creationTime: any }> }> };
+export type DesmosProfileDtagQuery = { profile: Array<{ __typename?: 'profile', address: string, bio: string, dtag: string, nickname: string, profilePic: string, coverPic: string, creationTime: any, chainLinks: Array<{ __typename?: 'chain_link', creationTime: any, externalAddress: string, chainConfig: { __typename?: 'chain_link_chain_config', name: string } }>, applicationLinks: Array<{ __typename?: 'application_link', username: string, application: string, creationTime: any }> }> };

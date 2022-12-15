@@ -12,10 +12,9 @@ export const DesmosProfileDocument = /* GraphQL */ `
         externalAddress: external_address
         chainConfig: chain_config {
           name
-          id
         }
       }
-      applicationLinks: application_links(
+      applicationLinks: applications_links(
         where: { state: { _eq: "APPLICATION_LINK_STATE_VERIFICATION_SUCCESS" } }
       ) {
         username
@@ -42,10 +41,9 @@ export const DesmosProfileLinkDocument = /* GraphQL */ `
         externalAddress: external_address
         chainConfig: chain_config {
           name
-          id
         }
       }
-      applicationLinks: application_links(
+      applicationLinks: applications_links(
         where: { state: { _eq: "APPLICATION_LINK_STATE_VERIFICATION_SUCCESS" } }
       ) {
         username
@@ -72,10 +70,9 @@ export const DesmosProfileDtagDocument = /* GraphQL */ `
         externalAddress: external_address
         chainConfig: chain_config {
           name
-          id
         }
       }
-      applicationLinks: application_links(
+      applicationLinks: applications_links(
         where: { state: { _eq: "APPLICATION_LINK_STATE_VERIFICATION_SUCCESS" } }
       ) {
         username
