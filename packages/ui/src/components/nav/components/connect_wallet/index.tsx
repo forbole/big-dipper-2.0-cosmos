@@ -13,7 +13,6 @@ import useTranslation from 'next-translate/useTranslation';
 import LoginIcon from 'shared-utils/assets/icon-login.svg';
 import LogoutIcon from 'shared-utils/assets/icon-logout.svg';
 import React from 'react';
-import ConnectWalletDropDown from '@/components/nav/components/connect_wallet_drop_down';
 
 const ConnectWallet: React.FC<{
   className?: string;
@@ -23,7 +22,6 @@ const ConnectWallet: React.FC<{
   const {
     open,
     loggedIn,
-    showWallet,
     handleOpen,
     handleConnectKeplr,
     handleConnectButter,
@@ -44,11 +42,6 @@ const ConnectWallet: React.FC<{
       >
         {!loggedIn ? <LoginIcon /> : <LogoutIcon />}
       </div>
-      <ConnectWalletDropDown
-        className={classnames(classes.networkList, {
-          open: showWallet,
-        })}
-      />
       <Dialog maxWidth="md" onClose={handleCancel} open={open} className={classes.dialog}>
         <DialogTitle disableTypography>
           <div className={classes.header}>
