@@ -67,5 +67,7 @@
   "nfts": "NFTs",
   "welcomeToBigDipper": "Welcome to Big Dipper",
   "logIn": "Log in",
-  "continue": "Continue"
+  "continue": "Continue",
+  "changeWallet": "Change Wallet",
+  "accountDetails": "Account Details"
 }
