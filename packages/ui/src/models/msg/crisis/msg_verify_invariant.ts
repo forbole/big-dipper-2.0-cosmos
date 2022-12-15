@@ -29,8 +29,8 @@ class MsgVerifyInvariant {
       json,
       type: R.pathOr('', ['@type'], json),
       sender: R.pathOr('', ['sender'], json),
-      invariantModuleName: R.pathOr('', ['invariantModuleName'], json),
-      invariantRoute: R.pathOr('', ['invariantRoute'], json),
+      invariantModuleName: R.pathOr('', ['invariant_module_name'], json),
+      invariantRoute: R.pathOr('', ['invariant_route'], json),
     };
   }
 }
