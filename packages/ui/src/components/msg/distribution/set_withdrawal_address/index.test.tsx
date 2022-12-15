@@ -18,8 +18,8 @@ describe('screen: TransactionDetails/SetWithdrawalAddress', () => {
     const message = MsgSetWithdrawAddress.fromJson({
       category: 'distribution',
       type: 'MsgSetWithdrawAddress',
-      delegatorAddress: 'delegatorAddress',
-      withdrawalAddress: 'withdrawalAddress',
+      delegator_address: 'delegatorAddress',
+      withdraw_address: 'withdrawalAddress',
     });
     const component = renderer.create(
       <MockTheme>

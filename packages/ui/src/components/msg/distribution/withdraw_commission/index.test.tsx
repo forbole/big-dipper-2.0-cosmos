@@ -18,7 +18,7 @@ describe('screen: TransactionDetails/WithdrawCommission', () => {
     const message = MsgWithdrawValidatorCommission.fromJson({
       category: 'distribution',
       type: 'MsgWithdrawValidatorCommission',
-      validatorAddress: 'validatorAddress',
+      validator_address: 'validatorAddress',
       amounts: [
         {
           value: '3000000',

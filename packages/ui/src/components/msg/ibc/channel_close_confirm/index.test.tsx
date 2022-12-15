@@ -19,8 +19,8 @@ describe('screen: TransactionDetails/IBCChannelCloseConfirm', () => {
       category: 'ibc',
       type: 'MsgChannelCloseConfirm',
       signer: 'desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz',
-      channelId: '1',
-      portId: '21',
+      channel_id: '1',
+      port_id: '21',
       json: [
         {
           denom: 'udaric',

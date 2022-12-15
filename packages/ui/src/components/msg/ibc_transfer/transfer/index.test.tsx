@@ -25,7 +25,7 @@ describe('screen: TransactionDetails/IBCTransfer', () => {
         denom: 'udaric',
         amount: '2000000',
       },
-      sourceChannel: 'channel-2',
+      source_channel: 'channel-2',
       json: [
         {
           denom: 'udaric',

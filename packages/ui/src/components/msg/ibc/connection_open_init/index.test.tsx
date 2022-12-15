@@ -20,7 +20,7 @@ describe('screen: TransactionDetails/IBCConnectionOpenInit', () => {
       category: 'ibc',
       type: 'MsgConnectionOpenInit',
       signer: 'desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz',
-      clientId: '1',
+      client_id: '1',
       counterparty: '21',
       json: [
         {

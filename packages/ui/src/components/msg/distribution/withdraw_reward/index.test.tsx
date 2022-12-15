@@ -18,8 +18,8 @@ describe('screen: TransactionDetails/WithdrawReward', () => {
     const message = MsgWithdrawDelegatorReward.fromJson({
       category: 'distribution',
       type: 'MsgWithdrawDelegatorReward',
-      delegatorAddress: 'delegatorAddress',
-      validatorAddress: 'validatorAddress',
+      delegator_address: 'delegatorAddress',
+      validator_address: 'validatorAddress',
       amounts: [
         {
           value: '3000000',

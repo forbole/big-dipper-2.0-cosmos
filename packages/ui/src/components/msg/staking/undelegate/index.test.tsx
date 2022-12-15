@@ -18,8 +18,8 @@ describe('screen: TransactionDetails/Undelegate', () => {
     const message = MsgUndelegate.fromJson({
       category: 'staking',
       type: 'MsgEditValidator',
-      delegatorAddress: 'delegatorAddress',
-      validatorAddress: 'validatorAddress',
+      delegator_address: 'delegatorAddress',
+      validator_address: 'validatorAddress',
       amount: {
         denom: 'udaric',
         amount: '1000000000',
