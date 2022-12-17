@@ -52,11 +52,11 @@ export function useMarketRecoil() {
       communityPool = formatToken(communityPoolCoin.amount, communityPoolCoin.denom);
     }
 
-    const bondedTokens = data?.bondedTokens?.[0]?.bonded_tokens ?? 1;
-    const communityTax = data?.distributionParams?.[0]?.params?.community_tax ?? '0';
+    const bondedTokens = Big(data?.bondedTokens?.[0]?.bonded_tokens || 0);
+    const communityTax = Big(data?.distributionParams?.[0]?.params?.community_tax || 0);
 
     const inflationWithCommunityTax = Big(1).minus(communityTax)?.times(inflation).toPrecision(2);
-    const apr = bondedTokens
+    const apr = !bondedTokens.eq(0)
       ? Big(rawSupplyAmount)?.times(inflationWithCommunityTax).div(bondedTokens).toNumber()
       : 0;
 

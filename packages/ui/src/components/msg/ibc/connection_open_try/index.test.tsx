@@ -20,10 +20,12 @@ describe('screen: TransactionDetails/IBCConnectionOpenTry', () => {
       category: 'ibc',
       type: 'MsgConnectionOpenTry',
       signer: 'desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz',
-      chainId: 'chain-1',
-      clientId: '21',
-      counterpartyClientId: '2',
-      counterpartyConnectionId: '221',
+      chain_id: 'chain-1',
+      client_id: '21',
+      counterparty: {
+        client_id: '2',
+        connection_id: '221',
+      },
       json: [
         {
           denom: 'udaric',

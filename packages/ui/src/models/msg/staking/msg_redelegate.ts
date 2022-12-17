@@ -32,8 +32,8 @@ class MsgRedelegate {
       json,
       type: R.pathOr('', ['@type'], json),
       delegatorAddress: R.pathOr('', ['delegator_address'], json),
-      validatorSrcAddress: R.pathOr('', ['validatorSrcAddress'], json),
-      validatorDstAddress: R.pathOr('', ['validatorDstAddress'], json),
+      validatorSrcAddress: R.pathOr('', ['validator_src_address'], json),
+      validatorDstAddress: R.pathOr('', ['validator_dst_address'], json),
       amount: {
         denom: R.pathOr('', ['amount', 'denom'], json),
         amount: R.pathOr('0', ['amount', 'amount'], json),

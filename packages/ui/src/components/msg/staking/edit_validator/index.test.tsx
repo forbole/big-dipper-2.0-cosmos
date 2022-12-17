@@ -22,12 +22,12 @@ describe('screen: TransactionDetails/EditValidator', () => {
         moniker: 'forbole',
         identity: '',
         website: '',
-        securityContact: '',
+        security_contact: '',
         details: '',
       },
-      validatorAddress: 'validatorAddress',
-      commissionRate: '0.1',
-      minSelfDelegation: '0.1',
+      validator_address: 'validatorAddress',
+      commission_rate: '0.1',
+      min_self_delegation: '0.1',
     });
     const component = renderer.create(
       <MockTheme>

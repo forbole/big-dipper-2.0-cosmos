@@ -18,7 +18,7 @@ describe('screen: TransactionDetails/UnBlockUser', () => {
     const message = MsgUnjail.fromJson({
       category: 'slashing',
       type: 'MsgUnjail',
-      validatorAddress: 'validatorAddress',
+      validator_addr: 'validatorAddress',
     });
     const component = renderer.create(
       <MockTheme>

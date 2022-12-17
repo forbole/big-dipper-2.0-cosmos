@@ -21,7 +21,7 @@ describe('screen: TransactionDetails/DtagAcceptTransfer', () => {
       type: 'MsgDtagAcceptTransfer',
       sender: 'sender',
       receiver: 'receiver',
-      newDtag: 'newDtag',
+      new_dtag: 'newDtag',
     });
     const component = renderer.create(
       <MockTheme>

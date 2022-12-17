@@ -20,8 +20,8 @@ describe('screen: TransactionDetails/IBCConnectionOpenAck', () => {
       category: 'ibc',
       type: 'MsgConnectionOpenAck',
       signer: 'desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz',
-      connectionId: '1',
-      counterpartyConnectionId: '21',
+      connection_id: '1',
+      counterparty_connection_id: '21',
       json: [
         {
           denom: 'udaric',

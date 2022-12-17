@@ -49,11 +49,13 @@ export function useMarketRecoil() {
       communityPool = formatToken(communityPoolCoin.amount, communityPoolCoin.denom);
     }
 
-    const bondedTokens = data?.bondedTokens?.[0]?.bonded_tokens ?? 1;
-    const distributionProportions = data?.mintParams?.[0]?.params?.distribution_proportions ?? '0';
+    const bondedTokens = Big(data?.bondedTokens?.[0]?.bonded_tokens || 0);
+    const staking = Big(data?.mintParams?.[0]?.params?.distribution_proportions?.staking || 0);
 
-    const annualProvisions = Big(rawSupplyAmount)?.times(inflation).div(bondedTokens).toNumber();
-    const apr = Big(annualProvisions)?.times(distributionProportions.staking).toNumber();
+    const annualProvisions = !bondedTokens.eq(0)
+      ? Big(rawSupplyAmount)?.times(inflation).div(bondedTokens).toNumber()
+      : 0;
+    const apr = Big(annualProvisions)?.times(staking).toNumber();
 
     return {
       price,

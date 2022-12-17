@@ -31,8 +31,8 @@ export const formatToken = (value: number | string | null | undefined, denom = '
     return results;
   }
 
-  const ratio = 10 ** selectedDenom.exponent;
-  results.value = ratio ? Big(value).div(ratio).toFixed(selectedDenom.exponent) : '';
+  const ratio = Big(10 ** selectedDenom.exponent);
+  results.value = !ratio.eq(0) ? Big(value).div(ratio).toFixed(selectedDenom.exponent) : '';
   results.displayDenom = selectedDenom.display;
   return results;
 };
@@ -53,8 +53,8 @@ export const formatTokenByExponent = (value: number | string | undefined, expone
     value = `${value}`;
   }
 
-  const ratio = 10 ** exponent;
-  const results = ratio ? Big(value).div(ratio).toFixed(exponent) : '';
+  const ratio = Big(10 ** exponent);
+  const results = !ratio.eq(0) ? Big(value).div(ratio).toFixed(exponent) : '';
   return results;
 };
 

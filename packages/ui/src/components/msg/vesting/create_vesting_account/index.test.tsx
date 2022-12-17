@@ -23,8 +23,8 @@ describe('screen: TransactionDetails/CreateVestingAccount', () => {
     const message = MsgCreateVestingAccount.fromJson({
       category: 'vesting',
       type: 'MsgGrant',
-      toAddress: 'toAddress',
-      fromAddress: 'fromAddress',
+      to_address: 'toAddress',
+      from_address: 'fromAddress',
     });
     const component = renderer.create(
       <MockTheme>

@@ -18,8 +18,8 @@ describe('screen: TransactionDetails/MsgDelegate', () => {
     const message = MsgDelegate.fromJson({
       category: 'staking',
       type: 'MsgCreateValidator',
-      delegatorAddress: 'delegatorAddress',
-      validatorAddress: 'validatorAddress',
+      delegator_address: 'delegatorAddress',
+      validator_address: 'validatorAddress',
       amount: {
         denom: 'udaric',
         amount: '10000000',

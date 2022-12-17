@@ -20,8 +20,8 @@ describe('screen: TransactionDetails/IBCUpdateClient', () => {
       category: 'ibc',
       type: 'MsgUpdateClient',
       signer: 'desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz',
-      chainId: 'chain-1',
-      clientId: '21',
+      chain_id: 'chain-1',
+      client_id: '21',
       json: [
         {
           denom: 'udaric',

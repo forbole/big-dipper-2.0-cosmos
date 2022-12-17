@@ -130,7 +130,7 @@ export const useValidators = () => {
           allProviderData[validator.address] = x;
         });
 
-        const totalStaked = stakeData?.totalStaked ?? '0';
+        const totalStaked = Big(stakeData?.totalStaked || 0);
 
         const validators = R.keys(allValidators).map((x) => {
           const validator = allValidators[x];
@@ -140,10 +140,9 @@ export const useValidators = () => {
           const data = R.mergeAll([providerData, validatorData]) as ValidatorData & ProviderData;
 
           const locked = data?.locked ?? '0';
-          const stakePercentString = Big(locked)
-            .div(totalStaked === '0' ? 1 : totalStaked)
-            ?.times(100)
-            .toFixed(3);
+          const stakePercentString = !totalStaked.eq(0)
+            ? Big(locked).div(totalStaked)?.times(100).toFixed(3) ?? ''
+            : '';
 
           return {
             validator,

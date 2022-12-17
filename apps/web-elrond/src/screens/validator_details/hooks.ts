@@ -93,19 +93,18 @@ export const useValidatorDetails = () => {
           } else {
             reference = providerData;
           }
-          const locked = reference?.locked ?? '0';
-          const totalStaked = stakeData?.totalStaked ?? '0';
+          const locked = Big(reference?.locked || 0);
+          const totalStaked = Big(stakeData?.totalStaked || 0);
 
-          const stakePercentString = Big(locked)
-            .div(totalStaked === '0' ? 1 : totalStaked)
-            ?.times(100)
-            .toFixed(3);
+          const stakePercentString = !totalStaked.eq(0)
+            ? Big(locked).div(totalStaked)?.times(100).toFixed(3)
+            : '0';
 
           return {
-            locked: formatToken(locked, chainConfig().primaryTokenUnit),
+            locked: formatToken(locked.toString(), chainConfig().primaryTokenUnit),
             stake: formatToken(reference?.stake ?? '0', chainConfig().primaryTokenUnit),
             topUp: formatToken(reference?.topUp ?? '0', chainConfig().primaryTokenUnit),
-            totalStaked: formatToken(totalStaked, chainConfig().primaryTokenUnit),
+            totalStaked: formatToken(totalStaked.toString(), chainConfig().primaryTokenUnit),
             stakePercent: Number(formatNumber(stakePercentString, 2)),
           };
         };
