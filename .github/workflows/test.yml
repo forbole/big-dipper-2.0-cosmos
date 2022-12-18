@@ -138,7 +138,7 @@ jobs:
         with:
           path: |
             ${{ github.workspace }}/apps/${{ matrix.project }}/.next/cache
-          key: ${{ join([
+          key: ${{ format('{0}-{1}-{2}-{3}-{4}',
             runner.os,
             'next',
             hashFiles('**/yarn.lock'),
@@ -148,12 +148,12 @@ jobs:
               format('apps/{0}/**/*.[jt]sx', matrix.project),
               'packages/**/*.[jt]s',
               'packages/**/*.[jt]sx'
-            )], '-') }}
-          restore-keys: ${{ join([
+            )) }}
+          restore-keys: ${{ format('{0}-{1}-{2}-{3}-',
             runner.os,
             'next',
             hashFiles('**/yarn.lock'),
-            matrix.project], '-') }}-
+            matrix.project) }}
       - name: Install modules
         shell: bash
         run: yarn install
@@ -192,7 +192,7 @@ jobs:
       - uses: actions/cache@v3
         with:
           path: ${{ github.workspace }}/apps/web/.next/cache
-          key: ${{ join([
+          key: ${{ format('{0}-{1}-{2}-{3}-{4}',
             runner.os,
             'next',
             hashFiles('**/yarn.lock'),
@@ -202,8 +202,8 @@ jobs:
               format('apps/{0}/**/*.[jt]sx', 'web'),
               'packages/**/*.[jt]s',
               'packages/**/*.[jt]sx'
-            )], '-') }}
-          restore-keys: ${{ join([
+            )) }}
+          restore-keys: ${{ forma([
             runner.os,
             'next',
             hashFiles('**/yarn.lock'),
