@@ -11,6 +11,9 @@ on:
        base_path:
         description: "Override basePath in next.config.js (default to chainConfig)"
         required: false
+defaults:
+  run:
+    shell: bash
 jobs:
   publish:
     if: ${{ startsWith('web-', github.event.inputs.project_name) }}
@@ -28,7 +31,6 @@ jobs:
       -
         name: Set steps.vars.outputs.valid
         id: vars
-        shell: bash
         run: |
           echo 'valid='$(
             yarn workspace ${{ github.event.inputs.project_name }} info 2>1 1>/dev/null && echo yes || echo no
@@ -36,12 +38,10 @@ jobs:
       -
         name: Insall Vercel CLI
         if: ${{ steps.vars.outputs.valid == 'yes' }}
-        shell: bash
         run: npm i -g vercel
       -
         name: Generate vercel.json
         if: ${{ steps.vars.outputs.valid == 'yes' }}
-        shell: bash
         run: |
           node <<EOF > vercel.json
           const projectName = process.env.PROJECT_NAME || 'web';
@@ -64,5 +64,4 @@ jobs:
       -
         name: Deploy preview to Vercel
         if: ${{ steps.vars.outputs.valid == 'yes' }}
-        shell: bash
         run: vercel -t ${{ secrets.VERCEL_TOKEN }} | tee -a $GITHUB_STEP_SUMMARY

@@ -10,29 +10,34 @@ env:
   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
   NEXT_TELEMETRY_DISABLED: 1
   SENTRYCLI_SKIP_DOWNLOAD: 1
+defaults:
+  run:
+    shell: bash
 jobs:
   install:
     runs-on: ubuntu-latest
     outputs:
       projects: ${{ steps.vars.outputs.projects }}
     steps:
-      - uses: actions/checkout@v3
+      -
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - name: Update yarn
-        shell: bash
+      -
+        name: Update yarn
         run: corepack enable
-      - name: Setup Node.js environment
+      -
+        name: Setup Node.js environment
         uses: actions/setup-node@v3
         with:
           node-version: 18
           cache: 'yarn'
-      - name: Install modules
-        shell: bash
+      -
+        name: Install modules
         run: yarn install --immutable --check-cache
-      - name: Set needs.install.outputs.projects
+      -
+        name: Set needs.install.outputs.projects
         id: vars
-        shell: bash
         run: |
           DRY_BUILD_JSON=$(
             yarn turbo run build --dry='json'
@@ -52,20 +57,22 @@ jobs:
       matrix:
         project: ${{ fromJson(needs.install.outputs.projects) }}
     steps:
-      - uses: actions/checkout@v3
-      - name: Update yarn
-        shell: bash
+      -
+        uses: actions/checkout@v3
+      -
+        name: Update yarn
         run: corepack enable
-      - name: Setup Node.js environment
+      -
+        name: Setup Node.js environment
         uses: actions/setup-node@v3
         with:
           node-version: 18
           cache: 'yarn'
-      - name: Install modules
-        shell: bash
+      -
+        name: Install modules
         run: yarn install
-      - name: Run check-types, lint
-        shell: bash
+      -
+        name: Run check-types, lint
         run: yarn turbo run check-types lint --filter=${{ matrix.project }}
   lint:
     if: ${{ success() && needs.install.outputs.projects != '[]' }}
@@ -76,20 +83,22 @@ jobs:
       matrix:
         project: ${{ fromJson(needs.install.outputs.projects) }}
     steps:
-      - uses: actions/checkout@v3
-      - name: Update yarn
-        shell: bash
+      -
+        uses: actions/checkout@v3
+      -
+        name: Update yarn
         run: corepack enable
-      - name: Setup Node.js environment
+      -
+        name: Setup Node.js environment
         uses: actions/setup-node@v3
         with:
           node-version: 18
           cache: 'yarn'
-      - name: Install modules
-        shell: bash
+      -
+        name: Install modules
         run: yarn install
-      - name: Run check-types, lint
-        shell: bash
+      -
+        name: Run check-types, lint
         run: yarn turbo run lint --filter=${{ matrix.project }}
   test:
     if: ${{ success() && needs.install.outputs.projects != '[]' }}
@@ -100,17 +109,19 @@ jobs:
       matrix:
         project: ${{ fromJson(needs.install.outputs.projects) }}
     steps:
-      - uses: actions/checkout@v3
-      - name: Update yarn
-        shell: bash
+      -
+        uses: actions/checkout@v3
+      -
+        name: Update yarn
         run: corepack enable
-      - name: Setup Node.js environment
+      -
+        name: Setup Node.js environment
         uses: actions/setup-node@v3
         with:
           node-version: 18
           cache: 'yarn'
-      - name: Run tests
-        shell: bash
+      -
+        name: Run tests
         run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
           yarn test:ci --filter=${{ matrix.project }} -- --coverage |
@@ -125,16 +136,19 @@ jobs:
         project: ${{ fromJson(needs.install.outputs.projects) }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Update yarn
-        shell: bash
+      -
+        uses: actions/checkout@v3
+      -
+        name: Update yarn
         run: corepack enable
-      - name: Setup Node.js environment
+      -
+        name: Setup Node.js environment
         uses: actions/setup-node@v3
         with:
           node-version: 18
           cache: 'yarn'
-      - uses: actions/cache@v3
+      -
+        uses: actions/cache@v3
         with:
           path: |
             ${{ github.workspace }}/apps/${{ matrix.project }}/.next/cache
@@ -154,11 +168,11 @@ jobs:
             'next',
             hashFiles('**/yarn.lock'),
             matrix.project) }}
-      - name: Install modules
-        shell: bash
+      -
+        name: Install modules
         run: yarn install
-      - name: Run build
-        shell: bash
+      -
+        name: Run build
         run: yarn build:ci --filter=${{ matrix.project }}
   e2e:
     if: ${{ success() }}
@@ -180,16 +194,19 @@ jobs:
         shardIndex: [1, 2]
         shardTotal: [2]
     steps:
-      - uses: actions/checkout@v3
-      - name: Update yarn
-        shell: bash
+      -
+        uses: actions/checkout@v3
+      -
+        name: Update yarn
         run: corepack enable
-      - name: Setup Node.js environment
+      -
+        name: Setup Node.js environment
         uses: actions/setup-node@v3
         with:
           node-version: 18
           cache: 'yarn'
-      - uses: actions/cache@v3
+      -
+        uses: actions/cache@v3
         with:
           path: ${{ github.workspace }}/apps/web/.next/cache
           key: ${{ format('{0}-{1}-{2}-{3}-{4}',
@@ -208,20 +225,22 @@ jobs:
             'next',
             hashFiles('**/yarn.lock'),
             'web') }}
-      - name: Install modules
-        shell: bash
+      -
+        name: Install modules
         run: yarn install
-      - name: Build Next.js app
-        shell: bash
+      -
+        name: Build Next.js app
         run: yarn build
-      - name: Run Playwright tests
+      -
+        name: Run Playwright tests
         env:
           PROJECT_NAME: ${{ matrix.project }}
           PLAYWRIGHT_HTML_REPORT: playwright-report/${{ matrix.os }}/${{ matrix.shardIndex }}
         run: |
           echo Trace can be view at https://trace.playwright.dev/ | tee -a $GITHUB_STEP_SUMMARY
           yarn playwright test --project=${{ matrix.os }} --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }} | tee -a $GITHUB_STEP_SUMMARY
-      - uses: actions/upload-artifact@v3
+      -
+        uses: actions/upload-artifact@v3
         with:
           name: playwright-report
           path: playwright-report/
