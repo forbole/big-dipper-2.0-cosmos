@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "clean": "rm -rf .next .swc .turbo coverage node_modules",
-    "check-types": "tsc --noemit",
+    "check-types": "pnpify tsc --noemit",
     "lint": "next lint",
     "test": "jest --passWithNoTests --ci --no-watchman",
     "graphql:codegen": "graphql-codegen"
@@ -17,6 +17,7 @@
     "@material-ui/styles": "^4.11.5",
     "@sentry/nextjs": "^7.23.0",
     "@socialgouv/matomo-next": "^1.4.0",
+    "@yarnpkg/pnpify": "^4.0.0-rc.33",
     "axios": "^0.21.4",
     "bech32": "^2.0.0",
     "big.js": "^6.2.1",
@@ -86,6 +87,7 @@
     "@typescript-eslint/eslint-plugin": "^5.45.0",
     "@typescript-eslint/parser": "^5.45.0",
     "axios-mock-adapter": "^1.21.2",
+    "csstype": "^3.1.1",
     "dotenv": "^16.0.3",
     "eslint": "^8.29.0",
     "eslint-config-airbnb": "^19.0.4",
