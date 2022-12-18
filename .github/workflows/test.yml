@@ -203,11 +203,11 @@ jobs:
               'packages/**/*.[jt]s',
               'packages/**/*.[jt]sx'
             )) }}
-          restore-keys: ${{ format([
+          restore-keys: ${{ format('{0}-{1}-{2}-{3}-'
             runner.os,
             'next',
             hashFiles('**/yarn.lock'),
-            'web'], '-') }}-
+            'web') }}
       - name: Install modules
         shell: bash
         run: yarn install
