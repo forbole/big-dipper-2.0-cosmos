@@ -65,3 +65,4 @@ vercel.json
 
 # graphql codegen
 **/src/graphql/*
+.pnp.*
