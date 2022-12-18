@@ -13638,7 +13638,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:4.9.3, typescript@npm:^4.9.3":
+"typescript@npm:^4.9.3":
   version: 4.9.3
   resolution: "typescript@npm:4.9.3"
   bin:
@@ -13648,7 +13648,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@4.9.3#~builtin<compat/typescript>, typescript@patch:typescript@^4.9.3#~builtin<compat/typescript>":
+"typescript@patch:typescript@^4.9.3#~builtin<compat/typescript>":
   version: 4.9.3
   resolution: "typescript@patch:typescript@npm%3A4.9.3#~builtin<compat/typescript>::version=4.9.3&hash=d73830"
   bin:
@@ -13777,6 +13777,8 @@ __metadata:
     tsconfig: "*"
     typescript: ^4.9.3
     ws: ^8.11.0
+  peerDependencies:
+    pkg-dir: ^4.2.0
   languageName: unknown
   linkType: soft
 
@@ -14122,6 +14124,8 @@ __metadata:
     typescript: ^4.9.3
     ui: "*"
     ws: ^8.11.0
+  peerDependencies:
+    pkg-dir: ^4.2.0
   languageName: unknown
   linkType: soft
 
@@ -14231,6 +14235,8 @@ __metadata:
     typescript: ^4.9.3
     ui: "*"
     ws: ^8.11.0
+  peerDependencies:
+    pkg-dir: ^4.2.0
   languageName: unknown
   linkType: soft
 
@@ -14340,6 +14346,8 @@ __metadata:
     typescript: ^4.9.3
     ui: "*"
     ws: ^8.11.0
+  peerDependencies:
+    pkg-dir: ^4.2.0
   languageName: unknown
   linkType: soft
 
@@ -14449,6 +14457,8 @@ __metadata:
     typescript: ^4.9.3
     ui: "*"
     ws: ^8.11.0
+  peerDependencies:
+    pkg-dir: ^4.2.0
   languageName: unknown
   linkType: soft
 
@@ -14558,6 +14568,8 @@ __metadata:
     typescript: ^4.9.3
     ui: "*"
     ws: ^8.11.0
+  peerDependencies:
+    pkg-dir: ^4.2.0
   languageName: unknown
   linkType: soft
 
@@ -14667,6 +14679,8 @@ __metadata:
     typescript: ^4.9.3
     ui: "*"
     ws: ^8.11.0
+  peerDependencies:
+    pkg-dir: ^4.2.0
   languageName: unknown
   linkType: soft
 
@@ -14776,6 +14790,8 @@ __metadata:
     typescript: ^4.9.3
     ui: "*"
     ws: ^8.11.0
+  peerDependencies:
+    pkg-dir: ^4.2.0
   languageName: unknown
   linkType: soft
 
@@ -14885,6 +14901,8 @@ __metadata:
     typescript: ^4.9.3
     ui: "*"
     ws: ^8.11.0
+  peerDependencies:
+    pkg-dir: ^4.2.0
   languageName: unknown
   linkType: soft
 
@@ -14994,6 +15012,8 @@ __metadata:
     typescript: ^4.9.3
     ui: "*"
     ws: ^8.11.0
+  peerDependencies:
+    pkg-dir: ^4.2.0
   languageName: unknown
   linkType: soft
 
@@ -15103,6 +15123,8 @@ __metadata:
     typescript: ^4.9.3
     ui: "*"
     ws: ^8.11.0
+  peerDependencies:
+    pkg-dir: ^4.2.0
   languageName: unknown
   linkType: soft
 
@@ -15212,6 +15234,8 @@ __metadata:
     typescript: ^4.9.3
     ui: "*"
     ws: ^8.11.0
+  peerDependencies:
+    pkg-dir: ^4.2.0
   languageName: unknown
   linkType: soft
 
@@ -15321,6 +15345,8 @@ __metadata:
     typescript: ^4.9.3
     ui: "*"
     ws: ^8.11.0
+  peerDependencies:
+    pkg-dir: ^4.2.0
   languageName: unknown
   linkType: soft
 
@@ -15430,6 +15456,8 @@ __metadata:
     typescript: ^4.9.3
     ui: "*"
     ws: ^8.11.0
+  peerDependencies:
+    pkg-dir: ^4.2.0
   languageName: unknown
   linkType: soft
 
@@ -15539,6 +15567,8 @@ __metadata:
     typescript: ^4.9.3
     ui: "*"
     ws: ^8.11.0
+  peerDependencies:
+    pkg-dir: ^4.2.0
   languageName: unknown
   linkType: soft
 
@@ -15648,6 +15678,8 @@ __metadata:
     typescript: ^4.9.3
     ui: "*"
     ws: ^8.11.0
+  peerDependencies:
+    pkg-dir: ^4.2.0
   languageName: unknown
   linkType: soft
 
@@ -15757,6 +15789,8 @@ __metadata:
     typescript: ^4.9.3
     ui: "*"
     ws: ^8.11.0
+  peerDependencies:
+    pkg-dir: ^4.2.0
   languageName: unknown
   linkType: soft
 
@@ -15866,6 +15900,8 @@ __metadata:
     typescript: ^4.9.3
     ui: "*"
     ws: ^8.11.0
+  peerDependencies:
+    pkg-dir: ^4.2.0
   languageName: unknown
   linkType: soft
 
@@ -15975,6 +16011,8 @@ __metadata:
     typescript: ^4.9.3
     ui: "*"
     ws: ^8.11.0
+  peerDependencies:
+    pkg-dir: ^4.2.0
   languageName: unknown
   linkType: soft
 
@@ -16084,6 +16122,8 @@ __metadata:
     typescript: ^4.9.3
     ui: "*"
     ws: ^8.11.0
+  peerDependencies:
+    pkg-dir: ^4.2.0
   languageName: unknown
   linkType: soft
 
@@ -16193,6 +16233,8 @@ __metadata:
     typescript: ^4.9.3
     ui: "*"
     ws: ^8.11.0
+  peerDependencies:
+    pkg-dir: ^4.2.0
   languageName: unknown
   linkType: soft
 
@@ -16302,6 +16344,8 @@ __metadata:
     typescript: ^4.9.3
     ui: "*"
     ws: ^8.11.0
+  peerDependencies:
+    pkg-dir: ^4.2.0
   languageName: unknown
   linkType: soft
 
@@ -16411,6 +16455,8 @@ __metadata:
     typescript: ^4.9.3
     ui: "*"
     ws: ^8.11.0
+  peerDependencies:
+    pkg-dir: ^4.2.0
   languageName: unknown
   linkType: soft
 
@@ -16534,6 +16580,8 @@ __metadata:
     typescript: ^4.9.3
     ui: "*"
     ws: ^8.11.0
+  peerDependencies:
+    pkg-dir: ^4.2.0
   languageName: unknown
   linkType: soft
 
@@ -16640,9 +16688,11 @@ __metadata:
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
-    typescript: 4.9.3
+    typescript: ^4.9.3
     ui: "*"
     ws: ^8.11.0
+  peerDependencies:
+    pkg-dir: ^4.2.0
   languageName: unknown
   linkType: soft
 
