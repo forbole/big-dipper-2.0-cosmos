@@ -203,7 +203,7 @@ jobs:
               'packages/**/*.[jt]s',
               'packages/**/*.[jt]sx'
             )) }}
-          restore-keys: ${{ forma([
+          restore-keys: ${{ format([
             runner.os,
             'next',
             hashFiles('**/yarn.lock'),
