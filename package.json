@@ -43,7 +43,7 @@
     "@types/node": "^18.11.10",
     "@types/react": "^17.0.52"
   },
-  "packageManager": "yarn@3.2.4",
+  "packageManager": "yarn@3.3.0",
   "engines": {
     "node": ">=16.13.0",
     "yarn": ">=1.22"

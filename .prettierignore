@@ -1,4 +1,4 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# See https://prettier.io/docs/en/ignore.html for more information about .prettierignore files.
 
 # dependencies
 node_modules/
@@ -36,10 +36,6 @@ yarn-error.log*
 # turbo
 .turbo/
 
-# vercel
-.vercel/
-
-
 test.js
 
 # Sentry
@@ -48,25 +44,24 @@ test.js
 # WebStorm
 .idea/
 
+# Visual Studio Code
+.vscode/
+
 # Yarn Berry
-.yarn/*
-!.yarn/cache
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/sdks
-!.yarn/versions
-.pnp.*
-.turbo/
+.yarn/unplugged
+.yarn/build-state.yml
 
 # Playwright
 test-results/
 playwright-report/
 playwright/.cache/
-.turbo
-.vercel
+
+# Next.js standalone script
 server.js
 
 # vercel config, generated via vercel.js
+.vercel/
 vercel.json
+
+# graphql codegen
 **/src/graphql/*

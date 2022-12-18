@@ -1,48 +1,89 @@
-**/*.log
-**/npm-debug.log*
-**/yarn-debug.log*
-**/yarn-error.log*
-## Logs
+# see https://docs.docker.com/engine/reference/builder/#dockerignore-file for more details
 
-**/.dockerignore
-**/.DS_Store
-**/.env
-**/.env.*
-**/.eslintcache
-**/.git
-**/.github
-**/.next/
-**/.swc/
-**/.turbo/
-**/.vercel/
-**/.vscode
-**/*.pem
-**/*Dockerfile*
-**/build/
-**/coverage/
-**/dist/
-**/LICENSE
-**/node_modules
-**/out/
+# dependencies
+node_modules/
+
+# next.js generates its own .tsbuildinfo at .next/cache
+**/.tsbuildinfo
+.eslintcache
+
+# testing
+coverage/
+test.js
+
+# next.js
+.next/
+out/
+build/
+dist/
+.swc/
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# local env files
+.env
+.env.*
+
+# turbo
+.turbo/
+
+# Sentry
+.sentryclirc
+
+# WebStorm
+.idea/
+
+# Visual Studio Code
+.vscode/
+
 
 # Yarn Berry
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/sdks
-!.yarn/versions
-.pnp.*
+.yarn/unplugged
+.yarn/build-state.yml
 
-.changeset
-.github
-.husky
-.idea/
+# Playwright
+test-results/
+playwright-report/
+playwright/.cache/
+
+# Next.js standalone script
+server.js
+
+# vercel config, generated via vercel.js
+.vercel/
+vercel.json
+
+# Husky
+.husky/
+
+# GitHub folders
+.github/
 .mergify.yml
-.vscode
+
+# Docker
+Dockerfile
 docker-compose.yml
-docker/
+
+# LICENSE file
 LICENSE
+
+# Yarn Berry
+.yarn/unplugged
+.yarn/build-state.yml
+
+# Playwright
+test-results/
 playwright-report/
 playwright/
-test-results/
+
+# Changeset
+.changeset

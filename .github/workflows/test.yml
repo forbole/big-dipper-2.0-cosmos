@@ -14,150 +14,155 @@ jobs:
   install:
     runs-on: ubuntu-latest
     outputs:
-      matrix: ${{ steps.vars.outputs.matrix }}
-      uiHasChanged: ${{ steps.vars.outputs.uiHasChanged }}
-      webHasChanged: ${{ steps.vars.outputs.webHasChanged }}
-      cacheDirectory: ${{ steps.vars.outputs.cacheDirectory }}
+      projects: ${{ steps.vars.outputs.projects }}
     steps:
-      -
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      -
-        name: Update yarn
+      - name: Update yarn
         shell: bash
         run: corepack enable && yarn --version
-      -
-        name: Setup Node.js environment
+      - name: Setup Node.js environment
         uses: actions/setup-node@v3
         with:
           node-version: 18
           cache: 'yarn'
-      -
-        name: Install modules
+      - name: Install modules
         shell: bash
-        run: yarn install --immutable
-      -
-        name: Set needs.install.outputs.matrix, needs.install.outputs.cacheDirectory
+        run: yarn install --immutable --check-cache
+      - name: Set needs.install.outputs.projects
         id: vars
         shell: bash
-        run: "
-          PACKAGES=$(
-            yarn turbo run build
-            --dry='json' --filter='[${{ github.event.pull_request.base.sha }}]' |
-            jq -crM '.packages'
-          )
-
-          echo 'matrix='$(
-            echo $PACKAGES |
-            jq -crM '{ project: [ .[] | select( . | startswith(\"web-\") ) ] }'
-          ) | tee -a $GITHUB_OUTPUT $GITHUB_STEP_SUMMARY
-
-          echo 'uiHasChanged='$(
-            [ $(echo $PACKAGES  | jq -crM 'index(\"ui\")') = \"null\" ] && echo no || echo yes
-          ) | tee -a $GITHUB_OUTPUT $GITHUB_STEP_SUMMARY
-
-          echo 'webHasChanged='$(
-            [ $(echo $PACKAGES  | jq -crM 'index(\"web\")') = \"null\" ] && echo no || echo yes
-          ) | tee -a $GITHUB_OUTPUT $GITHUB_STEP_SUMMARY
-
-          echo 'cacheDirectory='$(
-            npx jest --showConfig | jq -cr '.configs[0].cacheDirectory'
-          ) | tee -a $GITHUB_OUTPUT"
-  ui:
-    if: ${{ success() && needs.install.outputs.uiHasChanged == 'yes' }}
+        run: |
+          DRY_BUILD_JSON=$(
+            yarn turbo run build --dry='json'
+              --filter='[${{ github.event.pull_request.base.sha }}]'
+          ) node <<EOF | tee -a $GITHUB_OUTPUT $GITHUB_STEP_SUMMARY
+          const { packages } = JSON.parse(process.env.DRY_BUILD_JSON);
+          console.log('projects=' + JSON.stringify(
+            packages.filter(p => /^(?:ui|web.*)$/.test(p))
+          ));
+          EOF
+  check-types:
+    if: ${{ success() && needs.install.outputs.projects != '[]' }}
     needs: install
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        project: ${{ fromJson(needs.install.outputs.projects) }}
     steps:
-      -
-        uses: actions/checkout@v3
-      -
-        name: Update yarn
+      - uses: actions/checkout@v3
+      - name: Update yarn
         shell: bash
         run: corepack enable && yarn --version
-      -
-        name: Setup Node.js environment
+      - name: Setup Node.js environment
         uses: actions/setup-node@v3
         with:
           node-version: 18
           cache: 'yarn'
-      -
-        uses: actions/cache@v3
-        with:
-          path: |
-            ${{ needs.install.outputs.cacheDirectory }}
-          key: ${{ runner.os }}-next-${{ hashFiles('**/yarn.lock') }}-ui-${{ hashFiles(format('apps/{0}/**/*.[jt]s', 'ui'), format('apps/{0}/**/*.[jt]sx', 'ui'), 'packages/**/*.[jt]s', 'packages/**/*.[jt]sx') }}
-          restore-keys: ${{ runner.os }}-next-${{ hashFiles('**/yarn.lock') }}-ui-
-      -
-        name: Install modules
+      - name: Install modules
         shell: bash
-        run: yarn install --immutable
-      -
-        name: Run check-types
+        run: yarn install
+      - name: Run check-types, lint
         shell: bash
-        run: yarn check-types:ci --filter=ui
-      -
-        name: Run lint check
-        shell: bash
-        run: yarn lint:ci --filter=ui
-      -
-        name: Run tests
-        shell: bash
-        run: |
-          echo '```' >> $GITHUB_STEP_SUMMARY
-          yarn test:ci --filter=ui -- --coverage | tee -a $GITHUB_STEP_SUMMARY
-          echo '```' >> $GITHUB_STEP_SUMMARY
-  web:
-    if: ${{ success() && needs.install.outputs.webHasChanged == 'yes' }}
+        run: yarn turbo run check-types lint --filter=${{ matrix.project }}
+  lint:
+    if: ${{ success() && needs.install.outputs.projects != '[]' }}
     needs: install
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        project: ${{ fromJson(needs.install.outputs.projects) }}
     steps:
-      -
-        uses: actions/checkout@v3
-      -
-        name: Update yarn
+      - uses: actions/checkout@v3
+      - name: Update yarn
         shell: bash
         run: corepack enable && yarn --version
-      -
-        name: Setup Node.js environment
+      - name: Setup Node.js environment
         uses: actions/setup-node@v3
         with:
           node-version: 18
           cache: 'yarn'
-      -
-        uses: actions/cache@v3
+      - name: Install modules
+        shell: bash
+        run: yarn install
+      - name: Run check-types, lint
+        shell: bash
+        run: yarn turbo run lint --filter=${{ matrix.project }}
+  test:
+    if: ${{ success() && needs.install.outputs.projects != '[]' }}
+    needs: install
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        project: ${{ fromJson(needs.install.outputs.projects) }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: Update yarn
+        shell: bash
+        run: corepack enable && yarn --version
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3
         with:
-          path: |
-            ${{ github.workspace }}/apps/web/.next/cache
-            ${{ needs.install.outputs.cacheDirectory }}
-          key: ${{ runner.os }}-next-${{ hashFiles('**/yarn.lock') }}-web-${{ hashFiles(format('apps/{0}/**/*.[jt]s', 'web'), format('apps/{0}/**/*.[jt]sx', 'web'), 'packages/**/*.[jt]s', 'packages/**/*.[jt]sx') }}
-          restore-keys: ${{ runner.os }}-next-${{ hashFiles('**/yarn.lock') }}-web-
-      -
-        name: Install modules
-        shell: bash
-        run: yarn install --immutable
-      -
-        name: Run check-types
-        shell: bash
-        run: yarn check-types:ci --filter=web
-      -
-        name: Run lint check
-        shell: bash
-        run: yarn lint:ci --filter=web
-      -
-        name: Run tests
+          node-version: 18
+          cache: 'yarn'
+      - name: Run tests
         shell: bash
         run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
-          yarn test:ci --filter=web -- --coverage | tee -a $GITHUB_STEP_SUMMARY
+          yarn test:ci --filter=${{ matrix.project }} -- --coverage |
+            tee -a $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
-      -
-        name: Run build check
+  build:
+    if: ${{ success() && needs.install.outputs.projects != '[]' }}
+    needs: install
+    strategy:
+      fail-fast: false
+      matrix:
+        project: ${{ fromJson(needs.install.outputs.projects) }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Update yarn
         shell: bash
-        run: yarn build:ci --filter=web
+        run: corepack enable && yarn --version
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'yarn'
+      - uses: actions/cache@v3
+        with:
+          path: |
+            ${{ github.workspace }}/apps/${{ matrix.project }}/.next/cache
+          key: ${{ join([
+            runner.os,
+            'next',
+            hashFiles('**/yarn.lock'),
+            matrix.project,
+            hashFiles(
+              format('apps/{0}/**/*.[jt]s', matrix.project),
+              format('apps/{0}/**/*.[jt]sx', matrix.project),
+              'packages/**/*.[jt]s',
+              'packages/**/*.[jt]sx'
+            )], '-') }}
+          restore-keys: ${{ join([
+            runner.os,
+            'next',
+            hashFiles('**/yarn.lock'),
+            matrix.project], '-') }}-
+      - name: Install modules
+        shell: bash
+        run: yarn install
+      - name: Run build
+        shell: bash
+        run: yarn build:ci --filter=${{ matrix.project }}
   e2e:
     if: ${{ success() }}
-    needs: [ui, web]
+    needs: [install, check-types, lint, test, build]
     runs-on: ubuntu-latest
     container:
       image: mcr.microsoft.com/playwright:v1.28.1-focal
@@ -165,104 +170,59 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        project:
+        project: ${{ fromJson(needs.install.outputs.projects) }}
+        os:
           - chromium
           # - firefox
           # - webkit
           # - mobile-chrome
           - mobile-safari
-        shardIndex: [1, 2, 3, 4, 5, 6, 7, 8, 9]
-        shardTotal: [9]
+        shardIndex: [1, 2]
+        shardTotal: [2]
     steps:
-      -
-        uses: actions/checkout@v3
-      -
-        name: Update yarn
+      - uses: actions/checkout@v3
+      - name: Update yarn
         shell: bash
         run: corepack enable && yarn --version
-      -
-        name: Setup Node.js environment
+      - name: Setup Node.js environment
         uses: actions/setup-node@v3
         with:
           node-version: 18
           cache: 'yarn'
-      -
-        uses: actions/cache@v3
+      - uses: actions/cache@v3
         with:
           path: ${{ github.workspace }}/apps/web/.next/cache
-          key: ${{ runner.os }}-next-${{ hashFiles('**/yarn.lock') }}-web-${{ hashFiles(format('apps/{0}/**/*.[jt]s', 'web'), format('apps/{0}/**/*.[jt]sx', 'web'), 'packages/**/*.[jt]s', 'packages/**/*.[jt]sx') }}
-          restore-keys: ${{ runner.os }}-next-${{ hashFiles('**/yarn.lock') }}-web-
-      -
-        name: Install modules
+          key: ${{ join([
+            runner.os,
+            'next',
+            hashFiles('**/yarn.lock'),
+            'web',
+            hashFiles(
+              format('apps/{0}/**/*.[jt]s', 'web'),
+              format('apps/{0}/**/*.[jt]sx', 'web'),
+              'packages/**/*.[jt]s',
+              'packages/**/*.[jt]sx'
+            )], '-') }}
+          restore-keys: ${{ join([
+            runner.os,
+            'next',
+            hashFiles('**/yarn.lock'),
+            'web'], '-') }}-
+      - name: Install modules
         shell: bash
-        run: yarn install --immutable
-      -
-        name: Build Next.js app
+        run: yarn install
+      - name: Build Next.js app
         shell: bash
         run: yarn build
-      -
-        name: Run Playwright tests
+      - name: Run Playwright tests
         env:
-          PLAYWRIGHT_HTML_REPORT: playwright-report/${{ matrix.project }}/${{ matrix.shardIndex }}
-        shell: bash
+          PROJECT_NAME: ${{ matrix.project }}
+          PLAYWRIGHT_HTML_REPORT: playwright-report/${{ matrix.os }}/${{ matrix.shardIndex }}
         run: |
           echo Trace can be view at https://trace.playwright.dev/ | tee -a $GITHUB_STEP_SUMMARY
-          yarn playwright test --project=${{ matrix.project }} --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }} | tee -a $GITHUB_STEP_SUMMARY
-      -
-        uses: actions/upload-artifact@v3
-        if: ${{ always() }}
+          yarn playwright test --project=${{ matrix.os }} --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }} | tee -a $GITHUB_STEP_SUMMARY
+      - uses: actions/upload-artifact@v3
         with:
           name: playwright-report
           path: playwright-report/
           retention-days: 7
-  web-:
-    if: ${{ success() && needs.install.outputs.matrix != '{"project":[]}' }}
-    needs: [install, ui]
-    strategy:
-      fail-fast: false
-      matrix: ${{ fromJson(needs.install.outputs.matrix)}}
-    runs-on: ubuntu-latest
-    steps:
-      -
-        uses: actions/checkout@v3
-      -
-        name: Update yarn
-        shell: bash
-        run: corepack enable && yarn --version
-      -
-        name: Setup Node.js environment
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: 'yarn'
-      -
-        uses: actions/cache@v3
-        with:
-          path: |
-            ${{ github.workspace }}/apps/${{ matrix.project }}/.next/cache
-            ${{ needs.install.outputs.cacheDirectory }}
-          key: ${{ runner.os }}-next-${{ hashFiles('**/yarn.lock') }}-${{ matrix.project }}-${{ hashFiles(format('apps/{0}/**/*.[jt]s', matrix.project), format('apps/{0}/**/*.[jt]sx', matrix.project), 'packages/**/*.[jt]s', 'packages/**/*.[jt]sx') }}
-          restore-keys: ${{ runner.os }}-next-${{ hashFiles('**/yarn.lock') }}-${{ matrix.project }}-
-      -
-        name: Install modules
-        shell: bash
-        run: yarn install --immutable
-      -
-        name: Run check-types
-        shell: bash
-        run: yarn check-types:ci --filter=${{ matrix.project }}
-      -
-        name: Run lint check
-        shell: bash
-        run: yarn lint:ci --filter=${{ matrix.project }}
-      -
-        name: Run tests
-        shell: bash
-        run: |
-          echo '```' >> $GITHUB_STEP_SUMMARY
-          yarn test:ci --filter=${{ matrix.project }} -- --coverage | tee -a $GITHUB_STEP_SUMMARY
-          echo '```' >> $GITHUB_STEP_SUMMARY
-      -
-        name: Run build check
-        shell: bash
-        run: yarn build:ci --filter=${{ matrix.project }}
