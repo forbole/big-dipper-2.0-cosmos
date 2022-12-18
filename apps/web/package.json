@@ -10,7 +10,7 @@
     "start": "next start",
     "check-types": "pnpify tsc --noemit",
     "lint": "next lint",
-    "test": "jest --passWithNoTests --ci --no-watchman",
+    "test": "pnpify pnpify jest --passWithNoTests --ci --no-watchman",
     "graphql:codegen": "graphql-codegen"
   },
   "dependencies": {
