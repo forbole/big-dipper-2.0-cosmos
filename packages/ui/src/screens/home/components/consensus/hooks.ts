@@ -1,6 +1,6 @@
 import chainConfig from '@/chainConfig';
 import { hexToBech32 } from '@/utils/hex_to_bech32';
-import { GRAPHQL_TRANSPORT_WS_PROTOCOL, MessageType, stringifyMessage } from 'graphql-ws';
+import { MessageType, stringifyMessage } from 'graphql-ws';
 import WebSocket from 'isomorphic-ws';
 import numeral from 'numeral';
 import * as R from 'ramda';
@@ -90,7 +90,7 @@ export const useConsensus = () => {
     };
 
     function connect() {
-      client = new WebSocket(getWs(), GRAPHQL_TRANSPORT_WS_PROTOCOL);
+      client = new WebSocket(getWs());
 
       client.onopen = () => {
         client.send(JSON.stringify(stepHeader));
