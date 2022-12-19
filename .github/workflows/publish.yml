@@ -24,7 +24,7 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     if: ${{ github.event.inputs.confirm == 'CONFIRM' }}
-    name: Validate ${{ github.event.inputs.projects }}-${{ github.event.inputs.chain_type }}${{ github.event.inputs.base_path }}
+    name: Validate ${{ github.event.inputs.chain_type }}${{ github.event.inputs.base_path }}(${{ github.event.inputs.projects }})
     outputs:
       projects: ${{ steps.vars.outputs.projects }}
     steps:
