@@ -111,8 +111,8 @@ async function fetchDtag(dtag: string) {
   }
 }
 
-function formatDesmosProfile(data: DesmosProfileQuery): DesmosProfile | null {
-  if (!data.profile?.length) {
+function formatDesmosProfile(data: DesmosProfileQuery | null): DesmosProfile | null {
+  if (!data?.profile?.length) {
     return null;
   }
 

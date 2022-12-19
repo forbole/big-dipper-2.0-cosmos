@@ -9,7 +9,7 @@ on:
         description: "Chain Type to publish (default to mainnet when more than 1 was configured)"
         required: false
        base_path:
-        description: "Override basePath in next.config.js (default to chainConfig)"
+        description: "Override basePath in next.config.js (default to basePath in chainConfig)"
         required: false
        confirm:
         description: "enter \"CONFIRM\" to process"

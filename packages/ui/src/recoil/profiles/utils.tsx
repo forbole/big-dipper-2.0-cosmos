@@ -55,7 +55,7 @@ async function fetchDesmosProfile(address: string) {
 }
 
 function formatDesmosProfile(data: DesmosProfileQuery) {
-  if (!data.profile?.length) {
+  if (!data?.profile?.length) {
     return null;
   }
 
