@@ -28,6 +28,8 @@ const stakingDefault = {
 const LIMIT = 100;
 const PAGE_LIMIT = 10;
 
+const urls = [process.env.NEXT_PUBLIC_GRAPHQL_URL, chainConfig().endpoints.graphql];
+
 type Delegations = {
   coins: MsgCoin[];
   entries: Array<{
@@ -82,13 +84,6 @@ type DataUndelegations = {
   };
 };
 
-function getUrl() {
-  let url = process.env.NEXT_PUBLIC_GRAPHQL_URL;
-  if (!url) url = chainConfig().endpoints.graphql;
-  if (!url) url = 'http://localhost:3000/v1/graphql';
-  return url;
-}
-
 export const useStaking = () => {
   const router = useRouter();
   const [state, setState] = useState<StakingState>({
@@ -136,7 +131,7 @@ export const useStaking = () => {
     // helper function to get rest of the staking items
     // if it is over the default limit
     const getStakeByPage = async (page: number, query: string) => {
-      const { data } = await axios.post(getUrl(), {
+      const { data } = await axios.post(urls.find((u) => u) || 'http://localhost:3000/v1/graphql', {
         variables: {
           validatorAddress: router?.query?.address ?? '',
           offset: page * LIMIT,
@@ -182,13 +177,16 @@ export const useStaking = () => {
     // =====================================
     const getDelegations = async () => {
       try {
-        const { data } = await axios.post<DataDelegations>(getUrl(), {
-          variables: {
-            validatorAddress: router?.query?.address ?? '',
-            limit: LIMIT,
-          },
-          query: ValidatorDelegationsDocument,
-        });
+        const { data } = await axios.post<DataDelegations>(
+          urls.find((u) => u) || 'http://localhost:3000/v1/graphql',
+          {
+            variables: {
+              validatorAddress: router?.query?.address ?? '',
+              limit: LIMIT,
+            },
+            query: ValidatorDelegationsDocument,
+          }
+        );
         const count = data?.data?.delegations?.pagination?.total ?? 0;
         const allDelegations = R.pathOr<
           NonNullable<typeof data['data']['delegations']['delegations']>
@@ -231,13 +229,16 @@ export const useStaking = () => {
     // =====================================
     const getRedelegations = async () => {
       try {
-        const { data } = await axios.post<DataRedelegations>(getUrl(), {
-          variables: {
-            validatorAddress: router?.query?.address ?? '',
-            limit: LIMIT,
-          },
-          query: ValidatorRedelegationsDocument,
-        });
+        const { data } = await axios.post<DataRedelegations>(
+          urls.find((u) => u) || 'http://localhost:3000/v1/graphql',
+          {
+            variables: {
+              validatorAddress: router?.query?.address ?? '',
+              limit: LIMIT,
+            },
+            query: ValidatorRedelegationsDocument,
+          }
+        );
         const count = data?.data?.redelegations?.pagination?.total ?? 0;
         const allData = R.pathOr<
           NonNullable<typeof data['data']['redelegations']['redelegations']>
@@ -283,13 +284,16 @@ export const useStaking = () => {
     // =====================================
     const getUnbondings = async () => {
       try {
-        const { data } = await axios.post<DataUndelegations>(getUrl(), {
-          variables: {
-            validatorAddress: router?.query?.address ?? '',
-            limit: LIMIT,
-          },
-          query: ValidatorUndelegationsDocument,
-        });
+        const { data } = await axios.post<DataUndelegations>(
+          urls.find((u) => u) || 'http://localhost:3000/v1/graphql',
+          {
+            variables: {
+              validatorAddress: router?.query?.address ?? '',
+              limit: LIMIT,
+            },
+            query: ValidatorUndelegationsDocument,
+          }
+        );
         const count = data?.data?.undelegations?.pagination?.total ?? 0;
         const allData = R.pathOr<
           NonNullable<typeof data['data']['undelegations']['undelegations']>

@@ -5,6 +5,12 @@ import useTranslation from 'next-translate/useTranslation';
 
 import { useEffect } from 'react';
 
+const matomoUrls = [process.env.NEXT_PUBLIC_MATOMO_URL, chainConfig().marketing.matomoURL];
+const matomoSiteIds = [
+  process.env.NEXT_PUBLIC_MATOMO_SITE_ID,
+  chainConfig().marketing.matomoSiteID,
+];
+
 export const useApp = () => {
   // ==========================
   // language
@@ -12,16 +18,9 @@ export const useApp = () => {
   const { lang } = useTranslation();
 
   useEffect(() => {
-    let matomoUrl = process.env.NEXT_PUBLIC_MATOMO_URL;
-    if (!matomoUrl) matomoUrl = chainConfig().marketing.matomoURL;
-    let matomoSiteId = process.env.NEXT_PUBLIC_MATOMO_SITE_ID;
-    if (!matomoSiteId) matomoSiteId = chainConfig().marketing.matomoSiteID;
-    if (matomoUrl && matomoSiteId) {
-      init({
-        url: matomoUrl,
-        siteId: matomoSiteId,
-      });
-    }
+    const url = matomoUrls.find((u) => u);
+    const siteId = matomoSiteIds.find((i) => i);
+    if (url && siteId) init({ url, siteId });
     // jdenticon theme
     jdenticon.configure({
       hues: [207],

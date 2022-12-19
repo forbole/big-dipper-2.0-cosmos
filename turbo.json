@@ -6,36 +6,19 @@
       "outputs": ["dist/**", ".next/**", "public/dist/**"],
       "env": [
         "BASE_PATH",
-        "BUILD_STANDALONE",
         "NEXT_PUBLIC_BANNERS_JSON",
         "NEXT_PUBLIC_GRAPHQL_URL",
         "NEXT_PUBLIC_GRAPHQL_WS",
         "NEXT_PUBLIC_MATOMO_SITE_ID",
         "NEXT_PUBLIC_MATOMO_URL",
-        "NEXT_PUBLIC_RPC_WEBSOCKET",
-        "NEXT_PUBLIC_SENTRY_DSN",
-        "SENTRY_AUTH_TOKEN",
-        "SENTRY_ENVIRONMENT",
-        "SENTRY_ORG",
-        "SENTRY_PROJECT",
-        "SENTRY_URL"
+        "NEXT_PUBLIC_RPC_WEBSOCKET"
       ]
     },
     "clean": {
       "cache": false
     },
     "dev": {
-      "cache": false,
-      "env": [
-        "PORT",
-        "BASE_PATH",
-        "NEXT_PUBLIC_SENTRY_DSN",
-        "SENTRY_URL",
-        "SENTRY_ORG",
-        "SENTRY_PROJECT",
-        "SENTRY_ENVIRONMENT",
-        "SENTRY_AUTH_TOKEN"
-      ]
+      "cache": false
     },
     "watch": {
       "cache": false
@@ -58,19 +41,17 @@
     "graphql:codegen": {}
   },
   "globalEnv": [
+    "BASE_PATH",
     "BUILD_STANDALONE",
-    "npm_package_version",
     "NEXT_PUBLIC_CHAIN_TYPE",
     "NEXT_PUBLIC_SENTRY_DSN",
-    "PROJECT_NAME"
+    "PORT",
+    "PROJECT_NAME",
+    "SENTRY_AUTH_TOKEN",
+    "SENTRY_ENVIRONMENT",
+    "SENTRY_PROJECT",
+    "SENTRY_ORG",
+    "SENTRY_URL"
   ],
-  "globalDependencies": [
-    ".env",
-    ".eslintrc.js",
-    ".gitignore",
-    ".yarnrc.yml",
-    "package.json",
-    "yan.lock",
-    "shared-utils/**/*"
-  ]
+  "globalDependencies": [".env", ".eslintrc.js", ".gitignore", ".yarnrc.yml", "shared-utils/**/*"]
 }

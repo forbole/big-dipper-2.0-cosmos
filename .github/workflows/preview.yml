@@ -62,9 +62,7 @@ jobs:
           node <<EOF
           const { writeFileSync } = require('fs');
           const projectName = process.env.PROJECT_NAME || 'web';
-          let chainType = process.env.NEXT_PUBLIC_CHAIN_TYPE;
-          if (!chainType) chainType = 'mainnet';
-          chainType = chainType.toLowerCase();
+          const chainType = process.env.NEXT_PUBLIC_CHAIN_TYPE?.toLowerCase() || 'mainnet';
           const config = {
             buildCommand: 'NEXT_PUBLIC_CHAIN_TYPE=' + chainType + ' BASE_PATH=${{ github.event.inputs.base_path }} yarn turbo run build --filter=' + projectName + '...',
             outputDirectory: 'apps/' + projectName + '/.next',

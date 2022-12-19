@@ -5,7 +5,7 @@ import {
   HttpLink,
   InMemoryCache,
   NormalizedCacheObject,
-  split,
+  split
 } from '@apollo/client';
 import { GraphQLWsLink } from '@apollo/client/link/subscriptions';
 import { WebSocketLink } from '@apollo/client/link/ws';
@@ -13,11 +13,17 @@ import { getMainDefinition } from '@apollo/client/utilities';
 import { Kind, OperationTypeNode } from 'graphql';
 import { createClient } from 'graphql-ws';
 import webSocketImpl from 'isomorphic-ws';
-
 import { useEffect, useState } from 'react';
+
+/* Checking if the code is running on the server or the client. */
+const ssrMode = typeof window === 'undefined';
 
 /* A global variable that stores the Apollo Client. */
 let globalApolloClient: ApolloClient<NormalizedCacheObject>;
+
+const urls = [process.env.NEXT_PUBLIC_GRAPHQL_URL, chainConfig().endpoints.graphql];
+
+const wss = [process.env.NEXT_PUBLIC_GRAPHQL_WS, chainConfig().endpoints.graphqlWebsocket];
 
 /* Setting the default options for the Apollo Client. */
 const defaultOptions: DefaultOptions = {
@@ -31,26 +37,12 @@ const defaultOptions: DefaultOptions = {
   },
 };
 
-function getUrl() {
-  let url = process.env.NEXT_PUBLIC_GRAPHQL_URL;
-  if (!url) url = chainConfig().endpoints.graphql;
-  if (!url) url = 'http://localhost:3000/v1/graphql';
-  return url;
-}
-
 /* Creating a new HttpLink object. */
 function httpLink() {
   return new HttpLink({
-    uri: getUrl(),
+    uri: urls.find(u => u) || 'http://localhost:3000/v1/graphql',
     fetch,
   });
-}
-
-function getWs() {
-  let ws = process.env.NEXT_PUBLIC_GRAPHQL_WS;
-  if (!ws) ws = chainConfig().endpoints.graphqlWebsocket;
-  if (!ws) ws = 'ws://localhost:3000/websocket';
-  return ws;
 }
 
 /**
@@ -62,7 +54,7 @@ function createWebSocketLink() {
   if (chainConfig().extra.graphqlWs) {
     return new GraphQLWsLink(
       createClient({
-        url: getWs(),
+        url: wss.find(u => u) || 'ws://localhost:3000/websocket',
         lazy: true,
         retryAttempts: Number.MAX_VALUE,
         retryWait: (_count) => new Promise((r) => setTimeout(() => r(), 1000)),
@@ -76,7 +68,7 @@ function createWebSocketLink() {
   }
 
   return new WebSocketLink({
-    uri: getWs(),
+    uri: wss.find(u => u) || 'ws://localhost:3000/websocket',
     options: {
       lazy: true,
       reconnect: true,
@@ -93,8 +85,6 @@ function createWebSocketLink() {
  * @returns A function that takes an initial state and returns an Apollo Client.
  */
 function createApolloClient(initialState = {}) {
-  /* Checking if the code is running on the server or the client. */
-  const ssrMode = typeof window === 'undefined';
   /* Restoring the cache from the initial state. */
   const cache = new InMemoryCache().restore(initialState);
 
@@ -161,7 +151,7 @@ function useApollo(initialState?: NormalizedCacheObject) {
   useEffect(() => {
     /* Setting the store with the new initial state. */
     setStore(initializeApollo(initialState));
-  }, [getUrl(), getWs()]);
+  }, []);
 
   return store;
 }

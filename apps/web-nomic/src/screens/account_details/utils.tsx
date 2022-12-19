@@ -6,12 +6,7 @@ import {
 } from '@/graphql/general/account_details_documents';
 import axios from 'axios';
 
-function getUrl() {
-  let url = process.env.NEXT_PUBLIC_GRAPHQL_URL;
-  if (!url) url = chainConfig().endpoints.graphql;
-  if (!url) url = 'http://localhost:3000/v1/graphql';
-  return url;
-}
+const urls = [process.env.NEXT_PUBLIC_GRAPHQL_URL, chainConfig().endpoints.graphql];
 
 export const fetchAvailableBalances = async (address: string) => {
   const defaultReturnValue = {
@@ -20,7 +15,8 @@ export const fetchAvailableBalances = async (address: string) => {
     },
   };
   try {
-    const { data } = await axios.post(getUrl(), {
+    const url = urls.find((u) => u) || 'http://localhost:3000/v1/graphql';
+    const { data } = await axios.post(url, {
       variables: {
         address,
       },
@@ -58,7 +54,8 @@ export const fetchDelegationBalance = async (address: string) => {
     },
   };
   try {
-    const { data } = await axios.post(getUrl(), {
+    const url = urls.find((u) => u) || 'http://localhost:3000/v1/graphql';
+    const { data } = await axios.post(url, {
       variables: {
         address,
       },
