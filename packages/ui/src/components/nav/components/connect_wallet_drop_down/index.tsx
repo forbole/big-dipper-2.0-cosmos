@@ -45,7 +45,7 @@ const ConnectWalletDropDown: React.FC<{
           role="button"
           className={classes.accountDetailsButton}
           tabIndex={0}
-          aria-label="connect-wallet-button"
+          aria-label="account-details-button"
         >
           <div className={classes.accountDetailsLabel}>
             <div className={classes.dot} />
@@ -58,7 +58,7 @@ const ConnectWalletDropDown: React.FC<{
         role="button"
         className={classes.changeWalletButton}
         tabIndex={0}
-        aria-label="connect-wallet-button"
+        aria-label="change-wallet-button"
       >
         <div className={classes.changeWalletButtonLabel}>{t('changeWallet')}</div>
       </div>
