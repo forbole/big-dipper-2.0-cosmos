@@ -108,37 +108,39 @@ export const useConsensus = () => {
     }));
   }, []);
 
-  const formatNewStep = useCallback((data: object) => {
-    const stepReference = {
-      0: 0,
-      RoundStepNewHeight: 1,
-      RoundStepPropose: 2,
-      RoundStepPrevote: 3,
-      RoundStepPrecommit: 4,
-      RoundStepCommit: 5,
-    };
+  const formatNewStep = useCallback(
+    (data: object) => {
+      const stepReference = {
+        0: 0,
+        RoundStepNewHeight: 1,
+        RoundStepPropose: 2,
+        RoundStepPrevote: 3,
+        RoundStepPrecommit: 4,
+        RoundStepCommit: 5,
+      };
 
-    const round = R.pathOr(0, ['result', 'data', 'value', 'round'], data);
-    const step = stepReference[R.pathOr(0, ['result', 'data', 'value', 'step'], data)];
+      const round = R.pathOr(0, ['result', 'data', 'value', 'round'], data);
+      const step = stepReference[R.pathOr(0, ['result', 'data', 'value', 'step'], data)];
 
-    const roundCompletion = (step / state.totalSteps) * 100;
+      const roundCompletion = (step / state.totalSteps) * 100;
 
-    setState((prevState) => ({
-      ...prevState,
-      round,
-      step,
-      roundCompletion,
-    }));
-  }, []);
+      setState((prevState) => ({
+        ...prevState,
+        round,
+        step,
+        roundCompletion,
+      }));
+    },
+    [state.totalSteps]
+  );
 
   useEffect(() => {
-    if (ssrMode) return;
-    connect(formatNewRound, formatNewStep);
+    if (!ssrMode) connect(formatNewRound, formatNewStep);
 
     return () => {
       client?.close();
     };
-  }, [state.totalSteps]);
+  }, [formatNewRound, formatNewStep]);
 
   return {
     state,
