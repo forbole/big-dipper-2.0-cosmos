@@ -135,36 +135,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
     "enableTopLevelFallback": true,\
     "ignorePatternData": "(^(?:\\\\.yarn\\\\/sdks(?:\\\\/(?!\\\\.{1,2}(?:\\\\/|$))(?:(?:(?!(?:^|\\\\/)\\\\.{1,2}(?:\\\\/|$)).)*?)|$))$)",\
     "fallbackExclusionList": [\
-      ["big-dipper-2.0-cosmos", ["workspace:."]],\
-      ["eslint-config-custom", ["workspace:packages/eslint-config-custom"]],\
-      ["jest-presets", ["workspace:packages/jest-presets"]],\
-      ["shared-utils", ["workspace:packages/shared-utils"]],\
-      ["tsconfig", ["workspace:packages/tsconfig"]],\
-      ["ui", ["workspace:packages/ui"]],\
-      ["web", ["workspace:apps/web"]],\
-      ["web-agoric", ["workspace:apps/web-agoric"]],\
-      ["web-akash", ["workspace:apps/web-akash"]],\
-      ["web-assetmantle", ["workspace:apps/web-assetmantle"]],\
-      ["web-band", ["workspace:apps/web-band"]],\
-      ["web-bitsong", ["workspace:apps/web-bitsong"]],\
-      ["web-comdex", ["workspace:apps/web-comdex"]],\
-      ["web-cosmos", ["workspace:apps/web-cosmos"]],\
-      ["web-crescent", ["workspace:apps/web-crescent"]],\
-      ["web-desmos", ["workspace:apps/web-desmos"]],\
-      ["web-elrond", ["workspace:apps/web-elrond"]],\
-      ["web-emoney", ["workspace:apps/web-emoney"]],\
-      ["web-evmos", ["workspace:apps/web-evmos"]],\
-      ["web-likecoin", ["workspace:apps/web-likecoin"]],\
-      ["web-nomic", ["workspace:apps/web-nomic"]],\
-      ["web-nym", ["workspace:apps/web-nym"]],\
-      ["web-osmosis", ["workspace:apps/web-osmosis"]],\
-      ["web-persistence", ["workspace:apps/web-persistence"]],\
-      ["web-provenance", ["workspace:apps/web-provenance"]],\
-      ["web-regen", ["workspace:apps/web-regen"]],\
-      ["web-rizon", ["workspace:apps/web-rizon"]],\
-      ["web-shentu", ["workspace:apps/web-shentu"]],\
-      ["web-sifchain", ["workspace:apps/web-sifchain"]],\
-      ["web-stride", ["workspace:apps/web-stride"]]\
     ],\
     "fallbackPool": [\
       [\

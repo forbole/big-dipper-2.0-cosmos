@@ -14,7 +14,7 @@ defaults:
   run:
     shell: bash
 jobs:
-  install:
+  check-cache:
     runs-on: ubuntu-latest
     outputs:
       projects: ${{ steps.vars.outputs.projects }}
@@ -50,7 +50,7 @@ jobs:
           EOF
   check-types:
     if: ${{ success() && needs.install.outputs.projects != '[]' }}
-    needs: install
+    needs: check-cache
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -68,15 +68,12 @@ jobs:
         with:
           node-version: 18
           cache: 'yarn'
-      -
-        name: Install modules
-        run: yarn install
       -
         name: Run check-types, lint
         run: yarn turbo run check-types lint --filter=${{ matrix.project }}
   lint:
     if: ${{ success() && needs.install.outputs.projects != '[]' }}
-    needs: install
+    needs: check-cache
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -95,14 +92,11 @@ jobs:
           node-version: 18
           cache: 'yarn'
       -
-        name: Install modules
-        run: yarn install
-      -
         name: Run check-types, lint
         run: yarn turbo run lint --filter=${{ matrix.project }}
   test:
     if: ${{ success() && needs.install.outputs.projects != '[]' }}
-    needs: install
+    needs: check-cache
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -129,7 +123,7 @@ jobs:
           echo '```' >> $GITHUB_STEP_SUMMARY
   build:
     if: ${{ success() && needs.install.outputs.projects != '[]' }}
-    needs: install
+    needs: check-cache
     strategy:
       fail-fast: false
       matrix:
@@ -169,14 +163,11 @@ jobs:
             hashFiles('**/yarn.lock'),
             matrix.project) }}
       -
-        name: Install modules
-        run: yarn install
-      -
         name: Run build
         run: yarn build:ci --filter=${{ matrix.project }}
   e2e:
     if: ${{ success() }}
-    needs: [install, check-types, lint, test, build]
+    needs: [check-cache, check-types, lint, test, build]
     runs-on: ubuntu-latest
     container:
       image: mcr.microsoft.com/playwright:v1.28.1-focal
@@ -225,9 +216,6 @@ jobs:
             'next',
             hashFiles('**/yarn.lock'),
             'web') }}
-      -
-        name: Install modules
-        run: yarn install
       -
         name: Build Next.js app
         run: yarn build

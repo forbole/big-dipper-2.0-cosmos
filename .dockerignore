@@ -45,7 +45,6 @@ yarn-error.log*
 # Visual Studio Code
 .vscode/
 
-
 # Yarn Berry
 .yarn/unplugged
 .yarn/build-state.yml

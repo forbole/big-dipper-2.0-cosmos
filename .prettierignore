@@ -48,8 +48,9 @@ test.js
 .vscode/
 
 # Yarn Berry
-.yarn/unplugged
-.yarn/build-state.yml
+.pnp.*
+.yarn/
+.yarnrc.yml
 
 # Playwright
 test-results/
@@ -65,4 +66,3 @@ vercel.json
 
 # graphql codegen
 **/src/graphql/*
-.pnp.*
