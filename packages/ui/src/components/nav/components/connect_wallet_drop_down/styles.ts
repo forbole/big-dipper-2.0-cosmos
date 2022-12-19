@@ -42,7 +42,6 @@ const styles = makeStyles((theme) => ({
   },
   walletLabel: {
     padding: theme.spacing(2.5, 0, 0, 1),
-    display: 'inline-block',
     fontSize: '14px',
     fontWeight: 590,
     lineHeight: '17px',
@@ -60,8 +59,11 @@ const styles = makeStyles((theme) => ({
     '&:hover': {
       cursor: 'pointer',
     },
+    fill: 'none',
     width: theme.spacing(2),
-    marginLeft: theme.spacing(1),
+    padding: theme.spacing(0.7, 0.5),
+    display: 'inline-flex',
+    overflow: 'visible',
   },
   avatar: {
     height: '45px',
