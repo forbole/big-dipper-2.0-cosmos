@@ -2,7 +2,7 @@ name: Publish
 on:
   workflow_dispatch:
     inputs:
-       project_name:
+       projects:
         description: "Project(s) to publish (to Akash)"
         required: true
        chain_type:
@@ -14,32 +14,55 @@ on:
        confirm:
         description: "enter \"CONFIRM\" to process"
         required: true
-concurrency: publish-to-akash
+concurrency:
+  group: publish-to-akash
+  cancel-in-progress: true
 defaults:
   run:
     shell: bash
 jobs:
+  validate:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.inputs.confirm == 'CONFIRM' }}
+    name: Validate ${{ github.event.inputs.projects }}-${{ github.event.inputs.chain_type }}${{ github.event.inputs.base_path }}
+    outputs:
+      projects: ${{ steps.vars.outputs.projects }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: steps.vars.outputs.projects
+        id: vars
+        run: |
+          PROJECTS='${{ github.event.inputs.projects }}' node <<EOF | tee -a $GITHUB_OUTPUT
+          const projects = process.env.PROJECTS.split(/,/).map(p => p.trim());
+          console.log('projects=' + JSON.stringify(projects));
+          EOF
   publish:
     runs-on: ubuntu-latest
-    if: ${{ startsWith('web-', github.event.inputs.project_name) && github.event.inputs.confirm == 'CONFIRM' }}
-    name: Publish ${{ github.event.inputs.project_name }}-${{ github.event.inputs.chain_type }}${{ github.event.inputs.base_path }}
+    needs: validate
+    if: ${{ needs.validate.outputs.projects != '[]' }}
+    name: Publish ${{ needs.validate.outputs.projects }}
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        project: ${{ fromJSON(needs.validate.outputs.projects) }}
+        os: [ubuntu-latest, windows-latest]
     steps:
       - uses: actions/checkout@v3
       - name: steps.vars.outputs.valid & Set steps.vars.outputs.sha_short & steps.vars.outputs.chain_type
         id: vars
         env:
-          PROJECT_NAME: ${{ github.event.inputs.project_name }}
+          PROJECT_NAME: ${{ matrix.project }}
           NEXT_PUBLIC_CHAIN_TYPE: ${{ github.event.inputs.chain_type }}
         run: |
           echo 'valid='$(
-            yarn workspace ${{ github.event.inputs.project_name }} info 2>1 1>/dev/null && echo yes || echo no
+            yarn workspace ${{ matrix.project }} info 2>1 1>/dev/null && echo yes || echo no
           ) | tee -a $GITHUB_OUTPUT
 
           echo 'sha_short='$(git rev-parse --short HEAD) | tee -a $GITHUB_OUTPUT
 
           # assign chain_type
-          node <<EOF
-          const { appendFileSync } = require('fs');
+          node <<EOF | tee -a $GITHUB_OUTPUT
           let chainType = process.env.NEXT_PUBLIC_CHAIN_TYPE;
           if (!chainType) chainType = 'mainnet';
           chainType = chainType.toLowerCase();
@@ -50,7 +73,7 @@ jobs:
             chain = chains.find((c) => c.chainType?.toLowerCase() === 'testnet');
           }
           if (!chain) [chain] = chains;
-          appendFileSync("$GITHUB_OUTPUT", 'chain_type=' + (chain?.chainType?.toLowerCase() || 'mainnet'));
+          console.log('chain_type=' + (chain?.chainType?.toLowerCase() || 'mainnet'));
           EOF
       - name: Set up QEMU
         if: ${{ steps.vars.outputs.valid == 'yes' }}
@@ -71,7 +94,7 @@ jobs:
           context: .
           push: true
           build-args: |
-            PROJECT_NAME=${{ github.event.inputs.project_name }}
+            PROJECT_NAME=${{ matrix.project }}
             NEXT_PUBLIC_CHAIN_TYPE=${{ github.event.inputs.chain_type }}
             NEXT_PUBLIC_BANNERS_JSON=${{ secrets.BANNERS_JSON }}
             TURBO_TEAM=${{ secrets.TURBO_TEAM }}
@@ -81,11 +104,11 @@ jobs:
             BASE_PATH=${{ github.event.inputs.base_path }}
           target: web
           tags: |
-            forbole/big-dipper-2.0-cosmos:monorepo-${{ github.event.inputs.project_name }}-${{ steps.vars.outputs.chain_type }}-${{ steps.vars.outputs.sha_short }}
+            forbole/big-dipper-2.0-cosmos:monorepo-${{ matrix.project }}-${{ steps.vars.outputs.chain_type }}-${{ steps.vars.outputs.sha_short }}
       - name: Publish to akash
         if: ${{ steps.vars.outputs.valid == 'yes' }}
         run: >
           curl -i -X POST -H "Content-Type: application/json"
-          -d '{"parameters":{"tag": "monorepo-${{ github.event.inputs.project_name }}-${{ steps.vars.outputs.chain_type }}-${{ steps.vars.outputs.sha_short }}"}}'
-          -k ${{ secrets.WEBHOOK_URL }}/${{ github.event.inputs.project_name }}-${{ steps.vars.outputs.chain_type }}
+          -d '{"parameters":{"tag": "monorepo-${{ matrix.project }}-${{ steps.vars.outputs.chain_type }}-${{ steps.vars.outputs.sha_short }}"}}'
+          -k ${{ secrets.WEBHOOK_URL }}/${{ matrix.project }}-${{ steps.vars.outputs.chain_type }}
           -u "deploy:${{ secrets.AKASH_WEBHOOK_SECRET }}" | tee -a $GITHUB_STEP_SUMMARY
