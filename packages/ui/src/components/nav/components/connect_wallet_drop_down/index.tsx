@@ -9,6 +9,7 @@ import Avatar from '@/components/avatar';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import CopyIcon from 'shared-utils/assets/icon-copy.svg';
 import { useAddress } from '@/utils/copy_to_clipboard';
+import LogoutIcon from 'shared-utils/assets/icon-logout.svg';
 
 import React from 'react';
 
@@ -20,7 +21,7 @@ const ConnectWalletDropDown: React.FC<{
   const { handleCopyToClipboard } = useAddress(t);
   const address = 'desmos13yp2fq3tslq6mmtq4628q38xzj75ethzela9uu';
 
-  const { handleCancel } = useConnectWalletList();
+  const { handleCancel, handleLogoutWallet } = useConnectWalletList();
   return (
     <Box className={classnames(className, classes.root)}>
       <div className={classes.walletDetails}>
@@ -62,7 +63,21 @@ const ConnectWalletDropDown: React.FC<{
       >
         <div className={classes.changeWalletButtonLabel}>{t('changeWallet')}</div>
       </div>
-      <Divider />
+      <Divider className={classes.bottomDivider} />
+      <div className={classes.signOut}>
+        <div
+          onClick={handleCancel}
+          role="button"
+          className={classes.signOutButton}
+          tabIndex={0}
+          aria-label="sign-out-button"
+        >
+          <div className={classes.signOutLabel}>
+            <LogoutIcon onClick={() => handleLogoutWallet} className={classes.signOutIcon} />
+            <div className={classes.signOutText}>{t('signOut')}</div>
+          </div>
+        </div>
+      </div>
     </Box>
   );
 };

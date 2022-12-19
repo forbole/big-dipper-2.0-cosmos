@@ -11,14 +11,14 @@ const styles = makeStyles((theme) => ({
     borderRadius: '8px',
   },
   walletDetails: {
-    width: '281px',
+    // width: '281px',
     height: '124px',
     borderRadius: '8px',
     backgroundColor: '#D9D9D9',
     marginTop: theme.spacing(1),
   },
   changeWalletButton: {
-    width: '281px',
+    // width: '281px',
     height: '46px',
     borderRadius: '8px',
     backgroundColor: '#4D4D4D',
@@ -50,11 +50,15 @@ const styles = makeStyles((theme) => ({
     margin: theme.spacing(1, 4.1, 1, 2),
     color: '#34383E',
   },
+  bottomDivider: {
+    margin: theme.spacing(2.5, 1.8, 1.8, 1),
+    color: '#34383E',
+  },
   copyIcon: {
     '&:hover': {
       cursor: 'pointer',
     },
-    width: '1rem',
+    width: theme.spacing(2),
     marginLeft: theme.spacing(1),
   },
   avatar: {
@@ -91,6 +95,38 @@ const styles = makeStyles((theme) => ({
     marginTop: theme.spacing(0.5),
     marginLeft: theme.spacing(1),
     verticalAlign: 'middle',
+  },
+  signOutButton: {
+    border: '1px solid #FFFFFF',
+    borderRadius: theme.spacing(3),
+    '&:hover': {
+      cursor: 'pointer',
+      background: '#5e5c5c',
+    },
+    '& svg': {
+      fill: 'none',
+    },
+    textAlign: 'center',
+    width: theme.spacing(14),
+  },
+  signOutIcon: {
+    display: 'flex',
+    verticalAlign: 'middle',
+    width: theme.spacing(2),
+  },
+  signOutLabel: {
+    display: 'inline-flex',
+    verticalAlign: 'middle',
+  },
+  signOut: {
+    display: 'flex',
+    justifyContent: 'center',
+  },
+  signOutText: {
+    display: 'flex',
+    verticalAlign: 'middle',
+    paddingTop: theme.spacing(0.8),
+    fontWeight: 590,
   },
 }));
 
