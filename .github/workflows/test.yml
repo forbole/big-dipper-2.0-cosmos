@@ -10,6 +10,9 @@ env:
   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
   NEXT_TELEMETRY_DISABLED: 1
   SENTRYCLI_SKIP_DOWNLOAD: 1
+defaults:
+  run:
+    shell: bash
 jobs:
   install:
     runs-on: ubuntu-latest
@@ -25,7 +28,6 @@ jobs:
           fetch-depth: 0
       -
         name: Update yarn
-        shell: bash
         run: corepack enable && yarn --version
       -
         name: Setup Node.js environment
@@ -35,12 +37,10 @@ jobs:
           cache: 'yarn'
       -
         name: Install modules
-        shell: bash
         run: yarn install --immutable
       -
         name: Set needs.install.outputs.matrix, needs.install.outputs.cacheDirectory
         id: vars
-        shell: bash
         run: "
           PACKAGES=$(
             yarn turbo run build
@@ -73,7 +73,6 @@ jobs:
         uses: actions/checkout@v3
       -
         name: Update yarn
-        shell: bash
         run: corepack enable && yarn --version
       -
         name: Setup Node.js environment
@@ -90,19 +89,15 @@ jobs:
           restore-keys: ${{ runner.os }}-next-${{ hashFiles('**/yarn.lock') }}-ui-
       -
         name: Install modules
-        shell: bash
         run: yarn install --immutable
       -
         name: Run check-types
-        shell: bash
         run: yarn check-types:ci --filter=ui
       -
         name: Run lint check
-        shell: bash
         run: yarn lint:ci --filter=ui
       -
         name: Run tests
-        shell: bash
         run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
           yarn test:ci --filter=ui -- --coverage | tee -a $GITHUB_STEP_SUMMARY
@@ -116,7 +111,6 @@ jobs:
         uses: actions/checkout@v3
       -
         name: Update yarn
-        shell: bash
         run: corepack enable && yarn --version
       -
         name: Setup Node.js environment
@@ -134,26 +128,21 @@ jobs:
           restore-keys: ${{ runner.os }}-next-${{ hashFiles('**/yarn.lock') }}-web-
       -
         name: Install modules
-        shell: bash
         run: yarn install --immutable
       -
         name: Run check-types
-        shell: bash
         run: yarn check-types:ci --filter=web
       -
         name: Run lint check
-        shell: bash
         run: yarn lint:ci --filter=web
       -
         name: Run tests
-        shell: bash
         run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
           yarn test:ci --filter=web -- --coverage | tee -a $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
       -
         name: Run build check
-        shell: bash
         run: yarn build:ci --filter=web
   e2e:
     if: ${{ success() }}
@@ -178,7 +167,6 @@ jobs:
         uses: actions/checkout@v3
       -
         name: Update yarn
-        shell: bash
         run: corepack enable && yarn --version
       -
         name: Setup Node.js environment
@@ -194,17 +182,14 @@ jobs:
           restore-keys: ${{ runner.os }}-next-${{ hashFiles('**/yarn.lock') }}-web-
       -
         name: Install modules
-        shell: bash
         run: yarn install --immutable
       -
         name: Build Next.js app
-        shell: bash
         run: yarn build
       -
         name: Run Playwright tests
         env:
           PLAYWRIGHT_HTML_REPORT: playwright-report/${{ matrix.project }}/${{ matrix.shardIndex }}
-        shell: bash
         run: |
           echo Trace can be view at https://trace.playwright.dev/ | tee -a $GITHUB_STEP_SUMMARY
           yarn playwright test --project=${{ matrix.project }} --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }} | tee -a $GITHUB_STEP_SUMMARY
@@ -227,7 +212,6 @@ jobs:
         uses: actions/checkout@v3
       -
         name: Update yarn
-        shell: bash
         run: corepack enable && yarn --version
       -
         name: Setup Node.js environment
@@ -245,24 +229,19 @@ jobs:
           restore-keys: ${{ runner.os }}-next-${{ hashFiles('**/yarn.lock') }}-${{ matrix.project }}-
       -
         name: Install modules
-        shell: bash
         run: yarn install --immutable
       -
         name: Run check-types
-        shell: bash
         run: yarn check-types:ci --filter=${{ matrix.project }}
       -
         name: Run lint check
-        shell: bash
         run: yarn lint:ci --filter=${{ matrix.project }}
       -
         name: Run tests
-        shell: bash
         run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
           yarn test:ci --filter=${{ matrix.project }} -- --coverage | tee -a $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
       -
         name: Run build check
-        shell: bash
         run: yarn build:ci --filter=${{ matrix.project }}

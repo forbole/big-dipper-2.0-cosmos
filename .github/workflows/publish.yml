@@ -15,21 +15,21 @@ on:
         description: "enter \"CONFIRM\" to process"
         required: true
 concurrency: publish-to-akash
+defaults:
+  run:
+    shell: bash
 jobs:
   publish:
     runs-on: ubuntu-latest
     if: startsWith('web-', ${{ github.event.inputs.project_name }}) && github.event.inputs.confirm == 'CONFIRM'
     name: Publish ${{ github.event.inputs.project_name }}-${{ github.event.inputs.chain_type }}${{ github.event.inputs.base_path }}
     steps:
-      -
-        uses: actions/checkout@v3
-      -
-        name: steps.vars.outputs.valid & Set steps.vars.outputs.sha_short & steps.vars.outputs.chain_type
+      - uses: actions/checkout@v3
+      - name: steps.vars.outputs.valid & Set steps.vars.outputs.sha_short & steps.vars.outputs.chain_type
         id: vars
         env:
           PROJECT_NAME: ${{ github.event.inputs.project_name }}
           NEXT_PUBLIC_CHAIN_TYPE: ${{ github.event.inputs.chain_type }}
-        shell: bash
         run: |
           echo 'valid='$(
             yarn workspace ${{ github.event.inputs.project_name }} info 2>1 1>/dev/null && echo yes || echo no
@@ -89,7 +89,6 @@ jobs:
       -
         name: Publish to akash
         if: steps.vars.outputs.valid == 'yes'
-        shell: bash
         run: >
           curl -i -X POST -H "Content-Type: application/json"
           -d '{"parameters":{"tag": "monorepo-${{ github.event.inputs.project_name }}-${{ steps.vars.outputs.chain_type }}-${{ steps.vars.outputs.sha_short }}"}}'
