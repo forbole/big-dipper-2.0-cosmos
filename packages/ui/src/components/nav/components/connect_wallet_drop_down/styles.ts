@@ -5,14 +5,14 @@ const styles = makeStyles((theme) => ({
     background: '#5E5E5E',
     width: '310px',
     height: '310px',
-    top: '80px',
+    top: theme.spacing(10),
     left: '1365px',
     opacity: '20%',
-    borderRadius: '8px',
+    borderRadius: theme.spacing(1),
   },
   walletDetails: {
     height: '124px',
-    borderRadius: '8px',
+    borderRadius: theme.spacing(1),
     backgroundColor: '#D9D9D9',
     marginTop: theme.spacing(1),
   },
@@ -22,7 +22,7 @@ const styles = makeStyles((theme) => ({
   },
   changeWalletButton: {
     height: '46px',
-    borderRadius: '8px',
+    borderRadius: theme.spacing(1),
     backgroundColor: '#4D4D4D',
     marginTop: theme.spacing(3),
     '&:hover': {
@@ -32,7 +32,7 @@ const styles = makeStyles((theme) => ({
   },
   changeWalletButtonLabel: {
     padding: theme.spacing(1.5, 3),
-    fontSize: '16px',
+    fontSize: theme.spacing(2),
     fontWeight: 590,
     lineHeight: '20px',
   },
