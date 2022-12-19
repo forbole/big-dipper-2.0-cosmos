@@ -46,7 +46,6 @@ jobs:
       max-parallel: 1
       matrix:
         project: ${{ fromJSON(needs.validate.outputs.projects) }}
-        os: [ubuntu-latest, windows-latest]
     steps:
       - uses: actions/checkout@v3
       - name: steps.vars.outputs.valid & Set steps.vars.outputs.sha_short & steps.vars.outputs.chain_type
