@@ -26,21 +26,17 @@ jobs:
         VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
     name: Preview ${{ github.event.inputs.project_name }}-${{ github.event.inputs.chain_type }}${{ github.event.inputs.base_path }}
     steps:
-      -
-        uses: actions/checkout@v3
-      -
-        name: Set steps.vars.outputs.valid
+      - uses: actions/checkout@v3
+      - name: Set steps.vars.outputs.valid
         id: vars
         run: |
           echo 'valid='$(
             yarn workspace ${{ github.event.inputs.project_name }} info 2>1 1>/dev/null && echo yes || echo no
           ) | tee -a $GITHUB_OUTPUT
-      -
-        name: Insall Vercel CLI
+      - name: Insall Vercel CLI
         if: ${{ steps.vars.outputs.valid == 'yes' }}
         run: npm i -g vercel
-      -
-        name: Generate vercel.json
+      - name: Generate vercel.json
         if: ${{ steps.vars.outputs.valid == 'yes' }}
         run: |
           node <<EOF > vercel.json
@@ -61,7 +57,6 @@ jobs:
           };
           console.log(JSON.stringify(config, null, 2));
           EOF
-      -
-        name: Deploy preview to Vercel
+      - name: Deploy preview to Vercel
         if: ${{ steps.vars.outputs.valid == 'yes' }}
         run: vercel -t ${{ secrets.VERCEL_TOKEN }} | tee -a $GITHUB_STEP_SUMMARY
