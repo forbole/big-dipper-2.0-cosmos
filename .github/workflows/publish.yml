@@ -33,7 +33,7 @@ jobs:
         id: vars
         run: |
           PROJECTS='${{ github.event.inputs.projects }}' node <<EOF | tee -a $GITHUB_OUTPUT
-          const projects = process.env.PROJECTS.split(/,/).map(p => p.trim());
+          const projects = process.env.PROJECTS.split(/,/).map(p => p.trim()).filter(p => p);
           console.log('projects=' + JSON.stringify(projects));
           EOF
   publish:
