@@ -36,7 +36,7 @@ jobs:
         name: Install modules
         run: yarn install --immutable --check-cache
       -
-        name: Set needs.install.outputs.projects
+        name: Set needs.check-cache.outputs.projects
         id: vars
         run: |
           DRY_BUILD_JSON=$(
@@ -49,13 +49,13 @@ jobs:
           ));
           EOF
   check-types:
-    if: ${{ success() && needs.install.outputs.projects != '[]' }}
+    if: ${{ success() && needs.check-cache.outputs.projects != '[]' }}
     needs: check-cache
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        project: ${{ fromJson(needs.install.outputs.projects) }}
+        project: ${{ fromJson(needs.check-cache.outputs.projects) }}
     steps:
       -
         uses: actions/checkout@v3
@@ -72,13 +72,13 @@ jobs:
         name: Run check-types, lint
         run: yarn turbo run check-types lint --filter=${{ matrix.project }}
   lint:
-    if: ${{ success() && needs.install.outputs.projects != '[]' }}
+    if: ${{ success() && needs.check-cache.outputs.projects != '[]' }}
     needs: check-cache
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        project: ${{ fromJson(needs.install.outputs.projects) }}
+        project: ${{ fromJson(needs.check-cache.outputs.projects) }}
     steps:
       -
         uses: actions/checkout@v3
@@ -95,13 +95,13 @@ jobs:
         name: Run check-types, lint
         run: yarn turbo run lint --filter=${{ matrix.project }}
   test:
-    if: ${{ success() && needs.install.outputs.projects != '[]' }}
+    if: ${{ success() && needs.check-cache.outputs.projects != '[]' }}
     needs: check-cache
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        project: ${{ fromJson(needs.install.outputs.projects) }}
+        project: ${{ fromJson(needs.check-cache.outputs.projects) }}
     steps:
       -
         uses: actions/checkout@v3
@@ -122,12 +122,12 @@ jobs:
             tee -a $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
   build:
-    if: ${{ success() && needs.install.outputs.projects != '[]' }}
+    if: ${{ success() && needs.check-cache.outputs.projects != '[]' }}
     needs: check-cache
     strategy:
       fail-fast: false
       matrix:
-        project: ${{ fromJson(needs.install.outputs.projects) }}
+        project: ${{ fromJson(needs.check-cache.outputs.projects) }}
     runs-on: ubuntu-latest
     steps:
       -
@@ -175,7 +175,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        project: ${{ fromJson(needs.install.outputs.projects) }}
+        project: ${{ fromJson(needs.check-cache.outputs.projects) }}
         os:
           - chromium
           # - firefox
