@@ -6,12 +6,18 @@ import numeral from 'numeral';
 import * as R from 'ramda';
 import { useEffect, useState } from 'react';
 
+const { endpoints, prefix } = chainConfig();
+
+function getPublicRpc() {
+  return process.env.NEXT_PUBLIC_RPC_WEBSOCKET;
+}
+
 function getWs() {
-  let ws = process.env.NEXT_PUBLIC_RPC_WEBSOCKET;
-  if (!ws) ws = chainConfig().endpoints.publicRpcWebsocket;
-  if (!ws) ws = chainConfig().endpoints.graphqlWebsocket;
-  if (!ws) ws = 'ws://localhost:3000/websocket';
-  return ws;
+  let ws = getPublicRpc();
+  if (ws) return ws;
+  if (endpoints.publicRpcWebsocket) return endpoints.publicRpcWebsocket;
+  if (endpoints.graphqlWebsocket) return endpoints.graphqlWebsocket;
+  return 'ws://localhost:3000/websocket';
 }
 
 export const useConsensus = () => {
@@ -36,7 +42,7 @@ export const useConsensus = () => {
       const height =
         numeral(R.pathOr('0', ['result', 'data', 'value', 'height'] ?? '0')).value() ?? 0;
       const proposerHex = R.pathOr('', ['result', 'data', 'value', 'proposer', 'address'], data);
-      const consensusAddress = hexToBech32(proposerHex, chainConfig().prefix.consensus);
+      const consensusAddress = hexToBech32(proposerHex, prefix.consensus);
 
       setState((prevState) => ({
         ...prevState,
