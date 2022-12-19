@@ -25,19 +25,24 @@ const ConnectWalletDropDown: React.FC<{
   return (
     <Box className={classnames(className, classes.root)}>
       <div className={classes.walletDetails}>
-        <div className={classes.walletAvatar}>
-          <Avatar address={address} className={classes.avatar} />
-        </div>
-        <div className={classes.walletLabel}>
-          Wallet 3
-          <div>
-            <Typography variant="body2" component="a">
-              {getMiddleEllipsis(address, {
-                beginning: 9,
-                ending: 3,
-              })}
-            </Typography>
-            <CopyIcon onClick={() => handleCopyToClipboard(address)} className={classes.copyIcon} />
+        <div className={classes.walletInfo}>
+          <div className={classes.walletAvatar}>
+            <Avatar address={address} className={classes.avatar} />
+          </div>
+          <div className={classes.walletLabel}>
+            Wallet 3
+            <div>
+              <Typography variant="body2" component="a">
+                {getMiddleEllipsis(address, {
+                  beginning: 9,
+                  ending: 3,
+                })}
+              </Typography>
+              <CopyIcon
+                onClick={() => handleCopyToClipboard(address)}
+                className={classes.copyIcon}
+              />
+            </div>
           </div>
         </div>
         <Divider className={classes.divider} />

@@ -11,14 +11,16 @@ const styles = makeStyles((theme) => ({
     borderRadius: '8px',
   },
   walletDetails: {
-    // width: '281px',
     height: '124px',
     borderRadius: '8px',
     backgroundColor: '#D9D9D9',
     marginTop: theme.spacing(1),
   },
+  walletInfo: {
+    verticalAlign: 'middle',
+    display: 'inline-flex',
+  },
   changeWalletButton: {
-    // width: '281px',
     height: '46px',
     borderRadius: '8px',
     backgroundColor: '#4D4D4D',
@@ -39,7 +41,7 @@ const styles = makeStyles((theme) => ({
     display: 'inline-block',
   },
   walletLabel: {
-    padding: theme.spacing(2, 0, 0, 1),
+    padding: theme.spacing(2.5, 0, 0, 1),
     display: 'inline-block',
     fontSize: '14px',
     fontWeight: 590,
