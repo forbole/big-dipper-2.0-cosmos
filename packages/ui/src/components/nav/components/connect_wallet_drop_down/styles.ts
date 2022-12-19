@@ -99,7 +99,7 @@ const styles = makeStyles((theme) => ({
     verticalAlign: 'middle',
   },
   signOutButton: {
-    border: '1px solid #FFFFFF',
+    border: '1px solid #5e5c5c',
     borderRadius: theme.spacing(3),
     '&:hover': {
       cursor: 'pointer',
