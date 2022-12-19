@@ -54,7 +54,7 @@ async function fetchDesmosProfile(address: string) {
   }
 }
 
-function formatDesmosProfile(data: DesmosProfileQuery) {
+function formatDesmosProfile(data: DesmosProfileQuery | null): DesmosProfile | null {
   if (!data?.profile?.length) {
     return null;
   }

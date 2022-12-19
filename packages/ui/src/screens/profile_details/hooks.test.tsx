@@ -57,7 +57,7 @@ jest.mock('@/hooks', () => ({
     }),
     formatDesmosProfile: jest.fn((data) => {
       let results;
-      if (data.profile[0].dtag === 'HappieSa') {
+      if (data?.profile?.[0]?.dtag === 'HappieSa') {
         results = {
           dtag: 'HappieSa',
           nickname: 'theHappySamoyed',
@@ -75,7 +75,7 @@ jest.mock('@/hooks', () => ({
         };
       }
 
-      if (data.profile[0].dtag === 'forbole') {
+      if (data?.profile?.[0]?.dtag === 'forbole') {
         results = {
           dtag: 'forbole',
           nickname: 'Forbole',
