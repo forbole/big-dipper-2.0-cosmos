@@ -17,7 +17,7 @@ defaults:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    if: startsWith('web-', ${{ github.event.inputs.project_name }})
+    if: ${{ startsWith('web-', github.event.inputs.project_name) }}
     env:
         PROJECT_NAME: ${{ github.event.inputs.project_name }}
         NEXT_PUBLIC_CHAIN_TYPE: ${{ github.event.inputs.chain_type }}
@@ -37,11 +37,11 @@ jobs:
           ) | tee -a $GITHUB_OUTPUT
       -
         name: Insall Vercel CLI
-        if: steps.vars.outputs.valid == 'yes'
+        if: ${{ steps.vars.outputs.valid == 'yes' }}
         run: npm i -g vercel
       -
         name: Generate vercel.json
-        if: steps.vars.outputs.valid == 'yes'
+        if: ${{ steps.vars.outputs.valid == 'yes' }}
         run: |
           node <<EOF
           const { writeFileSync } = require('fs');
@@ -64,5 +64,5 @@ jobs:
           EOF
       -
         name: Deploy preview to Vercel
-        if: steps.vars.outputs.valid == 'yes'
+        if: ${{ steps.vars.outputs.valid == 'yes' }}
         run: vercel -t ${{ secrets.VERCEL_TOKEN }} | tee -a $GITHUB_STEP_SUMMARY

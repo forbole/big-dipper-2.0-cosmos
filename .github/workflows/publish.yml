@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
     inputs:
        project_name:
-        description: "Project to publish (to Akash)"
+        description: "Project(s) to publish (to Akash)"
         required: true
        chain_type:
         description: "Chain Type to publish (default to mainnet when more than 1 was configured)"
@@ -21,7 +21,7 @@ defaults:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    if: startsWith('web-', ${{ github.event.inputs.project_name }}) && github.event.inputs.confirm == 'CONFIRM'
+    if: ${{ startsWith('web-', github.event.inputs.project_name) && github.event.inputs.confirm == 'CONFIRM' }}
     name: Publish ${{ github.event.inputs.project_name }}-${{ github.event.inputs.chain_type }}${{ github.event.inputs.base_path }}
     steps:
       - uses: actions/checkout@v3
@@ -52,24 +52,20 @@ jobs:
           if (!chain) [chain] = chains;
           appendFileSync("$GITHUB_OUTPUT", 'chain_type=' + (chain?.chainType?.toLowerCase() || 'mainnet'));
           EOF
-      -
-        name: Set up QEMU
-        if: steps.vars.outputs.valid == 'yes'
+      - name: Set up QEMU
+        if: ${{ steps.vars.outputs.valid == 'yes' }}
         uses: docker/setup-qemu-action@v2
-      -
-        name: Set up Docker Buildx
-        if: steps.vars.outputs.valid == 'yes'
+      - name: Set up Docker Buildx
+        if: ${{ steps.vars.outputs.valid == 'yes' }}
         uses: docker/setup-buildx-action@v2
-      -
-        name: Login to DockerHub 👤
-        if: steps.vars.outputs.valid == 'yes'
+      - name: Login to DockerHub 👤
+        if: ${{ steps.vars.outputs.valid == 'yes' }}
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-      -
-        name: Create the builder
-        if: steps.vars.outputs.valid == 'yes'
+      - name: Create the builder
+        if: ${{ steps.vars.outputs.valid == 'yes' }}
         uses: docker/build-push-action@v3
         with:
           context: .
@@ -86,9 +82,8 @@ jobs:
           target: web
           tags: |
             forbole/big-dipper-2.0-cosmos:monorepo-${{ github.event.inputs.project_name }}-${{ steps.vars.outputs.chain_type }}-${{ steps.vars.outputs.sha_short }}
-      -
-        name: Publish to akash
-        if: steps.vars.outputs.valid == 'yes'
+      - name: Publish to akash
+        if: ${{ steps.vars.outputs.valid == 'yes' }}
         run: >
           curl -i -X POST -H "Content-Type: application/json"
           -d '{"parameters":{"tag": "monorepo-${{ github.event.inputs.project_name }}-${{ steps.vars.outputs.chain_type }}-${{ steps.vars.outputs.sha_short }}"}}'
