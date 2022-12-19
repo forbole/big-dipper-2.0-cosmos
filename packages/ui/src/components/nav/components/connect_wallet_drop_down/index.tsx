@@ -48,7 +48,8 @@ const ConnectWalletDropDown: React.FC<{
           aria-label="connect-wallet-button"
         >
           <div className={classes.accountDetailsLabel}>
-            <span className={classes.dot} /> {t('accountDetails')}
+            <div className={classes.dot} />
+            <div className={classes.accountDetails}>{t('accountDetails')}</div>
           </div>
         </div>
       </div>

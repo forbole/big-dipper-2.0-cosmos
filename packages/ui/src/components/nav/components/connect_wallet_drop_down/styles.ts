@@ -67,11 +67,20 @@ const styles = makeStyles((theme) => ({
     border: '1px solid #000000',
     borderRadius: '1000px',
     marginLeft: theme.spacing(3),
+    '&:hover': {
+      cursor: 'pointer',
+      background: '#5e5c5c',
+    },
   },
   accountDetailsLabel: {
     color: '#000000',
     textAlign: 'center',
-    paddingTop: theme.spacing(0.5),
+  },
+  accountDetails: {
+    verticalAlign: 'middle',
+    display: 'inline-flex',
+    marginTop: theme.spacing(0.5),
+    marginLeft: theme.spacing(0.5),
   },
   dot: {
     height: theme.spacing(2),
@@ -81,6 +90,7 @@ const styles = makeStyles((theme) => ({
     display: 'inline-flex',
     marginTop: theme.spacing(0.5),
     marginLeft: theme.spacing(1),
+    verticalAlign: 'middle',
   },
 }));
 
