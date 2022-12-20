@@ -9,6 +9,7 @@ import Link from 'next/link';
 import { useRecoilValue } from 'recoil';
 import BigDipperLogoRed from 'shared-utils/assets/big-dipper-red.svg';
 import BigDipperLogoWhite from 'shared-utils/assets/big-dipper-white.svg';
+import WalletDropDown from '@/components/nav/components/wallet_details';
 
 const Navbar = (props: NavbarProps) => {
   const classes = useStyles();
@@ -41,6 +42,10 @@ const Navbar = (props: NavbarProps) => {
           <p className="text">{selected}</p>
           <ExpandMore fontSize="small" />
         </div>
+        {/* =================================== */}
+        {/* Wallet Drop Down */}
+        {/* =================================== */}
+        <WalletDropDown />
         {/* =================================== */}
         {/* Hamburger */}
         {/* =================================== */}

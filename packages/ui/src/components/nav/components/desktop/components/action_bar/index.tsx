@@ -7,7 +7,7 @@ import SearchBar from '@/components/nav/components/search_bar';
 import { useGetComponentDimension } from '@/hooks';
 import classnames from 'classnames';
 import React from 'react';
-import WalletDetails from '@/components/nav/components/wallet_details';
+import WalletDropDown from '@/components/nav/components/wallet_details';
 
 const ActionBar: React.FC<{
   isNetwork: boolean;
@@ -24,7 +24,7 @@ const ActionBar: React.FC<{
           className={classnames(classes.network, { open: isNetwork })}
           toggleNetwork={toggleNetwork}
         />
-        <WalletDetails />
+        <WalletDropDown />
         <SettingsList />
         <ConnectWallet />
       </div>

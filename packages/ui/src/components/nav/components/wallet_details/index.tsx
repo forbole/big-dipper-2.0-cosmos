@@ -1,16 +1,14 @@
 import { useConnectWalletList } from '@/components/nav/components/connect_wallet/hooks';
 import { useStyles } from '@/components/nav/components/connect_wallet/styles';
 import classnames from 'classnames';
-// import useTranslation from 'next-translate/useTranslation';
 import React from 'react';
 import Avatar from '@/components/avatar';
 import ConnectWalletDropDown from '@/components/nav/components/connect_wallet_drop_down';
 
-const WalletDetails: React.FC<{
+const WalletDropDown: React.FC<{
   className?: string;
 }> = (props) => {
   const classes = useStyles();
-  // const { t } = useTranslation('common');
   const { loggedIn, showWallet, handleShowWallet } = useConnectWalletList();
 
   return (
@@ -33,4 +31,4 @@ const WalletDetails: React.FC<{
   );
 };
 
-export default WalletDetails;
+export default WalletDropDown;
