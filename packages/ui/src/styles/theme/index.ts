@@ -176,6 +176,8 @@ export const common: ThemeOptions = {
         divider: 'EB7D34',
         textPrimary: '#EB349C',
         textSecondary: '#DDDDDD',
+        active: '#29CC6A',
+        inactive: '#CC3929',
       },
     },
   },

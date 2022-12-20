@@ -79,6 +79,8 @@ declare module '@material-ui/core/styles/createPalette' {
       divider: string;
       textPrimary: string;
       textSecondary: string;
+      active: string;
+      inactive: string;
     };
   }
 

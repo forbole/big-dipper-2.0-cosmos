@@ -120,6 +120,8 @@ export interface PaletteSettings {
       divider?: string;
       textPrimary?: string;
       textSecondary?: string;
+      active?: string;
+      inactive?: string;
     };
   };
 }
