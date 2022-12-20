@@ -6,9 +6,14 @@ const styles = makeStyles((theme) => ({
     width: '310px',
     height: '310px',
     top: theme.spacing(8.7),
-    right: '120px',
+    right: '55px',
     opacity: '20%',
+    zIndex: 1,
     borderRadius: theme.spacing(1),
+    overflow: 'auto',
+    [theme.breakpoints.up('lg')]: {
+      right: '120px',
+    },
   },
   walletDetails: {
     height: '124px',
