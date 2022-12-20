@@ -32,7 +32,7 @@ const ConnectWalletDropDown: React.FC<{
           <div className={classes.walletLabel}>
             Wallet 3
             <div>
-              <Typography variant="body2" component="a">
+              <Typography variant="caption" className={classes.walletAddress}>
                 {getMiddleEllipsis(address, {
                   beginning: 9,
                   ending: 3,

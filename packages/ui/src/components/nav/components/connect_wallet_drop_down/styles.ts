@@ -5,8 +5,8 @@ const styles = makeStyles((theme) => ({
     background: '#5E5E5E',
     width: '310px',
     height: '310px',
-    top: theme.spacing(10),
-    left: '1365px',
+    top: theme.spacing(8.7),
+    right: '120px',
     opacity: '20%',
     borderRadius: theme.spacing(1),
   },
@@ -46,6 +46,9 @@ const styles = makeStyles((theme) => ({
     fontWeight: 590,
     lineHeight: '17px',
     color: '#000000',
+  },
+  walletAddress: {
+    color: '#777777',
   },
   divider: {
     margin: theme.spacing(1, 4.1, 1, 2),
