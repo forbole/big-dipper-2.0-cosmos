@@ -28,6 +28,8 @@ const ConnectWalletDropDown: React.FC<{
         <div className={classes.walletInfo}>
           <div className={classes.walletAvatar}>
             <Avatar address={address} className={classes.avatar} />
+            <div className={classes.whiteDot} />
+            <div className={classes.greenDot} />
           </div>
           <div className={classes.walletLabel}>
             Wallet 3
@@ -54,7 +56,7 @@ const ConnectWalletDropDown: React.FC<{
           aria-label="account-details-button"
         >
           <div className={classes.accountDetailsLabel}>
-            <div className={classes.dot} />
+            <div className={classes.blackDot} />
             <div className={classes.accountDetails}>{t('accountDetails')}</div>
           </div>
         </div>
