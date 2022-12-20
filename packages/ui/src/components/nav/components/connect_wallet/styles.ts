@@ -14,6 +14,10 @@ const styles = makeStyles((theme) => ({
     },
     '& svg': {
       fill: 'none',
+      stroke: theme.palette.custom.general.icon,
+      strokeWidth: '1.6',
+      strokeLinecap: 'round',
+      strokeLinejoin: 'round',
     },
   },
   connectWalletButton: {
@@ -64,7 +68,7 @@ const styles = makeStyles((theme) => ({
     fontSize: '14px',
     justifyContent: 'left',
     overflow: 'visible',
-    background: '#D9D9D9',
+    background: theme.palette.custom.wallet.surfaceTwo,
     '&:hover': {
       background: theme.palette.primary.main,
       borderColor: theme.palette.primary.main,
@@ -135,9 +139,9 @@ const styles = makeStyles((theme) => ({
     padding: '6px 16px',
     width: '103px',
     height: '40px',
-    background: '#D9D9D9',
+    background: theme.palette.custom.wallet.surfaceTwo,
     borderRadius: '8px',
-    color: '#000000',
+    color: theme.palette.custom.wallet.textPrimary,
     '&:hover': {
       background: theme.palette.primary.main,
       borderColor: theme.palette.primary.main,
@@ -158,8 +162,10 @@ const styles = makeStyles((theme) => ({
     position: 'fixed',
     right: 60,
     '&.open': {
-      opacity: '95%',
+      opacity: 1,
       visibility: 'visible',
+      background: theme.palette.custom.wallet.background,
+      borderRadius: theme.spacing(1),
     },
   },
   avatar: {
