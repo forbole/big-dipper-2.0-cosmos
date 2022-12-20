@@ -55,7 +55,7 @@ const styles = makeStyles((theme) => ({
     color: '#34383E',
   },
   bottomDivider: {
-    margin: theme.spacing(2.5, 1.8, 1.8, 1),
+    margin: theme.spacing(2.5, 0, 1.8, 0),
     color: '#34383E',
   },
   copyIcon: {
