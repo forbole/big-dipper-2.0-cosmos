@@ -102,6 +102,7 @@ jobs:
           target: web
           tags: |
             forbole/big-dipper-2.0-cosmos:monorepo-${{ matrix.project }}-${{ steps.vars.outputs.chain_type }}-${{ steps.vars.outputs.sha_short }}
+            forbole/big-dipper-2.0-cosmos:monorepo-${{ matrix.project }}-${{ steps.vars.outputs.chain_type }}-latest
       - name: Publish to akash
         if: ${{ steps.vars.outputs.valid == 'yes' }}
         run: >
