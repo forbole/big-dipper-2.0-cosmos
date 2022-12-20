@@ -167,6 +167,16 @@ export const common: ThemeOptions = {
         nineteen: '#D37763',
         twenty: '#D9C788',
       },
+      wallet: {
+        background: '#EB9534',
+        surfaceOne: '#34EB52',
+        surfaceTwo: '#346EEB',
+        surfaceThree: '#D334EB',
+        surfaceFour: '#A1A1A1',
+        divider: 'EB7D34',
+        textPrimary: '#EB349C',
+        textSecondary: '#DDDDDD',
+      },
     },
   },
   overrides: {

@@ -94,6 +94,16 @@
           "eighteen": "#F0A479",
           "nineteen": "#D37763",
           "twenty": "#D9C788"
+        },
+        "wallet": {
+          "background": "#5E5E5E",
+          "surfaceOne": "#5E5C5C",
+          "surfaceTwo": "#D9D9D9",
+          "surfaceThree": "#4D4D4D",
+          "surfaceFour": "#414141",
+          "divider": "34383E",
+          "textPrimary": "#000000",
+          "textSecondary": "#222222"
         }
       }
     },
@@ -177,6 +187,16 @@
           "eighteen": "#F0A479",
           "nineteen": "#D37763",
           "twenty": "#D9C788"
+        },
+        "wallet": {
+          "background": "#EB9534",
+          "surfaceOne": "#34EB52",
+          "surfaceTwo": "#346EEB",
+          "surfaceThree": "#D334EB",
+          "surfaceFour": "#A1A1A1",
+          "divider": "EB7D34",
+          "textPrimary": "#EB349C",
+          "textSecondary": "#DDDDDD"
         }
       }
     }

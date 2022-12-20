@@ -111,6 +111,16 @@ export interface PaletteSettings {
       nineteen?: string;
       twenty?: string;
     };
+    wallet: {
+      background?: string;
+      surfaceOne: string;
+      surfaceTwo: string;
+      surfaceThree: string;
+      surfaceFour: string;
+      divider?: string;
+      textPrimary?: string;
+      textSecondary?: string;
+    };
   };
 }
 

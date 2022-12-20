@@ -70,6 +70,16 @@ declare module '@material-ui/core/styles/createPalette' {
       pass: string;
       fail: string;
     };
+    wallet: {
+      background: string;
+      surfaceOne: string;
+      surfaceTwo: string;
+      surfaceThree: string;
+      surfaceFour: string;
+      divider: string;
+      textPrimary: string;
+      textSecondary: string;
+    };
   }
 
   interface PaletteOptions {
