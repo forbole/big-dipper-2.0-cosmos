@@ -32,9 +32,7 @@ jobs:
       - name: steps.vars.outputs.projects
         id: vars
         run: |
-          ALL=$(yarn workspaces list --json | jq -csr '[ .[].name | select(. | startswith("web") ) ]')
-          PROJECTS='${{ github.event.inputs.projects }}'
-          node <<EOF | tee -a $GITHUB_OUTPUT $GITHUB_STEP_SUMMARY
+          ALL=$(yarn workspaces list --json | jq -csr '[ .[].name | select(. | startswith("web") ) ]') PROJECTS='${{ github.event.inputs.projects }}' node <<EOF | tee -a $GITHUB_OUTPUT $GITHUB_STEP_SUMMARY
           const all = JSON.parse(process.env.ALL);
           const projects = all.process.env.PROJECTS === '*' ? null : all.process.env.PROJECTS.split(/,/).map(p => p.trim());
           console.log('projects=' + JSON.stringify(all.filter(a => !projects || projects.includes(a))));
