@@ -1,4 +1,3 @@
-import chainConfig from '@/chainConfig';
 import AvatarName from '@/components/avatar_name';
 import InfoPopover from '@/components/info_popover';
 import SortArrows from '@/components/sort_arrows';
@@ -29,15 +28,13 @@ const Desktop: React.FC<{
   const columns = fetchColumns();
 
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
-  const { tokenUnits, votingPowerTokenUnit } = chainConfig();
 
   const formattedItems = props.items.map((x, i): { [key: string]: ReactNode } => {
     const status = getValidatorStatus(x.inActiveSet, x.jailed, x.tombstoned);
     const percentDisplay = x.inActiveSet
       ? `${numeral(x.votingPowerPercent).format('0.[00]')}%`
       : '0%';
-    const { exponent } = tokenUnits[votingPowerTokenUnit];
-    const content = numeral(x.votingPower / 10 ** exponent).format('0,0');
+    const content = numeral(x.votingPower).format('0,0');
 
     return {
       idx: `#${i + 1}`,

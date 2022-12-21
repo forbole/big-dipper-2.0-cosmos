@@ -1,3 +1,4 @@
+import chainConfig from '@/chainConfig';
 import { useValidatorsQuery, ValidatorsQuery } from '@/graphql/types/general_types';
 import type {
   ItemType,
@@ -9,6 +10,9 @@ import Big from 'big.js';
 import numeral from 'numeral';
 import * as R from 'ramda';
 import { ComponentProps, useCallback, useState } from 'react';
+
+const { tokenUnits, votingPowerTokenUnit } = chainConfig();
+const { exponent } = tokenUnits[votingPowerTokenUnit];
 
 export const useValidators = () => {
   const [search, setSearch] = useState('');
@@ -46,14 +50,16 @@ export const useValidators = () => {
   // ==========================
   const formatValidators = (data: ValidatorsQuery) => {
     const votingPowerOverall =
-      numeral(data?.stakingPool?.[0]?.bondedTokens ?? 0).value() ?? undefined;
+      (numeral(data?.stakingPool?.[0]?.bondedTokens ?? 0).value() ?? 0) / 10 ** exponent;
 
     let formattedItems = data.validator.map((x): ValidatorType => {
       const inActiveSetString = x?.validatorStatuses?.in_active_set ?? 'false';
       const jailedString = x?.validatorStatuses?.jailed ?? 'false';
       const tombstonedString = x?.validatorStatuses?.tombstoned ?? 'false';
-      const votingPower = x?.validatorVotingPowers?.[0]?.votingPower ?? 0;
-      const votingPowerPercent = numeral((votingPower / (votingPowerOverall ?? 0)) * 100).value();
+      const votingPower = (x?.validatorVotingPowers?.[0]?.votingPower ?? 0) / 10 ** exponent;
+      const votingPowerPercent = votingPowerOverall
+        ? numeral((votingPower / votingPowerOverall) * 100).value()
+        : 0;
 
       return {
         validator: x.selfDelegateAddress,
