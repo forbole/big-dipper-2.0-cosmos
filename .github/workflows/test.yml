@@ -35,23 +35,9 @@ jobs:
         run: |
           echo 'cache-directory=${{ github.workspace }}/node_modules' | tee -a $GITHUB_OUTPUT
 
-          echo 'cache-key=${{ format(
-            '{0}-{1}-{2}',
-            runner.os,
-            hashFiles('**/yarn.lock'),
-            hashFiles(
-              format('apps/{0}/**/*.[jt]s', matrix.project),
-              format('apps/{0}/**/*.[jt]sx', matrix.project),
-              'packages/**/*.[jt]s',
-              'packages/**/*.[jt]sx'
-            )
-          ) }}' | tee -a $GITHUB_OUTPUT
+          echo 'cache-key=${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}' | tee -a $GITHUB_OUTPUT
 
-          echo 'restore-keys=${{ format(
-            '{0}-{1}-',
-            runner.os,
-            hashFiles('**/yarn.lock')
-          ) }}' | tee -a $GITHUB_OUTPUT
+          echo 'restore-keys=${{ runner.os }}-' | tee -a $GITHUB_OUTPUT
       - uses: actions/cache@v3
         with:
           path: ${{ steps.vars.outputs.cache-directory }}
@@ -164,7 +150,13 @@ jobs:
       - uses: actions/cache@v3
         with:
           path: ${{ github.workspace }}/apps/${{ matrix.project }}/.next/cache
-          key: ${{ needs.install.outputs.cashe-key }}-${{ matrix.project }}
+          key: ${{ needs.install.outputs.cashe-key }}-${{ matrix.project }}-${{
+            hashFiles(
+              format('apps/{0}/**/*.[jt]s', matrix.project),
+              format('apps/{0}/**/*.[jt]sx', matrix.project),
+              'packages/**/*.[jt]s',
+              'packages/**/*.[jt]sx'
+            ) }}
           restore-keys: ${{ needs.install.outputs.restore-keys }}${{ matrix.project }}-
       - run: yarn install --immutable --immutable-cache
       - run: yarn build:ci --filter=${{ matrix.project }}
@@ -202,8 +194,14 @@ jobs:
       - uses: actions/cache@v3
         with:
           path: ${{ github.workspace }}/apps/${{ matrix.project }}/.next/cache
-          key: ${{ needs.install.outputs.cashe-key }}-${{ matrix.project }}
-          restore-keys: ${{ needs.install.outputs.restore-keys }}}${{ matrix.project }}-
+          key: ${{ needs.install.outputs.cashe-key }}-${{ matrix.project }}-${{
+            hashFiles(
+              format('apps/{0}/**/*.[jt]s', matrix.project),
+              format('apps/{0}/**/*.[jt]sx', matrix.project),
+              'packages/**/*.[jt]s',
+              'packages/**/*.[jt]sx'
+            ) }}
+          restore-keys: ${{ needs.install.outputs.restore-keys }}${{ matrix.project }}-
       - run: yarn install --immutable --immutable-cache
       - run: yarn build
         env:
