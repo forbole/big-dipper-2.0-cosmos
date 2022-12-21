@@ -32,7 +32,7 @@ const Desktop: React.FC<{
   const formattedItems = props.items.map((x, i): { [key: string]: ReactNode } => {
     const status = getValidatorStatus(x.inActiveSet, x.jailed, x.tombstoned);
     const percentDisplay = x.inActiveSet
-      ? `${numeral(x.votingPowerPercent).format('0.[00]')}%`
+      ? `${numeral(x.votingPowerPercent.toFixed(6)).format('0.[00]')}%`
       : '0%';
     const content = numeral(x.votingPower).format('0,0');
 
