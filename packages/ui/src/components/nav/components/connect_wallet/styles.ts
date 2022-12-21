@@ -97,6 +97,7 @@ const styles = makeStyles((theme) => ({
   dialog: {
     '& .MuiDialog-paper': {
       width: '330px',
+      backgroundColor: theme.palette.custom.wallet.backgroundTwo,
       [theme.breakpoints.up('md')]: {
         width: '600px',
       },

@@ -72,6 +72,7 @@ declare module '@material-ui/core/styles/createPalette' {
     };
     wallet: {
       background: string;
+      backgroundTwo: string;
       surfaceOne: string;
       surfaceTwo: string;
       surfaceThree: string;

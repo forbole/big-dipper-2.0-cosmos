@@ -113,6 +113,7 @@ export interface PaletteSettings {
     };
     wallet: {
       background?: string;
+      backgroundTwo?: string;
       surfaceOne: string;
       surfaceTwo: string;
       surfaceThree: string;
