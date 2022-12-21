@@ -27,8 +27,9 @@ jobs:
         env:
           PROJECTS: ${{ github.event.inputs.projects }}
         run: |
-          ALL=$(yarn workspaces list --json | jq -csr '[ .[].name | select(. | startswith("web") ) ]') node <<EOF | tee -a $GITHUB_OUTPUT $GITHUB_STEP_SUMMARY
-          const all = JSON.parse(process.env.ALL);
+          export ALL_PROJECTS=$(yarn workspaces list --json | jq -csr '[ .[].name | select(. | startswith("web") ) ]')
+          node <<EOF | tee -a $GITHUB_OUTPUT $GITHUB_STEP_SUMMARY
+          const all = JSON.parse(process.env.ALL_PROJECTS);
           const projects = process.env.PROJECTS === '*' ? null : process.env.PROJECTS.split(/,/).map(p => p.trim());
           console.log('projects=' + JSON.stringify(all.filter(a => !projects || projects.includes(a))));
           EOF
