@@ -16,6 +16,8 @@ defaults:
 jobs:
   install:
     runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.29.0-focal
     outputs:
       projects: ${{ steps.dry-run.outputs.projects }}
       cache-directory: ${{ steps.vars.outputs.cache-directory }}
@@ -58,6 +60,8 @@ jobs:
     if: ${{ success() && needs.install.outputs.projects != '[]' }}
     needs: install
     runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.29.0-focal
     strategy:
       fail-fast: false
       matrix:
@@ -77,12 +81,14 @@ jobs:
       - run: yarn install --immutable --immutable-cache
       - run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
-          yarn turbo run check-types --filter=${{ matrix.project }}
+          yarn turbo run check-types --filter=${{ matrix.project }} | tee -a $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
   lint:
     if: ${{ success() && needs.install.outputs.projects != '[]' }}
     needs: install
     runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.29.0-focal
     strategy:
       fail-fast: false
       matrix:
@@ -102,12 +108,14 @@ jobs:
       - run: yarn install --immutable --immutable-cache
       - run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
-          yarn turbo run lint --filter=${{ matrix.project }}
+          yarn turbo run lint --filter=${{ matrix.project }} | tee -a $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
   test:
     if: ${{ success() && needs.install.outputs.projects != '[]' }}
     needs: install
     runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.29.0-focal
     strategy:
       fail-fast: false
       matrix:
@@ -127,8 +135,7 @@ jobs:
       - run: yarn install --immutable --immutable-cache
       - run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
-          yarn test:ci --filter=${{ matrix.project }} -- --coverage |
-            tee -a $GITHUB_STEP_SUMMARY
+          yarn test:ci --filter=${{ matrix.project }} -- --coverage | tee -a $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
   build:
     if: ${{ success() && needs.install.outputs.projects != '[]' }}
@@ -138,6 +145,10 @@ jobs:
       matrix:
         project: ${{ fromJson(needs.install.outputs.projects) }}
     runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.29.0-focal
+    outputs:
+      next-cache-key: ${{ steps.vars.outputs.next-cache-key }}
     steps:
       - uses: actions/checkout@v3
       - run: corepack enable
@@ -150,19 +161,25 @@ jobs:
           path: ${{ needs.install.outputs.cache-directory }}
           key: ${{ needs.install.outputs.cashe-key }}
           restore-keys: ${{ needs.install.outputs.restore-keys }}
+      - run: |
+          echo 'next-cache-key=${{ needs.install.outputs.cashe-key }}-${{ matrix.project }}-${{
+          hashFiles(
+            format('apps/{0}/**/*.[jt]s', matrix.project),
+            format('apps/{0}/**/*.[jt]sx', matrix.project),
+            'packages/**/*.[jt]s',
+            'packages/**/*.[jt]sx'
+          ) }}' | tee -a $GITHUB_OUTPUT
+        id: vars
       - uses: actions/cache@v3
         with:
           path: ${{ github.workspace }}/apps/${{ matrix.project }}/.next/cache
-          key: ${{ needs.install.outputs.cashe-key }}-${{ matrix.project }}-${{
-            hashFiles(
-              format('apps/{0}/**/*.[jt]s', matrix.project),
-              format('apps/{0}/**/*.[jt]sx', matrix.project),
-              'packages/**/*.[jt]s',
-              'packages/**/*.[jt]sx'
-            ) }}
+          key: ${{ steps.vars.outputs.next-cache-key }}
           restore-keys: ${{ needs.install.outputs.restore-keys }}${{ matrix.project }}-
       - run: yarn install --immutable --immutable-cache
-      - run: yarn build:ci --filter=${{ matrix.project }}
+      - run: |
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          yarn build:ci --filter=${{ matrix.project }} | tee -a $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
   e2e:
     if: ${{ success() }}
     needs: [install, check-types, lint, test, build]
@@ -192,12 +209,12 @@ jobs:
       - uses: actions/cache@v3
         with:
           path: ${{ needs.install.outputs.cache-directory }}
-          key: ${{ needs.install.outputs.cashe-key }}
-          restore-keys: ${{ needs.install.outputs.restore-keys }}
+          key: ${{ needs.build.outputs.next-cache-key }}
+          restore-keys: ${{ needs.install.outputs.restore-keys }}${{ matrix.project }}-
       - uses: actions/cache@v3
         with:
           path: ${{ github.workspace }}/apps/${{ matrix.project }}/.next/cache
-          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}-${{ matrix.project }}-${{
+          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}-e2e-${{ matrix.project }}-${{
             hashFiles(
               format('apps/{0}/**/*.[jt]s', matrix.project),
               format('apps/{0}/**/*.[jt]sx', matrix.project),
@@ -211,7 +228,9 @@ jobs:
           PROJECT_NAME: ${{ matrix.project }}
       - run: |
           echo Trace can be view at https://trace.playwright.dev/ | tee -a $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
           yarn playwright test --project=${{ matrix.browser }} --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }} | tee -a $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
         env:
           PROJECT_NAME: ${{ matrix.project }}
           PLAYWRIGHT_HTML_REPORT: playwright-report/${{ matrix.browser }}/${{ matrix.shardIndex }}
