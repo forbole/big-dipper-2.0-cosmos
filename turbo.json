@@ -45,6 +45,7 @@
     "BUILD_STANDALONE",
     "NEXT_PUBLIC_CHAIN_TYPE",
     "NEXT_PUBLIC_SENTRY_DSN",
+    "npm_package_version",
     "PORT",
     "PROJECT_NAME",
     "SENTRY_AUTH_TOKEN",
