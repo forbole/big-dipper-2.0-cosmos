@@ -172,7 +172,7 @@ jobs:
     needs: [install, check-types, lint, test, build]
     runs-on: ubuntu-latest
     container:
-      image: mcr.microsoft.com/playwright:v1.28.1-focal
+      image: mcr.microsoft.com/playwright:v1.29.0-focal
     timeout-minutes: 30
     strategy:
       fail-fast: false
