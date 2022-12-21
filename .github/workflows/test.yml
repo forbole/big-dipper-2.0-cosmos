@@ -30,7 +30,7 @@ jobs:
         with:
           node-version: 18
           cache: 'yarn'
-      - name: Set needs.install.outputs.*
+      - name: Set needs.install.outputs.{cache-directory,cache-key,restore-keys}
         id: vars
         run: |
           echo 'cache-directory='$(
@@ -38,10 +38,9 @@ jobs:
           )'\n${{ github.workspace }}/node_modules' | tee -a $GITHUB_OUTPUT
 
           echo 'cache-key=${{ format(
-            '{0}-{1}-{2}-{3}',
+            '{0}-{1}-{2}',
             runner.os,
             hashFiles('**/yarn.lock'),
-            matrix.project,
             hashFiles(
               format('apps/{0}/**/*.[jt]s', matrix.project),
               format('apps/{0}/**/*.[jt]sx', matrix.project),
@@ -51,10 +50,9 @@ jobs:
           ) }}' | tee -a $GITHUB_OUTPUT
 
           echo 'restore-keys=${{ format(
-            '{0}-{1}-{2}-',
+            '{0}-{1}-',
             runner.os,
-            hashFiles('**/yarn.lock'),
-            matrix.project
+            hashFiles('**/yarn.lock')
           ) }}' | tee -a $GITHUB_OUTPUT
       - uses: actions/cache@v3
         with:
@@ -63,7 +61,7 @@ jobs:
           restore-keys: ${{ steps.vars.outputs.restore-keys }}
       - name: Install modules
         run: yarn install --immutable
-      - name: Set needs.install.outputs.*
+      - name: Set needs.install.outputs.projects
         id: dry-run
         run: |
           DRY_BUILD_JSON=$(
@@ -136,9 +134,11 @@ jobs:
           cache: 'yarn'
       - uses: actions/cache@v3
         with:
-          path: ${{ needs.install.outputs.cache-directory }}
-          key: ${{ needs.install.outputs.cashe-key }}
-          restore-keys: ${{ needs.install.outputs.restore-keys }}
+          path: |
+            ${{ needs.install.outputs.cache-directory }}
+            ${{ github.workspace }}/apps/${{ matrix.project }}/.next/cache
+          key: ${{ needs.install.outputs.cashe-key }}-${{ matrix.project } }}
+          restore-keys: ${{ needs.install.outputs.restore-keys }}${{ matrix.project } }}-
       - run: yarn install --immutable --immutable-cache
       - run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
@@ -165,8 +165,8 @@ jobs:
           path: |
             ${{ needs.install.outputs.cache-directory }}
             ${{ github.workspace }}/apps/${{ matrix.project }}/.next/cache
-          key: ${{ needs.install.outputs.cashe-key }}
-          restore-keys: ${{ needs.install.outputs.restore-keys }}
+          key: ${{ needs.install.outputs.cashe-key }}-${{ matrix.project } }}
+          restore-keys: ${{ needs.install.outputs.restore-keys }}${{ matrix.project } }}-
       - run: yarn install --immutable --immutable-cache
       - run: yarn build:ci --filter=${{ matrix.project }}
   e2e:
