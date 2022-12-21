@@ -117,6 +117,7 @@ export interface PaletteSettings {
       surfaceTwo: string;
       surfaceThree: string;
       surfaceFour: string;
+      surfaceFive: string;
       divider?: string;
       textPrimary?: string;
       textSecondary?: string;

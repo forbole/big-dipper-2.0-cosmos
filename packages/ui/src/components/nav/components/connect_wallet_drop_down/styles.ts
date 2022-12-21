@@ -40,6 +40,7 @@ const styles = makeStyles((theme) => ({
     fontSize: theme.spacing(2),
     fontWeight: 590,
     lineHeight: '20px',
+    color: theme.palette.custom.wallet.textSecondary,
   },
   walletAvatar: {
     padding: theme.spacing(2, 0, 0, 3),
@@ -53,15 +54,15 @@ const styles = makeStyles((theme) => ({
     color: theme.palette.custom.wallet.textPrimary,
   },
   walletAddress: {
-    color: theme.palette.custom.fonts.fontThree,
+    color: theme.palette.custom.wallet.surfaceFive,
   },
   divider: {
     margin: theme.spacing(1, 4.1, 1, 2),
-    color: theme.palette.custom.wallet.divider,
+    backgroundColor: theme.palette.custom.wallet.divider,
   },
   bottomDivider: {
     margin: theme.spacing(2.5, 0, 1.8, 0),
-    color: theme.palette.custom.wallet.divider,
+    backgroundColor: '#34383E',
   },
   copyIcon: {
     '&:hover': {
@@ -96,11 +97,12 @@ const styles = makeStyles((theme) => ({
   accountDetails: {
     verticalAlign: 'middle',
     display: 'inline-flex',
-    marginTop: theme.spacing(0.5),
+    marginTop: theme.spacing(0.7),
     marginLeft: theme.spacing(0.5),
     fontSize: '12px',
     lineHeight: '14px',
     fontWeight: 400,
+    color: '#222222',
   },
   blackDot: {
     height: theme.spacing(2),
@@ -144,6 +146,7 @@ const styles = makeStyles((theme) => ({
   },
   signOutButton: {
     border: '1px solid',
+    borderColor: theme.palette.custom.wallet.textSecondary,
     borderRadius: theme.spacing(3),
     '&:hover': {
       cursor: 'pointer',
@@ -164,6 +167,7 @@ const styles = makeStyles((theme) => ({
     strokeWidth: '1.6',
     strokeLinecap: 'round',
     strokeLinejoin: 'round',
+    marginRight: theme.spacing(0.5),
   },
   signOutLabel: {
     display: 'inline-flex',

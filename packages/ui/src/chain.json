@@ -101,7 +101,8 @@
           "surfaceTwo": "#D9D9D9",
           "surfaceThree": "#4D4D4D",
           "surfaceFour": "#414141",
-          "divider": "34383E",
+          "surfaceFive": "#777777",
+          "divider": "#34383E",
           "textPrimary": "#000000",
           "textSecondary": "#222222"
         }
@@ -194,7 +195,8 @@
           "surfaceTwo": "#346EEB",
           "surfaceThree": "#D334EB",
           "surfaceFour": "#A1A1A1",
-          "divider": "EB7D34",
+          "surfaceFive": "#777777",
+          "divider": "#34383E",
           "textPrimary": "#EB349C",
           "textSecondary": "#DDDDDD"
         }

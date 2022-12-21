@@ -76,6 +76,7 @@ declare module '@material-ui/core/styles/createPalette' {
       surfaceTwo: string;
       surfaceThree: string;
       surfaceFour: string;
+      surfaceFive: string;
       divider: string;
       textPrimary: string;
       textSecondary: string;
