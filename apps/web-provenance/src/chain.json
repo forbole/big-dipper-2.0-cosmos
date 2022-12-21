@@ -3,7 +3,8 @@
   "title": "Provenance Block Explorer",
   "extra": {
     "profile": true,
-    "graphqlWs": false
+    "graphqlWs": false,
+    "votingPowerExponent": 3
   },
   "previewImage": "https://s3.bigdipper.live/provenance.png",
   "themes": {

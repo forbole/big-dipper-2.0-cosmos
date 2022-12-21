@@ -11,8 +11,7 @@ import numeral from 'numeral';
 import * as R from 'ramda';
 import { ComponentProps, useCallback, useState } from 'react';
 
-const { tokenUnits, votingPowerTokenUnit } = chainConfig();
-const { exponent } = tokenUnits[votingPowerTokenUnit] ?? { exponent: 0 };
+const { extra } = chainConfig();
 
 export const useValidators = () => {
   const [search, setSearch] = useState('');
@@ -50,13 +49,15 @@ export const useValidators = () => {
   // ==========================
   const formatValidators = (data: ValidatorsQuery) => {
     const votingPowerOverall =
-      (numeral(data?.stakingPool?.[0]?.bondedTokens ?? 0).value() ?? 0) / 10 ** exponent;
+      (numeral(data?.stakingPool?.[0]?.bondedTokens ?? 0).value() ?? 0) /
+      10 ** (extra.votingPowerExponent ?? 0);
 
     let formattedItems = data.validator.map((x): ValidatorType => {
       const inActiveSetString = x?.validatorStatuses?.in_active_set ?? 'false';
       const jailedString = x?.validatorStatuses?.jailed ?? 'false';
       const tombstonedString = x?.validatorStatuses?.tombstoned ?? 'false';
-      const votingPower = (x?.validatorVotingPowers?.[0]?.votingPower ?? 0) / 10 ** exponent;
+      const votingPower =
+        (x?.validatorVotingPowers?.[0]?.votingPower ?? 0) / 10 ** (extra.votingPowerExponent ?? 0);
       const votingPowerPercent = votingPowerOverall
         ? numeral((votingPower / votingPowerOverall) * 100).value()
         : 0;
