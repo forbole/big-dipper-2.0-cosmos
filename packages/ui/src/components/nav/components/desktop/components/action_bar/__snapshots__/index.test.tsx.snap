@@ -49,6 +49,136 @@ exports[`screen: Nav/ActionBar displays network 1`] = `
       id="network"
       toggleNetwork={[MockFunction]}
     />
+    <div>
+      <div
+        aria-label="wallet-details-button"
+        className=""
+        onClick={[Function]}
+        role="button"
+        tabIndex={0}
+      >
+        <div
+          className="makeStyles-avatar makeStyles-root"
+        >
+          <svg
+            data-jdenticon-value=""
+            height="100%"
+            width="100%"
+          />
+        </div>
+      </div>
+      <div
+        className="makeStyles-networkList makeStyles-root makeStyles-root"
+      >
+        <div
+          className="makeStyles-walletDetails"
+        >
+          <div
+            className="makeStyles-walletInfo"
+          >
+            <div
+              className="makeStyles-walletAvatar"
+            >
+              <div
+                className="makeStyles-avatar makeStyles-root"
+              >
+                <svg
+                  data-jdenticon-value="desmos13yp2fq3tslq6mmtq4628q38xzj75ethzela9uu"
+                  height="100%"
+                  width="100%"
+                />
+              </div>
+              <div
+                className="makeStyles-whiteDot"
+              />
+              <div
+                className="makeStyles-greenDot"
+              />
+            </div>
+            <div
+              className="makeStyles-walletLabel"
+            >
+              Wallet 3
+              <div>
+                <span
+                  className="MuiTypography-root makeStyles-walletAddress MuiTypography-caption"
+                >
+                  desmos13y...9uu
+                </span>
+                <svg
+                  className="makeStyles-copyIcon"
+                  onClick={[Function]}
+                />
+              </div>
+            </div>
+          </div>
+          <hr
+            className="MuiDivider-root makeStyles-divider"
+          />
+          <div
+            aria-label="account-details-button"
+            className="makeStyles-accountDetailsButton"
+            onClick={[Function]}
+            role="button"
+            tabIndex={0}
+          >
+            <div
+              className="makeStyles-accountDetailsLabel"
+            >
+              <div
+                className="makeStyles-blackDot"
+              />
+              <div
+                className="makeStyles-accountDetails"
+              >
+                accountDetails
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          aria-label="change-wallet-button"
+          className="makeStyles-changeWalletButton"
+          onClick={[Function]}
+          role="button"
+          tabIndex={0}
+        >
+          <div
+            className="makeStyles-changeWalletButtonLabel"
+          >
+            changeWallet
+          </div>
+        </div>
+        <hr
+          className="MuiDivider-root makeStyles-bottomDivider"
+        />
+        <div
+          className="makeStyles-signOut"
+        >
+          <div
+            aria-label="sign-out-button"
+            className="makeStyles-signOutButton"
+            onClick={[Function]}
+            role="button"
+            tabIndex={0}
+          >
+            <div
+              className="makeStyles-signOutLabel"
+            >
+              <svg
+                className="makeStyles-signOutIcon"
+                onClick={[Function]}
+              />
+              <div
+                className="makeStyles-signOutText"
+              >
+                signOut
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div
       id="SettingsList"
     />
@@ -121,6 +251,136 @@ exports[`screen: Nav/ActionBar it renders 1`] = `
       id="network"
       toggleNetwork={[MockFunction]}
     />
+    <div>
+      <div
+        aria-label="wallet-details-button"
+        className=""
+        onClick={[Function]}
+        role="button"
+        tabIndex={0}
+      >
+        <div
+          className="makeStyles-avatar makeStyles-root"
+        >
+          <svg
+            data-jdenticon-value=""
+            height="100%"
+            width="100%"
+          />
+        </div>
+      </div>
+      <div
+        className="makeStyles-networkList makeStyles-root makeStyles-root"
+      >
+        <div
+          className="makeStyles-walletDetails"
+        >
+          <div
+            className="makeStyles-walletInfo"
+          >
+            <div
+              className="makeStyles-walletAvatar"
+            >
+              <div
+                className="makeStyles-avatar makeStyles-root"
+              >
+                <svg
+                  data-jdenticon-value="desmos13yp2fq3tslq6mmtq4628q38xzj75ethzela9uu"
+                  height="100%"
+                  width="100%"
+                />
+              </div>
+              <div
+                className="makeStyles-whiteDot"
+              />
+              <div
+                className="makeStyles-greenDot"
+              />
+            </div>
+            <div
+              className="makeStyles-walletLabel"
+            >
+              Wallet 3
+              <div>
+                <span
+                  className="MuiTypography-root makeStyles-walletAddress MuiTypography-caption"
+                >
+                  desmos13y...9uu
+                </span>
+                <svg
+                  className="makeStyles-copyIcon"
+                  onClick={[Function]}
+                />
+              </div>
+            </div>
+          </div>
+          <hr
+            className="MuiDivider-root makeStyles-divider"
+          />
+          <div
+            aria-label="account-details-button"
+            className="makeStyles-accountDetailsButton"
+            onClick={[Function]}
+            role="button"
+            tabIndex={0}
+          >
+            <div
+              className="makeStyles-accountDetailsLabel"
+            >
+              <div
+                className="makeStyles-blackDot"
+              />
+              <div
+                className="makeStyles-accountDetails"
+              >
+                accountDetails
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          aria-label="change-wallet-button"
+          className="makeStyles-changeWalletButton"
+          onClick={[Function]}
+          role="button"
+          tabIndex={0}
+        >
+          <div
+            className="makeStyles-changeWalletButtonLabel"
+          >
+            changeWallet
+          </div>
+        </div>
+        <hr
+          className="MuiDivider-root makeStyles-bottomDivider"
+        />
+        <div
+          className="makeStyles-signOut"
+        >
+          <div
+            aria-label="sign-out-button"
+            className="makeStyles-signOutButton"
+            onClick={[Function]}
+            role="button"
+            tabIndex={0}
+          >
+            <div
+              className="makeStyles-signOutLabel"
+            >
+              <svg
+                className="makeStyles-signOutIcon"
+                onClick={[Function]}
+              />
+              <div
+                className="makeStyles-signOutText"
+              >
+                signOut
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div
       id="SettingsList"
     />

@@ -3,7 +3,6 @@
 exports[`component: CustomToolTip matches snapshot 1`] = `
 <div
   className="recharts-wrapper"
-  role="region"
   style={
     {
       "cursor": "default",
@@ -38,13 +37,11 @@ exports[`component: CustomToolTip matches snapshot 1`] = `
     </defs>
     <g
       className="recharts-layer recharts-pie"
-      tabIndex={0}
     >
       <g
         className="recharts-layer recharts-pie-sector"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
-        tabIndex={-1}
       >
         <path
           className="recharts-sector"
@@ -57,16 +54,13 @@ exports[`component: CustomToolTip matches snapshot 1`] = `
   L 100,95 Z"
           fill="#5451CB"
           name={0}
-          role="img"
           stroke="none"
-          tabIndex={-1}
         />
       </g>
       <g
         className="recharts-layer recharts-pie-sector"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
-        tabIndex={-1}
       >
         <path
           className="recharts-sector"
@@ -79,16 +73,13 @@ exports[`component: CustomToolTip matches snapshot 1`] = `
   L 100,95 Z"
           fill="#773CAA"
           name={1}
-          role="img"
           stroke="none"
-          tabIndex={-1}
         />
       </g>
       <g
         className="recharts-layer recharts-pie-sector"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
-        tabIndex={-1}
       >
         <path
           className="recharts-sector"
@@ -101,9 +92,7 @@ exports[`component: CustomToolTip matches snapshot 1`] = `
   L 100,95 Z"
           fill="CA4D4D"
           name={2}
-          role="img"
           stroke="none"
-          tabIndex={-1}
         />
       </g>
     </g>
