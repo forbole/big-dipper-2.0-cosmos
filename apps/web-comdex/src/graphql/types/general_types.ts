@@ -21,7 +21,6 @@ export type Scalars = {
   _coin: any;
   _dec_coin: any;
   _text: any;
-  access_config: any;
   bigint: any;
   bytea: any;
   jsonb: any;
@@ -165,19 +164,6 @@ export type _Text_Comparison_Exp = {
   _lte?: InputMaybe<Scalars['_text']>;
   _neq?: InputMaybe<Scalars['_text']>;
   _nin?: InputMaybe<Array<Scalars['_text']>>;
-};
-
-/** Boolean expression to compare columns of type "access_config". All fields are combined with logical 'AND'. */
-export type Access_Config_Comparison_Exp = {
-  _eq?: InputMaybe<Scalars['access_config']>;
-  _gt?: InputMaybe<Scalars['access_config']>;
-  _gte?: InputMaybe<Scalars['access_config']>;
-  _in?: InputMaybe<Array<Scalars['access_config']>>;
-  _is_null?: InputMaybe<Scalars['Boolean']>;
-  _lt?: InputMaybe<Scalars['access_config']>;
-  _lte?: InputMaybe<Scalars['access_config']>;
-  _neq?: InputMaybe<Scalars['access_config']>;
-  _nin?: InputMaybe<Array<Scalars['access_config']>>;
 };
 
 /** columns and relationships of "account" */
@@ -11370,12 +11356,18 @@ export type Wasm_Code = {
   byte_code: Scalars['bytea'];
   code_id: Scalars['bigint'];
   height: Scalars['bigint'];
-  instantiate_permission?: Maybe<Scalars['access_config']>;
+  instantiate_permission?: Maybe<Scalars['jsonb']>;
   sender?: Maybe<Scalars['String']>;
   /** An array relationship */
   wasm_contracts: Array<Wasm_Contract>;
   /** An aggregate relationship */
   wasm_contracts_aggregate: Wasm_Contract_Aggregate;
+};
+
+
+/** columns and relationships of "wasm_code" */
+export type Wasm_CodeInstantiate_PermissionArgs = {
+  path?: InputMaybe<Scalars['String']>;
 };
 
 
@@ -11443,7 +11435,7 @@ export type Wasm_Code_Bool_Exp = {
   byte_code?: InputMaybe<Bytea_Comparison_Exp>;
   code_id?: InputMaybe<Bigint_Comparison_Exp>;
   height?: InputMaybe<Bigint_Comparison_Exp>;
-  instantiate_permission?: InputMaybe<Access_Config_Comparison_Exp>;
+  instantiate_permission?: InputMaybe<Jsonb_Comparison_Exp>;
   sender?: InputMaybe<String_Comparison_Exp>;
   wasm_contracts?: InputMaybe<Wasm_Contract_Bool_Exp>;
 };
@@ -12110,11 +12102,15 @@ export type Wasm_Execute_Contract_Variance_Order_By = {
 /** columns and relationships of "wasm_params" */
 export type Wasm_Params = {
   __typename?: 'wasm_params';
-  code_upload_access: Scalars['access_config'];
   height: Scalars['bigint'];
-  instantiate_default_permission: Scalars['Int'];
-  max_wasm_code_size: Scalars['Int'];
   one_row_id: Scalars['Boolean'];
+  params: Scalars['jsonb'];
+};
+
+
+/** columns and relationships of "wasm_params" */
+export type Wasm_ParamsParamsArgs = {
+  path?: InputMaybe<Scalars['String']>;
 };
 
 /** aggregated selection of "wasm_params" */
@@ -12151,8 +12147,6 @@ export type Wasm_Params_Aggregate_FieldsCountArgs = {
 export type Wasm_Params_Avg_Fields = {
   __typename?: 'wasm_params_avg_fields';
   height?: Maybe<Scalars['Float']>;
-  instantiate_default_permission?: Maybe<Scalars['Float']>;
-  max_wasm_code_size?: Maybe<Scalars['Float']>;
 };
 
 /** Boolean expression to filter rows from the table "wasm_params". All fields are combined with a logical 'AND'. */
@@ -12160,106 +12154,80 @@ export type Wasm_Params_Bool_Exp = {
   _and?: InputMaybe<Array<Wasm_Params_Bool_Exp>>;
   _not?: InputMaybe<Wasm_Params_Bool_Exp>;
   _or?: InputMaybe<Array<Wasm_Params_Bool_Exp>>;
-  code_upload_access?: InputMaybe<Access_Config_Comparison_Exp>;
   height?: InputMaybe<Bigint_Comparison_Exp>;
-  instantiate_default_permission?: InputMaybe<Int_Comparison_Exp>;
-  max_wasm_code_size?: InputMaybe<Int_Comparison_Exp>;
   one_row_id?: InputMaybe<Boolean_Comparison_Exp>;
+  params?: InputMaybe<Jsonb_Comparison_Exp>;
 };
 
 /** aggregate max on columns */
 export type Wasm_Params_Max_Fields = {
   __typename?: 'wasm_params_max_fields';
   height?: Maybe<Scalars['bigint']>;
-  instantiate_default_permission?: Maybe<Scalars['Int']>;
-  max_wasm_code_size?: Maybe<Scalars['Int']>;
 };
 
 /** aggregate min on columns */
 export type Wasm_Params_Min_Fields = {
   __typename?: 'wasm_params_min_fields';
   height?: Maybe<Scalars['bigint']>;
-  instantiate_default_permission?: Maybe<Scalars['Int']>;
-  max_wasm_code_size?: Maybe<Scalars['Int']>;
 };
 
 /** Ordering options when selecting data from "wasm_params". */
 export type Wasm_Params_Order_By = {
-  code_upload_access?: InputMaybe<Order_By>;
   height?: InputMaybe<Order_By>;
-  instantiate_default_permission?: InputMaybe<Order_By>;
-  max_wasm_code_size?: InputMaybe<Order_By>;
   one_row_id?: InputMaybe<Order_By>;
+  params?: InputMaybe<Order_By>;
 };
 
 /** select columns of table "wasm_params" */
 export enum Wasm_Params_Select_Column {
   /** column name */
-  CodeUploadAccess = 'code_upload_access',
-  /** column name */
   Height = 'height',
   /** column name */
-  InstantiateDefaultPermission = 'instantiate_default_permission',
+  OneRowId = 'one_row_id',
   /** column name */
-  MaxWasmCodeSize = 'max_wasm_code_size',
-  /** column name */
-  OneRowId = 'one_row_id'
+  Params = 'params'
 }
 
 /** aggregate stddev on columns */
 export type Wasm_Params_Stddev_Fields = {
   __typename?: 'wasm_params_stddev_fields';
   height?: Maybe<Scalars['Float']>;
-  instantiate_default_permission?: Maybe<Scalars['Float']>;
-  max_wasm_code_size?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate stddev_pop on columns */
 export type Wasm_Params_Stddev_Pop_Fields = {
   __typename?: 'wasm_params_stddev_pop_fields';
   height?: Maybe<Scalars['Float']>;
-  instantiate_default_permission?: Maybe<Scalars['Float']>;
-  max_wasm_code_size?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate stddev_samp on columns */
 export type Wasm_Params_Stddev_Samp_Fields = {
   __typename?: 'wasm_params_stddev_samp_fields';
   height?: Maybe<Scalars['Float']>;
-  instantiate_default_permission?: Maybe<Scalars['Float']>;
-  max_wasm_code_size?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate sum on columns */
 export type Wasm_Params_Sum_Fields = {
   __typename?: 'wasm_params_sum_fields';
   height?: Maybe<Scalars['bigint']>;
-  instantiate_default_permission?: Maybe<Scalars['Int']>;
-  max_wasm_code_size?: Maybe<Scalars['Int']>;
 };
 
 /** aggregate var_pop on columns */
 export type Wasm_Params_Var_Pop_Fields = {
   __typename?: 'wasm_params_var_pop_fields';
   height?: Maybe<Scalars['Float']>;
-  instantiate_default_permission?: Maybe<Scalars['Float']>;
-  max_wasm_code_size?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate var_samp on columns */
 export type Wasm_Params_Var_Samp_Fields = {
   __typename?: 'wasm_params_var_samp_fields';
   height?: Maybe<Scalars['Float']>;
-  instantiate_default_permission?: Maybe<Scalars['Float']>;
-  max_wasm_code_size?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate variance on columns */
 export type Wasm_Params_Variance_Fields = {
   __typename?: 'wasm_params_variance_fields';
   height?: Maybe<Scalars['Float']>;
-  instantiate_default_permission?: Maybe<Scalars['Float']>;
-  max_wasm_code_size?: Maybe<Scalars['Float']>;
 };
 
 export type AccountCommissionQueryVariables = Exact<{
