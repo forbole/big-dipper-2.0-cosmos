@@ -76,13 +76,13 @@ jobs:
       - name: Install modules
         run: yarn install --immutable
   check-types:
-    if: ${{ success() && needs.check-cache.outputs.projects != '[]' }}
-    needs: check-cache
+    if: ${{ success() && needs.install.outputs.projects != '[]' }}
+    needs: install
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        project: ${{ fromJson(needs.check-cache.outputs.projects) }}
+        project: ${{ fromJson(needs.install.outputs.projects) }}
     steps:
       - uses: actions/checkout@v3
       - run: corepack enable
@@ -98,13 +98,13 @@ jobs:
       - run: yarn install --immutable --immutable-cache
       - run: yarn turbo run check-types --filter=${{ matrix.project }}
   lint:
-    if: ${{ success() && needs.check-cache.outputs.projects != '[]' }}
-    needs: check-cache
+    if: ${{ success() && needs.install.outputs.projects != '[]' }}
+    needs: install
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        project: ${{ fromJson(needs.check-cache.outputs.projects) }}
+        project: ${{ fromJson(needs.install.outputs.projects) }}
     steps:
       - uses: actions/checkout@v3
       - run: corepack enable
@@ -120,13 +120,13 @@ jobs:
       - run: yarn install --immutable --immutable-cache
       - run: yarn turbo run lint --filter=${{ matrix.project }}
   test:
-    if: ${{ success() && needs.check-cache.outputs.projects != '[]' }}
-    needs: check-cache
+    if: ${{ success() && needs.install.outputs.projects != '[]' }}
+    needs: install
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        project: ${{ fromJson(needs.check-cache.outputs.projects) }}
+        project: ${{ fromJson(needs.install.outputs.projects) }}
     steps:
       - uses: actions/checkout@v3
       - run: corepack enable
@@ -146,12 +146,12 @@ jobs:
             tee -a $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
   build:
-    if: ${{ success() && needs.check-cache.outputs.projects != '[]' }}
-    needs: check-cache
+    if: ${{ success() && needs.install.outputs.projects != '[]' }}
+    needs: install
     strategy:
       fail-fast: false
       matrix:
-        project: ${{ fromJson(needs.check-cache.outputs.projects) }}
+        project: ${{ fromJson(needs.install.outputs.projects) }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -171,7 +171,7 @@ jobs:
       - run: yarn build:ci --filter=${{ matrix.project }}
   e2e:
     if: ${{ success() }}
-    needs: [check-cache, check-types, lint, test, build]
+    needs: [install, check-types, lint, test, build]
     runs-on: ubuntu-latest
     container:
       image: mcr.microsoft.com/playwright:v1.28.1-focal
@@ -179,7 +179,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        project: ${{ fromJson(needs.check-cache.outputs.projects) }}
+        project: ${{ fromJson(needs.install.outputs.projects) }}
         os:
           - chromium
           # - firefox
