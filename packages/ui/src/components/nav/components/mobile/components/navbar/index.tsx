@@ -43,7 +43,7 @@ const Navbar = (props: NavbarProps) => {
           <ExpandMore fontSize="small" />
         </div>
         {/* =================================== */}
-        {/* Wallet Drop Down */}
+        {/* Wallet Details */}
         {/* =================================== */}
         <WalletDetails />
         {/* =================================== */}
