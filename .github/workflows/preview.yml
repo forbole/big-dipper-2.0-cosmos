@@ -2,7 +2,7 @@ name: Preview
 on:
   workflow_dispatch:
     inputs:
-       project_name:
+       projects:
         description: "Project to publish (to Vercel)"
         required: true
        chain_type:
@@ -28,11 +28,7 @@ jobs:
           export ALL_PROJECTS=$(yarn workspaces list --json | jq -csr '[ .[].name | select(. | startswith("web") ) ]')
           node <<EOF | tee -a $GITHUB_OUTPUT $GITHUB_STEP_SUMMARY
           const allProjects = JSON.parse(process.env.ALL_PROJECTS);
-          console.log('test_allProjects=' + JSON.stringify(allProjects));
           const projects = process.env.PROJECTS === '*' ? null : process.env.PROJECTS.split(/,/).map(p => p.trim()).filter(p => p);
-          console.log('test_projects1=${{ github.event.inputs.projects }}');
-          console.log('test_projects2=' + process.env.PROJECTS);
-          console.log('test_projects=' + JSON.stringify(projects));
           console.log('projects=' + JSON.stringify(allProjects.filter(a => !projects || projects.includes(a))));
           EOF
         env:
