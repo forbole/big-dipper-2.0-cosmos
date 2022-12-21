@@ -34,7 +34,7 @@ jobs:
         id: vars
         run: |
           echo 'cache-directory='$(
-            npx jest --showConfig | jq -cr '.configs[0].cache-directory'
+            yarn dlx jest --showConfig | jq -cr '.configs[0].cache-directory'
           )'\n${{ github.workspace }}/node_modules' | tee -a $GITHUB_OUTPUT
 
           echo 'cache-key=${{ format(
