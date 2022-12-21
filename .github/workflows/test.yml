@@ -47,7 +47,7 @@ jobs:
 
           echo 'cacheDirectory='$(
             npx jest --showConfig | jq -cr '.configs[0].cacheDirectory'
-          ) | tee -a $GITHUB_OUTPUT"
+          ) | tee -a $GITHUB_OUTPUT
   ui:
     if: ${{ success() && contains(fromJSON(needs.install.outputs.projects), 'ui') }}
     needs: install
