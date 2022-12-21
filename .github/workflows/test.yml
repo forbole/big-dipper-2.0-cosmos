@@ -78,7 +78,7 @@ jobs:
           path: ${{ needs.install.outputs.cache-directory }}
           key: ${{ needs.install.outputs.cashe-key }}
           restore-keys: ${{ needs.install.outputs.restore-keys }}
-      - run: yarn install --immutable --immutable-cache
+      - run: yarn install --immutable
       - run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
           yarn turbo run check-types --filter=${{ matrix.project }} | tee -a $GITHUB_STEP_SUMMARY
@@ -105,7 +105,7 @@ jobs:
           path: ${{ needs.install.outputs.cache-directory }}
           key: ${{ needs.install.outputs.cashe-key }}
           restore-keys: ${{ needs.install.outputs.restore-keys }}
-      - run: yarn install --immutable --immutable-cache
+      - run: yarn install --immutable
       - run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
           yarn turbo run lint --filter=${{ matrix.project }} | tee -a $GITHUB_STEP_SUMMARY
@@ -132,7 +132,7 @@ jobs:
           path: ${{ needs.install.outputs.cache-directory }}
           key: ${{ needs.install.outputs.cashe-key }}
           restore-keys: ${{ needs.install.outputs.restore-keys }}
-      - run: yarn install --immutable --immutable-cache
+      - run: yarn install --immutable
       - run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
           yarn test:ci --filter=${{ matrix.project }} -- --coverage | tee -a $GITHUB_STEP_SUMMARY
@@ -175,7 +175,7 @@ jobs:
           path: ${{ github.workspace }}/apps/${{ matrix.project }}/.next/cache
           key: ${{ steps.vars.outputs.next-cache-key }}
           restore-keys: ${{ needs.install.outputs.restore-keys }}${{ matrix.project }}-
-      - run: yarn install --immutable --immutable-cache
+      - run: yarn install --immutable
       - run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
           yarn build:ci --filter=${{ matrix.project }} | tee -a $GITHUB_STEP_SUMMARY
@@ -209,20 +209,14 @@ jobs:
       - uses: actions/cache@v3
         with:
           path: ${{ needs.install.outputs.cache-directory }}
-          key: ${{ needs.build.outputs.next-cache-key }}
-          restore-keys: ${{ needs.install.outputs.restore-keys }}${{ matrix.project }}-
+          key: ${{ needs.install.outputs.cashe-key }}
+          restore-keys: ${{ needs.install.outputs.restore-keys }}
       - uses: actions/cache@v3
         with:
           path: ${{ github.workspace }}/apps/${{ matrix.project }}/.next/cache
-          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}-e2e-${{ matrix.project }}-${{
-            hashFiles(
-              format('apps/{0}/**/*.[jt]s', matrix.project),
-              format('apps/{0}/**/*.[jt]sx', matrix.project),
-              'packages/**/*.[jt]s',
-              'packages/**/*.[jt]sx'
-            ) }}
+          key: ${{ needs.build.outputs.next-cache-key }}
           restore-keys: ${{ needs.install.outputs.restore-keys }}${{ matrix.project }}-
-      - run: yarn install --immutable --immutable-cache
+      - run: yarn install --immutable
       - run: yarn build
         env:
           PROJECT_NAME: ${{ matrix.project }}
