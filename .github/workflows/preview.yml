@@ -25,12 +25,17 @@ jobs:
       - name: steps.vars.outputs.projects
         id: vars
         run: |
-          ALL_PROJECTS=$(yarn workspaces list --json | jq -csr '[ .[].name | select(. | startswith("web") ) ]') PROJECTS=${{ github.event.inputs.projects }} node <<EOF | tee -a $GITHUB_OUTPUT $GITHUB_STEP_SUMMARY
+          export ALL_PROJECTS=$(yarn workspaces list --json | jq -csr '[ .[].name | select(. | startswith("web") ) ]')
+          node <<EOF | tee -a $GITHUB_OUTPUT $GITHUB_STEP_SUMMARY
           const allProjects = JSON.parse(process.env.ALL_PROJECTS);
           console.log('test_allProjects=' + JSON.stringify(allProjects));
           const projects = process.env.PROJECTS === '*' ? null : process.env.PROJECTS.split(/,/).map(p => p.trim()).filter(p => p);
+          console.log('test_projects2=' + process.env.PROJECTS);
+          console.log('test_projects=' + JSON.stringify(projects));
           console.log('projects=' + JSON.stringify(allProjects.filter(a => !projects || projects.includes(a))));
           EOF
+        env:
+          PROJECTS: ${{ github.event.inputs.projects }}
   publish:
     runs-on: ubuntu-latest
     needs: validate
@@ -47,7 +52,7 @@ jobs:
         id: vars
         run: |
           # assign chain_type
-          PROJECT_NAME=${{ matrix.project }} NEXT_PUBLIC_CHAIN_TYPE=${{ github.event.inputs.chain_type }} node <<EOF | tee -a $GITHUB_OUTPUT
+          node <<EOF | tee -a $GITHUB_OUTPUT
           const chainType = process.env.NEXT_PUBLIC_CHAIN_TYPE?.toLowerCase() || 'mainnet';
           const chainJson = require('./apps/' + process.env.PROJECT_NAME + '/src/chain.json');
           const { chains, ...settings } = chainJson;
@@ -58,11 +63,14 @@ jobs:
           if (!chain) [chain] = chains;
           console.log('chain_type=' + (chain?.chainType?.toLowerCase() || 'mainnet'));
           EOF
+        env:
+          PROJECT_NAME: ${{ matrix.project }}
+          NEXT_PUBLIC_CHAIN_TYPE: ${{ github.event.inputs.chain_type }}
       - name: Insall Vercel CLI
         run: npm i -g vercel
       - name: Generate vercel.json
         run: |
-          PROJECT_NAME=${{ matrix.project }} NEXT_PUBLIC_CHAIN_TYPE:=${{ steps.vars.outputs.chain_type }} BASE_PATH=${{ github.event.inputs.base_path }} node <<EOF > vercel.json
+          node <<EOF > vercel.json
           const projectName = process.env.PROJECT_NAME || 'web';
           const chainType = process.env.NEXT_PUBLIC_CHAIN_TYPE?.toLowerCase() || 'mainnet';
           const config = {
@@ -79,9 +87,13 @@ jobs:
           };
           console.log(JSON.stringify(config, null, 2));
           EOF
-      - name: Deploy preview to Vercel
         env:
-            VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-            VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-            VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+          PROJECT_NAME: ${{ matrix.project }}
+          NEXT_PUBLIC_CHAIN_TYPE: ${{ steps.vars.outputs.chain_type }}
+          BASE_PATH: ${{ github.event.inputs.base_path }}
+      - name: Deploy preview to Vercel
         run: vercel -t ${{ secrets.VERCEL_TOKEN }} | tee -a $GITHUB_STEP_SUMMARY
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
