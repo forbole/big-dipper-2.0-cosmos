@@ -41,6 +41,7 @@ jobs:
     name: Publish ${{ matrix.project }}
     env:
         PROJECT_NAME: ${{ matrix.project }}
+        BASE_PATH: ${{ github.event.inputs.base_path }}
         NEXT_PUBLIC_CHAIN_TYPE: ${{ github.event.inputs.chain_type }}
         VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
@@ -59,22 +60,22 @@ jobs:
       - name: Generate vercel.json
         if: ${{ steps.vars.outputs.valid == 'yes' }}
         run: |
-          node <<EOF
-          const { writeFileSync } = require('fs');
+          node <<EOF > vercel.json
           const projectName = process.env.PROJECT_NAME || 'web';
           const chainType = process.env.NEXT_PUBLIC_CHAIN_TYPE?.toLowerCase() || 'mainnet';
           const config = {
-            buildCommand: 'NEXT_PUBLIC_CHAIN_TYPE=' + chainType + ' BASE_PATH=${{ github.event.inputs.base_path }} yarn turbo run build --filter=' + projectName + '...',
+            buildCommand: 'NEXT_PUBLIC_CHAIN_TYPE=' + chainType + ' BASE_PATH=' + process.env.BASE_PATH +
+              ' yarn turbo run build --filter=' + projectName + '...',
             outputDirectory: 'apps/' + projectName + '/.next',
             installCommand: 'yarn workspaces focus --production ' + projectName + ' && yarn add typescript -D',
             devCommand: 'yarn turbo run dev --filter=' + projectName + '...',
             framework: 'nextjs',
             ignoreCommand: 'echo always build && exit 1',
-            redirects: "${{ github.event.inputs.base_path }}" !== "/" && /^web-/.test(projectName)
+            redirects: process.env.BASE_PATH !== "/" && /^web-/.test(projectName)
               ? [{ source: '/', destination: '/' + projectName.replace(/^web-/, '') }]
               : [],
           };
-          writeFileSync('vercel.json', JSON.stringify(config, null, 2));
+          console.log(JSON.stringify(config, null, 2));
           EOF
       - name: Deploy preview to Vercel
         if: ${{ steps.vars.outputs.valid == 'yes' }}
