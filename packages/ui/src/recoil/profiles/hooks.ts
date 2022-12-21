@@ -13,6 +13,8 @@ import { getProfile } from '@/recoil/profiles/utils';
 import { useEffect } from 'react';
 import { useRecoilCallback, useRecoilValue } from 'recoil';
 
+const { extra } = chainConfig();
+
 /**
  * Accepts a delegator address and returns the appropriate profile
  * @param address
@@ -38,7 +40,7 @@ export const useProfileRecoil = (address: string): AvatarName => {
   });
 
   useEffect(() => {
-    if (chainConfig().extra.profile && delegatorAddress && rawProfile === null) {
+    if (extra.profile && delegatorAddress && rawProfile === null) {
       fetchProfile();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -80,7 +82,7 @@ export const useProfilesRecoil = (addresses: string[]): AvatarName[] => {
   });
 
   useEffect(() => {
-    if (chainConfig().extra.profile) {
+    if (extra.profile) {
       fetchProfiles();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

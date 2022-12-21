@@ -5,11 +5,9 @@ import useTranslation from 'next-translate/useTranslation';
 
 import { useEffect } from 'react';
 
-const matomoUrls = [process.env.NEXT_PUBLIC_MATOMO_URL, chainConfig().marketing.matomoURL];
-const matomoSiteIds = [
-  process.env.NEXT_PUBLIC_MATOMO_SITE_ID,
-  chainConfig().marketing.matomoSiteID,
-];
+const { marketing } = chainConfig();
+const matomoUrls = [process.env.NEXT_PUBLIC_MATOMO_URL, marketing.matomoURL];
+const matomoSiteIds = [process.env.NEXT_PUBLIC_MATOMO_SITE_ID, marketing.matomoSiteID];
 
 export const useApp = () => {
   // ==========================

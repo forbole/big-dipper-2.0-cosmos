@@ -5,6 +5,8 @@ import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import { useCallback, useEffect, useState } from 'react';
 
+const { extra, prefix } = chainConfig();
+
 const initialState: ProfileDetailState = {
   loading: true,
   exists: true,
@@ -39,7 +41,7 @@ export const useProfileDetails = () => {
   const shouldShowProfile = useCallback(() => {
     const dtagConnections = state.desmosProfile?.connections ?? [];
     const dtagConnectionsNetwork = dtagConnections.map((x) => x.identifier);
-    const chainPrefix = chainConfig().prefix.account;
+    const chainPrefix = prefix.account;
     const containNetwork = dtagConnectionsNetwork.some((x) => x.startsWith(chainPrefix));
     return !!containNetwork;
   }, [state.desmosProfile?.connections]);
@@ -49,7 +51,7 @@ export const useProfileDetails = () => {
   useEffect(() => {
     const regex = /^@/;
     const regexCheck = regex.test(profileDtag);
-    const configProfile = chainConfig().extra.profile;
+    const configProfile = extra.profile;
     handleSetState(initialState);
 
     if (!regexCheck || !configProfile) {

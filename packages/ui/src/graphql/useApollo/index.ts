@@ -5,7 +5,7 @@ import {
   HttpLink,
   InMemoryCache,
   NormalizedCacheObject,
-  split
+  split,
 } from '@apollo/client';
 import { GraphQLWsLink } from '@apollo/client/link/subscriptions';
 import { WebSocketLink } from '@apollo/client/link/ws';
@@ -15,15 +15,17 @@ import { createClient } from 'graphql-ws';
 import webSocketImpl from 'isomorphic-ws';
 import { useEffect, useState } from 'react';
 
+const { endpoints, extra } = chainConfig();
+
 /* Checking if the code is running on the server or the client. */
 const ssrMode = typeof window === 'undefined';
 
 /* A global variable that stores the Apollo Client. */
 let globalApolloClient: ApolloClient<NormalizedCacheObject>;
 
-const urls = [process.env.NEXT_PUBLIC_GRAPHQL_URL, chainConfig().endpoints.graphql];
+const urls = [process.env.NEXT_PUBLIC_GRAPHQL_URL, endpoints.graphql];
 
-const wss = [process.env.NEXT_PUBLIC_GRAPHQL_WS, chainConfig().endpoints.graphqlWebsocket];
+const wss = [process.env.NEXT_PUBLIC_GRAPHQL_WS, endpoints.graphqlWebsocket];
 
 /* Setting the default options for the Apollo Client. */
 const defaultOptions: DefaultOptions = {
@@ -40,7 +42,7 @@ const defaultOptions: DefaultOptions = {
 /* Creating a new HttpLink object. */
 function httpLink() {
   return new HttpLink({
-    uri: urls.find(u => u) || 'http://localhost:3000/v1/graphql',
+    uri: urls.find((u) => u) || 'http://localhost:3000/v1/graphql',
     fetch,
   });
 }
@@ -51,10 +53,10 @@ function httpLink() {
  */
 function createWebSocketLink() {
   // older version of Hasura doesn't support graphql-ws
-  if (chainConfig().extra.graphqlWs) {
+  if (extra.graphqlWs) {
     return new GraphQLWsLink(
       createClient({
-        url: wss.find(u => u) || 'ws://localhost:3000/websocket',
+        url: wss.find((u) => u) || 'ws://localhost:3000/websocket',
         lazy: true,
         retryAttempts: Number.MAX_VALUE,
         retryWait: (_count) => new Promise((r) => setTimeout(() => r(), 1000)),
@@ -68,7 +70,7 @@ function createWebSocketLink() {
   }
 
   return new WebSocketLink({
-    uri: wss.find(u => u) || 'ws://localhost:3000/websocket',
+    uri: wss.find((u) => u) || 'ws://localhost:3000/websocket',
     options: {
       lazy: true,
       reconnect: true,

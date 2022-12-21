@@ -14,6 +14,8 @@ import numeral from 'numeral';
 import * as R from 'ramda';
 import { ComponentProps, useCallback, useState } from 'react';
 
+const { votingPowerTokenUnit } = chainConfig();
+
 export const useValidators = () => {
   const [search, setSearch] = useState('');
   const [state, setState] = useState<ValidatorsState>({
@@ -52,8 +54,7 @@ export const useValidators = () => {
     const slashingParams = SlashingParams.fromJson(data?.slashingParams?.[0]?.params ?? {});
     const votingPowerOverall =
       numeral(
-        formatToken(data?.stakingPool?.[0]?.bondedTokens ?? 0, chainConfig().votingPowerTokenUnit)
-          .value
+        formatToken(data?.stakingPool?.[0]?.bondedTokens ?? 0, votingPowerTokenUnit).value
       ).value() ?? undefined;
 
     const { signedBlockWindow } = slashingParams;

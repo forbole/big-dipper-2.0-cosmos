@@ -21,6 +21,8 @@ import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import { useCallback, useEffect, useState } from 'react';
 
+const { extra, primaryTokenUnit, tokenUnits } = chainConfig();
+
 const defaultTokenUnit: TokenUnit = {
   value: '0',
   baseDenom: '',
@@ -79,7 +81,7 @@ export const useAccountDetails = () => {
         loading: false,
         exists: false,
       });
-    } else if (chainConfig().extra.profile) {
+    } else if (extra.profile) {
       fetchDesmosProfile(router.query.address as string);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -187,8 +189,8 @@ export const useAccountDetails = () => {
       // log all the rewards
       data?.delegationRewards?.forEach((x) => {
         const coins = R.pathOr<NonNullable<typeof x['coins']>>([], ['coins'], x);
-        const denomAmount = getDenom(coins, chainConfig().primaryTokenUnit);
-        const denomFormat = formatToken(denomAmount.amount, chainConfig().primaryTokenUnit);
+        const denomAmount = getDenom(coins, primaryTokenUnit);
+        const denomFormat = formatToken(denomAmount.amount, primaryTokenUnit);
         rewardsDict[x.validatorAddress ?? ''] = denomFormat;
       });
       return rewardsDict;
@@ -206,18 +208,18 @@ export const useAccountDetails = () => {
           ['accountBalances', 'coins'],
           data
         ),
-        chainConfig().primaryTokenUnit
+        primaryTokenUnit
       );
-      const availableAmount = formatToken(available.amount, chainConfig().primaryTokenUnit);
+      const availableAmount = formatToken(available.amount, primaryTokenUnit);
       const delegate = getDenom(
         R.pathOr<NonNullable<NonNullable<typeof data['delegationBalance']>['coins']>>(
           [],
           ['delegationBalance', 'coins'],
           data
         ),
-        chainConfig().primaryTokenUnit
+        primaryTokenUnit
       );
-      const delegateAmount = formatToken(delegate.amount, chainConfig().primaryTokenUnit);
+      const delegateAmount = formatToken(delegate.amount, primaryTokenUnit);
 
       const unbonding = getDenom(
         R.pathOr<NonNullable<NonNullable<typeof data['unbondingBalance']>['coins']>>(
@@ -225,18 +227,18 @@ export const useAccountDetails = () => {
           ['unbondingBalance', 'coins'],
           data
         ),
-        chainConfig().primaryTokenUnit
+        primaryTokenUnit
       );
-      const unbondingAmount = formatToken(unbonding.amount, chainConfig().primaryTokenUnit);
+      const unbondingAmount = formatToken(unbonding.amount, primaryTokenUnit);
 
       const rewards =
         data.delegationRewards?.reduce((a, b) => {
           const coins = R.pathOr<NonNullable<typeof b['coins']>>([], ['coins'], b);
-          const dsmCoins = getDenom(coins, chainConfig().primaryTokenUnit);
+          const dsmCoins = getDenom(coins, primaryTokenUnit);
 
           return Big(a).plus(dsmCoins.amount).toPrecision();
         }, '0') ?? '0';
-      const rewardsAmount = formatToken(rewards, chainConfig().primaryTokenUnit);
+      const rewardsAmount = formatToken(rewards, primaryTokenUnit);
 
       const commission = getDenom(
         R.pathOr<NonNullable<NonNullable<typeof data['commission']>['coins']>>(
@@ -244,16 +246,16 @@ export const useAccountDetails = () => {
           ['commission', 'coins'],
           data
         ),
-        chainConfig().primaryTokenUnit
+        primaryTokenUnit
       );
-      const commissionAmount = formatToken(commission.amount, chainConfig().primaryTokenUnit);
+      const commissionAmount = formatToken(commission.amount, primaryTokenUnit);
 
       const total = Big(availableAmount.value)
         .plus(delegateAmount.value)
         .plus(unbondingAmount.value)
         .plus(rewardsAmount.value)
         .plus(commissionAmount.value)
-        .toFixed(chainConfig().tokenUnits?.[chainConfig().primaryTokenUnit].exponent);
+        .toFixed(tokenUnits?.[primaryTokenUnit].exponent);
 
       const balance: BalanceType = {
         available: availableAmount,
@@ -309,7 +311,7 @@ export const useAccountDetails = () => {
       });
 
       // remove the primary token unit thats being shown in balance
-      otherTokenUnits.delete(chainConfig().primaryTokenUnit);
+      otherTokenUnits.delete(primaryTokenUnit);
 
       otherTokenUnits.forEach((x: string) => {
         const availableRawAmount = getDenom(available, x);
@@ -324,7 +326,7 @@ export const useAccountDetails = () => {
         const commissionAmount = formatToken(commissionRawAmount.amount, x);
 
         otherTokens.push({
-          denom: chainConfig().tokenUnits?.[x]?.display ?? x,
+          denom: tokenUnits?.[x]?.display ?? x,
           available: availableAmount,
           reward: rewardAmount,
           commission: commissionAmount,

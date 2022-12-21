@@ -1,12 +1,14 @@
-import { ComponentProps, useCallback, useEffect, useState } from 'react';
-import * as R from 'ramda';
-import axios from 'axios';
-import Big from 'big.js';
 import { IDENTITIES, PROVIDERS, STAKE } from '@/api';
-import { formatToken, formatNumber } from '@/utils/format_token';
 import chainConfig from '@/chainConfig';
 import type { ValidatorsState } from '@/screens/validators/components/list/types';
+import { formatNumber, formatToken } from '@/utils/format_token';
 import Tabs from '@material-ui/core/Tabs';
+import axios from 'axios';
+import Big from 'big.js';
+import * as R from 'ramda';
+import { ComponentProps, useCallback, useEffect, useState } from 'react';
+
+const { primaryTokenUnit } = chainConfig();
 
 type ValidatorData = {
   identity: string;
@@ -146,8 +148,8 @@ export const useValidators = () => {
 
           return {
             validator,
-            stake: formatToken(data?.stake ?? '0', chainConfig().primaryTokenUnit),
-            locked: formatToken(locked, chainConfig().primaryTokenUnit),
+            stake: formatToken(data?.stake ?? '0', primaryTokenUnit),
+            locked: formatToken(locked, primaryTokenUnit),
             nodes: data?.validators ?? 0,
             commission: data?.serviceFee,
             apr: data?.apr,

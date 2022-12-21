@@ -7,6 +7,8 @@ import numeral from 'numeral';
 import * as R from 'ramda';
 import { useCallback, useState } from 'react';
 
+const { primaryTokenUnit } = chainConfig();
+
 const initialState: ParamsState = {
   loading: true,
   exists: true,
@@ -140,7 +142,7 @@ export const useParams = () => {
         return {
           minDeposit: formatToken(
             govParamsRaw.depositParams.minDeposit?.[0]?.amount ?? 0,
-            govParamsRaw.depositParams.minDeposit?.[0]?.denom ?? chainConfig().primaryTokenUnit
+            govParamsRaw.depositParams.minDeposit?.[0]?.denom ?? primaryTokenUnit
           ),
           maxDepositPeriod: govParamsRaw.depositParams.maxDepositPeriod,
           quorum: numeral(numeral(govParamsRaw.tallyParams.quorum).format('0.[00]')).value() ?? 0,

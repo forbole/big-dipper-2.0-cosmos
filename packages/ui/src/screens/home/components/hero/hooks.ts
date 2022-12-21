@@ -4,6 +4,8 @@ import type { HeroState } from '@/screens/home/components/hero/types';
 import * as R from 'ramda';
 import { useCallback, useState } from 'react';
 
+const { primaryTokenUnit, tokenUnits } = chainConfig();
+
 export const useHero = () => {
   const [state, setState] = useState<HeroState>({
     loading: true,
@@ -21,7 +23,7 @@ export const useHero = () => {
   useTokenPriceHistoryQuery({
     variables: {
       limit: 10,
-      denom: chainConfig().tokenUnits?.[chainConfig().primaryTokenUnit]?.display,
+      denom: tokenUnits?.[primaryTokenUnit]?.display,
     },
     onCompleted: (data) => {
       const newState: Partial<HeroState> = {

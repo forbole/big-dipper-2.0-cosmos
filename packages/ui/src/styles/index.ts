@@ -1,13 +1,13 @@
 import chainConfig from '@/chainConfig';
-import { ThemeOptions } from '@material-ui/core/styles';
-
 import {
   darkTemplate,
   deuteranopiaTemplate,
   lightTemplate,
   tritanopiaTemplate,
 } from '@/styles/theme';
+import { ThemeOptions } from '@material-ui/core/styles';
 
+const { themes } = chainConfig();
 type ThemeDictionaryType = { [theme: string]: ThemeOptions };
 
 // getThemeDictionary allows to return a theme dictionary according to the config theme list
@@ -35,10 +35,10 @@ const getThemeDictionary = (list: string[]): ThemeDictionaryType => {
   return themeDict;
 };
 
-const themeDictionary = getThemeDictionary(chainConfig().themes.themeList);
-const defaultTheme = isThemeSupported(chainConfig().themes.default)
-  ? themeDictionary[chainConfig().themes.default]
-  : themeDictionary[chainConfig().themes.themeList[0]];
+const themeDictionary = getThemeDictionary(themes.themeList);
+const defaultTheme = isThemeSupported(themes.default)
+  ? themeDictionary[themes.default]
+  : themeDictionary[themes.themeList[0]];
 
 function isThemeSupported(theme: string) {
   return theme in themeDictionary;

@@ -6,13 +6,15 @@ import numeral from 'numeral';
 import * as R from 'ramda';
 import { useCallback, useEffect, useState } from 'react';
 
+const { endpoints, prefix } = chainConfig();
+
 /* Checking if the code is running on the server or the client. */
 const ssrMode = typeof window === 'undefined';
 
 const wss = [
   process.env.NEXT_PUBLIC_RPC_WEBSOCKET,
-  chainConfig().endpoints.publicRpcWebsocket,
-  chainConfig().endpoints.graphqlWebsocket,
+  endpoints.publicRpcWebsocket,
+  endpoints.graphqlWebsocket,
 ];
 
 const keepAlive = 30000;
@@ -99,7 +101,7 @@ export const useConsensus = () => {
     const height =
       numeral(R.pathOr('0', ['result', 'data', 'value', 'height'] ?? '0')).value() ?? 0;
     const proposerHex = R.pathOr('', ['result', 'data', 'value', 'proposer', 'address'], data);
-    const consensusAddress = hexToBech32(proposerHex, chainConfig().prefix.consensus);
+    const consensusAddress = hexToBech32(proposerHex, prefix.consensus);
 
     setState((prevState) => ({
       ...prevState,

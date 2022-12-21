@@ -6,7 +6,8 @@ import {
 } from '@/graphql/general/account_details_documents';
 import axios from 'axios';
 
-const urls = [process.env.NEXT_PUBLIC_GRAPHQL_URL, chainConfig().endpoints.graphql];
+const { endpoints } = chainConfig();
+const urls = [process.env.NEXT_PUBLIC_GRAPHQL_URL, endpoints.graphql];
 
 export const fetchAvailableBalances = async (address: string) => {
   const defaultReturnValue = {

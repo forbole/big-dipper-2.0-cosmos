@@ -9,6 +9,8 @@ import Big from 'big.js';
 import numeral from 'numeral';
 import { SetterOrUpdater, useRecoilState } from 'recoil';
 
+const { primaryTokenUnit, tokenUnits } = chainConfig();
+
 export function useMarketRecoil() {
   const [market, setMarket] = useRecoilState(writeMarket) as [
     AtomState,
@@ -17,7 +19,7 @@ export function useMarketRecoil() {
 
   useMarketDataQuery({
     variables: {
-      denom: chainConfig().tokenUnits?.[chainConfig().primaryTokenUnit]?.display,
+      denom: tokenUnits?.[primaryTokenUnit]?.display,
     },
     onCompleted: (data) => {
       if (data) {
@@ -35,16 +37,12 @@ export function useMarketRecoil() {
     }
 
     const [communityPoolCoin] =
-      (data?.communityPool?.[0]?.coins as MsgCoin[])?.filter(
-        (x) => x.denom === chainConfig().primaryTokenUnit
-      ) ?? [];
+      (data?.communityPool?.[0]?.coins as MsgCoin[])?.filter((x) => x.denom === primaryTokenUnit) ??
+      [];
     const inflation = data?.inflation?.[0]?.value ?? 0;
 
-    const rawSupplyAmount = getDenom(
-      data?.supply?.[0]?.coins,
-      chainConfig().primaryTokenUnit
-    ).amount;
-    const supply = formatToken(rawSupplyAmount, chainConfig().primaryTokenUnit);
+    const rawSupplyAmount = getDenom(data?.supply?.[0]?.coins, primaryTokenUnit).amount;
+    const supply = formatToken(rawSupplyAmount, primaryTokenUnit);
 
     if (communityPoolCoin) {
       communityPool = formatToken(communityPoolCoin.amount, communityPoolCoin.denom);

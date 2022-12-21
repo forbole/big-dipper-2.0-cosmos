@@ -1,13 +1,15 @@
-import { useCallback, useEffect, useState } from 'react';
-import * as R from 'ramda';
-import Big from 'big.js';
-import axios from 'axios';
-import chainConfig from '@/chainConfig';
-import { useRouter } from 'next/router';
 import { IDENTITY, PROVIDERS, PROVIDER_DETAILS, STAKE } from '@/api';
-import { isBech32 } from '@/utils/bech32';
-import { formatToken, formatNumber } from '@/utils/format_token';
+import chainConfig from '@/chainConfig';
 import type { ValidatorDetailsState } from '@/screens/validator_details/types';
+import { isBech32 } from '@/utils/bech32';
+import { formatNumber, formatToken } from '@/utils/format_token';
+import axios from 'axios';
+import Big from 'big.js';
+import { useRouter } from 'next/router';
+import * as R from 'ramda';
+import { useCallback, useEffect, useState } from 'react';
+
+const { primaryTokenUnit } = chainConfig();
 
 const defaultTokenUnit: TokenUnit = {
   value: '0',
@@ -68,14 +70,11 @@ export const useValidatorDetails = () => {
         if (isProvider) {
           const getContract = () => ({
             address: providerData?.provider ?? '',
-            locked: formatToken(providerData?.locked ?? '0', chainConfig().primaryTokenUnit),
+            locked: formatToken(providerData?.locked ?? '0', primaryTokenUnit),
             nodes: providerData?.numNodes ?? 0,
             apr: providerData?.apr ?? 0,
             commission: providerData?.serviceFee ?? 0,
-            delegationCap: formatToken(
-              providerData?.delegationCap ?? '0',
-              chainConfig().primaryTokenUnit
-            ),
+            delegationCap: formatToken(providerData?.delegationCap ?? '0', primaryTokenUnit),
             delegators: providerData?.numUsers ?? 0,
           });
 
@@ -101,10 +100,10 @@ export const useValidatorDetails = () => {
             : '0';
 
           return {
-            locked: formatToken(locked.toString(), chainConfig().primaryTokenUnit),
-            stake: formatToken(reference?.stake ?? '0', chainConfig().primaryTokenUnit),
-            topUp: formatToken(reference?.topUp ?? '0', chainConfig().primaryTokenUnit),
-            totalStaked: formatToken(totalStaked.toString(), chainConfig().primaryTokenUnit),
+            locked: formatToken(locked.toString(), primaryTokenUnit),
+            stake: formatToken(reference?.stake ?? '0', primaryTokenUnit),
+            topUp: formatToken(reference?.topUp ?? '0', primaryTokenUnit),
+            totalStaked: formatToken(totalStaked.toString(), primaryTokenUnit),
             stakePercent: Number(formatNumber(stakePercentString, 2)),
           };
         };

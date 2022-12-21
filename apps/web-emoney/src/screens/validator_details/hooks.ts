@@ -11,6 +11,8 @@ import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import { useCallback, useEffect, useState } from 'react';
 
+const { extra, votingPowerTokenUnit } = chainConfig();
+
 const initialTokenDenom: TokenUnit = {
   value: '0',
   displayDenom: '',
@@ -86,7 +88,7 @@ export const useValidatorDetails = () => {
         loading: false,
         exists: false,
       });
-    } else if (chainConfig().extra.profile) {
+    } else if (extra.profile) {
       const address = validatorToDelegatorAddress(router.query.address as string);
       fetchDesmosProfile(address);
     }
@@ -159,12 +161,12 @@ function formatAccountQuery(data: ValidatorDetailsQuery) {
   const formatVotingPower = () => {
     const selfVotingPower = formatToken(
       data.validator[0]?.validatorVotingPowers?.[0]?.votingPower ?? 0,
-      chainConfig().votingPowerTokenUnit
+      votingPowerTokenUnit
     ).value;
 
     const votingPower = {
       self: parseFloat(selfVotingPower),
-      overall: formatToken(data?.stakingPool?.[0]?.bonded ?? 0, chainConfig().votingPowerTokenUnit),
+      overall: formatToken(data?.stakingPool?.[0]?.bonded ?? 0, votingPowerTokenUnit),
       height: data.validator[0]?.validatorVotingPowers?.[0]?.height ?? 0,
     };
 

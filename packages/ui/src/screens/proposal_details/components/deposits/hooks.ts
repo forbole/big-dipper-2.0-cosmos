@@ -9,6 +9,8 @@ import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import { useCallback, useState } from 'react';
 
+const { primaryTokenUnit } = chainConfig();
+
 export const useDeposits = () => {
   const router = useRouter();
   const [state, setState] = useState<DepositState>({
@@ -33,10 +35,7 @@ export const useDeposits = () => {
 
   const foramtProposalDeposits = (data: ProposalDetailsDepositsQuery) => {
     const format = data.proposalDeposit.map((x) => ({
-      amount: formatToken(
-        x?.amount?.[0]?.amount ?? '0',
-        x?.amount?.[0]?.denom ?? chainConfig().primaryTokenUnit
-      ),
+      amount: formatToken(x?.amount?.[0]?.amount ?? '0', x?.amount?.[0]?.denom ?? primaryTokenUnit),
       user: x?.depositorAddress ?? '',
       timestamp: x?.block?.timestamp ?? '',
     }));

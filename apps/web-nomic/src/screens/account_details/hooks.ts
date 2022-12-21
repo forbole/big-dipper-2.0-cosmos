@@ -18,6 +18,8 @@ import {
   // fetchAccountWithdrawalAddress,
 } from '@/screens/account_details/utils';
 
+const { extra, primaryTokenUnit, tokenUnits } = chainConfig();
+
 const defaultTokenUnit: TokenUnit = {
   value: '0',
   baseDenom: '',
@@ -72,7 +74,7 @@ export const useAccountDetails = () => {
         loading: false,
         exists: false,
       });
-    } else if (chainConfig().extra.profile) {
+    } else if (extra.profile) {
       fetchDesmosProfile(router.query.address as string);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -139,21 +141,15 @@ export const useAccountDetails = () => {
       // balance
       // ============================
       const formatBalance = () => {
-        const available = getDenom(
-          data?.accountBalances?.coins ?? [],
-          chainConfig().primaryTokenUnit
-        );
-        const availableAmount = formatToken(available.amount, chainConfig().primaryTokenUnit);
+        const available = getDenom(data?.accountBalances?.coins ?? [], primaryTokenUnit);
+        const availableAmount = formatToken(available.amount, primaryTokenUnit);
 
-        const delegate = getDenom(
-          data?.delegationBalance?.coins ?? [],
-          chainConfig().primaryTokenUnit
-        );
-        const delegateAmount = formatToken(delegate.amount, chainConfig().primaryTokenUnit);
+        const delegate = getDenom(data?.delegationBalance?.coins ?? [], primaryTokenUnit);
+        const delegateAmount = formatToken(delegate.amount, primaryTokenUnit);
 
         const total = Big(availableAmount.value)
           .plus(delegateAmount.value)
-          .toFixed(chainConfig().tokenUnits?.[chainConfig().primaryTokenUnit].exponent);
+          .toFixed(tokenUnits?.[primaryTokenUnit].exponent);
 
         const balance: BalanceType = {
           available: availableAmount,
@@ -191,14 +187,14 @@ export const useAccountDetails = () => {
         });
 
         // remove the primary token unit thats being shown in balance
-        otherTokenUnits.delete(chainConfig().primaryTokenUnit);
+        otherTokenUnits.delete(primaryTokenUnit);
 
         otherTokenUnits.forEach((x: string) => {
           const availableRawAmount = getDenom(available, x);
           const availableAmount = formatToken(availableRawAmount.amount, x);
 
           otherTokens.push({
-            denom: chainConfig().tokenUnits?.x?.display ?? x,
+            denom: tokenUnits?.x?.display ?? x,
             available: availableAmount,
             reward: defaultTokenUnit,
             commission: defaultTokenUnit,

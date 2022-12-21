@@ -10,6 +10,7 @@ import NotFoundDark from 'shared-utils/assets/not-found-dark.svg';
 import NotFoundLight from 'shared-utils/assets/not-found-light.svg';
 
 type Props = { className?: string };
+const ssrMode = typeof window === 'undefined';
 
 const NotFound: FC<Props> = ({ className }) => {
   const classes = useStyles();
@@ -18,10 +19,10 @@ const NotFound: FC<Props> = ({ className }) => {
   const router = useRouter();
 
   useEffect(() => {
-    if (typeof window !== 'undefined' && router.asPath === '/' && /^\/.+/.test(router.basePath)) {
+    if (!ssrMode && router?.asPath === '/' && /^\/.+/.test(router.basePath)) {
       window.open(router.basePath, '_self');
     }
-  }, [router.asPath, router.basePath]);
+  }, [router?.asPath, router?.basePath]);
 
   return (
     <div className={classnames(className, classes.root)}>

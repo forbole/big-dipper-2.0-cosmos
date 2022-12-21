@@ -10,7 +10,8 @@ import {
 import { toValidatorAddress } from '@/utils/prefix_convert';
 import axios from 'axios';
 
-const urls = [process.env.NEXT_PUBLIC_GRAPHQL_URL, chainConfig().endpoints.graphql];
+const { endpoints } = chainConfig();
+const urls = [process.env.NEXT_PUBLIC_GRAPHQL_URL, endpoints.graphql];
 
 export const fetchCommission = async (address: string) => {
   const defaultReturnValue = {

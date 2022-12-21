@@ -5,6 +5,8 @@ import numeral from 'numeral';
 import * as R from 'ramda';
 import { useCallback, useState } from 'react';
 
+const { votingPowerTokenUnit } = chainConfig();
+
 const initialState: {
   votingPower: number;
   totalVotingPower: number;
@@ -40,7 +42,7 @@ export const useOnlineVotingPower = () => {
       activeValidators,
       votingPower,
       totalVotingPower:
-        numeral(formatToken(bonded, chainConfig().votingPowerTokenUnit).value).value() ?? undefined,
+        numeral(formatToken(bonded, votingPowerTokenUnit).value).value() ?? undefined,
     };
   };
 

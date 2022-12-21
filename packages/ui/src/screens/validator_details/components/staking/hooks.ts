@@ -14,10 +14,11 @@ import { getDenom } from '@/utils/get_denom';
 import Tabs from '@material-ui/core/Tabs';
 import axios from 'axios';
 import Big from 'big.js';
-
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import { ComponentProps, useCallback, useEffect, useState } from 'react';
+
+const { endpoints, primaryTokenUnit } = chainConfig();
 
 const stakingDefault = {
   data: {},
@@ -28,7 +29,7 @@ const stakingDefault = {
 const LIMIT = 100;
 const PAGE_LIMIT = 10;
 
-const urls = [process.env.NEXT_PUBLIC_GRAPHQL_URL, chainConfig().endpoints.graphql];
+const urls = [process.env.NEXT_PUBLIC_GRAPHQL_URL, endpoints.graphql];
 
 type Delegations = {
   coins: MsgCoin[];
@@ -117,7 +118,7 @@ export const useStaking = () => {
         R.pathOr<NonNullable<typeof x['entries']>>([], ['entries'], x).forEach((y) => {
           results.push({
             address: R.pathOr('', ['delegator_address'], x),
-            amount: formatToken(y.balance, chainConfig().primaryTokenUnit),
+            amount: formatToken(y.balance, primaryTokenUnit),
             completionTime: R.pathOr('', ['completion_time'], y),
           });
         });
@@ -147,7 +148,7 @@ export const useStaking = () => {
       data
         .map((x): UnbondingType => {
           const address = R.pathOr('', ['delegator_address'], x);
-          const delegation = getDenom(x.coins, chainConfig().primaryTokenUnit);
+          const delegation = getDenom(x.coins, primaryTokenUnit);
           return {
             address,
             amount: formatToken(delegation.amount, delegation.denom),
@@ -162,7 +163,7 @@ export const useStaking = () => {
           results.push({
             address: x?.delegator_address ?? '',
             to: x?.validator_dst_address ?? '',
-            amount: formatToken(y.balance, chainConfig().primaryTokenUnit),
+            amount: formatToken(y.balance, primaryTokenUnit),
             completionTime: R.pathOr('', ['completion_time'], y),
           });
         });

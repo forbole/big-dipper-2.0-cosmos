@@ -8,13 +8,15 @@ import { DesmosProfileQuery } from '@/graphql/types/profile_types';
 import axios from 'axios';
 import { useCallback, useEffect, useState } from 'react';
 
+const { chainType } = chainConfig();
+
 type Options = {
   address?: string;
   onComplete: (data: DesmosProfileQuery) => DesmosProfile | null;
 };
 
 function profileApi() {
-  if (/^testnet/i.test(chainConfig().chainType)) {
+  if (/^testnet/i.test(chainType)) {
     return 'https://gql.morpheus.desmos.network/v1/graphql';
   }
   return 'https://gql.mainnet.desmos.network/v1/graphql';

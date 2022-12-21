@@ -12,7 +12,7 @@ import * as R from 'ramda';
 import { ComponentProps, useCallback, useState } from 'react';
 
 const { tokenUnits, votingPowerTokenUnit } = chainConfig();
-const { exponent } = tokenUnits[votingPowerTokenUnit];
+const { exponent } = tokenUnits[votingPowerTokenUnit] ?? { exponent: 0 };
 
 export const useValidators = () => {
   const [search, setSearch] = useState('');
