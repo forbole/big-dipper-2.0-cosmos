@@ -17,9 +17,7 @@ jobs:
   install:
     runs-on: ubuntu-latest
     outputs:
-      matrix: ${{ steps.vars.outputs.matrix }}
-      uiHasChanged: ${{ steps.vars.outputs.uiHasChanged }}
-      webHasChanged: ${{ steps.vars.outputs.webHasChanged }}
+      projects: ${{ steps.vars.outputs.projects }}
       cacheDirectory: ${{ steps.vars.outputs.cacheDirectory }}
     steps:
       - uses: actions/checkout@v3
@@ -34,33 +32,24 @@ jobs:
           cache: 'yarn'
       - name: Install modules
         run: yarn install --immutable
-      - name: Set needs.install.outputs.matrix, needs.install.outputs.cacheDirectory
+      - name: Set needs.install.outputs.projects, needs.install.outputs.cacheDirectory
         id: vars
-        run: "
-          PACKAGES=$(
-            yarn turbo run build
-            --dry='json' --filter='[${{ github.event.pull_request.base.sha }}]' |
-            jq -crM '.packages'
-          )
-
-          echo 'matrix='$(
-            echo $PACKAGES |
-            jq -crM '{ project: [ .[] | select( . | startswith(\"web-\") ) ] }'
-          ) | tee -a $GITHUB_OUTPUT $GITHUB_STEP_SUMMARY
-
-          echo 'uiHasChanged='$(
-            [ $(echo $PACKAGES  | jq -crM 'index(\"ui\")') = \"null\" ] && echo no || echo yes
-          ) | tee -a $GITHUB_OUTPUT $GITHUB_STEP_SUMMARY
-
-          echo 'webHasChanged='$(
-            [ $(echo $PACKAGES  | jq -crM 'index(\"web\")') = \"null\" ] && echo no || echo yes
-          ) | tee -a $GITHUB_OUTPUT $GITHUB_STEP_SUMMARY
+        run: |
+          DRY_BUILD_JSON=$(
+            yarn turbo run build --dry='json'
+              --filter='[${{ github.event.pull_request.base.sha }}]'
+          ) node <<EOF | tee -a $GITHUB_OUTPUT $GITHUB_STEP_SUMMARY
+          const { packages } = JSON.parse(process.env.DRY_BUILD_JSON);
+          console.log('projects=' + JSON.stringify(
+            packages.filter(p => /^(?:ui|web.*)$/.test(p))
+          ));
+          EOF
 
           echo 'cacheDirectory='$(
             npx jest --showConfig | jq -cr '.configs[0].cacheDirectory'
           ) | tee -a $GITHUB_OUTPUT"
   ui:
-    if: ${{ success() && needs.install.outputs.uiHasChanged == 'yes' }}
+    if: ${{ success() && contains(fromJSON(needs.install.outputs.projects), 'ui') }}
     needs: install
     runs-on: ubuntu-latest
     steps:
@@ -90,7 +79,7 @@ jobs:
           yarn test:ci --filter=ui -- --coverage | tee -a $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
   web:
-    if: ${{ success() && needs.install.outputs.webHasChanged == 'yes' }}
+    if: ${{ success() && contains(fromJSON(needs.install.outputs.projects, 'web') }}
     needs: install
     runs-on: ubuntu-latest
     steps:
@@ -171,11 +160,12 @@ jobs:
           path: playwright-report/
           retention-days: 7
   web-:
-    if: ${{ success() && needs.install.outputs.matrix != '{"project":[]}' }}
+    if: ${{ success() && contains(needs.install.outputs.projects, '"web-') }}
     needs: [install, ui]
     strategy:
       fail-fast: false
-      matrix: ${{ fromJson(needs.install.outputs.matrix)}}
+      matrix:
+        project: ${{ fromJson(needs.install.outputs.projects)}}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
