@@ -3,9 +3,9 @@ import { useStyles } from '@/components/nav/components/connect_wallet/styles';
 import classnames from 'classnames';
 import React from 'react';
 import Avatar from '@/components/avatar';
-import ConnectWalletDropDown from '@/components/nav/components/connect_wallet_drop_down';
+import WalletDropDown from '@/components/nav/components/wallet_drop_down';
 
-const WalletDropDown: React.FC<{
+const WalletDetails: React.FC<{
   className?: string;
 }> = (props) => {
   const classes = useStyles();
@@ -18,11 +18,11 @@ const WalletDropDown: React.FC<{
         role="button"
         className={classnames(props.className)}
         tabIndex={0}
-        aria-label="connect-wallet-button"
+        aria-label="wallet-details-button"
       >
         {loggedIn ? <Avatar address="" className={classes.avatar} /> : null}
       </div>
-      <ConnectWalletDropDown
+      <WalletDropDown
         className={classnames(classes.networkList, {
           open: showWallet,
         })}
@@ -31,4 +31,4 @@ const WalletDropDown: React.FC<{
   );
 };
 
-export default WalletDropDown;
+export default WalletDetails;

@@ -1,5 +1,5 @@
 import Box from '@/components/box';
-import { useStyles } from '@/components/nav/components/connect_wallet_drop_down/styles';
+import { useStyles } from '@/components/nav/components/wallet_drop_down/styles';
 import classnames from 'classnames';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
@@ -13,7 +13,7 @@ import LogoutIcon from 'shared-utils/assets/icon-logout.svg';
 
 import React from 'react';
 
-const ConnectWalletDropDown: React.FC<{
+const WalletDropDown: React.FC<{
   className?: string;
 }> = ({ className }) => {
   const { t } = useTranslation('common');
@@ -89,4 +89,4 @@ const ConnectWalletDropDown: React.FC<{
   );
 };
 
-export default ConnectWalletDropDown;
+export default WalletDropDown;
