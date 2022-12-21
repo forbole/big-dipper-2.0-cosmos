@@ -39,26 +39,39 @@ jobs:
       matrix:
         project: ${{ fromJSON(needs.validate.outputs.projects) }}
     name: Publish ${{ matrix.project }}
-    env:
-        PROJECT_NAME: ${{ matrix.project }}
-        BASE_PATH: ${{ github.event.inputs.base_path }}
-        NEXT_PUBLIC_CHAIN_TYPE: ${{ github.event.inputs.chain_type }}
-        VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-        VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
     steps:
       - uses: actions/checkout@v3
       - name: Set steps.vars.outputs.valid
         id: vars
+        env:
+            PROJECT_NAME: ${{ matrix.project }}
+            NEXT_PUBLIC_CHAIN_TYPE: ${{ github.event.inputs.chain_type }}
         run: |
           echo 'valid='$(
             yarn workspace ${{ matrix.project }} info 2>1 1>/dev/null && echo yes || echo no
           ) | tee -a $GITHUB_OUTPUT
+
+          # assign chain_type
+          node <<EOF | tee -a $GITHUB_OUTPUT
+          const chainType = process.env.NEXT_PUBLIC_CHAIN_TYPE?.toLowerCase() || 'mainnet';
+          const chainJson = require('./apps/' + process.env.PROJECT_NAME + '/src/chain.json');
+          const { chains, ...settings } = chainJson;
+          let chain = chains.find((c) => c.chainType?.toLowerCase() === chainType);
+          if (!chain && chainType !== 'testnet') {
+            chain = chains.find((c) => c.chainType?.toLowerCase() === 'testnet');
+          }
+          if (!chain) [chain] = chains;
+          console.log('chain_type=' + (chain?.chainType?.toLowerCase() || 'mainnet'));
+          EOF
       - name: Insall Vercel CLI
         if: ${{ steps.vars.outputs.valid == 'yes' }}
         run: npm i -g vercel
       - name: Generate vercel.json
         if: ${{ steps.vars.outputs.valid == 'yes' }}
+        env:
+            PROJECT_NAME: ${{ matrix.project }}
+            NEXT_PUBLIC_CHAIN_TYPE: ${{ steps.vars.outputs.chain_type }}
+            BASE_PATH: ${{ github.event.inputs.base_path }}
         run: |
           node <<EOF > vercel.json
           const projectName = process.env.PROJECT_NAME || 'web';
@@ -79,4 +92,8 @@ jobs:
           EOF
       - name: Deploy preview to Vercel
         if: ${{ steps.vars.outputs.valid == 'yes' }}
+        env:
+            VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+            VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+            VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
         run: vercel -t ${{ secrets.VERCEL_TOKEN }} | tee -a $GITHUB_STEP_SUMMARY

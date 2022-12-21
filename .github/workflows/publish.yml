@@ -58,8 +58,6 @@ jobs:
             yarn workspace ${{ matrix.project }} info 2>1 1>/dev/null && echo yes || echo no
           ) | tee -a $GITHUB_OUTPUT
 
-          echo 'sha_short='$(git rev-parse --short HEAD) | tee -a $GITHUB_OUTPUT
-
           # assign chain_type
           node <<EOF | tee -a $GITHUB_OUTPUT
           const chainType = process.env.NEXT_PUBLIC_CHAIN_TYPE?.toLowerCase() || 'mainnet';
@@ -72,6 +70,8 @@ jobs:
           if (!chain) [chain] = chains;
           console.log('chain_type=' + (chain?.chainType?.toLowerCase() || 'mainnet'));
           EOF
+
+          echo 'sha_short='$(git rev-parse --short HEAD) | tee -a $GITHUB_OUTPUT
       - name: Set up QEMU
         if: ${{ steps.vars.outputs.valid == 'yes' }}
         uses: docker/setup-qemu-action@v2
@@ -92,7 +92,7 @@ jobs:
           push: true
           build-args: |
             PROJECT_NAME=${{ matrix.project }}
-            NEXT_PUBLIC_CHAIN_TYPE=${{ github.event.inputs.chain_type }}
+            NEXT_PUBLIC_CHAIN_TYPE=${{ steps.vars.outputs.chain_type }}
             NEXT_PUBLIC_BANNERS_JSON=${{ secrets.BANNERS_JSON }}
             TURBO_TEAM=${{ secrets.TURBO_TEAM }}
             TURBO_TOKEN=${{ secrets.TURBO_TOKEN }}
