@@ -79,7 +79,7 @@ jobs:
           yarn test:ci --filter=ui -- --coverage | tee -a $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
   web:
-    if: ${{ success() && contains(fromJSON(needs.install.outputs.projects, 'web') }}
+    if: ${{ success() && contains(fromJSON(needs.install.outputs.projects), 'web') }}
     needs: install
     runs-on: ubuntu-latest
     steps:
@@ -165,7 +165,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        project: ${{ fromJson(needs.install.outputs.projects)}}
+        project: ${{ fromJson(needs.install.outputs.projects) }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
