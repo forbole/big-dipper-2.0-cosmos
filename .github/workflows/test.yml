@@ -29,13 +29,10 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: 'yarn'
       - name: Set needs.install.outputs.{cache-directory,cache-key,restore-keys}
         id: vars
         run: |
-          echo 'cache-directory='$(
-            yarn dlx jest --showConfig | jq -cr '.configs[0].cache-directory'
-          )'\n${{ github.workspace }}/node_modules' | tee -a $GITHUB_OUTPUT
+          echo 'cache-directory=${{ github.workspace }}/node_modules' | tee -a $GITHUB_OUTPUT
 
           echo 'cache-key=${{ format(
             '{0}-{1}-{2}',
@@ -87,7 +84,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: 'yarn'
       - uses: actions/cache@v3
         with:
           path: ${{ needs.install.outputs.cache-directory }}
@@ -109,7 +105,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: 'yarn'
       - uses: actions/cache@v3
         with:
           path: ${{ needs.install.outputs.cache-directory }}
@@ -131,7 +126,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: 'yarn'
       - uses: actions/cache@v3
         with:
           path: |
@@ -159,7 +153,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: 'yarn'
       - uses: actions/cache@v3
         with:
           path: |
@@ -194,7 +187,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: 'yarn'
       - uses: actions/cache@v3
         with:
           path: |
