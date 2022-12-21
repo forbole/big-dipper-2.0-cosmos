@@ -132,11 +132,9 @@ jobs:
           cache: 'yarn'
       - uses: actions/cache@v3
         with:
-          path: |
-            ${{ needs.install.outputs.cache-directory }}
-            ${{ github.workspace }}/apps/${{ matrix.project }}/.next/cache
-          key: ${{ needs.install.outputs.cashe-key }}-${{ matrix.project }}
-          restore-keys: ${{ needs.install.outputs.restore-keys }}${{ matrix.project }}-
+          path: ${{ needs.install.outputs.cache-directory }}
+          key: ${{ needs.install.outputs.cashe-key }}
+          restore-keys: ${{ needs.install.outputs.restore-keys }}
       - run: yarn install --immutable --immutable-cache
       - run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
