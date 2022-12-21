@@ -204,6 +204,7 @@ jobs:
           path: ${{ github.workspace }}/apps/${{ matrix.project }}/.next/cache
           key: ${{ needs.install.outputs.cashe-key }}-${{ matrix.project }}
           restore-keys: ${{ needs.install.outputs.restore-keys }}}${{ matrix.project }}-
+      - run: yarn install --immutable --immutable-cache
       - run: yarn build
         env:
           PROJECT_NAME: ${{ matrix.project }}
