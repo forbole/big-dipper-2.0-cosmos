@@ -8,7 +8,7 @@ import useTranslation from 'next-translate/useTranslation';
 import Avatar from '@/components/avatar';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import CopyIcon from 'shared-utils/assets/icon-copy-text.svg';
-import { useAddress } from '@/utils/copy_to_clipboard';
+import { useAddress } from '@/screens/validator_details/components/validator_overview/hooks';
 import LogoutIcon from 'shared-utils/assets/icon-logout.svg';
 
 import React from 'react';
