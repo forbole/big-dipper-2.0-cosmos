@@ -23,9 +23,17 @@ const ssrMode = typeof window === 'undefined';
 /* A global variable that stores the Apollo Client. */
 let globalApolloClient: ApolloClient<NormalizedCacheObject>;
 
-const urls = [process.env.NEXT_PUBLIC_GRAPHQL_URL, endpoints.graphql];
+const urlEndpoints = [
+  process.env.NEXT_PUBLIC_GRAPHQL_URL,
+  endpoints.graphql,
+  'http://localhost:3000/v1/graphql',
+];
 
-const wss = [process.env.NEXT_PUBLIC_GRAPHQL_WS, endpoints.graphqlWebsocket];
+const wsEndpoints = [
+  process.env.NEXT_PUBLIC_GRAPHQL_WS,
+  endpoints.graphqlWebsocket,
+  'ws://localhost:3000/websocket',
+];
 
 /* Setting the default options for the Apollo Client. */
 const defaultOptions: DefaultOptions = {
@@ -42,7 +50,7 @@ const defaultOptions: DefaultOptions = {
 /* Creating a new HttpLink object. */
 function httpLink() {
   return new HttpLink({
-    uri: urls.find((u) => u) || 'http://localhost:3000/v1/graphql',
+    uri: urlEndpoints.find((u) => u),
     fetch,
   });
 }
@@ -56,7 +64,7 @@ function createWebSocketLink() {
   if (extra.graphqlWs) {
     return new GraphQLWsLink(
       createClient({
-        url: wss.find((u) => u) || 'ws://localhost:3000/websocket',
+        url: wsEndpoints.find((u) => u) ?? '',
         lazy: true,
         retryAttempts: Number.MAX_VALUE,
         retryWait: (_count) => new Promise((r) => setTimeout(() => r(), 1000)),
@@ -70,7 +78,7 @@ function createWebSocketLink() {
   }
 
   return new WebSocketLink({
-    uri: wss.find((u) => u) || 'ws://localhost:3000/websocket',
+    uri: wsEndpoints.find((u) => u) ?? '',
     options: {
       lazy: true,
       reconnect: true,
