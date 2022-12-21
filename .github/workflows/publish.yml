@@ -31,11 +31,8 @@ jobs:
       - uses: actions/checkout@v3
       - name: steps.vars.outputs.projects
         id: vars
-        env:
-          PROJECTS: ${{ github.event.inputs.projects }}
         run: |
-          export ALL_PROJECTS=$(yarn workspaces list --json | jq -csr '[ .[].name | select(. | startswith("web") ) ]')
-          node <<EOF | tee -a $GITHUB_OUTPUT $GITHUB_STEP_SUMMARY
+          ALL_PROJECTS=$(yarn workspaces list --json | jq -csr '[ .[].name | select(. | startswith("web") ) ]') PROJECTS=${{ github.event.inputs.projects }} node <<EOF | tee -a $GITHUB_OUTPUT $GITHUB_STEP_SUMMARY
           const allProjects = JSON.parse(process.env.ALL_PROJECTS);
           console.log('test_allProjects=' + JSON.stringify(allProjects));
           const projects = process.env.PROJECTS === '*' ? null : process.env.PROJECTS.split(/,/).map(p => p.trim()).filter(p => p);
@@ -57,12 +54,9 @@ jobs:
       - uses: actions/checkout@v3
       - name: Set steps.vars.outputs.chain_type & steps.vars.outputs.sha_short
         id: vars
-        env:
-          PROJECT_NAME: ${{ matrix.project }}
-          NEXT_PUBLIC_CHAIN_TYPE: ${{ github.event.inputs.chain_type }}
         run: |
           # assign chain_type
-          node <<EOF | tee -a $GITHUB_OUTPUT
+          PROJECT_NAME=${{ matrix.project }} NEXT_PUBLIC_CHAIN_TYPE=${{ github.event.inputs.chain_type }} node <<EOF | tee -a $GITHUB_OUTPUT
           const chainType = process.env.NEXT_PUBLIC_CHAIN_TYPE?.toLowerCase() || 'mainnet';
           const chainJson = require('./apps/' + process.env.PROJECT_NAME + '/src/chain.json');
           const { chains, ...settings } = chainJson;
