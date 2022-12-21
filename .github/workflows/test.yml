@@ -222,7 +222,7 @@ jobs:
               'packages/**/*.[jt]sx'
             ) }}
           restore-keys: ${{ needs.install.outputs.restore-keys }}${{ matrix.project }}-
-      - run: yarn install --immutable
+      - run: yarn install --immutable --immutable-cache
       - run: yarn build
         env:
           PROJECT_NAME: ${{ matrix.project }}
