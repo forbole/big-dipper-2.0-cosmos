@@ -37,8 +37,9 @@ jobs:
           export ALL_PROJECTS=$(yarn workspaces list --json | jq -csr '[ .[].name | select(. | startswith("web") ) ]')
           node <<EOF | tee -a $GITHUB_OUTPUT $GITHUB_STEP_SUMMARY
           const allProjects = JSON.parse(process.env.ALL_PROJECTS);
-          console.log('allProjects=' + allProjects);
+          console.log('test_allProjects=' + JSON.stringify(allProjects));
           const projects = process.env.PROJECTS === '*' ? null : process.env.PROJECTS.split(/,/).map(p => p.trim());
+          console.log('test_projects=' + JSON.stringify(projects));
           console.log('projects=' + JSON.stringify(allProjects.filter(a => !projects || projects.includes(a))));
           EOF
   publish:
