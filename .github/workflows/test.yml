@@ -137,8 +137,8 @@ jobs:
           path: |
             ${{ needs.install.outputs.cache-directory }}
             ${{ github.workspace }}/apps/${{ matrix.project }}/.next/cache
-          key: ${{ needs.install.outputs.cashe-key }}-${{ matrix.project } }}
-          restore-keys: ${{ needs.install.outputs.restore-keys }}${{ matrix.project } }}-
+          key: ${{ needs.install.outputs.cashe-key }}-${{ matrix.project }}
+          restore-keys: ${{ needs.install.outputs.restore-keys }}${{ matrix.project }}-
       - run: yarn install --immutable --immutable-cache
       - run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
@@ -165,8 +165,8 @@ jobs:
           path: |
             ${{ needs.install.outputs.cache-directory }}
             ${{ github.workspace }}/apps/${{ matrix.project }}/.next/cache
-          key: ${{ needs.install.outputs.cashe-key }}-${{ matrix.project } }}
-          restore-keys: ${{ needs.install.outputs.restore-keys }}${{ matrix.project } }}-
+          key: ${{ needs.install.outputs.cashe-key }}-${{ matrix.project }}
+          restore-keys: ${{ needs.install.outputs.restore-keys }}${{ matrix.project }}-
       - run: yarn install --immutable --immutable-cache
       - run: yarn build:ci --filter=${{ matrix.project }}
   e2e:
