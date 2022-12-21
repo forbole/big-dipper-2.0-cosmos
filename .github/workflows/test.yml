@@ -16,8 +16,6 @@ defaults:
 jobs:
   install:
     runs-on: ubuntu-latest
-    container:
-      image: mcr.microsoft.com/playwright:v1.29.0-focal
     outputs:
       projects: ${{ steps.dry-run.outputs.projects }}
       cache-directory: ${{ steps.vars.outputs.cache-directory }}
@@ -60,8 +58,6 @@ jobs:
     if: ${{ success() && needs.install.outputs.projects != '[]' }}
     needs: install
     runs-on: ubuntu-latest
-    container:
-      image: mcr.microsoft.com/playwright:v1.29.0-focal
     strategy:
       fail-fast: false
       matrix:
@@ -78,7 +74,7 @@ jobs:
           path: ${{ needs.install.outputs.cache-directory }}
           key: ${{ needs.install.outputs.cashe-key }}
           restore-keys: ${{ needs.install.outputs.restore-keys }}
-      - run: yarn install --immutable
+      - run: yarn install --immutable --immutable-cache
       - run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
           yarn turbo run check-types --filter=${{ matrix.project }} | tee -a $GITHUB_STEP_SUMMARY
@@ -87,8 +83,6 @@ jobs:
     if: ${{ success() && needs.install.outputs.projects != '[]' }}
     needs: install
     runs-on: ubuntu-latest
-    container:
-      image: mcr.microsoft.com/playwright:v1.29.0-focal
     strategy:
       fail-fast: false
       matrix:
@@ -105,7 +99,7 @@ jobs:
           path: ${{ needs.install.outputs.cache-directory }}
           key: ${{ needs.install.outputs.cashe-key }}
           restore-keys: ${{ needs.install.outputs.restore-keys }}
-      - run: yarn install --immutable
+      - run: yarn install --immutable --immutable-cache
       - run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
           yarn turbo run lint --filter=${{ matrix.project }} | tee -a $GITHUB_STEP_SUMMARY
@@ -114,8 +108,6 @@ jobs:
     if: ${{ success() && needs.install.outputs.projects != '[]' }}
     needs: install
     runs-on: ubuntu-latest
-    container:
-      image: mcr.microsoft.com/playwright:v1.29.0-focal
     strategy:
       fail-fast: false
       matrix:
@@ -132,7 +124,7 @@ jobs:
           path: ${{ needs.install.outputs.cache-directory }}
           key: ${{ needs.install.outputs.cashe-key }}
           restore-keys: ${{ needs.install.outputs.restore-keys }}
-      - run: yarn install --immutable
+      - run: yarn install --immutable --immutable-cache
       - run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
           yarn test:ci --filter=${{ matrix.project }} -- --coverage | tee -a $GITHUB_STEP_SUMMARY
@@ -145,8 +137,6 @@ jobs:
       matrix:
         project: ${{ fromJson(needs.install.outputs.projects) }}
     runs-on: ubuntu-latest
-    container:
-      image: mcr.microsoft.com/playwright:v1.29.0-focal
     outputs:
       next-cache-key: ${{ steps.vars.outputs.next-cache-key }}
     steps:
@@ -175,7 +165,7 @@ jobs:
           path: ${{ github.workspace }}/apps/${{ matrix.project }}/.next/cache
           key: ${{ steps.vars.outputs.next-cache-key }}
           restore-keys: ${{ needs.install.outputs.restore-keys }}${{ matrix.project }}-
-      - run: yarn install --immutable
+      - run: yarn install --immutable --immutable-cache
       - run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
           yarn build:ci --filter=${{ matrix.project }} | tee -a $GITHUB_STEP_SUMMARY
@@ -209,12 +199,12 @@ jobs:
       - uses: actions/cache@v3
         with:
           path: ${{ needs.install.outputs.cache-directory }}
-          key: ${{ needs.install.outputs.cashe-key }}
+          key: ${{ needs.install.outputs.cashe-key }}-e2e
           restore-keys: ${{ needs.install.outputs.restore-keys }}
       - uses: actions/cache@v3
         with:
           path: ${{ github.workspace }}/apps/${{ matrix.project }}/.next/cache
-          key: ${{ needs.build.outputs.next-cache-key }}
+          key: ${{ needs.build.outputs.next-cache-key }}-e2e
           restore-keys: ${{ needs.install.outputs.restore-keys }}${{ matrix.project }}-
       - run: yarn install --immutable
       - run: yarn build
