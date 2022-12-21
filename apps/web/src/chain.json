@@ -97,6 +97,7 @@
         },
         "wallet": {
           "background": "#5E5E5E",
+          "backgroundTwo": "#393939",
           "surfaceOne": "#5E5C5C",
           "surfaceTwo": "#D9D9D9",
           "surfaceThree": "#4D4D4D",
@@ -191,6 +192,7 @@
         },
         "wallet": {
           "background": "#E8E8E8",
+          "backgroundTwo": "#E8E7E8",
           "surfaceOne": "#5E5C5C",
           "surfaceTwo": "#FFFFFF",
           "surfaceThree": "#BDBDBD",

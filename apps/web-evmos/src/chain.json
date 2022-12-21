@@ -25,7 +25,8 @@
         "tokenomics": {},
         "condition": {},
         "charts": {},
-        "tags": {}
+        "tags": {},
+        "wallet": {}
       }
     },
     "light": {
@@ -107,6 +108,18 @@
           "eighteen": "#F0A479",
           "nineteen": "#D37763",
           "twenty": "#D9C788"
+        },
+        "wallet": {
+          "background": "#E8E8E8",
+          "backgroundTwo": "#E8E7E8",
+          "surfaceOne": "#5E5C5C",
+          "surfaceTwo": "#FFFFFF",
+          "surfaceThree": "#BDBDBD",
+          "surfaceFour": "#A1A1A1",
+          "surfaceFive": "#777777",
+          "divider": "#34383E",
+          "textPrimary": "#000000",
+          "textSecondary": "#222222"
         }
       }
     }
