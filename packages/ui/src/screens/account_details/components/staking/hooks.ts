@@ -1,10 +1,12 @@
 import chainConfig from '@/chainConfig';
+import { useValidatorsQuery, ValidatorsQuery } from '@/graphql/types/general_types';
 import type {
   DelegationType,
   RedelegationType,
   StakingState,
 } from '@/screens/account_details/components/staking/types';
 import type { RewardsType } from '@/screens/account_details/types';
+import { ValidatorsState } from '@/screens/validators/components/list/types';
 import { formatToken } from '@/utils/format_token';
 import { getDenom } from '@/utils/get_denom';
 import { Tabs } from '@material-ui/core';
@@ -52,6 +54,37 @@ export const useStaking = (
     });
   }, []);
 
+  const [validatorsCommission, setValidatorsCommission] = useState<any[]>([]);
+
+  // ==========================
+  // Fetch Data
+  // ==========================
+  useValidatorsQuery({
+    onCompleted: (data) => {
+      formatValidators(data);
+    },
+  });
+
+  // ==========================
+  // Parse data
+  // ==========================
+
+  // return a list of all validators with their address and commission rate
+  const formatValidators = useCallback((data: ValidatorsQuery): Partial<ValidatorsState> => {
+    const formattedItems: any = data.validator
+      .filter((x) => x.validatorInfo)
+      .map((x) => ({
+        validator: x.validatorInfo?.operatorAddress ?? '',
+        commission: (x?.validatorCommissions?.[0]?.commission ?? 0) * 100,
+      }));
+
+    setValidatorsCommission(formattedItems);
+
+    return {
+      items: formattedItems,
+    };
+  }, []);
+
   useEffect(() => {
     const formatDelegations = (
       data: Array<{
@@ -63,8 +96,10 @@ export const useStaking = (
         .map((x): DelegationType => {
           const validator = x?.validator_address ?? '';
           const delegation = getDenom(x.coins, chainConfig().primaryTokenUnit);
+          const { commission } = validatorsCommission.find((val) => val.validator === validator);
           return {
             validator,
+            commission: commission.toFixed(3),
             amount: formatToken(delegation.amount, delegation.denom),
             reward: rewards[validator],
           };
@@ -102,7 +137,6 @@ export const useStaking = (
         const allDelegations = R.pathOr<
           NonNullable<typeof data['data']['delegations']['delegations']>
         >([], ['data', 'delegations', 'delegations'], data);
-        // if there are more than the default 100, grab the remaining delegations
         if (count > LIMIT) {
           const remainingFetchCount = Math.ceil(count / LIMIT) - 1;
           const remainingDelegationsPromises = [];
@@ -255,6 +289,7 @@ export const useStaking = (
     handleSetState,
     rewards,
     router?.query?.address,
+    validatorsCommission,
   ]);
 
   const handleTabChange: ComponentProps<typeof Tabs>['onChange'] = useCallback(
@@ -325,6 +360,7 @@ export const useStaking = (
 
   return {
     state,
+    validatorsCommission,
     handleTabChange,
   };
 };

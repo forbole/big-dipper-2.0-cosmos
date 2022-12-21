@@ -18,6 +18,7 @@ const Desktop: React.FC<{
   const { t } = useTranslation('accounts');
   const formattedItems = items?.map((x) => {
     const amount = x.amount ? formatNumber(x.amount.value, x.amount.exponent) : '';
+    const commission = x.commission ? x.commission : '';
     const reward = x.reward ? formatNumber(x.reward.value, x.reward.exponent) : '';
     return {
       validator: (
@@ -28,6 +29,7 @@ const Desktop: React.FC<{
         />
       ),
       amount: `${amount} ${x.amount?.displayDenom.toUpperCase()}`,
+      commission: `${commission} %`,
       reward: `${reward} ${x.reward?.displayDenom.toUpperCase()}`,
     };
   });

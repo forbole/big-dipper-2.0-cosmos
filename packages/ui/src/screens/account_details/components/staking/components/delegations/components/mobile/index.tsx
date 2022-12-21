@@ -43,6 +43,14 @@ const Mobile: React.FC<{
               </div>
               <div className={classes.item}>
                 <Typography variant="h4" className="label">
+                  {t('commission')}
+                </Typography>
+                <Typography variant="body1" className="value">
+                  {x.commission ? `${x.commission} %` : ''}
+                </Typography>
+              </div>
+              <div className={classes.item}>
+                <Typography variant="h4" className="label">
                   {t('reward')}
                 </Typography>
                 <Typography variant="body1" className="value">
