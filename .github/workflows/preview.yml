@@ -21,14 +21,14 @@ jobs:
     outputs:
       projects: ${{ steps.vars.outputs.projects }}
     steps:
-      - uses: actions/checkout@v3github.event.inputs
+      - uses: actions/checkout@v3
       - name: steps.vars.outputs.projects
         id: vars
         run: |
           ALL_PROJECTS=$(yarn workspaces list --json | jq -csr '[ .[].name | select(. | startswith("web") ) ]') PROJECTS=${{ github.event.inputs.projects }} node <<EOF | tee -a $GITHUB_OUTPUT $GITHUB_STEP_SUMMARY
           const allProjects = JSON.parse(process.env.ALL_PROJECTS);
           console.log('test_allProjects=' + JSON.stringify(allProjects));
-          const projects = process.env.PROJECTS === '*' ? null : process.env.PROJECTS.split(/,/).map(p => p.trim()).filter(p => p);github.event.inputs
+          const projects = process.env.PROJECTS === '*' ? null : process.env.PROJECTS.split(/,/).map(p => p.trim()).filter(p => p);
           console.log('projects=' + JSON.stringify(allProjects.filter(a => !projects || projects.includes(a))));
           EOF
   publish:
