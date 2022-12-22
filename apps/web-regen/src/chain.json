@@ -3,7 +3,8 @@
   "title": "Regen Network Block Explorer",
   "extra": {
     "profile": true,
-    "graphqlWs": false
+    "graphqlWs": false,
+    "votingPowerExponent": 4
   },
   "previewImage": "https://s3.bigdipper.live/regen.png",
   "themes": {

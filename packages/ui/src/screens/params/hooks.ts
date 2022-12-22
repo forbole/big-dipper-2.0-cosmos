@@ -7,6 +7,8 @@ import numeral from 'numeral';
 import * as R from 'ramda';
 import { useCallback, useState } from 'react';
 
+const { primaryTokenUnit } = chainConfig();
+
 const initialState: ParamsState = {
   loading: true,
   exists: true,
@@ -20,9 +22,9 @@ const initialState: ParamsState = {
 export const useParams = () => {
   const [state, setState] = useState<ParamsState>(initialState);
 
-  const handleSetState = useCallback((stateChange: Partial<ParamsState>) => {
+  const handleSetState = useCallback((stateChange: (prevState: ParamsState) => ParamsState) => {
     setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
+      const newState = stateChange(prevState);
       return R.equals(prevState, newState) ? prevState : newState;
     });
   }, []);
@@ -32,15 +34,14 @@ export const useParams = () => {
   // ================================
   useParamsQuery({
     onError: () => {
-      handleSetState({
-        loading: false,
-      });
+      handleSetState((prevState) => ({ ...prevState, loading: false }));
     },
     onCompleted: (data) => {
-      handleSetState({
+      handleSetState((prevState) => ({
+        ...prevState,
         loading: false,
         ...formatParam(data),
-      });
+      }));
     },
   });
 
@@ -140,7 +141,7 @@ export const useParams = () => {
         return {
           minDeposit: formatToken(
             govParamsRaw.depositParams.minDeposit?.[0]?.amount ?? 0,
-            govParamsRaw.depositParams.minDeposit?.[0]?.denom ?? chainConfig().primaryTokenUnit
+            govParamsRaw.depositParams.minDeposit?.[0]?.denom ?? primaryTokenUnit
           ),
           maxDepositPeriod: govParamsRaw.depositParams.maxDepositPeriod,
           quorum: numeral(numeral(govParamsRaw.tallyParams.quorum).format('0.[00]')).value() ?? 0,

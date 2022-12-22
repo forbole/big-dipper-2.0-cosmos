@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 
-test('blocks page', async ({ page }) => {
+test('blocks page', async ({ page, isMobile }) => {
   // Test url
   await Promise.all([page.waitForNavigation(), page.goto('.')]);
   await expect(page.getByRole('progressbar')).toHaveCount(0);
@@ -12,7 +12,9 @@ test('blocks page', async ({ page }) => {
   ]);
   await expect(page.getByRole('progressbar')).toHaveCount(0);
 
-  // Test single block url
-  await Promise.all([page.waitForNavigation({ url: /\/blocks\/1/ }), page.goto(`./blocks/1`)]);
-  await expect(page.getByRole('progressbar')).toHaveCount(0);
+  if (!isMobile) {
+    // Test single block url
+    await Promise.all([page.waitForNavigation({ url: /\/blocks\/1/ }), page.goto(`./blocks/1`)]);
+    await expect(page.getByRole('progressbar')).toHaveCount(0);
+  }
 });

@@ -30,12 +30,15 @@ export const useTokenDetails = () => {
     },
   });
 
-  const handleSetState = useCallback((stateChange: Partial<TokenDetailsState>) => {
-    setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
-      return R.equals(prevState, newState) ? prevState : newState;
-    });
-  }, []);
+  const handleSetState = useCallback(
+    (stateChange: (prevState: TokenDetailsState) => TokenDetailsState) => {
+      setState((prevState) => {
+        const newState = stateChange(prevState);
+        return R.equals(prevState, newState) ? prevState : newState;
+      });
+    },
+    []
+  );
 
   useEffect(() => {
     const getTokenDetail = async () => {
@@ -66,17 +69,19 @@ export const useTokenDetails = () => {
           supply: tokenData?.supply ?? '',
         };
 
-        handleSetState({
+        handleSetState((prevState) => ({
+          ...prevState,
           loading: false,
           profile,
           overview,
           stats,
-        });
+        }));
       } catch (error) {
-        handleSetState({
+        handleSetState((prevState) => ({
+          ...prevState,
           loading: false,
           exists: false,
-        });
+        }));
         console.error((error as Error).message);
       }
     };

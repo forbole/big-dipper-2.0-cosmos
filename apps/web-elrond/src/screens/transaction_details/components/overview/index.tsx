@@ -1,20 +1,22 @@
-import React from 'react';
-import Typography from '@material-ui/core/Typography';
-import numeral from 'numeral';
-import Link from 'next/link';
+import chainConfig from '@/chainConfig';
+import AvatarName from '@/components/avatar_name';
 import BoxDetails from '@/components/box_details';
 import Result from '@/components/result';
-import AvatarName from '@/components/avatar_name';
-import dayjs, { formatDayJs } from '@/utils/dayjs';
-import useTranslation from 'next-translate/useTranslation';
-import { useRecoilValue } from 'recoil';
 import { readDate } from '@/recoil/settings';
-import { MINIBLOCK_DETAILS } from '@/utils/go_to_page';
+import { useStyles } from '@/screens/transaction_details/components/overview/styles';
+import type { OverviewType } from '@/screens/transaction_details/types';
+import dayjs, { formatDayJs } from '@/utils/dayjs';
 import { formatNumber } from '@/utils/format_token';
 import { getShardDisplay } from '@/utils/get_shard_display';
-import chainConfig from '@/chainConfig';
-import type { OverviewType } from '@/screens/transaction_details/types';
-import { useStyles } from '@/screens/transaction_details/components/overview/styles';
+import { MINIBLOCK_DETAILS } from '@/utils/go_to_page';
+import Typography from '@material-ui/core/Typography';
+import useTranslation from 'next-translate/useTranslation';
+import Link from 'next/link';
+import numeral from 'numeral';
+import React from 'react';
+import { useRecoilValue } from 'recoil';
+
+const { primaryTokenUnit } = chainConfig();
 
 const Overview: React.FC<OverviewType & ComponentDefault> = (props) => {
   const { t } = useTranslation('transactions');
@@ -73,7 +75,7 @@ const Overview: React.FC<OverviewType & ComponentDefault> = (props) => {
       detail: <AvatarName address={props.to} name={props.to} />,
     },
     {
-      label: t('tokenPrice', { token: chainConfig().primaryTokenUnit.toUpperCase() }),
+      label: t('tokenPrice', { token: primaryTokenUnit.toUpperCase() }),
       detail: `$${props.price}`,
     },
     {

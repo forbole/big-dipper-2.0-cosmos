@@ -2,7 +2,7 @@
 
 ## Changes
 
--
+- Update og:image, public RPC endpoint ([\#1082](https://github.com/forbole/big-dipper-2.0-cosmos/issues/1082))
 
 # likecoin-v2.2.4 - 2022-09-13
 

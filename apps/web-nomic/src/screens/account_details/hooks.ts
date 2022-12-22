@@ -18,6 +18,8 @@ import {
   // fetchAccountWithdrawalAddress,
 } from '@/screens/account_details/utils';
 
+const { extra, primaryTokenUnit, tokenUnits } = chainConfig();
+
 const defaultTokenUnit: TokenUnit = {
   value: '0',
   baseDenom: '',
@@ -48,12 +50,15 @@ export const useAccountDetails = () => {
   const router = useRouter();
   const [state, setState] = useState<AccountDetailState>(initialState);
 
-  const handleSetState = useCallback((stateChange: Partial<AccountDetailState>) => {
-    setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
-      return R.equals(prevState, newState) ? prevState : newState;
-    });
-  }, []);
+  const handleSetState = useCallback(
+    (stateChange: (prevState: AccountDetailState) => AccountDetailState) => {
+      setState((prevState) => {
+        const newState = stateChange(prevState);
+        return R.equals(prevState, newState) ? prevState : newState;
+      });
+    },
+    []
+  );
 
   // ==========================
   // Desmos Profile
@@ -61,18 +66,19 @@ export const useAccountDetails = () => {
   const { fetchDesmosProfile, formatDesmosProfile } = useDesmosProfile({
     onComplete: (data) => {
       const desmosProfile = formatDesmosProfile(data);
-      handleSetState({ desmosProfile });
+      handleSetState((prevState) => ({ ...prevState, desmosProfile }));
       return desmosProfile;
     },
   });
 
   useEffect(() => {
     if (!isValidAddress(router.query.address as string)) {
-      handleSetState({
+      handleSetState((prevState) => ({
+        ...prevState,
         loading: false,
         exists: false,
-      });
-    } else if (chainConfig().extra.profile) {
+      }));
+    } else if (extra.profile) {
       fetchDesmosProfile(router.query.address as string);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -84,12 +90,13 @@ export const useAccountDetails = () => {
     // ==========================
     // const fetchWithdrawalAddress = async () => {
     //   const data = await fetchAccountWithdrawalAddress(router.query.address as string);
-    //   handleSetState({
+    //   handleSetState((prevState) => ({
+    //     ...prevState,
     //     overview: {
     //       address: router.query.address,
     //       withdrawalAddress: data?.withdrawalAddress?.address ?? '',
     //     },
-    //   });
+    //   }));
     // };
 
     const fetchBalance = async () => {
@@ -107,7 +114,7 @@ export const useAccountDetails = () => {
         delegationBalance: delegation?.value?.delegationBalance ?? [],
       };
 
-      handleSetState(formatAllBalance(formattedRawData));
+      handleSetState((prevState) => ({ ...prevState, ...formatAllBalance(formattedRawData) }));
     };
 
     // ==========================
@@ -139,21 +146,15 @@ export const useAccountDetails = () => {
       // balance
       // ============================
       const formatBalance = () => {
-        const available = getDenom(
-          data?.accountBalances?.coins ?? [],
-          chainConfig().primaryTokenUnit
-        );
-        const availableAmount = formatToken(available.amount, chainConfig().primaryTokenUnit);
+        const available = getDenom(data?.accountBalances?.coins ?? [], primaryTokenUnit);
+        const availableAmount = formatToken(available.amount, primaryTokenUnit);
 
-        const delegate = getDenom(
-          data?.delegationBalance?.coins ?? [],
-          chainConfig().primaryTokenUnit
-        );
-        const delegateAmount = formatToken(delegate.amount, chainConfig().primaryTokenUnit);
+        const delegate = getDenom(data?.delegationBalance?.coins ?? [], primaryTokenUnit);
+        const delegateAmount = formatToken(delegate.amount, primaryTokenUnit);
 
         const total = Big(availableAmount.value)
           .plus(delegateAmount.value)
-          .toFixed(chainConfig().tokenUnits?.[chainConfig().primaryTokenUnit].exponent);
+          .toFixed(tokenUnits?.[primaryTokenUnit].exponent);
 
         const balance: BalanceType = {
           available: availableAmount,
@@ -191,14 +192,14 @@ export const useAccountDetails = () => {
         });
 
         // remove the primary token unit thats being shown in balance
-        otherTokenUnits.delete(chainConfig().primaryTokenUnit);
+        otherTokenUnits.delete(primaryTokenUnit);
 
         otherTokenUnits.forEach((x: string) => {
           const availableRawAmount = getDenom(available, x);
           const availableAmount = formatToken(availableRawAmount.amount, x);
 
           otherTokens.push({
-            denom: chainConfig().tokenUnits?.x?.display ?? x,
+            denom: tokenUnits?.x?.display ?? x,
             available: availableAmount,
             reward: defaultTokenUnit,
             commission: defaultTokenUnit,

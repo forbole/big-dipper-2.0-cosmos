@@ -17,12 +17,15 @@ export const useTokens = () => {
     total: 0,
   });
 
-  const handleSetState = useCallback((stateChange: Partial<OtherTokensState>) => {
-    setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
-      return R.equals(prevState, newState) ? prevState : newState;
-    });
-  }, []);
+  const handleSetState = useCallback(
+    (stateChange: (prevState: OtherTokensState) => OtherTokensState) => {
+      setState((prevState) => {
+        const newState = stateChange(prevState);
+        return R.equals(prevState, newState) ? prevState : newState;
+      });
+    },
+    []
+  );
 
   const getTransactionsByPage = useCallback(
     async (page: number) => {
@@ -59,10 +62,11 @@ export const useTokens = () => {
           };
         });
 
-        handleSetState({
+        handleSetState((prevState) => ({
+          ...prevState,
           loading: false,
           items,
-        });
+        }));
       } catch (error) {
         console.error((error as Error).message);
       }
@@ -76,9 +80,10 @@ export const useTokens = () => {
         const { data: total } = await axios.get(
           ACCOUNT_DETAILS_TOKENS_COUNT(router.query.address as string)
         );
-        handleSetState({
+        handleSetState((prevState) => ({
+          ...prevState,
           total,
-        });
+        }));
       } catch (error) {
         console.error((error as Error).message);
       }
@@ -91,10 +96,11 @@ export const useTokens = () => {
 
   const handlePageChangeCallback = useCallback(
     async (page: number, _rowsPerPage: number) => {
-      handleSetState({
+      handleSetState((prevState) => ({
+        ...prevState,
         page,
         loading: true,
-      });
+      }));
       await getTransactionsByPage(page);
     },
     [getTransactionsByPage, handleSetState]

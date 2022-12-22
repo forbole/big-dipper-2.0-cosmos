@@ -14,15 +14,17 @@ import numeral from 'numeral';
 import { toast } from 'react-toastify';
 import { useRecoilCallback } from 'recoil';
 
+const { extra, prefix } = chainConfig();
+
 export const useSearchBar = (t: Translate) => {
   const router = useRouter();
 
   const handleOnSubmit = useRecoilCallback(
     ({ snapshot }) =>
       async (value: string, clear?: () => void) => {
-        const consensusRegex = `^(${chainConfig().prefix.consensus})`;
-        const validatorRegex = `^(${chainConfig().prefix.validator})`;
-        const userRegex = `^(${chainConfig().prefix.account})`;
+        const consensusRegex = `^(${prefix.consensus})`;
+        const validatorRegex = `^(${prefix.validator})`;
+        const userRegex = `^(${prefix.account})`;
         const parsedValue = value.replace(/\s+/g, '');
 
         if (new RegExp(consensusRegex).test(parsedValue)) {
@@ -45,7 +47,7 @@ export const useSearchBar = (t: Translate) => {
             toast(t('common:invalidAddress'));
           }
         } else if (/^@/.test(parsedValue)) {
-          const configProfile = chainConfig().extra.profile;
+          const configProfile = extra.profile;
           if (!configProfile) {
             toast(t('common:profilesNotEnabled'));
           } else if (parsedValue === '@') {

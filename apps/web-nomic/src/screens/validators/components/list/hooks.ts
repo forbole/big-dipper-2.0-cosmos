@@ -1,3 +1,4 @@
+import chainConfig from '@/chainConfig';
 import { useValidatorsQuery, ValidatorsQuery } from '@/graphql/types/general_types';
 import type {
   ItemType,
@@ -9,6 +10,8 @@ import Big from 'big.js';
 import numeral from 'numeral';
 import * as R from 'ramda';
 import { ComponentProps, useCallback, useState } from 'react';
+
+const { extra } = chainConfig();
 
 export const useValidators = () => {
   const [search, setSearch] = useState('');
@@ -22,22 +25,26 @@ export const useValidators = () => {
     sortDirection: 'asc',
   });
 
-  const handleSetState = useCallback((stateChange: Partial<ValidatorsState>) => {
-    setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
-      return R.equals(prevState, newState) ? prevState : newState;
-    });
-  }, []);
+  const handleSetState = useCallback(
+    (stateChange: (prevState: ValidatorsState) => ValidatorsState) => {
+      setState((prevState) => {
+        const newState = stateChange(prevState);
+        return R.equals(prevState, newState) ? prevState : newState;
+      });
+    },
+    []
+  );
 
   // ==========================
   // Fetch Data
   // ==========================
   useValidatorsQuery({
     onCompleted: (data) => {
-      handleSetState({
+      handleSetState((prevState) => ({
+        ...prevState,
         loading: false,
         ...formatValidators(data),
-      });
+      }));
     },
   });
 
@@ -46,14 +53,18 @@ export const useValidators = () => {
   // ==========================
   const formatValidators = (data: ValidatorsQuery) => {
     const votingPowerOverall =
-      numeral(data?.stakingPool?.[0]?.bondedTokens ?? 0).value() ?? undefined;
+      (numeral(data?.stakingPool?.[0]?.bondedTokens ?? 0).value() ?? 0) /
+      10 ** (extra.votingPowerExponent ?? 0);
 
     let formattedItems = data.validator.map((x): ValidatorType => {
       const inActiveSetString = x?.validatorStatuses?.in_active_set ?? 'false';
       const jailedString = x?.validatorStatuses?.jailed ?? 'false';
       const tombstonedString = x?.validatorStatuses?.tombstoned ?? 'false';
-      const votingPower = x?.validatorVotingPowers?.[0]?.votingPower ?? 0;
-      const votingPowerPercent = numeral((votingPower / (votingPowerOverall ?? 0)) * 100).value();
+      const votingPower =
+        (x?.validatorVotingPowers?.[0]?.votingPower ?? 0) / 10 ** (extra.votingPowerExponent ?? 0);
+      const votingPowerPercent = votingPowerOverall
+        ? numeral((votingPower / votingPowerOverall) * 100).value()
+        : 0;
 
       return {
         validator: x.selfDelegateAddress,

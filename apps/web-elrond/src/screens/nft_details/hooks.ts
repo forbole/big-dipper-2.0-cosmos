@@ -22,19 +22,23 @@ export const useBlockDetails = () => {
     },
   });
 
-  const handleSetState = useCallback((stateChange: Partial<BlockDetailsState>) => {
-    setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
-      return R.equals(prevState, newState) ? prevState : newState;
-    });
-  }, []);
+  const handleSetState = useCallback(
+    (stateChange: (prevState: BlockDetailsState) => BlockDetailsState) => {
+      setState((prevState) => {
+        const newState = stateChange(prevState);
+        return R.equals(prevState, newState) ? prevState : newState;
+      });
+    },
+    []
+  );
 
   useEffect(() => {
     const getBlockDetails = async () => {
       try {
         const { data: nftData } = await axios.get(NFT_DETAILS(router.query.nft as string));
 
-        handleSetState({
+        handleSetState((prevState) => ({
+          ...prevState,
           loading: false,
           overview: {
             identifier: nftData?.identifier ?? '',
@@ -46,12 +50,13 @@ export const useBlockDetails = () => {
             minted: nftData?.timestamp ?? '',
             ticker: nftData?.ticker ?? '',
           },
-        });
+        }));
       } catch (error) {
-        handleSetState({
+        handleSetState((prevState) => ({
+          ...prevState,
           loading: false,
           exists: false,
-        });
+        }));
         console.error((error as Error).message);
       }
     };

@@ -20,9 +20,9 @@ export function useTransactions() {
     offsetCount: 0,
   });
 
-  const handleSetState = (stateChange: Partial<TransactionState>) => {
+  const handleSetState = (stateChange: (prevState: TransactionState) => TransactionState) => {
     setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
+      const newState = stateChange(prevState);
       return R.equals(prevState, newState) ? prevState : newState;
     });
   };
@@ -43,14 +43,12 @@ export function useTransactions() {
         offsetCount: state.offsetCount + LIMIT,
       };
 
-      handleSetState(stateChange);
+      handleSetState((prevState) => ({ ...prevState, ...stateChange }));
     },
   });
 
   const loadNextPage = async () => {
-    handleSetState({
-      isNextPageLoading: true,
-    });
+    handleSetState((prevState) => ({ ...prevState, isNextPageLoading: true }));
     // refetch query
     await transactionQuery
       .fetchMore({
@@ -68,7 +66,7 @@ export function useTransactions() {
           isNextPageLoading: false,
           offsetCount: state.offsetCount + LIMIT,
         };
-        handleSetState(stateChange);
+        handleSetState((prevState) => ({ ...prevState, ...stateChange }));
       });
   };
 
