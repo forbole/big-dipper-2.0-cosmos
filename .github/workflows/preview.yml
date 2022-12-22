@@ -19,11 +19,6 @@ jobs:
     uses: forbole/big-dipper-2.0-cosmos/.github/workflows/validate-projects.yml@main
     with:
       projects: ${{ github.event.inputs.projects }}
-  validate-chain-type:
-    uses: forbole/big-dipper-2.0-cosmos/.github/workflows/validate-chain-type.yml@main
-    with:
-      projects: ${{ github.event.inputs.projects }}
-      chain_type: ${{ github.event.inputs.chain_type }}
   publish:
     runs-on: ubuntu-latest
     needs: [validate-projects, validate-chain-type]
@@ -33,11 +28,27 @@ jobs:
       max-parallel: 1
       matrix:
         project: ${{ fromJSON(needs.validate-projects.outputs.projects) }}
-        chain_type: [needs.validate-chain-type.chain_type]
         base_path: [github.event.inputs.base_path]
     name: Publish ${{ matrix.project }}
     steps:
       - uses: actions/checkout@v3
+      - run: |
+          # assign chain_type
+          node <<EOF | tee -a $GITHUB_OUTPUT
+          const chainType = process.env.NEXT_PUBLIC_CHAIN_TYPE?.toLowerCase() || 'mainnet';
+          const chainJson = require('./apps/' + process.env.PROJECT_NAME + '/src/chain.json');
+          const { chains, ...settings } = chainJson;
+          let chain = chains.find((c) => c.chainType?.toLowerCase() === chainType);
+          if (!chain && chainType !== 'testnet') {
+            chain = chains.find((c) => c.chainType?.toLowerCase() === 'testnet');
+          }
+          if (!chain) [chain] = chains;
+          console.log('chain_type=' + (chain?.chainType?.toLowerCase() || 'mainnet'));
+          EOF
+        id: vars
+        env:
+          PROJECT_NAME: ${{ inputs.project }}
+          NEXT_PUBLIC_CHAIN_TYPE: ${{ github.event.inputs.chain_type }}
       - name: Insall Vercel CLI
         run: npm i -g vercel
       - name: Generate vercel.json
@@ -61,7 +72,7 @@ jobs:
           EOF
         env:
           PROJECT_NAME: ${{ matrix.project }}
-          NEXT_PUBLIC_CHAIN_TYPE: ${{ matrix.chain_type }}
+          NEXT_PUBLIC_CHAIN_TYPE: ${{ steps.vars.outputs.chain_type }}
           BASE_PATH: ${{ matrix.base_path }}
       - name: Deploy preview to Vercel
         run: vercel -t ${{ secrets.VERCEL_TOKEN }} | tee -a $GITHUB_STEP_SUMMARY
