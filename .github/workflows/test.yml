@@ -18,6 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       projects: ${{ steps.dry-run.outputs.projects }}
+      projects-web: ${{ steps.dry-run.outputs.projects-web }}
       cache-directory: ${{ steps.vars.outputs.cache-directory }}
       cashe-key: ${{ steps.vars.outputs.cache-key }}
       restore-keys: ${{ steps.vars.outputs.restore-keys }}
@@ -42,17 +43,20 @@ jobs:
           restore-keys: ${{ steps.vars.outputs.restore-keys }}
       - name: Install modules
         run: yarn install --immutable
-      - name: Set needs.install.outputs.projects
+      - name: Set needs.install.outputs.{projects,projects-web}
         id: dry-run
         run: |
-          DRY_BUILD_JSON=$(
+          export DRY_BUILD_JSON=$(
             yarn turbo run build --dry='json'
               --filter='[${{ github.event.pull_request.base.sha }}]'
-          ) node <<EOF | tee -a $GITHUB_OUTPUT $GITHUB_STEP_SUMMARY
+          )
+          node <<EOF | tee -a $GITHUB_OUTPUT $GITHUB_STEP_SUMMARY
           const { packages } = JSON.parse(process.env.DRY_BUILD_JSON);
-          console.log('projects=' + JSON.stringify(
-            packages.filter(p => /^(?:ui|web.*)$/.test(p))
-          ));
+          console.log('projects=' + JSON.stringify(packages.filter(p => /^(?:ui|web.*)$/.test(p))));
+          EOF
+          node <<EOF | tee -a $GITHUB_OUTPUT $GITHUB_STEP_SUMMARY
+          const { packages } = JSON.parse(process.env.DRY_BUILD_JSON);
+          console.log('projects-web=' + JSON.stringify(packages.filter(p => /^web.*$/.test(p))));
           EOF
   check-types:
     if: ${{ success() && needs.install.outputs.projects != '[]' }}
@@ -130,12 +134,12 @@ jobs:
           yarn test:ci --filter=${{ matrix.project }} -- --coverage | tee -a $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
   build:
-    if: ${{ success() && needs.install.outputs.projects != '[]' }}
+    if: ${{ success() && needs.install.outputs.projects-web != '[]' }}
     needs: install
     strategy:
       fail-fast: false
       matrix:
-        project: ${{ fromJson(needs.install.outputs.projects) }}
+        project: ${{ fromJson(needs.install.outputs.projects-web) }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -149,20 +153,34 @@ jobs:
           path: ${{ needs.install.outputs.cache-directory }}
           key: ${{ needs.install.outputs.cashe-key }}
           restore-keys: ${{ needs.install.outputs.restore-keys }}
+      - run: |
+          echo 'next-cache-key=${{ needs.install.outputs.cashe-key }}-${{ matrix.project }}-${{
+          hashFiles(
+            format('apps/{0}/**/*.[jt]s', matrix.project),
+            format('apps/{0}/**/*.[jt]sx', matrix.project),
+            'packages/**/*.[jt]s',
+            'packages/**/*.[jt]sx'
+          ) }}' | tee -a $GITHUB_OUTPUT
+        id: vars
+      - uses: actions/cache@v3
+        with:
+          path: ${{ github.workspace }}/apps/${{ matrix.project }}/.next/cache
+          key: ${{ steps.vars.outputs.next-cache-key }}
+          restore-keys: ${{ needs.install.outputs.restore-keys }}${{ matrix.project }}-
       - run: yarn install --immutable --immutable-cache
       - run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
           yarn build:ci --filter=${{ matrix.project }} | tee -a $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
   e2e:
-    if: ${{ success() }}
+    if: ${{ success() && needs.install.outputs.projects-web != '[]' }}
     needs: [install, check-types, lint, test, build]
     runs-on: ubuntu-latest
     timeout-minutes: 30
     strategy:
       fail-fast: false
       matrix:
-        project: ${{ fromJson(needs.install.outputs.projects) }}
+        project: ${{ fromJson(needs.install.outputs.projects-web) }}
         browser:
           - chromium
           # - firefox
@@ -173,8 +191,6 @@ jobs:
         shardTotal: [2]
     container:
       image: mcr.microsoft.com/playwright:v1.29.0-focal
-      env:
-        PROJECT_NAME: ${{ matrix.project }}
     defaults:
       run:
         shell: bash
@@ -190,7 +206,15 @@ jobs:
           path: ${{ needs.install.outputs.cache-directory }}
           key: ${{ needs.install.outputs.cashe-key }}
           restore-keys: ${{ needs.install.outputs.restore-keys }}
+      - uses: actions/cache@v3
+        with:
+          path: ${{ github.workspace }}/apps/${{ matrix.project }}/.next/cache
+          key: ${{ needs.build.outputs.next-cache-key }}
+          restore-keys: ${{ needs.install.outputs.restore-keys }}${{ matrix.project }}-
       - run: yarn install --immutable
+      - run: yarn build
+        env:
+          PROJECT_NAME: ${{ matrix.project }}
       - run: |
           echo Trace can be view at https://trace.playwright.dev/ | tee -a $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
