@@ -1462,7 +1462,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.1.2, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.17.2, @babel/runtime@npm:^7.18.9, @babel/runtime@npm:^7.20.1, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.4.4, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.8.3, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.8.7, @babel/runtime@npm:^7.9.2":
+"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.1.2, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.18.9, @babel/runtime@npm:^7.20.1, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.4.4, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.8.3, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.8.7, @babel/runtime@npm:^7.9.2":
   version: 7.20.6
   resolution: "@babel/runtime@npm:7.20.6"
   dependencies:
@@ -5226,16 +5226,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bufferutil@npm:^4.0.1":
-  version: 4.0.7
-  resolution: "bufferutil@npm:4.0.7"
-  dependencies:
-    node-gyp: latest
-    node-gyp-build: ^4.3.0
-  checksum: f75aa87e3d1b99b87a95f60a855e63f70af07b57fb8443e75a2ddfef2e47788d130fdd46e3a78fd7e0c10176082b26dfbed970c5b8632e1cc299cafa0e93ce45
-  languageName: node
-  linkType: hard
-
 "busboy@npm:^1.6.0":
   version: 1.6.0
   resolution: "busboy@npm:1.6.0"
@@ -7167,7 +7157,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eventemitter3@npm:^4.0.1, eventemitter3@npm:^4.0.7":
+"eventemitter3@npm:^4.0.1":
   version: 4.0.7
   resolution: "eventemitter3@npm:4.0.7"
   checksum: 1875311c42fcfe9c707b2712c32664a245629b42bb0a5a84439762dd0fd637fc54d078155ea83c2af9e0323c9ac13687e03cfba79b03af9f40c89b4960099374
@@ -10513,17 +10503,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-gyp-build@npm:^4.3.0":
-  version: 4.5.0
-  resolution: "node-gyp-build@npm:4.5.0"
-  bin:
-    node-gyp-build: bin.js
-    node-gyp-build-optional: optional.js
-    node-gyp-build-test: build-test.js
-  checksum: d888bae0fb88335f69af1b57a2294a931c5042f36e413d8d364c992c9ebfa0b96ffe773179a5a2c8f04b73856e8634e09cce108dbb9804396d3cc8c5455ff2db
-  languageName: node
-  linkType: hard
-
 "node-gyp@npm:latest":
   version: 9.3.0
   resolution: "node-gyp@npm:9.3.0"
@@ -12022,25 +12001,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rpc-websockets@npm:^7.5.0":
-  version: 7.5.0
-  resolution: "rpc-websockets@npm:7.5.0"
-  dependencies:
-    "@babel/runtime": ^7.17.2
-    bufferutil: ^4.0.1
-    eventemitter3: ^4.0.7
-    utf-8-validate: ^5.0.2
-    uuid: ^8.3.2
-    ws: ^8.5.0
-  dependenciesMeta:
-    bufferutil:
-      optional: true
-    utf-8-validate:
-      optional: true
-  checksum: cd4c999e54161f9f40e162f57d7f3313edf086ff5facefbdc0629d52066e9843ace987681dbff8b4329db225deb69f58c528d7818a9c7e89f0100969b7789c2d
-  languageName: node
-  linkType: hard
-
 "run-async@npm:^2.4.0":
   version: 2.4.1
   resolution: "run-async@npm:2.4.1"
@@ -13535,7 +13495,6 @@ __metadata:
     react-window-infinite-loader: ^1.0.8
     recharts: ^2.2.0
     recoil: ^0.7.6
-    rpc-websockets: ^7.5.0
     shared-utils: "*"
     sharp: ^0.31.2
     subscriptions-transport-ws: ^0.11.0
@@ -13707,29 +13666,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"utf-8-validate@npm:^5.0.2":
-  version: 5.0.10
-  resolution: "utf-8-validate@npm:5.0.10"
-  dependencies:
-    node-gyp: latest
-    node-gyp-build: ^4.3.0
-  checksum: 5579350a023c66a2326752b6c8804cc7b39dcd251bb088241da38db994b8d78352e388dcc24ad398ab98385ba3c5ffcadb6b5b14b2637e43f767869055e46ba6
-  languageName: node
-  linkType: hard
-
 "util-deprecate@npm:^1.0.1, util-deprecate@npm:~1.0.1":
   version: 1.0.2
   resolution: "util-deprecate@npm:1.0.2"
   checksum: 474acf1146cb2701fe3b074892217553dfcf9a031280919ba1b8d651a068c9b15d863b7303cb15bd00a862b498e6cf4ad7b4a08fb134edd5a6f7641681cb54a2
-  languageName: node
-  linkType: hard
-
-"uuid@npm:^8.3.2":
-  version: 8.3.2
-  resolution: "uuid@npm:8.3.2"
-  bin:
-    uuid: dist/bin/uuid
-  checksum: 5575a8a75c13120e2f10e6ddc801b2c7ed7d8f3c8ac22c7ed0c7b2ba6383ec0abda88c905085d630e251719e0777045ae3236f04c812184b7c765f63a70e58df
   languageName: node
   linkType: hard
 
@@ -13898,7 +13838,6 @@ __metadata:
     react-window-infinite-loader: ^1.0.8
     recharts: ^2.2.0
     recoil: ^0.7.6
-    rpc-websockets: ^7.5.0
     shared-utils: "*"
     sharp: ^0.31.2
     subscriptions-transport-ws: ^0.11.0
@@ -14007,7 +13946,6 @@ __metadata:
     react-window-infinite-loader: ^1.0.8
     recharts: ^2.2.0
     recoil: ^0.7.6
-    rpc-websockets: ^7.5.0
     shared-utils: "*"
     sharp: ^0.31.2
     subscriptions-transport-ws: ^0.11.0
@@ -14116,7 +14054,6 @@ __metadata:
     react-window-infinite-loader: ^1.0.8
     recharts: ^2.2.0
     recoil: ^0.7.6
-    rpc-websockets: ^7.5.0
     shared-utils: "*"
     sharp: ^0.31.2
     subscriptions-transport-ws: ^0.11.0
@@ -14225,7 +14162,6 @@ __metadata:
     react-window-infinite-loader: ^1.0.8
     recharts: ^2.2.0
     recoil: ^0.7.6
-    rpc-websockets: ^7.5.0
     shared-utils: "*"
     sharp: ^0.31.2
     subscriptions-transport-ws: ^0.11.0
@@ -14334,7 +14270,6 @@ __metadata:
     react-window-infinite-loader: ^1.0.8
     recharts: ^2.2.0
     recoil: ^0.7.6
-    rpc-websockets: ^7.5.0
     shared-utils: "*"
     sharp: ^0.31.2
     subscriptions-transport-ws: ^0.11.0
@@ -14443,7 +14378,6 @@ __metadata:
     react-window-infinite-loader: ^1.0.8
     recharts: ^2.2.0
     recoil: ^0.7.6
-    rpc-websockets: ^7.5.0
     shared-utils: "*"
     sharp: ^0.31.2
     subscriptions-transport-ws: ^0.11.0
@@ -14552,7 +14486,6 @@ __metadata:
     react-window-infinite-loader: ^1.0.8
     recharts: ^2.2.0
     recoil: ^0.7.6
-    rpc-websockets: ^7.5.0
     shared-utils: "*"
     sharp: ^0.31.2
     subscriptions-transport-ws: ^0.11.0
@@ -14661,7 +14594,6 @@ __metadata:
     react-window-infinite-loader: ^1.0.8
     recharts: ^2.2.0
     recoil: ^0.7.6
-    rpc-websockets: ^7.5.0
     shared-utils: "*"
     sharp: ^0.31.2
     subscriptions-transport-ws: ^0.11.0
@@ -14770,7 +14702,6 @@ __metadata:
     react-window-infinite-loader: ^1.0.8
     recharts: ^2.2.0
     recoil: ^0.7.6
-    rpc-websockets: ^7.5.0
     shared-utils: "*"
     sharp: ^0.31.2
     subscriptions-transport-ws: ^0.11.0
@@ -14879,7 +14810,6 @@ __metadata:
     react-window-infinite-loader: ^1.0.8
     recharts: ^2.2.0
     recoil: ^0.7.6
-    rpc-websockets: ^7.5.0
     shared-utils: "*"
     sharp: ^0.31.2
     subscriptions-transport-ws: ^0.11.0
@@ -14988,7 +14918,6 @@ __metadata:
     react-window-infinite-loader: ^1.0.8
     recharts: ^2.2.0
     recoil: ^0.7.6
-    rpc-websockets: ^7.5.0
     shared-utils: "*"
     sharp: ^0.31.2
     subscriptions-transport-ws: ^0.11.0
@@ -15097,7 +15026,6 @@ __metadata:
     react-window-infinite-loader: ^1.0.8
     recharts: ^2.2.0
     recoil: ^0.7.6
-    rpc-websockets: ^7.5.0
     shared-utils: "*"
     sharp: ^0.31.2
     subscriptions-transport-ws: ^0.11.0
@@ -15206,7 +15134,6 @@ __metadata:
     react-window-infinite-loader: ^1.0.8
     recharts: ^2.2.0
     recoil: ^0.7.6
-    rpc-websockets: ^7.5.0
     shared-utils: "*"
     sharp: ^0.31.2
     subscriptions-transport-ws: ^0.11.0
@@ -15315,7 +15242,6 @@ __metadata:
     react-window-infinite-loader: ^1.0.8
     recharts: ^2.2.0
     recoil: ^0.7.6
-    rpc-websockets: ^7.5.0
     shared-utils: "*"
     sharp: ^0.31.2
     subscriptions-transport-ws: ^0.11.0
@@ -15424,7 +15350,6 @@ __metadata:
     react-window-infinite-loader: ^1.0.8
     recharts: ^2.2.0
     recoil: ^0.7.6
-    rpc-websockets: ^7.5.0
     shared-utils: "*"
     sharp: ^0.31.2
     subscriptions-transport-ws: ^0.11.0
@@ -15533,7 +15458,6 @@ __metadata:
     react-window-infinite-loader: ^1.0.8
     recharts: ^2.2.0
     recoil: ^0.7.6
-    rpc-websockets: ^7.5.0
     shared-utils: "*"
     sharp: ^0.31.2
     subscriptions-transport-ws: ^0.11.0
@@ -15642,7 +15566,6 @@ __metadata:
     react-window-infinite-loader: ^1.0.8
     recharts: ^2.2.0
     recoil: ^0.7.6
-    rpc-websockets: ^7.5.0
     shared-utils: "*"
     sharp: ^0.31.2
     subscriptions-transport-ws: ^0.11.0
@@ -15751,7 +15674,6 @@ __metadata:
     react-window-infinite-loader: ^1.0.8
     recharts: ^2.2.0
     recoil: ^0.7.6
-    rpc-websockets: ^7.5.0
     shared-utils: "*"
     sharp: ^0.31.2
     subscriptions-transport-ws: ^0.11.0
@@ -15860,7 +15782,6 @@ __metadata:
     react-window-infinite-loader: ^1.0.8
     recharts: ^2.2.0
     recoil: ^0.7.6
-    rpc-websockets: ^7.5.0
     shared-utils: "*"
     sharp: ^0.31.2
     subscriptions-transport-ws: ^0.11.0
@@ -15969,7 +15890,6 @@ __metadata:
     react-window-infinite-loader: ^1.0.8
     recharts: ^2.2.0
     recoil: ^0.7.6
-    rpc-websockets: ^7.5.0
     shared-utils: "*"
     sharp: ^0.31.2
     subscriptions-transport-ws: ^0.11.0
@@ -16078,7 +15998,6 @@ __metadata:
     react-window-infinite-loader: ^1.0.8
     recharts: ^2.2.0
     recoil: ^0.7.6
-    rpc-websockets: ^7.5.0
     shared-utils: "*"
     sharp: ^0.31.2
     subscriptions-transport-ws: ^0.11.0
@@ -16187,7 +16106,6 @@ __metadata:
     react-window-infinite-loader: ^1.0.8
     recharts: ^2.2.0
     recoil: ^0.7.6
-    rpc-websockets: ^7.5.0
     shared-utils: "*"
     sharp: ^0.31.2
     subscriptions-transport-ws: ^0.11.0
@@ -16310,7 +16228,6 @@ __metadata:
     react-window-infinite-loader: ^1.0.8
     recharts: ^2.2.0
     recoil: ^0.7.6
-    rpc-websockets: ^7.5.0
     shared-utils: "*"
     sharp: ^0.31.2
     subscriptions-transport-ws: ^0.11.0
@@ -16419,7 +16336,6 @@ __metadata:
     react-window-infinite-loader: ^1.0.8
     recharts: ^2.2.0
     recoil: ^0.7.6
-    rpc-websockets: ^7.5.0
     shared-utils: "*"
     sharp: ^0.31.2
     subscriptions-transport-ws: ^0.11.0
@@ -16642,7 +16558,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ws@npm:8.11.0, ws@npm:^8.11.0, ws@npm:^8.5.0":
+"ws@npm:8.11.0, ws@npm:^8.11.0":
   version: 8.11.0
   resolution: "ws@npm:8.11.0"
   peerDependencies:
