@@ -4438,7 +4438,7 @@ __metadata:
     express: ^4.18.1
     graphql: ^15.5.0
     helmet: ^4.6.0
-    isomorphic-ws: ^4.0.1
+    isomorphic-ws: ^5.0.0
     jdenticon: ^3.1.0
     jest: ^27.3.2
     jest-localstorage-mock: ^2.4.18
@@ -7783,15 +7783,6 @@ __metadata:
     node-fetch: ^2.6.1
     whatwg-fetch: ^3.4.1
   checksum: e5ab79a56ce5af6ddd21265f59312ad9a4bc5a72cebc98b54797b42cb30441d5c5f8d17c5cd84a99e18101c8af6f90c081ecb8d12fd79e332be1778d58486d75
-  languageName: node
-  linkType: hard
-
-"isomorphic-ws@npm:^4.0.1":
-  version: 4.0.1
-  resolution: "isomorphic-ws@npm:4.0.1"
-  peerDependencies:
-    ws: "*"
-  checksum: d7190eadefdc28bdb93d67b5f0c603385aaf87724fa2974abb382ac1ec9756ed2cfb27065cbe76122879c2d452e2982bc4314317f3d6c737ddda6c047328771a
   languageName: node
   linkType: hard
 

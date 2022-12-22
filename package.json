@@ -39,7 +39,7 @@
     "express": "^4.18.1",
     "graphql": "^15.5.0",
     "helmet": "^4.6.0",
-    "isomorphic-ws": "^4.0.1",
+    "isomorphic-ws": "^5.0.0",
     "jdenticon": "^3.1.0",
     "markdown-to-jsx": "^7.1.2",
     "mock-apollo-client": "^1.1.0",
