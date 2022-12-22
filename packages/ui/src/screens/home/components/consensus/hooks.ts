@@ -111,7 +111,7 @@ const pingHeader = JSON.stringify({
 function subscribe(ws: WebSocket, data: string, keepAlive?: number) {
   /* It's checking if the client is still the same client that we created. If it's not, it means
   that the client has been replaced and we don't want to send any more data to this client. */
-  if (ws !== client) return;
+  if (!ws || ws !== client) return;
 
   if (ws.readyState !== WebSocket.OPEN) {
     setTimeout(() => subscribe(ws, data, keepAlive), 1000);
@@ -144,7 +144,7 @@ function connect(formatNewRound: (data: unknown) => void, formatNewStep: (data: 
   };
 
   client.onmessage = (e) => {
-    if (client?.CLOSING || client?.CLOSED) return;
+    if (client?.readyState !== WebSocket.OPEN) return;
     const data = JSON.parse(e.data as string);
     const event = R.pathOr<string>('', ['result', 'data', 'type'], data);
     if (event === 'tendermint/event/NewRound') {
