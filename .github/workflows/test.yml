@@ -183,7 +183,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        project: ${{ fromJSON(needs.install.outputs.projects-web) }}
+        project: [web]
         browser:
           - chromium
           # - firefox
@@ -215,7 +215,7 @@ jobs:
           key: ${{ needs.build.outputs.next-cache-key }}
           restore-keys: ${{ needs.install.outputs.restore-keys }}${{ matrix.project }}-
       - run: yarn install --immutable
-      - name: Trace can be view at https://trace.playwright.dev/
+      - name: Playwright testing, trace can be view at https://trace.playwright.dev/
         run: |
           yarn workspace ${{ matrix.project }} build
           echo '```' >> $GITHUB_STEP_SUMMARY
