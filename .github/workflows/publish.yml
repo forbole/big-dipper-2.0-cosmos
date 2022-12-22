@@ -34,8 +34,6 @@ jobs:
       max-parallel: 1
       matrix:
         project: ${{ fromJSON(needs.validate-projects.outputs.projects) }}
-        sha_short:
-          - ${{ steps.vars.outputs.sha_short }}
         base_path:
           - ${{ github.event.inputs.base_path }}
     name: Publish ${{ matrix.project }}
@@ -84,11 +82,11 @@ jobs:
             BASE_PATH=${{ matrix.base_path }}
           target: web
           tags: |
-            forbole/big-dipper-2.0-cosmos:monorepo-${{ matrix.project }}-${{ steps.vars.outputs.chain_type }}-${{ matrix.sha_short }}
+            forbole/big-dipper-2.0-cosmos:monorepo-${{ matrix.project }}-${{ steps.vars.outputs.chain_type }}-${{ steps.vars.outputs.sha_short }}
             forbole/big-dipper-2.0-cosmos:monorepo-${{ matrix.project }}-${{ steps.vars.outputs.chain_type }}-latest
       - name: Publish to akash
         run: >
           curl -i -X POST -H "Content-Type: application/json"
-          -d '{"parameters":{"tag": "monorepo-${{ matrix.project }}-${{ steps.vars.outputs.chain_type }}-${{ matrix.sha_short }}"}}'
+          -d '{"parameters":{"tag": "monorepo-${{ matrix.project }}-${{ steps.vars.outputs.chain_type }}-${{ steps.vars.outputs.sha_short }}"}}'
           -k ${{ secrets.WEBHOOK_URL }}/${{ matrix.project }}-${{ steps.vars.outputs.chain_type }}
           -u "deploy:${{ secrets.AKASH_WEBHOOK_SECRET }}" | tee -a $GITHUB_STEP_SUMMARY
