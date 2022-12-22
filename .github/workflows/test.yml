@@ -66,7 +66,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        project: ${{ fromJson(needs.install.outputs.projects) }}
+        project: ${{ fromJSON(needs.install.outputs.projects) }}
     steps:
       - uses: actions/checkout@v3
       - run: corepack enable
@@ -80,10 +80,9 @@ jobs:
           key: ${{ needs.install.outputs.cashe-key }}
           restore-keys: ${{ needs.install.outputs.restore-keys }}
       - run: yarn install --immutable --immutable-cache
-      - run: |
-          echo '```' >> $GITHUB_STEP_SUMMARY
-          yarn turbo run check-types --filter=${{ matrix.project }} | tee -a $GITHUB_STEP_SUMMARY
-          echo '```' >> $GITHUB_STEP_SUMMARY
+      - run: echo '```' >> $GITHUB_STEP_SUMMARY
+      - run: yarn turbo run check-types --filter=${{ matrix.project }} | tee -a $GITHUB_STEP_SUMMARY
+      - run: echo '```' >> $GITHUB_STEP_SUMMARY
   lint:
     if: ${{ success() && needs.install.outputs.projects != '[]' }}
     needs: install
@@ -91,7 +90,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        project: ${{ fromJson(needs.install.outputs.projects) }}
+        project: ${{ fromJSON(needs.install.outputs.projects) }}
     steps:
       - uses: actions/checkout@v3
       - run: corepack enable
@@ -105,10 +104,9 @@ jobs:
           key: ${{ needs.install.outputs.cashe-key }}
           restore-keys: ${{ needs.install.outputs.restore-keys }}
       - run: yarn install --immutable --immutable-cache
-      - run: |
-          echo '```' >> $GITHUB_STEP_SUMMARY
-          yarn turbo run lint --filter=${{ matrix.project }} | tee -a $GITHUB_STEP_SUMMARY
-          echo '```' >> $GITHUB_STEP_SUMMARY
+      - run: echo '```' >> $GITHUB_STEP_SUMMARY
+      - run: yarn turbo run lint --filter=${{ matrix.project }} | tee -a $GITHUB_STEP_SUMMARY
+      - run: echo '```' >> $GITHUB_STEP_SUMMARY
   test:
     if: ${{ success() && needs.install.outputs.projects != '[]' }}
     needs: install
@@ -116,7 +114,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        project: ${{ fromJson(needs.install.outputs.projects) }}
+        project: ${{ fromJSON(needs.install.outputs.projects) }}
     steps:
       - uses: actions/checkout@v3
       - run: corepack enable
@@ -130,17 +128,16 @@ jobs:
           key: ${{ needs.install.outputs.cashe-key }}
           restore-keys: ${{ needs.install.outputs.restore-keys }}
       - run: yarn install --immutable --immutable-cache
-      - run: |
-          echo '```' >> $GITHUB_STEP_SUMMARY
-          yarn test:ci --filter=${{ matrix.project }} -- --coverage | tee -a $GITHUB_STEP_SUMMARY
-          echo '```' >> $GITHUB_STEP_SUMMARY
+      - run: echo '```' >> $GITHUB_STEP_SUMMARY
+      - run: yarn test:ci --filter=${{ matrix.project }} -- --coverage | tee -a $GITHUB_STEP_SUMMARY
+      - run: echo '```' >> $GITHUB_STEP_SUMMARY
   build:
     if: ${{ success() && needs.install.outputs.projects-web != '[]' }}
     needs: install
     strategy:
       fail-fast: false
       matrix:
-        project: ${{ fromJson(needs.install.outputs.projects-web) }}
+        project: ${{ fromJSON(needs.install.outputs.projects-web) }}
     runs-on: ubuntu-latest
     outputs:
       next-cache-key: ${{ steps.vars.outputs.next-cache-key }}
@@ -171,19 +168,18 @@ jobs:
           key: ${{ steps.vars.outputs.next-cache-key }}
           restore-keys: ${{ needs.install.outputs.restore-keys }}${{ matrix.project }}-
       - run: yarn install --immutable --immutable-cache
-      - run: |
-          echo '```' >> $GITHUB_STEP_SUMMARY
-          yarn build:ci --filter=${{ matrix.project }} | tee -a $GITHUB_STEP_SUMMARY
-          echo '```' >> $GITHUB_STEP_SUMMARY
+      - run: echo '```' >> $GITHUB_STEP_SUMMARY
+      - run: yarn build:ci --filter=${{ matrix.project }} | tee -a $GITHUB_STEP_SUMMARY
+      - run: echo '```' >> $GITHUB_STEP_SUMMARY
   e2e:
     if: ${{ success() && needs.install.outputs.projects-web != '[]' }}
-    needs: build
+    needs: [install, build]
     runs-on: ubuntu-latest
     timeout-minutes: 30
     strategy:
       fail-fast: false
       matrix:
-        project: ${{ fromJson(needs.install.outputs.projects-web) }}
+        project: ${{ fromJSON(needs.install.outputs.projects-web) }}
         browser:
           - chromium
           # - firefox
@@ -218,11 +214,10 @@ jobs:
       - run: yarn build
         env:
           PROJECT_NAME: ${{ matrix.project }}
-      - run: |
-          echo Trace can be view at https://trace.playwright.dev/ | tee -a $GITHUB_STEP_SUMMARY
-          echo '```' >> $GITHUB_STEP_SUMMARY
-          yarn playwright test --project=${{ matrix.browser }} --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }} | tee -a $GITHUB_STEP_SUMMARY
-          echo '```' >> $GITHUB_STEP_SUMMARY
+      - run: echo Trace can be view at https://trace.playwright.dev/ | tee -a $GITHUB_STEP_SUMMARY
+      - run: echo '```' >> $GITHUB_STEP_SUMMARY
+      - run: yarn playwright test --project=${{ matrix.browser }} --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }} | tee -a $GITHUB_STEP_SUMMARY
+      - run: echo '```' >> $GITHUB_STEP_SUMMARY
         env:
           PROJECT_NAME: ${{ matrix.project }}
           PLAYWRIGHT_HTML_REPORT: playwright-report/${{ matrix.browser }}/${{ matrix.shardIndex }}
