@@ -17,7 +17,7 @@ jest.mock('@components', () => ({
 // ==================================
 describe('screen: TransactionDetails/UnBlockUser', () => {
   it('matches snapshot', () => {
-    const message = new MsgUnblockUser({
+    const message = MsgUnblockUser.fromJson({
       category: 'profiles',
       type: 'MsgUnblockUser',
       reason: 'reason',

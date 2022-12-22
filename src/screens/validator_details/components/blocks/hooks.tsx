@@ -20,8 +20,8 @@ export const useBlocks = () => {
     variables: {
       address: R.pathOr('', ['query', 'address'], router),
     },
-    onSubscriptionData: (data) => {
-      setState(formatLastHundredBlocks(data.subscriptionData.data));
+    onData: (data) => {
+      setState(formatLastHundredBlocks(data.data.data));
     },
   });
 

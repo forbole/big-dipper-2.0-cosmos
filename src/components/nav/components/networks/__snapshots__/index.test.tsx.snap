@@ -1,3 +1,99 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`screen: Nav/Networks it renders 1`] = `<div />`;
+exports[`screen: Nav/Networks it renders 1`] = `
+<div>
+  <div
+    className="makeStyles-networkList"
+  >
+    <img
+      alt="logo"
+      src="logo"
+    />
+    <div
+      className="network"
+    >
+      <h4
+        className="MuiTypography-root MuiTypography-h4"
+      >
+        Cosmos
+      </h4>
+      <a
+        className="makeStyles-root"
+        href="https://cosmos.bigdipper.live"
+        rel="noreferrer"
+        target="_blank"
+      >
+        <div
+          className="makeStyles-item"
+        >
+          <p>
+            cosmoshub-4
+          </p>
+          <div
+            className="MuiTypography-root mainnet makeStyles-status MuiTypography-caption"
+          >
+            Mainnet
+          </div>
+        </div>
+      </a>
+      <a
+        className="makeStyles-root"
+        href="https://gaia.bigdipper.live/"
+        rel="noreferrer"
+        target="_blank"
+      >
+        <div
+          className="makeStyles-item"
+        >
+          <p>
+            stargate-final
+          </p>
+          <div
+            className="MuiTypography-root testnet makeStyles-status MuiTypography-caption"
+          >
+            Testnet
+          </div>
+        </div>
+      </a>
+      <a
+        className="makeStyles-root"
+        href="https://stargate-retired.bigdipper.live/"
+        rel="noreferrer"
+        target="_blank"
+      >
+        <div
+          className="makeStyles-item"
+        >
+          <p>
+            stargate-retired
+          </p>
+          <div
+            className="MuiTypography-root retired makeStyles-status MuiTypography-caption"
+          >
+            Retired
+          </div>
+        </div>
+      </a>
+      <a
+        className="makeStyles-root"
+        href=""
+        rel="noreferrer"
+        target="_blank"
+      >
+        <div
+          className="makeStyles-item"
+        >
+          <p>
+            other
+          </p>
+          <div
+            className="MuiTypography-root other makeStyles-status MuiTypography-caption"
+          >
+            Other
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+`;

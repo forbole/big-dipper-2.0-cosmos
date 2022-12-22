@@ -5,7 +5,11 @@ exports[`screen: TransactionDetails/Unknown matches snapshot 1`] = `
   className="makeStyles-root"
 >
   <code>
-    "{\\"hello\\":\\"world\\"}"
+    {
+	"category": "others",
+	"type": "MsgUnknown",
+	"json": "{\\"hello\\":\\"world\\"}"
+}
   </code>
 </pre>
 `;

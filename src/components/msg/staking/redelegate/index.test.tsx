@@ -17,7 +17,7 @@ jest.mock('@components', () => ({
 // ==================================
 describe('screen: TransactionDetails/Redelegate', () => {
   it('matches snapshot', () => {
-    const message = new MsgRedelegate({
+    const message = MsgRedelegate.fromJson({
       category: 'staking',
       type: 'MsgEditValidator',
       delegatorAddress: 'delegatorAddress',

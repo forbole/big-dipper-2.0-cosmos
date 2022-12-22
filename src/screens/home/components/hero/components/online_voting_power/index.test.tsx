@@ -73,7 +73,6 @@ describe('screen: Home/OnlineVotingPower', () => {
           <MockTheme>
             <OnlineVotingPower />
           </MockTheme>
-          ,
         </ApolloProvider>,
       );
     });

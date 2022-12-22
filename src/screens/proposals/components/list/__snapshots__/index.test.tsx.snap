@@ -11,21 +11,155 @@ exports[`screen: Proposals/List matches snapshot 1`] = `
     <div
       className="makeStyles-total"
       id="Total"
-      total="1"
+      total="2"
     />
   </div>
   <div
     className="makeStyles-list"
   >
     <div
+      className="List"
+      onScroll={[Function]}
       style={
         Object {
-          "height": 0,
-          "overflow": "visible",
-          "width": 0,
+          "WebkitOverflowScrolling": "touch",
+          "direction": "ltr",
+          "height": 600,
+          "overflow": "auto",
+          "position": "relative",
+          "width": 600,
+          "willChange": "transform",
         }
       }
+    >
+      <div
+        style={
+          Object {
+            "height": 200,
+            "pointerEvents": undefined,
+            "width": "100%",
+          }
+        }
+      >
+        <div
+          style={
+            Object {
+              "height": 100,
+              "left": 0,
+              "position": "absolute",
+              "right": undefined,
+              "top": 0,
+              "width": "100%",
+            }
+          }
+        >
+          <div>
+            <div
+              description="Update max validators"
+              id="#3"
+              status="PROPOSAL_STATUS_PASSED"
+              title={
+                <ForwardRef(LinkComponent)
+                  href="/proposals/3"
+                  passHref={true}
+                >
+                  <WithStyles(ForwardRef(Typography))
+                    className="value"
+                    component="a"
+                    variant="h3"
+                  >
+                    Staking Param Change Part Three
+                  </WithStyles(ForwardRef(Typography))>
+                </ForwardRef(LinkComponent)>
+              }
+            />
+            <hr
+              className="MuiDivider-root"
+            />
+          </div>
+        </div>
+        <div
+          style={
+            Object {
+              "height": 100,
+              "left": 0,
+              "position": "absolute",
+              "right": undefined,
+              "top": 100,
+              "width": "100%",
+            }
+          }
+        >
+          <div>
+            <div
+              description="Update max validators"
+              id="#7"
+              status="PROPOSAL_STATUS_REJECTED"
+              title={
+                <ForwardRef(LinkComponent)
+                  href="/proposals/7"
+                  passHref={true}
+                >
+                  <WithStyles(ForwardRef(Typography))
+                    className="value"
+                    component="a"
+                    variant="h3"
+                  >
+                    Staking Param Change Part Two
+                  </WithStyles(ForwardRef(Typography))>
+                </ForwardRef(LinkComponent)>
+              }
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`screen: Proposals/List matches snapshot with empty proposal list 1`] = `
+<div
+  className="makeStyles-root"
+  id="Box"
+>
+  <div
+    className="makeStyles-topContent"
+  >
+    <div
+      className="makeStyles-total"
+      id="Total"
+      total="0"
     />
+  </div>
+  <div
+    className="makeStyles-list"
+  >
+    <div
+      className="List"
+      onScroll={[Function]}
+      style={
+        Object {
+          "WebkitOverflowScrolling": "touch",
+          "direction": "ltr",
+          "height": 600,
+          "overflow": "auto",
+          "position": "relative",
+          "width": 600,
+          "willChange": "transform",
+        }
+      }
+    >
+      <div
+        style={
+          Object {
+            "height": 0,
+            "pointerEvents": undefined,
+            "width": "100%",
+          }
+        }
+      />
+    </div>
   </div>
 </div>
 `;

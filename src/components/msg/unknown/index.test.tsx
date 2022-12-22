@@ -16,7 +16,7 @@ jest.mock('@components', () => ({
 // ==================================
 describe('screen: TransactionDetails/Unknown', () => {
   it('matches snapshot', () => {
-    const message = new MsgUnknown({
+    const message = MsgUnknown.fromJson({
       category: 'others',
       type: 'MsgUnknown',
       json: JSON.stringify({

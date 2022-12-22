@@ -18,15 +18,29 @@ jobs:
   lint-pr:
     name: "PR format check"
     runs-on: ubuntu-latest
+    
     steps:
       - uses: actions/checkout@v3
-      # check for the most recent release: https://github.com/CondeNast/conventional-pull-request-action/releases
-      # replace vX.X.X below with the most recently released version
-      - uses: CondeNast/conventional-pull-request-action@v0.1.2
+
+      - uses: amannn/action-semantic-pull-request@v5.0.2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          # to override config-conventional rules, specify a relative path to your rules module, actions/checkout is required for this setting!
-          commitlintRulesPath: "./.github/linters/.commitlint.rules.js" # default: undefined
-          # if the PR contains a single commit, fail if the commit message and the PR title do not match
-          commitTitleMatch: false # default: 'true'
+          # Configure which types are allowed (newline delimited).
+          # Default: https://github.com/commitizen/conventional-commit-types
+          types: |
+            feat
+            fix
+            build
+            chore
+            ci
+            docs
+            feat
+            fix
+            perf
+            refactor
+            revert
+            style
+            test
+          # Configure that a scope must always be provided.
+          requireScope: false

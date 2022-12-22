@@ -4,7 +4,7 @@ exports[`screen: Validators/List matches snapshot 1`] = `
 <div
   exists={true}
   id="LoadAndExist"
-  loading={false}
+  loading={true}
 >
   <div
     className=""
@@ -14,11 +14,15 @@ exports[`screen: Validators/List matches snapshot 1`] = `
       handleSearch={[Function]}
       handleTabChange={[Function]}
       id="Tabs"
-      tab={0}
+      tab={1}
     />
     <div
       className="makeStyles-list"
-    />
+    >
+      <div
+        id="NoData"
+      />
+    </div>
   </div>
 </div>
 `;

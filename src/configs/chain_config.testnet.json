@@ -1,6 +1,6 @@
 {
   "title": "cheqd Testnet Block Explorer",
-  "network": "cheqd-testnet-4",
+  "network": "cheqd-testnet-5",
   "icon": "https://raw.githubusercontent.com/cheqd/big-dipper-assets/cheqd/cheqd/icon.svg",
   "logo": {
     "default": "https://raw.githubusercontent.com/cheqd/big-dipper-assets/cheqd/cheqd/logo.png"
@@ -11,8 +11,8 @@
     "account": "cheqd"
   },
   "genesis": {
-    "time": "2021-07-13T08:00:00",
-    "height": 1
+    "time": "2021-09-24T14:47:05.733203Z",
+    "height": 0
   },
   "primaryTokenUnit": "ncheq",
   "votingPowerTokenUnit": "ncheq",

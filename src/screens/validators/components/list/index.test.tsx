@@ -24,6 +24,59 @@ jest.mock('@components', () => ({
   LoadAndExist: (props) => <div id="LoadAndExist" {...props} />,
 }));
 
+jest.mock('@hooks', () => ({
+  useScreenSize: () => {
+    return {
+      windowSize: {
+        width: 1280,
+        height: 720,
+      },
+      isDesktop: false,
+    };
+  },
+}
+));
+
+jest.mock('./hooks', () => ({
+  useValidators: () => {
+    return {
+      state: {
+        loading: true,
+        exists: true,
+        tab: 1,
+        sortKey: 'height',
+        sortDirection: 'asc',
+        votingPowerOverall: 1123323e231,
+        items: [{
+          validator: 'val',
+          votingPower: 323243,
+          votingPowerPercent: 11,
+          commission: 5,
+          condition: 1,
+          status: 3,
+          jailed: false,
+          tombstoned: false,
+        },
+        {
+          validator: 'val-2',
+          votingPower: 223243,
+          votingPowerPercent: 8,
+          commission: 4,
+          condition: 1,
+          status: 3,
+          jailed: false,
+          tombstoned: false,
+        }],
+      },
+      handleTabChange: () => jest.fn(),
+      handleSort: () => jest.fn(),
+      handleSearch: () => jest.fn(),
+      sortItems: () => jest.fn(),
+    };
+  },
+}
+));
+
 const mockValidatorsDocument = jest.fn().mockResolvedValue({
   data: {
     stakingParams: [
@@ -79,6 +132,51 @@ const mockValidatorsDocument = jest.fn().mockResolvedValue({
               amount: '21000000',
             },
             delegatorAddress: 'desmos1njm853h4h9vh8xge3v9mf7nnukzhgt6zyqxyfr',
+          },
+        ],
+      },
+      {
+        validatorStatuses: [
+          {
+            status: 3,
+            jailed: false,
+            height: 437042,
+          },
+        ],
+        validatorSigningInfos: [
+          {
+            missedBlocksCounter: 12,
+            tombstoned: false,
+          },
+        ],
+        validatorInfo: {
+          operatorAddress: 'desmosvaloper1zm3l7p8n5dxqeadsfxy3rd0j3c2knnx3chg77a',
+          selfDelegateAddress: 'desmos1zm3l7p8n5dxqeadsfxy3rd0j3c2knnx3x6q250',
+        },
+        validatorVotingPowers: [
+          {
+            votingPower: 44,
+          },
+        ],
+        validatorCommissions: [
+          {
+            commission: 0.14,
+          },
+        ],
+        delegations: [
+          {
+            amount: {
+              denom: 'udaric',
+              amount: '14000000',
+            },
+            delegatorAddress: 'desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr',
+          },
+          {
+            amount: {
+              denom: 'udaric',
+              amount: '30000000',
+            },
+            delegatorAddress: 'desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr',
           },
         ],
       },

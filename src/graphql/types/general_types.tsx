@@ -2128,7 +2128,7 @@ export type Proposal_Deposit = {
   /** An object relationship */
   depositor?: Maybe<Account>;
   depositor_address?: Maybe<Scalars['String']>;
-  height?: Maybe<Scalars['bigint']>;
+  height: Scalars['bigint'];
   /** An object relationship */
   proposal: Proposal;
   proposal_id: Scalars['Int'];

@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Nav/SettingList it renders 1`] = `
+<div>
+  <div
+    className="makeStyles-icon"
+    onClick={[Function]}
+    role="button"
+  >
+    < />
+  </div>
+</div>
+`;

@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component: SingleProposal matches snapshot 1`] = `
+<div
+  className="makeStyles-root"
+>
+  <div
+    className="makeStyles-header"
+  >
+    <h4
+      className="MuiTypography-root makeStyles-id MuiTypography-h4"
+    >
+      1
+    </h4>
+    <span
+      className="makeStyles-mobile"
+    >
+      <div
+        className="makeStyles-root makeStyles-zero"
+      >
+        <p
+          className="MuiTypography-root MuiTypography-body1"
+        >
+          passed
+        </p>
+      </div>
+    </span>
+  </div>
+  <div>
+    <div
+      className="makeStyles-title"
+    >
+      <h3
+        className="MuiTypography-root value MuiTypography-h3"
+      >
+        proposal-title
+      </h3>
+    </div>
+  </div>
+  <span
+    className="makeStyles-desktop"
+  >
+    <div
+      className="makeStyles-root makeStyles-zero"
+    >
+      <p
+        className="MuiTypography-root MuiTypography-body1"
+      >
+        passed
+      </p>
+    </div>
+  </span>
+</div>
+`;
