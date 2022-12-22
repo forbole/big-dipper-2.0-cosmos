@@ -55,7 +55,7 @@ jobs:
           echo 'sha_short='$(git rev-parse --short HEAD) | tee -a $GITHUB_OUTPUT
         id: vars
         env:
-          PROJECT_NAME: ${{ inputs.project }}
+          PROJECT_NAME: ${{ matrix.project }}
           NEXT_PUBLIC_CHAIN_TYPE: ${{ github.event.inputs.chain_type }}
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2

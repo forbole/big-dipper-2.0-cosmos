@@ -47,7 +47,7 @@ jobs:
           EOF
         id: vars
         env:
-          PROJECT_NAME: ${{ inputs.project }}
+          PROJECT_NAME: ${{ matrix.project }}
           NEXT_PUBLIC_CHAIN_TYPE: ${{ github.event.inputs.chain_type }}
       - name: Insall Vercel CLI
         run: npm i -g vercel
