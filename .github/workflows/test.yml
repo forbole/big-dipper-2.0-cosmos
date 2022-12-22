@@ -156,20 +156,6 @@ jobs:
           path: ${{ needs.install.outputs.cache-directory }}
           key: ${{ needs.install.outputs.cashe-key }}
           restore-keys: ${{ needs.install.outputs.restore-keys }}
-      - run: |
-          echo 'next-cache-key=${{ needs.install.outputs.cashe-key }}-${{ matrix.project }}-${{
-          hashFiles(
-            format('apps/{0}/**/*.[jt]s', matrix.project),
-            format('apps/{0}/**/*.[jt]sx', matrix.project),
-            'packages/**/*.[jt]s',
-            'packages/**/*.[jt]sx'
-          ) }}' | tee -a $GITHUB_OUTPUT
-        id: vars
-      - uses: actions/cache@v3
-        with:
-          path: ${{ github.workspace }}/apps/${{ matrix.project }}/.next/cache
-          key: ${{ steps.vars.outputs.next-cache-key }}
-          restore-keys: ${{ needs.install.outputs.restore-keys }}${{ matrix.project }}-
       - run: yarn install --immutable --immutable-cache
       - run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
@@ -177,7 +163,7 @@ jobs:
           echo '```' >> $GITHUB_STEP_SUMMARY
   e2e:
     if: ${{ success() && needs.install.outputs.projects-web != '[]' }}
-    needs: [install, build]
+    needs: install
     runs-on: ubuntu-latest
     timeout-minutes: 30
     strategy:
@@ -190,8 +176,8 @@ jobs:
           # - webkit
           # - mobile-chrome
           - mobile-safari
-        shardIndex: [1, 2]
-        shardTotal: [2]
+        shardIndex: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        shardTotal: [9]
     container:
       image: mcr.microsoft.com/playwright:v1.29.0-focal
     defaults:
@@ -209,11 +195,6 @@ jobs:
           path: ${{ needs.install.outputs.cache-directory }}
           key: ${{ needs.install.outputs.cashe-key }}
           restore-keys: ${{ needs.install.outputs.restore-keys }}
-      - uses: actions/cache@v3
-        with:
-          path: ${{ github.workspace }}/apps/${{ matrix.project }}/.next/cache
-          key: ${{ needs.build.outputs.next-cache-key }}
-          restore-keys: ${{ needs.install.outputs.restore-keys }}${{ matrix.project }}-
       - run: yarn install --immutable
       - name: Playwright testing, trace can be view at https://trace.playwright.dev/
         run: |
