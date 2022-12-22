@@ -1,6 +1,7 @@
 import { convertMsgsToModels } from '@/components/msg/utils';
 import { BlockDetailsQuery, useBlockDetailsQuery } from '@/graphql/types/general_types';
 import type { BlockDetailState } from '@/screens/block_details/types';
+import { convertMsgType } from '@/utils/convert_msg_type';
 import { useRouter } from 'next/router';
 import numeral from 'numeral';
 import * as R from 'ramda';
@@ -22,12 +23,15 @@ export const useBlockDetails = () => {
     transactions: [],
   });
 
-  const handleSetState = useCallback((stateChange: Partial<BlockDetailState>) => {
-    setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
-      return R.equals(prevState, newState) ? prevState : newState;
-    });
-  }, []);
+  const handleSetState = useCallback(
+    (stateChange: (prevState: BlockDetailState) => BlockDetailState) => {
+      setState((prevState) => {
+        const newState = stateChange(prevState);
+        return R.equals(prevState, newState) ? prevState : newState;
+      });
+    },
+    []
+  );
 
   // ==========================
   // Fetch Data
@@ -38,16 +42,17 @@ export const useBlockDetails = () => {
       signatureHeight: (numeral(router.query.height).value() ?? 0) + 1,
     },
     onCompleted: (data) => {
-      handleSetState(formatRaws(data));
+      handleSetState((prevState) => ({ ...prevState, ...formatRaws(data) }));
     },
   });
 
   useEffect(() => {
     // reset every call
-    handleSetState({
+    handleSetState((prevState) => ({
+      ...prevState,
       loading: true,
       exists: true,
-    });
+    }));
   }, [handleSetState]);
 
   return {
@@ -99,8 +104,13 @@ function formatRaws(data: BlockDetailsQuery) {
   const formatTransactions = () => {
     const transactions = data.transaction.map((x) => {
       const messages = convertMsgsToModels(x);
+      const msgType = messages.map((eachMsg) => {
+        const eachMsgType = eachMsg?.type ?? 'none type';
+        return eachMsgType ?? '';
+      });
+      const convertedMsgType = convertMsgType(msgType);
       return {
-        type: [],
+        type: convertedMsgType,
         height: x.height,
         hash: x.hash,
         success: x.success,

@@ -28,12 +28,15 @@ export const useValidators = () => {
     sortDirection: 'asc',
   });
 
-  const handleSetState = useCallback((stateChange: Partial<ValidatorsState>) => {
-    setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
-      return R.equals(prevState, newState) ? prevState : newState;
-    });
-  }, []);
+  const handleSetState = useCallback(
+    (stateChange: (prevState: ValidatorsState) => ValidatorsState) => {
+      setState((prevState) => {
+        const newState = stateChange(prevState);
+        return R.equals(prevState, newState) ? prevState : newState;
+      });
+    },
+    []
+  );
 
   // ==========================
   // Parse data
@@ -105,10 +108,11 @@ export const useValidators = () => {
   // ==========================
   useValidatorsQuery({
     onCompleted: (data) => {
-      handleSetState({
+      handleSetState((prevState) => ({
+        ...prevState,
         loading: false,
         ...formatValidators(data),
-      });
+      }));
     },
   });
 

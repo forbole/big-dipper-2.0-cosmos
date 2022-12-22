@@ -57,12 +57,15 @@ export const useAccountDetails = () => {
   const router = useRouter();
   const [state, setState] = useState<AccountDetailState>(initialState);
 
-  const handleSetState = useCallback((stateChange: Partial<AccountDetailState>) => {
-    setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
-      return R.equals(prevState, newState) ? prevState : newState;
-    });
-  }, []);
+  const handleSetState = useCallback(
+    (stateChange: (prevState: AccountDetailState) => AccountDetailState) => {
+      setState((prevState) => {
+        const newState = stateChange(prevState);
+        return R.equals(prevState, newState) ? prevState : newState;
+      });
+    },
+    []
+  );
 
   // ==========================
   // Desmos Profile
@@ -70,17 +73,18 @@ export const useAccountDetails = () => {
   const { fetchDesmosProfile, formatDesmosProfile } = useDesmosProfile({
     onComplete: (data) => {
       const desmosProfile = formatDesmosProfile(data);
-      handleSetState({ desmosProfile });
+      handleSetState((prevState) => ({ ...prevState, desmosProfile }));
       return desmosProfile;
     },
   });
 
   useEffect(() => {
     if (!isValidAddress(router.query.address as string)) {
-      handleSetState({
+      handleSetState((prevState) => ({
+        ...prevState,
         loading: false,
         exists: false,
-      });
+      }));
     } else if (extra.profile) {
       fetchDesmosProfile(router.query.address as string);
     }
@@ -136,7 +140,7 @@ export const useAccountDetails = () => {
         NonNullable<typeof rewards['value']['delegationRewards']>
       >([], ['value', 'delegationRewards'], rewards);
 
-      handleSetState(formatAllBalance(formattedRawData));
+      handleSetState((prevState) => ({ ...prevState, ...formatAllBalance(formattedRawData) }));
     };
 
     // ==========================
@@ -144,12 +148,13 @@ export const useAccountDetails = () => {
     // ==========================
     const fetchWithdrawalAddress = async () => {
       const data = await fetchAccountWithdrawalAddress(router.query.address as string);
-      handleSetState({
+      handleSetState((prevState) => ({
+        ...prevState,
         overview: {
           address: router.query.address as string,
           withdrawalAddress: data?.withdrawalAddress?.address ?? '',
         },
-      });
+      }));
     };
 
     fetchWithdrawalAddress();

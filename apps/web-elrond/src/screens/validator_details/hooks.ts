@@ -45,12 +45,15 @@ export const useValidatorDetails = () => {
     },
   });
 
-  const handleSetState = useCallback((stateChange: Partial<ValidatorDetailsState>) => {
-    setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
-      return R.equals(prevState, newState) ? prevState : newState;
-    });
-  }, []);
+  const handleSetState = useCallback(
+    (stateChange: (prevState: ValidatorDetailsState) => ValidatorDetailsState) => {
+      setState((prevState) => {
+        const newState = stateChange(prevState);
+        return R.equals(prevState, newState) ? prevState : newState;
+      });
+    },
+    []
+  );
 
   useEffect(() => {
     const getValidator = async () => {
@@ -151,12 +154,13 @@ export const useValidatorDetails = () => {
         };
         newState.overview = getOverview();
 
-        handleSetState(newState);
+        handleSetState((prevState) => ({ ...prevState, ...newState }));
       } catch (error) {
-        handleSetState({
+        handleSetState((prevState) => ({
+          ...prevState,
           loading: false,
           exists: false,
-        });
+        }));
         console.error((error as Error).message);
       }
     };

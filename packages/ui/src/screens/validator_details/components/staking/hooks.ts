@@ -98,9 +98,9 @@ export const useStaking = () => {
     unbondings: stakingDefault,
   });
 
-  const handleSetState = useCallback((stateChange: Partial<StakingState>) => {
+  const handleSetState = useCallback((stateChange: (prevState: StakingState) => StakingState) => {
     setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
+      const newState = stateChange(prevState);
       return R.equals(prevState, newState) ? prevState : newState;
     });
   }, []);
@@ -208,21 +208,23 @@ export const useStaking = () => {
           });
         }
 
-        handleSetState({
+        handleSetState((prevState) => ({
+          ...prevState,
           delegations: {
             loading: false,
             count,
             data: createPagination(formatDelegations(allDelegations)),
           },
-        });
+        }));
       } catch (error) {
-        handleSetState({
+        handleSetState((prevState) => ({
+          ...prevState,
           delegations: {
             data: {},
             count: 0,
             loading: false,
           },
-        });
+        }));
       }
     };
 
@@ -260,21 +262,23 @@ export const useStaking = () => {
 
         const formattedData = formatRedelegations(allData);
 
-        handleSetState({
+        handleSetState((prevState) => ({
+          ...prevState,
           redelegations: {
             loading: false,
             count: formattedData.length,
             data: createPagination(formattedData),
           },
-        });
+        }));
       } catch (error) {
-        handleSetState({
+        handleSetState((prevState) => ({
+          ...prevState,
           redelegations: {
             data: {},
             count: 0,
             loading: false,
           },
-        });
+        }));
       }
     };
 
@@ -312,21 +316,23 @@ export const useStaking = () => {
 
         const formattedData = formatUnbondings(allData);
 
-        handleSetState({
+        handleSetState((prevState) => ({
+          ...prevState,
           unbondings: {
             data: createPagination(formattedData),
             count: formattedData.length,
             loading: false,
           },
-        });
+        }));
       } catch (error) {
-        handleSetState({
+        handleSetState((prevState) => ({
+          ...prevState,
           unbondings: {
             data: {},
             count: 0,
             loading: false,
           },
-        });
+        }));
       }
     };
 

@@ -28,22 +28,26 @@ export const useValidators = () => {
     sortDirection: 'asc',
   });
 
-  const handleSetState = useCallback((stateChange: Partial<ValidatorsState>) => {
-    setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
-      return R.equals(prevState, newState) ? prevState : newState;
-    });
-  }, []);
+  const handleSetState = useCallback(
+    (stateChange: (prevState: ValidatorsState) => ValidatorsState) => {
+      setState((prevState) => {
+        const newState = stateChange(prevState);
+        return R.equals(prevState, newState) ? prevState : newState;
+      });
+    },
+    []
+  );
 
   // ==========================
   // Fetch Data
   // ==========================
   useValidatorsQuery({
     onCompleted: (data) => {
-      handleSetState({
+      handleSetState((prevState) => ({
+        ...prevState,
         loading: false,
         ...formatValidators(data),
-      });
+      }));
     },
   });
 
@@ -55,7 +59,7 @@ export const useValidators = () => {
     const votingPowerOverall =
       numeral(
         formatToken(data?.stakingPool?.[0]?.bondedTokens ?? 0, votingPowerTokenUnit).value
-      ).value() ?? undefined;
+      ).value() ?? 0;
 
     const { signedBlockWindow } = slashingParams;
 

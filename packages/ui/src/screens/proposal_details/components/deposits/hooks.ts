@@ -17,9 +17,9 @@ export const useDeposits = () => {
     data: [],
   });
 
-  const handleSetState = useCallback((stateChange: Partial<DepositState>) => {
+  const handleSetState = useCallback((stateChange: (prevState: DepositState) => DepositState) => {
     setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
+      const newState = stateChange(prevState);
       return R.equals(prevState, newState) ? prevState : newState;
     });
   }, []);
@@ -29,7 +29,7 @@ export const useDeposits = () => {
       proposalId: parseFloat((router?.query?.id as string) ?? '0'),
     },
     onCompleted: (data) => {
-      handleSetState(foramtProposalDeposits(data));
+      handleSetState((prevState) => ({ ...prevState, ...foramtProposalDeposits(data) }));
     },
   });
 

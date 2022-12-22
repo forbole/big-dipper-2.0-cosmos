@@ -26,9 +26,9 @@ const initialState: ParamsState = {
 export const useParams = () => {
   const [state, setState] = useState<ParamsState>(initialState);
 
-  const handleSetState = useCallback((stateChange: Partial<ParamsState>) => {
+  const handleSetState = useCallback((stateChange: (prevState: ParamsState) => ParamsState) => {
     setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
+      const newState = stateChange(prevState);
       return R.equals(prevState, newState) ? prevState : newState;
     });
   }, []);
@@ -38,15 +38,14 @@ export const useParams = () => {
   // ================================
   useParamsQuery({
     onError: () => {
-      handleSetState({
-        loading: false,
-      });
+      handleSetState((prevState) => ({ ...prevState, loading: false }));
     },
     onCompleted: (data) => {
-      handleSetState({
+      handleSetState((prevState) => ({
+        ...prevState,
         loading: false,
         ...formatParam(data),
-      });
+      }));
     },
   });
 

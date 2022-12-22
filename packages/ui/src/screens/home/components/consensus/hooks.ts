@@ -2,6 +2,7 @@ import chainConfig from '@/chainConfig';
 import { hexToBech32 } from '@/utils/hex_to_bech32';
 import WebSocket from 'isomorphic-ws';
 import numeral from 'numeral';
+import equals from 'ramda/es/equals';
 import pathOr from 'ramda/es/pathOr';
 import { useCallback, useEffect, useState } from 'react';
 
@@ -53,6 +54,13 @@ type NewRoundResult = {
 // /* Checking if the code is running on the server or the client. */
 const ssrMode = typeof window === 'undefined';
 
+const wsEndpoints = [
+  process.env.NEXT_PUBLIC_RPC_WEBSOCKET,
+  endpoints.publicRpcWebsocket,
+  endpoints.graphqlWebsocket,
+  'ws://localhost:3000/websocket',
+];
+
 const stepReference = {
   0: 0,
   RoundStepNewHeight: 1,
@@ -61,13 +69,6 @@ const stepReference = {
   RoundStepPrecommit: 4,
   RoundStepCommit: 5,
 };
-
-const wsEndpoints = [
-  process.env.NEXT_PUBLIC_RPC_WEBSOCKET,
-  endpoints.publicRpcWebsocket,
-  endpoints.graphqlWebsocket,
-  'ws://localhost:3000/websocket',
-];
 
 /* It's the number of milliseconds to wait before sending the subscription again. */
 const KEEP_ALIVE = 30000;
@@ -187,11 +188,14 @@ export const useConsensus = () => {
     const proposerHex = result?.data.value.proposer.address ?? '';
     const consensusAddress = hexToBech32(proposerHex, prefix.consensus);
 
-    setState((prevState) => ({
-      ...prevState,
-      height,
-      proposer: consensusAddress,
-    }));
+    setState((prevState) => {
+      const newState = {
+        ...prevState,
+        height,
+        proposer: consensusAddress,
+      };
+      return equals(newState, prevState) ? prevState : newState;
+    });
   }, []);
 
   /* A callback function that is called when the websocket receives a new round event. */
@@ -202,12 +206,15 @@ export const useConsensus = () => {
       const step = stepReference[result?.data.value.step ?? 0];
       const roundCompletion = (step / state.totalSteps) * 100;
 
-      setState((prevState) => ({
-        ...prevState,
-        round,
-        step,
-        roundCompletion,
-      }));
+      setState((prevState) => {
+        const newState = {
+          ...prevState,
+          round,
+          step,
+          roundCompletion,
+        };
+        return equals(newState, prevState) ? prevState : newState;
+      });
     },
     [state.totalSteps]
   );

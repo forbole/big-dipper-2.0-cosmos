@@ -42,18 +42,22 @@ export const useValidators = () => {
     []
   );
 
-  const handleSetState = useCallback((stateChange: Partial<ValidatorsState>) => {
-    setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
-      return R.equals(prevState, newState) ? prevState : newState;
-    });
-  }, []);
+  const handleSetState = useCallback(
+    (stateChange: (prevState: ValidatorsState) => ValidatorsState) => {
+      setState((prevState) => {
+        const newState = stateChange(prevState);
+        return R.equals(prevState, newState) ? prevState : newState;
+      });
+    },
+    []
+  );
 
   const handleSearch = useCallback(
     (value: string) => {
-      handleSetState({
+      handleSetState((prevState) => ({
+        ...prevState,
         search: value,
-      });
+      }));
     },
     [handleSetState]
   );
@@ -159,15 +163,17 @@ export const useValidators = () => {
           };
         });
 
-        handleSetState({
+        handleSetState((prevState) => ({
+          ...prevState,
           loading: false,
           validators,
-        });
+        }));
       } catch (error) {
-        handleSetState({
+        handleSetState((prevState) => ({
+          ...prevState,
           loading: false,
           exists: false,
-        });
+        }));
         console.error((error as Error).message);
       }
     };

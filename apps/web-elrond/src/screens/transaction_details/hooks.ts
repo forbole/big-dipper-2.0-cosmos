@@ -1,6 +1,6 @@
 import { TRANSACTION_DETAILS } from '@/api';
 import chainConfig from '@/chainConfig';
-import type { TransactionDetailsState } from '@/screens/transaction_details/types';
+import type { ActionType, TransactionDetailsState } from '@/screens/transaction_details/types';
 import { formatToken, formatTokenByExponent } from '@/utils/format_token';
 import axios from 'axios';
 import { useRouter } from 'next/router';
@@ -40,12 +40,15 @@ export const useTransactionDetails = () => {
     results: [],
   });
 
-  const handleSetState = useCallback((stateChange: Partial<TransactionDetailsState>) => {
-    setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
-      return R.equals(prevState, newState) ? prevState : newState;
-    });
-  }, []);
+  const handleSetState = useCallback(
+    (stateChange: (prevState: TransactionDetailsState) => TransactionDetailsState) => {
+      setState((prevState) => {
+        const newState = stateChange(prevState);
+        return R.equals(prevState, newState) ? prevState : newState;
+      });
+    },
+    []
+  );
 
   useEffect(() => {
     const getTransactionDetail = async () => {
@@ -105,7 +108,7 @@ export const useTransactionDetails = () => {
         };
 
         // action
-        let action = null;
+        let action: ActionType | null = null;
         if (transactionData.action) {
           action = {
             category: transactionData.action?.category ?? '',
@@ -146,19 +149,21 @@ export const useTransactionDetails = () => {
           value: formatToken(x?.value ?? 0, primaryTokenUnit),
         }));
 
-        handleSetState({
+        handleSetState((prevState) => ({
+          ...prevState,
           loading: false,
           overview,
           data: transactionData?.data ?? '',
-          action: action ?? undefined,
-          operations,
+          action: action ?? prevState.action,
+          operations: operations ?? prevState.operations,
           results,
-        });
+        }));
       } catch (error) {
-        handleSetState({
+        handleSetState((prevState) => ({
+          ...prevState,
           loading: false,
           exists: false,
-        });
+        }));
         console.error((error as Error).message);
       }
     };

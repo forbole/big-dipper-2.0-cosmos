@@ -33,12 +33,15 @@ export const useAccountDetails = () => {
     },
   });
 
-  const handleSetState = useCallback((stateChange: Partial<AccountDetailsType>) => {
-    setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
-      return R.equals(prevState, newState) ? prevState : newState;
-    });
-  }, []);
+  const handleSetState = useCallback(
+    (stateChange: (prevState: AccountDetailsType) => AccountDetailsType) => {
+      setState((prevState) => {
+        const newState = stateChange(prevState);
+        return R.equals(prevState, newState) ? prevState : newState;
+      });
+    },
+    []
+  );
 
   useEffect(() => {
     const getAccount = async () => {
@@ -70,7 +73,7 @@ export const useAccountDetails = () => {
 
       newState.overview = getOverview();
 
-      handleSetState(newState);
+      handleSetState((prevState) => ({ ...prevState, ...newState }));
     };
 
     getAccount();

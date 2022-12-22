@@ -12,9 +12,9 @@ export const useBlocks = () => {
     items: [],
   });
 
-  const handleSetState = useCallback((stateChange: Partial<BlockState>) => {
+  const handleSetState = useCallback((stateChange: (prevState: BlockState) => BlockState) => {
     setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
+      const newState = stateChange(prevState);
       return R.equals(prevState, newState) ? prevState : newState;
     });
   }, []);
@@ -42,9 +42,10 @@ export const useBlocks = () => {
         txs: x.txCount,
       }));
 
-      handleSetState({
+      handleSetState((prevState) => ({
+        ...prevState,
         items,
-      });
+      }));
     } catch (error) {
       console.error((error as Error).message);
     }

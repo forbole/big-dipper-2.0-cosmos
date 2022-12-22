@@ -32,19 +32,22 @@ export const useVotesGraph = () => {
     quorum: '0',
   });
 
-  const handleSetState = useCallback((stateChange: Partial<VotesGraphState>) => {
-    setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
-      return R.equals(prevState, newState) ? prevState : newState;
-    });
-  }, []);
+  const handleSetState = useCallback(
+    (stateChange: (prevState: VotesGraphState) => VotesGraphState) => {
+      setState((prevState) => {
+        const newState = stateChange(prevState);
+        return R.equals(prevState, newState) ? prevState : newState;
+      });
+    },
+    []
+  );
 
   useProposalDetailsTallyQuery({
     variables: {
       proposalId: parseFloat((router?.query?.id as string) ?? '0'),
     },
     onCompleted: (data) => {
-      handleSetState(foramtProposalTally(data));
+      handleSetState((prevState) => ({ ...prevState, ...foramtProposalTally(data) }));
     },
   });
 

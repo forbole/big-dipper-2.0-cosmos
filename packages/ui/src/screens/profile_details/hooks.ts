@@ -16,12 +16,15 @@ const initialState: ProfileDetailState = {
 export const useProfileDetails = () => {
   const router = useRouter();
   const [state, setState] = useState<ProfileDetailState>(initialState);
-  const handleSetState = useCallback((stateChange: Partial<ProfileDetailState>) => {
-    setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
-      return R.equals(prevState, newState) ? prevState : newState;
-    });
-  }, []);
+  const handleSetState = useCallback(
+    (stateChange: (prevState: ProfileDetailState) => ProfileDetailState) => {
+      setState((prevState) => {
+        const newState = stateChange(prevState);
+        return R.equals(prevState, newState) ? prevState : newState;
+      });
+    },
+    []
+  );
 
   // ==========================
   // Desmos Profile
@@ -29,11 +32,12 @@ export const useProfileDetails = () => {
   const { fetchDesmosProfile, formatDesmosProfile } = useDesmosProfile({
     onComplete: (data) => {
       const desmosProfile = formatDesmosProfile(data);
-      handleSetState({
+      handleSetState((prevState) => ({
+        ...prevState,
         loading: false,
         exists: !!data?.profile?.length,
         desmosProfile,
-      });
+      }));
       return desmosProfile;
     },
   });
@@ -52,7 +56,7 @@ export const useProfileDetails = () => {
     const regex = /^@/;
     const regexCheck = regex.test(profileDtag);
     const configProfile = extra.profile;
-    handleSetState(initialState);
+    handleSetState((prevState) => ({ ...prevState, ...initialState }));
 
     if (!regexCheck || !configProfile) {
       router.replace('/');
@@ -80,9 +84,7 @@ export const useProfileDetails = () => {
           );
         }
       } else {
-        handleSetState({
-          exists: false,
-        });
+        handleSetState((prevState) => ({ ...prevState, exists: false }));
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -9,7 +9,7 @@ exports[`screen: Transactions matches snapshot 1`] = `
   <div
     exists={true}
     id="LoadAndExist"
-    loading={false}
+    loading={true}
   >
     <div
       className="makeStyles-box"
