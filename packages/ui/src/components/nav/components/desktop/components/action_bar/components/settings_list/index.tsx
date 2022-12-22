@@ -1,6 +1,5 @@
 import { useSettingList } from '@/components/nav/components/desktop/components/action_bar/components/settings_list/hooks';
 import { useStyles } from '@/components/nav/components/desktop/components/action_bar/components/settings_list/styles';
-import generalConfig from '@/generalConfig';
 import { DATE_LIST, THEME_LIST, TX_LIST } from '@/recoil/settings';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -17,6 +16,8 @@ import useTranslation from 'next-translate/useTranslation';
 import { useRouter } from 'next/router';
 import React from 'react';
 import SettingIcon from 'shared-utils/assets/icon-setting.svg';
+
+const version = `main-v${process.env.NEXT_PUBLIC_VERSION ?? ''}`;
 
 const Settings: React.FC<{
   className?: string;
@@ -44,7 +45,7 @@ const Settings: React.FC<{
           <div className={classes.title}>
             <Typography variant="h2">{t('settings')}</Typography>
             <Typography variant="body2" className={classes.version}>
-              ({generalConfig.version})
+              ({version})
             </Typography>
           </div>
           <IconButton aria-label="close" onClick={handleCancel}>

@@ -26,6 +26,9 @@ function getBaseConfig(basePath) {
     typescript: {
       ignoreBuildErrors: true,
     },
+    env: {
+      NEXT_PUBLIC_VERSION: process.env.npm_package_version,
+    },
     experimental: process.env.BUILD_STANDALONE
       ? {
           // this includes files from the monorepo base two directories up
