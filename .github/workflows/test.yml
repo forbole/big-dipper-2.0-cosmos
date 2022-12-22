@@ -176,8 +176,8 @@ jobs:
           # - webkit
           # - mobile-chrome
           - mobile-safari
-        shardIndex: [1, 2, 3, 4, 5, 6, 7, 8, 9]
-        shardTotal: [9]
+        shardIndex: [1, 2, 3, 4, 5, 6, 7]
+        shardTotal: [7]
     container:
       image: mcr.microsoft.com/playwright:v1.29.0-focal
     defaults:
