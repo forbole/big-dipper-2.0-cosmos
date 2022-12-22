@@ -137,8 +137,6 @@ jobs:
       matrix:
         project: ${{ fromJson(needs.install.outputs.projects) }}
     runs-on: ubuntu-latest
-    outputs:
-      next-cache-key: ${{ steps.vars.outputs.next-cache-key }}
     steps:
       - uses: actions/checkout@v3
       - run: corepack enable
@@ -151,20 +149,6 @@ jobs:
           path: ${{ needs.install.outputs.cache-directory }}
           key: ${{ needs.install.outputs.cashe-key }}
           restore-keys: ${{ needs.install.outputs.restore-keys }}
-      - run: |
-          echo 'next-cache-key=${{ needs.install.outputs.cashe-key }}-${{ matrix.project }}-${{
-          hashFiles(
-            format('apps/{0}/**/*.[jt]s', matrix.project),
-            format('apps/{0}/**/*.[jt]sx', matrix.project),
-            'packages/**/*.[jt]s',
-            'packages/**/*.[jt]sx'
-          ) }}' | tee -a $GITHUB_OUTPUT
-        id: vars
-      - uses: actions/cache@v3
-        with:
-          path: ${{ github.workspace }}/apps/${{ matrix.project }}/.next/cache
-          key: ${{ steps.vars.outputs.next-cache-key }}
-          restore-keys: ${{ needs.install.outputs.restore-keys }}${{ matrix.project }}-
       - run: yarn install --immutable --immutable-cache
       - run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
@@ -205,15 +189,9 @@ jobs:
       - uses: actions/cache@v3
         with:
           path: ${{ needs.install.outputs.cache-directory }}
-          key: ${{ needs.install.outputs.cashe-key }}-e2e
+          key: ${{ needs.install.outputs.cashe-key }}
           restore-keys: ${{ needs.install.outputs.restore-keys }}
-      - uses: actions/cache@v3
-        with:
-          path: ${{ github.workspace }}/apps/${{ matrix.project }}/.next/cache
-          key: ${{ needs.build.outputs.next-cache-key }}-e2e
-          restore-keys: ${{ needs.install.outputs.restore-keys }}${{ matrix.project }}-
       - run: yarn install --immutable
-      - run: yarn build
       - run: |
           echo Trace can be view at https://trace.playwright.dev/ | tee -a $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
