@@ -202,6 +202,7 @@ jobs:
           yarn playwright test --project=${{ matrix.browser }} --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }} | tee -a $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
         env:
+          CI: 1
           PROJECT_NAME: ${{ matrix.project }}
           PLAYWRIGHT_HTML_REPORT: playwright-report/${{ matrix.browser }}/${{ matrix.shardIndex }}
       - uses: actions/upload-artifact@v3
