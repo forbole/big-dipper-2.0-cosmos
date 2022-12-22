@@ -114,12 +114,12 @@ function subscribe(ws: WebSocket, data: string, keepAlive?: number) {
   if (ws !== client) return;
 
   if (ws.readyState !== WebSocket.OPEN) {
-    setTimeout(() => subscribe(ws, data), 1000);
+    setTimeout(() => subscribe(ws, data, keepAlive), 1000);
   } else {
     ws.send(data, (err) => {
       if (err) {
         console.error(err);
-        setTimeout(() => subscribe(ws, data), 1000);
+        setTimeout(() => subscribe(ws, data, keepAlive), 1000);
       } else if (keepAlive) {
         setTimeout(() => subscribe, keepAlive);
       }
