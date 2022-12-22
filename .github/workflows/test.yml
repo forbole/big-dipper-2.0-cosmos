@@ -193,7 +193,7 @@ jobs:
       - uses: actions/cache@v3
         with:
           path: ${{ needs.install.outputs.cache-directory }}
-          key: ${{ needs.install.outputs.cashe-key }}
+          key: ${{ needs.install.outputs.cashe-key }}-e2e
           restore-keys: ${{ needs.install.outputs.restore-keys }}
       - run: yarn install --immutable
       - name: Playwright testing, trace can be view at https://trace.playwright.dev/
