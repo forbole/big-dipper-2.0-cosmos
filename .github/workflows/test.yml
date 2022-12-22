@@ -215,7 +215,7 @@ jobs:
           key: ${{ needs.build.outputs.next-cache-key }}
           restore-keys: ${{ needs.install.outputs.restore-keys }}${{ matrix.project }}-
       - run: yarn install --immutable
-      - name: Trace can be view at https://trace.playwright.dev/ | tee -a $GITHUB_STEP_SUMMARY
+      - name: Trace can be view at https://trace.playwright.dev/
         run: |
           yarn workspace ${{ matrix.project }} build
           echo '```' >> $GITHUB_STEP_SUMMARY
