@@ -1,5 +1,9 @@
 # Big Dipper 2.0 ✨ (Cosmos Based Chains)
 
+[![GitHub license](https://img.shields.io/github/license/cheqd/big-dipper-2.0-cosmos?color=blue&style=flat-square)](https://github.com/cheqd/big-dipper-2.0-cosmos/blob/main/LICENSE) [![GitHub contributors](https://img.shields.io/github/contributors/cheqd/big-dipper-2.0-cosmos?label=contributors%20%E2%9D%A4%EF%B8%8F&style=flat-square)](https://github.com/cheqd/big-dipper-2.0-cosmos/graphs/contributors)
+
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/cheqd/big-dipper-2.0-cosmos/dispatch.yml?label=workflows&style=flat-square)](https://github.com/cheqd/big-dipper-2.0-cosmos/actions/workflows/dispatch.yml) [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/cheqd/big-dipper-2.0-cosmos/codeql.yml?label=CodeQL&style=flat-square)](https://github.com/cheqd/big-dipper-2.0-cosmos/actions/workflows/codeql.yml) ![GitHub repo size](https://img.shields.io/github/repo-size/cheqd/big-dipper-2.0-cosmos?style=flat-square)
+
 Big Dipper is an open-source block explorer and token management tool serving over 10 proof-of-stake blockchains. It has been forked more than 100 times on GitHub and has served audiences from 140 countries and regions.
 
 This repo contains the **UI of Big Dipper 2.0** only. Read our official documentation at [http://docs.bigdipper.live/](http://docs.bigdipper.live/)
