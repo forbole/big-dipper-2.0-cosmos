@@ -145,12 +145,12 @@ function connect(formatNewRound: (data: unknown) => void, formatNewStep: (data: 
   };
 
   client.onmessage = (e) => {
+    if (client?.CLOSING || client?.CLOSED) return;
     const data = JSON.parse(e.data as string);
     const event = pathOr<string>('', ['result', 'data', 'type'], data);
     if (event === 'tendermint/event/NewRound') {
       formatNewRound(data);
-    }
-    if (event === 'tendermint/event/RoundState') {
+    } else if (event === 'tendermint/event/RoundState') {
       formatNewStep(data);
     }
   };

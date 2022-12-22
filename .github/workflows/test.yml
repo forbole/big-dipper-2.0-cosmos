@@ -198,7 +198,6 @@ jobs:
       - run: yarn install --immutable
       - name: Playwright testing, trace can be view at https://trace.playwright.dev/
         run: |
-          yarn workspace ${{ matrix.project }} build
           echo '```' >> $GITHUB_STEP_SUMMARY
           yarn playwright test --project=${{ matrix.browser }} --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }} | tee -a $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY

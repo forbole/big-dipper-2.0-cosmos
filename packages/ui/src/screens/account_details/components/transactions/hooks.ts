@@ -43,7 +43,7 @@ export function useTransactions() {
         offsetCount: state.offsetCount + LIMIT,
       };
 
-      handleSetState((prevState) => ({ ...prevState, stateChange }));
+      handleSetState((prevState) => ({ ...prevState, ...stateChange }));
     },
   });
 
@@ -66,7 +66,7 @@ export function useTransactions() {
           isNextPageLoading: false,
           offsetCount: state.offsetCount + LIMIT,
         };
-        handleSetState((prevState) => ({ ...prevState, stateChange }));
+        handleSetState((prevState) => ({ ...prevState, ...stateChange }));
       });
   };
 
