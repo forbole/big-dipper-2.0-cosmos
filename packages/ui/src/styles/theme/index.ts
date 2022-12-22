@@ -3,7 +3,7 @@ import { deuteranopiaThemeOverride } from '@/styles/theme/deuteranopia';
 import { lightThemeOverride } from '@/styles/theme/light';
 import { tritanopiaThemeOverride } from '@/styles/theme/tritanopia';
 import { ThemeOptions } from '@material-ui/core/styles';
-import mergeDeepLeft from 'ramda/es/mergeDeepLeft';
+import * as R from 'ramda';
 
 /** Common themes that don't change across light and dark theme */
 export const common: ThemeOptions = {
@@ -205,10 +205,10 @@ export const common: ThemeOptions = {
   },
 };
 
-export const lightTemplate = mergeDeepLeft(lightThemeOverride, common) as ThemeOptions;
-export const darkTemplate = mergeDeepLeft(darkThemeOverride, common) as ThemeOptions;
-export const deuteranopiaTemplate = mergeDeepLeft(
+export const lightTemplate = R.mergeDeepLeft(lightThemeOverride, common) as ThemeOptions;
+export const darkTemplate = R.mergeDeepLeft(darkThemeOverride, common) as ThemeOptions;
+export const deuteranopiaTemplate = R.mergeDeepLeft(
   deuteranopiaThemeOverride,
   common
 ) as ThemeOptions;
-export const tritanopiaTemplate = mergeDeepLeft(tritanopiaThemeOverride, common) as ThemeOptions;
+export const tritanopiaTemplate = R.mergeDeepLeft(tritanopiaThemeOverride, common) as ThemeOptions;

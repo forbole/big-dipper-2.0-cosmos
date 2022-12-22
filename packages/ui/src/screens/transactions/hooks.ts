@@ -6,12 +6,7 @@ import {
 } from '@/graphql/types/general_types';
 import type { TransactionsState } from '@/screens/transactions/types';
 import { convertMsgType } from '@/utils/convert_msg_type';
-import descend from 'ramda/es/descend';
-import equals from 'ramda/es/equals';
-import pathOr from 'ramda/es/pathOr';
-import pipe from 'ramda/es/pipe';
-import sort from 'ramda/es/sort';
-import uniqBy from 'ramda/es/uniqBy';
+import * as R from 'ramda';
 import { useState } from 'react';
 
 export const useTransactions = () => {
@@ -26,7 +21,7 @@ export const useTransactions = () => {
   const handleSetState = (stateChange: (prevState: TransactionsState) => TransactionsState) => {
     setState((prevState) => {
       const newState = stateChange(prevState);
-      return equals(prevState, newState) ? prevState : newState;
+      return R.equals(prevState, newState) ? prevState : newState;
     });
   };
 
@@ -36,9 +31,9 @@ export const useTransactions = () => {
    * Helps remove any possible duplication
    * and sorts by height in case it bugs out
    */
-  const uniqueAndSort = pipe(
-    uniqBy((r: Transactions) => r?.hash),
-    sort(descend((r) => r?.height))
+  const uniqueAndSort = R.pipe(
+    R.uniqBy((r: Transactions) => r?.hash),
+    R.sort(R.descend((r) => r?.height))
   );
 
   // ================================
@@ -125,7 +120,7 @@ export const useTransactions = () => {
       const messages = convertMsgsToModels(x);
       const msgType =
         x.messages?.map((eachMsg: unknown) => {
-          const eachMsgType = pathOr('none type', ['@type'], eachMsg);
+          const eachMsgType = R.pathOr('none type', ['@type'], eachMsg);
           return eachMsgType ?? '';
         }) ?? [];
       const convertedMsgType = convertMsgType(msgType);

@@ -4,7 +4,7 @@ const validatorAddress = 'desmosvaloper17lca9smrdlwkznr92hypzrgsjkelnxeaacgrwq';
 
 test('validators list page', async ({ page, isMobile }) => {
   // Test url
-  await Promise.all([page.waitForNavigation({ url: /[^?#]*\/\/[^/]+\/$/ }), page.goto('.')]);
+  await Promise.all([page.waitForNavigation(), page.goto('.')]);
   await expect(page.getByRole('progressbar')).toHaveCount(0);
 
   if (isMobile) await page.getByRole('button', { name: 'open navigation menu' }).first().click();

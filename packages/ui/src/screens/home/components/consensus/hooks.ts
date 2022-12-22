@@ -2,8 +2,7 @@ import chainConfig from '@/chainConfig';
 import { hexToBech32 } from '@/utils/hex_to_bech32';
 import WebSocket from 'isomorphic-ws';
 import numeral from 'numeral';
-import equals from 'ramda/es/equals';
-import pathOr from 'ramda/es/pathOr';
+import * as R from 'ramda';
 import { useCallback, useEffect, useState } from 'react';
 
 const { endpoints, prefix } = chainConfig();
@@ -147,7 +146,7 @@ function connect(formatNewRound: (data: unknown) => void, formatNewStep: (data: 
   client.onmessage = (e) => {
     if (client?.CLOSING || client?.CLOSED) return;
     const data = JSON.parse(e.data as string);
-    const event = pathOr<string>('', ['result', 'data', 'type'], data);
+    const event = R.pathOr<string>('', ['result', 'data', 'type'], data);
     if (event === 'tendermint/event/NewRound') {
       formatNewRound(data);
     } else if (event === 'tendermint/event/RoundState') {
@@ -183,7 +182,7 @@ export const useConsensus = () => {
 
   /* A callback function that is called when the websocket receives a new round event. */
   const formatNewRound = useCallback((data: unknown) => {
-    const result = pathOr<NewRoundResult | null>(null, ['result'], data);
+    const result = R.pathOr<NewRoundResult | null>(null, ['result'], data);
     const height = numeral(result?.data.value.height).value() ?? 0;
     const proposerHex = result?.data.value.proposer.address ?? '';
     const consensusAddress = hexToBech32(proposerHex, prefix.consensus);
@@ -194,14 +193,14 @@ export const useConsensus = () => {
         height,
         proposer: consensusAddress,
       };
-      return equals(newState, prevState) ? prevState : newState;
+      return R.equals(newState, prevState) ? prevState : newState;
     });
   }, []);
 
   /* A callback function that is called when the websocket receives a new round event. */
   const formatNewStep = useCallback(
     (data: unknown) => {
-      const result = pathOr<NewStepResult | null>(null, ['result'], data);
+      const result = R.pathOr<NewStepResult | null>(null, ['result'], data);
       const round = result?.data.value.round ?? 0;
       const step = stepReference[result?.data.value.step ?? 0];
       const roundCompletion = (step / state.totalSteps) * 100;
@@ -213,7 +212,7 @@ export const useConsensus = () => {
           step,
           roundCompletion,
         };
-        return equals(newState, prevState) ? prevState : newState;
+        return R.equals(newState, prevState) ? prevState : newState;
       });
     },
     [state.totalSteps]

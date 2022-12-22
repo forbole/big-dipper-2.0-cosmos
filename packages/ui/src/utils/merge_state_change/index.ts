@@ -1,4 +1,4 @@
-import mergeDeepLeft from 'ramda/es/mergeDeepLeft';
+import * as R from 'ramda';
 
 /**
  * Util function to merge 2 objects together
@@ -8,4 +8,4 @@ import mergeDeepLeft from 'ramda/es/mergeDeepLeft';
  * @returns newly merged object replacing prev state items with new state items
  */
 export const mergeStateChange = <T extends object>(prevState: T, change: Partial<T>) =>
-  mergeDeepLeft(change, prevState) as T;
+  R.mergeDeepLeft(change, prevState) as T;

@@ -4,10 +4,7 @@ import {
   useTransactionsQuery,
 } from '@/graphql/types/general_types';
 import type { TransactionsState } from '@/screens/transactions/types';
-import descend from 'ramda/es/descend';
-import pipe from 'ramda/es/pipe';
-import sort from 'ramda/es/sort';
-import uniqBy from 'ramda/es/uniqBy';
+import * as R from 'ramda';
 import { useState } from 'react';
 
 export const useTransactions = () => {
@@ -32,9 +29,9 @@ export const useTransactions = () => {
    * Helps remove any possible duplication
    * and sorts by height in case it bugs out
    */
-  const uniqueAndSort = pipe(
-    uniqBy((r: Transactions) => r?.hash),
-    sort(descend((r) => r?.height))
+  const uniqueAndSort = R.pipe(
+    R.uniqBy((r: Transactions) => r?.hash),
+    R.sort(R.descend((r) => r?.height))
   );
 
   // ================================
