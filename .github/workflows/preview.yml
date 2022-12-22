@@ -16,9 +16,21 @@ defaults:
     shell: bash
 jobs:
   validate-projects:
-    uses: forbole/big-dipper-2.0-cosmos/.github/workflows/validate-projects.yml@main
-    with:
-      projects: ${{ github.event.inputs.projects }}
+    runs-on: ubuntu-latest
+    outputs:
+      projects: ${{ steps.vars.outputs.projects }}
+    steps:
+      - uses: actions/checkout@v3
+      - run: |
+          export ALL_PROJECTS=$(yarn workspaces list --json | jq -csr '[ .[].name | select(. | startswith("web") ) ]')
+          node <<EOF | tee -a $GITHUB_OUTPUT $GITHUB_STEP_SUMMARY
+          const allProjects = JSON.parse(process.env.ALL_PROJECTS);
+          const projects = process.env.PROJECTS === '*' ? null : process.env.PROJECTS.split(/,/).map(p => p.trim()).filter(p => p);
+          console.log('projects=' + JSON.stringify(allProjects.filter(a => !projects || projects.includes(a))));
+          EOF
+        id: vars
+        env:
+          PROJECTS: ${{ github.event.inputs.projects }}
   publish:
     runs-on: ubuntu-latest
     needs: validate-projects
