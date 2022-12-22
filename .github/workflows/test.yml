@@ -189,11 +189,9 @@ jobs:
         shardTotal: [2]
     container:
       image: mcr.microsoft.com/playwright:v1.29.0-focal
-      volumes:
-        - ${{ needs.install.outputs.cache-directory }}:${{ needs.install.outputs.cache-directory }}
-        - ${{ github.workspace }}/apps/${{ matrix.project }}/.next/cache:${{ github.workspace }}/apps/${{ matrix.project }}/.next/cache
       env:
         PROJECT_NAME: ${{ matrix.project }}
+      options: -w '${{ github.workspace }}'
     defaults:
       run:
         shell: bash
