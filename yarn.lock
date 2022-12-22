@@ -4423,7 +4423,7 @@ __metadata:
     big.js: ^6.1.1
     classnames: ^2.2.6
     color: ^4.2.3
-    copy-to-clipboard: ^3.3.1
+    copy-to-clipboard: ^3.3.3
     cors: ^2.8.5
     dayjs: ^1.10.4
     dompurify: ^2.4.0
@@ -5121,12 +5121,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"copy-to-clipboard@npm:^3.3.1":
-  version: 3.3.2
-  resolution: "copy-to-clipboard@npm:3.3.2"
+"copy-to-clipboard@npm:^3.3.3":
+  version: 3.3.3
+  resolution: "copy-to-clipboard@npm:3.3.3"
   dependencies:
     toggle-selection: ^1.0.6
-  checksum: 968ec7ec3d0cf3067542b63dd244ba5d05e743899d7a0361fb0a3130e731d277f5ea54ea4d90fc88cc66eea2e4c67dc2dd8698e4ed360f921af5aa7c60b889ac
+  checksum: e0a325e39b7615108e6c1c8ac110ae7b829cdc4ee3278b1df6a0e4228c490442cc86444cd643e2da344fbc424b3aab8909e2fec82f8bc75e7e5b190b7c24eecf
   languageName: node
   linkType: hard
 

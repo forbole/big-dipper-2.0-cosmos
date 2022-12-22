@@ -31,7 +31,7 @@
     "big.js": "^6.1.1",
     "classnames": "^2.2.6",
     "color": "^4.2.3",
-    "copy-to-clipboard": "^3.3.1",
+    "copy-to-clipboard": "^3.3.3",
     "cors": "^2.8.5",
     "dayjs": "^1.10.4",
     "dompurify": "^2.4.0",
