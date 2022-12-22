@@ -1,4 +1,3 @@
-name: ValidateProjects
 on:
   workflow_call:
     inputs:
