@@ -45,6 +45,7 @@ test('validators list page', async ({ page, isMobile }) => {
     await page.getByPlaceholder('Search Validator').fill('Apollo');
     await page.getByPlaceholder('Search Validator').press('Enter');
   }
+  await page.waitForTimeout(2000);
 
   // Test single validator url
   await Promise.all([

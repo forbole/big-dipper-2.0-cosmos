@@ -16,11 +16,11 @@ defaults:
     shell: bash
 jobs:
   validate-projects:
-    uses: forbole/big-dipper-2.0-cosmos/.github/workflows/validate-projects.yml@v1
+    uses: ${{ github.repository }}/.github/workflows/validate-projects.yml@v1
     with:
       projects: ${{ github.event.inputs.projects }}
   validate-chain-type:
-    uses: forbole/big-dipper-2.0-cosmos/.github/workflows/validate-chain-type.yml@v1
+    uses: ${{ github.repository }}/.github/workflows/validate-chain-type.yml@v1
     with:
       projects: ${{ github.event.inputs.projects }}
       chain_type: ${{ github.event.inputs.chain_type }}
