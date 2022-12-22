@@ -6,7 +6,9 @@ on:
         required: true
         type: string
     outputs:
-      projects: ${{ jobs.validate.outputs.projects }}
+      projects:
+        description: JSON array of projects to build
+        value: ${{ jobs.validate.outputs.projects }}
 jobs:
   validate:
     runs-on: ubuntu-latest

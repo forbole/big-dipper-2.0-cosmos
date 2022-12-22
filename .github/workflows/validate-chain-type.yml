@@ -9,7 +9,9 @@ on:
         required: true
         type: string
     outputs:
-      chain_type: ${{ jobs.validate.outputs.chain_type }}
+      chain_type:
+        description: Chain type to build
+        value: ${{ jobs.validate.outputs.chain_type }}
 jobs:
   validate:
     runs-on: ubuntu-latest
