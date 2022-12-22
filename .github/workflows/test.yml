@@ -80,9 +80,10 @@ jobs:
           key: ${{ needs.install.outputs.cashe-key }}
           restore-keys: ${{ needs.install.outputs.restore-keys }}
       - run: yarn install --immutable --immutable-cache
-      - run: echo '```' >> $GITHUB_STEP_SUMMARY
-      - run: yarn turbo run check-types --filter=${{ matrix.project }} | tee -a $GITHUB_STEP_SUMMARY
-      - run: echo '```' >> $GITHUB_STEP_SUMMARY
+      - run: |
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          yarn turbo run check-types --filter=${{ matrix.project }} | tee -a $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
   lint:
     if: ${{ success() && needs.install.outputs.projects != '[]' }}
     needs: install
@@ -104,9 +105,10 @@ jobs:
           key: ${{ needs.install.outputs.cashe-key }}
           restore-keys: ${{ needs.install.outputs.restore-keys }}
       - run: yarn install --immutable --immutable-cache
-      - run: echo '```' >> $GITHUB_STEP_SUMMARY
-      - run: yarn turbo run lint --filter=${{ matrix.project }} | tee -a $GITHUB_STEP_SUMMARY
-      - run: echo '```' >> $GITHUB_STEP_SUMMARY
+      - run: |
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          yarn turbo run lint --filter=${{ matrix.project }} | tee -a $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
   test:
     if: ${{ success() && needs.install.outputs.projects != '[]' }}
     needs: install
@@ -128,9 +130,10 @@ jobs:
           key: ${{ needs.install.outputs.cashe-key }}
           restore-keys: ${{ needs.install.outputs.restore-keys }}
       - run: yarn install --immutable --immutable-cache
-      - run: echo '```' >> $GITHUB_STEP_SUMMARY
-      - run: yarn test:ci --filter=${{ matrix.project }} -- --coverage | tee -a $GITHUB_STEP_SUMMARY
-      - run: echo '```' >> $GITHUB_STEP_SUMMARY
+      - run: |
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          yarn test:ci --filter=${{ matrix.project }} -- --coverage | tee -a $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
   build:
     if: ${{ success() && needs.install.outputs.projects-web != '[]' }}
     needs: install
@@ -168,9 +171,10 @@ jobs:
           key: ${{ steps.vars.outputs.next-cache-key }}
           restore-keys: ${{ needs.install.outputs.restore-keys }}${{ matrix.project }}-
       - run: yarn install --immutable --immutable-cache
-      - run: echo '```' >> $GITHUB_STEP_SUMMARY
-      - run: yarn build:ci --filter=${{ matrix.project }} | tee -a $GITHUB_STEP_SUMMARY
-      - run: echo '```' >> $GITHUB_STEP_SUMMARY
+      - run: |
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          yarn build:ci --filter=${{ matrix.project }} | tee -a $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
   e2e:
     if: ${{ success() && needs.install.outputs.projects-web != '[]' }}
     needs: [install, build]
@@ -211,13 +215,12 @@ jobs:
           key: ${{ needs.build.outputs.next-cache-key }}
           restore-keys: ${{ needs.install.outputs.restore-keys }}${{ matrix.project }}-
       - run: yarn install --immutable
-      - run: yarn build
-        env:
-          PROJECT_NAME: ${{ matrix.project }}
-      - run: echo Trace can be view at https://trace.playwright.dev/ | tee -a $GITHUB_STEP_SUMMARY
-      - run: echo '```' >> $GITHUB_STEP_SUMMARY
-      - run: yarn playwright test --project=${{ matrix.browser }} --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }} | tee -a $GITHUB_STEP_SUMMARY
-      - run: echo '```' >> $GITHUB_STEP_SUMMARY
+      - name: Trace can be view at https://trace.playwright.dev/ | tee -a $GITHUB_STEP_SUMMARY
+        run: |
+          yarn workspace ${{ matrix.project }} build
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          yarn playwright test --project=${{ matrix.browser }} --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }} | tee -a $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
         env:
           PROJECT_NAME: ${{ matrix.project }}
           PLAYWRIGHT_HTML_REPORT: playwright-report/${{ matrix.browser }}/${{ matrix.shardIndex }}
