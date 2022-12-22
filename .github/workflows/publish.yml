@@ -27,7 +27,7 @@ jobs:
       projects: ${{ github.event.inputs.projects }}
   publish:
     runs-on: ubuntu-latest
-    needs: [validate-projects, validate-chain-type]
+    needs: validate-projects
     if: ${{ needs.validate-projects.outputs.projects != '[]' }}
     strategy:
       fail-fast: false
