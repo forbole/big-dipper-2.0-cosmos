@@ -142,6 +142,8 @@ jobs:
       matrix:
         project: ${{ fromJson(needs.install.outputs.projects-web) }}
     runs-on: ubuntu-latest
+    outputs:
+      next-cache-key: ${{ steps.vars.outputs.next-cache-key }}
     steps:
       - uses: actions/checkout@v3
       - run: corepack enable
@@ -175,7 +177,7 @@ jobs:
           echo '```' >> $GITHUB_STEP_SUMMARY
   e2e:
     if: ${{ success() && needs.install.outputs.projects-web != '[]' }}
-    needs: [install, check-types, lint, test, build]
+    needs: build
     runs-on: ubuntu-latest
     timeout-minutes: 30
     strategy:
