@@ -34,8 +34,10 @@ jobs:
       max-parallel: 1
       matrix:
         project: ${{ fromJSON(needs.validate-projects.outputs.projects) }}
-        sha_short: [steps.vars.outputs.sha_short]
-        base_path: [github.event.inputs.base_path]
+        sha_short:
+          - ${{ steps.vars.outputs.sha_short }}
+        base_path:
+          - ${{ github.event.inputs.base_path }}
     name: Publish ${{ matrix.project }}
     steps:
       - uses: actions/checkout@v3
