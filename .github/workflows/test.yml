@@ -175,7 +175,6 @@ jobs:
       image: mcr.microsoft.com/playwright:v1.29.0-focal
       env:
         PROJECT_NAME: ${{ matrix.project }}
-      options: -w ${{ github.workspace }}
     defaults:
       run:
         shell: bash
