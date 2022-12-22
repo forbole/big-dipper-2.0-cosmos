@@ -1,4 +1,4 @@
-# Unreleased
+# shared-utils
 
 ## 2.3.0
 
@@ -16,16 +16,4 @@
 - e6437552: fix: type erros missing type declaration csstype
 - Updated dependencies [e6437552]
 - Updated dependencies [e6437552]
-- Updated dependencies [e6437552]
-- Updated dependencies [e6437552]
-- Updated dependencies [e6437552]
-- Updated dependencies [e6437552]
-- Updated dependencies [e6437552]
-  - shared-utils@2.3.0
-  - ui@2.3.0
-
-## Changes
-
-- Add light mode ([\#988](https://github.com/forbole/big-dipper-2.0-cosmos/issues/988))
-- merged `base-v2.1.0`
-- merged base
+  - eslint-config-custom@0.0.1
