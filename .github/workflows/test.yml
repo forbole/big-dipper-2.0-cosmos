@@ -174,8 +174,6 @@ jobs:
     if: ${{ success() }}
     needs: [install, check-types, lint, test, build]
     runs-on: ubuntu-latest
-    container:
-      image: mcr.microsoft.com/playwright:v1.29.0-focal
     timeout-minutes: 30
     strategy:
       fail-fast: false
@@ -189,6 +187,16 @@ jobs:
           - mobile-safari
         shardIndex: [1, 2]
         shardTotal: [2]
+    container:
+      image: mcr.microsoft.com/playwright:v1.29.0-focal
+      volumes:
+        - ${{ needs.install.outputs.cache-directory }}:${{ needs.install.outputs.cache-directory }}
+        - ${{ github.workspace }}/apps/${{ matrix.project }}/.next/cache:${{ github.workspace }}/apps/${{ matrix.project }}/.next/cache
+      env:
+        PROJECT_NAME: ${{ matrix.project }}
+    defaults:
+      run:
+        shell: bash
     steps:
       - uses: actions/checkout@v3
       - run: corepack enable
@@ -208,8 +216,6 @@ jobs:
           restore-keys: ${{ needs.install.outputs.restore-keys }}${{ matrix.project }}-
       - run: yarn install --immutable
       - run: yarn build
-        env:
-          PROJECT_NAME: ${{ matrix.project }}
       - run: |
           echo Trace can be view at https://trace.playwright.dev/ | tee -a $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
