@@ -10,9 +10,9 @@ export const usePrice = () => {
     items: [],
   });
 
-  const handleSetState = useCallback((stateChange: Partial<PriceState>) => {
+  const handleSetState = useCallback((stateChange: (prevState: PriceState) => PriceState) => {
     setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
+      const newState = stateChange(prevState);
       return R.equals(prevState, newState) ? prevState : newState;
     });
   }, []);
@@ -22,9 +22,10 @@ export const usePrice = () => {
       try {
         const { data: prices } = await axios.get(PRICE_HISTORY);
 
-        handleSetState({
+        handleSetState((prevState) => ({
+          ...prevState,
           items: prices.slice(-7),
-        });
+        }));
       } catch (error) {
         console.error((error as Error).message);
       }

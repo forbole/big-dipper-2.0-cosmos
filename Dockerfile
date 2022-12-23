@@ -109,9 +109,6 @@ COPY --chown=nextjs:nodejs --from=builder \
   /app/apps/${PROJECT_NAME}/.next/apps/${PROJECT_NAME}/server.js /app/apps/${PROJECT_NAME}/package.json \
   ./
 COPY --chown=nextjs:nodejs --from=builder \
-  /app/.yarn/ \
-  ./.yarn/
-COPY --chown=nextjs:nodejs --from=builder \
   /app/apps/${PROJECT_NAME}/public/ \
   ./public/
 COPY --chown=nextjs:nodejs --from=builder \

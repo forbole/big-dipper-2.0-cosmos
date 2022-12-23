@@ -2,6 +2,8 @@ import chainConfig from '@/chainConfig';
 import Big from 'big.js';
 import numeral from 'numeral';
 
+const { tokenUnits } = chainConfig();
+
 /**
  * Util to help me correctly transform a base denom amount
  * in to a display denom amount
@@ -10,7 +12,7 @@ import numeral from 'numeral';
  * @returns TokenUnit
  */
 export const formatToken = (value: number | string | null | undefined, denom = ''): TokenUnit => {
-  const selectedDenom = chainConfig().tokenUnits?.[denom];
+  const selectedDenom = tokenUnits?.[denom];
 
   if (typeof value !== 'string' && typeof value !== 'number') {
     value = '0';

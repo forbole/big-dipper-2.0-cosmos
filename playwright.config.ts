@@ -19,24 +19,24 @@ const projects: Array<Project<PlaywrightTestConfig, PlaywrightWorkerOptions>> = 
       ...devices['Desktop Chrome'],
     },
   },
-  {
-    name: 'firefox',
-    use: {
-      ...devices['Desktop Firefox'],
-    },
-  },
-  {
-    name: 'webkit',
-    use: {
-      ...devices['Desktop Safari'],
-    },
-  },
-  {
-    name: 'mobile-chrome',
-    use: {
-      ...devices['Pixel 5'],
-    },
-  },
+  // {
+  //   name: 'firefox',
+  //   use: {
+  //     ...devices['Desktop Firefox'],
+  //   },
+  // },
+  // {
+  //   name: 'webkit',
+  //   use: {
+  //     ...devices['Desktop Safari'],
+  //   },
+  // },
+  // {
+  //   name: 'mobile-chrome',
+  //   use: {
+  //     ...devices['Pixel 5'],
+  //   },
+  // },
   {
     name: 'mobile-safari',
     use: {
@@ -65,7 +65,7 @@ const projects: Array<Project<PlaywrightTestConfig, PlaywrightWorkerOptions>> = 
 const config: PlaywrightTestConfig = {
   testDir: './e2e',
   /* Maximum time one test can run for. */
-  timeout: 60 * 1000,
+  timeout: process.env.CI ? 2 * 60 * 1000 : 60 * 1000,
   expect: {
     /**
      * Maximum time expect() should wait for the condition to be met.
@@ -74,11 +74,11 @@ const config: PlaywrightTestConfig = {
     timeout: 30 * 1000,
   },
   /* Run tests in files in parallel */
-  fullyParallel: true,
+  fullyParallel: false,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
-  /* Retry twice on CI, once on non-CI */
-  retries: process.env.CI ? 2 : 1,
+  /* Retry twice on CI, none on non-CI */
+  retries: process.env.CI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
@@ -91,7 +91,7 @@ const config: PlaywrightTestConfig = {
     baseURL: `http://localhost:${port}${basePath}`,
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
+    trace: process.env.CI ? 'on-first-retry' : 'on',
     /* Ignore https error in firefox */
     ignoreHTTPSErrors: true,
     headless: true,
@@ -107,13 +107,15 @@ const config: PlaywrightTestConfig = {
 
   /* Run your local dev server before starting the tests */
   webServer: {
-    command: process.env.PLAYWRIGHT_SERVER_COMMAND || `yarn workspace ${projectName} next start`,
+    command: process.env.PLAYWRIGHT_SERVER_COMMAND || `yarn workspace ${projectName} next dev`,
     url: `http://localhost:${port}${basePath}`,
     ignoreHTTPSErrors: true,
     env: {
       PORT: port,
       DEBUG: 'pw:webserver',
+      RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED: 'false',
     },
+    timeout: process.env.CI ? 2 * 60 * 1000 : undefined,
     reuseExistingServer: !process.env.CI,
   },
 };

@@ -1,6 +1,8 @@
 import chainConfig from '@/chainConfig';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 
+const { chainName } = chainConfig();
+
 const styles = makeStyles<Theme, { coverUrl?: string }>(
   (theme) => ({
     root: {
@@ -9,7 +11,7 @@ const styles = makeStyles<Theme, { coverUrl?: string }>(
     cover: {
       height: '150px',
       background: theme.palette.custom.fonts.fontFour,
-      backgroundImage: `url("${`/${chainConfig().chainName}`.replace(
+      backgroundImage: `url("${`/${chainName}`.replace(
         /^\/$/,
         ''
       )}/images/default_cover_pattern.png")`,

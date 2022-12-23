@@ -120,6 +120,7 @@ export interface ChainConfig extends ChainSettings {
   extra: {
     profile: boolean;
     graphqlWs: boolean;
+    votingPowerExponent?: number;
   };
   basePath: string;
   previewImage?: string;

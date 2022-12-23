@@ -10,6 +10,7 @@ env:
   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
   NEXT_TELEMETRY_DISABLED: 1
   SENTRYCLI_SKIP_DOWNLOAD: 1
+  FORCE_COLOR: 0
 defaults:
   run:
     shell: bash
@@ -17,7 +18,11 @@ jobs:
   check-cache:
     runs-on: ubuntu-latest
     outputs:
-      projects: ${{ steps.vars.outputs.projects }}
+      projects: ${{ steps.dry-run.outputs.projects }}
+      projects-web: ${{ steps.dry-run.outputs.projects-web }}
+      cache-directory: ${{ steps.vars.outputs.cache-directory }}
+      cashe-key: ${{ steps.vars.outputs.cache-key }}
+      restore-keys: ${{ steps.vars.outputs.restore-keys }}
     steps:
       - uses: actions/checkout@v3
         with:
@@ -26,158 +31,183 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - run: yarn install --immutable --check-cache
-      - name: Set needs.check-cache.outputs.projects
+          cache: 'yarn'
+      - run: |
+          echo 'cache-key=${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}' | tee -a $GITHUB_OUTPUT
+          echo 'restore-keys=${{ runner.os }}-' | tee -a $GITHUB_OUTPUT
         id: vars
+      - uses: actions/cache@v3
+        with:
+          path: ${{ steps.vars.outputs.cache-directory }}
+          key: ${{ steps.vars.outputs.cache-key }}
+          restore-keys: ${{ steps.vars.outputs.restore-keys }}
+      - name: Install modules
+        run: yarn install --immutable
+      - name: Set needs.install.outputs.{projects,projects-web}
+        id: dry-run
         run: |
-          DRY_BUILD_JSON=$(
+          export DRY_BUILD_JSON=$(
             yarn turbo run build --dry='json'
               --filter='[${{ github.event.pull_request.base.sha }}]'
-          ) node <<EOF | tee -a $GITHUB_OUTPUT $GITHUB_STEP_SUMMARY
+          )
+          node <<EOF | tee -a $GITHUB_OUTPUT $GITHUB_STEP_SUMMARY
           const { packages } = JSON.parse(process.env.DRY_BUILD_JSON);
-          console.log('projects=' + JSON.stringify(
-            packages.filter(p => /^(?:ui|web.*)$/.test(p))
-          ));
+          console.log('projects=' + JSON.stringify(packages.filter(p => /^(?:ui|web.*)$/.test(p))));
+          EOF
+          node <<EOF | tee -a $GITHUB_OUTPUT $GITHUB_STEP_SUMMARY
+          const { packages } = JSON.parse(process.env.DRY_BUILD_JSON);
+          console.log('projects-web=' + JSON.stringify(packages.filter(p => /^web.*$/.test(p))));
           EOF
   check-types:
-    if: ${{ success() && needs.check-cache.outputs.projects != '[]' }}
-    needs: check-cache
+    if: ${{ success() && needs.install.outputs.projects != '[]' }}
+    needs: install
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        project: ${{ fromJson(needs.check-cache.outputs.projects) }}
+        project: ${{ fromJSON(needs.install.outputs.projects) }}
     steps:
       - uses: actions/checkout@v3
       - run: corepack enable
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - run: yarn install --immutable --immutable-cache
-      - run: yarn turbo run check-types --filter=${{ matrix.project }}
-  lint:
-    if: ${{ success() && needs.check-cache.outputs.projects != '[]' }}
-    needs: check-cache
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        project: ${{ fromJson(needs.check-cache.outputs.projects) }}
-    steps:
-      - uses: actions/checkout@v3
-      - run: corepack enable
-      - uses: actions/setup-node@v3
+          cache: 'yarn'
+      - uses: actions/cache@v3
         with:
-          node-version: 18
-      - run: yarn install --immutable --immutable-cache
-      - run: yarn turbo run lint --filter=${{ matrix.project }}
-  test:
-    if: ${{ success() && needs.check-cache.outputs.projects != '[]' }}
-    needs: check-cache
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        project: ${{ fromJson(needs.check-cache.outputs.projects) }}
-    steps:
-      - uses: actions/checkout@v3
-      - run: corepack enable
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
+          path: ${{ needs.install.outputs.cache-directory }}
+          key: ${{ needs.install.outputs.cashe-key }}
+          restore-keys: ${{ needs.install.outputs.restore-keys }}
       - run: yarn install --immutable --immutable-cache
       - run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
-          yarn test:ci --filter=${{ matrix.project }} -- --coverage |
-            tee -a $GITHUB_STEP_SUMMARY
+          yarn turbo run check-types --filter=${{ matrix.project }} | tee -a $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
-  build:
-    if: ${{ success() && needs.check-cache.outputs.projects != '[]' }}
-    needs: check-cache
+  lint:
+    if: ${{ success() && needs.install.outputs.projects != '[]' }}
+    needs: install
+    runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        project: ${{ fromJson(needs.check-cache.outputs.projects) }}
-    runs-on: ubuntu-latest
+        project: ${{ fromJSON(needs.install.outputs.projects) }}
     steps:
       - uses: actions/checkout@v3
       - run: corepack enable
       - uses: actions/setup-node@v3
         with:
           node-version: 18
+          cache: 'yarn'
       - uses: actions/cache@v3
         with:
-          path: |
-            ${{ github.workspace }}/apps/${{ matrix.project }}/.next/cache
-          key: ${{ format('{0}-{1}-{2}-{3}',
-            runner.os,
-            hashFiles('**/yarn.lock'),
-            matrix.project,
-            hashFiles(
-              format('apps/{0}/**/*.[jt]s', matrix.project),
-              format('apps/{0}/**/*.[jt]sx', matrix.project),
-              'packages/**/*.[jt]s',
-              'packages/**/*.[jt]sx'
-            )) }}
-          restore-keys: ${{ format('{0}-{1}-{2}-',
-            runner.os,
-            hashFiles('**/yarn.lock'),
-            matrix.project) }}
+          path: ${{ needs.install.outputs.cache-directory }}
+          key: ${{ needs.install.outputs.cashe-key }}
+          restore-keys: ${{ needs.install.outputs.restore-keys }}
       - run: yarn install --immutable --immutable-cache
-      - run: yarn build:ci --filter=${{ matrix.project }}
-  e2e:
-    if: ${{ success() }}
-    needs: [check-cache, check-types, lint, test, build]
+      - run: |
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          yarn turbo run lint --filter=${{ matrix.project }} | tee -a $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+  test:
+    if: ${{ success() && needs.install.outputs.projects != '[]' }}
+    needs: install
     runs-on: ubuntu-latest
-    container:
-      image: mcr.microsoft.com/playwright:v1.28.1-focal
+    strategy:
+      fail-fast: false
+      matrix:
+        project: ${{ fromJSON(needs.install.outputs.projects) }}
+    steps:
+      - uses: actions/checkout@v3
+      - run: corepack enable
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'yarn'
+      - uses: actions/cache@v3
+        with:
+          path: ${{ needs.install.outputs.cache-directory }}
+          key: ${{ needs.install.outputs.cashe-key }}
+          restore-keys: ${{ needs.install.outputs.restore-keys }}
+      - run: yarn install --immutable --immutable-cache
+      - run: |
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          yarn test:ci --filter=${{ matrix.project }} -- --coverage | tee -a $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+  build:
+    if: ${{ success() && needs.install.outputs.projects-web != '[]' }}
+    needs: install
+    strategy:
+      fail-fast: false
+      matrix:
+        project: ${{ fromJSON(needs.install.outputs.projects-web) }}
+    runs-on: ubuntu-latest
+    outputs:
+      next-cache-key: ${{ steps.vars.outputs.next-cache-key }}
+    steps:
+      - uses: actions/checkout@v3
+      - run: corepack enable
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'yarn'
+      - uses: actions/cache@v3
+        with:
+          path: ${{ needs.install.outputs.cache-directory }}
+          key: ${{ needs.install.outputs.cashe-key }}
+          restore-keys: ${{ needs.install.outputs.restore-keys }}
+      - run: yarn install --immutable --immutable-cache
+      - run: |
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          yarn build:ci --filter=${{ matrix.project }} | tee -a $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+  e2e:
+    if: ${{ success() && needs.install.outputs.projects-web != '[]' }}
+    needs: install
+    runs-on: ubuntu-latest
     timeout-minutes: 30
     strategy:
       fail-fast: false
       matrix:
-        project: ${{ fromJson(needs.check-cache.outputs.projects) }}
-        os:
+        project: [web]
+        browser:
           - chromium
           # - firefox
           # - webkit
           # - mobile-chrome
           - mobile-safari
-        shardIndex: [1, 2]
-        shardTotal: [2]
+        shardIndex: [1, 2, 3, 4, 5, 6, 7]
+        shardTotal: [7]
+    container:
+      image: mcr.microsoft.com/playwright:v1.29.0-focal
+    defaults:
+      run:
+        shell: bash
     steps:
       - uses: actions/checkout@v3
       - run: corepack enable
       - uses: actions/setup-node@v3
         with:
           node-version: 18
+          cache: 'yarn'
       - uses: actions/cache@v3
         with:
-          path: ${{ github.workspace }}/apps/web/.next/cache
-          key: ${{ format('{0}-{1}-{2}-{3}',
-            runner.os,
-            hashFiles('**/yarn.lock'),
-            matrix.project,
-            hashFiles(
-              format('apps/{0}/**/*.[jt]s', matrix.project),
-              format('apps/{0}/**/*.[jt]sx', matrix.project),
-              'packages/**/*.[jt]s',
-              'packages/**/*.[jt]sx'
-            )) }}
-          restore-keys: ${{ format('{0}-{1}-{2}-',
-            runner.os,
-            hashFiles('**/yarn.lock'),
-            matrix.project) }}
-      - run: yarn build
+          path: ${{ needs.install.outputs.cache-directory }}
+          key: ${{ needs.install.outputs.cashe-key }}
+          restore-keys: ${{ needs.install.outputs.restore-keys }}
+      - run: yarn install --immutable
+      - name: Playwright testing
+        run: |
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          yarn playwright test --project=${{ matrix.browser }} --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }} | tee -a $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
         env:
+          CI: 1
+          DEBUG: pw:webserver
           PROJECT_NAME: ${{ matrix.project }}
-      - run: |
-          echo Trace can be view at https://trace.playwright.dev/ | tee -a $GITHUB_STEP_SUMMARY
-          yarn playwright test --project=${{ matrix.os }} --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }} | tee -a $GITHUB_STEP_SUMMARY
-        env:
-          PROJECT_NAME: ${{ matrix.project }}
-          PLAYWRIGHT_HTML_REPORT: playwright-report/${{ matrix.os }}/${{ matrix.shardIndex }}
+          PLAYWRIGHT_HTML_REPORT: playwright-report/${{ matrix.browser }}/${{ matrix.shardIndex }}
       - uses: actions/upload-artifact@v3
+        if: ${{ failure() }}
         with:
-          name: playwright-report
+          name: trace.playwright.dev
           path: playwright-report/
           retention-days: 7

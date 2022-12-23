@@ -16,9 +16,9 @@ export const useBlocks = () => {
     isNextPageLoading: false,
   });
 
-  const handleSetState = useCallback((stateChange: Partial<BlocksState>) => {
+  const handleSetState = useCallback((stateChange: (prevState: BlocksState) => BlocksState) => {
     setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
+      const newState = stateChange(prevState);
       return R.equals(prevState, newState) ? prevState : newState;
     });
   }, []);
@@ -47,10 +47,11 @@ export const useBlocks = () => {
         ...(data.data.data ? formatBlocks(data.data.data) : []),
         ...state.items,
       ]);
-      handleSetState({
+      handleSetState((prevState) => ({
+        ...prevState,
         loading: false,
         items: newItems,
-      });
+      }));
     },
   });
 
@@ -64,26 +65,23 @@ export const useBlocks = () => {
       offset: 1,
     },
     onError: () => {
-      handleSetState({
-        loading: false,
-      });
+      handleSetState((prevState) => ({ ...prevState, loading: false }));
     },
     onCompleted: (data) => {
       const itemsLength = data.blocks.length;
       const newItems = uniqueAndSort([...state.items, ...formatBlocks(data)]);
-      handleSetState({
+      handleSetState((prevState) => ({
+        ...prevState,
         loading: false,
         items: newItems,
         hasNextPage: itemsLength === 51,
         isNextPageLoading: false,
-      });
+      }));
     },
   });
 
   const loadNextPage = async () => {
-    handleSetState({
-      isNextPageLoading: true,
-    });
+    handleSetState((prevState) => ({ ...prevState, isNextPageLoading: true }));
     // refetch query
     await blockQuery
       .fetchMore({
@@ -97,11 +95,12 @@ export const useBlocks = () => {
         const newItems = uniqueAndSort([...state.items, ...formatBlocks(data)]);
 
         // set new state
-        handleSetState({
+        handleSetState((prevState) => ({
+          ...prevState,
           items: newItems,
           isNextPageLoading: false,
           hasNextPage: itemsLength === 51,
-        });
+        }));
       });
   };
 

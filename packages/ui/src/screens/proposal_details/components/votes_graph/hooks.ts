@@ -10,6 +10,8 @@ import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import { useCallback, useState } from 'react';
 
+const { votingPowerTokenUnit } = chainConfig();
+
 const defaultTokenUnit: TokenUnit = {
   value: '0',
   baseDenom: '',
@@ -30,19 +32,22 @@ export const useVotesGraph = () => {
     quorum: '0',
   });
 
-  const handleSetState = useCallback((stateChange: Partial<VotesGraphState>) => {
-    setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
-      return R.equals(prevState, newState) ? prevState : newState;
-    });
-  }, []);
+  const handleSetState = useCallback(
+    (stateChange: (prevState: VotesGraphState) => VotesGraphState) => {
+      setState((prevState) => {
+        const newState = stateChange(prevState);
+        return R.equals(prevState, newState) ? prevState : newState;
+      });
+    },
+    []
+  );
 
   useProposalDetailsTallyQuery({
     variables: {
       proposalId: parseFloat((router?.query?.id as string) ?? '0'),
     },
     onCompleted: (data) => {
-      handleSetState(foramtProposalTally(data));
+      handleSetState((prevState) => ({ ...prevState, ...foramtProposalTally(data) }));
     },
   });
 
@@ -51,27 +56,12 @@ export const useVotesGraph = () => {
 
     return {
       votes: {
-        yes: formatToken(
-          data?.proposalTallyResult?.[0]?.yes ?? '0',
-          chainConfig().votingPowerTokenUnit
-        ),
-        no: formatToken(
-          data?.proposalTallyResult?.[0]?.no ?? '0',
-          chainConfig().votingPowerTokenUnit
-        ),
-        veto: formatToken(
-          data?.proposalTallyResult?.[0]?.noWithVeto ?? '0',
-          chainConfig().votingPowerTokenUnit
-        ),
-        abstain: formatToken(
-          data?.proposalTallyResult?.[0]?.abstain ?? '0',
-          chainConfig().votingPowerTokenUnit
-        ),
+        yes: formatToken(data?.proposalTallyResult?.[0]?.yes ?? '0', votingPowerTokenUnit),
+        no: formatToken(data?.proposalTallyResult?.[0]?.no ?? '0', votingPowerTokenUnit),
+        veto: formatToken(data?.proposalTallyResult?.[0]?.noWithVeto ?? '0', votingPowerTokenUnit),
+        abstain: formatToken(data?.proposalTallyResult?.[0]?.abstain ?? '0', votingPowerTokenUnit),
       },
-      bonded: formatToken(
-        data?.stakingPool?.[0]?.bondedTokens ?? '0',
-        chainConfig().votingPowerTokenUnit
-      ),
+      bonded: formatToken(data?.stakingPool?.[0]?.bondedTokens ?? '0', votingPowerTokenUnit),
       quorum: Big(quorumRaw)?.times(100).toFixed(2),
     };
   };

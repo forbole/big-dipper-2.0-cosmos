@@ -9,15 +9,17 @@ import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import { useCallback, useState } from 'react';
 
+const { primaryTokenUnit } = chainConfig();
+
 export const useDeposits = () => {
   const router = useRouter();
   const [state, setState] = useState<DepositState>({
     data: [],
   });
 
-  const handleSetState = useCallback((stateChange: Partial<DepositState>) => {
+  const handleSetState = useCallback((stateChange: (prevState: DepositState) => DepositState) => {
     setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
+      const newState = stateChange(prevState);
       return R.equals(prevState, newState) ? prevState : newState;
     });
   }, []);
@@ -27,16 +29,13 @@ export const useDeposits = () => {
       proposalId: parseFloat((router?.query?.id as string) ?? '0'),
     },
     onCompleted: (data) => {
-      handleSetState(foramtProposalDeposits(data));
+      handleSetState((prevState) => ({ ...prevState, ...foramtProposalDeposits(data) }));
     },
   });
 
   const foramtProposalDeposits = (data: ProposalDetailsDepositsQuery) => {
     const format = data.proposalDeposit.map((x) => ({
-      amount: formatToken(
-        x?.amount?.[0]?.amount ?? '0',
-        x?.amount?.[0]?.denom ?? chainConfig().primaryTokenUnit
-      ),
+      amount: formatToken(x?.amount?.[0]?.amount ?? '0', x?.amount?.[0]?.denom ?? primaryTokenUnit),
       user: x?.depositorAddress ?? '',
       timestamp: x?.block?.timestamp ?? '',
     }));

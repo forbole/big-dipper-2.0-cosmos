@@ -19,9 +19,9 @@ export const useBlocks = () => {
     total: 0,
   });
 
-  const handleSetState = useCallback((stateChange: Partial<NodeState>) => {
+  const handleSetState = useCallback((stateChange: (prevState: NodeState) => NodeState) => {
     setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
+      const newState = stateChange(prevState);
       return R.equals(prevState, newState) ? prevState : newState;
     });
   }, []);
@@ -46,9 +46,10 @@ export const useBlocks = () => {
         const { data: total } = await axios.get(NODES_COUNT, {
           params,
         });
-        handleSetState({
+        handleSetState((prevState) => ({
+          ...prevState,
           total,
-        });
+        }));
       } catch (error) {
         console.error((error as Error).message);
       }
@@ -98,10 +99,11 @@ export const useBlocks = () => {
           online: x?.online ?? waitForAllSettled,
         }));
 
-        handleSetState({
+        handleSetState((prevState) => ({
+          ...prevState,
           loading: false,
           items,
-        });
+        }));
       } catch (error) {
         console.error((error as Error).message);
       }
@@ -111,10 +113,11 @@ export const useBlocks = () => {
 
   const handlePageChangeCallback = useCallback(
     async (page: number, _rowsPerPage: number) => {
-      handleSetState({
+      handleSetState((prevState) => ({
+        ...prevState,
         page,
         loading: true,
-      });
+      }));
       await getBlocksByPage(page);
     },
     [getBlocksByPage, handleSetState]

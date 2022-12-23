@@ -2,21 +2,23 @@ import { useCallback, useEffect, useState } from 'react';
 import * as R from 'ramda';
 import { useScreenSize } from '@/hooks';
 
+type MobileState = {
+  isMenu?: boolean;
+  isNetwork?: boolean;
+};
+
 export const useMobile = () => {
   // ==========================
   // globals
   // ==========================
-  const [state, setState] = useState<{
-    isMenu?: boolean;
-    isNetwork?: boolean;
-  }>({
+  const [state, setState] = useState<MobileState>({
     isMenu: false,
     isNetwork: false,
   });
 
-  const handleSetState = useCallback((stateChange: Partial<typeof state>) => {
+  const handleSetState = useCallback((stateChange: (prevState: MobileState) => MobileState) => {
     setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
+      const newState = stateChange(prevState);
       return R.equals(prevState, newState) ? prevState : newState;
     });
   }, []);
@@ -24,21 +26,23 @@ export const useMobile = () => {
   const openNetwork = useCallback(() => {
     // make sure everything else is closed first
     if (state.isMenu) {
-      handleSetState({ isMenu: false });
+      handleSetState((prevState) => ({ ...prevState, isMenu: false }));
     }
-    handleSetState({
+    handleSetState((prevState) => ({
+      ...prevState,
       isNetwork: true,
-    });
+    }));
   }, [handleSetState, state.isMenu]);
 
   /**
    * Helper that will check and turn off any open tabs
    */
   const closeAll = useCallback(() => {
-    handleSetState({
+    handleSetState((prevState) => ({
+      ...prevState,
       isNetwork: false,
       isMenu: false,
-    });
+    }));
   }, [handleSetState]);
 
   // closes menu if opened and opens menu if
@@ -48,9 +52,7 @@ export const useMobile = () => {
       closeAll();
     } else {
       // if initial state is closed then we open navbar
-      handleSetState({
-        isMenu: true,
-      });
+      handleSetState((prevState) => ({ ...prevState, isMenu: true }));
     }
   }, [closeAll, handleSetState, state.isMenu, state.isNetwork]);
 

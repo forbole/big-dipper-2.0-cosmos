@@ -24,9 +24,9 @@ export const useVotes = (resetPagination: () => void) => {
     tab: 0,
   });
 
-  const handleSetState = useCallback((stateChange: Partial<VoteState>) => {
+  const handleSetState = useCallback((stateChange: (prevState: VoteState) => VoteState) => {
     setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
+      const newState = stateChange(prevState);
       return R.equals(prevState, newState) ? prevState : newState;
     });
   }, []);
@@ -35,9 +35,7 @@ export const useVotes = (resetPagination: () => void) => {
     if (resetPagination) {
       resetPagination();
     }
-    handleSetState({
-      tab: newValue,
-    });
+    handleSetState((prevState) => ({ ...prevState, tab: newValue }));
   };
 
   useProposalDetailsVotesQuery({
@@ -45,7 +43,7 @@ export const useVotes = (resetPagination: () => void) => {
       proposalId: parseFloat((router?.query?.id as string) ?? '0'),
     },
     onCompleted: (data) => {
-      handleSetState(formatVotes(data));
+      handleSetState((prevState) => ({ ...prevState, ...formatVotes(data) }));
     },
   });
 

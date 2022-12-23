@@ -11,6 +11,8 @@ import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import { useCallback, useEffect, useState } from 'react';
 
+const { extra, votingPowerTokenUnit } = chainConfig();
+
 const initialTokenDenom: TokenUnit = {
   value: '0',
   displayDenom: '',
@@ -51,12 +53,15 @@ export const useValidatorDetails = () => {
   const router = useRouter();
   const [state, setState] = useState<ValidatorDetailsState>(initialState);
 
-  const handleSetState = useCallback((stateChange: Partial<ValidatorDetailsState>) => {
-    setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
-      return R.equals(prevState, newState) ? prevState : newState;
-    });
-  }, []);
+  const handleSetState = useCallback(
+    (stateChange: (prevState: ValidatorDetailsState) => ValidatorDetailsState) => {
+      setState((prevState) => {
+        const newState = stateChange(prevState);
+        return R.equals(prevState, newState) ? prevState : newState;
+      });
+    },
+    []
+  );
 
   // ==========================
   // Desmos Profile
@@ -64,7 +69,7 @@ export const useValidatorDetails = () => {
   const { fetchDesmosProfile, formatDesmosProfile } = useDesmosProfile({
     onComplete: (data) => {
       const desmosProfile = formatDesmosProfile(data);
-      handleSetState({ desmosProfile });
+      handleSetState((prevState) => ({ ...prevState, desmosProfile }));
       return desmosProfile;
     },
   });
@@ -77,17 +82,18 @@ export const useValidatorDetails = () => {
       address: router.query.address as string,
     },
     onCompleted: (data) => {
-      handleSetState(formatAccountQuery(data));
+      handleSetState((prevState) => ({ ...prevState, ...formatAccountQuery(data) }));
     },
   });
 
   useEffect(() => {
     if (!isValidAddress(router.query.address as string)) {
-      handleSetState({
+      handleSetState((prevState) => ({
+        ...prevState,
         loading: false,
         exists: false,
-      });
-    } else if (chainConfig().extra.profile) {
+      }));
+    } else if (extra.profile) {
       const address = validatorToDelegatorAddress(router.query.address as string);
       fetchDesmosProfile(address);
     }
@@ -173,7 +179,7 @@ function formatAccountQuery(data: ValidatorDetailsQuery) {
 
     const votingPower = {
       self: selfVotingPower,
-      overall: formatToken(data?.stakingPool?.[0]?.bonded ?? 0, chainConfig().votingPowerTokenUnit),
+      overall: formatToken(data?.stakingPool?.[0]?.bonded ?? 0, votingPowerTokenUnit),
       height: data.validator[0]?.validatorVotingPowers?.[0]?.height ?? 0,
     };
 

@@ -5,6 +5,8 @@ import { createTheme } from '@material-ui/core/styles';
 import { useState } from 'react';
 import { useRecoilValue } from 'recoil';
 
+const { genesis } = chainConfig();
+
 export const useTheme = () => {
   const theme = useRecoilValue(readTheme);
 
@@ -15,7 +17,7 @@ export const useTheme = () => {
 
 export const useGenesis = () => {
   const utcTimeNow = dayjs.utc().format('YYYY-MM-DDTHH:mm:ss');
-  const [genesisStarted, setGenesis] = useState(chainConfig().genesis.time < utcTimeNow);
+  const [genesisStarted, setGenesis] = useState(genesis.time < utcTimeNow);
 
   const startGenesis = () => {
     setTimeout(() => {

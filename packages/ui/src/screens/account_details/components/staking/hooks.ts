@@ -10,10 +10,11 @@ import { getDenom } from '@/utils/get_denom';
 import { Tabs } from '@material-ui/core';
 import axios from 'axios';
 import Big from 'big.js';
-
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import { ComponentProps, useCallback, useEffect, useState } from 'react';
+
+const { endpoints, primaryTokenUnit } = chainConfig();
 
 const stakingDefault = {
   data: {},
@@ -24,12 +25,11 @@ const stakingDefault = {
 const LIMIT = 100;
 const PAGE_LIMIT = 10;
 
-function getUrl() {
-  let url = process.env.NEXT_PUBLIC_GRAPHQL_URL;
-  if (!url) url = chainConfig().endpoints.graphql;
-  if (!url) url = 'http://localhost:3000/v1/graphql';
-  return url;
-}
+const urlEndpoints = [
+  process.env.NEXT_PUBLIC_GRAPHQL_URL,
+  endpoints.graphql,
+  'http://localhost:3000/v1/graphql',
+];
 
 export const useStaking = (
   rewards: RewardsType,
@@ -45,9 +45,9 @@ export const useStaking = (
     unbondings: stakingDefault,
   });
 
-  const handleSetState = useCallback((stateChange: Partial<StakingState>) => {
+  const handleSetState = useCallback((stateChange: (prevState: StakingState) => StakingState) => {
     setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
+      const newState = stateChange(prevState);
       return R.equals(prevState, newState) ? prevState : newState;
     });
   }, []);
@@ -62,7 +62,7 @@ export const useStaking = (
       data
         .map((x): DelegationType => {
           const validator = x?.validator_address ?? '';
-          const delegation = getDenom(x.coins, chainConfig().primaryTokenUnit);
+          const delegation = getDenom(x.coins, primaryTokenUnit);
           return {
             validator,
             amount: formatToken(delegation.amount, delegation.denom),
@@ -74,7 +74,7 @@ export const useStaking = (
     // helper function to get rest of the staking items
     // if it is over the default limit
     const getStakeByPage = async (page: number, query: string) => {
-      const { data } = await axios.post(getUrl(), {
+      const { data } = await axios.post(urlEndpoints.find((u) => u) ?? '', {
         variables: {
           address: (router?.query?.address as string) ?? '',
           offset: page * LIMIT,
@@ -91,7 +91,7 @@ export const useStaking = (
     // =====================================
     const getDelegations = async () => {
       try {
-        const { data } = await axios.post(getUrl(), {
+        const { data } = await axios.post(urlEndpoints.find((u) => u) ?? '', {
           variables: {
             address: (router?.query?.address as string) ?? '',
             limit: LIMIT,
@@ -119,21 +119,23 @@ export const useStaking = (
             });
         }
 
-        handleSetState({
+        handleSetState((prevState) => ({
+          ...prevState,
           delegations: {
             loading: false,
             count,
             data: createPagination(formatDelegations(allDelegations)),
           },
-        });
+        }));
       } catch (error) {
-        handleSetState({
+        handleSetState((prevState) => ({
+          ...prevState,
           delegations: {
             data: {},
             count: 0,
             loading: false,
           },
-        });
+        }));
       }
     };
 
@@ -142,7 +144,7 @@ export const useStaking = (
     // =====================================
     const getRedelegations = async () => {
       try {
-        const { data } = await axios.post(getUrl(), {
+        const { data } = await axios.post(urlEndpoints.find((u) => u) ?? '', {
           variables: {
             address: (router?.query?.address as string) ?? '',
             limit: LIMIT,
@@ -173,21 +175,23 @@ export const useStaking = (
 
         const formattedData = formatRedelegations(allData);
 
-        handleSetState({
+        handleSetState((prevState) => ({
+          ...prevState,
           redelegations: {
             loading: false,
             count: formattedData.length,
             data: createPagination(formattedData),
           },
-        });
+        }));
       } catch (error) {
-        handleSetState({
+        handleSetState((prevState) => ({
+          ...prevState,
           redelegations: {
             data: {},
             count: 0,
             loading: false,
           },
-        });
+        }));
       }
     };
 
@@ -196,7 +200,7 @@ export const useStaking = (
     // =====================================
     const getUnbondings = async () => {
       try {
-        const { data } = await axios.post(getUrl(), {
+        const { data } = await axios.post(urlEndpoints.find((u) => u) ?? '', {
           variables: {
             address: (router?.query?.address as string) ?? '',
             limit: LIMIT,
@@ -227,21 +231,23 @@ export const useStaking = (
 
         const formattedData = formatUnbondings(allData);
 
-        handleSetState({
+        handleSetState((prevState) => ({
+          ...prevState,
           unbondings: {
             loading: false,
             count: formattedData.length,
             data: createPagination(formattedData),
           },
-        });
+        }));
       } catch (error) {
-        handleSetState({
+        handleSetState((prevState) => ({
+          ...prevState,
           unbondings: {
             data: {},
             count: 0,
             loading: false,
           },
-        });
+        }));
       }
     };
 
@@ -290,7 +296,7 @@ export const useStaking = (
         results.push({
           from: x?.validator_src_address ?? '',
           to: x?.validator_dst_address ?? '',
-          amount: formatToken(y.balance, chainConfig().primaryTokenUnit),
+          amount: formatToken(y.balance, primaryTokenUnit),
           completionTime: y?.completion_time ?? '',
         });
       });
@@ -312,7 +318,7 @@ export const useStaking = (
       x?.entries?.forEach((y) => {
         results.push({
           validator: x?.validator_address ?? '',
-          amount: formatToken(y.balance, chainConfig().primaryTokenUnit),
+          amount: formatToken(y.balance, primaryTokenUnit),
           completionTime: y?.completion_time ?? '',
         });
       });

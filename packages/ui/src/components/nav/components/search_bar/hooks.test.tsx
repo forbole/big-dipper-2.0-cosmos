@@ -3,6 +3,8 @@ import { useSearchBar } from '@/components/nav/components/search_bar/hooks';
 import { act, renderHook } from '@testing-library/react-hooks';
 import { RecoilRoot } from 'recoil';
 
+const { extra, prefix } = chainConfig();
+
 const mockPush = jest.fn();
 
 jest.mock('next/router', () => ({
@@ -20,8 +22,8 @@ jest.mock('@/utils/prefix_convert', () => ({
   ...jest.requireActual('@/utils/prefix_convert'),
   isValidAddress(address: string) {
     if (
-      address === `${chainConfig().prefix.validator}1jrld5g998gqm4yx26l6cvhxz7y5adgxqzfdpes` ||
-      address === `${chainConfig().prefix.account}1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz`
+      address === `${prefix.validator}1jrld5g998gqm4yx26l6cvhxz7y5adgxqzfdpes` ||
+      address === `${prefix.account}1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz`
     ) {
       return true;
     }
@@ -37,12 +39,10 @@ describe('misc: useSearchBar', () => {
       wrapper: RecoilRoot,
     });
     act(() => {
-      result.current.handleOnSubmit(
-        `${chainConfig().prefix.validator}1jrld5g998gqm4yx26l6cvhxz7y5adgxqzfdpes`
-      );
+      result.current.handleOnSubmit(`${prefix.validator}1jrld5g998gqm4yx26l6cvhxz7y5adgxqzfdpes`);
     });
     expect(mockPush).toBeCalledWith(
-      `/validators/${chainConfig().prefix.validator}1jrld5g998gqm4yx26l6cvhxz7y5adgxqzfdpes`
+      `/validators/${prefix.validator}1jrld5g998gqm4yx26l6cvhxz7y5adgxqzfdpes`
     );
   });
 
@@ -51,9 +51,7 @@ describe('misc: useSearchBar', () => {
       wrapper: RecoilRoot,
     });
     act(() => {
-      result.current.handleOnSubmit(
-        `${chainConfig().prefix.consensus}1rzhewpmmdl72lhnxj6zmxr4v94f522s4hyz467`
-      );
+      result.current.handleOnSubmit(`${prefix.consensus}1rzhewpmmdl72lhnxj6zmxr4v94f522s4hyz467`);
     });
     expect(mockPush).toBeCalledTimes(0);
   });
@@ -63,28 +61,22 @@ describe('misc: useSearchBar', () => {
       wrapper: RecoilRoot,
     });
     act(() => {
-      result.current.handleOnSubmit(
-        `${chainConfig().prefix.account}1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz`
-      );
+      result.current.handleOnSubmit(`${prefix.account}1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz`);
     });
     expect(mockPush).toBeCalledWith(
-      `/accounts/${chainConfig().prefix.account}1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz`
+      `/accounts/${prefix.account}1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz`
     );
   });
 
   it('use a dtag', async () => {
-    if (!chainConfig().extra.profile) return;
+    if (!extra.profile) return;
     const { result } = renderHook(() => useSearchBar(t), {
       wrapper: RecoilRoot,
     });
     act(() => {
-      result.current.handleOnSubmit(
-        `@${chainConfig().prefix.account}1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz`
-      );
+      result.current.handleOnSubmit(`@${prefix.account}1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz`);
     });
-    expect(mockPush).toBeCalledWith(
-      `/@${chainConfig().prefix.account}1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz`
-    );
+    expect(mockPush).toBeCalledWith(`/@${prefix.account}1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz`);
   });
 
   it('use a block', async () => {
