@@ -16,7 +16,7 @@ class MsgUpdateIscnRecord {
     recordNotes: string;
     contentFingerprints: string[];
     stakeholders: object[];
-    contentMetadata: object;
+    contentMetadata: string;
   };
 
   constructor(payload: object) {
@@ -30,7 +30,7 @@ class MsgUpdateIscnRecord {
         recordNotes: '',
         contentFingerprints: [],
         stakeholders: [],
-        contentMetadata: {},
+        contentMetadata: '',
       },
       ['record'],
       payload
@@ -48,16 +48,7 @@ class MsgUpdateIscnRecord {
         recordNotes: R.pathOr('', ['record', 'recordNotes'], json),
         contentFingerprints: R.pathOr([], ['record', 'contentFingerprints'], json),
         stakeholders: R.pathOr([], ['record', 'stakeholders'], json),
-        contentMetadata: R.pathOr(
-          {
-            recordNotes: '',
-            contentFingerprints: [],
-            stakeholders: [],
-            contentMetadata: {},
-          },
-          ['record', 'contentMetadata'],
-          json
-        ),
+        contentMetadata: R.pathOr('', ['record', 'contentMetadata'], json),
       },
     };
   }

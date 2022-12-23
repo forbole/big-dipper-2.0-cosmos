@@ -15,6 +15,8 @@ import { useRecoilValue } from 'recoil';
 import FooterLogoLight from 'shared-utils/assets/big-dipper-red.svg';
 import FooterLogoDark from 'shared-utils/assets/big-dipper-white.svg';
 
+const { title } = chainConfig();
+
 const Footer: React.FC<{ className?: string }> = ({ className }) => {
   const { t } = useTranslation();
   const classes = useStyles();
@@ -37,7 +39,7 @@ const Footer: React.FC<{ className?: string }> = ({ className }) => {
           ) : (
             <FooterLogoDark className="footer__logo" />
           )}
-          <p className="footer__slogan">{chainConfig().title}</p>
+          <p className="footer__slogan">{title}</p>
         </div>
         {/* ============================= */}
         {/* links */}

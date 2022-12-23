@@ -5,6 +5,13 @@ import * as R from 'ramda';
 import { useCallback, useState } from 'react';
 import { SetterOrUpdater, useRecoilState } from 'recoil';
 
+type SettingListState = {
+  lang: string;
+  theme: Theme;
+  dateFormat: Date;
+  txListFormat: Tx;
+};
+
 export const useSettingList = ({ lang }: { lang: string }) => {
   const [theme, setTheme] = useRecoilState(writeTheme) as [Theme, SetterOrUpdater<Theme>];
   const [date, setDate] = useRecoilState(writeDate) as [Date, SetterOrUpdater<Date>];
@@ -18,19 +25,23 @@ export const useSettingList = ({ lang }: { lang: string }) => {
     txListFormat: tx,
   });
 
-  const handleSetState = useCallback((stateChange: Partial<typeof state>) => {
-    setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
-      return R.equals(prevState, newState) ? prevState : newState;
-    });
-  }, []);
+  const handleSetState = useCallback(
+    (stateChange: (prevState: SettingListState) => SettingListState) => {
+      setState((prevState) => {
+        const newState = stateChange(prevState);
+        return R.equals(prevState, newState) ? prevState : newState;
+      });
+    },
+    []
+  );
 
   const resetSettings = () => {
-    handleSetState({
+    handleSetState((prevState) => ({
+      ...prevState,
       theme,
       dateFormat: date,
       lang,
-    });
+    }));
   };
 
   const handleOpen = () => {
@@ -47,9 +58,10 @@ export const useSettingList = ({ lang }: { lang: string }) => {
   };
 
   const handleChange = (label: string, value: string) => {
-    handleSetState({
+    handleSetState((prevState) => ({
+      ...prevState,
       [label]: value,
-    });
+    }));
   };
 
   const changeTheme = (value: Theme) => {

@@ -2,68 +2,94 @@ name: Preview
 on:
   workflow_dispatch:
     inputs:
-       project_name:
+       projects:
         description: "Project to publish (to Vercel)"
         required: true
        chain_type:
         description: "Chain Type to publish (default to mainnet when more than 1 was configured)"
         required: false
        base_path:
-        description: "Override basePath in next.config.js (default to chainConfig)"
+        description: "Override basePath in next.config.js (default to basePath in chainConfig)"
         required: false
+defaults:
+  run:
+    shell: bash
 jobs:
+  validate-projects:
+    runs-on: ubuntu-latest
+    outputs:
+      projects: ${{ steps.vars.outputs.projects }}
+    steps:
+      - uses: actions/checkout@v3
+      - run: |
+          export ALL_PROJECTS=$(yarn workspaces list --json | jq -csr '[ .[].name | select(. | startswith("web") ) ]')
+          node <<EOF | tee -a $GITHUB_OUTPUT $GITHUB_STEP_SUMMARY
+          const allProjects = JSON.parse(process.env.ALL_PROJECTS);
+          const projects = process.env.PROJECTS === '*' ? null : process.env.PROJECTS.split(/,/).map(p => p.trim()).filter(p => p);
+          console.log('projects=' + JSON.stringify(allProjects.filter(a => !projects || projects.includes(a))));
+          EOF
+        id: vars
+        env:
+          PROJECTS: ${{ github.event.inputs.projects }}
   publish:
     runs-on: ubuntu-latest
-    if: startsWith('web-', ${{ github.event.inputs.project_name }})
-    env:
-        PROJECT_NAME: ${{ github.event.inputs.project_name }}
-        NEXT_PUBLIC_CHAIN_TYPE: ${{ github.event.inputs.chain_type }}
-        VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-        VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-    name: Preview ${{ github.event.inputs.project_name }}-${{ github.event.inputs.chain_type }}${{ github.event.inputs.base_path }}
+    needs: validate-projects
+    if: ${{ needs.validate-projects.outputs.projects != '[]' }}
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        project: ${{ fromJSON(needs.validate-projects.outputs.projects) }}
+        base_path:
+          - ${{ github.event.inputs.base_path }}
+    name: Publish ${{ matrix.project }}
     steps:
-      -
-        uses: actions/checkout@v3
-      -
-        name: Set steps.vars.outputs.valid
+      - uses: actions/checkout@v3
+      - run: |
+          # assign chain_type
+          node <<EOF | tee -a $GITHUB_OUTPUT
+          const chainType = process.env.NEXT_PUBLIC_CHAIN_TYPE?.toLowerCase() || 'mainnet';
+          const chainJson = require('./apps/' + process.env.PROJECT_NAME + '/src/chain.json');
+          const { chains, ...settings } = chainJson;
+          let chain = chains.find((c) => c.chainType?.toLowerCase() === chainType);
+          if (!chain && chainType !== 'testnet') {
+            chain = chains.find((c) => c.chainType?.toLowerCase() === 'testnet');
+          }
+          if (!chain) [chain] = chains;
+          console.log('chain_type=' + (chain?.chainType?.toLowerCase() || 'mainnet'));
+          EOF
         id: vars
-        shell: bash
-        run: |
-          echo 'valid='$(
-            yarn workspace ${{ github.event.inputs.project_name }} info 2>1 1>/dev/null && echo yes || echo no
-          ) | tee -a $GITHUB_OUTPUT
-      -
-        name: Insall Vercel CLI
-        if: steps.vars.outputs.valid == 'yes'
-        shell: bash
+        env:
+          PROJECT_NAME: ${{ matrix.project }}
+          NEXT_PUBLIC_CHAIN_TYPE: ${{ github.event.inputs.chain_type }}
+      - name: Insall Vercel CLI
         run: npm i -g vercel
-      -
-        name: Generate vercel.json
-        if: steps.vars.outputs.valid == 'yes'
-        shell: bash
+      - name: Generate vercel.json
         run: |
-          node <<EOF
-          const { writeFileSync } = require('fs');
+          node <<EOF > vercel.json
           const projectName = process.env.PROJECT_NAME || 'web';
-          let chainType = process.env.NEXT_PUBLIC_CHAIN_TYPE;
-          if (!chainType) chainType = 'mainnet';
-          chainType = chainType.toLowerCase();
+          const chainType = process.env.NEXT_PUBLIC_CHAIN_TYPE?.toLowerCase() || 'mainnet';
           const config = {
-            buildCommand: 'NEXT_PUBLIC_CHAIN_TYPE=' + chainType + ' BASE_PATH=${{ github.event.inputs.base_path }} yarn turbo run build --filter=' + projectName + '...',
+            buildCommand: 'NEXT_PUBLIC_CHAIN_TYPE=' + chainType + ' BASE_PATH=' + process.env.BASE_PATH +
+              ' yarn turbo run build --filter=' + projectName + '...',
             outputDirectory: 'apps/' + projectName + '/.next',
             installCommand: 'yarn workspaces focus --production ' + projectName + ' && yarn add typescript -D',
             devCommand: 'yarn turbo run dev --filter=' + projectName + '...',
             framework: 'nextjs',
             ignoreCommand: 'echo always build && exit 1',
-            redirects: "${{ github.event.inputs.base_path }}" !== "/" && /^web-/.test(projectName)
+            redirects: process.env.BASE_PATH !== "/" && /^web-/.test(projectName)
               ? [{ source: '/', destination: '/' + projectName.replace(/^web-/, '') }]
               : [],
           };
-          writeFileSync('vercel.json', JSON.stringify(config, null, 2));
+          console.log(JSON.stringify(config, null, 2));
           EOF
-      -
-        name: Deploy preview to Vercel
-        if: steps.vars.outputs.valid == 'yes'
-        shell: bash
+        env:
+          PROJECT_NAME: ${{ matrix.project }}
+          NEXT_PUBLIC_CHAIN_TYPE: ${{ steps.vars.outputs.chain_type }}
+          BASE_PATH: ${{ matrix.base_path }}
+      - name: Deploy preview to Vercel
         run: vercel -t ${{ secrets.VERCEL_TOKEN }} | tee -a $GITHUB_STEP_SUMMARY
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}

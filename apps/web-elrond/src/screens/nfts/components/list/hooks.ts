@@ -14,9 +14,9 @@ export const useNFTs = () => {
     total: 0,
   });
 
-  const handleSetState = useCallback((stateChange: Partial<BlockState>) => {
+  const handleSetState = useCallback((stateChange: (prevState: BlockState) => BlockState) => {
     setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
+      const newState = stateChange(prevState);
       return R.equals(prevState, newState) ? prevState : newState;
     });
   }, []);
@@ -51,10 +51,11 @@ export const useNFTs = () => {
           collection: x?.collection ?? '',
         }));
 
-        handleSetState({
+        handleSetState((prevState) => ({
+          ...prevState,
           loading: false,
           items,
-        });
+        }));
       } catch (error) {
         console.error(NFTS, (error as Error).message);
       }
@@ -64,10 +65,11 @@ export const useNFTs = () => {
 
   const handlePageChangeCallback = useCallback(
     async (page: number, _rowsPerPage: number) => {
-      handleSetState({
+      handleSetState((prevState) => ({
+        ...prevState,
         page,
         loading: true,
-      });
+      }));
       await getNFTsByPage(page);
     },
     [getNFTsByPage, handleSetState]
@@ -86,9 +88,10 @@ export const useNFTs = () => {
           },
         });
         const maxSize = 1000;
-        handleSetState({
+        handleSetState((prevState) => ({
+          ...prevState,
           total: total > maxSize ? maxSize : total,
-        });
+        }));
       } catch (error) {
         console.error(NFTS_COUNT, (error as Error).message);
       }

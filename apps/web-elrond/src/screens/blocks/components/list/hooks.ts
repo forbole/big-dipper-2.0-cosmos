@@ -15,9 +15,9 @@ export const useBlocks = () => {
     total: 0,
   });
 
-  const handleSetState = useCallback((stateChange: Partial<BlockState>) => {
+  const handleSetState = useCallback((stateChange: (prevState: BlockState) => BlockState) => {
     setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
+      const newState = stateChange(prevState);
       return R.equals(prevState, newState) ? prevState : newState;
     });
   }, []);
@@ -26,9 +26,10 @@ export const useBlocks = () => {
     const getLatestBlockHeight = async () => {
       try {
         const { data: total } = await axios.get(LATEST_BLOCK_HEIGHT);
-        handleSetState({
+        handleSetState((prevState) => ({
+          ...prevState,
           total,
-        });
+        }));
       } catch (error) {
         console.error((error as Error).message);
       }
@@ -65,10 +66,11 @@ export const useBlocks = () => {
           size: x.sizeTxs,
         }));
 
-        handleSetState({
+        handleSetState((prevState) => ({
+          ...prevState,
           loading: false,
           items,
-        });
+        }));
       } catch (error) {
         console.error((error as Error).message);
       }
@@ -78,10 +80,11 @@ export const useBlocks = () => {
 
   const handlePageChangeCallback = useCallback(
     async (page: number, _rowsPerPage: number) => {
-      handleSetState({
+      handleSetState((prevState) => ({
+        ...prevState,
         page,
         loading: true,
-      });
+      }));
       await getBlocksByPage(page);
     },
     [getBlocksByPage, handleSetState]

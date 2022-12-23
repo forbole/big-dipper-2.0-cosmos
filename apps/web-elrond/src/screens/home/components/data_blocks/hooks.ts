@@ -15,23 +15,27 @@ export const useDataBlocks = () => {
     },
   });
 
-  const handleSetState = useCallback((stateChange: Partial<DataBlockState>) => {
-    setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
-      return R.equals(prevState, newState) ? prevState : newState;
-    });
-  }, []);
+  const handleSetState = useCallback(
+    (stateChange: (prevState: DataBlockState) => DataBlockState) => {
+      setState((prevState) => {
+        const newState = stateChange(prevState);
+        return R.equals(prevState, newState) ? prevState : newState;
+      });
+    },
+    []
+  );
 
   useEffect(() => {
     const getValidatorsCount = async () => {
       try {
         const { data: validators } = await axios.get(STAKE);
-        handleSetState({
+        handleSetState((prevState) => ({
+          ...prevState,
           validators: {
             total: validators?.totalValidators ?? 0,
             active: validators?.activeValidators ?? 0,
           },
-        });
+        }));
       } catch (error) {
         console.error((error as Error).message);
       }
@@ -43,9 +47,10 @@ export const useDataBlocks = () => {
   const getLatestBlockHeight = useCallback(async () => {
     try {
       const { data: blockHeight } = await axios.get(LATEST_BLOCK_HEIGHT);
-      handleSetState({
+      handleSetState((prevState) => ({
+        ...prevState,
         blockHeight,
-      });
+      }));
     } catch (error) {
       console.error((error as Error).message);
     }
@@ -54,9 +59,10 @@ export const useDataBlocks = () => {
   const getTransactionCount = useCallback(async () => {
     try {
       const { data: transactions } = await axios.get(TRANSACTIONS_COUNT);
-      handleSetState({
+      handleSetState((prevState) => ({
+        ...prevState,
         transactions,
-      });
+      }));
     } catch (error) {
       console.error((error as Error).message);
     }

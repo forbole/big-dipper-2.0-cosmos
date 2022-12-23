@@ -25,8 +25,8 @@ class MsgCreatePeriodicVestingAccount {
       category: 'vesting',
       json,
       type: R.pathOr('', ['@type'], json),
-      fromAddress: R.pathOr('', ['fromAddress'], json),
-      toAddress: R.pathOr('', ['toAddress'], json),
+      fromAddress: R.pathOr('', ['from_address'], json),
+      toAddress: R.pathOr('', ['to_address'], json),
     };
   }
 }

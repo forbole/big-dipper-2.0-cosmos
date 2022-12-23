@@ -159,19 +159,6 @@
     ]
   },
   {
-    "name": "Flow",
-    "chainName": "flow",
-    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/flow.svg?sanitize=true",
-    "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/flow.png?sanitize=true",
-    "links": [
-      {
-        "name": "Mainnet",
-        "chain_id": "mainnet",
-        "url": "https://flow.bigdipper.live/"
-      }
-    ]
-  },
-  {
     "name": "Crypto.org Chain",
     "chainName": "",
     "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/crypto.org.svg?sanitize=true",

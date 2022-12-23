@@ -42,12 +42,15 @@ export const useProviders = () => {
     },
   });
 
-  const handleSetState = useCallback((stateChange: Partial<ProvidersState>) => {
-    setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
-      return R.equals(prevState, newState) ? prevState : newState;
-    });
-  }, []);
+  const handleSetState = useCallback(
+    (stateChange: (prevState: ProvidersState) => ProvidersState) => {
+      setState((prevState) => {
+        const newState = stateChange(prevState);
+        return R.equals(prevState, newState) ? prevState : newState;
+      });
+    },
+    []
+  );
 
   /**
    * Paginates the given data by splitting it into a list of arrays,
@@ -72,17 +75,19 @@ export const useProviders = () => {
   // ================================
   useActiveProvidersListenerSubscription({
     onData: (data) => {
-      handleSetState({
+      handleSetState((prevState) => ({
+        ...prevState,
         activeProvidersCount: data.data.data?.activeProviders.aggregate?.count ?? 0,
-      });
+      }));
     },
   });
 
   useActiveLeasesListenerSubscription({
     onData: (data) => {
-      handleSetState({
+      handleSetState((prevState) => ({
+        ...prevState,
         activeLeasesCount: data.data.data?.activeLeases.aggregate?.sum?.lease_count,
-      });
+      }));
     },
   });
 
@@ -90,11 +95,12 @@ export const useProviders = () => {
     onData: (data) => {
       if (!data.data.data) return;
       const activeData = formatCPUMemoryStorageData(data.data.data);
-      handleSetState({
+      handleSetState((prevState) => ({
+        ...prevState,
         cpu: activeData.cpu,
         memory: activeData.memory,
         storage: activeData.storage,
-      });
+      }));
     },
   });
 
@@ -186,7 +192,8 @@ export const useProviders = () => {
     }
 
     // Handle the pagination
-    handleSetState({
+    handleSetState((prevState) => ({
+      ...prevState,
       loading: false,
       providers: {
         items,
@@ -198,7 +205,7 @@ export const useProviders = () => {
           totalCount: filteredPaginatedItems.length,
         },
       },
-    });
+    }));
   };
 
   // ===================
@@ -207,9 +214,7 @@ export const useProviders = () => {
 
   useProvidersQuery({
     onError: () => {
-      handleSetState({
-        loading: false,
-      });
+      handleSetState((prevState) => ({ ...prevState, loading: false }));
     },
     onCompleted: (data) => {
       filterAndPaginateProviders(formatProviders(data.list), '');

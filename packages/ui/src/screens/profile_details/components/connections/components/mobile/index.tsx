@@ -11,6 +11,8 @@ import Link from 'next/link';
 import React from 'react';
 import { useRecoilValue } from 'recoil';
 
+const { prefix } = chainConfig();
+
 const Mobile: React.FC<{
   className?: string;
   items?: ProfileConnectionType[];
@@ -22,7 +24,7 @@ const Mobile: React.FC<{
   return (
     <div className={classnames(className)}>
       {items?.map((x, i) => {
-        const checkIdentifier = new RegExp(`^(${chainConfig().prefix.account})`).test(x.identifier);
+        const checkIdentifier = new RegExp(`^(${prefix.account})`).test(x.identifier);
         return (
           <React.Fragment key={`votes-mobile-${x.identifier}`}>
             <div className={classes.list}>
@@ -46,8 +48,7 @@ const Mobile: React.FC<{
                       </Typography>
                     </Link>
                   )}
-                  {new RegExp(`^(${chainConfig().prefix.account})`).test(x.identifier) === false &&
-                    x.identifier}
+                  {new RegExp(`^(${prefix.account})`).test(x.identifier) === false && x.identifier}
                 </Typography>
               </div>
               <div className={classes.item}>

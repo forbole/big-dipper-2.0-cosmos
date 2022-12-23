@@ -8,7 +8,7 @@ const withTM = require('next-transpile-modules');
  * @param basePath - This is the basePath.
  * @returns The base config object.
  */
-function getBaseConfig(basePath) {
+function getBaseConfig(basePath, chainName) {
   const config = {
     output: process.env.BUILD_STANDALONE ? 'standalone' : undefined,
     swcMinify: true,
@@ -25,6 +25,9 @@ function getBaseConfig(basePath) {
     },
     typescript: {
       ignoreBuildErrors: true,
+    },
+    env: {
+      NEXT_PUBLIC_RELEASE: `${chainName}-v${process.env.npm_package_version ?? ''}`,
     },
     experimental: process.env.BUILD_STANDALONE
       ? {
@@ -73,7 +76,7 @@ function getNextConfig(dirname) {
   // each chain has its own chains/<chainName>.json
   const [_match, chainName] = /web-(.+)$/.exec(basename(dirname)) ?? ['', 'base'];
   const basePath = (process.env.BASE_PATH || `${`/${chainName}`}`).replace(/^(\/|\/base)$/, '');
-  return withTM(['ui'])(nextTranslate(getBaseConfig(basePath)));
+  return withTM(['ui'])(nextTranslate(getBaseConfig(basePath, chainName)));
 }
 
 module.exports = getNextConfig;

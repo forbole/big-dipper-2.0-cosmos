@@ -25,8 +25,8 @@ class MsgSetWithdrawAddress {
       category: 'distribution',
       json,
       type: R.pathOr('', ['@type'], json),
-      delegatorAddress: R.pathOr('', ['delegatorAddress'], json),
-      withdrawalAddress: R.pathOr('', ['withdrawalAddress'], json),
+      delegatorAddress: R.pathOr('', ['delegator_address'], json),
+      withdrawalAddress: R.pathOr('', ['withdraw_address'], json),
     };
   }
 }

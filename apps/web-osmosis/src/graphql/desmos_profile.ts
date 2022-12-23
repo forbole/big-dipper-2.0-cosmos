@@ -3406,9 +3406,9 @@ export type Profile = {
   __typename?: 'profile';
   address: Scalars['String'];
   /** An array relationship */
-  application_links: Array<Application_Link>;
+  applications_links: Array<Application_Link>;
   /** An aggregate relationship */
-  application_links_aggregate: Application_Link_Aggregate;
+  applications_links_aggregate: Application_Link_Aggregate;
   bio: Scalars['String'];
   /** An array relationship */
   chain_links: Array<Chain_Link>;
@@ -3763,7 +3763,7 @@ export type Profile_Bool_Exp = {
   _not?: Maybe<Profile_Bool_Exp>;
   _or?: Maybe<Array<Profile_Bool_Exp>>;
   address?: Maybe<String_Comparison_Exp>;
-  application_links?: Maybe<Application_Link_Bool_Exp>;
+  applications_links?: Maybe<Application_Link_Bool_Exp>;
   bio?: Maybe<String_Comparison_Exp>;
   chain_links?: Maybe<Chain_Link_Bool_Exp>;
   cover_pic?: Maybe<String_Comparison_Exp>;
@@ -3815,7 +3815,7 @@ export type Profile_Min_Fields = {
 /** Ordering options when selecting data from "profile". */
 export type Profile_Order_By = {
   address?: Maybe<Order_By>;
-  application_links_aggregate?: Maybe<Application_Link_Aggregate_Order_By>;
+  applications_links_aggregate?: Maybe<Application_Link_Aggregate_Order_By>;
   bio?: Maybe<Order_By>;
   chain_links_aggregate?: Maybe<Chain_Link_Aggregate_Order_By>;
   cover_pic?: Maybe<Order_By>;
@@ -5697,7 +5697,7 @@ export type DesmosProfileQuery = {
           } & {
             chainConfig: { __typename?: 'chain_link_chain_config' } & Pick<
               Chain_Link_Chain_Config,
-              'name' | 'id'
+              'name'
             >;
           }
         >;
@@ -5729,7 +5729,7 @@ export type DesmosProfileLinkQuery = {
           } & {
             chainConfig: { __typename?: 'chain_link_chain_config' } & Pick<
               Chain_Link_Chain_Config,
-              'name' | 'id'
+              'name'
             >;
           }
         >;
@@ -5761,7 +5761,7 @@ export type DesmosProfileDtagQuery = {
           } & {
             chainConfig: { __typename?: 'chain_link_chain_config' } & Pick<
               Chain_Link_Chain_Config,
-              'name' | 'id'
+              'name'
             >;
           }
         >;

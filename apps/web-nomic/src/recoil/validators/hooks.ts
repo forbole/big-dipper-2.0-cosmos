@@ -6,6 +6,8 @@ import { useState } from 'react';
 import { useRecoilCallback } from 'recoil';
 import { atomFamilyState as validatorAtomState } from 'ui/recoil/validators';
 
+const { extra } = chainConfig();
+
 export interface DataType {
   validator?: Array<{
     consensusAddress: string;
@@ -64,7 +66,7 @@ export const useValidatorRecoil = () => {
   );
 
   const setProfiles = useRecoilCallback(({ set }) => async (data: ValidatorAddressesQuery) => {
-    if (chainConfig().extra.profile) {
+    if (extra.profile) {
       const profilesPromises: Array<Promise<DesmosProfile | null>> = [];
       data?.validator
         ?.filter((x) => x.consensusAddress || x.selfDelegateAddress)

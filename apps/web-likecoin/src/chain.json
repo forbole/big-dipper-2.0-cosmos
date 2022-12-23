@@ -5,7 +5,7 @@
     "profile": true,
     "graphqlWs": true
   },
-  "previewImage": "https://s3.bigdipper.live/rizon.png",
+  "previewImage": "https://s3.bigdipper.live/likecoin.png",
   "themes": {
     "default": "light",
     "themeList": [
@@ -67,9 +67,9 @@
         "charts": {
           "zero": "#6D6D6C",
           "one": "#45A884",
-          "two": "#45A884",
+          "two": "#50B6D7",
           "three": "#F4CD69",
-          "four": "#50B6D7",
+          "four": "#F2A46B",
           "five": "#C975F0"
         },
         "tags": {
@@ -150,9 +150,9 @@
         "charts": {
           "zero": "#E6E6E6",
           "one": "#45A884",
-          "two": "#45A884",
+          "two": "#50B6D7",
           "three": "#F4CD69",
-          "four": "#50B6D7",
+          "four": "#F2A46B",
           "five": "#C975F0"
         },
         "tags": {
@@ -205,7 +205,7 @@
       "endpoints": {
         "graphql": "https://gql.likecoin.forbole.com/v1/graphql",
         "graphqlWebsocket": "wss://gql.likecoin.forbole.com/v1/graphql",
-        "publicRpcWebsocket": "wss://ws.likecoin.forbole.com"
+        "publicRpcWebsocket": "wss://rpc.likecoin.forbole.com/websocket"
       },
       "marketing": {
         "matomoURL": "https://analytics.bigdipper.live",

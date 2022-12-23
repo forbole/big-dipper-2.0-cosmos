@@ -12,12 +12,15 @@ export const useBlocks = () => {
     items: [],
   });
 
-  const handleSetState = useCallback((stateChange: Partial<TransactionState>) => {
-    setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
-      return R.equals(prevState, newState) ? prevState : newState;
-    });
-  }, []);
+  const handleSetState = useCallback(
+    (stateChange: (prevState: TransactionState) => TransactionState) => {
+      setState((prevState) => {
+        const newState = stateChange(prevState);
+        return R.equals(prevState, newState) ? prevState : newState;
+      });
+    },
+    []
+  );
 
   const getTransactionsByPage = useCallback(async () => {
     try {
@@ -44,9 +47,10 @@ export const useBlocks = () => {
         status: x.status,
       }));
 
-      handleSetState({
+      handleSetState((prevState) => ({
+        ...prevState,
         items,
-      });
+      }));
     } catch (error) {
       console.error((error as Error).message);
     }

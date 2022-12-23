@@ -16,12 +16,15 @@ export const useTransactions = () => {
     total: 0,
   });
 
-  const handleSetState = useCallback((stateChange: Partial<TransactionState>) => {
-    setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
-      return R.equals(prevState, newState) ? prevState : newState;
-    });
-  }, []);
+  const handleSetState = useCallback(
+    (stateChange: (prevState: TransactionState) => TransactionState) => {
+      setState((prevState) => {
+        const newState = stateChange(prevState);
+        return R.equals(prevState, newState) ? prevState : newState;
+      });
+    },
+    []
+  );
 
   const getTransactionsByPage = useCallback(
     async (page: number) => {
@@ -55,10 +58,11 @@ export const useTransactions = () => {
           status: x.status,
         }));
 
-        handleSetState({
+        handleSetState((prevState) => ({
+          ...prevState,
           loading: false,
           items,
-        });
+        }));
       } catch (error) {
         console.error((error as Error).message);
       }
@@ -68,10 +72,11 @@ export const useTransactions = () => {
 
   const handlePageChangeCallback = useCallback(
     async (page: number, _rowsPerPage: number) => {
-      handleSetState({
+      handleSetState((prevState) => ({
+        ...prevState,
         page,
         loading: true,
-      });
+      }));
       await getTransactionsByPage(page);
     },
     [getTransactionsByPage, handleSetState]
@@ -85,9 +90,10 @@ export const useTransactions = () => {
             miniBlockHash: router.query.hash,
           },
         });
-        handleSetState({
+        handleSetState((prevState) => ({
+          ...prevState,
           total,
-        });
+        }));
       } catch (error) {
         console.error((error as Error).message);
       }

@@ -6,6 +6,7 @@ import { DATE_KEY, getItem, THEME_KEY, TX_KEY } from '@/utils/localstorage';
 import { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 
+const { themes } = chainConfig();
 const isClient = typeof window === 'object';
 
 export const useSettingsRecoil = () => {
@@ -17,7 +18,7 @@ export const useSettingsRecoil = () => {
       let currentTheme: Theme = settings.theme;
       if (savedTheme === 'device') {
         if (
-          chainConfig().themes.themeList.includes('dark') &&
+          themes.themeList.includes('dark') &&
           window?.matchMedia('(prefers-color-scheme: dark)')?.matches
         ) {
           currentTheme = 'dark';

@@ -16,9 +16,9 @@ class MsgCreateValidator {
   };
 
   public commission: {
-    rate: string | number;
-    maxRate: string | number;
-    maxChangeRate: string | number;
+    rate: number | null;
+    maxRate: number | null;
+    maxChangeRate: number | null;
   };
 
   public minSelfDelegation: string | number;
@@ -53,7 +53,7 @@ class MsgCreateValidator {
     this.json = R.pathOr({}, ['json'], payload);
   }
 
-  static fromJson(json: object) {
+  static fromJson(json: object): MsgCreateValidator {
     return {
       category: 'staking',
       json,
@@ -81,7 +81,7 @@ class MsgCreateValidator {
         denom: R.pathOr('', ['value', 'denom'], json),
         amount: R.pathOr('0', ['value', 'amount'], json),
       },
-    } as MsgCreateValidator;
+    };
   }
 }
 
