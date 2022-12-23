@@ -17,7 +17,7 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import SettingIcon from 'shared-utils/assets/icon-setting.svg';
 
-const version = `main-v${process.env.NEXT_PUBLIC_VERSION ?? ''}`;
+const release = `${process.env.NEXT_PUBLIC_RELEASE ?? ''}`;
 
 const Settings: React.FC<{
   className?: string;
@@ -45,7 +45,7 @@ const Settings: React.FC<{
           <div className={classes.title}>
             <Typography variant="h2">{t('settings')}</Typography>
             <Typography variant="body2" className={classes.version}>
-              ({version})
+              ({release})
             </Typography>
           </div>
           <IconButton aria-label="close" onClick={handleCancel}>
