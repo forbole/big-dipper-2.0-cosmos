@@ -1,5 +1,16 @@
 # ui
 
+## 2.4.0
+
+### Minor Changes
+
+- 5c2b1ce0: feat: display package version in Setting Dialog
+
+### Patch Changes
+
+- Updated dependencies [5c2b1ce0]
+  - shared-utils@2.4.0
+
 ## 2.3.0
 
 ### Minor Changes
