@@ -1,11 +1,13 @@
-import { useCallback, useEffect, useState } from 'react';
+import { ACCOUNT_DETAILS, ACCOUNT_DETAILS_TOKEN_COUNT } from '@/api';
+import chainConfig from '@/chainConfig';
+import type { AccountDetailsType } from '@/screens/account_details/types';
+import { formatToken } from '@/utils/format_token';
+import axios from 'axios';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
-import chainConfig from '@/chainConfig';
-import axios from 'axios';
-import { ACCOUNT_DETAILS, ACCOUNT_DETAILS_TOKEN_COUNT } from '@/api';
-import { formatToken } from '@/utils/format_token';
-import type { AccountDetailsType } from '@/screens/account_details/types';
+import { useCallback, useEffect, useState } from 'react';
+
+const { primaryTokenUnit } = chainConfig();
 
 const defaultTokenUnit: TokenUnit = {
   value: '0',
@@ -31,12 +33,15 @@ export const useAccountDetails = () => {
     },
   });
 
-  const handleSetState = useCallback((stateChange: Partial<AccountDetailsType>) => {
-    setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
-      return R.equals(prevState, newState) ? prevState : newState;
-    });
-  }, []);
+  const handleSetState = useCallback(
+    (stateChange: (prevState: AccountDetailsType) => AccountDetailsType) => {
+      setState((prevState) => {
+        const newState = stateChange(prevState);
+        return R.equals(prevState, newState) ? prevState : newState;
+      });
+    },
+    []
+  );
 
   useEffect(() => {
     const getAccount = async () => {
@@ -60,18 +65,15 @@ export const useAccountDetails = () => {
       newState.profile = getProfile();
 
       const getOverview = () => ({
-        balance: formatToken(accountData?.balance ?? '0', chainConfig().primaryTokenUnit),
-        developerReward: formatToken(
-          accountData?.developerReward ?? '0',
-          chainConfig().primaryTokenUnit
-        ),
+        balance: formatToken(accountData?.balance ?? '0', primaryTokenUnit),
+        developerReward: formatToken(accountData?.developerReward ?? '0', primaryTokenUnit),
         shard: accountData?.shard ?? 0,
         tokenCount,
       });
 
       newState.overview = getOverview();
 
-      handleSetState(newState);
+      handleSetState((prevState) => ({ ...prevState, ...newState }));
     };
 
     getAccount();

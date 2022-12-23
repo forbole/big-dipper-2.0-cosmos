@@ -6,8 +6,10 @@ import {
 import { DesmosProfileQuery } from '@/graphql/types/profile_types';
 import axios from 'axios';
 
+const { chainType } = chainConfig();
+
 function profileApi() {
-  if (/^testnet/i.test(chainConfig().chainType)) {
+  if (/^testnet/i.test(chainType)) {
     return 'https://gql.morpheus.desmos.network/v1/graphql';
   }
   return 'https://gql.mainnet.desmos.network/v1/graphql';
@@ -54,8 +56,8 @@ async function fetchDesmosProfile(address: string) {
   }
 }
 
-function formatDesmosProfile(data: DesmosProfileQuery) {
-  if (!data.profile?.length) {
+function formatDesmosProfile(data: DesmosProfileQuery | null): DesmosProfile | null {
+  if (!data?.profile?.length) {
     return null;
   }
 

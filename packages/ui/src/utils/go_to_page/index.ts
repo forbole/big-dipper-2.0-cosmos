@@ -1,5 +1,7 @@
 import chainConfig from '@/chainConfig';
 
+const { prefix } = chainConfig();
+
 export const HOME = '/';
 export const BLOCKS = '/blocks';
 export const BLOCK_DETAILS = (slot: string | number): string => `/blocks/${slot}`;
@@ -19,6 +21,4 @@ export const PROFILE_DETAILS = (dtag: string): string => `/${dtag}`;
  * @returns
  */
 export const ADDRESS_DETAILS = (address: string) =>
-  address.includes(chainConfig().prefix.validator)
-    ? VALIDATOR_DETAILS(address)
-    : ACCOUNT_DETAILS(address);
+  address.includes(prefix.validator) ? VALIDATOR_DETAILS(address) : ACCOUNT_DETAILS(address);

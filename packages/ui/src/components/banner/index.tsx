@@ -10,13 +10,15 @@ export interface BannerLink {
   img: string;
 }
 
+const bannersJsons = [process.env.NEXT_PUBLIC_BANNERS_JSON];
+
 /**
  * It returns an array of objects with two properties, `title` and `url`, which are used to render the
  * banner links
  * @returns An array of objects with a string key and a string value.
  */
 export function getBannersLinks() {
-  const bannersJson = process.env.NEXT_PUBLIC_BANNERS_JSON;
+  const bannersJson = bannersJsons.find((b) => b);
   let bannerLinks: BannerLink[] = [];
 
   if (bannersJson) {

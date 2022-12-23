@@ -7,6 +7,8 @@ import dayjs from '@/utils/dayjs';
 import Typography from '@material-ui/core/Typography';
 import React, { useCallback, useState } from 'react';
 
+const { genesis, network } = chainConfig();
+
 const Countdown: React.FC<{
   startGenesis: () => void;
 }> = ({ startGenesis }) => {
@@ -22,7 +24,7 @@ const Countdown: React.FC<{
   });
 
   const intervalCallback = useCallback(() => {
-    const genesisTime = dayjs.utc(chainConfig().genesis.time);
+    const genesisTime = dayjs.utc(genesis.time);
     const timeNow = dayjs.utc();
     const difference = genesisTime.diff(timeNow);
     if (difference > 0) {
@@ -67,7 +69,7 @@ const Countdown: React.FC<{
         </div>
       </div>
       <Typography variant="h2" className={classes.chain}>
-        {chainConfig().network}
+        {network}
       </Typography>
       {state.loading && <Loading />}
     </div>

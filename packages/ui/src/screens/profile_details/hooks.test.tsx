@@ -3,6 +3,8 @@ import type { useDesmosProfile } from '@/hooks';
 import { useProfileDetails } from '@/screens/profile_details/hooks';
 import { act, cleanup, renderHook } from '@testing-library/react-hooks';
 
+const { extra, prefix } = chainConfig();
+
 const mockRouter = {
   query: {
     dtag: '@happieSa',
@@ -57,7 +59,7 @@ jest.mock('@/hooks', () => ({
     }),
     formatDesmosProfile: jest.fn((data) => {
       let results;
-      if (data.profile[0].dtag === 'HappieSa') {
+      if (data?.profile?.[0]?.dtag === 'HappieSa') {
         results = {
           dtag: 'HappieSa',
           nickname: 'theHappySamoyed',
@@ -69,13 +71,13 @@ jest.mock('@/hooks', () => ({
           connections: [
             {
               network: 'native',
-              identifier: `${chainConfig().prefix.account}1kmw9et4e99ascgdw0mmkt63mggjuu0xuqjx30w`,
+              identifier: `${prefix.account}1kmw9et4e99ascgdw0mmkt63mggjuu0xuqjx30w`,
             },
           ],
         };
       }
 
-      if (data.profile[0].dtag === 'forbole') {
+      if (data?.profile?.[0]?.dtag === 'forbole') {
         results = {
           dtag: 'forbole',
           nickname: 'Forbole',
@@ -87,7 +89,7 @@ jest.mock('@/hooks', () => ({
           connections: [
             {
               network: 'native',
-              identifier: `${chainConfig().prefix.account}1pm6pmpsdw8kd5g6jneyq8rl3qw6tukcp7g57w3`,
+              identifier: `${prefix.account}1pm6pmpsdw8kd5g6jneyq8rl3qw6tukcp7g57w3`,
             },
           ],
         };
@@ -99,7 +101,7 @@ jest.mock('@/hooks', () => ({
 
 describe('hook: useProfileDetails', () => {
   it('correctly toggles profile open', async () => {
-    if (!chainConfig().extra.profile) return;
+    if (!extra.profile) return;
     const { result, rerender } = renderHook(() => useProfileDetails());
 
     expect(result.current.state.desmosProfile?.bio).toBe('hungry all the time');

@@ -1,11 +1,13 @@
-import { useCallback, useEffect, useState } from 'react';
-import axios from 'axios';
-import * as R from 'ramda';
-import { useRouter } from 'next/router';
-import chainConfig from '@/chainConfig';
-import { formatToken, formatTokenByExponent } from '@/utils/format_token';
 import { TRANSACTION_DETAILS } from '@/api';
-import type { TransactionDetailsState } from '@/screens/transaction_details/types';
+import chainConfig from '@/chainConfig';
+import type { ActionType, TransactionDetailsState } from '@/screens/transaction_details/types';
+import { formatToken, formatTokenByExponent } from '@/utils/format_token';
+import axios from 'axios';
+import { useRouter } from 'next/router';
+import * as R from 'ramda';
+import { useCallback, useEffect, useState } from 'react';
+
+const { primaryTokenUnit, tokenUnits } = chainConfig();
 
 const defaultTokenUnit: TokenUnit = {
   value: '0',
@@ -38,12 +40,15 @@ export const useTransactionDetails = () => {
     results: [],
   });
 
-  const handleSetState = useCallback((stateChange: Partial<TransactionDetailsState>) => {
-    setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
-      return R.equals(prevState, newState) ? prevState : newState;
-    });
-  }, []);
+  const handleSetState = useCallback(
+    (stateChange: (prevState: TransactionDetailsState) => TransactionDetailsState) => {
+      setState((prevState) => {
+        const newState = stateChange(prevState);
+        return R.equals(prevState, newState) ? prevState : newState;
+      });
+    },
+    []
+  );
 
   useEffect(() => {
     const getTransactionDetail = async () => {
@@ -98,12 +103,12 @@ export const useTransactionDetails = () => {
           miniblockHash: transactionData.miniBlockHash,
           gasUsed: transactionData.gasUsed,
           gasLimit: transactionData.gasLimit,
-          gasPrice: formatToken(transactionData?.gasPrice ?? 0, chainConfig().primaryTokenUnit),
+          gasPrice: formatToken(transactionData?.gasPrice ?? 0, primaryTokenUnit),
           price: transactionData.price,
         };
 
         // action
-        let action = null;
+        let action: ActionType | null = null;
         if (transactionData.action) {
           action = {
             category: transactionData.action?.category ?? '',
@@ -117,8 +122,8 @@ export const useTransactionDetails = () => {
           // edge case if value is base token
           const type = x?.type ?? '';
           let decimals = x?.decimals ?? 0;
-          if (type === chainConfig().primaryTokenUnit) {
-            decimals = chainConfig().tokenUnits?.[chainConfig().primaryTokenUnit].exponent;
+          if (type === primaryTokenUnit) {
+            decimals = tokenUnits?.[primaryTokenUnit].exponent;
           }
           const value = formatTokenByExponent(x?.value ?? 0, decimals);
           return {
@@ -141,22 +146,24 @@ export const useTransactionDetails = () => {
           sender: x?.sender ?? '',
           receiver: x?.receiver ?? '',
           data: x?.data ?? '',
-          value: formatToken(x?.value ?? 0, chainConfig().primaryTokenUnit),
+          value: formatToken(x?.value ?? 0, primaryTokenUnit),
         }));
 
-        handleSetState({
+        handleSetState((prevState) => ({
+          ...prevState,
           loading: false,
           overview,
           data: transactionData?.data ?? '',
-          action: action ?? undefined,
-          operations,
+          action: action ?? prevState.action,
+          operations: operations ?? prevState.operations,
           results,
-        });
+        }));
       } catch (error) {
-        handleSetState({
+        handleSetState((prevState) => ({
+          ...prevState,
           loading: false,
           exists: false,
-        });
+        }));
         console.error((error as Error).message);
       }
     };

@@ -36,12 +36,15 @@ export const useNodeDetails = () => {
     blocks: [],
   });
 
-  const handleSetState = useCallback((stateChange: Partial<NodeDetailsState>) => {
-    setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
-      return R.equals(prevState, newState) ? prevState : newState;
-    });
-  }, []);
+  const handleSetState = useCallback(
+    (stateChange: (prevState: NodeDetailsState) => NodeDetailsState) => {
+      setState((prevState) => {
+        const newState = stateChange(prevState);
+        return R.equals(prevState, newState) ? prevState : newState;
+      });
+    },
+    []
+  );
 
   useEffect(() => {
     const getData = async () => {
@@ -169,12 +172,13 @@ export const useNodeDetails = () => {
           newState.blocks = await formatBlocks();
         }
 
-        handleSetState(newState);
+        handleSetState((prevState) => ({ ...prevState, ...newState }));
       } catch (error) {
-        handleSetState({
+        handleSetState((prevState) => ({
+          ...prevState,
           loading: false,
           exists: false,
-        });
+        }));
         console.error((error as Error).message);
       }
     };

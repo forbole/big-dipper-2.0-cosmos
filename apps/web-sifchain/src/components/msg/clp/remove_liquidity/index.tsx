@@ -6,15 +6,15 @@ import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
 import React from 'react';
 
+const { tokenUnits } = chainConfig();
+
 const RemoveLiquidity: React.FC<{ message: MsgRemoveLiquidity }> = (props) => {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);
   const signerMoniker = signer ? signer?.name : message.signer;
 
-  const symbol = (
-    chainConfig().tokenUnits?.[message.externalAsset.symbol]?.display ?? ''
-  ).toUpperCase();
+  const symbol = (tokenUnits?.[message.externalAsset.symbol]?.display ?? '').toUpperCase();
   return (
     <Typography>
       <Trans

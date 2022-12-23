@@ -5,7 +5,7 @@
     "profile": true,
     "graphqlWs": true
   },
-  "previewImage": "https://s3.bigdipper.live/rizon.png",
+  "previewImage": "https://s3.bigdipper.live/likecoin.png",
   "themes": {
     "default": "light",
     "themeList": [
@@ -205,7 +205,7 @@
       "endpoints": {
         "graphql": "https://gql.likecoin.forbole.com/v1/graphql",
         "graphqlWebsocket": "wss://gql.likecoin.forbole.com/v1/graphql",
-        "publicRpcWebsocket": "wss://ws.likecoin.forbole.com"
+        "publicRpcWebsocket": "wss://rpc.likecoin.forbole.com/websocket"
       },
       "marketing": {
         "matomoURL": "https://analytics.bigdipper.live",

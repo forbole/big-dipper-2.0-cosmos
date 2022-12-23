@@ -104,13 +104,13 @@ const TransactionList: FC<TransactionsListDetailsState> = ({
   );
 };
 
-const ListItem: FC<
-  Pick<ListChildComponentProps, 'index' | 'style'> & {
-    setRowHeight: Parameters<typeof useListRow>[1];
-    isItemLoaded: TransactionsListDetailsState['isItemLoaded'];
-    items: ComponentProps<typeof SingleTransaction>[];
-  }
-> = ({ index, style, setRowHeight, isItemLoaded, items }) => {
+type ListItemProps = Pick<ListChildComponentProps, 'index' | 'style'> & {
+  setRowHeight: Parameters<typeof useListRow>[1];
+  isItemLoaded: TransactionsListDetailsState['isItemLoaded'];
+  items: ComponentProps<typeof SingleTransaction>[];
+};
+
+const ListItem: FC<ListItemProps> = ({ index, style, setRowHeight, isItemLoaded, items }) => {
   const { rowRef } = useListRow(index, setRowHeight);
   if (!isItemLoaded?.(index)) {
     return (

@@ -1,15 +1,19 @@
 import { useStyles } from '@/screens/error/styles';
 import { HOME } from '@/utils/go_to_page';
 import Typography from '@material-ui/core/Typography';
-import Link from 'next/link';
 import Trans from 'next-translate/Trans';
 import useTranslation from 'next-translate/useTranslation';
+import { useRouter } from 'next/router';
+import { FC, useCallback } from 'react';
 import generalConfig from 'shared-utils/configs/general.json';
-import { FC } from 'react';
 
 const Error: FC = () => {
   const classes = useStyles();
   const { t } = useTranslation();
+  const router = useRouter();
+  const handleHomeClick = useCallback(() => {
+    router.replace(HOME);
+  }, [router]);
 
   return (
     <div className={classes.root}>
@@ -27,9 +31,9 @@ const Error: FC = () => {
             }}
           />
         </Typography>
-        <Link href={HOME} passHref>
-          <Typography component="a">{t('common:errorHome')}</Typography>
-        </Link>
+        <Typography component="a" onClick={handleHomeClick}>
+          {t('common:errorHome')}
+        </Typography>
       </div>
     </div>
   );

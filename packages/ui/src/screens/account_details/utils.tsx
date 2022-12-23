@@ -10,12 +10,12 @@ import {
 import { toValidatorAddress } from '@/utils/prefix_convert';
 import axios from 'axios';
 
-function getUrl() {
-  let url = process.env.NEXT_PUBLIC_GRAPHQL_URL;
-  if (!url) url = chainConfig().endpoints.graphql;
-  if (!url) url = 'http://localhost:3000/v1/graphql';
-  return url;
-}
+const { endpoints } = chainConfig();
+const urlEndpoints = [
+  process.env.NEXT_PUBLIC_GRAPHQL_URL,
+  endpoints.graphql,
+  'http://localhost:3000/v1/graphql',
+];
 
 export const fetchCommission = async (address: string) => {
   const defaultReturnValue = {
@@ -24,7 +24,7 @@ export const fetchCommission = async (address: string) => {
     },
   };
   try {
-    const { data } = await axios.post(getUrl(), {
+    const { data } = await axios.post(urlEndpoints.find((u) => u) ?? '', {
       variables: {
         validatorAddress: toValidatorAddress(address),
       },
@@ -43,7 +43,7 @@ export const fetchAccountWithdrawalAddress = async (address: string) => {
     },
   };
   try {
-    const { data } = await axios.post(getUrl(), {
+    const { data } = await axios.post(urlEndpoints.find((u) => u) ?? '', {
       variables: {
         address,
       },
@@ -62,7 +62,7 @@ export const fetchAvailableBalances = async (address: string) => {
     },
   };
   try {
-    const { data } = await axios.post(getUrl(), {
+    const { data } = await axios.post(urlEndpoints.find((u) => u) ?? '', {
       variables: {
         address,
       },
@@ -81,7 +81,7 @@ export const fetchDelegationBalance = async (address: string) => {
     },
   };
   try {
-    const { data } = await axios.post(getUrl(), {
+    const { data } = await axios.post(urlEndpoints.find((u) => u) ?? '', {
       variables: {
         address,
       },
@@ -100,7 +100,7 @@ export const fetchUnbondingBalance = async (address: string) => {
     },
   };
   try {
-    const { data } = await axios.post(getUrl(), {
+    const { data } = await axios.post(urlEndpoints.find((u) => u) ?? '', {
       variables: {
         address,
       },
@@ -117,7 +117,7 @@ export const fetchRewards = async (address: string) => {
     delegationRewards: [],
   };
   try {
-    const { data } = await axios.post(getUrl(), {
+    const { data } = await axios.post(urlEndpoints.find((u) => u) ?? '', {
       variables: {
         address,
       },
