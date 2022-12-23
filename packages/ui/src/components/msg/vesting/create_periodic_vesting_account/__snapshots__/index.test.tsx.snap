@@ -8,8 +8,8 @@ exports[`screen: TransactionDetails/CreatePeriodicVestingAccount matches snapsho
     components={
       [
         <Unknown
-          address=""
-          name=""
+          address="toAddress"
+          name="toAddress"
         />,
       ]
     }

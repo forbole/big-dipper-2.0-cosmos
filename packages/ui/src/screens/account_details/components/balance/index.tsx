@@ -14,6 +14,8 @@ import React from 'react';
 import { Cell, Pie, PieChart, ResponsiveContainer } from 'recharts';
 import { useRecoilValue } from 'recoil';
 
+const { primaryTokenUnit, tokenUnits } = chainConfig();
+
 type Props = Parameters<typeof formatBalanceData>[0] & {
   className?: string;
   total: TokenUnit;
@@ -117,9 +119,7 @@ const Balance: React.FC<Props> = (props) => {
           <div className="total__secondary--container total__single--container">
             <Typography variant="body1" className="label">
               ${numeral(market.price).format('0,0.[00]', Math.floor)} /{' '}
-              {(
-                chainConfig().tokenUnits?.[chainConfig().primaryTokenUnit]?.display ?? ''
-              ).toUpperCase()}
+              {(tokenUnits?.[primaryTokenUnit]?.display ?? '').toUpperCase()}
             </Typography>
             <Typography variant="body1">{totalAmount}</Typography>
           </div>

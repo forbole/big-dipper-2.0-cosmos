@@ -36,14 +36,10 @@ class MsgLinkApplication {
       json,
       type: R.pathOr('', ['@type'], json),
       sender: R.pathOr('', ['sender'], json),
-      linkData: R.pathOr(
-        {
-          application: '',
-          username: '',
-        },
-        ['link_data', 'application'],
-        json
-      ),
+      linkData: {
+        application: R.pathOr('', ['link_data', 'application'], json),
+        username: R.pathOr('', ['link_data', 'username'], json),
+      },
     };
   }
 }

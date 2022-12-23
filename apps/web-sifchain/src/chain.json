@@ -81,9 +81,9 @@
         "charts": {
           "zero": "#D3D3D3",
           "one": "#A2DD8C",
-          "two": "#A2DD8C",
+          "two": "#F5BF52",
           "three": "#E87B84",
-          "four": "#F5BF52",
+          "four": "#7F97F4",
           "five": "#9D82D7"
         },
         "tags": {
@@ -141,8 +141,8 @@
       "votingPowerTokenUnit": "rowan",
       "tokenUnits": {
         "rowan": {
-          "display": "erowan",
-          "exponent": 6
+          "display": "rowan",
+          "exponent": 18
         }
       },
       "endpoints": {

@@ -350,55 +350,55 @@ const customTypeToModel = {
   // ========================
   // profiles
   // ========================
-  '/desmos.profiles.v1beta1.MsgSaveProfile': {
+  '/desmos.profiles.v3.MsgSaveProfile': {
     model: MODELS.MsgSaveProfile,
     content: COMPONENTS.SaveProfile,
     tagTheme: 'four',
     tagDisplay: 'txSaveProfileLabel',
   },
-  '/desmos.profiles.v1beta1.MsgDeleteProfile': {
+  '/desmos.profiles.v3.MsgDeleteProfile': {
     model: MODELS.MsgDeleteProfile,
     content: COMPONENTS.DeleteProfile,
     tagTheme: 'four',
     tagDisplay: 'txDeleteProfileLabel',
   },
-  '/desmos.profiles.v1beta1.MsgCreateRelationship': {
+  '/desmos.profiles.v3.MsgCreateRelationship': {
     model: MODELS.MsgCreateRelationship,
     content: COMPONENTS.CreateRelationship,
     tagTheme: 'four',
     tagDisplay: 'txCreateRelationshipLabel',
   },
-  '/desmos.profiles.v1beta1.MsgRequestDTagTransfer': {
+  '/desmos.profiles.v3.MsgRequestDTagTransfer': {
     model: MODELS.MsgDtagTransferRequest,
     content: COMPONENTS.DtagTransferRequest,
     tagTheme: 'four',
     tagDisplay: 'txRequestDTagTransferLabel',
   },
-  '/desmos.profiles.v1beta1.MsgAcceptDTagTransfer': {
+  '/desmos.profiles.v3.MsgAcceptDTagTransfer': {
     model: MODELS.MsgDtagAcceptTransfer,
     content: COMPONENTS.DtagAcceptTransfer,
     tagTheme: 'four',
     tagDisplay: 'txAcceptDTagTransferLabel',
   },
-  '/desmos.profiles.v1beta1.MsgCancelDTagTransfer': {
+  '/desmos.profiles.v3.MsgCancelDTagTransfer': {
     model: MODELS.MsgDtagCancelTransfer,
     content: COMPONENTS.DtagCancelTransfer,
     tagTheme: 'four',
     tagDisplay: 'txCancelDTagTransferLabel',
   },
-  '/desmos.profiles.v1beta1.MsgRefuseDTagTransfer': {
+  '/desmos.profiles.v3.MsgRefuseDTagTransfer': {
     model: MODELS.MsgDtagRefuseTransfer,
     content: COMPONENTS.DtagRefuseTransfer,
     tagTheme: 'four',
     tagDisplay: 'txRefuseDTagTransferLabel',
   },
-  '/desmos.profiles.v1beta1.MsgBlockUser': {
+  '/desmos.profiles.v3.MsgBlockUser': {
     model: MODELS.MsgBlockUser,
     content: COMPONENTS.BlockUser,
     tagTheme: 'four',
     tagDisplay: 'txBlockUserLabel',
   },
-  '/desmos.profiles.v1beta1.MsgUnblockUser': {
+  '/desmos.profiles.v3.MsgUnblockUser': {
     model: MODELS.MsgUnblockUser,
     content: COMPONENTS.UnBlockUser,
     tagTheme: 'four',

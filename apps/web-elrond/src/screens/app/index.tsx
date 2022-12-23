@@ -14,6 +14,8 @@ import useTranslation from 'next-translate/useTranslation';
 import { AppProps } from 'next/app';
 import { RecoilRoot } from 'recoil';
 
+const { title } = chainConfig();
+
 function App(props: AppProps<{ initialApolloState?: NormalizedCacheObject }>) {
   useApp();
   const { t } = useTranslation();
@@ -22,11 +24,11 @@ function App(props: AppProps<{ initialApolloState?: NormalizedCacheObject }>) {
   return (
     <RecoilRoot>
       <DefaultSeo
-        titleTemplate={`%s | ${chainConfig().title}`}
+        titleTemplate={`%s | ${title}`}
         title={t('common:bigDipper')}
         description={t('common:description')}
         openGraph={{
-          title: `${t('common:bigDipper')} | ${chainConfig().title}`,
+          title: `${t('common:bigDipper')} | ${title}`,
           url: location,
           description: t('common:description'),
           ...OPEN_GRAPH_SEO,

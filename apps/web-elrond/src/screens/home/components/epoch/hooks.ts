@@ -11,9 +11,9 @@ export const useEpoch = () => {
     roundsPerEpoch: 0,
   });
 
-  const handleSetState = useCallback((stateChange: Partial<EpochState>) => {
+  const handleSetState = useCallback((stateChange: (prevState: EpochState) => EpochState) => {
     setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
+      const newState = stateChange(prevState);
       return R.equals(prevState, newState) ? prevState : newState;
     });
   }, []);
@@ -23,11 +23,12 @@ export const useEpoch = () => {
       try {
         const { data: statsData } = await axios.get(STATS);
 
-        handleSetState({
+        handleSetState((prevState) => ({
+          ...prevState,
           epoch: statsData.epoch,
           roundsPassed: statsData.roundsPassed,
           roundsPerEpoch: statsData.roundsPerEpoch,
-        });
+        }));
       } catch (error) {
         console.error((error as Error).message);
       }

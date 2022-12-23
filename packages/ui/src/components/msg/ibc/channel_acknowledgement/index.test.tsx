@@ -19,7 +19,7 @@ describe('screen: TransactionDetails/IBCChannelAcknowledgement', () => {
       category: 'ibc',
       type: 'MsgAcknowledgement',
       signer: 'desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz',
-      sourceChannel: 'channel-2',
+      source_channel: 'channel-2',
       json: [
         {
           denom: 'udaric',

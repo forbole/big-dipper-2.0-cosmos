@@ -28,8 +28,8 @@ class MsgUndelegate {
       category: 'staking',
       json,
       type: R.pathOr('', ['@type'], json),
-      delegatorAddress: R.pathOr('', ['delegatorAddress'], json),
-      validatorAddress: R.pathOr('', ['validatorAddress'], json),
+      delegatorAddress: R.pathOr('', ['delegator_address'], json),
+      validatorAddress: R.pathOr('', ['validator_address'], json),
       amount: {
         denom: R.pathOr('', ['amount', 'denom'], json),
         amount: R.pathOr('0', ['amount', 'amount'], json),

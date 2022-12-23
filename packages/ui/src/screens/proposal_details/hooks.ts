@@ -27,9 +27,9 @@ export const useProposalDetails = () => {
     },
   });
 
-  const handleSetState = useCallback((stateChange: Partial<ProposalState>) => {
+  const handleSetState = useCallback((stateChange: (prevState: ProposalState) => ProposalState) => {
     setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
+      const newState = stateChange(prevState);
       return R.equals(prevState, newState) ? prevState : newState;
     });
   }, []);
@@ -42,7 +42,7 @@ export const useProposalDetails = () => {
       proposalId: parseFloat((router?.query?.id as string) ?? '0'),
     },
     onCompleted: (data) => {
-      handleSetState(formatProposalQuery(data));
+      handleSetState((prevState) => ({ ...prevState, ...formatProposalQuery(data) }));
     },
   });
 

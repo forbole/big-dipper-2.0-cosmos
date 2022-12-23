@@ -7,13 +7,15 @@ import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
 import React from 'react';
 
+const { primaryTokenUnit } = chainConfig();
+
 const CreatePool: React.FC<{ message: MsgCreatePool }> = (props) => {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);
   const signerMoniker = signer ? signer?.name : message.signer;
 
-  const nativeAmount = formatToken(message.nativeAssetAmount, chainConfig().primaryTokenUnit);
+  const nativeAmount = formatToken(message.nativeAssetAmount, primaryTokenUnit);
   const parsedNativeAmount = `${formatNumber(
     nativeAmount.value,
     nativeAmount.exponent

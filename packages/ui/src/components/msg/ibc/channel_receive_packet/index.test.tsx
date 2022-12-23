@@ -20,8 +20,8 @@ describe('screen: TransactionDetails/IBCReceivePacket', () => {
       category: 'ibc',
       type: 'MsgReceivePacket',
       signer: 'desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz',
-      sourceChannel: 'channel-1',
-      destinationChannel: 'channel-21',
+      source_channel: 'channel-1',
+      destination_channel: 'channel-21',
       json: [
         {
           denom: 'udaric',

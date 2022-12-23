@@ -15,6 +15,8 @@ import Link from 'next/link';
 import React from 'react';
 import { useRecoilValue } from 'recoil';
 
+const { prefix } = chainConfig();
+
 const Desktop: React.FC<{
   className?: string;
   items?: ProfileConnectionType[];
@@ -24,7 +26,7 @@ const Desktop: React.FC<{
 
   const formattedItems = items?.map((x) => {
     let identity: string | React.ReactNode = x.identifier;
-    if (new RegExp(`^(${chainConfig().prefix.account})`).test(x.identifier)) {
+    if (new RegExp(`^(${prefix.account})`).test(x.identifier)) {
       identity = (
         <Link href={ACCOUNT_DETAILS(x.identifier)} passHref>
           <Typography variant="body1" className="value" component="a">

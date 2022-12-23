@@ -31,7 +31,7 @@ describe('screen: TransactionDetails/SubmitProposal', () => {
   //     },
   //     content: 'content',
   //     proposer: 'desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz',
-  //     initialDeposit: [
+  //     initial_deposit: [
   //       {
   //         denom: 'udaric',
   //         amount: '2000000',
@@ -52,7 +52,7 @@ describe('screen: TransactionDetails/SubmitProposal', () => {
       type: '/cosmos.gov.v1beta1.MsgSubmitProposal',
       content: messageTextProposal,
       proposer: 'desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz',
-      initialDeposit: [
+      initial_deposit: [
         {
           denom: 'udaric',
           amount: '1000000',
@@ -92,7 +92,7 @@ describe('screen: TransactionDetails/SubmitProposal', () => {
       type: '/cosmos.gov.v1beta1.MsgSubmitProposal',
       content: msgSoftwareUpgradeProposal,
       proposer: 'desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz',
-      initialDeposit: [
+      initial_deposit: [
         {
           denom: 'udaric',
           amount: '2000000',
@@ -132,7 +132,7 @@ describe('screen: TransactionDetails/SubmitProposal', () => {
       type: '/cosmos.gov.v1beta1.MsgSubmitProposal',
       content: msgParameterChangeProposal,
       proposer: 'desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz',
-      initialDeposit: [
+      initial_deposit: [
         {
           denom: 'udaric',
           amount: '2000000',
@@ -172,7 +172,7 @@ describe('screen: TransactionDetails/SubmitProposal', () => {
       type: '/cosmos.gov.v1beta1.MsgSubmitProposal',
       content: msgCommunityPoolSpendProposal,
       proposer: 'desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz',
-      initialDeposit: [
+      initial_deposit: [
         {
           denom: 'udaric',
           amount: '2000000',

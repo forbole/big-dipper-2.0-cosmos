@@ -15,20 +15,24 @@ export const useBlocks = () => {
     total: 0,
   });
 
-  const handleSetState = useCallback((stateChange: Partial<TransactionState>) => {
-    setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
-      return equals(prevState, newState) ? prevState : newState;
-    });
-  }, []);
+  const handleSetState = useCallback(
+    (stateChange: (prevState: TransactionState) => TransactionState) => {
+      setState((prevState) => {
+        const newState = stateChange(prevState);
+        return equals(prevState, newState) ? prevState : newState;
+      });
+    },
+    []
+  );
 
   useEffect(() => {
     const getLatestTransactionCount = async () => {
       try {
         const { data: total } = await axios.get(TRANSACTIONS_COUNT);
-        handleSetState({
+        handleSetState((prevState) => ({
+          ...prevState,
           total,
-        });
+        }));
       } catch (error) {
         console.error((error as Error).message);
       }
@@ -67,10 +71,11 @@ export const useBlocks = () => {
           status: x.status,
         }));
 
-        handleSetState({
+        handleSetState((prevState) => ({
+          ...prevState,
           loading: false,
           items,
-        });
+        }));
       } catch (error) {
         console.error((error as Error).message);
       }
@@ -80,10 +85,11 @@ export const useBlocks = () => {
 
   const handlePageChangeCallback = useCallback(
     async (page: number, _rowsPerPage: number) => {
-      handleSetState({
+      handleSetState((prevState) => ({
+        ...prevState,
         page,
         loading: true,
-      });
+      }));
       await getTransactionsByPage(page);
     },
     [getTransactionsByPage, handleSetState]

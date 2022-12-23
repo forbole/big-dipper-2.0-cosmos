@@ -11,9 +11,9 @@ export const useStaking = () => {
     percentStaked: 0,
   });
 
-  const handleSetState = useCallback((stateChange: Partial<StakingState>) => {
+  const handleSetState = useCallback((stateChange: (prevState: StakingState) => StakingState) => {
     setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
+      const newState = stateChange(prevState);
       return R.equals(prevState, newState) ? prevState : newState;
     });
   }, []);
@@ -23,13 +23,14 @@ export const useStaking = () => {
       try {
         const { data: economicsData } = await axios.get(ECONOMICS);
 
-        handleSetState({
+        handleSetState((prevState) => ({
+          ...prevState,
           staked: economicsData.staked,
           circulatingSupply: economicsData.circulatingSupply,
           percentStaked: parseFloat(
             ((economicsData.staked * 100) / economicsData.circulatingSupply).toFixed(2)
           ),
-        });
+        }));
       } catch (error) {
         console.error((error as Error).message);
       }

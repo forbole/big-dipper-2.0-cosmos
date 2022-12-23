@@ -18,8 +18,8 @@ describe('screen: TransactionDetails/MsgSend', () => {
     const message = MsgSend.fromJson({
       category: 'bank',
       type: 'MsgSend',
-      fromAddress: 'fromAddress',
-      toAddress: 'toAddress',
+      from_address: 'fromAddress',
+      to_address: 'toAddress',
       amount: [
         {
           denom: 'udaric',

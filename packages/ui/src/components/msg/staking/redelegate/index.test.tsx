@@ -18,9 +18,9 @@ describe('screen: TransactionDetails/Redelegate', () => {
     const message = MsgRedelegate.fromJson({
       category: 'staking',
       type: 'MsgEditValidator',
-      delegatorAddress: 'delegatorAddress',
-      validatorSrcAddress: 'validatorSrcAddress',
-      validatorDstAddress: 'validatorDstAddress',
+      delegator_address: 'delegatorAddress',
+      validator_src_address: 'validatorSrcAddress',
+      validator_dst_address: 'validatorDstAddress',
       amount: {
         denom: 'udaric',
         amount: '1000000000',

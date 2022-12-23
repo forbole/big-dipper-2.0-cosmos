@@ -14,11 +14,11 @@ please add links to any relevant follow up issues._
 
 I have...
 
-- [ ] ran linting
+- [ ] ran linting via `yarn lint`
 - [ ] wrote tests where necessary
 - [ ] included the correct [type prefix](https://github.com/commitizen/conventional-commit-types/blob/v3.0.0/index.json) in the PR title
 - [ ] targeted the correct branch
 - [ ] provided a link to the relevant issue or specification
 - [ ] reviewed "Files changed" and left comments if necessary
 - [ ] confirmed all CI checks have passed
-- [ ] added an entry to the `CHANGELOG.md` file
+- [ ] added an entry via [`yarn changeset`](https://github.com/changesets/changesets/blob/main/docs/adding-a-changeset.md)

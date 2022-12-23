@@ -3,6 +3,8 @@ import type { Categories, Log } from '@/models/msg/types';
 import { formatToken } from '@/utils/format_token';
 import * as R from 'ramda';
 
+const { primaryTokenUnit } = chainConfig();
+
 class MsgWithdrawDelegatorReward {
   public category: Categories;
 
@@ -31,7 +33,7 @@ class MsgWithdrawDelegatorReward {
       withdrawEvents?.[0]?.attributes?.filter((x) => x.key === 'amount') ?? [];
 
     const amounts = (withdrawAmounts?.[0]?.value ?? '0').split(',').map((x) => {
-      const [amount, denom = chainConfig().primaryTokenUnit] = x.match(/[a-z]+|[^a-z]+/gi) ?? [];
+      const [amount, denom = primaryTokenUnit] = x.match(/[a-z]+|[^a-z]+/gi) ?? [];
       return formatToken(amount, denom);
     });
 

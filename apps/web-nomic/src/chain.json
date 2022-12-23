@@ -3,7 +3,8 @@
   "title": "Nomic Block Explorer",
   "extra": {
     "profile": true,
-    "graphqlWs": false
+    "graphqlWs": false,
+    "votingPowerExponent": 6
   },
   "previewImage": "https://s3.bigdipper.live/nomic.png",
   "themes": {
@@ -66,9 +67,9 @@
         "charts": {
           "zero": "#E8E8E8",
           "one": "#8B5CF6",
-          "two": "#8B5CF6",
+          "two": "#F7931A",
           "three": "#ED254E",
-          "four": "#F7931A",
+          "four": "#03B5AA",
           "five": "#FF608A"
         },
         "tags": {

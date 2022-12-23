@@ -19,8 +19,8 @@ describe('screen: TransactionDetails/MsgVerifyInvariant', () => {
       category: 'crisis',
       type: 'MsgVerifyInvariant',
       sender: 'sender',
-      invariantModuleName: 'invariantModuleName',
-      invariantRoute: 'invariantRoute',
+      invariant_module_name: 'invariantModuleName',
+      invariant_route: 'invariantRoute',
     });
     const component = renderer.create(
       <MockTheme>

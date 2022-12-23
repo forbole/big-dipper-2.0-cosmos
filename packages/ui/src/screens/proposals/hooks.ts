@@ -14,12 +14,15 @@ export const useProposals = () => {
     rawDataTotal: 0,
   });
 
-  const handleSetState = useCallback((stateChange: Partial<ProposalsState>) => {
-    setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
-      return R.equals(prevState, newState) ? prevState : newState;
-    });
-  }, []);
+  const handleSetState = useCallback(
+    (stateChange: (prevState: ProposalsState) => ProposalsState) => {
+      setState((prevState) => {
+        const newState = stateChange(prevState);
+        return R.equals(prevState, newState) ? prevState : newState;
+      });
+    },
+    []
+  );
 
   // ================================
   // proposals query
@@ -32,19 +35,18 @@ export const useProposals = () => {
     },
     onCompleted: (data) => {
       const newItems = R.uniq([...state.items, ...formatProposals(data)]);
-      handleSetState({
+      handleSetState((prevState) => ({
+        ...prevState,
         items: newItems,
         hasNextPage: newItems.length < (data.total?.aggregate?.count ?? 0),
         isNextPageLoading: false,
-        rawDataTotal: data.total?.aggregate?.count,
-      });
+        rawDataTotal: data.total?.aggregate?.count ?? prevState.rawDataTotal,
+      }));
     },
   });
 
   const loadNextPage = async () => {
-    handleSetState({
-      isNextPageLoading: true,
-    });
+    handleSetState((prevState) => ({ ...prevState, isNextPageLoading: true }));
     // refetch query
     await proposalQuery
       .fetchMore({
@@ -56,12 +58,13 @@ export const useProposals = () => {
       .then(({ data }) => {
         const newItems = R.uniq([...state.items, ...formatProposals(data)]);
         // set new state
-        handleSetState({
+        handleSetState((prevState) => ({
+          ...prevState,
           items: newItems,
           isNextPageLoading: false,
           hasNextPage: newItems.length < (data.total?.aggregate?.count ?? 0),
-          rawDataTotal: data.total?.aggregate?.count,
-        });
+          rawDataTotal: data.total?.aggregate?.count ?? prevState.rawDataTotal,
+        }));
       });
   };
 

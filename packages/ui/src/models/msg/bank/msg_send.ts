@@ -28,8 +28,8 @@ class MsgSend {
       category: 'bank',
       json,
       type: R.pathOr('', ['@type'], json),
-      fromAddress: R.pathOr('', ['fromAddress'], json),
-      toAddress: R.pathOr('', ['toAddress'], json),
+      fromAddress: R.pathOr('', ['from_address'], json),
+      toAddress: R.pathOr('', ['to_address'], json),
       amount: R.pathOr<MsgSend['amount']>([], ['amount'], json).map((x) => ({
         denom: x?.denom ?? '',
         amount: x?.amount ?? '0',

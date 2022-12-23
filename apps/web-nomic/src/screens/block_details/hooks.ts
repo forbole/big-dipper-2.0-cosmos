@@ -20,19 +20,23 @@ export const useBlockDetails = () => {
     signatures: [],
     transactions: [],
   });
-  const handleSetState = useCallback((stateChange: Partial<BlockDetailState>) => {
-    setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
-      return R.equals(prevState, newState) ? prevState : newState;
-    });
-  }, []);
+  const handleSetState = useCallback(
+    (stateChange: (prevState: BlockDetailState) => BlockDetailState) => {
+      setState((prevState) => {
+        const newState = stateChange(prevState);
+        return R.equals(prevState, newState) ? prevState : newState;
+      });
+    },
+    []
+  );
 
   useEffect(() => {
     // reset every call
-    handleSetState({
+    handleSetState((prevState) => ({
+      ...prevState,
       loading: true,
       exists: true,
-    });
+    }));
   }, [handleSetState]);
 
   // ==========================
@@ -44,7 +48,7 @@ export const useBlockDetails = () => {
       signatureHeight: (numeral(router.query.height).value() ?? 0) + 1,
     },
     onCompleted: (data) => {
-      handleSetState(formatRaws(data));
+      handleSetState((prevState) => ({ ...prevState, ...formatRaws(data) }));
     },
   });
 

@@ -25,18 +25,22 @@ export const useTransactionDetails = () => {
     },
   });
 
-  const handleSetState = useCallback((stateChange: Partial<TransactionState>) => {
-    setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
-      return R.equals(prevState, newState) ? prevState : newState;
-    });
-  }, []);
+  const handleSetState = useCallback(
+    (stateChange: (prevState: TransactionState) => TransactionState) => {
+      setState((prevState) => {
+        const newState = stateChange(prevState);
+        return R.equals(prevState, newState) ? prevState : newState;
+      });
+    },
+    []
+  );
 
   useEffect(() => {
-    handleSetState({
+    handleSetState((prevState) => ({
+      ...prevState,
       loading: true,
       exists: true,
-    });
+    }));
   }, [handleSetState]);
 
   // ===============================
@@ -47,7 +51,7 @@ export const useTransactionDetails = () => {
       hash: router.query.tx as string,
     },
     onCompleted: (data) => {
-      handleSetState(formatTransactionDetails(data));
+      handleSetState((prevState) => ({ ...prevState, ...formatTransactionDetails(data) }));
     },
   });
 

@@ -81,9 +81,9 @@
         "charts": {
           "zero": "#D3D3D3",
           "one": "#30A6E9",
-          "two": "#30A6E9",
+          "two": "#32B47D",
           "three": "#8F78F3",
-          "four": "#32B47D",
+          "four": "#ECBA3A",
           "five": "#F58A4E"
         },
         "tags": {
