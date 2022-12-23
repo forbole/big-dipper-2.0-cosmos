@@ -193,21 +193,22 @@ jobs:
       - uses: actions/cache@v3
         with:
           path: ${{ needs.install.outputs.cache-directory }}
-          key: ${{ needs.install.outputs.cashe-key }}-e2e
+          key: ${{ needs.install.outputs.cashe-key }}
           restore-keys: ${{ needs.install.outputs.restore-keys }}
       - run: yarn install --immutable
-      - name: Playwright testing, trace can be view at https://trace.playwright.dev/
+      - name: Playwright testing
         run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
           yarn playwright test --project=${{ matrix.browser }} --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }} | tee -a $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
         env:
           CI: 1
+          DEBUG: pw:webserver
           PROJECT_NAME: ${{ matrix.project }}
           PLAYWRIGHT_HTML_REPORT: playwright-report/${{ matrix.browser }}/${{ matrix.shardIndex }}
       - uses: actions/upload-artifact@v3
         if: ${{ failure() }}
         with:
-          name: playwright-report
+          name: trace.playwright.dev
           path: playwright-report/
           retention-days: 7
