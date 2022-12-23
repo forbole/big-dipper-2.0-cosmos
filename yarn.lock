@@ -5067,14 +5067,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^1.2.1":
-  version: 1.2.1
-  resolution: "axios@npm:1.2.1"
+"axios@npm:^0.21.4":
+  version: 0.21.4
+  resolution: "axios@npm:0.21.4"
   dependencies:
-    follow-redirects: ^1.15.0
-    form-data: ^4.0.0
-    proxy-from-env: ^1.1.0
-  checksum: c4dc4e119064c9aed09a3de309bedb797a139a6fb372223aafe3e0c10a7d4a14e4d3e9c9d309467fadb9d2b490b891ee3df96ef5b55716bb971910466ff9f0c5
+    follow-redirects: ^1.14.0
+  checksum: 44245f24ac971e7458f3120c92f9d66d1fc695e8b97019139de5b0cc65d9b8104647db01e5f46917728edfc0cfd88eb30fc4c55e6053eef4ace76768ce95ff3c
   languageName: node
   linkType: hard
 
@@ -7663,7 +7661,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"follow-redirects@npm:^1.15.0":
+"follow-redirects@npm:^1.14.0":
   version: 1.15.2
   resolution: "follow-redirects@npm:1.15.2"
   peerDependenciesMeta:
@@ -13772,9 +13770,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^4.9.3":
-  version: 4.9.3
-  resolution: "typescript@npm:4.9.3"
+"typescript@npm:^4.9.4":
+  version: 4.9.4
+  resolution: "typescript@npm:4.9.4"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
@@ -13782,13 +13780,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@^4.9.3#~builtin<compat/typescript>":
-  version: 4.9.3
-  resolution: "typescript@patch:typescript@npm%3A4.9.3#~builtin<compat/typescript>::version=4.9.3&hash=d73830"
+"typescript@patch:typescript@^4.9.4#~builtin<compat/typescript>":
+  version: 4.9.4
+  resolution: "typescript@patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=d73830"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 67ca21a387c0572f1c04936e638dde7782c5aa520c3754aadc7cc9b7c915da9ebc3e27c601bfff4ccb7d7264e82dce6d277ada82ec09dc75024349e0ef64926d
+  checksum: 37f6e2c3c5e2aa5934b85b0fddbf32eeac8b1bacf3a5b51d01946936d03f5377fe86255d4e5a4ae628fd0cd553386355ad362c57f13b4635064400f3e8e05b9d
   languageName: node
   linkType: hard
 
@@ -13846,8 +13844,8 @@ __metadata:
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
     "@types/sharp": ^0.31.0
-    "@typescript-eslint/eslint-plugin": ^5.45.0
-    "@typescript-eslint/parser": ^5.45.0
+    "@typescript-eslint/eslint-plugin": ^5.47.0
+    "@typescript-eslint/parser": ^5.47.0
     "@yarnpkg/pnpify": ^4.0.0-rc.33
     axios: ^0.21.4
     axios-mock-adapter: ^1.21.2
@@ -13858,7 +13856,7 @@ __metadata:
     copy-to-clipboard: ^3.3.3
     cors: ^2.8.5
     csstype: ^3.1.1
-    dayjs: ^1.11.6
+    dayjs: ^1.11.7
     dompurify: ^2.4.1
     dotenv: ^16.0.3
     eslint: ^8.30.0
@@ -14190,8 +14188,8 @@ __metadata:
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
     "@types/sharp": ^0.31.0
-    "@typescript-eslint/eslint-plugin": ^5.45.0
-    "@typescript-eslint/parser": ^5.45.0
+    "@typescript-eslint/eslint-plugin": ^5.47.0
+    "@typescript-eslint/parser": ^5.47.0
     "@yarnpkg/pnpify": ^4.0.0-rc.33
     axios: ^0.21.4
     axios-mock-adapter: ^1.21.2
@@ -14202,7 +14200,7 @@ __metadata:
     copy-to-clipboard: ^3.3.3
     cors: ^2.8.5
     csstype: ^3.1.1
-    dayjs: ^1.11.6
+    dayjs: ^1.11.7
     dompurify: ^2.4.1
     dotenv: ^16.0.3
     eslint: ^8.30.0
@@ -14299,8 +14297,8 @@ __metadata:
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
     "@types/sharp": ^0.31.0
-    "@typescript-eslint/eslint-plugin": ^5.45.0
-    "@typescript-eslint/parser": ^5.45.0
+    "@typescript-eslint/eslint-plugin": ^5.47.0
+    "@typescript-eslint/parser": ^5.47.0
     "@yarnpkg/pnpify": ^4.0.0-rc.33
     axios: ^0.21.4
     axios-mock-adapter: ^1.21.2
@@ -14311,7 +14309,7 @@ __metadata:
     copy-to-clipboard: ^3.3.3
     cors: ^2.8.5
     csstype: ^3.1.1
-    dayjs: ^1.11.6
+    dayjs: ^1.11.7
     dompurify: ^2.4.1
     dotenv: ^16.0.3
     eslint: ^8.30.0
@@ -14408,8 +14406,8 @@ __metadata:
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
     "@types/sharp": ^0.31.0
-    "@typescript-eslint/eslint-plugin": ^5.45.0
-    "@typescript-eslint/parser": ^5.45.0
+    "@typescript-eslint/eslint-plugin": ^5.47.0
+    "@typescript-eslint/parser": ^5.47.0
     "@yarnpkg/pnpify": ^4.0.0-rc.33
     axios: ^0.21.4
     axios-mock-adapter: ^1.21.2
@@ -14420,7 +14418,7 @@ __metadata:
     copy-to-clipboard: ^3.3.3
     cors: ^2.8.5
     csstype: ^3.1.1
-    dayjs: ^1.11.6
+    dayjs: ^1.11.7
     dompurify: ^2.4.1
     dotenv: ^16.0.3
     eslint: ^8.30.0
@@ -14517,8 +14515,8 @@ __metadata:
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
     "@types/sharp": ^0.31.0
-    "@typescript-eslint/eslint-plugin": ^5.45.0
-    "@typescript-eslint/parser": ^5.45.0
+    "@typescript-eslint/eslint-plugin": ^5.47.0
+    "@typescript-eslint/parser": ^5.47.0
     "@yarnpkg/pnpify": ^4.0.0-rc.33
     axios: ^0.21.4
     axios-mock-adapter: ^1.21.2
@@ -14529,7 +14527,7 @@ __metadata:
     copy-to-clipboard: ^3.3.3
     cors: ^2.8.5
     csstype: ^3.1.1
-    dayjs: ^1.11.6
+    dayjs: ^1.11.7
     dompurify: ^2.4.1
     dotenv: ^16.0.3
     eslint: ^8.30.0
@@ -14626,8 +14624,8 @@ __metadata:
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
     "@types/sharp": ^0.31.0
-    "@typescript-eslint/eslint-plugin": ^5.45.0
-    "@typescript-eslint/parser": ^5.45.0
+    "@typescript-eslint/eslint-plugin": ^5.47.0
+    "@typescript-eslint/parser": ^5.47.0
     "@yarnpkg/pnpify": ^4.0.0-rc.33
     axios: ^0.21.4
     axios-mock-adapter: ^1.21.2
@@ -14638,7 +14636,7 @@ __metadata:
     copy-to-clipboard: ^3.3.3
     cors: ^2.8.5
     csstype: ^3.1.1
-    dayjs: ^1.11.6
+    dayjs: ^1.11.7
     dompurify: ^2.4.1
     dotenv: ^16.0.3
     eslint: ^8.30.0
@@ -14735,8 +14733,8 @@ __metadata:
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
     "@types/sharp": ^0.31.0
-    "@typescript-eslint/eslint-plugin": ^5.45.0
-    "@typescript-eslint/parser": ^5.45.0
+    "@typescript-eslint/eslint-plugin": ^5.47.0
+    "@typescript-eslint/parser": ^5.47.0
     "@yarnpkg/pnpify": ^4.0.0-rc.33
     axios: ^0.21.4
     axios-mock-adapter: ^1.21.2
@@ -14747,7 +14745,7 @@ __metadata:
     copy-to-clipboard: ^3.3.3
     cors: ^2.8.5
     csstype: ^3.1.1
-    dayjs: ^1.11.6
+    dayjs: ^1.11.7
     dompurify: ^2.4.1
     dotenv: ^16.0.3
     eslint: ^8.30.0
@@ -14844,8 +14842,8 @@ __metadata:
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
     "@types/sharp": ^0.31.0
-    "@typescript-eslint/eslint-plugin": ^5.45.0
-    "@typescript-eslint/parser": ^5.45.0
+    "@typescript-eslint/eslint-plugin": ^5.47.0
+    "@typescript-eslint/parser": ^5.47.0
     "@yarnpkg/pnpify": ^4.0.0-rc.33
     axios: ^0.21.4
     axios-mock-adapter: ^1.21.2
@@ -14856,7 +14854,7 @@ __metadata:
     copy-to-clipboard: ^3.3.3
     cors: ^2.8.5
     csstype: ^3.1.1
-    dayjs: ^1.11.6
+    dayjs: ^1.11.7
     dompurify: ^2.4.1
     dotenv: ^16.0.3
     eslint: ^8.30.0
@@ -14953,8 +14951,8 @@ __metadata:
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
     "@types/sharp": ^0.31.0
-    "@typescript-eslint/eslint-plugin": ^5.45.0
-    "@typescript-eslint/parser": ^5.45.0
+    "@typescript-eslint/eslint-plugin": ^5.47.0
+    "@typescript-eslint/parser": ^5.47.0
     "@yarnpkg/pnpify": ^4.0.0-rc.33
     axios: ^0.21.4
     axios-mock-adapter: ^1.21.2
@@ -14965,7 +14963,7 @@ __metadata:
     copy-to-clipboard: ^3.3.3
     cors: ^2.8.5
     csstype: ^3.1.1
-    dayjs: ^1.11.6
+    dayjs: ^1.11.7
     dompurify: ^2.4.1
     dotenv: ^16.0.3
     eslint: ^8.30.0
@@ -15062,8 +15060,8 @@ __metadata:
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
     "@types/sharp": ^0.31.0
-    "@typescript-eslint/eslint-plugin": ^5.45.0
-    "@typescript-eslint/parser": ^5.45.0
+    "@typescript-eslint/eslint-plugin": ^5.47.0
+    "@typescript-eslint/parser": ^5.47.0
     "@yarnpkg/pnpify": ^4.0.0-rc.33
     axios: ^0.21.4
     axios-mock-adapter: ^1.21.2
@@ -15074,7 +15072,7 @@ __metadata:
     copy-to-clipboard: ^3.3.3
     cors: ^2.8.5
     csstype: ^3.1.1
-    dayjs: ^1.11.6
+    dayjs: ^1.11.7
     dompurify: ^2.4.1
     dotenv: ^16.0.3
     eslint: ^8.30.0
@@ -15171,8 +15169,8 @@ __metadata:
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
     "@types/sharp": ^0.31.0
-    "@typescript-eslint/eslint-plugin": ^5.45.0
-    "@typescript-eslint/parser": ^5.45.0
+    "@typescript-eslint/eslint-plugin": ^5.47.0
+    "@typescript-eslint/parser": ^5.47.0
     "@yarnpkg/pnpify": ^4.0.0-rc.33
     axios: ^0.21.4
     axios-mock-adapter: ^1.21.2
@@ -15183,7 +15181,7 @@ __metadata:
     copy-to-clipboard: ^3.3.3
     cors: ^2.8.5
     csstype: ^3.1.1
-    dayjs: ^1.11.6
+    dayjs: ^1.11.7
     dompurify: ^2.4.1
     dotenv: ^16.0.3
     eslint: ^8.30.0
@@ -15280,8 +15278,8 @@ __metadata:
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
     "@types/sharp": ^0.31.0
-    "@typescript-eslint/eslint-plugin": ^5.45.0
-    "@typescript-eslint/parser": ^5.45.0
+    "@typescript-eslint/eslint-plugin": ^5.47.0
+    "@typescript-eslint/parser": ^5.47.0
     "@yarnpkg/pnpify": ^4.0.0-rc.33
     axios: ^0.21.4
     axios-mock-adapter: ^1.21.2
@@ -15292,7 +15290,7 @@ __metadata:
     copy-to-clipboard: ^3.3.3
     cors: ^2.8.5
     csstype: ^3.1.1
-    dayjs: ^1.11.6
+    dayjs: ^1.11.7
     dompurify: ^2.4.1
     dotenv: ^16.0.3
     eslint: ^8.30.0
@@ -15389,8 +15387,8 @@ __metadata:
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
     "@types/sharp": ^0.31.0
-    "@typescript-eslint/eslint-plugin": ^5.45.0
-    "@typescript-eslint/parser": ^5.45.0
+    "@typescript-eslint/eslint-plugin": ^5.47.0
+    "@typescript-eslint/parser": ^5.47.0
     "@yarnpkg/pnpify": ^4.0.0-rc.33
     axios: ^0.21.4
     axios-mock-adapter: ^1.21.2
@@ -15401,7 +15399,7 @@ __metadata:
     copy-to-clipboard: ^3.3.3
     cors: ^2.8.5
     csstype: ^3.1.1
-    dayjs: ^1.11.6
+    dayjs: ^1.11.7
     dompurify: ^2.4.1
     dotenv: ^16.0.3
     eslint: ^8.30.0
@@ -15498,8 +15496,8 @@ __metadata:
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
     "@types/sharp": ^0.31.0
-    "@typescript-eslint/eslint-plugin": ^5.45.0
-    "@typescript-eslint/parser": ^5.45.0
+    "@typescript-eslint/eslint-plugin": ^5.47.0
+    "@typescript-eslint/parser": ^5.47.0
     "@yarnpkg/pnpify": ^4.0.0-rc.33
     axios: ^0.21.4
     axios-mock-adapter: ^1.21.2
@@ -15510,7 +15508,7 @@ __metadata:
     copy-to-clipboard: ^3.3.3
     cors: ^2.8.5
     csstype: ^3.1.1
-    dayjs: ^1.11.6
+    dayjs: ^1.11.7
     dompurify: ^2.4.1
     dotenv: ^16.0.3
     eslint: ^8.30.0
@@ -15607,8 +15605,8 @@ __metadata:
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
     "@types/sharp": ^0.31.0
-    "@typescript-eslint/eslint-plugin": ^5.45.0
-    "@typescript-eslint/parser": ^5.45.0
+    "@typescript-eslint/eslint-plugin": ^5.47.0
+    "@typescript-eslint/parser": ^5.47.0
     "@yarnpkg/pnpify": ^4.0.0-rc.33
     axios: ^0.21.4
     axios-mock-adapter: ^1.21.2
@@ -15619,7 +15617,7 @@ __metadata:
     copy-to-clipboard: ^3.3.3
     cors: ^2.8.5
     csstype: ^3.1.1
-    dayjs: ^1.11.6
+    dayjs: ^1.11.7
     dompurify: ^2.4.1
     dotenv: ^16.0.3
     eslint: ^8.30.0
@@ -15716,8 +15714,8 @@ __metadata:
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
     "@types/sharp": ^0.31.0
-    "@typescript-eslint/eslint-plugin": ^5.45.0
-    "@typescript-eslint/parser": ^5.45.0
+    "@typescript-eslint/eslint-plugin": ^5.47.0
+    "@typescript-eslint/parser": ^5.47.0
     "@yarnpkg/pnpify": ^4.0.0-rc.33
     axios: ^0.21.4
     axios-mock-adapter: ^1.21.2
@@ -15728,7 +15726,7 @@ __metadata:
     copy-to-clipboard: ^3.3.3
     cors: ^2.8.5
     csstype: ^3.1.1
-    dayjs: ^1.11.6
+    dayjs: ^1.11.7
     dompurify: ^2.4.1
     dotenv: ^16.0.3
     eslint: ^8.30.0
@@ -15825,8 +15823,8 @@ __metadata:
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
     "@types/sharp": ^0.31.0
-    "@typescript-eslint/eslint-plugin": ^5.45.0
-    "@typescript-eslint/parser": ^5.45.0
+    "@typescript-eslint/eslint-plugin": ^5.47.0
+    "@typescript-eslint/parser": ^5.47.0
     "@yarnpkg/pnpify": ^4.0.0-rc.33
     axios: ^0.21.4
     axios-mock-adapter: ^1.21.2
@@ -15837,7 +15835,7 @@ __metadata:
     copy-to-clipboard: ^3.3.3
     cors: ^2.8.5
     csstype: ^3.1.1
-    dayjs: ^1.11.6
+    dayjs: ^1.11.7
     dompurify: ^2.4.1
     dotenv: ^16.0.3
     eslint: ^8.30.0
@@ -15934,8 +15932,8 @@ __metadata:
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
     "@types/sharp": ^0.31.0
-    "@typescript-eslint/eslint-plugin": ^5.45.0
-    "@typescript-eslint/parser": ^5.45.0
+    "@typescript-eslint/eslint-plugin": ^5.47.0
+    "@typescript-eslint/parser": ^5.47.0
     "@yarnpkg/pnpify": ^4.0.0-rc.33
     axios: ^0.21.4
     axios-mock-adapter: ^1.21.2
@@ -15946,7 +15944,7 @@ __metadata:
     copy-to-clipboard: ^3.3.3
     cors: ^2.8.5
     csstype: ^3.1.1
-    dayjs: ^1.11.6
+    dayjs: ^1.11.7
     dompurify: ^2.4.1
     dotenv: ^16.0.3
     eslint: ^8.30.0
@@ -16043,8 +16041,8 @@ __metadata:
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
     "@types/sharp": ^0.31.0
-    "@typescript-eslint/eslint-plugin": ^5.45.0
-    "@typescript-eslint/parser": ^5.45.0
+    "@typescript-eslint/eslint-plugin": ^5.47.0
+    "@typescript-eslint/parser": ^5.47.0
     "@yarnpkg/pnpify": ^4.0.0-rc.33
     axios: ^0.21.4
     axios-mock-adapter: ^1.21.2
@@ -16055,7 +16053,7 @@ __metadata:
     copy-to-clipboard: ^3.3.3
     cors: ^2.8.5
     csstype: ^3.1.1
-    dayjs: ^1.11.6
+    dayjs: ^1.11.7
     dompurify: ^2.4.1
     dotenv: ^16.0.3
     eslint: ^8.30.0
@@ -16152,8 +16150,8 @@ __metadata:
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
     "@types/sharp": ^0.31.0
-    "@typescript-eslint/eslint-plugin": ^5.45.0
-    "@typescript-eslint/parser": ^5.45.0
+    "@typescript-eslint/eslint-plugin": ^5.47.0
+    "@typescript-eslint/parser": ^5.47.0
     "@yarnpkg/pnpify": ^4.0.0-rc.33
     axios: ^0.21.4
     axios-mock-adapter: ^1.21.2
@@ -16164,7 +16162,7 @@ __metadata:
     copy-to-clipboard: ^3.3.3
     cors: ^2.8.5
     csstype: ^3.1.1
-    dayjs: ^1.11.6
+    dayjs: ^1.11.7
     dompurify: ^2.4.1
     dotenv: ^16.0.3
     eslint: ^8.30.0
@@ -16261,8 +16259,8 @@ __metadata:
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
     "@types/sharp": ^0.31.0
-    "@typescript-eslint/eslint-plugin": ^5.45.0
-    "@typescript-eslint/parser": ^5.45.0
+    "@typescript-eslint/eslint-plugin": ^5.47.0
+    "@typescript-eslint/parser": ^5.47.0
     "@yarnpkg/pnpify": ^4.0.0-rc.33
     axios: ^0.21.4
     axios-mock-adapter: ^1.21.2
@@ -16273,7 +16271,7 @@ __metadata:
     copy-to-clipboard: ^3.3.3
     cors: ^2.8.5
     csstype: ^3.1.1
-    dayjs: ^1.11.6
+    dayjs: ^1.11.7
     dompurify: ^2.4.1
     dotenv: ^16.0.3
     eslint: ^8.30.0
@@ -16370,8 +16368,8 @@ __metadata:
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
     "@types/sharp": ^0.31.0
-    "@typescript-eslint/eslint-plugin": ^5.45.0
-    "@typescript-eslint/parser": ^5.45.0
+    "@typescript-eslint/eslint-plugin": ^5.47.0
+    "@typescript-eslint/parser": ^5.47.0
     "@yarnpkg/pnpify": ^4.0.0-rc.33
     axios: ^0.21.4
     axios-mock-adapter: ^1.21.2
@@ -16382,7 +16380,7 @@ __metadata:
     copy-to-clipboard: ^3.3.3
     cors: ^2.8.5
     csstype: ^3.1.1
-    dayjs: ^1.11.6
+    dayjs: ^1.11.7
     dompurify: ^2.4.1
     dotenv: ^16.0.3
     eslint: ^8.30.0
@@ -16479,8 +16477,8 @@ __metadata:
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
     "@types/sharp": ^0.31.0
-    "@typescript-eslint/eslint-plugin": ^5.45.0
-    "@typescript-eslint/parser": ^5.45.0
+    "@typescript-eslint/eslint-plugin": ^5.47.0
+    "@typescript-eslint/parser": ^5.47.0
     "@yarnpkg/pnpify": ^4.0.0-rc.33
     axios: ^0.21.4
     axios-mock-adapter: ^1.21.2
@@ -16491,7 +16489,7 @@ __metadata:
     copy-to-clipboard: ^3.3.3
     cors: ^2.8.5
     csstype: ^3.1.1
-    dayjs: ^1.11.6
+    dayjs: ^1.11.7
     dompurify: ^2.4.1
     dotenv: ^16.0.3
     eslint: ^8.30.0
@@ -16602,8 +16600,8 @@ __metadata:
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
     "@types/sharp": ^0.31.0
-    "@typescript-eslint/eslint-plugin": ^5.45.0
-    "@typescript-eslint/parser": ^5.45.0
+    "@typescript-eslint/eslint-plugin": ^5.47.0
+    "@typescript-eslint/parser": ^5.47.0
     "@yarnpkg/pnpify": ^4.0.0-rc.33
     axios: ^0.21.4
     axios-mock-adapter: ^1.21.2
@@ -16614,7 +16612,7 @@ __metadata:
     copy-to-clipboard: ^3.3.3
     cors: ^2.8.5
     csstype: ^3.1.1
-    dayjs: ^1.11.6
+    dayjs: ^1.11.7
     dompurify: ^2.4.1
     dotenv: ^16.0.3
     eslint: ^8.30.0
@@ -16711,8 +16709,8 @@ __metadata:
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
     "@types/sharp": ^0.31.0
-    "@typescript-eslint/eslint-plugin": ^5.45.0
-    "@typescript-eslint/parser": ^5.45.0
+    "@typescript-eslint/eslint-plugin": ^5.47.0
+    "@typescript-eslint/parser": ^5.47.0
     "@yarnpkg/pnpify": ^4.0.0-rc.33
     axios: ^0.21.4
     axios-mock-adapter: ^1.21.2
@@ -16723,7 +16721,7 @@ __metadata:
     copy-to-clipboard: ^3.3.3
     cors: ^2.8.5
     csstype: ^3.1.1
-    dayjs: ^1.11.6
+    dayjs: ^1.11.7
     dompurify: ^2.4.1
     dotenv: ^16.0.3
     eslint: ^8.30.0
@@ -16774,7 +16772,7 @@ __metadata:
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
-    typescript: ^4.9.3
+    typescript: ^4.9.4
     ui: "*"
     ws: ^8.11.0
   languageName: unknown
