@@ -20,9 +20,9 @@ describe('screen: TransactionDetails/IBCChannelOpenTry', () => {
       category: 'ibc',
       type: 'MsgChannelOpenTry',
       signer: 'desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz',
-      channelId: '1',
-      portId: '21',
-      counterpartyVersion: '1.0',
+      channel: '1',
+      port_id: '21',
+      counterparty_version: '1.0',
       json: [
         {
           denom: 'udaric',

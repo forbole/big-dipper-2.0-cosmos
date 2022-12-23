@@ -14,6 +14,8 @@ import numeral from 'numeral';
 import * as R from 'ramda';
 import { ComponentProps, useCallback, useState } from 'react';
 
+const { extra, votingPowerTokenUnit } = chainConfig();
+
 export const useValidators = () => {
   const [search, setSearch] = useState('');
   const [state, setState] = useState<ValidatorsState>({
@@ -26,12 +28,15 @@ export const useValidators = () => {
     sortDirection: 'asc',
   });
 
-  const handleSetState = useCallback((stateChange: Partial<ValidatorsState>) => {
-    setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
-      return R.equals(prevState, newState) ? prevState : newState;
-    });
-  }, []);
+  const handleSetState = useCallback(
+    (stateChange: (prevState: ValidatorsState) => ValidatorsState) => {
+      setState((prevState) => {
+        const newState = stateChange(prevState);
+        return R.equals(prevState, newState) ? prevState : newState;
+      });
+    },
+    []
+  );
 
   // ==========================
   // Parse data
@@ -40,8 +45,7 @@ export const useValidators = () => {
     const slashingParams = SlashingParams.fromJson(data?.slashingParams?.[0]?.params ?? {});
     const votingPowerOverall =
       numeral(
-        formatToken(data?.stakingPool?.[0]?.bondedTokens ?? 0, chainConfig().votingPowerTokenUnit)
-          .value
+        formatToken(data?.stakingPool?.[0]?.bondedTokens ?? 0, votingPowerTokenUnit).value
       ).value() ?? 0;
 
     const { signedBlockWindow } = slashingParams;
@@ -49,7 +53,9 @@ export const useValidators = () => {
     let formattedItems: ValidatorType[] = data.validator
       .filter((x) => x.validatorInfo)
       .map((x) => {
-        const votingPower = x?.validatorVotingPowers?.[0]?.votingPower ?? 0;
+        const votingPower =
+          (x?.validatorVotingPowers?.[0]?.votingPower ?? 0) /
+          10 ** (extra.votingPowerExponent ?? 0);
         const votingPowerPercent = votingPowerOverall
           ? numeral((votingPower / votingPowerOverall) * 100).value()
           : 0;
@@ -102,10 +108,11 @@ export const useValidators = () => {
   // ==========================
   useValidatorsQuery({
     onCompleted: (data) => {
-      handleSetState({
+      handleSetState((prevState) => ({
+        ...prevState,
         loading: false,
         ...formatValidators(data),
-      });
+      }));
     },
   });
 

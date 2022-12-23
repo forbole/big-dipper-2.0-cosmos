@@ -1,11 +1,11 @@
-import { useState } from 'react';
-import * as R from 'ramda';
 import {
-  useTransactionsQuery,
-  useTransactionsListenerSubscription,
   TransactionsListenerSubscription,
+  useTransactionsListenerSubscription,
+  useTransactionsQuery,
 } from '@/graphql/types/general_types';
 import type { TransactionsState } from '@/screens/transactions/types';
+import * as R from 'ramda';
+import { useState } from 'react';
 
 export const useTransactions = () => {
   const [state, setState] = useState<TransactionsState>({
@@ -16,8 +16,11 @@ export const useTransactions = () => {
     items: [],
   });
 
-  const handleSetState = (stateChange: Partial<TransactionsState>) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState) as TransactionsState);
+  const handleSetState = (stateChange: (prevState: TransactionsState) => TransactionsState) => {
+    setState((prevState) => {
+      const newState = stateChange(prevState);
+      return newState;
+    });
   };
 
   // This is a bandaid as it can get extremely
@@ -44,10 +47,11 @@ export const useTransactions = () => {
         ...(data.data.data ? formatTransactions(data.data.data) : []),
         ...state.items,
       ]) as TransactionsState['items'];
-      handleSetState({
+      handleSetState((prevState) => ({
+        ...prevState,
         loading: false,
         items: newItems,
-      });
+      }));
     },
   });
 
@@ -61,9 +65,7 @@ export const useTransactions = () => {
       offset: 1,
     },
     onError: () => {
-      handleSetState({
-        loading: false,
-      });
+      handleSetState((prevState) => ({ ...prevState, loading: false }));
     },
     onCompleted: (data) => {
       const itemsLength = data.transactions.length;
@@ -71,19 +73,18 @@ export const useTransactions = () => {
         ...state.items,
         ...formatTransactions(data),
       ]) as TransactionsState['items'];
-      handleSetState({
+      handleSetState((prevState) => ({
+        ...prevState,
         loading: false,
         items: newItems,
         hasNextPage: itemsLength === 51,
         isNextPageLoading: false,
-      });
+      }));
     },
   });
 
   const loadNextPage = async () => {
-    handleSetState({
-      isNextPageLoading: true,
-    });
+    handleSetState((prevState) => ({ ...prevState, isNextPageLoading: true }));
     // refetch query
     await transactionQuery
       .fetchMore({
@@ -99,11 +100,12 @@ export const useTransactions = () => {
           ...formatTransactions(data),
         ]) as TransactionsState['items'];
         // set new state
-        handleSetState({
+        handleSetState((prevState) => ({
+          ...prevState,
           items: newItems,
           isNextPageLoading: false,
           hasNextPage: itemsLength === 51,
-        });
+        }));
       });
   };
 

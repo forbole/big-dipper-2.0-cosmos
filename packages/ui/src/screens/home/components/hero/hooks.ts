@@ -4,6 +4,8 @@ import type { HeroState } from '@/screens/home/components/hero/types';
 import * as R from 'ramda';
 import { useCallback, useState } from 'react';
 
+const { primaryTokenUnit, tokenUnits } = chainConfig();
+
 export const useHero = () => {
   const [state, setState] = useState<HeroState>({
     loading: true,
@@ -11,9 +13,9 @@ export const useHero = () => {
     tokenPriceHistory: [],
   });
 
-  const handleSetState = useCallback((stateChange: Partial<HeroState>) => {
+  const handleSetState = useCallback((stateChange: (prevState: HeroState) => HeroState) => {
     setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
+      const newState = stateChange(prevState);
       return R.equals(prevState, newState) ? prevState : newState;
     });
   }, []);
@@ -21,7 +23,7 @@ export const useHero = () => {
   useTokenPriceHistoryQuery({
     variables: {
       limit: 10,
-      denom: chainConfig().tokenUnits?.[chainConfig().primaryTokenUnit]?.display,
+      denom: tokenUnits?.[primaryTokenUnit]?.display,
     },
     onCompleted: (data) => {
       const newState: Partial<HeroState> = {
@@ -33,12 +35,10 @@ export const useHero = () => {
           value: x.price,
         }));
       }
-      handleSetState(newState);
+      handleSetState((prevState) => ({ ...prevState, ...newState }));
     },
     onError: () => {
-      handleSetState({
-        loading: false,
-      });
+      handleSetState((prevState) => ({ ...prevState, loading: false }));
     },
   });
 

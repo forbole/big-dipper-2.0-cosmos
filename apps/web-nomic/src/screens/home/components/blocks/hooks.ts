@@ -11,9 +11,9 @@ export const useBlocks = () => {
     items: [],
   });
 
-  const handleSetState = useCallback((stateChange: Partial<BlocksState>) => {
+  const handleSetState = useCallback((stateChange: (prevState: BlocksState) => BlocksState) => {
     setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
+      const newState = stateChange(prevState);
       return R.equals(prevState, newState) ? prevState : newState;
     });
   }, []);
@@ -23,9 +23,10 @@ export const useBlocks = () => {
   // ================================
   useBlocksListenerSubscription({
     onData: (data) => {
-      handleSetState({
+      handleSetState((prevState) => ({
+        ...prevState,
         items: data.data.data ? formatBlocks(data.data.data) : [],
-      });
+      }));
     },
   });
 

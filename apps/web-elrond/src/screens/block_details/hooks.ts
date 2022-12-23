@@ -27,12 +27,15 @@ export const useBlockDetails = () => {
     consensus: [],
   });
 
-  const handleSetState = useCallback((stateChange: Partial<BlockDetailsState>) => {
-    setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
-      return R.equals(prevState, newState) ? prevState : newState;
-    });
-  }, []);
+  const handleSetState = useCallback(
+    (stateChange: (prevState: BlockDetailsState) => BlockDetailsState) => {
+      setState((prevState) => {
+        const newState = stateChange(prevState);
+        return R.equals(prevState, newState) ? prevState : newState;
+      });
+    },
+    []
+  );
 
   useEffect(() => {
     const getBlockDetails = async () => {
@@ -55,7 +58,8 @@ export const useBlockDetails = () => {
         }>(BLOCK_DETAILS(router.query.hash as string));
         const size = blockData?.size ?? 0;
         const sizeTxs = blockData?.sizeTxs ?? 0;
-        handleSetState({
+        handleSetState((prevState) => ({
+          ...prevState,
           loading: false,
           overview: {
             block: blockData.round,
@@ -72,12 +76,13 @@ export const useBlockDetails = () => {
           },
           miniBlocks: blockData?.miniBlocksHashes,
           consensus: blockData.validators,
-        });
+        }));
       } catch (error) {
-        handleSetState({
+        handleSetState((prevState) => ({
+          ...prevState,
           loading: false,
           exists: false,
-        });
+        }));
         console.error((error as Error).message);
       }
     };

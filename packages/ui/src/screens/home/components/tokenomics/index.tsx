@@ -10,6 +10,8 @@ import numeral from 'numeral';
 import React from 'react';
 import { Cell, Pie, PieChart, Tooltip } from 'recharts';
 
+const { tokenUnits } = chainConfig();
+
 const Tokenomics: React.FC<{
   className?: string;
 }> = ({ className }) => {
@@ -65,7 +67,7 @@ const Tokenomics: React.FC<{
         {data.slice(0, 2).map((x) => (
           <div className="data__item" key={x.percentKey}>
             <Typography variant="h4">
-              {x.value} {chainConfig().tokenUnits?.[state.denom]?.display?.toUpperCase()}
+              {x.value} {tokenUnits?.[state.denom]?.display?.toUpperCase()}
             </Typography>
             <Typography variant="caption">
               {x.percentKey

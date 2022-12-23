@@ -11,6 +11,8 @@ import {
 import numeral from 'numeral';
 import { useState } from 'react';
 
+const { primaryTokenUnit, tokenUnits } = chainConfig();
+
 export const useDataBlocks = () => {
   const [state, setState] = useState<{
     blockHeight: number;
@@ -63,7 +65,7 @@ export const useDataBlocks = () => {
   // ====================================
   useTokenPriceListenerSubscription({
     variables: {
-      denom: chainConfig().tokenUnits?.[chainConfig().primaryTokenUnit]?.display,
+      denom: tokenUnits?.[primaryTokenUnit]?.display,
     },
     onData: (data) => {
       setState((prevState) => ({

@@ -7,7 +7,7 @@ const transactionHash = '705351F036752DA23C43A4F36D184976EA441CDA4CB2DE9A1236223
 
 test('search box', async ({ page }) => {
   // Test url
-  await Promise.all([page.waitForNavigation({ url: /[^?#]*\/\/[^/]+\/$/ }), page.goto('.')]);
+  await Promise.all([page.waitForNavigation(), page.goto('.')]);
   await expect(page.getByRole('progressbar')).toHaveCount(0);
 
   // Test validator address search

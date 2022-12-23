@@ -5,11 +5,15 @@ import numeral from 'numeral';
 import * as R from 'ramda';
 import { useState } from 'react';
 
-const initialState: {
+const { votingPowerTokenUnit } = chainConfig();
+
+type OnlineVPState = {
   votingPower: number;
   totalVotingPower: number;
   activeValidators: number;
-} = {
+};
+
+const initialState: OnlineVPState = {
   votingPower: 0,
   totalVotingPower: 0,
   activeValidators: 0,
@@ -18,16 +22,19 @@ const initialState: {
 export const useOnlineVotingPower = () => {
   const [onlineVPState, setOnlineVPState] = useState(initialState);
 
-  const handleSetState = (stateChange: Partial<typeof onlineVPState>) => {
+  const handleSetState = (stateChange: (prevState: OnlineVPState) => OnlineVPState) => {
     setOnlineVPState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
+      const newState = stateChange(prevState);
       return R.equals(prevState, newState) ? prevState : newState;
     });
   };
 
   useOnlineVotingPowerQuery({
     onCompleted: (data) => {
-      handleSetState(formatOnlineVotingPower(data));
+      handleSetState((prevState) => ({
+        ...prevState,
+        ...formatOnlineVotingPower(data),
+      }));
     },
   });
 
@@ -39,8 +46,7 @@ export const useOnlineVotingPower = () => {
     return {
       activeValidators,
       votingPower,
-      totalVotingPower:
-        numeral(formatToken(bonded, chainConfig().votingPowerTokenUnit).value).value() ?? undefined,
+      totalVotingPower: numeral(formatToken(bonded, votingPowerTokenUnit).value).value() ?? 0,
     };
   };
 

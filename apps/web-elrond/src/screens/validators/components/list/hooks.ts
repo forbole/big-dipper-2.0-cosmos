@@ -1,12 +1,14 @@
-import { ComponentProps, useCallback, useEffect, useState } from 'react';
-import * as R from 'ramda';
-import axios from 'axios';
-import Big from 'big.js';
 import { IDENTITIES, PROVIDERS, STAKE } from '@/api';
-import { formatToken, formatNumber } from '@/utils/format_token';
 import chainConfig from '@/chainConfig';
 import type { ValidatorsState } from '@/screens/validators/components/list/types';
+import { formatNumber, formatToken } from '@/utils/format_token';
 import Tabs from '@material-ui/core/Tabs';
+import axios from 'axios';
+import Big from 'big.js';
+import * as R from 'ramda';
+import { ComponentProps, useCallback, useEffect, useState } from 'react';
+
+const { primaryTokenUnit } = chainConfig();
 
 type ValidatorData = {
   identity: string;
@@ -40,18 +42,22 @@ export const useValidators = () => {
     []
   );
 
-  const handleSetState = useCallback((stateChange: Partial<ValidatorsState>) => {
-    setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
-      return R.equals(prevState, newState) ? prevState : newState;
-    });
-  }, []);
+  const handleSetState = useCallback(
+    (stateChange: (prevState: ValidatorsState) => ValidatorsState) => {
+      setState((prevState) => {
+        const newState = stateChange(prevState);
+        return R.equals(prevState, newState) ? prevState : newState;
+      });
+    },
+    []
+  );
 
   const handleSearch = useCallback(
     (value: string) => {
-      handleSetState({
+      handleSetState((prevState) => ({
+        ...prevState,
         search: value,
-      });
+      }));
     },
     [handleSetState]
   );
@@ -130,7 +136,7 @@ export const useValidators = () => {
           allProviderData[validator.address] = x;
         });
 
-        const totalStaked = stakeData?.totalStaked ?? '0';
+        const totalStaked = Big(stakeData?.totalStaked || 0);
 
         const validators = R.keys(allValidators).map((x) => {
           const validator = allValidators[x];
@@ -140,15 +146,14 @@ export const useValidators = () => {
           const data = R.mergeAll([providerData, validatorData]) as ValidatorData & ProviderData;
 
           const locked = data?.locked ?? '0';
-          const stakePercentString = Big(locked)
-            .div(totalStaked === '0' ? 1 : totalStaked)
-            ?.times(100)
-            .toFixed(3);
+          const stakePercentString = !totalStaked.eq(0)
+            ? Big(locked).div(totalStaked)?.times(100).toFixed(3) ?? ''
+            : '';
 
           return {
             validator,
-            stake: formatToken(data?.stake ?? '0', chainConfig().primaryTokenUnit),
-            locked: formatToken(locked, chainConfig().primaryTokenUnit),
+            stake: formatToken(data?.stake ?? '0', primaryTokenUnit),
+            locked: formatToken(locked, primaryTokenUnit),
             nodes: data?.validators ?? 0,
             commission: data?.serviceFee,
             apr: data?.apr,
@@ -158,15 +163,17 @@ export const useValidators = () => {
           };
         });
 
-        handleSetState({
+        handleSetState((prevState) => ({
+          ...prevState,
           loading: false,
           validators,
-        });
+        }));
       } catch (error) {
-        handleSetState({
+        handleSetState((prevState) => ({
+          ...prevState,
           loading: false,
           exists: false,
-        });
+        }));
         console.error((error as Error).message);
       }
     };

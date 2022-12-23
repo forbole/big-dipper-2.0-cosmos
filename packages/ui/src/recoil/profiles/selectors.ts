@@ -5,10 +5,11 @@ import { readValidator } from '@/recoil/validators';
 import { bech32 } from 'bech32';
 import { GetRecoilValue, selectorFamily } from 'recoil';
 
+const { prefix } = chainConfig();
+
 // ======================================================================
 // selector utils
 // ======================================================================
-
 const getDelegatorAddress = ({
   address,
   get,
@@ -16,9 +17,9 @@ const getDelegatorAddress = ({
   address: string;
   get: GetRecoilValue;
 }): string => {
-  const consensusRegex = `^(${chainConfig().prefix.consensus})`;
-  const validatorRegex = `^(${chainConfig().prefix.validator})`;
-  const delegatorRegex = `^(${chainConfig().prefix.account})`;
+  const consensusRegex = `^(${prefix.consensus})`;
+  const validatorRegex = `^(${prefix.validator})`;
+  const delegatorRegex = `^(${prefix.account})`;
   let selectedAddress = '';
   if (new RegExp(consensusRegex).test(address)) {
     // address given is a consensus
@@ -29,7 +30,7 @@ const getDelegatorAddress = ({
   } else if (new RegExp(validatorRegex).test(address)) {
     // address given is a validator
     const decode = bech32.decode(address).words;
-    selectedAddress = bech32.encode(chainConfig().prefix.account, decode);
+    selectedAddress = bech32.encode(prefix.account, decode);
   } else if (new RegExp(delegatorRegex).test(address)) {
     // address given is a delegator
     selectedAddress = address;
@@ -39,7 +40,7 @@ const getDelegatorAddress = ({
 
 export const validatorToDelegatorAddress = (address: string) => {
   const decode = bech32.decode(address).words;
-  return bech32.encode(chainConfig().prefix.account, decode);
+  return bech32.encode(prefix.account, decode);
 };
 
 /**
@@ -47,7 +48,7 @@ export const validatorToDelegatorAddress = (address: string) => {
  * Returns address otherwise
  */
 const getReturnAddress = ({ address, get }: { address: string; get: GetRecoilValue }): string => {
-  const consensusRegex = `^(${chainConfig().prefix.consensus})`;
+  const consensusRegex = `^(${prefix.consensus})`;
   let selectedAddress = address;
   if (new RegExp(consensusRegex).test(address)) {
     // address given is a consensus

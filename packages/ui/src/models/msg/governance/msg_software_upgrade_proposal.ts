@@ -1,9 +1,10 @@
+import numeral from 'numeral';
 import * as R from 'ramda';
 
 type Plan = {
   name: string;
   time: string;
-  height: string | number;
+  height: number | null;
   info: string;
   upgradedClientState: unknown;
 };
@@ -21,7 +22,7 @@ class MsgSoftwareUpgradeProposal {
     this.title = R.pathOr('', ['title'], payload);
     this.description = R.pathOr('', ['description'], payload);
     this.plan = R.pathOr(
-      { name: '', time: '', height: '', info: '', upgradedClientState: {} },
+      { name: '', time: '', height: 0, info: '', upgradedClientState: {} },
       ['plan'],
       payload
     );
@@ -32,11 +33,13 @@ class MsgSoftwareUpgradeProposal {
       type: R.pathOr('', ['@type'], json),
       title: R.pathOr('', ['title'], json),
       description: R.pathOr('', ['description'], json),
-      plan: R.pathOr(
-        { name: '', time: '', height: '', info: '', upgradedClientState: {} },
-        ['plan'],
-        json
-      ),
+      plan: {
+        name: R.pathOr('', ['plan', 'name'], json),
+        time: R.pathOr('', ['plan', 'time'], json),
+        height: numeral(R.pathOr('0', ['plan', 'height'], json)).value() ?? 0,
+        info: R.pathOr('', ['plan', 'info'], json),
+        upgradedClientState: R.pathOr({}, ['plan', 'upgraded_client_state'], json),
+      },
     };
   }
 }

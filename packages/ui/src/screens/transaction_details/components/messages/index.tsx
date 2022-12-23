@@ -13,13 +13,15 @@ import React, { FC } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
 
-const Messages: FC<{
+type MessagesProps = {
   className?: string;
   messages: unknown[];
   viewRaw: boolean;
   toggleMessageDisplay: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onMessageFilterCallback: (value: string) => void;
-}> = ({ className, ...props }) => {
+};
+
+const Messages: FC<MessagesProps> = ({ className, ...props }) => {
   const { t } = useTranslation('transactions');
   const classes = useStyles();
 
@@ -86,14 +88,21 @@ const Messages: FC<{
   );
 };
 
-const ListItem: FC<
-  Pick<ListChildComponentProps, 'index' | 'style'> & {
-    setRowHeight: Parameters<typeof useListRow>[1];
-    formattedItems: Array<{ type: unknown; message: unknown }>;
-    classes: ReturnType<typeof useStyles>;
-    messages: unknown[];
-  }
-> = ({ index, style, setRowHeight, formattedItems, classes, messages }) => {
+type ListItemProps = Pick<ListChildComponentProps, 'index' | 'style'> & {
+  setRowHeight: Parameters<typeof useListRow>[1];
+  formattedItems: Array<{ type: unknown; message: unknown }>;
+  classes: ReturnType<typeof useStyles>;
+  messages: unknown[];
+};
+
+const ListItem: FC<ListItemProps> = ({
+  index,
+  style,
+  setRowHeight,
+  formattedItems,
+  classes,
+  messages,
+}) => {
   const { rowRef } = useListRow(index, setRowHeight);
   const selectedItem = formattedItems[index];
   return (

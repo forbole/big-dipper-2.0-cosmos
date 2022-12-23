@@ -2,11 +2,12 @@ import chainConfig from '@/chainConfig';
 import type { Theme } from '@/recoil/settings/types';
 import { defaultTheme, isThemeSupported, themeDictionary } from '@/styles';
 
+const { themes } = chainConfig();
+
 // ================================
 // CONSTANTS
 // ================================
-
-export const THEME_LIST: Theme[] = chainConfig().themes.themeList;
+export const THEME_LIST: Theme[] = themes.themeList;
 
 export const THEME_DICTIONARY = themeDictionary;
 

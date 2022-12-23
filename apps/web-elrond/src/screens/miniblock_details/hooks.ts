@@ -21,19 +21,23 @@ export const useBlockDetails = () => {
     },
   });
 
-  const handleSetState = useCallback((stateChange: Partial<BlockDetailsState>) => {
-    setState((prevState) => {
-      const newState = { ...prevState, ...stateChange };
-      return R.equals(prevState, newState) ? prevState : newState;
-    });
-  }, []);
+  const handleSetState = useCallback(
+    (stateChange: (prevState: BlockDetailsState) => BlockDetailsState) => {
+      setState((prevState) => {
+        const newState = stateChange(prevState);
+        return R.equals(prevState, newState) ? prevState : newState;
+      });
+    },
+    []
+  );
 
   useEffect(() => {
     const getBlockDetails = async () => {
       try {
         const { data: blockData } = await axios.get(MINIBLOCK_DETAILS(router.query.hash as string));
 
-        handleSetState({
+        handleSetState((prevState) => ({
+          ...prevState,
           loading: false,
           overview: {
             hash: blockData.miniBlockHash,
@@ -44,12 +48,13 @@ export const useBlockDetails = () => {
             timestamp: blockData.timestamp,
             type: blockData.type,
           },
-        });
+        }));
       } catch (error) {
-        handleSetState({
+        handleSetState((prevState) => ({
+          ...prevState,
           loading: false,
           exists: false,
-        });
+        }));
         console.error((error as Error).message);
       }
     };

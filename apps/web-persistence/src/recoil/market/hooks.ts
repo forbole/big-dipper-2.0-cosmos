@@ -8,6 +8,8 @@ import Big from 'big.js';
 import numeral from 'numeral';
 import { SetterOrUpdater, useRecoilState } from 'recoil';
 
+const { primaryTokenUnit, tokenUnits } = chainConfig();
+
 export function useMarketRecoil() {
   const [market, setMarket] = useRecoilState(writeMarket) as [
     AtomState,
@@ -16,7 +18,7 @@ export function useMarketRecoil() {
 
   useMarketDataQuery({
     variables: {
-      denom: chainConfig().tokenUnits?.[chainConfig().primaryTokenUnit]?.display,
+      denom: tokenUnits?.[primaryTokenUnit]?.display,
     },
     onCompleted: (data) => {
       if (data) {
@@ -34,26 +36,22 @@ export function useMarketRecoil() {
     }
 
     const [communityPoolCoin] =
-      (data?.communityPool?.[0]?.coins as MsgCoin[])?.filter(
-        (x) => x.denom === chainConfig().primaryTokenUnit
-      ) ?? [];
+      (data?.communityPool?.[0]?.coins as MsgCoin[])?.filter((x) => x.denom === primaryTokenUnit) ??
+      [];
     const inflation = data?.inflation?.[0]?.value ?? 0;
 
-    const rawSupplyAmount = getDenom(
-      data?.supply?.[0]?.coins,
-      chainConfig().primaryTokenUnit
-    ).amount;
-    const supply = formatToken(rawSupplyAmount, chainConfig().primaryTokenUnit);
+    const rawSupplyAmount = getDenom(data?.supply?.[0]?.coins, primaryTokenUnit).amount;
+    const supply = formatToken(rawSupplyAmount, primaryTokenUnit);
 
     if (communityPoolCoin) {
       communityPool = formatToken(communityPoolCoin.amount, communityPoolCoin.denom);
     }
 
-    const bondedTokens = data?.bondedTokens?.[0]?.bonded_tokens ?? 1;
-    const communityTax = data?.distributionParams?.[0]?.params?.community_tax ?? '0';
+    const bondedTokens = Big(data?.bondedTokens?.[0]?.bonded_tokens || 0);
+    const communityTax = Big(data?.distributionParams?.[0]?.params?.community_tax || 0);
 
     const inflationWithCommunityTax = Big(1).minus(communityTax)?.times(inflation).toPrecision(2);
-    const apr = bondedTokens
+    const apr = !bondedTokens.eq(0)
       ? Big(rawSupplyAmount)?.times(inflationWithCommunityTax).div(bondedTokens).toNumber()
       : 0;
 
