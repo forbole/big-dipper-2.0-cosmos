@@ -1,5 +1,11 @@
 # shared-utils
 
+## 2.4.0
+
+### Minor Changes
+
+- 5c2b1ce0: feat: display package version in Setting Dialog
+
 ## 2.3.0
 
 ### Minor Changes
