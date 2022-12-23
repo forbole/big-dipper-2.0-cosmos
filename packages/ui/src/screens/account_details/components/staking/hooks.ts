@@ -153,14 +153,16 @@ export const useStaking = (
             });
         }
 
-        handleSetState((prevState) => ({
-          ...prevState,
-          delegations: {
-            loading: false,
-            count,
-            data: createPagination(formatDelegations(allDelegations)),
-          },
-        }));
+        if (validatorsCommission.length > 0) {
+          handleSetState((prevState) => ({
+            ...prevState,
+            delegations: {
+              loading: false,
+              count,
+              data: createPagination(formatDelegations(allDelegations)),
+            },
+          }));
+        }
       } catch (error) {
         handleSetState((prevState) => ({
           ...prevState,
