@@ -63,14 +63,14 @@ export const useValidatorDetails = () => {
   // ==========================
   // Desmos Profile
   // ==========================
-  const { data: desmosProfile, loading } = useDesmosProfile({
+  const { data: desmosProfile, loading: loadingDesmosProfile } = useDesmosProfile({
     addresses: Array.isArray(router.query.address)
       ? router.query.address
       : [router.query.address ?? ''],
     skip: !extra.profile,
   });
   state.desmosProfile = desmosProfile?.[0];
-  if (loading) state.loading = true;
+  if (loadingDesmosProfile) state.loading = true;
 
   // ==========================
   // Fetch Data

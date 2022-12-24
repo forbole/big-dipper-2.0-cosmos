@@ -39,12 +39,13 @@ export const useProfileDetails = () => {
   // ==========================
   // Desmos Profile
   // ==========================
-  const { data: desmosProfile, loading } = useDesmosProfile({
+  const { data: desmosProfile, loading: loadingDesmosProfile } = useDesmosProfile({
     addresses: [profileDtag],
     skip: !extra.profile || !/^@/.test(profileDtag),
   });
-  if (loading) state.loading = true;
   state.desmosProfile = desmosProfile?.[0];
+  state.loading = loadingDesmosProfile;
+  state.exists = loadingDesmosProfile ? !!desmosProfile.length : true;
 
   useEffect(() => {
     const regex = /^@/;

@@ -17,7 +17,7 @@ export const useDesmosProfile = (options: Options) => {
   const addresses = options.addresses ?? [];
 
   const isAddress = addresses[0]?.startsWith('desmos') && isValidAddress(addresses[0]);
-  const { data, error, loading } = useDesmosProfileQuery({
+  const { data, loading, error } = useDesmosProfileQuery({
     variables: {
       addresses,
     },

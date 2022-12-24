@@ -952,7 +952,7 @@ export const DesmosProfileDocument = gql`
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, error, loading } = useDesmosProfileQuery({
+ * const { data, loading, error } = useDesmosProfileQuery({
  *   variables: {
  *      addresses: // value for 'addresses'
  *   },
@@ -1007,7 +1007,7 @@ export const DesmosProfileLinkDocument = gql`
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, error, loading } = useDesmosProfileLinkQuery({
+ * const { data, loading, error } = useDesmosProfileLinkQuery({
  *   variables: {
  *      addresses: // value for 'addresses'
  *   },
@@ -1062,7 +1062,7 @@ export const DesmosProfileDtagDocument = gql`
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, error, loading } = useDesmosProfileDtagQuery({
+ * const { data, loading, error } = useDesmosProfileDtagQuery({
  *   variables: {
  *      dtag: // value for 'dtag'
  *   },

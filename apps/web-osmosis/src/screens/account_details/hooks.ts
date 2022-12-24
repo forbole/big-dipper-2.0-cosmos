@@ -65,14 +65,14 @@ export const useAccountDetails = () => {
   // ==========================
   // Desmos Profile
   // ==========================
-  const { data: desmosProfile, loading } = useDesmosProfile({
+  const { data: desmosProfile, loading: loadingDesmosProfile } = useDesmosProfile({
     addresses: Array.isArray(router.query.address)
       ? router.query.address
       : [router.query.address ?? ''],
     skip: !extra.profile,
   });
-  if (loading) state.loading = true;
   state.desmosProfile = desmosProfile?.[0];
+  if (loadingDesmosProfile) state.loading = true;
 
   useEffect(() => {
     // ==========================
