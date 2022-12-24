@@ -2,14 +2,12 @@ import chainConfig from '@/chainConfig';
 import { useValidatorDetailsQuery, ValidatorDetailsQuery } from '@/graphql/types/general_types';
 import { useDesmosProfile } from '@/hooks';
 import { SlashingParams } from '@/models';
-import { validatorToDelegatorAddress } from '@/recoil/profiles';
 import type { ValidatorDetailsState } from '@/screens/validator_details/types';
 import { formatToken } from '@/utils/format_token';
 import { getValidatorCondition } from '@/utils/get_validator_condition';
-import { isValidAddress } from '@/utils/prefix_convert';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 
 const { extra, votingPowerTokenUnit } = chainConfig();
 
@@ -66,13 +64,13 @@ export const useValidatorDetails = () => {
   // ==========================
   // Desmos Profile
   // ==========================
-  const { fetchDesmosProfile, formatDesmosProfile } = useDesmosProfile({
-    onComplete: (data) => {
-      const desmosProfile = formatDesmosProfile(data);
-      handleSetState((prevState) => ({ ...prevState, desmosProfile }));
-      return desmosProfile;
-    },
+  const { data: desmosProfile } = useDesmosProfile({
+    addresses: Array.isArray(router.query.address)
+      ? router.query.address
+      : [router.query.address ?? ''],
+    skip: !extra.profile,
   });
+  state.desmosProfile = desmosProfile?.[0];
 
   // ==========================
   // Fetch Data
@@ -85,20 +83,6 @@ export const useValidatorDetails = () => {
       handleSetState((prevState) => ({ ...prevState, ...formatAccountQuery(data) }));
     },
   });
-
-  useEffect(() => {
-    if (!isValidAddress(router.query.address as string)) {
-      handleSetState((prevState) => ({
-        ...prevState,
-        loading: false,
-        exists: false,
-      }));
-    } else if (extra.profile) {
-      const address = validatorToDelegatorAddress(router.query.address as string);
-      fetchDesmosProfile(address);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [router.query.address]);
 
   return {
     state,

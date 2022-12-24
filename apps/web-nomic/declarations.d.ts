@@ -48,6 +48,7 @@ type ValidatorProfile = {
 };
 
 type DesmosProfile = {
+  address: string;
   dtag: string;
   nickname: string;
   imageUrl: string;

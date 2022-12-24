@@ -26,22 +26,6 @@ export const useProfileDetails = () => {
     []
   );
 
-  // ==========================
-  // Desmos Profile
-  // ==========================
-  const { fetchDesmosProfile, formatDesmosProfile } = useDesmosProfile({
-    onComplete: (data) => {
-      const desmosProfile = formatDesmosProfile(data);
-      handleSetState((prevState) => ({
-        ...prevState,
-        loading: false,
-        exists: !!data?.profile?.length,
-        desmosProfile,
-      }));
-      return desmosProfile;
-    },
-  });
-
   const shouldShowProfile = useCallback(() => {
     const dtagConnections = state.desmosProfile?.connections ?? [];
     const dtagConnectionsNetwork = dtagConnections.map((x) => x.identifier);
@@ -52,6 +36,15 @@ export const useProfileDetails = () => {
 
   const profileDtag: string = (router?.query?.dtag as string) ?? '';
 
+  // ==========================
+  // Desmos Profile
+  // ==========================
+  const { data: desmosProfile } = useDesmosProfile({
+    addresses: [profileDtag],
+    skip: !extra.profile || !/^@/.test(profileDtag),
+  });
+  state.desmosProfile = desmosProfile?.[0];
+
   useEffect(() => {
     const regex = /^@/;
     const regexCheck = regex.test(profileDtag);
@@ -60,9 +53,6 @@ export const useProfileDetails = () => {
 
     if (!regexCheck || !configProfile) {
       router.replace('/');
-    }
-    if (configProfile) {
-      fetchDesmosProfile(profileDtag);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [profileDtag]);

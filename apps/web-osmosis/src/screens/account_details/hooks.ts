@@ -11,7 +11,6 @@ import {
 } from '@/screens/account_details/utils';
 import { formatToken } from '@/utils/format_token';
 import { getDenom } from '@/utils/get_denom';
-import { isValidAddress } from '@/utils/prefix_convert';
 import Big from 'big.js';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
@@ -66,26 +65,13 @@ export const useAccountDetails = () => {
   // ==========================
   // Desmos Profile
   // ==========================
-  const { fetchDesmosProfile, formatDesmosProfile } = useDesmosProfile({
-    onComplete: (data) => {
-      const desmosProfile = formatDesmosProfile(data);
-      handleSetState((prevState) => ({ ...prevState, desmosProfile }));
-      return desmosProfile;
-    },
+  const { data: desmosProfile } = useDesmosProfile({
+    addresses: Array.isArray(router.query.address)
+      ? router.query.address
+      : [router.query.address ?? ''],
+    skip: !extra.profile,
   });
-
-  useEffect(() => {
-    if (!isValidAddress(router.query.address as string)) {
-      handleSetState((prevState) => ({
-        ...prevState,
-        loading: false,
-        exists: false,
-      }));
-    } else if (extra.profile) {
-      fetchDesmosProfile(router.query.address as string);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [router.query.address]);
+  state.desmosProfile = desmosProfile?.[0];
 
   useEffect(() => {
     // ==========================

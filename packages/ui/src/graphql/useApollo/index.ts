@@ -2,11 +2,11 @@ import chainConfig from '@/chainConfig';
 import {
   ApolloClient,
   DefaultOptions,
-  HttpLink,
   InMemoryCache,
   NormalizedCacheObject,
-  split,
+  split
 } from '@apollo/client';
+import { BatchHttpLink } from "@apollo/client/link/batch-http";
 import { GraphQLWsLink } from '@apollo/client/link/subscriptions';
 import { WebSocketLink } from '@apollo/client/link/ws';
 import { getMainDefinition } from '@apollo/client/utilities';
@@ -15,7 +15,7 @@ import { createClient } from 'graphql-ws';
 import webSocketImpl from 'isomorphic-ws';
 import { useEffect, useState } from 'react';
 
-const { endpoints, extra } = chainConfig();
+const { chainType, endpoints, extra } = chainConfig();
 
 /* Checking if the code is running on the server or the client. */
 const ssrMode = typeof window === 'undefined';
@@ -48,10 +48,11 @@ const defaultOptions: DefaultOptions = {
 };
 
 /* Creating a new HttpLink object. */
-function httpLink() {
-  return new HttpLink({
-    uri: urlEndpoints.find((u) => u),
-    fetch,
+function httpBatchLink(uri?: string) {
+  return new BatchHttpLink({
+    uri,
+    batchMax: 25,
+    batchInterval: 200,
   });
 }
 
@@ -59,12 +60,12 @@ function httpLink() {
  * It creates a WebSocketLink object that connects to the GraphQL server via a WebSocket connection
  * @returns A WebSocketLink object.
  */
-function createWebSocketLink() {
+function createWebSocketLink(uri?: string) {
   // older version of Hasura doesn't support graphql-ws
   if (extra.graphqlWs) {
     return new GraphQLWsLink(
       createClient({
-        url: wsEndpoints.find((u) => u) ?? '',
+        url: uri ?? '',
         lazy: true,
         retryAttempts: Number.MAX_VALUE,
         retryWait: (_count) => new Promise((r) => setTimeout(() => r(), 1000)),
@@ -78,7 +79,7 @@ function createWebSocketLink() {
   }
 
   return new WebSocketLink({
-    uri: wsEndpoints.find((u) => u) ?? '',
+    uri: uri ?? '',
     options: {
       lazy: true,
       reconnect: true,
@@ -87,6 +88,13 @@ function createWebSocketLink() {
     },
     webSocketImpl,
   });
+}
+
+function profileApi() {
+  if (/^testnet/i.test(chainType)) {
+    return 'https://gql.morpheus.desmos.network/v1/graphql';
+  }
+  return 'https://gql.mainnet.desmos.network/v1/graphql';
 }
 
 /**
@@ -98,24 +106,24 @@ function createApolloClient(initialState = {}) {
   /* Restoring the cache from the initial state. */
   const cache = new InMemoryCache().restore(initialState);
 
-  /* Checking if the code is running on the server or the client. If it is running on the
-  server, it uses the httpLink. If it is running on the client, it uses the split function to check
-  if the query is a subscription. If it is, it uses the WebSocketLink. If it is not, it uses the
-  httpLink. */
-  const link = ssrMode
-    ? httpLink()
-    : split(
-        /* Checking if the query is a subscription. */
-        ({ query }) => {
-          const node = getMainDefinition(query);
-          return (
-            node.kind === Kind.OPERATION_DEFINITION &&
-            node.operation === OperationTypeNode.SUBSCRIPTION
-          );
-        },
-        createWebSocketLink(),
-        httpLink()
-      );
+  const defaultLink = split(
+    /* Checking if the query is a subscription. */
+    ({ query }) => {
+      const node = getMainDefinition(query);
+      const isSubscription = (
+        node.kind === Kind.OPERATION_DEFINITION &&
+        node.operation === OperationTypeNode.SUBSCRIPTION
+      )
+      return isSubscription;
+    },
+    createWebSocketLink(wsEndpoints.find((u) => u)),
+    httpBatchLink(urlEndpoints.find((u) => u))
+  );
+  
+  const link = split(({ operationName }) => /^DesmosProfile/.test(operationName),
+    httpBatchLink(profileApi()),
+    defaultLink,
+  );
 
   /* Creating a new Apollo Client. */
   const client = new ApolloClient({

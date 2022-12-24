@@ -1,6 +1,6 @@
 export const DesmosProfileDocument = /* GraphQL */ `
-  query DesmosProfile($address: String) {
-    profile(where: { address: { _eq: $address } }, limit: 1) {
+  query DesmosProfile($addresses: [String!]) {
+    profile(where: { address: { _in: $addresses } }, limit: 1) {
       address
       bio
       dtag
@@ -28,8 +28,8 @@ export const DesmosProfileDocument = /* GraphQL */ `
 
 // use this query if address is a link and not owner
 export const DesmosProfileLinkDocument = /* GraphQL */ `
-  query DesmosProfileLink($address: String) {
-    profile(where: { chain_links: { external_address: { _eq: $address } } }) {
+  query DesmosProfileLink($addresses: [String!]) {
+    profile(where: { chain_links: { external_address: { _in: $addresses } } }) {
       address
       bio
       dtag
