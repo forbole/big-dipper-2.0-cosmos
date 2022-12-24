@@ -21,7 +21,7 @@ export interface DataType {
 }
 
 export const useValidatorRecoil = () => {
-  const { loading, data } = useValidatorAddressesQuery();
+  const { data, loading: loadingValidator } = useValidatorAddressesQuery();
   const setValidatorAtomState = useRecoilCallback(
     ({ set }) =>
       (consensusAddress: string, newState: ValidatorAtomState) =>
@@ -52,7 +52,7 @@ export const useValidatorRecoil = () => {
   // ==========================
   // Desmos Profile
   // ==========================
-  const { data: desmosProfiles } = useDesmosProfile({ addresses, skip: !extra.profile });
+  const { data: desmosProfiles, loading } = useDesmosProfile({ addresses, skip: !extra.profile });
   const setProfileAtomFamilyState = useRecoilCallback(
     ({ set }) =>
       (delegatorAddress: string, newState: ProfileAtomState) =>
@@ -80,6 +80,6 @@ export const useValidatorRecoil = () => {
   }, [data, desmosProfiles, setProfileAtomFamilyState]);
 
   return {
-    loading,
+    loading: loading || loadingValidator,
   };
 };

@@ -39,10 +39,11 @@ export const useProfileDetails = () => {
   // ==========================
   // Desmos Profile
   // ==========================
-  const { data: desmosProfile } = useDesmosProfile({
+  const { data: desmosProfile, loading } = useDesmosProfile({
     addresses: [profileDtag],
     skip: !extra.profile || !/^@/.test(profileDtag),
   });
+  if (loading) state.loading = true;
   state.desmosProfile = desmosProfile?.[0];
 
   useEffect(() => {

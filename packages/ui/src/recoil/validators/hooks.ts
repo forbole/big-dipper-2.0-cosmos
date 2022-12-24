@@ -11,7 +11,7 @@ import { AtomState as ValidatorAtomState } from 'ui/recoil/validators';
 const { extra } = chainConfig();
 
 export const useValidatorRecoil = () => {
-  const { loading, data } = useValidatorAddressesQuery();
+  const { loading: loadingValidator, data } = useValidatorAddressesQuery();
   const setValidatorAtomState = useRecoilCallback(
     ({ set }) =>
       (consensusAddress: string, newState: ValidatorAtomState) =>
@@ -46,7 +46,7 @@ export const useValidatorRecoil = () => {
   // ==========================
   // Desmos Profile
   // ==========================
-  const { data: desmosProfiles } = useDesmosProfile({ addresses, skip: !extra.profile });
+  const { data: desmosProfiles, loading } = useDesmosProfile({ addresses, skip: !extra.profile });
   const setProfileAtomFamilyState = useRecoilCallback(
     ({ set }) =>
       (delegatorAddress: string, newState: ProfileAtomState) =>
@@ -76,6 +76,6 @@ export const useValidatorRecoil = () => {
   }, [data, desmosProfiles, setProfileAtomFamilyState]);
 
   return {
-    loading,
+    loading: loading || loadingValidator,
   };
 };
