@@ -26,15 +26,8 @@ export const useProfileDetails = () => {
     []
   );
 
-  const shouldShowProfile = useCallback(() => {
-    const dtagConnections = state.desmosProfile?.connections ?? [];
-    const dtagConnectionsNetwork = dtagConnections.map((x) => x.identifier);
-    const chainPrefix = prefix.account;
-    const containNetwork = dtagConnectionsNetwork.some((x) => x.startsWith(chainPrefix));
-    return !!containNetwork;
-  }, [state.desmosProfile?.connections]);
-
-  const profileDtag: string = (router?.query?.dtag as string) ?? '';
+  const profileDtag: string =
+    (Array.isArray(router?.query?.dtag) ? router?.query?.dtag[0] : router?.query?.dtag) ?? '';
 
   // ==========================
   // Desmos Profile
@@ -46,6 +39,14 @@ export const useProfileDetails = () => {
   state.desmosProfile = desmosProfile?.[0];
   state.loading = loadingDesmosProfile;
   state.exists = loadingDesmosProfile ? !!desmosProfile.length : true;
+
+  const shouldShowProfile = useCallback(() => {
+    const dtagConnections = desmosProfile?.[0].connections ?? [];
+    const dtagConnectionsNetwork = dtagConnections.map((x) => x.identifier);
+    const chainPrefix = prefix.account;
+    const containNetwork = dtagConnectionsNetwork.some((x) => x.startsWith(chainPrefix));
+    return !!containNetwork;
+  }, [desmosProfile]);
 
   useEffect(() => {
     const regex = /^@/;
@@ -60,27 +61,25 @@ export const useProfileDetails = () => {
   }, [profileDtag]);
 
   useEffect(() => {
-    if (state.desmosProfile) {
-      const showProfile = shouldShowProfile();
+    if (!desmosProfile?.[0]) return;
+    const showProfile = shouldShowProfile();
 
-      if (showProfile) {
-        const dtagInput = router.query.dtag as string;
-        if (
-          `@${state.desmosProfile.dtag}` !== dtagInput &&
-          `@${state.desmosProfile.dtag.toUpperCase()}` === dtagInput.toUpperCase()
-        ) {
-          router.push(
-            { pathname: `/@${state.desmosProfile.dtag}` },
-            `/@${state.desmosProfile.dtag}`,
-            { shallow: true }
-          );
-        }
-      } else {
-        handleSetState((prevState) => ({ ...prevState, exists: false }));
+    if (showProfile) {
+      const dtagInput =
+        (Array.isArray(router.query.dtag) ? router.query.dtag[0] : router.query.dtag) ?? '';
+      if (
+        `@${desmosProfile[0].dtag}` !== dtagInput &&
+        `@${desmosProfile[0].dtag.toUpperCase()}` === dtagInput.toUpperCase()
+      ) {
+        router.push({ pathname: `/@${desmosProfile[0].dtag}` }, `/@${desmosProfile[0].dtag}`, {
+          shallow: true,
+        });
       }
+    } else {
+      handleSetState((prevState) => ({ ...prevState, exists: false }));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [state.desmosProfile]);
+  }, [desmosProfile]);
 
   return {
     state,

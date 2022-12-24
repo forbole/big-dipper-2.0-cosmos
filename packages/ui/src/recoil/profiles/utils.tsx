@@ -1,19 +1,10 @@
-import chainConfig from '@/chainConfig';
 import {
   DesmosProfileDocument,
   DesmosProfileLinkDocument,
 } from '@/graphql/profiles/desmos_profile_graphql';
 import { DesmosProfileQuery } from '@/graphql/types/profile_types';
+import { profileApi } from '@/graphql/useApollo';
 import axios from 'axios';
-
-const { chainType } = chainConfig();
-
-function profileApi() {
-  if (/^testnet/i.test(chainType)) {
-    return 'https://gql.morpheus.desmos.network/v1/graphql';
-  }
-  return 'https://gql.mainnet.desmos.network/v1/graphql';
-}
 
 async function fetchDesmos(address: string) {
   const { data } = await axios.post(profileApi(), {
@@ -86,6 +77,7 @@ function formatDesmosProfile(data: DesmosProfileQuery | null): DesmosProfile | n
   );
 
   return {
+    address: profile.address,
     dtag: profile.dtag,
     nickname: profile.nickname,
     imageUrl: profile.profilePic,

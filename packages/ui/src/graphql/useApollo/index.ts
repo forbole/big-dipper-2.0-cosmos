@@ -90,7 +90,7 @@ function createWebSocketLink(uri?: string) {
   });
 }
 
-function profileApi() {
+export function profileApi() {
   if (/^testnet/i.test(chainType)) {
     return 'https://gql.morpheus.desmos.network/v1/graphql';
   }
