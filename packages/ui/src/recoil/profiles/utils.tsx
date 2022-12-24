@@ -77,7 +77,6 @@ function formatDesmosProfile(data: DesmosProfileQuery | null): DesmosProfile | n
   );
 
   return {
-    address: profile.address,
     dtag: profile.dtag,
     nickname: profile.nickname,
     imageUrl: profile.profilePic,

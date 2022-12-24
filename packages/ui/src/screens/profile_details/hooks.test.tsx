@@ -25,7 +25,6 @@ jest.mock('@/hooks', () => ({
       return {
         data: [
           {
-            address: 'desmos18tug2x5uwkgnh7qgadezvdntpwgjc88c98zuck',
             bio: 'hungry all the time',
             dtag: 'HappieSa',
             nickname: 'theHappySamoyed',
@@ -46,7 +45,6 @@ jest.mock('@/hooks', () => ({
       return {
         data: [
           {
-            address: 'desmos1pm6pmpsdw8kd5g6jneyq8rl3qw6tukcp7g57w3',
             bio: 'Forbole [ˈfɔːbəl] is a well-established blockchain validator and developer since 2017.',
             dtag: 'forbole',
             nickname: 'Forbole',

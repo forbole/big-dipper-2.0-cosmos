@@ -16,7 +16,7 @@ const ValidatorDetails = () => {
   const { t } = useTranslation('validators');
   const classes = useStyles();
   const { state } = useValidatorDetails();
-  const { desmosProfile, status } = state;
+  const { desmosProfile, exists, loading, overview, status, votingPower } = state;
 
   return (
     <>
@@ -27,21 +27,17 @@ const ValidatorDetails = () => {
         }}
       />
       <Layout navTitle={t('validatorDetails')}>
-        <LoadAndExist exists={state.exists} loading={state.loading}>
+        <LoadAndExist exists={exists} loading={loading}>
           <span className={classes.root}>
             {desmosProfile ? (
               <DesmosProfile className={classes.profile} {...desmosProfile} />
             ) : (
-              <Profile className={classes.profile} profile={state.overview} />
+              <Profile className={classes.profile} profile={overview} />
             )}
-            <ValidatorOverview
-              className={classes.address}
-              overview={state.overview}
-              status={state.status}
-            />
+            <ValidatorOverview className={classes.address} overview={overview} status={status} />
             <VotingPower
               className={classes.votingPower}
-              data={state.votingPower}
+              data={votingPower}
               status={status.status}
             />
             <Blocks className={classes.blocks} />

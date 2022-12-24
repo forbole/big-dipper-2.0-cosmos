@@ -10,6 +10,7 @@ exports[`screen: ProfileDetails matches snapshot 1`] = `
     id="LoadAndExist"
     loading={false}
   >
+    {"bio":"hungry all the time","dtag":"HappieSa","nickname":"theHappySamoyed","chainLinks":[],"applicationLinks":[],"creationTime":"2021-10-06T00:10:45.761731","coverPic":"https://ipfs.desmos.network/ipfs/Qmf48cpgi2zNiH24Vo1xtVsePUJx9665gtiRduVCvV5fFg","profilePic":"https://ipfs.desmos.network/ipfs/QmTvkdGrtBHHihjVajqqA2HAoHangeKR1oYbQWzasnPi7B","connections":[{"identifier":"desmostest"}]}
     <span
       className="makeStyles-root"
     >

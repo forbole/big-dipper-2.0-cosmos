@@ -6,6 +6,7 @@ import {
 } from '@/graphql/types/profile_types';
 import { isValidAddress } from '@/utils/prefix_convert';
 import * as R from 'ramda';
+import { useMemo } from 'react';
 import type { Options } from './types';
 
 /**
@@ -17,7 +18,7 @@ export const useDesmosProfile = (options: Options) => {
   const addresses = options.addresses ?? [];
 
   const isAddress = addresses[0]?.startsWith('desmos') && isValidAddress(addresses[0]);
-  const { data, loading, error } = useDesmosProfileQuery({
+  let { data, loading, error } = useDesmosProfileQuery({
     variables: {
       addresses,
     },
@@ -48,10 +49,18 @@ export const useDesmosProfile = (options: Options) => {
     skip: options.skip || !isLink,
   });
 
-  if (isAddress) return { data: formatDesmosProfile(data), loading, error };
-  if (isDTag)
-    return { data: formatDesmosProfile(dataDTag), loading: loadingDTag, error: errorDTag };
-  return { data: formatDesmosProfile(dataLink), loading: loadingLink, error: errorLink };
+  if (isDTag) {
+    data = dataDTag;
+    loading = loadingDTag;
+    error = errorDTag;
+  } else if (isLink) {
+    data = dataLink;
+    loading = loadingLink;
+    error = errorLink;
+  }
+
+  const formatted = useMemo(() => formatDesmosProfile(data), [data]);
+  return { data: formatted, loading, error };
 };
 
 /**
@@ -88,7 +97,6 @@ function formatDesmosProfile(data: DesmosProfileQuery | undefined): DesmosProfil
     );
 
     return {
-      address: profile.address,
       dtag: profile.dtag,
       nickname: profile.nickname,
       imageUrl: profile.profilePic,

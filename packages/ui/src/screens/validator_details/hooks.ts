@@ -63,7 +63,7 @@ export const useValidatorDetails = () => {
   // ==========================
   // Fetch Data
   // ==========================
-  useValidatorDetailsQuery({
+  const { loading } = useValidatorDetailsQuery({
     variables: {
       address: router.query.address as string,
     },
@@ -76,13 +76,11 @@ export const useValidatorDetails = () => {
   // Desmos Profile
   // ==========================
   const { data: desmosProfile, loading: loadingDesmosProfile } = useDesmosProfile({
-    addresses: Array.isArray(router.query.address)
-      ? router.query.address
-      : [router.query.address ?? ''],
+    addresses: [state.overview.selfDelegateAddress],
     skip: !extra.profile,
   });
   state.desmosProfile = desmosProfile?.[0];
-  if (loadingDesmosProfile) state.loading = true;
+  state.loading = loading || loadingDesmosProfile;
 
   return {
     state,

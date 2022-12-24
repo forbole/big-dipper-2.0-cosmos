@@ -39,7 +39,6 @@ jest.mock('@/hooks', () => ({
   useDesmosProfile: () => ({
     data: [
       {
-        address: 'desmos18tug2x5uwkgnh7qgadezvdntpwgjc88c98zuck',
         bio: 'hungry all the time',
         dtag: 'HappieSa',
         nickname: 'theHappySamoyed',

@@ -53,14 +53,29 @@ export const useValidatorRecoil = () => {
         set(profileAtomFamilyState(delegatorAddress), newState)
   );
 
+  const validatorMap = useMemo(
+    () =>
+      new Map(
+        data?.validator
+          .filter((x) => x.validatorInfo?.selfDelegateAddress)
+          .map((x) => [x.validatorInfo?.selfDelegateAddress ?? '', x])
+      ),
+    [data]
+  );
+  const profileMap = useMemo(
+    () =>
+      extra.profile
+        ? new Map(
+            desmosProfiles
+              ?.flatMap((x) => x.connections.map<[string, DesmosProfile]>((p) => [p.identifier, x]))
+              .filter((x) => x[0])
+          )
+        : new Map<string, DesmosProfile>(),
+    [desmosProfiles]
+  );
+
   useEffect(() => {
-    if (!extra.profile || !data || !desmosProfiles) return;
-    const validatorMap = new Map(
-      data.validator
-        .filter((x) => x.validatorInfo?.selfDelegateAddress)
-        .map((x) => [x.validatorInfo?.selfDelegateAddress ?? '', x])
-    );
-    const profileMap = new Map(desmosProfiles.filter((x) => x.address).map((x) => [x.address, x]));
+    if (!validatorMap.size) return;
     validatorMap.forEach((x, delegatorAddress) => {
       const profile = profileMap.get(delegatorAddress);
 
@@ -73,7 +88,7 @@ export const useValidatorRecoil = () => {
         imageUrl,
       });
     });
-  }, [data, desmosProfiles, setProfileAtomFamilyState]);
+  }, [validatorMap, profileMap, setProfileAtomFamilyState]);
 
   return {
     loading: loading || loadingValidator,
