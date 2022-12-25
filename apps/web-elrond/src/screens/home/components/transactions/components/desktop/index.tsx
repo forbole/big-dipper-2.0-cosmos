@@ -20,7 +20,8 @@ import React from 'react';
 const Desktop: React.FC<{ items: TransactionType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('transactions');
   const classes = useStyles();
-  const formattedItems = props.items.map((x) => ({
+  const formattedItems = props.items.map((x, i) => ({
+    identifier: i,
     hash: (
       <Link href={TRANSACTION_DETAILS(x.hash)} passHref>
         <Typography variant="body1" className="value" component="a">

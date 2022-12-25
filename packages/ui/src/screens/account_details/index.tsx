@@ -1,11 +1,6 @@
 import DesmosProfile from '@/components/desmos_profile';
 import Layout from '@/components/layout';
 import LoadAndExist from '@/components/load_and_exist';
-import {
-  AccountDelegationsDocument,
-  AccountRedelegationsDocument,
-  AccountUndelegationsDocument,
-} from '@/graphql/general/account_details_documents';
 import Balance from '@/screens/account_details/components/balance';
 import OtherTokens from '@/screens/account_details/components/other_tokens';
 import Overview from '@/screens/account_details/components/overview';
@@ -57,13 +52,7 @@ const AccountDetails = () => {
               total={state.balance.total}
             />
             <OtherTokens className={classes.otherTokens} otherTokens={state.otherTokens} />
-            <Staking
-              className={classes.staking}
-              rewards={state.rewards}
-              accountDelegationsDocument={AccountDelegationsDocument}
-              accountRedelegationsDocument={AccountRedelegationsDocument}
-              accountUndelegationsDocument={AccountUndelegationsDocument}
-            />
+            <Staking className={classes.staking} rewards={state.rewards} />
             <Transactions className={classes.transactions} />
           </span>
         </LoadAndExist>

@@ -7,7 +7,7 @@ import { formatToken } from '@/utils/format_token';
 import { getValidatorCondition } from '@/utils/get_validator_condition';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
-import { useCallback, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 
 const { extra, votingPowerTokenUnit } = chainConfig();
 
@@ -79,11 +79,16 @@ export const useValidatorDetails = () => {
     addresses: [state.overview.selfDelegateAddress],
     skip: !extra.profile,
   });
-  state.desmosProfile = desmosProfile?.[0];
-  state.loading = loading || loadingDesmosProfile;
 
   return {
-    state,
+    state: useMemo(
+      () => ({
+        ...state,
+        desmosProfile: desmosProfile?.[0],
+        loading: loading || loadingDesmosProfile,
+      }),
+      [state, loading, desmosProfile, loadingDesmosProfile]
+    ),
   };
 };
 

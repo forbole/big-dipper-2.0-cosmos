@@ -3,7 +3,7 @@ import { useDesmosProfile } from '@/hooks';
 import type { ProfileDetailState } from '@/screens/profile_details/types';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 
 const { extra, prefix } = chainConfig();
 
@@ -36,9 +36,6 @@ export const useProfileDetails = () => {
     addresses: [profileDtag],
     skip: !extra.profile || !/^@/.test(profileDtag),
   });
-  state.desmosProfile = desmosProfile?.[0];
-  state.loading = loadingDesmosProfile;
-  state.exists = loadingDesmosProfile ? !!desmosProfile.length : true;
 
   const shouldShowProfile = useCallback(() => {
     const dtagConnections = desmosProfile?.[0].connections ?? [];
@@ -82,7 +79,15 @@ export const useProfileDetails = () => {
   }, [desmosProfile]);
 
   return {
-    state,
+    state: useMemo(
+      () => ({
+        ...state,
+        desmosProfile: desmosProfile?.[0],
+        loading: loadingDesmosProfile,
+        exists: loadingDesmosProfile ? !!desmosProfile.length : true,
+      }),
+      [state, desmosProfile, loadingDesmosProfile]
+    ),
     shouldShowProfile,
   };
 };
