@@ -1,4 +1,6 @@
+/* eslint-disable no-nested-ternary */
 import Box from '@/components/box';
+import Loading from '@/components/loading';
 import NoData from '@/components/no_data';
 import { useScreenSize } from '@/hooks';
 import { useProfilesRecoil } from '@/recoil/profiles';
@@ -40,9 +42,7 @@ const Blocks: React.FC<{
           </Typography>
         </Link>
       </div>
-      {!state.items.length ? (
-        <NoData />
-      ) : (
+      {state.items.length ? (
         <>
           {isDesktop ? (
             <Desktop className={classes.desktop} items={mergedDataWithProfiles} />
@@ -61,6 +61,10 @@ const Blocks: React.FC<{
             </Typography>
           </Link>
         </>
+      ) : state.loading ? (
+        <Loading />
+      ) : (
+        <NoData />
       )}
     </Box>
   );

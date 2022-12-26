@@ -3,18 +3,9 @@ import { hexToBech32 } from '@/utils/hex_to_bech32';
 import WebSocket from 'isomorphic-ws';
 import numeral from 'numeral';
 import * as R from 'ramda';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 
 const { endpoints, prefix } = chainConfig();
-
-type State = {
-  height: number;
-  round: number;
-  step: number;
-  totalSteps: number;
-  roundCompletion: number;
-  proposer: string;
-};
 
 type NewStepResult = {
   query: "tm.event='NewRoundStep'";
@@ -49,9 +40,6 @@ type NewRoundResult = {
     'tm.event': ['NewRound'];
   };
 };
-
-// /* Checking if the code is running on the server or the client. */
-const ssrMode = typeof window === 'undefined';
 
 const wsEndpoints = [
   process.env.NEXT_PUBLIC_RPC_WEBSOCKET,
@@ -134,98 +122,92 @@ function subscribe(ws: WebSocket, data: string, keepAlive?: number) {
  * @param formatNewStep - (data: unknown) => void
  * @returns A WebSocket client
  */
-function connect(formatNewRound: (data: unknown) => void, formatNewStep: (data: unknown) => void) {
-  client = new WebSocket(wsEndpoints.find((u) => u) ?? '');
+function useConnect() {
+  const [loadingNewRound, setLoadingNewRound] = useState(true);
+  const [newRound, setNewRound] = useState<unknown | null>(null);
+  const [loadingNewStep, setLoadingNewStep] = useState(true);
+  const [newStep, setNewStep] = useState<unknown | null>(null);
 
-  client.onopen = () => {
-    subscribe(client, stepHeader);
-    subscribe(client, roundHeader);
-    subscribe(client, pingHeader, KEEP_ALIVE);
-  };
+  const connect = useCallback(() => {
+    client = new WebSocket(wsEndpoints.find((u) => u) ?? '');
+    client.onopen = () => {
+      subscribe(client, stepHeader);
+      subscribe(client, roundHeader);
+      subscribe(client, pingHeader, KEEP_ALIVE);
+    };
 
-  client.onmessage = (e) => {
-    if (client?.readyState !== WebSocket.OPEN) return;
-    const data = JSON.parse(e.data as string);
-    const event = R.pathOr<string>('', ['result', 'data', 'type'], data);
-    if (event === 'tendermint/event/NewRound') {
-      formatNewRound(data);
-    } else if (event === 'tendermint/event/RoundState') {
-      formatNewStep(data);
-    }
-  };
+    client.onmessage = (e) => {
+      if (client?.readyState !== WebSocket.OPEN) return;
+      const data = JSON.parse(e.data as string);
+      const event = R.pathOr<string>('', ['result', 'data', 'type'], data);
+      if (event === 'tendermint/event/NewRound') {
+        setNewRound((prevState: unknown | null) => (R.equals(prevState, data) ? prevState : data));
+        setLoadingNewRound(false);
+        setLoadingNewStep(false);
+      } else if (event === 'tendermint/event/RoundState') {
+        setNewStep((prevState: unknown | null) => (R.equals(prevState, data) ? prevState : data));
+      }
+    };
 
-  client.onclose = () => {
-    console.warn('closing socket');
-    setTimeout(() => {
-      connect(formatNewRound, formatNewStep);
-    }, 1000);
-  };
+    client.onclose = () => {
+      console.warn('closing socket');
+      setTimeout(() => {
+        setLoadingNewRound(true);
+        setLoadingNewStep(true);
+        connect();
+      }, 1000);
+    };
 
-  client.onerror = (err: unknown) => {
-    console.error('Socket encountered error', err);
-  };
+    client.onerror = (err: unknown) => {
+      console.error('Socket encountered error', err);
+    };
+  }, []);
+  useEffect(() => {
+    connect();
+    return () => client.close();
+  }, [connect]);
+
+  return { loadingNewRound, loadingNewStep, newRound, newStep };
 }
+
+const TOTAL_STEPS = 5;
 
 /**
  * It creates a new websocket connection and closes it when the component unmounts
  * @returns The state of the consensus.
  */
 export const useConsensus = () => {
-  const [state, setState] = useState<State>({
-    height: 0,
-    round: 0,
-    step: 0,
-    totalSteps: 5,
-    roundCompletion: 0,
-    proposer: '',
-  });
-
   /* A callback function that is called when the websocket receives a new round event. */
   const formatNewRound = useCallback((data: unknown) => {
     const result = R.pathOr<NewRoundResult | null>(null, ['result'], data);
     const height = numeral(result?.data.value.height).value() ?? 0;
     const proposerHex = result?.data.value.proposer.address ?? '';
     const consensusAddress = hexToBech32(proposerHex, prefix.consensus);
-
-    setState((prevState) => {
-      const newState = {
-        ...prevState,
-        height,
-        proposer: consensusAddress,
-      };
-      return R.equals(newState, prevState) ? prevState : newState;
-    });
+    return { height, proposer: consensusAddress };
   }, []);
 
   /* A callback function that is called when the websocket receives a new round event. */
-  const formatNewStep = useCallback(
-    (data: unknown) => {
-      const result = R.pathOr<NewStepResult | null>(null, ['result'], data);
-      const round = result?.data.value.round ?? 0;
-      const step = stepReference[result?.data.value.step ?? 0];
-      const roundCompletion = (step / state.totalSteps) * 100;
-
-      setState((prevState) => {
-        const newState = {
-          ...prevState,
-          round,
-          step,
-          roundCompletion,
-        };
-        return R.equals(newState, prevState) ? prevState : newState;
-      });
-    },
-    [state.totalSteps]
-  );
-
-  /* Creating a new websocket connection and closing it when the component unmounts. */
-  useEffect(() => {
-    if (!ssrMode) connect(formatNewRound, formatNewStep);
-    return () => client?.close();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  const formatNewStep = useCallback((data: unknown) => {
+    const result = R.pathOr<NewStepResult | null>(null, ['result'], data);
+    const round = result?.data.value.round ?? 0;
+    const step = stepReference[result?.data.value.step ?? 0];
+    const roundCompletion = (step / TOTAL_STEPS) * 100;
+    return { round, step, roundCompletion };
   }, []);
 
+  const { loadingNewRound, loadingNewStep, newRound, newStep } = useConnect();
+  const formattedState = useMemo(
+    () => ({
+      loadingNewRound,
+      loadingNewStep,
+      ...formatNewRound(newRound),
+      ...formatNewStep(newStep),
+      totalSteps: TOTAL_STEPS,
+    }),
+    [formatNewRound, formatNewStep, loadingNewRound, loadingNewStep, newRound, newStep]
+  );
+
   return {
-    state,
+    state: formattedState,
   };
 };

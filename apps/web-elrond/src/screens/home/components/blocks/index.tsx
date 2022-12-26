@@ -1,4 +1,6 @@
+/* eslint-disable no-nested-ternary */
 import Box from '@/components/box';
+import Loading from '@/components/loading';
 import NoData from '@/components/no_data';
 import { useScreenSize } from '@/hooks';
 import { useBlocks } from '@/screens/home/components/blocks/hooks';
@@ -30,9 +32,7 @@ const Blocks: React.FC<ComponentDefault> = (props) => {
           </Typography>
         </Link>
       </div>
-      {!state.items.length ? (
-        <NoData />
-      ) : (
+      {state.items.length ? (
         <>
           {isDesktop ? <Desktop items={state.items} /> : <Mobile items={state.items} />}
           <Divider className={classes.mobile} />
@@ -47,6 +47,10 @@ const Blocks: React.FC<ComponentDefault> = (props) => {
             </Typography>
           </Link>
         </>
+      ) : state.loading ? (
+        <Loading />
+      ) : (
+        <NoData />
       )}
     </Box>
   );

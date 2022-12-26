@@ -1,5 +1,6 @@
 import AvatarName from '@/components/avatar_name';
 import Box from '@/components/box';
+import Loading from '@/components/loading';
 import { useProfileRecoil } from '@/recoil/profiles';
 import { useConsensus } from '@/screens/home/components/consensus/hooks';
 import { useStyles } from '@/screens/home/components/consensus/styles';
@@ -42,8 +43,10 @@ const Consensus: React.FC<{
           </Typography>
         </div>
         <div>
-          <Typography variant="h4">{numeral(state.height).format('0,0')}</Typography>
-          {state.proposer ? (
+          <Typography variant="h4">
+            {state.loadingNewRound ? '-' : numeral(state.height).format('0,0')}
+          </Typography>
+          {!state.loadingNewStep && state.proposer ? (
             <AvatarName
               address={proposerProfile.address}
               imageUrl={proposerProfile.imageUrl}
@@ -55,43 +58,51 @@ const Consensus: React.FC<{
         </div>
       </div>
       <div className={classes.content}>
-        <RadialBarChart
-          className={classes.chart}
-          width={circleSize}
-          height={circleSize}
-          cx={circleSize / 2}
-          cy={circleSize / 2}
-          innerRadius={90}
-          outerRadius={90}
-          barSize={10}
-          data={data}
-          startAngle={90}
-          endAngle={-270}
-        >
-          <PolarAngleAxis type="number" domain={[0, 100]} angleAxisId={0} tick={false} />
-          <RadialBar background dataKey="value" cornerRadius={circleSize / 2} />
-          <Tooltip />
-          <text
-            x={circleSize / 2}
-            y={circleSize / 2}
-            textAnchor="middle"
-            dominantBaseline="middle"
-            className="progress-label"
+        {state.loadingNewStep ? (
+          <Loading />
+        ) : (
+          <RadialBarChart
+            className={classes.chart}
+            width={circleSize}
+            height={circleSize}
+            cx={circleSize / 2}
+            cy={circleSize / 2}
+            innerRadius={90}
+            outerRadius={90}
+            barSize={10}
+            data={data}
+            startAngle={90}
+            endAngle={-270}
           >
-            <tspan className={classes.chartPercentLabel}>
-              {t('step', {
-                step: numeral(state.step).format('0,0'),
-              })}
-            </tspan>
-          </text>
-          <text x={circleSize / 2 - 32} y={circleSize / 2 + 35} className={classes.chartExtraLabel}>
-            <tspan className={classes.chartLabel}>
-              {t('round', {
-                round: numeral(state.round).format('0,0'),
-              })}
-            </tspan>
-          </text>
-        </RadialBarChart>
+            <PolarAngleAxis type="number" domain={[0, 100]} angleAxisId={0} tick={false} />
+            <RadialBar background dataKey="value" cornerRadius={circleSize / 2} />
+            <Tooltip />
+            <text
+              x={circleSize / 2}
+              y={circleSize / 2}
+              textAnchor="middle"
+              dominantBaseline="middle"
+              className="progress-label"
+            >
+              <tspan className={classes.chartPercentLabel}>
+                {t('step', {
+                  step: numeral(state.step).format('0,0'),
+                })}
+              </tspan>
+            </text>
+            <text
+              x={circleSize / 2 - 32}
+              y={circleSize / 2 + 35}
+              className={classes.chartExtraLabel}
+            >
+              <tspan className={classes.chartLabel}>
+                {t('round', {
+                  round: numeral(state.round).format('0,0'),
+                })}
+              </tspan>
+            </text>
+          </RadialBarChart>
+        )}
       </div>
     </Box>
   );
