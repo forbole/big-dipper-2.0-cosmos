@@ -41,12 +41,16 @@ export const useProfileRecoil = (address: string): AvatarName => {
   useEffect(() => {
     if (!filteredAddress) return;
     const fetchedProfile = data?.[0];
-    setAvatarName(filteredAddress, {
-      address: filteredAddress,
-      // name: fetchedProfile.nickname || address,
-      name: fetchedProfile?.dtag ? `@${fetchedProfile.dtag}` : address,
-      imageUrl: fetchedProfile?.imageUrl,
-    });
+    if (!fetchedProfile) {
+      setAvatarName(filteredAddress, null);
+    } else {
+      setAvatarName(filteredAddress, {
+        address: filteredAddress,
+        // name: fetchedProfile.nickname || address,
+        name: fetchedProfile?.dtag ? `@${fetchedProfile.dtag}` : address,
+        imageUrl: fetchedProfile?.imageUrl,
+      });
+    }
   }, [filteredAddress, data, setAvatarName, address]);
 
   return profile;
