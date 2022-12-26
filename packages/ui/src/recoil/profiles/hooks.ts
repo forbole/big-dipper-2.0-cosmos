@@ -44,8 +44,8 @@ export const useProfileRecoil = (address: string): AvatarName => {
     setAvatarName(filteredAddress, {
       address: filteredAddress,
       // name: fetchedProfile.nickname || address,
-      name: `@${fetchedProfile.dtag}` || address,
-      imageUrl: fetchedProfile.imageUrl,
+      name: fetchedProfile?.dtag ? `@${fetchedProfile.dtag}` : address,
+      imageUrl: fetchedProfile?.imageUrl,
     });
   }, [filteredAddress, data, setAvatarName, address]);
 
