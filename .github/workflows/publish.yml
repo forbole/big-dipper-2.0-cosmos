@@ -62,7 +62,9 @@ jobs:
             chain = chains.find((c) => c.chainType?.toLowerCase() === 'testnet');
           }
           if (!chain) [chain] = chains;
-          console.log('chain_type=' + (chain?.chainType?.toLowerCase() || 'mainnet'));
+          if (!chain?.chainType || process.env.NEXT_PUBLIC_CHAIN_TYPE && process.env.NEXT_PUBLIC_CHAIN_TYPE.toLowerCase() !== chain.chainType.toLowerCase())
+            throw new Error('Chain type ' + process.env.NEXT_PUBLIC_CHAIN_TYPE + ' not found in chain.json');
+          console.log('chain_type=' + chain.chainType.toLowerCase());
           EOF
           echo 'sha_short='$(git rev-parse --short HEAD) | tee -a $GITHUB_OUTPUT
         id: vars
