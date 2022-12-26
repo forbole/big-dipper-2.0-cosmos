@@ -16,7 +16,8 @@ const Desktop: React.FC<{
 }> = ({ className, items }) => {
   const { t } = useTranslation('accounts');
 
-  const formattedItems = items?.map((x) => ({
+  const formattedItems = items?.map((x, i) => ({
+    identifier: i,
     token: x.denom.toUpperCase(),
     commission: formatNumber(x.commission.value, x.commission.exponent),
     available: formatNumber(x.available.value, x.available.exponent),

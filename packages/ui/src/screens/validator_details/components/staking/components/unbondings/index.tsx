@@ -45,7 +45,7 @@ const Unbondings: React.FC<
 
   let component = null;
 
-  if (props.unbondings.loading) {
+  if (props.unbondings.loading && !items.length) {
     component = <Loading />;
   } else if (!items.length) {
     component = <NoData />;

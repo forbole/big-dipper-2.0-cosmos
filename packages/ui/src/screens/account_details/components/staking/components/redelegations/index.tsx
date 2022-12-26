@@ -50,7 +50,7 @@ const Redelegations: React.FC<
 
   let component = null;
 
-  if (props.redelegations.loading) {
+  if (props.redelegations.loading && !items.length) {
     component = <Loading />;
   } else if (!items.length) {
     component = <NoData />;

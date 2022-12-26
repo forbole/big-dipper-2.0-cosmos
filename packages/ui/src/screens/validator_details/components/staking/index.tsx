@@ -1,9 +1,6 @@
 import Box from '@/components/box';
 import TabPanel from '@/components/tab_panel';
-import type DelegationsFC from '@/screens/validator_details/components/staking/components/delegations';
-import type RedelgationsFC from '@/screens/validator_details/components/staking/components/redelegations';
 import Tabs from '@/screens/validator_details/components/staking/components/tabs';
-import type UnbondingsFC from '@/screens/validator_details/components/staking/components/unbondings';
 import { useStaking } from '@/screens/validator_details/components/staking/hooks';
 import { useStyles } from '@/screens/validator_details/components/staking/styles';
 import classnames from 'classnames';
@@ -12,13 +9,13 @@ import React from 'react';
 
 const Delegations = dynamic(
   () => import('@/screens/validator_details/components/staking/components/delegations')
-) as typeof DelegationsFC;
+);
 const Redelgations = dynamic(
   () => import('@/screens/validator_details/components/staking/components/redelegations')
-) as typeof RedelgationsFC;
+);
 const Unbondings = dynamic(
   () => import('@/screens/validator_details/components/staking/components/unbondings')
-) as typeof UnbondingsFC;
+);
 
 const Staking: React.FC<ComponentDefault> = (props) => {
   const classes = useStyles();

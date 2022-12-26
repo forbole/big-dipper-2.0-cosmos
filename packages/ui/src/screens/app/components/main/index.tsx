@@ -2,7 +2,7 @@ import { useChainIdQuery } from '@/graphql/types/general_types';
 import { useBigDipperNetworksRecoil } from '@/recoil/big_dipper_networks';
 import { useMarketRecoil } from '@/recoil/market';
 import { useSettingsRecoil } from '@/recoil/settings';
-import { useValidatorRecoil } from '@/recoil/validators';
+import { useValidatorRecoil } from '@/recoil/validators/hooks';
 import InnerApp from '@/screens/app/components/inner_app';
 import { useGenesis, useTheme } from '@/screens/app/components/main/hooks';
 import Countdown from '@/screens/countdown';

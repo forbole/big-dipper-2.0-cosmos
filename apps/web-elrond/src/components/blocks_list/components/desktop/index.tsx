@@ -15,9 +15,10 @@ import React from 'react';
 
 const Desktop: React.FC<{ items: BlockType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('blocks');
-  const formattedItems = props.items.map((x) => {
+  const formattedItems = props.items.map((x, i) => {
     const shard = getShardDisplay(x.shard);
     return {
+      identifier: i,
       block: numeral(x.block).format('0,0'),
       shard: t(shard.key, {
         num: shard.num,
