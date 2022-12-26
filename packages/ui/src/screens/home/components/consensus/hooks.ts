@@ -1,11 +1,13 @@
 import chainConfig from '@/chainConfig';
 import { hexToBech32 } from '@/utils/hex_to_bech32';
-import WebSocket from 'isomorphic-ws';
 import numeral from 'numeral';
 import * as R from 'ramda';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 
 const { endpoints, prefix } = chainConfig();
+
+/* Checking if the code is running on the server or the client. */
+const ssrMode = typeof window === 'undefined';
 
 type NewStepResult = {
   query: "tm.event='NewRoundStep'";
@@ -58,9 +60,9 @@ const stepReference = {
 };
 
 /* It's the number of milliseconds to wait before sending the subscription again. */
-const KEEP_ALIVE = 30000;
+const KEEP_ALIVE = 30 * 1000;
 
-let client: WebSocket;
+let client: WebSocket | null;
 
 /* It's a JSON-RPC request to subscribe to the NewRound event. */
 const stepHeader = JSON.stringify({
@@ -96,22 +98,23 @@ const pingHeader = JSON.stringify({
  * @param {number} [keepAlive] - The number of milliseconds to wait before sending the subscription
  * again.
  */
-function subscribe(ws: WebSocket, data: string, keepAlive?: number) {
+function subscribe(ws: WebSocket | null, data: string, keepAlive?: number) {
   /* It's checking if the client is still the same client that we created. If it's not, it means
   that the client has been replaced and we don't want to send any more data to this client. */
-  if (!ws || ws !== client) return;
+  if (!ws || ws !== client) {
+    return;
+  }
 
   if (ws.readyState !== WebSocket.OPEN) {
     setTimeout(() => subscribe(ws, data, keepAlive), 1000);
   } else {
-    ws.send(data, (err) => {
-      if (err) {
-        console.error(err);
-        setTimeout(() => subscribe(ws, data, keepAlive), 1000);
-      } else if (keepAlive) {
-        setTimeout(() => subscribe, keepAlive);
-      }
-    });
+    try {
+      ws.send(data);
+      if (keepAlive) setTimeout(() => subscribe(ws, data, keepAlive), keepAlive);
+    } catch (err) {
+      console.error(err);
+      setTimeout(() => subscribe(ws, data, keepAlive), 1000);
+    }
   }
 }
 
@@ -129,15 +132,17 @@ function useConnect() {
   const [newStep, setNewStep] = useState<unknown | null>(null);
 
   const connect = useCallback(() => {
-    client = new WebSocket(wsEndpoints.find((u) => u) ?? '');
-    client.onopen = () => {
-      subscribe(client, stepHeader);
-      subscribe(client, roundHeader);
-      subscribe(client, pingHeader, KEEP_ALIVE);
-    };
+    const ws = new WebSocket(wsEndpoints.find((u) => u) ?? '');
+    const reconnectTimer = setTimeout(() => ws.close(), (12 + Math.random() * 4) * 1000);
 
-    client.onmessage = (e) => {
-      if (client?.readyState !== WebSocket.OPEN) return;
+    ws.onopen = () => {
+      clearTimeout(reconnectTimer);
+      subscribe(ws, stepHeader);
+      subscribe(ws, roundHeader);
+      subscribe(ws, pingHeader, KEEP_ALIVE);
+    };
+    ws.onmessage = (e) => {
+      if (ws?.readyState !== WebSocket.OPEN) return;
       const data = JSON.parse(e.data as string);
       const event = R.pathOr<string>('', ['result', 'data', 'type'], data);
       if (event === 'tendermint/event/NewRound') {
@@ -148,8 +153,7 @@ function useConnect() {
         setLoadingNewStep(false);
       }
     };
-
-    client.onclose = () => {
+    ws.onclose = () => {
       console.warn('closing socket');
       setTimeout(() => {
         setLoadingNewRound(true);
@@ -157,14 +161,14 @@ function useConnect() {
         connect();
       }, 1000);
     };
-
-    client.onerror = (err: unknown) => {
+    ws.onerror = (err: unknown) => {
       console.error('Socket encountered error', err);
     };
+    client = ws;
   }, []);
   useEffect(() => {
-    connect();
-    return () => client.close();
+    if (!ssrMode) connect();
+    return () => client?.close();
   }, [connect]);
 
   return { loadingNewRound, loadingNewStep, newRound, newStep };
