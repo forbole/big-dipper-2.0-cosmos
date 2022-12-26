@@ -3,7 +3,8 @@
   "title": "LikeCoin Block Explorer",
   "extra": {
     "profile": true,
-    "graphqlWs": true
+    "graphqlWs": true,
+    "votingPowerExponent": 3
   },
   "previewImage": "https://s3.bigdipper.live/likecoin.png",
   "themes": {
