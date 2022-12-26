@@ -143,9 +143,9 @@ function useConnect() {
       if (event === 'tendermint/event/NewRound') {
         setNewRound((prevState: unknown | null) => (R.equals(prevState, data) ? prevState : data));
         setLoadingNewRound(false);
-        setLoadingNewStep(false);
       } else if (event === 'tendermint/event/RoundState') {
         setNewStep((prevState: unknown | null) => (R.equals(prevState, data) ? prevState : data));
+        setLoadingNewStep(false);
       }
     };
 
