@@ -31,7 +31,6 @@
     "dompurify": "^2.4.1",
     "graphql": "^16.6.0",
     "graphql-ws": "^5.11.2",
-    "isomorphic-ws": "^5.0.0",
     "jdenticon": "^3.2.0",
     "markdown-to-jsx": "^7.1.8",
     "next": "^12.3.4",

@@ -4,15 +4,14 @@ import {
   DefaultOptions,
   InMemoryCache,
   NormalizedCacheObject,
-  split
+  split,
 } from '@apollo/client';
-import { BatchHttpLink } from "@apollo/client/link/batch-http";
+import { BatchHttpLink } from '@apollo/client/link/batch-http';
 import { GraphQLWsLink } from '@apollo/client/link/subscriptions';
 import { WebSocketLink } from '@apollo/client/link/ws';
 import { getMainDefinition } from '@apollo/client/utilities';
 import { Kind, OperationTypeNode } from 'graphql';
 import { createClient } from 'graphql-ws';
-import webSocketImpl from 'isomorphic-ws';
 import { useEffect, useState } from 'react';
 
 const { chainType, endpoints, extra } = chainConfig();
@@ -38,11 +37,11 @@ const wsEndpoints = [
 /* Setting the default options for the Apollo Client. */
 const defaultOptions: DefaultOptions = {
   watchQuery: {
-    fetchPolicy: 'no-cache',
+    fetchPolicy: 'cache-and-network',
     errorPolicy: 'all',
   },
   query: {
-    fetchPolicy: 'no-cache',
+    fetchPolicy: 'cache-first',
     errorPolicy: 'all',
   },
 };
@@ -67,13 +66,10 @@ function createWebSocketLink(uri?: string) {
       createClient({
         url: uri ?? '',
         lazy: true,
-        retryAttempts: Number.MAX_VALUE,
+        retryAttempts: Infinity,
         retryWait: (_count) => new Promise((r) => setTimeout(() => r(), 1000)),
-        shouldRetry() {
-          return true;
-        },
-        connectionAckWaitTimeout: 30000,
-        webSocketImpl,
+        shouldRetry: () => true,
+        keepAlive: 30 * 1000,
       })
     );
   }
@@ -83,10 +79,11 @@ function createWebSocketLink(uri?: string) {
     options: {
       lazy: true,
       reconnect: true,
-      reconnectionAttempts: Number.MAX_VALUE,
-      timeout: 30000,
+      reconnectionAttempts: Infinity,
+      timeout: 30 * 1000,
+      minTimeout: 12 * 1000,
+      inactivityTimeout: 30 * 1000,
     },
-    webSocketImpl,
   });
 }
 
@@ -106,23 +103,25 @@ function createApolloClient(initialState = {}) {
   /* Restoring the cache from the initial state. */
   const cache = new InMemoryCache().restore(initialState);
 
-  const defaultLink = split(
-    /* Checking if the query is a subscription. */
-    ({ query }) => {
-      const node = getMainDefinition(query);
-      const isSubscription = (
-        node.kind === Kind.OPERATION_DEFINITION &&
-        node.operation === OperationTypeNode.SUBSCRIPTION
-      )
-      return isSubscription;
-    },
-    createWebSocketLink(wsEndpoints.find((u) => u)),
-    httpBatchLink(urlEndpoints.find((u) => u))
-  );
-  
-  const link = split(({ operationName }) => /^DesmosProfile/.test(operationName),
+  const defaultLink = ssrMode
+    ? httpBatchLink(urlEndpoints.find((u) => u))
+    : split(
+        /* Checking if the query is a subscription. */
+        ({ query }) => {
+          const node = getMainDefinition(query);
+          const isSubscription =
+            node.kind === Kind.OPERATION_DEFINITION &&
+            node.operation === OperationTypeNode.SUBSCRIPTION;
+          return isSubscription;
+        },
+        createWebSocketLink(wsEndpoints.find((u) => u)),
+        httpBatchLink(urlEndpoints.find((u) => u))
+      );
+
+  const link = split(
+    ({ operationName }) => /^DesmosProfile/.test(operationName),
     httpBatchLink(profileApi()),
-    defaultLink,
+    defaultLink
   );
 
   /* Creating a new Apollo Client. */
@@ -147,7 +146,7 @@ function createApolloClient(initialState = {}) {
  */
 export function initializeApollo(initialState?: NormalizedCacheObject) {
   // For SSG and SSR always create a new Apollo Client
-  if (typeof window === 'undefined') return createApolloClient(initialState);
+  if (ssrMode) return createApolloClient(initialState);
 
   /* Checking if the globalApolloClient is already created. If it is not, it creates it. */
   if (!globalApolloClient) {

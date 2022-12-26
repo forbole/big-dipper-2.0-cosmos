@@ -26,16 +26,20 @@ export const useHero = () => {
       denom: tokenUnits?.[primaryTokenUnit]?.display,
     },
     onCompleted: (data) => {
-      const newState: Partial<HeroState> = {
-        loading: false,
-      };
-      if (data.tokenPrice.length === 10) {
-        newState.tokenPriceHistory = data.tokenPrice.reverse().map((x) => ({
-          time: x.timestamp,
-          value: x.price,
-        }));
-      }
-      handleSetState((prevState) => ({ ...prevState, ...newState }));
+      handleSetState((prevState) => {
+        const newState = {
+          ...prevState,
+          loading: false,
+          tokenPriceHistory:
+            data.tokenPrice.length === 10
+              ? [...data.tokenPrice].reverse().map((x) => ({
+                  time: x.timestamp,
+                  value: x.price,
+                }))
+              : prevState.tokenPriceHistory,
+        };
+        return R.equals(prevState, newState) ? prevState : newState;
+      });
     },
     onError: () => {
       handleSetState((prevState) => ({ ...prevState, loading: false }));

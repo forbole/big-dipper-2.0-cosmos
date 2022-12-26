@@ -3,6 +3,6 @@ import * as Sentry from '@sentry/nextjs';
 
 const { chainName } = chainConfig();
 Sentry.init({
-  release: `${chainName}@${process.env.npm_package_version}`,
+  release: process.env.NEXT_PUBLIC_RELEASE,
   tracesSampleRate: 1.0,
 });
