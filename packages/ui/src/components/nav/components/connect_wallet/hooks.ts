@@ -2,6 +2,11 @@ import { useState } from 'react';
 
 export const useConnectWalletList = () => {
   const [open, setOpen] = useState(false);
+  const [walletOption, setWalletOption] = useState('');
+  const [showInstallWalletMsg, setShowInstallWalletMsg] = useState(false);
+
+  const [openInstallExtensionDialog, setOpenInstallExtensionDialog] = useState(false);
+
   const [loggedIn, setLoggedIn] = useState(false);
   const [showWallet, setShowWallet] = useState(false);
 
@@ -31,8 +36,30 @@ export const useConnectWalletList = () => {
     setShowWallet(false);
   };
 
+  const handleShowInstallWalletMsg = () => {
+    setShowInstallWalletMsg(true);
+  };
+
   const handleConnectKeplr = () => {
-    setOpen(true); // TO DO
+    setWalletOption('keplr');
+    setOpenKeplrLogin(true);
+  };
+
+  const setKeplrWallet = () => {
+    setWalletOption('keplr');
+  };
+
+  const setWalletConnectWallet = () => {
+    setWalletOption('wallet connect');
+  };
+
+  const setButterWallet = () => {
+    setWalletOption('butter');
+  };
+
+  const handleCloseInstallExtensionDialog = () => {
+    setOpenInstallExtensionDialog(false);
+    setWalletOption('');
   };
 
   const handleConnectButter = () => {
@@ -45,15 +72,37 @@ export const useConnectWalletList = () => {
 
   const handleConnectWallet = () => {
     setOpen(false);
-    setLoggedIn(true);
+    switch (walletOption) {
+      case 'butter':
+        console.log('butter');
+        break;
+      case 'keplr':
+        console.log('keplr');
+        setOpenInstallExtensionDialog(true); // TO DO
+        break;
+      case 'wallet connect':
+        console.log('wallet connect');
+        break;
+      case '':
+        console.log('nothing selected');
+        break;
+      default:
+        break;
+    }
   };
 
   return {
     open,
     loggedIn,
     showWallet,
+    openInstallExtensionDialog,
+    walletOption,
     handleOpen,
     handleConnectKeplr,
+    setKeplrWallet,
+    setWalletConnectWallet,
+    setButterWallet,
+    handleCloseInstallExtensionDialog,
     handleConnectButter,
     handleConnectWalletConnect,
     handleClose,
@@ -62,5 +111,7 @@ export const useConnectWalletList = () => {
     handleShowWallet,
     handleCloseWallet,
     handleConnectWallet,
+    handleShowInstallWalletMsg,
+    showInstallWalletMsg,
   };
 };
