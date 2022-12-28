@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { SigningCosmosClient } from '@cosmjs/launchpad';
 
 export const useConnectWalletList = () => {
   const [open, setOpen] = useState(false);
@@ -42,7 +43,6 @@ export const useConnectWalletList = () => {
 
   const handleConnectKeplr = () => {
     setWalletOption('keplr');
-    setOpenKeplrLogin(true);
   };
 
   const setKeplrWallet = () => {
@@ -74,20 +74,45 @@ export const useConnectWalletList = () => {
     setOpen(false);
     switch (walletOption) {
       case 'butter':
-        console.log('butter');
         break;
       case 'keplr':
-        console.log('keplr');
-        setOpenInstallExtensionDialog(true); // TO DO
+        handleKeplrWalletConnection();
         break;
       case 'wallet connect':
-        console.log('wallet connect');
         break;
       case '':
-        console.log('nothing selected');
         break;
       default:
         break;
+    }
+  };
+
+  const handleKeplrWalletConnection = async () => {
+    if (!window.keplr) {
+      setOpenInstallExtensionDialog(true);
+    } else {
+      const chainId = process.env.NEXT_PUBLIC_CHAIN_ID;
+      // // Enabling before using the Keplr is recommended.
+      // // This method will ask the user whether to allow access if they haven't visited this website.
+      // // Also, it will request that the user unlock the wallet if the wallet is locked.
+      await window.keplr.enable(chainId);
+      const offlineSigner = window.keplr.getOfflineSigner(chainId);
+
+      // You can get the address/public keys by `getAccounts` method.
+      // It can return the array of address/public key.
+      // But, currently, Keplr extension manages only one address/public key pair.
+      // XXX: This line is needed to set the sender address for SigningCosmosClient.
+      const accounts = await offlineSigner.getAccounts();
+
+      // Initialize the gaia api with the offline signer that is injected by Keplr extension.
+      const cosmJS = new SigningCosmosClient(
+        process.env.NEXT_PUBLIC_LCD_KEPLR_URL,
+        // 'https://lcd-cosmoshub.keplr.app',
+        accounts[0].address,
+        offlineSigner
+      );
+
+      console.log(cosmJS);
     }
   };
 
