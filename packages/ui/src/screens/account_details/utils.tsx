@@ -9,6 +9,14 @@ import {
 import { toValidatorAddress } from '@/utils/prefix_convert';
 
 export const useCommission = (address?: string) => {
+  /* Converting the address to a validator address. */
+  let validatorAddress = '';
+  try {
+    if (address) validatorAddress = toValidatorAddress(address);
+  } catch (e) {
+    console.error(e);
+  }
+
   const defaultReturnValue = {
     commission: {
       coins: [],
@@ -16,7 +24,7 @@ export const useCommission = (address?: string) => {
   };
   const { data } = useAccountCommissionQuery({
     variables: {
-      validatorAddress: address ? toValidatorAddress(address) : '',
+      validatorAddress,
     },
     skip: !address,
   });

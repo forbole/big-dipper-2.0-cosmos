@@ -38,7 +38,7 @@ const formatDelegations = (
     validator_address?: string;
     coins?: MsgCoin[];
   }>,
-  commission: number | undefined,
+  validatorsCommission: Pick<ValidatorType, 'validator' | 'commission'>[],
   rewards: RewardsType
 ) =>
   data
@@ -47,7 +47,10 @@ const formatDelegations = (
       const delegation = getDenom(x.coins, primaryTokenUnit);
       return {
         validator,
-        commission: numeral(commission?.toFixed(3)).value() ?? 0,
+        commission:
+          numeral(
+            validatorsCommission.find((val) => val.validator === validator)?.commission?.toFixed(3)
+          ).value() ?? 0,
         amount: formatToken(delegation.amount, delegation.denom),
         reward: rewards[validator],
       };
@@ -161,13 +164,7 @@ export const useStaking = (rewards: RewardsType) => {
       setDelegationsPages((prevState) => {
         const newState = [
           ...prevState,
-          formatDelegations(
-            data?.delegations?.delegations ?? [],
-            validatorsCommission.find(
-              (c) => c.validator === data?.delegations?.delegations?.[0]?.validator_address
-            )?.commission,
-            rewards
-          ),
+          formatDelegations(data?.delegations?.delegations ?? [], validatorsCommission, rewards),
         ];
         return R.equals(newState, prevState) ? prevState : newState;
       });
