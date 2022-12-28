@@ -66,5 +66,8 @@
   "signOut": "Sign out",
   "continue": "Continue",
   "changeWallet": "Change Wallet",
-  "accountDetails": "Account Details"
+  "accountDetails": "Account Details",
+  "retry": "Retry",
+  "pleaseInstallWallet": "Please install {{wallet}}",
+  "couldntFindWalletExtension": "Couldn't find {{wallet}} installed in the browser. Please install it using official <0>{{wallet}} website</0> and try again."
 }
