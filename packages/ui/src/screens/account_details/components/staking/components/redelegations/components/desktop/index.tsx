@@ -1,4 +1,5 @@
 import AvatarName from '@/components/avatar_name';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { readDate } from '@/recoil/settings';
 import { columns } from '@/screens/account_details/components/staking/components/redelegations/components/desktop/utils';
 import type { ItemType } from '@/screens/account_details/components/staking/components/redelegations/types';
@@ -11,25 +12,50 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import React from 'react';
+import { FC, ReactNode, useMemo } from 'react';
 import { useRecoilValue } from 'recoil';
 
-const Desktop: React.FC<{
+type Props = {
   className?: string;
   items: ItemType[];
-}> = ({ className, items }) => {
-  const { t } = useTranslation('accounts');
-  const dateFormat = useRecoilValue(readDate);
-  const formattedItems = items?.map((x, i) => ({
-    identifier: i,
-    to: <AvatarName address={x.to.address} imageUrl={x.to.imageUrl} name={x.to.name} />,
-    from: <AvatarName address={x.from.address} imageUrl={x.from.imageUrl} name={x.from.name} />,
-    amount: x.amount
-      ? `${formatNumber(x.amount.value, x.amount.exponent)} ${x.amount.displayDenom.toUpperCase()}`
-      : '',
-    completionTime: formatDayJs(dayjs.utc(x.completionTime), dateFormat),
-  }));
+};
 
+const RedelegationsRow: FC<{ item: ItemType; i: number }> = ({ item, i }) => {
+  const from = useProfileRecoil(item.from);
+  const to = useProfileRecoil(item.to);
+  const dateFormat = useRecoilValue(readDate);
+  const formattedItem = useMemo<{ [key: string]: ReactNode }>(
+    () => ({
+      identifier: i,
+      to: <AvatarName address={to.address} imageUrl={to.imageUrl} name={to.name} />,
+      from: <AvatarName address={from.address} imageUrl={from.imageUrl} name={from.name} />,
+      amount: item.amount
+        ? `${formatNumber(
+            item.amount.value,
+            item.amount.exponent
+          )} ${item.amount.displayDenom.toUpperCase()}`
+        : '',
+      completionTime: formatDayJs(dayjs.utc(item.completionTime), dateFormat),
+    }),
+    [i, to, from, item, dateFormat]
+  );
+  return (
+    <TableRow key={`holders-row-${i}`}>
+      {columns.map((column) => (
+        <TableCell
+          key={`holders-row-${i}-${column.key}`}
+          align={column.align}
+          style={{ width: `${column.width}%` }}
+        >
+          {formattedItem[column.key]}
+        </TableCell>
+      ))}
+    </TableRow>
+  );
+};
+
+const Desktop: FC<Props> = ({ className, items }) => {
+  const { t } = useTranslation('accounts');
   return (
     <div className={classnames(className)}>
       <Table>
@@ -47,18 +73,9 @@ const Desktop: React.FC<{
           </TableRow>
         </TableHead>
         <TableBody>
-          {formattedItems?.map((row: { [key: string]: unknown }) => (
-            <TableRow key={`holders-row-${row.identifier}`}>
-              {columns.map((column) => (
-                <TableCell
-                  key={`holders-row-${row.identifier}-${column.key}`}
-                  align={column.align}
-                  style={{ width: `${column.width}%` }}
-                >
-                  {row[column.key]}
-                </TableCell>
-              ))}
-            </TableRow>
+          {items?.map((row, i) => (
+            // eslint-disable-next-line react/no-array-index-key
+            <RedelegationsRow key={i} i={i} item={row} />
           ))}
         </TableBody>
       </Table>

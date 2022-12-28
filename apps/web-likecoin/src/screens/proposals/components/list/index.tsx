@@ -75,7 +75,13 @@ const ProposalsList: FC<{
                 >
                   {({ index, style }) => (
                     <ListItem
-                      {...{ index, style, setRowHeight, isItemLoaded, formattedItems, itemCount }}
+                      key={items[index].id}
+                      index={index}
+                      style={style}
+                      setRowHeight={setRowHeight}
+                      isItemLoaded={isItemLoaded}
+                      formattedItems={formattedItems}
+                      itemCount={itemCount}
                     />
                   )}
                 </List>

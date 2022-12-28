@@ -1,7 +1,7 @@
 import AvatarName from '@/components/avatar_name';
 import Box from '@/components/box';
 import Loading from '@/components/loading';
-import { useProfileRecoil } from '@/recoil/profiles';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { useConsensus } from '@/screens/home/components/consensus/hooks';
 import { useStyles } from '@/screens/home/components/consensus/styles';
 import Typography from '@material-ui/core/Typography';

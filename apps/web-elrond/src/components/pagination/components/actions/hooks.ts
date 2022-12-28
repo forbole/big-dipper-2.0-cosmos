@@ -1,4 +1,6 @@
-export const useTablePaginationActions = (props: {
+import { useCallback } from 'react';
+
+type Props = {
   className?: string;
   // backIconButtonProps?: any;
   count: number;
@@ -8,67 +10,65 @@ export const useTablePaginationActions = (props: {
   page: number;
   rowsPerPage: number;
   pageNeighbors?: 1 | 2;
-}) => {
-  const {
-    count,
-    page,
-    rowsPerPage,
-    onPageChange,
-    pageNeighbors = 1,
-    handleRowsPerPageChange,
-  } = props;
+};
 
-  const handleFirstPage = () => {
+const getAvailablePages = ({ count, rowsPerPage, page, pageNeighbors = 1 }: Props) => {
+  // handle edge case where there is not enough pages
+  const totalPages = Math.ceil(count / rowsPerPage);
+  const remainderCount = count - rowsPerPage * (page + 1);
+  const remainingPages = Math.ceil(remainderCount / rowsPerPage);
+  const pageDisplay = totalPages < pageNeighbors * 2 + 1 ? totalPages : pageNeighbors * 2 + 1;
+  const availablePages = new Array(pageDisplay).fill(0);
+
+  let selectedPageIndex = 0;
+  if (remainingPages < pageNeighbors) {
+    selectedPageIndex = pageDisplay - remainingPages - 1;
+  } else if (pageNeighbors > page) {
+    selectedPageIndex = page;
+  } else {
+    selectedPageIndex = pageNeighbors;
+  }
+
+  availablePages.forEach((x, i) => {
+    if (i !== selectedPageIndex) {
+      availablePages[i] = page - selectedPageIndex + i;
+    } else {
+      availablePages[i] = page;
+    }
+  });
+
+  return availablePages;
+};
+
+export const useTablePaginationActions = (props: Props) => {
+  const { count, page, rowsPerPage, onPageChange, handleRowsPerPageChange } = props;
+
+  const handleFirstPage = useCallback(() => {
     onPageChange(null, 0);
-  };
+  }, [onPageChange]);
 
-  const handleNextPage = () => {
+  const handleNextPage = useCallback(() => {
     if (page + 1 <= Math.ceil(count / rowsPerPage) - 1) {
       onPageChange(null, page + 1);
     }
-  };
+  }, [count, onPageChange, page, rowsPerPage]);
 
-  const handlePreviousPage = () => {
+  const handlePreviousPage = useCallback(() => {
     if (page - 1 >= 0) {
       onPageChange(null, page - 1);
     }
-  };
+  }, [onPageChange, page]);
 
-  const handleLastPage = () => {
+  const handleLastPage = useCallback(() => {
     onPageChange(null, Math.ceil(count / rowsPerPage) - 1);
-  };
+  }, [count, onPageChange, rowsPerPage]);
 
-  const getAvailablePages = () => {
-    // handle edge case where there is not enough pages
-    const totalPages = Math.ceil(count / rowsPerPage);
-    const remainderCount = count - rowsPerPage * (page + 1);
-    const remainingPages = Math.ceil(remainderCount / rowsPerPage);
-    const pageDisplay = totalPages < pageNeighbors * 2 + 1 ? totalPages : pageNeighbors * 2 + 1;
-    const availablePages = new Array(pageDisplay).fill(0);
-
-    let selectedPageIndex = 0;
-    if (remainingPages < pageNeighbors) {
-      selectedPageIndex = pageDisplay - remainingPages - 1;
-    } else if (pageNeighbors > page) {
-      selectedPageIndex = page;
-    } else {
-      selectedPageIndex = pageNeighbors;
-    }
-
-    availablePages.forEach((x, i) => {
-      if (i !== selectedPageIndex) {
-        availablePages[i] = page - selectedPageIndex + i;
-      } else {
-        availablePages[i] = page;
-      }
-    });
-
-    return availablePages;
-  };
-
-  const handleRowOptionChange = (event: React.ChangeEvent<{ value: unknown }>) => {
-    handleRowsPerPageChange(Number(event.target.value));
-  };
+  const handleRowOptionChange = useCallback(
+    (event: React.ChangeEvent<{ value: unknown }>) => {
+      handleRowsPerPageChange(Number(event.target.value));
+    },
+    [handleRowsPerPageChange]
+  );
 
   return {
     handleFirstPage,
@@ -76,6 +76,6 @@ export const useTablePaginationActions = (props: {
     handlePreviousPage,
     handleLastPage,
     handleRowOptionChange,
-    availablePages: getAvailablePages(),
+    availablePages: getAvailablePages(props),
   };
 };

@@ -1,5 +1,6 @@
 import Desktop from '@/screens/blocks/components/desktop';
 import { MockTheme } from '@/tests/utils';
+import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
 import renderer from 'react-test-renderer';
 import type { AutoSizerProps } from 'react-virtualized-auto-sizer';
 
@@ -33,36 +34,39 @@ jest.mock(
 // ==================================
 describe('screen: Home/Blocks/Desktop', () => {
   it('matches snapshot', () => {
+    const mockClient = new ApolloClient({ link: from([]), cache: new InMemoryCache() });
     const component = renderer.create(
-      <MockTheme>
-        <Desktop
-          items={[
-            {
-              height: 300,
-              txs: 2,
-              timestamp: '',
-              proposer: {
-                name: 'proposer',
-                address: 'address',
+      <ApolloProvider client={mockClient}>
+        <MockTheme>
+          <Desktop
+            items={[
+              {
+                height: 300,
+                txs: 2,
+                timestamp: '',
+                proposer: {
+                  name: 'proposer',
+                  address: 'address',
+                },
+                hash: 'hash',
               },
-              hash: 'hash',
-            },
-            {
-              height: 301,
-              txs: 2,
-              timestamp: '',
-              proposer: {
-                name: 'proposer',
-                address: 'address',
+              {
+                height: 301,
+                txs: 2,
+                timestamp: '',
+                proposer: {
+                  name: 'proposer',
+                  address: 'address',
+                },
+                hash: 'hash',
               },
-              hash: 'hash',
-            },
-          ]}
-          itemCount={2}
-          loadMoreItems={() => jest.fn()}
-          isItemLoaded={() => true}
-        />
-      </MockTheme>
+            ]}
+            itemCount={2}
+            loadMoreItems={() => jest.fn()}
+            isItemLoaded={() => true}
+          />
+        </MockTheme>
+      </ApolloProvider>
     );
     const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();

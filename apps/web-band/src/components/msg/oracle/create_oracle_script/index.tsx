@@ -1,6 +1,6 @@
 import Name from '@/components/name';
 import MsgCreateOracleScript from '@/models/msg/oracle/msg_create_oracle_script';
-import { useProfileRecoil } from '@/recoil/profiles';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
 import React from 'react';

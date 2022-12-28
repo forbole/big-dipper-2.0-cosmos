@@ -13,16 +13,33 @@ import { useState } from 'react';
 
 const { primaryTokenUnit, tokenUnits } = chainConfig();
 
+type State = {
+  blockHeight: number;
+  blockTime: number;
+  price: number | null;
+  validators: {
+    active: number;
+    total: number;
+  };
+};
+
+const formatAverageBlockTime = (data: AverageBlockTimeQuery, state: State) =>
+  data.averageBlockTime[0]?.averageTime ?? state.blockTime;
+
+const formatTokenPrice = (data: TokenPriceListenerSubscription, state: State) => {
+  if (data?.tokenPrice[0]?.price) {
+    return numeral(numeral(data?.tokenPrice[0]?.price).format('0.[0000]', Math.floor)).value();
+  }
+  return state.price;
+};
+
+const formatActiveValidatorsCount = (data: ActiveValidatorCountQuery) => ({
+  active: data.activeTotal.aggregate?.count ?? 0,
+  total: data.total?.aggregate?.count ?? 0,
+});
+
 export const useDataBlocks = () => {
-  const [state, setState] = useState<{
-    blockHeight: number;
-    blockTime: number;
-    price: number | null;
-    validators: {
-      active: number;
-      total: number;
-    };
-  }>({
+  const [state, setState] = useState<State>({
     blockHeight: 0,
     blockTime: 0,
     price: null,
@@ -52,13 +69,10 @@ export const useDataBlocks = () => {
     onCompleted: (data) => {
       setState((prevState) => ({
         ...prevState,
-        blockTime: formatAverageBlockTime(data),
+        blockTime: formatAverageBlockTime(data, state),
       }));
     },
   });
-
-  const formatAverageBlockTime = (data: AverageBlockTimeQuery) =>
-    data.averageBlockTime[0]?.averageTime ?? state.blockTime;
 
   // ====================================
   // token price
@@ -70,17 +84,10 @@ export const useDataBlocks = () => {
     onData: (data) => {
       setState((prevState) => ({
         ...prevState,
-        price: data.data.data ? formatTokenPrice(data.data.data) : 0,
+        price: data.data.data ? formatTokenPrice(data.data.data, state) : 0,
       }));
     },
   });
-
-  const formatTokenPrice = (data: TokenPriceListenerSubscription) => {
-    if (data?.tokenPrice[0]?.price) {
-      return numeral(numeral(data?.tokenPrice[0]?.price).format('0.[0000]', Math.floor)).value();
-    }
-    return state.price;
-  };
 
   // ====================================
   // validators
@@ -92,11 +99,6 @@ export const useDataBlocks = () => {
         validators: formatActiveValidatorsCount(data),
       }));
     },
-  });
-
-  const formatActiveValidatorsCount = (data: ActiveValidatorCountQuery) => ({
-    active: data.activeTotal.aggregate?.count ?? 0,
-    total: data.total?.aggregate?.count ?? 0,
   });
 
   return {

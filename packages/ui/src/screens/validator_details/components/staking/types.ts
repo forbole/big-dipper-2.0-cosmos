@@ -30,7 +30,4 @@ export type UnbondingsType = StakingType<UnbondingType>;
 
 export interface StakingState {
   tab: number;
-  delegations: DelegationsType;
-  redelegations: RedelegationsType;
-  unbondings: UnbondingsType;
 }

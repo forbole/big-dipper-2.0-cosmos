@@ -74,7 +74,12 @@ const Messages: FC<{
             >
               {({ index, style }) => (
                 <ListItem
-                  {...{ index, style, setRowHeight, formattedItems, classes }}
+                  key={index}
+                  index={index}
+                  style={style}
+                  setRowHeight={setRowHeight}
+                  formattedItems={formattedItems}
+                  classes={classes}
                   messages={props.messages}
                 />
               )}

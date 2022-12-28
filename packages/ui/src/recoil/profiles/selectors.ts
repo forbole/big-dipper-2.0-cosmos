@@ -6,10 +6,15 @@ import { bech32 } from 'bech32';
 import { GetRecoilValue, selectorFamily } from 'recoil';
 
 const { prefix } = chainConfig();
+const consensusRegex = new RegExp(`^(${prefix.consensus})`);
+const validatorRegex = new RegExp(`^(${prefix.validator})`);
+const delegatorRegex = new RegExp(`^(${prefix.account})`);
 
-// ======================================================================
-// selector utils
-// ======================================================================
+/**
+ * It takes an address and returns the delegator address
+ * @param  - `address` - consensus address or validator address or delegator address
+ * @returns The address of the delegator.
+ */
 const getDelegatorAddress = ({
   address,
   get,
@@ -17,27 +22,29 @@ const getDelegatorAddress = ({
   address: string;
   get: GetRecoilValue;
 }): string => {
-  const consensusRegex = `^(${prefix.consensus})`;
-  const validatorRegex = `^(${prefix.validator})`;
-  const delegatorRegex = `^(${prefix.account})`;
   let selectedAddress = '';
-  if (new RegExp(consensusRegex).test(address)) {
+  if (consensusRegex.test(address)) {
     // address given is a consensus
     const validator = get(readValidator(address));
     if (validator) {
       selectedAddress = validator.delegator;
     }
-  } else if (new RegExp(validatorRegex).test(address)) {
+  } else if (validatorRegex.test(address)) {
     // address given is a validator
     const decode = bech32.decode(address).words;
     selectedAddress = bech32.encode(prefix.account, decode);
-  } else if (new RegExp(delegatorRegex).test(address)) {
+  } else if (delegatorRegex.test(address)) {
     // address given is a delegator
     selectedAddress = address;
   }
   return selectedAddress;
 };
 
+/**
+ * It takes a validator address and returns the delegator address
+ * @param {string} address - The address of the validator to be converted to the delegator address.
+ * @returns The address of the validator
+ */
 export const validatorToDelegatorAddress = (address: string) => {
   const decode = bech32.decode(address).words;
   return bech32.encode(prefix.account, decode);
@@ -48,9 +55,8 @@ export const validatorToDelegatorAddress = (address: string) => {
  * Returns address otherwise
  */
 const getReturnAddress = ({ address, get }: { address: string; get: GetRecoilValue }): string => {
-  const consensusRegex = `^(${prefix.consensus})`;
   let selectedAddress = address;
-  if (new RegExp(consensusRegex).test(address)) {
+  if (consensusRegex.test(address)) {
     // address given is a consensus
     const validator = get(readValidator(address));
     if (validator) {
@@ -61,7 +67,7 @@ const getReturnAddress = ({ address, get }: { address: string; get: GetRecoilVal
 };
 
 /**
- * Takes a delegator address and returns the profile
+ * Takes a address and returns the profile
  * Returns null if no record found
  * ex - cosmosvalcon1... returns cosmosvaloper1...
  * @param address string
@@ -88,6 +94,14 @@ const getProfile =
     };
   };
 
+/**
+ * It takes an array of addresses and returns an array of AvatarName objects
+ * @param {string[]} addresses - string[] - an array of addresses to get the profile for
+ * @returns An array of objects with the following properties:
+ *   address: string
+ *   name: string
+ *   imageUrl: string
+ */
 const getProfiles =
   (addresses: string[]) =>
   ({ get }: { get: GetRecoilValue }): AvatarName[] => {
@@ -112,9 +126,7 @@ const getProfiles =
     return profiles;
   };
 
-// ======================================================================
-// selectors
-// ======================================================================
+/* A selector family that takes an address and returns a profile. */
 export const writeProfile = selectorFamily<AvatarName | null, string>({
   key: 'profile.write.profile',
   get: getProfile,
@@ -143,16 +155,20 @@ export const writeProfile = selectorFamily<AvatarName | null, string>({
     },
 });
 
+/* Creating a selector family that takes an address and returns a profile. */
 export const readProfile = selectorFamily({
   key: 'profile.read.profile',
   get: getProfile,
 });
 
+/* Creating a selector family that takes an array of addresses and returns an array of AvatarName
+objects. */
 export const readProfiles = selectorFamily({
   key: 'profile.read.profiles',
   get: getProfiles,
 });
 
+/* A selector family that takes an address and returns a delegator address. */
 export const readDelegatorAddress = selectorFamily({
   key: 'profile.read.delegatorAddress',
   get:
@@ -164,6 +180,7 @@ export const readDelegatorAddress = selectorFamily({
       }),
 });
 
+/* A selector family that takes an array of addresses and returns an array of delegator addresses. */
 export const readDelegatorAddresses = selectorFamily({
   key: 'profile.read.delegatorAddresses',
   get:
@@ -177,6 +194,7 @@ export const readDelegatorAddresses = selectorFamily({
       ),
 });
 
+/* A selector family that takes an address and returns a profile. */
 export const readProfileExist = selectorFamily({
   key: 'profile.read.profileExist',
   get:
@@ -191,6 +209,7 @@ export const readProfileExist = selectorFamily({
     },
 });
 
+/* A selector family that takes an array of addresses and returns an array of profile states. */
 export const readProfilesExist = selectorFamily({
   key: 'profile.read.profilesExist',
   get:

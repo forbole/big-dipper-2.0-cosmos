@@ -1,6 +1,6 @@
 import Name from '@/components/name';
 import MsgConvertCoin from '@/models/msg/erc20/msg_convert_coin';
-import { useProfileRecoil } from '@/recoil/profiles';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { formatNumber, formatToken } from '@/utils/format_token';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';

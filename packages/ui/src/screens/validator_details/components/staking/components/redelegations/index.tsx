@@ -2,12 +2,10 @@ import Loading from '@/components/loading';
 import NoData from '@/components/no_data';
 import Pagination from '@/components/pagination';
 import { usePagination, useScreenSize } from '@/hooks';
-import { useProfilesRecoil } from '@/recoil/profiles';
 import { useStyles } from '@/screens/validator_details/components/staking/components/redelegations/styles';
 import type { RedelegationsType } from '@/screens/validator_details/components/staking/types';
 import classnames from 'classnames';
 import dynamic from 'next/dynamic';
-import * as R from 'ramda';
 import { FC } from 'react';
 
 const Desktop = dynamic(
@@ -32,27 +30,13 @@ const Redelegations: FC<
   const classes = useStyles();
   const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange } = usePagination({});
 
-  const pageItems = R.pathOr<NonNullable<typeof props['redelegations']['data'][number]>>(
-    [],
-    ['redelegations', 'data', page],
-    props
-  );
-
-  const toProfiles = useProfilesRecoil(pageItems.map((x) => x.to));
-  const addressProfiles = useProfilesRecoil(pageItems.map((x) => x.address));
-  const mergedDataWithProfiles = pageItems.map((x, i) => ({
-    ...x,
-    to: toProfiles[i],
-    address: addressProfiles[i],
-  }));
-
-  const items = mergedDataWithProfiles;
+  const items = props?.redelegations?.data?.[page];
 
   let component = null;
 
-  if (props.redelegations.loading && !items.length) {
+  if (props.redelegations.loading && !items?.length) {
     component = <Loading />;
-  } else if (!items.length) {
+  } else if (!items?.length) {
     component = <NoData />;
   } else if (isDesktop) {
     component = <Desktop items={items} />;

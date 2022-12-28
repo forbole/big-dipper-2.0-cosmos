@@ -3,7 +3,6 @@ import Box from '@/components/box';
 import Loading from '@/components/loading';
 import NoData from '@/components/no_data';
 import { useScreenSize } from '@/hooks';
-import { useProfilesRecoil } from '@/recoil/profiles';
 import { useBlocks } from '@/screens/home/components/blocks/hooks';
 import { useStyles } from '@/screens/home/components/blocks/styles';
 import { BLOCKS } from '@/utils/go_to_page';
@@ -26,12 +25,6 @@ const Blocks: React.FC<{
   const classes = useStyles();
   const { state } = useBlocks();
 
-  const proposerProfiles = useProfilesRecoil(state.items.map((x) => x.proposer));
-  const mergedDataWithProfiles = state.items.map((x, i) => ({
-    ...x,
-    proposer: proposerProfiles[i],
-  }));
-
   return (
     <Box className={classnames(className, classes.root)}>
       <div className={classes.label}>
@@ -45,9 +38,9 @@ const Blocks: React.FC<{
       {state.items.length ? (
         <>
           {isDesktop ? (
-            <Desktop className={classes.desktop} items={mergedDataWithProfiles} />
+            <Desktop className={classes.desktop} items={state.items} />
           ) : (
-            <Mobile className={classes.mobile} items={mergedDataWithProfiles} />
+            <Mobile className={classes.mobile} items={state.items} />
           )}
           <Divider className={classes.mobile} />
           <Link href={BLOCKS} passHref>

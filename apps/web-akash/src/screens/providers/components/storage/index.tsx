@@ -8,6 +8,10 @@ import numeral from 'numeral';
 import React from 'react';
 import { Cell, Pie, PieChart, Tooltip } from 'recharts';
 
+const convertBytesToTB = (bytes: number) => bytes / 10 ** 12;
+
+const convertBytesToGB = (bytes: number) => bytes / 10 ** 9;
+
 const Storage: React.FC<{
   className?: string;
   storage: {
@@ -18,10 +22,6 @@ const Storage: React.FC<{
 }> = ({ className, storage }) => {
   const { t } = useTranslation('providers');
   const { classes, theme } = useStyles();
-
-  const convertBytesToTB = (bytes: number) => bytes / 10 ** 12;
-
-  const convertBytesToGB = (bytes: number) => bytes / 10 ** 9;
 
   const total = storage.available + storage.used + storage.pending;
 

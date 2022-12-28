@@ -9,6 +9,65 @@ import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import { ComponentProps, useCallback, useState } from 'react';
 
+const formatVotes = (data: ProposalDetailsVotesQuery) => {
+  const validatorDict: { [key: string]: unknown } = {};
+  const validators = data.validatorStatuses.map((x) => {
+    const selfDelegateAddress = x?.validator?.validatorInfo?.selfDelegateAddress ?? '';
+    validatorDict[selfDelegateAddress] = false;
+    return selfDelegateAddress;
+  });
+
+  let yes = 0;
+  let no = 0;
+  let abstain = 0;
+  let veto = 0;
+
+  const votes = data.proposalVote.map((x) => {
+    if (x.option === 'VOTE_OPTION_YES') {
+      yes += 1;
+    }
+    if (x.option === 'VOTE_OPTION_ABSTAIN') {
+      abstain += 1;
+    }
+    if (x.option === 'VOTE_OPTION_NO') {
+      no += 1;
+    }
+    if (x.option === 'VOTE_OPTION_NO_WITH_VETO') {
+      veto += 1;
+    }
+    if (validatorDict[x.voterAddress] === false) {
+      validatorDict[x.voterAddress] = true;
+    }
+
+    return {
+      user: x.voterAddress,
+      vote: x.option,
+    };
+  });
+
+  // =====================================
+  // Get data for active validators that did not vote
+  // =====================================
+  const validatorsNotVoted = validators
+    .filter((x) => validatorDict[x] === false)
+    .map((address) => ({
+      user: toValidatorAddress(address),
+      vote: 'NOT_VOTED',
+    }));
+
+  return {
+    data: votes,
+    validatorsNotVoted,
+    voteCount: {
+      yes,
+      no,
+      veto,
+      abstain,
+      didNotVote: validatorsNotVoted.length,
+    },
+  };
+};
+
 export const useVotes = (resetPagination: () => void) => {
   const router = useRouter();
   const [state, setState] = useState<VoteState>({
@@ -31,12 +90,15 @@ export const useVotes = (resetPagination: () => void) => {
     });
   }, []);
 
-  const handleTabChange: ComponentProps<typeof Tabs>['onChange'] = (_event, newValue) => {
-    if (resetPagination) {
-      resetPagination();
-    }
-    handleSetState((prevState) => ({ ...prevState, tab: newValue }));
-  };
+  const handleTabChange: ComponentProps<typeof Tabs>['onChange'] = useCallback(
+    (_event, newValue) => {
+      if (resetPagination) {
+        resetPagination();
+      }
+      handleSetState((prevState) => ({ ...prevState, tab: newValue }));
+    },
+    [handleSetState, resetPagination]
+  );
 
   useProposalDetailsVotesQuery({
     variables: {
@@ -46,65 +108,6 @@ export const useVotes = (resetPagination: () => void) => {
       handleSetState((prevState) => ({ ...prevState, ...formatVotes(data) }));
     },
   });
-
-  const formatVotes = (data: ProposalDetailsVotesQuery) => {
-    const validatorDict: { [key: string]: unknown } = {};
-    const validators = data.validatorStatuses.map((x) => {
-      const selfDelegateAddress = x?.validator?.validatorInfo?.selfDelegateAddress ?? '';
-      validatorDict[selfDelegateAddress] = false;
-      return selfDelegateAddress;
-    });
-
-    let yes = 0;
-    let no = 0;
-    let abstain = 0;
-    let veto = 0;
-
-    const votes = data.proposalVote.map((x) => {
-      if (x.option === 'VOTE_OPTION_YES') {
-        yes += 1;
-      }
-      if (x.option === 'VOTE_OPTION_ABSTAIN') {
-        abstain += 1;
-      }
-      if (x.option === 'VOTE_OPTION_NO') {
-        no += 1;
-      }
-      if (x.option === 'VOTE_OPTION_NO_WITH_VETO') {
-        veto += 1;
-      }
-      if (validatorDict[x.voterAddress] === false) {
-        validatorDict[x.voterAddress] = true;
-      }
-
-      return {
-        user: x.voterAddress,
-        vote: x.option,
-      };
-    });
-
-    // =====================================
-    // Get data for active validators that did not vote
-    // =====================================
-    const validatorsNotVoted = validators
-      .filter((x) => validatorDict[x] === false)
-      .map((address) => ({
-        user: toValidatorAddress(address),
-        vote: 'NOT_VOTED',
-      }));
-
-    return {
-      data: votes,
-      validatorsNotVoted,
-      voteCount: {
-        yes,
-        no,
-        veto,
-        abstain,
-        didNotVote: validatorsNotVoted.length,
-      },
-    };
-  };
 
   return {
     state,

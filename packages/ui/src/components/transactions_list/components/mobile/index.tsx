@@ -85,7 +85,15 @@ const Mobile: FC<TransactionsListState> = ({
                 width={width}
               >
                 {({ index, style }) => (
-                  <ListItem {...{ index, style, setRowHeight, isItemLoaded, items, itemCount }} />
+                  <ListItem
+                    key={index}
+                    index={index}
+                    style={style}
+                    setRowHeight={setRowHeight}
+                    isItemLoaded={isItemLoaded}
+                    items={items}
+                    itemCount={itemCount}
+                  />
                 )}
               </List>
             )}

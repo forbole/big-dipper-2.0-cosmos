@@ -5,13 +5,36 @@ import numeral from 'numeral';
 import * as R from 'ramda';
 import { useState } from 'react';
 
+type State = {
+  bonded: number;
+  unbonded: number;
+  total: number;
+  denom: string;
+};
+
+const formatTokenomics = (data: TokenomicsQuery, state: State) => {
+  const results = { ...state };
+  const stakingParams = StakingParams.fromJson(R.pathOr({}, ['stakingParams', 0, 'params'], data));
+  results.denom = stakingParams.bondDenom;
+
+  const [total] = ((data?.supply?.[0]?.coins as MsgCoin[]) ?? []).filter(
+    (x) => x.denom === results.denom
+  );
+  if (total) {
+    results.total = numeral(formatToken(total.amount, total.denom).value).value() ?? 0;
+  }
+
+  const bonded = data?.stakingPool?.[0]?.bonded ?? state.bonded;
+  results.bonded = numeral(formatToken(bonded, results.denom).value).value() ?? 0;
+
+  const unbonded = data?.stakingPool?.[0]?.unbonded ?? state.unbonded;
+  results.unbonded = numeral(formatToken(unbonded, results.denom).value).value() ?? 0;
+
+  return results;
+};
+
 export const useTokenomics = () => {
-  const [state, setState] = useState<{
-    bonded: number;
-    unbonded: number;
-    total: number;
-    denom: string;
-  }>({
+  const [state, setState] = useState<State>({
     bonded: 0,
     unbonded: 0,
     total: 0,
@@ -20,32 +43,9 @@ export const useTokenomics = () => {
 
   useTokenomicsQuery({
     onCompleted: (data) => {
-      setState(formatTokenomics(data));
+      setState(formatTokenomics(data, state));
     },
   });
-
-  const formatTokenomics = (data: TokenomicsQuery) => {
-    const results = { ...state };
-    const stakingParams = StakingParams.fromJson(
-      R.pathOr({}, ['stakingParams', 0, 'params'], data)
-    );
-    results.denom = stakingParams.bondDenom;
-
-    const [total] = ((data?.supply?.[0]?.coins as MsgCoin[]) ?? []).filter(
-      (x) => x.denom === results.denom
-    );
-    if (total) {
-      results.total = numeral(formatToken(total.amount, total.denom).value).value() ?? 0;
-    }
-
-    const bonded = data?.stakingPool?.[0]?.bonded ?? state.bonded;
-    results.bonded = numeral(formatToken(bonded, results.denom).value).value() ?? 0;
-
-    const unbonded = data?.stakingPool?.[0]?.unbonded ?? state.unbonded;
-    results.unbonded = numeral(formatToken(unbonded, results.denom).value).value() ?? 0;
-
-    return results;
-  };
 
   return {
     state,

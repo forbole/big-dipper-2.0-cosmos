@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
 import * as R from 'ramda';
-import React from 'react';
+import React, { useMemo } from 'react';
 import {
   Area,
   AreaChart,
@@ -26,11 +26,16 @@ const TokenPrice: React.FC<{ items: TokenPriceType[] } & ComponentDefault> = (pr
   const { tickPriceFormatter, formatTime } = usePrice();
   const dateFormat = useRecoilValue(readDate);
 
-  const formatItems = props.items.map((x) => ({
-    time: formatTime(dayjs.utc(x.time), dateFormat),
-    fullTime: formatDayJs(dayjs.utc(x.time), dateFormat),
-    value: x.value,
-  }));
+  const formatItems = useMemo(
+    () =>
+      props.items.map((x) => ({
+        time: formatTime(dayjs.utc(x.time), dateFormat),
+        fullTime: formatDayJs(dayjs.utc(x.time), dateFormat),
+        value: x.value,
+      })),
+    [props.items, formatTime, dateFormat]
+  );
+
   return (
     <div>
       <Typography variant="h2">{t('priceHistory')}</Typography>

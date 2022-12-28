@@ -15,6 +15,25 @@ import CopyIcon from 'shared-utils/assets/icon-copy.svg';
 import EmailIcon from 'shared-utils/assets/icon-email.svg';
 import WebArrowIcon from 'shared-utils/assets/icon-web-arrow.svg';
 
+const ListItem: FC<
+  Pick<ListChildComponentProps, 'index' | 'style'> & {
+    setRowHeight: Parameters<typeof useListRow>[1];
+    classes: ReturnType<typeof useStyles>;
+    itemsNew: Array<ComponentProps<typeof SingleProvider>>;
+  }
+> = ({ index, style, setRowHeight, classes, itemsNew }) => {
+  const { rowRef } = useListRow(index, setRowHeight);
+  const selectedItem = itemsNew[index];
+  return (
+    <div style={style} className={index % 2 ? classes.even : ''}>
+      <div ref={rowRef}>
+        <SingleProvider {...selectedItem} />
+        {index !== itemsNew.length - 1 && <Divider />}
+      </div>
+    </div>
+  );
+};
+
 const Mobile: FC<{ list: ProviderInfo[] }> = ({ list }) => {
   const classes = useStyles();
   const { t } = useTranslation('providers');
@@ -107,27 +126,17 @@ const Mobile: FC<{ list: ProviderInfo[] }> = ({ list }) => {
         itemSize={getRowHeight}
         ref={listRef as React.LegacyRef<List>}
       >
-        {({ index, style }) => <ListItem {...{ index, style, setRowHeight, classes, itemsNew }} />}
+        {({ index, style }) => (
+          <ListItem
+            key={index}
+            index={index}
+            style={style}
+            setRowHeight={setRowHeight}
+            classes={classes}
+            itemsNew={itemsNew}
+          />
+        )}
       </List>
-    </div>
-  );
-};
-
-const ListItem: FC<
-  Pick<ListChildComponentProps, 'index' | 'style'> & {
-    setRowHeight: Parameters<typeof useListRow>[1];
-    classes: ReturnType<typeof useStyles>;
-    itemsNew: Array<ComponentProps<typeof SingleProvider>>;
-  }
-> = ({ index, style, setRowHeight, classes, itemsNew }) => {
-  const { rowRef } = useListRow(index, setRowHeight);
-  const selectedItem = itemsNew[index];
-  return (
-    <div style={style} className={index % 2 ? classes.even : ''}>
-      <div ref={rowRef}>
-        <SingleProvider {...selectedItem} />
-        {index !== itemsNew.length - 1 && <Divider />}
-      </div>
     </div>
   );
 };

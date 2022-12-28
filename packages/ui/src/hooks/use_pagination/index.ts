@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 
 type Options = {
   pageChangeCallback?: (page: number, rowsPerPage: number) => void;
   rowsChangeCallback?: (page: number, rowsPerPage: number) => void;
   rowsPage?: number;
 };
+
+const getTotal = (items: unknown[]) => items.length;
+
 /**
  * Hook helper for reusable
  */
@@ -16,36 +19,40 @@ export const usePagination = (options?: Options) => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(rowsPage ?? 10);
 
-  const handlePageChange = (
-    _event: React.MouseEvent<HTMLButtonElement, MouseEvent> | null,
-    newPage: number
-  ) => {
-    setPage(newPage);
-    if (pageChangeCallback) {
-      pageChangeCallback(newPage, rowsPerPage);
-    }
-  };
+  const handlePageChange = useCallback(
+    (_event: React.MouseEvent<HTMLButtonElement, MouseEvent> | null, newPage: number) => {
+      setPage(newPage);
+      if (pageChangeCallback) {
+        pageChangeCallback(newPage, rowsPerPage);
+      }
+    },
+    [pageChangeCallback, rowsPerPage]
+  );
 
-  const handleRowsPerPageChange = (selectedRowsPerPage: number) => {
-    setRowsPerPage(selectedRowsPerPage);
-    setPage(0);
-    if (rowsChangeCallback) {
-      rowsChangeCallback(page, selectedRowsPerPage);
-    }
-  };
+  const handleRowsPerPageChange = useCallback(
+    (selectedRowsPerPage: number) => {
+      setRowsPerPage(selectedRowsPerPage);
+      setPage(0);
+      if (rowsChangeCallback) {
+        rowsChangeCallback(page, selectedRowsPerPage);
+      }
+    },
+    [page, rowsChangeCallback]
+  );
 
-  const sliceItems = <T>(items: T[]) => {
-    const start = page * rowsPerPage;
-    const end = start + rowsPerPage;
-    return items.slice(start, end);
-  };
+  const sliceItems = useCallback(
+    <T>(items: T[]) => {
+      const start = page * rowsPerPage;
+      const end = start + rowsPerPage;
+      return items.slice(start, end);
+    },
+    [page, rowsPerPage]
+  );
 
-  const getTotal = (items: unknown[]) => items.length;
-
-  const resetPagination = () => {
+  const resetPagination = useCallback(() => {
     setPage(0);
     setRowsPerPage(rowsPage ?? 10);
-  };
+  }, [rowsPage]);
 
   return {
     page,

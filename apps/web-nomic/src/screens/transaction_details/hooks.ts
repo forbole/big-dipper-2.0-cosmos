@@ -5,6 +5,45 @@ import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import { useCallback, useEffect, useState } from 'react';
 
+// =============================
+// overview
+// =============================
+const formatOverview = (data: TransactionDetailsQuery) => {
+  const { fee } = data.transaction[0];
+  const feeAmount = fee?.amount?.[0] ?? {
+    denom: '',
+    amount: 0,
+  };
+
+  const overview = {
+    hash: data.transaction[0].hash,
+    height: data.transaction[0].height,
+    timestamp: data.transaction[0].block.timestamp,
+    fee: formatToken(feeAmount.amount, feeAmount.denom),
+    gas: parseFloat(data.transaction[0].gasUsed ?? '0') ?? 0,
+    memo: data.transaction[0].memo ?? '',
+  };
+  return overview;
+};
+
+// ===============================
+// Parse data
+// ===============================
+const formatTransactionDetails = (data: TransactionDetailsQuery) => {
+  const stateChange: Partial<TransactionState> = {
+    loading: false,
+  };
+
+  if (!data.transaction.length) {
+    stateChange.exists = false;
+    return stateChange;
+  }
+
+  stateChange.overview = formatOverview(data);
+
+  return stateChange;
+};
+
 export const useTransactionDetails = () => {
   const router = useRouter();
   const [state, setState] = useState<TransactionState>({
@@ -54,45 +93,6 @@ export const useTransactionDetails = () => {
       handleSetState((prevState) => ({ ...prevState, ...formatTransactionDetails(data) }));
     },
   });
-
-  // ===============================
-  // Parse data
-  // ===============================
-  const formatTransactionDetails = (data: TransactionDetailsQuery) => {
-    const stateChange: Partial<TransactionState> = {
-      loading: false,
-    };
-
-    if (!data.transaction.length) {
-      stateChange.exists = false;
-      return stateChange;
-    }
-
-    // =============================
-    // overview
-    // =============================
-    const formatOverview = () => {
-      const { fee } = data.transaction[0];
-      const feeAmount = fee?.amount?.[0] ?? {
-        denom: '',
-        amount: 0,
-      };
-
-      const overview = {
-        hash: data.transaction[0].hash,
-        height: data.transaction[0].height,
-        timestamp: data.transaction[0].block.timestamp,
-        fee: formatToken(feeAmount.amount, feeAmount.denom),
-        gas: parseFloat(data.transaction[0].gasUsed ?? '0') ?? 0,
-        memo: data.transaction[0].memo ?? '',
-      };
-      return overview;
-    };
-
-    stateChange.overview = formatOverview();
-
-    return stateChange;
-  };
 
   return {
     state,

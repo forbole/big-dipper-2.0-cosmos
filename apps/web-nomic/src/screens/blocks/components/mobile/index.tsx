@@ -71,7 +71,13 @@ const Mobile: FC<{
               >
                 {({ index, style }) => (
                   <ListItem
-                    {...{ index, style, setRowHeight, isItemLoaded, formattedItems, itemCount }}
+                    key={items[index].height}
+                    index={index}
+                    style={style}
+                    setRowHeight={setRowHeight}
+                    isItemLoaded={isItemLoaded}
+                    formattedItems={formattedItems}
+                    itemCount={itemCount}
                   />
                 )}
               </List>

@@ -8,6 +8,15 @@ import renderer from 'react-test-renderer';
 // mocks
 // ==================================
 jest.mock('@/recoil/profiles', () => ({
+  ...jest.requireActual<object>('@/recoil/profiles'),
+  useProfileRecoil: jest.fn((address) => ({
+    address,
+    name:
+      address === 'desmosvaloper14nfk5gm99gfrd7nwqtmtvzunzclz8720a6cqh7'
+        ? 'AC Validator 🦦'
+        : address,
+    imageUrl: '',
+  })),
   useProfilesRecoil: jest.fn((addresses) =>
     addresses.map((address: string) => ({
       address,

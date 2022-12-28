@@ -57,6 +57,44 @@ export const useBlockDetails = () => {
   };
 };
 
+// ==========================
+// Overview
+// ==========================
+const formatOverview = (data: BlockDetailsQuery) => {
+  const proposerAddress = data?.block?.[0]?.operatorAddress ?? '';
+  const overview: OverviewType = {
+    height: data.block[0].height,
+    hash: data.block[0].hash,
+    txs: data.block[0].txs ?? 0,
+    timestamp: data.block[0].timestamp,
+    proposer: proposerAddress,
+  };
+  return overview;
+};
+
+// ==========================
+// Signatures
+// ==========================
+const formatSignatures = (data: BlockDetailsQuery) => {
+  const signatures = data.preCommits
+    .filter((x) => x?.operatorAddress)
+    .map((x) => x.operatorAddress);
+  return signatures;
+};
+
+// ==========================
+// Transactions
+// ==========================
+const formatTransactions = (data: BlockDetailsQuery, stateChange: Partial<BlockDetailState>) => {
+  const transactions = data.transaction.map((x) => ({
+    height: x.height,
+    hash: x.hash,
+    timestamp: stateChange.overview?.timestamp ?? '',
+  }));
+
+  return transactions;
+};
+
 function formatRaws(data: BlockDetailsQuery) {
   const stateChange: Partial<BlockDetailState> = {
     loading: false,
@@ -67,47 +105,9 @@ function formatRaws(data: BlockDetailsQuery) {
     return stateChange;
   }
 
-  // ==========================
-  // Overview
-  // ==========================
-  const formatOverview = () => {
-    const proposerAddress = data?.block?.[0]?.operatorAddress ?? '';
-    const overview: OverviewType = {
-      height: data.block[0].height,
-      hash: data.block[0].hash,
-      txs: data.block[0].txs ?? 0,
-      timestamp: data.block[0].timestamp,
-      proposer: proposerAddress,
-    };
-    return overview;
-  };
-
-  stateChange.overview = formatOverview();
-
-  // ==========================
-  // Signatures
-  // ==========================
-  const formatSignatures = () => {
-    const signatures = data.preCommits
-      .filter((x) => x?.operatorAddress)
-      .map((x) => x.operatorAddress);
-    return signatures;
-  };
-  stateChange.signatures = formatSignatures();
-
-  // ==========================
-  // Transactions
-  // ==========================
-  const formatTransactions = () => {
-    const transactions = data.transaction.map((x) => ({
-      height: x.height,
-      hash: x.hash,
-      timestamp: stateChange.overview?.timestamp ?? '',
-    }));
-
-    return transactions;
-  };
-  stateChange.transactions = formatTransactions();
+  stateChange.overview = formatOverview(data);
+  stateChange.signatures = formatSignatures(data);
+  stateChange.transactions = formatTransactions(data, stateChange);
 
   return stateChange;
 }

@@ -1,5 +1,6 @@
 import AvatarName from '@/components/avatar_name';
-import { ReactNode } from 'react';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
+import { FC, ReactNode } from 'react';
 
 export const columns: {
   key: string;
@@ -12,7 +13,13 @@ export const columns: {
   },
 ];
 
-export const formatRows = (data: AvatarName[]) =>
-  data.map((x): { [key: string]: ReactNode } => ({
-    validator: <AvatarName address={x.address} imageUrl={x.imageUrl} name={x.name} />,
+const FormatRow: FC<{ rowAddress: string }> = ({ rowAddress }) => {
+  const { name, address, imageUrl } = useProfileRecoil(rowAddress);
+  return <AvatarName address={address} imageUrl={imageUrl} name={name} />;
+};
+
+export const formatRows = (data: string[]) =>
+  data.map((x, i): { [key: string]: ReactNode } => ({
+    // eslint-disable-next-line react/no-array-index-key
+    validator: <FormatRow key={`${i}-${x}`} rowAddress={x} />,
   }));

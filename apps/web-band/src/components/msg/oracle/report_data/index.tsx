@@ -1,6 +1,6 @@
 import Name from '@/components/name';
 import MsgReportData from '@/models/msg/oracle/msg_report_data';
-import { useProfileRecoil } from '@/recoil/profiles';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
 import numeral from 'numeral';

@@ -1,6 +1,6 @@
 import Name from '@/components/name';
 import MsgCreateIssuer from '@/models/msg/authority/msg_create_issuer';
-import { useProfileRecoil } from '@/recoil/profiles';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
 import useTranslation from 'next-translate/useTranslation';

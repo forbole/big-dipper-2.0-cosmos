@@ -7,14 +7,16 @@ import {
 import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import React from 'react';
+import React, { FC } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { VariableSizeGrid as Grid } from 'react-window';
 
-const Desktop: React.FC<{
+type Props = {
   className?: string;
-  signatures: AvatarName[];
-}> = ({ className, signatures }) => {
+  signatures: string[];
+};
+
+const Desktop: FC<Props> = ({ className, signatures }) => {
   const { t } = useTranslation('blocks');
   const classes = useStyles();
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);

@@ -79,7 +79,14 @@ const TransactionList: FC<TransactionsListDetailsState> = ({
                 width={width}
               >
                 {({ index, style }) => (
-                  <ListItem {...{ index, style, setRowHeight, items, isItemLoaded }} />
+                  <ListItem
+                    key={index}
+                    index={index}
+                    style={style}
+                    setRowHeight={setRowHeight}
+                    items={items}
+                    isItemLoaded={isItemLoaded}
+                  />
                 )}
               </List>
             )}

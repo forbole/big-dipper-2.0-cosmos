@@ -1,6 +1,6 @@
 import Name from '@/components/name';
 import { MsgEditValidator } from '@/models';
-import { useProfileRecoil } from '@/recoil/profiles';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { VALIDATOR_DETAILS } from '@/utils/go_to_page';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';

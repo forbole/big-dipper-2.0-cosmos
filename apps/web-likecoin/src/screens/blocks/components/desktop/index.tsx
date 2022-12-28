@@ -8,50 +8,71 @@ import dayjs from '@/utils/dayjs';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { BLOCK_DETAILS } from '@/utils/go_to_page';
 import { mergeRefs } from '@/utils/merge_refs';
+import { PropTypes } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
-import React, { ReactNode } from 'react';
+import React, { FC } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { VariableSizeGrid as Grid } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
 
-const Desktop: React.FC<{
+type Props = {
   className?: string;
   items: ItemType[];
   itemCount: number;
   loadMoreItems: (...arg: unknown[]) => void;
   isItemLoaded?: (index: number) => boolean;
-}> = ({ className, items, itemCount, loadMoreItems, isItemLoaded }) => {
+};
+
+const formattedItem = (item: ItemType, proposer: AvatarName) => ({
+  height: (
+    <Link href={BLOCK_DETAILS(item.height)} passHref>
+      <Typography variant="body1" className="value" component="a">
+        {numeral(item.height).format('0,0')}
+      </Typography>
+    </Link>
+  ),
+  txs: numeral(item.txs).format('0,0'),
+  time: dayjs.utc(item.timestamp).fromNow(),
+  proposer: (
+    <AvatarName address={proposer.address} imageUrl={proposer.imageUrl} name={proposer.name} />
+  ),
+  hash: getMiddleEllipsis(item.hash, {
+    beginning: 13,
+    ending: 15,
+  }),
+});
+
+const BlockRow: FC<{
+  style: React.CSSProperties;
+  rowIndex: number;
+  align: PropTypes.Alignment | undefined;
+  item: ItemType;
+}> = ({ style, rowIndex, align, item }) => {
+  const { proposer } = item;
+  const classes = useStyles();
+
+  return (
+    <div
+      style={style}
+      className={classnames(classes.cell, classes.body, {
+        odd: !(rowIndex % 2),
+      })}
+    >
+      <Typography variant="body1" align={align} component="div">
+        {formattedItem(item, proposer)}
+      </Typography>
+    </div>
+  );
+};
+
+const Desktop: FC<Props> = ({ className, items, itemCount, loadMoreItems, isItemLoaded }) => {
   const { t } = useTranslation('blocks');
   const classes = useStyles();
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
-
-  const formattedItems =
-    items?.map((x): { [key: string]: ReactNode } => ({
-      height: (
-        <Link href={BLOCK_DETAILS(x.height)} passHref>
-          <Typography variant="body1" className="value" component="a">
-            {numeral(x.height).format('0,0')}
-          </Typography>
-        </Link>
-      ),
-      txs: numeral(x.txs).format('0,0'),
-      time: dayjs.utc(x.timestamp).fromNow(),
-      proposer: (
-        <AvatarName
-          address={x.proposer.address}
-          imageUrl={x.proposer.imageUrl}
-          name={x.proposer.name}
-        />
-      ),
-      hash: getMiddleEllipsis(x.hash, {
-        beginning: 13,
-        ending: 15,
-      }),
-    })) ?? [];
 
   return (
     <div className={classnames(className, classes.root)}>
@@ -138,18 +159,14 @@ const Desktop: React.FC<{
                     }
 
                     const { key, align } = columns[columnIndex];
-                    const item = formattedItems[rowIndex][key];
                     return (
-                      <div
+                      <BlockRow
+                        key={`${items[rowIndex].height}-${key}`}
                         style={style}
-                        className={classnames(classes.cell, classes.body, {
-                          odd: !(rowIndex % 2),
-                        })}
-                      >
-                        <Typography variant="body1" align={align} component="div">
-                          {item}
-                        </Typography>
-                      </div>
+                        rowIndex={rowIndex}
+                        align={align}
+                        item={items[rowIndex]}
+                      />
                     );
                   }}
                 </Grid>

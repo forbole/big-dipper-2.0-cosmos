@@ -8,6 +8,8 @@ import numeral from 'numeral';
 import React from 'react';
 import { Cell, Pie, PieChart, Tooltip } from 'recharts';
 
+const convertBytesToTB = (bytes: number) => bytes / 10 ** 12;
+
 const Memory: React.FC<{
   className?: string;
   memory: {
@@ -17,8 +19,6 @@ const Memory: React.FC<{
 }> = ({ className, memory }) => {
   const { t } = useTranslation('providers');
   const { classes, theme } = useStyles();
-
-  const convertBytesToTB = (bytes: number) => bytes / 10 ** 12;
 
   const total = memory.available + memory.used;
 

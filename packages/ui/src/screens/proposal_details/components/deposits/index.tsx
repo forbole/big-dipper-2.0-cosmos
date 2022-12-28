@@ -1,6 +1,5 @@
 import Box from '@/components/box';
 import { usePagination, useScreenSize } from '@/hooks';
-import { useProfilesRecoil } from '@/recoil/profiles';
 import Paginate from '@/screens/proposal_details/components/deposits/components/paginate';
 import { useDeposits } from '@/screens/proposal_details/components/deposits/hooks';
 import { useStyles } from '@/screens/proposal_details/components/deposits/styles';
@@ -25,14 +24,7 @@ const Deposits: React.FC<ComponentDefault> = (props) => {
   const { state } = useDeposits();
 
   const classes = useStyles();
-
-  const slicedItems = sliceItems(state.data);
-
-  const dataProfiles = useProfilesRecoil(slicedItems.map((x) => x.user));
-  const items = slicedItems.map((x, i) => ({
-    ...x,
-    user: dataProfiles[i],
-  }));
+  const items = sliceItems(state.data);
 
   return (
     <Box className={classnames(props.className, classes.root)}>

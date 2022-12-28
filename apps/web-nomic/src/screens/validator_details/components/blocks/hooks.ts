@@ -5,6 +5,14 @@ import {
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 
+const formatLastHundredBlocks = (data: LastHundredBlocksSubscription) =>
+  data.block.map((x) => ({
+    height: x.height,
+    txs: x.transactions.length,
+    proposer: x.precommits[0].validatorAddress,
+    signed: x.precommits.length === 1,
+  }));
+
 export const useBlocks = () => {
   const [state, setState] = useState<
     {
@@ -25,14 +33,6 @@ export const useBlocks = () => {
       setState(data.data.data ? formatLastHundredBlocks(data.data.data) : []);
     },
   });
-
-  const formatLastHundredBlocks = (data: LastHundredBlocksSubscription) =>
-    data.block.map((x) => ({
-      height: x.height,
-      txs: x.transactions.length,
-      proposer: x.precommits[0].validatorAddress,
-      signed: x.precommits.length === 1,
-    }));
 
   return {
     state,

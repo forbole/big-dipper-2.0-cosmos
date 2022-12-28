@@ -1,6 +1,6 @@
 import Name from '@/components/name';
 import MsgBurnTokens from '@/models/msg/liquidity_provider/msg_burn_tokens';
-import { useProfileRecoil } from '@/recoil/profiles';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { formatNumber, formatToken } from '@/utils/format_token';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';

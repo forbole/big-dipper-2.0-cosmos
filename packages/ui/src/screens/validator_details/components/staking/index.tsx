@@ -19,26 +19,26 @@ const Unbondings = dynamic(
 
 const Staking: React.FC<ComponentDefault> = (props) => {
   const classes = useStyles();
-  const { state, handleTabChange } = useStaking();
+  const { state, delegations, redelegations, unbondings, handleTabChange } = useStaking();
 
   const tabs = [
     {
       id: 0,
       key: 'delegations',
-      component: <Delegations delegations={state.delegations} />,
-      count: state.delegations.count,
+      component: <Delegations delegations={delegations} />,
+      count: delegations.count,
     },
     {
       id: 1,
       key: 'redelegations',
-      component: <Redelgations redelegations={state.redelegations} />,
-      count: state.redelegations.count,
+      component: <Redelgations redelegations={redelegations} />,
+      count: redelegations.count,
     },
     {
       id: 2,
       key: 'unbondings',
-      component: <Unbondings unbondings={state.unbondings} />,
-      count: state.unbondings.count,
+      component: <Unbondings unbondings={unbondings} />,
+      count: unbondings.count,
     },
   ];
 

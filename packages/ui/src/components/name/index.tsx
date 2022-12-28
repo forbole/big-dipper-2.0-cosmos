@@ -12,7 +12,6 @@ const Name: React.FC<{
   href?: (address: string) => string;
 }> = ({ className, address, name, href = ADDRESS_DETAILS }) => {
   const classes = useStyles();
-
   return (
     <Link href={href(address)} passHref>
       <Typography variant="body1" className={classnames(className, classes.root)} component="a">

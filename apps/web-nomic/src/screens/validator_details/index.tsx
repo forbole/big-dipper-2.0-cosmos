@@ -13,8 +13,8 @@ import useTranslation from 'next-translate/useTranslation';
 const ValidatorDetails = () => {
   const { t } = useTranslation('validators');
   const classes = useStyles();
-  const { state } = useValidatorDetails();
-  const { desmosProfile, exists, loading, overview, status, votingPower } = state;
+  const { state, loading } = useValidatorDetails();
+  const { desmosProfile, exists, overview, status, votingPower } = state;
 
   return (
     <>

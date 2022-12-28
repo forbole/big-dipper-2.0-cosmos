@@ -7,6 +7,20 @@ import type { BlocksState, BlockType } from '@/screens/blocks/types';
 import * as R from 'ramda';
 import { useCallback, useState } from 'react';
 
+const formatBlocks = (data: BlocksListenerSubscription): BlockType[] => {
+  let formattedData = data.blocks;
+  if (data.blocks.length === 51) {
+    formattedData = data.blocks.slice(0, 51);
+  }
+  return formattedData.map((x) => ({
+    height: x.height,
+    txs: x.txs ?? 0,
+    hash: x.hash,
+    timestamp: x.timestamp,
+    proposer: x.proposerAddress,
+  }));
+};
+
 export const useBlocks = () => {
   const [state, setState] = useState<BlocksState>({
     loading: true,
@@ -102,20 +116,6 @@ export const useBlocks = () => {
           hasNextPage: itemsLength === 51,
         }));
       });
-  };
-
-  const formatBlocks = (data: BlocksListenerSubscription): BlockType[] => {
-    let formattedData = data.blocks;
-    if (data.blocks.length === 51) {
-      formattedData = data.blocks.slice(0, 51);
-    }
-    return formattedData.map((x) => ({
-      height: x.height,
-      txs: x.txs ?? 0,
-      hash: x.hash,
-      timestamp: x.timestamp,
-      proposer: x.proposerAddress,
-    }));
   };
 
   const itemCount = state.hasNextPage ? state.items.length + 1 : state.items.length;

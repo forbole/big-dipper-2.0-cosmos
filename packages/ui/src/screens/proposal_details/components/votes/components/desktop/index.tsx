@@ -1,4 +1,6 @@
+/* eslint-disable no-nested-ternary */
 import AvatarName from '@/components/avatar_name';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { columns } from '@/screens/proposal_details/components/votes/components/desktop/utils';
 import type { ItemType } from '@/screens/proposal_details/components/votes/types';
 import { getVoteKey } from '@/screens/proposal_details/components/votes/utils';
@@ -9,19 +11,38 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import React from 'react';
+import { FC } from 'react';
 
-const Desktop: React.FC<{
+type Props = {
   className?: string;
   items?: ItemType[];
-}> = ({ className, items }) => {
-  const { t } = useTranslation('proposals');
+};
 
-  const formattedItems =
-    items?.map((x) => ({
-      voter: <AvatarName address={x.user.address} imageUrl={x.user.imageUrl} name={x.user.name} />,
-      vote: t(getVoteKey(x.vote)),
-    })) ?? [];
+const VoteRow: FC<{ i: number; item: ItemType }> = ({ i, item }) => {
+  const { t } = useTranslation('proposals');
+  const { name, address, imageUrl } = useProfileRecoil(item.user);
+  return (
+    <TableRow key={`holders-row-${i}`}>
+      {columns.map((column) => (
+        <TableCell
+          // eslint-disable-next-line react/no-array-index-key
+          key={`holders-row-${i}-${column.key}`}
+          align={column.align}
+          style={{ width: `${column.width}%` }}
+        >
+          {column.key === 'voter' ? (
+            <AvatarName address={address} imageUrl={imageUrl} name={name} />
+          ) : column.key === 'vote' ? (
+            t(getVoteKey(item.vote))
+          ) : null}
+        </TableCell>
+      ))}
+    </TableRow>
+  );
+};
+
+const Desktop: FC<Props> = ({ className, items }) => {
+  const { t } = useTranslation('proposals');
 
   return (
     <div className={classnames(className)}>
@@ -40,20 +61,9 @@ const Desktop: React.FC<{
           </TableRow>
         </TableHead>
         <TableBody>
-          {formattedItems?.map((row: { [key: string]: unknown }, i) => (
+          {items?.map((row, i) => (
             // eslint-disable-next-line react/no-array-index-key
-            <TableRow key={`holders-row-${i}`}>
-              {columns.map((column) => (
-                <TableCell
-                  // eslint-disable-next-line react/no-array-index-key
-                  key={`holders-row-${i}-${column.key}`}
-                  align={column.align}
-                  style={{ width: `${column.width}%` }}
-                >
-                  {row[column.key]}
-                </TableCell>
-              ))}
-            </TableRow>
+            <VoteRow key={i} i={i} item={row} />
           ))}
         </TableBody>
       </Table>

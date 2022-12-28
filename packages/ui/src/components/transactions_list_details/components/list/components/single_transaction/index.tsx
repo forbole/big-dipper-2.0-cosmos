@@ -67,7 +67,7 @@ const SingleTransaction: React.FC<{
           <div className={classes.msgListContainer}>
             {messages.map((x, i) => (
               // eslint-disable-next-line react/no-array-index-key
-              <div className={classes.msg} key={`${x.type}-${i}`}>
+              <div className={classes.msg} key={`${i}-${x.type}`}>
                 <div className={classes.tags}>{x.type}</div>
                 {x.message}
               </div>

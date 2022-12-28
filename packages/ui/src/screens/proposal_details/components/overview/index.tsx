@@ -2,7 +2,7 @@ import Box from '@/components/box';
 import Markdown from '@/components/markdown';
 import Name from '@/components/name';
 import SingleProposal from '@/components/single_proposal';
-import { useProfileRecoil } from '@/recoil/profiles';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { readDate } from '@/recoil/settings';
 import CommunityPoolSpend from '@/screens/proposal_details/components/overview/components/community_pool_spend';
 import ParamsChange from '@/screens/proposal_details/components/overview/components/params_change';
@@ -18,7 +18,7 @@ import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
 import * as R from 'ramda';
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useRecoilValue } from 'recoil';
 
 const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
@@ -45,7 +45,7 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
       )} ${amountRequested.displayDenom.toUpperCase()}`
     : '';
 
-  const getExtraDetails = () => {
+  const getExtraDetails = useCallback(() => {
     let extraDetails = null;
     if (type === 'parameterChangeProposal') {
       extraDetails = (
@@ -85,7 +85,7 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
     }
 
     return extraDetails;
-  };
+  }, [overview.content, parsedAmountRequested, recipientMoniker, t, type]);
 
   const extra = getExtraDetails();
 

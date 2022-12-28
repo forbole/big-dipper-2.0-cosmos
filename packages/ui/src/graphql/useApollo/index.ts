@@ -50,7 +50,7 @@ const defaultOptions: DefaultOptions = {
 function httpBatchLink(uri?: string) {
   return new BatchHttpLink({
     uri,
-    batchMax: 25,
+    batchMax: 20,
     batchInterval: 200,
   });
 }

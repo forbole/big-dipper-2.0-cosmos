@@ -1,7 +1,6 @@
 import Box from '@/components/box';
 import NoData from '@/components/no_data';
 import { usePagination, useScreenSize } from '@/hooks';
-import { useProfilesRecoil } from '@/recoil/profiles';
 import Paginate from '@/screens/proposal_details/components/votes/components/paginate';
 import Tabs from '@/screens/proposal_details/components/votes/components/tabs';
 import { useVotes } from '@/screens/proposal_details/components/votes/hooks';
@@ -36,14 +35,7 @@ const Votes: React.FC<ComponentDefault> = (props) => {
     notVoted: state.validatorsNotVoted,
   });
 
-  const slicedItems = sliceItems(filteredItems);
-
-  const userProfiles = useProfilesRecoil(slicedItems.map((x) => x.user));
-  const items = slicedItems.map((x, i) => ({
-    ...x,
-    user: userProfiles[i],
-    vote: '',
-  }));
+  const items = sliceItems(filteredItems);
 
   let list: ReactNode;
 

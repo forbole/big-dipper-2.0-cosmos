@@ -7,6 +7,19 @@ import type { TransactionsState } from '@/screens/transactions/types';
 import * as R from 'ramda';
 import { useState } from 'react';
 
+const formatTransactions = (data: TransactionsListenerSubscription): TransactionsState['items'] => {
+  let formattedData = data.transactions;
+  if (data.transactions.length === 51) {
+    formattedData = data.transactions.slice(0, 51);
+  }
+
+  return formattedData.map((x) => ({
+    height: x.height,
+    hash: x.hash,
+    timestamp: x.block.timestamp,
+  }));
+};
+
 export const useTransactions = () => {
   const [state, setState] = useState<TransactionsState>({
     loading: true,
@@ -107,21 +120,6 @@ export const useTransactions = () => {
           hasNextPage: itemsLength === 51,
         }));
       });
-  };
-
-  const formatTransactions = (
-    data: TransactionsListenerSubscription
-  ): TransactionsState['items'] => {
-    let formattedData = data.transactions;
-    if (data.transactions.length === 51) {
-      formattedData = data.transactions.slice(0, 51);
-    }
-
-    return formattedData.map((x) => ({
-      height: x.height,
-      hash: x.hash,
-      timestamp: x.block.timestamp,
-    }));
   };
 
   return {

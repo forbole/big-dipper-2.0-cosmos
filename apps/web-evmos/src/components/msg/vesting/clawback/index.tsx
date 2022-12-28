@@ -1,6 +1,6 @@
 import Name from '@/components/name';
 import MsgClawback from '@/models/msg/vesting/msg_clawback';
-import { useProfileRecoil } from '@/recoil/profiles';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
 import React from 'react';

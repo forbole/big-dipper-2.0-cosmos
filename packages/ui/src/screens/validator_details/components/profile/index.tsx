@@ -1,7 +1,7 @@
 import Avatar from '@/components/avatar';
 import Box from '@/components/box';
 import Markdown from '@/components/markdown';
-import { useProfileRecoil } from '@/recoil/profiles';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { useStyles } from '@/screens/validator_details/components/profile/styles';
 import type { OverviewType } from '@/screens/validator_details/types';
 import Divider from '@material-ui/core/Divider';

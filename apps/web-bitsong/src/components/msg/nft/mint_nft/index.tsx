@@ -1,6 +1,6 @@
 import Name from '@/components/name';
 import MsgMintNFT from '@/models/msg/nft/msg_mint_nft';
-import { useProfileRecoil } from '@/recoil/profiles';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
 import React from 'react';

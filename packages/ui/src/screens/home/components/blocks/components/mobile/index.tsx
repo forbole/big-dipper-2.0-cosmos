@@ -1,5 +1,6 @@
 import AvatarName from '@/components/avatar_name';
 import SingleBlockMobile from '@/components/single_block_mobile';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import type { ItemType } from '@/screens/home/components/blocks/types';
 import dayjs from '@/utils/dayjs';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
@@ -9,40 +10,43 @@ import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import Link from 'next/link';
 import numeral from 'numeral';
-import React from 'react';
+import React, { FC } from 'react';
 
-const Mobile: React.FC<{
+type Props = {
   className?: string;
   items: ItemType[];
-}> = ({ className, items }) => (
+};
+
+const BlocksItem: FC<{ item: ItemType; i: number; items: ItemType[] }> = ({ item, i, items }) => {
+  const { name, address, imageUrl } = useProfileRecoil(item.proposer);
+  return (
+    <React.Fragment key={`${i}-${item.height}`}>
+      <SingleBlockMobile
+        height={
+          <Link href={BLOCK_DETAILS(item.height)} passHref>
+            <Typography variant="body1" className="value" component="a">
+              {numeral(item.height).format('0,0')}
+            </Typography>
+          </Link>
+        }
+        txs={numeral(item.txs).format('0,0')}
+        time={dayjs.utc(item.timestamp).fromNow()}
+        proposer={<AvatarName address={address} imageUrl={imageUrl} name={name} />}
+        hash={getMiddleEllipsis(item.hash, {
+          beginning: 13,
+          ending: 10,
+        })}
+      />
+      {!!items && i !== items.length - 1 && <Divider />}
+    </React.Fragment>
+  );
+};
+
+const Mobile: FC<Props> = ({ className, items }) => (
   <div className={classnames(className)}>
     {items?.map((x, i) => (
       // eslint-disable-next-line react/no-array-index-key
-      <React.Fragment key={`${x.height}-${i}`}>
-        <SingleBlockMobile
-          height={
-            <Link href={BLOCK_DETAILS(x.height)} passHref>
-              <Typography variant="body1" className="value" component="a">
-                {numeral(x.height).format('0,0')}
-              </Typography>
-            </Link>
-          }
-          txs={numeral(x.txs).format('0,0')}
-          time={dayjs.utc(x.timestamp).fromNow()}
-          proposer={
-            <AvatarName
-              address={x.proposer.address}
-              imageUrl={x.proposer.imageUrl}
-              name={x.proposer.name}
-            />
-          }
-          hash={getMiddleEllipsis(x.hash, {
-            beginning: 13,
-            ending: 10,
-          })}
-        />
-        {!!items && i !== items.length - 1 && <Divider />}
-      </React.Fragment>
+      <BlocksItem key={i} item={x} i={i} items={items} />
     ))}
   </div>
 );

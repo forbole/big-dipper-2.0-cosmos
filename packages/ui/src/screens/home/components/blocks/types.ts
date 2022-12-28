@@ -11,4 +11,4 @@ export interface BlocksState {
   items: BlockType[];
 }
 
-export type ItemType = Override<BlockType, { proposer: AvatarName }>;
+export type ItemType = BlockType;

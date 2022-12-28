@@ -1,7 +1,7 @@
 import chainConfig from '@/chainConfig';
 import Name from '@/components/name';
 import MsgCreatePool from '@/models/msg/clp/msg_create_pool';
-import { useProfileRecoil } from '@/recoil/profiles';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { formatNumber, formatToken } from '@/utils/format_token';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';

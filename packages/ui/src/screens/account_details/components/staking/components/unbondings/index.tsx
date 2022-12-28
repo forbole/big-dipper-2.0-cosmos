@@ -2,12 +2,10 @@ import Loading from '@/components/loading';
 import NoData from '@/components/no_data';
 import Pagination from '@/components/pagination';
 import { usePagination, useScreenSize } from '@/hooks';
-import { useProfilesRecoil } from '@/recoil/profiles';
 import { useStyles } from '@/screens/account_details/components/staking/components/unbondings/styles';
 import type { UnbondingsType } from '@/screens/account_details/components/staking/types';
 import classnames from 'classnames';
 import dynamic from 'next/dynamic';
-import * as R from 'ramda';
 import React from 'react';
 
 const Desktop = dynamic(
@@ -28,24 +26,13 @@ const Unbondings: React.FC<
   const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange } = usePagination({});
   const { isDesktop } = useScreenSize();
 
-  const pageItems = R.pathOr<NonNullable<typeof props['unbondings']['data'][number]>>(
-    [],
-    ['unbondings', 'data', page],
-    props
-  );
-  const dataProfiles = useProfilesRecoil(pageItems.map((x) => x.validator));
-  const mergedDataWithProfiles = pageItems.map((x, i) => ({
-    ...x,
-    validator: dataProfiles[i],
-  }));
-
-  const items = mergedDataWithProfiles;
+  const items = props?.unbondings?.data?.[page];
 
   let component = null;
 
-  if (props.unbondings.loading && !items.length) {
+  if (props.unbondings.loading && !items?.length) {
     component = <Loading />;
-  } else if (!items.length) {
+  } else if (!items?.length) {
     component = <NoData />;
   } else if (isDesktop) {
     component = <Desktop items={items} />;

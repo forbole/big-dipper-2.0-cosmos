@@ -16,6 +16,8 @@ import CopyIcon from 'shared-utils/assets/icon-copy.svg';
 import EmailIcon from 'shared-utils/assets/icon-email.svg';
 import WebArrowIcon from 'shared-utils/assets/icon-web-arrow.svg';
 
+const isItemLoaded = (index: number, itemCount: number) => index >= 0 && index < itemCount;
+
 const Desktop: React.FC<{ list: ProviderInfo[] }> = ({ list }) => {
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
 
@@ -26,7 +28,6 @@ const Desktop: React.FC<{ list: ProviderInfo[] }> = ({ list }) => {
   const className = '';
 
   const itemCount = list.length;
-  const isItemLoaded = (index: number) => index >= 0 && index < itemCount;
 
   const itemsNew = list.map((eachProvider): { [key: string]: ReactNode } => ({
     ownerAddress: (
@@ -146,7 +147,7 @@ const Desktop: React.FC<{ list: ProviderInfo[] }> = ({ list }) => {
               width={width}
             >
               {({ columnIndex, rowIndex, style }) => {
-                if (!isItemLoaded?.(rowIndex) && columnIndex === 0) {
+                if (!isItemLoaded?.(rowIndex, itemCount) && columnIndex === 0) {
                   return (
                     <div
                       style={{
@@ -159,7 +160,7 @@ const Desktop: React.FC<{ list: ProviderInfo[] }> = ({ list }) => {
                   );
                 }
 
-                if (!isItemLoaded?.(rowIndex)) {
+                if (!isItemLoaded?.(rowIndex, itemCount)) {
                   return null;
                 }
 

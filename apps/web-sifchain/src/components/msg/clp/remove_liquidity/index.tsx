@@ -1,7 +1,7 @@
 import chainConfig from '@/chainConfig';
 import Name from '@/components/name';
 import MsgRemoveLiquidity from '@/models/msg/clp/msg_remove_liquidity';
-import { useProfileRecoil } from '@/recoil/profiles';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
 import React from 'react';

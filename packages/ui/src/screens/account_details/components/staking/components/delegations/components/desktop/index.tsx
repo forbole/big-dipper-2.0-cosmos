@@ -1,4 +1,5 @@
 import AvatarName from '@/components/avatar_name';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { columns } from '@/screens/account_details/components/staking/components/delegations/components/desktop/utils';
 import type { ItemType } from '@/screens/account_details/components/staking/components/delegations/types';
 import { formatNumber } from '@/utils/format_token';
@@ -9,29 +10,43 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import React from 'react';
+import { FC, ReactNode, useMemo } from 'react';
 
-const Desktop: React.FC<{
+type Props = {
   className?: string;
   items?: ItemType[];
-}> = ({ className, items }) => {
-  const { t } = useTranslation('accounts');
-  const formattedItems = items?.map((x, i) => {
-    const amount = x.amount ? formatNumber(x.amount.value, x.amount.exponent) : '';
-    const reward = x.reward ? formatNumber(x.reward.value, x.reward.exponent) : '';
-    return {
+};
+
+const DelegationsRow: FC<{ item: ItemType; i: number }> = ({ item, i }) => {
+  const { name, address, imageUrl } = useProfileRecoil(item.validator);
+  const amount = item.amount ? formatNumber(item.amount.value, item.amount.exponent) : '';
+  const reward = item.reward ? formatNumber(item.reward.value, item.reward.exponent) : '';
+  const formattedItem = useMemo<{ [key: string]: ReactNode }>(
+    () => ({
       identifier: i,
-      validator: (
-        <AvatarName
-          name={x.validator.name}
-          address={x.validator.address}
-          imageUrl={x.validator.imageUrl}
-        />
-      ),
-      amount: `${amount} ${x.amount?.displayDenom.toUpperCase()}`,
-      reward: `${reward} ${x.reward?.displayDenom.toUpperCase()}`,
-    };
-  });
+      validator: <AvatarName name={name} address={address} imageUrl={imageUrl} />,
+      amount: `${amount} ${item.amount?.displayDenom.toUpperCase()}`,
+      reward: `${reward} ${item.reward?.displayDenom.toUpperCase()}`,
+    }),
+    [amount, i, item, reward, name, address, imageUrl]
+  );
+  return (
+    <TableRow key={`holders-row-${i}`}>
+      {columns.map((column) => (
+        <TableCell
+          key={`holders-row-${i}-${column.key}`}
+          align={column.align}
+          style={{ width: `${column.width}%` }}
+        >
+          {formattedItem[column.key]}
+        </TableCell>
+      ))}
+    </TableRow>
+  );
+};
+
+const Desktop: FC<Props> = ({ className, items }) => {
+  const { t } = useTranslation('accounts');
 
   return (
     <div className={classnames(className)}>
@@ -50,18 +65,8 @@ const Desktop: React.FC<{
           </TableRow>
         </TableHead>
         <TableBody>
-          {formattedItems?.map((row: { [key: string]: unknown }) => (
-            <TableRow key={`holders-row-${row.identifier}`}>
-              {columns.map((column) => (
-                <TableCell
-                  key={`holders-row-${row.identifier}-${column.key}`}
-                  align={column.align}
-                  style={{ width: `${column.width}%` }}
-                >
-                  {row[column.key]}
-                </TableCell>
-              ))}
-            </TableRow>
+          {items?.map((x, i) => (
+            <DelegationsRow item={x} i={i} />
           ))}
         </TableBody>
       </Table>

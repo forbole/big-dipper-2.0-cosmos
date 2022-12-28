@@ -82,7 +82,7 @@ const Desktop: React.FC<{
                     style={{ width: `${column.width}%` }}
                     align={align}
                     // eslint-disable-next-line react/no-array-index-key
-                    key={`${key}-${index}`}
+                    key={`${index}-${key}`}
                   >
                     {item}
                   </TableCell>

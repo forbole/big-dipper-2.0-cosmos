@@ -176,29 +176,29 @@ function useConnect() {
 
 const TOTAL_STEPS = 5;
 
+/* A callback function that is called when the websocket receives a new round event. */
+const formatNewRound = (data: unknown) => {
+  const result = R.pathOr<NewRoundResult | null>(null, ['result'], data);
+  const height = numeral(result?.data.value.height).value() ?? 0;
+  const proposerHex = result?.data.value.proposer.address ?? '';
+  const consensusAddress = hexToBech32(proposerHex, prefix.consensus);
+  return { height, proposer: consensusAddress };
+};
+
+/* A callback function that is called when the websocket receives a new round event. */
+const formatNewStep = (data: unknown) => {
+  const result = R.pathOr<NewStepResult | null>(null, ['result'], data);
+  const round = result?.data.value.round ?? 0;
+  const step = stepReference[result?.data.value.step ?? 0];
+  const roundCompletion = (step / TOTAL_STEPS) * 100;
+  return { round, step, roundCompletion };
+};
+
 /**
  * It creates a new websocket connection and closes it when the component unmounts
  * @returns The state of the consensus.
  */
 export const useConsensus = () => {
-  /* A callback function that is called when the websocket receives a new round event. */
-  const formatNewRound = useCallback((data: unknown) => {
-    const result = R.pathOr<NewRoundResult | null>(null, ['result'], data);
-    const height = numeral(result?.data.value.height).value() ?? 0;
-    const proposerHex = result?.data.value.proposer.address ?? '';
-    const consensusAddress = hexToBech32(proposerHex, prefix.consensus);
-    return { height, proposer: consensusAddress };
-  }, []);
-
-  /* A callback function that is called when the websocket receives a new round event. */
-  const formatNewStep = useCallback((data: unknown) => {
-    const result = R.pathOr<NewStepResult | null>(null, ['result'], data);
-    const round = result?.data.value.round ?? 0;
-    const step = stepReference[result?.data.value.step ?? 0];
-    const roundCompletion = (step / TOTAL_STEPS) * 100;
-    return { round, step, roundCompletion };
-  }, []);
-
   const { loadingNewRound, loadingNewStep, newRound, newStep } = useConnect();
   const formattedState = useMemo(
     () => ({
@@ -208,7 +208,7 @@ export const useConsensus = () => {
       ...formatNewStep(newStep),
       totalSteps: TOTAL_STEPS,
     }),
-    [formatNewRound, formatNewStep, loadingNewRound, loadingNewStep, newRound, newStep]
+    [loadingNewRound, loadingNewStep, newRound, newStep]
   );
 
   return {
