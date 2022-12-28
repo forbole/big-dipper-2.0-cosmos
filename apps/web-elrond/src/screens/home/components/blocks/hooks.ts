@@ -9,6 +9,7 @@ export const PAGE_SIZE = 7;
 
 export const useBlocks = () => {
   const [state, setState] = useState<BlockState>({
+    loading: true,
     items: [],
   });
 
@@ -44,6 +45,7 @@ export const useBlocks = () => {
 
       handleSetState((prevState) => ({
         ...prevState,
+        loading: false,
         items,
       }));
     } catch (error) {

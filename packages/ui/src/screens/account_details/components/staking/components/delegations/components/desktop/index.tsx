@@ -16,11 +16,12 @@ const Desktop: React.FC<{
   items?: ItemType[];
 }> = ({ className, items }) => {
   const { t } = useTranslation('accounts');
-  const formattedItems = items?.map((x) => {
+  const formattedItems = items?.map((x, i) => {
     const amount = x.amount ? formatNumber(x.amount.value, x.amount.exponent) : '';
     const commission = x.commission ? x.commission : '';
     const reward = x.reward ? formatNumber(x.reward.value, x.reward.exponent) : '';
     return {
+      identifier: i,
       validator: (
         <AvatarName
           name={x.validator.name}

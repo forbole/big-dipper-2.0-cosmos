@@ -13,7 +13,7 @@ import React from 'react';
 const DesmosProfile: React.FC<
   {
     className?: string;
-  } & DesmosProfile
+  } & Omit<DesmosProfile, 'address'>
 > = (props) => {
   const { t } = useTranslation('accounts');
   const classes = useStyles(props.coverUrl);

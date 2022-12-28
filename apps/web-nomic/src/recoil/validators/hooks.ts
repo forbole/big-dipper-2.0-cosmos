@@ -1,10 +1,14 @@
 import chainConfig from '@/chainConfig';
-import { useValidatorAddressesQuery, ValidatorAddressesQuery } from '@/graphql/types/general_types';
+import { useValidatorAddressesQuery } from '@/graphql/types/general_types';
 import { useDesmosProfile } from '@/hooks';
 import { atomFamilyState as profileAtomFamilyState } from '@/recoil/profiles';
-import { useState } from 'react';
+import type { AtomState as ProfileAtomState } from '@/recoil/profiles/types';
+import { useEffect, useMemo } from 'react';
 import { useRecoilCallback } from 'recoil';
-import { atomFamilyState as validatorAtomState } from 'ui/recoil/validators';
+import {
+  atomFamilyState as validatorAtomState,
+  AtomState as ValidatorAtomState,
+} from 'ui/recoil/validators';
 
 const { extra } = chainConfig();
 
@@ -17,89 +21,80 @@ export interface DataType {
 }
 
 export const useValidatorRecoil = () => {
-  const [loading, setLoading] = useState(true);
-
-  const { fetchDesmosProfile, formatDesmosProfile } = useDesmosProfile({
-    onComplete: (data) => formatDesmosProfile(data),
-  });
-
-  useValidatorAddressesQuery({
-    onError: (error) => {
-      console.error((error as Error).message);
-      setLoading(false);
-    },
-    onCompleted: async (data) => {
-      // Not very optimized but better than before.
-      // We save the very basic validator info first
-      // Set loading to be false
-      // Set profiles and update if needed.
-      // Will come back to this in the future
-      setLoading(false);
-      formatAndSetValidatorsAddressList(data);
-      setProfiles(data);
-    },
-  });
-
-  const formatAndSetValidatorsAddressList = useRecoilCallback(
+  const { data, loading: loadingValidator } = useValidatorAddressesQuery();
+  const setValidatorAtomState = useRecoilCallback(
     ({ set }) =>
-      async (data: ValidatorAddressesQuery) => {
-        data?.validator
-          ?.filter((x) => x.consensusAddress || x.selfDelegateAddress)
-          .forEach((x) => {
-            // const validatorAddress = x.validatorInfo.operatorAddress;
-            const delegatorAddress = x.selfDelegateAddress;
-            const { consensusAddress } = x;
-            const imageUrl = x?.validatorDescriptions?.[0]?.avatarUrl ?? '';
-            const moniker = x?.validatorDescriptions?.[0]?.moniker ?? '';
+      (consensusAddress: string, newState: ValidatorAtomState) =>
+        set(validatorAtomState(consensusAddress), newState)
+  );
+  useEffect(() => {
+    if (!data?.validator) return;
+    const map = new Map(
+      data.validator.filter((x) => x.consensusAddress).map((x) => [x.consensusAddress, x])
+    );
+    map.forEach((x, consensusAddress) => {
+      setValidatorAtomState(consensusAddress, {
+        delegator: x.selfDelegateAddress,
+        validator: x.consensusAddress,
+      });
+    });
+  }, [data, setValidatorAtomState]);
 
-            set(validatorAtomState(consensusAddress), {
-              delegator: delegatorAddress,
-              validator: consensusAddress, // need to check which address should be used to replace
-            });
-
-            set(profileAtomFamilyState(delegatorAddress), {
-              moniker,
-              imageUrl,
-            });
-          });
-      }
+  const addresses = useMemo(
+    () => [
+      ...new Set(
+        data?.validator.filter((x) => x.selfDelegateAddress).map((x) => x.selfDelegateAddress)
+      ),
+    ],
+    [data]
   );
 
-  const setProfiles = useRecoilCallback(({ set }) => async (data: ValidatorAddressesQuery) => {
-    if (extra.profile) {
-      const profilesPromises: Array<Promise<DesmosProfile | null>> = [];
-      data?.validator
-        ?.filter((x) => x.consensusAddress || x.selfDelegateAddress)
-        .forEach((x) => {
-          const delegatorAddress = x.selfDelegateAddress;
-          profilesPromises.push(fetchDesmosProfile(delegatorAddress));
-        });
+  // ==========================
+  // Desmos Profile
+  // ==========================
+  const { data: desmosProfiles, loading } = useDesmosProfile({ addresses, skip: !extra.profile });
+  const setProfileAtomFamilyState = useRecoilCallback(
+    ({ set }) =>
+      (delegatorAddress: string, newState: ProfileAtomState) =>
+        set(profileAtomFamilyState(delegatorAddress), newState)
+  );
 
-      const profiles = await Promise.allSettled(profilesPromises);
-      data?.validator
-        ?.filter((x) => x.consensusAddress || x.selfDelegateAddress)
-        .forEach((x, i) => {
-          const delegatorAddress = x.selfDelegateAddress ?? '';
-          const profile1 = profiles?.[i];
-          if (!profile1 || profile1.status !== 'fulfilled') return;
-          const profile = profile1?.value;
+  const validatorMap = useMemo(
+    () =>
+      new Map(
+        data?.validator.filter((x) => x.selfDelegateAddress).map((x) => [x.selfDelegateAddress, x])
+      ),
+    [data]
+  );
+  const profileMap = useMemo(
+    () =>
+      extra.profile
+        ? new Map(
+            desmosProfiles
+              ?.flatMap((x) => x.connections.map<[string, DesmosProfile]>((p) => [p.identifier, x]))
+              .filter((x) => x[0])
+          )
+        : new Map<string, DesmosProfile>(),
+    [desmosProfiles]
+  );
 
-          // ignore if profile doesnt exist
-          if (profile) {
-            // sets profile priority
-            const moniker = profile?.nickname || x?.validatorDescriptions?.[0]?.moniker || '';
-            const imageUrl = profile?.imageUrl || x?.validatorDescriptions?.[0]?.avatarUrl || '';
+  useEffect(() => {
+    if (!validatorMap.size) return;
+    validatorMap.forEach((x, delegatorAddress) => {
+      const profile = profileMap.get(delegatorAddress);
 
-            set(profileAtomFamilyState(delegatorAddress), {
-              moniker,
-              imageUrl,
-            });
-          }
-        });
-    }
-  });
+      // sets profile priority
+      const moniker = profile?.nickname || x?.validatorDescriptions?.[0]?.moniker || '';
+      const imageUrl = profile?.imageUrl || x?.validatorDescriptions?.[0]?.avatarUrl || '';
+
+      setProfileAtomFamilyState(delegatorAddress, {
+        moniker,
+        imageUrl,
+      });
+    });
+  }, [validatorMap, profileMap, setProfileAtomFamilyState]);
 
   return {
-    loading,
+    loading: loading || loadingValidator,
   };
 };

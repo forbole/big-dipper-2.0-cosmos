@@ -1,14 +1,11 @@
-import {
-  // AccountDocument,
-  GetMessagesByAddressDocument,
-} from '@/graphql/types/general_types';
+import chainConfig from '@/chainConfig';
+import { GetMessagesByAddressDocument } from '@/graphql/types/general_types';
 import AccountDetails from '@/screens/account_details';
 import { MockTheme, wait } from '@/tests/utils';
-import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
 import { MockedProvider } from '@apollo/client/testing';
-import axios from 'axios';
-import MockAdapter from 'axios-mock-adapter';
 import renderer from 'react-test-renderer';
+
+const { prefix } = chainConfig();
 
 // ==================================
 // mocks
@@ -142,46 +139,47 @@ const mockAccountMessages = jest.fn().mockReturnValue({
   },
 });
 
+jest.mock('@/hooks', () => ({
+  ...jest.requireActual('@/hooks'),
+  useDesmosProfile: () => ({
+    data: [
+      {
+        address: 'desmos18tug2x5uwkgnh7qgadezvdntpwgjc88c98zuck',
+        bio: 'hungry all the time',
+        dtag: 'HappieSa',
+        nickname: 'theHappySamoyed',
+        chainLinks: [],
+        applicationLinks: [],
+        creationTime: '2021-10-06T00:10:45.761731',
+        coverPic: 'https://ipfs.desmos.network/ipfs/Qmf48cpgi2zNiH24Vo1xtVsePUJx9665gtiRduVCvV5fFg',
+        profilePic:
+          'https://ipfs.desmos.network/ipfs/QmTvkdGrtBHHihjVajqqA2HAoHangeKR1oYbQWzasnPi7B',
+        connections: [{ identifier: `${prefix.account}test` }],
+      },
+    ],
+    loading: false,
+  }),
+}));
+
 // ==================================
 // unit tests
 // ==================================
 describe('screen: BlockDetails', () => {
   xit('matches snapshot', async () => {
-    const mockAxios = new MockAdapter(axios);
-    mockAxios.onPost('https://gql.mainnet.desmos.network/v1/graphql').reply(200, {
-      data: {
-        profile: [
-          {
-            address: 'desmos1kmw9et4e99ascgdw0mmkt63mggjuu0xuqjx30w',
-            bio: '',
-            dtag: 'RiccardoMontagnin',
-            nickname: '',
-            profilePic: '',
-            chainLinks: [],
-            applicationLinks: [],
-            creationTime: '2021-10-06T00:10:45.761731',
-          },
-        ],
-      },
-    });
-
-    const mockClient = new ApolloClient({ link: from([]), cache: new InMemoryCache() });
     let component: renderer.ReactTestRenderer | undefined;
 
     renderer.act(() => {
       component = renderer.create(
-        <ApolloProvider client={mockClient}>
-          <MockedProvider
-            mocks={[
-              // {request: { query: AccountDocument }, result: mockAccount},
-              { request: { query: GetMessagesByAddressDocument }, result: mockAccountMessages },
-            ]}
-          >
-            <MockTheme>
-              <AccountDetails />
-            </MockTheme>
-          </MockedProvider>
-        </ApolloProvider>
+        <MockedProvider
+          mocks={[
+            // {request: { query: AccountDocument }, result: mockAccount},
+            { request: { query: GetMessagesByAddressDocument }, result: mockAccountMessages },
+          ]}
+        >
+          <MockTheme>
+            <AccountDetails />
+          </MockTheme>
+        </MockedProvider>
       );
     });
     await wait(renderer.act);

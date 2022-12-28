@@ -1,4 +1,6 @@
+/* eslint-disable no-nested-ternary */
 import Box from '@/components/box';
+import Loading from '@/components/loading';
 import NoData from '@/components/no_data';
 import { useScreenSize } from '@/hooks';
 import { useTransactions } from '@/screens/home/components/transactions/hooks';
@@ -32,9 +34,7 @@ const Transactions: React.FC<{
           </Typography>
         </Link>
       </div>
-      {!state.items.length ? (
-        <NoData />
-      ) : (
+      {state.items.length ? (
         <>
           {isDesktop ? (
             <Desktop className={classes.desktop} items={state.items} />
@@ -53,6 +53,10 @@ const Transactions: React.FC<{
             </Typography>
           </Link>
         </>
+      ) : state.loading ? (
+        <Loading />
+      ) : (
+        <NoData />
       )}
     </Box>
   );

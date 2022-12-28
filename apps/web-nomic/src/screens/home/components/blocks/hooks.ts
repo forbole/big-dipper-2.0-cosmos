@@ -8,6 +8,7 @@ import { useCallback, useState } from 'react';
 
 export const useBlocks = () => {
   const [state, setState] = useState<BlocksState>({
+    loading: true,
     items: [],
   });
 
@@ -25,6 +26,7 @@ export const useBlocks = () => {
     onData: (data) => {
       handleSetState((prevState) => ({
         ...prevState,
+        loading: false,
         items: data.data.data ? formatBlocks(data.data.data) : [],
       }));
     },

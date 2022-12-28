@@ -45,7 +45,7 @@ const Delegations: React.FC<
 
   let component = null;
 
-  if (props.delegations.loading) {
+  if (props.delegations.loading && !items.length) {
     component = <Loading />;
   } else if (!items.length) {
     component = <NoData />;

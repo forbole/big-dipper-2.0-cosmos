@@ -18,9 +18,10 @@ const Desktop: React.FC<{ items: NodeType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('nodes');
   const classes = useStyles();
 
-  const formattedItems = props.items.map((x) => {
+  const formattedItems = props.items.map((x, i) => {
     const shard = getShardDisplay(x.shard);
     return {
+      identifier: i,
       pubkey: (
         <Link href={NODE_DETAILS(x.pubkey)} passHref>
           <Typography variant="body1" className="value" component="a">

@@ -1,9 +1,6 @@
 import Box from '@/components/box';
 import TabPanel from '@/components/tab_panel';
-import type DelegationsFC from '@/screens/account_details/components/staking/components/delegations';
-import type RedelgationsFC from '@/screens/account_details/components/staking/components/redelegations';
 import Tabs from '@/screens/account_details/components/staking/components/tabs';
-import type UnbondingsFC from '@/screens/account_details/components/staking/components/unbondings';
 import { useStaking } from '@/screens/account_details/components/staking/hooks';
 import { useStyles } from '@/screens/account_details/components/staking/styles';
 import type { RewardsType } from '@/screens/account_details/types';
@@ -13,35 +10,21 @@ import React from 'react';
 
 const Delegations = dynamic(
   () => import('@/screens/account_details/components/staking/components/delegations')
-) as typeof DelegationsFC;
+);
 const Redelgations = dynamic(
   () => import('@/screens/account_details/components/staking/components/redelegations')
-) as typeof RedelgationsFC;
+);
 const Unbondings = dynamic(
   () => import('@/screens/account_details/components/staking/components/unbondings')
-) as typeof UnbondingsFC;
+);
 
 const Staking: React.FC<
   {
     rewards: RewardsType;
-    accountDelegationsDocument: string;
-    accountRedelegationsDocument: string;
-    accountUndelegationsDocument: string;
   } & ComponentDefault
-> = ({
-  rewards,
-  accountDelegationsDocument,
-  accountRedelegationsDocument,
-  accountUndelegationsDocument,
-  className,
-}) => {
+> = ({ rewards, className }) => {
   const classes = useStyles();
-  const { state, handleTabChange } = useStaking(
-    rewards,
-    accountDelegationsDocument,
-    accountRedelegationsDocument,
-    accountUndelegationsDocument
-  );
+  const { state, handleTabChange } = useStaking(rewards);
 
   const tabs = [
     {

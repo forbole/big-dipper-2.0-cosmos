@@ -19,7 +19,8 @@ import React from 'react';
 const Desktop: React.FC<{ items: BlockType[] } & ComponentDefault> = (props) => {
   const { t } = useTranslation('blocks');
   const classes = useStyles();
-  const formattedItems = props.items.map((x) => ({
+  const formattedItems = props.items.map((x, i) => ({
+    identifier: i,
     block: numeral(x.block).format('0,0'),
     hash: (
       <Link href={BLOCK_DETAILS(x.hash)} passHref>

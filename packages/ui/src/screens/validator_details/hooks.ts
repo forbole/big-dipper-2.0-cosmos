@@ -2,14 +2,12 @@ import chainConfig from '@/chainConfig';
 import { useValidatorDetailsQuery, ValidatorDetailsQuery } from '@/graphql/types/general_types';
 import { useDesmosProfile } from '@/hooks';
 import { SlashingParams } from '@/models';
-import { validatorToDelegatorAddress } from '@/recoil/profiles';
 import { StatusType, ValidatorDetailsState } from '@/screens/validator_details/types';
 import { formatToken } from '@/utils/format_token';
 import { getValidatorCondition } from '@/utils/get_validator_condition';
-import { isValidAddress } from '@/utils/prefix_convert';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 
 const { extra, votingPowerTokenUnit } = chainConfig();
 
@@ -65,7 +63,7 @@ export const useValidatorDetails = () => {
   // ==========================
   // Fetch Data
   // ==========================
-  useValidatorDetailsQuery({
+  const { loading } = useValidatorDetailsQuery({
     variables: {
       address: router.query.address as string,
     },
@@ -77,30 +75,20 @@ export const useValidatorDetails = () => {
   // ==========================
   // Desmos Profile
   // ==========================
-  const { fetchDesmosProfile, formatDesmosProfile } = useDesmosProfile({
-    onComplete: (data) => {
-      const desmosProfile = formatDesmosProfile(data);
-      handleSetState((prevState) => ({ ...prevState, desmosProfile }));
-      return desmosProfile;
-    },
+  const { data: desmosProfile, loading: loadingDesmosProfile } = useDesmosProfile({
+    addresses: [state.overview.selfDelegateAddress],
+    skip: !extra.profile,
   });
 
-  useEffect(() => {
-    if (!isValidAddress(router.query.address as string)) {
-      handleSetState((prevState) => ({
-        ...prevState,
-        loading: false,
-        exists: false,
-      }));
-    } else if (extra.profile) {
-      const address = validatorToDelegatorAddress(router.query.address as string);
-      fetchDesmosProfile(address);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [router.query.address]);
-
   return {
-    state,
+    state: useMemo(
+      () => ({
+        ...state,
+        desmosProfile: desmosProfile?.[0],
+        loading: loading || loadingDesmosProfile,
+      }),
+      [state, loading, desmosProfile, loadingDesmosProfile]
+    ),
   };
 };
 
