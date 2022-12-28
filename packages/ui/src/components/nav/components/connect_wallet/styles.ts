@@ -100,6 +100,7 @@ const styles = makeStyles((theme) => ({
       backgroundColor: theme.palette.custom.wallet.backgroundTwo,
       [theme.breakpoints.up('md')]: {
         width: '600px',
+        height: '524px',
       },
     },
   },
@@ -183,6 +184,28 @@ const styles = makeStyles((theme) => ({
     },
     '& svg': {
       fill: 'none',
+    },
+  },
+  warningMsgHeader: {
+    fontWeight: 700,
+    lineHeight: '160%',
+    letterSpacing: '0.15px',
+    paddingTop: '47px',
+  },
+  warningMsg: {
+    alignItems: 'center',
+    padding: '72px 32px 0px 19px',
+    [theme.breakpoints.up('md')]: {
+      padding: '72px 32px 0px 37px',
+    },
+  },
+  warningMsgDetails: {
+    display: 'flex',
+    position: 'absolute',
+    top: '185px',
+    padding: '0px 32px 0px 19px',
+    [theme.breakpoints.up('md')]: {
+      padding: '0px 32px 0px 37px',
     },
   },
 }));
