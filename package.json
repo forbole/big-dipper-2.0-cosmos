@@ -28,6 +28,8 @@
   },
   "devDependencies": {
     "@changesets/cli": "^2.26.0",
+    "@cosmjs/launchpad": "^0.27.1",
+    "@keplr-wallet/types": "^0.11.29",
     "@playwright/test": "^1.29.0",
     "@types/eslint": "^8.4.10",
     "dotenv-cli": "^6.0.0",
