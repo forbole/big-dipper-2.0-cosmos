@@ -1,11 +1,11 @@
 import Name from '@/components/name';
 import MsgCreateUserClaim from '@/models/msg/dispensation/msg_create_user_claim';
-import { useProfileRecoil } from '@/recoil/profiles';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const CreateUserClaim: React.FC<{ message: MsgCreateUserClaim }> = (props) => {
+const CreateUserClaim: FC<{ message: MsgCreateUserClaim }> = (props) => {
   const { message } = props;
 
   const user = useProfileRecoil(message.userClaimAddress);

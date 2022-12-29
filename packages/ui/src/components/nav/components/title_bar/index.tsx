@@ -5,13 +5,15 @@ import { readMarket } from '@/recoil/market';
 import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import React from 'react';
+import React, { FC } from 'react';
 import { useRecoilValue } from 'recoil';
 
-const TitleBar: React.FC<{
+type TitleBarProps = {
   className?: string;
   title: string;
-}> = ({ className, title }) => {
+};
+
+const TitleBar: FC<TitleBarProps> = ({ className, title }) => {
   const { t } = useTranslation('common');
   const classes = useStyles();
   const marketState = useRecoilValue(readMarket);

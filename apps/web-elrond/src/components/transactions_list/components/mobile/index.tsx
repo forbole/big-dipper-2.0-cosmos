@@ -8,12 +8,13 @@ import { TRANSACTION_DETAILS } from '@/utils/go_to_page';
 import { Divider, Typography } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
-import React from 'react';
+import React, { FC, Fragment } from 'react';
 
-const Mobile: React.FC<{ items: TransactionType[] } & ComponentDefault> = (props) => {
+const Mobile: FC<{ className?: string; items: TransactionType[] }> = (props) => {
   const { t } = useTranslation('transactions');
   const classes = useStyles();
   const formattedItems = props.items.map((x) => ({
+    key: x.hash,
     hash: (
       <Link href={TRANSACTION_DETAILS(x.hash)} passHref>
         <Typography variant="body1" className="value" component="a">
@@ -50,8 +51,7 @@ const Mobile: React.FC<{ items: TransactionType[] } & ComponentDefault> = (props
   return (
     <div className={props.className}>
       {formattedItems.map((x, i) => (
-        // eslint-disable-next-line react/no-array-index-key
-        <React.Fragment key={`${x.hash}-${i}`}>
+        <Fragment key={x.key}>
           <div className={classes.root}>
             <div className={classes.item}>
               <Typography variant="h4" className="label">
@@ -95,7 +95,7 @@ const Mobile: React.FC<{ items: TransactionType[] } & ComponentDefault> = (props
             </div>
           </div>
           {i !== formattedItems.length - 1 && <Divider />}
-        </React.Fragment>
+        </Fragment>
       ))}
     </div>
   );

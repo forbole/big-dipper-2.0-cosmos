@@ -15,6 +15,11 @@ import { toast } from 'react-toastify';
 import { useRecoilCallback } from 'recoil';
 
 const { extra, prefix } = chainConfig();
+const consensusRegex = new RegExp(`^(${prefix.consensus})`);
+const validatorRegex = new RegExp(`^(${prefix.validator})`);
+const userRegex = new RegExp(`^(${prefix.account})`);
+const cosmosUserRegex = /^(cosmos)/;
+const configProfile = extra.profile;
 
 export const useSearchBar = (t: Translate) => {
   const router = useRouter();
@@ -22,36 +27,28 @@ export const useSearchBar = (t: Translate) => {
   const handleOnSubmit = useRecoilCallback(
     ({ snapshot }) =>
       async (value: string, clear?: () => void) => {
-        const consensusRegex = `^(${prefix.consensus})`;
-        const validatorRegex = `^(${prefix.validator})`;
-        const userRegex = `^(${prefix.account})`;
-        const cosmosUserRegex = '^(cosmos)';
         const parsedValue = value.replace(/\s+/g, '');
 
-        if (new RegExp(consensusRegex).test(parsedValue)) {
+        if (consensusRegex.test(parsedValue)) {
           const validatorAddress = await snapshot.getPromise(readValidator(parsedValue));
           if (validatorAddress) {
             router.push(VALIDATOR_DETAILS(validatorAddress.validator));
           } else {
             toast(t('common:useValidatorAddress'));
           }
-        } else if (new RegExp(validatorRegex).test(parsedValue)) {
+        } else if (validatorRegex.test(parsedValue)) {
           if (isValidAddress(parsedValue)) {
             router.push(VALIDATOR_DETAILS(parsedValue));
           } else {
             toast(t('common:invalidAddress'));
           }
-        } else if (
-          new RegExp(userRegex).test(parsedValue) ||
-          new RegExp(cosmosUserRegex).test(parsedValue)
-        ) {
+        } else if (userRegex.test(parsedValue) || cosmosUserRegex.test(parsedValue)) {
           if (isValidAddress(parsedValue)) {
             router.push(ACCOUNT_DETAILS(parsedValue));
           } else {
             toast(t('common:invalidAddress'));
           }
         } else if (/^@/.test(parsedValue)) {
-          const configProfile = extra.profile;
           if (!configProfile) {
             toast(t('common:profilesNotEnabled'));
           } else if (parsedValue === '@') {
@@ -68,7 +65,8 @@ export const useSearchBar = (t: Translate) => {
         if (clear) {
           clear();
         }
-      }
+      },
+    [router, t]
   );
 
   return {

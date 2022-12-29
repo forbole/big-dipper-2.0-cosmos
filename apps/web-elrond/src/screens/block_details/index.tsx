@@ -1,13 +1,12 @@
-import React from 'react';
-import { NextSeo } from 'next-seo';
-import useTranslation from 'next-translate/useTranslation';
 import Layout from '@/components/layout';
 import LoadAndExist from '@/components/load_and_exist';
-import Overview from '@/screens/block_details/components/overview';
-import Miniblocks from '@/screens/block_details/components/miniblocks';
 import Consensus from '@/screens/block_details/components/consensus';
+import Miniblocks from '@/screens/block_details/components/miniblocks';
+import Overview from '@/screens/block_details/components/overview';
 import { useBlockDetails } from '@/screens/block_details/hooks';
 import { useStyles } from '@/screens/block_details/styles';
+import { NextSeo } from 'next-seo';
+import useTranslation from 'next-translate/useTranslation';
 
 const BlockDetails = () => {
   const classes = useStyles();

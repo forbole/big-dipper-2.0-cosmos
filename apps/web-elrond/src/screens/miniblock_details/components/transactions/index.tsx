@@ -4,7 +4,7 @@ import TransactionsList from '@/components/transactions_list';
 import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import React from 'react';
+import React, { FC } from 'react';
 import Box from '@/components/box';
 import Loading from '@/components/loading';
 import { usePagination } from '@/hooks';
@@ -14,7 +14,7 @@ import {
 } from '@/screens/miniblock_details/components/transactions/hooks';
 import { useStyles } from '@/screens/miniblock_details/components/transactions/styles';
 
-const Transactions: React.FC<ComponentDefault> = (props) => {
+const Transactions: FC<ComponentDefault> = (props) => {
   const { t } = useTranslation('blocks');
   const classes = useStyles();
   const { state, handlePageChangeCallback } = useTransactions();

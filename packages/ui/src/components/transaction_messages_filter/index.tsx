@@ -8,13 +8,15 @@ import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import React from 'react';
+import React, { FC } from 'react';
 import FilterIcon from 'shared-utils/assets/icon-filter.svg';
 
-const TransactionMessagesFilter: React.FC<{
+type TransactionMessagesFilterProps = {
   className?: string;
   callback: (value: string) => void;
-}> = ({ className, callback }) => {
+};
+
+const TransactionMessagesFilter: FC<TransactionMessagesFilterProps> = ({ className, callback }) => {
   const filterLabels = getFilterLabels();
   const { t } = useTranslation('transactions');
   const classes = useStyles();

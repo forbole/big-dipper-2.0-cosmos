@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import dynamic from 'next/dynamic';
-import React from 'react';
+import React, { FC } from 'react';
 
 const Desktop = dynamic(
   () => import('@/screens/providers/components/providers_list/components/desktop')
@@ -22,7 +22,7 @@ export interface ProvidersListProps extends ComponentDefault {
   handleSearch: (value: string) => void;
 }
 
-const ProvidersList: React.FC<ProvidersListProps> = (props) => {
+const ProvidersList: FC<ProvidersListProps> = (props) => {
   const { isDesktop } = useScreenSize();
   const classes = useStyles();
   const { t } = useTranslation('providers');

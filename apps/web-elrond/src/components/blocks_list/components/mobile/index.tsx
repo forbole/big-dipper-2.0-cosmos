@@ -8,13 +8,14 @@ import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
-import React from 'react';
+import React, { FC, Fragment } from 'react';
 
-const Mobile: React.FC<{ items: BlockType[] } & ComponentDefault> = (props) => {
+const Mobile: FC<{ className?: string; items: BlockType[] }> = (props) => {
   const { t } = useTranslation('blocks');
   const formattedItems = props.items.map((x) => {
     const shard = getShardDisplay(x.shard);
     return {
+      key: x.block,
       block: numeral(x.block).format('0,0'),
       shard: t(shard.key, {
         num: shard.num,
@@ -36,11 +37,10 @@ const Mobile: React.FC<{ items: BlockType[] } & ComponentDefault> = (props) => {
   return (
     <div className={props.className}>
       {formattedItems?.map((x, i) => (
-        // eslint-disable-next-line react/no-array-index-key
-        <React.Fragment key={`${x.block}-${i}`}>
+        <Fragment key={x.key}>
           <SingleBlockMobile {...x} />
           {i !== formattedItems.length - 1 && <Divider />}
-        </React.Fragment>
+        </Fragment>
       ))}
     </div>
   );

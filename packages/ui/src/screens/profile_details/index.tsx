@@ -10,7 +10,7 @@ import useTranslation from 'next-translate/useTranslation';
 const ProfileDetails = () => {
   const { t } = useTranslation('profiles');
   const classes = useStyles();
-  const { state } = useProfileDetails();
+  const { state, loading } = useProfileDetails();
 
   return (
     <>
@@ -21,7 +21,7 @@ const ProfileDetails = () => {
         }}
       />
       <Layout navTitle={t('profileDetails')}>
-        <LoadAndExist loading={state.loading} exists={state.exists}>
+        <LoadAndExist loading={loading} exists={state.exists}>
           {!!state.desmosProfile && (
             <span className={classes.root}>
               <DesmosProfile

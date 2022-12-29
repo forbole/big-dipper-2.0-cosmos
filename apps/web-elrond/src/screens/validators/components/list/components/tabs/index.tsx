@@ -1,4 +1,4 @@
-import React, { ComponentProps } from 'react';
+import React, { ComponentProps, FC } from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Tabs from '@material-ui/core/Tabs';
@@ -8,13 +8,15 @@ import Search from '@/components/search';
 import { useStyles } from '@/screens/validators/components/list/components/tabs/styles';
 import type { TabType } from '@/screens/validators/components/list/types';
 
-const TabsHeader: React.FC<{
+type TabsHeaderProps = {
   className?: string;
   tabs: TabType[];
   tab: number;
   handleTabChange: ComponentProps<typeof Tabs>['onChange'];
   handleSearch: (value: string) => void;
-}> = (props) => {
+};
+
+const TabsHeader: FC<TabsHeaderProps> = (props) => {
   const classes = useStyles();
   const { t } = useTranslation('validators');
 

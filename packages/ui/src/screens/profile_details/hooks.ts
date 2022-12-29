@@ -8,7 +8,6 @@ import { useCallback, useEffect, useState } from 'react';
 const { extra, prefix } = chainConfig();
 
 const initialState: ProfileDetailState = {
-  loading: true,
   exists: true,
   desmosProfile: null,
 };
@@ -26,72 +25,39 @@ export const useProfileDetails = () => {
     []
   );
 
+  const profileDtag: string =
+    (Array.isArray(router?.query?.dtag) ? router?.query?.dtag[0] : router?.query?.dtag) ?? '';
+
   // ==========================
   // Desmos Profile
   // ==========================
-  const { fetchDesmosProfile, formatDesmosProfile } = useDesmosProfile({
-    onComplete: (data) => {
-      const desmosProfile = formatDesmosProfile(data);
-      handleSetState((prevState) => ({
-        ...prevState,
-        loading: false,
-        exists: !!data?.profile?.length,
-        desmosProfile,
-      }));
-      return desmosProfile;
-    },
+  const { data, loading } = useDesmosProfile({
+    addresses: [profileDtag],
+    skip: !extra.profile || !/^@/.test(profileDtag),
   });
+  useEffect(() => {
+    if (!data[0]) return;
 
-  const shouldShowProfile = useCallback(() => {
-    const dtagConnections = state.desmosProfile?.connections ?? [];
+    const dtagConnections = data[0].connections ?? [];
     const dtagConnectionsNetwork = dtagConnections.map((x) => x.identifier);
     const chainPrefix = prefix.account;
     const containNetwork = dtagConnectionsNetwork.some((x) => x.startsWith(chainPrefix));
-    return !!containNetwork;
-  }, [state.desmosProfile?.connections]);
+    const showProfile = !!containNetwork;
 
-  const profileDtag: string = (router?.query?.dtag as string) ?? '';
-
-  useEffect(() => {
-    const regex = /^@/;
-    const regexCheck = regex.test(profileDtag);
-    const configProfile = extra.profile;
-    handleSetState((prevState) => ({ ...prevState, ...initialState }));
-
-    if (!regexCheck || !configProfile) {
-      router.replace('/');
-    }
-    if (configProfile) {
-      fetchDesmosProfile(profileDtag);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [profileDtag]);
-
-  useEffect(() => {
-    if (state.desmosProfile) {
-      const showProfile = shouldShowProfile();
-
-      if (showProfile) {
-        const dtagInput = router.query.dtag as string;
-        if (
-          `@${state.desmosProfile.dtag}` !== dtagInput &&
-          `@${state.desmosProfile.dtag.toUpperCase()}` === dtagInput.toUpperCase()
-        ) {
-          router.push(
-            { pathname: `/@${state.desmosProfile.dtag}` },
-            `/@${state.desmosProfile.dtag}`,
-            { shallow: true }
-          );
-        }
-      } else {
-        handleSetState((prevState) => ({ ...prevState, exists: false }));
+    if (showProfile) {
+      const dtagInput =
+        (Array.isArray(router.query.dtag) ? router.query.dtag[0] : router.query.dtag) ?? '';
+      if (
+        `@${data[0].dtag}` !== dtagInput &&
+        `@${data[0].dtag.toUpperCase()}` === dtagInput.toUpperCase()
+      ) {
+        router.push({ pathname: `/@${data[0].dtag}` }, `/@${data[0].dtag}`, {
+          shallow: true,
+        });
       }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [state.desmosProfile]);
+    handleSetState((prevState) => ({ ...prevState, desmosProfile: data[0], exists: false }));
+  }, [data, handleSetState, router]);
 
-  return {
-    state,
-    shouldShowProfile,
-  };
+  return { state, loading };
 };

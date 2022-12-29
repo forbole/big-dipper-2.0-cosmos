@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import numeral from 'numeral';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
@@ -9,7 +9,7 @@ import NoData from '@/components/no_data';
 import { useStyles } from '@/screens/node_details/components/consensus/styles';
 import type { ConsensusType } from '@/screens/node_details/types';
 
-const Consensus: React.FC<{ consensus: ConsensusType } & ComponentDefault> = (props) => {
+const Consensus: FC<{ className?: string; consensus: ConsensusType }> = (props) => {
   const { t } = useTranslation('nodes');
   const classes = useStyles();
 
@@ -18,10 +18,9 @@ const Consensus: React.FC<{ consensus: ConsensusType } & ComponentDefault> = (pr
       <Typography variant="h2">{t('consensus')}</Typography>
       {props.consensus.length ? (
         <div className={classes.blocks}>
-          {props.consensus.map((x, i) => (
+          {props.consensus.map((x) => (
             <Tooltip
-              // eslint-disable-next-line react/no-array-index-key
-              key={`blocks-tooltip-${i}`}
+              key={x.round}
               enterTouchDelay={50}
               title={
                 <Box className={classes.toolTip}>
@@ -38,8 +37,6 @@ const Consensus: React.FC<{ consensus: ConsensusType } & ComponentDefault> = (pr
               placement="top"
             >
               <div
-                // eslint-disable-next-line react/no-array-index-key
-                key={i}
                 className={classnames(classes.singleBlock, {
                   signed: x.proposed,
                 })}

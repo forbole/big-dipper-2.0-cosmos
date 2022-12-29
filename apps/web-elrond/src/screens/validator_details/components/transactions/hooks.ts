@@ -6,6 +6,16 @@ import type { TransactionState } from '@/screens/validator_details/components/tr
 
 export const PAGE_SIZE = 10;
 
+type TransactionsResult = Array<{
+  txHash: string;
+  senderShard: number;
+  receiverShard: number;
+  sender: string;
+  receiver: string;
+  timestamp: number;
+  status: string;
+}>;
+
 export const useTransactions = (provider: string) => {
   const [state, setState] = useState<TransactionState>({
     page: 0,
@@ -27,23 +37,16 @@ export const useTransactions = (provider: string) => {
   const getTransactionsByPage = useCallback(
     async (page: number) => {
       try {
-        const { data: transactionsData } = await axios.get<
-          Array<{
-            txHash: string;
-            senderShard: number;
-            receiverShard: number;
-            sender: string;
-            receiver: string;
-            timestamp: number;
-            status: string;
-          }>
-        >(ACCOUNT_DETAILS_TRANSACTIONS(provider), {
-          params: {
-            from: page * PAGE_SIZE,
-            size: PAGE_SIZE,
-            withLogs: false,
-          },
-        });
+        const { data: transactionsData } = await axios.get<TransactionsResult>(
+          ACCOUNT_DETAILS_TRANSACTIONS(provider),
+          {
+            params: {
+              from: page * PAGE_SIZE,
+              size: PAGE_SIZE,
+              withLogs: false,
+            },
+          }
+        );
 
         const items = transactionsData.map((x) => ({
           hash: x.txHash,

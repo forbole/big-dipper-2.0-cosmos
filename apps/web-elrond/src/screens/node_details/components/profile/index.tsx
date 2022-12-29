@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import Link from 'next/link';
 import useTranslation from 'next-translate/useTranslation';
 import classnames from 'classnames';
@@ -13,9 +13,7 @@ import { useProfile } from '@/screens/node_details/components/profile/hooks';
 import { useStyles } from '@/screens/node_details/components/profile/styles';
 import type { ProfileType } from '@/screens/node_details/types';
 
-const Profile: React.FC<{ profile: ProfileType; showRating: boolean } & ComponentDefault> = (
-  props
-) => {
+const Profile: FC<{ className?: string; profile: ProfileType; showRating: boolean }> = (props) => {
   const { t } = useTranslation('nodes');
   const classes = useStyles();
   const { isDesktop } = useScreenSize();

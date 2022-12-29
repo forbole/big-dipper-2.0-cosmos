@@ -9,10 +9,10 @@ import Big from 'big.js';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
-import React from 'react';
+import { FC } from 'react';
 import { Cell, Pie, PieChart } from 'recharts';
 
-const VotesGraph: React.FC<ComponentDefault> = (props) => {
+const VotesGraph: FC<ComponentDefault> = (props) => {
   const { classes, theme } = useStyles();
   const { t } = useTranslation('proposals');
   const { state } = useVotesGraph();

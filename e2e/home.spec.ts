@@ -53,19 +53,16 @@ test('home page', async ({ page, isMobile }) => {
     page.waitForNavigation({ url: /\/blocks/ }),
     page.getByRole('link', { name: 'see more blocks' }).first().click(),
   ]);
-  await expect(page.getByRole('progressbar')).toHaveCount(0);
 
   if (isMobile) await page.getByRole('button', { name: 'open navigation menu' }).first().click();
   await Promise.all([
     page.waitForNavigation(),
     page.getByRole('link', { name: 'Overview' }).first().click(),
   ]);
-  await expect(page.getByRole('progressbar')).toHaveCount(0);
 
   // Test 'See More' transactions button
   await Promise.all([
     page.waitForNavigation({ url: /\/transactions/ }),
     page.getByRole('link', { name: 'see more txs' }).first().click(),
   ]);
-  await expect(page.getByRole('progressbar')).toHaveCount(0);
 });

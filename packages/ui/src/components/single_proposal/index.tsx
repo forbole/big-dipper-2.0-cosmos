@@ -4,15 +4,17 @@ import Tag from '@/components/tag';
 import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import React from 'react';
+import React, { ComponentProps, FC, isValidElement, ReactNode } from 'react';
 
-const SingleProposal: React.FC<{
+type SingleproposalProps = {
   className?: string;
   id: string;
-  title: string | React.ReactNode;
+  title: string | ReactNode;
   status: string;
   description?: string;
-}> = ({ className, id, title, status, description }) => {
+};
+
+const SingleProposal: FC<SingleproposalProps> = ({ className, id, title, status, description }) => {
   const { t } = useTranslation('proposals');
   const classes = useStyles();
   const statusInfo = getStatusInfo(status, t);
@@ -25,7 +27,7 @@ const SingleProposal: React.FC<{
         </Typography>
         <span className={classes.mobile}>
           <Tag
-            theme={statusInfo.tag as React.ComponentProps<typeof Tag>['theme']}
+            theme={statusInfo.tag as ComponentProps<typeof Tag>['theme']}
             value={statusInfo.value}
           />
         </span>
@@ -34,7 +36,7 @@ const SingleProposal: React.FC<{
       {/* ================= */}
       <div>
         <div className={classes.title}>
-          {React.isValidElement(title) ? (
+          {isValidElement(title) ? (
             title
           ) : (
             <Typography variant="h3" className="value">
@@ -52,7 +54,7 @@ const SingleProposal: React.FC<{
       {/* ================= */}
       <span className={classes.desktop}>
         <Tag
-          theme={statusInfo.tag as React.ComponentProps<typeof Tag>['theme']}
+          theme={statusInfo.tag as ComponentProps<typeof Tag>['theme']}
           value={statusInfo.value}
         />
       </span>

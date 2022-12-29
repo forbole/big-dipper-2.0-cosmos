@@ -1,6 +1,6 @@
 import Box from '@/components/box';
 import { usePagination, useScreenSize } from '@/hooks';
-import { useProfilesRecoil } from '@/recoil/profiles';
+import useShallowMemo from '@/hooks/useShallowMemo';
 import Paginate from '@/screens/proposal_details/components/deposits/components/paginate';
 import { useDeposits } from '@/screens/proposal_details/components/deposits/hooks';
 import { useStyles } from '@/screens/proposal_details/components/deposits/styles';
@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import dynamic from 'next/dynamic';
-import React from 'react';
+import React, { FC, useMemo } from 'react';
 
 const Desktop = dynamic(
   () => import('@/screens/proposal_details/components/deposits/components/desktop')
@@ -17,22 +17,15 @@ const Mobile = dynamic(
   () => import('@/screens/proposal_details/components/deposits/components/mobile')
 );
 
-const Deposits: React.FC<ComponentDefault> = (props) => {
+const Deposits: FC<ComponentDefault> = (props) => {
   const { isDesktop } = useScreenSize();
   const { t } = useTranslation('proposals');
   const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange, sliceItems } =
     usePagination({});
   const { state } = useDeposits();
-
   const classes = useStyles();
-
-  const slicedItems = sliceItems(state.data);
-
-  const dataProfiles = useProfilesRecoil(slicedItems.map((x) => x.user));
-  const items = slicedItems.map((x, i) => ({
-    ...x,
-    user: dataProfiles[i],
-  }));
+  const dataMemo = useShallowMemo(state.data);
+  const items = useMemo(() => sliceItems(dataMemo), [dataMemo, sliceItems]);
 
   return (
     <Box className={classnames(props.className, classes.root)}>

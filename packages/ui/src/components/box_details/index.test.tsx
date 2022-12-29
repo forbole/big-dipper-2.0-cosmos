@@ -11,10 +11,12 @@ describe('components: BoxDetails', () => {
       title: 'overview',
       details: [
         {
+          key: 'slot',
           label: 'slot',
           detail: '100,000,000',
         },
         {
+          key: 'hash',
           label: 'hash',
           detail: '76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857',
         },
@@ -42,10 +44,12 @@ describe('components: BoxDetails', () => {
       ),
       details: [
         {
+          key: 'slot',
           label: 'slot',
           detail: '100,000,000',
         },
         {
+          key: 'hash',
           label: 'hash',
           detail: '76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857',
         },

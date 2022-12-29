@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Table from '@material-ui/core/Table';
@@ -10,13 +10,16 @@ import type { OtherTokenType } from '@/screens/account_details/types';
 import { formatNumber } from '@/utils/format_token';
 import { columns } from '@/screens/account_details/components/other_tokens/components/desktop/utils';
 
-const Desktop: React.FC<{
+type DesktopProps = {
   className?: string;
   items?: OtherTokenType[];
-}> = ({ className, items }) => {
+};
+
+const Desktop: FC<DesktopProps> = ({ className, items }) => {
   const { t } = useTranslation('accounts');
 
-  const formattedItems = items?.map((x) => ({
+  const formattedItems = items?.map((x, i) => ({
+    key: i,
     token: x.denom.toUpperCase(),
     available: formatNumber(x.available.value, x.available.exponent),
   }));
@@ -38,15 +41,15 @@ const Desktop: React.FC<{
           </TableRow>
         </TableHead>
         <TableBody>
-          {formattedItems?.map((row: { [key: string]: unknown }) => (
-            <TableRow key={`holders-row-${row.identifier}`}>
+          {formattedItems?.map((row) => (
+            <TableRow key={`holders-row-${row.key}`}>
               {columns.map((column) => (
                 <TableCell
-                  key={`holders-row-${row.identifier}-${column.key}`}
+                  key={`holders-row-${row.key}-${column.key}`}
                   align={column.align}
                   style={{ width: `${column.width}%` }}
                 >
-                  {row[column.key]}
+                  {row[column.key as keyof typeof row]}
                 </TableCell>
               ))}
             </TableRow>

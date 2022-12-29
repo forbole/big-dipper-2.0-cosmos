@@ -1,20 +1,20 @@
+import Box from '@/components/box';
+import Loading from '@/components/loading';
 import NoData from '@/components/no_data';
 import Pagination from '@/components/pagination';
 import TransactionsList from '@/components/transactions_list';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
-import useTranslation from 'next-translate/useTranslation';
-import React from 'react';
-import Box from '@/components/box';
-import Loading from '@/components/loading';
 import { usePagination } from '@/hooks';
 import {
   PAGE_SIZE,
   useTransactions,
 } from '@/screens/account_details/components/transactions/hooks';
 import { useStyles } from '@/screens/account_details/components/transactions/styles';
+import Typography from '@material-ui/core/Typography';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
+import { FC } from 'react';
 
-const Transactions: React.FC<ComponentDefault> = (props) => {
+const Transactions: FC<ComponentDefault> = (props) => {
   const { t } = useTranslation('accounts');
   const classes = useStyles();
   const { state, handlePageChangeCallback } = useTransactions();

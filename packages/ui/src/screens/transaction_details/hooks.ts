@@ -4,7 +4,70 @@ import type { TransactionState } from '@/screens/transaction_details/types';
 import { formatToken } from '@/utils/format_token';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
-import { useCallback, useEffect, useState } from 'react';
+import { ChangeEvent, useCallback, useEffect, useState } from 'react';
+
+// =============================
+// overview
+// =============================
+const formatOverview = (data: TransactionDetailsQuery) => {
+  const { fee } = data.transaction[0];
+  const feeAmount = fee?.amount?.[0] ?? {
+    denom: '',
+    amount: 0,
+  };
+  const { success } = data.transaction[0];
+  const overview = {
+    hash: data.transaction[0].hash,
+    height: data.transaction[0].height,
+    timestamp: data.transaction[0].block.timestamp,
+    fee: formatToken(feeAmount.amount, feeAmount.denom),
+    gasUsed: data.transaction[0].gasUsed,
+    gasWanted: data.transaction[0].gasWanted,
+    success,
+    memo: data.transaction[0].memo ?? '',
+    error: success ? '' : data.transaction[0].rawLog ?? '',
+  };
+  return overview;
+};
+
+// =============================
+// logs
+// =============================
+const formatLogs = (data: TransactionDetailsQuery) => {
+  const { logs } = data.transaction[0];
+  return logs;
+};
+
+// =============================
+// messages
+// =============================
+const formatMessages = (data: TransactionDetailsQuery) => {
+  const messages = convertMsgsToModels(data.transaction[0]);
+  return {
+    filterBy: 'none',
+    viewRaw: false,
+    items: messages,
+  };
+};
+
+// ===============================
+// Parse data
+// ===============================
+const formatTransactionDetails = (data: TransactionDetailsQuery) => {
+  const stateChange: Partial<TransactionState> = {
+    loading: false,
+  };
+
+  if (!data.transaction.length) {
+    stateChange.exists = false;
+    return stateChange;
+  }
+
+  stateChange.overview = formatOverview(data);
+  stateChange.logs = formatLogs(data);
+  stateChange.messages = formatMessages(data);
+  return stateChange;
+};
 
 export const useTransactionDetails = () => {
   const router = useRouter();
@@ -65,69 +128,6 @@ export const useTransactionDetails = () => {
     },
   });
 
-  // ===============================
-  // Parse data
-  // ===============================
-  const formatTransactionDetails = (data: TransactionDetailsQuery) => {
-    const stateChange: Partial<TransactionState> = {
-      loading: false,
-    };
-
-    if (!data.transaction.length) {
-      stateChange.exists = false;
-      return stateChange;
-    }
-
-    // =============================
-    // overview
-    // =============================
-    const formatOverview = () => {
-      const { fee } = data.transaction[0];
-      const feeAmount = fee?.amount?.[0] ?? {
-        denom: '',
-        amount: 0,
-      };
-      const { success } = data.transaction[0];
-      const overview = {
-        hash: data.transaction[0].hash,
-        height: data.transaction[0].height,
-        timestamp: data.transaction[0].block.timestamp,
-        fee: formatToken(feeAmount.amount, feeAmount.denom),
-        gasUsed: data.transaction[0].gasUsed,
-        gasWanted: data.transaction[0].gasWanted,
-        success,
-        memo: data.transaction[0].memo ?? '',
-        error: success ? '' : data.transaction[0].rawLog ?? '',
-      };
-      return overview;
-    };
-
-    stateChange.overview = formatOverview();
-
-    // =============================
-    // logs
-    // =============================
-    const formatLogs = () => {
-      const { logs } = data.transaction[0];
-      return logs;
-    };
-    stateChange.logs = formatLogs();
-
-    // =============================
-    // messages
-    // =============================
-    const formatMessages = () => {
-      const messages = convertMsgsToModels(data.transaction[0]);
-      return {
-        filterBy: 'none',
-        viewRaw: false,
-        items: messages,
-      };
-    };
-    stateChange.messages = formatMessages();
-    return stateChange;
-  };
-
   const onMessageFilterCallback = useCallback(
     (value: string) => {
       handleSetState((prevState) => ({
@@ -143,7 +143,7 @@ export const useTransactionDetails = () => {
   );
 
   const toggleMessageDisplay = useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) => {
+    (event: ChangeEvent<HTMLInputElement>) => {
       handleSetState((prevState) => ({
         ...prevState,
         messages: {

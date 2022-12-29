@@ -1,12 +1,14 @@
 import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import React from 'react';
+import { FC } from 'react';
 
-const Total: React.FC<{
+type TotalProps = {
   className?: string;
   total: string;
-}> = ({ className, total }) => {
+};
+
+const Total: FC<TotalProps> = ({ className, total }) => {
   const { t } = useTranslation('proposals');
   return (
     <Typography variant="body1" className={classnames(className)}>

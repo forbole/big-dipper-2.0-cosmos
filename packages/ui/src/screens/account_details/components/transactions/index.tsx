@@ -7,10 +7,10 @@ import { useStyles } from '@/screens/account_details/components/transactions/sty
 import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import React from 'react';
+import { FC } from 'react';
 import { useRecoilValue } from 'recoil';
 
-const Transactions: React.FC<ComponentDefault> = (props) => {
+const Transactions: FC<ComponentDefault> = (props) => {
   const txListFormat = useRecoilValue(readTx);
   const classes = useStyles();
   const { t } = useTranslation('validators');

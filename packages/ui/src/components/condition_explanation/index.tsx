@@ -30,7 +30,7 @@ const ConditionExplanation = () => {
       <Typography>{t('conditionExplanation')}</Typography>
       <div className={classes.itemWrapper}>
         {conditions.map((x) => (
-          <div className={classes.item} key={x.display}>
+          <div key={x.display} className={classes.item}>
             <Typography>{x.display}</Typography>
             <div className={classnames(classes.condition, x.className)} />
           </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import BoxDetails from '@/components/box_details';
 import AvatarName from '@/components/avatar_name';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
@@ -8,28 +8,33 @@ import { readDate } from '@/recoil/settings';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import type { OverviewType } from '@/screens/nft_details/types';
 
-const Overview: React.FC<OverviewType & ComponentDefault> = (props) => {
+const Overview: FC<OverviewType & ComponentDefault> = (props) => {
   const { t } = useTranslation('nfts');
   const dateFormat = useRecoilValue(readDate);
 
   const details = [
     {
+      key: 'name',
       label: t('name'),
       detail: props.name,
     },
     {
+      key: 'identifier',
       label: t('identifier'),
       detail: props.identifier,
     },
     {
+      key: 'collection',
       label: t('collection'),
       detail: props.collection,
     },
     {
+      key: 'type',
       label: t('type'),
       detail: props.type,
     },
     {
+      key: 'creator',
       label: t('creator'),
       detail: (
         <AvatarName
@@ -45,6 +50,7 @@ const Overview: React.FC<OverviewType & ComponentDefault> = (props) => {
 
   if (props.owner) {
     details.push({
+      key: 'owner',
       label: t('owner'),
       detail: (
         <AvatarName
@@ -61,6 +67,7 @@ const Overview: React.FC<OverviewType & ComponentDefault> = (props) => {
   details.push(
     ...[
       {
+        key: 'minted',
         label: t('minted'),
         detail: formatDayJs(dayjs.utc(dayjs.unix(props.minted)), dateFormat),
       },

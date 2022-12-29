@@ -1,11 +1,11 @@
 import Name from '@/components/name';
 import MsgEditNFT from '@/models/msg/nft/msg_edit_nft';
-import { useProfileRecoil } from '@/recoil/profiles';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const EditNFT: React.FC<{ message: MsgEditNFT }> = (props) => {
+const EditNFT: FC<{ message: MsgEditNFT }> = (props) => {
   const { message } = props;
 
   const sender = useProfileRecoil(message.sender);

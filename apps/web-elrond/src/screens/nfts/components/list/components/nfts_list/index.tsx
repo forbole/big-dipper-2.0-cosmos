@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import dynamic from 'next/dynamic';
 import NoData from '@/components/no_data';
 import { useScreenSize } from '@/hooks';
@@ -11,7 +11,7 @@ const Mobile = dynamic(
   () => import('@/screens/nfts/components/list/components/nfts_list/components/mobile')
 );
 
-const NftsList: React.FC<{ items: NFTTypes[] } & ComponentDefault> = (props) => {
+const NftsList: FC<{ items: NFTTypes[] }> = (props) => {
   const { isDesktop } = useScreenSize();
 
   if (!props.items.length) {

@@ -27,7 +27,7 @@ const MenuItems = () => {
         }
 
         return (
-          <Link href={x.url} key={x.key} passHref>
+          <Link key={x.key} href={x.url} passHref>
             <ListItem
               button
               className={classnames(classes.root, {

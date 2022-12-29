@@ -1,9 +1,11 @@
+import { ChangeEvent, MouseEvent, useCallback } from 'react';
+
 export const useTablePaginationActions = (props: {
   className?: string;
   // backIconButtonProps?: any;
   count: number;
   // nextIconButtonProps?: any;
-  onPageChange: (event: React.MouseEvent<HTMLButtonElement> | null, page: number) => void;
+  onPageChange: (event: MouseEvent<HTMLButtonElement> | null, page: number) => void;
   handleRowsPerPageChange: (selectedRowsPerPage: number) => void;
   page: number;
   rowsPerPage: number;
@@ -18,27 +20,27 @@ export const useTablePaginationActions = (props: {
     handleRowsPerPageChange,
   } = props;
 
-  const handleFirstPage = () => {
+  const handleFirstPage = useCallback(() => {
     onPageChange(null, 0);
-  };
+  }, [onPageChange]);
 
-  const handleNextPage = () => {
+  const handleNextPage = useCallback(() => {
     if (page + 1 <= Math.ceil(count / rowsPerPage) - 1) {
       onPageChange(null, page + 1);
     }
-  };
+  }, [count, onPageChange, page, rowsPerPage]);
 
-  const handlePreviousPage = () => {
+  const handlePreviousPage = useCallback(() => {
     if (page - 1 >= 0) {
       onPageChange(null, page - 1);
     }
-  };
+  }, [onPageChange, page]);
 
-  const handleLastPage = () => {
+  const handleLastPage = useCallback(() => {
     onPageChange(null, Math.ceil(count / rowsPerPage) - 1);
-  };
+  }, [count, onPageChange, rowsPerPage]);
 
-  const getAvailablePages = () => {
+  const getAvailablePages = useCallback(() => {
     // handle edge case where there is not enough pages
     const totalPages = Math.ceil(count / rowsPerPage);
     const remainderCount = count - rowsPerPage * (page + 1);
@@ -64,11 +66,14 @@ export const useTablePaginationActions = (props: {
     });
 
     return availablePages;
-  };
+  }, [count, page, pageNeighbors, rowsPerPage]);
 
-  const handleRowOptionChange = (event: React.ChangeEvent<{ value: unknown }>) => {
-    handleRowsPerPageChange(Number(event.target.value));
-  };
+  const handleRowOptionChange = useCallback(
+    (event: ChangeEvent<{ value: unknown }>) => {
+      handleRowsPerPageChange(Number(event.target.value));
+    },
+    [handleRowsPerPageChange]
+  );
 
   return {
     page,
