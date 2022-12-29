@@ -10,6 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import CloseIcon from '@material-ui/icons/Close';
 import useTranslation from 'next-translate/useTranslation';
 import React from 'react';
+import Loading from '@/components/loading';
 
 const PairKeplrWalletDialog: React.FC<{
   walletName: string;
@@ -53,6 +54,7 @@ const PairKeplrWalletDialog: React.FC<{
               })}
             </Typography>
           </div>
+          <Loading className={classes.loading} />
         </DialogContent>
         <DialogActions>
           <div className={classes.actions}>

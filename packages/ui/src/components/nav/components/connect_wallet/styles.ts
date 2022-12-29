@@ -214,6 +214,10 @@ const styles = makeStyles((theme) => ({
     top: '185px',
     left: '172px',
   },
+  loading: {
+    position: 'relative',
+    top: '50px',
+  },
 }));
 
 export const useStyles = () => styles();
