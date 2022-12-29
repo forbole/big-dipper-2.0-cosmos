@@ -185,15 +185,15 @@ export const useParams = () => {
   // param query
   // ================================
   useParamsQuery({
-    onError: () => {
-      handleSetState((prevState) => ({ ...prevState, loading: false }));
-    },
     onCompleted: (data) => {
       handleSetState((prevState) => ({
         ...prevState,
         loading: false,
         ...formatParam(data),
       }));
+    },
+    onError: () => {
+      handleSetState((prevState) => ({ ...prevState, loading: false }));
     },
   });
 

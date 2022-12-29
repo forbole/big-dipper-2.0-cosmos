@@ -1,7 +1,9 @@
+import { ReactNode } from 'react';
+
 export interface TabType {
   id: number;
   key: string;
-  component?: React.ReactNode;
+  component?: ReactNode;
 }
 
 export interface ValidatorType {

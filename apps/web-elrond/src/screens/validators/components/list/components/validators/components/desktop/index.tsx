@@ -12,26 +12,19 @@ import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
-import React, { FC, ReactNode } from 'react';
+import React, { CSSProperties, FC, LegacyRef, ReactNode } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { VariableSizeGrid as Grid } from 'react-window';
 
-type Props = {
-  className?: string;
+type GridColumnProps = {
+  column: ReturnType<typeof fetchColumns>[number];
   sortDirection: 'desc' | 'asc';
   sortKey: string;
   handleSort: (key: string) => void;
-  items: ValidatorType[];
-  search: string;
+  style: CSSProperties;
 };
 
-const GridColumn: FC<{
-  column: ReturnType<typeof fetchColumns>[number];
-  sortKey: Props['sortKey'];
-  sortDirection: Props['sortDirection'];
-  handleSort: Props['handleSort'];
-  style: React.CSSProperties;
-}> = ({ column, sortKey, sortDirection, handleSort, style }) => {
+const GridColumn: FC<GridColumnProps> = ({ column, sortKey, sortDirection, handleSort, style }) => {
   const { t } = useTranslation('validators');
   const classes = useStyles();
 
@@ -61,15 +54,17 @@ const GridColumn: FC<{
   );
 };
 
-const GridRow: FC<{
+type GridRowProps = {
   column: string;
-  style: React.CSSProperties;
+  style: CSSProperties;
   rowIndex: number;
   align?: PropTypes.Alignment;
   item: ValidatorType;
   search: string;
   i: number;
-}> = ({ column, style, rowIndex, align, item, search, i }) => {
+};
+
+const GridRow: FC<GridRowProps> = ({ column, style, rowIndex, align, item, search, i }) => {
   const classes = useStyles();
   const { name, address, imageUrl } = item.validator;
 
@@ -83,7 +78,7 @@ const GridRow: FC<{
     }
   }
 
-  let formatItem: ReactNode | null = null;
+  let formatItem: ReactNode = null;
   switch (column) {
     case 'idx':
       formatItem = `#${i + 1}`;
@@ -143,7 +138,16 @@ const GridRow: FC<{
   );
 };
 
-const Desktop: FC<Props> = (props) => {
+type DesktopProps = {
+  className?: string;
+  sortDirection: 'desc' | 'asc';
+  sortKey: string;
+  handleSort: (key: string) => void;
+  items: ValidatorType[];
+  search: string;
+};
+
+const Desktop: FC<DesktopProps> = (props) => {
   const classes = useStyles();
   const columns = fetchColumns();
 
@@ -158,7 +162,7 @@ const Desktop: FC<Props> = (props) => {
             {/* Table Header */}
             {/* ======================================= */}
             <Grid
-              ref={columnRef as React.LegacyRef<Grid>}
+              ref={columnRef as LegacyRef<Grid>}
               columnCount={columns.length}
               columnWidth={(index) => getColumnWidth(width, index)}
               height={50}
@@ -180,7 +184,7 @@ const Desktop: FC<Props> = (props) => {
             {/* Table Body */}
             {/* ======================================= */}
             <Grid
-              ref={gridRef as React.LegacyRef<Grid>}
+              ref={gridRef as LegacyRef<Grid>}
               columnCount={columns.length}
               columnWidth={(index) => getColumnWidth(width, index)}
               height={height - 50}

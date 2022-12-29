@@ -3,9 +3,9 @@ import MsgUpdateGroupAdminRequest from '@/models/msg/group/msg_update_group_admi
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const UpdateGroupAdminRequest: React.FC<{ message: MsgUpdateGroupAdminRequest }> = (props) => {
+const UpdateGroupAdminRequest: FC<{ message: MsgUpdateGroupAdminRequest }> = (props) => {
   const { message } = props;
 
   const admin = useProfileRecoil(message.admin);

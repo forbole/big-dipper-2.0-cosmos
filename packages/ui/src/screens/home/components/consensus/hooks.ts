@@ -1,8 +1,9 @@
 import chainConfig from '@/chainConfig';
+import useShallowMemo from '@/hooks/useShallowMemo';
 import { hexToBech32 } from '@/utils/hex_to_bech32';
 import numeral from 'numeral';
 import * as R from 'ramda';
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 const { endpoints, prefix } = chainConfig();
 
@@ -142,6 +143,7 @@ function useConnect() {
       subscribe(ws, pingHeader, KEEP_ALIVE);
     };
     ws.onmessage = (e) => {
+      if (ws !== client) return;
       if (ws?.readyState !== WebSocket.OPEN) return;
       const data = JSON.parse(e.data as string);
       const event = R.pathOr<string>('', ['result', 'data', 'type'], data);
@@ -168,7 +170,10 @@ function useConnect() {
   }, []);
   useEffect(() => {
     if (!ssrMode) connect();
-    return () => client?.close();
+    return () => {
+      client?.close();
+      client = null;
+    };
   }, [connect]);
 
   return { loadingNewRound, loadingNewStep, newRound, newStep };
@@ -200,18 +205,15 @@ const formatNewStep = (data: unknown) => {
  */
 export const useConsensus = () => {
   const { loadingNewRound, loadingNewStep, newRound, newStep } = useConnect();
-  const formattedState = useMemo(
-    () => ({
-      loadingNewRound,
-      loadingNewStep,
-      ...formatNewRound(newRound),
-      ...formatNewStep(newStep),
-      totalSteps: TOTAL_STEPS,
-    }),
-    [loadingNewRound, loadingNewStep, newRound, newStep]
-  );
+  const stateMemo = useShallowMemo({
+    loadingNewRound,
+    loadingNewStep,
+    ...formatNewRound(newRound),
+    ...formatNewStep(newStep),
+    totalSteps: TOTAL_STEPS,
+  });
 
   return {
-    state: formattedState,
+    state: stateMemo,
   };
 };

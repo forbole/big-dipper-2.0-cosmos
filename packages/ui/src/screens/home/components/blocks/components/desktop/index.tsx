@@ -16,43 +16,38 @@ import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
-import { FC, ReactNode, useMemo } from 'react';
+import { FC } from 'react';
 
-type Props = {
-  className?: string;
-  items: ItemType[];
+type BlockRowProps = {
+  item: ItemType;
 };
 
-const BlockRow: FC<{ items: ItemType[]; i: number; item: ItemType }> = ({ items, i, item }) => {
+const BlockRow: FC<BlockRowProps> = ({ item }) => {
   const { name, address, imageUrl } = useProfileRecoil(item.proposer);
 
-  const formattedData: { [key: string]: ReactNode } = useMemo(
-    () => ({
-      height: (
-        <Link href={BLOCK_DETAILS(item.height)} passHref>
-          <Typography variant="body1" className="value" component="a">
-            {numeral(item.height).format('0,0')}
-          </Typography>
-        </Link>
-      ),
-      txs: numeral(item.txs).format('0,0'),
-      time: dayjs.utc(item.timestamp).fromNow(),
-      proposer: <AvatarName address={address} imageUrl={imageUrl} name={name} />,
-      hash: getMiddleEllipsis(item.hash, {
-        beginning: 6,
-        ending: 5,
-      }),
+  const formattedData = {
+    height: (
+      <Link href={BLOCK_DETAILS(item.height)} passHref>
+        <Typography variant="body1" className="value" component="a">
+          {numeral(item.height).format('0,0')}
+        </Typography>
+      </Link>
+    ),
+    txs: numeral(item.txs).format('0,0'),
+    time: dayjs.utc(item.timestamp).fromNow(),
+    proposer: <AvatarName address={address} imageUrl={imageUrl} name={name} />,
+    hash: getMiddleEllipsis(item.hash, {
+      beginning: 6,
+      ending: 5,
     }),
-    [item, name, address, imageUrl]
-  );
+  };
   return (
-    <TableRow key={`${items[i].height}`}>
-      {columns.map((column, index) => {
+    <TableRow>
+      {columns.map((column) => {
         const { key, align } = column;
         return (
-          // eslint-disable-next-line react/no-array-index-key
-          <TableCell align={align} key={`${index}-${key}`}>
-            {formattedData[key]}
+          <TableCell key={`${item.height}-${key}`} align={align}>
+            {formattedData[key as keyof typeof formattedData]}
           </TableCell>
         );
       })}
@@ -60,7 +55,12 @@ const BlockRow: FC<{ items: ItemType[]; i: number; item: ItemType }> = ({ items,
   );
 };
 
-const Desktop: FC<Props> = ({ className, items }) => {
+type DesktopProps = {
+  className?: string;
+  items: ItemType[];
+};
+
+const Desktop: FC<DesktopProps> = ({ className, items }) => {
   const { t } = useTranslation('blocks');
   const classes = useStyles();
 
@@ -77,9 +77,8 @@ const Desktop: FC<Props> = ({ className, items }) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {items.map((row, i) => (
-            // eslint-disable-next-line react/no-array-index-key
-            <BlockRow key={i} items={items} i={i} item={row} />
+          {items.map((row) => (
+            <BlockRow key={row.height} item={row} />
           ))}
         </TableBody>
       </Table>

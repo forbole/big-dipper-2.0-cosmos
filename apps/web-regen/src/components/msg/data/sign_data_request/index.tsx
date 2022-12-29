@@ -2,9 +2,9 @@ import Signers from '@/components/msg/data/sign_data_request/components/signers'
 import MsgSignDataRequest from '@/models/msg/data/msg_sign_data_request';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const SignDataRequest: React.FC<{ message: MsgSignDataRequest }> = (props) => {
+const SignDataRequest: FC<{ message: MsgSignDataRequest }> = (props) => {
   const { message } = props;
 
   return (

@@ -8,15 +8,17 @@ import AppBar from '@material-ui/core/AppBar';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Drawer from '@material-ui/core/Drawer';
 import classnames from 'classnames';
-import React from 'react';
+import React, { FC } from 'react';
 import { useRecoilValue } from 'recoil';
 import BigDipperLogoRed from 'shared-utils/assets/big-dipper-red.svg';
 import BigDipperLogoWhite from 'shared-utils/assets/big-dipper-white.svg';
 
-const Desktop: React.FC<{
+type DesktopProps = {
   className?: string;
   title: string;
-}> = ({ className, title }) => {
+};
+
+const Desktop: FC<DesktopProps> = ({ className, title }) => {
   const classes = useStyles();
   const theme = useRecoilValue(readTheme);
   const { isMenu, toggleMenu, turnOffAll, toggleNetwork, isNetwork } = useDesktop();

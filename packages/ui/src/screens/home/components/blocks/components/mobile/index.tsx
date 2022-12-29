@@ -10,17 +10,18 @@ import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import Link from 'next/link';
 import numeral from 'numeral';
-import React, { FC } from 'react';
+import React, { FC, Fragment } from 'react';
 
-type Props = {
-  className?: string;
-  items: ItemType[];
+type BlocksItemProps = {
+  item: ItemType;
+  i: number;
+  isLast: boolean;
 };
 
-const BlocksItem: FC<{ item: ItemType; i: number; items: ItemType[] }> = ({ item, i, items }) => {
+const BlocksItem: FC<BlocksItemProps> = ({ item, i, isLast }) => {
   const { name, address, imageUrl } = useProfileRecoil(item.proposer);
   return (
-    <React.Fragment key={`${i}-${item.height}`}>
+    <Fragment key={`${i}-${item.height}`}>
       <SingleBlockMobile
         height={
           <Link href={BLOCK_DETAILS(item.height)} passHref>
@@ -37,16 +38,20 @@ const BlocksItem: FC<{ item: ItemType; i: number; items: ItemType[] }> = ({ item
           ending: 10,
         })}
       />
-      {!!items && i !== items.length - 1 && <Divider />}
-    </React.Fragment>
+      {!isLast && <Divider />}
+    </Fragment>
   );
 };
 
-const Mobile: FC<Props> = ({ className, items }) => (
+type MobileProps = {
+  className?: string;
+  items: ItemType[];
+};
+
+const Mobile: FC<MobileProps> = ({ className, items }) => (
   <div className={classnames(className)}>
     {items?.map((x, i) => (
-      // eslint-disable-next-line react/no-array-index-key
-      <BlocksItem key={i} item={x} i={i} items={items} />
+      <BlocksItem key={x.height} item={x} i={i} isLast={i === items.length - 1} />
     ))}
   </div>
 );

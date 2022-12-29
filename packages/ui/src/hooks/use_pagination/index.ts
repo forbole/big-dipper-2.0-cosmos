@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import { MouseEvent, useCallback, useState } from 'react';
 
 type Options = {
   pageChangeCallback?: (page: number, rowsPerPage: number) => void;
@@ -20,7 +20,7 @@ export const usePagination = (options?: Options) => {
   const [rowsPerPage, setRowsPerPage] = useState(rowsPage ?? 10);
 
   const handlePageChange = useCallback(
-    (_event: React.MouseEvent<HTMLButtonElement, MouseEvent> | null, newPage: number) => {
+    (_event: MouseEvent<HTMLButtonElement, globalThis.MouseEvent> | null, newPage: number) => {
       setPage(newPage);
       if (pageChangeCallback) {
         pageChangeCallback(newPage, rowsPerPage);

@@ -1,14 +1,16 @@
 import { useStyles } from '@/screens/home/components/data_blocks/components/single_block/styles';
 import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
-import React from 'react';
+import { FC } from 'react';
 
-const SingleBlock: React.FC<{
+type SingleBlockProps = {
   className?: string;
   label: string;
   value: string;
   description?: string;
-}> = ({ className, label, value, description }) => {
+};
+
+const SingleBlock: FC<SingleBlockProps> = ({ className, label, value, description }) => {
   const classes = useStyles();
   return (
     <div className={classnames(className, classes.root)}>

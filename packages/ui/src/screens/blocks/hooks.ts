@@ -7,6 +7,17 @@ import type { BlocksState, BlockType } from '@/screens/blocks/types';
 import * as R from 'ramda';
 import { useCallback, useState } from 'react';
 
+// This is a bandaid as it can get extremely
+// expensive if there is too much data
+/**
+ * Helps remove any possible duplication
+ * and sorts by height in case it bugs out
+ */
+const uniqueAndSort = R.pipe(
+  R.uniqBy((r: BlockType) => r?.height),
+  R.sort(R.descend((r) => r?.height))
+);
+
 const formatBlocks = (data: BlocksListenerSubscription): BlockType[] => {
   let formattedData = data.blocks;
   if (data.blocks.length === 51) {
@@ -32,7 +43,7 @@ export const useBlocks = () => {
     exists: true,
     items: [],
     hasNextPage: false,
-    isNextPageLoading: false,
+    isNextPageLoading: true,
   });
 
   const handleSetState = useCallback((stateChange: (prevState: BlocksState) => BlocksState) => {
@@ -42,16 +53,6 @@ export const useBlocks = () => {
     });
   }, []);
 
-  // This is a bandaid as it can get extremely
-  // expensive if there is too much data
-  /**
-   * Helps remove any possible duplication
-   * and sorts by height in case it bugs out
-   */
-  const uniqueAndSort = R.pipe(
-    R.uniqBy((r: BlockType) => r?.height),
-    R.sort(R.descend((r) => r?.height))
-  );
   // ================================
   // block subscription
   // ================================
@@ -82,9 +83,6 @@ export const useBlocks = () => {
       limit: LIMIT,
       offset: 1,
     },
-    onError: () => {
-      handleSetState((prevState) => ({ ...prevState, loading: false }));
-    },
     onCompleted: (data) => {
       const itemsLength = data.blocks.length;
       const newItems = uniqueAndSort([...state.items, ...formatBlocks(data)]);
@@ -95,6 +93,9 @@ export const useBlocks = () => {
         hasNextPage: itemsLength === 51,
         isNextPageLoading: false,
       }));
+    },
+    onError: () => {
+      handleSetState((prevState) => ({ ...prevState, loading: false }));
     },
   });
 

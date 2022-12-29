@@ -2,7 +2,7 @@ import chainConfig from '@/chainConfig';
 import type { useDesmosProfile } from '@/hooks';
 import { useProfileDetails } from '@/screens/profile_details/hooks';
 import { act, cleanup, renderHook } from '@testing-library/react-hooks';
-import { useRef } from 'react';
+import { useMemo } from 'react';
 
 const { extra, prefix } = chainConfig();
 
@@ -22,9 +22,9 @@ jest.mock('next/router', () => ({
 jest.mock('@/hooks', () => ({
   ...jest.requireActual('@/hooks'),
   useDesmosProfile: (options: Parameters<typeof useDesmosProfile>[0]) => {
-    const last = useRef<string>();
-    if (last.current !== options.addresses?.[0]) {
-      if (options.addresses?.[0] === '@happieSa') {
+    const address = options.addresses?.[0];
+    return useMemo(() => {
+      if (address === '@happieSa') {
         return {
           loading: false,
           data: [
@@ -47,7 +47,7 @@ jest.mock('@/hooks', () => ({
           ],
         };
       }
-      if (options.addresses?.[0] === '@forbole') {
+      if (address === '@forbole') {
         return {
           loading: false,
           data: [
@@ -70,9 +70,8 @@ jest.mock('@/hooks', () => ({
           ],
         };
       }
-    }
-    last.current = options.addresses?.[0];
-    return { loading: false };
+      return { loading: false };
+    }, [address]);
   },
 }));
 

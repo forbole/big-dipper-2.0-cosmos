@@ -12,51 +12,41 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import { FC, ReactNode, useMemo } from 'react';
+import { FC } from 'react';
 import { useRecoilValue } from 'recoil';
 
-type Props = {
-  className?: string;
-  items: ItemType[];
-};
-
-const RedelegationsItem: FC<{ i: number; item: ItemType }> = ({ i, item }) => {
-  const address = useProfileRecoil(item.address);
-  const to = useProfileRecoil(item.to);
+const RedelegationsItem: FC<{ item: ItemType }> = ({ item }) => {
+  const { address, imageUrl, name } = useProfileRecoil(item.address);
+  const { address: toAddress, imageUrl: toImageUrl, name: toName } = useProfileRecoil(item.to);
   const dateFormat = useRecoilValue(readDate);
-  const formattedItem = useMemo<{ [key: string]: ReactNode }>(
-    () => ({
-      address: (
-        <AvatarName address={address.address} imageUrl={address.imageUrl} name={address.name} />
-      ),
-      to: <AvatarName address={to.address} imageUrl={to.imageUrl} name={to.name} />,
-      amount: item.amount
-        ? `${formatNumber(
-            item.amount.value,
-            item.amount.exponent
-          )} ${item.amount.displayDenom.toUpperCase()}`
-        : '',
-      completionTime: formatDayJs(dayjs.utc(item.completionTime), dateFormat),
-    }),
-    [address, dateFormat, item, to]
-  );
+  const formattedItem = {
+    address: <AvatarName address={address} imageUrl={imageUrl} name={name} />,
+    to: <AvatarName address={toAddress} imageUrl={toImageUrl} name={toName} />,
+    amount: item.amount
+      ? `${formatNumber(
+          item.amount.value,
+          item.amount.exponent
+        )} ${item.amount.displayDenom.toUpperCase()}`
+      : '',
+    completionTime: formatDayJs(dayjs.utc(item.completionTime), dateFormat),
+  };
   return (
-    <TableRow key={`holders-row-${i}`}>
+    <TableRow>
       {columns.map((column) => (
-        <TableCell
-          // eslint-disable-next-line react/no-array-index-key
-          key={`holders-row-${i}-${column.key}`}
-          align={column.align}
-          style={{ width: `${column.width}%` }}
-        >
-          {formattedItem[column.key]}
+        <TableCell key={column.key} align={column.align} style={{ width: `${column.width}%` }}>
+          {formattedItem[column.key as keyof typeof formattedItem]}
         </TableCell>
       ))}
     </TableRow>
   );
 };
 
-const Desktop: FC<Props> = ({ className, items }) => {
+type DesktopProps = {
+  className?: string;
+  items: ItemType[];
+};
+
+const Desktop: FC<DesktopProps> = ({ className, items }) => {
   const { t } = useTranslation('accounts');
 
   return (
@@ -78,7 +68,7 @@ const Desktop: FC<Props> = ({ className, items }) => {
         <TableBody>
           {items?.map((row, i) => (
             // eslint-disable-next-line react/no-array-index-key
-            <RedelegationsItem key={i} i={i} item={row} />
+            <RedelegationsItem key={`${row.address}-${i}`} item={row} />
           ))}
         </TableBody>
       </Table>

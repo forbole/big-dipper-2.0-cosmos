@@ -13,7 +13,7 @@ import { useState } from 'react';
 
 const { primaryTokenUnit, tokenUnits } = chainConfig();
 
-type State = {
+type DataBlocksState = {
   blockHeight: number;
   blockTime: number;
   price: number | null;
@@ -23,10 +23,10 @@ type State = {
   };
 };
 
-const formatAverageBlockTime = (data: AverageBlockTimeQuery, state: State) =>
+const formatAverageBlockTime = (data: AverageBlockTimeQuery, state: DataBlocksState) =>
   data.averageBlockTime[0]?.averageTime ?? state.blockTime;
 
-const formatTokenPrice = (data: TokenPriceListenerSubscription, state: State) => {
+const formatTokenPrice = (data: TokenPriceListenerSubscription, state: DataBlocksState) => {
   if (data?.tokenPrice[0]?.price) {
     return numeral(numeral(data?.tokenPrice[0]?.price).format('0.[00]', Math.floor)).value();
   }
@@ -39,7 +39,7 @@ const formatActiveValidatorsCount = (data: ActiveValidatorCountQuery) => ({
 });
 
 export const useDataBlocks = () => {
-  const [state, setState] = useState<State>({
+  const [state, setState] = useState<DataBlocksState>({
     blockHeight: 0,
     blockTime: 0,
     price: null,

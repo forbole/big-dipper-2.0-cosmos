@@ -121,6 +121,7 @@ export const useValidators = () => {
         ...formatValidators(data),
       }));
     },
+    onError: () => handleSetState((prevState) => ({ ...prevState, loading: false })),
   });
 
   const handleTabChange: ComponentProps<typeof Tabs>['onChange'] = useCallback(

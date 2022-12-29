@@ -4,25 +4,25 @@ import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { FC } from 'react';
 
 const SignerName: FC<{ address: string; i: number; addresses: string[] }> = (props) => {
-  const { address, i, addresses } = props;
+  const { address: theAddress, i, addresses } = props;
   const { t } = useTranslation('transactions');
-  const signer = useProfileRecoil(address);
-  const signerMoniker = signer?.name || signer?.address;
+  const { address, name } = useProfileRecoil(theAddress);
+  const signerMoniker = name || theAddress;
   if (addresses.length === 1) {
-    return <Name address={signer?.address} name={signerMoniker} />;
+    return <Name address={address} name={signerMoniker} />;
   }
 
   if (i === addresses.length - 2) {
     return (
       <>
-        <Name address={signer?.address} name={signerMoniker} /> {t('and')}{' '}
+        <Name address={address} name={signerMoniker} /> {t('and')}{' '}
       </>
     );
   }
 
   return (
     <>
-      <Name address={signer?.address} name={signerMoniker} />
+      <Name address={address} name={signerMoniker} />
       {i !== addresses.length - 1 && <>, </>}
     </>
   );

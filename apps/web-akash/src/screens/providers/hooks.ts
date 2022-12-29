@@ -118,7 +118,7 @@ export const useProviders = () => {
       pending: 0,
     },
     providers: {
-      isNextPageLoading: false,
+      isNextPageLoading: true,
       items: [],
       pages: [],
       pagination: {
@@ -218,11 +218,11 @@ export const useProviders = () => {
   // ===================
 
   useProvidersQuery({
-    onError: () => {
-      handleSetState((prevState) => ({ ...prevState, loading: false }));
-    },
     onCompleted: (data) => {
       filterAndPaginateProviders(formatProviders(data.list), '');
+    },
+    onError: () => {
+      handleSetState((prevState) => ({ ...prevState, loading: false }));
     },
   });
 

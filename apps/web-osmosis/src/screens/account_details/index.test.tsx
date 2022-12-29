@@ -1,10 +1,9 @@
 import chainConfig from '@/chainConfig';
-import type { useDesmosProfile } from '@/hooks';
 import { GetMessagesByAddressDocument } from '@/graphql/types/general_types';
 import AccountDetails from '@/screens/account_details';
 import { MockTheme, wait } from '@/tests/utils';
 import { MockedProvider } from '@apollo/client/testing';
-import { useRef } from 'react';
+import { useMemo } from 'react';
 import renderer from 'react-test-renderer';
 
 const { prefix } = chainConfig();
@@ -143,10 +142,9 @@ const mockAccountMessages = jest.fn().mockReturnValue({
 
 jest.mock('@/hooks', () => ({
   ...jest.requireActual('@/hooks'),
-  useDesmosProfile: (options: Parameters<typeof useDesmosProfile>[0]) => {
-    const last = useRef<string>();
-    if (last.current !== options.addresses?.[0]) {
-      return {
+  useDesmosProfile: () =>
+    useMemo(
+      () => ({
         loading: false,
         data: [
           {
@@ -166,11 +164,9 @@ jest.mock('@/hooks', () => ({
             ],
           },
         ],
-      };
-    }
-    last.current = options.addresses?.[0];
-    return { loading: false };
-  },
+      }),
+      []
+    ),
 }));
 
 // ==================================

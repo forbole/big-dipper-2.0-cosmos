@@ -5,14 +5,14 @@ import numeral from 'numeral';
 import * as R from 'ramda';
 import { useState } from 'react';
 
-type State = {
+type TokenomicsState = {
   bonded: number;
   unbonded: number;
   total: number;
   denom: string;
 };
 
-const formatTokenomics = (data: TokenomicsQuery, state: State) => {
+const formatTokenomics = (data: TokenomicsQuery, state: TokenomicsState) => {
   const results = { ...state };
   const stakingParams = StakingParams.fromJson(R.pathOr({}, ['stakingParams', 0, 'params'], data));
   results.denom = stakingParams.bondDenom;
@@ -34,7 +34,7 @@ const formatTokenomics = (data: TokenomicsQuery, state: State) => {
 };
 
 export const useTokenomics = () => {
-  const [state, setState] = useState<State>({
+  const [state, setState] = useState<TokenomicsState>({
     bonded: 0,
     unbonded: 0,
     total: 0,

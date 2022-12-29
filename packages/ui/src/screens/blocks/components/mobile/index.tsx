@@ -14,47 +14,43 @@ import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import Link from 'next/link';
 import numeral from 'numeral';
-import { FC, useMemo } from 'react';
+import { FC } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
 
-type Props = {
-  className?: string;
-  items: ItemType[];
-  itemCount: number;
-  loadMoreItems: (...arg: unknown[]) => void;
-  isItemLoaded?: (index: number) => boolean;
+type ListItemProps = Pick<ListChildComponentProps, 'index' | 'style'> & {
+  setRowHeight: Parameters<typeof useListRow>[1];
+  isItemLoaded: ((index: number) => boolean) | undefined;
+  item: ItemType;
+  isLast: boolean;
 };
 
-const ListItem: FC<
-  Pick<ListChildComponentProps, 'index' | 'style'> & {
-    setRowHeight: Parameters<typeof useListRow>[1];
-    isItemLoaded: ((index: number) => boolean) | undefined;
-    item: ItemType;
-    itemCount: number;
-  }
-> = ({ index, style, setRowHeight, isItemLoaded, item, itemCount }) => {
+const ListItem: FC<ListItemProps> = ({
+  index,
+  style,
+  setRowHeight,
+  isItemLoaded,
+  item,
+  isLast,
+}) => {
   const { name, address, imageUrl } = useProfileRecoil(item.proposer);
-  const formattedItem = useMemo(
-    () => ({
-      height: (
-        <Link href={BLOCK_DETAILS(item.height)} passHref>
-          <Typography variant="body1" className="value" component="a">
-            {numeral(item.height).format('0,0')}
-          </Typography>
-        </Link>
-      ),
-      txs: numeral(item.txs).format('0,0'),
-      time: dayjs.utc(item.timestamp).fromNow(),
-      proposer: <AvatarName address={address} imageUrl={imageUrl} name={name} />,
-      hash: getMiddleEllipsis(item.hash, {
-        beginning: 13,
-        ending: 10,
-      }),
+  const formattedItem = {
+    height: (
+      <Link href={BLOCK_DETAILS(item.height)} passHref>
+        <Typography variant="body1" className="value" component="a">
+          {numeral(item.height).format('0,0')}
+        </Typography>
+      </Link>
+    ),
+    txs: numeral(item.txs).format('0,0'),
+    time: dayjs.utc(item.timestamp).fromNow(),
+    proposer: <AvatarName address={address} imageUrl={imageUrl} name={name} />,
+    hash: getMiddleEllipsis(item.hash, {
+      beginning: 13,
+      ending: 10,
     }),
-    [item, address, imageUrl, name]
-  );
+  };
 
   const { rowRef } = useListRow(index, setRowHeight);
   if (!isItemLoaded?.(index)) {
@@ -70,13 +66,21 @@ const ListItem: FC<
     <div style={style}>
       <div ref={rowRef}>
         <SingleBlockMobile {...formattedItem} />
-        {index !== itemCount - 1 && <Divider />}
+        {!isLast && <Divider />}
       </div>
     </div>
   );
 };
 
-const Mobile: FC<Props> = ({ className, items, itemCount, loadMoreItems, isItemLoaded }) => {
+type MobileProps = {
+  className?: string;
+  items: ItemType[];
+  itemCount: number;
+  loadMoreItems: (...arg: unknown[]) => void;
+  isItemLoaded?: (index: number) => boolean;
+};
+
+const Mobile: FC<MobileProps> = ({ className, items, itemCount, loadMoreItems, isItemLoaded }) => {
   const classes = useStyles();
   const { listRef, getRowHeight, setRowHeight } = useList();
 
@@ -112,7 +116,7 @@ const Mobile: FC<Props> = ({ className, items, itemCount, loadMoreItems, isItemL
                     setRowHeight={setRowHeight}
                     isItemLoaded={isItemLoaded}
                     item={items[index]}
-                    itemCount={itemCount}
+                    isLast={index === itemCount - 1}
                   />
                 )}
               </List>

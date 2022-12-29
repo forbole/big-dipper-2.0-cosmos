@@ -4,9 +4,9 @@ import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { VALIDATOR_DETAILS } from '@/utils/go_to_page';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const EditValidator: React.FC<{ message: MsgEditValidator }> = (props) => {
+const EditValidator: FC<{ message: MsgEditValidator }> = (props) => {
   const { message } = props;
 
   const validator = useProfileRecoil(message.validatorAddress);

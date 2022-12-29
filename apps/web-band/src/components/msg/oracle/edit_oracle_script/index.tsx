@@ -3,9 +3,9 @@ import MsgEditOracleScript from '@/models/msg/oracle/msg_edit_oracle_script';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const EditOracleScript: React.FC<{ message: MsgEditOracleScript }> = (props) => {
+const EditOracleScript: FC<{ message: MsgEditOracleScript }> = (props) => {
   const { message } = props;
 
   const sender = useProfileRecoil(message.sender);

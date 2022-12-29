@@ -16,29 +16,22 @@ import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
-import React, { FC, ReactNode } from 'react';
+import React, { CSSProperties, FC, LegacyRef, ReactNode } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { VariableSizeGrid as Grid } from 'react-window';
 import LiquidStakingFalseIcon from 'shared-utils/assets/liquid-staking-false.svg';
 import LiquidStakingTitleIcon from 'shared-utils/assets/liquid-staking-title.svg';
 import LiquidStakingTrueIcon from 'shared-utils/assets/liquid-staking-true.svg';
 
-type Props = {
-  className?: string;
-  sortDirection: 'desc' | 'asc';
+type GridColumnProps = {
+  column: ReturnType<typeof fetchColumns>[number];
   sortKey: string;
+  sortDirection: 'desc' | 'asc';
   handleSort: (key: string) => void;
-  items: ItemType[];
-  search: string;
+  style: CSSProperties;
 };
 
-const GridColumn: FC<{
-  column: ReturnType<typeof fetchColumns>[number];
-  sortKey: Props['sortKey'];
-  sortDirection: Props['sortDirection'];
-  handleSort: Props['handleSort'];
-  style: React.CSSProperties;
-}> = ({ column, sortKey, sortDirection, handleSort, style }) => {
+const GridColumn: FC<GridColumnProps> = ({ column, sortKey, sortDirection, handleSort, style }) => {
   const { t } = useTranslation('validators');
   const classes = useStyles();
 
@@ -88,15 +81,17 @@ const GridColumn: FC<{
   );
 };
 
-const GridRow: FC<{
+type GridRowProps = {
   column: string;
-  style: React.CSSProperties;
+  style: CSSProperties;
   rowIndex: number;
   align?: PropTypes.Alignment;
   item: ItemType;
   search: string;
   i: number;
-}> = ({ column, style, rowIndex, align, item, search, i }) => {
+};
+
+const GridRow: FC<GridRowProps> = ({ column, style, rowIndex, align, item, search, i }) => {
   const classes = useStyles();
   const { name, address, imageUrl } = item.validator;
   const { t } = useTranslation('validators');
@@ -117,7 +112,7 @@ const GridRow: FC<{
     item.status === 3 ? `${numeral(item.votingPowerPercent.toFixed(6)).format('0.[00]')}%` : '0%';
   const votingPower = numeral(item.votingPower).format('0,0');
 
-  let formatItem: ReactNode | null = null;
+  let formatItem: ReactNode = null;
   switch (column) {
     case 'idx':
       formatItem = `#${i + 1}`;
@@ -170,7 +165,16 @@ const GridRow: FC<{
   );
 };
 
-const Desktop: FC<Props> = (props) => {
+type DesktopProps = {
+  className?: string;
+  sortDirection: 'desc' | 'asc';
+  sortKey: string;
+  handleSort: (key: string) => void;
+  items: ItemType[];
+  search: string;
+};
+
+const Desktop: FC<DesktopProps> = (props) => {
   const { t } = useTranslation('validators');
   const classes = useStyles();
   const columns = fetchColumns(t);
@@ -185,7 +189,7 @@ const Desktop: FC<Props> = (props) => {
             {/* Table Header */}
             {/* ======================================= */}
             <Grid
-              ref={columnRef as React.LegacyRef<Grid>}
+              ref={columnRef as LegacyRef<Grid>}
               columnCount={columns.length}
               columnWidth={(index) => getColumnWidth(width, index)}
               height={50}

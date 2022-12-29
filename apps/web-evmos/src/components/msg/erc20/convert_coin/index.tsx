@@ -4,9 +4,9 @@ import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { formatNumber, formatToken } from '@/utils/format_token';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const ConvertCoin: React.FC<{ message: MsgConvertCoin }> = (props) => {
+const ConvertCoin: FC<{ message: MsgConvertCoin }> = (props) => {
   const { message } = props;
 
   const sender = useProfileRecoil(message.sender);

@@ -1,3 +1,4 @@
+import { Loading } from '@/components';
 import AvatarName from '@/components/avatar_name';
 import Box from '@/components/box';
 import Result from '@/components/result';
@@ -11,18 +12,19 @@ import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
 import React, { FC } from 'react';
 
-const BlockBox: FC<{
+type BlockBoxProps = {
   i: number;
   item: ReturnType<typeof useBlocks>['state'][number];
   state: ReturnType<typeof useBlocks>['state'];
-}> = ({ i, item, state }) => {
-  const proposer = useProfileRecoil(item.proposer);
+};
+
+const BlockBox: FC<BlockBoxProps> = ({ i, item, state }) => {
+  const { address, imageUrl, name } = useProfileRecoil(item.proposer);
   const { t } = useTranslation('validators');
   const classes = useStyles();
   return (
     <Tooltip
-      // eslint-disable-next-line react/no-array-index-key
-      key={`blocks-tooltip-${i}`}
+      key={item.height}
       enterTouchDelay={50}
       title={
         <Box className={classes.toolTip}>
@@ -30,11 +32,7 @@ const BlockBox: FC<{
             <Typography variant="h4" className="label">
               {t('proposer')}
             </Typography>
-            <AvatarName
-              address={proposer.address}
-              imageUrl={proposer.imageUrl}
-              name={proposer.name}
-            />
+            <AvatarName address={address} imageUrl={imageUrl} name={name} />
           </div>
           <div className={classes.item}>
             <Typography variant="h4" className="label">
@@ -72,17 +70,17 @@ const BlockBox: FC<{
   );
 };
 
-const Blocks: FC<JSX.IntrinsicElements['div']> = ({ className }) => {
+const Blocks: FC<ComponentDefault> = ({ className }) => {
   const { t } = useTranslation('validators');
-  const { state } = useBlocks();
+  const { state, loading } = useBlocks();
   const classes = useStyles();
   return (
     <Box className={classnames(className, classes.root)}>
       <Typography variant="h2">{t('lastBlocks')}</Typography>
+      {loading && <Loading />}
       <div className={classes.blocks}>
         {state.map((x, i) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <BlockBox key={i} i={i} item={x} state={state} />
+          <BlockBox key={x.height} i={i} item={x} state={state} />
         ))}
       </div>
     </Box>

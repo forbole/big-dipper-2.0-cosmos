@@ -15,26 +15,20 @@ import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
-import React, { FC, ReactNode } from 'react';
+import React, { CSSProperties, FC, LegacyRef, ReactNode } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { VariableSizeGrid as Grid } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
 
-type Props = {
-  className?: string;
-  items: ItemType[];
-  itemCount: number;
-  loadMoreItems: (...arg: unknown[]) => void;
-  isItemLoaded?: (index: number) => boolean;
-};
-
-const BlockItem: FC<{
+type BlockItemProps = {
   item: ItemType;
   rowIndex: number;
   column: string;
-  style: React.CSSProperties;
+  style: CSSProperties;
   align: PropTypes.Alignment | undefined;
-}> = ({ item, rowIndex, column, style, align }) => {
+};
+
+const BlockItem: FC<BlockItemProps> = ({ item, rowIndex, column, style, align }) => {
   const { name, address, imageUrl } = useProfileRecoil(item.proposer);
   const classes = useStyles();
   let formattedItem: ReactNode | null = null;
@@ -80,7 +74,21 @@ const BlockItem: FC<{
   );
 };
 
-const Desktop: FC<Props> = ({ className, items, itemCount, loadMoreItems, isItemLoaded }) => {
+type DesktopProps = {
+  className?: string;
+  items: ItemType[];
+  itemCount: number;
+  loadMoreItems: (...arg: unknown[]) => void;
+  isItemLoaded?: (index: number) => boolean;
+};
+
+const Desktop: FC<DesktopProps> = ({
+  className,
+  items,
+  itemCount,
+  loadMoreItems,
+  isItemLoaded,
+}) => {
   const { t } = useTranslation('blocks');
   const classes = useStyles();
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
@@ -94,7 +102,7 @@ const Desktop: FC<Props> = ({ className, items, itemCount, loadMoreItems, isItem
             {/* Table Header */}
             {/* ======================================= */}
             <Grid
-              ref={columnRef as React.LegacyRef<Grid>}
+              ref={columnRef as LegacyRef<Grid>}
               columnCount={columns.length}
               columnWidth={(index) => getColumnWidth(width, index)}
               height={50}
@@ -170,12 +178,12 @@ const Desktop: FC<Props> = ({ className, items, itemCount, loadMoreItems, isItem
                     }
 
                     const { key, align } = columns[columnIndex];
+                    const item = items[rowIndex];
                     return (
                       <BlockItem
-                        key={`${items[rowIndex].height}-${key}`}
                         rowIndex={rowIndex}
                         column={key}
-                        item={items[rowIndex]}
+                        item={item}
                         style={style}
                         align={align}
                       />

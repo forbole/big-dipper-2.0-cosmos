@@ -1,6 +1,7 @@
 import AvatarName from '@/components/avatar_name';
 import Loading from '@/components/loading';
 import { useGrid } from '@/hooks';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { useStyles } from '@/screens/blocks/components/desktop/styles';
 import { columns } from '@/screens/blocks/components/desktop/utils';
 import type { ItemType } from '@/screens/blocks/types';
@@ -14,47 +15,40 @@ import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
-import React, { FC } from 'react';
+import React, { CSSProperties, FC, LegacyRef } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { VariableSizeGrid as Grid } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
 
-type Props = {
-  className?: string;
-  items: ItemType[];
-  itemCount: number;
-  loadMoreItems: (...arg: unknown[]) => void;
-  isItemLoaded?: (index: number) => boolean;
-};
-
-const formattedItem = (item: ItemType, proposer: AvatarName) => ({
-  height: (
-    <Link href={BLOCK_DETAILS(item.height)} passHref>
-      <Typography variant="body1" className="value" component="a">
-        {numeral(item.height).format('0,0')}
-      </Typography>
-    </Link>
-  ),
-  txs: numeral(item.txs).format('0,0'),
-  time: dayjs.utc(item.timestamp).fromNow(),
-  proposer: (
-    <AvatarName address={proposer.address} imageUrl={proposer.imageUrl} name={proposer.name} />
-  ),
-  hash: getMiddleEllipsis(item.hash, {
-    beginning: 13,
-    ending: 15,
-  }),
-});
-
-const BlockRow: FC<{
-  style: React.CSSProperties;
+type BlockRowProps = {
+  style: CSSProperties;
+  columnKey: string;
   rowIndex: number;
   align: PropTypes.Alignment | undefined;
   item: ItemType;
-}> = ({ style, rowIndex, align, item }) => {
-  const { proposer } = item;
-  const classes = useStyles();
+};
 
+const BlockRow: FC<BlockRowProps> = ({ style, columnKey, rowIndex, align, item }) => {
+  const proposer = useProfileRecoil(item.proposer);
+  const classes = useStyles();
+  const formattedItem = {
+    height: (
+      <Link href={BLOCK_DETAILS(item.height)} passHref>
+        <Typography variant="body1" className="value" component="a">
+          {numeral(item.height).format('0,0')}
+        </Typography>
+      </Link>
+    ),
+    txs: numeral(item.txs).format('0,0'),
+    time: dayjs.utc(item.timestamp).fromNow(),
+    proposer: (
+      <AvatarName address={proposer.address} imageUrl={proposer.imageUrl} name={proposer.name} />
+    ),
+    hash: getMiddleEllipsis(item.hash, {
+      beginning: 13,
+      ending: 15,
+    }),
+  };
   return (
     <div
       style={style}
@@ -63,13 +57,27 @@ const BlockRow: FC<{
       })}
     >
       <Typography variant="body1" align={align} component="div">
-        {formattedItem(item, proposer)}
+        {formattedItem[columnKey as keyof typeof formattedItem]}
       </Typography>
     </div>
   );
 };
 
-const Desktop: FC<Props> = ({ className, items, itemCount, loadMoreItems, isItemLoaded }) => {
+type DesktopProps = {
+  className?: string;
+  items: ItemType[];
+  itemCount: number;
+  loadMoreItems: (...arg: unknown[]) => void;
+  isItemLoaded?: (index: number) => boolean;
+};
+
+const Desktop: FC<DesktopProps> = ({
+  className,
+  items,
+  itemCount,
+  loadMoreItems,
+  isItemLoaded,
+}) => {
   const { t } = useTranslation('blocks');
   const classes = useStyles();
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
@@ -83,7 +91,7 @@ const Desktop: FC<Props> = ({ className, items, itemCount, loadMoreItems, isItem
             {/* Table Header */}
             {/* ======================================= */}
             <Grid
-              ref={columnRef as React.LegacyRef<Grid>}
+              ref={columnRef as LegacyRef<Grid>}
               columnCount={columns.length}
               columnWidth={(index) => getColumnWidth(width, index)}
               height={50}
@@ -158,14 +166,15 @@ const Desktop: FC<Props> = ({ className, items, itemCount, loadMoreItems, isItem
                       return null;
                     }
 
-                    const { key, align } = columns[columnIndex];
+                    const { align, key } = columns[columnIndex];
+                    const item = items[rowIndex];
                     return (
                       <BlockRow
-                        key={`${items[rowIndex].height}-${key}`}
+                        columnKey={key}
                         style={style}
                         rowIndex={rowIndex}
                         align={align}
-                        item={items[rowIndex]}
+                        item={item}
                       />
                     );
                   }}

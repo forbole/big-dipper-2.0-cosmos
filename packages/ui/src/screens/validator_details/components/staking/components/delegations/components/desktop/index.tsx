@@ -10,45 +10,41 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import { FC, ReactNode, useMemo } from 'react';
+import { FC } from 'react';
 
-type Props = {
-  className?: string;
-  items?: ItemType[];
+type DelegationsRowProps = {
+  item: ItemType;
 };
 
-const DelegationsRow: FC<{ i: number; item: ItemType }> = ({ i, item }) => {
+const DelegationsRow: FC<DelegationsRowProps> = ({ item }) => {
   const { name, address, imageUrl } = useProfileRecoil(item.address);
-  const formattedItem = useMemo<{ [key: string]: ReactNode }>(
-    () => ({
-      address: <AvatarName name={name} address={address} imageUrl={imageUrl} />,
-      amount: item.amount
-        ? `${formatNumber(
-            item.amount.value,
-            item.amount.exponent
-          )} ${item.amount.displayDenom.toUpperCase()}`
-        : '',
-    }),
-    [name, address, imageUrl, item]
-  );
+  const formattedItem = {
+    address: <AvatarName name={name} address={address} imageUrl={imageUrl} />,
+    amount: item.amount
+      ? `${formatNumber(
+          item.amount.value,
+          item.amount.exponent
+        )} ${item.amount.displayDenom.toUpperCase()}`
+      : '',
+  };
 
   return (
-    <TableRow key={`holders-row-${i}`}>
+    <TableRow>
       {columns.map((column) => (
-        <TableCell
-          // eslint-disable-next-line react/no-array-index-key
-          key={`holders-row-${i}-${column.key}`}
-          align={column.align}
-          style={{ width: `${column.width}%` }}
-        >
-          {formattedItem[column.key]}
+        <TableCell key={column.key} align={column.align} style={{ width: `${column.width}%` }}>
+          {formattedItem[column.key as keyof typeof formattedItem]}
         </TableCell>
       ))}
     </TableRow>
   );
 };
 
-const Desktop: FC<Props> = ({ className, items }) => {
+type DesktopProps = {
+  className?: string;
+  items?: ItemType[];
+};
+
+const Desktop: FC<DesktopProps> = ({ className, items }) => {
   const { t } = useTranslation('accounts');
 
   return (
@@ -70,7 +66,7 @@ const Desktop: FC<Props> = ({ className, items }) => {
         <TableBody>
           {items?.map((row, i) => (
             // eslint-disable-next-line react/no-array-index-key
-            <DelegationsRow i={i} item={row} />
+            <DelegationsRow key={`${row.address}-${i}`} item={row} />
           ))}
         </TableBody>
       </Table>

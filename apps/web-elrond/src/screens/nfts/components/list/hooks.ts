@@ -6,6 +6,14 @@ import { useCallback, useEffect, useState } from 'react';
 
 export const PAGE_SIZE = 25;
 
+type NFTResult = Array<{
+  identifier?: string;
+  name?: string;
+  type?: string;
+  creator?: string;
+  collection?: string;
+}>;
+
 export const useNFTs = () => {
   const [state, setState] = useState<BlockState>({
     page: 0,
@@ -24,15 +32,7 @@ export const useNFTs = () => {
   const getNFTsByPage = useCallback(
     async (page: number) => {
       try {
-        const { data: nftData } = await axios.get<
-          Array<{
-            identifier?: string;
-            name?: string;
-            type?: string;
-            creator?: string;
-            collection?: string;
-          }>
-        >(NFTS, {
+        const { data: nftData } = await axios.get<NFTResult>(NFTS, {
           headers: {
             accept: 'application/json',
           },

@@ -7,6 +7,13 @@ import type { BlockState } from '@/screens/home/components/blocks/types';
 
 export const PAGE_SIZE = 7;
 
+type BlocksResult = Array<{
+  round: BlockState['items'][number]['block'];
+  timestamp: BlockState['items'][number]['timestamp'];
+  hash: BlockState['items'][number]['hash'];
+  txCount: BlockState['items'][number]['txs'];
+}>;
+
 export const useBlocks = () => {
   const [state, setState] = useState<BlockState>({
     loading: true,
@@ -22,14 +29,7 @@ export const useBlocks = () => {
 
   const getBlocksByPage = useCallback(async () => {
     try {
-      const { data: blocksData } = await axios.get<
-        Array<{
-          round: BlockState['items'][number]['block'];
-          timestamp: BlockState['items'][number]['timestamp'];
-          hash: BlockState['items'][number]['hash'];
-          txCount: BlockState['items'][number]['txs'];
-        }>
-      >(BLOCKS, {
+      const { data: blocksData } = await axios.get<BlocksResult>(BLOCKS, {
         params: {
           from: 0,
           size: PAGE_SIZE,

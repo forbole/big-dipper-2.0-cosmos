@@ -86,10 +86,10 @@ const getProfile =
     });
     const state = get(atomFamilyState(delegatorAddress));
     const name = state && state !== true ? state.moniker ?? address : address;
-    const imageUrl = state && state !== true ? state.imageUrl ?? '' : '';
+    const imageUrl = state && state !== true ? state.imageUrl || undefined : undefined;
     return {
       address: returnAddress,
-      name: name?.length ? name : address,
+      name: name || address || '',
       imageUrl,
     };
   };
@@ -116,10 +116,10 @@ const getProfiles =
       });
       const state = get(atomFamilyState(delegatorAddress));
       const name = state && state !== true ? state?.moniker ?? x : x;
-      const imageUrl = state && state !== true ? state?.imageUrl ?? '' : '';
+      const imageUrl = state && state !== true ? state?.imageUrl || undefined : undefined;
       return {
         address: returnAddress,
-        name: name?.length ? name : x,
+        name: name || x || '',
         imageUrl,
       };
     });
@@ -143,7 +143,7 @@ export const writeProfile = selectorFamily<AvatarName | null, string>({
         } else {
           set(atomFamilyState(delegatorAddress), {
             moniker: profile.name,
-            imageUrl: profile.imageUrl ?? undefined,
+            imageUrl: profile.imageUrl || undefined,
           });
         }
       }

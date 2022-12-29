@@ -4,9 +4,9 @@ import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
 import useTranslation from 'next-translate/useTranslation';
-import React from 'react';
+import React, { FC } from 'react';
 
-const CreateIssuer: React.FC<{ message: MsgCreateIssuer }> = (props) => {
+const CreateIssuer: FC<{ message: MsgCreateIssuer }> = (props) => {
   const { message } = props;
   const { t } = useTranslation('transactions');
 

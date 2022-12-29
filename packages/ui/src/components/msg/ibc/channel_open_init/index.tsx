@@ -3,9 +3,9 @@ import { type MsgChannelOpenInit } from '@/models';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const ChannelOpenInit: React.FC<{ message: MsgChannelOpenInit }> = (props) => {
+const ChannelOpenInit: FC<{ message: MsgChannelOpenInit }> = (props) => {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);

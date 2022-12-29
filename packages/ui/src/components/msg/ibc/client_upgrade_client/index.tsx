@@ -3,9 +3,9 @@ import { type MsgUpgradeClient } from '@/models';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const UpgradeClient: React.FC<{ message: MsgUpgradeClient }> = (props) => {
+const UpgradeClient: FC<{ message: MsgUpgradeClient }> = (props) => {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);

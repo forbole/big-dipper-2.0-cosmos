@@ -9,25 +9,19 @@ import { getValidatorStatus } from '@/utils/get_validator_status';
 import Divider from '@material-ui/core/Divider';
 import classnames from 'classnames';
 import numeral from 'numeral';
-import React, { FC } from 'react';
+import React, { FC, LegacyRef } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
 
-type Props = {
-  className?: string;
-  items: ItemType[];
+type ListItemProps = Pick<ListChildComponentProps, 'index' | 'style'> & {
+  setRowHeight: Parameters<typeof useListRow>[1];
+  item: ItemType;
+  isLast: boolean;
   search: string;
+  i: number;
 };
 
-const ListItem: FC<
-  Pick<ListChildComponentProps, 'index' | 'style'> & {
-    setRowHeight: Parameters<typeof useListRow>[1];
-    item: ItemType;
-    items: ItemType[];
-    search: string;
-    i: number;
-  }
-> = ({ index, style, setRowHeight, item, items, search, i }) => {
+const ListItem: FC<ListItemProps> = ({ index, style, setRowHeight, item, isLast, search, i }) => {
   const { rowRef } = useListRow(index, setRowHeight);
   const { name, address, imageUrl } = item.validator;
 
@@ -65,13 +59,19 @@ const ListItem: FC<
     <div style={style}>
       <div ref={rowRef}>
         <SingleValidator {...selectedItem} />
-        {index !== items.length - 1 && <Divider />}
+        {!isLast && <Divider />}
       </div>
     </div>
   );
 };
 
-const Mobile: FC<Props> = ({ className, items, search }) => {
+type MobileProps = {
+  className?: string;
+  items: ItemType[];
+  search: string;
+};
+
+const Mobile: FC<MobileProps> = ({ className, items, search }) => {
   const { listRef, getRowHeight, setRowHeight } = useList();
 
   return (
@@ -83,7 +83,7 @@ const Mobile: FC<Props> = ({ className, items, search }) => {
             height={height}
             itemCount={items.length}
             itemSize={getRowHeight}
-            ref={listRef as React.LegacyRef<List>}
+            ref={listRef as LegacyRef<List>}
             width={width}
           >
             {({ index, style }) => (
@@ -92,7 +92,7 @@ const Mobile: FC<Props> = ({ className, items, search }) => {
                 index={index}
                 style={style}
                 item={items[index]}
-                items={items}
+                isLast={index === items.length - 1}
                 setRowHeight={setRowHeight}
                 search={search}
                 i={index}

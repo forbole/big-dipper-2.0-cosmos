@@ -3,9 +3,9 @@ import MsgCreateDistribution from '@/models/msg/dispensation/msg_create_distribu
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const CreateDistribution: React.FC<{ message: MsgCreateDistribution }> = (props) => {
+const CreateDistribution: FC<{ message: MsgCreateDistribution }> = (props) => {
   const { message } = props;
 
   const distributor = useProfileRecoil(message.distributor);

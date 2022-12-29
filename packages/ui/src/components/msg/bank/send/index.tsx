@@ -5,9 +5,9 @@ import { formatNumber, formatToken } from '@/utils/format_token';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
 import useTranslation from 'next-translate/useTranslation';
-import React from 'react';
+import React, { FC } from 'react';
 
-const Send: React.FC<{ message: MsgSend }> = (props) => {
+const Send: FC<{ message: MsgSend }> = (props) => {
   const { t } = useTranslation('transactions');
   const { message } = props;
 

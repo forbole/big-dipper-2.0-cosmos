@@ -3,9 +3,9 @@ import MsgUnlinkChainAccount from '@/models/msg/profiles/msg_unlink_chain_accoun
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import { FC } from 'react';
 
-const UnlinkChainAccount: React.FC<{ message: MsgUnlinkChainAccount }> = (props) => {
+const UnlinkChainAccount: FC<{ message: MsgUnlinkChainAccount }> = (props) => {
   const { message } = props;
   const owner = useProfileRecoil(message.owner);
   const ownerMoniker = owner ? owner?.name : message.owner;

@@ -6,10 +6,10 @@ import classnames from 'classnames';
 import Trans from 'next-translate/Trans';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
-import React from 'react';
+import { FC } from 'react';
 import { PolarAngleAxis, RadialBar, RadialBarChart, Tooltip } from 'recharts';
 
-const Epoch: React.FC<ComponentDefault> = (props) => {
+const Epoch: FC<ComponentDefault> = (props) => {
   const { classes, theme } = useStyles();
   const { t } = useTranslation('home');
   const { state } = useEpoch();

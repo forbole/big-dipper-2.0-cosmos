@@ -12,38 +12,33 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import { FC, ReactNode, useMemo } from 'react';
+import { FC } from 'react';
 import { useRecoilValue } from 'recoil';
 
-type Props = {
-  className?: string;
-  items: ItemType[];
+type UnbondingsRowProps = {
+  item: ItemType;
 };
 
-const UnbondingsRow: FC<{ i: number; item: ItemType }> = ({ i, item }) => {
+const UnbondingsRow: FC<UnbondingsRowProps> = ({ item }) => {
   const { name, address, imageUrl } = useProfileRecoil(item.validator);
   const dateFormat = useRecoilValue(readDate);
-  const formattedItem = useMemo<{ [key: string]: ReactNode }>(
-    () => ({
-      validator: <AvatarName address={address} imageUrl={imageUrl} name={name} />,
-      amount: item.amount
-        ? `${formatNumber(
-            item.amount.value,
-            item.amount.exponent
-          )} ${item.amount.displayDenom.toUpperCase()}`
-        : '',
-      completionTime: formatDayJs(dayjs.utc(item.completionTime), dateFormat),
-    }),
-    [dateFormat, item, name, address, imageUrl]
-  );
+  const formattedItem = {
+    validator: <AvatarName address={address} imageUrl={imageUrl} name={name} />,
+    amount: item.amount
+      ? `${formatNumber(
+          item.amount.value,
+          item.amount.exponent
+        )} ${item.amount.displayDenom.toUpperCase()}`
+      : '',
+    completionTime: formatDayJs(dayjs.utc(item.completionTime), dateFormat),
+  };
   return (
-    <TableRow key={`holders-row-${i}`}>
+    <TableRow>
       {columns.map((column) => {
-        const selected = formattedItem[column.key];
+        const selected = formattedItem[column.key as keyof typeof formattedItem];
         return (
           <TableCell
-            // eslint-disable-next-line react/no-array-index-key
-            key={`holders-row-${i}-${column.key}`}
+            key={`${item.validator}-${column.key}`}
             align={column.align}
             style={{ width: `${column.width}%` }}
           >
@@ -55,7 +50,12 @@ const UnbondingsRow: FC<{ i: number; item: ItemType }> = ({ i, item }) => {
   );
 };
 
-const Desktop: FC<Props> = ({ className, items }) => {
+type DesktopProps = {
+  className?: string;
+  items: ItemType[];
+};
+
+const Desktop: FC<DesktopProps> = ({ className, items }) => {
   const { t } = useTranslation('accounts');
   return (
     <div className={classnames(className)}>
@@ -76,7 +76,7 @@ const Desktop: FC<Props> = ({ className, items }) => {
         <TableBody>
           {items?.map((row, i) => (
             // eslint-disable-next-line react/no-array-index-key
-            <UnbondingsRow key={i} i={i} item={row} />
+            <UnbondingsRow key={`${row.validator}-${i}`} item={row} />
           ))}
         </TableBody>
       </Table>

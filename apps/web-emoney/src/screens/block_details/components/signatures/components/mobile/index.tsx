@@ -6,26 +6,22 @@ import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import React, { FC } from 'react';
+import React, { FC, LegacyRef } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
 
-type Props = {
-  className?: string;
-  signatures?: AvatarName[];
+type ListItemProps = Pick<ListChildComponentProps, 'index' | 'style'> & {
+  setRowHeight: Parameters<typeof useListRow>[1];
+  signatures: string[] | undefined;
+  classes: ReturnType<typeof useStyles>;
 };
 
-const ListItem: FC<
-  Pick<ListChildComponentProps, 'index' | 'style'> & {
-    setRowHeight: Parameters<typeof useListRow>[1];
-    signatures: AvatarName[] | undefined;
-    classes: ReturnType<typeof useStyles>;
-  }
-> = ({ index, style, setRowHeight, signatures, classes }) => {
+const ListItem: FC<ListItemProps> = ({ index, style, setRowHeight, signatures, classes }) => {
   const { t } = useTranslation('blocks');
   const { rowRef } = useListRow(index, setRowHeight);
   const selectedItem = signatures?.[index];
-  const signature = useProfileRecoil(selectedItem?.address ?? '');
+  const { address, imageUrl, name } = useProfileRecoil(selectedItem ?? '');
+
   return (
     <div style={style}>
       <div ref={rowRef}>
@@ -35,11 +31,7 @@ const ListItem: FC<
             <Typography variant="h4" className="label">
               {t('validator')}
             </Typography>
-            <AvatarName
-              address={signature.address ?? ''}
-              imageUrl={signature.imageUrl}
-              name={signature.name ?? ''}
-            />
+            <AvatarName address={address ?? ''} imageUrl={imageUrl} name={name ?? ''} />
           </div>
         </div>
         {/* single signature end */}
@@ -49,7 +41,12 @@ const ListItem: FC<
   );
 };
 
-const Mobile: FC<Props> = ({ className, signatures }) => {
+type MobileProps = {
+  className?: string;
+  signatures?: string[];
+};
+
+const Mobile: FC<MobileProps> = ({ className, signatures }) => {
   const { listRef, getRowHeight, setRowHeight } = useList();
   const classes = useStyles();
 
@@ -62,12 +59,12 @@ const Mobile: FC<Props> = ({ className, signatures }) => {
             height={height}
             itemCount={signatures?.length ?? 0}
             itemSize={getRowHeight}
-            ref={listRef as React.LegacyRef<List>}
+            ref={listRef as LegacyRef<List>}
             width={width}
           >
             {({ index, style }) => (
               <ListItem
-                key={signatures?.[index]?.address}
+                key={signatures?.[index]}
                 index={index}
                 style={style}
                 setRowHeight={setRowHeight}

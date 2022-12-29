@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import dynamic from 'next/dynamic';
-import React from 'react';
+import React, { FC } from 'react';
 
 const Desktop = dynamic(
   () => import('@/screens/block_details/components/signatures/components/desktop')
@@ -15,11 +15,11 @@ const Mobile = dynamic(
   () => import('@/screens/block_details/components/signatures/components/mobile')
 );
 
-const Signatures: React.FC<
-  ComponentDefault & {
-    signatures: string[];
-  }
-> = ({ className, signatures }) => {
+type SignaturesProps = ComponentDefault & {
+  signatures: string[];
+};
+
+const Signatures: FC<SignaturesProps> = ({ className, signatures }) => {
   const { isDesktop } = useScreenSize();
   const { t } = useTranslation('blocks');
   const classes = useStyles();

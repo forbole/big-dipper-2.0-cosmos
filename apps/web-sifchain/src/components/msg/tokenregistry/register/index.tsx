@@ -3,9 +3,9 @@ import MsgRegister from '@/models/msg/tokenregistry/msg_register';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const Register: React.FC<{ message: MsgRegister }> = (props) => {
+const Register: FC<{ message: MsgRegister }> = (props) => {
   const { message } = props;
 
   const from = useProfileRecoil(message.from);

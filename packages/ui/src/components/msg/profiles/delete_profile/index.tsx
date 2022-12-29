@@ -3,9 +3,9 @@ import { type MsgDeleteProfile } from '@/models';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const DeleteProfile: React.FC<{ message: MsgDeleteProfile }> = (props) => {
+const DeleteProfile: FC<{ message: MsgDeleteProfile }> = (props) => {
   const { message } = props;
 
   const creator = useProfileRecoil(message.creator);

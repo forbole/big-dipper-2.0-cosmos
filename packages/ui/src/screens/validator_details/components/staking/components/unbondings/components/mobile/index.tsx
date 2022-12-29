@@ -9,25 +9,22 @@ import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import React, { FC } from 'react';
+import React, { FC, Fragment } from 'react';
 import { useRecoilValue } from 'recoil';
 
-type Props = {
-  className?: string;
-  items: ItemType[];
-};
-
-const UnbondingsItem: FC<{
+type UnbondingsItemProps = {
   i: number;
   item: ItemType;
-  items: ItemType[];
-}> = ({ i, item, items }) => {
+  isLast: boolean;
+};
+
+const UnbondingsItem: FC<UnbondingsItemProps> = ({ i, item, isLast }) => {
   const { name, address, imageUrl } = useProfileRecoil(item.address);
   const classes = useStyles();
   const { t } = useTranslation('accounts');
   const dateFormat = useRecoilValue(readDate);
   return (
-    <React.Fragment key={`votes-mobile-${i}`}>
+    <Fragment key={`votes-mobile-${i}`}>
       <div className={classes.list}>
         <div className={classes.item}>
           <Typography variant="h4" className="label">
@@ -53,16 +50,26 @@ const UnbondingsItem: FC<{
             : ''}
         </div>
       </div>
-      {!!items && i !== items.length - 1 && <Divider />}
-    </React.Fragment>
+      {!isLast && <Divider />}
+    </Fragment>
   );
 };
 
-const Mobile: FC<Props> = ({ className, items }) => (
+type MobileProps = {
+  className?: string;
+  items: ItemType[];
+};
+
+const Mobile: FC<MobileProps> = ({ className, items }) => (
   <div className={classnames(className)}>
     {items?.map((x, i) => (
-      // eslint-disable-next-line react/no-array-index-key
-      <UnbondingsItem key={i} i={i} item={x} items={items} />
+      <UnbondingsItem
+        // eslint-disable-next-line react/no-array-index-key
+        key={`${x.address}-${i}`}
+        i={i}
+        item={x}
+        isLast={!items || i === items.length - 1}
+      />
     ))}
   </div>
 );

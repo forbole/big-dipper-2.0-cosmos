@@ -4,9 +4,9 @@ import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
 import numeral from 'numeral';
-import React from 'react';
+import React, { FC } from 'react';
 
-const EditAuction: React.FC<{ message: MsgEditAuction }> = (props) => {
+const EditAuction: FC<{ message: MsgEditAuction }> = (props) => {
   const { message } = props;
 
   const owner = useProfileRecoil(message.owner);

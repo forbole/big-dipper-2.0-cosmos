@@ -3,9 +3,9 @@ import MsgRetireRequest from '@/models/msg/ecocredit/msg_retire_request';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const RetireRequest: React.FC<{ message: MsgRetireRequest }> = (props) => {
+const RetireRequest: FC<{ message: MsgRetireRequest }> = (props) => {
   const { message } = props;
 
   const holder = useProfileRecoil(message.holder);

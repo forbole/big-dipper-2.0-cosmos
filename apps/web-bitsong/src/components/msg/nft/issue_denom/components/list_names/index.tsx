@@ -3,28 +3,31 @@ import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import useTranslation from 'next-translate/useTranslation';
 import React, { FC } from 'react';
 
-const CreatorName: FC<{ address: string; i: number; addresses: string[] }> = (props) => {
-  const { address, i, addresses } = props;
-  const { t } = useTranslation('transactions');
-  const creator = useProfileRecoil(address);
+type CreatorNameProps = {
+  address: string;
+  addresses: string[];
+  isLast: boolean;
+  is2ndLast: boolean;
+};
 
-  if (!creator) {
-    return null;
-  }
+const CreatorName: FC<CreatorNameProps> = (props) => {
+  const { address: theAddress, addresses, isLast, is2ndLast } = props;
+  const { t } = useTranslation('transactions');
+  const { address, name } = useProfileRecoil(theAddress);
 
   let suffix = '';
 
-  if (i === addresses.length - 2) {
+  if (is2ndLast) {
     suffix = ` ${t('and')} `;
-  } else if (i !== addresses.length - 1 && addresses.length > 1) {
+  } else if (!isLast && addresses.length > 1) {
     suffix = ', ';
   }
 
   return (
-    <React.Fragment key={creator.address}>
-      <Name address={creator.address} name={creator.name} />
+    <>
+      <Name address={address} name={name} />
       {suffix}
-    </React.Fragment>
+    </>
   );
 };
 
@@ -33,7 +36,13 @@ const ListNames = (props: { creators: string[] }) => {
   return (
     <>
       {creators.map((x, i) => (
-        <CreatorName key={x} address={x} i={i} addresses={creators} />
+        <CreatorName
+          key={x}
+          address={x}
+          addresses={creators}
+          isLast={i === creators.length - 1}
+          is2ndLast={i === creators.length - 2}
+        />
       ))}
     </>
   );

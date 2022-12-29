@@ -10,42 +10,40 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import { FC, ReactNode, useMemo } from 'react';
+import { FC } from 'react';
 
-type Props = {
-  className?: string;
-  items?: ItemType[];
+type DelegationsRowProps = {
+  item: ItemType;
+  i: number;
 };
 
-const DelegationsRow: FC<{ item: ItemType; i: number }> = ({ item, i }) => {
+const DelegationsRow: FC<DelegationsRowProps> = ({ item, i }) => {
   const { name, address, imageUrl } = useProfileRecoil(item.validator);
   const amount = item.amount ? formatNumber(item.amount.value, item.amount.exponent) : '';
   const reward = item.reward ? formatNumber(item.reward.value, item.reward.exponent) : '';
-  const formattedItem = useMemo<{ [key: string]: ReactNode }>(
-    () => ({
-      identifier: i,
-      validator: <AvatarName name={name} address={address} imageUrl={imageUrl} />,
-      amount: `${amount} ${item.amount?.displayDenom.toUpperCase()}`,
-      reward: `${reward} ${item.reward?.displayDenom.toUpperCase()}`,
-    }),
-    [amount, i, item, reward, name, address, imageUrl]
-  );
+  const formattedItem = {
+    identifier: i,
+    validator: <AvatarName name={name} address={address} imageUrl={imageUrl} />,
+    amount: `${amount} ${item.amount?.displayDenom.toUpperCase()}`,
+    reward: `${reward} ${item.reward?.displayDenom.toUpperCase()}`,
+  };
   return (
-    <TableRow key={`holders-row-${i}`}>
+    <TableRow>
       {columns.map((column) => (
-        <TableCell
-          key={`holders-row-${i}-${column.key}`}
-          align={column.align}
-          style={{ width: `${column.width}%` }}
-        >
-          {formattedItem[column.key]}
+        <TableCell key={column.key} align={column.align} style={{ width: `${column.width}%` }}>
+          {formattedItem[column.key as keyof typeof formattedItem]}
         </TableCell>
       ))}
     </TableRow>
   );
 };
 
-const Desktop: FC<Props> = ({ className, items }) => {
+type DesktopProps = {
+  className?: string;
+  items?: ItemType[];
+};
+
+const Desktop: FC<DesktopProps> = ({ className, items }) => {
   const { t } = useTranslation('accounts');
 
   return (
@@ -66,7 +64,8 @@ const Desktop: FC<Props> = ({ className, items }) => {
         </TableHead>
         <TableBody>
           {items?.map((x, i) => (
-            <DelegationsRow item={x} i={i} />
+            // eslint-disable-next-line react/no-array-index-key
+            <DelegationsRow key={`${x.validator}-${i}`} i={i} item={x} />
           ))}
         </TableBody>
       </Table>

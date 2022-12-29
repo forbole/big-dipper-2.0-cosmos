@@ -69,6 +69,7 @@ export const useValidatorDetails = () => {
     onCompleted: (data) => {
       handleSetState((prevState) => ({ ...prevState, ...formatAccountQuery(data) }));
     },
+    onError: () => handleSetState((prevState) => ({ ...prevState, loading: false })),
   });
 
   // ==========================

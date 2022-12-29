@@ -6,9 +6,9 @@ import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
-import React, { useCallback } from 'react';
+import React, { FC, useCallback } from 'react';
 
-const Vote: React.FC<{ message: MsgVote }> = (props) => {
+const Vote: FC<{ message: MsgVote }> = (props) => {
   const { t } = useTranslation('transactions');
   const { message } = props;
   const vote = t(message.getOptionTranslationKey() ?? '');

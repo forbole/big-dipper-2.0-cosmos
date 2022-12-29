@@ -7,6 +7,16 @@ import type { TransactionState } from '@/screens/transactions/components/list/ty
 
 export const PAGE_SIZE = 25;
 
+type TransactionsResult = Array<{
+  txHash: string;
+  senderShard: number;
+  receiverShard: number;
+  sender: string;
+  receiver: string;
+  timestamp: number;
+  status: string;
+}>;
+
 export const useBlocks = () => {
   const [state, setState] = useState<TransactionState>({
     page: 0,
@@ -44,17 +54,7 @@ export const useBlocks = () => {
   const getTransactionsByPage = useCallback(
     async (page: number) => {
       try {
-        const { data: transactionsData } = await axios.get<
-          Array<{
-            txHash: string;
-            senderShard: number;
-            receiverShard: number;
-            sender: string;
-            receiver: string;
-            timestamp: number;
-            status: string;
-          }>
-        >(TRANSACTIONS, {
+        const { data: transactionsData } = await axios.get<TransactionsResult>(TRANSACTIONS, {
           params: {
             from: page * PAGE_SIZE,
             size: PAGE_SIZE,

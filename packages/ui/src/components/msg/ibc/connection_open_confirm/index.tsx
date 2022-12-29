@@ -3,9 +3,9 @@ import { type MsgConnectionOpenConfirm } from '@/models';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const ConnectionOpenConfirm: React.FC<{ message: MsgConnectionOpenConfirm }> = (props) => {
+const ConnectionOpenConfirm: FC<{ message: MsgConnectionOpenConfirm }> = (props) => {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);

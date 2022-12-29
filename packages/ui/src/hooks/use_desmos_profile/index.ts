@@ -10,8 +10,9 @@ import { readDelegatorAddresses, writeProfile } from '@/recoil/profiles/selector
 import { isValidAddress } from '@/utils/prefix_convert';
 import { useApolloClient } from '@apollo/client';
 import * as R from 'ramda';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRecoilCallback, useRecoilValue } from 'recoil';
+import useShallowMemo from '../useShallowMemo';
 import type { Options } from './types';
 
 const { prefix } = chainConfig();
@@ -27,7 +28,9 @@ const LIMIT = 20;
 
 export const useDesmosProfile = (options: Options) => {
   const { addresses, skip } = options;
-  const delegatorAddresses = useRecoilValue(readDelegatorAddresses(addresses));
+  const addressesMemo = useShallowMemo(addresses);
+  const delegatorAddresses = useRecoilValue(readDelegatorAddresses(addressesMemo));
+  const delegatorAddressesMemo = useShallowMemo(delegatorAddresses);
   const setAvatarName = useRecoilCallback(
     ({ set }) =>
       (address: string, avatarName: AvatarName | null) =>
@@ -36,23 +39,10 @@ export const useDesmosProfile = (options: Options) => {
         ),
     []
   );
-
   const client = useApolloClient();
   const [data, setData] = useState<DesmosProfile[]>([]);
   const [loading, setLoading] = useState(!skip);
   const [error, setError] = useState<unknown>();
-
-  const delegatorAddressesRef = useRef(delegatorAddresses);
-  if (!R.equals(delegatorAddressesRef.current, delegatorAddresses)) {
-    delegatorAddressesRef.current = delegatorAddresses;
-  }
-  const delegatorAddressesMemo = delegatorAddressesRef.current;
-
-  const addressesRef = useRef(addresses);
-  if (!R.equals(addressesRef.current, addresses)) {
-    addressesRef.current = addresses;
-  }
-  const addressesMemo = addressesRef.current;
 
   useEffect(() => {
     if (skip || !addressesMemo?.[0]) {
@@ -60,44 +50,45 @@ export const useDesmosProfile = (options: Options) => {
       return;
     }
     (async () => {
-      const isAddress = addressesMemo[0]?.startsWith('desmos') && isValidAddress(addressesMemo[0]);
-      const isDTag = !isAddress && addressesMemo[0]?.startsWith('@');
-      const query =
-        (isAddress && DesmosProfileDocument) ||
-        (isDTag && DesmosProfileDtagDocument) ||
-        DesmosProfileLinkDocument;
-      const batches = R.splitEvery(LIMIT, delegatorAddressesMemo);
-      const promises = batches.reduce(
-        (promise, batch) =>
-          promise.then((prevAll) =>
-            client
-              .query<DesmosProfileQuery>({
-                query,
-                variables: {
-                  addresses: batch,
-                },
-              })
-              .then((cur) => {
-                const profiles = formatDesmosProfile(cur.data);
-                profiles.forEach((profile) => {
-                  profile.connections.forEach((connection) => {
-                    const { identifier } = connection;
-                    if (userRegex.test(identifier)) {
-                      setAvatarName(identifier, {
-                        name: profile.nickname,
-                        address: identifier,
-                        imageUrl: profile.imageUrl,
-                      });
-                    }
-                  });
-                });
-                return [...prevAll, ...profiles];
-              })
-          ),
-        Promise.resolve<DesmosProfile[]>([])
-      );
-
       try {
+        const isAddress =
+          addressesMemo[0]?.startsWith('desmos') && isValidAddress(addressesMemo[0]);
+        const isDTag = !isAddress && addressesMemo[0]?.startsWith('@');
+        const query =
+          (isAddress && DesmosProfileDocument) ||
+          (isDTag && DesmosProfileDtagDocument) ||
+          DesmosProfileLinkDocument;
+        const batches = R.splitEvery(LIMIT, delegatorAddressesMemo);
+        const promises = batches.reduce(
+          (promise, batch) =>
+            promise.then((prevAll) =>
+              client
+                .query<DesmosProfileQuery>({
+                  query,
+                  variables: {
+                    addresses: batch,
+                  },
+                })
+                .then((cur) => {
+                  const profiles = formatDesmosProfile(cur.data);
+                  profiles.forEach((profile) => {
+                    profile.connections.forEach((connection) => {
+                      const { identifier } = connection;
+                      if (userRegex.test(identifier)) {
+                        setAvatarName(identifier, {
+                          name: profile.nickname,
+                          address: identifier,
+                          imageUrl: profile.imageUrl,
+                        });
+                      }
+                    });
+                  });
+                  return [...prevAll, ...profiles];
+                })
+            ),
+          Promise.resolve<DesmosProfile[]>([])
+        );
+
         const newState = (await promises) ?? [];
         setData((prevState) => (R.equals(prevState, newState) ? prevState : newState));
       } catch (e) {

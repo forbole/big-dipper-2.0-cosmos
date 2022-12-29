@@ -12,14 +12,12 @@ import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
-import React from 'react';
+import { FC } from 'react';
 
 const Desktop = dynamic(() => import('@/screens/home/components/transactions/components/desktop'));
 const Mobile = dynamic(() => import('@/screens/home/components/transactions/components/mobile'));
 
-const Transactions: React.FC<{
-  className?: string;
-}> = ({ className }) => {
+const Transactions: FC<ComponentDefault> = ({ className }) => {
   const { isDesktop } = useScreenSize();
   const { t } = useTranslation('home');
   const { state } = useTransactions();

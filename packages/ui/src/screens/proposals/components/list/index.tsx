@@ -12,36 +12,81 @@ import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import Link from 'next/link';
 import numeral from 'numeral';
-import { ComponentProps, FC } from 'react';
+import { FC } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
 
-const ProposalsList: FC<{
+type ListItemProps = Pick<ListChildComponentProps, 'index' | 'style'> & {
+  setRowHeight: Parameters<typeof useListRow>[1];
+  isItemLoaded: ((index: number) => boolean) | undefined;
+  item: ProposalType;
+  isLast: boolean;
+};
+
+const ListItem: FC<ListItemProps> = ({
+  index,
+  style,
+  setRowHeight,
+  isItemLoaded,
+  item,
+  isLast,
+}) => {
+  const { rowRef } = useListRow(index, setRowHeight);
+  if (!isItemLoaded?.(index)) {
+    return (
+      <div style={style}>
+        <div ref={rowRef}>
+          <Loading />
+        </div>
+      </div>
+    );
+  }
+
+  const formattedItem = {
+    description:
+      item.description.length > 200 ? `${item.description.slice(0, 200)}...` : item.description,
+    status: item.status,
+    title: (
+      <Link href={PROPOSAL_DETAILS(item.id)} passHref>
+        <Typography variant="h3" className="value" component="a">
+          {item.title}
+        </Typography>
+      </Link>
+    ),
+    id: `#${numeral(item.id).format('0,0')}`,
+  };
+
+  return (
+    <div style={style}>
+      <div ref={rowRef}>
+        <SingleProposal {...formattedItem} />
+        {!isLast && <Divider />}
+      </div>
+    </div>
+  );
+};
+
+type ProposalsListProps = {
   className?: string;
   items: ProposalType[];
   rawDataTotal: number;
   isItemLoaded: (index: number) => boolean;
   itemCount: number;
   loadMoreItems: () => void;
-}> = ({ className, items, rawDataTotal, isItemLoaded, itemCount, loadMoreItems }) => {
+};
+
+const ProposalsList: FC<ProposalsListProps> = ({
+  className,
+  items,
+  rawDataTotal,
+  isItemLoaded,
+  itemCount,
+  loadMoreItems,
+}) => {
   const classes = useStyles();
 
   const { listRef, getRowHeight, setRowHeight } = useList();
-
-  const formattedItems =
-    items?.map((x) => ({
-      description: x.description.length > 200 ? `${x.description.slice(0, 200)}...` : x.description,
-      status: x.status,
-      title: (
-        <Link href={PROPOSAL_DETAILS(x.id)} passHref>
-          <Typography variant="h3" className="value" component="a">
-            {x.title}
-          </Typography>
-        </Link>
-      ),
-      id: `#${numeral(x.id).format('0,0')}`,
-    })) ?? [];
 
   return (
     <Box className={classnames(className, classes.root)}>
@@ -79,8 +124,8 @@ const ProposalsList: FC<{
                       style={style}
                       setRowHeight={setRowHeight}
                       isItemLoaded={isItemLoaded}
-                      formattedItems={formattedItems}
-                      itemCount={itemCount}
+                      item={items[index]}
+                      isLast={index === itemCount - 1}
                     />
                   )}
                 </List>
@@ -90,35 +135,6 @@ const ProposalsList: FC<{
         </AutoSizer>
       </div>
     </Box>
-  );
-};
-
-const ListItem: FC<
-  Pick<ListChildComponentProps, 'index' | 'style'> & {
-    setRowHeight: Parameters<typeof useListRow>[1];
-    isItemLoaded: ((index: number) => boolean) | undefined;
-    formattedItems: Array<ComponentProps<typeof SingleProposal>>;
-    itemCount: number;
-  }
-> = ({ index, style, setRowHeight, isItemLoaded, formattedItems, itemCount }) => {
-  const { rowRef } = useListRow(index, setRowHeight);
-  if (!isItemLoaded?.(index)) {
-    return (
-      <div style={style}>
-        <div ref={rowRef}>
-          <Loading />
-        </div>
-      </div>
-    );
-  }
-  const item = formattedItems[index];
-  return (
-    <div style={style}>
-      <div ref={rowRef}>
-        <SingleProposal {...item} />
-        {index !== itemCount - 1 && <Divider />}
-      </div>
-    </div>
   );
 };
 

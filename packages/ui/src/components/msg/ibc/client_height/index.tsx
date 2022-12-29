@@ -3,9 +3,9 @@ import { type MsgHeight } from '@/models';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const Height: React.FC<{ message: MsgHeight }> = (props) => {
+const Height: FC<{ message: MsgHeight }> = (props) => {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);

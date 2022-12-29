@@ -3,9 +3,9 @@ import MsgUpdateWhitelistValidator from '@/models/msg/ethbridge/msg_update_white
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const UpdateWhiteListValidator: React.FC<{ message: MsgUpdateWhitelistValidator }> = (props) => {
+const UpdateWhiteListValidator: FC<{ message: MsgUpdateWhitelistValidator }> = (props) => {
   const { message } = props;
 
   const cosmosSender = useProfileRecoil(message.cosmosSender);

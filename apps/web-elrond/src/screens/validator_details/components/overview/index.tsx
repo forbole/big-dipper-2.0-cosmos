@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { FC } from 'react';
 import useTranslation from 'next-translate/useTranslation';
 import BoxDetails from '@/components/box_details';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import type { OverviewType } from '@/screens/validator_details/types';
 
-const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = (props) => {
+const Overview: FC<{ className?: string; overview: OverviewType }> = (props) => {
   const { t } = useTranslation('validators');
   const details = [];
 
@@ -14,6 +14,7 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = (props
       ending: 7,
     });
     details.push({
+      key: 'distribution',
       label: `${t('distribution')} (${key})`,
       detail: `${x.value}`,
     });
@@ -21,6 +22,7 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = (props
 
   if (props.overview.stakeDistribution.length <= 2) {
     details.push({
+      key: 'website',
       label: t('website'),
       detail: props.overview.website ? (
         <a href={props.overview.website} target="_blank" rel="noreferrer">
@@ -34,6 +36,7 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = (props
 
   if (props.overview.stakeDistribution.length <= 1) {
     details.push({
+      key: 'location',
       label: t('location'),
       detail: props.overview.location || '-',
     });
@@ -41,6 +44,7 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = (props
 
   if (props.overview.stakeDistribution.length <= 0) {
     details.push({
+      key: 'identity',
       label: t('identity'),
       detail: props.overview.identity || '-',
     });

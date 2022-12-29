@@ -1,5 +1,6 @@
 import Loading from '@/components/loading';
 import { useGrid } from '@/hooks';
+import useShallowMemo from '@/hooks/useShallowMemo';
 import { useStyles } from '@/screens/providers/components/providers_list/components/desktop/styles';
 import { columns } from '@/screens/providers/components/providers_list/components/desktop/utils';
 import type { ProviderInfo } from '@/screens/providers/types';
@@ -9,7 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
-import React, { ReactNode } from 'react';
+import React, { FC, LegacyRef } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { VariableSizeGrid as Grid } from 'react-window';
 import CopyIcon from 'shared-utils/assets/icon-copy.svg';
@@ -18,7 +19,7 @@ import WebArrowIcon from 'shared-utils/assets/icon-web-arrow.svg';
 
 const isItemLoaded = (index: number, itemCount: number) => index >= 0 && index < itemCount;
 
-const Desktop: React.FC<{ list: ProviderInfo[] }> = ({ list }) => {
+const Desktop: FC<{ list: ProviderInfo[] }> = ({ list }) => {
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
 
   const classes = useStyles();
@@ -28,8 +29,9 @@ const Desktop: React.FC<{ list: ProviderInfo[] }> = ({ list }) => {
   const className = '';
 
   const itemCount = list.length;
+  const listMemo = useShallowMemo(list);
 
-  const itemsNew = list.map((eachProvider): { [key: string]: ReactNode } => ({
+  const itemsNew = listMemo.map((eachProvider) => ({
     ownerAddress: (
       <>
         <Typography variant="body1" component="a">
@@ -113,7 +115,7 @@ const Desktop: React.FC<{ list: ProviderInfo[] }> = ({ list }) => {
             {/* Table Header */}
             {/* ======================================= */}
             <Grid
-              ref={columnRef as React.LegacyRef<Grid>}
+              ref={columnRef as LegacyRef<Grid>}
               columnCount={columns.length}
               columnWidth={(index) => getColumnWidth(width, index)}
               height={50}
@@ -138,7 +140,7 @@ const Desktop: React.FC<{ list: ProviderInfo[] }> = ({ list }) => {
             {/* ======================================= */}
 
             <Grid
-              ref={gridRef as React.LegacyRef<Grid>}
+              ref={gridRef as LegacyRef<Grid>}
               columnCount={columns.length}
               columnWidth={(index) => getColumnWidth(width, index)}
               height={height - 50}
@@ -165,7 +167,7 @@ const Desktop: React.FC<{ list: ProviderInfo[] }> = ({ list }) => {
                 }
 
                 const { key, align } = columns[columnIndex];
-                const item = itemsNew[rowIndex][key];
+                const item = itemsNew[rowIndex][key as keyof typeof itemsNew[number]];
                 return (
                   <div
                     style={style}

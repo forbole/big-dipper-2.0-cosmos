@@ -4,11 +4,11 @@ import MsgRemoveLiquidity from '@/models/msg/clp/msg_remove_liquidity';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
 const { tokenUnits } = chainConfig();
 
-const RemoveLiquidity: React.FC<{ message: MsgRemoveLiquidity }> = (props) => {
+const RemoveLiquidity: FC<{ message: MsgRemoveLiquidity }> = (props) => {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);

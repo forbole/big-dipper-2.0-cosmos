@@ -13,16 +13,16 @@ import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import { FC } from 'react';
 
-type Props = {
-  className?: string;
-  items?: ItemType[];
+type VoteRowProps = {
+  i: number;
+  item: ItemType;
 };
 
-const VoteRow: FC<{ i: number; item: ItemType }> = ({ i, item }) => {
+const VoteRow: FC<VoteRowProps> = ({ i, item }) => {
   const { t } = useTranslation('proposals');
   const { name, address, imageUrl } = useProfileRecoil(item.user);
   return (
-    <TableRow key={`holders-row-${i}`}>
+    <TableRow>
       {columns.map((column) => (
         <TableCell
           // eslint-disable-next-line react/no-array-index-key
@@ -41,7 +41,12 @@ const VoteRow: FC<{ i: number; item: ItemType }> = ({ i, item }) => {
   );
 };
 
-const Desktop: FC<Props> = ({ className, items }) => {
+type DesktopProps = {
+  className?: string;
+  items?: ItemType[];
+};
+
+const Desktop: FC<DesktopProps> = ({ className, items }) => {
   const { t } = useTranslation('proposals');
 
   return (

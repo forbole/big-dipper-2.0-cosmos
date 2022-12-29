@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import { QRCodeSVG } from 'qrcode.react';
-import React from 'react';
+import { FC } from 'react';
 import {
   EmailIcon,
   EmailShareButton,
@@ -24,11 +24,13 @@ import {
 import CopyIcon from 'shared-utils/assets/icon-copy.svg';
 import ShareIcon from 'shared-utils/assets/icon-share.svg';
 
-const Overview: React.FC<{
+type OverviewProps = {
   className?: string;
   withdrawalAddress: string;
   address: string;
-}> = ({ className, address, withdrawalAddress }) => {
+};
+
+const Overview: FC<OverviewProps> = ({ className, address, withdrawalAddress }) => {
   const { isDesktop } = useScreenSize();
   const { location } = useWindowOrigin();
   const classes = useStyles();

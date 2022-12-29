@@ -147,11 +147,7 @@ const formatOtherTokens = (data: Data) => {
   });
 
   // rewards tokens
-  const rewards = R.pathOr<
-    Array<{
-      coins: Array<MsgCoin>;
-    }>
-  >([], ['delegationRewards'], data);
+  const rewards = R.pathOr<Array<{ coins: Array<MsgCoin> }>>([], ['delegationRewards'], data);
 
   rewards.forEach((x) => {
     x.coins?.forEach((y) => {

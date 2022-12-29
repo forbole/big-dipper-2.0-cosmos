@@ -4,9 +4,9 @@ import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
 import numeral from 'numeral';
-import React from 'react';
+import React, { FC } from 'react';
 
-const IscnChangeOwnership: React.FC<{ message: MsgChangeIscnRecordOwnership }> = (props) => {
+const IscnChangeOwnership: FC<{ message: MsgChangeIscnRecordOwnership }> = (props) => {
   const { message } = props;
 
   const from = useProfileRecoil(message.from);

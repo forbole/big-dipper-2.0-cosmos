@@ -7,9 +7,9 @@ import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
-import React, { useCallback } from 'react';
+import React, { FC, useCallback } from 'react';
 
-const DepositProposal: React.FC<{ message: MsgDeposit }> = (props) => {
+const DepositProposal: FC<{ message: MsgDeposit }> = (props) => {
   const { t } = useTranslation('transactions');
   const { message } = props;
 

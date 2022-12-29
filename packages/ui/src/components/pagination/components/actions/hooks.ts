@@ -1,11 +1,11 @@
-import { useCallback } from 'react';
+import { ChangeEvent, MouseEvent, useCallback } from 'react';
 
 export const useTablePaginationActions = (props: {
   className?: string;
   // backIconButtonProps?: any;
   count: number;
   // nextIconButtonProps?: any;
-  onPageChange: (event: React.MouseEvent<HTMLButtonElement> | null, page: number) => void;
+  onPageChange: (event: MouseEvent<HTMLButtonElement> | null, page: number) => void;
   handleRowsPerPageChange: (selectedRowsPerPage: number) => void;
   page: number;
   rowsPerPage: number;
@@ -69,7 +69,7 @@ export const useTablePaginationActions = (props: {
   }, [count, page, pageNeighbors, rowsPerPage]);
 
   const handleRowOptionChange = useCallback(
-    (event: React.ChangeEvent<{ value: unknown }>) => {
+    (event: ChangeEvent<{ value: unknown }>) => {
       handleRowsPerPageChange(Number(event.target.value));
     },
     [handleRowsPerPageChange]

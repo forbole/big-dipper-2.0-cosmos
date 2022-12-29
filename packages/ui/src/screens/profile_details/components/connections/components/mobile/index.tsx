@@ -8,25 +8,29 @@ import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
-import React from 'react';
+import React, { FC, Fragment } from 'react';
 import { useRecoilValue } from 'recoil';
 
 const { prefix } = chainConfig();
 
-const Mobile: React.FC<{
+type MobileProps = {
   className?: string;
   items?: ProfileConnectionType[];
-}> = ({ className, items }) => {
+};
+
+const Mobile: FC<MobileProps> = ({ className, items }) => {
   const dateFormat = useRecoilValue(readDate);
   const classes = useStyles();
   const { t } = useTranslation('accounts');
-
+  const itemCount = items?.length;
   return (
     <div className={classnames(className)}>
       {items?.map((x, i) => {
         const checkIdentifier = new RegExp(`^(${prefix.account})`).test(x.identifier);
+        const isLast = !itemCount || i === itemCount - 1;
         return (
-          <React.Fragment key={`votes-mobile-${x.identifier}`}>
+          // eslint-disable-next-line react/no-array-index-key
+          <Fragment key={`votes-mobile-${x.identifier}-${i}`}>
             <div className={classes.list}>
               <div className={classes.item}>
                 <Typography variant="h4" className="label">
@@ -60,8 +64,8 @@ const Mobile: React.FC<{
                 </Typography>
               </div>
             </div>
-            {!!items && i !== items.length - 1 && <Divider />}
-          </React.Fragment>
+            {!isLast && <Divider />}
+          </Fragment>
         );
       })}
     </div>

@@ -3,9 +3,9 @@ import { MsgSetWithdrawAddress } from '@/models';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const SetWithdrawalAddress: React.FC<{ message: MsgSetWithdrawAddress }> = (props) => {
+const SetWithdrawalAddress: FC<{ message: MsgSetWithdrawAddress }> = (props) => {
   const { message } = props;
 
   const delegator = useProfileRecoil(message.delegatorAddress);

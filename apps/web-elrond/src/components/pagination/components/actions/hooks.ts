@@ -1,18 +1,23 @@
-import { useCallback } from 'react';
+import { ChangeEvent, MouseEvent, useCallback } from 'react';
 
-type Props = {
+type TablePaginationActionsParams = {
   className?: string;
   // backIconButtonProps?: any;
   count: number;
   // nextIconButtonProps?: any;
-  onPageChange: (event: React.MouseEvent<HTMLButtonElement> | null, page: number) => void;
+  onPageChange: (event: MouseEvent<HTMLButtonElement> | null, page: number) => void;
   handleRowsPerPageChange: (selectedRowsPerPage: number) => void;
   page: number;
   rowsPerPage: number;
   pageNeighbors?: 1 | 2;
 };
 
-const getAvailablePages = ({ count, rowsPerPage, page, pageNeighbors = 1 }: Props) => {
+const getAvailablePages = ({
+  count,
+  rowsPerPage,
+  page,
+  pageNeighbors = 1,
+}: TablePaginationActionsParams) => {
   // handle edge case where there is not enough pages
   const totalPages = Math.ceil(count / rowsPerPage);
   const remainderCount = count - rowsPerPage * (page + 1);
@@ -40,8 +45,8 @@ const getAvailablePages = ({ count, rowsPerPage, page, pageNeighbors = 1 }: Prop
   return availablePages;
 };
 
-export const useTablePaginationActions = (props: Props) => {
-  const { count, page, rowsPerPage, onPageChange, handleRowsPerPageChange } = props;
+export const useTablePaginationActions = (params: TablePaginationActionsParams) => {
+  const { count, page, rowsPerPage, onPageChange, handleRowsPerPageChange } = params;
 
   const handleFirstPage = useCallback(() => {
     onPageChange(null, 0);
@@ -64,7 +69,7 @@ export const useTablePaginationActions = (props: Props) => {
   }, [count, onPageChange, rowsPerPage]);
 
   const handleRowOptionChange = useCallback(
-    (event: React.ChangeEvent<{ value: unknown }>) => {
+    (event: ChangeEvent<{ value: unknown }>) => {
       handleRowsPerPageChange(Number(event.target.value));
     },
     [handleRowsPerPageChange]
@@ -76,6 +81,6 @@ export const useTablePaginationActions = (props: Props) => {
     handlePreviousPage,
     handleLastPage,
     handleRowOptionChange,
-    availablePages: getAvailablePages(props),
+    availablePages: getAvailablePages(params),
   };
 };

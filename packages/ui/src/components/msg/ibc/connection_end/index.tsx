@@ -3,9 +3,9 @@ import { type MsgConnectionEnd } from '@/models';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const ConnectionEnd: React.FC<{ message: MsgConnectionEnd }> = (props) => {
+const ConnectionEnd: FC<{ message: MsgConnectionEnd }> = (props) => {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);

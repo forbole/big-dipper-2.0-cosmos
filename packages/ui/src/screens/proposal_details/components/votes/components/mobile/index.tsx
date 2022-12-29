@@ -7,24 +7,21 @@ import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import React, { FC } from 'react';
+import React, { FC, Fragment } from 'react';
 
-type Props = {
-  className?: string;
-  items?: ItemType[];
-};
-
-const VoteItem: FC<{
+type VoteItemProps = {
   i: number;
   item: ItemType;
-  items: ItemType[];
-}> = ({ i, item, items }) => {
+  isLast: boolean;
+};
+
+const VoteItem: FC<VoteItemProps> = ({ i, item, isLast }) => {
   const { t } = useTranslation('proposals');
   const classes = useStyles();
   const { name, address, imageUrl } = useProfileRecoil(item.user);
 
   return (
-    <React.Fragment key={`votes-mobile-${i}`}>
+    <Fragment key={`votes-mobile-${i}`}>
       <div className={classes.list}>
         <div className={classes.item}>
           <Typography variant="h4" className="label">
@@ -49,16 +46,21 @@ const VoteItem: FC<{
           </Typography>
         </div>
       </div>
-      {i !== items.length - 1 && <Divider />}
-    </React.Fragment>
+      {!isLast && <Divider />}
+    </Fragment>
   );
 };
 
-const Mobile: FC<Props> = ({ className, items }) => (
+type MobileProps = {
+  className?: string;
+  items?: ItemType[];
+};
+
+const Mobile: FC<MobileProps> = ({ className, items }) => (
   <div className={classnames(className)}>
     {items?.map((x, i) => (
       // eslint-disable-next-line react/no-array-index-key
-      <VoteItem key={i} i={i} item={x} items={items} />
+      <VoteItem key={i} i={i} item={x} isLast={i === items.length - 1} />
     ))}
   </div>
 );

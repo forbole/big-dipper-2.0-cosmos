@@ -1,6 +1,6 @@
 import { useStyles } from '@/components/custom_tool_tip/styles';
 import classnames from 'classnames';
-import React from 'react';
+import React, { FC, ReactNode } from 'react';
 
 export interface CustomToolTipData {
   legendKey: string;
@@ -11,15 +11,19 @@ export interface CustomToolTipData {
   fill: string;
 }
 
+type CustomToolTipProps = {
+  className?: string;
+  children: (data: CustomToolTipData) => ReactNode;
+  active?: boolean;
+  payload?: Array<{
+    payload: CustomToolTipData;
+  }>;
+};
+
 /**
  * Custom tooltips for recharts
  */
-const CustomToolTip: React.FC<{
-  className?: string;
-  children: (data: CustomToolTipData) => React.ReactNode;
-  active?: boolean;
-  payload?: Array<{ payload: CustomToolTipData }>;
-}> = (props) => {
+const CustomToolTip: FC<CustomToolTipProps> = (props) => {
   const { active, payload, className, children } = props;
 
   const classes = useStyles();

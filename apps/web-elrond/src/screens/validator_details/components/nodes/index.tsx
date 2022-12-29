@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import classnames from 'classnames';
 import dynamic from 'next/dynamic';
 import { usePagination, useScreenSize } from '@/hooks';
@@ -18,7 +18,7 @@ const Mobile = dynamic(
   () => import('@/screens/validator_details/components/nodes/components/mobile')
 );
 
-const Nodes: React.FC<ComponentDefault> = (props) => {
+const Nodes: FC<ComponentDefault> = (props) => {
   const { t } = useTranslation('validators');
   const { isDesktop } = useScreenSize();
   const classes = useStyles();

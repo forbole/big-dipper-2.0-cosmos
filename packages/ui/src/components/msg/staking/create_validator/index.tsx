@@ -3,9 +3,9 @@ import { MsgCreateValidator } from '@/models';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const CreateValidator: React.FC<{ message: MsgCreateValidator }> = (props) => {
+const CreateValidator: FC<{ message: MsgCreateValidator }> = (props) => {
   const { message } = props;
 
   const delegator = useProfileRecoil(message.delegatorAddress);

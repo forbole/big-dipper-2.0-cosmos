@@ -4,9 +4,9 @@ import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
 import numeral from 'numeral';
-import React from 'react';
+import React, { FC } from 'react';
 
-const Withdraw: React.FC<{ message: MsgWithdraw }> = (props) => {
+const Withdraw: FC<{ message: MsgWithdraw }> = (props) => {
   const { message } = props;
 
   const recipient = useProfileRecoil(message.recipient);

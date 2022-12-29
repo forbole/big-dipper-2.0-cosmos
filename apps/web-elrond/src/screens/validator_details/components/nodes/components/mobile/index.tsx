@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC, Fragment } from 'react';
 import Link from 'next/link';
 import useTranslation from 'next-translate/useTranslation';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
@@ -9,12 +9,13 @@ import { NODE_DETAILS } from '@/utils/go_to_page';
 import type { NodeType } from '@/screens/validator_details/components/nodes/types';
 import { useStyles } from '@/screens/validator_details/components/nodes/components/mobile/styles';
 
-const Mobile: React.FC<{ items: NodeType[] } & ComponentDefault> = (props) => {
+const Mobile: FC<{ className?: string; items: NodeType[] }> = (props) => {
   const { t } = useTranslation('nodes');
   const classes = useStyles();
   const formattedItems = props.items.map((x) => {
     const shard = getShardDisplay(x.shard);
     return {
+      key: x.pubkey,
       pubkey: (
         <Link href={NODE_DETAILS(x.pubkey)} passHref>
           <Typography variant="body1" className="value" component="a">
@@ -37,8 +38,7 @@ const Mobile: React.FC<{ items: NodeType[] } & ComponentDefault> = (props) => {
   return (
     <div className={props.className}>
       {formattedItems?.map((x, i) => (
-        // eslint-disable-next-line react/no-array-index-key
-        <React.Fragment key={`${x.pubkey}-${i}`}>
+        <Fragment key={x.key}>
           <div className={classes.wrapper}>
             <div className={classes.item}>
               <Typography variant="h4" className="label">
@@ -80,7 +80,7 @@ const Mobile: React.FC<{ items: NodeType[] } & ComponentDefault> = (props) => {
             </div>
           </div>
           {i !== formattedItems.length - 1 && <Divider />}
-        </React.Fragment>
+        </Fragment>
       ))}
     </div>
   );

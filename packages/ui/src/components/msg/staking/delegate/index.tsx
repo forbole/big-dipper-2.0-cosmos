@@ -4,9 +4,9 @@ import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { formatNumber, formatToken } from '@/utils/format_token';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const Delegate: React.FC<{ message: MsgDelegate }> = (props) => {
+const Delegate: FC<{ message: MsgDelegate }> = (props) => {
   const { message } = props;
   const delegator = useProfileRecoil(message.delegatorAddress);
   const delegatorMoniker = delegator ? delegator?.name : message.delegatorAddress;

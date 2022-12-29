@@ -8,11 +8,11 @@ import Trans from 'next-translate/Trans';
 import useTranslation from 'next-translate/useTranslation';
 import React, { FC } from 'react';
 
-const RecieverName: FC<{ address: string; coins: MsgCoin[]; i: number }> = (props) => {
-  const { address, coins, i } = props;
+const RecieverName: FC<{ address: string; coins: MsgCoin[] }> = (props) => {
+  const { address: theAddress, coins } = props;
   const { t } = useTranslation('transactions');
-  const recieverUser = useProfileRecoil(address);
-  const recieverMoniker = recieverUser ? recieverUser?.name : address;
+  const { address, name } = useProfileRecoil(theAddress);
+  const recieverMoniker = name || theAddress;
   const parsedAmount = coins
     ?.map((x) => {
       const amount = formatToken(x.amount, x.denom);
@@ -22,11 +22,10 @@ const RecieverName: FC<{ address: string; coins: MsgCoin[]; i: number }> = (prop
       (text, value, j, array) => text + (j < array.length - 1 ? ', ' : ` ${t('and')} `) + value
     );
   return (
-    // eslint-disable-next-line react/no-array-index-key
-    <Typography key={`${i}-${recieverUser?.address}`}>
+    <Typography>
       <Trans
         i18nKey="message_contents:txMultisendContentTwo"
-        components={[<Name address={recieverUser?.address} name={recieverMoniker} />, <b />]}
+        components={[<Name address={address} name={recieverMoniker} />, <b />]}
         values={{
           amount: parsedAmount,
         }}
@@ -35,7 +34,7 @@ const RecieverName: FC<{ address: string; coins: MsgCoin[]; i: number }> = (prop
   );
 };
 
-const Multisend: React.FC<{ message: MsgMultiSend }> = (props) => {
+const Multisend: FC<{ message: MsgMultiSend }> = (props) => {
   const { t } = useTranslation('transactions');
   const classes = useStyles();
 
@@ -51,15 +50,15 @@ const Multisend: React.FC<{ message: MsgMultiSend }> = (props) => {
       (text, value, i, array) => text + (i < array.length - 1 ? ', ' : ` ${t('and')} `) + value
     );
 
-  const userSend = useProfileRecoil(sender?.address);
-  const validatorMoniker = userSend ? userSend?.name : sender?.address;
+  const { address, name } = useProfileRecoil(sender?.address);
+  const validatorMoniker = name || sender?.address;
 
   return (
     <div>
       <Typography>
         <Trans
           i18nKey="message_contents:txMultisendContentOne"
-          components={[<Name address={sender?.address} name={validatorMoniker} />, <b />]}
+          components={[<Name address={address} name={validatorMoniker} />, <b />]}
           values={{
             amount: senderAmount,
           }}
@@ -68,8 +67,8 @@ const Multisend: React.FC<{ message: MsgMultiSend }> = (props) => {
       <div className={classes.multisend}>
         {message?.outputs
           ?.filter((x) => x)
-          ?.map((x, i) => (
-            <RecieverName key={x.address} address={x.address} coins={x.coins} i={i} />
+          ?.map((x) => (
+            <RecieverName key={x.address} address={x.address} coins={x.coins} />
           ))}
       </div>
     </div>

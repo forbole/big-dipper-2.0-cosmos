@@ -12,11 +12,11 @@ import TableRow from '@material-ui/core/TableRow';
 import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
-import React from 'react';
+import React, { FC } from 'react';
 
-const Desktop: React.FC<{ items: OperationType[] } & ComponentDefault> = (props) => {
+const Desktop: FC<{ className?: string; items: OperationType[] }> = (props) => {
   const { t } = useTranslation('transactions');
-  const formattedItems = props.items.map((x) => {
+  const formattedItems = props.items.map((x, i) => {
     const isToken = x?.identifier ?? ''.split('-').length === 2;
     const isNft = x?.identifier ?? ''.split('-').length === 3;
     let link;
@@ -28,6 +28,7 @@ const Desktop: React.FC<{ items: OperationType[] } & ComponentDefault> = (props)
     }
 
     return {
+      key: `${x.identifier}-${i}}`,
       action: x.action.replace(/([A-Z])/g, ' $1').toUpperCase(),
       identifier: x.identifier,
       sender: (
@@ -77,15 +78,15 @@ const Desktop: React.FC<{ items: OperationType[] } & ComponentDefault> = (props)
           </TableRow>
         </TableHead>
         <TableBody>
-          {formattedItems?.map((row: { [key: string]: unknown }) => (
-            <TableRow key={`holders-row-${row.identifier}`}>
+          {formattedItems?.map((row) => (
+            <TableRow key={row.key}>
               {columns.map((column) => (
                 <TableCell
-                  key={`holders-row-${row.identifier}-${column.key}`}
+                  key={`${row.key}-${column.key}`}
                   align={column.align}
                   style={{ width: `${column.width}%` }}
                 >
-                  {row[column.key]}
+                  {row[column.key as keyof typeof row]}
                 </TableCell>
               ))}
             </TableRow>

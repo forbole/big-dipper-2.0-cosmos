@@ -3,9 +3,9 @@ import MsgLock from '@/models/msg/ethbridge/msg_lock';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const Lock: React.FC<{ message: MsgLock }> = (props) => {
+const Lock: FC<{ message: MsgLock }> = (props) => {
   const { message } = props;
 
   const cosmosSender = useProfileRecoil(message.cosmosSender);

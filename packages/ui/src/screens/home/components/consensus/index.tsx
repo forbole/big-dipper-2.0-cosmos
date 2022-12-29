@@ -8,12 +8,10 @@ import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
-import React from 'react';
+import { FC } from 'react';
 import { PolarAngleAxis, RadialBar, RadialBarChart, Tooltip } from 'recharts';
 
-const Consensus: React.FC<{
-  className?: string;
-}> = ({ className }) => {
+const Consensus: FC<ComponentDefault> = ({ className }) => {
   const { classes, theme } = useStyles();
   const { state } = useConsensus();
   const { t } = useTranslation('home');
@@ -26,7 +24,7 @@ const Consensus: React.FC<{
   ];
 
   const circleSize = 200;
-  const proposerProfile = useProfileRecoil(state.proposer);
+  const { name, address, imageUrl } = useProfileRecoil(state.proposer);
 
   return (
     <Box className={classnames(className, classes.root)}>
@@ -47,11 +45,7 @@ const Consensus: React.FC<{
             {state.loadingNewRound ? '-' : numeral(state.height).format('0,0')}
           </Typography>
           {!state.loadingNewStep && state.proposer ? (
-            <AvatarName
-              address={proposerProfile.address}
-              imageUrl={proposerProfile.imageUrl}
-              name={proposerProfile.name}
-            />
+            <AvatarName address={address} imageUrl={imageUrl} name={name} />
           ) : (
             '-'
           )}

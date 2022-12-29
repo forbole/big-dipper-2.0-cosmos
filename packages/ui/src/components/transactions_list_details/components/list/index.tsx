@@ -16,11 +16,73 @@ import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
-import { ComponentProps, FC } from 'react';
+import { FC } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
 import { useRecoilValue } from 'recoil';
+
+type ListItemProps = Pick<ListChildComponentProps, 'index' | 'style'> & {
+  setRowHeight: Parameters<typeof useListRow>[1];
+  isItemLoaded: TransactionsListDetailsState['isItemLoaded'];
+  transaction: TransactionsListDetailsState['transactions'][number];
+};
+
+const ListItem: FC<ListItemProps> = ({ index, style, setRowHeight, isItemLoaded, transaction }) => {
+  const { rowRef } = useListRow(index, setRowHeight);
+  const { isMobile } = useScreenSize();
+  const { t } = useTranslation('transactions');
+  const dateFormat = useRecoilValue(readDate);
+  if (!isItemLoaded?.(index)) {
+    return (
+      <div style={style}>
+        <div ref={rowRef}>
+          <Loading />
+        </div>
+      </div>
+    );
+  }
+
+  const item = {
+    key: transaction.height,
+    block: (
+      <Link href={BLOCK_DETAILS(transaction.height)} passHref>
+        <Typography variant="body1" component="a">
+          {numeral(transaction.height).format('0,0')}
+        </Typography>
+      </Link>
+    ),
+    hash: (
+      <Link href={TRANSACTION_DETAILS(transaction.hash)} passHref>
+        <Typography variant="body1" component="a">
+          {isMobile
+            ? getMiddleEllipsis(transaction.hash, {
+                beginning: 15,
+                ending: 5,
+              })
+            : transaction.hash}
+        </Typography>
+      </Link>
+    ),
+    type: (
+      <div>
+        <Tag value="txDelegateLabel" theme="six" />
+        {transaction.messages.count > 1 && ' +'}
+      </div>
+    ),
+    result: <Result success={transaction.success} />,
+    time: formatDayJs(dayjs.utc(transaction.timestamp), dateFormat),
+    messageCount: numeral(transaction.messages.count).format('0,0'),
+    messages: transaction.messages.items.map((message) => getMessageByType(message, false, t)),
+  };
+  return (
+    <div style={style}>
+      <div ref={rowRef}>
+        <SingleTransaction {...item} />
+      </div>
+    </div>
+  );
+};
 
 const TransactionList: FC<TransactionsListDetailsState> = ({
   className,
@@ -29,44 +91,9 @@ const TransactionList: FC<TransactionsListDetailsState> = ({
   isItemLoaded,
   transactions,
 }) => {
-  const { isMobile } = useScreenSize();
-  const { t } = useTranslation('transactions');
   const classes = useStyles();
-  const dateFormat = useRecoilValue(readDate);
 
   const { listRef, getRowHeight, setRowHeight } = useList();
-
-  const items: ComponentProps<typeof SingleTransaction>[] = transactions.map((x) => ({
-    block: (
-      <Link href={BLOCK_DETAILS(x.height)} passHref>
-        <Typography variant="body1" component="a">
-          {numeral(x.height).format('0,0')}
-        </Typography>
-      </Link>
-    ),
-    hash: (
-      <Link href={TRANSACTION_DETAILS(x.hash)} passHref>
-        <Typography variant="body1" component="a">
-          {isMobile
-            ? getMiddleEllipsis(x.hash, {
-                beginning: 15,
-                ending: 5,
-              })
-            : x.hash}
-        </Typography>
-      </Link>
-    ),
-    type: (
-      <div>
-        <Tag value="txDelegateLabel" theme="six" />
-        {x.messages.count > 1 && ' +'}
-      </div>
-    ),
-    result: <Result success={x.success} />,
-    time: formatDayJs(dayjs.utc(x.timestamp), dateFormat),
-    messageCount: numeral(x.messages.count).format('0,0'),
-    messages: x.messages.items.map((message) => getMessageByType(message, false, t)),
-  }));
 
   return (
     <div className={classnames(className, classes.root)}>
@@ -99,7 +126,7 @@ const TransactionList: FC<TransactionsListDetailsState> = ({
                     style={style}
                     setRowHeight={setRowHeight}
                     isItemLoaded={isItemLoaded}
-                    items={items}
+                    transaction={transactions[index]}
                   />
                 )}
               </List>
@@ -107,33 +134,6 @@ const TransactionList: FC<TransactionsListDetailsState> = ({
           </InfiniteLoader>
         )}
       </AutoSizer>
-    </div>
-  );
-};
-
-type ListItemProps = Pick<ListChildComponentProps, 'index' | 'style'> & {
-  setRowHeight: Parameters<typeof useListRow>[1];
-  isItemLoaded: TransactionsListDetailsState['isItemLoaded'];
-  items: ComponentProps<typeof SingleTransaction>[];
-};
-
-const ListItem: FC<ListItemProps> = ({ index, style, setRowHeight, isItemLoaded, items }) => {
-  const { rowRef } = useListRow(index, setRowHeight);
-  if (!isItemLoaded?.(index)) {
-    return (
-      <div style={style}>
-        <div ref={rowRef}>
-          <Loading />
-        </div>
-      </div>
-    );
-  }
-  const item = items[index];
-  return (
-    <div style={style}>
-      <div ref={rowRef}>
-        <SingleTransaction {...item} />
-      </div>
     </div>
   );
 };

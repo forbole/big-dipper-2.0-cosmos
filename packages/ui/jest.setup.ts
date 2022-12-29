@@ -1,4 +1,13 @@
+import { ApolloClient, from, InMemoryCache } from '@apollo/client';
+import { jest } from '@jest/globals';
+import '@testing-library/jest-dom/extend-expect';
 import 'jest-localstorage-mock';
+
+const mockClient = new ApolloClient({ link: from([]), cache: new InMemoryCache() });
+jest.mock('@apollo/client', () => ({
+  ...jest.requireActual<object>('@apollo/client'),
+  useApolloClient: () => mockClient,
+}));
 
 jest.mock('@/chainConfig', () => () => {
   const { default: chainConfig }: { default(): { tokenUnits: object } } =
@@ -56,7 +65,7 @@ jest.mock('next/dynamic', () => () => {
   return DynamicComponent;
 });
 
-jest.mock('@/recoil/profiles', () => ({
+jest.mock('@/recoil/profiles/hooks', () => ({
   useProfileRecoil: jest.fn((address) => ({
     address,
     name: address,

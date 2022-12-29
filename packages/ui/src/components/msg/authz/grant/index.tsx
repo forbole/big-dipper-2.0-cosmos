@@ -3,9 +3,9 @@ import { MsgGrant } from '@/models';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const Grant: React.FC<{ message: MsgGrant }> = (props) => {
+const Grant: FC<{ message: MsgGrant }> = (props) => {
   const { message } = props;
 
   const granter = useProfileRecoil(message.granter);

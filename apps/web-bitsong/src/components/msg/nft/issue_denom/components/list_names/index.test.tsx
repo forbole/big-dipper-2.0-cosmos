@@ -7,8 +7,8 @@ import renderer from 'react-test-renderer';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@/recoil/profiles', () => ({
-  ...jest.requireActual<object>('@/recoil/profiles'),
+jest.mock('@/recoil/profiles/hooks', () => ({
+  ...jest.requireActual<object>('@/recoil/profiles/hooks'),
   useProfileRecoil: jest.fn((address) => ({
     address,
     name:

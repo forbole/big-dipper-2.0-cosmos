@@ -1,5 +1,5 @@
 import { useValidatorAddressesQuery } from '@/graphql/types/general_types';
-import { atomFamilyState as profileAtomFamilyState } from '@/recoil/profiles';
+import { atomFamilyState as profileAtomFamilyState } from '@/recoil/profiles/atom';
 import type { AtomState as ProfileAtomState } from '@/recoil/profiles/types';
 import { atomFamilyState as validatorAtomState } from '@/recoil/validators/atom';
 import { useEffect } from 'react';

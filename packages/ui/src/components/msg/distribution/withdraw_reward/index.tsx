@@ -4,9 +4,9 @@ import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { formatNumber } from '@/utils/format_token';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const WithdrawReward: React.FC<{ message: MsgWithdrawDelegatorReward }> = (props) => {
+const WithdrawReward: FC<{ message: MsgWithdrawDelegatorReward }> = (props) => {
   const { message } = props;
   const delegator = useProfileRecoil(message.delegatorAddress);
   const delegatorMoniker = delegator ? delegator?.name : message.delegatorAddress;

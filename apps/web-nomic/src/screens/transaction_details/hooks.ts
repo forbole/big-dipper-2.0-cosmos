@@ -92,6 +92,7 @@ export const useTransactionDetails = () => {
     onCompleted: (data) => {
       handleSetState((prevState) => ({ ...prevState, ...formatTransactionDetails(data) }));
     },
+    onError: () => handleSetState((prevState) => ({ ...prevState, loading: false })),
   });
 
   return {

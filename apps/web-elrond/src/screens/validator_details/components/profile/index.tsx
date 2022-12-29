@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import classnames from 'classnames';
 import Typography from '@material-ui/core/Typography';
 import Box from '@/components/box';
@@ -9,7 +9,7 @@ import { isBech32 } from '@/utils/bech32';
 import { useStyles } from '@/screens/validator_details/components/profile/styles';
 import type { ProfileType } from '@/screens/validator_details/types';
 
-const Profile: React.FC<{ profile: ProfileType } & ComponentDefault> = ({ className, profile }) => {
+const Profile: FC<{ className?: string; profile: ProfileType }> = ({ className, profile }) => {
   const classes = useStyles();
   let { name } = profile;
   if (isBech32(name)) {

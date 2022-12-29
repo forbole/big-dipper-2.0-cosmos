@@ -3,9 +3,9 @@ import { type MsgUnjail } from '@/models';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const Unjail: React.FC<{ message: MsgUnjail }> = (props) => {
+const Unjail: FC<{ message: MsgUnjail }> = (props) => {
   const { message } = props;
   const validator = useProfileRecoil(message.validatorAddress);
   const validatorMoniker = validator ? validator?.name : message.validatorAddress;

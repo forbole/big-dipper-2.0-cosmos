@@ -3,9 +3,9 @@ import MsgCreateEthBridgeClaim from '@/models/msg/ethbridge/msg_create_eth_bridg
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const CreateEthBridgeClaim: React.FC<{ message: MsgCreateEthBridgeClaim }> = (props) => {
+const CreateEthBridgeClaim: FC<{ message: MsgCreateEthBridgeClaim }> = (props) => {
   const { message } = props;
 
   const cosmosreceiver = useProfileRecoil(message.ethBridgeClaim.cosmosreceiver);

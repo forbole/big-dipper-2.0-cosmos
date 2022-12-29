@@ -6,6 +6,20 @@ import * as R from 'ramda';
 import { ROUNDS, STATS, NODE_DETAILS, IDENTITY, BLOCKS } from '@/api';
 import type { NodeDetailsState } from '@/screens/node_details/types';
 
+type RoundResult = Array<{
+  round: number;
+  blockWasProposed: boolean;
+}>;
+
+type BlocksResult = Array<{
+  round: number;
+  timestamp: number;
+  hash: string;
+  txCount: number;
+  shard: number;
+  sizeTxs: number;
+}>;
+
 // =============================================
 // Profile
 // =============================================
@@ -104,12 +118,7 @@ const getConsensus = async ({
   shard: number;
   epoch: number;
 }) => {
-  const { data: roundsData } = await axios.get<
-    Array<{
-      round: number;
-      blockWasProposed: boolean;
-    }>
-  >(ROUNDS, {
+  const { data: roundsData } = await axios.get<RoundResult>(ROUNDS, {
     params: {
       size: 138,
       from: 0,
@@ -131,16 +140,7 @@ const getBlocks = async ({
   shard: number;
   epoch: number;
 }) => {
-  const { data: blocksData } = await axios.get<
-    Array<{
-      round: number;
-      timestamp: number;
-      hash: string;
-      txCount: number;
-      shard: number;
-      sizeTxs: number;
-    }>
-  >(BLOCKS, {
+  const { data: blocksData } = await axios.get<BlocksResult>(BLOCKS, {
     params: {
       // size: 25,
       size: 15,

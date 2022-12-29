@@ -3,9 +3,9 @@ import MsgLinkApplication from '@/models/msg/profiles/msg_link_application';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import { FC } from 'react';
 
-const LinkApplication: React.FC<{ message: MsgLinkApplication }> = (props) => {
+const LinkApplication: FC<{ message: MsgLinkApplication }> = (props) => {
   const { message } = props;
 
   const sender = useProfileRecoil(message.sender);

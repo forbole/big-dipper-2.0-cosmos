@@ -18,23 +18,20 @@ import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
 import * as R from 'ramda';
-import React, { useCallback } from 'react';
+import React, { FC, useCallback } from 'react';
 import { useRecoilValue } from 'recoil';
 
-const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
-  className,
-  overview,
-}) => {
+const Overview: FC<{ className?: string; overview: OverviewType }> = ({ className, overview }) => {
   const dateFormat = useRecoilValue(readDate);
   const classes = useStyles();
   const { t } = useTranslation('proposals');
 
   const type = getProposalType(R.pathOr('', ['@type'], overview.content));
 
-  const proposer = useProfileRecoil(overview.proposer);
-  const recipient = useProfileRecoil(overview?.content?.recipient);
-  const proposerMoniker = proposer ? proposer?.name : overview.proposer;
-  const recipientMoniker = recipient ? recipient?.name : overview?.content?.recipient;
+  const { address: proposerAddress, name: proposerName } = useProfileRecoil(overview.proposer);
+  const { name: recipientName } = useProfileRecoil(overview?.content?.recipient);
+  const proposerMoniker = proposerName || overview.proposer;
+  const recipientMoniker = recipientName || overview?.content?.recipient;
   const amountRequested = overview.content?.amount
     ? formatToken(overview.content?.amount[0]?.amount, overview.content?.amount[0]?.denom)
     : null;
@@ -107,7 +104,7 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
         <Typography variant="body1" className="label">
           {t('proposer')}
         </Typography>
-        <Name name={proposerMoniker} address={proposer.address} />
+        <Name name={proposerMoniker} address={proposerAddress} />
         {!!overview.submitTime && (
           <>
             <Typography variant="body1" className="label">

@@ -50,6 +50,7 @@ export const useBlockDetails = () => {
     onCompleted: (data) => {
       handleSetState((prevState) => ({ ...prevState, ...formatRaws(data) }));
     },
+    onError: () => handleSetState((prevState) => ({ ...prevState, loading: false })),
   });
 
   return {

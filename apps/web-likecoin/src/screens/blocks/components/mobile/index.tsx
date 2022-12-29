@@ -2,6 +2,7 @@ import AvatarName from '@/components/avatar_name';
 import Loading from '@/components/loading';
 import SingleBlockMobile from '@/components/single_block_mobile';
 import { useList, useListRow } from '@/hooks';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { useStyles } from '@/screens/blocks/components/mobile/styles';
 import type { ItemType } from '@/screens/blocks/types';
 import dayjs from '@/utils/dayjs';
@@ -18,23 +19,22 @@ import AutoSizer from 'react-virtualized-auto-sizer';
 import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
 
-type Props = {
-  className?: string;
-  items: ItemType[];
-  itemCount: number;
-  loadMoreItems: (...arg: unknown[]) => void;
-  isItemLoaded?: (index: number) => boolean;
+type ListItemProps = Pick<ListChildComponentProps, 'index' | 'style'> & {
+  setRowHeight: Parameters<typeof useListRow>[1];
+  isItemLoaded: ((index: number) => boolean) | undefined;
+  item: ItemType;
+  isLast: boolean;
 };
 
-const ListItem: FC<
-  Pick<ListChildComponentProps, 'index' | 'style'> & {
-    setRowHeight: Parameters<typeof useListRow>[1];
-    isItemLoaded: ((index: number) => boolean) | undefined;
-    item: ItemType;
-    itemCount: number;
-  }
-> = ({ index, style, setRowHeight, isItemLoaded, item, itemCount }) => {
-  const { name, address, imageUrl } = item.proposer;
+const ListItem: FC<ListItemProps> = ({
+  index,
+  style,
+  setRowHeight,
+  isItemLoaded,
+  item,
+  isLast,
+}) => {
+  const { name, address, imageUrl } = useProfileRecoil(item.proposer);
   const { rowRef } = useListRow(index, setRowHeight);
 
   const formattedItems = {
@@ -66,13 +66,21 @@ const ListItem: FC<
     <div style={style}>
       <div ref={rowRef}>
         <SingleBlockMobile {...formattedItems} />
-        {index !== itemCount - 1 && <Divider />}
+        {!isLast && <Divider />}
       </div>
     </div>
   );
 };
 
-const Mobile: FC<Props> = ({ className, items, itemCount, loadMoreItems, isItemLoaded }) => {
+type MobileProps = {
+  className?: string;
+  items: ItemType[];
+  itemCount: number;
+  loadMoreItems: (...arg: unknown[]) => void;
+  isItemLoaded?: (index: number) => boolean;
+};
+
+const Mobile: FC<MobileProps> = ({ className, items, itemCount, loadMoreItems, isItemLoaded }) => {
   const classes = useStyles();
   const { listRef, getRowHeight, setRowHeight } = useList();
 
@@ -108,7 +116,7 @@ const Mobile: FC<Props> = ({ className, items, itemCount, loadMoreItems, isItemL
                     setRowHeight={setRowHeight}
                     isItemLoaded={isItemLoaded}
                     item={items[index]}
-                    itemCount={itemCount}
+                    isLast={index === itemCount}
                   />
                 )}
               </List>

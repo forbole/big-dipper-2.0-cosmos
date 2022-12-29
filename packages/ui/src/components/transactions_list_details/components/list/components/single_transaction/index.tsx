@@ -3,18 +3,34 @@ import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import React from 'react';
+import React, { FC, ReactNode } from 'react';
 
-const SingleTransaction: React.FC<{
+export type SingleTransactionProps = {
   className?: string;
-  block: React.ReactNode;
-  hash: React.ReactNode;
-  type: React.ReactNode;
+  block: ReactNode;
+  hash: ReactNode;
+  type: ReactNode;
   time: string;
   messageCount: string;
-  messages: Array<{ type: JSX.Element; message: JSX.Element }>;
-  result?: React.ReactNode;
-}> = ({ className, block, hash, type, time, messages, result, messageCount }) => {
+  messages: Array<
+    {
+      type: ReactNode;
+      message: ReactNode;
+    } & JSX.IntrinsicAttributes
+  >;
+  result?: ReactNode;
+};
+
+const SingleTransaction: FC<SingleTransactionProps> = ({
+  className,
+  block,
+  hash,
+  type,
+  time,
+  messages,
+  result,
+  messageCount,
+}) => {
   const { t } = useTranslation('transactions');
   const classes = useStyles();
 
@@ -67,7 +83,7 @@ const SingleTransaction: React.FC<{
           <div className={classes.msgListContainer}>
             {messages.map((x, i) => (
               // eslint-disable-next-line react/no-array-index-key
-              <div className={classes.msg} key={`${i}-${x.type}`}>
+              <div key={`${x.key}-${i}`} className={classes.msg}>
                 <div className={classes.tags}>{x.type}</div>
                 {x.message}
               </div>

@@ -47,7 +47,7 @@ export function useTransactions() {
   const [state, setState] = useState<TransactionState>({
     data: [],
     hasNextPage: false,
-    isNextPageLoading: false,
+    isNextPageLoading: true,
     offsetCount: 0,
   });
 

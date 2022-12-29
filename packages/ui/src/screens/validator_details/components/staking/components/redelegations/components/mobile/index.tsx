@@ -9,38 +9,35 @@ import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import React, { FC } from 'react';
+import React, { FC, Fragment } from 'react';
 import { useRecoilValue } from 'recoil';
 
-type Props = {
-  className?: string;
-  items?: ItemType[];
-};
-
-const RedelegationsItem: FC<{
+type RedelegationsItemProps = {
   i: number;
   item: ItemType;
-  items: ItemType[];
-}> = ({ i, item, items }) => {
-  const address = useProfileRecoil(item.address);
-  const to = useProfileRecoil(item.to);
+  isLast: boolean;
+};
+
+const RedelegationsItem: FC<RedelegationsItemProps> = ({ i, item, isLast }) => {
+  const { address, imageUrl, name } = useProfileRecoil(item.address);
+  const { address: toAddress, imageUrl: toImageUrl, name: toName } = useProfileRecoil(item.to);
   const classes = useStyles();
   const { t } = useTranslation('accounts');
   const dateFormat = useRecoilValue(readDate);
   return (
-    <React.Fragment key={`votes-mobile-${i}`}>
+    <Fragment key={`votes-mobile-${i}`}>
       <div className={classes.list}>
         <div className={classes.item}>
           <Typography variant="h4" className="label">
             {t('address')}
           </Typography>
-          <AvatarName address={address.address} imageUrl={address.imageUrl} name={address.name} />
+          <AvatarName address={address} imageUrl={imageUrl} name={name} />
         </div>
         <div className={classes.item}>
           <Typography variant="h4" className="label">
             {t('to')}
           </Typography>
-          <AvatarName address={to.address} imageUrl={to.imageUrl} name={to.name} />
+          <AvatarName address={toAddress} imageUrl={toImageUrl} name={toName} />
         </div>
         <div className={classes.item}>
           <Typography variant="h4" className="label">
@@ -60,16 +57,26 @@ const RedelegationsItem: FC<{
             : ''}
         </div>
       </div>
-      {!!items && i !== items.length - 1 && <Divider />}
-    </React.Fragment>
+      {!isLast && <Divider />}
+    </Fragment>
   );
 };
 
-const Mobile: FC<Props> = ({ className, items }) => (
+type MobileProps = {
+  className?: string;
+  items?: ItemType[];
+};
+
+const Mobile: FC<MobileProps> = ({ className, items }) => (
   <div className={classnames(className)}>
     {items?.map((x, i) => (
-      // eslint-disable-next-line react/no-array-index-key
-      <RedelegationsItem key={i} i={i} item={x} items={items} />
+      <RedelegationsItem
+        // eslint-disable-next-line react/no-array-index-key
+        key={`${x.address}-${i}`}
+        i={i}
+        item={x}
+        isLast={!items || i === items.length - 1}
+      />
     ))}
   </div>
 );

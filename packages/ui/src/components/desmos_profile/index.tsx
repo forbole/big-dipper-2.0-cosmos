@@ -8,13 +8,13 @@ import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
-import React from 'react';
+import React, { FC } from 'react';
 
-const DesmosProfile: React.FC<
-  {
-    className?: string;
-  } & Omit<DesmosProfile, 'address'>
-> = (props) => {
+type DesmosProfileProps = {
+  className?: string;
+} & Omit<DesmosProfile, 'address'>;
+
+const DesmosProfile: FC<DesmosProfileProps> = (props) => {
   const { t } = useTranslation('accounts');
   const classes = useStyles(props.coverUrl);
   const { connectionsOpen, handleConnectionsClose, handleConnectionsOpen } = useDesmosProfile();

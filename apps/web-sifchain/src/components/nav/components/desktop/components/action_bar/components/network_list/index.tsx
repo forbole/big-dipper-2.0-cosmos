@@ -3,15 +3,17 @@ import { useStyles } from '@/components/nav/components/desktop/components/action
 import Networks from '@/components/nav/components/networks';
 import { readTheme } from '@/recoil/settings';
 import classnames from 'classnames';
-import React from 'react';
+import React, { FC } from 'react';
 import { useRecoilValue } from 'recoil';
 import BigDipperLogoRed from 'shared-utils/assets/big-dipper-red-sifchain.svg';
 import BigDipperLogoWhite from 'shared-utils/assets/big-dipper-white.svg';
 
-const NetworkList: React.FC<{
+type NetworkListProps = {
   className?: string;
   actionHeight?: number;
-}> = ({ className, actionHeight }) => {
+};
+
+const NetworkList: FC<NetworkListProps> = ({ className, actionHeight }) => {
   const classes = useStyles();
   const theme = useRecoilValue(readTheme);
 

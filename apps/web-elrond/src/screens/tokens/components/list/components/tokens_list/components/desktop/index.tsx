@@ -12,12 +12,13 @@ import TableRow from '@material-ui/core/TableRow';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
-import React from 'react';
+import React, { FC } from 'react';
 
-const Desktop: React.FC<{ items: TokenType[] } & ComponentDefault> = (props) => {
+const Desktop: FC<{ className?: string; items: TokenType[] }> = (props) => {
   const { t } = useTranslation('tokens');
   const classes = useStyles();
-  const formattedItems = props.items.map((x) => ({
+  const formattedItems = props.items.map((x, i) => ({
+    key: `${x.identifier}-${i}`,
     token: (
       <AvatarName imageUrl={x.imageUrl} name={x.name} address={x.identifier} href={TOKEN_DETAILS} />
     ),
@@ -51,15 +52,15 @@ const Desktop: React.FC<{ items: TokenType[] } & ComponentDefault> = (props) => 
           </TableRow>
         </TableHead>
         <TableBody>
-          {formattedItems?.map((row: { [key: string]: unknown }) => (
-            <TableRow key={`holders-row-${row.identifier}`}>
+          {formattedItems?.map((row) => (
+            <TableRow key={`holders-row-${row.key}`}>
               {columns.map((column) => (
                 <TableCell
-                  key={`holders-row-${row.identifier}-${column.key}`}
+                  key={`holders-row-${row.key}-${column.key}`}
                   align={column.align}
                   style={{ width: `${column.width}%` }}
                 >
-                  {row[column.key]}
+                  {row[column.key as keyof typeof row]}
                 </TableCell>
               ))}
             </TableRow>

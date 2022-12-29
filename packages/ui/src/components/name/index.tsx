@@ -3,14 +3,16 @@ import { ADDRESS_DETAILS } from '@/utils/go_to_page';
 import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import Link from 'next/link';
-import React from 'react';
+import React, { FC } from 'react';
 
-const Name: React.FC<{
+type NameProps = {
   className?: string;
   address: string;
   name: string;
   href?: (address: string) => string;
-}> = ({ className, address, name, href = ADDRESS_DETAILS }) => {
+};
+
+const Name: FC<NameProps> = ({ className, address, name, href = ADDRESS_DETAILS }) => {
   const classes = useStyles();
   return (
     <Link href={href(address)} passHref>

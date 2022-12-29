@@ -12,49 +12,55 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import { FC, ReactNode, useMemo } from 'react';
+import { FC } from 'react';
 import { useRecoilValue } from 'recoil';
 
-type Props = {
-  className?: string;
-  items: ItemType[];
+type RedelegationsRowProps = {
+  item: ItemType;
+  i: number;
 };
 
-const RedelegationsRow: FC<{ item: ItemType; i: number }> = ({ item, i }) => {
-  const from = useProfileRecoil(item.from);
-  const to = useProfileRecoil(item.to);
+const RedelegationsRow: FC<RedelegationsRowProps> = ({ item, i }) => {
+  const {
+    address: fromAddress,
+    imageUrl: fromImageUrl,
+    name: fromName,
+  } = useProfileRecoil(item.from);
+  const { address: toAddress, imageUrl: toImageUrl, name: toName } = useProfileRecoil(item.to);
   const dateFormat = useRecoilValue(readDate);
-  const formattedItem = useMemo<{ [key: string]: ReactNode }>(
-    () => ({
-      identifier: i,
-      to: <AvatarName address={to.address} imageUrl={to.imageUrl} name={to.name} />,
-      from: <AvatarName address={from.address} imageUrl={from.imageUrl} name={from.name} />,
-      amount: item.amount
-        ? `${formatNumber(
-            item.amount.value,
-            item.amount.exponent
-          )} ${item.amount.displayDenom.toUpperCase()}`
-        : '',
-      completionTime: formatDayJs(dayjs.utc(item.completionTime), dateFormat),
-    }),
-    [i, to, from, item, dateFormat]
-  );
+  const formattedItem = {
+    identifier: i,
+    to: <AvatarName address={toAddress} imageUrl={toImageUrl} name={toName} />,
+    from: <AvatarName address={fromAddress} imageUrl={fromImageUrl} name={fromName} />,
+    amount: item.amount
+      ? `${formatNumber(
+          item.amount.value,
+          item.amount.exponent
+        )} ${item.amount.displayDenom.toUpperCase()}`
+      : '',
+    completionTime: formatDayJs(dayjs.utc(item.completionTime), dateFormat),
+  };
   return (
-    <TableRow key={`holders-row-${i}`}>
+    <TableRow>
       {columns.map((column) => (
         <TableCell
           key={`holders-row-${i}-${column.key}`}
           align={column.align}
           style={{ width: `${column.width}%` }}
         >
-          {formattedItem[column.key]}
+          {formattedItem[column.key as keyof typeof formattedItem]}
         </TableCell>
       ))}
     </TableRow>
   );
 };
 
-const Desktop: FC<Props> = ({ className, items }) => {
+type DesktopProps = {
+  className?: string;
+  items: ItemType[];
+};
+
+const Desktop: FC<DesktopProps> = ({ className, items }) => {
   const { t } = useTranslation('accounts');
   return (
     <div className={classnames(className)}>
@@ -75,7 +81,7 @@ const Desktop: FC<Props> = ({ className, items }) => {
         <TableBody>
           {items?.map((row, i) => (
             // eslint-disable-next-line react/no-array-index-key
-            <RedelegationsRow key={i} i={i} item={row} />
+            <RedelegationsRow key={`${row.from}-${row.to}-${i}`} i={i} item={row} />
           ))}
         </TableBody>
       </Table>

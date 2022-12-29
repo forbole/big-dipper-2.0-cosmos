@@ -13,15 +13,15 @@ const formatLastHundredBlocks = (data: LastHundredBlocksSubscription) =>
     signed: x.precommits.length === 1,
   }));
 
+type BlocksState = {
+  height: number;
+  txs: number;
+  proposer: string;
+  signed: boolean;
+}[];
+
 export const useBlocks = () => {
-  const [state, setState] = useState<
-    {
-      height: number;
-      txs: number;
-      proposer: string;
-      signed: boolean;
-    }[]
-  >([]);
+  const [state, setState] = useState<BlocksState>([]);
 
   const router = useRouter();
 

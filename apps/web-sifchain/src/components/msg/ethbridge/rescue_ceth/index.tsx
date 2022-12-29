@@ -3,9 +3,9 @@ import MsgRescueCeth from '@/models/msg/ethbridge/msg_rescue_ceth';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const RescueCeth: React.FC<{ message: MsgRescueCeth }> = (props) => {
+const RescueCeth: FC<{ message: MsgRescueCeth }> = (props) => {
   const { message } = props;
 
   const cosmosSender = useProfileRecoil(message.cosmosSender);

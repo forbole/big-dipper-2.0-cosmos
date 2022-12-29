@@ -5,11 +5,11 @@ import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { formatNumber, formatToken } from '@/utils/format_token';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
 const { primaryTokenUnit } = chainConfig();
 
-const AddLiquidity: React.FC<{ message: MsgAddLiquidity }> = (props) => {
+const AddLiquidity: FC<{ message: MsgAddLiquidity }> = (props) => {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);

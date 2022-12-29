@@ -4,9 +4,9 @@ import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
 import numeral from 'numeral';
-import React from 'react';
+import React, { FC } from 'react';
 
-const RequestData: React.FC<{ message: MsgRequestData }> = (props) => {
+const RequestData: FC<{ message: MsgRequestData }> = (props) => {
   const { message } = props;
 
   const sender = useProfileRecoil(message.sender);

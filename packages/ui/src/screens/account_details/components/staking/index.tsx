@@ -4,9 +4,10 @@ import Tabs from '@/screens/account_details/components/staking/components/tabs';
 import { useStaking } from '@/screens/account_details/components/staking/hooks';
 import { useStyles } from '@/screens/account_details/components/staking/styles';
 import type { RewardsType } from '@/screens/account_details/types';
+import { formatCount } from '@/screens/validator_details/components/staking';
 import classnames from 'classnames';
 import dynamic from 'next/dynamic';
-import React from 'react';
+import React, { FC, useState } from 'react';
 
 const Delegations = dynamic(
   () => import('@/screens/account_details/components/staking/components/delegations')
@@ -18,32 +19,41 @@ const Unbondings = dynamic(
   () => import('@/screens/account_details/components/staking/components/unbondings')
 );
 
-const Staking: React.FC<
-  {
-    rewards: RewardsType;
-  } & ComponentDefault
-> = ({ rewards, className }) => {
+type StakingProps = {
+  className?: string;
+  rewards: RewardsType;
+};
+
+const Staking: FC<StakingProps> = ({ rewards, className }) => {
   const classes = useStyles();
-  const { state, delegations, redelegations, unbondings, handleTabChange } = useStaking(rewards);
+  const [delegationsPage, setDelegationsPage] = useState(0);
+  const [redelegationsPage, setRedelegationsPage] = useState(0);
+  const [unbondingsPage, setUnbondingsPage] = useState(0);
+  const { state, delegations, redelegations, unbondings, handleTabChange } = useStaking(
+    rewards,
+    delegationsPage,
+    redelegationsPage,
+    unbondingsPage
+  );
 
   const tabs = [
     {
       id: 0,
       key: 'delegations',
-      component: <Delegations delegations={delegations} />,
-      count: delegations.count,
+      component: <Delegations delegations={delegations} setPage={setDelegationsPage} />,
+      count: formatCount(delegationsPage, delegations),
     },
     {
       id: 1,
       key: 'redelegations',
-      component: <Redelgations redelegations={redelegations} />,
-      count: redelegations.count,
+      component: <Redelgations redelegations={redelegations} setPage={setRedelegationsPage} />,
+      count: formatCount(redelegationsPage, redelegations),
     },
     {
       id: 2,
       key: 'unbondings',
-      component: <Unbondings unbondings={unbondings} />,
-      count: unbondings.count,
+      component: <Unbondings unbondings={unbondings} setPage={setUnbondingsPage} />,
+      count: formatCount(unbondingsPage, unbondings),
     },
   ];
 

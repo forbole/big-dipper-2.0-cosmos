@@ -16,17 +16,17 @@ import useTranslation from 'next-translate/useTranslation';
 import { FC } from 'react';
 import { useRecoilValue } from 'recoil';
 
-type Props = {
-  className?: string;
-  items?: ItemType[];
+type DepositsRowProps = {
+  i: number;
+  item: ItemType;
 };
 
-const DepositsRow: FC<{ i: number; item: ItemType }> = ({ i, item }) => {
+const DepositsRow: FC<DepositsRowProps> = ({ i, item }) => {
   const dateFormat = useRecoilValue(readDate);
   const { name, address, imageUrl } = useProfileRecoil(item.user);
 
   return (
-    <TableRow key={`holders-row-${i}`}>
+    <TableRow>
       {columns.map((column) => (
         <TableCell
           // eslint-disable-next-line react/no-array-index-key
@@ -58,7 +58,12 @@ const DepositsRow: FC<{ i: number; item: ItemType }> = ({ i, item }) => {
   );
 };
 
-const Desktop: FC<Props> = ({ className, items }) => {
+type DesktopProps = {
+  className?: string;
+  items?: ItemType[];
+};
+
+const Desktop: FC<DesktopProps> = ({ className, items }) => {
   const { t } = useTranslation('proposals');
 
   return (

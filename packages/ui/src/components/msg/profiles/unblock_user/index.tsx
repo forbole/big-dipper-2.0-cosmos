@@ -3,9 +3,9 @@ import { MsgUnblockUser } from '@/models';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const UnBlockUser: React.FC<{ message: MsgUnblockUser }> = (props) => {
+const UnBlockUser: FC<{ message: MsgUnblockUser }> = (props) => {
   const { message } = props;
 
   const blocker = useProfileRecoil(message.blocker);

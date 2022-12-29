@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, LegacyRef, useMemo } from 'react';
 import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
 import useTranslation from 'next-translate/useTranslation';
 import AutoSizer from 'react-virtualized-auto-sizer';
@@ -11,17 +11,25 @@ import { useList, useListRow } from '@/hooks';
 import type { ConsensusType } from '@/screens/block_details/types';
 import { useStyles } from '@/screens/block_details/components/consensus/components/mobile/styles';
 
-const ListItem: FC<
-  Pick<ListChildComponentProps, 'index' | 'style'> & {
-    setRowHeight: Parameters<typeof useListRow>[1];
-    classes: ReturnType<typeof useStyles>;
-    formattedItems: unknown[];
-    items: string[];
-  }
-> = ({ index, style, setRowHeight, classes, formattedItems, items }) => {
+type ListItemProps = Pick<ListChildComponentProps, 'index' | 'style'> & {
+  setRowHeight: Parameters<typeof useListRow>[1];
+  classes: ReturnType<typeof useStyles>;
+  formattedItem: unknown;
+  item: string;
+  isLast: boolean;
+};
+
+const ListItem: FC<ListItemProps> = ({
+  index,
+  style,
+  setRowHeight,
+  classes,
+  formattedItem,
+  item,
+  isLast,
+}) => {
   const { t } = useTranslation('blocks');
   const { rowRef } = useListRow(index, setRowHeight);
-  const selectedItem = formattedItems[index];
   return (
     <div style={style}>
       <div ref={rowRef}>
@@ -31,29 +39,33 @@ const ListItem: FC<
             <Typography variant="h4" className="label">
               {t('validator')}
             </Typography>
-            <Link href={NODE_DETAILS(items[index])} passHref>
+            <Link href={NODE_DETAILS(item)} passHref>
               <Typography variant="body1" className="value" component="a">
-                {selectedItem}
+                {formattedItem}
               </Typography>
             </Link>
           </div>
         </div>
         {/* single signature end */}
-        {index !== items.length - 1 && <Divider />}
+        {!isLast && <Divider />}
       </div>
     </div>
   );
 };
 
-const Mobile: FC<{ items: ConsensusType[] } & ComponentDefault> = (props) => {
+const Mobile: FC<{ items: ConsensusType[] }> = (props) => {
   const { listRef, getRowHeight, setRowHeight } = useList();
   const classes = useStyles();
 
-  const formattedItems = props.items.map((x) =>
-    getMiddleEllipsis(x, {
-      beginning: 13,
-      ending: 15,
-    })
+  const formattedItems = useMemo(
+    () =>
+      props.items.map((x) =>
+        getMiddleEllipsis(x, {
+          beginning: 13,
+          ending: 15,
+        })
+      ),
+    [props.items]
   );
 
   return (
@@ -65,7 +77,7 @@ const Mobile: FC<{ items: ConsensusType[] } & ComponentDefault> = (props) => {
             height={height}
             itemCount={props.items.length}
             itemSize={getRowHeight}
-            ref={listRef as React.LegacyRef<List>}
+            ref={listRef as LegacyRef<List>}
             width={width}
           >
             {({ index, style }) => (
@@ -75,8 +87,9 @@ const Mobile: FC<{ items: ConsensusType[] } & ComponentDefault> = (props) => {
                 style={style}
                 setRowHeight={setRowHeight}
                 classes={classes}
-                formattedItems={formattedItems}
-                items={props.items}
+                formattedItem={formattedItems[index]}
+                item={props.items[index]}
+                isLast={index === props.items.length - 1}
               />
             )}
           </List>

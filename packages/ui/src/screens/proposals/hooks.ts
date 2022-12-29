@@ -21,7 +21,7 @@ export const useProposals = () => {
     exists: true,
     items: [],
     hasNextPage: false,
-    isNextPageLoading: false,
+    isNextPageLoading: true,
     rawDataTotal: 0,
   });
 
@@ -48,6 +48,7 @@ export const useProposals = () => {
       const newItems = R.uniq([...state.items, ...formatProposals(data)]);
       handleSetState((prevState) => ({
         ...prevState,
+        loading: false,
         items: newItems,
         hasNextPage: newItems.length < (data.total?.aggregate?.count ?? 0),
         isNextPageLoading: false,

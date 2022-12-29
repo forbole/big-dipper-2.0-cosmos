@@ -3,9 +3,9 @@ import MsgVoteRequest from '@/models/msg/group/msg_vote_request';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const VoteRequest: React.FC<{ message: MsgVoteRequest }> = (props) => {
+const VoteRequest: FC<{ message: MsgVoteRequest }> = (props) => {
   const { message } = props;
 
   const voter = useProfileRecoil(message.voter);

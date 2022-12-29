@@ -2,15 +2,15 @@ import { useStyles } from '@/screens/validators/components/list/components/mobil
 import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import React, { FC } from 'react';
+import { FC, ReactNode } from 'react';
 import LiquidStakingFalseIcon from 'shared-utils/assets/liquid-staking-false.svg';
 import LiquidStakingTrueIcon from 'shared-utils/assets/liquid-staking-true.svg';
 
-type Props = {
+type SingleValidatorProps = {
   className?: string;
-  validator: React.ReactNode;
+  validator: ReactNode;
   commission: string;
-  votingPower: React.ReactNode;
+  votingPower: ReactNode;
   status: {
     status: string;
     theme: string;
@@ -18,7 +18,7 @@ type Props = {
   liquidStaking: string;
 };
 
-const SingleValidator: FC<Props> = ({
+const SingleValidator: FC<SingleValidatorProps> = ({
   className,
   validator,
   commission,

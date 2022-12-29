@@ -3,9 +3,9 @@ import MsgBurn from '@/models/msg/ethbridge/msg_burn';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const Burn: React.FC<{ message: MsgBurn }> = (props) => {
+const Burn: FC<{ message: MsgBurn }> = (props) => {
   const { message } = props;
 
   const cosmosSender = useProfileRecoil(message.cosmosSender);

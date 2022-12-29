@@ -3,9 +3,9 @@ import MsgIssueFanToken from '@/models/msg/fantoken/msg_issue_fan_token';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const IssueFanToken: React.FC<{ message: MsgIssueFanToken }> = (props) => {
+const IssueFanToken: FC<{ message: MsgIssueFanToken }> = (props) => {
   const { message } = props;
 
   const owner = useProfileRecoil(message.owner);
