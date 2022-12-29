@@ -1,5 +1,11 @@
 # ui
 
+## 2.6.1
+
+### Patch Changes
+
+- 2db4ee93: performance improvements and bug fixes
+
 ## 2.6.0
 
 ### Minor Changes

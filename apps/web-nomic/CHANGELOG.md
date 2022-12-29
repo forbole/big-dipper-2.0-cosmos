@@ -1,5 +1,13 @@
 # Unreleased
 
+## 2.5.1
+
+### Patch Changes
+
+- 2db4ee93: performance improvements and bug fixes
+- Updated dependencies [2db4ee93]
+  - ui@2.6.1
+
 ## 2.5.0
 
 ### Minor Changes
