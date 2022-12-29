@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import dynamic from 'next/dynamic';
 import NoData from '@/components/no_data';
 import Box from '@/components/box';
@@ -15,7 +15,7 @@ const Mobile = dynamic(
   () => import('@/screens/transaction_details/components/operations/components/mobile')
 );
 
-const Operations: React.FC<{ items: OperationType[] } & ComponentDefault> = (props) => {
+const Operations: FC<{ items: OperationType[] }> = (props) => {
   const { t } = useTranslation('transactions');
   const classes = useStyles();
   const { isDesktop } = useScreenSize();

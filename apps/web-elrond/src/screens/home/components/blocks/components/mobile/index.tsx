@@ -7,9 +7,9 @@ import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 import Link from 'next/link';
 import numeral from 'numeral';
-import React from 'react';
+import React, { FC, Fragment } from 'react';
 
-const Mobile: React.FC<{ items: BlockType[] } & ComponentDefault> = (props) => {
+const Mobile: FC<{ className?: string; items: BlockType[] }> = (props) => {
   const formattedItems = props.items.map((x) => ({
     block: numeral(x.block).format('0,0'),
     hash: (
@@ -29,11 +29,10 @@ const Mobile: React.FC<{ items: BlockType[] } & ComponentDefault> = (props) => {
   return (
     <div>
       {formattedItems?.map((x, i) => (
-        // eslint-disable-next-line react/no-array-index-key
-        <React.Fragment key={`${x.block}-${i}`}>
+        <Fragment key={x.block}>
           <SingleBlockMobile {...x} />
           {i !== formattedItems.length - 1 && <Divider />}
-        </React.Fragment>
+        </Fragment>
       ))}
     </div>
   );

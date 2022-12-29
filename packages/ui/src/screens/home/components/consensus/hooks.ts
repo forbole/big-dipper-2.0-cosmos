@@ -1,8 +1,9 @@
 import chainConfig from '@/chainConfig';
+import useShallowMemo from '@/hooks/useShallowMemo';
 import { hexToBech32 } from '@/utils/hex_to_bech32';
 import numeral from 'numeral';
 import * as R from 'ramda';
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 const { endpoints, prefix } = chainConfig();
 
@@ -142,6 +143,7 @@ function useConnect() {
       subscribe(ws, pingHeader, KEEP_ALIVE);
     };
     ws.onmessage = (e) => {
+      if (ws !== client) return;
       if (ws?.readyState !== WebSocket.OPEN) return;
       const data = JSON.parse(e.data as string);
       const event = R.pathOr<string>('', ['result', 'data', 'type'], data);
@@ -168,7 +170,10 @@ function useConnect() {
   }, []);
   useEffect(() => {
     if (!ssrMode) connect();
-    return () => client?.close();
+    return () => {
+      client?.close();
+      client = null;
+    };
   }, [connect]);
 
   return { loadingNewRound, loadingNewStep, newRound, newStep };
@@ -176,42 +181,39 @@ function useConnect() {
 
 const TOTAL_STEPS = 5;
 
+/* A callback function that is called when the websocket receives a new round event. */
+const formatNewRound = (data: unknown) => {
+  const result = R.pathOr<NewRoundResult | null>(null, ['result'], data);
+  const height = numeral(result?.data.value.height).value() ?? 0;
+  const proposerHex = result?.data.value.proposer.address ?? '';
+  const consensusAddress = hexToBech32(proposerHex, prefix.consensus);
+  return { height, proposer: consensusAddress };
+};
+
+/* A callback function that is called when the websocket receives a new round event. */
+const formatNewStep = (data: unknown) => {
+  const result = R.pathOr<NewStepResult | null>(null, ['result'], data);
+  const round = result?.data.value.round ?? 0;
+  const step = stepReference[result?.data.value.step ?? 0];
+  const roundCompletion = (step / TOTAL_STEPS) * 100;
+  return { round, step, roundCompletion };
+};
+
 /**
  * It creates a new websocket connection and closes it when the component unmounts
  * @returns The state of the consensus.
  */
 export const useConsensus = () => {
-  /* A callback function that is called when the websocket receives a new round event. */
-  const formatNewRound = useCallback((data: unknown) => {
-    const result = R.pathOr<NewRoundResult | null>(null, ['result'], data);
-    const height = numeral(result?.data.value.height).value() ?? 0;
-    const proposerHex = result?.data.value.proposer.address ?? '';
-    const consensusAddress = hexToBech32(proposerHex, prefix.consensus);
-    return { height, proposer: consensusAddress };
-  }, []);
-
-  /* A callback function that is called when the websocket receives a new round event. */
-  const formatNewStep = useCallback((data: unknown) => {
-    const result = R.pathOr<NewStepResult | null>(null, ['result'], data);
-    const round = result?.data.value.round ?? 0;
-    const step = stepReference[result?.data.value.step ?? 0];
-    const roundCompletion = (step / TOTAL_STEPS) * 100;
-    return { round, step, roundCompletion };
-  }, []);
-
   const { loadingNewRound, loadingNewStep, newRound, newStep } = useConnect();
-  const formattedState = useMemo(
-    () => ({
-      loadingNewRound,
-      loadingNewStep,
-      ...formatNewRound(newRound),
-      ...formatNewStep(newStep),
-      totalSteps: TOTAL_STEPS,
-    }),
-    [formatNewRound, formatNewStep, loadingNewRound, loadingNewStep, newRound, newStep]
-  );
+  const stateMemo = useShallowMemo({
+    loadingNewRound,
+    loadingNewStep,
+    ...formatNewRound(newRound),
+    ...formatNewStep(newStep),
+    totalSteps: TOTAL_STEPS,
+  });
 
   return {
-    state: formattedState,
+    state: stateMemo,
   };
 };

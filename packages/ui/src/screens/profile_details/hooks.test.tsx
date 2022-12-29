@@ -2,6 +2,7 @@ import chainConfig from '@/chainConfig';
 import type { useDesmosProfile } from '@/hooks';
 import { useProfileDetails } from '@/screens/profile_details/hooks';
 import { act, cleanup, renderHook } from '@testing-library/react-hooks';
+import { useMemo } from 'react';
 
 const { extra, prefix } = chainConfig();
 
@@ -21,48 +22,56 @@ jest.mock('next/router', () => ({
 jest.mock('@/hooks', () => ({
   ...jest.requireActual('@/hooks'),
   useDesmosProfile: (options: Parameters<typeof useDesmosProfile>[0]) => {
-    if (options.addresses?.[0] === '@happieSa') {
-      return {
-        data: [
-          {
-            bio: 'hungry all the time',
-            dtag: 'HappieSa',
-            nickname: 'theHappySamoyed',
-            chainLinks: [],
-            applicationLinks: [],
-            creationTime: '2021-10-06T00:10:45.761731',
-            coverPic:
-              'https://ipfs.desmos.network/ipfs/Qmf48cpgi2zNiH24Vo1xtVsePUJx9665gtiRduVCvV5fFg',
-            profilePic:
-              'https://ipfs.desmos.network/ipfs/QmTvkdGrtBHHihjVajqqA2HAoHangeKR1oYbQWzasnPi7B',
-            connections: [{ identifier: `${prefix.account}test` }],
-          },
-        ],
-        loading: false,
-      };
-    }
-    if (options.addresses?.[0] === '@forbole') {
-      return {
-        data: [
-          {
-            bio: 'Forbole [ˈfɔːbəl] is a well-established blockchain validator and developer since 2017.',
-            dtag: 'forbole',
-            nickname: 'Forbole',
-            chainLinks: [],
-            applicationLinks: [],
-            creationTime: '2021-10-06T00:10:45.761731',
-            coverPic:
-              'https://ipfs.desmos.network/ipfs/Qmf48cpgi2zNiH24Vo1xtVsePUJx9665gtiRduVCvV5fFg',
-            profilePic:
-              'https://ipfs.desmos.network/ipfs/QmTvkdGrtBHHihjVajqqA2HAoHangeKR1oYbQWzasnPi7B',
-            connections: [{ identifier: `${prefix.account}test` }],
-          },
-        ],
-        loading: false,
-      };
-    }
-
-    return { data: [], loading: false };
+    const address = options.addresses?.[0];
+    return useMemo(() => {
+      if (address === '@happieSa') {
+        return {
+          loading: false,
+          data: [
+            {
+              dtag: 'HappieSa',
+              nickname: 'theHappySamoyed',
+              imageUrl:
+                'https://ipfs.desmos.network/ipfs/QmTvkdGrtBHHihjVajqqA2HAoHangeKR1oYbQWzasnPi7B',
+              coverUrl:
+                'https://ipfs.desmos.network/ipfs/Qmf48cpgi2zNiH24Vo1xtVsePUJx9665gtiRduVCvV5fFg',
+              bio: 'hungry all the time',
+              connections: [
+                {
+                  identifier: `${prefix.account}test`,
+                  network: 'desmos',
+                  creationTime: '2021-10-06T00:10:45.761731',
+                },
+              ],
+            },
+          ],
+        };
+      }
+      if (address === '@forbole') {
+        return {
+          loading: false,
+          data: [
+            {
+              dtag: 'forbole',
+              nickname: 'Forbole',
+              imageUrl:
+                'https://ipfs.desmos.network/ipfs/QmTvkdGrtBHHihjVajqqA2HAoHangeKR1oYbQWzasnPi7B',
+              bio: 'Forbole [ˈfɔːbəl] is a well-established blockchain validator and developer since 2017.',
+              coverUrl:
+                'https://ipfs.desmos.network/ipfs/Qmf48cpgi2zNiH24Vo1xtVsePUJx9665gtiRduVCvV5fFg',
+              connections: [
+                {
+                  identifier: `${prefix.account}test`,
+                  network: 'desmos',
+                  creationTime: '2021-10-06T00:10:45.761731',
+                },
+              ],
+            },
+          ],
+        };
+      }
+      return { loading: false };
+    }, [address]);
   },
 }));
 

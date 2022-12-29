@@ -3,7 +3,6 @@ import Layout from '@/components/layout';
 import LoadAndExist from '@/components/load_and_exist';
 import NoData from '@/components/no_data';
 import { useScreenSize } from '@/hooks';
-import { useProfilesRecoil } from '@/recoil/profiles';
 import { useBlocks } from '@/screens/blocks/hooks';
 import { useStyles } from '@/screens/blocks/styles';
 import { NextSeo } from 'next-seo';
@@ -20,12 +19,6 @@ const Blocks = () => {
   const classes = useStyles();
   const { state, loadMoreItems, itemCount, isItemLoaded } = useBlocks();
 
-  const proposerProfiles = useProfilesRecoil(state.items.map((x) => x.proposer));
-  const mergedDataWithProfiles = state.items.map((x, i) => ({
-    ...x,
-    proposer: proposerProfiles[i],
-  }));
-
   let box: ReactNode;
 
   if (!state.items.length) {
@@ -33,7 +26,7 @@ const Blocks = () => {
   } else if (isDesktop) {
     box = (
       <Desktop
-        items={mergedDataWithProfiles}
+        items={state.items}
         itemCount={itemCount}
         loadMoreItems={loadMoreItems}
         isItemLoaded={isItemLoaded}
@@ -42,7 +35,7 @@ const Blocks = () => {
   } else {
     box = (
       <Mobile
-        items={mergedDataWithProfiles}
+        items={state.items}
         itemCount={itemCount}
         loadMoreItems={loadMoreItems}
         isItemLoaded={isItemLoaded}

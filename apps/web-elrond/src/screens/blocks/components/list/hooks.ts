@@ -7,6 +7,15 @@ import { useCallback, useEffect, useState } from 'react';
 
 export const PAGE_SIZE = 25;
 
+type BlocksResult = Array<{
+  round: BlockState['items'][number]['block'];
+  timestamp: BlockState['items'][number]['timestamp'];
+  hash: BlockState['items'][number]['hash'];
+  txCount: BlockState['items'][number]['txs'];
+  shard: BlockState['items'][number]['shard'];
+  sizeTxs: BlockState['items'][number]['size'];
+}>;
+
 export const useBlocks = () => {
   const [state, setState] = useState<BlockState>({
     page: 0,
@@ -41,16 +50,7 @@ export const useBlocks = () => {
   const getBlocksByPage = useCallback(
     async (page: number) => {
       try {
-        const { data: blocksData } = await axios.get<
-          Array<{
-            round: BlockState['items'][number]['block'];
-            timestamp: BlockState['items'][number]['timestamp'];
-            hash: BlockState['items'][number]['hash'];
-            txCount: BlockState['items'][number]['txs'];
-            shard: BlockState['items'][number]['shard'];
-            sizeTxs: BlockState['items'][number]['size'];
-          }>
-        >(BLOCKS, {
+        const { data: blocksData } = await axios.get<BlocksResult>(BLOCKS, {
           params: {
             from: page * PAGE_SIZE,
             size: PAGE_SIZE,

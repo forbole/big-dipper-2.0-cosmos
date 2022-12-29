@@ -1,7 +1,7 @@
 import type { VoteType } from '@/screens/proposal_details/components/votes/types';
 
 export const getVoteKey = (vote: string) => {
-  const votes: { [key: string]: string } = {
+  const votes = {
     VOTE_OPTION_YES: 'yes',
     VOTE_OPTION_NO: 'no',
     VOTE_OPTION_NO_WITH_VETO: 'veto',
@@ -9,7 +9,7 @@ export const getVoteKey = (vote: string) => {
     NOT_VOTED: 'notVoted',
   };
 
-  return votes[vote] || vote;
+  return votes[vote as keyof typeof votes] || vote;
 };
 
 export const filterDataByTab = (props: { data: VoteType[]; notVoted: VoteType[]; tab: number }) => {

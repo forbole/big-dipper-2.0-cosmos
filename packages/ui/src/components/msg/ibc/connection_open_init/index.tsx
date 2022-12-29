@@ -1,11 +1,11 @@
 import Name from '@/components/name';
 import { type MsgConnectionOpenInit } from '@/models';
-import { useProfileRecoil } from '@/recoil/profiles';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const ConnectionOpenInit: React.FC<{ message: MsgConnectionOpenInit }> = (props) => {
+const ConnectionOpenInit: FC<{ message: MsgConnectionOpenInit }> = (props) => {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);

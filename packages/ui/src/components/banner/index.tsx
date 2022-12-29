@@ -38,7 +38,7 @@ const bannersLinks = getBannersLinks();
  * Props is an object with a property called index that is a number.
  * @property {number} index - The index of the item in the list.
  */
-type Props = {
+type BannerProps = {
   index?: number;
 };
 
@@ -47,7 +47,7 @@ type Props = {
  * array of banners
  * @returns A Box component with a link to the banner url and an image of the banner.
  */
-const Banner: FC<Props> = ({ index = Math.floor(Math.random() * bannersLinks.length) }) => {
+const Banner: FC<BannerProps> = ({ index = Math.floor(Math.random() * bannersLinks.length) }) => {
   const bannerIndex = useRef(Math.abs(index) % bannersLinks.length);
   const banner = bannersLinks[bannerIndex.current];
   const classes = useStyles();

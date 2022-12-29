@@ -9,7 +9,7 @@ const SocialMedia = (props: Props) => {
     <div className={`${className} ${classes.root} social-media`}>
       {socialMediaLinks.map((x) => (
         <a
-          key={x.className}
+          key={x.url}
           href={x.url}
           target="_blank"
           rel="noreferrer"

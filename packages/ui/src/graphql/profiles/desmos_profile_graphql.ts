@@ -1,6 +1,6 @@
 export const DesmosProfileDocument = /* GraphQL */ `
   query DesmosProfile($addresses: [String!]) {
-    profile(where: { address: { _in: $addresses } }, limit: 1) {
+    profile(where: { address: { _in: $addresses } }, limit: 20) {
       address
       bio
       dtag
@@ -58,7 +58,7 @@ export const DesmosProfileLinkDocument = /* GraphQL */ `
 // use this query if using dtag
 export const DesmosProfileDtagDocument = /* GraphQL */ `
   query DesmosProfileDtag($dtag: String) {
-    profile(where: { dtag: { _ilike: $dtag } }, limit: 1) {
+    profile(where: { dtag: { _ilike: $dtag } }, limit: 20) {
       address
       bio
       dtag

@@ -1,66 +1,106 @@
+/* eslint-disable no-nested-ternary */
+import chainConfig from '@/chainConfig';
 import {
+  DesmosProfileDocument,
+  DesmosProfileDtagDocument,
+  DesmosProfileLinkDocument,
   DesmosProfileQuery,
-  useDesmosProfileDtagQuery,
-  useDesmosProfileLinkQuery,
-  useDesmosProfileQuery,
 } from '@/graphql/types/profile_types';
+import { readDelegatorAddresses, writeProfile } from '@/recoil/profiles/selectors';
 import { isValidAddress } from '@/utils/prefix_convert';
+import { useApolloClient } from '@apollo/client';
 import * as R from 'ramda';
-import { useMemo } from 'react';
+import { useEffect, useState } from 'react';
+import { useRecoilCallback, useRecoilValue } from 'recoil';
+import useShallowMemo from '../useShallowMemo';
 import type { Options } from './types';
+
+const { prefix } = chainConfig();
+const userRegex = new RegExp(`^(${prefix.account})`);
 
 /**
  * It takes an array of addresses and returns a formatted profile object
  * @param {Options} options - Options
  * @returns The return value is an object with the following properties:
  */
+
+const LIMIT = 20;
+
 export const useDesmosProfile = (options: Options) => {
-  const addresses = options.addresses ?? [];
+  const { addresses, skip } = options;
+  const addressesMemo = useShallowMemo(addresses);
+  const delegatorAddresses = useRecoilValue(readDelegatorAddresses(addressesMemo));
+  const delegatorAddressesMemo = useShallowMemo(delegatorAddresses);
+  const setAvatarName = useRecoilCallback(
+    ({ set }) =>
+      (address: string, avatarName: AvatarName | null) =>
+        set(writeProfile(address), (prevState) =>
+          R.equals(prevState, avatarName) ? prevState : avatarName
+        ),
+    []
+  );
+  const client = useApolloClient();
+  const [data, setData] = useState<DesmosProfile[]>([]);
+  const [loading, setLoading] = useState(!skip);
+  const [error, setError] = useState<unknown>();
 
-  const isAddress = addresses[0]?.startsWith('desmos') && isValidAddress(addresses[0]);
-  let { data, loading, error } = useDesmosProfileQuery({
-    variables: {
-      addresses,
-    },
-    skip: options.skip || !isAddress,
-  });
+  useEffect(() => {
+    if (skip || !addressesMemo?.[0]) {
+      setLoading(false);
+      return;
+    }
+    (async () => {
+      try {
+        const isAddress =
+          addressesMemo[0]?.startsWith('desmos') && isValidAddress(addressesMemo[0]);
+        const isDTag = !isAddress && addressesMemo[0]?.startsWith('@');
+        const query =
+          (isAddress && DesmosProfileDocument) ||
+          (isDTag && DesmosProfileDtagDocument) ||
+          DesmosProfileLinkDocument;
+        const batches = R.splitEvery(LIMIT, delegatorAddressesMemo);
+        const promises = batches.reduce(
+          (promise, batch) =>
+            promise.then((prevAll) =>
+              client
+                .query<DesmosProfileQuery>({
+                  query,
+                  variables: {
+                    addresses: batch,
+                  },
+                })
+                .then((cur) => {
+                  const profiles = formatDesmosProfile(cur.data);
+                  profiles.forEach((profile) => {
+                    profile.connections.forEach((connection) => {
+                      const { identifier } = connection;
+                      if (userRegex.test(identifier)) {
+                        setAvatarName(identifier, {
+                          name: profile.nickname,
+                          address: identifier,
+                          imageUrl: profile.imageUrl,
+                        });
+                      }
+                    });
+                  });
+                  return [...prevAll, ...profiles];
+                })
+            ),
+          Promise.resolve<DesmosProfile[]>([])
+        );
 
-  const isDTag = !isAddress && addresses[0]?.startsWith('@');
-  const {
-    data: dataDTag,
-    error: errorDTag,
-    loading: loadingDTag,
-  } = useDesmosProfileDtagQuery({
-    variables: {
-      dtag: addresses[0]?.substring(1),
-    },
-    skip: options.skip || !isDTag,
-  });
+        const newState = (await promises) ?? [];
+        setData((prevState) => (R.equals(prevState, newState) ? prevState : newState));
+      } catch (e) {
+        console.error(e);
+        setError(e);
+      }
 
-  const isLink = !isAddress && !isDTag && !!addresses.length;
-  const {
-    data: dataLink,
-    error: errorLink,
-    loading: loadingLink,
-  } = useDesmosProfileLinkQuery({
-    variables: {
-      addresses,
-    },
-    skip: options.skip || !isLink,
-  });
+      setLoading(false);
+    })();
+  }, [client, addressesMemo, skip, setAvatarName, delegatorAddressesMemo]);
 
-  if (isDTag) {
-    data = dataDTag;
-    loading = loadingDTag;
-    error = errorDTag;
-  } else if (isLink) {
-    data = dataLink;
-    loading = loadingLink;
-    error = errorLink;
-  }
-
-  const formatted = useMemo(() => formatDesmosProfile(data), [data]);
-  return { data: formatted, loading, error };
+  return { data, loading, error };
 };
 
 /**

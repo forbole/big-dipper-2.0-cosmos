@@ -6,7 +6,7 @@ exports[`screen: ProfileDetails matches snapshot 1`] = `
   navTitle="profileDetails"
 >
   <div
-    exists={true}
+    exists={false}
     id="LoadAndExist"
     loading={false}
   >
@@ -16,15 +16,19 @@ exports[`screen: ProfileDetails matches snapshot 1`] = `
       <div
         bio="hungry all the time"
         connections={[]}
+        coverUrl="https://ipfs.desmos.network/ipfs/Qmf48cpgi2zNiH24Vo1xtVsePUJx9665gtiRduVCvV5fFg"
         dtag="HappieSa"
         id="DesmosProfile"
+        imageUrl="https://ipfs.desmos.network/ipfs/QmTvkdGrtBHHihjVajqqA2HAoHangeKR1oYbQWzasnPi7B"
         nickname="theHappySamoyed"
       />
       <div
         data={
           [
             {
+              "creationTime": "2021-10-06T00:10:45.761731",
               "identifier": "desmostest",
+              "network": "desmos",
             },
           ]
         }

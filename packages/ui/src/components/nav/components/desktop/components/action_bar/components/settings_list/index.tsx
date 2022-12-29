@@ -14,14 +14,12 @@ import CloseIcon from '@material-ui/icons/Close';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import { useRouter } from 'next/router';
-import React from 'react';
+import React, { FC } from 'react';
 import SettingIcon from 'shared-utils/assets/icon-setting.svg';
 
 const release = `${process.env.NEXT_PUBLIC_RELEASE ?? ''}`;
 
-const Settings: React.FC<{
-  className?: string;
-}> = (props) => {
+const Settings: FC<ComponentDefault> = (props) => {
   const classes = useStyles();
   const router = useRouter();
   const { t, lang } = useTranslation('common');

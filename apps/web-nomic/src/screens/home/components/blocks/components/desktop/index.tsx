@@ -14,16 +14,19 @@ import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
-import React, { ReactNode } from 'react';
+import React, { FC } from 'react';
 
-const Desktop: React.FC<{
+type DesktopProps = {
   className?: string;
   items: BlockType[];
-}> = ({ className, items }) => {
+};
+
+const Desktop: FC<DesktopProps> = ({ className, items }) => {
   const { t } = useTranslation('blocks');
   const classes = useStyles();
 
-  const formattedData = items.map((x): { [key: string]: ReactNode } => ({
+  const formattedData = items.map((x) => ({
+    key: `${x.height}-${x.timestamp}`,
     height: (
       <Link href={BLOCK_DETAILS(x.height)} passHref>
         <Typography variant="body1" className="value" component="a">
@@ -52,14 +55,13 @@ const Desktop: React.FC<{
           </TableRow>
         </TableHead>
         <TableBody>
-          {formattedData.map((row, i) => (
-            <TableRow key={`${items[i].height}`}>
-              {columns.map((column, index) => {
+          {formattedData.map((row) => (
+            <TableRow key={row.key}>
+              {columns.map((column) => {
                 const { key, align } = column;
-                const item = row[key];
+                const item = row[key as keyof typeof row];
                 return (
-                  // eslint-disable-next-line react/no-array-index-key
-                  <TableCell align={align} key={`${key}-${index}`}>
+                  <TableCell key={`${row.key}-${key}`} align={align}>
                     {item}
                   </TableCell>
                 );

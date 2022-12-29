@@ -1,11 +1,11 @@
 import Name from '@/components/name';
 import MsgCreateGroupRequest from '@/models/msg/group/msg_create_group_request';
-import { useProfileRecoil } from '@/recoil/profiles';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const CreateGroupRequest: React.FC<{ message: MsgCreateGroupRequest }> = (props) => {
+const CreateGroupRequest: FC<{ message: MsgCreateGroupRequest }> = (props) => {
   const { message } = props;
 
   const admin = useProfileRecoil(message.admin);

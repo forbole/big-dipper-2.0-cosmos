@@ -1,4 +1,5 @@
 import AvatarName from '@/components/avatar_name';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { columns } from '@/screens/account_details/components/staking/components/delegations/components/desktop/utils';
 import type { ItemType } from '@/screens/account_details/components/staking/components/delegations/types';
 import { formatNumber } from '@/utils/format_token';
@@ -9,29 +10,41 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import React from 'react';
+import { FC } from 'react';
 
-const Desktop: React.FC<{
+type DelegationsRowProps = {
+  item: ItemType;
+  i: number;
+};
+
+const DelegationsRow: FC<DelegationsRowProps> = ({ item, i }) => {
+  const { name, address, imageUrl } = useProfileRecoil(item.validator);
+  const amount = item.amount ? formatNumber(item.amount.value, item.amount.exponent) : '';
+  const reward = item.reward ? formatNumber(item.reward.value, item.reward.exponent) : '';
+  const formattedItem = {
+    identifier: i,
+    validator: <AvatarName name={name} address={address} imageUrl={imageUrl} />,
+    amount: `${amount} ${item.amount?.displayDenom.toUpperCase()}`,
+    reward: `${reward} ${item.reward?.displayDenom.toUpperCase()}`,
+  };
+  return (
+    <TableRow>
+      {columns.map((column) => (
+        <TableCell key={column.key} align={column.align} style={{ width: `${column.width}%` }}>
+          {formattedItem[column.key as keyof typeof formattedItem]}
+        </TableCell>
+      ))}
+    </TableRow>
+  );
+};
+
+type DesktopProps = {
   className?: string;
   items?: ItemType[];
-}> = ({ className, items }) => {
+};
+
+const Desktop: FC<DesktopProps> = ({ className, items }) => {
   const { t } = useTranslation('accounts');
-  const formattedItems = items?.map((x, i) => {
-    const amount = x.amount ? formatNumber(x.amount.value, x.amount.exponent) : '';
-    const reward = x.reward ? formatNumber(x.reward.value, x.reward.exponent) : '';
-    return {
-      identifier: i,
-      validator: (
-        <AvatarName
-          name={x.validator.name}
-          address={x.validator.address}
-          imageUrl={x.validator.imageUrl}
-        />
-      ),
-      amount: `${amount} ${x.amount?.displayDenom.toUpperCase()}`,
-      reward: `${reward} ${x.reward?.displayDenom.toUpperCase()}`,
-    };
-  });
 
   return (
     <div className={classnames(className)}>
@@ -50,18 +63,9 @@ const Desktop: React.FC<{
           </TableRow>
         </TableHead>
         <TableBody>
-          {formattedItems?.map((row: { [key: string]: unknown }) => (
-            <TableRow key={`holders-row-${row.identifier}`}>
-              {columns.map((column) => (
-                <TableCell
-                  key={`holders-row-${row.identifier}-${column.key}`}
-                  align={column.align}
-                  style={{ width: `${column.width}%` }}
-                >
-                  {row[column.key]}
-                </TableCell>
-              ))}
-            </TableRow>
+          {items?.map((x, i) => (
+            // eslint-disable-next-line react/no-array-index-key
+            <DelegationsRow key={`${x.validator}-${i}`} i={i} item={x} />
           ))}
         </TableBody>
       </Table>

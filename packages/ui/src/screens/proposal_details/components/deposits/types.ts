@@ -8,4 +8,4 @@ export interface DepositState {
   data: DepositType[];
 }
 
-export type ItemType = Override<DepositType, { user: AvatarName }>;
+export type ItemType = DepositType;

@@ -1,4 +1,5 @@
 import AvatarName from '@/components/avatar_name';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { useStyles } from '@/screens/account_details/components/staking/components/delegations/components/mobile/styles';
 import type { ItemType } from '@/screens/account_details/components/staking/components/delegations/types';
 import { formatNumber } from '@/utils/format_token';
@@ -6,57 +7,64 @@ import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import React from 'react';
+import { FC } from 'react';
 
-const Mobile: React.FC<{
-  className?: string;
-  items?: ItemType[];
-}> = ({ className, items }) => {
+type DelegationsItemProps = {
+  item: ItemType;
+  isLast: boolean;
+};
+
+const DelegationsItem: FC<DelegationsItemProps> = ({ item, isLast }) => {
+  const { name, address, imageUrl } = useProfileRecoil(item.validator);
   const classes = useStyles();
   const { t } = useTranslation('accounts');
-
   return (
-    <div className={classnames(className)}>
-      {items?.map((x, i) => (
-        // eslint-disable-next-line react/no-array-index-key
-        <React.Fragment key={`votes-mobile-${i}`}>
-          <div className={classes.list}>
-            <div className={classes.item}>
-              <Typography variant="h4" className="label">
-                {t('validator')}
-              </Typography>
-              <AvatarName
-                name={x.validator.name}
-                address={x.validator.address}
-                imageUrl={x.validator.imageUrl}
-              />
-            </div>
-            <div className={classes.flex}>
-              <div className={classes.item}>
-                <Typography variant="h4" className="label">
-                  {t('amount')}
-                </Typography>
-                <Typography variant="body1" className="value">
-                  {x.amount ? formatNumber(x.amount.value, x.amount.exponent) : ''}{' '}
-                  {x.amount?.displayDenom.toUpperCase()}
-                </Typography>
-              </div>
-              <div className={classes.item}>
-                <Typography variant="h4" className="label">
-                  {t('reward')}
-                </Typography>
-                <Typography variant="body1" className="value">
-                  {x.reward ? formatNumber(x.reward.value, x.reward.exponent) : ''}{' '}
-                  {x.reward?.displayDenom.toUpperCase()}
-                </Typography>
-              </div>
-            </div>
+    <>
+      <div className={classes.list}>
+        <div className={classes.item}>
+          <Typography variant="h4" className="label">
+            {t('validator')}
+          </Typography>
+          <AvatarName name={name} address={address} imageUrl={imageUrl} />
+        </div>
+        <div className={classes.flex}>
+          <div className={classes.item}>
+            <Typography variant="h4" className="label">
+              {t('amount')}
+            </Typography>
+            <Typography variant="body1" className="value">
+              {item.amount ? formatNumber(item.amount.value, item.amount.exponent) : ''}{' '}
+              {item.amount?.displayDenom.toUpperCase()}
+            </Typography>
           </div>
-          {!!items && i !== items.length - 1 && <Divider />}
-        </React.Fragment>
-      ))}
-    </div>
+          <div className={classes.item}>
+            <Typography variant="h4" className="label">
+              {t('reward')}
+            </Typography>
+            <Typography variant="body1" className="value">
+              {item.reward ? formatNumber(item.reward.value, item.reward.exponent) : ''}{' '}
+              {item.reward?.displayDenom.toUpperCase()}
+            </Typography>
+          </div>
+        </div>
+      </div>
+      {!isLast && <Divider />}
+    </>
   );
 };
+
+type MobileProps = {
+  className?: string;
+  items?: ItemType[];
+};
+
+const Mobile: FC<MobileProps> = ({ className, items }) => (
+  <div className={classnames(className)}>
+    {items?.map((x, i) => (
+      // eslint-disable-next-line react/no-array-index-key
+      <DelegationsItem key={`${x.validator}-${i}`} item={x} isLast={i === items.length - 1} />
+    ))}
+  </div>
+);
 
 export default Mobile;

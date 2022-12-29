@@ -1,10 +1,11 @@
+import { Loading } from '@/components';
 import Box from '@/components/box';
 import OnlineVotingPower from '@/screens/home/components/hero/components/online_voting_power';
 import TokenPrice from '@/screens/home/components/hero/components/token_price';
 import { useHero } from '@/screens/home/components/hero/hooks';
-import React from 'react';
+import { FC } from 'react';
 
-const Hero: React.FC<ComponentDefault> = (props) => {
+const Hero: FC<ComponentDefault> = (props) => {
   const { state } = useHero();
   let component = null;
   if (!state.loading) {
@@ -13,6 +14,8 @@ const Hero: React.FC<ComponentDefault> = (props) => {
     } else {
       component = <OnlineVotingPower />;
     }
+  } else {
+    component = <Loading />;
   }
 
   return <Box className={props.className}>{component}</Box>;

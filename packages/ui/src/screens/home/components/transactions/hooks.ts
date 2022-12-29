@@ -7,6 +7,25 @@ import { convertMsgType } from '@/utils/convert_msg_type';
 import * as R from 'ramda';
 import { useState } from 'react';
 
+const formatTransactions = (data: TransactionsListenerSubscription) =>
+  data.transactions?.map((x) => {
+    const msgType =
+      x.messages?.map((eachMsg: object) => {
+        const eachMsgType = R.pathOr('none type', ['@type'], eachMsg);
+        return eachMsgType ?? '';
+      }) ?? [];
+    const convertedMsgType = convertMsgType(msgType);
+
+    return {
+      height: x.height,
+      hash: x.hash,
+      type: convertedMsgType,
+      success: x.success,
+      timestamp: x.block.timestamp,
+      messages: x.messages.length,
+    };
+  }) ?? [];
+
 export const useTransactions = () => {
   const [state, setState] = useState<TransactionsState>({
     loading: true,
@@ -27,25 +46,6 @@ export const useTransactions = () => {
       });
     },
   });
-
-  const formatTransactions = (data: TransactionsListenerSubscription) =>
-    data.transactions?.map((x) => {
-      const msgType =
-        x.messages?.map((eachMsg: object) => {
-          const eachMsgType = R.pathOr('none type', ['@type'], eachMsg);
-          return eachMsgType ?? '';
-        }) ?? [];
-      const convertedMsgType = convertMsgType(msgType);
-
-      return {
-        height: x.height,
-        hash: x.hash,
-        type: convertedMsgType,
-        success: x.success,
-        timestamp: x.block.timestamp,
-        messages: x.messages.length,
-      };
-    }) ?? [];
 
   return {
     state,

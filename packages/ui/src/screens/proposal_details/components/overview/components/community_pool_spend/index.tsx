@@ -1,13 +1,19 @@
-import React from 'react';
-import useTranslation from 'next-translate/useTranslation';
-import { Typography } from '@material-ui/core';
 import Name from '@/components/name';
+import { Typography } from '@material-ui/core';
+import useTranslation from 'next-translate/useTranslation';
+import { FC } from 'react';
 
-const CommunityPoolSpend: React.FC<{
+type communityPoolSpendProps = {
   recipient: string;
   recipientMoniker: string;
   amountRequested: string;
-}> = ({ recipient, recipientMoniker, amountRequested }) => {
+};
+
+const CommunityPoolSpend: FC<communityPoolSpendProps> = ({
+  recipient,
+  recipientMoniker,
+  amountRequested,
+}) => {
   const { t } = useTranslation('proposals');
   return (
     <div className="content">

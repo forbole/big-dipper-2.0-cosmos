@@ -1,9 +1,9 @@
-import { useCallback, useEffect, useState } from 'react';
-import axios from 'axios';
-import * as R from 'ramda';
-import { useRouter } from 'next/router';
 import { BLOCK_DETAILS } from '@/api';
 import type { BlockDetailsState } from '@/screens/block_details/types';
+import axios from 'axios';
+import { useRouter } from 'next/router';
+import * as R from 'ramda';
+import { useEffect, useState } from 'react';
 
 export const useBlockDetails = () => {
   const router = useRouter();
@@ -27,17 +27,14 @@ export const useBlockDetails = () => {
     consensus: [],
   });
 
-  const handleSetState = useCallback(
-    (stateChange: (prevState: BlockDetailsState) => BlockDetailsState) => {
+  useEffect(() => {
+    const handleSetState = (stateChange: (prevState: BlockDetailsState) => BlockDetailsState) => {
       setState((prevState) => {
         const newState = stateChange(prevState);
         return R.equals(prevState, newState) ? prevState : newState;
       });
-    },
-    []
-  );
+    };
 
-  useEffect(() => {
     const getBlockDetails = async () => {
       try {
         const { data: blockData } = await axios.get<{
@@ -88,7 +85,7 @@ export const useBlockDetails = () => {
     };
 
     getBlockDetails();
-  }, [handleSetState, router.query.hash]);
+  }, [router.query.hash]);
 
   return {
     state,

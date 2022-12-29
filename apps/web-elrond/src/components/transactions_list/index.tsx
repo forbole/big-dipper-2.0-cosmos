@@ -6,7 +6,7 @@ import { FC } from 'react';
 const Desktop = dynamic(() => import('@/components/transactions_list/components/desktop'));
 const Mobile = dynamic(() => import('@/components/transactions_list/components/mobile'));
 
-const TransactionsList: FC<{ items: TransactionType[] } & ComponentDefault> = (props) => {
+const TransactionsList: FC<{ items: TransactionType[] }> = (props) => {
   const { isDesktop } = useScreenSize();
 
   if (!props.items.length) {
