@@ -26,7 +26,7 @@ const Desktop: FC<DesktopProps> = ({ className, items }) => {
   const { t } = useTranslation('transactions');
 
   const formattedData = items.map((x) => ({
-    key: `${x.height}-${x.timestamp}`,
+    key: `${x.hash}-${x.timestamp}`,
     block: (
       <Link href={BLOCK_DETAILS(x.height)} passHref>
         <Typography variant="body1" component="a">

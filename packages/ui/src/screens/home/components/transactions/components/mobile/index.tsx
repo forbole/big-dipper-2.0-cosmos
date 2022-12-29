@@ -20,7 +20,7 @@ type MobileProps = {
 
 const Mobile: FC<MobileProps> = ({ className, items }) => {
   const formattedData = items.map((x) => ({
-    key: x.height,
+    key: `${x.hash}-${x.timestamp}`,
     block: (
       <Link href={BLOCK_DETAILS(x.height)} passHref>
         <Typography variant="body1" component="a">
