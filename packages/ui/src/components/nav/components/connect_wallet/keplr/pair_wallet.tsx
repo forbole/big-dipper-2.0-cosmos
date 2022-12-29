@@ -10,37 +10,35 @@ import Typography from '@material-ui/core/Typography';
 import CloseIcon from '@material-ui/icons/Close';
 import useTranslation from 'next-translate/useTranslation';
 import React from 'react';
-import Trans from 'next-translate/Trans';
 
-const InstallWalletDialog: React.FC<{
+const PairKeplrWalletDialog: React.FC<{
   walletName: string;
-  walletUrl: string;
 }> = (props) => {
   const classes = useStyles();
   const { t } = useTranslation('common');
-  const { handleConnectWallet, handleCloseInstallExtensionDialog, openInstallExtensionDialog } =
+  const { handleConnectWallet, handleCloseKeplrPairingDialog, openKeplrPairingDialog } =
     useConnectWalletList();
 
   return (
     <div>
       <Dialog
         maxWidth="md"
-        onClose={handleCloseInstallExtensionDialog}
-        open={openInstallExtensionDialog}
+        onClose={handleCloseKeplrPairingDialog}
+        open={openKeplrPairingDialog}
         className={classes.dialog}
       >
         <DialogTitle disableTypography>
           <div className={classes.warningMsg}>
             <div>
               <Typography variant="h2" align="center" className={classes.msgHeader}>
-                {t('pleaseInstallWallet', {
+                {t('pleaseOpenWallet', {
                   wallet: props.walletName,
                 })}
               </Typography>
             </div>
             <IconButton
               aria-label="close"
-              onClick={handleCloseInstallExtensionDialog}
+              onClick={handleCloseKeplrPairingDialog}
               className={classes.closeButton}
             >
               <CloseIcon />
@@ -48,26 +46,18 @@ const InstallWalletDialog: React.FC<{
           </div>
         </DialogTitle>
         <DialogContent>
-          <div className={classes.warningMsgDetails}>
+          <div className={classes.msgContent}>
             <Typography variant="h4" align="center">
-              <Trans
-                i18nKey="common:couldntFindWalletExtension"
-                components={[
-                  <a target="_blank" rel="noreferrer" href={props.walletUrl}>
-                    {}
-                  </a>,
-                ]}
-                values={{
-                  wallet: props.walletName,
-                }}
-              />
+              {t('pleasePairWallet', {
+                wallet: props.walletName,
+              })}
             </Typography>
           </div>
         </DialogContent>
         <DialogActions>
           <div className={classes.actions}>
             <Button onClick={handleConnectWallet} color="primary" className={classes.actionsButton}>
-              <Typography variant="h3">{t('retry')}</Typography>
+              <Typography variant="h3">{t('Continue')}</Typography>
             </Button>
           </div>
         </DialogActions>
@@ -76,4 +66,4 @@ const InstallWalletDialog: React.FC<{
   );
 };
 
-export default InstallWalletDialog;
+export default PairKeplrWalletDialog;

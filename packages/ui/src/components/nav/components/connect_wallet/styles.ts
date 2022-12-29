@@ -186,7 +186,7 @@ const styles = makeStyles((theme) => ({
       fill: 'none',
     },
   },
-  warningMsgHeader: {
+  msgHeader: {
     fontWeight: 700,
     lineHeight: '160%',
     letterSpacing: '0.15px',
@@ -207,6 +207,12 @@ const styles = makeStyles((theme) => ({
     [theme.breakpoints.up('md')]: {
       padding: '0px 32px 0px 37px',
     },
+  },
+  msgContent: {
+    display: 'flex',
+    position: 'absolute',
+    top: '185px',
+    left: '172px',
   },
 }));
 
