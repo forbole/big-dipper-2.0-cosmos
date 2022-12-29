@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import classnames from 'classnames';
 import Typography from '@material-ui/core/Typography';
 import Box from '@/components/box';
@@ -7,7 +7,7 @@ import Markdown from '@/components/markdown';
 import type { ProfileType } from '@/screens/token_details/types';
 import { useStyles } from '@/screens/token_details/components/profile/styles';
 
-const Profile: React.FC<{ profile: ProfileType } & ComponentDefault> = ({ className, profile }) => {
+const Profile: FC<{ className?: string; profile: ProfileType }> = ({ className, profile }) => {
   const classes = useStyles();
 
   return (

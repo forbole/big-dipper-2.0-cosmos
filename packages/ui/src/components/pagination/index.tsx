@@ -4,20 +4,22 @@ import TablePagination from '@material-ui/core/TablePagination';
 import { TablePaginationActionsProps } from '@material-ui/core/TablePagination/TablePaginationActions';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import React, { useCallback } from 'react';
+import React, { FC, MouseEvent, useCallback } from 'react';
 
-const Pagination: React.FC<{
+type PaginationProps = {
   className?: string;
-  total: number;
+  total: number | undefined;
   rowsPerPage: number;
   rowsPerPageOptions?: number[];
   page: number;
   handlePageChange: (
-    _event: React.MouseEvent<HTMLButtonElement, MouseEvent> | null,
+    _event: MouseEvent<HTMLButtonElement, globalThis.MouseEvent> | null,
     selectedRowsPerPage: number
   ) => void;
   handleRowsPerPageChange: (page: number) => void;
-}> = ({
+};
+
+const Pagination: FC<PaginationProps> = ({
   className,
   total,
   rowsPerPage,
@@ -53,7 +55,7 @@ const Pagination: React.FC<{
 
   // hides pagination if the total items is less than
   // the rows per page option (default 10)
-  if (total <= rowsPerPage) {
+  if (total !== undefined && total <= rowsPerPage) {
     return null;
   }
 
@@ -71,7 +73,7 @@ const Pagination: React.FC<{
       }
       colSpan={6}
       component="div"
-      count={total}
+      count={total ?? (page + 2) * rowsPerPage}
       rowsPerPage={rowsPerPage}
       page={page}
       onPageChange={handlePageChange}

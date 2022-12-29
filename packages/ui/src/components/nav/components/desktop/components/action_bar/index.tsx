@@ -1,19 +1,21 @@
+import ConnectWallet from '@/components/nav/components/connect_wallet';
 import Network from '@/components/nav/components/desktop/components/action_bar/components/network';
 import NetworkList from '@/components/nav/components/desktop/components/action_bar/components/network_list';
 import SettingsList from '@/components/nav/components/desktop/components/action_bar/components/settings_list';
-import ConnectWallet from '@/components/nav/components/connect_wallet';
 import { useStyles } from '@/components/nav/components/desktop/components/action_bar/styles';
 import SearchBar from '@/components/nav/components/search_bar';
+import WalletDetails from '@/components/nav/components/wallet_details';
 import { useGetComponentDimension } from '@/hooks';
 import classnames from 'classnames';
-import React from 'react';
-import WalletDetails from '@/components/nav/components/wallet_details';
+import { FC } from 'react';
 
-const ActionBar: React.FC<{
+type ActionBarProps = {
   isNetwork: boolean;
   className?: string;
   toggleNetwork: () => void;
-}> = ({ toggleNetwork, className, isNetwork }) => {
+};
+
+const ActionBar: FC<ActionBarProps> = ({ toggleNetwork, className, isNetwork }) => {
   const { ref: heightRef, height } = useGetComponentDimension();
   const classes = useStyles();
   return (

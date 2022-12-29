@@ -1,56 +1,157 @@
-import React, { ReactNode } from 'react';
-import classnames from 'classnames';
-import numeral from 'numeral';
-import useTranslation from 'next-translate/useTranslation';
-import AutoSizer from 'react-virtualized-auto-sizer';
-import { VariableSizeGrid as Grid } from 'react-window';
-import Typography from '@material-ui/core/Typography';
-import { useGrid } from '@/hooks';
-import { formatNumber } from '@/utils/format_token';
-import SortArrows from '@/components/sort_arrows';
 import AvatarName from '@/components/avatar_name';
-import { VALIDATOR_DETAILS, NODE_DETAILS } from '@/utils/go_to_page';
-import type { ValidatorType } from '@/screens/validators/components/list/types';
+import SortArrows from '@/components/sort_arrows';
+import { useGrid } from '@/hooks';
 import { useStyles } from '@/screens/validators/components/list/components/validators/components/desktop/styles';
 import { fetchColumns } from '@/screens/validators/components/list/components/validators/components/desktop/utils';
 import VotingPower from '@/screens/validators/components/list/components/validators/components/voting_power';
+import type { ValidatorType } from '@/screens/validators/components/list/types';
+import { formatNumber } from '@/utils/format_token';
+import { NODE_DETAILS, VALIDATOR_DETAILS } from '@/utils/go_to_page';
+import { PropTypes } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
+import numeral from 'numeral';
+import React, { CSSProperties, FC, LegacyRef, ReactNode } from 'react';
+import AutoSizer from 'react-virtualized-auto-sizer';
+import { VariableSizeGrid as Grid } from 'react-window';
 
-const Desktop: React.FC<{
+type GridColumnProps = {
+  column: ReturnType<typeof fetchColumns>[number];
+  sortDirection: 'desc' | 'asc';
+  sortKey: string;
+  handleSort: (key: string) => void;
+  style: CSSProperties;
+};
+
+const GridColumn: FC<GridColumnProps> = ({ column, sortKey, sortDirection, handleSort, style }) => {
+  const { t } = useTranslation('validators');
+  const classes = useStyles();
+
+  const { key, align, component, sort, sortKey: sortingKey } = column;
+  const formattedComponent = component;
+
+  return (
+    <div
+      style={style}
+      className={classnames(classes.cell, {
+        [classes.flexCells]: component || sort,
+        [align ?? '']: sort || component,
+        sort,
+      })}
+      onClick={() => (sort ? handleSort(sortingKey ?? '') : null)}
+      role="button"
+      tabIndex={0}
+      aria-label={t(key)}
+    >
+      {formattedComponent || (
+        <Typography variant="h4" align={align}>
+          {t(key)}
+          {!!sort && <SortArrows sort={sortKey === sortingKey ? sortDirection : undefined} />}
+        </Typography>
+      )}
+    </div>
+  );
+};
+
+type GridRowProps = {
+  column: string;
+  style: CSSProperties;
+  rowIndex: number;
+  align?: PropTypes.Alignment;
+  item: ValidatorType;
+  search: string;
+  i: number;
+};
+
+const GridRow: FC<GridRowProps> = ({ column, style, rowIndex, align, item, search, i }) => {
+  const classes = useStyles();
+  const { name, address, imageUrl } = item.validator;
+
+  if (search) {
+    const formattedSearch = search.toLowerCase().replace(/ /g, '');
+    if (
+      !name.toLowerCase().replace(/ /g, '').includes(formattedSearch) &&
+      !address.toLowerCase().includes(formattedSearch)
+    ) {
+      return null;
+    }
+  }
+
+  let formatItem: ReactNode = null;
+  switch (column) {
+    case 'idx':
+      formatItem = `#${i + 1}`;
+      break;
+    case 'validator':
+      formatItem = (
+        <AvatarName
+          address={address}
+          imageUrl={imageUrl}
+          name={name}
+          href={item.isNode ? NODE_DETAILS : VALIDATOR_DETAILS}
+        />
+      );
+      break;
+    case 'locked':
+      formatItem = (
+        <VotingPower
+          percentDisplay={`${item.stakePercent}%`}
+          percentage={item.stakePercent}
+          content={formatNumber(item.locked.value, 2)}
+        />
+      );
+      break;
+    case 'stake':
+      formatItem = `${formatNumber(
+        item.stake.value,
+        item.stake.exponent
+      )} ${item.stake.displayDenom.toUpperCase()}`;
+      break;
+    case 'nodes':
+      formatItem = item.nodes ? numeral(item.nodes).format('0,0') : '-';
+      break;
+    case 'delegators':
+      formatItem = item.delegators ? numeral(item.delegators).format('0,0') : '-';
+      break;
+    case 'commission':
+      formatItem = item.commission ? `${numeral(item.commission * 100).format('0,0.[00]')}%` : '-';
+      break;
+    case 'apr':
+      formatItem = item.apr ? `${item.apr}%` : '-';
+      break;
+    default:
+      break;
+  }
+
+  return (
+    <div
+      style={style}
+      className={classnames(classes.cell, classes.body, {
+        odd: !(rowIndex % 2),
+      })}
+    >
+      <Typography variant="body1" align={align} component="div">
+        {formatItem}
+      </Typography>
+    </div>
+  );
+};
+
+type DesktopProps = {
   className?: string;
   sortDirection: 'desc' | 'asc';
   sortKey: string;
   handleSort: (key: string) => void;
   items: ValidatorType[];
-}> = (props) => {
-  const { t } = useTranslation('validators');
+  search: string;
+};
+
+const Desktop: FC<DesktopProps> = (props) => {
   const classes = useStyles();
   const columns = fetchColumns();
 
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
-
-  const formattedItems = props.items.map((x, i): { [key: string]: ReactNode } => ({
-    idx: `#${i + 1}`,
-    validator: (
-      <AvatarName
-        address={x.validator.address}
-        imageUrl={x.validator.imageUrl}
-        name={x.validator.name}
-        href={x.isNode ? NODE_DETAILS : VALIDATOR_DETAILS}
-      />
-    ),
-    locked: (
-      <VotingPower
-        percentDisplay={`${x.stakePercent}%`}
-        percentage={x.stakePercent}
-        content={formatNumber(x.locked.value, 2)}
-      />
-    ),
-    stake: `${formatNumber(x.stake.value, x.stake.exponent)} ${x.stake.displayDenom.toUpperCase()}`,
-    nodes: x.nodes ? numeral(x.nodes).format('0,0') : '-',
-    delegators: x.delegators ? numeral(x.delegators).format('0,0') : '-',
-    commission: x.commission ? `${numeral(x.commission * 100).format('0,0.[00]')}%` : '-',
-    apr: x.apr ? `${x.apr}%` : '-',
-  }));
 
   return (
     <div className={classnames(props.className, classes.root)}>
@@ -61,7 +162,7 @@ const Desktop: React.FC<{
             {/* Table Header */}
             {/* ======================================= */}
             <Grid
-              ref={columnRef as React.LegacyRef<Grid>}
+              ref={columnRef as LegacyRef<Grid>}
               columnCount={columns.length}
               columnWidth={(index) => getColumnWidth(width, index)}
               height={50}
@@ -69,65 +170,44 @@ const Desktop: React.FC<{
               rowHeight={() => 50}
               width={width}
             >
-              {({ columnIndex, style }) => {
-                const { key, align, component, sort, sortKey: sortingKey } = columns[columnIndex];
-
-                const formattedComponent = component;
-
-                return (
-                  <div
-                    style={style}
-                    className={classnames(classes.cell, {
-                      [classes.flexCells]: component || sort,
-                      [align ?? '']: sort || component,
-                      sort,
-                    })}
-                    onClick={() => (sort ? props.handleSort(sortingKey ?? '') : null)}
-                    role="button"
-                    tabIndex={0}
-                    aria-label={t(key)}
-                  >
-                    {formattedComponent || (
-                      <Typography variant="h4" align={align}>
-                        {t(key)}
-                        {!!sort && (
-                          <SortArrows
-                            sort={props.sortKey === sortingKey ? props.sortDirection : undefined}
-                          />
-                        )}
-                      </Typography>
-                    )}
-                  </div>
-                );
-              }}
+              {({ columnIndex, style }) => (
+                <GridColumn
+                  column={columns[columnIndex]}
+                  sortKey={props.sortKey}
+                  sortDirection={props.sortDirection}
+                  handleSort={props.handleSort}
+                  style={style}
+                />
+              )}
             </Grid>
             {/* ======================================= */}
             {/* Table Body */}
             {/* ======================================= */}
             <Grid
-              ref={gridRef as React.LegacyRef<Grid>}
+              ref={gridRef as LegacyRef<Grid>}
               columnCount={columns.length}
               columnWidth={(index) => getColumnWidth(width, index)}
               height={height - 50}
-              rowCount={formattedItems.length}
+              rowCount={props.items.length}
               rowHeight={getRowHeight}
               width={width}
               className="scrollbar"
             >
               {({ columnIndex, rowIndex, style }) => {
                 const { key, align } = columns[columnIndex];
-                const item = formattedItems[rowIndex][key];
+                const item = props.items[rowIndex];
+                if (!item?.validator?.address) return null;
                 return (
-                  <div
+                  <GridRow
+                    key={item.validator.address}
+                    column={key}
                     style={style}
-                    className={classnames(classes.cell, classes.body, {
-                      odd: !(rowIndex % 2),
-                    })}
-                  >
-                    <Typography variant="body1" align={align} component="div">
-                      {item}
-                    </Typography>
-                  </div>
+                    rowIndex={rowIndex}
+                    align={align}
+                    item={item}
+                    search={props.search}
+                    i={rowIndex}
+                  />
                 );
               }}
             </Grid>

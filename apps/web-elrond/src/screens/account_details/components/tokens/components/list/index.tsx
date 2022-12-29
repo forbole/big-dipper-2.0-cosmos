@@ -1,8 +1,8 @@
-import React from 'react';
-import dynamic from 'next/dynamic';
 import NoData from '@/components/no_data';
 import { useScreenSize } from '@/hooks';
 import type { OtherTokenType } from '@/screens/account_details/components/tokens/types';
+import dynamic from 'next/dynamic';
+import { FC } from 'react';
 
 const Desktop = dynamic(
   () => import('@/screens/account_details/components/tokens/components/list/components/desktop')
@@ -11,7 +11,7 @@ const Mobile = dynamic(
   () => import('@/screens/account_details/components/tokens/components/list/components/mobile')
 );
 
-const List: React.FC<{ items: OtherTokenType[] } & ComponentDefault> = (props) => {
+const List: FC<{ items: OtherTokenType[] }> = (props) => {
   const { isDesktop } = useScreenSize();
 
   if (!props.items.length) {

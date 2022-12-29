@@ -1,5 +1,23 @@
 # ui
 
+## 2.6.1
+
+### Patch Changes
+
+- 2db4ee93: performance improvements and bug fixes
+
+## 2.6.0
+
+### Minor Changes
+
+- 7f4e53f6: feat: add loading indicator to home page ([\#1094](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1094))
+
+## 2.5.0
+
+### Minor Changes
+
+- df8a5bca: - batch network requests ([\#1092](https://github.com/forbole/big-dipper-2.0-cosmos/issues/1092))
+
 ## 2.4.0
 
 ### Minor Changes

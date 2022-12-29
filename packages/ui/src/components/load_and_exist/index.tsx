@@ -2,9 +2,9 @@ import LinearLoading from '@/components/linear_loading';
 import NotFound from '@/components/not_found';
 import { FC, PropsWithChildren } from 'react';
 
-type Props = { loading: boolean; exists: boolean };
+type LoadAndExistProps = { loading: boolean; exists: boolean };
 
-const LoadAndExist: FC<PropsWithChildren<Props>> = (props) => {
+const LoadAndExist: FC<PropsWithChildren<LoadAndExistProps>> = (props) => {
   const { loading, exists, children } = props;
 
   if (loading) {

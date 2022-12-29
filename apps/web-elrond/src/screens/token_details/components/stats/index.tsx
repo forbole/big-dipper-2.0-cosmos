@@ -1,26 +1,30 @@
-import React from 'react';
+import React, { FC } from 'react';
 import numeral from 'numeral';
 import useTranslation from 'next-translate/useTranslation';
 import BoxDetails from '@/components/box_details';
 import type { StatsType } from '@/screens/token_details/types';
 
-const Stats: React.FC<{ stats: StatsType } & ComponentDefault> = (props) => {
+const Stats: FC<{ className?: string; stats: StatsType }> = (props) => {
   const { t } = useTranslation('tokens');
 
   const details = [
     {
+      key: 'identifier',
       label: t('identifier'),
       detail: props.stats.identifier,
     },
     {
+      key: 'supply',
       label: t('supply'),
       detail: numeral(props.stats.supply).format('0,0'),
     },
     {
+      key: 'accounts',
       label: t('accounts'),
       detail: numeral(props.stats.accounts).format('0,0'),
     },
     {
+      key: 'transactions',
       label: t('transactions'),
       detail: numeral(props.stats.transactions).format('0,0'),
     },

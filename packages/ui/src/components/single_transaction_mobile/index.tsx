@@ -2,16 +2,25 @@ import { useStyles } from '@/components/single_transaction_mobile/styles';
 import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import React from 'react';
+import React, { FC, ReactNode } from 'react';
 
-const SingleTransactionMobile: React.FC<{
+type SingleTransactionMobileProps = {
   className?: string;
-  block: React.ReactNode;
-  hash: React.ReactNode;
+  block: ReactNode;
+  hash: ReactNode;
   time: string;
   messages: string;
-  result?: React.ReactNode;
-}> = ({ className, block, hash, time, messages, result }) => {
+  result?: ReactNode;
+};
+
+const SingleTransactionMobile: FC<SingleTransactionMobileProps> = ({
+  className,
+  block,
+  hash,
+  time,
+  messages,
+  result,
+}) => {
   const { t } = useTranslation('transactions');
   const classes = useStyles();
 

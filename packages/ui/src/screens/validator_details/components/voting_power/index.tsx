@@ -7,13 +7,15 @@ import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
-import React from 'react';
+import React, { FC } from 'react';
 
-const VotingPower: React.FC<{
+type VotingPowerProps = {
   className?: string;
   data: VotingPowerType;
   status?: number;
-}> = ({ className, data, status }) => {
+};
+
+const VotingPower: FC<VotingPowerProps> = ({ className, data, status }) => {
   const { t } = useTranslation('validators');
   const votingPowerPercent =
     status === 3

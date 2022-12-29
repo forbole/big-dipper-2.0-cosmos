@@ -1,12 +1,12 @@
 /* eslint-disable no-restricted-syntax */
 
-import React from 'react';
+import { MutableRefObject, RefCallback } from 'react';
 
 /**
  * helper function to merge multiple refs
  * @param refs
  */
-export const mergeRefs = <T>(...refs: Array<React.MutableRefObject<T> | React.RefCallback<T>>) => {
+export const mergeRefs = <T>(...refs: Array<MutableRefObject<T> | RefCallback<T>>) => {
   const filteredRefs = refs.filter(Boolean);
   if (!filteredRefs.length) return null;
   if (filteredRefs.length === 1) return filteredRefs[0];

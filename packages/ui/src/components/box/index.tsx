@@ -1,11 +1,13 @@
 import { useStyles } from '@/components/box/styles';
 import classnames from 'classnames';
-import React from 'react';
+import React, { FC, ReactNode } from 'react';
 
-const Box: React.FC<{
+type BoxProps = {
   className?: string;
-  children: React.ReactNode;
-}> = ({ className, children }) => {
+  children: ReactNode;
+};
+
+const Box: FC<BoxProps> = ({ className, children }) => {
   const classes = useStyles();
   return <div className={classnames(className, classes.root)}>{children}</div>;
 };

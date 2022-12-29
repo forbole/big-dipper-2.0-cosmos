@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC, isValidElement } from 'react';
 import numeral from 'numeral';
 import useTranslation from 'next-translate/useTranslation';
 import classnames from 'classnames';
@@ -8,7 +8,7 @@ import { getShardDisplay } from '@/utils/get_shard_display';
 import { useStyles } from '@/screens/node_details/components/overview/styles';
 import type { OverviewType } from '@/screens/node_details/types';
 
-const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = (props) => {
+const Overview: FC<{ className?: string; overview: OverviewType }> = (props) => {
   const { t } = useTranslation('nodes');
   const classes = useStyles();
   const shard = getShardDisplay(props.overview.shard);
@@ -57,7 +57,7 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = (props
                 <Typography variant="body1" className="item__key">
                   {x.key}
                 </Typography>
-                {React.isValidElement(x.value) ? (
+                {isValidElement(x.value) ? (
                   <div>{x.value}</div>
                 ) : (
                   <Typography variant="body1">{x.value}</Typography>

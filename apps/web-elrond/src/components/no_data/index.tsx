@@ -3,11 +3,9 @@ import Typography from '@material-ui/core/Typography';
 import { Face } from '@material-ui/icons';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import React from 'react';
+import { FC } from 'react';
 
-const NoData: React.FC<{
-  className?: string;
-}> = ({ className }) => {
+const NoData: FC<ComponentDefault> = ({ className }) => {
   const classes = useStyles();
   const { t } = useTranslation('common');
   return (

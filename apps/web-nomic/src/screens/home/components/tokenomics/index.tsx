@@ -7,14 +7,12 @@ import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
-import React from 'react';
+import React, { FC } from 'react';
 import { Cell, Pie, PieChart, Tooltip } from 'recharts';
 
 const { tokenUnits } = chainConfig();
 
-const Tokenomics: React.FC<{
-  className?: string;
-}> = ({ className }) => {
+const Tokenomics: FC<ComponentDefault> = ({ className }) => {
   const { t } = useTranslation('home');
   const { classes, theme } = useStyles();
   const { state } = useTokenomics();

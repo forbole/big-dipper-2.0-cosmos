@@ -61,7 +61,8 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
             proposer={
               <Unknown
                 address="address"
-                name="proposer"
+                imageUrl=""
+                name="address"
               />
             }
             time="1 day ago"
@@ -105,7 +106,8 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
             proposer={
               <Unknown
                 address="address"
-                name="proposer"
+                imageUrl=""
+                name="address"
               />
             }
             time="1 day ago"

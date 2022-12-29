@@ -6,12 +6,10 @@ import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
-import React from 'react';
+import { FC } from 'react';
 import { Cell, Pie, PieChart, Tooltip } from 'recharts';
 
-const Staking: React.FC<{
-  className?: string;
-}> = ({ className }) => {
+const Staking: FC<ComponentDefault> = ({ className }) => {
   const { t } = useTranslation('home');
   const { classes, theme } = useStyles();
   const { state } = useStaking();
@@ -88,7 +86,7 @@ const Staking: React.FC<{
 
         <div className={classes.legends}>
           {data.map((x) => (
-            <div className="legends__item" key={x.legendKey}>
+            <div key={x.legendKey} className="legends__item">
               <Typography variant="caption">{t(x.legendKey)}</Typography>
             </div>
           ))}

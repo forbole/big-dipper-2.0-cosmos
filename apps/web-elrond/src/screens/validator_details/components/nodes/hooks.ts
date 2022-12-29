@@ -10,6 +10,15 @@ import { waitForAllSettled } from 'recoil';
 
 export const PAGE_SIZE = 10;
 
+type BlocksResult = Array<{
+  bls?: string;
+  name?: string;
+  shard?: number;
+  version?: string;
+  status?: string;
+  online: boolean;
+}>;
+
 export const useBlocks = () => {
   const router = useRouter();
   const [state, setState] = useState<NodeState>({
@@ -77,16 +86,8 @@ export const useBlocks = () => {
         } else {
           params.identity = router.query.identity;
         }
-        const { data: blocksData } = await axios.get<
-          Array<{
-            bls?: string;
-            name?: string;
-            shard?: number;
-            version?: string;
-            status?: string;
-            online: boolean;
-          }>
-        >(NODES, {
+
+        const { data: blocksData } = await axios.get<BlocksResult>(NODES, {
           params,
         });
 

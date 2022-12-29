@@ -25,7 +25,33 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
     </a>
   </div>
   <div
-    id="NoData"
-  />
+    className="makeStyles-root"
+  >
+    <div
+      className="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+      role="progressbar"
+      style={
+        {
+          "height": 40,
+          "width": 40,
+        }
+      }
+    >
+      <svg
+        className="MuiCircularProgress-svg"
+        viewBox="22 22 44 44"
+      >
+        <circle
+          className="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+          cx={44}
+          cy={44}
+          fill="none"
+          r={20.2}
+          strokeWidth={3.6}
+          style={{}}
+        />
+      </svg>
+    </div>
+  </div>
 </div>
 `;

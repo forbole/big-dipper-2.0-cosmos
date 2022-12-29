@@ -1,6 +1,7 @@
 import * as R from 'ramda';
-import { createRef, useCallback, useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import type { VariableSizeGrid } from 'react-window';
+import useShallowMemo from '../useShallowMemo';
 
 // reusable hook helpers for react window list components
 
@@ -56,8 +57,9 @@ export const useGrid = (
     width: number;
   }[]
 ) => {
-  const gridRef = createRef<VariableSizeGrid>();
-  const columnRef = createRef<VariableSizeGrid>();
+  const gridRef = useRef<VariableSizeGrid>();
+  const columnRef = useRef<VariableSizeGrid>();
+  const columnsMemo = useShallowMemo(columns);
 
   const onResize = useCallback(() => {
     if (gridRef.current !== null) {
@@ -69,8 +71,8 @@ export const useGrid = (
   }, [columnRef, gridRef]);
 
   const getColumnWidth = useCallback(
-    (width: number, index: number) => (columns[index].width * width) / 100,
-    [columns]
+    (width: number, index: number) => (columnsMemo[index].width * width) / 100,
+    [columnsMemo]
   );
 
   const getRowHeight = useCallback(

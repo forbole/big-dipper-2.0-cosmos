@@ -5,16 +5,18 @@ import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
-import React from 'react';
+import React, { FC } from 'react';
 import { Cell, Pie, PieChart, Tooltip } from 'recharts';
 
-const Compute: React.FC<{
+type ComputeProps = {
   className?: string;
   compute: {
     available: number;
     used: number;
   };
-}> = ({ className, compute }) => {
+};
+
+const Compute: FC<ComputeProps> = ({ className, compute }) => {
   const { t } = useTranslation('providers');
   const { classes, theme } = useStyles();
 

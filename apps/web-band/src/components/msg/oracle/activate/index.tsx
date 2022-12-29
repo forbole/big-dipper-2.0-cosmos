@@ -1,11 +1,11 @@
 import Name from '@/components/name';
 import MsgActivate from '@/models/msg/oracle/msg_activate';
-import { useProfileRecoil } from '@/recoil/profiles';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const Activate: React.FC<{ message: MsgActivate }> = (props) => {
+const Activate: FC<{ message: MsgActivate }> = (props) => {
   const { message } = props;
 
   const validator = useProfileRecoil(message.validator);

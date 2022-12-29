@@ -3,9 +3,9 @@ import { useStyles } from '@/screens/home/components/hero/components/online_voti
 import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
-import React from 'react';
+import { FC } from 'react';
 
-const OnlineVotingPower: React.FC<ComponentDefault> = () => {
+const OnlineVotingPower: FC<ComponentDefault> = () => {
   const { t } = useTranslation('home');
   const { state } = useOnlineVotingPower();
 

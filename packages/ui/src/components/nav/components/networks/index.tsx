@@ -3,12 +3,10 @@ import { useStyles } from '@/components/nav/components/networks/styles';
 import { readNetworks } from '@/recoil/big_dipper_networks';
 import Typography from '@material-ui/core/Typography';
 import Image from 'next/future/image';
-import React from 'react';
+import React, { FC } from 'react';
 import { useRecoilValue } from 'recoil';
 
-const Networks: React.FC<{
-  className?: string;
-}> = ({ className }) => {
+const Networks: FC<ComponentDefault> = ({ className }) => {
   const networks = useRecoilValue(readNetworks);
   const classes = useStyles();
 

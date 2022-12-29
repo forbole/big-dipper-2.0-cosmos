@@ -3,12 +3,14 @@ import Typography from '@material-ui/core/Typography';
 import { Cancel, CheckCircle, Help } from '@material-ui/icons';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import React from 'react';
+import { FC } from 'react';
 
-const Result: React.FC<{
+type ResultProps = {
   className?: string;
   status: string;
-}> = ({ className, status }) => {
+};
+
+const Result: FC<ResultProps> = ({ className, status }) => {
   const { t } = useTranslation('common');
   const classes = useStyles();
 

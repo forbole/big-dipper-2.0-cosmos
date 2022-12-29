@@ -9,7 +9,7 @@ export { default as CustomToolTip } from '@/components/custom_tool_tip';
 export { default as DesmosProfile } from '@/components/desmos_profile';
 export { default as Footer } from '@/components/footer';
 export * as Icons from '@/components/icons';
-export { default as InfoPopover } from '@/components/info_popover';
+export { default as InfoPopoverProps } from '@/components/info_popover';
 export { default as Layout } from '@/components/layout';
 export { default as LinearLoading } from '@/components/linear_loading';
 export { default as Loading } from '@/components/loading';

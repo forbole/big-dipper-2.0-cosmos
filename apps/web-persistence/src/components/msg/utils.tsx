@@ -435,19 +435,20 @@ export const getMessageModelByType = (type: string): Data['model'] => {
   return MODELS.MsgUnknown as Data['model'];
 };
 
+type ResultType = {
+  content: FC<{ message: unknown }>;
+  tagDisplay: string;
+  tagTheme: TagTheme;
+};
+
 /**
  * Helper function to correctly display the correct UI
  * @param type Model type
  */
 export const getMessageByType = (message: unknown, viewRaw: boolean, t: Translate) => {
   const { type } = (message as { type: string }) ?? {};
-  type resultType = {
-    content: FC<{ message: unknown }>;
-    tagDisplay: string;
-    tagTheme: TagTheme;
-  };
-  let results: resultType = {
-    content: COMPONENTS.Unknown as resultType['content'],
+  let results: ResultType = {
+    content: COMPONENTS.Unknown as ResultType['content'],
     tagDisplay: 'txUnknownLabel',
     tagTheme: 'zero',
   };
@@ -456,15 +457,15 @@ export const getMessageByType = (message: unknown, viewRaw: boolean, t: Translat
 
   if (data) {
     results = {
-      content: data?.content as resultType['content'],
+      content: data?.content as ResultType['content'],
       tagDisplay: data.tagDisplay,
-      tagTheme: data.tagTheme as resultType['tagTheme'],
+      tagTheme: data.tagTheme as ResultType['tagTheme'],
     };
   }
 
   // If user asks to view the raw data
   if (viewRaw || !results.content) {
-    results.content = COMPONENTS.Unknown as resultType['content'];
+    results.content = COMPONENTS.Unknown as ResultType['content'];
   }
 
   return {

@@ -25,7 +25,6 @@ export interface VotingPowerType {
 }
 
 export interface ValidatorDetailsState {
-  loading: boolean;
   exists: boolean;
   desmosProfile: DesmosProfile | null;
   overview: OverviewType;

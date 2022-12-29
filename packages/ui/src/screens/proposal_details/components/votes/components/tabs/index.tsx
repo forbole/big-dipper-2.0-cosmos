@@ -5,9 +5,9 @@ import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import React, { ComponentProps } from 'react';
+import React, { ComponentProps, FC } from 'react';
 
-const TabsHeader: React.FC<{
+type TabsHeaderProps = {
   className?: string;
   tab: number;
   handleTabChange: ComponentProps<typeof Tabs>['onChange'];
@@ -18,7 +18,9 @@ const TabsHeader: React.FC<{
     veto: number;
     notVoted: number;
   };
-}> = ({ className, tab, handleTabChange, data }) => {
+};
+
+const TabsHeader: FC<TabsHeaderProps> = ({ className, tab, handleTabChange, data }) => {
   const classes = useStyles();
   const { t } = useTranslation('proposals');
 

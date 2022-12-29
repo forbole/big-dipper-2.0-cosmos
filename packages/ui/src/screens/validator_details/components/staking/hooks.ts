@@ -1,10 +1,11 @@
 import chainConfig from '@/chainConfig';
 import {
-  ValidatorDelegationsDocument,
-  ValidatorRedelegationsDocument,
-  ValidatorUndelegationsDocument,
-} from '@/graphql/general/validator_details_documents';
+  useValidatorDelegationsQuery,
+  useValidatorRedelegationsQuery,
+  useValidatorUndelegationsQuery,
+} from '@/graphql/types/general_types';
 import type {
+  DelegationType,
   RedelegationType,
   StakingState,
   UnbondingType,
@@ -12,28 +13,14 @@ import type {
 import { formatToken } from '@/utils/format_token';
 import { getDenom } from '@/utils/get_denom';
 import Tabs from '@material-ui/core/Tabs';
-import axios from 'axios';
 import Big from 'big.js';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import { ComponentProps, useCallback, useEffect, useState } from 'react';
 
-const { endpoints, primaryTokenUnit } = chainConfig();
+const { primaryTokenUnit } = chainConfig();
 
-const stakingDefault = {
-  data: {},
-  count: 0,
-  loading: true,
-};
-
-const LIMIT = 100;
-const PAGE_LIMIT = 10;
-
-const urlEndpoints = [
-  process.env.NEXT_PUBLIC_GRAPHQL_URL,
-  endpoints.graphql,
-  'http://localhost:3000/v1/graphql',
-];
+export const ROWS_PER_PAGE = 10;
 
 type Delegations = {
   coins: MsgCoin[];
@@ -56,303 +43,250 @@ type Undelegations = {
   }>;
 };
 
-type DataDelegations = {
-  data: {
-    delegations: {
-      delegations: Array<Delegations>;
-      pagination: {
-        total: number;
+export const formatDelegations = (data: Delegations[]) =>
+  data
+    .map<DelegationType>((x): UnbondingType => {
+      const address = R.pathOr('', ['delegator_address'], x);
+      const delegation = getDenom(x.coins, primaryTokenUnit);
+      return {
+        address,
+        amount: formatToken(delegation.amount, delegation.denom),
       };
-    };
-  };
+    })
+    .sort(R.comparator((a, b) => Big(a.amount?.value).gt(b.amount?.value)));
+
+export const formatRedelegations = (data: Redelegations[]) => {
+  const results: RedelegationType[] = [];
+  data.forEach((x) => {
+    R.pathOr<NonNullable<typeof x['entries']>>([], ['entries'], x).forEach((y) => {
+      results.push({
+        address: x?.delegator_address ?? '',
+        to: x?.validator_dst_address ?? '',
+        amount: formatToken(y.balance, primaryTokenUnit),
+        completionTime: R.pathOr('', ['completion_time'], y),
+      });
+    });
+  });
+  results.sort(R.comparator((a, b) => a.completionTime < b.completionTime));
+
+  return results;
 };
 
-type DataRedelegations = {
-  data: {
-    redelegations: {
-      redelegations: Array<Redelegations>;
-      pagination: {
-        total: number;
-      };
-    };
-  };
+export const formatUnbondings = (data: Undelegations[]) => {
+  const results: UnbondingType[] = [];
+  data.forEach((x) => {
+    x?.entries?.forEach((y) => {
+      results.push({
+        address: R.pathOr('', ['delegator_address'], x),
+        amount: formatToken(y.balance, primaryTokenUnit),
+        completionTime: R.pathOr('', ['completion_time'], y),
+      });
+    });
+  });
+
+  results.sort((a, b) => ((a.completionTime ?? '') < (b.completionTime ?? '') ? -1 : 1));
+
+  return results;
 };
 
-type DataUndelegations = {
-  data: {
-    undelegations: {
-      undelegations: Array<Undelegations>;
-      pagination: {
-        total: number;
-      };
-    };
-  };
-};
-
-export const useStaking = () => {
+export const useStaking = (
+  delegationsPage: number,
+  redelegationsPage: number,
+  unbondingsPage: number
+) => {
   const router = useRouter();
   const [state, setState] = useState<StakingState>({
     tab: 0,
-    delegations: stakingDefault,
-    redelegations: stakingDefault,
-    unbondings: stakingDefault,
+  });
+  const validatorAddress = Array.isArray(router?.query?.address)
+    ? router.query.address[0]
+    : router?.query?.address ?? '';
+
+  // =====================================
+  // delegations
+  // =====================================
+  const {
+    data: delegationsData,
+    loading: delegationsLoading,
+    error: delegationsError,
+    refetch: delegationsRefetch,
+  } = useValidatorDelegationsQuery({
+    variables: {
+      validatorAddress,
+      limit: ROWS_PER_PAGE,
+      offset: delegationsPage * ROWS_PER_PAGE,
+      pagination: false,
+    },
+  });
+  useEffect(() => {
+    if (delegationsLoading) return;
+    if (delegationsError) {
+      delegationsRefetch({ pagination: false });
+    }
+  }, [delegationsError, delegationsLoading, delegationsRefetch]);
+  useValidatorDelegationsQuery({
+    variables: {
+      validatorAddress,
+      limit: ROWS_PER_PAGE,
+      offset: (delegationsPage + 1) * ROWS_PER_PAGE,
+      pagination: false,
+    },
   });
 
-  const handleSetState = useCallback((stateChange: (prevState: StakingState) => StakingState) => {
-    setState((prevState) => {
-      const newState = stateChange(prevState);
-      return R.equals(prevState, newState) ? prevState : newState;
-    });
-  }, []);
-
+  const [delegationsPagination, setDelegationsPagination] = useState<number | undefined>();
+  const {
+    data: dData,
+    error: dError,
+    refetch: dRefetch,
+  } = useValidatorDelegationsQuery({
+    variables: {
+      validatorAddress,
+      limit: 0,
+      offset: 0,
+      pagination: true,
+    },
+    skip: delegationsPagination !== undefined,
+  });
   useEffect(() => {
-    const createPagination = <T>(data: T[]) => {
-      const pages: { [key: string]: T[] } = {};
-      data.forEach((x, i) => {
-        const selectedKey = Math.floor(i / PAGE_LIMIT);
-        pages[selectedKey] = pages[selectedKey] || [];
-        pages[selectedKey].push(x);
-      });
-      return pages;
-    };
+    if (dError) {
+      dRefetch();
+    } else if (dData) {
+      setDelegationsPagination(dData?.delegations?.pagination?.total ?? 0);
+    }
+  }, [dData, dError, dRefetch]);
 
-    const formatUnbondings = (data: Delegations[] | Redelegations[] | Undelegations[]) => {
-      const results: UnbondingType[] = [];
-      data.forEach((x) => {
-        R.pathOr<NonNullable<typeof x['entries']>>([], ['entries'], x).forEach((y) => {
-          results.push({
-            address: R.pathOr('', ['delegator_address'], x),
-            amount: formatToken(y.balance, primaryTokenUnit),
-            completionTime: R.pathOr('', ['completion_time'], y),
-          });
-        });
-      });
+  // =====================================
+  // redelegations
+  // =====================================
+  const {
+    data: redelegationsData,
+    loading: redelegationsLoading,
+    error: redelegationsError,
+    refetch: redelegationsRefetch,
+  } = useValidatorRedelegationsQuery({
+    variables: {
+      validatorAddress,
+      limit: ROWS_PER_PAGE,
+      offset: redelegationsPage * ROWS_PER_PAGE,
+    },
+  });
+  useEffect(() => {
+    if (redelegationsLoading) return;
+    if (redelegationsError) {
+      redelegationsRefetch({ pagination: false });
+    }
+  }, [redelegationsError, redelegationsLoading, redelegationsRefetch]);
+  useValidatorRedelegationsQuery({
+    variables: {
+      validatorAddress,
+      limit: ROWS_PER_PAGE,
+      offset: (redelegationsPage + 1) * ROWS_PER_PAGE,
+    },
+  });
 
-      results.sort((a, b) => ((a.completionTime ?? '') < (b.completionTime ?? '') ? -1 : 1));
+  const [redelegationsPagination, setRedelegationsPagination] = useState<number | undefined>();
+  const {
+    data: rData,
+    error: rError,
+    refetch: rRefetch,
+  } = useValidatorRedelegationsQuery({
+    variables: {
+      validatorAddress,
+      limit: 0,
+      offset: 0,
+      pagination: true,
+    },
+    skip: redelegationsPagination !== undefined,
+  });
+  useEffect(() => {
+    if (rError) {
+      rRefetch();
+    } else if (rData) {
+      setRedelegationsPagination(rData?.redelegations?.pagination?.total ?? 0);
+    }
+  }, [rData, rError, rRefetch]);
 
-      return results;
-    };
+  // =====================================
+  // unbondings
+  // =====================================
+  const {
+    data: undelegationsData,
+    loading: undelegationsLoading,
+    error: undelegationsError,
+    refetch: undelegationsRefetch,
+  } = useValidatorUndelegationsQuery({
+    variables: {
+      validatorAddress,
+      limit: ROWS_PER_PAGE,
+      offset: unbondingsPage * ROWS_PER_PAGE,
+    },
+  });
+  useEffect(() => {
+    if (undelegationsLoading) return;
+    if (undelegationsError) {
+      undelegationsRefetch({ pagination: false });
+    }
+  }, [undelegationsError, undelegationsLoading, undelegationsRefetch]);
+  useValidatorUndelegationsQuery({
+    variables: {
+      validatorAddress,
+      limit: ROWS_PER_PAGE,
+      offset: (unbondingsPage + 1) * ROWS_PER_PAGE,
+    },
+  });
 
-    // helper function to get rest of the staking items
-    // if it is over the default limit
-    const getStakeByPage = async (page: number, query: string) => {
-      const { data } = await axios.post(urlEndpoints.find((u) => u) ?? '', {
-        variables: {
-          validatorAddress: router?.query?.address ?? '',
-          offset: page * LIMIT,
-          limit: LIMIT,
-          pagination: false,
-        },
-        query,
-      });
-      return data;
-    };
-
-    const formatDelegations = (data: Delegations[]) =>
-      data
-        .map((x): UnbondingType => {
-          const address = R.pathOr('', ['delegator_address'], x);
-          const delegation = getDenom(x.coins, primaryTokenUnit);
-          return {
-            address,
-            amount: formatToken(delegation.amount, delegation.denom),
-          };
-        })
-        .sort((a, b) => (Big(a.amount?.value).gt(b.amount?.value) ? -1 : 1));
-
-    const formatRedelegations = (data: Array<Redelegations>) => {
-      const results: RedelegationType[] = [];
-      data.forEach((x) => {
-        R.pathOr<NonNullable<typeof x['entries']>>([], ['entries'], x).forEach((y) => {
-          results.push({
-            address: x?.delegator_address ?? '',
-            to: x?.validator_dst_address ?? '',
-            amount: formatToken(y.balance, primaryTokenUnit),
-            completionTime: R.pathOr('', ['completion_time'], y),
-          });
-        });
-      });
-      results.sort((a, b) => (a.completionTime < b.completionTime ? -1 : 1));
-
-      return results;
-    };
-
-    // =====================================
-    // delegations
-    // =====================================
-    const getDelegations = async () => {
-      try {
-        const { data } = await axios.post<DataDelegations>(urlEndpoints.find((u) => u) ?? '', {
-          variables: {
-            validatorAddress: router?.query?.address ?? '',
-            limit: LIMIT,
-          },
-          query: ValidatorDelegationsDocument,
-        });
-        const count = data?.data?.delegations?.pagination?.total ?? 0;
-        const allDelegations = R.pathOr<
-          NonNullable<typeof data['data']['delegations']['delegations']>
-        >([], ['data', 'delegations', 'delegations'], data);
-        // if there are more than the default 100, grab the remaining delegations
-        if (count > LIMIT) {
-          const remainingFetchCount = Math.ceil(count / LIMIT) - 1;
-          const remainingDelegationsPromises = [];
-          for (let i = 0; i < remainingFetchCount; i += 1) {
-            remainingDelegationsPromises.push(getStakeByPage(i + 1, ValidatorDelegationsDocument));
-          }
-          const remainingDelegations = await Promise.allSettled(remainingDelegationsPromises);
-          remainingDelegations.forEach((x) => {
-            if (x.status !== 'fulfilled') return;
-            const delegations = x?.value?.data?.delegations?.delegations ?? [];
-            allDelegations.push(...delegations);
-          });
-        }
-
-        handleSetState((prevState) => ({
-          ...prevState,
-          delegations: {
-            loading: false,
-            count,
-            data: createPagination(formatDelegations(allDelegations)),
-          },
-        }));
-      } catch (error) {
-        handleSetState((prevState) => ({
-          ...prevState,
-          delegations: {
-            data: {},
-            count: 0,
-            loading: false,
-          },
-        }));
-      }
-    };
-
-    // =====================================
-    // redelegations
-    // =====================================
-    const getRedelegations = async () => {
-      try {
-        const { data } = await axios.post<DataRedelegations>(urlEndpoints.find((u) => u) ?? '', {
-          variables: {
-            validatorAddress: router?.query?.address ?? '',
-            limit: LIMIT,
-          },
-          query: ValidatorRedelegationsDocument,
-        });
-        const count = data?.data?.redelegations?.pagination?.total ?? 0;
-        const allData = R.pathOr<
-          NonNullable<typeof data['data']['redelegations']['redelegations']>
-        >([], ['data', 'redelegations', 'redelegations'], data);
-
-        // if there are more than the default 100, grab the remaining delegations
-        if (count > LIMIT) {
-          const remainingFetchCount = Math.ceil(count / LIMIT) - 1;
-          const remainingPromises = [];
-          for (let i = 0; i < remainingFetchCount; i += 1) {
-            remainingPromises.push(getStakeByPage(i + 1, ValidatorRedelegationsDocument));
-          }
-          const remainingData = await Promise.allSettled(remainingPromises);
-          remainingData.forEach((x) => {
-            if (x.status !== 'fulfilled') return;
-            const fullfilledData = x?.value?.data?.redelegations?.redelegations ?? [];
-            allData.push(...fullfilledData);
-          });
-        }
-
-        const formattedData = formatRedelegations(allData);
-
-        handleSetState((prevState) => ({
-          ...prevState,
-          redelegations: {
-            loading: false,
-            count: formattedData.length,
-            data: createPagination(formattedData),
-          },
-        }));
-      } catch (error) {
-        handleSetState((prevState) => ({
-          ...prevState,
-          redelegations: {
-            data: {},
-            count: 0,
-            loading: false,
-          },
-        }));
-      }
-    };
-
-    // =====================================
-    // unbondings
-    // =====================================
-    const getUnbondings = async () => {
-      try {
-        const { data } = await axios.post<DataUndelegations>(urlEndpoints.find((u) => u) ?? '', {
-          variables: {
-            validatorAddress: router?.query?.address ?? '',
-            limit: LIMIT,
-          },
-          query: ValidatorUndelegationsDocument,
-        });
-        const count = data?.data?.undelegations?.pagination?.total ?? 0;
-        const allData = R.pathOr<
-          NonNullable<typeof data['data']['undelegations']['undelegations']>
-        >([], ['data', 'undelegations', 'undelegations'], data);
-
-        // if there are more than the default 100, grab the remaining delegations
-        if (count > LIMIT) {
-          const remainingFetchCount = Math.ceil(count / LIMIT) - 1;
-          const remainingPromises = [];
-          for (let i = 0; i < remainingFetchCount; i += 1) {
-            remainingPromises.push(getStakeByPage(i + 1, ValidatorUndelegationsDocument));
-          }
-          const remainingData = await Promise.allSettled(remainingPromises);
-          remainingData.forEach((x) => {
-            if (x.status !== 'fulfilled') return;
-            const fullfilledData = x?.value?.data?.undelegations?.undelegations ?? [];
-            allData.push(...fullfilledData);
-          });
-        }
-
-        const formattedData = formatUnbondings(allData);
-
-        handleSetState((prevState) => ({
-          ...prevState,
-          unbondings: {
-            data: createPagination(formattedData),
-            count: formattedData.length,
-            loading: false,
-          },
-        }));
-      } catch (error) {
-        handleSetState((prevState) => ({
-          ...prevState,
-          unbondings: {
-            data: {},
-            count: 0,
-            loading: false,
-          },
-        }));
-      }
-    };
-
-    getDelegations();
-    getRedelegations();
-    getUnbondings();
-  }, [handleSetState, router?.query?.address]);
+  const [undelegationsPagination, setUndelegationsPagination] = useState<number | undefined>();
+  const {
+    data: uData,
+    error: uError,
+    refetch: uRefetch,
+  } = useValidatorUndelegationsQuery({
+    variables: {
+      validatorAddress,
+      limit: 0,
+      offset: 0,
+      pagination: true,
+    },
+    skip: undelegationsPagination !== undefined,
+  });
+  useEffect(() => {
+    if (uError) {
+      uRefetch();
+    } else if (uData) {
+      setUndelegationsPagination(uData?.undelegations?.pagination?.total ?? 0);
+    }
+  }, [uData, uError, uRefetch]);
 
   const handleTabChange: ComponentProps<typeof Tabs>['onChange'] = useCallback(
     (_event, newValue) => {
-      setState((prevState) => ({
-        ...prevState,
-        tab: newValue,
-      }));
+      setState((prevState) => {
+        const newState = { ...prevState, tab: newValue };
+        return R.equals(newState, prevState) ? prevState : newState;
+      });
     },
     []
   );
 
   return {
     state,
+    delegations: {
+      loading: delegationsLoading,
+      count: delegationsPagination,
+      data: formatDelegations(delegationsData?.delegations?.delegations ?? []),
+      error: delegationsError,
+    },
+    redelegations: {
+      loading: redelegationsLoading,
+      count: redelegationsPagination,
+      data: formatRedelegations(redelegationsData?.redelegations?.redelegations ?? []),
+      error: redelegationsError,
+    },
+    unbondings: {
+      loading: undelegationsLoading,
+      count: undelegationsPagination,
+      data: formatUnbondings(undelegationsData?.undelegations?.undelegations ?? []),
+      error: undelegationsError,
+    },
     handleTabChange,
   };
 };

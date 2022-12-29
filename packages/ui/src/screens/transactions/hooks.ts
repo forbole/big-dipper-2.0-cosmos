@@ -9,12 +9,51 @@ import { convertMsgType } from '@/utils/convert_msg_type';
 import * as R from 'ramda';
 import { useState } from 'react';
 
+// This is a bandaid as it can get extremely
+// expensive if there is too much data
+/**
+ * Helps remove any possible duplication
+ * and sorts by height in case it bugs out
+ */
+const uniqueAndSort = R.pipe(
+  R.uniqBy((r: Transactions) => r?.hash),
+  R.sort(R.descend((r) => r?.height))
+);
+
+const formatTransactions = (data: TransactionsListenerSubscription): TransactionsState['items'] => {
+  let formattedData = data.transactions;
+  if (data.transactions.length === 51) {
+    formattedData = data.transactions.slice(0, 51);
+  }
+
+  return formattedData.map((x) => {
+    const messages = convertMsgsToModels(x);
+    const msgType =
+      x.messages?.map((eachMsg: unknown) => {
+        const eachMsgType = R.pathOr('none type', ['@type'], eachMsg);
+        return eachMsgType ?? '';
+      }) ?? [];
+    const convertedMsgType = convertMsgType(msgType);
+    return {
+      height: x.height,
+      hash: x.hash,
+      type: convertedMsgType,
+      messages: {
+        count: x.messages.length,
+        items: messages,
+      },
+      success: x.success,
+      timestamp: x.block.timestamp,
+    };
+  });
+};
+
 export const useTransactions = () => {
   const [state, setState] = useState<TransactionsState>({
     loading: true,
     exists: true,
     hasNextPage: false,
-    isNextPageLoading: false,
+    isNextPageLoading: true,
     items: [],
   });
 
@@ -24,17 +63,6 @@ export const useTransactions = () => {
       return R.equals(prevState, newState) ? prevState : newState;
     });
   };
-
-  // This is a bandaid as it can get extremely
-  // expensive if there is too much data
-  /**
-   * Helps remove any possible duplication
-   * and sorts by height in case it bugs out
-   */
-  const uniqueAndSort = R.pipe(
-    R.uniqBy((r: Transactions) => r?.hash),
-    R.sort(R.descend((r) => r?.height))
-  );
 
   // ================================
   // tx subscription
@@ -106,36 +134,6 @@ export const useTransactions = () => {
           hasNextPage: itemsLength === 51,
         }));
       });
-  };
-
-  const formatTransactions = (
-    data: TransactionsListenerSubscription
-  ): TransactionsState['items'] => {
-    let formattedData = data.transactions;
-    if (data.transactions.length === 51) {
-      formattedData = data.transactions.slice(0, 51);
-    }
-
-    return formattedData.map((x) => {
-      const messages = convertMsgsToModels(x);
-      const msgType =
-        x.messages?.map((eachMsg: unknown) => {
-          const eachMsgType = R.pathOr('none type', ['@type'], eachMsg);
-          return eachMsgType ?? '';
-        }) ?? [];
-      const convertedMsgType = convertMsgType(msgType);
-      return {
-        height: x.height,
-        hash: x.hash,
-        type: convertedMsgType,
-        messages: {
-          count: x.messages.length,
-          items: messages,
-        },
-        success: x.success,
-        timestamp: x.block.timestamp,
-      };
-    });
   };
 
   return {

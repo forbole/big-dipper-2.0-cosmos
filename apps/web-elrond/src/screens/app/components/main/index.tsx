@@ -24,13 +24,6 @@ const Main = (props: AppProps) => {
   // =====================================
   const { muiTheme } = useTheme();
   const loading = false;
-  let Component = null;
-
-  if (loading) {
-    Component = <InitialLoad {...props.pageProps} />;
-  } else {
-    Component = <InnerApp {...props} />;
-  }
 
   return (
     <ThemeProvider theme={muiTheme}>
@@ -46,7 +39,8 @@ const Main = (props: AppProps) => {
         draggable
         pauseOnHover
       />
-      {Component}
+      {loading && <InitialLoad {...props.pageProps} />}
+      <InnerApp {...props} />
     </ThemeProvider>
   );
 };

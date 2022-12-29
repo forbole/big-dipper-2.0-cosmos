@@ -4,13 +4,15 @@ import Paper from '@material-ui/core/Paper';
 import Popover from '@material-ui/core/Popover';
 import HelpOutline from '@material-ui/icons/HelpOutline';
 import classnames from 'classnames';
-import React from 'react';
+import React, { FC, ReactNode } from 'react';
 
-const InfoPopover: React.FC<{
+type InfoPopoverProps = {
   className?: string;
-  content?: string | React.ReactNode;
-  display?: string | React.ReactNode;
-}> = ({ className, content, display }) => {
+  content?: string | ReactNode;
+  display?: string | ReactNode;
+};
+
+const InfoPopover: FC<InfoPopoverProps> = ({ className, content, display }) => {
   const { handlePopoverOpen, handlePopoverClose, anchorEl, open } = useInfoPopover();
 
   const classes = useStyles();

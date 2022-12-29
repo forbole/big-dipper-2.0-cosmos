@@ -1,12 +1,12 @@
 import Name from '@/components/name';
 import { MsgWithdrawValidatorCommission } from '@/models';
-import { useProfileRecoil } from '@/recoil/profiles';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { formatNumber } from '@/utils/format_token';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const WithdrawCommission: React.FC<{ message: MsgWithdrawValidatorCommission }> = (props) => {
+const WithdrawCommission: FC<{ message: MsgWithdrawValidatorCommission }> = (props) => {
   const { message } = props;
   const validator = useProfileRecoil(message.validatorAddress);
   const validatorMoniker = validator ? validator?.name : message.validatorAddress;

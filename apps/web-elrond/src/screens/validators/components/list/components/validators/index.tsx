@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import dynamic from 'next/dynamic';
 import { useScreenSize } from '@/hooks';
 import NoData from '@/components/no_data';
@@ -12,11 +12,9 @@ const Mobile = dynamic(
   () => import('@/screens/validators/components/list/components/validators/components/mobile')
 );
 
-const Validators: React.FC<{ search: SearchType; items: ValidatorType[] } & ComponentDefault> = (
-  props
-) => {
+const Validators: FC<{ search: SearchType; items: ValidatorType[] }> = (props) => {
   const { isDesktop } = useScreenSize();
-  const { state, handleSort, sortItems } = useProviders(props.search);
+  const { state, handleSort, sortItems, search } = useProviders(props.search);
 
   const items = sortItems(props.items);
 
@@ -31,11 +29,12 @@ const Validators: React.FC<{ search: SearchType; items: ValidatorType[] } & Comp
         sortKey={state.sortKey}
         handleSort={handleSort}
         items={items}
+        search={search}
       />
     );
   }
 
-  return <Mobile items={items} />;
+  return <Mobile items={items} search={search} />;
 };
 
 export default Validators;

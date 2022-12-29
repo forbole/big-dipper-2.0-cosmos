@@ -25,7 +25,7 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
       <Unknown
         address="desmosvalcons1why72hjk945yhckcy5hzk2z2w9d5h65t9am0kd"
         imageUrl=""
-        name="name"
+        name="desmosvalcons1why72hjk945yhckcy5hzk2z2w9d5h65t9am0kd"
       />
     }
     time="1 day ago"
