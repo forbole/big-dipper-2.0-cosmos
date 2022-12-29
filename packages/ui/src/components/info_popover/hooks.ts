@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { MouseEventHandler, useState } from 'react';
 
 export const useInfoPopover = () => {
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
 
-  const handlePopoverOpen: React.MouseEventHandler<HTMLElement> = (event) => {
+  const handlePopoverOpen: MouseEventHandler<HTMLElement> = (event) => {
     setAnchorEl(event.currentTarget);
   };
 

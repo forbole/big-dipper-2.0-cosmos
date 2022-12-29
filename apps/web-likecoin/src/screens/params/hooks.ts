@@ -21,6 +21,140 @@ const initialState: ParamsState = {
   iscn: null,
 };
 
+// ================================
+// staking
+// ================================
+const formatStaking = (data: ParamsQuery) => {
+  if (data.stakingParams.length) {
+    const stakingParamsRaw = StakingParams.fromJson(data?.stakingParams?.[0]?.params ?? {});
+    return {
+      bondDenom: stakingParamsRaw.bondDenom,
+      unbondingTime: stakingParamsRaw.unbondingTime,
+      maxEntries: stakingParamsRaw.maxEntries,
+      historicalEntries: stakingParamsRaw.historicalEntries,
+      maxValidators: stakingParamsRaw.maxValidators,
+    };
+  }
+
+  return null;
+};
+
+// ================================
+// slashing
+// ================================
+const formatSlashing = (data: ParamsQuery) => {
+  if (data.slashingParams.length) {
+    const slashingParamsRaw = SlashingParams.fromJson(data?.slashingParams?.[0]?.params ?? {});
+    return {
+      downtimeJailDuration: slashingParamsRaw.downtimeJailDuration,
+      minSignedPerWindow: slashingParamsRaw.minSignedPerWindow,
+      signedBlockWindow: slashingParamsRaw.signedBlockWindow,
+      slashFractionDoubleSign: slashingParamsRaw.slashFractionDoubleSign,
+      slashFractionDowntime: slashingParamsRaw.slashFractionDowntime,
+    };
+  }
+  return null;
+};
+
+// ================================
+// minting
+// ================================
+const formatMint = (data: ParamsQuery) => {
+  if (data.mintParams.length) {
+    const mintParamsRaw = MintParams.fromJson(data?.mintParams?.[0]?.params ?? {});
+
+    return {
+      blocksPerYear: mintParamsRaw.blocksPerYear,
+      goalBonded: mintParamsRaw.goalBonded,
+      inflationMax: mintParamsRaw.inflationMax,
+      inflationMin: mintParamsRaw.inflationMin,
+      inflationRateChange: mintParamsRaw.inflationRateChange,
+      mintDenom: mintParamsRaw.mintDenom,
+    };
+  }
+
+  return null;
+};
+
+// ================================
+// distribution
+// ================================
+
+const formatDistribution = (data: ParamsQuery) => {
+  if (data.distributionParams.length) {
+    const distributionParamsRaw = DistributionParams.fromJson(
+      data?.distributionParams?.[0]?.params ?? {}
+    );
+    return {
+      baseProposerReward: distributionParamsRaw.baseProposerReward,
+      bonusProposerReward: distributionParamsRaw.bonusProposerReward,
+      communityTax: distributionParamsRaw.communityTax,
+      withdrawAddressEnabled: distributionParamsRaw.withdrawAddressEnabled,
+    };
+  }
+
+  return null;
+};
+
+// ================================
+// distribution
+// ================================
+
+const formatGov = (data: ParamsQuery) => {
+  if (data.govParams.length) {
+    const govParamsRaw = GovParams.fromJson(data?.govParams?.[0] ?? {});
+    return {
+      minDeposit:
+        formatToken(
+          govParamsRaw.depositParams.minDeposit?.[0]?.amount ?? 0,
+          govParamsRaw.depositParams.minDeposit?.[0]?.denom ?? primaryTokenUnit
+        ) ?? 0,
+      maxDepositPeriod: govParamsRaw.depositParams.maxDepositPeriod ?? 0,
+      quorum: numeral(numeral(govParamsRaw.tallyParams.quorum).format('0.[00]')).value() ?? 0,
+      threshold: numeral(numeral(govParamsRaw.tallyParams.threshold).format('0.[00]')).value() ?? 0,
+      vetoThreshold:
+        numeral(numeral(govParamsRaw.tallyParams.vetoThreshold).format('0.[00]')).value() ?? 0,
+      votingPeriod: govParamsRaw.votingParams.votingPeriod,
+    };
+  }
+
+  return null;
+};
+
+// ================================
+// iscn
+// ================================
+
+const formatIscn = (data: ParamsQuery) => {
+  if (data.iscnParams.length) {
+    const iscnParamsRaw = IscnParams.fromJson(data?.iscnParams?.[0]?.params ?? {});
+    return {
+      registryName: iscnParamsRaw.registryName,
+      feePerByte: formatToken(iscnParamsRaw.feePerByte.amount, iscnParamsRaw.feePerByte.denom),
+    };
+  }
+
+  return null;
+};
+
+const formatParam = (data: ParamsQuery) => {
+  const results: Partial<ParamsState> = {};
+
+  results.staking = formatStaking(data);
+
+  results.slashing = formatSlashing(data);
+
+  results.minting = formatMint(data);
+
+  results.distribution = formatDistribution(data);
+
+  results.gov = formatGov(data);
+
+  results.iscn = formatIscn(data);
+
+  return results;
+};
+
 export const useParams = () => {
   const [state, setState] = useState<ParamsState>(initialState);
 
@@ -35,9 +169,6 @@ export const useParams = () => {
   // param query
   // ================================
   useParamsQuery({
-    onError: () => {
-      handleSetState((prevState) => ({ ...prevState, loading: false }));
-    },
     onCompleted: (data) => {
       handleSetState((prevState) => ({
         ...prevState,
@@ -45,142 +176,10 @@ export const useParams = () => {
         ...formatParam(data),
       }));
     },
+    onError: () => {
+      handleSetState((prevState) => ({ ...prevState, loading: false }));
+    },
   });
-
-  const formatParam = (data: ParamsQuery) => {
-    const results: Partial<ParamsState> = {};
-
-    // ================================
-    // staking
-    // ================================
-    const formatStaking = () => {
-      if (data.stakingParams.length) {
-        const stakingParamsRaw = StakingParams.fromJson(data?.stakingParams?.[0]?.params ?? {});
-        return {
-          bondDenom: stakingParamsRaw.bondDenom,
-          unbondingTime: stakingParamsRaw.unbondingTime,
-          maxEntries: stakingParamsRaw.maxEntries,
-          historicalEntries: stakingParamsRaw.historicalEntries,
-          maxValidators: stakingParamsRaw.maxValidators,
-        };
-      }
-
-      return null;
-    };
-
-    results.staking = formatStaking();
-
-    // ================================
-    // slashing
-    // ================================
-    const formatSlashing = () => {
-      if (data.slashingParams.length) {
-        const slashingParamsRaw = SlashingParams.fromJson(data?.slashingParams?.[0]?.params ?? {});
-        return {
-          downtimeJailDuration: slashingParamsRaw.downtimeJailDuration,
-          minSignedPerWindow: slashingParamsRaw.minSignedPerWindow,
-          signedBlockWindow: slashingParamsRaw.signedBlockWindow,
-          slashFractionDoubleSign: slashingParamsRaw.slashFractionDoubleSign,
-          slashFractionDowntime: slashingParamsRaw.slashFractionDowntime,
-        };
-      }
-      return null;
-    };
-
-    results.slashing = formatSlashing();
-
-    // ================================
-    // minting
-    // ================================
-    const formatMint = () => {
-      if (data.mintParams.length) {
-        const mintParamsRaw = MintParams.fromJson(data?.mintParams?.[0]?.params ?? {});
-
-        return {
-          blocksPerYear: mintParamsRaw.blocksPerYear,
-          goalBonded: mintParamsRaw.goalBonded,
-          inflationMax: mintParamsRaw.inflationMax,
-          inflationMin: mintParamsRaw.inflationMin,
-          inflationRateChange: mintParamsRaw.inflationRateChange,
-          mintDenom: mintParamsRaw.mintDenom,
-        };
-      }
-
-      return null;
-    };
-
-    results.minting = formatMint();
-
-    // ================================
-    // distribution
-    // ================================
-
-    const formatDistribution = () => {
-      if (data.distributionParams.length) {
-        const distributionParamsRaw = DistributionParams.fromJson(
-          data?.distributionParams?.[0]?.params ?? {}
-        );
-        return {
-          baseProposerReward: distributionParamsRaw.baseProposerReward,
-          bonusProposerReward: distributionParamsRaw.bonusProposerReward,
-          communityTax: distributionParamsRaw.communityTax,
-          withdrawAddressEnabled: distributionParamsRaw.withdrawAddressEnabled,
-        };
-      }
-
-      return null;
-    };
-
-    results.distribution = formatDistribution();
-
-    // ================================
-    // distribution
-    // ================================
-
-    const formatGov = () => {
-      if (data.govParams.length) {
-        const govParamsRaw = GovParams.fromJson(data?.govParams?.[0] ?? {});
-        return {
-          minDeposit:
-            formatToken(
-              govParamsRaw.depositParams.minDeposit?.[0]?.amount ?? 0,
-              govParamsRaw.depositParams.minDeposit?.[0]?.denom ?? primaryTokenUnit
-            ) ?? 0,
-          maxDepositPeriod: govParamsRaw.depositParams.maxDepositPeriod ?? 0,
-          quorum: numeral(numeral(govParamsRaw.tallyParams.quorum).format('0.[00]')).value() ?? 0,
-          threshold:
-            numeral(numeral(govParamsRaw.tallyParams.threshold).format('0.[00]')).value() ?? 0,
-          vetoThreshold:
-            numeral(numeral(govParamsRaw.tallyParams.vetoThreshold).format('0.[00]')).value() ?? 0,
-          votingPeriod: govParamsRaw.votingParams.votingPeriod,
-        };
-      }
-
-      return null;
-    };
-
-    results.gov = formatGov();
-
-    // ================================
-    // iscn
-    // ================================
-
-    const formatIscn = () => {
-      if (data.iscnParams.length) {
-        const iscnParamsRaw = IscnParams.fromJson(data?.iscnParams?.[0]?.params ?? {});
-        return {
-          registryName: iscnParamsRaw.registryName,
-          feePerByte: formatToken(iscnParamsRaw.feePerByte.amount, iscnParamsRaw.feePerByte.denom),
-        };
-      }
-
-      return null;
-    };
-
-    results.iscn = formatIscn();
-
-    return results;
-  };
 
   return {
     state,

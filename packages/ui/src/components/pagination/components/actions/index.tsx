@@ -7,11 +7,11 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
-import React from 'react';
+import React, { FC } from 'react';
 import NextFastIcon from 'shared-utils/assets/icon-next-fast.svg';
 import NextIcon from 'shared-utils/assets/icon-next.svg';
 
-type Props = Parameters<typeof useTablePaginationActions>[0] & {
+type ActionsProps = Parameters<typeof useTablePaginationActions>[0] & {
   rowsPerPageOptions?: number[];
 };
 
@@ -19,7 +19,7 @@ type Props = Parameters<typeof useTablePaginationActions>[0] & {
  * custom pagination buttons
  * @param props
  */
-const Actions: React.FC<Props> = (props) => {
+const Actions: FC<ActionsProps> = (props) => {
   const classes = useStyles();
 
   const { count, page, rowsPerPage, onPageChange, className, rowsPerPageOptions } = props;
@@ -105,7 +105,7 @@ const Actions: React.FC<Props> = (props) => {
               input={<InputBase />}
             >
               {rowsPerPageOptions.map((x) => (
-                <MenuItem value={x} key={x} className={classes.menuItem}>
+                <MenuItem key={x} value={x} className={classes.menuItem}>
                   <Typography variant="body2">{x}</Typography>
                 </MenuItem>
               ))}

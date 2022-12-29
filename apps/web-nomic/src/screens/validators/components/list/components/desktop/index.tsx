@@ -8,59 +8,153 @@ import VotingPower from '@/screens/validators/components/list/components/voting_
 import VotingPowerExplanation from '@/screens/validators/components/list/components/voting_power_explanation';
 import type { ItemType } from '@/screens/validators/components/list/types';
 import { getValidatorStatus } from '@/utils/get_validator_status';
+import { PropTypes } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
-import React, { ReactNode } from 'react';
+import React, { CSSProperties, FC, LegacyRef, ReactNode } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { VariableSizeGrid as Grid } from 'react-window';
 
-const Desktop: React.FC<{
+type GridColumnProps = {
+  column: ReturnType<typeof fetchColumns>[number];
+  sortKey: string;
+  sortDirection: 'desc' | 'asc';
+  handleSort: (key: string) => void;
+  style: CSSProperties;
+};
+
+const GridColumn: FC<GridColumnProps> = ({ column, sortKey, sortDirection, handleSort, style }) => {
+  const { t } = useTranslation('validators');
+  const classes = useStyles();
+
+  const { key, align, component, sort, sortKey: sortingKey } = column;
+  let formattedComponent = component;
+
+  if (key === 'votingPower') {
+    formattedComponent = (
+      <Typography variant="h4" className="label popover">
+        {t('votingPower')}
+        <InfoPopover content={VotingPowerExplanation} />
+        {!!sort && <SortArrows sort={sortKey === sortingKey ? sortDirection : undefined} />}
+      </Typography>
+    );
+  }
+
+  return (
+    <div
+      style={style}
+      className={classnames(classes.cell, {
+        [classes.flexCells]: component || sort,
+        [align ?? '']: sort || component,
+        sort,
+      })}
+      onClick={() => (sort ? handleSort(sortingKey ?? '') : null)}
+      role="button"
+      tabIndex={0}
+      aria-label={t(key)}
+    >
+      {formattedComponent || (
+        <Typography variant="h4" align={align}>
+          {t(key)}
+          {!!sort && <SortArrows sort={sortKey === sortingKey ? sortDirection : undefined} />}
+        </Typography>
+      )}
+    </div>
+  );
+};
+
+type GridRowProps = {
+  column: string;
+  style: CSSProperties;
+  rowIndex: number;
+  align?: PropTypes.Alignment;
+  item: ItemType;
+  search: string;
+  i: number;
+};
+
+const GridRow: FC<GridRowProps> = ({ column, style, rowIndex, align, item, search, i }) => {
+  const classes = useStyles();
+  const { name, address, imageUrl } = item.validator;
+
+  if (search) {
+    const formattedSearch = search.toLowerCase().replace(/ /g, '');
+    if (
+      !name.toLowerCase().replace(/ /g, '').includes(formattedSearch) &&
+      !address.toLowerCase().includes(formattedSearch)
+    ) {
+      return null;
+    }
+  }
+
+  const status = getValidatorStatus(item.inActiveSet, item.jailed, item.tombstoned);
+  const percentDisplay = item.inActiveSet
+    ? `${numeral(item.votingPowerPercent.toFixed(6)).format('0.[00]')}%`
+    : '0%';
+  const content = numeral(item.votingPower).format('0,0');
+
+  let formatItem: ReactNode = null;
+  switch (column) {
+    case 'idx':
+      formatItem = `#${i + 1}`;
+      break;
+    case 'validator':
+      formatItem = <AvatarName address={address} imageUrl={imageUrl} name={name} />;
+      break;
+    case 'commission':
+      formatItem = `${numeral(item.commission).format('0.[00]')}%`;
+      break;
+    case 'votingPower':
+      formatItem = (
+        <VotingPower
+          percentDisplay={percentDisplay}
+          percentage={item.votingPowerPercent}
+          content={content}
+          topVotingPower={item.topVotingPower ?? false}
+        />
+      );
+      break;
+    case 'status':
+      formatItem = (
+        <Typography variant="body1" className={classnames('status', status.theme)}>
+          {status.status}
+        </Typography>
+      );
+      break;
+    default:
+      break;
+  }
+
+  return (
+    <div
+      style={style}
+      className={classnames(classes.cell, classes.body, {
+        odd: !(rowIndex % 2),
+      })}
+    >
+      <Typography variant="body1" align={align} component="div">
+        {formatItem}
+      </Typography>
+    </div>
+  );
+};
+
+type DesktopProps = {
   className?: string;
   sortDirection: 'desc' | 'asc';
   sortKey: string;
   handleSort: (key: string) => void;
   items: ItemType[];
-}> = (props) => {
-  const { t } = useTranslation('validators');
+  search: string;
+};
+
+const Desktop: FC<DesktopProps> = (props) => {
   const classes = useStyles();
   const columns = fetchColumns();
 
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
-
-  const formattedItems = props.items.map((x, i): { [key: string]: ReactNode } => {
-    const status = getValidatorStatus(x.inActiveSet, x.jailed, x.tombstoned);
-    const percentDisplay = x.inActiveSet
-      ? `${numeral(x.votingPowerPercent.toFixed(6)).format('0.[00]')}%`
-      : '0%';
-    const content = numeral(x.votingPower).format('0,0');
-
-    return {
-      idx: `#${i + 1}`,
-      validator: (
-        <AvatarName
-          address={x.validator.address}
-          imageUrl={x.validator.imageUrl}
-          name={x.validator.name}
-        />
-      ),
-      commission: `${numeral(x.commission).format('0.[00]')}%`,
-      votingPower: (
-        <VotingPower
-          percentDisplay={percentDisplay}
-          percentage={x.votingPowerPercent}
-          content={content}
-          topVotingPower={x.topVotingPower ?? false}
-        />
-      ),
-      status: (
-        <Typography variant="body1" className={classnames('status', status.theme)}>
-          {status.status}
-        </Typography>
-      ),
-    };
-  });
 
   return (
     <div className={classnames(props.className, classes.root)}>
@@ -71,7 +165,7 @@ const Desktop: React.FC<{
             {/* Table Header */}
             {/* ======================================= */}
             <Grid
-              ref={columnRef as React.LegacyRef<Grid>}
+              ref={columnRef as LegacyRef<Grid>}
               columnCount={columns.length}
               columnWidth={(index) => getColumnWidth(width, index)}
               height={50}
@@ -79,79 +173,44 @@ const Desktop: React.FC<{
               rowHeight={() => 50}
               width={width}
             >
-              {({ columnIndex, style }) => {
-                const { key, align, component, sort, sortKey: sortingKey } = columns[columnIndex];
-
-                let formattedComponent = component;
-
-                if (key === 'votingPower') {
-                  formattedComponent = (
-                    <Typography variant="h4" className="label popover">
-                      {t('votingPower')}
-                      <InfoPopover content={VotingPowerExplanation} />
-                      {!!sort && (
-                        <SortArrows
-                          sort={props.sortKey === sortingKey ? props.sortDirection : undefined}
-                        />
-                      )}
-                    </Typography>
-                  );
-                }
-
-                return (
-                  <div
-                    style={style}
-                    className={classnames(classes.cell, {
-                      [classes.flexCells]: component || sort,
-                      [align ?? '']: sort || component,
-                      sort,
-                    })}
-                    onClick={() => (sort ? props.handleSort(sortingKey ?? '') : null)}
-                    role="button"
-                    tabIndex={0}
-                    aria-label={t(key)}
-                  >
-                    {formattedComponent || (
-                      <Typography variant="h4" align={align}>
-                        {t(key)}
-                        {!!sort && (
-                          <SortArrows
-                            sort={props.sortKey === sortingKey ? props.sortDirection : undefined}
-                          />
-                        )}
-                      </Typography>
-                    )}
-                  </div>
-                );
-              }}
+              {({ columnIndex, style }) => (
+                <GridColumn
+                  column={columns[columnIndex]}
+                  sortKey={props.sortKey}
+                  sortDirection={props.sortDirection}
+                  handleSort={props.handleSort}
+                  style={style}
+                />
+              )}
             </Grid>
             {/* ======================================= */}
             {/* Table Body */}
             {/* ======================================= */}
             <Grid
-              ref={gridRef as React.LegacyRef<Grid>}
+              ref={gridRef as LegacyRef<Grid>}
               columnCount={columns.length}
               columnWidth={(index) => getColumnWidth(width, index)}
               height={height - 50}
-              rowCount={formattedItems.length}
+              rowCount={props.items.length}
               rowHeight={getRowHeight}
               width={width}
               className="scrollbar"
             >
               {({ columnIndex, rowIndex, style }) => {
                 const { key, align } = columns[columnIndex];
-                const item = formattedItems[rowIndex][key];
+                const item = props.items[rowIndex];
+                if (!item?.validator) return null;
                 return (
-                  <div
+                  <GridRow
+                    key={item.validator.address}
+                    column={key}
                     style={style}
-                    className={classnames(classes.cell, classes.body, {
-                      odd: !(rowIndex % 2),
-                    })}
-                  >
-                    <Typography variant="body1" align={align} component="div">
-                      {item}
-                    </Typography>
-                  </div>
+                    rowIndex={rowIndex}
+                    align={align}
+                    item={item}
+                    search={props.search}
+                    i={rowIndex}
+                  />
                 );
               }}
             </Grid>

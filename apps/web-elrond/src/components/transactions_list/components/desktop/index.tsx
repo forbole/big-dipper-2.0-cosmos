@@ -15,13 +15,14 @@ import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
-import React, { ReactNode } from 'react';
+import { FC } from 'react';
 
-const Desktop: React.FC<{ items: TransactionType[] } & ComponentDefault> = (props) => {
+const Desktop: FC<{ className?: string; items: TransactionType[] }> = (props) => {
   const { className, items } = props;
   const { t } = useTranslation('transactions');
   const classes = useStyles();
-  const formattedItems = items.map((x): { [key: string]: ReactNode } => ({
+  const formattedItems = items.map((x) => ({
+    key: `${x.hash}-${x.timestamp}`,
     hash: (
       <Link href={TRANSACTION_DETAILS(x.hash)} passHref>
         <Typography variant="body1" className="value" component="a">
@@ -71,13 +72,11 @@ const Desktop: React.FC<{ items: TransactionType[] } & ComponentDefault> = (prop
           </TableRow>
         </TableHead>
         <TableBody>
-          {formattedItems.map((row, i) => (
-            // eslint-disable-next-line react/no-array-index-key
-            <TableRow key={`holders-row-${i}`}>
+          {formattedItems.map((row) => (
+            <TableRow key={row.key}>
               {columns.map((column) => (
                 <TableCell
-                  // eslint-disable-next-line react/no-array-index-key
-                  key={`holders-row-${i}-${column.key}`}
+                  key={`${row.key}-${column.key}`}
                   align={column.align}
                   style={{ width: `${column.width}%` }}
                 >

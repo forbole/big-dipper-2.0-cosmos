@@ -19,6 +19,18 @@ const initialState: OnlineVotingPowerState = {
   activeValidators: 0,
 };
 
+const formatOnlineVotingPower = (data: OnlineVotingPowerQuery) => {
+  const votingPower = data?.validatorVotingPowerAggregate?.aggregate?.sum?.votingPower ?? 0;
+  const bonded = data?.stakingPool?.[0]?.bonded ?? 0;
+  const activeValidators = data?.activeTotal?.aggregate?.count ?? 0;
+
+  return {
+    activeValidators,
+    votingPower,
+    totalVotingPower: numeral(formatToken(bonded, votingPowerTokenUnit).value).value() ?? 0,
+  };
+};
+
 export const useOnlineVotingPower = () => {
   const [state, setState] = useState(initialState);
 
@@ -40,18 +52,6 @@ export const useOnlineVotingPower = () => {
       }));
     },
   });
-
-  const formatOnlineVotingPower = (data: OnlineVotingPowerQuery) => {
-    const votingPower = data?.validatorVotingPowerAggregate?.aggregate?.sum?.votingPower ?? 0;
-    const bonded = data?.stakingPool?.[0]?.bonded ?? 0;
-    const activeValidators = data?.activeTotal?.aggregate?.count ?? 0;
-
-    return {
-      activeValidators,
-      votingPower,
-      totalVotingPower: numeral(formatToken(bonded, votingPowerTokenUnit).value).value() ?? 0,
-    };
-  };
 
   return {
     state,

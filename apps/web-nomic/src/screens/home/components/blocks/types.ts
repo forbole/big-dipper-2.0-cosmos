@@ -6,6 +6,7 @@ export interface BlockType {
 }
 
 export interface BlocksState {
+  loading: boolean;
   items: BlockType[];
 }
 

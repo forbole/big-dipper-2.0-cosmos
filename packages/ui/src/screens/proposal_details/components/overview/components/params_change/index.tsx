@@ -4,15 +4,17 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import useTranslation from 'next-translate/useTranslation';
-import React from 'react';
+import { FC } from 'react';
 
-const ParamsChange: React.FC<{
+type ParamsChangeProps = {
   changes: {
     subspace: string;
     key: string;
     value: string;
   }[];
-}> = ({ changes }) => {
+};
+
+const ParamsChange: FC<ParamsChangeProps> = ({ changes }) => {
   const { t } = useTranslation('proposals');
   return (
     <div style={{ overflow: 'auto' }}>

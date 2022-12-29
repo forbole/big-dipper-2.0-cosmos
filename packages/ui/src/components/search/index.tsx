@@ -4,13 +4,15 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
 import classnames from 'classnames';
-import React from 'react';
+import React, { FC } from 'react';
 
-const Search: React.FC<{
+type SearchProps = {
   className?: string;
   placeholder: string;
   callback: (value: string) => void;
-}> = ({ className, placeholder, callback }) => {
+};
+
+const Search: FC<SearchProps> = ({ className, placeholder, callback }) => {
   const classes = useStyles();
 
   const { handleOnSubmit, handleOnChange, handleKeyDown, value } = useSearch(callback);

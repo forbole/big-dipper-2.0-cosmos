@@ -1,13 +1,12 @@
 import Box from '@/components/box';
 import NoData from '@/components/no_data';
 import { useScreenSize } from '@/hooks';
-import { useProfilesRecoil } from '@/recoil/profiles';
 import { useStyles } from '@/screens/block_details/components/signatures/styles';
 import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import dynamic from 'next/dynamic';
-import React from 'react';
+import React, { FC } from 'react';
 
 const Desktop = dynamic(
   () => import('@/screens/block_details/components/signatures/components/desktop')
@@ -16,15 +15,14 @@ const Mobile = dynamic(
   () => import('@/screens/block_details/components/signatures/components/mobile')
 );
 
-const Signatures: React.FC<
-  ComponentDefault & {
-    signatures: string[];
-  }
-> = ({ className, signatures }) => {
+type SignaturesProps = ComponentDefault & {
+  signatures: string[];
+};
+
+const Signatures: FC<SignaturesProps> = ({ className, signatures }) => {
   const { isDesktop } = useScreenSize();
   const { t } = useTranslation('blocks');
   const classes = useStyles();
-  const formattedSignatures = useProfilesRecoil(signatures);
 
   return (
     <Box className={classnames(className, classes.root)}>
@@ -36,9 +34,9 @@ const Signatures: React.FC<
       ) : (
         <div className={classes.wrapper}>
           {isDesktop ? (
-            <Desktop className={classes.desktop} signatures={formattedSignatures} />
+            <Desktop className={classes.desktop} signatures={signatures} />
           ) : (
-            <Mobile className={classes.mobile} signatures={formattedSignatures} />
+            <Mobile className={classes.mobile} signatures={signatures} />
           )}
         </div>
       )}

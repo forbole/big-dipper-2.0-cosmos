@@ -6,14 +6,14 @@ import { useStyles } from '@/screens/block_details/components/transactions/style
 import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import React from 'react';
+import React, { FC } from 'react';
 import { useRecoilValue } from 'recoil';
 
-const Transactions: React.FC<
-  ComponentDefault & {
-    transactions: Transactions[];
-  }
-> = ({ className, transactions }) => {
+type TransactionsProps = ComponentDefault & {
+  transactions: Transactions[];
+};
+
+const Transactions: FC<TransactionsProps> = ({ className, transactions }) => {
   const txListFormat = useRecoilValue(readTx);
   const { t } = useTranslation('transactions');
   const classes = useStyles();

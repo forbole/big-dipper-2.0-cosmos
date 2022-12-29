@@ -2,7 +2,7 @@ import { STATS } from '@/api';
 import type { EpochState } from '@/screens/home/components/epoch/types';
 import axios from 'axios';
 import * as R from 'ramda';
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export const useEpoch = () => {
   const [state, setState] = useState<EpochState>({
@@ -11,14 +11,14 @@ export const useEpoch = () => {
     roundsPerEpoch: 0,
   });
 
-  const handleSetState = useCallback((stateChange: (prevState: EpochState) => EpochState) => {
-    setState((prevState) => {
-      const newState = stateChange(prevState);
-      return R.equals(prevState, newState) ? prevState : newState;
-    });
-  }, []);
-
   useEffect(() => {
+    const handleSetState = (stateChange: (prevState: EpochState) => EpochState) => {
+      setState((prevState) => {
+        const newState = stateChange(prevState);
+        return R.equals(prevState, newState) ? prevState : newState;
+      });
+    };
+
     const getEpoch = async () => {
       try {
         const { data: statsData } = await axios.get(STATS);
@@ -35,7 +35,7 @@ export const useEpoch = () => {
     };
 
     getEpoch();
-  }, [handleSetState]);
+  }, []);
 
   return {
     state,

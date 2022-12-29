@@ -10,9 +10,9 @@ import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import React from 'react';
+import React, { FC, Fragment } from 'react';
 
-const SmartContractResults: React.FC<{ results: ResultType[] } & ComponentDefault> = (props) => {
+const SmartContractResults: FC<{ results: ResultType[] }> = (props) => {
   const { t } = useTranslation('transactions');
   const classes = useStyles();
 
@@ -35,8 +35,7 @@ const SmartContractResults: React.FC<{ results: ResultType[] } & ComponentDefaul
       </Typography>
       <div>
         {formattedItems?.map((x, i) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <React.Fragment key={`${x.data}-${i}`}>
+          <Fragment key={x.hash}>
             <div className={classes.itemWrap}>
               <div className={classes.desktopFlex}>
                 <div className={classes.item}>
@@ -84,7 +83,7 @@ const SmartContractResults: React.FC<{ results: ResultType[] } & ComponentDefaul
               </div>
             </div>
             {i !== formattedItems.length - 1 && <Divider />}
-          </React.Fragment>
+          </Fragment>
         ))}
       </div>
     </Box>

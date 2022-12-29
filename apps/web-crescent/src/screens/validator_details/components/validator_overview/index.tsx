@@ -18,17 +18,18 @@ import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
-import React from 'react';
+import React, { FC } from 'react';
 import CopyIcon from 'shared-utils/assets/icon-copy.svg';
 import LiquidStakingFalseIcon from 'shared-utils/assets/liquid-staking-false.svg';
 import LiquidStakingTrueIcon from 'shared-utils/assets/liquid-staking-true.svg';
 
-const ValidatorOverview: React.FC<
-  {
-    status: StatusType;
-    overview: OverviewType;
-  } & ComponentDefault
-> = ({ status, overview, className }) => {
+type ValidatorOverviewProps = {
+  className?: string;
+  status: StatusType;
+  overview: OverviewType;
+};
+
+const ValidatorOverview: FC<ValidatorOverviewProps> = ({ status, overview, className }) => {
   const { isDesktop } = useScreenSize();
   const classes = useStyles();
   const { t } = useTranslation('validators');
@@ -177,9 +178,8 @@ const ValidatorOverview: React.FC<
       </div>
       <Divider className={classes.divider} />
       <div className={classes.statusRoot}>
-        {statusItems.map((x, i) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <div className={classes.statusItem} key={`status-item-${i}`}>
+        {statusItems.map((x) => (
+          <div key={`status-item-${x.key}`} className={classes.statusItem}>
             {x.key}
             {x.value}
           </div>

@@ -1,9 +1,9 @@
 import NoData from '@/components/no_data';
 import List from '@/components/transactions_list_details/components/list';
 import type { TransactionsListDetailsState } from '@/components/transactions_list_details/types';
-import React from 'react';
+import React, { FC } from 'react';
 
-const TransactionsListDetails: React.FC<TransactionsListDetailsState> = (props) => {
+const TransactionsListDetails: FC<TransactionsListDetailsState> = (props) => {
   // setting fallback values
   const {
     hasNextPage = false,

@@ -1,6 +1,7 @@
 import CustomToolTip from '@/components/custom_tool_tip';
 import { MockTheme } from '@/tests/utils';
 import numeral from 'numeral';
+import { ReactNode } from 'react';
 import renderer from 'react-test-renderer';
 import { Cell, Pie, PieChart, Tooltip } from 'recharts';
 
@@ -61,7 +62,7 @@ describe('component: CustomToolTip', () => {
             <Tooltip
               content={
                 <CustomToolTip>
-                  {(x) => (
+                  {(x: { legendKey: ReactNode; value: ReactNode }) => (
                     <>
                       <div>{x.legendKey}</div>
                       <div>{x.value}</div>

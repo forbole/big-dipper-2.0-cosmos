@@ -1,7 +1,7 @@
 import { Translate } from 'next-translate';
 
 export const getStatusInfo = (status: string, t: Translate) => {
-  const statusDict: { [key: string]: { value: string; tag: string } } = {
+  const statusDict = {
     PROPOSAL_STATUS_DEPOSIT_PERIOD: {
       value: t('deposit'),
       tag: 'one',
@@ -28,8 +28,8 @@ export const getStatusInfo = (status: string, t: Translate) => {
     },
   };
 
-  if (statusDict[status]) {
-    return statusDict[status];
+  if (statusDict[status as keyof typeof statusDict]) {
+    return statusDict[status as keyof typeof statusDict];
   }
   return {
     value: status,

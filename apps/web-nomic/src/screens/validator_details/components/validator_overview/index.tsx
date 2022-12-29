@@ -14,15 +14,16 @@ import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
-import React from 'react';
+import React, { FC } from 'react';
 import CopyIcon from 'shared-utils/assets/icon-copy.svg';
 
-const ValidatorOverview: React.FC<
-  {
-    status: StatusType;
-    overview: OverviewType;
-  } & ComponentDefault
-> = ({ status, overview, className }) => {
+type ValidatorOverviewProps = {
+  className?: string;
+  status: StatusType;
+  overview: OverviewType;
+};
+
+const ValidatorOverview: FC<ValidatorOverviewProps> = ({ status, overview, className }) => {
   const { isDesktop } = useScreenSize();
   const classes = useStyles();
   const { t } = useTranslation('validators');
@@ -32,7 +33,8 @@ const ValidatorOverview: React.FC<
 
   const statusItems = [
     {
-      key: (
+      key: 'status',
+      name: (
         <Typography variant="h4" className="label">
           {t('status')}
         </Typography>
@@ -42,7 +44,8 @@ const ValidatorOverview: React.FC<
       ),
     },
     {
-      key: (
+      key: 'commission',
+      name: (
         <Typography variant="h4" className="label">
           {t('commission')}
         </Typography>
@@ -54,7 +57,8 @@ const ValidatorOverview: React.FC<
       ),
     },
     {
-      key: (
+      key: 'maxRate',
+      name: (
         <Typography variant="h4" className="label">
           {t('maxRate')}
         </Typography>
@@ -114,10 +118,9 @@ const ValidatorOverview: React.FC<
       </div>
       <Divider className={classes.divider} />
       <div className={classes.statusRoot}>
-        {statusItems.map((x, i) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <div className={classes.statusItem} key={`status-item-${i}`}>
-            {x.key}
+        {statusItems.map((x) => (
+          <div key={x.key} className={classes.statusItem}>
+            {x.name}
             {x.value}
           </div>
         ))}

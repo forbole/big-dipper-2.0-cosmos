@@ -1,66 +1,59 @@
 import Box from '@/components/box';
 import TabPanel from '@/components/tab_panel';
-import type DelegationsFC from '@/screens/account_details/components/staking/components/delegations';
-import type RedelgationsFC from '@/screens/account_details/components/staking/components/redelegations';
 import Tabs from '@/screens/account_details/components/staking/components/tabs';
-import type UnbondingsFC from '@/screens/account_details/components/staking/components/unbondings';
 import { useStaking } from '@/screens/account_details/components/staking/hooks';
 import { useStyles } from '@/screens/account_details/components/staking/styles';
 import type { RewardsType } from '@/screens/account_details/types';
+import { formatCount } from '@/screens/validator_details/components/staking';
 import classnames from 'classnames';
 import dynamic from 'next/dynamic';
-import React from 'react';
+import React, { FC, useState } from 'react';
 
 const Delegations = dynamic(
   () => import('@/screens/account_details/components/staking/components/delegations')
-) as typeof DelegationsFC;
+);
 const Redelgations = dynamic(
   () => import('@/screens/account_details/components/staking/components/redelegations')
-) as typeof RedelgationsFC;
+);
 const Unbondings = dynamic(
   () => import('@/screens/account_details/components/staking/components/unbondings')
-) as typeof UnbondingsFC;
+);
 
-const Staking: React.FC<
-  {
-    rewards: RewardsType;
-    accountDelegationsDocument: string;
-    accountRedelegationsDocument: string;
-    accountUndelegationsDocument: string;
-  } & ComponentDefault
-> = ({
-  rewards,
-  accountDelegationsDocument,
-  accountRedelegationsDocument,
-  accountUndelegationsDocument,
-  className,
-}) => {
+type StakingProps = {
+  className?: string;
+  rewards: RewardsType;
+};
+
+const Staking: FC<StakingProps> = ({ rewards, className }) => {
   const classes = useStyles();
-  const { state, handleTabChange } = useStaking(
+  const [delegationsPage, setDelegationsPage] = useState(0);
+  const [redelegationsPage, setRedelegationsPage] = useState(0);
+  const [unbondingsPage, setUnbondingsPage] = useState(0);
+  const { state, delegations, redelegations, unbondings, handleTabChange } = useStaking(
     rewards,
-    accountDelegationsDocument,
-    accountRedelegationsDocument,
-    accountUndelegationsDocument
+    delegationsPage,
+    redelegationsPage,
+    unbondingsPage
   );
 
   const tabs = [
     {
       id: 0,
       key: 'delegations',
-      component: <Delegations delegations={state.delegations} />,
-      count: state.delegations.count,
+      component: <Delegations delegations={delegations} setPage={setDelegationsPage} />,
+      count: formatCount(delegationsPage, delegations),
     },
     {
       id: 1,
       key: 'redelegations',
-      component: <Redelgations redelegations={state.redelegations} />,
-      count: state.redelegations.count,
+      component: <Redelgations redelegations={redelegations} setPage={setRedelegationsPage} />,
+      count: formatCount(redelegationsPage, redelegations),
     },
     {
       id: 2,
       key: 'unbondings',
-      component: <Unbondings unbondings={state.unbondings} />,
-      count: state.unbondings.count,
+      component: <Unbondings unbondings={unbondings} setPage={setUnbondingsPage} />,
+      count: formatCount(unbondingsPage, unbondings),
     },
   ];
 

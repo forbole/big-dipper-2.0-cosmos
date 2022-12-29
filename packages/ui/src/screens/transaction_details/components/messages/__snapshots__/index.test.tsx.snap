@@ -184,6 +184,9 @@ exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
                 </p>
               </span>
             </div>
+            <hr
+              className="MuiDivider-root"
+            />
           </div>
         </div>
       </div>

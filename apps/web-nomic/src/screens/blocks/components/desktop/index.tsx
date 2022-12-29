@@ -11,23 +11,31 @@ import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
-import React, { ReactNode } from 'react';
+import React, { FC, LegacyRef } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { VariableSizeGrid as Grid } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
 
-const Desktop: React.FC<{
+type DesktopProps = {
   className?: string;
   items: BlockType[];
   itemCount: number;
   loadMoreItems: (...arg: unknown[]) => void;
   isItemLoaded?: (index: number) => boolean;
-}> = ({ className, items, itemCount, loadMoreItems, isItemLoaded }) => {
+};
+
+const Desktop: FC<DesktopProps> = ({
+  className,
+  items,
+  itemCount,
+  loadMoreItems,
+  isItemLoaded,
+}) => {
   const { t } = useTranslation('blocks');
   const classes = useStyles();
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
 
-  const formattedItems = items?.map((x): { [key: string]: ReactNode } => ({
+  const formattedItems = items?.map((x) => ({
     height: (
       <Link href={BLOCK_DETAILS(x.height)} passHref>
         <Typography variant="body1" className="value" component="a">
@@ -49,7 +57,7 @@ const Desktop: React.FC<{
             {/* Table Header */}
             {/* ======================================= */}
             <Grid
-              ref={columnRef as React.LegacyRef<Grid>}
+              ref={columnRef as LegacyRef<Grid>}
               columnCount={columns.length}
               columnWidth={(index) => getColumnWidth(width, index)}
               height={50}
@@ -125,7 +133,8 @@ const Desktop: React.FC<{
                     }
 
                     const { key, align } = columns[columnIndex];
-                    const item = formattedItems[rowIndex][key];
+                    const item =
+                      formattedItems[rowIndex][key as keyof typeof formattedItems[number]];
                     return (
                       <div
                         style={style}

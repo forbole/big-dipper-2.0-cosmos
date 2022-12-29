@@ -7,6 +7,7 @@ exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
     [
       {
         "detail": "",
+        "key": "hash",
         "label": "hash",
       },
       {
@@ -22,34 +23,41 @@ exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
             0
           </WithStyles(ForwardRef(Typography))>
         </ForwardRef(LinkComponent)>,
+        "key": "height",
         "label": "height",
       },
       {
         "detail": "2020-08-10 12:00:00",
+        "key": "time",
         "label": "time",
       },
       {
         "detail": "5,000 DARIC",
+        "key": "fee",
         "label": "fee",
       },
       {
         "detail": "0 / 0",
+        "key": "gas",
         "label": "gas",
       },
       {
         "detail": <Unknown
           success={false}
         />,
+        "key": "result",
         "label": "result",
       },
       {
         "className": "memo",
         "detail": "",
+        "key": "memo",
         "label": "memo",
       },
       {
         "className": "memo",
         "detail": "",
+        "key": "error",
         "label": "error",
       },
     ]

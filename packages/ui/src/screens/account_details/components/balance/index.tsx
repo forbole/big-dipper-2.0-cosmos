@@ -1,5 +1,6 @@
 import chainConfig from '@/chainConfig';
 import Box from '@/components/box';
+import useShallowMemo from '@/hooks/useShallowMemo';
 import { readMarket } from '@/recoil/market';
 import { useStyles } from '@/screens/account_details/components/balance/styles';
 import { formatBalanceData } from '@/screens/account_details/components/balance/utils';
@@ -10,30 +11,28 @@ import Big from 'big.js';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
-import React from 'react';
+import { FC } from 'react';
 import { Cell, Pie, PieChart, ResponsiveContainer } from 'recharts';
 import { useRecoilValue } from 'recoil';
 
 const { primaryTokenUnit, tokenUnits } = chainConfig();
 
-type Props = Parameters<typeof formatBalanceData>[0] & {
+type BalanceProps = Parameters<typeof formatBalanceData>[0] & {
   className?: string;
   total: TokenUnit;
 };
 
-const Balance: React.FC<Props> = (props) => {
+const Balance: FC<BalanceProps> = (props) => {
   const { t } = useTranslation('accounts');
   const { classes, theme } = useStyles();
   const market = useRecoilValue(readMarket);
   const formattedChartData = formatBalanceData(props);
-
   const empty = {
     key: 'empty',
     value: 2400,
     background: theme.palette.custom.charts.zero,
     display: '',
   };
-
   const backgrounds = [
     theme.palette.custom.charts.one,
     theme.palette.custom.charts.two,
@@ -41,17 +40,15 @@ const Balance: React.FC<Props> = (props) => {
     theme.palette.custom.charts.four,
     theme.palette.custom.charts.five,
   ];
-
   const formatData = formattedChartData.map((x, i) => ({
     ...x,
     value: numeral(x.value).value(),
     background: backgrounds[i],
   }));
-
   const notEmpty = formatData.some((x) => x.value && Big(x.value).gt(0));
+  const dataMemo = useShallowMemo(notEmpty ? formatData : [...formatData, empty]);
 
   const dataCount = formatData.filter((x) => x.value && Big(x.value).gt(0)).length;
-  const data = notEmpty ? formatData : [...formatData, empty];
   const totalAmount = `$${numeral(
     Big(market.price || 0)
       ?.times(props.total.value)
@@ -70,7 +67,7 @@ const Balance: React.FC<Props> = (props) => {
             <PieChart>
               <Pie
                 dataKey="value"
-                data={data}
+                data={dataMemo}
                 isAnimationActive={false}
                 innerRadius="90%"
                 outerRadius="100%"
@@ -79,16 +76,15 @@ const Balance: React.FC<Props> = (props) => {
                 fill="#82ca9d"
                 stroke="none"
               >
-                {data.map((entry, index) => (
-                  // eslint-disable-next-line react/no-array-index-key
-                  <Cell key={`cell-${index}`} fill={entry.background} stroke={entry.background} />
+                {dataMemo.map((entry) => (
+                  <Cell key={entry.key} fill={entry.background} stroke={entry.background} />
                 ))}
               </Pie>
             </PieChart>
           </ResponsiveContainer>
         </div>
         <div className={classes.legends}>
-          {data.map((x) => {
+          {dataMemo.map((x) => {
             if (x.key.toLowerCase() === 'empty') {
               return null;
             }

@@ -17,4 +17,4 @@ export interface VoteState {
   tab: number;
 }
 
-export type ItemType = Override<VoteType, { user: AvatarName }>;
+export type ItemType = VoteType;

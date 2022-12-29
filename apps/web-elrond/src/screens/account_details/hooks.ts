@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ACCOUNT_DETAILS, ACCOUNT_DETAILS_TOKEN_COUNT } from '@/api';
 import chainConfig from '@/chainConfig';
 import type { AccountDetailsType } from '@/screens/account_details/types';
@@ -5,7 +6,7 @@ import { formatToken } from '@/utils/format_token';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const { primaryTokenUnit } = chainConfig();
 
@@ -15,6 +16,18 @@ const defaultTokenUnit: TokenUnit = {
   displayDenom: '',
   exponent: 0,
 };
+
+const getProfile = (accountData: any) => ({
+  address: accountData?.address ?? '',
+  username: accountData?.username ?? '',
+});
+
+const getOverview = (accountData: any, tokenCount: number) => ({
+  balance: formatToken(accountData?.balance ?? '0', primaryTokenUnit),
+  developerReward: formatToken(accountData?.developerReward ?? '0', primaryTokenUnit),
+  shard: accountData?.shard ?? 0,
+  tokenCount,
+});
 
 export const useAccountDetails = () => {
   const router = useRouter();
@@ -33,17 +46,14 @@ export const useAccountDetails = () => {
     },
   });
 
-  const handleSetState = useCallback(
-    (stateChange: (prevState: AccountDetailsType) => AccountDetailsType) => {
+  useEffect(() => {
+    const handleSetState = (stateChange: (prevState: AccountDetailsType) => AccountDetailsType) => {
       setState((prevState) => {
         const newState = stateChange(prevState);
         return R.equals(prevState, newState) ? prevState : newState;
       });
-    },
-    []
-  );
+    };
 
-  useEffect(() => {
     const getAccount = async () => {
       const { data: accountData } = await axios.get(
         ACCOUNT_DETAILS(router.query.address as string)
@@ -57,27 +67,15 @@ export const useAccountDetails = () => {
         loading: false,
       };
 
-      const getProfile = () => ({
-        address: accountData?.address ?? '',
-        username: accountData?.username ?? '',
-      });
+      newState.profile = getProfile(accountData);
 
-      newState.profile = getProfile();
-
-      const getOverview = () => ({
-        balance: formatToken(accountData?.balance ?? '0', primaryTokenUnit),
-        developerReward: formatToken(accountData?.developerReward ?? '0', primaryTokenUnit),
-        shard: accountData?.shard ?? 0,
-        tokenCount,
-      });
-
-      newState.overview = getOverview();
+      newState.overview = getOverview(accountData, tokenCount);
 
       handleSetState((prevState) => ({ ...prevState, ...newState }));
     };
 
     getAccount();
-  }, [handleSetState, router.query.address]);
+  }, [router.query.address]);
 
   return {
     state,

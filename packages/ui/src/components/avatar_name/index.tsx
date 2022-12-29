@@ -4,9 +4,9 @@ import { ADDRESS_DETAILS } from '@/utils/go_to_page';
 import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import Link from 'next/link';
-import React from 'react';
+import React, { FC } from 'react';
 
-const AvatarName: React.FC<AvatarName> = ({
+const AvatarName: FC<AvatarName> = ({
   className,
   address,
   name,

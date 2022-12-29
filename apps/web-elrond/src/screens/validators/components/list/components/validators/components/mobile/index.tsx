@@ -1,52 +1,84 @@
-import React, { ComponentProps, FC } from 'react';
+import AvatarName from '@/components/avatar_name';
+import { useList, useListRow } from '@/hooks';
+import SingleValidator from '@/screens/validators/components/list/components/validators/components/mobile/component/single_validator';
+import { useStyles } from '@/screens/validators/components/list/components/validators/components/mobile/styles';
+import VotingPower from '@/screens/validators/components/list/components/validators/components/voting_power';
+import type { ValidatorType } from '@/screens/validators/components/list/types';
+import { formatNumber } from '@/utils/format_token';
+import { NODE_DETAILS, VALIDATOR_DETAILS } from '@/utils/go_to_page';
+import Divider from '@material-ui/core/Divider';
 import classnames from 'classnames';
 import numeral from 'numeral';
-import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
+import React, { FC, LegacyRef } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
-import Divider from '@material-ui/core/Divider';
-import AvatarName from '@/components/avatar_name';
-import { VALIDATOR_DETAILS, NODE_DETAILS } from '@/utils/go_to_page';
-import { useList, useListRow } from '@/hooks';
-import { formatNumber } from '@/utils/format_token';
-import type { ValidatorType } from '@/screens/validators/components/list/types';
-import SingleValidator from '@/screens/validators/components/list/components/validators/components/mobile/component/single_validator';
-import VotingPower from '@/screens/validators/components/list/components/validators/components/voting_power';
-import { useStyles } from '@/screens/validators/components/list/components/validators/components/mobile/styles';
+import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
 
-const Mobile: FC<{
+type ListItemProps = Pick<ListChildComponentProps, 'index' | 'style'> & {
+  setRowHeight: Parameters<typeof useListRow>[1];
+  item: ValidatorType;
+  isLast: boolean;
+  search: string;
+};
+
+const ListItem: FC<ListItemProps> = ({ index, style, setRowHeight, item, isLast, search }) => {
+  const { rowRef } = useListRow(index, setRowHeight);
+  const { name, address, imageUrl } = item.validator;
+
+  if (search) {
+    const formattedSearch = search.toLowerCase().replace(/ /g, '');
+    if (
+      !name.toLowerCase().replace(/ /g, '').includes(formattedSearch) &&
+      !address.toLowerCase().includes(formattedSearch)
+    ) {
+      return null;
+    }
+  }
+
+  const selectedItem = {
+    idx: `#${index + 1}`,
+    validator: (
+      <AvatarName
+        address={address}
+        imageUrl={imageUrl}
+        name={name}
+        href={item.isNode ? NODE_DETAILS : VALIDATOR_DETAILS}
+      />
+    ),
+    locked: (
+      <VotingPower
+        percentDisplay={`${item.stakePercent}%`}
+        percentage={item.stakePercent}
+        content={formatNumber(item.locked.value, 2)}
+      />
+    ),
+    stake: `${formatNumber(
+      item.stake.value,
+      item.stake.exponent
+    )} ${item.stake.displayDenom.toUpperCase()}`,
+    nodes: item.nodes ? numeral(item.nodes).format('0,0') : '-',
+    delegators: item.delegators ? numeral(item.delegators).format('0,0') : '-',
+    commission: item.commission ? `${numeral(item.commission * 100).format('0,0.[00]')}%` : '-',
+    apr: item.apr ? `${item.apr}%` : '-',
+  };
+  return (
+    <div style={style}>
+      <div ref={rowRef}>
+        <SingleValidator {...selectedItem} />
+        {!isLast && <Divider />}
+      </div>
+    </div>
+  );
+};
+
+type MobileProps = {
   className?: string;
   items: ValidatorType[];
-}> = ({ className, items }) => {
+  search: string;
+};
+
+const Mobile: FC<MobileProps> = ({ className, items, search }) => {
   const classes = useStyles();
   const { listRef, getRowHeight, setRowHeight } = useList();
-
-  const formattedItems =
-    items?.map((x, i) => ({
-      idx: `#${i + 1}`,
-      validator: (
-        <AvatarName
-          address={x.validator.address}
-          imageUrl={x.validator.imageUrl}
-          name={x.validator.name}
-          href={x.isNode ? NODE_DETAILS : VALIDATOR_DETAILS}
-        />
-      ),
-      locked: (
-        <VotingPower
-          percentDisplay={`${x.stakePercent}%`}
-          percentage={x.stakePercent}
-          content={formatNumber(x.locked.value, 2)}
-        />
-      ),
-      stake: `${formatNumber(
-        x.stake.value,
-        x.stake.exponent
-      )} ${x.stake.displayDenom.toUpperCase()}`,
-      nodes: x.nodes ? numeral(x.nodes).format('0,0') : '-',
-      delegators: x.delegators ? numeral(x.delegators).format('0,0') : '-',
-      commission: x.commission ? `${numeral(x.commission * 100).format('0,0.[00]')}%` : '-',
-      apr: x.apr ? `${x.apr}%` : '-',
-    })) ?? [];
 
   return (
     <div className={classnames(className, classes.root)}>
@@ -55,33 +87,25 @@ const Mobile: FC<{
           <List
             className="List"
             height={height}
-            itemCount={formattedItems.length}
+            itemCount={items.length}
             itemSize={getRowHeight}
-            ref={listRef as React.LegacyRef<List>}
+            ref={listRef as LegacyRef<List>}
             width={width}
           >
-            {({ index, style }) => <ListItem {...{ index, style, setRowHeight, formattedItems }} />}
+            {({ index, style }) => (
+              <ListItem
+                key={items[index].validator.address}
+                index={index}
+                item={items[index]}
+                style={style}
+                setRowHeight={setRowHeight}
+                isLast={index === items.length - 1}
+                search={search}
+              />
+            )}
           </List>
         )}
       </AutoSizer>
-    </div>
-  );
-};
-
-const ListItem: FC<
-  Pick<ListChildComponentProps, 'index' | 'style'> & {
-    setRowHeight: Parameters<typeof useListRow>[1];
-    formattedItems: Array<ComponentProps<typeof SingleValidator>>;
-  }
-> = ({ index, style, setRowHeight, formattedItems }) => {
-  const { rowRef } = useListRow(index, setRowHeight);
-  const selectedItem = formattedItems[index];
-  return (
-    <div style={style}>
-      <div ref={rowRef}>
-        <SingleValidator {...selectedItem} />
-        {index !== formattedItems.length - 1 && <Divider />}
-      </div>
     </div>
   );
 };

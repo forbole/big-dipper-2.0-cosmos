@@ -1,32 +1,49 @@
 import Name from '@/components/name';
-import { useProfilesRecoil } from '@/recoil/profiles';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import useTranslation from 'next-translate/useTranslation';
-import React from 'react';
+import React, { FC } from 'react';
 
-const ListNames = (props: { creators: string[] }) => {
-  const { creators } = props;
+type CreatorNameProps = {
+  address: string;
+  addresses: string[];
+  isLast: boolean;
+  is2ndLast: boolean;
+};
 
+const CreatorName: FC<CreatorNameProps> = (props) => {
+  const { address: theAddress, addresses, isLast, is2ndLast } = props;
   const { t } = useTranslation('transactions');
-  const dataArray = useProfilesRecoil(creators);
+  const { address, name } = useProfileRecoil(theAddress);
+
+  let suffix = '';
+
+  if (is2ndLast) {
+    suffix = ` ${t('and')} `;
+  } else if (!isLast && addresses.length > 1) {
+    suffix = ', ';
+  }
 
   return (
     <>
-      {dataArray.map((x, i) => {
-        let suffix = '';
+      <Name address={address} name={name} />
+      {suffix}
+    </>
+  );
+};
 
-        if (i === dataArray.length - 2) {
-          suffix = ` ${t('and')} `;
-        } else if (i !== dataArray.length - 1 && dataArray.length > 1) {
-          suffix = ', ';
-        }
-
-        return (
-          <React.Fragment key={x.address}>
-            <Name address={x.address} name={x.name} />
-            {suffix}
-          </React.Fragment>
-        );
-      })}
+const ListNames = (props: { creators: string[] }) => {
+  const { creators } = props;
+  return (
+    <>
+      {creators.map((x, i) => (
+        <CreatorName
+          key={x}
+          address={x}
+          addresses={creators}
+          isLast={i === creators.length - 1}
+          is2ndLast={i === creators.length - 2}
+        />
+      ))}
     </>
   );
 };

@@ -1,10 +1,10 @@
-import React from 'react';
+import { ReactNode } from 'react';
 
 export const fetchColumns = (): {
   key: string;
   align?: 'left' | 'center' | 'right' | 'justify' | 'inherit';
   width: number;
-  component?: React.ReactNode;
+  component?: ReactNode;
   sortKey?: string;
   sort?: boolean;
 }[] => [
