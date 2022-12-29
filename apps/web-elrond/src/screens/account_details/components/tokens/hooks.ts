@@ -8,6 +8,16 @@ import type { OtherTokensState } from '@/screens/account_details/components/toke
 
 export const PAGE_SIZE = 10;
 
+type TokensResult = Array<{
+  balance?: string;
+  decimals?: number;
+  identifier?: string;
+  name?: string;
+  assets?: {
+    pngUrl?: string;
+  };
+}>;
+
 export const useTokens = () => {
   const router = useRouter();
   const [state, setState] = useState<OtherTokensState>({
@@ -30,21 +40,16 @@ export const useTokens = () => {
   const getTransactionsByPage = useCallback(
     async (page: number) => {
       try {
-        const { data } = await axios.get<
-          Array<{
-            balance?: string;
-            decimals?: number;
-            identifier?: string;
-            name?: string;
-            assets?: { pngUrl?: string };
-          }>
-        >(ACCOUNT_DETAILS_TOKENS(router.query.address as string), {
-          params: {
-            from: page * PAGE_SIZE,
-            size: PAGE_SIZE,
-            withLogs: false,
-          },
-        });
+        const { data } = await axios.get<TokensResult>(
+          ACCOUNT_DETAILS_TOKENS(router.query.address as string),
+          {
+            params: {
+              from: page * PAGE_SIZE,
+              size: PAGE_SIZE,
+              withLogs: false,
+            },
+          }
+        );
 
         const items = data.map((x) => {
           const balance = x?.balance ?? '0';

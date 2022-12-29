@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC, useMemo } from 'react';
 import classnames from 'classnames';
 import dynamic from 'next/dynamic';
 import useTranslation from 'next-translate/useTranslation';
@@ -9,6 +9,7 @@ import { usePagination, useScreenSize } from '@/hooks';
 import Typography from '@material-ui/core/Typography';
 import { useStyles } from '@/screens/account_details/components/other_tokens/styles';
 import type { OtherTokenType } from '@/screens/account_details/types';
+import useShallowMemo from '@/hooks/useShallowMemo';
 
 const Desktop = dynamic(
   () => import('@/screens/account_details/components/other_tokens/components/desktop')
@@ -17,26 +18,27 @@ const Mobile = dynamic(
   () => import('@/screens/account_details/components/other_tokens/components/mobile')
 );
 
-const OtherTokens: React.FC<{
+type OtherTokensProps = {
   className?: string;
   otherTokens: {
     data: OtherTokenType[];
     count: number;
   };
-}> = ({ className, otherTokens }) => {
+};
+
+const OtherTokens: FC<OtherTokensProps> = ({ className, otherTokens }) => {
   const { t } = useTranslation('accounts');
   const { isDesktop } = useScreenSize();
   const classes = useStyles();
   const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange, sliceItems } =
     usePagination({});
+  const dataMemo = useShallowMemo(otherTokens.data);
+  const items = useMemo(() => sliceItems(dataMemo), [dataMemo, sliceItems]);
 
-  const { data } = otherTokens;
-  const count = data.length;
-  if (!data.length) {
+  const count = dataMemo.length;
+  if (!dataMemo.length) {
     return null;
   }
-
-  const items = sliceItems(data);
 
   return (
     <Box className={classnames(className)}>

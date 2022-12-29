@@ -1,16 +1,16 @@
-import React from 'react';
-import classnames from 'classnames';
-import useTranslation from 'next-translate/useTranslation';
-import { usePagination } from '@/hooks';
-import Pagination from '@/components/pagination';
 import Box from '@/components/box';
 import Loading from '@/components/loading';
-import Typography from '@material-ui/core/Typography';
-import { useStyles } from '@/screens/account_details/components/nfts/styles';
+import Pagination from '@/components/pagination';
+import { usePagination } from '@/hooks';
 import List from '@/screens/account_details/components/nfts/components/list';
-import { useTokens, PAGE_SIZE } from '@/screens/account_details/components/nfts/hooks';
+import { PAGE_SIZE, useTokens } from '@/screens/account_details/components/nfts/hooks';
+import { useStyles } from '@/screens/account_details/components/nfts/styles';
+import Typography from '@material-ui/core/Typography';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
+import { FC } from 'react';
 
-const Tokens: React.FC<ComponentDefault> = (props) => {
+const Tokens: FC<ComponentDefault> = (props) => {
   const { t } = useTranslation('accounts');
   const classes = useStyles();
   const { state, handlePageChangeCallback } = useTokens();

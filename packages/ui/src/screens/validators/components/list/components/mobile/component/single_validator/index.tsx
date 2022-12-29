@@ -2,18 +2,26 @@ import { useStyles } from '@/screens/validators/components/list/components/mobil
 import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import React from 'react';
+import React, { FC, ReactNode } from 'react';
 
-const SingleValidator: React.FC<{
+type SingleValidatorProps = {
   className?: string;
-  validator: React.ReactNode;
+  validator: ReactNode;
   commission: string;
-  votingPower: React.ReactNode;
+  votingPower: ReactNode;
   status: {
     status: string;
     theme: string;
   };
-}> = ({ className, validator, commission, votingPower, status }) => {
+};
+
+const SingleValidator: FC<SingleValidatorProps> = ({
+  className,
+  validator,
+  commission,
+  votingPower,
+  status,
+}) => {
   const { t } = useTranslation('validators');
   const classes = useStyles();
   return (

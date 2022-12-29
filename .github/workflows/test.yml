@@ -46,6 +46,7 @@ jobs:
       - name: Set needs.install.outputs.{projects,projects-web}
         id: dry-run
         run: |
+          echo yarn turbo run build --dry='json' --filter='[${{ github.event.pull_request.base.sha }}]' | tee -a $GITHUB_STEP_SUMMARY
           export DRY_BUILD_JSON=$(
             yarn turbo run build --dry='json'
               --filter='[${{ github.event.pull_request.base.sha }}]'

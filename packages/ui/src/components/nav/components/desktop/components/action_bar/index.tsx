@@ -5,13 +5,15 @@ import { useStyles } from '@/components/nav/components/desktop/components/action
 import SearchBar from '@/components/nav/components/search_bar';
 import { useGetComponentDimension } from '@/hooks';
 import classnames from 'classnames';
-import React from 'react';
+import React, { FC } from 'react';
 
-const ActionBar: React.FC<{
+type ActionBarProps = {
   isNetwork: boolean;
   className?: string;
   toggleNetwork: () => void;
-}> = ({ toggleNetwork, className, isNetwork }) => {
+};
+
+const ActionBar: FC<ActionBarProps> = ({ toggleNetwork, className, isNetwork }) => {
   const { ref: heightRef, height } = useGetComponentDimension();
   const classes = useStyles();
   return (

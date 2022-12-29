@@ -3,23 +3,27 @@ import { useStyles } from '@/screens/providers/components/data_blocks/styles';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
-import React from 'react';
+import React, { FC } from 'react';
 
-const DataBlocks: React.FC<{
+type DataBlocksProps = {
   className?: string;
   providers: number;
   leases: number;
-}> = ({ className, providers, leases }) => {
+};
+
+const DataBlocks: FC<DataBlocksProps> = ({ className, providers, leases }) => {
   const { t } = useTranslation('providers');
   const classes = useStyles();
   const data = [
     {
-      key: t('activeProviders'),
+      key: 'activeProviders',
+      label: t('activeProviders'),
       value: numeral(providers).format('0,0'),
       className: classes.activeProviders,
     },
     {
-      key: t('activeLeases'),
+      key: 'activeLeases',
+      label: t('activeLeases'),
       value: numeral(leases).format('0,0'),
       className: classes.activeLeases,
     },
@@ -28,7 +32,7 @@ const DataBlocks: React.FC<{
   return (
     <div className={classnames(classes.root, className)}>
       {data.map((x) => (
-        <SingleBlock key={x.key} label={x.key} value={x.value} className={x.className} />
+        <SingleBlock key={x.key} label={x.label} value={x.value} className={x.className} />
       ))}
     </div>
   );

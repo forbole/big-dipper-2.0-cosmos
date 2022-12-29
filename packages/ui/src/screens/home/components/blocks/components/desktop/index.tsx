@@ -1,4 +1,5 @@
 import AvatarName from '@/components/avatar_name';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { useStyles } from '@/screens/home/components/blocks/components/desktop/styles';
 import { columns } from '@/screens/home/components/blocks/components/desktop/utils';
 import type { ItemType } from '@/screens/home/components/blocks/types';
@@ -15,37 +16,53 @@ import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
-import React, { ReactNode } from 'react';
+import { FC } from 'react';
 
-const Desktop: React.FC<{
-  className?: string;
-  items: ItemType[];
-}> = ({ className, items }) => {
-  const { t } = useTranslation('blocks');
-  const classes = useStyles();
+type BlockRowProps = {
+  item: ItemType;
+};
 
-  const formattedData = items.map((x): { [key: string]: ReactNode } => ({
+const BlockRow: FC<BlockRowProps> = ({ item }) => {
+  const { name, address, imageUrl } = useProfileRecoil(item.proposer);
+
+  const formattedData = {
     height: (
-      <Link href={BLOCK_DETAILS(x.height)} passHref>
+      <Link href={BLOCK_DETAILS(item.height)} passHref>
         <Typography variant="body1" className="value" component="a">
-          {numeral(x.height).format('0,0')}
+          {numeral(item.height).format('0,0')}
         </Typography>
       </Link>
     ),
-    txs: numeral(x.txs).format('0,0'),
-    time: dayjs.utc(x.timestamp).fromNow(),
-    proposer: (
-      <AvatarName
-        address={x.proposer.address}
-        imageUrl={x.proposer.imageUrl}
-        name={x.proposer.name}
-      />
-    ),
-    hash: getMiddleEllipsis(x.hash, {
+    txs: numeral(item.txs).format('0,0'),
+    time: dayjs.utc(item.timestamp).fromNow(),
+    proposer: <AvatarName address={address} imageUrl={imageUrl} name={name} />,
+    hash: getMiddleEllipsis(item.hash, {
       beginning: 6,
       ending: 5,
     }),
-  }));
+  };
+  return (
+    <TableRow>
+      {columns.map((column) => {
+        const { key, align } = column;
+        return (
+          <TableCell key={`${item.height}-${key}`} align={align}>
+            {formattedData[key as keyof typeof formattedData]}
+          </TableCell>
+        );
+      })}
+    </TableRow>
+  );
+};
+
+type DesktopProps = {
+  className?: string;
+  items: ItemType[];
+};
+
+const Desktop: FC<DesktopProps> = ({ className, items }) => {
+  const { t } = useTranslation('blocks');
+  const classes = useStyles();
 
   return (
     <div className={classnames(className, classes.root)}>
@@ -60,19 +77,8 @@ const Desktop: React.FC<{
           </TableRow>
         </TableHead>
         <TableBody>
-          {formattedData.map((row, i) => (
-            <TableRow key={`${items[i].height}`}>
-              {columns.map((column, index) => {
-                const { key, align } = column;
-                const item = row[key];
-                return (
-                  // eslint-disable-next-line react/no-array-index-key
-                  <TableCell align={align} key={`${key}-${index}`}>
-                    {item}
-                  </TableCell>
-                );
-              })}
-            </TableRow>
+          {items.map((row) => (
+            <BlockRow key={row.height} item={row} />
           ))}
         </TableBody>
       </Table>

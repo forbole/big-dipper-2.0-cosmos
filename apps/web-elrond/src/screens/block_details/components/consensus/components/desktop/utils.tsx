@@ -4,7 +4,7 @@ import { NODE_DETAILS } from '@/utils/go_to_page';
 import Typography from '@material-ui/core/Typography';
 import Link from 'next/link';
 import numeral from 'numeral';
-import { ReactNode } from 'react';
+import { FC } from 'react';
 
 export const columns: {
   key: string;
@@ -21,17 +21,19 @@ export const columns: {
   },
 ];
 
+const FormattedRow: FC<{ consensus: string }> = ({ consensus }) => (
+  <Link href={NODE_DETAILS(consensus)} passHref>
+    <Typography variant="body1" className="value" component="a">
+      {getMiddleEllipsis(consensus, {
+        beginning: 40,
+        ending: 30,
+      })}
+    </Typography>
+  </Link>
+);
+
 export const formatRows = (data: ConsensusType[]) =>
-  data.map((x, i): { [key: string]: ReactNode } => ({
+  data.map((x, i) => ({
     idx: numeral(i + 1).format('0,0'),
-    validator: (
-      <Link href={NODE_DETAILS(x)} passHref>
-        <Typography variant="body1" className="value" component="a">
-          {getMiddleEllipsis(x, {
-            beginning: 40,
-            ending: 30,
-          })}
-        </Typography>
-      </Link>
-    ),
+    validator: <FormattedRow key={x} consensus={x} />,
   }));

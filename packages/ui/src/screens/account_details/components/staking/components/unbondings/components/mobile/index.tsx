@@ -1,4 +1,5 @@
 import AvatarName from '@/components/avatar_name';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { readDate } from '@/recoil/settings';
 import { useStyles } from '@/screens/account_details/components/staking/components/unbondings/components/mobile/styles';
 import type { ItemType } from '@/screens/account_details/components/staking/components/unbondings/types';
@@ -8,60 +9,63 @@ import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import React from 'react';
+import { FC } from 'react';
 import { useRecoilValue } from 'recoil';
 
-const Mobile: React.FC<{
-  className?: string;
-  items: ItemType[];
-}> = ({ className, items }) => {
+type UnbondingsItemProps = {
+  item: ItemType;
+  isLast: boolean;
+};
+
+const UnbondingsItem: FC<UnbondingsItemProps> = ({ item, isLast }) => {
+  const { name, address, imageUrl } = useProfileRecoil(item.validator);
   const classes = useStyles();
   const { t } = useTranslation('accounts');
   const dateFormat = useRecoilValue(readDate);
-  const formattedItems = items?.map((x) => ({
-    validator: (
-      <AvatarName
-        address={x.validator.address}
-        imageUrl={x.validator.imageUrl}
-        name={x.validator.name}
-      />
-    ),
-    amount: x.amount
-      ? `${formatNumber(x.amount.value, x.amount.exponent)} ${x.amount.displayDenom.toUpperCase()}`
-      : '',
-    completionTime: formatDayJs(dayjs.utc(x.completionTime), dateFormat),
-  }));
-
   return (
-    <div className={classnames(className)}>
-      {formattedItems?.map((x, i) => (
-        // eslint-disable-next-line react/no-array-index-key
-        <React.Fragment key={`votes-mobile-${i}`}>
-          <div className={classes.list}>
-            <div className={classes.item}>
-              <Typography variant="h4" className="label">
-                {t('validator')}
-              </Typography>
-              {x.validator}
-            </div>
-            <div className={classes.item}>
-              <Typography variant="h4" className="label">
-                {t('completionTime')}
-              </Typography>
-              {x.completionTime}
-            </div>
-            <div className={classes.item}>
-              <Typography variant="h4" className="label">
-                {t('amount')}
-              </Typography>
-              {x.amount}
-            </div>
-          </div>
-          {!!items && i !== items.length - 1 && <Divider />}
-        </React.Fragment>
-      ))}
-    </div>
+    <>
+      <div className={classes.list}>
+        <div className={classes.item}>
+          <Typography variant="h4" className="label">
+            {t('validator')}
+          </Typography>
+          <AvatarName address={address} imageUrl={imageUrl} name={name} />
+        </div>
+        <div className={classes.item}>
+          <Typography variant="h4" className="label">
+            {t('completionTime')}
+          </Typography>
+          {formatDayJs(dayjs.utc(item.completionTime), dateFormat)}
+        </div>
+        <div className={classes.item}>
+          <Typography variant="h4" className="label">
+            {t('amount')}
+          </Typography>
+          {item.amount
+            ? `${formatNumber(
+                item.amount.value,
+                item.amount.exponent
+              )} ${item.amount.displayDenom.toUpperCase()}`
+            : ''}
+        </div>
+      </div>
+      {!isLast && <Divider />}
+    </>
   );
 };
+
+type MobileProps = {
+  className?: string;
+  items: ItemType[];
+};
+
+const Mobile: FC<MobileProps> = ({ className, items }) => (
+  <div className={classnames(className)}>
+    {items?.map((x, i) => (
+      // eslint-disable-next-line react/no-array-index-key
+      <UnbondingsItem key={`${x.validator}-${i}`} item={x} isLast={i === items.length - 1} />
+    ))}
+  </div>
+);
 
 export default Mobile;

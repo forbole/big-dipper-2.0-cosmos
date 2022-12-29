@@ -11,12 +11,43 @@ import { useState } from 'react';
 
 const LIMIT = 50;
 
+const formatTransactions = (data: GetMessagesByAddressQuery): Transactions[] => {
+  let formattedData = data.messagesByAddress;
+  if (data.messagesByAddress.length === 51) {
+    formattedData = data.messagesByAddress.slice(0, 51);
+  }
+  return formattedData.map((x) => {
+    const { transaction } = x;
+
+    // =============================
+    // messages
+    // =============================
+    const messages = convertMsgsToModels(transaction);
+    const msgType = messages.map((eachMsg) => {
+      const eachMsgType = eachMsg?.type ?? 'none type';
+      return eachMsgType ?? '';
+    });
+    const convertedMsgType = convertMsgType(msgType);
+    return {
+      height: transaction?.height,
+      hash: transaction?.hash ?? '',
+      type: convertedMsgType,
+      messages: {
+        count: messages.length,
+        items: messages,
+      },
+      success: transaction?.success ?? false,
+      timestamp: transaction?.block.timestamp,
+    };
+  });
+};
+
 export function useTransactions() {
   const router = useRouter();
   const [state, setState] = useState<TransactionState>({
     data: [],
     hasNextPage: false,
-    isNextPageLoading: false,
+    isNextPageLoading: true,
     offsetCount: 0,
   });
 
@@ -68,37 +99,6 @@ export function useTransactions() {
         };
         handleSetState((prevState) => ({ ...prevState, ...stateChange }));
       });
-  };
-
-  const formatTransactions = (data: GetMessagesByAddressQuery): Transactions[] => {
-    let formattedData = data.messagesByAddress;
-    if (data.messagesByAddress.length === 51) {
-      formattedData = data.messagesByAddress.slice(0, 51);
-    }
-    return formattedData.map((x) => {
-      const { transaction } = x;
-
-      // =============================
-      // messages
-      // =============================
-      const messages = convertMsgsToModels(transaction);
-      const msgType = messages.map((eachMsg) => {
-        const eachMsgType = eachMsg?.type ?? 'none type';
-        return eachMsgType ?? '';
-      });
-      const convertedMsgType = convertMsgType(msgType);
-      return {
-        height: transaction?.height,
-        hash: transaction?.hash ?? '',
-        type: convertedMsgType,
-        messages: {
-          count: messages.length,
-          items: messages,
-        },
-        success: transaction?.success ?? false,
-        timestamp: transaction?.block.timestamp,
-      };
-    });
   };
 
   return {

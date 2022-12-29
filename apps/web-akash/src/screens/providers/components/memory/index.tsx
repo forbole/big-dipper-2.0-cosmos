@@ -5,20 +5,22 @@ import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
-import React from 'react';
+import React, { FC } from 'react';
 import { Cell, Pie, PieChart, Tooltip } from 'recharts';
 
-const Memory: React.FC<{
+const convertBytesToTB = (bytes: number) => bytes / 10 ** 12;
+
+type MemoryProps = {
   className?: string;
   memory: {
     available: number;
     used: number;
   };
-}> = ({ className, memory }) => {
+};
+
+const Memory: FC<MemoryProps> = ({ className, memory }) => {
   const { t } = useTranslation('providers');
   const { classes, theme } = useStyles();
-
-  const convertBytesToTB = (bytes: number) => bytes / 10 ** 12;
 
   const total = memory.available + memory.used;
 

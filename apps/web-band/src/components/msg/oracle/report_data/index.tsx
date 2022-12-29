@@ -1,12 +1,12 @@
 import Name from '@/components/name';
 import MsgReportData from '@/models/msg/oracle/msg_report_data';
-import { useProfileRecoil } from '@/recoil/profiles';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
 import numeral from 'numeral';
-import React from 'react';
+import React, { FC } from 'react';
 
-const ReportData: React.FC<{ message: MsgReportData }> = (props) => {
+const ReportData: FC<{ message: MsgReportData }> = (props) => {
   const { message } = props;
 
   const validator = useProfileRecoil(message.validator);

@@ -5,12 +5,14 @@ import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import React from 'react';
+import React, { FC, Fragment } from 'react';
 
-const Mobile: React.FC<{
+type MobileProps = {
   className?: string;
   items?: OtherTokenType[];
-}> = ({ className, items }) => {
+};
+
+const Mobile: FC<MobileProps> = ({ className, items }) => {
   const classes = useStyles();
   const { t } = useTranslation('accounts');
   return (
@@ -19,9 +21,10 @@ const Mobile: React.FC<{
         const available = formatNumber(x.available.value, x.available.exponent);
         const reward = x.reward ? formatNumber(x.reward.value, x.reward.exponent) : '';
         const commission = formatNumber(x.commission.value, x.commission.exponent);
+        const isLast = !items || i === items.length - 1;
         return (
           // eslint-disable-next-line react/no-array-index-key
-          <React.Fragment key={`votes-mobile-${i}`}>
+          <Fragment key={`votes-mobile-${i}`}>
             <div className={classes.list}>
               <div className={classes.item}>
                 <Typography variant="h4" className="label">
@@ -56,8 +59,8 @@ const Mobile: React.FC<{
                 </Typography>
               </div>
             </div>
-            {!!items && i !== items.length - 1 && <Divider />}
-          </React.Fragment>
+            {!isLast && <Divider />}
+          </Fragment>
         );
       })}
     </div>

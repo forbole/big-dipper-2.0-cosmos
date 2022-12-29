@@ -1,11 +1,11 @@
 import Name from '@/components/name';
 import MsgEditDataSource from '@/models/msg/oracle/msg_edit_data_source';
-import { useProfileRecoil } from '@/recoil/profiles';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const EditDataSource: React.FC<{ message: MsgEditDataSource }> = (props) => {
+const EditDataSource: FC<{ message: MsgEditDataSource }> = (props) => {
   const { message } = props;
 
   const sender = useProfileRecoil(message.sender);

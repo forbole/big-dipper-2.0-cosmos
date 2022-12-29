@@ -5,5 +5,6 @@ export interface TransactionType {
 }
 
 export interface TransactionsState {
+  loading: boolean;
   items: TransactionType[];
 }

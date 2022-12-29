@@ -1,10 +1,8 @@
 import chainConfig from '@/chainConfig';
 import { useValidatorDetailsQuery, ValidatorDetailsQuery } from '@/graphql/types/general_types';
 import { useDesmosProfile } from '@/hooks';
-import { validatorToDelegatorAddress } from '@/recoil/profiles';
 import type { ValidatorDetailsState } from '@/screens/validator_details/types';
 import { formatToken } from '@/utils/format_token';
-import { isValidAddress } from '@/utils/prefix_convert';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import { useCallback, useEffect, useState } from 'react';
@@ -19,7 +17,6 @@ const initialTokenDenom: TokenUnit = {
 };
 
 const initialState: ValidatorDetailsState = {
-  loading: true,
   exists: true,
   desmosProfile: null,
   overview: {
@@ -60,34 +57,9 @@ export const useValidatorDetails = () => {
   );
 
   // ==========================
-  // Desmos Profile
-  // ==========================
-  const { fetchDesmosProfile, formatDesmosProfile } = useDesmosProfile({
-    onComplete: (data) => {
-      const desmosProfile = formatDesmosProfile(data);
-      handleSetState((prevState) => ({ ...prevState, desmosProfile }));
-      return desmosProfile;
-    },
-  });
-
-  useEffect(() => {
-    if (!isValidAddress(router.query.address as string)) {
-      handleSetState((prevState) => ({
-        ...prevState,
-        loading: false,
-        exists: false,
-      }));
-    } else if (extra.profile) {
-      const address = validatorToDelegatorAddress(router.query.address as string);
-      fetchDesmosProfile(address);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [router.query.address]);
-
-  // ==========================
   // Fetch Data
   // ==========================
-  useValidatorDetailsQuery({
+  const { loading } = useValidatorDetailsQuery({
     variables: {
       address: router.query.address as string,
     },
@@ -96,78 +68,85 @@ export const useValidatorDetails = () => {
     },
   });
 
-  return {
-    state,
+  // ==========================
+  // Desmos Profile
+  // ==========================
+  const { data: dataDesmosProfile, loading: loadingDesmosProfile } = useDesmosProfile({
+    addresses: [state.overview.selfDelegateAddress],
+    skip: !extra.profile || !state.overview.selfDelegateAddress,
+  });
+  useEffect(
+    () => setState((prevState) => ({ ...prevState, desmosProfile: dataDesmosProfile?.[0] })),
+    [dataDesmosProfile]
+  );
+
+  return { state, loading: loading || loadingDesmosProfile };
+};
+
+// ============================
+// overview
+// ============================
+const formatOverview = (data: ValidatorDetailsQuery) => {
+  // const operatorAddress = data?.validator?.[0]?.validatorInfo?.operatorAddress ?? '';
+  const operatorAddress = '';
+  // const selfDelegateAddress = data?.validator?.[0]?.validatorInfo?.selfDelegateAddress ?? '';
+  const selfDelegateAddress = '';
+  const profile = {
+    validator: operatorAddress,
+    operatorAddress,
+    selfDelegateAddress,
+    description: data.validator[0]?.validatorDescriptions?.[0]?.details ?? '',
+    // website: data.validator[0]?.validatorDescriptions?.[0]?.website ?? '',
+    website: '',
   };
+
+  return profile;
+};
+
+// ============================
+// status
+// ============================
+const formatStatus = (data: ValidatorDetailsQuery) => {
+  const profile = {
+    inActiveSet: data.validator[0]?.validatorStatuses?.in_active_set ?? 'false',
+    jailed: data.validator[0]?.validatorStatuses?.jailed ?? 'false',
+    // tombstoned: data.validator[0]?.validatorSigningInfos?.[0]?.tombstoned
+    tombstoned: 'false',
+    commission: parseFloat(data.validator[0]?.validatorCommissions?.[0]?.commission) ?? 0,
+    // maxRate: data?.validator?.[0]?.validatorInfo?.maxRate ?? '0',
+    signedBlockWindow: 0,
+    missedBlockCounter: 0,
+    maxRate: '0',
+  };
+
+  return profile;
+};
+// ============================
+// votingPower
+// ============================
+const formatVotingPower = (data: ValidatorDetailsQuery) => {
+  const selfVotingPower = data.validator[0]?.validatorVotingPowers?.[0]?.votingPower ?? 0;
+
+  const votingPower = {
+    self: selfVotingPower,
+    overall: formatToken(data?.stakingPool?.[0]?.bonded ?? 0, votingPowerTokenUnit),
+    height: data.validator[0]?.validatorVotingPowers?.[0]?.height ?? 0,
+  };
+
+  return votingPower;
 };
 
 function formatAccountQuery(data: ValidatorDetailsQuery) {
-  const stateChange: Partial<ValidatorDetailsState> = {
-    loading: false,
-  };
+  const stateChange: Partial<ValidatorDetailsState> = {};
 
   if (!data.validator.length) {
     stateChange.exists = false;
     return stateChange;
   }
 
-  // ============================
-  // overview
-  // ============================
-  const formatOverview = () => {
-    // const operatorAddress = data?.validator?.[0]?.validatorInfo?.operatorAddress ?? '';
-    const operatorAddress = '';
-    // const selfDelegateAddress = data?.validator?.[0]?.validatorInfo?.selfDelegateAddress ?? '';
-    const selfDelegateAddress = '';
-    const profile = {
-      validator: operatorAddress,
-      operatorAddress,
-      selfDelegateAddress,
-      description: data.validator[0]?.validatorDescriptions?.[0]?.details ?? '',
-      // website: data.validator[0]?.validatorDescriptions?.[0]?.website ?? '',
-      website: '',
-    };
-
-    return profile;
-  };
-
-  stateChange.overview = formatOverview();
-
-  // ============================
-  // status
-  // ============================
-  const formatStatus = () => {
-    const profile = {
-      inActiveSet: data.validator[0]?.validatorStatuses?.in_active_set ?? 'false',
-      jailed: data.validator[0]?.validatorStatuses?.jailed ?? 'false',
-      // tombstoned: data.validator[0]?.validatorSigningInfos?.[0]?.tombstoned
-      tombstoned: 'false',
-      commission: parseFloat(data.validator[0]?.validatorCommissions?.[0]?.commission) ?? 0,
-      // maxRate: data?.validator?.[0]?.validatorInfo?.maxRate ?? '0',
-      signedBlockWindow: 0,
-      missedBlockCounter: 0,
-      maxRate: '0',
-    };
-
-    return profile;
-  };
-
-  stateChange.status = formatStatus();
-  // ============================
-  // votingPower
-  // ============================
-  const formatVotingPower = () => {
-    const selfVotingPower = data.validator[0]?.validatorVotingPowers?.[0]?.votingPower ?? 0;
-
-    const votingPower = {
-      self: selfVotingPower,
-      overall: formatToken(data?.stakingPool?.[0]?.bonded ?? 0, votingPowerTokenUnit),
-      height: data.validator[0]?.validatorVotingPowers?.[0]?.height ?? 0,
-    };
-
-    return votingPower;
-  };
-  stateChange.votingPower = formatVotingPower();
+  stateChange.overview = formatOverview(data);
+  stateChange.status = formatStatus(data);
+  stateChange.votingPower = formatVotingPower(data);
 
   return stateChange;
 }

@@ -7,7 +7,7 @@ import Document, {
   Main,
   NextScript,
 } from 'next/document';
-import React, { FC } from 'react';
+import React, { Children, FC } from 'react';
 
 const DocumentPage: FC = () => (
   <Html lang="en">
@@ -36,7 +36,7 @@ export const getInitialProps = async (ctx: DocumentContext): Promise<DocumentIni
   return {
     ...initialProps,
     // Styles fragment is rendered after the app and page rendering finish.
-    styles: [...React.Children.toArray(initialProps.styles), sheets.getStyleElement()],
+    styles: [...Children.toArray(initialProps.styles), sheets.getStyleElement()],
   };
 };
 

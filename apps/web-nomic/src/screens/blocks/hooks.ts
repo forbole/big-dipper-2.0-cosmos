@@ -7,13 +7,38 @@ import type { BlocksState, BlockType } from '@/screens/blocks/types';
 import * as R from 'ramda';
 import { useCallback, useState } from 'react';
 
+// This is a bandaid as it can get extremely
+// expensive if there is too much data
+/**
+ * Helps remove any possible duplication
+ * and sorts by height in case it bugs out
+ */
+const uniqueAndSort = R.pipe(
+  R.uniqBy((r: BlockType) => r?.height),
+  R.sort(R.descend((r) => r?.height))
+);
+
+const formatBlocks = (data: BlocksListenerSubscription): BlockType[] => {
+  let formattedData = data.blocks;
+  if (data.blocks.length === 51) {
+    formattedData = data.blocks.slice(0, 51);
+  }
+  return formattedData.map((x) => ({
+    height: x.height,
+    txs: x.txs ?? 0,
+    hash: x.hash,
+    timestamp: x.timestamp,
+    proposer: x.proposerAddress,
+  }));
+};
+
 export const useBlocks = () => {
   const [state, setState] = useState<BlocksState>({
     loading: true,
     exists: true,
     items: [],
     hasNextPage: false,
-    isNextPageLoading: false,
+    isNextPageLoading: true,
   });
 
   const handleSetState = useCallback((stateChange: (prevState: BlocksState) => BlocksState) => {
@@ -22,18 +47,6 @@ export const useBlocks = () => {
       return R.equals(prevState, newState) ? prevState : newState;
     });
   }, []);
-
-  // This is a bandaid as it can get extremely
-  // expensive if there is too much data
-  /**
-   * Helps remove any possible duplication
-   * and sorts by height in case it bugs out
-   */
-  const uniqueAndSort = R.pipe(
-    R.uniqBy((r: BlockType) => r?.height),
-    R.sort(R.descend((r) => r?.height))
-  );
-
   // ================================
   // block subscription
   // ================================
@@ -64,9 +77,6 @@ export const useBlocks = () => {
       limit: LIMIT,
       offset: 1,
     },
-    onError: () => {
-      handleSetState((prevState) => ({ ...prevState, loading: false }));
-    },
     onCompleted: (data) => {
       const itemsLength = data.blocks.length;
       const newItems = uniqueAndSort([...state.items, ...formatBlocks(data)]);
@@ -77,6 +87,9 @@ export const useBlocks = () => {
         hasNextPage: itemsLength === 51,
         isNextPageLoading: false,
       }));
+    },
+    onError: () => {
+      handleSetState((prevState) => ({ ...prevState, loading: false }));
     },
   });
 
@@ -102,20 +115,6 @@ export const useBlocks = () => {
           hasNextPage: itemsLength === 51,
         }));
       });
-  };
-
-  const formatBlocks = (data: BlocksListenerSubscription): BlockType[] => {
-    let formattedData = data.blocks;
-    if (data.blocks.length === 51) {
-      formattedData = data.blocks.slice(0, 51);
-    }
-    return formattedData.map((x) => ({
-      height: x.height,
-      txs: x.txs ?? 0,
-      hash: x.hash,
-      timestamp: x.timestamp,
-      proposer: x.proposerAddress,
-    }));
   };
 
   const itemCount = state.hasNextPage ? state.items.length + 1 : state.items.length;

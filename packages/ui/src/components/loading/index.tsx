@@ -1,11 +1,9 @@
 import { useStyles } from '@/components/loading/styles';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import classnames from 'classnames';
-import React from 'react';
+import React, { FC } from 'react';
 
-const Loading: React.FC<{
-  className?: string;
-}> = ({ className }) => {
+const Loading: FC<ComponentDefault> = ({ className }) => {
   const classes = useStyles();
   return (
     <div className={classnames(className, classes.root)}>

@@ -6,6 +6,17 @@ import type { TokenState } from '@/screens/tokens/components/list/types';
 
 export const PAGE_SIZE = 25;
 
+type TokensResult = Array<{
+  identifier?: string;
+  name?: string;
+  owner?: string;
+  accounts?: number;
+  transactions?: number;
+  assets?: {
+    pngUrl?: string;
+  };
+}>;
+
 export const useBlocks = () => {
   const [state, setState] = useState<TokenState>({
     page: 0,
@@ -24,16 +35,7 @@ export const useBlocks = () => {
   const getTransactionsByPage = useCallback(
     async (page: number) => {
       try {
-        const { data: tokensData } = await axios.get<
-          Array<{
-            identifier?: string;
-            name?: string;
-            owner?: string;
-            accounts?: number;
-            transactions?: number;
-            assets?: { pngUrl?: string };
-          }>
-        >(TOKENS, {
+        const { data: tokensData } = await axios.get<TokensResult>(TOKENS, {
           params: {
             from: page * PAGE_SIZE,
             size: PAGE_SIZE,

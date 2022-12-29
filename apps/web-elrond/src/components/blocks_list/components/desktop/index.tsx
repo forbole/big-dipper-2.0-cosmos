@@ -11,13 +11,14 @@ import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
-import React from 'react';
+import { FC } from 'react';
 
-const Desktop: React.FC<{ items: BlockType[] } & ComponentDefault> = (props) => {
+const Desktop: FC<{ className?: string; items: BlockType[] }> = (props) => {
   const { t } = useTranslation('blocks');
   const formattedItems = props.items.map((x) => {
     const shard = getShardDisplay(x.shard);
     return {
+      key: `${x.block}-${x.timestamp}`,
       block: numeral(x.block).format('0,0'),
       shard: t(shard.key, {
         num: shard.num,
@@ -50,15 +51,15 @@ const Desktop: React.FC<{ items: BlockType[] } & ComponentDefault> = (props) => 
           </TableRow>
         </TableHead>
         <TableBody>
-          {formattedItems?.map((row: { [key: string]: unknown }) => (
-            <TableRow key={`holders-row-${row.identifier}`}>
+          {formattedItems?.map((row) => (
+            <TableRow key={`holders-row-${row.key}`}>
               {columns.map((column) => (
                 <TableCell
-                  key={`holders-row-${row.identifier}-${column.key}`}
+                  key={`holders-row-${row.key}-${column.key}`}
                   align={column.align}
                   style={{ width: `${column.width}%` }}
                 >
-                  {row[column.key]}
+                  {row[column.key as keyof typeof row]}
                 </TableCell>
               ))}
             </TableRow>

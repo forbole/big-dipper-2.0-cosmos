@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import Link from 'next/link';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
@@ -14,10 +14,11 @@ import type { NFTTypes } from '@/screens/nfts/components/list/types';
 import { columns } from '@/screens/nfts/components/list/components/nfts_list/components/desktop/utils';
 import { useStyles } from '@/screens/nfts/components/list/components/nfts_list/components/desktop/styles';
 
-const Desktop: React.FC<{ items: NFTTypes[] } & ComponentDefault> = (props) => {
+const Desktop: FC<{ className?: string; items: NFTTypes[] }> = (props) => {
   const { t } = useTranslation('nfts');
   const classes = useStyles();
-  const formattedItems = props.items.map((x) => ({
+  const formattedItems = props.items.map((x, i) => ({
+    key: `${x.identifier}-${i}`,
     identifier: x.identifier,
     nft: (
       <Link href={NFT_DETAILS(x.identifier)} passHref>
@@ -46,15 +47,15 @@ const Desktop: React.FC<{ items: NFTTypes[] } & ComponentDefault> = (props) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {formattedItems?.map((row: { [key: string]: unknown }) => (
-            <TableRow key={`holders-row-${row.identifier}`}>
+          {formattedItems?.map((row) => (
+            <TableRow key={`holders-row-${row.key}`}>
               {columns.map((column) => (
                 <TableCell
-                  key={`holders-row-${row.identifier}-${column.key}`}
+                  key={`holders-row-${row.key}-${column.key}`}
                   align={column.align}
                   style={{ width: `${column.width}%` }}
                 >
-                  {row[column.key]}
+                  {row[column.key as keyof typeof row]}
                 </TableCell>
               ))}
             </TableRow>

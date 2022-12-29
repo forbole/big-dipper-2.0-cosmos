@@ -4,13 +4,15 @@ import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
-import React from 'react';
+import { FC } from 'react';
 
-const SoftwareUpgrade: React.FC<{
+type SoftwareUpgradeProps = {
   height: string;
   info: string;
   name: string;
-}> = ({ height, info, name }) => {
+};
+
+const SoftwareUpgrade: FC<SoftwareUpgradeProps> = ({ height, info, name }) => {
   const { t } = useTranslation('proposals');
   return (
     <div

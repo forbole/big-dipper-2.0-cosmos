@@ -7,6 +7,14 @@ import { useCallback, useState } from 'react';
 
 export const PAGE_SIZE = 7;
 
+type TransactionsResult = Array<{
+  txHash: string;
+  sender: string;
+  receiver: string;
+  timestamp: number;
+  status: string;
+}>;
+
 export const useBlocks = () => {
   const [state, setState] = useState<TransactionState>({
     items: [],
@@ -24,15 +32,7 @@ export const useBlocks = () => {
 
   const getTransactionsByPage = useCallback(async () => {
     try {
-      const { data: transactionsData } = await axios.get<
-        Array<{
-          txHash: string;
-          sender: string;
-          receiver: string;
-          timestamp: number;
-          status: string;
-        }>
-      >(TRANSACTIONS, {
+      const { data: transactionsData } = await axios.get<TransactionsResult>(TRANSACTIONS, {
         params: {
           from: 0,
           size: PAGE_SIZE,

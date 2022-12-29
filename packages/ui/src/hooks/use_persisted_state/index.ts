@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 
 /**
  * Helper hook to handle values that may need to be story throughout multiple sessions
@@ -8,7 +8,7 @@ import React, { useEffect, useState } from 'react';
 export const usePersistedState = <P>(
   key: string,
   initialValue: P
-): [P, React.Dispatch<React.SetStateAction<P>>] => {
+): [P, Dispatch<SetStateAction<P>>] => {
   const [value, setValue] = useState(initialValue);
 
   useEffect(() => {
