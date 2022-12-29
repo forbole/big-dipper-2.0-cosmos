@@ -91,3 +91,8 @@ type MsgCoin = {
   denom: string;
   amount: string;
 };
+
+type WalletDetails = {
+  address: string;
+  loggedIn: boolean;
+};
