@@ -27,8 +27,8 @@ const Desktop: FC<DesktopProps> = ({ className, items }) => {
   const classes = useStyles();
   const { t } = useTranslation('transactions');
 
-  const formattedData = items.map((x) => ({
-    key: `${x.hash}-${x.timestamp}`,
+  const formattedData = items.map((x, i) => ({
+    key: `${x.hash}-${i}`,
     block: (
       <Link href={BLOCK_DETAILS(x.height)} passHref>
         <Typography variant="body1" component="a">
@@ -75,6 +75,7 @@ const Desktop: FC<DesktopProps> = ({ className, items }) => {
         </TableHead>
         <TableBody>
           {formattedData.map((row) => (
+            // eslint-disable-next-line react/no-array-index-key
             <TableRow key={row.key}>
               {columns.map((column) => {
                 const { key, align } = column;
