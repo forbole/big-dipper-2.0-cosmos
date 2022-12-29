@@ -10,7 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
-import React, { FC } from 'react';
+import { FC } from 'react';
 
 type BlockBoxProps = {
   i: number;

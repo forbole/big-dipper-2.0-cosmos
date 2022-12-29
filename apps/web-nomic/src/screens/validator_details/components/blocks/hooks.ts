@@ -25,7 +25,7 @@ export const useBlocks = () => {
 
   const router = useRouter();
 
-  useLastHundredBlocksSubscription({
+  const { loading } = useLastHundredBlocksSubscription({
     variables: {
       address: (router?.query?.address as string) ?? '',
     },
@@ -36,5 +36,6 @@ export const useBlocks = () => {
 
   return {
     state,
+    loading,
   };
 };
