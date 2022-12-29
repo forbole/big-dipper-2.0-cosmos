@@ -5,13 +5,15 @@ import { useInterval } from '@/hooks';
 import { useStyles } from '@/screens/countdown/styles';
 import dayjs from '@/utils/dayjs';
 import Typography from '@material-ui/core/Typography';
-import React, { useCallback, useState } from 'react';
+import React, { FC, useCallback, useState } from 'react';
 
 const { genesis, network } = chainConfig();
 
-const Countdown: React.FC<{
+type CountdownProps = {
   startGenesis: () => void;
-}> = ({ startGenesis }) => {
+};
+
+const Countdown: FC<CountdownProps> = ({ startGenesis }) => {
   // const theme = useRecoilValue(readTheme);
   const classes = useStyles();
   const [state, setState] = useState({

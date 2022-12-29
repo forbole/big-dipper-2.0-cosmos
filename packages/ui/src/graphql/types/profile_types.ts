@@ -916,7 +916,7 @@ export type DesmosProfileDtagQuery = { profile: Array<{ __typename?: 'profile', 
 
 export const DesmosProfileDocument = gql`
     query DesmosProfile($addresses: [String!]) {
-  profile(where: {address: {_in: $addresses}}, limit: 1) {
+  profile(where: {address: {_in: $addresses}}, limit: 20) {
     address
     bio
     dtag

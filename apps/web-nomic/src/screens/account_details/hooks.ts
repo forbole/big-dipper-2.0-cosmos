@@ -11,9 +11,18 @@ import { getDenom } from '@/utils/get_denom';
 import Big from 'big.js';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 const { extra, primaryTokenUnit, tokenUnits } = chainConfig();
+
+type Data = {
+  // delegationRewards?: Array<{
+  //   coins: Array<MsgCoin>;
+  //   validatorAddress?: string;
+  // }>;
+  accountBalances?: ReturnType<typeof useAvailableBalances>['accountBalances'];
+  delegationBalance?: ReturnType<typeof useDelegationBalance>['delegationBalance'];
+};
 
 const defaultTokenUnit: TokenUnit = {
   value: '0',
@@ -41,100 +50,87 @@ const initialState: AccountDetailState = {
   },
 };
 
+// ============================
+// balance
+// ============================
+const formatBalance = (data: Data) => {
+  const available = getDenom(data?.accountBalances?.coins ?? [], primaryTokenUnit);
+  const availableAmount = formatToken(available.amount, primaryTokenUnit);
+
+  const delegate = getDenom(data?.delegationBalance?.coins ?? [], primaryTokenUnit);
+  const delegateAmount = formatToken(delegate.amount, primaryTokenUnit);
+
+  const total = Big(availableAmount.value)
+    .plus(delegateAmount.value)
+    .toFixed(tokenUnits?.[primaryTokenUnit].exponent);
+
+  const balance: BalanceType = {
+    available: availableAmount,
+    total: {
+      value: total,
+      displayDenom: availableAmount.displayDenom,
+      baseDenom: availableAmount.baseDenom,
+      exponent: availableAmount.exponent,
+    },
+    delegate: {
+      value: delegateAmount.value,
+      displayDenom: delegateAmount.displayDenom,
+      baseDenom: delegateAmount.baseDenom,
+      exponent: delegateAmount.exponent,
+    },
+  };
+
+  return balance;
+};
+
+// ============================
+// other tokens
+// ============================
+const formatOtherTokens = (data: Data) => {
+  // Loop through balance and delegation to figure out what the other tokens are
+  const otherTokenUnits = new Set<string>();
+  const otherTokens: OtherTokenType[] = [];
+  // available tokens
+  const available = data?.accountBalances?.coins ?? [];
+
+  available.forEach((x) => {
+    otherTokenUnits.add(x.denom);
+  });
+
+  // remove the primary token unit thats being shown in balance
+  otherTokenUnits.delete(primaryTokenUnit);
+
+  otherTokenUnits.forEach((x: string) => {
+    const availableRawAmount = getDenom(available, x);
+    const availableAmount = formatToken(availableRawAmount.amount, x);
+
+    otherTokens.push({
+      denom: tokenUnits?.x?.display ?? x,
+      available: availableAmount,
+      reward: defaultTokenUnit,
+      commission: defaultTokenUnit,
+    });
+  });
+
+  return {
+    data: otherTokens,
+    count: otherTokens.length,
+  };
+};
+
 // ==========================
 // Format Data
 // ==========================
-const formatAllBalance = (data: {
-  // delegationRewards?: Array<{
-  //   coins: Array<MsgCoin>;
-  //   validatorAddress?: string;
-  // }>;
-  accountBalances?: ReturnType<typeof useAvailableBalances>['accountBalances'];
-  delegationBalance?: ReturnType<typeof useDelegationBalance>['delegationBalance'];
-  // unbondingBalance?: {
-  //   coins: Array<MsgCoin>;
-  // };
-  // commission?: {
-  //   coins: Array<MsgCoin>;
-  // };
-}) => {
+const formatAllBalance = (data: Data) => {
   const stateChange: Partial<AccountDetailState> = {
     loading: false,
   };
 
-  // ============================
-  // balance
-  // ============================
-  const formatBalance = () => {
-    const available = getDenom(data?.accountBalances?.coins ?? [], primaryTokenUnit);
-    const availableAmount = formatToken(available.amount, primaryTokenUnit);
+  stateChange.balance = formatBalance(data);
 
-    const delegate = getDenom(data?.delegationBalance?.coins ?? [], primaryTokenUnit);
-    const delegateAmount = formatToken(delegate.amount, primaryTokenUnit);
+  formatOtherTokens(data);
 
-    const total = Big(availableAmount.value)
-      .plus(delegateAmount.value)
-      .toFixed(tokenUnits?.[primaryTokenUnit].exponent);
-
-    const balance: BalanceType = {
-      available: availableAmount,
-      total: {
-        value: total,
-        displayDenom: availableAmount.displayDenom,
-        baseDenom: availableAmount.baseDenom,
-        exponent: availableAmount.exponent,
-      },
-      delegate: {
-        value: delegateAmount.value,
-        displayDenom: delegateAmount.displayDenom,
-        baseDenom: delegateAmount.baseDenom,
-        exponent: delegateAmount.exponent,
-      },
-    };
-
-    return balance;
-  };
-
-  stateChange.balance = formatBalance();
-
-  // ============================
-  // other tokens
-  // ============================
-  const formatOtherTokens = () => {
-    // Loop through balance and delegation to figure out what the other tokens are
-    const otherTokenUnits = new Set<string>();
-    const otherTokens: OtherTokenType[] = [];
-    // available tokens
-    const available = data?.accountBalances?.coins ?? [];
-
-    available.forEach((x) => {
-      otherTokenUnits.add(x.denom);
-    });
-
-    // remove the primary token unit thats being shown in balance
-    otherTokenUnits.delete(primaryTokenUnit);
-
-    otherTokenUnits.forEach((x: string) => {
-      const availableRawAmount = getDenom(available, x);
-      const availableAmount = formatToken(availableRawAmount.amount, x);
-
-      otherTokens.push({
-        denom: tokenUnits?.x?.display ?? x,
-        available: availableAmount,
-        reward: defaultTokenUnit,
-        commission: defaultTokenUnit,
-      });
-    });
-
-    return {
-      data: otherTokens,
-      count: otherTokens.length,
-    };
-  };
-
-  formatOtherTokens();
-
-  stateChange.otherTokens = formatOtherTokens();
+  stateChange.otherTokens = formatOtherTokens(data);
 
   return stateChange;
 };
@@ -152,20 +148,22 @@ export const useAccountDetails = () => {
     },
     []
   );
+  const address = Array.isArray(router.query.address)
+    ? router.query.address[0]
+    : router.query.address ?? '';
 
   // ==========================
   // Desmos Profile
   // ==========================
-  const { data: desmosProfile, loading: loadingDesmosProfile } = useDesmosProfile({
-    addresses: Array.isArray(router.query.address)
-      ? router.query.address
-      : [router.query.address ?? ''],
-    skip: !extra.profile,
+  const { data: dataDesmosProfile, loading: loadingDesmosProfile } = useDesmosProfile({
+    addresses: [address],
+    skip: !extra.profile || !address,
   });
+  useEffect(
+    () => setState((prevState) => ({ ...prevState, desmosProfile: dataDesmosProfile?.[0] })),
+    [dataDesmosProfile]
+  );
 
-  const address = Array.isArray(router.query.address)
-    ? router.query.address[0]
-    : router.query.address;
   const available = useAvailableBalances(address);
   const delegation = useDelegationBalance(address);
   useEffect(() => {
@@ -191,14 +189,7 @@ export const useAccountDetails = () => {
   //   }));
   // }, [address, handleSetState, withdrawalAddress]);
 
-  return {
-    state: useMemo(
-      () => ({
-        ...state,
-        desmosProfile: desmosProfile?.[0],
-        loading: state.loading || loadingDesmosProfile,
-      }),
-      [state, desmosProfile, loadingDesmosProfile]
-    ),
-  };
+  if (loadingDesmosProfile) state.loading = true;
+
+  return { state };
 };

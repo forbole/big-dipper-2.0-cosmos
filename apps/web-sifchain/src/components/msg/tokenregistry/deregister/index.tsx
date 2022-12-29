@@ -1,11 +1,11 @@
 import Name from '@/components/name';
 import MsgDeregister from '@/models/msg/tokenregistry/msg_deregister';
-import { useProfileRecoil } from '@/recoil/profiles';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const Deregister: React.FC<{ message: MsgDeregister }> = (props) => {
+const Deregister: FC<{ message: MsgDeregister }> = (props) => {
   const { message } = props;
 
   const from = useProfileRecoil(message.from);

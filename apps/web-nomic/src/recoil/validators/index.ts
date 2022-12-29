@@ -1,10 +1,7 @@
 import { useValidatorRecoil, type DataType } from '@/recoil/validators/hooks';
-import {
-  atomFamilyState,
-  readValidator,
-  writeValidator,
-  type AtomState,
-} from 'ui/recoil/validators';
+import { atomFamilyState } from 'ui/recoil/validators/atom';
+import { readValidator, writeValidator } from 'ui/recoil/validators/selectors';
+import type { AtomState } from 'ui/recoil/validators/types';
 
 export {
   type AtomState,

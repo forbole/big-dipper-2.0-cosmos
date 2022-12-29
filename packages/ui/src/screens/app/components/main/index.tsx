@@ -32,10 +32,13 @@ const Main = (props: AppProps) => {
 
   if (!genesisStarted) {
     Component = <Countdown startGenesis={startGenesis} />;
-  } else if (loading) {
-    Component = <InitialLoad {...props.pageProps} />;
   } else {
-    Component = <InnerApp {...props} />;
+    Component = (
+      <>
+        {loading && <InitialLoad {...props.pageProps} />}
+        <InnerApp {...props} />
+      </>
+    );
   }
 
   /* Adding a class to the document element to indicate the dark mode. */

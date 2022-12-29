@@ -1,11 +1,11 @@
 import Name from '@/components/name';
 import { type MsgChannel } from '@/models';
-import { useProfileRecoil } from '@/recoil/profiles';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const Channel: React.FC<{ message: MsgChannel }> = (props) => {
+const Channel: FC<{ message: MsgChannel }> = (props) => {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);

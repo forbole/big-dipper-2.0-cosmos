@@ -7,12 +7,14 @@ import SearchBar from '@/components/nav/components/search_bar';
 import TitleBar from '@/components/nav/components/title_bar';
 import { useGetComponentDimension } from '@/hooks';
 import classnames from 'classnames';
-import React from 'react';
+import React, { FC } from 'react';
 
-const Mobile: React.FC<{
+type MobileProps = {
   className?: string;
   title: string;
-}> = ({ className, title }) => {
+};
+
+const Mobile: FC<MobileProps> = ({ className, title }) => {
   const { ref: heightRef, height } = useGetComponentDimension();
   const { isMenu, isNetwork, isOpen, openNetwork, toggleNavMenus } = useMobile();
   const classes = useStyles();

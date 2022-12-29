@@ -16,17 +16,11 @@ import Tabs from '@material-ui/core/Tabs';
 import Big from 'big.js';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
-import { ComponentProps, useCallback, useMemo, useState } from 'react';
+import { ComponentProps, useCallback, useEffect, useState } from 'react';
 
 const { primaryTokenUnit } = chainConfig();
 
-const stakingDefault = {
-  data: {},
-  count: 0,
-  loading: true,
-};
-
-const LIMIT = 10;
+export const ROWS_PER_PAGE = 10;
 
 type Delegations = {
   coins: MsgCoin[];
@@ -49,7 +43,7 @@ type Undelegations = {
   }>;
 };
 
-const formatDelegations = (data: Delegations[]) =>
+export const formatDelegations = (data: Delegations[]) =>
   data
     .map<DelegationType>((x): UnbondingType => {
       const address = R.pathOr('', ['delegator_address'], x);
@@ -61,7 +55,7 @@ const formatDelegations = (data: Delegations[]) =>
     })
     .sort(R.comparator((a, b) => Big(a.amount?.value).gt(b.amount?.value)));
 
-const formatRedelegations = (data: Redelegations[]) => {
+export const formatRedelegations = (data: Redelegations[]) => {
   const results: RedelegationType[] = [];
   data.forEach((x) => {
     R.pathOr<NonNullable<typeof x['entries']>>([], ['entries'], x).forEach((y) => {
@@ -78,7 +72,7 @@ const formatRedelegations = (data: Redelegations[]) => {
   return results;
 };
 
-const formatUnbondings = (data: Undelegations[]) => {
+export const formatUnbondings = (data: Undelegations[]) => {
   const results: UnbondingType[] = [];
   data.forEach((x) => {
     x?.entries?.forEach((y) => {
@@ -95,13 +89,14 @@ const formatUnbondings = (data: Undelegations[]) => {
   return results;
 };
 
-export const useStaking = () => {
+export const useStaking = (
+  delegationsPage: number,
+  redelegationsPage: number,
+  unbondingsPage: number
+) => {
   const router = useRouter();
   const [state, setState] = useState<StakingState>({
     tab: 0,
-    delegations: stakingDefault,
-    redelegations: stakingDefault,
-    unbondings: stakingDefault,
   });
   const validatorAddress = Array.isArray(router?.query?.address)
     ? router.query.address[0]
@@ -110,71 +105,157 @@ export const useStaking = () => {
   // =====================================
   // delegations
   // =====================================
-  const [delegationsPages, setDelegationsPages] = useState<DelegationType[][]>([]);
-  const [delegationsCount, setDelegationsCount] = useState(0);
-  const { loading: delegationsLoading } = useValidatorDelegationsQuery({
+  const {
+    data: delegationsData,
+    loading: delegationsLoading,
+    error: delegationsError,
+    refetch: delegationsRefetch,
+  } = useValidatorDelegationsQuery({
     variables: {
       validatorAddress,
-      limit: LIMIT,
-      offset: delegationsPages.length * LIMIT,
-    },
-    onCompleted: (data) => {
-      if (!data?.delegations?.delegations?.length) return;
-      setDelegationsPages((prevState) => {
-        const newState = [...prevState, formatDelegations(data?.delegations?.delegations ?? [])];
-        return R.equals(newState, prevState) ? prevState : newState;
-      });
-      setDelegationsCount(data?.delegations?.pagination?.total ?? 0);
+      limit: ROWS_PER_PAGE,
+      offset: delegationsPage * ROWS_PER_PAGE,
+      pagination: false,
     },
   });
+  useEffect(() => {
+    if (delegationsLoading) return;
+    if (delegationsError) {
+      delegationsRefetch({ pagination: false });
+    }
+  }, [delegationsError, delegationsLoading, delegationsRefetch]);
+  useValidatorDelegationsQuery({
+    variables: {
+      validatorAddress,
+      limit: ROWS_PER_PAGE,
+      offset: (delegationsPage + 1) * ROWS_PER_PAGE,
+      pagination: false,
+    },
+  });
+
+  const [delegationsPagination, setDelegationsPagination] = useState<number | undefined>();
+  const {
+    data: dData,
+    error: dError,
+    refetch: dRefetch,
+  } = useValidatorDelegationsQuery({
+    variables: {
+      validatorAddress,
+      limit: 0,
+      offset: 0,
+      pagination: true,
+    },
+    skip: delegationsPagination !== undefined,
+  });
+  useEffect(() => {
+    if (dError) {
+      dRefetch();
+    } else if (dData) {
+      setDelegationsPagination(dData?.delegations?.pagination?.total ?? 0);
+    }
+  }, [dData, dError, dRefetch]);
 
   // =====================================
   // redelegations
   // =====================================
-  const [redelegationsPages, setRedelegationsPages] = useState<RedelegationType[][]>([]);
-  const [redelegationsCount, setRedelegationsCount] = useState(0);
-  const { loading: redelegationsLoading } = useValidatorRedelegationsQuery({
+  const {
+    data: redelegationsData,
+    loading: redelegationsLoading,
+    error: redelegationsError,
+    refetch: redelegationsRefetch,
+  } = useValidatorRedelegationsQuery({
     variables: {
       validatorAddress,
-      limit: LIMIT,
-      offset: redelegationsPages.length * LIMIT,
-    },
-    onCompleted: (data) => {
-      if (!data?.redelegations?.redelegations?.length) return;
-      setRedelegationsPages((prevState) => {
-        const newState = [
-          ...prevState,
-          formatRedelegations(data?.redelegations?.redelegations?.filter((d) => d) ?? []),
-        ];
-        return R.equals(newState, prevState) ? prevState : newState;
-      });
-      setRedelegationsCount(data?.redelegations?.pagination?.total ?? 0);
+      limit: ROWS_PER_PAGE,
+      offset: redelegationsPage * ROWS_PER_PAGE,
     },
   });
+  useEffect(() => {
+    if (redelegationsLoading) return;
+    if (redelegationsError) {
+      redelegationsRefetch({ pagination: false });
+    }
+  }, [redelegationsError, redelegationsLoading, redelegationsRefetch]);
+  useValidatorRedelegationsQuery({
+    variables: {
+      validatorAddress,
+      limit: ROWS_PER_PAGE,
+      offset: (redelegationsPage + 1) * ROWS_PER_PAGE,
+    },
+  });
+
+  const [redelegationsPagination, setRedelegationsPagination] = useState<number | undefined>();
+  const {
+    data: rData,
+    error: rError,
+    refetch: rRefetch,
+  } = useValidatorRedelegationsQuery({
+    variables: {
+      validatorAddress,
+      limit: 0,
+      offset: 0,
+      pagination: true,
+    },
+    skip: redelegationsPagination !== undefined,
+  });
+  useEffect(() => {
+    if (rError) {
+      rRefetch();
+    } else if (rData) {
+      setRedelegationsPagination(rData?.redelegations?.pagination?.total ?? 0);
+    }
+  }, [rData, rError, rRefetch]);
 
   // =====================================
   // unbondings
   // =====================================
-  const [undelegationsPages, setUndelegationsPages] = useState<UnbondingType[][]>([]);
-  const [undelegationsCount, setUndelegationsCount] = useState(0);
-  const { loading: undelegationsLoading } = useValidatorUndelegationsQuery({
+  const {
+    data: undelegationsData,
+    loading: undelegationsLoading,
+    error: undelegationsError,
+    refetch: undelegationsRefetch,
+  } = useValidatorUndelegationsQuery({
     variables: {
       validatorAddress,
-      limit: LIMIT,
-      offset: undelegationsPages.length * LIMIT,
-    },
-    onCompleted: (data) => {
-      if (!data?.undelegations?.undelegations?.length) return;
-      setUndelegationsPages((prevState) => {
-        const newState = [
-          ...prevState,
-          formatUnbondings(data?.undelegations?.undelegations?.filter((d) => d) ?? []),
-        ];
-        return R.equals(newState, prevState) ? prevState : newState;
-      });
-      setUndelegationsCount(data?.undelegations?.pagination?.total ?? 0);
+      limit: ROWS_PER_PAGE,
+      offset: unbondingsPage * ROWS_PER_PAGE,
     },
   });
+  useEffect(() => {
+    if (undelegationsLoading) return;
+    if (undelegationsError) {
+      undelegationsRefetch({ pagination: false });
+    }
+  }, [undelegationsError, undelegationsLoading, undelegationsRefetch]);
+  useValidatorUndelegationsQuery({
+    variables: {
+      validatorAddress,
+      limit: ROWS_PER_PAGE,
+      offset: (unbondingsPage + 1) * ROWS_PER_PAGE,
+    },
+  });
+
+  const [undelegationsPagination, setUndelegationsPagination] = useState<number | undefined>();
+  const {
+    data: uData,
+    error: uError,
+    refetch: uRefetch,
+  } = useValidatorUndelegationsQuery({
+    variables: {
+      validatorAddress,
+      limit: 0,
+      offset: 0,
+      pagination: true,
+    },
+    skip: undelegationsPagination !== undefined,
+  });
+  useEffect(() => {
+    if (uError) {
+      uRefetch();
+    } else if (uData) {
+      setUndelegationsPagination(uData?.undelegations?.pagination?.total ?? 0);
+    }
+  }, [uData, uError, uRefetch]);
 
   const handleTabChange: ComponentProps<typeof Tabs>['onChange'] = useCallback(
     (_event, newValue) => {
@@ -187,38 +268,25 @@ export const useStaking = () => {
   );
 
   return {
-    state: useMemo(
-      () => ({
-        ...state,
-        delegations: {
-          loading: delegationsLoading,
-          count: delegationsCount,
-          data: delegationsPages,
-        },
-        redelegations: {
-          loading: redelegationsLoading,
-          count: redelegationsCount,
-          data: redelegationsPages,
-        },
-        unbondings: {
-          loading: undelegationsLoading,
-          count: undelegationsCount,
-          data: undelegationsPages,
-        },
-      }),
-      [
-        state,
-        delegationsLoading,
-        delegationsCount,
-        delegationsPages,
-        redelegationsLoading,
-        redelegationsCount,
-        redelegationsPages,
-        undelegationsLoading,
-        undelegationsCount,
-        undelegationsPages,
-      ]
-    ),
+    state,
+    delegations: {
+      loading: delegationsLoading,
+      count: delegationsPagination,
+      data: formatDelegations(delegationsData?.delegations?.delegations ?? []),
+      error: delegationsError,
+    },
+    redelegations: {
+      loading: redelegationsLoading,
+      count: redelegationsPagination,
+      data: formatRedelegations(redelegationsData?.redelegations?.redelegations ?? []),
+      error: redelegationsError,
+    },
+    unbondings: {
+      loading: undelegationsLoading,
+      count: undelegationsPagination,
+      data: formatUnbondings(undelegationsData?.undelegations?.undelegations ?? []),
+      error: undelegationsError,
+    },
     handleTabChange,
   };
 };

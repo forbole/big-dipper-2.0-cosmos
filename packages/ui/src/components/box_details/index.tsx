@@ -2,31 +2,33 @@ import Box from '@/components/box';
 import { useStyles } from '@/components/box_details/styles';
 import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
-import React from 'react';
+import React, { FC, isValidElement, ReactNode } from 'react';
 
-const BoxDetails: React.FC<{
+type BoxDetailsProps = {
   className?: string;
-  title?: string | React.ReactNode;
-  titleAction?: React.ReactNode;
+  title?: string | ReactNode;
+  titleAction?: ReactNode;
   details: {
-    label: string | number | React.ReactNode;
-    detail?: string | number | React.ReactNode;
+    key: string;
+    label: string | number | ReactNode;
+    detail?: string | number | ReactNode;
     className?: string;
   }[];
-}> = ({ className, title, titleAction, details }) => {
+};
+
+const BoxDetails: FC<BoxDetailsProps> = ({ className, title, titleAction, details }) => {
   const classes = useStyles();
   return (
     <Box className={classnames(className, classes.root)}>
       {!!title && (
         <div className={classnames(classes.header, classes.item)}>
-          {React.isValidElement(title) ? title : <Typography variant="h2">{title}</Typography>}
+          {isValidElement(title) ? title : <Typography variant="h2">{title}</Typography>}
           {!!titleAction && titleAction}
         </div>
       )}
-      {details.map((x, i) => (
-        // eslint-disable-next-line react/no-array-index-key
-        <div className={classnames(classes.item, x.className)} key={`box-detail__item--${i}`}>
-          {React.isValidElement(x.label) ? (
+      {details.map((x) => (
+        <div key={x.key} className={classnames(classes.item, x.className)}>
+          {isValidElement(x.label) ? (
             <div className="label">{x.label}</div>
           ) : (
             <Typography variant="body1" className="label">
@@ -34,7 +36,7 @@ const BoxDetails: React.FC<{
             </Typography>
           )}
 
-          {React.isValidElement(x.detail) ? (
+          {isValidElement(x.detail) ? (
             <div className="detail">{x.detail}</div>
           ) : (
             <Typography variant="body1" className="detail">

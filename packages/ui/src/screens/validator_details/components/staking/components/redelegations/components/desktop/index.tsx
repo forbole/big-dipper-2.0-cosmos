@@ -1,4 +1,5 @@
 import AvatarName from '@/components/avatar_name';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { readDate } from '@/recoil/settings';
 import { columns } from '@/screens/validator_details/components/staking/components/redelegations/components/desktop/utils';
 import type { ItemType } from '@/screens/validator_details/components/staking/components/redelegations/types';
@@ -11,33 +12,42 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import React from 'react';
+import { FC } from 'react';
 import { useRecoilValue } from 'recoil';
 
-const Desktop: React.FC<{
+const RedelegationsItem: FC<{ item: ItemType }> = ({ item }) => {
+  const { address, imageUrl, name } = useProfileRecoil(item.address);
+  const { address: toAddress, imageUrl: toImageUrl, name: toName } = useProfileRecoil(item.to);
+  const dateFormat = useRecoilValue(readDate);
+  const formattedItem = {
+    address: <AvatarName address={address} imageUrl={imageUrl} name={name} />,
+    to: <AvatarName address={toAddress} imageUrl={toImageUrl} name={toName} />,
+    amount: item.amount
+      ? `${formatNumber(
+          item.amount.value,
+          item.amount.exponent
+        )} ${item.amount.displayDenom.toUpperCase()}`
+      : '',
+    completionTime: formatDayJs(dayjs.utc(item.completionTime), dateFormat),
+  };
+  return (
+    <TableRow>
+      {columns.map((column) => (
+        <TableCell key={column.key} align={column.align} style={{ width: `${column.width}%` }}>
+          {formattedItem[column.key as keyof typeof formattedItem]}
+        </TableCell>
+      ))}
+    </TableRow>
+  );
+};
+
+type DesktopProps = {
   className?: string;
   items: ItemType[];
-}> = ({ className, items }) => {
+};
+
+const Desktop: FC<DesktopProps> = ({ className, items }) => {
   const { t } = useTranslation('accounts');
-  const dateFormat = useRecoilValue(readDate);
-  const formattedItems =
-    items?.map((x) => ({
-      address: (
-        <AvatarName
-          address={x.address.address}
-          imageUrl={x.address.imageUrl}
-          name={x.address.name}
-        />
-      ),
-      to: <AvatarName address={x.to.address} imageUrl={x.to.imageUrl} name={x.to.name} />,
-      amount: x.amount
-        ? `${formatNumber(
-            x.amount.value,
-            x.amount.exponent
-          )} ${x.amount.displayDenom.toUpperCase()}`
-        : '',
-      completionTime: formatDayJs(dayjs.utc(x.completionTime), dateFormat),
-    })) ?? [];
 
   return (
     <div className={classnames(className)}>
@@ -56,20 +66,9 @@ const Desktop: React.FC<{
           </TableRow>
         </TableHead>
         <TableBody>
-          {formattedItems?.map((row: { [key: string]: unknown }, i) => (
+          {items?.map((row, i) => (
             // eslint-disable-next-line react/no-array-index-key
-            <TableRow key={`holders-row-${i}`}>
-              {columns.map((column) => (
-                <TableCell
-                  // eslint-disable-next-line react/no-array-index-key
-                  key={`holders-row-${i}-${column.key}`}
-                  align={column.align}
-                  style={{ width: `${column.width}%` }}
-                >
-                  {row[column.key]}
-                </TableCell>
-              ))}
-            </TableRow>
+            <RedelegationsItem key={`${row.address}-${i}`} item={row} />
           ))}
         </TableBody>
       </Table>

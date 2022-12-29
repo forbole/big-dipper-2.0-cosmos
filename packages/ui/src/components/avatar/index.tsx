@@ -2,13 +2,15 @@ import { useStyles } from '@/components/avatar/styles';
 import classnames from 'classnames';
 import * as jdenticon from 'jdenticon';
 import Image from 'next/future/image';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 
-const Avatar: React.FC<{
+type AvatarProps = {
   className?: string;
   imageUrl?: string;
   address: string;
-}> = ({ className, address, imageUrl }) => {
+};
+
+const Avatar: FC<AvatarProps> = ({ className, address, imageUrl }) => {
   const icon = useRef(null);
   const [error, setError] = useState<boolean>(false);
   useEffect(() => {

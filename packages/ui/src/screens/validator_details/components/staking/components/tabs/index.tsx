@@ -4,20 +4,21 @@ import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import numeral from 'numeral';
-import React, { ComponentProps } from 'react';
+import React, { ComponentProps, FC, ReactNode } from 'react';
 
-const TabsHeader: React.FC<{
+type TabsHeaderProps = {
   className?: string;
   tab: number;
   handleTabChange: ComponentProps<typeof Tabs>['onChange'];
   tabs: {
     id: number;
     key: string;
-    count: number;
-    component?: React.ReactNode;
+    count: string;
+    component?: ReactNode;
   }[];
-}> = ({ className, tab, handleTabChange, tabs }) => {
+};
+
+const TabsHeader: FC<TabsHeaderProps> = ({ className, tab, handleTabChange, tabs }) => {
   const classes = useStyles();
   const { t } = useTranslation('accounts');
 
@@ -28,7 +29,7 @@ const TabsHeader: React.FC<{
           <Tab
             key={x.key}
             label={t(x.key, {
-              num: numeral(x.count ?? 0).format('0,0'),
+              num: x.count,
             })}
             {...a11yProps(x.id)}
           />

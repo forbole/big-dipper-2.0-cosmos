@@ -60,6 +60,58 @@ export const useBlockDetails = () => {
   };
 };
 
+// ==========================
+// Overview
+// ==========================
+const formatOverview = (data: BlockDetailsQuery) => {
+  const proposerAddress = data?.block?.[0]?.validator?.validatorInfo?.operatorAddress ?? '';
+  const overview = {
+    height: data.block[0].height,
+    hash: data.block[0].hash,
+    txs: data.block[0].txs ?? 0,
+    timestamp: data.block[0].timestamp,
+    proposer: proposerAddress,
+  };
+  return overview;
+};
+
+// ==========================
+// Signatures
+// ==========================
+const formatSignatures = (data: BlockDetailsQuery) => {
+  const signatures = data.preCommits
+    .filter((x) => x?.validator?.validatorInfo)
+    .map((x) => x?.validator?.validatorInfo?.operatorAddress ?? '');
+  return signatures;
+};
+
+// ==========================
+// Transactions
+// ==========================
+const formatTransactions = (data: BlockDetailsQuery, stateChange: Partial<BlockDetailState>) => {
+  const transactions = data.transaction.map((x) => {
+    const messages = convertMsgsToModels(x);
+    const msgType = messages.map((eachMsg) => {
+      const eachMsgType = eachMsg?.type ?? 'none type';
+      return eachMsgType ?? '';
+    });
+    const convertedMsgType = convertMsgType(msgType);
+    return {
+      type: convertedMsgType,
+      height: x.height,
+      hash: x.hash,
+      success: x.success,
+      timestamp: stateChange.overview?.timestamp ?? '',
+      messages: {
+        count: x.messages.length,
+        items: messages,
+      },
+    };
+  });
+
+  return transactions;
+};
+
 function formatRaws(data: BlockDetailsQuery) {
   const stateChange: Partial<BlockDetailState> = {
     loading: false,
@@ -70,61 +122,9 @@ function formatRaws(data: BlockDetailsQuery) {
     return stateChange;
   }
 
-  // ==========================
-  // Overview
-  // ==========================
-  const formatOverview = () => {
-    const proposerAddress = data?.block?.[0]?.validator?.validatorInfo?.operatorAddress ?? '';
-    const overview = {
-      height: data.block[0].height,
-      hash: data.block[0].hash,
-      txs: data.block[0].txs ?? 0,
-      timestamp: data.block[0].timestamp,
-      proposer: proposerAddress,
-    };
-    return overview;
-  };
-
-  stateChange.overview = formatOverview();
-
-  // ==========================
-  // Signatures
-  // ==========================
-  const formatSignatures = () => {
-    const signatures = data.preCommits
-      .filter((x) => x?.validator?.validatorInfo)
-      .map((x) => x?.validator?.validatorInfo?.operatorAddress ?? '');
-    return signatures;
-  };
-  stateChange.signatures = formatSignatures();
-
-  // ==========================
-  // Transactions
-  // ==========================
-  const formatTransactions = () => {
-    const transactions = data.transaction.map((x) => {
-      const messages = convertMsgsToModels(x);
-      const msgType = messages.map((eachMsg) => {
-        const eachMsgType = eachMsg?.type ?? 'none type';
-        return eachMsgType ?? '';
-      });
-      const convertedMsgType = convertMsgType(msgType);
-      return {
-        type: convertedMsgType,
-        height: x.height,
-        hash: x.hash,
-        success: x.success,
-        timestamp: stateChange.overview?.timestamp ?? '',
-        messages: {
-          count: x.messages.length,
-          items: messages,
-        },
-      };
-    });
-
-    return transactions;
-  };
-  stateChange.transactions = formatTransactions();
+  stateChange.overview = formatOverview(data);
+  stateChange.signatures = formatSignatures(data);
+  stateChange.transactions = formatTransactions(data, stateChange);
 
   return stateChange;
 }

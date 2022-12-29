@@ -3,6 +3,7 @@ import { GetMessagesByAddressDocument } from '@/graphql/types/general_types';
 import AccountDetails from '@/screens/account_details';
 import { MockTheme, wait } from '@/tests/utils';
 import { MockedProvider } from '@apollo/client/testing';
+import { useMemo } from 'react';
 import renderer from 'react-test-renderer';
 
 const { prefix } = chainConfig();
@@ -141,24 +142,31 @@ const mockAccountMessages = jest.fn().mockReturnValue({
 
 jest.mock('@/hooks', () => ({
   ...jest.requireActual('@/hooks'),
-  useDesmosProfile: () => ({
-    data: [
-      {
-        address: 'desmos18tug2x5uwkgnh7qgadezvdntpwgjc88c98zuck',
-        bio: 'hungry all the time',
-        dtag: 'HappieSa',
-        nickname: 'theHappySamoyed',
-        chainLinks: [],
-        applicationLinks: [],
-        creationTime: '2021-10-06T00:10:45.761731',
-        coverPic: 'https://ipfs.desmos.network/ipfs/Qmf48cpgi2zNiH24Vo1xtVsePUJx9665gtiRduVCvV5fFg',
-        profilePic:
-          'https://ipfs.desmos.network/ipfs/QmTvkdGrtBHHihjVajqqA2HAoHangeKR1oYbQWzasnPi7B',
-        connections: [{ identifier: `${prefix.account}test` }],
-      },
-    ],
-    loading: false,
-  }),
+  useDesmosProfile: () =>
+    useMemo(
+      () => ({
+        loading: false,
+        data: [
+          {
+            dtag: 'HappieSa',
+            nickname: 'theHappySamoyed',
+            imageUrl:
+              'https://ipfs.desmos.network/ipfs/QmTvkdGrtBHHihjVajqqA2HAoHangeKR1oYbQWzasnPi7B',
+            coverUrl:
+              'https://ipfs.desmos.network/ipfs/Qmf48cpgi2zNiH24Vo1xtVsePUJx9665gtiRduVCvV5fFg',
+            bio: 'hungry all the time',
+            connections: [
+              {
+                identifier: `${prefix.account}test`,
+                network: 'desmos',
+                creationTime: '2021-10-06T00:10:45.761731',
+              },
+            ],
+          },
+        ],
+      }),
+      []
+    ),
 }));
 
 // ==================================

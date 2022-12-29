@@ -9,7 +9,7 @@ import Color from 'color';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
 import * as R from 'ramda';
-import React from 'react';
+import { FC } from 'react';
 import {
   Area,
   AreaChart,
@@ -20,7 +20,7 @@ import {
   YAxis,
 } from 'recharts';
 
-const Price: React.FC<ComponentDefault> = (props) => {
+const Price: FC<ComponentDefault> = (props) => {
   const { classes, theme } = useStyles();
   const { t } = useTranslation('home');
   const { state, tickPriceFormatter } = usePrice();

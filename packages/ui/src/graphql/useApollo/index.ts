@@ -7,6 +7,7 @@ import {
   split,
 } from '@apollo/client';
 import { BatchHttpLink } from '@apollo/client/link/batch-http';
+import { HttpLink } from '@apollo/client/link/http';
 import { GraphQLWsLink } from '@apollo/client/link/subscriptions';
 import { WebSocketLink } from '@apollo/client/link/ws';
 import { getMainDefinition } from '@apollo/client/utilities';
@@ -46,13 +47,18 @@ const defaultOptions: DefaultOptions = {
   },
 };
 
-/* Creating a new HttpLink object. */
-function httpBatchLink(uri?: string) {
+/* Creating a new HttpBatchLink object. */
+function createHttpBatchLink(uri?: string) {
   return new BatchHttpLink({
     uri,
-    batchMax: 25,
+    batchMax: 20,
     batchInterval: 200,
   });
+}
+
+/* Creating a new HttpLink object. */
+function createHttpLink(uri?: string) {
+  return new HttpLink({ uri });
 }
 
 /**
@@ -103,8 +109,14 @@ function createApolloClient(initialState = {}) {
   /* Restoring the cache from the initial state. */
   const cache = new InMemoryCache().restore(initialState);
 
-  const defaultLink = ssrMode
-    ? httpBatchLink(urlEndpoints.find((u) => u))
+  const httpLink = split(
+    ({ operationName, variables }) =>
+      /^(Account|Validator)Delegations$/.test(operationName) && variables?.pagination,
+    createHttpLink(urlEndpoints.find((u) => u)),
+    createHttpBatchLink(urlEndpoints.find((u) => u))
+  );
+  const httpOrWsLink = ssrMode
+    ? createHttpBatchLink(urlEndpoints.find((u) => u))
     : split(
         /* Checking if the query is a subscription. */
         ({ query }) => {
@@ -115,13 +127,13 @@ function createApolloClient(initialState = {}) {
           return isSubscription;
         },
         createWebSocketLink(wsEndpoints.find((u) => u)),
-        httpBatchLink(urlEndpoints.find((u) => u))
+        httpLink
       );
 
   const link = split(
     ({ operationName }) => /^DesmosProfile/.test(operationName),
-    httpBatchLink(profileApi()),
-    defaultLink
+    createHttpBatchLink(profileApi()),
+    httpOrWsLink
   );
 
   /* Creating a new Apollo Client. */

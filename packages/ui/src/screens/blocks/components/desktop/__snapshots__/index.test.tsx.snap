@@ -194,7 +194,8 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
           <div
             address="address"
             id="AvatarName"
-            name="proposer"
+            imageUrl=""
+            name="address"
           />
         </div>
       </div>
@@ -301,7 +302,8 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
           <div
             address="address"
             id="AvatarName"
-            name="proposer"
+            imageUrl=""
+            name="address"
           />
         </div>
       </div>

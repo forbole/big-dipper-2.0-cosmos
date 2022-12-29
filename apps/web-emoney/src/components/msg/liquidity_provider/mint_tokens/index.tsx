@@ -1,13 +1,13 @@
 import Name from '@/components/name';
 import MsgMintTokens from '@/models/msg/liquidity_provider/msg_mint_tokens';
-import { useProfileRecoil } from '@/recoil/profiles';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { formatNumber, formatToken } from '@/utils/format_token';
 import Typography from '@material-ui/core/Typography';
 import Trans from 'next-translate/Trans';
 import useTranslation from 'next-translate/useTranslation';
-import React from 'react';
+import React, { FC } from 'react';
 
-const MintTokens: React.FC<{ message: MsgMintTokens }> = (props) => {
+const MintTokens: FC<{ message: MsgMintTokens }> = (props) => {
   const { message } = props;
   const { t } = useTranslation('transactions');
 

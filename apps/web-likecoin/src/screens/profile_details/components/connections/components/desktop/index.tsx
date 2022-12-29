@@ -12,20 +12,22 @@ import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
-import React from 'react';
+import React, { FC, ReactNode } from 'react';
 import { useRecoilValue } from 'recoil';
 
 const { prefix } = chainConfig();
 
-const Desktop: React.FC<{
+type DesktopProps = {
   className?: string;
   items?: ProfileConnectionType[];
-}> = ({ className, items }) => {
+};
+
+const Desktop: FC<DesktopProps> = ({ className, items }) => {
   const dateFormat = useRecoilValue(readDate);
   const { t } = useTranslation('accounts');
 
   const formattedItems = items?.map((x) => {
-    let identity: string | React.ReactNode = x.identifier;
+    let identity: ReactNode = x.identifier;
     if (new RegExp(`^(${prefix.account})`).test(x.identifier)) {
       identity = (
         <Link href={ACCOUNT_DETAILS(x.identifier)} passHref>
@@ -37,6 +39,7 @@ const Desktop: React.FC<{
     }
 
     return {
+      key: `${x.identifier}-${x.creationTime}`,
       network: x.network.toUpperCase(),
       identifier: identity,
       creationTime: formatDayJs(dayjs.utc(x.creationTime), dateFormat),
@@ -60,15 +63,15 @@ const Desktop: React.FC<{
           </TableRow>
         </TableHead>
         <TableBody>
-          {formattedItems?.map((row: { [key: string]: unknown }) => (
-            <TableRow key={`holders-row-${row.identifier}`}>
+          {formattedItems?.map((row) => (
+            <TableRow key={row.key}>
               {columns.map((column) => (
                 <TableCell
-                  key={`holders-row-${row.identifier}-${column.key}`}
+                  key={`${row.key}-${column.key}`}
                   align={column.align}
                   style={{ width: `${column.width}%` }}
                 >
-                  {row[column.key]}
+                  {row[column.key as keyof typeof row]}
                 </TableCell>
               ))}
             </TableRow>

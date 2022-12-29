@@ -2,7 +2,7 @@ import Box from '@/components/box';
 import Markdown from '@/components/markdown';
 import Name from '@/components/name';
 import SingleProposal from '@/components/single_proposal';
-import { useProfileRecoil } from '@/recoil/profiles';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { readDate } from '@/recoil/settings';
 import CommunityPoolSpend from '@/screens/proposal_details/components/overview/components/community_pool_spend';
 import ParamsChange from '@/screens/proposal_details/components/overview/components/params_change';
@@ -18,23 +18,20 @@ import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
 import * as R from 'ramda';
-import React from 'react';
+import React, { FC, useCallback } from 'react';
 import { useRecoilValue } from 'recoil';
 
-const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
-  className,
-  overview,
-}) => {
+const Overview: FC<{ className?: string; overview: OverviewType }> = ({ className, overview }) => {
   const dateFormat = useRecoilValue(readDate);
   const classes = useStyles();
   const { t } = useTranslation('proposals');
 
   const type = getProposalType(R.pathOr('', ['@type'], overview.content));
 
-  const proposer = useProfileRecoil(overview.proposer);
-  const recipient = useProfileRecoil(overview?.content?.recipient);
-  const proposerMoniker = proposer ? proposer?.name : overview.proposer;
-  const recipientMoniker = recipient ? recipient?.name : overview?.content?.recipient;
+  const { address: proposerAddress, name: proposerName } = useProfileRecoil(overview.proposer);
+  const { name: recipientName } = useProfileRecoil(overview?.content?.recipient);
+  const proposerMoniker = proposerName || overview.proposer;
+  const recipientMoniker = recipientName || overview?.content?.recipient;
   const amountRequested = overview.content?.amount
     ? formatToken(overview.content?.amount[0]?.amount, overview.content?.amount[0]?.denom)
     : null;
@@ -45,7 +42,7 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
       )} ${amountRequested.displayDenom.toUpperCase()}`
     : '';
 
-  const getExtraDetails = () => {
+  const getExtraDetails = useCallback(() => {
     let extraDetails = null;
     if (type === 'parameterChangeProposal') {
       extraDetails = (
@@ -85,7 +82,7 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
     }
 
     return extraDetails;
-  };
+  }, [overview.content, parsedAmountRequested, recipientMoniker, t, type]);
 
   const extra = getExtraDetails();
 
@@ -107,7 +104,7 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
         <Typography variant="body1" className="label">
           {t('proposer')}
         </Typography>
-        <Name name={proposerMoniker} address={proposer.address} />
+        <Name name={proposerMoniker} address={proposerAddress} />
         {!!overview.submitTime && (
           <>
             <Typography variant="body1" className="label">

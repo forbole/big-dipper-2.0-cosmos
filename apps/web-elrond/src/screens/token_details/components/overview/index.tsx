@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import useTranslation from 'next-translate/useTranslation';
 import Typography from '@material-ui/core/Typography';
 import BoxDetails from '@/components/box_details';
@@ -6,11 +6,12 @@ import AvatarName from '@/components/avatar_name';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import type { OverviewType } from '@/screens/token_details/types';
 
-const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = (props) => {
+const Overview: FC<{ className?: string; overview: OverviewType }> = (props) => {
   const { t } = useTranslation('tokens');
 
   const details = [
     {
+      key: 'owner',
       label: t('owner'),
       detail: (
         <AvatarName
@@ -23,10 +24,12 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = (props
       ),
     },
     {
+      key: 'decimals',
       label: t('decimals'),
       detail: props.overview.decimals,
     },
     {
+      key: 'website',
       label: t('website'),
       detail: props.overview.website ? (
         <Typography component="a" href={props.overview.website} target="_blank" rel="noreferrer">
@@ -37,6 +40,7 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = (props
       ),
     },
     {
+      key: 'email',
       label: t('email'),
       detail: props.overview.email || '-',
     },

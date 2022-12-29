@@ -13,12 +13,12 @@ import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
-import React from 'react';
+import React, { FC } from 'react';
 import { useRecoilValue } from 'recoil';
 
 const { primaryTokenUnit } = chainConfig();
 
-const Overview: React.FC<OverviewType & ComponentDefault> = (props) => {
+const Overview: FC<OverviewType & ComponentDefault> = (props) => {
   const { t } = useTranslation('transactions');
   const classes = useStyles();
   const dateFormat = useRecoilValue(readDate);
@@ -27,14 +27,17 @@ const Overview: React.FC<OverviewType & ComponentDefault> = (props) => {
 
   const details = [
     {
+      key: 'hash',
       label: t('hash'),
       detail: props.hash,
     },
     {
+      key: 'status',
       label: t('status'),
       detail: <Result status={props.status} />,
     },
     {
+      key: 'miniblockHash',
       label: t('miniblockHash'),
       detail: (
         <Link href={MINIBLOCK_DETAILS(props.miniblockHash)} passHref>
@@ -45,6 +48,7 @@ const Overview: React.FC<OverviewType & ComponentDefault> = (props) => {
       ),
     },
     {
+      key: 'shardFrom',
       label: (
         <div>
           <Typography component="span">{t('from')}</Typography>{' '}
@@ -60,6 +64,7 @@ const Overview: React.FC<OverviewType & ComponentDefault> = (props) => {
       detail: <AvatarName address={props.from} name={props.from} />,
     },
     {
+      key: 'shardTo',
       label: (
         <div>
           <Typography component="span">{t('to')}</Typography>{' '}
@@ -75,14 +80,17 @@ const Overview: React.FC<OverviewType & ComponentDefault> = (props) => {
       detail: <AvatarName address={props.to} name={props.to} />,
     },
     {
+      key: 'tokenPrice',
       label: t('tokenPrice', { token: primaryTokenUnit.toUpperCase() }),
       detail: `$${props.price}`,
     },
     {
+      key: 'gasUsedLimit',
       label: t('gasUsedLimit'),
       detail: `${numeral(props.gasUsed).format('0,0')} / ${numeral(props.gasLimit).format('0,0')}`,
     },
     {
+      key: 'gasPrice',
       label: t('gasPrice'),
       detail: `${formatNumber(
         props.gasPrice.value,
@@ -90,6 +98,7 @@ const Overview: React.FC<OverviewType & ComponentDefault> = (props) => {
       )} ${props.gasPrice.displayDenom.toUpperCase()}`,
     },
     {
+      key: 'time',
       label: t('time'),
       detail: formatDayJs(dayjs.utc(dayjs.unix(props.timestamp)), dateFormat),
     },

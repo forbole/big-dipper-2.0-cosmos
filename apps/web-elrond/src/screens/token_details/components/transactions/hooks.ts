@@ -7,6 +7,16 @@ import type { TransactionState } from '@/screens/token_details/components/transa
 
 export const PAGE_SIZE = 10;
 
+type TransactionsResult = Array<{
+  txHash: string;
+  senderShard: number;
+  receiverShard: number;
+  sender: string;
+  receiver: string;
+  timestamp: number;
+  status: string;
+}>;
+
 export const useTransactions = () => {
   const router = useRouter();
   const [state, setState] = useState<TransactionState>({
@@ -29,17 +39,7 @@ export const useTransactions = () => {
   const getTransactionsByPage = useCallback(
     async (page: number) => {
       try {
-        const { data: transactionsData } = await axios.get<
-          Array<{
-            txHash: string;
-            senderShard: number;
-            receiverShard: number;
-            sender: string;
-            receiver: string;
-            timestamp: number;
-            status: string;
-          }>
-        >(TRANSACTIONS, {
+        const { data: transactionsData } = await axios.get<TransactionsResult>(TRANSACTIONS, {
           params: {
             from: page * PAGE_SIZE,
             size: PAGE_SIZE,

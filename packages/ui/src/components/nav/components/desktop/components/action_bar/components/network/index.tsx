@@ -4,13 +4,15 @@ import { readSelectedNetwork } from '@/recoil/big_dipper_networks';
 import Typography from '@material-ui/core/Typography';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import classnames from 'classnames';
-import React from 'react';
+import React, { FC } from 'react';
 import { useRecoilValue } from 'recoil';
 
-const Network: React.FC<{
+type NetworkProps = {
   className?: string;
   toggleNetwork: () => void;
-}> = ({ className, toggleNetwork }) => {
+};
+
+const Network: FC<NetworkProps> = ({ className, toggleNetwork }) => {
   const classes = useStyles();
   const selected = useRecoilValue(readSelectedNetwork);
 

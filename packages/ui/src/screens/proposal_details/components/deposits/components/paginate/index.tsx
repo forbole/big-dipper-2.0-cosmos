@@ -2,12 +2,10 @@ import Pagination from '@/components/pagination';
 import { useStyles } from '@/screens/proposal_details/components/deposits/components/paginate/styles';
 import { ComponentProps, FC } from 'react';
 
-type Props = Pick<
-  ComponentProps<typeof Pagination>,
-  'total' | 'page' | 'rowsPerPage' | 'handlePageChange' | 'handleRowsPerPageChange'
->;
+type Properties = 'total' | 'page' | 'rowsPerPage' | 'handlePageChange' | 'handleRowsPerPageChange';
+type PaginateProps = Pick<ComponentProps<typeof Pagination>, Properties>;
 
-const Paginate: FC<Props> = ({
+const Paginate: FC<PaginateProps> = ({
   total,
   page,
   rowsPerPage,

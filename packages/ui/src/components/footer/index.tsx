@@ -10,14 +10,14 @@ import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 import Trans from 'next-translate/Trans';
 import useTranslation from 'next-translate/useTranslation';
-import React from 'react';
+import React, { FC } from 'react';
 import { useRecoilValue } from 'recoil';
 import FooterLogoLight from 'shared-utils/assets/big-dipper-red.svg';
 import FooterLogoDark from 'shared-utils/assets/big-dipper-white.svg';
 
 const { title } = chainConfig();
 
-const Footer: React.FC<{ className?: string }> = ({ className }) => {
+const Footer: FC<{ className?: string }> = ({ className }) => {
   const { t } = useTranslation();
   const classes = useStyles();
   const theme = useRecoilValue(readTheme);

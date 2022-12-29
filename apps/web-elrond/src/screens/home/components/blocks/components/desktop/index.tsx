@@ -14,13 +14,13 @@ import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
-import React from 'react';
+import { FC } from 'react';
 
-const Desktop: React.FC<{ items: BlockType[] } & ComponentDefault> = (props) => {
+const Desktop: FC<{ className?: string; items: BlockType[] }> = (props) => {
   const { t } = useTranslation('blocks');
   const classes = useStyles();
-  const formattedItems = props.items.map((x, i) => ({
-    identifier: i,
+  const formattedItems = props.items.map((x) => ({
+    key: `${x.block}-${x.timestamp}`,
     block: numeral(x.block).format('0,0'),
     hash: (
       <Link href={BLOCK_DETAILS(x.hash)} passHref>
@@ -52,15 +52,15 @@ const Desktop: React.FC<{ items: BlockType[] } & ComponentDefault> = (props) => 
           </TableRow>
         </TableHead>
         <TableBody>
-          {formattedItems?.map((row: { [key: string]: unknown }) => (
-            <TableRow key={`holders-row-${row.identifier}`}>
+          {formattedItems?.map((row) => (
+            <TableRow key={`holders-row-${row.key}`}>
               {columns.map((column) => (
                 <TableCell
-                  key={`holders-row-${row.identifier}-${column.key}`}
+                  key={`holders-row-${row.key}-${column.key}`}
                   align={column.align}
                   style={{ width: `${column.width}%` }}
                 >
-                  {row[column.key]}
+                  {row[column.key as keyof typeof row]}
                 </TableCell>
               ))}
             </TableRow>
