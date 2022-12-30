@@ -214,6 +214,17 @@ const styles = makeStyles((theme) => ({
     top: '185px',
     left: '172px',
   },
+  loginSuccessMsgContent: {
+    display: 'flex',
+    position: 'absolute',
+    top: '185px',
+    left: '100px',
+  },
+  loginSuccessIcon: {
+    position: 'relative',
+    top: '55px',
+    left: '250px',
+  },
   loading: {
     position: 'relative',
     top: '50px',
