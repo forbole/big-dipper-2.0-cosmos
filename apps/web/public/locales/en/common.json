@@ -69,5 +69,7 @@
   "accountDetails": "Account Details",
   "retry": "Retry",
   "pleaseInstallWallet": "Please install {{wallet}}",
+  "pleaseOpenWallet": "Please open {{wallet}}",
+  "pleasePairWallet": "Please proceed pairing in your wallet..",
   "couldntFindWalletExtension": "Couldn't find {{wallet}} installed in the browser. Please install it using official <0>{{wallet}} website</0> and try again."
 }
