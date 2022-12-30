@@ -229,6 +229,63 @@ const styles = makeStyles((theme) => ({
     position: 'relative',
     top: '50px',
   },
+  walletConnectHeader: {
+    fontWeight: 700,
+    letterSpacing: '0.15px',
+    display: 'flex',
+    position: 'absolute',
+    left: '60px',
+  },
+  walletConnectContent: {
+    display: 'inline-flex',
+    padding: '22px 0px',
+  },
+  walletConnectMsg: {
+    display: 'flex',
+    position: 'absolute',
+    left: '60px',
+    paddingTop: '5px',
+  },
+  grayDot: {
+    height: theme.spacing(3.5),
+    width: theme.spacing(3.5),
+    backgroundColor: theme.palette.custom.wallet.surfaceTwo,
+    borderRadius: 50,
+    display: 'flex',
+    position: 'absolute',
+  },
+  tabs: {
+    padding: '35px 0px',
+  },
+  tabButton: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    padding: '4px 16px',
+    gap: '8px',
+    minWidth: '109px',
+    height: '40px',
+    background: '#757575',
+    borderRadius: '8px',
+
+    '&:hover': {
+      cursor: 'pointer',
+    },
+    '&:focus': {
+      background: '#D9D9D9',
+    },
+    '&:active': {
+      background: '#D9D9D9',
+    },
+    '& .MuiTab-wrapper': {
+      color: '#000000',
+      fontWeight: 500,
+      fontSize: '20px',
+      lineHeight: '160%',
+      textAlign: 'center',
+      letterSpacing: '0.15px',
+    },
+  },
 }));
 
 export const useStyles = () => styles();

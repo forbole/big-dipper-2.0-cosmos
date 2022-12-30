@@ -75,5 +75,6 @@
   "nowSelectNetwork": "Now Select {{name}} Network",
   "waitingForAuthorize": "Waiting for authorize...",
   "loginSuccess": "Login Success",
-  "loginSuccessMsg": "System will automatically redirect to previous page in 3s.."
+  "loginSuccessMsg": "System will automatically redirect to previous page in 3s..",
+  "scanWalletConnectQR": "Scan the QR with a WalletConnect compatible Wallet."
 }
