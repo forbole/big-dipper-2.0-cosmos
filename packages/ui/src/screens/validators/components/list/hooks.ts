@@ -166,6 +166,16 @@ export const useValidators = () => {
         sorted = sorted.filter((x) => x.status !== 3);
       }
 
+      if (search) {
+        sorted = sorted.filter((x) => {
+          const formattedSearch = search.toLowerCase().replace(/ /g, '');
+          return (
+            x.validator.name.toLowerCase().replace(/ /g, '').includes(formattedSearch) ||
+            x.validator.address.toLowerCase().includes(formattedSearch)
+          );
+        });
+      }
+
       if (state.sortKey && state.sortDirection) {
         sorted.sort((a, b) => {
           let compareA = R.pathOr('', [...state.sortKey.split('.')], a);
@@ -188,7 +198,7 @@ export const useValidators = () => {
 
       return sorted;
     },
-    [state.sortDirection, state.sortKey, state.tab]
+    [search, state.sortDirection, state.sortKey, state.tab]
   );
 
   return {
