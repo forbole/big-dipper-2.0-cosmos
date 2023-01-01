@@ -5,13 +5,13 @@
   "private": true,
   "scripts": {
     "dev": "RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED=false next dev",
-    "build": "next build",
+    "build": "pnpify next build",
     "clean": "rm -rf .next .swc .turbo coverage node_modules",
-    "start": "next start",
+    "start": "pnpify next start",
     "check-types": "pnpify tsc --noemit",
     "lint": "pnpify next lint",
     "test": "pnpify jest --passWithNoTests --ci --no-watchman",
-    "graphql:codegen": "graphql-codegen"
+    "graphql:codegen": "pnpify graphql-codegen"
   },
   "dependencies": {
     "@apollo/client": "^3.7.3",
