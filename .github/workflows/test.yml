@@ -5,13 +5,13 @@ concurrency:
   group: ${{ github.ref }}-test
   cancel-in-progress: true
 env:
-  NODE_NO_WARNINGS: 1
-  HUSKY: 0
-  TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
-  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-  NEXT_TELEMETRY_DISABLED: 1
-  SENTRYCLI_SKIP_DOWNLOAD: 1
-  FORCE_COLOR: 0
+  NODE_NO_WARNINGS: 1                     # hide warnings from yarn berry
+  HUSKY: 0                                # disable husky
+  TURBO_TEAM: ${{ secrets.TURBO_TEAM }}   # for Turborepo remote cache
+  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }} # for Turborepo remote cache
+  NEXT_TELEMETRY_DISABLED: 1              # disable NextJS telemetry
+  SENTRYCLI_SKIP_DOWNLOAD: 1              # disable Sentry.io CLI download
+  FORCE_COLOR: 0                          # disable terminal color in yarn berry
 defaults:
   run:
     shell: bash

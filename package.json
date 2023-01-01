@@ -40,12 +40,12 @@
     "typescritp": "^1.0.0"
   },
   "resolutions": {
-    "@types/node": "^18.11.10",
+    "@types/node": "^18.11.18",
     "@types/react": "^17.0.52"
   },
-  "packageManager": "yarn@3.3.0",
+  "packageManager": "yarn@3.3.1",
   "engines": {
-    "node": ">=16.13.0",
+    "node": ">=18.0.0",
     "yarn": ">=1.22"
   },
   "lint-staged": {

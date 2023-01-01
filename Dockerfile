@@ -12,8 +12,7 @@ FROM base AS pruner
 COPY ./ ./
 
 ARG PROJECT_NAME
-RUN corepack enable && yarn -v \
-  && sed -i 's/nodeLinker: pnp/nodeLinker: node-modules/g' .yarnrc.yml \
+RUN sed -i 's/nodeLinker: pnp/nodeLinker: node-modules/g' .yarnrc.yml \
   && turbo prune --scope=${PROJECT_NAME} --docker
 
 ################################################################################
@@ -57,11 +56,11 @@ ENV NEXT_PUBLIC_GRAPHQL_WS={{NEXT_PUBLIC_GRAPHQL_WS}}
 ENV NEXT_PUBLIC_MATOMO_URL={{NEXT_PUBLIC_MATOMO_URL}}
 ENV NEXT_PUBLIC_MATOMO_SITE_ID={{NEXT_PUBLIC_MATOMO_SITE_ID}}
 ENV NEXT_PUBLIC_RPC_WEBSOCKET={{NEXT_PUBLIC_RPC_WEBSOCKET}}
+ENV NODE_NO_WARNINGS=1 
 
 RUN export SENTRYCLI_SKIP_DOWNLOAD=$([ -z "${NEXT_PUBLIC_SENTRY_DSN}" ] && echo 1) \
   && corepack enable && yarn -v \
-  && yarn install --immutable \
-  && yarn add sharp
+  && yarn install --immutable
 
 ## Build the project
 COPY --from=pruner /app/out/full/ ./
@@ -92,6 +91,7 @@ ARG NEXT_PUBLIC_RPC_WEBSOCKET
 ENV NEXT_PUBLIC_RPC_WEBSOCKET=${NEXT_PUBLIC_RPC_WEBSOCKET}
 ARG PORT
 ENV PORT=${PORT:-3000}
+ENV NODE_NO_WARNINGS=1 
 
 WORKDIR /app/apps/${PROJECT_NAME}
 

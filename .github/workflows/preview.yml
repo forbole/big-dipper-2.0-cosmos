@@ -12,7 +12,7 @@ on:
         description: "Override basePath in next.config.js (default to basePath in chainConfig)"
         required: false
 env:
-  NODE_NO_WARNINGS: 1
+  NODE_NO_WARNINGS: 1                     # hide warnings from yarn berry
 defaults:
   run:
     shell: bash

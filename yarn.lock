@@ -4248,10 +4248,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^18.11.10":
-  version: 18.11.10
-  resolution: "@types/node@npm:18.11.10"
-  checksum: 0f60cb090b2ee91fcd3dc4311bc1ed7889b92f14644c0069f100776f86474c12eebbcc6c75bc0d7d96b975a103b4d5d6b3c22b4e88bea6e7f4e2b1bb0daf5ea8
+"@types/node@npm:^18.11.18":
+  version: 18.11.18
+  resolution: "@types/node@npm:18.11.18"
+  checksum: 03f17f9480f8d775c8a72da5ea7e9383db5f6d85aa5fefde90dd953a1449bd5e4ffde376f139da4f3744b4c83942166d2a7603969a6f8ea826edfb16e6e3b49d
   languageName: node
   linkType: hard
 
@@ -13809,7 +13809,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typanion@npm:^3.8.0":
+"typanion@npm:^3.12.1, typanion@npm:^3.8.0":
   version: 3.12.1
   resolution: "typanion@npm:3.12.1"
   checksum: a2e26fa216f8a1dbd2ffbaacb75b1e2dc042a0356e9702fba05a968cad95d9f661b24e37f6c6d8c3adad2c8582c99fca4826ff26a2d07cd2ae617ea87e6187eb
@@ -13895,11 +13895,11 @@ __metadata:
 
 "typescript@patch:typescript@^4.9.4#~builtin<compat/typescript>":
   version: 4.9.4
-  resolution: "typescript@patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=d73830"
+  resolution: "typescript@patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=ad5954"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 37f6e2c3c5e2aa5934b85b0fddbf32eeac8b1bacf3a5b51d01946936d03f5377fe86255d4e5a4ae628fd0cd553386355ad362c57f13b4635064400f3e8e05b9d
+  checksum: 1caaea6cb7f813e64345190fddc4e6c924d0b698ab81189b503763c4a18f7f5501c69362979d36e19c042d89d936443e768a78b0675690b35eb663d19e0eae71
   languageName: node
   linkType: hard
 
@@ -13946,7 +13946,7 @@ __metadata:
     "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
     "@types/jest": ^29.2.5
-    "@types/node": ^16.18.11
+    "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/prop-types": ^15.7.5
     "@types/ramda": ^0.28.20
@@ -14019,6 +14019,7 @@ __metadata:
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
+    typanion: ^3.12.1
     typescript: ^4.9.4
     ws: ^8.11.0
   languageName: unknown
@@ -14362,6 +14363,7 @@ __metadata:
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
+    typanion: ^3.12.1
     typescript: ^4.9.4
     ui: "*"
     ws: ^8.11.0
@@ -14470,6 +14472,7 @@ __metadata:
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
+    typanion: ^3.12.1
     typescript: ^4.9.4
     ui: "*"
     ws: ^8.11.0
@@ -14578,6 +14581,7 @@ __metadata:
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
+    typanion: ^3.12.1
     typescript: ^4.9.4
     ui: "*"
     ws: ^8.11.0
@@ -14686,6 +14690,7 @@ __metadata:
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
+    typanion: ^3.12.1
     typescript: ^4.9.4
     ui: "*"
     ws: ^8.11.0
@@ -14794,6 +14799,7 @@ __metadata:
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
+    typanion: ^3.12.1
     typescript: ^4.9.4
     ui: "*"
     ws: ^8.11.0
@@ -14902,6 +14908,7 @@ __metadata:
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
+    typanion: ^3.12.1
     typescript: ^4.9.4
     ui: "*"
     ws: ^8.11.0
@@ -15010,6 +15017,7 @@ __metadata:
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
+    typanion: ^3.12.1
     typescript: ^4.9.4
     ui: "*"
     ws: ^8.11.0
@@ -15118,6 +15126,7 @@ __metadata:
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
+    typanion: ^3.12.1
     typescript: ^4.9.4
     ui: "*"
     ws: ^8.11.0
@@ -15226,6 +15235,7 @@ __metadata:
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
+    typanion: ^3.12.1
     typescript: ^4.9.4
     ui: "*"
     ws: ^8.11.0
@@ -15334,6 +15344,7 @@ __metadata:
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
+    typanion: ^3.12.1
     typescript: ^4.9.4
     ui: "*"
     ws: ^8.11.0
@@ -15442,6 +15453,7 @@ __metadata:
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
+    typanion: ^3.12.1
     typescript: ^4.9.4
     ui: "*"
     ws: ^8.11.0
@@ -15550,6 +15562,7 @@ __metadata:
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
+    typanion: ^3.12.1
     typescript: ^4.9.4
     ui: "*"
     ws: ^8.11.0
@@ -15658,6 +15671,7 @@ __metadata:
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
+    typanion: ^3.12.1
     typescript: ^4.9.4
     ui: "*"
     ws: ^8.11.0
@@ -15766,6 +15780,7 @@ __metadata:
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
+    typanion: ^3.12.1
     typescript: ^4.9.4
     ui: "*"
     ws: ^8.11.0
@@ -15874,6 +15889,7 @@ __metadata:
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
+    typanion: ^3.12.1
     typescript: ^4.9.4
     ui: "*"
     ws: ^8.11.0
@@ -15982,6 +15998,7 @@ __metadata:
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
+    typanion: ^3.12.1
     typescript: ^4.9.4
     ui: "*"
     ws: ^8.11.0
@@ -16090,6 +16107,7 @@ __metadata:
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
+    typanion: ^3.12.1
     typescript: ^4.9.4
     ui: "*"
     ws: ^8.11.0
@@ -16198,6 +16216,7 @@ __metadata:
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
+    typanion: ^3.12.1
     typescript: ^4.9.4
     ui: "*"
     ws: ^8.11.0
@@ -16306,6 +16325,7 @@ __metadata:
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
+    typanion: ^3.12.1
     typescript: ^4.9.4
     ui: "*"
     ws: ^8.11.0
@@ -16414,6 +16434,7 @@ __metadata:
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
+    typanion: ^3.12.1
     typescript: ^4.9.4
     ui: "*"
     ws: ^8.11.0
@@ -16522,6 +16543,7 @@ __metadata:
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
+    typanion: ^3.12.1
     typescript: ^4.9.4
     ui: "*"
     ws: ^8.11.0
@@ -16630,6 +16652,7 @@ __metadata:
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
+    typanion: ^3.12.1
     typescript: ^4.9.4
     ui: "*"
     ws: ^8.11.0
@@ -16752,6 +16775,7 @@ __metadata:
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
+    typanion: ^3.12.1
     typescript: ^4.9.4
     ui: "*"
     ws: ^8.11.0
@@ -16860,6 +16884,7 @@ __metadata:
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     tsconfig: "*"
+    typanion: ^3.12.1
     typescript: ^4.9.4
     ui: "*"
     ws: ^8.11.0

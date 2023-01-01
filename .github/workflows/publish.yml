@@ -18,7 +18,7 @@ concurrency:
   group: publish-to-akash
   cancel-in-progress: true
 env:
-  NODE_NO_WARNINGS: 1
+  NODE_NO_WARNINGS: 1                     # hide warnings from yarn berry
 defaults:
   run:
     shell: bash

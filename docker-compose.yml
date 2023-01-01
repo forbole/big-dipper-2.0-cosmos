@@ -5,10 +5,10 @@ x-web: &web
     args:
       PROJECT_NAME: ${PROJECT_NAME:-web}
       NEXT_PUBLIC_CHAIN_TYPE: ${NEXT_PUBLIC_CHAIN_TYPE:-}
-      TURBO_TEAM: ${TURBO_TEAM:-}
-      TURBO_TOKEN: ${TURBO_TOKEN:-}
-      NEXT_PUBLIC_SENTRY_DSN: ${NEXT_PUBLIC_SENTRY_DSN:-}
-      SENTRY_AUTH_TOKEN: ${SENTRY_AUTH_TOKEN:-}
+      TURBO_TEAM: ${TURBO_TEAM:-}                         # for Turborepo remote cache
+      TURBO_TOKEN: ${TURBO_TOKEN:-}                       # for Turborepo remote cache
+      NEXT_PUBLIC_SENTRY_DSN: ${NEXT_PUBLIC_SENTRY_DSN:-} # for Sentry.io
+      SENTRY_AUTH_TOKEN: ${SENTRY_AUTH_TOKEN:-}           # for Sentry.io
     target: web
   restart: always
   platform: linux/amd64
