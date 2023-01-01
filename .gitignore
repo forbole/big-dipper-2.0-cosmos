@@ -48,8 +48,13 @@ vercel.json
 .idea/
 
 # Yarn Berry
-.yarn/unplugged
-.yarn/build-state.yml
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
 
 # Playwright
 test-results/
