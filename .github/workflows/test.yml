@@ -15,7 +15,7 @@ defaults:
   run:
     shell: bash
 jobs:
-  check-cache:
+  install:
     runs-on: ubuntu-latest
     outputs:
       projects: ${{ steps.dry-run.outputs.projects }}
@@ -33,6 +33,7 @@ jobs:
           node-version: 18
           cache: 'yarn'
       - run: |
+          echo 'cache-directory=${{ github.workspace }}/node_modules' | tee -a $GITHUB_OUTPUT
           echo 'cache-key=${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}' | tee -a $GITHUB_OUTPUT
           echo 'restore-keys=${{ runner.os }}-' | tee -a $GITHUB_OUTPUT
         id: vars
