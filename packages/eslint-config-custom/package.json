@@ -7,12 +7,12 @@
     "access": "public"
   },
   "devDependencies": {
-    "@next/eslint-plugin-next": "^13.0.7",
-    "@typescript-eslint/eslint-plugin": "^5.47.0",
-    "@typescript-eslint/parser": "^5.47.0",
-    "eslint": "^8.30.0",
+    "@next/eslint-plugin-next": "^13.1.1",
+    "@typescript-eslint/eslint-plugin": "^5.47.1",
+    "@typescript-eslint/parser": "^5.47.1",
+    "eslint": "^8.31.0",
     "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-next": "^13.0.7",
+    "eslint-config-next": "^13.1.1",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-turbo": "^0.0.7",
     "eslint-import-resolver-typescript": "^3.5.2",
