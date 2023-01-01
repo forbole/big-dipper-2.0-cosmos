@@ -2467,7 +2467,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ],\
       [\
         "escodegen",\
-        "npm:2.0.0"\
+        "virtual:7ffac33aa92569f7b6c2d316df93f639f62ee57b0123d22b694ce85c13ee4466fe48b5a6939762d21b823f9782ac74127742605059305d7b650d10089f435e11#npm:2.0.0"\
       ],\
       [\
         "eslint",\
@@ -3339,7 +3339,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ],\
       [\
         "js-yaml",\
-        "npm:3.14.1"\
+        "virtual:52eaf1c9d4a7ce0b552875be9b7758fd02db434881df676cc8d46c835b82fd35dcb60cc19896695623fcd32a7c88f5aa658a112d7cac4e4c79cc8cd477722c51#npm:3.14.1"\
       ],\
       [\
         "jsdom",\
@@ -8125,7 +8125,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@changesets/parse", "npm:0.3.16"],\
             ["@changesets/types", "npm:5.2.1"],\
-            ["js-yaml", "npm:3.14.1"]\
+            ["js-yaml", "virtual:52eaf1c9d4a7ce0b552875be9b7758fd02db434881df676cc8d46c835b82fd35dcb60cc19896695623fcd32a7c88f5aa658a112d7cac4e4c79cc8cd477722c51#npm:3.14.1"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -8221,7 +8221,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["globals", "npm:13.19.0"],\
             ["ignore", "npm:5.2.1"],\
             ["import-fresh", "npm:3.3.0"],\
-            ["js-yaml", "npm:4.1.0"],\
+            ["js-yaml", "virtual:007f670de2e506a151fec572a83f2de9d546622ece352a4cf72e57296c0aa644478f43ac47fd07d8495ee7103d37c60645e444556d514defaeb66e67a086d21f#npm:4.1.0"],\
             ["minimatch", "npm:3.1.2"],\
             ["strip-json-comments", "npm:3.1.1"]\
           ],\
@@ -9438,7 +9438,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["http-proxy-agent", "npm:5.0.0"],\
             ["https-proxy-agent", "npm:5.0.1"],\
             ["isomorphic-fetch", "npm:3.0.0"],\
-            ["js-yaml", "npm:4.1.0"],\
+            ["js-yaml", "virtual:007f670de2e506a151fec572a83f2de9d546622ece352a4cf72e57296c0aa644478f43ac47fd07d8495ee7103d37c60645e444556d514defaeb66e67a086d21f#npm:4.1.0"],\
             ["json-stable-stringify", "npm:1.0.2"],\
             ["jsonwebtoken", "npm:9.0.0"],\
             ["lodash", "npm:4.17.21"],\
@@ -9827,7 +9827,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["camelcase", "npm:5.3.1"],\
             ["find-up", "npm:4.1.0"],\
             ["get-package-type", "npm:0.1.0"],\
-            ["js-yaml", "npm:3.14.1"],\
+            ["js-yaml", "virtual:52eaf1c9d4a7ce0b552875be9b7758fd02db434881df676cc8d46c835b82fd35dcb60cc19896695623fcd32a7c88f5aa658a112d7cac4e4c79cc8cd477722c51#npm:3.14.1"],\
             ["resolve-from", "npm:5.0.0"]\
           ],\
           "linkType": "HARD"\
@@ -12667,7 +12667,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@yarnpkg-parsers-npm-3.0.0-rc.34-fd49e1c126-58720f03e4.zip/node_modules/@yarnpkg/parsers/",\
           "packageDependencies": [\
             ["@yarnpkg/parsers", "npm:3.0.0-rc.34"],\
-            ["js-yaml", "npm:3.14.1"],\
+            ["js-yaml", "virtual:52eaf1c9d4a7ce0b552875be9b7758fd02db434881df676cc8d46c835b82fd35dcb60cc19896695623fcd32a7c88f5aa658a112d7cac4e4c79cc8cd477722c51#npm:3.14.1"],\
             ["tslib", "npm:2.4.1"]\
           ],\
           "linkType": "HARD"\
@@ -15544,12 +15544,23 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         ["npm:2.0.0", {\
           "packageLocation": "./.yarn/cache/escodegen-npm-2.0.0-6450b02925-5aa6b2966f.zip/node_modules/escodegen/",\
           "packageDependencies": [\
-            ["escodegen", "npm:2.0.0"],\
+            ["escodegen", "npm:2.0.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:7ffac33aa92569f7b6c2d316df93f639f62ee57b0123d22b694ce85c13ee4466fe48b5a6939762d21b823f9782ac74127742605059305d7b650d10089f435e11#npm:2.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/escodegen-virtual-8cf0b60ace/0/cache/escodegen-npm-2.0.0-6450b02925-5aa6b2966f.zip/node_modules/escodegen/",\
+          "packageDependencies": [\
+            ["escodegen", "virtual:7ffac33aa92569f7b6c2d316df93f639f62ee57b0123d22b694ce85c13ee4466fe48b5a6939762d21b823f9782ac74127742605059305d7b650d10089f435e11#npm:2.0.0"],\
+            ["@types/esprima", null],\
             ["esprima", "npm:4.0.1"],\
             ["estraverse", "npm:5.3.0"],\
             ["esutils", "npm:2.0.3"],\
             ["optionator", "npm:0.8.3"],\
             ["source-map", "npm:0.6.1"]\
+          ],\
+          "packagePeers": [\
+            "@types/esprima"\
           ],\
           "linkType": "HARD"\
         }]\
@@ -15587,7 +15598,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["is-glob", "npm:4.0.3"],\
             ["is-path-inside", "npm:3.0.3"],\
             ["js-sdsl", "npm:4.2.0"],\
-            ["js-yaml", "npm:4.1.0"],\
+            ["js-yaml", "virtual:007f670de2e506a151fec572a83f2de9d546622ece352a4cf72e57296c0aa644478f43ac47fd07d8495ee7103d37c60645e444556d514defaeb66e67a086d21f#npm:4.1.0"],\
             ["json-stable-stringify-without-jsonify", "npm:1.0.1"],\
             ["levn", "npm:0.4.1"],\
             ["lodash.merge", "npm:4.6.2"],\
@@ -19162,17 +19173,41 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         ["npm:3.14.1", {\
           "packageLocation": "./.yarn/cache/js-yaml-npm-3.14.1-b968c6095e-bef146085f.zip/node_modules/js-yaml/",\
           "packageDependencies": [\
-            ["js-yaml", "npm:3.14.1"],\
-            ["argparse", "npm:1.0.10"],\
-            ["esprima", "npm:4.0.1"]\
+            ["js-yaml", "npm:3.14.1"]\
           ],\
-          "linkType": "HARD"\
+          "linkType": "SOFT"\
         }],\
         ["npm:4.1.0", {\
           "packageLocation": "./.yarn/cache/js-yaml-npm-4.1.0-3606f32312-c7830dfd45.zip/node_modules/js-yaml/",\
           "packageDependencies": [\
-            ["js-yaml", "npm:4.1.0"],\
-            ["argparse", "npm:2.0.1"]\
+            ["js-yaml", "npm:4.1.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:007f670de2e506a151fec572a83f2de9d546622ece352a4cf72e57296c0aa644478f43ac47fd07d8495ee7103d37c60645e444556d514defaeb66e67a086d21f#npm:4.1.0", {\
+          "packageLocation": "./.yarn/__virtual__/js-yaml-virtual-9f72794c51/0/cache/js-yaml-npm-4.1.0-3606f32312-c7830dfd45.zip/node_modules/js-yaml/",\
+          "packageDependencies": [\
+            ["js-yaml", "virtual:007f670de2e506a151fec572a83f2de9d546622ece352a4cf72e57296c0aa644478f43ac47fd07d8495ee7103d37c60645e444556d514defaeb66e67a086d21f#npm:4.1.0"],\
+            ["@types/esprima", null],\
+            ["argparse", "npm:2.0.1"],\
+            ["esprima", null]\
+          ],\
+          "packagePeers": [\
+            "@types/esprima",\
+            "esprima"\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["virtual:52eaf1c9d4a7ce0b552875be9b7758fd02db434881df676cc8d46c835b82fd35dcb60cc19896695623fcd32a7c88f5aa658a112d7cac4e4c79cc8cd477722c51#npm:3.14.1", {\
+          "packageLocation": "./.yarn/__virtual__/js-yaml-virtual-7e52bcd2a1/0/cache/js-yaml-npm-3.14.1-b968c6095e-bef146085f.zip/node_modules/js-yaml/",\
+          "packageDependencies": [\
+            ["js-yaml", "virtual:52eaf1c9d4a7ce0b552875be9b7758fd02db434881df676cc8d46c835b82fd35dcb60cc19896695623fcd32a7c88f5aa658a112d7cac4e4c79cc8cd477722c51#npm:3.14.1"],\
+            ["@types/esprima", null],\
+            ["argparse", "npm:1.0.10"],\
+            ["esprima", "npm:4.0.1"]\
+          ],\
+          "packagePeers": [\
+            "@types/esprima"\
           ],\
           "linkType": "HARD"\
         }]\
@@ -19199,7 +19234,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["data-urls", "npm:3.0.2"],\
             ["decimal.js", "npm:10.4.2"],\
             ["domexception", "npm:4.0.0"],\
-            ["escodegen", "npm:2.0.0"],\
+            ["escodegen", "virtual:7ffac33aa92569f7b6c2d316df93f639f62ee57b0123d22b694ce85c13ee4466fe48b5a6939762d21b823f9782ac74127742605059305d7b650d10089f435e11#npm:2.0.0"],\
             ["form-data", "npm:4.0.0"],\
             ["html-encoding-sniffer", "npm:3.0.0"],\
             ["http-proxy-agent", "npm:5.0.0"],\
@@ -19682,7 +19717,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["load-yaml-file", "npm:0.2.0"],\
             ["graceful-fs", "npm:4.2.10"],\
-            ["js-yaml", "npm:3.14.1"],\
+            ["js-yaml", "virtual:52eaf1c9d4a7ce0b552875be9b7758fd02db434881df676cc8d46c835b82fd35dcb60cc19896695623fcd32a7c88f5aa658a112d7cac4e4c79cc8cd477722c51#npm:3.14.1"],\
             ["pify", "npm:4.0.1"],\
             ["strip-bom", "npm:3.0.0"]\
           ],\
@@ -22084,7 +22119,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["read-yaml-file", "npm:1.1.0"],\
             ["graceful-fs", "npm:4.2.10"],\
-            ["js-yaml", "npm:3.14.1"],\
+            ["js-yaml", "virtual:52eaf1c9d4a7ce0b552875be9b7758fd02db434881df676cc8d46c835b82fd35dcb60cc19896695623fcd32a7c88f5aa658a112d7cac4e4c79cc8cd477722c51#npm:3.14.1"],\
             ["pify", "npm:4.0.1"],\
             ["strip-bom", "npm:3.0.0"]\
           ],\
