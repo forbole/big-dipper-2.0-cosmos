@@ -1,4 +1,4 @@
-# See https://prettier.io/docs/en/ignore.html for more information about .prettierignore files.
+# See https://prettier.io/docs/en/ignore.html for more about ignoring files.
 
 # dependencies
 node_modules/
@@ -36,7 +36,10 @@ yarn-error.log*
 # turbo
 .turbo/
 
-test.js
+# vercel
+.vercel/
+# vercel config, generated via vercel.js
+vercel.json
 
 # Sentry
 .sentryclirc
@@ -59,10 +62,6 @@ playwright/.cache/
 
 # Next.js standalone script
 server.js
+test.js
 
-# vercel config, generated via vercel.js
-.vercel/
-vercel.json
-
-# graphql codegen
 **/src/graphql/*
