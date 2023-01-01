@@ -36,16 +36,16 @@ yarn-error.log*
 # turbo
 .turbo/
 
-test.js
+# vercel
+.vercel/
+# vercel config, generated via vercel.js
+vercel.json
 
 # Sentry
 .sentryclirc
 
 # WebStorm
 .idea/
-
-# Visual Studio Code
-.vscode/
 
 # Yarn Berry
 .yarn/unplugged
@@ -58,7 +58,4 @@ playwright/.cache/
 
 # Next.js standalone script
 server.js
-
-# vercel config, generated via vercel.js
-.vercel/
-vercel.json
+test.js
