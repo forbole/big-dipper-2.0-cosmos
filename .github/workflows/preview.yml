@@ -77,7 +77,7 @@ jobs:
             buildCommand: 'NODE_NO_WARNINGS=1 NEXT_PUBLIC_CHAIN_TYPE=' + chainType + ' BASE_PATH=' + process.env.BASE_PATH +
               ' yarn turbo run build --filter=' + projectName + '...',
             outputDirectory: 'apps/' + projectName + '/.next',
-            installCommand: 'yarn install --immutable',
+            installCommand: 'yarn -v && node -v && yarn install --immutable --immutable-cache --inline-builds',
             devCommand: 'NODE_NO_WARNINGS=1 yarn turbo run dev --filter=' + projectName + '...',
             framework: 'nextjs',
             ignoreCommand: 'echo always build && exit 1',
