@@ -20,15 +20,9 @@ const List: FC<ComponentDefault> = ({ className }) => {
   const { state, handleTabChange, handleSearch, handleSort, sortItems, search } = useValidators();
   const validatorsMemo = useShallowMemo(state.items.map((x) => x.validator));
   const { profiles: dataProfiles, loading } = useProfilesRecoil(validatorsMemo);
-  const mergedDataWithProfilesMemo = useShallowMemo(
-    state.items.map((x, i) => ({
-      ...x,
-      validator: dataProfiles?.[i],
-    }))
-  );
   const items = useMemo(
-    () => sortItems(mergedDataWithProfilesMemo),
-    [mergedDataWithProfilesMemo, sortItems]
+    () => sortItems(state.items.map((x, i) => ({ ...x, validator: dataProfiles?.[i] }))),
+    [state.items, dataProfiles, sortItems]
   );
 
   let list: ReactNode;
