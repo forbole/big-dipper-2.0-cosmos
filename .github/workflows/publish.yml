@@ -17,6 +17,8 @@ on:
 concurrency:
   group: publish-to-akash
   cancel-in-progress: true
+env:
+  NODE_NO_WARNINGS: 1
 defaults:
   run:
     shell: bash
