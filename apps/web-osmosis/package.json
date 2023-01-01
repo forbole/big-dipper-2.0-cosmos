@@ -4,7 +4,7 @@
   "license": "Apache-2.0",
   "private": true,
   "scripts": {
-    "dev": "RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED=false next dev",
+    "dev": "RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED=false pnpify next dev",
     "build": "pnpify next build",
     "clean": "rm -rf .next .swc .turbo coverage node_modules",
     "start": "pnpify next start",

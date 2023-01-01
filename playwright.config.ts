@@ -107,7 +107,8 @@ const config: PlaywrightTestConfig = {
 
   /* Run your local dev server before starting the tests */
   webServer: {
-    command: process.env.PLAYWRIGHT_SERVER_COMMAND || `yarn workspace ${projectName} next dev`,
+    command:
+      process.env.PLAYWRIGHT_SERVER_COMMAND || `yarn workspace ${projectName} pnpify next dev`,
     url: `http://localhost:${port}${basePath}`,
     ignoreHTTPSErrors: true,
     env: {

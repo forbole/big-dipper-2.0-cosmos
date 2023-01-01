@@ -8,7 +8,7 @@
     "check-types": "pnpify tsc --noemit",
     "lint": "pnpify next lint",
     "test": "pnpify jest --passWithNoTests --ci --no-watchman",
-    "graphql:codegen": "graphql-codegen"
+    "graphql:codegen": "pnpify graphql-codegen"
   },
   "dependencies": {
     "@apollo/client": "^3.7.3",
