@@ -60,7 +60,7 @@ jobs:
           const { packages } = JSON.parse(process.env.DRY_BUILD_JSON);
           console.log('projects-web=' + JSON.stringify(packages.filter(p => /^web.*$/.test(p))));
           EOF
-  check-types:
+  check-apps:
     if: ${{ success() && needs.install.outputs.projects != '[]' }}
     needs: install
     runs-on: ubuntu-latest
@@ -81,84 +81,24 @@ jobs:
           key: ${{ needs.install.outputs.cashe-key }}
           restore-keys: ${{ needs.install.outputs.restore-keys }}
       - run: yarn install --immutable --immutable-cache
-      - run: |
+      - name: check-types
+        run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
           yarn turbo run check-types --filter=${{ matrix.project }} | tee -a $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
-  lint:
-    if: ${{ success() && needs.install.outputs.projects != '[]' }}
-    needs: install
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        project: ${{ fromJSON(needs.install.outputs.projects) }}
-    steps:
-      - uses: actions/checkout@v3
-      - run: corepack enable
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: 'yarn'
-      - uses: actions/cache@v3
-        with:
-          path: ${{ needs.install.outputs.cache-directory }}
-          key: ${{ needs.install.outputs.cashe-key }}
-          restore-keys: ${{ needs.install.outputs.restore-keys }}
-      - run: yarn install --immutable --immutable-cache
-      - run: |
+      - name: lint
+        run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
           yarn turbo run lint --filter=${{ matrix.project }} | tee -a $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
-  test:
-    if: ${{ success() && needs.install.outputs.projects != '[]' }}
-    needs: install
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        project: ${{ fromJSON(needs.install.outputs.projects) }}
-    steps:
-      - uses: actions/checkout@v3
-      - run: corepack enable
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: 'yarn'
-      - uses: actions/cache@v3
-        with:
-          path: ${{ needs.install.outputs.cache-directory }}
-          key: ${{ needs.install.outputs.cashe-key }}
-          restore-keys: ${{ needs.install.outputs.restore-keys }}
-      - run: yarn install --immutable --immutable-cache
-      - run: |
+      - name: test
+        run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
           yarn test:ci --filter=${{ matrix.project }} -- --coverage | tee -a $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
-  build:
-    if: ${{ success() && needs.install.outputs.projects-web != '[]' }}
-    needs: install
-    strategy:
-      fail-fast: false
-      matrix:
-        project: ${{ fromJSON(needs.install.outputs.projects-web) }}
-    runs-on: ubuntu-latest
-    outputs:
-      next-cache-key: ${{ steps.vars.outputs.next-cache-key }}
-    steps:
-      - uses: actions/checkout@v3
-      - run: corepack enable
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: 'yarn'
-      - uses: actions/cache@v3
-        with:
-          path: ${{ needs.install.outputs.cache-directory }}
-          key: ${{ needs.install.outputs.cashe-key }}
-          restore-keys: ${{ needs.install.outputs.restore-keys }}
-      - run: yarn install --immutable --immutable-cache
-      - run: |
+      - name: build
+        if: ${{ needs.install.outputs.projects-web != '[]' }}
+        run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
           yarn build:ci --filter=${{ matrix.project }} | tee -a $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY

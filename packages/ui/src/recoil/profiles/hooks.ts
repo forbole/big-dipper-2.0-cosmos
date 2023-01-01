@@ -1,4 +1,5 @@
 import chainConfig from '@/chainConfig';
+import useShallowMemo from '@/hooks/useShallowMemo';
 import { useDesmosProfile } from '@/hooks/use_desmos_profile';
 import {
   readDelegatorAddress,
@@ -38,13 +39,14 @@ export const useProfilesRecoil = (
 ): { profiles: AvatarName[]; loading: boolean; error: unknown } => {
   const profiles = useRecoilValue(readProfiles(addresses));
   const delegatorAddresses = useRecoilValue(readDelegatorAddresses(addresses));
+  const delegatorAddressMemo = useShallowMemo(delegatorAddresses);
 
   // ==========================
   // Desmos Profile
   // ==========================
   const { loading, error } = useDesmosProfile({
-    addresses: delegatorAddresses,
-    skip: !extra.profile || !delegatorAddresses.length,
+    addresses: delegatorAddressMemo,
+    skip: !extra.profile || !delegatorAddressMemo.length,
   });
 
   return { profiles, loading, error };
