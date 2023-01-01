@@ -21,7 +21,7 @@
     "@sentry/nextjs": "^7.28.0",
     "@socialgouv/matomo-next": "^1.4.0",
     "@yarnpkg/pnpify": "^4.0.0-rc.33",
-    "axios": "^0.21.4",
+    "axios": "^1.2.1",
     "bech32": "^2.0.0",
     "big.js": "^6.2.1",
     "classnames": "^2.3.2",
