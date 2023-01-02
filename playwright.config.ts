@@ -114,6 +114,7 @@ const config: PlaywrightTestConfig = {
       PORT: port,
       DEBUG: 'pw:webserver',
       RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED: 'false',
+      NODE_NO_WARNINGS: 1,
     },
     timeout: process.env.CI ? 2 * 60 * 1000 : undefined,
     reuseExistingServer: !process.env.CI,
