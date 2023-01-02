@@ -6,7 +6,13 @@ import { fileURLToPath } from 'url';
 const dirname = fileURLToPath(new URL('.', import.meta.url));
 
 const nextConfig = process.env.NEXT_PUBLIC_SENTRY_DSN
-  ? getNextConfig(dirname)
+  ? {
+      ...getNextConfig(dirname),
+      sentry: {
+        disableServerWebpackPlugin: !process.env.NEXT_PUBLIC_SENTRY_DSN,
+        disableClientWebpackPlugin: !process.env.NEXT_PUBLIC_SENTRY_DSN,
+      },
+    }
   : withSentryConfig({ ...getNextConfig(dirname), sentry: { hideSourceMaps: true } }, {});
 
 export default nextConfig;
