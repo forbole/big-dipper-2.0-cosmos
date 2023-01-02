@@ -1026,7 +1026,7 @@ export type DesmosProfileLinkLazyQueryHookResult = ReturnType<typeof useDesmosPr
 export type DesmosProfileLinkQueryResult = Apollo.QueryResult<DesmosProfileLinkQuery, DesmosProfileLinkQueryVariables>;
 export const DesmosProfileDtagDocument = gql`
     query DesmosProfileDtag($dtag: String) {
-  profile(where: {dtag: {_ilike: $dtag}}, limit: 1) {
+  profile(where: {dtag: {_ilike: $dtag}}, limit: 20) {
     address
     bio
     dtag

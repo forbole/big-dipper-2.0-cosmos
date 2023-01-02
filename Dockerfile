@@ -11,8 +11,11 @@ FROM base AS pruner
 
 COPY ./ ./
 
+ENV NODE_NO_WARNINGS=1
 ARG PROJECT_NAME
-RUN turbo prune --scope=${PROJECT_NAME} --docker
+RUN yarn config set nodeLinker node-modules \
+  && yarn config set supportedArchitectures --json '{}' \
+  && turbo prune --scope=${PROJECT_NAME} --docker
 
 ################################################################################
 
@@ -46,6 +49,7 @@ ENV TURBO_TEAM=${TURBO_TEAM}
 ARG TURBO_TOKEN
 ENV TURBO_TOKEN=${TURBO_TOKEN}
 ENV BUILD_STANDALONE=1
+ENV NODE_NO_WARNINGS=1
 
 # add placeholder for env variables to be injected in web stage
 ENV NEXT_PUBLIC_CHAIN_TYPE={{NEXT_PUBLIC_CHAIN_TYPE}}
@@ -55,11 +59,12 @@ ENV NEXT_PUBLIC_GRAPHQL_WS={{NEXT_PUBLIC_GRAPHQL_WS}}
 ENV NEXT_PUBLIC_MATOMO_URL={{NEXT_PUBLIC_MATOMO_URL}}
 ENV NEXT_PUBLIC_MATOMO_SITE_ID={{NEXT_PUBLIC_MATOMO_SITE_ID}}
 ENV NEXT_PUBLIC_RPC_WEBSOCKET={{NEXT_PUBLIC_RPC_WEBSOCKET}}
+ENV NODE_NO_WARNINGS=1 
 
 RUN export SENTRYCLI_SKIP_DOWNLOAD=$([ -z "${NEXT_PUBLIC_SENTRY_DSN}" ] && echo 1) \
   && corepack enable && yarn -v \
-  && yarn workspaces focus --production ${PROJECT_NAME} \
-  && yarn add typescript -D
+  && yarn config set supportedArchitectures --json '{}' \
+  && yarn install --immutable --immutable-cache
 
 ## Build the project
 COPY --from=pruner /app/out/full/ ./
@@ -90,6 +95,7 @@ ARG NEXT_PUBLIC_RPC_WEBSOCKET
 ENV NEXT_PUBLIC_RPC_WEBSOCKET=${NEXT_PUBLIC_RPC_WEBSOCKET}
 ARG PORT
 ENV PORT=${PORT:-3000}
+ENV NODE_NO_WARNINGS=1 
 
 WORKDIR /app/apps/${PROJECT_NAME}
 
@@ -98,11 +104,11 @@ RUN addgroup --system --gid 1001 nodejs \
   && chown -R nextjs:nodejs /home/nextjs /app
 
 COPY --chown=nextjs:nodejs --from=builder \
-  /app/package.json \
+  /app/package.json /app/.pnp.* /app/.yarnrc.yml /app/yarn.lock \
   ../../
 COPY --chown=nextjs:nodejs --from=builder \
-  /app/node_modules/ \
-  ../../node_modules/
+  /app/.yarn/ \
+  ../../.yarn/
 COPY --chown=nextjs:nodejs --from=builder \
   /app/apps/${PROJECT_NAME}/.next/apps/${PROJECT_NAME}/server.js /app/apps/${PROJECT_NAME}/package.json \
   ./
@@ -148,4 +154,4 @@ NEXT_PUBLIC_RPC_WEBSOCKET\
 # Don't run production as root
 USER nextjs
 
-CMD node ./inject.js && node ./server.js
+CMD node ./inject.js && yarn node ./server.js
