@@ -55,7 +55,6 @@ vercel.json
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
-.pnp.*
 
 # Playwright
 test-results/

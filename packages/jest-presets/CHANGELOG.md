@@ -1,5 +1,11 @@
 # jest-presets
 
+## 0.1.0
+
+### Minor Changes
+
+- 650f686b: Enable Yarn Plug'n'Play (Zero-Installs)
+
 ## 0.0.1
 
 ### Patch Changes
