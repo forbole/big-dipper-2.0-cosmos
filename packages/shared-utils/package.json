@@ -15,7 +15,6 @@
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^13.1.1",
-    "@sentry/nextjs": "^7.28.1",
     "@typescript-eslint/eslint-plugin": "^5.47.1",
     "@typescript-eslint/parser": "^5.47.1",
     "eslint": "^8.31.0",

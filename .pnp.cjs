@@ -1099,11 +1099,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ],\
       [\
         "@rollup/plugin-sucrase",\
-        "virtual:82b5f0176b74de75492cac9ff1c0e6f77155216049c762db452a72430f9a3e4ea77d853ac37c3e91a5bb7f863261e336053ed7c935e66800fb22795d974fd727#npm:4.0.4"\
+        "virtual:fda08dd86bf681fcc89f427b373c9204bf2c44a4ffbd86c2b435aed16cf1ec4c3933d3e84bb0d392278e61849635905fd0d545433ebc1242decbc25e00d73eee#npm:4.0.4"\
       ],\
       [\
         "@rollup/plugin-virtual",\
-        "virtual:82b5f0176b74de75492cac9ff1c0e6f77155216049c762db452a72430f9a3e4ea77d853ac37c3e91a5bb7f863261e336053ed7c935e66800fb22795d974fd727#npm:3.0.0"\
+        "virtual:fda08dd86bf681fcc89f427b373c9204bf2c44a4ffbd86c2b435aed16cf1ec4c3933d3e84bb0d392278e61849635905fd0d545433ebc1242decbc25e00d73eee#npm:3.0.0"\
       ],\
       [\
         "@rollup/pluginutils",\
@@ -1119,7 +1119,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ],\
       [\
         "@sentry/cli",\
-        "npm:1.74.6"\
+        "npm:2.11.0"\
       ],\
       [\
         "@sentry/core",\
@@ -1131,7 +1131,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ],\
       [\
         "@sentry/nextjs",\
-        "virtual:5684e10df0b0d4ceda81e7a49e1dce0cdeefe64f7cf73f6b65bae6b36056a2c8afe7954893d9e8e0af41d3fa80eeeeb8dbad164e06bfc993741bc538f79f2b2b#npm:7.28.1"\
+        "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"\
       ],\
       [\
         "@sentry/node",\
@@ -3747,7 +3747,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ],\
       [\
         "node-fetch",\
-        "virtual:11e655b3b18fc42f748e18c58023ec098038b688753d5feed37f47812eba5f10ef43c5ef8e9790efa865f43dd6ff4118ecfcbabb399095f9e39083b2080ff762#npm:2.6.7"\
+        "virtual:bce512b5199bed3abce370ee28b2c34a1de255840eb003bc34aeca5d329fe64a72fbe28d166d55783a80f2209b3fc4751d2b250c0d99ac609905af4651bce259#npm:2.6.7"\
       ],\
       [\
         "node-gyp",\
@@ -5271,7 +5271,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@ardatan-sync-fetch-npm-0.0.1-77efa386d1-af39bdfb4c.zip/node_modules/@ardatan/sync-fetch/",\
           "packageDependencies": [\
             ["@ardatan/sync-fetch", "npm:0.0.1"],\
-            ["node-fetch", "virtual:11e655b3b18fc42f748e18c58023ec098038b688753d5feed37f47812eba5f10ef43c5ef8e9790efa865f43dd6ff4118ecfcbabb399095f9e39083b2080ff762#npm:2.6.7"]\
+            ["node-fetch", "virtual:bce512b5199bed3abce370ee28b2c34a1de255840eb003bc34aeca5d329fe64a72fbe28d166d55783a80f2209b3fc4751d2b250c0d99ac609905af4651bce259#npm:2.6.7"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -10656,10 +10656,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:82b5f0176b74de75492cac9ff1c0e6f77155216049c762db452a72430f9a3e4ea77d853ac37c3e91a5bb7f863261e336053ed7c935e66800fb22795d974fd727#npm:4.0.4", {\
-          "packageLocation": "./.yarn/__virtual__/@rollup-plugin-sucrase-virtual-85a01ac303/0/cache/@rollup-plugin-sucrase-npm-4.0.4-11cf77c62a-ccb01d7eb3.zip/node_modules/@rollup/plugin-sucrase/",\
+        ["virtual:fda08dd86bf681fcc89f427b373c9204bf2c44a4ffbd86c2b435aed16cf1ec4c3933d3e84bb0d392278e61849635905fd0d545433ebc1242decbc25e00d73eee#npm:4.0.4", {\
+          "packageLocation": "./.yarn/__virtual__/@rollup-plugin-sucrase-virtual-094a3b6d4b/0/cache/@rollup-plugin-sucrase-npm-4.0.4-11cf77c62a-ccb01d7eb3.zip/node_modules/@rollup/plugin-sucrase/",\
           "packageDependencies": [\
-            ["@rollup/plugin-sucrase", "virtual:82b5f0176b74de75492cac9ff1c0e6f77155216049c762db452a72430f9a3e4ea77d853ac37c3e91a5bb7f863261e336053ed7c935e66800fb22795d974fd727#npm:4.0.4"],\
+            ["@rollup/plugin-sucrase", "virtual:fda08dd86bf681fcc89f427b373c9204bf2c44a4ffbd86c2b435aed16cf1ec4c3933d3e84bb0d392278e61849635905fd0d545433ebc1242decbc25e00d73eee#npm:4.0.4"],\
             ["@rollup/pluginutils", "npm:4.2.1"],\
             ["@types/rollup", null],\
             ["rollup", "npm:2.78.0"],\
@@ -10680,10 +10680,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:82b5f0176b74de75492cac9ff1c0e6f77155216049c762db452a72430f9a3e4ea77d853ac37c3e91a5bb7f863261e336053ed7c935e66800fb22795d974fd727#npm:3.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@rollup-plugin-virtual-virtual-0e95188057/0/cache/@rollup-plugin-virtual-npm-3.0.0-678cdc8578-2335cabee2.zip/node_modules/@rollup/plugin-virtual/",\
+        ["virtual:fda08dd86bf681fcc89f427b373c9204bf2c44a4ffbd86c2b435aed16cf1ec4c3933d3e84bb0d392278e61849635905fd0d545433ebc1242decbc25e00d73eee#npm:3.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@rollup-plugin-virtual-virtual-41a2c1d617/0/cache/@rollup-plugin-virtual-npm-3.0.0-678cdc8578-2335cabee2.zip/node_modules/@rollup/plugin-virtual/",\
           "packageDependencies": [\
-            ["@rollup/plugin-virtual", "virtual:82b5f0176b74de75492cac9ff1c0e6f77155216049c762db452a72430f9a3e4ea77d853ac37c3e91a5bb7f863261e336053ed7c935e66800fb22795d974fd727#npm:3.0.0"],\
+            ["@rollup/plugin-virtual", "virtual:fda08dd86bf681fcc89f427b373c9204bf2c44a4ffbd86c2b435aed16cf1ec4c3933d3e84bb0d392278e61849635905fd0d545433ebc1242decbc25e00d73eee#npm:3.0.0"],\
             ["@types/rollup", null],\
             ["rollup", "npm:2.78.0"]\
           ],\
@@ -10735,8 +10735,20 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@sentry/cli", "npm:1.74.6"],\
             ["https-proxy-agent", "npm:5.0.1"],\
             ["mkdirp", "npm:0.5.6"],\
-            ["node-fetch", "virtual:11e655b3b18fc42f748e18c58023ec098038b688753d5feed37f47812eba5f10ef43c5ef8e9790efa865f43dd6ff4118ecfcbabb399095f9e39083b2080ff762#npm:2.6.7"],\
+            ["node-fetch", "virtual:bce512b5199bed3abce370ee28b2c34a1de255840eb003bc34aeca5d329fe64a72fbe28d166d55783a80f2209b3fc4751d2b250c0d99ac609905af4651bce259#npm:2.6.7"],\
             ["npmlog", "npm:4.1.2"],\
+            ["progress", "npm:2.0.3"],\
+            ["proxy-from-env", "npm:1.1.0"],\
+            ["which", "npm:2.0.2"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:2.11.0", {\
+          "packageLocation": "./.yarn/unplugged/@sentry-cli-npm-2.11.0-bce512b519/node_modules/@sentry/cli/",\
+          "packageDependencies": [\
+            ["@sentry/cli", "npm:2.11.0"],\
+            ["https-proxy-agent", "npm:5.0.1"],\
+            ["node-fetch", "virtual:bce512b5199bed3abce370ee28b2c34a1de255840eb003bc34aeca5d329fe64a72fbe28d166d55783a80f2209b3fc4751d2b250c0d99ac609905af4651bce259#npm:2.6.7"],\
             ["progress", "npm:2.0.3"],\
             ["proxy-from-env", "npm:1.1.0"],\
             ["which", "npm:2.0.2"]\
@@ -10777,46 +10789,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:5684e10df0b0d4ceda81e7a49e1dce0cdeefe64f7cf73f6b65bae6b36056a2c8afe7954893d9e8e0af41d3fa80eeeeb8dbad164e06bfc993741bc538f79f2b2b#npm:7.28.1", {\
-          "packageLocation": "./.yarn/__virtual__/@sentry-nextjs-virtual-82b5f0176b/0/cache/@sentry-nextjs-npm-7.28.1-e682f196a4-12e4334184.zip/node_modules/@sentry/nextjs/",\
-          "packageDependencies": [\
-            ["@sentry/nextjs", "virtual:5684e10df0b0d4ceda81e7a49e1dce0cdeefe64f7cf73f6b65bae6b36056a2c8afe7954893d9e8e0af41d3fa80eeeeb8dbad164e06bfc993741bc538f79f2b2b#npm:7.28.1"],\
-            ["@rollup/plugin-sucrase", "virtual:82b5f0176b74de75492cac9ff1c0e6f77155216049c762db452a72430f9a3e4ea77d853ac37c3e91a5bb7f863261e336053ed7c935e66800fb22795d974fd727#npm:4.0.4"],\
-            ["@rollup/plugin-virtual", "virtual:82b5f0176b74de75492cac9ff1c0e6f77155216049c762db452a72430f9a3e4ea77d853ac37c3e91a5bb7f863261e336053ed7c935e66800fb22795d974fd727#npm:3.0.0"],\
-            ["@sentry/core", "npm:7.28.1"],\
-            ["@sentry/integrations", "npm:7.28.1"],\
-            ["@sentry/node", "npm:7.28.1"],\
-            ["@sentry/react", "virtual:82b5f0176b74de75492cac9ff1c0e6f77155216049c762db452a72430f9a3e4ea77d853ac37c3e91a5bb7f863261e336053ed7c935e66800fb22795d974fd727#npm:7.28.1"],\
-            ["@sentry/tracing", "npm:7.28.1"],\
-            ["@sentry/types", "npm:7.28.1"],\
-            ["@sentry/utils", "npm:7.28.1"],\
-            ["@sentry/webpack-plugin", "npm:1.20.0"],\
-            ["@types/next", null],\
-            ["@types/react", null],\
-            ["@types/webpack", null],\
-            ["chalk", "npm:3.0.0"],\
-            ["next", "virtual:5684e10df0b0d4ceda81e7a49e1dce0cdeefe64f7cf73f6b65bae6b36056a2c8afe7954893d9e8e0af41d3fa80eeeeb8dbad164e06bfc993741bc538f79f2b2b#npm:12.3.4"],\
-            ["react", "npm:17.0.2"],\
-            ["rollup", "npm:2.78.0"],\
-            ["tslib", "npm:1.14.1"],\
-            ["webpack", null]\
-          ],\
-          "packagePeers": [\
-            "@types/next",\
-            "@types/react",\
-            "@types/webpack",\
-            "next",\
-            "react",\
-            "webpack"\
-          ],\
-          "linkType": "HARD"\
-        }],\
         ["virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1", {\
           "packageLocation": "./.yarn/__virtual__/@sentry-nextjs-virtual-fda08dd86b/0/cache/@sentry-nextjs-npm-7.28.1-e682f196a4-12e4334184.zip/node_modules/@sentry/nextjs/",\
           "packageDependencies": [\
             ["@sentry/nextjs", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"],\
-            ["@rollup/plugin-sucrase", "virtual:82b5f0176b74de75492cac9ff1c0e6f77155216049c762db452a72430f9a3e4ea77d853ac37c3e91a5bb7f863261e336053ed7c935e66800fb22795d974fd727#npm:4.0.4"],\
-            ["@rollup/plugin-virtual", "virtual:82b5f0176b74de75492cac9ff1c0e6f77155216049c762db452a72430f9a3e4ea77d853ac37c3e91a5bb7f863261e336053ed7c935e66800fb22795d974fd727#npm:3.0.0"],\
+            ["@rollup/plugin-sucrase", "virtual:fda08dd86bf681fcc89f427b373c9204bf2c44a4ffbd86c2b435aed16cf1ec4c3933d3e84bb0d392278e61849635905fd0d545433ebc1242decbc25e00d73eee#npm:4.0.4"],\
+            ["@rollup/plugin-virtual", "virtual:fda08dd86bf681fcc89f427b373c9204bf2c44a4ffbd86c2b435aed16cf1ec4c3933d3e84bb0d392278e61849635905fd0d545433ebc1242decbc25e00d73eee#npm:3.0.0"],\
             ["@sentry/core", "npm:7.28.1"],\
             ["@sentry/integrations", "npm:7.28.1"],\
             ["@sentry/node", "npm:7.28.1"],\
@@ -10869,24 +10847,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@sentry/react", "npm:7.28.1"]\
           ],\
           "linkType": "SOFT"\
-        }],\
-        ["virtual:82b5f0176b74de75492cac9ff1c0e6f77155216049c762db452a72430f9a3e4ea77d853ac37c3e91a5bb7f863261e336053ed7c935e66800fb22795d974fd727#npm:7.28.1", {\
-          "packageLocation": "./.yarn/__virtual__/@sentry-react-virtual-c3cce75d6b/0/cache/@sentry-react-npm-7.28.1-35c7f9fb8a-7eb875be84.zip/node_modules/@sentry/react/",\
-          "packageDependencies": [\
-            ["@sentry/react", "virtual:82b5f0176b74de75492cac9ff1c0e6f77155216049c762db452a72430f9a3e4ea77d853ac37c3e91a5bb7f863261e336053ed7c935e66800fb22795d974fd727#npm:7.28.1"],\
-            ["@sentry/browser", "npm:7.28.1"],\
-            ["@sentry/types", "npm:7.28.1"],\
-            ["@sentry/utils", "npm:7.28.1"],\
-            ["@types/react", null],\
-            ["hoist-non-react-statics", "npm:3.3.2"],\
-            ["react", "npm:17.0.2"],\
-            ["tslib", "npm:1.14.1"]\
-          ],\
-          "packagePeers": [\
-            "@types/react",\
-            "react"\
-          ],\
-          "linkType": "HARD"\
         }],\
         ["virtual:fda08dd86bf681fcc89f427b373c9204bf2c44a4ffbd86c2b435aed16cf1ec4c3933d3e84bb0d392278e61849635905fd0d545433ebc1242decbc25e00d73eee#npm:7.28.1", {\
           "packageLocation": "./.yarn/__virtual__/@sentry-react-virtual-6f9c137413/0/cache/@sentry-react-npm-7.28.1-35c7f9fb8a-7eb875be84.zip/node_modules/@sentry/react/",\
@@ -12530,7 +12490,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["busboy", "npm:1.6.0"],\
             ["form-data-encoder", "npm:1.7.2"],\
             ["formdata-node", "npm:4.4.1"],\
-            ["node-fetch", "virtual:11e655b3b18fc42f748e18c58023ec098038b688753d5feed37f47812eba5f10ef43c5ef8e9790efa865f43dd6ff4118ecfcbabb399095f9e39083b2080ff762#npm:2.6.7"],\
+            ["node-fetch", "virtual:bce512b5199bed3abce370ee28b2c34a1de255840eb003bc34aeca5d329fe64a72fbe28d166d55783a80f2209b3fc4751d2b250c0d99ac609905af4651bce259#npm:2.6.7"],\
             ["undici", "npm:5.13.0"],\
             ["web-streams-polyfill", "npm:3.2.1"]\
           ],\
@@ -12545,7 +12505,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["busboy", "npm:1.6.0"],\
             ["form-data-encoder", "npm:1.7.2"],\
             ["formdata-node", "npm:4.4.1"],\
-            ["node-fetch", "virtual:11e655b3b18fc42f748e18c58023ec098038b688753d5feed37f47812eba5f10ef43c5ef8e9790efa865f43dd6ff4118ecfcbabb399095f9e39083b2080ff762#npm:2.6.7"],\
+            ["node-fetch", "virtual:bce512b5199bed3abce370ee28b2c34a1de255840eb003bc34aeca5d329fe64a72fbe28d166d55783a80f2209b3fc4751d2b250c0d99ac609905af4651bce259#npm:2.6.7"],\
             ["undici", "npm:5.13.0"],\
             ["web-streams-polyfill", "npm:3.2.1"]\
           ],\
@@ -14508,7 +14468,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/cross-fetch-npm-3.1.5-e414995db9-f6b8c6ee3e.zip/node_modules/cross-fetch/",\
           "packageDependencies": [\
             ["cross-fetch", "npm:3.1.5"],\
-            ["node-fetch", "virtual:11e655b3b18fc42f748e18c58023ec098038b688753d5feed37f47812eba5f10ef43c5ef8e9790efa865f43dd6ff4118ecfcbabb399095f9e39083b2080ff762#npm:2.6.7"]\
+            ["node-fetch", "virtual:bce512b5199bed3abce370ee28b2c34a1de255840eb003bc34aeca5d329fe64a72fbe28d166d55783a80f2209b3fc4751d2b250c0d99ac609905af4651bce259#npm:2.6.7"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -18413,7 +18373,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/isomorphic-fetch-npm-3.0.0-bce711adff-e5ab79a56c.zip/node_modules/isomorphic-fetch/",\
           "packageDependencies": [\
             ["isomorphic-fetch", "npm:3.0.0"],\
-            ["node-fetch", "virtual:11e655b3b18fc42f748e18c58023ec098038b688753d5feed37f47812eba5f10ef43c5ef8e9790efa865f43dd6ff4118ecfcbabb399095f9e39083b2080ff762#npm:2.6.7"],\
+            ["node-fetch", "virtual:bce512b5199bed3abce370ee28b2c34a1de255840eb003bc34aeca5d329fe64a72fbe28d166d55783a80f2209b3fc4751d2b250c0d99ac609905af4651bce259#npm:2.6.7"],\
             ["whatwg-fetch", "npm:3.6.2"]\
           ],\
           "linkType": "HARD"\
@@ -20606,10 +20566,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:11e655b3b18fc42f748e18c58023ec098038b688753d5feed37f47812eba5f10ef43c5ef8e9790efa865f43dd6ff4118ecfcbabb399095f9e39083b2080ff762#npm:2.6.7", {\
-          "packageLocation": "./.yarn/__virtual__/node-fetch-virtual-845ce42cc5/0/cache/node-fetch-npm-2.6.7-777aa2a6df-8d816ffd1e.zip/node_modules/node-fetch/",\
+        ["virtual:bce512b5199bed3abce370ee28b2c34a1de255840eb003bc34aeca5d329fe64a72fbe28d166d55783a80f2209b3fc4751d2b250c0d99ac609905af4651bce259#npm:2.6.7", {\
+          "packageLocation": "./.yarn/__virtual__/node-fetch-virtual-8d98e7e3bc/0/cache/node-fetch-npm-2.6.7-777aa2a6df-8d816ffd1e.zip/node_modules/node-fetch/",\
           "packageDependencies": [\
-            ["node-fetch", "virtual:11e655b3b18fc42f748e18c58023ec098038b688753d5feed37f47812eba5f10ef43c5ef8e9790efa865f43dd6ff4118ecfcbabb399095f9e39083b2080ff762#npm:2.6.7"],\
+            ["node-fetch", "virtual:bce512b5199bed3abce370ee28b2c34a1de255840eb003bc34aeca5d329fe64a72fbe28d166d55783a80f2209b3fc4751d2b250c0d99ac609905af4651bce259#npm:2.6.7"],\
             ["@types/encoding", null],\
             ["encoding", null],\
             ["whatwg-url", "npm:5.0.0"]\
@@ -22692,7 +22652,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["shared-utils", "workspace:packages/shared-utils"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
-            ["@sentry/nextjs", "virtual:5684e10df0b0d4ceda81e7a49e1dce0cdeefe64f7cf73f6b65bae6b36056a2c8afe7954893d9e8e0af41d3fa80eeeeb8dbad164e06bfc993741bc538f79f2b2b#npm:7.28.1"],\
             ["@typescript-eslint/eslint-plugin", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:5.47.1"],\
             ["@typescript-eslint/parser", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:5.47.1"],\
             ["eslint", "npm:8.31.0"],\
@@ -24292,6 +24251,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/icons", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.3"],\
             ["@material-ui/styles", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.5"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
+            ["@sentry/cli", "npm:2.11.0"],\
             ["@sentry/nextjs", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"],\
             ["@socialgouv/matomo-next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.4.0"],\
             ["@svgr/webpack", "npm:6.5.1"],\
@@ -24707,6 +24667,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/icons", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.3"],\
             ["@material-ui/styles", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.5"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
+            ["@sentry/cli", "npm:2.11.0"],\
             ["@sentry/nextjs", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"],\
             ["@socialgouv/matomo-next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.4.0"],\
             ["@svgr/webpack", "npm:6.5.1"],\
@@ -24818,6 +24779,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/icons", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.3"],\
             ["@material-ui/styles", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.5"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
+            ["@sentry/cli", "npm:2.11.0"],\
             ["@sentry/nextjs", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"],\
             ["@socialgouv/matomo-next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.4.0"],\
             ["@svgr/webpack", "npm:6.5.1"],\
@@ -24929,6 +24891,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/icons", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.3"],\
             ["@material-ui/styles", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.5"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
+            ["@sentry/cli", "npm:2.11.0"],\
             ["@sentry/nextjs", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"],\
             ["@socialgouv/matomo-next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.4.0"],\
             ["@svgr/webpack", "npm:6.5.1"],\
@@ -25040,6 +25003,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/icons", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.3"],\
             ["@material-ui/styles", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.5"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
+            ["@sentry/cli", "npm:2.11.0"],\
             ["@sentry/nextjs", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"],\
             ["@socialgouv/matomo-next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.4.0"],\
             ["@svgr/webpack", "npm:6.5.1"],\
@@ -25151,6 +25115,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/icons", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.3"],\
             ["@material-ui/styles", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.5"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
+            ["@sentry/cli", "npm:2.11.0"],\
             ["@sentry/nextjs", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"],\
             ["@socialgouv/matomo-next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.4.0"],\
             ["@svgr/webpack", "npm:6.5.1"],\
@@ -25262,6 +25227,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/icons", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.3"],\
             ["@material-ui/styles", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.5"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
+            ["@sentry/cli", "npm:2.11.0"],\
             ["@sentry/nextjs", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"],\
             ["@socialgouv/matomo-next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.4.0"],\
             ["@svgr/webpack", "npm:6.5.1"],\
@@ -25373,6 +25339,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/icons", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.3"],\
             ["@material-ui/styles", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.5"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
+            ["@sentry/cli", "npm:2.11.0"],\
             ["@sentry/nextjs", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"],\
             ["@socialgouv/matomo-next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.4.0"],\
             ["@svgr/webpack", "npm:6.5.1"],\
@@ -25484,6 +25451,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/icons", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.3"],\
             ["@material-ui/styles", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.5"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
+            ["@sentry/cli", "npm:2.11.0"],\
             ["@sentry/nextjs", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"],\
             ["@socialgouv/matomo-next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.4.0"],\
             ["@svgr/webpack", "npm:6.5.1"],\
@@ -25595,6 +25563,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/icons", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.3"],\
             ["@material-ui/styles", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.5"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
+            ["@sentry/cli", "npm:2.11.0"],\
             ["@sentry/nextjs", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"],\
             ["@socialgouv/matomo-next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.4.0"],\
             ["@svgr/webpack", "npm:6.5.1"],\
@@ -25706,6 +25675,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/icons", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.3"],\
             ["@material-ui/styles", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.5"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
+            ["@sentry/cli", "npm:2.11.0"],\
             ["@sentry/nextjs", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"],\
             ["@socialgouv/matomo-next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.4.0"],\
             ["@svgr/webpack", "npm:6.5.1"],\
@@ -25817,6 +25787,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/icons", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.3"],\
             ["@material-ui/styles", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.5"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
+            ["@sentry/cli", "npm:2.11.0"],\
             ["@sentry/nextjs", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"],\
             ["@socialgouv/matomo-next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.4.0"],\
             ["@svgr/webpack", "npm:6.5.1"],\
@@ -25928,6 +25899,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/icons", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.3"],\
             ["@material-ui/styles", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.5"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
+            ["@sentry/cli", "npm:2.11.0"],\
             ["@sentry/nextjs", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"],\
             ["@socialgouv/matomo-next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.4.0"],\
             ["@svgr/webpack", "npm:6.5.1"],\
@@ -26039,6 +26011,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/icons", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.3"],\
             ["@material-ui/styles", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.5"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
+            ["@sentry/cli", "npm:2.11.0"],\
             ["@sentry/nextjs", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"],\
             ["@socialgouv/matomo-next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.4.0"],\
             ["@svgr/webpack", "npm:6.5.1"],\
@@ -26150,6 +26123,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/icons", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.3"],\
             ["@material-ui/styles", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.5"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
+            ["@sentry/cli", "npm:2.11.0"],\
             ["@sentry/nextjs", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"],\
             ["@socialgouv/matomo-next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.4.0"],\
             ["@svgr/webpack", "npm:6.5.1"],\
@@ -26261,6 +26235,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/icons", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.3"],\
             ["@material-ui/styles", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.5"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
+            ["@sentry/cli", "npm:2.11.0"],\
             ["@sentry/nextjs", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"],\
             ["@socialgouv/matomo-next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.4.0"],\
             ["@svgr/webpack", "npm:6.5.1"],\
@@ -26372,6 +26347,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/icons", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.3"],\
             ["@material-ui/styles", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.5"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
+            ["@sentry/cli", "npm:2.11.0"],\
             ["@sentry/nextjs", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"],\
             ["@socialgouv/matomo-next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.4.0"],\
             ["@svgr/webpack", "npm:6.5.1"],\
@@ -26483,6 +26459,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/icons", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.3"],\
             ["@material-ui/styles", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.5"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
+            ["@sentry/cli", "npm:2.11.0"],\
             ["@sentry/nextjs", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"],\
             ["@socialgouv/matomo-next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.4.0"],\
             ["@svgr/webpack", "npm:6.5.1"],\
@@ -26594,6 +26571,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/icons", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.3"],\
             ["@material-ui/styles", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.5"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
+            ["@sentry/cli", "npm:2.11.0"],\
             ["@sentry/nextjs", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"],\
             ["@socialgouv/matomo-next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.4.0"],\
             ["@svgr/webpack", "npm:6.5.1"],\
@@ -26705,6 +26683,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/icons", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.3"],\
             ["@material-ui/styles", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.5"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
+            ["@sentry/cli", "npm:2.11.0"],\
             ["@sentry/nextjs", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"],\
             ["@socialgouv/matomo-next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.4.0"],\
             ["@svgr/webpack", "npm:6.5.1"],\
@@ -26816,6 +26795,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/icons", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.3"],\
             ["@material-ui/styles", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.5"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
+            ["@sentry/cli", "npm:2.11.0"],\
             ["@sentry/nextjs", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"],\
             ["@socialgouv/matomo-next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.4.0"],\
             ["@svgr/webpack", "npm:6.5.1"],\
@@ -26927,6 +26907,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/icons", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.3"],\
             ["@material-ui/styles", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.5"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
+            ["@sentry/cli", "npm:2.11.0"],\
             ["@sentry/nextjs", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"],\
             ["@socialgouv/matomo-next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.4.0"],\
             ["@svgr/webpack", "npm:6.5.1"],\
@@ -27038,6 +27019,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/icons", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.3"],\
             ["@material-ui/styles", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.5"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
+            ["@sentry/cli", "npm:2.11.0"],\
             ["@sentry/nextjs", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"],\
             ["@socialgouv/matomo-next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.4.0"],\
             ["@svgr/webpack", "npm:6.5.1"],\
@@ -27149,6 +27131,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/icons", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.3"],\
             ["@material-ui/styles", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.5"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
+            ["@sentry/cli", "npm:2.11.0"],\
             ["@sentry/nextjs", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"],\
             ["@socialgouv/matomo-next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.4.0"],\
             ["@svgr/webpack", "npm:6.5.1"],\
@@ -27276,6 +27259,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/icons", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.3"],\
             ["@material-ui/styles", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.5"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
+            ["@sentry/cli", "npm:2.11.0"],\
             ["@sentry/nextjs", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"],\
             ["@socialgouv/matomo-next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.4.0"],\
             ["@svgr/webpack", "npm:6.5.1"],\

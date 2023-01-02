@@ -3482,6 +3482,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@sentry/cli@npm:^2.11.0":
+  version: 2.11.0
+  resolution: "@sentry/cli@npm:2.11.0"
+  dependencies:
+    https-proxy-agent: ^5.0.0
+    node-fetch: ^2.6.7
+    progress: ^2.0.3
+    proxy-from-env: ^1.1.0
+    which: ^2.0.2
+  bin:
+    sentry-cli: bin/sentry-cli
+  checksum: 794451921a023fa878804126e2f977522596ed199b8533076dff1c3a3bf77c4687e08e351882cef298d60889e2b7dc43fc34d027df8f04e601eb2c86f148c9da
+  languageName: node
+  linkType: hard
+
 "@sentry/core@npm:7.28.1":
   version: 7.28.1
   resolution: "@sentry/core@npm:7.28.1"
@@ -12619,7 +12634,6 @@ __metadata:
   resolution: "shared-utils@workspace:packages/shared-utils"
   dependencies:
     "@next/eslint-plugin-next": ^13.1.1
-    "@sentry/nextjs": ^7.28.1
     "@typescript-eslint/eslint-plugin": ^5.47.1
     "@typescript-eslint/parser": ^5.47.1
     eslint: ^8.31.0
@@ -13935,6 +13949,7 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
+    "@sentry/cli": ^2.11.0
     "@sentry/nextjs": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
@@ -14279,6 +14294,7 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
+    "@sentry/cli": ^2.11.0
     "@sentry/nextjs": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
@@ -14388,6 +14404,7 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
+    "@sentry/cli": ^2.11.0
     "@sentry/nextjs": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
@@ -14497,6 +14514,7 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
+    "@sentry/cli": ^2.11.0
     "@sentry/nextjs": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
@@ -14606,6 +14624,7 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
+    "@sentry/cli": ^2.11.0
     "@sentry/nextjs": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
@@ -14715,6 +14734,7 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
+    "@sentry/cli": ^2.11.0
     "@sentry/nextjs": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
@@ -14824,6 +14844,7 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
+    "@sentry/cli": ^2.11.0
     "@sentry/nextjs": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
@@ -14933,6 +14954,7 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
+    "@sentry/cli": ^2.11.0
     "@sentry/nextjs": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
@@ -15042,6 +15064,7 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
+    "@sentry/cli": ^2.11.0
     "@sentry/nextjs": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
@@ -15151,6 +15174,7 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
+    "@sentry/cli": ^2.11.0
     "@sentry/nextjs": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
@@ -15260,6 +15284,7 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
+    "@sentry/cli": ^2.11.0
     "@sentry/nextjs": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
@@ -15369,6 +15394,7 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
+    "@sentry/cli": ^2.11.0
     "@sentry/nextjs": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
@@ -15478,6 +15504,7 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
+    "@sentry/cli": ^2.11.0
     "@sentry/nextjs": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
@@ -15587,6 +15614,7 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
+    "@sentry/cli": ^2.11.0
     "@sentry/nextjs": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
@@ -15696,6 +15724,7 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
+    "@sentry/cli": ^2.11.0
     "@sentry/nextjs": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
@@ -15805,6 +15834,7 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
+    "@sentry/cli": ^2.11.0
     "@sentry/nextjs": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
@@ -15914,6 +15944,7 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
+    "@sentry/cli": ^2.11.0
     "@sentry/nextjs": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
@@ -16023,6 +16054,7 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
+    "@sentry/cli": ^2.11.0
     "@sentry/nextjs": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
@@ -16132,6 +16164,7 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
+    "@sentry/cli": ^2.11.0
     "@sentry/nextjs": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
@@ -16241,6 +16274,7 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
+    "@sentry/cli": ^2.11.0
     "@sentry/nextjs": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
@@ -16350,6 +16384,7 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
+    "@sentry/cli": ^2.11.0
     "@sentry/nextjs": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
@@ -16459,6 +16494,7 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
+    "@sentry/cli": ^2.11.0
     "@sentry/nextjs": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
@@ -16568,6 +16604,7 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
+    "@sentry/cli": ^2.11.0
     "@sentry/nextjs": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
@@ -16691,6 +16728,7 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
+    "@sentry/cli": ^2.11.0
     "@sentry/nextjs": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
@@ -16800,6 +16838,7 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
+    "@sentry/cli": ^2.11.0
     "@sentry/nextjs": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1

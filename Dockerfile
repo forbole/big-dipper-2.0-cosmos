@@ -11,8 +11,10 @@ FROM base AS pruner
 
 COPY ./ ./
 
+ENV NODE_NO_WARNINGS=1
 ARG PROJECT_NAME
-RUN sed -i 's/nodeLinker: pnp/nodeLinker: node-modules/g' .yarnrc.yml \
+RUN yarn config set nodeLinker node-modules \
+  && yarn config set supportedArchitectures --json '{}' \
   && turbo prune --scope=${PROJECT_NAME} --docker
 
 ################################################################################
@@ -47,6 +49,7 @@ ENV TURBO_TEAM=${TURBO_TEAM}
 ARG TURBO_TOKEN
 ENV TURBO_TOKEN=${TURBO_TOKEN}
 ENV BUILD_STANDALONE=1
+ENV NODE_NO_WARNINGS=1
 
 # add placeholder for env variables to be injected in web stage
 ENV NEXT_PUBLIC_CHAIN_TYPE={{NEXT_PUBLIC_CHAIN_TYPE}}
@@ -60,7 +63,8 @@ ENV NODE_NO_WARNINGS=1
 
 RUN export SENTRYCLI_SKIP_DOWNLOAD=$([ -z "${NEXT_PUBLIC_SENTRY_DSN}" ] && echo 1) \
   && corepack enable && yarn -v \
-  && yarn install --immutable
+  && yarn config set supportedArchitectures --json '{}' \
+  && yarn install --immutable --immutable-cache
 
 ## Build the project
 COPY --from=pruner /app/out/full/ ./

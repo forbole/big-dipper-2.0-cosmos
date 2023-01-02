@@ -43,8 +43,10 @@ jobs:
           path: ${{ steps.vars.outputs.cache-directory }}
           key: ${{ steps.vars.outputs.cache-key }}
           restore-keys: ${{ steps.vars.outputs.restore-keys }}
-      - name: Install modules
-        run: yarn install --immutable --immutable-cache --check-cache
+      - name: Validify and Install modules
+        run: >
+          yarn config set supportedArchitectures --json '{}' &&
+          yarn install --immutable --immutable-cache --check-cache
       - name: Set needs.install.outputs.{projects,projects-web}
         id: dry-run
         run: |
@@ -80,7 +82,10 @@ jobs:
           path: ${{ needs.install.outputs.cache-directory }}
           key: ${{ needs.install.outputs.cashe-key }}
           restore-keys: ${{ needs.install.outputs.restore-keys }}
-      - run: yarn install --immutable --immutable-cache
+      - name: Install modules
+        run: >
+          yarn config set supportedArchitectures --json '{}' &&
+          yarn install --immutable --immutable-cache
       - name: check-types
         run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
@@ -136,7 +141,10 @@ jobs:
           path: ${{ needs.install.outputs.cache-directory }}
           key: ${{ needs.install.outputs.cashe-key }}
           restore-keys: ${{ needs.install.outputs.restore-keys }}
-      - run: yarn install --immutable --immutable-cache
+      - name: Install modules
+        run: >
+          yarn config set supportedArchitectures --json '{}' &&
+          yarn install --immutable --immutable-cache
       - name: Playwright testing
         run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
