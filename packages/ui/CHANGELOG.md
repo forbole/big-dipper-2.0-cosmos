@@ -1,5 +1,16 @@
 # ui
 
+## 2.7.0
+
+### Minor Changes
+
+- 650f686b: Enable Yarn Plug'n'Play (Zero-Installs)
+
+### Patch Changes
+
+- Updated dependencies [650f686b]
+  - shared-utils@2.5.0
+
 ## 2.6.1
 
 ### Patch Changes

@@ -11,6 +11,8 @@ on:
        base_path:
         description: "Override basePath in next.config.js (default to basePath in chainConfig)"
         required: false
+env:
+  NODE_NO_WARNINGS: 1                     # hide warnings from yarn berry
 defaults:
   run:
     shell: bash
@@ -73,9 +75,11 @@ jobs:
           const chainType = process.env.NEXT_PUBLIC_CHAIN_TYPE?.toLowerCase() || 'mainnet';
           const config = {
             buildCommand: 'NEXT_PUBLIC_CHAIN_TYPE=' + chainType + ' BASE_PATH=' + process.env.BASE_PATH +
-              ' yarn turbo run build --filter=' + projectName + '...',
+              ' yarn workspace ' + projectName + ' next build',
             outputDirectory: 'apps/' + projectName + '/.next',
-            installCommand: 'yarn workspaces focus --production ' + projectName + ' && yarn add typescript -D',
+            installCommand: "rm -rf .yarn/cache .pnp.*' +
+              ' && yarn config set nodeLinker node-modules' +
+              ' && yarn --mode=update-lockfile',
             devCommand: 'yarn turbo run dev --filter=' + projectName + '...',
             framework: 'nextjs',
             ignoreCommand: 'echo always build && exit 1',

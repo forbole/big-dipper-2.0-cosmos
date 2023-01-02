@@ -5,17 +5,18 @@ concurrency:
   group: ${{ github.ref }}-test
   cancel-in-progress: true
 env:
-  HUSKY: 0
-  TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
-  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-  NEXT_TELEMETRY_DISABLED: 1
-  SENTRYCLI_SKIP_DOWNLOAD: 1
-  FORCE_COLOR: 0
+  NODE_NO_WARNINGS: 1                     # hide warnings from yarn berry
+  HUSKY: 0                                # disable husky
+  TURBO_TEAM: ${{ secrets.TURBO_TEAM }}   # for Turborepo remote cache
+  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }} # for Turborepo remote cache
+  NEXT_TELEMETRY_DISABLED: 1              # disable NextJS telemetry
+  SENTRYCLI_SKIP_DOWNLOAD: 1              # disable Sentry.io CLI download
+  FORCE_COLOR: 0                          # disable terminal color in yarn berry
 defaults:
   run:
     shell: bash
 jobs:
-  install:
+  check-cache:
     runs-on: ubuntu-latest
     outputs:
       projects: ${{ steps.dry-run.outputs.projects }}
@@ -42,9 +43,8 @@ jobs:
           path: ${{ steps.vars.outputs.cache-directory }}
           key: ${{ steps.vars.outputs.cache-key }}
           restore-keys: ${{ steps.vars.outputs.restore-keys }}
-      - name: Install modules
-        run: yarn install --immutable
-      - name: Set needs.install.outputs.{projects,projects-web}
+      - run: yarn --immutable --immutable-cache --check-cache
+      - name: Set needs.check-cache.outputs.{projects,projects-web}
         id: dry-run
         run: |
           echo yarn turbo run build --dry='json' --filter='[${{ github.event.pull_request.base.sha }}]' | tee -a $GITHUB_STEP_SUMMARY
@@ -60,13 +60,13 @@ jobs:
           console.log('projects-web=' + JSON.stringify(packages.filter(p => /^web.*$/.test(p))));
           EOF
   check-apps:
-    if: ${{ success() && needs.install.outputs.projects != '[]' }}
-    needs: install
+    if: ${{ success() && needs.check-cache.outputs.projects != '[]' }}
+    needs: check-cache
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        project: ${{ fromJSON(needs.install.outputs.projects) }}
+        project: ${{ fromJSON(needs.check-cache.outputs.projects) }}
     steps:
       - uses: actions/checkout@v3
       - run: corepack enable
@@ -76,10 +76,10 @@ jobs:
           cache: 'yarn'
       - uses: actions/cache@v3
         with:
-          path: ${{ needs.install.outputs.cache-directory }}
-          key: ${{ needs.install.outputs.cashe-key }}
-          restore-keys: ${{ needs.install.outputs.restore-keys }}
-      - run: yarn install --immutable --immutable-cache
+          path: ${{ needs.check-cache.outputs.cache-directory }}
+          key: ${{ needs.check-cache.outputs.cashe-key }}
+          restore-keys: ${{ needs.check-cache.outputs.restore-keys }}
+      - run: yarn --immutable --immutable-cache
       - name: check-types
         run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
@@ -96,14 +96,14 @@ jobs:
           yarn test:ci --filter=${{ matrix.project }} -- --coverage | tee -a $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
       - name: build
-        if: ${{ needs.install.outputs.projects-web != '[]' }}
+        if: ${{ needs.check-cache.outputs.projects-web != '[]' }}
         run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
           yarn build:ci --filter=${{ matrix.project }} | tee -a $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
-  e2e:
-    if: ${{ success() && needs.install.outputs.projects-web != '[]' }}
-    needs: install
+  check-e2e:
+    if: ${{ success() && needs.check-cache.outputs.projects-web != '[]' }}
+    needs: check-cache
     runs-on: ubuntu-latest
     timeout-minutes: 30
     strategy:
@@ -119,7 +119,7 @@ jobs:
         shardIndex: [1, 2, 3, 4, 5, 6, 7]
         shardTotal: [7]
     container:
-      image: mcr.microsoft.com/playwright:v1.29.0-focal
+      image: mcr.microsoft.com/playwright:v1.29.1-focal
     defaults:
       run:
         shell: bash
@@ -132,10 +132,10 @@ jobs:
           cache: 'yarn'
       - uses: actions/cache@v3
         with:
-          path: ${{ needs.install.outputs.cache-directory }}
-          key: ${{ needs.install.outputs.cashe-key }}
-          restore-keys: ${{ needs.install.outputs.restore-keys }}
-      - run: yarn install --immutable
+          path: ${{ needs.check-cache.outputs.cache-directory }}
+          key: ${{ needs.check-cache.outputs.cashe-key }}
+          restore-keys: ${{ needs.check-cache.outputs.restore-keys }}
+      - run: yarn --immutable --immutable-cache
       - name: Playwright testing
         run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
