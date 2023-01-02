@@ -1,5 +1,16 @@
 # shared-utils
 
+## 2.5.0
+
+### Minor Changes
+
+- 650f686b: Enable Yarn Plug'n'Play (Zero-Installs)
+
+### Patch Changes
+
+- Updated dependencies [650f686b]
+  - eslint-config-custom@0.1.0
+
 ## 2.4.0
 
 ### Minor Changes
