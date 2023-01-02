@@ -1119,7 +1119,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ],\
       [\
         "@sentry/cli",\
-        "npm:2.11.0"\
+        "npm:1.74.6"\
       ],\
       [\
         "@sentry/core",\
@@ -1362,6 +1362,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "npm:8.4.10"\
       ],\
       [\
+        "@types/esprima",\
+        "npm:4.0.3"\
+      ],\
+      [\
         "@types/estree",\
         "npm:1.0.0"\
       ],\
@@ -1420,6 +1424,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       [\
         "@types/keyv",\
         "npm:3.1.4"\
+      ],\
+      [\
+        "@types/lodash",\
+        "npm:4.14.191"\
+      ],\
+      [\
+        "@types/lodash.debounce",\
+        "npm:4.0.7"\
       ],\
       [\
         "@types/minimist",\
@@ -3747,7 +3759,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ],\
       [\
         "node-fetch",\
-        "virtual:bce512b5199bed3abce370ee28b2c34a1de255840eb003bc34aeca5d329fe64a72fbe28d166d55783a80f2209b3fc4751d2b250c0d99ac609905af4651bce259#npm:2.6.7"\
+        "virtual:3387b45eb5ac152be3fb99422466b4aeb0ba446c3593dcfcf91eff403a109e979070c0a963884f7038364224de4299e43045a60b6f50a152caf08f38dcff71ce#npm:2.6.7"\
       ],\
       [\
         "node-gyp",\
@@ -5134,8 +5146,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@changesets/cli", "npm:2.26.0"],\
             ["@playwright/test", "npm:1.29.1"],\
             ["@types/eslint", "npm:8.4.10"],\
+            ["@types/esprima", "npm:4.0.3"],\
             ["dotenv-cli", "npm:6.0.0"],\
             ["eslint", "npm:8.31.0"],\
+            ["esprima", "npm:4.0.1"],\
             ["husky", "npm:8.0.2"],\
             ["lint-staged", "npm:13.1.0"],\
             ["prettier", "npm:2.8.1"],\
@@ -5271,7 +5285,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@ardatan-sync-fetch-npm-0.0.1-77efa386d1-af39bdfb4c.zip/node_modules/@ardatan/sync-fetch/",\
           "packageDependencies": [\
             ["@ardatan/sync-fetch", "npm:0.0.1"],\
-            ["node-fetch", "virtual:bce512b5199bed3abce370ee28b2c34a1de255840eb003bc34aeca5d329fe64a72fbe28d166d55783a80f2209b3fc4751d2b250c0d99ac609905af4651bce259#npm:2.6.7"]\
+            ["node-fetch", "virtual:3387b45eb5ac152be3fb99422466b4aeb0ba446c3593dcfcf91eff403a109e979070c0a963884f7038364224de4299e43045a60b6f50a152caf08f38dcff71ce#npm:2.6.7"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -10735,20 +10749,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@sentry/cli", "npm:1.74.6"],\
             ["https-proxy-agent", "npm:5.0.1"],\
             ["mkdirp", "npm:0.5.6"],\
-            ["node-fetch", "virtual:bce512b5199bed3abce370ee28b2c34a1de255840eb003bc34aeca5d329fe64a72fbe28d166d55783a80f2209b3fc4751d2b250c0d99ac609905af4651bce259#npm:2.6.7"],\
+            ["node-fetch", "virtual:3387b45eb5ac152be3fb99422466b4aeb0ba446c3593dcfcf91eff403a109e979070c0a963884f7038364224de4299e43045a60b6f50a152caf08f38dcff71ce#npm:2.6.7"],\
             ["npmlog", "npm:4.1.2"],\
-            ["progress", "npm:2.0.3"],\
-            ["proxy-from-env", "npm:1.1.0"],\
-            ["which", "npm:2.0.2"]\
-          ],\
-          "linkType": "HARD"\
-        }],\
-        ["npm:2.11.0", {\
-          "packageLocation": "./.yarn/unplugged/@sentry-cli-npm-2.11.0-bce512b519/node_modules/@sentry/cli/",\
-          "packageDependencies": [\
-            ["@sentry/cli", "npm:2.11.0"],\
-            ["https-proxy-agent", "npm:5.0.1"],\
-            ["node-fetch", "virtual:bce512b5199bed3abce370ee28b2c34a1de255840eb003bc34aeca5d329fe64a72fbe28d166d55783a80f2209b3fc4751d2b250c0d99ac609905af4651bce259#npm:2.6.7"],\
             ["progress", "npm:2.0.3"],\
             ["proxy-from-env", "npm:1.1.0"],\
             ["which", "npm:2.0.2"]\
@@ -11656,6 +11658,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@types/esprima", [\
+        ["npm:4.0.3", {\
+          "packageLocation": "./.yarn/cache/@types-esprima-npm-4.0.3-1bfc3f7873-266d1f87a9.zip/node_modules/@types/esprima/",\
+          "packageDependencies": [\
+            ["@types/esprima", "npm:4.0.3"],\
+            ["@types/estree", "npm:1.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@types/estree", [\
         ["npm:1.0.0", {\
           "packageLocation": "./.yarn/cache/@types-estree-npm-1.0.0-eddde5b631-910d97fb70.zip/node_modules/@types/estree/",\
@@ -11807,6 +11819,25 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@types/keyv", "npm:3.1.4"],\
             ["@types/node", "npm:18.11.18"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@types/lodash", [\
+        ["npm:4.14.191", {\
+          "packageLocation": "./.yarn/cache/@types-lodash-npm-4.14.191-67a04a969b-ba0d5434e1.zip/node_modules/@types/lodash/",\
+          "packageDependencies": [\
+            ["@types/lodash", "npm:4.14.191"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@types/lodash.debounce", [\
+        ["npm:4.0.7", {\
+          "packageLocation": "./.yarn/cache/@types-lodash.debounce-npm-4.0.7-efe92bf273-e873b2d77f.zip/node_modules/@types/lodash.debounce/",\
+          "packageDependencies": [\
+            ["@types/lodash.debounce", "npm:4.0.7"],\
+            ["@types/lodash", "npm:4.14.191"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -12490,7 +12521,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["busboy", "npm:1.6.0"],\
             ["form-data-encoder", "npm:1.7.2"],\
             ["formdata-node", "npm:4.4.1"],\
-            ["node-fetch", "virtual:bce512b5199bed3abce370ee28b2c34a1de255840eb003bc34aeca5d329fe64a72fbe28d166d55783a80f2209b3fc4751d2b250c0d99ac609905af4651bce259#npm:2.6.7"],\
+            ["node-fetch", "virtual:3387b45eb5ac152be3fb99422466b4aeb0ba446c3593dcfcf91eff403a109e979070c0a963884f7038364224de4299e43045a60b6f50a152caf08f38dcff71ce#npm:2.6.7"],\
             ["undici", "npm:5.13.0"],\
             ["web-streams-polyfill", "npm:3.2.1"]\
           ],\
@@ -12505,7 +12536,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["busboy", "npm:1.6.0"],\
             ["form-data-encoder", "npm:1.7.2"],\
             ["formdata-node", "npm:4.4.1"],\
-            ["node-fetch", "virtual:bce512b5199bed3abce370ee28b2c34a1de255840eb003bc34aeca5d329fe64a72fbe28d166d55783a80f2209b3fc4751d2b250c0d99ac609905af4651bce259#npm:2.6.7"],\
+            ["node-fetch", "virtual:3387b45eb5ac152be3fb99422466b4aeb0ba446c3593dcfcf91eff403a109e979070c0a963884f7038364224de4299e43045a60b6f50a152caf08f38dcff71ce#npm:2.6.7"],\
             ["undici", "npm:5.13.0"],\
             ["web-streams-polyfill", "npm:3.2.1"]\
           ],\
@@ -13496,8 +13527,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@changesets/cli", "npm:2.26.0"],\
             ["@playwright/test", "npm:1.29.1"],\
             ["@types/eslint", "npm:8.4.10"],\
+            ["@types/esprima", "npm:4.0.3"],\
             ["dotenv-cli", "npm:6.0.0"],\
             ["eslint", "npm:8.31.0"],\
+            ["esprima", "npm:4.0.1"],\
             ["husky", "npm:8.0.2"],\
             ["lint-staged", "npm:13.1.0"],\
             ["prettier", "npm:2.8.1"],\
@@ -14468,7 +14501,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/cross-fetch-npm-3.1.5-e414995db9-f6b8c6ee3e.zip/node_modules/cross-fetch/",\
           "packageDependencies": [\
             ["cross-fetch", "npm:3.1.5"],\
-            ["node-fetch", "virtual:bce512b5199bed3abce370ee28b2c34a1de255840eb003bc34aeca5d329fe64a72fbe28d166d55783a80f2209b3fc4751d2b250c0d99ac609905af4651bce259#npm:2.6.7"]\
+            ["node-fetch", "virtual:3387b45eb5ac152be3fb99422466b4aeb0ba446c3593dcfcf91eff403a109e979070c0a963884f7038364224de4299e43045a60b6f50a152caf08f38dcff71ce#npm:2.6.7"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -15692,6 +15725,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["eslint-config-custom", "workspace:packages/eslint-config-custom"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
+            ["@types/esprima", "npm:4.0.3"],\
             ["@typescript-eslint/eslint-plugin", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:5.47.1"],\
             ["@typescript-eslint/parser", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:5.47.1"],\
             ["eslint", "npm:8.31.0"],\
@@ -15705,6 +15739,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:7.31.11"],\
             ["eslint-plugin-react-hooks", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:4.6.0"],\
             ["eslint-plugin-turbo", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:0.0.7"],\
+            ["esprima", "npm:4.0.1"],\
             ["jest", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:29.3.1"],\
             ["ts-jest", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:29.0.3"],\
             ["typescript", "patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=ad5954"]\
@@ -16832,6 +16867,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["find-up", "npm:5.0.0"],\
             ["locate-path", "npm:6.0.0"],\
             ["path-exists", "npm:4.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:6.3.0", {\
+          "packageLocation": "./.yarn/cache/find-up-npm-6.3.0-e5056fc655-9a21b7f924.zip/node_modules/find-up/",\
+          "packageDependencies": [\
+            ["find-up", "npm:6.3.0"],\
+            ["locate-path", "npm:7.1.1"],\
+            ["path-exists", "npm:5.0.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -18373,7 +18417,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/isomorphic-fetch-npm-3.0.0-bce711adff-e5ab79a56c.zip/node_modules/isomorphic-fetch/",\
           "packageDependencies": [\
             ["isomorphic-fetch", "npm:3.0.0"],\
-            ["node-fetch", "virtual:bce512b5199bed3abce370ee28b2c34a1de255840eb003bc34aeca5d329fe64a72fbe28d166d55783a80f2209b3fc4751d2b250c0d99ac609905af4651bce259#npm:2.6.7"],\
+            ["node-fetch", "virtual:3387b45eb5ac152be3fb99422466b4aeb0ba446c3593dcfcf91eff403a109e979070c0a963884f7038364224de4299e43045a60b6f50a152caf08f38dcff71ce#npm:2.6.7"],\
             ["whatwg-fetch", "npm:3.6.2"]\
           ],\
           "linkType": "HARD"\
@@ -18862,6 +18906,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/jest-presets/",\
           "packageDependencies": [\
             ["jest-presets", "workspace:packages/jest-presets"],\
+            ["@types/esprima", "npm:4.0.3"],\
+            ["esprima", "npm:4.0.1"],\
             ["jest", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:29.3.1"],\
             ["ts-jest", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:29.0.3"],\
             ["tsconfig", "workspace:packages/tsconfig"],\
@@ -19675,6 +19721,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["p-locate", "npm:5.0.0"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:7.1.1", {\
+          "packageLocation": "./.yarn/cache/locate-path-npm-7.1.1-f7185f31cc-1d88af5b51.zip/node_modules/locate-path/",\
+          "packageDependencies": [\
+            ["locate-path", "npm:7.1.1"],\
+            ["p-locate", "npm:6.0.0"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["lodash", [\
@@ -20480,6 +20534,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/next", null],\
             ["@types/react", null],\
             ["next", "virtual:5684e10df0b0d4ceda81e7a49e1dce0cdeefe64f7cf73f6b65bae6b36056a2c8afe7954893d9e8e0af41d3fa80eeeeb8dbad164e06bfc993741bc538f79f2b2b#npm:12.3.4"],\
+            ["pkg-dir", "npm:7.0.0"],\
             ["react", "npm:17.0.2"]\
           ],\
           "packagePeers": [\
@@ -20497,6 +20552,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/next", null],\
             ["@types/react", "npm:17.0.52"],\
             ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.3.4"],\
+            ["pkg-dir", "npm:7.0.0"],\
             ["react", "npm:17.0.2"]\
           ],\
           "packagePeers": [\
@@ -20566,10 +20622,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:bce512b5199bed3abce370ee28b2c34a1de255840eb003bc34aeca5d329fe64a72fbe28d166d55783a80f2209b3fc4751d2b250c0d99ac609905af4651bce259#npm:2.6.7", {\
-          "packageLocation": "./.yarn/__virtual__/node-fetch-virtual-8d98e7e3bc/0/cache/node-fetch-npm-2.6.7-777aa2a6df-8d816ffd1e.zip/node_modules/node-fetch/",\
+        ["virtual:3387b45eb5ac152be3fb99422466b4aeb0ba446c3593dcfcf91eff403a109e979070c0a963884f7038364224de4299e43045a60b6f50a152caf08f38dcff71ce#npm:2.6.7", {\
+          "packageLocation": "./.yarn/__virtual__/node-fetch-virtual-3da6717bf6/0/cache/node-fetch-npm-2.6.7-777aa2a6df-8d816ffd1e.zip/node_modules/node-fetch/",\
           "packageDependencies": [\
-            ["node-fetch", "virtual:bce512b5199bed3abce370ee28b2c34a1de255840eb003bc34aeca5d329fe64a72fbe28d166d55783a80f2209b3fc4751d2b250c0d99ac609905af4651bce259#npm:2.6.7"],\
+            ["node-fetch", "virtual:3387b45eb5ac152be3fb99422466b4aeb0ba446c3593dcfcf91eff403a109e979070c0a963884f7038364224de4299e43045a60b6f50a152caf08f38dcff71ce#npm:2.6.7"],\
             ["@types/encoding", null],\
             ["encoding", null],\
             ["whatwg-url", "npm:5.0.0"]\
@@ -21003,6 +21059,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["yocto-queue", "npm:0.1.0"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:4.0.0", {\
+          "packageLocation": "./.yarn/cache/p-limit-npm-4.0.0-5dccf29b67-01d9d70695.zip/node_modules/p-limit/",\
+          "packageDependencies": [\
+            ["p-limit", "npm:4.0.0"],\
+            ["yocto-queue", "npm:1.0.0"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["p-locate", [\
@@ -21019,6 +21083,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["p-locate", "npm:5.0.0"],\
             ["p-limit", "npm:3.1.0"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:6.0.0", {\
+          "packageLocation": "./.yarn/cache/p-locate-npm-6.0.0-b6cfb720dc-2bfe5234ef.zip/node_modules/p-locate/",\
+          "packageDependencies": [\
+            ["p-locate", "npm:6.0.0"],\
+            ["p-limit", "npm:4.0.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -21132,6 +21204,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/path-exists-npm-4.0.0-e9e4f63eb0-505807199d.zip/node_modules/path-exists/",\
           "packageDependencies": [\
             ["path-exists", "npm:4.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:5.0.0", {\
+          "packageLocation": "./.yarn/cache/path-exists-npm-5.0.0-0bf403c56c-8ca842868c.zip/node_modules/path-exists/",\
+          "packageDependencies": [\
+            ["path-exists", "npm:5.0.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -21249,6 +21328,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["pkg-dir", "npm:4.2.0"],\
             ["find-up", "npm:4.1.0"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:7.0.0", {\
+          "packageLocation": "./.yarn/cache/pkg-dir-npm-7.0.0-02ff099b31-94298b20a4.zip/node_modules/pkg-dir/",\
+          "packageDependencies": [\
+            ["pkg-dir", "npm:7.0.0"],\
+            ["find-up", "npm:6.3.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -22652,6 +22739,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["shared-utils", "workspace:packages/shared-utils"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
+            ["@types/esprima", "npm:4.0.3"],\
             ["@typescript-eslint/eslint-plugin", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:5.47.1"],\
             ["@typescript-eslint/parser", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:5.47.1"],\
             ["eslint", "npm:8.31.0"],\
@@ -22666,6 +22754,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:7.31.11"],\
             ["eslint-plugin-react-hooks", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:4.6.0"],\
             ["eslint-plugin-turbo", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:0.0.7"],\
+            ["esprima", "npm:4.0.1"],\
             ["jest", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:29.3.1"],\
             ["next", "virtual:5684e10df0b0d4ceda81e7a49e1dce0cdeefe64f7cf73f6b65bae6b36056a2c8afe7954893d9e8e0af41d3fa80eeeeb8dbad164e06bfc993741bc538f79f2b2b#npm:12.3.4"],\
             ["next-translate", "virtual:5684e10df0b0d4ceda81e7a49e1dce0cdeefe64f7cf73f6b65bae6b36056a2c8afe7954893d9e8e0af41d3fa80eeeeb8dbad164e06bfc993741bc538f79f2b2b#npm:1.6.0"],\
@@ -24251,8 +24340,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/icons", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.3"],\
             ["@material-ui/styles", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.5"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
-            ["@sentry/cli", "npm:2.11.0"],\
+            ["@sentry/browser", "npm:7.28.1"],\
             ["@sentry/nextjs", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"],\
+            ["@sentry/replay", "virtual:3941742ab8de644ea15d4dbaba38e32bf3e5a132cf81273034f098b89e3aa0d9b3356e18e12fdd83e126982e2f75be11cbfed91c473cd36846e24145db30ef68#npm:7.28.1"],\
             ["@socialgouv/matomo-next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.4.0"],\
             ["@svgr/webpack", "npm:6.5.1"],\
             ["@testing-library/jest-dom", "npm:5.16.5"],\
@@ -24262,7 +24352,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/color", "npm:3.0.3"],\
             ["@types/dompurify", "npm:2.4.0"],\
             ["@types/eslint", "npm:8.4.10"],\
+            ["@types/esprima", "npm:4.0.3"],\
             ["@types/jest", "npm:29.2.5"],\
+            ["@types/lodash.debounce", "npm:4.0.7"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/numeral", "npm:2.0.2"],\
             ["@types/prop-types", "npm:15.7.5"],\
@@ -24301,6 +24393,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.31.11"],\
             ["eslint-plugin-react-hooks", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.6.0"],\
             ["eslint-plugin-turbo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.0.7"],\
+            ["esprima", "npm:4.0.1"],\
             ["graphql", "npm:16.6.0"],\
             ["graphql-tag", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.12.6"],\
             ["graphql-ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.2"],\
@@ -24311,6 +24404,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest-presets", "workspace:packages/jest-presets"],\
             ["jest-transform-stub", "npm:2.0.0"],\
             ["jest-watch-typeahead", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.2.1"],\
+            ["lodash.debounce", "npm:4.0.8"],\
             ["markdown-to-jsx", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.1.8"],\
             ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.3.4"],\
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.29.0"],\
@@ -24667,8 +24761,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/icons", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.3"],\
             ["@material-ui/styles", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.5"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
-            ["@sentry/cli", "npm:2.11.0"],\
+            ["@sentry/browser", "npm:7.28.1"],\
             ["@sentry/nextjs", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"],\
+            ["@sentry/replay", "virtual:3941742ab8de644ea15d4dbaba38e32bf3e5a132cf81273034f098b89e3aa0d9b3356e18e12fdd83e126982e2f75be11cbfed91c473cd36846e24145db30ef68#npm:7.28.1"],\
             ["@socialgouv/matomo-next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.4.0"],\
             ["@svgr/webpack", "npm:6.5.1"],\
             ["@testing-library/jest-dom", "npm:5.16.5"],\
@@ -24678,7 +24773,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/color", "npm:3.0.3"],\
             ["@types/dompurify", "npm:2.4.0"],\
             ["@types/eslint", "npm:8.4.10"],\
+            ["@types/esprima", "npm:4.0.3"],\
             ["@types/jest", "npm:29.2.5"],\
+            ["@types/lodash.debounce", "npm:4.0.7"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/numeral", "npm:2.0.2"],\
             ["@types/prop-types", "npm:15.7.5"],\
@@ -24717,6 +24814,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.31.11"],\
             ["eslint-plugin-react-hooks", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.6.0"],\
             ["eslint-plugin-turbo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.0.7"],\
+            ["esprima", "npm:4.0.1"],\
             ["graphql", "npm:16.6.0"],\
             ["graphql-tag", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.12.6"],\
             ["graphql-ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.2"],\
@@ -24727,6 +24825,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest-presets", "workspace:packages/jest-presets"],\
             ["jest-transform-stub", "npm:2.0.0"],\
             ["jest-watch-typeahead", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.2.1"],\
+            ["lodash.debounce", "npm:4.0.8"],\
             ["markdown-to-jsx", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.1.8"],\
             ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.3.4"],\
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.29.0"],\
@@ -24779,8 +24878,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/icons", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.3"],\
             ["@material-ui/styles", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.5"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
-            ["@sentry/cli", "npm:2.11.0"],\
+            ["@sentry/browser", "npm:7.28.1"],\
             ["@sentry/nextjs", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"],\
+            ["@sentry/replay", "virtual:3941742ab8de644ea15d4dbaba38e32bf3e5a132cf81273034f098b89e3aa0d9b3356e18e12fdd83e126982e2f75be11cbfed91c473cd36846e24145db30ef68#npm:7.28.1"],\
             ["@socialgouv/matomo-next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.4.0"],\
             ["@svgr/webpack", "npm:6.5.1"],\
             ["@testing-library/jest-dom", "npm:5.16.5"],\
@@ -24790,7 +24890,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/color", "npm:3.0.3"],\
             ["@types/dompurify", "npm:2.4.0"],\
             ["@types/eslint", "npm:8.4.10"],\
+            ["@types/esprima", "npm:4.0.3"],\
             ["@types/jest", "npm:29.2.5"],\
+            ["@types/lodash.debounce", "npm:4.0.7"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/numeral", "npm:2.0.2"],\
             ["@types/prop-types", "npm:15.7.5"],\
@@ -24829,6 +24931,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.31.11"],\
             ["eslint-plugin-react-hooks", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.6.0"],\
             ["eslint-plugin-turbo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.0.7"],\
+            ["esprima", "npm:4.0.1"],\
             ["graphql", "npm:16.6.0"],\
             ["graphql-tag", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.12.6"],\
             ["graphql-ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.2"],\
@@ -24839,6 +24942,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest-presets", "workspace:packages/jest-presets"],\
             ["jest-transform-stub", "npm:2.0.0"],\
             ["jest-watch-typeahead", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.2.1"],\
+            ["lodash.debounce", "npm:4.0.8"],\
             ["markdown-to-jsx", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.1.8"],\
             ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.3.4"],\
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.29.0"],\
@@ -24891,8 +24995,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/icons", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.3"],\
             ["@material-ui/styles", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.5"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
-            ["@sentry/cli", "npm:2.11.0"],\
+            ["@sentry/browser", "npm:7.28.1"],\
             ["@sentry/nextjs", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"],\
+            ["@sentry/replay", "virtual:3941742ab8de644ea15d4dbaba38e32bf3e5a132cf81273034f098b89e3aa0d9b3356e18e12fdd83e126982e2f75be11cbfed91c473cd36846e24145db30ef68#npm:7.28.1"],\
             ["@socialgouv/matomo-next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.4.0"],\
             ["@svgr/webpack", "npm:6.5.1"],\
             ["@testing-library/jest-dom", "npm:5.16.5"],\
@@ -24902,7 +25007,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/color", "npm:3.0.3"],\
             ["@types/dompurify", "npm:2.4.0"],\
             ["@types/eslint", "npm:8.4.10"],\
+            ["@types/esprima", "npm:4.0.3"],\
             ["@types/jest", "npm:29.2.5"],\
+            ["@types/lodash.debounce", "npm:4.0.7"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/numeral", "npm:2.0.2"],\
             ["@types/prop-types", "npm:15.7.5"],\
@@ -24941,6 +25048,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.31.11"],\
             ["eslint-plugin-react-hooks", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.6.0"],\
             ["eslint-plugin-turbo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.0.7"],\
+            ["esprima", "npm:4.0.1"],\
             ["graphql", "npm:16.6.0"],\
             ["graphql-tag", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.12.6"],\
             ["graphql-ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.2"],\
@@ -24951,6 +25059,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest-presets", "workspace:packages/jest-presets"],\
             ["jest-transform-stub", "npm:2.0.0"],\
             ["jest-watch-typeahead", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.2.1"],\
+            ["lodash.debounce", "npm:4.0.8"],\
             ["markdown-to-jsx", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.1.8"],\
             ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.3.4"],\
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.29.0"],\
@@ -25003,8 +25112,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/icons", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.3"],\
             ["@material-ui/styles", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.5"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
-            ["@sentry/cli", "npm:2.11.0"],\
+            ["@sentry/browser", "npm:7.28.1"],\
             ["@sentry/nextjs", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"],\
+            ["@sentry/replay", "virtual:3941742ab8de644ea15d4dbaba38e32bf3e5a132cf81273034f098b89e3aa0d9b3356e18e12fdd83e126982e2f75be11cbfed91c473cd36846e24145db30ef68#npm:7.28.1"],\
             ["@socialgouv/matomo-next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.4.0"],\
             ["@svgr/webpack", "npm:6.5.1"],\
             ["@testing-library/jest-dom", "npm:5.16.5"],\
@@ -25014,7 +25124,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/color", "npm:3.0.3"],\
             ["@types/dompurify", "npm:2.4.0"],\
             ["@types/eslint", "npm:8.4.10"],\
+            ["@types/esprima", "npm:4.0.3"],\
             ["@types/jest", "npm:29.2.5"],\
+            ["@types/lodash.debounce", "npm:4.0.7"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/numeral", "npm:2.0.2"],\
             ["@types/prop-types", "npm:15.7.5"],\
@@ -25053,6 +25165,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.31.11"],\
             ["eslint-plugin-react-hooks", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.6.0"],\
             ["eslint-plugin-turbo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.0.7"],\
+            ["esprima", "npm:4.0.1"],\
             ["graphql", "npm:16.6.0"],\
             ["graphql-tag", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.12.6"],\
             ["graphql-ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.2"],\
@@ -25063,6 +25176,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest-presets", "workspace:packages/jest-presets"],\
             ["jest-transform-stub", "npm:2.0.0"],\
             ["jest-watch-typeahead", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.2.1"],\
+            ["lodash.debounce", "npm:4.0.8"],\
             ["markdown-to-jsx", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.1.8"],\
             ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.3.4"],\
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.29.0"],\
@@ -25115,8 +25229,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/icons", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.3"],\
             ["@material-ui/styles", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.5"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
-            ["@sentry/cli", "npm:2.11.0"],\
+            ["@sentry/browser", "npm:7.28.1"],\
             ["@sentry/nextjs", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"],\
+            ["@sentry/replay", "virtual:3941742ab8de644ea15d4dbaba38e32bf3e5a132cf81273034f098b89e3aa0d9b3356e18e12fdd83e126982e2f75be11cbfed91c473cd36846e24145db30ef68#npm:7.28.1"],\
             ["@socialgouv/matomo-next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.4.0"],\
             ["@svgr/webpack", "npm:6.5.1"],\
             ["@testing-library/jest-dom", "npm:5.16.5"],\
@@ -25126,7 +25241,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/color", "npm:3.0.3"],\
             ["@types/dompurify", "npm:2.4.0"],\
             ["@types/eslint", "npm:8.4.10"],\
+            ["@types/esprima", "npm:4.0.3"],\
             ["@types/jest", "npm:29.2.5"],\
+            ["@types/lodash.debounce", "npm:4.0.7"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/numeral", "npm:2.0.2"],\
             ["@types/prop-types", "npm:15.7.5"],\
@@ -25165,6 +25282,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.31.11"],\
             ["eslint-plugin-react-hooks", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.6.0"],\
             ["eslint-plugin-turbo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.0.7"],\
+            ["esprima", "npm:4.0.1"],\
             ["graphql", "npm:16.6.0"],\
             ["graphql-tag", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.12.6"],\
             ["graphql-ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.2"],\
@@ -25175,6 +25293,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest-presets", "workspace:packages/jest-presets"],\
             ["jest-transform-stub", "npm:2.0.0"],\
             ["jest-watch-typeahead", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.2.1"],\
+            ["lodash.debounce", "npm:4.0.8"],\
             ["markdown-to-jsx", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.1.8"],\
             ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.3.4"],\
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.29.0"],\
@@ -25227,8 +25346,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/icons", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.3"],\
             ["@material-ui/styles", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.5"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
-            ["@sentry/cli", "npm:2.11.0"],\
+            ["@sentry/browser", "npm:7.28.1"],\
             ["@sentry/nextjs", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"],\
+            ["@sentry/replay", "virtual:3941742ab8de644ea15d4dbaba38e32bf3e5a132cf81273034f098b89e3aa0d9b3356e18e12fdd83e126982e2f75be11cbfed91c473cd36846e24145db30ef68#npm:7.28.1"],\
             ["@socialgouv/matomo-next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.4.0"],\
             ["@svgr/webpack", "npm:6.5.1"],\
             ["@testing-library/jest-dom", "npm:5.16.5"],\
@@ -25238,7 +25358,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/color", "npm:3.0.3"],\
             ["@types/dompurify", "npm:2.4.0"],\
             ["@types/eslint", "npm:8.4.10"],\
+            ["@types/esprima", "npm:4.0.3"],\
             ["@types/jest", "npm:29.2.5"],\
+            ["@types/lodash.debounce", "npm:4.0.7"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/numeral", "npm:2.0.2"],\
             ["@types/prop-types", "npm:15.7.5"],\
@@ -25277,6 +25399,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.31.11"],\
             ["eslint-plugin-react-hooks", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.6.0"],\
             ["eslint-plugin-turbo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.0.7"],\
+            ["esprima", "npm:4.0.1"],\
             ["graphql", "npm:16.6.0"],\
             ["graphql-tag", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.12.6"],\
             ["graphql-ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.2"],\
@@ -25287,6 +25410,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest-presets", "workspace:packages/jest-presets"],\
             ["jest-transform-stub", "npm:2.0.0"],\
             ["jest-watch-typeahead", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.2.1"],\
+            ["lodash.debounce", "npm:4.0.8"],\
             ["markdown-to-jsx", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.1.8"],\
             ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.3.4"],\
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.29.0"],\
@@ -25339,8 +25463,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/icons", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.3"],\
             ["@material-ui/styles", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.5"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
-            ["@sentry/cli", "npm:2.11.0"],\
+            ["@sentry/browser", "npm:7.28.1"],\
             ["@sentry/nextjs", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"],\
+            ["@sentry/replay", "virtual:3941742ab8de644ea15d4dbaba38e32bf3e5a132cf81273034f098b89e3aa0d9b3356e18e12fdd83e126982e2f75be11cbfed91c473cd36846e24145db30ef68#npm:7.28.1"],\
             ["@socialgouv/matomo-next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.4.0"],\
             ["@svgr/webpack", "npm:6.5.1"],\
             ["@testing-library/jest-dom", "npm:5.16.5"],\
@@ -25350,7 +25475,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/color", "npm:3.0.3"],\
             ["@types/dompurify", "npm:2.4.0"],\
             ["@types/eslint", "npm:8.4.10"],\
+            ["@types/esprima", "npm:4.0.3"],\
             ["@types/jest", "npm:29.2.5"],\
+            ["@types/lodash.debounce", "npm:4.0.7"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/numeral", "npm:2.0.2"],\
             ["@types/prop-types", "npm:15.7.5"],\
@@ -25389,6 +25516,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.31.11"],\
             ["eslint-plugin-react-hooks", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.6.0"],\
             ["eslint-plugin-turbo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.0.7"],\
+            ["esprima", "npm:4.0.1"],\
             ["graphql", "npm:16.6.0"],\
             ["graphql-tag", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.12.6"],\
             ["graphql-ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.2"],\
@@ -25399,6 +25527,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest-presets", "workspace:packages/jest-presets"],\
             ["jest-transform-stub", "npm:2.0.0"],\
             ["jest-watch-typeahead", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.2.1"],\
+            ["lodash.debounce", "npm:4.0.8"],\
             ["markdown-to-jsx", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.1.8"],\
             ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.3.4"],\
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.29.0"],\
@@ -25451,8 +25580,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/icons", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.3"],\
             ["@material-ui/styles", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.5"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
-            ["@sentry/cli", "npm:2.11.0"],\
+            ["@sentry/browser", "npm:7.28.1"],\
             ["@sentry/nextjs", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"],\
+            ["@sentry/replay", "virtual:3941742ab8de644ea15d4dbaba38e32bf3e5a132cf81273034f098b89e3aa0d9b3356e18e12fdd83e126982e2f75be11cbfed91c473cd36846e24145db30ef68#npm:7.28.1"],\
             ["@socialgouv/matomo-next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.4.0"],\
             ["@svgr/webpack", "npm:6.5.1"],\
             ["@testing-library/jest-dom", "npm:5.16.5"],\
@@ -25462,7 +25592,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/color", "npm:3.0.3"],\
             ["@types/dompurify", "npm:2.4.0"],\
             ["@types/eslint", "npm:8.4.10"],\
+            ["@types/esprima", "npm:4.0.3"],\
             ["@types/jest", "npm:29.2.5"],\
+            ["@types/lodash.debounce", "npm:4.0.7"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/numeral", "npm:2.0.2"],\
             ["@types/prop-types", "npm:15.7.5"],\
@@ -25501,6 +25633,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.31.11"],\
             ["eslint-plugin-react-hooks", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.6.0"],\
             ["eslint-plugin-turbo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.0.7"],\
+            ["esprima", "npm:4.0.1"],\
             ["graphql", "npm:16.6.0"],\
             ["graphql-tag", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.12.6"],\
             ["graphql-ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.2"],\
@@ -25511,6 +25644,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest-presets", "workspace:packages/jest-presets"],\
             ["jest-transform-stub", "npm:2.0.0"],\
             ["jest-watch-typeahead", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.2.1"],\
+            ["lodash.debounce", "npm:4.0.8"],\
             ["markdown-to-jsx", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.1.8"],\
             ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.3.4"],\
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.29.0"],\
@@ -25563,8 +25697,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/icons", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.3"],\
             ["@material-ui/styles", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.5"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
-            ["@sentry/cli", "npm:2.11.0"],\
+            ["@sentry/browser", "npm:7.28.1"],\
             ["@sentry/nextjs", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"],\
+            ["@sentry/replay", "virtual:3941742ab8de644ea15d4dbaba38e32bf3e5a132cf81273034f098b89e3aa0d9b3356e18e12fdd83e126982e2f75be11cbfed91c473cd36846e24145db30ef68#npm:7.28.1"],\
             ["@socialgouv/matomo-next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.4.0"],\
             ["@svgr/webpack", "npm:6.5.1"],\
             ["@testing-library/jest-dom", "npm:5.16.5"],\
@@ -25574,7 +25709,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/color", "npm:3.0.3"],\
             ["@types/dompurify", "npm:2.4.0"],\
             ["@types/eslint", "npm:8.4.10"],\
+            ["@types/esprima", "npm:4.0.3"],\
             ["@types/jest", "npm:29.2.5"],\
+            ["@types/lodash.debounce", "npm:4.0.7"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/numeral", "npm:2.0.2"],\
             ["@types/prop-types", "npm:15.7.5"],\
@@ -25613,6 +25750,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.31.11"],\
             ["eslint-plugin-react-hooks", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.6.0"],\
             ["eslint-plugin-turbo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.0.7"],\
+            ["esprima", "npm:4.0.1"],\
             ["graphql", "npm:16.6.0"],\
             ["graphql-tag", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.12.6"],\
             ["graphql-ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.2"],\
@@ -25623,6 +25761,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest-presets", "workspace:packages/jest-presets"],\
             ["jest-transform-stub", "npm:2.0.0"],\
             ["jest-watch-typeahead", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.2.1"],\
+            ["lodash.debounce", "npm:4.0.8"],\
             ["markdown-to-jsx", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.1.8"],\
             ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.3.4"],\
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.29.0"],\
@@ -25675,8 +25814,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/icons", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.3"],\
             ["@material-ui/styles", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.5"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
-            ["@sentry/cli", "npm:2.11.0"],\
+            ["@sentry/browser", "npm:7.28.1"],\
             ["@sentry/nextjs", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"],\
+            ["@sentry/replay", "virtual:3941742ab8de644ea15d4dbaba38e32bf3e5a132cf81273034f098b89e3aa0d9b3356e18e12fdd83e126982e2f75be11cbfed91c473cd36846e24145db30ef68#npm:7.28.1"],\
             ["@socialgouv/matomo-next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.4.0"],\
             ["@svgr/webpack", "npm:6.5.1"],\
             ["@testing-library/jest-dom", "npm:5.16.5"],\
@@ -25686,7 +25826,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/color", "npm:3.0.3"],\
             ["@types/dompurify", "npm:2.4.0"],\
             ["@types/eslint", "npm:8.4.10"],\
+            ["@types/esprima", "npm:4.0.3"],\
             ["@types/jest", "npm:29.2.5"],\
+            ["@types/lodash.debounce", "npm:4.0.7"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/numeral", "npm:2.0.2"],\
             ["@types/prop-types", "npm:15.7.5"],\
@@ -25725,6 +25867,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.31.11"],\
             ["eslint-plugin-react-hooks", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.6.0"],\
             ["eslint-plugin-turbo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.0.7"],\
+            ["esprima", "npm:4.0.1"],\
             ["graphql", "npm:16.6.0"],\
             ["graphql-tag", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.12.6"],\
             ["graphql-ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.2"],\
@@ -25735,6 +25878,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest-presets", "workspace:packages/jest-presets"],\
             ["jest-transform-stub", "npm:2.0.0"],\
             ["jest-watch-typeahead", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.2.1"],\
+            ["lodash.debounce", "npm:4.0.8"],\
             ["markdown-to-jsx", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.1.8"],\
             ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.3.4"],\
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.29.0"],\
@@ -25787,8 +25931,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/icons", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.3"],\
             ["@material-ui/styles", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.5"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
-            ["@sentry/cli", "npm:2.11.0"],\
+            ["@sentry/browser", "npm:7.28.1"],\
             ["@sentry/nextjs", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"],\
+            ["@sentry/replay", "virtual:3941742ab8de644ea15d4dbaba38e32bf3e5a132cf81273034f098b89e3aa0d9b3356e18e12fdd83e126982e2f75be11cbfed91c473cd36846e24145db30ef68#npm:7.28.1"],\
             ["@socialgouv/matomo-next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.4.0"],\
             ["@svgr/webpack", "npm:6.5.1"],\
             ["@testing-library/jest-dom", "npm:5.16.5"],\
@@ -25798,7 +25943,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/color", "npm:3.0.3"],\
             ["@types/dompurify", "npm:2.4.0"],\
             ["@types/eslint", "npm:8.4.10"],\
+            ["@types/esprima", "npm:4.0.3"],\
             ["@types/jest", "npm:29.2.5"],\
+            ["@types/lodash.debounce", "npm:4.0.7"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/numeral", "npm:2.0.2"],\
             ["@types/prop-types", "npm:15.7.5"],\
@@ -25837,6 +25984,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.31.11"],\
             ["eslint-plugin-react-hooks", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.6.0"],\
             ["eslint-plugin-turbo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.0.7"],\
+            ["esprima", "npm:4.0.1"],\
             ["graphql", "npm:16.6.0"],\
             ["graphql-tag", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.12.6"],\
             ["graphql-ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.2"],\
@@ -25847,6 +25995,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest-presets", "workspace:packages/jest-presets"],\
             ["jest-transform-stub", "npm:2.0.0"],\
             ["jest-watch-typeahead", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.2.1"],\
+            ["lodash.debounce", "npm:4.0.8"],\
             ["markdown-to-jsx", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.1.8"],\
             ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.3.4"],\
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.29.0"],\
@@ -25899,8 +26048,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/icons", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.3"],\
             ["@material-ui/styles", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.5"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
-            ["@sentry/cli", "npm:2.11.0"],\
+            ["@sentry/browser", "npm:7.28.1"],\
             ["@sentry/nextjs", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"],\
+            ["@sentry/replay", "virtual:3941742ab8de644ea15d4dbaba38e32bf3e5a132cf81273034f098b89e3aa0d9b3356e18e12fdd83e126982e2f75be11cbfed91c473cd36846e24145db30ef68#npm:7.28.1"],\
             ["@socialgouv/matomo-next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.4.0"],\
             ["@svgr/webpack", "npm:6.5.1"],\
             ["@testing-library/jest-dom", "npm:5.16.5"],\
@@ -25910,7 +26060,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/color", "npm:3.0.3"],\
             ["@types/dompurify", "npm:2.4.0"],\
             ["@types/eslint", "npm:8.4.10"],\
+            ["@types/esprima", "npm:4.0.3"],\
             ["@types/jest", "npm:29.2.5"],\
+            ["@types/lodash.debounce", "npm:4.0.7"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/numeral", "npm:2.0.2"],\
             ["@types/prop-types", "npm:15.7.5"],\
@@ -25949,6 +26101,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.31.11"],\
             ["eslint-plugin-react-hooks", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.6.0"],\
             ["eslint-plugin-turbo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.0.7"],\
+            ["esprima", "npm:4.0.1"],\
             ["graphql", "npm:16.6.0"],\
             ["graphql-tag", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.12.6"],\
             ["graphql-ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.2"],\
@@ -25959,6 +26112,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest-presets", "workspace:packages/jest-presets"],\
             ["jest-transform-stub", "npm:2.0.0"],\
             ["jest-watch-typeahead", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.2.1"],\
+            ["lodash.debounce", "npm:4.0.8"],\
             ["markdown-to-jsx", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.1.8"],\
             ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.3.4"],\
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.29.0"],\
@@ -26011,8 +26165,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/icons", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.3"],\
             ["@material-ui/styles", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.5"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
-            ["@sentry/cli", "npm:2.11.0"],\
+            ["@sentry/browser", "npm:7.28.1"],\
             ["@sentry/nextjs", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"],\
+            ["@sentry/replay", "virtual:3941742ab8de644ea15d4dbaba38e32bf3e5a132cf81273034f098b89e3aa0d9b3356e18e12fdd83e126982e2f75be11cbfed91c473cd36846e24145db30ef68#npm:7.28.1"],\
             ["@socialgouv/matomo-next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.4.0"],\
             ["@svgr/webpack", "npm:6.5.1"],\
             ["@testing-library/jest-dom", "npm:5.16.5"],\
@@ -26022,7 +26177,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/color", "npm:3.0.3"],\
             ["@types/dompurify", "npm:2.4.0"],\
             ["@types/eslint", "npm:8.4.10"],\
+            ["@types/esprima", "npm:4.0.3"],\
             ["@types/jest", "npm:29.2.5"],\
+            ["@types/lodash.debounce", "npm:4.0.7"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/numeral", "npm:2.0.2"],\
             ["@types/prop-types", "npm:15.7.5"],\
@@ -26061,6 +26218,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.31.11"],\
             ["eslint-plugin-react-hooks", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.6.0"],\
             ["eslint-plugin-turbo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.0.7"],\
+            ["esprima", "npm:4.0.1"],\
             ["graphql", "npm:16.6.0"],\
             ["graphql-tag", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.12.6"],\
             ["graphql-ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.2"],\
@@ -26071,6 +26229,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest-presets", "workspace:packages/jest-presets"],\
             ["jest-transform-stub", "npm:2.0.0"],\
             ["jest-watch-typeahead", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.2.1"],\
+            ["lodash.debounce", "npm:4.0.8"],\
             ["markdown-to-jsx", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.1.8"],\
             ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.3.4"],\
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.29.0"],\
@@ -26123,8 +26282,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/icons", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.3"],\
             ["@material-ui/styles", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.5"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
-            ["@sentry/cli", "npm:2.11.0"],\
+            ["@sentry/browser", "npm:7.28.1"],\
             ["@sentry/nextjs", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"],\
+            ["@sentry/replay", "virtual:3941742ab8de644ea15d4dbaba38e32bf3e5a132cf81273034f098b89e3aa0d9b3356e18e12fdd83e126982e2f75be11cbfed91c473cd36846e24145db30ef68#npm:7.28.1"],\
             ["@socialgouv/matomo-next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.4.0"],\
             ["@svgr/webpack", "npm:6.5.1"],\
             ["@testing-library/jest-dom", "npm:5.16.5"],\
@@ -26134,7 +26294,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/color", "npm:3.0.3"],\
             ["@types/dompurify", "npm:2.4.0"],\
             ["@types/eslint", "npm:8.4.10"],\
+            ["@types/esprima", "npm:4.0.3"],\
             ["@types/jest", "npm:29.2.5"],\
+            ["@types/lodash.debounce", "npm:4.0.7"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/numeral", "npm:2.0.2"],\
             ["@types/prop-types", "npm:15.7.5"],\
@@ -26173,6 +26335,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.31.11"],\
             ["eslint-plugin-react-hooks", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.6.0"],\
             ["eslint-plugin-turbo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.0.7"],\
+            ["esprima", "npm:4.0.1"],\
             ["graphql", "npm:16.6.0"],\
             ["graphql-tag", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.12.6"],\
             ["graphql-ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.2"],\
@@ -26183,6 +26346,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest-presets", "workspace:packages/jest-presets"],\
             ["jest-transform-stub", "npm:2.0.0"],\
             ["jest-watch-typeahead", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.2.1"],\
+            ["lodash.debounce", "npm:4.0.8"],\
             ["markdown-to-jsx", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.1.8"],\
             ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.3.4"],\
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.29.0"],\
@@ -26235,8 +26399,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/icons", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.3"],\
             ["@material-ui/styles", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.5"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
-            ["@sentry/cli", "npm:2.11.0"],\
+            ["@sentry/browser", "npm:7.28.1"],\
             ["@sentry/nextjs", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"],\
+            ["@sentry/replay", "virtual:3941742ab8de644ea15d4dbaba38e32bf3e5a132cf81273034f098b89e3aa0d9b3356e18e12fdd83e126982e2f75be11cbfed91c473cd36846e24145db30ef68#npm:7.28.1"],\
             ["@socialgouv/matomo-next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.4.0"],\
             ["@svgr/webpack", "npm:6.5.1"],\
             ["@testing-library/jest-dom", "npm:5.16.5"],\
@@ -26246,7 +26411,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/color", "npm:3.0.3"],\
             ["@types/dompurify", "npm:2.4.0"],\
             ["@types/eslint", "npm:8.4.10"],\
+            ["@types/esprima", "npm:4.0.3"],\
             ["@types/jest", "npm:29.2.5"],\
+            ["@types/lodash.debounce", "npm:4.0.7"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/numeral", "npm:2.0.2"],\
             ["@types/prop-types", "npm:15.7.5"],\
@@ -26285,6 +26452,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.31.11"],\
             ["eslint-plugin-react-hooks", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.6.0"],\
             ["eslint-plugin-turbo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.0.7"],\
+            ["esprima", "npm:4.0.1"],\
             ["graphql", "npm:16.6.0"],\
             ["graphql-tag", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.12.6"],\
             ["graphql-ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.2"],\
@@ -26295,6 +26463,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest-presets", "workspace:packages/jest-presets"],\
             ["jest-transform-stub", "npm:2.0.0"],\
             ["jest-watch-typeahead", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.2.1"],\
+            ["lodash.debounce", "npm:4.0.8"],\
             ["markdown-to-jsx", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.1.8"],\
             ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.3.4"],\
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.29.0"],\
@@ -26347,8 +26516,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/icons", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.3"],\
             ["@material-ui/styles", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.5"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
-            ["@sentry/cli", "npm:2.11.0"],\
+            ["@sentry/browser", "npm:7.28.1"],\
             ["@sentry/nextjs", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"],\
+            ["@sentry/replay", "virtual:3941742ab8de644ea15d4dbaba38e32bf3e5a132cf81273034f098b89e3aa0d9b3356e18e12fdd83e126982e2f75be11cbfed91c473cd36846e24145db30ef68#npm:7.28.1"],\
             ["@socialgouv/matomo-next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.4.0"],\
             ["@svgr/webpack", "npm:6.5.1"],\
             ["@testing-library/jest-dom", "npm:5.16.5"],\
@@ -26358,7 +26528,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/color", "npm:3.0.3"],\
             ["@types/dompurify", "npm:2.4.0"],\
             ["@types/eslint", "npm:8.4.10"],\
+            ["@types/esprima", "npm:4.0.3"],\
             ["@types/jest", "npm:29.2.5"],\
+            ["@types/lodash.debounce", "npm:4.0.7"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/numeral", "npm:2.0.2"],\
             ["@types/prop-types", "npm:15.7.5"],\
@@ -26397,6 +26569,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.31.11"],\
             ["eslint-plugin-react-hooks", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.6.0"],\
             ["eslint-plugin-turbo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.0.7"],\
+            ["esprima", "npm:4.0.1"],\
             ["graphql", "npm:16.6.0"],\
             ["graphql-tag", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.12.6"],\
             ["graphql-ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.2"],\
@@ -26407,6 +26580,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest-presets", "workspace:packages/jest-presets"],\
             ["jest-transform-stub", "npm:2.0.0"],\
             ["jest-watch-typeahead", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.2.1"],\
+            ["lodash.debounce", "npm:4.0.8"],\
             ["markdown-to-jsx", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.1.8"],\
             ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.3.4"],\
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.29.0"],\
@@ -26459,8 +26633,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/icons", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.3"],\
             ["@material-ui/styles", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.5"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
-            ["@sentry/cli", "npm:2.11.0"],\
+            ["@sentry/browser", "npm:7.28.1"],\
             ["@sentry/nextjs", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"],\
+            ["@sentry/replay", "virtual:3941742ab8de644ea15d4dbaba38e32bf3e5a132cf81273034f098b89e3aa0d9b3356e18e12fdd83e126982e2f75be11cbfed91c473cd36846e24145db30ef68#npm:7.28.1"],\
             ["@socialgouv/matomo-next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.4.0"],\
             ["@svgr/webpack", "npm:6.5.1"],\
             ["@testing-library/jest-dom", "npm:5.16.5"],\
@@ -26470,7 +26645,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/color", "npm:3.0.3"],\
             ["@types/dompurify", "npm:2.4.0"],\
             ["@types/eslint", "npm:8.4.10"],\
+            ["@types/esprima", "npm:4.0.3"],\
             ["@types/jest", "npm:29.2.5"],\
+            ["@types/lodash.debounce", "npm:4.0.7"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/numeral", "npm:2.0.2"],\
             ["@types/prop-types", "npm:15.7.5"],\
@@ -26509,6 +26686,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.31.11"],\
             ["eslint-plugin-react-hooks", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.6.0"],\
             ["eslint-plugin-turbo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.0.7"],\
+            ["esprima", "npm:4.0.1"],\
             ["graphql", "npm:16.6.0"],\
             ["graphql-tag", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.12.6"],\
             ["graphql-ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.2"],\
@@ -26519,6 +26697,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest-presets", "workspace:packages/jest-presets"],\
             ["jest-transform-stub", "npm:2.0.0"],\
             ["jest-watch-typeahead", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.2.1"],\
+            ["lodash.debounce", "npm:4.0.8"],\
             ["markdown-to-jsx", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.1.8"],\
             ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.3.4"],\
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.29.0"],\
@@ -26571,8 +26750,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/icons", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.3"],\
             ["@material-ui/styles", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.5"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
-            ["@sentry/cli", "npm:2.11.0"],\
+            ["@sentry/browser", "npm:7.28.1"],\
             ["@sentry/nextjs", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"],\
+            ["@sentry/replay", "virtual:3941742ab8de644ea15d4dbaba38e32bf3e5a132cf81273034f098b89e3aa0d9b3356e18e12fdd83e126982e2f75be11cbfed91c473cd36846e24145db30ef68#npm:7.28.1"],\
             ["@socialgouv/matomo-next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.4.0"],\
             ["@svgr/webpack", "npm:6.5.1"],\
             ["@testing-library/jest-dom", "npm:5.16.5"],\
@@ -26582,7 +26762,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/color", "npm:3.0.3"],\
             ["@types/dompurify", "npm:2.4.0"],\
             ["@types/eslint", "npm:8.4.10"],\
+            ["@types/esprima", "npm:4.0.3"],\
             ["@types/jest", "npm:29.2.5"],\
+            ["@types/lodash.debounce", "npm:4.0.7"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/numeral", "npm:2.0.2"],\
             ["@types/prop-types", "npm:15.7.5"],\
@@ -26621,6 +26803,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.31.11"],\
             ["eslint-plugin-react-hooks", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.6.0"],\
             ["eslint-plugin-turbo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.0.7"],\
+            ["esprima", "npm:4.0.1"],\
             ["graphql", "npm:16.6.0"],\
             ["graphql-tag", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.12.6"],\
             ["graphql-ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.2"],\
@@ -26631,6 +26814,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest-presets", "workspace:packages/jest-presets"],\
             ["jest-transform-stub", "npm:2.0.0"],\
             ["jest-watch-typeahead", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.2.1"],\
+            ["lodash.debounce", "npm:4.0.8"],\
             ["markdown-to-jsx", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.1.8"],\
             ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.3.4"],\
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.29.0"],\
@@ -26683,8 +26867,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/icons", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.3"],\
             ["@material-ui/styles", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.5"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
-            ["@sentry/cli", "npm:2.11.0"],\
+            ["@sentry/browser", "npm:7.28.1"],\
             ["@sentry/nextjs", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"],\
+            ["@sentry/replay", "virtual:3941742ab8de644ea15d4dbaba38e32bf3e5a132cf81273034f098b89e3aa0d9b3356e18e12fdd83e126982e2f75be11cbfed91c473cd36846e24145db30ef68#npm:7.28.1"],\
             ["@socialgouv/matomo-next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.4.0"],\
             ["@svgr/webpack", "npm:6.5.1"],\
             ["@testing-library/jest-dom", "npm:5.16.5"],\
@@ -26694,7 +26879,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/color", "npm:3.0.3"],\
             ["@types/dompurify", "npm:2.4.0"],\
             ["@types/eslint", "npm:8.4.10"],\
+            ["@types/esprima", "npm:4.0.3"],\
             ["@types/jest", "npm:29.2.5"],\
+            ["@types/lodash.debounce", "npm:4.0.7"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/numeral", "npm:2.0.2"],\
             ["@types/prop-types", "npm:15.7.5"],\
@@ -26733,6 +26920,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.31.11"],\
             ["eslint-plugin-react-hooks", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.6.0"],\
             ["eslint-plugin-turbo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.0.7"],\
+            ["esprima", "npm:4.0.1"],\
             ["graphql", "npm:16.6.0"],\
             ["graphql-tag", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.12.6"],\
             ["graphql-ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.2"],\
@@ -26743,6 +26931,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest-presets", "workspace:packages/jest-presets"],\
             ["jest-transform-stub", "npm:2.0.0"],\
             ["jest-watch-typeahead", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.2.1"],\
+            ["lodash.debounce", "npm:4.0.8"],\
             ["markdown-to-jsx", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.1.8"],\
             ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.3.4"],\
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.29.0"],\
@@ -26795,8 +26984,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/icons", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.3"],\
             ["@material-ui/styles", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.5"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
-            ["@sentry/cli", "npm:2.11.0"],\
+            ["@sentry/browser", "npm:7.28.1"],\
             ["@sentry/nextjs", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"],\
+            ["@sentry/replay", "virtual:3941742ab8de644ea15d4dbaba38e32bf3e5a132cf81273034f098b89e3aa0d9b3356e18e12fdd83e126982e2f75be11cbfed91c473cd36846e24145db30ef68#npm:7.28.1"],\
             ["@socialgouv/matomo-next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.4.0"],\
             ["@svgr/webpack", "npm:6.5.1"],\
             ["@testing-library/jest-dom", "npm:5.16.5"],\
@@ -26806,7 +26996,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/color", "npm:3.0.3"],\
             ["@types/dompurify", "npm:2.4.0"],\
             ["@types/eslint", "npm:8.4.10"],\
+            ["@types/esprima", "npm:4.0.3"],\
             ["@types/jest", "npm:29.2.5"],\
+            ["@types/lodash.debounce", "npm:4.0.7"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/numeral", "npm:2.0.2"],\
             ["@types/prop-types", "npm:15.7.5"],\
@@ -26845,6 +27037,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.31.11"],\
             ["eslint-plugin-react-hooks", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.6.0"],\
             ["eslint-plugin-turbo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.0.7"],\
+            ["esprima", "npm:4.0.1"],\
             ["graphql", "npm:16.6.0"],\
             ["graphql-tag", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.12.6"],\
             ["graphql-ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.2"],\
@@ -26855,6 +27048,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest-presets", "workspace:packages/jest-presets"],\
             ["jest-transform-stub", "npm:2.0.0"],\
             ["jest-watch-typeahead", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.2.1"],\
+            ["lodash.debounce", "npm:4.0.8"],\
             ["markdown-to-jsx", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.1.8"],\
             ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.3.4"],\
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.29.0"],\
@@ -26907,8 +27101,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/icons", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.3"],\
             ["@material-ui/styles", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.5"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
-            ["@sentry/cli", "npm:2.11.0"],\
+            ["@sentry/browser", "npm:7.28.1"],\
             ["@sentry/nextjs", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"],\
+            ["@sentry/replay", "virtual:3941742ab8de644ea15d4dbaba38e32bf3e5a132cf81273034f098b89e3aa0d9b3356e18e12fdd83e126982e2f75be11cbfed91c473cd36846e24145db30ef68#npm:7.28.1"],\
             ["@socialgouv/matomo-next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.4.0"],\
             ["@svgr/webpack", "npm:6.5.1"],\
             ["@testing-library/jest-dom", "npm:5.16.5"],\
@@ -26918,7 +27113,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/color", "npm:3.0.3"],\
             ["@types/dompurify", "npm:2.4.0"],\
             ["@types/eslint", "npm:8.4.10"],\
+            ["@types/esprima", "npm:4.0.3"],\
             ["@types/jest", "npm:29.2.5"],\
+            ["@types/lodash.debounce", "npm:4.0.7"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/numeral", "npm:2.0.2"],\
             ["@types/prop-types", "npm:15.7.5"],\
@@ -26957,6 +27154,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.31.11"],\
             ["eslint-plugin-react-hooks", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.6.0"],\
             ["eslint-plugin-turbo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.0.7"],\
+            ["esprima", "npm:4.0.1"],\
             ["graphql", "npm:16.6.0"],\
             ["graphql-tag", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.12.6"],\
             ["graphql-ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.2"],\
@@ -26967,6 +27165,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest-presets", "workspace:packages/jest-presets"],\
             ["jest-transform-stub", "npm:2.0.0"],\
             ["jest-watch-typeahead", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.2.1"],\
+            ["lodash.debounce", "npm:4.0.8"],\
             ["markdown-to-jsx", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.1.8"],\
             ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.3.4"],\
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.29.0"],\
@@ -27019,8 +27218,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/icons", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.3"],\
             ["@material-ui/styles", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.5"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
-            ["@sentry/cli", "npm:2.11.0"],\
+            ["@sentry/browser", "npm:7.28.1"],\
             ["@sentry/nextjs", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"],\
+            ["@sentry/replay", "virtual:3941742ab8de644ea15d4dbaba38e32bf3e5a132cf81273034f098b89e3aa0d9b3356e18e12fdd83e126982e2f75be11cbfed91c473cd36846e24145db30ef68#npm:7.28.1"],\
             ["@socialgouv/matomo-next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.4.0"],\
             ["@svgr/webpack", "npm:6.5.1"],\
             ["@testing-library/jest-dom", "npm:5.16.5"],\
@@ -27030,7 +27230,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/color", "npm:3.0.3"],\
             ["@types/dompurify", "npm:2.4.0"],\
             ["@types/eslint", "npm:8.4.10"],\
+            ["@types/esprima", "npm:4.0.3"],\
             ["@types/jest", "npm:29.2.5"],\
+            ["@types/lodash.debounce", "npm:4.0.7"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/numeral", "npm:2.0.2"],\
             ["@types/prop-types", "npm:15.7.5"],\
@@ -27069,6 +27271,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.31.11"],\
             ["eslint-plugin-react-hooks", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.6.0"],\
             ["eslint-plugin-turbo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.0.7"],\
+            ["esprima", "npm:4.0.1"],\
             ["graphql", "npm:16.6.0"],\
             ["graphql-tag", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.12.6"],\
             ["graphql-ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.2"],\
@@ -27079,6 +27282,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest-presets", "workspace:packages/jest-presets"],\
             ["jest-transform-stub", "npm:2.0.0"],\
             ["jest-watch-typeahead", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.2.1"],\
+            ["lodash.debounce", "npm:4.0.8"],\
             ["markdown-to-jsx", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.1.8"],\
             ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.3.4"],\
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.29.0"],\
@@ -27131,8 +27335,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/icons", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.3"],\
             ["@material-ui/styles", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.5"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
-            ["@sentry/cli", "npm:2.11.0"],\
+            ["@sentry/browser", "npm:7.28.1"],\
             ["@sentry/nextjs", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"],\
+            ["@sentry/replay", "virtual:3941742ab8de644ea15d4dbaba38e32bf3e5a132cf81273034f098b89e3aa0d9b3356e18e12fdd83e126982e2f75be11cbfed91c473cd36846e24145db30ef68#npm:7.28.1"],\
             ["@socialgouv/matomo-next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.4.0"],\
             ["@svgr/webpack", "npm:6.5.1"],\
             ["@testing-library/jest-dom", "npm:5.16.5"],\
@@ -27142,7 +27347,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/color", "npm:3.0.3"],\
             ["@types/dompurify", "npm:2.4.0"],\
             ["@types/eslint", "npm:8.4.10"],\
+            ["@types/esprima", "npm:4.0.3"],\
             ["@types/jest", "npm:29.2.5"],\
+            ["@types/lodash.debounce", "npm:4.0.7"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/numeral", "npm:2.0.2"],\
             ["@types/prop-types", "npm:15.7.5"],\
@@ -27181,6 +27388,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.31.11"],\
             ["eslint-plugin-react-hooks", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.6.0"],\
             ["eslint-plugin-turbo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.0.7"],\
+            ["esprima", "npm:4.0.1"],\
             ["graphql", "npm:16.6.0"],\
             ["graphql-tag", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.12.6"],\
             ["graphql-ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.2"],\
@@ -27191,6 +27399,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest-presets", "workspace:packages/jest-presets"],\
             ["jest-transform-stub", "npm:2.0.0"],\
             ["jest-watch-typeahead", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.2.1"],\
+            ["lodash.debounce", "npm:4.0.8"],\
             ["markdown-to-jsx", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.1.8"],\
             ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.3.4"],\
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.29.0"],\
@@ -27259,8 +27468,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/icons", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.3"],\
             ["@material-ui/styles", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.11.5"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
-            ["@sentry/cli", "npm:2.11.0"],\
+            ["@sentry/browser", "npm:7.28.1"],\
             ["@sentry/nextjs", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.28.1"],\
+            ["@sentry/replay", "virtual:3941742ab8de644ea15d4dbaba38e32bf3e5a132cf81273034f098b89e3aa0d9b3356e18e12fdd83e126982e2f75be11cbfed91c473cd36846e24145db30ef68#npm:7.28.1"],\
             ["@socialgouv/matomo-next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.4.0"],\
             ["@svgr/webpack", "npm:6.5.1"],\
             ["@testing-library/jest-dom", "npm:5.16.5"],\
@@ -27270,7 +27480,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/color", "npm:3.0.3"],\
             ["@types/dompurify", "npm:2.4.0"],\
             ["@types/eslint", "npm:8.4.10"],\
+            ["@types/esprima", "npm:4.0.3"],\
             ["@types/jest", "npm:29.2.5"],\
+            ["@types/lodash.debounce", "npm:4.0.7"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/numeral", "npm:2.0.2"],\
             ["@types/prop-types", "npm:15.7.5"],\
@@ -27309,6 +27521,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.31.11"],\
             ["eslint-plugin-react-hooks", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.6.0"],\
             ["eslint-plugin-turbo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.0.7"],\
+            ["esprima", "npm:4.0.1"],\
             ["graphql", "npm:16.6.0"],\
             ["graphql-tag", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.12.6"],\
             ["graphql-ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.2"],\
@@ -27319,6 +27532,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest-presets", "workspace:packages/jest-presets"],\
             ["jest-transform-stub", "npm:2.0.0"],\
             ["jest-watch-typeahead", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.2.1"],\
+            ["lodash.debounce", "npm:4.0.8"],\
             ["markdown-to-jsx", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.1.8"],\
             ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.3.4"],\
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.29.0"],\
@@ -27771,6 +27985,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/yocto-queue-npm-0.1.0-c6c9a7db29-f77b3d8d00.zip/node_modules/yocto-queue/",\
           "packageDependencies": [\
             ["yocto-queue", "npm:0.1.0"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:1.0.0", {\
+          "packageLocation": "./.yarn/cache/yocto-queue-npm-1.0.0-7b502f1987-2cac84540f.zip/node_modules/yocto-queue/",\
+          "packageDependencies": [\
+            ["yocto-queue", "npm:1.0.0"]\
           ],\
           "linkType": "HARD"\
         }]\

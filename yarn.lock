@@ -3452,7 +3452,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sentry/browser@npm:7.28.1":
+"@sentry/browser@npm:7.28.1, @sentry/browser@npm:^7.28.1":
   version: 7.28.1
   resolution: "@sentry/browser@npm:7.28.1"
   dependencies:
@@ -3479,21 +3479,6 @@ __metadata:
   bin:
     sentry-cli: bin/sentry-cli
   checksum: 3d1ef94d5505ed23858503228b59ae1ed401774e27466d7a47eba47be3855e9706f12292d4a0a6135303a5916791620e0d3a184d2fda9e28f2d26ccd347b36fb
-  languageName: node
-  linkType: hard
-
-"@sentry/cli@npm:^2.11.0":
-  version: 2.11.0
-  resolution: "@sentry/cli@npm:2.11.0"
-  dependencies:
-    https-proxy-agent: ^5.0.0
-    node-fetch: ^2.6.7
-    progress: ^2.0.3
-    proxy-from-env: ^1.1.0
-    which: ^2.0.2
-  bin:
-    sentry-cli: bin/sentry-cli
-  checksum: 794451921a023fa878804126e2f977522596ed199b8533076dff1c3a3bf77c4687e08e351882cef298d60889e2b7dc43fc34d027df8f04e601eb2c86f148c9da
   languageName: node
   linkType: hard
 
@@ -3578,7 +3563,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sentry/replay@npm:7.28.1":
+"@sentry/replay@npm:7.28.1, @sentry/replay@npm:^7.28.1":
   version: 7.28.1
   resolution: "@sentry/replay@npm:7.28.1"
   dependencies:
@@ -4122,6 +4107,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/esprima@npm:^4":
+  version: 4.0.3
+  resolution: "@types/esprima@npm:4.0.3"
+  dependencies:
+    "@types/estree": "*"
+  checksum: 266d1f87a9469688af0f143dec47caae25e6f689194da0d57d03d796cf8bdbfb99593717885e98d9538f1beff967a642f126d693e0e4b5fa4f4605fb55866919
+  languageName: node
+  linkType: hard
+
 "@types/estree@npm:*":
   version: 1.0.0
   resolution: "@types/estree@npm:1.0.0"
@@ -4253,6 +4247,22 @@ __metadata:
   dependencies:
     "@types/node": "*"
   checksum: e009a2bfb50e90ca9b7c6e8f648f8464067271fd99116f881073fa6fa76dc8d0133181dd65e6614d5fb1220d671d67b0124aef7d97dc02d7e342ab143a47779d
+  languageName: node
+  linkType: hard
+
+"@types/lodash.debounce@npm:^4":
+  version: 4.0.7
+  resolution: "@types/lodash.debounce@npm:4.0.7"
+  dependencies:
+    "@types/lodash": "*"
+  checksum: e873b2d77f89010876baba3437ef826b17221b98948e00b5590828334a481dea1c8f9d28543210e564adc53199584f42c3cb171f8b6c3614fefc0b4e0888679c
+  languageName: node
+  linkType: hard
+
+"@types/lodash@npm:*":
+  version: 4.14.191
+  resolution: "@types/lodash@npm:4.14.191"
+  checksum: ba0d5434e10690869f32d5ea49095250157cae502f10d57de0a723fd72229ce6c6a4979576f0f13e0aa9fbe3ce2457bfb9fa7d4ec3d6daba56730a51906d1491
   languageName: node
   linkType: hard
 
@@ -5466,8 +5476,10 @@ __metadata:
     "@changesets/cli": ^2.26.0
     "@playwright/test": ^1.29.1
     "@types/eslint": ^8.4.10
+    "@types/esprima": ^4
     dotenv-cli: ^6.0.0
     eslint: ^8.31.0
+    esprima: ^4.0.1
     husky: ^8.0.2
     lint-staged: ^13.1.0
     prettier: 2.8.1
@@ -7221,6 +7233,7 @@ __metadata:
   resolution: "eslint-config-custom@workspace:packages/eslint-config-custom"
   dependencies:
     "@next/eslint-plugin-next": ^13.1.1
+    "@types/esprima": ^4
     "@typescript-eslint/eslint-plugin": ^5.47.1
     "@typescript-eslint/parser": ^5.47.1
     eslint: ^8.31.0
@@ -7234,6 +7247,7 @@ __metadata:
     eslint-plugin-react: ^7.31.11
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
+    esprima: ^4.0.1
     jest: ^29.3.1
     ts-jest: ^29.0.3
     typescript: ^4.9.4
@@ -7814,6 +7828,16 @@ __metadata:
     locate-path: ^6.0.0
     path-exists: ^4.0.0
   checksum: 07955e357348f34660bde7920783204ff5a26ac2cafcaa28bace494027158a97b9f56faaf2d89a6106211a8174db650dd9f503f9c0d526b1202d5554a00b9095
+  languageName: node
+  linkType: hard
+
+"find-up@npm:^6.3.0":
+  version: 6.3.0
+  resolution: "find-up@npm:6.3.0"
+  dependencies:
+    locate-path: ^7.1.0
+    path-exists: ^5.0.0
+  checksum: 9a21b7f9244a420e54c6df95b4f6fc3941efd3c3e5476f8274eb452f6a85706e7a6a90de71353ee4f091fcb4593271a6f92810a324ec542650398f928783c280
   languageName: node
   linkType: hard
 
@@ -9492,6 +9516,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "jest-presets@workspace:packages/jest-presets"
   dependencies:
+    "@types/esprima": ^4
+    esprima: ^4.0.1
     jest: ^29.3.1
     ts-jest: ^29.0.3
     tsconfig: "*"
@@ -10238,6 +10264,15 @@ __metadata:
   dependencies:
     p-locate: ^5.0.0
   checksum: 72eb661788a0368c099a184c59d2fee760b3831c9c1c33955e8a19ae4a21b4116e53fa736dc086cdeb9fce9f7cc508f2f92d2d3aae516f133e16a2bb59a39f5a
+  languageName: node
+  linkType: hard
+
+"locate-path@npm:^7.1.0":
+  version: 7.1.1
+  resolution: "locate-path@npm:7.1.1"
+  dependencies:
+    p-locate: ^6.0.0
+  checksum: 1d88af5b512d6e6398026252e17382907126683ab09ae5d6b8918d0bc72ca2642e1ad6e2fe635c5920840e369618e5d748c08deb57ba537fdd3f78e87ca993e0
   languageName: node
   linkType: hard
 
@@ -11343,6 +11378,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"p-limit@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "p-limit@npm:4.0.0"
+  dependencies:
+    yocto-queue: ^1.0.0
+  checksum: 01d9d70695187788f984226e16c903475ec6a947ee7b21948d6f597bed788e3112cc7ec2e171c1d37125057a5f45f3da21d8653e04a3a793589e12e9e80e756b
+  languageName: node
+  linkType: hard
+
 "p-locate@npm:^4.1.0":
   version: 4.1.0
   resolution: "p-locate@npm:4.1.0"
@@ -11358,6 +11402,15 @@ __metadata:
   dependencies:
     p-limit: ^3.0.2
   checksum: 1623088f36cf1cbca58e9b61c4e62bf0c60a07af5ae1ca99a720837356b5b6c5ba3eb1b2127e47a06865fee59dd0453cad7cc844cda9d5a62ac1a5a51b7c86d3
+  languageName: node
+  linkType: hard
+
+"p-locate@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "p-locate@npm:6.0.0"
+  dependencies:
+    p-limit: ^4.0.0
+  checksum: 2bfe5234efa5e7a4e74b30a5479a193fdd9236f8f6b4d2f3f69e3d286d9a7d7ab0c118a2a50142efcf4e41625def635bd9332d6cbf9cc65d85eb0718c579ab38
   languageName: node
   linkType: hard
 
@@ -11462,6 +11515,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"path-exists@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "path-exists@npm:5.0.0"
+  checksum: 8ca842868cab09423994596eb2c5ec2a971c17d1a3cb36dbf060592c730c725cd524b9067d7d2a1e031fef9ba7bd2ac6dc5ec9fb92aa693265f7be3987045254
+  languageName: node
+  linkType: hard
+
 "path-is-absolute@npm:^1.0.0":
   version: 1.0.1
   resolution: "path-is-absolute@npm:1.0.1"
@@ -11547,6 +11607,15 @@ __metadata:
   version: 4.0.5
   resolution: "pirates@npm:4.0.5"
   checksum: c9994e61b85260bec6c4fc0307016340d9b0c4f4b6550a957afaaff0c9b1ad58fbbea5cfcf083860a25cb27a375442e2b0edf52e2e1e40e69934e08dcc52d227
+  languageName: node
+  linkType: hard
+
+"pkg-dir@npm:*":
+  version: 7.0.0
+  resolution: "pkg-dir@npm:7.0.0"
+  dependencies:
+    find-up: ^6.3.0
+  checksum: 94298b20a446bfbbd66604474de8a0cdd3b8d251225170970f15d9646f633e056c80520dd5b4c1d1050c9fed8f6a9e5054b141c93806439452efe72e57562c03
   languageName: node
   linkType: hard
 
@@ -12634,6 +12703,7 @@ __metadata:
   resolution: "shared-utils@workspace:packages/shared-utils"
   dependencies:
     "@next/eslint-plugin-next": ^13.1.1
+    "@types/esprima": ^4
     "@typescript-eslint/eslint-plugin": ^5.47.1
     "@typescript-eslint/parser": ^5.47.1
     eslint: ^8.31.0
@@ -12648,6 +12718,7 @@ __metadata:
     eslint-plugin-react: ^7.31.11
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
+    esprima: ^4.0.1
     jest: ^29.3.1
     next: ^12.3.4
     next-translate: ^1.6.0
@@ -13949,8 +14020,9 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
-    "@sentry/cli": ^2.11.0
+    "@sentry/browser": ^7.28.1
     "@sentry/nextjs": ^7.28.1
+    "@sentry/replay": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
@@ -13960,7 +14032,9 @@ __metadata:
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
+    "@types/esprima": ^4
     "@types/jest": ^29.2.5
+    "@types/lodash.debounce": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/prop-types": ^15.7.5
@@ -13999,6 +14073,7 @@ __metadata:
     eslint-plugin-react: ^7.31.11
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
+    esprima: ^4.0.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
     graphql-ws: ^5.11.2
@@ -14009,6 +14084,7 @@ __metadata:
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
+    lodash.debounce: ^4.0.8
     markdown-to-jsx: ^7.1.8
     next: ^12.3.4
     next-seo: ^4.29.0
@@ -14294,8 +14370,9 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
-    "@sentry/cli": ^2.11.0
+    "@sentry/browser": ^7.28.1
     "@sentry/nextjs": ^7.28.1
+    "@sentry/replay": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
@@ -14305,7 +14382,9 @@ __metadata:
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
+    "@types/esprima": ^4
     "@types/jest": ^29.2.5
+    "@types/lodash.debounce": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/prop-types": ^15.7.5
@@ -14344,6 +14423,7 @@ __metadata:
     eslint-plugin-react: ^7.31.11
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
+    esprima: ^4.0.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
     graphql-ws: ^5.11.2
@@ -14354,6 +14434,7 @@ __metadata:
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
+    lodash.debounce: ^4.0.8
     markdown-to-jsx: ^7.1.8
     next: ^12.3.4
     next-seo: ^4.29.0
@@ -14404,8 +14485,9 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
-    "@sentry/cli": ^2.11.0
+    "@sentry/browser": ^7.28.1
     "@sentry/nextjs": ^7.28.1
+    "@sentry/replay": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
@@ -14415,7 +14497,9 @@ __metadata:
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
+    "@types/esprima": ^4
     "@types/jest": ^29.2.5
+    "@types/lodash.debounce": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/prop-types": ^15.7.5
@@ -14454,6 +14538,7 @@ __metadata:
     eslint-plugin-react: ^7.31.11
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
+    esprima: ^4.0.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
     graphql-ws: ^5.11.2
@@ -14464,6 +14549,7 @@ __metadata:
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
+    lodash.debounce: ^4.0.8
     markdown-to-jsx: ^7.1.8
     next: ^12.3.4
     next-seo: ^4.29.0
@@ -14514,8 +14600,9 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
-    "@sentry/cli": ^2.11.0
+    "@sentry/browser": ^7.28.1
     "@sentry/nextjs": ^7.28.1
+    "@sentry/replay": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
@@ -14525,7 +14612,9 @@ __metadata:
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
+    "@types/esprima": ^4
     "@types/jest": ^29.2.5
+    "@types/lodash.debounce": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/prop-types": ^15.7.5
@@ -14564,6 +14653,7 @@ __metadata:
     eslint-plugin-react: ^7.31.11
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
+    esprima: ^4.0.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
     graphql-ws: ^5.11.2
@@ -14574,6 +14664,7 @@ __metadata:
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
+    lodash.debounce: ^4.0.8
     markdown-to-jsx: ^7.1.8
     next: ^12.3.4
     next-seo: ^4.29.0
@@ -14624,8 +14715,9 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
-    "@sentry/cli": ^2.11.0
+    "@sentry/browser": ^7.28.1
     "@sentry/nextjs": ^7.28.1
+    "@sentry/replay": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
@@ -14635,7 +14727,9 @@ __metadata:
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
+    "@types/esprima": ^4
     "@types/jest": ^29.2.5
+    "@types/lodash.debounce": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/prop-types": ^15.7.5
@@ -14674,6 +14768,7 @@ __metadata:
     eslint-plugin-react: ^7.31.11
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
+    esprima: ^4.0.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
     graphql-ws: ^5.11.2
@@ -14684,6 +14779,7 @@ __metadata:
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
+    lodash.debounce: ^4.0.8
     markdown-to-jsx: ^7.1.8
     next: ^12.3.4
     next-seo: ^4.29.0
@@ -14734,8 +14830,9 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
-    "@sentry/cli": ^2.11.0
+    "@sentry/browser": ^7.28.1
     "@sentry/nextjs": ^7.28.1
+    "@sentry/replay": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
@@ -14745,7 +14842,9 @@ __metadata:
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
+    "@types/esprima": ^4
     "@types/jest": ^29.2.5
+    "@types/lodash.debounce": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/prop-types": ^15.7.5
@@ -14784,6 +14883,7 @@ __metadata:
     eslint-plugin-react: ^7.31.11
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
+    esprima: ^4.0.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
     graphql-ws: ^5.11.2
@@ -14794,6 +14894,7 @@ __metadata:
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
+    lodash.debounce: ^4.0.8
     markdown-to-jsx: ^7.1.8
     next: ^12.3.4
     next-seo: ^4.29.0
@@ -14844,8 +14945,9 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
-    "@sentry/cli": ^2.11.0
+    "@sentry/browser": ^7.28.1
     "@sentry/nextjs": ^7.28.1
+    "@sentry/replay": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
@@ -14855,7 +14957,9 @@ __metadata:
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
+    "@types/esprima": ^4
     "@types/jest": ^29.2.5
+    "@types/lodash.debounce": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/prop-types": ^15.7.5
@@ -14894,6 +14998,7 @@ __metadata:
     eslint-plugin-react: ^7.31.11
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
+    esprima: ^4.0.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
     graphql-ws: ^5.11.2
@@ -14904,6 +15009,7 @@ __metadata:
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
+    lodash.debounce: ^4.0.8
     markdown-to-jsx: ^7.1.8
     next: ^12.3.4
     next-seo: ^4.29.0
@@ -14954,8 +15060,9 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
-    "@sentry/cli": ^2.11.0
+    "@sentry/browser": ^7.28.1
     "@sentry/nextjs": ^7.28.1
+    "@sentry/replay": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
@@ -14965,7 +15072,9 @@ __metadata:
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
+    "@types/esprima": ^4
     "@types/jest": ^29.2.5
+    "@types/lodash.debounce": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/prop-types": ^15.7.5
@@ -15004,6 +15113,7 @@ __metadata:
     eslint-plugin-react: ^7.31.11
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
+    esprima: ^4.0.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
     graphql-ws: ^5.11.2
@@ -15014,6 +15124,7 @@ __metadata:
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
+    lodash.debounce: ^4.0.8
     markdown-to-jsx: ^7.1.8
     next: ^12.3.4
     next-seo: ^4.29.0
@@ -15064,8 +15175,9 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
-    "@sentry/cli": ^2.11.0
+    "@sentry/browser": ^7.28.1
     "@sentry/nextjs": ^7.28.1
+    "@sentry/replay": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
@@ -15075,7 +15187,9 @@ __metadata:
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
+    "@types/esprima": ^4
     "@types/jest": ^29.2.5
+    "@types/lodash.debounce": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/prop-types": ^15.7.5
@@ -15114,6 +15228,7 @@ __metadata:
     eslint-plugin-react: ^7.31.11
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
+    esprima: ^4.0.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
     graphql-ws: ^5.11.2
@@ -15124,6 +15239,7 @@ __metadata:
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
+    lodash.debounce: ^4.0.8
     markdown-to-jsx: ^7.1.8
     next: ^12.3.4
     next-seo: ^4.29.0
@@ -15174,8 +15290,9 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
-    "@sentry/cli": ^2.11.0
+    "@sentry/browser": ^7.28.1
     "@sentry/nextjs": ^7.28.1
+    "@sentry/replay": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
@@ -15185,7 +15302,9 @@ __metadata:
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
+    "@types/esprima": ^4
     "@types/jest": ^29.2.5
+    "@types/lodash.debounce": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/prop-types": ^15.7.5
@@ -15224,6 +15343,7 @@ __metadata:
     eslint-plugin-react: ^7.31.11
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
+    esprima: ^4.0.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
     graphql-ws: ^5.11.2
@@ -15234,6 +15354,7 @@ __metadata:
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
+    lodash.debounce: ^4.0.8
     markdown-to-jsx: ^7.1.8
     next: ^12.3.4
     next-seo: ^4.29.0
@@ -15284,8 +15405,9 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
-    "@sentry/cli": ^2.11.0
+    "@sentry/browser": ^7.28.1
     "@sentry/nextjs": ^7.28.1
+    "@sentry/replay": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
@@ -15295,7 +15417,9 @@ __metadata:
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
+    "@types/esprima": ^4
     "@types/jest": ^29.2.5
+    "@types/lodash.debounce": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/prop-types": ^15.7.5
@@ -15334,6 +15458,7 @@ __metadata:
     eslint-plugin-react: ^7.31.11
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
+    esprima: ^4.0.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
     graphql-ws: ^5.11.2
@@ -15344,6 +15469,7 @@ __metadata:
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
+    lodash.debounce: ^4.0.8
     markdown-to-jsx: ^7.1.8
     next: ^12.3.4
     next-seo: ^4.29.0
@@ -15394,8 +15520,9 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
-    "@sentry/cli": ^2.11.0
+    "@sentry/browser": ^7.28.1
     "@sentry/nextjs": ^7.28.1
+    "@sentry/replay": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
@@ -15405,7 +15532,9 @@ __metadata:
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
+    "@types/esprima": ^4
     "@types/jest": ^29.2.5
+    "@types/lodash.debounce": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/prop-types": ^15.7.5
@@ -15444,6 +15573,7 @@ __metadata:
     eslint-plugin-react: ^7.31.11
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
+    esprima: ^4.0.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
     graphql-ws: ^5.11.2
@@ -15454,6 +15584,7 @@ __metadata:
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
+    lodash.debounce: ^4.0.8
     markdown-to-jsx: ^7.1.8
     next: ^12.3.4
     next-seo: ^4.29.0
@@ -15504,8 +15635,9 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
-    "@sentry/cli": ^2.11.0
+    "@sentry/browser": ^7.28.1
     "@sentry/nextjs": ^7.28.1
+    "@sentry/replay": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
@@ -15515,7 +15647,9 @@ __metadata:
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
+    "@types/esprima": ^4
     "@types/jest": ^29.2.5
+    "@types/lodash.debounce": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/prop-types": ^15.7.5
@@ -15554,6 +15688,7 @@ __metadata:
     eslint-plugin-react: ^7.31.11
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
+    esprima: ^4.0.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
     graphql-ws: ^5.11.2
@@ -15564,6 +15699,7 @@ __metadata:
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
+    lodash.debounce: ^4.0.8
     markdown-to-jsx: ^7.1.8
     next: ^12.3.4
     next-seo: ^4.29.0
@@ -15614,8 +15750,9 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
-    "@sentry/cli": ^2.11.0
+    "@sentry/browser": ^7.28.1
     "@sentry/nextjs": ^7.28.1
+    "@sentry/replay": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
@@ -15625,7 +15762,9 @@ __metadata:
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
+    "@types/esprima": ^4
     "@types/jest": ^29.2.5
+    "@types/lodash.debounce": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/prop-types": ^15.7.5
@@ -15664,6 +15803,7 @@ __metadata:
     eslint-plugin-react: ^7.31.11
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
+    esprima: ^4.0.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
     graphql-ws: ^5.11.2
@@ -15674,6 +15814,7 @@ __metadata:
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
+    lodash.debounce: ^4.0.8
     markdown-to-jsx: ^7.1.8
     next: ^12.3.4
     next-seo: ^4.29.0
@@ -15724,8 +15865,9 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
-    "@sentry/cli": ^2.11.0
+    "@sentry/browser": ^7.28.1
     "@sentry/nextjs": ^7.28.1
+    "@sentry/replay": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
@@ -15735,7 +15877,9 @@ __metadata:
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
+    "@types/esprima": ^4
     "@types/jest": ^29.2.5
+    "@types/lodash.debounce": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/prop-types": ^15.7.5
@@ -15774,6 +15918,7 @@ __metadata:
     eslint-plugin-react: ^7.31.11
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
+    esprima: ^4.0.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
     graphql-ws: ^5.11.2
@@ -15784,6 +15929,7 @@ __metadata:
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
+    lodash.debounce: ^4.0.8
     markdown-to-jsx: ^7.1.8
     next: ^12.3.4
     next-seo: ^4.29.0
@@ -15834,8 +15980,9 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
-    "@sentry/cli": ^2.11.0
+    "@sentry/browser": ^7.28.1
     "@sentry/nextjs": ^7.28.1
+    "@sentry/replay": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
@@ -15845,7 +15992,9 @@ __metadata:
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
+    "@types/esprima": ^4
     "@types/jest": ^29.2.5
+    "@types/lodash.debounce": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/prop-types": ^15.7.5
@@ -15884,6 +16033,7 @@ __metadata:
     eslint-plugin-react: ^7.31.11
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
+    esprima: ^4.0.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
     graphql-ws: ^5.11.2
@@ -15894,6 +16044,7 @@ __metadata:
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
+    lodash.debounce: ^4.0.8
     markdown-to-jsx: ^7.1.8
     next: ^12.3.4
     next-seo: ^4.29.0
@@ -15944,8 +16095,9 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
-    "@sentry/cli": ^2.11.0
+    "@sentry/browser": ^7.28.1
     "@sentry/nextjs": ^7.28.1
+    "@sentry/replay": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
@@ -15955,7 +16107,9 @@ __metadata:
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
+    "@types/esprima": ^4
     "@types/jest": ^29.2.5
+    "@types/lodash.debounce": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/prop-types": ^15.7.5
@@ -15994,6 +16148,7 @@ __metadata:
     eslint-plugin-react: ^7.31.11
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
+    esprima: ^4.0.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
     graphql-ws: ^5.11.2
@@ -16004,6 +16159,7 @@ __metadata:
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
+    lodash.debounce: ^4.0.8
     markdown-to-jsx: ^7.1.8
     next: ^12.3.4
     next-seo: ^4.29.0
@@ -16054,8 +16210,9 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
-    "@sentry/cli": ^2.11.0
+    "@sentry/browser": ^7.28.1
     "@sentry/nextjs": ^7.28.1
+    "@sentry/replay": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
@@ -16065,7 +16222,9 @@ __metadata:
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
+    "@types/esprima": ^4
     "@types/jest": ^29.2.5
+    "@types/lodash.debounce": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/prop-types": ^15.7.5
@@ -16104,6 +16263,7 @@ __metadata:
     eslint-plugin-react: ^7.31.11
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
+    esprima: ^4.0.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
     graphql-ws: ^5.11.2
@@ -16114,6 +16274,7 @@ __metadata:
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
+    lodash.debounce: ^4.0.8
     markdown-to-jsx: ^7.1.8
     next: ^12.3.4
     next-seo: ^4.29.0
@@ -16164,8 +16325,9 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
-    "@sentry/cli": ^2.11.0
+    "@sentry/browser": ^7.28.1
     "@sentry/nextjs": ^7.28.1
+    "@sentry/replay": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
@@ -16175,7 +16337,9 @@ __metadata:
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
+    "@types/esprima": ^4
     "@types/jest": ^29.2.5
+    "@types/lodash.debounce": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/prop-types": ^15.7.5
@@ -16214,6 +16378,7 @@ __metadata:
     eslint-plugin-react: ^7.31.11
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
+    esprima: ^4.0.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
     graphql-ws: ^5.11.2
@@ -16224,6 +16389,7 @@ __metadata:
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
+    lodash.debounce: ^4.0.8
     markdown-to-jsx: ^7.1.8
     next: ^12.3.4
     next-seo: ^4.29.0
@@ -16274,8 +16440,9 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
-    "@sentry/cli": ^2.11.0
+    "@sentry/browser": ^7.28.1
     "@sentry/nextjs": ^7.28.1
+    "@sentry/replay": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
@@ -16285,7 +16452,9 @@ __metadata:
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
+    "@types/esprima": ^4
     "@types/jest": ^29.2.5
+    "@types/lodash.debounce": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/prop-types": ^15.7.5
@@ -16324,6 +16493,7 @@ __metadata:
     eslint-plugin-react: ^7.31.11
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
+    esprima: ^4.0.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
     graphql-ws: ^5.11.2
@@ -16334,6 +16504,7 @@ __metadata:
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
+    lodash.debounce: ^4.0.8
     markdown-to-jsx: ^7.1.8
     next: ^12.3.4
     next-seo: ^4.29.0
@@ -16384,8 +16555,9 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
-    "@sentry/cli": ^2.11.0
+    "@sentry/browser": ^7.28.1
     "@sentry/nextjs": ^7.28.1
+    "@sentry/replay": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
@@ -16395,7 +16567,9 @@ __metadata:
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
+    "@types/esprima": ^4
     "@types/jest": ^29.2.5
+    "@types/lodash.debounce": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/prop-types": ^15.7.5
@@ -16434,6 +16608,7 @@ __metadata:
     eslint-plugin-react: ^7.31.11
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
+    esprima: ^4.0.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
     graphql-ws: ^5.11.2
@@ -16444,6 +16619,7 @@ __metadata:
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
+    lodash.debounce: ^4.0.8
     markdown-to-jsx: ^7.1.8
     next: ^12.3.4
     next-seo: ^4.29.0
@@ -16494,8 +16670,9 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
-    "@sentry/cli": ^2.11.0
+    "@sentry/browser": ^7.28.1
     "@sentry/nextjs": ^7.28.1
+    "@sentry/replay": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
@@ -16505,7 +16682,9 @@ __metadata:
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
+    "@types/esprima": ^4
     "@types/jest": ^29.2.5
+    "@types/lodash.debounce": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/prop-types": ^15.7.5
@@ -16544,6 +16723,7 @@ __metadata:
     eslint-plugin-react: ^7.31.11
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
+    esprima: ^4.0.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
     graphql-ws: ^5.11.2
@@ -16554,6 +16734,7 @@ __metadata:
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
+    lodash.debounce: ^4.0.8
     markdown-to-jsx: ^7.1.8
     next: ^12.3.4
     next-seo: ^4.29.0
@@ -16604,8 +16785,9 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
-    "@sentry/cli": ^2.11.0
+    "@sentry/browser": ^7.28.1
     "@sentry/nextjs": ^7.28.1
+    "@sentry/replay": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
@@ -16615,7 +16797,9 @@ __metadata:
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
+    "@types/esprima": ^4
     "@types/jest": ^29.2.5
+    "@types/lodash.debounce": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/prop-types": ^15.7.5
@@ -16654,6 +16838,7 @@ __metadata:
     eslint-plugin-react: ^7.31.11
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
+    esprima: ^4.0.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
     graphql-ws: ^5.11.2
@@ -16664,6 +16849,7 @@ __metadata:
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
+    lodash.debounce: ^4.0.8
     markdown-to-jsx: ^7.1.8
     next: ^12.3.4
     next-seo: ^4.29.0
@@ -16728,8 +16914,9 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
-    "@sentry/cli": ^2.11.0
+    "@sentry/browser": ^7.28.1
     "@sentry/nextjs": ^7.28.1
+    "@sentry/replay": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
@@ -16739,7 +16926,9 @@ __metadata:
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
+    "@types/esprima": ^4
     "@types/jest": ^29.2.5
+    "@types/lodash.debounce": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/prop-types": ^15.7.5
@@ -16778,6 +16967,7 @@ __metadata:
     eslint-plugin-react: ^7.31.11
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
+    esprima: ^4.0.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
     graphql-ws: ^5.11.2
@@ -16788,6 +16978,7 @@ __metadata:
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
+    lodash.debounce: ^4.0.8
     markdown-to-jsx: ^7.1.8
     next: ^12.3.4
     next-seo: ^4.29.0
@@ -16838,8 +17029,9 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
-    "@sentry/cli": ^2.11.0
+    "@sentry/browser": ^7.28.1
     "@sentry/nextjs": ^7.28.1
+    "@sentry/replay": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
@@ -16849,7 +17041,9 @@ __metadata:
     "@types/color": ^3.0.3
     "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
+    "@types/esprima": ^4
     "@types/jest": ^29.2.5
+    "@types/lodash.debounce": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/prop-types": ^15.7.5
@@ -16888,6 +17082,7 @@ __metadata:
     eslint-plugin-react: ^7.31.11
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
+    esprima: ^4.0.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
     graphql-ws: ^5.11.2
@@ -16898,6 +17093,7 @@ __metadata:
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
+    lodash.debounce: ^4.0.8
     markdown-to-jsx: ^7.1.8
     next: ^12.3.4
     next-seo: ^4.29.0
@@ -17295,6 +17491,13 @@ __metadata:
   version: 0.1.0
   resolution: "yocto-queue@npm:0.1.0"
   checksum: f77b3d8d00310def622123df93d4ee654fc6a0096182af8bd60679ddcdfb3474c56c6c7190817c84a2785648cdee9d721c0154eb45698c62176c322fb46fc700
+  languageName: node
+  linkType: hard
+
+"yocto-queue@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "yocto-queue@npm:1.0.0"
+  checksum: 2cac84540f65c64ccc1683c267edce396b26b1e931aa429660aefac8fbe0188167b7aee815a3c22fa59a28a58d898d1a2b1825048f834d8d629f4c2a5d443801
   languageName: node
   linkType: hard
 
