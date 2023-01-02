@@ -101,7 +101,7 @@ jobs:
           echo '```' >> $GITHUB_STEP_SUMMARY
           yarn build:ci --filter=${{ matrix.project }} | tee -a $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
-  e2e:
+  check-e2e:
     if: ${{ success() && needs.check-cache.outputs.projects-web != '[]' }}
     needs: check-cache
     runs-on: ubuntu-latest
