@@ -47,15 +47,13 @@ vercel.json
 # WebStorm
 .idea/
 
+# Visual Studio Code
+.vscode/
+
 # Yarn Berry
-.yarn/*
-!.yarn/cache
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/sdks
-!.yarn/versions
 .pnp.*
+.yarn/
+.yarnrc.yml
 
 # Playwright
 test-results/
