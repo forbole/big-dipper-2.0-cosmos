@@ -4,7 +4,7 @@ import withTM from 'next-transpile-modules';
 import { basename, resolve } from 'path';
 import { fileURLToPath } from 'url';
 
-const __dirname = fileURLToPath(new URL('.', import.meta.url));
+const dirname = fileURLToPath(new URL('.', import.meta.url));
 
 /**
  * It takes the chainConfigJson and returns a baseConfig object
@@ -35,7 +35,7 @@ function getBaseConfig(basePath, chainName) {
     experimental: process.env.BUILD_STANDALONE
       ? {
           // this includes files from the monorepo base two directories up
-          outputFileTracingRoot: resolve(__dirname, '../../'),
+          outputFileTracingRoot: resolve(dirname, '../../'),
         }
       : undefined,
   };
@@ -72,12 +72,12 @@ function webpack(config) {
 }
 
 /**
- * @param dirname - the directory of the current file
+ * @param dir - the directory of the current file
  * @returns A function that takes a directory name as an argument and returns a configuration object.
  */
-function getNextConfig(dirname) {
+function getNextConfig(dir) {
   // each chain has its own chains/<chainName>.json
-  const [_match, chainName] = /web-(.+)$/.exec(basename(dirname)) ?? ['', 'base'];
+  const [_match, chainName] = /web-(.+)$/.exec(basename(dir)) ?? ['', 'base'];
   const basePath = (process.env.BASE_PATH || `${`/${chainName}`}`).replace(/^(\/|\/base)$/, '');
   return withTM(['ui'])(nextTranslate(getBaseConfig(basePath, chainName)));
 }
