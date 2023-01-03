@@ -11,6 +11,7 @@ export interface DelegationType {
   validator: string;
   amount: TokenUnit;
   reward: TokenUnit;
+  commission?: number;
 }
 
 export interface RedelegationType {

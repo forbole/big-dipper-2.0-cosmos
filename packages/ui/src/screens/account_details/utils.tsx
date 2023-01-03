@@ -10,6 +10,7 @@ import { toValidatorAddress } from '@/utils/prefix_convert';
 import { useEffect, useMemo } from 'react';
 
 export const useCommission = (address?: string) => {
+  /* Converting the address to a validator address. */
   let validatorAddress = '';
   try {
     if (address) validatorAddress = toValidatorAddress(address);

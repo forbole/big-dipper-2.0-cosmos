@@ -20,11 +20,13 @@ type DelegationsRowProps = {
 const DelegationsRow: FC<DelegationsRowProps> = ({ item, i }) => {
   const { name, address, imageUrl } = useProfileRecoil(item.validator);
   const amount = item.amount ? formatNumber(item.amount.value, item.amount.exponent) : '';
+  const commission = item.commission ?? 0;
   const reward = item.reward ? formatNumber(item.reward.value, item.reward.exponent) : '';
   const formattedItem = {
     identifier: i,
     validator: <AvatarName name={name} address={address} imageUrl={imageUrl} />,
     amount: `${amount} ${item.amount?.displayDenom.toUpperCase()}`,
+    commission: `${commission} %`,
     reward: `${reward} ${item.reward?.displayDenom.toUpperCase()}`,
   };
   return (

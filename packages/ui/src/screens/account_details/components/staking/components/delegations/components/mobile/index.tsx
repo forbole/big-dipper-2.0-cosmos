@@ -39,6 +39,14 @@ const DelegationsItem: FC<DelegationsItemProps> = ({ item, isLast }) => {
           </div>
           <div className={classes.item}>
             <Typography variant="h4" className="label">
+              {t('commission')}
+            </Typography>
+            <Typography variant="body1" className="value">
+              {item.commission ? `${item.commission} %` : ''}
+            </Typography>
+          </div>
+          <div className={classes.item}>
+            <Typography variant="h4" className="label">
               {t('reward')}
             </Typography>
             <Typography variant="body1" className="value">

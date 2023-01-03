@@ -53,7 +53,8 @@
     "SENTRY_ENVIRONMENT",
     "SENTRY_PROJECT",
     "SENTRY_ORG",
-    "SENTRY_URL"
+    "SENTRY_URL",
+    "VERCEL"
   ],
   "globalDependencies": [".env", ".eslintrc.js", ".gitignore", ".yarnrc.yml", "shared-utils/**/*"]
 }
