@@ -5119,6 +5119,40 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@zxing/browser@npm:0.0.7":
+  version: 0.0.7
+  resolution: "@zxing/browser@npm:0.0.7"
+  dependencies:
+    "@zxing/text-encoding": ^0.9.0
+  peerDependencies:
+    "@zxing/library": ^0.18.3
+  dependenciesMeta:
+    "@zxing/text-encoding":
+      optional: true
+  checksum: 5f56628382a053436f0fd4163d0853e11f24059655e26e5311a97baae5fce524efe6fc397a82de7634b12585568c714789bca75d9747478d6030d27b907fc3ab
+  languageName: node
+  linkType: hard
+
+"@zxing/library@npm:^0.18.3":
+  version: 0.18.6
+  resolution: "@zxing/library@npm:0.18.6"
+  dependencies:
+    "@zxing/text-encoding": ~0.9.0
+    ts-custom-error: ^3.0.0
+  dependenciesMeta:
+    "@zxing/text-encoding":
+      optional: true
+  checksum: 564a25f6245b4fd81b4ce686116bf1fe577daa2aaee4263b4dea3776676482fd3e063ad43783c6378713a4a3dcefd311b6154b6cd43e7be24bb7e7c3e5fec98a
+  languageName: node
+  linkType: hard
+
+"@zxing/text-encoding@npm:^0.9.0, @zxing/text-encoding@npm:~0.9.0":
+  version: 0.9.0
+  resolution: "@zxing/text-encoding@npm:0.9.0"
+  checksum: c23b12aee7639382e4949961304a1294776afaffa40f579e09ffecd0e5e68cf26ef3edd75009de46da8a536e571448755ca68b3e2ea707d53793c0edb2e2c34a
+  languageName: node
+  linkType: hard
+
 "abab@npm:^2.0.6":
   version: 2.0.6
   resolution: "abab@npm:2.0.6"
@@ -5794,6 +5828,7 @@ __metadata:
     husky: ^8.0.2
     lint-staged: ^13.1.0
     prettier: 2.8.1
+    react-qr-reader: ^3.0.0-beta-1
     turbo: ^1.6.3
     typescript: ^4.9.4
     typescritp: ^1.0.0
@@ -12625,6 +12660,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-qr-reader@npm:^3.0.0-beta-1":
+  version: 3.0.0-beta-1
+  resolution: "react-qr-reader@npm:3.0.0-beta-1"
+  dependencies:
+    "@zxing/browser": 0.0.7
+    "@zxing/library": ^0.18.3
+    rollup: ^2.67.2
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: f85fc490251cba1b763b9f1eb56ac8fb3cd006fcb189ed2b4e8e59bfb61f9493d96274aeb5e980b6093b9ca5595af76893369ecc00562664d033f37f567bd00d
+  languageName: node
+  linkType: hard
+
 "react-resize-detector@npm:^7.1.2":
   version: 7.1.2
   resolution: "react-resize-detector@npm:7.1.2"
@@ -13216,6 +13265,20 @@ __metadata:
   bin:
     rollup: dist/bin/rollup
   checksum: 01b5a7ae082d2a14201c973ee973099f0899cc87b65063d5ca5a77c05eeefb3b51e14b1346cf1a0fc879ac2cbb87239d4f960917bfc30b7c52f5dce50a7f56e7
+  languageName: node
+  linkType: hard
+
+"rollup@npm:^2.67.2":
+  version: 2.79.1
+  resolution: "rollup@npm:2.79.1"
+  dependencies:
+    fsevents: ~2.3.2
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  bin:
+    rollup: dist/bin/rollup
+  checksum: 6a2bf167b3587d4df709b37d149ad0300692cc5deb510f89ac7bdc77c8738c9546ae3de9322b0968e1ed2b0e984571f5f55aae28fa7de4cfcb1bc5402a4e2be6
   languageName: node
   linkType: hard
 
@@ -14379,6 +14442,13 @@ __metadata:
   version: 3.0.1
   resolution: "trim-newlines@npm:3.0.1"
   checksum: b530f3fadf78e570cf3c761fb74fef655beff6b0f84b29209bac6c9622db75ad1417f4a7b5d54c96605dcd72734ad44526fef9f396807b90839449eb543c6206
+  languageName: node
+  linkType: hard
+
+"ts-custom-error@npm:^3.0.0":
+  version: 3.3.1
+  resolution: "ts-custom-error@npm:3.3.1"
+  checksum: 50a1e825fced68d70049bd8d282379a635e43aa023a370fa8e736b12a6edba7f18a2d731fa194ac35303a8b625be56e121bdb31d8a0318250d1a8b277059fce3
   languageName: node
   linkType: hard
 
