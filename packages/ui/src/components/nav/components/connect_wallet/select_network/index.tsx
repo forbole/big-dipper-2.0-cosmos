@@ -49,9 +49,7 @@ const SelectNetworkDialog: React.FC<{
         <DialogContent>
           <div className={classes.msgContent}>
             <Typography variant="h4" align="center">
-              {t('pleasePairWallet', {
-                wallet: 'Keplr Wallet',
-              })}
+              {t('pleasePairWallet')}
             </Typography>
           </div>
           <Loading className={classes.loading} />

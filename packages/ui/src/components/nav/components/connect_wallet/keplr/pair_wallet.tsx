@@ -17,14 +17,14 @@ const PairKeplrWalletDialog: React.FC<{
 }> = (props) => {
   const classes = useStyles();
   const { t } = useTranslation('common');
-  const { handleConnectWallet, handleCloseKeplrPairingDialog, openKeplrPairingDialog } =
+  const { handleConnectWallet, handleClosePairingDialog, openKeplrPairingDialog } =
     useConnectWalletList();
 
   return (
     <div>
       <Dialog
         maxWidth="md"
-        onClose={handleCloseKeplrPairingDialog}
+        onClose={handleClosePairingDialog}
         open={openKeplrPairingDialog}
         className={classes.dialog}
       >
@@ -39,7 +39,7 @@ const PairKeplrWalletDialog: React.FC<{
             </div>
             <IconButton
               aria-label="close"
-              onClick={handleCloseKeplrPairingDialog}
+              onClick={handleClosePairingDialog}
               className={classes.closeButton}
             >
               <CloseIcon />
@@ -49,9 +49,7 @@ const PairKeplrWalletDialog: React.FC<{
         <DialogContent>
           <div className={classes.msgContent}>
             <Typography variant="h4" align="center">
-              {t('pleasePairWallet', {
-                wallet: props.walletName,
-              })}
+              {t('pleasePairWallet')}
             </Typography>
           </div>
           <Loading className={classes.loading} />
