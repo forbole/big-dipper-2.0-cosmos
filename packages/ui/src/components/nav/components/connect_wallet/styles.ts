@@ -235,6 +235,7 @@ const styles = makeStyles((theme) => ({
     display: 'flex',
     position: 'absolute',
     left: '60px',
+    marginTop: '5px',
   },
   walletConnectContent: {
     display: 'inline-flex',
@@ -263,7 +264,6 @@ const styles = makeStyles((theme) => ({
     alignItems: 'flex-start',
     padding: '4px 16px',
     gap: '8px',
-    minWidth: '109px',
     height: '40px',
     background: '#757575',
     borderRadius: '8px',

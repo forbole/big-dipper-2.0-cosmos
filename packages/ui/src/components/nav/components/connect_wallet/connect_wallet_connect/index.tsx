@@ -72,17 +72,17 @@ const ConnectWalletConnectDialog: React.FC = () => {
               <Tab
                 value={1}
                 label="QR code"
-                wrapped
-                {...a11yProps(0)}
+                {...a11yProps(1)}
                 className={classes.tabButton}
                 selected
+                style={{ minWidth: '20%' }}
               />
               <Tab
                 value={2}
                 label="Desktop"
-                wrapped
-                {...a11yProps(1)}
+                {...a11yProps(2)}
                 className={classes.tabButton}
+                style={{ minWidth: '23%' }}
               />
             </Tabs>
             <TabPanel value={tabValue} index={1}>
