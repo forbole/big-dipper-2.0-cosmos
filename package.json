@@ -52,8 +52,6 @@
     "*.{js,jsx,ts,tsx,mjs,cjs,css,md}": "npx prettier --write"
   },
   "dependencies": {
-    "esprima": "^4.0.1",
-    "locate-path": "^7.1.1",
-    "path-exists": "^5.0.0"
+    "esprima": "^4.0.1"
   }
 }

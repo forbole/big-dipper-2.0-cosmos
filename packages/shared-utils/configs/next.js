@@ -1,10 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-import nextTranslate from 'next-translate';
-import withTM from 'next-transpile-modules';
-import { basename, resolve } from 'path';
-import { fileURLToPath } from 'url';
-
-const dirname = fileURLToPath(new URL('.', import.meta.url));
+const nextTranslate = require('next-translate');
+const withTM = require('next-transpile-modules');
+const { basename, resolve } = require('path');
 
 /**
  * It takes the chainConfigJson and returns a baseConfig object
@@ -35,7 +32,7 @@ function getBaseConfig(basePath, chainName) {
     experimental: process.env.BUILD_STANDALONE
       ? {
           // this includes files from the monorepo base two directories up
-          outputFileTracingRoot: resolve(dirname, '../../'),
+          outputFileTracingRoot: resolve(__dirname, '../../'),
         }
       : undefined,
   };
@@ -82,4 +79,4 @@ function getNextConfig(dir) {
   return withTM(['ui'])(nextTranslate(getBaseConfig(basePath, chainName)));
 }
 
-export default getNextConfig;
+module.exports = getNextConfig;
