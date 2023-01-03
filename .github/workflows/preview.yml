@@ -75,12 +75,12 @@ jobs:
           const chainType = process.env.NEXT_PUBLIC_CHAIN_TYPE?.toLowerCase() || 'mainnet';
           const config = {
             buildCommand: 'NEXT_PUBLIC_CHAIN_TYPE=' + chainType + ' BASE_PATH=' + process.env.BASE_PATH +
-              ' yarn turbo run dev --filter=' + projectName + '...',
+              ' yarn workspace ' + projectName + ' next build',
             outputDirectory: 'apps/' + projectName + '/.next',
             installCommand: "rm -rf .yarn/cache .pnp.*" +
               ' && yarn config set nodeLinker node-modules' +
               ' && yarn --mode=update-lockfile',
-            devCommand: 'yarn turbo run dev --filter=' + projectName + '...',
+            devCommand: 'yarn workspace ' + projectName + ' next dev',
             framework: 'nextjs',
             ignoreCommand: 'echo always build && exit 1',
             redirects: process.env.BASE_PATH !== "/" && /^web-/.test(projectName)

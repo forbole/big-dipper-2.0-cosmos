@@ -27,6 +27,8 @@
     "typescript": "^4.9.4"
   },
   "dependencies": {
-    "esprima": "^4.0.1"
+    "esprima": "^4.0.1",
+    "locate-path": "^7.1.1",
+    "path-exists": "^5.0.0"
   }
 }

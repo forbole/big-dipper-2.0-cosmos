@@ -4,6 +4,8 @@
   "license": "Apache-2.0",
   "dependencies": {
     "esprima": "^4.0.1",
+    "locate-path": "^7.1.1",
+    "path-exists": "^5.0.0",
     "tsconfig": "*"
   },
   "devDependencies": {
