@@ -3,6 +3,8 @@ import {
   useAccountDelegationsQuery,
   useAccountRedelegationsQuery,
   useAccountUndelegationsQuery,
+  useValidatorsQuery,
+  ValidatorsQuery,
 } from '@/graphql/types/general_types';
 import type {
   DelegationType,
@@ -10,11 +12,13 @@ import type {
   StakingState,
 } from '@/screens/account_details/components/staking/types';
 import type { RewardsType } from '@/screens/account_details/types';
+import { ValidatorType } from '@/screens/validators/components/list/types';
 import { formatToken } from '@/utils/format_token';
 import { getDenom } from '@/utils/get_denom';
 import { Tabs } from '@material-ui/core';
 import Big from 'big.js';
 import { useRouter } from 'next/router';
+import numeral from 'numeral';
 import * as R from 'ramda';
 import { ComponentProps, useCallback, useEffect, useState } from 'react';
 
@@ -27,6 +31,7 @@ export const formatDelegations = (
     validator_address?: string;
     coins?: MsgCoin[];
   }>,
+  validatorsCommission: Pick<ValidatorType, 'validator' | 'commission'>[],
   rewards: RewardsType
 ) =>
   data
@@ -35,6 +40,10 @@ export const formatDelegations = (
       const delegation = getDenom(x.coins, primaryTokenUnit);
       return {
         validator,
+        commission:
+          numeral(
+            validatorsCommission.find((val) => val.validator === validator)?.commission?.toFixed(3)
+          ).value() ?? 0,
         amount: formatToken(delegation.amount, delegation.denom),
         reward: rewards[validator],
       };
@@ -97,6 +106,39 @@ export const useStaking = (
   const [state, setState] = useState<StakingState>({
     tab: 0,
   });
+
+  const [validatorsCommission, setValidatorsCommission] = useState<
+    Pick<ValidatorType, 'validator' | 'commission'>[]
+  >([]);
+
+  // ==========================
+  // Fetch Data
+  // ==========================
+  useValidatorsQuery({
+    onCompleted: (data) => {
+      formatValidators(data);
+    },
+  });
+
+  // return a list of all validators with their address and commission rate
+  const formatValidators = useCallback(
+    (data: ValidatorsQuery): { items: Pick<ValidatorType, 'validator' | 'commission'>[] } => {
+      const formattedItems: Pick<ValidatorType, 'validator' | 'commission'>[] = data.validator
+        .filter((x) => x.validatorInfo)
+        .map((x) => ({
+          validator: x.validatorInfo?.operatorAddress ?? '',
+          commission: (x?.validatorCommissions?.[0]?.commission ?? 0) * 100,
+        }));
+
+      setValidatorsCommission(formattedItems);
+
+      return {
+        items: formattedItems,
+      };
+    },
+    []
+  );
+
   const address = Array.isArray(router?.query?.address)
     ? router.query.address[0]
     : router?.query?.address ?? '';
@@ -269,7 +311,11 @@ export const useStaking = (
     delegations: {
       loading: delegationsLoading,
       count: delegationsPagination,
-      data: formatDelegations(delegationsData?.delegations?.delegations ?? [], rewards),
+      data: formatDelegations(
+        delegationsData?.delegations?.delegations ?? [],
+        validatorsCommission,
+        rewards
+      ),
       error: delegationsError,
     },
     redelegations: {

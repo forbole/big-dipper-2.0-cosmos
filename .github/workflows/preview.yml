@@ -2,17 +2,15 @@ name: Preview
 on:
   workflow_dispatch:
     inputs:
-       projects:
-        description: "Project to publish (to Vercel)"
+      projects:
+        description: 'Project to publish (to Vercel)'
         required: true
-       chain_type:
-        description: "Chain Type to publish (default to mainnet when more than 1 was configured)"
+      chain_type:
+        description: 'Chain Type to publish (default to mainnet when more than 1 was configured)'
         required: false
-       base_path:
-        description: "Override basePath in next.config.js (default to basePath in chainConfig)"
+      base_path:
+        description: 'Override basePath in next.config.js (default to basePath in chainConfig)'
         required: false
-env:
-  NODE_NO_WARNINGS: 1                     # hide warnings from yarn berry
 defaults:
   run:
     shell: bash
@@ -77,10 +75,10 @@ jobs:
             buildCommand: 'NEXT_PUBLIC_CHAIN_TYPE=' + chainType + ' BASE_PATH=' + process.env.BASE_PATH +
               ' yarn workspace ' + projectName + ' next build',
             outputDirectory: 'apps/' + projectName + '/.next',
-            installCommand: "rm -rf .yarn/cache .pnp.*' +
+            installCommand: "rm -rf .yarn/cache .pnp.*" +
               ' && yarn config set nodeLinker node-modules' +
               ' && yarn --mode=update-lockfile',
-            devCommand: 'yarn turbo run dev --filter=' + projectName + '...',
+            devCommand: 'yarn workspace ' + projectName + ' next dev',
             framework: 'nextjs',
             ignoreCommand: 'echo always build && exit 1',
             redirects: process.env.BASE_PATH !== "/" && /^web-/.test(projectName)

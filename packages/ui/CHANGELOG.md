@@ -1,5 +1,11 @@
 # ui
 
+## 2.8.0
+
+### Minor Changes
+
+- f22eaf1a: add validators' commission rates on account page
+
 ## 2.7.0
 
 ### Minor Changes

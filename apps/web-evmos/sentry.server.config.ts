@@ -1,8 +1,8 @@
-import chainConfig from '@/chainConfig';
 import * as Sentry from '@sentry/nextjs';
 
-const { chainName } = chainConfig();
 Sentry.init({
-  release: process.env.NEXT_PUBLIC_RELEASE,
-  tracesSampleRate: 1.0,
+  dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
+  release: process.env.NEXT_PUBLIC_SENTRY_DSN ? process.env.NEXT_PUBLIC_RELEASE : '',
+  tracesSampleRate: process.env.NEXT_PUBLIC_SENTRY_DSN ? 1.0 : 0,
+  enabled: !!process.env.NEXT_PUBLIC_SENTRY_DSN,
 });

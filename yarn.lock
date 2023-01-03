@@ -3452,7 +3452,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sentry/browser@npm:7.28.1, @sentry/browser@npm:^7.28.1":
+"@sentry/browser@npm:7.28.1":
   version: 7.28.1
   resolution: "@sentry/browser@npm:7.28.1"
   dependencies:
@@ -3563,7 +3563,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sentry/replay@npm:7.28.1, @sentry/replay@npm:^7.28.1":
+"@sentry/replay@npm:7.28.1":
   version: 7.28.1
   resolution: "@sentry/replay@npm:7.28.1"
   dependencies:
@@ -4247,22 +4247,6 @@ __metadata:
   dependencies:
     "@types/node": "*"
   checksum: e009a2bfb50e90ca9b7c6e8f648f8464067271fd99116f881073fa6fa76dc8d0133181dd65e6614d5fb1220d671d67b0124aef7d97dc02d7e342ab143a47779d
-  languageName: node
-  linkType: hard
-
-"@types/lodash.debounce@npm:^4":
-  version: 4.0.7
-  resolution: "@types/lodash.debounce@npm:4.0.7"
-  dependencies:
-    "@types/lodash": "*"
-  checksum: e873b2d77f89010876baba3437ef826b17221b98948e00b5590828334a481dea1c8f9d28543210e564adc53199584f42c3cb171f8b6c3614fefc0b4e0888679c
-  languageName: node
-  linkType: hard
-
-"@types/lodash@npm:*":
-  version: 4.14.191
-  resolution: "@types/lodash@npm:4.14.191"
-  checksum: ba0d5434e10690869f32d5ea49095250157cae502f10d57de0a723fd72229ce6c6a4979576f0f13e0aa9fbe3ce2457bfb9fa7d4ec3d6daba56730a51906d1491
   languageName: node
   linkType: hard
 
@@ -5604,7 +5588,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"buffer@npm:^5.5.0":
+"buffer@npm:^5.5.0, buffer@npm:^5.7.1":
   version: 5.7.1
   resolution: "buffer@npm:5.7.1"
   dependencies:
@@ -7828,16 +7812,6 @@ __metadata:
     locate-path: ^6.0.0
     path-exists: ^4.0.0
   checksum: 07955e357348f34660bde7920783204ff5a26ac2cafcaa28bace494027158a97b9f56faaf2d89a6106211a8174db650dd9f503f9c0d526b1202d5554a00b9095
-  languageName: node
-  linkType: hard
-
-"find-up@npm:^6.3.0":
-  version: 6.3.0
-  resolution: "find-up@npm:6.3.0"
-  dependencies:
-    locate-path: ^7.1.0
-    path-exists: ^5.0.0
-  checksum: 9a21b7f9244a420e54c6df95b4f6fc3941efd3c3e5476f8274eb452f6a85706e7a6a90de71353ee4f091fcb4593271a6f92810a324ec542650398f928783c280
   languageName: node
   linkType: hard
 
@@ -10267,7 +10241,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"locate-path@npm:^7.1.0":
+"locate-path@npm:^7.1.1":
   version: 7.1.1
   resolution: "locate-path@npm:7.1.1"
   dependencies:
@@ -11607,15 +11581,6 @@ __metadata:
   version: 4.0.5
   resolution: "pirates@npm:4.0.5"
   checksum: c9994e61b85260bec6c4fc0307016340d9b0c4f4b6550a957afaaff0c9b1ad58fbbea5cfcf083860a25cb27a375442e2b0edf52e2e1e40e69934e08dcc52d227
-  languageName: node
-  linkType: hard
-
-"pkg-dir@npm:*":
-  version: 7.0.0
-  resolution: "pkg-dir@npm:7.0.0"
-  dependencies:
-    find-up: ^6.3.0
-  checksum: 94298b20a446bfbbd66604474de8a0cdd3b8d251225170970f15d9646f633e056c80520dd5b4c1d1050c9fed8f6a9e5054b141c93806439452efe72e57562c03
   languageName: node
   linkType: hard
 
@@ -14020,9 +13985,7 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
-    "@sentry/browser": ^7.28.1
     "@sentry/nextjs": ^7.28.1
-    "@sentry/replay": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
@@ -14034,7 +13997,6 @@ __metadata:
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4
     "@types/jest": ^29.2.5
-    "@types/lodash.debounce": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/prop-types": ^15.7.5
@@ -14053,6 +14015,7 @@ __metadata:
     axios-mock-adapter: ^1.21.2
     bech32: ^2.0.0
     big.js: ^6.2.1
+    buffer: ^5.7.1
     classnames: ^2.3.2
     color: ^4.2.3
     copy-to-clipboard: ^3.3.3
@@ -14084,7 +14047,6 @@ __metadata:
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
-    lodash.debounce: ^4.0.8
     markdown-to-jsx: ^7.1.8
     next: ^12.3.4
     next-seo: ^4.29.0
@@ -14370,9 +14332,7 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
-    "@sentry/browser": ^7.28.1
     "@sentry/nextjs": ^7.28.1
-    "@sentry/replay": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
@@ -14384,7 +14344,6 @@ __metadata:
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4
     "@types/jest": ^29.2.5
-    "@types/lodash.debounce": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/prop-types": ^15.7.5
@@ -14403,6 +14362,7 @@ __metadata:
     axios-mock-adapter: ^1.21.2
     bech32: ^2.0.0
     big.js: ^6.2.1
+    buffer: ^5.7.1
     classnames: ^2.3.2
     color: ^4.2.3
     copy-to-clipboard: ^3.3.3
@@ -14434,7 +14394,6 @@ __metadata:
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
-    lodash.debounce: ^4.0.8
     markdown-to-jsx: ^7.1.8
     next: ^12.3.4
     next-seo: ^4.29.0
@@ -14485,9 +14444,7 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
-    "@sentry/browser": ^7.28.1
     "@sentry/nextjs": ^7.28.1
-    "@sentry/replay": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
@@ -14499,7 +14456,6 @@ __metadata:
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4
     "@types/jest": ^29.2.5
-    "@types/lodash.debounce": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/prop-types": ^15.7.5
@@ -14518,6 +14474,7 @@ __metadata:
     axios-mock-adapter: ^1.21.2
     bech32: ^2.0.0
     big.js: ^6.2.1
+    buffer: ^5.7.1
     classnames: ^2.3.2
     color: ^4.2.3
     copy-to-clipboard: ^3.3.3
@@ -14549,7 +14506,6 @@ __metadata:
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
-    lodash.debounce: ^4.0.8
     markdown-to-jsx: ^7.1.8
     next: ^12.3.4
     next-seo: ^4.29.0
@@ -14600,9 +14556,7 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
-    "@sentry/browser": ^7.28.1
     "@sentry/nextjs": ^7.28.1
-    "@sentry/replay": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
@@ -14614,7 +14568,6 @@ __metadata:
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4
     "@types/jest": ^29.2.5
-    "@types/lodash.debounce": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/prop-types": ^15.7.5
@@ -14633,6 +14586,7 @@ __metadata:
     axios-mock-adapter: ^1.21.2
     bech32: ^2.0.0
     big.js: ^6.2.1
+    buffer: ^5.7.1
     classnames: ^2.3.2
     color: ^4.2.3
     copy-to-clipboard: ^3.3.3
@@ -14664,7 +14618,6 @@ __metadata:
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
-    lodash.debounce: ^4.0.8
     markdown-to-jsx: ^7.1.8
     next: ^12.3.4
     next-seo: ^4.29.0
@@ -14715,9 +14668,7 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
-    "@sentry/browser": ^7.28.1
     "@sentry/nextjs": ^7.28.1
-    "@sentry/replay": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
@@ -14729,7 +14680,6 @@ __metadata:
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4
     "@types/jest": ^29.2.5
-    "@types/lodash.debounce": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/prop-types": ^15.7.5
@@ -14748,6 +14698,7 @@ __metadata:
     axios-mock-adapter: ^1.21.2
     bech32: ^2.0.0
     big.js: ^6.2.1
+    buffer: ^5.7.1
     classnames: ^2.3.2
     color: ^4.2.3
     copy-to-clipboard: ^3.3.3
@@ -14779,7 +14730,6 @@ __metadata:
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
-    lodash.debounce: ^4.0.8
     markdown-to-jsx: ^7.1.8
     next: ^12.3.4
     next-seo: ^4.29.0
@@ -14830,9 +14780,7 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
-    "@sentry/browser": ^7.28.1
     "@sentry/nextjs": ^7.28.1
-    "@sentry/replay": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
@@ -14844,7 +14792,6 @@ __metadata:
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4
     "@types/jest": ^29.2.5
-    "@types/lodash.debounce": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/prop-types": ^15.7.5
@@ -14863,6 +14810,7 @@ __metadata:
     axios-mock-adapter: ^1.21.2
     bech32: ^2.0.0
     big.js: ^6.2.1
+    buffer: ^5.7.1
     classnames: ^2.3.2
     color: ^4.2.3
     copy-to-clipboard: ^3.3.3
@@ -14894,7 +14842,6 @@ __metadata:
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
-    lodash.debounce: ^4.0.8
     markdown-to-jsx: ^7.1.8
     next: ^12.3.4
     next-seo: ^4.29.0
@@ -14945,9 +14892,7 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
-    "@sentry/browser": ^7.28.1
     "@sentry/nextjs": ^7.28.1
-    "@sentry/replay": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
@@ -14959,7 +14904,6 @@ __metadata:
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4
     "@types/jest": ^29.2.5
-    "@types/lodash.debounce": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/prop-types": ^15.7.5
@@ -14978,6 +14922,7 @@ __metadata:
     axios-mock-adapter: ^1.21.2
     bech32: ^2.0.0
     big.js: ^6.2.1
+    buffer: ^5.7.1
     classnames: ^2.3.2
     color: ^4.2.3
     copy-to-clipboard: ^3.3.3
@@ -15009,7 +14954,6 @@ __metadata:
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
-    lodash.debounce: ^4.0.8
     markdown-to-jsx: ^7.1.8
     next: ^12.3.4
     next-seo: ^4.29.0
@@ -15060,9 +15004,7 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
-    "@sentry/browser": ^7.28.1
     "@sentry/nextjs": ^7.28.1
-    "@sentry/replay": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
@@ -15074,7 +15016,6 @@ __metadata:
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4
     "@types/jest": ^29.2.5
-    "@types/lodash.debounce": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/prop-types": ^15.7.5
@@ -15093,6 +15034,7 @@ __metadata:
     axios-mock-adapter: ^1.21.2
     bech32: ^2.0.0
     big.js: ^6.2.1
+    buffer: ^5.7.1
     classnames: ^2.3.2
     color: ^4.2.3
     copy-to-clipboard: ^3.3.3
@@ -15124,7 +15066,6 @@ __metadata:
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
-    lodash.debounce: ^4.0.8
     markdown-to-jsx: ^7.1.8
     next: ^12.3.4
     next-seo: ^4.29.0
@@ -15175,9 +15116,7 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
-    "@sentry/browser": ^7.28.1
     "@sentry/nextjs": ^7.28.1
-    "@sentry/replay": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
@@ -15189,7 +15128,6 @@ __metadata:
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4
     "@types/jest": ^29.2.5
-    "@types/lodash.debounce": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/prop-types": ^15.7.5
@@ -15208,6 +15146,7 @@ __metadata:
     axios-mock-adapter: ^1.21.2
     bech32: ^2.0.0
     big.js: ^6.2.1
+    buffer: ^5.7.1
     classnames: ^2.3.2
     color: ^4.2.3
     copy-to-clipboard: ^3.3.3
@@ -15239,7 +15178,6 @@ __metadata:
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
-    lodash.debounce: ^4.0.8
     markdown-to-jsx: ^7.1.8
     next: ^12.3.4
     next-seo: ^4.29.0
@@ -15290,9 +15228,7 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
-    "@sentry/browser": ^7.28.1
     "@sentry/nextjs": ^7.28.1
-    "@sentry/replay": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
@@ -15304,7 +15240,6 @@ __metadata:
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4
     "@types/jest": ^29.2.5
-    "@types/lodash.debounce": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/prop-types": ^15.7.5
@@ -15323,6 +15258,7 @@ __metadata:
     axios-mock-adapter: ^1.21.2
     bech32: ^2.0.0
     big.js: ^6.2.1
+    buffer: ^5.7.1
     classnames: ^2.3.2
     color: ^4.2.3
     copy-to-clipboard: ^3.3.3
@@ -15354,7 +15290,6 @@ __metadata:
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
-    lodash.debounce: ^4.0.8
     markdown-to-jsx: ^7.1.8
     next: ^12.3.4
     next-seo: ^4.29.0
@@ -15405,9 +15340,7 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
-    "@sentry/browser": ^7.28.1
     "@sentry/nextjs": ^7.28.1
-    "@sentry/replay": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
@@ -15419,7 +15352,6 @@ __metadata:
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4
     "@types/jest": ^29.2.5
-    "@types/lodash.debounce": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/prop-types": ^15.7.5
@@ -15438,6 +15370,7 @@ __metadata:
     axios-mock-adapter: ^1.21.2
     bech32: ^2.0.0
     big.js: ^6.2.1
+    buffer: ^5.7.1
     classnames: ^2.3.2
     color: ^4.2.3
     copy-to-clipboard: ^3.3.3
@@ -15469,7 +15402,6 @@ __metadata:
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
-    lodash.debounce: ^4.0.8
     markdown-to-jsx: ^7.1.8
     next: ^12.3.4
     next-seo: ^4.29.0
@@ -15520,9 +15452,7 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
-    "@sentry/browser": ^7.28.1
     "@sentry/nextjs": ^7.28.1
-    "@sentry/replay": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
@@ -15534,7 +15464,6 @@ __metadata:
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4
     "@types/jest": ^29.2.5
-    "@types/lodash.debounce": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/prop-types": ^15.7.5
@@ -15553,6 +15482,7 @@ __metadata:
     axios-mock-adapter: ^1.21.2
     bech32: ^2.0.0
     big.js: ^6.2.1
+    buffer: ^5.7.1
     classnames: ^2.3.2
     color: ^4.2.3
     copy-to-clipboard: ^3.3.3
@@ -15584,7 +15514,6 @@ __metadata:
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
-    lodash.debounce: ^4.0.8
     markdown-to-jsx: ^7.1.8
     next: ^12.3.4
     next-seo: ^4.29.0
@@ -15635,9 +15564,7 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
-    "@sentry/browser": ^7.28.1
     "@sentry/nextjs": ^7.28.1
-    "@sentry/replay": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
@@ -15649,7 +15576,6 @@ __metadata:
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4
     "@types/jest": ^29.2.5
-    "@types/lodash.debounce": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/prop-types": ^15.7.5
@@ -15668,6 +15594,7 @@ __metadata:
     axios-mock-adapter: ^1.21.2
     bech32: ^2.0.0
     big.js: ^6.2.1
+    buffer: ^5.7.1
     classnames: ^2.3.2
     color: ^4.2.3
     copy-to-clipboard: ^3.3.3
@@ -15699,7 +15626,6 @@ __metadata:
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
-    lodash.debounce: ^4.0.8
     markdown-to-jsx: ^7.1.8
     next: ^12.3.4
     next-seo: ^4.29.0
@@ -15750,9 +15676,7 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
-    "@sentry/browser": ^7.28.1
     "@sentry/nextjs": ^7.28.1
-    "@sentry/replay": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
@@ -15764,7 +15688,6 @@ __metadata:
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4
     "@types/jest": ^29.2.5
-    "@types/lodash.debounce": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/prop-types": ^15.7.5
@@ -15783,6 +15706,7 @@ __metadata:
     axios-mock-adapter: ^1.21.2
     bech32: ^2.0.0
     big.js: ^6.2.1
+    buffer: ^5.7.1
     classnames: ^2.3.2
     color: ^4.2.3
     copy-to-clipboard: ^3.3.3
@@ -15814,7 +15738,6 @@ __metadata:
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
-    lodash.debounce: ^4.0.8
     markdown-to-jsx: ^7.1.8
     next: ^12.3.4
     next-seo: ^4.29.0
@@ -15865,9 +15788,7 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
-    "@sentry/browser": ^7.28.1
     "@sentry/nextjs": ^7.28.1
-    "@sentry/replay": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
@@ -15879,7 +15800,6 @@ __metadata:
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4
     "@types/jest": ^29.2.5
-    "@types/lodash.debounce": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/prop-types": ^15.7.5
@@ -15898,6 +15818,7 @@ __metadata:
     axios-mock-adapter: ^1.21.2
     bech32: ^2.0.0
     big.js: ^6.2.1
+    buffer: ^5.7.1
     classnames: ^2.3.2
     color: ^4.2.3
     copy-to-clipboard: ^3.3.3
@@ -15929,7 +15850,6 @@ __metadata:
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
-    lodash.debounce: ^4.0.8
     markdown-to-jsx: ^7.1.8
     next: ^12.3.4
     next-seo: ^4.29.0
@@ -15980,9 +15900,7 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
-    "@sentry/browser": ^7.28.1
     "@sentry/nextjs": ^7.28.1
-    "@sentry/replay": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
@@ -15994,7 +15912,6 @@ __metadata:
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4
     "@types/jest": ^29.2.5
-    "@types/lodash.debounce": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/prop-types": ^15.7.5
@@ -16013,6 +15930,7 @@ __metadata:
     axios-mock-adapter: ^1.21.2
     bech32: ^2.0.0
     big.js: ^6.2.1
+    buffer: ^5.7.1
     classnames: ^2.3.2
     color: ^4.2.3
     copy-to-clipboard: ^3.3.3
@@ -16044,7 +15962,6 @@ __metadata:
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
-    lodash.debounce: ^4.0.8
     markdown-to-jsx: ^7.1.8
     next: ^12.3.4
     next-seo: ^4.29.0
@@ -16095,9 +16012,7 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
-    "@sentry/browser": ^7.28.1
     "@sentry/nextjs": ^7.28.1
-    "@sentry/replay": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
@@ -16109,7 +16024,6 @@ __metadata:
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4
     "@types/jest": ^29.2.5
-    "@types/lodash.debounce": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/prop-types": ^15.7.5
@@ -16128,6 +16042,7 @@ __metadata:
     axios-mock-adapter: ^1.21.2
     bech32: ^2.0.0
     big.js: ^6.2.1
+    buffer: ^5.7.1
     classnames: ^2.3.2
     color: ^4.2.3
     copy-to-clipboard: ^3.3.3
@@ -16159,7 +16074,6 @@ __metadata:
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
-    lodash.debounce: ^4.0.8
     markdown-to-jsx: ^7.1.8
     next: ^12.3.4
     next-seo: ^4.29.0
@@ -16210,9 +16124,7 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
-    "@sentry/browser": ^7.28.1
     "@sentry/nextjs": ^7.28.1
-    "@sentry/replay": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
@@ -16224,7 +16136,6 @@ __metadata:
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4
     "@types/jest": ^29.2.5
-    "@types/lodash.debounce": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/prop-types": ^15.7.5
@@ -16243,6 +16154,7 @@ __metadata:
     axios-mock-adapter: ^1.21.2
     bech32: ^2.0.0
     big.js: ^6.2.1
+    buffer: ^5.7.1
     classnames: ^2.3.2
     color: ^4.2.3
     copy-to-clipboard: ^3.3.3
@@ -16274,7 +16186,6 @@ __metadata:
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
-    lodash.debounce: ^4.0.8
     markdown-to-jsx: ^7.1.8
     next: ^12.3.4
     next-seo: ^4.29.0
@@ -16325,9 +16236,7 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
-    "@sentry/browser": ^7.28.1
     "@sentry/nextjs": ^7.28.1
-    "@sentry/replay": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
@@ -16339,7 +16248,6 @@ __metadata:
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4
     "@types/jest": ^29.2.5
-    "@types/lodash.debounce": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/prop-types": ^15.7.5
@@ -16358,6 +16266,7 @@ __metadata:
     axios-mock-adapter: ^1.21.2
     bech32: ^2.0.0
     big.js: ^6.2.1
+    buffer: ^5.7.1
     classnames: ^2.3.2
     color: ^4.2.3
     copy-to-clipboard: ^3.3.3
@@ -16389,7 +16298,6 @@ __metadata:
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
-    lodash.debounce: ^4.0.8
     markdown-to-jsx: ^7.1.8
     next: ^12.3.4
     next-seo: ^4.29.0
@@ -16547,9 +16455,7 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
-    "@sentry/browser": ^7.28.1
     "@sentry/nextjs": ^7.28.1
-    "@sentry/replay": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
@@ -16561,7 +16467,6 @@ __metadata:
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4
     "@types/jest": ^29.2.5
-    "@types/lodash.debounce": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/prop-types": ^15.7.5
@@ -16580,6 +16485,7 @@ __metadata:
     axios-mock-adapter: ^1.21.2
     bech32: ^2.0.0
     big.js: ^6.2.1
+    buffer: ^5.7.1
     classnames: ^2.3.2
     color: ^4.2.3
     copy-to-clipboard: ^3.3.3
@@ -16611,7 +16517,6 @@ __metadata:
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
-    lodash.debounce: ^4.0.8
     markdown-to-jsx: ^7.1.8
     next: ^12.3.4
     next-seo: ^4.29.0
@@ -16662,9 +16567,7 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
-    "@sentry/browser": ^7.28.1
     "@sentry/nextjs": ^7.28.1
-    "@sentry/replay": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
@@ -16676,7 +16579,6 @@ __metadata:
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4
     "@types/jest": ^29.2.5
-    "@types/lodash.debounce": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/prop-types": ^15.7.5
@@ -16695,6 +16597,7 @@ __metadata:
     axios-mock-adapter: ^1.21.2
     bech32: ^2.0.0
     big.js: ^6.2.1
+    buffer: ^5.7.1
     classnames: ^2.3.2
     color: ^4.2.3
     copy-to-clipboard: ^3.3.3
@@ -16726,7 +16629,6 @@ __metadata:
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
-    lodash.debounce: ^4.0.8
     markdown-to-jsx: ^7.1.8
     next: ^12.3.4
     next-seo: ^4.29.0
@@ -16777,9 +16679,7 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
-    "@sentry/browser": ^7.28.1
     "@sentry/nextjs": ^7.28.1
-    "@sentry/replay": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
@@ -16791,7 +16691,6 @@ __metadata:
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4
     "@types/jest": ^29.2.5
-    "@types/lodash.debounce": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/prop-types": ^15.7.5
@@ -16810,6 +16709,7 @@ __metadata:
     axios-mock-adapter: ^1.21.2
     bech32: ^2.0.0
     big.js: ^6.2.1
+    buffer: ^5.7.1
     classnames: ^2.3.2
     color: ^4.2.3
     copy-to-clipboard: ^3.3.3
@@ -16841,7 +16741,6 @@ __metadata:
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
-    lodash.debounce: ^4.0.8
     markdown-to-jsx: ^7.1.8
     next: ^12.3.4
     next-seo: ^4.29.0
@@ -16892,9 +16791,7 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
-    "@sentry/browser": ^7.28.1
     "@sentry/nextjs": ^7.28.1
-    "@sentry/replay": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
@@ -16906,7 +16803,6 @@ __metadata:
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4
     "@types/jest": ^29.2.5
-    "@types/lodash.debounce": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/prop-types": ^15.7.5
@@ -16925,6 +16821,7 @@ __metadata:
     axios-mock-adapter: ^1.21.2
     bech32: ^2.0.0
     big.js: ^6.2.1
+    buffer: ^5.7.1
     classnames: ^2.3.2
     color: ^4.2.3
     copy-to-clipboard: ^3.3.3
@@ -16956,7 +16853,6 @@ __metadata:
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
-    lodash.debounce: ^4.0.8
     markdown-to-jsx: ^7.1.8
     next: ^12.3.4
     next-seo: ^4.29.0
@@ -17021,9 +16917,7 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
-    "@sentry/browser": ^7.28.1
     "@sentry/nextjs": ^7.28.1
-    "@sentry/replay": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
@@ -17035,7 +16929,6 @@ __metadata:
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4
     "@types/jest": ^29.2.5
-    "@types/lodash.debounce": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/prop-types": ^15.7.5
@@ -17054,6 +16947,7 @@ __metadata:
     axios-mock-adapter: ^1.21.2
     bech32: ^2.0.0
     big.js: ^6.2.1
+    buffer: ^5.7.1
     classnames: ^2.3.2
     color: ^4.2.3
     copy-to-clipboard: ^3.3.3
@@ -17085,7 +16979,6 @@ __metadata:
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
-    lodash.debounce: ^4.0.8
     markdown-to-jsx: ^7.1.8
     next: ^12.3.4
     next-seo: ^4.29.0
@@ -17136,9 +17029,7 @@ __metadata:
     "@material-ui/icons": ^4.11.3
     "@material-ui/styles": ^4.11.5
     "@next/eslint-plugin-next": ^13.1.1
-    "@sentry/browser": ^7.28.1
     "@sentry/nextjs": ^7.28.1
-    "@sentry/replay": ^7.28.1
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
@@ -17150,7 +17041,6 @@ __metadata:
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4
     "@types/jest": ^29.2.5
-    "@types/lodash.debounce": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/prop-types": ^15.7.5
@@ -17169,6 +17059,7 @@ __metadata:
     axios-mock-adapter: ^1.21.2
     bech32: ^2.0.0
     big.js: ^6.2.1
+    buffer: ^5.7.1
     classnames: ^2.3.2
     color: ^4.2.3
     copy-to-clipboard: ^3.3.3
@@ -17200,7 +17091,6 @@ __metadata:
     jest-presets: "*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
-    lodash.debounce: ^4.0.8
     markdown-to-jsx: ^7.1.8
     next: ^12.3.4
     next-seo: ^4.29.0
