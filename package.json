@@ -52,5 +52,8 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,mjs,cjs,css,md}": "npx prettier --write"
+  },
+  "dependencies": {
+    "@walletconnect/sign-client": "^2.1.5"
   }
 }
