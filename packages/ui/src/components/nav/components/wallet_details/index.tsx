@@ -4,12 +4,16 @@ import classnames from 'classnames';
 import React from 'react';
 import Avatar from '@/components/avatar';
 import WalletDropDown from '@/components/nav/components/wallet_drop_down';
+import { readUserAddress, readIsUserLoggedIn } from '@/recoil/wallet';
+import { useRecoilValue } from 'recoil';
 
 const WalletDetails: React.FC<{
   className?: string;
 }> = (props) => {
   const classes = useStyles();
-  const { loggedIn, showWallet, handleShowWallet } = useConnectWalletList();
+  const { showWallet, handleShowWallet } = useConnectWalletList();
+  const loggedIn = useRecoilValue(readIsUserLoggedIn);
+  const userAddress = useRecoilValue(readUserAddress);
 
   return (
     <div>
@@ -20,7 +24,7 @@ const WalletDetails: React.FC<{
         tabIndex={0}
         aria-label="wallet-details-button"
       >
-        {loggedIn ? <Avatar address="" className={classes.avatar} /> : null}
+        {loggedIn ? <Avatar address={userAddress ?? ''} className={classes.avatar} /> : null}
       </div>
       <WalletDropDown
         className={classnames(classes.networkList, {
