@@ -4,7 +4,7 @@ const styles = makeStyles((theme) => ({
   root: {
     ...theme.mixins.layout,
     display: 'grid',
-    gridGap: theme.spacing(1),
+    gap: theme.spacing(1),
     // gridTemplateRows: 'auto auto 1fr',
     gridTemplateRows: 'auto auto 2fr',
     gridTemplateColumns: 'repeat(1, 1fr)',
@@ -15,7 +15,7 @@ const styles = makeStyles((theme) => ({
       gridTemplateColumns: 'repeat(2, 1fr)',
     },
     [theme.breakpoints.up('lg')]: {
-      gridGap: theme.spacing(2),
+      gap: theme.spacing(2),
       gridTemplateColumns: 'repeat(4, 1fr)',
     },
   },

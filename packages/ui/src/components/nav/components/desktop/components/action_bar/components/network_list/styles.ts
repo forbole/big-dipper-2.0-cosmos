@@ -15,7 +15,7 @@ const styles = makeStyles((theme) => ({
     overflow: 'auto',
     display: 'grid',
     gridTemplateColumns: 'repeat(4, 1fr)',
-    gridGap: theme.spacing(3, 2),
+    gap: theme.spacing(3, 2),
   },
 }));
 

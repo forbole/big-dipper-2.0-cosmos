@@ -15,7 +15,7 @@ const styles = makeStyles((theme) => ({
   listContainer: {
     display: 'grid',
     gridTemplateColumns: 'repeat(1, 1fr)',
-    gridGap: theme.spacing(2),
+    gap: theme.spacing(2),
     [theme.breakpoints.up('md')]: {
       gridTemplateColumns: 'repeat(2, 1fr)',
     },

@@ -22,7 +22,7 @@ const styles = makeStyles(
     timeContainer: {
       display: 'grid',
       gridTemplateColumns: 'repeat(4, 65px)',
-      gridGap: '8px',
+      gap: '8px',
       margin: theme.spacing(3, 0),
     },
     item: {

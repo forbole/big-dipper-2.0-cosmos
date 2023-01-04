@@ -10,9 +10,9 @@ export const useStyles = () => {
       display: 'grid',
       gridTemplateRows: 'auto',
       gridTemplateColumns: '1fr',
-      gridGap: theme.spacing(1),
+      gap: theme.spacing(1),
       [theme.breakpoints.up('lg')]: {
-        gridGap: theme.spacing(2),
+        gap: theme.spacing(2),
         gridTemplateColumns: 'repeat(2, 1fr)',
       },
     },

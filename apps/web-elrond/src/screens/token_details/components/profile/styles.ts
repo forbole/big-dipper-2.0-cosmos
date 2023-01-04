@@ -121,7 +121,7 @@ const styles = makeStyles(
       [theme.breakpoints.up('lg')]: {
         display: 'grid',
         gridTemplateColumns: '200px auto',
-        gridGap: theme.spacing(2),
+        gap: theme.spacing(2),
         alignItems: 'center',
       },
     },

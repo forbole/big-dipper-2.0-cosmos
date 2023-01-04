@@ -7,9 +7,9 @@ const styles = makeStyles(
       display: 'grid',
       gridTemplateColumns: '1fr',
       gridTemplateRows: 'min-content min-content auto',
-      gridGap: theme.spacing(1),
+      gap: theme.spacing(1),
       [theme.breakpoints.up('lg')]: {
-        gridGap: theme.spacing(2),
+        gap: theme.spacing(2),
         gridTemplateColumns: 'repeat(3, 1fr)',
       },
     },

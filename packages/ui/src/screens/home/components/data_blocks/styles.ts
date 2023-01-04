@@ -4,13 +4,13 @@ const styles = makeStyles(
   (theme) => ({
     root: {
       display: 'grid',
-      gridGap: theme.spacing(1),
+      gap: theme.spacing(1),
       gridTemplateRows: 'auto',
       [theme.breakpoints.up('sm')]: {
         gridTemplateColumns: 'repeat(2, 1fr)',
       },
       [theme.breakpoints.up('lg')]: {
-        gridGap: theme.spacing(2),
+        gap: theme.spacing(2),
         gridTemplateColumns: 'repeat(4, 1fr)',
       },
     },

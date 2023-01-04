@@ -7,7 +7,7 @@ const styles = makeStyles(
       [theme.breakpoints.up('lg')]: {
         display: 'grid',
         gridTemplateColumns: '50px auto min-content',
-        gridGap: theme.spacing(2),
+        gap: theme.spacing(2),
       },
     },
     header: {
