@@ -4,6 +4,7 @@ import TransactionIcon from '@assets/icon-transaction.svg';
 import ProposalsIcon from '@assets/icon-proposals.svg';
 import UserIcon from '@assets/icon-user.svg';
 import ParamIcon from '@assets/icon-param.svg';
+import AccountsIcon from '@assets/icon-accounts.svg';
 import {
   HOME,
   BLOCKS,
@@ -11,6 +12,7 @@ import {
   TRANSACTIONS,
   PROPOSALS,
   PARAMS,
+  ACCOUNTS,
 } from '@utils/go_to_page';
 
 export const getMenuItems = () => {
@@ -49,6 +51,11 @@ export const getMenuItems = () => {
       key: 'params',
       url: PARAMS,
       icon: <ParamIcon {...iconProps} />,
+    },
+    {
+      key: 'top_accounts',
+      url: ACCOUNTS,
+      icon: <AccountsIcon {...iconProps} />,
     },
   ];
 };

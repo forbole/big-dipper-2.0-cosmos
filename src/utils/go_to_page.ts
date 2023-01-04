@@ -13,6 +13,9 @@ export const ACCOUNT_DETAILS = (address: string): string => `/accounts/${address
 export const PARAMS = '/params';
 export const PROFILE_DETAILS = (dtag: string):string => `/${dtag}`;
 
+/* This is a route to the accounts page. */
+export const ACCOUNTS = '/accounts';
+
 /**
  * Helper to determine if we are routing to validator details or account details
  * @param address

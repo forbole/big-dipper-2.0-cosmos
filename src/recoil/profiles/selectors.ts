@@ -80,7 +80,7 @@ const getProfile = (address: string) => ({ get }): AvatarName => {
   const imageUrl = R.pathOr('', ['imageUrl'], state);
   return ({
     address: returnAddress,
-    name: name.length ? name : address,
+    name: name?.length ? name : address,
     imageUrl,
   });
 };

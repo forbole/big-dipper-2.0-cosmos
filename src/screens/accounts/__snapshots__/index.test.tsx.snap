@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Accounts matches snapshot 1`] = `
+<div
+  id="List"
+/>
+`;

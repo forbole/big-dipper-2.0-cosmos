@@ -30,6 +30,10 @@ type Transactions = {
   };
 }
 
+type Accounts = {
+  timestamp: string;
+}
+
 type TokenUnit = {
   displayDenom: string;
   baseDenom: string;

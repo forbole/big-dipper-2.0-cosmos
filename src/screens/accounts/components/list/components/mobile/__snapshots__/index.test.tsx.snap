@@ -1,0 +1,183 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Accounts/Tabs matches snapshot 1`] = `
+<div
+  className="makeStyles-root"
+>
+  <div
+    className="makeStyles-list"
+  >
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        top_rank
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        #1
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        top_address
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        <a
+          href="/accounts/cheqvalcon10000000000000000050"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onTouchStart={[Function]}
+        >
+          <div
+            className="makeStyles-root"
+          >
+            <div
+              className="makeStyles-root"
+            >
+              <svg
+                data-jdenticon-value="cheqvalcon10000000000000000050"
+                height="100%"
+                width="100%"
+              />
+            </div>
+            <p
+              className="MuiTypography-root MuiTypography-body1"
+            >
+              name
+            </p>
+          </div>
+        </a>
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        top_balance
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        5100
+         
+        DARIC
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        top_percentage
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        51.0000 %
+      </p>
+    </div>
+    <hr
+      className="MuiDivider-root"
+    />
+  </div>
+  <div
+    className="makeStyles-list"
+  >
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        top_rank
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        #2
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        top_address
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        <a
+          href="/accounts/cheqvalcon10000000000000000049"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onTouchStart={[Function]}
+        >
+          <div
+            className="makeStyles-root"
+          >
+            <div
+              className="makeStyles-root"
+            >
+              <svg
+                data-jdenticon-value="cheqvalcon10000000000000000049"
+                height="100%"
+                width="100%"
+              />
+            </div>
+            <p
+              className="MuiTypography-root MuiTypography-body1"
+            >
+              name
+            </p>
+          </div>
+        </a>
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        top_balance
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        4900
+         
+        DARIC
+      </p>
+    </div>
+    <div
+      className="makeStyles-item"
+    >
+      <h4
+        className="MuiTypography-root label MuiTypography-h4"
+      >
+        top_percentage
+      </h4>
+      <p
+        className="MuiTypography-root value MuiTypography-body1"
+      >
+        49.0000 %
+      </p>
+    </div>
+  </div>
+</div>
+`;

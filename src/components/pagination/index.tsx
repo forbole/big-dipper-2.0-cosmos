@@ -50,6 +50,7 @@ const Pagination: React.FC<{
       rowsPerPage={rowsPerPage}
       page={page}
       onPageChange={handleChangePage}
+      onChangePage={handleChangePage}
       ActionsComponent={(subProps) => {
         const additionalProps = {
           rowsPerPageOptions,

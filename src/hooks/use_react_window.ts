@@ -1,15 +1,13 @@
-import {
-  useRef,
-  useEffect,
-  createRef,
-} from 'react';
+/* eslint-disable object-curly-newline */
+import { useRef, useEffect } from 'react';
 import * as R from 'ramda';
+import { VariableSizeGrid, VariableSizeList } from 'react-window';
 
 // reusable hook helpers for react window list components
 
-export const useList = () => {
-  const listRef = useRef({});
-  const rowHeights = useRef({});
+export const useList = <T = VariableSizeList>() => {
+  const listRef = useRef<T>();
+  const rowHeights = useRef<Record<number, number>>({});
 
   const getRowHeight = (index) => {
     return rowHeights.current[index] + 16 || 100;
@@ -47,13 +45,13 @@ export const useListRow = (
   };
 };
 
-export const useGrid = (columns: {
+export const useGrid = <T = VariableSizeGrid>(columns: {
   key: string;
   align?: 'left' | 'center' | 'right' | 'justify' | 'inherit';
   width: number;
 }[]) => {
-  const gridRef = createRef();
-  const columnRef = createRef();
+  const gridRef = useRef<T>();
+  const columnRef = useRef<T>();
 
   const onResize = () => {
     if (gridRef.current != null) {

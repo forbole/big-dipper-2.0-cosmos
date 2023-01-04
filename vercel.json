@@ -1,0 +1,8 @@
+{
+  "buildCommand": "NEXT_PUBLIC_GRAPHQL_URL=https://2ec6678ab38b.ngrok.io/v1/graphql NEXT_PUBLIC_GRAPHQL_WS=wss://explorer-gql.cheqd.io/v1/graphql NEXT_PUBLIC_RPC_WEBSOCKET=wss://rpc.cheqd.net/websocket NEXT_PUBLIC_CHAIN_TYPE=testnet yarn next build",
+  "outputDirectory": "./.next",
+  "installCommand": "yarn",
+  "devCommand": "yarn next dev",
+  "framework": "nextjs",
+  "ignoreCommand": "echo always build && exit 1"
+}

@@ -3477,6 +3477,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-virtualized-auto-sizer@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "@types/react-virtualized-auto-sizer@npm:1.0.1"
+  dependencies:
+    "@types/react": "*"
+  checksum: 67eff0670a1991c2b16992274ada5f0b3f9d5c2d6209ef38e8f8ae2c0218211a3292882f5b7dd6f09519000dc20847629f049c9acc267e000626b7141e5927a6
+  languageName: node
+  linkType: hard
+
+"@types/react-window@npm:^1.8.5":
+  version: 1.8.5
+  resolution: "@types/react-window@npm:1.8.5"
+  dependencies:
+    "@types/react": "*"
+  checksum: 5f519e1402300d11b6e6595223feb6499f3227e38da166cbc565773cd7f71862abcf855b7835d391b5119fcfacdfba79d73a965b45f60a293fc1ff25986319ed
+  languageName: node
+  linkType: hard
+
 "@types/react@npm:~17.0.47":
   version: 17.0.52
   resolution: "@types/react@npm:17.0.52"
@@ -4413,6 +4431,8 @@ __metadata:
     "@types/jest": ^26.0.13
     "@types/node": ^18.8.0
     "@types/react": ^16.9.49
+    "@types/react-virtualized-auto-sizer": ^1.0.1
+    "@types/react-window": ^1.8.5
     "@types/testing-library__react": ^10.2.0
     "@typescript-eslint/eslint-plugin": ^4.33.0
     "@typescript-eslint/parser": ^4.1.0
