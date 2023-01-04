@@ -1,7 +1,7 @@
 /* eslint-disable */
 import type { Custom, PaletteOptions, Palette } from '@mui/material/styles/createPalette';
 
-declare module '@material-ui/core/styles/createPalette' {
+declare module '@mui/material/styles/createPalette' {
   interface Custom {
     general: {
       background: string;
