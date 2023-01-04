@@ -25,7 +25,7 @@ const styles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
-    '& .MuiIconButton-root': {
+    '& .MuiButtonBase-root': {
       padding: 0,
     },
   },

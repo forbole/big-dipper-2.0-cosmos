@@ -6,7 +6,7 @@ const styles = makeStyles((theme) => ({
     alignItems: 'center',
     margin: 0,
     listStyleType: 'none',
-    '& .MuiIconButton-root, & .MuiInputBase-input': {
+    '& .MuiButtonBase-root, & .MuiInputBase-input': {
       background: theme.palette.custom.general.surfaceTwo,
     },
     '& li': {
