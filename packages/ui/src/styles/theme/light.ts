@@ -1,6 +1,6 @@
 import chainConfig from '@/chainConfig';
 import hindMadurai from '@/styles/theme/hindMadurai';
-import { DeprecatedThemeOptions } from '@mui/material';
+import { ThemeOptions } from '@mui/material';
 
 const { themes } = chainConfig();
 const { light: theme } = themes;
@@ -12,7 +12,7 @@ type DeepPartial<T> = T extends object
   : T;
 
 /** Custom theme overrides for light mode */
-export const lightThemeOverride: DeepPartial<DeprecatedThemeOptions> = {
+export const lightThemeOverride: DeepPartial<ThemeOptions> = {
   mixins: {
     tableCell: {
       background: theme.custom.general.surfaceOne, // surface one

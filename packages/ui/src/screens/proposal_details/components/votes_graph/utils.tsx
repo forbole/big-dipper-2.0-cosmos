@@ -1,12 +1,12 @@
 import type { VotesType } from '@/screens/proposal_details/components/votes_graph/types';
 import { formatNumber } from '@/utils/format_token';
-import { DeprecatedThemeOptions } from '@mui/material/styles';
+import { ThemeOptions } from '@mui/material/styles';
 import Big from 'big.js';
 import * as R from 'ramda';
 
 type FormatGraphType = {
   data: VotesType;
-  theme: DeprecatedThemeOptions;
+  theme: ThemeOptions;
   total: Big;
 };
 export const formatGraphData = ({ data, theme, total }: FormatGraphType) => {

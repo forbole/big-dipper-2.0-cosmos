@@ -1,5 +1,5 @@
 import hindMadurai from '@/styles/theme/hindMadurai';
-import { DeprecatedThemeOptions } from '@mui/material';
+import { ThemeOptions } from '@mui/material';
 
 const backgroundDefault = '#0A0A0A';
 const surfaceOne = '#18181C';
@@ -16,7 +16,7 @@ type DeepPartial<T> = T extends object
   : T;
 
 /** Custom theme overrides for tritanopia mode */
-export const tritanopiaThemeOverride: DeepPartial<DeprecatedThemeOptions> = {
+export const tritanopiaThemeOverride: DeepPartial<ThemeOptions> = {
   mixins: {
     tableCell: {
       background: surfaceOne, // surface one
@@ -25,9 +25,11 @@ export const tritanopiaThemeOverride: DeepPartial<DeprecatedThemeOptions> = {
       },
     },
   },
-  props: {
+  components: {
     MuiSvgIcon: {
-      htmlColor: icon, // same as custom /general /icons
+      defaultProps: {
+        htmlColor: icon, // same as custom /general /icons
+      },
     },
   },
   palette: {
