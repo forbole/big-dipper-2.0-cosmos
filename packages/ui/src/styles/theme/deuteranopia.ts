@@ -118,7 +118,7 @@ export const deuteranopiaThemeOverride: DeepPartial<ThemeOptions> = {
   },
   overrides: {
     MuiCssBaseline: {
-      '@global': {
+      html: {
         '@font-face': [hindMadurai],
       },
     },

@@ -27,7 +27,7 @@ export const darkThemeOverride: DeepPartial<ThemeOptions> = {
   },
   overrides: {
     MuiCssBaseline: {
-      '@global': {
+      html: {
         '@font-face': [hindMadurai],
       },
     },

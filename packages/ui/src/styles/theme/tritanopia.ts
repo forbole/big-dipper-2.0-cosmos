@@ -118,7 +118,7 @@ export const tritanopiaThemeOverride: DeepPartial<ThemeOptions> = {
   },
   overrides: {
     MuiCssBaseline: {
-      '@global': {
+      html: {
         '@font-face': [hindMadurai],
       },
     },
