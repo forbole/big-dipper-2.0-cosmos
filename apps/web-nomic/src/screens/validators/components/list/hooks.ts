@@ -5,7 +5,7 @@ import type {
   ValidatorsState,
   ValidatorType,
 } from '@/screens/validators/components/list/types';
-import Tabs from '@material-ui/core/Tabs';
+import Tabs from '@mui/material/Tabs';
 import Big from 'big.js';
 import numeral from 'numeral';
 import * as R from 'ramda';

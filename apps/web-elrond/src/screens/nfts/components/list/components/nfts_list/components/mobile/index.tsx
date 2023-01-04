@@ -1,8 +1,8 @@
 import React, { FC, Fragment } from 'react';
 import useTranslation from 'next-translate/useTranslation';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
-import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
+import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
 import Link from 'next/link';
 import AvatarName from '@/components/avatar_name';
 import { NFT_DETAILS } from '@/utils/go_to_page';

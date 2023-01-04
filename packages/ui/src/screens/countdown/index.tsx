@@ -4,7 +4,7 @@ import Loading from '@/components/loading';
 import { useInterval } from '@/hooks';
 import { useStyles } from '@/screens/countdown/styles';
 import dayjs from '@/utils/dayjs';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import React, { FC, useCallback, useState } from 'react';
 
 const { genesis, network } = chainConfig();

@@ -4,7 +4,7 @@ import Loading from '@/components/loading';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { useConsensus } from '@/screens/home/components/consensus/hooks';
 import { useStyles } from '@/screens/home/components/consensus/styles';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';

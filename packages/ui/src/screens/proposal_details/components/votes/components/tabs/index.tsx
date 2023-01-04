@@ -1,8 +1,8 @@
 import { useStyles } from '@/screens/proposal_details/components/votes/components/tabs/styles';
 import { tabLabels } from '@/screens/proposal_details/components/votes/components/tabs/utils';
 import { a11yProps } from '@/utils/a11yProps';
-import Tab from '@material-ui/core/Tab';
-import Tabs from '@material-ui/core/Tabs';
+import Tab from '@mui/material/Tab';
+import Tabs from '@mui/material/Tabs';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import React, { ComponentProps, FC } from 'react';

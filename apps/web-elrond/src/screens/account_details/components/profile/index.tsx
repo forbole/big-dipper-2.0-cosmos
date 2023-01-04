@@ -4,7 +4,7 @@ import { useOverview } from '@/screens/account_details/components/profile/hooks'
 import { useStyles } from '@/screens/account_details/components/profile/styles';
 import type { ProfileType } from '@/screens/account_details/types';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import { FC } from 'react';

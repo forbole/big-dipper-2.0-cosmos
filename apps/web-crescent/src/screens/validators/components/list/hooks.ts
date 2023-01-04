@@ -8,7 +8,7 @@ import type {
 } from '@/screens/validators/components/list/types';
 import { formatToken } from '@/utils/format_token';
 import { getValidatorCondition } from '@/utils/get_validator_condition';
-import Tabs from '@material-ui/core/Tabs';
+import Tabs from '@mui/material/Tabs';
 import Big from 'big.js';
 import numeral from 'numeral';
 import * as R from 'ramda';

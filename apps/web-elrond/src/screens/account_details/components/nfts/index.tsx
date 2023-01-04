@@ -5,7 +5,7 @@ import { usePagination } from '@/hooks';
 import List from '@/screens/account_details/components/nfts/components/list';
 import { PAGE_SIZE, useTokens } from '@/screens/account_details/components/nfts/hooks';
 import { useStyles } from '@/screens/account_details/components/nfts/styles';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import { FC } from 'react';

@@ -6,7 +6,7 @@ import { columns } from '@/screens/providers/components/providers_list/component
 import type { ProviderInfo } from '@/screens/providers/types';
 import { useAddress } from '@/utils/copy_to_clipboard';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';

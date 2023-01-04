@@ -6,7 +6,7 @@ import {
   formatRows,
 } from '@/screens/block_details/components/consensus/components/desktop/utils';
 import type { ConsensusType } from '@/screens/block_details/types';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import React, { FC, LegacyRef, useMemo } from 'react';

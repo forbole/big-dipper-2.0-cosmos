@@ -2,7 +2,7 @@ import Name from '@/components/name';
 import MsgCancelReplaceLimitOrder from '@/models/msg/market/msg_cancel_replace_limit_order';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { formatNumber, formatToken } from '@/utils/format_token';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import Trans from 'next-translate/Trans';
 import React, { FC } from 'react';
 

@@ -2,7 +2,7 @@ import { IDENTITIES, PROVIDERS, STAKE } from '@/api';
 import chainConfig from '@/chainConfig';
 import type { ValidatorsState } from '@/screens/validators/components/list/types';
 import { formatNumber, formatToken } from '@/utils/format_token';
-import Tabs from '@material-ui/core/Tabs';
+import Tabs from '@mui/material/Tabs';
 import axios from 'axios';
 import Big from 'big.js';
 import * as R from 'ramda';

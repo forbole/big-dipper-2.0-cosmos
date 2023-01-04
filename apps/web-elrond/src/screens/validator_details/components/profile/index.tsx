@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import classnames from 'classnames';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import Box from '@/components/box';
 import Avatar from '@/components/avatar';
 import Markdown from '@/components/markdown';

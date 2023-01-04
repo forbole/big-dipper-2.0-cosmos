@@ -4,7 +4,7 @@ import useShallowMemo from '@/hooks/useShallowMemo';
 import Paginate from '@/screens/proposal_details/components/deposits/components/paginate';
 import { useDeposits } from '@/screens/proposal_details/components/deposits/hooks';
 import { useStyles } from '@/screens/proposal_details/components/deposits/styles';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import dynamic from 'next/dynamic';

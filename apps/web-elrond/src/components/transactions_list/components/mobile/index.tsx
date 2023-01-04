@@ -5,7 +5,7 @@ import Shard from '@/components/transactions_list/components/shard';
 import dayjs from '@/utils/dayjs';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { TRANSACTION_DETAILS } from '@/utils/go_to_page';
-import { Divider, Typography } from '@material-ui/core';
+import { Divider, Typography } from '@mui/material';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import React, { FC, Fragment } from 'react';

@@ -11,8 +11,8 @@ import type { OverviewType, StatusType } from '@/screens/validator_details/types
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { getValidatorStatus } from '@/utils/get_validator_status';
 import { ACCOUNT_DETAILS } from '@/utils/go_to_page';
-import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
+import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
 import Big from 'big.js';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';

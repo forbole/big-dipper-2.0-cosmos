@@ -1,7 +1,7 @@
 import Box from '@/components/box';
 import { useEpoch } from '@/screens/home/components/epoch/hooks';
 import { useStyles } from '@/screens/home/components/epoch/styles';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import classnames from 'classnames';
 import Trans from 'next-translate/Trans';
 import useTranslation from 'next-translate/useTranslation';

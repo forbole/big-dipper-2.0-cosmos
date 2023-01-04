@@ -3,8 +3,8 @@ import { useStyles } from '@/screens/account_details/components/tokens/component
 import type { OtherTokenType } from '@/screens/account_details/components/tokens/types';
 import { formatNumber } from '@/utils/format_token';
 import { TOKEN_DETAILS } from '@/utils/go_to_page';
-import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
+import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import React, { FC, Fragment } from 'react';
 

@@ -12,7 +12,7 @@ import type {
 } from '@/screens/validator_details/components/staking/types';
 import { formatToken } from '@/utils/format_token';
 import { getDenom } from '@/utils/get_denom';
-import Tabs from '@material-ui/core/Tabs';
+import Tabs from '@mui/material/Tabs';
 import Big from 'big.js';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';

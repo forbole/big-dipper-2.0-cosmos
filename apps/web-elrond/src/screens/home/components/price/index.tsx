@@ -3,7 +3,7 @@ import CustomToolTip from '@/components/custom_tool_tip';
 import { usePrice } from '@/screens/home/components/price/hooks';
 import { useStyles } from '@/screens/home/components/price/styles';
 import dayjs from '@/utils/dayjs';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import classnames from 'classnames';
 import Color from 'color';
 import useTranslation from 'next-translate/useTranslation';

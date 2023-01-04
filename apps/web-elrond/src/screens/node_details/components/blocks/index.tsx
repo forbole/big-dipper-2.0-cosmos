@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import Box from '@/components/box';
 import BlocksList from '@/components/blocks_list';
 import NoData from '@/components/no_data';

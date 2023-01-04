@@ -4,7 +4,7 @@ import Connections from '@/components/desmos_profile/components/connections';
 import { useDesmosProfile } from '@/components/desmos_profile/hooks';
 import { useStyles } from '@/components/desmos_profile/styles';
 import Markdown from '@/components/markdown';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';

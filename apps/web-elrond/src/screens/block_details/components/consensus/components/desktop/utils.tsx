@@ -1,7 +1,7 @@
 import type { ConsensusType } from '@/screens/block_details/types';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { NODE_DETAILS } from '@/utils/go_to_page';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import Link from 'next/link';
 import numeral from 'numeral';
 import { FC } from 'react';

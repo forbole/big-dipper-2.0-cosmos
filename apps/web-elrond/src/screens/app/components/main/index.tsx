@@ -1,6 +1,6 @@
 import InitialLoad from '@/screens/initial_load';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { ThemeProvider } from '@material-ui/core/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import { ThemeProvider } from '@mui/material/styles';
 import { AppProps } from 'next/app';
 import { ToastContainer } from 'react-toastify';
 // import { useSettingsRecoil } from '@/recoil/settings';

@@ -1,7 +1,7 @@
 import Actions from '@/components/pagination/components/actions';
 import { useStyles } from '@/components/pagination/styles';
-import TablePagination from '@material-ui/core/TablePagination';
-import { TablePaginationActionsProps } from '@material-ui/core/TablePagination/TablePaginationActions';
+import TablePagination from '@mui/material/TablePagination';
+import { TablePaginationActionsProps } from '@mui/material/TablePagination/TablePaginationActions';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import React, { FC, MouseEvent, useCallback } from 'react';

@@ -1,6 +1,6 @@
 import { useStyles } from '@/components/transactions_list/components/shard/styles';
 import { getShardDisplay } from '@/utils/get_shard_display';
-import { ArrowForward } from '@material-ui/icons';
+import { ArrowForward } from '@mui/icons-material';
 import useTranslation from 'next-translate/useTranslation';
 import { FC } from 'react';
 

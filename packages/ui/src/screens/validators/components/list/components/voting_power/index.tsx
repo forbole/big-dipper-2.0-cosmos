@@ -1,5 +1,5 @@
 import { useStyles } from '@/screens/validators/components/list/components/voting_power/styles';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import classnames from 'classnames';
 import React, { FC } from 'react';
 

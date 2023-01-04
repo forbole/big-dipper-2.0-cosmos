@@ -1,6 +1,6 @@
 import { useStyles } from '@/components/no_data/styles';
 import { readTheme } from '@/recoil/settings';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import React, { FC } from 'react';

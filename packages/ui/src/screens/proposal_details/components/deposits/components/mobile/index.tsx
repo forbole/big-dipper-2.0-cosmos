@@ -5,8 +5,8 @@ import { useStyles } from '@/screens/proposal_details/components/deposits/compon
 import type { ItemType } from '@/screens/proposal_details/components/deposits/types';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
 import { formatNumber } from '@/utils/format_token';
-import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
+import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import React, { FC, Fragment } from 'react';

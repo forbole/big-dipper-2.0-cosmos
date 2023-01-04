@@ -1,6 +1,6 @@
 import chainConfig from '@/chainConfig';
 import hindMadurai from '@/styles/theme/hindMadurai';
-import { ThemeOptions } from '@material-ui/core';
+import { ThemeOptions } from '@mui/material';
 
 const { themes } = chainConfig();
 const { dark: theme } = themes;

@@ -1,8 +1,8 @@
 import { useInfoPopover } from '@/components/info_popover/hooks';
 import { useStyles } from '@/components/info_popover/styles';
-import Paper from '@material-ui/core/Paper';
-import Popover from '@material-ui/core/Popover';
-import HelpOutline from '@material-ui/icons/HelpOutline';
+import Paper from '@mui/material/Paper';
+import Popover from '@mui/material/Popover';
+import HelpOutline from '@mui/icons-material/HelpOutline';
 import classnames from 'classnames';
 import React, { FC, ReactNode } from 'react';
 

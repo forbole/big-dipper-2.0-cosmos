@@ -5,7 +5,7 @@ import {
   columns,
   formatRows,
 } from '@/screens/block_details/components/signatures/components/desktop/utils';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import React, { FC, LegacyRef, useMemo } from 'react';

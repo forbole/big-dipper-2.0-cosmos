@@ -2,7 +2,7 @@ import Box from '@/components/box';
 import { useStyles } from '@/screens/validator_details/components/voting_power/styles';
 import type { VotingPowerType } from '@/screens/validator_details/types';
 import { BLOCK_DETAILS } from '@/utils/go_to_page';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';

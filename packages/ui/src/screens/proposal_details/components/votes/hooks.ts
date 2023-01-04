@@ -4,7 +4,7 @@ import {
 } from '@/graphql/types/general_types';
 import type { VoteState } from '@/screens/proposal_details/components/votes/types';
 import { toValidatorAddress } from '@/utils/prefix_convert';
-import Tabs from '@material-ui/core/Tabs';
+import Tabs from '@mui/material/Tabs';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import { ComponentProps, useCallback, useState } from 'react';

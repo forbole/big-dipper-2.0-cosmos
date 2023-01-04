@@ -1,4 +1,4 @@
-import { ServerStyleSheets } from '@material-ui/core/styles';
+import { ServerStyleSheets } from '@mui/material/styles';
 import Document, {
   DocumentContext,
   DocumentInitialProps,

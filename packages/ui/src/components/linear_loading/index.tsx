@@ -1,5 +1,5 @@
 import { useStyles } from '@/components/linear_loading/styles';
-import LinearProgress from '@material-ui/core/LinearProgress';
+import LinearProgress from '@mui/material/LinearProgress';
 import classnames from 'classnames';
 import React, { FC } from 'react';
 

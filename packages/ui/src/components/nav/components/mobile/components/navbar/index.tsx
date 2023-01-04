@@ -3,7 +3,7 @@ import type { NavbarProps } from '@/components/nav/components/mobile/components/
 import { readSelectedNetwork } from '@/recoil/big_dipper_networks';
 import { readTheme } from '@/recoil/settings';
 import { HOME } from '@/utils/go_to_page';
-import ExpandMore from '@material-ui/icons/ExpandMore';
+import ExpandMore from '@mui/icons-material/ExpandMore';
 import classnames from 'classnames';
 import Link from 'next/link';
 import { useRecoilValue } from 'recoil';

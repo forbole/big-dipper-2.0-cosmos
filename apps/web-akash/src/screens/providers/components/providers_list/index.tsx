@@ -4,7 +4,7 @@ import Search from '@/components/search';
 import { usePagination, useScreenSize } from '@/hooks';
 import { useStyles } from '@/screens/providers/components/providers_list/styles';
 import type { ProvidersListState } from '@/screens/providers/types';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import dynamic from 'next/dynamic';

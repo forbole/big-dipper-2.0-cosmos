@@ -1,6 +1,6 @@
 import Box from '@/components/box';
 import { useStyles } from '@/components/box_details/styles';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import classnames from 'classnames';
 import React, { FC, isValidElement, ReactNode } from 'react';
 

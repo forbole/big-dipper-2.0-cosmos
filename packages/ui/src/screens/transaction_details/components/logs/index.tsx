@@ -1,6 +1,6 @@
 import Box from '@/components/box';
 import { useGetStyles } from '@/screens/transaction_details/components/logs/styles';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import React, { FC } from 'react';
 

@@ -1,5 +1,5 @@
 import { useStyles } from '@/screens/proposal_details/components/votes_graph/components/quorum_explanation/styles';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import Trans from 'next-translate/Trans';
 
 const QuorumExplanation = (props: { quorum: string }) => {

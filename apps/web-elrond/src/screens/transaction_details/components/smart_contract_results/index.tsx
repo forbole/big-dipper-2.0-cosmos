@@ -6,8 +6,8 @@ import { useStyles } from '@/screens/transaction_details/components/smart_contra
 import type { ResultType } from '@/screens/transaction_details/types';
 import { decodeBase64 } from '@/utils/base64';
 import { formatNumber } from '@/utils/format_token';
-import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
+import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import React, { FC, Fragment } from 'react';

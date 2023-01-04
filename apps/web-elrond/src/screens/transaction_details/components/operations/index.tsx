@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import dynamic from 'next/dynamic';
 import NoData from '@/components/no_data';
 import Box from '@/components/box';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import { useScreenSize } from '@/hooks';
 import type { OperationType } from '@/screens/transaction_details/types';

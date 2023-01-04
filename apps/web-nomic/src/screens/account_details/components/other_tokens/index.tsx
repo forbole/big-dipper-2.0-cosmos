@@ -6,7 +6,7 @@ import Pagination from '@/components/pagination';
 import Box from '@/components/box';
 
 import { usePagination, useScreenSize } from '@/hooks';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import { useStyles } from '@/screens/account_details/components/other_tokens/styles';
 import type { OtherTokenType } from '@/screens/account_details/types';
 import useShallowMemo from '@/hooks/useShallowMemo';

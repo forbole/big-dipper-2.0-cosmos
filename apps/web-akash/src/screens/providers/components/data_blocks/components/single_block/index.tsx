@@ -1,5 +1,5 @@
 import { useStyles } from '@/screens/providers/components/data_blocks/components/single_block/styles';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import classnames from 'classnames';
 import React, { FC } from 'react';
 

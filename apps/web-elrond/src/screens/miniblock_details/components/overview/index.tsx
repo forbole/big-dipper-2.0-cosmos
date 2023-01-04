@@ -4,7 +4,7 @@ import type { OverviewType } from '@/screens/miniblock_details/types';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
 import { getShardDisplay } from '@/utils/get_shard_display';
 import { BLOCK_DETAILS } from '@/utils/go_to_page';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import { FC } from 'react';

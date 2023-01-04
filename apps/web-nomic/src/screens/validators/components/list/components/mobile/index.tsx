@@ -4,7 +4,7 @@ import SingleValidator from '@/screens/validators/components/list/components/mob
 import VotingPower from '@/screens/validators/components/list/components/voting_power';
 import type { ItemType } from '@/screens/validators/components/list/types';
 import { getValidatorStatus } from '@/utils/get_validator_status';
-import Divider from '@material-ui/core/Divider';
+import Divider from '@mui/material/Divider';
 import classnames from 'classnames';
 import numeral from 'numeral';
 import React, { FC, LegacyRef } from 'react';

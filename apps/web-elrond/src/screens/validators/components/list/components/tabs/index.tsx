@@ -1,8 +1,8 @@
 import React, { ComponentProps, FC } from 'react';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
 import { a11yProps } from '@/utils/a11yProps';
 import Search from '@/components/search';
 import { useStyles } from '@/screens/validators/components/list/components/tabs/styles';

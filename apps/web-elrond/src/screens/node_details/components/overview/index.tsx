@@ -2,7 +2,7 @@ import React, { FC, isValidElement } from 'react';
 import numeral from 'numeral';
 import useTranslation from 'next-translate/useTranslation';
 import classnames from 'classnames';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import Box from '@/components/box';
 import { getShardDisplay } from '@/utils/get_shard_display';
 import { useStyles } from '@/screens/node_details/components/overview/styles';

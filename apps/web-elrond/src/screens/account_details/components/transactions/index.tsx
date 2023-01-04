@@ -9,7 +9,7 @@ import {
   useTransactions,
 } from '@/screens/account_details/components/transactions/hooks';
 import { useStyles } from '@/screens/account_details/components/transactions/styles';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import { FC } from 'react';

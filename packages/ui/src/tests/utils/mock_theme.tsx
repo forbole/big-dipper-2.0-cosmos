@@ -1,6 +1,6 @@
 import { defaultTheme } from '@/styles';
-import { createTheme, ThemeProvider } from '@material-ui/core/styles';
-import { StylesOptions, StylesProvider } from '@material-ui/styles';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { StylesOptions, StylesProvider } from '@mui/styles';
 import { ReactNode } from 'react';
 import { RecoilRoot } from 'recoil';
 

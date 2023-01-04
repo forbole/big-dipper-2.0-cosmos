@@ -1,7 +1,7 @@
 import NoData from '@/components/no_data';
 import Pagination from '@/components/pagination';
 import TransactionsList from '@/components/transactions_list';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import React, { FC } from 'react';
 import Box from '@/components/box';

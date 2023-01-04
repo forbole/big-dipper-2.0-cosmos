@@ -1,5 +1,5 @@
 import { useStyles } from '@/components/condition_explanation/styles';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 

@@ -6,10 +6,10 @@ import {
 import { useStyles } from '@/components/nav/components/mobile/components/menu/styles';
 import type { MenuProps } from '@/components/nav/components/mobile/components/menu/types';
 import { THEME_LIST } from '@/recoil/settings';
-import Drawer from '@material-ui/core/Drawer';
-import MenuItem from '@material-ui/core/MenuItem';
-import Typography from '@material-ui/core/Typography';
-import ExpandMoreOutlined from '@material-ui/icons/ExpandMoreOutlined';
+import Drawer from '@mui/material/Drawer';
+import MenuItem from '@mui/material/MenuItem';
+import Typography from '@mui/material/Typography';
+import ExpandMoreOutlined from '@mui/icons-material/ExpandMoreOutlined';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';

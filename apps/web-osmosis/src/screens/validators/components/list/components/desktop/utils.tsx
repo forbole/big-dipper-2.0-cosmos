@@ -1,6 +1,6 @@
 import ConditionExplanation from '@/components/condition_explanation';
 import InfoPopover from '@/components/info_popover';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import { Translate } from 'next-translate';
 import { ReactNode } from 'react';
 

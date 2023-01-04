@@ -3,7 +3,7 @@ import Box from '@/components/box';
 import CustomToolTip, { type CustomToolTipData } from '@/components/custom_tool_tip';
 import { useTokenomics } from '@/screens/home/components/tokenomics/hooks';
 import { useStyles } from '@/screens/home/components/tokenomics/styles';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';

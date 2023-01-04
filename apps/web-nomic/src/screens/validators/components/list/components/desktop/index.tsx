@@ -8,8 +8,8 @@ import VotingPower from '@/screens/validators/components/list/components/voting_
 import VotingPowerExplanation from '@/screens/validators/components/list/components/voting_power_explanation';
 import type { ItemType } from '@/screens/validators/components/list/types';
 import { getValidatorStatus } from '@/utils/get_validator_status';
-import { PropTypes } from '@material-ui/core';
-import Typography from '@material-ui/core/Typography';
+import { PropTypes } from '@mui/material';
+import Typography from '@mui/material/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';

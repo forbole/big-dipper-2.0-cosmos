@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import classnames from 'classnames';
 import dynamic from 'next/dynamic';
 import { usePagination, useScreenSize } from '@/hooks';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import Pagination from '@/components/pagination';
 import NoData from '@/components/no_data';

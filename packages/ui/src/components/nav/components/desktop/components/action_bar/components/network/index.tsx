@@ -1,8 +1,8 @@
 import ChainIcon from '@/components/ChainIcon';
 import { useStyles } from '@/components/nav/components/desktop/components/action_bar/components/network/styles';
 import { readSelectedNetwork } from '@/recoil/big_dipper_networks';
-import Typography from '@material-ui/core/Typography';
-import ExpandMore from '@material-ui/icons/ExpandMore';
+import Typography from '@mui/material/Typography';
+import ExpandMore from '@mui/icons-material/ExpandMore';
 import classnames from 'classnames';
 import React, { FC } from 'react';
 import { useRecoilValue } from 'recoil';

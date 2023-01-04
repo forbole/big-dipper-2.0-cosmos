@@ -1,5 +1,5 @@
 import { useStyles } from '@/components/nav/components/networks/components/single_network/styles';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import classnames from 'classnames';
 
 const SingleNetwork = (props: {

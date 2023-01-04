@@ -1,8 +1,8 @@
 import { useStyles } from '@/screens/account_details/components/other_tokens/components/mobile/styles';
 import type { OtherTokenType } from '@/screens/account_details/types';
 import { formatNumber } from '@/utils/format_token';
-import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
+import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import React, { FC, Fragment } from 'react';

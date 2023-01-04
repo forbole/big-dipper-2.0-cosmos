@@ -1,11 +1,11 @@
 import { useTablePaginationActions } from '@/components/pagination/components/actions/hooks';
 import { useStyles } from '@/components/pagination/components/actions/styles';
-import FormControl from '@material-ui/core/FormControl';
-import IconButton from '@material-ui/core/IconButton';
-import InputBase from '@material-ui/core/InputBase';
-import MenuItem from '@material-ui/core/MenuItem';
-import Select from '@material-ui/core/Select';
-import Typography from '@material-ui/core/Typography';
+import FormControl from '@mui/material/FormControl';
+import IconButton from '@mui/material/IconButton';
+import InputBase from '@mui/material/InputBase';
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
+import Typography from '@mui/material/Typography';
 import classnames from 'classnames';
 import React, { FC } from 'react';
 import NextFastIcon from 'shared-utils/assets/icon-next-fast.svg';

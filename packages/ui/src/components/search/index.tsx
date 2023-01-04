@@ -1,8 +1,8 @@
 import { useSearch } from '@/components/search/hooks';
 import { useStyles } from '@/components/search/styles';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import InputBase from '@material-ui/core/InputBase';
-import SearchIcon from '@material-ui/icons/Search';
+import InputAdornment from '@mui/material/InputAdornment';
+import InputBase from '@mui/material/InputBase';
+import SearchIcon from '@mui/icons-material/Search';
 import classnames from 'classnames';
 import React, { FC } from 'react';
 

@@ -6,7 +6,7 @@ import VotingPower from '@/screens/validators/components/list/components/voting_
 import type { ItemType } from '@/screens/validators/components/list/types';
 import { getValidatorConditionClass } from '@/utils/get_validator_condition';
 import { getValidatorStatus } from '@/utils/get_validator_status';
-import Divider from '@material-ui/core/Divider';
+import Divider from '@mui/material/Divider';
 import classnames from 'classnames';
 import numeral from 'numeral';
 import React, { FC, LegacyRef } from 'react';

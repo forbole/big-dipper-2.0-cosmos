@@ -3,7 +3,7 @@ import NoData from '@/components/no_data';
 import { useScreenSize } from '@/hooks';
 import { useStyles } from '@/screens/block_details/components/consensus/styles';
 import type { ConsensusType } from '@/screens/block_details/types';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import dynamic from 'next/dynamic';

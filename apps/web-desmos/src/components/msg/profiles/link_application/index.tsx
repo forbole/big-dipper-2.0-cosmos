@@ -1,7 +1,7 @@
 import Name from '@/components/name';
 import MsgLinkApplication from '@/models/msg/profiles/msg_link_application';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import Trans from 'next-translate/Trans';
 import { FC } from 'react';
 

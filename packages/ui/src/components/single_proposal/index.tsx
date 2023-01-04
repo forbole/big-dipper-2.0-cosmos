@@ -1,7 +1,7 @@
 import { useStyles } from '@/components/single_proposal/styles';
 import { getStatusInfo } from '@/components/single_proposal/utils';
 import Tag from '@/components/tag';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import React, { ComponentProps, FC, isValidElement, ReactNode } from 'react';

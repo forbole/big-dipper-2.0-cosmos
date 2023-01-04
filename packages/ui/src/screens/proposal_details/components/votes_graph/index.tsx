@@ -4,7 +4,7 @@ import QuorumExplanation from '@/screens/proposal_details/components/votes_graph
 import { useVotesGraph } from '@/screens/proposal_details/components/votes_graph/hooks';
 import { useStyles } from '@/screens/proposal_details/components/votes_graph/styles';
 import { formatGraphData } from '@/screens/proposal_details/components/votes_graph/utils';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import Big from 'big.js';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';

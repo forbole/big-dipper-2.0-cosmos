@@ -3,7 +3,7 @@ import { useStyles } from '@/screens/account_details/components/overview/styles'
 import type { OverviewType } from '@/screens/account_details/types';
 import { formatNumber } from '@/utils/format_token';
 import { getShardDisplay } from '@/utils/get_shard_display';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';

@@ -1,6 +1,6 @@
 import { useStyles } from '@/components/single_block_mobile/styles';
 import type { SingleBlockMobileType } from '@/components/single_block_mobile/types';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import { FC } from 'react';

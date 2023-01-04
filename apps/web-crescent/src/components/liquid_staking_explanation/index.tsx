@@ -1,5 +1,5 @@
 import { useStyles } from '@/components/liquid_staking_explanation/styles';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import Trans from 'next-translate/Trans';
 
 const LiquidStakingExplanation = () => {

@@ -1,8 +1,8 @@
 import { useStyles } from '@/screens/account_details/components/nfts/components/list/components/mobile/styles';
 import type { OtherTokenType } from '@/screens/account_details/components/nfts/types';
 import { NFT_DETAILS } from '@/utils/go_to_page';
-import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
+import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import React, { FC, Fragment } from 'react';

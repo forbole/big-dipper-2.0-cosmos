@@ -2,7 +2,7 @@ import Box from '@/components/box';
 import CustomToolTip from '@/components/custom_tool_tip';
 import { useStaking } from '@/screens/home/components/staking/hooks';
 import { useStyles } from '@/screens/home/components/staking/styles';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';

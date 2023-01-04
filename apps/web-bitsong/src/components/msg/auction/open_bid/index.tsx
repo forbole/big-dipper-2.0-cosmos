@@ -2,7 +2,7 @@ import Name from '@/components/name';
 import MsgOpenBid from '@/models/msg/auction/msg_open_bid';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { formatNumber, formatToken } from '@/utils/format_token';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import Trans from 'next-translate/Trans';
 import numeral from 'numeral';
 import React, { FC } from 'react';

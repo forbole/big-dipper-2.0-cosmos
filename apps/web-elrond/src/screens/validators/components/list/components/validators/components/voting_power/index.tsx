@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import classnames from 'classnames';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import { useStyles } from '@/screens/validators/components/list/components/validators/components/voting_power/styles';
 
 type VotingPowerProps = {
