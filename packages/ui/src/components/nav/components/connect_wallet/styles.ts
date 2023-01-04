@@ -100,7 +100,7 @@ const styles = makeStyles((theme) => ({
       backgroundColor: theme.palette.custom.wallet.backgroundTwo,
       [theme.breakpoints.up('md')]: {
         width: '600px',
-        height: '524px',
+        height: '541px',
       },
     },
   },
@@ -256,7 +256,7 @@ const styles = makeStyles((theme) => ({
     position: 'absolute',
   },
   tabs: {
-    padding: '35px 0px',
+    paddingTop: '35px',
   },
   tabButton: {
     display: 'flex',
@@ -285,6 +285,11 @@ const styles = makeStyles((theme) => ({
       textAlign: 'center',
       letterSpacing: '0.15px',
     },
+  },
+  QRCode: {
+    position: 'absolute',
+    left: '176px',
+    top: '192px',
   },
 }));
 
