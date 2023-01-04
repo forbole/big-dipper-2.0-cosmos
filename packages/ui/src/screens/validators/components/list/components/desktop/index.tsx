@@ -10,8 +10,7 @@ import VotingPowerExplanation from '@/screens/validators/components/list/compone
 import type { ItemType } from '@/screens/validators/components/list/types';
 import { getValidatorConditionClass } from '@/utils/get_validator_condition';
 import { getValidatorStatus } from '@/utils/get_validator_status';
-import { PropTypes } from '@mui/material';
-import Typography from '@mui/material/Typography';
+import Typography, { type TypographyProps } from '@mui/material/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
@@ -71,7 +70,7 @@ type GridRowProps = {
   column: string;
   style: CSSProperties;
   rowIndex: number;
-  align?: PropTypes.Alignment;
+  align?: TypographyProps['align'];
   item: ItemType;
   search: string;
   i: number;

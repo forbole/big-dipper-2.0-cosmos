@@ -7,12 +7,12 @@ import VotingPower from '@/screens/validators/components/list/components/validat
 import type { ValidatorType } from '@/screens/validators/components/list/types';
 import { formatNumber } from '@/utils/format_token';
 import { NODE_DETAILS, VALIDATOR_DETAILS } from '@/utils/go_to_page';
-import { PropTypes } from '@mui/material';
+import type { TypographyProps } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
-import React, { CSSProperties, FC, LegacyRef, ReactNode } from 'react';
+import { CSSProperties, FC, LegacyRef, ReactNode } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { VariableSizeGrid as Grid } from 'react-window';
 
@@ -58,7 +58,7 @@ type GridRowProps = {
   column: string;
   style: CSSProperties;
   rowIndex: number;
-  align?: PropTypes.Alignment;
+  align?: TypographyProps['align'];
   item: ValidatorType;
   search: string;
   i: number;

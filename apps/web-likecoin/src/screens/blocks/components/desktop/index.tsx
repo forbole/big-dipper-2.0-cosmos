@@ -9,7 +9,7 @@ import dayjs from '@/utils/dayjs';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { BLOCK_DETAILS } from '@/utils/go_to_page';
 import { mergeRefs } from '@/utils/merge_refs';
-import { PropTypes } from '@mui/material';
+import type { TypographyProps } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
@@ -24,7 +24,7 @@ type BlockRowProps = {
   style: CSSProperties;
   columnKey: string;
   rowIndex: number;
-  align: PropTypes.Alignment | undefined;
+  align: TypographyProps['align'];
   item: ItemType;
 };
 
