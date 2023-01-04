@@ -7,7 +7,7 @@ const styles = makeStyles(
       '& .MuiListItemIcon-root': {
         minWidth: '48px',
       },
-      '&.MuiListItem-gutters': {
+      '&.MuiMenuItem-gutters': {
         padding: theme.spacing(2, 2.5),
       },
       '& .MuiListItemText-root': {
