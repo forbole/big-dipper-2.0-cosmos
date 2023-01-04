@@ -16,7 +16,7 @@ type DeepPartial<T> = T extends object
   : T;
 
 /** Custom theme overrides for tritanopia mode */
-export const tritanopiaThemeOverride: DeepPartial<ThemeOptions> = {
+export const tritanopiaThemeOverride: DeepPartial<DeprecatedThemeOptions> = {
   mixins: {
     tableCell: {
       background: surfaceOne, // surface one

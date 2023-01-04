@@ -16,7 +16,7 @@ type DeepPartial<T> = T extends object
   : T;
 
 /** Custom theme overrides for deuteranopia mode */
-export const deuteranopiaThemeOverride: DeepPartial<ThemeOptions> = {
+export const deuteranopiaThemeOverride: DeepPartial<DeprecatedThemeOptions> = {
   mixins: {
     tableCell: {
       background: surfaceOne, // surface one
@@ -25,11 +25,9 @@ export const deuteranopiaThemeOverride: DeepPartial<ThemeOptions> = {
       },
     },
   },
-  components: {
+  props: {
     MuiSvgIcon: {
-      defaultProps: {
-        htmlColor: icon, // same as custom /general /icons
-      },
+      htmlColor: icon, // same as custom /general /icons
     },
   },
   palette: {

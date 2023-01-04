@@ -12,7 +12,7 @@ type DeepPartial<T> = T extends object
   : T;
 
 /** Custom theme overrides for dark mode */
-export const darkThemeOverride: DeepPartial<ThemeOptions> = {
+export const darkThemeOverride: DeepPartial<DeprecatedThemeOptions> = {
   mixins: {
     tableCell: {
       background: theme.custom.general.surfaceOne, // surface one
