@@ -36,7 +36,6 @@ const TransactionMessagesFilter: FC<TransactionMessagesFilterProps> = ({ classNa
           vertical: 'top',
           horizontal: 'left',
         },
-        getContentAnchorEl: null,
       }}
       value={selectedFilter}
       renderValue={

@@ -18,7 +18,6 @@ exports[`component: TransactionMessagesFilter it renders 1`] = `
         "horizontal": "left",
         "vertical": "bottom",
       },
-      "getContentAnchorEl": null,
       "transformOrigin": {
         "horizontal": "left",
         "vertical": "top",
