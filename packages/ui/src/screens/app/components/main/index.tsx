@@ -3,6 +3,7 @@ import { useBigDipperNetworksRecoil } from '@/recoil/big_dipper_networks';
 import { useMarketRecoil } from '@/recoil/market';
 import { useSettingsRecoil } from '@/recoil/settings';
 import { useValidatorRecoil } from '@/recoil/validators';
+import { useWalletRecoil } from '@/recoil/wallet';
 import InnerApp from '@/screens/app/components/inner_app';
 import { useGenesis, useTheme } from '@/screens/app/components/main/hooks';
 import Countdown from '@/screens/countdown';
@@ -20,6 +21,7 @@ const Main = (props: AppProps) => {
   useSettingsRecoil();
   useBigDipperNetworksRecoil(useChainIdQuery);
   useMarketRecoil();
+  useWalletRecoil();
   const { loading } = useValidatorRecoil();
 
   // =====================================
