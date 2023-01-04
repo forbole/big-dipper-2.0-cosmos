@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import React from 'react';
 import Avatar from '@/components/avatar';
 import WalletDropDown from '@/components/nav/components/wallet_drop_down';
-import { readUserAddress, readIsUserLoggedIn } from '@/recoil/wallet';
+import { readUserAddress, readIsUserLoggedIn } from '@/recoil/user';
 import { useRecoilValue } from 'recoil';
 
 const WalletDetails: React.FC<{
