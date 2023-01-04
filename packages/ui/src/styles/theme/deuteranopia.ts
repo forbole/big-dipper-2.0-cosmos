@@ -25,9 +25,11 @@ export const deuteranopiaThemeOverride: DeepPartial<ThemeOptions> = {
       },
     },
   },
-  props: {
+  components: {
     MuiSvgIcon: {
-      htmlColor: icon, // same as custom /general /icons
+      defaultProps: {
+        htmlColor: icon, // same as custom /general /icons
+      },
     },
   },
   palette: {
