@@ -51,9 +51,7 @@ const Menu = (props: MenuProps) => {
                   locale={l}
                   passHref
                 >
-                  <MenuItem button component="a">
-                    {t(l)}
-                  </MenuItem>
+                  <MenuItem component="a">{t(l)}</MenuItem>
                 </Link>
               </div>
             ))}
@@ -71,7 +69,7 @@ const Menu = (props: MenuProps) => {
         <div className={classnames('content')}>
           {THEME_LIST.filter((l) => l !== themeOptions.theme).map((l) => (
             <div key={l}>
-              <MenuItem button component="a" onClick={() => themeOptions.handleThemeChange(l)}>
+              <MenuItem component="a" onClick={() => themeOptions.handleThemeChange(l)}>
                 {t(l)}
               </MenuItem>
             </div>
