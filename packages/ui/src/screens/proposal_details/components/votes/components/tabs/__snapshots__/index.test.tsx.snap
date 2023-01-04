@@ -5,10 +5,10 @@ exports[`screen: Validators/Tabs matches snapshot 1`] = `
   className="makeStyles-root"
 >
   <div
-    className="MuiTabs-root"
+    className="MuiTabs-root css-e4sfdz-MuiTabs-root"
   >
     <div
-      className="MuiTabs-scrollable"
+      className="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
       style={
         {
           "height": 99,
@@ -20,28 +20,30 @@ exports[`screen: Validators/Tabs matches snapshot 1`] = `
       }
     />
     <div
-      className="MuiTabs-scroller MuiTabs-scrollable"
+      className="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-1qz90fd-MuiTabs-scroller"
       onScroll={[Function]}
       style={
         {
-          "marginBottom": null,
+          "marginBottom": -0,
           "overflow": "hidden",
         }
       }
     >
       <div
-        className="MuiTabs-flexContainer"
+        aria-orientation={null}
+        className="MuiTabs-flexContainer css-1pyy021-MuiTabs-flexContainer"
         onKeyDown={[Function]}
         role="tablist"
       >
         <button
           aria-controls="simple-tabpanel-0"
           aria-selected={true}
-          className="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit MuiTab-selected"
+          className="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected css-1dwqsrt-MuiButtonBase-root-MuiTab-root"
           disabled={false}
           id="simple-tab-0"
           onBlur={[Function]}
           onClick={[Function]}
+          onContextMenu={[Function]}
           onDragLeave={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
@@ -56,24 +58,21 @@ exports[`screen: Validators/Tabs matches snapshot 1`] = `
           tabIndex={0}
           type="button"
         >
+          all (24)
           <span
-            className="MuiTab-wrapper"
-          >
-            all (24)
-          </span>
-          <span
-            className="PrivateTabIndicator-root PrivateTabIndicator-colorSecondary MuiTabs-indicator"
+            className="MuiTabs-indicator css-7kglg7-MuiTabs-indicator"
             style={{}}
           />
         </button>
         <button
           aria-controls="simple-tabpanel-1"
           aria-selected={false}
-          className="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit"
+          className="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary css-1dwqsrt-MuiButtonBase-root-MuiTab-root"
           disabled={false}
           id="simple-tab-1"
           onBlur={[Function]}
           onClick={[Function]}
+          onContextMenu={[Function]}
           onDragLeave={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
@@ -88,20 +87,17 @@ exports[`screen: Validators/Tabs matches snapshot 1`] = `
           tabIndex={-1}
           type="button"
         >
-          <span
-            className="MuiTab-wrapper"
-          >
-            yes (10)
-          </span>
+          yes (10)
         </button>
         <button
           aria-controls="simple-tabpanel-2"
           aria-selected={false}
-          className="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit"
+          className="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary css-1dwqsrt-MuiButtonBase-root-MuiTab-root"
           disabled={false}
           id="simple-tab-2"
           onBlur={[Function]}
           onClick={[Function]}
+          onContextMenu={[Function]}
           onDragLeave={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
@@ -116,20 +112,17 @@ exports[`screen: Validators/Tabs matches snapshot 1`] = `
           tabIndex={-1}
           type="button"
         >
-          <span
-            className="MuiTab-wrapper"
-          >
-            no (4)
-          </span>
+          no (4)
         </button>
         <button
           aria-controls="simple-tabpanel-3"
           aria-selected={false}
-          className="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit"
+          className="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary css-1dwqsrt-MuiButtonBase-root-MuiTab-root"
           disabled={false}
           id="simple-tab-3"
           onBlur={[Function]}
           onClick={[Function]}
+          onContextMenu={[Function]}
           onDragLeave={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
@@ -144,20 +137,17 @@ exports[`screen: Validators/Tabs matches snapshot 1`] = `
           tabIndex={-1}
           type="button"
         >
-          <span
-            className="MuiTab-wrapper"
-          >
-            veto (10)
-          </span>
+          veto (10)
         </button>
         <button
           aria-controls="simple-tabpanel-4"
           aria-selected={false}
-          className="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit"
+          className="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary css-1dwqsrt-MuiButtonBase-root-MuiTab-root"
           disabled={false}
           id="simple-tab-4"
           onBlur={[Function]}
           onClick={[Function]}
+          onContextMenu={[Function]}
           onDragLeave={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
@@ -172,20 +162,17 @@ exports[`screen: Validators/Tabs matches snapshot 1`] = `
           tabIndex={-1}
           type="button"
         >
-          <span
-            className="MuiTab-wrapper"
-          >
-            abstain (0)
-          </span>
+          abstain (0)
         </button>
         <button
           aria-controls="simple-tabpanel-5"
           aria-selected={false}
-          className="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit"
+          className="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary css-1dwqsrt-MuiButtonBase-root-MuiTab-root"
           disabled={false}
           id="simple-tab-5"
           onBlur={[Function]}
           onClick={[Function]}
+          onContextMenu={[Function]}
           onDragLeave={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
@@ -200,11 +187,7 @@ exports[`screen: Validators/Tabs matches snapshot 1`] = `
           tabIndex={-1}
           type="button"
         >
-          <span
-            className="MuiTab-wrapper"
-          >
-            didNotVote (0)
-          </span>
+          didNotVote (0)
         </button>
       </div>
     </div>

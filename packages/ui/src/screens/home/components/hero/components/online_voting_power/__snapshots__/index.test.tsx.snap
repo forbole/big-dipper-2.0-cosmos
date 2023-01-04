@@ -5,7 +5,7 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 1`] = `
   className="makeStyles-root"
 >
   <h2
-    className="MuiTypography-root MuiTypography-h2"
+    className="MuiTypography-root MuiTypography-h2 css-dcgvbp-MuiTypography-root"
   >
     onlineVotingPower
   </h2>
@@ -13,12 +13,12 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 1`] = `
     className="makeStyles-data"
   >
     <h3
-      className="MuiTypography-root primary__data MuiTypography-h3"
+      className="MuiTypography-root MuiTypography-h3 primary__data css-1kl9mnf-MuiTypography-root"
     >
       100.00%
     </h3>
     <p
-      className="MuiTypography-root MuiTypography-body1"
+      className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
     >
       76,341,043
        /
@@ -40,12 +40,12 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 1`] = `
       className="makeStyles-item"
     >
       <h4
-        className="MuiTypography-root label MuiTypography-h4"
+        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
       >
         validators
       </h4>
       <p
-        className="MuiTypography-root value MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
       >
         109
       </p>
@@ -54,12 +54,12 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 1`] = `
       className="makeStyles-item"
     >
       <h4
-        className="MuiTypography-root label MuiTypography-h4"
+        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
       >
         votingPowerPercent
       </h4>
       <p
-        className="MuiTypography-root value MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
       >
         100.00%
       </p>
@@ -68,12 +68,12 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 1`] = `
       className="makeStyles-item"
     >
       <h4
-        className="MuiTypography-root label MuiTypography-h4"
+        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
       >
         votingPower
       </h4>
       <p
-        className="MuiTypography-root value MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
       >
         76,341,043
       </p>
@@ -82,12 +82,12 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 1`] = `
       className="makeStyles-item"
     >
       <h4
-        className="MuiTypography-root label MuiTypography-h4"
+        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
       >
         totalVotingPower
       </h4>
       <p
-        className="MuiTypography-root value MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
       >
         76,341,043
       </p>
@@ -101,7 +101,7 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 2`] = `
   className="makeStyles-root"
 >
   <h2
-    className="MuiTypography-root MuiTypography-h2"
+    className="MuiTypography-root MuiTypography-h2 css-dcgvbp-MuiTypography-root"
   >
     onlineVotingPower
   </h2>
@@ -109,12 +109,12 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 2`] = `
     className="makeStyles-data"
   >
     <h3
-      className="MuiTypography-root primary__data MuiTypography-h3"
+      className="MuiTypography-root MuiTypography-h3 primary__data css-1kl9mnf-MuiTypography-root"
     >
       100.00%
     </h3>
     <p
-      className="MuiTypography-root MuiTypography-body1"
+      className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
     >
       76,341,043
        /
@@ -136,12 +136,12 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 2`] = `
       className="makeStyles-item"
     >
       <h4
-        className="MuiTypography-root label MuiTypography-h4"
+        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
       >
         validators
       </h4>
       <p
-        className="MuiTypography-root value MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
       >
         109
       </p>
@@ -150,12 +150,12 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 2`] = `
       className="makeStyles-item"
     >
       <h4
-        className="MuiTypography-root label MuiTypography-h4"
+        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
       >
         votingPowerPercent
       </h4>
       <p
-        className="MuiTypography-root value MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
       >
         100.00%
       </p>
@@ -164,12 +164,12 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 2`] = `
       className="makeStyles-item"
     >
       <h4
-        className="MuiTypography-root label MuiTypography-h4"
+        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
       >
         votingPower
       </h4>
       <p
-        className="MuiTypography-root value MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
       >
         76,341,043
       </p>
@@ -178,12 +178,12 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 2`] = `
       className="makeStyles-item"
     >
       <h4
-        className="MuiTypography-root label MuiTypography-h4"
+        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
       >
         totalVotingPower
       </h4>
       <p
-        className="MuiTypography-root value MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
       >
         76,341,043
       </p>

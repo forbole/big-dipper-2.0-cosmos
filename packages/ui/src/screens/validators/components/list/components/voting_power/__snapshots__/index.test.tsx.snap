@@ -8,12 +8,12 @@ exports[`screen: Validators/VotingPower matches snapshot 1`] = `
     className="makeStyles-content makeStyles-content"
   >
     <p
-      className="MuiTypography-root MuiTypography-body1"
+      className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
     >
       
     </p>
     <p
-      className="MuiTypography-root percentage MuiTypography-body1"
+      className="MuiTypography-root MuiTypography-body1 percentage css-pfovru-MuiTypography-root"
     >
       20%
     </p>
@@ -36,12 +36,12 @@ exports[`screen: Validators/VotingPower matches snapshot with topVotingPower set
     className="makeStyles-content makeStyles-content"
   >
     <p
-      className="MuiTypography-root MuiTypography-body1"
+      className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
     >
       
     </p>
     <p
-      className="MuiTypography-root percentage MuiTypography-body1"
+      className="MuiTypography-root MuiTypography-body1 percentage css-pfovru-MuiTypography-root"
     >
       0%
     </p>

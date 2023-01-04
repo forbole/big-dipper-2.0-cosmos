@@ -48,13 +48,13 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
                 href="/blocks/300"
                 passHref={true}
               >
-                <WithStyles(ForwardRef(Typography))
+                <ForwardRef(Typography)
                   className="value"
                   component="a"
                   variant="body1"
                 >
                   300
-                </WithStyles(ForwardRef(Typography))>
+                </ForwardRef(Typography)>
               </ForwardRef(LinkComponent)>
             }
             id="SingleBlockMobile"
@@ -69,7 +69,7 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
             txs="2"
           />
           <hr
-            className="MuiDivider-root"
+            className="MuiDivider-root MuiDivider-fullWidth css-l3fh2f-MuiDivider-root"
           />
         </div>
       </div>
@@ -93,13 +93,13 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
                 href="/blocks/301"
                 passHref={true}
               >
-                <WithStyles(ForwardRef(Typography))
+                <ForwardRef(Typography)
                   className="value"
                   component="a"
                   variant="body1"
                 >
                   301
-                </WithStyles(ForwardRef(Typography))>
+                </ForwardRef(Typography)>
               </ForwardRef(LinkComponent)>
             }
             id="SingleBlockMobile"

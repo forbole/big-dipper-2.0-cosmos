@@ -9,7 +9,7 @@ exports[`component: NoData matches snapshot 1`] = `
   >
     <svg />
     <p
-      className="MuiTypography-root MuiTypography-body1"
+      className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
     >
       nothingToShow
     </p>

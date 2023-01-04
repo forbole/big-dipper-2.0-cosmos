@@ -33,13 +33,14 @@ exports[`screen: Nav/mobile/navbar it renders 1`] = `
       </p>
       <svg
         aria-hidden={true}
-        className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+        className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
         color="#999999"
+        data-testid="ExpandMoreIcon"
         focusable="false"
         viewBox="0 0 24 24"
       >
         <path
-          d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+          d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
         />
       </svg>
     </div>
@@ -91,13 +92,14 @@ exports[`screen: Nav/mobile/navbar toggleNavMenus is called onClick 1`] = `
       </p>
       <svg
         aria-hidden={true}
-        className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+        className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
         color="#999999"
+        data-testid="ExpandMoreIcon"
         focusable="false"
         viewBox="0 0 24 24"
       >
         <path
-          d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+          d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
         />
       </svg>
     </div>

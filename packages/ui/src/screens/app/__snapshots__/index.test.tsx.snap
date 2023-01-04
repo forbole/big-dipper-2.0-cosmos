@@ -53,12 +53,12 @@ exports[`screen: _app matches snapshot 1`] = `
         className="makeStyles-item-5"
       >
         <h1
-          className="MuiTypography-root MuiTypography-h1"
+          className="MuiTypography-root MuiTypography-h1 css-gw99sn-MuiTypography-root"
         >
           0
         </h1>
         <h3
-          className="MuiTypography-root MuiTypography-h3"
+          className="MuiTypography-root MuiTypography-h3 css-1kl9mnf-MuiTypography-root"
         >
           Day
         </h3>
@@ -67,12 +67,12 @@ exports[`screen: _app matches snapshot 1`] = `
         className="makeStyles-item-5"
       >
         <h1
-          className="MuiTypography-root MuiTypography-h1"
+          className="MuiTypography-root MuiTypography-h1 css-gw99sn-MuiTypography-root"
         >
           0
         </h1>
         <h3
-          className="MuiTypography-root MuiTypography-h3"
+          className="MuiTypography-root MuiTypography-h3 css-1kl9mnf-MuiTypography-root"
         >
           Hour
         </h3>
@@ -81,12 +81,12 @@ exports[`screen: _app matches snapshot 1`] = `
         className="makeStyles-item-5"
       >
         <h1
-          className="MuiTypography-root MuiTypography-h1"
+          className="MuiTypography-root MuiTypography-h1 css-gw99sn-MuiTypography-root"
         >
           0
         </h1>
         <h3
-          className="MuiTypography-root MuiTypography-h3"
+          className="MuiTypography-root MuiTypography-h3 css-1kl9mnf-MuiTypography-root"
         >
           Min
         </h3>
@@ -95,19 +95,19 @@ exports[`screen: _app matches snapshot 1`] = `
         className="makeStyles-item-5"
       >
         <h1
-          className="MuiTypography-root MuiTypography-h1"
+          className="MuiTypography-root MuiTypography-h1 css-gw99sn-MuiTypography-root"
         >
           0
         </h1>
         <h3
-          className="MuiTypography-root MuiTypography-h3"
+          className="MuiTypography-root MuiTypography-h3 css-1kl9mnf-MuiTypography-root"
         >
           Sec
         </h3>
       </div>
     </div>
     <h2
-      className="MuiTypography-root makeStyles-chain-2 MuiTypography-h2"
+      className="MuiTypography-root MuiTypography-h2 makeStyles-chain-2 css-dcgvbp-MuiTypography-root"
     >
       desmos-mainnet
     </h2>

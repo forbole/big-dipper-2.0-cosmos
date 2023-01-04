@@ -8,7 +8,7 @@ exports[`component: SingleSlotMobile matches snapshot 1`] = `
     className="makeStyles-item"
   >
     <h4
-      className="MuiTypography-root label MuiTypography-h4"
+      className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
     >
       height
     </h4>
@@ -20,7 +20,7 @@ exports[`component: SingleSlotMobile matches snapshot 1`] = `
     className="makeStyles-item"
   >
     <h4
-      className="MuiTypography-root label MuiTypography-h4"
+      className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
     >
       proposer
     </h4>
@@ -32,12 +32,12 @@ exports[`component: SingleSlotMobile matches snapshot 1`] = `
     className="makeStyles-item"
   >
     <h4
-      className="MuiTypography-root label MuiTypography-h4"
+      className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
     >
       hash
     </h4>
     <p
-      className="MuiTypography-root value MuiTypography-body1"
+      className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
     >
       hash
     </p>
@@ -46,12 +46,12 @@ exports[`component: SingleSlotMobile matches snapshot 1`] = `
     className="makeStyles-item"
   >
     <h4
-      className="MuiTypography-root label MuiTypography-h4"
+      className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
     >
       parentHash
     </h4>
     <p
-      className="MuiTypography-root value MuiTypography-body1"
+      className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
     >
       parentHash
     </p>
@@ -63,12 +63,12 @@ exports[`component: SingleSlotMobile matches snapshot 1`] = `
       className="makeStyles-item"
     >
       <h4
-        className="MuiTypography-root label MuiTypography-h4"
+        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
       >
         txs
       </h4>
       <p
-        className="MuiTypography-root value MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
       >
         txs
       </p>
@@ -77,12 +77,12 @@ exports[`component: SingleSlotMobile matches snapshot 1`] = `
       className="makeStyles-item"
     >
       <h4
-        className="MuiTypography-root label MuiTypography-h4"
+        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
       >
         time
       </h4>
       <p
-        className="MuiTypography-root value MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
       >
         time
       </p>

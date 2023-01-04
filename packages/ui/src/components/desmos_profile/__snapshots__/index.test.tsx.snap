@@ -36,7 +36,7 @@ exports[`component: DesmosProfile matches snapshot 1`] = `
       />
     </div>
     <p
-      className="MuiTypography-root makeStyles-link MuiTypography-body1"
+      className="MuiTypography-root MuiTypography-body1 makeStyles-link css-pfovru-MuiTypography-root"
       onClick={[Function]}
       role="button"
     >
@@ -47,12 +47,12 @@ exports[`component: DesmosProfile matches snapshot 1`] = `
     className="makeStyles-nicknameWrapper"
   >
     <h2
-      className="MuiTypography-root MuiTypography-h2"
+      className="MuiTypography-root MuiTypography-h2 css-dcgvbp-MuiTypography-root"
     >
       test_nickname
     </h2>
     <p
-      className="MuiTypography-root tag MuiTypography-body2"
+      className="MuiTypography-root MuiTypography-body2 tag css-1bkilrq-MuiTypography-root"
     >
       @
       test
@@ -60,7 +60,7 @@ exports[`component: DesmosProfile matches snapshot 1`] = `
   </div>
   <div>
     <p
-      className="MuiTypography-root MuiTypography-body1"
+      className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
     >
       test bio
     </p>

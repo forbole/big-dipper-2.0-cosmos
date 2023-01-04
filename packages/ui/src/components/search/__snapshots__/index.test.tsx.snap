@@ -6,16 +6,22 @@ exports[`screen: Nav/SearchBar it renders 1`] = `
   onSubmit={[Function]}
 >
   <div
-    className="MuiInputBase-root MuiInputBase-adornedStart"
+    className="MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-adornedStart css-1lapsgy-MuiInputBase-root"
     onClick={[Function]}
   >
     <div
-      className="MuiInputAdornment-root MuiInputAdornment-positionStart"
+      className="MuiInputAdornment-root MuiInputAdornment-positionStart css-ittuaa-MuiInputAdornment-root"
     >
+      <span
+        className="notranslate"
+      >
+        ​
+      </span>
       <svg
         aria-hidden={true}
-        className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+        className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
         color="#999999"
+        data-testid="SearchIcon"
         focusable="false"
         viewBox="0 0 24 24"
       >
@@ -26,7 +32,7 @@ exports[`screen: Nav/SearchBar it renders 1`] = `
     </div>
     <input
       aria-label="placeholder"
-      className="MuiInputBase-input MuiInputBase-inputAdornedStart"
+      className="MuiInputBase-input MuiInputBase-inputAdornedStart css-yz9k0d-MuiInputBase-input"
       onAnimationStart={[Function]}
       onBlur={[Function]}
       onChange={[Function]}
@@ -46,16 +52,22 @@ exports[`screen: Nav/SearchBar onChange 1`] = `
   onSubmit={[Function]}
 >
   <div
-    className="MuiInputBase-root MuiInputBase-adornedStart"
+    className="MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-adornedStart css-1lapsgy-MuiInputBase-root"
     onClick={[Function]}
   >
     <div
-      className="MuiInputAdornment-root MuiInputAdornment-positionStart"
+      className="MuiInputAdornment-root MuiInputAdornment-positionStart css-ittuaa-MuiInputAdornment-root"
     >
+      <span
+        className="notranslate"
+      >
+        ​
+      </span>
       <svg
         aria-hidden={true}
-        className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+        className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
         color="#999999"
+        data-testid="SearchIcon"
         focusable="false"
         viewBox="0 0 24 24"
       >
@@ -66,7 +78,7 @@ exports[`screen: Nav/SearchBar onChange 1`] = `
     </div>
     <input
       aria-label="placeholder"
-      className="MuiInputBase-input MuiInputBase-inputAdornedStart"
+      className="MuiInputBase-input MuiInputBase-inputAdornedStart css-yz9k0d-MuiInputBase-input"
       onAnimationStart={[Function]}
       onBlur={[Function]}
       onChange={[Function]}

@@ -9,7 +9,7 @@ exports[`screen: AccountDetails/Overview matches snapshot 1`] = `
     className="makeStyles-copyText makeStyles-item"
   >
     <p
-      className="MuiTypography-root label MuiTypography-body1"
+      className="MuiTypography-root MuiTypography-body1 label css-pfovru-MuiTypography-root"
     >
       address
     </p>
@@ -25,7 +25,7 @@ exports[`screen: AccountDetails/Overview matches snapshot 1`] = `
         onClick={[Function]}
       />
       <p
-        className="MuiTypography-root value MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
       >
         desmos1jrld5g99...y94nz
       </p>
@@ -35,7 +35,7 @@ exports[`screen: AccountDetails/Overview matches snapshot 1`] = `
     className="makeStyles-copyText makeStyles-item"
   >
     <p
-      className="MuiTypography-root label MuiTypography-body1"
+      className="MuiTypography-root MuiTypography-body1 label css-pfovru-MuiTypography-root"
     >
       rewardAddress
     </p>
@@ -47,7 +47,7 @@ exports[`screen: AccountDetails/Overview matches snapshot 1`] = `
         onClick={[Function]}
       />
       <p
-        className="MuiTypography-root value MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
       >
         desmos1jrld5g99...y94nz
       </p>

@@ -7,7 +7,7 @@ exports[`screen: Nav/Desktop hook toggles correctly 1`] = `
   onTouchEnd={[Function]}
 >
   <header
-    className="MuiPaper-root MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary makeStyles-appBar open mui-fixed MuiPaper-elevation4"
+    className="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionFixed makeStyles-appBar open mui-fixed css-1m11fdx-MuiPaper-root-MuiAppBar-root"
   >
     <div
       id="actionBar"
@@ -20,10 +20,10 @@ exports[`screen: Nav/Desktop hook toggles correctly 1`] = `
     />
   </header>
   <div
-    className="MuiDrawer-root MuiDrawer-docked makeStyles-drawer open makeStyles-drawerOpen"
+    className="MuiDrawer-root MuiDrawer-docked makeStyles-drawer open makeStyles-drawerOpen css-7ik032-MuiDrawer-docked"
   >
     <div
-      className="MuiPaper-root MuiDrawer-paper open makeStyles-drawerOpen MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft MuiPaper-elevation0"
+      className="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiDrawer-paper open makeStyles-drawerOpen MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft css-1ibis0h-MuiPaper-root-MuiDrawer-paper"
     >
       <svg
         className="makeStyles-logo"
@@ -45,7 +45,7 @@ exports[`screen: Nav/Desktop it renders 1`] = `
   onTouchEnd={[Function]}
 >
   <header
-    className="MuiPaper-root MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary makeStyles-appBar mui-fixed MuiPaper-elevation4"
+    className="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionFixed makeStyles-appBar mui-fixed css-1m11fdx-MuiPaper-root-MuiAppBar-root"
   >
     <div
       id="actionBar"
@@ -58,10 +58,10 @@ exports[`screen: Nav/Desktop it renders 1`] = `
     />
   </header>
   <div
-    className="MuiDrawer-root MuiDrawer-docked makeStyles-drawer closed makeStyles-drawerClose"
+    className="MuiDrawer-root MuiDrawer-docked makeStyles-drawer closed makeStyles-drawerClose css-7ik032-MuiDrawer-docked"
   >
     <div
-      className="MuiPaper-root MuiDrawer-paper closed makeStyles-drawerClose MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft MuiPaper-elevation0"
+      className="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiDrawer-paper closed makeStyles-drawerClose MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft css-1ibis0h-MuiPaper-root-MuiDrawer-paper"
     >
       <svg
         className="makeStyles-logo"

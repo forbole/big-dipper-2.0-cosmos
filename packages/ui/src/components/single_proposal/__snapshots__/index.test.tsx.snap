@@ -8,7 +8,7 @@ exports[`component: SingleProposal matches snapshot 1`] = `
     className="makeStyles-header"
   >
     <h4
-      className="MuiTypography-root makeStyles-id MuiTypography-h4"
+      className="MuiTypography-root MuiTypography-h4 makeStyles-id css-15yyl88-MuiTypography-root"
     >
       1
     </h4>
@@ -19,7 +19,7 @@ exports[`component: SingleProposal matches snapshot 1`] = `
         className="makeStyles-root makeStyles-zero"
       >
         <p
-          className="MuiTypography-root MuiTypography-body1"
+          className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
         >
           passed
         </p>
@@ -31,7 +31,7 @@ exports[`component: SingleProposal matches snapshot 1`] = `
       className="makeStyles-title"
     >
       <h3
-        className="MuiTypography-root value MuiTypography-h3"
+        className="MuiTypography-root MuiTypography-h3 value css-1kl9mnf-MuiTypography-root"
       >
         proposal-title
       </h3>
@@ -44,7 +44,7 @@ exports[`component: SingleProposal matches snapshot 1`] = `
       className="makeStyles-root makeStyles-zero"
     >
       <p
-        className="MuiTypography-root MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
       >
         passed
       </p>

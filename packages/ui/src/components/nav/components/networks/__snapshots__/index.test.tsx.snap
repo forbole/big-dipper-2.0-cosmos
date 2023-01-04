@@ -26,7 +26,7 @@ exports[`screen: Nav/Networks it renders 1`] = `
       className="network"
     >
       <h4
-        className="MuiTypography-root MuiTypography-h4"
+        className="MuiTypography-root MuiTypography-h4 css-15yyl88-MuiTypography-root"
       >
         Cosmos
       </h4>
@@ -43,7 +43,7 @@ exports[`screen: Nav/Networks it renders 1`] = `
             cosmoshub-4
           </p>
           <div
-            className="MuiTypography-root mainnet makeStyles-status MuiTypography-caption"
+            className="MuiTypography-root MuiTypography-caption mainnet makeStyles-status css-ru7l4l-MuiTypography-root"
           >
             Mainnet
           </div>
@@ -62,7 +62,7 @@ exports[`screen: Nav/Networks it renders 1`] = `
             stargate-final
           </p>
           <div
-            className="MuiTypography-root testnet makeStyles-status MuiTypography-caption"
+            className="MuiTypography-root MuiTypography-caption testnet makeStyles-status css-ru7l4l-MuiTypography-root"
           >
             Testnet
           </div>
@@ -81,7 +81,7 @@ exports[`screen: Nav/Networks it renders 1`] = `
             stargate-retired
           </p>
           <div
-            className="MuiTypography-root retired makeStyles-status MuiTypography-caption"
+            className="MuiTypography-root MuiTypography-caption retired makeStyles-status css-ru7l4l-MuiTypography-root"
           >
             Retired
           </div>
@@ -100,7 +100,7 @@ exports[`screen: Nav/Networks it renders 1`] = `
             other
           </p>
           <div
-            className="MuiTypography-root other makeStyles-status MuiTypography-caption"
+            className="MuiTypography-root MuiTypography-caption other makeStyles-status css-ru7l4l-MuiTypography-root"
           >
             Other
           </div>

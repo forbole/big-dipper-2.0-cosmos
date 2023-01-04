@@ -14,6 +14,7 @@ exports[`components: Pagination/Actions matches snapshot 1`] = `
       disabled={true}
       id="iconButton"
       onClick={[Function]}
+      size="large"
     >
       <svg
         className="makeStyles-prev"
@@ -28,6 +29,7 @@ exports[`components: Pagination/Actions matches snapshot 1`] = `
       disabled={true}
       id="iconButton"
       onClick={[Function]}
+      size="large"
     >
       <svg
         className="makeStyles-prev"
@@ -35,19 +37,19 @@ exports[`components: Pagination/Actions matches snapshot 1`] = `
     </div>
   </li>
   <li
-    className="MuiTypography-root makeStyles-button makeStyles-pageButton selected MuiTypography-body2"
+    className="MuiTypography-root MuiTypography-body2 makeStyles-button makeStyles-pageButton selected css-1bkilrq-MuiTypography-root"
     onClick={[Function]}
   >
     1
   </li>
   <li
-    className="MuiTypography-root makeStyles-button makeStyles-pageButton MuiTypography-body2"
+    className="MuiTypography-root MuiTypography-body2 makeStyles-button makeStyles-pageButton css-1bkilrq-MuiTypography-root"
     onClick={[Function]}
   >
     2
   </li>
   <li
-    className="MuiTypography-root makeStyles-button makeStyles-pageButton MuiTypography-body2"
+    className="MuiTypography-root MuiTypography-body2 makeStyles-button makeStyles-pageButton css-1bkilrq-MuiTypography-root"
     onClick={[Function]}
   >
     3
@@ -60,6 +62,7 @@ exports[`components: Pagination/Actions matches snapshot 1`] = `
       disabled={false}
       id="iconButton"
       onClick={[Function]}
+      size="large"
     >
       <svg />
     </div>
@@ -74,6 +77,7 @@ exports[`components: Pagination/Actions matches snapshot 1`] = `
       disabled={false}
       id="iconButton"
       onClick={[Function]}
+      size="large"
     >
       <svg />
     </div>

@@ -14,7 +14,7 @@ exports[`screen: Nav/SingleNetwork it renders 1`] = `
       desmos-mainnet
     </p>
     <div
-      className="MuiTypography-root makeStyles-status MuiTypography-caption"
+      className="MuiTypography-root MuiTypography-caption makeStyles-status css-ru7l4l-MuiTypography-root"
     >
       desmos
     </div>

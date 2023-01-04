@@ -11,12 +11,12 @@ exports[`screen: DesmosProfile/Mobile it renders 1`] = `
       className="makeStyles-item"
     >
       <h4
-        className="MuiTypography-root label MuiTypography-h4"
+        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
       >
         network
       </h4>
       <p
-        className="MuiTypography-root value MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
       >
         
       </p>
@@ -25,12 +25,12 @@ exports[`screen: DesmosProfile/Mobile it renders 1`] = `
       className="makeStyles-item"
     >
       <h4
-        className="MuiTypography-root label MuiTypography-h4"
+        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
       >
         identifier
       </h4>
       <p
-        className="MuiTypography-root value MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
       >
         
       </p>
@@ -39,12 +39,12 @@ exports[`screen: DesmosProfile/Mobile it renders 1`] = `
       className="makeStyles-item"
     >
       <h4
-        className="MuiTypography-root label MuiTypography-h4"
+        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
       >
         creationTime
       </h4>
       <p
-        className="MuiTypography-root value MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
       >
         2020-08-10 12:00:00
       </p>

@@ -9,13 +9,13 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
     className="makeStyles-label"
   >
     <h2
-      className="MuiTypography-root MuiTypography-h2"
+      className="MuiTypography-root MuiTypography-h2 css-dcgvbp-MuiTypography-root"
     >
       latestBlocks
     </h2>
     <a
       aria-label="see more blocks"
-      className="MuiTypography-root button MuiTypography-h4"
+      className="MuiTypography-root MuiTypography-h4 button css-15yyl88-MuiTypography-root"
       href="/blocks"
       onClick={[Function]}
       onMouseEnter={[Function]}
@@ -27,8 +27,8 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
   <div
     className="makeStyles-root"
   >
-    <div
-      className="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+    <span
+      className="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-15gxqrx-MuiCircularProgress-root"
       role="progressbar"
       style={
         {
@@ -38,11 +38,11 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
       }
     >
       <svg
-        className="MuiCircularProgress-svg"
+        className="MuiCircularProgress-svg css-1idz92c-MuiCircularProgress-svg"
         viewBox="22 22 44 44"
       >
         <circle
-          className="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+          className="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-176wh8e-MuiCircularProgress-circle"
           cx={44}
           cy={44}
           fill="none"
@@ -51,7 +51,7 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
           style={{}}
         />
       </svg>
-    </div>
+    </span>
   </div>
 </div>
 `;

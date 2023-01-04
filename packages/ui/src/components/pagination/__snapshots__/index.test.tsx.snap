@@ -2,60 +2,42 @@
 
 exports[`components: Pagination matches snapshot 1`] = `
 <div
-  className="MuiTablePagination-root makeStyles-root"
+  className="MuiTablePagination-root makeStyles-root css-1tpi3qq-MuiTablePagination-root"
 >
   <div
-    className="MuiToolbar-root MuiToolbar-regular MuiTablePagination-toolbar MuiToolbar-gutters"
+    className="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular MuiTablePagination-toolbar css-1yn2m31-MuiToolbar-root-MuiTablePagination-toolbar"
   >
     <div
-      className="MuiTablePagination-spacer"
+      className="MuiTablePagination-spacer css-1psng7p-MuiTablePagination-spacer"
     />
     <p
-      className="MuiTypography-root MuiTablePagination-caption MuiTypography-body2 MuiTypography-colorInherit"
+      className="MuiTablePagination-displayedRows css-l6z7jg-MuiTablePagination-displayedRows"
     >
       paginationLabelOne
     </p>
     <div
-      backIconButtonProps={
-        {
-          "aria-label": "Previous page",
-          "title": "Previous page",
-        }
-      }
       className="makeStyles-mobile"
       count={100}
+      getItemAriaLabel={[Function]}
       handleRowsPerPageChange={[MockFunction]}
       id="Actions"
-      nextIconButtonProps={
-        {
-          "aria-label": "Next page",
-          "title": "Next page",
-        }
-      }
       onPageChange={[MockFunction]}
       page={0}
       rowsPerPage={5}
+      showFirstButton={false}
+      showLastButton={false}
     />
     <div
-      backIconButtonProps={
-        {
-          "aria-label": "Previous page",
-          "title": "Previous page",
-        }
-      }
       className="makeStyles-tablet"
       count={100}
+      getItemAriaLabel={[Function]}
       handleRowsPerPageChange={[MockFunction]}
       id="Actions"
-      nextIconButtonProps={
-        {
-          "aria-label": "Next page",
-          "title": "Next page",
-        }
-      }
       onPageChange={[MockFunction]}
       page={0}
       rowsPerPage={5}
+      showFirstButton={false}
+      showLastButton={false}
     />
   </div>
 </div>

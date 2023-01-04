@@ -61,7 +61,7 @@ exports[`screen: Proposals/List matches snapshot 1`] = `
                 className="makeStyles-header"
               >
                 <h4
-                  className="MuiTypography-root makeStyles-id MuiTypography-h4"
+                  className="MuiTypography-root MuiTypography-h4 makeStyles-id css-15yyl88-MuiTypography-root"
                 >
                   #3
                 </h4>
@@ -72,7 +72,7 @@ exports[`screen: Proposals/List matches snapshot 1`] = `
                     className="makeStyles-root makeStyles-four"
                   >
                     <p
-                      className="MuiTypography-root MuiTypography-body1"
+                      className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
                     >
                       passed
                     </p>
@@ -84,7 +84,7 @@ exports[`screen: Proposals/List matches snapshot 1`] = `
                   className="makeStyles-title"
                 >
                   <a
-                    className="MuiTypography-root value MuiTypography-h3"
+                    className="MuiTypography-root MuiTypography-h3 value css-1kl9mnf-MuiTypography-root"
                     href="/proposals/3"
                     onClick={[Function]}
                     onMouseEnter={[Function]}
@@ -94,7 +94,7 @@ exports[`screen: Proposals/List matches snapshot 1`] = `
                   </a>
                 </div>
                 <p
-                  className="MuiTypography-root makeStyles-content MuiTypography-body2"
+                  className="MuiTypography-root MuiTypography-body2 makeStyles-content css-1bkilrq-MuiTypography-root"
                 >
                   Update max validators
                 </p>
@@ -106,7 +106,7 @@ exports[`screen: Proposals/List matches snapshot 1`] = `
                   className="makeStyles-root makeStyles-four"
                 >
                   <p
-                    className="MuiTypography-root MuiTypography-body1"
+                    className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
                   >
                     passed
                   </p>
@@ -114,7 +114,7 @@ exports[`screen: Proposals/List matches snapshot 1`] = `
               </span>
             </div>
             <hr
-              className="MuiDivider-root"
+              className="MuiDivider-root MuiDivider-fullWidth css-l3fh2f-MuiDivider-root"
             />
           </div>
         </div>
@@ -138,7 +138,7 @@ exports[`screen: Proposals/List matches snapshot 1`] = `
                 className="makeStyles-header"
               >
                 <h4
-                  className="MuiTypography-root makeStyles-id MuiTypography-h4"
+                  className="MuiTypography-root MuiTypography-h4 makeStyles-id css-15yyl88-MuiTypography-root"
                 >
                   #7
                 </h4>
@@ -149,7 +149,7 @@ exports[`screen: Proposals/List matches snapshot 1`] = `
                     className="makeStyles-root makeStyles-five"
                   >
                     <p
-                      className="MuiTypography-root MuiTypography-body1"
+                      className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
                     >
                       rejected
                     </p>
@@ -161,7 +161,7 @@ exports[`screen: Proposals/List matches snapshot 1`] = `
                   className="makeStyles-title"
                 >
                   <a
-                    className="MuiTypography-root value MuiTypography-h3"
+                    className="MuiTypography-root MuiTypography-h3 value css-1kl9mnf-MuiTypography-root"
                     href="/proposals/7"
                     onClick={[Function]}
                     onMouseEnter={[Function]}
@@ -171,7 +171,7 @@ exports[`screen: Proposals/List matches snapshot 1`] = `
                   </a>
                 </div>
                 <p
-                  className="MuiTypography-root makeStyles-content MuiTypography-body2"
+                  className="MuiTypography-root MuiTypography-body2 makeStyles-content css-1bkilrq-MuiTypography-root"
                 >
                   Update max validators
                 </p>
@@ -183,7 +183,7 @@ exports[`screen: Proposals/List matches snapshot 1`] = `
                   className="makeStyles-root makeStyles-five"
                 >
                   <p
-                    className="MuiTypography-root MuiTypography-body1"
+                    className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
                   >
                     rejected
                   </p>

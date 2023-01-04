@@ -5,7 +5,7 @@ exports[`screen: Nav/TitleBar hook toggles correctly 1`] = `
   className="makeStyles-root"
 >
   <h1
-    className="MuiTypography-root MuiTypography-h1"
+    className="MuiTypography-root MuiTypography-h1 css-gw99sn-MuiTypography-root"
   >
     hello world
   </h1>
@@ -16,12 +16,12 @@ exports[`screen: Nav/TitleBar hook toggles correctly 1`] = `
       className="makeStyles-item"
     >
       <p
-        className="MuiTypography-root label MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 label css-pfovru-MuiTypography-root"
       >
         marketCap
       </p>
       <p
-        className="MuiTypography-root MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
       >
         N/A
       </p>
@@ -30,12 +30,12 @@ exports[`screen: Nav/TitleBar hook toggles correctly 1`] = `
       className="makeStyles-item"
     >
       <p
-        className="MuiTypography-root label MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 label css-pfovru-MuiTypography-root"
       >
         inflation
       </p>
       <p
-        className="MuiTypography-root MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
       >
         0%
       </p>
@@ -44,12 +44,12 @@ exports[`screen: Nav/TitleBar hook toggles correctly 1`] = `
       className="makeStyles-item"
     >
       <p
-        className="MuiTypography-root label MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 label css-pfovru-MuiTypography-root"
       >
         apr
       </p>
       <p
-        className="MuiTypography-root MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
       >
         N/A
       </p>
@@ -58,12 +58,12 @@ exports[`screen: Nav/TitleBar hook toggles correctly 1`] = `
       className="makeStyles-item"
     >
       <p
-        className="MuiTypography-root label MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 label css-pfovru-MuiTypography-root"
       >
         supply
       </p>
       <p
-        className="MuiTypography-root MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
       >
         N/A
       </p>
@@ -77,7 +77,7 @@ exports[`screen: Nav/TitleBar it renders 1`] = `
   className="makeStyles-root"
 >
   <h1
-    className="MuiTypography-root MuiTypography-h1"
+    className="MuiTypography-root MuiTypography-h1 css-gw99sn-MuiTypography-root"
   >
     hello world
   </h1>
@@ -88,12 +88,12 @@ exports[`screen: Nav/TitleBar it renders 1`] = `
       className="makeStyles-item"
     >
       <p
-        className="MuiTypography-root label MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 label css-pfovru-MuiTypography-root"
       >
         marketCap
       </p>
       <p
-        className="MuiTypography-root MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
       >
         N/A
       </p>
@@ -102,12 +102,12 @@ exports[`screen: Nav/TitleBar it renders 1`] = `
       className="makeStyles-item"
     >
       <p
-        className="MuiTypography-root label MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 label css-pfovru-MuiTypography-root"
       >
         inflation
       </p>
       <p
-        className="MuiTypography-root MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
       >
         0%
       </p>
@@ -116,12 +116,12 @@ exports[`screen: Nav/TitleBar it renders 1`] = `
       className="makeStyles-item"
     >
       <p
-        className="MuiTypography-root label MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 label css-pfovru-MuiTypography-root"
       >
         apr
       </p>
       <p
-        className="MuiTypography-root MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
       >
         N/A
       </p>
@@ -130,12 +130,12 @@ exports[`screen: Nav/TitleBar it renders 1`] = `
       className="makeStyles-item"
     >
       <p
-        className="MuiTypography-root label MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 label css-pfovru-MuiTypography-root"
       >
         supply
       </p>
       <p
-        className="MuiTypography-root MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
       >
         N/A
       </p>

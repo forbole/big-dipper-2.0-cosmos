@@ -9,7 +9,7 @@ exports[`screen: BlockDetails/Transactions matches snapshot 1`] = `
     className="makeStyles-header"
   >
     <h2
-      className="MuiTypography-root MuiTypography-h2"
+      className="MuiTypography-root MuiTypography-h2 css-dcgvbp-MuiTypography-root"
     >
       transactions
     </h2>

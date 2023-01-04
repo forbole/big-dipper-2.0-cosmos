@@ -31,7 +31,7 @@ exports[`screen: ValidatorDetails/Profile matches snapshot 1`] = `
             className="header__content"
           >
             <h2
-              className="MuiTypography-root MuiTypography-h2"
+              className="MuiTypography-root MuiTypography-h2 css-dcgvbp-MuiTypography-root"
             >
               validator
             </h2>
@@ -49,19 +49,19 @@ exports[`screen: ValidatorDetails/Profile matches snapshot 1`] = `
     </div>
   </div>
   <hr
-    className="MuiDivider-root makeStyles-divider"
+    className="MuiDivider-root MuiDivider-fullWidth makeStyles-divider css-l3fh2f-MuiDivider-root"
   />
   <div>
     <div
       className="makeStyles-item"
     >
       <h4
-        className="MuiTypography-root label MuiTypography-h4"
+        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
       >
         website
       </h4>
       <a
-        className="MuiTypography-root value MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
         href="//"
         rel="noreferrer"
         target="_blank"

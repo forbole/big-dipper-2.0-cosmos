@@ -12,20 +12,20 @@ exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
       className="makeStyles-mobileOptions"
     >
       <h2
-        className="MuiTypography-root MuiTypography-h2"
+        className="MuiTypography-root MuiTypography-h2 css-dcgvbp-MuiTypography-root"
       >
         messages
       </h2>
       <label
-        className="MuiFormControlLabel-root"
+        className="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
       >
         <span
-          className="MuiSwitch-root"
+          className="MuiSwitch-root MuiSwitch-sizeMedium css-julti5-MuiSwitch-root"
         >
           <span
-            aria-disabled={false}
-            className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary"
+            className="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-33zw0k-MuiButtonBase-root-MuiSwitch-switchBase"
             onBlur={[Function]}
+            onContextMenu={[Function]}
             onDragLeave={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
@@ -38,26 +38,22 @@ exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
             onTouchStart={[Function]}
             tabIndex={null}
           >
+            <input
+              checked={false}
+              className="PrivateSwitchBase-input MuiSwitch-input css-1m9pwf3"
+              onChange={[Function]}
+              type="checkbox"
+            />
             <span
-              className="MuiIconButton-label"
-            >
-              <input
-                checked={false}
-                className="PrivateSwitchBase-input MuiSwitch-input"
-                onChange={[Function]}
-                type="checkbox"
-              />
-              <span
-                className="MuiSwitch-thumb"
-              />
-            </span>
+              className="MuiSwitch-thumb css-jsexje-MuiSwitch-thumb"
+            />
           </span>
           <span
-            className="MuiSwitch-track"
+            className="MuiSwitch-track css-1yjjitx-MuiSwitch-track"
           />
         </span>
         <span
-          className="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+          className="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-pfovru-MuiTypography-root"
         >
           raw
         </span>
@@ -67,15 +63,15 @@ exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
       className="makeStyles-desktopOptions"
     >
       <label
-        className="MuiFormControlLabel-root"
+        className="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
       >
         <span
-          className="MuiSwitch-root"
+          className="MuiSwitch-root MuiSwitch-sizeMedium css-julti5-MuiSwitch-root"
         >
           <span
-            aria-disabled={false}
-            className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary"
+            className="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-33zw0k-MuiButtonBase-root-MuiSwitch-switchBase"
             onBlur={[Function]}
+            onContextMenu={[Function]}
             onDragLeave={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
@@ -88,26 +84,22 @@ exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
             onTouchStart={[Function]}
             tabIndex={null}
           >
+            <input
+              checked={false}
+              className="PrivateSwitchBase-input MuiSwitch-input css-1m9pwf3"
+              onChange={[Function]}
+              type="checkbox"
+            />
             <span
-              className="MuiIconButton-label"
-            >
-              <input
-                checked={false}
-                className="PrivateSwitchBase-input MuiSwitch-input"
-                onChange={[Function]}
-                type="checkbox"
-              />
-              <span
-                className="MuiSwitch-thumb"
-              />
-            </span>
+              className="MuiSwitch-thumb css-jsexje-MuiSwitch-thumb"
+            />
           </span>
           <span
-            className="MuiSwitch-track"
+            className="MuiSwitch-track css-1yjjitx-MuiSwitch-track"
           />
         </span>
         <span
-          className="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+          className="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-pfovru-MuiTypography-root"
         >
           raw
         </span>
@@ -120,7 +112,7 @@ exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
     </div>
   </div>
   <hr
-    className="MuiDivider-root"
+    className="MuiDivider-root MuiDivider-fullWidth css-l3fh2f-MuiDivider-root"
   />
   <div
     className="makeStyles-list"
@@ -178,14 +170,14 @@ exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
                 className="msg"
               >
                 <p
-                  className="MuiTypography-root MuiTypography-body1"
+                  className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
                 >
                   message_contents:txSendContent
                 </p>
               </span>
             </div>
             <hr
-              className="MuiDivider-root"
+              className="MuiDivider-root MuiDivider-fullWidth css-l3fh2f-MuiDivider-root"
             />
           </div>
         </div>

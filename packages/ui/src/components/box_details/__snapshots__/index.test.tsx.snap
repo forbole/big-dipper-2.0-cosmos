@@ -8,7 +8,7 @@ exports[`components: BoxDetails matches snapshot 1`] = `
     className="makeStyles-header makeStyles-item"
   >
     <h2
-      className="MuiTypography-root MuiTypography-h2"
+      className="MuiTypography-root MuiTypography-h2 css-dcgvbp-MuiTypography-root"
     >
       overview
     </h2>
@@ -17,12 +17,12 @@ exports[`components: BoxDetails matches snapshot 1`] = `
     className="makeStyles-item"
   >
     <p
-      className="MuiTypography-root label MuiTypography-body1"
+      className="MuiTypography-root MuiTypography-body1 label css-pfovru-MuiTypography-root"
     >
       slot
     </p>
     <p
-      className="MuiTypography-root detail MuiTypography-body1"
+      className="MuiTypography-root MuiTypography-body1 detail css-pfovru-MuiTypography-root"
     >
       100,000,000
     </p>
@@ -31,12 +31,12 @@ exports[`components: BoxDetails matches snapshot 1`] = `
     className="makeStyles-item"
   >
     <p
-      className="MuiTypography-root label MuiTypography-body1"
+      className="MuiTypography-root MuiTypography-body1 label css-pfovru-MuiTypography-root"
     >
       hash
     </p>
     <p
-      className="MuiTypography-root detail MuiTypography-body1"
+      className="MuiTypography-root MuiTypography-body1 detail css-pfovru-MuiTypography-root"
     >
       76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857
     </p>
@@ -52,7 +52,7 @@ exports[`components: BoxDetails matches snapshot with title actions 1`] = `
     className="makeStyles-header makeStyles-item"
   >
     <h2
-      className="MuiTypography-root MuiTypography-h2"
+      className="MuiTypography-root MuiTypography-h2 css-dcgvbp-MuiTypography-root"
     >
       overview
     </h2>
@@ -68,12 +68,12 @@ exports[`components: BoxDetails matches snapshot with title actions 1`] = `
     className="makeStyles-item"
   >
     <p
-      className="MuiTypography-root label MuiTypography-body1"
+      className="MuiTypography-root MuiTypography-body1 label css-pfovru-MuiTypography-root"
     >
       slot
     </p>
     <p
-      className="MuiTypography-root detail MuiTypography-body1"
+      className="MuiTypography-root MuiTypography-body1 detail css-pfovru-MuiTypography-root"
     >
       100,000,000
     </p>
@@ -82,12 +82,12 @@ exports[`components: BoxDetails matches snapshot with title actions 1`] = `
     className="makeStyles-item"
   >
     <p
-      className="MuiTypography-root label MuiTypography-body1"
+      className="MuiTypography-root MuiTypography-body1 label css-pfovru-MuiTypography-root"
     >
       hash
     </p>
     <p
-      className="MuiTypography-root detail MuiTypography-body1"
+      className="MuiTypography-root MuiTypography-body1 detail css-pfovru-MuiTypography-root"
     >
       76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857
     </p>

@@ -41,7 +41,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <h4
-          className="MuiTypography-root MuiTypography-h4"
+          className="MuiTypography-root MuiTypography-h4 css-15yyl88-MuiTypography-root"
         >
           height
         </h4>
@@ -60,7 +60,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <h4
-          className="MuiTypography-root MuiTypography-h4"
+          className="MuiTypography-root MuiTypography-h4 css-15yyl88-MuiTypography-root"
         >
           proposer
         </h4>
@@ -79,7 +79,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <h4
-          className="MuiTypography-root MuiTypography-h4"
+          className="MuiTypography-root MuiTypography-h4 css-15yyl88-MuiTypography-root"
         >
           hash
         </h4>
@@ -98,7 +98,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <h4
-          className="MuiTypography-root MuiTypography-h4 MuiTypography-alignRight"
+          className="MuiTypography-root MuiTypography-h4 MuiTypography-alignRight css-onu55c-MuiTypography-root"
         >
           txs
         </h4>
@@ -117,7 +117,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <h4
-          className="MuiTypography-root MuiTypography-h4 MuiTypography-alignRight"
+          className="MuiTypography-root MuiTypography-h4 MuiTypography-alignRight css-onu55c-MuiTypography-root"
         >
           time
         </h4>
@@ -162,10 +162,10 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <div
-          className="MuiTypography-root MuiTypography-body1"
+          className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
         >
           <a
-            className="MuiTypography-root value MuiTypography-body1"
+            className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
             href="/blocks/300"
             onClick={[Function]}
             onMouseEnter={[Function]}
@@ -189,7 +189,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <div
-          className="MuiTypography-root MuiTypography-body1"
+          className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
         >
           <div
             address="address"
@@ -213,7 +213,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <div
-          className="MuiTypography-root MuiTypography-body1"
+          className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
         >
           hash
         </div>
@@ -232,7 +232,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <div
-          className="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight"
+          className="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight css-3n46jc-MuiTypography-root"
         >
           2
         </div>
@@ -251,7 +251,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <div
-          className="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight"
+          className="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight css-3n46jc-MuiTypography-root"
         >
           1 day ago
         </div>
@@ -270,10 +270,10 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <div
-          className="MuiTypography-root MuiTypography-body1"
+          className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
         >
           <a
-            className="MuiTypography-root value MuiTypography-body1"
+            className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
             href="/blocks/301"
             onClick={[Function]}
             onMouseEnter={[Function]}
@@ -297,7 +297,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <div
-          className="MuiTypography-root MuiTypography-body1"
+          className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
         >
           <div
             address="address"
@@ -321,7 +321,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <div
-          className="MuiTypography-root MuiTypography-body1"
+          className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
         >
           hash
         </div>
@@ -340,7 +340,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <div
-          className="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight"
+          className="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight css-3n46jc-MuiTypography-root"
         >
           2
         </div>
@@ -359,7 +359,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <div
-          className="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight"
+          className="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight css-3n46jc-MuiTypography-root"
         >
           1 day ago
         </div>

@@ -4,8 +4,8 @@ exports[`components: Loading matches snapshot 1`] = `
 <div
   className="makeStyles-root"
 >
-  <div
-    className="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+  <span
+    className="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-15gxqrx-MuiCircularProgress-root"
     role="progressbar"
     style={
       {
@@ -15,11 +15,11 @@ exports[`components: Loading matches snapshot 1`] = `
     }
   >
     <svg
-      className="MuiCircularProgress-svg"
+      className="MuiCircularProgress-svg css-1idz92c-MuiCircularProgress-svg"
       viewBox="22 22 44 44"
     >
       <circle
-        className="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+        className="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-176wh8e-MuiCircularProgress-circle"
         cx={44}
         cy={44}
         fill="none"
@@ -28,6 +28,6 @@ exports[`components: Loading matches snapshot 1`] = `
         style={{}}
       />
     </svg>
-  </div>
+  </span>
 </div>
 `;

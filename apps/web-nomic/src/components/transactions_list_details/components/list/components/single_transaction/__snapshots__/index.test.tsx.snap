@@ -8,7 +8,7 @@ exports[`components: SingleTransaction matches snapshot 1`] = `
     className="makeStyles-timeContainer"
   >
     <p
-      className="MuiTypography-root value MuiTypography-body1"
+      className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
     >
       <div>
         hash
@@ -25,7 +25,7 @@ exports[`components: SingleTransaction matches snapshot 1`] = `
         className="makeStyles-item block"
       >
         <h4
-          className="MuiTypography-root label MuiTypography-h4"
+          className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
         >
           block
         </h4>
@@ -37,19 +37,19 @@ exports[`components: SingleTransaction matches snapshot 1`] = `
         className="makeStyles-item time"
       >
         <h4
-          className="MuiTypography-root label MuiTypography-h4"
+          className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
         >
           time
         </h4>
         <p
-          className="MuiTypography-root value MuiTypography-body1"
+          className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
         >
           2021-07-13T08:00:00
         </p>
       </div>
     </div>
     <hr
-      className="MuiDivider-root"
+      className="MuiDivider-root MuiDivider-fullWidth css-4mvhxe-MuiDivider-root"
     />
   </div>
 </div>

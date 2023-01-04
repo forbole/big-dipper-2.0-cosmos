@@ -8,7 +8,7 @@ exports[`component: SingleTransactionMobile matches snapshot 1`] = `
     className="makeStyles-item"
   >
     <h4
-      className="MuiTypography-root label MuiTypography-h4"
+      className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
     >
       block
     </h4>
@@ -20,12 +20,12 @@ exports[`component: SingleTransactionMobile matches snapshot 1`] = `
     className="makeStyles-item"
   >
     <h4
-      className="MuiTypography-root label MuiTypography-h4"
+      className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
     >
       hash
     </h4>
     <p
-      className="MuiTypography-root value MuiTypography-body1"
+      className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
     >
       <div>
         1572D5F78D0192BC59E6BD99875D7796A39B1CE0CEF2E106D586CCCEF5C75317
@@ -39,12 +39,12 @@ exports[`component: SingleTransactionMobile matches snapshot 1`] = `
       className="makeStyles-item"
     >
       <h4
-        className="MuiTypography-root label MuiTypography-h4"
+        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
       >
         messages
       </h4>
       <p
-        className="MuiTypography-root value MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
       >
         2
       </p>
@@ -53,7 +53,7 @@ exports[`component: SingleTransactionMobile matches snapshot 1`] = `
       className="makeStyles-item"
     >
       <h4
-        className="MuiTypography-root label MuiTypography-h4"
+        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
       >
         result
       </h4>
@@ -62,17 +62,18 @@ exports[`component: SingleTransactionMobile matches snapshot 1`] = `
       >
         <svg
           aria-hidden={true}
-          className="MuiSvgIcon-root"
+          className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
           color="#999999"
+          data-testid="CheckCircleIcon"
           focusable="false"
           viewBox="0 0 24 24"
         >
           <path
-            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
           />
         </svg>
         <p
-          className="MuiTypography-root MuiTypography-body1"
+          className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
         >
           success
         </p>
@@ -83,12 +84,12 @@ exports[`component: SingleTransactionMobile matches snapshot 1`] = `
     className="makeStyles-item"
   >
     <h4
-      className="MuiTypography-root label MuiTypography-h4"
+      className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
     >
       time
     </h4>
     <p
-      className="MuiTypography-root value MuiTypography-body1"
+      className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
     >
       2022-02-19T19:03:14.969688
     </p>

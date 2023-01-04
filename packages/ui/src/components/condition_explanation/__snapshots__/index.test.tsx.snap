@@ -5,7 +5,7 @@ exports[`components: ConditionExplanation matches snapshot 1`] = `
   className="makeStyles-root"
 >
   <p
-    className="MuiTypography-root MuiTypography-body1"
+    className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
   >
     conditionExplanation
   </p>
@@ -16,7 +16,7 @@ exports[`components: ConditionExplanation matches snapshot 1`] = `
       className="makeStyles-item"
     >
       <p
-        className="MuiTypography-root MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
       >
         90% - 100%
       </p>
@@ -28,7 +28,7 @@ exports[`components: ConditionExplanation matches snapshot 1`] = `
       className="makeStyles-item"
     >
       <p
-        className="MuiTypography-root MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
       >
         70% - 90%
       </p>
@@ -40,7 +40,7 @@ exports[`components: ConditionExplanation matches snapshot 1`] = `
       className="makeStyles-item"
     >
       <p
-        className="MuiTypography-root MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
       >
         1% - 70%
       </p>
@@ -52,7 +52,7 @@ exports[`components: ConditionExplanation matches snapshot 1`] = `
       className="makeStyles-item"
     >
       <p
-        className="MuiTypography-root MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
       >
         0%
       </p>

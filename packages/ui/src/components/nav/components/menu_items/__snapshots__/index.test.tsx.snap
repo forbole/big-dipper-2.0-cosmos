@@ -2,14 +2,14 @@
 
 exports[`screen: Nav/MenuItems it renders 1`] = `
 <ul
-  className="MuiList-root MuiList-padding"
+  className="MuiList-root MuiList-padding css-h4y409-MuiList-root"
 >
   <a
-    aria-disabled={false}
-    className="MuiButtonBase-root MuiListItem-root makeStyles-root MuiListItem-gutters MuiListItem-button"
+    className="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-padding MuiListItem-button makeStyles-root css-1ujciva-MuiButtonBase-root-MuiListItem-root"
     href="/"
     onBlur={[Function]}
     onClick={[Function]}
+    onContextMenu={[Function]}
     onDragLeave={[Function]}
     onFocus={[Function]}
     onKeyDown={[Function]}
@@ -24,7 +24,7 @@ exports[`screen: Nav/MenuItems it renders 1`] = `
     tabIndex={0}
   >
     <div
-      className="MuiListItemIcon-root"
+      className="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
     >
       <svg
         height={24}
@@ -32,21 +32,21 @@ exports[`screen: Nav/MenuItems it renders 1`] = `
       />
     </div>
     <div
-      className="MuiListItemText-root"
+      className="MuiListItemText-root css-tlelie-MuiListItemText-root"
     >
       <span
-        className="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+        className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-1x35mvf-MuiTypography-root"
       >
         overview
       </span>
     </div>
   </a>
   <a
-    aria-disabled={false}
-    className="MuiButtonBase-root MuiListItem-root makeStyles-root MuiListItem-gutters MuiListItem-button"
+    className="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-padding MuiListItem-button makeStyles-root css-1ujciva-MuiButtonBase-root-MuiListItem-root"
     href="/blocks"
     onBlur={[Function]}
     onClick={[Function]}
+    onContextMenu={[Function]}
     onDragLeave={[Function]}
     onFocus={[Function]}
     onKeyDown={[Function]}
@@ -61,7 +61,7 @@ exports[`screen: Nav/MenuItems it renders 1`] = `
     tabIndex={0}
   >
     <div
-      className="MuiListItemIcon-root"
+      className="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
     >
       <svg
         height={24}
@@ -69,21 +69,21 @@ exports[`screen: Nav/MenuItems it renders 1`] = `
       />
     </div>
     <div
-      className="MuiListItemText-root"
+      className="MuiListItemText-root css-tlelie-MuiListItemText-root"
     >
       <span
-        className="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+        className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-1x35mvf-MuiTypography-root"
       >
         blocks
       </span>
     </div>
   </a>
   <a
-    aria-disabled={false}
-    className="MuiButtonBase-root MuiListItem-root makeStyles-root MuiListItem-gutters MuiListItem-button"
+    className="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-padding MuiListItem-button makeStyles-root css-1ujciva-MuiButtonBase-root-MuiListItem-root"
     href="/validators"
     onBlur={[Function]}
     onClick={[Function]}
+    onContextMenu={[Function]}
     onDragLeave={[Function]}
     onFocus={[Function]}
     onKeyDown={[Function]}
@@ -98,7 +98,7 @@ exports[`screen: Nav/MenuItems it renders 1`] = `
     tabIndex={0}
   >
     <div
-      className="MuiListItemIcon-root"
+      className="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
     >
       <svg
         height={24}
@@ -106,21 +106,21 @@ exports[`screen: Nav/MenuItems it renders 1`] = `
       />
     </div>
     <div
-      className="MuiListItemText-root"
+      className="MuiListItemText-root css-tlelie-MuiListItemText-root"
     >
       <span
-        className="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+        className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-1x35mvf-MuiTypography-root"
       >
         validators
       </span>
     </div>
   </a>
   <a
-    aria-disabled={false}
-    className="MuiButtonBase-root MuiListItem-root makeStyles-root MuiListItem-gutters MuiListItem-button"
+    className="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-padding MuiListItem-button makeStyles-root css-1ujciva-MuiButtonBase-root-MuiListItem-root"
     href="/transactions"
     onBlur={[Function]}
     onClick={[Function]}
+    onContextMenu={[Function]}
     onDragLeave={[Function]}
     onFocus={[Function]}
     onKeyDown={[Function]}
@@ -135,7 +135,7 @@ exports[`screen: Nav/MenuItems it renders 1`] = `
     tabIndex={0}
   >
     <div
-      className="MuiListItemIcon-root"
+      className="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
     >
       <svg
         height={24}
@@ -143,21 +143,21 @@ exports[`screen: Nav/MenuItems it renders 1`] = `
       />
     </div>
     <div
-      className="MuiListItemText-root"
+      className="MuiListItemText-root css-tlelie-MuiListItemText-root"
     >
       <span
-        className="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+        className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-1x35mvf-MuiTypography-root"
       >
         transactions
       </span>
     </div>
   </a>
   <a
-    aria-disabled={false}
-    className="MuiButtonBase-root MuiListItem-root makeStyles-root MuiListItem-gutters MuiListItem-button"
+    className="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-padding MuiListItem-button makeStyles-root css-1ujciva-MuiButtonBase-root-MuiListItem-root"
     href="/proposals"
     onBlur={[Function]}
     onClick={[Function]}
+    onContextMenu={[Function]}
     onDragLeave={[Function]}
     onFocus={[Function]}
     onKeyDown={[Function]}
@@ -172,7 +172,7 @@ exports[`screen: Nav/MenuItems it renders 1`] = `
     tabIndex={0}
   >
     <div
-      className="MuiListItemIcon-root"
+      className="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
     >
       <svg
         height={24}
@@ -180,21 +180,21 @@ exports[`screen: Nav/MenuItems it renders 1`] = `
       />
     </div>
     <div
-      className="MuiListItemText-root"
+      className="MuiListItemText-root css-tlelie-MuiListItemText-root"
     >
       <span
-        className="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+        className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-1x35mvf-MuiTypography-root"
       >
         proposals
       </span>
     </div>
   </a>
   <a
-    aria-disabled={false}
-    className="MuiButtonBase-root MuiListItem-root makeStyles-root MuiListItem-gutters MuiListItem-button"
+    className="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-padding MuiListItem-button makeStyles-root css-1ujciva-MuiButtonBase-root-MuiListItem-root"
     href="/params"
     onBlur={[Function]}
     onClick={[Function]}
+    onContextMenu={[Function]}
     onDragLeave={[Function]}
     onFocus={[Function]}
     onKeyDown={[Function]}
@@ -209,7 +209,7 @@ exports[`screen: Nav/MenuItems it renders 1`] = `
     tabIndex={0}
   >
     <div
-      className="MuiListItemIcon-root"
+      className="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
     >
       <svg
         height={24}
@@ -217,10 +217,10 @@ exports[`screen: Nav/MenuItems it renders 1`] = `
       />
     </div>
     <div
-      className="MuiListItemText-root"
+      className="MuiListItemText-root css-tlelie-MuiListItemText-root"
     >
       <span
-        className="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+        className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-1x35mvf-MuiTypography-root"
       >
         params
       </span>

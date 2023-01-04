@@ -5,7 +5,7 @@ exports[`screen: ProfileDetails/Connections matches snapshot 1`] = `
   id="Box"
 >
   <h2
-    className="MuiTypography-root MuiTypography-h2"
+    className="MuiTypography-root MuiTypography-h2 css-dcgvbp-MuiTypography-root"
   >
     connectionsTitle
   </h2>

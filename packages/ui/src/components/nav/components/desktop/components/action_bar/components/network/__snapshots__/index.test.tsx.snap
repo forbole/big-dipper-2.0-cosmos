@@ -47,19 +47,20 @@ exports[`screen: Nav/Network it renders 1`] = `
     />
   </span>
   <p
-    className="MuiTypography-root MuiTypography-body1"
+    className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
   >
     desmos-mainnet
   </p>
   <svg
     aria-hidden={true}
-    className="MuiSvgIcon-root"
+    className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
     color="#999999"
+    data-testid="ExpandMoreIcon"
     focusable="false"
     viewBox="0 0 24 24"
   >
     <path
-      d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+      d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
     />
   </svg>
 </div>
