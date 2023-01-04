@@ -24,7 +24,7 @@ const TabsHeader: FC<TabsHeaderProps> = (props) => {
     <div className={classnames(props.className, classes.root)}>
       <Tabs
         variant="scrollable"
-        scrollButtons="off"
+        scrollButtons={false}
         value={props.tab}
         onChange={props.handleTabChange}
       >

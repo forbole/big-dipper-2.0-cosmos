@@ -5,10 +5,10 @@ import {
   lightTemplate,
   tritanopiaTemplate,
 } from '@/styles/theme';
-import { ThemeOptions } from '@mui/material/styles';
+import { DeprecatedThemeOptions } from '@mui/material/styles';
 
 const { themes } = chainConfig();
-type ThemeDictionaryType = { [theme: string]: ThemeOptions };
+type ThemeDictionaryType = { [theme: string]: DeprecatedThemeOptions };
 
 // getThemeDictionary allows to return a theme dictionary according to the config theme list
 const getThemeDictionary = (list: string[]): ThemeDictionaryType => {

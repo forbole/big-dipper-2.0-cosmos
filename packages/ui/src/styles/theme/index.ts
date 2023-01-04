@@ -2,11 +2,11 @@ import { darkThemeOverride } from '@/styles/theme/dark';
 import { deuteranopiaThemeOverride } from '@/styles/theme/deuteranopia';
 import { lightThemeOverride } from '@/styles/theme/light';
 import { tritanopiaThemeOverride } from '@/styles/theme/tritanopia';
-import { ThemeOptions } from '@mui/material/styles';
+import { DeprecatedThemeOptions } from '@mui/material/styles';
 import * as R from 'ramda';
 
 /** Common themes that don't change across light and dark theme */
-export const common: ThemeOptions = {
+export const common: DeprecatedThemeOptions = {
   breakpoints: {
     keys: ['xs', 'sm', 'md', 'lg', 'xl'],
     values: {
@@ -205,10 +205,13 @@ export const common: ThemeOptions = {
   },
 };
 
-export const lightTemplate = R.mergeDeepLeft(lightThemeOverride, common) as ThemeOptions;
-export const darkTemplate = R.mergeDeepLeft(darkThemeOverride, common) as ThemeOptions;
+export const lightTemplate = R.mergeDeepLeft(lightThemeOverride, common) as DeprecatedThemeOptions;
+export const darkTemplate = R.mergeDeepLeft(darkThemeOverride, common) as DeprecatedThemeOptions;
 export const deuteranopiaTemplate = R.mergeDeepLeft(
   deuteranopiaThemeOverride,
   common
-) as ThemeOptions;
-export const tritanopiaTemplate = R.mergeDeepLeft(tritanopiaThemeOverride, common) as ThemeOptions;
+) as DeprecatedThemeOptions;
+export const tritanopiaTemplate = R.mergeDeepLeft(
+  tritanopiaThemeOverride,
+  common
+) as DeprecatedThemeOptions;

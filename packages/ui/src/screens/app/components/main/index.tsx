@@ -8,10 +8,15 @@ import { useGenesis, useTheme } from '@/screens/app/components/main/hooks';
 import Countdown from '@/screens/countdown';
 import InitialLoad from '@/screens/initial_load';
 import CssBaseline from '@mui/material/CssBaseline';
-import { ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider, Theme, StyledEngineProvider } from '@mui/material/styles';
 import { AppProps } from 'next/app';
 import { useEffect } from 'react';
 import { ToastContainer } from 'react-toastify';
+
+declare module '@mui/styles/defaultTheme' {
+  // eslint-disable-next-line @typescript-eslint/no-empty-interface
+  interface DefaultTheme extends Theme {}
+}
 
 const Main = (props: AppProps) => {
   // =====================================
@@ -44,26 +49,28 @@ const Main = (props: AppProps) => {
   /* Adding a class to the document element to indicate the dark mode. */
   useEffect(() => {
     if (typeof document !== 'undefined' && document?.documentElement) {
-      document.documentElement.classList.toggle('mode-dark', muiTheme.palette.type === 'dark');
+      document.documentElement.classList.toggle('mode-dark', muiTheme.palette.mode === 'dark');
     }
   }, [muiTheme]);
 
   return (
-    <ThemeProvider theme={muiTheme}>
-      <CssBaseline />
-      <ToastContainer
-        position="top-center"
-        autoClose={5000}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        hideProgressBar
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
-      {Component}
-    </ThemeProvider>
+    <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={muiTheme}>
+        <CssBaseline />
+        <ToastContainer
+          position="top-center"
+          autoClose={5000}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          hideProgressBar
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
+        {Component}
+      </ThemeProvider>
+    </StyledEngineProvider>
   );
 };
 

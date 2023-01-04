@@ -1,6 +1,6 @@
 import chainConfig from '@/chainConfig';
 import hindMadurai from '@/styles/theme/hindMadurai';
-import { ThemeOptions } from '@mui/material';
+import { DeprecatedThemeOptions } from '@mui/material';
 
 const { themes } = chainConfig();
 const { light: theme } = themes;
@@ -22,7 +22,7 @@ export const lightThemeOverride: DeepPartial<ThemeOptions> = {
     },
   },
   palette: {
-    type: 'light',
+    mode: 'light',
     ...theme,
   },
   overrides: {

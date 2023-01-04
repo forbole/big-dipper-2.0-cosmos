@@ -1,5 +1,5 @@
 import hindMadurai from '@/styles/theme/hindMadurai';
-import { ThemeOptions } from '@mui/material';
+import { DeprecatedThemeOptions } from '@mui/material';
 
 const backgroundDefault = '#0A0A0A';
 const surfaceOne = '#18181C';
@@ -31,7 +31,7 @@ export const tritanopiaThemeOverride: DeepPartial<ThemeOptions> = {
     },
   },
   palette: {
-    type: 'dark',
+    mode: 'dark',
     primary: {
       main: '#F60239',
       contrastText: '#000000',

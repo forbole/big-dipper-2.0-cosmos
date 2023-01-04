@@ -36,9 +36,9 @@ const Connections: FC<ConnectionsProps> = ({ handleClose, open, data }) => {
       open={open}
       className={classes.dialog}
     >
-      <DialogTitle disableTypography className={classes.header}>
+      <DialogTitle className={classes.header}>
         <Typography variant="h2">{t('connectionsTitle')}</Typography>
-        <IconButton aria-label="close" onClick={handleClose}>
+        <IconButton aria-label="close" onClick={handleClose} size="large">
           <CloseIcon />
         </IconButton>
       </DialogTitle>

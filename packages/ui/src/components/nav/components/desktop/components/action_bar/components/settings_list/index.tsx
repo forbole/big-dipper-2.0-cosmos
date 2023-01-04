@@ -39,14 +39,14 @@ const Settings: FC<ComponentDefault> = (props) => {
         <SettingIcon />
       </div>
       <Dialog maxWidth="md" onClose={handleCancel} open={open} className={classes.dialog}>
-        <DialogTitle disableTypography className={classes.header}>
+        <DialogTitle className={classes.header}>
           <div className={classes.title}>
             <Typography variant="h2">{t('settings')}</Typography>
             <Typography variant="body2" className={classes.version}>
               ({release})
             </Typography>
           </div>
-          <IconButton aria-label="close" onClick={handleCancel}>
+          <IconButton aria-label="close" onClick={handleCancel} size="large">
             <CloseIcon />
           </IconButton>
         </DialogTitle>

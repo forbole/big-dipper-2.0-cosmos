@@ -3,7 +3,7 @@ import Color from 'color';
 
 const styles = makeStyles((theme) => {
   const iconFill =
-    theme.palette.type === 'light'
+    theme.palette.mode === 'light'
       ? theme.palette.custom.fonts.fontTwo
       : theme.palette.custom.general.icon;
   return {

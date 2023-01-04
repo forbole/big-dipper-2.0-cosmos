@@ -45,6 +45,7 @@ const Actions: FC<ActionsProps> = (props) => {
           onClick={handleFirstPage}
           disabled={disablePrevious}
           aria-label="first page"
+          size="large"
         >
           <NextFastIcon className={classes.prev} />
         </IconButton>
@@ -56,6 +57,7 @@ const Actions: FC<ActionsProps> = (props) => {
           onClick={handlePreviousPage}
           disabled={disablePrevious}
           aria-label="previous page"
+          size="large"
         >
           <NextIcon className={classes.prev} />
         </IconButton>
@@ -80,6 +82,7 @@ const Actions: FC<ActionsProps> = (props) => {
           onClick={handleNextPage}
           disabled={disableNext}
           aria-label="next page"
+          size="large"
         >
           <NextIcon />
         </IconButton>
@@ -91,6 +94,7 @@ const Actions: FC<ActionsProps> = (props) => {
           onClick={handleLastPage}
           disabled={disableNext}
           aria-label="last page"
+          size="large"
         >
           <NextFastIcon />
         </IconButton>
