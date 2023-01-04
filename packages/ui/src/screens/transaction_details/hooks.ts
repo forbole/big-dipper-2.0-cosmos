@@ -4,7 +4,7 @@ import type { TransactionState } from '@/screens/transaction_details/types';
 import { formatToken } from '@/utils/format_token';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
-import { ChangeEvent, useCallback, useEffect, useState } from 'react';
+import { SyntheticEvent, useCallback, useEffect, useState } from 'react';
 
 // =============================
 // overview
@@ -143,7 +143,7 @@ export const useTransactionDetails = () => {
   );
 
   const toggleMessageDisplay = useCallback(
-    (event: ChangeEvent<HTMLInputElement>) => {
+    (event: SyntheticEvent<HTMLInputElement>) => {
       handleSetState((prevState) => ({
         ...prevState,
         messages: {

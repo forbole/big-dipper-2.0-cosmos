@@ -1,5 +1,4 @@
-import { SelectChangeEvent } from '@mui/material';
-import { MouseEvent, useCallback } from 'react';
+import { MouseEvent, SyntheticEvent, useCallback } from 'react';
 
 export const useTablePaginationActions = (props: {
   className?: string;
@@ -70,7 +69,7 @@ export const useTablePaginationActions = (props: {
   }, [count, page, pageNeighbors, rowsPerPage]);
 
   const handleRowOptionChange = useCallback(
-    (event: SelectChangeEvent<number>) => {
+    (event: SyntheticEvent<number>) => {
       handleRowsPerPageChange(Number(event.target.value));
     },
     [handleRowsPerPageChange]

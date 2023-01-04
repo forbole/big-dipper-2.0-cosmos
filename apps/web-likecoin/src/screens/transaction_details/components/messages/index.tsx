@@ -9,7 +9,7 @@ import Switch from '@mui/material/Switch';
 import Typography from '@mui/material/Typography';
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import React, { ChangeEvent, FC, LegacyRef } from 'react';
+import React, { FC, LegacyRef, SyntheticEvent } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
 
@@ -50,7 +50,7 @@ type MessagesProps = {
   className?: string;
   messages: unknown[];
   viewRaw: boolean;
-  toggleMessageDisplay: (event: ChangeEvent<HTMLInputElement>) => void;
+  toggleMessageDisplay: (event: SyntheticEvent<HTMLInputElement>) => void;
   onMessageFilterCallback: (value: string) => void;
 };
 
