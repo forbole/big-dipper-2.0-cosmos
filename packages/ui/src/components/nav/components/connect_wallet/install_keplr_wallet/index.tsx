@@ -12,7 +12,7 @@ import useTranslation from 'next-translate/useTranslation';
 import React from 'react';
 import Trans from 'next-translate/Trans';
 
-const InstallWalletDialog: React.FC<{
+const InstallKeplrWalletDialog: React.FC<{
   walletName: string;
   walletUrl: string;
 }> = (props) => {
@@ -76,4 +76,4 @@ const InstallWalletDialog: React.FC<{
   );
 };
 
-export default InstallWalletDialog;
+export default InstallKeplrWalletDialog;
