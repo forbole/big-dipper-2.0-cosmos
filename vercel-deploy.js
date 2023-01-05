@@ -13,17 +13,19 @@ function execShell(command) {
 }
 
 const response = execShell(`curl \
--H "Accept: application/vnd.github+json" \
--H "Authorization: Bearer ${apiToken}"\
--H "X-GitHub-Api-Version: 2022-11-28" \
-https://api.github.com/repos/forbole/big-dipper-2.0-cosmos/${pullId}`);
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer ${apiToken}" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/repos/forbole/big-dipper-2.0-cosmos/pulls/${pullId}`);
 
 const { title } = response;
 
 const projects = execShell(`yarn workspaces list --json`);
 
-const projectList = JSON.parse(projects)
-  .map((p) => p.name)
+const projectList = projects
+  .split(/\n/g)
+  .filter((p) => p)
+  .map((p) => JSON.parse(p).name)
   .filter((p) => p.startsWith('web'));
 
 const project = projectList.find((p) => title.endsWith(`[${p}]`)) || 'web';
