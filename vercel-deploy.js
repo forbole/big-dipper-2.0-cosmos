@@ -1,7 +1,9 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable no-console */
 /* eslint-disable turbo/no-undeclared-env-vars */
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { execSync } = require('child_process');
+require('dotenv').config();
 
 const apiToken = process.env.GITHUB_API_TOKEN;
 const pullId = process.env.VERCEL_GIT_PULL_REQUEST_ID;
