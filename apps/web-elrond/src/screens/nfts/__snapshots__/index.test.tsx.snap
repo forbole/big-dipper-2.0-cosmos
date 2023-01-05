@@ -2,7 +2,7 @@
 
 exports[`screen: Blocks matches snapshot 1`] = `
 <div
-  className="tss-ewxjtu-root"
+  className="css-ewxjtu-root"
   id="Layout"
   navTitle="nfts"
 >

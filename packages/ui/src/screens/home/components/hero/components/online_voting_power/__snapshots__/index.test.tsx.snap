@@ -2,23 +2,23 @@
 
 exports[`screen: Home/OnlineVotingPower matches snapshot 1`] = `
 <div
-  className="tss-1v5yaiz-root"
+  className="css-1v5yaiz-root"
 >
   <h2
-    className="MuiTypography-root MuiTypography-h2 mui-dcgvbp-MuiTypography-root"
+    className="MuiTypography-root MuiTypography-h2 css-dcgvbp-MuiTypography-root"
   >
     onlineVotingPower
   </h2>
   <div
-    className="tss-yraoho-data"
+    className="css-yraoho-data"
   >
     <h3
-      className="MuiTypography-root MuiTypography-h3 primary__data mui-1kl9mnf-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-h3 primary__data css-1kl9mnf-MuiTypography-root"
     >
       100.00%
     </h3>
     <p
-      className="MuiTypography-root MuiTypography-body1 mui-pfovru-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
     >
       76,341,043
        /
@@ -27,67 +27,67 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 1`] = `
     </p>
   </div>
   <div
-    className="tss-1fxd95k-chart"
+    className="css-1fxd95k-chart"
   >
     <div
-      className="tss-gmihno-active"
+      className="css-gmihno-active"
     />
   </div>
   <div
-    className="tss-oihayf-itemsContainer"
+    className="css-oihayf-itemsContainer"
   >
     <div
-      className="tss-1ju3r6i-item"
+      className="css-1ju3r6i-item"
     >
       <h4
-        className="MuiTypography-root MuiTypography-h4 label mui-15yyl88-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
       >
         validators
       </h4>
       <p
-        className="MuiTypography-root MuiTypography-body1 value mui-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
       >
         109
       </p>
     </div>
     <div
-      className="tss-1ju3r6i-item"
+      className="css-1ju3r6i-item"
     >
       <h4
-        className="MuiTypography-root MuiTypography-h4 label mui-15yyl88-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
       >
         votingPowerPercent
       </h4>
       <p
-        className="MuiTypography-root MuiTypography-body1 value mui-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
       >
         100.00%
       </p>
     </div>
     <div
-      className="tss-1ju3r6i-item"
+      className="css-1ju3r6i-item"
     >
       <h4
-        className="MuiTypography-root MuiTypography-h4 label mui-15yyl88-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
       >
         votingPower
       </h4>
       <p
-        className="MuiTypography-root MuiTypography-body1 value mui-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
       >
         76,341,043
       </p>
     </div>
     <div
-      className="tss-1ju3r6i-item"
+      className="css-1ju3r6i-item"
     >
       <h4
-        className="MuiTypography-root MuiTypography-h4 label mui-15yyl88-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
       >
         totalVotingPower
       </h4>
       <p
-        className="MuiTypography-root MuiTypography-body1 value mui-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
       >
         76,341,043
       </p>
@@ -98,23 +98,23 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 1`] = `
 
 exports[`screen: Home/OnlineVotingPower matches snapshot 2`] = `
 <div
-  className="tss-1v5yaiz-root"
+  className="css-1v5yaiz-root"
 >
   <h2
-    className="MuiTypography-root MuiTypography-h2 mui-dcgvbp-MuiTypography-root"
+    className="MuiTypography-root MuiTypography-h2 css-dcgvbp-MuiTypography-root"
   >
     onlineVotingPower
   </h2>
   <div
-    className="tss-yraoho-data"
+    className="css-yraoho-data"
   >
     <h3
-      className="MuiTypography-root MuiTypography-h3 primary__data mui-1kl9mnf-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-h3 primary__data css-1kl9mnf-MuiTypography-root"
     >
       100.00%
     </h3>
     <p
-      className="MuiTypography-root MuiTypography-body1 mui-pfovru-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
     >
       76,341,043
        /
@@ -123,67 +123,67 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 2`] = `
     </p>
   </div>
   <div
-    className="tss-1fxd95k-chart"
+    className="css-1fxd95k-chart"
   >
     <div
-      className="tss-gmihno-active"
+      className="css-gmihno-active"
     />
   </div>
   <div
-    className="tss-oihayf-itemsContainer"
+    className="css-oihayf-itemsContainer"
   >
     <div
-      className="tss-1ju3r6i-item"
+      className="css-1ju3r6i-item"
     >
       <h4
-        className="MuiTypography-root MuiTypography-h4 label mui-15yyl88-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
       >
         validators
       </h4>
       <p
-        className="MuiTypography-root MuiTypography-body1 value mui-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
       >
         109
       </p>
     </div>
     <div
-      className="tss-1ju3r6i-item"
+      className="css-1ju3r6i-item"
     >
       <h4
-        className="MuiTypography-root MuiTypography-h4 label mui-15yyl88-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
       >
         votingPowerPercent
       </h4>
       <p
-        className="MuiTypography-root MuiTypography-body1 value mui-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
       >
         100.00%
       </p>
     </div>
     <div
-      className="tss-1ju3r6i-item"
+      className="css-1ju3r6i-item"
     >
       <h4
-        className="MuiTypography-root MuiTypography-h4 label mui-15yyl88-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
       >
         votingPower
       </h4>
       <p
-        className="MuiTypography-root MuiTypography-body1 value mui-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
       >
         76,341,043
       </p>
     </div>
     <div
-      className="tss-1ju3r6i-item"
+      className="css-1ju3r6i-item"
     >
       <h4
-        className="MuiTypography-root MuiTypography-h4 label mui-15yyl88-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
       >
         totalVotingPower
       </h4>
       <p
-        className="MuiTypography-root MuiTypography-body1 value mui-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
       >
         76,341,043
       </p>

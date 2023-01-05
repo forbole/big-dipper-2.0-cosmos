@@ -2,20 +2,20 @@
 
 exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
 <div
-  className="tss-c5qpei-root"
+  className="css-c5qpei-root"
   id="Box"
 >
   <div
-    className="tss-19bwmp8-label"
+    className="css-19bwmp8-label"
   >
     <h2
-      className="MuiTypography-root MuiTypography-h2 mui-dcgvbp-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-h2 css-dcgvbp-MuiTypography-root"
     >
       latestTransactions
     </h2>
     <a
       aria-label="see more txs"
-      className="MuiTypography-root MuiTypography-h4 button mui-15yyl88-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-h4 button css-15yyl88-MuiTypography-root"
       href="/transactions"
       onClick={[Function]}
       onMouseEnter={[Function]}
@@ -25,10 +25,10 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
     </a>
   </div>
   <div
-    className="tss-1tbeysr-root"
+    className="css-1tbeysr-root"
   >
     <span
-      className="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary mui-15gxqrx-MuiCircularProgress-root"
+      className="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-15gxqrx-MuiCircularProgress-root"
       role="progressbar"
       style={
         {
@@ -38,11 +38,11 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
       }
     >
       <svg
-        className="MuiCircularProgress-svg mui-1idz92c-MuiCircularProgress-svg"
+        className="MuiCircularProgress-svg css-1idz92c-MuiCircularProgress-svg"
         viewBox="22 22 44 44"
       >
         <circle
-          className="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate mui-176wh8e-MuiCircularProgress-circle"
+          className="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-176wh8e-MuiCircularProgress-circle"
           cx={44}
           cy={44}
           fill="none"

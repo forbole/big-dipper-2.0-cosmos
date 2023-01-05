@@ -2,28 +2,28 @@
 
 exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
 <div
-  className="tss-1968mu4-root"
+  className="css-1968mu4-root"
   id="Box"
 >
   <div
-    className="tss-3797fy-header"
+    className="css-3797fy-header"
   >
     <div
-      className="tss-15b46au-mobileOptions"
+      className="css-15b46au-mobileOptions"
     >
       <h2
-        className="MuiTypography-root MuiTypography-h2 mui-dcgvbp-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-h2 css-dcgvbp-MuiTypography-root"
       >
         messages
       </h2>
       <label
-        className="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd mui-j204z7-MuiFormControlLabel-root"
+        className="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
       >
         <span
-          className="MuiSwitch-root MuiSwitch-sizeMedium mui-julti5-MuiSwitch-root"
+          className="MuiSwitch-root MuiSwitch-sizeMedium css-julti5-MuiSwitch-root"
         >
           <span
-            className="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary mui-33zw0k-MuiButtonBase-root-MuiSwitch-switchBase"
+            className="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-33zw0k-MuiButtonBase-root-MuiSwitch-switchBase"
             onBlur={[Function]}
             onContextMenu={[Function]}
             onDragLeave={[Function]}
@@ -40,36 +40,36 @@ exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
           >
             <input
               checked={false}
-              className="PrivateSwitchBase-input MuiSwitch-input mui-1m9pwf3"
+              className="PrivateSwitchBase-input MuiSwitch-input css-1m9pwf3"
               onChange={[Function]}
               type="checkbox"
             />
             <span
-              className="MuiSwitch-thumb mui-jsexje-MuiSwitch-thumb"
+              className="MuiSwitch-thumb css-jsexje-MuiSwitch-thumb"
             />
           </span>
           <span
-            className="MuiSwitch-track mui-1yjjitx-MuiSwitch-track"
+            className="MuiSwitch-track css-1yjjitx-MuiSwitch-track"
           />
         </span>
         <span
-          className="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label mui-pfovru-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-pfovru-MuiTypography-root"
         >
           raw
         </span>
       </label>
     </div>
     <div
-      className="tss-10k5g39-desktopOptions"
+      className="css-10k5g39-desktopOptions"
     >
       <label
-        className="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd mui-j204z7-MuiFormControlLabel-root"
+        className="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
       >
         <span
-          className="MuiSwitch-root MuiSwitch-sizeMedium mui-julti5-MuiSwitch-root"
+          className="MuiSwitch-root MuiSwitch-sizeMedium css-julti5-MuiSwitch-root"
         >
           <span
-            className="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary mui-33zw0k-MuiButtonBase-root-MuiSwitch-switchBase"
+            className="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-33zw0k-MuiButtonBase-root-MuiSwitch-switchBase"
             onBlur={[Function]}
             onContextMenu={[Function]}
             onDragLeave={[Function]}
@@ -86,36 +86,36 @@ exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
           >
             <input
               checked={false}
-              className="PrivateSwitchBase-input MuiSwitch-input mui-1m9pwf3"
+              className="PrivateSwitchBase-input MuiSwitch-input css-1m9pwf3"
               onChange={[Function]}
               type="checkbox"
             />
             <span
-              className="MuiSwitch-thumb mui-jsexje-MuiSwitch-thumb"
+              className="MuiSwitch-thumb css-jsexje-MuiSwitch-thumb"
             />
           </span>
           <span
-            className="MuiSwitch-track mui-1yjjitx-MuiSwitch-track"
+            className="MuiSwitch-track css-1yjjitx-MuiSwitch-track"
           />
         </span>
         <span
-          className="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label mui-pfovru-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-pfovru-MuiTypography-root"
         >
           raw
         </span>
       </label>
       <div
         callback={[MockFunction]}
-        className="tss-1ti6lji-filter"
+        className="css-1ti6lji-filter"
         id="TransactionMessagesFilter"
       />
     </div>
   </div>
   <hr
-    className="MuiDivider-root MuiDivider-fullWidth mui-l3fh2f-MuiDivider-root"
+    className="MuiDivider-root MuiDivider-fullWidth css-l3fh2f-MuiDivider-root"
   />
   <div
-    className="tss-1s6xrmg-list"
+    className="css-1s6xrmg-list"
   >
     <div
       className="List"
@@ -155,10 +155,10 @@ exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
         >
           <div>
             <div
-              className="tss-13s6p8p-item"
+              className="css-13s6p8p-item"
             >
               <div
-                className="tss-1vwfa7o-tags"
+                className="css-1vwfa7o-tags"
               >
                 <div
                   id="Tag"
@@ -170,14 +170,14 @@ exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
                 className="msg"
               >
                 <p
-                  className="MuiTypography-root MuiTypography-body1 mui-pfovru-MuiTypography-root"
+                  className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
                 >
                   message_contents:txSendContent
                 </p>
               </span>
             </div>
             <hr
-              className="MuiDivider-root MuiDivider-fullWidth mui-l3fh2f-MuiDivider-root"
+              className="MuiDivider-root MuiDivider-fullWidth css-l3fh2f-MuiDivider-root"
             />
           </div>
         </div>

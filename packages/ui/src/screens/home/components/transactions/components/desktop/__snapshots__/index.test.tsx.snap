@@ -2,23 +2,23 @@
 
 exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
 <div
-  className="tss-98f4iy-root"
+  className="css-98f4iy-root"
 >
   <table
-    className="MuiTable-root tss-ad8fu0-table mui-1az1xe2-MuiTable-root"
+    className="MuiTable-root css-201nhu-MuiTable-root-table"
     role={null}
   >
     <thead
-      className="MuiTableHead-root mui-14dqc50-MuiTableHead-root"
+      className="MuiTableHead-root css-14dqc50-MuiTableHead-root"
       role={null}
     >
       <tr
-        className="MuiTableRow-root MuiTableRow-head mui-li15s1-MuiTableRow-root"
+        className="MuiTableRow-root MuiTableRow-head css-li15s1-MuiTableRow-root"
         role={null}
       >
         <th
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium mui-avpoev-MuiTableCell-root"
+          className="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-avpoev-MuiTableCell-root"
           scope="col"
           style={
             {
@@ -30,7 +30,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
         </th>
         <th
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium mui-avpoev-MuiTableCell-root"
+          className="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-avpoev-MuiTableCell-root"
           scope="col"
           style={
             {
@@ -42,7 +42,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
         </th>
         <th
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium mui-avpoev-MuiTableCell-root"
+          className="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-avpoev-MuiTableCell-root"
           scope="col"
           style={
             {
@@ -54,7 +54,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
         </th>
         <th
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight MuiTableCell-sizeMedium mui-1em49d8-MuiTableCell-root"
+          className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight MuiTableCell-sizeMedium css-1em49d8-MuiTableCell-root"
           scope="col"
           style={
             {
@@ -66,7 +66,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
         </th>
         <th
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight MuiTableCell-sizeMedium mui-1em49d8-MuiTableCell-root"
+          className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight MuiTableCell-sizeMedium css-1em49d8-MuiTableCell-root"
           scope="col"
           style={
             {
@@ -79,16 +79,16 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
       </tr>
     </thead>
     <tbody
-      className="MuiTableBody-root mui-grv1yu-MuiTableBody-root"
+      className="MuiTableBody-root css-grv1yu-MuiTableBody-root"
       role={null}
     >
       <tr
-        className="MuiTableRow-root mui-li15s1-MuiTableRow-root"
+        className="MuiTableRow-root css-li15s1-MuiTableRow-root"
         role={null}
       >
         <td
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium mui-zs3zy9-MuiTableCell-root"
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-zs3zy9-MuiTableCell-root"
           style={
             {
               "width": "20%",
@@ -96,7 +96,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
           }
         >
           <a
-            className="MuiTypography-root MuiTypography-body1 mui-pfovru-MuiTypography-root"
+            className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
             href="/blocks/2000"
             onClick={[Function]}
             onMouseEnter={[Function]}
@@ -107,7 +107,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
         </td>
         <td
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium mui-zs3zy9-MuiTableCell-root"
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-zs3zy9-MuiTableCell-root"
           style={
             {
               "width": "20%",
@@ -115,7 +115,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
           }
         >
           <a
-            className="MuiTypography-root MuiTypography-body1 mui-pfovru-MuiTypography-root"
+            className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
             href="/transactions/76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857"
             onClick={[Function]}
             onMouseEnter={[Function]}
@@ -126,7 +126,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
         </td>
         <td
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium mui-zs3zy9-MuiTableCell-root"
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-zs3zy9-MuiTableCell-root"
           style={
             {
               "width": "20%",
@@ -144,7 +144,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
         </td>
         <td
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium mui-1ct601e-MuiTableCell-root"
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1ct601e-MuiTableCell-root"
           style={
             {
               "width": "20%",
@@ -158,7 +158,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
         </td>
         <td
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium mui-1ct601e-MuiTableCell-root"
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1ct601e-MuiTableCell-root"
           style={
             {
               "width": "20%",

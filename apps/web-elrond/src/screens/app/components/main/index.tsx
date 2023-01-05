@@ -9,9 +9,6 @@ import { useMarketRecoil } from '@/recoil/market';
 // import { useValidatorRecoil } from '@/recoil/validators';
 import InnerApp from '@/screens/app/components/inner_app';
 import { useTheme } from '@/screens/app/components/main/hooks';
-import createCache from '@emotion/cache';
-import { CacheProvider } from '@emotion/react';
-import { TssCacheProvider } from 'tss-react';
 
 const Main = (props: AppProps) => {
   // =====================================
@@ -28,36 +25,23 @@ const Main = (props: AppProps) => {
   const { muiTheme } = useTheme();
   const loading = false;
 
-  const muiCache = createCache({
-    key: 'mui',
-    prepend: true,
-  });
-
-  const tssCache = createCache({
-    key: 'tss',
-  });
-
   return (
-    <CacheProvider value={muiCache}>
-      <TssCacheProvider value={tssCache}>
-        <ThemeProvider theme={muiTheme}>
-          <CssBaseline />
-          <ToastContainer
-            position="top-center"
-            autoClose={5000}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            hideProgressBar
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-          />
-          {loading && <InitialLoad {...props.pageProps} />}
-          <InnerApp {...props} />
-        </ThemeProvider>
-      </TssCacheProvider>
-    </CacheProvider>
+    <ThemeProvider theme={muiTheme}>
+      <CssBaseline />
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        hideProgressBar
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
+      {loading && <InitialLoad {...props.pageProps} />}
+      <InnerApp {...props} />
+    </ThemeProvider>
   );
 };
 

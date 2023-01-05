@@ -2,13 +2,13 @@
 
 exports[`component: SingleSlotMobile matches snapshot 1`] = `
 <div
-  className="tss-1bnteyo-root"
+  className="css-1bnteyo-root"
 >
   <div
-    className="tss-15xvgqb-item"
+    className="css-15xvgqb-item"
   >
     <h4
-      className="MuiTypography-root MuiTypography-h4 label mui-15yyl88-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
     >
       height
     </h4>
@@ -17,10 +17,10 @@ exports[`component: SingleSlotMobile matches snapshot 1`] = `
     />
   </div>
   <div
-    className="tss-15xvgqb-item"
+    className="css-15xvgqb-item"
   >
     <h4
-      className="MuiTypography-root MuiTypography-h4 label mui-15yyl88-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
     >
       proposer
     </h4>
@@ -29,60 +29,60 @@ exports[`component: SingleSlotMobile matches snapshot 1`] = `
     />
   </div>
   <div
-    className="tss-15xvgqb-item"
+    className="css-15xvgqb-item"
   >
     <h4
-      className="MuiTypography-root MuiTypography-h4 label mui-15yyl88-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
     >
       hash
     </h4>
     <p
-      className="MuiTypography-root MuiTypography-body1 value mui-pfovru-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
     >
       hash
     </p>
   </div>
   <div
-    className="tss-15xvgqb-item"
+    className="css-15xvgqb-item"
   >
     <h4
-      className="MuiTypography-root MuiTypography-h4 label mui-15yyl88-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
     >
       parentHash
     </h4>
     <p
-      className="MuiTypography-root MuiTypography-body1 value mui-pfovru-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
     >
       parentHash
     </p>
   </div>
   <div
-    className="tss-1t94r6n-flex"
+    className="css-1t94r6n-flex"
   >
     <div
-      className="tss-15xvgqb-item"
+      className="css-15xvgqb-item"
     >
       <h4
-        className="MuiTypography-root MuiTypography-h4 label mui-15yyl88-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
       >
         txs
       </h4>
       <p
-        className="MuiTypography-root MuiTypography-body1 value mui-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
       >
         txs
       </p>
     </div>
     <div
-      className="tss-15xvgqb-item"
+      className="css-15xvgqb-item"
     >
       <h4
-        className="MuiTypography-root MuiTypography-h4 label mui-15yyl88-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
       >
         time
       </h4>
       <p
-        className="MuiTypography-root MuiTypography-body1 value mui-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
       >
         time
       </p>

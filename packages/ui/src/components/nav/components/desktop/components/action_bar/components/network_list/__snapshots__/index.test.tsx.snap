@@ -2,7 +2,7 @@
 
 exports[`screen: Nav/NetworkList it renders 1`] = `
 <div
-  className="tss-2cwemy-root-root"
+  className="css-2cwemy-root-root"
 >
   <div
     style={
@@ -14,7 +14,7 @@ exports[`screen: Nav/NetworkList it renders 1`] = `
     <svg />
   </div>
   <Networks
-    className="tss-f1s4q6-content"
+    className="css-f1s4q6-content"
   />
 </div>
 `;

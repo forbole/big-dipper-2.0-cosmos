@@ -11,7 +11,7 @@ exports[`screen: Blocks/List matches snapshot 1`] = `
     loading={true}
   >
     <span
-      className="tss-8aquqt-root"
+      className="css-8aquqt-root"
     >
       <div
         data={
@@ -35,7 +35,7 @@ exports[`screen: Blocks/List matches snapshot 1`] = `
         id="Overview"
       />
       <div
-        className="tss-1wmu1o5-messages"
+        className="css-1wmu1o5-messages"
         id="Messages"
         messages={[]}
         onMessageFilterCallback={[Function]}

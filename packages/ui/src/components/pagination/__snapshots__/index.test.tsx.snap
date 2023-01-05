@@ -2,21 +2,21 @@
 
 exports[`components: Pagination matches snapshot 1`] = `
 <div
-  className="MuiTablePagination-root tss-ipv0mx-root mui-1tpi3qq-MuiTablePagination-root"
+  className="MuiTablePagination-root css-1220jse-MuiTablePagination-root-root"
 >
   <div
-    className="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular MuiTablePagination-toolbar mui-1yn2m31-MuiToolbar-root-MuiTablePagination-toolbar"
+    className="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular MuiTablePagination-toolbar css-1yn2m31-MuiToolbar-root-MuiTablePagination-toolbar"
   >
     <div
-      className="MuiTablePagination-spacer mui-1psng7p-MuiTablePagination-spacer"
+      className="MuiTablePagination-spacer css-1psng7p-MuiTablePagination-spacer"
     />
     <p
-      className="MuiTablePagination-displayedRows mui-l6z7jg-MuiTablePagination-displayedRows"
+      className="MuiTablePagination-displayedRows css-l6z7jg-MuiTablePagination-displayedRows"
     >
       paginationLabelOne
     </p>
     <div
-      className="tss-14qgy9x-mobile"
+      className="css-14qgy9x-mobile"
       count={100}
       getItemAriaLabel={[Function]}
       handleRowsPerPageChange={[MockFunction]}
@@ -28,7 +28,7 @@ exports[`components: Pagination matches snapshot 1`] = `
       showLastButton={false}
     />
     <div
-      className="tss-1uz7plj-tablet"
+      className="css-1uz7plj-tablet"
       count={100}
       getItemAriaLabel={[Function]}
       handleRowsPerPageChange={[MockFunction]}

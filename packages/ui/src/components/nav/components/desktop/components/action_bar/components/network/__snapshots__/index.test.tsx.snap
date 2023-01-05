@@ -3,17 +3,17 @@
 exports[`screen: Nav/Network it renders 1`] = `
 <div
   aria-label="desmos-mainnet"
-  className="tss-1ovmrev-root"
+  className="css-1ovmrev-root"
   onClick={[MockFunction]}
   role="button"
   tabIndex={0}
 >
   <span
-    className="tss-1s680oh-icon-container"
+    className="css-1s680oh-icon-container"
   >
     <img
       alt="icon"
-      className="tss-4nmqpx-dark"
+      className="css-4nmqpx-dark"
       data-nimg="future"
       decoding="async"
       height={0}
@@ -30,7 +30,7 @@ exports[`screen: Nav/Network it renders 1`] = `
     />
     <img
       alt="icon"
-      className="tss-13ot6lo-light"
+      className="css-13ot6lo-light"
       data-nimg="future"
       decoding="async"
       height={0}
@@ -47,13 +47,13 @@ exports[`screen: Nav/Network it renders 1`] = `
     />
   </span>
   <p
-    className="MuiTypography-root MuiTypography-body1 mui-pfovru-MuiTypography-root"
+    className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
   >
     desmos-mainnet
   </p>
   <svg
     aria-hidden={true}
-    className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-i4bv87-MuiSvgIcon-root"
+    className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
     color="#999999"
     data-testid="ExpandMoreIcon"
     focusable="false"

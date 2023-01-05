@@ -2,7 +2,7 @@
 
 exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
 <div
-  className="tss-15un6kj-root"
+  className="css-15un6kj-root"
   id="Box"
 >
   <div
@@ -11,23 +11,23 @@ exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
     title="title"
   />
   <hr
-    className="MuiDivider-root MuiDivider-fullWidth mui-l3fh2f-MuiDivider-root"
+    className="MuiDivider-root MuiDivider-fullWidth css-l3fh2f-MuiDivider-root"
   />
   <div
-    className="tss-byzm81-content"
+    className="css-byzm81-content"
   >
     <p
-      className="MuiTypography-root MuiTypography-body1 label mui-pfovru-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-body1 label css-pfovru-MuiTypography-root"
     >
       type
     </p>
     <p
-      className="MuiTypography-root MuiTypography-body1 value mui-pfovru-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
     >
       
     </p>
     <p
-      className="MuiTypography-root MuiTypography-body1 label mui-pfovru-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-body1 label css-pfovru-MuiTypography-root"
     >
       proposer
     </p>
@@ -37,27 +37,27 @@ exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
       name=""
     />
     <p
-      className="MuiTypography-root MuiTypography-body1 label mui-pfovru-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-body1 label css-pfovru-MuiTypography-root"
     >
       submitTime
     </p>
     <p
-      className="MuiTypography-root MuiTypography-body1 value mui-pfovru-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
     >
       2020-08-10 12:00:00
     </p>
     <p
-      className="MuiTypography-root MuiTypography-body1 label mui-pfovru-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-body1 label css-pfovru-MuiTypography-root"
     >
       depositEndTime
     </p>
     <p
-      className="MuiTypography-root MuiTypography-body1 value mui-pfovru-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
     >
       2020-08-10 12:00:00
     </p>
     <p
-      className="MuiTypography-root MuiTypography-body1 label mui-pfovru-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-body1 label css-pfovru-MuiTypography-root"
     >
       description
     </p>

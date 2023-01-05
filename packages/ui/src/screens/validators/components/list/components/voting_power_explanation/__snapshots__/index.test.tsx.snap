@@ -2,10 +2,10 @@
 
 exports[`screen: Validators/VotingPowerExplanation matches snapshot 1`] = `
 <div
-  className="tss-1rz0of5-root"
+  className="css-1rz0of5-root"
 >
   <p
-    className="MuiTypography-root MuiTypography-body1 mui-pfovru-MuiTypography-root"
+    className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
   >
     validators:votingPowerExplanation
   </p>

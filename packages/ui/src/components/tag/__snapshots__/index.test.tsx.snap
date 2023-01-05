@@ -2,10 +2,10 @@
 
 exports[`components: Tag matches snapshot 1`] = `
 <div
-  className="tss-1cnwhvk-root-one"
+  className="css-1cnwhvk-root-one"
 >
   <p
-    className="MuiTypography-root MuiTypography-body1 mui-pfovru-MuiTypography-root"
+    className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
   >
     hello world
   </p>

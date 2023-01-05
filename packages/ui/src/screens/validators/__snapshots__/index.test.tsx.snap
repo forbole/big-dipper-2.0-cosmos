@@ -2,7 +2,7 @@
 
 exports[`screen: Validators matches snapshot 1`] = `
 <div
-  className="tss-1kpiz3c-root"
+  className="css-1kpiz3c-root"
   id="Layout"
   navTitle="validators"
 >

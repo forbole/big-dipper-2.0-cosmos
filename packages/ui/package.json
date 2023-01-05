@@ -38,11 +38,11 @@
     "next-seo": "^4.29.0",
     "next-translate": "^1.6.0",
     "next-transpile-modules": "^10.0.0",
-    "numeral": "2.0.6",
+    "numeral": "^2.0.6",
     "qrcode.react": "^3.1.0",
     "ramda": "^0.28.0",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "react-share": "^4.4.1",
     "react-toastify": "^7.0.4",
     "react-virtualized-auto-sizer": "^1.0.7",
@@ -58,6 +58,7 @@
     "ws": "^8.11.0"
   },
   "devDependencies": {
+    "@emotion/cache": "^11.10.5",
     "@graphql-codegen/cli": "2.16.2",
     "@graphql-codegen/client-preset": "^1.2.4",
     "@graphql-codegen/fragment-matcher": "^3.3.3",

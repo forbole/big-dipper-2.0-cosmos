@@ -3,32 +3,32 @@
 exports[`components: LoadAndExist matches snapshot 1`] = `
 [
   <div
-    className="tss-js7ni0-root"
+    className="css-js7ni0-root"
   >
     <span
-      className="MuiLinearProgress-root MuiLinearProgress-colorPrimary MuiLinearProgress-indeterminate mui-17rkq7c-MuiLinearProgress-root"
+      className="MuiLinearProgress-root MuiLinearProgress-colorPrimary MuiLinearProgress-indeterminate css-17rkq7c-MuiLinearProgress-root"
       role="progressbar"
     >
       <span
-        className="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary MuiLinearProgress-bar1Indeterminate mui-tfufrj-MuiLinearProgress-bar1"
+        className="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary MuiLinearProgress-bar1Indeterminate css-tfufrj-MuiLinearProgress-bar1"
         style={{}}
       />
       <span
-        className="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary MuiLinearProgress-bar2Indeterminate mui-14fmtwm-MuiLinearProgress-bar2"
+        className="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary MuiLinearProgress-bar2Indeterminate css-14fmtwm-MuiLinearProgress-bar2"
         style={{}}
       />
     </span>
   </div>,
   ",",
   <div
-    className="tss-1t3p35a-root"
+    className="css-1t3p35a-root"
   >
     <div
-      className="tss-12ou3q3-content"
+      className="css-12ou3q3-content"
     >
       <svg />
       <p
-        className="MuiTypography-root MuiTypography-body1 mui-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
       >
         notFound
       </p>

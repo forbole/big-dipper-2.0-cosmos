@@ -2,11 +2,11 @@
 
 exports[`components: Result matches snapshot 1`] = `
 <div
-  className="tss-179jfo-root"
+  className="css-179jfo-root"
 >
   <svg
     aria-hidden={true}
-    className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-i4bv87-MuiSvgIcon-root"
+    className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
     color="#999999"
     data-testid="HelpIcon"
     focusable="false"
@@ -17,7 +17,7 @@ exports[`components: Result matches snapshot 1`] = `
     />
   </svg>
   <p
-    className="MuiTypography-root MuiTypography-body1 mui-pfovru-MuiTypography-root"
+    className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
   >
     pending
   </p>
@@ -26,11 +26,11 @@ exports[`components: Result matches snapshot 1`] = `
 
 exports[`components: Result matches snapshot success 1`] = `
 <div
-  className="tss-1r42brz-root-success"
+  className="css-1r42brz-root-success"
 >
   <svg
     aria-hidden={true}
-    className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-i4bv87-MuiSvgIcon-root"
+    className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
     color="#999999"
     data-testid="CheckCircleIcon"
     focusable="false"
@@ -41,7 +41,7 @@ exports[`components: Result matches snapshot success 1`] = `
     />
   </svg>
   <p
-    className="MuiTypography-root MuiTypography-body1 mui-pfovru-MuiTypography-root"
+    className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
   >
     success
   </p>

@@ -3,13 +3,13 @@
 exports[`component: InfoPopover matches snapshot 1`] = `
 <span
   aria-haspopup="true"
-  className="tss-pmv5z6-root"
+  className="css-pmv5z6-root"
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
 >
   <svg
     aria-hidden={true}
-    className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium tss-hrlzys-icon mui-i4bv87-MuiSvgIcon-root"
+    className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-2vtt8e-MuiSvgIcon-root-icon"
     color="#999999"
     data-testid="HelpOutlineIcon"
     focusable="false"

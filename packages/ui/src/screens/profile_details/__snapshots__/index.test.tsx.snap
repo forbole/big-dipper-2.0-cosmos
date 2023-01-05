@@ -11,7 +11,7 @@ exports[`screen: ProfileDetails matches snapshot 1`] = `
     loading={false}
   >
     <span
-      className="tss-1jxbnj0-root"
+      className="css-1jxbnj0-root"
     >
       <div
         bio="hungry all the time"

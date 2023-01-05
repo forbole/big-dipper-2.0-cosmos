@@ -2,7 +2,7 @@
 
 exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
 <div
-  className="tss-1rz0of5-root"
+  className="css-1rz0of5-root"
 >
   <div
     className="List"
@@ -62,7 +62,7 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
             txs="2"
           />
           <hr
-            className="MuiDivider-root MuiDivider-fullWidth mui-4mvhxe-MuiDivider-root"
+            className="MuiDivider-root MuiDivider-fullWidth css-4mvhxe-MuiDivider-root"
           />
         </div>
       </div>

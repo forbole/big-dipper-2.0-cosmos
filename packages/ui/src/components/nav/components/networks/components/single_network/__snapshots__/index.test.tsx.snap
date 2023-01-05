@@ -2,19 +2,19 @@
 
 exports[`screen: Nav/SingleNetwork it renders 1`] = `
 <a
-  className="tss-abc58s-root"
+  className="css-abc58s-root"
   href="http://bigdipper.live/desmos"
   rel="noreferrer"
   target="_blank"
 >
   <div
-    className="tss-exabui-item"
+    className="css-exabui-item"
   >
     <p>
       desmos-mainnet
     </p>
     <div
-      className="MuiTypography-root MuiTypography-caption tss-1er324x-status mui-ru7l4l-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-caption css-1ye4fxb-MuiTypography-root-status"
     >
       desmos
     </div>

@@ -2,68 +2,68 @@
 
 exports[`screen: Nav/TitleBar hook toggles correctly 1`] = `
 <div
-  className="tss-12u7l3u-root"
+  className="css-12u7l3u-root"
 >
   <h1
-    className="MuiTypography-root MuiTypography-h1 mui-gw99sn-MuiTypography-root"
+    className="MuiTypography-root MuiTypography-h1 css-gw99sn-MuiTypography-root"
   >
     hello world
   </h1>
   <div
-    className="tss-15dicie-content"
+    className="css-15dicie-content"
   >
     <div
-      className="tss-bs2kuk-item"
+      className="css-bs2kuk-item"
     >
       <p
-        className="MuiTypography-root MuiTypography-body1 label mui-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 label css-pfovru-MuiTypography-root"
       >
         marketCap
       </p>
       <p
-        className="MuiTypography-root MuiTypography-body1 mui-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
       >
         N/A
       </p>
     </div>
     <div
-      className="tss-bs2kuk-item"
+      className="css-bs2kuk-item"
     >
       <p
-        className="MuiTypography-root MuiTypography-body1 label mui-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 label css-pfovru-MuiTypography-root"
       >
         inflation
       </p>
       <p
-        className="MuiTypography-root MuiTypography-body1 mui-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
       >
         0%
       </p>
     </div>
     <div
-      className="tss-bs2kuk-item"
+      className="css-bs2kuk-item"
     >
       <p
-        className="MuiTypography-root MuiTypography-body1 label mui-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 label css-pfovru-MuiTypography-root"
       >
         apr
       </p>
       <p
-        className="MuiTypography-root MuiTypography-body1 mui-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
       >
         N/A
       </p>
     </div>
     <div
-      className="tss-bs2kuk-item"
+      className="css-bs2kuk-item"
     >
       <p
-        className="MuiTypography-root MuiTypography-body1 label mui-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 label css-pfovru-MuiTypography-root"
       >
         supply
       </p>
       <p
-        className="MuiTypography-root MuiTypography-body1 mui-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
       >
         N/A
       </p>
@@ -74,68 +74,68 @@ exports[`screen: Nav/TitleBar hook toggles correctly 1`] = `
 
 exports[`screen: Nav/TitleBar it renders 1`] = `
 <div
-  className="tss-12u7l3u-root"
+  className="css-12u7l3u-root"
 >
   <h1
-    className="MuiTypography-root MuiTypography-h1 mui-gw99sn-MuiTypography-root"
+    className="MuiTypography-root MuiTypography-h1 css-gw99sn-MuiTypography-root"
   >
     hello world
   </h1>
   <div
-    className="tss-15dicie-content"
+    className="css-15dicie-content"
   >
     <div
-      className="tss-bs2kuk-item"
+      className="css-bs2kuk-item"
     >
       <p
-        className="MuiTypography-root MuiTypography-body1 label mui-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 label css-pfovru-MuiTypography-root"
       >
         marketCap
       </p>
       <p
-        className="MuiTypography-root MuiTypography-body1 mui-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
       >
         N/A
       </p>
     </div>
     <div
-      className="tss-bs2kuk-item"
+      className="css-bs2kuk-item"
     >
       <p
-        className="MuiTypography-root MuiTypography-body1 label mui-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 label css-pfovru-MuiTypography-root"
       >
         inflation
       </p>
       <p
-        className="MuiTypography-root MuiTypography-body1 mui-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
       >
         0%
       </p>
     </div>
     <div
-      className="tss-bs2kuk-item"
+      className="css-bs2kuk-item"
     >
       <p
-        className="MuiTypography-root MuiTypography-body1 label mui-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 label css-pfovru-MuiTypography-root"
       >
         apr
       </p>
       <p
-        className="MuiTypography-root MuiTypography-body1 mui-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
       >
         N/A
       </p>
     </div>
     <div
-      className="tss-bs2kuk-item"
+      className="css-bs2kuk-item"
     >
       <p
-        className="MuiTypography-root MuiTypography-body1 label mui-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 label css-pfovru-MuiTypography-root"
       >
         supply
       </p>
       <p
-        className="MuiTypography-root MuiTypography-body1 mui-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
       >
         N/A
       </p>

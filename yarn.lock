@@ -1960,7 +1960,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/styled@npm:^11.10.5":
+"@emotion/styled@npm:*, @emotion/styled@npm:^11.10.5":
   version: 11.10.5
   resolution: "@emotion/styled@npm:11.10.5"
   dependencies:
@@ -11425,7 +11425,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"numeral@npm:2.0.6":
+"numeral@npm:^2.0.6":
   version: 2.0.6
   resolution: "numeral@npm:2.0.6"
   checksum: 89f011116539692bf53fde380adeb0579623d00f782703c71c0062d4a8686770c404a041ff4eef454de53925a9f75bba1fa52726057b13d40473f707730b07c2
@@ -12211,19 +12211,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:*":
-  version: 18.2.0
-  resolution: "react-dom@npm:18.2.0"
-  dependencies:
-    loose-envify: ^1.1.0
-    scheduler: ^0.23.0
-  peerDependencies:
-    react: ^18.2.0
-  checksum: 7d323310bea3a91be2965f9468d552f201b1c27891e45ddc2d6b8f717680c95a75ae0bc1e3f5cf41472446a2589a75aed4483aee8169287909fcd59ad149e8cc
-  languageName: node
-  linkType: hard
-
-"react-dom@npm:17.0.2":
+"react-dom@npm:^17.0.2":
   version: 17.0.2
   resolution: "react-dom@npm:17.0.2"
   dependencies:
@@ -12414,16 +12402,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:*":
-  version: 18.2.0
-  resolution: "react@npm:18.2.0"
-  dependencies:
-    loose-envify: ^1.1.0
-  checksum: 88e38092da8839b830cda6feef2e8505dec8ace60579e46aa5490fc3dc9bba0bd50336507dc166f43e3afc1c42939c09fe33b25fae889d6f402721dcd78fca1b
-  languageName: node
-  linkType: hard
-
-"react@npm:17.0.2":
+"react@npm:^17.0.2":
   version: 17.0.2
   resolution: "react@npm:17.0.2"
   dependencies:
@@ -12957,7 +12936,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"scheduler@npm:*, scheduler@npm:^0.23.0":
+"scheduler@npm:*":
   version: 0.23.0
   resolution: "scheduler@npm:0.23.0"
   dependencies:
@@ -13062,8 +13041,8 @@ __metadata:
     next: ^12.3.4
     next-translate: ^1.6.0
     next-transpile-modules: ^10.0.0
-    react: 17.0.2
-    react-dom: 17.0.2
+    react: ^17.0.2
+    react-dom: ^17.0.2
     ts-jest: ^29.0.3
     typescript: ^4.9.4
   languageName: unknown
@@ -14395,6 +14374,7 @@ __metadata:
   resolution: "ui@workspace:packages/ui"
   dependencies:
     "@apollo/client": ^3.7.3
+    "@emotion/cache": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.5
@@ -14477,12 +14457,12 @@ __metadata:
     next-seo: ^4.29.0
     next-translate: ^1.6.0
     next-transpile-modules: ^10.0.0
-    numeral: 2.0.6
+    numeral: ^2.0.6
     prop-types: ^15.8.1
     qrcode.react: ^3.1.0
     ramda: ^0.28.0
-    react: 17.0.2
-    react-dom: 17.0.2
+    react: ^17.0.2
+    react-dom: ^17.0.2
     react-share: ^4.4.1
     react-test-renderer: ^17.0.2
     react-toastify: ^7.0.4
@@ -14745,6 +14725,7 @@ __metadata:
   resolution: "web-agoric@workspace:apps/web-agoric"
   dependencies:
     "@apollo/client": ^3.7.3
+    "@emotion/cache": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.5
@@ -14827,12 +14808,12 @@ __metadata:
     next-seo: ^4.29.0
     next-translate: ^1.6.0
     next-transpile-modules: ^10.0.0
-    numeral: 2.0.6
+    numeral: ^2.0.6
     prop-types: ^15.8.1
     qrcode.react: ^3.1.0
     ramda: ^0.28.0
-    react: 17.0.2
-    react-dom: 17.0.2
+    react: ^17.0.2
+    react-dom: ^17.0.2
     react-share: ^4.4.1
     react-test-renderer: ^17.0.2
     react-toastify: ^7.0.4
@@ -14860,6 +14841,7 @@ __metadata:
   resolution: "web-akash@workspace:apps/web-akash"
   dependencies:
     "@apollo/client": ^3.7.3
+    "@emotion/cache": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.5
@@ -14942,12 +14924,12 @@ __metadata:
     next-seo: ^4.29.0
     next-translate: ^1.6.0
     next-transpile-modules: ^10.0.0
-    numeral: 2.0.6
+    numeral: ^2.0.6
     prop-types: ^15.8.1
     qrcode.react: ^3.1.0
     ramda: ^0.28.0
-    react: 17.0.2
-    react-dom: 17.0.2
+    react: ^17.0.2
+    react-dom: ^17.0.2
     react-share: ^4.4.1
     react-test-renderer: ^17.0.2
     react-toastify: ^7.0.4
@@ -14975,6 +14957,7 @@ __metadata:
   resolution: "web-assetmantle@workspace:apps/web-assetmantle"
   dependencies:
     "@apollo/client": ^3.7.3
+    "@emotion/cache": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.5
@@ -15057,12 +15040,12 @@ __metadata:
     next-seo: ^4.29.0
     next-translate: ^1.6.0
     next-transpile-modules: ^10.0.0
-    numeral: 2.0.6
+    numeral: ^2.0.6
     prop-types: ^15.8.1
     qrcode.react: ^3.1.0
     ramda: ^0.28.0
-    react: 17.0.2
-    react-dom: 17.0.2
+    react: ^17.0.2
+    react-dom: ^17.0.2
     react-share: ^4.4.1
     react-test-renderer: ^17.0.2
     react-toastify: ^7.0.4
@@ -15090,6 +15073,7 @@ __metadata:
   resolution: "web-band@workspace:apps/web-band"
   dependencies:
     "@apollo/client": ^3.7.3
+    "@emotion/cache": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.5
@@ -15172,12 +15156,12 @@ __metadata:
     next-seo: ^4.29.0
     next-translate: ^1.6.0
     next-transpile-modules: ^10.0.0
-    numeral: 2.0.6
+    numeral: ^2.0.6
     prop-types: ^15.8.1
     qrcode.react: ^3.1.0
     ramda: ^0.28.0
-    react: 17.0.2
-    react-dom: 17.0.2
+    react: ^17.0.2
+    react-dom: ^17.0.2
     react-share: ^4.4.1
     react-test-renderer: ^17.0.2
     react-toastify: ^7.0.4
@@ -15205,6 +15189,7 @@ __metadata:
   resolution: "web-bitsong@workspace:apps/web-bitsong"
   dependencies:
     "@apollo/client": ^3.7.3
+    "@emotion/cache": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.5
@@ -15287,12 +15272,12 @@ __metadata:
     next-seo: ^4.29.0
     next-translate: ^1.6.0
     next-transpile-modules: ^10.0.0
-    numeral: 2.0.6
+    numeral: ^2.0.6
     prop-types: ^15.8.1
     qrcode.react: ^3.1.0
     ramda: ^0.28.0
-    react: 17.0.2
-    react-dom: 17.0.2
+    react: ^17.0.2
+    react-dom: ^17.0.2
     react-share: ^4.4.1
     react-test-renderer: ^17.0.2
     react-toastify: ^7.0.4
@@ -15320,6 +15305,7 @@ __metadata:
   resolution: "web-comdex@workspace:apps/web-comdex"
   dependencies:
     "@apollo/client": ^3.7.3
+    "@emotion/cache": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.5
@@ -15402,12 +15388,12 @@ __metadata:
     next-seo: ^4.29.0
     next-translate: ^1.6.0
     next-transpile-modules: ^10.0.0
-    numeral: 2.0.6
+    numeral: ^2.0.6
     prop-types: ^15.8.1
     qrcode.react: ^3.1.0
     ramda: ^0.28.0
-    react: 17.0.2
-    react-dom: 17.0.2
+    react: ^17.0.2
+    react-dom: ^17.0.2
     react-share: ^4.4.1
     react-test-renderer: ^17.0.2
     react-toastify: ^7.0.4
@@ -15435,6 +15421,7 @@ __metadata:
   resolution: "web-cosmos@workspace:apps/web-cosmos"
   dependencies:
     "@apollo/client": ^3.7.3
+    "@emotion/cache": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.5
@@ -15517,12 +15504,12 @@ __metadata:
     next-seo: ^4.29.0
     next-translate: ^1.6.0
     next-transpile-modules: ^10.0.0
-    numeral: 2.0.6
+    numeral: ^2.0.6
     prop-types: ^15.8.1
     qrcode.react: ^3.1.0
     ramda: ^0.28.0
-    react: 17.0.2
-    react-dom: 17.0.2
+    react: ^17.0.2
+    react-dom: ^17.0.2
     react-share: ^4.4.1
     react-test-renderer: ^17.0.2
     react-toastify: ^7.0.4
@@ -15550,6 +15537,7 @@ __metadata:
   resolution: "web-crescent@workspace:apps/web-crescent"
   dependencies:
     "@apollo/client": ^3.7.3
+    "@emotion/cache": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.5
@@ -15632,12 +15620,12 @@ __metadata:
     next-seo: ^4.29.0
     next-translate: ^1.6.0
     next-transpile-modules: ^10.0.0
-    numeral: 2.0.6
+    numeral: ^2.0.6
     prop-types: ^15.8.1
     qrcode.react: ^3.1.0
     ramda: ^0.28.0
-    react: 17.0.2
-    react-dom: 17.0.2
+    react: ^17.0.2
+    react-dom: ^17.0.2
     react-share: ^4.4.1
     react-test-renderer: ^17.0.2
     react-toastify: ^7.0.4
@@ -15665,6 +15653,7 @@ __metadata:
   resolution: "web-desmos@workspace:apps/web-desmos"
   dependencies:
     "@apollo/client": ^3.7.3
+    "@emotion/cache": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.5
@@ -15747,12 +15736,12 @@ __metadata:
     next-seo: ^4.29.0
     next-translate: ^1.6.0
     next-transpile-modules: ^10.0.0
-    numeral: 2.0.6
+    numeral: ^2.0.6
     prop-types: ^15.8.1
     qrcode.react: ^3.1.0
     ramda: ^0.28.0
-    react: 17.0.2
-    react-dom: 17.0.2
+    react: ^17.0.2
+    react-dom: ^17.0.2
     react-share: ^4.4.1
     react-test-renderer: ^17.0.2
     react-toastify: ^7.0.4
@@ -15780,6 +15769,7 @@ __metadata:
   resolution: "web-elrond@workspace:apps/web-elrond"
   dependencies:
     "@apollo/client": ^3.7.3
+    "@emotion/cache": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.5
@@ -15862,12 +15852,12 @@ __metadata:
     next-seo: ^4.29.0
     next-translate: ^1.6.0
     next-transpile-modules: ^10.0.0
-    numeral: 2.0.6
+    numeral: ^2.0.6
     prop-types: ^15.8.1
     qrcode.react: ^3.1.0
     ramda: ^0.28.0
-    react: 17.0.2
-    react-dom: 17.0.2
+    react: ^17.0.2
+    react-dom: ^17.0.2
     react-share: ^4.4.1
     react-test-renderer: ^17.0.2
     react-toastify: ^7.0.4
@@ -15895,6 +15885,7 @@ __metadata:
   resolution: "web-emoney@workspace:apps/web-emoney"
   dependencies:
     "@apollo/client": ^3.7.3
+    "@emotion/cache": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.5
@@ -15977,12 +15968,12 @@ __metadata:
     next-seo: ^4.29.0
     next-translate: ^1.6.0
     next-transpile-modules: ^10.0.0
-    numeral: 2.0.6
+    numeral: ^2.0.6
     prop-types: ^15.8.1
     qrcode.react: ^3.1.0
     ramda: ^0.28.0
-    react: 17.0.2
-    react-dom: 17.0.2
+    react: ^17.0.2
+    react-dom: ^17.0.2
     react-share: ^4.4.1
     react-test-renderer: ^17.0.2
     react-toastify: ^7.0.4
@@ -16010,6 +16001,7 @@ __metadata:
   resolution: "web-evmos@workspace:apps/web-evmos"
   dependencies:
     "@apollo/client": ^3.7.3
+    "@emotion/cache": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.5
@@ -16092,12 +16084,12 @@ __metadata:
     next-seo: ^4.29.0
     next-translate: ^1.6.0
     next-transpile-modules: ^10.0.0
-    numeral: 2.0.6
+    numeral: ^2.0.6
     prop-types: ^15.8.1
     qrcode.react: ^3.1.0
     ramda: ^0.28.0
-    react: 17.0.2
-    react-dom: 17.0.2
+    react: ^17.0.2
+    react-dom: ^17.0.2
     react-share: ^4.4.1
     react-test-renderer: ^17.0.2
     react-toastify: ^7.0.4
@@ -16125,6 +16117,7 @@ __metadata:
   resolution: "web-likecoin@workspace:apps/web-likecoin"
   dependencies:
     "@apollo/client": ^3.7.3
+    "@emotion/cache": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.5
@@ -16207,12 +16200,12 @@ __metadata:
     next-seo: ^4.29.0
     next-translate: ^1.6.0
     next-transpile-modules: ^10.0.0
-    numeral: 2.0.6
+    numeral: ^2.0.6
     prop-types: ^15.8.1
     qrcode.react: ^3.1.0
     ramda: ^0.28.0
-    react: 17.0.2
-    react-dom: 17.0.2
+    react: ^17.0.2
+    react-dom: ^17.0.2
     react-share: ^4.4.1
     react-test-renderer: ^17.0.2
     react-toastify: ^7.0.4
@@ -16240,6 +16233,7 @@ __metadata:
   resolution: "web-nomic@workspace:apps/web-nomic"
   dependencies:
     "@apollo/client": ^3.7.3
+    "@emotion/cache": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.5
@@ -16322,12 +16316,12 @@ __metadata:
     next-seo: ^4.29.0
     next-translate: ^1.6.0
     next-transpile-modules: ^10.0.0
-    numeral: 2.0.6
+    numeral: ^2.0.6
     prop-types: ^15.8.1
     qrcode.react: ^3.1.0
     ramda: ^0.28.0
-    react: 17.0.2
-    react-dom: 17.0.2
+    react: ^17.0.2
+    react-dom: ^17.0.2
     react-share: ^4.4.1
     react-test-renderer: ^17.0.2
     react-toastify: ^7.0.4
@@ -16355,6 +16349,7 @@ __metadata:
   resolution: "web-nym@workspace:apps/web-nym"
   dependencies:
     "@apollo/client": ^3.7.3
+    "@emotion/cache": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.5
@@ -16437,12 +16432,12 @@ __metadata:
     next-seo: ^4.29.0
     next-translate: ^1.6.0
     next-transpile-modules: ^10.0.0
-    numeral: 2.0.6
+    numeral: ^2.0.6
     prop-types: ^15.8.1
     qrcode.react: ^3.1.0
     ramda: ^0.28.0
-    react: 17.0.2
-    react-dom: 17.0.2
+    react: ^17.0.2
+    react-dom: ^17.0.2
     react-share: ^4.4.1
     react-test-renderer: ^17.0.2
     react-toastify: ^7.0.4
@@ -16470,6 +16465,7 @@ __metadata:
   resolution: "web-osmosis@workspace:apps/web-osmosis"
   dependencies:
     "@apollo/client": ^3.7.3
+    "@emotion/cache": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.5
@@ -16552,12 +16548,12 @@ __metadata:
     next-seo: ^4.29.0
     next-translate: ^1.6.0
     next-transpile-modules: ^10.0.0
-    numeral: 2.0.6
+    numeral: ^2.0.6
     prop-types: ^15.8.1
     qrcode.react: ^3.1.0
     ramda: ^0.28.0
-    react: 17.0.2
-    react-dom: 17.0.2
+    react: ^17.0.2
+    react-dom: ^17.0.2
     react-share: ^4.4.1
     react-test-renderer: ^17.0.2
     react-toastify: ^7.0.4
@@ -16585,6 +16581,7 @@ __metadata:
   resolution: "web-persistence@workspace:apps/web-persistence"
   dependencies:
     "@apollo/client": ^3.7.3
+    "@emotion/cache": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.5
@@ -16667,12 +16664,12 @@ __metadata:
     next-seo: ^4.29.0
     next-translate: ^1.6.0
     next-transpile-modules: ^10.0.0
-    numeral: 2.0.6
+    numeral: ^2.0.6
     prop-types: ^15.8.1
     qrcode.react: ^3.1.0
     ramda: ^0.28.0
-    react: 17.0.2
-    react-dom: 17.0.2
+    react: ^17.0.2
+    react-dom: ^17.0.2
     react-share: ^4.4.1
     react-test-renderer: ^17.0.2
     react-toastify: ^7.0.4
@@ -16700,6 +16697,7 @@ __metadata:
   resolution: "web-provenance@workspace:apps/web-provenance"
   dependencies:
     "@apollo/client": ^3.7.3
+    "@emotion/cache": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.5
@@ -16782,12 +16780,12 @@ __metadata:
     next-seo: ^4.29.0
     next-translate: ^1.6.0
     next-transpile-modules: ^10.0.0
-    numeral: 2.0.6
+    numeral: ^2.0.6
     prop-types: ^15.8.1
     qrcode.react: ^3.1.0
     ramda: ^0.28.0
-    react: 17.0.2
-    react-dom: 17.0.2
+    react: ^17.0.2
+    react-dom: ^17.0.2
     react-share: ^4.4.1
     react-test-renderer: ^17.0.2
     react-toastify: ^7.0.4
@@ -16815,6 +16813,7 @@ __metadata:
   resolution: "web-regen@workspace:apps/web-regen"
   dependencies:
     "@apollo/client": ^3.7.3
+    "@emotion/cache": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.5
@@ -16897,12 +16896,12 @@ __metadata:
     next-seo: ^4.29.0
     next-translate: ^1.6.0
     next-transpile-modules: ^10.0.0
-    numeral: 2.0.6
+    numeral: ^2.0.6
     prop-types: ^15.8.1
     qrcode.react: ^3.1.0
     ramda: ^0.28.0
-    react: 17.0.2
-    react-dom: 17.0.2
+    react: ^17.0.2
+    react-dom: ^17.0.2
     react-share: ^4.4.1
     react-test-renderer: ^17.0.2
     react-toastify: ^7.0.4
@@ -16930,6 +16929,7 @@ __metadata:
   resolution: "web-rizon@workspace:apps/web-rizon"
   dependencies:
     "@apollo/client": ^3.7.3
+    "@emotion/cache": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.5
@@ -17012,12 +17012,12 @@ __metadata:
     next-seo: ^4.29.0
     next-translate: ^1.6.0
     next-transpile-modules: ^10.0.0
-    numeral: 2.0.6
+    numeral: ^2.0.6
     prop-types: ^15.8.1
     qrcode.react: ^3.1.0
     ramda: ^0.28.0
-    react: 17.0.2
-    react-dom: 17.0.2
+    react: ^17.0.2
+    react-dom: ^17.0.2
     react-share: ^4.4.1
     react-test-renderer: ^17.0.2
     react-toastify: ^7.0.4
@@ -17045,6 +17045,7 @@ __metadata:
   resolution: "web-shentu@workspace:apps/web-shentu"
   dependencies:
     "@apollo/client": ^3.7.3
+    "@emotion/cache": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.5
@@ -17127,12 +17128,12 @@ __metadata:
     next-seo: ^4.29.0
     next-translate: ^1.6.0
     next-transpile-modules: ^10.0.0
-    numeral: 2.0.6
+    numeral: ^2.0.6
     prop-types: ^15.8.1
     qrcode.react: ^3.1.0
     ramda: ^0.28.0
-    react: 17.0.2
-    react-dom: 17.0.2
+    react: ^17.0.2
+    react-dom: ^17.0.2
     react-share: ^4.4.1
     react-test-renderer: ^17.0.2
     react-toastify: ^7.0.4
@@ -17160,6 +17161,7 @@ __metadata:
   resolution: "web-sifchain@workspace:apps/web-sifchain"
   dependencies:
     "@apollo/client": ^3.7.3
+    "@emotion/cache": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.5
@@ -17242,12 +17244,12 @@ __metadata:
     next-seo: ^4.29.0
     next-translate: ^1.6.0
     next-transpile-modules: ^10.0.0
-    numeral: 2.0.6
+    numeral: ^2.0.6
     prop-types: ^15.8.1
     qrcode.react: ^3.1.0
     ramda: ^0.28.0
-    react: 17.0.2
-    react-dom: 17.0.2
+    react: ^17.0.2
+    react-dom: ^17.0.2
     react-share: ^4.4.1
     react-test-renderer: ^17.0.2
     react-toastify: ^7.0.4
@@ -17289,6 +17291,7 @@ __metadata:
   resolution: "web-stride@workspace:apps/web-stride"
   dependencies:
     "@apollo/client": ^3.7.3
+    "@emotion/cache": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.5
@@ -17371,12 +17374,12 @@ __metadata:
     next-seo: ^4.29.0
     next-translate: ^1.6.0
     next-transpile-modules: ^10.0.0
-    numeral: 2.0.6
+    numeral: ^2.0.6
     prop-types: ^15.8.1
     qrcode.react: ^3.1.0
     ramda: ^0.28.0
-    react: 17.0.2
-    react-dom: 17.0.2
+    react: ^17.0.2
+    react-dom: ^17.0.2
     react-share: ^4.4.1
     react-test-renderer: ^17.0.2
     react-toastify: ^7.0.4
@@ -17404,6 +17407,7 @@ __metadata:
   resolution: "web@workspace:apps/web"
   dependencies:
     "@apollo/client": ^3.7.3
+    "@emotion/cache": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.5
@@ -17486,12 +17490,12 @@ __metadata:
     next-seo: ^4.29.0
     next-translate: ^1.6.0
     next-transpile-modules: ^10.0.0
-    numeral: 2.0.6
+    numeral: ^2.0.6
     prop-types: ^15.8.1
     qrcode.react: ^3.1.0
     ramda: ^0.28.0
-    react: 17.0.2
-    react-dom: 17.0.2
+    react: ^17.0.2
+    react-dom: ^17.0.2
     react-share: ^4.4.1
     react-test-renderer: ^17.0.2
     react-toastify: ^7.0.4

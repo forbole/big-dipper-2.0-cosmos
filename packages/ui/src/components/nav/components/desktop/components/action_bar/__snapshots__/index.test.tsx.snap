@@ -2,21 +2,21 @@
 
 exports[`screen: Nav/ActionBar displays network 1`] = `
 <div
-  className="tss-1ea0fsh-root"
+  className="css-1ea0fsh-root"
 >
   <div
-    className="tss-1douz5d-actions"
+    className="css-1douz5d-actions"
   >
     <form
-      className="open tss-1r60gaq-searchBar-root"
+      className="open css-1r60gaq-searchBar-root"
       onSubmit={[Function]}
     >
       <div
-        className="MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-adornedStart mui-1lapsgy-MuiInputBase-root"
+        className="MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-adornedStart css-1lapsgy-MuiInputBase-root"
         onClick={[Function]}
       >
         <div
-          className="MuiInputAdornment-root MuiInputAdornment-positionStart mui-ittuaa-MuiInputAdornment-root"
+          className="MuiInputAdornment-root MuiInputAdornment-positionStart css-ittuaa-MuiInputAdornment-root"
         >
           <span
             className="notranslate"
@@ -25,7 +25,7 @@ exports[`screen: Nav/ActionBar displays network 1`] = `
           </span>
           <svg
             aria-hidden={true}
-            className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mui-ptiqhd-MuiSvgIcon-root"
+            className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
             color="#999999"
             data-testid="SearchIcon"
             focusable="false"
@@ -38,7 +38,7 @@ exports[`screen: Nav/ActionBar displays network 1`] = `
         </div>
         <input
           aria-label="searchBarPlaceholderDtag"
-          className="MuiInputBase-input MuiInputBase-inputAdornedStart mui-yz9k0d-MuiInputBase-input"
+          className="MuiInputBase-input MuiInputBase-inputAdornedStart css-yz9k0d-MuiInputBase-input"
           onAnimationStart={[Function]}
           onBlur={[Function]}
           onChange={[Function]}
@@ -51,7 +51,7 @@ exports[`screen: Nav/ActionBar displays network 1`] = `
       </div>
     </form>
     <div
-      className="tss-pjswcz-network open"
+      className="css-pjswcz-network open"
       id="network"
       toggleNetwork={[MockFunction]}
     />
@@ -61,7 +61,7 @@ exports[`screen: Nav/ActionBar displays network 1`] = `
   </div>
   <div
     actionHeight={0}
-    className="tss-qgr2xh-networkList open"
+    className="css-qgr2xh-networkList open"
     id="NetworkList"
   />
 </div>
@@ -69,21 +69,21 @@ exports[`screen: Nav/ActionBar displays network 1`] = `
 
 exports[`screen: Nav/ActionBar it renders 1`] = `
 <div
-  className="tss-1ea0fsh-root"
+  className="css-1ea0fsh-root"
 >
   <div
-    className="tss-1douz5d-actions"
+    className="css-1douz5d-actions"
   >
     <form
-      className="tss-1r60gaq-searchBar-root"
+      className="css-1r60gaq-searchBar-root"
       onSubmit={[Function]}
     >
       <div
-        className="MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-adornedStart mui-1lapsgy-MuiInputBase-root"
+        className="MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-adornedStart css-1lapsgy-MuiInputBase-root"
         onClick={[Function]}
       >
         <div
-          className="MuiInputAdornment-root MuiInputAdornment-positionStart mui-ittuaa-MuiInputAdornment-root"
+          className="MuiInputAdornment-root MuiInputAdornment-positionStart css-ittuaa-MuiInputAdornment-root"
         >
           <span
             className="notranslate"
@@ -92,7 +92,7 @@ exports[`screen: Nav/ActionBar it renders 1`] = `
           </span>
           <svg
             aria-hidden={true}
-            className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mui-ptiqhd-MuiSvgIcon-root"
+            className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
             color="#999999"
             data-testid="SearchIcon"
             focusable="false"
@@ -105,7 +105,7 @@ exports[`screen: Nav/ActionBar it renders 1`] = `
         </div>
         <input
           aria-label="searchBarPlaceholderDtag"
-          className="MuiInputBase-input MuiInputBase-inputAdornedStart mui-yz9k0d-MuiInputBase-input"
+          className="MuiInputBase-input MuiInputBase-inputAdornedStart css-yz9k0d-MuiInputBase-input"
           onAnimationStart={[Function]}
           onBlur={[Function]}
           onChange={[Function]}
@@ -118,7 +118,7 @@ exports[`screen: Nav/ActionBar it renders 1`] = `
       </div>
     </form>
     <div
-      className="tss-pjswcz-network"
+      className="css-pjswcz-network"
       id="network"
       toggleNetwork={[MockFunction]}
     />
@@ -128,7 +128,7 @@ exports[`screen: Nav/ActionBar it renders 1`] = `
   </div>
   <div
     actionHeight={0}
-    className="tss-qgr2xh-networkList"
+    className="css-qgr2xh-networkList"
     id="NetworkList"
   />
 </div>

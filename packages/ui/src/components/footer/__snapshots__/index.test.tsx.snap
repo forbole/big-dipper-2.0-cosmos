@@ -2,7 +2,7 @@
 
 exports[`component: layout/footer matches snapshot 1`] = `
 <div
-  className="tss-8sedic-root"
+  className="css-8sedic-root"
 >
   <div
     className="footer"
@@ -99,7 +99,7 @@ exports[`component: layout/footer matches snapshot 1`] = `
           common:community
         </h3>
         <div
-          className=" tss-4f6i8q-root social-media"
+          className=" css-4f6i8q-root social-media"
         >
           <a
             className="media telegram"
@@ -211,7 +211,7 @@ exports[`component: layout/footer matches snapshot 1`] = `
             target="_blank"
           >
             <button
-              className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation footer__donate-button mui-4y1nw-MuiButtonBase-root-MuiButton-root"
+              className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation footer__donate-button css-4y1nw-MuiButtonBase-root-MuiButton-root"
               disabled={false}
               onBlur={[Function]}
               onContextMenu={[Function]}
@@ -236,20 +236,20 @@ exports[`component: layout/footer matches snapshot 1`] = `
     </div>
   </div>
   <hr
-    className="MuiDivider-root MuiDivider-fullWidth mui-l3fh2f-MuiDivider-root"
+    className="MuiDivider-root MuiDivider-fullWidth css-l3fh2f-MuiDivider-root"
   />
   <div
     className="footer__closing--container"
   >
     <p
-      className="MuiTypography-root MuiTypography-body1 footer__closing--text mui-pfovru-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-body1 footer__closing--text css-pfovru-MuiTypography-root"
     >
       common:copyright
        
       2017
     </p>
     <p
-      className="MuiTypography-root MuiTypography-body1 footer__closing--text mui-pfovru-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-body1 footer__closing--text css-pfovru-MuiTypography-root"
     >
       common:maintainBy
     </p>

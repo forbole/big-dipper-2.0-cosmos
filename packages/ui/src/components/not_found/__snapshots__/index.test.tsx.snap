@@ -2,14 +2,14 @@
 
 exports[`component: NotFound matches snapshot 1`] = `
 <div
-  className="tss-1t3p35a-root"
+  className="css-1t3p35a-root"
 >
   <div
-    className="tss-12ou3q3-content"
+    className="css-12ou3q3-content"
   >
     <svg />
     <p
-      className="MuiTypography-root MuiTypography-body1 mui-pfovru-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
     >
       notFound
     </p>

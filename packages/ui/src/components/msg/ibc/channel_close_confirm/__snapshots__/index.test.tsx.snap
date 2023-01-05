@@ -2,7 +2,7 @@
 
 exports[`screen: TransactionDetails/IBCChannelCloseConfirm matches snapshot 1`] = `
 <p
-  className="MuiTypography-root MuiTypography-body1 mui-pfovru-MuiTypography-root"
+  className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
 >
   message_contents:txChannelCloseConfirmContent
 </p>

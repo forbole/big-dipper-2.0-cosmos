@@ -2,44 +2,44 @@
 
 exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
 <div
-  className="tss-kdsjqp-root"
+  className="css-kdsjqp-root"
 >
   <table
-    className="MuiTable-root tss-ad8fu0-table mui-1gsblck-MuiTable-root"
+    className="MuiTable-root css-x2767d-MuiTable-root-table"
     role={null}
   >
     <thead
-      className="MuiTableHead-root mui-14dqc50-MuiTableHead-root"
+      className="MuiTableHead-root css-14dqc50-MuiTableHead-root"
       role={null}
     >
       <tr
-        className="MuiTableRow-root MuiTableRow-head mui-15633jd-MuiTableRow-root"
+        className="MuiTableRow-root MuiTableRow-head css-15633jd-MuiTableRow-root"
         role={null}
       >
         <th
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium mui-raaiek-MuiTableCell-root"
+          className="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-raaiek-MuiTableCell-root"
           scope="col"
         >
           height
         </th>
         <th
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium mui-raaiek-MuiTableCell-root"
+          className="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-raaiek-MuiTableCell-root"
           scope="col"
         >
           hash
         </th>
         <th
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight MuiTableCell-sizeMedium mui-18xwwk-MuiTableCell-root"
+          className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight MuiTableCell-sizeMedium css-18xwwk-MuiTableCell-root"
           scope="col"
         >
           txs
         </th>
         <th
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight MuiTableCell-sizeMedium mui-18xwwk-MuiTableCell-root"
+          className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight MuiTableCell-sizeMedium css-18xwwk-MuiTableCell-root"
           scope="col"
         >
           time
@@ -47,19 +47,19 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
       </tr>
     </thead>
     <tbody
-      className="MuiTableBody-root mui-zckbyc-MuiTableBody-root"
+      className="MuiTableBody-root css-zckbyc-MuiTableBody-root"
       role={null}
     >
       <tr
-        className="MuiTableRow-root mui-15633jd-MuiTableRow-root"
+        className="MuiTableRow-root css-15633jd-MuiTableRow-root"
         role={null}
       >
         <td
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium mui-1i7jhar-MuiTableCell-root"
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1i7jhar-MuiTableCell-root"
         >
           <a
-            className="MuiTypography-root MuiTypography-body1 value mui-pfovru-MuiTypography-root"
+            className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
             href="/blocks/4000"
             onClick={[Function]}
             onMouseEnter={[Function]}
@@ -70,19 +70,19 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         </td>
         <td
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium mui-1i7jhar-MuiTableCell-root"
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1i7jhar-MuiTableCell-root"
         >
           76nwV8zz8tLz97S...JDLQfF66jZhQ857
         </td>
         <td
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium mui-o7czbt-MuiTableCell-root"
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-o7czbt-MuiTableCell-root"
         >
           12
         </td>
         <td
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium mui-o7czbt-MuiTableCell-root"
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-o7czbt-MuiTableCell-root"
         >
           1 day ago
         </td>

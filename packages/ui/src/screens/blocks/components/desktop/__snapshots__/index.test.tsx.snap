@@ -2,7 +2,7 @@
 
 exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
 <div
-  className="tss-1rz0of5-root"
+  className="css-1rz0of5-root"
 >
   <div
     onScroll={[Function]}
@@ -28,7 +28,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
       }
     >
       <div
-        className="tss-g5w4dk-cell"
+        className="css-g5w4dk-cell"
         style={
           {
             "height": 50,
@@ -41,13 +41,13 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <h4
-          className="MuiTypography-root MuiTypography-h4 mui-15yyl88-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-h4 css-15yyl88-MuiTypography-root"
         >
           height
         </h4>
       </div>
       <div
-        className="tss-g5w4dk-cell"
+        className="css-g5w4dk-cell"
         style={
           {
             "height": 50,
@@ -60,13 +60,13 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <h4
-          className="MuiTypography-root MuiTypography-h4 mui-15yyl88-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-h4 css-15yyl88-MuiTypography-root"
         >
           proposer
         </h4>
       </div>
       <div
-        className="tss-g5w4dk-cell"
+        className="css-g5w4dk-cell"
         style={
           {
             "height": 50,
@@ -79,13 +79,13 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <h4
-          className="MuiTypography-root MuiTypography-h4 mui-15yyl88-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-h4 css-15yyl88-MuiTypography-root"
         >
           hash
         </h4>
       </div>
       <div
-        className="tss-g5w4dk-cell"
+        className="css-g5w4dk-cell"
         style={
           {
             "height": 50,
@@ -98,13 +98,13 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <h4
-          className="MuiTypography-root MuiTypography-h4 MuiTypography-alignRight mui-onu55c-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-h4 MuiTypography-alignRight css-onu55c-MuiTypography-root"
         >
           txs
         </h4>
       </div>
       <div
-        className="tss-g5w4dk-cell"
+        className="css-g5w4dk-cell"
         style={
           {
             "height": 50,
@@ -117,7 +117,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <h4
-          className="MuiTypography-root MuiTypography-h4 MuiTypography-alignRight mui-onu55c-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-h4 MuiTypography-alignRight css-onu55c-MuiTypography-root"
         >
           time
         </h4>
@@ -149,7 +149,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
       }
     >
       <div
-        className="odd tss-ei6klg-cell-body"
+        className="odd css-ei6klg-cell-body"
         style={
           {
             "height": 50,
@@ -162,10 +162,10 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <div
-          className="MuiTypography-root MuiTypography-body1 mui-pfovru-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
         >
           <a
-            className="MuiTypography-root MuiTypography-body1 value mui-pfovru-MuiTypography-root"
+            className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
             href="/blocks/300"
             onClick={[Function]}
             onMouseEnter={[Function]}
@@ -176,7 +176,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         </div>
       </div>
       <div
-        className="odd tss-ei6klg-cell-body"
+        className="odd css-ei6klg-cell-body"
         style={
           {
             "height": 50,
@@ -189,7 +189,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <div
-          className="MuiTypography-root MuiTypography-body1 mui-pfovru-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
         >
           <div
             address="address"
@@ -200,7 +200,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         </div>
       </div>
       <div
-        className="odd tss-ei6klg-cell-body"
+        className="odd css-ei6klg-cell-body"
         style={
           {
             "height": 50,
@@ -213,13 +213,13 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <div
-          className="MuiTypography-root MuiTypography-body1 mui-pfovru-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
         >
           hash
         </div>
       </div>
       <div
-        className="odd tss-ei6klg-cell-body"
+        className="odd css-ei6klg-cell-body"
         style={
           {
             "height": 50,
@@ -232,13 +232,13 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <div
-          className="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight mui-3n46jc-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight css-3n46jc-MuiTypography-root"
         >
           2
         </div>
       </div>
       <div
-        className="odd tss-ei6klg-cell-body"
+        className="odd css-ei6klg-cell-body"
         style={
           {
             "height": 50,
@@ -251,13 +251,13 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <div
-          className="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight mui-3n46jc-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight css-3n46jc-MuiTypography-root"
         >
           1 day ago
         </div>
       </div>
       <div
-        className="tss-ei6klg-cell-body"
+        className="css-ei6klg-cell-body"
         style={
           {
             "height": 50,
@@ -270,10 +270,10 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <div
-          className="MuiTypography-root MuiTypography-body1 mui-pfovru-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
         >
           <a
-            className="MuiTypography-root MuiTypography-body1 value mui-pfovru-MuiTypography-root"
+            className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
             href="/blocks/301"
             onClick={[Function]}
             onMouseEnter={[Function]}
@@ -284,7 +284,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         </div>
       </div>
       <div
-        className="tss-ei6klg-cell-body"
+        className="css-ei6klg-cell-body"
         style={
           {
             "height": 50,
@@ -297,7 +297,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <div
-          className="MuiTypography-root MuiTypography-body1 mui-pfovru-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
         >
           <div
             address="address"
@@ -308,7 +308,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         </div>
       </div>
       <div
-        className="tss-ei6klg-cell-body"
+        className="css-ei6klg-cell-body"
         style={
           {
             "height": 50,
@@ -321,13 +321,13 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <div
-          className="MuiTypography-root MuiTypography-body1 mui-pfovru-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
         >
           hash
         </div>
       </div>
       <div
-        className="tss-ei6klg-cell-body"
+        className="css-ei6klg-cell-body"
         style={
           {
             "height": 50,
@@ -340,13 +340,13 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <div
-          className="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight mui-3n46jc-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight css-3n46jc-MuiTypography-root"
         >
           2
         </div>
       </div>
       <div
-        className="tss-ei6klg-cell-body"
+        className="css-ei6klg-cell-body"
         style={
           {
             "height": 50,
@@ -359,7 +359,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <div
-          className="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight mui-3n46jc-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight css-3n46jc-MuiTypography-root"
         >
           1 day ago
         </div>

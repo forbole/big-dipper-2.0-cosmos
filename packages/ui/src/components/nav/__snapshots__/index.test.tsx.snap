@@ -2,7 +2,7 @@
 
 exports[`component: Nav it renders 1`] = `
 <div
-  className="tss-y4sl71-mobile"
+  className="css-y4sl71-mobile"
   id="Mobile"
   title=""
 />

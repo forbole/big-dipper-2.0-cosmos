@@ -3,46 +3,46 @@
 exports[`screen: DesmosProfile/Mobile it renders 1`] = `
 <div>
   <div
-    className="tss-16zqb2r-list"
+    className="css-16zqb2r-list"
   >
     <div
-      className="tss-se0n4n-item"
+      className="css-se0n4n-item"
     >
       <h4
-        className="MuiTypography-root MuiTypography-h4 label mui-15yyl88-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
       >
         network
       </h4>
       <p
-        className="MuiTypography-root MuiTypography-body1 value mui-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
       >
         
       </p>
     </div>
     <div
-      className="tss-se0n4n-item"
+      className="css-se0n4n-item"
     >
       <h4
-        className="MuiTypography-root MuiTypography-h4 label mui-15yyl88-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
       >
         identifier
       </h4>
       <p
-        className="MuiTypography-root MuiTypography-body1 value mui-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
       >
         
       </p>
     </div>
     <div
-      className="tss-se0n4n-item"
+      className="css-se0n4n-item"
     >
       <h4
-        className="MuiTypography-root MuiTypography-h4 label mui-15yyl88-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
       >
         creationTime
       </h4>
       <p
-        className="MuiTypography-root MuiTypography-body1 value mui-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
       >
         2020-08-10 12:00:00
       </p>

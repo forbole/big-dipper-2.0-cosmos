@@ -2,14 +2,14 @@
 
 exports[`component: NoData matches snapshot 1`] = `
 <div
-  className="tss-1uakf8a-root"
+  className="css-1uakf8a-root"
 >
   <div
-    className="tss-12ou3q3-content"
+    className="css-12ou3q3-content"
   >
     <svg />
     <p
-      className="MuiTypography-root MuiTypography-body1 mui-pfovru-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
     >
       nothingToShow
     </p>

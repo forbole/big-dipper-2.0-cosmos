@@ -4,7 +4,7 @@ exports[`screen: Nav/SettingList it renders 1`] = `
 <div>
   <div
     aria-label="settings-button"
-    className="tss-1bdrgvf-icon"
+    className="css-1bdrgvf-icon"
     onClick={[Function]}
     role="button"
     tabIndex={0}

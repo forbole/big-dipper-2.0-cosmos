@@ -2,13 +2,13 @@
 
 exports[`component: SingleTransactionMobile matches snapshot 1`] = `
 <div
-  className="tss-16gjaz6-root"
+  className="css-16gjaz6-root"
 >
   <div
-    className="tss-15xvgqb-item"
+    className="css-15xvgqb-item"
   >
     <h4
-      className="MuiTypography-root MuiTypography-h4 label mui-15yyl88-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
     >
       block
     </h4>
@@ -17,15 +17,15 @@ exports[`component: SingleTransactionMobile matches snapshot 1`] = `
     </div>
   </div>
   <div
-    className="tss-15xvgqb-item"
+    className="css-15xvgqb-item"
   >
     <h4
-      className="MuiTypography-root MuiTypography-h4 label mui-15yyl88-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
     >
       hash
     </h4>
     <p
-      className="MuiTypography-root MuiTypography-body1 value mui-pfovru-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
     >
       <div>
         1572D5F78D0192BC59E6BD99875D7796A39B1CE0CEF2E106D586CCCEF5C75317
@@ -33,36 +33,36 @@ exports[`component: SingleTransactionMobile matches snapshot 1`] = `
     </p>
   </div>
   <div
-    className="tss-lmh6au-flex"
+    className="css-lmh6au-flex"
   >
     <div
-      className="tss-15xvgqb-item"
+      className="css-15xvgqb-item"
     >
       <h4
-        className="MuiTypography-root MuiTypography-h4 label mui-15yyl88-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
       >
         messages
       </h4>
       <p
-        className="MuiTypography-root MuiTypography-body1 value mui-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
       >
         2
       </p>
     </div>
     <div
-      className="tss-15xvgqb-item"
+      className="css-15xvgqb-item"
     >
       <h4
-        className="MuiTypography-root MuiTypography-h4 label mui-15yyl88-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
       >
         result
       </h4>
       <div
-        className="tss-18blogw-root-success"
+        className="css-18blogw-root-success"
       >
         <svg
           aria-hidden={true}
-          className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-i4bv87-MuiSvgIcon-root"
+          className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
           color="#999999"
           data-testid="CheckCircleIcon"
           focusable="false"
@@ -73,7 +73,7 @@ exports[`component: SingleTransactionMobile matches snapshot 1`] = `
           />
         </svg>
         <p
-          className="MuiTypography-root MuiTypography-body1 mui-pfovru-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
         >
           success
         </p>
@@ -81,15 +81,15 @@ exports[`component: SingleTransactionMobile matches snapshot 1`] = `
     </div>
   </div>
   <div
-    className="tss-15xvgqb-item"
+    className="css-15xvgqb-item"
   >
     <h4
-      className="MuiTypography-root MuiTypography-h4 label mui-15yyl88-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
     >
       time
     </h4>
     <p
-      className="MuiTypography-root MuiTypography-body1 value mui-pfovru-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
     >
       2022-02-19T19:03:14.969688
     </p>

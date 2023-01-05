@@ -2,20 +2,20 @@
 
 exports[`screen: Proposals/List matches snapshot 1`] = `
 <div
-  className="tss-1twmwxn-root"
+  className="css-1twmwxn-root"
   id="Box"
 >
   <div
-    className="tss-14mpgd5-topContent"
+    className="css-14mpgd5-topContent"
   >
     <div
-      className="tss-1xbqq1r-total"
+      className="css-1xbqq1r-total"
       id="Total"
       total="2"
     />
   </div>
   <div
-    className="tss-l0czsq-list"
+    className="css-l0czsq-list"
   >
     <div
       className="List"
@@ -55,24 +55,24 @@ exports[`screen: Proposals/List matches snapshot 1`] = `
         >
           <div>
             <div
-              className="tss-8bkbz1-root"
+              className="css-8bkbz1-root"
             >
               <div
-                className="tss-wxblv8-header"
+                className="css-wxblv8-header"
               >
                 <h4
-                  className="MuiTypography-root MuiTypography-h4 tss-1o32tk6-id mui-15yyl88-MuiTypography-root"
+                  className="MuiTypography-root MuiTypography-h4 css-138pxwk-MuiTypography-root-id"
                 >
                   #3
                 </h4>
                 <span
-                  className="tss-y4sl71-mobile"
+                  className="css-y4sl71-mobile"
                 >
                   <div
-                    className="tss-1uw8c3v-root-four"
+                    className="css-1uw8c3v-root-four"
                   >
                     <p
-                      className="MuiTypography-root MuiTypography-body1 mui-pfovru-MuiTypography-root"
+                      className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
                     >
                       passed
                     </p>
@@ -81,10 +81,10 @@ exports[`screen: Proposals/List matches snapshot 1`] = `
               </div>
               <div>
                 <div
-                  className="tss-11049aw-title"
+                  className="css-11049aw-title"
                 >
                   <a
-                    className="MuiTypography-root MuiTypography-h3 value mui-1kl9mnf-MuiTypography-root"
+                    className="MuiTypography-root MuiTypography-h3 value css-1kl9mnf-MuiTypography-root"
                     href="/proposals/3"
                     onClick={[Function]}
                     onMouseEnter={[Function]}
@@ -94,19 +94,19 @@ exports[`screen: Proposals/List matches snapshot 1`] = `
                   </a>
                 </div>
                 <p
-                  className="MuiTypography-root MuiTypography-body2 tss-1whmzoy-content mui-1bkilrq-MuiTypography-root"
+                  className="MuiTypography-root MuiTypography-body2 css-1bzqam7-MuiTypography-root-content"
                 >
                   Update max validators
                 </p>
               </div>
               <span
-                className="tss-1d2xof0-desktop"
+                className="css-1d2xof0-desktop"
               >
                 <div
-                  className="tss-1uw8c3v-root-four"
+                  className="css-1uw8c3v-root-four"
                 >
                   <p
-                    className="MuiTypography-root MuiTypography-body1 mui-pfovru-MuiTypography-root"
+                    className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
                   >
                     passed
                   </p>
@@ -114,7 +114,7 @@ exports[`screen: Proposals/List matches snapshot 1`] = `
               </span>
             </div>
             <hr
-              className="MuiDivider-root MuiDivider-fullWidth mui-l3fh2f-MuiDivider-root"
+              className="MuiDivider-root MuiDivider-fullWidth css-l3fh2f-MuiDivider-root"
             />
           </div>
         </div>
@@ -132,24 +132,24 @@ exports[`screen: Proposals/List matches snapshot 1`] = `
         >
           <div>
             <div
-              className="tss-8bkbz1-root"
+              className="css-8bkbz1-root"
             >
               <div
-                className="tss-wxblv8-header"
+                className="css-wxblv8-header"
               >
                 <h4
-                  className="MuiTypography-root MuiTypography-h4 tss-1o32tk6-id mui-15yyl88-MuiTypography-root"
+                  className="MuiTypography-root MuiTypography-h4 css-138pxwk-MuiTypography-root-id"
                 >
                   #7
                 </h4>
                 <span
-                  className="tss-y4sl71-mobile"
+                  className="css-y4sl71-mobile"
                 >
                   <div
-                    className="tss-117ggys-root-five"
+                    className="css-117ggys-root-five"
                   >
                     <p
-                      className="MuiTypography-root MuiTypography-body1 mui-pfovru-MuiTypography-root"
+                      className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
                     >
                       rejected
                     </p>
@@ -158,10 +158,10 @@ exports[`screen: Proposals/List matches snapshot 1`] = `
               </div>
               <div>
                 <div
-                  className="tss-11049aw-title"
+                  className="css-11049aw-title"
                 >
                   <a
-                    className="MuiTypography-root MuiTypography-h3 value mui-1kl9mnf-MuiTypography-root"
+                    className="MuiTypography-root MuiTypography-h3 value css-1kl9mnf-MuiTypography-root"
                     href="/proposals/7"
                     onClick={[Function]}
                     onMouseEnter={[Function]}
@@ -171,19 +171,19 @@ exports[`screen: Proposals/List matches snapshot 1`] = `
                   </a>
                 </div>
                 <p
-                  className="MuiTypography-root MuiTypography-body2 tss-1whmzoy-content mui-1bkilrq-MuiTypography-root"
+                  className="MuiTypography-root MuiTypography-body2 css-1bzqam7-MuiTypography-root-content"
                 >
                   Update max validators
                 </p>
               </div>
               <span
-                className="tss-1d2xof0-desktop"
+                className="css-1d2xof0-desktop"
               >
                 <div
-                  className="tss-117ggys-root-five"
+                  className="css-117ggys-root-five"
                 >
                   <p
-                    className="MuiTypography-root MuiTypography-body1 mui-pfovru-MuiTypography-root"
+                    className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
                   >
                     rejected
                   </p>
@@ -200,20 +200,20 @@ exports[`screen: Proposals/List matches snapshot 1`] = `
 
 exports[`screen: Proposals/List matches snapshot with empty proposal list 1`] = `
 <div
-  className="tss-1twmwxn-root"
+  className="css-1twmwxn-root"
   id="Box"
 >
   <div
-    className="tss-14mpgd5-topContent"
+    className="css-14mpgd5-topContent"
   >
     <div
-      className="tss-1xbqq1r-total"
+      className="css-1xbqq1r-total"
       id="Total"
       total="0"
     />
   </div>
   <div
-    className="tss-l0czsq-list"
+    className="css-l0czsq-list"
   >
     <div
       className="List"

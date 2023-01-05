@@ -6,14 +6,14 @@ exports[`screen: _app matches snapshot 1`] = `
     className="Toastify"
   />,
   <div
-    className="tss-dbvyw2-root"
+    className="css-dbvyw2-root"
   >
     <span
-      className="tss-1f1tpog-logo-container"
+      className="css-1f1tpog-logo-container"
     >
       <img
         alt="logo"
-        className="tss-4nmqpx-dark"
+        className="css-4nmqpx-dark"
         data-nimg="future"
         decoding="async"
         height={0}
@@ -30,7 +30,7 @@ exports[`screen: _app matches snapshot 1`] = `
       />
       <img
         alt="logo"
-        className="tss-13ot6lo-light"
+        className="css-13ot6lo-light"
         data-nimg="future"
         decoding="async"
         height={0}
@@ -47,67 +47,67 @@ exports[`screen: _app matches snapshot 1`] = `
       />
     </span>
     <div
-      className="tss-x6pwqy-timeContainer"
+      className="css-x6pwqy-timeContainer"
     >
       <div
-        className="tss-1e9rjvf-item"
+        className="css-1e9rjvf-item"
       >
         <h1
-          className="MuiTypography-root MuiTypography-h1 mui-gw99sn-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-h1 css-gw99sn-MuiTypography-root"
         >
           0
         </h1>
         <h3
-          className="MuiTypography-root MuiTypography-h3 mui-1kl9mnf-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-h3 css-1kl9mnf-MuiTypography-root"
         >
           Day
         </h3>
       </div>
       <div
-        className="tss-1e9rjvf-item"
+        className="css-1e9rjvf-item"
       >
         <h1
-          className="MuiTypography-root MuiTypography-h1 mui-gw99sn-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-h1 css-gw99sn-MuiTypography-root"
         >
           0
         </h1>
         <h3
-          className="MuiTypography-root MuiTypography-h3 mui-1kl9mnf-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-h3 css-1kl9mnf-MuiTypography-root"
         >
           Hour
         </h3>
       </div>
       <div
-        className="tss-1e9rjvf-item"
+        className="css-1e9rjvf-item"
       >
         <h1
-          className="MuiTypography-root MuiTypography-h1 mui-gw99sn-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-h1 css-gw99sn-MuiTypography-root"
         >
           0
         </h1>
         <h3
-          className="MuiTypography-root MuiTypography-h3 mui-1kl9mnf-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-h3 css-1kl9mnf-MuiTypography-root"
         >
           Min
         </h3>
       </div>
       <div
-        className="tss-1e9rjvf-item"
+        className="css-1e9rjvf-item"
       >
         <h1
-          className="MuiTypography-root MuiTypography-h1 mui-gw99sn-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-h1 css-gw99sn-MuiTypography-root"
         >
           0
         </h1>
         <h3
-          className="MuiTypography-root MuiTypography-h3 mui-1kl9mnf-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-h3 css-1kl9mnf-MuiTypography-root"
         >
           Sec
         </h3>
       </div>
     </div>
     <h2
-      className="MuiTypography-root MuiTypography-h2 tss-18vse04-chain mui-dcgvbp-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-h2 css-k0i0gx-MuiTypography-root-chain"
     >
       desmos-mainnet
     </h2>
