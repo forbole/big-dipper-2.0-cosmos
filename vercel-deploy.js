@@ -1,23 +1,13 @@
 /* eslint-disable no-console */
 /* eslint-disable turbo/no-undeclared-env-vars */
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const { exec } = require('child_process');
+const { execSync } = require('child_process');
 
 const apiToken = process.env.GITHUB_API_TOKEN;
 const pullId = process.env.VERCEL_GIT_PULL_REQUEST_ID;
 
 function execShell(command) {
-  return exec(command, (error, stdout, stderr) => {
-    if (error) {
-      console.log(`error: ${error.message}`);
-      return;
-    }
-    if (stderr) {
-      console.log(`stderr: ${stderr}`);
-      return;
-    }
-    console.log(`stdout: ${stdout}`);
-  });
+  return execSync(command).toString();
 }
 
 const response = execShell(`curl \
@@ -32,7 +22,7 @@ const projects = execShell(
   `yarn workspaces list --json | jq -csr '[ .[].name | select(. | startswith("web") ) ]'`
 );
 
-const projectList = JSON.parse(JSON.stringify(projects));
+const projectList = projects;
 
 const project = projectList.find((p) => title.endsWith(`[${p}]`)) || 'web';
 
