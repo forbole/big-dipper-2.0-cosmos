@@ -36,4 +36,4 @@ const project = projects.find((p) => title.endsWith(`[${p}]`));
 
 execShell(`yarn workspace ${project} next build`);
 
-execShell(`rm -rf apps/web, mv apps/${project} apps/web`);
+if (project !== 'web') execShell(`rm -rf apps/web, mv apps/${project} apps/web`);
