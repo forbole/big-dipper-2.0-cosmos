@@ -1,4 +1,3 @@
-/* eslint-disable no-useless-return */
 /* eslint-disable no-console */
 /* eslint-disable turbo/no-undeclared-env-vars */
 // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -8,7 +7,7 @@ const apiToken = process.env.GITHUB_API_TOKEN;
 const pullId = process.env.VERCEL_GIT_PULL_REQUEST_ID;
 
 function execShell(command) {
-  exec(command, (error, stdout, stderr) => {
+  return exec(command, (error, stdout, stderr) => {
     if (error) {
       console.log(`error: ${error.message}`);
       return;
@@ -18,7 +17,6 @@ function execShell(command) {
       return;
     }
     console.log(`stdout: ${stdout}`);
-    return;
   });
 }
 
