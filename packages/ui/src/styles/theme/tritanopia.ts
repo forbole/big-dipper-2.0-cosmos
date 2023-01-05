@@ -126,7 +126,7 @@ export const tritanopiaThemeOverride: DeepPartial<ThemeOptions> = {
       styleOverrides: {
         root: {
           '& .MuiTableRow-root': {
-            '&:nth-child(odd)': {
+            '&:nth-of-type(odd)': {
               backgroundColor: surfaceTwo, // surface two
             },
           },

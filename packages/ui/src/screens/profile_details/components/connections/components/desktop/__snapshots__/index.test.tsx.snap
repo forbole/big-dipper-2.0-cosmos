@@ -7,7 +7,7 @@ exports[`screen: ProfileDetails/Connections/Desktop matches snapshot 1`] = `
     role={null}
   >
     <thead
-      className="MuiTableHead-root css-15wwp11-MuiTableHead-root"
+      className="MuiTableHead-root css-14dqc50-MuiTableHead-root"
       role={null}
     >
       <tr
@@ -16,7 +16,7 @@ exports[`screen: ProfileDetails/Connections/Desktop matches snapshot 1`] = `
       >
         <th
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-18mudrq-MuiTableCell-root"
+          className="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-avpoev-MuiTableCell-root"
           scope="col"
           style={
             {
@@ -28,7 +28,7 @@ exports[`screen: ProfileDetails/Connections/Desktop matches snapshot 1`] = `
         </th>
         <th
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium css-18mudrq-MuiTableCell-root"
+          className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium css-avpoev-MuiTableCell-root"
           scope="col"
           style={
             {
@@ -40,7 +40,7 @@ exports[`screen: ProfileDetails/Connections/Desktop matches snapshot 1`] = `
         </th>
         <th
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight MuiTableCell-sizeMedium css-1rrxbig-MuiTableCell-root"
+          className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight MuiTableCell-sizeMedium css-1em49d8-MuiTableCell-root"
           scope="col"
           style={
             {
@@ -53,7 +53,7 @@ exports[`screen: ProfileDetails/Connections/Desktop matches snapshot 1`] = `
       </tr>
     </thead>
     <tbody
-      className="MuiTableBody-root css-apqrd9-MuiTableBody-root"
+      className="MuiTableBody-root css-grv1yu-MuiTableBody-root"
       role={null}
     >
       <tr
@@ -62,7 +62,7 @@ exports[`screen: ProfileDetails/Connections/Desktop matches snapshot 1`] = `
       >
         <td
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1cijqs8-MuiTableCell-root"
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-zs3zy9-MuiTableCell-root"
           style={
             {
               "width": "25%",
@@ -73,7 +73,7 @@ exports[`screen: ProfileDetails/Connections/Desktop matches snapshot 1`] = `
         </td>
         <td
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1cijqs8-MuiTableCell-root"
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-zs3zy9-MuiTableCell-root"
           style={
             {
               "width": "50%",
@@ -92,7 +92,7 @@ exports[`screen: ProfileDetails/Connections/Desktop matches snapshot 1`] = `
         </td>
         <td
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-xdraxd-MuiTableCell-root"
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1ct601e-MuiTableCell-root"
           style={
             {
               "width": "25%",
@@ -108,7 +108,7 @@ exports[`screen: ProfileDetails/Connections/Desktop matches snapshot 1`] = `
       >
         <td
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1cijqs8-MuiTableCell-root"
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-zs3zy9-MuiTableCell-root"
           style={
             {
               "width": "25%",
@@ -119,7 +119,7 @@ exports[`screen: ProfileDetails/Connections/Desktop matches snapshot 1`] = `
         </td>
         <td
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1cijqs8-MuiTableCell-root"
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-zs3zy9-MuiTableCell-root"
           style={
             {
               "width": "50%",
@@ -130,7 +130,7 @@ exports[`screen: ProfileDetails/Connections/Desktop matches snapshot 1`] = `
         </td>
         <td
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-xdraxd-MuiTableCell-root"
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1ct601e-MuiTableCell-root"
           style={
             {
               "width": "25%",

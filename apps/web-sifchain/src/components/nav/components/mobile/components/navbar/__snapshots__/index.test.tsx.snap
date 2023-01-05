@@ -34,6 +34,7 @@ exports[`screen: Nav/mobile/navbar it renders 1`] = `
       <svg
         aria-hidden={true}
         className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+        color="#999999"
         data-testid="ExpandMoreIcon"
         focusable="false"
         viewBox="0 0 24 24"
@@ -92,6 +93,7 @@ exports[`screen: Nav/mobile/navbar toggleNavMenus is called onClick 1`] = `
       <svg
         aria-hidden={true}
         className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+        color="#999999"
         data-testid="ExpandMoreIcon"
         focusable="false"
         viewBox="0 0 24 24"

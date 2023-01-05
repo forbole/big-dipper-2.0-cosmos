@@ -41,10 +41,10 @@ const useStyles = makeStyles()((theme) => ({
         height: '12px',
         marginRight: '5px',
       },
-      '&:first-child:before': {
+      '&:first-of-type:before': {
         background: theme.palette.custom.tokenomics.one,
       },
-      '&:nth-child(2):before': {
+      '&:nth-of-type(2):before': {
         background: theme.palette.custom.tokenomics.two,
       },
       '&:last-child:before': {

@@ -43,7 +43,7 @@ const useStyles = makeStyles()((theme) => ({
   item: {
     padding: theme.spacing(2, 0),
     color: theme.palette.custom.fonts.fontTwo,
-    '&:first-child': {
+    '&:first-of-type': {
       paddingTop: 0,
     },
     '&:last-child': {

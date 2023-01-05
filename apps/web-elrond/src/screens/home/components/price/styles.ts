@@ -8,7 +8,7 @@ const useStyles = makeStyles()((theme) => ({
   chart: {
     height: '290px',
     width: '100%',
-    '& .yAxis .recharts-cartesian-axis-tick:first-child': {
+    '& .yAxis .recharts-cartesian-axis-tick:first-of-type': {
       display: 'none',
     },
   },

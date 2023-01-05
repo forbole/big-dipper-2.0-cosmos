@@ -37,7 +37,7 @@ export const lightThemeOverride: DeepPartial<ThemeOptions> = {
       styleOverrides: {
         root: {
           '& .MuiTableRow-root': {
-            '&:nth-child(odd)': {
+            '&:nth-of-type(odd)': {
               backgroundColor: theme.custom.general.surfaceTwo, // surface two
             },
           },

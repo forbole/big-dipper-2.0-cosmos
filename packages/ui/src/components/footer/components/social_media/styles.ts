@@ -10,7 +10,7 @@ const useStyles = makeStyles()((theme) => {
     root: {
       '& .media': {
         margin: '0 0.5rem',
-        '&:first-child': {
+        '&:first-of-type': {
           marginLeft: 0,
         },
         '&:last-child': {

@@ -7,6 +7,7 @@ exports[`components: Result matches snapshot 1`] = `
   <svg
     aria-hidden={true}
     className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+    color="#999999"
     data-testid="HelpIcon"
     focusable="false"
     viewBox="0 0 24 24"
@@ -30,6 +31,7 @@ exports[`components: Result matches snapshot success 1`] = `
   <svg
     aria-hidden={true}
     className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+    color="#999999"
     data-testid="CheckCircleIcon"
     focusable="false"
     viewBox="0 0 24 24"

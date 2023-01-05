@@ -9,7 +9,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
     role={null}
   >
     <thead
-      className="MuiTableHead-root css-15wwp11-MuiTableHead-root"
+      className="MuiTableHead-root css-14dqc50-MuiTableHead-root"
       role={null}
     >
       <tr
@@ -18,7 +18,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
       >
         <th
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-15nf8lb-MuiTableCell-root"
+          className="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-raaiek-MuiTableCell-root"
           scope="col"
           style={
             {
@@ -30,7 +30,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
         </th>
         <th
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-15nf8lb-MuiTableCell-root"
+          className="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-raaiek-MuiTableCell-root"
           scope="col"
           style={
             {
@@ -42,7 +42,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
         </th>
         <th
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight MuiTableCell-sizeMedium css-1hqqiz2-MuiTableCell-root"
+          className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight MuiTableCell-sizeMedium css-18xwwk-MuiTableCell-root"
           scope="col"
           style={
             {
@@ -55,7 +55,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
       </tr>
     </thead>
     <tbody
-      className="MuiTableBody-root css-apqrd9-MuiTableBody-root"
+      className="MuiTableBody-root css-zckbyc-MuiTableBody-root"
       role={null}
     >
       <tr
@@ -64,7 +64,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
       >
         <td
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-vveo0e-MuiTableCell-root"
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1i7jhar-MuiTableCell-root"
           style={
             {
               "width": "15%",
@@ -83,7 +83,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
         </td>
         <td
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-vveo0e-MuiTableCell-root"
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1i7jhar-MuiTableCell-root"
           style={
             {
               "width": "30%",
@@ -102,7 +102,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
         </td>
         <td
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-10p76sh-MuiTableCell-root"
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-o7czbt-MuiTableCell-root"
           style={
             {
               "width": "20%",

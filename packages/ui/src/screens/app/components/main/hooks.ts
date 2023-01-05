@@ -1,7 +1,7 @@
 import chainConfig from '@/chainConfig';
 import { getThemeTemplate, readTheme } from '@/recoil/settings';
 import dayjs from '@/utils/dayjs';
-import { createTheme, adaptV4Theme } from '@mui/material/styles';
+import { createTheme } from '@mui/material/styles';
 import { useState } from 'react';
 import { useRecoilValue } from 'recoil';
 
@@ -11,7 +11,7 @@ export const useTheme = () => {
   const theme = useRecoilValue(readTheme);
 
   return {
-    muiTheme: createTheme(adaptV4Theme(getThemeTemplate(theme))),
+    muiTheme: createTheme(getThemeTemplate(theme)),
   };
 };
 

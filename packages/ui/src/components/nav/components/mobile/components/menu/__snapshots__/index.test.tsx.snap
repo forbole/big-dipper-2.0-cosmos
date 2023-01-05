@@ -399,6 +399,7 @@ exports[`screen: Nav/Menu it renders 1`] = `
         <svg
           aria-hidden={true}
           className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+          color="#999999"
           data-testid="ExpandMoreOutlinedIcon"
           focusable="false"
           viewBox="0 0 24 24"

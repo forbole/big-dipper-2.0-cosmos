@@ -26,6 +26,7 @@ exports[`screen: Nav/ActionBar displays network 1`] = `
           <svg
             aria-hidden={true}
             className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+            color="#999999"
             data-testid="SearchIcon"
             focusable="false"
             viewBox="0 0 24 24"
@@ -92,6 +93,7 @@ exports[`screen: Nav/ActionBar it renders 1`] = `
           <svg
             aria-hidden={true}
             className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+            color="#999999"
             data-testid="SearchIcon"
             focusable="false"
             viewBox="0 0 24 24"

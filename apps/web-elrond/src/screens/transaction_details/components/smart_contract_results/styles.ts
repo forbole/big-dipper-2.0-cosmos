@@ -8,7 +8,7 @@ const useStyles = makeStyles()((theme) => ({
     // marginBottom: theme.spacing(2),
   },
   itemWrap: {
-    '&:first-child': {
+    '&:first-of-type': {
       marginTop: theme.spacing(2),
     },
     '&:last-child': {

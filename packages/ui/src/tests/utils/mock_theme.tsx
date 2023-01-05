@@ -1,11 +1,5 @@
 import { defaultTheme } from '@/styles';
-import {
-  createTheme,
-  ThemeProvider,
-  Theme,
-  StyledEngineProvider,
-  adaptV4Theme,
-} from '@mui/material/styles';
+import { createTheme, ThemeProvider, Theme, StyledEngineProvider } from '@mui/material/styles';
 import { StylesOptions, StylesProvider } from '@mui/styles';
 import { ReactNode } from 'react';
 import { RecoilRoot } from 'recoil';
@@ -25,7 +19,7 @@ const MockTheme = ({ children }: { children: ReactNode }) => {
   return (
     <StylesProvider generateClassName={generateClassName}>
       <StyledEngineProvider injectFirst>
-        <ThemeProvider theme={createTheme(adaptV4Theme(defaultTheme))}>
+        <ThemeProvider theme={createTheme(defaultTheme)}>
           <RecoilRoot>{children}</RecoilRoot>
         </ThemeProvider>
       </StyledEngineProvider>

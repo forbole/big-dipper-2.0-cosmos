@@ -5,7 +5,7 @@ exports[`screen: Validators/Tabs matches snapshot 1`] = `
   className="css-4th80v-root"
 >
   <div
-    className="MuiTabs-root css-1go3jg7-MuiTabs-root"
+    className="MuiTabs-root css-e4sfdz-MuiTabs-root"
   >
     <div
       className="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
@@ -20,7 +20,7 @@ exports[`screen: Validators/Tabs matches snapshot 1`] = `
       }
     />
     <div
-      className="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-69z67c-MuiTabs-scroller"
+      className="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-1qz90fd-MuiTabs-scroller"
       onScroll={[Function]}
       style={
         {
@@ -31,7 +31,7 @@ exports[`screen: Validators/Tabs matches snapshot 1`] = `
     >
       <div
         aria-orientation={null}
-        className="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
+        className="MuiTabs-flexContainer css-1pyy021-MuiTabs-flexContainer"
         onKeyDown={[Function]}
         role="tablist"
       >

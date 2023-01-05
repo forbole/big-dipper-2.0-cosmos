@@ -99,7 +99,7 @@ exports[`component: layout/footer matches snapshot 1`] = `
           common:community
         </h3>
         <div
-          className=" css-duljhv-root social-media"
+          className=" css-4f6i8q-root social-media"
         >
           <a
             className="media telegram"
@@ -211,7 +211,7 @@ exports[`component: layout/footer matches snapshot 1`] = `
             target="_blank"
           >
             <button
-              className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium footer__donate-button css-dio235-MuiButtonBase-root-MuiButton-root"
+              className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation footer__donate-button css-4y1nw-MuiButtonBase-root-MuiButton-root"
               disabled={false}
               onBlur={[Function]}
               onContextMenu={[Function]}
