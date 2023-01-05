@@ -1,4 +1,4 @@
-import { useConnectWalletList } from '@/components/nav/components/connect_wallet/hooks';
+// import { useConnectWalletList } from '@/components/nav/components/connect_wallet/hooks';
 import { useStyles } from '@/components/nav/components/connect_wallet/styles';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -16,10 +16,10 @@ const PairKeplrWalletDialog: React.FC<{
   walletName: string;
   open: boolean;
   onClose: () => void;
+  onContinue: () => void;
 }> = (props) => {
   const classes = useStyles();
   const { t } = useTranslation('common');
-  const { handleConnectWallet } = useConnectWalletList();
 
   return (
     <div>
@@ -48,7 +48,7 @@ const PairKeplrWalletDialog: React.FC<{
         </DialogContent>
         <DialogActions>
           <div className={classes.actions}>
-            <Button onClick={handleConnectWallet} color="primary" className={classes.actionsButton}>
+            <Button onClick={props.onContinue} color="primary" className={classes.actionsButton}>
               <Typography variant="h3">{t('Continue')}</Typography>
             </Button>
           </div>
