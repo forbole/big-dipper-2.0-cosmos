@@ -22,6 +22,8 @@ export const useConnectWalletList = () => {
   ];
 
   const [open, setOpen] = useState(false);
+  // const [signingClient, setSigningClient] = useState(null);
+  // const [offlineSigner, setOfflineSigner] = useState(null);
   const [walletSelection, setWalletSelection] = useState('');
   const [openInstallKeplrWalletDialog, setOpenInstallKeplrWalletDialog] = useState(false);
   const [openKeplrPairingDialog, setOpenKeplrPairingDialog] = useState(false);
@@ -31,7 +33,6 @@ export const useConnectWalletList = () => {
   const [openConnectWalletConnectDialog, setOpenConnectWalletConnectDialog] = useState(false);
   const [tabValue, setTabValue] = useState(1);
 
-  const [loggedIn, setLoggedIn] = useState(false);
   const [showWallet, setShowWallet] = useState(false);
   const [state, setState] = useState({
     address: userAddress,
@@ -53,10 +54,6 @@ export const useConnectWalletList = () => {
     }));
   };
 
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
   const handleCancel = () => {
     resetSettings();
     handleClose();
@@ -72,10 +69,14 @@ export const useConnectWalletList = () => {
     } else setShowWallet(true);
   };
 
-  const handleLogoutWallet = () => {
-    setLoggedIn(false);
+  const handleLogin = () => {
+    setOpen(true);
+  };
+
+  const handleLogout = () => {
     localStorage.setItem(ADDRESS_KEY, '');
-    resetSettings();
+    setUserAddress('');
+    setUserIsLoggedIn(false);
   };
 
   const setWalletOption = (walletOption: string) => {
@@ -151,8 +152,20 @@ export const useConnectWalletList = () => {
 
   const continueToSelectNetworkDialog = async () => {
     setOpenKeplrPairingDialog(false);
-    await window.keplr.enable(chainId);
-    setOpenSelectNetworkDialog(true);
+    console.log(window);
+    console.log(window.keplr);
+    if (!window.getOfflineSigner || window.getOfflineSigner === undefined) {
+      console.log('no offline signer');
+      await window.keplr.enable(chainId);
+      setOpenSelectNetworkDialog(true);
+    } else {
+      console.log(window.getOfflineSigner);
+      console.log('offline signer');
+      await window.keplr.enable(chainId);
+      setOpenSelectNetworkDialog(true);
+    }
+    console.log(window);
+    console.log(window.keplr);
   };
 
   const continueToAuthorizeConnectionDialog = async () => {
@@ -187,16 +200,18 @@ export const useConnectWalletList = () => {
       setTimeout(() => {
         setOpenLoginSuccessDialog(false);
       }, 3000);
+
+      setUserAddress(accounts[0].address);
+      setUserIsLoggedIn(true);
     }
   };
 
   return {
     open,
-    handleOpen,
+    handleLogin,
     handleClose,
     state,
     handleCancel,
-    loggedIn,
     showWallet,
     openInstallKeplrWalletDialog,
     walletSelection,
@@ -206,7 +221,7 @@ export const useConnectWalletList = () => {
     handleCloseKeplrPairingDialog,
     handleConnectButter,
     handleConnectWalletConnect,
-    handleLogoutWallet,
+    handleLogout,
     handleShowWallet,
     handleConnectWallet,
     openSelectNetworkDialog,
