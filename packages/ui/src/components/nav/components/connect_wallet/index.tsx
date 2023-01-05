@@ -36,8 +36,8 @@ const ConnectWallet: React.FC<{
     handleCloseLoginSuccessDialog,
     handleCloseSelectNetworkDialog,
     handleConnectWallet,
-    handleLogoutWallet,
-    handleOpen,
+    handleLogout,
+    handleLogin,
     open,
     openAuthorizeConnectionDialog,
     openInstallKeplrWalletDialog,
@@ -48,18 +48,21 @@ const ConnectWallet: React.FC<{
     setWalletOption,
     tabValue,
     state,
+    continueToPairingDialog,
+    continueToAuthorizeConnectionDialog,
+    continueToSelectNetworkDialog,
   } = useConnectWalletList();
 
   return (
     <div>
       <div
-        onClick={!loggedIn ? handleOpen : handleLogoutWallet}
+        onClick={loggedIn ? handleLogout : handleLogin}
         role="button"
         className={classnames(props.className, classes.icon)}
         tabIndex={0}
         aria-label="connect-wallet-button"
       >
-        {!loggedIn ? <LoginIcon /> : <LogoutIcon />}
+        {loggedIn ? <LogoutIcon /> : <LoginIcon />}
       </div>
       <Dialog maxWidth="md" onClose={handleCancel} open={open} className={classes.dialog}>
         <DialogTitle disableTypography>
@@ -81,7 +84,7 @@ const ConnectWallet: React.FC<{
           <div className={classes.dialogContent}>
             <div className={classes.connectWalletButton}>
               <Button
-                onClick={() => setWalletOption('wallet connect')}
+                onClick={() => setWalletOption('Wallet Connect')}
                 color="default"
                 aria-label="connect-walletconnect-wallet-button"
                 className={classes.walletButton}
@@ -91,7 +94,7 @@ const ConnectWallet: React.FC<{
             </div>
             <div className={classes.connectKeplrButton}>
               <Button
-                onClick={() => setWalletOption('keplr')}
+                onClick={() => setWalletOption('Keplr Wallet')}
                 color="default"
                 aria-label="connect-keplr-wallet-button"
                 className={classes.walletButton}
@@ -101,7 +104,7 @@ const ConnectWallet: React.FC<{
             </div>
             <div className={classes.connectButterButton}>
               <Button
-                onClick={() => setWalletOption('butter')}
+                onClick={() => setWalletOption('Butter')}
                 color="default"
                 aria-label="connect-butter-wallet-button"
                 className={classes.walletButton}
@@ -124,20 +127,23 @@ const ConnectWallet: React.FC<{
         walletUrl="https://www.keplr.app/download"
         open={openInstallKeplrWalletDialog}
         onClose={handleCloseInstallKeplrWalletDialog}
+        onContinue={continueToPairingDialog}
       />
       <PairKeplrWalletDialog
         walletName={walletSelection}
         open={openKeplrPairingDialog}
         onClose={handleCloseKeplrPairingDialog}
+        onContinue={continueToSelectNetworkDialog}
       />
       <AuthorizeConnectionDialog
         open={openAuthorizeConnectionDialog}
         onClose={handleCloseAuthorizeConnectionDialog}
       />
       <SelectNetworkDialog
-        networkName="desmos"
+        networkName="Desmos"
         open={openSelectNetworkDialog}
         onClose={handleCloseSelectNetworkDialog}
+        onContinue={continueToAuthorizeConnectionDialog}
       />
       <LoginSuccessDialog open={openLoginSuccessDialog} onClose={handleCloseLoginSuccessDialog} />
     </div>
