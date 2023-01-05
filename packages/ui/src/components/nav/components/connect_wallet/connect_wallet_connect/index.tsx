@@ -14,26 +14,19 @@ import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
 import TabPanel from '@/components/tab_panel';
 import { a11yProps } from '@/utils/a11yProps';
+// import { QRCodeSVG } from 'qrcode.react';
 
-const ConnectWalletConnectDialog: React.FC = () => {
+const ConnectWalletConnectDialog: React.FC<{
+  open: boolean;
+  onClose: () => void;
+}> = (props) => {
   const classes = useStyles();
   const { t } = useTranslation('common');
-  const {
-    handleConnectWallet,
-    handleConnectWalletConnectDialog,
-    openConnectWalletConnectDialog,
-    tabValue,
-    handleTabChange,
-  } = useConnectWalletList();
+  const { handleConnectWallet, tabValue, handleTabChange } = useConnectWalletList();
 
   return (
     <div>
-      <Dialog
-        maxWidth="md"
-        onClose={handleConnectWalletConnectDialog}
-        open={openConnectWalletConnectDialog}
-        className={classes.dialog}
-      >
+      <Dialog maxWidth="md" onClose={props.onClose} open={props.open} className={classes.dialog}>
         <DialogTitle disableTypography>
           <div>
             <div className={classes.grayDot} />
@@ -41,11 +34,7 @@ const ConnectWalletConnectDialog: React.FC = () => {
               Wallet Connect
             </Typography>
           </div>
-          <IconButton
-            aria-label="close"
-            onClick={handleConnectWalletConnectDialog}
-            className={classes.closeButton}
-          >
+          <IconButton aria-label="close" onClick={props.onClose} className={classes.closeButton}>
             <CloseIcon />
           </IconButton>
         </DialogTitle>
