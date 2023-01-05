@@ -8,15 +8,14 @@ import {
   PAGE_SIZE,
   useTransactions,
 } from '@/screens/account_details/components/transactions/hooks';
-import { useStyles } from '@/screens/account_details/components/transactions/styles';
+import useStyles from '@/screens/account_details/components/transactions/styles';
 import Typography from '@mui/material/Typography';
-import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import { FC } from 'react';
 
 const Transactions: FC<ComponentDefault> = (props) => {
   const { t } = useTranslation('accounts');
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const { state, handlePageChangeCallback } = useTransactions();
   const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange } = usePagination({
     rowsPage: PAGE_SIZE,
@@ -34,7 +33,7 @@ const Transactions: FC<ComponentDefault> = (props) => {
   }
 
   return (
-    <Box className={classnames(props.className, classes.root)}>
+    <Box className={cx(props.className, classes.root)}>
       <Typography variant="h2">{t('transactions')}</Typography>
       {component}
       <Pagination

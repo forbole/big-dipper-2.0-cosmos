@@ -5,9 +5,8 @@ import useShallowMemo from '@/hooks/useShallowMemo';
 import Paginate from '@/screens/proposal_details/components/votes/components/paginate';
 import Tabs from '@/screens/proposal_details/components/votes/components/tabs';
 import { useVotes } from '@/screens/proposal_details/components/votes/hooks';
-import { useStyles } from '@/screens/proposal_details/components/votes/styles';
+import useStyles from '@/screens/proposal_details/components/votes/styles';
 import { filterDataByTab } from '@/screens/proposal_details/components/votes/utils';
-import classnames from 'classnames';
 import dynamic from 'next/dynamic';
 import React, { FC, ReactNode, useMemo } from 'react';
 
@@ -28,7 +27,7 @@ const Votes: FC<ComponentDefault> = (props) => {
     sliceItems,
     resetPagination,
   } = usePagination({});
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const { state, handleTabChange } = useVotes(resetPagination);
   const filteredItemsMemo = useShallowMemo(
     filterDataByTab({
@@ -50,7 +49,7 @@ const Votes: FC<ComponentDefault> = (props) => {
   }
 
   return (
-    <Box className={classnames(props.className, classes.root)}>
+    <Box className={cx(props.className, classes.root)}>
       <Tabs
         data={{
           yes: state.voteCount.yes,

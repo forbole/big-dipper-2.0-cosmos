@@ -1,16 +1,15 @@
 import React, { FC } from 'react';
-import classnames from 'classnames';
 import Box from '@/components/box';
 import LoadAndExist from '@/components/load_and_exist';
 import TabPanel from '@/components/tab_panel';
 import Validators from '@/screens/validators/components/list/components/validators';
 import Tabs from '@/screens/validators/components/list/components/tabs';
-import { useStyles } from '@/screens/validators/components/list/styles';
+import useStyles from '@/screens/validators/components/list/styles';
 import { useValidators } from '@/screens/validators/components/list/hooks';
 import type { TabType } from '@/screens/validators/components/list/types';
 
 const List: FC<ComponentDefault> = ({ className }) => {
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const { state, handleTabChange, handleSearch } = useValidators();
 
   const tabs: TabType[] = [
@@ -23,7 +22,7 @@ const List: FC<ComponentDefault> = ({ className }) => {
 
   return (
     <LoadAndExist loading={state.loading} exists={state.exists}>
-      <Box className={classnames(className, classes.root)}>
+      <Box className={cx(className, classes.root)}>
         <Tabs
           tabs={tabs}
           tab={state.tab}

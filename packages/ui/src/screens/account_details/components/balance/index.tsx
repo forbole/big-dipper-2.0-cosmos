@@ -2,13 +2,12 @@ import chainConfig from '@/chainConfig';
 import Box from '@/components/box';
 import useShallowMemo from '@/hooks/useShallowMemo';
 import { readMarket } from '@/recoil/market';
-import { useStyles } from '@/screens/account_details/components/balance/styles';
+import useStyles from '@/screens/account_details/components/balance/styles';
 import { formatBalanceData } from '@/screens/account_details/components/balance/utils';
 import { formatNumber } from '@/utils/format_token';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import Big from 'big.js';
-import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
 import { FC } from 'react';
@@ -24,7 +23,7 @@ type BalanceProps = Parameters<typeof formatBalanceData>[0] & {
 
 const Balance: FC<BalanceProps> = (props) => {
   const { t } = useTranslation('accounts');
-  const { classes, theme } = useStyles();
+  const { classes, cx, theme } = useStyles();
   const market = useRecoilValue(readMarket);
   const formattedChartData = formatBalanceData(props);
   const empty = {
@@ -59,7 +58,7 @@ const Balance: FC<BalanceProps> = (props) => {
   const totalDisplay = formatNumber(props.total.value, props.total.exponent);
 
   return (
-    <Box className={classnames(props.className, classes.root)}>
+    <Box className={cx(props.className, classes.root)}>
       <Typography variant="h2">{t('balance')}</Typography>
       <div className={classes.chartWrapper}>
         <div className={classes.chart}>

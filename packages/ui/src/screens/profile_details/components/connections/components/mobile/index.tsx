@@ -1,11 +1,10 @@
 import chainConfig from '@/chainConfig';
 import { readDate } from '@/recoil/settings';
-import { useStyles } from '@/screens/profile_details/components/connections/components/mobile/styles';
+import useStyles from '@/screens/profile_details/components/connections/components/mobile/styles';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
 import { ACCOUNT_DETAILS } from '@/utils/go_to_page';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import React, { FC, Fragment } from 'react';
@@ -20,11 +19,11 @@ type MobileProps = {
 
 const Mobile: FC<MobileProps> = ({ className, items }) => {
   const dateFormat = useRecoilValue(readDate);
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { t } = useTranslation('accounts');
   const itemCount = items?.length;
   return (
-    <div className={classnames(className)}>
+    <div className={className}>
       {items?.map((x, i) => {
         const checkIdentifier = new RegExp(`^(${prefix.account})`).test(x.identifier);
         const isLast = !itemCount || i === itemCount - 1;

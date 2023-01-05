@@ -1,9 +1,9 @@
-import { makeStyles } from '@mui/styles';
+import { makeStyles } from 'tss-react/mui';
 
-const styles = makeStyles(() => ({
+const useStyles = makeStyles()(() => ({
   multisend: {
     marginTop: '0',
   },
 }));
 
-export const useStyles = () => styles();
+export default useStyles;

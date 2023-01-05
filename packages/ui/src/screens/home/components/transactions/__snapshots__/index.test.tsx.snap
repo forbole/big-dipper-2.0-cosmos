@@ -2,11 +2,11 @@
 
 exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
 <div
-  className="makeStyles-root"
+  className="css-c5qpei-root"
   id="Box"
 >
   <div
-    className="makeStyles-label"
+    className="css-19bwmp8-label"
   >
     <h2
       className="MuiTypography-root MuiTypography-h2 css-dcgvbp-MuiTypography-root"
@@ -25,7 +25,7 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
     </a>
   </div>
   <div
-    className="makeStyles-root"
+    className="css-1tbeysr-root"
   >
     <span
       className="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-15gxqrx-MuiCircularProgress-root"

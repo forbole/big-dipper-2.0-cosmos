@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import Link from 'next/link';
 import useTranslation from 'next-translate/useTranslation';
-import classnames from 'classnames';
 import { useScreenSize } from '@/hooks';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
@@ -10,12 +9,12 @@ import CopyIcon from 'shared-utils/assets/icon-copy.svg';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import Box from '@/components/box';
 import { useProfile } from '@/screens/node_details/components/profile/hooks';
-import { useStyles } from '@/screens/node_details/components/profile/styles';
+import useStyles from '@/screens/node_details/components/profile/styles';
 import type { ProfileType } from '@/screens/node_details/types';
 
 const Profile: FC<{ className?: string; profile: ProfileType; showRating: boolean }> = (props) => {
   const { t } = useTranslation('nodes');
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const { isDesktop } = useScreenSize();
   const { handleCopyToClipboard } = useProfile(t);
 
@@ -54,7 +53,7 @@ const Profile: FC<{ className?: string; profile: ProfileType; showRating: boolea
   }
 
   return (
-    <Box className={classnames(props.className)}>
+    <Box className={props.className}>
       <div className={classes.topWrapper}>
         <div className={classes.nametag}>
           <Typography variant="h2" className="name">
@@ -70,7 +69,7 @@ const Profile: FC<{ className?: string; profile: ProfileType; showRating: boolea
       </div>
       <Divider className={classes.divider} />
       <div className={classes.addresses}>
-        <div className={classnames(classes.copyText, classes.item)}>
+        <div className={cx(classes.copyText, classes.item)}>
           <Typography variant="body1" className="label">
             {t('pubkey')}
           </Typography>
@@ -85,7 +84,7 @@ const Profile: FC<{ className?: string; profile: ProfileType; showRating: boolea
           </div>
         </div>
 
-        <div className={classnames(classes.copyText, classes.item)}>
+        <div className={cx(classes.copyText, classes.item)}>
           <Typography variant="body1" className="label">
             {t('validator')}
           </Typography>

@@ -1,6 +1,6 @@
 import ChainIcon from '@/components/ChainIcon';
 import { readTheme } from '@/recoil/settings';
-import { useStyles } from '@/screens/initial_load/styles';
+import useStyles from '@/screens/initial_load/styles';
 import LinearProgress from '@mui/material/LinearProgress';
 import { useRecoilValue } from 'recoil';
 import BigDipperLogoRed from 'shared-utils/assets/big-dipper-red.svg';
@@ -8,7 +8,7 @@ import BigDipperLogoWhite from 'shared-utils/assets/big-dipper-white.svg';
 
 const InitialLoad = () => {
   const theme = useRecoilValue(readTheme);
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   return (
     <div className={classes.root}>

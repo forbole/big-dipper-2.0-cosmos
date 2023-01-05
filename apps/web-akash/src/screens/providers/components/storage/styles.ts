@@ -1,7 +1,6 @@
-import { useTheme } from '@mui/material/styles';
-import { makeStyles } from '@mui/styles';
+import { makeStyles } from 'tss-react/mui';
 
-const styles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   root: {
     height: '100%',
     display: 'flex',
@@ -74,7 +73,4 @@ const styles = makeStyles((theme) => ({
   },
 }));
 
-export const useStyles = () => ({
-  classes: styles(),
-  theme: useTheme(),
-});
+export default useStyles;

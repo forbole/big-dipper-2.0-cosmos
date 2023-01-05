@@ -2,10 +2,9 @@ import Box from '@/components/box';
 import TabPanel from '@/components/tab_panel';
 import Tabs from '@/screens/account_details/components/staking/components/tabs';
 import { useStaking } from '@/screens/account_details/components/staking/hooks';
-import { useStyles } from '@/screens/account_details/components/staking/styles';
+import useStyles from '@/screens/account_details/components/staking/styles';
 import type { RewardsType } from '@/screens/account_details/types';
 import { formatCount } from '@/screens/validator_details/components/staking';
-import classnames from 'classnames';
 import dynamic from 'next/dynamic';
 import React, { FC, useState } from 'react';
 
@@ -25,7 +24,7 @@ type StakingProps = {
 };
 
 const Staking: FC<StakingProps> = ({ rewards, className }) => {
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const [delegationsPage, setDelegationsPage] = useState(0);
   const [redelegationsPage, setRedelegationsPage] = useState(0);
   const [unbondingsPage, setUnbondingsPage] = useState(0);
@@ -58,7 +57,7 @@ const Staking: FC<StakingProps> = ({ rewards, className }) => {
   ];
 
   return (
-    <Box className={classnames(className, classes.root)}>
+    <Box className={cx(className, classes.root)}>
       <Tabs tab={state.tab} handleTabChange={handleTabChange} tabs={tabs} />
       {tabs.map((x) => (
         <TabPanel key={x.id} index={x.id} value={state.tab}>

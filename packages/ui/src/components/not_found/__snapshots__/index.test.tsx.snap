@@ -2,10 +2,10 @@
 
 exports[`component: NotFound matches snapshot 1`] = `
 <div
-  className="makeStyles-root"
+  className="css-1t3p35a-root"
 >
   <div
-    className="makeStyles-content"
+    className="css-12ou3q3-content"
   >
     <svg />
     <p

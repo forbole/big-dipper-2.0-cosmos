@@ -1,12 +1,11 @@
-import { useStyles } from '@/components/linear_loading/styles';
+import useStyles from '@/components/linear_loading/styles';
 import LinearProgress from '@mui/material/LinearProgress';
-import classnames from 'classnames';
 import React, { FC } from 'react';
 
 const LinearLoading: FC<ComponentDefault> = ({ className }) => {
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   return (
-    <div className={classnames(className, classes.root)}>
+    <div className={cx(className, classes.root)}>
       <LinearProgress />
     </div>
   );

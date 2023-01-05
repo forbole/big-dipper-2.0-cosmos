@@ -1,7 +1,6 @@
-import { useTheme } from '@mui/material/styles';
-import { makeStyles } from '@mui/styles';
+import { makeStyles } from 'tss-react/mui';
 
-const styles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   root: {
     [theme.breakpoints.up('lg')]: {
       display: 'flex',
@@ -72,11 +71,4 @@ const styles = makeStyles((theme) => ({
   },
 }));
 
-export const useStyles = () => {
-  const defaultTheme = useTheme();
-
-  return {
-    classes: styles(),
-    theme: defaultTheme,
-  };
-};
+export default useStyles;

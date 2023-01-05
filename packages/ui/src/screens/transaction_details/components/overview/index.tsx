@@ -1,13 +1,12 @@
 import BoxDetails from '@/components/box_details';
 import Result from '@/components/result';
 import { readDate } from '@/recoil/settings';
-import { useStyles } from '@/screens/transaction_details/components/overview/styles';
+import useStyles from '@/screens/transaction_details/components/overview/styles';
 import type { OverviewType } from '@/screens/transaction_details/types';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
 import { formatNumber } from '@/utils/format_token';
 import { BLOCK_DETAILS } from '@/utils/go_to_page';
 import Typography from '@mui/material/Typography';
-import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
@@ -21,7 +20,7 @@ type OverviewProps = {
 
 const Overview: FC<OverviewProps> = ({ className, data }) => {
   const { t } = useTranslation('transactions');
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const dateFormat = useRecoilValue(readDate);
 
   const details = [
@@ -84,11 +83,7 @@ const Overview: FC<OverviewProps> = ({ className, data }) => {
   }
 
   return (
-    <BoxDetails
-      className={classnames(className, classes.root)}
-      title={t('overview')}
-      details={details}
-    />
+    <BoxDetails className={cx(className, classes.root)} title={t('overview')} details={details} />
   );
 };
 

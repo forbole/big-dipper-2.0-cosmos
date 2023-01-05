@@ -9,7 +9,6 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import { FC } from 'react';
 
@@ -50,7 +49,7 @@ const Desktop: FC<DesktopProps> = ({ className, items }) => {
   const { t } = useTranslation('proposals');
 
   return (
-    <div className={classnames(className)}>
+    <div className={className}>
       <Table>
         <TableHead>
           <TableRow>

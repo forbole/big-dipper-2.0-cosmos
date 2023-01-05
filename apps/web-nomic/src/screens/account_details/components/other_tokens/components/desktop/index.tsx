@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Table from '@mui/material/Table';
 import TableHead from '@mui/material/TableHead';
@@ -25,7 +24,7 @@ const Desktop: FC<DesktopProps> = ({ className, items }) => {
   }));
 
   return (
-    <div className={classnames(className)}>
+    <div className={className}>
       <Table>
         <TableHead>
           <TableRow>

@@ -7,11 +7,11 @@ import Profile from '@/screens/token_details/components/profile';
 import Overview from '@/screens/token_details/components/overview';
 import Stats from '@/screens/token_details/components/stats';
 import Transactions from '@/screens/token_details/components/transactions';
-import { useStyles } from '@/screens/token_details/styles';
+import useStyles from '@/screens/token_details/styles';
 import { useTokenDetails } from '@/screens/token_details/hooks';
 
 const TokenDetails = () => {
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { t } = useTranslation('tokens');
   const { state } = useTokenDetails();
   // console.log(state, 'stat');

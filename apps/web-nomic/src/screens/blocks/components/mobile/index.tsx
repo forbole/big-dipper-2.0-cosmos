@@ -1,7 +1,7 @@
 import Loading from '@/components/loading';
 import SingleBlockMobile from '@/components/single_block_mobile';
 import { useList, useListRow } from '@/hooks';
-import { useStyles } from '@/screens/blocks/components/mobile/styles';
+import useStyles from '@/screens/blocks/components/mobile/styles';
 import type { BlockType } from '@/screens/blocks/types';
 import dayjs from '@/utils/dayjs';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
@@ -9,7 +9,6 @@ import { BLOCK_DETAILS } from '@/utils/go_to_page';
 import { mergeRefs } from '@/utils/merge_refs';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import classnames from 'classnames';
 import Link from 'next/link';
 import numeral from 'numeral';
 import { FC } from 'react';
@@ -77,12 +76,12 @@ type MobileProps = {
 };
 
 const Mobile: FC<MobileProps> = ({ className, items, itemCount, loadMoreItems, isItemLoaded }) => {
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
 
   const { listRef, getRowHeight, setRowHeight } = useList();
 
   return (
-    <div className={classnames(className, classes.root)}>
+    <div className={cx(className, classes.root)}>
       <AutoSizer>
         {({ height, width }) => (
           <InfiniteLoader

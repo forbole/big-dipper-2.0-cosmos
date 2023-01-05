@@ -1,20 +1,19 @@
 import React, { FC } from 'react';
 import numeral from 'numeral';
-import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Typography from '@mui/material/Typography';
 import Tooltip from '@mui/material/Tooltip';
 import Box from '@/components/box';
 import NoData from '@/components/no_data';
-import { useStyles } from '@/screens/node_details/components/consensus/styles';
+import useStyles from '@/screens/node_details/components/consensus/styles';
 import type { ConsensusType } from '@/screens/node_details/types';
 
 const Consensus: FC<{ className?: string; consensus: ConsensusType }> = (props) => {
   const { t } = useTranslation('nodes');
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
 
   return (
-    <Box className={classnames(props.className, classes.root)}>
+    <Box className={cx(props.className, classes.root)}>
       <Typography variant="h2">{t('consensus')}</Typography>
       {props.consensus.length ? (
         <div className={classes.blocks}>
@@ -37,7 +36,7 @@ const Consensus: FC<{ className?: string; consensus: ConsensusType }> = (props) 
               placement="top"
             >
               <div
-                className={classnames(classes.singleBlock, {
+                className={cx(classes.singleBlock, {
                   signed: x.proposed,
                 })}
               />

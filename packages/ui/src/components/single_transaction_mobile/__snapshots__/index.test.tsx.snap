@@ -2,10 +2,10 @@
 
 exports[`component: SingleTransactionMobile matches snapshot 1`] = `
 <div
-  className="makeStyles-root"
+  className="css-16gjaz6-root"
 >
   <div
-    className="makeStyles-item"
+    className="css-15xvgqb-item"
   >
     <h4
       className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
@@ -17,7 +17,7 @@ exports[`component: SingleTransactionMobile matches snapshot 1`] = `
     </div>
   </div>
   <div
-    className="makeStyles-item"
+    className="css-15xvgqb-item"
   >
     <h4
       className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
@@ -33,10 +33,10 @@ exports[`component: SingleTransactionMobile matches snapshot 1`] = `
     </p>
   </div>
   <div
-    className="makeStyles-flex"
+    className="css-lmh6au-flex"
   >
     <div
-      className="makeStyles-item"
+      className="css-15xvgqb-item"
     >
       <h4
         className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
@@ -50,7 +50,7 @@ exports[`component: SingleTransactionMobile matches snapshot 1`] = `
       </p>
     </div>
     <div
-      className="makeStyles-item"
+      className="css-15xvgqb-item"
     >
       <h4
         className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
@@ -58,12 +58,11 @@ exports[`component: SingleTransactionMobile matches snapshot 1`] = `
         result
       </h4>
       <div
-        className="makeStyles-root makeStyles-success"
+        className="css-18blogw-root-success"
       >
         <svg
           aria-hidden={true}
           className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-          color="#999999"
           data-testid="CheckCircleIcon"
           focusable="false"
           viewBox="0 0 24 24"
@@ -81,7 +80,7 @@ exports[`component: SingleTransactionMobile matches snapshot 1`] = `
     </div>
   </div>
   <div
-    className="makeStyles-item"
+    className="css-15xvgqb-item"
   >
     <h4
       className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"

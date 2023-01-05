@@ -1,7 +1,7 @@
-import { makeStyles } from '@mui/styles';
+import { makeStyles } from 'tss-react/mui';
 import Color from 'color';
 
-const styles = makeStyles((theme) => {
+const useStyles = makeStyles()((theme) => {
   const iconFill =
     theme.palette.mode === 'light'
       ? theme.palette.custom.fonts.fontTwo
@@ -30,4 +30,4 @@ const styles = makeStyles((theme) => {
   };
 });
 
-export const useStyles = () => styles();
+export default useStyles;

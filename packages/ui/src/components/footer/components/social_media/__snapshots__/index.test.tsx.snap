@@ -2,7 +2,7 @@
 
 exports[`component: layout/footer matches snapshot 1`] = `
 <div
-  className=" makeStyles-root social-media"
+  className=" css-duljhv-root social-media"
 >
   <a
     className="media telegram"

@@ -1,15 +1,16 @@
-import { makeStyles } from '@mui/styles';
+import { CSSObject } from '@emotion/react';
+import { makeStyles } from 'tss-react/mui';
 
-const styles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   root: {
     height: '100%',
   },
   cell: {
-    ...theme.mixins.tableCell,
+    ...(theme.mixins.tableCell as CSSObject),
   },
   body: {
     color: theme.palette.custom.fonts.fontTwo,
   },
 }));
 
-export const useStyles = () => styles();
+export default useStyles;

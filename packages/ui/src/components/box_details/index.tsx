@@ -1,7 +1,6 @@
 import Box from '@/components/box';
-import { useStyles } from '@/components/box_details/styles';
+import useStyles from '@/components/box_details/styles';
 import Typography from '@mui/material/Typography';
-import classnames from 'classnames';
 import React, { FC, isValidElement, ReactNode } from 'react';
 
 type BoxDetailsProps = {
@@ -17,17 +16,17 @@ type BoxDetailsProps = {
 };
 
 const BoxDetails: FC<BoxDetailsProps> = ({ className, title, titleAction, details }) => {
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   return (
-    <Box className={classnames(className, classes.root)}>
+    <Box className={cx(className, classes.root)}>
       {!!title && (
-        <div className={classnames(classes.header, classes.item)}>
+        <div className={cx(classes.header, classes.item)}>
           {isValidElement(title) ? title : <Typography variant="h2">{title}</Typography>}
           {!!titleAction && titleAction}
         </div>
       )}
       {details.map((x) => (
-        <div key={x.key} className={classnames(classes.item, x.className)}>
+        <div key={x.key} className={cx(classes.item, x.className)}>
           {isValidElement(x.label) ? (
             <div className="label">{x.label}</div>
           ) : (

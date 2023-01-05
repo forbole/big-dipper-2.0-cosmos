@@ -1,9 +1,8 @@
 import Box from '@/components/box';
-import { useStyles } from '@/screens/validator_details/components/voting_power/styles';
+import useStyles from '@/screens/validator_details/components/voting_power/styles';
 import type { VotingPowerType } from '@/screens/validator_details/types';
 import { BLOCK_DETAILS } from '@/utils/go_to_page';
 import Typography from '@mui/material/Typography';
-import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
@@ -22,12 +21,14 @@ const VotingPower: FC<VotingPowerProps> = ({ className, data, status }) => {
       ? numeral((data.self / (numeral(data.overall.value).value() ?? 0)) * 100 ?? 0)
       : numeral(0);
 
-  const classes = useStyles(parseFloat(votingPowerPercent.format('0', Math.floor)));
+  const { classes, cx } = useStyles({
+    percentage: parseFloat(votingPowerPercent.format('0', Math.floor)),
+  });
 
   const votingPower = status === 3 ? numeral(data.self).format('0,0') : '0';
 
   return (
-    <Box className={classnames(className, classes.root)}>
+    <Box className={cx(className, classes.root)}>
       <Typography variant="h2">{t('votingPower')}</Typography>
       <div className={classes.data}>
         <Typography variant="h3" className="primary__data">

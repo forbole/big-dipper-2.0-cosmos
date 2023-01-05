@@ -1,4 +1,4 @@
-import { useStyles } from '@/components/msg/bank/multisend/styles';
+import useStyles from '@/components/msg/bank/multisend/styles';
 import Name from '@/components/name';
 import { MsgMultiSend } from '@/models';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
@@ -36,7 +36,7 @@ const RecieverName: FC<{ address: string; coins: MsgCoin[] }> = (props) => {
 
 const Multisend: FC<{ message: MsgMultiSend }> = (props) => {
   const { t } = useTranslation('transactions');
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   const { message } = props;
 

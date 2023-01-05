@@ -1,6 +1,6 @@
 import Desktop from '@/components/desmos_profile/components/connections/components/desktop';
 import Mobile from '@/components/desmos_profile/components/connections/components/mobile';
-import { useStyles } from '@/components/desmos_profile/components/connections/styles';
+import useStyles from '@/components/desmos_profile/components/connections/styles';
 import Pagination from '@/components/pagination';
 import { usePagination, useScreenSize } from '@/hooks';
 import useShallowMemo from '@/hooks/useShallowMemo';
@@ -21,7 +21,7 @@ type ConnectionsProps = {
 
 const Connections: FC<ConnectionsProps> = ({ handleClose, open, data }) => {
   const { isDesktop } = useScreenSize();
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { t } = useTranslation('accounts');
   const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange, sliceItems } =
     usePagination({});

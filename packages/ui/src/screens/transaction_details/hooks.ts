@@ -143,12 +143,12 @@ export const useTransactionDetails = () => {
   );
 
   const toggleMessageDisplay = useCallback(
-    (event: SyntheticEvent<HTMLInputElement>) => {
+    (event: SyntheticEvent<HTMLInputElement>, checked: boolean) => {
       handleSetState((prevState) => ({
         ...prevState,
         messages: {
           filterBy: prevState.messages.filterBy,
-          viewRaw: event.target.checked,
+          viewRaw: checked,
           items: prevState.messages.items,
         },
       }));

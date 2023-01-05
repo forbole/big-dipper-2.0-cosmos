@@ -1,11 +1,11 @@
 import BoxDetails from '@/components/box_details';
-import { useStyles } from '@/screens/transaction_details/components/action/styles';
+import useStyles from '@/screens/transaction_details/components/action/styles';
 import type { ActionType } from '@/screens/transaction_details/types';
 import useTranslation from 'next-translate/useTranslation';
 import React, { FC } from 'react';
 
 const Action: FC<ActionType & ComponentDefault> = (props) => {
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { t } = useTranslation('transactions');
 
   const details = [

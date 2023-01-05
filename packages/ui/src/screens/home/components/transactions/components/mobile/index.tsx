@@ -1,17 +1,15 @@
 import Result from '@/components/result';
 import SingleTransactionMobile from '@/components/single_transaction_mobile';
 import Tag from '@/components/tag';
+import type { TransactionType } from '@/screens/home/components/transactions/types';
 import dayjs from '@/utils/dayjs';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { BLOCK_DETAILS, TRANSACTION_DETAILS } from '@/utils/go_to_page';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import classnames from 'classnames';
 import Link from 'next/link';
 import numeral from 'numeral';
-import React, { FC, Fragment } from 'react';
-
-import type { TransactionType } from '@/screens/home/components/transactions/types';
+import { FC, Fragment } from 'react';
 
 type MobileProps = {
   className?: string;
@@ -50,7 +48,7 @@ const Mobile: FC<MobileProps> = ({ className, items }) => {
   }));
 
   return (
-    <div className={classnames(className)}>
+    <div className={className}>
       {formattedData.map((x, i) => (
         <Fragment key={x.key}>
           <SingleTransactionMobile {...x} />

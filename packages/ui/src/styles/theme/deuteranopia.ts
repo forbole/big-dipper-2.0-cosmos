@@ -25,13 +25,6 @@ export const deuteranopiaThemeOverride: DeepPartial<ThemeOptions> = {
       },
     },
   },
-  components: {
-    MuiSvgIcon: {
-      defaultProps: {
-        htmlColor: icon, // same as custom /general /icons
-      },
-    },
-  },
   palette: {
     mode: 'dark',
     primary: {
@@ -116,34 +109,45 @@ export const deuteranopiaThemeOverride: DeepPartial<ThemeOptions> = {
       },
     },
   },
-  overrides: {
+  components: {
+    MuiSvgIcon: {
+      defaultProps: {
+        htmlColor: icon, // same as custom /general /icons
+      },
+    },
     MuiCssBaseline: {
-      html: {
-        '@font-face': [hindMadurai],
+      styleOverrides: {
+        html: {
+          '@font-face': [hindMadurai],
+        },
       },
     },
     MuiTableBody: {
-      root: {
-        '& .MuiTableRow-root': {
-          '&:nth-child(odd)': {
-            backgroundColor: surfaceTwo, // surface two
+      styleOverrides: {
+        root: {
+          '& .MuiTableRow-root': {
+            '&:nth-child(odd)': {
+              backgroundColor: surfaceTwo, // surface two
+            },
           },
-        },
-        '& .MuiTableCell-root': {
-          color: fontTwo, // font two
+          '& .MuiTableCell-root': {
+            color: fontTwo, // font two
+          },
         },
       },
     },
     MuiTabs: {
-      root: {
-        '& .MuiTab-textColorInherit': {
-          color: fontThree, // font three
-        },
-        '& .MuiTab-textColorInherit.Mui-selected': {
-          color: fontOne, // font one
-        },
-        '& .MuiTabs-indicator': {
-          backgroundColor: fontOne, // font one (?)
+      styleOverrides: {
+        root: {
+          '& .MuiTab-textColorInherit': {
+            color: fontThree, // font three
+          },
+          '& .MuiTab-textColorInherit.Mui-selected': {
+            color: fontOne, // font one
+          },
+          '& .MuiTabs-indicator': {
+            backgroundColor: fontOne, // font one (?)
+          },
         },
       },
     },

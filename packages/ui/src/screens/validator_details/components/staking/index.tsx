@@ -3,8 +3,7 @@ import Box from '@/components/box';
 import TabPanel from '@/components/tab_panel';
 import Tabs from '@/screens/validator_details/components/staking/components/tabs';
 import { ROWS_PER_PAGE, useStaking } from '@/screens/validator_details/components/staking/hooks';
-import { useStyles } from '@/screens/validator_details/components/staking/styles';
-import classnames from 'classnames';
+import useStyles from '@/screens/validator_details/components/staking/styles';
 import dynamic from 'next/dynamic';
 import numeral from 'numeral';
 import React, { FC, useState } from 'react';
@@ -45,7 +44,7 @@ export function formatCount(
 }
 
 const Staking: FC<ComponentDefault> = (props) => {
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const [delegationsPage, setDelegationsPage] = useState(0);
   const [redelegationsPage, setRedelegationsPage] = useState(0);
   const [unbondingsPage, setUnbondingsPage] = useState(0);
@@ -77,7 +76,7 @@ const Staking: FC<ComponentDefault> = (props) => {
   ];
 
   return (
-    <Box className={classnames(props.className, classes.root)}>
+    <Box className={cx(props.className, classes.root)}>
       <Tabs tab={state.tab} handleTabChange={handleTabChange} tabs={tabs} />
       {tabs.map((x) => (
         <TabPanel key={x.id} index={x.id} value={state.tab}>

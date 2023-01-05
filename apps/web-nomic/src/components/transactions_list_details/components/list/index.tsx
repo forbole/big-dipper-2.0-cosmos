@@ -1,6 +1,6 @@
 import Loading from '@/components/loading';
 import SingleTransaction from '@/components/transactions_list_details/components/list/components/single_transaction';
-import { useStyles } from '@/components/transactions_list_details/components/list/styles';
+import useStyles from '@/components/transactions_list_details/components/list/styles';
 import type { TransactionsListDetailsState } from '@/components/transactions_list_details/types';
 import { useList, useListRow, useScreenSize } from '@/hooks';
 import { readDate } from '@/recoil/settings';
@@ -10,7 +10,6 @@ import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { BLOCK_DETAILS, TRANSACTION_DETAILS } from '@/utils/go_to_page';
 import { mergeRefs } from '@/utils/merge_refs';
 import Typography from '@mui/material/Typography';
-import classnames from 'classnames';
 import Link from 'next/link';
 import numeral from 'numeral';
 import { FC } from 'react';
@@ -77,12 +76,12 @@ const TransactionList: FC<TransactionsListDetailsState> = ({
   isItemLoaded,
   transactions,
 }) => {
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
 
   const { listRef, getRowHeight, setRowHeight } = useList();
 
   return (
-    <div className={classnames(className, classes.root)}>
+    <div className={cx(className, classes.root)}>
       <AutoSizer>
         {({ height, width }) => (
           <InfiniteLoader

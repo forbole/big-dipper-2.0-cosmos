@@ -3,7 +3,7 @@
 exports[`components: LoadAndExist matches snapshot 1`] = `
 [
   <div
-    className="makeStyles-root"
+    className="css-js7ni0-root"
   >
     <span
       className="MuiLinearProgress-root MuiLinearProgress-colorPrimary MuiLinearProgress-indeterminate css-17rkq7c-MuiLinearProgress-root"
@@ -21,10 +21,10 @@ exports[`components: LoadAndExist matches snapshot 1`] = `
   </div>,
   ",",
   <div
-    className="makeStyles-root"
+    className="css-1t3p35a-root"
   >
     <div
-      className="makeStyles-content"
+      className="css-12ou3q3-content"
     >
       <svg />
       <p

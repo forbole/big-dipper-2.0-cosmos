@@ -1,5 +1,5 @@
 import NoData from '@/components/no_data';
-import { useStyles } from '@/components/transactions_list/styles';
+import useStyles from '@/components/transactions_list/styles';
 import type { TransactionsListState } from '@/components/transactions_list/types';
 import { useScreenSize } from '@/hooks';
 import Loading from '@/components/loading';
@@ -21,7 +21,7 @@ const TransactionsList: FC<TransactionsListState> = (props) => {
     itemCount,
     transactions,
   } = props;
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   const formatProps: TransactionsListState = {
     hasNextPage,

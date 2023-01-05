@@ -10,7 +10,7 @@ exports[`screen: ProfileDetails/Connections matches snapshot 1`] = `
     connectionsTitle
   </h2>
   <div
-    className="makeStyles-paginate"
+    className="css-1bspx2y-paginate"
     handlePageChange={[Function]}
     handleRowsPerPageChange={[Function]}
     id="Pagination"

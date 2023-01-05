@@ -27,7 +27,6 @@
     "bech32": "^2.0.0",
     "big.js": "^6.2.1",
     "buffer": "^5.7.1",
-    "classnames": "^2.3.2",
     "color": "^4.2.3",
     "copy-to-clipboard": "^3.3.3",
     "cors": "^2.8.5",
@@ -57,6 +56,7 @@
     "shared-utils": "*",
     "sharp": "^0.31.3",
     "subscriptions-transport-ws": "^0.11.0",
+    "tss-react": "^4.5.2",
     "typanion": "^3.12.1",
     "ui": "*",
     "ws": "^8.11.0"

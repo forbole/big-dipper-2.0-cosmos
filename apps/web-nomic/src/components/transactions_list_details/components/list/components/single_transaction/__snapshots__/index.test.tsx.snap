@@ -2,10 +2,10 @@
 
 exports[`components: SingleTransaction matches snapshot 1`] = `
 <div
-  className="makeStyles-root"
+  className="css-16gjaz6-root"
 >
   <div
-    className="makeStyles-timeContainer"
+    className="css-tl6qb7-timeContainer"
   >
     <p
       className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
@@ -16,13 +16,13 @@ exports[`components: SingleTransaction matches snapshot 1`] = `
     </p>
   </div>
   <div
-    className="makeStyles-itemContainer"
+    className="css-13i5c2q-itemContainer"
   >
     <div
-      className="makeStyles-itemPrimaryDetailsContainer"
+      className="css-t67bww-itemPrimaryDetailsContainer"
     >
       <div
-        className="makeStyles-item block"
+        className="css-1bg95g2-item block"
       >
         <h4
           className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
@@ -34,7 +34,7 @@ exports[`components: SingleTransaction matches snapshot 1`] = `
         </div>
       </div>
       <div
-        className="makeStyles-item time"
+        className="css-1bg95g2-item time"
       >
         <h4
           className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"

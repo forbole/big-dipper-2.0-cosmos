@@ -5,10 +5,10 @@ import NoData from '@/components/no_data';
 import Pagination from '@/components/pagination';
 import { usePagination } from '@/hooks';
 import { PAGE_SIZE, useBlocks } from '@/screens/blocks/components/list/hooks';
-import { useStyles } from '@/screens/blocks/components/list/styles';
+import useStyles from '@/screens/blocks/components/list/styles';
 
 const List = () => {
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { state, handlePageChangeCallback } = useBlocks();
   const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange } = usePagination({
     rowsPage: PAGE_SIZE,

@@ -1,13 +1,12 @@
 import Loading from '@/components/loading';
 import { useGrid } from '@/hooks';
-import { useStyles } from '@/screens/blocks/components/desktop/styles';
+import useStyles from '@/screens/blocks/components/desktop/styles';
 import { columns } from '@/screens/blocks/components/desktop/utils';
 import type { BlockType } from '@/screens/blocks/types';
 import dayjs from '@/utils/dayjs';
 import { BLOCK_DETAILS } from '@/utils/go_to_page';
 import { mergeRefs } from '@/utils/merge_refs';
 import Typography from '@mui/material/Typography';
-import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
@@ -32,7 +31,7 @@ const Desktop: FC<DesktopProps> = ({
   isItemLoaded,
 }) => {
   const { t } = useTranslation('blocks');
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
 
   const formattedItems = items?.map((x) => ({
@@ -49,7 +48,7 @@ const Desktop: FC<DesktopProps> = ({
   }));
 
   return (
-    <div className={classnames(className, classes.root)}>
+    <div className={cx(className, classes.root)}>
       <AutoSizer onResize={onResize}>
         {({ height, width }) => (
           <>
@@ -138,7 +137,7 @@ const Desktop: FC<DesktopProps> = ({
                     return (
                       <div
                         style={style}
-                        className={classnames(classes.cell, classes.body, {
+                        className={cx(classes.cell, classes.body, {
                           odd: !(rowIndex % 2),
                         })}
                       >

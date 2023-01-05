@@ -1,5 +1,5 @@
 import { useSettingList } from '@/components/nav/components/desktop/components/action_bar/components/settings_list/hooks';
-import { useStyles } from '@/components/nav/components/desktop/components/action_bar/components/settings_list/styles';
+import useStyles from '@/components/nav/components/desktop/components/action_bar/components/settings_list/styles';
 import { DATE_LIST, THEME_LIST, TX_LIST } from '@/recoil/settings';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
@@ -11,7 +11,6 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import Typography from '@mui/material/Typography';
 import CloseIcon from '@mui/icons-material/Close';
-import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import { useRouter } from 'next/router';
 import React, { FC } from 'react';
@@ -20,7 +19,7 @@ import SettingIcon from 'shared-utils/assets/icon-setting.svg';
 const release = `${process.env.NEXT_PUBLIC_RELEASE ?? ''}`;
 
 const Settings: FC<ComponentDefault> = (props) => {
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const router = useRouter();
   const { t, lang } = useTranslation('common');
   const { open, handleOpen, state, handleChange, handleFormSubmit, handleCancel } = useSettingList({
@@ -32,7 +31,7 @@ const Settings: FC<ComponentDefault> = (props) => {
       <div
         onClick={handleOpen}
         role="button"
-        className={classnames(props.className, classes.icon)}
+        className={cx(props.className, classes.icon)}
         tabIndex={0}
         aria-label="settings-button"
       >

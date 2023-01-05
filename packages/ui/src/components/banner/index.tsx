@@ -1,4 +1,4 @@
-import { useStyles } from '@/components/banner/styles';
+import useStyles from '@/components/banner/styles';
 import Box from '@/components/box';
 
 import Image from 'next/future/image';
@@ -50,7 +50,7 @@ type BannerProps = {
 const Banner: FC<BannerProps> = ({ index = Math.floor(Math.random() * bannersLinks.length) }) => {
   const bannerIndex = useRef(Math.abs(index) % bannersLinks.length);
   const banner = bannersLinks[bannerIndex.current];
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   return (
     <Box className={classes.root}>

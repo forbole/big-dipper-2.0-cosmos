@@ -1,6 +1,5 @@
-import { useStyles } from '@/screens/providers/components/providers_list/components/mobile/component/single_provider/styles';
+import useStyles from '@/screens/providers/components/providers_list/components/mobile/component/single_provider/styles';
 import Typography from '@mui/material/Typography';
-import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import React, { FC, ReactNode } from 'react';
 
@@ -32,9 +31,9 @@ const SingleProvider: FC<SingleProviderProps> = ({
   website,
 }) => {
   const { t } = useTranslation('providers');
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   return (
-    <div className={classnames(className, classes.root)}>
+    <div className={cx(className, classes.root)}>
       <div className={classes.item}>
         <Typography variant="h4" className="label">
           {t('ownerAddress')}

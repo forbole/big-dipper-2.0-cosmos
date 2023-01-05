@@ -3,16 +3,15 @@ import TransactionsList from '@/components/transactions_list';
 import TransactionsListDetails from '@/components/transactions_list_details';
 import { readTx } from '@/recoil/settings';
 import { useTransactions } from '@/screens/validator_details/components/transactions/hooks';
-import { useStyles } from '@/screens/validator_details/components/transactions/styles';
+import useStyles from '@/screens/validator_details/components/transactions/styles';
 import Typography from '@mui/material/Typography';
-import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import React, { FC } from 'react';
 import { useRecoilValue } from 'recoil';
 
 const Transactions: FC<ComponentDefault> = (props) => {
   const txListFormat = useRecoilValue(readTx);
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const { t } = useTranslation('validators');
 
   const { state, loadNextPage } = useTransactions();
@@ -22,7 +21,7 @@ const Transactions: FC<ComponentDefault> = (props) => {
   const itemCount = state.hasNextPage ? state.data.length + 1 : state.data.length;
 
   return (
-    <Box className={classnames(props.className, classes.root)}>
+    <Box className={cx(props.className, classes.root)}>
       <Typography variant="h2">{t('transactions')}</Typography>
       <div className={classes.list}>
         {txListFormat === 'compact' ? (

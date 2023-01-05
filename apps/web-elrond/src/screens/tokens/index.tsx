@@ -3,10 +3,10 @@ import { NextSeo } from 'next-seo';
 import useTranslation from 'next-translate/useTranslation';
 import Layout from '@/components/layout';
 import List from '@/screens/tokens/components/list';
-import { useStyles } from '@/screens/tokens/styles';
+import useStyles from '@/screens/tokens/styles';
 
 const Tokens = () => {
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { t } = useTranslation('tokens');
 
   return (

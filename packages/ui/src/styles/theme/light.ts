@@ -25,34 +25,40 @@ export const lightThemeOverride: DeepPartial<ThemeOptions> = {
     mode: 'light',
     ...theme,
   },
-  overrides: {
+  components: {
     MuiCssBaseline: {
-      html: {
-        '@font-face': [hindMadurai],
+      styleOverrides: {
+        html: {
+          '@font-face': [hindMadurai],
+        },
       },
     },
     MuiTableBody: {
-      root: {
-        '& .MuiTableRow-root': {
-          '&:nth-child(odd)': {
-            backgroundColor: theme.custom.general.surfaceTwo, // surface two
+      styleOverrides: {
+        root: {
+          '& .MuiTableRow-root': {
+            '&:nth-child(odd)': {
+              backgroundColor: theme.custom.general.surfaceTwo, // surface two
+            },
           },
-        },
-        '& .MuiTableCell-root': {
-          color: theme.custom.fonts.fontTwo, // font two
+          '& .MuiTableCell-root': {
+            color: theme.custom.fonts.fontTwo, // font two
+          },
         },
       },
     },
     MuiTabs: {
-      root: {
-        '& .MuiTab-textColorInherit': {
-          color: theme.custom.fonts.fontThree, // font three
-        },
-        '& .MuiTab-textColorInherit.Mui-selected': {
-          color: theme.custom.fonts.fontOne, // font one
-        },
-        '& .MuiTabs-indicator': {
-          backgroundColor: theme.custom.fonts.fontOne, // font one (?)
+      styleOverrides: {
+        root: {
+          '& .MuiTab-textColorInherit': {
+            color: theme.custom.fonts.fontThree, // font three
+          },
+          '& .MuiTab-textColorInherit.Mui-selected': {
+            color: theme.custom.fonts.fontOne, // font one
+          },
+          '& .MuiTabs-indicator': {
+            backgroundColor: theme.custom.fonts.fontOne, // font one (?)
+          },
         },
       },
     },

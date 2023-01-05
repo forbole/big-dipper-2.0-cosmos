@@ -1,7 +1,7 @@
 import Loading from '@/components/loading';
 import Result from '@/components/result';
 import Tag from '@/components/tag';
-import { useStyles } from '@/components/transactions_list/components/desktop/styles';
+import useStyles from '@/components/transactions_list/components/desktop/styles';
 import { columns } from '@/components/transactions_list/components/desktop/utils';
 import type { TransactionsListState } from '@/components/transactions_list/types';
 import { useGrid } from '@/hooks';
@@ -10,7 +10,6 @@ import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { BLOCK_DETAILS, TRANSACTION_DETAILS } from '@/utils/go_to_page';
 import { mergeRefs } from '@/utils/merge_refs';
 import Typography from '@mui/material/Typography';
-import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
@@ -28,7 +27,7 @@ const Desktop: FC<TransactionsListState> = ({
 }) => {
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
 
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const { t } = useTranslation('transactions');
 
   const items = transactions.map((x) => ({
@@ -60,7 +59,7 @@ const Desktop: FC<TransactionsListState> = ({
     messages: numeral(x.messages.count).format('0,0'),
   }));
   return (
-    <div className={classnames(className, classes.root)}>
+    <div className={cx(className, classes.root)}>
       <AutoSizer onResize={onResize}>
         {({ height, width }) => (
           <>
@@ -148,7 +147,7 @@ const Desktop: FC<TransactionsListState> = ({
                     return (
                       <div
                         style={style}
-                        className={classnames(classes.cell, classes.body, {
+                        className={cx(classes.cell, classes.body, {
                           odd: !(rowIndex % 2),
                         })}
                       >

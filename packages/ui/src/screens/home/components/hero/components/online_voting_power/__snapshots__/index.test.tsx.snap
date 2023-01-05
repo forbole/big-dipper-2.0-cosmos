@@ -2,7 +2,7 @@
 
 exports[`screen: Home/OnlineVotingPower matches snapshot 1`] = `
 <div
-  className="makeStyles-root"
+  className="css-1v5yaiz-root"
 >
   <h2
     className="MuiTypography-root MuiTypography-h2 css-dcgvbp-MuiTypography-root"
@@ -10,7 +10,7 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 1`] = `
     onlineVotingPower
   </h2>
   <div
-    className="makeStyles-data"
+    className="css-yraoho-data"
   >
     <h3
       className="MuiTypography-root MuiTypography-h3 primary__data css-1kl9mnf-MuiTypography-root"
@@ -27,17 +27,17 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 1`] = `
     </p>
   </div>
   <div
-    className="makeStyles-chart"
+    className="css-1fxd95k-chart"
   >
     <div
-      className="makeStyles-active makeStyles-active"
+      className="css-gmihno-active"
     />
   </div>
   <div
-    className="makeStyles-itemsContainer"
+    className="css-oihayf-itemsContainer"
   >
     <div
-      className="makeStyles-item"
+      className="css-1ju3r6i-item"
     >
       <h4
         className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
@@ -51,7 +51,7 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 1`] = `
       </p>
     </div>
     <div
-      className="makeStyles-item"
+      className="css-1ju3r6i-item"
     >
       <h4
         className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
@@ -65,7 +65,7 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 1`] = `
       </p>
     </div>
     <div
-      className="makeStyles-item"
+      className="css-1ju3r6i-item"
     >
       <h4
         className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
@@ -79,7 +79,7 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 1`] = `
       </p>
     </div>
     <div
-      className="makeStyles-item"
+      className="css-1ju3r6i-item"
     >
       <h4
         className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
@@ -98,7 +98,7 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 1`] = `
 
 exports[`screen: Home/OnlineVotingPower matches snapshot 2`] = `
 <div
-  className="makeStyles-root"
+  className="css-1v5yaiz-root"
 >
   <h2
     className="MuiTypography-root MuiTypography-h2 css-dcgvbp-MuiTypography-root"
@@ -106,7 +106,7 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 2`] = `
     onlineVotingPower
   </h2>
   <div
-    className="makeStyles-data"
+    className="css-yraoho-data"
   >
     <h3
       className="MuiTypography-root MuiTypography-h3 primary__data css-1kl9mnf-MuiTypography-root"
@@ -123,17 +123,17 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 2`] = `
     </p>
   </div>
   <div
-    className="makeStyles-chart"
+    className="css-1fxd95k-chart"
   >
     <div
-      className="makeStyles-active makeStyles-active"
+      className="css-gmihno-active"
     />
   </div>
   <div
-    className="makeStyles-itemsContainer"
+    className="css-oihayf-itemsContainer"
   >
     <div
-      className="makeStyles-item"
+      className="css-1ju3r6i-item"
     >
       <h4
         className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
@@ -147,7 +147,7 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 2`] = `
       </p>
     </div>
     <div
-      className="makeStyles-item"
+      className="css-1ju3r6i-item"
     >
       <h4
         className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
@@ -161,7 +161,7 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 2`] = `
       </p>
     </div>
     <div
-      className="makeStyles-item"
+      className="css-1ju3r6i-item"
     >
       <h4
         className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
@@ -175,7 +175,7 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 2`] = `
       </p>
     </div>
     <div
-      className="makeStyles-item"
+      className="css-1ju3r6i-item"
     >
       <h4
         className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"

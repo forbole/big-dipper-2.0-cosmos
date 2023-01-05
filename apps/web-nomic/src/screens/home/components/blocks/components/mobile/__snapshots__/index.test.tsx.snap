@@ -1,9 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
-<div
-  className=""
->
+<div>
   <div
     hash="76nwV8zz8tLz9...F66jZhQ857"
     height={

@@ -7,11 +7,11 @@ import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import { NODE_DETAILS } from '@/utils/go_to_page';
 import type { NodeType } from '@/screens/validator_details/components/nodes/types';
-import { useStyles } from '@/screens/validator_details/components/nodes/components/mobile/styles';
+import useStyles from '@/screens/validator_details/components/nodes/components/mobile/styles';
 
 const Mobile: FC<{ className?: string; items: NodeType[] }> = (props) => {
   const { t } = useTranslation('nodes');
-  const classes = useStyles();
+  const { classes } = useStyles();
   const formattedItems = props.items.map((x) => {
     const shard = getShardDisplay(x.shard);
     return {

@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import classnames from 'classnames';
 import dynamic from 'next/dynamic';
 import { usePagination, useScreenSize } from '@/hooks';
 import Typography from '@mui/material/Typography';
@@ -8,7 +7,7 @@ import Pagination from '@/components/pagination';
 import NoData from '@/components/no_data';
 import Box from '@/components/box';
 import Loading from '@/components/loading';
-import { useStyles } from '@/screens/validator_details/components/nodes/styles';
+import useStyles from '@/screens/validator_details/components/nodes/styles';
 import { useBlocks, PAGE_SIZE } from '@/screens/validator_details/components/nodes/hooks';
 
 const Desktop = dynamic(
@@ -21,7 +20,7 @@ const Mobile = dynamic(
 const Nodes: FC<ComponentDefault> = (props) => {
   const { t } = useTranslation('validators');
   const { isDesktop } = useScreenSize();
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const { state, handlePageChangeCallback } = useBlocks();
   const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange } = usePagination({
     rowsPage: PAGE_SIZE,
@@ -41,7 +40,7 @@ const Nodes: FC<ComponentDefault> = (props) => {
   }
 
   return (
-    <Box className={classnames(props.className, classes.root)}>
+    <Box className={cx(props.className, classes.root)}>
       <Typography variant="h2">{t('nodes')}</Typography>
       {component}
       <Pagination

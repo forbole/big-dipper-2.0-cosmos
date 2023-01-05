@@ -1,4 +1,4 @@
-import { useStyles } from '@/screens/validator_details/components/nodes/components/desktop/styles';
+import useStyles from '@/screens/validator_details/components/nodes/components/desktop/styles';
 import { columns } from '@/screens/validator_details/components/nodes/components/desktop/utils';
 import type { NodeType } from '@/screens/validator_details/components/nodes/types';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
@@ -16,7 +16,7 @@ import { FC } from 'react';
 
 const Desktop: FC<{ className?: string; items: NodeType[] }> = (props) => {
   const { t } = useTranslation('nodes');
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   const formattedItems = props.items.map((x, i) => {
     const shard = getShardDisplay(x.shard);

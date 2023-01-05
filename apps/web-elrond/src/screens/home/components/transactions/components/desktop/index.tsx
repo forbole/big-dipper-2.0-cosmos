@@ -1,6 +1,6 @@
 import AvatarName from '@/components/avatar_name';
 import Result from '@/components/result';
-import { useStyles } from '@/screens/home/components/transactions/components/desktop/styles';
+import useStyles from '@/screens/home/components/transactions/components/desktop/styles';
 import { columns } from '@/screens/home/components/transactions/components/desktop/utils';
 import type { TransactionType } from '@/screens/home/components/transactions/types';
 import dayjs from '@/utils/dayjs';
@@ -12,14 +12,13 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
-import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import { FC } from 'react';
 
 const Desktop: FC<{ className?: string; items: TransactionType[] }> = (props) => {
   const { t } = useTranslation('transactions');
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const formattedItems = props.items.map((x) => ({
     key: `${x.hash}-${x.timestamp}`,
     hash: (
@@ -54,7 +53,7 @@ const Desktop: FC<{ className?: string; items: TransactionType[] }> = (props) =>
     time: dayjs.utc(dayjs.unix(x.timestamp)).fromNow(),
   }));
   return (
-    <div className={classnames(props.className, classes.root)}>
+    <div className={cx(props.className, classes.root)}>
       <Table className={classes.table}>
         <TableHead>
           <TableRow>

@@ -1,7 +1,7 @@
 import AvatarName from '@/components/avatar_name';
 import SortArrows from '@/components/sort_arrows';
 import { useGrid } from '@/hooks';
-import { useStyles } from '@/screens/validators/components/list/components/validators/components/desktop/styles';
+import useStyles from '@/screens/validators/components/list/components/validators/components/desktop/styles';
 import { fetchColumns } from '@/screens/validators/components/list/components/validators/components/desktop/utils';
 import VotingPower from '@/screens/validators/components/list/components/validators/components/voting_power';
 import type { ValidatorType } from '@/screens/validators/components/list/types';
@@ -9,7 +9,6 @@ import { formatNumber } from '@/utils/format_token';
 import { NODE_DETAILS, VALIDATOR_DETAILS } from '@/utils/go_to_page';
 import type { TypographyProps } from '@mui/material';
 import Typography from '@mui/material/Typography';
-import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
 import { CSSProperties, FC, LegacyRef, ReactNode } from 'react';
@@ -26,7 +25,7 @@ type GridColumnProps = {
 
 const GridColumn: FC<GridColumnProps> = ({ column, sortKey, sortDirection, handleSort, style }) => {
   const { t } = useTranslation('validators');
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
 
   const { key, align, component, sort, sortKey: sortingKey } = column;
   const formattedComponent = component;
@@ -34,9 +33,9 @@ const GridColumn: FC<GridColumnProps> = ({ column, sortKey, sortDirection, handl
   return (
     <div
       style={style}
-      className={classnames(classes.cell, {
-        [classes.flexCells]: component || sort,
-        [align ?? '']: sort || component,
+      className={cx(classes.cell, {
+        [classes.flexCells]: !!component || sort,
+        [align ?? '']: sort || !!component,
         sort,
       })}
       onClick={() => (sort ? handleSort(sortingKey ?? '') : null)}
@@ -65,7 +64,7 @@ type GridRowProps = {
 };
 
 const GridRow: FC<GridRowProps> = ({ column, style, rowIndex, align, item, search, i }) => {
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const { name, address, imageUrl } = item.validator;
 
   if (search) {
@@ -127,7 +126,7 @@ const GridRow: FC<GridRowProps> = ({ column, style, rowIndex, align, item, searc
   return (
     <div
       style={style}
-      className={classnames(classes.cell, classes.body, {
+      className={cx(classes.cell, classes.body, {
         odd: !(rowIndex % 2),
       })}
     >
@@ -148,13 +147,13 @@ type DesktopProps = {
 };
 
 const Desktop: FC<DesktopProps> = (props) => {
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const columns = fetchColumns();
 
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
 
   return (
-    <div className={classnames(props.className, classes.root)}>
+    <div className={cx(props.className, classes.root)}>
       <AutoSizer onResize={onResize}>
         {({ height, width }) => (
           <>

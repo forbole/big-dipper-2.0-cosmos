@@ -1,24 +1,18 @@
 import { Theme } from '@mui/material';
-import { createStyles, makeStyles } from '@mui/styles';
+import { makeStyles } from 'tss-react/mui';
 
-export const useGetStyles = () => {
-  const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-      root: {
-        overflow: 'auto',
-        padding: '1rem',
-        margin: '0',
-        background: theme.palette.background.default,
-        flex: 1,
-        '& code': {
-          whiteSpace: 'pre-wrap',
-          wordBreak: 'break-all',
-        },
-      },
-    })
-  );
+const useStyles = makeStyles()((theme: Theme) => ({
+  root: {
+    overflow: 'auto',
+    padding: '1rem',
+    margin: '0',
+    background: theme.palette.background.default,
+    flex: 1,
+    '& code': {
+      whiteSpace: 'pre-wrap',
+      wordBreak: 'break-all',
+    },
+  },
+}));
 
-  return {
-    classes: useStyles(),
-  };
-};
+export default useStyles;

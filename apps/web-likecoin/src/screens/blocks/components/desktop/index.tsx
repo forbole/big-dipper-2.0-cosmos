@@ -2,7 +2,7 @@ import AvatarName from '@/components/avatar_name';
 import Loading from '@/components/loading';
 import { useGrid } from '@/hooks';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
-import { useStyles } from '@/screens/blocks/components/desktop/styles';
+import useStyles from '@/screens/blocks/components/desktop/styles';
 import { columns } from '@/screens/blocks/components/desktop/utils';
 import type { ItemType } from '@/screens/blocks/types';
 import dayjs from '@/utils/dayjs';
@@ -11,7 +11,6 @@ import { BLOCK_DETAILS } from '@/utils/go_to_page';
 import { mergeRefs } from '@/utils/merge_refs';
 import type { TypographyProps } from '@mui/material';
 import Typography from '@mui/material/Typography';
-import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
@@ -30,7 +29,7 @@ type BlockRowProps = {
 
 const BlockRow: FC<BlockRowProps> = ({ style, columnKey, rowIndex, align, item }) => {
   const proposer = useProfileRecoil(item.proposer);
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const formattedItem = {
     height: (
       <Link href={BLOCK_DETAILS(item.height)} passHref>
@@ -52,7 +51,7 @@ const BlockRow: FC<BlockRowProps> = ({ style, columnKey, rowIndex, align, item }
   return (
     <div
       style={style}
-      className={classnames(classes.cell, classes.body, {
+      className={cx(classes.cell, classes.body, {
         odd: !(rowIndex % 2),
       })}
     >
@@ -79,11 +78,11 @@ const Desktop: FC<DesktopProps> = ({
   isItemLoaded,
 }) => {
   const { t } = useTranslation('blocks');
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
 
   return (
-    <div className={classnames(className, classes.root)}>
+    <div className={cx(className, classes.root)}>
       <AutoSizer onResize={onResize}>
         {({ height, width }) => (
           <>

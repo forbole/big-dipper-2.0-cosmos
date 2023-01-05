@@ -4,7 +4,6 @@ import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { BLOCK_DETAILS, TRANSACTION_DETAILS } from '@/utils/go_to_page';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import classnames from 'classnames';
 import Link from 'next/link';
 import numeral from 'numeral';
 import React, { FC, Fragment } from 'react';
@@ -41,7 +40,7 @@ const Mobile: FC<MobileProps> = ({ className, items }) => {
   }));
 
   return (
-    <div className={classnames(className)}>
+    <div className={className}>
       {formattedData.map((x, i) => (
         <Fragment key={x.key}>
           <SingleTransactionMobile {...x} />

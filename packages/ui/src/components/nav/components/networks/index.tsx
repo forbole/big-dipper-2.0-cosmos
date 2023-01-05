@@ -1,5 +1,5 @@
 import SingleNetwork from '@/components/nav/components/networks/components/single_network';
-import { useStyles } from '@/components/nav/components/networks/styles';
+import useStyles from '@/components/nav/components/networks/styles';
 import { readNetworks } from '@/recoil/big_dipper_networks';
 import Typography from '@mui/material/Typography';
 import Image from 'next/future/image';
@@ -8,7 +8,7 @@ import { useRecoilValue } from 'recoil';
 
 const Networks: FC<ComponentDefault> = ({ className }) => {
   const networks = useRecoilValue(readNetworks);
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   return (
     <div className={className}>

@@ -1,13 +1,12 @@
 import AvatarName from '@/components/avatar_name';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { readDate } from '@/recoil/settings';
-import { useStyles } from '@/screens/account_details/components/staking/components/redelegations/components/mobile/styles';
+import useStyles from '@/screens/account_details/components/staking/components/redelegations/components/mobile/styles';
 import type { ItemType } from '@/screens/account_details/components/staking/components/redelegations/types';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
 import { formatNumber } from '@/utils/format_token';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import { FC } from 'react';
 import { useRecoilValue } from 'recoil';
@@ -24,7 +23,7 @@ const RedelegationsItem: FC<RedelegationsItemProps> = ({ item, isLast }) => {
     name: fromName,
   } = useProfileRecoil(item.from);
   const { address: toAddress, imageUrl: toImageUrl, name: toName } = useProfileRecoil(item.to);
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { t } = useTranslation('accounts');
   const dateFormat = useRecoilValue(readDate);
   return (
@@ -71,7 +70,7 @@ type MobileProps = {
 };
 
 const Mobile: FC<MobileProps> = ({ className, items }) => (
-  <div className={classnames(className)}>
+  <div className={className}>
     {items?.map((x, i) => (
       <RedelegationsItem
         // eslint-disable-next-line react/no-array-index-key

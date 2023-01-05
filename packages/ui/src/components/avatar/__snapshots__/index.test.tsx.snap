@@ -2,7 +2,7 @@
 
 exports[`component: Avatar matches snapshot 1`] = `
 <div
-  className="makeStyles-root"
+  className="css-rzl6e5-root"
 >
   <svg
     data-jdenticon-value="123"
@@ -14,11 +14,11 @@ exports[`component: Avatar matches snapshot 1`] = `
 
 exports[`component: Avatar matches snapshot with imageUrl 1`] = `
 <div
-  className="makeStyles-root"
+  className="css-rzl6e5-root"
 >
   <img
     alt="address avatar"
-    className="makeStyles-img"
+    className="css-mbd3ku-img"
     data-nimg="future"
     decoding="async"
     height={0}

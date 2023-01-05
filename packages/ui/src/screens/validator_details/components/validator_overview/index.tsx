@@ -4,7 +4,7 @@ import InfoPopover from '@/components/info_popover';
 import Tag from '@/components/tag';
 import { useScreenSize } from '@/hooks';
 import { useAddress } from '@/screens/validator_details/components/validator_overview/hooks';
-import { useStyles } from '@/screens/validator_details/components/validator_overview/styles';
+import useStyles from '@/screens/validator_details/components/validator_overview/styles';
 import { getCondition } from '@/screens/validator_details/components/validator_overview/utils';
 import type { OverviewType, StatusType } from '@/screens/validator_details/types';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
@@ -13,7 +13,6 @@ import { ACCOUNT_DETAILS } from '@/utils/go_to_page';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import Big from 'big.js';
-import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
@@ -28,7 +27,7 @@ type ValidatorOverviewProps = {
 
 const ValidatorOverview: FC<ValidatorOverviewProps> = ({ status, overview, className }) => {
   const { isDesktop } = useScreenSize();
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const { t } = useTranslation('validators');
   const { handleCopyToClipboard } = useAddress(t);
 
@@ -91,14 +90,14 @@ const ValidatorOverview: FC<ValidatorOverviewProps> = ({ status, overview, class
                 </>
               }
               display={
-                <Typography variant="body1" className={classnames('value', condition)}>
+                <Typography variant="body1" className={cx('value', condition)}>
                   {t(condition)}
                 </Typography>
               }
             />
           </div>
         ) : (
-          <Typography variant="body1" className={classnames('value', 'condition', condition)}>
+          <Typography variant="body1" className={cx('value', 'condition', condition)}>
             {t(condition)}
           </Typography>
         ),
@@ -119,9 +118,9 @@ const ValidatorOverview: FC<ValidatorOverviewProps> = ({ status, overview, class
   ];
 
   return (
-    <Box className={classnames(className)}>
+    <Box className={className}>
       <div className={classes.addressRoot}>
-        <div className={classnames(classes.copyText, classes.item)}>
+        <div className={cx(classes.copyText, classes.item)}>
           <Typography variant="body1" className="label">
             {t('operatorAddress')}
           </Typography>
@@ -141,7 +140,7 @@ const ValidatorOverview: FC<ValidatorOverviewProps> = ({ status, overview, class
           </div>
         </div>
 
-        <div className={classnames(classes.copyText, classes.item)}>
+        <div className={cx(classes.copyText, classes.item)}>
           <Typography variant="body1" className="label">
             {t('selfDelegateAddress')}
           </Typography>

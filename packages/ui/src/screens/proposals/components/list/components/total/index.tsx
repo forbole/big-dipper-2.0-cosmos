@@ -1,5 +1,4 @@
 import Typography from '@mui/material/Typography';
-import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import { FC } from 'react';
 
@@ -11,7 +10,7 @@ type TotalProps = {
 const Total: FC<TotalProps> = ({ className, total }) => {
   const { t } = useTranslation('proposals');
   return (
-    <Typography variant="body1" className={classnames(className)}>
+    <Typography variant="body1" className={className}>
       {t('totalProposals', {
         amount: total,
       })}

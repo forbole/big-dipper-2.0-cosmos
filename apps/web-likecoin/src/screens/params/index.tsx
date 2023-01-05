@@ -2,7 +2,7 @@ import BoxDetails from '@/components/box_details';
 import Layout from '@/components/layout';
 import LoadAndExist from '@/components/load_and_exist';
 import { useParams } from '@/screens/params/hooks';
-import { useStyles } from '@/screens/params/styles';
+import useStyles from '@/screens/params/styles';
 import {
   formatDistribution,
   formatGov,
@@ -16,7 +16,7 @@ import useTranslation from 'next-translate/useTranslation';
 
 const Params = () => {
   const { t } = useTranslation('params');
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { state } = useParams();
 
   const staking = state.staking

@@ -1,6 +1,6 @@
 import AvatarName from '@/components/avatar_name';
 import Result from '@/components/result';
-import { useStyles } from '@/components/transactions_list/components/mobile/styles';
+import useStyles from '@/components/transactions_list/components/mobile/styles';
 import Shard from '@/components/transactions_list/components/shard';
 import dayjs from '@/utils/dayjs';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
@@ -12,7 +12,7 @@ import React, { FC, Fragment } from 'react';
 
 const Mobile: FC<{ className?: string; items: TransactionType[] }> = (props) => {
   const { t } = useTranslation('transactions');
-  const classes = useStyles();
+  const { classes } = useStyles();
   const formattedItems = props.items.map((x) => ({
     key: x.hash,
     hash: (

@@ -1,16 +1,15 @@
-import { useStyles } from '@/components/single_block_mobile/styles';
+import useStyles from '@/components/single_block_mobile/styles';
 import type { SingleBlockMobileType } from '@/components/single_block_mobile/types';
 import Typography from '@mui/material/Typography';
-import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import { FC } from 'react';
 
 const SingleBlockMobile: FC<SingleBlockMobileType & ComponentDefault> = (props) => {
   const { t } = useTranslation('blocks');
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
 
   return (
-    <div className={classnames(props.className, classes.root)}>
+    <div className={cx(props.className, classes.root)}>
       <div className={classes.flex}>
         <div className={classes.item}>
           <Typography variant="h4" className="label">

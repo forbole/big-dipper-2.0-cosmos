@@ -2,12 +2,11 @@
 
 exports[`components: Result matches snapshot 1`] = `
 <div
-  className="makeStyles-root makeStyles-fail"
+  className="css-1onmkry-root-fail"
 >
   <svg
     aria-hidden={true}
     className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-    color="#999999"
     data-testid="CancelIcon"
     focusable="false"
     viewBox="0 0 24 24"
@@ -26,12 +25,11 @@ exports[`components: Result matches snapshot 1`] = `
 
 exports[`components: Result matches snapshot success 1`] = `
 <div
-  className="makeStyles-root makeStyles-success"
+  className="css-18blogw-root-success"
 >
   <svg
     aria-hidden={true}
     className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-    color="#999999"
     data-testid="CheckCircleIcon"
     focusable="false"
     viewBox="0 0 24 24"

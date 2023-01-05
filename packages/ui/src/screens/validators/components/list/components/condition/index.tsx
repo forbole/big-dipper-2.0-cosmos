@@ -1,11 +1,10 @@
-import { useStyles } from '@/screens/validators/components/list/components/condition/styles';
-import classnames from 'classnames';
+import useStyles from '@/screens/validators/components/list/components/condition/styles';
 import React, { FC } from 'react';
 
 const Condition: FC<ComponentDefault> = ({ className }) => {
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
 
-  return <div className={classnames(className, classes.root)} />;
+  return <div className={cx(className, classes.root)} />;
 };
 
 export default Condition;

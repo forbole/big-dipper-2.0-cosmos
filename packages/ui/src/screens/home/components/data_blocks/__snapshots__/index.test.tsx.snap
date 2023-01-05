@@ -2,10 +2,10 @@
 
 exports[`screen: Home/DataBlocks matches snapshot 1`] = `
 <div
-  className="makeStyles-root"
+  className="css-36s0tc-root"
 >
   <div
-    className="makeStyles-blockHeight makeStyles-root"
+    className="css-pd6842-blockHeight-root"
   >
     <p
       className="MuiTypography-root MuiTypography-body2 label css-1bkilrq-MuiTypography-root"
@@ -23,7 +23,7 @@ exports[`screen: Home/DataBlocks matches snapshot 1`] = `
     </div>
   </div>
   <div
-    className="makeStyles-blockTime makeStyles-root"
+    className="css-1h3bor6-blockTime-root"
   >
     <p
       className="MuiTypography-root MuiTypography-body2 label css-1bkilrq-MuiTypography-root"
@@ -41,7 +41,7 @@ exports[`screen: Home/DataBlocks matches snapshot 1`] = `
     </div>
   </div>
   <div
-    className="makeStyles-price makeStyles-root"
+    className="css-kop5p1-price-root"
   >
     <p
       className="MuiTypography-root MuiTypography-body2 label css-1bkilrq-MuiTypography-root"
@@ -59,7 +59,7 @@ exports[`screen: Home/DataBlocks matches snapshot 1`] = `
     </div>
   </div>
   <div
-    className="makeStyles-validators makeStyles-root"
+    className="css-11xyanu-validators-root"
   >
     <p
       className="MuiTypography-root MuiTypography-body2 label css-1bkilrq-MuiTypography-root"

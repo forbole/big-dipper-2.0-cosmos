@@ -7,14 +7,13 @@ import { readDate } from '@/recoil/settings';
 import CommunityPoolSpend from '@/screens/proposal_details/components/overview/components/community_pool_spend';
 import ParamsChange from '@/screens/proposal_details/components/overview/components/params_change';
 import SoftwareUpgrade from '@/screens/proposal_details/components/overview/components/software_upgrade';
-import { useStyles } from '@/screens/proposal_details/components/overview/styles';
+import useStyles from '@/screens/proposal_details/components/overview/styles';
 import type { OverviewType } from '@/screens/proposal_details/types';
 import { getProposalType } from '@/screens/proposal_details/utils';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
 import { formatNumber, formatToken } from '@/utils/format_token';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
 import * as R from 'ramda';
@@ -23,7 +22,7 @@ import { useRecoilValue } from 'recoil';
 
 const Overview: FC<{ className?: string; overview: OverviewType }> = ({ className, overview }) => {
   const dateFormat = useRecoilValue(readDate);
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const { t } = useTranslation('proposals');
 
   const type = getProposalType(R.pathOr('', ['@type'], overview.content));
@@ -87,7 +86,7 @@ const Overview: FC<{ className?: string; overview: OverviewType }> = ({ classNam
   const extra = getExtraDetails();
 
   return (
-    <Box className={classnames(className, classes.root)}>
+    <Box className={cx(className, classes.root)}>
       <SingleProposal
         id={`#${numeral(overview.id).format('0,0')}`}
         title={overview.title}

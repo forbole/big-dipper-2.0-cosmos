@@ -2,10 +2,9 @@ import Box from '@/components/box';
 import Pagination from '@/components/pagination';
 import Search from '@/components/search';
 import { usePagination, useScreenSize } from '@/hooks';
-import { useStyles } from '@/screens/providers/components/providers_list/styles';
+import useStyles from '@/screens/providers/components/providers_list/styles';
 import type { ProvidersListState } from '@/screens/providers/types';
 import Typography from '@mui/material/Typography';
-import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import dynamic from 'next/dynamic';
 import React, { FC } from 'react';
@@ -24,7 +23,7 @@ export interface ProvidersListProps extends ComponentDefault {
 
 const ProvidersList: FC<ProvidersListProps> = (props) => {
   const { isDesktop } = useScreenSize();
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const { t } = useTranslation('providers');
   const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange } = usePagination({
     rowsPage: props.list.pagination.itemsPerPage,
@@ -40,7 +39,7 @@ const ProvidersList: FC<ProvidersListProps> = (props) => {
   }
 
   return (
-    <Box className={classnames(props.className, classes.root)}>
+    <Box className={cx(props.className, classes.root)}>
       <div className={classes.providerHeader}>
         <Typography variant="h2">{t('providersList')}</Typography>
         <Search

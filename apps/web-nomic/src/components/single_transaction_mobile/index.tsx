@@ -1,6 +1,5 @@
-import { useStyles } from '@/components/single_transaction_mobile/styles';
+import useStyles from '@/components/single_transaction_mobile/styles';
 import Typography from '@mui/material/Typography';
-import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import React, { FC, ReactNode } from 'react';
 
@@ -18,10 +17,10 @@ const SingleTransactionMobile: FC<SingleTransactionMobileProps> = ({
   time,
 }) => {
   const { t } = useTranslation('transactions');
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
 
   return (
-    <div className={classnames(className, classes.root)}>
+    <div className={cx(className, classes.root)}>
       <div className={classes.item}>
         <Typography variant="h4" className="label">
           {t('block')}

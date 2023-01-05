@@ -1,6 +1,5 @@
-import { useStyles } from '@/screens/validators/components/list/components/voting_power/styles';
+import useStyles from '@/screens/validators/components/list/components/voting_power/styles';
 import Typography from '@mui/material/Typography';
-import classnames from 'classnames';
 import React, { FC } from 'react';
 
 type VotingPowerProps = {
@@ -18,9 +17,9 @@ const VotingPower: FC<VotingPowerProps> = ({
   percentDisplay,
   topVotingPower,
 }) => {
-  const classes = useStyles(percentage, topVotingPower);
+  const { classes, cx } = useStyles({ percentage, topVotingPower });
   return (
-    <div className={classnames(className, classes.root)}>
+    <div className={cx(className, classes.root)}>
       <div className={classes.content}>
         <Typography variant="body1">{content}</Typography>
         <Typography variant="body1" className="percentage">

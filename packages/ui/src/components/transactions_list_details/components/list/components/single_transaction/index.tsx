@@ -1,7 +1,6 @@
-import { useStyles } from '@/components/transactions_list_details/components/list/components/single_transaction/styles';
+import useStyles from '@/components/transactions_list_details/components/list/components/single_transaction/styles';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import React, { FC, ReactNode } from 'react';
 
@@ -32,10 +31,10 @@ const SingleTransaction: FC<SingleTransactionProps> = ({
   messageCount,
 }) => {
   const { t } = useTranslation('transactions');
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
 
   return (
-    <div className={classnames(className, classes.root)}>
+    <div className={cx(className, classes.root)}>
       <div className={classes.timeContainer}>
         <Typography variant="body1" className="value">
           {hash}
@@ -43,19 +42,19 @@ const SingleTransaction: FC<SingleTransactionProps> = ({
       </div>
       <div className={classes.itemContainer}>
         <div className={classes.itemPrimaryDetailsContainer}>
-          <div className={classnames(classes.item, 'block')}>
+          <div className={cx(classes.item, 'block')}>
             <Typography variant="h4" className="label">
               {t('block')}
             </Typography>
             {block}
           </div>
-          <div className={classnames(classes.item, 'block')}>
+          <div className={cx(classes.item, 'block')}>
             <Typography variant="h4" className="label">
               {t('type')}
             </Typography>
             {type}
           </div>
-          <div className={classnames(classes.item, 'time')}>
+          <div className={cx(classes.item, 'time')}>
             <Typography variant="h4" className="label">
               {t('time')}
             </Typography>
@@ -63,7 +62,7 @@ const SingleTransaction: FC<SingleTransactionProps> = ({
               {time}
             </Typography>
           </div>
-          <div className={classnames(classes.item, 'messages')}>
+          <div className={cx(classes.item, 'messages')}>
             <Typography variant="h4" className="label">
               {t('messages')}
             </Typography>
@@ -71,7 +70,7 @@ const SingleTransaction: FC<SingleTransactionProps> = ({
               {messageCount}
             </Typography>
           </div>
-          <div className={classnames(classes.item, 'result')}>
+          <div className={cx(classes.item, 'result')}>
             <Typography variant="h4" className="label">
               {t('result')}
             </Typography>

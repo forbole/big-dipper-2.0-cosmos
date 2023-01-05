@@ -1,7 +1,6 @@
-import { useStyles } from '@/components/name/styles';
+import useStyles from '@/components/name/styles';
 import { ADDRESS_DETAILS } from '@/utils/go_to_page';
 import Typography from '@mui/material/Typography';
-import classnames from 'classnames';
 import Link from 'next/link';
 import React, { FC } from 'react';
 
@@ -13,10 +12,10 @@ type NameProps = {
 };
 
 const Name: FC<NameProps> = ({ className, address, name, href = ADDRESS_DETAILS }) => {
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   return (
     <Link href={href(address)} passHref>
-      <Typography variant="body1" className={classnames(className, classes.root)} component="a">
+      <Typography variant="body1" className={cx(className, classes.root)} component="a">
         {name}
       </Typography>
     </Link>

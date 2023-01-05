@@ -2,13 +2,13 @@
 
 exports[`screen: Nav/ActionBar displays network 1`] = `
 <div
-  className="makeStyles-root"
+  className="css-1ea0fsh-root"
 >
   <div
-    className="makeStyles-actions"
+    className="css-1douz5d-actions"
   >
     <form
-      className="makeStyles-searchBar open makeStyles-root"
+      className="open css-1r60gaq-searchBar-root"
       onSubmit={[Function]}
     >
       <div
@@ -26,7 +26,6 @@ exports[`screen: Nav/ActionBar displays network 1`] = `
           <svg
             aria-hidden={true}
             className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
-            color="#999999"
             data-testid="SearchIcon"
             focusable="false"
             viewBox="0 0 24 24"
@@ -51,7 +50,7 @@ exports[`screen: Nav/ActionBar displays network 1`] = `
       </div>
     </form>
     <div
-      className="makeStyles-network open"
+      className="css-pjswcz-network open"
       id="network"
       toggleNetwork={[MockFunction]}
     />
@@ -61,7 +60,7 @@ exports[`screen: Nav/ActionBar displays network 1`] = `
   </div>
   <div
     actionHeight={0}
-    className="makeStyles-networkList open"
+    className="css-qgr2xh-networkList open"
     id="NetworkList"
   />
 </div>
@@ -69,13 +68,13 @@ exports[`screen: Nav/ActionBar displays network 1`] = `
 
 exports[`screen: Nav/ActionBar it renders 1`] = `
 <div
-  className="makeStyles-root"
+  className="css-1ea0fsh-root"
 >
   <div
-    className="makeStyles-actions"
+    className="css-1douz5d-actions"
   >
     <form
-      className="makeStyles-searchBar makeStyles-root"
+      className="css-1r60gaq-searchBar-root"
       onSubmit={[Function]}
     >
       <div
@@ -93,7 +92,6 @@ exports[`screen: Nav/ActionBar it renders 1`] = `
           <svg
             aria-hidden={true}
             className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
-            color="#999999"
             data-testid="SearchIcon"
             focusable="false"
             viewBox="0 0 24 24"
@@ -118,7 +116,7 @@ exports[`screen: Nav/ActionBar it renders 1`] = `
       </div>
     </form>
     <div
-      className="makeStyles-network"
+      className="css-pjswcz-network"
       id="network"
       toggleNetwork={[MockFunction]}
     />
@@ -128,7 +126,7 @@ exports[`screen: Nav/ActionBar it renders 1`] = `
   </div>
   <div
     actionHeight={0}
-    className="makeStyles-networkList"
+    className="css-qgr2xh-networkList"
     id="NetworkList"
   />
 </div>

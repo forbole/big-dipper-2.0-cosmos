@@ -2,7 +2,7 @@
 
 exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
 <div
-  className="makeStyles-root"
+  className="css-1rz0of5-root"
 >
   <div
     onScroll={[Function]}
@@ -28,7 +28,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
       }
     >
       <div
-        className="makeStyles-cell"
+        className="css-1o9qy4i-cell"
         style={
           {
             "height": 50,
@@ -47,7 +47,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         </h4>
       </div>
       <div
-        className="makeStyles-cell"
+        className="css-1o9qy4i-cell"
         style={
           {
             "height": 50,
@@ -66,7 +66,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         </h4>
       </div>
       <div
-        className="makeStyles-cell"
+        className="css-1o9qy4i-cell"
         style={
           {
             "height": 50,
@@ -85,7 +85,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         </h4>
       </div>
       <div
-        className="makeStyles-cell"
+        className="css-1o9qy4i-cell"
         style={
           {
             "height": 50,
@@ -130,7 +130,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
       }
     >
       <div
-        className="makeStyles-cell makeStyles-body odd"
+        className="odd css-f3bopr-cell-body"
         style={
           {
             "height": 50,
@@ -157,7 +157,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         </div>
       </div>
       <div
-        className="makeStyles-cell makeStyles-body odd"
+        className="odd css-f3bopr-cell-body"
         style={
           {
             "height": 50,
@@ -176,7 +176,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         </div>
       </div>
       <div
-        className="makeStyles-cell makeStyles-body odd"
+        className="odd css-f3bopr-cell-body"
         style={
           {
             "height": 50,
@@ -195,7 +195,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         </div>
       </div>
       <div
-        className="makeStyles-cell makeStyles-body odd"
+        className="odd css-f3bopr-cell-body"
         style={
           {
             "height": 50,
@@ -214,7 +214,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         </div>
       </div>
       <div
-        className="makeStyles-cell makeStyles-body"
+        className="css-f3bopr-cell-body"
         style={
           {
             "height": 50,
@@ -241,7 +241,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         </div>
       </div>
       <div
-        className="makeStyles-cell makeStyles-body"
+        className="css-f3bopr-cell-body"
         style={
           {
             "height": 50,
@@ -260,7 +260,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         </div>
       </div>
       <div
-        className="makeStyles-cell makeStyles-body"
+        className="css-f3bopr-cell-body"
         style={
           {
             "height": 50,
@@ -279,7 +279,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         </div>
       </div>
       <div
-        className="makeStyles-cell makeStyles-body"
+        className="css-f3bopr-cell-body"
         style={
           {
             "height": 50,

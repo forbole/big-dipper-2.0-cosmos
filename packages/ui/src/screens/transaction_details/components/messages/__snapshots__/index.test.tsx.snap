@@ -2,14 +2,14 @@
 
 exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
 <div
-  className="makeStyles-root"
+  className="css-1968mu4-root"
   id="Box"
 >
   <div
-    className="makeStyles-header"
+    className="css-3797fy-header"
   >
     <div
-      className="makeStyles-mobileOptions"
+      className="css-15b46au-mobileOptions"
     >
       <h2
         className="MuiTypography-root MuiTypography-h2 css-dcgvbp-MuiTypography-root"
@@ -60,7 +60,7 @@ exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
       </label>
     </div>
     <div
-      className="makeStyles-desktopOptions"
+      className="css-10k5g39-desktopOptions"
     >
       <label
         className="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -106,7 +106,7 @@ exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
       </label>
       <div
         callback={[MockFunction]}
-        className="makeStyles-filter"
+        className="css-1ti6lji-filter"
         id="TransactionMessagesFilter"
       />
     </div>
@@ -115,7 +115,7 @@ exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
     className="MuiDivider-root MuiDivider-fullWidth css-l3fh2f-MuiDivider-root"
   />
   <div
-    className="makeStyles-list"
+    className="css-1s6xrmg-list"
   >
     <div
       className="List"
@@ -155,10 +155,10 @@ exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
         >
           <div>
             <div
-              className="makeStyles-item"
+              className="css-13s6p8p-item"
             >
               <div
-                className="makeStyles-tags"
+                className="css-1vwfa7o-tags"
               >
                 <div
                   id="Tag"

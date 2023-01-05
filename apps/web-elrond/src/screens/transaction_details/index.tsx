@@ -9,10 +9,10 @@ import Operations from '@/screens/transaction_details/components/operations';
 import Overview from '@/screens/transaction_details/components/overview';
 import SmartContractResults from '@/screens/transaction_details/components/smart_contract_results';
 import { useTransactionDetails } from '@/screens/transaction_details/hooks';
-import { useStyles } from '@/screens/transaction_details/styles';
+import useStyles from '@/screens/transaction_details/styles';
 
 const TransactionDetails = () => {
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { t } = useTranslation('transactions');
   const { state } = useTransactionDetails();
   return (

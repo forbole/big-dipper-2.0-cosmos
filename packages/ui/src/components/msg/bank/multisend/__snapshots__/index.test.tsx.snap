@@ -25,7 +25,7 @@ exports[`screen: TransactionDetails/MsgMultiSend matches snapshot 1`] = `
     />
   </p>
   <div
-    className="makeStyles-multisend"
+    className="css-xl5jgc-multisend"
   >
     <p
       className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"

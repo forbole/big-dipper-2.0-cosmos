@@ -6,14 +6,14 @@ exports[`screen: _app matches snapshot 1`] = `
     className="Toastify"
   />,
   <div
-    className="makeStyles-root-1"
+    className="css-dbvyw2-root"
   >
     <span
-      className="makeStyles-logo-3 makeStyles-container-6"
+      className="css-1f1tpog-logo-container"
     >
       <img
         alt="logo"
-        className="makeStyles-dark-8"
+        className="css-4nmqpx-dark"
         data-nimg="future"
         decoding="async"
         height={0}
@@ -30,7 +30,7 @@ exports[`screen: _app matches snapshot 1`] = `
       />
       <img
         alt="logo"
-        className="makeStyles-light-7"
+        className="css-13ot6lo-light"
         data-nimg="future"
         decoding="async"
         height={0}
@@ -47,10 +47,10 @@ exports[`screen: _app matches snapshot 1`] = `
       />
     </span>
     <div
-      className="makeStyles-timeContainer-4"
+      className="css-x6pwqy-timeContainer"
     >
       <div
-        className="makeStyles-item-5"
+        className="css-1e9rjvf-item"
       >
         <h1
           className="MuiTypography-root MuiTypography-h1 css-gw99sn-MuiTypography-root"
@@ -64,7 +64,7 @@ exports[`screen: _app matches snapshot 1`] = `
         </h3>
       </div>
       <div
-        className="makeStyles-item-5"
+        className="css-1e9rjvf-item"
       >
         <h1
           className="MuiTypography-root MuiTypography-h1 css-gw99sn-MuiTypography-root"
@@ -78,7 +78,7 @@ exports[`screen: _app matches snapshot 1`] = `
         </h3>
       </div>
       <div
-        className="makeStyles-item-5"
+        className="css-1e9rjvf-item"
       >
         <h1
           className="MuiTypography-root MuiTypography-h1 css-gw99sn-MuiTypography-root"
@@ -92,7 +92,7 @@ exports[`screen: _app matches snapshot 1`] = `
         </h3>
       </div>
       <div
-        className="makeStyles-item-5"
+        className="css-1e9rjvf-item"
       >
         <h1
           className="MuiTypography-root MuiTypography-h1 css-gw99sn-MuiTypography-root"
@@ -107,7 +107,7 @@ exports[`screen: _app matches snapshot 1`] = `
       </div>
     </div>
     <h2
-      className="MuiTypography-root MuiTypography-h2 makeStyles-chain-2 css-dcgvbp-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-h2 css-k0i0gx-MuiTypography-root-chain"
     >
       desmos-mainnet
     </h2>

@@ -2,20 +2,19 @@ import Box from '@/components/box';
 import { getMessageByType } from '@/components/msg/utils';
 import TransactionMessagesFilter from '@/components/transaction_messages_filter';
 import { useList, useListRow } from '@/hooks';
-import { useStyles } from '@/screens/transaction_details/components/messages/styles';
+import useStyles from '@/screens/transaction_details/components/messages/styles';
 import Divider from '@mui/material/Divider';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import Typography from '@mui/material/Typography';
-import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
-import React, { FC, LegacyRef, SyntheticEvent } from 'react';
+import React, { ChangeEvent, FC, LegacyRef } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
 
 type ListItemProps = Pick<ListChildComponentProps, 'index' | 'style'> & {
   setRowHeight: Parameters<typeof useListRow>[1];
-  classes: ReturnType<typeof useStyles>;
+  classes: ReturnType<typeof useStyles>['classes'];
   message: unknown;
   isLast: boolean;
   viewRaw: boolean;
@@ -50,18 +49,18 @@ type MessagesProps = {
   className?: string;
   messages: unknown[];
   viewRaw: boolean;
-  toggleMessageDisplay: (event: SyntheticEvent<HTMLInputElement>) => void;
+  toggleMessageDisplay: (event: ChangeEvent<HTMLInputElement>, checked: boolean) => void;
   onMessageFilterCallback: (value: string) => void;
 };
 
 const Messages: FC<MessagesProps> = ({ className, ...props }) => {
   const { t } = useTranslation('transactions');
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
 
   const { listRef, getRowHeight, setRowHeight } = useList();
 
   return (
-    <Box className={classnames(className, classes.root)}>
+    <Box className={cx(className, classes.root)}>
       <div className={classes.header}>
         <div className={classes.mobileOptions}>
           <Typography variant="h2">{t('messages')}</Typography>

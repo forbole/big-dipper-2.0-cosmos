@@ -1,7 +1,6 @@
 import { mergeRefs } from '@/utils/merge_refs';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import classnames from 'classnames';
 import Link from 'next/link';
 import numeral from 'numeral';
 import { FC } from 'react';
@@ -14,7 +13,7 @@ import Loading from '@/components/loading';
 import SingleProposal from '@/components/single_proposal';
 import { useList, useListRow } from '@/hooks';
 import Total from '@/screens/proposals/components/list/components/total';
-import { useStyles } from '@/screens/proposals/components/list/styles';
+import useStyles from '@/screens/proposals/components/list/styles';
 import type { ProposalType } from '@/screens/proposals/types';
 import { PROPOSAL_DETAILS } from '@/utils/go_to_page';
 
@@ -83,12 +82,12 @@ const ProposalsList: FC<ProposalsListProps> = ({
   itemCount,
   loadMoreItems,
 }) => {
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
 
   const { listRef, getRowHeight, setRowHeight } = useList();
 
   return (
-    <Box className={classnames(className, classes.root)}>
+    <Box className={cx(className, classes.root)}>
       <div className={classes.topContent}>
         <Total className={classes.total} total={numeral(rawDataTotal).format('0,0')} />
         {/* <Search className={classes.search} /> */}

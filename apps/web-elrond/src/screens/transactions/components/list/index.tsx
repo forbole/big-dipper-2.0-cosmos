@@ -6,10 +6,10 @@ import Box from '@/components/box';
 import Loading from '@/components/loading';
 import { usePagination } from '@/hooks';
 import { PAGE_SIZE, useBlocks } from '@/screens/transactions/components/list/hooks';
-import { useStyles } from '@/screens/transactions/components/list/styles';
+import useStyles from '@/screens/transactions/components/list/styles';
 
 const List = () => {
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { state, handlePageChangeCallback } = useBlocks();
   const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange } = usePagination({
     rowsPage: PAGE_SIZE,

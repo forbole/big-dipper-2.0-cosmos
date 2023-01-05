@@ -1,11 +1,10 @@
-import { useStyles } from '@/components/condition_explanation/styles';
+import useStyles from '@/components/condition_explanation/styles';
 import Typography from '@mui/material/Typography';
-import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 
 const ConditionExplanation = () => {
   const { t } = useTranslation('validators');
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
 
   const conditions = [
     {
@@ -32,7 +31,7 @@ const ConditionExplanation = () => {
         {conditions.map((x) => (
           <div key={x.display} className={classes.item}>
             <Typography>{x.display}</Typography>
-            <div className={classnames(classes.condition, x.className)} />
+            <div className={cx(classes.condition, x.className)} />
           </div>
         ))}
       </div>

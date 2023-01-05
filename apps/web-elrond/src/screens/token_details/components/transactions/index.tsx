@@ -8,11 +8,11 @@ import Box from '@/components/box';
 import Loading from '@/components/loading';
 import { usePagination } from '@/hooks';
 import { PAGE_SIZE, useTransactions } from '@/screens/token_details/components/transactions/hooks';
-import { useStyles } from '@/screens/token_details/components/transactions/styles';
+import useStyles from '@/screens/token_details/components/transactions/styles';
 
 const Transactions: FC<ComponentDefault> = (props) => {
   const { t } = useTranslation('tokens');
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { state, handlePageChangeCallback } = useTransactions();
   const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange } = usePagination({
     rowsPage: PAGE_SIZE,

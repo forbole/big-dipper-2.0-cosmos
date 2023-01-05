@@ -1,6 +1,6 @@
-import { makeStyles } from '@mui/styles';
+import { makeStyles } from 'tss-react/mui';
 
-const styles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   root: {
     padding: theme.spacing(2),
     background: theme.palette.primary.main,
@@ -29,4 +29,4 @@ const styles = makeStyles((theme) => ({
   },
 }));
 
-export const useStyles = () => styles();
+export default useStyles;

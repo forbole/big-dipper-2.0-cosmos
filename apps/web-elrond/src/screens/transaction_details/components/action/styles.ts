@@ -1,18 +1,15 @@
-import { makeStyles } from '@mui/styles';
+import { makeStyles } from 'tss-react/mui';
 
-const styles = makeStyles(
-  (theme) => ({
-    description: {
-      alignItems: 'flex-start',
-      '& .label': {
-        marginRight: theme.spacing(2),
-      },
-      '& .detail': {
-        wordBreak: 'break-all',
-      },
+const useStyles = makeStyles()((theme) => ({
+  description: {
+    alignItems: 'flex-start',
+    '& .label': {
+      marginRight: theme.spacing(2),
     },
-  }),
-  { index: 1 }
-);
+    '& .detail': {
+      wordBreak: 'break-all',
+    },
+  },
+}));
 
-export const useStyles = () => styles();
+export default useStyles;

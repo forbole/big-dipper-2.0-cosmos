@@ -1,13 +1,12 @@
 import AvatarName from '@/components/avatar_name';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { readDate } from '@/recoil/settings';
-import { useStyles } from '@/screens/proposal_details/components/deposits/components/mobile/styles';
+import useStyles from '@/screens/proposal_details/components/deposits/components/mobile/styles';
 import type { ItemType } from '@/screens/proposal_details/components/deposits/types';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
 import { formatNumber } from '@/utils/format_token';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import React, { FC, Fragment } from 'react';
 import { useRecoilValue } from 'recoil';
@@ -20,7 +19,7 @@ type DepositRowProps = {
 
 const DepositsRow: FC<DepositRowProps> = ({ i, item, isLast }) => {
   const { t } = useTranslation('proposals');
-  const classes = useStyles();
+  const { classes } = useStyles();
   const dateFormat = useRecoilValue(readDate);
   const { name, address, imageUrl } = useProfileRecoil(item.user);
 
@@ -66,7 +65,7 @@ type MobileProps = {
 };
 
 const Mobile: FC<MobileProps> = ({ className, items }) => (
-  <div className={classnames(className)}>
+  <div className={className}>
     {items?.map((x, i) => (
       // eslint-disable-next-line react/no-array-index-key
       <DepositsRow key={i} i={i} item={x} isLast={i === items.length - 1} />

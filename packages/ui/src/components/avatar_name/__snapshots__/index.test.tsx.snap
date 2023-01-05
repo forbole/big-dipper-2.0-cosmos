@@ -8,7 +8,7 @@ exports[`component: AvatarName matches snapshot 1`] = `
   onTouchStart={[Function]}
 >
   <div
-    className="makeStyles-root"
+    className="css-1i61snv-root"
   >
     <div
       address="123"
@@ -31,7 +31,7 @@ exports[`component: AvatarName matches snapshot with imageUrl 1`] = `
   onTouchStart={[Function]}
 >
   <div
-    className="makeStyles-root"
+    className="css-1i61snv-root"
   >
     <div
       address="123"

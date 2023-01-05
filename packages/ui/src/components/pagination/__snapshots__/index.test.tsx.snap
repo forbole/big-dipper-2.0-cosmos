@@ -2,7 +2,7 @@
 
 exports[`components: Pagination matches snapshot 1`] = `
 <div
-  className="MuiTablePagination-root makeStyles-root css-1tpi3qq-MuiTablePagination-root"
+  className="MuiTablePagination-root css-1220jse-MuiTablePagination-root-root"
 >
   <div
     className="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular MuiTablePagination-toolbar css-1yn2m31-MuiToolbar-root-MuiTablePagination-toolbar"
@@ -16,7 +16,7 @@ exports[`components: Pagination matches snapshot 1`] = `
       paginationLabelOne
     </p>
     <div
-      className="makeStyles-mobile"
+      className="css-14qgy9x-mobile"
       count={100}
       getItemAriaLabel={[Function]}
       handleRowsPerPageChange={[MockFunction]}
@@ -28,7 +28,7 @@ exports[`components: Pagination matches snapshot 1`] = `
       showLastButton={false}
     />
     <div
-      className="makeStyles-tablet"
+      className="css-1uz7plj-tablet"
       count={100}
       getItemAriaLabel={[Function]}
       handleRowsPerPageChange={[MockFunction]}

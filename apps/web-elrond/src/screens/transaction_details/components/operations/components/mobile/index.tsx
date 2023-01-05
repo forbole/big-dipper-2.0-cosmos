@@ -1,5 +1,5 @@
 import AvatarName from '@/components/avatar_name';
-import { useStyles } from '@/screens/transaction_details/components/operations/components/mobile/styles';
+import useStyles from '@/screens/transaction_details/components/operations/components/mobile/styles';
 import type { OperationType } from '@/screens/transaction_details/types';
 import { formatNumber } from '@/utils/format_token';
 import { NFT_DETAILS, TOKEN_DETAILS } from '@/utils/go_to_page';
@@ -11,7 +11,7 @@ import React, { FC, Fragment } from 'react';
 
 const Mobile: FC<{ className?: string; items: OperationType[] }> = (props) => {
   const { t } = useTranslation('transactions');
-  const classes = useStyles();
+  const { classes } = useStyles();
   const formattedItems = props.items.map((x, i) => {
     const isToken = x?.identifier ?? ''.split('-').length === 2;
     const isNft = x?.identifier ?? ''.split('-').length === 3;

@@ -1,11 +1,10 @@
 import React, { FC, Fragment } from 'react';
-import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import type { OtherTokenType } from '@/screens/account_details/types';
 import { formatNumber } from '@/utils/format_token';
-import { useStyles } from '@/screens/account_details/components/other_tokens/components/mobile/styles';
+import useStyles from '@/screens/account_details/components/other_tokens/components/mobile/styles';
 
 type MobileProps = {
   className?: string;
@@ -13,10 +12,10 @@ type MobileProps = {
 };
 
 const Mobile: FC<MobileProps> = ({ className, items }) => {
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { t } = useTranslation('accounts');
   return (
-    <div className={classnames(className)}>
+    <div className={className}>
       {items?.map((x, i) => {
         const available = formatNumber(x.available.value, x.available.exponent);
         const isLast = !items || i === items.length - 1;

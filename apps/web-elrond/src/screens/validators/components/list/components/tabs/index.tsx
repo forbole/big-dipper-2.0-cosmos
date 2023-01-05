@@ -1,11 +1,10 @@
 import React, { ComponentProps, FC } from 'react';
-import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import { a11yProps } from '@/utils/a11yProps';
 import Search from '@/components/search';
-import { useStyles } from '@/screens/validators/components/list/components/tabs/styles';
+import useStyles from '@/screens/validators/components/list/components/tabs/styles';
 import type { TabType } from '@/screens/validators/components/list/types';
 
 type TabsHeaderProps = {
@@ -17,11 +16,11 @@ type TabsHeaderProps = {
 };
 
 const TabsHeader: FC<TabsHeaderProps> = (props) => {
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const { t } = useTranslation('validators');
 
   return (
-    <div className={classnames(props.className, classes.root)}>
+    <div className={cx(props.className, classes.root)}>
       <Tabs
         variant="scrollable"
         scrollButtons={false}

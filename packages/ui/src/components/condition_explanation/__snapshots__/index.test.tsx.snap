@@ -2,7 +2,7 @@
 
 exports[`components: ConditionExplanation matches snapshot 1`] = `
 <div
-  className="makeStyles-root"
+  className="css-c1d2kd-root"
 >
   <p
     className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
@@ -10,10 +10,10 @@ exports[`components: ConditionExplanation matches snapshot 1`] = `
     conditionExplanation
   </p>
   <div
-    className="makeStyles-itemWrapper"
+    className="css-1tid509-itemWrapper"
   >
     <div
-      className="makeStyles-item"
+      className="css-ww6dzn-item"
     >
       <p
         className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
@@ -21,11 +21,11 @@ exports[`components: ConditionExplanation matches snapshot 1`] = `
         90% - 100%
       </p>
       <div
-        className="makeStyles-condition green"
+        className="css-bhwof9-condition green"
       />
     </div>
     <div
-      className="makeStyles-item"
+      className="css-ww6dzn-item"
     >
       <p
         className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
@@ -33,11 +33,11 @@ exports[`components: ConditionExplanation matches snapshot 1`] = `
         70% - 90%
       </p>
       <div
-        className="makeStyles-condition yellow"
+        className="css-bhwof9-condition yellow"
       />
     </div>
     <div
-      className="makeStyles-item"
+      className="css-ww6dzn-item"
     >
       <p
         className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
@@ -45,11 +45,11 @@ exports[`components: ConditionExplanation matches snapshot 1`] = `
         1% - 70%
       </p>
       <div
-        className="makeStyles-condition red"
+        className="css-bhwof9-condition red"
       />
     </div>
     <div
-      className="makeStyles-item"
+      className="css-ww6dzn-item"
     >
       <p
         className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
@@ -57,7 +57,7 @@ exports[`components: ConditionExplanation matches snapshot 1`] = `
         0%
       </p>
       <div
-        className="makeStyles-condition"
+        className="css-bhwof9-condition"
       />
     </div>
   </div>

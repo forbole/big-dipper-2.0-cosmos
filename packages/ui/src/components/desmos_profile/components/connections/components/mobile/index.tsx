@@ -1,9 +1,8 @@
-import { useStyles } from '@/components/desmos_profile/components/connections/components/mobile/styles';
+import useStyles from '@/components/desmos_profile/components/connections/components/mobile/styles';
 import { readDate } from '@/recoil/settings';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import React, { FC, Fragment } from 'react';
 import { useRecoilValue } from 'recoil';
@@ -15,11 +14,11 @@ type MobileProps = {
 
 const Mobile: FC<MobileProps> = ({ className, items }) => {
   const dateFormat = useRecoilValue(readDate);
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { t } = useTranslation('accounts');
 
   return (
-    <div className={classnames(className)}>
+    <div className={className}>
       {items?.map((x, i) => {
         const isLast = !items || i === items.length - 1;
         return (

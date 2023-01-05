@@ -1,5 +1,5 @@
 import Mobile from '@/components/nav/components/mobile';
-import { useStyles } from '@/components/nav/styles';
+import useStyles from '@/components/nav/styles';
 import { useScreenSize } from '@/hooks';
 import dynamic from 'next/dynamic';
 import React, { FC } from 'react';
@@ -11,7 +11,7 @@ type NavProps = {
 };
 
 const Nav: FC<NavProps> = ({ title }) => {
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { isDesktop } = useScreenSize();
   if (isDesktop) {
     return <Desktop className={classes.desktop} title={title ?? ''} />;

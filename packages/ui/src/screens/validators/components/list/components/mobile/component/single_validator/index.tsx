@@ -1,6 +1,5 @@
-import { useStyles } from '@/screens/validators/components/list/components/mobile/component/single_validator/styles';
+import useStyles from '@/screens/validators/components/list/components/mobile/component/single_validator/styles';
 import Typography from '@mui/material/Typography';
-import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import React, { FC, ReactNode } from 'react';
 
@@ -23,9 +22,10 @@ const SingleValidator: FC<SingleValidatorProps> = ({
   status,
 }) => {
   const { t } = useTranslation('validators');
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
+
   return (
-    <div className={classnames(className, classes.root)}>
+    <div className={cx(className, classes.root)}>
       <div className={classes.item}>
         <Typography variant="h4" className="label">
           {t('validator')}
@@ -43,7 +43,7 @@ const SingleValidator: FC<SingleValidatorProps> = ({
           <Typography variant="h4" className="label">
             {t('status')}
           </Typography>
-          <Typography variant="body1" className={classnames('value', 'status', status.theme)}>
+          <Typography variant="body1" className={cx('value', 'status', status.theme)}>
             {t(status.status)}
           </Typography>
         </div>

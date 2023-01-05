@@ -1,8 +1,9 @@
-import { makeStyles } from '@mui/styles';
+import { CSSObject } from '@emotion/react';
+import { makeStyles } from 'tss-react/mui';
 
-const styles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   root: {
-    ...theme.mixins.layout,
+    ...(theme.mixins.layout as CSSObject),
     display: 'grid',
     gridTemplateRows: 'auto',
     gap: theme.spacing(1),
@@ -16,4 +17,4 @@ const styles = makeStyles((theme) => ({
   },
 }));
 
-export const useStyles = () => styles();
+export default useStyles;

@@ -7,7 +7,6 @@ import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { BLOCK_DETAILS } from '@/utils/go_to_page';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import classnames from 'classnames';
 import Link from 'next/link';
 import numeral from 'numeral';
 import React, { FC, Fragment } from 'react';
@@ -49,7 +48,7 @@ type MobileProps = {
 };
 
 const Mobile: FC<MobileProps> = ({ className, items }) => (
-  <div className={classnames(className)}>
+  <div className={className}>
     {items?.map((x, i) => (
       <BlocksItem key={x.height} item={x} i={i} isLast={i === items.length - 1} />
     ))}

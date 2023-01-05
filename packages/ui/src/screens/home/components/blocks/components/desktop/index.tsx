@@ -1,6 +1,6 @@
 import AvatarName from '@/components/avatar_name';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
-import { useStyles } from '@/screens/home/components/blocks/components/desktop/styles';
+import useStyles from '@/screens/home/components/blocks/components/desktop/styles';
 import { columns } from '@/screens/home/components/blocks/components/desktop/utils';
 import type { ItemType } from '@/screens/home/components/blocks/types';
 import dayjs from '@/utils/dayjs';
@@ -12,7 +12,6 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
-import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
@@ -62,10 +61,10 @@ type DesktopProps = {
 
 const Desktop: FC<DesktopProps> = ({ className, items }) => {
   const { t } = useTranslation('blocks');
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
 
   return (
-    <div className={classnames(className, classes.root)}>
+    <div className={cx(className, classes.root)}>
       <Table className={classes.table}>
         <TableHead>
           <TableRow>

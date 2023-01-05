@@ -7,11 +7,11 @@ import Typography from '@mui/material/Typography';
 import AvatarName from '@/components/avatar_name';
 import { TOKEN_DETAILS } from '@/utils/go_to_page';
 import type { TokenType } from '@/screens/tokens/components/list/types';
-import { useStyles } from '@/screens/tokens/components/list/components/tokens_list/components/mobile/styles';
+import useStyles from '@/screens/tokens/components/list/components/tokens_list/components/mobile/styles';
 
 const Mobile: FC<{ className?: string; items: TokenType[] }> = (props) => {
   const { t } = useTranslation('tokens');
-  const classes = useStyles();
+  const { classes } = useStyles();
   const formattedItems = props.items.map((x, i) => ({
     key: `${x.identifier}-${i}`,
     token: (

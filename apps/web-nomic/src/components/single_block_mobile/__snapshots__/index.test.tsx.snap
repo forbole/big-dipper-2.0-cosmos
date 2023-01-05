@@ -2,10 +2,10 @@
 
 exports[`component: SingleSlotMobile matches snapshot 1`] = `
 <div
-  className="makeStyles-root"
+  className="css-1bnteyo-root"
 >
   <div
-    className="makeStyles-item"
+    className="css-1i6rt53-item"
   >
     <h4
       className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
@@ -17,7 +17,7 @@ exports[`component: SingleSlotMobile matches snapshot 1`] = `
     />
   </div>
   <div
-    className="makeStyles-item"
+    className="css-1i6rt53-item"
   >
     <h4
       className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
@@ -31,7 +31,7 @@ exports[`component: SingleSlotMobile matches snapshot 1`] = `
     </p>
   </div>
   <div
-    className="makeStyles-item"
+    className="css-1i6rt53-item"
   >
     <h4
       className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
@@ -45,10 +45,10 @@ exports[`component: SingleSlotMobile matches snapshot 1`] = `
     </p>
   </div>
   <div
-    className="makeStyles-flex"
+    className="css-1t94r6n-flex"
   >
     <div
-      className="makeStyles-item"
+      className="css-1i6rt53-item"
     >
       <h4
         className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
@@ -62,7 +62,7 @@ exports[`component: SingleSlotMobile matches snapshot 1`] = `
       </p>
     </div>
     <div
-      className="makeStyles-item"
+      className="css-1i6rt53-item"
     >
       <h4
         className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"

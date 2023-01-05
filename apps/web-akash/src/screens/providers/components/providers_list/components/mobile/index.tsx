@@ -1,13 +1,12 @@
 import { useList, useListRow } from '@/hooks';
 import useShallowMemo from '@/hooks/useShallowMemo';
 import SingleProvider from '@/screens/providers/components/providers_list/components/mobile/component/single_provider';
-import { useStyles } from '@/screens/providers/components/providers_list/components/mobile/styles';
+import useStyles from '@/screens/providers/components/providers_list/components/mobile/styles';
 import type { ProviderInfo } from '@/screens/providers/types';
 import { useAddress } from '@/utils/copy_to_clipboard';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import React, { FC, LegacyRef } from 'react';
@@ -18,7 +17,7 @@ import WebArrowIcon from 'shared-utils/assets/icon-web-arrow.svg';
 
 type ListItemProps = Pick<ListChildComponentProps, 'index' | 'style'> & {
   setRowHeight: Parameters<typeof useListRow>[1];
-  classes: ReturnType<typeof useStyles>;
+  classes: ReturnType<typeof useStyles>['classes'];
   item: ProviderInfo;
   isLast: boolean;
 };
@@ -107,14 +106,14 @@ const ListItem: FC<ListItemProps> = ({ index, style, setRowHeight, classes, item
 };
 
 const Mobile: FC<{ list: ProviderInfo[] }> = ({ list }) => {
-  const classes = useStyles();
+  const { classes } = useStyles();
   const className = '';
 
   const { listRef, getRowHeight, setRowHeight } = useList();
   const listMemo = useShallowMemo(list);
 
   return (
-    <div className={classnames(className)}>
+    <div className={className}>
       <List
         width="auto"
         height={900}

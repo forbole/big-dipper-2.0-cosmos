@@ -6,8 +6,7 @@ import useShallowMemo from '@/hooks/useShallowMemo';
 import { useProfilesRecoil } from '@/recoil/profiles/hooks';
 import Tabs from '@/screens/validators/components/list/components/tabs';
 import { useValidators } from '@/screens/validators/components/list/hooks';
-import { useStyles } from '@/screens/validators/components/list/styles';
-import classnames from 'classnames';
+import useStyles from '@/screens/validators/components/list/styles';
 import dynamic from 'next/dynamic';
 import React, { FC, ReactNode, useMemo } from 'react';
 
@@ -16,7 +15,7 @@ const Mobile = dynamic(() => import('@/screens/validators/components/list/compon
 
 const List: FC<ComponentDefault> = ({ className }) => {
   const { isDesktop } = useScreenSize();
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { state, handleTabChange, handleSearch, handleSort, sortItems, search } = useValidators();
   const validatorsMemo = useShallowMemo(state.items.map((x) => x.validator));
   const { profiles: dataProfiles, loading } = useProfilesRecoil(validatorsMemo);
@@ -46,7 +45,7 @@ const List: FC<ComponentDefault> = ({ className }) => {
 
   return (
     <LoadAndExist loading={state.loading || !!loading} exists={state.exists}>
-      <Box className={classnames(className)}>
+      <Box className={className}>
         <Tabs tab={state.tab} handleTabChange={handleTabChange} handleSearch={handleSearch} />
         <div className={classes.list}>{list}</div>
       </Box>

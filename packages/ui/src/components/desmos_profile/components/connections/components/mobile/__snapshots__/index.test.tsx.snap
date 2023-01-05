@@ -1,14 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: DesmosProfile/Mobile it renders 1`] = `
-<div
-  className=""
->
+<div>
   <div
-    className="makeStyles-list"
+    className="css-16zqb2r-list"
   >
     <div
-      className="makeStyles-item"
+      className="css-se0n4n-item"
     >
       <h4
         className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
@@ -22,7 +20,7 @@ exports[`screen: DesmosProfile/Mobile it renders 1`] = `
       </p>
     </div>
     <div
-      className="makeStyles-item"
+      className="css-se0n4n-item"
     >
       <h4
         className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
@@ -36,7 +34,7 @@ exports[`screen: DesmosProfile/Mobile it renders 1`] = `
       </p>
     </div>
     <div
-      className="makeStyles-item"
+      className="css-se0n4n-item"
     >
       <h4
         className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"

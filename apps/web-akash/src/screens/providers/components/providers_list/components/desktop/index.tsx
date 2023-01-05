@@ -1,13 +1,12 @@
 import Loading from '@/components/loading';
 import { useGrid } from '@/hooks';
 import useShallowMemo from '@/hooks/useShallowMemo';
-import { useStyles } from '@/screens/providers/components/providers_list/components/desktop/styles';
+import useStyles from '@/screens/providers/components/providers_list/components/desktop/styles';
 import { columns } from '@/screens/providers/components/providers_list/components/desktop/utils';
 import type { ProviderInfo } from '@/screens/providers/types';
 import { useAddress } from '@/utils/copy_to_clipboard';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import Typography from '@mui/material/Typography';
-import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import React, { FC, LegacyRef } from 'react';
@@ -22,7 +21,7 @@ const isItemLoaded = (index: number, itemCount: number) => index >= 0 && index <
 const Desktop: FC<{ list: ProviderInfo[] }> = ({ list }) => {
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
 
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const { t } = useTranslation('providers');
   const { handleCopyToClipboard } = useAddress(t);
 
@@ -107,7 +106,7 @@ const Desktop: FC<{ list: ProviderInfo[] }> = ({ list }) => {
   }));
 
   return (
-    <div className={classnames(className, classes.root)}>
+    <div className={cx(className, classes.root)}>
       <AutoSizer onResize={onResize}>
         {({ height, width }) => (
           <>
@@ -171,7 +170,7 @@ const Desktop: FC<{ list: ProviderInfo[] }> = ({ list }) => {
                 return (
                   <div
                     style={style}
-                    className={classnames(classes.cell, classes.body, {
+                    className={cx(classes.cell, classes.body, {
                       odd: !(rowIndex % 2),
                     })}
                   >

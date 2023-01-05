@@ -1,10 +1,10 @@
-import { makeStyles } from '@mui/styles';
+import { makeStyles } from 'tss-react/mui';
 
-const styles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   shard: {
     color: theme.palette.custom.fonts.fontFour,
     marginLeft: theme.spacing(0.5),
   },
 }));
 
-export const useStyles = () => styles();
+export default useStyles;

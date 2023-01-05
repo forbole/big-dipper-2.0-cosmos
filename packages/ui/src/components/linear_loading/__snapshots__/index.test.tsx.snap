@@ -2,7 +2,7 @@
 
 exports[`component: LinearLoading matches snapshot 1`] = `
 <div
-  className="makeStyles-root"
+  className="css-js7ni0-root"
 >
   <span
     className="MuiLinearProgress-root MuiLinearProgress-colorPrimary MuiLinearProgress-indeterminate css-17rkq7c-MuiLinearProgress-root"

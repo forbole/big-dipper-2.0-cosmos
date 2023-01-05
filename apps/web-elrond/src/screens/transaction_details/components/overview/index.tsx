@@ -3,7 +3,7 @@ import AvatarName from '@/components/avatar_name';
 import BoxDetails from '@/components/box_details';
 import Result from '@/components/result';
 import { readDate } from '@/recoil/settings';
-import { useStyles } from '@/screens/transaction_details/components/overview/styles';
+import useStyles from '@/screens/transaction_details/components/overview/styles';
 import type { OverviewType } from '@/screens/transaction_details/types';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
 import { formatNumber } from '@/utils/format_token';
@@ -20,7 +20,7 @@ const { primaryTokenUnit } = chainConfig();
 
 const Overview: FC<OverviewType & ComponentDefault> = (props) => {
   const { t } = useTranslation('transactions');
-  const classes = useStyles();
+  const { classes } = useStyles();
   const dateFormat = useRecoilValue(readDate);
   const senderShard = getShardDisplay(props.fromShard);
   const receiverShard = getShardDisplay(props.toShard);

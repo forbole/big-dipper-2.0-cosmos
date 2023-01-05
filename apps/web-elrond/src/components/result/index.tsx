@@ -1,7 +1,6 @@
-import { useStyles } from '@/components/result/styles';
+import useStyles from '@/components/result/styles';
 import Typography from '@mui/material/Typography';
 import { Cancel, CheckCircle, Help } from '@mui/icons-material';
-import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import { FC } from 'react';
 
@@ -12,7 +11,7 @@ type ResultProps = {
 
 const Result: FC<ResultProps> = ({ className, status }) => {
   const { t } = useTranslation('common');
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
 
   let component = null;
   if (status === 'success') {
@@ -40,7 +39,7 @@ const Result: FC<ResultProps> = ({ className, status }) => {
 
   return (
     <div
-      className={classnames(className, classes.root, {
+      className={cx(className, classes.root, {
         [classes.success]: status === 'success',
         [classes.fail]: status === 'fail',
       })}

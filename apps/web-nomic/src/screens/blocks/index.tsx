@@ -4,7 +4,7 @@ import LoadAndExist from '@/components/load_and_exist';
 import NoData from '@/components/no_data';
 import { useScreenSize } from '@/hooks';
 import { useBlocks } from '@/screens/blocks/hooks';
-import { useStyles } from '@/screens/blocks/styles';
+import useStyles from '@/screens/blocks/styles';
 import { NextSeo } from 'next-seo';
 import useTranslation from 'next-translate/useTranslation';
 import dynamic from 'next/dynamic';
@@ -16,7 +16,7 @@ const Mobile = dynamic(() => import('@/screens/blocks/components/mobile'));
 const Blocks = () => {
   const { t } = useTranslation('blocks');
   const { isDesktop } = useScreenSize();
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { state, loadMoreItems, itemCount, isItemLoaded } = useBlocks();
 
   let box: ReactNode = null;

@@ -3,16 +3,15 @@ import Box from '@/components/box';
 import Loading from '@/components/loading';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { useConsensus } from '@/screens/home/components/consensus/hooks';
-import { useStyles } from '@/screens/home/components/consensus/styles';
+import useStyles from '@/screens/home/components/consensus/styles';
 import Typography from '@mui/material/Typography';
-import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
 import { FC } from 'react';
 import { PolarAngleAxis, RadialBar, RadialBarChart, Tooltip } from 'recharts';
 
 const Consensus: FC<ComponentDefault> = ({ className }) => {
-  const { classes, theme } = useStyles();
+  const { classes, cx, theme } = useStyles();
   const { state } = useConsensus();
   const { t } = useTranslation('home');
 
@@ -27,7 +26,7 @@ const Consensus: FC<ComponentDefault> = ({ className }) => {
   const { name, address, imageUrl } = useProfileRecoil(state.proposer);
 
   return (
-    <Box className={classnames(className, classes.root)}>
+    <Box className={cx(className, classes.root)}>
       <Typography variant="h2" className={classes.label}>
         {t('consensus')}
       </Typography>

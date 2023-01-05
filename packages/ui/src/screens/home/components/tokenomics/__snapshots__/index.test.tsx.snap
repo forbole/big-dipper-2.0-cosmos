@@ -2,16 +2,16 @@
 
 exports[`screen: Home/Tokenomics matches snapshot 1`] = `
 <div
-  className="makeStyles-root"
+  className="css-1huduhr-root"
   id="box"
 >
   <h2
-    className="MuiTypography-root MuiTypography-h2 makeStyles-label css-dcgvbp-MuiTypography-root"
+    className="MuiTypography-root MuiTypography-h2 css-5seo1d-MuiTypography-root-label"
   >
     tokenomics
   </h2>
   <div
-    className="makeStyles-data"
+    className="css-13k8qz6-data"
   >
     <div
       className="data__item"
@@ -45,7 +45,7 @@ exports[`screen: Home/Tokenomics matches snapshot 1`] = `
     </div>
   </div>
   <div
-    className="makeStyles-content"
+    className="css-1ul1syn-content"
   >
     <div
       className="recharts-wrapper"
@@ -88,7 +88,7 @@ exports[`screen: Home/Tokenomics matches snapshot 1`] = `
       />
     </div>
     <div
-      className="makeStyles-legends"
+      className="css-tmxmfy-legends"
     >
       <div
         className="legends__item"

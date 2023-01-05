@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import Link from 'next/link';
-import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import AvatarName from '@/components/avatar_name';
 import Table from '@mui/material/Table';
@@ -12,11 +11,11 @@ import Typography from '@mui/material/Typography';
 import { NFT_DETAILS } from '@/utils/go_to_page';
 import type { NFTTypes } from '@/screens/nfts/components/list/types';
 import { columns } from '@/screens/nfts/components/list/components/nfts_list/components/desktop/utils';
-import { useStyles } from '@/screens/nfts/components/list/components/nfts_list/components/desktop/styles';
+import useStyles from '@/screens/nfts/components/list/components/nfts_list/components/desktop/styles';
 
 const Desktop: FC<{ className?: string; items: NFTTypes[] }> = (props) => {
   const { t } = useTranslation('nfts');
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const formattedItems = props.items.map((x, i) => ({
     key: `${x.identifier}-${i}`,
     identifier: x.identifier,
@@ -31,7 +30,7 @@ const Desktop: FC<{ className?: string; items: NFTTypes[] }> = (props) => {
     creator: <AvatarName name={x.creator} address={x.creator} />,
   }));
   return (
-    <div className={classnames(props.className, classes.root)}>
+    <div className={cx(props.className, classes.root)}>
       <Table>
         <TableHead>
           <TableRow>

@@ -2,7 +2,7 @@
 
 exports[`screen: Home/SingleBlock matches snapshot 1`] = `
 <div
-  className="makeStyles-root"
+  className="css-13x192j-root"
 >
   <p
     className="MuiTypography-root MuiTypography-body2 label css-1bkilrq-MuiTypography-root"

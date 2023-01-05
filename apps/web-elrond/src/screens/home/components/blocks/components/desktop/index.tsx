@@ -1,4 +1,4 @@
-import { useStyles } from '@/screens/home/components/blocks/components/desktop/styles';
+import useStyles from '@/screens/home/components/blocks/components/desktop/styles';
 import { columns } from '@/screens/home/components/blocks/components/desktop/utils';
 import type { BlockType } from '@/screens/home/components/blocks/types';
 import dayjs from '@/utils/dayjs';
@@ -10,7 +10,6 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
-import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
@@ -18,7 +17,7 @@ import { FC } from 'react';
 
 const Desktop: FC<{ className?: string; items: BlockType[] }> = (props) => {
   const { t } = useTranslation('blocks');
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const formattedItems = props.items.map((x) => ({
     key: `${x.block}-${x.timestamp}`,
     block: numeral(x.block).format('0,0'),
@@ -36,7 +35,7 @@ const Desktop: FC<{ className?: string; items: BlockType[] }> = (props) => {
     time: dayjs.utc(dayjs.unix(x.timestamp)).fromNow(),
   }));
   return (
-    <div className={classnames(props.className, classes.root)}>
+    <div className={cx(props.className, classes.root)}>
       <Table className={classes.table}>
         <TableHead>
           <TableRow>

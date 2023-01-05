@@ -1,9 +1,8 @@
 import { useSearch } from '@/components/search/hooks';
-import { useStyles } from '@/components/search/styles';
+import useStyles from '@/components/search/styles';
 import InputAdornment from '@mui/material/InputAdornment';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
-import classnames from 'classnames';
 import React, { FC } from 'react';
 
 type SearchProps = {
@@ -13,11 +12,11 @@ type SearchProps = {
 };
 
 const Search: FC<SearchProps> = ({ className, placeholder, callback }) => {
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
 
   const { handleOnSubmit, handleOnChange, handleKeyDown, value } = useSearch(callback);
   return (
-    <form className={classnames(className, classes.root)} onSubmit={handleOnSubmit}>
+    <form className={cx(className, classes.root)} onSubmit={handleOnSubmit}>
       <InputBase
         placeholder={placeholder}
         onChange={handleOnChange}

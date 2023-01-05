@@ -1,4 +1,4 @@
-import { useStyles } from '@/screens/account_details/components/nfts/components/list/components/desktop/styles';
+import useStyles from '@/screens/account_details/components/nfts/components/list/components/desktop/styles';
 import { columns } from '@/screens/account_details/components/nfts/components/list/components/desktop/utils';
 import type { OtherTokenType } from '@/screens/account_details/components/nfts/types';
 import { NFT_DETAILS } from '@/utils/go_to_page';
@@ -8,14 +8,13 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
-import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import { FC } from 'react';
 
 const Desktop: FC<{ className?: string; items: OtherTokenType[] }> = (props) => {
   const { t } = useTranslation('accounts');
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const formattedItems = props.items.map((x, i) => ({
     key: `${x.identifier}-${i}`,
     identifier: x.identifier,
@@ -30,7 +29,7 @@ const Desktop: FC<{ className?: string; items: OtherTokenType[] }> = (props) => 
   }));
 
   return (
-    <div className={classnames(props.className, classes.root)}>
+    <div className={cx(props.className, classes.root)}>
       <Table>
         <TableHead>
           <TableRow>

@@ -11,11 +11,11 @@ import {
   PAGE_SIZE,
   useTransactions,
 } from '@/screens/validator_details/components/transactions/hooks';
-import { useStyles } from '@/screens/validator_details/components/transactions/styles';
+import useStyles from '@/screens/validator_details/components/transactions/styles';
 
 const Transactions: FC<{ className?: string; provider: string }> = (props) => {
   const { t } = useTranslation('validators');
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { state, handlePageChangeCallback } = useTransactions(props.provider);
   const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange } = usePagination({
     rowsPage: PAGE_SIZE,

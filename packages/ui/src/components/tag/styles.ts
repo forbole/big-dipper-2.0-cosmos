@@ -1,7 +1,7 @@
-import { makeStyles } from '@mui/styles';
+import { makeStyles } from 'tss-react/mui';
 import Color from 'color';
 
-const styles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   root: {
     borderRadius: theme.shape.borderRadius,
     padding: theme.spacing(0.5, 1),
@@ -101,4 +101,4 @@ const styles = makeStyles((theme) => ({
   },
 }));
 
-export const useStyles = () => styles();
+export default useStyles;

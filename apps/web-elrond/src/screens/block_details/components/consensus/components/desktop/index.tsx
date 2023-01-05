@@ -1,13 +1,12 @@
 import { useGrid } from '@/hooks';
 import useShallowMemo from '@/hooks/useShallowMemo';
-import { useStyles } from '@/screens/block_details/components/consensus/components/desktop/styles';
+import useStyles from '@/screens/block_details/components/consensus/components/desktop/styles';
 import {
   columns,
   formatRows,
 } from '@/screens/block_details/components/consensus/components/desktop/utils';
 import type { ConsensusType } from '@/screens/block_details/types';
 import Typography from '@mui/material/Typography';
-import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import React, { FC, LegacyRef, useMemo } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
@@ -15,7 +14,7 @@ import { VariableSizeGrid as Grid } from 'react-window';
 
 const Desktop: FC<{ items: ConsensusType[] }> = (props) => {
   const { t } = useTranslation('blocks');
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
   const itemsMemo = useShallowMemo(props.items);
   const rows = useMemo(() => formatRows(itemsMemo), [itemsMemo]);
@@ -67,7 +66,7 @@ const Desktop: FC<{ items: ConsensusType[] }> = (props) => {
                 return (
                   <div
                     style={style}
-                    className={classnames(classes.cell, classes.body, {
+                    className={cx(classes.cell, classes.body, {
                       odd: !(rowIndex % 2),
                     })}
                   >

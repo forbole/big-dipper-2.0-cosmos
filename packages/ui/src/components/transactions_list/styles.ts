@@ -1,20 +1,17 @@
-import { makeStyles } from '@mui/styles';
+import { makeStyles } from 'tss-react/mui';
 
-const styles = makeStyles(
-  (theme) => ({
-    mobile: {
-      [theme.breakpoints.up('lg')]: {
-        display: 'none',
-      },
-    },
-    desktop: {
+const useStyles = makeStyles()((theme) => ({
+  mobile: {
+    [theme.breakpoints.up('lg')]: {
       display: 'none',
-      [theme.breakpoints.up('lg')]: {
-        display: 'block',
-      },
     },
-  }),
-  { index: 1 }
-);
+  },
+  desktop: {
+    display: 'none',
+    [theme.breakpoints.up('lg')]: {
+      display: 'block',
+    },
+  },
+}));
 
-export const useStyles = () => styles();
+export default useStyles;

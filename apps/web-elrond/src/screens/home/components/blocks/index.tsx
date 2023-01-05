@@ -4,11 +4,10 @@ import Loading from '@/components/loading';
 import NoData from '@/components/no_data';
 import { useScreenSize } from '@/hooks';
 import { useBlocks } from '@/screens/home/components/blocks/hooks';
-import { useStyles } from '@/screens/home/components/blocks/styles';
+import useStyles from '@/screens/home/components/blocks/styles';
 import { BLOCKS } from '@/utils/go_to_page';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
@@ -18,12 +17,12 @@ const Desktop = dynamic(() => import('@/screens/home/components/blocks/component
 const Mobile = dynamic(() => import('@/screens/home/components/blocks/components/mobile'));
 
 const Blocks: FC<ComponentDefault> = (props) => {
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const { t } = useTranslation('home');
   const { isDesktop } = useScreenSize();
   const { state } = useBlocks();
   return (
-    <Box className={classnames(props.className)}>
+    <Box className={props.className}>
       <div className={classes.label}>
         <Typography variant="h2">{t('latestBlocks')}</Typography>
         <Link href={BLOCKS} passHref>
@@ -41,7 +40,7 @@ const Blocks: FC<ComponentDefault> = (props) => {
               variant="h4"
               component="a"
               aria-label="see more blocks"
-              className={classnames(classes.seeMoreFooter, classes.mobile, 'button')}
+              className={cx(classes.seeMoreFooter, classes.mobile, 'button')}
             >
               {t('seeMore')}
             </Typography>

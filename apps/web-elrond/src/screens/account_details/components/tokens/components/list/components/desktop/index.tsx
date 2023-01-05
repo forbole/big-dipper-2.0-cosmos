@@ -1,5 +1,5 @@
 import AvatarName from '@/components/avatar_name';
-import { useStyles } from '@/screens/account_details/components/tokens/components/list/components/desktop/styles';
+import useStyles from '@/screens/account_details/components/tokens/components/list/components/desktop/styles';
 import { columns } from '@/screens/account_details/components/tokens/components/list/components/desktop/utils';
 import type { OtherTokenType } from '@/screens/account_details/components/tokens/types';
 import { formatNumber } from '@/utils/format_token';
@@ -9,13 +9,12 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import { FC } from 'react';
 
 const Desktop: FC<{ className?: string; items: OtherTokenType[] }> = (props) => {
   const { t } = useTranslation('accounts');
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const formattedItems = props.items.map((x, i) => ({
     key: `${x.identifier}-${i}`,
     identifier: x.identifier,
@@ -29,7 +28,7 @@ const Desktop: FC<{ className?: string; items: OtherTokenType[] }> = (props) => 
   }));
 
   return (
-    <div className={classnames(props.className, classes.root)}>
+    <div className={cx(props.className, classes.root)}>
       <Table>
         <TableHead>
           <TableRow>

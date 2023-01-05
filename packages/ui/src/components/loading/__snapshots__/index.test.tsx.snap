@@ -2,7 +2,7 @@
 
 exports[`components: Loading matches snapshot 1`] = `
 <div
-  className="makeStyles-root"
+  className="css-1tbeysr-root"
 >
   <span
     className="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-15gxqrx-MuiCircularProgress-root"

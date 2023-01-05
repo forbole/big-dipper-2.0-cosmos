@@ -3,14 +3,13 @@
 exports[`component: InfoPopover matches snapshot 1`] = `
 <span
   aria-haspopup="true"
-  className="makeStyles-root"
+  className="css-pmv5z6-root"
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
 >
   <svg
     aria-hidden={true}
-    className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium makeStyles-icon css-i4bv87-MuiSvgIcon-root"
-    color="#999999"
+    className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-2vtt8e-MuiSvgIcon-root-icon"
     data-testid="HelpOutlineIcon"
     focusable="false"
     viewBox="0 0 24 24"

@@ -9,7 +9,6 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
-import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import React, { FC, ReactNode } from 'react';
@@ -47,7 +46,7 @@ const Desktop: FC<DesktopProps> = ({ className, items }) => {
   });
 
   return (
-    <div className={classnames(className)}>
+    <div className={className}>
       <Table>
         <TableHead>
           <TableRow>

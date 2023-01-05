@@ -1,6 +1,7 @@
-import { makeStyles } from '@mui/styles';
+import { CSSObject } from '@emotion/react';
+import { makeStyles } from 'tss-react/mui';
 
-const styles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   root: {
     height: '100%',
     '& .status': {
@@ -19,7 +20,7 @@ const styles = makeStyles((theme) => ({
     },
   },
   cell: {
-    ...theme.mixins.tableCell,
+    ...(theme.mixins.tableCell as CSSObject),
     '&.sort:hover': {
       cursor: 'pointer',
     },
@@ -45,4 +46,4 @@ const styles = makeStyles((theme) => ({
   },
 }));
 
-export const useStyles = () => styles();
+export default useStyles;

@@ -1,9 +1,9 @@
-import { makeStyles } from '@mui/styles';
+import { makeStyles } from 'tss-react/mui';
 
-const styles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   root: {
     marginTop: theme.spacing(3),
   },
 }));
 
-export const useStyles = () => styles();
+export default useStyles;

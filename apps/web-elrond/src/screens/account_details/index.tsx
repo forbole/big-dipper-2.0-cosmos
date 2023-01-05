@@ -6,12 +6,12 @@ import Profile from '@/screens/account_details/components/profile';
 import Tokens from '@/screens/account_details/components/tokens';
 import Transactions from '@/screens/account_details/components/transactions';
 import { useAccountDetails } from '@/screens/account_details/hooks';
-import { useStyles } from '@/screens/account_details/styles';
+import useStyles from '@/screens/account_details/styles';
 import { NextSeo } from 'next-seo';
 import useTranslation from 'next-translate/useTranslation';
 
 const AccountDetails = () => {
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { t } = useTranslation('accounts');
   const { state } = useAccountDetails();
   return (

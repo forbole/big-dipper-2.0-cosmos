@@ -43,18 +43,6 @@ export const common: ThemeOptions = {
       },
     },
   },
-  components: {
-    MuiSvgIcon: {
-      defaultProps: {
-        htmlColor: '#999999', // same as custom /general /icons
-      },
-    },
-    MuiButton: {
-      defaultProps: {
-        disableElevation: true,
-      },
-    },
-  },
   typography: {
     fontFamily: '"Hind Madurai", sans-serif',
     h1: {
@@ -173,36 +161,54 @@ export const common: ThemeOptions = {
       },
     },
   },
-  overrides: {
+  components: {
+    MuiSvgIcon: {
+      defaultProps: {
+        htmlColor: '#999999', // same as custom /general /icons
+      },
+    },
+    MuiButton: {
+      defaultProps: {
+        disableElevation: true,
+      },
+    },
     MuiTableHead: {
-      root: {
-        backgroundColor: 'initial',
+      styleOverrides: {
+        root: {
+          backgroundColor: 'initial',
+        },
       },
     },
     MuiTooltip: {
-      tooltip: {
-        backgroundColor: 'transparent',
+      styleOverrides: {
+        tooltip: {
+          backgroundColor: 'transparent',
+        },
       },
     },
     MuiTableCell: {
-      root: {
-        borderBottom: 'none',
-        padding: '0 16px',
-        height: '50px',
-        fontSize: '1rem',
+      styleOverrides: {
+        root: {
+          borderBottom: 'none',
+          padding: '0 16px',
+          height: '50px',
+          fontSize: '1rem',
+        },
       },
     },
     MuiTabs: {
-      root: {
-        // '& .MuiTabs-fixed': {
-        //   overflow: 'auto',
-        // },
-        '&.MuiTabs-root, & .MuiTab-root': {
-          minHeight: '40px',
-        },
-        '& .MuiTab-textColorInherit': {
-          opacity: 1,
-          fontSize: '1rem',
+      styleOverrides: {
+        root: {
+          // '& .MuiTabs-fixed': {
+          //   overflow: 'auto',
+          // },
+          '&.MuiTabs-root, & .MuiTab-root': {
+            minHeight: '40px',
+          },
+          '& .MuiTab-textColorInherit': {
+            opacity: 1,
+            fontSize: '1rem',
+          },
         },
       },
     },

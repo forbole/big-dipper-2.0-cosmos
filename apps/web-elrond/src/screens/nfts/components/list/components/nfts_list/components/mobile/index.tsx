@@ -7,11 +7,11 @@ import Link from 'next/link';
 import AvatarName from '@/components/avatar_name';
 import { NFT_DETAILS } from '@/utils/go_to_page';
 import type { NFTTypes } from '@/screens/nfts/components/list/types';
-import { useStyles } from '@/screens/nfts/components/list/components/nfts_list/components/mobile/styles';
+import useStyles from '@/screens/nfts/components/list/components/nfts_list/components/mobile/styles';
 
 const Mobile: FC<{ className?: string; items: NFTTypes[] }> = (props) => {
   const { t } = useTranslation('nfts');
-  const classes = useStyles();
+  const { classes } = useStyles();
   const formattedItems = props.items.map((x, i) => ({
     key: `${x.identifier}-${i}`,
     identifier: x.identifier,

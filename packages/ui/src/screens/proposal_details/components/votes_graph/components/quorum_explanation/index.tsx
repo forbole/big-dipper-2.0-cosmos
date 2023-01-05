@@ -1,9 +1,9 @@
-import { useStyles } from '@/screens/proposal_details/components/votes_graph/components/quorum_explanation/styles';
+import useStyles from '@/screens/proposal_details/components/votes_graph/components/quorum_explanation/styles';
 import Typography from '@mui/material/Typography';
 import Trans from 'next-translate/Trans';
 
 const QuorumExplanation = (props: { quorum: string }) => {
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   return (
     <div className={classes.root}>

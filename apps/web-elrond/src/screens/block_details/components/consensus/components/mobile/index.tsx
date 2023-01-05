@@ -9,11 +9,11 @@ import Typography from '@mui/material/Typography';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { useList, useListRow } from '@/hooks';
 import type { ConsensusType } from '@/screens/block_details/types';
-import { useStyles } from '@/screens/block_details/components/consensus/components/mobile/styles';
+import useStyles from '@/screens/block_details/components/consensus/components/mobile/styles';
 
 type ListItemProps = Pick<ListChildComponentProps, 'index' | 'style'> & {
   setRowHeight: Parameters<typeof useListRow>[1];
-  classes: ReturnType<typeof useStyles>;
+  classes: ReturnType<typeof useStyles>['classes'];
   formattedItem: unknown;
   item: string;
   isLast: boolean;
@@ -55,7 +55,7 @@ const ListItem: FC<ListItemProps> = ({
 
 const Mobile: FC<{ items: ConsensusType[] }> = (props) => {
   const { listRef, getRowHeight, setRowHeight } = useList();
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   const formattedItems = useMemo(
     () =>

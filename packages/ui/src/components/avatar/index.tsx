@@ -1,5 +1,4 @@
-import { useStyles } from '@/components/avatar/styles';
-import classnames from 'classnames';
+import useStyles from '@/components/avatar/styles';
 import * as jdenticon from 'jdenticon';
 import Image from 'next/future/image';
 import React, { FC, useEffect, useRef, useState } from 'react';
@@ -26,10 +25,10 @@ const Avatar: FC<AvatarProps> = ({ className, address, imageUrl }) => {
     setError(true);
   };
 
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
 
   return (
-    <div className={classnames(className, classes.root)}>
+    <div className={cx(className, classes.root)}>
       {imageUrl && !error ? (
         <Image
           width={0}
