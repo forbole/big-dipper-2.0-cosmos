@@ -7,7 +7,9 @@ const apiToken = process.env.GITHUB_API_TOKEN;
 const pullId = process.env.VERCEL_GIT_PULL_REQUEST_ID;
 
 function execShell(command) {
-  return execSync(command).toString();
+  return execSync(command, {
+    shell: '/bin/bash',
+  }).toString();
 }
 
 const response = execShell(`curl \
