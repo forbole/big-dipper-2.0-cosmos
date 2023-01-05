@@ -6,13 +6,8 @@ const { exec } = require('child_process');
 const apiToken = process.env.GITHUB_API_TOKEN;
 const pullId = process.env.VERCEL_GIT_PULL_REQUEST_ID;
 
-const response = exec(
-  `curl \
--H "Accept: application/vnd.github+json" \
--H "Authorization: Bearer ${apiToken}"\
--H "X-GitHub-Api-Version: 2022-11-28" \
-https://api.github.com/repos/forbole/REPO/big-dipper-2.0-cosmos/${pullId}`,
-  (error, stdout, stderr) => {
+function execShell(command) {
+  exec(command, (error, stdout, stderr) => {
     if (error) {
       console.log(`error: ${error.message}`);
       return;
@@ -22,39 +17,23 @@ https://api.github.com/repos/forbole/REPO/big-dipper-2.0-cosmos/${pullId}`,
       return;
     }
     console.log(`stdout: ${stdout}`);
-  }
-);
+  });
+}
+
+const response = execShell(`curl \
+-H "Accept: application/vnd.github+json" \
+-H "Authorization: Bearer ${apiToken}"\
+-H "X-GitHub-Api-Version: 2022-11-28" \
+https://api.github.com/repos/forbole/REPO/big-dipper-2.0-cosmos/${pullId}`);
 
 const { title } = response;
 
-// extract the current workspace inside [] in PR title
-function extract(str) {
-  if (str.startsWith(/\[/g)) return str.substring(0, str.indexOf('['), str.indexOf(']'));
-  return 'web';
-}
+const projects = execShell(
+  `yarn workspaces list --json | jq -csr '[ .[].name | select(. | startswith("web") ) ]'`
+);
 
-const workspaceId = extract(title);
+const project = projects.find((p) => title.endsWith(`[${p}]`));
 
-exec(`yarn workspace ${workspaceId} next build`, (error, stdout, stderr) => {
-  if (error) {
-    console.log(`error: ${error.message}`);
-    return;
-  }
-  if (stderr) {
-    console.log(`stderr: ${stderr}`);
-    return;
-  }
-  console.log(`stdout: ${stdout}`);
-});
+execShell(`yarn workspace ${project} next build`);
 
-exec(`rm -rf apps/web, mv apps/${workspaceId} apps/web`, (error, stdout, stderr) => {
-  if (error) {
-    console.log(`error: ${error.message}`);
-    return;
-  }
-  if (stderr) {
-    console.log(`stderr: ${stderr}`);
-    return;
-  }
-  console.log(`stdout: ${stdout}`);
-});
+execShell(`rm -rf apps/web, mv apps/${project} apps/web`);
