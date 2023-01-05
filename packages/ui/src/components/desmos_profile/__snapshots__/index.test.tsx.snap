@@ -2,24 +2,24 @@
 
 exports[`component: DesmosProfile matches snapshot 1`] = `
 <div
-  className="css-fd984x-root-root"
+  className="tss-fd984x-root-root"
 >
   <div
-    className="css-1iuvubj-cover"
+    className="tss-1iuvubj-cover"
   >
     <div
       className="cover"
     />
   </div>
   <div
-    className="css-1o0pknf-avatarContainer"
+    className="tss-1o0pknf-avatarContainer"
   >
     <div
-      className="css-l7jtd1-avatar-root"
+      className="tss-l7jtd1-avatar-root"
     >
       <img
         alt="address avatar"
-        className="css-mbd3ku-img"
+        className="tss-mbd3ku-img"
         data-nimg="future"
         decoding="async"
         height={0}
@@ -36,7 +36,7 @@ exports[`component: DesmosProfile matches snapshot 1`] = `
       />
     </div>
     <p
-      className="MuiTypography-root MuiTypography-body1 css-18rans7-MuiTypography-root-link"
+      className="MuiTypography-root MuiTypography-body1 tss-172ya9f-link mui-pfovru-MuiTypography-root"
       onClick={[Function]}
       role="button"
     >
@@ -44,15 +44,15 @@ exports[`component: DesmosProfile matches snapshot 1`] = `
     </p>
   </div>
   <div
-    className="css-fv36vp-nicknameWrapper"
+    className="tss-fv36vp-nicknameWrapper"
   >
     <h2
-      className="MuiTypography-root MuiTypography-h2 css-dcgvbp-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-h2 mui-dcgvbp-MuiTypography-root"
     >
       test_nickname
     </h2>
     <p
-      className="MuiTypography-root MuiTypography-body2 tag css-1bkilrq-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-body2 tag mui-1bkilrq-MuiTypography-root"
     >
       @
       test

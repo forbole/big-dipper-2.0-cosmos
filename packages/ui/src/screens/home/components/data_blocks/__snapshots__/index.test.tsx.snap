@@ -2,13 +2,13 @@
 
 exports[`screen: Home/DataBlocks matches snapshot 1`] = `
 <div
-  className="css-36s0tc-root"
+  className="tss-36s0tc-root"
 >
   <div
-    className="css-pd6842-blockHeight-root"
+    className="tss-pd6842-blockHeight-root"
   >
     <p
-      className="MuiTypography-root MuiTypography-body2 label css-1bkilrq-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-body2 label mui-1bkilrq-MuiTypography-root"
     >
       latestBlock
     </p>
@@ -16,17 +16,17 @@ exports[`screen: Home/DataBlocks matches snapshot 1`] = `
       className="content"
     >
       <h1
-        className="MuiTypography-root MuiTypography-h1 css-gw99sn-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-h1 mui-gw99sn-MuiTypography-root"
       >
         0
       </h1>
     </div>
   </div>
   <div
-    className="css-1h3bor6-blockTime-root"
+    className="tss-1h3bor6-blockTime-root"
   >
     <p
-      className="MuiTypography-root MuiTypography-body2 label css-1bkilrq-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-body2 label mui-1bkilrq-MuiTypography-root"
     >
       averageBlockTime
     </p>
@@ -34,17 +34,17 @@ exports[`screen: Home/DataBlocks matches snapshot 1`] = `
       className="content"
     >
       <h1
-        className="MuiTypography-root MuiTypography-h1 css-gw99sn-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-h1 mui-gw99sn-MuiTypography-root"
       >
         6.54 s
       </h1>
     </div>
   </div>
   <div
-    className="css-kop5p1-price-root"
+    className="tss-kop5p1-price-root"
   >
     <p
-      className="MuiTypography-root MuiTypography-body2 label css-1bkilrq-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-body2 label mui-1bkilrq-MuiTypography-root"
     >
       price
     </p>
@@ -52,17 +52,17 @@ exports[`screen: Home/DataBlocks matches snapshot 1`] = `
       className="content"
     >
       <h1
-        className="MuiTypography-root MuiTypography-h1 css-gw99sn-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-h1 mui-gw99sn-MuiTypography-root"
       >
         N/A
       </h1>
     </div>
   </div>
   <div
-    className="css-11xyanu-validators-root"
+    className="tss-11xyanu-validators-root"
   >
     <p
-      className="MuiTypography-root MuiTypography-body2 label css-1bkilrq-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-body2 label mui-1bkilrq-MuiTypography-root"
     >
       activeValidators
     </p>
@@ -70,12 +70,12 @@ exports[`screen: Home/DataBlocks matches snapshot 1`] = `
       className="content"
     >
       <h1
-        className="MuiTypography-root MuiTypography-h1 css-gw99sn-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-h1 mui-gw99sn-MuiTypography-root"
       >
         200
       </h1>
       <span
-        className="MuiTypography-root MuiTypography-caption description css-ru7l4l-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-caption description mui-ru7l4l-MuiTypography-root"
       >
         outOfValidators
       </span>

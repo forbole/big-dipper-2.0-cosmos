@@ -2,13 +2,13 @@
 
 exports[`components: SingleTransaction matches snapshot 1`] = `
 <div
-  className="css-16gjaz6-root"
+  className="tss-16gjaz6-root"
 >
   <div
-    className="css-tl6qb7-timeContainer"
+    className="tss-tl6qb7-timeContainer"
   >
     <p
-      className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-body1 value mui-pfovru-MuiTypography-root"
     >
       <div>
         hash
@@ -16,16 +16,16 @@ exports[`components: SingleTransaction matches snapshot 1`] = `
     </p>
   </div>
   <div
-    className="css-13i5c2q-itemContainer"
+    className="tss-13i5c2q-itemContainer"
   >
     <div
-      className="css-t67bww-itemPrimaryDetailsContainer"
+      className="tss-t67bww-itemPrimaryDetailsContainer"
     >
       <div
-        className="css-1bg95g2-item block"
+        className="tss-1bg95g2-item block"
       >
         <h4
-          className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-h4 label mui-15yyl88-MuiTypography-root"
         >
           block
         </h4>
@@ -34,22 +34,22 @@ exports[`components: SingleTransaction matches snapshot 1`] = `
         </div>
       </div>
       <div
-        className="css-1bg95g2-item time"
+        className="tss-1bg95g2-item time"
       >
         <h4
-          className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-h4 label mui-15yyl88-MuiTypography-root"
         >
           time
         </h4>
         <p
-          className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-body1 value mui-pfovru-MuiTypography-root"
         >
           2021-07-13T08:00:00
         </p>
       </div>
     </div>
     <hr
-      className="MuiDivider-root MuiDivider-fullWidth css-4mvhxe-MuiDivider-root"
+      className="MuiDivider-root MuiDivider-fullWidth mui-4mvhxe-MuiDivider-root"
     />
   </div>
 </div>

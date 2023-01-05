@@ -16,10 +16,10 @@
   "dependencies": {
     "@apollo/client": "^3.7.3",
     "@emotion/react": "^11.10.5",
+    "@emotion/server": "^11.10.0",
     "@emotion/styled": "^11.10.5",
     "@mui/icons-material": "^5.11.0",
     "@mui/material": "^5.11.3",
-    "@mui/styles": "^5.11.2",
     "@sentry/nextjs": "^7.28.1",
     "@socialgouv/matomo-next": "^1.4.0",
     "@yarnpkg/pnpify": "^4.0.0-rc.34",

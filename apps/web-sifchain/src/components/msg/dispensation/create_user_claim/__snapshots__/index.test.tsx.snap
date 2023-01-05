@@ -2,7 +2,7 @@
 
 exports[`screen: TransactionDetails/CreateUserClaim matches snapshot 1`] = `
 <p
-  className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
+  className="MuiTypography-root MuiTypography-body1 mui-pfovru-MuiTypography-root"
 >
   <div
     components={

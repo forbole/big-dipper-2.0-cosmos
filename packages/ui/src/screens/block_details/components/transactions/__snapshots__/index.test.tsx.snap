@@ -2,20 +2,20 @@
 
 exports[`screen: BlockDetails/Transactions matches snapshot 1`] = `
 <div
-  className="css-1eca23g-root"
+  className="tss-1eca23g-root"
   id="Box"
 >
   <div
-    className="css-1ubov81-header"
+    className="tss-1ubov81-header"
   >
     <h2
-      className="MuiTypography-root MuiTypography-h2 css-dcgvbp-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-h2 mui-dcgvbp-MuiTypography-root"
     >
       transactions
     </h2>
   </div>
   <div
-    className="css-l0czsq-list"
+    className="tss-l0czsq-list"
     hasNextPage={false}
     id="TransactionsList"
     isItemLoaded={[Function]}

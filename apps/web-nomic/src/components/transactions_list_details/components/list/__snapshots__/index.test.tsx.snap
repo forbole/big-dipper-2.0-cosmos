@@ -2,7 +2,7 @@
 
 exports[`component: TransactionsListDetails/TransactionList matches snapshot 1`] = `
 <div
-  className="css-1rz0of5-root"
+  className="tss-1rz0of5-root"
 >
   <div
     style={

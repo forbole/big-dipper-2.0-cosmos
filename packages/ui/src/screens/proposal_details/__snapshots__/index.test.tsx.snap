@@ -11,10 +11,10 @@ exports[`screen: ProposalDetails matches snapshot 1`] = `
     loading={true}
   >
     <span
-      className="css-p8brfp-root"
+      className="tss-p8brfp-root"
     >
       <div
-        className="css-rtb8lv-overview"
+        className="tss-rtb8lv-overview"
         id="Overview"
         overview={
           {
@@ -36,7 +36,7 @@ exports[`screen: ProposalDetails matches snapshot 1`] = `
         }
       />
       <div
-        className="css-zhsr22-deposits"
+        className="tss-zhsr22-deposits"
         id="Deposits"
       />
     </span>

@@ -2,7 +2,7 @@
 
 exports[`screen: TransactionDetails/SubmitProposal matches snapshot with Community Pool Spend Proposal 1`] = `
 <p
-  className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
+  className="MuiTypography-root MuiTypography-body1 mui-pfovru-MuiTypography-root"
 >
   <div
     components={
@@ -21,7 +21,7 @@ exports[`screen: TransactionDetails/SubmitProposal matches snapshot with Communi
 
 exports[`screen: TransactionDetails/SubmitProposal matches snapshot with Parameter Change Proposal 1`] = `
 <p
-  className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
+  className="MuiTypography-root MuiTypography-body1 mui-pfovru-MuiTypography-root"
 >
   <div
     components={
@@ -40,7 +40,7 @@ exports[`screen: TransactionDetails/SubmitProposal matches snapshot with Paramet
 
 exports[`screen: TransactionDetails/SubmitProposal matches snapshot with Software Upgrade Proposal 1`] = `
 <p
-  className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
+  className="MuiTypography-root MuiTypography-body1 mui-pfovru-MuiTypography-root"
 >
   <div
     components={
@@ -59,7 +59,7 @@ exports[`screen: TransactionDetails/SubmitProposal matches snapshot with Softwar
 
 exports[`screen: TransactionDetails/SubmitProposal matches snapshot with Text Proposal 1`] = `
 <p
-  className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
+  className="MuiTypography-root MuiTypography-body1 mui-pfovru-MuiTypography-root"
 >
   <div
     components={

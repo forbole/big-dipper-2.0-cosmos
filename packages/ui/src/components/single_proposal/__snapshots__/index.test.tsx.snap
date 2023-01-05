@@ -2,24 +2,24 @@
 
 exports[`component: SingleProposal matches snapshot 1`] = `
 <div
-  className="css-8bkbz1-root"
+  className="tss-8bkbz1-root"
 >
   <div
-    className="css-wxblv8-header"
+    className="tss-wxblv8-header"
   >
     <h4
-      className="MuiTypography-root MuiTypography-h4 css-138pxwk-MuiTypography-root-id"
+      className="MuiTypography-root MuiTypography-h4 tss-1o32tk6-id mui-15yyl88-MuiTypography-root"
     >
       1
     </h4>
     <span
-      className="css-y4sl71-mobile"
+      className="tss-y4sl71-mobile"
     >
       <div
-        className="css-1htgg0q-root-zero"
+        className="tss-1htgg0q-root-zero"
       >
         <p
-          className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-body1 mui-pfovru-MuiTypography-root"
         >
           passed
         </p>
@@ -28,23 +28,23 @@ exports[`component: SingleProposal matches snapshot 1`] = `
   </div>
   <div>
     <div
-      className="css-11049aw-title"
+      className="tss-11049aw-title"
     >
       <h3
-        className="MuiTypography-root MuiTypography-h3 value css-1kl9mnf-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-h3 value mui-1kl9mnf-MuiTypography-root"
       >
         proposal-title
       </h3>
     </div>
   </div>
   <span
-    className="css-1d2xof0-desktop"
+    className="tss-1d2xof0-desktop"
   >
     <div
-      className="css-1htgg0q-root-zero"
+      className="tss-1htgg0q-root-zero"
     >
       <p
-        className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 mui-pfovru-MuiTypography-root"
       >
         passed
       </p>

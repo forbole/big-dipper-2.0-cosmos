@@ -5,7 +5,7 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
   id="Box"
 >
   <div
-    className="css-1hnp23h-paginate"
+    className="tss-1hnp23h-paginate"
     handlePageChange={[Function]}
     handleRowsPerPageChange={[Function]}
     id="Pagination"

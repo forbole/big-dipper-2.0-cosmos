@@ -2,31 +2,31 @@
 
 exports[`screen: Home matches snapshot 1`] = `
 <div
-  className="css-13xj58z-root"
+  className="tss-13xj58z-root"
   id="Layout"
 >
   <div
-    className="css-duwjon-dataBlocks"
+    className="tss-duwjon-dataBlocks"
     id="DataBlocks"
   />
   <div
-    className="css-1p7g5li-hero"
+    className="tss-1p7g5li-hero"
     id="Hero"
   />
   <div
-    className="css-n881us-tokenomics"
+    className="tss-n881us-tokenomics"
     id="Tokenomics"
   />
   <div
-    className="css-19jatxx-consensus"
+    className="tss-19jatxx-consensus"
     id="Consensus"
   />
   <div
-    className="css-5qoy63-blocks"
+    className="tss-5qoy63-blocks"
     id="Blocks"
   />
   <div
-    className="css-92tqjx-transactions"
+    className="tss-92tqjx-transactions"
     id="Transactions"
   />
 </div>

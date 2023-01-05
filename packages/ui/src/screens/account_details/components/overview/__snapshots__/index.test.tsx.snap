@@ -2,14 +2,14 @@
 
 exports[`screen: AccountDetails/Overview matches snapshot 1`] = `
 <div
-  className="css-scjggh-root"
+  className="tss-scjggh-root"
   id="Box"
 >
   <div
-    className="css-1lhnxek-copyText-item"
+    className="tss-1lhnxek-copyText-item"
   >
     <p
-      className="MuiTypography-root MuiTypography-body1 label css-pfovru-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-body1 label mui-pfovru-MuiTypography-root"
     >
       address
     </p>
@@ -17,25 +17,25 @@ exports[`screen: AccountDetails/Overview matches snapshot 1`] = `
       className="detail"
     >
       <svg
-        className="css-1l2vs1v-actionIcons"
+        className="tss-1l2vs1v-actionIcons"
         onClick={[Function]}
       />
       <svg
-        className="css-1l2vs1v-actionIcons"
+        className="tss-1l2vs1v-actionIcons"
         onClick={[Function]}
       />
       <p
-        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 value mui-pfovru-MuiTypography-root"
       >
         desmos1jrld5g99...y94nz
       </p>
     </div>
   </div>
   <div
-    className="css-1lhnxek-copyText-item"
+    className="tss-1lhnxek-copyText-item"
   >
     <p
-      className="MuiTypography-root MuiTypography-body1 label css-pfovru-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-body1 label mui-pfovru-MuiTypography-root"
     >
       rewardAddress
     </p>
@@ -43,11 +43,11 @@ exports[`screen: AccountDetails/Overview matches snapshot 1`] = `
       className="detail"
     >
       <svg
-        className="css-1l2vs1v-actionIcons"
+        className="tss-1l2vs1v-actionIcons"
         onClick={[Function]}
       />
       <p
-        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 value mui-pfovru-MuiTypography-root"
       >
         desmos1jrld5g99...y94nz
       </p>

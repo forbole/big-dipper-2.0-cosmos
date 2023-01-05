@@ -16,7 +16,7 @@ exports[`screen: Validators/List matches snapshot 1`] = `
       tab={1}
     />
     <div
-      className="css-1o2kqtb-list"
+      className="tss-1o2kqtb-list"
     >
       <div
         id="NoData"

@@ -1,10 +1,13 @@
-import DocumentPage, { getInitialProps } from 'ui/pages/_document';
 import Document from 'next/document';
+import DocumentPage from 'ui/pages/_document';
+import { augmentDocumentWithEmotionCache } from './_app';
 
-export default class MyDocument extends Document {
+class MyDocument extends Document {
   render() {
     return <DocumentPage />;
   }
 }
 
-MyDocument.getInitialProps = getInitialProps;
+augmentDocumentWithEmotionCache(MyDocument);
+
+export default MyDocument;

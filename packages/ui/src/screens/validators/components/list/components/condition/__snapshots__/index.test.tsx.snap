@@ -2,6 +2,6 @@
 
 exports[`screen: Validators/Condition matches snapshot 1`] = `
 <div
-  className="css-ygdw5r-root"
+  className="tss-ygdw5r-root"
 />
 `;

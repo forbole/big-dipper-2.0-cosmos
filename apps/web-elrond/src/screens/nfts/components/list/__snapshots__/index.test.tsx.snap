@@ -8,7 +8,7 @@ exports[`screen: Blocks/List matches snapshot 1`] = `
     id="NoData"
   />
   <div
-    className="css-1hnp23h-paginate"
+    className="tss-1hnp23h-paginate"
     handlePageChange={[Function]}
     handleRowsPerPageChange={[Function]}
     id="Pagination"

@@ -7,16 +7,23 @@ import InnerApp from '@/screens/app/components/inner_app';
 import { useGenesis, useTheme } from '@/screens/app/components/main/hooks';
 import Countdown from '@/screens/countdown';
 import InitialLoad from '@/screens/initial_load';
+import createCache from '@emotion/cache';
+import { CacheProvider } from '@emotion/react';
 import CssBaseline from '@mui/material/CssBaseline';
-import { ThemeProvider, Theme, StyledEngineProvider } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
 import { AppProps } from 'next/app';
 import { useEffect } from 'react';
 import { ToastContainer } from 'react-toastify';
+import { TssCacheProvider } from 'tss-react';
 
-declare module '@mui/styles/defaultTheme' {
-  // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  interface DefaultTheme extends Theme {}
-}
+const muiCache = createCache({
+  key: 'mui',
+  prepend: true,
+});
+
+const tssCache = createCache({
+  key: 'tss',
+});
 
 const Main = (props: AppProps) => {
   // =====================================
@@ -54,23 +61,25 @@ const Main = (props: AppProps) => {
   }, [muiTheme]);
 
   return (
-    <StyledEngineProvider injectFirst>
-      <ThemeProvider theme={muiTheme}>
-        <CssBaseline />
-        <ToastContainer
-          position="top-center"
-          autoClose={5000}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          hideProgressBar
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-        />
-        {Component}
-      </ThemeProvider>
-    </StyledEngineProvider>
+    <CacheProvider value={muiCache}>
+      <TssCacheProvider value={tssCache}>
+        <ThemeProvider theme={muiTheme}>
+          <CssBaseline />
+          <ToastContainer
+            position="top-center"
+            autoClose={5000}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            hideProgressBar
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
+          {Component}
+        </ThemeProvider>
+      </TssCacheProvider>
+    </CacheProvider>
   );
 };
 

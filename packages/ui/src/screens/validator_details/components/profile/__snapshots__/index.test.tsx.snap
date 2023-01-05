@@ -5,11 +5,11 @@ exports[`screen: ValidatorDetails/Profile matches snapshot 1`] = `
   id="Box"
 >
   <div
-    className="css-3h4311-bio"
+    className="tss-3h4311-bio"
   >
     <div
       address="operatorAddress"
-      className="css-2nm2jz-avatar-desktopAvatar"
+      className="tss-2nm2jz-avatar-desktopAvatar"
       id="Avatar"
       imageUrl=""
     />
@@ -18,11 +18,11 @@ exports[`screen: ValidatorDetails/Profile matches snapshot 1`] = `
         className="bio__header"
       >
         <div
-          className="css-1mne95-header"
+          className="tss-1mne95-header"
         >
           <div
             address="operatorAddress"
-            className="css-ot8j2t-avatar-mobile"
+            className="tss-ot8j2t-avatar-mobile"
             id="Avatar"
             imageUrl=""
           />
@@ -30,7 +30,7 @@ exports[`screen: ValidatorDetails/Profile matches snapshot 1`] = `
             className="header__content"
           >
             <h2
-              className="MuiTypography-root MuiTypography-h2 css-dcgvbp-MuiTypography-root"
+              className="MuiTypography-root MuiTypography-h2 mui-dcgvbp-MuiTypography-root"
             >
               validator
             </h2>
@@ -48,19 +48,19 @@ exports[`screen: ValidatorDetails/Profile matches snapshot 1`] = `
     </div>
   </div>
   <hr
-    className="MuiDivider-root MuiDivider-fullWidth css-1clf34c-MuiDivider-root-divider"
+    className="MuiDivider-root MuiDivider-fullWidth tss-1pmaagk-divider mui-l3fh2f-MuiDivider-root"
   />
   <div>
     <div
-      className="css-1n7gbl3-item"
+      className="tss-1n7gbl3-item"
     >
       <h4
-        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-h4 label mui-15yyl88-MuiTypography-root"
       >
         website
       </h4>
       <a
-        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 value mui-pfovru-MuiTypography-root"
         href="//"
         rel="noreferrer"
         target="_blank"

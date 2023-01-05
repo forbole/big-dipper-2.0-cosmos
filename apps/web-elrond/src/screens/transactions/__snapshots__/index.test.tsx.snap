@@ -2,7 +2,7 @@
 
 exports[`screen: Transactions matches snapshot 1`] = `
 <div
-  className="css-ewxjtu-root"
+  className="tss-ewxjtu-root"
   id="Layout"
   navTitle="transactions"
 >

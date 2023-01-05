@@ -2,16 +2,16 @@
 
 exports[`component: SingleSlotMobile matches snapshot 1`] = `
 <div
-  className="css-1bnteyo-root"
+  className="tss-1bnteyo-root"
 >
   <div
-    className="css-1t94r6n-flex"
+    className="tss-1t94r6n-flex"
   >
     <div
-      className="css-16zf8r-item"
+      className="tss-16zf8r-item"
     >
       <h4
-        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-h4 label mui-15yyl88-MuiTypography-root"
       >
         block
       </h4>
@@ -19,46 +19,46 @@ exports[`component: SingleSlotMobile matches snapshot 1`] = `
     </div>
   </div>
   <div
-    className="css-16zf8r-item"
+    className="tss-16zf8r-item"
   >
     <h4
-      className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-h4 label mui-15yyl88-MuiTypography-root"
     >
       hash
     </h4>
     <p
-      className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-body1 value mui-pfovru-MuiTypography-root"
     >
       hash
     </p>
   </div>
   <div
-    className="css-1t94r6n-flex"
+    className="tss-1t94r6n-flex"
   >
     <div
-      className="css-16zf8r-item"
+      className="tss-16zf8r-item"
     >
       <h4
-        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-h4 label mui-15yyl88-MuiTypography-root"
       >
         txs
       </h4>
       <p
-        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 value mui-pfovru-MuiTypography-root"
       >
         txs
       </p>
     </div>
     <div
-      className="css-16zf8r-item"
+      className="tss-16zf8r-item"
     >
       <h4
-        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-h4 label mui-15yyl88-MuiTypography-root"
       >
         time
       </h4>
       <p
-        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 value mui-pfovru-MuiTypography-root"
       >
         time
       </p>

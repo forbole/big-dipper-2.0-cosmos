@@ -11,7 +11,7 @@ exports[`screen: BlockDetails matches snapshot 1`] = `
     loading={true}
   >
     <span
-      className="css-xnp8k2-root"
+      className="tss-xnp8k2-root"
     >
       <div
         hash=""
@@ -22,7 +22,7 @@ exports[`screen: BlockDetails matches snapshot 1`] = `
         txs={0}
       />
       <div
-        className="css-9rjgsx-signatures"
+        className="tss-9rjgsx-signatures"
         id="Signatures"
         signatures={[]}
       />

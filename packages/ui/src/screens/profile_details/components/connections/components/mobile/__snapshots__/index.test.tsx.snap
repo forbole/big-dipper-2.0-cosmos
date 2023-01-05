@@ -3,35 +3,35 @@
 exports[`screen: ProfileDetails/Connections/Mobile matches snapshot 1`] = `
 <div>
   <div
-    className="css-16zqb2r-list"
+    className="tss-16zqb2r-list"
   >
     <div
-      className="css-se0n4n-item"
+      className="tss-se0n4n-item"
     >
       <h4
-        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-h4 label mui-15yyl88-MuiTypography-root"
       >
         network
       </h4>
       <p
-        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 value mui-pfovru-MuiTypography-root"
       >
         NATIVE
       </p>
     </div>
     <div
-      className="css-se0n4n-item"
+      className="tss-se0n4n-item"
     >
       <h4
-        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-h4 label mui-15yyl88-MuiTypography-root"
       >
         identifier
       </h4>
       <p
-        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 value mui-pfovru-MuiTypography-root"
       >
         <a
-          className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-body1 value mui-pfovru-MuiTypography-root"
           href="/accounts/desmos1rzhewpmmdl72lhnxj6zmxr4v94f522s4ff2psv"
           onClick={[Function]}
           onMouseEnter={[Function]}
@@ -42,64 +42,64 @@ exports[`screen: ProfileDetails/Connections/Mobile matches snapshot 1`] = `
       </p>
     </div>
     <div
-      className="css-se0n4n-item"
+      className="tss-se0n4n-item"
     >
       <h4
-        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-h4 label mui-15yyl88-MuiTypography-root"
       >
         creationTime
       </h4>
       <p
-        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 value mui-pfovru-MuiTypography-root"
       >
         2020-08-10 12:00:00
       </p>
     </div>
   </div>
   <hr
-    className="MuiDivider-root MuiDivider-fullWidth css-l3fh2f-MuiDivider-root"
+    className="MuiDivider-root MuiDivider-fullWidth mui-l3fh2f-MuiDivider-root"
   />
   <div
-    className="css-16zqb2r-list"
+    className="tss-16zqb2r-list"
   >
     <div
-      className="css-se0n4n-item"
+      className="tss-se0n4n-item"
     >
       <h4
-        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-h4 label mui-15yyl88-MuiTypography-root"
       >
         network
       </h4>
       <p
-        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 value mui-pfovru-MuiTypography-root"
       >
         EMONEY
       </p>
     </div>
     <div
-      className="css-se0n4n-item"
+      className="tss-se0n4n-item"
     >
       <h4
-        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-h4 label mui-15yyl88-MuiTypography-root"
       >
         identifier
       </h4>
       <p
-        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 value mui-pfovru-MuiTypography-root"
       >
         emoney1wke3ev9ja6rxsngld75r3vppcpet94xxnh63ry
       </p>
     </div>
     <div
-      className="css-se0n4n-item"
+      className="tss-se0n4n-item"
     >
       <h4
-        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-h4 label mui-15yyl88-MuiTypography-root"
       >
         creationTime
       </h4>
       <p
-        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 value mui-pfovru-MuiTypography-root"
       >
         2020-08-10 12:00:00
       </p>

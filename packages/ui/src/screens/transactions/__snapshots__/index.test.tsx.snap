@@ -2,7 +2,7 @@
 
 exports[`screen: Transactions matches snapshot 1`] = `
 <div
-  className="css-1kpiz3c-root"
+  className="tss-1kpiz3c-root"
   id="Layout"
   navTitle="transactions"
 >
@@ -12,7 +12,7 @@ exports[`screen: Transactions matches snapshot 1`] = `
     loading={false}
   >
     <div
-      className="css-bdwxxu-box"
+      className="tss-bdwxxu-box"
       id="Box"
     >
       <div

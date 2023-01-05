@@ -2,14 +2,14 @@
 
 exports[`components: Pagination/Actions matches snapshot 1`] = `
 <ul
-  className="css-18qoeiq-root"
+  className="tss-18qoeiq-root"
 >
   <li
     className="first"
   >
     <div
       aria-label="first page"
-      className="css-1dghc4y-button"
+      className="tss-1dghc4y-button"
       disableRipple={true}
       disabled={true}
       id="iconButton"
@@ -17,14 +17,14 @@ exports[`components: Pagination/Actions matches snapshot 1`] = `
       size="large"
     >
       <svg
-        className="css-37cjiq-prev"
+        className="tss-37cjiq-prev"
       />
     </div>
   </li>
   <li>
     <div
       aria-label="previous page"
-      className="css-1dghc4y-button"
+      className="tss-1dghc4y-button"
       disableRipple={true}
       disabled={true}
       id="iconButton"
@@ -32,24 +32,24 @@ exports[`components: Pagination/Actions matches snapshot 1`] = `
       size="large"
     >
       <svg
-        className="css-37cjiq-prev"
+        className="tss-37cjiq-prev"
       />
     </div>
   </li>
   <li
-    className="MuiTypography-root MuiTypography-body2 selected css-1e37i31-MuiTypography-root-button-pageButton"
+    className="MuiTypography-root MuiTypography-body2 selected tss-1u81pdy-button-pageButton mui-1bkilrq-MuiTypography-root"
     onClick={[Function]}
   >
     1
   </li>
   <li
-    className="MuiTypography-root MuiTypography-body2 css-1e37i31-MuiTypography-root-button-pageButton"
+    className="MuiTypography-root MuiTypography-body2 tss-1u81pdy-button-pageButton mui-1bkilrq-MuiTypography-root"
     onClick={[Function]}
   >
     2
   </li>
   <li
-    className="MuiTypography-root MuiTypography-body2 css-1e37i31-MuiTypography-root-button-pageButton"
+    className="MuiTypography-root MuiTypography-body2 tss-1u81pdy-button-pageButton mui-1bkilrq-MuiTypography-root"
     onClick={[Function]}
   >
     3
@@ -57,7 +57,7 @@ exports[`components: Pagination/Actions matches snapshot 1`] = `
   <li>
     <div
       aria-label="next page"
-      className="css-1dghc4y-button"
+      className="tss-1dghc4y-button"
       disableRipple={true}
       disabled={false}
       id="iconButton"
@@ -72,7 +72,7 @@ exports[`components: Pagination/Actions matches snapshot 1`] = `
   >
     <div
       aria-label="last page"
-      className="css-1dghc4y-button"
+      className="tss-1dghc4y-button"
       disableRipple={true}
       disabled={false}
       id="iconButton"

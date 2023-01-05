@@ -2,19 +2,19 @@
 
 exports[`component: Layout it renders 1`] = `
 <div
-  className="css-l17dkz-root"
+  className="tss-l17dkz-root"
 >
   <div
-    className="css-1dcwhai-contentWrapper"
+    className="tss-1dcwhai-contentWrapper"
   >
     <div
       id="Nav"
     />
     <div
-      className="css-1xo34y-children"
+      className="tss-1xo34y-children"
     >
       <div
-        className="css-1lze7ft-appBarPlaceholder"
+        className="tss-1lze7ft-appBarPlaceholder"
       />
       <div
         className="main-content"
@@ -26,7 +26,7 @@ exports[`component: Layout it renders 1`] = `
     </div>
   </div>
   <div
-    className="css-1gb7m7h-footer"
+    className="tss-1gb7m7h-footer"
     id="Footer"
   />
 </div>

@@ -2,13 +2,13 @@
 
 exports[`screen: Validators/Tabs matches snapshot 1`] = `
 <div
-  className="css-4th80v-root"
+  className="tss-4th80v-root"
 >
   <div
-    className="MuiTabs-root css-e4sfdz-MuiTabs-root"
+    className="MuiTabs-root mui-e4sfdz-MuiTabs-root"
   >
     <div
-      className="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+      className="MuiTabs-scrollableX MuiTabs-hideScrollbar mui-agdkjh-MuiTabs-scrollbarSize"
       style={
         {
           "height": 99,
@@ -20,7 +20,7 @@ exports[`screen: Validators/Tabs matches snapshot 1`] = `
       }
     />
     <div
-      className="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-1qz90fd-MuiTabs-scroller"
+      className="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX mui-1qz90fd-MuiTabs-scroller"
       onScroll={[Function]}
       style={
         {
@@ -31,14 +31,14 @@ exports[`screen: Validators/Tabs matches snapshot 1`] = `
     >
       <div
         aria-orientation={null}
-        className="MuiTabs-flexContainer css-1pyy021-MuiTabs-flexContainer"
+        className="MuiTabs-flexContainer mui-1pyy021-MuiTabs-flexContainer"
         onKeyDown={[Function]}
         role="tablist"
       >
         <button
           aria-controls="simple-tabpanel-0"
           aria-selected={true}
-          className="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected css-1dwqsrt-MuiButtonBase-root-MuiTab-root"
+          className="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected mui-1dwqsrt-MuiButtonBase-root-MuiTab-root"
           disabled={false}
           id="simple-tab-0"
           onBlur={[Function]}
@@ -60,14 +60,14 @@ exports[`screen: Validators/Tabs matches snapshot 1`] = `
         >
           all (24)
           <span
-            className="MuiTabs-indicator css-7kglg7-MuiTabs-indicator"
+            className="MuiTabs-indicator mui-7kglg7-MuiTabs-indicator"
             style={{}}
           />
         </button>
         <button
           aria-controls="simple-tabpanel-1"
           aria-selected={false}
-          className="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary css-1dwqsrt-MuiButtonBase-root-MuiTab-root"
+          className="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary mui-1dwqsrt-MuiButtonBase-root-MuiTab-root"
           disabled={false}
           id="simple-tab-1"
           onBlur={[Function]}
@@ -92,7 +92,7 @@ exports[`screen: Validators/Tabs matches snapshot 1`] = `
         <button
           aria-controls="simple-tabpanel-2"
           aria-selected={false}
-          className="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary css-1dwqsrt-MuiButtonBase-root-MuiTab-root"
+          className="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary mui-1dwqsrt-MuiButtonBase-root-MuiTab-root"
           disabled={false}
           id="simple-tab-2"
           onBlur={[Function]}
@@ -117,7 +117,7 @@ exports[`screen: Validators/Tabs matches snapshot 1`] = `
         <button
           aria-controls="simple-tabpanel-3"
           aria-selected={false}
-          className="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary css-1dwqsrt-MuiButtonBase-root-MuiTab-root"
+          className="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary mui-1dwqsrt-MuiButtonBase-root-MuiTab-root"
           disabled={false}
           id="simple-tab-3"
           onBlur={[Function]}
@@ -142,7 +142,7 @@ exports[`screen: Validators/Tabs matches snapshot 1`] = `
         <button
           aria-controls="simple-tabpanel-4"
           aria-selected={false}
-          className="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary css-1dwqsrt-MuiButtonBase-root-MuiTab-root"
+          className="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary mui-1dwqsrt-MuiButtonBase-root-MuiTab-root"
           disabled={false}
           id="simple-tab-4"
           onBlur={[Function]}
@@ -167,7 +167,7 @@ exports[`screen: Validators/Tabs matches snapshot 1`] = `
         <button
           aria-controls="simple-tabpanel-5"
           aria-selected={false}
-          className="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary css-1dwqsrt-MuiButtonBase-root-MuiTab-root"
+          className="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary mui-1dwqsrt-MuiButtonBase-root-MuiTab-root"
           disabled={false}
           id="simple-tab-5"
           onBlur={[Function]}
