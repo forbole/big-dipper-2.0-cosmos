@@ -10,6 +10,10 @@ import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import CopyIcon from 'shared-utils/assets/icon-copy-text.svg';
 import { useAddress } from '@/screens/validator_details/components/validator_overview/hooks';
 import LogoutIcon from 'shared-utils/assets/icon-logout.svg';
+import { useRecoilValue } from 'recoil';
+import { readUserAddress } from '@/recoil/user';
+import Link from 'next/link';
+import { ACCOUNT_DETAILS } from '@/utils/go_to_page';
 
 import React from 'react';
 
@@ -19,9 +23,9 @@ const WalletDropDown: React.FC<{
   const { t } = useTranslation('common');
   const classes = useStyles();
   const { handleCopyToClipboard } = useAddress(t);
-  const address = 'desmos13yp2fq3tslq6mmtq4628q38xzj75ethzela9uu';
+  const address = useRecoilValue(readUserAddress);
+  const { handleCancel, handleLogout } = useConnectWalletList();
 
-  const { handleCancel, handleLogoutWallet } = useConnectWalletList();
   return (
     <Box className={classnames(className, classes.root)}>
       <div className={classes.walletDetails}>
@@ -32,7 +36,7 @@ const WalletDropDown: React.FC<{
             <div className={classes.greenDot} />
           </div>
           <div className={classes.walletLabel}>
-            Wallet 3
+            Wallet
             <div>
               <Typography variant="caption" className={classes.walletAddress}>
                 {getMiddleEllipsis(address, {
@@ -55,10 +59,12 @@ const WalletDropDown: React.FC<{
           tabIndex={0}
           aria-label="account-details-button"
         >
-          <div className={classes.accountDetailsLabel}>
-            <div className={classes.blackDot} />
-            <div className={classes.accountDetails}>{t('accountDetails')}</div>
-          </div>
+          <Link href={ACCOUNT_DETAILS(address)} passHref>
+            <div className={classes.accountDetailsLabel}>
+              <div className={classes.blackDot} />
+              <div className={classes.accountDetails}>{t('accountDetails')}</div>
+            </div>
+          </Link>
         </div>
       </div>
       <div
@@ -80,7 +86,7 @@ const WalletDropDown: React.FC<{
           aria-label="sign-out-button"
         >
           <div className={classes.signOutLabel}>
-            <LogoutIcon onClick={() => handleLogoutWallet} className={classes.signOutIcon} />
+            <LogoutIcon onClick={() => handleLogout} className={classes.signOutIcon} />
             <div className={classes.signOutText}>{t('signOut')}</div>
           </div>
         </div>
