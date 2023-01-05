@@ -32,7 +32,7 @@ const projects = execShell(
   `yarn workspaces list --json | jq -csr '[ .[].name | select(. | startswith("web") ) ]'`
 );
 
-const projectList = JSON.parse(projects);
+const projectList = JSON.parse(JSON.stringify(projects));
 
 const project = projectList.find((p) => title.endsWith(`[${p}]`)) || 'web';
 
