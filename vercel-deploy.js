@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-return */
 /* eslint-disable no-console */
 /* eslint-disable turbo/no-undeclared-env-vars */
 // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -17,6 +18,7 @@ function execShell(command) {
       return;
     }
     console.log(`stdout: ${stdout}`);
+    return;
   });
 }
 
