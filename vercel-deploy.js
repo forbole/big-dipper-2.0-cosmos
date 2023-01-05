@@ -24,7 +24,7 @@ const response = execShell(`curl \
 -H "Accept: application/vnd.github+json" \
 -H "Authorization: Bearer ${apiToken}"\
 -H "X-GitHub-Api-Version: 2022-11-28" \
-https://api.github.com/repos/forbole/REPO/big-dipper-2.0-cosmos/${pullId}`);
+https://api.github.com/repos/forbole/big-dipper-2.0-cosmos/${pullId}`);
 
 const { title } = response;
 
