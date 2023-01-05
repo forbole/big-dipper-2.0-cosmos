@@ -8,17 +8,8 @@ import { ADDRESS_KEY } from '@/utils/localstorage';
 type UserState = {
   address: string;
   loggedIn: boolean;
-  // showKeplrPairingDialog: boolean;
 };
-
-type WalletState = {
-  showInstallKeplrWalletDialog: boolean;
-  showKeplrPairingDialog: boolean;
-  showSelectNetworkDialog: boolean;
-  showAuthorizeConnectionDialog: boolean;
-  showLoginSuccessDialog: boolean;
-  showConnectWalletConnectDialog: boolean;
-};
+const chainId = process.env.NEXT_PUBLIC_CHAIN_ID;
 
 export const useConnectWalletList = () => {
   const [userAddress, setUserAddress] = useRecoilState(writeUserAddress) as [
@@ -83,7 +74,7 @@ export const useConnectWalletList = () => {
 
   const handleLogoutWallet = () => {
     setLoggedIn(false);
-    localStorage.setItem('userAddress', '');
+    localStorage.setItem(ADDRESS_KEY, '');
     resetSettings();
   };
 
@@ -111,7 +102,7 @@ export const useConnectWalletList = () => {
     setWalletOption('');
   };
 
-  const handleLoginSuccessDialog = () => {
+  const handleCloseLoginSuccessDialog = () => {
     setOpenLoginSuccessDialog(false);
     setWalletOption('');
   };
@@ -135,14 +126,13 @@ export const useConnectWalletList = () => {
 
   const handleConnectWallet = async () => {
     setOpen(false);
-    console.log(walletSelection);
     switch (walletSelection) {
-      case 'butter':
+      case 'Butter':
         break;
-      case 'keplr':
-        await handleKeplrWalletConnection();
+      case 'Keplr Wallet':
+        await continueToPairingDialog();
         break;
-      case 'wallet connect':
+      case 'Wallet Connect':
         break;
       case '':
         break;
@@ -151,40 +141,52 @@ export const useConnectWalletList = () => {
     }
   };
 
-  const handleKeplrWalletConnection = async () => {
+  const continueToPairingDialog = () => {
     if (!window.keplr) {
       setOpenInstallKeplrWalletDialog(true);
     } else {
       setOpenKeplrPairingDialog(true);
-      // setOpenSelectNetworkDialog(true);
-      // setOpenAuthorizeConnectionDialog(true);
-      // setOpenLoginSuccessDialog(true);
-      // setOpenConnectWalletConnectDialog(true);
+    }
+  };
 
-      const chainId = process.env.NEXT_PUBLIC_CHAIN_ID;
-      // // Enabling before using the Keplr is recommended.
-      // // This method will ask the user whether to allow access if they haven't visited this website.
-      // // Also, it will request that the user unlock the wallet if the wallet is locked.
-      await window.keplr.enable(chainId);
-      const offlineSigner = window.keplr.getOfflineSigner(chainId);
+  const continueToSelectNetworkDialog = async () => {
+    setOpenKeplrPairingDialog(false);
+    await window.keplr.enable(chainId);
+    setOpenSelectNetworkDialog(true);
+  };
 
-      // You can get the address/public keys by `getAccounts` method.
-      // It can return the array of address/public key.
-      // But, currently, Keplr extension manages only one address/public key pair.
-      // XXX: This line is needed to set the sender address for SigningCosmosClient.
-      const accounts = await offlineSigner.getAccounts();
+  const continueToAuthorizeConnectionDialog = async () => {
+    setOpenSelectNetworkDialog(false);
+    setOpenAuthorizeConnectionDialog(true);
+    const offlineSigner = window.keplr.getOfflineSigner(chainId);
 
-      // Initialize the gaia api with the offline signer that is injected by Keplr extension.
-      const cosmJS = new SigningCosmosClient(
-        process.env.NEXT_PUBLIC_LCD_KEPLR_URL,
-        // 'https://lcd-cosmoshub.keplr.app',
-        accounts[0].address,
-        offlineSigner
-      );
+    // You can get the address/public keys by `getAccounts` method.
+    // It can return the array of address/public key.
+    // But, currently, Keplr extension manages only one address/public key pair.
+    // XXX: This line is needed to set the sender address for SigningCosmosClient.
+    const accounts = await offlineSigner.getAccounts();
 
-      if (cosmJS) {
-        localStorage.setItem(ADDRESS_KEY, accounts[0].address);
-      }
+    // Initialize the gaia api with the offline signer that is injected by Keplr extension.
+    const cosmJS = new SigningCosmosClient(
+      process.env.NEXT_PUBLIC_LCD_KEPLR_URL,
+      // 'https://lcd-cosmoshub.keplr.app',
+      accounts[0].address,
+      offlineSigner
+    );
+
+    if (cosmJS) {
+      localStorage.setItem(ADDRESS_KEY, accounts[0].address);
+      // close the dialog after 3 seconds
+      setTimeout(() => {
+        setOpenAuthorizeConnectionDialog(false);
+      }, 3000);
+
+      setOpenLoginSuccessDialog(true);
+
+      // close the dialog after 3 seconds
+      setTimeout(() => {
+        setOpenLoginSuccessDialog(false);
+      }, 3000);
     }
   };
 
@@ -211,11 +213,14 @@ export const useConnectWalletList = () => {
     handleCloseSelectNetworkDialog,
     openAuthorizeConnectionDialog,
     handleCloseAuthorizeConnectionDialog,
-    handleLoginSuccessDialog,
+    handleCloseLoginSuccessDialog,
     openLoginSuccessDialog,
     handleConnectWalletConnectDialog,
     openConnectWalletConnectDialog,
     handleTabChange,
     tabValue,
+    continueToSelectNetworkDialog,
+    continueToPairingDialog,
+    continueToAuthorizeConnectionDialog,
   };
 };
