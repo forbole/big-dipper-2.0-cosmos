@@ -12,20 +12,17 @@ import useTranslation from 'next-translate/useTranslation';
 import React from 'react';
 import LoginSuccessIcon from 'shared-utils/assets/icon-login-success.svg';
 
-const LoginSuccessDialog: React.FC = () => {
+const LoginSuccessDialog: React.FC<{
+  open: boolean;
+  onClose: () => void;
+}> = (props) => {
   const classes = useStyles();
   const { t } = useTranslation('common');
-  const { handleConnectWallet, handleLoginSuccessDialog, openLoginSuccessDialog } =
-    useConnectWalletList();
+  const { handleConnectWallet } = useConnectWalletList();
 
   return (
     <div>
-      <Dialog
-        maxWidth="md"
-        onClose={handleLoginSuccessDialog}
-        open={openLoginSuccessDialog}
-        className={classes.dialog}
-      >
+      <Dialog maxWidth="md" onClose={props.onClose} open={props.open} className={classes.dialog}>
         <DialogTitle disableTypography>
           <div className={classes.warningMsg}>
             <div>
@@ -33,11 +30,7 @@ const LoginSuccessDialog: React.FC = () => {
                 {t('loginSuccess')}
               </Typography>
             </div>
-            <IconButton
-              aria-label="close"
-              onClick={handleLoginSuccessDialog}
-              className={classes.closeButton}
-            >
+            <IconButton aria-label="close" onClick={props.onClose} className={classes.closeButton}>
               <CloseIcon />
             </IconButton>
           </div>

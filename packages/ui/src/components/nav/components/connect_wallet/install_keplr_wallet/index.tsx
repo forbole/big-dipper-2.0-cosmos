@@ -15,20 +15,16 @@ import Trans from 'next-translate/Trans';
 const InstallKeplrWalletDialog: React.FC<{
   walletName: string;
   walletUrl: string;
+  open: boolean;
+  onClose: () => void;
 }> = (props) => {
   const classes = useStyles();
   const { t } = useTranslation('common');
-  const { handleConnectWallet, handleCloseInstallExtensionDialog, openInstallExtensionDialog } =
-    useConnectWalletList();
+  const { handleConnectWallet } = useConnectWalletList();
 
   return (
     <div>
-      <Dialog
-        maxWidth="md"
-        onClose={handleCloseInstallExtensionDialog}
-        open={openInstallExtensionDialog}
-        className={classes.dialog}
-      >
+      <Dialog maxWidth="md" onClose={props.onClose} open={props.open} className={classes.dialog}>
         <DialogTitle disableTypography>
           <div className={classes.warningMsg}>
             <div>
@@ -38,11 +34,7 @@ const InstallKeplrWalletDialog: React.FC<{
                 })}
               </Typography>
             </div>
-            <IconButton
-              aria-label="close"
-              onClick={handleCloseInstallExtensionDialog}
-              className={classes.closeButton}
-            >
+            <IconButton aria-label="close" onClick={props.onClose} className={classes.closeButton}>
               <CloseIcon />
             </IconButton>
           </div>

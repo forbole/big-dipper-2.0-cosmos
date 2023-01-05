@@ -14,20 +14,16 @@ import Loading from '@/components/loading';
 
 const SelectNetworkDialog: React.FC<{
   networkName: string;
+  open: boolean;
+  onClose: () => void;
 }> = (props) => {
   const classes = useStyles();
   const { t } = useTranslation('common');
-  const { handleConnectWallet, handleCloseSelectNetworkDialog, openSelectNetworkDialog } =
-    useConnectWalletList();
+  const { handleConnectWallet } = useConnectWalletList();
 
   return (
     <div>
-      <Dialog
-        maxWidth="md"
-        onClose={handleCloseSelectNetworkDialog}
-        open={openSelectNetworkDialog}
-        className={classes.dialog}
-      >
+      <Dialog maxWidth="md" onClose={props.onClose} open={props.open} className={classes.dialog}>
         <DialogTitle disableTypography>
           <div className={classes.warningMsg}>
             <div>
@@ -37,11 +33,7 @@ const SelectNetworkDialog: React.FC<{
                 })}
               </Typography>
             </div>
-            <IconButton
-              aria-label="close"
-              onClick={handleCloseSelectNetworkDialog}
-              className={classes.closeButton}
-            >
+            <IconButton aria-label="close" onClick={props.onClose} className={classes.closeButton}>
               <CloseIcon />
             </IconButton>
           </div>
