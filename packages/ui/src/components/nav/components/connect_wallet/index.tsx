@@ -13,22 +13,41 @@ import useTranslation from 'next-translate/useTranslation';
 import LoginIcon from 'shared-utils/assets/icon-login.svg';
 import LogoutIcon from 'shared-utils/assets/icon-logout.svg';
 import React from 'react';
+import AuthorizeConnectionDialog from '@/components/nav/components/connect_wallet/authorize_connection';
+// import ConnectWalletConnectDialog from '@/components/nav/components/connect_wallet/connect_wallet_connect';
+import InstallKeplrWallet from '@/components/nav/components/connect_wallet/install_keplr_wallet';
+import LoginSuccessDialog from '@/components/nav/components/connect_wallet/login_success';
+import PairKeplrWalletDialog from '@/components/nav/components/connect_wallet/pair_keplr_wallet';
+import SelectNetworkDialog from '@/components/nav/components/connect_wallet/select_network';
+import { readIsUserLoggedIn } from '@/recoil/user';
+import { useRecoilValue } from 'recoil';
 
 const ConnectWallet: React.FC<{
   className?: string;
 }> = (props) => {
   const classes = useStyles();
   const { t } = useTranslation('common');
+  const loggedIn = useRecoilValue(readIsUserLoggedIn);
   const {
-    open,
-    loggedIn,
-    handleOpen,
-    handleConnectKeplr,
-    handleConnectButter,
-    handleConnectWalletConnect,
     handleCancel,
-    handleLogoutWallet,
+    handleCloseAuthorizeConnectionDialog,
+    handleCloseInstallKeplrWalletDialog,
+    handleCloseKeplrPairingDialog,
+    handleCloseLoginSuccessDialog,
+    handleCloseSelectNetworkDialog,
     handleConnectWallet,
+    handleLogoutWallet,
+    handleOpen,
+    open,
+    openAuthorizeConnectionDialog,
+    openInstallKeplrWalletDialog,
+    openKeplrPairingDialog,
+    openLoginSuccessDialog,
+    openSelectNetworkDialog,
+    walletSelection,
+    setWalletOption,
+    tabValue,
+    state,
   } = useConnectWalletList();
 
   return (
@@ -62,7 +81,7 @@ const ConnectWallet: React.FC<{
           <div className={classes.dialogContent}>
             <div className={classes.connectWalletButton}>
               <Button
-                onClick={handleConnectWalletConnect}
+                onClick={() => setWalletOption('wallet connect')}
                 color="default"
                 aria-label="connect-walletconnect-wallet-button"
                 className={classes.walletButton}
@@ -72,7 +91,7 @@ const ConnectWallet: React.FC<{
             </div>
             <div className={classes.connectKeplrButton}>
               <Button
-                onClick={handleConnectKeplr}
+                onClick={() => setWalletOption('keplr')}
                 color="default"
                 aria-label="connect-keplr-wallet-button"
                 className={classes.walletButton}
@@ -82,7 +101,7 @@ const ConnectWallet: React.FC<{
             </div>
             <div className={classes.connectButterButton}>
               <Button
-                onClick={handleConnectButter}
+                onClick={() => setWalletOption('butter')}
                 color="default"
                 aria-label="connect-butter-wallet-button"
                 className={classes.walletButton}
@@ -100,6 +119,27 @@ const ConnectWallet: React.FC<{
           </div>
         </DialogActions>
       </Dialog>
+      <InstallKeplrWallet
+        walletName={walletSelection}
+        walletUrl="https://www.keplr.app/download"
+        open={openInstallKeplrWalletDialog}
+        onClose={handleCloseInstallKeplrWalletDialog}
+      />
+      <PairKeplrWalletDialog
+        walletName={walletSelection}
+        open={openKeplrPairingDialog}
+        onClose={handleCloseKeplrPairingDialog}
+      />
+      <AuthorizeConnectionDialog
+        open={openAuthorizeConnectionDialog}
+        onClose={handleCloseAuthorizeConnectionDialog}
+      />
+      <SelectNetworkDialog
+        networkName="desmos"
+        open={openSelectNetworkDialog}
+        onClose={handleCloseSelectNetworkDialog}
+      />
+      <LoginSuccessDialog open={openLoginSuccessDialog} onClose={handleCloseLoginSuccessDialog} />
     </div>
   );
 };
