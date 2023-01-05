@@ -20,9 +20,7 @@ https://api.github.com/repos/forbole/big-dipper-2.0-cosmos/${pullId}`);
 
 const { title } = response;
 
-const projects = execShell(
-  `yarn workspaces list --json | jq -csr '[ .[].name | select(. | startswith("web") ) ]'`
-);
+const projects = execShell(`yarn workspaces list --json`);
 
 const projectList = JSON.parse(projects)
   .map((p) => p.name)
