@@ -14,9 +14,7 @@ const { execSync } = require('child_process');
  */
 function execShell(command) {
   console.log(`executing command ${command}`);
-  const result = execSync(command, { env: process.env }).toString();
-  console.log('result', result);
-  return result;
+  return execSync(command, { env: process.env }).toString();
 }
 
 console.log('running vercel-deploy.js');
@@ -54,12 +52,12 @@ const projectList = projects
 const project = projectList.find((p) => title.endsWith(`[${p}]`)) || 'web';
 
 if (process.argv[2] === 'install') {
-  const rmCmds = projectList
+  const unusedProjects = projectList
     .filter((p) => p !== project)
-    .map((p) => `rm -rf apps/${p} && `)
+    .map((p) => `apps/${p} `)
     .join('');
   execShell(
-    `${rmCmds}rm -rf .yarn/cache .pnp.* && yarn config set nodeLinker node-modules && yarn cache clean --all && yarn`
+    `rm -rf${unusedProjects} .yarn/cache .pnp.* && yarn config set nodeLinker node-modules && yarn`
   );
 } else {
   /* Building the project. */
