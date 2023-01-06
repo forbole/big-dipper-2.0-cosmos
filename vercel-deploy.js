@@ -55,7 +55,9 @@ const project = projectList.find((p) => title.endsWith(`[${p}]`)) || 'web';
 
 if (process.argv[2] === 'install') {
   projectList.filter((p) => p !== project).forEach((p) => execShell(`rm -rf apps/${p}`));
-  execShell('yarn cache clean --all && yarn --inline-builds');
+  execShell(
+    'rm -rf .yarn/cache .pnp.* && yarn config set nodeLinker node-modules && yarn cache clean --all && yarn --inline-builds'
+  );
 } else {
   /* Building the project. */
   execShell(`mkdir -p apps/web && BASE_PATH=/ yarn workspace ${project} next build`);
