@@ -19,7 +19,7 @@ export {
   readOpenConnectWalletConnectDialog,
   writeTabValue,
   readTabValue,
-  writeShowWallet,
-  readShowWallet,
+  writeShowWalletDetails,
+  readShowWalletDetails,
 } from '@/recoil/wallet/selectors';
 export type { AtomState } from '@/recoil/wallet/types';
