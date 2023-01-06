@@ -58,5 +58,5 @@ execShell(`yarn workspace ${project} next build`);
 
 /* Moving the built project to the web folder. */
 if (project !== 'web') {
-  execShell(`rm -rf apps/web, mv apps/${project} apps/web`);
+  execShell(`rm -rf apps/web && mv apps/${project} apps/web`);
 }
