@@ -6,7 +6,7 @@ const useStyles = makeStyles()((theme) => ({
     '& .MuiListItemIcon-root': {
       minWidth: '48px',
     },
-    '&.MuiMenuItem-gutters': {
+    '&.MuiListItem-gutters': {
       padding: theme.spacing(2, 2.5),
     },
     '& .MuiListItemText-root': {
