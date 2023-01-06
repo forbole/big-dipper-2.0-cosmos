@@ -4,14 +4,41 @@ import { SetterOrUpdater, useRecoilState } from 'recoil';
 import * as R from 'ramda';
 import { useCallback, useState } from 'react';
 import { ADDRESS_KEY } from '@/utils/localstorage';
+import {
+  writeOpenLoginDialog,
+  writeWalletSelection,
+  writeOpenInstallKeplrWalletDialog,
+  writeOpenKeplrPairingDialog,
+  writeOpenSelectNetworkDialog,
+  writeOpenAuthorizeConnectionDialog,
+  writeOpenLoginSuccessDialog,
+  writeOpenConnectWalletConnectDialog,
+  writeTabValue,
+  writeShowWalletDetails,
+} from '@/recoil/wallet';
 
 type UserState = {
   address: string;
   loggedIn: boolean;
 };
+
+type WalletState = {
+  openLoginDialog: boolean;
+  walletSelection: string;
+  openInstallKeplrWalletDialog: boolean;
+  openKeplrPairingDialog: boolean;
+  openSelectNetworkDialog: boolean;
+  openAuthorizeConnectionDialog: boolean;
+  openLoginSuccessDialog: boolean;
+  openConnectWalletConnectDialog: boolean;
+  tabValue: number;
+  showWalletDetails: boolean;
+};
+
 const chainId = process.env.NEXT_PUBLIC_CHAIN_ID;
 
-export const useConnectWalletList = () => {
+const useConnectWalletList = () => {
+  // UserState
   const [userAddress, setUserAddress] = useRecoilState(writeUserAddress) as [
     string,
     SetterOrUpdater<string>
@@ -21,60 +48,122 @@ export const useConnectWalletList = () => {
     SetterOrUpdater<boolean>
   ];
 
-  const [open, setOpen] = useState(false);
-  // const [signingClient, setSigningClient] = useState(null);
-  // const [offlineSigner, setOfflineSigner] = useState(null);
-  const [walletSelection, setWalletSelection] = useState('');
-  const [openInstallKeplrWalletDialog, setOpenInstallKeplrWalletDialog] = useState(false);
-  const [openKeplrPairingDialog, setOpenKeplrPairingDialog] = useState(false);
-  const [openSelectNetworkDialog, setOpenSelectNetworkDialog] = useState(false);
-  const [openAuthorizeConnectionDialog, setOpenAuthorizeConnectionDialog] = useState(false);
-  const [openLoginSuccessDialog, setOpenLoginSuccessDialog] = useState(false);
-  const [openConnectWalletConnectDialog, setOpenConnectWalletConnectDialog] = useState(false);
-  const [tabValue, setTabValue] = useState(1);
+  // WalletState
+  const [openLoginDialog, setOpenLoginDialog] = useRecoilState(writeOpenLoginDialog) as [
+    boolean,
+    SetterOrUpdater<boolean>
+  ];
+  const [walletSelection, setWalletSelection] = useRecoilState(writeWalletSelection) as [
+    string,
+    SetterOrUpdater<string>
+  ];
+  const [openInstallKeplrWalletDialog, setOpenInstallKeplrWalletDialog] = useRecoilState(
+    writeOpenInstallKeplrWalletDialog
+  ) as [boolean, SetterOrUpdater<boolean>];
+  const [openKeplrPairingDialog, setOpenKeplrPairingDialog] = useRecoilState(
+    writeOpenKeplrPairingDialog
+  ) as [boolean, SetterOrUpdater<boolean>];
+  const [openSelectNetworkDialog, setOpenSelectNetworkDialog] = useRecoilState(
+    writeOpenSelectNetworkDialog
+  ) as [boolean, SetterOrUpdater<boolean>];
+  const [openAuthorizeConnectionDialog, setOpenAuthorizeConnectionDialog] = useRecoilState(
+    writeOpenAuthorizeConnectionDialog
+  ) as [boolean, SetterOrUpdater<boolean>];
+  const [openLoginSuccessDialog, setOpenLoginSuccessDialog] = useRecoilState(
+    writeOpenLoginSuccessDialog
+  ) as [boolean, SetterOrUpdater<boolean>];
+  const [openConnectWalletConnectDialog, setOpenConnectWalletConnectDialog] = useRecoilState(
+    writeOpenConnectWalletConnectDialog
+  ) as [boolean, SetterOrUpdater<boolean>];
+  const [tabValue, setTabValue] = useRecoilState(writeTabValue) as [
+    number,
+    SetterOrUpdater<number>
+  ];
+  const [showWalletDetails, setShowWalletDetails] = useRecoilState(writeShowWalletDetails) as [
+    boolean,
+    SetterOrUpdater<boolean>
+  ];
 
-  const [showWallet, setShowWallet] = useState(false);
-  const [state, setState] = useState({
+  // UserState
+  const [userState, setUserState] = useState({
     address: userAddress,
     loggedIn: userIsLoggedIn,
   });
 
-  const handleSetState = useCallback((stateChange: (prevState: UserState) => UserState) => {
-    setState((prevState) => {
+  const handleSetUserState = useCallback((stateChange: (prevState: UserState) => UserState) => {
+    setUserState((prevState) => {
       const newState = stateChange(prevState);
       return R.equals(prevState, newState) ? prevState : newState;
     });
   }, []);
 
-  const resetSettings = () => {
-    handleSetState((prevState) => ({
+  const resetUserState = () => {
+    handleSetUserState((prevState) => ({
       ...prevState,
       address: userAddress,
       loggedIn: userIsLoggedIn,
     }));
   };
 
-  const handleCancel = () => {
-    resetSettings();
-    handleClose();
+  // WalletState
+  const [walletState, setWalletState] = useState({
+    openLoginDialog,
+    walletSelection,
+    openInstallKeplrWalletDialog,
+    openKeplrPairingDialog,
+    openSelectNetworkDialog,
+    openAuthorizeConnectionDialog,
+    openLoginSuccessDialog,
+    openConnectWalletConnectDialog,
+    tabValue,
+    showWalletDetails,
+  });
+
+  const handleSetWalletState = useCallback(
+    (stateChange: (prevState: WalletState) => WalletState) => {
+      setWalletState((prevState) => {
+        const newState = stateChange(prevState);
+        return R.equals(prevState, newState) ? prevState : newState;
+      });
+    },
+    []
+  );
+
+  const resetWalletState = () => {
+    handleSetWalletState((prevState) => ({
+      ...prevState,
+      openLoginDialog,
+      walletSelection,
+      openInstallKeplrWalletDialog,
+      openKeplrPairingDialog,
+      openSelectNetworkDialog,
+      openAuthorizeConnectionDialog,
+      openLoginSuccessDialog,
+      openConnectWalletConnectDialog,
+      tabValue,
+      showWalletDetails,
+    }));
   };
 
-  const handleClose = () => {
-    setOpen(false);
+  const handleCloseLoginDialog = () => {
+    setOpenLoginDialog(false);
+    resetUserState();
+    resetWalletState();
   };
 
-  const handleShowWallet = () => {
-    if (showWallet) {
-      setShowWallet(false);
-    } else setShowWallet(true);
+  const handleShowWalletDetails = () => {
+    if (showWalletDetails) {
+      setShowWalletDetails(false);
+    } else setShowWalletDetails(true);
   };
 
   const handleLogin = () => {
-    setOpen(true);
+    setOpenLoginDialog(true);
   };
 
   const handleLogout = () => {
     localStorage.setItem(ADDRESS_KEY, '');
+    setShowWalletDetails(false);
     setUserAddress('');
     setUserIsLoggedIn(false);
   };
@@ -118,15 +207,15 @@ export const useConnectWalletList = () => {
   };
 
   const handleConnectButter = () => {
-    setOpen(true); // TO DO
+    setOpenLoginDialog(false); // TO DO
   };
 
   const handleConnectWalletConnect = () => {
-    setOpen(true); // TO DO
+    setOpenLoginDialog(false); // TO DO
   };
 
   const handleConnectWallet = async () => {
-    setOpen(false);
+    setOpenLoginDialog(false);
     switch (walletSelection) {
       case 'Butter':
         break;
@@ -207,35 +296,29 @@ export const useConnectWalletList = () => {
   };
 
   return {
-    open,
+    tabValue,
+    userState,
+    walletState,
+    showWalletDetails,
     handleLogin,
-    handleClose,
-    state,
-    handleCancel,
-    showWallet,
-    openInstallKeplrWalletDialog,
-    walletSelection,
-    openKeplrPairingDialog,
+    handleCloseLoginDialog,
     setWalletOption,
     handleCloseInstallKeplrWalletDialog,
     handleCloseKeplrPairingDialog,
     handleConnectButter,
     handleConnectWalletConnect,
     handleLogout,
-    handleShowWallet,
+    handleShowWalletDetails,
     handleConnectWallet,
-    openSelectNetworkDialog,
     handleCloseSelectNetworkDialog,
-    openAuthorizeConnectionDialog,
     handleCloseAuthorizeConnectionDialog,
     handleCloseLoginSuccessDialog,
-    openLoginSuccessDialog,
     handleConnectWalletConnectDialog,
-    openConnectWalletConnectDialog,
     handleTabChange,
-    tabValue,
     continueToSelectNetworkDialog,
     continueToPairingDialog,
     continueToAuthorizeConnectionDialog,
   };
 };
+
+export default useConnectWalletList;
