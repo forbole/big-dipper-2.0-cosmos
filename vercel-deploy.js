@@ -56,5 +56,5 @@ const project = projectList.find((p) => title.endsWith(`[${p}]`)) || 'web';
 
 /* Building the project. */
 execShell(
-  `BASE_PATH=/ DIST_PATH=${join(__dirname, 'apps/web/.next')} yarn workspace ${project} next build`
+  `BASE_PATH=/ DIST_DIR=${join(__dirname, 'apps/web/.next')} yarn workspace ${project} next build`
 );
