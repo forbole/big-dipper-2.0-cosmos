@@ -61,7 +61,7 @@ try {
       .join('');
     execShell(`rm -rf ${unusedProjects}.yarn/cache .pnp.*`);
     execShell(`yarn config set nodeLinker node-modules`);
-    execShell(`yarn --inline-builds`);
+    execShell(`yarn workspace ${project} install --inline-builds`);
   } else {
     /* Building the project. */
     execShell(`mkdir -p apps/web`);
