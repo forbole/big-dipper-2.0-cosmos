@@ -64,6 +64,7 @@ if (process.argv[2] === 'install') {
     .join('');
   execShell(`rm -rf ${unusedProjects}.yarn/cache .pnp.*`);
   execShell(`yarn config set nodeLinker node-modules`);
+  execShell(`yarn cache clean --all`);
   /* Move the built project to the web folder. */
   if (project !== 'web') {
     execShell(`mv apps/${project} apps/web`);
