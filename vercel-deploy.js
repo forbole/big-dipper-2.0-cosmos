@@ -14,10 +14,14 @@ const { spawnSync } = require('child_process');
  */
 function execShell(command) {
   console.log(`executing command ${command}`);
-  const result = spawnSync(command, [], { env: process.env, encoding: 'utf-8' }).toString();
+  const result = spawnSync(command, [], {
+    cwd: process.cwd(),
+    encoding: 'utf-8',
+    env: process.env,
+  }).toString();
   if (result.error) throw result.error;
-  console.log('result', result.stdout?.toString() ?? '');
-  return result.stdout?.toString() ?? '';
+  console.log('result', result.output.join('\n'));
+  return result.output.join('\n');
 }
 
 console.log('running vercel-deploy.js');
