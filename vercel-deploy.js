@@ -56,7 +56,7 @@ const project = projectList.find((p) => title.endsWith(`[${p}]`)) || 'web';
 /* Building the project. */
 execShell(`yarn workspace ${project} next build`);
 
-/* Moving the built project to the web folder. */
+/* Copying the built project to the web folder. */
 if (project !== 'web') {
-  execShell(`rm -rf apps/web && mv apps/${project} apps/web`);
+  execShell(`rm -rf apps/web && cp -R apps/${project} apps/web`);
 }
