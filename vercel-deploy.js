@@ -14,12 +14,13 @@ const { execSync } = require('child_process');
  */
 function execShell(command) {
   console.log(`executing command ${command}`);
-  return execSync(command, {
+  const output = execSync(command, {
     cwd: process.cwd(),
     encoding: 'utf-8',
     env: process.env,
-    stdio: 'inherit',
   });
+  console.log(output);
+  return output;
 }
 
 console.log('running vercel-deploy.js');
