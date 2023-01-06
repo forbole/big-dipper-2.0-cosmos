@@ -1,4 +1,4 @@
-import { useConnectWalletList } from '@/components/nav/components/connect_wallet/hooks';
+import useConnectWalletList from '@/components/nav/components/connect_wallet/hooks';
 import { useStyles } from '@/components/nav/components/connect_wallet/styles';
 import classnames from 'classnames';
 import React from 'react';
@@ -11,14 +11,14 @@ const WalletDetails: React.FC<{
   className?: string;
 }> = (props) => {
   const classes = useStyles();
-  const { showWallet, handleShowWallet } = useConnectWalletList();
+  const { showWalletDetails, handleShowWalletDetails } = useConnectWalletList();
   const loggedIn = useRecoilValue(readIsUserLoggedIn);
   const userAddress = useRecoilValue(readUserAddress);
 
   return (
     <div>
       <div
-        onClick={handleShowWallet}
+        onClick={handleShowWalletDetails}
         role="button"
         className={classnames(props.className)}
         tabIndex={0}
@@ -28,7 +28,7 @@ const WalletDetails: React.FC<{
       </div>
       <WalletDropDown
         className={classnames(classes.networkList, {
-          open: showWallet,
+          open: showWalletDetails,
         })}
       />
     </div>

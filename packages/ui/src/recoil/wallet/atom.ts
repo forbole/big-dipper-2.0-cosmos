@@ -10,7 +10,7 @@ export interface AtomState {
   openLoginSuccessDialog: boolean;
   openConnectWalletConnectDialog: boolean;
   tabValue: number;
-  showWallet: boolean;
+  showWalletDetails: boolean;
 }
 
 const initialState: AtomState = {
@@ -23,7 +23,7 @@ const initialState: AtomState = {
   openLoginSuccessDialog: false,
   openConnectWalletConnectDialog: false,
   tabValue: 1,
-  showWallet: false,
+  showWalletDetails: false,
 };
 
 export const atomState = atom<AtomState>({

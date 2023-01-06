@@ -193,21 +193,21 @@ export const readTabValue = selector({
 
 const getShowWallet: ReadOnlySelectorOptions<boolean>['get'] = ({ get }) => {
   const state = get(atomState);
-  return state.showWallet;
+  return state.showWalletDetails;
 };
 
 export const writeShowWallet = selector({
-  key: 'wallet.write.showWallet',
+  key: 'wallet.write.showWalletDetails',
   get: getShowWallet,
   set: ({ get, set }, value) => {
     if (value instanceof DefaultValue) return;
     const prevState = get(atomState);
-    const newState = mergeStateChange(prevState, { showWallet: value });
+    const newState = mergeStateChange(prevState, { showWalletDetails: value });
     set(atomState, newState);
   },
 });
 
 export const readShowWallet = selector({
-  key: 'wallet.read.showWallet',
+  key: 'wallet.read.showWalletDetails',
   get: getShowWallet,
 });

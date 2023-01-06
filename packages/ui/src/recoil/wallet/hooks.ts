@@ -18,6 +18,6 @@ export const useWalletRecoil = () => {
     wallet.openLoginSuccessDialog,
     wallet.openConnectWalletConnectDialog,
     wallet.tabValue,
-    wallet.showWallet,
+    wallet.showWalletDetails,
   ]);
 };

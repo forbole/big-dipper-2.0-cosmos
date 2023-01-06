@@ -8,5 +8,5 @@ export interface AtomState {
   openLoginSuccessDialog: boolean;
   openConnectWalletConnectDialog: boolean;
   tabValue: number;
-  showWallet: boolean;
+  showWalletDetails: boolean;
 }
