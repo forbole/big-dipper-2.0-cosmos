@@ -37,3 +37,5 @@ export const THEME_KEY = 'themeSelection';
 export const DATE_KEY = 'dateFormatSelection';
 export const TX_KEY = 'txListFormatSelection';
 export const ADDRESS_KEY = 'userAddress';
+export const PUBKEY_KEY = 'userPubKey';
+export const WALLET_NAME_KEY = 'userWalletName';

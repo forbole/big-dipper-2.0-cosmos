@@ -2,11 +2,15 @@ import { atom } from 'recoil';
 
 export interface AtomState {
   address: string;
+  pubKey: string;
+  walletName: string;
   loggedIn: boolean;
 }
 
 const initialState: AtomState = {
   address: '',
+  pubKey: '',
+  walletName: '',
   loggedIn: false,
 };
 
