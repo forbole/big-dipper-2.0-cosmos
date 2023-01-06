@@ -16,8 +16,8 @@ function execShell(command) {
   console.log(`executing command ${command}`);
   const result = spawnSync(command, { env: process.env }).toString();
   if (result.error) throw result.error;
-  console.log(result.stdout.toString());
-  return result.stdout.toString();
+  console.log('result', result.stdout?.toString() ?? '');
+  return result.stdout?.toString() ?? '';
 }
 
 console.log('running vercel-deploy.js');
