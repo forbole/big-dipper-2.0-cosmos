@@ -5,7 +5,7 @@
  * the title suffix should be in the format of [workspace-name]
  * otherwise, it will build the web project
  */
-const { execSync } = require('child_process');
+const { execSync, exec } = require('child_process');
 
 /**
  * It executes a shell command and returns the result
@@ -66,6 +66,7 @@ if (process.argv[2] === 'turbo-ignore') {
       .join('');
     if (unusedProjects) execShell(`rm -rf ${unusedProjects}`);
     execShell(`yarn cache clean --mirror`);
+    execShell(`yarn config set supportedArchitectures --json '{}'`);
     /* Move the built project to the web folder. */
     if (project !== 'web') {
       execShell(`mv apps/${project} apps/web`);

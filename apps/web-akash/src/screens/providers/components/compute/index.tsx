@@ -41,7 +41,7 @@ const Compute: FC<ComputeProps> = ({ className, compute }) => {
   ];
 
   return (
-    <Box className={cx(className, classes.root)}>
+    <Box className={cx(classes.root, className)}>
       <Typography variant="h2" className={classes.label}>
         {t('compute')}
       </Typography>
