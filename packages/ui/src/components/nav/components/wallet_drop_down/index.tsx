@@ -11,7 +11,7 @@ import CopyIcon from 'shared-utils/assets/icon-copy-text.svg';
 import { useAddress } from '@/screens/validator_details/components/validator_overview/hooks';
 import LogoutIcon from 'shared-utils/assets/icon-logout.svg';
 import { useRecoilValue } from 'recoil';
-import { readUserAddress } from '@/recoil/user';
+import { readUserAddress, readWalletName } from '@/recoil/user';
 import Link from 'next/link';
 import { ACCOUNT_DETAILS } from '@/utils/go_to_page';
 
@@ -24,6 +24,8 @@ const WalletDropDown: React.FC<{
   const classes = useStyles();
   const { handleCopyToClipboard } = useAddress(t);
   const address = useRecoilValue(readUserAddress);
+  const walletName = useRecoilValue(readWalletName);
+
   const { handleLogout, handleLogin } = useWalletDropDown();
 
   return (
@@ -36,7 +38,7 @@ const WalletDropDown: React.FC<{
             <div className={classes.greenDot} />
           </div>
           <div className={classes.walletLabel}>
-            Wallet
+            {walletName}
             <div>
               <Typography variant="caption" className={classes.walletAddress}>
                 {getMiddleEllipsis(address, {
