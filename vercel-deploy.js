@@ -54,9 +54,12 @@ const projectList = projects
 const project = projectList.find((p) => title.endsWith(`[${p}]`)) || 'web';
 
 if (process.argv[2] === 'install') {
-  projectList.filter((p) => p !== project).forEach((p) => execShell(`rm -rf apps/${p}`));
+  const rmCmds = projectList
+    .filter((p) => p !== project)
+    .map((p) => `rm -rf apps/${p} && `)
+    .join('');
   execShell(
-    'rm -rf .yarn/cache .pnp.* && yarn config set nodeLinker node-modules && yarn cache clean --all && yarn --inline-builds'
+    `${rmCmds}rm -rf .yarn/cache .pnp.* && yarn config set nodeLinker node-modules && yarn cache clean --all && yarn`
   );
 } else {
   /* Building the project. */
