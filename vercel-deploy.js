@@ -57,7 +57,7 @@ if (process.argv[2] === 'install') {
     .map((p) => `apps/${p} `)
     .join('');
   execShell(
-    `rm -rf${unusedProjects} .yarn/cache .pnp.* && yarn config set nodeLinker node-modules && yarn`
+    `rm -rf ${unusedProjects}.yarn/cache .pnp.* && yarn config set nodeLinker node-modules && yarn --inline-builds`
   );
 } else {
   /* Building the project. */
