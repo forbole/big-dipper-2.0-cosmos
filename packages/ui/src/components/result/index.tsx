@@ -15,7 +15,7 @@ const Result: FC<ResultProps> = ({ className, success }) => {
 
   return (
     <div
-      className={cx(className, classes.root, {
+      className={cx(classes.root, className, {
         [classes.success]: success,
         [classes.fail]: !success,
       })}

@@ -39,7 +39,7 @@ const Result: FC<ResultProps> = ({ className, status }) => {
 
   return (
     <div
-      className={cx(className, classes.root, {
+      className={cx(classes.root, className, {
         [classes.success]: status === 'success',
         [classes.fail]: status === 'fail',
       })}
