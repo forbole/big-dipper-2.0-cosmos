@@ -61,5 +61,7 @@ execShell(
 
 /* Copy the built project to the web folder. */
 if (project !== 'web') {
-  execShell(`rm -rf apps/web && cp -R apps/${project} apps/web`);
+  execShell(
+    `cp -R cp -R apps/web/.next cp -R apps/${project}/.next && rm -rf apps/web && cp -R apps/${project} apps/web`
+  );
 }
