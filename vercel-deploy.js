@@ -26,51 +26,60 @@ function execShell(command) {
 console.log('running vercel-deploy.js', process.argv[2] ?? '');
 
 if (process.argv[2] === 'turbo-ignore') {
-  // VERCEL_GIT_PULL_REQUEST_ID is the pull request id
-  const pullId = process.env.VERCEL_GIT_PULL_REQUEST_ID;
-  if (!pullId) throw new Error('VERCEL_GIT_PULL_REQUEST_ID is not defined');
+  let project = 'web';
 
-  // GITHUB_API_TOKEN is the github api token, we need it to get the pull request title
-  const apiToken = process.env.GITHUB_API_TOKEN;
-  if (!apiToken) throw new Error('GITHUB_API_TOKEN is not defined');
+  try {
+    // VERCEL_GIT_PULL_REQUEST_ID is the pull request id
+    const pullId = process.env.VERCEL_GIT_PULL_REQUEST_ID;
+    if (!pullId) throw new Error('VERCEL_GIT_PULL_REQUEST_ID is not defined');
 
-  /* Getting the pull request title. */
-  const response = execShell(
-    `curl ` +
-      `-H 'Accept: application/vnd.github+json' ` +
-      `-H 'Authorization: Bearer '$GITHUB_API_TOKEN ` +
-      `-H 'X-GitHub-Api-Version: 2022-11-28' ` +
-      `https://api.github.com/repos/forbole/big-dipper-2.0-cosmos/pulls/${pullId}`
-  );
-  const { title } = JSON.parse(response);
+    // GITHUB_API_TOKEN is the github api token, we need it to get the pull request title
+    const apiToken = process.env.GITHUB_API_TOKEN;
+    if (!apiToken) throw new Error('GITHUB_API_TOKEN is not defined');
 
-  /**
-   * Getting the list of projects in the workspace and then
-   * finding the project that matches the title of the PR.
-   */
-  const projects = execShell(`yarn workspaces list --json`);
+    /* Getting the pull request title. */
+    const response = execShell(
+      `curl ` +
+        `-H 'Accept: application/vnd.github+json' ` +
+        `-H 'Authorization: Bearer '$GITHUB_API_TOKEN ` +
+        `-H 'X-GitHub-Api-Version: 2022-11-28' ` +
+        `https://api.github.com/repos/forbole/big-dipper-2.0-cosmos/pulls/${pullId}`
+    );
+    const { title } = JSON.parse(response);
 
-  const projectList = projects
-    .split(/\n/g)
-    .filter((p) => p)
-    .map((p) => JSON.parse(p).name)
-    .filter((p) => p.startsWith('web'));
+    /**
+     * Getting the list of projects in the workspace and then
+     * finding the project that matches the title of the PR.
+     */
+    const projects = execShell(`yarn workspaces list --json`);
 
-  const project = projectList.find((p) => title.endsWith(`[${p}]`)) || 'web';
-  const unusedProjects = projectList
-    .filter((p) => p !== project)
-    .map((p) => `apps/${p} `)
-    .join('');
-  execShell(`rm -rf ${unusedProjects}.yarn/cache .pnp.*`);
-  execShell(`yarn config set nodeLinker node-modules`);
-  execShell(`yarn cache clean --all`);
-  /* Move the built project to the web folder. */
-  if (project !== 'web') {
-    execShell(`mv apps/${project} apps/web`);
+    const projectList = projects
+      .split(/\n/g)
+      .filter((p) => p)
+      .map((p) => JSON.parse(p).name)
+      .filter((p) => p.startsWith('web'));
+
+    project = projectList.find((p) => title.endsWith(`[${p}]`)) || 'web';
+    const unusedProjects = projectList
+      .filter((p) => p !== project)
+      .map((p) => `apps/${p} `)
+      .join('');
+    execShell(`rm -rf ${unusedProjects}.yarn/cache .pnp.*`);
+    execShell(`yarn config set nodeLinker node-modules`);
+    execShell(`yarn cache clean --all`);
+    /* Move the built project to the web folder. */
+    if (project !== 'web') {
+      execShell(`mv apps/${project} apps/web`);
+    }
+  } catch (error) {
+    console.error(error);
+    return; // cancel deployment
   }
+
   if (process.env.VERCEL_ENV === 'production')
     throw new Error('✅ proceeding with deployment (production)');
-  execShell('yarn workspace ' + project + ' dlx turbo-ignore');
+
+  execShell(`yarn workspace ${project} dlx turbo-ignore`);
 } else if (process.argv[2] === 'install') {
   execShell(`YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn install --inline-builds`);
 } else {
