@@ -9,5 +9,9 @@
   ],
   "publishConfig": {
     "access": "public"
+  },
+  "devDependencies": {
+    "@types/esprima": "^4",
+    "esprima": "^4.0.1"
   }
 }
