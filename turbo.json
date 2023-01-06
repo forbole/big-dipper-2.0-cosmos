@@ -28,7 +28,6 @@
     },
     "check-types": {},
     "lint": {
-      "dependsOn": ["^check-types"],
       "outputs": []
     },
     "test": {
