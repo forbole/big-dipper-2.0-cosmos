@@ -58,7 +58,7 @@ if (process.argv[2] === 'install') {
     .join('');
   execShell(`rm -rf ${unusedProjects}.yarn/cache .pnp.*`);
   execShell(`yarn config set nodeLinker node-modules`);
-  execShell(`yarn --inline-builds`);
+  execShell(`yarn`);
 } else {
   /* Building the project. */
   execShell(`mkdir -p apps/web`);
