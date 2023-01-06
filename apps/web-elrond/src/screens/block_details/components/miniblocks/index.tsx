@@ -11,7 +11,7 @@ const MiniBlocks: FC<{ className?: string; miniBlocks: MiniBlockType[] }> = (pro
   const { t } = useTranslation('blocks');
   const { classes, cx } = useStyles();
   return (
-    <Box className={cx(props.className, classes.root)}>
+    <Box className={cx(classes.root, props.className)}>
       <Typography className={classes.title} variant="h2">
         {t('miniBlocks')}
       </Typography>

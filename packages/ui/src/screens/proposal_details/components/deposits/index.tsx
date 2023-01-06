@@ -27,7 +27,7 @@ const Deposits: FC<ComponentDefault> = (props) => {
   const items = useMemo(() => sliceItems(dataMemo), [dataMemo, sliceItems]);
 
   return (
-    <Box className={cx(props.className, classes.root)}>
+    <Box className={cx(classes.root, props.className)}>
       <Typography className={classes.title} variant="h2">
         {t('deposits')}
       </Typography>

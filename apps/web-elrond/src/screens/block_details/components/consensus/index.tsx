@@ -20,7 +20,7 @@ const Consensus: FC<{ className?: string; consensus: ConsensusType[] }> = (props
   const { t } = useTranslation('blocks');
   const { classes, cx } = useStyles();
   return (
-    <Box className={cx(props.className, classes.root)}>
+    <Box className={cx(classes.root, props.className)}>
       <Typography variant="h2">{t('consensus')}</Typography>
       {!props.consensus.length ? (
         <NoData />

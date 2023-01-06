@@ -21,7 +21,7 @@ const Transactions: FC<ComponentDefault> = (props) => {
   const itemCount = state.hasNextPage ? state.data.length + 1 : state.data.length;
 
   return (
-    <Box className={cx(props.className, classes.root)}>
+    <Box className={cx(classes.root, props.className)}>
       <Typography variant="h2">{t('transactions')}</Typography>
       <div className={classes.list}>
         {txListFormat === 'compact' ? (

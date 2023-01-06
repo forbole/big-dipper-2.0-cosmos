@@ -58,7 +58,7 @@ const Balance: FC<BalanceProps> = (props) => {
   const totalDisplay = formatNumber(props.total.value, props.total.exponent);
 
   return (
-    <Box className={cx(props.className, classes.root)}>
+    <Box className={cx(classes.root, props.className)}>
       <Typography variant="h2">{t('balance')}</Typography>
       <div className={classes.chartWrapper}>
         <div className={classes.chart}>

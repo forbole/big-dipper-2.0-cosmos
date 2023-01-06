@@ -28,7 +28,7 @@ const Desktop: FC<{ className?: string; items: OtherTokenType[] }> = (props) => 
   }));
 
   return (
-    <div className={cx(props.className, classes.root)}>
+    <div className={cx(classes.root, props.className)}>
       <Table>
         <TableHead>
           <TableRow>

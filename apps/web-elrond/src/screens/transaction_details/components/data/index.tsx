@@ -12,7 +12,7 @@ const Data: FC<{ className?: string; data: DataType }> = (props) => {
   const { classes, cx } = useStyles();
   const data = decodeBase64(props.data);
   return (
-    <Box className={cx(props.className, classes.root)}>
+    <Box className={cx(classes.root, props.className)}>
       <Typography className={classes.title} variant="h2">
         {t('data')}
       </Typography>

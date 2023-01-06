@@ -35,7 +35,7 @@ const Desktop: FC<{ className?: string; items: TokenType[] }> = (props) => {
     accounts: numeral(x.accounts).format('0,0'),
   }));
   return (
-    <div className={cx(props.className, classes.root)}>
+    <div className={cx(classes.root, props.className)}>
       <Table>
         <TableHead>
           <TableRow>

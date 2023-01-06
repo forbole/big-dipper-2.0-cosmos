@@ -29,7 +29,7 @@ const Tokens: FC<ComponentDefault> = (props) => {
   }
 
   return (
-    <Box className={cx(props.className, classes.root)}>
+    <Box className={cx(classes.root, props.className)}>
       <Typography variant="h2">{t('tokens')}</Typography>
       {component}
       <Pagination

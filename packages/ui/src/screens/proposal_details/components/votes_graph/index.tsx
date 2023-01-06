@@ -37,7 +37,7 @@ const VotesGraph: FC<ComponentDefault> = (props) => {
       : '0%';
 
   return (
-    <Box className={cx(props.className, classes.root)}>
+    <Box className={cx(classes.root, props.className)}>
       <div className={classes.pie}>
         <PieChart width={250} height={250}>
           <Pie

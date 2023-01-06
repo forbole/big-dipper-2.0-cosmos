@@ -30,7 +30,7 @@ const Desktop: FC<{ className?: string; items: NFTTypes[] }> = (props) => {
     creator: <AvatarName name={x.creator} address={x.creator} />,
   }));
   return (
-    <div className={cx(props.className, classes.root)}>
+    <div className={cx(classes.root, props.className)}>
       <Table>
         <TableHead>
           <TableRow>

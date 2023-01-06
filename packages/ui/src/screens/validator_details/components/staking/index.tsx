@@ -76,7 +76,7 @@ const Staking: FC<ComponentDefault> = (props) => {
   ];
 
   return (
-    <Box className={cx(props.className, classes.root)}>
+    <Box className={cx(classes.root, props.className)}>
       <Tabs tab={state.tab} handleTabChange={handleTabChange} tabs={tabs} />
       {tabs.map((x) => (
         <TabPanel key={x.id} index={x.id} value={state.tab}>

@@ -9,7 +9,7 @@ const SingleBlockMobile: FC<SingleBlockMobileType & ComponentDefault> = (props) 
   const { classes, cx } = useStyles();
 
   return (
-    <div className={cx(props.className, classes.root)}>
+    <div className={cx(classes.root, props.className)}>
       <div className={classes.flex}>
         <div className={classes.item}>
           <Typography variant="h4" className="label">

@@ -40,7 +40,7 @@ const Nodes: FC<ComponentDefault> = (props) => {
   }
 
   return (
-    <Box className={cx(props.className, classes.root)}>
+    <Box className={cx(classes.root, props.className)}>
       <Typography variant="h2">{t('nodes')}</Typography>
       {component}
       <Pagination

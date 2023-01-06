@@ -22,7 +22,7 @@ const DesmosProfile: FC<DesmosProfileProps> = (props) => {
 
   return (
     <>
-      <Box className={cx(props.className, classes.root)}>
+      <Box className={cx(classes.root, props.className)}>
         <div className={classes.cover}>
           <div className="cover" />
         </div>

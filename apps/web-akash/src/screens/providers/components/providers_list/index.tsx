@@ -39,7 +39,7 @@ const ProvidersList: FC<ProvidersListProps> = (props) => {
   }
 
   return (
-    <Box className={cx(props.className, classes.root)}>
+    <Box className={cx(classes.root, props.className)}>
       <div className={classes.providerHeader}>
         <Typography variant="h2">{t('providersList')}</Typography>
         <Search

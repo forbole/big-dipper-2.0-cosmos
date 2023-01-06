@@ -153,7 +153,7 @@ const Desktop: FC<DesktopProps> = (props) => {
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
 
   return (
-    <div className={cx(props.className, classes.root)}>
+    <div className={cx(classes.root, props.className)}>
       <AutoSizer onResize={onResize}>
         {({ height, width }) => (
           <>

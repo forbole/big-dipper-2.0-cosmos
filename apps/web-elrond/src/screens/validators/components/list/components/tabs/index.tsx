@@ -20,7 +20,7 @@ const TabsHeader: FC<TabsHeaderProps> = (props) => {
   const { t } = useTranslation('validators');
 
   return (
-    <div className={cx(props.className, classes.root)}>
+    <div className={cx(classes.root, props.className)}>
       <Tabs
         variant="scrollable"
         scrollButtons={false}

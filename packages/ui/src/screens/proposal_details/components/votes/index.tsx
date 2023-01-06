@@ -49,7 +49,7 @@ const Votes: FC<ComponentDefault> = (props) => {
   }
 
   return (
-    <Box className={cx(props.className, classes.root)}>
+    <Box className={cx(classes.root, props.className)}>
       <Tabs
         data={{
           yes: state.voteCount.yes,
