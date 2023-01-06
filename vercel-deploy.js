@@ -5,7 +5,7 @@
  * the title suffix should be in the format of [workspace-name]
  * otherwise, it will build the web project
  */
-const { spawnSync } = require('child_process');
+const { execSync } = require('child_process');
 
 /**
  * It executes a shell command and returns the result
@@ -14,14 +14,13 @@ const { spawnSync } = require('child_process');
  */
 function execShell(command) {
   console.log(`executing command ${command}`);
-  const result = spawnSync(command, [], {
+  const result = execSync(command, {
     cwd: process.cwd(),
     encoding: 'utf-8',
     env: process.env,
-  }).toString();
-  if (result.error) throw result.error;
-  console.log('result', result, JSON.stringify(result));
-  return String(result.stdout);
+  });
+  console.log('result', result);
+  return result;
 }
 
 console.log('running vercel-deploy.js');
