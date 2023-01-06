@@ -17,8 +17,6 @@ export const useUserRecoil = () => {
         address: userAddress ?? '',
         loggedIn: !!userAddress,
       };
-      console.log(initSettings);
-      console.log(localStorage);
       setUser(initSettings);
     }
   }, [setUser, user.address, user.loggedIn]);
