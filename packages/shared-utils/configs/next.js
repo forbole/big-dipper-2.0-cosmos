@@ -10,6 +10,7 @@ const { basename, resolve } = require('path');
  */
 function getBaseConfig(basePath, chainName) {
   const config = {
+    distDir: process.env.DIST_DIR,
     output: process.env.BUILD_STANDALONE ? 'standalone' : undefined,
     swcMinify: true,
     reactStrictMode: true,

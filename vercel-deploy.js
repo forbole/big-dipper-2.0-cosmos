@@ -6,6 +6,7 @@
  * otherwise, it will build the web project
  */
 const { execSync } = require('child_process');
+const { join } = require('path');
 
 console.log('running vercel-deploy.js');
 
@@ -23,7 +24,7 @@ if (!apiToken) throw new Error('GITHUB_API_TOKEN is not defined');
  * @returns The result of the command being executed.
  */
 function execShell(command) {
-  console.log(`executing command`);
+  console.log(`executing command ${command}`);
   const result = execSync(command, { env: process.env }).toString();
   console.log('result', result);
   return result;
@@ -53,10 +54,7 @@ const projectList = projects
 
 const project = projectList.find((p) => title.endsWith(`[${p}]`)) || 'web';
 
-/* Move the built project to the web folder. */
-if (project !== 'web') {
-  execShell(`rm -rf apps/web && mv apps/${project} apps/web`);
-}
-
 /* Building the project. */
-execShell(`yarn workspace ${project} next build`);
+execShell(
+  `BASE_PATH=/ DIST_PATH=${join(__dirname, 'apps/web')} yarn workspace ${project} next build`
+);
