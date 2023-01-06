@@ -29,46 +29,52 @@ if (!pullId) throw new Error('VERCEL_GIT_PULL_REQUEST_ID is not defined');
 const apiToken = process.env.GITHUB_API_TOKEN;
 if (!apiToken) throw new Error('GITHUB_API_TOKEN is not defined');
 
-/* Getting the pull request title. */
-const response = execShell(
-  `curl ` +
-    `-H 'Accept: application/vnd.github+json' ` +
-    `-H 'Authorization: Bearer '$GITHUB_API_TOKEN ` +
-    `-H 'X-GitHub-Api-Version: 2022-11-28' ` +
-    `https://api.github.com/repos/forbole/big-dipper-2.0-cosmos/pulls/${pullId}`
-);
-const { title } = JSON.parse(response);
+try {
+  /* Getting the pull request title. */
+  const response = execShell(
+    `curl ` +
+      `-H 'Accept: application/vnd.github+json' ` +
+      `-H 'Authorization: Bearer '$GITHUB_API_TOKEN ` +
+      `-H 'X-GitHub-Api-Version: 2022-11-28' ` +
+      `https://api.github.com/repos/forbole/big-dipper-2.0-cosmos/pulls/${pullId}`
+  );
+  const { title } = JSON.parse(response);
 
-/**
- * Getting the list of projects in the workspace and then
- * finding the project that matches the title of the PR.
- */
-const projects = execShell(`yarn workspaces list --json`);
+  /**
+   * Getting the list of projects in the workspace and then
+   * finding the project that matches the title of the PR.
+   */
+  const projects = execShell(`yarn workspaces list --json`);
 
-const projectList = projects
-  .split(/\n/g)
-  .filter((p) => p)
-  .map((p) => JSON.parse(p).name)
-  .filter((p) => p.startsWith('web'));
+  const projectList = projects
+    .split(/\n/g)
+    .filter((p) => p)
+    .map((p) => JSON.parse(p).name)
+    .filter((p) => p.startsWith('web'));
 
-const project = projectList.find((p) => title.endsWith(`[${p}]`)) || 'web';
+  const project = projectList.find((p) => title.endsWith(`[${p}]`)) || 'web';
 
-if (process.argv[2] === 'install') {
-  const unusedProjects = projectList
-    .filter((p) => p !== project)
-    .map((p) => `apps/${p} `)
-    .join('');
-  execShell(`rm -rf ${unusedProjects}.yarn/cache .pnp.*`);
-  execShell(`yarn config set nodeLinker node-modules`);
-  execShell(`yarn --inline-builds`);
-} else {
-  /* Building the project. */
-  execShell(`mkdir -p apps/web`);
-  execShell(`BASE_PATH=/ yarn workspace ${project} next build`);
+  if (process.argv[2] === 'install') {
+    const unusedProjects = projectList
+      .filter((p) => p !== project)
+      .map((p) => `apps/${p} `)
+      .join('');
+    execShell(`rm -rf ${unusedProjects}.yarn/cache .pnp.*`);
+    execShell(`yarn config set nodeLinker node-modules`);
+    execShell(`yarn --inline-builds`);
+  } else {
+    /* Building the project. */
+    execShell(`mkdir -p apps/web`);
+    execShell(`BASE_PATH=/ yarn workspace ${project} next build`);
 
-  /* Copy the built project to the web folder. */
-  if (project !== 'web') {
-    execShell(`rm -rf apps/web`);
-    execShell(`cp -R apps/${project} apps/web`);
+    /* Copy the built project to the web folder. */
+    if (project !== 'web') {
+      execShell(`rm -rf apps/web`);
+      execShell(`cp -R apps/${project} apps/web`);
+    }
   }
+} catch (error) {
+  const errText = error.stderr?.toString();
+  if (errText) throw new Error(errText);
+  throw error;
 }
