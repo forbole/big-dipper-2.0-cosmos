@@ -3,7 +3,7 @@ import { useStyles } from '@/components/nav/components/wallet_drop_down/styles';
 import classnames from 'classnames';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
-import { useConnectWalletList } from '@/components/nav/components/connect_wallet/hooks';
+import useWalletDropDown from '@/components/nav/components/connect_wallet/hooks';
 import useTranslation from 'next-translate/useTranslation';
 import Avatar from '@/components/avatar';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
@@ -24,7 +24,7 @@ const WalletDropDown: React.FC<{
   const classes = useStyles();
   const { handleCopyToClipboard } = useAddress(t);
   const address = useRecoilValue(readUserAddress);
-  const { handleCancel, handleLogout } = useConnectWalletList();
+  const { handleLogout, handleLogin } = useWalletDropDown();
 
   return (
     <Box className={classnames(className, classes.root)}>
@@ -53,7 +53,6 @@ const WalletDropDown: React.FC<{
         </div>
         <Divider className={classes.divider} />
         <div
-          onClick={handleCancel}
           role="button"
           className={classes.accountDetailsButton}
           tabIndex={0}
@@ -68,7 +67,7 @@ const WalletDropDown: React.FC<{
         </div>
       </div>
       <div
-        onClick={handleCancel}
+        onClick={handleLogin}
         role="button"
         className={classes.changeWalletButton}
         tabIndex={0}
@@ -79,14 +78,14 @@ const WalletDropDown: React.FC<{
       <Divider className={classes.bottomDivider} />
       <div className={classes.signOut}>
         <div
-          onClick={handleCancel}
+          onClick={handleLogout}
           role="button"
           className={classes.signOutButton}
           tabIndex={0}
           aria-label="sign-out-button"
         >
           <div className={classes.signOutLabel}>
-            <LogoutIcon onClick={() => handleLogout} className={classes.signOutIcon} />
+            <LogoutIcon className={classes.signOutIcon} />
             <div className={classes.signOutText}>{t('signOut')}</div>
           </div>
         </div>
