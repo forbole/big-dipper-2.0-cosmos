@@ -64,20 +64,12 @@ if (process.argv[2] === 'install') {
     .join('');
   execShell(`rm -rf ${unusedProjects}.yarn/cache .pnp.*`);
   execShell(`yarn config set nodeLinker node-modules`);
-  execShell(
-    `YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn workspace ${project} install --inline-builds`
-  );
-
-  /* Building the project. */
-  execShell(`BASE_PATH=/ yarn workspace ${project} next build`);
+  /* Move the built project to the web folder. */
+  if (project !== 'web') {
+    execShell(`mv apps/${project} apps/web`);
+  }
+  execShell(`YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn install --inline-builds`);
 } else {
   /* Building the project. */
-  execShell(`mkdir -p apps/web`);
   execShell(`BASE_PATH=/ yarn workspace ${project} next build`);
-
-  /* Copy the built project to the web folder. */
-  if (project !== 'web') {
-    execShell(`rm -rf apps/web`);
-    execShell(`cp -R apps/${project} apps/web`);
-  }
 }
