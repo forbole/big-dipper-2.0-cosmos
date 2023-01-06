@@ -66,6 +66,9 @@ if (process.argv[2] === 'install') {
   execShell(
     `YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn workspace ${project} install --inline-builds`
   );
+
+  /* Building the project. */
+  execShell(`BASE_PATH=/ yarn workspace ${project} next build`);
 } else {
   /* Building the project. */
   execShell(`mkdir -p apps/web`);
