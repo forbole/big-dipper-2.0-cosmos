@@ -1,24 +1,29 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-/* eslint-disable no-console */
-/* eslint-disable turbo/no-undeclared-env-vars */
-// eslint-disable-next-line @typescript-eslint/no-var-requires
+/* eslint-disable @typescript-eslint/no-var-requires, no-console, turbo/no-undeclared-env-vars */
 const { execSync } = require('child_process');
+
+console.log('running vercel-deploy.js');
 require('dotenv').config();
 
-const apiToken = process.env.GITHUB_API_TOKEN;
 const pullId = process.env.VERCEL_GIT_PULL_REQUEST_ID;
+const apiToken = process.env.GITHUB_API_TOKEN;
+
+if (!pullId) throw new Error('VERCEL_GIT_PULL_REQUEST_ID is not defined');
+if (!apiToken) throw new Error('GITHUB_API_TOKEN is not defined');
 
 function execShell(command) {
-  return execSync(command, {
-    shell: '/bin/bash',
-  }).toString();
+  console.log(`executing command`);
+  const result = execSync(command, { env: process.env }).toString();
+  console.log('result', result);
+  return result;
 }
 
-const response = execShell(`curl \
--H 'Accept: application/vnd.github+json' \
--H 'Authorization: Bearer ${apiToken}' \
--H 'X-GitHub-Api-Version: 2022-11-28' \
-https://api.github.com/repos/forbole/big-dipper-2.0-cosmos/pulls/${pullId}`);
+const response = execShell(
+  `curl ` +
+    `-H 'Accept: application/vnd.github+json' ` +
+    `-H 'Authorization: Bearer $GITHUB_API_TOKEN' ` +
+    `-H 'X-GitHub-Api-Version: 2022-11-28' ` +
+    `https://api.github.com/repos/forbole/big-dipper-2.0-cosmos/pulls/${pullId}`
+);
 
 const { title } = JSON.parse(response);
 
@@ -34,4 +39,6 @@ const project = projectList.find((p) => title.endsWith(`[${p}]`)) || 'web';
 
 execShell(`yarn workspace ${project} next build`);
 
-if (project !== 'web') execShell(`rm -rf apps/web, mv apps/${project} apps/web`);
+if (project !== 'web') {
+  execShell(`rm -rf apps/web, mv apps/${project} apps/web`);
+}
