@@ -1,5 +1,11 @@
 # ui
 
+## 2.9.0
+
+### Minor Changes
+
+- 8ea919c8: auto deployment based on PR title keyword
+
 ## 2.8.0
 
 ### Minor Changes
