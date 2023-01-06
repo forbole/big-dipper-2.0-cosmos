@@ -11,12 +11,19 @@ import Document, {
 } from 'next/document';
 import { FC } from 'react';
 
-const DocumentPage: FC = () => (
+export interface DocumentComponentProps {
+  emotionStyleTags: JSX.Element[];
+}
+
+const DocumentComponent: FC<DocumentComponentProps> = ({ emotionStyleTags }) => (
   <Html lang="en">
     <Head>
+      <meta name="theme-color" content="#ffffff" />
       <meta name="emotion-insertion-point" content="" />
+      {emotionStyleTags}
     </Head>
     <body>
+      <pre>{emotionStyleTags}</pre>
       <Main />
       <NextScript />
     </body>
@@ -27,7 +34,7 @@ const DocumentPage: FC = () => (
 // it's compatible with static-site generation (SSG).
 export const getInitialProps = async (
   ctx: DocumentContext
-): Promise<DocumentInitialProps & { emotionStyleTags: JSX.Element[] }> => {
+): Promise<DocumentInitialProps & DocumentComponentProps> => {
   // Resolution order
   //
   // On the server:
@@ -84,4 +91,4 @@ export const getInitialProps = async (
   };
 };
 
-export default DocumentPage;
+export default DocumentComponent;

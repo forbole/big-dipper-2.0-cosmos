@@ -1,6 +1,6 @@
 import chainConfig from '@/chainConfig';
 import { useWindowOrigin } from '@/hooks';
-import Main from '@/screens/app/components/main';
+import Main, { MainProps } from '@/screens/app/components/main';
 import { useApp } from '@/screens/app/hooks';
 import {
   ADDITIONAL_LINK_TAGS_SEO,
@@ -11,12 +11,11 @@ import {
 import { NormalizedCacheObject } from '@apollo/client';
 import { DefaultSeo } from 'next-seo';
 import useTranslation from 'next-translate/useTranslation';
-import { AppProps } from 'next/app';
 import { RecoilRoot } from 'recoil';
 
 const { title } = chainConfig();
 
-function App(props: AppProps<{ initialApolloState?: NormalizedCacheObject }>) {
+function App(props: MainProps<{ initialApolloState?: NormalizedCacheObject }>) {
   useApp();
   const { t } = useTranslation();
   const { location } = useWindowOrigin();

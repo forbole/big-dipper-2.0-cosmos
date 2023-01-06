@@ -7,6 +7,8 @@ import InnerApp from '@/screens/app/components/inner_app';
 import { useGenesis, useTheme } from '@/screens/app/components/main/hooks';
 import Countdown from '@/screens/countdown';
 import InitialLoad from '@/screens/initial_load';
+import createEmotionCache from '@/styles/createEmotionCache';
+import { CacheProvider, EmotionCache } from '@emotion/react';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
 import { AppProps } from 'next/app';
@@ -14,7 +16,16 @@ import Head from 'next/head';
 import { useEffect } from 'react';
 import { ToastContainer } from 'react-toastify';
 
-const Main = (props: AppProps) => {
+// Client-side cache, shared for the whole session of the user in the browser.
+const clientSideEmotionCache = createEmotionCache();
+
+export interface MainProps<T = object> extends AppProps<T> {
+  emotionCache?: EmotionCache;
+}
+
+const Main = (props: MainProps) => {
+  const { emotionCache = clientSideEmotionCache } = props;
+
   // =====================================
   // init recoil values
   // =====================================
@@ -46,28 +57,33 @@ const Main = (props: AppProps) => {
   useEffect(() => {
     if (typeof document !== 'undefined' && document?.documentElement) {
       document.documentElement.classList.toggle('mode-dark', muiTheme.palette.mode === 'dark');
+      document
+        .querySelector('meta[name="theme-color"]')
+        ?.setAttribute('content', muiTheme.palette.primary.main);
     }
   }, [muiTheme]);
 
   return (
-    <ThemeProvider theme={muiTheme}>
+    <CacheProvider value={emotionCache}>
       <Head>
-        <meta name="theme-color" content={muiTheme.palette.primary.main} />
+        <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
       </Head>
-      <CssBaseline />
-      <ToastContainer
-        position="top-center"
-        autoClose={5000}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        hideProgressBar
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
-      {Component}
-    </ThemeProvider>
+      <ThemeProvider theme={muiTheme}>
+        <CssBaseline />
+        <ToastContainer
+          position="top-center"
+          autoClose={5000}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          hideProgressBar
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
+        {Component}
+      </ThemeProvider>
+    </CacheProvider>
   );
 };
 
