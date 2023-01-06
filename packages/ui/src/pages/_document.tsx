@@ -3,23 +3,19 @@ import createEmotionServer from '@emotion/server/create-instance';
 import { AppType } from 'next/app';
 import Document, { Head, Html, Main, NextScript } from 'next/document';
 
-class MyDocument extends Document {
-  render() {
-    return (
-      <Html lang="en">
-        <Head />
-        <body>
-          <Main />
-          <NextScript />
-        </body>
-      </Html>
-    );
-  }
-}
+const DocumentPage: FC = () => (
+  <Html lang="en">
+    <Head />
+    <body>
+      <Main />
+      <NextScript />
+    </body>
+  </Html>
+);
 
 // `getInitialProps` belongs to `_document` (instead of `_app`),
 // it's compatible with static-site generation (SSG).
-MyDocument.getInitialProps = async (ctx) => {
+export const getInitialProps = async (ctx: DocumentContext): Promise<DocumentInitialProps> => {
   // Resolution order
   //
   // On the server:
@@ -76,4 +72,4 @@ MyDocument.getInitialProps = async (ctx) => {
   };
 };
 
-export default MyDocument;
+export default DocumentPage;

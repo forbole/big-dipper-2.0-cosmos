@@ -1,6 +1,5 @@
 import Document from 'next/document';
-import DocumentPage from 'ui/pages/_document';
-import { augmentDocumentWithEmotionCache } from './_app';
+import DocumentPage, { getInitialProps } from 'ui/pages/_document';
 
 class MyDocument extends Document {
   render() {
@@ -8,6 +7,6 @@ class MyDocument extends Document {
   }
 }
 
-augmentDocumentWithEmotionCache(MyDocument);
+MyDocument.getInitialProps = getInitialProps;
 
 export default MyDocument;
