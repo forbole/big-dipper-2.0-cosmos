@@ -54,9 +54,7 @@
     "SENTRY_PROJECT",
     "SENTRY_ORG",
     "SENTRY_URL",
-    "VERCEL",
-    "GITHUB_API_TOKEN",
-    "VERCEL_GIT_PULL_REQUEST_ID"
+    "VERCEL"
   ],
   "globalDependencies": [".env", ".eslintrc.js", ".gitignore", ".yarnrc.yml", "shared-utils/**/*"]
 }
