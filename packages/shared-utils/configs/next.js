@@ -32,7 +32,7 @@ function getBaseConfig(basePath, chainName) {
     experimental: process.env.BUILD_STANDALONE
       ? {
           // this includes files from the monorepo base two directories up
-          outputFileTracingRoot: resolve('../../'),
+          outputFileTracingRoot: resolve(__dirname, '../../'),
         }
       : undefined,
   };
