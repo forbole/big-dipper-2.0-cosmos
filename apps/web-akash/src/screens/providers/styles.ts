@@ -69,7 +69,7 @@ const useStyles = makeStyles()((theme) => ({
     },
   },
   providersList: {
-    background: '#31326f',
+    // background: '#31326f',
     [theme.breakpoints.up('md')]: {
       gridColumn: '1 / 5',
     },
