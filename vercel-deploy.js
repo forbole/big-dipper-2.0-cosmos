@@ -70,7 +70,7 @@ if (process.argv[2] === 'turbo-ignore') {
   }
   if (process.env.VERCEL_ENV === 'production')
     throw new Error('✅ proceeding with deployment (production)');
-  execShell('yarn workspace ' + project + ' turbo-ignore');
+  execShell('yarn workspace ' + project + ' dlx turbo-ignore');
 } else if (process.argv[2] === 'install') {
   execShell(`YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn install --inline-builds`);
 } else {
