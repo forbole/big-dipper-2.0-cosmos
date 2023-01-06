@@ -14,7 +14,7 @@ const { spawnSync } = require('child_process');
  */
 function execShell(command) {
   console.log(`executing command ${command}`);
-  const result = spawnSync(command, { env: process.env }).toString();
+  const result = spawnSync(command, [], { env: process.env, encoding: 'utf-8' }).toString();
   if (result.error) throw result.error;
   console.log('result', result.stdout?.toString() ?? '');
   return result.stdout?.toString() ?? '';
