@@ -59,7 +59,7 @@ execShell(
   `BASE_PATH=/ DIST_DIR=${join(__dirname, 'apps/web/.next')} yarn workspace ${project} next build`
 );
 
-/* Move the built project to the web folder. */
+/* Copy the built project to the web folder. */
 if (project !== 'web') {
-  execShell(`rm -rf apps/web && mv apps/${project} apps/web`);
+  execShell(`rm -rf apps/web && cp -R apps/${project} apps/web`);
 }
