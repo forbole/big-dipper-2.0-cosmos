@@ -14,7 +14,9 @@ const { execSync } = require('child_process');
  */
 function execShell(command) {
   console.log(`executing command ${command}`);
-  return execSync(command, { env: process.env }).toString();
+  const result = execSync(command, { env: process.env }).toString();
+  console.log(result.toString());
+  return result;
 }
 
 console.log('running vercel-deploy.js');
@@ -58,7 +60,7 @@ if (process.argv[2] === 'install') {
     .join('');
   execShell(`rm -rf ${unusedProjects}.yarn/cache .pnp.*`);
   execShell(`yarn config set nodeLinker node-modules`);
-  execShell(`yarn`);
+  execShell(`yarn --inline-builds`);
 } else {
   /* Building the project. */
   execShell(`mkdir -p apps/web`);
