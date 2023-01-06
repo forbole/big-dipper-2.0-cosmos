@@ -1,9 +1,14 @@
 import { SigningCosmosClient } from '@cosmjs/launchpad';
-import { writeUserAddress, writeIsUserLoggedIn } from '@/recoil/user';
+import {
+  writeUserAddress,
+  writeIsUserLoggedIn,
+  writeUserPubKey,
+  writeWalletName,
+} from '@/recoil/user';
 import { SetterOrUpdater, useRecoilState } from 'recoil';
 import * as R from 'ramda';
 import { useCallback, useState } from 'react';
-import { ADDRESS_KEY } from '@/utils/localstorage';
+import { ADDRESS_KEY, PUBKEY_KEY, WALLET_NAME_KEY } from '@/utils/localstorage';
 import {
   writeOpenLoginDialog,
   writeWalletSelection,
@@ -19,6 +24,8 @@ import {
 
 type UserState = {
   address: string;
+  pubKey: string;
+  walletName: string;
   loggedIn: boolean;
 };
 
@@ -46,6 +53,14 @@ const useConnectWalletList = () => {
   const [userIsLoggedIn, setUserIsLoggedIn] = useRecoilState(writeIsUserLoggedIn) as [
     boolean,
     SetterOrUpdater<boolean>
+  ];
+  const [userPubKey, seUserPubKey] = useRecoilState(writeUserPubKey) as [
+    string,
+    SetterOrUpdater<string>
+  ];
+  const [walletName, setWalletName] = useRecoilState(writeWalletName) as [
+    string,
+    SetterOrUpdater<string>
   ];
 
   // WalletState
@@ -87,6 +102,8 @@ const useConnectWalletList = () => {
   // UserState
   const [userState, setUserState] = useState({
     address: userAddress,
+    pubKey: userPubKey,
+    walletName,
     loggedIn: userIsLoggedIn,
   });
 
@@ -101,6 +118,8 @@ const useConnectWalletList = () => {
     handleSetUserState((prevState) => ({
       ...prevState,
       address: userAddress,
+      pubKey: userPubKey,
+      walletName,
       loggedIn: userIsLoggedIn,
     }));
   };
@@ -277,7 +296,11 @@ const useConnectWalletList = () => {
     );
 
     if (cosmJS) {
+      const key = await window.keplr.getKey('cosmoshub-4');
       localStorage.setItem(ADDRESS_KEY, accounts[0].address);
+      localStorage.setItem(PUBKEY_KEY, accounts[0].pubkey.toString());
+      localStorage.setItem(WALLET_NAME_KEY, key.name);
+
       // close the dialog after 3 seconds
       setTimeout(() => {
         setOpenAuthorizeConnectionDialog(false);
@@ -291,6 +314,8 @@ const useConnectWalletList = () => {
       }, 3000);
 
       setUserAddress(accounts[0].address);
+      seUserPubKey(accounts[0].pubkey.toString());
+      setWalletName(key.name);
       setUserIsLoggedIn(true);
     }
   };
