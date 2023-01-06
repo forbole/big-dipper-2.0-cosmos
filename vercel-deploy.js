@@ -56,15 +56,17 @@ if (process.argv[2] === 'install') {
     .filter((p) => p !== project)
     .map((p) => `apps/${p} `)
     .join('');
-  execShell(
-    `rm -rf ${unusedProjects}.yarn/cache .pnp.* && yarn config set nodeLinker node-modules && yarn --inline-builds`
-  );
+  execShell(`rm -rf ${unusedProjects}.yarn/cache .pnp.*`);
+  execShell(`yarn config set nodeLinker node-modules`);
+  execShell(`yarn --inline-builds`);
 } else {
   /* Building the project. */
-  execShell(`mkdir -p apps/web && BASE_PATH=/ yarn workspace ${project} next build`);
+  execShell(`mkdir -p apps/web`);
+  execShell(`BASE_PATH=/ yarn workspace ${project} next build`);
 
   /* Copy the built project to the web folder. */
   if (project !== 'web') {
-    execShell(`rm -rf apps/web && cp -R apps/${project} apps/web`);
+    execShell(`rm -rf apps/web`);
+    execShell(`cp -R apps/${project} apps/web`);
   }
 }
