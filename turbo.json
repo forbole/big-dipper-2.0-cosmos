@@ -41,7 +41,6 @@
   },
   "globalEnv": [
     "BASE_PATH",
-    "DIST_DIR",
     "BUILD_STANDALONE",
     "NEXT_PUBLIC_CHAIN_TYPE",
     "NEXT_PUBLIC_SENTRY_DSN",

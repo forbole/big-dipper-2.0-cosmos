@@ -10,7 +10,6 @@ const { basename, resolve } = require('path');
  */
 function getBaseConfig(basePath, chainName) {
   const config = {
-    distDir: process.env.DIST_DIR,
     output: process.env.BUILD_STANDALONE ? 'standalone' : undefined,
     swcMinify: true,
     reactStrictMode: true,
@@ -33,7 +32,7 @@ function getBaseConfig(basePath, chainName) {
     experimental: process.env.BUILD_STANDALONE
       ? {
           // this includes files from the monorepo base two directories up
-          outputFileTracingRoot: resolve(__dirname, '../../'),
+          outputFileTracingRoot: resolve('../../'),
         }
       : undefined,
   };

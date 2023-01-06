@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
+const { readFileSync } = require('fs');
 const getNextConfig = require('shared-utils/configs/next');
 
-let nextConfig = getNextConfig(__dirname);
+let nextConfig = getNextConfig(JSON.parse(readFileSync('./package.json', 'utf8')).name);
 
 if (process.env.NEXT_PUBLIC_SENTRY_DSN) {
   // eslint-disable-next-line global-require

@@ -6,17 +6,6 @@
  * otherwise, it will build the web project
  */
 const { execSync } = require('child_process');
-const { join } = require('path');
-
-console.log('running vercel-deploy.js');
-
-// VERCEL_GIT_PULL_REQUEST_ID is the pull request id
-const pullId = process.env.VERCEL_GIT_PULL_REQUEST_ID;
-if (!pullId) throw new Error('VERCEL_GIT_PULL_REQUEST_ID is not defined');
-
-// GITHUB_API_TOKEN is the github api token, we need it to get the pull request title
-const apiToken = process.env.GITHUB_API_TOKEN;
-if (!apiToken) throw new Error('GITHUB_API_TOKEN is not defined');
 
 /**
  * It executes a shell command and returns the result
@@ -29,6 +18,16 @@ function execShell(command) {
   console.log('result', result);
   return result;
 }
+
+console.log('running vercel-deploy.js');
+
+// VERCEL_GIT_PULL_REQUEST_ID is the pull request id
+const pullId = process.env.VERCEL_GIT_PULL_REQUEST_ID;
+if (!pullId) throw new Error('VERCEL_GIT_PULL_REQUEST_ID is not defined');
+
+// GITHUB_API_TOKEN is the github api token, we need it to get the pull request title
+const apiToken = process.env.GITHUB_API_TOKEN;
+if (!apiToken) throw new Error('GITHUB_API_TOKEN is not defined');
 
 /* Getting the pull request title. */
 const response = execShell(
@@ -54,14 +53,15 @@ const projectList = projects
 
 const project = projectList.find((p) => title.endsWith(`[${p}]`)) || 'web';
 
-/* Building the project. */
-execShell(
-  `BASE_PATH=/ DIST_DIR=${join(__dirname, 'apps/web/.next')} yarn workspace ${project} next build`
-);
+if (process.argv[2] === 'install') {
+  projectList.filter((p) => p !== project).forEach((p) => execShell(`rm -rf apps/${p}`));
+  execShell('yarn cache clean --all && yarn --inline-builds');
+} else {
+  /* Building the project. */
+  execShell(`mkdir -p apps/web && BASE_PATH=/ yarn workspace ${project} next build`);
 
-/* Copy the built project to the web folder. */
-if (project !== 'web') {
-  execShell(
-    `cp -R cp -R apps/web/.next cp -R apps/${project}/.next && rm -rf apps/web && cp -R apps/${project} apps/web`
-  );
+  /* Copy the built project to the web folder. */
+  if (project !== 'web') {
+    execShell(`rm -rf apps/web && cp -R apps/${project} apps/web`);
+  }
 }
