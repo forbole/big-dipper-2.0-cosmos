@@ -1,7 +1,7 @@
 import useStyles from '@/components/nav/components/menu_items/styles';
 import { getMenuItems } from '@/components/nav/components/menu_items/utils';
 import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import useTranslation from 'next-translate/useTranslation';
@@ -27,8 +27,7 @@ const MenuItems = () => {
 
         return (
           <Link key={x.key} href={x.url} passHref>
-            <ListItem
-              button
+            <ListItemButton
               className={cx(classes.root, {
                 active: isActive,
               })}
@@ -36,7 +35,7 @@ const MenuItems = () => {
             >
               <ListItemIcon>{x.icon}</ListItemIcon>
               <ListItemText primary={t(x.key)} />
-            </ListItem>
+            </ListItemButton>
           </Link>
         );
       })}
