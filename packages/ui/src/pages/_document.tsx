@@ -1,11 +1,21 @@
 import createEmotionCache from '@/styles/createEmotionCache';
 import createEmotionServer from '@emotion/server/create-instance';
 import { AppType } from 'next/app';
-import Document, { Head, Html, Main, NextScript } from 'next/document';
+import Document, {
+  DocumentContext,
+  DocumentInitialProps,
+  Head,
+  Html,
+  Main,
+  NextScript,
+} from 'next/document';
+import { FC } from 'react';
 
 const DocumentPage: FC = () => (
   <Html lang="en">
-    <Head />
+    <Head>
+      <meta name="emotion-insertion-point" content="" />
+    </Head>
     <body>
       <Main />
       <NextScript />
@@ -15,7 +25,9 @@ const DocumentPage: FC = () => (
 
 // `getInitialProps` belongs to `_document` (instead of `_app`),
 // it's compatible with static-site generation (SSG).
-export const getInitialProps = async (ctx: DocumentContext): Promise<DocumentInitialProps> => {
+export const getInitialProps = async (
+  ctx: DocumentContext
+): Promise<DocumentInitialProps & { emotionStyleTags: JSX.Element[] }> => {
   // Resolution order
   //
   // On the server:

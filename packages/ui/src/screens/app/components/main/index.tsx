@@ -10,6 +10,7 @@ import InitialLoad from '@/screens/initial_load';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
 import { AppProps } from 'next/app';
+import Head from 'next/head';
 import { useEffect } from 'react';
 import { ToastContainer } from 'react-toastify';
 
@@ -50,6 +51,9 @@ const Main = (props: AppProps) => {
 
   return (
     <ThemeProvider theme={muiTheme}>
+      <Head>
+        <meta name="theme-color" content={muiTheme.palette.primary.main} />
+      </Head>
       <CssBaseline />
       <ToastContainer
         position="top-center"
