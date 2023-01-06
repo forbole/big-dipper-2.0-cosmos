@@ -20,8 +20,8 @@ function execShell(command) {
     env: process.env,
   }).toString();
   if (result.error) throw result.error;
-  console.log('result', result.output.join('\n'));
-  return result.output.join('\n');
+  console.log('result', result, JSON.stringify(result));
+  return String(result.stdout);
 }
 
 console.log('running vercel-deploy.js');
