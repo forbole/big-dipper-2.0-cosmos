@@ -1,5 +1,16 @@
 # Unreleased
 
+## 2.6.0
+
+### Minor Changes
+
+- 8ea919c8: auto deployment based on PR title keyword
+
+### Patch Changes
+
+- Updated dependencies [8ea919c8]
+  - ui@2.9.0
+
 ## 2.5.0
 
 ### Minor Changes
