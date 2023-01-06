@@ -25,7 +25,7 @@ function execShell(command) {
 
 console.log('running vercel-deploy.js', process.argv[2] ?? '');
 
-if (process.argv[2] === 'install') {
+if (process.argv[2] === 'turbo-ignore') {
   // VERCEL_GIT_PULL_REQUEST_ID is the pull request id
   const pullId = process.env.VERCEL_GIT_PULL_REQUEST_ID;
   if (!pullId) throw new Error('VERCEL_GIT_PULL_REQUEST_ID is not defined');
@@ -68,6 +68,10 @@ if (process.argv[2] === 'install') {
   if (project !== 'web') {
     execShell(`mv apps/${project} apps/web`);
   }
+  if (process.env.VERCEL_ENV === 'production')
+    throw new Error('✅ proceeding with deployment (production)');
+  execShell('yarn workspace ' + project + ' turbo-ignore');
+} else if (process.argv[2] === 'install') {
   execShell(`YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn install --inline-builds`);
 } else {
   /* Building the project. */
