@@ -11,7 +11,7 @@ type TagProps = {
 const Tag: FC<TagProps> = ({ className, value, theme }) => {
   const { classes, cx } = useStyles();
   return (
-    <div className={cx(className, classes.root, theme ? classes[theme] : undefined)}>
+    <div className={cx(classes.root, className, theme ? classes[theme] : undefined)}>
       <Typography variant="body1">{value}</Typography>
     </div>
   );
