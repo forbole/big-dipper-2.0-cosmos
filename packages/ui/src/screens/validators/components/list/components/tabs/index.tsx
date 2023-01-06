@@ -19,7 +19,7 @@ const TabsHeader: FC<TabsHeaderProps> = ({ className, tab, handleTabChange, hand
   const { t } = useTranslation('validators');
 
   return (
-    <div className={cx(className, classes.root)}>
+    <div className={cx(classes.root, className)}>
       <Tabs variant="scrollable" scrollButtons={false} value={tab} onChange={handleTabChange}>
         {tabLabels.map((x, i) => (
           <Tab key={x} label={t(x)} {...a11yProps(i)} />

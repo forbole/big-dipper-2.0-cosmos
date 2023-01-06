@@ -28,7 +28,7 @@ const VotingPower: FC<VotingPowerProps> = ({ className, data, inActiveSet }) => 
   const votingPower = inActiveSet === 'true' ? numeral(data.self).format('0,0') : '0';
 
   return (
-    <Box className={cx(className, classes.root)}>
+    <Box className={cx(classes.root, className)}>
       <Typography variant="h2">{t('votingPower')}</Typography>
       <div className={classes.data}>
         <Typography variant="h3" className="primary__data">

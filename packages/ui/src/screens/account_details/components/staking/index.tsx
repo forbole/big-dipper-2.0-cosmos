@@ -57,7 +57,7 @@ const Staking: FC<StakingProps> = ({ rewards, className }) => {
   ];
 
   return (
-    <Box className={cx(className, classes.root)}>
+    <Box className={cx(classes.root, className)}>
       <Tabs tab={state.tab} handleTabChange={handleTabChange} tabs={tabs} />
       {tabs.map((x) => (
         <TabPanel key={x.id} index={x.id} value={state.tab}>

@@ -17,7 +17,7 @@ const Transactions: FC<TransactionsProps> = ({ className, transactions }) => {
   const { t } = useTranslation('transactions');
   const { classes, cx } = useStyles();
   return (
-    <Box className={cx(className, classes.root)}>
+    <Box className={cx(classes.root, className)}>
       <div className={classes.header}>
         <Typography variant="h2">{t('transactions')}</Typography>
       </div>

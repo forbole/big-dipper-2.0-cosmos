@@ -45,7 +45,7 @@ const Desktop: FC<TransactionsListState> = ({
     time: dayjs.utc(x.timestamp).fromNow(),
   }));
   return (
-    <div className={cx(className, classes.root)}>
+    <div className={cx(classes.root, className)}>
       <AutoSizer onResize={onResize}>
         {({ height, width }) => (
           <>

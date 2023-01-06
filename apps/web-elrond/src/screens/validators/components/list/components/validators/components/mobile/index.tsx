@@ -80,7 +80,7 @@ const Mobile: FC<MobileProps> = ({ className, items, search }) => {
   const { listRef, getRowHeight, setRowHeight } = useList();
 
   return (
-    <div className={cx(className, classes.root)}>
+    <div className={cx(classes.root, className)}>
       <AutoSizer>
         {({ height, width }) => (
           <List

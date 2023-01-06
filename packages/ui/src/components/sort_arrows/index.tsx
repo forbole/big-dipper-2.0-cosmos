@@ -11,7 +11,7 @@ const SortArrows: FC<SortArrowsProps> = ({ className, sort }) => {
   const { classes, cx } = useStyles();
 
   return (
-    <div className={cx(className, classes.root)}>
+    <div className={cx(classes.root, className)}>
       <SortDownIcon
         className={cx(classes.svg, classes.up, {
           desc: sort === 'desc',

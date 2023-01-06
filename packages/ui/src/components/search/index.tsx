@@ -16,7 +16,7 @@ const Search: FC<SearchProps> = ({ className, placeholder, callback }) => {
 
   const { handleOnSubmit, handleOnChange, handleKeyDown, value } = useSearch(callback);
   return (
-    <form className={cx(className, classes.root)} onSubmit={handleOnSubmit}>
+    <form className={cx(classes.root, className)} onSubmit={handleOnSubmit}>
       <InputBase
         placeholder={placeholder}
         onChange={handleOnChange}

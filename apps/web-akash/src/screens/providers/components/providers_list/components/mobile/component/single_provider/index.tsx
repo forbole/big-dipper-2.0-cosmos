@@ -33,7 +33,7 @@ const SingleProvider: FC<SingleProviderProps> = ({
   const { t } = useTranslation('providers');
   const { classes, cx } = useStyles();
   return (
-    <div className={cx(className, classes.root)}>
+    <div className={cx(classes.root, className)}>
       <div className={classes.item}>
         <Typography variant="h4" className="label">
           {t('ownerAddress')}

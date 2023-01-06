@@ -12,7 +12,7 @@ const Stake: FC<{ className?: string; stake: StakeType }> = ({ className, stake 
   const { classes, cx } = useStyles({ percentage: stake.stakePercent });
 
   return (
-    <Box className={cx(className, classes.root)}>
+    <Box className={cx(classes.root, className)}>
       <Typography variant="h2">{t('stake')}</Typography>
       <div className={classes.data}>
         <Typography variant="h3" className="primary__data">

@@ -24,7 +24,7 @@ const Signatures: FC<SignaturesProps> = ({ className, signatures }) => {
   const { classes, cx } = useStyles();
 
   return (
-    <Box className={cx(className, classes.root)}>
+    <Box className={cx(classes.root, className)}>
       <Typography className={classes.title} variant="h2">
         {t('signatures')}
       </Typography>

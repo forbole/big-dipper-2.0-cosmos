@@ -64,7 +64,7 @@ const Desktop: FC<DesktopProps> = ({ className, items }) => {
   const { classes, cx } = useStyles();
 
   return (
-    <div className={cx(className, classes.root)}>
+    <div className={cx(classes.root, className)}>
       <Table className={classes.table}>
         <TableHead>
           <TableRow>

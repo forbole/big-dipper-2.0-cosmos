@@ -23,7 +23,7 @@ const Desktop: FC<DesktopProps> = ({ className, title }) => {
   const { isMenu, toggleMenu, turnOffAll, toggleNetwork, isNetwork } = useDesktop();
   return (
     <ClickAwayListener onClickAway={turnOffAll}>
-      <div className={cx(className, classes.root)}>
+      <div className={cx(classes.root, className)}>
         <AppBar
           position="fixed"
           className={cx(classes.appBar, {

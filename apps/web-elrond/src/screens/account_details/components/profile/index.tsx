@@ -16,7 +16,7 @@ const Profile: FC<{ className?: string; profile: ProfileType }> = ({ className, 
   const { handleCopyToClipboard } = useOverview(t);
 
   return (
-    <Box className={cx(className, classes.root)}>
+    <Box className={cx(classes.root, className)}>
       <div className={cx(classes.copyText, classes.item)}>
         <Typography variant="body1" className="label">
           {t('address')}

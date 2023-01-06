@@ -59,7 +59,7 @@ const Desktop: FC<TransactionsListState> = ({
     messages: numeral(x.messages.count).format('0,0'),
   }));
   return (
-    <div className={cx(className, classes.root)}>
+    <div className={cx(classes.root, className)}>
       <AutoSizer onResize={onResize}>
         {({ height, width }) => (
           <>

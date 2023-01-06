@@ -60,7 +60,7 @@ const Pagination: FC<PaginationProps> = ({
 
   return (
     <TablePagination
-      className={cx(className, classes.root)}
+      className={cx(classes.root, className)}
       rowsPerPageOptions={[]}
       labelRowsPerPage=""
       labelDisplayedRows={({ from, to, count }) =>

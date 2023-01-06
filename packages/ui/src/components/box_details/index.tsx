@@ -18,7 +18,7 @@ type BoxDetailsProps = {
 const BoxDetails: FC<BoxDetailsProps> = ({ className, title, titleAction, details }) => {
   const { classes, cx } = useStyles();
   return (
-    <Box className={cx(className, classes.root)}>
+    <Box className={cx(classes.root, className)}>
       {!!title && (
         <div className={cx(classes.header, classes.item)}>
           {isValidElement(title) ? title : <Typography variant="h2">{title}</Typography>}

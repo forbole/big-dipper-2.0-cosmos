@@ -28,7 +28,7 @@ const Avatar: FC<AvatarProps> = ({ className, address, imageUrl }) => {
   const { classes, cx } = useStyles();
 
   return (
-    <div className={cx(className, classes.root)}>
+    <div className={cx(classes.root, className)}>
       {imageUrl && !error ? (
         <Image
           width={0}

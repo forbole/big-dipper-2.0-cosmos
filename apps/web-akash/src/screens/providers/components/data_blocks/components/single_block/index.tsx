@@ -13,7 +13,7 @@ const SingleBlock: FC<SingleBlockProps> = ({ className, label, value, descriptio
   const { classes, cx } = useStyles();
 
   return (
-    <div className={cx(className, classes.root)}>
+    <div className={cx(classes.root, className)}>
       <Typography variant="body2" className="label">
         {label}
       </Typography>

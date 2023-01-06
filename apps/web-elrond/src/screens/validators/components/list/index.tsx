@@ -22,7 +22,7 @@ const List: FC<ComponentDefault> = ({ className }) => {
 
   return (
     <LoadAndExist loading={state.loading} exists={state.exists}>
-      <Box className={cx(className, classes.root)}>
+      <Box className={cx(classes.root, className)}>
         <Tabs
           tabs={tabs}
           tab={state.tab}

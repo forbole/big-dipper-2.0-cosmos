@@ -16,7 +16,7 @@ const AvatarName: FC<AvatarName> = ({
   return (
     <Link href={href(address || name)}>
       <a>
-        <div className={cx(className, classes.root)}>
+        <div className={cx(classes.root, className)}>
           <Avatar address={address} imageUrl={imageUrl ?? undefined} />
           <Typography variant="body1">{name}</Typography>
         </div>

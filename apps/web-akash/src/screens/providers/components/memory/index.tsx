@@ -43,7 +43,7 @@ const Memory: FC<MemoryProps> = ({ className, memory }) => {
   ];
 
   return (
-    <Box className={cx(className, classes.root)}>
+    <Box className={cx(classes.root, className)}>
       <Typography variant="h2" className={classes.label}>
         {t('memory')}
       </Typography>

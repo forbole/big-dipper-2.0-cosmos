@@ -27,7 +27,7 @@ const Footer: FC<{ className?: string }> = ({ className }) => {
   const year = new Date().getFullYear();
 
   return (
-    <div className={cx(className, classes.root)}>
+    <div className={cx(classes.root, className)}>
       <div className="footer">
         {/* ============================= */}
         {/* logo */}

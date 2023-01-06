@@ -15,7 +15,7 @@ const Name: FC<NameProps> = ({ className, address, name, href = ADDRESS_DETAILS 
   const { classes, cx } = useStyles();
   return (
     <Link href={href(address)} passHref>
-      <Typography variant="body1" className={cx(className, classes.root)} component="a">
+      <Typography variant="body1" className={cx(classes.root, className)} component="a">
         {name}
       </Typography>
     </Link>

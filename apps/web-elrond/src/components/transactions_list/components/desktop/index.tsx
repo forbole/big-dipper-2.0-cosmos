@@ -55,7 +55,7 @@ const Desktop: FC<{ className?: string; items: TransactionType[] }> = (props) =>
     time: dayjs.utc(dayjs.unix(x.timestamp)).fromNow(),
   }));
   return (
-    <div className={cx(className, classes.root)}>
+    <div className={cx(classes.root, className)}>
       <Table>
         <TableHead>
           <TableRow>

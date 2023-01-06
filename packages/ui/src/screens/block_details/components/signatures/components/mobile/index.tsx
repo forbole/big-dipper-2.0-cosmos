@@ -49,7 +49,7 @@ const Mobile: FC<MobileProps> = ({ className, signatures }) => {
   const { classes, cx } = useStyles();
 
   return (
-    <div className={cx(className, classes.root)}>
+    <div className={cx(classes.root, className)}>
       <AutoSizer>
         {({ height, width }) => (
           <List

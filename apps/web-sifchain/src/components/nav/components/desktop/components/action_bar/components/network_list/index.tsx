@@ -17,7 +17,7 @@ const NetworkList: FC<NetworkListProps> = ({ className, actionHeight }) => {
   const theme = useRecoilValue(readTheme);
 
   return (
-    <Box className={cx(className, classes.root)}>
+    <Box className={cx(classes.root, className)}>
       <div
         style={{
           height: actionHeight,

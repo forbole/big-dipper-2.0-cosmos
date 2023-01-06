@@ -23,7 +23,7 @@ const Blocks: FC<ComponentDefault> = ({ className }) => {
   const { state } = useBlocks();
 
   return (
-    <Box className={cx(className, classes.root)}>
+    <Box className={cx(classes.root, className)}>
       <div className={classes.label}>
         <Typography variant="h2">{t('latestBlocks')}</Typography>
         <Link href={BLOCKS} passHref>

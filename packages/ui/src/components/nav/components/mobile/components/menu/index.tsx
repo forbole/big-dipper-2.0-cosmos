@@ -79,7 +79,7 @@ const Menu = (props: MenuProps) => {
       {/* ================================== */}
       {/* Main Content */}
       {/* ================================== */}
-      <div className={cx(className, classes.root)}>
+      <div className={cx(classes.root, className)}>
         <div className={classes.menu}>
           <MenuItems />
         </div>

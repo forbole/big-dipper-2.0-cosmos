@@ -60,7 +60,7 @@ const Messages: FC<MessagesProps> = ({ className, ...props }) => {
   const { listRef, getRowHeight, setRowHeight } = useList();
 
   return (
-    <Box className={cx(className, classes.root)}>
+    <Box className={cx(classes.root, className)}>
       <div className={classes.header}>
         <div className={classes.mobileOptions}>
           <Typography variant="h2">{t('messages')}</Typography>

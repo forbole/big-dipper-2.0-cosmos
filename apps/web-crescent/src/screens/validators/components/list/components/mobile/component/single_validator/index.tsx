@@ -28,7 +28,7 @@ const SingleValidator: FC<SingleValidatorProps> = ({
   const { t } = useTranslation('validators');
   const { classes, cx } = useStyles();
   return (
-    <div className={cx(className, classes.root)}>
+    <div className={cx(classes.root, className)}>
       <div className={classes.item}>
         <Typography variant="h4" className="label">
           {t('validator')}

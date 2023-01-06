@@ -19,7 +19,7 @@ const SingleProposal: FC<SingleproposalProps> = ({ className, id, title, status,
   const statusInfo = getStatusInfo(status, t);
 
   return (
-    <div className={cx(className, classes.root)}>
+    <div className={cx(classes.root, className)}>
       <div className={classes.header}>
         <Typography variant="h4" className={classes.id}>
           {id}

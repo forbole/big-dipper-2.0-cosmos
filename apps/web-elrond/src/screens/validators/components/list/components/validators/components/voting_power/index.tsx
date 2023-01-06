@@ -12,7 +12,7 @@ type VotingPowerProps = {
 const VotingPower: FC<VotingPowerProps> = ({ className, percentage, content, percentDisplay }) => {
   const { classes, cx } = useStyles({ percentage });
   return (
-    <div className={cx(className, classes.root)}>
+    <div className={cx(classes.root, className)}>
       <div className={classes.content}>
         <Typography variant="body1">{content}</Typography>
         <Typography variant="body1" className="percentage">

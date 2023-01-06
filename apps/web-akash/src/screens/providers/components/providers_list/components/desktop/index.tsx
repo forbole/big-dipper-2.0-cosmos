@@ -106,7 +106,7 @@ const Desktop: FC<{ list: ProviderInfo[] }> = ({ list }) => {
   }));
 
   return (
-    <div className={cx(className, classes.root)}>
+    <div className={cx(classes.root, className)}>
       <AutoSizer onResize={onResize}>
         {({ height, width }) => (
           <>

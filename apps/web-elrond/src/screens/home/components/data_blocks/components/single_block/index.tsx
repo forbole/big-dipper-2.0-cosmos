@@ -12,7 +12,7 @@ type SingleBlockProps = {
 const SingleBlock: FC<SingleBlockProps> = ({ className, label, value, description }) => {
   const { classes, cx } = useStyles();
   return (
-    <div className={cx(className, classes.root)}>
+    <div className={cx(classes.root, className)}>
       <Typography variant="body2" className="label">
         {label}
       </Typography>

@@ -22,7 +22,7 @@ const TabsHeader: FC<TabsHeaderProps> = ({ className, tab, handleTabChange, tabs
   const { t } = useTranslation('accounts');
 
   return (
-    <div className={cx(className, classes.root)}>
+    <div className={cx(classes.root, className)}>
       <Tabs variant="scrollable" scrollButtons={false} value={tab} onChange={handleTabChange}>
         {tabs.map((x) => (
           <Tab

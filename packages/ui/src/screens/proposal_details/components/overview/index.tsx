@@ -86,7 +86,7 @@ const Overview: FC<{ className?: string; overview: OverviewType }> = ({ classNam
   const extra = getExtraDetails();
 
   return (
-    <Box className={cx(className, classes.root)}>
+    <Box className={cx(classes.root, className)}>
       <SingleProposal
         id={`#${numeral(overview.id).format('0,0')}`}
         title={overview.title}

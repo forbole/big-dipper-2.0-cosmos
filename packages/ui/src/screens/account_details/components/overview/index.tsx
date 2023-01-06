@@ -91,7 +91,7 @@ const Overview: FC<OverviewProps> = ({ className, address, withdrawalAddress }) 
           </div>
         </Box>
       </Dialog>
-      <Box className={cx(className, classes.root)}>
+      <Box className={cx(classes.root, className)}>
         <div className={cx(classes.copyText, classes.item)}>
           <Typography variant="body1" className="label">
             {t('address')}

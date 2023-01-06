@@ -24,7 +24,7 @@ const TabsHeader: FC<TabsHeaderProps> = ({ className, tab, handleTabChange, data
   const { t } = useTranslation('proposals');
 
   return (
-    <div className={cx(className, classes.root)}>
+    <div className={cx(classes.root, className)}>
       <Tabs variant="scrollable" scrollButtons={false} value={tab} onChange={handleTabChange}>
         {tabLabels(data).map((x, i) => (
           <Tab key={x.key} label={`${t(x.key)} (${x.num})`} {...a11yProps(i)} />

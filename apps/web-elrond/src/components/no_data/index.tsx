@@ -8,7 +8,7 @@ const NoData: FC<ComponentDefault> = ({ className }) => {
   const { classes, cx } = useStyles();
   const { t } = useTranslation('common');
   return (
-    <div className={cx(className, classes.root)}>
+    <div className={cx(classes.root, className)}>
       <div className={classes.content}>
         <Face />
         <Typography variant="body1">{t('nothingToShow')}</Typography>

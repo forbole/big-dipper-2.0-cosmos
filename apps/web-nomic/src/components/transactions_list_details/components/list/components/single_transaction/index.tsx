@@ -16,7 +16,7 @@ const SingleTransaction: FC<SingleTransactionProps> = ({ className, block, hash,
   const { classes, cx } = useStyles();
 
   return (
-    <div className={cx(className, classes.root)}>
+    <div className={cx(classes.root, className)}>
       <div className={classes.timeContainer}>
         <Typography variant="body1" className="value">
           {hash}

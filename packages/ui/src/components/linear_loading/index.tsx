@@ -5,7 +5,7 @@ import React, { FC } from 'react';
 const LinearLoading: FC<ComponentDefault> = ({ className }) => {
   const { classes, cx } = useStyles();
   return (
-    <div className={cx(className, classes.root)}>
+    <div className={cx(classes.root, className)}>
       <LinearProgress />
     </div>
   );

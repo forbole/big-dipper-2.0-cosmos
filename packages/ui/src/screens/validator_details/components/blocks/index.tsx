@@ -74,7 +74,7 @@ const Blocks: FC<ComponentDefault> = ({ className }) => {
   const { state, loading } = useBlocks();
   const { classes, cx } = useStyles();
   return (
-    <Box className={cx(className, classes.root)}>
+    <Box className={cx(classes.root, className)}>
       <Typography variant="h2">{t('lastBlocks')}</Typography>
       {loading && <Loading />}
       <div className={classes.blocks}>

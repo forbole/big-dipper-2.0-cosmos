@@ -17,7 +17,7 @@ const Network: FC<NetworkProps> = ({ className, toggleNetwork }) => {
 
   return (
     <div
-      className={cx(className, classes.root)}
+      className={cx(classes.root, className)}
       onClick={toggleNetwork}
       role="button"
       tabIndex={0}

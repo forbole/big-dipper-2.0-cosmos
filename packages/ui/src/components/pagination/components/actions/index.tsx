@@ -36,7 +36,7 @@ const Actions: FC<ActionsProps> = (props) => {
   const disableNext = page >= Math.ceil(count / rowsPerPage) - 1;
 
   return (
-    <ul className={cx(className, classes.root)}>
+    <ul className={cx(classes.root, className)}>
       <li className="first">
         <IconButton
           className={classes.button}

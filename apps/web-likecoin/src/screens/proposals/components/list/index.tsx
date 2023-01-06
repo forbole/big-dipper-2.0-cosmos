@@ -87,7 +87,7 @@ const ProposalsList: FC<ProposalsListProps> = ({
   const { listRef, getRowHeight, setRowHeight } = useList();
 
   return (
-    <Box className={cx(className, classes.root)}>
+    <Box className={cx(classes.root, className)}>
       <div className={classes.topContent}>
         <Total className={classes.total} total={numeral(rawDataTotal).format('0,0')} />
         {/* <Search className={classes.search} /> */}

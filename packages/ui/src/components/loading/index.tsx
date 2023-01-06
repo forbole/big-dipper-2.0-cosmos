@@ -5,7 +5,7 @@ import React, { FC } from 'react';
 const Loading: FC<ComponentDefault> = ({ className }) => {
   const { classes, cx } = useStyles();
   return (
-    <div className={cx(className, classes.root)}>
+    <div className={cx(classes.root, className)}>
       <CircularProgress />
     </div>
   );

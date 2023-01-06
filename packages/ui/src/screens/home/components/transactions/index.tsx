@@ -22,7 +22,7 @@ const Transactions: FC<ComponentDefault> = ({ className }) => {
   const { state } = useTransactions();
   const { classes, cx } = useStyles();
   return (
-    <Box className={cx(className, classes.root)}>
+    <Box className={cx(classes.root, className)}>
       <div className={classes.label}>
         <Typography variant="h2">{t('latestTransactions')}</Typography>
         <Link href={TRANSACTIONS} passHref>

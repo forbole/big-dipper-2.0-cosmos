@@ -24,7 +24,7 @@ const Desktop: FC<DesktopProps> = ({ className, signatures }) => {
   const rows = useMemo(() => formatRows(signaturesMemo), [signaturesMemo]);
 
   return (
-    <div className={cx(className, classes.root)}>
+    <div className={cx(classes.root, className)}>
       <AutoSizer onResize={onResize}>
         {({ height, width }) => (
           <>

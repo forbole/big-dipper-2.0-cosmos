@@ -24,7 +24,7 @@ const NotFound: FC<NotFoundProps> = ({ className }) => {
   }, [router?.asPath, router?.basePath]);
 
   return (
-    <div className={cx(className, classes.root)}>
+    <div className={cx(classes.root, className)}>
       <div className={classes.content}>
         {theme === 'light' ? <NotFoundLight /> : <NotFoundDark />}
         <Typography variant="body1">{t('notFound')}</Typography>

@@ -16,7 +16,7 @@ const ActionBar: FC<ActionBarProps> = ({ toggleNetwork, className, isNetwork }) 
   const { ref: heightRef, height } = useGetComponentDimension();
   const { classes, cx } = useStyles();
   return (
-    <div className={cx(className, classes.root)} ref={heightRef}>
+    <div className={cx(classes.root, className)} ref={heightRef}>
       <div className={classes.actions}>
         <SearchBar className={cx(classes.searchBar, { open: isNetwork })} />
         <Network

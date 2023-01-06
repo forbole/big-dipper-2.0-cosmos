@@ -26,7 +26,7 @@ const Consensus: FC<ComponentDefault> = ({ className }) => {
   const { name, address, imageUrl } = useProfileRecoil(state.proposer);
 
   return (
-    <Box className={cx(className, classes.root)}>
+    <Box className={cx(classes.root, className)}>
       <Typography variant="h2" className={classes.label}>
         {t('consensus')}
       </Typography>

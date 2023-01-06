@@ -20,7 +20,7 @@ const TitleBar: FC<TitleBarProps> = ({ className, title }) => {
   const market = formatMarket(marketState);
 
   return (
-    <div className={cx(className, classes.root)}>
+    <div className={cx(classes.root, className)}>
       {title ? (
         <Typography variant="h1">{title}</Typography>
       ) : (

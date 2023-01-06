@@ -13,7 +13,7 @@ const NoData: FC<ComponentDefault> = ({ className }) => {
   const theme = useRecoilValue(readTheme);
 
   return (
-    <div className={cx(className, classes.root)}>
+    <div className={cx(classes.root, className)}>
       <div className={classes.content}>
         {theme === 'light' ? <NotFoundLight /> : <NotFoundDark />}
         <Typography variant="body1">{t('nothingToShow')}</Typography>
