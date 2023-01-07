@@ -17,14 +17,12 @@ const Navbar = (props: NavbarProps) => {
 
   return (
     <div className={classes.root}>
-      <Link href={HOME}>
-        <a className={classes.a}>
-          {theme === 'light' ? (
-            <BigDipperLogoRed className={classes.logo} />
-          ) : (
-            <BigDipperLogoWhite className={classes.logo} />
-          )}
-        </a>
+      <Link href={HOME} className={classes.a}>
+        {theme === 'light' ? (
+          <BigDipperLogoRed className={classes.logo} />
+        ) : (
+          <BigDipperLogoWhite className={classes.logo} />
+        )}
       </Link>
       <div className={classes.actions}>
         {/* =================================== */}

@@ -46,7 +46,7 @@ const Main = (props: MainProps) => {
         .querySelector('meta[name="theme-color"]')
         ?.setAttribute('content', muiTheme.palette.primary.main);
     }
-  }, [muiTheme]);
+  }, [muiTheme.palette.mode, muiTheme.palette.primary.main]);
 
   return (
     <CacheProvider value={emotionCache}>

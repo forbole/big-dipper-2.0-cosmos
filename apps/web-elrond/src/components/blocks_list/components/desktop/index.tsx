@@ -7,7 +7,6 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
@@ -24,10 +23,8 @@ const Desktop: FC<{ className?: string; items: BlockType[] }> = (props) => {
         num: shard.num,
       }),
       hash: (
-        <Link href={BLOCK_DETAILS(x.hash)} passHref>
-          <Typography variant="body1" className="value" component="a">
-            {x.hash}
-          </Typography>
+        <Link href={BLOCK_DETAILS(x.hash)} className="value">
+          {x.hash}
         </Link>
       ),
       txs: numeral(x.txs).format('0,0'),

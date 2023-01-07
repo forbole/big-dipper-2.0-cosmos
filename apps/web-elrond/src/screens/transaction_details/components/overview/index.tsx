@@ -13,7 +13,7 @@ import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { useRecoilValue } from 'recoil';
 
 const { primaryTokenUnit } = chainConfig();
@@ -39,13 +39,7 @@ const Overview: FC<OverviewType & ComponentDefault> = (props) => {
     {
       key: 'miniblockHash',
       label: t('miniblockHash'),
-      detail: (
-        <Link href={MINIBLOCK_DETAILS(props.miniblockHash)} passHref>
-          <Typography variant="body1" component="a">
-            {props.miniblockHash}
-          </Typography>
-        </Link>
-      ),
+      detail: <Link href={MINIBLOCK_DETAILS(props.miniblockHash)}>{props.miniblockHash}</Link>,
     },
     {
       key: 'shardFrom',

@@ -2,7 +2,7 @@ import SingleNetwork from '@/components/nav/components/networks/components/singl
 import useStyles from '@/components/nav/components/networks/styles';
 import { readNetworks } from '@/recoil/big_dipper_networks';
 import Typography from '@mui/material/Typography';
-import Image from 'next/future/image';
+import Image from 'next/image';
 import React, { FC } from 'react';
 import { useRecoilValue } from 'recoil';
 

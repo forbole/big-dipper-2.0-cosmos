@@ -1,6 +1,6 @@
 import useStyles from '@/components/avatar/styles';
 import * as jdenticon from 'jdenticon';
-import Image from 'next/future/image';
+import Image from 'next/image';
 import React, { FC, useEffect, useRef, useState } from 'react';
 
 type AvatarProps = {

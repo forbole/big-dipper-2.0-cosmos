@@ -81,13 +81,16 @@ exports[`screen: ProfileDetails/Connections/Desktop matches snapshot 1`] = `
           }
         >
           <a
-            className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
             href="/accounts/desmos1rzhewpmmdl72lhnxj6zmxr4v94f522s4ff2psv"
             onClick={[Function]}
             onMouseEnter={[Function]}
             onTouchStart={[Function]}
           >
-            desmos1rzhewpmmdl72lhnxj6zmxr4v94f522s4ff2psv
+            <a
+              className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
+            >
+              desmos1rzhewpmmdl72lhnxj6zmxr4v94f522s4ff2psv
+            </a>
           </a>
         </td>
         <td

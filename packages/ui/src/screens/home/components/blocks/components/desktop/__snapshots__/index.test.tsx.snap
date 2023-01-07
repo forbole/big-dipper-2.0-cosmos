@@ -66,13 +66,16 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
           className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-zs3zy9-MuiTableCell-root"
         >
           <a
-            className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
             href="/blocks/4000"
             onClick={[Function]}
             onMouseEnter={[Function]}
             onTouchStart={[Function]}
           >
-            4,000
+            <a
+              className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
+            >
+              4,000
+            </a>
           </a>
         </td>
         <td

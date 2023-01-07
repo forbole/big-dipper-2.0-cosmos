@@ -1,6 +1,5 @@
 import { mergeRefs } from '@/utils/merge_refs';
 import Divider from '@mui/material/Divider';
-import Typography from '@mui/material/Typography';
 import Link from 'next/link';
 import numeral from 'numeral';
 import { FC } from 'react';
@@ -47,10 +46,8 @@ const ListItem: FC<ListItemProps> = ({
       item.description.length > 200 ? `${item.description.slice(0, 200)}...` : item.description,
     status: item.status,
     title: (
-      <Link href={PROPOSAL_DETAILS(item.id)} passHref>
-        <Typography variant="h3" className="value" component="a">
-          {item.title}
-        </Typography>
+      <Link href={PROPOSAL_DETAILS(item.id)} className="value">
+        {item.title}
       </Link>
     ),
     id: `#${numeral(item.id).format('0,0')}`,

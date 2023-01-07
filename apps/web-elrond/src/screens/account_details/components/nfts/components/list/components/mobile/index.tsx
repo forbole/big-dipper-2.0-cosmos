@@ -5,7 +5,7 @@ import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
-import React, { FC, Fragment } from 'react';
+import { FC, Fragment } from 'react';
 
 const Mobile: FC<{ className?: string; items: OtherTokenType[] }> = (props) => {
   const { t } = useTranslation('accounts');
@@ -14,10 +14,8 @@ const Mobile: FC<{ className?: string; items: OtherTokenType[] }> = (props) => {
     key: `${x.identifier}-${i}`,
     identifier: x.identifier,
     nft: (
-      <Link href={NFT_DETAILS(x.identifier)} passHref>
-        <Typography variant="body1" className="value" component="a">
-          {x.name}
-        </Typography>
+      <Link href={NFT_DETAILS(x.identifier)} className="value">
+        {x.name}
       </Link>
     ),
     type: x.type,

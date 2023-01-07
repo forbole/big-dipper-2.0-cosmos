@@ -2,11 +2,10 @@ import { IDENTITIES, PROVIDERS, STAKE } from '@/api';
 import chainConfig from '@/chainConfig';
 import type { ValidatorsState } from '@/screens/validators/components/list/types';
 import { formatNumber, formatToken } from '@/utils/format_token';
-import Tabs from '@mui/material/Tabs';
 import axios from 'axios';
 import Big from 'big.js';
 import * as R from 'ramda';
-import { ComponentProps, useCallback, useEffect, useState } from 'react';
+import { SyntheticEvent, useCallback, useEffect, useState } from 'react';
 
 const { primaryTokenUnit } = chainConfig();
 
@@ -32,8 +31,8 @@ export const useValidators = () => {
     validators: [],
   });
 
-  const handleTabChange: ComponentProps<typeof Tabs>['onChange'] = useCallback(
-    (_event, newValue) => {
+  const handleTabChange = useCallback(
+    (_event: SyntheticEvent<Element, globalThis.Event>, newValue: number) => {
       setState((prevState) => ({
         ...prevState,
         tab: newValue,

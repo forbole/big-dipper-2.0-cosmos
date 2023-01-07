@@ -5,7 +5,7 @@ import Tabs from '@mui/material/Tabs';
 import useTranslation from 'next-translate/useTranslation';
 import React, { ComponentProps, FC, ReactNode } from 'react';
 
-type TabsHeaderProps = {
+interface TabsHeaderProps {
   className?: string;
   tab: number;
   handleTabChange: ComponentProps<typeof Tabs>['onChange'];
@@ -15,7 +15,7 @@ type TabsHeaderProps = {
     count: string;
     component?: ReactNode;
   }[];
-};
+}
 
 const TabsHeader: FC<TabsHeaderProps> = ({ className, tab, handleTabChange, tabs }) => {
   const { classes, cx } = useStyles();

@@ -11,7 +11,7 @@
     "access": "public"
   },
   "devDependencies": {
-    "@types/esprima": "^4",
+    "@types/esprima": "^4.0.3",
     "esprima": "^4.0.1"
   }
 }

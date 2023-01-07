@@ -17,7 +17,7 @@ const SingleBlockMobile: FC<SingleBlockMobileType & ComponentDefault> = (props) 
           </Typography>
           {props.block}
         </div>
-        {props.shard && (
+        {!!props.shard && (
           <div className={classes.item}>
             <Typography variant="h4" className="label">
               {t('shard')}

@@ -26,10 +26,8 @@ const Blocks: FC<ComponentDefault> = ({ className }) => {
     <Box className={cx(classes.root, className)}>
       <div className={classes.label}>
         <Typography variant="h2">{t('latestBlocks')}</Typography>
-        <Link href={BLOCKS} passHref>
-          <Typography variant="h4" className="button" component="a" aria-label="see more blocks">
-            {t('seeMore')}
-          </Typography>
+        <Link href={BLOCKS} className="button" aria-label="see more blocks">
+          {t('seeMore')}
         </Link>
       </div>
       {state.items.length ? (
@@ -40,15 +38,12 @@ const Blocks: FC<ComponentDefault> = ({ className }) => {
             <Mobile className={classes.mobile} items={state.items} />
           )}
           <Divider className={classes.mobile} />
-          <Link href={BLOCKS} passHref>
-            <Typography
-              variant="h4"
-              component="a"
-              aria-label="see more blocks"
-              className={cx(classes.seeMoreFooter, classes.mobile, 'button')}
-            >
-              {t('seeMore')}
-            </Typography>
+          <Link
+            href={BLOCKS}
+            className={cx(classes.seeMoreFooter, classes.mobile, 'button')}
+            aria-label="see more blocks"
+          >
+            {t('seeMore')}
           </Link>
         </>
       ) : state.loading ? (

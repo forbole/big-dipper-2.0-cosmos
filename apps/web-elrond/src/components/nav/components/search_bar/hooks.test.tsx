@@ -1,7 +1,7 @@
 /* eslint-disable */
 import chainConfig from '@/chainConfig';
 import { useSearchBar } from '@/components/nav/components/search_bar/hooks';
-import { act, renderHook } from '@testing-library/react-hooks';
+import { act, renderHook } from '@testing-library/react';
 import { RecoilRoot } from 'recoil';
 
 // const { extra } = chainConfig();

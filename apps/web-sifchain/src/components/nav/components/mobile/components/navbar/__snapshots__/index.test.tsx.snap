@@ -5,16 +5,19 @@ exports[`screen: Nav/mobile/navbar it renders 1`] = `
   className="css-7bgvw1-root"
 >
   <a
-    className="css-1y4f7e6-a"
     href="/"
     onClick={[Function]}
     onMouseEnter={[Function]}
     onTouchStart={[Function]}
   >
-    <div
-      className="css-n5a2y0-logo"
-      id="RED"
-    />
+    <a
+      className="css-1y4f7e6-a"
+    >
+      <div
+        className="css-n5a2y0-logo"
+        id="RED"
+      />
+    </a>
   </a>
   <div
     className="css-1mn69pa-actions"
@@ -64,16 +67,19 @@ exports[`screen: Nav/mobile/navbar toggleNavMenus is called onClick 1`] = `
   className="css-7bgvw1-root"
 >
   <a
-    className="css-1y4f7e6-a"
     href="/"
     onClick={[Function]}
     onMouseEnter={[Function]}
     onTouchStart={[Function]}
   >
-    <div
-      className="css-n5a2y0-logo"
-      id="RED"
-    />
+    <a
+      className="css-1y4f7e6-a"
+    >
+      <div
+        className="css-n5a2y0-logo"
+        id="RED"
+      />
+    </a>
   </a>
   <div
     className="css-1mn69pa-actions"

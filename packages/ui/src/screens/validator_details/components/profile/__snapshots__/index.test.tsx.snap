@@ -64,9 +64,7 @@ exports[`screen: ValidatorDetails/Profile matches snapshot 1`] = `
         href="//"
         rel="noreferrer"
         target="_blank"
-      >
-        
-      </a>
+      />
     </div>
   </div>
 </div>

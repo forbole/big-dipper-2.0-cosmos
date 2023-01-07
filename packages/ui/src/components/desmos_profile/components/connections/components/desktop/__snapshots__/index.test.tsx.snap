@@ -68,9 +68,7 @@ exports[`screen: DesmosProfile/Desktop it renders 1`] = `
               "width": "25%",
             }
           }
-        >
-          
-        </td>
+        />
         <td
           aria-sort={null}
           className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-zs3zy9-MuiTableCell-root"
@@ -79,9 +77,7 @@ exports[`screen: DesmosProfile/Desktop it renders 1`] = `
               "width": "50%",
             }
           }
-        >
-          
-        </td>
+        />
         <td
           aria-sort={null}
           className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1ct601e-MuiTableCell-root"

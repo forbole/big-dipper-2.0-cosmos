@@ -5,11 +5,10 @@ import type {
   ValidatorsState,
   ValidatorType,
 } from '@/screens/validators/components/list/types';
-import Tabs from '@mui/material/Tabs';
 import Big from 'big.js';
 import numeral from 'numeral';
 import * as R from 'ramda';
-import { ComponentProps, useCallback, useState } from 'react';
+import { SyntheticEvent, useCallback, useState } from 'react';
 
 const { extra } = chainConfig();
 
@@ -106,8 +105,8 @@ export const useValidators = () => {
     onError: () => handleSetState((prevState) => ({ ...prevState, loading: false })),
   });
 
-  const handleTabChange: ComponentProps<typeof Tabs>['onChange'] = useCallback(
-    (_event, newValue) => {
+  const handleTabChange = useCallback(
+    (_event: SyntheticEvent<Element, globalThis.Event>, newValue: number) => {
       setState((prevState) => ({
         ...prevState,
         tab: newValue,

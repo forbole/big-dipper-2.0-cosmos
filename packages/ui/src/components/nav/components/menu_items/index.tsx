@@ -26,7 +26,7 @@ const MenuItems = () => {
         }
 
         return (
-          <Link key={x.key} href={x.url} passHref>
+          <Link key={x.key} href={x.url} legacyBehavior passHref>
             <ListItemButton
               className={cx(classes.root, {
                 active: isActive,

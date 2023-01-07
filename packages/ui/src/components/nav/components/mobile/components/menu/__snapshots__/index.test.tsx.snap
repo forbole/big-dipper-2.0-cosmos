@@ -15,29 +15,33 @@ exports[`screen: Nav/Menu it renders 1`] = `
     >
       <div>
         <a
-          className="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters css-15oe2mx-MuiButtonBase-root-MuiMenuItem-root"
           href="/app/home?key=val"
-          onBlur={[Function]}
           onClick={[Function]}
-          onContextMenu={[Function]}
-          onDragLeave={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
           onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
           onTouchStart={[Function]}
-          role="menuitem"
-          tabIndex={-1}
         >
-          zh
-          <span
-            className="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-          />
+          <a
+            className="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters css-15oe2mx-MuiButtonBase-root-MuiMenuItem-root"
+            onBlur={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="menuitem"
+            tabIndex={-1}
+          >
+            zh
+            <span
+              className="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
+          </a>
         </a>
       </div>
     </div>
@@ -139,244 +143,274 @@ exports[`screen: Nav/Menu it renders 1`] = `
         className="MuiList-root MuiList-padding css-h4y409-MuiList-root"
       >
         <a
-          className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css-ym0ea0-MuiButtonBase-root-MuiListItemButton-root-root"
           href="/"
-          onBlur={[Function]}
           onClick={[Function]}
-          onContextMenu={[Function]}
-          onDragLeave={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
           onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
           onTouchStart={[Function]}
-          tabIndex={0}
         >
-          <div
-            className="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
+          <a
+            className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css-ym0ea0-MuiButtonBase-root-MuiListItemButton-root-root"
+            onBlur={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="button"
+            tabIndex={0}
           >
-            <svg
-              height={24}
-              width={24}
-            />
-          </div>
-          <div
-            className="MuiListItemText-root css-tlelie-MuiListItemText-root"
-          >
-            <span
-              className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-1x35mvf-MuiTypography-root"
+            <div
+              className="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
             >
-              overview
-            </span>
-          </div>
-          <span
-            className="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-          />
+              <svg
+                height={24}
+                width={24}
+              />
+            </div>
+            <div
+              className="MuiListItemText-root css-tlelie-MuiListItemText-root"
+            >
+              <span
+                className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-1x35mvf-MuiTypography-root"
+              >
+                overview
+              </span>
+            </div>
+            <span
+              className="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
+          </a>
         </a>
         <a
-          className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css-ym0ea0-MuiButtonBase-root-MuiListItemButton-root-root"
           href="/blocks"
-          onBlur={[Function]}
           onClick={[Function]}
-          onContextMenu={[Function]}
-          onDragLeave={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
           onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
           onTouchStart={[Function]}
-          tabIndex={0}
         >
-          <div
-            className="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
+          <a
+            className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css-ym0ea0-MuiButtonBase-root-MuiListItemButton-root-root"
+            onBlur={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="button"
+            tabIndex={0}
           >
-            <svg
-              height={24}
-              width={24}
-            />
-          </div>
-          <div
-            className="MuiListItemText-root css-tlelie-MuiListItemText-root"
-          >
-            <span
-              className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-1x35mvf-MuiTypography-root"
+            <div
+              className="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
             >
-              blocks
-            </span>
-          </div>
-          <span
-            className="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-          />
+              <svg
+                height={24}
+                width={24}
+              />
+            </div>
+            <div
+              className="MuiListItemText-root css-tlelie-MuiListItemText-root"
+            >
+              <span
+                className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-1x35mvf-MuiTypography-root"
+              >
+                blocks
+              </span>
+            </div>
+            <span
+              className="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
+          </a>
         </a>
         <a
-          className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css-ym0ea0-MuiButtonBase-root-MuiListItemButton-root-root"
           href="/validators"
-          onBlur={[Function]}
           onClick={[Function]}
-          onContextMenu={[Function]}
-          onDragLeave={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
           onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
           onTouchStart={[Function]}
-          tabIndex={0}
         >
-          <div
-            className="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
+          <a
+            className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css-ym0ea0-MuiButtonBase-root-MuiListItemButton-root-root"
+            onBlur={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="button"
+            tabIndex={0}
           >
-            <svg
-              height={24}
-              width={24}
-            />
-          </div>
-          <div
-            className="MuiListItemText-root css-tlelie-MuiListItemText-root"
-          >
-            <span
-              className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-1x35mvf-MuiTypography-root"
+            <div
+              className="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
             >
-              validators
-            </span>
-          </div>
-          <span
-            className="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-          />
+              <svg
+                height={24}
+                width={24}
+              />
+            </div>
+            <div
+              className="MuiListItemText-root css-tlelie-MuiListItemText-root"
+            >
+              <span
+                className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-1x35mvf-MuiTypography-root"
+              >
+                validators
+              </span>
+            </div>
+            <span
+              className="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
+          </a>
         </a>
         <a
-          className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css-ym0ea0-MuiButtonBase-root-MuiListItemButton-root-root"
           href="/transactions"
-          onBlur={[Function]}
           onClick={[Function]}
-          onContextMenu={[Function]}
-          onDragLeave={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
           onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
           onTouchStart={[Function]}
-          tabIndex={0}
         >
-          <div
-            className="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
+          <a
+            className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css-ym0ea0-MuiButtonBase-root-MuiListItemButton-root-root"
+            onBlur={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="button"
+            tabIndex={0}
           >
-            <svg
-              height={24}
-              width={24}
-            />
-          </div>
-          <div
-            className="MuiListItemText-root css-tlelie-MuiListItemText-root"
-          >
-            <span
-              className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-1x35mvf-MuiTypography-root"
+            <div
+              className="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
             >
-              transactions
-            </span>
-          </div>
-          <span
-            className="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-          />
+              <svg
+                height={24}
+                width={24}
+              />
+            </div>
+            <div
+              className="MuiListItemText-root css-tlelie-MuiListItemText-root"
+            >
+              <span
+                className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-1x35mvf-MuiTypography-root"
+              >
+                transactions
+              </span>
+            </div>
+            <span
+              className="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
+          </a>
         </a>
         <a
-          className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css-ym0ea0-MuiButtonBase-root-MuiListItemButton-root-root"
           href="/proposals"
-          onBlur={[Function]}
           onClick={[Function]}
-          onContextMenu={[Function]}
-          onDragLeave={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
           onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
           onTouchStart={[Function]}
-          tabIndex={0}
         >
-          <div
-            className="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
+          <a
+            className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css-ym0ea0-MuiButtonBase-root-MuiListItemButton-root-root"
+            onBlur={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="button"
+            tabIndex={0}
           >
-            <svg
-              height={24}
-              width={24}
-            />
-          </div>
-          <div
-            className="MuiListItemText-root css-tlelie-MuiListItemText-root"
-          >
-            <span
-              className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-1x35mvf-MuiTypography-root"
+            <div
+              className="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
             >
-              proposals
-            </span>
-          </div>
-          <span
-            className="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-          />
+              <svg
+                height={24}
+                width={24}
+              />
+            </div>
+            <div
+              className="MuiListItemText-root css-tlelie-MuiListItemText-root"
+            >
+              <span
+                className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-1x35mvf-MuiTypography-root"
+              >
+                proposals
+              </span>
+            </div>
+            <span
+              className="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
+          </a>
         </a>
         <a
-          className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css-ym0ea0-MuiButtonBase-root-MuiListItemButton-root-root"
           href="/params"
-          onBlur={[Function]}
           onClick={[Function]}
-          onContextMenu={[Function]}
-          onDragLeave={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
           onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
           onTouchStart={[Function]}
-          tabIndex={0}
         >
-          <div
-            className="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
+          <a
+            className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css-ym0ea0-MuiButtonBase-root-MuiListItemButton-root-root"
+            onBlur={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="button"
+            tabIndex={0}
           >
-            <svg
-              height={24}
-              width={24}
-            />
-          </div>
-          <div
-            className="MuiListItemText-root css-tlelie-MuiListItemText-root"
-          >
-            <span
-              className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-1x35mvf-MuiTypography-root"
+            <div
+              className="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
             >
-              params
-            </span>
-          </div>
-          <span
-            className="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-          />
+              <svg
+                height={24}
+                width={24}
+              />
+            </div>
+            <div
+              className="MuiListItemText-root css-tlelie-MuiListItemText-root"
+            >
+              <span
+                className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-1x35mvf-MuiTypography-root"
+              >
+                params
+              </span>
+            </div>
+            <span
+              className="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
+          </a>
         </a>
       </ul>
     </div>
@@ -393,9 +427,7 @@ exports[`screen: Nav/Menu it renders 1`] = `
         <svg />
         <span
           className="MuiTypography-root MuiTypography-caption css-ru7l4l-MuiTypography-root"
-        >
-          
-        </span>
+        />
         <svg
           aria-hidden={true}
           className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"

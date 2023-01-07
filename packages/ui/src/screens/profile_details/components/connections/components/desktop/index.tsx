@@ -8,10 +8,9 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
-import React, { FC, ReactNode } from 'react';
+import { FC, ReactNode } from 'react';
 import { useRecoilValue } from 'recoil';
 
 const { prefix } = chainConfig();
@@ -29,10 +28,8 @@ const Desktop: FC<DesktopProps> = ({ className, items }) => {
     let identity: ReactNode = x.identifier;
     if (new RegExp(`^(${prefix.account})`).test(x.identifier)) {
       identity = (
-        <Link href={ACCOUNT_DETAILS(x.identifier)} passHref>
-          <Typography variant="body1" className="value" component="a">
-            {x.identifier}
-          </Typography>
+        <Link href={ACCOUNT_DETAILS(x.identifier)} className="value">
+          {x.identifier}
         </Link>
       );
     }

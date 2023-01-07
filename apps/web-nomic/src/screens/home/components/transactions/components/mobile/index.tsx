@@ -3,10 +3,9 @@ import dayjs from '@/utils/dayjs';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { BLOCK_DETAILS, TRANSACTION_DETAILS } from '@/utils/go_to_page';
 import Divider from '@mui/material/Divider';
-import Typography from '@mui/material/Typography';
 import Link from 'next/link';
 import numeral from 'numeral';
-import React, { FC, Fragment } from 'react';
+import { FC, Fragment } from 'react';
 
 import type { TransactionType } from '@/screens/home/components/transactions/types';
 
@@ -18,21 +17,13 @@ type MobileProps = {
 const Mobile: FC<MobileProps> = ({ className, items }) => {
   const formattedData = items.map((x) => ({
     key: x.height,
-    block: (
-      <Link href={BLOCK_DETAILS(x.height)} passHref>
-        <Typography variant="body1" component="a">
-          {numeral(x.height).format('0,0')}
-        </Typography>
-      </Link>
-    ),
+    block: <Link href={BLOCK_DETAILS(x.height)}>{numeral(x.height).format('0,0')}</Link>,
     hash: (
-      <Link href={TRANSACTION_DETAILS(x.hash)} passHref>
-        <Typography variant="body1" component="a">
-          {getMiddleEllipsis(x.hash, {
-            beginning: 15,
-            ending: 5,
-          })}
-        </Typography>
+      <Link href={TRANSACTION_DETAILS(x.hash)}>
+        {getMiddleEllipsis(x.hash, {
+          beginning: 15,
+          ending: 5,
+        })}
       </Link>
     ),
     time: dayjs.utc(x.timestamp).fromNow(),

@@ -25,10 +25,8 @@ const Transactions: FC<ComponentDefault> = ({ className }) => {
     <Box className={cx(classes.root, className)}>
       <div className={classes.label}>
         <Typography variant="h2">{t('latestTransactions')}</Typography>
-        <Link href={TRANSACTIONS} passHref>
-          <Typography variant="h4" className="button" component="a" aria-label="see more txs">
-            {t('seeMore')}
-          </Typography>
+        <Link href={TRANSACTIONS} className="button" aria-label="see more txs">
+          {t('seeMore')}
         </Link>
       </div>
       {state.items.length ? (
@@ -39,15 +37,12 @@ const Transactions: FC<ComponentDefault> = ({ className }) => {
             <Mobile className={classes.mobile} items={state.items} />
           )}
           <Divider className={classes.mobile} />
-          <Link href={TRANSACTIONS} passHref>
-            <Typography
-              variant="h4"
-              component="a"
-              aria-label="see more txs"
-              className={cx(classes.seeMoreFooter, classes.mobile, 'button')}
-            >
-              {t('seeMore')}
-            </Typography>
+          <Link
+            href={TRANSACTIONS}
+            className={cx(classes.seeMoreFooter, classes.mobile, 'button')}
+            aria-label="see more txs"
+          >
+            {t('seeMore')}
           </Link>
         </>
       ) : state.loading ? (

@@ -7,7 +7,6 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import { FC } from 'react';
@@ -19,10 +18,8 @@ const Desktop: FC<{ className?: string; items: OtherTokenType[] }> = (props) => 
     key: `${x.identifier}-${i}`,
     identifier: x.identifier,
     nft: (
-      <Link href={NFT_DETAILS(x.identifier)} passHref>
-        <Typography variant="body1" className="value" component="a">
-          {x.name}
-        </Typography>
+      <Link href={NFT_DETAILS(x.identifier)} className="value">
+        {x.name}
       </Link>
     ),
     type: x.type,

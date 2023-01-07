@@ -29,12 +29,12 @@ function getBaseConfig(basePath, chainName) {
     env: {
       NEXT_PUBLIC_RELEASE: `${chainName}-v${process.env.npm_package_version ?? ''}`,
     },
-    experimental: process.env.BUILD_STANDALONE
-      ? {
-          // this includes files from the monorepo base two directories up
-          outputFileTracingRoot: resolve(__dirname, '../../'),
-        }
-      : undefined,
+    experimental: {
+      outputFileTracingRoot: process.env.BUILD_STANDALONE
+        ? // this includes files from the monorepo base two directories up
+          resolve(__dirname, '../../')
+        : undefined,
+    },
   };
   return config;
 }
@@ -46,7 +46,7 @@ function getBaseConfig(basePath, chainName) {
  * @param config - This is the webpack configuration object.
  * @returns The config object.
  */
-function webpack(config) {
+function webpack(config, options) {
   /* This is to allow the use of svg files in the project. */
   config.module.rules.push({
     test: /\.svg$/i,
@@ -58,7 +58,7 @@ function webpack(config) {
     // issuer: /\.[jtmc]sx?$/,
     resourceQuery: { not: [/url/] }, // exclude react component if *.svg?url
     use: [
-      'next-swc-loader',
+      options.defaultLoaders.babel,
       {
         loader: '@svgr/webpack',
         options: { babel: false },

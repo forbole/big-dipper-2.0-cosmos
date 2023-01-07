@@ -11,7 +11,7 @@ exports[`screen: InitialLoad matches snapshot 1`] = `
       <img
         alt="logo"
         className="css-4nmqpx-dark"
-        data-nimg="future"
+        data-nimg="1"
         decoding="async"
         height={0}
         loading="lazy"
@@ -28,7 +28,7 @@ exports[`screen: InitialLoad matches snapshot 1`] = `
       <img
         alt="logo"
         className="css-13ot6lo-light"
-        data-nimg="future"
+        data-nimg="1"
         decoding="async"
         height={0}
         loading="lazy"

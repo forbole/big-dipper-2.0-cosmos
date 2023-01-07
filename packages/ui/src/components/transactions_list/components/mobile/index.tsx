@@ -10,7 +10,6 @@ import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { BLOCK_DETAILS, TRANSACTION_DETAILS } from '@/utils/go_to_page';
 import { mergeRefs } from '@/utils/merge_refs';
 import Divider from '@mui/material/Divider';
-import Typography from '@mui/material/Typography';
 import Link from 'next/link';
 import numeral from 'numeral';
 import { FC } from 'react';
@@ -46,20 +45,16 @@ const ListItem: FC<ListItemProps> = ({
 
   const item = {
     block: (
-      <Link href={BLOCK_DETAILS(transaction.height)} passHref>
-        <Typography variant="body1" component="a">
-          {numeral(transaction.height).format('0,0')}
-        </Typography>
+      <Link href={BLOCK_DETAILS(transaction.height)}>
+        {numeral(transaction.height).format('0,0')}
       </Link>
     ),
     hash: (
-      <Link href={TRANSACTION_DETAILS(transaction.hash)} passHref>
-        <Typography variant="body1" component="a">
-          {getMiddleEllipsis(transaction.hash, {
-            beginning: 15,
-            ending: 5,
-          })}
-        </Typography>
+      <Link href={TRANSACTION_DETAILS(transaction.hash)}>
+        {getMiddleEllipsis(transaction.hash, {
+          beginning: 15,
+          ending: 5,
+        })}
       </Link>
     ),
     type: (

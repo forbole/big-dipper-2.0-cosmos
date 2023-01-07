@@ -36,10 +36,8 @@ const Desktop: FC<DesktopProps> = ({
 
   const formattedItems = items?.map((x) => ({
     height: (
-      <Link href={BLOCK_DETAILS(x.height)} passHref>
-        <Typography variant="body1" className="value" component="a">
-          {numeral(x.height).format('0,0')}
-        </Typography>
+      <Link href={BLOCK_DETAILS(x.height)} className="value">
+        {numeral(x.height).format('0,0')}
       </Link>
     ),
     txs: numeral(x.txs).format('0,0'),

@@ -20,10 +20,8 @@ const MiniBlocks: FC<{ className?: string; miniBlocks: MiniBlockType[] }> = (pro
           <div key={x} className={classes.item}>
             <div className={classes.hash}>
               <div className={classes.bullet} />
-              <Link href={MINIBLOCK_DETAILS(x)} passHref>
-                <Typography variant="body1" className={classes.block} component="a">
-                  {x}
-                </Typography>
+              <Link href={MINIBLOCK_DETAILS(x)} className={classes.block}>
+                {x}
               </Link>
             </div>
           </div>

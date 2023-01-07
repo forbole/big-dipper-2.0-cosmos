@@ -13,7 +13,7 @@ import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
-import React, { FC, LegacyRef } from 'react';
+import { FC, LegacyRef } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { VariableSizeGrid as Grid } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
@@ -31,21 +31,13 @@ const Desktop: FC<TransactionsListState> = ({
   const { t } = useTranslation('transactions');
 
   const items = transactions.map((x) => ({
-    block: (
-      <Link href={BLOCK_DETAILS(x.height)} passHref>
-        <Typography variant="body1" component="a">
-          {numeral(x.height).format('0,0')}
-        </Typography>
-      </Link>
-    ),
+    block: <Link href={BLOCK_DETAILS(x.height)}>{numeral(x.height).format('0,0')}</Link>,
     hash: (
-      <Link href={TRANSACTION_DETAILS(x.hash)} passHref>
-        <Typography variant="body1" component="a">
-          {getMiddleEllipsis(x.hash, {
-            beginning: 4,
-            ending: 4,
-          })}
-        </Typography>
+      <Link href={TRANSACTION_DETAILS(x.hash)}>
+        {getMiddleEllipsis(x.hash, {
+          beginning: 4,
+          ending: 4,
+        })}
       </Link>
     ),
     type: (

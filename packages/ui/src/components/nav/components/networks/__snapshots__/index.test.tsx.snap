@@ -8,7 +8,7 @@ exports[`screen: Nav/Networks it renders 1`] = `
     <img
       alt="logo"
       className="css-mbd3ku-img"
-      data-nimg="future"
+      data-nimg="1"
       decoding="async"
       height={0}
       loading="lazy"

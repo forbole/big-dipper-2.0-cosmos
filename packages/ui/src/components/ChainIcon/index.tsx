@@ -1,6 +1,6 @@
 import chainCoing from '@/chainConfig';
 import useStyles from '@/components/ChainIcon/useStyles';
-import Image, { type ImageProps } from 'next/future/image';
+import Image, { type ImageProps } from 'next/image';
 import agoricIconLight from 'shared-utils/assets/icons/agoric-light.svg?url';
 import akashIconDark from 'shared-utils/assets/icons/akash-dark.svg?url';
 import assetmantleIconDark from 'shared-utils/assets/icons/assetmantle-dark.svg?url';

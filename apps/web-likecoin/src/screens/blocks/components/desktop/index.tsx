@@ -14,7 +14,7 @@ import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
-import React, { CSSProperties, FC, LegacyRef } from 'react';
+import { CSSProperties, FC, LegacyRef } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { VariableSizeGrid as Grid } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
@@ -32,10 +32,8 @@ const BlockRow: FC<BlockRowProps> = ({ style, columnKey, rowIndex, align, item }
   const { classes, cx } = useStyles();
   const formattedItem = {
     height: (
-      <Link href={BLOCK_DETAILS(item.height)} passHref>
-        <Typography variant="body1" className="value" component="a">
-          {numeral(item.height).format('0,0')}
-        </Typography>
+      <Link href={BLOCK_DETAILS(item.height)} className="value">
+        {numeral(item.height).format('0,0')}
       </Link>
     ),
     txs: numeral(item.txs).format('0,0'),

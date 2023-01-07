@@ -1,13 +1,13 @@
-import React, { FC, Fragment } from 'react';
-import useTranslation from 'next-translate/useTranslation';
+import AvatarName from '@/components/avatar_name';
+import useStyles from '@/screens/nfts/components/list/components/nfts_list/components/mobile/styles';
+import type { NFTTypes } from '@/screens/nfts/components/list/types';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
+import { NFT_DETAILS } from '@/utils/go_to_page';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
+import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
-import AvatarName from '@/components/avatar_name';
-import { NFT_DETAILS } from '@/utils/go_to_page';
-import type { NFTTypes } from '@/screens/nfts/components/list/types';
-import useStyles from '@/screens/nfts/components/list/components/nfts_list/components/mobile/styles';
+import { FC, Fragment } from 'react';
 
 const Mobile: FC<{ className?: string; items: NFTTypes[] }> = (props) => {
   const { t } = useTranslation('nfts');
@@ -16,10 +16,8 @@ const Mobile: FC<{ className?: string; items: NFTTypes[] }> = (props) => {
     key: `${x.identifier}-${i}`,
     identifier: x.identifier,
     nft: (
-      <Link href={NFT_DETAILS(x.identifier)} passHref>
-        <Typography variant="body1" className="value" component="a">
-          {x.name}
-        </Typography>
+      <Link href={NFT_DETAILS(x.identifier)} className="value">
+        {x.name}
       </Link>
     ),
     type: x.type,

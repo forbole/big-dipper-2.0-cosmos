@@ -7,7 +7,7 @@ import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
-import React, { FC, Fragment } from 'react';
+import { FC, Fragment } from 'react';
 import { useRecoilValue } from 'recoil';
 
 const { prefix } = chainConfig();
@@ -45,10 +45,8 @@ const Mobile: FC<MobileProps> = ({ className, items }) => {
                 </Typography>
                 <Typography variant="body1" className="value">
                   {checkIdentifier && (
-                    <Link href={ACCOUNT_DETAILS(x.identifier)} passHref>
-                      <Typography variant="body1" className="value" component="a">
-                        {x.identifier}
-                      </Typography>
+                    <Link href={ACCOUNT_DETAILS(x.identifier)} className="value">
+                      {x.identifier}
                     </Link>
                   )}
                   {new RegExp(`^(${prefix.account})`).test(x.identifier) === false && x.identifier}

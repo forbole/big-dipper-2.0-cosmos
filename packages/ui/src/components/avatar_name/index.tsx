@@ -3,7 +3,7 @@ import useStyles from '@/components/avatar_name/styles';
 import { ADDRESS_DETAILS } from '@/utils/go_to_page';
 import Typography from '@mui/material/Typography';
 import Link from 'next/link';
-import React, { FC } from 'react';
+import { FC } from 'react';
 
 const AvatarName: FC<AvatarName> = ({
   className,
@@ -16,12 +16,10 @@ const AvatarName: FC<AvatarName> = ({
 
   return (
     <Link href={href(address)}>
-      <a>
-        <div className={cx(classes.root, className)}>
-          <Avatar address={address} imageUrl={imageUrl ?? undefined} />
-          <Typography variant="body1">{name}</Typography>
-        </div>
-      </a>
+      <div className={cx(classes.root, className)}>
+        <Avatar address={address} imageUrl={imageUrl ?? undefined} />
+        <Typography variant="body1">{name}</Typography>
+      </div>
     </Link>
   );
 };

@@ -6,7 +6,7 @@
     "tsconfig": "*"
   },
   "devDependencies": {
-    "@types/esprima": "^4",
+    "@types/esprima": "^4.0.3",
     "esprima": "^4.0.1",
     "jest": "^29.3.1",
     "ts-jest": "^29.0.3",

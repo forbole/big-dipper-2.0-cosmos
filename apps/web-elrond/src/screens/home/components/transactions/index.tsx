@@ -23,10 +23,8 @@ const Transactions: FC<ComponentDefault> = (props) => {
     <Box className={props.className}>
       <div className={classes.label}>
         <Typography variant="h2">{t('latestTransactions')}</Typography>
-        <Link href={TRANSACTIONS} passHref>
-          <Typography variant="h4" className="button" component="a" aria-label="see more txs">
-            {t('seeMore')}
-          </Typography>
+        <Link href={TRANSACTIONS} className="button" aria-label="see more txs">
+          {t('seeMore')}
         </Link>
       </div>
       {!state.items.length ? (
@@ -35,15 +33,12 @@ const Transactions: FC<ComponentDefault> = (props) => {
         <>
           {isDesktop ? <Desktop items={state.items} /> : <Mobile items={state.items} />}
           <Divider className={classes.mobile} />
-          <Link href={TRANSACTIONS} passHref>
-            <Typography
-              variant="h4"
-              component="a"
-              aria-label="see more txs"
-              className={cx(classes.seeMoreFooter, classes.mobile, 'button')}
-            >
-              {t('seeMore')}
-            </Typography>
+          <Link
+            href={TRANSACTIONS}
+            className={cx(classes.seeMoreFooter, classes.mobile, 'button')}
+            aria-label="see more txs"
+          >
+            {t('seeMore')}
           </Link>
         </>
       )}

@@ -11,6 +11,15 @@ const mockI18n = {
 };
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
 
+const mockPush = jest.fn();
+
+jest.mock('next/router', () => ({
+  ...jest.requireActual('next/router'),
+  useRouter: () => ({
+    push: mockPush,
+  }),
+}));
+
 // ==================================
 // unit tests
 // ==================================

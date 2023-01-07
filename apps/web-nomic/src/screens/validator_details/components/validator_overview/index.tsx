@@ -13,7 +13,7 @@ import Big from 'big.js';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import CopyIcon from 'shared-utils/assets/icon-copy.svg';
 
 type ValidatorOverviewProps = {
@@ -102,15 +102,13 @@ const ValidatorOverview: FC<ValidatorOverviewProps> = ({ status, overview, class
               className={classes.actionIcons}
               onClick={() => handleCopyToClipboard(overview.selfDelegateAddress)}
             />
-            <Link href={ACCOUNT_DETAILS(overview.selfDelegateAddress)} passHref>
-              <Typography variant="body1" className="value" component="a">
-                {!isDesktop
-                  ? getMiddleEllipsis(overview.selfDelegateAddress, {
-                      beginning: 15,
-                      ending: 5,
-                    })
-                  : overview.selfDelegateAddress}
-              </Typography>
+            <Link href={ACCOUNT_DETAILS(overview.selfDelegateAddress)} className="value">
+              {!isDesktop
+                ? getMiddleEllipsis(overview.selfDelegateAddress, {
+                    beginning: 15,
+                    ending: 5,
+                  })
+                : overview.selfDelegateAddress}
             </Link>
           </div>
         </div>

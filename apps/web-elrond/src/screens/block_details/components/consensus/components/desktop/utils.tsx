@@ -1,7 +1,6 @@
 import type { ConsensusType } from '@/screens/block_details/types';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { NODE_DETAILS } from '@/utils/go_to_page';
-import Typography from '@mui/material/Typography';
 import Link from 'next/link';
 import numeral from 'numeral';
 import { FC } from 'react';
@@ -22,13 +21,11 @@ export const columns: {
 ];
 
 const FormattedRow: FC<{ consensus: string }> = ({ consensus }) => (
-  <Link href={NODE_DETAILS(consensus)} passHref>
-    <Typography variant="body1" className="value" component="a">
-      {getMiddleEllipsis(consensus, {
-        beginning: 40,
-        ending: 30,
-      })}
-    </Typography>
+  <Link href={NODE_DETAILS(consensus)} className="value">
+    {getMiddleEllipsis(consensus, {
+      beginning: 40,
+      ending: 30,
+    })}
   </Link>
 );
 

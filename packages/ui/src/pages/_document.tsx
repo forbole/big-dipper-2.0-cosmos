@@ -19,11 +19,10 @@ const DocumentComponent: FC<DocumentComponentProps> = ({ emotionStyleTags }) => 
   <Html lang="en">
     <Head>
       <meta name="theme-color" content="#ffffff" />
-      <meta name="emotion-insertion-point" content="" />
       {emotionStyleTags}
+      <meta name="emotion-insertion-point" content="" />
     </Head>
     <body>
-      <pre>{emotionStyleTags}</pre>
       <Main />
       <NextScript />
     </body>

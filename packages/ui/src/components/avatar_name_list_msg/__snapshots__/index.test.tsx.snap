@@ -2,13 +2,16 @@
 
 exports[`components: AvatarNameListMsg matches snapshot 1`] = `
 <a
-  className="MuiTypography-root MuiTypography-body1 css-1hinuoh-MuiTypography-root-root"
   href="/accounts/desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz"
   onClick={[Function]}
   onMouseEnter={[Function]}
   onTouchStart={[Function]}
 >
-  name
+  <a
+    className="MuiTypography-root MuiTypography-body1 css-1hinuoh-MuiTypography-root-root"
+  >
+    name
+  </a>
 </a>
 `;
 
@@ -17,25 +20,31 @@ exports[`components: AvatarNameListMsg matches snapshot with empty values 1`] = 
 exports[`components: AvatarNameListMsg matches snapshot with multiple values 1`] = `
 [
   <a
-    className="MuiTypography-root MuiTypography-body1 css-1hinuoh-MuiTypography-root-root"
     href="/accounts/desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz"
     onClick={[Function]}
     onMouseEnter={[Function]}
     onTouchStart={[Function]}
   >
-    name-1
+    <a
+      className="MuiTypography-root MuiTypography-body1 css-1hinuoh-MuiTypography-root-root"
+    >
+      name-1
+    </a>
   </a>,
   " ",
   "and",
   " ",
   <a
-    className="MuiTypography-root MuiTypography-body1 css-1hinuoh-MuiTypography-root-root"
     href="/accounts/desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94xx"
     onClick={[Function]}
     onMouseEnter={[Function]}
     onTouchStart={[Function]}
   >
-    name-2
+    <a
+      className="MuiTypography-root MuiTypography-body1 css-1hinuoh-MuiTypography-root-root"
+    >
+      name-2
+    </a>
   </a>,
 ]
 `;

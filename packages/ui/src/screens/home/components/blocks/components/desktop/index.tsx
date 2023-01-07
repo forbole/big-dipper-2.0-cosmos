@@ -11,7 +11,6 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
@@ -26,10 +25,8 @@ const BlockRow: FC<BlockRowProps> = ({ item }) => {
 
   const formattedData = {
     height: (
-      <Link href={BLOCK_DETAILS(item.height)} passHref>
-        <Typography variant="body1" className="value" component="a">
-          {numeral(item.height).format('0,0')}
-        </Typography>
+      <Link href={BLOCK_DETAILS(item.height)} className="value">
+        {numeral(item.height).format('0,0')}
       </Link>
     ),
     txs: numeral(item.txs).format('0,0'),

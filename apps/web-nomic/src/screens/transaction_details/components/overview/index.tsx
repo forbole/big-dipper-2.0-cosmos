@@ -5,11 +5,10 @@ import type { OverviewType } from '@/screens/transaction_details/types';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
 import { formatNumber } from '@/utils/format_token';
 import { BLOCK_DETAILS } from '@/utils/go_to_page';
-import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { useRecoilValue } from 'recoil';
 
 type OverviewProps = {
@@ -32,10 +31,8 @@ const Overview: FC<OverviewProps> = ({ className, data }) => {
       key: 'height',
       label: t('height'),
       detail: (
-        <Link href={BLOCK_DETAILS(data.height)} passHref>
-          <Typography variant="body1" className="value" component="a">
-            {numeral(data.height).format('0,0')}
-          </Typography>
+        <Link href={BLOCK_DETAILS(data.height)} className="value">
+          {numeral(data.height).format('0,0')}
         </Link>
       ),
     },

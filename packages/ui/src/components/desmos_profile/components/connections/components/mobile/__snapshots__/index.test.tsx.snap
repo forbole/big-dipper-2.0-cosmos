@@ -15,9 +15,7 @@ exports[`screen: DesmosProfile/Mobile it renders 1`] = `
       </h4>
       <p
         className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
-      >
-        
-      </p>
+      />
     </div>
     <div
       className="css-se0n4n-item"
@@ -29,9 +27,7 @@ exports[`screen: DesmosProfile/Mobile it renders 1`] = `
       </h4>
       <p
         className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
-      >
-        
-      </p>
+      />
     </div>
     <div
       className="css-se0n4n-item"

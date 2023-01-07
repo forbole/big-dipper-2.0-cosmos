@@ -1,13 +1,13 @@
-import React, { FC, Fragment } from 'react';
-import Link from 'next/link';
-import useTranslation from 'next-translate/useTranslation';
+import useStyles from '@/screens/validator_details/components/nodes/components/mobile/styles';
+import type { NodeType } from '@/screens/validator_details/components/nodes/types';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { getShardDisplay } from '@/utils/get_shard_display';
+import { NODE_DETAILS } from '@/utils/go_to_page';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import { NODE_DETAILS } from '@/utils/go_to_page';
-import type { NodeType } from '@/screens/validator_details/components/nodes/types';
-import useStyles from '@/screens/validator_details/components/nodes/components/mobile/styles';
+import useTranslation from 'next-translate/useTranslation';
+import Link from 'next/link';
+import { FC, Fragment } from 'react';
 
 const Mobile: FC<{ className?: string; items: NodeType[] }> = (props) => {
   const { t } = useTranslation('nodes');
@@ -17,13 +17,11 @@ const Mobile: FC<{ className?: string; items: NodeType[] }> = (props) => {
     return {
       key: x.pubkey,
       pubkey: (
-        <Link href={NODE_DETAILS(x.pubkey)} passHref>
-          <Typography variant="body1" className="value" component="a">
-            {getMiddleEllipsis(x.pubkey, {
-              beginning: 13,
-              ending: 15,
-            })}
-          </Typography>
+        <Link href={NODE_DETAILS(x.pubkey)} className="value">
+          {getMiddleEllipsis(x.pubkey, {
+            beginning: 13,
+            ending: 15,
+          })}
         </Link>
       ),
       name: x.name,

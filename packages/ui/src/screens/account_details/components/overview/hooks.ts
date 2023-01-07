@@ -16,7 +16,7 @@ export const useOverview = (t?: Translate) => {
 
   const handleCopyToClipboard = (value: string) => {
     copy(value);
-    toast(t ? t('common:copied') : 'copied');
+    toast<string>(t ? t('common:copied') : 'copied');
   };
 
   return {

@@ -11,7 +11,6 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
@@ -28,21 +27,13 @@ const Desktop: FC<DesktopProps> = ({ className, items }) => {
 
   const formattedData = items.map((x, i) => ({
     key: `${x.hash}-${i}`,
-    block: (
-      <Link href={BLOCK_DETAILS(x.height)} passHref>
-        <Typography variant="body1" component="a">
-          {numeral(x.height).format('0,0')}
-        </Typography>
-      </Link>
-    ),
+    block: <Link href={BLOCK_DETAILS(x.height)}>{numeral(x.height).format('0,0')}</Link>,
     hash: (
-      <Link href={TRANSACTION_DETAILS(x.hash)} passHref>
-        <Typography variant="body1" component="a">
-          {getMiddleEllipsis(x.hash, {
-            beginning: 4,
-            ending: 4,
-          })}
-        </Typography>
+      <Link href={TRANSACTION_DETAILS(x.hash)}>
+        {getMiddleEllipsis(x.hash, {
+          beginning: 4,
+          ending: 4,
+        })}
       </Link>
     ),
     type: (

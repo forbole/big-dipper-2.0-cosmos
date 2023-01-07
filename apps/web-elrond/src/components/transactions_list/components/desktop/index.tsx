@@ -11,7 +11,6 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import { FC } from 'react';
@@ -23,13 +22,11 @@ const Desktop: FC<{ className?: string; items: TransactionType[] }> = (props) =>
   const formattedItems = items.map((x) => ({
     key: `${x.hash}-${x.timestamp}`,
     hash: (
-      <Link href={TRANSACTION_DETAILS(x.hash)} passHref>
-        <Typography variant="body1" className="value" component="a">
-          {getMiddleEllipsis(x.hash, {
-            beginning: 10,
-            ending: 10,
-          })}
-        </Typography>
+      <Link href={TRANSACTION_DETAILS(x.hash)} className="value">
+        {getMiddleEllipsis(x.hash, {
+          beginning: 10,
+          ending: 10,
+        })}
       </Link>
     ),
     shard: <Shard to={x.toShard} from={x.fromShard} />,

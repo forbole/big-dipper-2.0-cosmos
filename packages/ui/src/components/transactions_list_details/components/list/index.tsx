@@ -11,7 +11,6 @@ import dayjs, { formatDayJs } from '@/utils/dayjs';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { BLOCK_DETAILS, TRANSACTION_DETAILS } from '@/utils/go_to_page';
 import { mergeRefs } from '@/utils/merge_refs';
-import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
@@ -45,22 +44,18 @@ const ListItem: FC<ListItemProps> = ({ index, style, setRowHeight, isItemLoaded,
   const item = {
     key: transaction.height,
     block: (
-      <Link href={BLOCK_DETAILS(transaction.height)} passHref>
-        <Typography variant="body1" component="a">
-          {numeral(transaction.height).format('0,0')}
-        </Typography>
+      <Link href={BLOCK_DETAILS(transaction.height)}>
+        {numeral(transaction.height).format('0,0')}
       </Link>
     ),
     hash: (
-      <Link href={TRANSACTION_DETAILS(transaction.hash)} passHref>
-        <Typography variant="body1" component="a">
-          {isMobile
-            ? getMiddleEllipsis(transaction.hash, {
-                beginning: 15,
-                ending: 5,
-              })
-            : transaction.hash}
-        </Typography>
+      <Link href={TRANSACTION_DETAILS(transaction.hash)}>
+        {isMobile
+          ? getMiddleEllipsis(transaction.hash, {
+              beginning: 15,
+              ending: 5,
+            })
+          : transaction.hash}
       </Link>
     ),
     type: (

@@ -9,9 +9,7 @@ exports[`screen: Validators/VotingPower matches snapshot 1`] = `
   >
     <p
       className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
-    >
-      
-    </p>
+    />
     <p
       className="MuiTypography-root MuiTypography-body1 percentage css-pfovru-MuiTypography-root"
     >
@@ -37,9 +35,7 @@ exports[`screen: Validators/VotingPower matches snapshot with topVotingPower set
   >
     <p
       className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
-    >
-      
-    </p>
+    />
     <p
       className="MuiTypography-root MuiTypography-body1 percentage css-pfovru-MuiTypography-root"
     >

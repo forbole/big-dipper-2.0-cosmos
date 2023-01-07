@@ -96,13 +96,16 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
           }
         >
           <a
-            className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
             href="/blocks/2000"
             onClick={[Function]}
             onMouseEnter={[Function]}
             onTouchStart={[Function]}
           >
-            2,000
+            <a
+              className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
+            >
+              2,000
+            </a>
           </a>
         </td>
         <td
@@ -115,13 +118,16 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
           }
         >
           <a
-            className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
             href="/transactions/76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857"
             onClick={[Function]}
             onMouseEnter={[Function]}
             onTouchStart={[Function]}
           >
-            76nw...Q857
+            <a
+              className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
+            >
+              76nw...Q857
+            </a>
           </a>
         </td>
         <td

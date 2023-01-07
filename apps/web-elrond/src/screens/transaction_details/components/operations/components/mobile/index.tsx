@@ -7,7 +7,7 @@ import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
-import React, { FC, Fragment } from 'react';
+import { FC, Fragment } from 'react';
 
 const Mobile: FC<{ className?: string; items: OperationType[] }> = (props) => {
   const { t } = useTranslation('transactions');
@@ -32,9 +32,7 @@ const Mobile: FC<{ className?: string; items: OperationType[] }> = (props) => {
       value: link ? (
         <div>
           <Typography component="span">{formatNumber(x.value.value, x.value.exponent)} </Typography>
-          <Link href={link(x.identifier)} passHref>
-            <Typography component="a">{x.value.displayDenom.toUpperCase()}</Typography>
-          </Link>
+          <Link href={link(x.identifier)}>{x.value.displayDenom.toUpperCase()}</Link>
         </div>
       ) : (
         <Typography>

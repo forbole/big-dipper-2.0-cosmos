@@ -1,16 +1,16 @@
-import React, { FC } from 'react';
-import Link from 'next/link';
-import useTranslation from 'next-translate/useTranslation';
-import { useScreenSize } from '@/hooks';
-import Divider from '@mui/material/Divider';
-import Typography from '@mui/material/Typography';
-import { VALIDATOR_DETAILS } from '@/utils/go_to_page';
-import CopyIcon from 'shared-utils/assets/icon-copy.svg';
-import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import Box from '@/components/box';
+import { useScreenSize } from '@/hooks';
 import { useProfile } from '@/screens/node_details/components/profile/hooks';
 import useStyles from '@/screens/node_details/components/profile/styles';
 import type { ProfileType } from '@/screens/node_details/types';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
+import { VALIDATOR_DETAILS } from '@/utils/go_to_page';
+import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
+import useTranslation from 'next-translate/useTranslation';
+import Link from 'next/link';
+import { FC } from 'react';
+import CopyIcon from 'shared-utils/assets/icon-copy.svg';
 
 const Profile: FC<{ className?: string; profile: ProfileType; showRating: boolean }> = (props) => {
   const { t } = useTranslation('nodes');
@@ -35,10 +35,8 @@ const Profile: FC<{ className?: string; profile: ProfileType; showRating: boolea
   if (props.profile?.validator) {
     validator = (
       <div className="detail">
-        <Link href={VALIDATOR_DETAILS(props.profile?.identity)} passHref>
-          <Typography variant="body1" className="value" component="a">
-            {getMiddleEllipsis(props.profile?.validator, ellipsis)}
-          </Typography>
+        <Link href={VALIDATOR_DETAILS(props.profile?.identity)} className="value">
+          {getMiddleEllipsis(props.profile?.validator, ellipsis)}
         </Link>
       </div>
     );

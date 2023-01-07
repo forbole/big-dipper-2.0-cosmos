@@ -14,7 +14,7 @@ exports[`screen: Nav/Network it renders 1`] = `
     <img
       alt="icon"
       className="css-4nmqpx-dark"
-      data-nimg="future"
+      data-nimg="1"
       decoding="async"
       height={0}
       loading="lazy"
@@ -31,7 +31,7 @@ exports[`screen: Nav/Network it renders 1`] = `
     <img
       alt="icon"
       className="css-13ot6lo-light"
-      data-nimg="future"
+      data-nimg="1"
       decoding="async"
       height={0}
       loading="lazy"

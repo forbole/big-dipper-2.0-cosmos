@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
-import React, { FC } from 'react';
+import { FC } from 'react';
 
 type VotingPowerProps = {
   className?: string;
@@ -45,10 +45,8 @@ const VotingPower: FC<VotingPowerProps> = ({ className, data, inActiveSet }) => 
         <Typography variant="h4" className="label">
           {t('block')}
         </Typography>
-        <Link href={BLOCK_DETAILS(data.height)} passHref>
-          <Typography variant="body1" className="value" component="a">
-            {numeral(data.height).format('0,0')}
-          </Typography>
+        <Link href={BLOCK_DETAILS(data.height)} className="value">
+          {numeral(data.height).format('0,0')}
         </Link>
       </div>
       <div className={classes.item}>

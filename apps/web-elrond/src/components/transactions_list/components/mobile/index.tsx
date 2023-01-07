@@ -8,7 +8,7 @@ import { TRANSACTION_DETAILS } from '@/utils/go_to_page';
 import { Divider, Typography } from '@mui/material';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
-import React, { FC, Fragment } from 'react';
+import { FC, Fragment } from 'react';
 
 const Mobile: FC<{ className?: string; items: TransactionType[] }> = (props) => {
   const { t } = useTranslation('transactions');
@@ -16,13 +16,11 @@ const Mobile: FC<{ className?: string; items: TransactionType[] }> = (props) => 
   const formattedItems = props.items.map((x) => ({
     key: x.hash,
     hash: (
-      <Link href={TRANSACTION_DETAILS(x.hash)} passHref>
-        <Typography variant="body1" className="value" component="a">
-          {getMiddleEllipsis(x.hash, {
-            beginning: 13,
-            ending: 15,
-          })}
-        </Typography>
+      <Link href={TRANSACTION_DETAILS(x.hash)} className="value">
+        {getMiddleEllipsis(x.hash, {
+          beginning: 13,
+          ending: 15,
+        })}
       </Link>
     ),
     shard: <Shard to={x.toShard} from={x.fromShard} />,

@@ -84,13 +84,16 @@ exports[`screen: Proposals/List matches snapshot 1`] = `
                   className="css-11049aw-title"
                 >
                   <a
-                    className="MuiTypography-root MuiTypography-h3 value css-1kl9mnf-MuiTypography-root"
                     href="/proposals/3"
                     onClick={[Function]}
                     onMouseEnter={[Function]}
                     onTouchStart={[Function]}
                   >
-                    Staking Param Change Part Three
+                    <a
+                      className="MuiTypography-root MuiTypography-h3 value css-1kl9mnf-MuiTypography-root"
+                    >
+                      Staking Param Change Part Three
+                    </a>
                   </a>
                 </div>
                 <p
@@ -161,13 +164,16 @@ exports[`screen: Proposals/List matches snapshot 1`] = `
                   className="css-11049aw-title"
                 >
                   <a
-                    className="MuiTypography-root MuiTypography-h3 value css-1kl9mnf-MuiTypography-root"
                     href="/proposals/7"
                     onClick={[Function]}
                     onMouseEnter={[Function]}
                     onTouchStart={[Function]}
                   >
-                    Staking Param Change Part Two
+                    <a
+                      className="MuiTypography-root MuiTypography-h3 value css-1kl9mnf-MuiTypography-root"
+                    >
+                      Staking Param Change Part Two
+                    </a>
                   </a>
                 </div>
                 <p

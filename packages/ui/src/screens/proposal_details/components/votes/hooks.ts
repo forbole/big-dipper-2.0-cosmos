@@ -4,10 +4,9 @@ import {
 } from '@/graphql/types/general_types';
 import type { VoteState } from '@/screens/proposal_details/components/votes/types';
 import { toValidatorAddress } from '@/utils/prefix_convert';
-import Tabs from '@mui/material/Tabs';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
-import { ComponentProps, useCallback, useState } from 'react';
+import { SyntheticEvent, useCallback, useState } from 'react';
 
 const formatVotes = (data: ProposalDetailsVotesQuery) => {
   const validatorDict: { [key: string]: unknown } = {};
@@ -90,8 +89,8 @@ export const useVotes = (resetPagination: () => void) => {
     });
   }, []);
 
-  const handleTabChange: ComponentProps<typeof Tabs>['onChange'] = useCallback(
-    (_event, newValue) => {
+  const handleTabChange = useCallback(
+    (_event: SyntheticEvent<Element, globalThis.Event>, newValue: number) => {
       if (resetPagination) {
         resetPagination();
       }

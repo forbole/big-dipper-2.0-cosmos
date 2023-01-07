@@ -8,7 +8,6 @@ import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { BLOCK_DETAILS } from '@/utils/go_to_page';
 import { mergeRefs } from '@/utils/merge_refs';
 import Divider from '@mui/material/Divider';
-import Typography from '@mui/material/Typography';
 import Link from 'next/link';
 import numeral from 'numeral';
 import { FC } from 'react';
@@ -44,10 +43,8 @@ const ListItem: FC<ListItemProps> = ({
 
   const formattedItem = {
     height: (
-      <Link href={BLOCK_DETAILS(item.height)} passHref>
-        <Typography variant="body1" className="value" component="a">
-          {numeral(item.height).format('0,0')}
-        </Typography>
+      <Link href={BLOCK_DETAILS(item.height)} className="value">
+        {numeral(item.height).format('0,0')}
       </Link>
     ),
     txs: numeral(item.txs).format('0,0'),

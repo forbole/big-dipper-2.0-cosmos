@@ -165,13 +165,16 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
           className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
         >
           <a
-            className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
             href="/blocks/300"
             onClick={[Function]}
             onMouseEnter={[Function]}
             onTouchStart={[Function]}
           >
-            300
+            <a
+              className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
+            >
+              300
+            </a>
           </a>
         </div>
       </div>
@@ -273,13 +276,16 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
           className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
         >
           <a
-            className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
             href="/blocks/301"
             onClick={[Function]}
             onMouseEnter={[Function]}
             onTouchStart={[Function]}
           >
-            301
+            <a
+              className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
+            >
+              301
+            </a>
           </a>
         </div>
       </div>
