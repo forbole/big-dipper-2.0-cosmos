@@ -8,7 +8,7 @@ exports[`screen: Nav/ActionBar displays network 1`] = `
     className="css-1douz5d-actions"
   >
     <form
-      className="open css-1r60gaq-searchBar-root"
+      className="open css-ser7za-root-searchBar"
       onSubmit={[Function]}
     >
       <div
@@ -75,7 +75,7 @@ exports[`screen: Nav/ActionBar it renders 1`] = `
     className="css-1douz5d-actions"
   >
     <form
-      className="css-1r60gaq-searchBar-root"
+      className="css-ser7za-root-searchBar"
       onSubmit={[Function]}
     >
       <div

@@ -2,7 +2,7 @@
 
 exports[`component: DesmosProfile matches snapshot 1`] = `
 <div
-  className="css-fd984x-root-root"
+  className="css-1gx3ykx-root-root"
 >
   <div
     className="css-1iuvubj-cover"
@@ -15,7 +15,7 @@ exports[`component: DesmosProfile matches snapshot 1`] = `
     className="css-1o0pknf-avatarContainer"
   >
     <div
-      className="css-l7jtd1-avatar-root"
+      className="css-31y7f8-root-avatar"
     >
       <img
         alt="address avatar"

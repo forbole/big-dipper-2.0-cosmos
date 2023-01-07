@@ -2,7 +2,7 @@
 
 exports[`screen: Nav/NetworkList it renders 1`] = `
 <div
-  className="css-2cwemy-root-root"
+  className="css-1u2thc9-root-root"
 >
   <div
     style={

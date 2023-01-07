@@ -5,7 +5,7 @@ exports[`screen: Home/DataBlocks matches snapshot 1`] = `
   className="css-36s0tc-root"
 >
   <div
-    className="css-pd6842-blockHeight-root"
+    className="css-10famwr-root-blockHeight"
   >
     <p
       className="MuiTypography-root MuiTypography-body2 label css-1bkilrq-MuiTypography-root"
@@ -23,7 +23,7 @@ exports[`screen: Home/DataBlocks matches snapshot 1`] = `
     </div>
   </div>
   <div
-    className="css-1h3bor6-blockTime-root"
+    className="css-e9rnpx-root-blockTime"
   >
     <p
       className="MuiTypography-root MuiTypography-body2 label css-1bkilrq-MuiTypography-root"
@@ -41,7 +41,7 @@ exports[`screen: Home/DataBlocks matches snapshot 1`] = `
     </div>
   </div>
   <div
-    className="css-kop5p1-price-root"
+    className="css-2joiu4-root-price"
   >
     <p
       className="MuiTypography-root MuiTypography-body2 label css-1bkilrq-MuiTypography-root"
@@ -59,7 +59,7 @@ exports[`screen: Home/DataBlocks matches snapshot 1`] = `
     </div>
   </div>
   <div
-    className="css-11xyanu-validators-root"
+    className="css-14njnem-root-validators"
   >
     <p
       className="MuiTypography-root MuiTypography-body2 label css-1bkilrq-MuiTypography-root"

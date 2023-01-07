@@ -2,7 +2,7 @@
 
 exports[`components: BoxDetails matches snapshot 1`] = `
 <div
-  className="css-fd984x-root-root"
+  className="css-1gx3ykx-root-root"
 >
   <div
     className="css-1028ajb-header-item"
@@ -46,7 +46,7 @@ exports[`components: BoxDetails matches snapshot 1`] = `
 
 exports[`components: BoxDetails matches snapshot with title actions 1`] = `
 <div
-  className="css-fd984x-root-root"
+  className="css-1gx3ykx-root-root"
 >
   <div
     className="css-1028ajb-header-item"
