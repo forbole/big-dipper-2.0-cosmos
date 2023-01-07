@@ -45,16 +45,10 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
             hash="hash"
             height={
               <ForwardRef(LinkComponent)
+                className="value"
                 href="/blocks/300"
-                passHref={true}
               >
-                <ForwardRef(Typography)
-                  className="value"
-                  component="a"
-                  variant="body1"
-                >
-                  300
-                </ForwardRef(Typography)>
+                300
               </ForwardRef(LinkComponent)>
             }
             id="SingleBlockMobile"
@@ -83,16 +77,10 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
             hash="hash"
             height={
               <ForwardRef(LinkComponent)
+                className="value"
                 href="/blocks/301"
-                passHref={true}
               >
-                <ForwardRef(Typography)
-                  className="value"
-                  component="a"
-                  variant="body1"
-                >
-                  301
-                </ForwardRef(Typography)>
+                301
               </ForwardRef(LinkComponent)>
             }
             id="SingleBlockMobile"

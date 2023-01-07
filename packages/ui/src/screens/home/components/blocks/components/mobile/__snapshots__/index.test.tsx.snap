@@ -6,16 +6,10 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
     hash="76nwV8zz8tLz9...F66jZhQ857"
     height={
       <ForwardRef(LinkComponent)
+        className="value"
         href="/blocks/4000"
-        passHref={true}
       >
-        <ForwardRef(Typography)
-          className="value"
-          component="a"
-          variant="body1"
-        >
-          4,000
-        </ForwardRef(Typography)>
+        4,000
       </ForwardRef(LinkComponent)>
     }
     id="SingleBlockMobile"

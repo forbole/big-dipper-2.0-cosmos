@@ -12,16 +12,10 @@ exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
       },
       {
         "detail": <ForwardRef(LinkComponent)
+          className="value"
           href="/blocks/0"
-          passHref={true}
         >
-          <ForwardRef(Typography)
-            className="value"
-            component="a"
-            variant="body1"
-          >
-            0
-          </ForwardRef(Typography)>
+          0
         </ForwardRef(LinkComponent)>,
         "key": "height",
         "label": "height",

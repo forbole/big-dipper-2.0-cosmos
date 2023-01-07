@@ -14,17 +14,14 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
       latestTransactions
     </h2>
     <a
+      aria-label="see more txs"
+      className="button"
       href="/transactions"
       onClick={[Function]}
       onMouseEnter={[Function]}
       onTouchStart={[Function]}
     >
-      <a
-        aria-label="see more txs"
-        className="MuiTypography-root MuiTypography-h4 button css-15yyl88-MuiTypography-root"
-      >
-        seeMore
-      </a>
+      seeMore
     </a>
   </div>
   <div

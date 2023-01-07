@@ -31,16 +31,13 @@ exports[`screen: ProfileDetails/Connections/Mobile matches snapshot 1`] = `
         className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
       >
         <a
+          className="value"
           href="/accounts/desmos1rzhewpmmdl72lhnxj6zmxr4v94f522s4ff2psv"
           onClick={[Function]}
           onMouseEnter={[Function]}
           onTouchStart={[Function]}
         >
-          <a
-            className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
-          >
-            desmos1rzhewpmmdl72lhnxj6zmxr4v94f522s4ff2psv
-          </a>
+          desmos1rzhewpmmdl72lhnxj6zmxr4v94f522s4ff2psv
         </a>
       </p>
     </div>

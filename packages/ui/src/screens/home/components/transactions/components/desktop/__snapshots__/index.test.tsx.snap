@@ -101,11 +101,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
             onMouseEnter={[Function]}
             onTouchStart={[Function]}
           >
-            <a
-              className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
-            >
-              2,000
-            </a>
+            2,000
           </a>
         </td>
         <td
@@ -123,11 +119,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
             onMouseEnter={[Function]}
             onTouchStart={[Function]}
           >
-            <a
-              className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
-            >
-              76nw...Q857
-            </a>
+            76nw...Q857
           </a>
         </td>
         <td

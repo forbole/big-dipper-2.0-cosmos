@@ -7,21 +7,19 @@ exports[`component: AvatarName matches snapshot 1`] = `
   onMouseEnter={[Function]}
   onTouchStart={[Function]}
 >
-  <a>
+  <div
+    className="css-1i61snv-root"
+  >
     <div
-      className="css-1i61snv-root"
+      address="123"
+      id="Avatar"
+    />
+    <p
+      className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
     >
-      <div
-        address="123"
-        id="Avatar"
-      />
-      <p
-        className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
-      >
-        name
-      </p>
-    </div>
-  </a>
+      name
+    </p>
+  </div>
 </a>
 `;
 
@@ -32,21 +30,19 @@ exports[`component: AvatarName matches snapshot with imageUrl 1`] = `
   onMouseEnter={[Function]}
   onTouchStart={[Function]}
 >
-  <a>
+  <div
+    className="css-1i61snv-root"
+  >
     <div
-      className="css-1i61snv-root"
+      address="123"
+      id="Avatar"
+      imageUrl="https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg"
+    />
+    <p
+      className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
     >
-      <div
-        address="123"
-        id="Avatar"
-        imageUrl="https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg"
-      />
-      <p
-        className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
-      >
-        name
-      </p>
-    </div>
-  </a>
+      name
+    </p>
+  </div>
 </a>
 `;
