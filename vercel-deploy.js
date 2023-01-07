@@ -25,6 +25,16 @@ function execShell(command) {
 
 console.log('running vercel-deploy.js', process.argv[2] ?? '');
 
+/**
+ * Vercel deployment flow:
+ * 1. turbo-ignore, if error, proceed with deployment, otherwise cancel the deployment
+ *    `node vercel-deploy.js turbo-ignore`
+ * 2. install
+ *    `node vercel-deploy.js install`
+ * 3. build
+ *    `node vercel-deploy.js`
+ */
+
 if (process.argv[2] === 'turbo-ignore') {
   let project = 'web';
 
