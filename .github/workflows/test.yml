@@ -17,12 +17,18 @@ defaults:
 jobs:
   check-cache:
     runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: corepack enable
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - run: yarn --immutable --immutable-cache --check-cache
+  detect-changes:
+    runs-on: ubuntu-latest
     outputs:
       projects: ${{ steps.dry-run.outputs.projects }}
       projects-web: ${{ steps.dry-run.outputs.projects-web }}
-      cache-directory: ${{ steps.vars.outputs.cache-directory }}
-      cashe-key: ${{ steps.vars.outputs.cache-key }}
-      restore-keys: ${{ steps.vars.outputs.restore-keys }}
     steps:
       - uses: actions/checkout@v3
         with:
@@ -31,19 +37,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: 'yarn'
-      - run: |
-          echo 'cache-directory=${{ github.workspace }}/node_modules' | tee -a $GITHUB_OUTPUT
-          echo 'cache-key=${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}' | tee -a $GITHUB_OUTPUT
-          echo 'restore-keys=${{ runner.os }}-' | tee -a $GITHUB_OUTPUT
-        id: vars
-      - uses: actions/cache@v3
-        with:
-          path: ${{ steps.vars.outputs.cache-directory }}
-          key: ${{ steps.vars.outputs.cache-key }}
-          restore-keys: ${{ steps.vars.outputs.restore-keys }}
-      - run: yarn --immutable --immutable-cache --check-cache
-      - name: Set needs.check-cache.outputs.{projects,projects-web}
+      - run: yarn --immutable --immutable-cache
+      - name: Set needs.detect-changes.outputs.{projects,projects-web}
         id: dry-run
         run: |
           echo yarn turbo run build --dry='json' --filter='[${{ github.event.pull_request.base.sha }}]' | tee -a $GITHUB_STEP_SUMMARY
@@ -59,25 +54,19 @@ jobs:
           console.log('projects-web=' + JSON.stringify(packages.filter(p => /^web.*$/.test(p))));
           EOF
   check-apps:
-    if: ${{ success() && needs.check-cache.outputs.projects != '[]' }}
-    needs: check-cache
+    if: ${{ success() && needs.detect-changes.outputs.projects != '[]' }}
+    needs: detect-changes
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        project: ${{ fromJSON(needs.check-cache.outputs.projects) }}
+        project: ${{ fromJSON(needs.detect-changes.outputs.projects) }}
     steps:
       - uses: actions/checkout@v3
       - run: corepack enable
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: 'yarn'
-      - uses: actions/cache@v3
-        with:
-          path: ${{ needs.check-cache.outputs.cache-directory }}
-          key: ${{ needs.check-cache.outputs.cashe-key }}
-          restore-keys: ${{ needs.check-cache.outputs.restore-keys }}
       - run: yarn --immutable --immutable-cache
       - name: check-types
         run: |
@@ -95,14 +84,14 @@ jobs:
           yarn test:ci --filter=${{ matrix.project }} -- --coverage | tee -a $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
       - name: build
-        if: ${{ needs.check-cache.outputs.projects-web != '[]' }}
+        if: ${{ needs.detect-changes.outputs.projects-web != '[]' }}
         run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
           yarn build:ci --filter=${{ matrix.project }} | tee -a $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
   check-e2e:
-    if: ${{ success() && needs.check-cache.outputs.projects-web != '[]' }}
-    needs: check-cache
+    if: ${{ success() && needs.detect-changes.outputs.projects-web != '[]' }}
+    needs: detect-changes
     runs-on: ubuntu-latest
     timeout-minutes: 30
     strategy:
@@ -128,12 +117,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: 'yarn'
-      - uses: actions/cache@v3
-        with:
-          path: ${{ needs.check-cache.outputs.cache-directory }}
-          key: ${{ needs.check-cache.outputs.cashe-key }}
-          restore-keys: ${{ needs.check-cache.outputs.restore-keys }}
       - run: yarn --immutable --immutable-cache
       - name: Playwright testing
         run: |
