@@ -107,13 +107,14 @@ const config: PlaywrightTestConfig = {
 
   /* Run your local dev server before starting the tests */
   webServer: {
-    command: process.env.PLAYWRIGHT_SERVER_COMMAND || `yarn dev --filter=${projectName}`,
+    command:
+      process.env.PLAYWRIGHT_SERVER_COMMAND ||
+      `NODE_ENV=production yarn dev --filter=${projectName}`,
     url: `http://localhost:${port}${basePath}`,
     ignoreHTTPSErrors: true,
     env: {
       PORT: port,
       DEBUG: 'pw:webserver',
-      NODE_ENV: 'production',
       RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED: 'false',
     },
     timeout: process.env.CI ? 2 * 60 * 1000 : undefined,
