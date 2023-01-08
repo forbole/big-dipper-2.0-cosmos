@@ -107,9 +107,7 @@ const config: PlaywrightTestConfig = {
 
   /* Run your local dev server before starting the tests */
   webServer: {
-    command:
-      process.env.PLAYWRIGHT_SERVER_COMMAND ||
-      `NODE_ENV=production yarn dev --filter=${projectName}`,
+    command: process.env.PLAYWRIGHT_SERVER_COMMAND || `yarn dev --filter=${projectName}`,
     url: `http://localhost:${port}${basePath}`,
     ignoreHTTPSErrors: true,
     env: {
