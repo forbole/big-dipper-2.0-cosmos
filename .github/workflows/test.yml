@@ -107,7 +107,7 @@ jobs:
         shardIndex: [1, 2, 3, 4, 5, 6, 7]
         shardTotal: [7]
     container:
-      image: mcr.microsoft.com/playwright:v1.29.1-focal
+      image: mcr.microsoft.com/playwright:v1.29.2-focal
     defaults:
       run:
         shell: bash

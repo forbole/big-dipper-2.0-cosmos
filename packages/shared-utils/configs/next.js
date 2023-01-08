@@ -10,14 +10,23 @@ const { basename, resolve } = require('path');
  */
 function getBaseConfig(basePath, chainName) {
   const config = {
-    output: process.env.BUILD_STANDALONE ? 'standalone' : undefined,
-    swcMinify: true,
     reactStrictMode: true,
+    experimental: {
+      ...(process.env.BUILD_STANDALONE
+        ? {
+            // this includes files from the monorepo base two directories up
+            outputFileTracingRoot: resolve(__dirname, '../../'),
+          }
+        : {}),
+    },
+    swcMinify: true,
+    ...(process.env.BUILD_STANDALONE
+      ? {
+          output: 'standalone',
+        }
+      : {}),
     poweredByHeader: false,
     basePath,
-    compiler: {
-      styledComponents: true,
-    },
     webpack,
     eslint: {
       // to speed up the build task
@@ -28,12 +37,6 @@ function getBaseConfig(basePath, chainName) {
     },
     env: {
       NEXT_PUBLIC_RELEASE: `${chainName}-v${process.env.npm_package_version ?? ''}`,
-    },
-    experimental: {
-      outputFileTracingRoot: process.env.BUILD_STANDALONE
-        ? // this includes files from the monorepo base two directories up
-          resolve(__dirname, '../../')
-        : undefined,
     },
   };
   return config;

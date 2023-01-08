@@ -4,12 +4,12 @@
   "license": "Apache-2.0",
   "private": true,
   "scripts": {
-    "dev": "RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED=false pnpify next dev",
-    "build": "pnpify next build",
+    "dev": "RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED=false next dev",
+    "build": "next build",
     "clean": "rm -rf .next .swc .turbo coverage node_modules",
-    "start": "pnpify next start",
+    "start": "next start",
     "check-types": "pnpify tsc --noemit",
-    "lint": "pnpify next lint",
+    "lint": "next lint",
     "test": "pnpify jest --passWithNoTests --ci --no-watchman",
     "graphql:codegen": "echo no hasura for Elrond"
   },

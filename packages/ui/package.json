@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "rm -rf .next .swc .turbo coverage node_modules",
     "check-types": "pnpify tsc --noemit",
-    "lint": "pnpify next lint",
+    "lint": "next lint",
     "test": "pnpify jest --passWithNoTests --ci --no-watchman",
     "graphql:codegen": "pnpify graphql-codegen"
   },
