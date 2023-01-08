@@ -1,46 +1,41 @@
-import { expect, Locator, Page, test } from '@playwright/test';
-
-async function clickPopup(page: Page, selector: (p: Page) => Locator) {
-  // Test facebook button
-  await Promise.all([page.waitForEvent('popup'), selector(page).click()]).then(([popup]) =>
-    popup.close()
-  );
-}
+import { test } from '@playwright/test';
+import { abortLoadingAssets, waitForPopupClick, waitForReady } from './common';
 
 test('footer', async ({ page, isMobile }) => {
-  // Test url
-  await Promise.all([page.waitForNavigation(), page.goto('.')]);
-  await expect(page.getByRole('progressbar')).toHaveCount(0);
+  await abortLoadingAssets(page);
+
+  await page.goto('.');
+  await waitForReady(page);
 
   // Test company footer section
-  await clickPopup(page, (p) => p.getByRole('link', { name: 'Forbole' }).first());
+  await waitForPopupClick((p) => p.getByRole('link', { name: 'Forbole' }), page);
 
-  await clickPopup(page, (p) => p.getByRole('link', { name: 'Stake Now' }));
+  await waitForPopupClick((p) => p.getByRole('link', { name: 'Stake Now' }), page);
 
-  await clickPopup(page, (p) => p.getByRole('link', { name: 'Contact Us' }));
+  await waitForPopupClick((p) => p.getByRole('link', { name: 'Contact Us' }), page);
 
-  await clickPopup(page, (p) => p.getByRole('link', { name: 'Blog' }));
+  await waitForPopupClick((p) => p.getByRole('link', { name: 'Blog' }), page);
 
   // Test Big Dipper footer section
-  await clickPopup(page, (p) => p.getByRole('link', { name: 'About' }));
+  await waitForPopupClick((p) => p.getByRole('link', { name: 'About' }), page);
 
-  await clickPopup(page, (p) => p.getByRole('link', { name: 'FAQ' }));
+  await waitForPopupClick((p) => p.getByRole('link', { name: 'FAQ' }), page);
 
-  await clickPopup(page, (p) => p.getByRole('link', { name: 'Terms and conditions' }));
+  await waitForPopupClick((p) => p.getByRole('link', { name: 'Terms and conditions' }), page);
 
-  await clickPopup(page, (p) => p.getByRole('link', { name: 'Privacy Policy' }));
+  await waitForPopupClick((p) => p.getByRole('link', { name: 'Privacy Policy' }), page);
 
   // Test community footer section
   if (!isMobile) {
-    await clickPopup(page, (p) => p.getByRole('link', { name: 'Telegram' }));
+    await waitForPopupClick((p) => p.getByRole('link', { name: 'Telegram' }), page);
   }
 
-  await clickPopup(page, (p) => p.getByRole('link', { name: 'LinkedIn' }));
+  await waitForPopupClick((p) => p.getByRole('link', { name: 'LinkedIn' }), page);
 
-  await clickPopup(page, (p) => p.getByRole('link', { name: 'Twitter' }));
+  await waitForPopupClick((p) => p.getByRole('link', { name: 'Twitter' }), page);
 
-  await clickPopup(page, (p) => p.getByRole('link', { name: 'Github' }));
+  await waitForPopupClick((p) => p.getByRole('link', { name: 'Github' }), page);
 
   // Test donate button in footer section
-  await clickPopup(page, (p) => p.getByRole('link', { name: 'Donate' }));
+  await waitForPopupClick((p) => p.getByRole('link', { name: 'Donate' }), page);
 });

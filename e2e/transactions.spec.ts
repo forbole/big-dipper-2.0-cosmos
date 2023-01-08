@@ -1,24 +1,24 @@
-import { expect, test } from '@playwright/test';
+import { test } from '@playwright/test';
+import { abortLoadingAssets, waitForClick, waitForMenuItemClick, waitForReady } from './common';
 
 const transactionHash = '5922EA68378A74989E95BF477BF107A120CA1D006FDDA84BC93630BBF9A8E75B';
 
-test('transactions page', async ({ page, isMobile }) => {
-  // Test url
-  await Promise.all([page.waitForNavigation(), page.goto('.')]);
-  await expect(page.getByRole('progressbar')).toHaveCount(0);
+test('transactions list page', async ({ page, isMobile }) => {
+  await abortLoadingAssets(page);
 
-  // Test click transactions section
-  if (isMobile) await page.getByRole('button', { name: 'open navigation menu' }).first().click();
-  await Promise.all([
-    page.waitForNavigation({ url: /\/transactions/ }),
-    page.getByRole('link', { name: 'Transactions' }).first().click(),
-  ]);
-  await expect(page.getByRole('progressbar')).toHaveCount(0);
+  await page.goto(`.`);
+  await waitForReady(page);
 
-  // Test single transaction url
-  await Promise.all([
-    page.waitForNavigation({ url: new RegExp(`/transactions/${transactionHash}`) }),
-    page.goto(`./transactions/${transactionHash}`),
-  ]);
-  await expect(page.getByRole('progressbar')).toHaveCount(0);
+  await waitForMenuItemClick(
+    'ul > a.active[href="/transactions"]',
+    page.getByRole('link', { name: 'Transactions' }),
+    isMobile
+  );
+});
+
+test(`transactions page ${transactionHash}`, async ({ page, isMobile }) => {
+  await abortLoadingAssets(page);
+
+  await page.goto(`./transactions/${transactionHash}`);
+  await waitForReady(page);
 });
