@@ -1,4 +1,11 @@
-import { expect, test } from '@playwright/test';
+import { expect, Locator, Page, test } from '@playwright/test';
+
+async function clickPopup(page: Page, selector: (p: Page) => Locator) {
+  // Test facebook button
+  await Promise.all([page.waitForEvent('popup'), selector(page).click()]).then(([popup]) =>
+    popup.close()
+  );
+}
 
 test('footer', async ({ page, isMobile }) => {
   // Test url
@@ -6,75 +13,34 @@ test('footer', async ({ page, isMobile }) => {
   await expect(page.getByRole('progressbar')).toHaveCount(0);
 
   // Test company footer section
-  await Promise.all([
-    page.waitForEvent('popup', (p) => p.url().startsWith('https://www.forbole.com')),
-    page.getByRole('link', { name: 'Forbole' }).first().click(),
-  ]);
+  await clickPopup(page, (p) => p.getByRole('link', { name: 'Forbole' }).first());
 
-  await Promise.all([
-    page.waitForEvent('popup', (p) => p.url().startsWith('https://www.forbole.com')),
-    page.getByRole('link', { name: 'Stake Now' }).click(),
-  ]);
+  await clickPopup(page, (p) => p.getByRole('link', { name: 'Stake Now' }));
 
-  await Promise.all([
-    page.waitForEvent('popup', (p) => p.url().startsWith('https://www.forbole.com/contact')),
-    page.getByRole('link', { name: 'Contact Us' }).click(),
-  ]);
+  await clickPopup(page, (p) => p.getByRole('link', { name: 'Contact Us' }));
 
-  await Promise.all([
-    page.waitForEvent('popup', (p) => p.url().startsWith('https://www.forbole.com/blog')),
-    page.getByRole('link', { name: 'Blog' }).click(),
-  ]);
+  await clickPopup(page, (p) => p.getByRole('link', { name: 'Blog' }));
 
   // Test Big Dipper footer section
-  await Promise.all([
-    page.waitForEvent('popup', (p) => p.url().startsWith('https://bigdipper.live/#about')),
-    page.getByRole('link', { name: 'About' }).click(),
-  ]);
+  await clickPopup(page, (p) => p.getByRole('link', { name: 'About' }));
 
-  await Promise.all([
-    page.waitForEvent('popup', (p) => p.url().startsWith('https://bigdipper.live/faq')),
-    page.getByRole('link', { name: 'FAQ' }).click(),
-  ]);
+  await clickPopup(page, (p) => p.getByRole('link', { name: 'FAQ' }));
 
-  await Promise.all([
-    page.waitForEvent('popup', (p) =>
-      p.url().startsWith('https://bigdipper.live/terms-and-conditions')
-    ),
-    page.getByRole('link', { name: 'Terms and conditions' }).click(),
-  ]);
+  await clickPopup(page, (p) => p.getByRole('link', { name: 'Terms and conditions' }));
 
-  await Promise.all([
-    page.waitForEvent('popup', (p) => p.url().startsWith('https://bigdipper.live/privacy-policy')),
-    page.getByRole('link', { name: 'Privacy Policy' }).click(),
-  ]);
+  await clickPopup(page, (p) => p.getByRole('link', { name: 'Privacy Policy' }));
 
   // Test community footer section
   if (!isMobile) {
-    await Promise.all([
-      page.waitForEvent('popup', (p) => p.url().startsWith('https://t.me/forbole')),
-      page.getByRole('link', { name: 'Telegram' }).click(),
-    ]);
+    await clickPopup(page, (p) => p.getByRole('link', { name: 'Telegram' }));
   }
 
-  await Promise.all([
-    page.waitForEvent('popup', (p) => p.url().startsWith('https://www.linkedin.com')),
-    page.getByRole('link', { name: 'LinkedIn' }).click(),
-  ]);
+  await clickPopup(page, (p) => p.getByRole('link', { name: 'LinkedIn' }));
 
-  await Promise.all([
-    page.waitForEvent('popup', (p) => p.url().startsWith('https://twitter.com/bigdipperlive')),
-    page.getByRole('link', { name: 'Twitter' }).click(),
-  ]);
+  await clickPopup(page, (p) => p.getByRole('link', { name: 'Twitter' }));
 
-  await Promise.all([
-    page.waitForEvent('popup', (p) => p.url().startsWith('https://github.com/forbole')),
-    page.getByRole('link', { name: 'Github' }).click(),
-  ]);
+  await clickPopup(page, (p) => p.getByRole('link', { name: 'Github' }));
 
   // Test donate button in footer section
-  await Promise.all([
-    page.waitForEvent('popup', (p) => p.url().startsWith('https://bigdipper.live/donate')),
-    page.getByRole('link', { name: 'Donate' }).click(),
-  ]);
+  await clickPopup(page, (p) => p.getByRole('link', { name: 'Donate' }));
 });

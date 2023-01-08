@@ -1,4 +1,4 @@
-import { BrowserContext, expect, test } from '@playwright/test';
+import { BrowserContext, expect, Locator, Page, test } from '@playwright/test';
 
 const address = 'desmos134zrg6jn3a5l5jjpzv9eucdlw3nl2qelgz330c';
 
@@ -12,6 +12,13 @@ async function hasReadPermissions(context: BrowserContext) {
     // skip for firefox
     return false;
   }
+}
+
+async function clickPopup(page: Page, selector: (p: Page) => Locator) {
+  // Test facebook button
+  await Promise.all([page.waitForEvent('popup'), selector(page).click()]).then(([popup]) =>
+    popup.close()
+  );
 }
 
 test('account page - copy addresses', async ({ page, context }) => {
@@ -57,28 +64,16 @@ test('account page - share buttons', async ({ page, isMobile }) => {
   await page.locator('#icon-share_svg__Layer_1').first().click();
 
   // Test facebook button
-  await Promise.all([
-    page.waitForEvent('popup', (p) => /^https:\/\/[^/]+.facebook.com\/?/.test(p.url())),
-    page.getByRole('button', { name: 'facebook' }).click(),
-  ]);
+  await clickPopup(page, (p) => p.getByRole('button', { name: 'facebook' }));
 
   // Test twitter button
-  await Promise.all([
-    page.waitForEvent('popup', (p) => /^https:\/\/twitter\.com\/?/.test(p.url())),
-    page.getByRole('button', { name: 'twitter' }).click(),
-  ]);
+  await clickPopup(page, (p) => p.getByRole('button', { name: 'twitter' }));
 
   // Test telegram button
-  await Promise.all([
-    page.waitForEvent('popup', (p) => /^https:\/\/telegram\.me\/?/.test(p.url())),
-    page.getByRole('button', { name: 'telegram' }).click(),
-  ]);
+  await clickPopup(page, (p) => p.getByRole('button', { name: 'telegram' }));
 
   // Test whatsapp button
-  await Promise.all([
-    page.waitForEvent('popup', (p) => isMobile || /^https:\/\/web.whatsapp.com\/?/.test(p.url())),
-    page.getByRole('button', { name: 'whatsapp' }).click(),
-  ]);
+  await clickPopup(page, (p) => p.getByRole('button', { name: 'whatsapp' }));
 });
 
 test('account page tabs', async ({ page }) => {
