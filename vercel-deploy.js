@@ -35,7 +35,41 @@ console.log('running vercel-deploy.js', process.argv[2] ?? '');
  *    `node vercel-deploy.js`
  */
 
-if (process.argv[2] === 'turbo-ignore') {
+if (process.argv[2] === 'manual') {
+  let project = process.argv[3];
+
+  try {
+    /**
+     * Getting the list of projects in the workspace and then
+     * finding the project that matches the title of the PR.
+     */
+    const projects = execShell(`yarn workspaces list --json`);
+
+    const projectList = projects
+      .split(/\n/g)
+      .filter((p) => p)
+      .map((p) => JSON.parse(p).name)
+      .filter((p) => p.startsWith('web'));
+
+    project = projectList.find((p) => p === project) || 'web';
+    const unusedProjects = projectList
+      .filter((p) => p !== project)
+      .map((p) => `apps/${p} `)
+      .join('');
+    if (unusedProjects) execShell(`rm -rf ${unusedProjects}`);
+    execShell(`yarn cache clean --mirror`);
+    execShell(`yarn config set supportedArchitectures --json '{}'`);
+    /* Move the built project to the web folder. */
+    if (project !== 'web') {
+      execShell(`mv apps/${project} apps/web`);
+    }
+  } catch (error) {
+    console.error(error);
+    return; // cancel deployment
+  }
+
+  throw new Error('✅ proceeding with deployment (' + project + ')');
+} else if (process.argv[2] === 'turbo-ignore') {
   let project = 'web';
 
   try {
@@ -69,7 +103,10 @@ if (process.argv[2] === 'turbo-ignore') {
       .map((p) => JSON.parse(p).name)
       .filter((p) => p.startsWith('web'));
 
-    project = projectList.find((p) => title.endsWith(`[${p}]`)) || 'web';
+    project = projectList.find((p) => title.endsWith(`[${p}]`));
+
+    if (!project) throw new Error('project not found');
+
     const unusedProjects = projectList
       .filter((p) => p !== project)
       .map((p) => `apps/${p} `)
