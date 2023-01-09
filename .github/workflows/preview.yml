@@ -77,6 +77,7 @@ jobs:
               ? [{ source: '/', destination: '/' + projectName.replace(/^web-/, '') }]
               : [],
           };
+          console.log(JSON.stringify(config, null, 2));
           EOF
         env:
           PROJECT_NAME: ${{ matrix.project }}
