@@ -21,6 +21,9 @@ import {
   writeTabValue,
   writeShowWalletDetails,
 } from '@/recoil/wallet';
+import { OfflineAminoSigner, OfflineDirectSigner } from '@keplr-wallet/types';
+import bech32 from 'bech32';
+import { PubKey } from 'cosmjs-types/cosmos/crypto/secp256k1/keys';
 
 type UserState = {
   address: string;
@@ -178,6 +181,7 @@ const useConnectWalletList = () => {
 
   const handleLogin = () => {
     setOpenLoginDialog(true);
+    console.log(process.env.NEXT_PUBLIC_LCD_KEPLR_URL);
   };
 
   const handleLogout = () => {
@@ -282,26 +286,16 @@ const useConnectWalletList = () => {
   const continueToAuthorizeConnectionDialog = async () => {
     setOpenSelectNetworkDialog(false);
     setOpenAuthorizeConnectionDialog(true);
-    const offlineSigner = window.keplr.getOfflineSigner(chainId);
+    const offlineSigner = getOfflineSigner();
 
-    // You can get the address/public keys by `getAccounts` method.
-    // It can return the array of address/public key.
-    // But, currently, Keplr extension manages only one address/public key pair.
-    // XXX: This line is needed to set the sender address for SigningCosmosClient.
-    const accounts = await offlineSigner.getAccounts();
-
-    // Initialize the gaia api with the offline signer that is injected by Keplr extension.
-    const cosmJS = new SigningCosmosClient(
-      process.env.NEXT_PUBLIC_LCD_KEPLR_URL,
-      // 'https://lcd-cosmoshub.keplr.app',
-      accounts[0].address,
-      offlineSigner
-    );
+    const offlineSignerAddress = await getOfflineSignerAddress(offlineSigner);
+    const offlineSignerPubKey = await getOfflineSignerPubKey(offlineSigner);
+    const cosmJS = getCosmosClient(offlineSignerAddress, offlineSigner);
 
     if (cosmJS) {
       const key = await window.keplr.getKey('cosmoshub-4');
-      localStorage.setItem(ADDRESS_KEY, accounts[0].address);
-      localStorage.setItem(PUBKEY_KEY, accounts[0].pubkey.toString());
+      localStorage.setItem(ADDRESS_KEY, offlineSignerAddress);
+      localStorage.setItem(PUBKEY_KEY, offlineSignerPubKey);
       localStorage.setItem(WALLET_NAME_KEY, key.name);
 
       // close the dialog after 3 seconds
@@ -316,11 +310,55 @@ const useConnectWalletList = () => {
         setOpenLoginSuccessDialog(false);
       }, 3000);
 
-      setUserAddress(accounts[0].address);
-      seUserPubKey(accounts[0].pubkey.toString());
+      setUserAddress(offlineSignerAddress);
+      seUserPubKey(offlineSignerPubKey);
       setWalletName(key.name);
       setUserIsLoggedIn(true);
     }
+  };
+
+  const getOfflineSigner = () => {
+    const offlineSigner = window.keplr.getOfflineSigner(chainId);
+    return offlineSigner;
+  };
+
+  const getOfflineSignerAddress = async (
+    offlineSigner: OfflineAminoSigner & OfflineDirectSigner
+  ) => {
+    // You can get the address/public keys by `getAccounts` method.
+    // It can return the array of address/public key.
+    // But, currently, Keplr extension manages only one address/public key pair.
+    // XXX: This line is needed to set the sender address for SigningCosmosClient.
+    const accounts = await offlineSigner.getAccounts();
+    return accounts[0].address;
+  };
+
+  const getOfflineSignerPubKey = async (
+    offlineSigner: OfflineAminoSigner & OfflineDirectSigner
+  ) => {
+    // You can get the address/public keys by `getAccounts` method.
+    // It can return the array of address/public key.
+    // But, currently, Keplr extension manages only one address/public key pair.
+    // XXX: This line is needed to set the sender address for SigningCosmosClient.
+    const accounts = await offlineSigner.getAccounts();
+    // console.log(accounts[0].pubkey);
+    // console.log(accounts[0].pubkey.toString());
+
+    return accounts[0].pubkey.toString();
+  };
+
+  const getCosmosClient = (
+    address: string,
+    offlineSigner: OfflineAminoSigner & OfflineDirectSigner
+  ) => {
+    // Initialize the gaia api with the offline signer that is injected by Keplr extension.
+    const cosmJS = new SigningCosmosClient(
+      process.env.NEXT_PUBLIC_LCD_KEPLR_URL,
+      // 'https://lcd-cosmoshub.keplr.app',
+      address,
+      offlineSigner
+    );
+    return cosmJS;
   };
 
   return {
