@@ -44,7 +44,7 @@ function getProjectList() {
  * project to the web folder
  * @param project - The name of the project to build.
  */
-function cleanUnusedProjects(project) {
+function cleanUnusedProjects(project, projectList) {
   const unusedProjects = projectList
     .filter((p) => p !== project)
     .map((p) => `apps/${p} `)
@@ -71,11 +71,12 @@ console.log('running vercel-deploy.js', process.argv[2] ?? '');
  */
 
 if (process.argv[2] === 'manual') {
-  const project = getProjectList().find((p) => p === process.argv[3]) || 'web';
+  const projectList = getProjectList();
+  const project = projectList.find((p) => p === process.argv[3]) || 'web';
 
   if (!project) throw new Error('project not found');
 
-  cleanUnusedProjects(project);
+  cleanUnusedProjects(project, projectList);
   execShell(`YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn install --inline-builds`);
 } else if (process.argv[2] === 'turbo-ignore') {
   try {
@@ -97,8 +98,9 @@ if (process.argv[2] === 'manual') {
     );
     const { title } = JSON.parse(response);
 
-    const project = getProjectList().find((p) => title.endsWith(`[${p}]`)) || 'web';
-    cleanUnusedProjects(project);
+    const projectList = getProjectList();
+    const project = projectList.find((p) => title.endsWith(`[${p}]`)) || 'web';
+    cleanUnusedProjects(project, projectList);
   } catch (error) {
     console.error(error);
     return; // cancel deployment
