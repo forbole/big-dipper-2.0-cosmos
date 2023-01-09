@@ -1,4 +1,4 @@
-import { atomState } from '@/recoil/user/atom';
+import { atomState, PubKey } from '@/recoil/user/atom';
 import { mergeStateChange } from '@/utils/merge_state_change';
 import { DefaultValue, ReadOnlySelectorOptions, selector } from 'recoil';
 
@@ -65,7 +65,7 @@ export const readWalletName = selector({
   get: getWalletName,
 });
 
-const getUserPubKey: ReadOnlySelectorOptions<string>['get'] = ({ get }) => {
+const getUserPubKey: ReadOnlySelectorOptions<PubKey>['get'] = ({ get }) => {
   const state = get(atomState);
   return state.pubKey;
 };
@@ -76,7 +76,9 @@ export const writeUserPubKey = selector({
   set: ({ get, set }, value) => {
     if (value instanceof DefaultValue) return;
     const prevState = get(atomState);
-    const newState = mergeStateChange(prevState, { pubKey: value });
+    const newState = mergeStateChange(prevState, {
+      pubKey: { type: value.type, value: value.value },
+    });
     set(atomState, newState);
   },
 });
