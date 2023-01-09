@@ -72,20 +72,16 @@ jobs:
           const projectName = process.env.PROJECT_NAME || 'web';
           const chainType = process.env.NEXT_PUBLIC_CHAIN_TYPE?.toLowerCase() || 'mainnet';
           const config = {
-            buildCommand: 'NEXT_PUBLIC_CHAIN_TYPE=' + chainType + ' BASE_PATH=' + process.env.BASE_PATH +
-              ' yarn workspace ' + projectName + ' next build',
-            outputDirectory: 'apps/' + projectName + '/.next',
-            installCommand: "rm -rf .yarn/cache .pnp.*" +
-              ' && yarn config set nodeLinker node-modules' +
-              ' && yarn --mode=update-lockfile',
-            devCommand: 'yarn workspace ' + projectName + ' next dev',
+            buildCommand: 'node vercel-deploy.js',
+            outputDirectory: 'apps/web/.next',
+            installCommand: 'node vercel-deploy.js install',
+            devCommand: 'cd apps/web && yarn next dev',
             framework: 'nextjs',
-            ignoreCommand: 'echo always build && exit 1',
+            ignoreCommand: 'node vercel-deploy.js manual ' + projectName,
             redirects: process.env.BASE_PATH !== "/" && /^web-/.test(projectName)
               ? [{ source: '/', destination: '/' + projectName.replace(/^web-/, '') }]
               : [],
           };
-          console.log(JSON.stringify(config, null, 2));
           EOF
         env:
           PROJECT_NAME: ${{ matrix.project }}
