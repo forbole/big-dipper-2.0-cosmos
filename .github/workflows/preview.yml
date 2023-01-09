@@ -8,9 +8,6 @@ on:
       chain_type:
         description: 'Chain Type to publish (default to mainnet when more than 1 was configured)'
         required: false
-      base_path:
-        description: 'Override basePath in next.config.js (default to basePath in chainConfig)'
-        required: false
 defaults:
   run:
     shell: bash
@@ -40,8 +37,6 @@ jobs:
       max-parallel: 1
       matrix:
         project: ${{ fromJSON(needs.validate-projects.outputs.projects) }}
-        base_path:
-          - ${{ github.event.inputs.base_path }}
     name: Publish ${{ matrix.project }}
     steps:
       - uses: actions/checkout@v3
@@ -78,7 +73,7 @@ jobs:
             devCommand: 'cd apps/web && yarn next dev',
             framework: 'nextjs',
             ignoreCommand: 'node vercel-deploy.js manual ' + projectName,
-            redirects: process.env.BASE_PATH !== "/" && /^web-/.test(projectName)
+            redirects: /^web-/.test(projectName)
               ? [{ source: '/', destination: '/' + projectName.replace(/^web-/, '') }]
               : [],
           };
@@ -86,7 +81,6 @@ jobs:
         env:
           PROJECT_NAME: ${{ matrix.project }}
           NEXT_PUBLIC_CHAIN_TYPE: ${{ steps.vars.outputs.chain_type }}
-          BASE_PATH: ${{ matrix.base_path }}
       - name: Deploy preview to Vercel
         run: vercel -t ${{ secrets.VERCEL_TOKEN }} | tee -a $GITHUB_STEP_SUMMARY
         env:
