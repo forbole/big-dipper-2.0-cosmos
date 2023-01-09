@@ -37,11 +37,6 @@ const variants: Variants = {
     alignItems: 'center',
     overflow: 'hidden',
   },
-  exit: {
-    height: 0,
-    display: 'none',
-    transition: { duration: 0 },
-  },
 };
 
 const Desktop: FC<DesktopProps> = ({ className, items }) => {
@@ -109,9 +104,8 @@ const Desktop: FC<DesktopProps> = ({ className, items }) => {
                         key={`${row.key}-${key}`}
                         initial="initial"
                         animate="animate"
-                        exit="exit"
                         variants={variants}
-                        transition={{ duration: 0.1 }}
+                        transition={{ duration: 0.3 }}
                       >
                         {item}
                       </motion.div>
