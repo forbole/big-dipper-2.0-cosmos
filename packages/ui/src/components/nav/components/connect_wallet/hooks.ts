@@ -254,6 +254,9 @@ const useConnectWalletList = () => {
     if (!window.keplr) {
       setOpenInstallKeplrWalletDialog(true);
     } else {
+      if (openInstallKeplrWalletDialog) {
+        setOpenInstallKeplrWalletDialog(false);
+      }
       setOpenKeplrPairingDialog(true);
     }
   };
