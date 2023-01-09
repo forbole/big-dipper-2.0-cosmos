@@ -23,6 +23,41 @@ function execShell(command) {
   return output;
 }
 
+/**
+ * Getting the list of projects in the workspace and then
+ * finding the project that matches the title of the PR.
+ */
+function getProjectList() {
+  const projects = execShell(`yarn workspaces list --json`);
+
+  const projectList = projects
+    .split(/\n/g)
+    .filter((p) => p)
+    .map((p) => JSON.parse(p).name)
+    .filter((p) => p.startsWith('web'));
+
+  return projectList;
+}
+
+/**
+ * It removes all the unused projects from the workspace, cleans the yarn cache, and moves the built
+ * project to the web folder
+ * @param project - The name of the project to build.
+ */
+function cleanUnusedProjects(project) {
+  const unusedProjects = projectList
+    .filter((p) => p !== project)
+    .map((p) => `apps/${p} `)
+    .join('');
+  if (unusedProjects) execShell(`rm -rf ${unusedProjects}`);
+  execShell(`yarn cache clean --mirror`);
+  execShell(`yarn config set supportedArchitectures --json '{}'`);
+  /* Move the built project to the web folder. */
+  if (project !== 'web') {
+    execShell(`mv apps/${project} apps/web`);
+  }
+}
+
 console.log('running vercel-deploy.js', process.argv[2] ?? '');
 
 /**
@@ -36,42 +71,13 @@ console.log('running vercel-deploy.js', process.argv[2] ?? '');
  */
 
 if (process.argv[2] === 'manual') {
-  let project = process.argv[3];
+  const project = getProjectList().find((p) => p === process.argv[3]) || 'web';
 
-  try {
-    /**
-     * Getting the list of projects in the workspace and then
-     * finding the project that matches the title of the PR.
-     */
-    const projects = execShell(`yarn workspaces list --json`);
+  if (!project) throw new Error('project not found');
 
-    const projectList = projects
-      .split(/\n/g)
-      .filter((p) => p)
-      .map((p) => JSON.parse(p).name)
-      .filter((p) => p.startsWith('web'));
-
-    project = projectList.find((p) => p === project) || 'web';
-    const unusedProjects = projectList
-      .filter((p) => p !== project)
-      .map((p) => `apps/${p} `)
-      .join('');
-    if (unusedProjects) execShell(`rm -rf ${unusedProjects}`);
-    execShell(`yarn cache clean --mirror`);
-    execShell(`yarn config set supportedArchitectures --json '{}'`);
-    /* Move the built project to the web folder. */
-    if (project !== 'web') {
-      execShell(`mv apps/${project} apps/web`);
-    }
-  } catch (error) {
-    console.error(error);
-    return; // cancel deployment
-  }
-
-  throw new Error('✅ proceeding with deployment (' + project + ')');
+  cleanUnusedProjects(project);
+  execShell(`YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn install --inline-builds`);
 } else if (process.argv[2] === 'turbo-ignore') {
-  let project = 'web';
-
   try {
     // VERCEL_GIT_PULL_REQUEST_ID is the pull request id
     const pullId = process.env.VERCEL_GIT_PULL_REQUEST_ID;
@@ -91,33 +97,8 @@ if (process.argv[2] === 'manual') {
     );
     const { title } = JSON.parse(response);
 
-    /**
-     * Getting the list of projects in the workspace and then
-     * finding the project that matches the title of the PR.
-     */
-    const projects = execShell(`yarn workspaces list --json`);
-
-    const projectList = projects
-      .split(/\n/g)
-      .filter((p) => p)
-      .map((p) => JSON.parse(p).name)
-      .filter((p) => p.startsWith('web'));
-
-    project = projectList.find((p) => title.endsWith(`[${p}]`));
-
-    if (!project) throw new Error('project not found');
-
-    const unusedProjects = projectList
-      .filter((p) => p !== project)
-      .map((p) => `apps/${p} `)
-      .join('');
-    if (unusedProjects) execShell(`rm -rf ${unusedProjects}`);
-    execShell(`yarn cache clean --mirror`);
-    execShell(`yarn config set supportedArchitectures --json '{}'`);
-    /* Move the built project to the web folder. */
-    if (project !== 'web') {
-      execShell(`mv apps/${project} apps/web`);
-    }
+    const project = getProjectList().find((p) => title.endsWith(`[${p}]`)) || 'web';
+    cleanUnusedProjects(project);
   } catch (error) {
     console.error(error);
     return; // cancel deployment
