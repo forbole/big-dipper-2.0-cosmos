@@ -69,10 +69,10 @@ jobs:
           const config = {
             buildCommand: 'node vercel-deploy.js',
             outputDirectory: 'apps/web/.next',
-            installCommand: 'node vercel-deploy.js install',
+            installCommand: 'node vercel-deploy.js manual ' + projectName,
             devCommand: 'cd apps/web && yarn next dev',
             framework: 'nextjs',
-            ignoreCommand: 'node vercel-deploy.js manual ' + projectName,
+            ignoreCommand: 'exit 1',
           };
           EOF
         env:
