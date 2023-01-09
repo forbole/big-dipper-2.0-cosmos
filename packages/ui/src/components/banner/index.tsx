@@ -75,6 +75,7 @@ const Banner: FC<BannerProps> = ({ index = Math.floor(Math.random() * bannersLin
   const { classes } = useStyles();
 
   useEffect(() => {
+    setBannerIndex(Math.floor(Math.random() * bannersLinks.length));
     function rotateBanner() {
       isRotated.current = true;
       setBannerIndex((prev) => (prev + 1) % bannersLinks.length);
