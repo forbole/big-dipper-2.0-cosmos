@@ -28,12 +28,25 @@ const variants: Variants = {
     display: 'flex',
     alignItems: 'center',
     overflow: 'hidden',
+    clipPath: 'polygon(0% 50px, 100% 50px, 100% 50px, 0% 50px)',
   },
   animate: {
     height: 50,
     display: 'flex',
     alignItems: 'center',
     overflow: 'hidden',
+    clipPath: 'polygon(0% 0px, 100% 0px, 100% 50px, 0% 50px)',
+  },
+  exit: {
+    height: 0,
+    display: 'flex',
+    alignItems: 'center',
+    overflow: 'hidden',
+    clipPath: 'polygon(0% 0px, 100% 0px, 100% 0px, 0% 0px)',
+    position: 'absolute',
+    opacity: 0,
+    marginTop: 50,
+    transition: { duration: 0.5, ease: 'easeOut' },
   },
 };
 
@@ -71,6 +84,7 @@ const BlockRow: FC<BlockRowProps> = ({ item, i }) => {
               key={`${item.height}-${key}`}
               initial="initial"
               animate="animate"
+              exit="exit"
               variants={variants}
               transition={{ duration: 1.5 }}
             >
