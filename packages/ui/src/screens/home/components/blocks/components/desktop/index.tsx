@@ -35,11 +35,6 @@ const variants: Variants = {
     alignItems: 'center',
     overflow: 'hidden',
   },
-  exit: {
-    height: 0,
-    display: 'none',
-    transition: { duration: 0 },
-  },
 };
 
 const BlockRow: FC<BlockRowProps> = ({ item, i }) => {
@@ -76,7 +71,6 @@ const BlockRow: FC<BlockRowProps> = ({ item, i }) => {
               key={`${item.height}-${key}`}
               initial="initial"
               animate="animate"
-              exit="exit"
               variants={variants}
               transition={{ duration: 1.5 }}
             >
