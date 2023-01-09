@@ -1,22 +1,14 @@
 /* eslint-disable no-nested-ternary */
 import Box from '@/components/box';
 import TabPanel from '@/components/tab_panel';
+import Delegations from '@/screens/validator_details/components/staking/components/delegations';
+import Redelgations from '@/screens/validator_details/components/staking/components/redelegations';
 import Tabs from '@/screens/validator_details/components/staking/components/tabs';
+import Unbondings from '@/screens/validator_details/components/staking/components/unbondings';
 import { ROWS_PER_PAGE, useStaking } from '@/screens/validator_details/components/staking/hooks';
 import useStyles from '@/screens/validator_details/components/staking/styles';
-import dynamic from 'next/dynamic';
 import numeral from 'numeral';
-import React, { FC, useState } from 'react';
-
-const Delegations = dynamic(
-  () => import('@/screens/validator_details/components/staking/components/delegations')
-);
-const Redelgations = dynamic(
-  () => import('@/screens/validator_details/components/staking/components/redelegations')
-);
-const Unbondings = dynamic(
-  () => import('@/screens/validator_details/components/staking/components/unbondings')
-);
+import { FC, useState } from 'react';
 
 export function formatCount(
   page: number,
