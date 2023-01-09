@@ -40,7 +40,7 @@ const variants: Variants = {
 };
 
 const Desktop: FC<DesktopProps> = ({ className, items }) => {
-  const { classes, cx, theme } = useStyles();
+  const { classes, cx } = useStyles();
   const { t } = useTranslation('transactions');
 
   const formattedData = items.map((x, i) => ({
@@ -83,14 +83,9 @@ const Desktop: FC<DesktopProps> = ({ className, items }) => {
         </TableHead>
         <TableBody>
           <AnimatePresence initial={false}>
-            {formattedData.map((row, i) => (
+            {formattedData.map((row) => (
               // eslint-disable-next-line react/no-array-index-key
-              <TableRow
-                key={row.key}
-                sx={{
-                  background: i % 2 === 0 ? theme.palette.custom.general.surfaceTwo : 'transparent',
-                }}
-              >
+              <TableRow key={row.key}>
                 {columns.map((column) => {
                   const { key, align } = column;
                   const item = row[key as keyof typeof row];

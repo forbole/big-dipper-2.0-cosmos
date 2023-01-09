@@ -28,9 +28,7 @@ export const darkThemeOverride: DeepPartial<ThemeOptions> = {
   components: {
     MuiCssBaseline: {
       styleOverrides: {
-        html: {
-          '@font-face': [hindMadurai],
-        },
+        '@font-face': [hindMadurai],
       },
     },
     MuiTableBody: {

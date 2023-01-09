@@ -117,9 +117,7 @@ export const deuteranopiaThemeOverride: DeepPartial<ThemeOptions> = {
     },
     MuiCssBaseline: {
       styleOverrides: {
-        html: {
-          '@font-face': [hindMadurai],
-        },
+        '@font-face': [hindMadurai],
       },
     },
     MuiTableBody: {

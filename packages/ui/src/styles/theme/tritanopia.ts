@@ -110,16 +110,14 @@ export const tritanopiaThemeOverride: DeepPartial<ThemeOptions> = {
     },
   },
   components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        '@font-face': [hindMadurai],
+      },
+    },
     MuiSvgIcon: {
       defaultProps: {
         htmlColor: icon, // same as custom /general /icons
-      },
-    },
-    MuiCssBaseline: {
-      styleOverrides: {
-        html: {
-          '@font-face': [hindMadurai],
-        },
       },
     },
     MuiTableBody: {

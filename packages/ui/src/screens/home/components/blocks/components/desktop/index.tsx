@@ -19,7 +19,6 @@ import { FC } from 'react';
 
 type BlockRowProps = {
   item: ItemType;
-  i: number;
 };
 
 const variants: Variants = {
@@ -28,31 +27,29 @@ const variants: Variants = {
     display: 'flex',
     alignItems: 'center',
     overflow: 'hidden',
-    clipPath: 'polygon(0% 50px, 100% 50px, 100% 50px, 0% 50px)',
+    clipPath: 'inset(0 50 0 50)',
   },
   animate: {
     height: 50,
     display: 'flex',
     alignItems: 'center',
     overflow: 'hidden',
-    clipPath: 'polygon(0% 0px, 100% 0px, 100% 50px, 0% 50px)',
+    clipPath: 'inset(0 0 0 0)',
   },
   exit: {
-    height: 0,
+    height: 50,
     display: 'flex',
     alignItems: 'center',
     overflow: 'hidden',
-    clipPath: 'polygon(0% 0px, 100% 0px, 100% 0px, 0% 0px)',
     position: 'absolute',
+    marginTop: [50, 60],
     opacity: 0,
-    marginTop: 50,
-    transition: { duration: 0.5, ease: 'easeOut' },
+    transition: { duration: 0.5 },
   },
 };
 
-const BlockRow: FC<BlockRowProps> = ({ item, i }) => {
+const BlockRow: FC<BlockRowProps> = ({ item }) => {
   const { name, address, imageUrl } = useProfileRecoil(item.proposer);
-  const { theme } = useStyles();
 
   const formattedData = {
     height: (
@@ -73,13 +70,7 @@ const BlockRow: FC<BlockRowProps> = ({ item, i }) => {
       {columns.map((column) => {
         const { key, align } = column;
         return (
-          <TableCell
-            key={`${item.height}-${key}`}
-            align={align}
-            sx={{
-              background: i % 2 === 0 ? theme.palette.custom.general.surfaceTwo : 'transparent',
-            }}
-          >
+          <TableCell key={`${item.height}-${key}`} align={align}>
             <motion.div
               key={`${item.height}-${key}`}
               initial="initial"
@@ -120,8 +111,8 @@ const Desktop: FC<DesktopProps> = ({ className, items }) => {
         </TableHead>
         <TableBody>
           <AnimatePresence initial={false}>
-            {items.map((row, i) => (
-              <BlockRow key={row.height} item={row} i={i} />
+            {items.map((row) => (
+              <BlockRow key={row.height} item={row} />
             ))}
           </AnimatePresence>
         </TableBody>

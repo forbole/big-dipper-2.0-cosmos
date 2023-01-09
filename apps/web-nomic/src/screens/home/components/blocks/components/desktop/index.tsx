@@ -9,6 +9,7 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import { AnimatePresence, motion, Variants } from 'framer-motion';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
@@ -17,6 +18,33 @@ import { FC } from 'react';
 type DesktopProps = {
   className?: string;
   items: BlockType[];
+};
+
+const variants: Variants = {
+  initial: {
+    height: 0,
+    display: 'flex',
+    alignItems: 'center',
+    overflow: 'hidden',
+    clipPath: 'inset(0 50 0 50)',
+  },
+  animate: {
+    height: 50,
+    display: 'flex',
+    alignItems: 'center',
+    overflow: 'hidden',
+    clipPath: 'inset(0 0 0 0)',
+  },
+  exit: {
+    height: 50,
+    display: 'flex',
+    alignItems: 'center',
+    overflow: 'hidden',
+    position: 'absolute',
+    marginTop: [50, 60],
+    opacity: 0,
+    transition: { duration: 0.5 },
+  },
 };
 
 const Desktop: FC<DesktopProps> = ({ className, items }) => {
@@ -51,19 +79,30 @@ const Desktop: FC<DesktopProps> = ({ className, items }) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {formattedData.map((row) => (
-            <TableRow key={row.key}>
-              {columns.map((column) => {
-                const { key, align } = column;
-                const item = row[key as keyof typeof row];
-                return (
-                  <TableCell key={`${row.key}-${key}`} align={align}>
-                    {item}
-                  </TableCell>
-                );
-              })}
-            </TableRow>
-          ))}
+          <AnimatePresence initial={false}>
+            {formattedData.map((row) => (
+              <TableRow key={row.key}>
+                {columns.map((column) => {
+                  const { key, align } = column;
+                  const item = row[key as keyof typeof row];
+                  return (
+                    <TableCell key={`${row.height}-${key}`} align={align}>
+                      <motion.div
+                        key={`${row.height}-${key}`}
+                        initial="initial"
+                        animate="animate"
+                        exit="exit"
+                        variants={variants}
+                        transition={{ duration: 1.5 }}
+                      >
+                        {item}
+                      </motion.div>
+                    </TableCell>
+                  );
+                })}
+              </TableRow>
+            ))}
+          </AnimatePresence>
         </TableBody>
       </Table>
     </div>
