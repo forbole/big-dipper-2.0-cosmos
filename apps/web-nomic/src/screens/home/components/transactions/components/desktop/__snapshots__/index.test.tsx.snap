@@ -5,7 +5,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
   className="css-98f4iy-root"
 >
   <table
-    className="MuiTable-root css-x2767d-MuiTable-root-table"
+    className="MuiTable-root css-1ulrxlt-MuiTable-root-table"
     role={null}
   >
     <thead
@@ -71,14 +71,26 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
             }
           }
         >
-          <a
-            href="/blocks/2000"
-            onClick={[Function]}
-            onMouseEnter={[Function]}
-            onTouchStart={[Function]}
+          <div
+            style={
+              {
+                "alignItems": "center",
+                "display": "flex",
+                "height": "50px",
+                "opacity": 1,
+                "overflow": "hidden",
+              }
+            }
           >
-            2,000
-          </a>
+            <a
+              href="/blocks/2000"
+              onClick={[Function]}
+              onMouseEnter={[Function]}
+              onTouchStart={[Function]}
+            >
+              2,000
+            </a>
+          </div>
         </td>
         <td
           aria-sort={null}
@@ -89,14 +101,26 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
             }
           }
         >
-          <a
-            href="/transactions/76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857"
-            onClick={[Function]}
-            onMouseEnter={[Function]}
-            onTouchStart={[Function]}
+          <div
+            style={
+              {
+                "alignItems": "center",
+                "display": "flex",
+                "height": "50px",
+                "opacity": 1,
+                "overflow": "hidden",
+              }
+            }
           >
-            76nwV8zz8tLz97S...JDLQfF66jZhQ857
-          </a>
+            <a
+              href="/transactions/76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857"
+              onClick={[Function]}
+              onMouseEnter={[Function]}
+              onTouchStart={[Function]}
+            >
+              76nwV8zz8tLz97S...JDLQfF66jZhQ857
+            </a>
+          </div>
         </td>
         <td
           aria-sort={null}
@@ -107,7 +131,19 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
             }
           }
         >
-          1 day ago
+          <div
+            style={
+              {
+                "alignItems": "center",
+                "display": "flex",
+                "height": "50px",
+                "opacity": 1,
+                "overflow": "hidden",
+              }
+            }
+          >
+            1 day ago
+          </div>
         </td>
       </tr>
     </tbody>

@@ -23,7 +23,7 @@ const BlockDetails = () => {
       <Layout navTitle={t('blockDetails')} className={classes.root}>
         <LoadAndExist loading={state.loading} exists={state.exists}>
           <Overview {...state.overview} />
-          {!!state.miniBlocks.length && <Miniblocks miniBlocks={state.miniBlocks} />}
+          {!!state.miniBlocks?.length && <Miniblocks miniBlocks={state.miniBlocks} />}
           <Consensus className={classes.consensus} consensus={state.consensus} />
         </LoadAndExist>
       </Layout>

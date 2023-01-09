@@ -17,7 +17,7 @@ const Layout = (props: LayoutProps) => {
         <Nav title={navTitle} />
         <div className={classes.children}>
           <div className={classes.appBarPlaceholder} />
-          {!!bannerLinks.length && <Banner />}
+          {!!bannerLinks?.length && <Banner />}
           <div className={cx(className, 'main-content')}>{children}</div>
         </div>
       </div>
