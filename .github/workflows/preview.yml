@@ -73,9 +73,6 @@ jobs:
             devCommand: 'cd apps/web && yarn next dev',
             framework: 'nextjs',
             ignoreCommand: 'node vercel-deploy.js manual ' + projectName,
-            redirects: /^web-/.test(projectName)
-              ? [{ source: '/', destination: '/' + projectName.replace(/^web-/, '') }]
-              : [],
           };
           console.log(JSON.stringify(config, null, 2));
           EOF
