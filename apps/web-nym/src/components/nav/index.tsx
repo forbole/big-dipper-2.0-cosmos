@@ -2,7 +2,7 @@ import Desktop from '@/components/nav/components/desktop';
 import Mobile from '@/components/nav/components/mobile';
 import useStyles from '@/components/nav/styles';
 import { useScreenSize } from '@/hooks';
-import React, { FC } from 'react';
+import { FC } from 'react';
 
 type NavProps = {
   title?: string;

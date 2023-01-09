@@ -3,23 +3,11 @@ import NoData from '@/components/no_data';
 import Pagination from '@/components/pagination';
 import { usePagination, useScreenSize } from '@/hooks';
 import useShallowMemo from '@/hooks/useShallowMemo';
+import Desktop from '@/screens/validator_details/components/staking/components/redelegations/components/desktop';
+import Mobile from '@/screens/validator_details/components/staking/components/redelegations/components/mobile';
 import useStyles from '@/screens/validator_details/components/staking/components/redelegations/styles';
 import type { RedelegationsType } from '@/screens/validator_details/components/staking/types';
-import dynamic from 'next/dynamic';
 import { FC, useCallback } from 'react';
-
-const Desktop = dynamic(
-  () =>
-    import(
-      '@/screens/validator_details/components/staking/components/redelegations/components/desktop'
-    )
-);
-const Mobile = dynamic(
-  () =>
-    import(
-      '@/screens/validator_details/components/staking/components/redelegations/components/mobile'
-    )
-);
 
 type RedelegationsProps = {
   className?: string;

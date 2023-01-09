@@ -11,6 +11,7 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import { AnimatePresence, motion, Variants } from 'framer-motion';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
@@ -21,8 +22,30 @@ type DesktopProps = {
   items: TransactionType[];
 };
 
+const variants: Variants = {
+  initial: {
+    opacity: 0,
+    height: 50,
+    display: 'flex',
+    alignItems: 'center',
+    overflow: 'hidden',
+  },
+  animate: {
+    opacity: 1,
+    height: 50,
+    display: 'flex',
+    alignItems: 'center',
+    overflow: 'hidden',
+  },
+  exit: {
+    height: 0,
+    display: 'none',
+    transition: { duration: 0 },
+  },
+};
+
 const Desktop: FC<DesktopProps> = ({ className, items }) => {
-  const { classes, cx } = useStyles();
+  const { classes, cx, theme } = useStyles();
   const { t } = useTranslation('transactions');
 
   const formattedData = items.map((x, i) => ({
@@ -64,24 +87,40 @@ const Desktop: FC<DesktopProps> = ({ className, items }) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {formattedData.map((row) => (
-            // eslint-disable-next-line react/no-array-index-key
-            <TableRow key={row.key}>
-              {columns.map((column) => {
-                const { key, align } = column;
-                const item = row[key as keyof typeof row];
-                return (
-                  <TableCell
-                    key={`${row.key}-${key}`}
-                    style={{ width: `${column.width}%` }}
-                    align={align}
-                  >
-                    {item}
-                  </TableCell>
-                );
-              })}
-            </TableRow>
-          ))}
+          <AnimatePresence initial={false}>
+            {formattedData.map((row, i) => (
+              // eslint-disable-next-line react/no-array-index-key
+              <TableRow
+                key={row.key}
+                sx={{
+                  background: i % 2 === 0 ? theme.palette.custom.general.surfaceTwo : 'transparent',
+                }}
+              >
+                {columns.map((column) => {
+                  const { key, align } = column;
+                  const item = row[key as keyof typeof row];
+                  return (
+                    <TableCell
+                      key={`${row.key}-${key}`}
+                      style={{ width: `${column.width}%` }}
+                      align={align}
+                    >
+                      <motion.div
+                        key={`${row.key}-${key}`}
+                        initial="initial"
+                        animate="animate"
+                        exit="exit"
+                        variants={variants}
+                        transition={{ duration: 0.1 }}
+                      >
+                        {item}
+                      </motion.div>
+                    </TableCell>
+                  );
+                })}
+              </TableRow>
+            ))}
+          </AnimatePresence>
         </TableBody>
       </Table>
     </div>

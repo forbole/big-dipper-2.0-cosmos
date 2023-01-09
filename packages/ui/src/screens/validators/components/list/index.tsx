@@ -4,14 +4,12 @@ import NoData from '@/components/no_data';
 import { useScreenSize } from '@/hooks';
 import useShallowMemo from '@/hooks/useShallowMemo';
 import { useProfilesRecoil } from '@/recoil/profiles/hooks';
+import Desktop from '@/screens/validators/components/list/components/desktop';
+import Mobile from '@/screens/validators/components/list/components/mobile';
 import Tabs from '@/screens/validators/components/list/components/tabs';
 import { useValidators } from '@/screens/validators/components/list/hooks';
 import useStyles from '@/screens/validators/components/list/styles';
-import dynamic from 'next/dynamic';
-import React, { FC, ReactNode, useMemo } from 'react';
-
-const Desktop = dynamic(() => import('@/screens/validators/components/list/components/desktop'));
-const Mobile = dynamic(() => import('@/screens/validators/components/list/components/mobile'));
+import { FC, ReactNode, useMemo } from 'react';
 
 const List: FC<ComponentDefault> = ({ className }) => {
   const { isDesktop } = useScreenSize();

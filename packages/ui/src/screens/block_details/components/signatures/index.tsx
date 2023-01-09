@@ -1,18 +1,12 @@
 import Box from '@/components/box';
 import NoData from '@/components/no_data';
 import { useScreenSize } from '@/hooks';
+import Desktop from '@/screens/block_details/components/signatures/components/desktop';
+import Mobile from '@/screens/block_details/components/signatures/components/mobile';
 import useStyles from '@/screens/block_details/components/signatures/styles';
 import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
-import dynamic from 'next/dynamic';
-import React, { FC } from 'react';
-
-const Desktop = dynamic(
-  () => import('@/screens/block_details/components/signatures/components/desktop')
-);
-const Mobile = dynamic(
-  () => import('@/screens/block_details/components/signatures/components/mobile')
-);
+import { FC } from 'react';
 
 type SignaturesProps = ComponentDefault & {
   signatures: string[];

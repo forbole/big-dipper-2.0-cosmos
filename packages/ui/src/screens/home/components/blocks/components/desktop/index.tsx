@@ -11,6 +11,7 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import { AnimatePresence, motion, Variants } from 'framer-motion';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
@@ -18,10 +19,32 @@ import { FC } from 'react';
 
 type BlockRowProps = {
   item: ItemType;
+  i: number;
 };
 
-const BlockRow: FC<BlockRowProps> = ({ item }) => {
+const variants: Variants = {
+  initial: {
+    height: 0,
+    display: 'flex',
+    alignItems: 'center',
+    overflow: 'hidden',
+  },
+  animate: {
+    height: 50,
+    display: 'flex',
+    alignItems: 'center',
+    overflow: 'hidden',
+  },
+  exit: {
+    height: 0,
+    display: 'none',
+    transition: { duration: 0 },
+  },
+};
+
+const BlockRow: FC<BlockRowProps> = ({ item, i }) => {
   const { name, address, imageUrl } = useProfileRecoil(item.proposer);
+  const { theme } = useStyles();
 
   const formattedData = {
     height: (
@@ -42,8 +65,23 @@ const BlockRow: FC<BlockRowProps> = ({ item }) => {
       {columns.map((column) => {
         const { key, align } = column;
         return (
-          <TableCell key={`${item.height}-${key}`} align={align}>
-            {formattedData[key as keyof typeof formattedData]}
+          <TableCell
+            key={`${item.height}-${key}`}
+            align={align}
+            sx={{
+              background: i % 2 === 0 ? theme.palette.custom.general.surfaceTwo : 'transparent',
+            }}
+          >
+            <motion.div
+              key={`${item.height}-${key}`}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              variants={variants}
+              transition={{ duration: 1.5 }}
+            >
+              {formattedData[key as keyof typeof formattedData]}
+            </motion.div>
           </TableCell>
         );
       })}
@@ -73,9 +111,11 @@ const Desktop: FC<DesktopProps> = ({ className, items }) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {items.map((row) => (
-            <BlockRow key={row.height} item={row} />
-          ))}
+          <AnimatePresence initial={false}>
+            {items.map((row, i) => (
+              <BlockRow key={row.height} item={row} i={i} />
+            ))}
+          </AnimatePresence>
         </TableBody>
       </Table>
     </div>

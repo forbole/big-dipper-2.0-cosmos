@@ -4,14 +4,14 @@ import useStyles from '@/components/desmos_profile/components/connections/styles
 import Pagination from '@/components/pagination';
 import { usePagination, useScreenSize } from '@/hooks';
 import useShallowMemo from '@/hooks/useShallowMemo';
+import CloseIcon from '@mui/icons-material/Close';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import CloseIcon from '@mui/icons-material/Close';
 import useTranslation from 'next-translate/useTranslation';
-import React, { FC, useMemo } from 'react';
+import { FC, useMemo } from 'react';
 
 type ConnectionsProps = {
   handleClose: () => void;

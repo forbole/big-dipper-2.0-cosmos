@@ -3,21 +3,11 @@ import NoData from '@/components/no_data';
 import Pagination from '@/components/pagination';
 import { usePagination, useScreenSize } from '@/hooks';
 import useShallowMemo from '@/hooks/useShallowMemo';
+import Desktop from '@/screens/validator_details/components/staking/components/unbondings/components/desktop';
+import Mobile from '@/screens/validator_details/components/staking/components/unbondings/components/mobile';
 import useStyles from '@/screens/validator_details/components/staking/components/unbondings/styles';
 import type { UnbondingsType } from '@/screens/validator_details/components/staking/types';
-import dynamic from 'next/dynamic';
-import React, { FC, useCallback } from 'react';
-
-const Desktop = dynamic(
-  () =>
-    import(
-      '@/screens/validator_details/components/staking/components/unbondings/components/desktop'
-    )
-);
-const Mobile = dynamic(
-  () =>
-    import('@/screens/validator_details/components/staking/components/unbondings/components/mobile')
-);
+import { FC, useCallback } from 'react';
 
 type UnbondingsProps = {
   className?: string;

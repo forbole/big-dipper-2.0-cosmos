@@ -2,19 +2,13 @@ import Box from '@/components/box';
 import Pagination from '@/components/pagination';
 import Search from '@/components/search';
 import { usePagination, useScreenSize } from '@/hooks';
+import Desktop from '@/screens/providers/components/providers_list/components/desktop';
+import Mobile from '@/screens/providers/components/providers_list/components/mobile';
 import useStyles from '@/screens/providers/components/providers_list/styles';
 import type { ProvidersListState } from '@/screens/providers/types';
 import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
-import dynamic from 'next/dynamic';
-import React, { FC } from 'react';
-
-const Desktop = dynamic(
-  () => import('@/screens/providers/components/providers_list/components/desktop')
-);
-const Mobile = dynamic(
-  () => import('@/screens/providers/components/providers_list/components/mobile')
-);
+import { FC } from 'react';
 
 export interface ProvidersListProps extends ComponentDefault {
   list: ProvidersListState;

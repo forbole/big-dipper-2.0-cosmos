@@ -6,15 +6,10 @@ import useStyles from '@/screens/account_details/components/other_tokens/styles'
 import type { OtherTokenType } from '@/screens/account_details/types';
 import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
-import dynamic from 'next/dynamic';
-import React, { FC, useMemo } from 'react';
+import { FC, useMemo } from 'react';
 
-const Desktop = dynamic(
-  () => import('@/screens/account_details/components/other_tokens/components/desktop')
-);
-const Mobile = dynamic(
-  () => import('@/screens/account_details/components/other_tokens/components/mobile')
-);
+import Desktop from '@/screens/account_details/components/other_tokens/components/desktop';
+import Mobile from '@/screens/account_details/components/other_tokens/components/mobile';
 
 type OtherTokensProps = {
   className?: string;

@@ -3,18 +3,16 @@ import Box from '@/components/box';
 import Loading from '@/components/loading';
 import NoData from '@/components/no_data';
 import { useScreenSize } from '@/hooks';
+import Desktop from '@/screens/home/components/transactions/components/desktop';
+import Mobile from '@/screens/home/components/transactions/components/mobile';
 import { useTransactions } from '@/screens/home/components/transactions/hooks';
 import useStyles from '@/screens/home/components/transactions/styles';
 import { TRANSACTIONS } from '@/utils/go_to_page';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
-import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { FC } from 'react';
-
-const Desktop = dynamic(() => import('@/screens/home/components/transactions/components/desktop'));
-const Mobile = dynamic(() => import('@/screens/home/components/transactions/components/mobile'));
 
 const Transactions: FC<ComponentDefault> = ({ className }) => {
   const { isDesktop } = useScreenSize();

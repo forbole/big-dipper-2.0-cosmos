@@ -8,6 +8,7 @@ const useStyles = makeStyles()(() => ({
     '& .MuiTableBody-root': {
       '& .MuiTableCell-root': {
         whiteSpace: 'nowrap',
+        height: 'auto',
       },
     },
   },

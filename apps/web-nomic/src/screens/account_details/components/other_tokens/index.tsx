@@ -1,21 +1,14 @@
-import React, { FC, useMemo } from 'react';
-import dynamic from 'next/dynamic';
-import useTranslation from 'next-translate/useTranslation';
-import Pagination from '@/components/pagination';
 import Box from '@/components/box';
-
+import Pagination from '@/components/pagination';
 import { usePagination, useScreenSize } from '@/hooks';
-import Typography from '@mui/material/Typography';
+import useShallowMemo from '@/hooks/useShallowMemo';
+import Desktop from '@/screens/account_details/components/other_tokens/components/desktop';
+import Mobile from '@/screens/account_details/components/other_tokens/components/mobile';
 import useStyles from '@/screens/account_details/components/other_tokens/styles';
 import type { OtherTokenType } from '@/screens/account_details/types';
-import useShallowMemo from '@/hooks/useShallowMemo';
-
-const Desktop = dynamic(
-  () => import('@/screens/account_details/components/other_tokens/components/desktop')
-);
-const Mobile = dynamic(
-  () => import('@/screens/account_details/components/other_tokens/components/mobile')
-);
+import Typography from '@mui/material/Typography';
+import useTranslation from 'next-translate/useTranslation';
+import { FC, useMemo } from 'react';
 
 type OtherTokensProps = {
   className?: string;
