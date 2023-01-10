@@ -1,4 +1,3 @@
-import hindMadurai from '@/styles/theme/hindMadurai';
 import { ThemeOptions } from '@mui/material';
 
 const backgroundDefault = '#000000';
@@ -113,11 +112,6 @@ export const deuteranopiaThemeOverride: DeepPartial<ThemeOptions> = {
     MuiSvgIcon: {
       defaultProps: {
         htmlColor: icon, // same as custom /general /icons
-      },
-    },
-    MuiCssBaseline: {
-      styleOverrides: {
-        '@font-face': [hindMadurai],
       },
     },
     MuiTableBody: {

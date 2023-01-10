@@ -18,6 +18,7 @@ function getBaseConfig(basePath, chainName) {
             outputFileTracingRoot: resolve(__dirname, '../../'),
           }
         : {}),
+      fontLoaders: [{ loader: '@next/font/google', options: { subsets: ['latin'] } }],
     },
     swcMinify: true,
     ...(process.env.BUILD_STANDALONE

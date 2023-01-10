@@ -1,7 +1,7 @@
 import chainConfig from '@/chainConfig';
 import { ParamsQuery, useParamsQuery } from '@/graphql/types/general_types';
 import { DistributionParams, GovParams, MintParams, SlashingParams, StakingParams } from '@/models';
-import StakeibcParams from '@/models/stakeibc_params';
+// import StakeibcParams from '@/models/stakeibc_params';
 import type { ParamsState } from '@/screens/params/types';
 import { formatToken } from '@/utils/format_token';
 import numeral from 'numeral';
@@ -124,15 +124,14 @@ const formatGov = (data: ParamsQuery) => {
 // distribution
 // ================================
 
-const formatStakeibc = (data: ParamsQuery) => {
-  if (data.stakeibcParams.length) {
-    const stakeibcParamsRaw = StakeibcParams(data?.stakeibcParams?.[0]?.params);
-    return stakeibcParamsRaw;
-  }
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const formatStakeibc = (data: ParamsQuery) =>
+  // if (data.stakeibcParams.length) {
+  //   const stakeibcParamsRaw = StakeibcParams(data?.stakeibcParams?.[0]?.params);
+  //   return stakeibcParamsRaw;
+  // }
 
-  return null;
-};
-
+  null;
 const formatParam = (data: ParamsQuery) => {
   const results: Partial<ParamsState> = {};
 
@@ -171,8 +170,8 @@ export const useParams = () => {
     onCompleted: (data) => {
       handleSetState((prevState) => ({
         ...prevState,
-        loading: false,
         ...formatParam(data),
+        loading: false,
       }));
     },
   });

@@ -8,9 +8,6 @@ on:
        chain_type:
         description: "Chain Type to publish (default to mainnet when more than 1 was configured)"
         required: false
-       base_path:
-        description: "Override basePath in next.config.js (default to basePath in chainConfig)"
-        required: false
        confirm:
         description: "enter \"CONFIRM\" to process"
         required: true
@@ -46,8 +43,6 @@ jobs:
       max-parallel: 1
       matrix:
         project: ${{ fromJSON(needs.validate-projects.outputs.projects) }}
-        base_path:
-          - ${{ github.event.inputs.base_path }}
     name: Publish ${{ matrix.project }}
     steps:
       - uses: actions/checkout@v3
@@ -93,7 +88,6 @@ jobs:
             TURBO_TOKEN=${{ secrets.TURBO_TOKEN }}
             NEXT_PUBLIC_SENTRY_DSN=${{ secrets.SENTRY_DSN }}
             SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }}
-            BASE_PATH=${{ matrix.base_path }}
           target: web
           tags: |
             forbole/big-dipper-2.0-cosmos:monorepo-${{ matrix.project }}-${{ steps.vars.outputs.chain_type }}-${{ steps.vars.outputs.sha_short }}

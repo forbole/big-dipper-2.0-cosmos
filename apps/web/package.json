@@ -20,6 +20,7 @@
     "@emotion/styled": "^11.10.5",
     "@mui/icons-material": "^5.11.0",
     "@mui/material": "^5.11.3",
+    "@next/font": "^13.1.1",
     "@sentry/nextjs": "^7.29.0",
     "@socialgouv/matomo-next": "^1.4.0",
     "@yarnpkg/pnpify": "^4.0.0-rc.34",
