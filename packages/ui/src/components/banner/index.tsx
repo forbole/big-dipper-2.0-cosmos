@@ -110,14 +110,7 @@ const Banner: FC<BannerProps> = ({ index = Math.floor(Math.random() * bannersLin
             />
           </Link>
         )}
-        <Link
-          href={banner.url}
-          target="_blank"
-          rel="noreferrer"
-          key={bannerIndex}
-          onMouseOver={handlerMouseOver}
-          onMouseOut={handleMouseOut}
-        >
+        <Link href={banner.url} target="_blank" rel="noreferrer" key={bannerIndex}>
           <MotionImage
             src={banner.img}
             fill
@@ -127,6 +120,8 @@ const Banner: FC<BannerProps> = ({ index = Math.floor(Math.random() * bannersLin
             animate="animate"
             variants={variants}
             transition={{ duration: 1.5 }}
+            onMouseOver={handlerMouseOver}
+            onMouseOut={handleMouseOut}
           />
         </Link>
       </Box>
