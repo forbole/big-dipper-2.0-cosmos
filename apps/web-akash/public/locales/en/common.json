@@ -67,5 +67,15 @@
   "signOut": "Sign out",
   "continue": "Continue",
   "changeWallet": "Change Wallet",
-  "accountDetails": "Account Details"
+  "accountDetails": "Account Details",
+  "retry": "Retry",
+  "pleaseInstallWallet": "Please install {{wallet}}",
+  "pleaseOpenWallet": "Please open {{wallet}}",
+  "pleasePairWallet": "Please proceed pairing in your wallet..",
+  "couldntFindWalletExtension": "Couldn't find {{wallet}} installed in the browser. Please install it using official <0>{{wallet}} website</0> and try again.",
+  "nowSelectNetwork": "Now Select {{name}} Network",
+  "waitingForAuthorize": "Waiting for authorize...",
+  "loginSuccess": "Login Success",
+  "loginSuccessMsg": "System will automatically redirect to previous page in 3s..",
+  "scanWalletConnectQR": "Scan the QR with a WalletConnect compatible Wallet." 
 }
