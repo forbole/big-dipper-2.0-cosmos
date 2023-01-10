@@ -45,7 +45,6 @@ const ConnectWallet: React.FC<{
     handleCloseInstallKeplrWalletDialog,
     handleCloseKeplrPairingDialog,
     handleCloseLoginSuccessDialog,
-    handleCloseSelectNetworkDialog,
     handleConnectWallet,
     handleLogout,
     handleLogin,
@@ -53,7 +52,6 @@ const ConnectWallet: React.FC<{
     handleCloseLoginDialog,
     continueToPairingDialog,
     continueToAuthorizeConnectionDialog,
-    continueToSelectNetworkDialog,
   } = useConnectWalletList();
   return (
     <div>
@@ -83,17 +81,11 @@ const ConnectWallet: React.FC<{
         walletName={walletSelection}
         open={openKeplrPairingDialog}
         onClose={handleCloseKeplrPairingDialog}
-        onContinue={continueToSelectNetworkDialog}
+        onContinue={continueToAuthorizeConnectionDialog}
       />
       <AuthorizeConnectionDialog
         open={openAuthorizeConnectionDialog}
         onClose={handleCloseAuthorizeConnectionDialog}
-      />
-      <SelectNetworkDialog
-        networkName={networkName}
-        open={openSelectNetworkDialog}
-        onClose={handleCloseSelectNetworkDialog}
-        onContinue={continueToAuthorizeConnectionDialog}
       />
       <LoginSuccessDialog open={openLoginSuccessDialog} onClose={handleCloseLoginSuccessDialog} />
     </div>
