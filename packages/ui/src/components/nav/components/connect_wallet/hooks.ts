@@ -22,12 +22,15 @@ import {
   writeShowWalletDetails,
 } from '@/recoil/wallet';
 import { OfflineAminoSigner, OfflineDirectSigner } from '@keplr-wallet/types';
-import bech32 from 'bech32';
-import { PubKey } from 'cosmjs-types/cosmos/crypto/secp256k1/keys';
+import { toBase64 } from '@cosmjs/encoding';
+import { PubKey } from '@/recoil/user/atom';
+
+const chainId = process?.env?.NEXT_PUBLIC_CHAIN_ID ?? '';
+const keplrURL = process?.env?.NEXT_PUBLIC_LCD_KEPLR_URL ?? '';
 
 type UserState = {
   address: string;
-  pubKey: string;
+  pubKey: PubKey;
   walletName: string;
   loggedIn: boolean;
 };
@@ -45,8 +48,6 @@ type WalletState = {
   showWalletDetails: boolean;
 };
 
-const chainId = process.env.NEXT_PUBLIC_CHAIN_ID;
-
 const useConnectWalletList = () => {
   // UserState
   const [userAddress, setUserAddress] = useRecoilState(writeUserAddress) as [
@@ -57,9 +58,9 @@ const useConnectWalletList = () => {
     boolean,
     SetterOrUpdater<boolean>
   ];
-  const [userPubKey, seUserPubKey] = useRecoilState(writeUserPubKey) as [
-    string,
-    SetterOrUpdater<string>
+  const [userPubKey, setUserPubKey] = useRecoilState(writeUserPubKey) as [
+    PubKey,
+    SetterOrUpdater<PubKey>
   ];
   const [walletName, setWalletName] = useRecoilState(writeWalletName) as [
     string,
@@ -125,6 +126,9 @@ const useConnectWalletList = () => {
       walletName,
       loggedIn: userIsLoggedIn,
     }));
+    localStorage.setItem(ADDRESS_KEY, '');
+    localStorage.setItem(PUBKEY_KEY, '');
+    localStorage.setItem(WALLET_NAME_KEY, '');
   };
 
   // WalletState
@@ -167,32 +171,59 @@ const useConnectWalletList = () => {
     }));
   };
 
-  const handleCloseLoginDialog = () => {
-    setOpenLoginDialog(false);
-    resetUserState();
-    resetWalletState();
+  const continueToAuthorizeKeplrConnectionDialog = async () => {
+    setOpenKeplrPairingDialog(false);
+    setOpenAuthorizeConnectionDialog(true);
+
+    // handle keplr connection
+    await enableChain();
+    const offlineSigner = getOfflineSigner();
+    const offlineSignerAddress = await getOfflineSignerAddress(offlineSigner);
+    const offlineSignerPubKey = await getOfflineSignerPubKey(offlineSigner);
+    const cosmJS = getCosmosClient(offlineSignerAddress, offlineSigner);
+
+    if (cosmJS) {
+      const key = await getAccountKey();
+      localStorage.setItem(ADDRESS_KEY, offlineSignerAddress);
+      localStorage.setItem(PUBKEY_KEY, JSON.stringify(offlineSignerPubKey));
+      localStorage.setItem(WALLET_NAME_KEY, key.name);
+
+      continueToLoginSuccessDialog();
+
+      setUserAddress(offlineSignerAddress);
+      setUserPubKey(offlineSignerPubKey ?? { type: '', value: '' });
+      setWalletName(key.name);
+      setUserIsLoggedIn(true);
+    }
   };
 
-  const handleShowWalletDetails = () => {
-    if (showWalletDetails) {
-      setShowWalletDetails(false);
-    } else setShowWalletDetails(true);
+  const continueToLoginSuccessDialog = () => {
+    // close the dialog after 3 seconds
+    setTimeout(() => {
+      setOpenAuthorizeConnectionDialog(false);
+      setOpenLoginSuccessDialog(true);
+      setTimeout(() => {
+        setOpenLoginSuccessDialog(false);
+      }, 3000);
+    }, 3000);
   };
 
-  const handleLogin = () => {
-    setOpenLoginDialog(true);
-    console.log(process.env.NEXT_PUBLIC_LCD_KEPLR_URL);
+  const continueToPairingDialog = () => {
+    if (!isKeplrAvailable()) {
+      setOpenInstallKeplrWalletDialog(true);
+    } else {
+      // handle retry button
+      if (openInstallKeplrWalletDialog) {
+        setOpenInstallKeplrWalletDialog(false);
+      }
+      resetUserState();
+      setOpenKeplrPairingDialog(true);
+    }
   };
 
-  const handleLogout = () => {
-    localStorage.setItem(ADDRESS_KEY, '');
-    setShowWalletDetails(false);
-    setUserAddress('');
-    setUserIsLoggedIn(false);
-  };
-
-  const setWalletOption = (walletOption: string) => {
-    setWalletSelection(walletOption);
+  const handleCloseAuthorizeConnectionDialog = () => {
+    setOpenAuthorizeConnectionDialog(false);
+    setWalletOption('');
   };
 
   const handleCloseInstallKeplrWalletDialog = () => {
@@ -205,13 +236,10 @@ const useConnectWalletList = () => {
     setWalletOption('');
   };
 
-  const handleCloseSelectNetworkDialog = () => {
-    setOpenSelectNetworkDialog(false);
-    setWalletOption('');
-  };
-
-  const handleCloseAuthorizeConnectionDialog = () => {
-    setOpenAuthorizeConnectionDialog(false);
+  const handleCloseLoginDialog = () => {
+    setOpenLoginDialog(false);
+    resetUserState();
+    resetWalletState();
     setWalletOption('');
   };
 
@@ -220,20 +248,16 @@ const useConnectWalletList = () => {
     setWalletOption('');
   };
 
-  const handleConnectWalletConnectDialog = () => {
-    setOpenConnectWalletConnectDialog(false);
+  const handleCloseSelectNetworkDialog = () => {
+    setOpenSelectNetworkDialog(false);
     setWalletOption('');
   };
 
-  const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
-    setTabValue(newValue);
+  const handleCloseWalletDetails = () => {
+    setShowWalletDetails(false);
   };
 
   const handleConnectButter = () => {
-    setOpenLoginDialog(false); // TO DO
-  };
-
-  const handleConnectWalletConnect = () => {
     setOpenLoginDialog(false); // TO DO
   };
 
@@ -254,68 +278,53 @@ const useConnectWalletList = () => {
     }
   };
 
-  const continueToPairingDialog = () => {
-    if (!window.keplr) {
-      setOpenInstallKeplrWalletDialog(true);
-    } else {
-      if (openInstallKeplrWalletDialog) {
-        setOpenInstallKeplrWalletDialog(false);
-      }
-      setOpenKeplrPairingDialog(true);
-    }
+  const handleConnectWalletConnect = () => {
+    setOpenLoginDialog(false); // TO DO
   };
 
-  const continueToSelectNetworkDialog = async () => {
-    setOpenKeplrPairingDialog(false);
-    console.log(window);
-    console.log(window.keplr);
-    if (!window.getOfflineSigner || window.getOfflineSigner === undefined) {
-      console.log('no offline signer');
-      await window.keplr.enable(chainId);
-      setOpenSelectNetworkDialog(true);
-    } else {
-      console.log(window.getOfflineSigner);
-      console.log('offline signer');
-      await window.keplr.enable(chainId);
-      setOpenSelectNetworkDialog(true);
-    }
-    console.log(window);
-    console.log(window.keplr);
+  const handleConnectWalletConnectDialog = () => {
+    setOpenConnectWalletConnectDialog(false);
+    setWalletOption('');
   };
 
-  const continueToAuthorizeConnectionDialog = async () => {
-    setOpenSelectNetworkDialog(false);
-    setOpenAuthorizeConnectionDialog(true);
-    const offlineSigner = getOfflineSigner();
-
-    const offlineSignerAddress = await getOfflineSignerAddress(offlineSigner);
-    const offlineSignerPubKey = await getOfflineSignerPubKey(offlineSigner);
-    const cosmJS = getCosmosClient(offlineSignerAddress, offlineSigner);
-
-    if (cosmJS) {
-      const key = await window.keplr.getKey('cosmoshub-4');
-      localStorage.setItem(ADDRESS_KEY, offlineSignerAddress);
-      localStorage.setItem(PUBKEY_KEY, offlineSignerPubKey);
-      localStorage.setItem(WALLET_NAME_KEY, key.name);
-
-      // close the dialog after 3 seconds
-      setTimeout(() => {
-        setOpenAuthorizeConnectionDialog(false);
-      }, 3000);
-
-      setOpenLoginSuccessDialog(true);
-
-      // close the dialog after 3 seconds
-      setTimeout(() => {
-        setOpenLoginSuccessDialog(false);
-      }, 3000);
-
-      setUserAddress(offlineSignerAddress);
-      seUserPubKey(offlineSignerPubKey);
-      setWalletName(key.name);
-      setUserIsLoggedIn(true);
-    }
+  const handleLogin = () => {
+    setOpenLoginDialog(true);
   };
+
+  const handleLogout = () => {
+    localStorage.setItem(ADDRESS_KEY, '');
+    localStorage.setItem(PUBKEY_KEY, '');
+    localStorage.setItem(WALLET_NAME_KEY, '');
+    setShowWalletDetails(false);
+    setUserAddress('');
+    setUserIsLoggedIn(false);
+  };
+
+  const handleOpenWalletDetails = () => {
+    setShowWalletDetails(true);
+  };
+
+  const handleShowWalletDetails = () => {
+    if (showWalletDetails) {
+      setShowWalletDetails(false);
+    } else setShowWalletDetails(true);
+  };
+
+  const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
+    setTabValue(newValue);
+  };
+
+  const setWalletOption = (walletOption: string) => {
+    setWalletSelection(walletOption);
+  };
+
+  /// below not exported
+
+  const isKeplrAvailable = () => !!window.keplr;
+
+  const enableChain = () => window.keplr.enable(chainId);
+
+  const getAccountKey = () => window.keplr.getKey('cosmoshub-4');
 
   const getOfflineSigner = () => {
     const offlineSigner = window.keplr.getOfflineSigner(chainId);
@@ -335,16 +344,19 @@ const useConnectWalletList = () => {
 
   const getOfflineSignerPubKey = async (
     offlineSigner: OfflineAminoSigner & OfflineDirectSigner
+    // eslint-disable-next-line consistent-return
   ) => {
-    // You can get the address/public keys by `getAccounts` method.
-    // It can return the array of address/public key.
-    // But, currently, Keplr extension manages only one address/public key pair.
-    // XXX: This line is needed to set the sender address for SigningCosmosClient.
     const accounts = await offlineSigner.getAccounts();
-    // console.log(accounts[0].pubkey);
-    // console.log(accounts[0].pubkey.toString());
-
-    return accounts[0].pubkey.toString();
+    let pubkey;
+    if (accounts) {
+      if (isSecp256k1PubKey(accounts[0].pubkey)) {
+        pubkey = encodeSecp256k1PubKey(accounts[0].pubkey);
+      }
+      if (isEd25519PubKey(accounts[0].pubkey)) {
+        pubkey = encodeEd25519PubKey(accounts[0].pubkey);
+      }
+      return pubkey;
+    }
   };
 
   const getCosmosClient = (
@@ -352,38 +364,59 @@ const useConnectWalletList = () => {
     offlineSigner: OfflineAminoSigner & OfflineDirectSigner
   ) => {
     // Initialize the gaia api with the offline signer that is injected by Keplr extension.
-    const cosmJS = new SigningCosmosClient(
-      process.env.NEXT_PUBLIC_LCD_KEPLR_URL,
-      // 'https://lcd-cosmoshub.keplr.app',
-      address,
-      offlineSigner
-    );
+    const cosmJS = new SigningCosmosClient(keplrURL, address, offlineSigner);
     return cosmJS;
   };
 
+  const encodeSecp256k1PubKey = (pubKey: Uint8Array): PubKey => ({
+    type: 'tendermint/PubKeySecp256k1',
+    value: toBase64(pubKey),
+  });
+
+  const encodeEd25519PubKey = (pubKey: Uint8Array): PubKey => ({
+    type: 'tendermint/PubKeyEd25519',
+    value: toBase64(pubKey),
+  });
+
+  const isSecp256k1PubKey = (pubKey: Uint8Array) => {
+    if (pubKey.length !== 33 || (pubKey[0] !== 0x02 && pubKey[0] !== 0x03)) {
+      return false;
+    }
+    return true;
+  };
+
+  const isEd25519PubKey = (pubKey: Uint8Array) => {
+    if (pubKey.length !== 32) {
+      return false;
+    }
+    return true;
+  };
+
   return {
+    showWalletDetails,
     tabValue,
     userState,
     walletState,
-    showWalletDetails,
-    handleLogin,
-    handleCloseLoginDialog,
-    setWalletOption,
+    continueToAuthorizeKeplrConnectionDialog,
+    continueToLoginSuccessDialog,
+    continueToPairingDialog,
+    handleCloseAuthorizeConnectionDialog,
     handleCloseInstallKeplrWalletDialog,
     handleCloseKeplrPairingDialog,
-    handleConnectButter,
-    handleConnectWalletConnect,
-    handleLogout,
-    handleShowWalletDetails,
-    handleConnectWallet,
-    handleCloseSelectNetworkDialog,
-    handleCloseAuthorizeConnectionDialog,
+    handleCloseLoginDialog,
     handleCloseLoginSuccessDialog,
+    handleCloseSelectNetworkDialog,
+    handleCloseWalletDetails,
+    handleConnectButter,
+    handleConnectWallet,
+    handleConnectWalletConnect,
     handleConnectWalletConnectDialog,
+    handleLogin,
+    handleLogout,
+    handleOpenWalletDetails,
+    handleShowWalletDetails,
     handleTabChange,
-    continueToSelectNetworkDialog,
-    continueToPairingDialog,
-    continueToAuthorizeConnectionDialog,
+    setWalletOption,
   };
 };
 
