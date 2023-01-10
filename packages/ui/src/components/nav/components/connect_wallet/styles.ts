@@ -52,10 +52,9 @@ const styles = makeStyles((theme) => ({
   },
   closeButton: {
     position: 'absolute',
-    right: theme.spacing(1),
-    top: theme.spacing(1),
+    right: theme.spacing(2.8),
+    top: theme.spacing(1.8),
     color: theme.palette.grey[500],
-    padding: '17px 24px',
     [theme.breakpoints.down('xs')]: {
       left: '250px',
     },
