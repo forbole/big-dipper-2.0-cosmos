@@ -1,5 +1,11 @@
 # ui
 
+## 2.10.2
+
+### Patch Changes
+
+- ce50c036: fix: dtag search
+
 ## 2.10.1
 
 ### Patch Changes
