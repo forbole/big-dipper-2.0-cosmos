@@ -1,4 +1,3 @@
-// import { useConnectWalletList } from '@/components/nav/components/connect_wallet/hooks';
 import { useStyles } from '@/components/nav/components/connect_wallet/styles';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
