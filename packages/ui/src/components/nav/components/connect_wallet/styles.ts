@@ -29,7 +29,7 @@ const styles = makeStyles((theme) => ({
       whiteSpace: 'normal',
     },
     [theme.breakpoints.up('md')]: {
-      padding: '0px 40px',
+      padding: '0px 70px',
     },
   },
   connectKeplrButton: {
@@ -38,7 +38,7 @@ const styles = makeStyles((theme) => ({
       padding: '0px 12px',
     },
     [theme.breakpoints.up('md')]: {
-      padding: '0px 55px',
+      padding: '0px 70px',
     },
   },
   connectButterButton: {

@@ -37,7 +37,7 @@ const LoginDialog: React.FC<{
             </IconButton>
           </div>
         </DialogTitle>
-        <DialogContent style={{ overflow: 'visible' }}>
+        <DialogContent style={{ overflow: 'visible', alignSelf: 'center' }}>
           <div className={classes.dialogContent}>
             <div className={classes.connectWalletButton}>
               <Button
@@ -63,19 +63,6 @@ const LoginDialog: React.FC<{
                 className={classes.walletButton}
               >
                 <div className={classes.label}>Keplr</div>
-              </Button>
-            </div>
-            <div className={classes.connectButterButton}>
-              <Button
-                onClick={(e) => {
-                  e.preventDefault();
-                  props.setWallet('Butter');
-                }}
-                color="default"
-                aria-label="connect-butter-wallet-button"
-                className={classes.walletButton}
-              >
-                <div className={classes.label}>Butter</div>
               </Button>
             </div>
           </div>
