@@ -1,5 +1,14 @@
 # unreleased
 
+## 2.7.1
+
+### Patch Changes
+
+- dc085630: feat: Add Rotate banner feature
+- Updated dependencies [dc085630]
+  - shared-utils@2.6.1
+  - ui@2.10.1
+
 ## 2.7.0
 
 ### Minor Changes
