@@ -8,21 +8,28 @@ import { ADDRESS_KEY, PUBKEY_KEY, WALLET_NAME_KEY } from '@/utils/localstorage';
 const isClient = typeof window === 'object';
 
 export const useUserRecoil = () => {
-  const [user, setUser] = useRecoilState(atomState);
+  const [_, setUser] = useRecoilState(atomState);
+  let userAddress;
+  let userPubKey;
+  let userWalletName;
+  let loggedIn;
+  let parsedPubKey;
 
   useEffect(() => {
     if (isClient) {
-      const userAddress = localStorage.getItem(ADDRESS_KEY);
-      const userPubKey = localStorage.getItem(PUBKEY_KEY);
-      const userWalletName = localStorage.getItem(WALLET_NAME_KEY);
+      userAddress = localStorage.getItem(ADDRESS_KEY) ?? '';
+      userPubKey = localStorage.getItem(PUBKEY_KEY);
+      userWalletName = localStorage.getItem(WALLET_NAME_KEY) ?? '';
+      loggedIn = !!localStorage.getItem(ADDRESS_KEY);
+      parsedPubKey = userPubKey ? JSON.parse(userPubKey) : { type: '', value: '' };
 
       const initSettings: AtomState = {
-        address: userAddress ?? '',
-        pubKey: userPubKey ?? '',
-        walletName: userWalletName ?? '',
+        address: userAddress,
+        pubKey: parsedPubKey,
+        walletName: userWalletName,
         loggedIn: !!userAddress,
       };
       setUser(initSettings);
     }
-  }, [setUser, user.address, user.pubKey, user.walletName, user.loggedIn]);
+  }, [setUser, userAddress, parsedPubKey, userWalletName, loggedIn]);
 };
