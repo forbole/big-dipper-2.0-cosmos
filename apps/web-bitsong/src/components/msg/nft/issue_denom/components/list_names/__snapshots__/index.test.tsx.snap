@@ -25,6 +25,5 @@ exports[`screen: TransactionDetails/IssueDenom matches snapshot 1`] = `
     id="desmosvaloper1rzhewpmmdl72lhnxj6zmxr4v94f522s4hyz467"
     name="desmosvaloper1rzhewpmmdl72lhnxj6zmxr4v94f522s4hyz467"
   />,
-  "",
 ]
 `;

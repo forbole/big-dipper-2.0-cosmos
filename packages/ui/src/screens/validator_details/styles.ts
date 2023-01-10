@@ -1,17 +1,18 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { CSSObject } from '@emotion/react';
+import { makeStyles } from 'tss-react/mui';
 
-const styles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   root: {
-    ...theme.mixins.layout,
+    ...(theme.mixins.layout as CSSObject),
     display: 'grid',
     gridTemplateColumns: '1fr',
     gridTemplateRows: 'auto',
-    gridGap: theme.spacing(1),
+    gap: theme.spacing(1),
     '& a': {
       color: theme.palette.custom.fonts.highlight,
     },
     [theme.breakpoints.up('lg')]: {
-      gridGap: theme.spacing(2),
+      gap: theme.spacing(2),
       gridTemplateColumns: 'repeat(2, 1fr) 500px',
     },
   },
@@ -31,29 +32,29 @@ const styles = makeStyles((theme) => ({
     },
   },
   votingPower: {
-    background: '#ffc93c',
+    // background: '#ffc93c',
     [theme.breakpoints.up('lg')]: {
       gridColumn: '1 / 3',
     },
   },
   blocks: {
-    background: '#dbf6e9',
+    // background: '#dbf6e9',
     [theme.breakpoints.up('lg')]: {
       gridColumn: '3 / 4',
     },
   },
   staking: {
-    background: '#9ddfd3',
+    // background: '#9ddfd3',
     [theme.breakpoints.up('lg')]: {
       gridColumn: '1 / 4',
     },
   },
   transactions: {
-    background: '#31326f',
+    // background: '#31326f',
     [theme.breakpoints.up('lg')]: {
       gridColumn: '1 / 4',
     },
   },
 }));
 
-export const useStyles = () => styles();
+export default useStyles;

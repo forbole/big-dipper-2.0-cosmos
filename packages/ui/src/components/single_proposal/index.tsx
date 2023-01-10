@@ -1,8 +1,7 @@
-import { useStyles } from '@/components/single_proposal/styles';
+import useStyles from '@/components/single_proposal/styles';
 import { getStatusInfo } from '@/components/single_proposal/utils';
 import Tag from '@/components/tag';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import React, { ComponentProps, FC, isValidElement, ReactNode } from 'react';
 
@@ -16,11 +15,11 @@ type SingleproposalProps = {
 
 const SingleProposal: FC<SingleproposalProps> = ({ className, id, title, status, description }) => {
   const { t } = useTranslation('proposals');
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const statusInfo = getStatusInfo(status, t);
 
   return (
-    <div className={classnames(className, classes.root)}>
+    <div className={cx(classes.root, className)}>
       <div className={classes.header}>
         <Typography variant="h4" className={classes.id}>
           {id}
@@ -45,7 +44,7 @@ const SingleProposal: FC<SingleproposalProps> = ({ className, id, title, status,
           )}
         </div>
         {!!description && (
-          <Typography variant="body2" className={classnames(classes.content)}>
+          <Typography variant="body2" className={classes.content}>
             {description}
           </Typography>
         )}

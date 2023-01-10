@@ -4,12 +4,12 @@ import Pagination from '@/components/pagination';
 import NoData from '@/components/no_data';
 import Box from '@/components/box';
 import Loading from '@/components/loading';
-import { useStyles } from '@/screens/tokens/components/list/styles';
+import useStyles from '@/screens/tokens/components/list/styles';
 import { useBlocks, PAGE_SIZE } from '@/screens/tokens/components/list/hooks';
 import TokenList from '@/screens/tokens/components/list/components/tokens_list';
 
 const List = () => {
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { state, handlePageChangeCallback } = useBlocks();
   const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange } = usePagination({
     rowsPage: PAGE_SIZE,

@@ -1,20 +1,20 @@
-import React, { FC, LegacyRef, useMemo } from 'react';
-import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
-import useTranslation from 'next-translate/useTranslation';
-import AutoSizer from 'react-virtualized-auto-sizer';
-import Link from 'next/link';
-import { NODE_DETAILS } from '@/utils/go_to_page';
-import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
-import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { useList, useListRow } from '@/hooks';
+import useStyles from '@/screens/block_details/components/consensus/components/mobile/styles';
 import type { ConsensusType } from '@/screens/block_details/types';
-import { useStyles } from '@/screens/block_details/components/consensus/components/mobile/styles';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
+import { NODE_DETAILS } from '@/utils/go_to_page';
+import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
+import useTranslation from 'next-translate/useTranslation';
+import Link from 'next/link';
+import { FC, LegacyRef, ReactNode, useMemo } from 'react';
+import AutoSizer from 'react-virtualized-auto-sizer';
+import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
 
 type ListItemProps = Pick<ListChildComponentProps, 'index' | 'style'> & {
   setRowHeight: Parameters<typeof useListRow>[1];
-  classes: ReturnType<typeof useStyles>;
-  formattedItem: unknown;
+  classes: ReturnType<typeof useStyles>['classes'];
+  formattedItem: ReactNode;
   item: string;
   isLast: boolean;
 };
@@ -39,10 +39,8 @@ const ListItem: FC<ListItemProps> = ({
             <Typography variant="h4" className="label">
               {t('validator')}
             </Typography>
-            <Link href={NODE_DETAILS(item)} passHref>
-              <Typography variant="body1" className="value" component="a">
-                {formattedItem}
-              </Typography>
+            <Link href={NODE_DETAILS(item)} className="value">
+              {formattedItem}
             </Link>
           </div>
         </div>
@@ -55,7 +53,7 @@ const ListItem: FC<ListItemProps> = ({
 
 const Mobile: FC<{ items: ConsensusType[] }> = (props) => {
   const { listRef, getRowHeight, setRowHeight } = useList();
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   const formattedItems = useMemo(
     () =>

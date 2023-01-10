@@ -1,6 +1,6 @@
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles } from 'tss-react/mui';
 
-const styles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   root: {
     [theme.breakpoints.up('lg')]: {
       display: 'flex',
@@ -16,7 +16,7 @@ const styles = makeStyles((theme) => ({
   legend: {
     display: 'grid',
     gridTemplateColumns: 'repeat(1, 1fr)',
-    gridGap: theme.spacing(2),
+    gap: theme.spacing(2),
     [theme.breakpoints.up('md')]: {
       gridTemplateColumns: 'repeat(2, 1fr)',
     },
@@ -71,11 +71,4 @@ const styles = makeStyles((theme) => ({
   },
 }));
 
-export const useStyles = () => {
-  const defaultTheme = useTheme();
-
-  return {
-    classes: styles(),
-    theme: defaultTheme,
-  };
-};
+export default useStyles;

@@ -1,27 +1,15 @@
-import { BrowserContext, expect, test } from '@playwright/test';
+import { expect, test } from '@playwright/test';
+import { abortLoadingAssets, hasReadPermissions, waitForReady } from './common';
 
 const validatorAddress = 'desmosvaloper134zrg6jn3a5l5jjpzv9eucdlw3nl2qelk0e992';
 const rewardAddress = 'desmos134zrg6jn3a5l5jjpzv9eucdlw3nl2qelgz330c';
 
-async function hasReadPermissions(context: BrowserContext) {
-  // Grant read permissions for clipboard
-  try {
-    // grant permission for chromium
-    await context.grantPermissions(['clipboard-read']);
-    return true;
-  } catch (error) {
-    // skip for firefox
-    return false;
-  }
-}
-
 test('validator page', async ({ page, context }) => {
+  await abortLoadingAssets(page);
+
   // Test validator url
-  await Promise.all([
-    page.waitForNavigation({ url: new RegExp(`/validators/${validatorAddress}`) }),
-    page.goto(`./validators/${validatorAddress}`),
-  ]);
-  await expect(page.getByRole('progressbar')).toHaveCount(0);
+  await page.goto(`./validators/${validatorAddress}`);
+  await waitForReady(page);
 
   if (await hasReadPermissions(context)) {
     // Test copy operator address to clipboard
@@ -46,13 +34,12 @@ test('validator page', async ({ page, context }) => {
   }
 });
 
-test('validator page tabs', async ({ page }) => {
+test('validator page tabs', async ({ page, isMobile }) => {
+  await abortLoadingAssets(page);
+
   // Test validator url
-  await Promise.all([
-    page.waitForNavigation({ url: new RegExp(`/validators/${validatorAddress}`) }),
-    page.goto(`./validators/${validatorAddress}`),
-  ]);
-  await expect(page.getByRole('progressbar')).toHaveCount(0);
+  await page.goto(`./validators/${validatorAddress}`);
+  await waitForReady(page);
 
   // Test validator staking section
   await page.getByRole('tab', { name: /Delegations/ }).click();

@@ -1,16 +1,15 @@
-import { useStyles } from '@/components/nav/components/menu_items/styles';
+import useStyles from '@/components/nav/components/menu_items/styles';
 import { getMenuItems } from '@/components/nav/components/menu_items/utils';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import classnames from 'classnames';
+import List from '@mui/material/List';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 const MenuItems = () => {
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const router = useRouter();
   const { t } = useTranslation('common');
   const items = getMenuItems();
@@ -27,17 +26,16 @@ const MenuItems = () => {
         }
 
         return (
-          <Link key={x.key} href={x.url} passHref>
-            <ListItem
-              button
-              className={classnames(classes.root, {
+          <Link key={x.key} href={x.url} legacyBehavior passHref>
+            <ListItemButton
+              className={cx(classes.root, {
                 active: isActive,
               })}
               component="a"
             >
               <ListItemIcon>{x.icon}</ListItemIcon>
               <ListItemText primary={t(x.key)} />
-            </ListItem>
+            </ListItemButton>
           </Link>
         );
       })}

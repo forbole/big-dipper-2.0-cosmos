@@ -14,7 +14,7 @@ const mockI18n = {
   t: (key: string) => key,
   lang: 'en',
 };
-jest.mock('@material-ui/core/Drawer', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@mui/material/Drawer', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="drawer" {...props} />
 ));
 jest.mock('next-translate/useTranslation', () => () => mockI18n);
@@ -62,16 +62,14 @@ describe('screen: Nav/Menu', () => {
   });
 
   it('drawer displays on click', () => {
-    expect(
-      component.root.findByProps({ className: 'makeStyles-drawer lang-drawer' }).props.open
-    ).toEqual(false);
+    expect(component.root.findByProps({ 'aria-label': 'lang-drawer' }).props.open).toEqual(false);
 
     renderer.act(() => {
-      component.root.findByProps({ className: 'makeStyles-language' }).props.onClick();
+      component.root
+        .findByProps({ role: 'button', 'aria-label': 'toggle language' })
+        .props.onClick();
     });
-    expect(
-      component.root.findByProps({ className: 'makeStyles-drawer lang-drawer' }).props.open
-    ).toEqual(true);
+    expect(component.root.findByProps({ 'aria-label': 'lang-drawer' }).props.open).toEqual(true);
   });
 });
 

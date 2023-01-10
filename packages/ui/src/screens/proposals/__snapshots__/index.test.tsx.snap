@@ -2,26 +2,26 @@
 
 exports[`screen: Proposals matches snapshot 1`] = `
 <div
-  className="makeStyles-root"
+  className="css-1kpiz3c-root"
   id="Layout"
   navTitle="proposals"
 >
   <div
-    className="makeStyles-root"
+    className="css-js7ni0-root"
   >
-    <div
-      className="MuiLinearProgress-root MuiLinearProgress-colorPrimary MuiLinearProgress-indeterminate"
+    <span
+      className="MuiLinearProgress-root MuiLinearProgress-colorPrimary MuiLinearProgress-indeterminate css-17rkq7c-MuiLinearProgress-root"
       role="progressbar"
     >
-      <div
-        className="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary MuiLinearProgress-bar1Indeterminate"
+      <span
+        className="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary MuiLinearProgress-bar1Indeterminate css-tfufrj-MuiLinearProgress-bar1"
         style={{}}
       />
-      <div
-        className="MuiLinearProgress-bar MuiLinearProgress-bar2Indeterminate MuiLinearProgress-barColorPrimary"
+      <span
+        className="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary MuiLinearProgress-bar2Indeterminate css-14fmtwm-MuiLinearProgress-bar2"
         style={{}}
       />
-    </div>
+    </span>
   </div>
 </div>
 `;

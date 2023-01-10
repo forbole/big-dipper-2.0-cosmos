@@ -1,5 +1,4 @@
-import { useStyles } from '@/components/custom_tool_tip/styles';
-import classnames from 'classnames';
+import useStyles from '@/components/custom_tool_tip/styles';
 import React, { FC, ReactNode } from 'react';
 
 export interface CustomToolTipData {
@@ -26,11 +25,11 @@ type CustomToolTipProps = {
 const CustomToolTip: FC<CustomToolTipProps> = (props) => {
   const { active, payload, className, children } = props;
 
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
 
   if (active && payload && payload.length) {
     const { payload: data } = payload?.[0] ?? {};
-    return <div className={classnames(classes.root, className)}>{children(data)}</div>;
+    return <div className={cx(classes.root, className)}>{children(data)}</div>;
   }
 
   return null;

@@ -1,4 +1,4 @@
-import App from '@/screens/app';
+import MyApp from '@/screens/app';
 import { ApolloClient, from, InMemoryCache } from '@apollo/client';
 import type { Router } from 'next/router';
 import renderer from 'react-test-renderer';
@@ -30,7 +30,7 @@ jest.mock('@/screens/app/hooks', () => ({
 describe('screen: _app', () => {
   it('matches snapshot', () => {
     const component = renderer.create(
-      <App router={{} as Router} Component={() => <div id="component" />} pageProps={{}} />
+      <MyApp router={{} as Router} Component={() => <div id="component" />} pageProps={{}} />
     );
     const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();

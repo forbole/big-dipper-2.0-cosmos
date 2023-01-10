@@ -4,15 +4,15 @@ import type { OperationType } from '@/screens/transaction_details/types';
 import { formatNumber } from '@/utils/format_token';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { NFT_DETAILS, TOKEN_DETAILS } from '@/utils/go_to_page';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Typography from '@material-ui/core/Typography';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
-import React, { FC } from 'react';
+import { FC } from 'react';
 
 const Desktop: FC<{ className?: string; items: OperationType[] }> = (props) => {
   const { t } = useTranslation('transactions');
@@ -52,9 +52,7 @@ const Desktop: FC<{ className?: string; items: OperationType[] }> = (props) => {
       value: link ? (
         <div>
           <Typography component="span">{formatNumber(x.value.value, x.value.exponent)} </Typography>
-          <Link href={link(x.identifier)} passHref>
-            <Typography component="a">{x.value.displayDenom.toUpperCase()}</Typography>
-          </Link>
+          <Link href={link(x.identifier)}>{x.value.displayDenom.toUpperCase()}</Link>
         </div>
       ) : (
         `${formatNumber(x.value.value, x.value.exponent)} ${x.value.displayDenom.toUpperCase()}`

@@ -6,8 +6,7 @@ import VotingPower from '@/screens/validators/components/list/components/voting_
 import type { ItemType } from '@/screens/validators/components/list/types';
 import { getValidatorConditionClass } from '@/utils/get_validator_condition';
 import { getValidatorStatus } from '@/utils/get_validator_status';
-import Divider from '@material-ui/core/Divider';
-import classnames from 'classnames';
+import Divider from '@mui/material/Divider';
 import numeral from 'numeral';
 import React, { FC, LegacyRef } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
@@ -75,7 +74,7 @@ const Mobile: FC<MobileProps> = ({ className, items, search }) => {
   const { listRef, getRowHeight, setRowHeight } = useList();
 
   return (
-    <div className={classnames(className)}>
+    <div className={className}>
       <AutoSizer>
         {({ height, width }) => (
           <List

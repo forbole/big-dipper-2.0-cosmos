@@ -1,17 +1,14 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from 'tss-react/mui';
 
-const styles = makeStyles(
-  (theme) => ({
-    root: {
-      '& .memo': {
-        alignItems: 'flex-start',
-        '& .label': {
-          marginRight: theme.spacing(5),
-        },
+const useStyles = makeStyles()((theme) => ({
+  root: {
+    '& .memo': {
+      alignItems: 'flex-start',
+      '& .label': {
+        marginRight: theme.spacing(5),
       },
     },
-  }),
-  { index: 1 }
-);
+  },
+}));
 
-export const useStyles = () => styles();
+export default useStyles;

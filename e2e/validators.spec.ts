@@ -1,20 +1,19 @@
-import { expect, test } from '@playwright/test';
+import { test } from '@playwright/test';
+import { abortLoadingAssets, waitForMenuItemClick, waitForReady } from './common';
 
 const validatorAddress = 'desmosvaloper17lca9smrdlwkznr92hypzrgsjkelnxeaacgrwq';
 
 test('validators list page', async ({ page, isMobile }) => {
-  // Test url
-  await Promise.all([page.waitForNavigation(), page.goto('.')]);
-  await expect(page.getByRole('progressbar')).toHaveCount(0);
+  await abortLoadingAssets(page);
 
-  if (isMobile) await page.getByRole('button', { name: 'open navigation menu' }).first().click();
+  await page.goto(`.`);
+  await waitForReady(page);
 
-  // Test click validators section
-  await Promise.all([
-    page.waitForNavigation({ url: /\/validators/ }),
-    page.getByRole('link', { name: 'Validators' }).first().click(),
-  ]);
-  await expect(page.getByRole('progressbar')).toHaveCount(0);
+  await waitForMenuItemClick(
+    'ul > a.active[href="/validators"]',
+    page.getByRole('link', { name: 'Validators' }),
+    isMobile
+  );
 
   // Test change validators tabs
   await page.getByRole('tab', { name: 'Inactive' }).first().click();
@@ -45,12 +44,4 @@ test('validators list page', async ({ page, isMobile }) => {
     await page.getByPlaceholder('Search Validator').fill('Apollo');
     await page.getByPlaceholder('Search Validator').press('Enter');
   }
-  await page.waitForTimeout(2000);
-
-  // Test single validator url
-  await Promise.all([
-    page.waitForNavigation({ url: new RegExp(`/validators/${validatorAddress}`) }),
-    page.goto(`./validators/${validatorAddress}`),
-  ]);
-  await expect(page.getByRole('progressbar')).toHaveCount(0);
 });

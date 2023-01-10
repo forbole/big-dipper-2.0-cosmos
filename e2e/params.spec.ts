@@ -1,20 +1,16 @@
-import { expect, test } from '@playwright/test';
+import { test } from '@playwright/test';
+import { abortLoadingAssets, waitForMenuItemClick, waitForReady } from './common';
 
 test('params page', async ({ page, isMobile }) => {
-  // Test url
-  await Promise.all([page.waitForNavigation(), page.goto('.')]);
-  await expect(page.getByRole('progressbar')).toHaveCount(0);
-
-  // Test click params section
-  if (isMobile) await page.getByRole('button', { name: 'open navigation menu' }).first().click();
-
-  await Promise.all([
-    page.waitForNavigation({ url: /\/params/ }),
-    page.getByRole('link', { name: 'Params' }).first().click(),
-  ]);
-  await expect(page.getByRole('progressbar')).toHaveCount(0);
+  await abortLoadingAssets(page);
 
   // Test params url
-  await Promise.all([page.waitForNavigation({ url: /\/params/ }), page.goto(`./params`)]);
-  await expect(page.getByRole('progressbar')).toHaveCount(0);
+  await page.goto(`.`);
+  await waitForReady(page);
+
+  await waitForMenuItemClick(
+    'ul > a.active[href="/params"]',
+    page.getByRole('link', { name: 'Params' }),
+    isMobile
+  );
 });

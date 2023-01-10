@@ -1,6 +1,6 @@
 import Signers from '@/components/msg/data/sign_data_request/components/signers';
 import MsgSignDataRequest from '@/models/msg/data/msg_sign_data_request';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import Trans from 'next-translate/Trans';
 import React, { FC } from 'react';
 

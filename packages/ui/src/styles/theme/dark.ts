@@ -1,6 +1,6 @@
 import chainConfig from '@/chainConfig';
 import hindMadurai from '@/styles/theme/hindMadurai';
-import { ThemeOptions } from '@material-ui/core';
+import { ThemeOptions } from '@mui/material';
 
 const { themes } = chainConfig();
 const { dark: theme } = themes;
@@ -22,37 +22,41 @@ export const darkThemeOverride: DeepPartial<ThemeOptions> = {
     },
   },
   palette: {
-    type: 'dark',
+    mode: 'dark',
     ...theme,
   },
-  overrides: {
+  components: {
     MuiCssBaseline: {
-      '@global': {
+      styleOverrides: {
         '@font-face': [hindMadurai],
       },
     },
     MuiTableBody: {
-      root: {
-        '& .MuiTableRow-root': {
-          '&:nth-child(odd)': {
-            backgroundColor: theme.custom.general.surfaceTwo, // surface two
+      styleOverrides: {
+        root: {
+          '& .MuiTableRow-root': {
+            '&:nth-of-type(odd)': {
+              backgroundColor: theme.custom.general.surfaceTwo, // surface two
+            },
           },
-        },
-        '& .MuiTableCell-root': {
-          color: theme.custom.fonts.fontTwo, // font two
+          '& .MuiTableCell-root': {
+            color: theme.custom.fonts.fontTwo, // font two
+          },
         },
       },
     },
     MuiTabs: {
-      root: {
-        '& .MuiTab-textColorInherit': {
-          color: theme.custom.fonts.fontThree, // font three
-        },
-        '& .MuiTab-textColorInherit.Mui-selected': {
-          color: theme.custom.fonts.fontOne, // font one
-        },
-        '& .MuiTabs-indicator': {
-          backgroundColor: theme.custom.fonts.fontOne, // font one (?)
+      styleOverrides: {
+        root: {
+          '& .MuiTab-textColorInherit': {
+            color: theme.custom.fonts.fontThree, // font three
+          },
+          '& .MuiTab-textColorInherit.Mui-selected': {
+            color: theme.custom.fonts.fontOne, // font one
+          },
+          '& .MuiTabs-indicator': {
+            backgroundColor: theme.custom.fonts.fontOne, // font one (?)
+          },
         },
       },
     },

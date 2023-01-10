@@ -2,11 +2,11 @@ import Name from '@/components/name';
 import { MsgVote } from '@/models';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { PROPOSAL_DETAILS } from '@/utils/go_to_page';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import Trans from 'next-translate/Trans';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
-import React, { FC, useCallback } from 'react';
+import { FC, useCallback } from 'react';
 
 const Vote: FC<{ message: MsgVote }> = (props) => {
   const { t } = useTranslation('transactions');
@@ -17,11 +17,7 @@ const Vote: FC<{ message: MsgVote }> = (props) => {
   const voterMoniker = voter ? voter?.name : message.voter;
 
   const Proposal = useCallback(
-    () => (
-      <Link href={PROPOSAL_DETAILS(message.proposalId)} passHref>
-        <Typography component="a">#{message.proposalId}</Typography>
-      </Link>
-    ),
+    () => <Link href={PROPOSAL_DETAILS(message.proposalId)}>#{message.proposalId}</Link>,
     [message.proposalId]
   );
 

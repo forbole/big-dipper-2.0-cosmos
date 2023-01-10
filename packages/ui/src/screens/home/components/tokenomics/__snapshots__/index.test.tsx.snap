@@ -2,28 +2,28 @@
 
 exports[`screen: Home/Tokenomics matches snapshot 1`] = `
 <div
-  className="makeStyles-root"
+  className="css-1huduhr-root"
   id="box"
 >
   <h2
-    className="MuiTypography-root makeStyles-label MuiTypography-h2"
+    className="MuiTypography-root MuiTypography-h2 css-5seo1d-MuiTypography-root-label"
   >
     tokenomics
   </h2>
   <div
-    className="makeStyles-data"
+    className="css-13k8qz6-data"
   >
     <div
       className="data__item"
     >
       <h4
-        className="MuiTypography-root MuiTypography-h4"
+        className="MuiTypography-root MuiTypography-h4 css-15yyl88-MuiTypography-root"
       >
         254,578,529,800
          
       </h4>
       <span
-        className="MuiTypography-root MuiTypography-caption"
+        className="MuiTypography-root MuiTypography-caption css-ru7l4l-MuiTypography-root"
       >
         bondedPercent
       </span>
@@ -32,20 +32,20 @@ exports[`screen: Home/Tokenomics matches snapshot 1`] = `
       className="data__item"
     >
       <h4
-        className="MuiTypography-root MuiTypography-h4"
+        className="MuiTypography-root MuiTypography-h4 css-15yyl88-MuiTypography-root"
       >
         -459,465,964,998
          
       </h4>
       <span
-        className="MuiTypography-root MuiTypography-caption"
+        className="MuiTypography-root MuiTypography-caption css-ru7l4l-MuiTypography-root"
       >
         unbondedPercent
       </span>
     </div>
   </div>
   <div
-    className="makeStyles-content"
+    className="css-1ul1syn-content"
   >
     <div
       className="recharts-wrapper"
@@ -88,13 +88,13 @@ exports[`screen: Home/Tokenomics matches snapshot 1`] = `
       />
     </div>
     <div
-      className="makeStyles-legends"
+      className="css-1eci6km-legends"
     >
       <div
         className="legends__item"
       >
         <span
-          className="MuiTypography-root MuiTypography-caption"
+          className="MuiTypography-root MuiTypography-caption css-ru7l4l-MuiTypography-root"
         >
           bonded
         </span>
@@ -103,7 +103,7 @@ exports[`screen: Home/Tokenomics matches snapshot 1`] = `
         className="legends__item"
       >
         <span
-          className="MuiTypography-root MuiTypography-caption"
+          className="MuiTypography-root MuiTypography-caption css-ru7l4l-MuiTypography-root"
         >
           unbonded
         </span>
@@ -112,7 +112,7 @@ exports[`screen: Home/Tokenomics matches snapshot 1`] = `
         className="legends__item"
       >
         <span
-          className="MuiTypography-root MuiTypography-caption"
+          className="MuiTypography-root MuiTypography-caption css-ru7l4l-MuiTypography-root"
         >
           unbonding
         </span>

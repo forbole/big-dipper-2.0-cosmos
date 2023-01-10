@@ -1,9 +1,8 @@
 import Box from '@/components/box';
 import CustomToolTip from '@/components/custom_tool_tip';
 import { useStaking } from '@/screens/home/components/staking/hooks';
-import { useStyles } from '@/screens/home/components/staking/styles';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
+import useStyles from '@/screens/home/components/staking/styles';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
 import { FC } from 'react';
@@ -11,7 +10,7 @@ import { Cell, Pie, PieChart, Tooltip } from 'recharts';
 
 const Staking: FC<ComponentDefault> = ({ className }) => {
   const { t } = useTranslation('home');
-  const { classes, theme } = useStyles();
+  const { classes, cx, theme } = useStyles();
   const { state } = useStaking();
   const data = [
     {
@@ -33,7 +32,7 @@ const Staking: FC<ComponentDefault> = ({ className }) => {
   ];
 
   return (
-    <Box className={classnames(className, classes.root)}>
+    <Box className={cx(classes.root, className)}>
       <Typography variant="h2" className={classes.label}>
         {t('stake')}
       </Typography>

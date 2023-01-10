@@ -1,7 +1,5 @@
 import { mergeRefs } from '@/utils/merge_refs';
-import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
+import Divider from '@mui/material/Divider';
 import Link from 'next/link';
 import numeral from 'numeral';
 import { FC } from 'react';
@@ -14,7 +12,7 @@ import Loading from '@/components/loading';
 import SingleProposal from '@/components/single_proposal';
 import { useList, useListRow } from '@/hooks';
 import Total from '@/screens/proposals/components/list/components/total';
-import { useStyles } from '@/screens/proposals/components/list/styles';
+import useStyles from '@/screens/proposals/components/list/styles';
 import type { ProposalType } from '@/screens/proposals/types';
 import { PROPOSAL_DETAILS } from '@/utils/go_to_page';
 
@@ -48,10 +46,8 @@ const ListItem: FC<ListItemProps> = ({
       item.description.length > 200 ? `${item.description.slice(0, 200)}...` : item.description,
     status: item.status,
     title: (
-      <Link href={PROPOSAL_DETAILS(item.id)} passHref>
-        <Typography variant="h3" className="value" component="a">
-          {item.title}
-        </Typography>
+      <Link href={PROPOSAL_DETAILS(item.id)} className="value">
+        {item.title}
       </Link>
     ),
     id: `#${numeral(item.id).format('0,0')}`,
@@ -83,12 +79,12 @@ const ProposalsList: FC<ProposalsListProps> = ({
   itemCount,
   loadMoreItems,
 }) => {
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
 
   const { listRef, getRowHeight, setRowHeight } = useList();
 
   return (
-    <Box className={classnames(className, classes.root)}>
+    <Box className={cx(classes.root, className)}>
       <div className={classes.topContent}>
         <Total className={classes.total} total={numeral(rawDataTotal).format('0,0')} />
         {/* <Search className={classes.search} /> */}

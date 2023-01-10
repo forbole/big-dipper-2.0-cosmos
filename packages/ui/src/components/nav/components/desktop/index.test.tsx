@@ -40,7 +40,7 @@ describe('screen: Nav/Desktop', () => {
 
   it('hook toggles correctly', () => {
     renderer.act(() => {
-      component.root.findByProps({ className: 'makeStyles-logo' }).props.onClick();
+      component.root.findByProps({ role: 'button', 'aria-label': 'toggle menu' }).props.onClick();
     });
     const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();

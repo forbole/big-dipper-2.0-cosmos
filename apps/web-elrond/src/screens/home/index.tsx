@@ -5,10 +5,10 @@ import Epoch from '@/screens/home/components/epoch';
 import Price from '@/screens/home/components/price';
 import Staking from '@/screens/home/components/staking';
 import Transactions from '@/screens/home/components/transactions';
-import { useStyles } from '@/screens/home/styles';
+import useStyles from '@/screens/home/styles';
 
 const Home = () => {
-  const classes = useStyles();
+  const { classes } = useStyles();
   return (
     <Layout className={classes.root}>
       <DataBlocks className={classes.dataBlocks} />

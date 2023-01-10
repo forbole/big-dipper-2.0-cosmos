@@ -2,13 +2,13 @@
 
 exports[`screen: Home/DataBlocks matches snapshot 1`] = `
 <div
-  className="makeStyles-root"
+  className="css-36s0tc-root"
 >
   <div
-    className="makeStyles-blockHeight makeStyles-root"
+    className="css-10famwr-root-blockHeight"
   >
     <p
-      className="MuiTypography-root label MuiTypography-body2"
+      className="MuiTypography-root MuiTypography-body2 label css-1bkilrq-MuiTypography-root"
     >
       latestBlock
     </p>
@@ -16,17 +16,17 @@ exports[`screen: Home/DataBlocks matches snapshot 1`] = `
       className="content"
     >
       <h1
-        className="MuiTypography-root MuiTypography-h1"
+        className="MuiTypography-root MuiTypography-h1 css-gw99sn-MuiTypography-root"
       >
         0
       </h1>
     </div>
   </div>
   <div
-    className="makeStyles-blockTime makeStyles-root"
+    className="css-e9rnpx-root-blockTime"
   >
     <p
-      className="MuiTypography-root label MuiTypography-body2"
+      className="MuiTypography-root MuiTypography-body2 label css-1bkilrq-MuiTypography-root"
     >
       averageBlockTime
     </p>
@@ -34,17 +34,17 @@ exports[`screen: Home/DataBlocks matches snapshot 1`] = `
       className="content"
     >
       <h1
-        className="MuiTypography-root MuiTypography-h1"
+        className="MuiTypography-root MuiTypography-h1 css-gw99sn-MuiTypography-root"
       >
         6.54 s
       </h1>
     </div>
   </div>
   <div
-    className="makeStyles-price makeStyles-root"
+    className="css-2joiu4-root-price"
   >
     <p
-      className="MuiTypography-root label MuiTypography-body2"
+      className="MuiTypography-root MuiTypography-body2 label css-1bkilrq-MuiTypography-root"
     >
       price
     </p>
@@ -52,17 +52,17 @@ exports[`screen: Home/DataBlocks matches snapshot 1`] = `
       className="content"
     >
       <h1
-        className="MuiTypography-root MuiTypography-h1"
+        className="MuiTypography-root MuiTypography-h1 css-gw99sn-MuiTypography-root"
       >
         N/A
       </h1>
     </div>
   </div>
   <div
-    className="makeStyles-validators makeStyles-root"
+    className="css-14njnem-root-validators"
   >
     <p
-      className="MuiTypography-root label MuiTypography-body2"
+      className="MuiTypography-root MuiTypography-body2 label css-1bkilrq-MuiTypography-root"
     >
       activeValidators
     </p>
@@ -70,12 +70,12 @@ exports[`screen: Home/DataBlocks matches snapshot 1`] = `
       className="content"
     >
       <h1
-        className="MuiTypography-root MuiTypography-h1"
+        className="MuiTypography-root MuiTypography-h1 css-gw99sn-MuiTypography-root"
       >
         200
       </h1>
       <span
-        className="MuiTypography-root description MuiTypography-caption"
+        className="MuiTypography-root MuiTypography-caption description css-ru7l4l-MuiTypography-root"
       >
         outOfValidators
       </span>

@@ -1,6 +1,6 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from 'tss-react/mui';
 
-const styles = makeStyles(() => ({
+const useStyles = makeStyles()(() => ({
   root: {
     overflow: 'auto',
   },
@@ -8,9 +8,10 @@ const styles = makeStyles(() => ({
     '& .MuiTableBody-root': {
       '& .MuiTableCell-root': {
         whiteSpace: 'nowrap',
+        height: 'auto',
       },
     },
   },
 }));
 
-export const useStyles = () => styles();
+export default useStyles;

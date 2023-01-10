@@ -5,13 +5,13 @@ import Memory from '@/screens/providers/components/memory';
 import ProvidersList from '@/screens/providers/components/providers_list';
 import Storage from '@/screens/providers/components/storage';
 import { useProviders } from '@/screens/providers/hooks';
-import { useStyles } from '@/screens/providers/styles';
+import useStyles from '@/screens/providers/styles';
 import { NextSeo } from 'next-seo';
 import useTranslation from 'next-translate/useTranslation';
 
 const Providers = () => {
   const { t } = useTranslation('providers');
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { state, handleSearch } = useProviders();
 
   return (

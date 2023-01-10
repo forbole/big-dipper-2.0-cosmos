@@ -1,6 +1,6 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from 'tss-react/mui';
 
-const styles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   noWrap: {
     whiteSpace: 'nowrap',
   },
@@ -25,7 +25,7 @@ const styles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
-    '& .MuiIconButton-root': {
+    '& .MuiButtonBase-root': {
       padding: 0,
     },
   },
@@ -45,4 +45,4 @@ const styles = makeStyles((theme) => ({
   },
 }));
 
-export const useStyles = () => styles();
+export default useStyles;

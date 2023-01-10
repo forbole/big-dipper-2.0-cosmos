@@ -2,9 +2,9 @@ import chainConfig from '@/chainConfig';
 import ChainIcon from '@/components/ChainIcon';
 import Loading from '@/components/loading';
 import { useInterval } from '@/hooks';
-import { useStyles } from '@/screens/countdown/styles';
+import useStyles from '@/screens/countdown/styles';
 import dayjs from '@/utils/dayjs';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import React, { FC, useCallback, useState } from 'react';
 
 const { genesis, network } = chainConfig();
@@ -15,7 +15,7 @@ type CountdownProps = {
 
 const Countdown: FC<CountdownProps> = ({ startGenesis }) => {
   // const theme = useRecoilValue(readTheme);
-  const classes = useStyles();
+  const { classes } = useStyles();
   const [state, setState] = useState({
     day: 0,
     hour: 0,

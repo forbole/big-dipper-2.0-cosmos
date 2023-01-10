@@ -1,4 +1,3 @@
-import classnames from 'classnames';
 import React, { FC, ReactNode } from 'react';
 
 type TabPanelProps = {
@@ -11,7 +10,7 @@ type TabPanelProps = {
 const TabPanel: FC<TabPanelProps> = (props) => {
   const { children, value, index, className } = props;
   return (
-    <div className={classnames(className)} role="tabpanel" hidden={value !== index}>
+    <div className={className} role="tabpanel" hidden={value !== index}>
       {value === index && children}
     </div>
   );

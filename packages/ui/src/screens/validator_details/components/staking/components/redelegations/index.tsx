@@ -3,24 +3,11 @@ import NoData from '@/components/no_data';
 import Pagination from '@/components/pagination';
 import { usePagination, useScreenSize } from '@/hooks';
 import useShallowMemo from '@/hooks/useShallowMemo';
-import { useStyles } from '@/screens/validator_details/components/staking/components/redelegations/styles';
+import Desktop from '@/screens/validator_details/components/staking/components/redelegations/components/desktop';
+import Mobile from '@/screens/validator_details/components/staking/components/redelegations/components/mobile';
+import useStyles from '@/screens/validator_details/components/staking/components/redelegations/styles';
 import type { RedelegationsType } from '@/screens/validator_details/components/staking/types';
-import classnames from 'classnames';
-import dynamic from 'next/dynamic';
 import { FC, useCallback } from 'react';
-
-const Desktop = dynamic(
-  () =>
-    import(
-      '@/screens/validator_details/components/staking/components/redelegations/components/desktop'
-    )
-);
-const Mobile = dynamic(
-  () =>
-    import(
-      '@/screens/validator_details/components/staking/components/redelegations/components/mobile'
-    )
-);
 
 type RedelegationsProps = {
   className?: string;
@@ -30,7 +17,7 @@ type RedelegationsProps = {
 
 const Redelegations: FC<RedelegationsProps> = (props) => {
   const { isDesktop } = useScreenSize();
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange } = usePagination({});
   const handlePageChangeCallback = useCallback(
     (event: Parameters<typeof handlePageChange>[0], newPage: number) => {
@@ -66,7 +53,7 @@ const Redelegations: FC<RedelegationsProps> = (props) => {
   }
 
   return (
-    <div className={classnames(props.className)}>
+    <div className={props.className}>
       {component}
       <Pagination
         className={classes.paginate}

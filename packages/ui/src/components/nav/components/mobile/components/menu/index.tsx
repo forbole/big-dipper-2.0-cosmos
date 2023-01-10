@@ -3,14 +3,13 @@ import {
   useLanguageDrawer,
   useThemeDrawer,
 } from '@/components/nav/components/mobile/components/menu/hooks';
-import { useStyles } from '@/components/nav/components/mobile/components/menu/styles';
+import useStyles from '@/components/nav/components/mobile/components/menu/styles';
 import type { MenuProps } from '@/components/nav/components/mobile/components/menu/types';
 import { THEME_LIST } from '@/recoil/settings';
-import Drawer from '@material-ui/core/Drawer';
-import MenuItem from '@material-ui/core/MenuItem';
-import Typography from '@material-ui/core/Typography';
-import ExpandMoreOutlined from '@material-ui/icons/ExpandMoreOutlined';
-import classnames from 'classnames';
+import Drawer from '@mui/material/Drawer';
+import MenuItem from '@mui/material/MenuItem';
+import Typography from '@mui/material/Typography';
+import ExpandMoreOutlined from '@mui/icons-material/ExpandMoreOutlined';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -23,7 +22,7 @@ const Menu = (props: MenuProps) => {
 
   const { toggleNavMenus, className } = props;
 
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const languageOptions = useLanguageDrawer(lang, toggleNavMenus);
 
   const themeOptions = useThemeDrawer(toggleNavMenus);
@@ -36,9 +35,10 @@ const Menu = (props: MenuProps) => {
         anchor="bottom"
         open={languageOptions.drawerOpen}
         onClose={languageOptions.toggleDrawer}
-        className={classnames(classes.drawer, 'lang-drawer')}
+        className={cx(classes.drawer, 'lang-drawer')}
+        aria-label="lang-drawer"
       >
-        <div className={classnames('content')}>
+        <div className="content">
           {router.locales
             ?.filter((l) => l !== lang)
             .map((l) => (
@@ -51,9 +51,7 @@ const Menu = (props: MenuProps) => {
                   locale={l}
                   passHref
                 >
-                  <MenuItem button component="a">
-                    {t(l)}
-                  </MenuItem>
+                  <MenuItem component="a">{t(l)}</MenuItem>
                 </Link>
               </div>
             ))}
@@ -68,10 +66,10 @@ const Menu = (props: MenuProps) => {
         onClose={themeOptions.toggleDrawer}
         className={classes.drawer}
       >
-        <div className={classnames('content')}>
+        <div className="content">
           {THEME_LIST.filter((l) => l !== themeOptions.theme).map((l) => (
             <div key={l}>
-              <MenuItem button component="a" onClick={() => themeOptions.handleThemeChange(l)}>
+              <MenuItem component="a" onClick={() => themeOptions.handleThemeChange(l)}>
                 {t(l)}
               </MenuItem>
             </div>
@@ -81,7 +79,7 @@ const Menu = (props: MenuProps) => {
       {/* ================================== */}
       {/* Main Content */}
       {/* ================================== */}
-      <div className={classnames(className, classes.root)}>
+      <div className={cx(classes.root, className)}>
         <div className={classes.menu}>
           <MenuItems />
         </div>
@@ -94,7 +92,7 @@ const Menu = (props: MenuProps) => {
             role="button"
             onClick={languageOptions.toggleDrawer}
             tabIndex={0}
-            aria-label={router.locale ? t(router.locale) : ''}
+            aria-label={router.locale ? t(router.locale) : 'toggle language'}
           >
             <Language />
             <Typography variant="caption">{router.locale ? t(router.locale) : ''}</Typography>

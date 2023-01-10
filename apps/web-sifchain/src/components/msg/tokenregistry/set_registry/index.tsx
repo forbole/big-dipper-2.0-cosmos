@@ -1,7 +1,7 @@
 import Name from '@/components/name';
 import MsgSetRegistry from '@/models/msg/tokenregistry/msg_set_registry';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import Trans from 'next-translate/Trans';
 import useTranslation from 'next-translate/useTranslation';
 import React, { FC } from 'react';

@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 export interface SingleBlockMobileType {
   block: string;
-  shard?: unknown;
+  shard?: ReactNode;
   hash: ReactNode;
   txs: string;
   time: string;

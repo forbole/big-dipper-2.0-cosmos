@@ -1,8 +1,7 @@
-import { useStyles } from '@/screens/validator_details/components/staking/components/tabs/styles';
+import useStyles from '@/screens/validator_details/components/staking/components/tabs/styles';
 import { a11yProps } from '@/utils/a11yProps';
-import Tab from '@material-ui/core/Tab';
-import Tabs from '@material-ui/core/Tabs';
-import classnames from 'classnames';
+import Tab from '@mui/material/Tab';
+import Tabs from '@mui/material/Tabs';
 import useTranslation from 'next-translate/useTranslation';
 import React, { ComponentProps, FC, ReactNode } from 'react';
 
@@ -19,12 +18,12 @@ type TabsHeaderProps = {
 };
 
 const TabsHeader: FC<TabsHeaderProps> = ({ className, tab, handleTabChange, tabs }) => {
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const { t } = useTranslation('accounts');
 
   return (
-    <div className={classnames(className, classes.root)}>
-      <Tabs variant="scrollable" scrollButtons="off" value={tab} onChange={handleTabChange}>
+    <div className={cx(classes.root, className)}>
+      <Tabs variant="scrollable" scrollButtons={false} value={tab} onChange={handleTabChange}>
         {tabs.map((x) => (
           <Tab
             key={x.key}

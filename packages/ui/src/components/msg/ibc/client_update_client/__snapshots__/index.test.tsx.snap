@@ -2,7 +2,7 @@
 
 exports[`screen: TransactionDetails/IBCUpdateClient matches snapshot 1`] = `
 <p
-  className="MuiTypography-root MuiTypography-body1"
+  className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
 >
   message_contents:txUpdateClientContent
 </p>

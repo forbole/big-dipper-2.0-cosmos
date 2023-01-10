@@ -8,11 +8,10 @@ import type {
 } from '@/screens/validators/components/list/types';
 import { formatToken } from '@/utils/format_token';
 import { getValidatorCondition } from '@/utils/get_validator_condition';
-import Tabs from '@material-ui/core/Tabs';
 import Big from 'big.js';
 import numeral from 'numeral';
 import * as R from 'ramda';
-import { ComponentProps, useCallback, useState } from 'react';
+import { SyntheticEvent, useCallback, useState } from 'react';
 
 const { extra, votingPowerTokenUnit } = chainConfig();
 
@@ -122,8 +121,8 @@ export const useValidators = () => {
     },
   });
 
-  const handleTabChange: ComponentProps<typeof Tabs>['onChange'] = useCallback(
-    (_event, newValue) => {
+  const handleTabChange = useCallback(
+    (_event: SyntheticEvent<Element, globalThis.Event>, newValue: number) => {
       setState((prevState) => ({
         ...prevState,
         tab: newValue,

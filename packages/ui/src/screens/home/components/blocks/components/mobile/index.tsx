@@ -5,12 +5,10 @@ import type { ItemType } from '@/screens/home/components/blocks/types';
 import dayjs from '@/utils/dayjs';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { BLOCK_DETAILS } from '@/utils/go_to_page';
-import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
+import Divider from '@mui/material/Divider';
 import Link from 'next/link';
 import numeral from 'numeral';
-import React, { FC, Fragment } from 'react';
+import { FC, Fragment } from 'react';
 
 type BlocksItemProps = {
   item: ItemType;
@@ -24,10 +22,8 @@ const BlocksItem: FC<BlocksItemProps> = ({ item, i, isLast }) => {
     <Fragment key={`${i}-${item.height}`}>
       <SingleBlockMobile
         height={
-          <Link href={BLOCK_DETAILS(item.height)} passHref>
-            <Typography variant="body1" className="value" component="a">
-              {numeral(item.height).format('0,0')}
-            </Typography>
+          <Link href={BLOCK_DETAILS(item.height)} className="value">
+            {numeral(item.height).format('0,0')}
           </Link>
         }
         txs={numeral(item.txs).format('0,0')}
@@ -49,7 +45,7 @@ type MobileProps = {
 };
 
 const Mobile: FC<MobileProps> = ({ className, items }) => (
-  <div className={classnames(className)}>
+  <div className={className}>
     {items?.map((x, i) => (
       <BlocksItem key={x.height} item={x} i={i} isLast={i === items.length - 1} />
     ))}

@@ -2,12 +2,11 @@ import Box from '@/components/box';
 import { getMessageByType } from '@/components/msg/utils';
 import TransactionMessagesFilter from '@/components/transaction_messages_filter';
 import { useList, useListRow } from '@/hooks';
-import { useStyles } from '@/screens/transaction_details/components/messages/styles';
-import Divider from '@material-ui/core/Divider';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Switch from '@material-ui/core/Switch';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
+import useStyles from '@/screens/transaction_details/components/messages/styles';
+import Divider from '@mui/material/Divider';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Switch from '@mui/material/Switch';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import React, { ChangeEvent, FC, LegacyRef } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
@@ -16,7 +15,7 @@ import { ListChildComponentProps, VariableSizeList as List } from 'react-window'
 type ListItemProps = Pick<ListChildComponentProps, 'index' | 'style'> & {
   setRowHeight: Parameters<typeof useListRow>[1];
   message: unknown;
-  classes: ReturnType<typeof useStyles>;
+  classes: ReturnType<typeof useStyles>['classes'];
   isLast: boolean;
   viewRaw: boolean;
 };
@@ -50,18 +49,18 @@ type MessagesProps = {
   className?: string;
   messages: unknown[];
   viewRaw: boolean;
-  toggleMessageDisplay: (event: ChangeEvent<HTMLInputElement>) => void;
+  toggleMessageDisplay: (event: ChangeEvent<HTMLInputElement>, checked: boolean) => void;
   onMessageFilterCallback: (value: string) => void;
 };
 
 const Messages: FC<MessagesProps> = ({ className, ...props }) => {
   const { t } = useTranslation('transactions');
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
 
   const { listRef, getRowHeight, setRowHeight } = useList();
 
   return (
-    <Box className={classnames(className, classes.root)}>
+    <Box className={cx(classes.root, className)}>
       <div className={classes.header}>
         <div className={classes.mobileOptions}>
           <Typography variant="h2">{t('messages')}</Typography>
