@@ -1,6 +1,5 @@
-import { useStyles } from '@/screens/validators/components/list/components/validators/components/mobile/component/single_validator/styles';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
+import useStyles from '@/screens/validators/components/list/components/validators/components/mobile/component/single_validator/styles';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import { FC, ReactNode } from 'react';
 
@@ -18,9 +17,9 @@ type SingleValidatorProps = {
 
 const SingleValidator: FC<SingleValidatorProps> = (props) => {
   const { t } = useTranslation('validators');
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   return (
-    <div className={classnames(props.className, classes.root)}>
+    <div className={cx(classes.root, props.className)}>
       <div className={classes.flex}>
         <div className={classes.item}>
           <Typography variant="h4" className="label">

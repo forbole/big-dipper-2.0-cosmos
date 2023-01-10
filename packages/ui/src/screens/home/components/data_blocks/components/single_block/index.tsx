@@ -1,6 +1,5 @@
-import { useStyles } from '@/screens/home/components/data_blocks/components/single_block/styles';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
+import useStyles from '@/screens/home/components/data_blocks/components/single_block/styles';
+import Typography from '@mui/material/Typography';
 import { FC } from 'react';
 
 type SingleBlockProps = {
@@ -11,10 +10,10 @@ type SingleBlockProps = {
 };
 
 const SingleBlock: FC<SingleBlockProps> = ({ className, label, value, description }) => {
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
 
   return (
-    <div className={classnames(className, classes.root)}>
+    <div className={cx(classes.root, className)}>
       <Typography variant="body2" className="label">
         {label}
       </Typography>

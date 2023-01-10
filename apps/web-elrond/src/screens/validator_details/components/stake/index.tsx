@@ -1,19 +1,18 @@
 import React, { FC } from 'react';
-import classnames from 'classnames';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import Box from '@/components/box';
 import { formatNumber } from '@/utils/format_token';
-import { useStyles } from '@/screens/validator_details/components/stake/styles';
+import useStyles from '@/screens/validator_details/components/stake/styles';
 import type { StakeType } from '@/screens/validator_details/types';
 
 const Stake: FC<{ className?: string; stake: StakeType }> = ({ className, stake }) => {
   const { t } = useTranslation('validators');
 
-  const classes = useStyles(stake.stakePercent);
+  const { classes, cx } = useStyles({ percentage: stake.stakePercent });
 
   return (
-    <Box className={classnames(className, classes.root)}>
+    <Box className={cx(classes.root, className)}>
       <Typography variant="h2">{t('stake')}</Typography>
       <div className={classes.data}>
         <Typography variant="h3" className="primary__data">

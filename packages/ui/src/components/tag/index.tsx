@@ -1,6 +1,5 @@
-import { useStyles } from '@/components/tag/styles';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
+import useStyles from '@/components/tag/styles';
+import Typography from '@mui/material/Typography';
 import React, { FC } from 'react';
 
 type TagProps = {
@@ -10,9 +9,9 @@ type TagProps = {
 };
 
 const Tag: FC<TagProps> = ({ className, value, theme }) => {
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   return (
-    <div className={classnames(className, classes.root, theme ? classes[theme] : undefined)}>
+    <div className={cx(classes.root, className, theme ? classes[theme] : undefined)}>
       <Typography variant="body1">{value}</Typography>
     </div>
   );

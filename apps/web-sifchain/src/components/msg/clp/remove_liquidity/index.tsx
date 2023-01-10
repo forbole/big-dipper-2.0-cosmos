@@ -2,7 +2,7 @@ import chainConfig from '@/chainConfig';
 import Name from '@/components/name';
 import MsgRemoveLiquidity from '@/models/msg/clp/msg_remove_liquidity';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import Trans from 'next-translate/Trans';
 import React, { FC } from 'react';
 

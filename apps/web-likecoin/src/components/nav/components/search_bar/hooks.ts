@@ -34,25 +34,25 @@ export const useSearchBar = (t: Translate) => {
           if (validatorAddress) {
             router.push(VALIDATOR_DETAILS(validatorAddress.validator));
           } else {
-            toast(t('common:useValidatorAddress'));
+            toast<string>(t('common:useValidatorAddress'));
           }
         } else if (validatorRegex.test(parsedValue)) {
           if (isValidAddress(parsedValue)) {
             router.push(VALIDATOR_DETAILS(parsedValue));
           } else {
-            toast(t('common:invalidAddress'));
+            toast<string>(t('common:invalidAddress'));
           }
         } else if (userRegex.test(parsedValue) || cosmosUserRegex.test(parsedValue)) {
           if (isValidAddress(parsedValue)) {
             router.push(ACCOUNT_DETAILS(parsedValue));
           } else {
-            toast(t('common:invalidAddress'));
+            toast<string>(t('common:invalidAddress'));
           }
         } else if (/^@/.test(parsedValue)) {
           if (!configProfile) {
-            toast(t('common:profilesNotEnabled'));
+            toast<string>(t('common:profilesNotEnabled'));
           } else if (parsedValue === '@') {
-            toast(t('common:insertValidDtag'));
+            toast<string>(t('common:insertValidDtag'));
           } else {
             router.push(PROFILE_DETAILS(parsedValue));
           }

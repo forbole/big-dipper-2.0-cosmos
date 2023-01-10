@@ -1,7 +1,7 @@
 import Name from '@/components/name';
 import MsgConvertErc20 from '@/models/msg/erc20/msg_convert_erc20';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import Trans from 'next-translate/Trans';
 import React, { FC } from 'react';
 

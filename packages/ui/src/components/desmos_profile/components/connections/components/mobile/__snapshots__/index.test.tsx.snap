@@ -1,50 +1,44 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: DesmosProfile/Mobile it renders 1`] = `
-<div
-  className=""
->
+<div>
   <div
-    className="makeStyles-list"
+    className="css-16zqb2r-list"
   >
     <div
-      className="makeStyles-item"
+      className="css-se0n4n-item"
     >
       <h4
-        className="MuiTypography-root label MuiTypography-h4"
+        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
       >
         network
       </h4>
       <p
-        className="MuiTypography-root value MuiTypography-body1"
-      >
-        
-      </p>
+        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
+      />
     </div>
     <div
-      className="makeStyles-item"
+      className="css-se0n4n-item"
     >
       <h4
-        className="MuiTypography-root label MuiTypography-h4"
+        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
       >
         identifier
       </h4>
       <p
-        className="MuiTypography-root value MuiTypography-body1"
-      >
-        
-      </p>
+        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
+      />
     </div>
     <div
-      className="makeStyles-item"
+      className="css-se0n4n-item"
     >
       <h4
-        className="MuiTypography-root label MuiTypography-h4"
+        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
       >
         creationTime
       </h4>
       <p
-        className="MuiTypography-root value MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
       >
         2020-08-10 12:00:00
       </p>

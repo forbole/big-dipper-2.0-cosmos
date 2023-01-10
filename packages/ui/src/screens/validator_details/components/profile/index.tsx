@@ -2,16 +2,15 @@ import Avatar from '@/components/avatar';
 import Box from '@/components/box';
 import Markdown from '@/components/markdown';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
-import { useStyles } from '@/screens/validator_details/components/profile/styles';
+import useStyles from '@/screens/validator_details/components/profile/styles';
 import type { OverviewType } from '@/screens/validator_details/types';
-import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
+import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import { FC } from 'react';
 
 const Profile: FC<{ className?: string; profile: OverviewType }> = ({ className, profile }) => {
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const { t } = useTranslation('validators');
   const { imageUrl, name } = useProfileRecoil(profile.validator);
 
@@ -23,12 +22,12 @@ const Profile: FC<{ className?: string; profile: OverviewType }> = ({ className,
   }
 
   return (
-    <Box className={classnames(className)}>
+    <Box className={className}>
       <div className={classes.bio}>
         <Avatar
           address={profile.operatorAddress}
           imageUrl={imageUrl ?? undefined}
-          className={classnames(classes.avatar, classes.desktopAvatar)}
+          className={cx(classes.avatar, classes.desktopAvatar)}
         />
         <div>
           <div className="bio__header">
@@ -39,7 +38,7 @@ const Profile: FC<{ className?: string; profile: OverviewType }> = ({ className,
               <Avatar
                 address={profile.operatorAddress}
                 imageUrl={imageUrl ?? undefined}
-                className={classnames(classes.avatar, classes.mobile)}
+                className={cx(classes.avatar, classes.mobile)}
               />
               <div className="header__content">
                 <Typography variant="h2">{name}</Typography>

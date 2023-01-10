@@ -1,13 +1,12 @@
 import ActionBar from '@/components/nav/components/desktop/components/action_bar';
 import { useDesktop } from '@/components/nav/components/desktop/hooks';
-import { useStyles } from '@/components/nav/components/desktop/styles';
+import useStyles from '@/components/nav/components/desktop/styles';
 import MenuItems from '@/components/nav/components/menu_items';
 import TitleBar from '@/components/nav/components/title_bar';
 import { readTheme } from '@/recoil/settings';
-import AppBar from '@material-ui/core/AppBar';
-import ClickAwayListener from '@material-ui/core/ClickAwayListener';
-import Drawer from '@material-ui/core/Drawer';
-import classnames from 'classnames';
+import AppBar from '@mui/material/AppBar';
+import ClickAwayListener from '@mui/material/ClickAwayListener';
+import Drawer from '@mui/material/Drawer';
 import React, { FC } from 'react';
 import { useRecoilValue } from 'recoil';
 import BigDipperLogoRed from 'shared-utils/assets/big-dipper-red.svg';
@@ -19,15 +18,15 @@ type DesktopProps = {
 };
 
 const Desktop: FC<DesktopProps> = ({ className, title }) => {
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const theme = useRecoilValue(readTheme);
   const { isMenu, toggleMenu, turnOffAll, toggleNetwork, isNetwork } = useDesktop();
   return (
     <ClickAwayListener onClickAway={turnOffAll}>
-      <div className={classnames(className, classes.root)}>
+      <div className={cx(classes.root, className)}>
         <AppBar
           position="fixed"
-          className={classnames(classes.appBar, {
+          className={cx(classes.appBar, {
             open: isMenu,
           })}
         >
@@ -36,14 +35,14 @@ const Desktop: FC<DesktopProps> = ({ className, title }) => {
         </AppBar>
         <Drawer
           variant="permanent"
-          className={classnames(classes.drawer, {
+          className={cx(classes.drawer, {
             open: isMenu,
             closed: !isMenu,
             [classes.drawerOpen]: isMenu,
             [classes.drawerClose]: !isMenu,
           })}
           classes={{
-            paper: classnames({
+            paper: cx({
               open: isMenu,
               closed: !isMenu,
               [classes.drawerOpen]: isMenu,

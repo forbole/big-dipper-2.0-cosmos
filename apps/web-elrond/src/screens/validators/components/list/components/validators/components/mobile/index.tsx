@@ -1,13 +1,12 @@
 import AvatarName from '@/components/avatar_name';
 import { useList, useListRow } from '@/hooks';
 import SingleValidator from '@/screens/validators/components/list/components/validators/components/mobile/component/single_validator';
-import { useStyles } from '@/screens/validators/components/list/components/validators/components/mobile/styles';
+import useStyles from '@/screens/validators/components/list/components/validators/components/mobile/styles';
 import VotingPower from '@/screens/validators/components/list/components/validators/components/voting_power';
 import type { ValidatorType } from '@/screens/validators/components/list/types';
 import { formatNumber } from '@/utils/format_token';
 import { NODE_DETAILS, VALIDATOR_DETAILS } from '@/utils/go_to_page';
-import Divider from '@material-ui/core/Divider';
-import classnames from 'classnames';
+import Divider from '@mui/material/Divider';
 import numeral from 'numeral';
 import React, { FC, LegacyRef } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
@@ -77,11 +76,11 @@ type MobileProps = {
 };
 
 const Mobile: FC<MobileProps> = ({ className, items, search }) => {
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const { listRef, getRowHeight, setRowHeight } = useList();
 
   return (
-    <div className={classnames(className, classes.root)}>
+    <div className={cx(classes.root, className)}>
       <AutoSizer>
         {({ height, width }) => (
           <List

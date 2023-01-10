@@ -3,13 +3,13 @@ import Layout from '@/components/layout';
 import LoadAndExist from '@/components/load_and_exist';
 import Connections from '@/screens/profile_details/components/connections';
 import { useProfileDetails } from '@/screens/profile_details/hooks';
-import { useStyles } from '@/screens/profile_details/styles';
+import useStyles from '@/screens/profile_details/styles';
 import { NextSeo } from 'next-seo';
 import useTranslation from 'next-translate/useTranslation';
 
 const ProfileDetails = () => {
   const { t } = useTranslation('profiles');
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { state, loading } = useProfileDetails();
 
   return (

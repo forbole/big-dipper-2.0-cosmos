@@ -1,26 +1,14 @@
-import { BrowserContext, expect, test } from '@playwright/test';
+import { expect, test } from '@playwright/test';
+import { abortLoadingAssets, waitForPopupClick, hasReadPermissions, waitForReady } from './common';
 
 const address = 'desmos134zrg6jn3a5l5jjpzv9eucdlw3nl2qelgz330c';
 
-async function hasReadPermissions(context: BrowserContext) {
-  // Grant read permissions for clipboard
-  try {
-    // grant permission for chromium
-    await context.grantPermissions(['clipboard-read']);
-    return true;
-  } catch (error) {
-    // skip for firefox
-    return false;
-  }
-}
-
 test('account page - copy addresses', async ({ page, context }) => {
+  await abortLoadingAssets(page);
+
   // Test account url
-  await Promise.all([
-    page.waitForNavigation({ url: new RegExp(`/accounts/${address}`) }),
-    page.goto(`./accounts/${address}`),
-  ]);
-  await expect(page.getByRole('progressbar')).toHaveCount(0);
+  await page.goto(`./accounts/${address}`);
+  await waitForReady(page);
 
   if (await hasReadPermissions(context)) {
     // Test copy address to clipboard
@@ -46,48 +34,34 @@ test('account page - copy addresses', async ({ page, context }) => {
 });
 
 test('account page - share buttons', async ({ page, isMobile }) => {
+  await abortLoadingAssets(page);
+
   // Test account url
-  await Promise.all([
-    page.waitForNavigation({ url: new RegExp(`/accounts/${address}`) }),
-    page.goto(`./accounts/${address}`),
-  ]);
-  await expect(page.getByRole('progressbar')).toHaveCount(0);
+  await page.goto(`./accounts/${address}`);
+  await waitForReady(page);
 
   // Test share button
   await page.locator('#icon-share_svg__Layer_1').first().click();
 
   // Test facebook button
-  await Promise.all([
-    page.waitForEvent('popup', (p) => /^https:\/\/[^/]+.facebook.com\/?/.test(p.url())),
-    page.getByRole('button', { name: 'facebook' }).click(),
-  ]);
+  await waitForPopupClick((p) => p.getByRole('button', { name: 'facebook' }), page);
 
   // Test twitter button
-  await Promise.all([
-    page.waitForEvent('popup', (p) => /^https:\/\/twitter\.com\/?/.test(p.url())),
-    page.getByRole('button', { name: 'twitter' }).click(),
-  ]);
+  await waitForPopupClick((p) => p.getByRole('button', { name: 'twitter' }), page);
 
   // Test telegram button
-  await Promise.all([
-    page.waitForEvent('popup', (p) => /^https:\/\/telegram\.me\/?/.test(p.url())),
-    page.getByRole('button', { name: 'telegram' }).click(),
-  ]);
+  await waitForPopupClick((p) => p.getByRole('button', { name: 'telegram' }), page);
 
   // Test whatsapp button
-  await Promise.all([
-    page.waitForEvent('popup', (p) => isMobile || /^https:\/\/web.whatsapp.com\/?/.test(p.url())),
-    page.getByRole('button', { name: 'whatsapp' }).click(),
-  ]);
+  await waitForPopupClick((p) => p.getByRole('button', { name: 'whatsapp' }), page);
 });
 
-test('account page tabs', async ({ page }) => {
+test('account page tabs', async ({ page, isMobile }) => {
+  await abortLoadingAssets(page);
+
   // Test account url
-  await Promise.all([
-    page.waitForNavigation({ url: new RegExp(`/accounts/${address}`) }),
-    page.goto(`./accounts/${address}`),
-  ]);
-  await expect(page.getByRole('progressbar')).toHaveCount(0);
+  await page.goto(`./accounts/${address}`);
+  await waitForReady(page);
 
   // Test account staking section
   await page

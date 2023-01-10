@@ -1,7 +1,7 @@
 import Name from '@/components/name';
 import MsgCreateGroupRequest from '@/models/msg/group/msg_create_group_request';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import Trans from 'next-translate/Trans';
 import React, { FC } from 'react';
 

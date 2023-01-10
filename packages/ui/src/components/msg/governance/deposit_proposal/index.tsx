@@ -3,11 +3,11 @@ import { MsgDeposit } from '@/models';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { formatNumber, formatToken } from '@/utils/format_token';
 import { PROPOSAL_DETAILS } from '@/utils/go_to_page';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import Trans from 'next-translate/Trans';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
-import React, { FC, useCallback } from 'react';
+import { FC, useCallback } from 'react';
 
 const DepositProposal: FC<{ message: MsgDeposit }> = (props) => {
   const { t } = useTranslation('transactions');
@@ -26,11 +26,7 @@ const DepositProposal: FC<{ message: MsgDeposit }> = (props) => {
   const depositorMoniker = depositor ? depositor?.name : message.depositor;
 
   const Proposal = useCallback(
-    () => (
-      <Link href={PROPOSAL_DETAILS(message.proposalId)} passHref>
-        <Typography component="a">#{message.proposalId}</Typography>
-      </Link>
-    ),
+    () => <Link href={PROPOSAL_DETAILS(message.proposalId)}>#{message.proposalId}</Link>,
     [message.proposalId]
   );
   return (

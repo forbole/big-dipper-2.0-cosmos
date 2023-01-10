@@ -5,17 +5,13 @@ import renderer from 'react-test-renderer';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@material-ui/core/IconButton', () => (props: object) => (
-  <div id="iconButton" {...props} />
-));
-jest.mock('@material-ui/core/FormControl', () => (props: object) => (
+jest.mock('@mui/material/IconButton', () => (props: object) => <div id="iconButton" {...props} />);
+jest.mock('@mui/material/FormControl', () => (props: object) => (
   <div id="formControl" {...props} />
 ));
-jest.mock('@material-ui/core/Select', () => (props: object) => <div id="select" {...props} />);
-jest.mock('@material-ui/core/MenuItem', () => (props: object) => <div id="menuItem" {...props} />);
-jest.mock('@material-ui/core/InputBase', () => (props: object) => (
-  <div id="inputBase" {...props} />
-));
+jest.mock('@mui/material/Select', () => (props: object) => <div id="select" {...props} />);
+jest.mock('@mui/material/MenuItem', () => (props: object) => <div id="menuItem" {...props} />);
+jest.mock('@mui/material/InputBase', () => (props: object) => <div id="inputBase" {...props} />);
 
 // ==================================
 // unit tests

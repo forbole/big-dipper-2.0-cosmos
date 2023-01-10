@@ -2,21 +2,14 @@ import Box from '@/components/box';
 import NoData from '@/components/no_data';
 import { usePagination, useScreenSize } from '@/hooks';
 import useShallowMemo from '@/hooks/useShallowMemo';
+import Desktop from '@/screens/proposal_details/components/votes/components/desktop';
+import Mobile from '@/screens/proposal_details/components/votes/components/mobile';
 import Paginate from '@/screens/proposal_details/components/votes/components/paginate';
 import Tabs from '@/screens/proposal_details/components/votes/components/tabs';
 import { useVotes } from '@/screens/proposal_details/components/votes/hooks';
-import { useStyles } from '@/screens/proposal_details/components/votes/styles';
+import useStyles from '@/screens/proposal_details/components/votes/styles';
 import { filterDataByTab } from '@/screens/proposal_details/components/votes/utils';
-import classnames from 'classnames';
-import dynamic from 'next/dynamic';
-import React, { FC, ReactNode, useMemo } from 'react';
-
-const Desktop = dynamic(
-  () => import('@/screens/proposal_details/components/votes/components/desktop')
-);
-const Mobile = dynamic(
-  () => import('@/screens/proposal_details/components/votes/components/mobile')
-);
+import { FC, ReactNode, useMemo } from 'react';
 
 const Votes: FC<ComponentDefault> = (props) => {
   const { isDesktop } = useScreenSize();
@@ -28,7 +21,7 @@ const Votes: FC<ComponentDefault> = (props) => {
     sliceItems,
     resetPagination,
   } = usePagination({});
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const { state, handleTabChange } = useVotes(resetPagination);
   const filteredItemsMemo = useShallowMemo(
     filterDataByTab({
@@ -50,7 +43,7 @@ const Votes: FC<ComponentDefault> = (props) => {
   }
 
   return (
-    <Box className={classnames(props.className, classes.root)}>
+    <Box className={cx(classes.root, props.className)}>
       <Tabs
         data={{
           yes: state.voteCount.yes,

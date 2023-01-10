@@ -1,10 +1,11 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { CSSObject } from '@emotion/react';
+import { makeStyles } from 'tss-react/mui';
 
-const styles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   root: {
-    ...theme.mixins.layout,
+    ...(theme.mixins.layout as CSSObject),
     display: 'grid',
-    gridGap: theme.spacing(1),
+    gap: theme.spacing(1),
     // gridTemplateRows: 'auto auto 1fr',
     gridTemplateRows: 'auto auto 2fr',
     gridTemplateColumns: 'repeat(1, 1fr)',
@@ -15,7 +16,7 @@ const styles = makeStyles((theme) => ({
       gridTemplateColumns: 'repeat(2, 1fr)',
     },
     [theme.breakpoints.up('lg')]: {
-      gridGap: theme.spacing(2),
+      gap: theme.spacing(2),
       gridTemplateColumns: 'repeat(4, 1fr)',
     },
   },
@@ -68,7 +69,7 @@ const styles = makeStyles((theme) => ({
     },
   },
   providersList: {
-    background: '#31326f',
+    // background: '#31326f',
     [theme.breakpoints.up('md')]: {
       gridColumn: '1 / 5',
     },
@@ -79,4 +80,4 @@ const styles = makeStyles((theme) => ({
   },
 }));
 
-export const useStyles = () => styles();
+export default useStyles;

@@ -1,10 +1,9 @@
 import AvatarName from '@/components/avatar_name';
 import { useList, useListRow } from '@/hooks';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
-import { useStyles } from '@/screens/block_details/components/signatures/components/mobile/styles';
-import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
+import useStyles from '@/screens/block_details/components/signatures/components/mobile/styles';
+import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import React, { FC, LegacyRef } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
@@ -17,7 +16,7 @@ type ListItemProps = Pick<ListChildComponentProps, 'index' | 'style'> & {
 
 const ListItem: FC<ListItemProps> = ({ index, style, setRowHeight, signatures }) => {
   const { t } = useTranslation('blocks');
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { rowRef } = useListRow(index, setRowHeight);
   const selectedItem = signatures?.[index];
   const { name, address, imageUrl } = useProfileRecoil(selectedItem ?? '');
@@ -47,10 +46,10 @@ type MobileProps = {
 
 const Mobile: FC<MobileProps> = ({ className, signatures }) => {
   const { listRef, getRowHeight, setRowHeight } = useList();
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
 
   return (
-    <div className={classnames(className, classes.root)}>
+    <div className={cx(classes.root, className)}>
       <AutoSizer>
         {({ height, width }) => (
           <List

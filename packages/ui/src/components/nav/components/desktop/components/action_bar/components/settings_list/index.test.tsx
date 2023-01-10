@@ -14,7 +14,7 @@ const mockI18n = {
   t: (key: string) => key,
   lang: 'en',
 };
-jest.mock('@material-ui/core/Select', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@mui/material/Select', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="select" {...props} />
 ));
 jest.mock('next-translate/useTranslation', () => () => mockI18n);

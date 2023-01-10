@@ -2,13 +2,13 @@
 
 exports[`components: SingleTransaction matches snapshot 1`] = `
 <div
-  className="makeStyles-root"
+  className="css-16gjaz6-root"
 >
   <div
-    className="makeStyles-timeContainer"
+    className="css-1aa9dv3-timeContainer"
   >
     <p
-      className="MuiTypography-root value MuiTypography-body1"
+      className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
     >
       <div>
         hash
@@ -16,16 +16,16 @@ exports[`components: SingleTransaction matches snapshot 1`] = `
     </p>
   </div>
   <div
-    className="makeStyles-itemContainer"
+    className="css-13i5c2q-itemContainer"
   >
     <div
-      className="makeStyles-itemPrimaryDetailsContainer"
+      className="css-t67bww-itemPrimaryDetailsContainer"
     >
       <div
-        className="makeStyles-item block"
+        className="css-1676z7h-item block"
       >
         <h4
-          className="MuiTypography-root label MuiTypography-h4"
+          className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
         >
           block
         </h4>
@@ -34,10 +34,10 @@ exports[`components: SingleTransaction matches snapshot 1`] = `
         </div>
       </div>
       <div
-        className="makeStyles-item block"
+        className="css-1676z7h-item block"
       >
         <h4
-          className="MuiTypography-root label MuiTypography-h4"
+          className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
         >
           type
         </h4>
@@ -46,38 +46,38 @@ exports[`components: SingleTransaction matches snapshot 1`] = `
         </div>
       </div>
       <div
-        className="makeStyles-item time"
+        className="css-1676z7h-item time"
       >
         <h4
-          className="MuiTypography-root label MuiTypography-h4"
+          className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
         >
           time
         </h4>
         <p
-          className="MuiTypography-root value MuiTypography-body1"
+          className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
         >
           2021-07-13T08:00:00
         </p>
       </div>
       <div
-        className="makeStyles-item messages"
+        className="css-1676z7h-item messages"
       >
         <h4
-          className="MuiTypography-root label MuiTypography-h4"
+          className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
         >
           messages
         </h4>
         <p
-          className="MuiTypography-root value MuiTypography-body1"
+          className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
         >
           1,000
         </p>
       </div>
       <div
-        className="makeStyles-item result"
+        className="css-1676z7h-item result"
       >
         <h4
-          className="MuiTypography-root label MuiTypography-h4"
+          className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
         >
           result
         </h4>
@@ -87,19 +87,19 @@ exports[`components: SingleTransaction matches snapshot 1`] = `
       </div>
     </div>
     <hr
-      className="MuiDivider-root"
+      className="MuiDivider-root MuiDivider-fullWidth css-l3fh2f-MuiDivider-root"
     />
     <div
-      className="makeStyles-item"
+      className="css-1676z7h-item"
     >
       <div
-        className="makeStyles-msgListContainer"
+        className="css-1ms8pj7-msgListContainer"
       >
         <div
-          className="makeStyles-msg"
+          className="css-1h40ooi-msg"
         >
           <div
-            className="makeStyles-tags"
+            className="css-3kptz5-tags"
           >
             <div>
               type

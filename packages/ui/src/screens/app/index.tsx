@@ -1,7 +1,7 @@
 import chainConfig from '@/chainConfig';
 import useApollo from '@/graphql/useApollo';
 import { useWindowOrigin } from '@/hooks';
-import Main from '@/screens/app/components/main';
+import Main, { MainProps } from '@/screens/app/components/main';
 import { useApp } from '@/screens/app/hooks';
 import {
   ADDITIONAL_LINK_TAGS_SEO,
@@ -12,12 +12,11 @@ import {
 import { ApolloProvider, NormalizedCacheObject } from '@apollo/client';
 import { DefaultSeo } from 'next-seo';
 import useTranslation from 'next-translate/useTranslation';
-import { AppProps } from 'next/app';
 import { RecoilRoot } from 'recoil';
 
 const { title } = chainConfig();
 
-function App(props: AppProps<{ initialApolloState?: NormalizedCacheObject }>) {
+function MyApp(props: MainProps<{ initialApolloState?: NormalizedCacheObject }>) {
   useApp();
   const { pageProps } = props;
   const apolloClient = useApollo(pageProps.initialApolloState);
@@ -47,4 +46,4 @@ function App(props: AppProps<{ initialApolloState?: NormalizedCacheObject }>) {
   );
 }
 
-export default App;
+export default MyApp;

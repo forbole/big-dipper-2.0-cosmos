@@ -1,8 +1,7 @@
 import Actions from '@/components/pagination/components/actions';
-import { useStyles } from '@/components/pagination/styles';
-import TablePagination from '@material-ui/core/TablePagination';
-import { TablePaginationActionsProps } from '@material-ui/core/TablePagination/TablePaginationActions';
-import classnames from 'classnames';
+import useStyles from '@/components/pagination/styles';
+import TablePagination from '@mui/material/TablePagination';
+import { TablePaginationActionsProps } from '@mui/material/TablePagination/TablePaginationActions';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
 import { FC, MouseEvent, useCallback } from 'react';
@@ -30,7 +29,7 @@ const Pagination: FC<PaginationProps> = ({
   rowsPerPageOptions,
 }) => {
   const { t } = useTranslation('common');
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
 
   const actionsComponents = useCallback(
     (subProps: TablePaginationActionsProps) => {
@@ -62,7 +61,7 @@ const Pagination: FC<PaginationProps> = ({
 
   return (
     <TablePagination
-      className={classnames(className, classes.root)}
+      className={cx(classes.root, className)}
       rowsPerPageOptions={[]}
       labelRowsPerPage=""
       labelDisplayedRows={({ from, to, count }) =>

@@ -1,7 +1,7 @@
 import Name from '@/components/name';
 import MsgRunDistribution from '@/models/msg/dispensation/msg_run_distribution';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import Trans from 'next-translate/Trans';
 import React, { FC } from 'react';
 

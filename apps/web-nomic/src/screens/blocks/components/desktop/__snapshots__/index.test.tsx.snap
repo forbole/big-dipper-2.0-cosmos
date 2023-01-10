@@ -2,7 +2,7 @@
 
 exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
 <div
-  className="makeStyles-root"
+  className="css-1rz0of5-root"
 >
   <div
     onScroll={[Function]}
@@ -28,7 +28,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
       }
     >
       <div
-        className="makeStyles-cell"
+        className="css-1o9qy4i-cell"
         style={
           {
             "height": 50,
@@ -41,13 +41,13 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <h4
-          className="MuiTypography-root MuiTypography-h4"
+          className="MuiTypography-root MuiTypography-h4 css-15yyl88-MuiTypography-root"
         >
           height
         </h4>
       </div>
       <div
-        className="makeStyles-cell"
+        className="css-1o9qy4i-cell"
         style={
           {
             "height": 50,
@@ -60,13 +60,13 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <h4
-          className="MuiTypography-root MuiTypography-h4"
+          className="MuiTypography-root MuiTypography-h4 css-15yyl88-MuiTypography-root"
         >
           hash
         </h4>
       </div>
       <div
-        className="makeStyles-cell"
+        className="css-1o9qy4i-cell"
         style={
           {
             "height": 50,
@@ -79,13 +79,13 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <h4
-          className="MuiTypography-root MuiTypography-h4 MuiTypography-alignRight"
+          className="MuiTypography-root MuiTypography-h4 MuiTypography-alignRight css-onu55c-MuiTypography-root"
         >
           txs
         </h4>
       </div>
       <div
-        className="makeStyles-cell"
+        className="css-1o9qy4i-cell"
         style={
           {
             "height": 50,
@@ -98,7 +98,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <h4
-          className="MuiTypography-root MuiTypography-h4 MuiTypography-alignRight"
+          className="MuiTypography-root MuiTypography-h4 MuiTypography-alignRight css-onu55c-MuiTypography-root"
         >
           time
         </h4>
@@ -130,7 +130,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
       }
     >
       <div
-        className="makeStyles-cell makeStyles-body odd"
+        className="odd css-f3bopr-cell-body"
         style={
           {
             "height": 50,
@@ -143,10 +143,10 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <div
-          className="MuiTypography-root MuiTypography-body1"
+          className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
         >
           <a
-            className="MuiTypography-root value MuiTypography-body1"
+            className="value"
             href="/blocks/300"
             onClick={[Function]}
             onMouseEnter={[Function]}
@@ -157,7 +157,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         </div>
       </div>
       <div
-        className="makeStyles-cell makeStyles-body odd"
+        className="odd css-f3bopr-cell-body"
         style={
           {
             "height": 50,
@@ -170,13 +170,13 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <div
-          className="MuiTypography-root MuiTypography-body1"
+          className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
         >
           hash
         </div>
       </div>
       <div
-        className="makeStyles-cell makeStyles-body odd"
+        className="odd css-f3bopr-cell-body"
         style={
           {
             "height": 50,
@@ -189,13 +189,13 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <div
-          className="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight"
+          className="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight css-3n46jc-MuiTypography-root"
         >
           2
         </div>
       </div>
       <div
-        className="makeStyles-cell makeStyles-body odd"
+        className="odd css-f3bopr-cell-body"
         style={
           {
             "height": 50,
@@ -208,13 +208,13 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <div
-          className="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight"
+          className="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight css-3n46jc-MuiTypography-root"
         >
           1 day ago
         </div>
       </div>
       <div
-        className="makeStyles-cell makeStyles-body"
+        className="css-f3bopr-cell-body"
         style={
           {
             "height": 50,
@@ -227,10 +227,10 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <div
-          className="MuiTypography-root MuiTypography-body1"
+          className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
         >
           <a
-            className="MuiTypography-root value MuiTypography-body1"
+            className="value"
             href="/blocks/301"
             onClick={[Function]}
             onMouseEnter={[Function]}
@@ -241,7 +241,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         </div>
       </div>
       <div
-        className="makeStyles-cell makeStyles-body"
+        className="css-f3bopr-cell-body"
         style={
           {
             "height": 50,
@@ -254,13 +254,13 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <div
-          className="MuiTypography-root MuiTypography-body1"
+          className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
         >
           hash
         </div>
       </div>
       <div
-        className="makeStyles-cell makeStyles-body"
+        className="css-f3bopr-cell-body"
         style={
           {
             "height": 50,
@@ -273,13 +273,13 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <div
-          className="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight"
+          className="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight css-3n46jc-MuiTypography-root"
         >
           2
         </div>
       </div>
       <div
-        className="makeStyles-cell makeStyles-body"
+        className="css-f3bopr-cell-body"
         style={
           {
             "height": 50,
@@ -292,7 +292,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <div
-          className="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight"
+          className="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight css-3n46jc-MuiTypography-root"
         >
           1 day ago
         </div>

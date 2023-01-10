@@ -1,6 +1,6 @@
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles } from 'tss-react/mui';
 
-const styles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   root: {
     height: '100%',
     display: 'flex',
@@ -39,7 +39,7 @@ const styles = makeStyles((theme) => ({
         height: '12px',
         marginRight: '5px',
       },
-      '&:first-child:before': {
+      '&:first-of-type:before': {
         background: theme.palette.custom.tokenomics.one,
       },
       '&:last-child:before': {
@@ -68,7 +68,4 @@ const styles = makeStyles((theme) => ({
   },
 }));
 
-export const useStyles = () => ({
-  classes: styles(),
-  theme: useTheme(),
-});
+export default useStyles;

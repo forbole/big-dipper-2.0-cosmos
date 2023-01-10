@@ -1,12 +1,11 @@
 import { useGrid } from '@/hooks';
 import useShallowMemo from '@/hooks/useShallowMemo';
-import { useStyles } from '@/screens/block_details/components/signatures/components/desktop/styles';
+import useStyles from '@/screens/block_details/components/signatures/components/desktop/styles';
 import {
   columns,
   formatRows,
 } from '@/screens/block_details/components/signatures/components/desktop/utils';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import React, { FC, LegacyRef, useMemo } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
@@ -19,13 +18,13 @@ type DesktopProps = {
 
 const Desktop: FC<DesktopProps> = ({ className, signatures }) => {
   const { t } = useTranslation('blocks');
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
   const signaturesMemo = useShallowMemo(signatures);
   const rows = useMemo(() => formatRows(signaturesMemo), [signaturesMemo]);
 
   return (
-    <div className={classnames(className, classes.root)}>
+    <div className={cx(classes.root, className)}>
       <AutoSizer onResize={onResize}>
         {({ height, width }) => (
           <>
@@ -71,7 +70,7 @@ const Desktop: FC<DesktopProps> = ({ className, signatures }) => {
                 return (
                   <div
                     style={style}
-                    className={classnames(classes.cell, classes.body, {
+                    className={cx(classes.cell, classes.body, {
                       odd: !(rowIndex % 2),
                     })}
                   >

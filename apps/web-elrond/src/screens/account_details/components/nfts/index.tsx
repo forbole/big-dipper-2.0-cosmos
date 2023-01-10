@@ -4,15 +4,14 @@ import Pagination from '@/components/pagination';
 import { usePagination } from '@/hooks';
 import List from '@/screens/account_details/components/nfts/components/list';
 import { PAGE_SIZE, useTokens } from '@/screens/account_details/components/nfts/hooks';
-import { useStyles } from '@/screens/account_details/components/nfts/styles';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
+import useStyles from '@/screens/account_details/components/nfts/styles';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import { FC } from 'react';
 
 const Tokens: FC<ComponentDefault> = (props) => {
   const { t } = useTranslation('accounts');
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const { state, handlePageChangeCallback } = useTokens();
   const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange } = usePagination({
     rowsPage: PAGE_SIZE,
@@ -30,7 +29,7 @@ const Tokens: FC<ComponentDefault> = (props) => {
   }
 
   return (
-    <Box className={classnames(props.className, classes.root)}>
+    <Box className={cx(classes.root, props.className)}>
       <Typography variant="h2">{t('nfts')}</Typography>
       {component}
       <Pagination

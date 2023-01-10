@@ -1,6 +1,6 @@
 import Box from '@/components/box';
-import { useGetStyles } from '@/screens/transaction_details/components/logs/styles';
-import Typography from '@material-ui/core/Typography';
+import useStyles from '@/screens/transaction_details/components/logs/styles';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import React, { FC } from 'react';
 
@@ -9,7 +9,7 @@ type LogsProps = {
 };
 
 const Logs: FC<LogsProps> = ({ logs }) => {
-  const { classes } = useGetStyles();
+  const { classes } = useStyles();
   const { t } = useTranslation('transactions');
   return (
     <Box className={classes.root}>

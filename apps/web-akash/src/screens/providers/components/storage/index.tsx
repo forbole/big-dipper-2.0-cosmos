@@ -1,8 +1,7 @@
 import Box from '@/components/box';
 import CustomToolTip from '@/components/custom_tool_tip';
-import { useStyles } from '@/screens/providers/components/storage/styles';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
+import useStyles from '@/screens/providers/components/storage/styles';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
 import React, { FC } from 'react';
@@ -23,7 +22,7 @@ type StorageProps = {
 
 const Storage: FC<StorageProps> = ({ className, storage }) => {
   const { t } = useTranslation('providers');
-  const { classes, theme } = useStyles();
+  const { classes, cx, theme } = useStyles();
 
   const total = storage.available + storage.used + storage.pending;
 
@@ -59,7 +58,7 @@ const Storage: FC<StorageProps> = ({ className, storage }) => {
   ];
 
   return (
-    <Box className={classnames(className, classes.root)}>
+    <Box className={cx(classes.root, className)}>
       <Typography variant="h2" className={classes.label}>
         {t('storage')}
       </Typography>

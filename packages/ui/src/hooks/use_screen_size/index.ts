@@ -1,5 +1,5 @@
-import { useTheme } from '@material-ui/core/styles';
 import { useEffect, useState } from 'react';
+import { useStyles } from 'tss-react/mui';
 
 const isClient = typeof window === 'object';
 
@@ -12,7 +12,7 @@ export const useScreenSize = () => {
   const [isTablet, setIsTablet] = useState<boolean>(false);
   const [isMobile, setIsMobile] = useState<boolean>(true);
 
-  const theme = useTheme();
+  const { theme } = useStyles();
 
   useEffect(() => {
     if (!isClient) {

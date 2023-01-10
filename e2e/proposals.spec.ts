@@ -1,20 +1,22 @@
-import { expect, test } from '@playwright/test';
+import { test } from '@playwright/test';
+import { abortLoadingAssets, waitForMenuItemClick, waitForReady } from './common';
 
 test('proposals list page', async ({ page, isMobile }) => {
-  // Test url
-  await Promise.all([page.waitForNavigation(), page.goto('.')]);
-  await expect(page.getByRole('progressbar')).toHaveCount(0);
+  await abortLoadingAssets(page);
 
-  // Test click proposals section
-  if (isMobile) await page.getByRole('button', { name: 'open navigation menu' }).first().click();
+  await page.goto('./proposals');
+  await waitForReady(page);
+});
 
-  await Promise.all([
-    page.waitForNavigation({ url: /\/proposals/ }),
-    page.getByRole('link', { name: 'Proposals' }).first().click(),
-  ]);
-  await expect(page.getByRole('progressbar')).toHaveCount(0);
-
+test('proposals #1', async ({ page, isMobile }) => {
+  await abortLoadingAssets(page);
   // Test single proposal url
-  await Promise.all([page.waitForNavigation({ url: /\/proposals/ }), page.goto(`./proposals/1`)]);
-  await expect(page.getByRole('progressbar')).toHaveCount(0);
+  await page.goto(`./proposals/1`);
+  await waitForReady(page);
+
+  await waitForMenuItemClick(
+    'ul > a.active[href="/proposals"]',
+    page.getByRole('link', { name: 'Proposals' }),
+    isMobile
+  );
 });

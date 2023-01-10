@@ -4,8 +4,175 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
 <div
   id="Box"
 >
+  <div>
+    <div
+      className="css-1bnteyo-root"
+    >
+      <div
+        className="css-16zf8r-item"
+      >
+        <h4
+          className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
+        >
+          hash
+        </h4>
+        <a
+          className="value"
+          href="/transactions/21cb1c8040f0359e574015093747796bc5c9789a9b2a527d8edcf9e61dbdd308"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onTouchStart={[Function]}
+        >
+          21cb1c8040f03...edcf9e61dbdd308
+        </a>
+      </div>
+      <div
+        className="css-16zf8r-item"
+      >
+        <h4
+          className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
+        >
+          shard
+        </h4>
+        <div
+          className="css-pmv5z6-root"
+        >
+          shardNumber
+          <svg
+            aria-hidden={true}
+            className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-v3atb8-MuiSvgIcon-root-icon"
+            color="#999999"
+            data-testid="ArrowForwardIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+            />
+          </svg>
+          shardNumber
+        </div>
+      </div>
+      <div
+        className="css-16zf8r-item"
+      >
+        <h4
+          className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
+        >
+          from
+        </h4>
+        <a
+          href="/accounts/erd16x7le8dpkjsafgwjx0e5kw94evsqw039rwp42m2j9eesd88x8zzs75tzry"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onTouchStart={[Function]}
+        >
+          <div
+            className="css-hxwxnu-root"
+          >
+            <div
+              className="css-rzl6e5-root"
+            >
+              <svg
+                data-jdenticon-value="erd16x7le8dpkjsafgwjx0e5kw94evsqw039rwp42m2j9eesd88x8zzs75tzry"
+                height="100%"
+                width="100%"
+              />
+            </div>
+            <p
+              className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
+            >
+              erd16x7le8dpk...sd88x8zzs75tzry
+            </p>
+          </div>
+        </a>
+      </div>
+      <div
+        className="css-16zf8r-item"
+      >
+        <h4
+          className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
+        >
+          to
+        </h4>
+        <a
+          href="/accounts/erd18d87czmgxunrwgwfptrnz37dlcgr7e2xahpf585qavwawwwj9tuq7mhfwk"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onTouchStart={[Function]}
+        >
+          <div
+            className="css-hxwxnu-root"
+          >
+            <div
+              className="css-rzl6e5-root"
+            >
+              <svg
+                data-jdenticon-value="erd18d87czmgxunrwgwfptrnz37dlcgr7e2xahpf585qavwawwwj9tuq7mhfwk"
+                height="100%"
+                width="100%"
+              />
+            </div>
+            <p
+              className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
+            >
+              erd18d87czmgx...awwwj9tuq7mhfwk
+            </p>
+          </div>
+        </a>
+      </div>
+      <div
+        className="css-1t94r6n-flex"
+      >
+        <div
+          className="css-16zf8r-item"
+        >
+          <h4
+            className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
+          >
+            status
+          </h4>
+          <div
+            className="css-179jfo-root"
+          >
+            <svg
+              aria-hidden={true}
+              className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+              color="#999999"
+              data-testid="HelpIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"
+              />
+            </svg>
+            <p
+              className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
+            >
+              pending
+            </p>
+          </div>
+        </div>
+        <div
+          className="css-16zf8r-item"
+        >
+          <h4
+            className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
+          >
+            time
+          </h4>
+          <p
+            className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
+          >
+            1 day ago
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
   <div
-    className="makeStyles-paginate"
+    className="css-1hnp23h-paginate"
     handlePageChange={[Function]}
     handleRowsPerPageChange={[Function]}
     id="Pagination"

@@ -1,6 +1,6 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from 'tss-react/mui';
 
-const styles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   root: {
     background: theme.palette.background.paper,
     '& svg': {
@@ -15,8 +15,8 @@ const styles = makeStyles((theme) => ({
     overflow: 'auto',
     display: 'grid',
     gridTemplateColumns: 'repeat(4, 1fr)',
-    gridGap: theme.spacing(3, 2),
+    gap: theme.spacing(3, 2),
   },
 }));
 
-export const useStyles = () => styles();
+export default useStyles;

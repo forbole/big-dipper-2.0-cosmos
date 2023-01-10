@@ -1,5 +1,5 @@
 import hindMadurai from '@/styles/theme/hindMadurai';
-import { ThemeOptions } from '@material-ui/core';
+import { ThemeOptions } from '@mui/material';
 
 const backgroundDefault = '#000000';
 const surfaceOne = '#1C1C1C';
@@ -25,13 +25,8 @@ export const deuteranopiaThemeOverride: DeepPartial<ThemeOptions> = {
       },
     },
   },
-  props: {
-    MuiSvgIcon: {
-      htmlColor: icon, // same as custom /general /icons
-    },
-  },
   palette: {
-    type: 'dark',
+    mode: 'dark',
     primary: {
       main: '#FFDC3D',
       contrastText: '#000000',
@@ -114,34 +109,43 @@ export const deuteranopiaThemeOverride: DeepPartial<ThemeOptions> = {
       },
     },
   },
-  overrides: {
+  components: {
+    MuiSvgIcon: {
+      defaultProps: {
+        htmlColor: icon, // same as custom /general /icons
+      },
+    },
     MuiCssBaseline: {
-      '@global': {
+      styleOverrides: {
         '@font-face': [hindMadurai],
       },
     },
     MuiTableBody: {
-      root: {
-        '& .MuiTableRow-root': {
-          '&:nth-child(odd)': {
-            backgroundColor: surfaceTwo, // surface two
+      styleOverrides: {
+        root: {
+          '& .MuiTableRow-root': {
+            '&:nth-of-type(odd)': {
+              backgroundColor: surfaceTwo, // surface two
+            },
           },
-        },
-        '& .MuiTableCell-root': {
-          color: fontTwo, // font two
+          '& .MuiTableCell-root': {
+            color: fontTwo, // font two
+          },
         },
       },
     },
     MuiTabs: {
-      root: {
-        '& .MuiTab-textColorInherit': {
-          color: fontThree, // font three
-        },
-        '& .MuiTab-textColorInherit.Mui-selected': {
-          color: fontOne, // font one
-        },
-        '& .MuiTabs-indicator': {
-          backgroundColor: fontOne, // font one (?)
+      styleOverrides: {
+        root: {
+          '& .MuiTab-textColorInherit': {
+            color: fontThree, // font three
+          },
+          '& .MuiTab-textColorInherit.Mui-selected': {
+            color: fontOne, // font one
+          },
+          '& .MuiTabs-indicator': {
+            backgroundColor: fontOne, // font one (?)
+          },
         },
       },
     },
