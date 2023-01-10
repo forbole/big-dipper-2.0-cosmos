@@ -52,6 +52,10 @@ const styles = makeStyles((theme) => ({
     fontWeight: 590,
     lineHeight: '17px',
     color: theme.palette.custom.wallet.textPrimary,
+    overflow: 'auto',
+    flexWrap: 'wrap',
+    overflowWrap: 'anywhere',
+    maxHeight: '70px',
   },
   walletAddress: {
     color: theme.palette.custom.wallet.surfaceFive,
