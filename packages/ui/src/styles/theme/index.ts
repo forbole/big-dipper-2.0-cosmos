@@ -1,6 +1,5 @@
 import { darkThemeOverride } from '@/styles/theme/dark';
 import { deuteranopiaThemeOverride } from '@/styles/theme/deuteranopia';
-import hindMadurai from '@/styles/theme/hindMadurai';
 import { lightThemeOverride } from '@/styles/theme/light';
 import { tritanopiaThemeOverride } from '@/styles/theme/tritanopia';
 import { ThemeOptions } from '@mui/material/styles';
@@ -45,7 +44,6 @@ export const common: ThemeOptions = {
     },
   },
   typography: {
-    fontFamily: '"Hind Madurai", sans-serif',
     h1: {
       fontSize: '2rem',
       letterSpacing: 0.25,
@@ -163,11 +161,6 @@ export const common: ThemeOptions = {
     },
   },
   components: {
-    MuiCssBaseline: {
-      styleOverrides: {
-        '@font-face': [hindMadurai],
-      },
-    },
     MuiSvgIcon: {
       defaultProps: {
         htmlColor: '#999999', // same as custom /general /icons

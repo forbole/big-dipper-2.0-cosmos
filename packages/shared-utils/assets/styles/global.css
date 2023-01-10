@@ -15,15 +15,6 @@ html {
   box-sizing: border-box;
 }
 
-/* tamil */
-@font-face {
-  font-family: 'Hind Madurai';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(https://bigdipper.live/cosmos/fonts/HindMadurai-Regular.woff2) format('woff2');
-}
-
 body {
   font-family: 'Hind Madurai', sans-serif;
   font-size: 16px;
