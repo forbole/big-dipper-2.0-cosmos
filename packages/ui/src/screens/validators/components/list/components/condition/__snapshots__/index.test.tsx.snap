@@ -1,7 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: Validators/Condition matches snapshot 1`] = `
+.emotion-0 {
+  width: 10px;
+  height: 10px;
+  background: #E6E6E6;
+  margin: 0 auto;
+  border-radius: 50%;
+}
+
+.emotion-0.green {
+  background: #1EC490;
+}
+
+.emotion-0.yellow {
+  background: #FF9338;
+}
+
+.emotion-0.red {
+  background: #FF608A;
+}
+
 <div
-  className="css-ygdw5r-root"
+  className="emotion-0"
 />
 `;

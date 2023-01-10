@@ -1,15 +1,46 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`component: InfoPopover matches snapshot 1`] = `
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-1 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentColor;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 1.5rem;
+  display: inline-block;
+  font-size: 1rem;
+  margin: 0px 4px;
+}
+
 <span
   aria-haspopup="true"
-  className="css-pmv5z6-root"
+  className="emotion-0"
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
 >
   <svg
     aria-hidden={true}
-    className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-2vtt8e-MuiSvgIcon-root-icon"
+    className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-1"
     color="#999999"
     data-testid="HelpOutlineIcon"
     focusable="false"

@@ -1,22 +1,160 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components: Pagination matches snapshot 1`] = `
+.emotion-0 {
+  overflow: auto;
+  color: #000000;
+  font-size: 0.875rem;
+}
+
+.emotion-0:last-child {
+  padding: 0;
+}
+
+.emotion-0 .MuiTablePagination-spacer {
+  display: none;
+}
+
+.emotion-0 .MuiToolbar-gutters {
+  padding: 0;
+  margin: 0;
+  -webkit-flex-direction: column-reverse;
+  -ms-flex-direction: column-reverse;
+  flex-direction: column-reverse;
+  height: auto;
+  min-height: initial;
+}
+
+.emotion-0 .MuiTablePagination-caption {
+  -webkit-flex-shrink: initial;
+  -ms-flex-negative: initial;
+  flex-shrink: initial;
+  -webkit-align-self: flex-end;
+  -ms-flex-item-align: flex-end;
+  align-self: flex-end;
+  margin-top: 16px;
+  color: #777777;
+}
+
+@media (min-width:768px) {
+  .emotion-0 .MuiToolbar-gutters {
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
+  }
+
+  .emotion-0 .MuiTablePagination-caption {
+    margin-top: 0;
+    margin-right: 16px;
+  }
+}
+
+.emotion-1 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 52px;
+  padding-right: 2px;
+}
+
+@media (min-width:375px) {
+  .emotion-1 {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .emotion-1 {
+    height: 160px;
+    overflow: hidden;
+  }
+}
+
+@media (min-width:0px) and (orientation: landscape) {
+  .emotion-1 {
+    min-height: 52px;
+  }
+}
+
+@media (min-width:375px) {
+  .emotion-1 {
+    min-height: 52px;
+    padding-right: 2px;
+  }
+}
+
+.emotion-1 .MuiTablePagination-actions {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  margin-left: 20px;
+}
+
+.emotion-2 {
+  -webkit-flex: 1 1 100%;
+  -ms-flex: 1 1 100%;
+  flex: 1 1 100%;
+}
+
+.emotion-3 {
+  font-size: 0.875rem;
+  letter-spacing: 0.25px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.43;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+
+@media (min-width:768px) {
+  .emotion-4 {
+    display: none;
+  }
+}
+
+.emotion-5 {
+  display: none;
+}
+
+@media (min-width:768px) {
+  .emotion-5 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
 <div
-  className="MuiTablePagination-root css-1220jse-MuiTablePagination-root-root"
+  className="MuiTablePagination-root emotion-0"
 >
   <div
-    className="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular MuiTablePagination-toolbar css-1yn2m31-MuiToolbar-root-MuiTablePagination-toolbar"
+    className="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular MuiTablePagination-toolbar emotion-1"
   >
     <div
-      className="MuiTablePagination-spacer css-1psng7p-MuiTablePagination-spacer"
+      className="MuiTablePagination-spacer emotion-2"
     />
     <p
-      className="MuiTablePagination-displayedRows css-l6z7jg-MuiTablePagination-displayedRows"
+      className="MuiTablePagination-displayedRows emotion-3"
     >
       paginationLabelOne
     </p>
     <div
-      className="css-14qgy9x-mobile"
+      className="emotion-4"
       count={100}
       getItemAriaLabel={[Function]}
       handleRowsPerPageChange={[MockFunction]}
@@ -28,7 +166,7 @@ exports[`components: Pagination matches snapshot 1`] = `
       showLastButton={false}
     />
     <div
-      className="css-1uz7plj-tablet"
+      className="emotion-5"
       count={100}
       getItemAriaLabel={[Function]}
       handleRowsPerPageChange={[MockFunction]}

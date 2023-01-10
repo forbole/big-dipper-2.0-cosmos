@@ -1,42 +1,162 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components: BoxDetails matches snapshot 1`] = `
+.emotion-0 {
+  overflow: hidden;
+}
+
+.emotion-0.emotion-0 {
+  overflow: auto;
+  padding: 16px;
+  border-radius: 4px;
+  background: #FFFFFF;
+}
+
+.emotion-1 {
+  padding: 16px 0px;
+  color: #414141;
+}
+
+.emotion-1:first-of-type {
+  padding-top: 0;
+}
+
+.emotion-1:last-child {
+  padding-bottom: 0;
+}
+
+.emotion-1:not(:last-child) {
+  border-bottom: solid 1px #E8E8E8;
+}
+
+.emotion-1 .label {
+  margin-bottom: 8px;
+}
+
+.emotion-1 .detail.MuiTypography-body1 {
+  word-wrap: break-word;
+}
+
+@media (min-width:768px) {
+  .emotion-1 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+  }
+
+  .emotion-1 .label {
+    margin-bottom: 0;
+  }
+}
+
+.emotion-2 {
+  margin: 0;
+  font-size: 1.5rem;
+  letter-spacing: 0;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.emotion-3 {
+  padding: 16px 0px;
+  color: #414141;
+}
+
+.emotion-3:first-of-type {
+  padding-top: 0;
+}
+
+.emotion-3:last-child {
+  padding-bottom: 0;
+}
+
+.emotion-3:not(:last-child) {
+  border-bottom: solid 1px #E8E8E8;
+}
+
+.emotion-3 .label {
+  margin-bottom: 8px;
+}
+
+.emotion-3 .detail.MuiTypography-body1 {
+  word-wrap: break-word;
+}
+
+@media (min-width:768px) {
+  .emotion-3 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+  }
+
+  .emotion-3 .label {
+    margin-bottom: 0;
+  }
+}
+
+.emotion-4 {
+  margin: 0;
+  font-size: 1rem;
+  white-space: pre-wrap;
+  letter-spacing: 0.5px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
 <div
-  className="css-1gx3ykx-root-root"
+  className="emotion-0"
 >
   <div
-    className="css-1028ajb-header-item"
+    className="emotion-1"
   >
     <h2
-      className="MuiTypography-root MuiTypography-h2 css-dcgvbp-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-h2 emotion-2"
     >
       overview
     </h2>
   </div>
   <div
-    className="css-ipyph0-item"
+    className="emotion-3"
   >
     <p
-      className="MuiTypography-root MuiTypography-body1 label css-pfovru-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-body1 label emotion-4"
     >
       slot
     </p>
     <p
-      className="MuiTypography-root MuiTypography-body1 detail css-pfovru-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-body1 detail emotion-4"
     >
       100,000,000
     </p>
   </div>
   <div
-    className="css-ipyph0-item"
+    className="emotion-3"
   >
     <p
-      className="MuiTypography-root MuiTypography-body1 label css-pfovru-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-body1 label emotion-4"
     >
       hash
     </p>
     <p
-      className="MuiTypography-root MuiTypography-body1 detail css-pfovru-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-body1 detail emotion-4"
     >
       76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857
     </p>
@@ -45,14 +165,134 @@ exports[`components: BoxDetails matches snapshot 1`] = `
 `;
 
 exports[`components: BoxDetails matches snapshot with title actions 1`] = `
+.emotion-0 {
+  overflow: hidden;
+}
+
+.emotion-0.emotion-0 {
+  overflow: auto;
+  padding: 16px;
+  border-radius: 4px;
+  background: #FFFFFF;
+}
+
+.emotion-1 {
+  padding: 16px 0px;
+  color: #414141;
+}
+
+.emotion-1:first-of-type {
+  padding-top: 0;
+}
+
+.emotion-1:last-child {
+  padding-bottom: 0;
+}
+
+.emotion-1:not(:last-child) {
+  border-bottom: solid 1px #E8E8E8;
+}
+
+.emotion-1 .label {
+  margin-bottom: 8px;
+}
+
+.emotion-1 .detail.MuiTypography-body1 {
+  word-wrap: break-word;
+}
+
+@media (min-width:768px) {
+  .emotion-1 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+  }
+
+  .emotion-1 .label {
+    margin-bottom: 0;
+  }
+}
+
+.emotion-2 {
+  margin: 0;
+  font-size: 1.5rem;
+  letter-spacing: 0;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.emotion-3 {
+  padding: 16px 0px;
+  color: #414141;
+}
+
+.emotion-3:first-of-type {
+  padding-top: 0;
+}
+
+.emotion-3:last-child {
+  padding-bottom: 0;
+}
+
+.emotion-3:not(:last-child) {
+  border-bottom: solid 1px #E8E8E8;
+}
+
+.emotion-3 .label {
+  margin-bottom: 8px;
+}
+
+.emotion-3 .detail.MuiTypography-body1 {
+  word-wrap: break-word;
+}
+
+@media (min-width:768px) {
+  .emotion-3 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+  }
+
+  .emotion-3 .label {
+    margin-bottom: 0;
+  }
+}
+
+.emotion-4 {
+  margin: 0;
+  font-size: 1rem;
+  white-space: pre-wrap;
+  letter-spacing: 0.5px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
 <div
-  className="css-1gx3ykx-root-root"
+  className="emotion-0"
 >
   <div
-    className="css-1028ajb-header-item"
+    className="emotion-1"
   >
     <h2
-      className="MuiTypography-root MuiTypography-h2 css-dcgvbp-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-h2 emotion-2"
     >
       overview
     </h2>
@@ -65,29 +305,29 @@ exports[`components: BoxDetails matches snapshot with title actions 1`] = `
     </button>
   </div>
   <div
-    className="css-ipyph0-item"
+    className="emotion-3"
   >
     <p
-      className="MuiTypography-root MuiTypography-body1 label css-pfovru-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-body1 label emotion-4"
     >
       slot
     </p>
     <p
-      className="MuiTypography-root MuiTypography-body1 detail css-pfovru-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-body1 detail emotion-4"
     >
       100,000,000
     </p>
   </div>
   <div
-    className="css-ipyph0-item"
+    className="emotion-3"
   >
     <p
-      className="MuiTypography-root MuiTypography-body1 label css-pfovru-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-body1 label emotion-4"
     >
       hash
     </p>
     <p
-      className="MuiTypography-root MuiTypography-body1 detail css-pfovru-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-body1 detail emotion-4"
     >
       76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857
     </p>

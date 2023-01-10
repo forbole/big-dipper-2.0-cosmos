@@ -1,24 +1,171 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: Home/OnlineVotingPower matches snapshot 1`] = `
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.emotion-0 .MuiTypography-h2 {
+  margin-bottom: 16px;
+}
+
+.emotion-1 {
+  margin: 0;
+  font-size: 1.5rem;
+  letter-spacing: 0;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-end;
+  -webkit-box-align: flex-end;
+  -ms-flex-align: flex-end;
+  align-items: flex-end;
+}
+
+.emotion-2 .primary__data {
+  color: #FF835B;
+  margin-right: 16px;
+  font-size: 2.5rem;
+}
+
+.emotion-3 {
+  margin: 0;
+  font-size: 1.25rem;
+  letter-spacing: 0.15px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.167;
+}
+
+.emotion-4 {
+  margin: 0;
+  font-size: 1rem;
+  white-space: pre-wrap;
+  letter-spacing: 0.5px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.emotion-5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 11px;
+  border-radius: 4px;
+  background: rgba(255, 131, 91, 0.2);
+  overflow: hidden;
+  margin: 16px 0px;
+}
+
+.emotion-6 {
+  width: 100%;
+  background: #FF835B;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+@media (min-width:1280px) {
+  .emotion-7 {
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
+  }
+}
+
+.emotion-8:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.emotion-8 .label {
+  margin-bottom: 8px;
+  color: #777777;
+}
+
+.emotion-8 p.value {
+  color: #414141;
+}
+
+.emotion-8 p.value .positive {
+  color: #2460FA;
+}
+
+.emotion-8 p.value .negative {
+  color: #E79720;
+}
+
+.emotion-8 a {
+  color: #4092CD;
+}
+
+@media (min-width:768px) {
+  .emotion-8 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+  }
+}
+
+.emotion-9 {
+  margin: 0;
+  font-size: 1rem;
+  letter-spacing: 0.15px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.235;
+}
+
 <div
-  className="css-1v5yaiz-root"
+  className="emotion-0"
 >
   <h2
-    className="MuiTypography-root MuiTypography-h2 css-dcgvbp-MuiTypography-root"
+    className="MuiTypography-root MuiTypography-h2 emotion-1"
   >
     onlineVotingPower
   </h2>
   <div
-    className="css-yraoho-data"
+    className="emotion-2"
   >
     <h3
-      className="MuiTypography-root MuiTypography-h3 primary__data css-1kl9mnf-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-h3 primary__data emotion-3"
     >
       100.00%
     </h3>
     <p
-      className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-body1 emotion-4"
     >
       76,341,043
        /
@@ -27,67 +174,67 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 1`] = `
     </p>
   </div>
   <div
-    className="css-1fxd95k-chart"
+    className="emotion-5"
   >
     <div
-      className="css-gmihno-active"
+      className="emotion-6"
     />
   </div>
   <div
-    className="css-oihayf-itemsContainer"
+    className="emotion-7"
   >
     <div
-      className="css-1ju3r6i-item"
+      className="emotion-8"
     >
       <h4
-        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-h4 label emotion-9"
       >
         validators
       </h4>
       <p
-        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 value emotion-4"
       >
         109
       </p>
     </div>
     <div
-      className="css-1ju3r6i-item"
+      className="emotion-8"
     >
       <h4
-        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-h4 label emotion-9"
       >
         votingPowerPercent
       </h4>
       <p
-        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 value emotion-4"
       >
         100.00%
       </p>
     </div>
     <div
-      className="css-1ju3r6i-item"
+      className="emotion-8"
     >
       <h4
-        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-h4 label emotion-9"
       >
         votingPower
       </h4>
       <p
-        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 value emotion-4"
       >
         76,341,043
       </p>
     </div>
     <div
-      className="css-1ju3r6i-item"
+      className="emotion-8"
     >
       <h4
-        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-h4 label emotion-9"
       >
         totalVotingPower
       </h4>
       <p
-        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 value emotion-4"
       >
         76,341,043
       </p>
@@ -97,24 +244,171 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 1`] = `
 `;
 
 exports[`screen: Home/OnlineVotingPower matches snapshot 2`] = `
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.emotion-0 .MuiTypography-h2 {
+  margin-bottom: 16px;
+}
+
+.emotion-1 {
+  margin: 0;
+  font-size: 1.5rem;
+  letter-spacing: 0;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-end;
+  -webkit-box-align: flex-end;
+  -ms-flex-align: flex-end;
+  align-items: flex-end;
+}
+
+.emotion-2 .primary__data {
+  color: #FF835B;
+  margin-right: 16px;
+  font-size: 2.5rem;
+}
+
+.emotion-3 {
+  margin: 0;
+  font-size: 1.25rem;
+  letter-spacing: 0.15px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.167;
+}
+
+.emotion-4 {
+  margin: 0;
+  font-size: 1rem;
+  white-space: pre-wrap;
+  letter-spacing: 0.5px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.emotion-5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 11px;
+  border-radius: 4px;
+  background: rgba(255, 131, 91, 0.2);
+  overflow: hidden;
+  margin: 16px 0px;
+}
+
+.emotion-6 {
+  width: 100%;
+  background: #FF835B;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+@media (min-width:1280px) {
+  .emotion-7 {
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
+  }
+}
+
+.emotion-8:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.emotion-8 .label {
+  margin-bottom: 8px;
+  color: #777777;
+}
+
+.emotion-8 p.value {
+  color: #414141;
+}
+
+.emotion-8 p.value .positive {
+  color: #2460FA;
+}
+
+.emotion-8 p.value .negative {
+  color: #E79720;
+}
+
+.emotion-8 a {
+  color: #4092CD;
+}
+
+@media (min-width:768px) {
+  .emotion-8 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+  }
+}
+
+.emotion-9 {
+  margin: 0;
+  font-size: 1rem;
+  letter-spacing: 0.15px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.235;
+}
+
 <div
-  className="css-1v5yaiz-root"
+  className="emotion-0"
 >
   <h2
-    className="MuiTypography-root MuiTypography-h2 css-dcgvbp-MuiTypography-root"
+    className="MuiTypography-root MuiTypography-h2 emotion-1"
   >
     onlineVotingPower
   </h2>
   <div
-    className="css-yraoho-data"
+    className="emotion-2"
   >
     <h3
-      className="MuiTypography-root MuiTypography-h3 primary__data css-1kl9mnf-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-h3 primary__data emotion-3"
     >
       100.00%
     </h3>
     <p
-      className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-body1 emotion-4"
     >
       76,341,043
        /
@@ -123,67 +417,67 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 2`] = `
     </p>
   </div>
   <div
-    className="css-1fxd95k-chart"
+    className="emotion-5"
   >
     <div
-      className="css-gmihno-active"
+      className="emotion-6"
     />
   </div>
   <div
-    className="css-oihayf-itemsContainer"
+    className="emotion-7"
   >
     <div
-      className="css-1ju3r6i-item"
+      className="emotion-8"
     >
       <h4
-        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-h4 label emotion-9"
       >
         validators
       </h4>
       <p
-        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 value emotion-4"
       >
         109
       </p>
     </div>
     <div
-      className="css-1ju3r6i-item"
+      className="emotion-8"
     >
       <h4
-        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-h4 label emotion-9"
       >
         votingPowerPercent
       </h4>
       <p
-        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 value emotion-4"
       >
         100.00%
       </p>
     </div>
     <div
-      className="css-1ju3r6i-item"
+      className="emotion-8"
     >
       <h4
-        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-h4 label emotion-9"
       >
         votingPower
       </h4>
       <p
-        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 value emotion-4"
       >
         76,341,043
       </p>
     </div>
     <div
-      className="css-1ju3r6i-item"
+      className="emotion-8"
     >
       <h4
-        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-h4 label emotion-9"
       >
         totalVotingPower
       </h4>
       <p
-        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 value emotion-4"
       >
         76,341,043
       </p>

@@ -1,19 +1,107 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: Nav/Network it renders 1`] = `
+.emotion-0 {
+  padding: 6.4px 16px;
+  background: #FFFFFF;
+  color: #414141;
+  border-radius: 4px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+
+.emotion-0:hover {
+  cursor: pointer;
+}
+
+.emotion-0 .MuiSvgIcon-root {
+  margin-left: 0.1rem;
+}
+
+.emotion-1 {
+  width: 24px;
+  margin-right: 8px;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.emotion-2 {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  min-width: 100%;
+  display: none;
+}
+
+.mode-dark .emotion-2 {
+  display: initial;
+}
+
+.emotion-3 {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  min-width: 100%;
+  object-fit: contain;
+}
+
+.mode-dark .emotion-3 {
+  display: none;
+}
+
+.emotion-4 {
+  margin: 0;
+  font-size: 1rem;
+  white-space: pre-wrap;
+  letter-spacing: 0.5px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.emotion-5 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentColor;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 1.5rem;
+}
+
 <div
   aria-label="desmos-mainnet"
-  className="css-1ovmrev-root"
+  className="emotion-0"
   onClick={[MockFunction]}
   role="button"
   tabIndex={0}
 >
   <span
-    className="css-1s680oh-icon-container"
+    className="emotion-1"
   >
     <img
       alt="icon"
-      className="css-4nmqpx-dark"
+      className="emotion-2"
       data-nimg="1"
       decoding="async"
       height={0}
@@ -30,7 +118,7 @@ exports[`screen: Nav/Network it renders 1`] = `
     />
     <img
       alt="icon"
-      className="css-13ot6lo-light"
+      className="emotion-3"
       data-nimg="1"
       decoding="async"
       height={0}
@@ -47,13 +135,13 @@ exports[`screen: Nav/Network it renders 1`] = `
     />
   </span>
   <p
-    className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
+    className="MuiTypography-root MuiTypography-body1 emotion-4"
   >
     desmos-mainnet
   </p>
   <svg
     aria-hidden={true}
-    className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+    className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-5"
     color="#999999"
     data-testid="ExpandMoreIcon"
     focusable="false"

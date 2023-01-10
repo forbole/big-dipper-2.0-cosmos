@@ -1,6 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: ProposalDetails matches snapshot 1`] = `
+.emotion-0 {
+  padding: 16px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: min-content min-content auto;
+  gap: 8px;
+}
+
+@media (min-width: 1280px) {
+  .emotion-0 {
+    padding: 16px 24px;
+  }
+}
+
+@media (min-width:1280px) {
+  .emotion-0 {
+    gap: 16px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width:1280px) {
+  .emotion-1 {
+    grid-column: 1/4;
+  }
+}
+
+@media (min-width:1280px) {
+  .emotion-2 {
+    grid-column: 1/4;
+  }
+}
+
 <div
   id="Layout"
   navTitle="proposalDetails"
@@ -11,10 +44,10 @@ exports[`screen: ProposalDetails matches snapshot 1`] = `
     loading={true}
   >
     <span
-      className="css-p8brfp-root"
+      className="emotion-0"
     >
       <div
-        className="css-rtb8lv-overview"
+        className="emotion-1"
         id="Overview"
         overview={
           {
@@ -36,7 +69,7 @@ exports[`screen: ProposalDetails matches snapshot 1`] = `
         }
       />
       <div
-        className="css-zhsr22-deposits"
+        className="emotion-2"
         id="Deposits"
       />
     </span>

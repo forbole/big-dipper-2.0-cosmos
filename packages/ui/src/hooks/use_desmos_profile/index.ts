@@ -30,7 +30,9 @@ export const useDesmosProfile = (options: Options) => {
   const { addresses, skip } = options;
   const addressesMemo = useShallowMemo(addresses);
   const delegatorAddresses = useRecoilValue(readDelegatorAddresses(addressesMemo));
-  const delegatorAddressesMemo = useShallowMemo(delegatorAddresses);
+  const delegatorAddressesMemo = useShallowMemo(
+    delegatorAddresses.map((a, i) => a || addresses[i])
+  );
   const setAvatarName = useRecoilCallback(
     ({ set }) =>
       (address: string, avatarName: AvatarName | null) =>
@@ -58,16 +60,20 @@ export const useDesmosProfile = (options: Options) => {
           (isAddress && DesmosProfileDocument) ||
           (isDTag && DesmosProfileDtagDocument) ||
           DesmosProfileLinkDocument;
-        const batches = R.splitEvery(LIMIT, delegatorAddressesMemo);
+        const batches = R.splitEvery(isDTag ? 1 : LIMIT, delegatorAddressesMemo);
         const promises = batches.reduce(
           (promise, batch) =>
             promise.then((prevAll) =>
               client
                 .query<DesmosProfileQuery>({
                   query,
-                  variables: {
-                    addresses: batch,
-                  },
+                  variables: isDTag
+                    ? {
+                        dtag: batch[0].replace(/^@/, ''),
+                      }
+                    : {
+                        addresses: batch,
+                      },
                 })
                 .then((cur) => {
                   const profiles = formatDesmosProfile(cur.data);
@@ -88,7 +94,6 @@ export const useDesmosProfile = (options: Options) => {
             ),
           Promise.resolve<DesmosProfile[]>([])
         );
-
         const newState = (await promises) ?? [];
         setData((prevState) => (R.equals(prevState, newState) ? prevState : newState));
       } catch (e) {

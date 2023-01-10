@@ -1,6 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: Blocks/List matches snapshot 1`] = `
+.emotion-0 {
+  margin-top: 24px;
+}
+
 <div
   id="Box"
 >
@@ -20,7 +24,7 @@ exports[`screen: Blocks/List matches snapshot 1`] = `
     }
   />
   <div
-    className="css-1hnp23h-paginate"
+    className="emotion-0"
     handlePageChange={[Function]}
     handleRowsPerPageChange={[Function]}
     id="Pagination"

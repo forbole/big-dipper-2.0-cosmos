@@ -1,8 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: Transactions matches snapshot 1`] = `
+.emotion-0 {
+  padding: 16px;
+}
+
+@media (min-width: 1280px) {
+  .emotion-0 {
+    padding: 16px 24px;
+  }
+}
+
+.emotion-0 a {
+  color: #2F65DD;
+}
+
 <div
-  className="css-ewxjtu-root"
+  className="emotion-0"
   id="Layout"
   navTitle="transactions"
 >

@@ -1,11 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components: Tag matches snapshot 1`] = `
+.emotion-0 {
+  border-radius: 4px;
+  padding: 4px 8px;
+  display: inline-block;
+  color: #E8E8E8;
+  background: rgba(232, 232, 232, 0.2);
+  color: #2460FA;
+  background: rgba(36, 96, 250, 0.2);
+}
+
+.emotion-0:not(:last-child) {
+  margin-right: 8px;
+}
+
+.emotion-0 .MuiTypography-body1 {
+  white-space: nowrap;
+}
+
+.emotion-1 {
+  margin: 0;
+  font-size: 1rem;
+  white-space: pre-wrap;
+  letter-spacing: 0.5px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
 <div
-  className="css-1cnwhvk-root-one"
+  className="emotion-0"
 >
   <p
-    className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
+    className="MuiTypography-root MuiTypography-body1 emotion-1"
   >
     hello world
   </p>

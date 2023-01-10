@@ -1,22 +1,283 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: Nav/ActionBar displays network 1`] = `
+.emotion-0 {
+  width: 100%;
+  background: #F8F8F8;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 24px;
+}
+
+.emotion-1 {
+  width: 70%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+  z-index: 5000;
+}
+
+.emotion-2 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  margin-right: 16px;
+}
+
+.emotion-2 .MuiInputBase-root {
+  width: 100%;
+  background: #FFFFFF;
+  padding: 3.2px 9.6px;
+  border-radius: 4px;
+}
+
+.emotion-2 .MuiInputBase-input {
+  text-overflow: ellipsis;
+}
+
+.emotion-2 .MuiInputBase-input::-webkit-input-placeholder {
+  color: #999999;
+}
+
+.emotion-2 .MuiInputBase-input::-moz-placeholder {
+  color: #999999;
+}
+
+.emotion-2 .MuiInputBase-input:-ms-input-placeholder {
+  color: #999999;
+}
+
+.emotion-2 .MuiInputBase-input::placeholder {
+  color: #999999;
+}
+
+.emotion-2.open .MuiInputBase-root {
+  background: #F8F8F8;
+}
+
+.emotion-3 {
+  font-size: 1rem;
+  white-space: pre-wrap;
+  letter-spacing: 0.5px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.4375em;
+  color: #000000;
+  box-sizing: border-box;
+  position: relative;
+  cursor: text;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-3.Mui-disabled {
+  color: rgba(0, 0, 0, 0.38);
+  cursor: default;
+}
+
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 0.01em;
+  max-height: 2em;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  white-space: nowrap;
+  color: rgba(0, 0, 0, 0.54);
+  margin-right: 8px;
+}
+
+.emotion-5 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentColor;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 1.25rem;
+}
+
+.emotion-6 {
+  font: inherit;
+  letter-spacing: inherit;
+  color: currentColor;
+  padding: 4px 0 5px;
+  border: 0;
+  box-sizing: content-box;
+  background: none;
+  height: 1.4375em;
+  margin: 0;
+  -webkit-tap-highlight-color: transparent;
+  display: block;
+  min-width: 0;
+  width: 100%;
+  -webkit-animation-name: mui-auto-fill-cancel;
+  animation-name: mui-auto-fill-cancel;
+  -webkit-animation-duration: 10ms;
+  animation-duration: 10ms;
+}
+
+.emotion-6::-webkit-input-placeholder {
+  color: currentColor;
+  opacity: 0.42;
+  -webkit-transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.emotion-6::-moz-placeholder {
+  color: currentColor;
+  opacity: 0.42;
+  -webkit-transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.emotion-6:-ms-input-placeholder {
+  color: currentColor;
+  opacity: 0.42;
+  -webkit-transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.emotion-6::-ms-input-placeholder {
+  color: currentColor;
+  opacity: 0.42;
+  -webkit-transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.emotion-6:focus {
+  outline: 0;
+}
+
+.emotion-6:invalid {
+  box-shadow: none;
+}
+
+.emotion-6::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-6::-webkit-input-placeholder {
+  opacity: 0!important;
+}
+
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-6::-moz-placeholder {
+  opacity: 0!important;
+}
+
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:-ms-input-placeholder {
+  opacity: 0!important;
+}
+
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-6::-ms-input-placeholder {
+  opacity: 0!important;
+}
+
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:focus::-webkit-input-placeholder {
+  opacity: 0.42;
+}
+
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:focus::-moz-placeholder {
+  opacity: 0.42;
+}
+
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:focus:-ms-input-placeholder {
+  opacity: 0.42;
+}
+
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:focus::-ms-input-placeholder {
+  opacity: 0.42;
+}
+
+.emotion-6.Mui-disabled {
+  opacity: 1;
+  -webkit-text-fill-color: rgba(0, 0, 0, 0.38);
+}
+
+.emotion-6:-webkit-autofill {
+  -webkit-animation-duration: 5000s;
+  animation-duration: 5000s;
+  -webkit-animation-name: mui-auto-fill;
+  animation-name: mui-auto-fill;
+}
+
+.emotion-7 {
+  margin-right: 16px;
+}
+
+.emotion-7.open {
+  background: #F8F8F8;
+}
+
+.emotion-8 {
+  width: 100%;
+  z-index: 1201;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.emotion-8.open {
+  opacity: 1;
+  visibility: visible;
+}
+
 <div
-  className="css-1ea0fsh-root"
+  className="emotion-0"
 >
   <div
-    className="css-1douz5d-actions"
+    className="emotion-1"
   >
     <form
-      className="open css-ser7za-root-searchBar"
+      className="open emotion-2"
       onSubmit={[Function]}
     >
       <div
-        className="MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-adornedStart css-1lapsgy-MuiInputBase-root"
+        className="MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-adornedStart emotion-3"
         onClick={[Function]}
       >
         <div
-          className="MuiInputAdornment-root MuiInputAdornment-positionStart css-ittuaa-MuiInputAdornment-root"
+          className="MuiInputAdornment-root MuiInputAdornment-positionStart emotion-4"
         >
           <span
             className="notranslate"
@@ -25,7 +286,7 @@ exports[`screen: Nav/ActionBar displays network 1`] = `
           </span>
           <svg
             aria-hidden={true}
-            className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+            className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall emotion-5"
             color="#999999"
             data-testid="SearchIcon"
             focusable="false"
@@ -38,7 +299,7 @@ exports[`screen: Nav/ActionBar displays network 1`] = `
         </div>
         <input
           aria-label="searchBarPlaceholderDtag"
-          className="MuiInputBase-input MuiInputBase-inputAdornedStart css-yz9k0d-MuiInputBase-input"
+          className="MuiInputBase-input MuiInputBase-inputAdornedStart emotion-6"
           onAnimationStart={[Function]}
           onBlur={[Function]}
           onChange={[Function]}
@@ -51,7 +312,7 @@ exports[`screen: Nav/ActionBar displays network 1`] = `
       </div>
     </form>
     <div
-      className="css-pjswcz-network open"
+      className="emotion-7 open"
       id="network"
       toggleNetwork={[MockFunction]}
     />
@@ -61,29 +322,290 @@ exports[`screen: Nav/ActionBar displays network 1`] = `
   </div>
   <div
     actionHeight={0}
-    className="css-qgr2xh-networkList open"
+    className="emotion-8 open"
     id="NetworkList"
   />
 </div>
 `;
 
 exports[`screen: Nav/ActionBar it renders 1`] = `
+.emotion-0 {
+  width: 100%;
+  background: #F8F8F8;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 24px;
+}
+
+.emotion-1 {
+  width: 70%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+  z-index: 5000;
+}
+
+.emotion-2 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  margin-right: 16px;
+}
+
+.emotion-2 .MuiInputBase-root {
+  width: 100%;
+  background: #FFFFFF;
+  padding: 3.2px 9.6px;
+  border-radius: 4px;
+}
+
+.emotion-2 .MuiInputBase-input {
+  text-overflow: ellipsis;
+}
+
+.emotion-2 .MuiInputBase-input::-webkit-input-placeholder {
+  color: #999999;
+}
+
+.emotion-2 .MuiInputBase-input::-moz-placeholder {
+  color: #999999;
+}
+
+.emotion-2 .MuiInputBase-input:-ms-input-placeholder {
+  color: #999999;
+}
+
+.emotion-2 .MuiInputBase-input::placeholder {
+  color: #999999;
+}
+
+.emotion-2.open .MuiInputBase-root {
+  background: #F8F8F8;
+}
+
+.emotion-3 {
+  font-size: 1rem;
+  white-space: pre-wrap;
+  letter-spacing: 0.5px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.4375em;
+  color: #000000;
+  box-sizing: border-box;
+  position: relative;
+  cursor: text;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-3.Mui-disabled {
+  color: rgba(0, 0, 0, 0.38);
+  cursor: default;
+}
+
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 0.01em;
+  max-height: 2em;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  white-space: nowrap;
+  color: rgba(0, 0, 0, 0.54);
+  margin-right: 8px;
+}
+
+.emotion-5 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentColor;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 1.25rem;
+}
+
+.emotion-6 {
+  font: inherit;
+  letter-spacing: inherit;
+  color: currentColor;
+  padding: 4px 0 5px;
+  border: 0;
+  box-sizing: content-box;
+  background: none;
+  height: 1.4375em;
+  margin: 0;
+  -webkit-tap-highlight-color: transparent;
+  display: block;
+  min-width: 0;
+  width: 100%;
+  -webkit-animation-name: mui-auto-fill-cancel;
+  animation-name: mui-auto-fill-cancel;
+  -webkit-animation-duration: 10ms;
+  animation-duration: 10ms;
+}
+
+.emotion-6::-webkit-input-placeholder {
+  color: currentColor;
+  opacity: 0.42;
+  -webkit-transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.emotion-6::-moz-placeholder {
+  color: currentColor;
+  opacity: 0.42;
+  -webkit-transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.emotion-6:-ms-input-placeholder {
+  color: currentColor;
+  opacity: 0.42;
+  -webkit-transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.emotion-6::-ms-input-placeholder {
+  color: currentColor;
+  opacity: 0.42;
+  -webkit-transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.emotion-6:focus {
+  outline: 0;
+}
+
+.emotion-6:invalid {
+  box-shadow: none;
+}
+
+.emotion-6::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-6::-webkit-input-placeholder {
+  opacity: 0!important;
+}
+
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-6::-moz-placeholder {
+  opacity: 0!important;
+}
+
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:-ms-input-placeholder {
+  opacity: 0!important;
+}
+
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-6::-ms-input-placeholder {
+  opacity: 0!important;
+}
+
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:focus::-webkit-input-placeholder {
+  opacity: 0.42;
+}
+
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:focus::-moz-placeholder {
+  opacity: 0.42;
+}
+
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:focus:-ms-input-placeholder {
+  opacity: 0.42;
+}
+
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:focus::-ms-input-placeholder {
+  opacity: 0.42;
+}
+
+.emotion-6.Mui-disabled {
+  opacity: 1;
+  -webkit-text-fill-color: rgba(0, 0, 0, 0.38);
+}
+
+.emotion-6:-webkit-autofill {
+  -webkit-animation-duration: 5000s;
+  animation-duration: 5000s;
+  -webkit-animation-name: mui-auto-fill;
+  animation-name: mui-auto-fill;
+}
+
+.emotion-7 {
+  margin-right: 16px;
+}
+
+.emotion-7.open {
+  background: #F8F8F8;
+}
+
+.emotion-8 {
+  width: 100%;
+  z-index: 1201;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.emotion-8.open {
+  opacity: 1;
+  visibility: visible;
+}
+
 <div
-  className="css-1ea0fsh-root"
+  className="emotion-0"
 >
   <div
-    className="css-1douz5d-actions"
+    className="emotion-1"
   >
     <form
-      className="css-ser7za-root-searchBar"
+      className="emotion-2"
       onSubmit={[Function]}
     >
       <div
-        className="MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-adornedStart css-1lapsgy-MuiInputBase-root"
+        className="MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-adornedStart emotion-3"
         onClick={[Function]}
       >
         <div
-          className="MuiInputAdornment-root MuiInputAdornment-positionStart css-ittuaa-MuiInputAdornment-root"
+          className="MuiInputAdornment-root MuiInputAdornment-positionStart emotion-4"
         >
           <span
             className="notranslate"
@@ -92,7 +614,7 @@ exports[`screen: Nav/ActionBar it renders 1`] = `
           </span>
           <svg
             aria-hidden={true}
-            className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+            className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall emotion-5"
             color="#999999"
             data-testid="SearchIcon"
             focusable="false"
@@ -105,7 +627,7 @@ exports[`screen: Nav/ActionBar it renders 1`] = `
         </div>
         <input
           aria-label="searchBarPlaceholderDtag"
-          className="MuiInputBase-input MuiInputBase-inputAdornedStart css-yz9k0d-MuiInputBase-input"
+          className="MuiInputBase-input MuiInputBase-inputAdornedStart emotion-6"
           onAnimationStart={[Function]}
           onBlur={[Function]}
           onChange={[Function]}
@@ -118,7 +640,7 @@ exports[`screen: Nav/ActionBar it renders 1`] = `
       </div>
     </form>
     <div
-      className="css-pjswcz-network"
+      className="emotion-7"
       id="network"
       toggleNetwork={[MockFunction]}
     />
@@ -128,7 +650,7 @@ exports[`screen: Nav/ActionBar it renders 1`] = `
   </div>
   <div
     actionHeight={0}
-    className="css-qgr2xh-networkList"
+    className="emotion-8"
     id="NetworkList"
   />
 </div>

@@ -1,17 +1,76 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`component: SingleSlotMobile matches snapshot 1`] = `
+.emotion-0 {
+  margin: 16px 0px;
+}
+
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+}
+
+.emotion-1>div {
+  width: 50%;
+}
+
+.emotion-2 {
+  margin-bottom: 16px;
+}
+
+.emotion-2 .label {
+  margin-bottom: 8px;
+  color: #777777;
+}
+
+.emotion-2 p.value {
+  color: #414141;
+}
+
+.emotion-2 a {
+  color: #2F65DD;
+}
+
+.emotion-3 {
+  margin: 0;
+  font-size: 1rem;
+  letter-spacing: 0.15px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.235;
+}
+
+.emotion-6 {
+  margin: 0;
+  font-size: 1rem;
+  white-space: pre-wrap;
+  letter-spacing: 0.5px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
 <div
-  className="css-1bnteyo-root"
+  className="emotion-0"
 >
   <div
-    className="css-1t94r6n-flex"
+    className="emotion-1"
   >
     <div
-      className="css-16zf8r-item"
+      className="emotion-2"
     >
       <h4
-        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-h4 label emotion-3"
       >
         block
       </h4>
@@ -19,46 +78,46 @@ exports[`component: SingleSlotMobile matches snapshot 1`] = `
     </div>
   </div>
   <div
-    className="css-16zf8r-item"
+    className="emotion-2"
   >
     <h4
-      className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-h4 label emotion-3"
     >
       hash
     </h4>
     <p
-      className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-body1 value emotion-6"
     >
       hash
     </p>
   </div>
   <div
-    className="css-1t94r6n-flex"
+    className="emotion-1"
   >
     <div
-      className="css-16zf8r-item"
+      className="emotion-2"
     >
       <h4
-        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-h4 label emotion-3"
       >
         txs
       </h4>
       <p
-        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 value emotion-6"
       >
         txs
       </p>
     </div>
     <div
-      className="css-16zf8r-item"
+      className="emotion-2"
     >
       <h4
-        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-h4 label emotion-3"
       >
         time
       </h4>
       <p
-        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 value emotion-6"
       >
         time
       </p>

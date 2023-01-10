@@ -1,8 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`component: layout/footer matches snapshot 1`] = `
+.emotion-0 .media {
+  margin: 0 0.5rem;
+}
+
+.emotion-0 .media:first-of-type {
+  margin-left: 0;
+}
+
+.emotion-0 .media:last-child {
+  margin-right: 0;
+}
+
+.emotion-0 .media path {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  fill: #414141;
+}
+
+.emotion-0 .media:hover path {
+  fill: rgba(65, 65, 65, 0.6);
+}
+
 <div
-  className=" css-4f6i8q-root social-media"
+  className=" emotion-0 social-media"
 >
   <a
     className="media telegram"

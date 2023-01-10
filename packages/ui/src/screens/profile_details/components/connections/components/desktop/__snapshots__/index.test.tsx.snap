@@ -1,22 +1,155 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: ProfileDetails/Connections/Desktop matches snapshot 1`] = `
+.emotion-0 {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.emotion-0 caption {
+  font-size: 0.875rem;
+  letter-spacing: 0.25px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.43;
+  padding: 16px;
+  color: #414141;
+  text-align: left;
+  caption-side: bottom;
+}
+
+.emotion-1 {
+  display: table-header-group;
+  background-color: initial;
+}
+
+.emotion-2 {
+  color: inherit;
+  display: table-row;
+  vertical-align: middle;
+  outline: 0;
+}
+
+.emotion-2.MuiTableRow-hover:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.emotion-2.Mui-selected {
+  background-color: rgba(255, 131, 91, 0.08);
+}
+
+.emotion-2.Mui-selected:hover {
+  background-color: rgba(255, 131, 91, 0.12);
+}
+
+.emotion-3 {
+  font-size: 0.875rem;
+  letter-spacing: 0.25px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 500;
+  line-height: 1.5rem;
+  display: table-cell;
+  vertical-align: inherit;
+  border-bottom: 1px solid rgba(252, 252, 252, 1);
+  text-align: left;
+  padding: 16px;
+  color: #000000;
+  border-bottom: none;
+  padding: 0 16px;
+  height: 50px;
+  font-size: 1rem;
+}
+
+.emotion-5 {
+  font-size: 0.875rem;
+  letter-spacing: 0.25px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 500;
+  line-height: 1.5rem;
+  display: table-cell;
+  vertical-align: inherit;
+  border-bottom: 1px solid rgba(252, 252, 252, 1);
+  text-align: right;
+  padding: 16px;
+  color: #000000;
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+  border-bottom: none;
+  padding: 0 16px;
+  height: 50px;
+  font-size: 1rem;
+}
+
+.emotion-6 {
+  display: table-row-group;
+}
+
+.emotion-6 .MuiTableRow-root:nth-of-type(odd) {
+  background-color: #F8F8F8;
+}
+
+.emotion-6 .MuiTableCell-root {
+  color: #414141;
+}
+
+.emotion-8 {
+  font-size: 0.875rem;
+  letter-spacing: 0.25px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.43;
+  display: table-cell;
+  vertical-align: inherit;
+  border-bottom: 1px solid rgba(252, 252, 252, 1);
+  text-align: left;
+  padding: 16px;
+  color: #000000;
+  border-bottom: none;
+  padding: 0 16px;
+  height: 50px;
+  font-size: 1rem;
+}
+
+.emotion-10 {
+  font-size: 0.875rem;
+  letter-spacing: 0.25px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.43;
+  display: table-cell;
+  vertical-align: inherit;
+  border-bottom: 1px solid rgba(252, 252, 252, 1);
+  text-align: right;
+  padding: 16px;
+  color: #000000;
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+  border-bottom: none;
+  padding: 0 16px;
+  height: 50px;
+  font-size: 1rem;
+}
+
 <div>
   <table
-    className="MuiTable-root css-1az1xe2-MuiTable-root"
+    className="MuiTable-root emotion-0"
     role={null}
   >
     <thead
-      className="MuiTableHead-root css-14dqc50-MuiTableHead-root"
+      className="MuiTableHead-root emotion-1"
       role={null}
     >
       <tr
-        className="MuiTableRow-root MuiTableRow-head css-li15s1-MuiTableRow-root"
+        className="MuiTableRow-root MuiTableRow-head emotion-2"
         role={null}
       >
         <th
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-avpoev-MuiTableCell-root"
+          className="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium emotion-3"
           scope="col"
           style={
             {
@@ -28,7 +161,7 @@ exports[`screen: ProfileDetails/Connections/Desktop matches snapshot 1`] = `
         </th>
         <th
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium css-avpoev-MuiTableCell-root"
+          className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium emotion-3"
           scope="col"
           style={
             {
@@ -40,7 +173,7 @@ exports[`screen: ProfileDetails/Connections/Desktop matches snapshot 1`] = `
         </th>
         <th
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight MuiTableCell-sizeMedium css-1em49d8-MuiTableCell-root"
+          className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight MuiTableCell-sizeMedium emotion-5"
           scope="col"
           style={
             {
@@ -53,16 +186,16 @@ exports[`screen: ProfileDetails/Connections/Desktop matches snapshot 1`] = `
       </tr>
     </thead>
     <tbody
-      className="MuiTableBody-root css-grv1yu-MuiTableBody-root"
+      className="MuiTableBody-root emotion-6"
       role={null}
     >
       <tr
-        className="MuiTableRow-root css-li15s1-MuiTableRow-root"
+        className="MuiTableRow-root emotion-2"
         role={null}
       >
         <td
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-zs3zy9-MuiTableCell-root"
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium emotion-8"
           style={
             {
               "width": "25%",
@@ -73,7 +206,7 @@ exports[`screen: ProfileDetails/Connections/Desktop matches snapshot 1`] = `
         </td>
         <td
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-zs3zy9-MuiTableCell-root"
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium emotion-8"
           style={
             {
               "width": "50%",
@@ -92,7 +225,7 @@ exports[`screen: ProfileDetails/Connections/Desktop matches snapshot 1`] = `
         </td>
         <td
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1ct601e-MuiTableCell-root"
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium emotion-10"
           style={
             {
               "width": "25%",
@@ -103,12 +236,12 @@ exports[`screen: ProfileDetails/Connections/Desktop matches snapshot 1`] = `
         </td>
       </tr>
       <tr
-        className="MuiTableRow-root css-li15s1-MuiTableRow-root"
+        className="MuiTableRow-root emotion-2"
         role={null}
       >
         <td
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-zs3zy9-MuiTableCell-root"
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium emotion-8"
           style={
             {
               "width": "25%",
@@ -119,7 +252,7 @@ exports[`screen: ProfileDetails/Connections/Desktop matches snapshot 1`] = `
         </td>
         <td
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-zs3zy9-MuiTableCell-root"
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium emotion-8"
           style={
             {
               "width": "50%",
@@ -130,7 +263,7 @@ exports[`screen: ProfileDetails/Connections/Desktop matches snapshot 1`] = `
         </td>
         <td
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1ct601e-MuiTableCell-root"
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium emotion-10"
           style={
             {
               "width": "25%",

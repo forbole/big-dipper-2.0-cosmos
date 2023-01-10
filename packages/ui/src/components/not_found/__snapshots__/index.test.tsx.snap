@@ -1,15 +1,69 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`component: NotFound matches snapshot 1`] = `
+.emotion-0 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  min-height: 400px;
+  height: 100%;
+}
+
+.emotion-0 .MuiTypography-body1 {
+  margin-top: 16px;
+  color: #999999;
+}
+
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 16px;
+}
+
+.emotion-2 {
+  margin: 0;
+  font-size: 1rem;
+  white-space: pre-wrap;
+  letter-spacing: 0.5px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
 <div
-  className="css-1t3p35a-root"
+  className="emotion-0"
 >
   <div
-    className="css-12ou3q3-content"
+    className="emotion-1"
   >
     <svg />
     <p
-      className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-body1 emotion-2"
     >
       notFound
     </p>

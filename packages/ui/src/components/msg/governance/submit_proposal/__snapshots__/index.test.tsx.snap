@@ -1,8 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: TransactionDetails/SubmitProposal matches snapshot with Community Pool Spend Proposal 1`] = `
+.emotion-0 {
+  margin: 0;
+  font-size: 1rem;
+  white-space: pre-wrap;
+  letter-spacing: 0.5px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
 <p
-  className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
+  className="MuiTypography-root MuiTypography-body1 emotion-0"
 >
   <div
     components={
@@ -20,8 +30,18 @@ exports[`screen: TransactionDetails/SubmitProposal matches snapshot with Communi
 `;
 
 exports[`screen: TransactionDetails/SubmitProposal matches snapshot with Parameter Change Proposal 1`] = `
+.emotion-0 {
+  margin: 0;
+  font-size: 1rem;
+  white-space: pre-wrap;
+  letter-spacing: 0.5px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
 <p
-  className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
+  className="MuiTypography-root MuiTypography-body1 emotion-0"
 >
   <div
     components={
@@ -39,8 +59,18 @@ exports[`screen: TransactionDetails/SubmitProposal matches snapshot with Paramet
 `;
 
 exports[`screen: TransactionDetails/SubmitProposal matches snapshot with Software Upgrade Proposal 1`] = `
+.emotion-0 {
+  margin: 0;
+  font-size: 1rem;
+  white-space: pre-wrap;
+  letter-spacing: 0.5px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
 <p
-  className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
+  className="MuiTypography-root MuiTypography-body1 emotion-0"
 >
   <div
     components={
@@ -58,8 +88,18 @@ exports[`screen: TransactionDetails/SubmitProposal matches snapshot with Softwar
 `;
 
 exports[`screen: TransactionDetails/SubmitProposal matches snapshot with Text Proposal 1`] = `
+.emotion-0 {
+  margin: 0;
+  font-size: 1rem;
+  white-space: pre-wrap;
+  letter-spacing: 0.5px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
 <p
-  className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
+  className="MuiTypography-root MuiTypography-body1 emotion-0"
 >
   <div
     components={

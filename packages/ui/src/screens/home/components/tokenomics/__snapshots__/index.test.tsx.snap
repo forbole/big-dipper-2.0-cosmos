@@ -1,29 +1,165 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: Home/Tokenomics matches snapshot 1`] = `
+.emotion-0 {
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.emotion-1 {
+  margin: 0;
+  font-size: 1.5rem;
+  letter-spacing: 0;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 300;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-2 .data__item {
+  width: 50%;
+  white-space: pre-wrap;
+}
+
+.emotion-2 .data__item h4 {
+  color: #414141;
+}
+
+.emotion-2 .data__item .MuiTypography-caption {
+  color: #777777;
+}
+
+.emotion-3 {
+  margin: 0;
+  font-size: 1rem;
+  letter-spacing: 0.15px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.235;
+}
+
+.emotion-4 {
+  margin: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.4px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.66;
+}
+
+.emotion-7 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: space-around;
+  -ms-flex-pack: space-around;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.emotion-8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  -webkit-box-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.emotion-8 .MuiTypography-caption {
+  color: #777777;
+}
+
+.emotion-8 .legends__item {
+  width: 50%;
+}
+
+.emotion-8 .legends__item:before {
+  content: "";
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-right: 5px;
+}
+
+.emotion-8 .legends__item:first-of-type:before {
+  background: #2FB6E0;
+}
+
+.emotion-8 .legends__item:nth-of-type(2):before {
+  background: #FFC93D;
+}
+
+.emotion-8 .legends__item:last-child:before {
+  background: #20D494;
+}
+
+.emotion-8 .legends__item .caption__percent {
+  color: #777777;
+}
+
 <div
-  className="css-1huduhr-root"
+  className="emotion-0"
   id="box"
 >
   <h2
-    className="MuiTypography-root MuiTypography-h2 css-5seo1d-MuiTypography-root-label"
+    className="MuiTypography-root MuiTypography-h2 emotion-1"
   >
     tokenomics
   </h2>
   <div
-    className="css-13k8qz6-data"
+    className="emotion-2"
   >
     <div
       className="data__item"
     >
       <h4
-        className="MuiTypography-root MuiTypography-h4 css-15yyl88-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-h4 emotion-3"
       >
         254,578,529,800
          
       </h4>
       <span
-        className="MuiTypography-root MuiTypography-caption css-ru7l4l-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-caption emotion-4"
       >
         bondedPercent
       </span>
@@ -32,20 +168,20 @@ exports[`screen: Home/Tokenomics matches snapshot 1`] = `
       className="data__item"
     >
       <h4
-        className="MuiTypography-root MuiTypography-h4 css-15yyl88-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-h4 emotion-3"
       >
         -459,465,964,998
          
       </h4>
       <span
-        className="MuiTypography-root MuiTypography-caption css-ru7l4l-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-caption emotion-4"
       >
         unbondedPercent
       </span>
     </div>
   </div>
   <div
-    className="css-1ul1syn-content"
+    className="emotion-7"
   >
     <div
       className="recharts-wrapper"
@@ -88,13 +224,13 @@ exports[`screen: Home/Tokenomics matches snapshot 1`] = `
       />
     </div>
     <div
-      className="css-1eci6km-legends"
+      className="emotion-8"
     >
       <div
         className="legends__item"
       >
         <span
-          className="MuiTypography-root MuiTypography-caption css-ru7l4l-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-caption emotion-4"
         >
           bonded
         </span>
@@ -103,7 +239,7 @@ exports[`screen: Home/Tokenomics matches snapshot 1`] = `
         className="legends__item"
       >
         <span
-          className="MuiTypography-root MuiTypography-caption css-ru7l4l-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-caption emotion-4"
         >
           unbonded
         </span>
@@ -112,7 +248,7 @@ exports[`screen: Home/Tokenomics matches snapshot 1`] = `
         className="legends__item"
       >
         <span
-          className="MuiTypography-root MuiTypography-caption css-ru7l4l-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-caption emotion-4"
         >
           unbonding
         </span>
