@@ -227,6 +227,9 @@ const styles = makeStyles((theme) => ({
   loading: {
     position: 'relative',
     top: '50px',
+    '& .MuiCircularProgress-colorPrimary': {
+      color: '#D9D9D9',
+    },
   },
   walletConnectHeader: {
     fontWeight: 700,
