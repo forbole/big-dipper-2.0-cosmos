@@ -1,6 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`component: AvatarName matches snapshot 1`] = `
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+}
+
+.emotion-0 p {
+  color: #4092CD;
+  margin-left: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.emotion-0:hover {
+  cursor: pointer;
+}
+
+.emotion-1 {
+  margin: 0;
+  font-size: 1rem;
+  white-space: pre-wrap;
+  letter-spacing: 0.5px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
 <a
   href="/accounts/123"
   onClick={[Function]}
@@ -8,14 +45,14 @@ exports[`component: AvatarName matches snapshot 1`] = `
   onTouchStart={[Function]}
 >
   <div
-    className="css-1i61snv-root"
+    className="emotion-0"
   >
     <div
       address="123"
       id="Avatar"
     />
     <p
-      className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-body1 emotion-1"
     >
       name
     </p>
@@ -24,6 +61,43 @@ exports[`component: AvatarName matches snapshot 1`] = `
 `;
 
 exports[`component: AvatarName matches snapshot with imageUrl 1`] = `
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+}
+
+.emotion-0 p {
+  color: #4092CD;
+  margin-left: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.emotion-0:hover {
+  cursor: pointer;
+}
+
+.emotion-1 {
+  margin: 0;
+  font-size: 1rem;
+  white-space: pre-wrap;
+  letter-spacing: 0.5px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
 <a
   href="/accounts/123"
   onClick={[Function]}
@@ -31,7 +105,7 @@ exports[`component: AvatarName matches snapshot with imageUrl 1`] = `
   onTouchStart={[Function]}
 >
   <div
-    className="css-1i61snv-root"
+    className="emotion-0"
   >
     <div
       address="123"
@@ -39,7 +113,7 @@ exports[`component: AvatarName matches snapshot with imageUrl 1`] = `
       imageUrl="https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg"
     />
     <p
-      className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-body1 emotion-1"
     >
       name
     </p>

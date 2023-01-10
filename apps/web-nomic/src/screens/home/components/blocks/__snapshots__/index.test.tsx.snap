@@ -1,15 +1,125 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animation-1 {
+  0% {
+    stroke-dasharray: 1px,200px;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 100px,200px;
+    stroke-dashoffset: -15px;
+  }
+
+  100% {
+    stroke-dasharray: 100px,200px;
+    stroke-dashoffset: -125px;
+  }
+}
+
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.emotion-0 .button {
+  color: #C4C4C4;
+}
+
+.emotion-0 .button:hover {
+  cursor: pointer;
+}
+
+.emotion-1 {
+  margin-bottom: 16px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+
+.emotion-2 {
+  margin: 0;
+  font-size: 1.5rem;
+  letter-spacing: 0;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.emotion-3 {
+  padding: 16px 0px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.emotion-4 {
+  display: inline-block;
+  color: #6000FF;
+  -webkit-animation: animation-0 1.4s linear infinite;
+  animation: animation-0 1.4s linear infinite;
+}
+
+.emotion-5 {
+  display: block;
+}
+
+.emotion-6 {
+  stroke: currentColor;
+  stroke-dasharray: 80px,200px;
+  stroke-dashoffset: 0;
+  -webkit-animation: animation-1 1.4s ease-in-out infinite;
+  animation: animation-1 1.4s ease-in-out infinite;
+}
+
 <div
-  className="css-fwexer-root"
+  className="emotion-0"
   id="Box"
 >
   <div
-    className="css-19bwmp8-label"
+    className="emotion-1"
   >
     <h2
-      className="MuiTypography-root MuiTypography-h2 css-dcgvbp-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-h2 emotion-2"
     >
       latestBlocks
     </h2>
@@ -25,10 +135,10 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
     </a>
   </div>
   <div
-    className="css-1tbeysr-root"
+    className="emotion-3"
   >
     <span
-      className="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-2bdkio-MuiCircularProgress-root"
+      className="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary emotion-4"
       role="progressbar"
       style={
         {
@@ -38,11 +148,11 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
       }
     >
       <svg
-        className="MuiCircularProgress-svg css-1idz92c-MuiCircularProgress-svg"
+        className="MuiCircularProgress-svg emotion-5"
         viewBox="22 22 44 44"
       >
         <circle
-          className="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-176wh8e-MuiCircularProgress-circle"
+          className="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate emotion-6"
           cx={44}
           cy={44}
           fill="none"

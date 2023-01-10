@@ -1,14 +1,63 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`component: SortArrows matches snapshot 1`] = `
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  height: 18px;
+  width: 18px;
+}
+
+.emotion-1 {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  right: 0;
+  fill: #414141;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.emotion-1.desc {
+  fill: rgba(119, 119, 119, 0.2);
+}
+
+.emotion-2 {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  right: 0;
+  fill: #414141;
+}
+
+.emotion-2.asc {
+  fill: rgba(119, 119, 119, 0.2);
+}
+
 <div
-  className="css-uy2rnw-root"
+  className="emotion-0"
 >
   <svg
-    className="css-dl1r2x-svg-up"
+    className="emotion-1"
   />
   <svg
-    className="css-rfhd1l-svg-down"
+    className="emotion-2"
   />
 </div>
 `;

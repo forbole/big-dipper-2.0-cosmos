@@ -5,7 +5,7 @@
  * the title suffix should be in the format of [workspace-name]
  * otherwise, it will build the web project
  */
-const { execSync, exec } = require('child_process');
+const { execSync } = require('child_process');
 
 /**
  * It executes a shell command and returns the result

@@ -1,24 +1,166 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
+.emotion-0 {
+  overflow: auto;
+}
+
+.emotion-1 {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.emotion-1 caption {
+  font-size: 0.875rem;
+  letter-spacing: 0.25px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.43;
+  padding: 16px;
+  color: #C4C4C4;
+  text-align: left;
+  caption-side: bottom;
+}
+
+.emotion-1 .MuiTableBody-root .MuiTableCell-root {
+  white-space: nowrap;
+  height: auto;
+}
+
+.emotion-2 {
+  display: table-header-group;
+  background-color: initial;
+}
+
+.emotion-3 {
+  color: inherit;
+  display: table-row;
+  vertical-align: middle;
+  outline: 0;
+}
+
+.emotion-3.MuiTableRow-hover:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.emotion-3.Mui-selected {
+  background-color: rgba(96, 0, 255, 0.16);
+}
+
+.emotion-3.Mui-selected:hover {
+  background-color: rgba(96, 0, 255, 0.24);
+}
+
+.emotion-4 {
+  font-size: 0.875rem;
+  letter-spacing: 0.25px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 500;
+  line-height: 1.5rem;
+  display: table-cell;
+  vertical-align: inherit;
+  border-bottom: 1px solid rgba(35, 35, 35, 1);
+  text-align: left;
+  padding: 16px;
+  color: #E6E6E6;
+  border-bottom: none;
+  padding: 0 16px;
+  height: 50px;
+  font-size: 1rem;
+}
+
+.emotion-6 {
+  font-size: 0.875rem;
+  letter-spacing: 0.25px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 500;
+  line-height: 1.5rem;
+  display: table-cell;
+  vertical-align: inherit;
+  border-bottom: 1px solid rgba(35, 35, 35, 1);
+  text-align: right;
+  padding: 16px;
+  color: #E6E6E6;
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+  border-bottom: none;
+  padding: 0 16px;
+  height: 50px;
+  font-size: 1rem;
+}
+
+.emotion-7 {
+  display: table-row-group;
+}
+
+.emotion-7 .MuiTableRow-root:nth-of-type(odd) {
+  background-color: #282828;
+}
+
+.emotion-7 .MuiTableCell-root {
+  color: #C4C4C4;
+}
+
+.emotion-9 {
+  font-size: 0.875rem;
+  letter-spacing: 0.25px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.43;
+  display: table-cell;
+  vertical-align: inherit;
+  border-bottom: 1px solid rgba(35, 35, 35, 1);
+  text-align: left;
+  padding: 16px;
+  color: #E6E6E6;
+  border-bottom: none;
+  padding: 0 16px;
+  height: 50px;
+  font-size: 1rem;
+}
+
+.emotion-11 {
+  font-size: 0.875rem;
+  letter-spacing: 0.25px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.43;
+  display: table-cell;
+  vertical-align: inherit;
+  border-bottom: 1px solid rgba(35, 35, 35, 1);
+  text-align: right;
+  padding: 16px;
+  color: #E6E6E6;
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+  border-bottom: none;
+  padding: 0 16px;
+  height: 50px;
+  font-size: 1rem;
+}
+
 <div
-  className="css-98f4iy-root"
+  className="emotion-0"
 >
   <table
-    className="MuiTable-root css-1ulrxlt-MuiTable-root-table"
+    className="MuiTable-root emotion-1"
     role={null}
   >
     <thead
-      className="MuiTableHead-root css-14dqc50-MuiTableHead-root"
+      className="MuiTableHead-root emotion-2"
       role={null}
     >
       <tr
-        className="MuiTableRow-root MuiTableRow-head css-15633jd-MuiTableRow-root"
+        className="MuiTableRow-root MuiTableRow-head emotion-3"
         role={null}
       >
         <th
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-raaiek-MuiTableCell-root"
+          className="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium emotion-4"
           scope="col"
           style={
             {
@@ -30,7 +172,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
         </th>
         <th
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-raaiek-MuiTableCell-root"
+          className="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium emotion-4"
           scope="col"
           style={
             {
@@ -42,7 +184,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
         </th>
         <th
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight MuiTableCell-sizeMedium css-18xwwk-MuiTableCell-root"
+          className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight MuiTableCell-sizeMedium emotion-6"
           scope="col"
           style={
             {
@@ -55,16 +197,16 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
       </tr>
     </thead>
     <tbody
-      className="MuiTableBody-root css-zckbyc-MuiTableBody-root"
+      className="MuiTableBody-root emotion-7"
       role={null}
     >
       <tr
-        className="MuiTableRow-root css-15633jd-MuiTableRow-root"
+        className="MuiTableRow-root emotion-3"
         role={null}
       >
         <td
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1i7jhar-MuiTableCell-root"
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium emotion-9"
           style={
             {
               "width": "15%",
@@ -94,7 +236,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
         </td>
         <td
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1i7jhar-MuiTableCell-root"
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium emotion-9"
           style={
             {
               "width": "30%",
@@ -124,7 +266,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
         </td>
         <td
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-o7czbt-MuiTableCell-root"
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium emotion-11"
           style={
             {
               "width": "20%",

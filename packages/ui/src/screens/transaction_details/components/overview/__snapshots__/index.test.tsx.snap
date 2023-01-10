@@ -1,8 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
+.emotion-0 .memo {
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+.emotion-0 .memo .label {
+  margin-right: 40px;
+}
+
 <div
-  className="css-1f6288f-root"
+  className="emotion-0"
   details={
     [
       {

@@ -1,8 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: TransactionDetails/Unknown matches snapshot 1`] = `
+.emotion-0 {
+  overflow: auto;
+  padding: 1rem;
+  margin: 0;
+  background: #F8F8F8;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.emotion-0 code {
+  white-space: pre-wrap;
+}
+
 <pre
-  className="css-1rsg9g4-root"
+  className="emotion-0"
 >
   <code>
     {

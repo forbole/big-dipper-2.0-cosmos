@@ -1,6 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: Validators/List matches snapshot 1`] = `
+.emotion-0 {
+  min-height: 500px;
+  height: 50vh;
+}
+
+@media (min-width:1280px) {
+  .emotion-0 {
+    min-height: 65vh;
+  }
+}
+
+.emotion-1 {
+  height: 100%;
+}
+
+@media (min-width:1280px) {
+  .emotion-1 {
+    display: none;
+  }
+}
+
 <div
   exists={true}
   id="LoadAndExist"
@@ -16,10 +37,10 @@ exports[`screen: Validators/List matches snapshot 1`] = `
       tab={0}
     />
     <div
-      className="css-1o2kqtb-list"
+      className="emotion-0"
     >
       <div
-        className="css-lz3tfi-mobile"
+        className="emotion-1"
         id="Mobile"
         items={
           [

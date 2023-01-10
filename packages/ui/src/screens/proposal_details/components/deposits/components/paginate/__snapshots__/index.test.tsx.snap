@@ -1,8 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: TokenDetails/Paginate matches snapshot 1`] = `
+.emotion-0 {
+  margin-top: 24px;
+}
+
 <div
-  className="css-1jxbh8w-root"
+  className="emotion-0"
   handlePageChange={[MockFunction]}
   handleRowsPerPageChange={[MockFunction]}
   id="Pagination"

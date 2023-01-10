@@ -1,52 +1,162 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: Validators/VotingPower matches snapshot 1`] = `
+.emotion-0 .MuiTypography-body1 {
+  color: #999999;
+}
+
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.emotion-1 .percentage {
+  color: #999999;
+}
+
+@media (min-width:1280px) {
+  .emotion-1 {
+    margin-bottom: 0;
+  }
+}
+
+.emotion-2 {
+  margin: 0;
+  font-size: 1rem;
+  white-space: pre-wrap;
+  letter-spacing: 0.5px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 2px;
+  border-radius: 4px;
+  background: rgba(153, 153, 153, 0.2);
+  overflow: hidden;
+}
+
+.emotion-5 {
+  width: 20%;
+  background: #999999;
+}
+
 <div
-  className="css-1iftn23-root"
+  className="emotion-0"
 >
   <div
-    className="css-lj3qlt-content"
+    className="emotion-1"
   >
     <p
-      className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-body1 emotion-2"
     />
     <p
-      className="MuiTypography-root MuiTypography-body1 percentage css-pfovru-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-body1 percentage emotion-2"
     >
       20%
     </p>
   </div>
   <div
-    className="css-si1ndt-chart"
+    className="emotion-4"
   >
     <div
-      className="css-19w8hwk-active"
+      className="emotion-5"
     />
   </div>
 </div>
 `;
 
 exports[`screen: Validators/VotingPower matches snapshot with topVotingPower set to false 1`] = `
+.emotion-0 .MuiTypography-body1 {
+  color: #414141;
+}
+
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.emotion-1 .percentage {
+  color: #20D494;
+}
+
+@media (min-width:1280px) {
+  .emotion-1 {
+    margin-bottom: 0;
+  }
+}
+
+.emotion-2 {
+  margin: 0;
+  font-size: 1rem;
+  white-space: pre-wrap;
+  letter-spacing: 0.5px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 2px;
+  border-radius: 4px;
+  background: rgba(32, 212, 148, 0.2);
+  overflow: hidden;
+}
+
+.emotion-5 {
+  width: 0%;
+  background: #20D494;
+}
+
 <div
-  className="css-u31ock-root"
+  className="emotion-0"
 >
   <div
-    className="css-1dmmoum-content"
+    className="emotion-1"
   >
     <p
-      className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-body1 emotion-2"
     />
     <p
-      className="MuiTypography-root MuiTypography-body1 percentage css-pfovru-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-body1 percentage emotion-2"
     >
       0%
     </p>
   </div>
   <div
-    className="css-fl4w4-chart"
+    className="emotion-4"
   >
     <div
-      className="css-c7dmbn-active"
+      className="emotion-5"
     />
   </div>
 </div>

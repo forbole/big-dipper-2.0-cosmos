@@ -1,8 +1,309 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`component: layout/footer matches snapshot 1`] = `
+.emotion-0 {
+  background: #FFFFFF;
+  padding: 48px 24px 48px;
+  color: #000000;
+}
+
+.emotion-0 .footer__closing--container a {
+  color: #4092CD;
+}
+
+.emotion-0 .MuiDivider-root {
+  margin: 32px 0px;
+}
+
+.emotion-0 p {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.emotion-0 .footer__logo--container p {
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+
+.emotion-0 .footer__logo {
+  width: 180px;
+}
+
+.emotion-0 .footer__closing--text {
+  color: #777777;
+}
+
+.emotion-0 .footer__links {
+  margin-top: 1rem;
+}
+
+.emotion-0 h3 {
+  color: #777777;
+  font-weight: 500;
+  margin-bottom: 16px;
+  margin-top: 16px;
+}
+
+.emotion-0 .links__group {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+.emotion-0 .links__group a {
+  margin: 0.5rem 0;
+  color: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  padding-bottom: 1rem;
+  border-bottom: solid 1px #999999;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  width: 100%;
+}
+
+.emotion-0 .links__group a:hover {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.emotion-0 .links__group.forbole a:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.emotion-0 .links__group.media {
+  display: none;
+}
+
+@media (min-width:1280px) {
+  .emotion-0 .links__group a {
+    border-bottom: none;
+    padding: 0;
+    width: auto;
+  }
+
+  .emotion-0 .links__group.media {
+    display: grid;
+  }
+}
+
+@media (min-width:768px) {
+  .emotion-0 {
+    padding-bottom: 0;
+  }
+
+  .emotion-0 .MuiDivider-root {
+    margin-bottom: 0;
+  }
+
+  .emotion-0 .footer__closing--container {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    padding: 8px 0px;
+  }
+}
+
+@media (min-width:1280px) {
+  .emotion-0 .MuiDivider-root {
+    margin-top: 40px;
+  }
+
+  .emotion-0 .footer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .emotion-0 .footer__links {
+    grid-column: 2/5;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 0;
+  }
+
+  .emotion-0 h3 {
+    font-size: 1.125rem;
+    margin-top: 0;
+  }
+
+  .emotion-0 .footer__social {
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
+  }
+}
+
+.emotion-1 .media {
+  margin: 0 0.5rem;
+}
+
+.emotion-1 .media:first-of-type {
+  margin-left: 0;
+}
+
+.emotion-1 .media:last-child {
+  margin-right: 0;
+}
+
+.emotion-1 .media path {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  fill: #414141;
+}
+
+.emotion-1 .media:hover path {
+  fill: rgba(65, 65, 65, 0.6);
+}
+
+.emotion-2 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
+  font-size: 0.875rem;
+  letter-spacing: 1.25px;
+  text-transform: none;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 500;
+  line-height: 1.75;
+  min-width: 64px;
+  padding: 6px 16px;
+  border-radius: 4px;
+  -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  color: #FFFFFF;
+  background-color: #FF835B;
+  box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
+  box-shadow: none;
+}
+
+.emotion-2::-moz-focus-inner {
+  border-style: none;
+}
+
+.emotion-2.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media print {
+  .emotion-2 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-2:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: rgb(178, 91, 63);
+  box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
+}
+
+@media (hover: none) {
+  .emotion-2:hover {
+    background-color: #FF835B;
+  }
+}
+
+.emotion-2:active {
+  box-shadow: 0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12);
+}
+
+.emotion-2.Mui-focusVisible {
+  box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 6px 10px 0px rgba(0,0,0,0.14),0px 1px 18px 0px rgba(0,0,0,0.12);
+}
+
+.emotion-2.Mui-disabled {
+  color: rgba(0, 0, 0, 0.26);
+  box-shadow: none;
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
+.emotion-2:hover {
+  box-shadow: none;
+}
+
+.emotion-2.Mui-focusVisible {
+  box-shadow: none;
+}
+
+.emotion-2:active {
+  box-shadow: none;
+}
+
+.emotion-2.Mui-disabled {
+  box-shadow: none;
+}
+
+.emotion-3 {
+  margin: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  border-width: 0;
+  border-style: solid;
+  border-color: #E8E8E8;
+  border-bottom-width: thin;
+}
+
+.emotion-4 {
+  margin: 0;
+  font-size: 1rem;
+  white-space: pre-wrap;
+  letter-spacing: 0.5px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
 <div
-  className="css-8sedic-root"
+  className="emotion-0"
 >
   <div
     className="footer"
@@ -99,7 +400,7 @@ exports[`component: layout/footer matches snapshot 1`] = `
           common:community
         </h3>
         <div
-          className=" css-4f6i8q-root social-media"
+          className=" emotion-1 social-media"
         >
           <a
             className="media telegram"
@@ -211,7 +512,7 @@ exports[`component: layout/footer matches snapshot 1`] = `
             target="_blank"
           >
             <button
-              className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation footer__donate-button css-4y1nw-MuiButtonBase-root-MuiButton-root"
+              className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation footer__donate-button emotion-2"
               disabled={false}
               onBlur={[Function]}
               onContextMenu={[Function]}
@@ -236,20 +537,20 @@ exports[`component: layout/footer matches snapshot 1`] = `
     </div>
   </div>
   <hr
-    className="MuiDivider-root MuiDivider-fullWidth css-l3fh2f-MuiDivider-root"
+    className="MuiDivider-root MuiDivider-fullWidth emotion-3"
   />
   <div
     className="footer__closing--container"
   >
     <p
-      className="MuiTypography-root MuiTypography-body1 footer__closing--text css-pfovru-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-body1 footer__closing--text emotion-4"
     >
       common:copyright
        
       2017
     </p>
     <p
-      className="MuiTypography-root MuiTypography-body1 footer__closing--text css-pfovru-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-body1 footer__closing--text emotion-4"
     >
       common:maintainBy
     </p>

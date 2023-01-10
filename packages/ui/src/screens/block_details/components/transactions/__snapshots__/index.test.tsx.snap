@@ -1,21 +1,74 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: BlockDetails/Transactions matches snapshot 1`] = `
+.emotion-0 {
+  min-height: 500px;
+  height: 50vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+@media (min-width:1280px) {
+  .emotion-0 {
+    height: 100%;
+  }
+}
+
+.emotion-1 {
+  margin-bottom: 16px;
+}
+
+@media (min-width:1280px) {
+  .emotion-1 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+  }
+}
+
+.emotion-2 {
+  margin: 0;
+  font-size: 1.5rem;
+  letter-spacing: 0;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.emotion-3 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
 <div
-  className="css-1eca23g-root"
+  className="emotion-0"
   id="Box"
 >
   <div
-    className="css-1ubov81-header"
+    className="emotion-1"
   >
     <h2
-      className="MuiTypography-root MuiTypography-h2 css-dcgvbp-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-h2 emotion-2"
     >
       transactions
     </h2>
   </div>
   <div
-    className="css-l0czsq-list"
+    className="emotion-3"
     hasNextPage={false}
     id="TransactionsList"
     isItemLoaded={[Function]}

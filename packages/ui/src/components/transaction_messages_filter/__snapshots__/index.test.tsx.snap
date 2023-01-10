@@ -1,6 +1,42 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`component: TransactionMessagesFilter it renders 1`] = `
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 4px;
+  background: #F8F8F8;
+  color: #777777;
+}
+
+.emotion-0 .MuiSelect-icon {
+  color: #777777;
+  right: 6px;
+}
+
+.emotion-0 .MuiSelect-select.MuiSelect-select {
+  padding-left: 16px;
+}
+
+.emotion-0 .MuiSelect-select.MuiSelect-select .MuiTypography-body1 {
+  margin-right: 16px;
+}
+
+@media (min-width:1280px) {
+  .emotion-0 {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+  }
+}
+
+.emotion-1 {
+  color: #777777;
+}
+
 <div
   IconComponent={
     {
@@ -24,7 +60,7 @@ exports[`component: TransactionMessagesFilter it renders 1`] = `
       },
     }
   }
-  className="css-rz82zp-select"
+  className="emotion-0"
   displayEmpty={true}
   id="Select"
   input={<Unknown />}
@@ -32,7 +68,7 @@ exports[`component: TransactionMessagesFilter it renders 1`] = `
   value=""
 >
   <div
-    className="css-1wohbvg-item"
+    className="emotion-1"
     id="MenuItem"
     onClick={[Function]}
     value="none"
@@ -46,7 +82,7 @@ exports[`component: TransactionMessagesFilter it renders 1`] = `
     </div>
   </div>
   <div
-    className="css-1wohbvg-item"
+    className="emotion-1"
     id="MenuItem"
     onClick={[Function]}
     value="bank"
@@ -60,7 +96,7 @@ exports[`component: TransactionMessagesFilter it renders 1`] = `
     </div>
   </div>
   <div
-    className="css-1wohbvg-item"
+    className="emotion-1"
     id="MenuItem"
     onClick={[Function]}
     value="crisis"
@@ -74,7 +110,7 @@ exports[`component: TransactionMessagesFilter it renders 1`] = `
     </div>
   </div>
   <div
-    className="css-1wohbvg-item"
+    className="emotion-1"
     id="MenuItem"
     onClick={[Function]}
     value="distribution"
@@ -88,7 +124,7 @@ exports[`component: TransactionMessagesFilter it renders 1`] = `
     </div>
   </div>
   <div
-    className="css-1wohbvg-item"
+    className="emotion-1"
     id="MenuItem"
     onClick={[Function]}
     value="governance"
@@ -102,7 +138,7 @@ exports[`component: TransactionMessagesFilter it renders 1`] = `
     </div>
   </div>
   <div
-    className="css-1wohbvg-item"
+    className="emotion-1"
     id="MenuItem"
     onClick={[Function]}
     value="slashing"
@@ -116,7 +152,7 @@ exports[`component: TransactionMessagesFilter it renders 1`] = `
     </div>
   </div>
   <div
-    className="css-1wohbvg-item"
+    className="emotion-1"
     id="MenuItem"
     onClick={[Function]}
     value="staking"
@@ -130,7 +166,7 @@ exports[`component: TransactionMessagesFilter it renders 1`] = `
     </div>
   </div>
   <div
-    className="css-1wohbvg-item"
+    className="emotion-1"
     id="MenuItem"
     onClick={[Function]}
     value="authz"
@@ -144,7 +180,7 @@ exports[`component: TransactionMessagesFilter it renders 1`] = `
     </div>
   </div>
   <div
-    className="css-1wohbvg-item"
+    className="emotion-1"
     id="MenuItem"
     onClick={[Function]}
     value="feegrant"
@@ -158,7 +194,7 @@ exports[`component: TransactionMessagesFilter it renders 1`] = `
     </div>
   </div>
   <div
-    className="css-1wohbvg-item"
+    className="emotion-1"
     id="MenuItem"
     onClick={[Function]}
     value="vesting"
@@ -172,7 +208,7 @@ exports[`component: TransactionMessagesFilter it renders 1`] = `
     </div>
   </div>
   <div
-    className="css-1wohbvg-item"
+    className="emotion-1"
     id="MenuItem"
     onClick={[Function]}
     value="profiles"
@@ -186,7 +222,7 @@ exports[`component: TransactionMessagesFilter it renders 1`] = `
     </div>
   </div>
   <div
-    className="css-1wohbvg-item"
+    className="emotion-1"
     id="MenuItem"
     onClick={[Function]}
     value="others"

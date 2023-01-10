@@ -1,8 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`component: TransactionsList it renders 1`] = `
+.emotion-0 {
+  height: 100%;
+}
+
+@media (min-width:1280px) {
+  .emotion-0 {
+    display: none;
+  }
+}
+
 <div
-  className="css-6rqupf-root-mobile"
+  className="emotion-0"
 >
   <div
     style={
