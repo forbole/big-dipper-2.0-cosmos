@@ -155,8 +155,7 @@ const styles = makeStyles((theme) => ({
       left: '54px',
     },
   },
-  networkList: {
-    width: '20%',
+  walletDetailsButton: {
     opacity: 0,
     visibility: 'hidden',
     transition: '0.2s ease-in-out',

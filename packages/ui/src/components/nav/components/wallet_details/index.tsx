@@ -35,7 +35,7 @@ const WalletDetails: React.FC<{
           {loggedIn ? <Avatar address={userAddress ?? ''} className={classes.avatar} /> : null}
         </div>
         <WalletDropDown
-          className={classnames(classes.networkList, {
+          className={classnames(classes.walletDetailsButton, {
             open: showWalletDetails,
           })}
         />
