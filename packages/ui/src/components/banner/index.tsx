@@ -3,7 +3,7 @@ import Box from '@/components/box';
 import { AnimatePresence, motion, Variants } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FC, useEffect, useRef, useState } from 'react';
+import { FC, useCallback, useEffect, useRef, useState } from 'react';
 
 export interface BannerLink {
   url: string;
@@ -67,6 +67,7 @@ const variants: Variants = {
 const Banner: FC<BannerProps> = ({ index = Math.floor(Math.random() * bannersLinks.length) }) => {
   const timer = useRef<NodeJS.Timeout>();
   const isRotated = useRef(false);
+  const isMouseOver = useRef(false);
   const [bannerIndex, setBannerIndex] = useState(Math.abs(index) % bannersLinks.length);
 
   const prevBannerIndex = (bannersLinks.length + bannerIndex - 1) % bannersLinks.length;
@@ -78,11 +79,18 @@ const Banner: FC<BannerProps> = ({ index = Math.floor(Math.random() * bannersLin
     setBannerIndex(Math.floor(Math.random() * bannersLinks.length));
     function rotateBanner() {
       isRotated.current = true;
-      setBannerIndex((prev) => (prev + 1) % bannersLinks.length);
+      if (!isMouseOver.current) setBannerIndex((prev) => (prev + 1) % bannersLinks.length);
       timer.current = setTimeout(() => rotateBanner(), ROTATE_TIMER);
     }
     timer.current = setTimeout(() => rotateBanner(), ROTATE_TIMER);
     return () => clearTimeout(timer.current);
+  }, []);
+
+  const handlerMouseOver = useCallback(() => {
+    isMouseOver.current = true;
+  }, []);
+  const handleMouseOut = useCallback(() => {
+    isMouseOver.current = false;
   }, []);
 
   return (
@@ -102,7 +110,14 @@ const Banner: FC<BannerProps> = ({ index = Math.floor(Math.random() * bannersLin
             />
           </Link>
         )}
-        <Link href={banner.url} target="_blank" rel="noreferrer" key={bannerIndex}>
+        <Link
+          href={banner.url}
+          target="_blank"
+          rel="noreferrer"
+          key={bannerIndex}
+          onMouseOver={handlerMouseOver}
+          onMouseOut={handleMouseOut}
+        >
           <MotionImage
             src={banner.img}
             fill
