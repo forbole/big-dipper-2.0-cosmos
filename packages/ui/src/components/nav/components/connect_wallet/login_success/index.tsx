@@ -45,7 +45,7 @@ const LoginSuccessDialog: React.FC<{
         <DialogActions>
           <div className={classes.actions}>
             <Button onClick={props.onContinue} color="primary" className={classes.actionsButton}>
-              <Typography variant="h3">{t('Continue')}</Typography>
+              <Typography variant="h3">{t('continue')}</Typography>
             </Button>
           </div>
         </DialogActions>

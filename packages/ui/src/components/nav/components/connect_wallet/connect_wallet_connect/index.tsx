@@ -85,7 +85,7 @@ const ConnectWalletConnectDialog: React.FC<{
         <DialogActions>
           <div className={classes.actions}>
             <Button onClick={handleConnectWallet} color="primary" className={classes.actionsButton}>
-              <Typography variant="h3">{t('Continue')}</Typography>
+              <Typography variant="h3">{t('continue')}</Typography>
             </Button>
           </div>
         </DialogActions>
