@@ -3,7 +3,7 @@ import Name from '@/components/name';
 import MsgAddLiquidity from '@/models/msg/clp/msg_add_liquidity';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { formatNumber, formatToken } from '@/utils/format_token';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import Trans from 'next-translate/Trans';
 import React, { FC } from 'react';
 

@@ -1,10 +1,12 @@
-import DocumentPage, { getInitialProps } from 'ui/pages/_document';
 import Document from 'next/document';
+import DocumentComponent, { getInitialProps, DocumentComponentProps } from 'ui/pages/_document';
 
-export default class MyDocument extends Document {
+class MyDocument extends Document<DocumentComponentProps> {
   render() {
-    return <DocumentPage />;
+    return <DocumentComponent emotionStyleTags={this.props.emotionStyleTags} />;
   }
 }
 
 MyDocument.getInitialProps = getInitialProps;
+
+export default MyDocument;

@@ -1,6 +1,6 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from 'tss-react/mui';
 
-const styles = makeStyles(() => ({
+const useStyles = makeStyles()(() => ({
   container: {
     display: 'inline-flex',
   },
@@ -28,4 +28,4 @@ const styles = makeStyles(() => ({
   },
 }));
 
-export const useStyles = () => styles();
+export default useStyles;

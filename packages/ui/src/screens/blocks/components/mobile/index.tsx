@@ -3,15 +3,13 @@ import Loading from '@/components/loading';
 import SingleBlockMobile from '@/components/single_block_mobile';
 import { useList, useListRow } from '@/hooks';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
-import { useStyles } from '@/screens/blocks/components/mobile/styles';
+import useStyles from '@/screens/blocks/components/mobile/styles';
 import type { ItemType } from '@/screens/blocks/types';
 import dayjs from '@/utils/dayjs';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { BLOCK_DETAILS } from '@/utils/go_to_page';
 import { mergeRefs } from '@/utils/merge_refs';
-import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
+import Divider from '@mui/material/Divider';
 import Link from 'next/link';
 import numeral from 'numeral';
 import { FC } from 'react';
@@ -37,10 +35,8 @@ const ListItem: FC<ListItemProps> = ({
   const { name, address, imageUrl } = useProfileRecoil(item.proposer);
   const formattedItem = {
     height: (
-      <Link href={BLOCK_DETAILS(item.height)} passHref>
-        <Typography variant="body1" className="value" component="a">
-          {numeral(item.height).format('0,0')}
-        </Typography>
+      <Link href={BLOCK_DETAILS(item.height)} className="value">
+        {numeral(item.height).format('0,0')}
       </Link>
     ),
     txs: numeral(item.txs).format('0,0'),
@@ -81,11 +77,11 @@ type MobileProps = {
 };
 
 const Mobile: FC<MobileProps> = ({ className, items, itemCount, loadMoreItems, isItemLoaded }) => {
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const { listRef, getRowHeight, setRowHeight } = useList();
 
   return (
-    <div className={classnames(className, classes.root)}>
+    <div className={cx(classes.root, className)}>
       <AutoSizer>
         {({ height, width }) => (
           <InfiniteLoader

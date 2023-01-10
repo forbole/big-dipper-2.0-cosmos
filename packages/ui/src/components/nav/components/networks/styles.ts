@@ -1,6 +1,6 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from 'tss-react/mui';
 
-const styles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   networkList: {
     display: 'flex',
     alignItems: 'flex-start',
@@ -20,4 +20,4 @@ const styles = makeStyles((theme) => ({
   },
 }));
 
-export const useStyles = () => styles();
+export default useStyles;

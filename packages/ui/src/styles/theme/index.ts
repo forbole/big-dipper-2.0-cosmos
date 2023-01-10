@@ -1,8 +1,9 @@
 import { darkThemeOverride } from '@/styles/theme/dark';
 import { deuteranopiaThemeOverride } from '@/styles/theme/deuteranopia';
+import hindMadurai from '@/styles/theme/hindMadurai';
 import { lightThemeOverride } from '@/styles/theme/light';
 import { tritanopiaThemeOverride } from '@/styles/theme/tritanopia';
-import { ThemeOptions } from '@material-ui/core/styles';
+import { ThemeOptions } from '@mui/material/styles';
 import * as R from 'ramda';
 
 /** Common themes that don't change across light and dark theme */
@@ -41,14 +42,6 @@ export const common: ThemeOptions = {
       '& .MuiTypography-body1': {
         whiteSpace: 'nowrap',
       },
-    },
-  },
-  props: {
-    MuiSvgIcon: {
-      htmlColor: '#999999', // same as custom /general /icons
-    },
-    MuiButton: {
-      disableElevation: true,
     },
   },
   typography: {
@@ -183,36 +176,59 @@ export const common: ThemeOptions = {
       },
     },
   },
-  overrides: {
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        '@font-face': [hindMadurai],
+      },
+    },
+    MuiSvgIcon: {
+      defaultProps: {
+        htmlColor: '#999999', // same as custom /general /icons
+      },
+    },
+    MuiButton: {
+      defaultProps: {
+        disableElevation: true,
+      },
+    },
     MuiTableHead: {
-      root: {
-        backgroundColor: 'initial',
+      styleOverrides: {
+        root: {
+          backgroundColor: 'initial',
+        },
       },
     },
     MuiTooltip: {
-      tooltip: {
-        backgroundColor: 'transparent',
+      styleOverrides: {
+        tooltip: {
+          backgroundColor: 'transparent',
+        },
       },
     },
     MuiTableCell: {
-      root: {
-        borderBottom: 'none',
-        padding: '0 16px',
-        height: '50px',
-        fontSize: '1rem',
+      styleOverrides: {
+        root: {
+          borderBottom: 'none',
+          padding: '0 16px',
+          height: '50px',
+          fontSize: '1rem',
+        },
       },
     },
     MuiTabs: {
-      root: {
-        // '& .MuiTabs-fixed': {
-        //   overflow: 'auto',
-        // },
-        '&.MuiTabs-root, & .MuiTab-root': {
-          minHeight: '40px',
-        },
-        '& .MuiTab-textColorInherit': {
-          opacity: 1,
-          fontSize: '1rem',
+      styleOverrides: {
+        root: {
+          // '& .MuiTabs-fixed': {
+          //   overflow: 'auto',
+          // },
+          '&.MuiTabs-root, & .MuiTab-root': {
+            minHeight: '40px',
+          },
+          '& .MuiTab-textColorInherit': {
+            opacity: 1,
+            fontSize: '1rem',
+          },
         },
       },
     },

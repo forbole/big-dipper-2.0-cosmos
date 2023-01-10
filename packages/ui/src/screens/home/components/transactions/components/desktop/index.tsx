@@ -1,18 +1,17 @@
 import Result from '@/components/result';
 import Tag from '@/components/tag';
-import { useStyles } from '@/screens/home/components/transactions/components/desktop/styles';
+import useStyles from '@/screens/home/components/transactions/components/desktop/styles';
 import { columns } from '@/screens/home/components/transactions/components/desktop/utils';
 import type { TransactionType } from '@/screens/home/components/transactions/types';
 import dayjs from '@/utils/dayjs';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { BLOCK_DETAILS, TRANSACTION_DETAILS } from '@/utils/go_to_page';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import { AnimatePresence, motion, Variants } from 'framer-motion';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
@@ -23,27 +22,36 @@ type DesktopProps = {
   items: TransactionType[];
 };
 
+const variants: Variants = {
+  initial: {
+    opacity: 0,
+    height: 50,
+    display: 'flex',
+    alignItems: 'center',
+    overflow: 'hidden',
+  },
+  animate: {
+    opacity: 1,
+    height: 50,
+    display: 'flex',
+    alignItems: 'center',
+    overflow: 'hidden',
+  },
+};
+
 const Desktop: FC<DesktopProps> = ({ className, items }) => {
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const { t } = useTranslation('transactions');
 
   const formattedData = items.map((x, i) => ({
     key: `${x.hash}-${i}`,
-    block: (
-      <Link href={BLOCK_DETAILS(x.height)} passHref>
-        <Typography variant="body1" component="a">
-          {numeral(x.height).format('0,0')}
-        </Typography>
-      </Link>
-    ),
+    block: <Link href={BLOCK_DETAILS(x.height)}>{numeral(x.height).format('0,0')}</Link>,
     hash: (
-      <Link href={TRANSACTION_DETAILS(x.hash)} passHref>
-        <Typography variant="body1" component="a">
-          {getMiddleEllipsis(x.hash, {
-            beginning: 4,
-            ending: 4,
-          })}
-        </Typography>
+      <Link href={TRANSACTION_DETAILS(x.hash)}>
+        {getMiddleEllipsis(x.hash, {
+          beginning: 4,
+          ending: 4,
+        })}
       </Link>
     ),
     type: (
@@ -58,7 +66,7 @@ const Desktop: FC<DesktopProps> = ({ className, items }) => {
   }));
 
   return (
-    <div className={classnames(className, classes.root)}>
+    <div className={cx(classes.root, className)}>
       <Table className={classes.table}>
         <TableHead>
           <TableRow>
@@ -74,24 +82,34 @@ const Desktop: FC<DesktopProps> = ({ className, items }) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {formattedData.map((row) => (
-            // eslint-disable-next-line react/no-array-index-key
-            <TableRow key={row.key}>
-              {columns.map((column) => {
-                const { key, align } = column;
-                const item = row[key as keyof typeof row];
-                return (
-                  <TableCell
-                    key={`${row.key}-${key}`}
-                    style={{ width: `${column.width}%` }}
-                    align={align}
-                  >
-                    {item}
-                  </TableCell>
-                );
-              })}
-            </TableRow>
-          ))}
+          <AnimatePresence initial={false}>
+            {formattedData.map((row) => (
+              // eslint-disable-next-line react/no-array-index-key
+              <TableRow key={row.key}>
+                {columns.map((column) => {
+                  const { key, align } = column;
+                  const item = row[key as keyof typeof row];
+                  return (
+                    <TableCell
+                      key={`${row.key}-${key}`}
+                      style={{ width: `${column.width}%` }}
+                      align={align}
+                    >
+                      <motion.div
+                        key={`${row.key}-${key}`}
+                        initial="initial"
+                        animate="animate"
+                        variants={variants}
+                        transition={{ duration: 0.3 }}
+                      >
+                        {item}
+                      </motion.div>
+                    </TableCell>
+                  );
+                })}
+              </TableRow>
+            ))}
+          </AnimatePresence>
         </TableBody>
       </Table>
     </div>

@@ -7,13 +7,13 @@ import Overview from '@/screens/account_details/components/overview';
 import Staking from '@/screens/account_details/components/staking';
 import Transactions from '@/screens/account_details/components/transactions';
 import { useAccountDetails } from '@/screens/account_details/hooks';
-import { useStyles } from '@/screens/account_details/styles';
+import useStyles from '@/screens/account_details/styles';
 import { NextSeo } from 'next-seo';
 import useTranslation from 'next-translate/useTranslation';
 
 const AccountDetails = () => {
   const { t } = useTranslation('accounts');
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { state } = useAccountDetails();
 
   return (

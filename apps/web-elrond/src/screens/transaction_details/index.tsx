@@ -9,10 +9,10 @@ import Operations from '@/screens/transaction_details/components/operations';
 import Overview from '@/screens/transaction_details/components/overview';
 import SmartContractResults from '@/screens/transaction_details/components/smart_contract_results';
 import { useTransactionDetails } from '@/screens/transaction_details/hooks';
-import { useStyles } from '@/screens/transaction_details/styles';
+import useStyles from '@/screens/transaction_details/styles';
 
 const TransactionDetails = () => {
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { t } = useTranslation('transactions');
   const { state } = useTransactionDetails();
   return (
@@ -28,8 +28,8 @@ const TransactionDetails = () => {
           <Overview {...state.overview} />
           {!!state.data && <Data data={state.data} />}
           {!!state.action && <Action {...state.action} />}
-          {!!state.operations.length && <Operations items={state.operations} />}
-          {!!state.results.length && <SmartContractResults results={state.results} />}
+          {!!state.operations?.length && <Operations items={state.operations} />}
+          {!!state.results?.length && <SmartContractResults results={state.results} />}
         </LoadAndExist>
       </Layout>
     </>

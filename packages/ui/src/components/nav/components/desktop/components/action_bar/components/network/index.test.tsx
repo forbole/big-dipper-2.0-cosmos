@@ -31,7 +31,9 @@ describe('screen: Nav/Network', () => {
 
   it('it calls toggle on click', () => {
     renderer.act(() => {
-      component.root.findByProps({ className: 'makeStyles-root' }).props.onClick();
+      component.root
+        .findByProps({ role: 'button', 'aria-label': 'desmos-mainnet' })
+        .props.onClick();
     });
     expect(mockToggleNetwork).toHaveBeenCalledTimes(1);
   });

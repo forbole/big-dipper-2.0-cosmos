@@ -1,12 +1,11 @@
 import { columns } from '@/components/desmos_profile/components/connections/components/desktop/utils';
 import { readDate } from '@/recoil/settings';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import classnames from 'classnames';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
 import useTranslation from 'next-translate/useTranslation';
 import { FC, ReactNode } from 'react';
 import { useRecoilValue } from 'recoil';
@@ -21,7 +20,7 @@ const Desktop: FC<DesktopProps> = ({ className, items }) => {
   const { t } = useTranslation('accounts');
 
   return (
-    <div className={classnames(className)}>
+    <div className={className}>
       <Table>
         <TableHead>
           <TableRow>

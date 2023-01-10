@@ -1,31 +1,28 @@
-import { useStyles } from '@/components/nav/components/mobile/components/navbar/styles';
+import useStyles from '@/components/nav/components/mobile/components/navbar/styles';
 import type { NavbarProps } from '@/components/nav/components/mobile/components/navbar/types';
 import { readSelectedNetwork } from '@/recoil/big_dipper_networks';
 import { readTheme } from '@/recoil/settings';
 import { HOME } from '@/utils/go_to_page';
-import ExpandMore from '@material-ui/icons/ExpandMore';
-import classnames from 'classnames';
+import ExpandMore from '@mui/icons-material/ExpandMore';
 import Link from 'next/link';
 import { useRecoilValue } from 'recoil';
 import BigDipperLogoRed from 'shared-utils/assets/big-dipper-red-sifchain.svg';
 import BigDipperLogoWhite from 'shared-utils/assets/big-dipper-white.svg';
 
 const Navbar = (props: NavbarProps) => {
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const theme = useRecoilValue(readTheme);
   const selected = useRecoilValue(readSelectedNetwork);
   const { isOpen, openNetwork, toggleNavMenus } = props;
 
   return (
     <div className={classes.root}>
-      <Link href={HOME}>
-        <a className={classes.a}>
-          {theme === 'light' ? (
-            <BigDipperLogoRed className={classes.logo} />
-          ) : (
-            <BigDipperLogoWhite className={classes.logo} />
-          )}
-        </a>
+      <Link href={HOME} className={classes.a}>
+        {theme === 'light' ? (
+          <BigDipperLogoRed className={classes.logo} />
+        ) : (
+          <BigDipperLogoWhite className={classes.logo} />
+        )}
       </Link>
       <div className={classes.actions}>
         {/* =================================== */}
@@ -47,7 +44,7 @@ const Navbar = (props: NavbarProps) => {
         <div
           role="button"
           onClick={toggleNavMenus}
-          className={classnames(classes.hamburger, {
+          className={cx(classes.hamburger, {
             active: isOpen,
           })}
           tabIndex={0}

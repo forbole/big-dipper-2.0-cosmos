@@ -1,10 +1,10 @@
-import { useGetStyles } from '@/screens/transaction_details/components/code_block/styles';
+import useStyles from '@/screens/transaction_details/components/code_block/styles';
 import React, { FC } from 'react';
 
 const CodeBlock: FC<{ message: string }> = (props) => {
   const { message } = props;
 
-  const { classes } = useGetStyles();
+  const { classes } = useStyles();
   return (
     <pre className={classes.root}>
       <code>

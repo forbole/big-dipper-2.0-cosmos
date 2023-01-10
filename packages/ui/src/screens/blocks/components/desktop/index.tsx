@@ -2,20 +2,18 @@ import AvatarName from '@/components/avatar_name';
 import Loading from '@/components/loading';
 import { useGrid } from '@/hooks';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
-import { useStyles } from '@/screens/blocks/components/desktop/styles';
+import useStyles from '@/screens/blocks/components/desktop/styles';
 import { columns } from '@/screens/blocks/components/desktop/utils';
 import type { ItemType } from '@/screens/blocks/types';
 import dayjs from '@/utils/dayjs';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { BLOCK_DETAILS } from '@/utils/go_to_page';
 import { mergeRefs } from '@/utils/merge_refs';
-import { PropTypes } from '@material-ui/core';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
+import Typography, { TypographyProps } from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
-import React, { CSSProperties, FC, LegacyRef, ReactNode } from 'react';
+import { CSSProperties, FC, LegacyRef, ReactNode } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { VariableSizeGrid as Grid } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
@@ -25,20 +23,18 @@ type BlockItemProps = {
   rowIndex: number;
   column: string;
   style: CSSProperties;
-  align: PropTypes.Alignment | undefined;
+  align?: TypographyProps['align'];
 };
 
 const BlockItem: FC<BlockItemProps> = ({ item, rowIndex, column, style, align }) => {
   const { name, address, imageUrl } = useProfileRecoil(item.proposer);
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   let formattedItem: ReactNode | null = null;
   switch (column) {
     case 'height':
       formattedItem = (
-        <Link href={BLOCK_DETAILS(item.height)} passHref>
-          <Typography variant="body1" className="value" component="a">
-            {numeral(item.height).format('0,0')}
-          </Typography>
+        <Link href={BLOCK_DETAILS(item.height)} className="value">
+          {numeral(item.height).format('0,0')}
         </Link>
       );
       break;
@@ -63,7 +59,7 @@ const BlockItem: FC<BlockItemProps> = ({ item, rowIndex, column, style, align })
   return (
     <div
       style={style}
-      className={classnames(classes.cell, classes.body, {
+      className={cx(classes.cell, classes.body, {
         odd: !(rowIndex % 2),
       })}
     >
@@ -90,11 +86,11 @@ const Desktop: FC<DesktopProps> = ({
   isItemLoaded,
 }) => {
   const { t } = useTranslation('blocks');
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
 
   return (
-    <div className={classnames(className, classes.root)}>
+    <div className={cx(classes.root, className)}>
       <AutoSizer onResize={onResize}>
         {({ height, width }) => (
           <>

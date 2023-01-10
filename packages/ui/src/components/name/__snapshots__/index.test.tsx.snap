@@ -2,7 +2,7 @@
 
 exports[`components: Name matches snapshot 1`] = `
 <a
-  className="MuiTypography-root makeStyles-root MuiTypography-body1"
+  className="css-avi0lv-root"
   href="/accounts/desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz"
   onClick={[Function]}
   onMouseEnter={[Function]}

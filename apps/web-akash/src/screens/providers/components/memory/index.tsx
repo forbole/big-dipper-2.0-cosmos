@@ -1,8 +1,7 @@
 import Box from '@/components/box';
 import CustomToolTip from '@/components/custom_tool_tip';
-import { useStyles } from '@/screens/providers/components/memory/styles';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
+import useStyles from '@/screens/providers/components/memory/styles';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
 import React, { FC } from 'react';
@@ -20,7 +19,7 @@ type MemoryProps = {
 
 const Memory: FC<MemoryProps> = ({ className, memory }) => {
   const { t } = useTranslation('providers');
-  const { classes, theme } = useStyles();
+  const { classes, cx, theme } = useStyles();
 
   const total = memory.available + memory.used;
 
@@ -44,7 +43,7 @@ const Memory: FC<MemoryProps> = ({ className, memory }) => {
   ];
 
   return (
-    <Box className={classnames(className, classes.root)}>
+    <Box className={cx(classes.root, className)}>
       <Typography variant="h2" className={classes.label}>
         {t('memory')}
       </Typography>

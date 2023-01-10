@@ -1,18 +1,17 @@
 import AvatarName from '@/components/avatar_name';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
-import { useStyles } from '@/screens/home/components/blocks/components/desktop/styles';
+import useStyles from '@/screens/home/components/blocks/components/desktop/styles';
 import { columns } from '@/screens/home/components/blocks/components/desktop/utils';
 import type { ItemType } from '@/screens/home/components/blocks/types';
 import dayjs from '@/utils/dayjs';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { BLOCK_DETAILS } from '@/utils/go_to_page';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import { AnimatePresence, motion, Variants } from 'framer-motion';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
@@ -22,15 +21,40 @@ type BlockRowProps = {
   item: ItemType;
 };
 
+const variants: Variants = {
+  initial: {
+    height: 0,
+    display: 'flex',
+    alignItems: 'center',
+    overflow: 'hidden',
+    clipPath: 'inset(0 50 0 50)',
+  },
+  animate: {
+    height: 50,
+    display: 'flex',
+    alignItems: 'center',
+    overflow: 'hidden',
+    clipPath: 'inset(0 0 0 0)',
+  },
+  exit: {
+    height: 50,
+    display: 'flex',
+    alignItems: 'center',
+    overflow: 'hidden',
+    position: 'absolute',
+    marginTop: [50, 60],
+    opacity: 0,
+    transition: { duration: 0.5 },
+  },
+};
+
 const BlockRow: FC<BlockRowProps> = ({ item }) => {
   const { name, address, imageUrl } = useProfileRecoil(item.proposer);
 
   const formattedData = {
     height: (
-      <Link href={BLOCK_DETAILS(item.height)} passHref>
-        <Typography variant="body1" className="value" component="a">
-          {numeral(item.height).format('0,0')}
-        </Typography>
+      <Link href={BLOCK_DETAILS(item.height)} className="value">
+        {numeral(item.height).format('0,0')}
       </Link>
     ),
     txs: numeral(item.txs).format('0,0'),
@@ -47,7 +71,16 @@ const BlockRow: FC<BlockRowProps> = ({ item }) => {
         const { key, align } = column;
         return (
           <TableCell key={`${item.height}-${key}`} align={align}>
-            {formattedData[key as keyof typeof formattedData]}
+            <motion.div
+              key={`${item.height}-${key}`}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              variants={variants}
+              transition={{ duration: 1.5 }}
+            >
+              {formattedData[key as keyof typeof formattedData]}
+            </motion.div>
           </TableCell>
         );
       })}
@@ -62,10 +95,10 @@ type DesktopProps = {
 
 const Desktop: FC<DesktopProps> = ({ className, items }) => {
   const { t } = useTranslation('blocks');
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
 
   return (
-    <div className={classnames(className, classes.root)}>
+    <div className={cx(classes.root, className)}>
       <Table className={classes.table}>
         <TableHead>
           <TableRow>
@@ -77,9 +110,11 @@ const Desktop: FC<DesktopProps> = ({ className, items }) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {items.map((row) => (
-            <BlockRow key={row.height} item={row} />
-          ))}
+          <AnimatePresence initial={false}>
+            {items.map((row) => (
+              <BlockRow key={row.height} item={row} />
+            ))}
+          </AnimatePresence>
         </TableBody>
       </Table>
     </div>

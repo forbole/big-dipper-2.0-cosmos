@@ -9,10 +9,10 @@ import Overview from '@/screens/node_details/components/overview';
 import Profile from '@/screens/node_details/components/profile';
 import Stats from '@/screens/node_details/components/stats';
 import { useNodeDetails } from '@/screens/node_details/hooks';
-import { useStyles } from '@/screens/node_details/styles';
+import useStyles from '@/screens/node_details/styles';
 
 const NodeDetails = () => {
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { t } = useTranslation('nodes');
   const { state } = useNodeDetails();
   return (

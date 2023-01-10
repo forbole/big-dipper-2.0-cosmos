@@ -2,22 +2,16 @@ import Box from '@/components/box';
 import Pagination from '@/components/pagination';
 import { usePagination, useScreenSize } from '@/hooks';
 import useShallowMemo from '@/hooks/useShallowMemo';
-import { useStyles } from '@/screens/profile_details/components/connections/styles';
-import Typography from '@material-ui/core/Typography';
+import Desktop from '@/screens/profile_details/components/connections/components/desktop';
+import Mobile from '@/screens/profile_details/components/connections/components/mobile';
+import useStyles from '@/screens/profile_details/components/connections/styles';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
-import dynamic from 'next/dynamic';
-import React, { FC, useMemo } from 'react';
-
-const Desktop = dynamic(
-  () => import('@/screens/profile_details/components/connections/components/desktop')
-);
-const Mobile = dynamic(
-  () => import('@/screens/profile_details/components/connections/components/mobile')
-);
+import { FC, useMemo } from 'react';
 
 const Connections: FC<{ data: ProfileConnectionType[] }> = ({ data }) => {
   const { isDesktop } = useScreenSize();
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { t } = useTranslation('accounts');
   const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange, sliceItems } =
     usePagination({});

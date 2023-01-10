@@ -4,7 +4,6 @@ import type { OverviewType } from '@/screens/miniblock_details/types';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
 import { getShardDisplay } from '@/utils/get_shard_display';
 import { BLOCK_DETAILS } from '@/utils/go_to_page';
-import Typography from '@material-ui/core/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import { FC } from 'react';
@@ -39,24 +38,12 @@ const Overview: FC<OverviewType & ComponentDefault> = (props) => {
     {
       key: 'senderBlockHash',
       label: t('senderBlockHash'),
-      detail: (
-        <Link href={BLOCK_DETAILS(props.senderBlockHash)} passHref>
-          <Typography variant="body1" component="a">
-            {props.senderBlockHash}
-          </Typography>
-        </Link>
-      ),
+      detail: <Link href={BLOCK_DETAILS(props.senderBlockHash)}>{props.senderBlockHash}</Link>,
     },
     {
       key: 'receiverBlockHash',
       label: t('receiverBlockHash'),
-      detail: (
-        <Link href={BLOCK_DETAILS(props.receiverBlockHash)} passHref>
-          <Typography variant="body1" component="a">
-            {props.receiverBlockHash}
-          </Typography>
-        </Link>
-      ),
+      detail: <Link href={BLOCK_DETAILS(props.receiverBlockHash)}>{props.receiverBlockHash}</Link>,
     },
     {
       key: 'time',

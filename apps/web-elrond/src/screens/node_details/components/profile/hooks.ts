@@ -7,7 +7,7 @@ export const useProfile = (t: Translate) => {
   const handleCopyToClipboard = useCallback(
     (value: string) => {
       copy(value);
-      toast(t('common:copied'));
+      toast<string>(t('common:copied'));
     },
     [t]
   );

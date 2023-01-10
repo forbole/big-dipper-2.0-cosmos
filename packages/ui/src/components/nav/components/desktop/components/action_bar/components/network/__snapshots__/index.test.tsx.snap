@@ -3,18 +3,18 @@
 exports[`screen: Nav/Network it renders 1`] = `
 <div
   aria-label="desmos-mainnet"
-  className="makeStyles-root"
+  className="css-1ovmrev-root"
   onClick={[MockFunction]}
   role="button"
   tabIndex={0}
 >
   <span
-    className="makeStyles-icon makeStyles-container"
+    className="css-1s680oh-icon-container"
   >
     <img
       alt="icon"
-      className="makeStyles-dark"
-      data-nimg="future"
+      className="css-4nmqpx-dark"
+      data-nimg="1"
       decoding="async"
       height={0}
       loading="lazy"
@@ -30,8 +30,8 @@ exports[`screen: Nav/Network it renders 1`] = `
     />
     <img
       alt="icon"
-      className="makeStyles-light"
-      data-nimg="future"
+      className="css-13ot6lo-light"
+      data-nimg="1"
       decoding="async"
       height={0}
       loading="lazy"
@@ -47,19 +47,20 @@ exports[`screen: Nav/Network it renders 1`] = `
     />
   </span>
   <p
-    className="MuiTypography-root MuiTypography-body1"
+    className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
   >
     desmos-mainnet
   </p>
   <svg
     aria-hidden={true}
-    className="MuiSvgIcon-root"
+    className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
     color="#999999"
+    data-testid="ExpandMoreIcon"
     focusable="false"
     viewBox="0 0 24 24"
   >
     <path
-      d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+      d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
     />
   </svg>
 </div>

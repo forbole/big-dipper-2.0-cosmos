@@ -1,21 +1,11 @@
 import { expect, test } from '@playwright/test';
+import { abortLoadingAssets, waitForClick, waitForMenuItemClick, waitForReady } from './common';
 
 test('home page', async ({ page, isMobile }) => {
-  // Test url
-  await Promise.all([page.waitForNavigation(), page.goto('.')]);
-  await expect(page.getByRole('progressbar')).toHaveCount(0);
+  await abortLoadingAssets(page);
 
-  // Test click overview
-  if (isMobile) await page.getByRole('button', { name: 'open navigation menu' }).first().click();
-  await Promise.all([
-    page.waitForNavigation(),
-    page.getByRole('link', { name: 'Overview' }).first().click(),
-  ]);
-  await expect(page.getByRole('progressbar')).toHaveCount(0);
-
-  if (await page.getByRole('button', { name: 'close navigation menu' }).isVisible()) {
-    await page.getByRole('button', { name: 'close navigation menu' }).click();
-  }
+  await page.goto('.');
+  await waitForReady(page);
 
   // Test a title
   await expect(page).toHaveTitle(/Big Dipper/);
@@ -49,20 +39,22 @@ test('home page', async ({ page, isMobile }) => {
   }
 
   // Test 'See More' blocks button
-  await Promise.all([
-    page.waitForNavigation({ url: /\/blocks/ }),
-    page.getByRole('link', { name: 'see more blocks' }).first().click(),
-  ]);
+  await waitForClick(
+    'ul > a.active[href="/blocks"]',
+    page.getByRole('link', { name: 'see more blocks' }),
+    isMobile
+  );
 
-  if (isMobile) await page.getByRole('button', { name: 'open navigation menu' }).first().click();
-  await Promise.all([
-    page.waitForNavigation(),
-    page.getByRole('link', { name: 'Overview' }).first().click(),
-  ]);
+  await waitForMenuItemClick(
+    'ul > a.active[href="/"]',
+    page.getByRole('link', { name: 'Overview' }),
+    isMobile
+  );
 
   // Test 'See More' transactions button
-  await Promise.all([
-    page.waitForNavigation({ url: /\/transactions/ }),
-    page.getByRole('link', { name: 'see more txs' }).first().click(),
-  ]);
+  await waitForClick(
+    'ul > a.active[href="/transactions"]',
+    page.getByRole('link', { name: 'see more txs' }),
+    isMobile
+  );
 });

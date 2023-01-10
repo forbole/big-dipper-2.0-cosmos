@@ -1,7 +1,7 @@
 import chainConfig from '@/chainConfig';
 import type { useDesmosProfile } from '@/hooks';
 import { useProfileDetails } from '@/screens/profile_details/hooks';
-import { act, cleanup, renderHook } from '@testing-library/react-hooks';
+import { act, cleanup, renderHook } from '@testing-library/react';
 import { useMemo } from 'react';
 
 const { extra, prefix } = chainConfig();

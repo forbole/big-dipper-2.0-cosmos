@@ -1,7 +1,7 @@
 import Name from '@/components/name';
 import MsgRequestData from '@/models/msg/oracle/msg_request_data';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import Trans from 'next-translate/Trans';
 import numeral from 'numeral';
 import React, { FC } from 'react';

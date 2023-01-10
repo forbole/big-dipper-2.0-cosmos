@@ -1,7 +1,7 @@
-import { useStyles } from '@/components/banner/styles';
+import useStyles from '@/components/banner/styles';
 import Box from '@/components/box';
 
-import Image from 'next/future/image';
+import Image from 'next/image';
 import Link from 'next/link';
 import { FC, useRef } from 'react';
 
@@ -50,14 +50,12 @@ type BannerProps = {
 const Banner: FC<BannerProps> = ({ index = Math.floor(Math.random() * bannersLinks.length) }) => {
   const bannerIndex = useRef(Math.abs(index) % bannersLinks.length);
   const banner = bannersLinks[bannerIndex.current];
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   return (
     <Box className={classes.root}>
-      <Link href={banner.url}>
-        <a target="_blank" rel="noreferrer">
-          <Image src={banner.img} fill alt="banner" unoptimized />
-        </a>
+      <Link href={banner.url} target="_blank" rel="noreferrer">
+        <Image src={banner.img} fill alt="banner" unoptimized />
       </Link>
     </Box>
   );

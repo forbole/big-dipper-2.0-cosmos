@@ -1,11 +1,10 @@
 import AvatarName from '@/components/avatar_name';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
-import { useStyles } from '@/screens/account_details/components/staking/components/delegations/components/mobile/styles';
+import useStyles from '@/screens/account_details/components/staking/components/delegations/components/mobile/styles';
 import type { ItemType } from '@/screens/account_details/components/staking/components/delegations/types';
 import { formatNumber } from '@/utils/format_token';
-import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
+import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import { FC } from 'react';
 
@@ -16,7 +15,7 @@ type DelegationsItemProps = {
 
 const DelegationsItem: FC<DelegationsItemProps> = ({ item, isLast }) => {
   const { name, address, imageUrl } = useProfileRecoil(item.validator);
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { t } = useTranslation('accounts');
   return (
     <>
@@ -67,7 +66,7 @@ type MobileProps = {
 };
 
 const Mobile: FC<MobileProps> = ({ className, items }) => (
-  <div className={classnames(className)}>
+  <div className={className}>
     {items?.map((x, i) => (
       // eslint-disable-next-line react/no-array-index-key
       <DelegationsItem key={`${x.validator}-${i}`} item={x} isLast={i === items.length - 1} />

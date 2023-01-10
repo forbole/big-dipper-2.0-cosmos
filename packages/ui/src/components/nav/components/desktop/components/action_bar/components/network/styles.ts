@@ -1,6 +1,6 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from 'tss-react/mui';
 
-const styles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   root: {
     padding: theme.spacing(0.8, 2),
     background: theme.palette.background.paper,
@@ -22,4 +22,4 @@ const styles = makeStyles((theme) => ({
   },
 }));
 
-export const useStyles = () => styles();
+export default useStyles;

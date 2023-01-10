@@ -1,19 +1,13 @@
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles } from 'tss-react/mui';
 
-const styles = makeStyles(
-  () => ({
-    chart: {
-      height: '285px',
-      width: '100%',
-      '& .yAxis .recharts-cartesian-axis-tick:first-child': {
-        display: 'none',
-      },
+const useStyles = makeStyles()(() => ({
+  chart: {
+    height: '285px',
+    width: '100%',
+    '& .yAxis .recharts-cartesian-axis-tick:first-of-type': {
+      display: 'none',
     },
-  }),
-  { index: 1 }
-);
+  },
+}));
 
-export const useStyles = () => ({
-  classes: styles(),
-  theme: useTheme(),
-});
+export default useStyles;

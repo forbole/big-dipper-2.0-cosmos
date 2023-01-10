@@ -1,6 +1,7 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { CSSObject } from '@emotion/react';
+import { makeStyles } from 'tss-react/mui';
 
-const styles = makeStyles((theme) => {
+const useStyles = makeStyles()((theme) => {
   const OPEN_DRAWER_WIDTH = 230;
   const CLOSED_DRAWER_WIDTH = 59;
 
@@ -19,7 +20,7 @@ const styles = makeStyles((theme) => {
     },
     appBar: {
       '&&': {
-        ...theme.mixins.toolbar,
+        ...(theme.mixins.toolbar as CSSObject),
         display: 'flex',
         alignItems: 'flex-end',
         justifyContent: 'flex-start',
@@ -69,4 +70,4 @@ const styles = makeStyles((theme) => {
   };
 });
 
-export const useStyles = () => styles();
+export default useStyles;

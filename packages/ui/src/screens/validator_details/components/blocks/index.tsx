@@ -4,10 +4,9 @@ import Box from '@/components/box';
 import Result from '@/components/result';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { useBlocks } from '@/screens/validator_details/components/blocks/hooks';
-import { useStyles } from '@/screens/validator_details/components/blocks/styles';
-import Tooltip from '@material-ui/core/Tooltip';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
+import useStyles from '@/screens/validator_details/components/blocks/styles';
+import Tooltip from '@mui/material/Tooltip';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
 import { FC } from 'react';
@@ -21,7 +20,7 @@ type BlockBoxProps = {
 const BlockBox: FC<BlockBoxProps> = ({ i, item, state }) => {
   const { address, imageUrl, name } = useProfileRecoil(item.proposer);
   const { t } = useTranslation('validators');
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   return (
     <Tooltip
       key={item.height}
@@ -62,7 +61,7 @@ const BlockBox: FC<BlockBoxProps> = ({ i, item, state }) => {
     >
       <div
         key={item.txs}
-        className={classnames(classes.singleBlock, {
+        className={cx(classes.singleBlock, {
           signed: state[i].signed,
         })}
       />
@@ -73,9 +72,9 @@ const BlockBox: FC<BlockBoxProps> = ({ i, item, state }) => {
 const Blocks: FC<ComponentDefault> = ({ className }) => {
   const { t } = useTranslation('validators');
   const { state, loading } = useBlocks();
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   return (
-    <Box className={classnames(className, classes.root)}>
+    <Box className={cx(classes.root, className)}>
       <Typography variant="h2">{t('lastBlocks')}</Typography>
       {loading && <Loading />}
       <div className={classes.blocks}>

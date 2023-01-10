@@ -1,9 +1,8 @@
 import ChainIcon from '@/components/ChainIcon';
-import { useStyles } from '@/components/nav/components/title_bar/styles';
+import useStyles from '@/components/nav/components/title_bar/styles';
 import { formatMarket } from '@/components/nav/components/title_bar/utils';
 import { readMarket } from '@/recoil/market';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import React, { FC } from 'react';
 import { useRecoilValue } from 'recoil';
@@ -15,13 +14,13 @@ type TitleBarProps = {
 
 const TitleBar: FC<TitleBarProps> = ({ className, title }) => {
   const { t } = useTranslation('common');
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const marketState = useRecoilValue(readMarket);
 
   const market = formatMarket(marketState);
 
   return (
-    <div className={classnames(className, classes.root)}>
+    <div className={cx(classes.root, className)}>
       {title ? (
         <Typography variant="h1">{title}</Typography>
       ) : (

@@ -7,7 +7,6 @@ exports[`screen: Validators/List matches snapshot 1`] = `
   loading={false}
 >
   <div
-    className=""
     id="Box"
   >
     <div
@@ -17,8 +16,30 @@ exports[`screen: Validators/List matches snapshot 1`] = `
       tab={0}
     />
     <div
-      className="makeStyles-list"
-    />
+      className="css-1o2kqtb-list"
+    >
+      <div
+        className="css-lz3tfi-mobile"
+        id="Mobile"
+        items={
+          [
+            {
+              "commission": 10,
+              "condition": -Infinity,
+              "jailed": false,
+              "liquidStaking": "Yes",
+              "status": 3,
+              "tombstoned": false,
+              "topVotingPower": true,
+              "validator": undefined,
+              "votingPower": 22,
+              "votingPowerPercent": 5.593712118482551e-10,
+            },
+          ]
+        }
+        search=""
+      />
+    </div>
   </div>
 </div>
 `;
