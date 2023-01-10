@@ -1,7 +1,5 @@
-import chainConfig from '@/chainConfig';
 import type { AtRule } from 'csstype';
 
-const { basePath } = chainConfig();
 const hindMadurai: AtRule.FontFace = {
   fontFamily: 'Hind Madurai',
   fontStyle: 'normal',
@@ -10,7 +8,7 @@ const hindMadurai: AtRule.FontFace = {
   src: `
     local('HindMadurai'),
     local('HindMadurai-Regular'),
-    url(${basePath}/fonts/HindMadurai-Regular.woff2) format('woff2')
+    url(https://bigdipper.live/cosmos/fonts/HindMadurai-Regular.woff2) format('woff2')
   `,
 };
 

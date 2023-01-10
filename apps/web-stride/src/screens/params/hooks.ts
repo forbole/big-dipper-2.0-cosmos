@@ -124,15 +124,14 @@ const formatGov = (data: ParamsQuery) => {
 // distribution
 // ================================
 
-const formatStakeibc = (data: ParamsQuery) => {
-  if (data.stakeibcParams.length) {
-    const stakeibcParamsRaw = StakeibcParams(data?.stakeibcParams?.[0]?.params);
-    return stakeibcParamsRaw;
-  }
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const formatStakeibc = (data: ParamsQuery) =>
+  // if (data.stakeibcParams.length) {
+  //   const stakeibcParamsRaw = StakeibcParams(data?.stakeibcParams?.[0]?.params);
+  //   return stakeibcParamsRaw;
+  // }
 
-  return null;
-};
-
+  null;
 const formatParam = (data: ParamsQuery) => {
   const results: Partial<ParamsState> = {};
 
@@ -166,13 +165,15 @@ export const useParams = () => {
   // ================================
   useParamsQuery({
     onError: () => {
+      debugger;
       handleSetState((prevState) => ({ ...prevState, loading: false }));
     },
     onCompleted: (data) => {
+      debugger;
       handleSetState((prevState) => ({
         ...prevState,
-        loading: false,
         ...formatParam(data),
+        loading: false,
       }));
     },
   });
