@@ -1,7 +1,7 @@
 import chainConfig from '@/chainConfig';
 import { ParamsQuery, useParamsQuery } from '@/graphql/types/general_types';
 import { DistributionParams, GovParams, MintParams, SlashingParams, StakingParams } from '@/models';
-import StakeibcParams from '@/models/stakeibc_params';
+// import StakeibcParams from '@/models/stakeibc_params';
 import type { ParamsState } from '@/screens/params/types';
 import { formatToken } from '@/utils/format_token';
 import numeral from 'numeral';
@@ -165,11 +165,9 @@ export const useParams = () => {
   // ================================
   useParamsQuery({
     onError: () => {
-      debugger;
       handleSetState((prevState) => ({ ...prevState, loading: false }));
     },
     onCompleted: (data) => {
-      debugger;
       handleSetState((prevState) => ({
         ...prevState,
         ...formatParam(data),
