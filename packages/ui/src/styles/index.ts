@@ -5,7 +5,7 @@ import {
   lightTemplate,
   tritanopiaTemplate,
 } from '@/styles/theme';
-import { ThemeOptions } from '@material-ui/core/styles';
+import { ThemeOptions } from '@mui/material/styles';
 
 const { themes } = chainConfig();
 type ThemeDictionaryType = { [theme: string]: ThemeOptions };

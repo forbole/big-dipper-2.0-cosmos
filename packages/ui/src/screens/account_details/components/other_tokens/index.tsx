@@ -2,20 +2,14 @@ import Box from '@/components/box';
 import Pagination from '@/components/pagination';
 import { usePagination, useScreenSize } from '@/hooks';
 import useShallowMemo from '@/hooks/useShallowMemo';
-import { useStyles } from '@/screens/account_details/components/other_tokens/styles';
+import useStyles from '@/screens/account_details/components/other_tokens/styles';
 import type { OtherTokenType } from '@/screens/account_details/types';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
-import dynamic from 'next/dynamic';
-import React, { FC, useMemo } from 'react';
+import { FC, useMemo } from 'react';
 
-const Desktop = dynamic(
-  () => import('@/screens/account_details/components/other_tokens/components/desktop')
-);
-const Mobile = dynamic(
-  () => import('@/screens/account_details/components/other_tokens/components/mobile')
-);
+import Desktop from '@/screens/account_details/components/other_tokens/components/desktop';
+import Mobile from '@/screens/account_details/components/other_tokens/components/mobile';
 
 type OtherTokensProps = {
   className?: string;
@@ -28,7 +22,7 @@ type OtherTokensProps = {
 const OtherTokens: FC<OtherTokensProps> = ({ className, otherTokens }) => {
   const { t } = useTranslation('accounts');
   const { isDesktop } = useScreenSize();
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange, sliceItems } =
     usePagination({});
   const dataMemo = useShallowMemo(otherTokens.data);
@@ -40,7 +34,7 @@ const OtherTokens: FC<OtherTokensProps> = ({ className, otherTokens }) => {
   }
 
   return (
-    <Box className={classnames(className)}>
+    <Box className={className}>
       <Typography variant="h2">{t('otherTokens')}</Typography>
 
       {isDesktop ? (

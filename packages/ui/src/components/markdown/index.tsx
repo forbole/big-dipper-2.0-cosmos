@@ -1,8 +1,7 @@
 import DOMPurify from 'dompurify';
 import ReactMarkdown from 'markdown-to-jsx';
-// import { withStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-// import Link from '@material-ui/core/Link';
+import Typography from '@mui/material/Typography';
+// import Link from '@mui/material/Link';
 
 // const styles = (theme) => ({
 //   listItem: {
@@ -13,70 +12,90 @@ import Typography from '@material-ui/core/Typography';
 const options = {
   // disableParsingRawHTML: true,
   forceBlock: true,
-  overrides: {
+  components: {
     h1: {
-      component: Typography,
-      props: {
-        variant: 'h1',
+      styleOverrides: {
+        component: Typography,
+        props: {
+          variant: 'h1',
+        },
       },
     },
     h2: {
-      component: Typography,
-      props: {
-        variant: 'h2',
+      styleOverrides: {
+        component: Typography,
+        props: {
+          variant: 'h2',
+        },
       },
     },
     h3: {
-      component: Typography,
-      props: {
-        variant: 'h3',
+      styleOverrides: {
+        component: Typography,
+        props: {
+          variant: 'h3',
+        },
       },
     },
     h4: {
-      component: Typography,
-      props: {
-        variant: 'h4',
+      styleOverrides: {
+        component: Typography,
+        props: {
+          variant: 'h4',
+        },
       },
     },
     h5: {
-      component: Typography,
-      props: {
-        variant: 'h5',
+      styleOverrides: {
+        component: Typography,
+        props: {
+          variant: 'h5',
+        },
       },
     },
     h6: {
-      component: Typography,
-      props: {
-        variant: 'h6',
+      styleOverrides: {
+        component: Typography,
+        props: {
+          variant: 'h6',
+        },
       },
     },
     default: {
-      component: Typography,
-      props: {
-        variant: 'h6',
-        // variant: 'body1',
+      styleOverrides: {
+        component: Typography,
+        props: {
+          variant: 'h6',
+          // variant: 'body1',
+        },
       },
     },
     p: {
-      component: Typography,
-      props: {
-        variant: 'body1',
+      styleOverrides: {
+        component: Typography,
+        props: {
+          variant: 'body1',
+        },
       },
     },
     span: {
-      component: Typography,
-      props: {
-        variant: 'body1',
+      styleOverrides: {
+        component: Typography,
+        props: {
+          variant: 'body1',
+        },
       },
     },
     // li: {
-    //   component: withStyles(styles)(({
-    //     classes, ...props
-    //   }) => (
-    //     <li className={classes.listItem}>
-    //       <Typography component="span" {...props} />
-    //     </li>
-    //   )),
+    //   styleOverrides: {
+    //     component: withStyles(styles)(({
+    //       classes, ...props
+    //     }) => (
+    //       <li className={classes.listItem}>
+    //         <Typography component="span" {...props} />
+    //       </li>
+    //     )),
+    //   },
     // },
   },
 };

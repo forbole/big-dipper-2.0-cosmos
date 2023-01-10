@@ -1,7 +1,7 @@
 import Loading from '@/components/loading';
 import Result from '@/components/result';
 import Tag from '@/components/tag';
-import { useStyles } from '@/components/transactions_list/components/desktop/styles';
+import useStyles from '@/components/transactions_list/components/desktop/styles';
 import { columns } from '@/components/transactions_list/components/desktop/utils';
 import type { TransactionsListState } from '@/components/transactions_list/types';
 import { useGrid } from '@/hooks';
@@ -9,12 +9,11 @@ import dayjs from '@/utils/dayjs';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { BLOCK_DETAILS, TRANSACTION_DETAILS } from '@/utils/go_to_page';
 import { mergeRefs } from '@/utils/merge_refs';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
-import React, { FC, LegacyRef } from 'react';
+import { FC, LegacyRef } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { VariableSizeGrid as Grid } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
@@ -28,25 +27,17 @@ const Desktop: FC<TransactionsListState> = ({
 }) => {
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
 
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const { t } = useTranslation('transactions');
 
   const items = transactions.map((x) => ({
-    block: (
-      <Link href={BLOCK_DETAILS(x.height)} passHref>
-        <Typography variant="body1" component="a">
-          {numeral(x.height).format('0,0')}
-        </Typography>
-      </Link>
-    ),
+    block: <Link href={BLOCK_DETAILS(x.height)}>{numeral(x.height).format('0,0')}</Link>,
     hash: (
-      <Link href={TRANSACTION_DETAILS(x.hash)} passHref>
-        <Typography variant="body1" component="a">
-          {getMiddleEllipsis(x.hash, {
-            beginning: 4,
-            ending: 4,
-          })}
-        </Typography>
+      <Link href={TRANSACTION_DETAILS(x.hash)}>
+        {getMiddleEllipsis(x.hash, {
+          beginning: 4,
+          ending: 4,
+        })}
       </Link>
     ),
     type: (
@@ -60,7 +51,7 @@ const Desktop: FC<TransactionsListState> = ({
     messages: numeral(x.messages.count).format('0,0'),
   }));
   return (
-    <div className={classnames(className, classes.root)}>
+    <div className={cx(classes.root, className)}>
       <AutoSizer onResize={onResize}>
         {({ height, width }) => (
           <>
@@ -148,7 +139,7 @@ const Desktop: FC<TransactionsListState> = ({
                     return (
                       <div
                         style={style}
-                        className={classnames(classes.cell, classes.body, {
+                        className={cx(classes.cell, classes.body, {
                           odd: !(rowIndex % 2),
                         })}
                       >

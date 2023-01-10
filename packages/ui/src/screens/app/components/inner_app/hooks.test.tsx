@@ -1,5 +1,6 @@
 import { useChainHealthCheck } from '@/screens/app/components/inner_app/hooks';
-import { cleanup, renderHook } from '@testing-library/react-hooks';
+import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
+import { cleanup, renderHook } from '@testing-library/react';
 
 const mockI18n = {
   t: (key: string) => key,
@@ -14,7 +15,10 @@ jest.mock('react-toastify', () => ({
 
 describe('hook: useChainHealthCheck', () => {
   test('handles open correctly', () => {
-    renderHook(() => useChainHealthCheck());
+    const mockClient = new ApolloClient({ link: from([]), cache: new InMemoryCache() });
+    renderHook(() => useChainHealthCheck(), {
+      wrapper: ({ children }) => <ApolloProvider client={mockClient}>{children}</ApolloProvider>,
+    });
   });
 });
 

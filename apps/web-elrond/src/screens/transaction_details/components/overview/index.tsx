@@ -4,23 +4,23 @@ import AvatarName from '@/components/avatar_name';
 import BoxDetails from '@/components/box_details';
 import Result from '@/components/result';
 import { readDate } from '@/recoil/settings';
-import { useStyles } from '@/screens/transaction_details/components/overview/styles';
+import useStyles from '@/screens/transaction_details/components/overview/styles';
 import type { OverviewType } from '@/screens/transaction_details/types';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
 import { formatNumber } from '@/utils/format_token';
 import { getShardDisplay } from '@/utils/get_shard_display';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { useRecoilValue } from 'recoil';
 
 const { primaryTokenUnit } = chainConfig();
 
 const Overview: FC<OverviewType & ComponentDefault> = (props) => {
   const { t } = useTranslation('transactions');
-  const classes = useStyles();
+  const { classes } = useStyles();
   const dateFormat = useRecoilValue(readDate);
   const senderShard = getShardDisplay(props.fromShard);
   const receiverShard = getShardDisplay(props.toShard);
@@ -39,13 +39,7 @@ const Overview: FC<OverviewType & ComponentDefault> = (props) => {
     {
       key: 'miniblockHash',
       label: t('miniblockHash'),
-      detail: (
-        <Link href={MINIBLOCK_DETAILS(props.miniblockHash)} passHref>
-          <Typography variant="body1" component="a">
-            {props.miniblockHash}
-          </Typography>
-        </Link>
-      ),
+      detail: <Link href={MINIBLOCK_DETAILS(props.miniblockHash)}>{props.miniblockHash}</Link>,
     },
     {
       key: 'shardFrom',

@@ -8,13 +8,13 @@ import Transactions from '@/screens/validator_details/components/transactions';
 import ValidatorOverview from '@/screens/validator_details/components/validator_overview';
 import VotingPower from '@/screens/validator_details/components/voting_power';
 import { useValidatorDetails } from '@/screens/validator_details/hooks';
-import { useStyles } from '@/screens/validator_details/styles';
+import useStyles from '@/screens/validator_details/styles';
 import { NextSeo } from 'next-seo';
 import useTranslation from 'next-translate/useTranslation';
 
 const ValidatorDetails = () => {
   const { t } = useTranslation('validators');
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { state, loading } = useValidatorDetails();
   const { desmosProfile, exists, overview, status, votingPower } = state;
 

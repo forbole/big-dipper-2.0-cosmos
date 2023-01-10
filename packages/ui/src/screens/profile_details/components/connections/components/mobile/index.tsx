@@ -1,14 +1,13 @@
 import chainConfig from '@/chainConfig';
 import { readDate } from '@/recoil/settings';
-import { useStyles } from '@/screens/profile_details/components/connections/components/mobile/styles';
+import useStyles from '@/screens/profile_details/components/connections/components/mobile/styles';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
 import { ACCOUNT_DETAILS } from '@/utils/go_to_page';
-import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
+import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
-import React, { FC, Fragment } from 'react';
+import { FC, Fragment } from 'react';
 import { useRecoilValue } from 'recoil';
 
 const { prefix } = chainConfig();
@@ -20,11 +19,11 @@ type MobileProps = {
 
 const Mobile: FC<MobileProps> = ({ className, items }) => {
   const dateFormat = useRecoilValue(readDate);
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { t } = useTranslation('accounts');
   const itemCount = items?.length;
   return (
-    <div className={classnames(className)}>
+    <div className={className}>
       {items?.map((x, i) => {
         const checkIdentifier = new RegExp(`^(${prefix.account})`).test(x.identifier);
         const isLast = !itemCount || i === itemCount - 1;
@@ -46,10 +45,8 @@ const Mobile: FC<MobileProps> = ({ className, items }) => {
                 </Typography>
                 <Typography variant="body1" className="value">
                   {checkIdentifier && (
-                    <Link href={ACCOUNT_DETAILS(x.identifier)} passHref>
-                      <Typography variant="body1" className="value" component="a">
-                        {x.identifier}
-                      </Typography>
+                    <Link href={ACCOUNT_DETAILS(x.identifier)} className="value">
+                      {x.identifier}
                     </Link>
                   )}
                   {new RegExp(`^(${prefix.account})`).test(x.identifier) === false && x.identifier}

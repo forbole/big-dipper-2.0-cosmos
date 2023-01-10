@@ -2,7 +2,7 @@
 
 exports[`screen: TransactionDetails/Unknown matches snapshot 1`] = `
 <pre
-  className="makeStyles-root"
+  className="css-1rsg9g4-root"
 >
   <code>
     {

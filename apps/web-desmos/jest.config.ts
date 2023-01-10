@@ -11,17 +11,22 @@ const createJestConfig = nextJest({
 const exportFunc = async () => {
   // Create Next.js jest configuration
   const configFromNext = await createJestConfig();
+  Object.keys(configFromNext.moduleNameMapper).forEach((regExp) => {
+    if (new RegExp(regExp).test('_.svg')) {
+      configFromNext.moduleNameMapper[regExp] = 'shared-utils/__mocks__/svg.js';
+    }
+  });
   // moduleNameMapper overrided by nextjs, so we need to add it here.
-  return {
+  const finalConfig = {
     ...configFromNext,
     moduleNameMapper: {
       ...configFromNext.moduleNameMapper,
-      ...configFromPreset.moduleNameMapper,
       ...pathsToModuleNameMapper(tsconfig.compilerOptions.paths, {
         prefix: '<rootDir>/',
       }),
     },
   };
+  return finalConfig;
 };
 
 export default exportFunc;

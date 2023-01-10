@@ -10,7 +10,7 @@ describe('component: InfoPopover', () => {
   it('matches snapshot', () => {
     const component = renderer.create(
       <MockTheme>
-        <InfoPopover content={ConditionExplanation} />
+        <InfoPopover content={<ConditionExplanation />} />
       </MockTheme>
     );
     const tree = component?.toJSON();

@@ -1,7 +1,7 @@
 import Name from '@/components/name';
 import MsgUpdateIscnRecord from '@/models/msg/iscn/msg_update_iscn_record';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import Trans from 'next-translate/Trans';
 import numeral from 'numeral';
 import React, { FC } from 'react';

@@ -5,12 +5,12 @@ exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
   details={
     [
       {
-        "detail": <WithStyles(ForwardRef(Typography))
+        "detail": <ForwardRef(Typography)
           className="value"
           variant="body1"
         >
           300
-        </WithStyles(ForwardRef(Typography))>,
+        </ForwardRef(Typography)>,
         "key": "height",
         "label": "height",
       },

@@ -15,12 +15,11 @@ import type { RewardsType } from '@/screens/account_details/types';
 import { ValidatorType } from '@/screens/validators/components/list/types';
 import { formatToken } from '@/utils/format_token';
 import { getDenom } from '@/utils/get_denom';
-import { Tabs } from '@material-ui/core';
 import Big from 'big.js';
 import { useRouter } from 'next/router';
 import numeral from 'numeral';
 import * as R from 'ramda';
-import { ComponentProps, useCallback, useEffect, useState } from 'react';
+import { SyntheticEvent, useCallback, useEffect, useState } from 'react';
 
 const { primaryTokenUnit } = chainConfig();
 
@@ -296,8 +295,8 @@ export const useStaking = (
     }
   }, [uData, uError, uRefetch]);
 
-  const handleTabChange: ComponentProps<typeof Tabs>['onChange'] = useCallback(
-    (_event, newValue) => {
+  const handleTabChange = useCallback(
+    (_event: SyntheticEvent<Element, globalThis.Event>, newValue: number) => {
       setState((prevState) => {
         const newState = { ...prevState, tab: newValue };
         return R.equals(prevState, newState) ? prevState : newState;

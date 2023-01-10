@@ -2,27 +2,25 @@
 
 exports[`screen: Validators/VotingPower matches snapshot 1`] = `
 <div
-  className="makeStyles-root makeStyles-root"
+  className="css-1iftn23-root"
 >
   <div
-    className="makeStyles-content makeStyles-content"
+    className="css-lj3qlt-content"
   >
     <p
-      className="MuiTypography-root MuiTypography-body1"
-    >
-      
-    </p>
+      className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
+    />
     <p
-      className="MuiTypography-root percentage MuiTypography-body1"
+      className="MuiTypography-root MuiTypography-body1 percentage css-pfovru-MuiTypography-root"
     >
       20%
     </p>
   </div>
   <div
-    className="makeStyles-chart makeStyles-chart"
+    className="css-si1ndt-chart"
   >
     <div
-      className="makeStyles-active makeStyles-active"
+      className="css-19w8hwk-active"
     />
   </div>
 </div>
@@ -30,27 +28,25 @@ exports[`screen: Validators/VotingPower matches snapshot 1`] = `
 
 exports[`screen: Validators/VotingPower matches snapshot with topVotingPower set to false 1`] = `
 <div
-  className="makeStyles-root makeStyles-root"
+  className="css-u31ock-root"
 >
   <div
-    className="makeStyles-content makeStyles-content"
+    className="css-1dmmoum-content"
   >
     <p
-      className="MuiTypography-root MuiTypography-body1"
-    >
-      
-    </p>
+      className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
+    />
     <p
-      className="MuiTypography-root percentage MuiTypography-body1"
+      className="MuiTypography-root MuiTypography-body1 percentage css-pfovru-MuiTypography-root"
     >
       0%
     </p>
   </div>
   <div
-    className="makeStyles-chart makeStyles-chart"
+    className="css-fl4w4-chart"
   >
     <div
-      className="makeStyles-active makeStyles-active"
+      className="css-c7dmbn-active"
     />
   </div>
 </div>

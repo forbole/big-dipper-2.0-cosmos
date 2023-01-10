@@ -3,16 +3,14 @@ import { readDate } from '@/recoil/settings';
 import { columns } from '@/screens/profile_details/components/connections/components/desktop/utils';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
 import { ACCOUNT_DETAILS } from '@/utils/go_to_page';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
-import React, { FC, ReactNode } from 'react';
+import { FC, ReactNode } from 'react';
 import { useRecoilValue } from 'recoil';
 
 const { prefix } = chainConfig();
@@ -30,10 +28,8 @@ const Desktop: FC<DesktopProps> = ({ className, items }) => {
     let identity: ReactNode = x.identifier;
     if (new RegExp(`^(${prefix.account})`).test(x.identifier)) {
       identity = (
-        <Link href={ACCOUNT_DETAILS(x.identifier)} passHref>
-          <Typography variant="body1" className="value" component="a">
-            {x.identifier}
-          </Typography>
+        <Link href={ACCOUNT_DETAILS(x.identifier)} className="value">
+          {x.identifier}
         </Link>
       );
     }
@@ -47,7 +43,7 @@ const Desktop: FC<DesktopProps> = ({ className, items }) => {
   });
 
   return (
-    <div className={classnames(className)}>
+    <div className={className}>
       <Table>
         <TableHead>
           <TableRow>

@@ -1,7 +1,6 @@
 import chainCoing from '@/chainConfig';
-import { useStyles } from '@/components/ChainIcon/useStyles';
-import classnames from 'classnames';
-import Image, { type ImageProps } from 'next/future/image';
+import useStyles from '@/components/ChainIcon/useStyles';
+import Image, { type ImageProps } from 'next/image';
 import agoricIconLight from 'shared-utils/assets/icons/agoric-light.svg?url';
 import akashIconDark from 'shared-utils/assets/icons/akash-dark.svg?url';
 import assetmantleIconDark from 'shared-utils/assets/icons/assetmantle-dark.svg?url';
@@ -73,7 +72,7 @@ const ChainIcon = ({
   chainName = chainCoing().chainName,
   ...props
 }: IconProps) => {
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
 
   let [iconDark, iconLight] =
     type === 'icon' ? [baseIconLight, baseIconLight] : [baseLogoLight, baseLogoLight];
@@ -204,7 +203,7 @@ const ChainIcon = ({
       throw new Error(`chain ${chainName} not supported`);
   }
   return (
-    <span className={classnames(className, classes.container)}>
+    <span className={cx(className, classes.container)}>
       <Image width={0} height={0} src={iconDark} {...props} className={classes.dark} unoptimized />
       <Image
         width={0}

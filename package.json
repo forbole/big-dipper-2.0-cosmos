@@ -12,7 +12,7 @@
     "dev:ci": "turbo run dev --continue",
     "build": "dotenv -- turbo run build --filter=$(dotenv -- printenv PROJECT_NAME || echo web)...",
     "build:ci": "turbo run build --continue --concurrency=1",
-    "clean": "yarn cache clean --all && [ -d \"node_modules\" ] && turbo run clean && rm -rf node_modules",
+    "clean": "yarn cache clean --mirror && [ -d \"node_modules\" ] && turbo run clean && rm -rf node_modules",
     "start": "dotenv -- turbo run start --filter=$(dotenv -- printenv PROJECT_NAME || echo web)...",
     "format": "prettier --write \"{**/src/{,**/}*.{js,ts,tsx,mjs,cjs,md},e2e/{,**/}*.{js,ts,tsx,mjs,cjs,md}}\"",
     "check-types": "dotenv -- turbo run check-types --filter=$(dotenv -- printenv PROJECT_NAME || echo web)...",
@@ -28,21 +28,17 @@
   },
   "devDependencies": {
     "@changesets/cli": "^2.26.0",
-    "@playwright/test": "^1.29.1",
+    "@playwright/test": "^1.29.2",
     "@types/eslint": "^8.4.10",
-    "@types/esprima": "^4",
+    "@types/esprima": "^4.0.3",
     "dotenv-cli": "^6.0.0",
     "eslint": "^8.31.0",
-    "husky": "^8.0.2",
+    "esprima": "^4.0.1",
+    "husky": "^8.0.3",
     "lint-staged": "^13.1.0",
-    "prettier": "2.8.1",
+    "prettier": "2.8.2",
     "turbo": "^1.6.3",
-    "typescript": "^4.9.4",
-    "typescritp": "^1.0.0"
-  },
-  "resolutions": {
-    "@types/node": "^18.11.18",
-    "@types/react": "^17.0.52"
+    "typescript": "^4.9.4"
   },
   "packageManager": "yarn@3.3.1",
   "engines": {
@@ -50,8 +46,5 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,mjs,cjs,css,md}": "npx prettier --write"
-  },
-  "dependencies": {
-    "esprima": "^4.0.1"
   }
 }

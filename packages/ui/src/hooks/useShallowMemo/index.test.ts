@@ -1,4 +1,4 @@
-import { renderHook } from '@testing-library/react-hooks';
+import { renderHook } from '@testing-library/react';
 import useShallowMemo from '.';
 
 describe('hooks: useShallowMemo (no key)', () => {

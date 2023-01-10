@@ -1,7 +1,6 @@
-import { useStyles } from '@/components/not_found/styles';
+import useStyles from '@/components/not_found/styles';
 import { readTheme } from '@/recoil/settings';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import { useRouter } from 'next/router';
 import React, { FC, useEffect } from 'react';
@@ -13,7 +12,7 @@ type NotFoundProps = { className?: string };
 const ssrMode = typeof window === 'undefined';
 
 const NotFound: FC<NotFoundProps> = ({ className }) => {
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const { t } = useTranslation('common');
   const theme = useRecoilValue(readTheme);
   const router = useRouter();
@@ -25,7 +24,7 @@ const NotFound: FC<NotFoundProps> = ({ className }) => {
   }, [router?.asPath, router?.basePath]);
 
   return (
-    <div className={classnames(className, classes.root)}>
+    <div className={cx(classes.root, className)}>
       <div className={classes.content}>
         {theme === 'light' ? <NotFoundLight /> : <NotFoundDark />}
         <Typography variant="body1">{t('notFound')}</Typography>

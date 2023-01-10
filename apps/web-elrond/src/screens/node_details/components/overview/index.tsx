@@ -1,16 +1,15 @@
 import React, { FC, isValidElement } from 'react';
 import numeral from 'numeral';
 import useTranslation from 'next-translate/useTranslation';
-import classnames from 'classnames';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import Box from '@/components/box';
 import { getShardDisplay } from '@/utils/get_shard_display';
-import { useStyles } from '@/screens/node_details/components/overview/styles';
+import useStyles from '@/screens/node_details/components/overview/styles';
 import type { OverviewType } from '@/screens/node_details/types';
 
 const Overview: FC<{ className?: string; overview: OverviewType }> = (props) => {
   const { t } = useTranslation('nodes');
-  const classes = useStyles();
+  const { classes } = useStyles();
   const shard = getShardDisplay(props.overview.shard);
 
   const items = [
@@ -44,7 +43,7 @@ const Overview: FC<{ className?: string; overview: OverviewType }> = (props) => 
   ];
 
   return (
-    <Box className={classnames(props.className)}>
+    <Box className={props.className}>
       <Typography className={classes.title} variant="h2">
         {t('overview')}
       </Typography>

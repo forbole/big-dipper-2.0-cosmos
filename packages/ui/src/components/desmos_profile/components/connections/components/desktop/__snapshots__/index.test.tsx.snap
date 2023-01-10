@@ -1,24 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: DesmosProfile/Desktop it renders 1`] = `
-<div
-  className=""
->
+<div>
   <table
-    className="MuiTable-root"
+    className="MuiTable-root css-1az1xe2-MuiTable-root"
     role={null}
   >
     <thead
-      className="MuiTableHead-root"
+      className="MuiTableHead-root css-14dqc50-MuiTableHead-root"
       role={null}
     >
       <tr
-        className="MuiTableRow-root MuiTableRow-head"
+        className="MuiTableRow-root MuiTableRow-head css-li15s1-MuiTableRow-root"
         role={null}
       >
         <th
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-head"
+          className="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-avpoev-MuiTableCell-root"
           scope="col"
           style={
             {
@@ -30,7 +28,7 @@ exports[`screen: DesmosProfile/Desktop it renders 1`] = `
         </th>
         <th
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft"
+          className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium css-avpoev-MuiTableCell-root"
           scope="col"
           style={
             {
@@ -42,7 +40,7 @@ exports[`screen: DesmosProfile/Desktop it renders 1`] = `
         </th>
         <th
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight"
+          className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight MuiTableCell-sizeMedium css-1em49d8-MuiTableCell-root"
           scope="col"
           style={
             {
@@ -55,38 +53,34 @@ exports[`screen: DesmosProfile/Desktop it renders 1`] = `
       </tr>
     </thead>
     <tbody
-      className="MuiTableBody-root"
+      className="MuiTableBody-root css-grv1yu-MuiTableBody-root"
       role={null}
     >
       <tr
-        className="MuiTableRow-root"
+        className="MuiTableRow-root css-li15s1-MuiTableRow-root"
         role={null}
       >
         <td
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-body"
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-zs3zy9-MuiTableCell-root"
           style={
             {
               "width": "25%",
             }
           }
-        >
-          
-        </td>
+        />
         <td
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-zs3zy9-MuiTableCell-root"
           style={
             {
               "width": "50%",
             }
           }
-        >
-          
-        </td>
+        />
         <td
           aria-sort={null}
-          className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1ct601e-MuiTableCell-root"
           style={
             {
               "width": "25%",

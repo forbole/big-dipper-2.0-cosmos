@@ -4,7 +4,7 @@ import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { readDate } from '@/recoil/settings';
 import type { OverviewType } from '@/screens/block_details/types';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
 import { FC } from 'react';

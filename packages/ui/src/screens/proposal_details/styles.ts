@@ -1,44 +1,42 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { CSSObject } from '@emotion/react';
+import { makeStyles } from 'tss-react/mui';
 
-const styles = makeStyles(
-  (theme) => ({
-    root: {
-      ...theme.mixins.layout,
-      display: 'grid',
-      gridTemplateColumns: '1fr',
-      gridTemplateRows: 'min-content min-content auto',
-      gridGap: theme.spacing(1),
-      [theme.breakpoints.up('lg')]: {
-        gridGap: theme.spacing(2),
-        gridTemplateColumns: 'repeat(3, 1fr)',
-      },
+const useStyles = makeStyles()((theme) => ({
+  root: {
+    ...(theme.mixins.layout as CSSObject),
+    display: 'grid',
+    gridTemplateColumns: '1fr',
+    gridTemplateRows: 'min-content min-content auto',
+    gap: theme.spacing(1),
+    [theme.breakpoints.up('lg')]: {
+      gap: theme.spacing(2),
+      gridTemplateColumns: 'repeat(3, 1fr)',
     },
-    overview: {
-      [theme.breakpoints.up('lg')]: {
-        gridColumn: '1 / 4',
-      },
+  },
+  overview: {
+    [theme.breakpoints.up('lg')]: {
+      gridColumn: '1 / 4',
     },
-    deposits: {
-      [theme.breakpoints.up('lg')]: {
-        gridColumn: '1 / 4',
-      },
+  },
+  deposits: {
+    [theme.breakpoints.up('lg')]: {
+      gridColumn: '1 / 4',
     },
-    votes: {
-      [theme.breakpoints.up('lg')]: {
-        gridColumn: '1 / 4',
-      },
+  },
+  votes: {
+    [theme.breakpoints.up('lg')]: {
+      gridColumn: '1 / 4',
     },
-    votesGraph: {
-      [theme.breakpoints.up('md')]: {
-        gridColumn: '1 / 2',
-      },
-      [theme.breakpoints.up('lg')]: {
-        gridColumn: '1 / 4',
-        height: 'auto',
-      },
+  },
+  votesGraph: {
+    [theme.breakpoints.up('md')]: {
+      gridColumn: '1 / 2',
     },
-  }),
-  { index: 1 }
-);
+    [theme.breakpoints.up('lg')]: {
+      gridColumn: '1 / 4',
+      height: 'auto',
+    },
+  },
+}));
 
-export const useStyles = () => styles();
+export default useStyles;

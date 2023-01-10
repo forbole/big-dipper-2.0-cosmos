@@ -1,12 +1,13 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { CSSObject } from '@emotion/react';
+import { makeStyles } from 'tss-react/mui';
 
-const styles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   root: {
-    ...theme.mixins.layout,
+    ...(theme.mixins.layout as CSSObject),
     '& a': {
       color: theme.palette.custom.fonts.highlight,
     },
   },
 }));
 
-export const useStyles = () => styles();
+export default useStyles;

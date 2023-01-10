@@ -2,13 +2,13 @@
 
 exports[`component: SortArrows matches snapshot 1`] = `
 <div
-  className="makeStyles-root"
+  className="css-uy2rnw-root"
 >
   <svg
-    className="makeStyles-svg makeStyles-up"
+    className="css-dl1r2x-svg-up"
   />
   <svg
-    className="makeStyles-svg makeStyles-down"
+    className="css-rfhd1l-svg-down"
   />
 </div>
 `;

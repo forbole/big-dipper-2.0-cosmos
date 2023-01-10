@@ -1,6 +1,6 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from 'tss-react/mui';
 
-const styles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   root: {
     overflow: 'auto',
   },
@@ -8,7 +8,7 @@ const styles = makeStyles((theme) => ({
     // marginBottom: theme.spacing(2),
   },
   itemWrap: {
-    '&:first-child': {
+    '&:first-of-type': {
       marginTop: theme.spacing(2),
     },
     '&:last-child': {
@@ -52,4 +52,4 @@ const styles = makeStyles((theme) => ({
   },
 }));
 
-export const useStyles = () => styles();
+export default useStyles;

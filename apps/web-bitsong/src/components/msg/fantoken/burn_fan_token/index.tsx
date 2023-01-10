@@ -1,7 +1,7 @@
 import Name from '@/components/name';
 import MsgBurnFanToken from '@/models/msg/fantoken/msg_burn_fan_token';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import Trans from 'next-translate/Trans';
 import React, { FC } from 'react';
 

@@ -1,6 +1,6 @@
 import ListNames from '@/components/msg/nft/issue_denom/components/list_names';
 import MsgIssueDenom from '@/models/msg/nft/msg_issue_denom';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import Trans from 'next-translate/Trans';
 import React, { FC } from 'react';
 

@@ -5,7 +5,7 @@ import TransactionsList from '@/components/transactions_list';
 import TransactionsListDetails from '@/components/transactions_list_details';
 import { readTx } from '@/recoil/settings';
 import { useTransactions } from '@/screens/transactions/hooks';
-import { useStyles } from '@/screens/transactions/styles';
+import useStyles from '@/screens/transactions/styles';
 import { NextSeo } from 'next-seo';
 import useTranslation from 'next-translate/useTranslation';
 import { useRecoilValue } from 'recoil';
@@ -13,7 +13,7 @@ import { useRecoilValue } from 'recoil';
 const Transactions = () => {
   const txListFormat = useRecoilValue(readTx);
   const { t } = useTranslation('transactions');
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { state, loadNextPage } = useTransactions();
   const loadMoreItems = state.isNextPageLoading ? () => null : loadNextPage;
   const isItemLoaded = (index: number) => !state.hasNextPage || index < state.items.length;

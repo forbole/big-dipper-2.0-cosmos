@@ -43,6 +43,7 @@ jest.mock('@/utils/dayjs', () => {
       })),
     };
   });
+  mockTest.unix = jest.fn(() => '2020-08-10 12:00:00');
 
   return {
     __esModule: true,

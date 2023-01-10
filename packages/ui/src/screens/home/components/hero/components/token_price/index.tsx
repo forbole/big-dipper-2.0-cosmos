@@ -1,10 +1,10 @@
 import CustomToolTip from '@/components/custom_tool_tip';
 import { readDate } from '@/recoil/settings';
 import { usePrice } from '@/screens/home/components/hero/components/token_price/hooks';
-import { useStyles } from '@/screens/home/components/hero/components/token_price/styles';
+import useStyles from '@/screens/home/components/hero/components/token_price/styles';
 import type { TokenPriceType } from '@/screens/home/components/hero/types';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
 import * as R from 'ramda';

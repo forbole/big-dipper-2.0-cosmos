@@ -1,8 +1,7 @@
 import Box from '@/components/box';
-import { useStyles } from '@/components/nav/components/desktop/components/action_bar/components/network_list/styles';
+import useStyles from '@/components/nav/components/desktop/components/action_bar/components/network_list/styles';
 import Networks from '@/components/nav/components/networks';
 import { readTheme } from '@/recoil/settings';
-import classnames from 'classnames';
 import React, { FC } from 'react';
 import { useRecoilValue } from 'recoil';
 import BigDipperLogoRed from 'shared-utils/assets/big-dipper-red-sifchain.svg';
@@ -14,11 +13,11 @@ type NetworkListProps = {
 };
 
 const NetworkList: FC<NetworkListProps> = ({ className, actionHeight }) => {
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const theme = useRecoilValue(readTheme);
 
   return (
-    <Box className={classnames(className, classes.root)}>
+    <Box className={cx(classes.root, className)}>
       <div
         style={{
           height: actionHeight,

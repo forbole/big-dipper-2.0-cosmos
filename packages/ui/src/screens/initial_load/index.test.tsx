@@ -5,7 +5,7 @@ import renderer from 'react-test-renderer';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@material-ui/core/LinearProgress', () => (props: JSX.IntrinsicElements['div']) => (
+jest.mock('@mui/material/LinearProgress', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="LinearProgress" {...props} />
 ));
 

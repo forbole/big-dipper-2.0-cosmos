@@ -1,15 +1,9 @@
 import NoData from '@/components/no_data';
 import { useScreenSize } from '@/hooks';
+import Desktop from '@/screens/account_details/components/tokens/components/list/components/desktop';
+import Mobile from '@/screens/account_details/components/tokens/components/list/components/mobile';
 import type { OtherTokenType } from '@/screens/account_details/components/tokens/types';
-import dynamic from 'next/dynamic';
 import { FC } from 'react';
-
-const Desktop = dynamic(
-  () => import('@/screens/account_details/components/tokens/components/list/components/desktop')
-);
-const Mobile = dynamic(
-  () => import('@/screens/account_details/components/tokens/components/list/components/mobile')
-);
 
 const List: FC<{ items: OtherTokenType[] }> = (props) => {
   const { isDesktop } = useScreenSize();

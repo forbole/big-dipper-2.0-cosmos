@@ -6,10 +6,10 @@ import LoadAndExist from '@/components/load_and_exist';
 import Overview from '@/screens/miniblock_details/components/overview';
 import Transactions from '@/screens/miniblock_details/components/transactions';
 import { useBlockDetails } from '@/screens/miniblock_details/hooks';
-import { useStyles } from '@/screens/miniblock_details/styles';
+import useStyles from '@/screens/miniblock_details/styles';
 
 const MiniBlockDetails = () => {
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { t } = useTranslation('blocks');
   const { state } = useBlockDetails();
   return (

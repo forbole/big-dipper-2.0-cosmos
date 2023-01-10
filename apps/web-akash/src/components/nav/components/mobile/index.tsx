@@ -1,12 +1,11 @@
 import Menu from '@/components/nav/components/mobile/components/menu';
 import Navbar from '@/components/nav/components/mobile/components/navbar';
 import { useMobile } from '@/components/nav/components/mobile/hooks';
-import { useStyles } from '@/components/nav/components/mobile/styles';
+import useStyles from '@/components/nav/components/mobile/styles';
 import Networks from '@/components/nav/components/networks';
 import SearchBar from '@/components/nav/components/search_bar';
 import TitleBar from '@/components/nav/components/title_bar';
 import { useGetComponentDimension } from '@/hooks';
-import classnames from 'classnames';
 import React, { FC } from 'react';
 
 type MobileProps = {
@@ -17,20 +16,20 @@ type MobileProps = {
 const Mobile: FC<MobileProps> = ({ className, title }) => {
   const { ref: heightRef, height } = useGetComponentDimension();
   const { isMenu, isNetwork, isOpen, openNetwork, toggleNavMenus } = useMobile();
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
 
   return (
     <div className={className}>
       <div ref={heightRef} className={classes.root}>
         <Menu
           toggleNavMenus={toggleNavMenus}
-          className={classnames(classes.screens, {
+          className={cx(classes.screens, {
             open: isMenu,
             menu: isMenu,
           })}
         />
         <span
-          className={classnames(classes.screens, {
+          className={cx(classes.screens, {
             open: isNetwork,
             network: isNetwork,
           })}

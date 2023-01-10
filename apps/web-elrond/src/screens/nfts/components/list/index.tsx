@@ -4,12 +4,12 @@ import Pagination from '@/components/pagination';
 import NoData from '@/components/no_data';
 import Box from '@/components/box';
 import Loading from '@/components/loading';
-import { useStyles } from '@/screens/nfts/components/list/styles';
+import useStyles from '@/screens/nfts/components/list/styles';
 import { useNFTs, PAGE_SIZE } from '@/screens/nfts/components/list/hooks';
 import NftsList from '@/screens/nfts/components/list/components/nfts_list';
 
 const List = () => {
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { state, handlePageChangeCallback } = useNFTs();
   const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange } = usePagination({
     rowsPage: PAGE_SIZE,

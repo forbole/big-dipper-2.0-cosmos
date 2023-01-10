@@ -2,7 +2,7 @@
 
 exports[`screen: Blocks matches snapshot 1`] = `
 <div
-  className="makeStyles-root"
+  className="css-1kpiz3c-root"
   id="Layout"
   navTitle="blocks"
 >
@@ -12,7 +12,7 @@ exports[`screen: Blocks matches snapshot 1`] = `
     loading={false}
   >
     <div
-      className="makeStyles-box"
+      className="css-bdwxxu-box"
       id="Box"
     >
       <div

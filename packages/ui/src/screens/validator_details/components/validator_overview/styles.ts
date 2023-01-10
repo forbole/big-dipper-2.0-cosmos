@@ -1,6 +1,6 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from 'tss-react/mui';
 
-const styles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   addressRoot: {
     [theme.breakpoints.up('md')]: {
       display: 'grid',
@@ -21,7 +21,7 @@ const styles = makeStyles((theme) => ({
   item: {
     padding: theme.spacing(2, 0),
     color: theme.palette.custom.fonts.fontTwo,
-    '&:first-child': {
+    '&:first-of-type': {
       paddingTop: 0,
     },
     '&:last-child': {
@@ -66,7 +66,7 @@ const styles = makeStyles((theme) => ({
   statusRoot: {
     display: 'grid',
     gridTemplateColumns: 'repeat(1, 1fr)',
-    gridGap: theme.spacing(2),
+    gap: theme.spacing(2),
     [theme.breakpoints.up('md')]: {
       gridTemplateColumns: 'repeat(2, 1fr)',
     },
@@ -116,4 +116,4 @@ const styles = makeStyles((theme) => ({
   },
 }));
 
-export const useStyles = () => styles();
+export default useStyles;

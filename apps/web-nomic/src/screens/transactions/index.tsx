@@ -9,12 +9,12 @@ import Box from '@/components/box';
 import LoadAndExist from '@/components/load_and_exist';
 import { readTx } from '@/recoil/settings';
 import { useTransactions } from '@/screens/transactions/hooks';
-import { useStyles } from '@/screens/transactions/styles';
+import useStyles from '@/screens/transactions/styles';
 
 const Transactions = () => {
   const txListFormat = useRecoilValue(readTx);
   const { t } = useTranslation('transactions');
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { state, loadNextPage } = useTransactions();
   const loadMoreItems = state.isNextPageLoading ? () => null : loadNextPage;
   const isItemLoaded = (index: number) => !state.hasNextPage || index < state.items.length;

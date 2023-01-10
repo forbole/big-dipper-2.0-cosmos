@@ -1,12 +1,11 @@
 import { useTransactionsFilter } from '@/components/transaction_messages_filter/hooks';
-import { useStyles } from '@/components/transaction_messages_filter/styles';
+import useStyles from '@/components/transaction_messages_filter/styles';
 import { getFilterLabels } from '@/components/transaction_messages_filter/utils';
-import InputBase from '@material-ui/core/InputBase';
-import MenuItem from '@material-ui/core/MenuItem';
-import Select from '@material-ui/core/Select';
-import Typography from '@material-ui/core/Typography';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import classnames from 'classnames';
+import InputBase from '@mui/material/InputBase';
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import useTranslation from 'next-translate/useTranslation';
 import React, { FC } from 'react';
 import FilterIcon from 'shared-utils/assets/icon-filter.svg';
@@ -19,13 +18,13 @@ type TransactionMessagesFilterProps = {
 const TransactionMessagesFilter: FC<TransactionMessagesFilterProps> = ({ className, callback }) => {
   const filterLabels = getFilterLabels();
   const { t } = useTranslation('transactions');
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const { handleSelect, selectedFilter } = useTransactionsFilter(callback);
 
   return (
     <Select
       IconComponent={ExpandMoreIcon}
-      className={classnames(classes.select, className)}
+      className={cx(classes.select, className)}
       displayEmpty
       MenuProps={{
         anchorOrigin: {
@@ -36,7 +35,6 @@ const TransactionMessagesFilter: FC<TransactionMessagesFilterProps> = ({ classNa
           vertical: 'top',
           horizontal: 'left',
         },
-        getContentAnchorEl: null,
       }}
       value={selectedFilter}
       renderValue={

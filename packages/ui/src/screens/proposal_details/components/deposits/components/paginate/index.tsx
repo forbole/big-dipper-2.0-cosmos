@@ -1,5 +1,5 @@
 import Pagination from '@/components/pagination';
-import { useStyles } from '@/screens/proposal_details/components/deposits/components/paginate/styles';
+import useStyles from '@/screens/proposal_details/components/deposits/components/paginate/styles';
 import { ComponentProps, FC } from 'react';
 
 type Properties = 'total' | 'page' | 'rowsPerPage' | 'handlePageChange' | 'handleRowsPerPageChange';
@@ -12,7 +12,7 @@ const Paginate: FC<PaginateProps> = ({
   handlePageChange,
   handleRowsPerPageChange,
 }) => {
-  const classes = useStyles();
+  const { classes } = useStyles();
   return (
     <Pagination
       className={classes.root}

@@ -3,10 +3,10 @@ import { NextSeo } from 'next-seo';
 import useTranslation from 'next-translate/useTranslation';
 import Layout from '@/components/layout';
 import List from '@/screens/nfts/components/list';
-import { useStyles } from '@/screens/nfts/styles';
+import useStyles from '@/screens/nfts/styles';
 
 const Blocks = () => {
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { t } = useTranslation('nfts');
 
   return (

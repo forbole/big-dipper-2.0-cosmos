@@ -1,6 +1,6 @@
-import type { MixinsOptions, Mixins } from '@material-ui/core/styles/createMixins';
+import type { MixinsOptions, Mixins } from '@mui/material/styles/createMixins';
 
-declare module '@material-ui/core/styles/createMixins' {
+declare module '@mui/material/styles/createMixins' {
   interface MixinsOptions {
     layout?: CSSProperties;
     tableCell?: CSSProperties;
