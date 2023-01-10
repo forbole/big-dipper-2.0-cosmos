@@ -41,7 +41,10 @@ const LoginDialog: React.FC<{
           <div className={classes.dialogContent}>
             <div className={classes.connectWalletButton}>
               <Button
-                onClick={() => props.setWallet('Wallet Connect')}
+                onClick={(e) => {
+                  e.preventDefault();
+                  props.setWallet('Wallet Connect');
+                }}
                 color="default"
                 aria-label="connect-walletconnect-wallet-button"
                 className={classes.walletButton}
@@ -51,7 +54,10 @@ const LoginDialog: React.FC<{
             </div>
             <div className={classes.connectKeplrButton}>
               <Button
-                onClick={() => props.setWallet('Keplr Wallet')}
+                onClick={(e) => {
+                  e.preventDefault();
+                  props.setWallet('Keplr Wallet');
+                }}
                 color="default"
                 aria-label="connect-keplr-wallet-button"
                 className={classes.walletButton}
@@ -61,7 +67,10 @@ const LoginDialog: React.FC<{
             </div>
             <div className={classes.connectButterButton}>
               <Button
-                onClick={() => props.setWallet('Butter')}
+                onClick={(e) => {
+                  e.preventDefault();
+                  props.setWallet('Butter');
+                }}
                 color="default"
                 aria-label="connect-butter-wallet-button"
                 className={classes.walletButton}
