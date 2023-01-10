@@ -9,7 +9,6 @@ import InstallKeplrWalletDialog from '@/components/nav/components/connect_wallet
 import LoginDialog from '@/components/nav/components/connect_wallet/login';
 import LoginSuccessDialog from '@/components/nav/components/connect_wallet/login_success';
 import PairKeplrWalletDialog from '@/components/nav/components/connect_wallet/pair_keplr_wallet';
-import SelectNetworkDialog from '@/components/nav/components/connect_wallet/select_network';
 import { readIsUserLoggedIn } from '@/recoil/user';
 import { useRecoilValue } from 'recoil';
 import {
@@ -17,28 +16,21 @@ import {
   readWalletSelection,
   readOpenInstallKeplrWalletDialog,
   readOpenKeplrPairingDialog,
-  readOpenSelectNetworkDialog,
   readOpenAuthorizeConnectionDialog,
   readOpenLoginSuccessDialog,
-  // readOpenConnectWalletConnectDialog,
-  // readTabValue,
 } from '@/recoil/wallet';
 
 const ConnectWallet: React.FC<{
   className?: string;
 }> = (props) => {
-  const networkName = process.env.NEXT_PUBLIC_NETWORK_NAME ?? 'Desmos';
   const classes = useStyles();
   const loggedIn = useRecoilValue(readIsUserLoggedIn);
   const openLoginDialog = useRecoilValue(readOpenLoginDialog);
   const walletSelection = useRecoilValue(readWalletSelection);
   const openInstallKeplrWalletDialog = useRecoilValue(readOpenInstallKeplrWalletDialog);
   const openKeplrPairingDialog = useRecoilValue(readOpenKeplrPairingDialog);
-  const openSelectNetworkDialog = useRecoilValue(readOpenSelectNetworkDialog);
   const openAuthorizeConnectionDialog = useRecoilValue(readOpenAuthorizeConnectionDialog);
   const openLoginSuccessDialog = useRecoilValue(readOpenLoginSuccessDialog);
-  // const openConnectWalletConnectDialog = useRecoilValue(readOpenConnectWalletConnectDialog);
-  // const tabValue = useRecoilValue(readTabValue);
 
   const {
     handleCloseAuthorizeConnectionDialog,
@@ -51,7 +43,8 @@ const ConnectWallet: React.FC<{
     setWalletOption,
     handleCloseLoginDialog,
     continueToPairingDialog,
-    continueToAuthorizeConnectionDialog,
+    continueToAuthorizeKeplrConnectionDialog,
+    continueToLoginSuccessDialog,
   } = useConnectWalletList();
   return (
     <div>
@@ -81,13 +74,18 @@ const ConnectWallet: React.FC<{
         walletName={walletSelection}
         open={openKeplrPairingDialog}
         onClose={handleCloseKeplrPairingDialog}
-        onContinue={continueToAuthorizeConnectionDialog}
+        onContinue={continueToAuthorizeKeplrConnectionDialog}
       />
       <AuthorizeConnectionDialog
         open={openAuthorizeConnectionDialog}
         onClose={handleCloseAuthorizeConnectionDialog}
+        onContinue={continueToLoginSuccessDialog}
       />
-      <LoginSuccessDialog open={openLoginSuccessDialog} onClose={handleCloseLoginSuccessDialog} />
+      <LoginSuccessDialog
+        open={openLoginSuccessDialog}
+        onClose={handleCloseLoginSuccessDialog}
+        onContinue={handleCloseLoginSuccessDialog}
+      />
     </div>
   );
 };
