@@ -28,8 +28,8 @@ const TransactionDetails = () => {
           <Overview {...state.overview} />
           {!!state.data && <Data data={state.data} />}
           {!!state.action && <Action {...state.action} />}
-          {!!state.operations.length && <Operations items={state.operations} />}
-          {!!state.results.length && <SmartContractResults results={state.results} />}
+          {!!state.operations?.length && <Operations items={state.operations} />}
+          {!!state.results?.length && <SmartContractResults results={state.results} />}
         </LoadAndExist>
       </Layout>
     </>

@@ -67,12 +67,12 @@ jobs:
           const projectName = process.env.PROJECT_NAME || 'web';
           const chainType = process.env.NEXT_PUBLIC_CHAIN_TYPE?.toLowerCase() || 'mainnet';
           const config = {
-            buildCommand: 'node vercel-deploy.js',
+            buildCommand: 'NEXT_PUBLIC_CHAIN_TYPE=' + chainType + ' node vercel-deploy.js',
             outputDirectory: 'apps/web/.next',
-            installCommand: 'node vercel-deploy.js install',
+            installCommand: 'node vercel-deploy.js manual ' + projectName,
             devCommand: 'cd apps/web && yarn next dev',
             framework: 'nextjs',
-            ignoreCommand: 'node vercel-deploy.js manual ' + projectName,
+            ignoreCommand: 'exit 1',
           };
           console.log(JSON.stringify(config, null, 2));
           EOF

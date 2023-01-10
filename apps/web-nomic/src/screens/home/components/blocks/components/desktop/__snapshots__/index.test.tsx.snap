@@ -5,7 +5,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
   className="css-kdsjqp-root"
 >
   <table
-    className="MuiTable-root css-x2767d-MuiTable-root-table"
+    className="MuiTable-root css-1ulrxlt-MuiTable-root-table"
     role={null}
   >
     <thead
@@ -58,33 +58,81 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
           aria-sort={null}
           className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1i7jhar-MuiTableCell-root"
         >
-          <a
-            className="value"
-            href="/blocks/4000"
-            onClick={[Function]}
-            onMouseEnter={[Function]}
-            onTouchStart={[Function]}
+          <div
+            style={
+              {
+                "alignItems": "center",
+                "clipPath": "inset(0 0 0 0)",
+                "display": "flex",
+                "height": "50px",
+                "overflow": "hidden",
+              }
+            }
           >
-            4,000
-          </a>
+            <a
+              className="value"
+              href="/blocks/4000"
+              onClick={[Function]}
+              onMouseEnter={[Function]}
+              onTouchStart={[Function]}
+            >
+              4,000
+            </a>
+          </div>
         </td>
         <td
           aria-sort={null}
           className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1i7jhar-MuiTableCell-root"
         >
-          76nwV8zz8tLz97S...JDLQfF66jZhQ857
+          <div
+            style={
+              {
+                "alignItems": "center",
+                "clipPath": "inset(0 0 0 0)",
+                "display": "flex",
+                "height": "50px",
+                "overflow": "hidden",
+              }
+            }
+          >
+            76nwV8zz8tLz97S...JDLQfF66jZhQ857
+          </div>
         </td>
         <td
           aria-sort={null}
           className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-o7czbt-MuiTableCell-root"
         >
-          12
+          <div
+            style={
+              {
+                "alignItems": "center",
+                "clipPath": "inset(0 0 0 0)",
+                "display": "flex",
+                "height": "50px",
+                "overflow": "hidden",
+              }
+            }
+          >
+            12
+          </div>
         </td>
         <td
           aria-sort={null}
           className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-o7czbt-MuiTableCell-root"
         >
-          1 day ago
+          <div
+            style={
+              {
+                "alignItems": "center",
+                "clipPath": "inset(0 0 0 0)",
+                "display": "flex",
+                "height": "50px",
+                "overflow": "hidden",
+              }
+            }
+          >
+            1 day ago
+          </div>
         </td>
       </tr>
     </tbody>

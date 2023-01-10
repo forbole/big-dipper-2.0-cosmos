@@ -20,7 +20,6 @@ const DocumentComponent: FC<DocumentComponentProps> = ({ emotionStyleTags }) => 
     <Head>
       <meta name="theme-color" content="#ffffff" />
       {emotionStyleTags}
-      <meta name="emotion-insertion-point" content="" />
     </Head>
     <body>
       <Main />

@@ -7,6 +7,7 @@ import dayjs from '@/utils/dayjs';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { TRANSACTION_DETAILS } from '@/utils/go_to_page';
 import Table from '@mui/material/Table';
+import { AnimatePresence, motion, Variants } from 'framer-motion';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
@@ -14,6 +15,23 @@ import TableRow from '@mui/material/TableRow';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import { FC } from 'react';
+
+const variants: Variants = {
+  initial: {
+    opacity: 0,
+    height: 50,
+    display: 'flex',
+    alignItems: 'center',
+    overflow: 'hidden',
+  },
+  animate: {
+    opacity: 1,
+    height: 50,
+    display: 'flex',
+    alignItems: 'center',
+    overflow: 'hidden',
+  },
+};
 
 const Desktop: FC<{ className?: string; items: TransactionType[] }> = (props) => {
   const { t } = useTranslation('transactions');
@@ -66,19 +84,29 @@ const Desktop: FC<{ className?: string; items: TransactionType[] }> = (props) =>
           </TableRow>
         </TableHead>
         <TableBody>
-          {formattedItems?.map((row) => (
-            <TableRow key={`holders-row-${row.key}`}>
-              {columns.map((column) => (
-                <TableCell
-                  key={`holders-row-${row.key}-${column.key}`}
-                  align={column.align}
-                  style={{ width: `${column.width}%` }}
-                >
-                  {row[column.key as keyof typeof row]}
-                </TableCell>
-              ))}
-            </TableRow>
-          ))}
+          <AnimatePresence initial={false}>
+            {formattedItems?.map((row) => (
+              <TableRow key={`holders-row-${row.key}`}>
+                {columns.map((column) => (
+                  <TableCell
+                    key={`holders-row-${row.key}-${column.key}`}
+                    align={column.align}
+                    style={{ width: `${column.width}%` }}
+                  >
+                    <motion.div
+                      key={`${row.key}-${column.key}`}
+                      initial="initial"
+                      animate="animate"
+                      variants={variants}
+                      transition={{ duration: 0.3 }}
+                    >
+                      {row[column.key as keyof typeof row]}
+                    </motion.div>
+                  </TableCell>
+                ))}
+              </TableRow>
+            ))}
+          </AnimatePresence>
         </TableBody>
       </Table>
     </div>

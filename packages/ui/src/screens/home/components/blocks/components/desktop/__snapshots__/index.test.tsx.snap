@@ -5,7 +5,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
   className="css-12hbpa5-root"
 >
   <table
-    className="MuiTable-root css-201nhu-MuiTable-root-table"
+    className="MuiTable-root css-1xidkej-MuiTable-root-table"
     role={null}
   >
     <thead
@@ -65,44 +65,104 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
           aria-sort={null}
           className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-zs3zy9-MuiTableCell-root"
         >
-          <a
-            className="value"
-            href="/blocks/4000"
-            onClick={[Function]}
-            onMouseEnter={[Function]}
-            onTouchStart={[Function]}
+          <div
+            style={
+              {
+                "alignItems": "center",
+                "clipPath": "inset(0 0 0 0)",
+                "display": "flex",
+                "height": "50px",
+                "overflow": "hidden",
+              }
+            }
           >
-            4,000
-          </a>
+            <a
+              className="value"
+              href="/blocks/4000"
+              onClick={[Function]}
+              onMouseEnter={[Function]}
+              onTouchStart={[Function]}
+            >
+              4,000
+            </a>
+          </div>
         </td>
         <td
           aria-sort={null}
           className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-zs3zy9-MuiTableCell-root"
         >
           <div
-            address="desmosvalcons1why72hjk945yhckcy5hzk2z2w9d5h65t9am0kd"
-            id="AvatarName"
-            imageUrl=""
-            name="desmosvalcons1why72hjk945yhckcy5hzk2z2w9d5h65t9am0kd"
-          />
+            style={
+              {
+                "alignItems": "center",
+                "clipPath": "inset(0 0 0 0)",
+                "display": "flex",
+                "height": "50px",
+                "overflow": "hidden",
+              }
+            }
+          >
+            <div
+              address="desmosvalcons1why72hjk945yhckcy5hzk2z2w9d5h65t9am0kd"
+              id="AvatarName"
+              imageUrl=""
+              name="desmosvalcons1why72hjk945yhckcy5hzk2z2w9d5h65t9am0kd"
+            />
+          </div>
         </td>
         <td
           aria-sort={null}
           className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-zs3zy9-MuiTableCell-root"
         >
-          76nwV8...hQ857
+          <div
+            style={
+              {
+                "alignItems": "center",
+                "clipPath": "inset(0 0 0 0)",
+                "display": "flex",
+                "height": "50px",
+                "overflow": "hidden",
+              }
+            }
+          >
+            76nwV8...hQ857
+          </div>
         </td>
         <td
           aria-sort={null}
           className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1ct601e-MuiTableCell-root"
         >
-          12
+          <div
+            style={
+              {
+                "alignItems": "center",
+                "clipPath": "inset(0 0 0 0)",
+                "display": "flex",
+                "height": "50px",
+                "overflow": "hidden",
+              }
+            }
+          >
+            12
+          </div>
         </td>
         <td
           aria-sort={null}
           className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1ct601e-MuiTableCell-root"
         >
-          1 day ago
+          <div
+            style={
+              {
+                "alignItems": "center",
+                "clipPath": "inset(0 0 0 0)",
+                "display": "flex",
+                "height": "50px",
+                "overflow": "hidden",
+              }
+            }
+          >
+            1 day ago
+          </div>
         </td>
       </tr>
     </tbody>
