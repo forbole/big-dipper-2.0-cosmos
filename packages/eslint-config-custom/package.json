@@ -7,8 +7,6 @@
     "access": "public"
   },
   "devDependencies": {
-    "@cosmjs/launchpad": "^0.27.1",
-    "@keplr-wallet/types": "^0.11.29",
     "@next/eslint-plugin-next": "^13.1.1",
     "@types/esprima": "^4.0.3",
     "@typescript-eslint/eslint-plugin": "^5.48.0",

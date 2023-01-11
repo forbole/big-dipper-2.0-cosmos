@@ -6,8 +6,6 @@
     "tsconfig": "*"
   },
   "devDependencies": {
-    "@cosmjs/launchpad": "^0.27.1",
-    "@keplr-wallet/types": "^0.11.29",
     "@types/esprima": "^4.0.3",
     "esprima": "^4.0.1",
     "jest": "^29.3.1",
