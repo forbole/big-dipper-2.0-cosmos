@@ -1,11 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: Validators/VotingPowerExplanation matches snapshot 1`] = `
+.emotion-0 {
+  height: 100%;
+}
+
+.emotion-1 {
+  margin: 0;
+  font-size: 1rem;
+  white-space: pre-wrap;
+  letter-spacing: 0.5px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
 <div
-  className="css-1rz0of5-root"
+  className="emotion-0"
 >
   <p
-    className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
+    className="MuiTypography-root MuiTypography-body1 emotion-1"
   >
     validators:votingPowerExplanation
   </p>

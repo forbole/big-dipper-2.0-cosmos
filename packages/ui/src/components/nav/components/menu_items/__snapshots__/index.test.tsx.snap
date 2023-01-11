@@ -1,11 +1,193 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: Nav/MenuItems it renders 1`] = `
+.emotion-0 {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.emotion-1 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  min-width: 0;
+  box-sizing: border-box;
+  text-align: left;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  -webkit-transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.emotion-1::-moz-focus-inner {
+  border-style: none;
+}
+
+.emotion-1.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media print {
+  .emotion-1 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-1:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+@media (hover: none) {
+  .emotion-1:hover {
+    background-color: transparent;
+  }
+}
+
+.emotion-1.Mui-selected {
+  background-color: rgba(255, 131, 91, 0.08);
+}
+
+.emotion-1.Mui-selected.Mui-focusVisible {
+  background-color: rgba(255, 131, 91, 0.2);
+}
+
+.emotion-1.Mui-selected:hover {
+  background-color: rgba(255, 131, 91, 0.12);
+}
+
+@media (hover: none) {
+  .emotion-1.Mui-selected:hover {
+    background-color: rgba(255, 131, 91, 0.08);
+  }
+}
+
+.emotion-1.Mui-focusVisible {
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
+.emotion-1.Mui-disabled {
+  opacity: 0.38;
+}
+
+.emotion-1 .MuiListItemIcon-root {
+  min-width: 48px;
+}
+
+.emotion-1.MuiListItem-gutters {
+  padding: 16px 20px;
+}
+
+.emotion-1 .MuiListItemText-root {
+  color: #999999;
+}
+
+.emotion-1.active {
+  background: hsl(0, 0%, 100%);
+}
+
+.emotion-1.active .MuiListItemIcon-root svg {
+  fill: #FF835B;
+}
+
+.emotion-1.active .MuiListItemText-root {
+  color: #FF835B;
+}
+
+.emotion-2 {
+  min-width: 56px;
+  color: rgba(0, 0, 0, 0.54);
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.emotion-3 {
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  min-width: 0;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.emotion-4 {
+  margin: 0;
+  font-size: 1rem;
+  white-space: pre-wrap;
+  letter-spacing: 0.5px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  display: block;
+}
+
 <ul
-  className="MuiList-root MuiList-padding css-h4y409-MuiList-root"
+  className="MuiList-root MuiList-padding emotion-0"
 >
   <a
-    className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css-ym0ea0-MuiButtonBase-root-MuiListItemButton-root-root"
+    className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters emotion-1"
     href="/"
     onBlur={[Function]}
     onClick={[Function]}
@@ -24,7 +206,7 @@ exports[`screen: Nav/MenuItems it renders 1`] = `
     tabIndex={0}
   >
     <div
-      className="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
+      className="MuiListItemIcon-root emotion-2"
     >
       <svg
         height={24}
@@ -32,17 +214,17 @@ exports[`screen: Nav/MenuItems it renders 1`] = `
       />
     </div>
     <div
-      className="MuiListItemText-root css-tlelie-MuiListItemText-root"
+      className="MuiListItemText-root emotion-3"
     >
       <span
-        className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-1x35mvf-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary emotion-4"
       >
         overview
       </span>
     </div>
   </a>
   <a
-    className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css-ym0ea0-MuiButtonBase-root-MuiListItemButton-root-root"
+    className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters emotion-1"
     href="/blocks"
     onBlur={[Function]}
     onClick={[Function]}
@@ -61,7 +243,7 @@ exports[`screen: Nav/MenuItems it renders 1`] = `
     tabIndex={0}
   >
     <div
-      className="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
+      className="MuiListItemIcon-root emotion-2"
     >
       <svg
         height={24}
@@ -69,17 +251,17 @@ exports[`screen: Nav/MenuItems it renders 1`] = `
       />
     </div>
     <div
-      className="MuiListItemText-root css-tlelie-MuiListItemText-root"
+      className="MuiListItemText-root emotion-3"
     >
       <span
-        className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-1x35mvf-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary emotion-4"
       >
         blocks
       </span>
     </div>
   </a>
   <a
-    className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css-ym0ea0-MuiButtonBase-root-MuiListItemButton-root-root"
+    className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters emotion-1"
     href="/validators"
     onBlur={[Function]}
     onClick={[Function]}
@@ -98,7 +280,7 @@ exports[`screen: Nav/MenuItems it renders 1`] = `
     tabIndex={0}
   >
     <div
-      className="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
+      className="MuiListItemIcon-root emotion-2"
     >
       <svg
         height={24}
@@ -106,17 +288,17 @@ exports[`screen: Nav/MenuItems it renders 1`] = `
       />
     </div>
     <div
-      className="MuiListItemText-root css-tlelie-MuiListItemText-root"
+      className="MuiListItemText-root emotion-3"
     >
       <span
-        className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-1x35mvf-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary emotion-4"
       >
         validators
       </span>
     </div>
   </a>
   <a
-    className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css-ym0ea0-MuiButtonBase-root-MuiListItemButton-root-root"
+    className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters emotion-1"
     href="/transactions"
     onBlur={[Function]}
     onClick={[Function]}
@@ -135,7 +317,7 @@ exports[`screen: Nav/MenuItems it renders 1`] = `
     tabIndex={0}
   >
     <div
-      className="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
+      className="MuiListItemIcon-root emotion-2"
     >
       <svg
         height={24}
@@ -143,17 +325,17 @@ exports[`screen: Nav/MenuItems it renders 1`] = `
       />
     </div>
     <div
-      className="MuiListItemText-root css-tlelie-MuiListItemText-root"
+      className="MuiListItemText-root emotion-3"
     >
       <span
-        className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-1x35mvf-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary emotion-4"
       >
         transactions
       </span>
     </div>
   </a>
   <a
-    className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css-ym0ea0-MuiButtonBase-root-MuiListItemButton-root-root"
+    className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters emotion-1"
     href="/proposals"
     onBlur={[Function]}
     onClick={[Function]}
@@ -172,7 +354,7 @@ exports[`screen: Nav/MenuItems it renders 1`] = `
     tabIndex={0}
   >
     <div
-      className="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
+      className="MuiListItemIcon-root emotion-2"
     >
       <svg
         height={24}
@@ -180,17 +362,17 @@ exports[`screen: Nav/MenuItems it renders 1`] = `
       />
     </div>
     <div
-      className="MuiListItemText-root css-tlelie-MuiListItemText-root"
+      className="MuiListItemText-root emotion-3"
     >
       <span
-        className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-1x35mvf-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary emotion-4"
       >
         proposals
       </span>
     </div>
   </a>
   <a
-    className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css-ym0ea0-MuiButtonBase-root-MuiListItemButton-root-root"
+    className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters emotion-1"
     href="/params"
     onBlur={[Function]}
     onClick={[Function]}
@@ -209,7 +391,7 @@ exports[`screen: Nav/MenuItems it renders 1`] = `
     tabIndex={0}
   >
     <div
-      className="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
+      className="MuiListItemIcon-root emotion-2"
     >
       <svg
         height={24}
@@ -217,10 +399,10 @@ exports[`screen: Nav/MenuItems it renders 1`] = `
       />
     </div>
     <div
-      className="MuiListItemText-root css-tlelie-MuiListItemText-root"
+      className="MuiListItemText-root emotion-3"
     >
       <span
-        className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-1x35mvf-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary emotion-4"
       >
         params
       </span>

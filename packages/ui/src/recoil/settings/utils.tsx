@@ -11,10 +11,12 @@ export const THEME_LIST: Theme[] = themes.themeList;
 
 export const THEME_DICTIONARY = themeDictionary;
 
-export const getThemeTemplate = (theme: Theme) => {
+export const getThemeTemplate = (theme: Theme, fontFamily: string) => {
   if (isThemeSupported(theme)) {
+    THEME_DICTIONARY[theme].typography = { ...THEME_DICTIONARY[theme].typography, fontFamily };
     return THEME_DICTIONARY[theme];
   }
+  defaultTheme.typography = { ...defaultTheme.typography, fontFamily };
   return defaultTheme;
 };
 

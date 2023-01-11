@@ -21,7 +21,7 @@ const Transactions: FC<ComponentDefault> = ({ className }) => {
     <Box className={cx(classes.root, className)}>
       <div className={classes.label}>
         <Typography variant="h2">{t('latestTransactions')}</Typography>
-        <Link href={TRANSACTIONS} className="button" aria-label="see more txs">
+        <Link shallow href={TRANSACTIONS} className="button" aria-label="see more txs">
           {t('seeMore')}
         </Link>
       </div>

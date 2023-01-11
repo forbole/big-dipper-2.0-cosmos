@@ -33,7 +33,7 @@ const BlockItem: FC<BlockItemProps> = ({ item, rowIndex, column, style, align })
   switch (column) {
     case 'height':
       formattedItem = (
-        <Link href={BLOCK_DETAILS(item.height)} className="value">
+        <Link shallow href={BLOCK_DETAILS(item.height)} className="value">
           {numeral(item.height).format('0,0')}
         </Link>
       );

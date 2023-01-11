@@ -1,5 +1,4 @@
 import chainConfig from '@/chainConfig';
-import hindMadurai from '@/styles/theme/hindMadurai';
 import { ThemeOptions } from '@mui/material';
 
 const { themes } = chainConfig();
@@ -26,11 +25,6 @@ export const lightThemeOverride: DeepPartial<ThemeOptions> = {
     ...theme,
   },
   components: {
-    MuiCssBaseline: {
-      styleOverrides: {
-        '@font-face': [hindMadurai],
-      },
-    },
     MuiTableBody: {
       styleOverrides: {
         root: {

@@ -28,8 +28,16 @@ const Desktop: FC<TransactionsListState> = ({
   const { t } = useTranslation('transactions');
 
   const items = transactions.map((x) => ({
-    block: <Link href={BLOCK_DETAILS(x.height)}>{numeral(x.height).format('0,0')}</Link>,
-    hash: <Link href={TRANSACTION_DETAILS(x.hash)}>{x.hash}</Link>,
+    block: (
+      <Link shallow href={BLOCK_DETAILS(x.height)}>
+        {numeral(x.height).format('0,0')}
+      </Link>
+    ),
+    hash: (
+      <Link shallow href={TRANSACTION_DETAILS(x.hash)}>
+        {x.hash}
+      </Link>
+    ),
     time: dayjs.utc(x.timestamp).fromNow(),
   }));
   return (

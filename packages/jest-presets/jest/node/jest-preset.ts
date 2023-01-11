@@ -18,6 +18,7 @@ const customJestConfig: Config = {
     '^.+\\.(svg\\?url)$': 'jest-transform-stub',
   },
   testEnvironment: 'jest-environment-jsdom',
+  snapshotSerializers: ['@emotion/jest/serializer'],
 };
 
 export default customJestConfig;

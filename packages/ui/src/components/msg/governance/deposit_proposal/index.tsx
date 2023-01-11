@@ -26,7 +26,11 @@ const DepositProposal: FC<{ message: MsgDeposit }> = (props) => {
   const depositorMoniker = depositor ? depositor?.name : message.depositor;
 
   const Proposal = useCallback(
-    () => <Link href={PROPOSAL_DETAILS(message.proposalId)}>#{message.proposalId}</Link>,
+    () => (
+      <Link shallow href={PROPOSAL_DETAILS(message.proposalId)}>
+        #{message.proposalId}
+      </Link>
+    ),
     [message.proposalId]
   );
   return (

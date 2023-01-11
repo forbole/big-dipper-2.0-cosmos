@@ -1,8 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components: Name matches snapshot 1`] = `
+.emotion-0 {
+  color: #4092CD;
+  word-break: break-all;
+}
+
+.emotion-0:hover {
+  cursor: pointer;
+}
+
 <a
-  className="css-avi0lv-root"
+  className="emotion-0"
   href="/accounts/desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz"
   onClick={[Function]}
   onMouseEnter={[Function]}

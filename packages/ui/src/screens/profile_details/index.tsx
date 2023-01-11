@@ -11,7 +11,6 @@ const ProfileDetails = () => {
   const { t } = useTranslation('profiles');
   const { classes } = useStyles();
   const { state, loading } = useProfileDetails();
-
   return (
     <>
       <NextSeo

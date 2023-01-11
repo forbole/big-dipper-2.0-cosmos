@@ -18,7 +18,7 @@ const Navbar = (props: NavbarProps) => {
 
   return (
     <div className={classes.root}>
-      <Link href={HOME} className={classes.a}>
+      <Link shallow href={HOME} className={classes.a}>
         {theme === 'light' ? (
           <BigDipperLogoRed className={classes.logo} />
         ) : (

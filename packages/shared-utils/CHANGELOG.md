@@ -1,5 +1,11 @@
 # shared-utils
 
+## 2.6.1
+
+### Patch Changes
+
+- dc085630: feat: Add Rotate banner feature
+
 ## 2.6.0
 
 ### Minor Changes

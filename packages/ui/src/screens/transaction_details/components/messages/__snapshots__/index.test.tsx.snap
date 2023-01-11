@@ -1,29 +1,395 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.emotion-1 {
+  padding-bottom: 16px;
+}
+
+@media (min-width:768px) {
+  .emotion-1 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+  }
+}
+
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  padding-bottom: 16px;
+}
+
+.emotion-2 .MuiFormControlLabel-root {
+  margin-right: 0;
+}
+
+@media (min-width:768px) {
+  .emotion-2 .MuiFormControlLabel-root {
+    display: none;
+  }
+}
+
+@media (min-width:768px) {
+  .emotion-2 {
+    padding-bottom: 0px;
+  }
+}
+
+.emotion-3 {
+  margin: 0;
+  font-size: 1.5rem;
+  letter-spacing: 0;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.emotion-4 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  vertical-align: middle;
+  -webkit-tap-highlight-color: transparent;
+  margin-left: -11px;
+  margin-right: 16px;
+}
+
+.emotion-4.Mui-disabled {
+  cursor: default;
+}
+
+.emotion-4 .MuiFormControlLabel-label.Mui-disabled {
+  color: rgba(0, 0, 0, 0.38);
+}
+
+.emotion-5 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 58px;
+  height: 38px;
+  overflow: hidden;
+  padding: 12px;
+  box-sizing: border-box;
+  position: relative;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  z-index: 0;
+  vertical-align: middle;
+}
+
+@media print {
+  .emotion-5 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-6 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
+  padding: 9px;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  color: #fff;
+  -webkit-transition: left 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,-webkit-transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: left 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.emotion-6::-moz-focus-inner {
+  border-style: none;
+}
+
+.emotion-6.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media print {
+  .emotion-6 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-6.Mui-checked {
+  -webkit-transform: translateX(20px);
+  -moz-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  transform: translateX(20px);
+}
+
+.emotion-6.Mui-disabled {
+  color: #f5f5f5;
+}
+
+.emotion-6.Mui-checked+.MuiSwitch-track {
+  opacity: 0.5;
+}
+
+.emotion-6.Mui-disabled+.MuiSwitch-track {
+  opacity: 0.12;
+}
+
+.emotion-6 .MuiSwitch-input {
+  left: -100%;
+  width: 300%;
+}
+
+.emotion-6:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+@media (hover: none) {
+  .emotion-6:hover {
+    background-color: transparent;
+  }
+}
+
+.emotion-6.Mui-checked {
+  color: #FF835B;
+}
+
+.emotion-6.Mui-checked:hover {
+  background-color: rgba(255, 131, 91, 0.04);
+}
+
+@media (hover: none) {
+  .emotion-6.Mui-checked:hover {
+    background-color: transparent;
+  }
+}
+
+.emotion-6.Mui-checked.Mui-disabled {
+  color: rgb(255, 207, 192);
+}
+
+.emotion-6.Mui-checked+.MuiSwitch-track {
+  background-color: #FF835B;
+}
+
+.emotion-7 {
+  cursor: inherit;
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+}
+
+.emotion-8 {
+  box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
+  background-color: currentColor;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.emotion-9 {
+  height: 100%;
+  width: 100%;
+  border-radius: 7px;
+  z-index: -1;
+  -webkit-transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  background-color: #000;
+  opacity: 0.38;
+}
+
+.emotion-10 {
+  margin: 0;
+  font-size: 1rem;
+  white-space: pre-wrap;
+  letter-spacing: 0.5px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.emotion-11 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-end;
+  -webkit-box-align: flex-end;
+  -ms-flex-align: flex-end;
+  align-items: flex-end;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.emotion-11 .MuiFormControlLabel-root {
+  display: none;
+}
+
+@media (min-width:768px) {
+  .emotion-11 .MuiFormControlLabel-root {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+  }
+}
+
+.emotion-19 {
+  width: 100%;
+}
+
+@media (min-width:768px) {
+  .emotion-19 {
+    min-width: 300px;
+  }
+}
+
+.emotion-20 {
+  margin: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  border-width: 0;
+  border-style: solid;
+  border-color: #E8E8E8;
+  border-bottom-width: thin;
+}
+
+.emotion-21 {
+  height: 100%;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.emotion-22 {
+  margin: 16px 0px;
+}
+
+@media (min-width:1280px) {
+  .emotion-22 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 0px 16px;
+  }
+
+  .emotion-22 .msg {
+    margin-top: 4px;
+  }
+}
+
+.emotion-23 {
+  margin-bottom: 16px;
+}
+
+@media (min-width:1280px) {
+  .emotion-23 {
+    min-width: 200px;
+    margin-bottom: 0;
+    padding-right: 16px;
+    -webkit-align-self: flex-start;
+    -ms-flex-item-align: flex-start;
+    align-self: flex-start;
+  }
+}
+
 <div
-  className="css-1968mu4-root"
+  className="emotion-0"
   id="Box"
 >
   <div
-    className="css-3797fy-header"
+    className="emotion-1"
   >
     <div
-      className="css-15b46au-mobileOptions"
+      className="emotion-2"
     >
       <h2
-        className="MuiTypography-root MuiTypography-h2 css-dcgvbp-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-h2 emotion-3"
       >
         messages
       </h2>
       <label
-        className="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
+        className="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd emotion-4"
       >
         <span
-          className="MuiSwitch-root MuiSwitch-sizeMedium css-julti5-MuiSwitch-root"
+          className="MuiSwitch-root MuiSwitch-sizeMedium emotion-5"
         >
           <span
-            className="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-33zw0k-MuiButtonBase-root-MuiSwitch-switchBase"
+            className="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary emotion-6"
             onBlur={[Function]}
             onContextMenu={[Function]}
             onDragLeave={[Function]}
@@ -40,36 +406,36 @@ exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
           >
             <input
               checked={false}
-              className="PrivateSwitchBase-input MuiSwitch-input css-1m9pwf3"
+              className="PrivateSwitchBase-input MuiSwitch-input emotion-7"
               onChange={[Function]}
               type="checkbox"
             />
             <span
-              className="MuiSwitch-thumb css-jsexje-MuiSwitch-thumb"
+              className="MuiSwitch-thumb emotion-8"
             />
           </span>
           <span
-            className="MuiSwitch-track css-1yjjitx-MuiSwitch-track"
+            className="MuiSwitch-track emotion-9"
           />
         </span>
         <span
-          className="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-pfovru-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label emotion-10"
         >
           raw
         </span>
       </label>
     </div>
     <div
-      className="css-10k5g39-desktopOptions"
+      className="emotion-11"
     >
       <label
-        className="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
+        className="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd emotion-4"
       >
         <span
-          className="MuiSwitch-root MuiSwitch-sizeMedium css-julti5-MuiSwitch-root"
+          className="MuiSwitch-root MuiSwitch-sizeMedium emotion-5"
         >
           <span
-            className="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-33zw0k-MuiButtonBase-root-MuiSwitch-switchBase"
+            className="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary emotion-6"
             onBlur={[Function]}
             onContextMenu={[Function]}
             onDragLeave={[Function]}
@@ -86,36 +452,36 @@ exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
           >
             <input
               checked={false}
-              className="PrivateSwitchBase-input MuiSwitch-input css-1m9pwf3"
+              className="PrivateSwitchBase-input MuiSwitch-input emotion-7"
               onChange={[Function]}
               type="checkbox"
             />
             <span
-              className="MuiSwitch-thumb css-jsexje-MuiSwitch-thumb"
+              className="MuiSwitch-thumb emotion-8"
             />
           </span>
           <span
-            className="MuiSwitch-track css-1yjjitx-MuiSwitch-track"
+            className="MuiSwitch-track emotion-9"
           />
         </span>
         <span
-          className="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-pfovru-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label emotion-10"
         >
           raw
         </span>
       </label>
       <div
         callback={[MockFunction]}
-        className="css-1ti6lji-filter"
+        className="emotion-19"
         id="TransactionMessagesFilter"
       />
     </div>
   </div>
   <hr
-    className="MuiDivider-root MuiDivider-fullWidth css-l3fh2f-MuiDivider-root"
+    className="MuiDivider-root MuiDivider-fullWidth emotion-20"
   />
   <div
-    className="css-1s6xrmg-list"
+    className="emotion-21"
   >
     <div
       className="List"
@@ -155,10 +521,10 @@ exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
         >
           <div>
             <div
-              className="css-13s6p8p-item"
+              className="emotion-22"
             >
               <div
-                className="css-1vwfa7o-tags"
+                className="emotion-23"
               >
                 <div
                   id="Tag"
@@ -170,14 +536,14 @@ exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
                 className="msg"
               >
                 <p
-                  className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
+                  className="MuiTypography-root MuiTypography-body1 emotion-10"
                 >
                   message_contents:txSendContent
                 </p>
               </span>
             </div>
             <hr
-              className="MuiDivider-root MuiDivider-fullWidth css-l3fh2f-MuiDivider-root"
+              className="MuiDivider-root MuiDivider-fullWidth emotion-20"
             />
           </div>
         </div>

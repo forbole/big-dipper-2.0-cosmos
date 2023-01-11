@@ -7,12 +7,10 @@ import { useRecoilValue } from 'recoil';
 
 const { genesis } = chainConfig();
 
-export const useTheme = () => {
+export const useTheme = (fontFamily: string) => {
   const theme = useRecoilValue(readTheme);
-
-  return {
-    muiTheme: createTheme(getThemeTemplate(theme)),
-  };
+  const muiTheme = createTheme(getThemeTemplate(theme, fontFamily));
+  return { muiTheme };
 };
 
 export const useGenesis = () => {

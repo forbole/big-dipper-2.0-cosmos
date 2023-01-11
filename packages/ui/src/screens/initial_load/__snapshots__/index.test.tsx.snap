@@ -1,16 +1,94 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: InitialLoad matches snapshot 1`] = `
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-width: 100vw;
+  padding: 48px;
+  position: fixed;
+  z-index: 10000000;
+  background-color: #F8F8F8;
+}
+
+.emotion-0 svg {
+  width: 100%;
+}
+
+@media (min-width:375px) {
+  .emotion-0 svg {
+    width: 300px;
+  }
+}
+
+.emotion-1 {
+  width: 100%;
+}
+
+@media (min-width:375px) {
+  .emotion-1 {
+    width: 300px;
+  }
+}
+
+.emotion-1.emotion-1 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.emotion-2 {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  min-width: 100%;
+  display: none;
+}
+
+.mode-dark .emotion-2 {
+  display: initial;
+}
+
+.emotion-3 {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  min-width: 100%;
+  object-fit: contain;
+}
+
+.mode-dark .emotion-3 {
+  display: none;
+}
+
+.emotion-4 {
+  margin: 16px 0px;
+}
+
 <div
-  className="css-w8zg9y-root"
+  className="emotion-0"
 >
   <div>
     <span
-      className="css-1x08nll-logo-container"
+      className="emotion-1"
     >
       <img
         alt="logo"
-        className="css-4nmqpx-dark"
+        className="emotion-2"
         data-nimg="1"
         decoding="async"
         height={0}
@@ -27,7 +105,7 @@ exports[`screen: InitialLoad matches snapshot 1`] = `
       />
       <img
         alt="logo"
-        className="css-13ot6lo-light"
+        className="emotion-3"
         data-nimg="1"
         decoding="async"
         height={0}
@@ -44,7 +122,7 @@ exports[`screen: InitialLoad matches snapshot 1`] = `
       />
     </span>
     <div
-      className="css-usqrv5-divider"
+      className="emotion-4"
       id="LinearProgress"
     />
     <svg />

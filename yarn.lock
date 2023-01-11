@@ -1915,6 +1915,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@emotion/css-prettifier@npm:^1.1.1":
+  version: 1.1.1
+  resolution: "@emotion/css-prettifier@npm:1.1.1"
+  dependencies:
+    "@emotion/memoize": ^0.8.0
+    stylis: 4.1.3
+  checksum: b58fd5d97a6b36fa2eedf169e598db7d9c8b8734006bb60ec7f1f67f2faf01896a9e28d940c0224bcaa7c324437165a70cf66887b245e9a246da29675bec312b
+  languageName: node
+  linkType: hard
+
 "@emotion/hash@npm:^0.9.0":
   version: 0.9.0
   resolution: "@emotion/hash@npm:0.9.0"
@@ -1937,6 +1947,27 @@ __metadata:
   dependencies:
     "@emotion/memoize": ^0.8.0
   checksum: cc7a19850a4c5b24f1514665289442c8c641709e6f7711067ad550e05df331da0692a16148e85eda6f47e31b3261b64d74c5e25194d053223be16231f969d633
+  languageName: node
+  linkType: hard
+
+"@emotion/jest@npm:^11.10.5":
+  version: 11.10.5
+  resolution: "@emotion/jest@npm:11.10.5"
+  dependencies:
+    "@babel/runtime": ^7.18.3
+    "@emotion/css-prettifier": ^1.1.1
+    chalk: ^4.1.0
+    specificity: ^0.4.1
+    stylis: 4.1.3
+  peerDependencies:
+    "@types/jest": ^26.0.14 || ^27.0.0 || ^28.0.0 || ^29.0.0
+    enzyme-to-json: ^3.2.1
+  peerDependenciesMeta:
+    "@types/jest":
+      optional: true
+    enzyme-to-json:
+      optional: true
+  checksum: 7d5ed1b700abd657f0365e3dbc9c905217df5ec28f7d2f0783305d30e153e6b080b2eb246190d9553952890c4ac0c582900c77f283f571d26f95fb6d10772f0a
   languageName: node
   linkType: hard
 
@@ -3816,6 +3847,13 @@ __metadata:
   dependencies:
     glob: 7.1.7
   checksum: 27e49ef988db3203d494930ad1fcdc270761a61a41e6925c0eadf1e2b1ebd6648722a3aaec7f0c0266eea8771797e06d52f041d33c93d21ba3b361ffe696c36c
+  languageName: node
+  linkType: hard
+
+"@next/font@npm:*, @next/font@npm:^13.1.1":
+  version: 13.1.1
+  resolution: "@next/font@npm:13.1.1"
+  checksum: 468a77d3a6db4a95ece3cc99c28dcaaf6135354ad81c3954a08a6c7d977693d7b7f07ff835b972a80d25794b711d6cb6545ea55fe6bed4c624346f3524061d19
   languageName: node
   linkType: hard
 
@@ -12490,7 +12528,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next@npm:^13.1.1":
+"next@npm:*, next@npm:^13.1.1":
   version: 13.1.1
   resolution: "next@npm:13.1.1"
   dependencies:
@@ -13619,7 +13657,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^18.2.0":
+"react-dom@npm:*, react-dom@npm:^18.2.0":
   version: 18.2.0
   resolution: "react-dom@npm:18.2.0"
   dependencies:
@@ -13811,7 +13849,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:^18.2.0":
+"react@npm:*, react@npm:^18.2.0":
   version: 18.2.0
   resolution: "react@npm:18.2.0"
   dependencies:
@@ -14841,6 +14879,15 @@ __metadata:
   version: 3.0.12
   resolution: "spdx-license-ids@npm:3.0.12"
   checksum: 92a4dddce62ce1db6fe54a7a839cf85e06abc308fc83b776a55b44e4f1906f02e7ebd506120847039e976bbbad359ea8bdfafb7925eae5cd7e73255f02e0b7d6
+  languageName: node
+  linkType: hard
+
+"specificity@npm:^0.4.1":
+  version: 0.4.1
+  resolution: "specificity@npm:0.4.1"
+  bin:
+    specificity: ./bin/specificity
+  checksum: e558f1098f85aa54a8e90277309ac0d1913c84812c0bd349aa449076aa700964f71ab69f04f5fda9b7898bef9b7da3faa1cad9caedfd3f1a1ebfebedc18604ab
   languageName: node
   linkType: hard
 
@@ -15923,6 +15970,7 @@ __metadata:
   dependencies:
     "@apollo/client": ^3.7.3
     "@emotion/cache": ^11.10.5
+    "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.5
@@ -15939,6 +15987,7 @@ __metadata:
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.3
     "@next/eslint-plugin-next": ^13.1.1
+    "@next/font": ^13.1.1
     "@sentry/nextjs": ^7.29.0
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
@@ -16284,6 +16333,7 @@ __metadata:
     "@cosmjs/encoding": ^0.27.1
     "@cosmjs/launchpad": ^0.27.1
     "@emotion/cache": ^11.10.5
+    "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.5
@@ -16300,6 +16350,7 @@ __metadata:
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.3
     "@next/eslint-plugin-next": ^13.1.1
+    "@next/font": ^13.1.1
     "@sentry/nextjs": ^7.29.0
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
@@ -16399,6 +16450,7 @@ __metadata:
     "@cosmjs/encoding": ^0.27.1
     "@cosmjs/launchpad": ^0.27.1
     "@emotion/cache": ^11.10.5
+    "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.5
@@ -16415,6 +16467,7 @@ __metadata:
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.3
     "@next/eslint-plugin-next": ^13.1.1
+    "@next/font": ^13.1.1
     "@sentry/nextjs": ^7.29.0
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
@@ -16514,6 +16567,7 @@ __metadata:
     "@cosmjs/encoding": ^0.27.1
     "@cosmjs/launchpad": ^0.27.1
     "@emotion/cache": ^11.10.5
+    "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.5
@@ -16530,6 +16584,7 @@ __metadata:
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.3
     "@next/eslint-plugin-next": ^13.1.1
+    "@next/font": ^13.1.1
     "@sentry/nextjs": ^7.29.0
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
@@ -16629,6 +16684,7 @@ __metadata:
     "@cosmjs/encoding": ^0.27.1
     "@cosmjs/launchpad": ^0.27.1
     "@emotion/cache": ^11.10.5
+    "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.5
@@ -16645,6 +16701,7 @@ __metadata:
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.3
     "@next/eslint-plugin-next": ^13.1.1
+    "@next/font": ^13.1.1
     "@sentry/nextjs": ^7.29.0
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
@@ -16744,6 +16801,7 @@ __metadata:
     "@cosmjs/encoding": ^0.27.1
     "@cosmjs/launchpad": ^0.27.1
     "@emotion/cache": ^11.10.5
+    "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.5
@@ -16760,6 +16818,7 @@ __metadata:
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.3
     "@next/eslint-plugin-next": ^13.1.1
+    "@next/font": ^13.1.1
     "@sentry/nextjs": ^7.29.0
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
@@ -16859,6 +16918,7 @@ __metadata:
     "@cosmjs/encoding": ^0.27.1
     "@cosmjs/launchpad": ^0.27.1
     "@emotion/cache": ^11.10.5
+    "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.5
@@ -16875,6 +16935,7 @@ __metadata:
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.3
     "@next/eslint-plugin-next": ^13.1.1
+    "@next/font": ^13.1.1
     "@sentry/nextjs": ^7.29.0
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
@@ -16974,6 +17035,7 @@ __metadata:
     "@cosmjs/encoding": ^0.27.1
     "@cosmjs/launchpad": ^0.27.1
     "@emotion/cache": ^11.10.5
+    "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.5
@@ -16990,6 +17052,7 @@ __metadata:
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.3
     "@next/eslint-plugin-next": ^13.1.1
+    "@next/font": ^13.1.1
     "@sentry/nextjs": ^7.29.0
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
@@ -17089,6 +17152,7 @@ __metadata:
     "@cosmjs/encoding": ^0.27.1
     "@cosmjs/launchpad": ^0.27.1
     "@emotion/cache": ^11.10.5
+    "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.5
@@ -17105,6 +17169,7 @@ __metadata:
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.3
     "@next/eslint-plugin-next": ^13.1.1
+    "@next/font": ^13.1.1
     "@sentry/nextjs": ^7.29.0
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
@@ -17204,6 +17269,7 @@ __metadata:
     "@cosmjs/encoding": ^0.27.1
     "@cosmjs/launchpad": ^0.27.1
     "@emotion/cache": ^11.10.5
+    "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.5
@@ -17220,6 +17286,7 @@ __metadata:
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.3
     "@next/eslint-plugin-next": ^13.1.1
+    "@next/font": ^13.1.1
     "@sentry/nextjs": ^7.29.0
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
@@ -17319,6 +17386,7 @@ __metadata:
     "@cosmjs/encoding": ^0.27.1
     "@cosmjs/launchpad": ^0.27.1
     "@emotion/cache": ^11.10.5
+    "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.5
@@ -17335,6 +17403,7 @@ __metadata:
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.3
     "@next/eslint-plugin-next": ^13.1.1
+    "@next/font": ^13.1.1
     "@sentry/nextjs": ^7.29.0
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
@@ -17434,6 +17503,7 @@ __metadata:
     "@cosmjs/encoding": ^0.27.1
     "@cosmjs/launchpad": ^0.27.1
     "@emotion/cache": ^11.10.5
+    "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.5
@@ -17450,6 +17520,7 @@ __metadata:
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.3
     "@next/eslint-plugin-next": ^13.1.1
+    "@next/font": ^13.1.1
     "@sentry/nextjs": ^7.29.0
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
@@ -17549,6 +17620,7 @@ __metadata:
     "@cosmjs/encoding": ^0.27.1
     "@cosmjs/launchpad": ^0.27.1
     "@emotion/cache": ^11.10.5
+    "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.5
@@ -17565,6 +17637,7 @@ __metadata:
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.3
     "@next/eslint-plugin-next": ^13.1.1
+    "@next/font": ^13.1.1
     "@sentry/nextjs": ^7.29.0
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
@@ -17664,6 +17737,7 @@ __metadata:
     "@cosmjs/encoding": ^0.27.1
     "@cosmjs/launchpad": ^0.27.1
     "@emotion/cache": ^11.10.5
+    "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.5
@@ -17680,6 +17754,7 @@ __metadata:
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.3
     "@next/eslint-plugin-next": ^13.1.1
+    "@next/font": ^13.1.1
     "@sentry/nextjs": ^7.29.0
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
@@ -17779,6 +17854,7 @@ __metadata:
     "@cosmjs/encoding": ^0.27.1
     "@cosmjs/launchpad": ^0.27.1
     "@emotion/cache": ^11.10.5
+    "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.5
@@ -17795,6 +17871,7 @@ __metadata:
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.3
     "@next/eslint-plugin-next": ^13.1.1
+    "@next/font": ^13.1.1
     "@sentry/nextjs": ^7.29.0
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
@@ -17894,6 +17971,7 @@ __metadata:
     "@cosmjs/encoding": ^0.27.1
     "@cosmjs/launchpad": ^0.27.1
     "@emotion/cache": ^11.10.5
+    "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.5
@@ -17910,6 +17988,7 @@ __metadata:
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.3
     "@next/eslint-plugin-next": ^13.1.1
+    "@next/font": ^13.1.1
     "@sentry/nextjs": ^7.29.0
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
@@ -18009,6 +18088,7 @@ __metadata:
     "@cosmjs/encoding": ^0.27.1
     "@cosmjs/launchpad": ^0.27.1
     "@emotion/cache": ^11.10.5
+    "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.5
@@ -18025,6 +18105,7 @@ __metadata:
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.3
     "@next/eslint-plugin-next": ^13.1.1
+    "@next/font": ^13.1.1
     "@sentry/nextjs": ^7.29.0
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
@@ -18124,6 +18205,7 @@ __metadata:
     "@cosmjs/encoding": ^0.27.1
     "@cosmjs/launchpad": ^0.27.1
     "@emotion/cache": ^11.10.5
+    "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.5
@@ -18140,6 +18222,7 @@ __metadata:
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.3
     "@next/eslint-plugin-next": ^13.1.1
+    "@next/font": ^13.1.1
     "@sentry/nextjs": ^7.29.0
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
@@ -18239,6 +18322,7 @@ __metadata:
     "@cosmjs/encoding": ^0.27.1
     "@cosmjs/launchpad": ^0.27.1
     "@emotion/cache": ^11.10.5
+    "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.5
@@ -18255,6 +18339,7 @@ __metadata:
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.3
     "@next/eslint-plugin-next": ^13.1.1
+    "@next/font": ^13.1.1
     "@sentry/nextjs": ^7.29.0
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
@@ -18354,6 +18439,7 @@ __metadata:
     "@cosmjs/encoding": ^0.27.1
     "@cosmjs/launchpad": ^0.27.1
     "@emotion/cache": ^11.10.5
+    "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.5
@@ -18370,6 +18456,7 @@ __metadata:
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.3
     "@next/eslint-plugin-next": ^13.1.1
+    "@next/font": ^13.1.1
     "@sentry/nextjs": ^7.29.0
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
@@ -18469,6 +18556,7 @@ __metadata:
     "@cosmjs/encoding": ^0.27.1
     "@cosmjs/launchpad": ^0.27.1
     "@emotion/cache": ^11.10.5
+    "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.5
@@ -18485,6 +18573,7 @@ __metadata:
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.3
     "@next/eslint-plugin-next": ^13.1.1
+    "@next/font": ^13.1.1
     "@sentry/nextjs": ^7.29.0
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
@@ -18584,6 +18673,7 @@ __metadata:
     "@cosmjs/encoding": ^0.27.1
     "@cosmjs/launchpad": ^0.27.1
     "@emotion/cache": ^11.10.5
+    "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.5
@@ -18600,6 +18690,7 @@ __metadata:
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.3
     "@next/eslint-plugin-next": ^13.1.1
+    "@next/font": ^13.1.1
     "@sentry/nextjs": ^7.29.0
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
@@ -18699,6 +18790,7 @@ __metadata:
     "@cosmjs/encoding": ^0.27.1
     "@cosmjs/launchpad": ^0.27.1
     "@emotion/cache": ^11.10.5
+    "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.5
@@ -18715,6 +18807,7 @@ __metadata:
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.3
     "@next/eslint-plugin-next": ^13.1.1
+    "@next/font": ^13.1.1
     "@sentry/nextjs": ^7.29.0
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
@@ -18828,6 +18921,7 @@ __metadata:
     "@cosmjs/encoding": ^0.27.1
     "@cosmjs/launchpad": ^0.27.1
     "@emotion/cache": ^11.10.5
+    "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.5
@@ -18844,6 +18938,7 @@ __metadata:
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.3
     "@next/eslint-plugin-next": ^13.1.1
+    "@next/font": ^13.1.1
     "@sentry/nextjs": ^7.29.0
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1
@@ -18943,6 +19038,7 @@ __metadata:
     "@cosmjs/encoding": ^0.27.1
     "@cosmjs/launchpad": ^0.27.1
     "@emotion/cache": ^11.10.5
+    "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.5
@@ -18960,6 +19056,7 @@ __metadata:
     "@mui/material": ^5.11.3
     "@mui/styles": ^5.11.2
     "@next/eslint-plugin-next": ^13.1.1
+    "@next/font": ^13.1.1
     "@sentry/nextjs": ^7.29.0
     "@socialgouv/matomo-next": ^1.4.0
     "@svgr/webpack": ^6.5.1

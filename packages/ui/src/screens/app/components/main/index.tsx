@@ -13,10 +13,19 @@ import createEmotionCache from '@/styles/createEmotionCache';
 import { CacheProvider, EmotionCache } from '@emotion/react';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
+import { Hind_Madurai } from '@next/font/google';
+import { AnimatePresence } from 'framer-motion';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import { useEffect } from 'react';
 import { ToastContainer } from 'react-toastify';
+
+const hindMadurai = Hind_Madurai({
+  weight: '400',
+  style: 'normal',
+  display: 'swap',
+  preload: true,
+});
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -41,7 +50,7 @@ const Main = (props: MainProps) => {
   // =====================================
   // general setup
   // =====================================
-  const { muiTheme } = useTheme();
+  const { muiTheme } = useTheme(hindMadurai.style.fontFamily);
   const { genesisStarted, startGenesis } = useGenesis();
 
   let Component = null;
@@ -85,7 +94,9 @@ const Main = (props: MainProps) => {
           draggable
           pauseOnHover
         />
-        {Component}
+        <AnimatePresence mode="wait" initial={false}>
+          {Component}
+        </AnimatePresence>
       </ThemeProvider>
     </CacheProvider>
   );

@@ -1,25 +1,217 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`component: DesmosProfile matches snapshot 1`] = `
+.emotion-0 {
+  overflow: hidden;
+}
+
+.emotion-0.emotion-0 {
+  overflow: auto;
+  padding: 16px;
+  border-radius: 4px;
+  background: #FFFFFF;
+}
+
+.emotion-1 {
+  height: 150px;
+  background: #999999;
+  background-image: url("/base/images/default_cover_pattern.png");
+  background-repeat: repeat;
+  -webkit-background-position: center center;
+  background-position: center center;
+  margin: -16px -16px 0px -16px;
+  overflow: hidden;
+  -webkit-background-size: contain;
+  background-size: contain;
+}
+
+.emotion-1 .cover {
+  width: 100%;
+  height: 100%;
+  background-image: url(testcoverurl.com);
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+  -webkit-background-position: center center;
+  background-position: center center;
+}
+
+@media (min-width:375px) {
+  .emotion-1 {
+    height: 200px;
+  }
+}
+
+@media (min-width:768px) {
+  .emotion-1 {
+    height: 300px;
+  }
+}
+
+@media (min-width:1280px) {
+  .emotion-1 {
+    height: 360px;
+  }
+}
+
+.emotion-2 {
+  position: relative;
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+  padding: 8px 0px;
+}
+
+.emotion-2 .hide {
+  visibility: hidden;
+}
+
+@media (min-width:768px) {
+  .emotion-2 {
+    padding-bottom: 16px;
+  }
+}
+
+@media (min-width:1280px) {
+  .emotion-2 {
+    padding-bottom: 28px;
+  }
+}
+
+.emotion-3 {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  min-height: 28px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #F8F8F8;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: absolute;
+  width: 75px;
+  height: 75px;
+  min-height: 75px;
+  min-width: 75px;
+  border: solid 3px #FFFFFF;
+  top: -32px;
+  left: 0;
+}
+
+.emotion-3 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+@media (min-width:768px) {
+  .emotion-3 {
+    width: 115px;
+    height: 115px;
+    min-height: 115px;
+    min-width: 115px;
+    top: -64px;
+    border-width: 4px;
+  }
+}
+
+@media (min-width:1280px) {
+  .emotion-3 {
+    width: 150px;
+    height: 150px;
+    min-height: 150px;
+    min-width: 150px;
+    top: -88px;
+    border-width: 5px;
+  }
+}
+
+.emotion-4 {
+  width: auto;
+  height: auto;
+}
+
+.emotion-5 {
+  margin: 0;
+  font-size: 1rem;
+  white-space: pre-wrap;
+  letter-spacing: 0.5px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #4092CD;
+}
+
+.emotion-5:hover {
+  cursor: pointer;
+}
+
+.emotion-6 {
+  margin: 8px 0px;
+}
+
+.emotion-6 .tag {
+  color: #999999;
+}
+
+.emotion-7 {
+  margin: 0;
+  font-size: 1.5rem;
+  letter-spacing: 0;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.emotion-8 {
+  margin: 0;
+  font-size: 0.875rem;
+  letter-spacing: 0.25px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.43;
+}
+
 <div
-  className="css-1gx3ykx-root-root"
+  className="emotion-0"
 >
   <div
-    className="css-1iuvubj-cover"
+    className="emotion-1"
   >
     <div
       className="cover"
     />
   </div>
   <div
-    className="css-1o0pknf-avatarContainer"
+    className="emotion-2"
   >
     <div
-      className="css-31y7f8-root-avatar"
+      className="emotion-3"
     >
       <img
         alt="address avatar"
-        className="css-mbd3ku-img"
+        className="emotion-4"
         data-nimg="1"
         decoding="async"
         height={0}
@@ -36,7 +228,7 @@ exports[`component: DesmosProfile matches snapshot 1`] = `
       />
     </div>
     <p
-      className="MuiTypography-root MuiTypography-body1 css-18rans7-MuiTypography-root-link"
+      className="MuiTypography-root MuiTypography-body1 emotion-5"
       onClick={[Function]}
       role="button"
     >
@@ -44,15 +236,15 @@ exports[`component: DesmosProfile matches snapshot 1`] = `
     </p>
   </div>
   <div
-    className="css-fv36vp-nicknameWrapper"
+    className="emotion-6"
   >
     <h2
-      className="MuiTypography-root MuiTypography-h2 css-dcgvbp-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-h2 emotion-7"
     >
       test_nickname
     </h2>
     <p
-      className="MuiTypography-root MuiTypography-body2 tag css-1bkilrq-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-body2 tag emotion-8"
     >
       @
       test

@@ -1,4 +1,3 @@
-import hindMadurai from '@/styles/theme/hindMadurai';
 import { ThemeOptions } from '@mui/material';
 
 const backgroundDefault = '#0A0A0A';
@@ -110,11 +109,6 @@ export const tritanopiaThemeOverride: DeepPartial<ThemeOptions> = {
     },
   },
   components: {
-    MuiCssBaseline: {
-      styleOverrides: {
-        '@font-face': [hindMadurai],
-      },
-    },
     MuiSvgIcon: {
       defaultProps: {
         htmlColor: icon, // same as custom /general /icons

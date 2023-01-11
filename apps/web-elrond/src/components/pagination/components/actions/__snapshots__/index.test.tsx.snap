@@ -1,15 +1,120 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components: Pagination/Actions matches snapshot 1`] = `
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 0;
+  list-style-type: none;
+}
+
+.emotion-0 .MuiButtonBase-root,
+.emotion-0 .MuiInputBase-input {
+  background: #F8F8F8;
+}
+
+.emotion-0 li {
+  margin: 0px 4px;
+}
+
+.emotion-0 li.last {
+  margin-right: 0;
+  margin-left: 3px;
+}
+
+.emotion-0 li.first {
+  margin-left: 0;
+  margin-right: 3px;
+}
+
+@media (min-width:768px) {
+  .emotion-0 {
+    -webkit-align-self: flex-end;
+    -ms-flex-item-align: flex-end;
+    align-self: flex-end;
+  }
+}
+
+.emotion-1 {
+  height: 30px;
+  width: 30px;
+  border-radius: 4px;
+  padding: 8px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.emotion-2 {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.emotion-5 {
+  margin: 0;
+  font-size: 0.875rem;
+  letter-spacing: 0.25px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.43;
+  height: 30px;
+  width: 30px;
+  border-radius: 4px;
+  padding: 8px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  color: #777777;
+}
+
+.emotion-5.selected {
+  color: #FFFFFF;
+  background: #2F65DD;
+}
+
+.emotion-5.selected:hover {
+  cursor: initial;
+}
+
+.emotion-5:hover {
+  cursor: pointer;
+}
+
 <ul
-  className="css-18qoeiq-root"
+  className="emotion-0"
 >
   <li
     className="first"
   >
     <div
       aria-label="first page"
-      className="css-1dghc4y-button"
+      className="emotion-1"
       disableRipple={true}
       disabled={true}
       id="iconButton"
@@ -17,14 +122,14 @@ exports[`components: Pagination/Actions matches snapshot 1`] = `
       size="large"
     >
       <svg
-        className="css-37cjiq-prev"
+        className="emotion-2"
       />
     </div>
   </li>
   <li>
     <div
       aria-label="previous page"
-      className="css-1dghc4y-button"
+      className="emotion-1"
       disableRipple={true}
       disabled={true}
       id="iconButton"
@@ -32,24 +137,24 @@ exports[`components: Pagination/Actions matches snapshot 1`] = `
       size="large"
     >
       <svg
-        className="css-37cjiq-prev"
+        className="emotion-2"
       />
     </div>
   </li>
   <li
-    className="MuiTypography-root MuiTypography-body2 selected css-1m40osk-MuiTypography-root-button-pageButton"
+    className="MuiTypography-root MuiTypography-body2 selected emotion-5"
     onClick={[Function]}
   >
     1
   </li>
   <li
-    className="MuiTypography-root MuiTypography-body2 css-1m40osk-MuiTypography-root-button-pageButton"
+    className="MuiTypography-root MuiTypography-body2 emotion-5"
     onClick={[Function]}
   >
     2
   </li>
   <li
-    className="MuiTypography-root MuiTypography-body2 css-1m40osk-MuiTypography-root-button-pageButton"
+    className="MuiTypography-root MuiTypography-body2 emotion-5"
     onClick={[Function]}
   >
     3
@@ -57,7 +162,7 @@ exports[`components: Pagination/Actions matches snapshot 1`] = `
   <li>
     <div
       aria-label="next page"
-      className="css-1dghc4y-button"
+      className="emotion-1"
       disableRipple={true}
       disabled={false}
       id="iconButton"
@@ -72,7 +177,7 @@ exports[`components: Pagination/Actions matches snapshot 1`] = `
   >
     <div
       aria-label="last page"
-      className="css-1dghc4y-button"
+      className="emotion-1"
       disableRipple={true}
       disabled={false}
       id="iconButton"

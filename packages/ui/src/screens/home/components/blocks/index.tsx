@@ -24,7 +24,7 @@ const Blocks: FC<ComponentDefault> = ({ className }) => {
     <Box className={cx(classes.root, className)}>
       <div className={classes.label}>
         <Typography variant="h2">{t('latestBlocks')}</Typography>
-        <Link href={BLOCKS} className="button" aria-label="see more blocks">
+        <Link shallow href={BLOCKS} className="button" aria-label="see more blocks">
           {t('seeMore')}
         </Link>
       </div>

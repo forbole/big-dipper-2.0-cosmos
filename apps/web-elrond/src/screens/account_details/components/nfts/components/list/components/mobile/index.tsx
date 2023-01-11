@@ -14,7 +14,7 @@ const Mobile: FC<{ className?: string; items: OtherTokenType[] }> = (props) => {
     key: `${x.identifier}-${i}`,
     identifier: x.identifier,
     nft: (
-      <Link href={NFT_DETAILS(x.identifier)} className="value">
+      <Link shallow href={NFT_DETAILS(x.identifier)} className="value">
         {x.name}
       </Link>
     ),

@@ -1,8 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: Validators matches snapshot 1`] = `
+.emotion-0 {
+  padding: 16px;
+}
+
+@media (min-width: 1280px) {
+  .emotion-0 {
+    padding: 16px 24px;
+  }
+}
+
+.emotion-0 a {
+  color: #4092CD;
+}
+
 <div
-  className="css-1kpiz3c-root"
+  className="emotion-0"
   id="Layout"
   navTitle="validators"
 >

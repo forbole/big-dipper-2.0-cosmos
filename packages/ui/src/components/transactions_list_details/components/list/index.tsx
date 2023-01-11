@@ -44,12 +44,12 @@ const ListItem: FC<ListItemProps> = ({ index, style, setRowHeight, isItemLoaded,
   const item = {
     key: transaction.height,
     block: (
-      <Link href={BLOCK_DETAILS(transaction.height)}>
+      <Link shallow href={BLOCK_DETAILS(transaction.height)}>
         {numeral(transaction.height).format('0,0')}
       </Link>
     ),
     hash: (
-      <Link href={TRANSACTION_DETAILS(transaction.hash)}>
+      <Link shallow href={TRANSACTION_DETAILS(transaction.hash)}>
         {isMobile
           ? getMiddleEllipsis(transaction.hash, {
               beginning: 15,
