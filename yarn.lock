@@ -16333,8 +16333,6 @@ __metadata:
   resolution: "web-agoric@workspace:apps/web-agoric"
   dependencies:
     "@apollo/client": ^3.7.3
-    "@cosmjs/encoding": ^0.27.1
-    "@cosmjs/launchpad": ^0.27.1
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
@@ -16450,8 +16448,6 @@ __metadata:
   resolution: "web-akash@workspace:apps/web-akash"
   dependencies:
     "@apollo/client": ^3.7.3
-    "@cosmjs/encoding": ^0.27.1
-    "@cosmjs/launchpad": ^0.27.1
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
@@ -16567,8 +16563,6 @@ __metadata:
   resolution: "web-assetmantle@workspace:apps/web-assetmantle"
   dependencies:
     "@apollo/client": ^3.7.3
-    "@cosmjs/encoding": ^0.27.1
-    "@cosmjs/launchpad": ^0.27.1
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
@@ -16684,8 +16678,6 @@ __metadata:
   resolution: "web-band@workspace:apps/web-band"
   dependencies:
     "@apollo/client": ^3.7.3
-    "@cosmjs/encoding": ^0.27.1
-    "@cosmjs/launchpad": ^0.27.1
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
@@ -16801,8 +16793,6 @@ __metadata:
   resolution: "web-bitsong@workspace:apps/web-bitsong"
   dependencies:
     "@apollo/client": ^3.7.3
-    "@cosmjs/encoding": ^0.27.1
-    "@cosmjs/launchpad": ^0.27.1
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
@@ -16918,8 +16908,6 @@ __metadata:
   resolution: "web-comdex@workspace:apps/web-comdex"
   dependencies:
     "@apollo/client": ^3.7.3
-    "@cosmjs/encoding": ^0.27.1
-    "@cosmjs/launchpad": ^0.27.1
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
@@ -17035,8 +17023,6 @@ __metadata:
   resolution: "web-cosmos@workspace:apps/web-cosmos"
   dependencies:
     "@apollo/client": ^3.7.3
-    "@cosmjs/encoding": ^0.27.1
-    "@cosmjs/launchpad": ^0.27.1
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
@@ -17152,8 +17138,6 @@ __metadata:
   resolution: "web-crescent@workspace:apps/web-crescent"
   dependencies:
     "@apollo/client": ^3.7.3
-    "@cosmjs/encoding": ^0.27.1
-    "@cosmjs/launchpad": ^0.27.1
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
@@ -17269,8 +17253,6 @@ __metadata:
   resolution: "web-desmos@workspace:apps/web-desmos"
   dependencies:
     "@apollo/client": ^3.7.3
-    "@cosmjs/encoding": ^0.27.1
-    "@cosmjs/launchpad": ^0.27.1
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
@@ -17386,8 +17368,6 @@ __metadata:
   resolution: "web-elrond@workspace:apps/web-elrond"
   dependencies:
     "@apollo/client": ^3.7.3
-    "@cosmjs/encoding": ^0.27.1
-    "@cosmjs/launchpad": ^0.27.1
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
@@ -17503,8 +17483,6 @@ __metadata:
   resolution: "web-emoney@workspace:apps/web-emoney"
   dependencies:
     "@apollo/client": ^3.7.3
-    "@cosmjs/encoding": ^0.27.1
-    "@cosmjs/launchpad": ^0.27.1
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
@@ -17620,8 +17598,6 @@ __metadata:
   resolution: "web-evmos@workspace:apps/web-evmos"
   dependencies:
     "@apollo/client": ^3.7.3
-    "@cosmjs/encoding": ^0.27.1
-    "@cosmjs/launchpad": ^0.27.1
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
@@ -17737,8 +17713,6 @@ __metadata:
   resolution: "web-likecoin@workspace:apps/web-likecoin"
   dependencies:
     "@apollo/client": ^3.7.3
-    "@cosmjs/encoding": ^0.27.1
-    "@cosmjs/launchpad": ^0.27.1
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
@@ -17854,8 +17828,6 @@ __metadata:
   resolution: "web-nomic@workspace:apps/web-nomic"
   dependencies:
     "@apollo/client": ^3.7.3
-    "@cosmjs/encoding": ^0.27.1
-    "@cosmjs/launchpad": ^0.27.1
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
@@ -17971,8 +17943,6 @@ __metadata:
   resolution: "web-nym@workspace:apps/web-nym"
   dependencies:
     "@apollo/client": ^3.7.3
-    "@cosmjs/encoding": ^0.27.1
-    "@cosmjs/launchpad": ^0.27.1
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
@@ -18088,8 +18058,6 @@ __metadata:
   resolution: "web-osmosis@workspace:apps/web-osmosis"
   dependencies:
     "@apollo/client": ^3.7.3
-    "@cosmjs/encoding": ^0.27.1
-    "@cosmjs/launchpad": ^0.27.1
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
@@ -18205,8 +18173,6 @@ __metadata:
   resolution: "web-persistence@workspace:apps/web-persistence"
   dependencies:
     "@apollo/client": ^3.7.3
-    "@cosmjs/encoding": ^0.27.1
-    "@cosmjs/launchpad": ^0.27.1
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
@@ -18322,8 +18288,6 @@ __metadata:
   resolution: "web-provenance@workspace:apps/web-provenance"
   dependencies:
     "@apollo/client": ^3.7.3
-    "@cosmjs/encoding": ^0.27.1
-    "@cosmjs/launchpad": ^0.27.1
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
@@ -18439,8 +18403,6 @@ __metadata:
   resolution: "web-regen@workspace:apps/web-regen"
   dependencies:
     "@apollo/client": ^3.7.3
-    "@cosmjs/encoding": ^0.27.1
-    "@cosmjs/launchpad": ^0.27.1
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
@@ -18556,8 +18518,6 @@ __metadata:
   resolution: "web-rizon@workspace:apps/web-rizon"
   dependencies:
     "@apollo/client": ^3.7.3
-    "@cosmjs/encoding": ^0.27.1
-    "@cosmjs/launchpad": ^0.27.1
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
@@ -18673,8 +18633,6 @@ __metadata:
   resolution: "web-shentu@workspace:apps/web-shentu"
   dependencies:
     "@apollo/client": ^3.7.3
-    "@cosmjs/encoding": ^0.27.1
-    "@cosmjs/launchpad": ^0.27.1
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
@@ -18790,8 +18748,6 @@ __metadata:
   resolution: "web-sifchain@workspace:apps/web-sifchain"
   dependencies:
     "@apollo/client": ^3.7.3
-    "@cosmjs/encoding": ^0.27.1
-    "@cosmjs/launchpad": ^0.27.1
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
@@ -18921,8 +18877,6 @@ __metadata:
   resolution: "web-stride@workspace:apps/web-stride"
   dependencies:
     "@apollo/client": ^3.7.3
-    "@cosmjs/encoding": ^0.27.1
-    "@cosmjs/launchpad": ^0.27.1
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
@@ -19038,8 +18992,6 @@ __metadata:
   resolution: "web@workspace:apps/web"
   dependencies:
     "@apollo/client": ^3.7.3
-    "@cosmjs/encoding": ^0.27.1
-    "@cosmjs/launchpad": ^0.27.1
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
