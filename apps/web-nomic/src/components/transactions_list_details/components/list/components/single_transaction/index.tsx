@@ -1,21 +1,22 @@
-import { useStyles } from '@/components/transactions_list_details/components/list/components/single_transaction/styles';
-import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
+import useStyles from '@/components/transactions_list_details/components/list/components/single_transaction/styles';
+import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
-import React from 'react';
+import React, { FC, ReactNode } from 'react';
 
-const SingleTransaction: React.FC<{
+type SingleTransactionProps = {
   className?: string;
-  block: React.ReactNode;
-  hash: React.ReactNode;
+  block: ReactNode;
+  hash: ReactNode;
   time: string;
-}> = ({ className, block, hash, time }) => {
+};
+
+const SingleTransaction: FC<SingleTransactionProps> = ({ className, block, hash, time }) => {
   const { t } = useTranslation('transactions');
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
 
   return (
-    <div className={classnames(className, classes.root)}>
+    <div className={cx(classes.root, className)}>
       <div className={classes.timeContainer}>
         <Typography variant="body1" className="value">
           {hash}
@@ -23,13 +24,13 @@ const SingleTransaction: React.FC<{
       </div>
       <div className={classes.itemContainer}>
         <div className={classes.itemPrimaryDetailsContainer}>
-          <div className={classnames(classes.item, 'block')}>
+          <div className={cx(classes.item, 'block')}>
             <Typography variant="h4" className="label">
               {t('block')}
             </Typography>
             {block}
           </div>
-          <div className={classnames(classes.item, 'time')}>
+          <div className={cx(classes.item, 'time')}>
             <Typography variant="h4" className="label">
               {t('time')}
             </Typography>

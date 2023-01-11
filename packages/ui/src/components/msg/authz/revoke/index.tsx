@@ -1,11 +1,11 @@
 import Name from '@/components/name';
 import { MsgRevoke } from '@/models';
-import { useProfileRecoil } from '@/recoil/profiles';
-import Typography from '@material-ui/core/Typography';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
+import Typography from '@mui/material/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const Revoke: React.FC<{ message: MsgRevoke }> = (props) => {
+const Revoke: FC<{ message: MsgRevoke }> = (props) => {
   const { message } = props;
 
   const granter = useProfileRecoil(message.granter);

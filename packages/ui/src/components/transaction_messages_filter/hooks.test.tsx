@@ -1,5 +1,5 @@
 import { useTransactionsFilter } from '@/components/transaction_messages_filter/hooks';
-import { act, cleanup, renderHook } from '@testing-library/react-hooks';
+import { act, cleanup, renderHook } from '@testing-library/react';
 import { RecoilRoot } from 'recoil';
 
 const callback = jest.fn();

@@ -12,7 +12,7 @@
     "dev:ci": "turbo run dev --continue",
     "build": "dotenv -- turbo run build --filter=$(dotenv -- printenv PROJECT_NAME || echo web)...",
     "build:ci": "turbo run build --continue --concurrency=1",
-    "clean": "yarn cache clean --all && [ -d \"node_modules\" ] && turbo run clean && rm -rf node_modules",
+    "clean": "yarn cache clean --mirror && [ -d \"node_modules\" ] && turbo run clean && rm -rf node_modules",
     "start": "dotenv -- turbo run start --filter=$(dotenv -- printenv PROJECT_NAME || echo web)...",
     "format": "prettier --write \"{**/src/{,**/}*.{js,ts,tsx,mjs,cjs,md},e2e/{,**/}*.{js,ts,tsx,mjs,cjs,md}}\"",
     "check-types": "dotenv -- turbo run check-types --filter=$(dotenv -- printenv PROJECT_NAME || echo web)...",
@@ -28,33 +28,38 @@
   },
   "devDependencies": {
     "@changesets/cli": "^2.26.0",
+    "@cosmjs/encoding": "^0.27.1",
     "@cosmjs/launchpad": "^0.27.1",
     "@keplr-wallet/types": "^0.11.29",
-    "@playwright/test": "^1.29.0",
+    "@mui/material": "^5.11.4",
+    "@playwright/test": "^1.29.2",
     "@types/eslint": "^8.4.10",
+    "@types/esprima": "^4.0.3",
+    "@types/ramda": "^0.28.20",
+    "@types/react": "^18.0.26",
     "dotenv-cli": "^6.0.0",
-    "eslint": "^8.30.0",
-    "husky": "^8.0.2",
+    "eslint": "^8.31.0",
+    "esprima": "^4.0.1",
+    "husky": "^8.0.3",
     "lint-staged": "^13.1.0",
-    "prettier": "2.8.1",
+    "prettier": "2.8.2",
     "turbo": "^1.6.3",
-    "typescript": "^4.9.4",
-    "typescritp": "^1.0.0"
+    "typescript": "^4.9.4"
   },
-  "resolutions": {
-    "@types/node": "^18.11.10",
-    "@types/react": "^17.0.52"
-  },
-  "packageManager": "yarn@3.2.4",
+  "packageManager": "yarn@3.3.1",
   "engines": {
     "node": ">=16.13.0",
     "yarn": ">=1.22"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx,mjs,cjs,css,md}": "npx prettier --write"
+    "*.{js,jsx,ts,tsx,mjs,css,md}": "npx prettier --write"
   },
   "dependencies": {
+    "@cosmjs/encoding": "^0.27.1",
+    "@mui/core": "^5.0.0-alpha.54",
+    "@mui/material": "^5.11.4",
     "@walletconnect/sign-client": "^2.1.5",
+    "base64-js": "^1.5.1",
     "react-qr-reader": "^3.0.0-beta-1"
   }
 }

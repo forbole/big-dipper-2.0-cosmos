@@ -2,19 +2,18 @@ import AvatarName from '@/components/avatar_name';
 import Box from '@/components/box';
 import NoData from '@/components/no_data';
 import CodeBlock from '@/screens/transaction_details/components/code_block';
-import { useStyles } from '@/screens/transaction_details/components/smart_contract_results/styles';
+import useStyles from '@/screens/transaction_details/components/smart_contract_results/styles';
 import type { ResultType } from '@/screens/transaction_details/types';
 import { decodeBase64 } from '@/utils/base64';
 import { formatNumber } from '@/utils/format_token';
-import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
+import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
-import React from 'react';
+import React, { FC, Fragment } from 'react';
 
-const SmartContractResults: React.FC<{ results: ResultType[] } & ComponentDefault> = (props) => {
+const SmartContractResults: FC<{ results: ResultType[] }> = (props) => {
   const { t } = useTranslation('transactions');
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
 
   if (!props.results.length) {
     return <NoData />;
@@ -35,8 +34,7 @@ const SmartContractResults: React.FC<{ results: ResultType[] } & ComponentDefaul
       </Typography>
       <div>
         {formattedItems?.map((x, i) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <React.Fragment key={`${x.data}-${i}`}>
+          <Fragment key={x.hash}>
             <div className={classes.itemWrap}>
               <div className={classes.desktopFlex}>
                 <div className={classes.item}>
@@ -45,7 +43,7 @@ const SmartContractResults: React.FC<{ results: ResultType[] } & ComponentDefaul
                   </Typography>
                   {x.hash}
                 </div>
-                <div className={classnames(classes.item, classes.desktop)}>
+                <div className={cx(classes.item, classes.desktop)}>
                   <Typography variant="h4" className="label">
                     {t('value')}
                   </Typography>
@@ -68,7 +66,7 @@ const SmartContractResults: React.FC<{ results: ResultType[] } & ComponentDefaul
                   {x.receiver}
                 </div>
               </div>
-              <div className={classnames(classes.item, classes.mobile)}>
+              <div className={cx(classes.item, classes.mobile)}>
                 <Typography variant="h4" className="label">
                   {t('value')}
                 </Typography>
@@ -84,7 +82,7 @@ const SmartContractResults: React.FC<{ results: ResultType[] } & ComponentDefaul
               </div>
             </div>
             {i !== formattedItems.length - 1 && <Divider />}
-          </React.Fragment>
+          </Fragment>
         ))}
       </div>
     </Box>

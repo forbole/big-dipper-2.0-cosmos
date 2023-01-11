@@ -1,15 +1,14 @@
 import Box from '@/components/box';
 import CustomToolTip from '@/components/custom_tool_tip';
 import { usePrice } from '@/screens/home/components/price/hooks';
-import { useStyles } from '@/screens/home/components/price/styles';
+import useStyles from '@/screens/home/components/price/styles';
 import dayjs from '@/utils/dayjs';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
+import Typography from '@mui/material/Typography';
 import Color from 'color';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
 import * as R from 'ramda';
-import React from 'react';
+import { FC } from 'react';
 import {
   Area,
   AreaChart,
@@ -20,8 +19,8 @@ import {
   YAxis,
 } from 'recharts';
 
-const Price: React.FC<ComponentDefault> = (props) => {
-  const { classes, theme } = useStyles();
+const Price: FC<ComponentDefault> = (props) => {
+  const { classes, cx, theme } = useStyles();
   const { t } = useTranslation('home');
   const { state, tickPriceFormatter } = usePrice();
 
@@ -31,7 +30,7 @@ const Price: React.FC<ComponentDefault> = (props) => {
   }));
 
   return (
-    <Box className={classnames(props.className, classes.root)}>
+    <Box className={cx(classes.root, props.className)}>
       <Typography variant="h2" className={classes.label}>
         {t('price')}
       </Typography>

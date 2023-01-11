@@ -1,32 +1,26 @@
 import { columns } from '@/components/desmos_profile/components/connections/components/desktop/utils';
 import { readDate } from '@/recoil/settings';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import classnames from 'classnames';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
 import useTranslation from 'next-translate/useTranslation';
-import React from 'react';
+import { FC, ReactNode } from 'react';
 import { useRecoilValue } from 'recoil';
 
-const Desktop: React.FC<{
+type DesktopProps = {
   className?: string;
   items?: ProfileConnectionType[];
-}> = ({ className, items }) => {
+};
+
+const Desktop: FC<DesktopProps> = ({ className, items }) => {
   const dateFormat = useRecoilValue(readDate);
   const { t } = useTranslation('accounts');
 
-  const formattedItems =
-    items?.map((x): { [key: string]: string } => ({
-      network: x.network.toUpperCase(),
-      identifier: x.identifier,
-      creationTime: formatDayJs(dayjs.utc(x.creationTime), dateFormat),
-    })) ?? [];
-
   return (
-    <div className={classnames(className)}>
+    <div className={className}>
       <Table>
         <TableHead>
           <TableRow>
@@ -42,19 +36,37 @@ const Desktop: React.FC<{
           </TableRow>
         </TableHead>
         <TableBody>
-          {formattedItems?.map((row) => (
-            <TableRow key={`holders-row-${row.identifier}`}>
-              {columns.map((column) => (
-                <TableCell
-                  key={`holders-row-${row.identifier}-${column.key}`}
-                  align={column.align}
-                  style={{ width: `${column.width}%` }}
-                >
-                  {row?.[column.key]}
-                </TableCell>
-              ))}
-            </TableRow>
-          ))}
+          {items?.map((row) => {
+            const key = `${row.identifier}-${row.creationTime}`;
+            return (
+              <TableRow key={`holders-row-${key}`}>
+                {columns.map((column) => {
+                  let node: ReactNode = null;
+                  switch (column.key) {
+                    case 'network':
+                      node = row.network.toUpperCase();
+                      break;
+                    case 'identifier':
+                      node = row.identifier;
+                      break;
+                    case 'creationTime':
+                      node = formatDayJs(dayjs.utc(row.creationTime), dateFormat);
+                      break;
+                    default:
+                  }
+                  return (
+                    <TableCell
+                      key={`holders-row-${key}-${column.key}`}
+                      align={column.align}
+                      style={{ width: `${column.width}%` }}
+                    >
+                      {node}
+                    </TableCell>
+                  );
+                })}
+              </TableRow>
+            );
+          })}
         </TableBody>
       </Table>
     </div>

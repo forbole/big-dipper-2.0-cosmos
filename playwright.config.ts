@@ -71,7 +71,7 @@ const config: PlaywrightTestConfig = {
      * Maximum time expect() should wait for the condition to be met.
      * For example in `await expect(locator).toHaveText();`
      */
-    timeout: 30 * 1000,
+    timeout: 60 * 1000,
   },
   /* Run tests in files in parallel */
   fullyParallel: false,
@@ -113,10 +113,11 @@ const config: PlaywrightTestConfig = {
     env: {
       PORT: port,
       DEBUG: 'pw:webserver',
+      BASE_PATH: '/',
       RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED: 'false',
     },
     timeout: process.env.CI ? 2 * 60 * 1000 : undefined,
-    reuseExistingServer: !process.env.CI,
+    reuseExistingServer: false,
   },
 };
 

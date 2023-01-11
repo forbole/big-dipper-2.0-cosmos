@@ -6,83 +6,100 @@ import VotingPower from '@/screens/validators/components/list/components/voting_
 import type { ItemType } from '@/screens/validators/components/list/types';
 import { getValidatorConditionClass } from '@/utils/get_validator_condition';
 import { getValidatorStatus } from '@/utils/get_validator_status';
-import Divider from '@material-ui/core/Divider';
-import classnames from 'classnames';
+import Divider from '@mui/material/Divider';
 import numeral from 'numeral';
-import React, { ComponentProps, FC } from 'react';
+import React, { FC, LegacyRef } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
 
-const Mobile: FC<{
+type ListItemProps = Pick<ListChildComponentProps, 'index' | 'style'> & {
+  setRowHeight: Parameters<typeof useListRow>[1];
+  item: ItemType;
+  isLast: boolean;
+  search: string;
+  i: number;
+};
+
+const ListItem: FC<ListItemProps> = ({ index, style, setRowHeight, item, isLast, search, i }) => {
+  const { rowRef } = useListRow(index, setRowHeight);
+  const { name, address, imageUrl } = item.validator;
+
+  if (search) {
+    const formattedSearch = search.toLowerCase().replace(/ /g, '');
+    if (
+      !name.toLowerCase().replace(/ /g, '').includes(formattedSearch) &&
+      !address.toLowerCase().includes(formattedSearch)
+    ) {
+      return null;
+    }
+  }
+
+  const status = getValidatorStatus(item.status, item.jailed, item.tombstoned);
+  const condition = item.status === 3 ? getValidatorConditionClass(item.condition) : undefined;
+  const percentDisplay =
+    item.status === 3 ? `${numeral(item.votingPowerPercent.toFixed(6)).format('0.[00]')}%` : '0%';
+  const votingPower = numeral(item.votingPower).format('0,0');
+  const selectedItem = {
+    idx: `#${i + 1}`,
+    validator: <AvatarName address={address} imageUrl={imageUrl} name={name} />,
+    commission: `${numeral(item.commission).format('0.[00]')}%`,
+    condition: <Condition className={condition} />,
+    votingPower: (
+      <VotingPower
+        percentDisplay={percentDisplay}
+        percentage={item.votingPowerPercent}
+        content={votingPower}
+        topVotingPower={item.topVotingPower ?? false}
+      />
+    ),
+    status,
+  };
+  return (
+    <div style={style}>
+      <div ref={rowRef}>
+        <SingleValidator {...selectedItem} />
+        {!isLast && <Divider />}
+      </div>
+    </div>
+  );
+};
+
+type MobileProps = {
   className?: string;
   items: ItemType[];
-}> = ({ className, items }) => {
+  search: string;
+};
+
+const Mobile: FC<MobileProps> = ({ className, items, search }) => {
   const { listRef, getRowHeight, setRowHeight } = useList();
 
-  const formattedItems =
-    items?.map((x, i) => {
-      const status = getValidatorStatus(x.status, x.jailed, x.tombstoned);
-      const condition = x.status === 3 ? getValidatorConditionClass(x.condition) : undefined;
-      const percentDisplay =
-        x.status === 3 ? `${numeral(x.votingPowerPercent.toFixed(6)).format('0.[00]')}%` : '0%';
-      const votingPower = numeral(x.votingPower).format('0,0');
-      return {
-        idx: `#${i + 1}`,
-        validator: (
-          <AvatarName
-            address={x.validator.address}
-            imageUrl={x.validator.imageUrl}
-            name={x.validator.name}
-          />
-        ),
-        commission: `${numeral(x.commission).format('0.[00]')}%`,
-        condition: <Condition className={condition} />,
-        votingPower: (
-          <VotingPower
-            percentDisplay={percentDisplay}
-            percentage={x.votingPowerPercent}
-            content={votingPower}
-            topVotingPower={x.topVotingPower ?? false}
-          />
-        ),
-        status,
-      };
-    }) ?? [];
-
   return (
-    <div className={classnames(className)}>
+    <div className={className}>
       <AutoSizer>
         {({ height, width }) => (
           <List
             className="List"
             height={height}
-            itemCount={formattedItems.length}
+            itemCount={items.length}
             itemSize={getRowHeight}
-            ref={listRef as React.LegacyRef<List>}
+            ref={listRef as LegacyRef<List>}
             width={width}
           >
-            {({ index, style }) => <ListItem {...{ index, style, formattedItems, setRowHeight }} />}
+            {({ index, style }) => (
+              <ListItem
+                key={items[index].validator.address}
+                index={index}
+                style={style}
+                item={items[index]}
+                isLast={index === items.length - 1}
+                setRowHeight={setRowHeight}
+                search={search}
+                i={index}
+              />
+            )}
           </List>
         )}
       </AutoSizer>
-    </div>
-  );
-};
-
-const ListItem: FC<
-  Pick<ListChildComponentProps, 'index' | 'style'> & {
-    setRowHeight: Parameters<typeof useListRow>[1];
-    formattedItems: Array<ComponentProps<typeof SingleValidator>>;
-  }
-> = ({ index, style, setRowHeight, formattedItems }) => {
-  const { rowRef } = useListRow(index, setRowHeight);
-  const selectedItem = formattedItems[index];
-  return (
-    <div style={style}>
-      <div ref={rowRef}>
-        <SingleValidator {...selectedItem} />
-        {index !== formattedItems.length - 1 && <Divider />}
-      </div>
     </div>
   );
 };

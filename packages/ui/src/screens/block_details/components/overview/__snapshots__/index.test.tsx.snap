@@ -5,16 +5,18 @@ exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
   details={
     [
       {
-        "detail": <WithStyles(ForwardRef(Typography))
+        "detail": <ForwardRef(Typography)
           className="value"
           variant="body1"
         >
           300
-        </WithStyles(ForwardRef(Typography))>,
+        </ForwardRef(Typography)>,
+        "key": "height",
         "label": "height",
       },
       {
         "detail": "hash",
+        "key": "hash",
         "label": "hash",
       },
       {
@@ -23,14 +25,17 @@ exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
           imageUrl=""
           name="proposer"
         />,
+        "key": "proposer",
         "label": "proposer",
       },
       {
         "detail": "2020-08-10 12:00:00",
+        "key": "time",
         "label": "time",
       },
       {
         "detail": "0",
+        "key": "txs",
         "label": "txs",
       },
     ]

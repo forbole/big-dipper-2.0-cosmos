@@ -1,11 +1,11 @@
-import { useGetStyles } from '@/components/msg/unknown/styles';
+import useStyles from '@/components/msg/unknown/styles';
 import { type MsgUnknown } from '@/models';
-import React from 'react';
+import React, { FC } from 'react';
 
-const Unknown: React.FC<{ message: MsgUnknown }> = (props) => {
+const Unknown: FC<{ message: MsgUnknown }> = (props) => {
   const { message } = props;
 
-  const { classes } = useGetStyles();
+  const { classes } = useStyles();
   return (
     <pre className={classes.root}>
       <code>{JSON.stringify(message.json, null, '\t')}</code>

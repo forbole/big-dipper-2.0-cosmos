@@ -1,11 +1,11 @@
 import Name from '@/components/name';
 import { type MsgChannelCloseInit } from '@/models';
-import { useProfileRecoil } from '@/recoil/profiles';
-import Typography from '@material-ui/core/Typography';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
+import Typography from '@mui/material/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const ChannelCloseInit: React.FC<{ message: MsgChannelCloseInit }> = (props) => {
+const ChannelCloseInit: FC<{ message: MsgChannelCloseInit }> = (props) => {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);

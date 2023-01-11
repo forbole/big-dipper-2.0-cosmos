@@ -1,11 +1,11 @@
 import Name from '@/components/name';
 import MsgCreateIscnRecord from '@/models/msg/iscn/msg_create_iscn_record';
-import { useProfileRecoil } from '@/recoil/profiles';
-import Typography from '@material-ui/core/Typography';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
+import Typography from '@mui/material/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const CreateIscnRecord: React.FC<{ message: MsgCreateIscnRecord }> = (props) => {
+const CreateIscnRecord: FC<{ message: MsgCreateIscnRecord }> = (props) => {
   const { message } = props;
 
   const from = useProfileRecoil(message.from);

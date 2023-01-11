@@ -1,28 +1,25 @@
 import { useSettingList } from '@/components/nav/components/desktop/components/action_bar/components/settings_list/hooks';
-import { useStyles } from '@/components/nav/components/desktop/components/action_bar/components/settings_list/styles';
+import useStyles from '@/components/nav/components/desktop/components/action_bar/components/settings_list/styles';
 import { DATE_LIST, THEME_LIST, TX_LIST } from '@/recoil/settings';
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import IconButton from '@material-ui/core/IconButton';
-import MenuItem from '@material-ui/core/MenuItem';
-import Select from '@material-ui/core/Select';
-import Typography from '@material-ui/core/Typography';
-import CloseIcon from '@material-ui/icons/Close';
-import classnames from 'classnames';
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogTitle from '@mui/material/DialogTitle';
+import IconButton from '@mui/material/IconButton';
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
+import Typography from '@mui/material/Typography';
+import CloseIcon from '@mui/icons-material/Close';
 import useTranslation from 'next-translate/useTranslation';
 import { useRouter } from 'next/router';
-import React from 'react';
+import React, { FC } from 'react';
 import SettingIcon from 'shared-utils/assets/icon-setting.svg';
 
 const release = `${process.env.NEXT_PUBLIC_RELEASE ?? ''}`;
 
-const Settings: React.FC<{
-  className?: string;
-}> = (props) => {
-  const classes = useStyles();
+const Settings: FC<ComponentDefault> = (props) => {
+  const { classes, cx } = useStyles();
   const router = useRouter();
   const { t, lang } = useTranslation('common');
   const { open, handleOpen, state, handleChange, handleFormSubmit, handleCancel } = useSettingList({
@@ -34,21 +31,21 @@ const Settings: React.FC<{
       <div
         onClick={handleOpen}
         role="button"
-        className={classnames(props.className, classes.icon)}
+        className={cx(props.className, classes.icon)}
         tabIndex={0}
         aria-label="settings-button"
       >
         <SettingIcon />
       </div>
       <Dialog maxWidth="md" onClose={handleCancel} open={open} className={classes.dialog}>
-        <DialogTitle disableTypography className={classes.header}>
+        <DialogTitle className={classes.header}>
           <div className={classes.title}>
             <Typography variant="h2">{t('settings')}</Typography>
             <Typography variant="body2" className={classes.version}>
               ({release})
             </Typography>
           </div>
-          <IconButton aria-label="close" onClick={handleCancel}>
+          <IconButton aria-label="close" onClick={handleCancel} size="large">
             <CloseIcon />
           </IconButton>
         </DialogTitle>

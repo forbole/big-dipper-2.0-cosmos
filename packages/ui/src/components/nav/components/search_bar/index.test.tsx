@@ -8,6 +8,16 @@ import renderer from 'react-test-renderer';
 jest.mock('@/components/search', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Search" {...props} />
 ));
+
+const mockPush = jest.fn();
+
+jest.mock('next/router', () => ({
+  ...jest.requireActual('next/router'),
+  useRouter: () => ({
+    push: mockPush,
+  }),
+}));
+
 // ==================================
 // global setup
 // ==================================

@@ -1,12 +1,12 @@
 import Name from '@/components/name';
 import MsgAddLimitOrder from '@/models/msg/market/msg_add_limit_order';
-import { useProfileRecoil } from '@/recoil/profiles';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { formatNumber, formatToken } from '@/utils/format_token';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const AddLimitOrder: React.FC<{ message: MsgAddLimitOrder }> = (props) => {
+const AddLimitOrder: FC<{ message: MsgAddLimitOrder }> = (props) => {
   const { message } = props;
   const owner = useProfileRecoil(message.owner);
   const ownerMoniker = owner ? owner?.name : message.owner;

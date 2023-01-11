@@ -2,26 +2,26 @@
 
 exports[`screen: Nav/mobile/navbar it renders 1`] = `
 <div
-  className="makeStyles-root"
+  className="css-7bgvw1-root"
 >
   <a
-    className="makeStyles-a"
+    className="css-1y4f7e6-a"
     href="/"
     onClick={[Function]}
     onMouseEnter={[Function]}
     onTouchStart={[Function]}
   >
     <div
-      className="makeStyles-logo"
+      className="css-n5a2y0-logo"
       id="RED"
     />
   </a>
   <div
-    className="makeStyles-actions"
+    className="css-1mn69pa-actions"
   >
     <div
       aria-label="desmos-mainnet"
-      className="makeStyles-network"
+      className="css-i8x0rd-network"
       onClick={[MockFunction]}
       role="button"
       tabIndex={0}
@@ -33,13 +33,14 @@ exports[`screen: Nav/mobile/navbar it renders 1`] = `
       </p>
       <svg
         aria-hidden={true}
-        className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+        className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
         color="#999999"
+        data-testid="ExpandMoreIcon"
         focusable="false"
         viewBox="0 0 24 24"
       >
         <path
-          d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+          d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
         />
       </svg>
     </div>
@@ -167,7 +168,7 @@ exports[`screen: Nav/mobile/navbar it renders 1`] = `
     </div>
     <div
       aria-label="open navigation menu"
-      className="makeStyles-hamburger"
+      className="css-1d26ok5-hamburger"
       onClick={[MockFunction]}
       role="button"
       tabIndex={0}
@@ -182,26 +183,26 @@ exports[`screen: Nav/mobile/navbar it renders 1`] = `
 
 exports[`screen: Nav/mobile/navbar toggleNavMenus is called onClick 1`] = `
 <div
-  className="makeStyles-root"
+  className="css-7bgvw1-root"
 >
   <a
-    className="makeStyles-a"
+    className="css-1y4f7e6-a"
     href="/"
     onClick={[Function]}
     onMouseEnter={[Function]}
     onTouchStart={[Function]}
   >
     <div
-      className="makeStyles-logo"
+      className="css-n5a2y0-logo"
       id="RED"
     />
   </a>
   <div
-    className="makeStyles-actions"
+    className="css-1mn69pa-actions"
   >
     <div
       aria-label="desmos-mainnet"
-      className="makeStyles-network"
+      className="css-i8x0rd-network"
       onClick={[MockFunction]}
       role="button"
       tabIndex={0}
@@ -213,13 +214,14 @@ exports[`screen: Nav/mobile/navbar toggleNavMenus is called onClick 1`] = `
       </p>
       <svg
         aria-hidden={true}
-        className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+        className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
         color="#999999"
+        data-testid="ExpandMoreIcon"
         focusable="false"
         viewBox="0 0 24 24"
       >
         <path
-          d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+          d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
         />
       </svg>
     </div>
@@ -347,7 +349,7 @@ exports[`screen: Nav/mobile/navbar toggleNavMenus is called onClick 1`] = `
     </div>
     <div
       aria-label="open navigation menu"
-      className="makeStyles-hamburger"
+      className="css-1d26ok5-hamburger"
       onClick={
         [MockFunction] {
           "calls": [

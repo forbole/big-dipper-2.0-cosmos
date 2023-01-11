@@ -2,35 +2,65 @@ import Box from '@/components/box';
 import { getMessageByType } from '@/components/msg/utils';
 import TransactionMessagesFilter from '@/components/transaction_messages_filter';
 import { useList, useListRow } from '@/hooks';
-import { useStyles } from '@/screens/transaction_details/components/messages/styles';
-import Divider from '@material-ui/core/Divider';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Switch from '@material-ui/core/Switch';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
+import useStyles from '@/screens/transaction_details/components/messages/styles';
+import Divider from '@mui/material/Divider';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Switch from '@mui/material/Switch';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
-import React, { FC } from 'react';
+import React, { ChangeEvent, FC, LegacyRef } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
+
+type ListItemProps = Pick<ListChildComponentProps, 'index' | 'style'> & {
+  setRowHeight: Parameters<typeof useListRow>[1];
+  message: unknown;
+  classes: ReturnType<typeof useStyles>['classes'];
+  isLast: boolean;
+  viewRaw: boolean;
+};
+
+const ListItem: FC<ListItemProps> = ({
+  index,
+  style,
+  setRowHeight,
+  message,
+  classes,
+  isLast,
+  viewRaw,
+}) => {
+  const { t } = useTranslation('transactions');
+  const { rowRef } = useListRow(index, setRowHeight);
+  const formattedItem = getMessageByType(message, viewRaw, t);
+  return (
+    <div style={style}>
+      <div ref={rowRef}>
+        <div className={classes.item}>
+          <div className={classes.tags}>{formattedItem.type}</div>
+          <span className="msg">{formattedItem.message}</span>
+        </div>
+        {!isLast && <Divider />}
+      </div>
+    </div>
+  );
+};
 
 type MessagesProps = {
   className?: string;
   messages: unknown[];
   viewRaw: boolean;
-  toggleMessageDisplay: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  toggleMessageDisplay: (event: ChangeEvent<HTMLInputElement>, checked: boolean) => void;
   onMessageFilterCallback: (value: string) => void;
 };
 
 const Messages: FC<MessagesProps> = ({ className, ...props }) => {
   const { t } = useTranslation('transactions');
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
 
   const { listRef, getRowHeight, setRowHeight } = useList();
 
-  const formattedItems = props.messages.map((x) => getMessageByType(x, props.viewRaw, t));
-
   return (
-    <Box className={classnames(className, classes.root)}>
+    <Box className={cx(classes.root, className)}>
       <div className={classes.header}>
         <div className={classes.mobileOptions}>
           <Typography variant="h2">{t('messages')}</Typography>
@@ -71,13 +101,19 @@ const Messages: FC<MessagesProps> = ({ className, ...props }) => {
               height={height}
               itemCount={props.messages.length}
               itemSize={getRowHeight}
-              ref={listRef as React.LegacyRef<List>}
+              ref={listRef as LegacyRef<List>}
               width={width}
             >
               {({ index, style }) => (
                 <ListItem
-                  {...{ index, style, setRowHeight, formattedItems, classes }}
-                  messages={props.messages}
+                  key={index}
+                  index={index}
+                  style={style}
+                  setRowHeight={setRowHeight}
+                  message={props.messages[index]}
+                  classes={classes}
+                  isLast={index === props.messages.length}
+                  viewRaw={props.viewRaw}
                 />
               )}
             </List>
@@ -85,36 +121,6 @@ const Messages: FC<MessagesProps> = ({ className, ...props }) => {
         </AutoSizer>
       </div>
     </Box>
-  );
-};
-
-type ListItemProps = Pick<ListChildComponentProps, 'index' | 'style'> & {
-  setRowHeight: Parameters<typeof useListRow>[1];
-  formattedItems: Array<{ type: unknown; message: unknown }>;
-  classes: ReturnType<typeof useStyles>;
-  messages: unknown[];
-};
-
-const ListItem: FC<ListItemProps> = ({
-  index,
-  style,
-  setRowHeight,
-  formattedItems,
-  classes,
-  messages,
-}) => {
-  const { rowRef } = useListRow(index, setRowHeight);
-  const selectedItem = formattedItems[index];
-  return (
-    <div style={style}>
-      <div ref={rowRef}>
-        <div className={classes.item}>
-          <div className={classes.tags}>{selectedItem.type}</div>
-          <span className="msg">{selectedItem.message}</span>
-        </div>
-        {index !== messages.length - 1 && <Divider />}
-      </div>
-    </div>
   );
 };
 

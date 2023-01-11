@@ -2,7 +2,7 @@
 
 exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
 <div
-  className="makeStyles-root"
+  className="css-1rz0of5-root"
 >
   <div
     className="List"
@@ -45,30 +45,25 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
             hash="hash"
             height={
               <ForwardRef(LinkComponent)
+                className="value"
                 href="/blocks/300"
-                passHref={true}
               >
-                <WithStyles(ForwardRef(Typography))
-                  className="value"
-                  component="a"
-                  variant="body1"
-                >
-                  300
-                </WithStyles(ForwardRef(Typography))>
+                300
               </ForwardRef(LinkComponent)>
             }
             id="SingleBlockMobile"
             proposer={
               <Unknown
                 address="address"
-                name="proposer"
+                imageUrl=""
+                name="address"
               />
             }
             time="1 day ago"
             txs="2"
           />
           <hr
-            className="MuiDivider-root"
+            className="MuiDivider-root MuiDivider-fullWidth css-l3fh2f-MuiDivider-root"
           />
         </div>
       </div>
@@ -89,23 +84,18 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
             hash="hash"
             height={
               <ForwardRef(LinkComponent)
+                className="value"
                 href="/blocks/301"
-                passHref={true}
               >
-                <WithStyles(ForwardRef(Typography))
-                  className="value"
-                  component="a"
-                  variant="body1"
-                >
-                  301
-                </WithStyles(ForwardRef(Typography))>
+                301
               </ForwardRef(LinkComponent)>
             }
             id="SingleBlockMobile"
             proposer={
               <Unknown
                 address="address"
-                name="proposer"
+                imageUrl=""
+                name="address"
               />
             }
             time="1 day ago"

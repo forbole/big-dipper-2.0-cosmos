@@ -1,6 +1,6 @@
 import type { VotesType } from '@/screens/proposal_details/components/votes_graph/types';
 import { formatNumber } from '@/utils/format_token';
-import { ThemeOptions } from '@material-ui/core/styles';
+import { ThemeOptions } from '@mui/material/styles';
 import Big from 'big.js';
 import * as R from 'ramda';
 
@@ -11,7 +11,7 @@ type FormatGraphType = {
 };
 export const formatGraphData = ({ data, theme, total }: FormatGraphType) => {
   const keys = R.keys(data);
-  const color: { [key: number]: string | undefined } = {
+  const color = {
     0: theme.palette?.custom?.charts.four,
     1: theme.palette?.custom?.charts.one,
     2: theme.palette?.custom?.charts.three,
@@ -27,7 +27,7 @@ export const formatGraphData = ({ data, theme, total }: FormatGraphType) => {
       percentage: total.gt(0)
         ? `${Big(selectedData.value).div(total)?.times(100).toFixed(2)}%`
         : '0%',
-      color: color[i],
+      color: color[i as keyof typeof color],
     };
   });
 

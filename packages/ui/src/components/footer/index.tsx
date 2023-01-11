@@ -1,25 +1,24 @@
 import chainConfig from '@/chainConfig';
 import SocialMedia from '@/components/footer/components/social_media';
-import { useStyles } from '@/components/footer/styles';
+import useStyles from '@/components/footer/styles';
 import { donateLink, footerLinks } from '@/components/footer/utils';
 import generalConfig from '@/generalConfig';
 import { readTheme } from '@/recoil/settings';
-import Button from '@material-ui/core/Button';
-import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
+import Button from '@mui/material/Button';
+import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
 import Trans from 'next-translate/Trans';
 import useTranslation from 'next-translate/useTranslation';
-import React from 'react';
+import React, { FC } from 'react';
 import { useRecoilValue } from 'recoil';
 import FooterLogoLight from 'shared-utils/assets/big-dipper-red.svg';
 import FooterLogoDark from 'shared-utils/assets/big-dipper-white.svg';
 
 const { title } = chainConfig();
 
-const Footer: React.FC<{ className?: string }> = ({ className }) => {
+const Footer: FC<{ className?: string }> = ({ className }) => {
   const { t } = useTranslation();
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const theme = useRecoilValue(readTheme);
 
   // ============================
@@ -28,8 +27,8 @@ const Footer: React.FC<{ className?: string }> = ({ className }) => {
   const year = new Date().getFullYear();
 
   return (
-    <div className={classnames(className, classes.root)}>
-      <div className={classnames('footer')}>
+    <div className={cx(classes.root, className)}>
+      <div className="footer">
         {/* ============================= */}
         {/* logo */}
         {/* ============================= */}

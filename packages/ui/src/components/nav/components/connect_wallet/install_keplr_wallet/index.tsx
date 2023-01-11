@@ -1,39 +1,47 @@
 import { useStyles } from '@/components/nav/components/connect_wallet/styles';
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import CloseIcon from '@material-ui/icons/Close';
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogTitle from '@mui/material/DialogTitle';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import CloseIcon from '@mui/icons-material/Close';
 import useTranslation from 'next-translate/useTranslation';
-import React from 'react';
+import React, { FC } from 'react';
 import Trans from 'next-translate/Trans';
 
-const InstallKeplrWalletDialog: React.FC<{
+type InstallKeplrWalletDialogProps = {
   walletName: string;
   walletUrl: string;
   open: boolean;
   onClose: () => void;
   onContinue: () => void;
-}> = (props) => {
-  const classes = useStyles();
-  const { t } = useTranslation('common');
+};
+
+const InstallKeplrWalletDialog: FC<InstallKeplrWalletDialogProps> = ({
+  walletName,
+  walletUrl,
+  open,
+  onClose,
+  onContinue,
+}) => {
+  const { classes } = useStyles();
+  const { t } = useTranslation();
 
   return (
     <div>
-      <Dialog maxWidth="md" onClose={props.onClose} open={props.open} className={classes.dialog}>
+      <Dialog maxWidth="md" onClose={onClose} open={open} className={classes.dialog}>
         <DialogTitle disableTypography>
           <div className={classes.warningMsg}>
             <div>
               <Typography variant="h2" align="center" className={classes.msgHeader}>
-                {t('pleaseInstallWallet', {
-                  wallet: props.walletName,
+                {t('common:pleaseInstallWallet', {
+                  wallet: walletName,
                 })}
               </Typography>
             </div>
-            <IconButton aria-label="close" onClick={props.onClose} className={classes.closeButton}>
+            <IconButton aria-label="close" onClick={onClose} className={classes.closeButton}>
               <CloseIcon />
             </IconButton>
           </div>
@@ -44,12 +52,12 @@ const InstallKeplrWalletDialog: React.FC<{
               <Trans
                 i18nKey="common:couldntFindWalletExtension"
                 components={[
-                  <a target="_blank" rel="noreferrer" href={props.walletUrl}>
+                  <a target="_blank" rel="noreferrer" href={walletUrl}>
                     {}
                   </a>,
                 ]}
                 values={{
-                  wallet: props.walletName,
+                  wallet: walletName,
                 }}
               />
             </Typography>
@@ -57,8 +65,8 @@ const InstallKeplrWalletDialog: React.FC<{
         </DialogContent>
         <DialogActions>
           <div className={classes.actions}>
-            <Button onClick={props.onContinue} color="primary" className={classes.actionsButton}>
-              <Typography variant="h3">{t('retry')}</Typography>
+            <Button onClick={onContinue} color="primary" className={classes.actionsButton}>
+              <Typography variant="h3">{t('common:retry')}</Typography>
             </Button>
           </div>
         </DialogActions>

@@ -1,17 +1,11 @@
-import React from 'react';
-import dynamic from 'next/dynamic';
 import NoData from '@/components/no_data';
 import { useScreenSize } from '@/hooks';
+import Desktop from '@/screens/nfts/components/list/components/nfts_list/components/desktop';
+import Mobile from '@/screens/nfts/components/list/components/nfts_list/components/mobile';
 import type { NFTTypes } from '@/screens/nfts/components/list/types';
+import { FC } from 'react';
 
-const Desktop = dynamic(
-  () => import('@/screens/nfts/components/list/components/nfts_list/components/desktop')
-);
-const Mobile = dynamic(
-  () => import('@/screens/nfts/components/list/components/nfts_list/components/mobile')
-);
-
-const NftsList: React.FC<{ items: NFTTypes[] } & ComponentDefault> = (props) => {
+const NftsList: FC<{ items: NFTTypes[] }> = (props) => {
   const { isDesktop } = useScreenSize();
 
   if (!props.items.length) {

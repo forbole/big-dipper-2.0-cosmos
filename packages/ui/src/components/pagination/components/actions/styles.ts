@@ -1,12 +1,12 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from 'tss-react/mui';
 
-const styles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   root: {
     display: 'flex',
     alignItems: 'center',
     margin: 0,
     listStyleType: 'none',
-    '& .MuiIconButton-root, & .MuiInputBase-input': {
+    '& .MuiButtonBase-root, & .MuiInputBase-input': {
       background: theme.palette.custom.general.surfaceTwo,
     },
     '& li': {
@@ -79,4 +79,4 @@ const styles = makeStyles((theme) => ({
   },
 }));
 
-export const useStyles = () => styles();
+export default useStyles;

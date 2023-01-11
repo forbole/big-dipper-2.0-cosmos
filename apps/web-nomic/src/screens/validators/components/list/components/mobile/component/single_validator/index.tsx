@@ -1,23 +1,30 @@
-import React from 'react';
-import classnames from 'classnames';
+import useStyles from '@/screens/validators/components/list/components/mobile/component/single_validator/styles';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
-import Typography from '@material-ui/core/Typography';
-import { useStyles } from '@/screens/validators/components/list/components/mobile/component/single_validator/styles';
+import React, { FC, ReactNode } from 'react';
 
-const SingleValidator: React.FC<{
+type SingleValidatorProps = {
   className?: string;
-  validator: React.ReactNode;
+  validator: ReactNode;
   commission: string;
-  votingPower: React.ReactNode;
+  votingPower: ReactNode;
   status: {
     status: string;
     theme: string;
   };
-}> = ({ className, validator, commission, votingPower, status }) => {
+};
+
+const SingleValidator: FC<SingleValidatorProps> = ({
+  className,
+  validator,
+  commission,
+  votingPower,
+  status,
+}) => {
   const { t } = useTranslation('validators');
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   return (
-    <div className={classnames(className, classes.root)}>
+    <div className={cx(classes.root, className)}>
       <div className={classes.item}>
         <Typography variant="h4" className="label">
           {t('validator')}
@@ -35,7 +42,7 @@ const SingleValidator: React.FC<{
           <Typography variant="h4" className="label">
             {t('inActiveSet')}
           </Typography>
-          <Typography variant="body1" className={classnames('value', 'status', status.theme)}>
+          <Typography variant="body1" className={cx('value', 'status', status.theme)}>
             {status.status}
           </Typography>
         </div>

@@ -1,33 +1,28 @@
 import Box from '@/components/box';
 import NoData from '@/components/no_data';
 import { useScreenSize } from '@/hooks';
+import Desktop from '@/screens/home/components/transactions/components/desktop';
+import Mobile from '@/screens/home/components/transactions/components/mobile';
 import { useBlocks } from '@/screens/home/components/transactions/hooks';
-import { useStyles } from '@/screens/home/components/transactions/styles';
+import useStyles from '@/screens/home/components/transactions/styles';
 import { TRANSACTIONS } from '@/utils/go_to_page';
-import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
+import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
-import dynamic from 'next/dynamic';
 import Link from 'next/link';
-import React from 'react';
+import { FC } from 'react';
 
-const Desktop = dynamic(() => import('@/screens/home/components/transactions/components/desktop'));
-const Mobile = dynamic(() => import('@/screens/home/components/transactions/components/mobile'));
-
-const Transactions: React.FC<ComponentDefault> = (props) => {
-  const classes = useStyles();
+const Transactions: FC<ComponentDefault> = (props) => {
+  const { classes, cx } = useStyles();
   const { t } = useTranslation('home');
   const { isDesktop } = useScreenSize();
   const { state } = useBlocks();
   return (
-    <Box className={classnames(props.className)}>
+    <Box className={props.className}>
       <div className={classes.label}>
         <Typography variant="h2">{t('latestTransactions')}</Typography>
-        <Link href={TRANSACTIONS} passHref>
-          <Typography variant="h4" className="button" component="a" aria-label="see more txs">
-            {t('seeMore')}
-          </Typography>
+        <Link href={TRANSACTIONS} className="button" aria-label="see more txs">
+          {t('seeMore')}
         </Link>
       </div>
       {!state.items.length ? (
@@ -36,15 +31,12 @@ const Transactions: React.FC<ComponentDefault> = (props) => {
         <>
           {isDesktop ? <Desktop items={state.items} /> : <Mobile items={state.items} />}
           <Divider className={classes.mobile} />
-          <Link href={TRANSACTIONS} passHref>
-            <Typography
-              variant="h4"
-              component="a"
-              aria-label="see more txs"
-              className={classnames(classes.seeMoreFooter, classes.mobile, 'button')}
-            >
-              {t('seeMore')}
-            </Typography>
+          <Link
+            href={TRANSACTIONS}
+            className={cx(classes.seeMoreFooter, classes.mobile, 'button')}
+            aria-label="see more txs"
+          >
+            {t('seeMore')}
           </Link>
         </>
       )}

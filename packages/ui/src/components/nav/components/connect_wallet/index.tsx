@@ -1,9 +1,8 @@
 import useConnectWalletList from '@/components/nav/components/connect_wallet/hooks';
 import { useStyles } from '@/components/nav/components/connect_wallet/styles';
-import classnames from 'classnames';
 import LoginIcon from 'shared-utils/assets/icon-login.svg';
 import LogoutIcon from 'shared-utils/assets/icon-logout.svg';
-import React from 'react';
+import React, { FC } from 'react';
 import AuthorizeConnectionDialog from '@/components/nav/components/connect_wallet/authorize_connection';
 import InstallKeplrWalletDialog from '@/components/nav/components/connect_wallet/install_keplr_wallet';
 import LoginDialog from '@/components/nav/components/connect_wallet/login';
@@ -20,10 +19,12 @@ import {
   readOpenLoginSuccessDialog,
 } from '@/recoil/wallet';
 
-const ConnectWallet: React.FC<{
+type ConnectWalletProps = {
   className?: string;
-}> = (props) => {
-  const classes = useStyles();
+};
+
+const ConnectWallet: FC<ConnectWalletProps> = () => {
+  const { classes } = useStyles();
   const loggedIn = useRecoilValue(readIsUserLoggedIn);
   const openLoginDialog = useRecoilValue(readOpenLoginDialog);
   const walletSelection = useRecoilValue(readWalletSelection);
@@ -51,7 +52,7 @@ const ConnectWallet: React.FC<{
       <div
         onClick={loggedIn ? handleLogout : handleLogin}
         role="button"
-        className={classnames(props.className, classes.icon)}
+        className={classes.icon}
         tabIndex={0}
         aria-label="connect-wallet-button"
       >

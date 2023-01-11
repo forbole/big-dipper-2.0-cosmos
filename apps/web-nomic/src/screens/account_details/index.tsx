@@ -5,14 +5,14 @@ import LoadAndExist from '@/components/load_and_exist';
 import DesmosProfile from '@/components/desmos_profile';
 import { NextSeo } from 'next-seo';
 import Overview from '@/screens/account_details/components/overview';
-import { useStyles } from '@/screens/account_details/styles';
+import useStyles from '@/screens/account_details/styles';
 import Balance from '@/screens/account_details/components/balance';
 import OtherTokens from '@/screens/account_details/components/other_tokens';
 import { useAccountDetails } from '@/screens/account_details/hooks';
 
 const AccountDetails = () => {
   const { t } = useTranslation('accounts');
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { state } = useAccountDetails();
 
   return (

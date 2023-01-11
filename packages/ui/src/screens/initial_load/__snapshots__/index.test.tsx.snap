@@ -2,16 +2,16 @@
 
 exports[`screen: InitialLoad matches snapshot 1`] = `
 <div
-  className="makeStyles-root"
+  className="css-w8zg9y-root"
 >
   <div>
     <span
-      className="makeStyles-logo makeStyles-container"
+      className="css-1x08nll-logo-container"
     >
       <img
         alt="logo"
-        className="makeStyles-dark"
-        data-nimg="future"
+        className="css-4nmqpx-dark"
+        data-nimg="1"
         decoding="async"
         height={0}
         loading="lazy"
@@ -27,8 +27,8 @@ exports[`screen: InitialLoad matches snapshot 1`] = `
       />
       <img
         alt="logo"
-        className="makeStyles-light"
-        data-nimg="future"
+        className="css-13ot6lo-light"
+        data-nimg="1"
         decoding="async"
         height={0}
         loading="lazy"
@@ -44,7 +44,7 @@ exports[`screen: InitialLoad matches snapshot 1`] = `
       />
     </span>
     <div
-      className="makeStyles-divider"
+      className="css-usqrv5-divider"
       id="LinearProgress"
     />
     <svg />

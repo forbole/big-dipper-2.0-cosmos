@@ -1,23 +1,20 @@
-import React from 'react';
-import Link from 'next/link';
-import useTranslation from 'next-translate/useTranslation';
-import classnames from 'classnames';
-import { useScreenSize } from '@/hooks';
-import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
-import { VALIDATOR_DETAILS } from '@/utils/go_to_page';
-import CopyIcon from 'shared-utils/assets/icon-copy.svg';
-import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import Box from '@/components/box';
+import { useScreenSize } from '@/hooks';
 import { useProfile } from '@/screens/node_details/components/profile/hooks';
-import { useStyles } from '@/screens/node_details/components/profile/styles';
+import useStyles from '@/screens/node_details/components/profile/styles';
 import type { ProfileType } from '@/screens/node_details/types';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
+import { VALIDATOR_DETAILS } from '@/utils/go_to_page';
+import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
+import useTranslation from 'next-translate/useTranslation';
+import Link from 'next/link';
+import { FC } from 'react';
+import CopyIcon from 'shared-utils/assets/icon-copy.svg';
 
-const Profile: React.FC<{ profile: ProfileType; showRating: boolean } & ComponentDefault> = (
-  props
-) => {
+const Profile: FC<{ className?: string; profile: ProfileType; showRating: boolean }> = (props) => {
   const { t } = useTranslation('nodes');
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const { isDesktop } = useScreenSize();
   const { handleCopyToClipboard } = useProfile(t);
 
@@ -38,10 +35,8 @@ const Profile: React.FC<{ profile: ProfileType; showRating: boolean } & Componen
   if (props.profile?.validator) {
     validator = (
       <div className="detail">
-        <Link href={VALIDATOR_DETAILS(props.profile?.identity)} passHref>
-          <Typography variant="body1" className="value" component="a">
-            {getMiddleEllipsis(props.profile?.validator, ellipsis)}
-          </Typography>
+        <Link href={VALIDATOR_DETAILS(props.profile?.identity)} className="value">
+          {getMiddleEllipsis(props.profile?.validator, ellipsis)}
         </Link>
       </div>
     );
@@ -56,7 +51,7 @@ const Profile: React.FC<{ profile: ProfileType; showRating: boolean } & Componen
   }
 
   return (
-    <Box className={classnames(props.className)}>
+    <Box className={props.className}>
       <div className={classes.topWrapper}>
         <div className={classes.nametag}>
           <Typography variant="h2" className="name">
@@ -72,7 +67,7 @@ const Profile: React.FC<{ profile: ProfileType; showRating: boolean } & Componen
       </div>
       <Divider className={classes.divider} />
       <div className={classes.addresses}>
-        <div className={classnames(classes.copyText, classes.item)}>
+        <div className={cx(classes.copyText, classes.item)}>
           <Typography variant="body1" className="label">
             {t('pubkey')}
           </Typography>
@@ -87,7 +82,7 @@ const Profile: React.FC<{ profile: ProfileType; showRating: boolean } & Componen
           </div>
         </div>
 
-        <div className={classnames(classes.copyText, classes.item)}>
+        <div className={cx(classes.copyText, classes.item)}>
           <Typography variant="body1" className="label">
             {t('validator')}
           </Typography>

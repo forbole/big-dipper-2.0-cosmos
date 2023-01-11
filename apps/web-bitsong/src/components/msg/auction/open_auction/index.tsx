@@ -1,11 +1,11 @@
 import Name from '@/components/name';
 import MsgOpenAuction from '@/models/msg/auction/msg_open_auction';
-import { useProfileRecoil } from '@/recoil/profiles';
-import Typography from '@material-ui/core/Typography';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
+import Typography from '@mui/material/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const OpenAuction: React.FC<{ message: MsgOpenAuction }> = (props) => {
+const OpenAuction: FC<{ message: MsgOpenAuction }> = (props) => {
   const { message } = props;
 
   const owner = useProfileRecoil(message.owner);

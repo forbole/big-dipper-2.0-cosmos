@@ -1,12 +1,12 @@
 import Name from '@/components/name';
 import { MsgRedelegate } from '@/models';
-import { useProfileRecoil } from '@/recoil/profiles';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { formatNumber, formatToken } from '@/utils/format_token';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const Redelegate: React.FC<{ message: MsgRedelegate }> = (props) => {
+const Redelegate: FC<{ message: MsgRedelegate }> = (props) => {
   const { message } = props;
   const amount = formatToken(message.amount?.amount, message.amount?.denom);
 

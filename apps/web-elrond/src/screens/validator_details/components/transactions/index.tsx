@@ -1,9 +1,9 @@
 import NoData from '@/components/no_data';
 import Pagination from '@/components/pagination';
 import TransactionsList from '@/components/transactions_list';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
-import React from 'react';
+import React, { FC } from 'react';
 import Box from '@/components/box';
 import Loading from '@/components/loading';
 import { usePagination } from '@/hooks';
@@ -11,11 +11,11 @@ import {
   PAGE_SIZE,
   useTransactions,
 } from '@/screens/validator_details/components/transactions/hooks';
-import { useStyles } from '@/screens/validator_details/components/transactions/styles';
+import useStyles from '@/screens/validator_details/components/transactions/styles';
 
-const Transactions: React.FC<{ provider: string } & ComponentDefault> = (props) => {
+const Transactions: FC<{ className?: string; provider: string }> = (props) => {
   const { t } = useTranslation('validators');
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { state, handlePageChangeCallback } = useTransactions(props.provider);
   const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange } = usePagination({
     rowsPage: PAGE_SIZE,

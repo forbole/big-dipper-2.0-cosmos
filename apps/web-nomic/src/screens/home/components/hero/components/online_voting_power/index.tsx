@@ -1,11 +1,11 @@
 import { useOnlineVotingPower } from '@/screens/home/components/hero/components/online_voting_power/hooks';
-import { useStyles } from '@/screens/home/components/hero/components/online_voting_power/styles';
-import Typography from '@material-ui/core/Typography';
+import useStyles from '@/screens/home/components/hero/components/online_voting_power/styles';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
-import React from 'react';
+import React, { FC } from 'react';
 
-const OnlineVotingPower: React.FC<ComponentDefault> = () => {
+const OnlineVotingPower: FC<ComponentDefault> = () => {
   const { t } = useTranslation('home');
   const { onlineVPState } = useOnlineVotingPower();
 
@@ -14,7 +14,7 @@ const OnlineVotingPower: React.FC<ComponentDefault> = () => {
       ? numeral(0)
       : numeral((onlineVPState.votingPower / onlineVPState.totalVotingPower) * 100);
 
-  const classes = useStyles(votingPowerPercent.format('0'));
+  const { classes } = useStyles({ percentage: votingPowerPercent.format('0') });
 
   return (
     <div className={classes.root}>

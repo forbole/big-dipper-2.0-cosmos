@@ -1,38 +1,43 @@
 import Loading from '@/components/loading';
 import { useGrid } from '@/hooks';
-import { useStyles } from '@/screens/blocks/components/desktop/styles';
+import useStyles from '@/screens/blocks/components/desktop/styles';
 import { columns } from '@/screens/blocks/components/desktop/utils';
 import type { BlockType } from '@/screens/blocks/types';
 import dayjs from '@/utils/dayjs';
 import { BLOCK_DETAILS } from '@/utils/go_to_page';
 import { mergeRefs } from '@/utils/merge_refs';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
-import React, { ReactNode } from 'react';
+import React, { FC, LegacyRef } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { VariableSizeGrid as Grid } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
 
-const Desktop: React.FC<{
+type DesktopProps = {
   className?: string;
   items: BlockType[];
   itemCount: number;
   loadMoreItems: (...arg: unknown[]) => void;
   isItemLoaded?: (index: number) => boolean;
-}> = ({ className, items, itemCount, loadMoreItems, isItemLoaded }) => {
+};
+
+const Desktop: FC<DesktopProps> = ({
+  className,
+  items,
+  itemCount,
+  loadMoreItems,
+  isItemLoaded,
+}) => {
   const { t } = useTranslation('blocks');
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
 
-  const formattedItems = items?.map((x): { [key: string]: ReactNode } => ({
+  const formattedItems = items?.map((x) => ({
     height: (
-      <Link href={BLOCK_DETAILS(x.height)} passHref>
-        <Typography variant="body1" className="value" component="a">
-          {numeral(x.height).format('0,0')}
-        </Typography>
+      <Link href={BLOCK_DETAILS(x.height)} className="value">
+        {numeral(x.height).format('0,0')}
       </Link>
     ),
     txs: numeral(x.txs).format('0,0'),
@@ -41,7 +46,7 @@ const Desktop: React.FC<{
   }));
 
   return (
-    <div className={classnames(className, classes.root)}>
+    <div className={cx(classes.root, className)}>
       <AutoSizer onResize={onResize}>
         {({ height, width }) => (
           <>
@@ -49,7 +54,7 @@ const Desktop: React.FC<{
             {/* Table Header */}
             {/* ======================================= */}
             <Grid
-              ref={columnRef as React.LegacyRef<Grid>}
+              ref={columnRef as LegacyRef<Grid>}
               columnCount={columns.length}
               columnWidth={(index) => getColumnWidth(width, index)}
               height={50}
@@ -125,11 +130,12 @@ const Desktop: React.FC<{
                     }
 
                     const { key, align } = columns[columnIndex];
-                    const item = formattedItems[rowIndex][key];
+                    const item =
+                      formattedItems[rowIndex][key as keyof typeof formattedItems[number]];
                     return (
                       <div
                         style={style}
-                        className={classnames(classes.cell, classes.body, {
+                        className={cx(classes.cell, classes.body, {
                           odd: !(rowIndex % 2),
                         })}
                       >

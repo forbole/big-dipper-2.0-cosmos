@@ -4,19 +4,20 @@ import type { OverviewType } from '@/screens/block_details/types';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { getShardDisplay } from '@/utils/get_shard_display';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
-import React from 'react';
+import { FC } from 'react';
 import { useRecoilValue } from 'recoil';
 
-const Overview: React.FC<OverviewType & ComponentDefault> = (props) => {
+const Overview: FC<OverviewType & ComponentDefault> = (props) => {
   const { t } = useTranslation('blocks');
   const dateFormat = useRecoilValue(readDate);
   const shard = getShardDisplay(props.shard);
 
   const details = [
     {
+      key: 'block',
       label: t('block'),
       detail: (
         <Typography variant="body1" className="value">
@@ -25,10 +26,12 @@ const Overview: React.FC<OverviewType & ComponentDefault> = (props) => {
       ),
     },
     {
+      key: 'hash',
       label: t('hash'),
       detail: props.hash,
     },
     {
+      key: 'proposer',
       label: t('proposer'),
       detail: (
         <Typography variant="body1" className="value">
@@ -40,6 +43,7 @@ const Overview: React.FC<OverviewType & ComponentDefault> = (props) => {
       ),
     },
     {
+      key: 'txs',
       label: t('txs'),
       detail: (
         <Typography variant="body1" className="value">
@@ -48,10 +52,12 @@ const Overview: React.FC<OverviewType & ComponentDefault> = (props) => {
       ),
     },
     {
+      key: 'time',
       label: t('time'),
       detail: formatDayJs(dayjs.utc(dayjs.unix(props.timestamp)), dateFormat),
     },
     {
+      key: 'shard',
       label: t('shard'),
       detail: (
         <Typography variant="body1" className="value">
@@ -62,6 +68,7 @@ const Overview: React.FC<OverviewType & ComponentDefault> = (props) => {
       ),
     },
     {
+      key: 'size',
       label: t('size'),
       detail: (
         <Typography variant="body1" className="value">
@@ -71,6 +78,7 @@ const Overview: React.FC<OverviewType & ComponentDefault> = (props) => {
       ),
     },
     {
+      key: 'gasUsedLimit',
       label: t('gasUsedLimit'),
       detail: (
         <Typography variant="body1" className="value">
@@ -82,6 +90,7 @@ const Overview: React.FC<OverviewType & ComponentDefault> = (props) => {
 
   if (props.gasRefunded) {
     details.push({
+      key: 'gasRefunded',
       label: t('gasRefunded'),
       detail: numeral(props.gasRefunded).format('0,0'),
     });
@@ -89,6 +98,7 @@ const Overview: React.FC<OverviewType & ComponentDefault> = (props) => {
 
   if (props.gasPenalized) {
     details.push({
+      key: 'gasPenalized',
       label: t('gasPenalized'),
       detail: numeral(props.gasPenalized).format('0,0'),
     });

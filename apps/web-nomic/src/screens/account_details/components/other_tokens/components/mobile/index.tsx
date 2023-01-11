@@ -1,25 +1,27 @@
-import React from 'react';
-import classnames from 'classnames';
+import React, { FC, Fragment } from 'react';
 import useTranslation from 'next-translate/useTranslation';
-import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
+import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
 import type { OtherTokenType } from '@/screens/account_details/types';
 import { formatNumber } from '@/utils/format_token';
-import { useStyles } from '@/screens/account_details/components/other_tokens/components/mobile/styles';
+import useStyles from '@/screens/account_details/components/other_tokens/components/mobile/styles';
 
-const Mobile: React.FC<{
+type MobileProps = {
   className?: string;
   items?: OtherTokenType[];
-}> = ({ className, items }) => {
-  const classes = useStyles();
+};
+
+const Mobile: FC<MobileProps> = ({ className, items }) => {
+  const { classes } = useStyles();
   const { t } = useTranslation('accounts');
   return (
-    <div className={classnames(className)}>
+    <div className={className}>
       {items?.map((x, i) => {
         const available = formatNumber(x.available.value, x.available.exponent);
+        const isLast = !items || i === items.length - 1;
         return (
           // eslint-disable-next-line react/no-array-index-key
-          <React.Fragment key={`votes-mobile-${i}`}>
+          <Fragment key={`votes-mobile-${i}`}>
             <div className={classes.list}>
               <div className={classes.item}>
                 <Typography variant="h4" className="label">
@@ -38,8 +40,8 @@ const Mobile: React.FC<{
                 </Typography>
               </div>
             </div>
-            {!!items && i !== items.length - 1 && <Divider />}
-          </React.Fragment>
+            {!isLast && <Divider />}
+          </Fragment>
         );
       })}
     </div>

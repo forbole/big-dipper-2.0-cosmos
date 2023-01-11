@@ -4,30 +4,30 @@ import InfoPopover from '@/components/info_popover';
 import Tag from '@/components/tag';
 import { useScreenSize } from '@/hooks';
 import { useAddress } from '@/screens/validator_details/components/validator_overview/hooks';
-import { useStyles } from '@/screens/validator_details/components/validator_overview/styles';
+import useStyles from '@/screens/validator_details/components/validator_overview/styles';
 import { getCondition } from '@/screens/validator_details/components/validator_overview/utils';
 import type { OverviewType, StatusType } from '@/screens/validator_details/types';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { getValidatorStatus } from '@/utils/get_validator_status';
 import { ACCOUNT_DETAILS } from '@/utils/go_to_page';
-import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
+import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
 import Big from 'big.js';
-import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
-import React from 'react';
+import { FC } from 'react';
 import CopyIcon from 'shared-utils/assets/icon-copy.svg';
 
-const ValidatorOverview: React.FC<
-  {
-    status: StatusType;
-    overview: OverviewType;
-  } & ComponentDefault
-> = ({ status, overview, className }) => {
+type ValidatorOverviewProps = {
+  className?: string;
+  status: StatusType;
+  overview: OverviewType;
+};
+
+const ValidatorOverview: FC<ValidatorOverviewProps> = ({ status, overview, className }) => {
   const { isDesktop } = useScreenSize();
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const { t } = useTranslation('validators');
   const { handleCopyToClipboard } = useAddress(t);
 
@@ -36,7 +36,8 @@ const ValidatorOverview: React.FC<
 
   const statusItems = [
     {
-      key: (
+      key: 'status',
+      name: (
         <Typography variant="h4" className="label">
           {t('status')}
         </Typography>
@@ -50,7 +51,8 @@ const ValidatorOverview: React.FC<
       ),
     },
     {
-      key: (
+      key: 'commission',
+      name: (
         <Typography variant="h4" className="label">
           {t('commission')}
         </Typography>
@@ -62,10 +64,11 @@ const ValidatorOverview: React.FC<
       ),
     },
     {
-      key: (
+      key: 'condition',
+      name: (
         <Typography variant="h4" className="label condition">
           {t('condition')}
-          <InfoPopover content={ConditionExplanation} />
+          <InfoPopover content={<ConditionExplanation />} />
         </Typography>
       ),
       value:
@@ -87,20 +90,21 @@ const ValidatorOverview: React.FC<
                 </>
               }
               display={
-                <Typography variant="body1" className={classnames('value', condition)}>
+                <Typography variant="body1" className={cx('value', condition)}>
                   {t(condition)}
                 </Typography>
               }
             />
           </div>
         ) : (
-          <Typography variant="body1" className={classnames('value', 'condition', condition)}>
+          <Typography variant="body1" className={cx('value', 'condition', condition)}>
             {t(condition)}
           </Typography>
         ),
     },
     {
-      key: (
+      key: 'maxRate',
+      name: (
         <Typography variant="h4" className="label">
           {t('maxRate')}
         </Typography>
@@ -114,9 +118,9 @@ const ValidatorOverview: React.FC<
   ];
 
   return (
-    <Box className={classnames(className)}>
+    <Box className={className}>
       <div className={classes.addressRoot}>
-        <div className={classnames(classes.copyText, classes.item)}>
+        <div className={cx(classes.copyText, classes.item)}>
           <Typography variant="body1" className="label">
             {t('operatorAddress')}
           </Typography>
@@ -136,7 +140,7 @@ const ValidatorOverview: React.FC<
           </div>
         </div>
 
-        <div className={classnames(classes.copyText, classes.item)}>
+        <div className={cx(classes.copyText, classes.item)}>
           <Typography variant="body1" className="label">
             {t('selfDelegateAddress')}
           </Typography>
@@ -145,25 +149,22 @@ const ValidatorOverview: React.FC<
               className={classes.actionIcons}
               onClick={() => handleCopyToClipboard(overview.selfDelegateAddress)}
             />
-            <Link href={ACCOUNT_DETAILS(overview.selfDelegateAddress)} passHref>
-              <Typography variant="body1" className="value" component="a">
-                {!isDesktop
-                  ? getMiddleEllipsis(overview.selfDelegateAddress, {
-                      beginning: 15,
-                      ending: 5,
-                    })
-                  : overview.selfDelegateAddress}
-              </Typography>
+            <Link href={ACCOUNT_DETAILS(overview.selfDelegateAddress)} className="value">
+              {!isDesktop
+                ? getMiddleEllipsis(overview.selfDelegateAddress, {
+                    beginning: 15,
+                    ending: 5,
+                  })
+                : overview.selfDelegateAddress}
             </Link>
           </div>
         </div>
       </div>
       <Divider className={classes.divider} />
       <div className={classes.statusRoot}>
-        {statusItems.map((x, i) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <div className={classes.statusItem} key={`status-item-${i}`}>
-            {x.key}
+        {statusItems.map((x) => (
+          <div key={x.key} className={classes.statusItem}>
+            {x.name}
             {x.value}
           </div>
         ))}

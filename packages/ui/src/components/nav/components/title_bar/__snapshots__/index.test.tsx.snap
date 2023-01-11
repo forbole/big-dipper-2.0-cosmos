@@ -2,82 +2,82 @@
 
 exports[`screen: Nav/TitleBar hook toggles correctly 1`] = `
 <div
-  className="makeStyles-root"
+  className="css-12u7l3u-root"
 >
   <h1
-    className="MuiTypography-root MuiTypography-h1"
+    className="MuiTypography-root MuiTypography-h1 css-gw99sn-MuiTypography-root"
   >
     hello world
   </h1>
   <div
-    className="makeStyles-content"
+    className="css-qbb2l7-content"
   >
     <div
-      className="makeStyles-item"
+      className="css-bs2kuk-item"
     >
       <p
-        className="MuiTypography-root label MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 label css-pfovru-MuiTypography-root"
       >
         marketCap
       </p>
       <p
-        className="MuiTypography-root MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
       >
         N/A
       </p>
     </div>
     <div
-      className="makeStyles-item"
+      className="css-bs2kuk-item"
     >
       <p
-        className="MuiTypography-root label MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 label css-pfovru-MuiTypography-root"
       >
         inflation
       </p>
       <p
-        className="MuiTypography-root MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
       >
         0%
       </p>
     </div>
     <div
-      className="makeStyles-item"
+      className="css-bs2kuk-item"
     >
       <p
-        className="MuiTypography-root label MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 label css-pfovru-MuiTypography-root"
       >
         apr
       </p>
       <p
-        className="MuiTypography-root MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
       >
         0%
       </p>
     </div>
     <div
-      className="makeStyles-item"
+      className="css-bs2kuk-item"
     >
       <p
-        className="MuiTypography-root label MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 label css-pfovru-MuiTypography-root"
       >
         supply
       </p>
       <p
-        className="MuiTypography-root MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
       >
         0 
       </p>
     </div>
     <div
-      className="makeStyles-item"
+      className="css-bs2kuk-item"
     >
       <p
-        className="MuiTypography-root label MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 label css-pfovru-MuiTypography-root"
       >
         communityPool
       </p>
       <p
-        className="MuiTypography-root MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
       >
         0 
       </p>
@@ -88,82 +88,82 @@ exports[`screen: Nav/TitleBar hook toggles correctly 1`] = `
 
 exports[`screen: Nav/TitleBar it renders 1`] = `
 <div
-  className="makeStyles-root"
+  className="css-12u7l3u-root"
 >
   <h1
-    className="MuiTypography-root MuiTypography-h1"
+    className="MuiTypography-root MuiTypography-h1 css-gw99sn-MuiTypography-root"
   >
     hello world
   </h1>
   <div
-    className="makeStyles-content"
+    className="css-qbb2l7-content"
   >
     <div
-      className="makeStyles-item"
+      className="css-bs2kuk-item"
     >
       <p
-        className="MuiTypography-root label MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 label css-pfovru-MuiTypography-root"
       >
         marketCap
       </p>
       <p
-        className="MuiTypography-root MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
       >
         N/A
       </p>
     </div>
     <div
-      className="makeStyles-item"
+      className="css-bs2kuk-item"
     >
       <p
-        className="MuiTypography-root label MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 label css-pfovru-MuiTypography-root"
       >
         inflation
       </p>
       <p
-        className="MuiTypography-root MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
       >
         0%
       </p>
     </div>
     <div
-      className="makeStyles-item"
+      className="css-bs2kuk-item"
     >
       <p
-        className="MuiTypography-root label MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 label css-pfovru-MuiTypography-root"
       >
         apr
       </p>
       <p
-        className="MuiTypography-root MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
       >
         0%
       </p>
     </div>
     <div
-      className="makeStyles-item"
+      className="css-bs2kuk-item"
     >
       <p
-        className="MuiTypography-root label MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 label css-pfovru-MuiTypography-root"
       >
         supply
       </p>
       <p
-        className="MuiTypography-root MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
       >
         0 
       </p>
     </div>
     <div
-      className="makeStyles-item"
+      className="css-bs2kuk-item"
     >
       <p
-        className="MuiTypography-root label MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 label css-pfovru-MuiTypography-root"
       >
         communityPool
       </p>
       <p
-        className="MuiTypography-root MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
       >
         0 
       </p>

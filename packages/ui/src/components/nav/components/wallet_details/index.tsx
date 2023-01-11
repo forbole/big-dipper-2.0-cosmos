@@ -1,17 +1,18 @@
 import useConnectWalletList from '@/components/nav/components/connect_wallet/hooks';
 import { useStyles } from '@/components/nav/components/connect_wallet/styles';
-import classnames from 'classnames';
-import React from 'react';
+import React, { FC } from 'react';
 import Avatar from '@/components/avatar';
 import WalletDropDown from '@/components/nav/components/wallet_drop_down';
 import { readUserAddress, readIsUserLoggedIn } from '@/recoil/user';
 import { useRecoilValue } from 'recoil';
-import ClickAwayListener from '@material-ui/core/ClickAwayListener';
+import ClickAwayListener from '@mui/material/ClickAwayListener';
 
-const WalletDetails: React.FC<{
+type WalletDetailsProps = {
   className?: string;
-}> = (props) => {
-  const classes = useStyles();
+};
+
+const WalletDetails: FC<WalletDetailsProps> = ({ className }) => {
+  const { classes, cx } = useStyles();
   const { showWalletDetails, handleShowWalletDetails, handleCloseWalletDetails } =
     useConnectWalletList();
   const loggedIn = useRecoilValue(readIsUserLoggedIn);
@@ -19,7 +20,7 @@ const WalletDetails: React.FC<{
 
   return (
     <ClickAwayListener
-      onClickAway={(e) => {
+      onClickAway={(e: { preventDefault: () => void; }) => {
         e.preventDefault();
         handleCloseWalletDetails();
       }}
@@ -28,14 +29,14 @@ const WalletDetails: React.FC<{
         <div
           onClick={handleShowWalletDetails}
           role="button"
-          className={classnames(props.className)}
+          className={cx(className)}
           tabIndex={0}
           aria-label="wallet-details-button"
         >
           {loggedIn ? <Avatar address={userAddress ?? ''} className={classes.avatar} /> : null}
         </div>
         <WalletDropDown
-          className={classnames(classes.walletDetailsButton, {
+          className={cx(classes.walletDetailsButton, {
             open: showWalletDetails,
           })}
         />

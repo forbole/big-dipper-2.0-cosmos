@@ -16,7 +16,7 @@ describe('screen: Validators/Tabs', () => {
             {
               id: 0,
               key: 'key',
-              count: 1,
+              count: '1',
               component: <div id="component" />,
             },
           ]}

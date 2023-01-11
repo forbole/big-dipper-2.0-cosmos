@@ -2,28 +2,27 @@ import Avatar from '@/components/avatar';
 import Box from '@/components/box';
 import Connections from '@/components/desmos_profile/components/connections';
 import { useDesmosProfile } from '@/components/desmos_profile/hooks';
-import { useStyles } from '@/components/desmos_profile/styles';
+import useStyles from '@/components/desmos_profile/styles';
 import Markdown from '@/components/markdown';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
-import React from 'react';
+import React, { FC } from 'react';
 
-const DesmosProfile: React.FC<
-  {
-    className?: string;
-  } & DesmosProfile
-> = (props) => {
+type DesmosProfileProps = {
+  className?: string;
+} & Omit<DesmosProfile, 'address'>;
+
+const DesmosProfile: FC<DesmosProfileProps> = (props) => {
   const { t } = useTranslation('accounts');
-  const classes = useStyles(props.coverUrl);
+  const { classes, cx } = useStyles({ coverUrl: props.coverUrl });
   const { connectionsOpen, handleConnectionsClose, handleConnectionsOpen } = useDesmosProfile();
 
   const displayConnections = props.connections.length ? '' : 'hide';
 
   return (
     <>
-      <Box className={classnames(props.className, classes.root)}>
+      <Box className={cx(classes.root, props.className)}>
         <div className={classes.cover}>
           <div className="cover" />
         </div>
@@ -32,7 +31,7 @@ const DesmosProfile: React.FC<
           <Avatar address={props.dtag} imageUrl={props.imageUrl} className={classes.avatar} />
           <Typography
             variant="body1"
-            className={classnames(classes.link, displayConnections)}
+            className={cx(classes.link, displayConnections)}
             onClick={handleConnectionsOpen}
             role="button"
           >

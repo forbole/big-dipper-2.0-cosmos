@@ -1,6 +1,6 @@
 {
   "name": "tsconfig",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
   "files": [
     "base.json",
@@ -9,5 +9,12 @@
   ],
   "publishConfig": {
     "access": "public"
+  },
+  "devDependencies": {
+    "@cosmjs/encoding": "^0.27.1",
+    "@cosmjs/launchpad": "^0.27.1",
+    "@keplr-wallet/types": "^0.11.29",
+    "@types/esprima": "^4.0.3",
+    "esprima": "^4.0.1"
   }
 }

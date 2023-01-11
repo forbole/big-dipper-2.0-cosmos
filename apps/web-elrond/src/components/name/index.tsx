@@ -1,27 +1,24 @@
 import Avatar from '@/components/avatar';
-import { useStyles } from '@/components/name/styles';
+import useStyles from '@/components/name/styles';
 import { ACCOUNT_DETAILS } from '@/utils/go_to_page';
-import { Typography } from '@material-ui/core';
-import classnames from 'classnames';
+import { Typography } from '@mui/material';
 import Link from 'next/link';
-import React from 'react';
+import { FC } from 'react';
 
-const AvatarName: React.FC<AvatarName> = ({
+const AvatarName: FC<AvatarName> = ({
   className,
   address,
   name,
   imageUrl,
   href = ACCOUNT_DETAILS,
 }) => {
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   return (
     <Link href={href(address || name)}>
-      <a>
-        <div className={classnames(className, classes.root)}>
-          <Avatar address={address} imageUrl={imageUrl ?? undefined} />
-          <Typography variant="body1">{name}</Typography>
-        </div>
-      </a>
+      <div className={cx(classes.root, className)}>
+        <Avatar address={address} imageUrl={imageUrl ?? undefined} />
+        <Typography variant="body1">{name}</Typography>
+      </div>
     </Link>
   );
 };

@@ -1,11 +1,11 @@
 import Name from '@/components/name';
 import { type MsgSubmitProposal } from '@/models';
-import { useProfileRecoil } from '@/recoil/profiles';
-import Typography from '@material-ui/core/Typography';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
+import Typography from '@mui/material/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const SubmitProposal: React.FC<{ message: MsgSubmitProposal }> = (props) => {
+const SubmitProposal: FC<{ message: MsgSubmitProposal }> = (props) => {
   const { message } = props;
 
   const proposer = useProfileRecoil(message.proposer);

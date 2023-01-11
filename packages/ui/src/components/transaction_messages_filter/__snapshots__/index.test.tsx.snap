@@ -18,14 +18,13 @@ exports[`component: TransactionMessagesFilter it renders 1`] = `
         "horizontal": "left",
         "vertical": "bottom",
       },
-      "getContentAnchorEl": null,
       "transformOrigin": {
         "horizontal": "left",
         "vertical": "top",
       },
     }
   }
-  className="makeStyles-select"
+  className="css-rz82zp-select"
   displayEmpty={true}
   id="Select"
   input={<Unknown />}
@@ -33,7 +32,7 @@ exports[`component: TransactionMessagesFilter it renders 1`] = `
   value=""
 >
   <div
-    className="makeStyles-item"
+    className="css-1wohbvg-item"
     id="MenuItem"
     onClick={[Function]}
     value="none"
@@ -47,7 +46,7 @@ exports[`component: TransactionMessagesFilter it renders 1`] = `
     </div>
   </div>
   <div
-    className="makeStyles-item"
+    className="css-1wohbvg-item"
     id="MenuItem"
     onClick={[Function]}
     value="bank"
@@ -61,7 +60,7 @@ exports[`component: TransactionMessagesFilter it renders 1`] = `
     </div>
   </div>
   <div
-    className="makeStyles-item"
+    className="css-1wohbvg-item"
     id="MenuItem"
     onClick={[Function]}
     value="crisis"
@@ -75,7 +74,7 @@ exports[`component: TransactionMessagesFilter it renders 1`] = `
     </div>
   </div>
   <div
-    className="makeStyles-item"
+    className="css-1wohbvg-item"
     id="MenuItem"
     onClick={[Function]}
     value="distribution"
@@ -89,7 +88,7 @@ exports[`component: TransactionMessagesFilter it renders 1`] = `
     </div>
   </div>
   <div
-    className="makeStyles-item"
+    className="css-1wohbvg-item"
     id="MenuItem"
     onClick={[Function]}
     value="governance"
@@ -103,7 +102,7 @@ exports[`component: TransactionMessagesFilter it renders 1`] = `
     </div>
   </div>
   <div
-    className="makeStyles-item"
+    className="css-1wohbvg-item"
     id="MenuItem"
     onClick={[Function]}
     value="slashing"
@@ -117,7 +116,7 @@ exports[`component: TransactionMessagesFilter it renders 1`] = `
     </div>
   </div>
   <div
-    className="makeStyles-item"
+    className="css-1wohbvg-item"
     id="MenuItem"
     onClick={[Function]}
     value="staking"
@@ -131,7 +130,7 @@ exports[`component: TransactionMessagesFilter it renders 1`] = `
     </div>
   </div>
   <div
-    className="makeStyles-item"
+    className="css-1wohbvg-item"
     id="MenuItem"
     onClick={[Function]}
     value="authz"
@@ -145,7 +144,7 @@ exports[`component: TransactionMessagesFilter it renders 1`] = `
     </div>
   </div>
   <div
-    className="makeStyles-item"
+    className="css-1wohbvg-item"
     id="MenuItem"
     onClick={[Function]}
     value="feegrant"
@@ -159,7 +158,7 @@ exports[`component: TransactionMessagesFilter it renders 1`] = `
     </div>
   </div>
   <div
-    className="makeStyles-item"
+    className="css-1wohbvg-item"
     id="MenuItem"
     onClick={[Function]}
     value="vesting"
@@ -173,7 +172,7 @@ exports[`component: TransactionMessagesFilter it renders 1`] = `
     </div>
   </div>
   <div
-    className="makeStyles-item"
+    className="css-1wohbvg-item"
     id="MenuItem"
     onClick={[Function]}
     value="profiles"
@@ -187,7 +186,7 @@ exports[`component: TransactionMessagesFilter it renders 1`] = `
     </div>
   </div>
   <div
-    className="makeStyles-item"
+    className="css-1wohbvg-item"
     id="MenuItem"
     onClick={[Function]}
     value="others"

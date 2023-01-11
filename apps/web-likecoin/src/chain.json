@@ -3,7 +3,8 @@
   "title": "LikeCoin Block Explorer",
   "extra": {
     "profile": true,
-    "graphqlWs": true
+    "graphqlWs": true,
+    "votingPowerExponent": 3
   },
   "previewImage": "https://s3.bigdipper.live/likecoin.png",
   "themes": {
@@ -223,7 +224,7 @@
       "tokenUnits": {
         "nanolike": {
           "display": "like",
-          "exponent": 6
+          "exponent": 9
         }
       },
       "endpoints": {
@@ -253,7 +254,7 @@
       "tokenUnits": {
         "uekil": {
           "display": "ekil",
-          "exponent": 6
+          "exponent": 9
         }
       },
       "endpoints": {
@@ -282,7 +283,7 @@
       "tokenUnits": {
         "uekil": {
           "display": "ekil",
-          "exponent": 6
+          "exponent": 9
         }
       },
       "endpoints": {

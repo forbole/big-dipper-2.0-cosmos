@@ -2,24 +2,24 @@
 
 exports[`component: SingleProposal matches snapshot 1`] = `
 <div
-  className="makeStyles-root"
+  className="css-8bkbz1-root"
 >
   <div
-    className="makeStyles-header"
+    className="css-wxblv8-header"
   >
     <h4
-      className="MuiTypography-root makeStyles-id MuiTypography-h4"
+      className="MuiTypography-root MuiTypography-h4 css-138pxwk-MuiTypography-root-id"
     >
       1
     </h4>
     <span
-      className="makeStyles-mobile"
+      className="css-y4sl71-mobile"
     >
       <div
-        className="makeStyles-root makeStyles-zero"
+        className="css-1htgg0q-root-zero"
       >
         <p
-          className="MuiTypography-root MuiTypography-body1"
+          className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
         >
           passed
         </p>
@@ -28,23 +28,23 @@ exports[`component: SingleProposal matches snapshot 1`] = `
   </div>
   <div>
     <div
-      className="makeStyles-title"
+      className="css-11049aw-title"
     >
       <h3
-        className="MuiTypography-root value MuiTypography-h3"
+        className="MuiTypography-root MuiTypography-h3 value css-1kl9mnf-MuiTypography-root"
       >
         proposal-title
       </h3>
     </div>
   </div>
   <span
-    className="makeStyles-desktop"
+    className="css-1d2xof0-desktop"
   >
     <div
-      className="makeStyles-root makeStyles-zero"
+      className="css-1htgg0q-root-zero"
     >
       <p
-        className="MuiTypography-root MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
       >
         passed
       </p>

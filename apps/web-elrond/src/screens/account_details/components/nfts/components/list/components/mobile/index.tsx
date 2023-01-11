@@ -1,22 +1,21 @@
-import React from 'react';
-import useTranslation from 'next-translate/useTranslation';
-import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
-import Link from 'next/link';
-import { NFT_DETAILS } from '@/utils/go_to_page';
+import useStyles from '@/screens/account_details/components/nfts/components/list/components/mobile/styles';
 import type { OtherTokenType } from '@/screens/account_details/components/nfts/types';
-import { useStyles } from '@/screens/account_details/components/nfts/components/list/components/mobile/styles';
+import { NFT_DETAILS } from '@/utils/go_to_page';
+import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
+import useTranslation from 'next-translate/useTranslation';
+import Link from 'next/link';
+import { FC, Fragment } from 'react';
 
-const Mobile: React.FC<{ items: OtherTokenType[] } & ComponentDefault> = (props) => {
+const Mobile: FC<{ className?: string; items: OtherTokenType[] }> = (props) => {
   const { t } = useTranslation('accounts');
-  const classes = useStyles();
-  const formattedItems = props.items.map((x) => ({
+  const { classes } = useStyles();
+  const formattedItems = props.items.map((x, i) => ({
+    key: `${x.identifier}-${i}`,
     identifier: x.identifier,
     nft: (
-      <Link href={NFT_DETAILS(x.identifier)} passHref>
-        <Typography variant="body1" className="value" component="a">
-          {x.name}
-        </Typography>
+      <Link href={NFT_DETAILS(x.identifier)} className="value">
+        {x.name}
       </Link>
     ),
     type: x.type,
@@ -25,8 +24,7 @@ const Mobile: React.FC<{ items: OtherTokenType[] } & ComponentDefault> = (props)
   return (
     <div className={props.className}>
       {formattedItems?.map((x, i) => (
-        // eslint-disable-next-line react/no-array-index-key
-        <React.Fragment key={`${x.identifier}-${i}`}>
+        <Fragment key={x.key}>
           <div className={classes.root}>
             <div className={classes.item}>
               <Typography variant="h4" className="label">
@@ -52,7 +50,7 @@ const Mobile: React.FC<{ items: OtherTokenType[] } & ComponentDefault> = (props)
             </div>
           </div>
           {i !== formattedItems.length - 1 && <Divider />}
-        </React.Fragment>
+        </Fragment>
       ))}
     </div>
   );

@@ -1,11 +1,11 @@
 import Name from '@/components/name';
 import MsgStoreRawDataRequest from '@/models/msg/data/msg_store_raw_data_request';
-import { useProfileRecoil } from '@/recoil/profiles';
-import Typography from '@material-ui/core/Typography';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
+import Typography from '@mui/material/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const StoreRawDataRequest: React.FC<{ message: MsgStoreRawDataRequest }> = (props) => {
+const StoreRawDataRequest: FC<{ message: MsgStoreRawDataRequest }> = (props) => {
   const { message } = props;
 
   const sender = useProfileRecoil(message.sender);

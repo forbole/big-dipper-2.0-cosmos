@@ -1,29 +1,28 @@
 import AvatarName from '@/components/avatar_name';
 import Result from '@/components/result';
-import { useStyles } from '@/screens/home/components/transactions/components/mobile/styles';
+import useStyles from '@/screens/home/components/transactions/components/mobile/styles';
 import type { TransactionType } from '@/screens/home/components/transactions/types';
 import dayjs from '@/utils/dayjs';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { TRANSACTION_DETAILS } from '@/utils/go_to_page';
-import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
+import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
-import React from 'react';
+import { FC, Fragment } from 'react';
 
-const Mobile: React.FC<{ items: TransactionType[] } & ComponentDefault> = (props) => {
-  const classes = useStyles();
+const Mobile: FC<{ items: TransactionType[] }> = (props) => {
+  const { classes } = useStyles();
   const { t } = useTranslation('transactions');
 
   const formattedItems = props.items.map((x) => ({
+    key: x.hash,
     hash: (
-      <Link href={TRANSACTION_DETAILS(x.hash)} passHref>
-        <Typography variant="body1" className="value" component="a">
-          {getMiddleEllipsis(x.hash, {
-            beginning: 13,
-            ending: 15,
-          })}
-        </Typography>
+      <Link href={TRANSACTION_DETAILS(x.hash)} className="value">
+        {getMiddleEllipsis(x.hash, {
+          beginning: 13,
+          ending: 15,
+        })}
       </Link>
     ),
     from: (
@@ -51,8 +50,7 @@ const Mobile: React.FC<{ items: TransactionType[] } & ComponentDefault> = (props
   return (
     <div>
       {formattedItems?.map((x, i) => (
-        // eslint-disable-next-line react/no-array-index-key
-        <React.Fragment key={`${x.hash}-${i}`}>
+        <Fragment key={x.key}>
           <div className={classes.root}>
             <div className={classes.item}>
               <Typography variant="h4" className="label">
@@ -96,7 +94,7 @@ const Mobile: React.FC<{ items: TransactionType[] } & ComponentDefault> = (props
             </div>
           </div>
           {i !== formattedItems.length - 1 && <Divider />}
-        </React.Fragment>
+        </Fragment>
       ))}
     </div>
   );

@@ -1,18 +1,17 @@
-import React from 'react';
-import classnames from 'classnames';
-import Link from 'next/link';
 import Box from '@/components/box';
-import useTranslation from 'next-translate/useTranslation';
-import Typography from '@material-ui/core/Typography';
-import { MINIBLOCK_DETAILS } from '@/utils/go_to_page';
+import useStyles from '@/screens/block_details/components/miniblocks/styles';
 import type { MiniBlockType } from '@/screens/block_details/types';
-import { useStyles } from '@/screens/block_details/components/miniblocks/styles';
+import { MINIBLOCK_DETAILS } from '@/utils/go_to_page';
+import Typography from '@mui/material/Typography';
+import useTranslation from 'next-translate/useTranslation';
+import Link from 'next/link';
+import { FC } from 'react';
 
-const MiniBlocks: React.FC<{ miniBlocks: MiniBlockType[] } & ComponentDefault> = (props) => {
+const MiniBlocks: FC<{ className?: string; miniBlocks: MiniBlockType[] }> = (props) => {
   const { t } = useTranslation('blocks');
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   return (
-    <Box className={classnames(props.className, classes.root)}>
+    <Box className={cx(classes.root, props.className)}>
       <Typography className={classes.title} variant="h2">
         {t('miniBlocks')}
       </Typography>
@@ -21,10 +20,8 @@ const MiniBlocks: React.FC<{ miniBlocks: MiniBlockType[] } & ComponentDefault> =
           <div key={x} className={classes.item}>
             <div className={classes.hash}>
               <div className={classes.bullet} />
-              <Link href={MINIBLOCK_DETAILS(x)} passHref>
-                <Typography variant="body1" className={classes.block} component="a">
-                  {x}
-                </Typography>
+              <Link href={MINIBLOCK_DETAILS(x)} className={classes.block}>
+                {x}
               </Link>
             </div>
           </div>

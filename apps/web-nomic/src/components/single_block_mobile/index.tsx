@@ -1,22 +1,30 @@
-import { useStyles } from '@/components/single_block_mobile/styles';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
+import useStyles from '@/components/single_block_mobile/styles';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
-import React from 'react';
+import { FC, ReactNode } from 'react';
 
-const SingleBlockMobile: React.FC<{
+type SingleBlockMobileProps = {
   className?: string;
-  height: React.ReactNode;
+  height: ReactNode;
   hash: string;
   parentHash?: string;
   txs: string;
   time: string;
-}> = ({ className, height, hash, parentHash, txs, time }) => {
+};
+
+const SingleBlockMobile: FC<SingleBlockMobileProps> = ({
+  className,
+  height,
+  hash,
+  parentHash,
+  txs,
+  time,
+}) => {
   const { t } = useTranslation('blocks');
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
 
   return (
-    <div className={classnames(className, classes.root)}>
+    <div className={cx(classes.root, className)}>
       <div className={classes.item}>
         <Typography variant="h4" className="label">
           {t('height')}

@@ -1,32 +1,34 @@
 import useConnectWalletList from '@/components/nav/components/connect_wallet/hooks';
 import { useStyles } from '@/components/nav/components/connect_wallet/styles';
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import CloseIcon from '@material-ui/icons/Close';
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogTitle from '@mui/material/DialogTitle';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import CloseIcon from '@mui/icons-material/Close';
 import useTranslation from 'next-translate/useTranslation';
-import React from 'react';
-import Tab from '@material-ui/core/Tab';
-import Tabs from '@material-ui/core/Tabs';
+import React, { FC } from 'react';
+import Tab from '@mui/material/Tab';
+import Tabs from '@mui/material/Tabs';
 import TabPanel from '@/components/tab_panel';
 import { a11yProps } from '@/utils/a11yProps';
 // import { QRCodeSVG } from 'qrcode.react';
 
-const ConnectWalletConnectDialog: React.FC<{
+type ConnectWalletConnectDialogProps = {
   open: boolean;
   onClose: () => void;
-}> = (props) => {
-  const classes = useStyles();
-  const { t } = useTranslation('common');
+};
+
+const ConnectWalletConnectDialog: FC<ConnectWalletConnectDialogProps> = ({ open, onClose }) => {
+  const { classes } = useStyles();
+  const { t } = useTranslation();
   const { handleConnectWallet, tabValue, handleTabChange } = useConnectWalletList();
 
   return (
     <div>
-      <Dialog maxWidth="md" onClose={props.onClose} open={props.open} className={classes.dialog}>
+      <Dialog maxWidth="md" onClose={onClose} open={open} className={classes.dialog}>
         <DialogTitle disableTypography>
           <div>
             <div className={classes.grayDot} />
@@ -34,7 +36,7 @@ const ConnectWalletConnectDialog: React.FC<{
               Wallet Connect
             </Typography>
           </div>
-          <IconButton aria-label="close" onClick={props.onClose} className={classes.closeButton}>
+          <IconButton aria-label="close" onClick={onClose} className={classes.closeButton}>
             <CloseIcon />
           </IconButton>
         </DialogTitle>
@@ -42,7 +44,7 @@ const ConnectWalletConnectDialog: React.FC<{
           <div className={classes.walletConnectContent}>
             <div className={classes.grayDot} />
             <Typography variant="h4" className={classes.walletConnectMsg}>
-              {t('scanWalletConnectQR')}
+              {t('common:scanWalletConnectQR')}
             </Typography>
           </div>
 
@@ -85,7 +87,7 @@ const ConnectWalletConnectDialog: React.FC<{
         <DialogActions>
           <div className={classes.actions}>
             <Button onClick={handleConnectWallet} color="primary" className={classes.actionsButton}>
-              <Typography variant="h3">{t('continue')}</Typography>
+              <Typography variant="h3">{t('common:continue')}</Typography>
             </Button>
           </div>
         </DialogActions>

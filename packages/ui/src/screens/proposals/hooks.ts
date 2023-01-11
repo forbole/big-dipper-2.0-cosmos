@@ -4,13 +4,24 @@ import DOMPurify from 'dompurify';
 import * as R from 'ramda';
 import { useCallback, useState } from 'react';
 
+const formatProposals = (data: ProposalsQuery) =>
+  data.proposals.map((x): ProposalType => {
+    const description = DOMPurify.sanitize(x.description);
+    return {
+      description,
+      id: x.proposalId,
+      title: x.title,
+      status: x.status ?? '',
+    };
+  });
+
 export const useProposals = () => {
   const [state, setState] = useState<ProposalsState>({
     loading: true,
     exists: true,
     items: [],
     hasNextPage: false,
-    isNextPageLoading: false,
+    isNextPageLoading: true,
     rawDataTotal: 0,
   });
 
@@ -37,6 +48,7 @@ export const useProposals = () => {
       const newItems = R.uniq([...state.items, ...formatProposals(data)]);
       handleSetState((prevState) => ({
         ...prevState,
+        loading: false,
         items: newItems,
         hasNextPage: newItems.length < (data.total?.aggregate?.count ?? 0),
         isNextPageLoading: false,
@@ -67,17 +79,6 @@ export const useProposals = () => {
         }));
       });
   };
-
-  const formatProposals = (data: ProposalsQuery) =>
-    data.proposals.map((x): ProposalType => {
-      const description = DOMPurify.sanitize(x.description);
-      return {
-        description,
-        id: x.proposalId,
-        title: x.title,
-        status: x.status ?? '',
-      };
-    });
 
   const itemCount = state.hasNextPage ? state.items.length + 1 : state.items.length;
   const loadMoreItems = state.isNextPageLoading ? () => null : loadNextPage;

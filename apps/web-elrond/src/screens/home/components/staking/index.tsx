@@ -1,19 +1,16 @@
 import Box from '@/components/box';
 import CustomToolTip from '@/components/custom_tool_tip';
 import { useStaking } from '@/screens/home/components/staking/hooks';
-import { useStyles } from '@/screens/home/components/staking/styles';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
+import useStyles from '@/screens/home/components/staking/styles';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
-import React from 'react';
+import { FC } from 'react';
 import { Cell, Pie, PieChart, Tooltip } from 'recharts';
 
-const Staking: React.FC<{
-  className?: string;
-}> = ({ className }) => {
+const Staking: FC<ComponentDefault> = ({ className }) => {
   const { t } = useTranslation('home');
-  const { classes, theme } = useStyles();
+  const { classes, cx, theme } = useStyles();
   const { state } = useStaking();
   const data = [
     {
@@ -35,7 +32,7 @@ const Staking: React.FC<{
   ];
 
   return (
-    <Box className={classnames(className, classes.root)}>
+    <Box className={cx(classes.root, className)}>
       <Typography variant="h2" className={classes.label}>
         {t('stake')}
       </Typography>
@@ -88,7 +85,7 @@ const Staking: React.FC<{
 
         <div className={classes.legends}>
           {data.map((x) => (
-            <div className="legends__item" key={x.legendKey}>
+            <div key={x.legendKey} className="legends__item">
               <Typography variant="caption">{t(x.legendKey)}</Typography>
             </div>
           ))}

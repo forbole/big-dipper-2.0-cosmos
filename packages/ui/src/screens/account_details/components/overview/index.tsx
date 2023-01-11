@@ -1,14 +1,13 @@
 import Box from '@/components/box';
 import { useScreenSize, useWindowOrigin } from '@/hooks';
 import { useOverview } from '@/screens/account_details/components/overview/hooks';
-import { useStyles } from '@/screens/account_details/components/overview/styles';
+import useStyles from '@/screens/account_details/components/overview/styles';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
-import Dialog from '@material-ui/core/Dialog';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
+import Dialog from '@mui/material/Dialog';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import { QRCodeSVG } from 'qrcode.react';
-import React from 'react';
+import { FC } from 'react';
 import {
   EmailIcon,
   EmailShareButton,
@@ -24,14 +23,16 @@ import {
 import CopyIcon from 'shared-utils/assets/icon-copy.svg';
 import ShareIcon from 'shared-utils/assets/icon-share.svg';
 
-const Overview: React.FC<{
+type OverviewProps = {
   className?: string;
   withdrawalAddress: string;
   address: string;
-}> = ({ className, address, withdrawalAddress }) => {
+};
+
+const Overview: FC<OverviewProps> = ({ className, address, withdrawalAddress }) => {
   const { isDesktop } = useScreenSize();
   const { location } = useWindowOrigin();
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const { t } = useTranslation('accounts');
   const { open, handleClose, handleOpen, handleCopyToClipboard } = useOverview(t);
 
@@ -90,8 +91,8 @@ const Overview: React.FC<{
           </div>
         </Box>
       </Dialog>
-      <Box className={classnames(className, classes.root)}>
-        <div className={classnames(classes.copyText, classes.item)}>
+      <Box className={cx(classes.root, className)}>
+        <div className={cx(classes.copyText, classes.item)}>
           <Typography variant="body1" className="label">
             {t('address')}
           </Typography>
@@ -112,7 +113,7 @@ const Overview: React.FC<{
           </div>
         </div>
 
-        <div className={classnames(classes.copyText, classes.item)}>
+        <div className={cx(classes.copyText, classes.item)}>
           <Typography variant="body1" className="label">
             {t('rewardAddress')}
           </Typography>

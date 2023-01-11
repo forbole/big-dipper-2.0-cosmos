@@ -2,31 +2,29 @@ import { columns } from '@/components/blocks_list/components/desktop/utils';
 import dayjs from '@/utils/dayjs';
 import { getShardDisplay } from '@/utils/get_shard_display';
 import { BLOCK_DETAILS } from '@/utils/go_to_page';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Typography from '@material-ui/core/Typography';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
-import React from 'react';
+import { FC } from 'react';
 
-const Desktop: React.FC<{ items: BlockType[] } & ComponentDefault> = (props) => {
+const Desktop: FC<{ className?: string; items: BlockType[] }> = (props) => {
   const { t } = useTranslation('blocks');
   const formattedItems = props.items.map((x) => {
     const shard = getShardDisplay(x.shard);
     return {
+      key: `${x.block}-${x.timestamp}`,
       block: numeral(x.block).format('0,0'),
       shard: t(shard.key, {
         num: shard.num,
       }),
       hash: (
-        <Link href={BLOCK_DETAILS(x.hash)} passHref>
-          <Typography variant="body1" className="value" component="a">
-            {x.hash}
-          </Typography>
+        <Link href={BLOCK_DETAILS(x.hash)} className="value">
+          {x.hash}
         </Link>
       ),
       txs: numeral(x.txs).format('0,0'),
@@ -50,15 +48,15 @@ const Desktop: React.FC<{ items: BlockType[] } & ComponentDefault> = (props) => 
           </TableRow>
         </TableHead>
         <TableBody>
-          {formattedItems?.map((row: { [key: string]: unknown }) => (
-            <TableRow key={`holders-row-${row.identifier}`}>
+          {formattedItems?.map((row) => (
+            <TableRow key={`holders-row-${row.key}`}>
               {columns.map((column) => (
                 <TableCell
-                  key={`holders-row-${row.identifier}-${column.key}`}
+                  key={`holders-row-${row.key}-${column.key}`}
                   align={column.align}
                   style={{ width: `${column.width}%` }}
                 >
-                  {row[column.key]}
+                  {row[column.key as keyof typeof row]}
                 </TableCell>
               ))}
             </TableRow>

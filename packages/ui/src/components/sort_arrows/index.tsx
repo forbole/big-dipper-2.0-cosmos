@@ -1,23 +1,24 @@
-import { useStyles } from '@/components/sort_arrows/styles';
-import classnames from 'classnames';
-import React from 'react';
+import useStyles from '@/components/sort_arrows/styles';
+import React, { FC } from 'react';
 import SortDownIcon from 'shared-utils/assets/icon-sort-down.svg';
 
-const SortArrows: React.FC<{
+type SortArrowsProps = {
   className?: string;
   sort?: 'asc' | 'desc';
-}> = ({ className, sort }) => {
-  const classes = useStyles();
+};
+
+const SortArrows: FC<SortArrowsProps> = ({ className, sort }) => {
+  const { classes, cx } = useStyles();
 
   return (
-    <div className={classnames(className, classes.root)}>
+    <div className={cx(classes.root, className)}>
       <SortDownIcon
-        className={classnames(classes.svg, classes.up, {
+        className={cx(classes.svg, classes.up, {
           desc: sort === 'desc',
         })}
       />
       <SortDownIcon
-        className={classnames(classes.svg, classes.down, {
+        className={cx(classes.svg, classes.down, {
           asc: sort === 'asc',
         })}
       />

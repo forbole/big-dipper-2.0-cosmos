@@ -24,6 +24,18 @@ jest.mock(
   '@/components/nav/components/desktop/components/action_bar/components/settings_list',
   () => (props: JSX.IntrinsicElements['div']) => <div id="SettingsList" {...props} />
 );
+
+jest.mock('next/router', () => ({
+  ...jest.requireActual('next/router'),
+  useRouter: () => ({
+    locales: ['en', 'zh'],
+    pathname: '/app/home',
+    query: {
+      key: 'val',
+    },
+  }),
+}));
+
 // ==================================
 // unit tests
 // ==================================

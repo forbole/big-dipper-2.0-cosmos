@@ -1,4 +1,5 @@
-import { expect, test } from '@playwright/test';
+import { test } from '@playwright/test';
+import { abortLoadingAssets, waitForReady } from './common';
 
 const placeholder = 'Search for validator / tx hash / block height / address / @dtag';
 const address = 'desmos17lca9smrdlwkznr92hypzrgsjkelnxear4qhyj';
@@ -6,9 +7,10 @@ const validatorAddress = 'desmosvaloper17lca9smrdlwkznr92hypzrgsjkelnxeaacgrwq';
 const transactionHash = '705351F036752DA23C43A4F36D184976EA441CDA4CB2DE9A1236223DE9081FE0';
 
 test('search box', async ({ page }) => {
-  // Test url
-  await Promise.all([page.waitForNavigation(), page.goto('.')]);
-  await expect(page.getByRole('progressbar')).toHaveCount(0);
+  await abortLoadingAssets(page);
+
+  await page.goto('.');
+  await waitForReady(page);
 
   // Test validator address search
   await page.getByPlaceholder(placeholder).first().click();
@@ -17,7 +19,7 @@ test('search box', async ({ page }) => {
     page.waitForNavigation({ url: new RegExp(`/validators/${validatorAddress}`) }),
     page.getByPlaceholder(placeholder).first().press('Enter'),
   ]);
-  await expect(page.getByRole('progressbar')).toHaveCount(0);
+  await waitForReady(page);
 
   // Test address search
   await page.getByPlaceholder(placeholder).first().click();
@@ -26,7 +28,7 @@ test('search box', async ({ page }) => {
     page.waitForNavigation({ url: new RegExp(`/accounts/${address}`) }),
     page.getByPlaceholder(placeholder).first().press('Enter'),
   ]);
-  await expect(page.getByRole('progressbar')).toHaveCount(0);
+  await waitForReady(page);
 
   // Test transaction hash search
   await page.getByPlaceholder(placeholder).first().click();
@@ -35,5 +37,5 @@ test('search box', async ({ page }) => {
     page.waitForNavigation({ url: new RegExp(`/transactions/${transactionHash}`) }),
     page.getByPlaceholder(placeholder).press('Enter'),
   ]);
-  await expect(page.getByRole('progressbar')).toHaveCount(0);
+  await waitForReady(page);
 });

@@ -1,16 +1,15 @@
-import React from 'react';
-import Typography from '@material-ui/core/Typography';
-import Link from 'next/link';
 import BoxDetails from '@/components/box_details';
-import dayjs, { formatDayJs } from '@/utils/dayjs';
-import useTranslation from 'next-translate/useTranslation';
-import { useRecoilValue } from 'recoil';
 import { readDate } from '@/recoil/settings';
-import { BLOCK_DETAILS } from '@/utils/go_to_page';
-import { getShardDisplay } from '@/utils/get_shard_display';
 import type { OverviewType } from '@/screens/miniblock_details/types';
+import dayjs, { formatDayJs } from '@/utils/dayjs';
+import { getShardDisplay } from '@/utils/get_shard_display';
+import { BLOCK_DETAILS } from '@/utils/go_to_page';
+import useTranslation from 'next-translate/useTranslation';
+import Link from 'next/link';
+import { FC } from 'react';
+import { useRecoilValue } from 'recoil';
 
-const Overview: React.FC<OverviewType & ComponentDefault> = (props) => {
+const Overview: FC<OverviewType & ComponentDefault> = (props) => {
   const { t } = useTranslation('blocks');
   const dateFormat = useRecoilValue(readDate);
   const senderShard = getShardDisplay(props.senderShard);
@@ -18,46 +17,41 @@ const Overview: React.FC<OverviewType & ComponentDefault> = (props) => {
 
   const details = [
     {
+      key: 'hash',
       label: t('hash'),
       detail: props.hash,
     },
     {
+      key: 'senderShard',
       label: t('senderShard'),
       detail: t(senderShard.key, {
         num: senderShard.num,
       }),
     },
     {
+      key: 'receiverShard',
       label: t('receiverShard'),
       detail: t(receiverShard.key, {
         num: receiverShard.num,
       }),
     },
     {
+      key: 'senderBlockHash',
       label: t('senderBlockHash'),
-      detail: (
-        <Link href={BLOCK_DETAILS(props.senderBlockHash)} passHref>
-          <Typography variant="body1" component="a">
-            {props.senderBlockHash}
-          </Typography>
-        </Link>
-      ),
+      detail: <Link href={BLOCK_DETAILS(props.senderBlockHash)}>{props.senderBlockHash}</Link>,
     },
     {
+      key: 'receiverBlockHash',
       label: t('receiverBlockHash'),
-      detail: (
-        <Link href={BLOCK_DETAILS(props.receiverBlockHash)} passHref>
-          <Typography variant="body1" component="a">
-            {props.receiverBlockHash}
-          </Typography>
-        </Link>
-      ),
+      detail: <Link href={BLOCK_DETAILS(props.receiverBlockHash)}>{props.receiverBlockHash}</Link>,
     },
     {
+      key: 'time',
       label: t('time'),
       detail: formatDayJs(dayjs.utc(dayjs.unix(props.timestamp)), dateFormat),
     },
     {
+      key: 'type',
       label: t('type'),
       detail: props.type,
     },

@@ -1,5 +1,57 @@
 # ui
 
+## 2.10.0
+
+### Minor Changes
+
+- 85dd8c7d: Migrate MUI v4 to MUI v5, Next v12 to v13, React v17 to v18
+
+### Patch Changes
+
+- Updated dependencies [85dd8c7d]
+  - shared-utils@2.6.0
+
+## 2.9.0
+
+### Minor Changes
+
+- 8ea919c8: auto deployment based on PR title keyword
+
+## 2.8.0
+
+### Minor Changes
+
+- f22eaf1a: add validators' commission rates on account page
+
+## 2.7.0
+
+### Minor Changes
+
+- 650f686b: Enable Yarn Plug'n'Play (Zero-Installs)
+
+### Patch Changes
+
+- Updated dependencies [650f686b]
+  - shared-utils@2.5.0
+
+## 2.6.1
+
+### Patch Changes
+
+- 2db4ee93: performance improvements and bug fixes
+
+## 2.6.0
+
+### Minor Changes
+
+- 7f4e53f6: feat: add loading indicator to home page ([\#1094](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1094))
+
+## 2.5.0
+
+### Minor Changes
+
+- df8a5bca: - batch network requests ([\#1092](https://github.com/forbole/big-dipper-2.0-cosmos/issues/1092))
+
 ## 2.4.0
 
 ### Minor Changes

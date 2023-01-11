@@ -1,11 +1,11 @@
 import Name from '@/components/name';
 import MsgCreateBatchRequest from '@/models/msg/ecocredit/msg_create_batch_request';
-import { useProfileRecoil } from '@/recoil/profiles';
-import Typography from '@material-ui/core/Typography';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
+import Typography from '@mui/material/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const CreateBatchRequest: React.FC<{ message: MsgCreateBatchRequest }> = (props) => {
+const CreateBatchRequest: FC<{ message: MsgCreateBatchRequest }> = (props) => {
   const { message } = props;
 
   const issuer = useProfileRecoil(message.issuer);

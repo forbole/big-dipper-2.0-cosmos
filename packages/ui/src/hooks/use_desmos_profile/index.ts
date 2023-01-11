@@ -1,153 +1,148 @@
+/* eslint-disable no-nested-ternary */
 import chainConfig from '@/chainConfig';
 import {
   DesmosProfileDocument,
   DesmosProfileDtagDocument,
   DesmosProfileLinkDocument,
-} from '@/graphql/profiles/desmos_profile_graphql';
-import { DesmosProfileQuery } from '@/graphql/types/profile_types';
-import axios from 'axios';
-import { useCallback, useEffect, useState } from 'react';
+  DesmosProfileQuery,
+} from '@/graphql/types/profile_types';
+import { readDelegatorAddresses, writeProfile } from '@/recoil/profiles/selectors';
+import { isValidAddress } from '@/utils/prefix_convert';
+import { useApolloClient } from '@apollo/client';
+import * as R from 'ramda';
+import { useEffect, useState } from 'react';
+import { useRecoilCallback, useRecoilValue } from 'recoil';
+import useShallowMemo from '../useShallowMemo';
+import type { Options } from './types';
 
-const { chainType } = chainConfig();
+const { prefix } = chainConfig();
+const userRegex = new RegExp(`^(${prefix.account})`);
 
-type Options = {
-  address?: string;
-  onComplete: (data: DesmosProfileQuery) => DesmosProfile | null;
-};
+/**
+ * It takes an array of addresses and returns a formatted profile object
+ * @param {Options} options - Options
+ * @returns The return value is an object with the following properties:
+ */
 
-function profileApi() {
-  if (/^testnet/i.test(chainType)) {
-    return 'https://gql.morpheus.desmos.network/v1/graphql';
-  }
-  return 'https://gql.mainnet.desmos.network/v1/graphql';
-}
+const LIMIT = 20;
 
 export const useDesmosProfile = (options: Options) => {
-  const [loading, setLoading] = useState(false);
-  const { onComplete } = options;
-
-  const fetchDesmosProfile = useCallback(
-    async (input: string) => {
-      let data: DesmosProfileQuery = {
-        profile: [],
-      };
-
-      try {
-        setLoading(true);
-        if (input.startsWith('@')) {
-          data = await fetchDtag(input.substring(1));
-        }
-
-        if (input.startsWith('desmos')) {
-          data = await fetchDesmos(input);
-        }
-
-        // if the address is a link instead
-        if (!data.profile?.length) {
-          data = await fetchLink(input);
-        }
-        setLoading(false);
-        return onComplete(data);
-      } catch (error) {
-        setLoading(false);
-        return onComplete(data);
-      }
-    },
-    [onComplete]
+  const { addresses, skip } = options;
+  const addressesMemo = useShallowMemo(addresses);
+  const delegatorAddresses = useRecoilValue(readDelegatorAddresses(addressesMemo));
+  const delegatorAddressesMemo = useShallowMemo(delegatorAddresses);
+  const setAvatarName = useRecoilCallback(
+    ({ set }) =>
+      (address: string, avatarName: AvatarName | null) =>
+        set(writeProfile(address), (prevState) =>
+          R.equals(prevState, avatarName) ? prevState : avatarName
+        ),
+    []
   );
+  const client = useApolloClient();
+  const [data, setData] = useState<DesmosProfile[]>([]);
+  const [loading, setLoading] = useState(!skip);
+  const [error, setError] = useState<unknown>();
 
   useEffect(() => {
-    if (options.address) {
-      fetchDesmosProfile(options.address);
+    if (skip || !addressesMemo?.[0]) {
+      setLoading(false);
+      return;
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [options.address]);
+    (async () => {
+      try {
+        const isAddress =
+          addressesMemo[0]?.startsWith('desmos') && isValidAddress(addressesMemo[0]);
+        const isDTag = !isAddress && addressesMemo[0]?.startsWith('@');
+        const query =
+          (isAddress && DesmosProfileDocument) ||
+          (isDTag && DesmosProfileDtagDocument) ||
+          DesmosProfileLinkDocument;
+        const batches = R.splitEvery(LIMIT, delegatorAddressesMemo);
+        const promises = batches.reduce(
+          (promise, batch) =>
+            promise.then((prevAll) =>
+              client
+                .query<DesmosProfileQuery>({
+                  query,
+                  variables: {
+                    addresses: batch,
+                  },
+                })
+                .then((cur) => {
+                  const profiles = formatDesmosProfile(cur.data);
+                  profiles.forEach((profile) => {
+                    profile.connections.forEach((connection) => {
+                      const { identifier } = connection;
+                      if (userRegex.test(identifier)) {
+                        setAvatarName(identifier, {
+                          name: profile.nickname,
+                          address: identifier,
+                          imageUrl: profile.imageUrl,
+                        });
+                      }
+                    });
+                  });
+                  return [...prevAll, ...profiles];
+                })
+            ),
+          Promise.resolve<DesmosProfile[]>([])
+        );
 
-  return {
-    loading,
-    fetchDesmosProfile,
-    formatDesmosProfile,
-  };
+        const newState = (await promises) ?? [];
+        setData((prevState) => (R.equals(prevState, newState) ? prevState : newState));
+      } catch (e) {
+        console.error(e);
+        setError(e);
+      }
+
+      setLoading(false);
+    })();
+  }, [client, addressesMemo, skip, setAvatarName, delegatorAddressesMemo]);
+
+  return { data, loading, error };
 };
 
-async function fetchLink(address: string) {
-  try {
-    const { data } = await axios.post(profileApi(), {
-      variables: {
-        address,
-      },
-      query: DesmosProfileLinkDocument,
-    });
-    return data.data;
-  } catch (error) {
-    return null;
-  }
-}
-
-async function fetchDesmos(address: string) {
-  try {
-    const { data } = await axios.post(profileApi(), {
-      variables: {
-        address,
-      },
-      query: DesmosProfileDocument,
-    });
-    return data.data;
-  } catch (error) {
-    return null;
-  }
-}
-
-async function fetchDtag(dtag: string) {
-  try {
-    const { data } = await axios.post(profileApi(), {
-      variables: {
-        dtag,
-      },
-      query: DesmosProfileDtagDocument,
-    });
-
-    return data.data;
-  } catch (error) {
-    return null;
-  }
-}
-
-function formatDesmosProfile(data: DesmosProfileQuery | null): DesmosProfile | null {
+/**
+ * It takes a DesmosProfileQuery object and returns a DesmosProfile object
+ * @param {DesmosProfileQuery | undefined} data - DesmosProfileQuery | undefined
+ * @returns A DesmosProfile object
+ */
+function formatDesmosProfile(data: DesmosProfileQuery | undefined): DesmosProfile[] {
   if (!data?.profile?.length) {
-    return null;
+    return [];
   }
 
-  const profile = data.profile[0];
+  return data.profile.map((profile) => {
+    const nativeData = {
+      network: 'native',
+      identifier: profile.address,
+      creationTime: profile.creationTime,
+    };
 
-  const nativeData = {
-    network: 'native',
-    identifier: profile.address,
-    creationTime: profile.creationTime,
-  };
+    const applications = profile.applicationLinks.map((x) => ({
+      network: x.application,
+      identifier: x.username,
+      creationTime: x.creationTime,
+    }));
 
-  const applications = profile.applicationLinks.map((x) => ({
-    network: x.application,
-    identifier: x.username,
-    creationTime: x.creationTime,
-  }));
+    const chains = profile.chainLinks.map((x) => ({
+      network: x.chainConfig.name,
+      identifier: x.externalAddress,
+      creationTime: x.creationTime,
+    }));
 
-  const chains = profile.chainLinks.map((x) => ({
-    network: x.chainConfig.name,
-    identifier: x.externalAddress,
-    creationTime: x.creationTime,
-  }));
+    const connectionsWithoutNativeSorted = [...applications, ...chains].sort(
+      R.comparator((a, b) => a.network.toLowerCase() < b.network.toLowerCase())
+    );
 
-  const connectionsWithoutNativeSorted = [...applications, ...chains].sort((a, b) =>
-    a.network.toLowerCase() > b.network.toLowerCase() ? 1 : -1
-  );
-
-  return {
-    dtag: profile.dtag,
-    nickname: profile.nickname,
-    imageUrl: profile.profilePic,
-    coverUrl: profile.coverPic,
-    bio: profile.bio,
-    connections: [nativeData, ...connectionsWithoutNativeSorted],
-  };
+    return {
+      dtag: profile.dtag,
+      nickname: profile.nickname,
+      imageUrl: profile.profilePic,
+      coverUrl: profile.coverPic,
+      bio: profile.bio,
+      connections: [nativeData, ...connectionsWithoutNativeSorted],
+    };
+  });
 }

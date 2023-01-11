@@ -1,23 +1,23 @@
 import AvatarName from '@/components/avatar_name';
-import { useStyles } from '@/screens/tokens/components/list/components/tokens_list/components/desktop/styles';
+import useStyles from '@/screens/tokens/components/list/components/tokens_list/components/desktop/styles';
 import { columns } from '@/screens/tokens/components/list/components/tokens_list/components/desktop/utils';
 import type { TokenType } from '@/screens/tokens/components/list/types';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { TOKEN_DETAILS } from '@/utils/go_to_page';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import classnames from 'classnames';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
-import React from 'react';
+import React, { FC } from 'react';
 
-const Desktop: React.FC<{ items: TokenType[] } & ComponentDefault> = (props) => {
+const Desktop: FC<{ className?: string; items: TokenType[] }> = (props) => {
   const { t } = useTranslation('tokens');
-  const classes = useStyles();
-  const formattedItems = props.items.map((x) => ({
+  const { classes, cx } = useStyles();
+  const formattedItems = props.items.map((x, i) => ({
+    key: `${x.identifier}-${i}`,
     token: (
       <AvatarName imageUrl={x.imageUrl} name={x.name} address={x.identifier} href={TOKEN_DETAILS} />
     ),
@@ -35,7 +35,7 @@ const Desktop: React.FC<{ items: TokenType[] } & ComponentDefault> = (props) => 
     accounts: numeral(x.accounts).format('0,0'),
   }));
   return (
-    <div className={classnames(props.className, classes.root)}>
+    <div className={cx(classes.root, props.className)}>
       <Table>
         <TableHead>
           <TableRow>
@@ -51,15 +51,15 @@ const Desktop: React.FC<{ items: TokenType[] } & ComponentDefault> = (props) => 
           </TableRow>
         </TableHead>
         <TableBody>
-          {formattedItems?.map((row: { [key: string]: unknown }) => (
-            <TableRow key={`holders-row-${row.identifier}`}>
+          {formattedItems?.map((row) => (
+            <TableRow key={`holders-row-${row.key}`}>
               {columns.map((column) => (
                 <TableCell
-                  key={`holders-row-${row.identifier}-${column.key}`}
+                  key={`holders-row-${row.key}-${column.key}`}
                   align={column.align}
                   style={{ width: `${column.width}%` }}
                 >
-                  {row[column.key]}
+                  {row[column.key as keyof typeof row]}
                 </TableCell>
               ))}
             </TableRow>

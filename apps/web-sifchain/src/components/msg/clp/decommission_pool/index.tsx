@@ -1,14 +1,14 @@
 import chainConfig from '@/chainConfig';
 import Name from '@/components/name';
 import MsgDecommissionPool from '@/models/msg/clp/msg_decommission_pool';
-import { useProfileRecoil } from '@/recoil/profiles';
-import Typography from '@material-ui/core/Typography';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
+import Typography from '@mui/material/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
 const { tokenUnits } = chainConfig();
 
-const DecommissionPool: React.FC<{ message: MsgDecommissionPool }> = (props) => {
+const DecommissionPool: FC<{ message: MsgDecommissionPool }> = (props) => {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);

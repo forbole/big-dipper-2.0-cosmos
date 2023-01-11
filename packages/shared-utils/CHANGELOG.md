@@ -1,5 +1,27 @@
 # shared-utils
 
+## 2.6.0
+
+### Minor Changes
+
+- 85dd8c7d: Migrate MUI v4 to MUI v5, Next v12 to v13, React v17 to v18
+
+### Patch Changes
+
+- Updated dependencies [85dd8c7d]
+  - eslint-config-custom@0.2.0
+
+## 2.5.0
+
+### Minor Changes
+
+- 650f686b: Enable Yarn Plug'n'Play (Zero-Installs)
+
+### Patch Changes
+
+- Updated dependencies [650f686b]
+  - eslint-config-custom@0.1.0
+
 ## 2.4.0
 
 ### Minor Changes

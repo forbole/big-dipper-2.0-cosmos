@@ -7,7 +7,6 @@ exports[`screen: Validators/List matches snapshot 1`] = `
   loading={true}
 >
   <div
-    className=""
     id="Box"
   >
     <div
@@ -17,7 +16,7 @@ exports[`screen: Validators/List matches snapshot 1`] = `
       tab={1}
     />
     <div
-      className="makeStyles-list"
+      className="css-1o2kqtb-list"
     >
       <div
         id="NoData"

@@ -4,19 +4,19 @@ import type { OperationType } from '@/screens/transaction_details/types';
 import { formatNumber } from '@/utils/format_token';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { NFT_DETAILS, TOKEN_DETAILS } from '@/utils/go_to_page';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Typography from '@material-ui/core/Typography';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
-import React from 'react';
+import { FC } from 'react';
 
-const Desktop: React.FC<{ items: OperationType[] } & ComponentDefault> = (props) => {
+const Desktop: FC<{ className?: string; items: OperationType[] }> = (props) => {
   const { t } = useTranslation('transactions');
-  const formattedItems = props.items.map((x) => {
+  const formattedItems = props.items.map((x, i) => {
     const isToken = x?.identifier ?? ''.split('-').length === 2;
     const isNft = x?.identifier ?? ''.split('-').length === 3;
     let link;
@@ -28,6 +28,7 @@ const Desktop: React.FC<{ items: OperationType[] } & ComponentDefault> = (props)
     }
 
     return {
+      key: `${x.identifier}-${i}}`,
       action: x.action.replace(/([A-Z])/g, ' $1').toUpperCase(),
       identifier: x.identifier,
       sender: (
@@ -51,9 +52,7 @@ const Desktop: React.FC<{ items: OperationType[] } & ComponentDefault> = (props)
       value: link ? (
         <div>
           <Typography component="span">{formatNumber(x.value.value, x.value.exponent)} </Typography>
-          <Link href={link(x.identifier)} passHref>
-            <Typography component="a">{x.value.displayDenom.toUpperCase()}</Typography>
-          </Link>
+          <Link href={link(x.identifier)}>{x.value.displayDenom.toUpperCase()}</Link>
         </div>
       ) : (
         `${formatNumber(x.value.value, x.value.exponent)} ${x.value.displayDenom.toUpperCase()}`
@@ -77,15 +76,15 @@ const Desktop: React.FC<{ items: OperationType[] } & ComponentDefault> = (props)
           </TableRow>
         </TableHead>
         <TableBody>
-          {formattedItems?.map((row: { [key: string]: unknown }) => (
-            <TableRow key={`holders-row-${row.identifier}`}>
+          {formattedItems?.map((row) => (
+            <TableRow key={row.key}>
               {columns.map((column) => (
                 <TableCell
-                  key={`holders-row-${row.identifier}-${column.key}`}
+                  key={`${row.key}-${column.key}`}
                   align={column.align}
                   style={{ width: `${column.width}%` }}
                 >
-                  {row[column.key]}
+                  {row[column.key as keyof typeof row]}
                 </TableCell>
               ))}
             </TableRow>

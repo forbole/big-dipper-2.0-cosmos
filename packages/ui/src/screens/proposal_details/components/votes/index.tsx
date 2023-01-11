@@ -1,24 +1,17 @@
 import Box from '@/components/box';
 import NoData from '@/components/no_data';
 import { usePagination, useScreenSize } from '@/hooks';
-import { useProfilesRecoil } from '@/recoil/profiles';
+import useShallowMemo from '@/hooks/useShallowMemo';
+import Desktop from '@/screens/proposal_details/components/votes/components/desktop';
+import Mobile from '@/screens/proposal_details/components/votes/components/mobile';
 import Paginate from '@/screens/proposal_details/components/votes/components/paginate';
 import Tabs from '@/screens/proposal_details/components/votes/components/tabs';
 import { useVotes } from '@/screens/proposal_details/components/votes/hooks';
-import { useStyles } from '@/screens/proposal_details/components/votes/styles';
+import useStyles from '@/screens/proposal_details/components/votes/styles';
 import { filterDataByTab } from '@/screens/proposal_details/components/votes/utils';
-import classnames from 'classnames';
-import dynamic from 'next/dynamic';
-import React, { ReactNode } from 'react';
+import { FC, ReactNode, useMemo } from 'react';
 
-const Desktop = dynamic(
-  () => import('@/screens/proposal_details/components/votes/components/desktop')
-);
-const Mobile = dynamic(
-  () => import('@/screens/proposal_details/components/votes/components/mobile')
-);
-
-const Votes: React.FC<ComponentDefault> = (props) => {
+const Votes: FC<ComponentDefault> = (props) => {
   const { isDesktop } = useScreenSize();
   const {
     page,
@@ -28,22 +21,16 @@ const Votes: React.FC<ComponentDefault> = (props) => {
     sliceItems,
     resetPagination,
   } = usePagination({});
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const { state, handleTabChange } = useVotes(resetPagination);
-  const filteredItems = filterDataByTab({
-    tab: state.tab,
-    data: state.data,
-    notVoted: state.validatorsNotVoted,
-  });
-
-  const slicedItems = sliceItems(filteredItems);
-
-  const userProfiles = useProfilesRecoil(slicedItems.map((x) => x.user));
-  const items = slicedItems.map((x, i) => ({
-    ...x,
-    user: userProfiles[i],
-    vote: '',
-  }));
+  const filteredItemsMemo = useShallowMemo(
+    filterDataByTab({
+      tab: state.tab,
+      data: state.data,
+      notVoted: state.validatorsNotVoted,
+    })
+  );
+  const items = useMemo(() => sliceItems(filteredItemsMemo), [filteredItemsMemo, sliceItems]);
 
   let list: ReactNode;
 
@@ -56,7 +43,7 @@ const Votes: React.FC<ComponentDefault> = (props) => {
   }
 
   return (
-    <Box className={classnames(props.className, classes.root)}>
+    <Box className={cx(classes.root, props.className)}>
       <Tabs
         data={{
           yes: state.voteCount.yes,
@@ -70,7 +57,7 @@ const Votes: React.FC<ComponentDefault> = (props) => {
       />
       <div className={classes.list}>{list}</div>
       <Paginate
-        total={filteredItems.length}
+        total={filteredItemsMemo.length}
         page={page}
         rowsPerPage={rowsPerPage}
         handlePageChange={handlePageChange}

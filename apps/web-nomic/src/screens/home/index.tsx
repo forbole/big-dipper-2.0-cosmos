@@ -5,10 +5,10 @@ import DataBlocks from '@/screens/home/components/data_blocks';
 import Hero from '@/screens/home/components/hero';
 import Tokenomics from '@/screens/home/components/tokenomics';
 import Transactions from '@/screens/home/components/transactions';
-import { useStyles } from '@/screens/home/styles';
+import useStyles from '@/screens/home/styles';
 
 const Home = () => {
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   return (
     <Layout className={classes.root}>

@@ -22,11 +22,12 @@ import {
   writeShowWalletDetails,
 } from '@/recoil/wallet';
 import { OfflineAminoSigner, OfflineDirectSigner } from '@keplr-wallet/types';
-import { toBase64 } from '@cosmjs/encoding';
+// import { toBase64 } from '@cosmjs/encoding';
+// import base64js from 'base64-js';
 import { PubKey } from '@/recoil/user/atom';
 
-const chainId = process?.env?.NEXT_PUBLIC_CHAIN_ID ?? '';
-const keplrURL = process?.env?.NEXT_PUBLIC_LCD_KEPLR_URL ?? '';
+const chainId = process?.env?.NEXT_PUBLIC_CHAIN_ID ?? 'cosmoshub-4';
+const keplrURL = process?.env?.NEXT_PUBLIC_LCD_KEPLR_URL ?? 'https://lcd-cosmoshub.keplr.app/rest';
 
 type UserState = {
   address: string;
@@ -246,6 +247,7 @@ const useConnectWalletList = () => {
   const handleCloseLoginSuccessDialog = () => {
     setOpenLoginSuccessDialog(false);
     setWalletOption('');
+    console.log(userState);
   };
 
   const handleCloseSelectNetworkDialog = () => {
@@ -370,12 +372,14 @@ const useConnectWalletList = () => {
 
   const encodeSecp256k1PubKey = (pubKey: Uint8Array): PubKey => ({
     type: 'tendermint/PubKeySecp256k1',
-    value: toBase64(pubKey),
+    value: '',
+    // toBase64(pubKey),
   });
 
   const encodeEd25519PubKey = (pubKey: Uint8Array): PubKey => ({
     type: 'tendermint/PubKeyEd25519',
-    value: toBase64(pubKey),
+    value: '',
+    // toBase64(pubKey),
   });
 
   const isSecp256k1PubKey = (pubKey: Uint8Array) => {
@@ -391,6 +395,8 @@ const useConnectWalletList = () => {
     }
     return true;
   };
+
+  const toBase64 = (data: Uint8Array) => base64js.fromByteArray(data);
 
   return {
     showWalletDetails,

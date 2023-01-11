@@ -1,28 +1,33 @@
 import Desktop from '@/components/desmos_profile/components/connections/components/desktop';
 import Mobile from '@/components/desmos_profile/components/connections/components/mobile';
-import { useStyles } from '@/components/desmos_profile/components/connections/styles';
+import useStyles from '@/components/desmos_profile/components/connections/styles';
 import Pagination from '@/components/pagination';
 import { usePagination, useScreenSize } from '@/hooks';
-import Dialog from '@material-ui/core/Dialog';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import CloseIcon from '@material-ui/icons/Close';
+import useShallowMemo from '@/hooks/useShallowMemo';
+import CloseIcon from '@mui/icons-material/Close';
+import Dialog from '@mui/material/Dialog';
+import DialogContent from '@mui/material/DialogContent';
+import DialogTitle from '@mui/material/DialogTitle';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
-import React from 'react';
+import { FC, useMemo } from 'react';
 
-const Connections: React.FC<{
+type ConnectionsProps = {
   handleClose: () => void;
   open: boolean;
   data: ProfileConnectionType[];
-}> = ({ handleClose, open, data }) => {
+};
+
+const Connections: FC<ConnectionsProps> = ({ handleClose, open, data }) => {
   const { isDesktop } = useScreenSize();
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { t } = useTranslation('accounts');
   const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange, sliceItems } =
     usePagination({});
-  const items = sliceItems(data);
+  const dataMemo = useShallowMemo(data);
+  const items = useMemo(() => sliceItems(dataMemo), [dataMemo, sliceItems]);
+
   return (
     <Dialog
       maxWidth="xl"
@@ -31,9 +36,9 @@ const Connections: React.FC<{
       open={open}
       className={classes.dialog}
     >
-      <DialogTitle disableTypography className={classes.header}>
+      <DialogTitle className={classes.header}>
         <Typography variant="h2">{t('connectionsTitle')}</Typography>
-        <IconButton aria-label="close" onClick={handleClose}>
+        <IconButton aria-label="close" onClick={handleClose} size="large">
           <CloseIcon />
         </IconButton>
       </DialogTitle>

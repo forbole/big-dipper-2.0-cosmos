@@ -1,11 +1,11 @@
 import Name from '@/components/name';
 import MsgUpdateGroupAccountAdminRequest from '@/models/msg/group/msg_update_group_account_admin_request';
-import { useProfileRecoil } from '@/recoil/profiles';
-import Typography from '@material-ui/core/Typography';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
+import Typography from '@mui/material/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const UpdateGroupAccountAdminRequest: React.FC<{ message: MsgUpdateGroupAccountAdminRequest }> = (
+const UpdateGroupAccountAdminRequest: FC<{ message: MsgUpdateGroupAccountAdminRequest }> = (
   props
 ) => {
   const { message } = props;

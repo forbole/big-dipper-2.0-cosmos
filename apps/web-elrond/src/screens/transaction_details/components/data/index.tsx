@@ -1,19 +1,18 @@
 import Box from '@/components/box';
 import CodeBlock from '@/screens/transaction_details/components/code_block';
-import { useStyles } from '@/screens/transaction_details/components/data/styles';
+import useStyles from '@/screens/transaction_details/components/data/styles';
 import type { DataType } from '@/screens/transaction_details/types';
 import { decodeBase64 } from '@/utils/base64';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
-import React from 'react';
+import React, { FC } from 'react';
 
-const Data: React.FC<{ data: DataType } & ComponentDefault> = (props) => {
+const Data: FC<{ className?: string; data: DataType }> = (props) => {
   const { t } = useTranslation('transactions');
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const data = decodeBase64(props.data);
   return (
-    <Box className={classnames(props.className, classes.root)}>
+    <Box className={cx(classes.root, props.className)}>
       <Typography className={classes.title} variant="h2">
         {t('data')}
       </Typography>

@@ -2,7 +2,7 @@
 
 exports[`screen: TokenDetails/Paginate matches snapshot 1`] = `
 <div
-  className="makeStyles-root"
+  className="css-1jxbh8w-root"
   handlePageChange={[MockFunction]}
   handleRowsPerPageChange={[MockFunction]}
   id="Pagination"

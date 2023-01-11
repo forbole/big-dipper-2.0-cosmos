@@ -5,7 +5,6 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**", ".next/**", "public/dist/**"],
       "env": [
-        "BASE_PATH",
         "NEXT_PUBLIC_BANNERS_JSON",
         "NEXT_PUBLIC_GRAPHQL_URL",
         "NEXT_PUBLIC_GRAPHQL_WS",
@@ -32,7 +31,6 @@
     },
     "check-types": {},
     "lint": {
-      "dependsOn": ["^check-types"],
       "outputs": []
     },
     "test": {
@@ -52,6 +50,7 @@
     "NEXT_PUBLIC_CHAIN_ID",
     "NEXT_PUBLIC_NETWORK_NAME",
     "NEXT_PUBLIC_LCD_KEPLR_URL",
+    "NODE_ENV",
     "npm_package_version",
     "PORT",
     "PROJECT_NAME",
@@ -59,7 +58,8 @@
     "SENTRY_ENVIRONMENT",
     "SENTRY_PROJECT",
     "SENTRY_ORG",
-    "SENTRY_URL"
+    "SENTRY_URL",
+    "VERCEL"
   ],
   "globalDependencies": [".env", ".eslintrc.js", ".gitignore", ".yarnrc.yml", "shared-utils/**/*"]
 }

@@ -1,11 +1,11 @@
 import Name from '@/components/name';
 import MsgBurnFanToken from '@/models/msg/fantoken/msg_burn_fan_token';
-import { useProfileRecoil } from '@/recoil/profiles';
-import Typography from '@material-ui/core/Typography';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
+import Typography from '@mui/material/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const BurnFanToken: React.FC<{ message: MsgBurnFanToken }> = (props) => {
+const BurnFanToken: FC<{ message: MsgBurnFanToken }> = (props) => {
   const { message } = props;
 
   const sender = useProfileRecoil(message.sender);

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { basename, resolve } = require('path');
 const nextTranslate = require('next-translate');
 const withTM = require('next-transpile-modules');
+const { basename, resolve } = require('path');
 
 /**
  * It takes the chainConfigJson and returns a baseConfig object
@@ -10,14 +10,23 @@ const withTM = require('next-transpile-modules');
  */
 function getBaseConfig(basePath, chainName) {
   const config = {
-    output: process.env.BUILD_STANDALONE ? 'standalone' : undefined,
-    swcMinify: true,
     reactStrictMode: true,
+    experimental: {
+      ...(process.env.BUILD_STANDALONE
+        ? {
+            // this includes files from the monorepo base two directories up
+            outputFileTracingRoot: resolve(__dirname, '../../'),
+          }
+        : {}),
+    },
+    swcMinify: true,
+    ...(process.env.BUILD_STANDALONE
+      ? {
+          output: 'standalone',
+        }
+      : {}),
     poweredByHeader: false,
     basePath,
-    compiler: {
-      styledComponents: true,
-    },
     webpack,
     eslint: {
       // to speed up the build task
@@ -29,12 +38,6 @@ function getBaseConfig(basePath, chainName) {
     env: {
       NEXT_PUBLIC_RELEASE: `${chainName}-v${process.env.npm_package_version ?? ''}`,
     },
-    experimental: process.env.BUILD_STANDALONE
-      ? {
-          // this includes files from the monorepo base two directories up
-          outputFileTracingRoot: resolve(__dirname, '../../'),
-        }
-      : undefined,
   };
   return config;
 }
@@ -46,7 +49,7 @@ function getBaseConfig(basePath, chainName) {
  * @param config - This is the webpack configuration object.
  * @returns The config object.
  */
-function webpack(config) {
+function webpack(config, options) {
   /* This is to allow the use of svg files in the project. */
   config.module.rules.push({
     test: /\.svg$/i,
@@ -58,7 +61,7 @@ function webpack(config) {
     // issuer: /\.[jtmc]sx?$/,
     resourceQuery: { not: [/url/] }, // exclude react component if *.svg?url
     use: [
-      'next-swc-loader',
+      options.defaultLoaders.babel,
       {
         loader: '@svgr/webpack',
         options: { babel: false },
@@ -69,12 +72,12 @@ function webpack(config) {
 }
 
 /**
- * @param dirname - the directory of the current file
+ * @param dir - the directory of the current file
  * @returns A function that takes a directory name as an argument and returns a configuration object.
  */
-function getNextConfig(dirname) {
+function getNextConfig(dir) {
   // each chain has its own chains/<chainName>.json
-  const [_match, chainName] = /web-(.+)$/.exec(basename(dirname)) ?? ['', 'base'];
+  const [_match, chainName] = /web-(.+)$/.exec(basename(dir)) ?? ['', 'base'];
   const basePath = (process.env.BASE_PATH || `${`/${chainName}`}`).replace(/^(\/|\/base)$/, '');
   return withTM(['ui'])(nextTranslate(getBaseConfig(basePath, chainName)));
 }

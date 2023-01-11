@@ -1,34 +1,33 @@
-import React from 'react';
-import useTranslation from 'next-translate/useTranslation';
-import Link from 'next/link';
-import Table from '@material-ui/core/Table';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import TableCell from '@material-ui/core/TableCell';
-import TableBody from '@material-ui/core/TableBody';
-import Typography from '@material-ui/core/Typography';
-import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
-import { NODE_DETAILS } from '@/utils/go_to_page';
-import { getShardDisplay } from '@/utils/get_shard_display';
+import useStyles from '@/screens/validator_details/components/nodes/components/desktop/styles';
 import { columns } from '@/screens/validator_details/components/nodes/components/desktop/utils';
 import type { NodeType } from '@/screens/validator_details/components/nodes/types';
-import { useStyles } from '@/screens/validator_details/components/nodes/components/desktop/styles';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
+import { getShardDisplay } from '@/utils/get_shard_display';
+import { NODE_DETAILS } from '@/utils/go_to_page';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Typography from '@mui/material/Typography';
+import useTranslation from 'next-translate/useTranslation';
+import Link from 'next/link';
+import { FC } from 'react';
 
-const Desktop: React.FC<{ items: NodeType[] } & ComponentDefault> = (props) => {
+const Desktop: FC<{ className?: string; items: NodeType[] }> = (props) => {
   const { t } = useTranslation('nodes');
-  const classes = useStyles();
+  const { classes } = useStyles();
 
-  const formattedItems = props.items.map((x) => {
+  const formattedItems = props.items.map((x, i) => {
     const shard = getShardDisplay(x.shard);
     return {
+      key: `${x.pubkey}-${i}`,
       pubkey: (
-        <Link href={NODE_DETAILS(x.pubkey)} passHref>
-          <Typography variant="body1" className="value" component="a">
-            {getMiddleEllipsis(x.pubkey, {
-              beginning: 20,
-              ending: 20,
-            })}
-          </Typography>
+        <Link href={NODE_DETAILS(x.pubkey)} className="value">
+          {getMiddleEllipsis(x.pubkey, {
+            beginning: 20,
+            ending: 20,
+          })}
         </Link>
       ),
       name: x.name,
@@ -58,15 +57,15 @@ const Desktop: React.FC<{ items: NodeType[] } & ComponentDefault> = (props) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {formattedItems?.map((row: { [key: string]: unknown }) => (
-            <TableRow key={`holders-row-${row.identifier}`}>
+          {formattedItems?.map((row) => (
+            <TableRow key={`holders-row-${row.key}`}>
               {columns.map((column) => (
                 <TableCell
-                  key={`holders-row-${row.identifier}-${column.key}`}
+                  key={`holders-row-${row.key}-${column.key}`}
                   align={column.align}
                   style={{ width: `${column.width}%` }}
                 >
-                  {row[column.key]}
+                  {row[column.key as keyof typeof row]}
                 </TableCell>
               ))}
             </TableRow>

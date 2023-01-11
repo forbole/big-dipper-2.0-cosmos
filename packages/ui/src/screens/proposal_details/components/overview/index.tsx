@@ -2,39 +2,35 @@ import Box from '@/components/box';
 import Markdown from '@/components/markdown';
 import Name from '@/components/name';
 import SingleProposal from '@/components/single_proposal';
-import { useProfileRecoil } from '@/recoil/profiles';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { readDate } from '@/recoil/settings';
 import CommunityPoolSpend from '@/screens/proposal_details/components/overview/components/community_pool_spend';
 import ParamsChange from '@/screens/proposal_details/components/overview/components/params_change';
 import SoftwareUpgrade from '@/screens/proposal_details/components/overview/components/software_upgrade';
-import { useStyles } from '@/screens/proposal_details/components/overview/styles';
+import useStyles from '@/screens/proposal_details/components/overview/styles';
 import type { OverviewType } from '@/screens/proposal_details/types';
 import { getProposalType } from '@/screens/proposal_details/utils';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
 import { formatNumber, formatToken } from '@/utils/format_token';
-import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
+import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
 import * as R from 'ramda';
-import React from 'react';
+import React, { FC, useCallback } from 'react';
 import { useRecoilValue } from 'recoil';
 
-const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
-  className,
-  overview,
-}) => {
+const Overview: FC<{ className?: string; overview: OverviewType }> = ({ className, overview }) => {
   const dateFormat = useRecoilValue(readDate);
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const { t } = useTranslation('proposals');
 
   const type = getProposalType(R.pathOr('', ['@type'], overview.content));
 
-  const proposer = useProfileRecoil(overview.proposer);
-  const recipient = useProfileRecoil(overview?.content?.recipient);
-  const proposerMoniker = proposer ? proposer?.name : overview.proposer;
-  const recipientMoniker = recipient ? recipient?.name : overview?.content?.recipient;
+  const { address: proposerAddress, name: proposerName } = useProfileRecoil(overview.proposer);
+  const { name: recipientName } = useProfileRecoil(overview?.content?.recipient);
+  const proposerMoniker = proposerName || overview.proposer;
+  const recipientMoniker = recipientName || overview?.content?.recipient;
   const amountRequested = overview.content?.amount
     ? formatToken(overview.content?.amount[0]?.amount, overview.content?.amount[0]?.denom)
     : null;
@@ -45,7 +41,7 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
       )} ${amountRequested.displayDenom.toUpperCase()}`
     : '';
 
-  const getExtraDetails = () => {
+  const getExtraDetails = useCallback(() => {
     let extraDetails = null;
     if (type === 'parameterChangeProposal') {
       extraDetails = (
@@ -85,12 +81,12 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
     }
 
     return extraDetails;
-  };
+  }, [overview.content, parsedAmountRequested, recipientMoniker, t, type]);
 
   const extra = getExtraDetails();
 
   return (
-    <Box className={classnames(className, classes.root)}>
+    <Box className={cx(classes.root, className)}>
       <SingleProposal
         id={`#${numeral(overview.id).format('0,0')}`}
         title={overview.title}
@@ -107,7 +103,7 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
         <Typography variant="body1" className="label">
           {t('proposer')}
         </Typography>
-        <Name name={proposerMoniker} address={proposer.address} />
+        <Name name={proposerMoniker} address={proposerAddress} />
         {!!overview.submitTime && (
           <>
             <Typography variant="body1" className="label">

@@ -16,7 +16,7 @@ export const useChainHealthCheck = () => {
   //     const timeDifference = timeNow.diff(timestamp, 's');
   //     // if latest block has been over a minute ago
   //     if (timeDifference > 60 && chainActive) {
-  //       toast.error(t('blockTimeAgo', {
+  //       toast.error<string>(t('blockTimeAgo', {
   //         time: dayjs.utc(timestamp).fromNow(),
   //       }), {
   //         autoClose: false,

@@ -1,60 +1,86 @@
 import AvatarName from '@/components/avatar_name';
 import Loading from '@/components/loading';
 import { useGrid } from '@/hooks';
-import { useStyles } from '@/screens/blocks/components/desktop/styles';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
+import useStyles from '@/screens/blocks/components/desktop/styles';
 import { columns } from '@/screens/blocks/components/desktop/utils';
 import type { ItemType } from '@/screens/blocks/types';
 import dayjs from '@/utils/dayjs';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { BLOCK_DETAILS } from '@/utils/go_to_page';
 import { mergeRefs } from '@/utils/merge_refs';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
+import type { TypographyProps } from '@mui/material';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
-import React, { ReactNode } from 'react';
+import { CSSProperties, FC, LegacyRef } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { VariableSizeGrid as Grid } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
 
-const Desktop: React.FC<{
+type BlockRowProps = {
+  style: CSSProperties;
+  columnKey: string;
+  rowIndex: number;
+  align: TypographyProps['align'];
+  item: ItemType;
+};
+
+const BlockRow: FC<BlockRowProps> = ({ style, columnKey, rowIndex, align, item }) => {
+  const proposer = useProfileRecoil(item.proposer);
+  const { classes, cx } = useStyles();
+  const formattedItem = {
+    height: (
+      <Link href={BLOCK_DETAILS(item.height)} className="value">
+        {numeral(item.height).format('0,0')}
+      </Link>
+    ),
+    txs: numeral(item.txs).format('0,0'),
+    time: dayjs.utc(item.timestamp).fromNow(),
+    proposer: (
+      <AvatarName address={proposer.address} imageUrl={proposer.imageUrl} name={proposer.name} />
+    ),
+    hash: getMiddleEllipsis(item.hash, {
+      beginning: 13,
+      ending: 15,
+    }),
+  };
+  return (
+    <div
+      style={style}
+      className={cx(classes.cell, classes.body, {
+        odd: !(rowIndex % 2),
+      })}
+    >
+      <Typography variant="body1" align={align} component="div">
+        {formattedItem[columnKey as keyof typeof formattedItem]}
+      </Typography>
+    </div>
+  );
+};
+
+type DesktopProps = {
   className?: string;
   items: ItemType[];
   itemCount: number;
   loadMoreItems: (...arg: unknown[]) => void;
   isItemLoaded?: (index: number) => boolean;
-}> = ({ className, items, itemCount, loadMoreItems, isItemLoaded }) => {
+};
+
+const Desktop: FC<DesktopProps> = ({
+  className,
+  items,
+  itemCount,
+  loadMoreItems,
+  isItemLoaded,
+}) => {
   const { t } = useTranslation('blocks');
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
 
-  const formattedItems =
-    items?.map((x): { [key: string]: ReactNode } => ({
-      height: (
-        <Link href={BLOCK_DETAILS(x.height)} passHref>
-          <Typography variant="body1" className="value" component="a">
-            {numeral(x.height).format('0,0')}
-          </Typography>
-        </Link>
-      ),
-      txs: numeral(x.txs).format('0,0'),
-      time: dayjs.utc(x.timestamp).fromNow(),
-      proposer: (
-        <AvatarName
-          address={x.proposer.address}
-          imageUrl={x.proposer.imageUrl}
-          name={x.proposer.name}
-        />
-      ),
-      hash: getMiddleEllipsis(x.hash, {
-        beginning: 13,
-        ending: 15,
-      }),
-    })) ?? [];
-
   return (
-    <div className={classnames(className, classes.root)}>
+    <div className={cx(classes.root, className)}>
       <AutoSizer onResize={onResize}>
         {({ height, width }) => (
           <>
@@ -62,7 +88,7 @@ const Desktop: React.FC<{
             {/* Table Header */}
             {/* ======================================= */}
             <Grid
-              ref={columnRef as React.LegacyRef<Grid>}
+              ref={columnRef as LegacyRef<Grid>}
               columnCount={columns.length}
               columnWidth={(index) => getColumnWidth(width, index)}
               height={50}
@@ -137,19 +163,17 @@ const Desktop: React.FC<{
                       return null;
                     }
 
-                    const { key, align } = columns[columnIndex];
-                    const item = formattedItems[rowIndex][key];
+                    const { align, key } = columns[columnIndex];
+                    const item = items[rowIndex];
                     return (
-                      <div
+                      <BlockRow
+                        key={`${item.height}-${key}`}
+                        columnKey={key}
                         style={style}
-                        className={classnames(classes.cell, classes.body, {
-                          odd: !(rowIndex % 2),
-                        })}
-                      >
-                        <Typography variant="body1" align={align} component="div">
-                          {item}
-                        </Typography>
-                      </div>
+                        rowIndex={rowIndex}
+                        align={align}
+                        item={item}
+                      />
                     );
                   }}
                 </Grid>

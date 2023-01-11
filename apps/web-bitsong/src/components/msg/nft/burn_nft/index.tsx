@@ -1,11 +1,11 @@
 import Name from '@/components/name';
 import MsgBurnNFT from '@/models/msg/nft/msg_burn_nft';
-import { useProfileRecoil } from '@/recoil/profiles';
-import Typography from '@material-ui/core/Typography';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
+import Typography from '@mui/material/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const BurnNFT: React.FC<{ message: MsgBurnNFT }> = (props) => {
+const BurnNFT: FC<{ message: MsgBurnNFT }> = (props) => {
   const { message } = props;
 
   const sender = useProfileRecoil(message.sender);

@@ -1,27 +1,28 @@
 import Box from '@/components/box';
 import CustomToolTip from '@/components/custom_tool_tip';
-import { useStyles } from '@/screens/providers/components/storage/styles';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
+import useStyles from '@/screens/providers/components/storage/styles';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
-import React from 'react';
+import React, { FC } from 'react';
 import { Cell, Pie, PieChart, Tooltip } from 'recharts';
 
-const Storage: React.FC<{
+const convertBytesToTB = (bytes: number) => bytes / 10 ** 12;
+
+const convertBytesToGB = (bytes: number) => bytes / 10 ** 9;
+
+type StorageProps = {
   className?: string;
   storage: {
     available: number;
     used: number;
     pending: number;
   };
-}> = ({ className, storage }) => {
+};
+
+const Storage: FC<StorageProps> = ({ className, storage }) => {
   const { t } = useTranslation('providers');
-  const { classes, theme } = useStyles();
-
-  const convertBytesToTB = (bytes: number) => bytes / 10 ** 12;
-
-  const convertBytesToGB = (bytes: number) => bytes / 10 ** 9;
+  const { classes, cx, theme } = useStyles();
 
   const total = storage.available + storage.used + storage.pending;
 
@@ -57,7 +58,7 @@ const Storage: React.FC<{
   ];
 
   return (
-    <Box className={classnames(className, classes.root)}>
+    <Box className={cx(classes.root, className)}>
       <Typography variant="h2" className={classes.label}>
         {t('storage')}
       </Typography>

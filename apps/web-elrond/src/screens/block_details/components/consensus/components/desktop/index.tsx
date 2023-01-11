@@ -1,22 +1,23 @@
 import { useGrid } from '@/hooks';
-import { useStyles } from '@/screens/block_details/components/consensus/components/desktop/styles';
+import useShallowMemo from '@/hooks/useShallowMemo';
+import useStyles from '@/screens/block_details/components/consensus/components/desktop/styles';
 import {
   columns,
   formatRows,
 } from '@/screens/block_details/components/consensus/components/desktop/utils';
 import type { ConsensusType } from '@/screens/block_details/types';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
-import React from 'react';
+import React, { FC, LegacyRef, useMemo } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { VariableSizeGrid as Grid } from 'react-window';
 
-const Desktop: React.FC<{ items: ConsensusType[] } & ComponentDefault> = (props) => {
+const Desktop: FC<{ items: ConsensusType[] }> = (props) => {
   const { t } = useTranslation('blocks');
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
-  const rows = formatRows(props.items);
+  const itemsMemo = useShallowMemo(props.items);
+  const rows = useMemo(() => formatRows(itemsMemo), [itemsMemo]);
 
   return (
     <div className={classes.root}>
@@ -27,7 +28,7 @@ const Desktop: React.FC<{ items: ConsensusType[] } & ComponentDefault> = (props)
             {/* Table Header */}
             {/* ======================================= */}
             <Grid
-              ref={columnRef as React.LegacyRef<Grid>}
+              ref={columnRef as LegacyRef<Grid>}
               columnCount={columns.length}
               columnWidth={(index) => getColumnWidth(width, index)}
               height={50}
@@ -51,7 +52,7 @@ const Desktop: React.FC<{ items: ConsensusType[] } & ComponentDefault> = (props)
             {/* Table Body */}
             {/* ======================================= */}
             <Grid
-              ref={gridRef as React.LegacyRef<Grid>}
+              ref={gridRef as LegacyRef<Grid>}
               columnCount={columns.length}
               columnWidth={(index) => getColumnWidth(width, index)}
               height={height - 50}
@@ -61,11 +62,11 @@ const Desktop: React.FC<{ items: ConsensusType[] } & ComponentDefault> = (props)
             >
               {({ columnIndex, rowIndex, style }) => {
                 const { key, align } = columns[columnIndex];
-                const selectedItem = rows[rowIndex][key];
+                const selectedItem = rows[rowIndex][key as keyof typeof rows[number]];
                 return (
                   <div
                     style={style}
-                    className={classnames(classes.cell, classes.body, {
+                    className={cx(classes.cell, classes.body, {
                       odd: !(rowIndex % 2),
                     })}
                   >

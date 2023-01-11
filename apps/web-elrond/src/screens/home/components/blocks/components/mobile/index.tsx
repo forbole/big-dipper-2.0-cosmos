@@ -3,23 +3,20 @@ import type { BlockType } from '@/screens/home/components/blocks/types';
 import dayjs from '@/utils/dayjs';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { BLOCK_DETAILS } from '@/utils/go_to_page';
-import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
+import Divider from '@mui/material/Divider';
 import Link from 'next/link';
 import numeral from 'numeral';
-import React from 'react';
+import { FC, Fragment } from 'react';
 
-const Mobile: React.FC<{ items: BlockType[] } & ComponentDefault> = (props) => {
+const Mobile: FC<{ className?: string; items: BlockType[] }> = (props) => {
   const formattedItems = props.items.map((x) => ({
     block: numeral(x.block).format('0,0'),
     hash: (
-      <Link href={BLOCK_DETAILS(x.hash)} passHref>
-        <Typography variant="body1" className="value" component="a">
-          {getMiddleEllipsis(x.hash, {
-            beginning: 13,
-            ending: 15,
-          })}
-        </Typography>
+      <Link href={BLOCK_DETAILS(x.hash)} className="value">
+        {getMiddleEllipsis(x.hash, {
+          beginning: 13,
+          ending: 15,
+        })}
       </Link>
     ),
     txs: numeral(x.txs).format('0,0'),
@@ -29,11 +26,10 @@ const Mobile: React.FC<{ items: BlockType[] } & ComponentDefault> = (props) => {
   return (
     <div>
       {formattedItems?.map((x, i) => (
-        // eslint-disable-next-line react/no-array-index-key
-        <React.Fragment key={`${x.block}-${i}`}>
+        <Fragment key={x.block}>
           <SingleBlockMobile {...x} />
           {i !== formattedItems.length - 1 && <Divider />}
-        </React.Fragment>
+        </Fragment>
       ))}
     </div>
   );

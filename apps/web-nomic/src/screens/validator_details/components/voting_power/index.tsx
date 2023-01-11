@@ -1,31 +1,34 @@
 import Box from '@/components/box';
-import { useStyles } from '@/screens/validator_details/components/voting_power/styles';
+import useStyles from '@/screens/validator_details/components/voting_power/styles';
 import type { VotingPowerType } from '@/screens/validator_details/types';
 import { BLOCK_DETAILS } from '@/utils/go_to_page';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
-import React from 'react';
+import { FC } from 'react';
 
-const VotingPower: React.FC<{
+type VotingPowerProps = {
   className?: string;
   data: VotingPowerType;
   inActiveSet: string;
-}> = ({ className, data, inActiveSet }) => {
+};
+
+const VotingPower: FC<VotingPowerProps> = ({ className, data, inActiveSet }) => {
   const { t } = useTranslation('validators');
   const votingPowerPercent =
     inActiveSet === 'true'
       ? numeral((data.self / (numeral(data.overall.value).value() ?? 0)) * 100)
       : numeral(0);
 
-  const classes = useStyles(parseFloat(votingPowerPercent.format('0', Math.floor)));
+  const { classes, cx } = useStyles({
+    percentage: parseFloat(votingPowerPercent.format('0', Math.floor)),
+  });
 
   const votingPower = inActiveSet === 'true' ? numeral(data.self).format('0,0') : '0';
 
   return (
-    <Box className={classnames(className, classes.root)}>
+    <Box className={cx(classes.root, className)}>
       <Typography variant="h2">{t('votingPower')}</Typography>
       <div className={classes.data}>
         <Typography variant="h3" className="primary__data">
@@ -42,10 +45,8 @@ const VotingPower: React.FC<{
         <Typography variant="h4" className="label">
           {t('block')}
         </Typography>
-        <Link href={BLOCK_DETAILS(data.height)} passHref>
-          <Typography variant="body1" className="value" component="a">
-            {numeral(data.height).format('0,0')}
-          </Typography>
+        <Link href={BLOCK_DETAILS(data.height)} className="value">
+          {numeral(data.height).format('0,0')}
         </Link>
       </div>
       <div className={classes.item}>

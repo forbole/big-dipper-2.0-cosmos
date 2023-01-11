@@ -1,13 +1,13 @@
 import Name from '@/components/name';
 import MsgBurnTokens from '@/models/msg/liquidity_provider/msg_burn_tokens';
-import { useProfileRecoil } from '@/recoil/profiles';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { formatNumber, formatToken } from '@/utils/format_token';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import Trans from 'next-translate/Trans';
 import useTranslation from 'next-translate/useTranslation';
-import React from 'react';
+import React, { FC } from 'react';
 
-const BurnTokens: React.FC<{ message: MsgBurnTokens }> = (props) => {
+const BurnTokens: FC<{ message: MsgBurnTokens }> = (props) => {
   const { message } = props;
   const { t } = useTranslation('transactions');
 

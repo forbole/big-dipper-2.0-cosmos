@@ -1,25 +1,26 @@
 import Search from '@/components/search';
-import { useStyles } from '@/screens/validators/components/list/components/tabs/styles';
+import useStyles from '@/screens/validators/components/list/components/tabs/styles';
 import { tabLabels } from '@/screens/validators/components/list/components/tabs/utils';
 import { a11yProps } from '@/utils/a11yProps';
-import Tab from '@material-ui/core/Tab';
-import Tabs from '@material-ui/core/Tabs';
-import classnames from 'classnames';
+import Tab from '@mui/material/Tab';
+import Tabs from '@mui/material/Tabs';
 import useTranslation from 'next-translate/useTranslation';
-import React, { ComponentProps } from 'react';
+import React, { ComponentProps, FC } from 'react';
 
-const TabsHeader: React.FC<{
+type TabsHeaderProps = {
   className?: string;
   tab: number;
   handleTabChange: ComponentProps<typeof Tabs>['onChange'];
   handleSearch: (value: string) => void;
-}> = ({ className, tab, handleTabChange, handleSearch }) => {
-  const classes = useStyles();
+};
+
+const TabsHeader: FC<TabsHeaderProps> = ({ className, tab, handleTabChange, handleSearch }) => {
+  const { classes, cx } = useStyles();
   const { t } = useTranslation('validators');
 
   return (
-    <div className={classnames(className, classes.root)}>
-      <Tabs variant="scrollable" scrollButtons="off" value={tab} onChange={handleTabChange}>
+    <div className={cx(classes.root, className)}>
+      <Tabs variant="scrollable" scrollButtons={false} value={tab} onChange={handleTabChange}>
         {tabLabels.map((x, i) => (
           <Tab key={x} label={t(x)} {...a11yProps(i)} />
         ))}

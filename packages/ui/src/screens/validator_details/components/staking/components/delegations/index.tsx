@@ -2,73 +2,67 @@ import Loading from '@/components/loading';
 import NoData from '@/components/no_data';
 import Pagination from '@/components/pagination';
 import { usePagination, useScreenSize } from '@/hooks';
-import { useProfilesRecoil } from '@/recoil/profiles';
-import { useStyles } from '@/screens/validator_details/components/staking/components/delegations/styles';
+import useShallowMemo from '@/hooks/useShallowMemo';
+import Desktop from '@/screens/validator_details/components/staking/components/delegations/components/desktop';
+import Mobile from '@/screens/validator_details/components/staking/components/delegations/components/mobile';
+import useStyles from '@/screens/validator_details/components/staking/components/delegations/styles';
 import type { DelegationsType } from '@/screens/validator_details/components/staking/types';
-import classnames from 'classnames';
-import dynamic from 'next/dynamic';
-import * as R from 'ramda';
-import React from 'react';
+import { FC, useCallback } from 'react';
 
-const Desktop = dynamic(
-  () =>
-    import(
-      '@/screens/validator_details/components/staking/components/delegations/components/desktop'
-    )
-);
-const Mobile = dynamic(
-  () =>
-    import(
-      '@/screens/validator_details/components/staking/components/delegations/components/mobile'
-    )
-);
+type DelegationsProps = {
+  className?: string;
+  delegations: DelegationsType;
+  setPage: (page: number) => void;
+};
 
-const Delegations: React.FC<
-  {
-    delegations: DelegationsType;
-  } & ComponentDefault
-> = (props) => {
+const Delegations: FC<DelegationsProps> = (props) => {
   const { isDesktop } = useScreenSize();
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange } = usePagination({});
-
-  const pageItems = R.pathOr<NonNullable<typeof props['delegations']['data'][number]>>(
-    [],
-    ['delegations', 'data', page],
-    props
+  const handlePageChangeCallback = useCallback(
+    (event: Parameters<typeof handlePageChange>[0], newPage: number) => {
+      props.setPage?.(newPage);
+      handlePageChange?.(event, newPage);
+    },
+    [handlePageChange, props]
   );
 
-  const dataProfiles = useProfilesRecoil(pageItems.map((x) => x.address));
-
-  const mergedDataWithProfiles = pageItems.map((x, i) => ({
-    ...x,
-    address: dataProfiles[i],
-  }));
-
-  const items = mergedDataWithProfiles;
+  const itemsMemo = useShallowMemo(props?.delegations?.data);
 
   let component = null;
 
-  if (props.delegations.loading) {
+  if (props.delegations.error) {
+    component = <pre>{props.delegations.error.message}</pre>;
+  } else if (props.delegations.loading && !itemsMemo?.length) {
     component = <Loading />;
-  } else if (!items.length) {
+  } else if (!itemsMemo?.length) {
     component = <NoData />;
   } else if (isDesktop) {
-    component = <Desktop items={items} />;
+    component = <Desktop items={itemsMemo} />;
   } else {
-    component = <Mobile items={items} />;
+    component = <Mobile items={itemsMemo} />;
+  }
+
+  let total = props.delegations.count;
+  if (total === undefined && props.delegations.data?.length !== undefined) {
+    if (props.delegations.data.length === rowsPerPage) {
+      total = page * rowsPerPage + props.delegations.data.length + 1;
+    } else {
+      total = page * rowsPerPage + props.delegations.data.length;
+    }
   }
 
   return (
-    <div className={classnames(props.className)}>
+    <div className={props.className}>
       {component}
       <Pagination
         className={classes.paginate}
-        total={props.delegations.count}
+        total={total}
         rowsPerPage={rowsPerPage}
         page={page}
-        handlePageChange={handlePageChange}
+        handlePageChange={handlePageChangeCallback}
         handleRowsPerPageChange={handleRowsPerPageChange}
+        rowsPerPageOptions={[rowsPerPage]}
       />
     </div>
   );

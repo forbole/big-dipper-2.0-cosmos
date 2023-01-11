@@ -2,59 +2,86 @@ import AvatarName from '@/components/avatar_name';
 import Loading from '@/components/loading';
 import SingleBlockMobile from '@/components/single_block_mobile';
 import { useList, useListRow } from '@/hooks';
-import { useStyles } from '@/screens/blocks/components/mobile/styles';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
+import useStyles from '@/screens/blocks/components/mobile/styles';
 import type { ItemType } from '@/screens/blocks/types';
 import dayjs from '@/utils/dayjs';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { BLOCK_DETAILS } from '@/utils/go_to_page';
 import { mergeRefs } from '@/utils/merge_refs';
-import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
+import Divider from '@mui/material/Divider';
 import Link from 'next/link';
 import numeral from 'numeral';
-import { ComponentProps, FC } from 'react';
+import { FC } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
 
-const Mobile: FC<{
+type ListItemProps = Pick<ListChildComponentProps, 'index' | 'style'> & {
+  setRowHeight: Parameters<typeof useListRow>[1];
+  isItemLoaded: ((index: number) => boolean) | undefined;
+  item: ItemType;
+  isLast: boolean;
+};
+
+const ListItem: FC<ListItemProps> = ({
+  index,
+  style,
+  setRowHeight,
+  isItemLoaded,
+  item,
+  isLast,
+}) => {
+  const { name, address, imageUrl } = useProfileRecoil(item.proposer);
+  const formattedItem = {
+    height: (
+      <Link href={BLOCK_DETAILS(item.height)} className="value">
+        {numeral(item.height).format('0,0')}
+      </Link>
+    ),
+    txs: numeral(item.txs).format('0,0'),
+    time: dayjs.utc(item.timestamp).fromNow(),
+    proposer: <AvatarName address={address} imageUrl={imageUrl} name={name} />,
+    hash: getMiddleEllipsis(item.hash, {
+      beginning: 13,
+      ending: 10,
+    }),
+  };
+
+  const { rowRef } = useListRow(index, setRowHeight);
+  if (!isItemLoaded?.(index)) {
+    return (
+      <div style={style}>
+        <div ref={rowRef}>
+          <Loading />
+        </div>
+      </div>
+    );
+  }
+  return (
+    <div style={style}>
+      <div ref={rowRef}>
+        <SingleBlockMobile {...formattedItem} />
+        {!isLast && <Divider />}
+      </div>
+    </div>
+  );
+};
+
+type MobileProps = {
   className?: string;
   items: ItemType[];
   itemCount: number;
   loadMoreItems: (...arg: unknown[]) => void;
   isItemLoaded?: (index: number) => boolean;
-}> = ({ className, items, itemCount, loadMoreItems, isItemLoaded }) => {
-  const classes = useStyles();
+};
 
+const Mobile: FC<MobileProps> = ({ className, items, itemCount, loadMoreItems, isItemLoaded }) => {
+  const { classes, cx } = useStyles();
   const { listRef, getRowHeight, setRowHeight } = useList();
 
-  const formattedItems =
-    items?.map((x) => ({
-      height: (
-        <Link href={BLOCK_DETAILS(x.height)} passHref>
-          <Typography variant="body1" className="value" component="a">
-            {numeral(x.height).format('0,0')}
-          </Typography>
-        </Link>
-      ),
-      txs: numeral(x.txs).format('0,0'),
-      time: dayjs.utc(x.timestamp).fromNow(),
-      proposer: (
-        <AvatarName
-          address={x.proposer.address}
-          imageUrl={x.proposer.imageUrl}
-          name={x.proposer.name}
-        />
-      ),
-      hash: getMiddleEllipsis(x.hash, {
-        beginning: 13,
-        ending: 10,
-      }),
-    })) ?? [];
-
   return (
-    <div className={classnames(className, classes.root)}>
+    <div className={cx(classes.root, className)}>
       <AutoSizer>
         {({ height, width }) => (
           <InfiniteLoader
@@ -79,7 +106,13 @@ const Mobile: FC<{
               >
                 {({ index, style }) => (
                   <ListItem
-                    {...{ index, style, setRowHeight, isItemLoaded, formattedItems, itemCount }}
+                    key={items[index].height}
+                    index={index}
+                    style={style}
+                    setRowHeight={setRowHeight}
+                    isItemLoaded={isItemLoaded}
+                    item={items[index]}
+                    isLast={index === itemCount - 1}
                   />
                 )}
               </List>
@@ -87,35 +120,6 @@ const Mobile: FC<{
           </InfiniteLoader>
         )}
       </AutoSizer>
-    </div>
-  );
-};
-
-const ListItem: FC<
-  Pick<ListChildComponentProps, 'index' | 'style'> & {
-    setRowHeight: Parameters<typeof useListRow>[1];
-    isItemLoaded: ((index: number) => boolean) | undefined;
-    formattedItems: ComponentProps<typeof SingleBlockMobile>[];
-    itemCount: number;
-  }
-> = ({ index, style, setRowHeight, isItemLoaded, formattedItems, itemCount }) => {
-  const { rowRef } = useListRow(index, setRowHeight);
-  if (!isItemLoaded?.(index)) {
-    return (
-      <div style={style}>
-        <div ref={rowRef}>
-          <Loading />
-        </div>
-      </div>
-    );
-  }
-  const item = formattedItems[index];
-  return (
-    <div style={style}>
-      <div ref={rowRef}>
-        <SingleBlockMobile {...item} />
-        {index !== itemCount - 1 && <Divider />}
-      </div>
     </div>
   );
 };

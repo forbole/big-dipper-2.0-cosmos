@@ -1,11 +1,11 @@
 import Name from '@/components/name';
 import { MsgDtagAcceptTransfer } from '@/models';
-import { useProfileRecoil } from '@/recoil/profiles';
-import Typography from '@material-ui/core/Typography';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
+import Typography from '@mui/material/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const DtagAcceptTransfer: React.FC<{ message: MsgDtagAcceptTransfer }> = (props) => {
+const DtagAcceptTransfer: FC<{ message: MsgDtagAcceptTransfer }> = (props) => {
   const { message } = props;
 
   const sender = useProfileRecoil(message.sender);

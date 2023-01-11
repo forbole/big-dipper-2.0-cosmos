@@ -1,12 +1,12 @@
 import Name from '@/components/name';
 import MsgSetRegistry from '@/models/msg/tokenregistry/msg_set_registry';
-import { useProfileRecoil } from '@/recoil/profiles';
-import Typography from '@material-ui/core/Typography';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
+import Typography from '@mui/material/Typography';
 import Trans from 'next-translate/Trans';
 import useTranslation from 'next-translate/useTranslation';
-import React from 'react';
+import React, { FC } from 'react';
 
-const SetRegistry: React.FC<{ message: MsgSetRegistry }> = (props) => {
+const SetRegistry: FC<{ message: MsgSetRegistry }> = (props) => {
   const { t } = useTranslation('transactions');
   const { message } = props;
 

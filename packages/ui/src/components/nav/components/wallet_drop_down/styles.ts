@@ -1,6 +1,6 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from 'tss-react/mui';
 
-const styles = makeStyles((theme) => ({
+const styles = makeStyles()((theme) => ({
   root: {
     background: theme.palette.custom.wallet.background,
     width: '310px',

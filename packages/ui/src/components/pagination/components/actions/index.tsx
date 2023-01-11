@@ -1,17 +1,16 @@
 import { useTablePaginationActions } from '@/components/pagination/components/actions/hooks';
-import { useStyles } from '@/components/pagination/components/actions/styles';
-import FormControl from '@material-ui/core/FormControl';
-import IconButton from '@material-ui/core/IconButton';
-import InputBase from '@material-ui/core/InputBase';
-import MenuItem from '@material-ui/core/MenuItem';
-import Select from '@material-ui/core/Select';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
-import React from 'react';
+import useStyles from '@/components/pagination/components/actions/styles';
+import FormControl from '@mui/material/FormControl';
+import IconButton from '@mui/material/IconButton';
+import InputBase from '@mui/material/InputBase';
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
+import Typography from '@mui/material/Typography';
+import React, { FC } from 'react';
 import NextFastIcon from 'shared-utils/assets/icon-next-fast.svg';
 import NextIcon from 'shared-utils/assets/icon-next.svg';
 
-type Props = Parameters<typeof useTablePaginationActions>[0] & {
+type ActionsProps = Parameters<typeof useTablePaginationActions>[0] & {
   rowsPerPageOptions?: number[];
 };
 
@@ -19,8 +18,8 @@ type Props = Parameters<typeof useTablePaginationActions>[0] & {
  * custom pagination buttons
  * @param props
  */
-const Actions: React.FC<Props> = (props) => {
-  const classes = useStyles();
+const Actions: FC<ActionsProps> = (props) => {
+  const { classes, cx } = useStyles();
 
   const { count, page, rowsPerPage, onPageChange, className, rowsPerPageOptions } = props;
 
@@ -37,7 +36,7 @@ const Actions: React.FC<Props> = (props) => {
   const disableNext = page >= Math.ceil(count / rowsPerPage) - 1;
 
   return (
-    <ul className={classnames(className, classes.root)}>
+    <ul className={cx(classes.root, className)}>
       <li className="first">
         <IconButton
           className={classes.button}
@@ -45,6 +44,7 @@ const Actions: React.FC<Props> = (props) => {
           onClick={handleFirstPage}
           disabled={disablePrevious}
           aria-label="first page"
+          size="large"
         >
           <NextFastIcon className={classes.prev} />
         </IconButton>
@@ -56,6 +56,7 @@ const Actions: React.FC<Props> = (props) => {
           onClick={handlePreviousPage}
           disabled={disablePrevious}
           aria-label="previous page"
+          size="large"
         >
           <NextIcon className={classes.prev} />
         </IconButton>
@@ -66,7 +67,7 @@ const Actions: React.FC<Props> = (props) => {
           variant="body2"
           key={x}
           onClick={() => onPageChange(null, x)}
-          className={classnames(classes.button, classes.pageButton, {
+          className={cx(classes.button, classes.pageButton, {
             selected: page === x,
           })}
         >
@@ -80,6 +81,7 @@ const Actions: React.FC<Props> = (props) => {
           onClick={handleNextPage}
           disabled={disableNext}
           aria-label="next page"
+          size="large"
         >
           <NextIcon />
         </IconButton>
@@ -91,6 +93,7 @@ const Actions: React.FC<Props> = (props) => {
           onClick={handleLastPage}
           disabled={disableNext}
           aria-label="last page"
+          size="large"
         >
           <NextFastIcon />
         </IconButton>
@@ -105,7 +108,7 @@ const Actions: React.FC<Props> = (props) => {
               input={<InputBase />}
             >
               {rowsPerPageOptions.map((x) => (
-                <MenuItem value={x} key={x} className={classes.menuItem}>
+                <MenuItem key={x} value={x} className={classes.menuItem}>
                   <Typography variant="body2">{x}</Typography>
                 </MenuItem>
               ))}

@@ -1,8 +1,7 @@
 import Box from '@/components/box';
 import { useStyles } from '@/components/nav/components/wallet_drop_down/styles';
-import classnames from 'classnames';
-import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
+import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
 import useWalletDropDown from '@/components/nav/components/connect_wallet/hooks';
 import useTranslation from 'next-translate/useTranslation';
 import Avatar from '@/components/avatar';
@@ -14,14 +13,15 @@ import { useRecoilValue } from 'recoil';
 import { readUserAddress, readWalletName } from '@/recoil/user';
 import Link from 'next/link';
 import { ACCOUNT_DETAILS } from '@/utils/go_to_page';
+import React, { FC } from 'react';
 
-import React from 'react';
-
-const WalletDropDown: React.FC<{
+type WalletDropDownProps = {
   className?: string;
-}> = ({ className }) => {
-  const { t } = useTranslation('common');
-  const classes = useStyles();
+};
+
+const WalletDropDown: FC<WalletDropDownProps> = ({ className }) => {
+  const { t } = useTranslation();
+  const { classes, cx } = useStyles();
   const { handleCopyToClipboard } = useAddress(t);
   const address = useRecoilValue(readUserAddress);
   const walletName = useRecoilValue(readWalletName);
@@ -29,7 +29,7 @@ const WalletDropDown: React.FC<{
   const { handleLogout, handleLogin } = useWalletDropDown();
 
   return (
-    <Box className={classnames(className, classes.root)}>
+    <Box className={cx(className, classes.root)}>
       <div className={classes.walletDetails}>
         <div className={classes.walletInfo}>
           <div className={classes.walletAvatar}>
@@ -63,7 +63,7 @@ const WalletDropDown: React.FC<{
           <Link href={ACCOUNT_DETAILS(address)} passHref>
             <div className={classes.accountDetailsLabel}>
               <div className={classes.blackDot} />
-              <div className={classes.accountDetails}>{t('accountDetails')}</div>
+              <div className={classes.accountDetails}>{t('common:accountDetails')}</div>
             </div>
           </Link>
         </div>
@@ -75,7 +75,7 @@ const WalletDropDown: React.FC<{
         tabIndex={0}
         aria-label="change-wallet-button"
       >
-        <div className={classes.changeWalletButtonLabel}>{t('changeWallet')}</div>
+        <div className={classes.changeWalletButtonLabel}>{t('common:changeWallet')}</div>
       </div>
       <Divider className={classes.bottomDivider} />
       <div className={classes.signOut}>
@@ -88,7 +88,7 @@ const WalletDropDown: React.FC<{
         >
           <div className={classes.signOutLabel}>
             <LogoutIcon className={classes.signOutIcon} />
-            <div className={classes.signOutText}>{t('signOut')}</div>
+            <div className={classes.signOutText}>{t('common:signOut')}</div>
           </div>
         </div>
       </div>

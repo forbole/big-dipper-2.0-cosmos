@@ -1,34 +1,36 @@
 import Loading from '@/components/loading';
 import { useGrid } from '@/hooks';
-import { useStyles } from '@/screens/providers/components/providers_list/components/desktop/styles';
+import useShallowMemo from '@/hooks/useShallowMemo';
+import useStyles from '@/screens/providers/components/providers_list/components/desktop/styles';
 import { columns } from '@/screens/providers/components/providers_list/components/desktop/utils';
 import type { ProviderInfo } from '@/screens/providers/types';
 import { useAddress } from '@/utils/copy_to_clipboard';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
-import React, { ReactNode } from 'react';
+import React, { FC, LegacyRef } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { VariableSizeGrid as Grid } from 'react-window';
 import CopyIcon from 'shared-utils/assets/icon-copy.svg';
 import EmailIcon from 'shared-utils/assets/icon-email.svg';
 import WebArrowIcon from 'shared-utils/assets/icon-web-arrow.svg';
 
-const Desktop: React.FC<{ list: ProviderInfo[] }> = ({ list }) => {
+const isItemLoaded = (index: number, itemCount: number) => index >= 0 && index < itemCount;
+
+const Desktop: FC<{ list: ProviderInfo[] }> = ({ list }) => {
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
 
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const { t } = useTranslation('providers');
   const { handleCopyToClipboard } = useAddress(t);
 
   const className = '';
 
   const itemCount = list.length;
-  const isItemLoaded = (index: number) => index >= 0 && index < itemCount;
+  const listMemo = useShallowMemo(list);
 
-  const itemsNew = list.map((eachProvider): { [key: string]: ReactNode } => ({
+  const itemsNew = listMemo.map((eachProvider) => ({
     ownerAddress: (
       <>
         <Typography variant="body1" component="a">
@@ -104,7 +106,7 @@ const Desktop: React.FC<{ list: ProviderInfo[] }> = ({ list }) => {
   }));
 
   return (
-    <div className={classnames(className, classes.root)}>
+    <div className={cx(classes.root, className)}>
       <AutoSizer onResize={onResize}>
         {({ height, width }) => (
           <>
@@ -112,7 +114,7 @@ const Desktop: React.FC<{ list: ProviderInfo[] }> = ({ list }) => {
             {/* Table Header */}
             {/* ======================================= */}
             <Grid
-              ref={columnRef as React.LegacyRef<Grid>}
+              ref={columnRef as LegacyRef<Grid>}
               columnCount={columns.length}
               columnWidth={(index) => getColumnWidth(width, index)}
               height={50}
@@ -137,7 +139,7 @@ const Desktop: React.FC<{ list: ProviderInfo[] }> = ({ list }) => {
             {/* ======================================= */}
 
             <Grid
-              ref={gridRef as React.LegacyRef<Grid>}
+              ref={gridRef as LegacyRef<Grid>}
               columnCount={columns.length}
               columnWidth={(index) => getColumnWidth(width, index)}
               height={height - 50}
@@ -146,7 +148,7 @@ const Desktop: React.FC<{ list: ProviderInfo[] }> = ({ list }) => {
               width={width}
             >
               {({ columnIndex, rowIndex, style }) => {
-                if (!isItemLoaded?.(rowIndex) && columnIndex === 0) {
+                if (!isItemLoaded?.(rowIndex, itemCount) && columnIndex === 0) {
                   return (
                     <div
                       style={{
@@ -159,16 +161,16 @@ const Desktop: React.FC<{ list: ProviderInfo[] }> = ({ list }) => {
                   );
                 }
 
-                if (!isItemLoaded?.(rowIndex)) {
+                if (!isItemLoaded?.(rowIndex, itemCount)) {
                   return null;
                 }
 
                 const { key, align } = columns[columnIndex];
-                const item = itemsNew[rowIndex][key];
+                const item = itemsNew[rowIndex][key as keyof typeof itemsNew[number]];
                 return (
                   <div
                     style={style}
-                    className={classnames(classes.cell, classes.body, {
+                    className={cx(classes.cell, classes.body, {
                       odd: !(rowIndex % 2),
                     })}
                   >

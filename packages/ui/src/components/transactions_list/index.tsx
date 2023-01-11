@@ -1,12 +1,11 @@
+import Loading from '@/components/loading';
 import NoData from '@/components/no_data';
-import { useStyles } from '@/components/transactions_list/styles';
+import Desktop from '@/components/transactions_list/components/desktop';
+import Mobile from '@/components/transactions_list/components/mobile';
+import useStyles from '@/components/transactions_list/styles';
 import type { TransactionsListState } from '@/components/transactions_list/types';
 import { useScreenSize } from '@/hooks';
-import dynamic from 'next/dynamic';
 import { FC } from 'react';
-
-const Desktop = dynamic(() => import('@/components/transactions_list/components/desktop'));
-const Mobile = dynamic(() => import('@/components/transactions_list/components/mobile'));
 
 const TransactionsList: FC<TransactionsListState> = (props) => {
   const { isDesktop } = useScreenSize();
@@ -20,7 +19,7 @@ const TransactionsList: FC<TransactionsListState> = (props) => {
     itemCount,
     transactions,
   } = props;
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   const formatProps: TransactionsListState = {
     hasNextPage,
@@ -33,7 +32,7 @@ const TransactionsList: FC<TransactionsListState> = (props) => {
   };
 
   if (!itemCount) {
-    return <NoData />;
+    return isNextPageLoading ? <Loading /> : <NoData />;
   }
 
   if (isDesktop) {

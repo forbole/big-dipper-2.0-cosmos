@@ -1,24 +1,25 @@
-import React from 'react';
-import classnames from 'classnames';
+import useStyles from '@/screens/validators/components/list/components/validators/components/mobile/component/single_validator/styles';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
-import Typography from '@material-ui/core/Typography';
-import { useStyles } from '@/screens/validators/components/list/components/validators/components/mobile/component/single_validator/styles';
+import { FC, ReactNode } from 'react';
 
-const SingleValidator: React.FC<{
+type SingleValidatorProps = {
   className?: string;
   idx: string;
-  validator: React.ReactNode;
-  locked: React.ReactNode;
+  validator: ReactNode;
+  locked: ReactNode;
   // stake: string;
   nodes: string;
   delegators: string;
   commission: string;
   apr: string;
-}> = (props) => {
+};
+
+const SingleValidator: FC<SingleValidatorProps> = (props) => {
   const { t } = useTranslation('validators');
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   return (
-    <div className={classnames(props.className, classes.root)}>
+    <div className={cx(classes.root, props.className)}>
       <div className={classes.flex}>
         <div className={classes.item}>
           <Typography variant="h4" className="label">

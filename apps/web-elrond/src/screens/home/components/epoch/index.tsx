@@ -1,16 +1,15 @@
 import Box from '@/components/box';
 import { useEpoch } from '@/screens/home/components/epoch/hooks';
-import { useStyles } from '@/screens/home/components/epoch/styles';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
+import useStyles from '@/screens/home/components/epoch/styles';
+import Typography from '@mui/material/Typography';
 import Trans from 'next-translate/Trans';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
-import React from 'react';
+import { FC } from 'react';
 import { PolarAngleAxis, RadialBar, RadialBarChart, Tooltip } from 'recharts';
 
-const Epoch: React.FC<ComponentDefault> = (props) => {
-  const { classes, theme } = useStyles();
+const Epoch: FC<ComponentDefault> = (props) => {
+  const { classes, cx, theme } = useStyles();
   const { t } = useTranslation('home');
   const { state } = useEpoch();
 
@@ -24,7 +23,7 @@ const Epoch: React.FC<ComponentDefault> = (props) => {
   const circleSize = 200;
 
   return (
-    <Box className={classnames(props.className, classes.root)}>
+    <Box className={cx(classes.root, props.className)}>
       <Typography variant="h2" className={classes.label}>
         {t('epoch')}
       </Typography>

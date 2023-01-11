@@ -7,6 +7,12 @@ import type { OtherTokensState } from '@/screens/account_details/components/nfts
 
 export const PAGE_SIZE = 10;
 
+type NFTResult = Array<{
+  identifier?: string;
+  name?: string;
+  type?: string;
+}>;
+
 export const useTokens = () => {
   const router = useRouter();
   const [state, setState] = useState<OtherTokensState>({
@@ -29,20 +35,17 @@ export const useTokens = () => {
   const getTransactionsByPage = useCallback(
     async (page: number) => {
       try {
-        const { data } = await axios.get<
-          Array<{
-            identifier?: string;
-            name?: string;
-            type?: string;
-          }>
-        >(ACCOUNT_DETAILS_NFTS(router.query.address as string), {
-          params: {
-            from: page * PAGE_SIZE,
-            size: PAGE_SIZE,
-            withLogs: false,
-            type: 'SemiFungibleESDT,NonFungibleESDT',
-          },
-        });
+        const { data } = await axios.get<NFTResult>(
+          ACCOUNT_DETAILS_NFTS(router.query.address as string),
+          {
+            params: {
+              from: page * PAGE_SIZE,
+              size: PAGE_SIZE,
+              withLogs: false,
+              type: 'SemiFungibleESDT,NonFungibleESDT',
+            },
+          }
+        );
 
         const items = data.map((x) => ({
           identifier: x?.identifier ?? '',

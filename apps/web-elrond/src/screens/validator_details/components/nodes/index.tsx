@@ -1,27 +1,20 @@
-import React from 'react';
-import classnames from 'classnames';
-import dynamic from 'next/dynamic';
-import { usePagination, useScreenSize } from '@/hooks';
-import Typography from '@material-ui/core/Typography';
-import useTranslation from 'next-translate/useTranslation';
-import Pagination from '@/components/pagination';
-import NoData from '@/components/no_data';
 import Box from '@/components/box';
 import Loading from '@/components/loading';
-import { useStyles } from '@/screens/validator_details/components/nodes/styles';
-import { useBlocks, PAGE_SIZE } from '@/screens/validator_details/components/nodes/hooks';
+import NoData from '@/components/no_data';
+import Pagination from '@/components/pagination';
+import { usePagination, useScreenSize } from '@/hooks';
+import Desktop from '@/screens/validator_details/components/nodes/components/desktop';
+import Mobile from '@/screens/validator_details/components/nodes/components/mobile';
+import { PAGE_SIZE, useBlocks } from '@/screens/validator_details/components/nodes/hooks';
+import useStyles from '@/screens/validator_details/components/nodes/styles';
+import Typography from '@mui/material/Typography';
+import useTranslation from 'next-translate/useTranslation';
+import { FC } from 'react';
 
-const Desktop = dynamic(
-  () => import('@/screens/validator_details/components/nodes/components/desktop')
-);
-const Mobile = dynamic(
-  () => import('@/screens/validator_details/components/nodes/components/mobile')
-);
-
-const Nodes: React.FC<ComponentDefault> = (props) => {
+const Nodes: FC<ComponentDefault> = (props) => {
   const { t } = useTranslation('validators');
   const { isDesktop } = useScreenSize();
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const { state, handlePageChangeCallback } = useBlocks();
   const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange } = usePagination({
     rowsPage: PAGE_SIZE,
@@ -41,7 +34,7 @@ const Nodes: React.FC<ComponentDefault> = (props) => {
   }
 
   return (
-    <Box className={classnames(props.className, classes.root)}>
+    <Box className={cx(classes.root, props.className)}>
       <Typography variant="h2">{t('nodes')}</Typography>
       {component}
       <Pagination

@@ -1,20 +1,21 @@
-import { useStyles } from '@/components/result/styles';
-import Typography from '@material-ui/core/Typography';
-import { Cancel, CheckCircle } from '@material-ui/icons';
-import classnames from 'classnames';
+import useStyles from '@/components/result/styles';
+import Typography from '@mui/material/Typography';
+import { Cancel, CheckCircle } from '@mui/icons-material';
 import useTranslation from 'next-translate/useTranslation';
-import React from 'react';
+import React, { FC } from 'react';
 
-const Result: React.FC<{
+type ResultProps = {
   className?: string;
   success?: boolean;
-}> = ({ className, success }) => {
+};
+
+const Result: FC<ResultProps> = ({ className, success }) => {
   const { t } = useTranslation('common');
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
 
   return (
     <div
-      className={classnames(className, classes.root, {
+      className={cx(classes.root, className, {
         [classes.success]: success,
         [classes.fail]: !success,
       })}

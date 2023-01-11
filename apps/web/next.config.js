@@ -1,10 +1,19 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { withSentryConfig } = require('@sentry/nextjs');
-const getNextConfig = require('shared-utils/configs/next.js');
+const { readFileSync } = require('fs');
+const getNextConfig = require('shared-utils/configs/next');
 
-let nextConfig = getNextConfig(__dirname);
-if (process.env.NEXT_PUBLIC_SENTRY_DSN) {
-  nextConfig = withSentryConfig({ ...nextConfig, sentry: { hideSourceMaps: true } }, {});
+let nextConfig = getNextConfig(JSON.parse(readFileSync('./package.json', 'utf8')).name);
+if (process.env.NODE_ENV === 'development') {
+  delete nextConfig.i18n;
 }
 
-module.exports = nextConfig;
+if (process.env.NEXT_PUBLIC_SENTRY_DSN) {
+  // eslint-disable-next-line global-require
+  const { withSentryConfig } = require('@sentry/nextjs');
+  nextConfig.sentry = { hideSourceMaps: false };
+  nextConfig = withSentryConfig(nextConfig);
+}
+
+const finalConfig = nextConfig;
+
+module.exports = finalConfig;

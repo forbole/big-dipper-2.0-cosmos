@@ -2,69 +2,67 @@ import Loading from '@/components/loading';
 import NoData from '@/components/no_data';
 import Pagination from '@/components/pagination';
 import { usePagination, useScreenSize } from '@/hooks';
-import { useProfilesRecoil } from '@/recoil/profiles';
-import { useStyles } from '@/screens/validator_details/components/staking/components/unbondings/styles';
+import useShallowMemo from '@/hooks/useShallowMemo';
+import Desktop from '@/screens/validator_details/components/staking/components/unbondings/components/desktop';
+import Mobile from '@/screens/validator_details/components/staking/components/unbondings/components/mobile';
+import useStyles from '@/screens/validator_details/components/staking/components/unbondings/styles';
 import type { UnbondingsType } from '@/screens/validator_details/components/staking/types';
-import classnames from 'classnames';
-import dynamic from 'next/dynamic';
-import * as R from 'ramda';
-import React from 'react';
+import { FC, useCallback } from 'react';
 
-const Desktop = dynamic(
-  () =>
-    import(
-      '@/screens/validator_details/components/staking/components/unbondings/components/desktop'
-    )
-);
-const Mobile = dynamic(
-  () =>
-    import('@/screens/validator_details/components/staking/components/unbondings/components/mobile')
-);
+type UnbondingsProps = {
+  className?: string;
+  unbondings: UnbondingsType;
+  setPage: (page: number) => void;
+};
 
-const Unbondings: React.FC<
-  {
-    unbondings: UnbondingsType;
-  } & ComponentDefault
-> = (props) => {
-  const classes = useStyles();
+const Unbondings: FC<UnbondingsProps> = (props) => {
+  const { classes } = useStyles();
   const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange } = usePagination({});
   const { isDesktop } = useScreenSize();
-
-  const pageItems = R.pathOr<NonNullable<typeof props['unbondings']['data'][number]>>(
-    [],
-    ['unbondings', 'data', page],
-    props
+  const handlePageChangeCallback = useCallback(
+    (event: Parameters<typeof handlePageChange>[0], newPage: number) => {
+      props.setPage?.(newPage);
+      handlePageChange?.(event, newPage);
+    },
+    [handlePageChange, props]
   );
-  const dataProfiles = useProfilesRecoil(pageItems.map((x) => x.address));
-  const mergedDataWithProfiles = pageItems.map((x, i) => ({
-    ...x,
-    address: dataProfiles[i],
-  }));
 
-  const items = mergedDataWithProfiles;
+  const itemsMemo = useShallowMemo(props?.unbondings?.data);
 
   let component = null;
 
-  if (props.unbondings.loading) {
+  if (props.unbondings.error) {
+    component = <pre>{props.unbondings.error.message}</pre>;
+  } else if (props.unbondings.loading && !itemsMemo?.length) {
     component = <Loading />;
-  } else if (!items.length) {
+  } else if (!itemsMemo?.length) {
     component = <NoData />;
   } else if (isDesktop) {
-    component = <Desktop items={items} />;
+    component = <Desktop items={itemsMemo} />;
   } else {
-    component = <Mobile items={items} />;
+    component = <Mobile items={itemsMemo} />;
+  }
+
+  let total = props.unbondings.count;
+  if (total === undefined && props.unbondings.data?.length !== undefined) {
+    if (props.unbondings.data.length === rowsPerPage) {
+      total = page * rowsPerPage + props.unbondings.data.length + 1;
+    } else {
+      total = page * rowsPerPage + props.unbondings.data.length;
+    }
   }
 
   return (
-    <div className={classnames(props.className)}>
+    <div className={props.className}>
       {component}
       <Pagination
         className={classes.paginate}
-        total={props.unbondings.count}
+        total={total}
         rowsPerPage={rowsPerPage}
         page={page}
-        handlePageChange={handlePageChange}
+        handlePageChange={handlePageChangeCallback}
         handleRowsPerPageChange={handleRowsPerPageChange}
+        rowsPerPageOptions={[rowsPerPage]}
       />
     </div>
   );

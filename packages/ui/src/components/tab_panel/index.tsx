@@ -1,15 +1,16 @@
-import classnames from 'classnames';
-import React from 'react';
+import React, { FC, ReactNode } from 'react';
 
-const TabPanel: React.FC<{
-  children?: React.ReactNode;
+type TabPanelProps = {
+  children?: ReactNode;
   index: number;
   value: number;
   className?: string;
-}> = (props) => {
+};
+
+const TabPanel: FC<TabPanelProps> = (props) => {
   const { children, value, index, className } = props;
   return (
-    <div className={classnames(className)} role="tabpanel" hidden={value !== index}>
+    <div className={className} role="tabpanel" hidden={value !== index}>
       {value === index && children}
     </div>
   );

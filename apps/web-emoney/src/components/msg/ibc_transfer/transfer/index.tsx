@@ -1,12 +1,12 @@
 import Name from '@/components/name';
 import { MsgTransfer } from '@/models';
-import { useProfileRecoil } from '@/recoil/profiles';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { formatNumber, formatToken } from '@/utils/format_token';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const Transfer: React.FC<{ message: MsgTransfer }> = (props) => {
+const Transfer: FC<{ message: MsgTransfer }> = (props) => {
   const { message } = props;
 
   const sender = useProfileRecoil(message.sender);

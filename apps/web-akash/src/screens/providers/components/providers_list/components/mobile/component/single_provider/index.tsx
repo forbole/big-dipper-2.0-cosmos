@@ -1,13 +1,12 @@
-import { useStyles } from '@/screens/providers/components/providers_list/components/mobile/component/single_provider/styles';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
+import useStyles from '@/screens/providers/components/providers_list/components/mobile/component/single_provider/styles';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
-import React, { ReactNode } from 'react';
+import React, { FC, ReactNode } from 'react';
 
-const SingleProvider: React.FC<{
+type SingleProviderProps = {
   className?: string;
   // idx: string;
-  // validator: React.ReactNode;
+  // validator: ReactNode;
   // ownerAddress: string;
   // hostUri: string;
   // region: string;
@@ -20,11 +19,21 @@ const SingleProvider: React.FC<{
   organization: ReactNode;
   email: ReactNode;
   website: ReactNode;
-}> = ({ className, ownerAddress, hostUri, region, organization, email, website }) => {
+};
+
+const SingleProvider: FC<SingleProviderProps> = ({
+  className,
+  ownerAddress,
+  hostUri,
+  region,
+  organization,
+  email,
+  website,
+}) => {
   const { t } = useTranslation('providers');
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   return (
-    <div className={classnames(className, classes.root)}>
+    <div className={cx(classes.root, className)}>
       <div className={classes.item}>
         <Typography variant="h4" className="label">
           {t('ownerAddress')}

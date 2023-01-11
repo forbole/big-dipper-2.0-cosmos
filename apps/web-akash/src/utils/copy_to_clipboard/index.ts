@@ -1,12 +1,16 @@
 import copy from 'copy-to-clipboard';
 import { Translate } from 'next-translate';
+import { useCallback } from 'react';
 import { toast } from 'react-toastify';
 
 export const useAddress = (t: Translate) => {
-  const handleCopyToClipboard = (value: string) => {
-    copy(value);
-    toast(t('common:copied'));
-  };
+  const handleCopyToClipboard = useCallback(
+    (value: string) => {
+      copy(value);
+      toast<string>(t('common:copied'));
+    },
+    [t]
+  );
 
   return {
     handleCopyToClipboard,

@@ -1,68 +1,85 @@
 import AvatarName from '@/components/avatar_name';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { readDate } from '@/recoil/settings';
-import { useStyles } from '@/screens/account_details/components/staking/components/redelegations/components/mobile/styles';
+import useStyles from '@/screens/account_details/components/staking/components/redelegations/components/mobile/styles';
 import type { ItemType } from '@/screens/account_details/components/staking/components/redelegations/types';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
 import { formatNumber } from '@/utils/format_token';
-import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
+import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
-import React from 'react';
+import { FC } from 'react';
 import { useRecoilValue } from 'recoil';
 
-const Mobile: React.FC<{
-  className?: string;
-  items?: ItemType[];
-}> = ({ className, items }) => {
-  const classes = useStyles();
+type RedelegationsItemProps = {
+  item: ItemType;
+  isLast: boolean;
+};
+
+const RedelegationsItem: FC<RedelegationsItemProps> = ({ item, isLast }) => {
+  const {
+    address: fromAddress,
+    imageUrl: fromImageUrl,
+    name: fromName,
+  } = useProfileRecoil(item.from);
+  const { address: toAddress, imageUrl: toImageUrl, name: toName } = useProfileRecoil(item.to);
+  const { classes } = useStyles();
   const { t } = useTranslation('accounts');
   const dateFormat = useRecoilValue(readDate);
-  const formattedItems = items?.map((x) => ({
-    to: <AvatarName address={x.to.address} imageUrl={x.to.imageUrl} name={x.to.name} />,
-    from: <AvatarName address={x.from.address} imageUrl={x.from.imageUrl} name={x.from.name} />,
-    amount: x.amount
-      ? `${formatNumber(x.amount.value, x.amount.exponent)} ${x.amount.displayDenom.toUpperCase()}`
-      : '',
-    completionTime: formatDayJs(dayjs.utc(x.completionTime), dateFormat),
-  }));
-
   return (
-    <div className={classnames(className)}>
-      {formattedItems?.map((x, i) => (
-        // eslint-disable-next-line react/no-array-index-key
-        <React.Fragment key={`votes-mobile-${i}`}>
-          <div className={classes.list}>
-            <div className={classes.item}>
-              <Typography variant="h4" className="label">
-                {t('from')}
-              </Typography>
-              {x.from}
-            </div>
-            <div className={classes.item}>
-              <Typography variant="h4" className="label">
-                {t('to')}
-              </Typography>
-              {x.to}
-            </div>
-            <div className={classes.item}>
-              <Typography variant="h4" className="label">
-                {t('completionTime')}
-              </Typography>
-              {x.completionTime}
-            </div>
-            <div className={classes.item}>
-              <Typography variant="h4" className="label">
-                {t('amount')}
-              </Typography>
-              {x.amount}
-            </div>
-          </div>
-          {!!items && i !== items.length - 1 && <Divider />}
-        </React.Fragment>
-      ))}
-    </div>
+    <>
+      <div className={classes.list}>
+        <div className={classes.item}>
+          <Typography variant="h4" className="label">
+            {t('from')}
+          </Typography>
+          <AvatarName address={fromAddress} imageUrl={fromImageUrl} name={fromName} />
+        </div>
+        <div className={classes.item}>
+          <Typography variant="h4" className="label">
+            {t('to')}
+          </Typography>
+          <AvatarName address={toAddress} imageUrl={toImageUrl} name={toName} />
+        </div>
+        <div className={classes.item}>
+          <Typography variant="h4" className="label">
+            {t('completionTime')}
+          </Typography>
+          {formatDayJs(dayjs.utc(item.completionTime), dateFormat)}
+        </div>
+        <div className={classes.item}>
+          <Typography variant="h4" className="label">
+            {t('amount')}
+          </Typography>
+          {item.amount
+            ? `${formatNumber(
+                item.amount.value,
+                item.amount.exponent
+              )} ${item.amount.displayDenom.toUpperCase()}`
+            : ''}
+        </div>
+      </div>
+      {!isLast && <Divider />}
+    </>
   );
 };
+
+type MobileProps = {
+  className?: string;
+  items?: ItemType[];
+};
+
+const Mobile: FC<MobileProps> = ({ className, items }) => (
+  <div className={className}>
+    {items?.map((x, i) => (
+      <RedelegationsItem
+        // eslint-disable-next-line react/no-array-index-key
+        key={`${x.from}-${x.to}-${i}`}
+        item={x}
+        isLast={!items || i === items.length - 1}
+      />
+    ))}
+  </div>
+);
 
 export default Mobile;

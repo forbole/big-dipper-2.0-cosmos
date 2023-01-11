@@ -1,11 +1,11 @@
 import Name from '@/components/name';
 import MsgExecRequest from '@/models/msg/group/msg_exec_request';
-import { useProfileRecoil } from '@/recoil/profiles';
-import Typography from '@material-ui/core/Typography';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
+import Typography from '@mui/material/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const ExecRequest: React.FC<{ message: MsgExecRequest }> = (props) => {
+const ExecRequest: FC<{ message: MsgExecRequest }> = (props) => {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);

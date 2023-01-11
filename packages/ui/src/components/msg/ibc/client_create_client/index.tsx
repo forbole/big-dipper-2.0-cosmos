@@ -1,11 +1,11 @@
 import Name from '@/components/name';
 import { type MsgCreateClient } from '@/models';
-import { useProfileRecoil } from '@/recoil/profiles';
-import Typography from '@material-ui/core/Typography';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
+import Typography from '@mui/material/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const CreateClient: React.FC<{ message: MsgCreateClient }> = (props) => {
+const CreateClient: FC<{ message: MsgCreateClient }> = (props) => {
   const { message } = props;
 
   const signer = useProfileRecoil(message.signer);

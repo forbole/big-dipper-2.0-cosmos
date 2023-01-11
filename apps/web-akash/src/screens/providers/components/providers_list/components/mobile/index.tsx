@@ -1,39 +1,43 @@
 import { useList, useListRow } from '@/hooks';
+import useShallowMemo from '@/hooks/useShallowMemo';
 import SingleProvider from '@/screens/providers/components/providers_list/components/mobile/component/single_provider';
-import { useStyles } from '@/screens/providers/components/providers_list/components/mobile/styles';
+import useStyles from '@/screens/providers/components/providers_list/components/mobile/styles';
 import type { ProviderInfo } from '@/screens/providers/types';
 import { useAddress } from '@/utils/copy_to_clipboard';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
-import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
+import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
-import React, { ComponentProps, FC } from 'react';
+import React, { FC, LegacyRef } from 'react';
 import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
 import CopyIcon from 'shared-utils/assets/icon-copy.svg';
 import EmailIcon from 'shared-utils/assets/icon-email.svg';
 import WebArrowIcon from 'shared-utils/assets/icon-web-arrow.svg';
 
-const Mobile: FC<{ list: ProviderInfo[] }> = ({ list }) => {
-  const classes = useStyles();
+type ListItemProps = Pick<ListChildComponentProps, 'index' | 'style'> & {
+  setRowHeight: Parameters<typeof useListRow>[1];
+  classes: ReturnType<typeof useStyles>['classes'];
+  item: ProviderInfo;
+  isLast: boolean;
+};
+
+const ListItem: FC<ListItemProps> = ({ index, style, setRowHeight, classes, item, isLast }) => {
+  const { rowRef } = useListRow(index, setRowHeight);
   const { t } = useTranslation('providers');
   const { handleCopyToClipboard } = useAddress(t);
-  const className = '';
-
-  const { listRef, getRowHeight, setRowHeight } = useList();
-
-  const itemsNew = list.map((eachProvider) => ({
+  const itemNew = {
+    key: item.ownerAddress,
     ownerAddress: (
       <>
         <Typography variant="body1" component="a">
-          {getMiddleEllipsis(eachProvider.ownerAddress, {
+          {getMiddleEllipsis(item.ownerAddress, {
             beginning: 20,
             ending: 5,
           })}
         </Typography>
         <CopyIcon
-          onClick={() => handleCopyToClipboard(eachProvider.ownerAddress)}
+          onClick={() => handleCopyToClipboard(item.ownerAddress)}
           className={classes.actionIcons}
         />
       </>
@@ -44,48 +48,42 @@ const Mobile: FC<{ list: ProviderInfo[] }> = ({ list }) => {
           {/* {getMiddleEllipsis(eachProvider.hostURI, {
             beginning: 30, ending: 0,
           })} */}
-          {eachProvider.hostURI}
+          {item.hostURI}
         </Typography>
         <CopyIcon
-          onClick={() => handleCopyToClipboard(eachProvider.hostURI)}
+          onClick={() => handleCopyToClipboard(item.hostURI)}
           className={classes.actionIcons}
         />
       </>
     ),
-    region: eachProvider.region ? (
+    region: item.region ? (
       <Typography variant="body1" component="a">
-        {eachProvider.region}
+        {item.region}
       </Typography>
     ) : (
       'Null'
     ),
-    organization: eachProvider.organization ? (
+    organization: item.organization ? (
       <Typography variant="body1" component="a">
-        {eachProvider.organization}
+        {item.organization}
       </Typography>
     ) : (
       'Null'
     ),
-    email: eachProvider.emailAddress ? (
-      <a href={`mailto:${eachProvider.emailAddress}`}>
+    email: item.emailAddress ? (
+      <a href={`mailto:${item.emailAddress}`}>
         <EmailIcon className={classes.emailIcon} />
       </a>
     ) : (
       'Null'
     ),
-    website: eachProvider.website ? (
-      <Link
-        href={
-          eachProvider.website.startsWith('https://')
-            ? eachProvider.website
-            : `https://${eachProvider.website}`
-        }
-      >
+    website: item.website ? (
+      <Link href={item.website.startsWith('https://') ? item.website : `https://${item.website}`}>
         <div>
           <Typography variant="body1" component="a">
-            {eachProvider.website.length <= 13
-              ? eachProvider.website
-              : getMiddleEllipsis(eachProvider.website, {
+            {item.website.length <= 13
+              ? item.website
+              : getMiddleEllipsis(item.website, {
                   beginning: 13,
                   ending: 0,
                 })}
@@ -96,38 +94,45 @@ const Mobile: FC<{ list: ProviderInfo[] }> = ({ list }) => {
     ) : (
       'Null'
     ),
-  }));
-
+  };
   return (
-    <div className={classnames(className)}>
-      <List
-        width="auto"
-        height={900}
-        itemCount={itemsNew.length}
-        itemSize={getRowHeight}
-        ref={listRef as React.LegacyRef<List>}
-      >
-        {({ index, style }) => <ListItem {...{ index, style, setRowHeight, classes, itemsNew }} />}
-      </List>
+    <div style={style} className={index % 2 ? classes.even : ''}>
+      <div ref={rowRef}>
+        <SingleProvider {...itemNew} />
+        {!isLast && <Divider />}
+      </div>
     </div>
   );
 };
 
-const ListItem: FC<
-  Pick<ListChildComponentProps, 'index' | 'style'> & {
-    setRowHeight: Parameters<typeof useListRow>[1];
-    classes: ReturnType<typeof useStyles>;
-    itemsNew: Array<ComponentProps<typeof SingleProvider>>;
-  }
-> = ({ index, style, setRowHeight, classes, itemsNew }) => {
-  const { rowRef } = useListRow(index, setRowHeight);
-  const selectedItem = itemsNew[index];
+const Mobile: FC<{ list: ProviderInfo[] }> = ({ list }) => {
+  const { classes } = useStyles();
+  const className = '';
+
+  const { listRef, getRowHeight, setRowHeight } = useList();
+  const listMemo = useShallowMemo(list);
+
   return (
-    <div style={style} className={index % 2 ? classes.even : ''}>
-      <div ref={rowRef}>
-        <SingleProvider {...selectedItem} />
-        {index !== itemsNew.length - 1 && <Divider />}
-      </div>
+    <div className={className}>
+      <List
+        width="auto"
+        height={900}
+        itemCount={listMemo.length}
+        itemSize={getRowHeight}
+        ref={listRef as LegacyRef<List>}
+      >
+        {({ index, style }) => (
+          <ListItem
+            key={listMemo[index].ownerAddress}
+            index={index}
+            style={style}
+            setRowHeight={setRowHeight}
+            classes={classes}
+            item={listMemo[index]}
+            isLast={index === listMemo.length - 1}
+          />
+        )}
+      </List>
     </div>
   );
 };

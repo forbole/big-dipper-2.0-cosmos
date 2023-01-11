@@ -2,12 +2,12 @@
 
 exports[`screen: Nav/Desktop hook toggles correctly 1`] = `
 <div
-  className="makeStyles-root"
+  className="css-1nx07pp-root"
   onClick={[Function]}
   onTouchEnd={[Function]}
 >
   <header
-    className="MuiPaper-root MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary makeStyles-appBar open mui-fixed MuiPaper-elevation4"
+    className="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionFixed open mui-fixed css-1pezhp2-MuiPaper-root-MuiAppBar-root-appBar"
   >
     <div
       id="actionBar"
@@ -20,13 +20,14 @@ exports[`screen: Nav/Desktop hook toggles correctly 1`] = `
     />
   </header>
   <div
-    className="MuiDrawer-root MuiDrawer-docked makeStyles-drawer open makeStyles-drawerOpen"
+    className="MuiDrawer-root MuiDrawer-docked open css-1bllxe5-MuiDrawer-docked-drawer-drawerOpen"
   >
     <div
-      className="MuiPaper-root MuiDrawer-paper open makeStyles-drawerOpen MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft MuiPaper-elevation0"
+      className="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiDrawer-paper open MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft css-15vzzxz-MuiPaper-root-MuiDrawer-paper-drawerOpen"
     >
       <svg
-        className="makeStyles-logo"
+        aria-label="toggle menu"
+        className="css-v4r7lq-logo"
         onClick={[Function]}
         role="button"
       />
@@ -40,12 +41,12 @@ exports[`screen: Nav/Desktop hook toggles correctly 1`] = `
 
 exports[`screen: Nav/Desktop it renders 1`] = `
 <div
-  className="makeStyles-root"
+  className="css-1nx07pp-root"
   onClick={[Function]}
   onTouchEnd={[Function]}
 >
   <header
-    className="MuiPaper-root MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary makeStyles-appBar mui-fixed MuiPaper-elevation4"
+    className="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionFixed mui-fixed css-1pezhp2-MuiPaper-root-MuiAppBar-root-appBar"
   >
     <div
       id="actionBar"
@@ -58,13 +59,14 @@ exports[`screen: Nav/Desktop it renders 1`] = `
     />
   </header>
   <div
-    className="MuiDrawer-root MuiDrawer-docked makeStyles-drawer closed makeStyles-drawerClose"
+    className="MuiDrawer-root MuiDrawer-docked closed css-1boy60f-MuiDrawer-docked-drawer-drawerClose"
   >
     <div
-      className="MuiPaper-root MuiDrawer-paper closed makeStyles-drawerClose MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft MuiPaper-elevation0"
+      className="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiDrawer-paper closed MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft css-1222sxd-MuiPaper-root-MuiDrawer-paper-drawerClose"
     >
       <svg
-        className="makeStyles-logo"
+        aria-label="toggle menu"
+        className="css-v4r7lq-logo"
         onClick={[Function]}
         role="button"
       />

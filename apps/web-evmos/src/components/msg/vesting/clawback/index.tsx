@@ -1,11 +1,11 @@
 import Name from '@/components/name';
 import MsgClawback from '@/models/msg/vesting/msg_clawback';
-import { useProfileRecoil } from '@/recoil/profiles';
-import Typography from '@material-ui/core/Typography';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
+import Typography from '@mui/material/Typography';
 import Trans from 'next-translate/Trans';
-import React from 'react';
+import React, { FC } from 'react';
 
-const Clawback: React.FC<{ message: MsgClawback }> = (props) => {
+const Clawback: FC<{ message: MsgClawback }> = (props) => {
   const { message } = props;
 
   const account = useProfileRecoil(message.accountAddress);

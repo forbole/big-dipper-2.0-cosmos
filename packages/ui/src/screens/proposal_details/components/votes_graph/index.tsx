@@ -2,18 +2,17 @@ import Box from '@/components/box';
 import InfoPopover from '@/components/info_popover';
 import QuorumExplanation from '@/screens/proposal_details/components/votes_graph/components/quorum_explanation';
 import { useVotesGraph } from '@/screens/proposal_details/components/votes_graph/hooks';
-import { useStyles } from '@/screens/proposal_details/components/votes_graph/styles';
+import useStyles from '@/screens/proposal_details/components/votes_graph/styles';
 import { formatGraphData } from '@/screens/proposal_details/components/votes_graph/utils';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import Big from 'big.js';
-import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
-import React from 'react';
+import { FC } from 'react';
 import { Cell, Pie, PieChart } from 'recharts';
 
-const VotesGraph: React.FC<ComponentDefault> = (props) => {
-  const { classes, theme } = useStyles();
+const VotesGraph: FC<ComponentDefault> = (props) => {
+  const { classes, cx, theme } = useStyles();
   const { t } = useTranslation('proposals');
   const { state } = useVotesGraph();
   const { votes } = state;
@@ -38,7 +37,7 @@ const VotesGraph: React.FC<ComponentDefault> = (props) => {
       : '0%';
 
   return (
-    <Box className={classnames(props.className, classes.root)}>
+    <Box className={cx(classes.root, props.className)}>
       <div className={classes.pie}>
         <PieChart width={250} height={250}>
           <Pie
@@ -72,7 +71,7 @@ const VotesGraph: React.FC<ComponentDefault> = (props) => {
         {formattedData
           .filter((x) => String(x.name) !== 'empty')
           .map((x) => (
-            <div key={x.name} className={classnames(classes.voteItem, x.name)}>
+            <div key={x.name} className={cx(classes.voteItem, x.name)}>
               <Typography variant="caption">
                 {t(x.name)} ({x.percentage})
               </Typography>

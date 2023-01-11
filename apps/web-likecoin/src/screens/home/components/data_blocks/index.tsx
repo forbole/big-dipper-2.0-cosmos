@@ -1,16 +1,13 @@
 import SingleBlock from '@/screens/home/components/data_blocks/components/single_block';
 import { useDataBlocks } from '@/screens/home/components/data_blocks/hooks';
-import { useStyles } from '@/screens/home/components/data_blocks/styles';
-import classnames from 'classnames';
+import useStyles from '@/screens/home/components/data_blocks/styles';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
-import React from 'react';
+import React, { FC } from 'react';
 
-const DataBlocks: React.FC<{
-  className?: string;
-}> = ({ className }) => {
+const DataBlocks: FC<ComponentDefault> = ({ className }) => {
   const { t } = useTranslation('home');
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const { state } = useDataBlocks();
   const data = [
     {
@@ -39,7 +36,7 @@ const DataBlocks: React.FC<{
   ];
 
   return (
-    <div className={classnames(classes.root, className)}>
+    <div className={cx(classes.root, className)}>
       {data.map((x) => (
         <SingleBlock
           key={x.key}

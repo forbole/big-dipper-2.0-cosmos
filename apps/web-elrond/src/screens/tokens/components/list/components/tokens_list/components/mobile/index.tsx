@@ -1,18 +1,19 @@
-import React from 'react';
+import React, { FC, Fragment } from 'react';
 import numeral from 'numeral';
 import useTranslation from 'next-translate/useTranslation';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
-import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
+import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
 import AvatarName from '@/components/avatar_name';
 import { TOKEN_DETAILS } from '@/utils/go_to_page';
 import type { TokenType } from '@/screens/tokens/components/list/types';
-import { useStyles } from '@/screens/tokens/components/list/components/tokens_list/components/mobile/styles';
+import useStyles from '@/screens/tokens/components/list/components/tokens_list/components/mobile/styles';
 
-const Mobile: React.FC<{ items: TokenType[] } & ComponentDefault> = (props) => {
+const Mobile: FC<{ className?: string; items: TokenType[] }> = (props) => {
   const { t } = useTranslation('tokens');
-  const classes = useStyles();
-  const formattedItems = props.items.map((x) => ({
+  const { classes } = useStyles();
+  const formattedItems = props.items.map((x, i) => ({
+    key: `${x.identifier}-${i}`,
     token: (
       <AvatarName imageUrl={x.imageUrl} name={x.name} address={x.identifier} href={TOKEN_DETAILS} />
     ),
@@ -33,8 +34,7 @@ const Mobile: React.FC<{ items: TokenType[] } & ComponentDefault> = (props) => {
   return (
     <div className={props.className}>
       {formattedItems?.map((x, i) => (
-        // eslint-disable-next-line react/no-array-index-key
-        <React.Fragment key={`${x.identifier}-${i}`}>
+        <Fragment key={x.key}>
           <div className={classes.root}>
             <div className={classes.item}>
               <Typography variant="h4" className="label">
@@ -77,7 +77,7 @@ const Mobile: React.FC<{ items: TokenType[] } & ComponentDefault> = (props) => {
             </div>
           </div>
           {i !== formattedItems.length - 1 && <Divider />}
-        </React.Fragment>
+        </Fragment>
       ))}
     </div>
   );

@@ -1,34 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: Home/Transactions/Mobile matches snapshot 1`] = `
-<div
-  className=""
->
+<div>
   <div
     block={
       <ForwardRef(LinkComponent)
         href="/blocks/2000"
-        passHref={true}
       >
-        <WithStyles(ForwardRef(Typography))
-          component="a"
-          variant="body1"
-        >
-          2,000
-        </WithStyles(ForwardRef(Typography))>
+        2,000
       </ForwardRef(LinkComponent)>
     }
     hash={
       <ForwardRef(LinkComponent)
         href="/transactions/76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857"
-        passHref={true}
       >
-        <WithStyles(ForwardRef(Typography))
-          component="a"
-          variant="body1"
-        >
-          76nwV8zz8tLz97S...hQ857
-        </WithStyles(ForwardRef(Typography))>
+        76nwV8zz8tLz97S...hQ857
       </ForwardRef(LinkComponent)>
     }
     id="SingleTransactionMobile"

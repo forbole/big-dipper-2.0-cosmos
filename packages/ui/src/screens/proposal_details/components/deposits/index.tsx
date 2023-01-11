@@ -1,41 +1,27 @@
 import Box from '@/components/box';
 import { usePagination, useScreenSize } from '@/hooks';
-import { useProfilesRecoil } from '@/recoil/profiles';
+import useShallowMemo from '@/hooks/useShallowMemo';
+import Desktop from '@/screens/proposal_details/components/deposits/components/desktop';
+import Mobile from '@/screens/proposal_details/components/deposits/components/mobile';
 import Paginate from '@/screens/proposal_details/components/deposits/components/paginate';
 import { useDeposits } from '@/screens/proposal_details/components/deposits/hooks';
-import { useStyles } from '@/screens/proposal_details/components/deposits/styles';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
+import useStyles from '@/screens/proposal_details/components/deposits/styles';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
-import dynamic from 'next/dynamic';
-import React from 'react';
+import { FC, useMemo } from 'react';
 
-const Desktop = dynamic(
-  () => import('@/screens/proposal_details/components/deposits/components/desktop')
-);
-const Mobile = dynamic(
-  () => import('@/screens/proposal_details/components/deposits/components/mobile')
-);
-
-const Deposits: React.FC<ComponentDefault> = (props) => {
+const Deposits: FC<ComponentDefault> = (props) => {
   const { isDesktop } = useScreenSize();
   const { t } = useTranslation('proposals');
   const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange, sliceItems } =
     usePagination({});
   const { state } = useDeposits();
-
-  const classes = useStyles();
-
-  const slicedItems = sliceItems(state.data);
-
-  const dataProfiles = useProfilesRecoil(slicedItems.map((x) => x.user));
-  const items = slicedItems.map((x, i) => ({
-    ...x,
-    user: dataProfiles[i],
-  }));
+  const { classes, cx } = useStyles();
+  const dataMemo = useShallowMemo(state.data);
+  const items = useMemo(() => sliceItems(dataMemo), [dataMemo, sliceItems]);
 
   return (
-    <Box className={classnames(props.className, classes.root)}>
+    <Box className={cx(classes.root, props.className)}>
       <Typography className={classes.title} variant="h2">
         {t('deposits')}
       </Typography>

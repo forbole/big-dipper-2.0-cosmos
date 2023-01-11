@@ -1,18 +1,25 @@
-import { useStyles } from '@/screens/validators/components/list/components/voting_power/styles';
-import Typography from '@material-ui/core/Typography';
-import classnames from 'classnames';
-import React from 'react';
+import useStyles from '@/screens/validators/components/list/components/voting_power/styles';
+import Typography from '@mui/material/Typography';
+import React, { FC } from 'react';
 
-const VotingPower: React.FC<{
+type VotingPowerProps = {
   className?: string;
   percentage: number;
   percentDisplay: string;
   content: string;
   topVotingPower: boolean;
-}> = ({ className, percentage, content, percentDisplay, topVotingPower }) => {
-  const classes = useStyles(percentage, topVotingPower);
+};
+
+const VotingPower: FC<VotingPowerProps> = ({
+  className,
+  percentage,
+  content,
+  percentDisplay,
+  topVotingPower,
+}) => {
+  const { classes, cx } = useStyles({ percentage, topVotingPower });
   return (
-    <div className={classnames(className, classes.root)}>
+    <div className={cx(classes.root, className)}>
       <div className={classes.content}>
         <Typography variant="body1">{content}</Typography>
         <Typography variant="body1" className="percentage">
