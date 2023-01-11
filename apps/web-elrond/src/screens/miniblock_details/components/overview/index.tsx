@@ -39,7 +39,7 @@ const Overview: FC<OverviewType & ComponentDefault> = (props) => {
       key: 'senderBlockHash',
       label: t('senderBlockHash'),
       detail: (
-        <Link shallow href={BLOCK_DETAILS(props.senderBlockHash)}>
+        <Link shallow prefetch={false} href={BLOCK_DETAILS(props.senderBlockHash)}>
           {props.senderBlockHash}
         </Link>
       ),
@@ -48,7 +48,7 @@ const Overview: FC<OverviewType & ComponentDefault> = (props) => {
       key: 'receiverBlockHash',
       label: t('receiverBlockHash'),
       detail: (
-        <Link shallow href={BLOCK_DETAILS(props.receiverBlockHash)}>
+        <Link shallow prefetch={false} href={BLOCK_DETAILS(props.receiverBlockHash)}>
           {props.receiverBlockHash}
         </Link>
       ),

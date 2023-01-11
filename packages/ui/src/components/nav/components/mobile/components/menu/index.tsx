@@ -44,6 +44,7 @@ const Menu = (props: MenuProps) => {
             .map((l) => (
               <div key={l}>
                 <Link
+                  shallow
                   href={{
                     pathname: router.pathname,
                     query: router.query,

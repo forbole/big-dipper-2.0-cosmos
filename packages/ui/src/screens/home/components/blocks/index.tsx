@@ -37,6 +37,7 @@ const Blocks: FC<ComponentDefault> = ({ className }) => {
           )}
           <Divider className={classes.mobile} />
           <Link
+            shallow
             href={BLOCKS}
             className={cx(classes.seeMoreFooter, classes.mobile, 'button')}
             aria-label="see more blocks"

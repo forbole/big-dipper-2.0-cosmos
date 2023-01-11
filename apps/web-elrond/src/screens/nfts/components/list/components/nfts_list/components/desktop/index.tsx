@@ -19,7 +19,7 @@ const Desktop: FC<{ className?: string; items: NFTTypes[] }> = (props) => {
     key: `${x.identifier}-${i}`,
     identifier: x.identifier,
     nft: (
-      <Link shallow href={NFT_DETAILS(x.identifier)} className="value">
+      <Link shallow prefetch={false} href={NFT_DETAILS(x.identifier)} className="value">
         {x.name}
       </Link>
     ),

@@ -44,12 +44,12 @@ const Desktop: FC<DesktopProps> = ({ className, items }) => {
   const formattedData = items.map((x) => ({
     key: `${x.hash}-${x.timestamp}`,
     block: (
-      <Link shallow href={BLOCK_DETAILS(x.height)}>
+      <Link shallow prefetch={false} href={BLOCK_DETAILS(x.height)}>
         {numeral(x.height).format('0,0')}
       </Link>
     ),
     hash: (
-      <Link shallow href={TRANSACTION_DETAILS(x.hash)}>
+      <Link shallow prefetch={false} href={TRANSACTION_DETAILS(x.hash)}>
         {getMiddleEllipsis(x.hash, {
           beginning: 15,
           ending: 15,

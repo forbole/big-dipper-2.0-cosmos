@@ -82,6 +82,7 @@ const Desktop: FC<{ list: ProviderInfo[] }> = ({ list }) => {
     ),
     website: eachProvider.website ? (
       <Link
+        prefetch={false}
         href={
           eachProvider.website.startsWith('https://')
             ? eachProvider.website

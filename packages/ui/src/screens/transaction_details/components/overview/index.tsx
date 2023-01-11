@@ -32,7 +32,7 @@ const Overview: FC<OverviewProps> = ({ className, data }) => {
       key: 'height',
       label: t('height'),
       detail: (
-        <Link shallow href={BLOCK_DETAILS(data.height)} className="value">
+        <Link shallow prefetch={false} href={BLOCK_DETAILS(data.height)} className="value">
           {numeral(data.height).format('0,0')}
         </Link>
       ),

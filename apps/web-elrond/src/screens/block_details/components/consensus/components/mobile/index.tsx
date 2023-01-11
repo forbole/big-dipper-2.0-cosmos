@@ -39,7 +39,7 @@ const ListItem: FC<ListItemProps> = ({
             <Typography variant="h4" className="label">
               {t('validator')}
             </Typography>
-            <Link shallow href={NODE_DETAILS(item)} className="value">
+            <Link shallow prefetch={false} href={NODE_DETAILS(item)} className="value">
               {formattedItem}
             </Link>
           </div>

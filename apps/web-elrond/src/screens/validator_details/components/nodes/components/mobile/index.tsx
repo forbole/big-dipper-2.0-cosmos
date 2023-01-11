@@ -17,7 +17,7 @@ const Mobile: FC<{ className?: string; items: NodeType[] }> = (props) => {
     return {
       key: x.pubkey,
       pubkey: (
-        <Link shallow href={NODE_DETAILS(x.pubkey)} className="value">
+        <Link shallow prefetch={false} href={NODE_DETAILS(x.pubkey)} className="value">
           {getMiddleEllipsis(x.pubkey, {
             beginning: 13,
             ending: 15,

@@ -32,7 +32,7 @@ const BlockRow: FC<BlockRowProps> = ({ style, columnKey, rowIndex, align, item }
   const { classes, cx } = useStyles();
   const formattedItem = {
     height: (
-      <Link shallow href={BLOCK_DETAILS(item.height)} className="value">
+      <Link shallow prefetch={false} href={BLOCK_DETAILS(item.height)} className="value">
         {numeral(item.height).format('0,0')}
       </Link>
     ),

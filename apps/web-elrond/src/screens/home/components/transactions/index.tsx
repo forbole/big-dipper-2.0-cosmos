@@ -32,6 +32,7 @@ const Transactions: FC<ComponentDefault> = (props) => {
           {isDesktop ? <Desktop items={state.items} /> : <Mobile items={state.items} />}
           <Divider className={classes.mobile} />
           <Link
+            shallow
             href={TRANSACTIONS}
             className={cx(classes.seeMoreFooter, classes.mobile, 'button')}
             aria-label="see more txs"

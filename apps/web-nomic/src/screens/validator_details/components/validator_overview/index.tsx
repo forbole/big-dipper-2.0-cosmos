@@ -102,7 +102,12 @@ const ValidatorOverview: FC<ValidatorOverviewProps> = ({ status, overview, class
               className={classes.actionIcons}
               onClick={() => handleCopyToClipboard(overview.selfDelegateAddress)}
             />
-            <Link shallow href={ACCOUNT_DETAILS(overview.selfDelegateAddress)} className="value">
+            <Link
+              shallow
+              prefetch={false}
+              href={ACCOUNT_DETAILS(overview.selfDelegateAddress)}
+              className="value"
+            >
               {!isDesktop
                 ? getMiddleEllipsis(overview.selfDelegateAddress, {
                     beginning: 15,
