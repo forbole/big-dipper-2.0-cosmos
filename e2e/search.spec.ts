@@ -14,8 +14,7 @@ test('search box', async ({ page }) => {
 
   // Test validator address search
   await page
-    .getByPlaceholder(placeholder)
-    .filter({ has: page.locator(':visible') })
+    .locator(`[placeholder=${JSON.stringify(placeholder)}]:visible`)
     .first()
     .click();
   await page
