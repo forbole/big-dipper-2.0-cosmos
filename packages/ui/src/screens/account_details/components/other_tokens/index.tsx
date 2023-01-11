@@ -1,6 +1,6 @@
 import Box from '@/components/box';
 import Pagination from '@/components/pagination';
-import { usePagination, useScreenSize } from '@/hooks';
+import { usePagination } from '@/hooks';
 import useShallowMemo from '@/hooks/useShallowMemo';
 import useStyles from '@/screens/account_details/components/other_tokens/styles';
 import type { OtherTokenType } from '@/screens/account_details/types';
@@ -21,7 +21,6 @@ type OtherTokensProps = {
 
 const OtherTokens: FC<OtherTokensProps> = ({ className, otherTokens }) => {
   const { t } = useTranslation('accounts');
-  const { isDesktop } = useScreenSize();
   const { classes } = useStyles();
   const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange, sliceItems } =
     usePagination({});
@@ -36,12 +35,8 @@ const OtherTokens: FC<OtherTokensProps> = ({ className, otherTokens }) => {
   return (
     <Box className={className}>
       <Typography variant="h2">{t('otherTokens')}</Typography>
-
-      {isDesktop ? (
-        <Desktop className={classes.desktop} items={items} />
-      ) : (
-        <Mobile className={classes.mobile} items={items} />
-      )}
+      <Desktop className={classes.hiddenUntilLg} items={items} />
+      <Mobile className={classes.hiddenWhenLg} items={items} />
       <Pagination
         className={classes.paginate}
         total={count}

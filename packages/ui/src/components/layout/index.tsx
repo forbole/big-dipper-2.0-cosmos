@@ -8,14 +8,13 @@ import { motion, Transition, Variants } from 'framer-motion';
 const bannerLinks = getBannersLinks();
 
 const variants: Variants = {
-  initial: {
-    clipPath: 'inset(0% 0% 100% 0%)',
-  },
-  animate: { clipPath: 'inset(0% 0% 0% 0%)' },
+  initial: { filter: 'blur(4px)' },
+  animate: { filter: 'blur(0px)' },
+  exit: { filter: 'blur(4px)' },
 };
 
 const transition: Transition = {
-  duration: 0.3,
+  duration: 1,
 };
 
 const Layout = (props: LayoutProps) => {
@@ -26,6 +25,7 @@ const Layout = (props: LayoutProps) => {
     <motion.div
       initial="initial"
       animate="animate"
+      exit="exit"
       variants={variants}
       transition={transition}
       className={classes.root}

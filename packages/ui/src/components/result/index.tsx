@@ -1,6 +1,7 @@
 import useStyles from '@/components/result/styles';
 import Typography from '@mui/material/Typography';
-import { Cancel, CheckCircle } from '@mui/icons-material';
+import Cancel from '@mui/icons-material/Cancel';
+import CheckCircle from '@mui/icons-material/CheckCircle';
 import useTranslation from 'next-translate/useTranslation';
 import React, { FC } from 'react';
 

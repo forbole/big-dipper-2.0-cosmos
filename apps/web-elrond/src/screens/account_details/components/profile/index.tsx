@@ -1,5 +1,4 @@
 import Box from '@/components/box';
-import { useScreenSize } from '@/hooks';
 import { useOverview } from '@/screens/account_details/components/profile/hooks';
 import useStyles from '@/screens/account_details/components/profile/styles';
 import type { ProfileType } from '@/screens/account_details/types';
@@ -10,7 +9,6 @@ import { FC } from 'react';
 import CopyIcon from 'shared-utils/assets/icon-copy.svg';
 
 const Profile: FC<{ className?: string; profile: ProfileType }> = ({ className, profile }) => {
-  const { isDesktop } = useScreenSize();
   const { classes, cx } = useStyles();
   const { t } = useTranslation('accounts');
   const { handleCopyToClipboard } = useOverview(t);
@@ -27,12 +25,13 @@ const Profile: FC<{ className?: string; profile: ProfileType }> = ({ className, 
             className={classes.actionIcons}
           />
           <Typography variant="body1" className="value">
-            {!isDesktop
-              ? getMiddleEllipsis(profile.address, {
-                  beginning: 15,
-                  ending: 5,
-                })
-              : profile.address}
+            <span className={classes.hiddenUntilLg}>{profile.address}</span>
+            <span className={classes.hiddenWhenLg}>
+              {getMiddleEllipsis(profile.address, {
+                beginning: 15,
+                ending: 5,
+              })}
+            </span>
           </Typography>
         </div>
       </div>

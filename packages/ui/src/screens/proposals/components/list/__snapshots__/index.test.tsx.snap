@@ -149,13 +149,9 @@ exports[`screen: Proposals/List matches snapshot 1`] = `
   margin-bottom: 16px;
 }
 
-.emotion-12 {
-  display: none;
-}
-
-@media (min-width:1280px) {
+@media (max-width:1279.95px) {
   .emotion-12 {
-    display: block;
+    display: none;
   }
 }
 

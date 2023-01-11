@@ -1,5 +1,5 @@
 import Box from '@/components/box';
-import { useScreenSize, useWindowOrigin } from '@/hooks';
+import { useWindowOrigin } from '@/hooks';
 import { useOverview } from '@/screens/account_details/components/overview/hooks';
 import useStyles from '@/screens/account_details/components/overview/styles';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
@@ -30,7 +30,6 @@ type OverviewProps = {
 };
 
 const Overview: FC<OverviewProps> = ({ className, address, withdrawalAddress }) => {
-  const { isDesktop } = useScreenSize();
   const { location } = useWindowOrigin();
   const { classes, cx } = useStyles();
   const { t } = useTranslation('accounts');
@@ -103,12 +102,13 @@ const Overview: FC<OverviewProps> = ({ className, address, withdrawalAddress }) 
             />
             <ShareIcon onClick={handleOpen} className={classes.actionIcons} />
             <Typography variant="body1" className="value">
-              {!isDesktop
-                ? getMiddleEllipsis(address, {
-                    beginning: 15,
-                    ending: 5,
-                  })
-                : address}
+              <span className={classes.hiddenUntilLg}>{address}</span>
+              <span className={classes.hiddenWhenLg}>
+                {getMiddleEllipsis(address, {
+                  beginning: 15,
+                  ending: 5,
+                })}
+              </span>
             </Typography>
           </div>
         </div>
@@ -123,12 +123,13 @@ const Overview: FC<OverviewProps> = ({ className, address, withdrawalAddress }) 
               onClick={() => handleCopyToClipboard(withdrawalAddress)}
             />
             <Typography variant="body1" className="value">
-              {!isDesktop
-                ? getMiddleEllipsis(withdrawalAddress, {
-                    beginning: 15,
-                    ending: 5,
-                  })
-                : withdrawalAddress}
+              <span className={classes.hiddenUntilLg}>{withdrawalAddress}</span>
+              <span className={classes.hiddenWhenLg}>
+                {getMiddleEllipsis(withdrawalAddress, {
+                  beginning: 15,
+                  ending: 5,
+                })}
+              </span>
             </Typography>
           </div>
         </div>

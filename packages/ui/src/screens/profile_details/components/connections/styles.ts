@@ -1,6 +1,8 @@
+import { sharedStyles } from '@/styles/useSharedStyles';
 import { makeStyles } from 'tss-react/mui';
 
 const useStyles = makeStyles()((theme) => ({
+  ...sharedStyles(theme),
   noWrap: {
     whiteSpace: 'nowrap',
   },

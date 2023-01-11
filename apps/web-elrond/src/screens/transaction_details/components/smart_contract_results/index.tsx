@@ -9,7 +9,7 @@ import { formatNumber } from '@/utils/format_token';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
-import React, { FC, Fragment } from 'react';
+import { FC, Fragment } from 'react';
 
 const SmartContractResults: FC<{ results: ResultType[] }> = (props) => {
   const { t } = useTranslation('transactions');
@@ -43,7 +43,7 @@ const SmartContractResults: FC<{ results: ResultType[] }> = (props) => {
                   </Typography>
                   {x.hash}
                 </div>
-                <div className={cx(classes.item, classes.desktop)}>
+                <div className={cx(classes.item, classes.hiddenUntilLg)}>
                   <Typography variant="h4" className="label">
                     {t('value')}
                   </Typography>
@@ -66,7 +66,7 @@ const SmartContractResults: FC<{ results: ResultType[] }> = (props) => {
                   {x.receiver}
                 </div>
               </div>
-              <div className={cx(classes.item, classes.mobile)}>
+              <div className={cx(classes.item, classes.hiddenWhenLg)}>
                 <Typography variant="h4" className="label">
                   {t('value')}
                 </Typography>

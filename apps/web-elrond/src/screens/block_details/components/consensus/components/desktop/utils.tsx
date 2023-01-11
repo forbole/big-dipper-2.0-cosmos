@@ -21,7 +21,7 @@ export const columns: {
 ];
 
 const FormattedRow: FC<{ consensus: string }> = ({ consensus }) => (
-  <Link shallow href={NODE_DETAILS(consensus)} className="value">
+  <Link shallow prefetch={false} href={NODE_DETAILS(consensus)} className="value">
     {getMiddleEllipsis(consensus, {
       beginning: 40,
       ending: 30,
