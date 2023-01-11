@@ -23,7 +23,7 @@ const Desktop: FC<{ className?: string; items: NodeType[] }> = (props) => {
     return {
       key: `${x.pubkey}-${i}`,
       pubkey: (
-        <Link href={NODE_DETAILS(x.pubkey)} className="value">
+        <Link shallow href={NODE_DETAILS(x.pubkey)} className="value">
           {getMiddleEllipsis(x.pubkey, {
             beginning: 20,
             ending: 20,

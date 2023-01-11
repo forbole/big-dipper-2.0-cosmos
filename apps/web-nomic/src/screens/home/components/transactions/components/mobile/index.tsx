@@ -17,9 +17,13 @@ type MobileProps = {
 const Mobile: FC<MobileProps> = ({ className, items }) => {
   const formattedData = items.map((x) => ({
     key: x.height,
-    block: <Link href={BLOCK_DETAILS(x.height)}>{numeral(x.height).format('0,0')}</Link>,
+    block: (
+      <Link shallow href={BLOCK_DETAILS(x.height)}>
+        {numeral(x.height).format('0,0')}
+      </Link>
+    ),
     hash: (
-      <Link href={TRANSACTION_DETAILS(x.hash)}>
+      <Link shallow href={TRANSACTION_DETAILS(x.hash)}>
         {getMiddleEllipsis(x.hash, {
           beginning: 15,
           ending: 5,

@@ -6,6 +6,7 @@ exports[`screen: Home/Transactions/Mobile matches snapshot 1`] = `
     block={
       <ForwardRef(LinkComponent)
         href="/blocks/2000"
+        shallow={true}
       >
         2,000
       </ForwardRef(LinkComponent)>
@@ -13,6 +14,7 @@ exports[`screen: Home/Transactions/Mobile matches snapshot 1`] = `
     hash={
       <ForwardRef(LinkComponent)
         href="/transactions/76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857"
+        shallow={true}
       >
         76nwV8zz8tLz97S...hQ857
       </ForwardRef(LinkComponent)>

@@ -35,7 +35,7 @@ const Profile: FC<{ className?: string; profile: ProfileType; showRating: boolea
   if (props.profile?.validator) {
     validator = (
       <div className="detail">
-        <Link href={VALIDATOR_DETAILS(props.profile?.identity)} className="value">
+        <Link shallow href={VALIDATOR_DETAILS(props.profile?.identity)} className="value">
           {getMiddleEllipsis(props.profile?.validator, ellipsis)}
         </Link>
       </div>

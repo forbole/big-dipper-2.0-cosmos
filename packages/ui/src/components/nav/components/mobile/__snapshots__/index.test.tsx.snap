@@ -91,6 +91,10 @@ exports[`screen: Nav/Mobile it renders 1`] = `
   }
 }
 
+.emotion-5.emotion-5 h1 {
+  line-height: 56px;
+}
+
 .emotion-6 {
   margin: 0;
   font-size: 2rem;

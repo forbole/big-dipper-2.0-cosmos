@@ -17,7 +17,11 @@ const Vote: FC<{ message: MsgVote }> = (props) => {
   const voterMoniker = voter ? voter?.name : message.voter;
 
   const Proposal = useCallback(
-    () => <Link href={PROPOSAL_DETAILS(message.proposalId)}>#{message.proposalId}</Link>,
+    () => (
+      <Link shallow href={PROPOSAL_DETAILS(message.proposalId)}>
+        #{message.proposalId}
+      </Link>
+    ),
     [message.proposalId]
   );
 

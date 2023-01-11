@@ -45,7 +45,7 @@ const VotingPower: FC<VotingPowerProps> = ({ className, data, status }) => {
         <Typography variant="h4" className="label">
           {t('block')}
         </Typography>
-        <Link href={BLOCK_DETAILS(data.height)} className="value">
+        <Link shallow href={BLOCK_DETAILS(data.height)} className="value">
           {numeral(data.height).format('0,0')}
         </Link>
       </div>

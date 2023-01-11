@@ -96,7 +96,13 @@ const Banner: FC<BannerProps> = ({ index = Math.floor(Math.random() * bannersLin
     <AnimatePresence initial={false}>
       <Box className={classes.root}>
         {isRotated.current && (
-          <Link href={prevBanner.url} target="_blank" rel="noreferrer" key={prevBannerIndex}>
+          <Link
+            prefetch={false}
+            href={prevBanner.url}
+            target="_blank"
+            rel="noreferrer"
+            key={prevBannerIndex}
+          >
             <MotionImage
               src={prevBanner.img}
               fill
@@ -109,7 +115,7 @@ const Banner: FC<BannerProps> = ({ index = Math.floor(Math.random() * bannersLin
             />
           </Link>
         )}
-        <Link href={banner.url} target="_blank" rel="noreferrer" key={bannerIndex}>
+        <Link prefetch={false} href={banner.url} target="_blank" rel="noreferrer" key={bannerIndex}>
           <MotionImage
             src={banner.img}
             fill

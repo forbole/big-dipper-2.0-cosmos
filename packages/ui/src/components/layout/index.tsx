@@ -10,10 +10,8 @@ const bannerLinks = getBannersLinks();
 const variants: Variants = {
   initial: {
     clipPath: 'inset(0% 0% 100% 0%)',
-    transform: 'rotateX(45deg)',
-    transformOrigin: '0 0',
   },
-  animate: { clipPath: 'inset(0% 0% 0% 0%)', transform: 'rotateX(0deg)', transformOrigin: '0 0' },
+  animate: { clipPath: 'inset(0% 0% 0% 0%)' },
 };
 
 const transition: Transition = {

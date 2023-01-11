@@ -39,7 +39,7 @@ const Desktop: FC<{ className?: string; items: TransactionType[] }> = (props) =>
   const formattedItems = props.items.map((x) => ({
     key: `${x.hash}-${x.timestamp}`,
     hash: (
-      <Link href={TRANSACTION_DETAILS(x.hash)} className="value">
+      <Link shallow href={TRANSACTION_DETAILS(x.hash)} className="value">
         {getMiddleEllipsis(x.hash, {
           beginning: 10,
           ending: 5,

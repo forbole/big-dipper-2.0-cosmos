@@ -23,7 +23,7 @@ const Desktop: FC<{ className?: string; items: BlockType[] }> = (props) => {
         num: shard.num,
       }),
       hash: (
-        <Link href={BLOCK_DETAILS(x.hash)} className="value">
+        <Link shallow href={BLOCK_DETAILS(x.hash)} className="value">
           {x.hash}
         </Link>
       ),
