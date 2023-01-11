@@ -72,7 +72,6 @@
     "@graphql-tools/mock": "^8.7.14",
     "@graphql-tools/schema": "^9.0.12",
     "@jest/globals": "^29.3.1",
-    "@keplr-wallet/types": "^0.11.29",
     "@next/eslint-plugin-next": "^13.1.1",
     "@svgr/webpack": "^6.5.1",
     "@testing-library/jest-dom": "^5.16.5",
