@@ -13,29 +13,57 @@ test('search box', async ({ page }) => {
   await waitForReady(page);
 
   // Test validator address search
-  await page.getByPlaceholder(placeholder).first().click();
-  await page.getByPlaceholder(placeholder).first().fill(validatorAddress);
+  await page
+    .getByPlaceholder(placeholder)
+    .filter({ has: page.locator(':visible') })
+    .first()
+    .click();
+  await page
+    .locator(`[placeholder=${JSON.stringify(placeholder)}]:visible`)
+    .first()
+    .fill(validatorAddress);
   await Promise.all([
     page.waitForNavigation({ url: new RegExp(`/validators/${validatorAddress}`) }),
-    page.getByPlaceholder(placeholder).first().press('Enter'),
+    page
+      .locator(`[placeholder=${JSON.stringify(placeholder)}]:visible`)
+      .first()
+      .press('Enter'),
   ]);
   await waitForReady(page);
 
   // Test address search
-  await page.getByPlaceholder(placeholder).first().click();
-  await page.getByPlaceholder(placeholder).first().fill(address);
+  await page
+    .locator(`[placeholder=${JSON.stringify(placeholder)}]:visible`)
+    .first()
+    .click();
+  await page
+    .locator(`[placeholder=${JSON.stringify(placeholder)}]:visible`)
+    .first()
+    .fill(address);
   await Promise.all([
     page.waitForNavigation({ url: new RegExp(`/accounts/${address}`) }),
-    page.getByPlaceholder(placeholder).first().press('Enter'),
+    page
+      .locator(`[placeholder=${JSON.stringify(placeholder)}]:visible`)
+      .first()
+      .press('Enter'),
   ]);
   await waitForReady(page);
 
   // Test transaction hash search
-  await page.getByPlaceholder(placeholder).first().click();
-  await page.getByPlaceholder(placeholder).first().fill(transactionHash);
+  await page
+    .locator(`[placeholder=${JSON.stringify(placeholder)}]:visible`)
+    .first()
+    .click();
+  await page
+    .locator(`[placeholder=${JSON.stringify(placeholder)}]:visible`)
+    .first()
+    .fill(transactionHash);
   await Promise.all([
     page.waitForNavigation({ url: new RegExp(`/transactions/${transactionHash}`) }),
-    page.getByPlaceholder(placeholder).press('Enter'),
+    page
+      .locator(`[placeholder=${JSON.stringify(placeholder)}]:visible`)
+      .first()
+      .press('Enter'),
   ]);
   await waitForReady(page);
 });
