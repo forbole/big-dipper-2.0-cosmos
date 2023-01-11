@@ -32,7 +32,7 @@ const InstallKeplrWalletDialog: FC<InstallKeplrWalletDialogProps> = ({
   return (
     <div>
       <Dialog maxWidth="md" onClose={onClose} open={open} className={classes.dialog}>
-        <DialogTitle disableTypography>
+        <DialogTitle>
           <div className={classes.warningMsg}>
             <div>
               <Typography variant="h2" align="center" className={classes.msgHeader}>

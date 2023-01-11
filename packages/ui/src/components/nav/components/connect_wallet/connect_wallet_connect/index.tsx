@@ -29,7 +29,7 @@ const ConnectWalletConnectDialog: FC<ConnectWalletConnectDialogProps> = ({ open,
   return (
     <div>
       <Dialog maxWidth="md" onClose={onClose} open={open} className={classes.dialog}>
-        <DialogTitle disableTypography>
+        <DialogTitle>
           <div>
             <div className={classes.grayDot} />
             <Typography variant="h2" className={classes.walletConnectHeader}>
