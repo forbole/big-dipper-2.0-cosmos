@@ -78,10 +78,7 @@ const ListItem: FC<ListItemProps> = ({ index, style, setRowHeight, classes, item
       'Null'
     ),
     website: item.website ? (
-      <Link
-        shallow
-        href={item.website.startsWith('https://') ? item.website : `https://${item.website}`}
-      >
+      <Link href={item.website.startsWith('https://') ? item.website : `https://${item.website}`}>
         <div>
           <Typography variant="body1" component="a">
             {item.website.length <= 13
