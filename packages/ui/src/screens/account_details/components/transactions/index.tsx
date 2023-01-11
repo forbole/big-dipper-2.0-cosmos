@@ -1,6 +1,7 @@
 import Box from '@/components/box';
 import TransactionsList from '@/components/transactions_list';
 import TransactionsListDetails from '@/components/transactions_list_details';
+import ExportCSVButton from '@/components/export_csv';
 import { readTx } from '@/recoil/settings';
 import { useTransactions } from '@/screens/account_details/components/transactions/hooks';
 import useStyles from '@/screens/account_details/components/transactions/styles';
@@ -23,6 +24,8 @@ const Transactions: FC<ComponentDefault> = (props) => {
   return (
     <Box className={cx(classes.root, props.className)}>
       <Typography variant="h2">{t('transactions')}</Typography>
+      {/* add export button */}
+      <ExportCSVButton transactions={state.data} itemCount={itemCount} />
       <div className={classes.list}>
         {txListFormat === 'compact' ? (
           <TransactionsList

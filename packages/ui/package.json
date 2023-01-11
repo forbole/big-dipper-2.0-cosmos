@@ -112,6 +112,7 @@
     "jest-presets": "*",
     "jest-transform-stub": "^2.0.0",
     "jest-watch-typeahead": "^2.2.1",
+    "react-csv": "^2.2.2",
     "react-test-renderer": "^18.2.0",
     "ts-jest": "^29.0.3",
     "ts-node": "^10.9.1",
