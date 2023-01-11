@@ -21,4 +21,4 @@ I have...
 - [ ] provided a link to the relevant issue or specification
 - [ ] reviewed "Files changed" and left comments if necessary
 - [ ] confirmed all CI checks have passed
-- [ ] added an changeset via [`yarn && yarn changeset`](https://github.com/changesets/changesets/blob/main/docs/adding-a-changeset.md)
+- [ ] added a changeset via [`yarn && yarn changeset`](https://github.com/changesets/changesets/blob/main/docs/adding-a-changeset.md)
