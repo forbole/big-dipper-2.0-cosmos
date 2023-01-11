@@ -53,7 +53,7 @@ const BlockRow: FC<BlockRowProps> = ({ item }) => {
 
   const formattedData = {
     height: (
-      <Link href={BLOCK_DETAILS(item.height)} className="value">
+      <Link shallow href={BLOCK_DETAILS(item.height)} className="value">
         {numeral(item.height).format('0,0')}
       </Link>
     ),

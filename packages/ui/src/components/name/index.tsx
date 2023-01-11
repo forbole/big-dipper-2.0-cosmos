@@ -13,7 +13,7 @@ type NameProps = {
 const Name: FC<NameProps> = ({ className, address, name, href = ADDRESS_DETAILS }) => {
   const { classes, cx } = useStyles();
   return (
-    <Link href={href(address)} className={cx(classes.root, className)}>
+    <Link shallow href={href(address)} className={cx(classes.root, className)}>
       {name}
     </Link>
   );

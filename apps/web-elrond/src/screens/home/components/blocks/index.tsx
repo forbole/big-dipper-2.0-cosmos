@@ -23,7 +23,7 @@ const Blocks: FC<ComponentDefault> = (props) => {
     <Box className={props.className}>
       <div className={classes.label}>
         <Typography variant="h2">{t('latestBlocks')}</Typography>
-        <Link href={BLOCKS} className="button" aria-label="see more blocks">
+        <Link shallow href={BLOCKS} className="button" aria-label="see more blocks">
           {t('seeMore')}
         </Link>
       </div>

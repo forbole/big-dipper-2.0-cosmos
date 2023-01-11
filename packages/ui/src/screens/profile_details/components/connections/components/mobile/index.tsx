@@ -45,7 +45,7 @@ const Mobile: FC<MobileProps> = ({ className, items }) => {
                 </Typography>
                 <Typography variant="body1" className="value">
                   {checkIdentifier && (
-                    <Link href={ACCOUNT_DETAILS(x.identifier)} className="value">
+                    <Link shallow href={ACCOUNT_DETAILS(x.identifier)} className="value">
                       {x.identifier}
                     </Link>
                   )}

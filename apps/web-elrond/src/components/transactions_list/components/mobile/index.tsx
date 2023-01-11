@@ -16,7 +16,7 @@ const Mobile: FC<{ className?: string; items: TransactionType[] }> = (props) => 
   const formattedItems = props.items.map((x) => ({
     key: x.hash,
     hash: (
-      <Link href={TRANSACTION_DETAILS(x.hash)} className="value">
+      <Link shallow href={TRANSACTION_DETAILS(x.hash)} className="value">
         {getMiddleEllipsis(x.hash, {
           beginning: 13,
           ending: 15,
