@@ -22,8 +22,7 @@ import {
   writeShowWalletDetails,
 } from '@/recoil/wallet';
 import { OfflineAminoSigner, OfflineDirectSigner } from '@keplr-wallet/types';
-// import { toBase64 } from '@cosmjs/encoding';
-// import base64js from 'base64-js';
+import { toBase64 } from '@cosmjs/encoding';
 import { PubKey } from '@/recoil/user/atom';
 
 const chainId = process?.env?.NEXT_PUBLIC_CHAIN_ID ?? 'cosmoshub-4';
@@ -113,14 +112,14 @@ const useConnectWalletList = () => {
   });
 
   const handleSetUserState = useCallback((stateChange: (prevState: UserState) => UserState) => {
-    setUserState((prevState) => {
+    setUserState(prevState => {
       const newState = stateChange(prevState);
       return R.equals(prevState, newState) ? prevState : newState;
     });
   }, []);
 
   const resetUserState = () => {
-    handleSetUserState((prevState) => ({
+    handleSetUserState(prevState => ({
       ...prevState,
       address: userAddress,
       pubKey: userPubKey,
@@ -148,7 +147,7 @@ const useConnectWalletList = () => {
 
   const handleSetWalletState = useCallback(
     (stateChange: (prevState: WalletState) => WalletState) => {
-      setWalletState((prevState) => {
+      setWalletState(prevState => {
         const newState = stateChange(prevState);
         return R.equals(prevState, newState) ? prevState : newState;
       });
@@ -157,7 +156,7 @@ const useConnectWalletList = () => {
   );
 
   const resetWalletState = () => {
-    handleSetWalletState((prevState) => ({
+    handleSetWalletState(prevState => ({
       ...prevState,
       openLoginDialog,
       walletSelection,
@@ -372,14 +371,12 @@ const useConnectWalletList = () => {
 
   const encodeSecp256k1PubKey = (pubKey: Uint8Array): PubKey => ({
     type: 'tendermint/PubKeySecp256k1',
-    value: '',
-    // toBase64(pubKey),
+    value: toBase64(pubKey),
   });
 
   const encodeEd25519PubKey = (pubKey: Uint8Array): PubKey => ({
     type: 'tendermint/PubKeyEd25519',
-    value: '',
-    // toBase64(pubKey),
+    value: toBase64(pubKey),
   });
 
   const isSecp256k1PubKey = (pubKey: Uint8Array) => {
@@ -395,8 +392,6 @@ const useConnectWalletList = () => {
     }
     return true;
   };
-
-  const toBase64 = (data: Uint8Array) => base64js.fromByteArray(data);
 
   return {
     showWalletDetails,
