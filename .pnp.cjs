@@ -12432,7 +12432,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/eslint-config-custom/",\
           "packageDependencies": [\
             ["eslint-config-custom", "workspace:packages/eslint-config-custom"],\
-            ["@cosmjs/encoding", "npm:0.27.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
             ["@keplr-wallet/types", "npm:0.11.29"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
@@ -15751,7 +15750,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/jest-presets/",\
           "packageDependencies": [\
             ["jest-presets", "workspace:packages/jest-presets"],\
-            ["@cosmjs/encoding", "npm:0.27.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
             ["@keplr-wallet/types", "npm:0.11.29"],\
             ["@types/esprima", "npm:4.0.3"],\
@@ -20038,7 +20036,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/shared-utils/",\
           "packageDependencies": [\
             ["shared-utils", "workspace:packages/shared-utils"],\
-            ["@cosmjs/encoding", "npm:0.27.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
             ["@keplr-wallet/types", "npm:0.11.29"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
@@ -21482,7 +21479,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/tsconfig/",\
           "packageDependencies": [\
             ["tsconfig", "workspace:packages/tsconfig"],\
-            ["@cosmjs/encoding", "npm:0.27.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
             ["@keplr-wallet/types", "npm:0.11.29"],\
             ["@types/esprima", "npm:4.0.3"],\
@@ -21819,7 +21815,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["ui", "workspace:packages/ui"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.3"],\
-            ["@cosmjs/encoding", "npm:0.27.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
             ["@emotion/cache", "npm:11.10.5"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
@@ -22225,7 +22220,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["web", "workspace:apps/web"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.3"],\
-            ["@cosmjs/encoding", "npm:0.27.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
             ["@emotion/cache", "npm:11.10.5"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
@@ -22345,7 +22339,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["web-agoric", "workspace:apps/web-agoric"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.3"],\
-            ["@cosmjs/encoding", "npm:0.27.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
             ["@emotion/cache", "npm:11.10.5"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
@@ -22462,7 +22455,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["web-akash", "workspace:apps/web-akash"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.3"],\
-            ["@cosmjs/encoding", "npm:0.27.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
             ["@emotion/cache", "npm:11.10.5"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
@@ -22579,7 +22571,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["web-assetmantle", "workspace:apps/web-assetmantle"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.3"],\
-            ["@cosmjs/encoding", "npm:0.27.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
             ["@emotion/cache", "npm:11.10.5"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
@@ -22696,7 +22687,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["web-band", "workspace:apps/web-band"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.3"],\
-            ["@cosmjs/encoding", "npm:0.27.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
             ["@emotion/cache", "npm:11.10.5"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
@@ -22813,7 +22803,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["web-bitsong", "workspace:apps/web-bitsong"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.3"],\
-            ["@cosmjs/encoding", "npm:0.27.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
             ["@emotion/cache", "npm:11.10.5"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
@@ -22930,7 +22919,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["web-comdex", "workspace:apps/web-comdex"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.3"],\
-            ["@cosmjs/encoding", "npm:0.27.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
             ["@emotion/cache", "npm:11.10.5"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
@@ -23047,7 +23035,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["web-cosmos", "workspace:apps/web-cosmos"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.3"],\
-            ["@cosmjs/encoding", "npm:0.27.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
             ["@emotion/cache", "npm:11.10.5"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
@@ -23164,7 +23151,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["web-crescent", "workspace:apps/web-crescent"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.3"],\
-            ["@cosmjs/encoding", "npm:0.27.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
             ["@emotion/cache", "npm:11.10.5"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
@@ -23281,7 +23267,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["web-desmos", "workspace:apps/web-desmos"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.3"],\
-            ["@cosmjs/encoding", "npm:0.27.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
             ["@emotion/cache", "npm:11.10.5"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
@@ -23398,7 +23383,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["web-elrond", "workspace:apps/web-elrond"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.3"],\
-            ["@cosmjs/encoding", "npm:0.27.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
             ["@emotion/cache", "npm:11.10.5"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
@@ -23515,7 +23499,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["web-emoney", "workspace:apps/web-emoney"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.3"],\
-            ["@cosmjs/encoding", "npm:0.27.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
             ["@emotion/cache", "npm:11.10.5"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
@@ -23632,7 +23615,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["web-evmos", "workspace:apps/web-evmos"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.3"],\
-            ["@cosmjs/encoding", "npm:0.27.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
             ["@emotion/cache", "npm:11.10.5"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
@@ -23749,7 +23731,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["web-likecoin", "workspace:apps/web-likecoin"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.3"],\
-            ["@cosmjs/encoding", "npm:0.27.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
             ["@emotion/cache", "npm:11.10.5"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
@@ -23866,7 +23847,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["web-nomic", "workspace:apps/web-nomic"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.3"],\
-            ["@cosmjs/encoding", "npm:0.27.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
             ["@emotion/cache", "npm:11.10.5"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
@@ -23983,7 +23963,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["web-nym", "workspace:apps/web-nym"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.3"],\
-            ["@cosmjs/encoding", "npm:0.27.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
             ["@emotion/cache", "npm:11.10.5"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
@@ -24100,7 +24079,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["web-osmosis", "workspace:apps/web-osmosis"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.3"],\
-            ["@cosmjs/encoding", "npm:0.27.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
             ["@emotion/cache", "npm:11.10.5"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
@@ -24217,7 +24195,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["web-persistence", "workspace:apps/web-persistence"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.3"],\
-            ["@cosmjs/encoding", "npm:0.27.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
             ["@emotion/cache", "npm:11.10.5"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
@@ -24334,7 +24311,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["web-provenance", "workspace:apps/web-provenance"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.3"],\
-            ["@cosmjs/encoding", "npm:0.27.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
             ["@emotion/cache", "npm:11.10.5"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
@@ -24451,7 +24427,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["web-regen", "workspace:apps/web-regen"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.3"],\
-            ["@cosmjs/encoding", "npm:0.27.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
             ["@emotion/cache", "npm:11.10.5"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
@@ -24568,7 +24543,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["web-rizon", "workspace:apps/web-rizon"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.3"],\
-            ["@cosmjs/encoding", "npm:0.27.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
             ["@emotion/cache", "npm:11.10.5"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
@@ -24685,7 +24659,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["web-shentu", "workspace:apps/web-shentu"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.3"],\
-            ["@cosmjs/encoding", "npm:0.27.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
             ["@emotion/cache", "npm:11.10.5"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
@@ -24802,7 +24775,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["web-sifchain", "workspace:apps/web-sifchain"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.3"],\
-            ["@cosmjs/encoding", "npm:0.27.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
             ["@emotion/cache", "npm:11.10.5"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
@@ -24935,7 +24907,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["web-stride", "workspace:apps/web-stride"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.3"],\
-            ["@cosmjs/encoding", "npm:0.27.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
             ["@emotion/cache", "npm:11.10.5"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\

@@ -11,7 +11,6 @@
     "access": "public"
   },
   "devDependencies": {
-    "@cosmjs/encoding": "^0.27.1",
     "@cosmjs/launchpad": "^0.27.1",
     "@keplr-wallet/types": "^0.11.29",
     "@types/esprima": "^4.0.3",

@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "@apollo/client": "^3.7.3",
-    "@cosmjs/encoding": "^0.27.1",
     "@emotion/react": "^11.10.5",
     "@emotion/server": "^11.10.0",
     "@emotion/styled": "^11.10.5",
@@ -64,7 +63,6 @@
     "ws": "^8.12.0"
   },
   "devDependencies": {
-    "@cosmjs/encoding": "^0.27.1",
     "@cosmjs/launchpad": "^0.27.1",
     "@emotion/cache": "^11.10.5",
     "@graphql-codegen/cli": "^2.16.3",
