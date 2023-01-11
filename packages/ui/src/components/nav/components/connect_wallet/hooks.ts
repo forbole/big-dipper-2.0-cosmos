@@ -25,8 +25,8 @@ import { OfflineAminoSigner, OfflineDirectSigner } from '@keplr-wallet/types';
 import { toBase64 } from '@cosmjs/encoding';
 import { PubKey } from '@/recoil/user/atom';
 
-const chainId = process?.env?.NEXT_PUBLIC_CHAIN_ID ?? 'cosmoshub-4';
-const keplrURL = process?.env?.NEXT_PUBLIC_LCD_KEPLR_URL ?? 'https://lcd-cosmoshub.keplr.app/rest';
+const chainId = process?.env?.NEXT_PUBLIC_CHAIN_ID ?? '';
+const keplrURL = process?.env?.NEXT_PUBLIC_LCD_KEPLR_URL ?? '';
 
 type UserState = {
   address: string;
@@ -112,14 +112,14 @@ const useConnectWalletList = () => {
   });
 
   const handleSetUserState = useCallback((stateChange: (prevState: UserState) => UserState) => {
-    setUserState(prevState => {
+    setUserState((prevState: UserState) => {
       const newState = stateChange(prevState);
       return R.equals(prevState, newState) ? prevState : newState;
     });
   }, []);
 
   const resetUserState = () => {
-    handleSetUserState(prevState => ({
+    handleSetUserState((prevState: UserState) => ({
       ...prevState,
       address: userAddress,
       pubKey: userPubKey,
@@ -147,7 +147,7 @@ const useConnectWalletList = () => {
 
   const handleSetWalletState = useCallback(
     (stateChange: (prevState: WalletState) => WalletState) => {
-      setWalletState(prevState => {
+      setWalletState((prevState: WalletState) => {
         const newState = stateChange(prevState);
         return R.equals(prevState, newState) ? prevState : newState;
       });
@@ -156,7 +156,7 @@ const useConnectWalletList = () => {
   );
 
   const resetWalletState = () => {
-    handleSetWalletState(prevState => ({
+    handleSetWalletState((prevState: WalletState) => ({
       ...prevState,
       openLoginDialog,
       walletSelection,
@@ -178,7 +178,14 @@ const useConnectWalletList = () => {
     // handle keplr connection
     await enableChain();
     const offlineSigner = getOfflineSigner();
-    const offlineSignerAddress = await getOfflineSignerAddress(offlineSigner);
+    let offlineSignerAddress;
+    try {
+      offlineSignerAddress = await getOfflineSignerAddress(offlineSigner);
+    } catch (e) {
+      setOpenAuthorizeConnectionDialog(false);
+      return;
+    }
+
     const offlineSignerPubKey = await getOfflineSignerPubKey(offlineSigner);
     const cosmJS = getCosmosClient(offlineSignerAddress, offlineSigner);
 
@@ -187,25 +194,28 @@ const useConnectWalletList = () => {
       localStorage.setItem(ADDRESS_KEY, offlineSignerAddress);
       localStorage.setItem(PUBKEY_KEY, JSON.stringify(offlineSignerPubKey));
       localStorage.setItem(WALLET_NAME_KEY, key.name);
-
-      continueToLoginSuccessDialog();
-
       setUserAddress(offlineSignerAddress);
       setUserPubKey(offlineSignerPubKey ?? { type: '', value: '' });
       setWalletName(key.name);
       setUserIsLoggedIn(true);
+
+      continueToLoginSuccessDialog();
     }
   };
 
   const continueToLoginSuccessDialog = () => {
-    // close the dialog after 3 seconds
-    setTimeout(() => {
-      setOpenAuthorizeConnectionDialog(false);
-      setOpenLoginSuccessDialog(true);
+    const address = localStorage.getItem(ADDRESS_KEY);
+    // check if user is logged in before opening login success dialog
+    if (address !== '') {
+      // close the dialog after 3 seconds
       setTimeout(() => {
-        setOpenLoginSuccessDialog(false);
+        setOpenAuthorizeConnectionDialog(false);
+        setOpenLoginSuccessDialog(true);
+        setTimeout(() => {
+          setOpenLoginSuccessDialog(false);
+        }, 3000);
       }, 3000);
-    }, 3000);
+    }
   };
 
   const continueToPairingDialog = () => {
@@ -246,7 +256,6 @@ const useConnectWalletList = () => {
   const handleCloseLoginSuccessDialog = () => {
     setOpenLoginSuccessDialog(false);
     setWalletOption('');
-    console.log(userState);
   };
 
   const handleCloseSelectNetworkDialog = () => {
