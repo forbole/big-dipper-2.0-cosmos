@@ -18,7 +18,7 @@ const Vote: FC<{ message: MsgVote }> = (props) => {
 
   const Proposal = useCallback(
     () => (
-      <Link shallow prefetch={false} href={PROPOSAL_DETAILS(message.proposalId)}>
+      <Link shallow href={PROPOSAL_DETAILS(message.proposalId)}>
         #{message.proposalId}
       </Link>
     ),

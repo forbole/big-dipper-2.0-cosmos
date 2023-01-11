@@ -1,7 +1,7 @@
 import Box from '@/components/box';
 import Pagination from '@/components/pagination';
 import Search from '@/components/search';
-import { usePagination, useScreenSize } from '@/hooks';
+import { usePagination } from '@/hooks';
 import Desktop from '@/screens/providers/components/providers_list/components/desktop';
 import Mobile from '@/screens/providers/components/providers_list/components/mobile';
 import useStyles from '@/screens/providers/components/providers_list/styles';
@@ -16,7 +16,6 @@ export interface ProvidersListProps extends ComponentDefault {
 }
 
 const ProvidersList: FC<ProvidersListProps> = (props) => {
-  const { isDesktop } = useScreenSize();
   const { classes, cx } = useStyles();
   const { t } = useTranslation('providers');
   const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange } = usePagination({
@@ -24,13 +23,12 @@ const ProvidersList: FC<ProvidersListProps> = (props) => {
   });
   const { handleSearch } = props;
 
-  let component = null;
-
-  if (isDesktop) {
-    component = <Desktop list={props.list.pages[page] || []} />;
-  } else {
-    component = <Mobile list={props.list.pages[page] || []} />;
-  }
+  const component = (
+    <>
+      <Desktop list={props.list.pages[page] || []} className={classes.hiddenUntilLg} />
+      <Mobile list={props.list.pages[page] || []} className={classes.hiddenWhenLg} />
+    </>
+  );
 
   return (
     <Box className={cx(classes.root, props.className)}>

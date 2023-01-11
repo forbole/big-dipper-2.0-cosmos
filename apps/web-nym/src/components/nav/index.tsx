@@ -1,7 +1,6 @@
 import Desktop from '@/components/nav/components/desktop';
 import Mobile from '@/components/nav/components/mobile';
-import useStyles from '@/components/nav/styles';
-import { useScreenSize } from '@/hooks';
+import useSharedStyles from '@/styles/useSharedStyles';
 import { FC } from 'react';
 
 type NavProps = {
@@ -9,12 +8,13 @@ type NavProps = {
 };
 
 const Nav: FC<NavProps> = ({ title }) => {
-  const { classes } = useStyles();
-  const { isDesktop } = useScreenSize();
-  if (isDesktop) {
-    return <Desktop className={classes.desktop} title={title ?? ''} />;
-  }
-  return <Mobile className={classes.mobile} title={title ?? ''} />;
+  const { classes } = useSharedStyles();
+  return (
+    <>
+      <Desktop className={classes.hiddenUntilLg} title={title ?? ''} />
+      <Mobile className={classes.hiddenWhenLg} title={title ?? ''} />
+    </>
+  );
 };
 
 export default Nav;

@@ -8,9 +8,9 @@ import { motion, Transition, Variants } from 'framer-motion';
 const bannerLinks = getBannersLinks();
 
 const variants: Variants = {
-  initial: { opacity: 0.5 },
-  animate: { opacity: 1 },
-  exit: { opacity: 0.5 },
+  initial: { filter: 'blur(4px)' },
+  animate: { filter: 'blur(0px)' },
+  exit: { filter: 'blur(4px)' },
 };
 
 const transition: Transition = {

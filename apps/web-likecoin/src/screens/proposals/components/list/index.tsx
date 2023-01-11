@@ -46,7 +46,7 @@ const ListItem: FC<ListItemProps> = ({
       item.description.length > 200 ? `${item.description.slice(0, 200)}...` : item.description,
     status: item.status,
     title: (
-      <Link shallow prefetch={false} href={PROPOSAL_DETAILS(item.id)} className="value">
+      <Link shallow href={PROPOSAL_DETAILS(item.id)} className="value">
         {item.title}
       </Link>
     ),

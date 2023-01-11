@@ -1,7 +1,6 @@
 import Box from '@/components/box';
 import LoadAndExist from '@/components/load_and_exist';
 import NoData from '@/components/no_data';
-import { useScreenSize } from '@/hooks';
 import useShallowMemo from '@/hooks/useShallowMemo';
 import { useProfilesRecoil } from '@/recoil/profiles/hooks';
 import Desktop from '@/screens/validators/components/list/components/desktop';
@@ -12,7 +11,6 @@ import useStyles from '@/screens/validators/components/list/styles';
 import { FC, ReactNode, useMemo } from 'react';
 
 const List: FC<ComponentDefault> = ({ className }) => {
-  const { isDesktop } = useScreenSize();
   const { classes } = useStyles();
   const { state, handleTabChange, handleSearch, handleSort, sortItems, search } = useValidators();
   const validatorsMemo = useShallowMemo(state.items.map((x) => x.validator));
@@ -26,19 +24,20 @@ const List: FC<ComponentDefault> = ({ className }) => {
 
   if (!items.length) {
     list = <NoData />;
-  } else if (isDesktop) {
-    list = (
-      <Desktop
-        className={classes.desktop}
-        sortDirection={state.sortDirection}
-        sortKey={state.sortKey}
-        handleSort={handleSort}
-        items={items}
-        search={search}
-      />
-    );
   } else {
-    list = <Mobile className={classes.mobile} items={items} search={search} />;
+    list = (
+      <>
+        <Desktop
+          sortDirection={state.sortDirection}
+          sortKey={state.sortKey}
+          handleSort={handleSort}
+          items={items}
+          search={search}
+          className={classes.hiddenUntilLg}
+        />
+        <Mobile items={items} search={search} className={classes.hiddenWhenLg} />
+      </>
+    );
   }
 
   return (

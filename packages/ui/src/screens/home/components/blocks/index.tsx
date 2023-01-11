@@ -2,7 +2,6 @@
 import Box from '@/components/box';
 import Loading from '@/components/loading';
 import NoData from '@/components/no_data';
-import { useScreenSize } from '@/hooks';
 import Desktop from '@/screens/home/components/blocks/components/desktop';
 import Mobile from '@/screens/home/components/blocks/components/mobile';
 import { useBlocks } from '@/screens/home/components/blocks/hooks';
@@ -15,7 +14,6 @@ import Link from 'next/link';
 import { FC } from 'react';
 
 const Blocks: FC<ComponentDefault> = ({ className }) => {
-  const { isDesktop } = useScreenSize();
   const { t } = useTranslation('home');
   const { classes, cx } = useStyles();
   const { state } = useBlocks();
@@ -30,16 +28,13 @@ const Blocks: FC<ComponentDefault> = ({ className }) => {
       </div>
       {state.items.length ? (
         <>
-          {isDesktop ? (
-            <Desktop className={classes.desktop} items={state.items} />
-          ) : (
-            <Mobile className={classes.mobile} items={state.items} />
-          )}
-          <Divider className={classes.mobile} />
+          <Desktop className={classes.hiddenUntilLg} items={state.items} />
+          <Mobile className={classes.hiddenWhenLg} items={state.items} />
+          <Divider className={classes.hiddenWhenLg} />
           <Link
             shallow
             href={BLOCKS}
-            className={cx(classes.seeMoreFooter, classes.mobile, 'button')}
+            className={cx(classes.seeMoreFooter, classes.hiddenWhenLg, 'button')}
             aria-label="see more blocks"
           >
             {t('seeMore')}

@@ -51,9 +51,9 @@ const ListItem: FC<ListItemProps> = ({
   );
 };
 
-const Mobile: FC<{ items: ConsensusType[] }> = (props) => {
+const Mobile: FC<{ items: ConsensusType[]; className?: string }> = (props) => {
   const { listRef, getRowHeight, setRowHeight } = useList();
-  const { classes } = useStyles();
+  const { classes, cx } = useStyles();
 
   const formattedItems = useMemo(
     () =>
@@ -67,7 +67,7 @@ const Mobile: FC<{ items: ConsensusType[] }> = (props) => {
   );
 
   return (
-    <div className={classes.root}>
+    <div className={cx(classes.root, props.className)}>
       <AutoSizer>
         {({ height, width }) => (
           <List

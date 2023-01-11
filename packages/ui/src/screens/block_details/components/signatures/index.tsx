@@ -1,6 +1,5 @@
 import Box from '@/components/box';
 import NoData from '@/components/no_data';
-import { useScreenSize } from '@/hooks';
 import Desktop from '@/screens/block_details/components/signatures/components/desktop';
 import Mobile from '@/screens/block_details/components/signatures/components/mobile';
 import useStyles from '@/screens/block_details/components/signatures/styles';
@@ -13,7 +12,6 @@ type SignaturesProps = ComponentDefault & {
 };
 
 const Signatures: FC<SignaturesProps> = ({ className, signatures }) => {
-  const { isDesktop } = useScreenSize();
   const { t } = useTranslation('blocks');
   const { classes, cx } = useStyles();
 
@@ -26,11 +24,8 @@ const Signatures: FC<SignaturesProps> = ({ className, signatures }) => {
         <NoData />
       ) : (
         <div className={classes.wrapper}>
-          {isDesktop ? (
-            <Desktop className={classes.desktop} signatures={signatures} />
-          ) : (
-            <Mobile className={classes.mobile} signatures={signatures} />
-          )}
+          <Desktop className={classes.hiddenUntilLg} signatures={signatures} />
+          <Mobile className={classes.hiddenWhenLg} signatures={signatures} />
         </div>
       )}
     </Box>

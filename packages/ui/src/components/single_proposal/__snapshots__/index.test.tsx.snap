@@ -95,13 +95,9 @@ exports[`component: SingleProposal matches snapshot 1`] = `
   line-height: 1.167;
 }
 
-.emotion-8 {
-  display: none;
-}
-
-@media (min-width:1280px) {
+@media (max-width:1279.95px) {
   .emotion-8 {
-    display: block;
+    display: none;
   }
 }
 

@@ -2,7 +2,6 @@ import Box from '@/components/box';
 import Layout from '@/components/layout';
 import LoadAndExist from '@/components/load_and_exist';
 import NoData from '@/components/no_data';
-import { useScreenSize } from '@/hooks';
 import Desktop from '@/screens/blocks/components/desktop';
 import Mobile from '@/screens/blocks/components/mobile';
 import { useBlocks } from '@/screens/blocks/hooks';
@@ -13,7 +12,6 @@ import { ReactNode } from 'react';
 
 const Blocks = () => {
   const { t } = useTranslation('blocks');
-  const { isDesktop } = useScreenSize();
   const { classes } = useStyles();
   const { state, loadMoreItems, itemCount, isItemLoaded } = useBlocks();
 
@@ -21,23 +19,24 @@ const Blocks = () => {
 
   if (!state.items.length) {
     box = <NoData />;
-  } else if (isDesktop) {
-    box = (
-      <Desktop
-        items={state.items}
-        itemCount={itemCount}
-        loadMoreItems={loadMoreItems}
-        isItemLoaded={isItemLoaded}
-      />
-    );
   } else {
     box = (
-      <Mobile
-        items={state.items}
-        itemCount={itemCount}
-        loadMoreItems={loadMoreItems}
-        isItemLoaded={isItemLoaded}
-      />
+      <>
+        <Desktop
+          className={classes.hiddenUntilLg}
+          items={state.items}
+          itemCount={itemCount}
+          loadMoreItems={loadMoreItems}
+          isItemLoaded={isItemLoaded}
+        />
+        <Mobile
+          className={classes.hiddenWhenLg}
+          items={state.items}
+          itemCount={itemCount}
+          loadMoreItems={loadMoreItems}
+          isItemLoaded={isItemLoaded}
+        />
+      </>
     );
   }
 

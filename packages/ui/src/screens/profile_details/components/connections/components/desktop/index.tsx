@@ -28,7 +28,7 @@ const Desktop: FC<DesktopProps> = ({ className, items }) => {
     let identity: ReactNode = x.identifier;
     if (new RegExp(`^(${prefix.account})`).test(x.identifier)) {
       identity = (
-        <Link shallow prefetch={false} href={ACCOUNT_DETAILS(x.identifier)} className="value">
+        <Link shallow href={ACCOUNT_DETAILS(x.identifier)} className="value">
           {x.identifier}
         </Link>
       );

@@ -12,12 +12,14 @@ exports[`screen: Validators/List matches snapshot 1`] = `
   }
 }
 
-.emotion-1 {
-  height: 100%;
+@media (max-width:1279.95px) {
+  .emotion-1 {
+    display: none;
+  }
 }
 
 @media (min-width:1280px) {
-  .emotion-1 {
+  .emotion-2 {
     display: none;
   }
 }
@@ -41,6 +43,30 @@ exports[`screen: Validators/List matches snapshot 1`] = `
     >
       <div
         className="emotion-1"
+        handleSort={[Function]}
+        id="Desktop"
+        items={
+          [
+            {
+              "commission": 10,
+              "condition": -Infinity,
+              "jailed": false,
+              "liquidStaking": "Yes",
+              "status": 3,
+              "tombstoned": false,
+              "topVotingPower": true,
+              "validator": undefined,
+              "votingPower": 22,
+              "votingPowerPercent": 5.593712118482551e-10,
+            },
+          ]
+        }
+        search=""
+        sortDirection="asc"
+        sortKey="validator.name"
+      />
+      <div
+        className="emotion-2"
         id="Mobile"
         items={
           [

@@ -9,7 +9,7 @@ import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
-import React, { FC, LegacyRef } from 'react';
+import { FC, LegacyRef } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { VariableSizeGrid as Grid } from 'react-window';
 import CopyIcon from 'shared-utils/assets/icon-copy.svg';
@@ -18,14 +18,12 @@ import WebArrowIcon from 'shared-utils/assets/icon-web-arrow.svg';
 
 const isItemLoaded = (index: number, itemCount: number) => index >= 0 && index < itemCount;
 
-const Desktop: FC<{ list: ProviderInfo[] }> = ({ list }) => {
+const Desktop: FC<{ list: ProviderInfo[]; className?: string }> = ({ list, className }) => {
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
 
   const { classes, cx } = useStyles();
   const { t } = useTranslation('providers');
   const { handleCopyToClipboard } = useAddress(t);
-
-  const className = '';
 
   const itemCount = list.length;
   const listMemo = useShallowMemo(list);

@@ -10,10 +10,10 @@ import VotingPowerExplanation from '@/screens/validators/components/list/compone
 import type { ItemType } from '@/screens/validators/components/list/types';
 import { getValidatorConditionClass } from '@/utils/get_validator_condition';
 import { getValidatorStatus } from '@/utils/get_validator_status';
-import Typography, { type TypographyProps } from '@mui/material/Typography';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
-import React, { CSSProperties, FC, LegacyRef, ReactNode } from 'react';
+import { ComponentProps, CSSProperties, FC, LegacyRef, ReactNode } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { VariableSizeGrid as Grid } from 'react-window';
 
@@ -69,7 +69,7 @@ type GridRowProps = {
   column: string;
   style: CSSProperties;
   rowIndex: number;
-  align?: TypographyProps['align'];
+  align?: ComponentProps<typeof Typography>['align'];
   item: ItemType;
   search: string;
   i: number;

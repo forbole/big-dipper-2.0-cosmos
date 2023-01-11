@@ -27,18 +27,18 @@ const Profile: FC<{ className?: string; profile: OverviewType }> = ({ className,
         <Avatar
           address={profile.operatorAddress}
           imageUrl={imageUrl ?? undefined}
-          className={cx(classes.avatar, classes.desktopAvatar)}
+          className={cx(classes.avatar, classes.hiddenUntilLg)}
         />
         <div>
           <div className="bio__header">
             {/* ======================== */}
-            {/* mobile header */}
+            {/* hiddenWhenLg header */}
             {/* ======================== */}
             <div className={classes.header}>
               <Avatar
                 address={profile.operatorAddress}
                 imageUrl={imageUrl ?? undefined}
-                className={cx(classes.avatar, classes.mobile)}
+                className={cx(classes.avatar, classes.hiddenWhenLg)}
               />
               <div className="header__content">
                 <Typography variant="h2">{name}</Typography>

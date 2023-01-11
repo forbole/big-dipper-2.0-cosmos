@@ -12,7 +12,7 @@ import React, { FC, LegacyRef, useMemo } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { VariableSizeGrid as Grid } from 'react-window';
 
-const Desktop: FC<{ items: ConsensusType[] }> = (props) => {
+const Desktop: FC<{ items: ConsensusType[]; className?: string }> = (props) => {
   const { t } = useTranslation('blocks');
   const { classes, cx } = useStyles();
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
@@ -20,7 +20,7 @@ const Desktop: FC<{ items: ConsensusType[] }> = (props) => {
   const rows = useMemo(() => formatRows(itemsMemo), [itemsMemo]);
 
   return (
-    <div className={classes.root}>
+    <div className={cx(classes.root, props.className)}>
       <AutoSizer onResize={onResize}>
         {({ height, width }) => (
           <>

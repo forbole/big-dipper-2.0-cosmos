@@ -11,7 +11,7 @@ import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import { FC, Fragment } from 'react';
 
-const Mobile: FC<{ items: TransactionType[] }> = (props) => {
+const Mobile: FC<{ className?: string; items: TransactionType[] }> = (props) => {
   const { classes } = useStyles();
   const { t } = useTranslation('transactions');
 
@@ -48,7 +48,7 @@ const Mobile: FC<{ items: TransactionType[] }> = (props) => {
   }));
 
   return (
-    <div>
+    <div className={props.className}>
       {formattedItems?.map((x, i) => (
         <Fragment key={x.key}>
           <div className={classes.root}>

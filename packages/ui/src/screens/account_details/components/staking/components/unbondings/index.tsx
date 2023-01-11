@@ -1,7 +1,7 @@
 import Loading from '@/components/loading';
 import NoData from '@/components/no_data';
 import Pagination from '@/components/pagination';
-import { usePagination, useScreenSize } from '@/hooks';
+import { usePagination } from '@/hooks';
 import useShallowMemo from '@/hooks/useShallowMemo';
 import Desktop from '@/screens/account_details/components/staking/components/unbondings/components/desktop';
 import Mobile from '@/screens/account_details/components/staking/components/unbondings/components/mobile';
@@ -25,7 +25,6 @@ const Unbondings: FC<UnbondingsProps> = (props) => {
     },
     [handlePageChange, props]
   );
-  const { isDesktop } = useScreenSize();
   const itemsMemo = useShallowMemo(props?.unbondings?.data);
 
   let component = null;
@@ -36,10 +35,13 @@ const Unbondings: FC<UnbondingsProps> = (props) => {
     component = <Loading />;
   } else if (!itemsMemo?.length) {
     component = <NoData />;
-  } else if (isDesktop) {
-    component = <Desktop items={itemsMemo} />;
   } else {
-    component = <Mobile items={itemsMemo} />;
+    component = (
+      <>
+        <Desktop className={classes.hiddenUntilLg} items={itemsMemo} />
+        <Mobile className={classes.hiddenWhenLg} items={itemsMemo} />
+      </>
+    );
   }
 
   let total = props.unbondings.count;

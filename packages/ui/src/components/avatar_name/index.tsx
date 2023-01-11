@@ -15,7 +15,7 @@ const AvatarName: FC<AvatarName> = ({
   const { classes, cx } = useStyles();
 
   return (
-    <Link shallow prefetch={false} href={href(address)}>
+    <Link shallow href={href(address)}>
       <div className={cx(classes.root, className)}>
         <Avatar address={address} imageUrl={imageUrl ?? undefined} />
         <Typography variant="body1">{name}</Typography>

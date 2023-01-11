@@ -1,10 +1,10 @@
-import React, { FC } from 'react';
-import Typography from '@mui/material/Typography';
-import Box from '@/components/box';
 import Avatar from '@/components/avatar';
+import Box from '@/components/box';
 import Markdown from '@/components/markdown';
-import type { ProfileType } from '@/screens/token_details/types';
 import useStyles from '@/screens/token_details/components/profile/styles';
+import type { ProfileType } from '@/screens/token_details/types';
+import Typography from '@mui/material/Typography';
+import { FC } from 'react';
 
 const Profile: FC<{ className?: string; profile: ProfileType }> = ({ className, profile }) => {
   const { classes, cx } = useStyles();
@@ -15,18 +15,18 @@ const Profile: FC<{ className?: string; profile: ProfileType }> = ({ className, 
         <Avatar
           address={profile.name}
           imageUrl={profile.imageUrl}
-          className={cx(classes.avatar, classes.desktopAvatar)}
+          className={cx(classes.avatar, classes.hiddenUntilLg)}
         />
         <div>
           <div className="bio__header">
             {/* ======================== */}
-            {/* mobile header */}
+            {/* hiddenWhenLg header */}
             {/* ======================== */}
             <div className={classes.header}>
               <Avatar
                 address={profile.name}
                 imageUrl={profile.imageUrl}
-                className={cx(classes.avatar, classes.mobile)}
+                className={cx(classes.avatar, classes.hiddenWhenLg)}
               />
               <div className="header__content">
                 <Typography variant="h2">{profile.name}</Typography>
