@@ -179,6 +179,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@keplr-wallet/types", "npm:0.11.29"],\
             ["@mui/core", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.0.0-alpha.54"],\
             ["@mui/material", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.11.4"],\
+            ["@next/font", "npm:13.1.1"],\
             ["@playwright/test", "npm:1.29.2"],\
             ["@types/eslint", "npm:8.4.10"],\
             ["@types/esprima", "npm:4.0.3"],\
@@ -10103,6 +10104,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@keplr-wallet/types", "npm:0.11.29"],\
             ["@mui/core", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.0.0-alpha.54"],\
             ["@mui/material", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.11.4"],\
+            ["@next/font", "npm:13.1.1"],\
             ["@playwright/test", "npm:1.29.2"],\
             ["@types/eslint", "npm:8.4.10"],\
             ["@types/esprima", "npm:4.0.3"],\
@@ -21870,6 +21872,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["ui", "workspace:packages/ui"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.3"],\
+            ["@cosmjs/encoding", "npm:0.27.1"],\
+            ["@cosmjs/launchpad", "npm:0.27.1"],\
             ["@emotion/cache", "npm:11.10.5"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\

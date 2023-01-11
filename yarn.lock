@@ -6702,6 +6702,7 @@ __metadata:
     "@keplr-wallet/types": ^0.11.29
     "@mui/core": ^5.0.0-alpha.54
     "@mui/material": ^5.11.4
+    "@next/font": ^13.1.1
     "@playwright/test": ^1.29.2
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
@@ -15969,6 +15970,8 @@ __metadata:
   resolution: "ui@workspace:packages/ui"
   dependencies:
     "@apollo/client": ^3.7.3
+    "@cosmjs/encoding": ^0.27.1
+    "@cosmjs/launchpad": ^0.27.1
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5

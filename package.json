@@ -58,6 +58,7 @@
     "@cosmjs/encoding": "^0.27.1",
     "@mui/core": "^5.0.0-alpha.54",
     "@mui/material": "^5.11.4",
+    "@next/font": "^13.1.1",
     "@walletconnect/sign-client": "^2.1.5",
     "base64-js": "^1.5.1",
     "react-qr-reader": "^3.0.0-beta-1"
