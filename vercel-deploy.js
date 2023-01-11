@@ -85,6 +85,8 @@ if (process.argv[2] === 'manual') {
 
     // VERCEL_GIT_PULL_REQUEST_ID is the pull request id
     const pullId = process.env.VERCEL_GIT_PULL_REQUEST_ID;
+    console.log(`VERCEL_GIT_PULL_REQUEST_ID:`, pullId);
+
     if (pullId) {
       // GITHUB_API_TOKEN is the github api token, we need it to get the pull request title
       const apiToken = process.env.GITHUB_API_TOKEN;
