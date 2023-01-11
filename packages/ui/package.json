@@ -1,6 +1,6 @@
 {
   "name": "ui",
-  "version": "2.10.3",
+  "version": "2.10.4",
   "license": "Apache-2.0",
   "private": true,
   "scripts": {
