@@ -102,7 +102,7 @@ const Footer: FC<{ className?: string }> = ({ className }) => {
           <Trans
             i18nKey="common:maintainBy"
             components={[
-              <a target="_blank" rel="noreferrer" href={generalConfig.maintainer.url}>
+              <a href={generalConfig.maintainer.url} target="_blank" rel="noreferrer">
                 {}
               </a>,
             ]}

@@ -19,6 +19,9 @@ const useStyles = makeStyles()((theme) => ({
         alignSelf: 'flex-end',
       },
     },
+    '&& h1': {
+      lineHeight: '56px',
+    },
   },
   logo: {
     height: '56px',
