@@ -1,5 +1,11 @@
 # eslint-config-custom
 
+## 0.2.1
+
+### Patch Changes
+
+- b64119a1: feat: handle respoonsive UI via CSS instead of using JS
+
 ## 0.2.0
 
 ### Minor Changes
