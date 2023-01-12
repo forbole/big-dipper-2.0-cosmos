@@ -14,17 +14,23 @@ import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
 import TabPanel from '@/components/tab_panel';
 import { a11yProps } from '@/utils/a11yProps';
-// import { QRCodeSVG } from 'qrcode.react';
+import { QRCodeSVG } from 'qrcode.react';
+// const QRCode = dynamic(() => import('qrcode.react'));
 
 type ConnectWalletConnectDialogProps = {
   open: boolean;
   onClose: () => void;
+  onContinue: () => void;
 };
 
-const ConnectWalletConnectDialog: FC<ConnectWalletConnectDialogProps> = ({ open, onClose }) => {
+const ConnectWalletConnectDialog: FC<ConnectWalletConnectDialogProps> = ({
+  open,
+  onClose,
+  onContinue,
+}) => {
   const { classes } = useStyles();
   const { t } = useTranslation();
-  const { handleConnectWallet, tabValue, handleTabChange } = useConnectWalletList();
+  const { tabValue, handleTabChange } = useConnectWalletList();
 
   return (
     <div>
@@ -47,7 +53,6 @@ const ConnectWalletConnectDialog: FC<ConnectWalletConnectDialogProps> = ({ open,
               {t('common:scanWalletConnectQR')}
             </Typography>
           </div>
-
           <div className={classes.tabs}>
             <Tabs
               value={tabValue}
@@ -77,7 +82,9 @@ const ConnectWalletConnectDialog: FC<ConnectWalletConnectDialogProps> = ({ open,
               />
             </Tabs>
             <TabPanel value={tabValue} index={1}>
-              QR Code
+              <div className={classes.qrCode}>
+                <QRCodeSVG size={248} value="" />
+              </div>
             </TabPanel>
             <TabPanel value={tabValue} index={2}>
               Desktop
@@ -86,7 +93,7 @@ const ConnectWalletConnectDialog: FC<ConnectWalletConnectDialogProps> = ({ open,
         </DialogContent>
         <DialogActions>
           <div className={classes.actions}>
-            <Button onClick={handleConnectWallet} color="primary" className={classes.actionsButton}>
+            <Button onClick={onContinue} color="primary" className={classes.actionsButton}>
               <Typography variant="h3">{t('common:continue')}</Typography>
             </Button>
           </div>

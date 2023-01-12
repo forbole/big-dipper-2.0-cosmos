@@ -1,6 +1,6 @@
 import { makeStyles } from 'tss-react/mui';
 
-const styles = makeStyles()((theme) => ({
+const styles = makeStyles()(theme => ({
   icon: {
     marginLeft: '20px',
     [theme.breakpoints.up('lg')]: {
@@ -288,7 +288,7 @@ const styles = makeStyles()((theme) => ({
       letterSpacing: '0.15px',
     },
   },
-  QRCode: {
+  qrCode: {
     position: 'absolute',
     left: '176px',
     top: '192px',
