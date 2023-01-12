@@ -71,14 +71,24 @@ const ConnectWalletConnectDialog: FC<ConnectWalletConnectDialogProps> = ({
                 {...a11yProps(1)}
                 className={classes.tabButton}
                 selected
-                style={{ minWidth: '20%' }}
+                style={{
+                  minWidth: '20%',
+                  color: '#000000',
+                  fontSize: '20px',
+                  alignItems: 'center',
+                }}
               />
               <Tab
                 value={2}
                 label="Desktop"
                 {...a11yProps(2)}
                 className={classes.tabButton}
-                style={{ minWidth: '23%' }}
+                style={{
+                  minWidth: '23%',
+                  color: '#000000',
+                  fontSize: '20px',
+                  alignItems: 'center',
+                }}
               />
             </Tabs>
             <TabPanel value={tabValue} index={1}>
