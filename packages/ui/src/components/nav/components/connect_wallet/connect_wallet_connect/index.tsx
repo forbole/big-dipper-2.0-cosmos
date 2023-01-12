@@ -19,12 +19,14 @@ import { QRCodeSVG } from 'qrcode.react';
 
 type ConnectWalletConnectDialogProps = {
   open: boolean;
+  walletConnectURI: string;
   onClose: () => void;
   onContinue: () => void;
 };
 
 const ConnectWalletConnectDialog: FC<ConnectWalletConnectDialogProps> = ({
   open,
+  walletConnectURI,
   onClose,
   onContinue,
 }) => {
@@ -93,7 +95,7 @@ const ConnectWalletConnectDialog: FC<ConnectWalletConnectDialogProps> = ({
             </Tabs>
             <TabPanel value={tabValue} index={1}>
               <div className={classes.qrCode}>
-                <QRCodeSVG size={248} value="" style={{ borderRadius: '8px' }} />
+                <QRCodeSVG size={248} value={walletConnectURI} style={{ borderRadius: '8px' }} />
               </div>
             </TabPanel>
             <TabPanel value={tabValue} index={2}>
