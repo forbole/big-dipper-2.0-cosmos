@@ -10,6 +10,9 @@ const useStyles = makeStyles()((theme) => ({
       minHeight: '65vh',
     },
   },
+  mobile: {
+    height: '100%',
+  },
 }));
 
 export default useStyles;

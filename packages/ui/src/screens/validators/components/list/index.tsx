@@ -11,7 +11,7 @@ import useStyles from '@/screens/validators/components/list/styles';
 import { FC, ReactNode, useMemo } from 'react';
 
 const List: FC<ComponentDefault> = ({ className }) => {
-  const { classes } = useStyles();
+  const { classes, cx } = useStyles();
   const { state, handleTabChange, handleSearch, handleSort, sortItems, search } = useValidators();
   const validatorsMemo = useShallowMemo(state.items.map((x) => x.validator));
   const { profiles: dataProfiles, loading } = useProfilesRecoil(validatorsMemo);
@@ -35,7 +35,11 @@ const List: FC<ComponentDefault> = ({ className }) => {
           search={search}
           className={classes.hiddenUntilLg}
         />
-        <Mobile items={items} search={search} className={classes.hiddenWhenLg} />
+        <Mobile
+          items={items}
+          search={search}
+          className={cx(classes.hiddenWhenLg, classes.mobile)}
+        />
       </>
     );
   }
