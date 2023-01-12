@@ -19,6 +19,7 @@ import {
   readOpenAuthorizeConnectionDialog,
   readOpenLoginSuccessDialog,
   readOpenConnectWalletConnectDialog,
+  readWalletConnectURI,
 } from '@/recoil/wallet';
 
 type ConnectWalletProps = {
@@ -35,6 +36,7 @@ const ConnectWallet: FC<ConnectWalletProps> = () => {
   const openAuthorizeConnectionDialog = useRecoilValue(readOpenAuthorizeConnectionDialog);
   const openLoginSuccessDialog = useRecoilValue(readOpenLoginSuccessDialog);
   const openWalletConnectDialog = useRecoilValue(readOpenConnectWalletConnectDialog);
+  const walletConnectURI = useRecoilValue(readWalletConnectURI);
 
   const {
     handleCloseAuthorizeConnectionDialog,
@@ -88,6 +90,7 @@ const ConnectWallet: FC<ConnectWalletProps> = () => {
       />
       <ConnectWalletConnectDialog
         open={openWalletConnectDialog}
+        walletConnectURI={walletConnectURI}
         onClose={handleClosetWalletConnectDialog}
         onContinue
       />
