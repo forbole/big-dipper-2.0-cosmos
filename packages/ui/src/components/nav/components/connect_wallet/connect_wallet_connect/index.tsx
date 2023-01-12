@@ -83,7 +83,7 @@ const ConnectWalletConnectDialog: FC<ConnectWalletConnectDialogProps> = ({
             </Tabs>
             <TabPanel value={tabValue} index={1}>
               <div className={classes.qrCode}>
-                <QRCodeSVG size={248} value="" />
+                <QRCodeSVG size={248} value="" style={{ borderRadius: '8px' }} />
               </div>
             </TabPanel>
             <TabPanel value={tabValue} index={2}>
