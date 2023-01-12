@@ -24,6 +24,10 @@ exports[`screen: Validators/List matches snapshot 1`] = `
   }
 }
 
+.emotion-2.emotion-2 {
+  height: 100%;
+}
+
 <div
   exists={true}
   id="LoadAndExist"
