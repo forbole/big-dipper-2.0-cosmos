@@ -8,6 +8,7 @@ import InstallKeplrWalletDialog from '@/components/nav/components/connect_wallet
 import LoginDialog from '@/components/nav/components/connect_wallet/login';
 import LoginSuccessDialog from '@/components/nav/components/connect_wallet/login_success';
 import PairKeplrWalletDialog from '@/components/nav/components/connect_wallet/pair_keplr_wallet';
+import ConnectWalletConnectDialog from '@/components/nav/components/connect_wallet/connect_wallet_connect';
 import { readIsUserLoggedIn } from '@/recoil/user';
 import { useRecoilValue } from 'recoil';
 import {
@@ -17,6 +18,7 @@ import {
   readOpenKeplrPairingDialog,
   readOpenAuthorizeConnectionDialog,
   readOpenLoginSuccessDialog,
+  readOpenConnectWalletConnectDialog,
 } from '@/recoil/wallet';
 
 type ConnectWalletProps = {
@@ -32,6 +34,7 @@ const ConnectWallet: FC<ConnectWalletProps> = () => {
   const openKeplrPairingDialog = useRecoilValue(readOpenKeplrPairingDialog);
   const openAuthorizeConnectionDialog = useRecoilValue(readOpenAuthorizeConnectionDialog);
   const openLoginSuccessDialog = useRecoilValue(readOpenLoginSuccessDialog);
+  const openWalletConnectDialog = useRecoilValue(readOpenConnectWalletConnectDialog);
 
   const {
     handleCloseAuthorizeConnectionDialog,
@@ -39,6 +42,7 @@ const ConnectWallet: FC<ConnectWalletProps> = () => {
     handleCloseKeplrPairingDialog,
     handleCloseLoginSuccessDialog,
     handleConnectWallet,
+    handleClosetWalletConnectDialog,
     handleLogout,
     handleLogin,
     setWalletOption,
@@ -81,6 +85,11 @@ const ConnectWallet: FC<ConnectWalletProps> = () => {
         open={openAuthorizeConnectionDialog}
         onClose={handleCloseAuthorizeConnectionDialog}
         onContinue={continueToLoginSuccessDialog}
+      />
+      <ConnectWalletConnectDialog
+        open={openWalletConnectDialog}
+        onClose={handleClosetWalletConnectDialog}
+        onContinue
       />
       <LoginSuccessDialog
         open={openLoginSuccessDialog}
