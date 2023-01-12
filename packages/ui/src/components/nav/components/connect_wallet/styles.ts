@@ -292,8 +292,6 @@ const styles = makeStyles()(theme => ({
     position: 'absolute',
     left: '176px',
     top: '192px',
-    // border: 'solid 1px #D9D9D9',
-    // borderRadius: '24px',
   },
 }));
 
