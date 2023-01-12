@@ -211,3 +211,24 @@ export const readShowWalletDetails = selector({
   key: 'wallet.read.showWalletDetails',
   get: getShowWalletDetails,
 });
+
+const getWalletConnectURI: ReadOnlySelectorOptions<string>['get'] = ({ get }) => {
+  const state = get(atomState);
+  return state.walletConnectURI;
+};
+
+export const writeWalletConnectURI = selector({
+  key: 'wallet.write.walletConnectURI',
+  get: getWalletConnectURI,
+  set: ({ get, set }, value) => {
+    if (value instanceof DefaultValue) return;
+    const prevState = get(atomState);
+    const newState = mergeStateChange(prevState, { walletConnectURI: value });
+    set(atomState, newState);
+  },
+});
+
+export const readWalletConnectURI = selector({
+  key: 'wallet.read.walletConnectURI',
+  get: getWalletConnectURI,
+});

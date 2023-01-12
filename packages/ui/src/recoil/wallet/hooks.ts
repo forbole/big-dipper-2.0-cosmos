@@ -19,5 +19,6 @@ export const useWalletRecoil = () => {
     wallet.openConnectWalletConnectDialog,
     wallet.tabValue,
     wallet.showWalletDetails,
+    wallet.walletConnectURI,
   ]);
 };

@@ -9,4 +9,5 @@ export interface AtomState {
   openConnectWalletConnectDialog: boolean;
   tabValue: number;
   showWalletDetails: boolean;
+  walletConnectURI: string;
 }

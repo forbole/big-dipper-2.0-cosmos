@@ -21,5 +21,7 @@ export {
   readTabValue,
   writeShowWalletDetails,
   readShowWalletDetails,
+  writeWalletConnectURI,
+  readWalletConnectURI,
 } from '@/recoil/wallet/selectors';
 export type { AtomState } from '@/recoil/wallet/types';

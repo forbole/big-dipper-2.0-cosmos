@@ -11,6 +11,7 @@ export interface AtomState {
   openConnectWalletConnectDialog: boolean;
   tabValue: number;
   showWalletDetails: boolean;
+  walletConnectURI: string;
 }
 
 const initialState: AtomState = {
@@ -24,6 +25,7 @@ const initialState: AtomState = {
   openConnectWalletConnectDialog: false,
   tabValue: 1,
   showWalletDetails: false,
+  walletConnectURI: '',
 };
 
 export const atomState = atom<AtomState>({
