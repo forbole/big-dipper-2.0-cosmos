@@ -15,7 +15,7 @@ import Tabs from '@mui/material/Tabs';
 import TabPanel from '@/components/tab_panel';
 import { a11yProps } from '@/utils/a11yProps';
 import { QRCodeSVG } from 'qrcode.react';
-// const QRCode = dynamic(() => import('qrcode.react'));
+import Loading from '@/components/loading';
 
 type ConnectWalletConnectDialogProps = {
   open: boolean;
@@ -94,9 +94,13 @@ const ConnectWalletConnectDialog: FC<ConnectWalletConnectDialogProps> = ({
               />
             </Tabs>
             <TabPanel value={tabValue} index={1}>
-              <div className={classes.qrCode}>
-                <QRCodeSVG size={248} value={walletConnectURI} style={{ borderRadius: '8px' }} />
-              </div>
+              {walletConnectURI !== '' ? (
+                <div className={classes.qrCode}>
+                  <QRCodeSVG size={248} value={walletConnectURI} style={{ borderRadius: '8px' }} />
+                </div>
+              ) : (
+                <Loading classNames={classes.loading} />
+              )}
             </TabPanel>
             <TabPanel value={tabValue} index={2}>
               Desktop
