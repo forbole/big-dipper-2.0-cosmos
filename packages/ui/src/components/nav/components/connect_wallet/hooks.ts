@@ -20,13 +20,18 @@ import {
   writeOpenConnectWalletConnectDialog,
   writeTabValue,
   writeShowWalletDetails,
+  writeWalletConnectURI,
 } from '@/recoil/wallet';
 import { OfflineAminoSigner, OfflineDirectSigner } from '@keplr-wallet/types';
 import { toBase64 } from '@cosmjs/encoding';
 import { PubKey } from '@/recoil/user/atom';
+import WalletConnect from '@walletconnect/client';
+import { KeplrWalletConnectV1 } from '@keplr-wallet/wc-client';
 
 const chainId = process?.env?.NEXT_PUBLIC_CHAIN_ID ?? '';
 const keplrURL = process?.env?.NEXT_PUBLIC_LCD_KEPLR_URL ?? '';
+const projectID = process?.env?.NEXT_PUBLIC_PROJECT_ID_URL ?? '';
+const bridgeURL = process?.env?.NEXT_PUBLIC_BRIDGE_URL ?? '';
 
 type UserState = {
   address: string;
@@ -46,6 +51,7 @@ type WalletState = {
   openConnectWalletConnectDialog: boolean;
   tabValue: number;
   showWalletDetails: boolean;
+  walletConnetURI: string;
 };
 
 const useConnectWalletList = () => {
@@ -102,6 +108,10 @@ const useConnectWalletList = () => {
     boolean,
     SetterOrUpdater<boolean>
   ];
+  const [walletConnectURI, setWalletConnectURI] = useRecoilState(writeWalletConnectURI) as [
+    string,
+    SetterOrUpdater<string>
+  ];
 
   // UserState
   const [userState, setUserState] = useState({
@@ -143,6 +153,7 @@ const useConnectWalletList = () => {
     openConnectWalletConnectDialog,
     tabValue,
     showWalletDetails,
+    walletConnectURI,
   });
 
   const handleSetWalletState = useCallback(
@@ -168,6 +179,7 @@ const useConnectWalletList = () => {
       openConnectWalletConnectDialog,
       tabValue,
       showWalletDetails,
+      walletConnectURI,
     }));
   };
 
@@ -231,6 +243,11 @@ const useConnectWalletList = () => {
     }
   };
 
+  const continueToWalletConnectDialog = () => {
+    setOpenConnectWalletConnectDialog(true);
+    getWalletConnect();
+  };
+
   const handleCloseAuthorizeConnectionDialog = () => {
     setOpenAuthorizeConnectionDialog(false);
     setWalletOption('');
@@ -280,6 +297,7 @@ const useConnectWalletList = () => {
         await continueToPairingDialog();
         break;
       case 'Wallet Connect':
+        await continueToWalletConnectDialog();
         break;
       case '':
         break;
@@ -292,7 +310,7 @@ const useConnectWalletList = () => {
     setOpenLoginDialog(false); // TO DO
   };
 
-  const handleConnectWalletConnectDialog = () => {
+  const handleClosetWalletConnectDialog = () => {
     setOpenConnectWalletConnectDialog(false);
     setWalletOption('');
   };
@@ -334,7 +352,7 @@ const useConnectWalletList = () => {
 
   const enableChain = () => window.keplr.enable(chainId);
 
-  const getAccountKey = () => window.keplr.getKey('cosmoshub-4');
+  const getAccountKey = () => window.keplr.getKey(chainId);
 
   const getOfflineSigner = () => {
     const offlineSigner = window.keplr.getOfflineSigner(chainId);
@@ -402,11 +420,74 @@ const useConnectWalletList = () => {
     return true;
   };
 
+  const initWalletConnectClient = (): WalletConnect => {
+    const client = new WalletConnect({
+      bridge: bridgeURL,
+      signingMethods: [
+        'keplr_enable_wallet_connect_v1',
+        'keplr_get_key_wallet_connect_v1',
+        'keplr_sign_amino_wallet_connect_v1',
+      ],
+      qrcodeModal: {
+        open: (uri: string) => {
+          setWalletConnectURI(uri);
+        },
+        close: () => setWalletConnectURI(''),
+      },
+    });
+    return client;
+  };
+
+  const getWalletConnect = async () => {
+    const connector = initWalletConnectClient();
+    if (connector.connected) {
+      const keplr = new KeplrWalletConnectV1(connector);
+      await Promise.resolve(keplr);
+      setUserIsLoggedIn(true);
+      setUserAddress('keplrererebrhebrhehr');
+      localStorage.setItem(ADDRESS_KEY, 'keplrererebrhebrhehr');
+      setOpenConnectWalletConnectDialog(false);
+      setOpenLoginSuccessDialog(true);
+    }
+
+    if (!connector.connected) {
+      // create new session
+      connector.createSession();
+
+      connector.on('connect', async (error, payload) => {
+        if (error) {
+          console.warn(error);
+        } else {
+          const keplr = new KeplrWalletConnectV1(connector);
+          if (keplr) {
+            console.log(keplr);
+            setUserIsLoggedIn(true);
+            setUserAddress('keplrererebrhebrhehr');
+            localStorage.setItem(ADDRESS_KEY, 'keplrererebrhebrhehr');
+            setOpenConnectWalletConnectDialog(false);
+            setOpenLoginSuccessDialog(true);
+            const { accounts, chainId } = payload.params[0];
+          }
+          // if (connector.connected) {
+          //   const [account] = connector.accounts.map((address) => ({
+          //     address,
+          //     pubkey: new Uint8Array(),
+          //     algo: 'secp256k1' as Algo,
+          //   }));
+          //   console.log(account);
+          // }
+        }
+      });
+      connector.on('disconnect', () => handleLogout(), console.log('disconnected'));
+    }
+  };
+
   return {
     showWalletDetails,
     tabValue,
     userState,
     walletState,
+    walletConnectURI,
     continueToAuthorizeKeplrConnectionDialog,
     continueToLoginSuccessDialog,
     continueToPairingDialog,
@@ -420,7 +501,7 @@ const useConnectWalletList = () => {
     handleConnectButter,
     handleConnectWallet,
     handleConnectWalletConnect,
-    handleConnectWalletConnectDialog,
+    handleClosetWalletConnectDialog,
     handleLogin,
     handleLogout,
     handleOpenWalletDetails,
