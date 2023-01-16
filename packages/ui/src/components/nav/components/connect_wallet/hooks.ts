@@ -447,7 +447,14 @@ const useConnectWalletList = () => {
       setUserAddress('keplrererebrhebrhehr');
       localStorage.setItem(ADDRESS_KEY, 'keplrererebrhebrhehr');
       setOpenConnectWalletConnectDialog(false);
-      setOpenLoginSuccessDialog(true);
+      setOpenAuthorizeConnectionDialog(true);
+      setTimeout(() => {
+        setOpenAuthorizeConnectionDialog(false);
+        setOpenLoginSuccessDialog(true);
+        setTimeout(() => {
+          setOpenLoginSuccessDialog(false);
+        }, 3000);
+      }, 3000);
     }
 
     if (!connector.connected) {
@@ -465,7 +472,15 @@ const useConnectWalletList = () => {
             setUserAddress('keplrererebrhebrhehr');
             localStorage.setItem(ADDRESS_KEY, 'keplrererebrhebrhehr');
             setOpenConnectWalletConnectDialog(false);
-            setOpenLoginSuccessDialog(true);
+            setOpenAuthorizeConnectionDialog(true);
+            setTimeout(() => {
+              setOpenAuthorizeConnectionDialog(false);
+              setOpenLoginSuccessDialog(true);
+              setTimeout(() => {
+                setOpenLoginSuccessDialog(false);
+              }, 3000);
+            }, 3000);
+
             const { accounts, chainId } = payload.params[0];
           }
           // if (connector.connected) {
