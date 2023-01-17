@@ -1,4 +1,3 @@
-import useConnectWalletList from '@/components/nav/components/connect_wallet/hooks';
 import { useStyles } from '@/components/nav/components/connect_wallet/styles';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
@@ -10,10 +9,6 @@ import Typography from '@mui/material/Typography';
 import CloseIcon from '@mui/icons-material/Close';
 import useTranslation from 'next-translate/useTranslation';
 import React, { FC } from 'react';
-import Tab from '@mui/material/Tab';
-import Tabs from '@mui/material/Tabs';
-import TabPanel from '@/components/tab_panel';
-import { a11yProps } from '@/utils/a11yProps';
 import { QRCodeSVG } from 'qrcode.react';
 import Loading from '@/components/loading';
 
@@ -32,7 +27,6 @@ const ConnectWalletConnectDialog: FC<ConnectWalletConnectDialogProps> = ({
 }) => {
   const { classes } = useStyles();
   const { t } = useTranslation();
-  const { tabValue, handleTabChange } = useConnectWalletList();
 
   return (
     <div>
@@ -55,57 +49,13 @@ const ConnectWalletConnectDialog: FC<ConnectWalletConnectDialogProps> = ({
               {t('common:scanWalletConnectQR')}
             </Typography>
           </div>
-          <div className={classes.tabs}>
-            <Tabs
-              value={tabValue}
-              onChange={handleTabChange}
-              centered
-              allowScrollButtonsMobile
-              TabIndicatorProps={{
-                style: {
-                  display: 'none',
-                },
-              }}
-            >
-              <Tab
-                value={1}
-                label="QR code"
-                {...a11yProps(1)}
-                className={classes.tabButton}
-                selected
-                style={{
-                  minWidth: '20%',
-                  color: '#000000',
-                  fontSize: '20px',
-                  alignItems: 'center',
-                }}
-              />
-              <Tab
-                value={2}
-                label="Desktop"
-                {...a11yProps(2)}
-                className={classes.tabButton}
-                style={{
-                  minWidth: '23%',
-                  color: '#000000',
-                  fontSize: '20px',
-                  alignItems: 'center',
-                }}
-              />
-            </Tabs>
-            <TabPanel value={tabValue} index={1}>
-              {walletConnectURI !== '' ? (
-                <div className={classes.qrCode}>
-                  <QRCodeSVG size={248} value={walletConnectURI} style={{ borderRadius: '8px' }} />
-                </div>
-              ) : (
-                <Loading classNames={classes.loading} />
-              )}
-            </TabPanel>
-            <TabPanel value={tabValue} index={2}>
-              Desktop
-            </TabPanel>
-          </div>
+          {walletConnectURI !== '' ? (
+            <div className={classes.qrCode}>
+              <QRCodeSVG size={248} value={walletConnectURI} style={{ borderRadius: '8px' }} />
+            </div>
+          ) : (
+            <Loading className={classes.qrCodeLoading} />
+          )}
         </DialogContent>
         <DialogActions>
           <div className={classes.actions}>

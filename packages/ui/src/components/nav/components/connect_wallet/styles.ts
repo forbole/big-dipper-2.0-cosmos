@@ -291,7 +291,15 @@ const styles = makeStyles()(theme => ({
   qrCode: {
     position: 'absolute',
     left: '176px',
-    top: '192px',
+    top: '147px',
+  },
+  qrCodeLoading: {
+    position: 'absolute',
+    left: '280px',
+    top: '235px',
+    '& .MuiCircularProgress-colorPrimary': {
+      color: '#D9D9D9',
+    },
   },
 }));
 
