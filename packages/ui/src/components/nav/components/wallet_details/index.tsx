@@ -13,14 +13,19 @@ type WalletDetailsProps = {
 
 const WalletDetails: FC<WalletDetailsProps> = ({ className }) => {
   const { classes, cx } = useStyles();
-  const { showWalletDetails, handleShowWalletDetails, handleCloseWalletDetails } =
-    useConnectWalletList();
+  const {
+    showWalletDetails,
+    handleShowWalletDetails,
+    handleCloseWalletDetails,
+    handleLogout,
+    handleLogin,
+  } = useConnectWalletList();
   const loggedIn = useRecoilValue(readIsUserLoggedIn);
   const userAddress = useRecoilValue(readUserAddress);
 
   return (
     <ClickAwayListener
-      onClickAway={(e: { preventDefault: () => void; }) => {
+      onClickAway={(e: { preventDefault: () => void }) => {
         e.preventDefault();
         handleCloseWalletDetails();
       }}
@@ -39,6 +44,8 @@ const WalletDetails: FC<WalletDetailsProps> = ({ className }) => {
           className={cx(classes.walletDetailsButton, {
             open: showWalletDetails,
           })}
+          handleLogout={handleLogout}
+          handleLogin={handleLogin}
         />
       </div>
     </ClickAwayListener>

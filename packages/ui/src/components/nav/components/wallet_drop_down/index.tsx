@@ -2,7 +2,6 @@ import Box from '@/components/box';
 import { useStyles } from '@/components/nav/components/wallet_drop_down/styles';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import useWalletDropDown from '@/components/nav/components/connect_wallet/hooks';
 import useTranslation from 'next-translate/useTranslation';
 import Avatar from '@/components/avatar';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
@@ -17,16 +16,16 @@ import React, { FC } from 'react';
 
 type WalletDropDownProps = {
   className?: string;
+  handleLogin: () => void;
+  handleLogout: () => void;
 };
 
-const WalletDropDown: FC<WalletDropDownProps> = ({ className }) => {
+const WalletDropDown: FC<WalletDropDownProps> = ({ className, handleLogin, handleLogout }) => {
   const { t } = useTranslation();
   const { classes, cx } = useStyles();
   const { handleCopyToClipboard } = useAddress(t);
   const address = useRecoilValue(readUserAddress);
   const walletName = useRecoilValue(readWalletName);
-
-  const { handleLogout, handleLogin } = useWalletDropDown();
 
   return (
     <Box className={cx(className, classes.root)}>
