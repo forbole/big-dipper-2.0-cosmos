@@ -28,7 +28,7 @@ import { PubKey } from '@/recoil/user/atom';
 import WalletConnect from '@walletconnect/client';
 import { KeplrWalletConnectV1 } from '@keplr-wallet/wc-client';
 
-const chainId = process?.env?.NEXT_PUBLIC_CHAIN_ID ?? '';
+const chainID = process?.env?.NEXT_PUBLIC_CHAIN_ID ?? '';
 const keplrURL = process?.env?.NEXT_PUBLIC_LCD_KEPLR_URL ?? '';
 const projectID = process?.env?.NEXT_PUBLIC_PROJECT_ID_URL ?? '';
 const bridgeURL = process?.env?.NEXT_PUBLIC_BRIDGE_URL ?? '';
@@ -350,12 +350,12 @@ const useConnectWalletList = () => {
 
   const isKeplrAvailable = () => !!window.keplr;
 
-  const enableChain = () => window.keplr.enable(chainId);
+  const enableChain = () => window.keplr.enable(chainID);
 
-  const getAccountKey = () => window.keplr.getKey(chainId);
+  const getAccountKey = () => window.keplr.getKey(chainID);
 
   const getOfflineSigner = () => {
-    const offlineSigner = window.keplr.getOfflineSigner(chainId);
+    const offlineSigner = window.keplr.getOfflineSigner(chainID);
     return offlineSigner;
   };
 
