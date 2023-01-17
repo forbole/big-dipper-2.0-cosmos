@@ -8,7 +8,7 @@ import {
 import { SetterOrUpdater, useRecoilState } from 'recoil';
 import * as R from 'ramda';
 import { useCallback, useState } from 'react';
-import { ADDRESS_KEY, PUBKEY_KEY, WALLET_NAME_KEY } from '@/utils/localstorage';
+import { ADDRESS_KEY, CONNECTION_TYPE, PUBKEY_KEY, WALLET_NAME_KEY } from '@/utils/localstorage';
 import {
   writeOpenLoginDialog,
   writeWalletSelection,
@@ -38,7 +38,6 @@ const chainID = process?.env?.NEXT_PUBLIC_CHAIN_ID ?? '';
 const keplrURL = process?.env?.NEXT_PUBLIC_LCD_KEPLR_URL ?? '';
 const projectID = process?.env?.NEXT_PUBLIC_PROJECT_ID_URL ?? '';
 const bridgeURL = process?.env?.NEXT_PUBLIC_BRIDGE_URL ?? '';
-
 type UserState = {
   address: string;
   pubKey: PubKey;
@@ -328,15 +327,24 @@ const useConnectWalletList = () => {
   };
 
   const handleLogout = () => {
+    const connectionTypes = localStorage.getItem(CONNECTION_TYPE);
+    if (connectionTypes === 'Wallet Connect') {
+      if (wcClient) {
+        wcClient.killSession();
+      } else {
+        const reconnector = initWalletConnectClient();
+        reconnector.killSession();
+      }
+    }
+
     localStorage.setItem(ADDRESS_KEY, '');
     localStorage.setItem(PUBKEY_KEY, '');
     localStorage.setItem(WALLET_NAME_KEY, '');
+    localStorage.setItem(CONNECTION_TYPE, '');
     setShowWalletDetails(false);
     setUserAddress('');
     setUserIsLoggedIn(false);
-    if (wcClient) {
-      wcClient.killSession();
-    }
+    setWCClient(undefined);
   };
 
   const handleOpenWalletDetails = () => {
@@ -459,6 +467,7 @@ const useConnectWalletList = () => {
       setUserIsLoggedIn(true);
       setUserAddress('keplrererebrhebrhehr');
       localStorage.setItem(ADDRESS_KEY, 'keplrererebrhebrhehr');
+      localStorage.setItem(CONNECTION_TYPE, 'Wallet Connect');
       setOpenConnectWalletConnectDialog(false);
       setOpenAuthorizeConnectionDialog(true);
       setTimeout(() => {
@@ -484,6 +493,7 @@ const useConnectWalletList = () => {
             setUserIsLoggedIn(true);
             setUserAddress('keplrererebrhebrhehr');
             localStorage.setItem(ADDRESS_KEY, 'keplrererebrhebrhehr');
+            localStorage.setItem(CONNECTION_TYPE, 'Wallet Connect');
             setOpenConnectWalletConnectDialog(false);
             setOpenAuthorizeConnectionDialog(true);
             setTimeout(() => {

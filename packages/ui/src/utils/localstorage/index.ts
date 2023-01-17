@@ -39,3 +39,4 @@ export const TX_KEY = 'txListFormatSelection';
 export const ADDRESS_KEY = 'userAddress';
 export const PUBKEY_KEY = 'userPubKey';
 export const WALLET_NAME_KEY = 'userWalletName';
+export const CONNECTION_TYPE = 'connectionType';
