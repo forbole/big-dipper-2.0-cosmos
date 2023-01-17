@@ -12,12 +12,13 @@ import React, { FC } from 'react';
 
 type LoginDialogProps = {
   open: boolean;
+  errorMsg: string;
   onClose: () => void;
   onContinue: () => void;
   setWallet: (walletOption: string) => void;
 };
 
-const LoginDialog: FC<LoginDialogProps> = ({ open, onClose, onContinue, setWallet }) => {
+const LoginDialog: FC<LoginDialogProps> = ({ open, errorMsg, onClose, onContinue, setWallet }) => {
   const { classes } = useStyles();
   const { t } = useTranslation();
 
@@ -68,6 +69,13 @@ const LoginDialog: FC<LoginDialogProps> = ({ open, onClose, onContinue, setWalle
           </div>
         </DialogContent>
         <DialogActions>
+          <div>
+            {errorMsg !== undefined ? (
+              <Typography variant="h4" className={classes.errorMsg}>
+                Error: {errorMsg}
+              </Typography>
+            ) : null}
+          </div>
           <div className={classes.actions}>
             <Button onClick={onContinue} color="primary" className={classes.actionsButton}>
               <Typography variant="h3">{t('common:continue')}</Typography>

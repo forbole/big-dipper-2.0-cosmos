@@ -14,6 +14,7 @@ import Loading from '@/components/loading';
 
 type ConnectWalletConnectDialogProps = {
   open: boolean;
+  errorMsg: string;
   walletConnectURI: string;
   onClose: () => void;
   onContinue: () => void;
@@ -21,13 +22,13 @@ type ConnectWalletConnectDialogProps = {
 
 const ConnectWalletConnectDialog: FC<ConnectWalletConnectDialogProps> = ({
   open,
+  errorMsg,
   walletConnectURI,
   onClose,
   onContinue,
 }) => {
   const { classes } = useStyles();
   const { t } = useTranslation();
-
   return (
     <div>
       <Dialog maxWidth="md" onClose={onClose} open={open} className={classes.dialog}>
@@ -58,6 +59,13 @@ const ConnectWalletConnectDialog: FC<ConnectWalletConnectDialogProps> = ({
           )}
         </DialogContent>
         <DialogActions>
+          <div>
+            {errorMsg !== undefined ? (
+              <Typography variant="h4" className={classes.errorMsg}>
+                Error: {errorMsg}
+              </Typography>
+            ) : null}
+          </div>
           <div className={classes.actions}>
             <Button onClick={onContinue} color="primary" className={classes.actionsButton}>
               <Typography variant="h3">{t('common:continue')}</Typography>

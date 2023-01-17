@@ -13,12 +13,14 @@ import Loading from '@/components/loading';
 
 type AuthorizeConnectionDialogProps = {
   open: boolean;
+  errorMsg: string;
   onClose: () => void;
   onContinue: () => void;
 };
 
 const AuthorizeConnectionDialog: FC<AuthorizeConnectionDialogProps> = ({
   open,
+  errorMsg,
   onClose,
   onContinue,
 }) => {
@@ -49,6 +51,13 @@ const AuthorizeConnectionDialog: FC<AuthorizeConnectionDialogProps> = ({
           <Loading className={classes.loading} />
         </DialogContent>
         <DialogActions>
+          <div>
+            {errorMsg !== undefined ? (
+              <Typography variant="h4" className={classes.errorMsg}>
+                Error: {errorMsg}
+              </Typography>
+            ) : null}
+          </div>
           <div className={classes.actions}>
             <Button onClick={onContinue} color="primary" className={classes.actionsButton}>
               <Typography variant="h3">{t('common:continue')}</Typography>

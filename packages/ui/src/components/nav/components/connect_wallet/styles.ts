@@ -301,6 +301,12 @@ const styles = makeStyles()(theme => ({
       color: '#D9D9D9',
     },
   },
+  errorMsg: {
+    color: 'red',
+    position: 'absolute',
+    left: '180px',
+    top: '390px',
+  },
 }));
 
 export const useStyles = () => styles();
