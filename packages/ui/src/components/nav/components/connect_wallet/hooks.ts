@@ -147,6 +147,7 @@ const useConnectWalletList = () => {
     localStorage.setItem(ADDRESS_KEY, '');
     localStorage.setItem(PUBKEY_KEY, '');
     localStorage.setItem(WALLET_NAME_KEY, '');
+    localStorage.setItem(CONNECTION_TYPE, '');
   };
 
   // WalletState
@@ -211,16 +212,11 @@ const useConnectWalletList = () => {
 
     if (cosmJS) {
       const key = await getAccountKey();
-      saveUserInfo(offlineSignerAddress, offlineSignerPubKey, 'Keplr', key.name);
-      // localStorage.setItem(ADDRESS_KEY, offlineSignerAddress);
-      // localStorage.setItem(PUBKEY_KEY, JSON.stringify(offlineSignerPubKey));
-      // localStorage.setItem(CONNECTION_TYPE, 'Keplr');
-      // localStorage.setItem(WALLET_NAME_KEY, key.name);
-      // setUserAddress(offlineSignerAddress);
-      // setUserPubKey(offlineSignerPubKey ?? { type: '', value: '' });
-      // setWalletName(key.name);
-      // setUserIsLoggedIn(true);
 
+      // store user info in state
+      saveUserInfo(offlineSignerAddress, offlineSignerPubKey, 'Keplr', key.name);
+
+      // continue to log in success screen
       continueToLoginSuccessDialog();
     }
   };
@@ -341,16 +337,16 @@ const useConnectWalletList = () => {
     }
 
     // reset the values
-    resetUser();
+    resetUserInfo();
   };
 
-  const resetUser = () => {
+  const resetUserInfo = () => {
     localStorage.setItem(ADDRESS_KEY, '');
     localStorage.setItem(PUBKEY_KEY, '');
     localStorage.setItem(WALLET_NAME_KEY, '');
     localStorage.setItem(CONNECTION_TYPE, '');
-    setShowWalletDetails(false);
     setUserAddress('');
+    setUserPubKey({ type: '', value: '' });
     setUserIsLoggedIn(false);
     setWCClient(undefined);
   };
@@ -497,15 +493,6 @@ const useConnectWalletList = () => {
         const { address, pubkey } = accounts2[0];
         const key = await keplr.getKey(chainID);
         saveUserInfo(address, pubkey, 'Wallet Connect', key.name);
-
-        // localStorage.setItem(ADDRESS_KEY, address);
-        // localStorage.setItem(PUBKEY_KEY, JSON.stringify(pubkey));
-        // localStorage.setItem(CONNECTION_TYPE, 'Wallet Connect');
-        // localStorage.setItem(WALLET_NAME_KEY, key.name);
-        // setUserAddress(address);
-        // setUserPubKey(pubkey ?? { type: '', value: '' });
-        // setUserIsLoggedIn(true);
-        // setWalletName(key.name);
 
         // continue to log in success screen
         continueToLoginSuccessDialog();
