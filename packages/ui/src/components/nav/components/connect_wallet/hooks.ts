@@ -22,7 +22,13 @@ import {
   writeShowWalletDetails,
   writeWalletConnectURI,
 } from '@/recoil/wallet';
-import { OfflineAminoSigner, OfflineDirectSigner } from '@keplr-wallet/types';
+import {
+  OfflineAminoSigner,
+  OfflineDirectSigner,
+  // Keplr,
+  // Window as KeplrWindow,
+  // KeplrSignOptions,
+} from '@keplr-wallet/types';
 import { toBase64 } from '@cosmjs/encoding';
 import { PubKey } from '@/recoil/user/atom';
 import WalletConnect from '@walletconnect/client';
@@ -51,7 +57,7 @@ type WalletState = {
   openConnectWalletConnectDialog: boolean;
   tabValue: number;
   showWalletDetails: boolean;
-  walletConnetURI: string;
+  walletConnectURI: string;
 };
 
 const useConnectWalletList = () => {
@@ -112,6 +118,8 @@ const useConnectWalletList = () => {
     string,
     SetterOrUpdater<string>
   ];
+
+  const [wcClient, setWCClient] = useState<WalletConnect | undefined>();
 
   // UserState
   const [userState, setUserState] = useState({
@@ -326,6 +334,9 @@ const useConnectWalletList = () => {
     setShowWalletDetails(false);
     setUserAddress('');
     setUserIsLoggedIn(false);
+    if (wcClient) {
+      wcClient.killSession();
+    }
   };
 
   const handleOpenWalletDetails = () => {
@@ -435,6 +446,8 @@ const useConnectWalletList = () => {
         close: () => setWalletConnectURI(''),
       },
     });
+    setWCClient(client);
+
     return client;
   };
 
@@ -493,7 +506,17 @@ const useConnectWalletList = () => {
           // }
         }
       });
-      connector.on('disconnect', () => handleLogout(), console.log('disconnected'));
+
+      // connector.on('session_update', (error, payload) => {
+      //   if (error) {
+      //     throw error;
+      //   }
+
+      //   // Get updated accounts and chainId
+      //   const { accounts, chainId } = payload.params[0];
+      // });
+
+      connector.on('disconnect', () => handleLogout, console.log('disconnected'));
     }
   };
 
