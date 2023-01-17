@@ -59,10 +59,10 @@ const ConnectWalletConnectDialog: FC<ConnectWalletConnectDialogProps> = ({
           )}
         </DialogContent>
         <DialogActions>
-          <div>
+          <div className={classes.errorMsg}>
             {errorMsg !== undefined ? (
               <Typography variant="h4" className={classes.errorMsg}>
-                Error: {errorMsg}
+                {errorMsg}
               </Typography>
             ) : null}
           </div>

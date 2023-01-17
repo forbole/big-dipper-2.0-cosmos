@@ -13,7 +13,7 @@ import Loading from '@/components/loading';
 
 type AuthorizeConnectionDialogProps = {
   open: boolean;
-  errorMsg: string;
+  errorMsg?: string;
   onClose: () => void;
   onContinue: () => void;
 };
@@ -51,7 +51,7 @@ const AuthorizeConnectionDialog: FC<AuthorizeConnectionDialogProps> = ({
           <Loading className={classes.loading} />
         </DialogContent>
         <DialogActions>
-          <div>
+          <div className={classes.errorMsg}>
             {errorMsg !== undefined ? (
               <Typography variant="h4" className={classes.errorMsg}>
                 Error: {errorMsg}

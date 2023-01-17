@@ -12,7 +12,7 @@ import React, { FC } from 'react';
 
 type LoginDialogProps = {
   open: boolean;
-  errorMsg: string;
+  errorMsg?: string;
   onClose: () => void;
   onContinue: () => void;
   setWallet: (walletOption: string) => void;
@@ -69,10 +69,10 @@ const LoginDialog: FC<LoginDialogProps> = ({ open, errorMsg, onClose, onContinue
           </div>
         </DialogContent>
         <DialogActions>
-          <div>
+          <div className={classes.errorMsg}>
             {errorMsg !== undefined ? (
               <Typography variant="h4" className={classes.errorMsg}>
-                Error: {errorMsg}
+                {errorMsg}
               </Typography>
             ) : null}
           </div>

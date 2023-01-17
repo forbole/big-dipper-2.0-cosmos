@@ -55,10 +55,10 @@ const PairKeplrWalletDialog: FC<PairKeplrWalletDialogProps> = ({
           <Loading className={classes.loading} />
         </DialogContent>
         <DialogActions>
-          <div>
+          <div className={classes.errorMsg}>
             {errorMsg !== undefined ? (
               <Typography variant="h4" className={classes.errorMsg}>
-                Error: {errorMsg}
+                {errorMsg}
               </Typography>
             ) : null}
           </div>
