@@ -302,10 +302,9 @@ const styles = makeStyles()(theme => ({
     },
   },
   errorMsg: {
-    color: 'red',
-    position: 'absolute',
-    left: '180px',
-    top: '390px',
+    color: '#BE4343',
+    fontWeight: '600',
+    justifyContent: 'center',
   },
 }));
 

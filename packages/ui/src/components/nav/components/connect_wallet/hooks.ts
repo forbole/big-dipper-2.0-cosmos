@@ -120,6 +120,7 @@ const useConnectWalletList = () => {
   ];
 
   const [wcClient, setWCClient] = useState<WalletConnect | undefined>();
+  const [errorMsg, setErrorMsg] = useState(undefined);
 
   // UserState
   const [userState, setUserState] = useState({
@@ -485,8 +486,17 @@ const useConnectWalletList = () => {
 
       // enable connection and approve it inside the mobile app
       // to obtain address, pubkey and wallet name
-      await keplr?.enable(chainID);
-      const keplrOfflineSigner = keplr.getOfflineSigner(chainID);
+      try {
+        await keplr?.enable(chainID);
+      } catch (e) {
+        setErrorMsg(`${e?.message}`);
+      }
+      let keplrOfflineSigner;
+      try {
+        keplrOfflineSigner = keplr.getOfflineSigner(chainID);
+      } catch (e) {
+        setErrorMsg(`${e?.message}`);
+      }
 
       if (keplrOfflineSigner) {
         const accounts2 = await keplrOfflineSigner.getAccounts();
@@ -513,6 +523,7 @@ const useConnectWalletList = () => {
       connector.on('connect', async error => {
         if (error) {
           console.warn(error);
+          setErrorMsg(`${error}`);
         } else {
           getKeplrWalletConnect(connector);
         }
@@ -523,6 +534,7 @@ const useConnectWalletList = () => {
   };
 
   return {
+    errorMsg,
     showWalletDetails,
     tabValue,
     userState,
