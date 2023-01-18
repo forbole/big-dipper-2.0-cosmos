@@ -36,7 +36,6 @@ import { KeplrWalletConnectV1 } from '@keplr-wallet/wc-client';
 
 const chainID = process?.env?.NEXT_PUBLIC_CHAIN_ID ?? '';
 const keplrURL = process?.env?.NEXT_PUBLIC_LCD_KEPLR_URL ?? '';
-const projectID = process?.env?.NEXT_PUBLIC_PROJECT_ID_URL ?? '';
 const bridgeURL = process?.env?.NEXT_PUBLIC_BRIDGE_URL ?? '';
 
 type UserState = {
