@@ -271,9 +271,11 @@ const styles = makeStyles()(theme => ({
     },
   },
   errorMsg: {
-    color: '#BE4343',
-    fontWeight: '600',
+    color: theme.palette.custom.results.fail,
+    fontWeight: '550',
     justifyContent: 'center',
+    position: 'relative',
+    right: '30px',
   },
 }));
 

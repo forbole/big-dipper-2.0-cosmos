@@ -72,7 +72,7 @@ const LoginDialog: FC<LoginDialogProps> = ({ open, errorMsg, onClose, onContinue
           <div className={classes.errorMsg}>
             {errorMsg !== undefined ? (
               <Typography variant="h4" className={classes.errorMsg}>
-                {errorMsg}
+                Error: {errorMsg}
               </Typography>
             ) : null}
           </div>

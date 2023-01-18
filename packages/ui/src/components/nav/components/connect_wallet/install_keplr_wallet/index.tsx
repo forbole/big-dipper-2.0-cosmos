@@ -69,7 +69,7 @@ const InstallKeplrWalletDialog: FC<InstallKeplrWalletDialogProps> = ({
           <div className={classes.errorMsg}>
             {errorMsg !== undefined ? (
               <Typography variant="h4" className={classes.errorMsg}>
-                {errorMsg}
+                Error: {errorMsg}
               </Typography>
             ) : null}
           </div>
