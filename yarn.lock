@@ -12233,18 +12233,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
-"react-csv@npm:^2.2.2":
-  version: 2.2.2
-  resolution: "react-csv@npm:2.2.2"
-  checksum: a6ffabd67fc9ba1478b003977923cfa3ccdd9553ac5edcc3824b4a5ea849b87cb2acfcc0781b0cd0a259bf56e6a7dfd35cfc307576aa51819fc5a32b03118fab
-  languageName: node
-  linkType: hard
-
-"react-dom@npm:^18.2.0":
-=======
 "react-dom@npm:*, react-dom@npm:^18.2.0":
->>>>>>> main
   version: 18.2.0
   resolution: "react-dom@npm:18.2.0"
   dependencies:
@@ -14458,7 +14447,6 @@ __metadata:
     qrcode.react: ^3.1.0
     ramda: ^0.28.0
     react: ^18.2.0
-    react-csv: ^2.2.2
     react-dom: ^18.2.0
     react-share: ^4.4.1
     react-test-renderer: ^18.2.0
@@ -14801,7 +14789,6 @@ __metadata:
     qrcode.react: ^3.1.0
     ramda: ^0.28.0
     react: ^18.2.0
-    react-csv: ^2.2.2
     react-dom: ^18.2.0
     react-share: ^4.4.1
     react-test-renderer: ^18.2.0
@@ -14916,7 +14903,6 @@ __metadata:
     qrcode.react: ^3.1.0
     ramda: ^0.28.0
     react: ^18.2.0
-    react-csv: ^2.2.2
     react-dom: ^18.2.0
     react-share: ^4.4.1
     react-test-renderer: ^18.2.0
@@ -15031,7 +15017,6 @@ __metadata:
     qrcode.react: ^3.1.0
     ramda: ^0.28.0
     react: ^18.2.0
-    react-csv: ^2.2.2
     react-dom: ^18.2.0
     react-share: ^4.4.1
     react-test-renderer: ^18.2.0
@@ -15146,7 +15131,6 @@ __metadata:
     qrcode.react: ^3.1.0
     ramda: ^0.28.0
     react: ^18.2.0
-    react-csv: ^2.2.2
     react-dom: ^18.2.0
     react-share: ^4.4.1
     react-test-renderer: ^18.2.0
@@ -15261,7 +15245,6 @@ __metadata:
     qrcode.react: ^3.1.0
     ramda: ^0.28.0
     react: ^18.2.0
-    react-csv: ^2.2.2
     react-dom: ^18.2.0
     react-share: ^4.4.1
     react-test-renderer: ^18.2.0
@@ -15376,7 +15359,6 @@ __metadata:
     qrcode.react: ^3.1.0
     ramda: ^0.28.0
     react: ^18.2.0
-    react-csv: ^2.2.2
     react-dom: ^18.2.0
     react-share: ^4.4.1
     react-test-renderer: ^18.2.0
@@ -15491,7 +15473,6 @@ __metadata:
     qrcode.react: ^3.1.0
     ramda: ^0.28.0
     react: ^18.2.0
-    react-csv: ^2.2.2
     react-dom: ^18.2.0
     react-share: ^4.4.1
     react-test-renderer: ^18.2.0
@@ -15606,7 +15587,6 @@ __metadata:
     qrcode.react: ^3.1.0
     ramda: ^0.28.0
     react: ^18.2.0
-    react-csv: ^2.2.2
     react-dom: ^18.2.0
     react-share: ^4.4.1
     react-test-renderer: ^18.2.0
@@ -15721,7 +15701,6 @@ __metadata:
     qrcode.react: ^3.1.0
     ramda: ^0.28.0
     react: ^18.2.0
-    react-csv: ^2.2.2
     react-dom: ^18.2.0
     react-share: ^4.4.1
     react-test-renderer: ^18.2.0
@@ -15836,7 +15815,6 @@ __metadata:
     qrcode.react: ^3.1.0
     ramda: ^0.28.0
     react: ^18.2.0
-    react-csv: ^2.2.2
     react-dom: ^18.2.0
     react-share: ^4.4.1
     react-test-renderer: ^18.2.0
@@ -15951,7 +15929,6 @@ __metadata:
     qrcode.react: ^3.1.0
     ramda: ^0.28.0
     react: ^18.2.0
-    react-csv: ^2.2.2
     react-dom: ^18.2.0
     react-share: ^4.4.1
     react-test-renderer: ^18.2.0
@@ -16066,7 +16043,6 @@ __metadata:
     qrcode.react: ^3.1.0
     ramda: ^0.28.0
     react: ^18.2.0
-    react-csv: ^2.2.2
     react-dom: ^18.2.0
     react-share: ^4.4.1
     react-test-renderer: ^18.2.0
@@ -16181,7 +16157,6 @@ __metadata:
     qrcode.react: ^3.1.0
     ramda: ^0.28.0
     react: ^18.2.0
-    react-csv: ^2.2.2
     react-dom: ^18.2.0
     react-share: ^4.4.1
     react-test-renderer: ^18.2.0
@@ -16296,7 +16271,6 @@ __metadata:
     qrcode.react: ^3.1.0
     ramda: ^0.28.0
     react: ^18.2.0
-    react-csv: ^2.2.2
     react-dom: ^18.2.0
     react-share: ^4.4.1
     react-test-renderer: ^18.2.0
@@ -16411,7 +16385,6 @@ __metadata:
     qrcode.react: ^3.1.0
     ramda: ^0.28.0
     react: ^18.2.0
-    react-csv: ^2.2.2
     react-dom: ^18.2.0
     react-share: ^4.4.1
     react-test-renderer: ^18.2.0
@@ -16526,7 +16499,6 @@ __metadata:
     qrcode.react: ^3.1.0
     ramda: ^0.28.0
     react: ^18.2.0
-    react-csv: ^2.2.2
     react-dom: ^18.2.0
     react-share: ^4.4.1
     react-test-renderer: ^18.2.0
@@ -16641,7 +16613,6 @@ __metadata:
     qrcode.react: ^3.1.0
     ramda: ^0.28.0
     react: ^18.2.0
-    react-csv: ^2.2.2
     react-dom: ^18.2.0
     react-share: ^4.4.1
     react-test-renderer: ^18.2.0
@@ -16756,7 +16727,6 @@ __metadata:
     qrcode.react: ^3.1.0
     ramda: ^0.28.0
     react: ^18.2.0
-    react-csv: ^2.2.2
     react-dom: ^18.2.0
     react-share: ^4.4.1
     react-test-renderer: ^18.2.0
@@ -16871,7 +16841,6 @@ __metadata:
     qrcode.react: ^3.1.0
     ramda: ^0.28.0
     react: ^18.2.0
-    react-csv: ^2.2.2
     react-dom: ^18.2.0
     react-share: ^4.4.1
     react-test-renderer: ^18.2.0
@@ -16986,7 +16955,6 @@ __metadata:
     qrcode.react: ^3.1.0
     ramda: ^0.28.0
     react: ^18.2.0
-    react-csv: ^2.2.2
     react-dom: ^18.2.0
     react-share: ^4.4.1
     react-test-renderer: ^18.2.0
@@ -17101,7 +17069,6 @@ __metadata:
     qrcode.react: ^3.1.0
     ramda: ^0.28.0
     react: ^18.2.0
-    react-csv: ^2.2.2
     react-dom: ^18.2.0
     react-share: ^4.4.1
     react-test-renderer: ^18.2.0
@@ -17216,7 +17183,6 @@ __metadata:
     qrcode.react: ^3.1.0
     ramda: ^0.28.0
     react: ^18.2.0
-    react-csv: ^2.2.2
     react-dom: ^18.2.0
     react-share: ^4.4.1
     react-test-renderer: ^18.2.0
@@ -17345,7 +17311,6 @@ __metadata:
     qrcode.react: ^3.1.0
     ramda: ^0.28.0
     react: ^18.2.0
-    react-csv: ^2.2.2
     react-dom: ^18.2.0
     react-share: ^4.4.1
     react-test-renderer: ^18.2.0
@@ -17460,7 +17425,6 @@ __metadata:
     qrcode.react: ^3.1.0
     ramda: ^0.28.0
     react: ^18.2.0
-    react-csv: ^2.2.2
     react-dom: ^18.2.0
     react-share: ^4.4.1
     react-test-renderer: ^18.2.0
