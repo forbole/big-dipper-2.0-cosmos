@@ -12,14 +12,12 @@ import React, { FC } from 'react';
 import Loading from '@/components/loading';
 
 type PairKeplExtensionDialogProps = {
-  walletName: string;
   open: boolean;
   onClose: () => void;
   onContinue: () => void;
 };
 
 const PairKeplrExtensionDialog: FC<PairKeplExtensionDialogProps> = ({
-  walletName,
   open,
   onClose,
   onContinue,
@@ -35,7 +33,7 @@ const PairKeplrExtensionDialog: FC<PairKeplExtensionDialogProps> = ({
             <div>
               <Typography variant="h2" align="center" className={classes.msgHeader}>
                 {t('common:pleaseOpenWallet', {
-                  wallet: walletName,
+                  wallet: 'Keplr Wallet',
                 })}
               </Typography>
             </div>

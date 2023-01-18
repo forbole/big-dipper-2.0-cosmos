@@ -12,7 +12,6 @@ import React, { FC } from 'react';
 import Trans from 'next-translate/Trans';
 
 type InstallKeplrExtensionDialogProps = {
-  walletName: string;
   walletUrl: string;
   open: boolean;
   onClose: () => void;
@@ -20,7 +19,6 @@ type InstallKeplrExtensionDialogProps = {
 };
 
 const InstallKeplrExtensionDialog: FC<InstallKeplrExtensionDialogProps> = ({
-  walletName,
   walletUrl,
   open,
   onClose,
@@ -37,7 +35,7 @@ const InstallKeplrExtensionDialog: FC<InstallKeplrExtensionDialogProps> = ({
             <div>
               <Typography variant="h2" align="center" className={classes.msgHeader}>
                 {t('common:pleaseInstallWallet', {
-                  wallet: walletName,
+                  wallet: 'Keplr Wallet',
                 })}
               </Typography>
             </div>
@@ -57,7 +55,7 @@ const InstallKeplrExtensionDialog: FC<InstallKeplrExtensionDialogProps> = ({
                   </a>,
                 ]}
                 values={{
-                  wallet: walletName,
+                  wallet: 'Keplr Wallet',
                 }}
               />
             </Typography>

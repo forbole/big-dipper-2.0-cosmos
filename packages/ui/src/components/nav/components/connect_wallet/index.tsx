@@ -72,14 +72,12 @@ const ConnectWallet: FC<ConnectWalletProps> = () => {
         onContinue={handleConnectWallet}
       />
       <InstallKeplrExtensionDialog
-        walletName={walletSelection}
         walletUrl="https://www.keplr.app/download"
         open={openInstallKeplrExtensionDialog}
         onClose={handleCloseInstallKeplrExtensionDialog}
         onContinue={continueToKeplrExtensionPairingDialog}
       />
       <PairKeplrExtensionDialog
-        walletName={walletSelection}
         open={openPairKeplrExtensionDialog}
         onClose={handleCloseKeplrPairingDialog}
         onContinue={continueToAuthorizeKeplrConnectionDialog}
