@@ -1,20 +1,74 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: Nav/SingleNetwork it renders 1`] = `
+.emotion-0 {
+  width: 100%;
+}
+
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 24px 0px;
+}
+
+.emotion-1 p {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-right: 8px;
+}
+
+.emotion-2 {
+  margin: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.4px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.66;
+  padding: 4px 8px;
+  color: white;
+  border-radius: 4px;
+  background: #999999;
+}
+
+.emotion-2.retired {
+  background: #2FB6E0;
+}
+
+.emotion-2.testnet {
+  background: #20D494;
+}
+
+.emotion-2.mainnet {
+  background: #FF835B;
+}
+
 <a
-  className="css-abc58s-root"
+  className="emotion-0"
   href="http://bigdipper.live/desmos"
   rel="noreferrer"
   target="_blank"
 >
   <div
-    className="css-exabui-item"
+    className="emotion-1"
   >
     <p>
       desmos-mainnet
     </p>
     <div
-      className="MuiTypography-root MuiTypography-caption css-1ye4fxb-MuiTypography-root-status"
+      className="MuiTypography-root MuiTypography-caption emotion-2"
     >
       desmos
     </div>

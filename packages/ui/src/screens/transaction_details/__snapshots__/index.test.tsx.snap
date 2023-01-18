@@ -1,6 +1,42 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: Blocks/List matches snapshot 1`] = `
+.emotion-0 {
+  padding: 16px;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+@media (min-width: 1280px) {
+  .emotion-0 {
+    padding: 16px 24px;
+  }
+}
+
+.emotion-0 a {
+  color: #4092CD;
+}
+
+@media (min-width:1280px) {
+  .emotion-0 {
+    gap: 16px;
+  }
+}
+
+.emotion-1 {
+  min-height: 500px;
+  height: 50vh;
+}
+
+@media (min-width:1280px) {
+  .emotion-1 {
+    min-height: 650px;
+    height: 40vh;
+  }
+}
+
 <div
   id="Layout"
   navTitle="transactionDetails"
@@ -11,7 +47,7 @@ exports[`screen: Blocks/List matches snapshot 1`] = `
     loading={true}
   >
     <span
-      className="css-8aquqt-root"
+      className="emotion-0"
     >
       <div
         data={
@@ -35,7 +71,7 @@ exports[`screen: Blocks/List matches snapshot 1`] = `
         id="Overview"
       />
       <div
-        className="css-1wmu1o5-messages"
+        className="emotion-1"
         id="Messages"
         messages={[]}
         onMessageFilterCallback={[Function]}

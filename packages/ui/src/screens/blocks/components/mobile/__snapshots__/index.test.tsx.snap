@@ -1,8 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
+.emotion-0 {
+  height: 100%;
+}
+
+.emotion-1 {
+  margin: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  border-width: 0;
+  border-style: solid;
+  border-color: #E8E8E8;
+  border-bottom-width: thin;
+}
+
 <div
-  className="css-1rz0of5-root"
+  className="emotion-0"
 >
   <div
     className="List"
@@ -47,6 +62,8 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
               <ForwardRef(LinkComponent)
                 className="value"
                 href="/blocks/300"
+                prefetch={false}
+                shallow={true}
               >
                 300
               </ForwardRef(LinkComponent)>
@@ -63,7 +80,7 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
             txs="2"
           />
           <hr
-            className="MuiDivider-root MuiDivider-fullWidth css-l3fh2f-MuiDivider-root"
+            className="MuiDivider-root MuiDivider-fullWidth emotion-1"
           />
         </div>
       </div>
@@ -86,6 +103,8 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
               <ForwardRef(LinkComponent)
                 className="value"
                 href="/blocks/301"
+                prefetch={false}
+                shallow={true}
               >
                 301
               </ForwardRef(LinkComponent)>

@@ -19,7 +19,7 @@ const Mobile: FC<{
         <Fragment key={x.height}>
           <SingleBlockMobile
             height={
-              <Link href={BLOCK_DETAILS(x.height)} className="value">
+              <Link shallow prefetch={false} href={BLOCK_DETAILS(x.height)} className="value">
                 {numeral(x.height).format('0,0')}
               </Link>
             }

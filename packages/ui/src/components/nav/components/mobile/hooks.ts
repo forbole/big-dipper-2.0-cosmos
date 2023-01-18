@@ -1,6 +1,6 @@
-import { useCallback, useEffect, useState } from 'react';
-import * as R from 'ramda';
 import { useScreenSize } from '@/hooks';
+import * as R from 'ramda';
+import { useCallback, useEffect, useState } from 'react';
 
 type MobileState = {
   isMenu?: boolean;
@@ -47,14 +47,17 @@ export const useMobile = () => {
 
   // closes menu if opened and opens menu if
   // closed and hamburger icon is clicked
-  const toggleNavMenus = useCallback(() => {
-    if (state.isNetwork || state.isMenu) {
-      closeAll();
-    } else {
-      // if initial state is closed then we open navbar
-      handleSetState((prevState) => ({ ...prevState, isMenu: true }));
-    }
-  }, [closeAll, handleSetState, state.isMenu, state.isNetwork]);
+  const toggleNavMenus = useCallback(
+    (toggle?: boolean) => {
+      if (toggle === false || state.isNetwork || state.isMenu) {
+        closeAll();
+      } else {
+        // if initial state is closed then we open navbar
+        handleSetState((prevState) => ({ ...prevState, isMenu: true }));
+      }
+    },
+    [closeAll, handleSetState, state.isMenu, state.isNetwork]
+  );
 
   const { isDesktop } = useScreenSize();
 

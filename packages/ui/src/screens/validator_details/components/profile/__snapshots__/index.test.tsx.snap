@@ -1,15 +1,231 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: ValidatorDetails/Profile matches snapshot 1`] = `
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-0 .bio__header {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.emotion-0 .bio__content {
+  margin-top: 16px;
+  color: #414141;
+}
+
+@media (min-width:1280px) {
+  .emotion-0 .bio__content {
+    margin-top: 8px;
+  }
+}
+
+.emotion-1 {
+  width: 60px;
+  height: 60px;
+  min-height: 60px;
+  min-width: 60px;
+}
+
+@media (max-width:1279.95px) {
+  .emotion-1 {
+    display: none;
+  }
+}
+
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-2 .header__content {
+  margin-left: 8px;
+}
+
+.emotion-2 .MuiTypography-h2 {
+  margin-bottom: 8px;
+}
+
+@media (min-width:1280px) {
+  .emotion-2 .header__content {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+    margin-left: 0;
+  }
+
+  .emotion-2 .header__content .MuiTypography-h2 {
+    margin-right: 16px;
+    margin-bottom: 0;
+  }
+}
+
+.emotion-3 {
+  width: 60px;
+  height: 60px;
+  min-height: 60px;
+  min-width: 60px;
+}
+
+@media (min-width:1280px) {
+  .emotion-3 {
+    display: none;
+  }
+}
+
+.emotion-4 {
+  margin: 0;
+  font-size: 1.5rem;
+  letter-spacing: 0;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.emotion-5 {
+  margin: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  border-width: 0;
+  border-style: solid;
+  border-color: #E8E8E8;
+  border-bottom-width: thin;
+  margin: 16px 0px;
+}
+
+@media (min-width:1280px) {
+  .emotion-5 {
+    margin: 32px 0px;
+  }
+}
+
+.emotion-6:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.emotion-6 .label {
+  margin-bottom: 8px;
+  color: #777777;
+}
+
+.emotion-6 .label.condition {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+@media (min-width:1280px) {
+  .emotion-6 .label {
+    margin-bottom: 0;
+  }
+}
+
+.emotion-6 .condition__body {
+  justify-self: flex-start;
+}
+
+.emotion-6 p.value {
+  color: #414141;
+}
+
+.emotion-6 p.value.good {
+  color: #1EC490;
+}
+
+.emotion-6 p.value.moderate {
+  color: #FF9338;
+}
+
+.emotion-6 p.value.bad {
+  color: #FF608A;
+}
+
+.emotion-6 p.value.condition {
+  color: #E6E6E6;
+}
+
+.emotion-6 a {
+  color: #4092CD;
+}
+
+@media (min-width:1280px) {
+  .emotion-6 {
+    display: grid;
+    grid-template-columns: 200px auto;
+    gap: 16px;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+}
+
+.emotion-7 {
+  margin: 0;
+  font-size: 1rem;
+  letter-spacing: 0.15px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.235;
+}
+
+.emotion-8 {
+  margin: 0;
+  font-size: 1rem;
+  white-space: pre-wrap;
+  letter-spacing: 0.5px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
 <div
   id="Box"
 >
   <div
-    className="css-3h4311-bio"
+    className="emotion-0"
   >
     <div
       address="operatorAddress"
-      className="css-2nm2jz-avatar-desktopAvatar"
+      className="emotion-1"
       id="Avatar"
       imageUrl=""
     />
@@ -18,11 +234,11 @@ exports[`screen: ValidatorDetails/Profile matches snapshot 1`] = `
         className="bio__header"
       >
         <div
-          className="css-1mne95-header"
+          className="emotion-2"
         >
           <div
             address="operatorAddress"
-            className="css-ot8j2t-avatar-mobile"
+            className="emotion-3"
             id="Avatar"
             imageUrl=""
           />
@@ -30,7 +246,7 @@ exports[`screen: ValidatorDetails/Profile matches snapshot 1`] = `
             className="header__content"
           >
             <h2
-              className="MuiTypography-root MuiTypography-h2 css-dcgvbp-MuiTypography-root"
+              className="MuiTypography-root MuiTypography-h2 emotion-4"
             >
               validator
             </h2>
@@ -48,19 +264,19 @@ exports[`screen: ValidatorDetails/Profile matches snapshot 1`] = `
     </div>
   </div>
   <hr
-    className="MuiDivider-root MuiDivider-fullWidth css-1clf34c-MuiDivider-root-divider"
+    className="MuiDivider-root MuiDivider-fullWidth emotion-5"
   />
   <div>
     <div
-      className="css-1n7gbl3-item"
+      className="emotion-6"
     >
       <h4
-        className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-h4 label emotion-7"
       >
         website
       </h4>
       <a
-        className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 value emotion-8"
         href="//"
         rel="noreferrer"
         target="_blank"

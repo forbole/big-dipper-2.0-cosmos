@@ -5,7 +5,8 @@ import Shard from '@/components/transactions_list/components/shard';
 import dayjs from '@/utils/dayjs';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { TRANSACTION_DETAILS } from '@/utils/go_to_page';
-import { Divider, Typography } from '@mui/material';
+import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import { FC, Fragment } from 'react';
@@ -16,7 +17,7 @@ const Mobile: FC<{ className?: string; items: TransactionType[] }> = (props) => 
   const formattedItems = props.items.map((x) => ({
     key: x.hash,
     hash: (
-      <Link href={TRANSACTION_DETAILS(x.hash)} className="value">
+      <Link shallow prefetch={false} href={TRANSACTION_DETAILS(x.hash)} className="value">
         {getMiddleEllipsis(x.hash, {
           beginning: 13,
           ending: 15,

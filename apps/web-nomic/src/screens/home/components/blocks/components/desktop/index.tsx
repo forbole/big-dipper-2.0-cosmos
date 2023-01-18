@@ -54,7 +54,7 @@ const Desktop: FC<DesktopProps> = ({ className, items }) => {
   const formattedData = items.map((x) => ({
     key: `${x.height}-${x.timestamp}`,
     height: (
-      <Link href={BLOCK_DETAILS(x.height)} className="value">
+      <Link shallow prefetch={false} href={BLOCK_DETAILS(x.height)} className="value">
         {numeral(x.height).format('0,0')}
       </Link>
     ),

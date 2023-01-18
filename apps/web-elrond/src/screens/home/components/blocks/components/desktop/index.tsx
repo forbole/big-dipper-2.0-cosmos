@@ -39,7 +39,7 @@ const Desktop: FC<{ className?: string; items: BlockType[] }> = (props) => {
     key: x.hash,
     block: numeral(x.block).format('0,0'),
     hash: (
-      <Link href={BLOCK_DETAILS(x.hash)} className="value">
+      <Link shallow prefetch={false} href={BLOCK_DETAILS(x.hash)} className="value">
         {getMiddleEllipsis(x.hash, {
           beginning: 13,
           ending: 15,

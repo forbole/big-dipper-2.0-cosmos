@@ -1,8 +1,105 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
+.emotion-0 {
+  height: 100%;
+}
+
+.emotion-1 {
+  background: #FFFFFF;
+  height: 50px;
+  padding: 16px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-1.odd {
+  background: #F8F8F8;
+}
+
+.emotion-1>* {
+  width: 100%;
+}
+
+.emotion-1 .MuiTypography-body1 {
+  white-space: nowrap;
+}
+
+.emotion-2 {
+  margin: 0;
+  font-size: 1rem;
+  letter-spacing: 0.15px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.235;
+}
+
+.emotion-8 {
+  margin: 0;
+  font-size: 1rem;
+  letter-spacing: 0.15px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.235;
+  text-align: right;
+}
+
+.emotion-11 {
+  background: #FFFFFF;
+  height: 50px;
+  padding: 16px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #414141;
+}
+
+.emotion-11.odd {
+  background: #F8F8F8;
+}
+
+.emotion-11>* {
+  width: 100%;
+}
+
+.emotion-11 .MuiTypography-body1 {
+  white-space: nowrap;
+}
+
+.emotion-12 {
+  margin: 0;
+  font-size: 1rem;
+  white-space: pre-wrap;
+  letter-spacing: 0.5px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.emotion-18 {
+  margin: 0;
+  font-size: 1rem;
+  white-space: pre-wrap;
+  letter-spacing: 0.5px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: right;
+}
+
 <div
-  className="css-1rz0of5-root"
+  className="emotion-0"
 >
   <div
     onScroll={[Function]}
@@ -28,7 +125,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
       }
     >
       <div
-        className="css-g5w4dk-cell"
+        className="emotion-1"
         style={
           {
             "height": 50,
@@ -41,13 +138,13 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <h4
-          className="MuiTypography-root MuiTypography-h4 css-15yyl88-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-h4 emotion-2"
         >
           height
         </h4>
       </div>
       <div
-        className="css-g5w4dk-cell"
+        className="emotion-1"
         style={
           {
             "height": 50,
@@ -60,13 +157,13 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <h4
-          className="MuiTypography-root MuiTypography-h4 css-15yyl88-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-h4 emotion-2"
         >
           proposer
         </h4>
       </div>
       <div
-        className="css-g5w4dk-cell"
+        className="emotion-1"
         style={
           {
             "height": 50,
@@ -79,13 +176,13 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <h4
-          className="MuiTypography-root MuiTypography-h4 css-15yyl88-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-h4 emotion-2"
         >
           hash
         </h4>
       </div>
       <div
-        className="css-g5w4dk-cell"
+        className="emotion-1"
         style={
           {
             "height": 50,
@@ -98,13 +195,13 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <h4
-          className="MuiTypography-root MuiTypography-h4 MuiTypography-alignRight css-onu55c-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-h4 MuiTypography-alignRight emotion-8"
         >
           txs
         </h4>
       </div>
       <div
-        className="css-g5w4dk-cell"
+        className="emotion-1"
         style={
           {
             "height": 50,
@@ -117,7 +214,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <h4
-          className="MuiTypography-root MuiTypography-h4 MuiTypography-alignRight css-onu55c-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-h4 MuiTypography-alignRight emotion-8"
         >
           time
         </h4>
@@ -149,7 +246,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
       }
     >
       <div
-        className="odd css-ei6klg-cell-body"
+        className="odd emotion-11"
         style={
           {
             "height": 50,
@@ -162,7 +259,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <div
-          className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-body1 emotion-12"
         >
           <a
             className="value"
@@ -176,7 +273,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         </div>
       </div>
       <div
-        className="odd css-ei6klg-cell-body"
+        className="odd emotion-11"
         style={
           {
             "height": 50,
@@ -189,7 +286,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <div
-          className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-body1 emotion-12"
         >
           <div
             address="address"
@@ -200,7 +297,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         </div>
       </div>
       <div
-        className="odd css-ei6klg-cell-body"
+        className="odd emotion-11"
         style={
           {
             "height": 50,
@@ -213,13 +310,13 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <div
-          className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-body1 emotion-12"
         >
           hash
         </div>
       </div>
       <div
-        className="odd css-ei6klg-cell-body"
+        className="odd emotion-11"
         style={
           {
             "height": 50,
@@ -232,13 +329,13 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <div
-          className="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight css-3n46jc-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight emotion-18"
         >
           2
         </div>
       </div>
       <div
-        className="odd css-ei6klg-cell-body"
+        className="odd emotion-11"
         style={
           {
             "height": 50,
@@ -251,13 +348,13 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <div
-          className="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight css-3n46jc-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight emotion-18"
         >
           1 day ago
         </div>
       </div>
       <div
-        className="css-ei6klg-cell-body"
+        className="emotion-11"
         style={
           {
             "height": 50,
@@ -270,7 +367,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <div
-          className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-body1 emotion-12"
         >
           <a
             className="value"
@@ -284,7 +381,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         </div>
       </div>
       <div
-        className="css-ei6klg-cell-body"
+        className="emotion-11"
         style={
           {
             "height": 50,
@@ -297,7 +394,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <div
-          className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-body1 emotion-12"
         >
           <div
             address="address"
@@ -308,7 +405,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         </div>
       </div>
       <div
-        className="css-ei6klg-cell-body"
+        className="emotion-11"
         style={
           {
             "height": 50,
@@ -321,13 +418,13 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <div
-          className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-body1 emotion-12"
         >
           hash
         </div>
       </div>
       <div
-        className="css-ei6klg-cell-body"
+        className="emotion-11"
         style={
           {
             "height": 50,
@@ -340,13 +437,13 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <div
-          className="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight css-3n46jc-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight emotion-18"
         >
           2
         </div>
       </div>
       <div
-        className="css-ei6klg-cell-body"
+        className="emotion-11"
         style={
           {
             "height": 50,
@@ -359,7 +456,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         }
       >
         <div
-          className="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight css-3n46jc-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight emotion-18"
         >
           1 day ago
         </div>

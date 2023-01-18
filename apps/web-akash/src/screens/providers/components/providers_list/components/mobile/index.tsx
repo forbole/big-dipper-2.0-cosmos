@@ -9,7 +9,7 @@ import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
-import React, { FC, LegacyRef } from 'react';
+import { FC, LegacyRef } from 'react';
 import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
 import CopyIcon from 'shared-utils/assets/icon-copy.svg';
 import EmailIcon from 'shared-utils/assets/icon-email.svg';
@@ -78,7 +78,10 @@ const ListItem: FC<ListItemProps> = ({ index, style, setRowHeight, classes, item
       'Null'
     ),
     website: item.website ? (
-      <Link href={item.website.startsWith('https://') ? item.website : `https://${item.website}`}>
+      <Link
+        prefetch={false}
+        href={item.website.startsWith('https://') ? item.website : `https://${item.website}`}
+      >
         <div>
           <Typography variant="body1" component="a">
             {item.website.length <= 13
@@ -105,9 +108,8 @@ const ListItem: FC<ListItemProps> = ({ index, style, setRowHeight, classes, item
   );
 };
 
-const Mobile: FC<{ list: ProviderInfo[] }> = ({ list }) => {
+const Mobile: FC<{ list: ProviderInfo[]; className?: string }> = ({ list, className }) => {
   const { classes } = useStyles();
-  const className = '';
 
   const { listRef, getRowHeight, setRowHeight } = useList();
   const listMemo = useShallowMemo(list);

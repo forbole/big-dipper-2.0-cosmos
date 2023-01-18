@@ -1,6 +1,6 @@
 import Box from '@/components/box';
 import NoData from '@/components/no_data';
-import { usePagination, useScreenSize } from '@/hooks';
+import { usePagination } from '@/hooks';
 import useShallowMemo from '@/hooks/useShallowMemo';
 import Desktop from '@/screens/proposal_details/components/votes/components/desktop';
 import Mobile from '@/screens/proposal_details/components/votes/components/mobile';
@@ -12,7 +12,6 @@ import { filterDataByTab } from '@/screens/proposal_details/components/votes/uti
 import { FC, ReactNode, useMemo } from 'react';
 
 const Votes: FC<ComponentDefault> = (props) => {
-  const { isDesktop } = useScreenSize();
   const {
     page,
     rowsPerPage,
@@ -36,10 +35,13 @@ const Votes: FC<ComponentDefault> = (props) => {
 
   if (!items.length) {
     list = <NoData />;
-  } else if (isDesktop) {
-    list = <Desktop className={classes.desktop} items={items} />;
   } else {
-    <Mobile className={classes.mobile} items={items} />;
+    list = (
+      <>
+        <Desktop items={items} className={classes.hiddenUntilLg} />
+        <Mobile items={items} className={classes.hiddenWhenLg} />
+      </>
+    );
   }
 
   return (

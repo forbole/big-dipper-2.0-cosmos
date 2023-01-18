@@ -9,11 +9,11 @@ import dayjs from '@/utils/dayjs';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { BLOCK_DETAILS } from '@/utils/go_to_page';
 import { mergeRefs } from '@/utils/merge_refs';
-import Typography, { TypographyProps } from '@mui/material/Typography';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
-import { CSSProperties, FC, LegacyRef, ReactNode } from 'react';
+import { ComponentProps, CSSProperties, FC, LegacyRef, ReactNode } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { VariableSizeGrid as Grid } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
@@ -23,7 +23,7 @@ type BlockItemProps = {
   rowIndex: number;
   column: string;
   style: CSSProperties;
-  align?: TypographyProps['align'];
+  align?: ComponentProps<typeof Typography>['align'];
 };
 
 const BlockItem: FC<BlockItemProps> = ({ item, rowIndex, column, style, align }) => {
@@ -33,7 +33,7 @@ const BlockItem: FC<BlockItemProps> = ({ item, rowIndex, column, style, align })
   switch (column) {
     case 'height':
       formattedItem = (
-        <Link href={BLOCK_DETAILS(item.height)} className="value">
+        <Link shallow prefetch={false} href={BLOCK_DETAILS(item.height)} className="value">
           {numeral(item.height).format('0,0')}
         </Link>
       );

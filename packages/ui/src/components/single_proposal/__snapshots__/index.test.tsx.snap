@@ -1,25 +1,125 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`component: SingleProposal matches snapshot 1`] = `
+.emotion-0 {
+  margin: 16px 0px;
+}
+
+@media (min-width:1280px) {
+  .emotion-0 {
+    display: grid;
+    grid-template-columns: 50px auto min-content;
+    gap: 16px;
+  }
+}
+
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+@media (min-width:1280px) {
+  .emotion-1 {
+    -webkit-align-items: flex-start;
+    -webkit-box-align: flex-start;
+    -ms-flex-align: flex-start;
+    align-items: flex-start;
+    margin-bottom: 0;
+  }
+}
+
+.emotion-2 {
+  margin: 0;
+  font-size: 1rem;
+  letter-spacing: 0.15px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.235;
+  color: #777777;
+}
+
+@media (min-width:1280px) {
+  .emotion-3 {
+    display: none;
+  }
+}
+
+.emotion-4 {
+  border-radius: 4px;
+  padding: 4px 8px;
+  display: inline-block;
+  color: #E8E8E8;
+  background: rgba(232, 232, 232, 0.2);
+  color: #E8E8E8;
+  background: rgba(232, 232, 232, 0.2);
+}
+
+.emotion-4:not(:last-child) {
+  margin-right: 8px;
+}
+
+.emotion-4 .MuiTypography-body1 {
+  white-space: nowrap;
+}
+
+.emotion-5 {
+  margin: 0;
+  font-size: 1rem;
+  white-space: pre-wrap;
+  letter-spacing: 0.5px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.emotion-6 {
+  margin-bottom: 4px;
+}
+
+.emotion-7 {
+  margin: 0;
+  font-size: 1.25rem;
+  letter-spacing: 0.15px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.167;
+}
+
+@media (max-width:1279.95px) {
+  .emotion-8 {
+    display: none;
+  }
+}
+
 <div
-  className="css-8bkbz1-root"
+  className="emotion-0"
 >
   <div
-    className="css-wxblv8-header"
+    className="emotion-1"
   >
     <h4
-      className="MuiTypography-root MuiTypography-h4 css-138pxwk-MuiTypography-root-id"
+      className="MuiTypography-root MuiTypography-h4 emotion-2"
     >
       1
     </h4>
     <span
-      className="css-y4sl71-mobile"
+      className="emotion-3"
     >
       <div
-        className="css-1htgg0q-root-zero"
+        className="emotion-4"
       >
         <p
-          className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-body1 emotion-5"
         >
           passed
         </p>
@@ -28,23 +128,23 @@ exports[`component: SingleProposal matches snapshot 1`] = `
   </div>
   <div>
     <div
-      className="css-11049aw-title"
+      className="emotion-6"
     >
       <h3
-        className="MuiTypography-root MuiTypography-h3 value css-1kl9mnf-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-h3 value emotion-7"
       >
         proposal-title
       </h3>
     </div>
   </div>
   <span
-    className="css-1d2xof0-desktop"
+    className="emotion-8"
   >
     <div
-      className="css-1htgg0q-root-zero"
+      className="emotion-4"
     >
       <p
-        className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 emotion-5"
       >
         passed
       </p>

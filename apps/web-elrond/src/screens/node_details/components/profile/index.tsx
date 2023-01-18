@@ -1,5 +1,4 @@
 import Box from '@/components/box';
-import { useScreenSize } from '@/hooks';
 import { useProfile } from '@/screens/node_details/components/profile/hooks';
 import useStyles from '@/screens/node_details/components/profile/styles';
 import type { ProfileType } from '@/screens/node_details/types';
@@ -15,28 +14,26 @@ import CopyIcon from 'shared-utils/assets/icon-copy.svg';
 const Profile: FC<{ className?: string; profile: ProfileType; showRating: boolean }> = (props) => {
   const { t } = useTranslation('nodes');
   const { classes, cx } = useStyles();
-  const { isDesktop } = useScreenSize();
   const { handleCopyToClipboard } = useProfile(t);
-
-  let ellipsis = {
-    beginning: 15,
-    ending: 5,
-  };
-
-  if (isDesktop) {
-    ellipsis = {
-      beginning: 20,
-      ending: 20,
-    };
-  }
 
   let validator = null;
 
   if (props.profile?.validator) {
     validator = (
       <div className="detail">
-        <Link href={VALIDATOR_DETAILS(props.profile?.identity)} className="value">
-          {getMiddleEllipsis(props.profile?.validator, ellipsis)}
+        <Link shallow href={VALIDATOR_DETAILS(props.profile?.identity)} className="value">
+          <span className={classes.hiddenUntilLg}>
+            {getMiddleEllipsis(props.profile?.validator, {
+              beginning: 20,
+              ending: 20,
+            })}
+          </span>
+          <span className={classes.hiddenWhenLg}>
+            {getMiddleEllipsis(props.profile?.validator, {
+              beginning: 15,
+              ending: 5,
+            })}
+          </span>
         </Link>
       </div>
     );
@@ -77,7 +74,18 @@ const Profile: FC<{ className?: string; profile: ProfileType; showRating: boolea
               className={classes.actionIcons}
             />
             <Typography variant="body1" className="value">
-              {getMiddleEllipsis(props.profile?.pubkey, ellipsis)}
+              <span className={classes.hiddenUntilLg}>
+                {getMiddleEllipsis(props.profile?.pubkey, {
+                  beginning: 20,
+                  ending: 20,
+                })}
+              </span>
+              <span className={classes.hiddenWhenLg}>
+                {getMiddleEllipsis(props.profile?.pubkey, {
+                  beginning: 15,
+                  ending: 5,
+                })}
+              </span>
             </Typography>
           </div>
         </div>

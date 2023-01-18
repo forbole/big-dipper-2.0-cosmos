@@ -1,6 +1,5 @@
 import Box from '@/components/box';
 import NoData from '@/components/no_data';
-import { useScreenSize } from '@/hooks';
 import Desktop from '@/screens/home/components/transactions/components/desktop';
 import Mobile from '@/screens/home/components/transactions/components/mobile';
 import { useTransactions } from '@/screens/home/components/transactions/hooks';
@@ -13,7 +12,6 @@ import Link from 'next/link';
 import { FC } from 'react';
 
 const Transactions: FC<ComponentDefault> = ({ className }) => {
-  const { isDesktop } = useScreenSize();
   const { t } = useTranslation('home');
   const { state } = useTransactions();
   const { classes, cx } = useStyles();
@@ -21,7 +19,7 @@ const Transactions: FC<ComponentDefault> = ({ className }) => {
     <Box className={cx(classes.root, className)}>
       <div className={classes.label}>
         <Typography variant="h2">{t('latestTransactions')}</Typography>
-        <Link href={TRANSACTIONS} className="button" aria-label="see more txs">
+        <Link shallow href={TRANSACTIONS} className="button" aria-label="see more txs">
           {t('seeMore')}
         </Link>
       </div>
@@ -29,15 +27,13 @@ const Transactions: FC<ComponentDefault> = ({ className }) => {
         <NoData />
       ) : (
         <>
-          {isDesktop ? (
-            <Desktop className={classes.desktop} items={state.items} />
-          ) : (
-            <Mobile className={classes.mobile} items={state.items} />
-          )}
-          <Divider className={classes.mobile} />
+          <Desktop className={classes.hiddenUntilLg} items={state.items} />
+          <Mobile className={classes.hiddenWhenLg} items={state.items} />
+          <Divider className={classes.hiddenWhenLg} />
           <Link
+            shallow
             href={TRANSACTIONS}
-            className={cx(classes.seeMoreFooter, classes.mobile, 'button')}
+            className={cx(classes.seeMoreFooter, classes.hiddenWhenLg, 'button')}
             aria-label="see more blocks"
           >
             {t('seeMore')}

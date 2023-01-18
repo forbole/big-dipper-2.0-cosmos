@@ -1,9 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`component: Nav it renders 1`] = `
+[
+  @media (max-width:1279.95px) {
+  .emotion-0 {
+    display: none;
+  }
+}
+
 <div
-  className="css-y4sl71-mobile"
-  id="Mobile"
-  title=""
-/>
+    className="emotion-0"
+    id="Desktop"
+    title=""
+  />,
+  @media (min-width:1280px) {
+  .emotion-0 {
+    display: none;
+  }
+}
+
+<div
+    className="emotion-0"
+    id="Mobile"
+    title=""
+  />,
+]
 `;

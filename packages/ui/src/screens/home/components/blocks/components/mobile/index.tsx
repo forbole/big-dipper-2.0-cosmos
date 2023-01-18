@@ -22,7 +22,7 @@ const BlocksItem: FC<BlocksItemProps> = ({ item, i, isLast }) => {
     <Fragment key={`${i}-${item.height}`}>
       <SingleBlockMobile
         height={
-          <Link href={BLOCK_DETAILS(item.height)} className="value">
+          <Link shallow prefetch={false} href={BLOCK_DETAILS(item.height)} className="value">
             {numeral(item.height).format('0,0')}
           </Link>
         }

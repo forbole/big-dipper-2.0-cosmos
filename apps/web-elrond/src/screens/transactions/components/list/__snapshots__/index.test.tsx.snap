@@ -1,18 +1,621 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: Transactions/List matches snapshot 1`] = `
+.emotion-0 .MuiTableCell-root {
+  white-space: nowrap;
+}
+
+@media (max-width:1279.95px) {
+  .emotion-0 {
+    display: none;
+  }
+}
+
+.emotion-1 {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.emotion-1 caption {
+  font-size: 0.875rem;
+  letter-spacing: 0.25px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.43;
+  padding: 16px;
+  color: #414141;
+  text-align: left;
+  caption-side: bottom;
+}
+
+.emotion-2 {
+  display: table-header-group;
+  background-color: initial;
+}
+
+.emotion-3 {
+  color: inherit;
+  display: table-row;
+  vertical-align: middle;
+  outline: 0;
+}
+
+.emotion-3.MuiTableRow-hover:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.emotion-3.Mui-selected {
+  background-color: rgba(47, 101, 221, 0.08);
+}
+
+.emotion-3.Mui-selected:hover {
+  background-color: rgba(47, 101, 221, 0.12);
+}
+
+.emotion-4 {
+  font-size: 0.875rem;
+  letter-spacing: 0.25px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 500;
+  line-height: 1.5rem;
+  display: table-cell;
+  vertical-align: inherit;
+  border-bottom: 1px solid rgba(252, 252, 252, 1);
+  text-align: left;
+  padding: 16px;
+  color: #000000;
+  border-bottom: none;
+  padding: 0 16px;
+  height: 50px;
+  font-size: 1rem;
+}
+
+.emotion-9 {
+  font-size: 0.875rem;
+  letter-spacing: 0.25px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 500;
+  line-height: 1.5rem;
+  display: table-cell;
+  vertical-align: inherit;
+  border-bottom: 1px solid rgba(252, 252, 252, 1);
+  text-align: right;
+  padding: 16px;
+  color: #000000;
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+  border-bottom: none;
+  padding: 0 16px;
+  height: 50px;
+  font-size: 1rem;
+}
+
+.emotion-10 {
+  display: table-row-group;
+}
+
+.emotion-10 .MuiTableRow-root:nth-of-type(odd) {
+  background-color: #F8F8F8;
+}
+
+.emotion-10 .MuiTableCell-root {
+  color: #414141;
+}
+
+.emotion-12 {
+  font-size: 0.875rem;
+  letter-spacing: 0.25px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.43;
+  display: table-cell;
+  vertical-align: inherit;
+  border-bottom: 1px solid rgba(252, 252, 252, 1);
+  text-align: left;
+  padding: 16px;
+  color: #000000;
+  border-bottom: none;
+  padding: 0 16px;
+  height: 50px;
+  font-size: 1rem;
+}
+
+.emotion-14 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-15 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentColor;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 1.5rem;
+}
+
+.emotion-15.MuiSvgIcon-root {
+  width: 16px;
+  height: 16px;
+  margin: 0px 8px;
+}
+
+.emotion-17 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+}
+
+.emotion-17 p {
+  color: #2F65DD;
+  margin-left: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.emotion-17:hover {
+  cursor: pointer;
+}
+
+.emotion-18 {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  min-height: 28px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #F8F8F8;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.emotion-18 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.emotion-19 {
+  margin: 0;
+  font-size: 1rem;
+  white-space: pre-wrap;
+  letter-spacing: 0.5px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.emotion-25 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  color: #414141;
+}
+
+.emotion-25 svg {
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+}
+
+.emotion-26 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentColor;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 1.5rem;
+}
+
+.emotion-28 {
+  font-size: 0.875rem;
+  letter-spacing: 0.25px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.43;
+  display: table-cell;
+  vertical-align: inherit;
+  border-bottom: 1px solid rgba(252, 252, 252, 1);
+  text-align: right;
+  padding: 16px;
+  color: #000000;
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+  border-bottom: none;
+  padding: 0 16px;
+  height: 50px;
+  font-size: 1rem;
+}
+
+@media (min-width:1280px) {
+  .emotion-29 {
+    display: none;
+  }
+}
+
+.emotion-30 {
+  margin: 16px 0px;
+}
+
+.emotion-31 {
+  margin-bottom: 16px;
+}
+
+.emotion-31 .label {
+  margin-bottom: 8px;
+  color: #777777;
+}
+
+.emotion-31 p.value {
+  color: #414141;
+}
+
+.emotion-31 a {
+  color: #2F65DD;
+}
+
+.emotion-32 {
+  margin: 0;
+  font-size: 1rem;
+  letter-spacing: 0.15px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.235;
+}
+
+.emotion-47 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+}
+
+.emotion-47>div {
+  width: 50%;
+}
+
+.emotion-56 {
+  margin-top: 24px;
+}
+
 <div
   id="Box"
 >
-  <div>
+  <div
+    className="emotion-0"
+  >
+    <table
+      className="MuiTable-root emotion-1"
+      role={null}
+    >
+      <thead
+        className="MuiTableHead-root emotion-2"
+        role={null}
+      >
+        <tr
+          className="MuiTableRow-root MuiTableRow-head emotion-3"
+          role={null}
+        >
+          <th
+            aria-sort={null}
+            className="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium emotion-4"
+            scope="col"
+            style={
+              {
+                "width": "20%",
+              }
+            }
+          >
+            hash
+          </th>
+          <th
+            aria-sort={null}
+            className="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium emotion-4"
+            scope="col"
+            style={
+              {
+                "width": "16%",
+              }
+            }
+          >
+            shard
+          </th>
+          <th
+            aria-sort={null}
+            className="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium emotion-4"
+            scope="col"
+            style={
+              {
+                "width": "22%",
+              }
+            }
+          >
+            from
+          </th>
+          <th
+            aria-sort={null}
+            className="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium emotion-4"
+            scope="col"
+            style={
+              {
+                "width": "22%",
+              }
+            }
+          >
+            to
+          </th>
+          <th
+            aria-sort={null}
+            className="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium emotion-4"
+            scope="col"
+            style={
+              {
+                "width": "10%",
+              }
+            }
+          >
+            status
+          </th>
+          <th
+            aria-sort={null}
+            className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight MuiTableCell-sizeMedium emotion-9"
+            scope="col"
+            style={
+              {
+                "width": "10%",
+              }
+            }
+          >
+            time
+          </th>
+        </tr>
+      </thead>
+      <tbody
+        className="MuiTableBody-root emotion-10"
+        role={null}
+      >
+        <tr
+          className="MuiTableRow-root emotion-3"
+          role={null}
+        >
+          <td
+            aria-sort={null}
+            className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium emotion-12"
+            style={
+              {
+                "width": "20%",
+              }
+            }
+          >
+            <a
+              className="value"
+              href="/transactions/21cb1c8040f0359e574015093747796bc5c9789a9b2a527d8edcf9e61dbdd308"
+              onClick={[Function]}
+              onMouseEnter={[Function]}
+              onTouchStart={[Function]}
+            >
+              21cb1c8040...e61dbdd308
+            </a>
+          </td>
+          <td
+            aria-sort={null}
+            className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium emotion-12"
+            style={
+              {
+                "width": "16%",
+              }
+            }
+          >
+            <div
+              className="emotion-14"
+            >
+              shardNumber
+              <svg
+                aria-hidden={true}
+                className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-15"
+                color="#999999"
+                data-testid="ArrowForwardIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                />
+              </svg>
+              shardNumber
+            </div>
+          </td>
+          <td
+            aria-sort={null}
+            className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium emotion-12"
+            style={
+              {
+                "width": "22%",
+              }
+            }
+          >
+            <a
+              href="/accounts/erd16x7le8dpkjsafgwjx0e5kw94evsqw039rwp42m2j9eesd88x8zzs75tzry"
+              onClick={[Function]}
+              onMouseEnter={[Function]}
+              onTouchStart={[Function]}
+            >
+              <div
+                className="emotion-17"
+              >
+                <div
+                  className="emotion-18"
+                >
+                  <svg
+                    data-jdenticon-value="erd16x7le8dpkjsafgwjx0e5kw94evsqw039rwp42m2j9eesd88x8zzs75tzry"
+                    height="100%"
+                    width="100%"
+                  />
+                </div>
+                <p
+                  className="MuiTypography-root MuiTypography-body1 emotion-19"
+                >
+                  erd16x7le8...8zzs75tzry
+                </p>
+              </div>
+            </a>
+          </td>
+          <td
+            aria-sort={null}
+            className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium emotion-12"
+            style={
+              {
+                "width": "22%",
+              }
+            }
+          >
+            <a
+              href="/accounts/erd18d87czmgxunrwgwfptrnz37dlcgr7e2xahpf585qavwawwwj9tuq7mhfwk"
+              onClick={[Function]}
+              onMouseEnter={[Function]}
+              onTouchStart={[Function]}
+            >
+              <div
+                className="emotion-17"
+              >
+                <div
+                  className="emotion-18"
+                >
+                  <svg
+                    data-jdenticon-value="erd18d87czmgxunrwgwfptrnz37dlcgr7e2xahpf585qavwawwwj9tuq7mhfwk"
+                    height="100%"
+                    width="100%"
+                  />
+                </div>
+                <p
+                  className="MuiTypography-root MuiTypography-body1 emotion-19"
+                >
+                  erd18d87cz...9tuq7mhfwk
+                </p>
+              </div>
+            </a>
+          </td>
+          <td
+            aria-sort={null}
+            className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium emotion-12"
+            style={
+              {
+                "width": "10%",
+              }
+            }
+          >
+            <div
+              className="emotion-25"
+            >
+              <svg
+                aria-hidden={true}
+                className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-26"
+                color="#999999"
+                data-testid="HelpIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"
+                />
+              </svg>
+              <p
+                className="MuiTypography-root MuiTypography-body1 emotion-19"
+              >
+                pending
+              </p>
+            </div>
+          </td>
+          <td
+            aria-sort={null}
+            className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium emotion-28"
+            style={
+              {
+                "width": "10%",
+              }
+            }
+          >
+            1 day ago
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div
+    className="emotion-29"
+  >
     <div
-      className="css-1bnteyo-root"
+      className="emotion-30"
     >
       <div
-        className="css-16zf8r-item"
+        className="emotion-31"
       >
         <h4
-          className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-h4 label emotion-32"
         >
           hash
         </h4>
@@ -27,20 +630,20 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
         </a>
       </div>
       <div
-        className="css-16zf8r-item"
+        className="emotion-31"
       >
         <h4
-          className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-h4 label emotion-32"
         >
           shard
         </h4>
         <div
-          className="css-pmv5z6-root"
+          className="emotion-14"
         >
           shardNumber
           <svg
             aria-hidden={true}
-            className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-v3atb8-MuiSvgIcon-root-icon"
+            className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-15"
             color="#999999"
             data-testid="ArrowForwardIcon"
             focusable="false"
@@ -54,10 +657,10 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
         </div>
       </div>
       <div
-        className="css-16zf8r-item"
+        className="emotion-31"
       >
         <h4
-          className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-h4 label emotion-32"
         >
           from
         </h4>
@@ -68,10 +671,10 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
           onTouchStart={[Function]}
         >
           <div
-            className="css-hxwxnu-root"
+            className="emotion-17"
           >
             <div
-              className="css-rzl6e5-root"
+              className="emotion-18"
             >
               <svg
                 data-jdenticon-value="erd16x7le8dpkjsafgwjx0e5kw94evsqw039rwp42m2j9eesd88x8zzs75tzry"
@@ -80,7 +683,7 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
               />
             </div>
             <p
-              className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
+              className="MuiTypography-root MuiTypography-body1 emotion-19"
             >
               erd16x7le8dpk...sd88x8zzs75tzry
             </p>
@@ -88,10 +691,10 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
         </a>
       </div>
       <div
-        className="css-16zf8r-item"
+        className="emotion-31"
       >
         <h4
-          className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-h4 label emotion-32"
         >
           to
         </h4>
@@ -102,10 +705,10 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
           onTouchStart={[Function]}
         >
           <div
-            className="css-hxwxnu-root"
+            className="emotion-17"
           >
             <div
-              className="css-rzl6e5-root"
+              className="emotion-18"
             >
               <svg
                 data-jdenticon-value="erd18d87czmgxunrwgwfptrnz37dlcgr7e2xahpf585qavwawwwj9tuq7mhfwk"
@@ -114,7 +717,7 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
               />
             </div>
             <p
-              className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
+              className="MuiTypography-root MuiTypography-body1 emotion-19"
             >
               erd18d87czmgx...awwwj9tuq7mhfwk
             </p>
@@ -122,22 +725,22 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
         </a>
       </div>
       <div
-        className="css-1t94r6n-flex"
+        className="emotion-47"
       >
         <div
-          className="css-16zf8r-item"
+          className="emotion-31"
         >
           <h4
-            className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
+            className="MuiTypography-root MuiTypography-h4 label emotion-32"
           >
             status
           </h4>
           <div
-            className="css-179jfo-root"
+            className="emotion-25"
           >
             <svg
               aria-hidden={true}
-              className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+              className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-26"
               color="#999999"
               data-testid="HelpIcon"
               focusable="false"
@@ -148,22 +751,22 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
               />
             </svg>
             <p
-              className="MuiTypography-root MuiTypography-body1 css-pfovru-MuiTypography-root"
+              className="MuiTypography-root MuiTypography-body1 emotion-19"
             >
               pending
             </p>
           </div>
         </div>
         <div
-          className="css-16zf8r-item"
+          className="emotion-31"
         >
           <h4
-            className="MuiTypography-root MuiTypography-h4 label css-15yyl88-MuiTypography-root"
+            className="MuiTypography-root MuiTypography-h4 label emotion-32"
           >
             time
           </h4>
           <p
-            className="MuiTypography-root MuiTypography-body1 value css-pfovru-MuiTypography-root"
+            className="MuiTypography-root MuiTypography-body1 value emotion-19"
           >
             1 day ago
           </p>
@@ -172,7 +775,7 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
     </div>
   </div>
   <div
-    className="css-1hnp23h-paginate"
+    className="emotion-56"
     handlePageChange={[Function]}
     handleRowsPerPageChange={[Function]}
     id="Pagination"

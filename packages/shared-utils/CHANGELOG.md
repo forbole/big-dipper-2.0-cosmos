@@ -1,5 +1,19 @@
 # shared-utils
 
+## 2.6.2
+
+### Patch Changes
+
+- b64119a1: feat: handle respoonsive UI via CSS instead of using JS
+- Updated dependencies [b64119a1]
+  - eslint-config-custom@0.2.1
+
+## 2.6.1
+
+### Patch Changes
+
+- dc085630: feat: Add Rotate banner feature
+
 ## 2.6.0
 
 ### Minor Changes

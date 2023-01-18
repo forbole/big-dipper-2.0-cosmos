@@ -6,7 +6,7 @@ import { getVoteKey } from '@/screens/proposal_details/components/votes/utils';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
-import React, { FC, Fragment } from 'react';
+import { FC, Fragment } from 'react';
 
 type VoteItemProps = {
   i: number;

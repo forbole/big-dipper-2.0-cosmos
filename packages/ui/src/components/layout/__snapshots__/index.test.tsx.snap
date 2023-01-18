@@ -1,20 +1,85 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`component: Layout it renders 1`] = `
+@media (min-width:1280px) {
+  .emotion-0 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+}
+
+@media (min-width:1280px) {
+  .emotion-1 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  }
+}
+
+.emotion-2 {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.emotion-2 .main-content {
+  width: 100%;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+@media (min-width: 1280px) {
+  .emotion-3 {
+    height: 160px;
+    overflow: hidden;
+  }
+}
+
+@media (min-width:1280px) {
+  .emotion-4 {
+    position: relative;
+    z-index: 1299;
+  }
+}
+
 <div
-  className="css-l17dkz-root"
+  className="emotion-0"
+  style={
+    {
+      "filter": "blur(4px)",
+    }
+  }
 >
   <div
-    className="css-1dcwhai-contentWrapper"
+    className="emotion-1"
   >
     <div
       id="Nav"
     />
     <div
-      className="css-1xo34y-children"
+      className="emotion-2"
     >
       <div
-        className="css-1lze7ft-appBarPlaceholder"
+        className="emotion-3"
       />
       <div
         className="main-content"
@@ -26,7 +91,7 @@ exports[`component: Layout it renders 1`] = `
     </div>
   </div>
   <div
-    className="css-1gb7m7h-footer"
+    className="emotion-4"
     id="Footer"
   />
 </div>

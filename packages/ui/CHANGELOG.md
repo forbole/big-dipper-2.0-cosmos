@@ -1,5 +1,33 @@
 # ui
 
+## 2.10.4
+
+### Patch Changes
+
+- b64119a1: feat: handle respoonsive UI via CSS instead of using JS
+- Updated dependencies [b64119a1]
+  - shared-utils@2.6.2
+
+## 2.10.3
+
+### Patch Changes
+
+- 90cf5749: style: Add page transition
+
+## 2.10.2
+
+### Patch Changes
+
+- ce50c036: fix: dtag search
+
+## 2.10.1
+
+### Patch Changes
+
+- dc085630: feat: Add Rotate banner feature
+- Updated dependencies [dc085630]
+  - shared-utils@2.6.1
+
 ## 2.10.0
 
 ### Minor Changes

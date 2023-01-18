@@ -8,7 +8,7 @@ import { getValidatorConditionClass } from '@/utils/get_validator_condition';
 import { getValidatorStatus } from '@/utils/get_validator_status';
 import Divider from '@mui/material/Divider';
 import numeral from 'numeral';
-import React, { FC, LegacyRef } from 'react';
+import { FC, LegacyRef } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
 

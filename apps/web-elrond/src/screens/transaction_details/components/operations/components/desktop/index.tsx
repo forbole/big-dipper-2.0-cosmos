@@ -52,7 +52,9 @@ const Desktop: FC<{ className?: string; items: OperationType[] }> = (props) => {
       value: link ? (
         <div>
           <Typography component="span">{formatNumber(x.value.value, x.value.exponent)} </Typography>
-          <Link href={link(x.identifier)}>{x.value.displayDenom.toUpperCase()}</Link>
+          <Link shallow prefetch={false} href={link(x.identifier)}>
+            {x.value.displayDenom.toUpperCase()}
+          </Link>
         </div>
       ) : (
         `${formatNumber(x.value.value, x.value.exponent)} ${x.value.displayDenom.toUpperCase()}`

@@ -11,8 +11,16 @@ import InnerApp from '@/screens/app/components/inner_app';
 import { useTheme } from '@/screens/app/components/main/hooks';
 import createEmotionCache from '@/styles/createEmotionCache';
 import { CacheProvider, EmotionCache } from '@emotion/react';
+import { Hind_Madurai } from '@next/font/google';
 import Head from 'next/head';
 import { useEffect } from 'react';
+
+const hindMadurai = Hind_Madurai({
+  weight: '400',
+  style: 'normal',
+  display: 'swap',
+  preload: true,
+});
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -35,7 +43,7 @@ const Main = (props: MainProps) => {
   // =====================================
   // general setup
   // =====================================
-  const { muiTheme } = useTheme();
+  const { muiTheme } = useTheme(hindMadurai.style.fontFamily);
   const loading = false;
 
   /* Adding a class to the document element to indicate the dark mode. */

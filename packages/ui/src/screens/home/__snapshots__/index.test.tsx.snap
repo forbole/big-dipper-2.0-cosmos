@@ -1,32 +1,146 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: Home matches snapshot 1`] = `
+.emotion-0 {
+  padding: 16px;
+  display: grid;
+  gap: 8px;
+  grid-template-rows: auto auto 1fr;
+  grid-template-columns: repeat(1, 1fr);
+}
+
+@media (min-width: 1280px) {
+  .emotion-0 {
+    padding: 16px 24px;
+  }
+}
+
+.emotion-0 a {
+  color: #4092CD;
+}
+
+@media (min-width:768px) {
+  .emotion-0 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width:1280px) {
+  .emotion-0 {
+    gap: 16px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width:768px) {
+  .emotion-1 {
+    grid-column: 1/3;
+  }
+}
+
+@media (min-width:1280px) {
+  .emotion-1 {
+    grid-column: 1/5;
+  }
+}
+
+@media (min-width:768px) {
+  .emotion-2 {
+    grid-column: 1/3;
+  }
+}
+
+@media (min-width:1280px) {
+  .emotion-2 {
+    grid-column: 1/3;
+    height: 350px;
+  }
+}
+
+.emotion-3 {
+  height: 375px;
+}
+
+@media (min-width:768px) {
+  .emotion-3 {
+    grid-column: 1/2;
+  }
+}
+
+@media (min-width:1280px) {
+  .emotion-3 {
+    grid-column: 3/4;
+    height: 100%;
+  }
+}
+
+.emotion-4 {
+  height: 375px;
+}
+
+@media (min-width:768px) {
+  .emotion-4 {
+    grid-column: 2/3;
+  }
+}
+
+@media (min-width:1280px) {
+  .emotion-4 {
+    grid-column: 4/5;
+    height: 100%;
+  }
+}
+
+@media (min-width:768px) {
+  .emotion-5 {
+    grid-column: 1/3;
+  }
+}
+
+@media (min-width:1280px) {
+  .emotion-5 {
+    grid-column: 1/3;
+  }
+}
+
+@media (min-width:768px) {
+  .emotion-6 {
+    grid-column: 1/3;
+  }
+}
+
+@media (min-width:1280px) {
+  .emotion-6 {
+    grid-column: 3/5;
+  }
+}
+
 <div
-  className="css-13xj58z-root"
+  className="emotion-0"
   id="Layout"
 >
   <div
-    className="css-duwjon-dataBlocks"
+    className="emotion-1"
     id="DataBlocks"
   />
   <div
-    className="css-1p7g5li-hero"
+    className="emotion-2"
     id="Hero"
   />
   <div
-    className="css-n881us-tokenomics"
+    className="emotion-3"
     id="Tokenomics"
   />
   <div
-    className="css-19jatxx-consensus"
+    className="emotion-4"
     id="Consensus"
   />
   <div
-    className="css-5qoy63-blocks"
+    className="emotion-5"
     id="Blocks"
   />
   <div
-    className="css-92tqjx-transactions"
+    className="emotion-6"
     id="Transactions"
   />
 </div>

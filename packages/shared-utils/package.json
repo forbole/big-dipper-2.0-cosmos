@@ -1,6 +1,6 @@
 {
   "name": "shared-utils",
-  "version": "2.6.0",
+  "version": "2.6.2",
   "license": "Apache-2.0",
   "private": true,
   "scripts": {
@@ -10,23 +10,22 @@
     "access": "public"
   },
   "dependencies": {
-    "eslint-config-custom": "*",
-    "next-transpile-modules": "^10.0.0"
+    "eslint-config-custom": "*"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^13.1.1",
     "@types/esprima": "^4.0.3",
-    "@typescript-eslint/eslint-plugin": "^5.48.0",
-    "@typescript-eslint/parser": "^5.48.0",
+    "@typescript-eslint/eslint-plugin": "^5.48.1",
+    "@typescript-eslint/parser": "^5.48.1",
     "eslint": "^8.31.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-next": "^13.1.1",
     "eslint-config-prettier": "^8.6.0",
     "eslint-config-turbo": "^0.0.7",
-    "eslint-import-resolver-typescript": "^3.5.2",
+    "eslint-import-resolver-typescript": "^3.5.3",
     "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jsx-a11y": "^6.6.1",
-    "eslint-plugin-react": "^7.31.11",
+    "eslint-plugin-jsx-a11y": "^6.7.0",
+    "eslint-plugin-react": "^7.32.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-turbo": "^0.0.7",
     "esprima": "^4.0.1",

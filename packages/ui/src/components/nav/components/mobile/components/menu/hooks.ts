@@ -24,7 +24,7 @@ export const useLanguageDrawer = (lang: string, toggleNavMenus: () => void) => {
   };
 };
 
-export const useThemeDrawer = (toggleNavMenus: () => void) => {
+export const useThemeDrawer = (toggleNavMenus: (toggle?: boolean) => void) => {
   const [theme, setTheme] = useRecoilState(writeTheme) as [Theme, SetterOrUpdater<Theme>];
 
   const [currentTheme, setCurrentTheme] = useState(theme);
@@ -33,7 +33,7 @@ export const useThemeDrawer = (toggleNavMenus: () => void) => {
   useEffect(() => {
     if (theme !== currentTheme) {
       setDrawerOpen(false);
-      toggleNavMenus();
+      toggleNavMenus(false);
       setCurrentTheme(theme);
     }
   }, [currentTheme, theme, toggleNavMenus]);

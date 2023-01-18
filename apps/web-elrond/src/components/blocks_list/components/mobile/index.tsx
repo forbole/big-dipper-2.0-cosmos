@@ -20,7 +20,7 @@ const Mobile: FC<{ className?: string; items: BlockType[] }> = (props) => {
         num: shard.num,
       }),
       hash: (
-        <Link href={BLOCK_DETAILS(x.hash)} className="value">
+        <Link shallow prefetch={false} href={BLOCK_DETAILS(x.hash)} className="value">
           {getMiddleEllipsis(x.hash, {
             beginning: 13,
             ending: 15,

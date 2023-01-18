@@ -43,7 +43,7 @@ const ListItem: FC<ListItemProps> = ({
 
   const formattedItem = {
     height: (
-      <Link href={BLOCK_DETAILS(item.height)} className="value">
+      <Link shallow prefetch={false} href={BLOCK_DETAILS(item.height)} className="value">
         {numeral(item.height).format('0,0')}
       </Link>
     ),

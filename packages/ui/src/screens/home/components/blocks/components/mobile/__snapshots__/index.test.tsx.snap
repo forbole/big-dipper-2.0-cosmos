@@ -8,6 +8,8 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
       <ForwardRef(LinkComponent)
         className="value"
         href="/blocks/4000"
+        prefetch={false}
+        shallow={true}
       >
         4,000
       </ForwardRef(LinkComponent)>

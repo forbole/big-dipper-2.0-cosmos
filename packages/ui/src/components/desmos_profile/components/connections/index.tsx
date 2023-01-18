@@ -2,7 +2,7 @@ import Desktop from '@/components/desmos_profile/components/connections/componen
 import Mobile from '@/components/desmos_profile/components/connections/components/mobile';
 import useStyles from '@/components/desmos_profile/components/connections/styles';
 import Pagination from '@/components/pagination';
-import { usePagination, useScreenSize } from '@/hooks';
+import { usePagination } from '@/hooks';
 import useShallowMemo from '@/hooks/useShallowMemo';
 import CloseIcon from '@mui/icons-material/Close';
 import Dialog from '@mui/material/Dialog';
@@ -20,8 +20,7 @@ type ConnectionsProps = {
 };
 
 const Connections: FC<ConnectionsProps> = ({ handleClose, open, data }) => {
-  const { isDesktop } = useScreenSize();
-  const { classes } = useStyles();
+  const { classes, cx } = useStyles();
   const { t } = useTranslation('accounts');
   const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange, sliceItems } =
     usePagination({});
@@ -43,11 +42,8 @@ const Connections: FC<ConnectionsProps> = ({ handleClose, open, data }) => {
         </IconButton>
       </DialogTitle>
       <DialogContent dividers>
-        {isDesktop ? (
-          <Desktop items={items} className={classes.noWrap} />
-        ) : (
-          <Mobile items={items} />
-        )}
+        <Desktop className={cx(classes.noWrap, classes.hiddenUntilLg)} items={items} />
+        <Mobile className={classes.hiddenWhenLg} items={items} />
         <Pagination
           className={classes.paginate}
           total={data.length}
