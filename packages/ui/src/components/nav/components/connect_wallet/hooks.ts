@@ -257,16 +257,19 @@ const useConnectWalletList = () => {
   const handleCloseAuthorizeConnectionDialog = () => {
     setOpenAuthorizeConnectionDialog(false);
     setWalletOption('');
+    setErrorMsg(undefined);
   };
 
   const handleCloseInstallKeplrWalletDialog = () => {
     setOpenInstallKeplrWalletDialog(false);
     setWalletOption('');
+    setErrorMsg(undefined);
   };
 
   const handleCloseKeplrPairingDialog = () => {
     setOpenKeplrPairingDialog(false);
     setWalletOption('');
+    setErrorMsg(undefined);
   };
 
   const handleCloseLoginDialog = () => {
@@ -274,6 +277,7 @@ const useConnectWalletList = () => {
     resetUserState();
     resetWalletState();
     setWalletOption('');
+    setErrorMsg(undefined);
   };
 
   const handleCloseLoginSuccessDialog = () => {
@@ -349,6 +353,7 @@ const useConnectWalletList = () => {
     setUserPubKey({ type: '', value: '' });
     setUserIsLoggedIn(false);
     setWCClient(undefined);
+    setErrorMsg(undefined);
   };
 
   const saveUserInfo = (
@@ -365,6 +370,7 @@ const useConnectWalletList = () => {
     setUserPubKey(pubkey ?? { type: '', value: '' });
     setWalletName(wallet);
     setUserIsLoggedIn(true);
+    setErrorMsg(undefined);
   };
 
   const handleOpenWalletDetails = () => {
@@ -482,6 +488,7 @@ const useConnectWalletList = () => {
     if (keplr) {
       setOpenConnectWalletConnectDialog(false);
       setOpenAuthorizeConnectionDialog(true);
+      setErrorMsg(undefined);
 
       // enable connection and approve it inside the mobile app
       // to obtain address, pubkey and wallet name
@@ -528,7 +535,7 @@ const useConnectWalletList = () => {
         }
       });
 
-      connector.on('disconnect', () => handleLogout);
+      connector.on('disconnect', () => handleLogout());
     }
   };
 
