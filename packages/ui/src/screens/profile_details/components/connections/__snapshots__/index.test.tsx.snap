@@ -10,29 +10,178 @@ exports[`screen: ProfileDetails/Connections matches snapshot 1`] = `
   line-height: 1.2;
 }
 
-.emotion-1 {
-  margin: 16px 0px;
+@media (max-width:1279.95px) {
+  .emotion-1 {
+    display: none;
+  }
+}
+
+.emotion-1.emotion-1 {
+  white-space: nowrap;
 }
 
 .emotion-2 {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.emotion-2 caption {
+  font-size: 0.875rem;
+  letter-spacing: 0.25px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.43;
+  padding: 16px;
+  color: #414141;
+  text-align: left;
+  caption-side: bottom;
+}
+
+.emotion-3 {
+  display: table-header-group;
+  background-color: initial;
+}
+
+.emotion-4 {
+  color: inherit;
+  display: table-row;
+  vertical-align: middle;
+  outline: 0;
+}
+
+.emotion-4.MuiTableRow-hover:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.emotion-4.Mui-selected {
+  background-color: rgba(255, 131, 91, 0.08);
+}
+
+.emotion-4.Mui-selected:hover {
+  background-color: rgba(255, 131, 91, 0.12);
+}
+
+.emotion-5 {
+  font-size: 0.875rem;
+  letter-spacing: 0.25px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 500;
+  line-height: 1.5rem;
+  display: table-cell;
+  vertical-align: inherit;
+  border-bottom: 1px solid rgba(252, 252, 252, 1);
+  text-align: left;
+  padding: 16px;
+  color: #000000;
+  border-bottom: none;
+  padding: 0 16px;
+  height: 50px;
+  font-size: 1rem;
+}
+
+.emotion-7 {
+  font-size: 0.875rem;
+  letter-spacing: 0.25px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 500;
+  line-height: 1.5rem;
+  display: table-cell;
+  vertical-align: inherit;
+  border-bottom: 1px solid rgba(252, 252, 252, 1);
+  text-align: right;
+  padding: 16px;
+  color: #000000;
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+  border-bottom: none;
+  padding: 0 16px;
+  height: 50px;
+  font-size: 1rem;
+}
+
+.emotion-8 {
+  display: table-row-group;
+}
+
+.emotion-8 .MuiTableRow-root:nth-of-type(odd) {
+  background-color: #F8F8F8;
+}
+
+.emotion-8 .MuiTableCell-root {
+  color: #414141;
+}
+
+.emotion-10 {
+  font-size: 0.875rem;
+  letter-spacing: 0.25px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.43;
+  display: table-cell;
+  vertical-align: inherit;
+  border-bottom: 1px solid rgba(252, 252, 252, 1);
+  text-align: left;
+  padding: 16px;
+  color: #000000;
+  border-bottom: none;
+  padding: 0 16px;
+  height: 50px;
+  font-size: 1rem;
+}
+
+.emotion-12 {
+  font-size: 0.875rem;
+  letter-spacing: 0.25px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.43;
+  display: table-cell;
+  vertical-align: inherit;
+  border-bottom: 1px solid rgba(252, 252, 252, 1);
+  text-align: right;
+  padding: 16px;
+  color: #000000;
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+  border-bottom: none;
+  padding: 0 16px;
+  height: 50px;
+  font-size: 1rem;
+}
+
+@media (min-width:1280px) {
+  .emotion-17 {
+    display: none;
+  }
+}
+
+.emotion-18 {
+  margin: 16px 0px;
+}
+
+.emotion-19 {
   margin-bottom: 16px;
 }
 
-.emotion-2 .label {
+.emotion-19 .label {
   margin-bottom: 8px;
   color: #777777;
 }
 
-.emotion-2 p.value {
+.emotion-19 p.value {
   color: #414141;
   word-break: break-all;
 }
 
-.emotion-2 a {
+.emotion-19 a {
   color: #4092CD;
 }
 
-.emotion-3 {
+.emotion-20 {
   margin: 0;
   font-size: 1rem;
   letter-spacing: 0.15px;
@@ -41,7 +190,7 @@ exports[`screen: ProfileDetails/Connections matches snapshot 1`] = `
   line-height: 1.235;
 }
 
-.emotion-4 {
+.emotion-21 {
   margin: 0;
   font-size: 1rem;
   white-space: pre-wrap;
@@ -51,7 +200,7 @@ exports[`screen: ProfileDetails/Connections matches snapshot 1`] = `
   line-height: 1.5;
 }
 
-.emotion-11 {
+.emotion-28 {
   margin: 0;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
@@ -62,7 +211,7 @@ exports[`screen: ProfileDetails/Connections matches snapshot 1`] = `
   border-bottom-width: thin;
 }
 
-.emotion-22 {
+.emotion-39 {
   margin-top: 16px;
 }
 
@@ -74,34 +223,180 @@ exports[`screen: ProfileDetails/Connections matches snapshot 1`] = `
   >
     connectionsTitle
   </h2>
-  <div>
+  <div
+    className="emotion-1"
+  >
+    <table
+      className="MuiTable-root emotion-2"
+      role={null}
+    >
+      <thead
+        className="MuiTableHead-root emotion-3"
+        role={null}
+      >
+        <tr
+          className="MuiTableRow-root MuiTableRow-head emotion-4"
+          role={null}
+        >
+          <th
+            aria-sort={null}
+            className="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium emotion-5"
+            scope="col"
+            style={
+              {
+                "width": "25%",
+              }
+            }
+          >
+            network
+          </th>
+          <th
+            aria-sort={null}
+            className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium emotion-5"
+            scope="col"
+            style={
+              {
+                "width": "50%",
+              }
+            }
+          >
+            identifier
+          </th>
+          <th
+            aria-sort={null}
+            className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight MuiTableCell-sizeMedium emotion-7"
+            scope="col"
+            style={
+              {
+                "width": "25%",
+              }
+            }
+          >
+            creationTime
+          </th>
+        </tr>
+      </thead>
+      <tbody
+        className="MuiTableBody-root emotion-8"
+        role={null}
+      >
+        <tr
+          className="MuiTableRow-root emotion-4"
+          role={null}
+        >
+          <td
+            aria-sort={null}
+            className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium emotion-10"
+            style={
+              {
+                "width": "25%",
+              }
+            }
+          >
+            NATIVE
+          </td>
+          <td
+            aria-sort={null}
+            className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium emotion-10"
+            style={
+              {
+                "width": "50%",
+              }
+            }
+          >
+            <a
+              className="value"
+              href="/accounts/desmos1rzhewpmmdl72lhnxj6zmxr4v94f522s4ff2psv"
+              onClick={[Function]}
+              onMouseEnter={[Function]}
+              onTouchStart={[Function]}
+            >
+              desmos1rzhewpmmdl72lhnxj6zmxr4v94f522s4ff2psv
+            </a>
+          </td>
+          <td
+            aria-sort={null}
+            className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium emotion-12"
+            style={
+              {
+                "width": "25%",
+              }
+            }
+          >
+            2020-08-10 12:00:00
+          </td>
+        </tr>
+        <tr
+          className="MuiTableRow-root emotion-4"
+          role={null}
+        >
+          <td
+            aria-sort={null}
+            className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium emotion-10"
+            style={
+              {
+                "width": "25%",
+              }
+            }
+          >
+            EMONEY
+          </td>
+          <td
+            aria-sort={null}
+            className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium emotion-10"
+            style={
+              {
+                "width": "50%",
+              }
+            }
+          >
+            emoney1wke3ev9ja6rxsngld75r3vppcpet94xxnh63ry
+          </td>
+          <td
+            aria-sort={null}
+            className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium emotion-12"
+            style={
+              {
+                "width": "25%",
+              }
+            }
+          >
+            2020-08-10 12:00:00
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div
+    className="emotion-17"
+  >
     <div
-      className="emotion-1"
+      className="emotion-18"
     >
       <div
-        className="emotion-2"
+        className="emotion-19"
       >
         <h4
-          className="MuiTypography-root MuiTypography-h4 label emotion-3"
+          className="MuiTypography-root MuiTypography-h4 label emotion-20"
         >
           network
         </h4>
         <p
-          className="MuiTypography-root MuiTypography-body1 value emotion-4"
+          className="MuiTypography-root MuiTypography-body1 value emotion-21"
         >
           NATIVE
         </p>
       </div>
       <div
-        className="emotion-2"
+        className="emotion-19"
       >
         <h4
-          className="MuiTypography-root MuiTypography-h4 label emotion-3"
+          className="MuiTypography-root MuiTypography-h4 label emotion-20"
         >
           identifier
         </h4>
         <p
-          className="MuiTypography-root MuiTypography-body1 value emotion-4"
+          className="MuiTypography-root MuiTypography-body1 value emotion-21"
         >
           <a
             className="value"
@@ -115,64 +410,64 @@ exports[`screen: ProfileDetails/Connections matches snapshot 1`] = `
         </p>
       </div>
       <div
-        className="emotion-2"
+        className="emotion-19"
       >
         <h4
-          className="MuiTypography-root MuiTypography-h4 label emotion-3"
+          className="MuiTypography-root MuiTypography-h4 label emotion-20"
         >
           creationTime
         </h4>
         <p
-          className="MuiTypography-root MuiTypography-body1 value emotion-4"
+          className="MuiTypography-root MuiTypography-body1 value emotion-21"
         >
           2020-08-10 12:00:00
         </p>
       </div>
     </div>
     <hr
-      className="MuiDivider-root MuiDivider-fullWidth emotion-11"
+      className="MuiDivider-root MuiDivider-fullWidth emotion-28"
     />
     <div
-      className="emotion-1"
+      className="emotion-18"
     >
       <div
-        className="emotion-2"
+        className="emotion-19"
       >
         <h4
-          className="MuiTypography-root MuiTypography-h4 label emotion-3"
+          className="MuiTypography-root MuiTypography-h4 label emotion-20"
         >
           network
         </h4>
         <p
-          className="MuiTypography-root MuiTypography-body1 value emotion-4"
+          className="MuiTypography-root MuiTypography-body1 value emotion-21"
         >
           EMONEY
         </p>
       </div>
       <div
-        className="emotion-2"
+        className="emotion-19"
       >
         <h4
-          className="MuiTypography-root MuiTypography-h4 label emotion-3"
+          className="MuiTypography-root MuiTypography-h4 label emotion-20"
         >
           identifier
         </h4>
         <p
-          className="MuiTypography-root MuiTypography-body1 value emotion-4"
+          className="MuiTypography-root MuiTypography-body1 value emotion-21"
         >
           emoney1wke3ev9ja6rxsngld75r3vppcpet94xxnh63ry
         </p>
       </div>
       <div
-        className="emotion-2"
+        className="emotion-19"
       >
         <h4
-          className="MuiTypography-root MuiTypography-h4 label emotion-3"
+          className="MuiTypography-root MuiTypography-h4 label emotion-20"
         >
           creationTime
         </h4>
         <p
-          className="MuiTypography-root MuiTypography-body1 value emotion-4"
+          className="MuiTypography-root MuiTypography-body1 value emotion-21"
         >
           2020-08-10 12:00:00
         </p>
@@ -180,7 +475,7 @@ exports[`screen: ProfileDetails/Connections matches snapshot 1`] = `
     </div>
   </div>
   <div
-    className="emotion-22"
+    className="emotion-39"
     handlePageChange={[Function]}
     handleRowsPerPageChange={[Function]}
     id="Pagination"

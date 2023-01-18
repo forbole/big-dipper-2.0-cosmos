@@ -12,7 +12,7 @@ const Mobile: FC<{ className?: string; items: BlockType[] }> = (props) => {
   const formattedItems = props.items.map((x) => ({
     block: numeral(x.block).format('0,0'),
     hash: (
-      <Link shallow href={BLOCK_DETAILS(x.hash)} className="value">
+      <Link shallow prefetch={false} href={BLOCK_DETAILS(x.hash)} className="value">
         {getMiddleEllipsis(x.hash, {
           beginning: 13,
           ending: 15,

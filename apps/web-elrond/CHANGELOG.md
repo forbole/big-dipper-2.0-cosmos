@@ -1,5 +1,14 @@
 # v1.0.4 - 2022-06-20
 
+## 2.8.2
+
+### Patch Changes
+
+- b64119a1: feat: handle respoonsive UI via CSS instead of using JS
+- Updated dependencies [b64119a1]
+  - shared-utils@2.6.2
+  - ui@2.10.4
+
 ## 2.8.1
 
 ### Patch Changes

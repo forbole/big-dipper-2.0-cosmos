@@ -1,6 +1,6 @@
 import Box from '@/components/box';
 import Pagination from '@/components/pagination';
-import { usePagination, useScreenSize } from '@/hooks';
+import { usePagination } from '@/hooks';
 import useShallowMemo from '@/hooks/useShallowMemo';
 import Desktop from '@/screens/profile_details/components/connections/components/desktop';
 import Mobile from '@/screens/profile_details/components/connections/components/mobile';
@@ -10,8 +10,7 @@ import useTranslation from 'next-translate/useTranslation';
 import { FC, useMemo } from 'react';
 
 const Connections: FC<{ data: ProfileConnectionType[] }> = ({ data }) => {
-  const { isDesktop } = useScreenSize();
-  const { classes } = useStyles();
+  const { classes, cx } = useStyles();
   const { t } = useTranslation('accounts');
   const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange, sliceItems } =
     usePagination({});
@@ -21,8 +20,8 @@ const Connections: FC<{ data: ProfileConnectionType[] }> = ({ data }) => {
   return (
     <Box>
       <Typography variant="h2">{t('connectionsTitle')}</Typography>
-
-      {isDesktop ? <Desktop items={items} className={classes.noWrap} /> : <Mobile items={items} />}
+      <Desktop className={cx(classes.hiddenUntilLg, classes.noWrap)} items={items} />
+      <Mobile className={classes.hiddenWhenLg} items={items} />
       <Pagination
         className={classes.paginate}
         total={data.length}

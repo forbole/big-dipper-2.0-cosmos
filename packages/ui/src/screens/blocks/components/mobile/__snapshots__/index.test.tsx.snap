@@ -62,6 +62,7 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
               <ForwardRef(LinkComponent)
                 className="value"
                 href="/blocks/300"
+                prefetch={false}
                 shallow={true}
               >
                 300
@@ -102,6 +103,7 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
               <ForwardRef(LinkComponent)
                 className="value"
                 href="/blocks/301"
+                prefetch={false}
                 shallow={true}
               >
                 301

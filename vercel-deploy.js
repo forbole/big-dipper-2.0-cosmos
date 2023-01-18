@@ -72,7 +72,7 @@ console.log('running vercel-deploy.js', process.argv[2] ?? '');
 
 if (process.argv[2] === 'manual') {
   const projectList = getProjectList();
-  const project = projectList.find((p) => p === process.argv[3]) || 'web';
+  const project = projectList.find((p) => p === process.argv[3]);
 
   if (!project) throw new Error('project not found');
 
@@ -80,26 +80,31 @@ if (process.argv[2] === 'manual') {
   execShell(`YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn install --inline-builds`);
 } else if (process.argv[2] === 'turbo-ignore') {
   try {
+    let project = 'web';
+    const projectList = getProjectList();
+
     // VERCEL_GIT_PULL_REQUEST_ID is the pull request id
     const pullId = process.env.VERCEL_GIT_PULL_REQUEST_ID;
-    if (!pullId) throw new Error('VERCEL_GIT_PULL_REQUEST_ID is not defined');
+    console.log(`VERCEL_GIT_PULL_REQUEST_ID:`, pullId);
 
-    // GITHUB_API_TOKEN is the github api token, we need it to get the pull request title
-    const apiToken = process.env.GITHUB_API_TOKEN;
-    if (!apiToken) throw new Error('GITHUB_API_TOKEN is not defined');
+    if (pullId) {
+      // GITHUB_API_TOKEN is the github api token, we need it to get the pull request title
+      const apiToken = process.env.GITHUB_API_TOKEN;
+      if (!apiToken) throw new Error('GITHUB_API_TOKEN is not defined');
 
-    /* Getting the pull request title. */
-    const response = execShell(
-      `curl ` +
-        `-H 'Accept: application/vnd.github+json' ` +
-        `-H 'Authorization: Bearer '$GITHUB_API_TOKEN ` +
-        `-H 'X-GitHub-Api-Version: 2022-11-28' ` +
-        `https://api.github.com/repos/forbole/big-dipper-2.0-cosmos/pulls/${pullId}`
-    );
-    const { title } = JSON.parse(response);
+      /* Getting the pull request title. */
+      const response = execShell(
+        `curl ` +
+          `-H 'Accept: application/vnd.github+json' ` +
+          `-H 'Authorization: Bearer '$GITHUB_API_TOKEN ` +
+          `-H 'X-GitHub-Api-Version: 2022-11-28' ` +
+          `https://api.github.com/repos/forbole/big-dipper-2.0-cosmos/pulls/${pullId}`
+      );
+      const { title } = JSON.parse(response);
 
-    const projectList = getProjectList();
-    const project = projectList.find((p) => title.endsWith(`[${p}]`)) || 'web';
+      project = projectList.find((p) => title.endsWith(`[${p}]`)) || 'web';
+    }
+
     cleanUnusedProjects(project, projectList);
   } catch (error) {
     console.error(error);

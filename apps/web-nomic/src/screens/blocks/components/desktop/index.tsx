@@ -36,7 +36,7 @@ const Desktop: FC<DesktopProps> = ({
 
   const formattedItems = items?.map((x) => ({
     height: (
-      <Link shallow href={BLOCK_DETAILS(x.height)} className="value">
+      <Link shallow prefetch={false} href={BLOCK_DETAILS(x.height)} className="value">
         {numeral(x.height).format('0,0')}
       </Link>
     ),

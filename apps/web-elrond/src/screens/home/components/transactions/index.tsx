@@ -1,6 +1,5 @@
 import Box from '@/components/box';
 import NoData from '@/components/no_data';
-import { useScreenSize } from '@/hooks';
 import Desktop from '@/screens/home/components/transactions/components/desktop';
 import Mobile from '@/screens/home/components/transactions/components/mobile';
 import { useBlocks } from '@/screens/home/components/transactions/hooks';
@@ -15,7 +14,6 @@ import { FC } from 'react';
 const Transactions: FC<ComponentDefault> = (props) => {
   const { classes, cx } = useStyles();
   const { t } = useTranslation('home');
-  const { isDesktop } = useScreenSize();
   const { state } = useBlocks();
   return (
     <Box className={props.className}>
@@ -29,11 +27,13 @@ const Transactions: FC<ComponentDefault> = (props) => {
         <NoData />
       ) : (
         <>
-          {isDesktop ? <Desktop items={state.items} /> : <Mobile items={state.items} />}
-          <Divider className={classes.mobile} />
+          <Desktop className={classes.hiddenUntilLg} items={state.items} />
+          <Mobile className={classes.hiddenWhenLg} items={state.items} />
+          <Divider className={classes.hiddenWhenLg} />
           <Link
+            shallow
             href={TRANSACTIONS}
-            className={cx(classes.seeMoreFooter, classes.mobile, 'button')}
+            className={cx(classes.seeMoreFooter, classes.hiddenWhenLg, 'button')}
             aria-label="see more txs"
           >
             {t('seeMore')}

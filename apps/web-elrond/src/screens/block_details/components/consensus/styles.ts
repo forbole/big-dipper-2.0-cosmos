@@ -1,6 +1,8 @@
 import { makeStyles } from 'tss-react/mui';
+import { sharedStyles } from 'ui/src/styles/useSharedStyles';
 
 const useStyles = makeStyles()((theme) => ({
+  ...sharedStyles(theme),
   root: {
     display: 'flex',
     flexDirection: 'column',
@@ -10,17 +12,6 @@ const useStyles = makeStyles()((theme) => ({
   },
   wrapper: {
     flex: 1,
-  },
-  mobile: {
-    [theme.breakpoints.up('lg')]: {
-      display: 'none',
-    },
-  },
-  desktop: {
-    display: 'none',
-    [theme.breakpoints.up('lg')]: {
-      display: 'flex',
-    },
   },
 }));
 

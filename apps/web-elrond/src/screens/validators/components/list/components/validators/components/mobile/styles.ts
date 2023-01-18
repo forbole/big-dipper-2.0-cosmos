@@ -1,6 +1,6 @@
 import { makeStyles } from 'tss-react/mui';
 
-const useStyles = makeStyles()((_theme) => ({
+const useStyles = makeStyles()(() => ({
   root: {
     height: '100%',
   },

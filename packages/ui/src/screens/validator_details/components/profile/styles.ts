@@ -1,6 +1,8 @@
+import { sharedStyles } from '@/styles/useSharedStyles';
 import { makeStyles } from 'tss-react/mui';
 
 const useStyles = makeStyles()((theme) => ({
+  ...sharedStyles(theme),
   root: {},
   tag: {
     '& .MuiTypography-body1': {
@@ -51,13 +53,6 @@ const useStyles = makeStyles()((theme) => ({
       },
     },
   },
-  desktopAvatar: {
-    display: 'none',
-    [theme.breakpoints.up('lg')]: {
-      display: 'block',
-      marginRight: theme.spacing(2),
-    },
-  },
   desktopHeader: {
     display: 'none',
     [theme.breakpoints.up('lg')]: {
@@ -67,11 +62,6 @@ const useStyles = makeStyles()((theme) => ({
       '& .MuiTypography-h2': {
         marginRight: theme.spacing(2),
       },
-    },
-  },
-  mobile: {
-    [theme.breakpoints.up('lg')]: {
-      display: 'none',
     },
   },
   divider: {

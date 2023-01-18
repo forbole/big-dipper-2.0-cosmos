@@ -1,7 +1,9 @@
+import { sharedStyles } from '@/styles/useSharedStyles';
 import { CSSObject } from '@emotion/react';
 import { makeStyles } from 'tss-react/mui';
 
 const useStyles = makeStyles()((theme) => ({
+  ...sharedStyles(theme),
   root: {
     ...(theme.mixins.layout as CSSObject),
     '& a': {

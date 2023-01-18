@@ -2,13 +2,11 @@ import Loading from '@/components/loading';
 import NoData from '@/components/no_data';
 import Desktop from '@/components/transactions_list/components/desktop';
 import Mobile from '@/components/transactions_list/components/mobile';
-import useStyles from '@/components/transactions_list/styles';
 import type { TransactionsListState } from '@/components/transactions_list/types';
-import { useScreenSize } from '@/hooks';
+import useSharedStyles from '@/styles/useSharedStyles';
 import { FC } from 'react';
 
 const TransactionsList: FC<TransactionsListState> = (props) => {
-  const { isDesktop } = useScreenSize();
   // setting fallback values
   const {
     hasNextPage = false,
@@ -19,7 +17,7 @@ const TransactionsList: FC<TransactionsListState> = (props) => {
     itemCount,
     transactions,
   } = props;
-  const { classes } = useStyles();
+  const { classes } = useSharedStyles();
 
   const formatProps: TransactionsListState = {
     hasNextPage,
@@ -35,11 +33,12 @@ const TransactionsList: FC<TransactionsListState> = (props) => {
     return isNextPageLoading ? <Loading /> : <NoData />;
   }
 
-  if (isDesktop) {
-    return <Desktop className={classes.desktop} {...formatProps} />;
-  }
-
-  return <Mobile className={classes.mobile} {...formatProps} />;
+  return (
+    <>
+      <Desktop className={classes.hiddenUntilLg} {...formatProps} />
+      <Mobile className={classes.hiddenWhenLg} {...formatProps} />
+    </>
+  );
 };
 
 export default TransactionsList;

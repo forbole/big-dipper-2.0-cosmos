@@ -1,5 +1,5 @@
 import Box from '@/components/box';
-import { usePagination, useScreenSize } from '@/hooks';
+import { usePagination } from '@/hooks';
 import useShallowMemo from '@/hooks/useShallowMemo';
 import Desktop from '@/screens/proposal_details/components/deposits/components/desktop';
 import Mobile from '@/screens/proposal_details/components/deposits/components/mobile';
@@ -11,7 +11,6 @@ import useTranslation from 'next-translate/useTranslation';
 import { FC, useMemo } from 'react';
 
 const Deposits: FC<ComponentDefault> = (props) => {
-  const { isDesktop } = useScreenSize();
   const { t } = useTranslation('proposals');
   const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange, sliceItems } =
     usePagination({});
@@ -26,11 +25,8 @@ const Deposits: FC<ComponentDefault> = (props) => {
         {t('deposits')}
       </Typography>
       <div className={classes.list}>
-        {isDesktop ? (
-          <Desktop className={classes.desktop} items={items} />
-        ) : (
-          <Mobile className={classes.mobile} items={items} />
-        )}
+        <Desktop items={items} className={classes.hiddenUntilLg} />
+        <Mobile items={items} className={classes.hiddenWhenLg} />
       </div>
       <Paginate
         total={state.data.length}

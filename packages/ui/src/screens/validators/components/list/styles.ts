@@ -1,6 +1,8 @@
+import { sharedStyles } from '@/styles/useSharedStyles';
 import { makeStyles } from 'tss-react/mui';
 
 const useStyles = makeStyles()((theme) => ({
+  ...sharedStyles(theme),
   list: {
     minHeight: '500px',
     height: '50vh',
@@ -10,15 +12,6 @@ const useStyles = makeStyles()((theme) => ({
   },
   mobile: {
     height: '100%',
-    [theme.breakpoints.up('lg')]: {
-      display: 'none',
-    },
-  },
-  desktop: {
-    display: 'none',
-    [theme.breakpoints.up('lg')]: {
-      display: 'block',
-    },
   },
 }));
 

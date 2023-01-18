@@ -1,7 +1,7 @@
 import Loading from '@/components/loading';
 import NoData from '@/components/no_data';
 import Pagination from '@/components/pagination';
-import { usePagination, useScreenSize } from '@/hooks';
+import { usePagination } from '@/hooks';
 import useShallowMemo from '@/hooks/useShallowMemo';
 import Desktop from '@/screens/validator_details/components/staking/components/delegations/components/desktop';
 import Mobile from '@/screens/validator_details/components/staking/components/delegations/components/mobile';
@@ -16,7 +16,6 @@ type DelegationsProps = {
 };
 
 const Delegations: FC<DelegationsProps> = (props) => {
-  const { isDesktop } = useScreenSize();
   const { classes } = useStyles();
   const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange } = usePagination({});
   const handlePageChangeCallback = useCallback(
@@ -37,10 +36,13 @@ const Delegations: FC<DelegationsProps> = (props) => {
     component = <Loading />;
   } else if (!itemsMemo?.length) {
     component = <NoData />;
-  } else if (isDesktop) {
-    component = <Desktop items={itemsMemo} />;
   } else {
-    component = <Mobile items={itemsMemo} />;
+    component = (
+      <>
+        <Desktop items={itemsMemo} className={classes.hiddenUntilLg} />
+        <Mobile items={itemsMemo} className={classes.hiddenWhenLg} />
+      </>
+    );
   }
 
   let total = props.delegations.count;

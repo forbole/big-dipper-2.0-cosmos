@@ -1,5 +1,5 @@
 import Name from '@/components/name';
-import { Typography } from '@mui/material';
+import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import { FC } from 'react';
 

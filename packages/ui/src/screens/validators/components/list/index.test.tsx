@@ -30,15 +30,6 @@ jest.mock('@/components/no_data', () => (props: JSX.IntrinsicElements['div']) =>
 jest.mock('@/components/load_and_exist', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="LoadAndExist" {...props} />
 ));
-jest.mock('@/hooks', () => ({
-  useScreenSize: () => ({
-    windowSize: {
-      width: 1280,
-      height: 720,
-    },
-    isDesktop: false,
-  }),
-}));
 
 jest.mock('@/screens/validators/components/list/hooks', () => ({
   useValidators: () => ({

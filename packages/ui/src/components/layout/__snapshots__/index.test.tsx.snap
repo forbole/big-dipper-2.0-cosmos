@@ -65,7 +65,7 @@ exports[`component: Layout it renders 1`] = `
   className="emotion-0"
   style={
     {
-      "clipPath": "inset(0% 0% 100% 0%)",
+      "filter": "blur(4px)",
     }
   }
 >

@@ -40,7 +40,7 @@ const Overview: FC<OverviewType & ComponentDefault> = (props) => {
       key: 'miniblockHash',
       label: t('miniblockHash'),
       detail: (
-        <Link shallow href={MINIBLOCK_DETAILS(props.miniblockHash)}>
+        <Link shallow prefetch={false} href={MINIBLOCK_DETAILS(props.miniblockHash)}>
           {props.miniblockHash}
         </Link>
       ),

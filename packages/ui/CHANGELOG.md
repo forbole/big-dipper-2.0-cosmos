@@ -1,5 +1,13 @@
 # ui
 
+## 2.10.4
+
+### Patch Changes
+
+- b64119a1: feat: handle respoonsive UI via CSS instead of using JS
+- Updated dependencies [b64119a1]
+  - shared-utils@2.6.2
+
 ## 2.10.3
 
 ### Patch Changes

@@ -84,6 +84,18 @@ exports[`screen: AccountDetails/Overview matches snapshot 1`] = `
   cursor: pointer;
 }
 
+@media (max-width:1279.95px) {
+  .emotion-6 {
+    display: none;
+  }
+}
+
+@media (min-width:1280px) {
+  .emotion-7 {
+    display: none;
+  }
+}
+
 <div
   className="emotion-0"
   id="Box"
@@ -110,7 +122,16 @@ exports[`screen: AccountDetails/Overview matches snapshot 1`] = `
       <p
         className="MuiTypography-root MuiTypography-body1 value emotion-2"
       >
-        desmos1jrld5g99...y94nz
+        <span
+          className="emotion-6"
+        >
+          desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz
+        </span>
+        <span
+          className="emotion-7"
+        >
+          desmos1jrld5g99...y94nz
+        </span>
       </p>
     </div>
   </div>
@@ -132,7 +153,16 @@ exports[`screen: AccountDetails/Overview matches snapshot 1`] = `
       <p
         className="MuiTypography-root MuiTypography-body1 value emotion-2"
       >
-        desmos1jrld5g99...y94nz
+        <span
+          className="emotion-6"
+        >
+          desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz
+        </span>
+        <span
+          className="emotion-7"
+        >
+          desmos1jrld5g99...y94nz
+        </span>
       </p>
     </div>
   </div>

@@ -27,4 +27,4 @@
 'web': minor
 ---
 
-Add login with Keplr wallet
+Added login with Keplr Wallet([\#1119](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1119))

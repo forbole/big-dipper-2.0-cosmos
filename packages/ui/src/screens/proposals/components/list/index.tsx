@@ -81,7 +81,6 @@ const ProposalsList: FC<ProposalsListProps> = ({
   loadMoreItems,
 }) => {
   const { classes, cx } = useStyles();
-
   const { listRef, getRowHeight, setRowHeight } = useList();
 
   return (
