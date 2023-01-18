@@ -50,7 +50,7 @@ const PairConnectWalletDialog: FC<PairWalletConnectDialogProps> = ({
           </div>
           {walletConnectURI !== '' ? (
             <div className={classes.qrCode}>
-              <QRCodeSVG size={248} value={walletConnectURI} style={{ borderRadius: '8px' }} />
+              <QRCodeSVG size={200} value={walletConnectURI} />
             </div>
           ) : (
             <Loading className={classes.qrCodeLoading} />

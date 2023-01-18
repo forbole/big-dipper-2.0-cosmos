@@ -52,8 +52,8 @@ const styles = makeStyles()(theme => ({
   },
   closeButton: {
     position: 'absolute',
-    right: theme.spacing(2.8),
-    top: theme.spacing(1.8),
+    right: '24px',
+    top: '16px',
     color: theme.palette.grey[500],
     [theme.breakpoints.down('xs')]: {
       left: '250px',
@@ -106,17 +106,18 @@ const styles = makeStyles()(theme => ({
   },
   dialogContent: {
     display: 'inline-flex',
-    paddingBottom: theme.spacing(3),
+    paddingBottom: '24px',
+    paddingTop: '23px',
     overflow: 'visible',
   },
   label: {
     fontSize: '16px',
-    marginTop: theme.spacing(20),
+    marginTop: '160px',
     marginLeft: '-10px',
     textAlign: 'left',
     lineHeight: 'normal',
     [theme.breakpoints.up('md')]: {
-      marginTop: theme.spacing(20),
+      marginTop: '160px',
     },
   },
   walletConnectLabel: {
@@ -126,7 +127,7 @@ const styles = makeStyles()(theme => ({
     textAlign: 'left',
     lineHeight: 'normal',
     [theme.breakpoints.up('md')]: {
-      marginTop: theme.spacing(20),
+      marginTop: '160px',
     },
   },
   actions: {
@@ -166,7 +167,7 @@ const styles = makeStyles()(theme => ({
       opacity: 1,
       visibility: 'visible',
       background: theme.palette.custom.wallet.background,
-      borderRadius: theme.spacing(1),
+      borderRadius: '8px',
     },
   },
   avatar: {
@@ -189,7 +190,7 @@ const styles = makeStyles()(theme => ({
     fontWeight: 700,
     lineHeight: '160%',
     letterSpacing: '0.15px',
-    paddingTop: '47px',
+    paddingTop: '50px',
   },
   warningMsg: {
     alignItems: 'center',
@@ -241,7 +242,7 @@ const styles = makeStyles()(theme => ({
   },
   walletConnectContent: {
     display: 'inline-flex',
-    padding: '22px 0px',
+    padding: '30px 0px',
   },
   walletConnectMsg: {
     display: 'flex',
@@ -250,8 +251,8 @@ const styles = makeStyles()(theme => ({
     paddingTop: '5px',
   },
   grayDot: {
-    height: theme.spacing(3.5),
-    width: theme.spacing(3.5),
+    height: '28px',
+    width: '28px',
     backgroundColor: theme.palette.custom.wallet.surfaceTwo,
     borderRadius: 50,
     display: 'flex',
@@ -260,7 +261,10 @@ const styles = makeStyles()(theme => ({
   qrCode: {
     position: 'absolute',
     left: '176px',
-    top: '147px',
+    top: '155px',
+    border: 'solid 21px #FFFFFF',
+    borderRadius: '8px',
+    backgroundColor: '#FFFFFF',
   },
   qrCodeLoading: {
     position: 'absolute',
