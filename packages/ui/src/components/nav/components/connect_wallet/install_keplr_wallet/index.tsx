@@ -15,7 +15,6 @@ type InstallKeplrWalletDialogProps = {
   walletName: string;
   walletUrl: string;
   open: boolean;
-  errorMsg: string;
   onClose: () => void;
   onContinue: () => void;
 };
@@ -24,7 +23,6 @@ const InstallKeplrWalletDialog: FC<InstallKeplrWalletDialogProps> = ({
   walletName,
   walletUrl,
   open,
-  errorMsg,
   onClose,
   onContinue,
 }) => {
@@ -66,13 +64,6 @@ const InstallKeplrWalletDialog: FC<InstallKeplrWalletDialogProps> = ({
           </div>
         </DialogContent>
         <DialogActions>
-          <div className={classes.errorMsg}>
-            {errorMsg !== undefined ? (
-              <Typography variant="h4" className={classes.errorMsg}>
-                Error: {errorMsg}
-              </Typography>
-            ) : null}
-          </div>
           <div className={classes.actions}>
             <Button onClick={onContinue} color="primary" className={classes.actionsButton}>
               <Typography variant="h3">{t('common:retry')}</Typography>

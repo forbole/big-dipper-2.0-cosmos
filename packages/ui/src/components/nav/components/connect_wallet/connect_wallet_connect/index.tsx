@@ -11,10 +11,9 @@ import useTranslation from 'next-translate/useTranslation';
 import React, { FC } from 'react';
 import { QRCodeSVG } from 'qrcode.react';
 import Loading from '@/components/loading';
-
+// PairWalletConnectDialogProps;
 type ConnectWalletConnectDialogProps = {
   open: boolean;
-  errorMsg: string;
   walletConnectURI: string;
   onClose: () => void;
   onContinue: () => void;
@@ -22,7 +21,6 @@ type ConnectWalletConnectDialogProps = {
 
 const ConnectWalletConnectDialog: FC<ConnectWalletConnectDialogProps> = ({
   open,
-  errorMsg,
   walletConnectURI,
   onClose,
   onContinue,
@@ -59,13 +57,6 @@ const ConnectWalletConnectDialog: FC<ConnectWalletConnectDialogProps> = ({
           )}
         </DialogContent>
         <DialogActions>
-          <div className={classes.errorMsg}>
-            {errorMsg !== undefined ? (
-              <Typography variant="h4" className={classes.errorMsg}>
-                Error: {errorMsg}
-              </Typography>
-            ) : null}
-          </div>
           <div className={classes.actions}>
             <Button onClick={onContinue} color="primary" className={classes.actionsButton}>
               <Typography variant="h3">{t('common:continue')}</Typography>

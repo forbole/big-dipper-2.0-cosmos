@@ -131,9 +131,9 @@ const styles = makeStyles()(theme => ({
   },
   actions: {
     display: 'flex',
-    alignItems: 'center',
-    textAlign: 'center',
-    padding: '115px 16px 16px 16px',
+    position: 'relative',
+    bottom: '19px',
+    right: '16px',
   },
   actionsButton: {
     display: 'flex',
@@ -273,9 +273,11 @@ const styles = makeStyles()(theme => ({
   errorMsg: {
     color: theme.palette.custom.results.fail,
     fontWeight: '550',
+    display: 'flex',
+    textAlign: 'center',
     justifyContent: 'center',
-    position: 'relative',
-    right: '30px',
+    marginTop: '125px',
+    overflowWrap: 'anywhere',
   },
 }));
 

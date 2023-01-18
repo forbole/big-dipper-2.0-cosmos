@@ -49,15 +49,11 @@ const AuthorizeConnectionDialog: FC<AuthorizeConnectionDialogProps> = ({
             </Typography>
           </div>
           <Loading className={classes.loading} />
+          {errorMsg !== undefined ? (
+            <div className={classes.errorMsg}>Error: {errorMsg}</div>
+          ) : null}
         </DialogContent>
         <DialogActions>
-          <div className={classes.errorMsg}>
-            {errorMsg !== undefined ? (
-              <Typography variant="h4" className={classes.errorMsg}>
-                Error: {errorMsg}
-              </Typography>
-            ) : null}
-          </div>
           <div className={classes.actions}>
             <Button onClick={onContinue} color="primary" className={classes.actionsButton}>
               <Typography variant="h3">{t('common:continue')}</Typography>

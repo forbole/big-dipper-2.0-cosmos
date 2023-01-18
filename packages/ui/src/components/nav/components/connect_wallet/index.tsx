@@ -67,7 +67,6 @@ const ConnectWallet: FC<ConnectWalletProps> = () => {
       </div>
       <LoginDialog
         open={openLoginDialog}
-        errorMsg={errorMsg}
         setWallet={setWalletOption}
         onClose={handleCloseLoginDialog}
         onContinue={handleConnectWallet}
@@ -76,14 +75,12 @@ const ConnectWallet: FC<ConnectWalletProps> = () => {
         walletName={walletSelection}
         walletUrl="https://www.keplr.app/download"
         open={openInstallKeplrExtensionDialog}
-        errorMsg={errorMsg}
         onClose={handleCloseInstallKeplrWalletDialog}
         onContinue={continueToKeplrExtensionPairingDialog}
       />
       <PairKeplrWalletDialog
         walletName={walletSelection}
         open={openPairKeplrExtensionDialog}
-        errorMsg={errorMsg}
         onClose={handleCloseKeplrPairingDialog}
         onContinue={continueToAuthorizeKeplrConnectionDialog}
       />
@@ -95,7 +92,6 @@ const ConnectWallet: FC<ConnectWalletProps> = () => {
       />
       <ConnectWalletConnectDialog
         open={openPairConnectWalletDialog}
-        errorMsg={errorMsg}
         walletConnectURI={walletConnectURI}
         onClose={handleClosetWalletConnectDialog}
         onContinue={null}

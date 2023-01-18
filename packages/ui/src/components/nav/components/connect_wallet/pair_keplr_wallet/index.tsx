@@ -14,7 +14,6 @@ import Loading from '@/components/loading';
 type PairKeplrWalletDialogProps = {
   walletName: string;
   open: boolean;
-  errorMsg: string;
   onClose: () => void;
   onContinue: () => void;
 };
@@ -22,7 +21,6 @@ type PairKeplrWalletDialogProps = {
 const PairKeplrWalletDialog: FC<PairKeplrWalletDialogProps> = ({
   walletName,
   open,
-  errorMsg,
   onClose,
   onContinue,
 }) => {
@@ -55,13 +53,6 @@ const PairKeplrWalletDialog: FC<PairKeplrWalletDialogProps> = ({
           <Loading className={classes.loading} />
         </DialogContent>
         <DialogActions>
-          <div className={classes.errorMsg}>
-            {errorMsg !== undefined ? (
-              <Typography variant="h4" className={classes.errorMsg}>
-                Error: {errorMsg}
-              </Typography>
-            ) : null}
-          </div>
           <div className={classes.actions}>
             <Button onClick={onContinue} color="primary" className={classes.actionsButton}>
               <Typography variant="h3">{t('common:continue')}</Typography>
