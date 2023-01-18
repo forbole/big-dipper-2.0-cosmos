@@ -257,37 +257,6 @@ const styles = makeStyles()(theme => ({
     display: 'flex',
     position: 'absolute',
   },
-  tabs: {
-    paddingTop: '35px',
-  },
-  tabButton: {
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    padding: '4px 16px',
-    gap: '8px',
-    height: '40px',
-    background: '#757575',
-    borderRadius: '8px',
-
-    '&:hover': {
-      cursor: 'pointer',
-    },
-    '&:focus': {
-      background: '#D9D9D9',
-    },
-    '&:active': {
-      background: '#D9D9D9',
-    },
-    '& .MuiTab-wrapper': {
-      color: '#000000',
-      fontWeight: 500,
-      fontSize: '20px',
-      lineHeight: '160%',
-      textAlign: 'center',
-      letterSpacing: '0.15px',
-    },
-  },
   qrCode: {
     position: 'absolute',
     left: '176px',
