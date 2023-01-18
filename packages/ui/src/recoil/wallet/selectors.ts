@@ -44,46 +44,46 @@ export const readWalletSelection = selector({
   get: getWalletSelection,
 });
 
-const getOpenInstallKeplrWalletDialog: ReadOnlySelectorOptions<boolean>['get'] = ({ get }) => {
+const getOpenInstallKeplrExtensionDialog: ReadOnlySelectorOptions<boolean>['get'] = ({ get }) => {
   const state = get(atomState);
-  return state.openInstallKeplrWalletDialog;
+  return state.openInstallKeplrExtensionDialog;
 };
 
-export const writeOpenInstallKeplrWalletDialog = selector({
-  key: 'wallet.write.openInstallKeplrWalletDialog',
-  get: getOpenInstallKeplrWalletDialog,
+export const writeOpenInstallKeplrExtensionDialog = selector({
+  key: 'wallet.write.openInstallKeplrExtensionDialog',
+  get: getOpenInstallKeplrExtensionDialog,
   set: ({ get, set }, value) => {
     if (value instanceof DefaultValue) return;
     const prevState = get(atomState);
-    const newState = mergeStateChange(prevState, { openInstallKeplrWalletDialog: value });
+    const newState = mergeStateChange(prevState, { openInstallKeplrExtensionDialog: value });
     set(atomState, newState);
   },
 });
 
-export const readOpenInstallKeplrWalletDialog = selector({
-  key: 'wallet.read.openInstallKeplrWalletDialog',
-  get: getOpenInstallKeplrWalletDialog,
+export const readOpenInstallKeplrExtensionDialog = selector({
+  key: 'wallet.read.openInstallKeplrExtensionDialog',
+  get: getOpenInstallKeplrExtensionDialog,
 });
 
-const getOpenKeplrPairingDialog: ReadOnlySelectorOptions<boolean>['get'] = ({ get }) => {
+const getOpenPairKeplrExtensionDialog: ReadOnlySelectorOptions<boolean>['get'] = ({ get }) => {
   const state = get(atomState);
-  return state.openKeplrPairingDialog;
+  return state.openPairKeplrExtensionDialog;
 };
 
-export const writeOpenKeplrPairingDialog = selector({
-  key: 'wallet.write.openKeplrPairingDialog',
-  get: getOpenKeplrPairingDialog,
+export const writeOpenPairKeplrExtensionDialog = selector({
+  key: 'wallet.write.openPairKeplrExtensionDialog',
+  get: getOpenPairKeplrExtensionDialog,
   set: ({ get, set }, value) => {
     if (value instanceof DefaultValue) return;
     const prevState = get(atomState);
-    const newState = mergeStateChange(prevState, { openKeplrPairingDialog: value });
+    const newState = mergeStateChange(prevState, { openPairKeplrExtensionDialog: value });
     set(atomState, newState);
   },
 });
 
-export const readOpenKeplrPairingDialog = selector({
-  key: 'wallet.read.openKeplrPairingDialog',
-  get: getOpenKeplrPairingDialog,
+export const readOpenPairKeplrExtensionDialog = selector({
+  key: 'wallet.read.openPairKeplrExtensionDialog',
+  get: getOpenPairKeplrExtensionDialog,
 });
 
 const getOpenSelectNetworkDialog: ReadOnlySelectorOptions<boolean>['get'] = ({ get }) => {
@@ -149,25 +149,25 @@ export const readOpenLoginSuccessDialog = selector({
   get: getOpenLoginSuccessDialog,
 });
 
-const getOpenConnectWalletConnectDialog: ReadOnlySelectorOptions<boolean>['get'] = ({ get }) => {
+const getOpenPairConnectWalletDialog: ReadOnlySelectorOptions<boolean>['get'] = ({ get }) => {
   const state = get(atomState);
-  return state.openConnectWalletConnectDialog;
+  return state.openPairConnectWalletDialog;
 };
 
-export const writeOpenConnectWalletConnectDialog = selector({
-  key: 'wallet.write.openConnectWalletConnectDialog',
-  get: getOpenConnectWalletConnectDialog,
+export const writeOpenPairConnectWalletDialog = selector({
+  key: 'wallet.write.openPairConnectWalletDialog',
+  get: getOpenPairConnectWalletDialog,
   set: ({ get, set }, value) => {
     if (value instanceof DefaultValue) return;
     const prevState = get(atomState);
-    const newState = mergeStateChange(prevState, { openConnectWalletConnectDialog: value });
+    const newState = mergeStateChange(prevState, { openPairConnectWalletDialog: value });
     set(atomState, newState);
   },
 });
 
-export const readOpenConnectWalletConnectDialog = selector({
-  key: 'wallet.read.openConnectWalletConnectDialog',
-  get: getOpenConnectWalletConnectDialog,
+export const readOpenPairConnectWalletDialog = selector({
+  key: 'wallet.read.openPairConnectWalletDialog',
+  get: getOpenPairConnectWalletDialog,
 });
 
 const getTabValue: ReadOnlySelectorOptions<number>['get'] = ({ get }) => {

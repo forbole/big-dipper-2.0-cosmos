@@ -9,16 +9,16 @@ export const useWalletRecoil = () => {
     // set the wallet values
   }, [
     setWallet,
-    wallet.openLoginDialog,
-    wallet.walletSelection,
-    wallet.openInstallKeplrWalletDialog,
-    wallet.openKeplrPairingDialog,
-    wallet.openSelectNetworkDialog,
     wallet.openAuthorizeConnectionDialog,
+    wallet.openInstallKeplrExtensionDialog,
+    wallet.openLoginDialog,
     wallet.openLoginSuccessDialog,
-    wallet.openConnectWalletConnectDialog,
-    wallet.tabValue,
+    wallet.openPairConnectWalletDialog,
+    wallet.openPairKeplrExtensionDialog,
+    wallet.openSelectNetworkDialog,
     wallet.showWalletDetails,
+    wallet.tabValue,
     wallet.walletConnectURI,
+    wallet.walletSelection,
   ]);
 };

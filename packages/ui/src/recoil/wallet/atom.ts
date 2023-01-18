@@ -1,31 +1,31 @@
 import { atom } from 'recoil';
 
 export interface AtomState {
-  openLoginDialog: boolean;
-  walletSelection: string;
-  openInstallKeplrWalletDialog: boolean;
-  openKeplrPairingDialog: boolean;
-  openSelectNetworkDialog: boolean;
   openAuthorizeConnectionDialog: boolean;
+  openInstallKeplrExtensionDialog: boolean;
+  openLoginDialog: boolean;
   openLoginSuccessDialog: boolean;
-  openConnectWalletConnectDialog: boolean;
-  tabValue: number;
+  openPairConnectWalletDialog: boolean;
+  openPairKeplrExtensionDialog: boolean;
+  openSelectNetworkDialog: boolean;
   showWalletDetails: boolean;
+  tabValue: number;
   walletConnectURI: string;
+  walletSelection: string;
 }
 
 const initialState: AtomState = {
-  openLoginDialog: false,
-  walletSelection: '',
-  openInstallKeplrWalletDialog: false,
-  openKeplrPairingDialog: false,
-  openSelectNetworkDialog: false,
   openAuthorizeConnectionDialog: false,
+  openInstallKeplrExtensionDialog: false,
+  openLoginDialog: false,
   openLoginSuccessDialog: false,
-  openConnectWalletConnectDialog: false,
-  tabValue: 1,
+  openPairConnectWalletDialog: false,
+  openPairKeplrExtensionDialog: false,
+  openSelectNetworkDialog: false,
   showWalletDetails: false,
+  tabValue: 1,
   walletConnectURI: '',
+  walletSelection: '',
 };
 
 export const atomState = atom<AtomState>({

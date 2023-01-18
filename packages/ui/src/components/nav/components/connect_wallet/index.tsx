@@ -12,14 +12,14 @@ import ConnectWalletConnectDialog from '@/components/nav/components/connect_wall
 import { readIsUserLoggedIn } from '@/recoil/user';
 import { useRecoilValue } from 'recoil';
 import {
-  readOpenLoginDialog,
-  readWalletSelection,
-  readOpenInstallKeplrWalletDialog,
-  readOpenKeplrPairingDialog,
   readOpenAuthorizeConnectionDialog,
+  readOpenInstallKeplrExtensionDialog,
+  readOpenLoginDialog,
   readOpenLoginSuccessDialog,
-  readOpenConnectWalletConnectDialog,
+  readOpenPairConnectWalletDialog,
+  readOpenPairKeplrExtensionDialog,
   readWalletConnectURI,
+  readWalletSelection,
 } from '@/recoil/wallet';
 
 type ConnectWalletProps = {
@@ -31,28 +31,28 @@ const ConnectWallet: FC<ConnectWalletProps> = () => {
   const loggedIn = useRecoilValue(readIsUserLoggedIn);
   const openLoginDialog = useRecoilValue(readOpenLoginDialog);
   const walletSelection = useRecoilValue(readWalletSelection);
-  const openInstallKeplrWalletDialog = useRecoilValue(readOpenInstallKeplrWalletDialog);
-  const openKeplrPairingDialog = useRecoilValue(readOpenKeplrPairingDialog);
+  const openInstallKeplrExtensionDialog = useRecoilValue(readOpenInstallKeplrExtensionDialog);
+  const openPairKeplrExtensionDialog = useRecoilValue(readOpenPairKeplrExtensionDialog);
   const openAuthorizeConnectionDialog = useRecoilValue(readOpenAuthorizeConnectionDialog);
   const openLoginSuccessDialog = useRecoilValue(readOpenLoginSuccessDialog);
-  const openWalletConnectDialog = useRecoilValue(readOpenConnectWalletConnectDialog);
+  const openPairConnectWalletDialog = useRecoilValue(readOpenPairConnectWalletDialog);
   const walletConnectURI = useRecoilValue(readWalletConnectURI);
 
   const {
+    continueToAuthorizeKeplrConnectionDialog,
+    continueToKeplrExtensionPairingDialog,
+    continueToLoginSuccessDialog,
     errorMsg,
     handleCloseAuthorizeConnectionDialog,
     handleCloseInstallKeplrWalletDialog,
     handleCloseKeplrPairingDialog,
-    handleCloseLoginSuccessDialog,
-    handleConnectWallet,
-    handleClosetWalletConnectDialog,
-    handleLogout,
-    handleLogin,
-    setWalletOption,
     handleCloseLoginDialog,
-    continueToPairingDialog,
-    continueToAuthorizeKeplrConnectionDialog,
-    continueToLoginSuccessDialog,
+    handleCloseLoginSuccessDialog,
+    handleClosetWalletConnectDialog,
+    handleConnectWallet,
+    handleLogin,
+    handleLogout,
+    setWalletOption,
   } = useConnectWalletList();
   return (
     <div>
@@ -75,14 +75,14 @@ const ConnectWallet: FC<ConnectWalletProps> = () => {
       <InstallKeplrWalletDialog
         walletName={walletSelection}
         walletUrl="https://www.keplr.app/download"
-        open={openInstallKeplrWalletDialog}
+        open={openInstallKeplrExtensionDialog}
         errorMsg={errorMsg}
         onClose={handleCloseInstallKeplrWalletDialog}
-        onContinue={continueToPairingDialog}
+        onContinue={continueToKeplrExtensionPairingDialog}
       />
       <PairKeplrWalletDialog
         walletName={walletSelection}
-        open={openKeplrPairingDialog}
+        open={openPairKeplrExtensionDialog}
         errorMsg={errorMsg}
         onClose={handleCloseKeplrPairingDialog}
         onContinue={continueToAuthorizeKeplrConnectionDialog}
@@ -94,7 +94,7 @@ const ConnectWallet: FC<ConnectWalletProps> = () => {
         onContinue={continueToLoginSuccessDialog}
       />
       <ConnectWalletConnectDialog
-        open={openWalletConnectDialog}
+        open={openPairConnectWalletDialog}
         errorMsg={errorMsg}
         walletConnectURI={walletConnectURI}
         onClose={handleClosetWalletConnectDialog}

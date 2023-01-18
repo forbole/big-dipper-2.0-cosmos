@@ -58,9 +58,9 @@ const LoginDialog: FC<LoginDialogProps> = ({ open, errorMsg, onClose, onContinue
               <Button
                 onClick={(e: { preventDefault: () => void }) => {
                   e.preventDefault();
-                  setWallet('Keplr Wallet');
+                  setWallet('Keplr Extension');
                 }}
-                aria-label="connect-keplr-wallet-button"
+                aria-label="connect-keplr-extension-button"
                 className={classes.walletButton}
               >
                 <div className={classes.label}>Keplr</div>

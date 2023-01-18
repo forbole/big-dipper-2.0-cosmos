@@ -1,13 +1,13 @@
 export interface AtomState {
-  openLoginDialog: boolean;
-  walletSelection: string;
-  openInstallKeplrWalletDialog: boolean;
-  openKeplrPairingDialog: boolean;
-  openSelectNetworkDialog: boolean;
   openAuthorizeConnectionDialog: boolean;
+  openInstallKeplrExtensionDialog: boolean;
+  openLoginDialog: boolean;
   openLoginSuccessDialog: boolean;
-  openConnectWalletConnectDialog: boolean;
-  tabValue: number;
+  openPairConnectWalletDialog: boolean;
+  openPairKeplrExtensionDialog: boolean;
+  openSelectNetworkDialog: boolean;
   showWalletDetails: boolean;
+  tabValue: number;
   walletConnectURI: string;
+  walletSelection: string;
 }

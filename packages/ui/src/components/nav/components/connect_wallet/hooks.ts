@@ -12,12 +12,12 @@ import { ADDRESS_KEY, CONNECTION_TYPE, PUBKEY_KEY, WALLET_NAME_KEY } from '@/uti
 import {
   writeOpenLoginDialog,
   writeWalletSelection,
-  writeOpenInstallKeplrWalletDialog,
-  writeOpenKeplrPairingDialog,
+  writeOpenInstallKeplrExtensionDialog,
+  writeOpenPairKeplrExtensionDialog,
   writeOpenSelectNetworkDialog,
   writeOpenAuthorizeConnectionDialog,
   writeOpenLoginSuccessDialog,
-  writeOpenConnectWalletConnectDialog,
+  writeOpenPairConnectWalletDialog,
   writeTabValue,
   writeShowWalletDetails,
   writeWalletConnectURI,
@@ -49,12 +49,12 @@ type UserState = {
 type WalletState = {
   openLoginDialog: boolean;
   walletSelection: string;
-  openInstallKeplrWalletDialog: boolean;
-  openKeplrPairingDialog: boolean;
+  openInstallKeplrExtensionDialog: boolean;
+  openPairKeplrExtensionDialog: boolean;
   openSelectNetworkDialog: boolean;
   openAuthorizeConnectionDialog: boolean;
   openLoginSuccessDialog: boolean;
-  openConnectWalletConnectDialog: boolean;
+  openPairConnectWalletDialog: boolean;
   tabValue: number;
   showWalletDetails: boolean;
   walletConnectURI: string;
@@ -88,11 +88,11 @@ const useConnectWalletList = () => {
     string,
     SetterOrUpdater<string>
   ];
-  const [openInstallKeplrWalletDialog, setOpenInstallKeplrWalletDialog] = useRecoilState(
-    writeOpenInstallKeplrWalletDialog
+  const [openInstallKeplrExtensionDialog, setOpenInstallKeplrExtensionDialog] = useRecoilState(
+    writeOpenInstallKeplrExtensionDialog
   ) as [boolean, SetterOrUpdater<boolean>];
-  const [openKeplrPairingDialog, setOpenKeplrPairingDialog] = useRecoilState(
-    writeOpenKeplrPairingDialog
+  const [openPairKeplrExtensionDialog, setOpenPairKeplrExtensionDialog] = useRecoilState(
+    writeOpenPairKeplrExtensionDialog
   ) as [boolean, SetterOrUpdater<boolean>];
   const [openSelectNetworkDialog, setOpenSelectNetworkDialog] = useRecoilState(
     writeOpenSelectNetworkDialog
@@ -103,8 +103,8 @@ const useConnectWalletList = () => {
   const [openLoginSuccessDialog, setOpenLoginSuccessDialog] = useRecoilState(
     writeOpenLoginSuccessDialog
   ) as [boolean, SetterOrUpdater<boolean>];
-  const [openConnectWalletConnectDialog, setOpenConnectWalletConnectDialog] = useRecoilState(
-    writeOpenConnectWalletConnectDialog
+  const [openPairConnectWalletDialog, setOpenPairConnectWalletDialog] = useRecoilState(
+    writeOpenPairConnectWalletDialog
   ) as [boolean, SetterOrUpdater<boolean>];
   const [tabValue, setTabValue] = useRecoilState(writeTabValue) as [
     number,
@@ -155,12 +155,12 @@ const useConnectWalletList = () => {
   const [walletState, setWalletState] = useState({
     openLoginDialog,
     walletSelection,
-    openInstallKeplrWalletDialog,
-    openKeplrPairingDialog,
+    openInstallKeplrExtensionDialog,
+    openPairKeplrExtensionDialog,
     openSelectNetworkDialog,
     openAuthorizeConnectionDialog,
     openLoginSuccessDialog,
-    openConnectWalletConnectDialog,
+    openPairConnectWalletDialog,
     tabValue,
     showWalletDetails,
     walletConnectURI,
@@ -181,12 +181,12 @@ const useConnectWalletList = () => {
       ...prevState,
       openLoginDialog,
       walletSelection,
-      openInstallKeplrWalletDialog,
-      openKeplrPairingDialog,
+      openInstallKeplrExtensionDialog,
+      openPairKeplrExtensionDialog,
       openSelectNetworkDialog,
       openAuthorizeConnectionDialog,
       openLoginSuccessDialog,
-      openConnectWalletConnectDialog,
+      openPairConnectWalletDialog,
       tabValue,
       showWalletDetails,
       walletConnectURI,
@@ -194,7 +194,7 @@ const useConnectWalletList = () => {
   };
 
   const continueToAuthorizeKeplrConnectionDialog = async () => {
-    setOpenKeplrPairingDialog(false);
+    setOpenPairKeplrExtensionDialog(false);
     setOpenAuthorizeConnectionDialog(true);
 
     // enable the chain inside the app
@@ -249,28 +249,28 @@ const useConnectWalletList = () => {
     }
   };
 
-  const continueToPairingDialog = () => {
+  const continueToKeplrExtensionPairingDialog = () => {
     if (!isKeplrAvailable()) {
-      setOpenInstallKeplrWalletDialog(true);
+      setOpenInstallKeplrExtensionDialog(true);
     } else {
       // handle retry button
-      if (openInstallKeplrWalletDialog) {
-        setOpenInstallKeplrWalletDialog(false);
+      if (openInstallKeplrExtensionDialog) {
+        setOpenInstallKeplrExtensionDialog(false);
       }
       resetUserState();
-      setOpenKeplrPairingDialog(true);
+      setOpenPairKeplrExtensionDialog(true);
 
       // proceed to authorize dialog after 3 seconds
       // if continue button hasn't been pressed
       setTimeout(() => {
-        setOpenKeplrPairingDialog(false);
+        setOpenPairKeplrExtensionDialog(false);
         continueToAuthorizeKeplrConnectionDialog();
       }, 3000);
     }
   };
 
-  const continueToWalletConnectDialog = () => {
-    setOpenConnectWalletConnectDialog(true);
+  const continueToWalletConnectPairingDialog = () => {
+    setOpenPairConnectWalletDialog(true);
     getWalletConnect();
   };
 
@@ -281,13 +281,13 @@ const useConnectWalletList = () => {
   };
 
   const handleCloseInstallKeplrWalletDialog = () => {
-    setOpenInstallKeplrWalletDialog(false);
+    setOpenInstallKeplrExtensionDialog(false);
     setWalletOption('');
     setErrorMsg(undefined);
   };
 
   const handleCloseKeplrPairingDialog = () => {
-    setOpenKeplrPairingDialog(false);
+    setOpenPairKeplrExtensionDialog(false);
     setWalletOption('');
     setErrorMsg(undefined);
   };
@@ -322,11 +322,11 @@ const useConnectWalletList = () => {
     switch (walletSelection) {
       case 'Butter':
         break;
-      case 'Keplr Wallet':
-        await continueToPairingDialog();
+      case 'Keplr Extension':
+        await continueToKeplrExtensionPairingDialog();
         break;
       case 'Wallet Connect':
-        await continueToWalletConnectDialog();
+        await continueToWalletConnectPairingDialog();
         break;
       case '':
         break;
@@ -340,7 +340,7 @@ const useConnectWalletList = () => {
   };
 
   const handleClosetWalletConnectDialog = () => {
-    setOpenConnectWalletConnectDialog(false);
+    setOpenPairConnectWalletDialog(false);
     setWalletOption('');
   };
 
@@ -368,6 +368,7 @@ const useConnectWalletList = () => {
     localStorage.setItem(PUBKEY_KEY, '');
     localStorage.setItem(WALLET_NAME_KEY, '');
     localStorage.setItem(CONNECTION_TYPE, '');
+    setShowWalletDetails(false);
     setUserAddress('');
     setUserPubKey({ type: '', value: '' });
     setUserIsLoggedIn(false);
@@ -505,7 +506,7 @@ const useConnectWalletList = () => {
   const getKeplrWalletConnect = async (connector: WalletConnect) => {
     const keplr = new KeplrWalletConnectV1(connector);
     if (keplr) {
-      setOpenConnectWalletConnectDialog(false);
+      setOpenPairConnectWalletDialog(false);
       setOpenAuthorizeConnectionDialog(true);
       setErrorMsg(undefined);
 
@@ -545,7 +546,7 @@ const useConnectWalletList = () => {
       // create new session
       connector.createSession();
 
-      connector.on('connect', async error => {
+      connector.on('connect', async (error) => {
         if (error) {
           console.warn(error);
           setErrorMsg(`${error}`);
@@ -567,7 +568,7 @@ const useConnectWalletList = () => {
     walletConnectURI,
     continueToAuthorizeKeplrConnectionDialog,
     continueToLoginSuccessDialog,
-    continueToPairingDialog,
+    continueToKeplrExtensionPairingDialog,
     handleCloseAuthorizeConnectionDialog,
     handleCloseInstallKeplrWalletDialog,
     handleCloseKeplrPairingDialog,
