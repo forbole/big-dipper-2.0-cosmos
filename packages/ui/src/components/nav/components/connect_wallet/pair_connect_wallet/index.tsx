@@ -11,15 +11,15 @@ import useTranslation from 'next-translate/useTranslation';
 import React, { FC } from 'react';
 import { QRCodeSVG } from 'qrcode.react';
 import Loading from '@/components/loading';
-// PairWalletConnectDialogProps;
-type ConnectWalletConnectDialogProps = {
+
+type PairWalletConnectDialogProps = {
   open: boolean;
   walletConnectURI: string;
   onClose: () => void;
   onContinue: () => void;
 };
 
-const ConnectWalletConnectDialog: FC<ConnectWalletConnectDialogProps> = ({
+const PairConnectWalletDialog: FC<PairWalletConnectDialogProps> = ({
   open,
   walletConnectURI,
   onClose,
@@ -68,4 +68,4 @@ const ConnectWalletConnectDialog: FC<ConnectWalletConnectDialogProps> = ({
   );
 };
 
-export default ConnectWalletConnectDialog;
+export default PairConnectWalletDialog;

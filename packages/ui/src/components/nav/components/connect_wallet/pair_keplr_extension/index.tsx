@@ -9,19 +9,17 @@ import Typography from '@mui/material/Typography';
 import CloseIcon from '@mui/icons-material/Close';
 import useTranslation from 'next-translate/useTranslation';
 import React, { FC } from 'react';
-import Trans from 'next-translate/Trans';
+import Loading from '@/components/loading';
 
-type InstallKeplrWalletDialogProps = {
+type PairKeplExtensionDialogProps = {
   walletName: string;
-  walletUrl: string;
   open: boolean;
   onClose: () => void;
   onContinue: () => void;
 };
 
-const InstallKeplrWalletDialog: FC<InstallKeplrWalletDialogProps> = ({
+const PairKeplrExtensionDialog: FC<PairKeplExtensionDialogProps> = ({
   walletName,
-  walletUrl,
   open,
   onClose,
   onContinue,
@@ -36,7 +34,7 @@ const InstallKeplrWalletDialog: FC<InstallKeplrWalletDialogProps> = ({
           <div className={classes.warningMsg}>
             <div>
               <Typography variant="h2" align="center" className={classes.msgHeader}>
-                {t('common:pleaseInstallWallet', {
+                {t('common:pleaseOpenWallet', {
                   wallet: walletName,
                 })}
               </Typography>
@@ -47,26 +45,17 @@ const InstallKeplrWalletDialog: FC<InstallKeplrWalletDialogProps> = ({
           </div>
         </DialogTitle>
         <DialogContent>
-          <div className={classes.warningMsgDetails}>
+          <div className={classes.msgContent}>
             <Typography variant="h4" align="center">
-              <Trans
-                i18nKey="common:couldntFindWalletExtension"
-                components={[
-                  <a target="_blank" rel="noreferrer" href={walletUrl}>
-                    {}
-                  </a>,
-                ]}
-                values={{
-                  wallet: walletName,
-                }}
-              />
+              {t('common:pleasePairWallet')}
             </Typography>
           </div>
+          <Loading className={classes.loading} />
         </DialogContent>
         <DialogActions>
           <div className={classes.actions}>
             <Button onClick={onContinue} color="primary" className={classes.actionsButton}>
-              <Typography variant="h3">{t('common:retry')}</Typography>
+              <Typography variant="h3">{t('common:continue')}</Typography>
             </Button>
           </div>
         </DialogActions>
@@ -75,4 +64,4 @@ const InstallKeplrWalletDialog: FC<InstallKeplrWalletDialogProps> = ({
   );
 };
 
-export default InstallKeplrWalletDialog;
+export default PairKeplrExtensionDialog;

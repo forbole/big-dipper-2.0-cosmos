@@ -280,7 +280,7 @@ const useConnectWalletList = () => {
     setErrorMsg(undefined);
   };
 
-  const handleCloseInstallKeplrWalletDialog = () => {
+  const handleCloseInstallKeplrExtensionDialog = () => {
     setOpenInstallKeplrExtensionDialog(false);
     setWalletOption('');
     setErrorMsg(undefined);
@@ -546,7 +546,7 @@ const useConnectWalletList = () => {
       // create new session
       connector.createSession();
 
-      connector.on('connect', async (error) => {
+      connector.on('connect', async error => {
         if (error) {
           console.warn(error);
           setErrorMsg(`${error}`);
@@ -570,7 +570,7 @@ const useConnectWalletList = () => {
     continueToLoginSuccessDialog,
     continueToKeplrExtensionPairingDialog,
     handleCloseAuthorizeConnectionDialog,
-    handleCloseInstallKeplrWalletDialog,
+    handleCloseInstallKeplrExtensionDialog,
     handleCloseKeplrPairingDialog,
     handleCloseLoginDialog,
     handleCloseLoginSuccessDialog,

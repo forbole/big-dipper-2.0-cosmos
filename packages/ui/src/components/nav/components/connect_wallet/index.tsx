@@ -4,11 +4,11 @@ import LoginIcon from 'shared-utils/assets/icon-login.svg';
 import LogoutIcon from 'shared-utils/assets/icon-logout.svg';
 import React, { FC } from 'react';
 import AuthorizeConnectionDialog from '@/components/nav/components/connect_wallet/authorize_connection';
-import InstallKeplrWalletDialog from '@/components/nav/components/connect_wallet/install_keplr_wallet';
+import InstallKeplrExtensionDialog from '@/components/nav/components/connect_wallet/install_keplr_extension';
 import LoginDialog from '@/components/nav/components/connect_wallet/login';
 import LoginSuccessDialog from '@/components/nav/components/connect_wallet/login_success';
-import PairKeplrWalletDialog from '@/components/nav/components/connect_wallet/pair_keplr_wallet';
-import ConnectWalletConnectDialog from '@/components/nav/components/connect_wallet/connect_wallet_connect';
+import PairKeplrExtensionDialog from '@/components/nav/components/connect_wallet/pair_keplr_extension';
+import PairConnectWalletDialog from '@/components/nav/components/connect_wallet/pair_connect_wallet';
 import { readIsUserLoggedIn } from '@/recoil/user';
 import { useRecoilValue } from 'recoil';
 import {
@@ -44,7 +44,7 @@ const ConnectWallet: FC<ConnectWalletProps> = () => {
     continueToLoginSuccessDialog,
     errorMsg,
     handleCloseAuthorizeConnectionDialog,
-    handleCloseInstallKeplrWalletDialog,
+    handleCloseInstallKeplrExtensionDialog,
     handleCloseKeplrPairingDialog,
     handleCloseLoginDialog,
     handleCloseLoginSuccessDialog,
@@ -71,14 +71,14 @@ const ConnectWallet: FC<ConnectWalletProps> = () => {
         onClose={handleCloseLoginDialog}
         onContinue={handleConnectWallet}
       />
-      <InstallKeplrWalletDialog
+      <InstallKeplrExtensionDialog
         walletName={walletSelection}
         walletUrl="https://www.keplr.app/download"
         open={openInstallKeplrExtensionDialog}
-        onClose={handleCloseInstallKeplrWalletDialog}
+        onClose={handleCloseInstallKeplrExtensionDialog}
         onContinue={continueToKeplrExtensionPairingDialog}
       />
-      <PairKeplrWalletDialog
+      <PairKeplrExtensionDialog
         walletName={walletSelection}
         open={openPairKeplrExtensionDialog}
         onClose={handleCloseKeplrPairingDialog}
@@ -90,7 +90,7 @@ const ConnectWallet: FC<ConnectWalletProps> = () => {
         onClose={handleCloseAuthorizeConnectionDialog}
         onContinue={continueToLoginSuccessDialog}
       />
-      <ConnectWalletConnectDialog
+      <PairConnectWalletDialog
         open={openPairConnectWalletDialog}
         walletConnectURI={walletConnectURI}
         onClose={handleClosetWalletConnectDialog}
