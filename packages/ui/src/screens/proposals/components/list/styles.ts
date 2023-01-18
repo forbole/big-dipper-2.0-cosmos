@@ -14,17 +14,6 @@ const useStyles = makeStyles()((theme) => ({
   list: {
     flex: 1,
   },
-  mobile: {
-    [theme.breakpoints.up('lg')]: {
-      display: 'none',
-    },
-  },
-  desktop: {
-    display: 'none',
-    [theme.breakpoints.up('lg')]: {
-      display: 'flex',
-    },
-  },
   total: {
     color: theme.palette.custom.fonts.fontThree,
     textAlign: 'right',

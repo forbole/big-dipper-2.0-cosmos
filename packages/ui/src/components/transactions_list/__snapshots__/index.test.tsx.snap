@@ -1,7 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`component: TransactionsList it renders 1`] = `
-.emotion-0 {
+[
+  .emotion-0 {
+  height: 100%;
+}
+
+@media (max-width:1279.95px) {
+  .emotion-0 {
+    display: none;
+  }
+}
+
+<div
+    className="emotion-0"
+  >
+    <div
+      style={
+        {
+          "height": 0,
+          "overflow": "visible",
+          "width": 0,
+        }
+      }
+    />
+  </div>,
+  .emotion-0 {
   height: 100%;
 }
 
@@ -12,16 +36,17 @@ exports[`component: TransactionsList it renders 1`] = `
 }
 
 <div
-  className="emotion-0"
->
-  <div
-    style={
-      {
-        "height": 0,
-        "overflow": "visible",
-        "width": 0,
+    className="emotion-0"
+  >
+    <div
+      style={
+        {
+          "height": 0,
+          "overflow": "visible",
+          "width": 0,
+        }
       }
-    }
-  />
-</div>
+    />
+  </div>,
+]
 `;

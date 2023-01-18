@@ -20,7 +20,7 @@ const MiniBlocks: FC<{ className?: string; miniBlocks: MiniBlockType[] }> = (pro
           <div key={x} className={classes.item}>
             <div className={classes.hash}>
               <div className={classes.bullet} />
-              <Link shallow href={MINIBLOCK_DETAILS(x)} className={classes.block}>
+              <Link shallow prefetch={false} href={MINIBLOCK_DETAILS(x)} className={classes.block}>
                 {x}
               </Link>
             </div>

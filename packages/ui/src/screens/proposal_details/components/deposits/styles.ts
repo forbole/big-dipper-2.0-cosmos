@@ -1,6 +1,8 @@
+import { sharedStyles } from '@/styles/useSharedStyles';
 import { makeStyles } from 'tss-react/mui';
 
 const useStyles = makeStyles()((theme) => ({
+  ...sharedStyles(theme),
   root: {
     overflow: 'hidden',
   },
@@ -9,17 +11,6 @@ const useStyles = makeStyles()((theme) => ({
   },
   title: {
     marginBottom: theme.spacing(2),
-  },
-  mobile: {
-    [theme.breakpoints.up('lg')]: {
-      display: 'none',
-    },
-  },
-  desktop: {
-    display: 'none',
-    [theme.breakpoints.up('lg')]: {
-      display: 'flex',
-    },
   },
 }));
 

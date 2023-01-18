@@ -30,18 +30,26 @@ test('validators list page', async ({ page, isMobile }) => {
   // Test search for validator in the list
   if (isMobile) {
     await page
-      .getByPlaceholder('Search for validator / tx hash / block height / address / @dtag')
+      .locator(
+        `[placeholder="Search for validator / tx hash / block height / address / @dtag"]:visible`
+      )
       .first()
       .click();
     await page
-      .getByPlaceholder('Search for validator / tx hash / block height / address / @dtag')
+      .locator(
+        `[placeholder="Search for validator / tx hash / block height / address / @dtag"]:visible`
+      )
+      .first()
       .fill('Apollo');
     await page
-      .getByPlaceholder('Search for validator / tx hash / block height / address / @dtag')
+      .locator(
+        `[placeholder="Search for validator / tx hash / block height / address / @dtag"]:visible`
+      )
+      .first()
       .press('Enter');
   } else {
-    await page.getByPlaceholder('Search Validator').first().click();
-    await page.getByPlaceholder('Search Validator').fill('Apollo');
-    await page.getByPlaceholder('Search Validator').press('Enter');
+    await page.locator(`[placeholder="Search Validator"]:visible`).first().click();
+    await page.locator(`[placeholder="Search Validator"]:visible`).first().fill('Apollo');
+    await page.locator(`[placeholder="Search Validator"]:visible`).first().press('Enter');
   }
 });

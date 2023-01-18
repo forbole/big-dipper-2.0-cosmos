@@ -2,7 +2,6 @@ import Box from '@/components/box';
 import ConditionExplanation from '@/components/condition_explanation';
 import InfoPopover from '@/components/info_popover';
 import Tag from '@/components/tag';
-import { useScreenSize } from '@/hooks';
 import { useAddress } from '@/screens/validator_details/components/validator_overview/hooks';
 import useStyles from '@/screens/validator_details/components/validator_overview/styles';
 import { getCondition } from '@/screens/validator_details/components/validator_overview/utils';
@@ -26,7 +25,6 @@ type ValidatorOverviewProps = {
 };
 
 const ValidatorOverview: FC<ValidatorOverviewProps> = ({ status, overview, className }) => {
-  const { isDesktop } = useScreenSize();
   const { classes, cx } = useStyles();
   const { t } = useTranslation('validators');
   const { handleCopyToClipboard } = useAddress(t);
@@ -130,12 +128,13 @@ const ValidatorOverview: FC<ValidatorOverviewProps> = ({ status, overview, class
               className={classes.actionIcons}
             />
             <Typography variant="body1" className="value">
-              {!isDesktop
-                ? getMiddleEllipsis(overview.operatorAddress, {
-                    beginning: 15,
-                    ending: 5,
-                  })
-                : overview.operatorAddress}
+              <span className={classes.hiddenUntilLg}>{overview.operatorAddress}</span>
+              <span className={classes.hiddenWhenLg}>
+                {getMiddleEllipsis(overview.operatorAddress, {
+                  beginning: 15,
+                  ending: 5,
+                })}
+              </span>
             </Typography>
           </div>
         </div>
@@ -150,12 +149,13 @@ const ValidatorOverview: FC<ValidatorOverviewProps> = ({ status, overview, class
               onClick={() => handleCopyToClipboard(overview.selfDelegateAddress)}
             />
             <Link shallow href={ACCOUNT_DETAILS(overview.selfDelegateAddress)} className="value">
-              {!isDesktop
-                ? getMiddleEllipsis(overview.selfDelegateAddress, {
-                    beginning: 15,
-                    ending: 5,
-                  })
-                : overview.selfDelegateAddress}
+              <span className={classes.hiddenUntilLg}>{overview.selfDelegateAddress}</span>
+              <span className={classes.hiddenWhenLg}>
+                {getMiddleEllipsis(overview.selfDelegateAddress, {
+                  beginning: 15,
+                  ending: 5,
+                })}
+              </span>
             </Link>
           </div>
         </div>

@@ -14,7 +14,6 @@ import { CacheProvider, EmotionCache } from '@emotion/react';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
 import { Hind_Madurai } from '@next/font/google';
-import { AnimatePresence } from 'framer-motion';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import { useEffect } from 'react';
@@ -94,9 +93,7 @@ const Main = (props: MainProps) => {
           draggable
           pauseOnHover
         />
-        <AnimatePresence mode="wait" initial={false}>
-          {Component}
-        </AnimatePresence>
+        {Component}
       </ThemeProvider>
     </CacheProvider>
   );

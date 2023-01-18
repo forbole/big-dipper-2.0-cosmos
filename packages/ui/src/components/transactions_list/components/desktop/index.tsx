@@ -32,12 +32,12 @@ const Desktop: FC<TransactionsListState> = ({
 
   const items = transactions.map((x) => ({
     block: (
-      <Link shallow href={BLOCK_DETAILS(x.height)}>
+      <Link shallow prefetch={false} href={BLOCK_DETAILS(x.height)}>
         {numeral(x.height).format('0,0')}
       </Link>
     ),
     hash: (
-      <Link shallow href={TRANSACTION_DETAILS(x.hash)}>
+      <Link shallow prefetch={false} href={TRANSACTION_DETAILS(x.hash)}>
         {getMiddleEllipsis(x.hash, {
           beginning: 4,
           ending: 4,

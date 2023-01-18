@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const nextTranslate = require('next-translate');
-const withTM = require('next-transpile-modules');
 const { basename, resolve } = require('path');
 
 /**
@@ -20,7 +19,7 @@ function getBaseConfig(basePath, chainName) {
         : {}),
       fontLoaders: [{ loader: '@next/font/google', options: { subsets: ['latin'] } }],
     },
-    swcMinify: true,
+    swcMinify: process.env.NODE_ENV === 'production',
     ...(process.env.BUILD_STANDALONE
       ? {
           output: 'standalone',
@@ -33,6 +32,7 @@ function getBaseConfig(basePath, chainName) {
       // to speed up the build task
       ignoreDuringBuilds: true,
     },
+    transpilePackages: ['ui'],
     typescript: {
       ignoreBuildErrors: true,
     },
@@ -80,7 +80,7 @@ function getNextConfig(dir) {
   // each chain has its own chains/<chainName>.json
   const [_match, chainName] = /web-(.+)$/.exec(basename(dir)) ?? ['', 'base'];
   const basePath = (process.env.BASE_PATH || `${`/${chainName}`}`).replace(/^(\/|\/base)$/, '');
-  return withTM(['ui'])(nextTranslate(getBaseConfig(basePath, chainName)));
+  return nextTranslate(getBaseConfig(basePath, chainName));
 }
 
 module.exports = getNextConfig;

@@ -1,6 +1,8 @@
 import { makeStyles } from 'tss-react/mui';
+import { sharedStyles } from 'ui/src/styles/useSharedStyles';
 
 const useStyles = makeStyles()((theme) => ({
+  ...sharedStyles(theme),
   root: {
     overflow: 'auto',
   },
@@ -28,17 +30,6 @@ const useStyles = makeStyles()((theme) => ({
     },
     '& a': {
       color: theme.palette.custom.fonts.highlight,
-    },
-  },
-  mobile: {
-    [theme.breakpoints.up('lg')]: {
-      display: 'none',
-    },
-  },
-  desktop: {
-    display: 'none',
-    [theme.breakpoints.up('lg')]: {
-      display: 'block',
     },
   },
   desktopFlex: {

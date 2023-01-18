@@ -45,12 +45,12 @@ const ListItem: FC<ListItemProps> = ({
 
   const item = {
     block: (
-      <Link shallow href={BLOCK_DETAILS(transaction.height)}>
+      <Link shallow prefetch={false} href={BLOCK_DETAILS(transaction.height)}>
         {numeral(transaction.height).format('0,0')}
       </Link>
     ),
     hash: (
-      <Link shallow href={TRANSACTION_DETAILS(transaction.hash)}>
+      <Link shallow prefetch={false} href={TRANSACTION_DETAILS(transaction.hash)}>
         {getMiddleEllipsis(transaction.hash, {
           beginning: 15,
           ending: 5,

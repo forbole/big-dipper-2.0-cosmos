@@ -3,7 +3,7 @@ import { getStatusInfo } from '@/components/single_proposal/utils';
 import Tag from '@/components/tag';
 import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
-import React, { ComponentProps, FC, isValidElement, ReactNode } from 'react';
+import { ComponentProps, FC, isValidElement, ReactNode } from 'react';
 
 type SingleproposalProps = {
   className?: string;
@@ -24,7 +24,7 @@ const SingleProposal: FC<SingleproposalProps> = ({ className, id, title, status,
         <Typography variant="h4" className={classes.id}>
           {id}
         </Typography>
-        <span className={classes.mobile}>
+        <span className={classes.hiddenWhenLg}>
           <Tag
             theme={statusInfo.tag as ComponentProps<typeof Tag>['theme']}
             value={statusInfo.value}
@@ -51,7 +51,7 @@ const SingleProposal: FC<SingleproposalProps> = ({ className, id, title, status,
       </div>
       {/* ================= */}
       {/* ================= */}
-      <span className={classes.desktop}>
+      <span className={classes.hiddenUntilLg}>
         <Tag
           theme={statusInfo.tag as ComponentProps<typeof Tag>['theme']}
           value={statusInfo.value}

@@ -11,14 +11,14 @@ import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import { FC, Fragment } from 'react';
 
-const Mobile: FC<{ items: TransactionType[] }> = (props) => {
+const Mobile: FC<{ className?: string; items: TransactionType[] }> = (props) => {
   const { classes } = useStyles();
   const { t } = useTranslation('transactions');
 
   const formattedItems = props.items.map((x) => ({
     key: x.hash,
     hash: (
-      <Link shallow href={TRANSACTION_DETAILS(x.hash)} className="value">
+      <Link shallow prefetch={false} href={TRANSACTION_DETAILS(x.hash)} className="value">
         {getMiddleEllipsis(x.hash, {
           beginning: 13,
           ending: 15,
@@ -48,7 +48,7 @@ const Mobile: FC<{ items: TransactionType[] }> = (props) => {
   }));
 
   return (
-    <div>
+    <div className={props.className}>
       {formattedItems?.map((x, i) => (
         <Fragment key={x.key}>
           <div className={classes.root}>

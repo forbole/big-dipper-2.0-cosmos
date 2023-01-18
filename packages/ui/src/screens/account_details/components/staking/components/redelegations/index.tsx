@@ -1,7 +1,7 @@
 import Loading from '@/components/loading';
 import NoData from '@/components/no_data';
 import Pagination from '@/components/pagination';
-import { usePagination, useScreenSize } from '@/hooks';
+import { usePagination } from '@/hooks';
 import useShallowMemo from '@/hooks/useShallowMemo';
 import Desktop from '@/screens/account_details/components/staking/components/redelegations/components/desktop';
 import Mobile from '@/screens/account_details/components/staking/components/redelegations/components/mobile';
@@ -16,7 +16,6 @@ type RedelegationsProps = {
 };
 
 const Redelegations: FC<RedelegationsProps> = (props) => {
-  const { isDesktop } = useScreenSize();
   const { classes } = useStyles();
   const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange } = usePagination({});
   const handlePageChangeCallback = useCallback(
@@ -36,10 +35,13 @@ const Redelegations: FC<RedelegationsProps> = (props) => {
     component = <Loading />;
   } else if (!itemsMemo?.length) {
     component = <NoData />;
-  } else if (isDesktop) {
-    component = <Desktop items={itemsMemo} />;
   } else {
-    component = <Mobile items={itemsMemo} />;
+    component = (
+      <>
+        <Desktop className={classes.hiddenUntilLg} items={itemsMemo} />
+        <Mobile className={classes.hiddenWhenLg} items={itemsMemo} />
+      </>
+    );
   }
 
   let total = props.redelegations.count;

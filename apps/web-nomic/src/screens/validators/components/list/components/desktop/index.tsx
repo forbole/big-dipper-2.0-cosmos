@@ -8,11 +8,10 @@ import VotingPower from '@/screens/validators/components/list/components/voting_
 import VotingPowerExplanation from '@/screens/validators/components/list/components/voting_power_explanation';
 import type { ItemType } from '@/screens/validators/components/list/types';
 import { getValidatorStatus } from '@/utils/get_validator_status';
-import type { TypographyProps } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
-import React, { CSSProperties, FC, LegacyRef, ReactNode } from 'react';
+import React, { ComponentProps, CSSProperties, FC, LegacyRef, ReactNode } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { VariableSizeGrid as Grid } from 'react-window';
 
@@ -68,7 +67,7 @@ type GridRowProps = {
   column: string;
   style: CSSProperties;
   rowIndex: number;
-  align?: TypographyProps['align'];
+  align?: ComponentProps<typeof Typography>['align'];
   item: ItemType;
   search: string;
   i: number;

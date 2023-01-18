@@ -1,9 +1,9 @@
 import Actions from '@/components/pagination/components/actions';
 import useStyles from '@/components/pagination/styles';
 import TablePagination from '@mui/material/TablePagination';
-import { TablePaginationActionsProps } from '@mui/material/TablePagination/TablePaginationActions';
+import TablePaginationActions from '@mui/material/TablePagination/TablePaginationActions';
 import useTranslation from 'next-translate/useTranslation';
-import React, { FC, MouseEvent, useCallback } from 'react';
+import { ComponentProps, FC, MouseEvent, useCallback } from 'react';
 
 type PaginationProps = {
   className?: string;
@@ -31,7 +31,7 @@ const Pagination: FC<PaginationProps> = ({
   const { classes, cx } = useStyles();
 
   const actionsComponent = useCallback(
-    (subProps: TablePaginationActionsProps) => {
+    (subProps: ComponentProps<typeof TablePaginationActions>) => {
       const additionalProps = {
         rowsPerPageOptions,
         handleRowsPerPageChange,

@@ -42,13 +42,11 @@ exports[`screen: ValidatorDetails/Profile matches snapshot 1`] = `
   height: 60px;
   min-height: 60px;
   min-width: 60px;
-  display: none;
 }
 
-@media (min-width:1280px) {
+@media (max-width:1279.95px) {
   .emotion-1 {
-    display: block;
-    margin-right: 16px;
+    display: none;
   }
 }
 
