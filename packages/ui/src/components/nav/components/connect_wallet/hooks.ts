@@ -26,6 +26,7 @@ import {
   OfflineAminoSigner,
   OfflineDirectSigner,
   Keplr,
+  ChainInfo,
   Window as KeplrWindow,
   KeplrSignOptions,
 } from '@keplr-wallet/types';
@@ -196,14 +197,26 @@ const useConnectWalletList = () => {
     setOpenKeplrPairingDialog(false);
     setOpenAuthorizeConnectionDialog(true);
 
-    // handle keplr connection
-    await enableChain();
-    const offlineSigner = getOfflineSigner();
+    // enable the chain inside the app
+    try {
+      await enableChain();
+    } catch (e) {
+      setErrorMsg(e.message);
+    }
+
+    let offlineSigner;
+    try {
+      offlineSigner = getOfflineSigner();
+    } catch (e) {
+      setErrorMsg(e.message);
+    }
+
+    // get offline signer address
     let offlineSignerAddress;
     try {
       offlineSignerAddress = await getOfflineSignerAddress(offlineSigner);
     } catch (e) {
-      setOpenAuthorizeConnectionDialog(false);
+      setErrorMsg(e.message);
       return;
     }
 
@@ -246,6 +259,13 @@ const useConnectWalletList = () => {
       }
       resetUserState();
       setOpenKeplrPairingDialog(true);
+
+      // proceed to authorize dialog after 3 seconds
+      // if continue button hasn't been pressed
+      setTimeout(() => {
+        setOpenKeplrPairingDialog(false);
+        continueToAuthorizeKeplrConnectionDialog();
+      }, 3000);
     }
   };
 
@@ -282,7 +302,6 @@ const useConnectWalletList = () => {
 
   const handleCloseLoginSuccessDialog = () => {
     setOpenLoginSuccessDialog(false);
-    setWalletOption('');
   };
 
   const handleCloseSelectNetworkDialog = () => {
