@@ -24,7 +24,7 @@ const useStyles = makeStyles()((theme) => ({
   paginationActions: {
     '&&': {
       justifyContent: 'flex-end',
-      width: '100%',
+      flexShrink: 2,
     },
     '&& .MuiPagination-root': {
       width: 'auto',
