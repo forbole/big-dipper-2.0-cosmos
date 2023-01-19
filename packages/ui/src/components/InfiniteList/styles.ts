@@ -85,10 +85,15 @@ const useStyles = makeStyles()((theme) => ({
     },
   },
   notfound: {
+    position: 'absolute',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    height: '100%',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    zIndex: 1,
     background: theme.palette.background.paper,
   },
 }));

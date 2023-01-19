@@ -97,15 +97,15 @@ const InfiniteList = <TData, TVariables, TItem>({
         </Table>
       </TableContainer>
       <div ref={elementRef} className={classes.listContainer}>
+        {itemCount === 0 && (
+          <div className={classes.notfound}>
+            <NotFound />
+          </div>
+        )}
         <div className={classes.listBg}>
           <LinearProgress />
         </div>
         <div className={classes.list}>
-          {itemCount === 0 && (
-            <div className={classes.notfound}>
-              <NotFound />
-            </div>
-          )}
           <VariableSizeList
             ref={listRef}
             itemCount={itemCount ?? UNKNOWN_ITEM_COUNT}
