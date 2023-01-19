@@ -30,4 +30,4 @@
 'web': minor
 ---
 
-Added login with Wallet Connect([\#1128](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1128))
+Added login with Keplr and WalletConnect([\#1128](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1128))
