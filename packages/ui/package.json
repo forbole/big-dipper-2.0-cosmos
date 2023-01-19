@@ -10,11 +10,6 @@
     "test": "pnpify jest --passWithNoTests --ci --no-watchman",
     "graphql:codegen": "pnpify graphql-codegen"
   },
-  "packageManager": "yarn@3.3.1",
-  "engines": {
-    "node": ">=16.13.0",
-    "yarn": ">=1.22"
-  },
   "dependencies": {
     "@apollo/client": "^3.7.3",
     "@emotion/react": "^11.10.5",
