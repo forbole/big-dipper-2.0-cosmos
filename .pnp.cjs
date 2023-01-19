@@ -13424,16 +13424,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/eslint-config-custom/",\
           "packageDependencies": [\
             ["eslint-config-custom", "workspace:packages/eslint-config-custom"],\
-            ["@keplr-wallet/wc-client", "npm:0.11.32"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
             ["@types/esprima", "npm:4.0.3"],\
             ["@typescript-eslint/eslint-plugin", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:5.48.2"],\
             ["@typescript-eslint/parser", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:5.48.2"],\
-            ["@walletconnect/client", "npm:1.8.0"],\
-            ["@walletconnect/encoding", "npm:1.0.2"],\
-            ["@walletconnect/react-native-compat", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:2.1.1"],\
-            ["@walletconnect/sign-client", "npm:2.1.1"],\
-            ["@walletconnect/utils", "npm:2.1.1"],\
             ["eslint", "npm:8.31.0"],\
             ["eslint-config-airbnb", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:19.0.4"],\
             ["eslint-config-next", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:13.1.1"],\
@@ -13448,7 +13442,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["esprima", "npm:4.0.1"],\
             ["jest", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:29.3.1"],\
             ["ts-jest", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:29.0.3"],\
-            ["tslib", "npm:2.4.1"],\
             ["typescript", "patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=ad5954"]\
           ],\
           "linkType": "SOFT"\
@@ -17031,18 +17024,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/jest-presets/",\
           "packageDependencies": [\
             ["jest-presets", "workspace:packages/jest-presets"],\
-            ["@keplr-wallet/wc-client", "npm:0.11.32"],\
             ["@types/esprima", "npm:4.0.3"],\
-            ["@walletconnect/client", "npm:1.8.0"],\
-            ["@walletconnect/encoding", "npm:1.0.2"],\
-            ["@walletconnect/react-native-compat", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:2.1.1"],\
-            ["@walletconnect/sign-client", "npm:2.1.1"],\
-            ["@walletconnect/utils", "npm:2.1.1"],\
             ["esprima", "npm:4.0.1"],\
             ["jest", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:29.3.1"],\
             ["ts-jest", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:29.0.3"],\
             ["tsconfig", "workspace:packages/tsconfig"],\
-            ["tslib", "npm:2.4.1"],\
             ["typescript", "patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=ad5954"]\
           ],\
           "linkType": "SOFT"\
@@ -21514,16 +21500,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/shared-utils/",\
           "packageDependencies": [\
             ["shared-utils", "workspace:packages/shared-utils"],\
-            ["@keplr-wallet/wc-client", "npm:0.11.32"],\
             ["@next/eslint-plugin-next", "npm:13.1.1"],\
             ["@types/esprima", "npm:4.0.3"],\
             ["@typescript-eslint/eslint-plugin", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:5.48.2"],\
             ["@typescript-eslint/parser", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:5.48.2"],\
-            ["@walletconnect/client", "npm:1.8.0"],\
-            ["@walletconnect/encoding", "npm:1.0.2"],\
-            ["@walletconnect/react-native-compat", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:2.1.1"],\
-            ["@walletconnect/sign-client", "npm:2.1.1"],\
-            ["@walletconnect/utils", "npm:2.1.1"],\
             ["eslint", "npm:8.31.0"],\
             ["eslint-config-airbnb", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:19.0.4"],\
             ["eslint-config-custom", "workspace:packages/eslint-config-custom"],\
@@ -23020,15 +23000,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/tsconfig/",\
           "packageDependencies": [\
             ["tsconfig", "workspace:packages/tsconfig"],\
-            ["@keplr-wallet/wc-client", "npm:0.11.32"],\
             ["@types/esprima", "npm:4.0.3"],\
-            ["@walletconnect/client", "npm:1.8.0"],\
-            ["@walletconnect/encoding", "npm:1.0.2"],\
-            ["@walletconnect/react-native-compat", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:2.1.1"],\
-            ["@walletconnect/sign-client", "npm:2.1.1"],\
-            ["@walletconnect/utils", "npm:2.1.1"],\
-            ["esprima", "npm:4.0.1"],\
-            ["tslib", "npm:2.4.1"]\
+            ["esprima", "npm:4.0.1"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -23855,8 +23828,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@graphql-tools/mock", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.7.14"],\
             ["@graphql-tools/schema", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:9.0.12"],\
             ["@jest/globals", "npm:29.3.1"],\
-            ["@keplr-wallet/types", "npm:0.11.29"],\
-            ["@keplr-wallet/wc-client", "npm:0.11.32"],\
             ["@mui/icons-material", "virtual:e293270790bda2411a3626e57e15862403457209cbe755a222c752c37c8f53870ac5708914fca9c46ad11f81505a4af613c8b5e4bba765909191bb5f14d3b656#npm:5.11.0"],\
             ["@mui/material", "virtual:e293270790bda2411a3626e57e15862403457209cbe755a222c752c37c8f53870ac5708914fca9c46ad11f81505a4af613c8b5e4bba765909191bb5f14d3b656#npm:5.11.5"],\
             ["@mui/styles", "virtual:e293270790bda2411a3626e57e15862403457209cbe755a222c752c37c8f53870ac5708914fca9c46ad11f81505a4af613c8b5e4bba765909191bb5f14d3b656#npm:5.11.2"],\
@@ -23885,11 +23856,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/sharp", "npm:0.31.1"],\
             ["@typescript-eslint/eslint-plugin", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.48.2"],\
             ["@typescript-eslint/parser", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.48.2"],\
-            ["@walletconnect/client", "npm:1.8.0"],\
-            ["@walletconnect/encoding", "npm:1.0.2"],\
-            ["@walletconnect/react-native-compat", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:2.1.1"],\
-            ["@walletconnect/sign-client", "npm:2.1.1"],\
-            ["@walletconnect/utils", "npm:2.1.1"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.35"],\
             ["axios", "npm:1.2.2"],\
             ["axios-mock-adapter", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.21.2"],\
