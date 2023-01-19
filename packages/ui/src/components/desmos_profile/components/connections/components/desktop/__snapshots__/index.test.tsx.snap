@@ -22,6 +22,9 @@ exports[`screen: DesmosProfile/Desktop it renders 1`] = `
 
 .emotion-1 {
   display: table-header-group;
+}
+
+.emotion-1 {
   background-color: initial;
 }
 
@@ -56,6 +59,9 @@ exports[`screen: DesmosProfile/Desktop it renders 1`] = `
   text-align: left;
   padding: 16px;
   color: #000000;
+}
+
+.emotion-3 {
   border-bottom: none;
   padding: 0 16px;
   height: 50px;
@@ -77,6 +83,9 @@ exports[`screen: DesmosProfile/Desktop it renders 1`] = `
   -webkit-flex-direction: row-reverse;
   -ms-flex-direction: row-reverse;
   flex-direction: row-reverse;
+}
+
+.emotion-5 {
   border-bottom: none;
   padding: 0 16px;
   height: 50px;
@@ -107,6 +116,9 @@ exports[`screen: DesmosProfile/Desktop it renders 1`] = `
   text-align: left;
   padding: 16px;
   color: #000000;
+}
+
+.emotion-8 {
   border-bottom: none;
   padding: 0 16px;
   height: 50px;
@@ -128,6 +140,9 @@ exports[`screen: DesmosProfile/Desktop it renders 1`] = `
   -webkit-flex-direction: row-reverse;
   -ms-flex-direction: row-reverse;
   flex-direction: row-reverse;
+}
+
+.emotion-10 {
   border-bottom: none;
   padding: 0 16px;
   height: 50px;

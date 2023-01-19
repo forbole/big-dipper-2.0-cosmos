@@ -19,8 +19,8 @@ jest.mock('next/router', () => ({
   useRouter: () => mockRouter,
 }));
 
-jest.mock('@/hooks', () => ({
-  ...jest.requireActual('@/hooks'),
+jest.mock('@/hooks/use_desmos_profile', () => ({
+  ...jest.requireActual('@/hooks/use_desmos_profile'),
   useDesmosProfile: (options: Parameters<typeof useDesmosProfile>[0]) => {
     const address = options.addresses?.[0];
     return useMemo(() => {

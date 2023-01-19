@@ -140,8 +140,8 @@ const mockAccountMessages = jest.fn().mockReturnValue({
   },
 });
 
-jest.mock('@/hooks', () => ({
-  ...jest.requireActual('@/hooks'),
+jest.mock('@/hooks/use_desmos_profile', () => ({
+  ...jest.requireActual('@/hooks/use_desmos_profile'),
   useDesmosProfile: () =>
     useMemo(
       () => ({

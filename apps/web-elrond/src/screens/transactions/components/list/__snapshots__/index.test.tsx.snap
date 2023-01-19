@@ -32,6 +32,9 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
 
 .emotion-2 {
   display: table-header-group;
+}
+
+.emotion-2 {
   background-color: initial;
 }
 
@@ -66,6 +69,9 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
   text-align: left;
   padding: 16px;
   color: #000000;
+}
+
+.emotion-4 {
   border-bottom: none;
   padding: 0 16px;
   height: 50px;
@@ -87,6 +93,9 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
   -webkit-flex-direction: row-reverse;
   -ms-flex-direction: row-reverse;
   flex-direction: row-reverse;
+}
+
+.emotion-9 {
   border-bottom: none;
   padding: 0 16px;
   height: 50px;
@@ -117,6 +126,9 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
   text-align: left;
   padding: 16px;
   color: #000000;
+}
+
+.emotion-12 {
   border-bottom: none;
   padding: 0 16px;
   height: 50px;
@@ -277,6 +289,9 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
   -webkit-flex-direction: row-reverse;
   -ms-flex-direction: row-reverse;
   flex-direction: row-reverse;
+}
+
+.emotion-28 {
   border-bottom: none;
   padding: 0 16px;
   height: 50px;
