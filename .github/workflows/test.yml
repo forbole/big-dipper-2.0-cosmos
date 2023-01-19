@@ -41,6 +41,7 @@ jobs:
       - name: Set needs.detect-changes.outputs.{projects,projects-web}
         id: dry-run
         run: |
+          export TURBO_BINARY_PATH=$(echo "console.log(require('child_process').execSync('find .yarn/unplugged/turbo-'+process.platform+'-'+process.arch+'-* -name turbo').toString())" | node)
           echo yarn turbo run build --dry='json' --filter='[${{ github.event.pull_request.base.sha }}]' | tee -a $GITHUB_STEP_SUMMARY
           export DRY_BUILD_JSON=$(
             yarn turbo run build --dry='json' --filter='[${{ github.event.pull_request.base.sha }}]'
@@ -71,23 +72,27 @@ jobs:
       - name: check-types
         run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
+          export TURBO_BINARY_PATH=$(echo "console.log(require('child_process').execSync('find .yarn/unplugged/turbo-'+process.platform+'-'+process.arch+'-* -name turbo').toString())" | node)
           yarn turbo run check-types --filter=${{ matrix.project }} | tee -a $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
       - name: lint
         run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
+          export TURBO_BINARY_PATH=$(echo "console.log(require('child_process').execSync('find .yarn/unplugged/turbo-'+process.platform+'-'+process.arch+'-* -name turbo').toString())" | node)
           yarn turbo run lint --filter=${{ matrix.project }} | tee -a $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
       - name: test
         run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
-          yarn test:ci --filter=${{ matrix.project }} -- --coverage | tee -a $GITHUB_STEP_SUMMARY
+          export TURBO_BINARY_PATH=$(echo "console.log(require('child_process').execSync('find .yarn/unplugged/turbo-'+process.platform+'-'+process.arch+'-* -name turbo').toString())" | node)
+          yarn turbo run yarn test:ci --filter=${{ matrix.project }} -- --coverage | tee -a $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
       - name: build
         if: ${{ needs.detect-changes.outputs.projects-web != '[]' }}
         run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
-          yarn build:ci --filter=${{ matrix.project }} | tee -a $GITHUB_STEP_SUMMARY
+          export TURBO_BINARY_PATH=$(echo "console.log(require('child_process').execSync('find .yarn/unplugged/turbo-'+process.platform+'-'+process.arch+'-* -name turbo').toString())" | node)
+          yarn turbo run yarn build:ci --filter=${{ matrix.project }} | tee -a $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
   check-e2e:
     if: ${{ success() && needs.detect-changes.outputs.projects-web != '[]' }}
