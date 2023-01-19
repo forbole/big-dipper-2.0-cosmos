@@ -1,10 +1,10 @@
-import { useValidatorAddressesQuery } from '@/graphql/types/general_types';
-import { atomFamilyState as profileAtomFamilyState } from '@/recoil/profiles/atom';
-import type { AtomState as ProfileAtomState } from '@/recoil/profiles/types';
 import { useEffect } from 'react';
 import { useRecoilCallback } from 'recoil';
 import { atomFamilyState as validatorAtomState } from 'ui/recoil/validators/atom';
 import type { AtomState as ValidatorAtomState } from 'ui/recoil/validators/types';
+import type { AtomState as ProfileAtomState } from '@/recoil/profiles/types';
+import { atomFamilyState as profileAtomFamilyState } from '@/recoil/profiles/atom';
+import { useValidatorAddressesQuery } from '@/graphql/types/general_types';
 
 export interface DataType {
   validator?: Array<{

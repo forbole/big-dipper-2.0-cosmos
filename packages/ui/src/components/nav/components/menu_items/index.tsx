@@ -1,5 +1,3 @@
-import useStyles from '@/components/nav/components/menu_items/styles';
-import { getMenuItems } from '@/components/nav/components/menu_items/utils';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -7,6 +5,8 @@ import ListItemText from '@mui/material/ListItemText';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { getMenuItems } from '@/components/nav/components/menu_items/utils';
+import useStyles from '@/components/nav/components/menu_items/styles';
 
 const MenuItems = () => {
   const { classes, cx } = useStyles();

@@ -1,6 +1,10 @@
+import { ApolloProvider, NormalizedCacheObject } from '@apollo/client';
+import { DefaultSeo } from 'next-seo';
+import useTranslation from 'next-translate/useTranslation';
+import { RecoilRoot } from 'recoil';
 import chainConfig from '@/chainConfig';
 import useApollo from '@/graphql/useApollo';
-import { useWindowOrigin } from '@/hooks';
+import { useWindowOrigin } from '@/hooks/use_window';
 import Main, { MainProps } from '@/screens/app/components/main';
 import { useApp } from '@/screens/app/hooks';
 import {
@@ -9,10 +13,6 @@ import {
   OPEN_GRAPH_SEO,
   TWITTER_SEO,
 } from '@/screens/app/utils';
-import { ApolloProvider, NormalizedCacheObject } from '@apollo/client';
-import { DefaultSeo } from 'next-seo';
-import useTranslation from 'next-translate/useTranslation';
-import { RecoilRoot } from 'recoil';
 
 const { title } = chainConfig();
 

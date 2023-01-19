@@ -1,6 +1,6 @@
+import renderer from 'react-test-renderer';
 import Profile from '@/screens/validator_details/components/profile';
 import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

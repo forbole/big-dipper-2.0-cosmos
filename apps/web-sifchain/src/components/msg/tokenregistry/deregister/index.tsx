@@ -1,9 +1,9 @@
+import Typography from '@mui/material/Typography';
+import Trans from 'next-translate/Trans';
+import { FC } from 'react';
 import Name from '@/components/name';
 import MsgDeregister from '@/models/msg/tokenregistry/msg_deregister';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
-import Typography from '@mui/material/Typography';
-import Trans from 'next-translate/Trans';
-import React, { FC } from 'react';
 
 const Deregister: FC<{ message: MsgDeregister }> = (props) => {
   const { message } = props;

@@ -1,11 +1,11 @@
+import Tab from '@mui/material/Tab';
+import Tabs from '@mui/material/Tabs';
+import useTranslation from 'next-translate/useTranslation';
+import { ComponentProps, FC } from 'react';
 import Search from '@/components/search';
 import useStyles from '@/screens/validators/components/list/components/tabs/styles';
 import { tabLabels } from '@/screens/validators/components/list/components/tabs/utils';
 import { a11yProps } from '@/utils/a11yProps';
-import Tab from '@mui/material/Tab';
-import Tabs from '@mui/material/Tabs';
-import useTranslation from 'next-translate/useTranslation';
-import React, { ComponentProps, FC } from 'react';
 
 type TabsHeaderProps = {
   className?: string;

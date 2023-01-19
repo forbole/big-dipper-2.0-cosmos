@@ -1,8 +1,3 @@
-import AvatarName from '@/components/avatar_name';
-import { useProfileRecoil } from '@/recoil/profiles/hooks';
-import { columns } from '@/screens/validator_details/components/staking/components/delegations/components/desktop/utils';
-import type { ItemType } from '@/screens/validator_details/components/staking/components/delegations/types';
-import { formatNumber } from '@/utils/format_token';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -10,6 +5,11 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import useTranslation from 'next-translate/useTranslation';
 import { FC } from 'react';
+import { formatNumber } from '@/utils/format_token';
+import type { ItemType } from '@/screens/validator_details/components/staking/components/delegations/types';
+import { columns } from '@/screens/validator_details/components/staking/components/delegations/components/desktop/utils';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
+import AvatarName from '@/components/avatar_name';
 
 type DelegationsRowProps = {
   item: ItemType;

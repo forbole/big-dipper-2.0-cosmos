@@ -1,7 +1,7 @@
-import MyApp from '@/screens/app';
 import { ApolloClient, from, InMemoryCache } from '@apollo/client';
 import type { Router } from 'next/router';
 import renderer from 'react-test-renderer';
+import MyApp from '@/screens/app';
 
 // ==================================
 // mocks

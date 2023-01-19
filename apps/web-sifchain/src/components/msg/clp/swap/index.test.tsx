@@ -1,7 +1,7 @@
+import renderer from 'react-test-renderer';
 import Swap from '@/components/msg/clp/swap';
 import MsgSwap from '@/models/msg/clp/msg_swap';
 import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

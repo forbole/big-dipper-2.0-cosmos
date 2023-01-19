@@ -1,7 +1,7 @@
+import renderer from 'react-test-renderer';
 import EditNFT from '@/components/msg/nft/edit_nft';
 import MsgEditNFT from '@/models/msg/nft/msg_edit_nft';
 import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

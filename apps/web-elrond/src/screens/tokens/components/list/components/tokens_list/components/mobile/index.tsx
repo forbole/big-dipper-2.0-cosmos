@@ -1,9 +1,9 @@
-import React, { FC, Fragment } from 'react';
+import { FC, Fragment } from 'react';
 import numeral from 'numeral';
 import useTranslation from 'next-translate/useTranslation';
-import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import AvatarName from '@/components/avatar_name';
 import { TOKEN_DETAILS } from '@/utils/go_to_page';
 import type { TokenType } from '@/screens/tokens/components/list/types';

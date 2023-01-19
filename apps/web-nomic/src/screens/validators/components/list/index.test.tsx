@@ -1,8 +1,8 @@
 import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
 import { MockedProvider } from '@apollo/client/testing';
-import { ValidatorsDocument } from '@/graphql/types/general_types';
 import React from 'react';
 import renderer from 'react-test-renderer';
+import { ValidatorsDocument } from '@/graphql/types/general_types';
 import { MockTheme, wait } from '@/tests/utils';
 import List from '@/screens/validators/components/list';
 

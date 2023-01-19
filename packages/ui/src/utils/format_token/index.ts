@@ -1,6 +1,6 @@
-import chainConfig from '@/chainConfig';
 import Big from 'big.js';
 import numeral from 'numeral';
+import chainConfig from '@/chainConfig';
 
 const { tokenUnits } = chainConfig();
 

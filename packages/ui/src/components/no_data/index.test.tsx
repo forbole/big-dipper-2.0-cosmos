@@ -1,6 +1,6 @@
+import renderer from 'react-test-renderer';
 import NoData from '@/components/no_data';
 import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

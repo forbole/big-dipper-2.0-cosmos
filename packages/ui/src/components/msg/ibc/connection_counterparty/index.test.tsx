@@ -1,7 +1,7 @@
+import renderer from 'react-test-renderer';
 import CounterpartyConnection from '@/components/msg/ibc/connection_counterparty';
 import { MsgCounterpartyConnection } from '@/models';
 import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

@@ -1,7 +1,7 @@
+import renderer from 'react-test-renderer';
 import RemoveLiquidity from '@/components/msg/clp/remove_liquidity';
 import MsgRemoveLiquidity from '@/models/msg/clp/msg_remove_liquidity';
 import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

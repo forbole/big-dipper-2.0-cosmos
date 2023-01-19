@@ -1,3 +1,5 @@
+import * as R from 'ramda';
+import { useState } from 'react';
 import { convertMsgsToModels } from '@/components/msg/utils';
 import {
   TransactionsListenerSubscription,
@@ -6,8 +8,6 @@ import {
 } from '@/graphql/types/general_types';
 import type { TransactionsState } from '@/screens/transactions/types';
 import { convertMsgType } from '@/utils/convert_msg_type';
-import * as R from 'ramda';
-import { useState } from 'react';
 
 // This is a bandaid as it can get extremely
 // expensive if there is too much data

@@ -1,4 +1,4 @@
-import React, { FC, Fragment } from 'react';
+import { FC, Fragment } from 'react';
 import useTranslation from 'next-translate/useTranslation';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';

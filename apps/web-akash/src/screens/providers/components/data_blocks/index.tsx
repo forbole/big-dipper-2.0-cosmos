@@ -1,8 +1,8 @@
-import SingleBlock from '@/screens/providers/components/data_blocks/components/single_block';
-import useStyles from '@/screens/providers/components/data_blocks/styles';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
-import React, { FC } from 'react';
+import { FC } from 'react';
+import useStyles from '@/screens/providers/components/data_blocks/styles';
+import SingleBlock from '@/screens/providers/components/data_blocks/components/single_block';
 
 type DataBlocksProps = {
   className?: string;

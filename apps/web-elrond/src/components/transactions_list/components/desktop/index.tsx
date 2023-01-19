@@ -1,11 +1,3 @@
-import AvatarName from '@/components/avatar_name';
-import Result from '@/components/result';
-import useStyles from '@/components/transactions_list/components/desktop/styles';
-import { columns } from '@/components/transactions_list/components/desktop/utils';
-import Shard from '@/components/transactions_list/components/shard';
-import dayjs from '@/utils/dayjs';
-import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
-import { TRANSACTION_DETAILS } from '@/utils/go_to_page';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -14,6 +6,14 @@ import TableRow from '@mui/material/TableRow';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import { FC } from 'react';
+import AvatarName from '@/components/avatar_name';
+import Result from '@/components/result';
+import useStyles from '@/components/transactions_list/components/desktop/styles';
+import { columns } from '@/components/transactions_list/components/desktop/utils';
+import Shard from '@/components/transactions_list/components/shard';
+import dayjs from '@/utils/dayjs';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
+import { TRANSACTION_DETAILS } from '@/utils/go_to_page';
 
 const Desktop: FC<{ className?: string; items: TransactionType[] }> = (props) => {
   const { className, items } = props;

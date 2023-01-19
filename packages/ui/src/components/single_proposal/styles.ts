@@ -1,8 +1,6 @@
-import { sharedStyles } from '@/styles/useSharedStyles';
 import { makeStyles } from 'tss-react/mui';
 
 const useStyles = makeStyles()((theme) => ({
-  ...sharedStyles(theme),
   root: {
     margin: theme.spacing(2, 0),
     [theme.breakpoints.up('lg')]: {

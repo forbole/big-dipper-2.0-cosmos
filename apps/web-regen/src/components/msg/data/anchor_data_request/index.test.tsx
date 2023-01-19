@@ -1,7 +1,7 @@
+import renderer from 'react-test-renderer';
 import AnchorDataRequest from '@/components/msg/data/anchor_data_request';
 import MsgAnchorDataRequest from '@/models/msg/data/msg_anchor_data_request';
 import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

@@ -1,5 +1,5 @@
-import { useDesmosProfile } from '@/components/desmos_profile/hooks';
 import { act, cleanup, renderHook } from '@testing-library/react';
+import { useDesmosProfile } from '@/components/desmos_profile/hooks';
 
 describe('hook: useDesmosProfile', () => {
   test('handles open connections correctly', () => {

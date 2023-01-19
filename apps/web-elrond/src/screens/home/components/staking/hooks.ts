@@ -1,8 +1,8 @@
-import { ECONOMICS } from '@/api';
-import type { StakingState } from '@/screens/home/components/staking/types';
 import axios from 'axios';
 import * as R from 'ramda';
 import { useCallback, useEffect, useState } from 'react';
+import type { StakingState } from '@/screens/home/components/staking/types';
+import { ECONOMICS } from '@/api';
 
 export const useStaking = () => {
   const [state, setState] = useState<StakingState>({

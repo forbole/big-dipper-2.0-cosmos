@@ -1,6 +1,3 @@
-import { columns } from '@/components/desmos_profile/components/connections/components/desktop/utils';
-import { readDate } from '@/recoil/settings';
-import dayjs, { formatDayJs } from '@/utils/dayjs';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -9,6 +6,9 @@ import TableRow from '@mui/material/TableRow';
 import useTranslation from 'next-translate/useTranslation';
 import { FC, ReactNode } from 'react';
 import { useRecoilValue } from 'recoil';
+import dayjs, { formatDayJs } from '@/utils/dayjs';
+import { readDate } from '@/recoil/settings';
+import { columns } from '@/components/desmos_profile/components/connections/components/desktop/utils';
 
 type DesktopProps = {
   className?: string;

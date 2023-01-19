@@ -1,10 +1,10 @@
+import Typography from '@mui/material/Typography';
+import Trans from 'next-translate/Trans';
+import { FC } from 'react';
 import Name from '@/components/name';
 import MsgCancelReplaceMarketOrder from '@/models/msg/market/msg_cancel_replace_market_order';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { formatNumber, formatToken } from '@/utils/format_token';
-import Typography from '@mui/material/Typography';
-import Trans from 'next-translate/Trans';
-import React, { FC } from 'react';
 
 const CancelReplaceMarketOrder: FC<{ message: MsgCancelReplaceMarketOrder }> = (props) => {
   const { message } = props;

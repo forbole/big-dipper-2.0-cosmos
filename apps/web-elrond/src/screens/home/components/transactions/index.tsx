@@ -4,6 +4,7 @@ import Desktop from '@/screens/home/components/transactions/components/desktop';
 import Mobile from '@/screens/home/components/transactions/components/mobile';
 import { useBlocks } from '@/screens/home/components/transactions/hooks';
 import useStyles from '@/screens/home/components/transactions/styles';
+import { useDisplayStyles } from '@/styles/useSharedStyles';
 import { TRANSACTIONS } from '@/utils/go_to_page';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
@@ -13,6 +14,7 @@ import { FC } from 'react';
 
 const Transactions: FC<ComponentDefault> = (props) => {
   const { classes, cx } = useStyles();
+  const display = useDisplayStyles().classes;
   const { t } = useTranslation('home');
   const { state } = useBlocks();
   return (
@@ -27,13 +29,13 @@ const Transactions: FC<ComponentDefault> = (props) => {
         <NoData />
       ) : (
         <>
-          <Desktop className={classes.hiddenUntilLg} items={state.items} />
-          <Mobile className={classes.hiddenWhenLg} items={state.items} />
-          <Divider className={classes.hiddenWhenLg} />
+          <Desktop className={display.hiddenUntilLg} items={state.items} />
+          <Mobile className={display.hiddenWhenLg} items={state.items} />
+          <Divider className={display.hiddenWhenLg} />
           <Link
             shallow
             href={TRANSACTIONS}
-            className={cx(classes.seeMoreFooter, classes.hiddenWhenLg, 'button')}
+            className={cx(classes.seeMoreFooter, display.hiddenWhenLg, 'button')}
             aria-label="see more txs"
           >
             {t('seeMore')}

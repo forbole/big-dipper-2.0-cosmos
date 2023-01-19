@@ -32,5 +32,6 @@ module.exports = {
       'message_contents',
     ],
     'rgx:^/params': ['params'],
+    'rgx:^/assets': ['assets'],
   },
 };

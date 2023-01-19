@@ -1,6 +1,3 @@
-import { useSettingList } from '@/components/nav/components/desktop/components/action_bar/components/settings_list/hooks';
-import useStyles from '@/components/nav/components/desktop/components/action_bar/components/settings_list/styles';
-import { DATE_LIST, THEME_LIST, TX_LIST } from '@/recoil/settings';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -13,8 +10,11 @@ import Typography from '@mui/material/Typography';
 import CloseIcon from '@mui/icons-material/Close';
 import useTranslation from 'next-translate/useTranslation';
 import { useRouter } from 'next/router';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import SettingIcon from 'shared-utils/assets/icon-setting.svg';
+import { DATE_LIST, THEME_LIST, TX_LIST } from '@/recoil/settings';
+import useStyles from '@/components/nav/components/desktop/components/action_bar/components/settings_list/styles';
+import { useSettingList } from '@/components/nav/components/desktop/components/action_bar/components/settings_list/hooks';
 
 const release = `${process.env.NEXT_PUBLIC_RELEASE ?? ''}`;
 

@@ -1,6 +1,6 @@
+import renderer from 'react-test-renderer';
 import LoadAndExist from '@/components/load_and_exist';
 import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 const mockPush = jest.fn();
 

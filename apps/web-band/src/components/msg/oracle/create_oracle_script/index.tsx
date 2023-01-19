@@ -1,9 +1,9 @@
+import Typography from '@mui/material/Typography';
+import Trans from 'next-translate/Trans';
+import { FC } from 'react';
 import Name from '@/components/name';
 import MsgCreateOracleScript from '@/models/msg/oracle/msg_create_oracle_script';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
-import Typography from '@mui/material/Typography';
-import Trans from 'next-translate/Trans';
-import React, { FC } from 'react';
 
 const CreateOracleScript: FC<{ message: MsgCreateOracleScript }> = (props) => {
   const { message } = props;

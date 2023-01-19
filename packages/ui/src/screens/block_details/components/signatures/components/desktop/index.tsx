@@ -1,15 +1,15 @@
-import { useGrid } from '@/hooks';
-import useShallowMemo from '@/hooks/useShallowMemo';
-import useStyles from '@/screens/block_details/components/signatures/components/desktop/styles';
+import Typography from '@mui/material/Typography';
+import useTranslation from 'next-translate/useTranslation';
+import { FC, LegacyRef, useMemo } from 'react';
+import AutoSizer from 'react-virtualized-auto-sizer';
+import { VariableSizeGrid as Grid } from 'react-window';
 import {
   columns,
   formatRows,
 } from '@/screens/block_details/components/signatures/components/desktop/utils';
-import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
-import React, { FC, LegacyRef, useMemo } from 'react';
-import AutoSizer from 'react-virtualized-auto-sizer';
-import { VariableSizeGrid as Grid } from 'react-window';
+import useStyles from '@/screens/block_details/components/signatures/components/desktop/styles';
+import useShallowMemo from '@/hooks/useShallowMemo';
+import { useGrid } from '@/hooks/use_react_window';
 
 type DesktopProps = {
   className?: string;

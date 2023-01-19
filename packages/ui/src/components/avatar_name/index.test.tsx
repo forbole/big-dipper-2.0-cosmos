@@ -1,6 +1,6 @@
+import renderer from 'react-test-renderer';
 import AvatarName from '@/components/avatar_name';
 import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 jest.mock('@/components/avatar', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Avatar" {...props} />

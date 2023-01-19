@@ -1,10 +1,10 @@
+import { FC } from 'react';
 import Network from '@/components/nav/components/desktop/components/action_bar/components/network';
 import NetworkList from '@/components/nav/components/desktop/components/action_bar/components/network_list';
 import SettingsList from '@/components/nav/components/desktop/components/action_bar/components/settings_list';
 import useStyles from '@/components/nav/components/desktop/components/action_bar/styles';
 import SearchBar from '@/components/nav/components/search_bar';
-import { useGetComponentDimension } from '@/hooks';
-import React, { FC } from 'react';
+import { useGetComponentDimension } from '@/hooks/use_get_component_dimension';
 
 type ActionBarProps = {
   isNetwork: boolean;

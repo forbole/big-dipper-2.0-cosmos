@@ -1,3 +1,4 @@
+import renderer from 'react-test-renderer';
 import SubmitProposal from '@/components/msg/governance/submit_proposal';
 import {
   MsgCommunityPoolSpendProposal,
@@ -7,7 +8,6 @@ import {
   MsgTextProposal,
 } from '@/models';
 import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

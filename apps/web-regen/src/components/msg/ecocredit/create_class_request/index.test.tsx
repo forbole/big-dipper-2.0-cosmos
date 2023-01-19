@@ -1,7 +1,7 @@
+import renderer from 'react-test-renderer';
 import CreateClassRequest from '@/components/msg/ecocredit/create_class_request';
 import MsgCreateClassRequest from '@/models/msg/ecocredit/msg_create_class_request';
 import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

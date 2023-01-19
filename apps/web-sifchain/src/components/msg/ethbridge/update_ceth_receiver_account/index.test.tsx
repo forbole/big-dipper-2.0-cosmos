@@ -1,7 +1,7 @@
+import renderer from 'react-test-renderer';
 import UpdateCethReceiverAccount from '@/components/msg/ethbridge/update_ceth_receiver_account';
 import MsgUpdateCethReceiverAccount from '@/models/msg/ethbridge/msg_update_ceth_receiver_account';
 import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

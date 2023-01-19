@@ -1,5 +1,5 @@
+import { FC, ReactNode } from 'react';
 import useStyles from '@/components/custom_tool_tip/styles';
-import React, { FC, ReactNode } from 'react';
 
 export interface CustomToolTipData {
   legendKey: string;

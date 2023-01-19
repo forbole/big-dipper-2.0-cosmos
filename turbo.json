@@ -3,7 +3,7 @@
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**", ".next/**", "public/dist/**"],
+      "outputs": ["dist/**", ".next/**"],
       "env": [
         "NEXT_PUBLIC_BANNERS_JSON",
         "NEXT_PUBLIC_GRAPHQL_URL",
@@ -14,29 +14,36 @@
       ]
     },
     "clean": {
-      "cache": false
+      "cache": false,
+      "outputs": []
     },
     "dev": {
-      "cache": false
-    },
-    "watch": {
-      "cache": false
+      "cache": false,
+      "outputs": [],
+      "persistent": true
     },
     "start": {
       "dependsOn": ["^build"],
-      "env": ["PORT"]
+      "env": ["PORT"],
+      "outputs": [],
+      "persistent": true
     },
-    "check-types": {},
-    "lint": {
+    "check-types": {
       "outputs": []
+    },
+    "lint": {
+      "outputs": [".next/cache/eslint/**"]
     },
     "test": {
       "outputs": ["coverage/**"]
     },
     "e2e": {
-      "env": ["PORT"]
+      "env": ["PORT"],
+      "outputs": []
     },
-    "graphql:codegen": {}
+    "graphql:codegen": {
+      "outputs": []
+    }
   },
   "globalEnv": [
     "BASE_PATH",
@@ -55,5 +62,11 @@
     "SENTRY_URL",
     "VERCEL"
   ],
-  "globalDependencies": [".env", ".eslintrc.js", ".gitignore", ".yarnrc.yml", "shared-utils/**/*"]
+  "globalDependencies": [
+    ".env",
+    ".eslintrc.js",
+    ".gitignore",
+    ".yarnrc.yml",
+    "packages/shared-utils/**/*"
+  ]
 }

@@ -1,7 +1,7 @@
+import renderer from 'react-test-renderer';
 import CreateDataSource from '@/components/msg/oracle/create_data_source';
 import MsgCreateDataSource from '@/models/msg/oracle/msg_create_data_source';
 import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

@@ -1,5 +1,5 @@
-import type { Categories, Log } from '@/models/msg/types';
 import * as R from 'ramda';
+import type { Categories, Log } from '@/models/msg/types';
 
 class MsgSwap {
   public category: Categories;

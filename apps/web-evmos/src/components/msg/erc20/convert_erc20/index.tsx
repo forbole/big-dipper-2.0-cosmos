@@ -1,9 +1,9 @@
+import Typography from '@mui/material/Typography';
+import Trans from 'next-translate/Trans';
+import { FC } from 'react';
 import Name from '@/components/name';
 import MsgConvertErc20 from '@/models/msg/erc20/msg_convert_erc20';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
-import Typography from '@mui/material/Typography';
-import Trans from 'next-translate/Trans';
-import React, { FC } from 'react';
 
 const ConvertErc20: FC<{ message: MsgConvertErc20 }> = (props) => {
   const { message } = props;

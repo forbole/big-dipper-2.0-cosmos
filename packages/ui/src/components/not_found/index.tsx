@@ -1,12 +1,12 @@
-import useStyles from '@/components/not_found/styles';
-import { readTheme } from '@/recoil/settings';
 import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import { useRouter } from 'next/router';
-import React, { FC, useEffect } from 'react';
+import { FC, useEffect } from 'react';
 import { useRecoilValue } from 'recoil';
 import NotFoundDark from 'shared-utils/assets/not-found-dark.svg';
 import NotFoundLight from 'shared-utils/assets/not-found-light.svg';
+import { readTheme } from '@/recoil/settings';
+import useStyles from '@/components/not_found/styles';
 
 type NotFoundProps = { className?: string };
 const ssrMode = typeof window === 'undefined';

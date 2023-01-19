@@ -1,6 +1,6 @@
+import renderer from 'react-test-renderer';
 import Actions from '@/components/pagination/components/actions';
 import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

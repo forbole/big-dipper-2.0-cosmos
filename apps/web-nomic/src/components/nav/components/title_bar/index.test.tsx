@@ -1,6 +1,6 @@
+import renderer from 'react-test-renderer';
 import TitleBar from '@/components/nav/components/title_bar';
 import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 // ==================================
 // global setup

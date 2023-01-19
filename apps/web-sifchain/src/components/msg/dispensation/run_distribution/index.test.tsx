@@ -1,7 +1,7 @@
+import renderer from 'react-test-renderer';
 import RunDistribution from '@/components/msg/dispensation/run_distribution';
 import MsgRunDistribution from '@/models/msg/dispensation/msg_run_distribution';
 import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

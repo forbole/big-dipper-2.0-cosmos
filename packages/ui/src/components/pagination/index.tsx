@@ -1,9 +1,9 @@
-import Actions from '@/components/pagination/components/actions';
-import useStyles from '@/components/pagination/styles';
 import TablePagination from '@mui/material/TablePagination';
 import TablePaginationActions from '@mui/material/TablePagination/TablePaginationActions';
 import useTranslation from 'next-translate/useTranslation';
 import { ComponentProps, FC, MouseEvent, useCallback } from 'react';
+import useStyles from '@/components/pagination/styles';
+import Actions from '@/components/pagination/components/actions';
 
 type PaginationProps = {
   className?: string;

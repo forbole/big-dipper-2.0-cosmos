@@ -1,7 +1,7 @@
+import renderer from 'react-test-renderer';
 import RevokeAllowance from '@/components/msg/feegrant/revoke_allowance';
 import { MsgRevokeAllowance } from '@/models';
 import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

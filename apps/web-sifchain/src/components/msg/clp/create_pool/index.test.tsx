@@ -1,7 +1,7 @@
+import renderer from 'react-test-renderer';
 import CreatePool from '@/components/msg/clp/create_pool';
 import MsgCreatePool from '@/models/msg/clp/msg_create_pool';
 import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

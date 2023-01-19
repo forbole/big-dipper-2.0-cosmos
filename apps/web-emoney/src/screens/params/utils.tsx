@@ -1,3 +1,5 @@
+import { Translate } from 'next-translate';
+import numeral from 'numeral';
 import type {
   Distribution,
   GasPrice,
@@ -8,8 +10,6 @@ import type {
   Staking,
 } from '@/screens/params/types';
 import { nanoToSeconds, secondsToDays } from '@/utils/time';
-import { Translate } from 'next-translate';
-import numeral from 'numeral';
 
 const convertBySeconds = (seconds: number, t: Translate) => {
   const SECONDS_IN_DAY = 86400;

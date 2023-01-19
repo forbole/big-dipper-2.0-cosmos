@@ -1,15 +1,15 @@
-import { Loading } from '@/components';
+import Tooltip from '@mui/material/Tooltip';
+import Typography from '@mui/material/Typography';
+import useTranslation from 'next-translate/useTranslation';
+import numeral from 'numeral';
+import { FC } from 'react';
+import Loading from '@/components/loading';
 import AvatarName from '@/components/avatar_name';
 import Box from '@/components/box';
 import Result from '@/components/result';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { useBlocks } from '@/screens/validator_details/components/blocks/hooks';
 import useStyles from '@/screens/validator_details/components/blocks/styles';
-import Tooltip from '@mui/material/Tooltip';
-import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
-import numeral from 'numeral';
-import { FC } from 'react';
 
 type BlockBoxProps = {
   i: number;

@@ -1,7 +1,7 @@
+import renderer from 'react-test-renderer';
 import EditOracleScript from '@/components/msg/oracle/edit_oracle_script';
 import MsgEditOracleScript from '@/models/msg/oracle/msg_edit_oracle_script';
 import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

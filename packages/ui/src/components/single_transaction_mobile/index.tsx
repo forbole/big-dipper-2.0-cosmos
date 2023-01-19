@@ -1,7 +1,7 @@
-import useStyles from '@/components/single_transaction_mobile/styles';
 import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
-import React, { FC, ReactNode } from 'react';
+import { FC, ReactNode } from 'react';
+import useStyles from '@/components/single_transaction_mobile/styles';
 
 type SingleTransactionMobileProps = {
   className?: string;

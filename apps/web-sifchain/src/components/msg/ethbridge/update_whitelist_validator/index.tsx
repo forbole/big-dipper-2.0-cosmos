@@ -1,9 +1,9 @@
+import Typography from '@mui/material/Typography';
+import Trans from 'next-translate/Trans';
+import { FC } from 'react';
 import Name from '@/components/name';
 import MsgUpdateWhitelistValidator from '@/models/msg/ethbridge/msg_update_whitelist_validator';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
-import Typography from '@mui/material/Typography';
-import Trans from 'next-translate/Trans';
-import React, { FC } from 'react';
 
 const UpdateWhiteListValidator: FC<{ message: MsgUpdateWhitelistValidator }> = (props) => {
   const { message } = props;

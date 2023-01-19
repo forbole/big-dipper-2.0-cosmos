@@ -1,8 +1,8 @@
-import { ProposalsQuery, useProposalsQuery } from '@/graphql/types/general_types';
-import type { ProposalsState, ProposalType } from '@/screens/proposals/types';
 import DOMPurify from 'dompurify';
 import * as R from 'ramda';
 import { useCallback, useState } from 'react';
+import type { ProposalsState, ProposalType } from '@/screens/proposals/types';
+import { ProposalsQuery, useProposalsQuery } from '@/graphql/types/general_types';
 
 const formatProposals = (data: ProposalsQuery) =>
   data.proposals.map((x): ProposalType => {

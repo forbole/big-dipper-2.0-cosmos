@@ -1,10 +1,3 @@
-import chainConfig from '@/chainConfig';
-import Box from '@/components/box';
-import useShallowMemo from '@/hooks/useShallowMemo';
-import { readMarket } from '@/recoil/market';
-import useStyles from '@/screens/account_details/components/balance/styles';
-import { formatBalanceData } from '@/screens/account_details/components/balance/utils';
-import { formatNumber } from '@/utils/format_token';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import Big from 'big.js';
@@ -13,6 +6,13 @@ import numeral from 'numeral';
 import { FC } from 'react';
 import { Cell, Pie, PieChart, ResponsiveContainer } from 'recharts';
 import { useRecoilValue } from 'recoil';
+import { formatNumber } from '@/utils/format_token';
+import { formatBalanceData } from '@/screens/account_details/components/balance/utils';
+import useStyles from '@/screens/account_details/components/balance/styles';
+import { readMarket } from '@/recoil/market';
+import useShallowMemo from '@/hooks/useShallowMemo';
+import Box from '@/components/box';
+import chainConfig from '@/chainConfig';
 
 const { primaryTokenUnit, tokenUnits } = chainConfig();
 

@@ -1,6 +1,6 @@
 import Desktop from '@/components/nav/components/desktop';
 import Mobile from '@/components/nav/components/mobile';
-import useSharedStyles from '@/styles/useSharedStyles';
+import { useDisplayStyles } from '@/styles/useSharedStyles';
 import { FC } from 'react';
 
 type NavProps = {
@@ -8,11 +8,12 @@ type NavProps = {
 };
 
 const Nav: FC<NavProps> = ({ title }) => {
-  const { classes } = useSharedStyles();
+  const display = useDisplayStyles().classes;
+
   return (
     <>
-      <Desktop className={classes.hiddenUntilLg} title={title ?? ''} />
-      <Mobile className={classes.hiddenWhenLg} title={title ?? ''} />
+      <Desktop className={display.hiddenUntilLg} title={title ?? ''} />
+      <Mobile className={display.hiddenWhenLg} title={title ?? ''} />
     </>
   );
 };

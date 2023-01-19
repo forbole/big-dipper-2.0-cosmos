@@ -1,7 +1,7 @@
+import renderer from 'react-test-renderer';
 import SubmitMisbehaviour from '@/components/msg/ibc/client_submit_misbehaviour';
 import { MsgSubmitMisbehaviour } from '@/models';
 import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

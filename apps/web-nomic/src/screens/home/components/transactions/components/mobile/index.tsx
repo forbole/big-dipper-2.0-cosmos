@@ -1,11 +1,11 @@
-import SingleTransactionMobile from '@/components/single_transaction_mobile';
-import dayjs from '@/utils/dayjs';
-import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
-import { BLOCK_DETAILS, TRANSACTION_DETAILS } from '@/utils/go_to_page';
 import Divider from '@mui/material/Divider';
 import Link from 'next/link';
 import numeral from 'numeral';
 import { FC, Fragment } from 'react';
+import SingleTransactionMobile from '@/components/single_transaction_mobile';
+import dayjs from '@/utils/dayjs';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
+import { BLOCK_DETAILS, TRANSACTION_DETAILS } from '@/utils/go_to_page';
 
 import type { TransactionType } from '@/screens/home/components/transactions/types';
 

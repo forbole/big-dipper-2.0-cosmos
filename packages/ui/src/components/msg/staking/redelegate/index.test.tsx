@@ -1,7 +1,7 @@
+import renderer from 'react-test-renderer';
 import Redelegate from '@/components/msg/staking/redelegate';
 import { MsgRedelegate } from '@/models';
 import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

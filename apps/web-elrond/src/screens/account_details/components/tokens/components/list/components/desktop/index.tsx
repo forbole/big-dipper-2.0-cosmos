@@ -1,9 +1,3 @@
-import AvatarName from '@/components/avatar_name';
-import useStyles from '@/screens/account_details/components/tokens/components/list/components/desktop/styles';
-import { columns } from '@/screens/account_details/components/tokens/components/list/components/desktop/utils';
-import type { OtherTokenType } from '@/screens/account_details/components/tokens/types';
-import { formatNumber } from '@/utils/format_token';
-import { TOKEN_DETAILS } from '@/utils/go_to_page';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -11,6 +5,12 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import useTranslation from 'next-translate/useTranslation';
 import { FC } from 'react';
+import { TOKEN_DETAILS } from '@/utils/go_to_page';
+import { formatNumber } from '@/utils/format_token';
+import type { OtherTokenType } from '@/screens/account_details/components/tokens/types';
+import { columns } from '@/screens/account_details/components/tokens/components/list/components/desktop/utils';
+import useStyles from '@/screens/account_details/components/tokens/components/list/components/desktop/styles';
+import AvatarName from '@/components/avatar_name';
 
 const Desktop: FC<{ className?: string; items: OtherTokenType[] }> = (props) => {
   const { t } = useTranslation('accounts');

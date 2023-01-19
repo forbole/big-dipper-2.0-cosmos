@@ -1,7 +1,7 @@
+import renderer from 'react-test-renderer';
 import CreateClawbackVestingAccount from '@/components/msg/vesting/create_clawback_vesting_account';
 import MsgCreateClawbackVestingAccount from '@/models/msg/vesting/msg_create_clawback_vesting_account';
 import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

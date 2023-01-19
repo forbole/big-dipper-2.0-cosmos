@@ -22,9 +22,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@apollo/client@npm:^3.7.3":
-  version: 3.7.3
-  resolution: "@apollo/client@npm:3.7.3"
+"@apollo/client@npm:^3.7.4":
+  version: 3.7.4
+  resolution: "@apollo/client@npm:3.7.4"
   dependencies:
     "@graphql-typed-document-node/core": ^3.1.1
     "@wry/context": ^0.7.0
@@ -54,7 +54,7 @@ __metadata:
       optional: true
     subscriptions-transport-ws:
       optional: true
-  checksum: 2422c4693630039c6cb1a94b1c8dc1e346e2fc65a76742fe2a79407e6afc781034a1a8460d4c4d9733b7d93860dcece3b4b54f195381c642402ca217b62b1380
+  checksum: 1a51451577c241decc3caac2eb447eb2a4de212eab4346e9fe4fe9c5ec0f6484a4dac095a8200a16f5d1cb5b8372d7b5352aa9e9114dbde0fae67a1a27d87f6c
   languageName: node
   linkType: hard
 
@@ -1461,26 +1461,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime-corejs3@npm:^7.10.2":
-  version: 7.20.6
-  resolution: "@babel/runtime-corejs3@npm:7.20.6"
-  dependencies:
-    core-js-pure: ^3.25.1
-    regenerator-runtime: ^0.13.11
-  checksum: d533d432216509426c4f9dad56db2fe453112b7d738433111944372fba4abd0b07bee3261f19a218530b435de46592121b2a6a57b98c0c7c3452d552ba009c3e
-  languageName: node
-  linkType: hard
-
-"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.1.2, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.18.9, @babel/runtime@npm:^7.20.1, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.8.7, @babel/runtime@npm:^7.9.2":
-  version: 7.20.6
-  resolution: "@babel/runtime@npm:7.20.6"
-  dependencies:
-    regenerator-runtime: ^0.13.11
-  checksum: 42a8504db21031b1859fbc0f52d698a3d2f5ada9519eb76c6f96a7e657d8d555732a18fe71ef428a67cc9fc81ca0d3562fb7afdc70549c5fec343190cbaa9b03
-  languageName: node
-  linkType: hard
-
-"@babel/runtime@npm:^7.18.3, @babel/runtime@npm:^7.20.6, @babel/runtime@npm:^7.20.7":
+"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.1.2, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.18.3, @babel/runtime@npm:^7.20.1, @babel/runtime@npm:^7.20.6, @babel/runtime@npm:^7.20.7, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.8.7, @babel/runtime@npm:^7.9.2":
   version: 7.20.7
   resolution: "@babel/runtime@npm:7.20.7"
   dependencies:
@@ -2165,23 +2146,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-codegen/plugin-helpers@npm:^3.1.1":
-  version: 3.1.1
-  resolution: "@graphql-codegen/plugin-helpers@npm:3.1.1"
-  dependencies:
-    "@graphql-tools/utils": ^8.8.0
-    change-case-all: 1.0.15
-    common-tags: 1.8.2
-    import-from: 4.0.0
-    lodash: ~4.17.0
-    tslib: ~2.4.0
-  peerDependencies:
-    graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
-  checksum: 22a15d4638ad449f654dab7a1e4968a82a50e3ab38f3b0974ae767a0a80e251fece436933f575f158da67564331d6046223b83eb10e0f1b93e78a15d7d0f684e
-  languageName: node
-  linkType: hard
-
-"@graphql-codegen/plugin-helpers@npm:^3.1.2":
+"@graphql-codegen/plugin-helpers@npm:^3.1.1, @graphql-codegen/plugin-helpers@npm:^3.1.2":
   version: 3.1.2
   resolution: "@graphql-codegen/plugin-helpers@npm:3.1.2"
   dependencies:
@@ -2325,20 +2290,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-tools/batch-execute@npm:8.5.12":
-  version: 8.5.12
-  resolution: "@graphql-tools/batch-execute@npm:8.5.12"
-  dependencies:
-    "@graphql-tools/utils": 9.1.1
-    dataloader: 2.1.0
-    tslib: ^2.4.0
-    value-or-promise: 1.0.11
-  peerDependencies:
-    graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
-  checksum: 3602301dbbea21326f3f00a4c4bce4a5bbb5d769c89cb967d2c2dc97d8f33fd8ad30abfb03f2892d96de77df7ffa770f296f1e84c34de38008d2d81a1ad0cdbf
-  languageName: node
-  linkType: hard
-
 "@graphql-tools/batch-execute@npm:8.5.14":
   version: 8.5.14
   resolution: "@graphql-tools/batch-execute@npm:8.5.14"
@@ -2368,23 +2319,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-tools/delegate@npm:9.0.17":
-  version: 9.0.17
-  resolution: "@graphql-tools/delegate@npm:9.0.17"
-  dependencies:
-    "@graphql-tools/batch-execute": 8.5.12
-    "@graphql-tools/executor": 0.0.9
-    "@graphql-tools/schema": 9.0.10
-    "@graphql-tools/utils": 9.1.1
-    dataloader: 2.1.0
-    tslib: ~2.4.0
-    value-or-promise: 1.0.11
-  peerDependencies:
-    graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
-  checksum: d94e06bf4522fbb1e8f8fc6bd9a832d7aca10ef91efd8cd124c11c9cc7fb87c9cb85ff2ef6dd7dbe369b319a075a9c57ece5bf08572e4b247451521f3b00d662
-  languageName: node
-  linkType: hard
-
 "@graphql-tools/delegate@npm:9.0.21":
   version: 9.0.21
   resolution: "@graphql-tools/delegate@npm:9.0.21"
@@ -2399,23 +2333,6 @@ __metadata:
   peerDependencies:
     graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
   checksum: fab07abfb06325d82382e6de45bbf2bc6501f18ebabbe50661772b58f512d6e713565be16bd7f99f71fcb00ffeed25bba871d4d459a705880803878e20c2a183
-  languageName: node
-  linkType: hard
-
-"@graphql-tools/executor-graphql-ws@npm:0.0.3":
-  version: 0.0.3
-  resolution: "@graphql-tools/executor-graphql-ws@npm:0.0.3"
-  dependencies:
-    "@graphql-tools/utils": 9.1.1
-    "@repeaterjs/repeater": 3.0.4
-    "@types/ws": ^8.0.0
-    graphql-ws: 5.11.2
-    isomorphic-ws: 5.0.0
-    tslib: ^2.4.0
-    ws: 8.11.0
-  peerDependencies:
-    graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
-  checksum: a18e4072c0ab2e14b9c21f6baa1ce66139ef1e252b925dd6b83c6e79737b88361ea6af7cb3b9bdbadd43b0945d709329c9b50dd182cf878417250ee05f4617b9
   languageName: node
   linkType: hard
 
@@ -2436,24 +2353,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-tools/executor-http@npm:0.0.4":
-  version: 0.0.4
-  resolution: "@graphql-tools/executor-http@npm:0.0.4"
-  dependencies:
-    "@graphql-tools/utils": 9.1.1
-    "@repeaterjs/repeater": 3.0.4
-    "@whatwg-node/fetch": 0.5.3
-    dset: 3.1.2
-    extract-files: ^11.0.0
-    meros: 1.2.1
-    tslib: ^2.4.0
-    value-or-promise: 1.0.11
-  peerDependencies:
-    graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
-  checksum: f05bb5dd5990c3a98a8cc2ed9dbe68359f53146e2e930d89f036a49efcb00fe0e5f9eb768c1ddaef806d38b846e7165279353be8669db71884e9307733a723d8
-  languageName: node
-  linkType: hard
-
 "@graphql-tools/executor-http@npm:0.0.8":
   version: 0.0.8
   resolution: "@graphql-tools/executor-http@npm:0.0.8"
@@ -2469,21 +2368,6 @@ __metadata:
   peerDependencies:
     graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
   checksum: c17839ffcb66031a841a522e77009f814aa06379a0d6d86f2414c09388d5068745120e9133cc6b3645cd07ef65517056f51b510cef19cc9ffb075eb61d0e514e
-  languageName: node
-  linkType: hard
-
-"@graphql-tools/executor-legacy-ws@npm:0.0.3":
-  version: 0.0.3
-  resolution: "@graphql-tools/executor-legacy-ws@npm:0.0.3"
-  dependencies:
-    "@graphql-tools/utils": 9.1.1
-    "@types/ws": ^8.0.0
-    isomorphic-ws: 5.0.0
-    tslib: ^2.4.0
-    ws: 8.11.0
-  peerDependencies:
-    graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
-  checksum: 2bd5d38b5466f12c6486a77fec50963e2fcca83070b30bd8d67fa84838a760886add05c3da6c98313612cc0cd46079146dec3632f217fbbb22650e3112e260fb
   languageName: node
   linkType: hard
 
@@ -2514,21 +2398,6 @@ __metadata:
   peerDependencies:
     graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
   checksum: 9f4c5d50eb574ab788a70684150502d4ad25b2681a3933a9415a0bbd78bfdf5ee203dca8bccc4cef93727157254216f0c22c5359bef1c1738f652b3122048b17
-  languageName: node
-  linkType: hard
-
-"@graphql-tools/executor@npm:0.0.9":
-  version: 0.0.9
-  resolution: "@graphql-tools/executor@npm:0.0.9"
-  dependencies:
-    "@graphql-tools/utils": 9.1.1
-    "@graphql-typed-document-node/core": 3.1.1
-    "@repeaterjs/repeater": 3.0.4
-    tslib: ^2.4.0
-    value-or-promise: 1.0.11
-  peerDependencies:
-    graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
-  checksum: bfee117863dbefac44957109820226058717715d63b388d091c9a80858ff9d7cf706d092774b6562167e892cabcbe097b5d00f9ad3cdeb14de3c8002ff82fade
   languageName: node
   linkType: hard
 
@@ -2649,7 +2518,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-tools/merge@npm:8.3.12, @graphql-tools/merge@npm:^8.2.6":
+"@graphql-tools/merge@npm:8.3.12":
   version: 8.3.12
   resolution: "@graphql-tools/merge@npm:8.3.12"
   dependencies:
@@ -2673,6 +2542,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@graphql-tools/merge@npm:8.3.15, @graphql-tools/merge@npm:^8.2.6":
+  version: 8.3.15
+  resolution: "@graphql-tools/merge@npm:8.3.15"
+  dependencies:
+    "@graphql-tools/utils": 9.1.4
+    tslib: ^2.4.0
+  peerDependencies:
+    graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
+  checksum: 7823d3b3a2bb7a661826eb8fce8a4fcb17439224818aa08ca814d7b25324b66b790cf8e7fa083dfa9f41b2213355fb1f0db88d1e7334788347a6d69c8f5555e9
+  languageName: node
+  linkType: hard
+
 "@graphql-tools/merge@npm:8.3.6":
   version: 8.3.6
   resolution: "@graphql-tools/merge@npm:8.3.6"
@@ -2685,17 +2566,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-tools/mock@npm:^8.7.14":
-  version: 8.7.14
-  resolution: "@graphql-tools/mock@npm:8.7.14"
+"@graphql-tools/mock@npm:^8.7.15":
+  version: 8.7.15
+  resolution: "@graphql-tools/mock@npm:8.7.15"
   dependencies:
-    "@graphql-tools/schema": 9.0.12
-    "@graphql-tools/utils": 9.1.3
+    "@graphql-tools/schema": 9.0.13
+    "@graphql-tools/utils": 9.1.4
     fast-json-stable-stringify: ^2.1.0
     tslib: ^2.4.0
   peerDependencies:
     graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
-  checksum: dfad72530d603dc07281cfcae28dfd3933bc8422113428ea9574f04326340e3c1460fda25c88e16dc7dc6a57bd1f0d9a8f72feef39bab13b74fc40f94a5fd426
+  checksum: dbe4473d67878815106ab6b490987fa7f09186156e1f5419fbe196706b4a21b733564d352b4bf04419df15061c4960d333106445487239723c69c1d3ba167403
   languageName: node
   linkType: hard
 
@@ -2752,7 +2633,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-tools/schema@npm:9.0.10, @graphql-tools/schema@npm:^9.0.0":
+"@graphql-tools/schema@npm:9.0.10":
   version: 9.0.10
   resolution: "@graphql-tools/schema@npm:9.0.10"
   dependencies:
@@ -2766,7 +2647,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-tools/schema@npm:9.0.12, @graphql-tools/schema@npm:^9.0.12":
+"@graphql-tools/schema@npm:9.0.12":
   version: 9.0.12
   resolution: "@graphql-tools/schema@npm:9.0.12"
   dependencies:
@@ -2777,6 +2658,20 @@ __metadata:
   peerDependencies:
     graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
   checksum: c5ea750466181b425dd77822b1dc774227bcdb3a01631f114734d450cfc2dabeac60b3fac40e047090d6035b6a559b614716f1b61068889cf5aae0785650c31b
+  languageName: node
+  linkType: hard
+
+"@graphql-tools/schema@npm:9.0.13, @graphql-tools/schema@npm:^9.0.0, @graphql-tools/schema@npm:^9.0.13":
+  version: 9.0.13
+  resolution: "@graphql-tools/schema@npm:9.0.13"
+  dependencies:
+    "@graphql-tools/merge": 8.3.15
+    "@graphql-tools/utils": 9.1.4
+    tslib: ^2.4.0
+    value-or-promise: 1.0.12
+  peerDependencies:
+    graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
+  checksum: fa5c5033c79e3ab210207c68bf80729448f0ae0bf071e029a218043d952dec8352b0d4ad467ca789a08e292d60c1ee111d266a2193bd50759c9eb82e8f9ad586
   languageName: node
   linkType: hard
 
@@ -2794,7 +2689,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-tools/url-loader@npm:7.16.29":
+"@graphql-tools/url-loader@npm:7.16.29, @graphql-tools/url-loader@npm:^7.13.2, @graphql-tools/url-loader@npm:^7.9.7":
   version: 7.16.29
   resolution: "@graphql-tools/url-loader@npm:7.16.29"
   dependencies:
@@ -2817,29 +2712,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-tools/url-loader@npm:^7.13.2, @graphql-tools/url-loader@npm:^7.9.7":
-  version: 7.16.22
-  resolution: "@graphql-tools/url-loader@npm:7.16.22"
-  dependencies:
-    "@ardatan/sync-fetch": 0.0.1
-    "@graphql-tools/delegate": 9.0.17
-    "@graphql-tools/executor-graphql-ws": 0.0.3
-    "@graphql-tools/executor-http": 0.0.4
-    "@graphql-tools/executor-legacy-ws": 0.0.3
-    "@graphql-tools/utils": 9.1.1
-    "@graphql-tools/wrap": 9.2.18
-    "@types/ws": ^8.0.0
-    "@whatwg-node/fetch": ^0.5.0
-    isomorphic-ws: 5.0.0
-    tslib: ^2.4.0
-    value-or-promise: ^1.0.11
-    ws: 8.11.0
-  peerDependencies:
-    graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
-  checksum: f368ed58a465fb23936f4e446749c4ba498ee8e464d165d4ab78f07a93dafd54fac8c1545bc0129f3c3c032fdb820054d90127174d232711a9c080174824729f
-  languageName: node
-  linkType: hard
-
 "@graphql-tools/utils@npm:8.12.0":
   version: 8.12.0
   resolution: "@graphql-tools/utils@npm:8.12.0"
@@ -2851,7 +2723,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-tools/utils@npm:9.1.1, @graphql-tools/utils@npm:^9.1.1":
+"@graphql-tools/utils@npm:9.1.1":
   version: 9.1.1
   resolution: "@graphql-tools/utils@npm:9.1.1"
   dependencies:
@@ -2862,7 +2734,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-tools/utils@npm:9.1.3, @graphql-tools/utils@npm:^9.0.0":
+"@graphql-tools/utils@npm:9.1.3":
   version: 9.1.3
   resolution: "@graphql-tools/utils@npm:9.1.3"
   dependencies:
@@ -2870,6 +2742,17 @@ __metadata:
   peerDependencies:
     graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
   checksum: 3b5acd41ae939e2811f496b1676e6219be61a95f3e502bb3783542a67e7703d7709d4ae87fc9deb7284280aea687fb4b0e596f538d7f1cdf5a8827a2952ee994
+  languageName: node
+  linkType: hard
+
+"@graphql-tools/utils@npm:9.1.4, @graphql-tools/utils@npm:^9.0.0, @graphql-tools/utils@npm:^9.1.1":
+  version: 9.1.4
+  resolution: "@graphql-tools/utils@npm:9.1.4"
+  dependencies:
+    tslib: ^2.4.0
+  peerDependencies:
+    graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
+  checksum: 467135297a07b21bdd706ca03385354931db85fcf2accc514d69b7415c8cb0fb9e551e4bba0870278eab58bf4de757d354d53c88fd0f55b52d8562dbcba71869
   languageName: node
   linkType: hard
 
@@ -2881,21 +2764,6 @@ __metadata:
   peerDependencies:
     graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
   checksum: ff04fdeb29e9ac596ea53386cd5b23cd741bb14c1997c6b0ba3c34ca165bd82b528a355e8c8e2ba726eb39e833ba9cbb0851ba0addb8c6d367089a1145bf9a49
-  languageName: node
-  linkType: hard
-
-"@graphql-tools/wrap@npm:9.2.18":
-  version: 9.2.18
-  resolution: "@graphql-tools/wrap@npm:9.2.18"
-  dependencies:
-    "@graphql-tools/delegate": 9.0.17
-    "@graphql-tools/schema": 9.0.10
-    "@graphql-tools/utils": 9.1.1
-    tslib: ^2.4.0
-    value-or-promise: 1.0.11
-  peerDependencies:
-    graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
-  checksum: 2f3dc0aab85033199e81b4d7a91bdfcd2318b10dc5bf2495a2f044673e3797aa0ad2177ba2e440172271d9f5f9e26fb98922c35aad91b26e0f4b8cb0a4a3334c
   languageName: node
   linkType: hard
 
@@ -3523,116 +3391,116 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/env@npm:13.1.1":
-  version: 13.1.1
-  resolution: "@next/env@npm:13.1.1"
-  checksum: e265b9b9e7c28023b33ba99b95e84abdfa501507e2f1b7d7b6469ab93d21edbb59fe4378f0557d12864508b747ff1fbc2f9c7de3d704ba51a37c7295fddb0ec1
+"@next/env@npm:13.1.2":
+  version: 13.1.2
+  resolution: "@next/env@npm:13.1.2"
+  checksum: 0b25af4a1c31b4d798fea57df05ba45c5e35b13d87a7c612532e5f25e4b800d1d61854b7f95b8064587ee5a5b43f3d33da5d914ec70c132b6ee82925d44cf18c
   languageName: node
   linkType: hard
 
-"@next/eslint-plugin-next@npm:13.1.1, @next/eslint-plugin-next@npm:^13.1.1":
-  version: 13.1.1
-  resolution: "@next/eslint-plugin-next@npm:13.1.1"
+"@next/eslint-plugin-next@npm:13.1.2, @next/eslint-plugin-next@npm:^13.1.2":
+  version: 13.1.2
+  resolution: "@next/eslint-plugin-next@npm:13.1.2"
   dependencies:
     glob: 7.1.7
-  checksum: 27e49ef988db3203d494930ad1fcdc270761a61a41e6925c0eadf1e2b1ebd6648722a3aaec7f0c0266eea8771797e06d52f041d33c93d21ba3b361ffe696c36c
+  checksum: 6095e224feaaaf4e8d272ce38f86eabd3a3e885ad9a6b06d57566790166ff899bb0378140f129d20ded04ab0ab629fa5f53a7d2754c38176004f92ab53d7c9e6
   languageName: node
   linkType: hard
 
-"@next/font@npm:*, @next/font@npm:^13.1.1":
-  version: 13.1.1
-  resolution: "@next/font@npm:13.1.1"
-  checksum: 468a77d3a6db4a95ece3cc99c28dcaaf6135354ad81c3954a08a6c7d977693d7b7f07ff835b972a80d25794b711d6cb6545ea55fe6bed4c624346f3524061d19
+"@next/font@npm:*, @next/font@npm:^13.1.2":
+  version: 13.1.2
+  resolution: "@next/font@npm:13.1.2"
+  checksum: 36fa827f95076d49b6a7d6e42cea7848412135f880d953d94416eae997d7880e30a88dfab3a4512b2496a4f69b77ce070ab11dc2d7c0f3eab035517de10e1adc
   languageName: node
   linkType: hard
 
-"@next/swc-android-arm-eabi@npm:13.1.1":
-  version: 13.1.1
-  resolution: "@next/swc-android-arm-eabi@npm:13.1.1"
+"@next/swc-android-arm-eabi@npm:13.1.2":
+  version: 13.1.2
+  resolution: "@next/swc-android-arm-eabi@npm:13.1.2"
   conditions: os=android & cpu=arm
   languageName: node
   linkType: hard
 
-"@next/swc-android-arm64@npm:13.1.1":
-  version: 13.1.1
-  resolution: "@next/swc-android-arm64@npm:13.1.1"
+"@next/swc-android-arm64@npm:13.1.2":
+  version: 13.1.2
+  resolution: "@next/swc-android-arm64@npm:13.1.2"
   conditions: os=android & cpu=arm64
   languageName: node
   linkType: hard
 
-"@next/swc-darwin-arm64@npm:13.1.1":
-  version: 13.1.1
-  resolution: "@next/swc-darwin-arm64@npm:13.1.1"
+"@next/swc-darwin-arm64@npm:13.1.2":
+  version: 13.1.2
+  resolution: "@next/swc-darwin-arm64@npm:13.1.2"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"@next/swc-darwin-x64@npm:13.1.1":
-  version: 13.1.1
-  resolution: "@next/swc-darwin-x64@npm:13.1.1"
+"@next/swc-darwin-x64@npm:13.1.2":
+  version: 13.1.2
+  resolution: "@next/swc-darwin-x64@npm:13.1.2"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"@next/swc-freebsd-x64@npm:13.1.1":
-  version: 13.1.1
-  resolution: "@next/swc-freebsd-x64@npm:13.1.1"
+"@next/swc-freebsd-x64@npm:13.1.2":
+  version: 13.1.2
+  resolution: "@next/swc-freebsd-x64@npm:13.1.2"
   conditions: os=freebsd & cpu=x64
   languageName: node
   linkType: hard
 
-"@next/swc-linux-arm-gnueabihf@npm:13.1.1":
-  version: 13.1.1
-  resolution: "@next/swc-linux-arm-gnueabihf@npm:13.1.1"
+"@next/swc-linux-arm-gnueabihf@npm:13.1.2":
+  version: 13.1.2
+  resolution: "@next/swc-linux-arm-gnueabihf@npm:13.1.2"
   conditions: os=linux & cpu=arm
   languageName: node
   linkType: hard
 
-"@next/swc-linux-arm64-gnu@npm:13.1.1":
-  version: 13.1.1
-  resolution: "@next/swc-linux-arm64-gnu@npm:13.1.1"
+"@next/swc-linux-arm64-gnu@npm:13.1.2":
+  version: 13.1.2
+  resolution: "@next/swc-linux-arm64-gnu@npm:13.1.2"
   conditions: os=linux & cpu=arm64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@next/swc-linux-arm64-musl@npm:13.1.1":
-  version: 13.1.1
-  resolution: "@next/swc-linux-arm64-musl@npm:13.1.1"
+"@next/swc-linux-arm64-musl@npm:13.1.2":
+  version: 13.1.2
+  resolution: "@next/swc-linux-arm64-musl@npm:13.1.2"
   conditions: os=linux & cpu=arm64 & libc=musl
   languageName: node
   linkType: hard
 
-"@next/swc-linux-x64-gnu@npm:13.1.1":
-  version: 13.1.1
-  resolution: "@next/swc-linux-x64-gnu@npm:13.1.1"
+"@next/swc-linux-x64-gnu@npm:13.1.2":
+  version: 13.1.2
+  resolution: "@next/swc-linux-x64-gnu@npm:13.1.2"
   conditions: os=linux & cpu=x64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@next/swc-linux-x64-musl@npm:13.1.1":
-  version: 13.1.1
-  resolution: "@next/swc-linux-x64-musl@npm:13.1.1"
+"@next/swc-linux-x64-musl@npm:13.1.2":
+  version: 13.1.2
+  resolution: "@next/swc-linux-x64-musl@npm:13.1.2"
   conditions: os=linux & cpu=x64 & libc=musl
   languageName: node
   linkType: hard
 
-"@next/swc-win32-arm64-msvc@npm:13.1.1":
-  version: 13.1.1
-  resolution: "@next/swc-win32-arm64-msvc@npm:13.1.1"
+"@next/swc-win32-arm64-msvc@npm:13.1.2":
+  version: 13.1.2
+  resolution: "@next/swc-win32-arm64-msvc@npm:13.1.2"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"@next/swc-win32-ia32-msvc@npm:13.1.1":
-  version: 13.1.1
-  resolution: "@next/swc-win32-ia32-msvc@npm:13.1.1"
+"@next/swc-win32-ia32-msvc@npm:13.1.2":
+  version: 13.1.2
+  resolution: "@next/swc-win32-ia32-msvc@npm:13.1.2"
   conditions: os=win32 & cpu=ia32
   languageName: node
   linkType: hard
 
-"@next/swc-win32-x64-msvc@npm:13.1.1":
-  version: 13.1.1
-  resolution: "@next/swc-win32-x64-msvc@npm:13.1.1"
+"@next/swc-win32-x64-msvc@npm:13.1.2":
+  version: 13.1.2
+  resolution: "@next/swc-win32-x64-msvc@npm:13.1.2"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
@@ -3993,12 +3861,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@socialgouv/matomo-next@npm:^1.4.0":
-  version: 1.4.0
-  resolution: "@socialgouv/matomo-next@npm:1.4.0"
+"@socialgouv/matomo-next@npm:^1.6.0":
+  version: 1.6.0
+  resolution: "@socialgouv/matomo-next@npm:1.6.0"
   peerDependencies:
     next: ">= 9.5.5"
-  checksum: 24aabfaea5ed2b1e65d18c8be31d35aa48ac6922972eddd126d3fcdd68aa932d735057bd82247876bf9fe362cb2bb4629119130864c47e8b1e13e0b78a50fe15
+  checksum: 81125995c07d9b767a7b8ddc1125ae12a40fdf9e732fe8ea30a03f579786456a6e58717f563788444b721a4ca1ba6fd9621cd0dab7de4257a28d28e378695ae0
   languageName: node
   linkType: hard
 
@@ -4357,51 +4225,72 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/d3-color@npm:^2":
-  version: 2.0.3
-  resolution: "@types/d3-color@npm:2.0.3"
-  checksum: b4a963b15f4fe0e7e49b0898df3e51b46392d91c21038b7ec61aef0f13e04bd7bcfebf06c9fad9ee92317c9682a105e18942c9295a7e2715855622d4d6fc415a
+"@types/d3-array@npm:^3.0.3":
+  version: 3.0.4
+  resolution: "@types/d3-array@npm:3.0.4"
+  checksum: b0e398365fc1f638d48442e865e036d671c731b2b18f7a92e5172db1f60f5a38d4cd992693a29ad64b38e7ba981eb8c63a2aef95fbdcfbc4bf8926a9cb9ca978
   languageName: node
   linkType: hard
 
-"@types/d3-interpolate@npm:^2.0.0":
-  version: 2.0.2
-  resolution: "@types/d3-interpolate@npm:2.0.2"
+"@types/d3-color@npm:*":
+  version: 3.1.0
+  resolution: "@types/d3-color@npm:3.1.0"
+  checksum: b1856f17d6366559a68eaba0164f30727e9dc5eaf1b3a6c8844354da228860240423d19fa4de65bff9da26b4ead8843eab14b1566962665412e8fd82c3810554
+  languageName: node
+  linkType: hard
+
+"@types/d3-ease@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "@types/d3-ease@npm:3.0.0"
+  checksum: 1be7c993643b5a08332e0ee146375a3845545d8deb423db5d152e0b061524385d2345ceccf968f75f605247b940dd3f9a144335fee2e7d935cddaf187afb7095
+  languageName: node
+  linkType: hard
+
+"@types/d3-interpolate@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "@types/d3-interpolate@npm:3.0.1"
   dependencies:
-    "@types/d3-color": ^2
-  checksum: 78c47193da3c114a7d78580c6f8d9915f11df92ce78fe08d13052cf49fab91dcdca938895a778cdc6f9820ebf16df3e0e339c17491a8c2b1140cdd2e09553084
+    "@types/d3-color": "*"
+  checksum: 29ce472968b9e6611bdf0eeedaf89e8d6066190b52ced011d16d8183b8b9f8e6dd6516ca2b85242594942896299b42f37504d44e635f8fba3090c2c58594e21b
   languageName: node
   linkType: hard
 
-"@types/d3-path@npm:^2":
-  version: 2.0.2
-  resolution: "@types/d3-path@npm:2.0.2"
-  checksum: 2ab49cc87b9d2cb90c189bedf5f0fdc2b1609c3c668664dc76c679054b4bb1bcfaf44e7836e1f7d0b38102cecc269a6c52a353e0ba238c992509cb0e9d6c5c33
+"@types/d3-path@npm:*":
+  version: 3.0.0
+  resolution: "@types/d3-path@npm:3.0.0"
+  checksum: af7f45ea912cddd794c03384baba856f11e1f9b57a49d05a66a61968dafaeb86e0e42394883118b9b8ccadce21a5f25b1f9a88ad05235e1dc6d24c3e34a379ff
   languageName: node
   linkType: hard
 
-"@types/d3-scale@npm:^3.0.0":
-  version: 3.3.2
-  resolution: "@types/d3-scale@npm:3.3.2"
+"@types/d3-scale@npm:^4.0.2":
+  version: 4.0.3
+  resolution: "@types/d3-scale@npm:4.0.3"
   dependencies:
-    "@types/d3-time": ^2
-  checksum: 65dbf85f07a4d6ac26396075b0faa1930cfebb96dc248629d4b82c22457c89161d0f070f9a5554adccee80b959e2c6d7c1ef6b7355743afe91050d71014fe3cf
+    "@types/d3-time": "*"
+  checksum: 76684da8519ab5f2210e647f74f96ece9c6816dea4ad5d76131121703a5268cc65687a8bc9ebbf4a44039482247336d98811ecc3fbfeb7f0122fdce4bb295547
   languageName: node
   linkType: hard
 
-"@types/d3-shape@npm:^2.0.0":
-  version: 2.1.3
-  resolution: "@types/d3-shape@npm:2.1.3"
+"@types/d3-shape@npm:^3.1.0":
+  version: 3.1.1
+  resolution: "@types/d3-shape@npm:3.1.1"
   dependencies:
-    "@types/d3-path": ^2
-  checksum: d0855a1e2c11a4ab23367c86ef0cc104e12bf216f2c007fa5955da7179b60b0426d0e9ddbbbdf93d4342e7dd24c7bcfc3a2bc6258744e03fc44ca460a063dcc3
+    "@types/d3-path": "*"
+  checksum: 8f1762ecdeb4833a3802be1c65363cbc7cca753d0b836a3855fde4ba12f8e6fc142dba3c5f6d669a9e89374cc6dc414464e4f2d04e72fafd4bc64819ce30bb63
   languageName: node
   linkType: hard
 
-"@types/d3-time@npm:^2":
-  version: 2.1.1
-  resolution: "@types/d3-time@npm:2.1.1"
-  checksum: 115048d0cd312a3172ef7c03615dfbdbd8b92a93fd7b6d9ca93c49c704fcdb9575f4c57955eb54eb757b9834acaaf47fc52eae103d06246c59ae120de4559cbc
+"@types/d3-time@npm:*, @types/d3-time@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "@types/d3-time@npm:3.0.0"
+  checksum: e76adb056daccf80107f4db190ac6deb77e8774f00362bb6c76f178e67f2f217422fe502b654edbc9ac6451f6619045b9f6f5fe0db1ec5520e2ada377af7c72e
+  languageName: node
+  linkType: hard
+
+"@types/d3-timer@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "@types/d3-timer@npm:3.0.0"
+  checksum: 1ec86b3808de6ecfa93cfdf34254761069658af0cc1d9540e8353dbcba161cdf1296a0724187bd17433b2ff16563115fd20b85fc89d5e809ff28f9b1ab134b42
   languageName: node
   linkType: hard
 
@@ -4497,17 +4386,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:*":
-  version: 29.2.3
-  resolution: "@types/jest@npm:29.2.3"
-  dependencies:
-    expect: ^29.0.0
-    pretty-format: ^29.0.0
-  checksum: 55370906711b600a05b9e497c22aa74d80d8adcdbe4ac2f1bc9311f6f6ca0dd192862b6f38df6ac0d45e92396bcd796e377b1d8058c10bdfd584aeee580c3ce1
-  languageName: node
-  linkType: hard
-
-"@types/jest@npm:^29.2.5":
+"@types/jest@npm:*, @types/jest@npm:^29.2.5":
   version: 29.2.5
   resolution: "@types/jest@npm:29.2.5"
   dependencies:
@@ -4517,7 +4396,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/js-yaml@npm:^4.0.0":
+"@types/js-yaml@npm:^4, @types/js-yaml@npm:^4.0.0":
   version: 4.0.5
   resolution: "@types/js-yaml@npm:4.0.5"
   checksum: 7dcac8c50fec31643cc9d6444b5503239a861414cdfaa7ae9a38bc22597c4d850c4b8cec3d82d73b3fbca408348ce223b0408d598b32e094470dfffc6d486b4d
@@ -4744,15 +4623,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/sharp@npm:^0.31.1":
-  version: 0.31.1
-  resolution: "@types/sharp@npm:0.31.1"
-  dependencies:
-    "@types/node": "*"
-  checksum: 226871181fc88b5ef8a6bc32c1e14a3426cc45480ed49536c45bb5c166c089169b8fe3e5c57aea8c34cc40b08311a95d5582c1a2f540f4425eb66fea3d6e0489
-  languageName: node
-  linkType: hard
-
 "@types/stack-utils@npm:^2.0.0":
   version: 2.0.1
   resolution: "@types/stack-utils@npm:2.0.1"
@@ -4838,24 +4708,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:^5.42.0":
-  version: 5.45.0
-  resolution: "@typescript-eslint/parser@npm:5.45.0"
-  dependencies:
-    "@typescript-eslint/scope-manager": 5.45.0
-    "@typescript-eslint/types": 5.45.0
-    "@typescript-eslint/typescript-estree": 5.45.0
-    debug: ^4.3.4
-  peerDependencies:
-    eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
-  peerDependenciesMeta:
-    typescript:
-      optional: true
-  checksum: b8ce3af72de3ff22bb206c3299e728d37a836dbe1f75bcb66ad3bb7962204174b7fff834992b84f0e661de507729c01c7ad71ad2707c217cccc3c0f798a9dc23
-  languageName: node
-  linkType: hard
-
-"@typescript-eslint/parser@npm:^5.48.1":
+"@typescript-eslint/parser@npm:^5.42.0, @typescript-eslint/parser@npm:^5.48.1":
   version: 5.48.1
   resolution: "@typescript-eslint/parser@npm:5.48.1"
   dependencies:
@@ -4869,16 +4722,6 @@ __metadata:
     typescript:
       optional: true
   checksum: c624d24eb209b4ce7f0a6c8116712363f10a9c9a5138f240e254ff265526ee4b0fd73b7b6b4b6a0e7611bd9934c42036350dd27f96ae2fa4efdade1a7ebd0e9e
-  languageName: node
-  linkType: hard
-
-"@typescript-eslint/scope-manager@npm:5.45.0":
-  version: 5.45.0
-  resolution: "@typescript-eslint/scope-manager@npm:5.45.0"
-  dependencies:
-    "@typescript-eslint/types": 5.45.0
-    "@typescript-eslint/visitor-keys": 5.45.0
-  checksum: 8f686be8ee0c7ac49ee2a313570cddf86a1364b1ec129f50f8a531038a3bb241429734dc5e2c4e5dd76cc3ed149628aa3e8425cc092f37ca6885b1995c99c2d1
   languageName: node
   linkType: hard
 
@@ -4909,35 +4752,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/types@npm:5.45.0":
-  version: 5.45.0
-  resolution: "@typescript-eslint/types@npm:5.45.0"
-  checksum: 43d533622995f002221e439ea517aa07dbce2067cc880a6eb9d26307c505b746975f334d76b35501a2f4dd06d7aaf79964d86ce5a95e76a4f309d6e54faf5213
-  languageName: node
-  linkType: hard
-
 "@typescript-eslint/types@npm:5.48.1":
   version: 5.48.1
   resolution: "@typescript-eslint/types@npm:5.48.1"
   checksum: 8437986e9d86d792b23327517ae2f9861ec55992d5a9cd55991e525409b6244169436cd708f3987ab7c579e45e59b6eab5a9d3583f7729219e25691164293094
-  languageName: node
-  linkType: hard
-
-"@typescript-eslint/typescript-estree@npm:5.45.0":
-  version: 5.45.0
-  resolution: "@typescript-eslint/typescript-estree@npm:5.45.0"
-  dependencies:
-    "@typescript-eslint/types": 5.45.0
-    "@typescript-eslint/visitor-keys": 5.45.0
-    debug: ^4.3.4
-    globby: ^11.1.0
-    is-glob: ^4.0.3
-    semver: ^7.3.7
-    tsutils: ^3.21.0
-  peerDependenciesMeta:
-    typescript:
-      optional: true
-  checksum: 8f48b3c75c155491ee49436c470e491f9fe48e6e7c95190c4d0c0ab64ce24e8bc6715de86996baf57fc9f0c6dae986ce9ae075e656664489bfa1dc706eaafcd7
   languageName: node
   linkType: hard
 
@@ -4977,16 +4795,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/visitor-keys@npm:5.45.0":
-  version: 5.45.0
-  resolution: "@typescript-eslint/visitor-keys@npm:5.45.0"
-  dependencies:
-    "@typescript-eslint/types": 5.45.0
-    eslint-visitor-keys: ^3.3.0
-  checksum: 050cc4275d8a3638a106c2915410710e775382996130a6b2af732269e55cbbc4ed438c8662ddf409635d2d8bd0d8a4389b3980bc2cb38c6105c77c6835222af0
-  languageName: node
-  linkType: hard
-
 "@typescript-eslint/visitor-keys@npm:5.48.1":
   version: 5.48.1
   resolution: "@typescript-eslint/visitor-keys@npm:5.48.1"
@@ -4997,23 +4805,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@whatwg-node/fetch@npm:0.5.3, @whatwg-node/fetch@npm:^0.5.0":
-  version: 0.5.3
-  resolution: "@whatwg-node/fetch@npm:0.5.3"
-  dependencies:
-    "@peculiar/webcrypto": ^1.4.0
-    abort-controller: ^3.0.0
-    busboy: ^1.6.0
-    form-data-encoder: ^1.7.1
-    formdata-node: ^4.3.1
-    node-fetch: ^2.6.7
-    undici: ^5.12.0
-    web-streams-polyfill: ^3.2.0
-  checksum: 73087779b3b0e70d0abf8b2a5d82919c29c26f8062e16db0cad413fe45c7b58c3c12cc2bcd5942aebdfdc4feee97b01cf1ff6c5d92d9507a140afdcafa410b12
-  languageName: node
-  linkType: hard
-
-"@whatwg-node/fetch@npm:0.5.4":
+"@whatwg-node/fetch@npm:0.5.4, @whatwg-node/fetch@npm:^0.5.0":
   version: 0.5.4
   resolution: "@whatwg-node/fetch@npm:0.5.4"
   dependencies:
@@ -5444,16 +5236,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"aria-query@npm:^4.2.2":
-  version: 4.2.2
-  resolution: "aria-query@npm:4.2.2"
-  dependencies:
-    "@babel/runtime": ^7.10.2
-    "@babel/runtime-corejs3": ^7.10.2
-  checksum: 38401a9a400f26f3dcc24b84997461a16b32869a9893d323602bed8da40a8bcc0243b8d2880e942249a1496cea7a7de769e93d21c0baa439f01e1ee936fed665
-  languageName: node
-  linkType: hard
-
 "aria-query@npm:^5.0.0, aria-query@npm:^5.1.3":
   version: 5.1.3
   resolution: "aria-query@npm:5.1.3"
@@ -5463,7 +5245,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"array-includes@npm:^3.1.4, array-includes@npm:^3.1.5, array-includes@npm:^3.1.6":
+"array-includes@npm:^3.1.5, array-includes@npm:^3.1.6":
   version: 3.1.6
   resolution: "array-includes@npm:3.1.6"
   dependencies:
@@ -5483,7 +5265,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"array.prototype.flat@npm:^1.2.3, array.prototype.flat@npm:^1.2.5":
+"array.prototype.flat@npm:^1.2.3, array.prototype.flat@npm:^1.3.1":
   version: 1.3.1
   resolution: "array.prototype.flat@npm:1.3.1"
   dependencies:
@@ -5495,7 +5277,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"array.prototype.flatmap@npm:^1.3.1":
+"array.prototype.flatmap@npm:^1.3.0, array.prototype.flatmap@npm:^1.3.1":
   version: 1.3.1
   resolution: "array.prototype.flatmap@npm:1.3.1"
   dependencies:
@@ -5580,13 +5362,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axe-core@npm:^4.4.3":
-  version: 4.5.2
-  resolution: "axe-core@npm:4.5.2"
-  checksum: 4068f183b2ef1db7e5a75606032c238781abfaa34ab4c23177e17f7dff8cc83f175e887b52689d20d88d2d4f001cbf632bd98925850026fe1d9abc739cabcf16
-  languageName: node
-  linkType: hard
-
 "axe-core@npm:^4.6.2":
   version: 4.6.2
   resolution: "axe-core@npm:4.6.2"
@@ -5614,13 +5389,6 @@ __metadata:
     form-data: ^4.0.0
     proxy-from-env: ^1.1.0
   checksum: 6e357491b38426c5720f7328ecbafca3c643b03952c052d787570672ce7a9365717c2d64db4ce97cfbee3f830fa405101e360e14d0857ef7f96a9f4d814c4e03
-  languageName: node
-  linkType: hard
-
-"axobject-query@npm:^2.2.0":
-  version: 2.2.0
-  resolution: "axobject-query@npm:2.2.0"
-  checksum: 96b8c7d807ca525f41ad9b286186e2089b561ba63a6d36c3e7d73dc08150714660995c7ad19cda05784458446a0793b45246db45894631e13853f48c1aa3117f
   languageName: node
   linkType: hard
 
@@ -5842,16 +5610,28 @@ __metadata:
   resolution: "big-dipper-2.0-cosmos@workspace:."
   dependencies:
     "@changesets/cli": ^2.26.0
+    "@next/eslint-plugin-next": ^13.1.2
     "@playwright/test": ^1.29.2
     "@types/eslint": ^8.4.10
-    "@types/esprima": ^4.0.3
+    "@typescript-eslint/eslint-plugin": ^5.48.1
+    "@typescript-eslint/parser": ^5.48.1
     dotenv-cli: ^6.0.0
-    eslint: ^8.31.0
-    esprima: ^4.0.1
+    eslint: ^8.32.0
+    eslint-config-airbnb: ^19.0.4
+    eslint-config-custom: "workspace:*"
+    eslint-config-next: ^13.1.2
+    eslint-config-prettier: ^8.6.0
+    eslint-config-turbo: ^0.0.7
+    eslint-import-resolver-typescript: ^3.5.3
+    eslint-plugin-import: ^2.27.4
+    eslint-plugin-jsx-a11y: ^6.7.1
+    eslint-plugin-react: ^7.32.0
+    eslint-plugin-react-hooks: ^4.6.0
+    eslint-plugin-turbo: ^0.0.7
     husky: ^8.0.3
     lint-staged: ^13.1.0
-    prettier: 2.8.2
-    turbo: ^1.6.3
+    prettier: 2.8.3
+    turbo: ^1.7.0
     typescript: ^4.9.4
   languageName: unknown
   linkType: soft
@@ -5870,7 +5650,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bl@npm:^4.0.3, bl@npm:^4.1.0":
+"bl@npm:^4.1.0":
   version: 4.1.0
   resolution: "bl@npm:4.1.0"
   dependencies:
@@ -6251,13 +6031,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chownr@npm:^1.1.1":
-  version: 1.1.4
-  resolution: "chownr@npm:1.1.4"
-  checksum: 115648f8eb38bac5e41c3857f3e663f9c39ed6480d1349977c4d96c95a47266fcacc5a5aabf3cb6c481e22d72f41992827db47301851766c4fd77ac21a4f081d
-  languageName: node
-  linkType: hard
-
 "chownr@npm:^2.0.0":
   version: 2.0.0
   resolution: "chownr@npm:2.0.0"
@@ -6596,13 +6369,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"core-js-pure@npm:^3.25.1":
-  version: 3.26.1
-  resolution: "core-js-pure@npm:3.26.1"
-  checksum: d88c40e5e29e413c11d1ef991a8d5b6a63f00bd94707af0f649d3fc18b3524108b202f4ae75ce77620a1557d1ba340bc3362b4f25d590eccc37cf80fc75f7cd4
-  languageName: node
-  linkType: hard
-
 "core-util-is@npm:~1.0.0":
   version: 1.0.3
   resolution: "core-util-is@npm:1.0.3"
@@ -6801,82 +6567,96 @@ __metadata:
   languageName: node
   linkType: hard
 
-"d3-array@npm:2, d3-array@npm:^2.3.0":
-  version: 2.12.1
-  resolution: "d3-array@npm:2.12.1"
+"d3-array@npm:2 - 3, d3-array@npm:2.10.0 - 3, d3-array@npm:^3.1.6":
+  version: 3.2.1
+  resolution: "d3-array@npm:3.2.1"
   dependencies:
-    internmap: ^1.0.0
-  checksum: 97853b7b523aded17078f37c67742f45d81e88dda2107ae9994c31b9e36c5fa5556c4c4cf39650436f247813602dfe31bf7ad067ff80f127a16903827f10c6eb
+    internmap: 1 - 2
+  checksum: 0bed33cc33b70f9d48ccef3e7a5956e134862e09179bf14df0bf9c8fc0ec02b8f847d4f5e1d32729cd5e02032af1d0a32bcc968ff1333795028455a749994623
   languageName: node
   linkType: hard
 
-"d3-color@npm:1 - 2":
-  version: 2.0.0
-  resolution: "d3-color@npm:2.0.0"
-  checksum: b887354aa383937abd04fbffed3e26e5d6a788472cd3737fb10735930e427763e69fe93398663bccf88c0b53ee3e638ac6fcf0c02226b00ed9e4327c2dfbf3dc
+"d3-color@npm:1 - 3":
+  version: 3.1.0
+  resolution: "d3-color@npm:3.1.0"
+  checksum: 4931fbfda5d7c4b5cfa283a13c91a954f86e3b69d75ce588d06cde6c3628cebfc3af2069ccf225e982e8987c612aa7948b3932163ce15eb3c11cd7c003f3ee3b
   languageName: node
   linkType: hard
 
-"d3-format@npm:1 - 2":
-  version: 2.0.0
-  resolution: "d3-format@npm:2.0.0"
-  checksum: c4d3c8f9941d097d514d3986f54f21434e08e5876dc08d1d65226447e8e167600d5b9210235bb03fd45327225f04f32d6e365f08f76d2f4b8bff81594851aaf7
+"d3-ease@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "d3-ease@npm:3.0.1"
+  checksum: 06e2ee5326d1e3545eab4e2c0f84046a123dcd3b612e68858219aa034da1160333d9ce3da20a1d3486d98cb5c2a06f7d233eee1bc19ce42d1533458bd85dedcd
   languageName: node
   linkType: hard
 
-"d3-interpolate@npm:1.2.0 - 2, d3-interpolate@npm:^2.0.0":
-  version: 2.0.1
-  resolution: "d3-interpolate@npm:2.0.1"
+"d3-format@npm:1 - 3":
+  version: 3.1.0
+  resolution: "d3-format@npm:3.1.0"
+  checksum: f345ec3b8ad3cab19bff5dead395bd9f5590628eb97a389b1dd89f0b204c7c4fc1d9520f13231c2c7cf14b7c9a8cf10f8ef15bde2befbab41454a569bd706ca2
+  languageName: node
+  linkType: hard
+
+"d3-interpolate@npm:1.2.0 - 3, d3-interpolate@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "d3-interpolate@npm:3.0.1"
   dependencies:
-    d3-color: 1 - 2
-  checksum: 4a2018ac34fbcc3e0e7241e117087ca1b2274b8b33673913658623efacc5db013b8d876586d167b23e3145bdb34ec8e441d301299b082e1a90985b2f18d4299c
+    d3-color: 1 - 3
+  checksum: a42ba314e295e95e5365eff0f604834e67e4a3b3c7102458781c477bd67e9b24b6bb9d8e41ff5521050a3f2c7c0c4bbbb6e187fd586daa3980943095b267e78b
   languageName: node
   linkType: hard
 
-"d3-path@npm:1 - 2":
-  version: 2.0.0
-  resolution: "d3-path@npm:2.0.0"
-  checksum: e39e91dfb9abf9637962caede1f4ea4877f4b9e1c914868bdfc355688e9a637ba51bed0fb6180934eb596e50a4d0d1f001b5f2e98a4a3d23cc42558acfbd1f2c
+"d3-path@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "d3-path@npm:3.1.0"
+  checksum: 2306f1bd9191e1eac895ec13e3064f732a85f243d6e627d242a313f9777756838a2215ea11562f0c7630c7c3b16a19ec1fe0948b1c82f3317fac55882f6ee5d8
   languageName: node
   linkType: hard
 
-"d3-scale@npm:^3.0.0":
-  version: 3.3.0
-  resolution: "d3-scale@npm:3.3.0"
+"d3-scale@npm:^4.0.2":
+  version: 4.0.2
+  resolution: "d3-scale@npm:4.0.2"
   dependencies:
-    d3-array: ^2.3.0
-    d3-format: 1 - 2
-    d3-interpolate: 1.2.0 - 2
-    d3-time: ^2.1.1
-    d3-time-format: 2 - 3
-  checksum: f77e73f0fb422292211d0687914c30d26e29011a936ad2a535a868ae92f306c3545af1fe7ea5db1b3e67dbce7a6c6cd952e53d02d1d557543e7e5d30e30e52f2
+    d3-array: 2.10.0 - 3
+    d3-format: 1 - 3
+    d3-interpolate: 1.2.0 - 3
+    d3-time: 2.1.1 - 3
+    d3-time-format: 2 - 4
+  checksum: a9c770d283162c3bd11477c3d9d485d07f8db2071665f1a4ad23eec3e515e2cefbd369059ec677c9ac849877d1a765494e90e92051d4f21111aa56791c98729e
   languageName: node
   linkType: hard
 
-"d3-shape@npm:^2.0.0":
-  version: 2.1.0
-  resolution: "d3-shape@npm:2.1.0"
+"d3-shape@npm:^3.1.0":
+  version: 3.2.0
+  resolution: "d3-shape@npm:3.2.0"
   dependencies:
-    d3-path: 1 - 2
-  checksum: 4a82a83fbb15aadee3eb6661226a34bcd793cdbcd7aa5bf980a4724efc93eb94acc6c499f0ebedc9c3144c57c0f033867d137f41e86459acbd5d7181cb27b49c
+    d3-path: ^3.1.0
+  checksum: de2af5fc9a93036a7b68581ca0bfc4aca2d5a328aa7ba7064c11aedd44d24f310c20c40157cb654359d4c15c3ef369f95ee53d71221017276e34172c7b719cfa
   languageName: node
   linkType: hard
 
-"d3-time-format@npm:2 - 3":
-  version: 3.0.0
-  resolution: "d3-time-format@npm:3.0.0"
+"d3-time-format@npm:2 - 4":
+  version: 4.1.0
+  resolution: "d3-time-format@npm:4.1.0"
   dependencies:
-    d3-time: 1 - 2
-  checksum: c20c1667dbea653f81d923e741f84c23e4b966002ba0d6ed94cbc70692105566e55e89d18d175404534a879383fd1123300bd12885a3c924fe924032bb0060db
+    d3-time: 1 - 3
+  checksum: 7342bce28355378152bbd4db4e275405439cabba082d9cd01946d40581140481c8328456d91740b0fe513c51ec4a467f4471ffa390c7e0e30ea30e9ec98fcdf4
   languageName: node
   linkType: hard
 
-"d3-time@npm:1 - 2, d3-time@npm:^2.1.1":
-  version: 2.1.1
-  resolution: "d3-time@npm:2.1.1"
+"d3-time@npm:1 - 3, d3-time@npm:2.1.1 - 3, d3-time@npm:^3.0.0":
+  version: 3.1.0
+  resolution: "d3-time@npm:3.1.0"
   dependencies:
-    d3-array: 2
-  checksum: d1c7b9658c20646e46c3dd19e11c38e02dec098e8baa7d2cd868af8eb01953668f5da499fa33dc63541cf74a26e788786f8828c4381dbbf475a76b95972979a6
+    d3-array: 2 - 3
+  checksum: 613b435352a78d9f31b7f68540788186d8c331b63feca60ad21c88e9db1989fe888f97f242322ebd6365e45ec3fb206a4324cd4ca0dfffa1d9b5feb856ba00a7
+  languageName: node
+  linkType: hard
+
+"d3-timer@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "d3-timer@npm:3.0.1"
+  checksum: 1cfddf86d7bca22f73f2c427f52dfa35c49f50d64e187eb788dcad6e927625c636aa18ae4edd44d084eb9d1f81d8ca4ec305dae7f733c15846a824575b789d73
   languageName: node
   linkType: hard
 
@@ -6931,7 +6711,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"debug@npm:^2.1.3, debug@npm:^2.6.9":
+"debug@npm:^2.1.3":
   version: 2.6.9
   resolution: "debug@npm:2.6.9"
   dependencies:
@@ -7019,13 +6799,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"deep-extend@npm:^0.6.0":
-  version: 0.6.0
-  resolution: "deep-extend@npm:0.6.0"
-  checksum: 7be7e5a8d468d6b10e6a67c3de828f55001b6eb515d014f7aeb9066ce36bd5717161eb47d6a0f7bed8a9083935b465bc163ee2581c8b128d29bf61092fdf57a7
-  languageName: node
-  linkType: hard
-
 "deep-is@npm:^0.1.3, deep-is@npm:~0.1.3":
   version: 0.1.4
   resolution: "deep-is@npm:0.1.4"
@@ -7105,13 +6878,6 @@ __metadata:
   version: 6.1.0
   resolution: "detect-indent@npm:6.1.0"
   checksum: ab953a73c72dbd4e8fc68e4ed4bfd92c97eb6c43734af3900add963fd3a9316f3bc0578b018b24198d4c31a358571eff5f0656e81a1f3b9ad5c547d58b2d093d
-  languageName: node
-  linkType: hard
-
-"detect-libc@npm:^2.0.0, detect-libc@npm:^2.0.1":
-  version: 2.0.1
-  resolution: "detect-libc@npm:2.0.1"
-  checksum: ccb05fcabbb555beb544d48080179c18523a343face9ee4e1a86605a8715b4169f94d663c21a03c310ac824592f2ba9a5270218819bb411ad7be578a527593d7
   languageName: node
   linkType: hard
 
@@ -7357,7 +7123,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"end-of-stream@npm:^1.1.0, end-of-stream@npm:^1.4.1":
+"end-of-stream@npm:^1.1.0":
   version: 1.4.4
   resolution: "end-of-stream@npm:1.4.4"
   dependencies:
@@ -7569,37 +7335,38 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-custom@*, eslint-config-custom@workspace:packages/eslint-config-custom":
+"eslint-config-custom@workspace:*, eslint-config-custom@workspace:packages/eslint-config-custom":
   version: 0.0.0-use.local
   resolution: "eslint-config-custom@workspace:packages/eslint-config-custom"
   dependencies:
-    "@next/eslint-plugin-next": ^13.1.1
+    "@next/eslint-plugin-next": ^13.1.2
     "@types/esprima": ^4.0.3
     "@typescript-eslint/eslint-plugin": ^5.48.1
     "@typescript-eslint/parser": ^5.48.1
-    eslint: ^8.31.0
+    eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-next: ^13.1.1
+    eslint-config-next: ^13.1.2
     eslint-config-prettier: ^8.6.0
     eslint-config-turbo: ^0.0.7
     eslint-import-resolver-typescript: ^3.5.3
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jsx-a11y: ^6.7.0
+    eslint-plugin-import: ^2.27.4
+    eslint-plugin-jsx-a11y: ^6.7.1
     eslint-plugin-react: ^7.32.0
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
     jest: ^29.3.1
-    ts-jest: ^29.0.3
+    react: ^18.2.0
+    ts-jest: ^29.0.5
     typescript: ^4.9.4
   languageName: unknown
   linkType: soft
 
-"eslint-config-next@npm:^13.1.1":
-  version: 13.1.1
-  resolution: "eslint-config-next@npm:13.1.1"
+"eslint-config-next@npm:^13.1.2":
+  version: 13.1.2
+  resolution: "eslint-config-next@npm:13.1.2"
   dependencies:
-    "@next/eslint-plugin-next": 13.1.1
+    "@next/eslint-plugin-next": 13.1.2
     "@rushstack/eslint-patch": ^1.1.3
     "@typescript-eslint/parser": ^5.42.0
     eslint-import-resolver-node: ^0.3.6
@@ -7614,7 +7381,7 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 098465b42e277433e4f815465b49ab655fc35a62ac016a47f60d7e44248f1b87a70b2dfd2ef090ffbb4cb1a694d409ff0811d2eb64028ce61f535403c7a0f27a
+  checksum: 332ab947d1c4ffb4a18108991c80e161ce37d38df706e3e5c621d12c115f078654d335c0fcd5606ec4c3d07bec143c8fbcdd1f593601458ecbe3b97194a009bf
   languageName: node
   linkType: hard
 
@@ -7640,35 +7407,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-import-resolver-node@npm:^0.3.6":
-  version: 0.3.6
-  resolution: "eslint-import-resolver-node@npm:0.3.6"
+"eslint-import-resolver-node@npm:^0.3.6, eslint-import-resolver-node@npm:^0.3.7":
+  version: 0.3.7
+  resolution: "eslint-import-resolver-node@npm:0.3.7"
   dependencies:
     debug: ^3.2.7
-    resolve: ^1.20.0
-  checksum: 6266733af1e112970e855a5bcc2d2058fb5ae16ad2a6d400705a86b29552b36131ffc5581b744c23d550de844206fb55e9193691619ee4dbf225c4bde526b1c8
+    is-core-module: ^2.11.0
+    resolve: ^1.22.1
+  checksum: 3379aacf1d2c6952c1b9666c6fa5982c3023df695430b0d391c0029f6403a7775414873d90f397e98ba6245372b6c8960e16e74d9e4a3b0c0a4582f3bdbe3d6e
   languageName: node
   linkType: hard
 
-"eslint-import-resolver-typescript@npm:^3.5.2":
-  version: 3.5.2
-  resolution: "eslint-import-resolver-typescript@npm:3.5.2"
-  dependencies:
-    debug: ^4.3.4
-    enhanced-resolve: ^5.10.0
-    get-tsconfig: ^4.2.0
-    globby: ^13.1.2
-    is-core-module: ^2.10.0
-    is-glob: ^4.0.3
-    synckit: ^0.8.4
-  peerDependencies:
-    eslint: "*"
-    eslint-plugin-import: "*"
-  checksum: e163f36072c31150671973eb784e6b2a5d1e5dcc4c8ac19a01d9f1f4223ed07bc4c7ab235bef6caecb1949ba74eea20048cbbb4d6ac7de5f02bdd50c29485a4c
-  languageName: node
-  linkType: hard
-
-"eslint-import-resolver-typescript@npm:^3.5.3":
+"eslint-import-resolver-typescript@npm:^3.5.2, eslint-import-resolver-typescript@npm:^3.5.3":
   version: 3.5.3
   resolution: "eslint-import-resolver-typescript@npm:3.5.3"
   dependencies:
@@ -7686,7 +7436,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-module-utils@npm:^2.7.3":
+"eslint-module-utils@npm:^2.7.4":
   version: 2.7.4
   resolution: "eslint-module-utils@npm:2.7.4"
   dependencies:
@@ -7698,55 +7448,34 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-import@npm:^2.26.0":
-  version: 2.26.0
-  resolution: "eslint-plugin-import@npm:2.26.0"
+"eslint-plugin-import@npm:^2.26.0, eslint-plugin-import@npm:^2.27.4":
+  version: 2.27.4
+  resolution: "eslint-plugin-import@npm:2.27.4"
   dependencies:
-    array-includes: ^3.1.4
-    array.prototype.flat: ^1.2.5
-    debug: ^2.6.9
+    array-includes: ^3.1.6
+    array.prototype.flat: ^1.3.1
+    array.prototype.flatmap: ^1.3.0
+    debug: ^3.2.7
     doctrine: ^2.1.0
-    eslint-import-resolver-node: ^0.3.6
-    eslint-module-utils: ^2.7.3
+    eslint-import-resolver-node: ^0.3.7
+    eslint-module-utils: ^2.7.4
     has: ^1.0.3
-    is-core-module: ^2.8.1
+    is-core-module: ^2.11.0
     is-glob: ^4.0.3
     minimatch: ^3.1.2
-    object.values: ^1.1.5
-    resolve: ^1.22.0
+    object.values: ^1.1.6
+    resolve: ^1.22.1
+    semver: ^6.3.0
     tsconfig-paths: ^3.14.1
   peerDependencies:
     eslint: ^2 || ^3 || ^4 || ^5 || ^6 || ^7.2.0 || ^8
-  checksum: 0bf77ad80339554481eafa2b1967449e1f816b94c7a6f9614ce33fb4083c4e6c050f10d241dd50b4975d47922880a34de1e42ea9d8e6fd663ebb768baa67e655
+  checksum: e298a9b1fde6d86737520c7da1d851d1facbf1883e29eddfd374a813eb05a647108c072d5c852b6bf535886c435a419f2fee1d6ae3a324d6f7877d957a796e37
   languageName: node
   linkType: hard
 
-"eslint-plugin-jsx-a11y@npm:^6.5.1":
-  version: 6.6.1
-  resolution: "eslint-plugin-jsx-a11y@npm:6.6.1"
-  dependencies:
-    "@babel/runtime": ^7.18.9
-    aria-query: ^4.2.2
-    array-includes: ^3.1.5
-    ast-types-flow: ^0.0.7
-    axe-core: ^4.4.3
-    axobject-query: ^2.2.0
-    damerau-levenshtein: ^1.0.8
-    emoji-regex: ^9.2.2
-    has: ^1.0.3
-    jsx-ast-utils: ^3.3.2
-    language-tags: ^1.0.5
-    minimatch: ^3.1.2
-    semver: ^6.3.0
-  peerDependencies:
-    eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
-  checksum: baae7377f0e25a0cc9b34dc333a3dc6ead9ee8365e445451eff554c3ca267a0a6cb88127fe90395c578ab1b92cfed246aef7dc8d2b48b603389e10181799e144
-  languageName: node
-  linkType: hard
-
-"eslint-plugin-jsx-a11y@npm:^6.7.0":
-  version: 6.7.0
-  resolution: "eslint-plugin-jsx-a11y@npm:6.7.0"
+"eslint-plugin-jsx-a11y@npm:^6.5.1, eslint-plugin-jsx-a11y@npm:^6.7.1":
+  version: 6.7.1
+  resolution: "eslint-plugin-jsx-a11y@npm:6.7.1"
   dependencies:
     "@babel/runtime": ^7.20.7
     aria-query: ^5.1.3
@@ -7766,7 +7495,7 @@ __metadata:
     semver: ^6.3.0
   peerDependencies:
     eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
-  checksum: b7ea212bcf84912d264229e5e3cf255bc95a1193de1c7453d275a7afc959ce679c1bffb77cfd3d17f9b7105f41e0f62c8edb7f6d76985c79647edaa9f08aa814
+  checksum: f166dd5fe7257c7b891c6692e6a3ede6f237a14043ae3d97581daf318fc5833ddc6b4871aa34ab7656187430170500f6d806895747ea17ecdf8231a666c3c2fd
   languageName: node
   linkType: hard
 
@@ -7779,32 +7508,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-react@npm:^7.31.7":
-  version: 7.31.11
-  resolution: "eslint-plugin-react@npm:7.31.11"
-  dependencies:
-    array-includes: ^3.1.6
-    array.prototype.flatmap: ^1.3.1
-    array.prototype.tosorted: ^1.1.1
-    doctrine: ^2.1.0
-    estraverse: ^5.3.0
-    jsx-ast-utils: ^2.4.1 || ^3.0.0
-    minimatch: ^3.1.2
-    object.entries: ^1.1.6
-    object.fromentries: ^2.0.6
-    object.hasown: ^1.1.2
-    object.values: ^1.1.6
-    prop-types: ^15.8.1
-    resolve: ^2.0.0-next.3
-    semver: ^6.3.0
-    string.prototype.matchall: ^4.0.8
-  peerDependencies:
-    eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
-  checksum: a3d612f6647bef33cf2a67c81a6b37b42c075300ed079cffecf5fb475c0d6ab855c1de340d1cbf361a0126429fb906dda597527235d2d12c4404453dbc712fc6
-  languageName: node
-  linkType: hard
-
-"eslint-plugin-react@npm:^7.32.0":
+"eslint-plugin-react@npm:^7.31.7, eslint-plugin-react@npm:^7.32.0":
   version: 7.32.0
   resolution: "eslint-plugin-react@npm:7.32.0"
   dependencies:
@@ -7883,9 +7587,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^8.31.0":
-  version: 8.31.0
-  resolution: "eslint@npm:8.31.0"
+"eslint@npm:^8.32.0":
+  version: 8.32.0
+  resolution: "eslint@npm:8.32.0"
   dependencies:
     "@eslint/eslintrc": ^1.4.1
     "@humanwhocodes/config-array": ^0.11.8
@@ -7928,7 +7632,7 @@ __metadata:
     text-table: ^0.2.0
   bin:
     eslint: bin/eslint.js
-  checksum: 5e5688bb864edc6b12d165849994812eefa67fb3fc44bb26f53659b63edcd8bcc68389d27cc6cc9e5b79ee22f24b6f311fa3ed047bddcafdec7d84c1b5561e4f
+  checksum: 23c8fb3c57291eecd9c1448faf603226a8f885022a2cd96e303459bf72e39b7f54987c6fb948f0f9eecaf7085600e6eb0663482a35ea83da12e9f9141a22b91e
   languageName: node
   linkType: hard
 
@@ -8058,13 +7762,6 @@ __metadata:
   version: 0.1.2
   resolution: "exit@npm:0.1.2"
   checksum: abc407f07a875c3961e4781dfcb743b58d6c93de9ab263f4f8c9d23bb6da5f9b7764fc773f86b43dd88030444d5ab8abcb611cb680fba8ca075362b77114bba3
-  languageName: node
-  linkType: hard
-
-"expand-template@npm:^2.0.3":
-  version: 2.0.3
-  resolution: "expand-template@npm:2.0.3"
-  checksum: 588c19847216421ed92befb521767b7018dc88f88b0576df98cb242f20961425e96a92cbece525ef28cc5becceae5d544ae0f5b9b5e2aa05acb13716ca5b3099
   languageName: node
   linkType: hard
 
@@ -8333,9 +8030,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:^8.4.1":
-  version: 8.4.2
-  resolution: "framer-motion@npm:8.4.2"
+"framer-motion@npm:^8.4.3":
+  version: 8.4.3
+  resolution: "framer-motion@npm:8.4.3"
   dependencies:
     "@emotion/is-prop-valid": ^0.8.2
     "@motionone/dom": ^10.15.3
@@ -8347,14 +8044,7 @@ __metadata:
   dependenciesMeta:
     "@emotion/is-prop-valid":
       optional: true
-  checksum: 3d2f371470e32471e298a01061088929eae27093128b1334cd8aefecd8d8e374f4c1a39558452a6cdff32a41a5ff36cdc96bb373e83ee3d8e798f5d062380e3e
-  languageName: node
-  linkType: hard
-
-"fs-constants@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "fs-constants@npm:1.0.0"
-  checksum: 18f5b718371816155849475ac36c7d0b24d39a11d91348cfcb308b4494824413e03572c403c86d3a260e049465518c4f0d5bd00f0371cdfcad6d4f30a85b350d
+  checksum: 5b350f0afb6e6e8482519c3ea685911d80c2fecaff3d8dd57d11b43a3e1f44d45e932312afe54ec349c6be849a94efc66671663e7d6a8d22d334afe3dc721226
   languageName: node
   linkType: hard
 
@@ -8535,13 +8225,6 @@ __metadata:
   version: 4.2.0
   resolution: "get-tsconfig@npm:4.2.0"
   checksum: dfae3520bee20b71a651fdc93fd29901013dfc4df9fb41a423cf3efb4468c79087ef9d3bc3d0625b6486397730991d2a749eed4985d8ab411f481319c3e931e5
-  languageName: node
-  linkType: hard
-
-"github-from-package@npm:0.0.0":
-  version: 0.0.0
-  resolution: "github-from-package@npm:0.0.0"
-  checksum: 14e448192a35c1e42efee94c9d01a10f42fe790375891a24b25261246ce9336ab9df5d274585aedd4568f7922246c2a78b8a8cd2571bfe99c693a9718e7dd0e3
   languageName: node
   linkType: hard
 
@@ -9110,13 +8793,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ini@npm:~1.3.0":
-  version: 1.3.8
-  resolution: "ini@npm:1.3.8"
-  checksum: dfd98b0ca3a4fc1e323e38a6c8eb8936e31a97a918d3b377649ea15bdb15d481207a0dda1021efbd86b464cae29a0d33c1d7dcaf6c5672bee17fa849bc50a1b3
-  languageName: node
-  linkType: hard
-
 "inquirer@npm:^8.0.0":
   version: 8.2.5
   resolution: "inquirer@npm:8.2.5"
@@ -9151,10 +8827,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"internmap@npm:^1.0.0":
-  version: 1.0.1
-  resolution: "internmap@npm:1.0.1"
-  checksum: 9d00f8c0cf873a24a53a5a937120dab634c41f383105e066bb318a61864e6292d24eb9516e8e7dccfb4420ec42ca474a0f28ac9a6cc82536898fa09bbbe53813
+"internmap@npm:1 - 2":
+  version: 2.0.3
+  resolution: "internmap@npm:2.0.3"
+  checksum: 7ca41ec6aba8f0072fc32fa8a023450a9f44503e2d8e403583c55714b25efd6390c38a87161ec456bf42d7bc83aab62eb28f5aef34876b1ac4e60693d5e1d241
   languageName: node
   linkType: hard
 
@@ -9261,7 +8937,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"is-core-module@npm:^2.10.0, is-core-module@npm:^2.8.1, is-core-module@npm:^2.9.0":
+"is-core-module@npm:^2.10.0, is-core-module@npm:^2.11.0, is-core-module@npm:^2.9.0":
   version: 2.11.0
   resolution: "is-core-module@npm:2.11.0"
   dependencies:
@@ -9951,15 +9627,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-presets@*, jest-presets@workspace:packages/jest-presets":
+"jest-presets@workspace:*, jest-presets@workspace:packages/jest-presets":
   version: 0.0.0-use.local
   resolution: "jest-presets@workspace:packages/jest-presets"
   dependencies:
     "@types/esprima": ^4.0.3
     esprima: ^4.0.1
     jest: ^29.3.1
-    ts-jest: ^29.0.3
-    tsconfig: "*"
+    ts-jest: ^29.0.5
+    tsconfig: "workspace:*"
     typescript: ^4.9.4
   languageName: unknown
   linkType: soft
@@ -10340,12 +10016,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"json5@npm:^2.2.1":
-  version: 2.2.1
-  resolution: "json5@npm:2.2.1"
+"json5@npm:^2.2.1, json5@npm:^2.2.3":
+  version: 2.2.3
+  resolution: "json5@npm:2.2.3"
   bin:
     json5: lib/cli.js
-  checksum: 74b8a23b102a6f2bf2d224797ae553a75488b5adbaee9c9b6e5ab8b510a2fc6e38f876d4c77dea672d4014a44b2399e15f2051ac2b37b87f74c0c7602003543b
+  checksum: 2a7436a93393830bce797d4626275152e37e877b265e94ca69c99e3d20c2b9dab021279146a39cdb700e71b2dd32a4cebd1514cd57cee102b1af906ce5040349
   languageName: node
   linkType: hard
 
@@ -10389,7 +10065,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jsx-ast-utils@npm:^2.4.1 || ^3.0.0, jsx-ast-utils@npm:^3.3.2, jsx-ast-utils@npm:^3.3.3":
+"jsx-ast-utils@npm:^2.4.1 || ^3.0.0, jsx-ast-utils@npm:^3.3.3":
   version: 3.3.3
   resolution: "jsx-ast-utils@npm:3.3.3"
   dependencies:
@@ -10450,7 +10126,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"language-subtag-registry@npm:^0.3.20, language-subtag-registry@npm:~0.3.2":
+"language-subtag-registry@npm:~0.3.2":
   version: 0.3.22
   resolution: "language-subtag-registry@npm:0.3.22"
   checksum: 8ab70a7e0e055fe977ac16ea4c261faec7205ac43db5e806f72e5b59606939a3b972c4bd1e10e323b35d6ffa97c3e1c4c99f6553069dad2dfdd22020fa3eb56a
@@ -10463,15 +10139,6 @@ __metadata:
   dependencies:
     language-subtag-registry: ~0.3.2
   checksum: c81b5d8b9f5f9cfd06ee71ada6ddfe1cf83044dd5eeefcd1e420ad491944da8957688db4a0a9bc562df4afdc2783425cbbdfd152c01d93179cf86888903123cf
-  languageName: node
-  linkType: hard
-
-"language-tags@npm:^1.0.5":
-  version: 1.0.6
-  resolution: "language-tags@npm:1.0.6"
-  dependencies:
-    language-subtag-registry: ^0.3.20
-  checksum: dc2927f7ce8f108ffd1d02ae0284b78ff6b4e03e631642794fa79d554d77b653f3f64cd1fb83acc9f3746ef7c18d43241b97feb712c05cc26e25aacd68f7a006
   languageName: node
   linkType: hard
 
@@ -11001,7 +10668,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minimist@npm:^1.2.0, minimist@npm:^1.2.3, minimist@npm:^1.2.5, minimist@npm:^1.2.6, minimist@npm:~1.2.5":
+"minimist@npm:^1.2.0, minimist@npm:^1.2.5, minimist@npm:^1.2.6, minimist@npm:~1.2.5":
   version: 1.2.7
   resolution: "minimist@npm:1.2.7"
   checksum: 7346574a1038ca23c32e02252f603801f09384dd1d78b69a943a4e8c2c28730b80e96193882d3d3b22a063445f460e48316b29b8a25addca2d7e5e8f75478bec
@@ -11094,13 +10761,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mkdirp-classic@npm:^0.5.2, mkdirp-classic@npm:^0.5.3":
-  version: 0.5.3
-  resolution: "mkdirp-classic@npm:0.5.3"
-  checksum: 3f4e088208270bbcc148d53b73e9a5bd9eef05ad2cbf3b3d0ff8795278d50dd1d11a8ef1875ff5aea3fa888931f95bfcb2ad5b7c1061cfefd6284d199e6776ac
-  languageName: node
-  linkType: hard
-
 "mkdirp@npm:^0.5.5":
   version: 0.5.6
   resolution: "mkdirp@npm:0.5.6"
@@ -11179,13 +10839,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"napi-build-utils@npm:^1.0.1":
-  version: 1.0.2
-  resolution: "napi-build-utils@npm:1.0.2"
-  checksum: 06c14271ee966e108d55ae109f340976a9556c8603e888037145d6522726aebe89dd0c861b4b83947feaf6d39e79e08817559e8693deedc2c94e82c5cbd090c7
-  languageName: node
-  linkType: hard
-
 "natural-compare-lite@npm:^1.4.0":
   version: 1.4.0
   resolution: "natural-compare-lite@npm:1.4.0"
@@ -11228,24 +10881,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next@npm:*, next@npm:^13.1.1":
-  version: 13.1.1
-  resolution: "next@npm:13.1.1"
+"next@npm:*, next@npm:^13.1.2":
+  version: 13.1.2
+  resolution: "next@npm:13.1.2"
   dependencies:
-    "@next/env": 13.1.1
-    "@next/swc-android-arm-eabi": 13.1.1
-    "@next/swc-android-arm64": 13.1.1
-    "@next/swc-darwin-arm64": 13.1.1
-    "@next/swc-darwin-x64": 13.1.1
-    "@next/swc-freebsd-x64": 13.1.1
-    "@next/swc-linux-arm-gnueabihf": 13.1.1
-    "@next/swc-linux-arm64-gnu": 13.1.1
-    "@next/swc-linux-arm64-musl": 13.1.1
-    "@next/swc-linux-x64-gnu": 13.1.1
-    "@next/swc-linux-x64-musl": 13.1.1
-    "@next/swc-win32-arm64-msvc": 13.1.1
-    "@next/swc-win32-ia32-msvc": 13.1.1
-    "@next/swc-win32-x64-msvc": 13.1.1
+    "@next/env": 13.1.2
+    "@next/swc-android-arm-eabi": 13.1.2
+    "@next/swc-android-arm64": 13.1.2
+    "@next/swc-darwin-arm64": 13.1.2
+    "@next/swc-darwin-x64": 13.1.2
+    "@next/swc-freebsd-x64": 13.1.2
+    "@next/swc-linux-arm-gnueabihf": 13.1.2
+    "@next/swc-linux-arm64-gnu": 13.1.2
+    "@next/swc-linux-arm64-musl": 13.1.2
+    "@next/swc-linux-x64-gnu": 13.1.2
+    "@next/swc-linux-x64-musl": 13.1.2
+    "@next/swc-win32-arm64-msvc": 13.1.2
+    "@next/swc-win32-ia32-msvc": 13.1.2
+    "@next/swc-win32-x64-msvc": 13.1.2
     "@swc/helpers": 0.4.14
     caniuse-lite: ^1.0.30001406
     postcss: 8.4.14
@@ -11292,7 +10945,7 @@ __metadata:
       optional: true
   bin:
     next: dist/bin/next
-  checksum: 97a9154d620770388e6a0a84982b094172b851f49b408ac53d83fc4110470dbef63225b9c0008e223c60759b5aa606a547bd909b15d6a166526e168877dfc802
+  checksum: bc9aedfc70b979bb33a2190adca3719f8b0012d345a1bc44a6efac320ff599de1e39ade7ba7bae8e5f0d57ebcffb8c4ecc8b7da55565be6a59574896568f0685
   languageName: node
   linkType: hard
 
@@ -11303,24 +10956,6 @@ __metadata:
     lower-case: ^2.0.2
     tslib: ^2.0.3
   checksum: 0b2ebc113dfcf737d48dde49cfebf3ad2d82a8c3188e7100c6f375e30eafbef9e9124aadc3becef237b042fd5eb0aad2fd78669c20972d045bbe7fea8ba0be5c
-  languageName: node
-  linkType: hard
-
-"node-abi@npm:^3.3.0":
-  version: 3.30.0
-  resolution: "node-abi@npm:3.30.0"
-  dependencies:
-    semver: ^7.3.5
-  checksum: f285efcea312e52d8763cfad7d434b31c11586e5efdf9f239c214a582557777453a8358d338442f02490d6c5289b0fc0eeed3056a740a3ebe6c79334af3b1739
-  languageName: node
-  linkType: hard
-
-"node-addon-api@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "node-addon-api@npm:5.0.0"
-  dependencies:
-    node-gyp: latest
-  checksum: 7c5e2043ac37f6108784d94ed73a44ae6d3e68eb968de60680922fc6bc3d17fa69448c0feb4e0c9d3f4c74a0324822e566a8340a56916d9d6f23cb3e85620334
   languageName: node
   linkType: hard
 
@@ -11586,7 +11221,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"object.values@npm:^1.1.5, object.values@npm:^1.1.6":
+"object.values@npm:^1.1.6":
   version: 1.1.6
   resolution: "object.values@npm:1.1.6"
   dependencies:
@@ -11981,28 +11616,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prebuild-install@npm:^7.1.1":
-  version: 7.1.1
-  resolution: "prebuild-install@npm:7.1.1"
-  dependencies:
-    detect-libc: ^2.0.0
-    expand-template: ^2.0.3
-    github-from-package: 0.0.0
-    minimist: ^1.2.3
-    mkdirp-classic: ^0.5.3
-    napi-build-utils: ^1.0.1
-    node-abi: ^3.3.0
-    pump: ^3.0.0
-    rc: ^1.2.7
-    simple-get: ^4.0.0
-    tar-fs: ^2.0.0
-    tunnel-agent: ^0.6.0
-  bin:
-    prebuild-install: bin.js
-  checksum: dbf96d0146b6b5827fc8f67f72074d2e19c69628b9a7a0a17d0fad1bf37e9f06922896972e074197fc00a52eae912993e6ef5a0d471652f561df5cb516f3f467
-  languageName: node
-  linkType: hard
-
 "preferred-pm@npm:^3.0.0":
   version: 3.0.3
   resolution: "preferred-pm@npm:3.0.3"
@@ -12029,12 +11642,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:2.8.2, prettier@npm:^2.7.1":
-  version: 2.8.2
-  resolution: "prettier@npm:2.8.2"
+"prettier@npm:2.8.3, prettier@npm:^2.7.1":
+  version: 2.8.3
+  resolution: "prettier@npm:2.8.3"
   bin:
     prettier: bin-prettier.js
-  checksum: 740c56c2128d587d656ea1dde9bc9c3503dfc94db4f3ac387259215eeb2e216680bdad9d18a0c9feecc6b42cfa188d6fa777df4c36c1d00cedd4199074fbfbd2
+  checksum: 92f2ceb522d454370e02082aa74ad27388672f7cee8975028b59517c069fe643bdc73e322675c8faf2ff173d7a626d1a6389f26b474000308e793aa25fff46e5
   languageName: node
   linkType: hard
 
@@ -12216,20 +11829,6 @@ __metadata:
   version: 0.28.0
   resolution: "ramda@npm:0.28.0"
   checksum: 44ea6e5010bba70151b6a92d8114a91915e8b5a16105cce65fae58c9d7386b812c429645e35f21141d7087568550ce383bc10ee1a65cdec951f4b69ea457e6a4
-  languageName: node
-  linkType: hard
-
-"rc@npm:^1.2.7":
-  version: 1.2.8
-  resolution: "rc@npm:1.2.8"
-  dependencies:
-    deep-extend: ^0.6.0
-    ini: ~1.3.0
-    minimist: ^1.2.0
-    strip-json-comments: ~2.0.1
-  bin:
-    rc: ./cli.js
-  checksum: 2e26e052f8be2abd64e6d1dabfbd7be03f80ec18ccbc49562d31f617d0015fbdbcf0f9eed30346ea6ab789e0fdfe4337f033f8016efdbee0df5354751842080e
   languageName: node
   linkType: hard
 
@@ -12470,7 +12069,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"readable-stream@npm:^3.1.1, readable-stream@npm:^3.4.0, readable-stream@npm:^3.6.0":
+"readable-stream@npm:^3.4.0, readable-stream@npm:^3.6.0":
   version: 3.6.0
   resolution: "readable-stream@npm:3.6.0"
   dependencies:
@@ -12511,17 +12110,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"recharts@npm:^2.2.0":
-  version: 2.2.0
-  resolution: "recharts@npm:2.2.0"
+"recharts@npm:^2.3.2":
+  version: 2.3.2
+  resolution: "recharts@npm:2.3.2"
   dependencies:
-    "@types/d3-interpolate": ^2.0.0
-    "@types/d3-scale": ^3.0.0
-    "@types/d3-shape": ^2.0.0
     classnames: ^2.2.5
-    d3-interpolate: ^2.0.0
-    d3-scale: ^3.0.0
-    d3-shape: ^2.0.0
     eventemitter3: ^4.0.1
     lodash: ^4.17.19
     react-is: ^16.10.2
@@ -12529,11 +12122,12 @@ __metadata:
     react-smooth: ^2.0.1
     recharts-scale: ^0.4.4
     reduce-css-calc: ^2.1.8
+    victory-vendor: ^36.6.8
   peerDependencies:
     prop-types: ^15.6.0
     react: ^16.0.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.0.0 || ^17.0.0 || ^18.0.0
-  checksum: 901887b2459305c6dec20b413926c531a84f108bd4cf9653d0e0234df069ae85af5cca859be247fce0fc6a41f704a1c369c71fdf7792de96ef741b1b33eed1d0
+  checksum: 3904ccb48382dd5efcefce1a6748792703c44cbb0947515919c79f811e0073c6af2d38e230acfff089ae733af77a042f210a8d79ad0a527454ea5a2a85995bed
   languageName: node
   linkType: hard
 
@@ -12745,7 +12339,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve@npm:^1.10.0, resolve@npm:^1.14.2, resolve@npm:^1.19.0, resolve@npm:^1.20.0, resolve@npm:^1.22.0":
+"resolve@npm:^1.10.0, resolve@npm:^1.14.2, resolve@npm:^1.19.0, resolve@npm:^1.20.0, resolve@npm:^1.22.1":
   version: 1.22.1
   resolution: "resolve@npm:1.22.1"
   dependencies:
@@ -12758,7 +12352,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve@npm:^2.0.0-next.3, resolve@npm:^2.0.0-next.4":
+"resolve@npm:^2.0.0-next.4":
   version: 2.0.0-next.4
   resolution: "resolve@npm:2.0.0-next.4"
   dependencies:
@@ -12771,7 +12365,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve@patch:resolve@^1.10.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.14.2#~builtin<compat/resolve>, resolve@patch:resolve@^1.19.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.20.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.22.0#~builtin<compat/resolve>":
+"resolve@patch:resolve@^1.10.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.14.2#~builtin<compat/resolve>, resolve@patch:resolve@^1.19.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.20.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.22.1#~builtin<compat/resolve>":
   version: 1.22.1
   resolution: "resolve@patch:resolve@npm%3A1.22.1#~builtin<compat/resolve>::version=1.22.1&hash=c3c19d"
   dependencies:
@@ -12784,7 +12378,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve@patch:resolve@^2.0.0-next.3#~builtin<compat/resolve>, resolve@patch:resolve@^2.0.0-next.4#~builtin<compat/resolve>":
+"resolve@patch:resolve@^2.0.0-next.4#~builtin<compat/resolve>":
   version: 2.0.0-next.4
   resolution: "resolve@patch:resolve@npm%3A2.0.0-next.4#~builtin<compat/resolve>::version=2.0.0-next.4&hash=c3c19d"
   dependencies:
@@ -13005,53 +12599,39 @@ __metadata:
   languageName: node
   linkType: hard
 
-"shared-utils@*, shared-utils@workspace:packages/shared-utils":
+"shared-utils@workspace:*, shared-utils@workspace:packages/shared-utils":
   version: 0.0.0-use.local
   resolution: "shared-utils@workspace:packages/shared-utils"
   dependencies:
-    "@next/eslint-plugin-next": ^13.1.1
+    "@emotion/react": ^11.10.5
+    "@next/eslint-plugin-next": ^13.1.2
+    "@sentry/nextjs": ^7.30.0
     "@types/esprima": ^4.0.3
+    "@types/node": ^18.11.18
     "@typescript-eslint/eslint-plugin": ^5.48.1
     "@typescript-eslint/parser": ^5.48.1
-    eslint: ^8.31.0
+    eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-custom: "*"
-    eslint-config-next: ^13.1.1
+    eslint-config-custom: "workspace:*"
+    eslint-config-next: ^13.1.2
     eslint-config-prettier: ^8.6.0
     eslint-config-turbo: ^0.0.7
     eslint-import-resolver-typescript: ^3.5.3
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jsx-a11y: ^6.7.0
+    eslint-plugin-import: ^2.27.4
+    eslint-plugin-jsx-a11y: ^6.7.1
     eslint-plugin-react: ^7.32.0
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
     jest: ^29.3.1
-    next: ^13.1.1
+    next: ^13.1.2
     next-translate: ^1.6.0
     react: ^18.2.0
     react-dom: ^18.2.0
-    ts-jest: ^29.0.3
+    ts-jest: ^29.0.5
     typescript: ^4.9.4
   languageName: unknown
   linkType: soft
-
-"sharp@npm:^0.31.3":
-  version: 0.31.3
-  resolution: "sharp@npm:0.31.3"
-  dependencies:
-    color: ^4.2.3
-    detect-libc: ^2.0.1
-    node-addon-api: ^5.0.0
-    node-gyp: latest
-    prebuild-install: ^7.1.1
-    semver: ^7.3.8
-    simple-get: ^4.0.1
-    tar-fs: ^2.1.1
-    tunnel-agent: ^0.6.0
-  checksum: 29fd1dfbc616c6389f53f366cec342b4353d9f2a37e98952ca273db38dca57dfa0f336322d6d763f0fae876042ead22fd86ffe26d70c32ade2458d421db60d04
-  languageName: node
-  linkType: hard
 
 "shebang-command@npm:^1.2.0":
   version: 1.2.0
@@ -13114,24 +12694,6 @@ __metadata:
   version: 1.0.0
   resolution: "signedsource@npm:1.0.0"
   checksum: 64b2c8d7a48de9009cfd3aff62bb7c88abf3b8e0421f17ebb1d7f5ca9cc9c3ad10f5a1e3ae6cd804e4e6121c87b668202ae9057065f058ddfbf34ea65f63945d
-  languageName: node
-  linkType: hard
-
-"simple-concat@npm:^1.0.0":
-  version: 1.0.1
-  resolution: "simple-concat@npm:1.0.1"
-  checksum: 4d211042cc3d73a718c21ac6c4e7d7a0363e184be6a5ad25c8a1502e49df6d0a0253979e3d50dbdd3f60ef6c6c58d756b5d66ac1e05cda9cacd2e9fc59e3876a
-  languageName: node
-  linkType: hard
-
-"simple-get@npm:^4.0.0, simple-get@npm:^4.0.1":
-  version: 4.0.1
-  resolution: "simple-get@npm:4.0.1"
-  dependencies:
-    decompress-response: ^6.0.0
-    once: ^1.3.1
-    simple-concat: ^1.0.0
-  checksum: e4132fd27cf7af230d853fa45c1b8ce900cb430dd0a3c6d3829649fe4f2b26574c803698076c4006450efb0fad2ba8c5455fbb5755d4b0a5ec42d4f12b31d27e
   languageName: node
   linkType: hard
 
@@ -13600,13 +13162,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"strip-json-comments@npm:~2.0.1":
-  version: 2.0.1
-  resolution: "strip-json-comments@npm:2.0.1"
-  checksum: 1074ccb63270d32ca28edfb0a281c96b94dc679077828135141f27d52a5a398ef5e78bcf22809d23cadc2b81dfbe345eb5fd8699b385c8b1128907dec4a7d1e1
-  languageName: node
-  linkType: hard
-
 "styled-jsx@npm:5.1.1":
   version: 5.1.1
   resolution: "styled-jsx@npm:5.1.1"
@@ -13767,32 +13322,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tar-fs@npm:^2.0.0, tar-fs@npm:^2.1.1":
-  version: 2.1.1
-  resolution: "tar-fs@npm:2.1.1"
-  dependencies:
-    chownr: ^1.1.1
-    mkdirp-classic: ^0.5.2
-    pump: ^3.0.0
-    tar-stream: ^2.1.4
-  checksum: f5b9a70059f5b2969e65f037b4e4da2daf0fa762d3d232ffd96e819e3f94665dbbbe62f76f084f1acb4dbdcce16c6e4dac08d12ffc6d24b8d76720f4d9cf032d
-  languageName: node
-  linkType: hard
-
-"tar-stream@npm:^2.1.4":
-  version: 2.2.0
-  resolution: "tar-stream@npm:2.2.0"
-  dependencies:
-    bl: ^4.0.3
-    end-of-stream: ^1.4.1
-    fs-constants: ^1.0.0
-    inherits: ^2.0.3
-    readable-stream: ^3.1.1
-  checksum: 699831a8b97666ef50021c767f84924cfee21c142c2eb0e79c63254e140e6408d6d55a065a2992548e72b06de39237ef2b802b99e3ece93ca3904a37622a66f3
-  languageName: node
-  linkType: hard
-
-"tar@npm:^6.0.5":
+"tar@npm:^6.0.5, tar@npm:^6.1.11, tar@npm:^6.1.2":
   version: 6.1.13
   resolution: "tar@npm:6.1.13"
   dependencies:
@@ -13803,20 +13333,6 @@ __metadata:
     mkdirp: ^1.0.3
     yallist: ^4.0.0
   checksum: 8a278bed123aa9f53549b256a36b719e317c8b96fe86a63406f3c62887f78267cea9b22dc6f7007009738509800d4a4dccc444abd71d762287c90f35b002eb1c
-  languageName: node
-  linkType: hard
-
-"tar@npm:^6.1.11, tar@npm:^6.1.2":
-  version: 6.1.12
-  resolution: "tar@npm:6.1.12"
-  dependencies:
-    chownr: ^2.0.0
-    fs-minipass: ^2.0.0
-    minipass: ^3.0.0
-    minizlib: ^2.1.1
-    mkdirp: ^1.0.3
-    yallist: ^4.0.0
-  checksum: 49d72e4420944e7ede2782d6b0826a6ede6cdab23c7de63470917e7a78166bc4d5b1a96279d3d79a85f1ba5a17cd37c0acbb3cbff19a07447691445b8b051c55
   languageName: node
   linkType: hard
 
@@ -14003,14 +13519,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-jest@npm:^29.0.3":
-  version: 29.0.3
-  resolution: "ts-jest@npm:29.0.3"
+"ts-jest@npm:^29.0.5":
+  version: 29.0.5
+  resolution: "ts-jest@npm:29.0.5"
   dependencies:
     bs-logger: 0.x
     fast-json-stable-stringify: 2.x
     jest-util: ^29.0.0
-    json5: ^2.2.1
+    json5: ^2.2.3
     lodash.memoize: 4.x
     make-error: 1.x
     semver: 7.x
@@ -14032,7 +13548,7 @@ __metadata:
       optional: true
   bin:
     ts-jest: cli.js
-  checksum: 541e51776d367fa2279af47f75af94b03e0538f1839ea9983de0f4ad7f188002f6eb1fc72440651d96daa62d25a7bc679a129c14e6ef291277eea9346751d56b
+  checksum: f60f129c2287f4c963d9ee2677132496c5c5a5d39c27ad234199a1140c26318a7d5bda34890ab0e30636ec42a8de28f84487c09e9dcec639c9c67812b3a38373
   languageName: node
   linkType: hard
 
@@ -14100,7 +13616,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsconfig@*, tsconfig@workspace:packages/tsconfig":
+"tsconfig@workspace:*, tsconfig@workspace:packages/tsconfig":
   version: 0.0.0-use.local
   resolution: "tsconfig@workspace:packages/tsconfig"
   dependencies:
@@ -14169,15 +13685,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tunnel-agent@npm:^0.6.0":
-  version: 0.6.0
-  resolution: "tunnel-agent@npm:0.6.0"
-  dependencies:
-    safe-buffer: ^5.0.1
-  checksum: 05f6510358f8afc62a057b8b692f05d70c1782b70db86d6a1e0d5e28a32389e52fa6e7707b6c5ecccacc031462e4bc35af85ecfe4bbc341767917b7cf6965711
-  languageName: node
-  linkType: hard
-
 "tunnel@npm:^0.0.6":
   version: 0.0.6
   resolution: "tunnel@npm:0.0.6"
@@ -14185,58 +13692,58 @@ __metadata:
   languageName: node
   linkType: hard
 
-"turbo-darwin-64@npm:1.6.3":
-  version: 1.6.3
-  resolution: "turbo-darwin-64@npm:1.6.3"
+"turbo-darwin-64@npm:1.7.0":
+  version: 1.7.0
+  resolution: "turbo-darwin-64@npm:1.7.0"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-darwin-arm64@npm:1.6.3":
-  version: 1.6.3
-  resolution: "turbo-darwin-arm64@npm:1.6.3"
+"turbo-darwin-arm64@npm:1.7.0":
+  version: 1.7.0
+  resolution: "turbo-darwin-arm64@npm:1.7.0"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo-linux-64@npm:1.6.3":
-  version: 1.6.3
-  resolution: "turbo-linux-64@npm:1.6.3"
+"turbo-linux-64@npm:1.7.0":
+  version: 1.7.0
+  resolution: "turbo-linux-64@npm:1.7.0"
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-linux-arm64@npm:1.6.3":
-  version: 1.6.3
-  resolution: "turbo-linux-arm64@npm:1.6.3"
+"turbo-linux-arm64@npm:1.7.0":
+  version: 1.7.0
+  resolution: "turbo-linux-arm64@npm:1.7.0"
   conditions: os=linux & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo-windows-64@npm:1.6.3":
-  version: 1.6.3
-  resolution: "turbo-windows-64@npm:1.6.3"
+"turbo-windows-64@npm:1.7.0":
+  version: 1.7.0
+  resolution: "turbo-windows-64@npm:1.7.0"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-windows-arm64@npm:1.6.3":
-  version: 1.6.3
-  resolution: "turbo-windows-arm64@npm:1.6.3"
+"turbo-windows-arm64@npm:1.7.0":
+  version: 1.7.0
+  resolution: "turbo-windows-arm64@npm:1.7.0"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo@npm:^1.6.3":
-  version: 1.6.3
-  resolution: "turbo@npm:1.6.3"
+"turbo@npm:^1.7.0":
+  version: 1.7.0
+  resolution: "turbo@npm:1.7.0"
   dependencies:
-    turbo-darwin-64: 1.6.3
-    turbo-darwin-arm64: 1.6.3
-    turbo-linux-64: 1.6.3
-    turbo-linux-arm64: 1.6.3
-    turbo-windows-64: 1.6.3
-    turbo-windows-arm64: 1.6.3
+    turbo-darwin-64: 1.7.0
+    turbo-darwin-arm64: 1.7.0
+    turbo-linux-64: 1.7.0
+    turbo-linux-arm64: 1.7.0
+    turbo-windows-64: 1.7.0
+    turbo-windows-arm64: 1.7.0
   dependenciesMeta:
     turbo-darwin-64:
       optional: true
@@ -14252,7 +13759,7 @@ __metadata:
       optional: true
   bin:
     turbo: bin/turbo
-  checksum: 35195f4b7623014c25ba152c11a8cb23e51cbd75dc9266d0656692665f85b28faf3496dea8cecacf52795a917410668124186ffbdcf276325ccc3e11df9e9623
+  checksum: effefebefeb7531bb33205e368b2b3571fee9e8face3530af25126d4162527f105a5fe7777509a99288326be3b6e28953c7ceacab2c2ef74abb0604c8ec9bbe7
   languageName: node
   linkType: hard
 
@@ -14357,11 +13864,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ui@*, ui@workspace:packages/ui":
+"ui@workspace:*, ui@workspace:packages/ui":
   version: 0.0.0-use.local
   resolution: "ui@workspace:packages/ui"
   dependencies:
-    "@apollo/client": ^3.7.3
+    "@apollo/client": ^3.7.4
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
@@ -14373,15 +13880,14 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.7
     "@graphql-codegen/typescript-operations": ^2.5.12
     "@graphql-codegen/typescript-react-apollo": ^3.3.7
-    "@graphql-tools/mock": ^8.7.14
-    "@graphql-tools/schema": ^9.0.12
+    "@graphql-tools/mock": ^8.7.15
+    "@graphql-tools/schema": ^9.0.13
     "@jest/globals": ^29.3.1
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.4
-    "@next/eslint-plugin-next": ^13.1.1
-    "@next/font": ^13.1.1
-    "@sentry/nextjs": ^7.30.0
-    "@socialgouv/matomo-next": ^1.4.0
+    "@next/eslint-plugin-next": ^13.1.2
+    "@next/font": ^13.1.2
+    "@socialgouv/matomo-next": ^1.6.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.4.0
@@ -14391,6 +13897,7 @@ __metadata:
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
     "@types/jest": ^29.2.5
+    "@types/js-yaml": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/ramda": ^0.28.20
@@ -14400,7 +13907,6 @@ __metadata:
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
-    "@types/sharp": ^0.31.1
     "@typescript-eslint/eslint-plugin": ^5.48.1
     "@typescript-eslint/parser": ^5.48.1
     "@yarnpkg/pnpify": ^4.0.0-rc.35
@@ -14414,20 +13920,20 @@ __metadata:
     dayjs: ^1.11.7
     dompurify: ^2.4.3
     dotenv: ^16.0.3
-    eslint: ^8.31.0
+    eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-custom: "*"
-    eslint-config-next: ^13.1.1
+    eslint-config-custom: "workspace:*"
+    eslint-config-next: ^13.1.2
     eslint-config-prettier: ^8.6.0
     eslint-config-turbo: ^0.0.7
     eslint-import-resolver-typescript: ^3.5.3
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jsx-a11y: ^6.7.0
+    eslint-plugin-import: ^2.27.4
+    eslint-plugin-jsx-a11y: ^6.7.1
     eslint-plugin-react: ^7.32.0
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
-    framer-motion: ^8.4.1
+    framer-motion: ^8.4.3
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
     graphql-ws: ^5.11.2
@@ -14436,11 +13942,12 @@ __metadata:
     jest-cli: ^29.3.1
     jest-environment-jsdom: ^29.3.1
     jest-localstorage-mock: ^2.4.26
-    jest-presets: "*"
+    jest-presets: "workspace:*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
+    js-yaml: ^4.1.0
     markdown-to-jsx: ^7.1.8
-    next: ^13.1.1
+    next: ^13.1.2
     next-seo: ^5.15.0
     next-translate: ^1.6.0
     numeral: ^2.0.6
@@ -14454,17 +13961,17 @@ __metadata:
     react-virtualized-auto-sizer: ^1.0.7
     react-window: ^1.8.8
     react-window-infinite-loader: ^1.0.8
-    recharts: ^2.2.0
+    recharts: ^2.3.2
     recoil: ^0.7.6
-    shared-utils: "*"
-    sharp: ^0.31.3
+    shared-utils: "workspace:*"
     subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^29.0.3
+    ts-jest: ^29.0.5
     ts-node: ^10.9.1
-    tsconfig: "*"
+    tsconfig: "workspace:*"
     tss-react: ^4.5.2
     typanion: ^3.12.1
     typescript: ^4.9.4
+    usehooks-ts: ^2.9.1
     ws: ^8.12.0
   languageName: unknown
   linkType: soft
@@ -14629,6 +14136,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"usehooks-ts@npm:^2.9.1":
+  version: 2.9.1
+  resolution: "usehooks-ts@npm:2.9.1"
+  peerDependencies:
+    react: ^16.8.0  || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0  || ^17.0.0 || ^18.0.0
+  checksum: 36f1e4142ce23bc019b81d2e93aefd7f2c350abcf255598c21627114a69a2f2f116b35dc3a353375f09c6e4c9b704a04f104e3d10e98280545c097feca66c30a
+  languageName: node
+  linkType: hard
+
 "util-deprecate@npm:^1.0.1, util-deprecate@npm:~1.0.1":
   version: 1.0.2
   resolution: "util-deprecate@npm:1.0.2"
@@ -14664,10 +14181,39 @@ __metadata:
   languageName: node
   linkType: hard
 
-"value-or-promise@npm:1.0.11, value-or-promise@npm:^1.0.11":
+"value-or-promise@npm:1.0.11":
   version: 1.0.11
   resolution: "value-or-promise@npm:1.0.11"
   checksum: 13f8f2ef620118c73b4d1beee8ce6045d7182bbf15090ecfbcafb677ec43698506a5e9ace6bea5ea35c32bc612c9b1f824bb59b6581cdfb5c919052745c277d5
+  languageName: node
+  linkType: hard
+
+"value-or-promise@npm:1.0.12, value-or-promise@npm:^1.0.11":
+  version: 1.0.12
+  resolution: "value-or-promise@npm:1.0.12"
+  checksum: f53a66c75b7447c90bbaf946a757ca09c094629cb80ba742f59c980ec3a69be0a385a0e75505dedb4e757862f1a994ca4beaf083a831f24d3ffb3d4bb18cd1e1
+  languageName: node
+  linkType: hard
+
+"victory-vendor@npm:^36.6.8":
+  version: 36.6.8
+  resolution: "victory-vendor@npm:36.6.8"
+  dependencies:
+    "@types/d3-array": ^3.0.3
+    "@types/d3-ease": ^3.0.0
+    "@types/d3-interpolate": ^3.0.1
+    "@types/d3-scale": ^4.0.2
+    "@types/d3-shape": ^3.1.0
+    "@types/d3-time": ^3.0.0
+    "@types/d3-timer": ^3.0.0
+    d3-array: ^3.1.6
+    d3-ease: ^3.0.1
+    d3-interpolate: ^3.0.1
+    d3-scale: ^4.0.2
+    d3-shape: ^3.1.0
+    d3-time: ^3.0.0
+    d3-timer: ^3.0.1
+  checksum: 6411f7c19a776cef3919946d429293cfe33c93a6e4dcfdfa2ba1edecad3a28ed2cd6b0d117169b8917ab6a7679e2bade5e7bfc1fed3fc8b464b842f21dac5f49
   languageName: node
   linkType: hard
 
@@ -14702,7 +14248,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "web-agoric@workspace:apps/web-agoric"
   dependencies:
-    "@apollo/client": ^3.7.3
+    "@apollo/client": ^3.7.4
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
@@ -14714,15 +14260,14 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.7
     "@graphql-codegen/typescript-operations": ^2.5.12
     "@graphql-codegen/typescript-react-apollo": ^3.3.7
-    "@graphql-tools/mock": ^8.7.14
-    "@graphql-tools/schema": ^9.0.12
+    "@graphql-tools/mock": ^8.7.15
+    "@graphql-tools/schema": ^9.0.13
     "@jest/globals": ^29.3.1
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.4
-    "@next/eslint-plugin-next": ^13.1.1
-    "@next/font": ^13.1.1
-    "@sentry/nextjs": ^7.30.0
-    "@socialgouv/matomo-next": ^1.4.0
+    "@next/eslint-plugin-next": ^13.1.2
+    "@next/font": ^13.1.2
+    "@socialgouv/matomo-next": ^1.6.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.4.0
@@ -14732,6 +14277,7 @@ __metadata:
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
     "@types/jest": ^29.2.5
+    "@types/js-yaml": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/ramda": ^0.28.20
@@ -14741,7 +14287,6 @@ __metadata:
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
-    "@types/sharp": ^0.31.1
     "@typescript-eslint/eslint-plugin": ^5.48.1
     "@typescript-eslint/parser": ^5.48.1
     "@yarnpkg/pnpify": ^4.0.0-rc.35
@@ -14755,20 +14300,20 @@ __metadata:
     dayjs: ^1.11.7
     dompurify: ^2.4.3
     dotenv: ^16.0.3
-    eslint: ^8.31.0
+    eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-custom: "*"
-    eslint-config-next: ^13.1.1
+    eslint-config-custom: "workspace:*"
+    eslint-config-next: ^13.1.2
     eslint-config-prettier: ^8.6.0
     eslint-config-turbo: ^0.0.7
     eslint-import-resolver-typescript: ^3.5.3
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jsx-a11y: ^6.7.0
+    eslint-plugin-import: ^2.27.4
+    eslint-plugin-jsx-a11y: ^6.7.1
     eslint-plugin-react: ^7.32.0
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
-    framer-motion: ^8.4.1
+    framer-motion: ^8.4.3
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
     graphql-ws: ^5.11.2
@@ -14777,11 +14322,12 @@ __metadata:
     jest-cli: ^29.3.1
     jest-environment-jsdom: ^29.3.1
     jest-localstorage-mock: ^2.4.26
-    jest-presets: "*"
+    jest-presets: "workspace:*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
+    js-yaml: ^4.1.0
     markdown-to-jsx: ^7.1.8
-    next: ^13.1.1
+    next: ^13.1.2
     next-seo: ^5.15.0
     next-translate: ^1.6.0
     numeral: ^2.0.6
@@ -14795,18 +14341,18 @@ __metadata:
     react-virtualized-auto-sizer: ^1.0.7
     react-window: ^1.8.8
     react-window-infinite-loader: ^1.0.8
-    recharts: ^2.2.0
+    recharts: ^2.3.2
     recoil: ^0.7.6
-    shared-utils: "*"
-    sharp: ^0.31.3
+    shared-utils: "workspace:*"
     subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^29.0.3
+    ts-jest: ^29.0.5
     ts-node: ^10.9.1
-    tsconfig: "*"
+    tsconfig: "workspace:*"
     tss-react: ^4.5.2
     typanion: ^3.12.1
     typescript: ^4.9.4
-    ui: "*"
+    ui: "workspace:*"
+    usehooks-ts: ^2.9.1
     ws: ^8.12.0
   languageName: unknown
   linkType: soft
@@ -14815,7 +14361,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "web-akash@workspace:apps/web-akash"
   dependencies:
-    "@apollo/client": ^3.7.3
+    "@apollo/client": ^3.7.4
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
@@ -14827,15 +14373,14 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.7
     "@graphql-codegen/typescript-operations": ^2.5.12
     "@graphql-codegen/typescript-react-apollo": ^3.3.7
-    "@graphql-tools/mock": ^8.7.14
-    "@graphql-tools/schema": ^9.0.12
+    "@graphql-tools/mock": ^8.7.15
+    "@graphql-tools/schema": ^9.0.13
     "@jest/globals": ^29.3.1
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.4
-    "@next/eslint-plugin-next": ^13.1.1
-    "@next/font": ^13.1.1
-    "@sentry/nextjs": ^7.30.0
-    "@socialgouv/matomo-next": ^1.4.0
+    "@next/eslint-plugin-next": ^13.1.2
+    "@next/font": ^13.1.2
+    "@socialgouv/matomo-next": ^1.6.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.4.0
@@ -14845,6 +14390,7 @@ __metadata:
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
     "@types/jest": ^29.2.5
+    "@types/js-yaml": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/ramda": ^0.28.20
@@ -14854,7 +14400,6 @@ __metadata:
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
-    "@types/sharp": ^0.31.1
     "@typescript-eslint/eslint-plugin": ^5.48.1
     "@typescript-eslint/parser": ^5.48.1
     "@yarnpkg/pnpify": ^4.0.0-rc.35
@@ -14868,20 +14413,20 @@ __metadata:
     dayjs: ^1.11.7
     dompurify: ^2.4.3
     dotenv: ^16.0.3
-    eslint: ^8.31.0
+    eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-custom: "*"
-    eslint-config-next: ^13.1.1
+    eslint-config-custom: "workspace:*"
+    eslint-config-next: ^13.1.2
     eslint-config-prettier: ^8.6.0
     eslint-config-turbo: ^0.0.7
     eslint-import-resolver-typescript: ^3.5.3
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jsx-a11y: ^6.7.0
+    eslint-plugin-import: ^2.27.4
+    eslint-plugin-jsx-a11y: ^6.7.1
     eslint-plugin-react: ^7.32.0
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
-    framer-motion: ^8.4.1
+    framer-motion: ^8.4.3
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
     graphql-ws: ^5.11.2
@@ -14890,11 +14435,12 @@ __metadata:
     jest-cli: ^29.3.1
     jest-environment-jsdom: ^29.3.1
     jest-localstorage-mock: ^2.4.26
-    jest-presets: "*"
+    jest-presets: "workspace:*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
+    js-yaml: ^4.1.0
     markdown-to-jsx: ^7.1.8
-    next: ^13.1.1
+    next: ^13.1.2
     next-seo: ^5.15.0
     next-translate: ^1.6.0
     numeral: ^2.0.6
@@ -14908,18 +14454,18 @@ __metadata:
     react-virtualized-auto-sizer: ^1.0.7
     react-window: ^1.8.8
     react-window-infinite-loader: ^1.0.8
-    recharts: ^2.2.0
+    recharts: ^2.3.2
     recoil: ^0.7.6
-    shared-utils: "*"
-    sharp: ^0.31.3
+    shared-utils: "workspace:*"
     subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^29.0.3
+    ts-jest: ^29.0.5
     ts-node: ^10.9.1
-    tsconfig: "*"
+    tsconfig: "workspace:*"
     tss-react: ^4.5.2
     typanion: ^3.12.1
     typescript: ^4.9.4
-    ui: "*"
+    ui: "workspace:*"
+    usehooks-ts: ^2.9.1
     ws: ^8.12.0
   languageName: unknown
   linkType: soft
@@ -14928,7 +14474,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "web-assetmantle@workspace:apps/web-assetmantle"
   dependencies:
-    "@apollo/client": ^3.7.3
+    "@apollo/client": ^3.7.4
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
@@ -14940,15 +14486,14 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.7
     "@graphql-codegen/typescript-operations": ^2.5.12
     "@graphql-codegen/typescript-react-apollo": ^3.3.7
-    "@graphql-tools/mock": ^8.7.14
-    "@graphql-tools/schema": ^9.0.12
+    "@graphql-tools/mock": ^8.7.15
+    "@graphql-tools/schema": ^9.0.13
     "@jest/globals": ^29.3.1
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.4
-    "@next/eslint-plugin-next": ^13.1.1
-    "@next/font": ^13.1.1
-    "@sentry/nextjs": ^7.30.0
-    "@socialgouv/matomo-next": ^1.4.0
+    "@next/eslint-plugin-next": ^13.1.2
+    "@next/font": ^13.1.2
+    "@socialgouv/matomo-next": ^1.6.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.4.0
@@ -14958,6 +14503,7 @@ __metadata:
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
     "@types/jest": ^29.2.5
+    "@types/js-yaml": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/ramda": ^0.28.20
@@ -14967,7 +14513,6 @@ __metadata:
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
-    "@types/sharp": ^0.31.1
     "@typescript-eslint/eslint-plugin": ^5.48.1
     "@typescript-eslint/parser": ^5.48.1
     "@yarnpkg/pnpify": ^4.0.0-rc.35
@@ -14981,20 +14526,20 @@ __metadata:
     dayjs: ^1.11.7
     dompurify: ^2.4.3
     dotenv: ^16.0.3
-    eslint: ^8.31.0
+    eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-custom: "*"
-    eslint-config-next: ^13.1.1
+    eslint-config-custom: "workspace:*"
+    eslint-config-next: ^13.1.2
     eslint-config-prettier: ^8.6.0
     eslint-config-turbo: ^0.0.7
     eslint-import-resolver-typescript: ^3.5.3
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jsx-a11y: ^6.7.0
+    eslint-plugin-import: ^2.27.4
+    eslint-plugin-jsx-a11y: ^6.7.1
     eslint-plugin-react: ^7.32.0
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
-    framer-motion: ^8.4.1
+    framer-motion: ^8.4.3
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
     graphql-ws: ^5.11.2
@@ -15003,11 +14548,12 @@ __metadata:
     jest-cli: ^29.3.1
     jest-environment-jsdom: ^29.3.1
     jest-localstorage-mock: ^2.4.26
-    jest-presets: "*"
+    jest-presets: "workspace:*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
+    js-yaml: ^4.1.0
     markdown-to-jsx: ^7.1.8
-    next: ^13.1.1
+    next: ^13.1.2
     next-seo: ^5.15.0
     next-translate: ^1.6.0
     numeral: ^2.0.6
@@ -15021,18 +14567,18 @@ __metadata:
     react-virtualized-auto-sizer: ^1.0.7
     react-window: ^1.8.8
     react-window-infinite-loader: ^1.0.8
-    recharts: ^2.2.0
+    recharts: ^2.3.2
     recoil: ^0.7.6
-    shared-utils: "*"
-    sharp: ^0.31.3
+    shared-utils: "workspace:*"
     subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^29.0.3
+    ts-jest: ^29.0.5
     ts-node: ^10.9.1
-    tsconfig: "*"
+    tsconfig: "workspace:*"
     tss-react: ^4.5.2
     typanion: ^3.12.1
     typescript: ^4.9.4
-    ui: "*"
+    ui: "workspace:*"
+    usehooks-ts: ^2.9.1
     ws: ^8.12.0
   languageName: unknown
   linkType: soft
@@ -15041,7 +14587,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "web-band@workspace:apps/web-band"
   dependencies:
-    "@apollo/client": ^3.7.3
+    "@apollo/client": ^3.7.4
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
@@ -15053,15 +14599,14 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.7
     "@graphql-codegen/typescript-operations": ^2.5.12
     "@graphql-codegen/typescript-react-apollo": ^3.3.7
-    "@graphql-tools/mock": ^8.7.14
-    "@graphql-tools/schema": ^9.0.12
+    "@graphql-tools/mock": ^8.7.15
+    "@graphql-tools/schema": ^9.0.13
     "@jest/globals": ^29.3.1
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.4
-    "@next/eslint-plugin-next": ^13.1.1
-    "@next/font": ^13.1.1
-    "@sentry/nextjs": ^7.30.0
-    "@socialgouv/matomo-next": ^1.4.0
+    "@next/eslint-plugin-next": ^13.1.2
+    "@next/font": ^13.1.2
+    "@socialgouv/matomo-next": ^1.6.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.4.0
@@ -15071,6 +14616,7 @@ __metadata:
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
     "@types/jest": ^29.2.5
+    "@types/js-yaml": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/ramda": ^0.28.20
@@ -15080,7 +14626,6 @@ __metadata:
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
-    "@types/sharp": ^0.31.1
     "@typescript-eslint/eslint-plugin": ^5.48.1
     "@typescript-eslint/parser": ^5.48.1
     "@yarnpkg/pnpify": ^4.0.0-rc.35
@@ -15094,20 +14639,20 @@ __metadata:
     dayjs: ^1.11.7
     dompurify: ^2.4.3
     dotenv: ^16.0.3
-    eslint: ^8.31.0
+    eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-custom: "*"
-    eslint-config-next: ^13.1.1
+    eslint-config-custom: "workspace:*"
+    eslint-config-next: ^13.1.2
     eslint-config-prettier: ^8.6.0
     eslint-config-turbo: ^0.0.7
     eslint-import-resolver-typescript: ^3.5.3
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jsx-a11y: ^6.7.0
+    eslint-plugin-import: ^2.27.4
+    eslint-plugin-jsx-a11y: ^6.7.1
     eslint-plugin-react: ^7.32.0
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
-    framer-motion: ^8.4.1
+    framer-motion: ^8.4.3
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
     graphql-ws: ^5.11.2
@@ -15116,11 +14661,12 @@ __metadata:
     jest-cli: ^29.3.1
     jest-environment-jsdom: ^29.3.1
     jest-localstorage-mock: ^2.4.26
-    jest-presets: "*"
+    jest-presets: "workspace:*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
+    js-yaml: ^4.1.0
     markdown-to-jsx: ^7.1.8
-    next: ^13.1.1
+    next: ^13.1.2
     next-seo: ^5.15.0
     next-translate: ^1.6.0
     numeral: ^2.0.6
@@ -15134,18 +14680,18 @@ __metadata:
     react-virtualized-auto-sizer: ^1.0.7
     react-window: ^1.8.8
     react-window-infinite-loader: ^1.0.8
-    recharts: ^2.2.0
+    recharts: ^2.3.2
     recoil: ^0.7.6
-    shared-utils: "*"
-    sharp: ^0.31.3
+    shared-utils: "workspace:*"
     subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^29.0.3
+    ts-jest: ^29.0.5
     ts-node: ^10.9.1
-    tsconfig: "*"
+    tsconfig: "workspace:*"
     tss-react: ^4.5.2
     typanion: ^3.12.1
     typescript: ^4.9.4
-    ui: "*"
+    ui: "workspace:*"
+    usehooks-ts: ^2.9.1
     ws: ^8.12.0
   languageName: unknown
   linkType: soft
@@ -15154,7 +14700,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "web-bitsong@workspace:apps/web-bitsong"
   dependencies:
-    "@apollo/client": ^3.7.3
+    "@apollo/client": ^3.7.4
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
@@ -15166,15 +14712,14 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.7
     "@graphql-codegen/typescript-operations": ^2.5.12
     "@graphql-codegen/typescript-react-apollo": ^3.3.7
-    "@graphql-tools/mock": ^8.7.14
-    "@graphql-tools/schema": ^9.0.12
+    "@graphql-tools/mock": ^8.7.15
+    "@graphql-tools/schema": ^9.0.13
     "@jest/globals": ^29.3.1
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.4
-    "@next/eslint-plugin-next": ^13.1.1
-    "@next/font": ^13.1.1
-    "@sentry/nextjs": ^7.30.0
-    "@socialgouv/matomo-next": ^1.4.0
+    "@next/eslint-plugin-next": ^13.1.2
+    "@next/font": ^13.1.2
+    "@socialgouv/matomo-next": ^1.6.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.4.0
@@ -15184,6 +14729,7 @@ __metadata:
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
     "@types/jest": ^29.2.5
+    "@types/js-yaml": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/ramda": ^0.28.20
@@ -15193,7 +14739,6 @@ __metadata:
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
-    "@types/sharp": ^0.31.1
     "@typescript-eslint/eslint-plugin": ^5.48.1
     "@typescript-eslint/parser": ^5.48.1
     "@yarnpkg/pnpify": ^4.0.0-rc.35
@@ -15207,20 +14752,20 @@ __metadata:
     dayjs: ^1.11.7
     dompurify: ^2.4.3
     dotenv: ^16.0.3
-    eslint: ^8.31.0
+    eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-custom: "*"
-    eslint-config-next: ^13.1.1
+    eslint-config-custom: "workspace:*"
+    eslint-config-next: ^13.1.2
     eslint-config-prettier: ^8.6.0
     eslint-config-turbo: ^0.0.7
     eslint-import-resolver-typescript: ^3.5.3
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jsx-a11y: ^6.7.0
+    eslint-plugin-import: ^2.27.4
+    eslint-plugin-jsx-a11y: ^6.7.1
     eslint-plugin-react: ^7.32.0
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
-    framer-motion: ^8.4.1
+    framer-motion: ^8.4.3
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
     graphql-ws: ^5.11.2
@@ -15229,11 +14774,12 @@ __metadata:
     jest-cli: ^29.3.1
     jest-environment-jsdom: ^29.3.1
     jest-localstorage-mock: ^2.4.26
-    jest-presets: "*"
+    jest-presets: "workspace:*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
+    js-yaml: ^4.1.0
     markdown-to-jsx: ^7.1.8
-    next: ^13.1.1
+    next: ^13.1.2
     next-seo: ^5.15.0
     next-translate: ^1.6.0
     numeral: ^2.0.6
@@ -15247,18 +14793,18 @@ __metadata:
     react-virtualized-auto-sizer: ^1.0.7
     react-window: ^1.8.8
     react-window-infinite-loader: ^1.0.8
-    recharts: ^2.2.0
+    recharts: ^2.3.2
     recoil: ^0.7.6
-    shared-utils: "*"
-    sharp: ^0.31.3
+    shared-utils: "workspace:*"
     subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^29.0.3
+    ts-jest: ^29.0.5
     ts-node: ^10.9.1
-    tsconfig: "*"
+    tsconfig: "workspace:*"
     tss-react: ^4.5.2
     typanion: ^3.12.1
     typescript: ^4.9.4
-    ui: "*"
+    ui: "workspace:*"
+    usehooks-ts: ^2.9.1
     ws: ^8.12.0
   languageName: unknown
   linkType: soft
@@ -15267,7 +14813,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "web-comdex@workspace:apps/web-comdex"
   dependencies:
-    "@apollo/client": ^3.7.3
+    "@apollo/client": ^3.7.4
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
@@ -15279,15 +14825,14 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.7
     "@graphql-codegen/typescript-operations": ^2.5.12
     "@graphql-codegen/typescript-react-apollo": ^3.3.7
-    "@graphql-tools/mock": ^8.7.14
-    "@graphql-tools/schema": ^9.0.12
+    "@graphql-tools/mock": ^8.7.15
+    "@graphql-tools/schema": ^9.0.13
     "@jest/globals": ^29.3.1
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.4
-    "@next/eslint-plugin-next": ^13.1.1
-    "@next/font": ^13.1.1
-    "@sentry/nextjs": ^7.30.0
-    "@socialgouv/matomo-next": ^1.4.0
+    "@next/eslint-plugin-next": ^13.1.2
+    "@next/font": ^13.1.2
+    "@socialgouv/matomo-next": ^1.6.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.4.0
@@ -15297,6 +14842,7 @@ __metadata:
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
     "@types/jest": ^29.2.5
+    "@types/js-yaml": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/ramda": ^0.28.20
@@ -15306,7 +14852,6 @@ __metadata:
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
-    "@types/sharp": ^0.31.1
     "@typescript-eslint/eslint-plugin": ^5.48.1
     "@typescript-eslint/parser": ^5.48.1
     "@yarnpkg/pnpify": ^4.0.0-rc.35
@@ -15320,20 +14865,20 @@ __metadata:
     dayjs: ^1.11.7
     dompurify: ^2.4.3
     dotenv: ^16.0.3
-    eslint: ^8.31.0
+    eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-custom: "*"
-    eslint-config-next: ^13.1.1
+    eslint-config-custom: "workspace:*"
+    eslint-config-next: ^13.1.2
     eslint-config-prettier: ^8.6.0
     eslint-config-turbo: ^0.0.7
     eslint-import-resolver-typescript: ^3.5.3
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jsx-a11y: ^6.7.0
+    eslint-plugin-import: ^2.27.4
+    eslint-plugin-jsx-a11y: ^6.7.1
     eslint-plugin-react: ^7.32.0
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
-    framer-motion: ^8.4.1
+    framer-motion: ^8.4.3
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
     graphql-ws: ^5.11.2
@@ -15342,11 +14887,12 @@ __metadata:
     jest-cli: ^29.3.1
     jest-environment-jsdom: ^29.3.1
     jest-localstorage-mock: ^2.4.26
-    jest-presets: "*"
+    jest-presets: "workspace:*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
+    js-yaml: ^4.1.0
     markdown-to-jsx: ^7.1.8
-    next: ^13.1.1
+    next: ^13.1.2
     next-seo: ^5.15.0
     next-translate: ^1.6.0
     numeral: ^2.0.6
@@ -15360,18 +14906,18 @@ __metadata:
     react-virtualized-auto-sizer: ^1.0.7
     react-window: ^1.8.8
     react-window-infinite-loader: ^1.0.8
-    recharts: ^2.2.0
+    recharts: ^2.3.2
     recoil: ^0.7.6
-    shared-utils: "*"
-    sharp: ^0.31.3
+    shared-utils: "workspace:*"
     subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^29.0.3
+    ts-jest: ^29.0.5
     ts-node: ^10.9.1
-    tsconfig: "*"
+    tsconfig: "workspace:*"
     tss-react: ^4.5.2
     typanion: ^3.12.1
     typescript: ^4.9.4
-    ui: "*"
+    ui: "workspace:*"
+    usehooks-ts: ^2.9.1
     ws: ^8.12.0
   languageName: unknown
   linkType: soft
@@ -15380,7 +14926,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "web-cosmos@workspace:apps/web-cosmos"
   dependencies:
-    "@apollo/client": ^3.7.3
+    "@apollo/client": ^3.7.4
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
@@ -15392,15 +14938,14 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.7
     "@graphql-codegen/typescript-operations": ^2.5.12
     "@graphql-codegen/typescript-react-apollo": ^3.3.7
-    "@graphql-tools/mock": ^8.7.14
-    "@graphql-tools/schema": ^9.0.12
+    "@graphql-tools/mock": ^8.7.15
+    "@graphql-tools/schema": ^9.0.13
     "@jest/globals": ^29.3.1
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.4
-    "@next/eslint-plugin-next": ^13.1.1
-    "@next/font": ^13.1.1
-    "@sentry/nextjs": ^7.30.0
-    "@socialgouv/matomo-next": ^1.4.0
+    "@next/eslint-plugin-next": ^13.1.2
+    "@next/font": ^13.1.2
+    "@socialgouv/matomo-next": ^1.6.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.4.0
@@ -15410,6 +14955,7 @@ __metadata:
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
     "@types/jest": ^29.2.5
+    "@types/js-yaml": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/ramda": ^0.28.20
@@ -15419,7 +14965,6 @@ __metadata:
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
-    "@types/sharp": ^0.31.1
     "@typescript-eslint/eslint-plugin": ^5.48.1
     "@typescript-eslint/parser": ^5.48.1
     "@yarnpkg/pnpify": ^4.0.0-rc.35
@@ -15433,20 +14978,20 @@ __metadata:
     dayjs: ^1.11.7
     dompurify: ^2.4.3
     dotenv: ^16.0.3
-    eslint: ^8.31.0
+    eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-custom: "*"
-    eslint-config-next: ^13.1.1
+    eslint-config-custom: "workspace:*"
+    eslint-config-next: ^13.1.2
     eslint-config-prettier: ^8.6.0
     eslint-config-turbo: ^0.0.7
     eslint-import-resolver-typescript: ^3.5.3
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jsx-a11y: ^6.7.0
+    eslint-plugin-import: ^2.27.4
+    eslint-plugin-jsx-a11y: ^6.7.1
     eslint-plugin-react: ^7.32.0
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
-    framer-motion: ^8.4.1
+    framer-motion: ^8.4.3
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
     graphql-ws: ^5.11.2
@@ -15455,11 +15000,12 @@ __metadata:
     jest-cli: ^29.3.1
     jest-environment-jsdom: ^29.3.1
     jest-localstorage-mock: ^2.4.26
-    jest-presets: "*"
+    jest-presets: "workspace:*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
+    js-yaml: ^4.1.0
     markdown-to-jsx: ^7.1.8
-    next: ^13.1.1
+    next: ^13.1.2
     next-seo: ^5.15.0
     next-translate: ^1.6.0
     numeral: ^2.0.6
@@ -15473,18 +15019,18 @@ __metadata:
     react-virtualized-auto-sizer: ^1.0.7
     react-window: ^1.8.8
     react-window-infinite-loader: ^1.0.8
-    recharts: ^2.2.0
+    recharts: ^2.3.2
     recoil: ^0.7.6
-    shared-utils: "*"
-    sharp: ^0.31.3
+    shared-utils: "workspace:*"
     subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^29.0.3
+    ts-jest: ^29.0.5
     ts-node: ^10.9.1
-    tsconfig: "*"
+    tsconfig: "workspace:*"
     tss-react: ^4.5.2
     typanion: ^3.12.1
     typescript: ^4.9.4
-    ui: "*"
+    ui: "workspace:*"
+    usehooks-ts: ^2.9.1
     ws: ^8.12.0
   languageName: unknown
   linkType: soft
@@ -15493,7 +15039,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "web-crescent@workspace:apps/web-crescent"
   dependencies:
-    "@apollo/client": ^3.7.3
+    "@apollo/client": ^3.7.4
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
@@ -15505,15 +15051,14 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.7
     "@graphql-codegen/typescript-operations": ^2.5.12
     "@graphql-codegen/typescript-react-apollo": ^3.3.7
-    "@graphql-tools/mock": ^8.7.14
-    "@graphql-tools/schema": ^9.0.12
+    "@graphql-tools/mock": ^8.7.15
+    "@graphql-tools/schema": ^9.0.13
     "@jest/globals": ^29.3.1
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.4
-    "@next/eslint-plugin-next": ^13.1.1
-    "@next/font": ^13.1.1
-    "@sentry/nextjs": ^7.30.0
-    "@socialgouv/matomo-next": ^1.4.0
+    "@next/eslint-plugin-next": ^13.1.2
+    "@next/font": ^13.1.2
+    "@socialgouv/matomo-next": ^1.6.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.4.0
@@ -15523,6 +15068,7 @@ __metadata:
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
     "@types/jest": ^29.2.5
+    "@types/js-yaml": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/ramda": ^0.28.20
@@ -15532,7 +15078,6 @@ __metadata:
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
-    "@types/sharp": ^0.31.1
     "@typescript-eslint/eslint-plugin": ^5.48.1
     "@typescript-eslint/parser": ^5.48.1
     "@yarnpkg/pnpify": ^4.0.0-rc.35
@@ -15546,20 +15091,20 @@ __metadata:
     dayjs: ^1.11.7
     dompurify: ^2.4.3
     dotenv: ^16.0.3
-    eslint: ^8.31.0
+    eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-custom: "*"
-    eslint-config-next: ^13.1.1
+    eslint-config-custom: "workspace:*"
+    eslint-config-next: ^13.1.2
     eslint-config-prettier: ^8.6.0
     eslint-config-turbo: ^0.0.7
     eslint-import-resolver-typescript: ^3.5.3
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jsx-a11y: ^6.7.0
+    eslint-plugin-import: ^2.27.4
+    eslint-plugin-jsx-a11y: ^6.7.1
     eslint-plugin-react: ^7.32.0
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
-    framer-motion: ^8.4.1
+    framer-motion: ^8.4.3
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
     graphql-ws: ^5.11.2
@@ -15568,11 +15113,12 @@ __metadata:
     jest-cli: ^29.3.1
     jest-environment-jsdom: ^29.3.1
     jest-localstorage-mock: ^2.4.26
-    jest-presets: "*"
+    jest-presets: "workspace:*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
+    js-yaml: ^4.1.0
     markdown-to-jsx: ^7.1.8
-    next: ^13.1.1
+    next: ^13.1.2
     next-seo: ^5.15.0
     next-translate: ^1.6.0
     numeral: ^2.0.6
@@ -15586,18 +15132,18 @@ __metadata:
     react-virtualized-auto-sizer: ^1.0.7
     react-window: ^1.8.8
     react-window-infinite-loader: ^1.0.8
-    recharts: ^2.2.0
+    recharts: ^2.3.2
     recoil: ^0.7.6
-    shared-utils: "*"
-    sharp: ^0.31.3
+    shared-utils: "workspace:*"
     subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^29.0.3
+    ts-jest: ^29.0.5
     ts-node: ^10.9.1
-    tsconfig: "*"
+    tsconfig: "workspace:*"
     tss-react: ^4.5.2
     typanion: ^3.12.1
     typescript: ^4.9.4
-    ui: "*"
+    ui: "workspace:*"
+    usehooks-ts: ^2.9.1
     ws: ^8.12.0
   languageName: unknown
   linkType: soft
@@ -15606,7 +15152,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "web-desmos@workspace:apps/web-desmos"
   dependencies:
-    "@apollo/client": ^3.7.3
+    "@apollo/client": ^3.7.4
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
@@ -15618,15 +15164,14 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.7
     "@graphql-codegen/typescript-operations": ^2.5.12
     "@graphql-codegen/typescript-react-apollo": ^3.3.7
-    "@graphql-tools/mock": ^8.7.14
-    "@graphql-tools/schema": ^9.0.12
+    "@graphql-tools/mock": ^8.7.15
+    "@graphql-tools/schema": ^9.0.13
     "@jest/globals": ^29.3.1
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.4
-    "@next/eslint-plugin-next": ^13.1.1
-    "@next/font": ^13.1.1
-    "@sentry/nextjs": ^7.30.0
-    "@socialgouv/matomo-next": ^1.4.0
+    "@next/eslint-plugin-next": ^13.1.2
+    "@next/font": ^13.1.2
+    "@socialgouv/matomo-next": ^1.6.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.4.0
@@ -15636,6 +15181,7 @@ __metadata:
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
     "@types/jest": ^29.2.5
+    "@types/js-yaml": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/ramda": ^0.28.20
@@ -15645,7 +15191,6 @@ __metadata:
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
-    "@types/sharp": ^0.31.1
     "@typescript-eslint/eslint-plugin": ^5.48.1
     "@typescript-eslint/parser": ^5.48.1
     "@yarnpkg/pnpify": ^4.0.0-rc.35
@@ -15659,20 +15204,20 @@ __metadata:
     dayjs: ^1.11.7
     dompurify: ^2.4.3
     dotenv: ^16.0.3
-    eslint: ^8.31.0
+    eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-custom: "*"
-    eslint-config-next: ^13.1.1
+    eslint-config-custom: "workspace:*"
+    eslint-config-next: ^13.1.2
     eslint-config-prettier: ^8.6.0
     eslint-config-turbo: ^0.0.7
     eslint-import-resolver-typescript: ^3.5.3
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jsx-a11y: ^6.7.0
+    eslint-plugin-import: ^2.27.4
+    eslint-plugin-jsx-a11y: ^6.7.1
     eslint-plugin-react: ^7.32.0
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
-    framer-motion: ^8.4.1
+    framer-motion: ^8.4.3
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
     graphql-ws: ^5.11.2
@@ -15681,11 +15226,12 @@ __metadata:
     jest-cli: ^29.3.1
     jest-environment-jsdom: ^29.3.1
     jest-localstorage-mock: ^2.4.26
-    jest-presets: "*"
+    jest-presets: "workspace:*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
+    js-yaml: ^4.1.0
     markdown-to-jsx: ^7.1.8
-    next: ^13.1.1
+    next: ^13.1.2
     next-seo: ^5.15.0
     next-translate: ^1.6.0
     numeral: ^2.0.6
@@ -15699,18 +15245,18 @@ __metadata:
     react-virtualized-auto-sizer: ^1.0.7
     react-window: ^1.8.8
     react-window-infinite-loader: ^1.0.8
-    recharts: ^2.2.0
+    recharts: ^2.3.2
     recoil: ^0.7.6
-    shared-utils: "*"
-    sharp: ^0.31.3
+    shared-utils: "workspace:*"
     subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^29.0.3
+    ts-jest: ^29.0.5
     ts-node: ^10.9.1
-    tsconfig: "*"
+    tsconfig: "workspace:*"
     tss-react: ^4.5.2
     typanion: ^3.12.1
     typescript: ^4.9.4
-    ui: "*"
+    ui: "workspace:*"
+    usehooks-ts: ^2.9.1
     ws: ^8.12.0
   languageName: unknown
   linkType: soft
@@ -15719,7 +15265,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "web-elrond@workspace:apps/web-elrond"
   dependencies:
-    "@apollo/client": ^3.7.3
+    "@apollo/client": ^3.7.4
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
@@ -15731,15 +15277,14 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.7
     "@graphql-codegen/typescript-operations": ^2.5.12
     "@graphql-codegen/typescript-react-apollo": ^3.3.7
-    "@graphql-tools/mock": ^8.7.14
-    "@graphql-tools/schema": ^9.0.12
+    "@graphql-tools/mock": ^8.7.15
+    "@graphql-tools/schema": ^9.0.13
     "@jest/globals": ^29.3.1
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.4
-    "@next/eslint-plugin-next": ^13.1.1
-    "@next/font": ^13.1.1
-    "@sentry/nextjs": ^7.30.0
-    "@socialgouv/matomo-next": ^1.4.0
+    "@next/eslint-plugin-next": ^13.1.2
+    "@next/font": ^13.1.2
+    "@socialgouv/matomo-next": ^1.6.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.4.0
@@ -15749,6 +15294,7 @@ __metadata:
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
     "@types/jest": ^29.2.5
+    "@types/js-yaml": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/ramda": ^0.28.20
@@ -15758,7 +15304,6 @@ __metadata:
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
-    "@types/sharp": ^0.31.1
     "@typescript-eslint/eslint-plugin": ^5.48.1
     "@typescript-eslint/parser": ^5.48.1
     "@yarnpkg/pnpify": ^4.0.0-rc.35
@@ -15772,20 +15317,20 @@ __metadata:
     dayjs: ^1.11.7
     dompurify: ^2.4.3
     dotenv: ^16.0.3
-    eslint: ^8.31.0
+    eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-custom: "*"
-    eslint-config-next: ^13.1.1
+    eslint-config-custom: "workspace:*"
+    eslint-config-next: ^13.1.2
     eslint-config-prettier: ^8.6.0
     eslint-config-turbo: ^0.0.7
     eslint-import-resolver-typescript: ^3.5.3
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jsx-a11y: ^6.7.0
+    eslint-plugin-import: ^2.27.4
+    eslint-plugin-jsx-a11y: ^6.7.1
     eslint-plugin-react: ^7.32.0
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
-    framer-motion: ^8.4.1
+    framer-motion: ^8.4.3
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
     graphql-ws: ^5.11.2
@@ -15794,11 +15339,12 @@ __metadata:
     jest-cli: ^29.3.1
     jest-environment-jsdom: ^29.3.1
     jest-localstorage-mock: ^2.4.26
-    jest-presets: "*"
+    jest-presets: "workspace:*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
+    js-yaml: ^4.1.0
     markdown-to-jsx: ^7.1.8
-    next: ^13.1.1
+    next: ^13.1.2
     next-seo: ^5.15.0
     next-translate: ^1.6.0
     numeral: ^2.0.6
@@ -15812,18 +15358,18 @@ __metadata:
     react-virtualized-auto-sizer: ^1.0.7
     react-window: ^1.8.8
     react-window-infinite-loader: ^1.0.8
-    recharts: ^2.2.0
+    recharts: ^2.3.2
     recoil: ^0.7.6
-    shared-utils: "*"
-    sharp: ^0.31.3
+    shared-utils: "workspace:*"
     subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^29.0.3
+    ts-jest: ^29.0.5
     ts-node: ^10.9.1
-    tsconfig: "*"
+    tsconfig: "workspace:*"
     tss-react: ^4.5.2
     typanion: ^3.12.1
     typescript: ^4.9.4
-    ui: "*"
+    ui: "workspace:*"
+    usehooks-ts: ^2.9.1
     ws: ^8.12.0
   languageName: unknown
   linkType: soft
@@ -15832,7 +15378,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "web-emoney@workspace:apps/web-emoney"
   dependencies:
-    "@apollo/client": ^3.7.3
+    "@apollo/client": ^3.7.4
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
@@ -15844,15 +15390,14 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.7
     "@graphql-codegen/typescript-operations": ^2.5.12
     "@graphql-codegen/typescript-react-apollo": ^3.3.7
-    "@graphql-tools/mock": ^8.7.14
-    "@graphql-tools/schema": ^9.0.12
+    "@graphql-tools/mock": ^8.7.15
+    "@graphql-tools/schema": ^9.0.13
     "@jest/globals": ^29.3.1
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.4
-    "@next/eslint-plugin-next": ^13.1.1
-    "@next/font": ^13.1.1
-    "@sentry/nextjs": ^7.30.0
-    "@socialgouv/matomo-next": ^1.4.0
+    "@next/eslint-plugin-next": ^13.1.2
+    "@next/font": ^13.1.2
+    "@socialgouv/matomo-next": ^1.6.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.4.0
@@ -15862,6 +15407,7 @@ __metadata:
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
     "@types/jest": ^29.2.5
+    "@types/js-yaml": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/ramda": ^0.28.20
@@ -15871,7 +15417,6 @@ __metadata:
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
-    "@types/sharp": ^0.31.1
     "@typescript-eslint/eslint-plugin": ^5.48.1
     "@typescript-eslint/parser": ^5.48.1
     "@yarnpkg/pnpify": ^4.0.0-rc.35
@@ -15885,20 +15430,20 @@ __metadata:
     dayjs: ^1.11.7
     dompurify: ^2.4.3
     dotenv: ^16.0.3
-    eslint: ^8.31.0
+    eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-custom: "*"
-    eslint-config-next: ^13.1.1
+    eslint-config-custom: "workspace:*"
+    eslint-config-next: ^13.1.2
     eslint-config-prettier: ^8.6.0
     eslint-config-turbo: ^0.0.7
     eslint-import-resolver-typescript: ^3.5.3
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jsx-a11y: ^6.7.0
+    eslint-plugin-import: ^2.27.4
+    eslint-plugin-jsx-a11y: ^6.7.1
     eslint-plugin-react: ^7.32.0
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
-    framer-motion: ^8.4.1
+    framer-motion: ^8.4.3
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
     graphql-ws: ^5.11.2
@@ -15907,11 +15452,12 @@ __metadata:
     jest-cli: ^29.3.1
     jest-environment-jsdom: ^29.3.1
     jest-localstorage-mock: ^2.4.26
-    jest-presets: "*"
+    jest-presets: "workspace:*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
+    js-yaml: ^4.1.0
     markdown-to-jsx: ^7.1.8
-    next: ^13.1.1
+    next: ^13.1.2
     next-seo: ^5.15.0
     next-translate: ^1.6.0
     numeral: ^2.0.6
@@ -15925,18 +15471,18 @@ __metadata:
     react-virtualized-auto-sizer: ^1.0.7
     react-window: ^1.8.8
     react-window-infinite-loader: ^1.0.8
-    recharts: ^2.2.0
+    recharts: ^2.3.2
     recoil: ^0.7.6
-    shared-utils: "*"
-    sharp: ^0.31.3
+    shared-utils: "workspace:*"
     subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^29.0.3
+    ts-jest: ^29.0.5
     ts-node: ^10.9.1
-    tsconfig: "*"
+    tsconfig: "workspace:*"
     tss-react: ^4.5.2
     typanion: ^3.12.1
     typescript: ^4.9.4
-    ui: "*"
+    ui: "workspace:*"
+    usehooks-ts: ^2.9.1
     ws: ^8.12.0
   languageName: unknown
   linkType: soft
@@ -15945,7 +15491,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "web-evmos@workspace:apps/web-evmos"
   dependencies:
-    "@apollo/client": ^3.7.3
+    "@apollo/client": ^3.7.4
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
@@ -15957,15 +15503,14 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.7
     "@graphql-codegen/typescript-operations": ^2.5.12
     "@graphql-codegen/typescript-react-apollo": ^3.3.7
-    "@graphql-tools/mock": ^8.7.14
-    "@graphql-tools/schema": ^9.0.12
+    "@graphql-tools/mock": ^8.7.15
+    "@graphql-tools/schema": ^9.0.13
     "@jest/globals": ^29.3.1
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.4
-    "@next/eslint-plugin-next": ^13.1.1
-    "@next/font": ^13.1.1
-    "@sentry/nextjs": ^7.30.0
-    "@socialgouv/matomo-next": ^1.4.0
+    "@next/eslint-plugin-next": ^13.1.2
+    "@next/font": ^13.1.2
+    "@socialgouv/matomo-next": ^1.6.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.4.0
@@ -15975,6 +15520,7 @@ __metadata:
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
     "@types/jest": ^29.2.5
+    "@types/js-yaml": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/ramda": ^0.28.20
@@ -15984,7 +15530,6 @@ __metadata:
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
-    "@types/sharp": ^0.31.1
     "@typescript-eslint/eslint-plugin": ^5.48.1
     "@typescript-eslint/parser": ^5.48.1
     "@yarnpkg/pnpify": ^4.0.0-rc.35
@@ -15998,20 +15543,20 @@ __metadata:
     dayjs: ^1.11.7
     dompurify: ^2.4.3
     dotenv: ^16.0.3
-    eslint: ^8.31.0
+    eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-custom: "*"
-    eslint-config-next: ^13.1.1
+    eslint-config-custom: "workspace:*"
+    eslint-config-next: ^13.1.2
     eslint-config-prettier: ^8.6.0
     eslint-config-turbo: ^0.0.7
     eslint-import-resolver-typescript: ^3.5.3
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jsx-a11y: ^6.7.0
+    eslint-plugin-import: ^2.27.4
+    eslint-plugin-jsx-a11y: ^6.7.1
     eslint-plugin-react: ^7.32.0
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
-    framer-motion: ^8.4.1
+    framer-motion: ^8.4.3
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
     graphql-ws: ^5.11.2
@@ -16020,11 +15565,12 @@ __metadata:
     jest-cli: ^29.3.1
     jest-environment-jsdom: ^29.3.1
     jest-localstorage-mock: ^2.4.26
-    jest-presets: "*"
+    jest-presets: "workspace:*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
+    js-yaml: ^4.1.0
     markdown-to-jsx: ^7.1.8
-    next: ^13.1.1
+    next: ^13.1.2
     next-seo: ^5.15.0
     next-translate: ^1.6.0
     numeral: ^2.0.6
@@ -16038,18 +15584,18 @@ __metadata:
     react-virtualized-auto-sizer: ^1.0.7
     react-window: ^1.8.8
     react-window-infinite-loader: ^1.0.8
-    recharts: ^2.2.0
+    recharts: ^2.3.2
     recoil: ^0.7.6
-    shared-utils: "*"
-    sharp: ^0.31.3
+    shared-utils: "workspace:*"
     subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^29.0.3
+    ts-jest: ^29.0.5
     ts-node: ^10.9.1
-    tsconfig: "*"
+    tsconfig: "workspace:*"
     tss-react: ^4.5.2
     typanion: ^3.12.1
     typescript: ^4.9.4
-    ui: "*"
+    ui: "workspace:*"
+    usehooks-ts: ^2.9.1
     ws: ^8.12.0
   languageName: unknown
   linkType: soft
@@ -16058,7 +15604,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "web-likecoin@workspace:apps/web-likecoin"
   dependencies:
-    "@apollo/client": ^3.7.3
+    "@apollo/client": ^3.7.4
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
@@ -16070,15 +15616,14 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.7
     "@graphql-codegen/typescript-operations": ^2.5.12
     "@graphql-codegen/typescript-react-apollo": ^3.3.7
-    "@graphql-tools/mock": ^8.7.14
-    "@graphql-tools/schema": ^9.0.12
+    "@graphql-tools/mock": ^8.7.15
+    "@graphql-tools/schema": ^9.0.13
     "@jest/globals": ^29.3.1
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.4
-    "@next/eslint-plugin-next": ^13.1.1
-    "@next/font": ^13.1.1
-    "@sentry/nextjs": ^7.30.0
-    "@socialgouv/matomo-next": ^1.4.0
+    "@next/eslint-plugin-next": ^13.1.2
+    "@next/font": ^13.1.2
+    "@socialgouv/matomo-next": ^1.6.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.4.0
@@ -16088,6 +15633,7 @@ __metadata:
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
     "@types/jest": ^29.2.5
+    "@types/js-yaml": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/ramda": ^0.28.20
@@ -16097,7 +15643,6 @@ __metadata:
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
-    "@types/sharp": ^0.31.1
     "@typescript-eslint/eslint-plugin": ^5.48.1
     "@typescript-eslint/parser": ^5.48.1
     "@yarnpkg/pnpify": ^4.0.0-rc.35
@@ -16111,20 +15656,20 @@ __metadata:
     dayjs: ^1.11.7
     dompurify: ^2.4.3
     dotenv: ^16.0.3
-    eslint: ^8.31.0
+    eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-custom: "*"
-    eslint-config-next: ^13.1.1
+    eslint-config-custom: "workspace:*"
+    eslint-config-next: ^13.1.2
     eslint-config-prettier: ^8.6.0
     eslint-config-turbo: ^0.0.7
     eslint-import-resolver-typescript: ^3.5.3
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jsx-a11y: ^6.7.0
+    eslint-plugin-import: ^2.27.4
+    eslint-plugin-jsx-a11y: ^6.7.1
     eslint-plugin-react: ^7.32.0
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
-    framer-motion: ^8.4.1
+    framer-motion: ^8.4.3
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
     graphql-ws: ^5.11.2
@@ -16133,11 +15678,12 @@ __metadata:
     jest-cli: ^29.3.1
     jest-environment-jsdom: ^29.3.1
     jest-localstorage-mock: ^2.4.26
-    jest-presets: "*"
+    jest-presets: "workspace:*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
+    js-yaml: ^4.1.0
     markdown-to-jsx: ^7.1.8
-    next: ^13.1.1
+    next: ^13.1.2
     next-seo: ^5.15.0
     next-translate: ^1.6.0
     numeral: ^2.0.6
@@ -16151,18 +15697,18 @@ __metadata:
     react-virtualized-auto-sizer: ^1.0.7
     react-window: ^1.8.8
     react-window-infinite-loader: ^1.0.8
-    recharts: ^2.2.0
+    recharts: ^2.3.2
     recoil: ^0.7.6
-    shared-utils: "*"
-    sharp: ^0.31.3
+    shared-utils: "workspace:*"
     subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^29.0.3
+    ts-jest: ^29.0.5
     ts-node: ^10.9.1
-    tsconfig: "*"
+    tsconfig: "workspace:*"
     tss-react: ^4.5.2
     typanion: ^3.12.1
     typescript: ^4.9.4
-    ui: "*"
+    ui: "workspace:*"
+    usehooks-ts: ^2.9.1
     ws: ^8.12.0
   languageName: unknown
   linkType: soft
@@ -16171,7 +15717,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "web-nomic@workspace:apps/web-nomic"
   dependencies:
-    "@apollo/client": ^3.7.3
+    "@apollo/client": ^3.7.4
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
@@ -16183,15 +15729,14 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.7
     "@graphql-codegen/typescript-operations": ^2.5.12
     "@graphql-codegen/typescript-react-apollo": ^3.3.7
-    "@graphql-tools/mock": ^8.7.14
-    "@graphql-tools/schema": ^9.0.12
+    "@graphql-tools/mock": ^8.7.15
+    "@graphql-tools/schema": ^9.0.13
     "@jest/globals": ^29.3.1
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.4
-    "@next/eslint-plugin-next": ^13.1.1
-    "@next/font": ^13.1.1
-    "@sentry/nextjs": ^7.30.0
-    "@socialgouv/matomo-next": ^1.4.0
+    "@next/eslint-plugin-next": ^13.1.2
+    "@next/font": ^13.1.2
+    "@socialgouv/matomo-next": ^1.6.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.4.0
@@ -16201,6 +15746,7 @@ __metadata:
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
     "@types/jest": ^29.2.5
+    "@types/js-yaml": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/ramda": ^0.28.20
@@ -16210,7 +15756,6 @@ __metadata:
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
-    "@types/sharp": ^0.31.1
     "@typescript-eslint/eslint-plugin": ^5.48.1
     "@typescript-eslint/parser": ^5.48.1
     "@yarnpkg/pnpify": ^4.0.0-rc.35
@@ -16224,20 +15769,20 @@ __metadata:
     dayjs: ^1.11.7
     dompurify: ^2.4.3
     dotenv: ^16.0.3
-    eslint: ^8.31.0
+    eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-custom: "*"
-    eslint-config-next: ^13.1.1
+    eslint-config-custom: "workspace:*"
+    eslint-config-next: ^13.1.2
     eslint-config-prettier: ^8.6.0
     eslint-config-turbo: ^0.0.7
     eslint-import-resolver-typescript: ^3.5.3
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jsx-a11y: ^6.7.0
+    eslint-plugin-import: ^2.27.4
+    eslint-plugin-jsx-a11y: ^6.7.1
     eslint-plugin-react: ^7.32.0
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
-    framer-motion: ^8.4.1
+    framer-motion: ^8.4.3
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
     graphql-ws: ^5.11.2
@@ -16246,11 +15791,12 @@ __metadata:
     jest-cli: ^29.3.1
     jest-environment-jsdom: ^29.3.1
     jest-localstorage-mock: ^2.4.26
-    jest-presets: "*"
+    jest-presets: "workspace:*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
+    js-yaml: ^4.1.0
     markdown-to-jsx: ^7.1.8
-    next: ^13.1.1
+    next: ^13.1.2
     next-seo: ^5.15.0
     next-translate: ^1.6.0
     numeral: ^2.0.6
@@ -16264,18 +15810,18 @@ __metadata:
     react-virtualized-auto-sizer: ^1.0.7
     react-window: ^1.8.8
     react-window-infinite-loader: ^1.0.8
-    recharts: ^2.2.0
+    recharts: ^2.3.2
     recoil: ^0.7.6
-    shared-utils: "*"
-    sharp: ^0.31.3
+    shared-utils: "workspace:*"
     subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^29.0.3
+    ts-jest: ^29.0.5
     ts-node: ^10.9.1
-    tsconfig: "*"
+    tsconfig: "workspace:*"
     tss-react: ^4.5.2
     typanion: ^3.12.1
     typescript: ^4.9.4
-    ui: "*"
+    ui: "workspace:*"
+    usehooks-ts: ^2.9.1
     ws: ^8.12.0
   languageName: unknown
   linkType: soft
@@ -16284,7 +15830,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "web-nym@workspace:apps/web-nym"
   dependencies:
-    "@apollo/client": ^3.7.3
+    "@apollo/client": ^3.7.4
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
@@ -16296,15 +15842,14 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.7
     "@graphql-codegen/typescript-operations": ^2.5.12
     "@graphql-codegen/typescript-react-apollo": ^3.3.7
-    "@graphql-tools/mock": ^8.7.14
-    "@graphql-tools/schema": ^9.0.12
+    "@graphql-tools/mock": ^8.7.15
+    "@graphql-tools/schema": ^9.0.13
     "@jest/globals": ^29.3.1
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.4
-    "@next/eslint-plugin-next": ^13.1.1
-    "@next/font": ^13.1.1
-    "@sentry/nextjs": ^7.30.0
-    "@socialgouv/matomo-next": ^1.4.0
+    "@next/eslint-plugin-next": ^13.1.2
+    "@next/font": ^13.1.2
+    "@socialgouv/matomo-next": ^1.6.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.4.0
@@ -16314,6 +15859,7 @@ __metadata:
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
     "@types/jest": ^29.2.5
+    "@types/js-yaml": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/ramda": ^0.28.20
@@ -16323,7 +15869,6 @@ __metadata:
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
-    "@types/sharp": ^0.31.1
     "@typescript-eslint/eslint-plugin": ^5.48.1
     "@typescript-eslint/parser": ^5.48.1
     "@yarnpkg/pnpify": ^4.0.0-rc.35
@@ -16337,20 +15882,20 @@ __metadata:
     dayjs: ^1.11.7
     dompurify: ^2.4.3
     dotenv: ^16.0.3
-    eslint: ^8.31.0
+    eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-custom: "*"
-    eslint-config-next: ^13.1.1
+    eslint-config-custom: "workspace:*"
+    eslint-config-next: ^13.1.2
     eslint-config-prettier: ^8.6.0
     eslint-config-turbo: ^0.0.7
     eslint-import-resolver-typescript: ^3.5.3
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jsx-a11y: ^6.7.0
+    eslint-plugin-import: ^2.27.4
+    eslint-plugin-jsx-a11y: ^6.7.1
     eslint-plugin-react: ^7.32.0
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
-    framer-motion: ^8.4.1
+    framer-motion: ^8.4.3
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
     graphql-ws: ^5.11.2
@@ -16359,11 +15904,12 @@ __metadata:
     jest-cli: ^29.3.1
     jest-environment-jsdom: ^29.3.1
     jest-localstorage-mock: ^2.4.26
-    jest-presets: "*"
+    jest-presets: "workspace:*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
+    js-yaml: ^4.1.0
     markdown-to-jsx: ^7.1.8
-    next: ^13.1.1
+    next: ^13.1.2
     next-seo: ^5.15.0
     next-translate: ^1.6.0
     numeral: ^2.0.6
@@ -16377,18 +15923,18 @@ __metadata:
     react-virtualized-auto-sizer: ^1.0.7
     react-window: ^1.8.8
     react-window-infinite-loader: ^1.0.8
-    recharts: ^2.2.0
+    recharts: ^2.3.2
     recoil: ^0.7.6
-    shared-utils: "*"
-    sharp: ^0.31.3
+    shared-utils: "workspace:*"
     subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^29.0.3
+    ts-jest: ^29.0.5
     ts-node: ^10.9.1
-    tsconfig: "*"
+    tsconfig: "workspace:*"
     tss-react: ^4.5.2
     typanion: ^3.12.1
     typescript: ^4.9.4
-    ui: "*"
+    ui: "workspace:*"
+    usehooks-ts: ^2.9.1
     ws: ^8.12.0
   languageName: unknown
   linkType: soft
@@ -16397,7 +15943,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "web-osmosis@workspace:apps/web-osmosis"
   dependencies:
-    "@apollo/client": ^3.7.3
+    "@apollo/client": ^3.7.4
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
@@ -16409,15 +15955,14 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.7
     "@graphql-codegen/typescript-operations": ^2.5.12
     "@graphql-codegen/typescript-react-apollo": ^3.3.7
-    "@graphql-tools/mock": ^8.7.14
-    "@graphql-tools/schema": ^9.0.12
+    "@graphql-tools/mock": ^8.7.15
+    "@graphql-tools/schema": ^9.0.13
     "@jest/globals": ^29.3.1
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.4
-    "@next/eslint-plugin-next": ^13.1.1
-    "@next/font": ^13.1.1
-    "@sentry/nextjs": ^7.30.0
-    "@socialgouv/matomo-next": ^1.4.0
+    "@next/eslint-plugin-next": ^13.1.2
+    "@next/font": ^13.1.2
+    "@socialgouv/matomo-next": ^1.6.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.4.0
@@ -16427,6 +15972,7 @@ __metadata:
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
     "@types/jest": ^29.2.5
+    "@types/js-yaml": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/ramda": ^0.28.20
@@ -16436,7 +15982,6 @@ __metadata:
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
-    "@types/sharp": ^0.31.1
     "@typescript-eslint/eslint-plugin": ^5.48.1
     "@typescript-eslint/parser": ^5.48.1
     "@yarnpkg/pnpify": ^4.0.0-rc.35
@@ -16450,20 +15995,20 @@ __metadata:
     dayjs: ^1.11.7
     dompurify: ^2.4.3
     dotenv: ^16.0.3
-    eslint: ^8.31.0
+    eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-custom: "*"
-    eslint-config-next: ^13.1.1
+    eslint-config-custom: "workspace:*"
+    eslint-config-next: ^13.1.2
     eslint-config-prettier: ^8.6.0
     eslint-config-turbo: ^0.0.7
     eslint-import-resolver-typescript: ^3.5.3
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jsx-a11y: ^6.7.0
+    eslint-plugin-import: ^2.27.4
+    eslint-plugin-jsx-a11y: ^6.7.1
     eslint-plugin-react: ^7.32.0
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
-    framer-motion: ^8.4.1
+    framer-motion: ^8.4.3
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
     graphql-ws: ^5.11.2
@@ -16472,11 +16017,12 @@ __metadata:
     jest-cli: ^29.3.1
     jest-environment-jsdom: ^29.3.1
     jest-localstorage-mock: ^2.4.26
-    jest-presets: "*"
+    jest-presets: "workspace:*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
+    js-yaml: ^4.1.0
     markdown-to-jsx: ^7.1.8
-    next: ^13.1.1
+    next: ^13.1.2
     next-seo: ^5.15.0
     next-translate: ^1.6.0
     numeral: ^2.0.6
@@ -16490,18 +16036,18 @@ __metadata:
     react-virtualized-auto-sizer: ^1.0.7
     react-window: ^1.8.8
     react-window-infinite-loader: ^1.0.8
-    recharts: ^2.2.0
+    recharts: ^2.3.2
     recoil: ^0.7.6
-    shared-utils: "*"
-    sharp: ^0.31.3
+    shared-utils: "workspace:*"
     subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^29.0.3
+    ts-jest: ^29.0.5
     ts-node: ^10.9.1
-    tsconfig: "*"
+    tsconfig: "workspace:*"
     tss-react: ^4.5.2
     typanion: ^3.12.1
     typescript: ^4.9.4
-    ui: "*"
+    ui: "workspace:*"
+    usehooks-ts: ^2.9.1
     ws: ^8.12.0
   languageName: unknown
   linkType: soft
@@ -16510,7 +16056,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "web-persistence@workspace:apps/web-persistence"
   dependencies:
-    "@apollo/client": ^3.7.3
+    "@apollo/client": ^3.7.4
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
@@ -16522,15 +16068,14 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.7
     "@graphql-codegen/typescript-operations": ^2.5.12
     "@graphql-codegen/typescript-react-apollo": ^3.3.7
-    "@graphql-tools/mock": ^8.7.14
-    "@graphql-tools/schema": ^9.0.12
+    "@graphql-tools/mock": ^8.7.15
+    "@graphql-tools/schema": ^9.0.13
     "@jest/globals": ^29.3.1
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.4
-    "@next/eslint-plugin-next": ^13.1.1
-    "@next/font": ^13.1.1
-    "@sentry/nextjs": ^7.30.0
-    "@socialgouv/matomo-next": ^1.4.0
+    "@next/eslint-plugin-next": ^13.1.2
+    "@next/font": ^13.1.2
+    "@socialgouv/matomo-next": ^1.6.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.4.0
@@ -16540,6 +16085,7 @@ __metadata:
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
     "@types/jest": ^29.2.5
+    "@types/js-yaml": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/ramda": ^0.28.20
@@ -16549,7 +16095,6 @@ __metadata:
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
-    "@types/sharp": ^0.31.1
     "@typescript-eslint/eslint-plugin": ^5.48.1
     "@typescript-eslint/parser": ^5.48.1
     "@yarnpkg/pnpify": ^4.0.0-rc.35
@@ -16563,20 +16108,20 @@ __metadata:
     dayjs: ^1.11.7
     dompurify: ^2.4.3
     dotenv: ^16.0.3
-    eslint: ^8.31.0
+    eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-custom: "*"
-    eslint-config-next: ^13.1.1
+    eslint-config-custom: "workspace:*"
+    eslint-config-next: ^13.1.2
     eslint-config-prettier: ^8.6.0
     eslint-config-turbo: ^0.0.7
     eslint-import-resolver-typescript: ^3.5.3
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jsx-a11y: ^6.7.0
+    eslint-plugin-import: ^2.27.4
+    eslint-plugin-jsx-a11y: ^6.7.1
     eslint-plugin-react: ^7.32.0
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
-    framer-motion: ^8.4.1
+    framer-motion: ^8.4.3
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
     graphql-ws: ^5.11.2
@@ -16585,11 +16130,12 @@ __metadata:
     jest-cli: ^29.3.1
     jest-environment-jsdom: ^29.3.1
     jest-localstorage-mock: ^2.4.26
-    jest-presets: "*"
+    jest-presets: "workspace:*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
+    js-yaml: ^4.1.0
     markdown-to-jsx: ^7.1.8
-    next: ^13.1.1
+    next: ^13.1.2
     next-seo: ^5.15.0
     next-translate: ^1.6.0
     numeral: ^2.0.6
@@ -16603,18 +16149,18 @@ __metadata:
     react-virtualized-auto-sizer: ^1.0.7
     react-window: ^1.8.8
     react-window-infinite-loader: ^1.0.8
-    recharts: ^2.2.0
+    recharts: ^2.3.2
     recoil: ^0.7.6
-    shared-utils: "*"
-    sharp: ^0.31.3
+    shared-utils: "workspace:*"
     subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^29.0.3
+    ts-jest: ^29.0.5
     ts-node: ^10.9.1
-    tsconfig: "*"
+    tsconfig: "workspace:*"
     tss-react: ^4.5.2
     typanion: ^3.12.1
     typescript: ^4.9.4
-    ui: "*"
+    ui: "workspace:*"
+    usehooks-ts: ^2.9.1
     ws: ^8.12.0
   languageName: unknown
   linkType: soft
@@ -16623,7 +16169,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "web-provenance@workspace:apps/web-provenance"
   dependencies:
-    "@apollo/client": ^3.7.3
+    "@apollo/client": ^3.7.4
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
@@ -16635,15 +16181,14 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.7
     "@graphql-codegen/typescript-operations": ^2.5.12
     "@graphql-codegen/typescript-react-apollo": ^3.3.7
-    "@graphql-tools/mock": ^8.7.14
-    "@graphql-tools/schema": ^9.0.12
+    "@graphql-tools/mock": ^8.7.15
+    "@graphql-tools/schema": ^9.0.13
     "@jest/globals": ^29.3.1
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.4
-    "@next/eslint-plugin-next": ^13.1.1
-    "@next/font": ^13.1.1
-    "@sentry/nextjs": ^7.30.0
-    "@socialgouv/matomo-next": ^1.4.0
+    "@next/eslint-plugin-next": ^13.1.2
+    "@next/font": ^13.1.2
+    "@socialgouv/matomo-next": ^1.6.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.4.0
@@ -16653,6 +16198,7 @@ __metadata:
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
     "@types/jest": ^29.2.5
+    "@types/js-yaml": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/ramda": ^0.28.20
@@ -16662,7 +16208,6 @@ __metadata:
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
-    "@types/sharp": ^0.31.1
     "@typescript-eslint/eslint-plugin": ^5.48.1
     "@typescript-eslint/parser": ^5.48.1
     "@yarnpkg/pnpify": ^4.0.0-rc.35
@@ -16676,20 +16221,20 @@ __metadata:
     dayjs: ^1.11.7
     dompurify: ^2.4.3
     dotenv: ^16.0.3
-    eslint: ^8.31.0
+    eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-custom: "*"
-    eslint-config-next: ^13.1.1
+    eslint-config-custom: "workspace:*"
+    eslint-config-next: ^13.1.2
     eslint-config-prettier: ^8.6.0
     eslint-config-turbo: ^0.0.7
     eslint-import-resolver-typescript: ^3.5.3
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jsx-a11y: ^6.7.0
+    eslint-plugin-import: ^2.27.4
+    eslint-plugin-jsx-a11y: ^6.7.1
     eslint-plugin-react: ^7.32.0
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
-    framer-motion: ^8.4.1
+    framer-motion: ^8.4.3
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
     graphql-ws: ^5.11.2
@@ -16698,11 +16243,12 @@ __metadata:
     jest-cli: ^29.3.1
     jest-environment-jsdom: ^29.3.1
     jest-localstorage-mock: ^2.4.26
-    jest-presets: "*"
+    jest-presets: "workspace:*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
+    js-yaml: ^4.1.0
     markdown-to-jsx: ^7.1.8
-    next: ^13.1.1
+    next: ^13.1.2
     next-seo: ^5.15.0
     next-translate: ^1.6.0
     numeral: ^2.0.6
@@ -16716,18 +16262,18 @@ __metadata:
     react-virtualized-auto-sizer: ^1.0.7
     react-window: ^1.8.8
     react-window-infinite-loader: ^1.0.8
-    recharts: ^2.2.0
+    recharts: ^2.3.2
     recoil: ^0.7.6
-    shared-utils: "*"
-    sharp: ^0.31.3
+    shared-utils: "workspace:*"
     subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^29.0.3
+    ts-jest: ^29.0.5
     ts-node: ^10.9.1
-    tsconfig: "*"
+    tsconfig: "workspace:*"
     tss-react: ^4.5.2
     typanion: ^3.12.1
     typescript: ^4.9.4
-    ui: "*"
+    ui: "workspace:*"
+    usehooks-ts: ^2.9.1
     ws: ^8.12.0
   languageName: unknown
   linkType: soft
@@ -16736,7 +16282,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "web-regen@workspace:apps/web-regen"
   dependencies:
-    "@apollo/client": ^3.7.3
+    "@apollo/client": ^3.7.4
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
@@ -16748,15 +16294,14 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.7
     "@graphql-codegen/typescript-operations": ^2.5.12
     "@graphql-codegen/typescript-react-apollo": ^3.3.7
-    "@graphql-tools/mock": ^8.7.14
-    "@graphql-tools/schema": ^9.0.12
+    "@graphql-tools/mock": ^8.7.15
+    "@graphql-tools/schema": ^9.0.13
     "@jest/globals": ^29.3.1
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.4
-    "@next/eslint-plugin-next": ^13.1.1
-    "@next/font": ^13.1.1
-    "@sentry/nextjs": ^7.30.0
-    "@socialgouv/matomo-next": ^1.4.0
+    "@next/eslint-plugin-next": ^13.1.2
+    "@next/font": ^13.1.2
+    "@socialgouv/matomo-next": ^1.6.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.4.0
@@ -16766,6 +16311,7 @@ __metadata:
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
     "@types/jest": ^29.2.5
+    "@types/js-yaml": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/ramda": ^0.28.20
@@ -16775,7 +16321,6 @@ __metadata:
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
-    "@types/sharp": ^0.31.1
     "@typescript-eslint/eslint-plugin": ^5.48.1
     "@typescript-eslint/parser": ^5.48.1
     "@yarnpkg/pnpify": ^4.0.0-rc.35
@@ -16789,20 +16334,20 @@ __metadata:
     dayjs: ^1.11.7
     dompurify: ^2.4.3
     dotenv: ^16.0.3
-    eslint: ^8.31.0
+    eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-custom: "*"
-    eslint-config-next: ^13.1.1
+    eslint-config-custom: "workspace:*"
+    eslint-config-next: ^13.1.2
     eslint-config-prettier: ^8.6.0
     eslint-config-turbo: ^0.0.7
     eslint-import-resolver-typescript: ^3.5.3
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jsx-a11y: ^6.7.0
+    eslint-plugin-import: ^2.27.4
+    eslint-plugin-jsx-a11y: ^6.7.1
     eslint-plugin-react: ^7.32.0
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
-    framer-motion: ^8.4.1
+    framer-motion: ^8.4.3
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
     graphql-ws: ^5.11.2
@@ -16811,11 +16356,12 @@ __metadata:
     jest-cli: ^29.3.1
     jest-environment-jsdom: ^29.3.1
     jest-localstorage-mock: ^2.4.26
-    jest-presets: "*"
+    jest-presets: "workspace:*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
+    js-yaml: ^4.1.0
     markdown-to-jsx: ^7.1.8
-    next: ^13.1.1
+    next: ^13.1.2
     next-seo: ^5.15.0
     next-translate: ^1.6.0
     numeral: ^2.0.6
@@ -16829,18 +16375,18 @@ __metadata:
     react-virtualized-auto-sizer: ^1.0.7
     react-window: ^1.8.8
     react-window-infinite-loader: ^1.0.8
-    recharts: ^2.2.0
+    recharts: ^2.3.2
     recoil: ^0.7.6
-    shared-utils: "*"
-    sharp: ^0.31.3
+    shared-utils: "workspace:*"
     subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^29.0.3
+    ts-jest: ^29.0.5
     ts-node: ^10.9.1
-    tsconfig: "*"
+    tsconfig: "workspace:*"
     tss-react: ^4.5.2
     typanion: ^3.12.1
     typescript: ^4.9.4
-    ui: "*"
+    ui: "workspace:*"
+    usehooks-ts: ^2.9.1
     ws: ^8.12.0
   languageName: unknown
   linkType: soft
@@ -16849,7 +16395,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "web-rizon@workspace:apps/web-rizon"
   dependencies:
-    "@apollo/client": ^3.7.3
+    "@apollo/client": ^3.7.4
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
@@ -16861,15 +16407,14 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.7
     "@graphql-codegen/typescript-operations": ^2.5.12
     "@graphql-codegen/typescript-react-apollo": ^3.3.7
-    "@graphql-tools/mock": ^8.7.14
-    "@graphql-tools/schema": ^9.0.12
+    "@graphql-tools/mock": ^8.7.15
+    "@graphql-tools/schema": ^9.0.13
     "@jest/globals": ^29.3.1
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.4
-    "@next/eslint-plugin-next": ^13.1.1
-    "@next/font": ^13.1.1
-    "@sentry/nextjs": ^7.30.0
-    "@socialgouv/matomo-next": ^1.4.0
+    "@next/eslint-plugin-next": ^13.1.2
+    "@next/font": ^13.1.2
+    "@socialgouv/matomo-next": ^1.6.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.4.0
@@ -16879,6 +16424,7 @@ __metadata:
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
     "@types/jest": ^29.2.5
+    "@types/js-yaml": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/ramda": ^0.28.20
@@ -16888,7 +16434,6 @@ __metadata:
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
-    "@types/sharp": ^0.31.1
     "@typescript-eslint/eslint-plugin": ^5.48.1
     "@typescript-eslint/parser": ^5.48.1
     "@yarnpkg/pnpify": ^4.0.0-rc.35
@@ -16902,20 +16447,20 @@ __metadata:
     dayjs: ^1.11.7
     dompurify: ^2.4.3
     dotenv: ^16.0.3
-    eslint: ^8.31.0
+    eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-custom: "*"
-    eslint-config-next: ^13.1.1
+    eslint-config-custom: "workspace:*"
+    eslint-config-next: ^13.1.2
     eslint-config-prettier: ^8.6.0
     eslint-config-turbo: ^0.0.7
     eslint-import-resolver-typescript: ^3.5.3
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jsx-a11y: ^6.7.0
+    eslint-plugin-import: ^2.27.4
+    eslint-plugin-jsx-a11y: ^6.7.1
     eslint-plugin-react: ^7.32.0
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
-    framer-motion: ^8.4.1
+    framer-motion: ^8.4.3
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
     graphql-ws: ^5.11.2
@@ -16924,11 +16469,12 @@ __metadata:
     jest-cli: ^29.3.1
     jest-environment-jsdom: ^29.3.1
     jest-localstorage-mock: ^2.4.26
-    jest-presets: "*"
+    jest-presets: "workspace:*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
+    js-yaml: ^4.1.0
     markdown-to-jsx: ^7.1.8
-    next: ^13.1.1
+    next: ^13.1.2
     next-seo: ^5.15.0
     next-translate: ^1.6.0
     numeral: ^2.0.6
@@ -16942,18 +16488,18 @@ __metadata:
     react-virtualized-auto-sizer: ^1.0.7
     react-window: ^1.8.8
     react-window-infinite-loader: ^1.0.8
-    recharts: ^2.2.0
+    recharts: ^2.3.2
     recoil: ^0.7.6
-    shared-utils: "*"
-    sharp: ^0.31.3
+    shared-utils: "workspace:*"
     subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^29.0.3
+    ts-jest: ^29.0.5
     ts-node: ^10.9.1
-    tsconfig: "*"
+    tsconfig: "workspace:*"
     tss-react: ^4.5.2
     typanion: ^3.12.1
     typescript: ^4.9.4
-    ui: "*"
+    ui: "workspace:*"
+    usehooks-ts: ^2.9.1
     ws: ^8.12.0
   languageName: unknown
   linkType: soft
@@ -16962,7 +16508,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "web-shentu@workspace:apps/web-shentu"
   dependencies:
-    "@apollo/client": ^3.7.3
+    "@apollo/client": ^3.7.4
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
@@ -16974,15 +16520,14 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.7
     "@graphql-codegen/typescript-operations": ^2.5.12
     "@graphql-codegen/typescript-react-apollo": ^3.3.7
-    "@graphql-tools/mock": ^8.7.14
-    "@graphql-tools/schema": ^9.0.12
+    "@graphql-tools/mock": ^8.7.15
+    "@graphql-tools/schema": ^9.0.13
     "@jest/globals": ^29.3.1
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.4
-    "@next/eslint-plugin-next": ^13.1.1
-    "@next/font": ^13.1.1
-    "@sentry/nextjs": ^7.30.0
-    "@socialgouv/matomo-next": ^1.4.0
+    "@next/eslint-plugin-next": ^13.1.2
+    "@next/font": ^13.1.2
+    "@socialgouv/matomo-next": ^1.6.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.4.0
@@ -16992,6 +16537,7 @@ __metadata:
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
     "@types/jest": ^29.2.5
+    "@types/js-yaml": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/ramda": ^0.28.20
@@ -17001,7 +16547,6 @@ __metadata:
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
-    "@types/sharp": ^0.31.1
     "@typescript-eslint/eslint-plugin": ^5.48.1
     "@typescript-eslint/parser": ^5.48.1
     "@yarnpkg/pnpify": ^4.0.0-rc.35
@@ -17015,20 +16560,20 @@ __metadata:
     dayjs: ^1.11.7
     dompurify: ^2.4.3
     dotenv: ^16.0.3
-    eslint: ^8.31.0
+    eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-custom: "*"
-    eslint-config-next: ^13.1.1
+    eslint-config-custom: "workspace:*"
+    eslint-config-next: ^13.1.2
     eslint-config-prettier: ^8.6.0
     eslint-config-turbo: ^0.0.7
     eslint-import-resolver-typescript: ^3.5.3
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jsx-a11y: ^6.7.0
+    eslint-plugin-import: ^2.27.4
+    eslint-plugin-jsx-a11y: ^6.7.1
     eslint-plugin-react: ^7.32.0
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
-    framer-motion: ^8.4.1
+    framer-motion: ^8.4.3
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
     graphql-ws: ^5.11.2
@@ -17037,11 +16582,12 @@ __metadata:
     jest-cli: ^29.3.1
     jest-environment-jsdom: ^29.3.1
     jest-localstorage-mock: ^2.4.26
-    jest-presets: "*"
+    jest-presets: "workspace:*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
+    js-yaml: ^4.1.0
     markdown-to-jsx: ^7.1.8
-    next: ^13.1.1
+    next: ^13.1.2
     next-seo: ^5.15.0
     next-translate: ^1.6.0
     numeral: ^2.0.6
@@ -17055,18 +16601,18 @@ __metadata:
     react-virtualized-auto-sizer: ^1.0.7
     react-window: ^1.8.8
     react-window-infinite-loader: ^1.0.8
-    recharts: ^2.2.0
+    recharts: ^2.3.2
     recoil: ^0.7.6
-    shared-utils: "*"
-    sharp: ^0.31.3
+    shared-utils: "workspace:*"
     subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^29.0.3
+    ts-jest: ^29.0.5
     ts-node: ^10.9.1
-    tsconfig: "*"
+    tsconfig: "workspace:*"
     tss-react: ^4.5.2
     typanion: ^3.12.1
     typescript: ^4.9.4
-    ui: "*"
+    ui: "workspace:*"
+    usehooks-ts: ^2.9.1
     ws: ^8.12.0
   languageName: unknown
   linkType: soft
@@ -17075,7 +16621,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "web-sifchain@workspace:apps/web-sifchain"
   dependencies:
-    "@apollo/client": ^3.7.3
+    "@apollo/client": ^3.7.4
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
@@ -17087,15 +16633,14 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.7
     "@graphql-codegen/typescript-operations": ^2.5.12
     "@graphql-codegen/typescript-react-apollo": ^3.3.7
-    "@graphql-tools/mock": ^8.7.14
-    "@graphql-tools/schema": ^9.0.12
+    "@graphql-tools/mock": ^8.7.15
+    "@graphql-tools/schema": ^9.0.13
     "@jest/globals": ^29.3.1
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.4
-    "@next/eslint-plugin-next": ^13.1.1
-    "@next/font": ^13.1.1
-    "@sentry/nextjs": ^7.30.0
-    "@socialgouv/matomo-next": ^1.4.0
+    "@next/eslint-plugin-next": ^13.1.2
+    "@next/font": ^13.1.2
+    "@socialgouv/matomo-next": ^1.6.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.4.0
@@ -17105,6 +16650,7 @@ __metadata:
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
     "@types/jest": ^29.2.5
+    "@types/js-yaml": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/ramda": ^0.28.20
@@ -17114,7 +16660,6 @@ __metadata:
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
-    "@types/sharp": ^0.31.1
     "@typescript-eslint/eslint-plugin": ^5.48.1
     "@typescript-eslint/parser": ^5.48.1
     "@yarnpkg/pnpify": ^4.0.0-rc.35
@@ -17128,20 +16673,20 @@ __metadata:
     dayjs: ^1.11.7
     dompurify: ^2.4.3
     dotenv: ^16.0.3
-    eslint: ^8.31.0
+    eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-custom: "*"
-    eslint-config-next: ^13.1.1
+    eslint-config-custom: "workspace:*"
+    eslint-config-next: ^13.1.2
     eslint-config-prettier: ^8.6.0
     eslint-config-turbo: ^0.0.7
     eslint-import-resolver-typescript: ^3.5.3
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jsx-a11y: ^6.7.0
+    eslint-plugin-import: ^2.27.4
+    eslint-plugin-jsx-a11y: ^6.7.1
     eslint-plugin-react: ^7.32.0
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
-    framer-motion: ^8.4.1
+    framer-motion: ^8.4.3
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
     graphql-ws: ^5.11.2
@@ -17150,11 +16695,12 @@ __metadata:
     jest-cli: ^29.3.1
     jest-environment-jsdom: ^29.3.1
     jest-localstorage-mock: ^2.4.26
-    jest-presets: "*"
+    jest-presets: "workspace:*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
+    js-yaml: ^4.1.0
     markdown-to-jsx: ^7.1.8
-    next: ^13.1.1
+    next: ^13.1.2
     next-seo: ^5.15.0
     next-translate: ^1.6.0
     numeral: ^2.0.6
@@ -17168,18 +16714,18 @@ __metadata:
     react-virtualized-auto-sizer: ^1.0.7
     react-window: ^1.8.8
     react-window-infinite-loader: ^1.0.8
-    recharts: ^2.2.0
+    recharts: ^2.3.2
     recoil: ^0.7.6
-    shared-utils: "*"
-    sharp: ^0.31.3
+    shared-utils: "workspace:*"
     subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^29.0.3
+    ts-jest: ^29.0.5
     ts-node: ^10.9.1
-    tsconfig: "*"
+    tsconfig: "workspace:*"
     tss-react: ^4.5.2
     typanion: ^3.12.1
     typescript: ^4.9.4
-    ui: "*"
+    ui: "workspace:*"
+    usehooks-ts: ^2.9.1
     ws: ^8.12.0
   languageName: unknown
   linkType: soft
@@ -17202,7 +16748,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "web-stride@workspace:apps/web-stride"
   dependencies:
-    "@apollo/client": ^3.7.3
+    "@apollo/client": ^3.7.4
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
@@ -17214,15 +16760,14 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.7
     "@graphql-codegen/typescript-operations": ^2.5.12
     "@graphql-codegen/typescript-react-apollo": ^3.3.7
-    "@graphql-tools/mock": ^8.7.14
-    "@graphql-tools/schema": ^9.0.12
+    "@graphql-tools/mock": ^8.7.15
+    "@graphql-tools/schema": ^9.0.13
     "@jest/globals": ^29.3.1
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.4
-    "@next/eslint-plugin-next": ^13.1.1
-    "@next/font": ^13.1.1
-    "@sentry/nextjs": ^7.30.0
-    "@socialgouv/matomo-next": ^1.4.0
+    "@next/eslint-plugin-next": ^13.1.2
+    "@next/font": ^13.1.2
+    "@socialgouv/matomo-next": ^1.6.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.4.0
@@ -17232,6 +16777,7 @@ __metadata:
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
     "@types/jest": ^29.2.5
+    "@types/js-yaml": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/ramda": ^0.28.20
@@ -17241,7 +16787,6 @@ __metadata:
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
-    "@types/sharp": ^0.31.1
     "@typescript-eslint/eslint-plugin": ^5.48.1
     "@typescript-eslint/parser": ^5.48.1
     "@yarnpkg/pnpify": ^4.0.0-rc.35
@@ -17255,20 +16800,20 @@ __metadata:
     dayjs: ^1.11.7
     dompurify: ^2.4.3
     dotenv: ^16.0.3
-    eslint: ^8.31.0
+    eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-custom: "*"
-    eslint-config-next: ^13.1.1
+    eslint-config-custom: "workspace:*"
+    eslint-config-next: ^13.1.2
     eslint-config-prettier: ^8.6.0
     eslint-config-turbo: ^0.0.7
     eslint-import-resolver-typescript: ^3.5.3
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jsx-a11y: ^6.7.0
+    eslint-plugin-import: ^2.27.4
+    eslint-plugin-jsx-a11y: ^6.7.1
     eslint-plugin-react: ^7.32.0
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
-    framer-motion: ^8.4.1
+    framer-motion: ^8.4.3
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
     graphql-ws: ^5.11.2
@@ -17277,11 +16822,12 @@ __metadata:
     jest-cli: ^29.3.1
     jest-environment-jsdom: ^29.3.1
     jest-localstorage-mock: ^2.4.26
-    jest-presets: "*"
+    jest-presets: "workspace:*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
+    js-yaml: ^4.1.0
     markdown-to-jsx: ^7.1.8
-    next: ^13.1.1
+    next: ^13.1.2
     next-seo: ^5.15.0
     next-translate: ^1.6.0
     numeral: ^2.0.6
@@ -17295,18 +16841,18 @@ __metadata:
     react-virtualized-auto-sizer: ^1.0.7
     react-window: ^1.8.8
     react-window-infinite-loader: ^1.0.8
-    recharts: ^2.2.0
+    recharts: ^2.3.2
     recoil: ^0.7.6
-    shared-utils: "*"
-    sharp: ^0.31.3
+    shared-utils: "workspace:*"
     subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^29.0.3
+    ts-jest: ^29.0.5
     ts-node: ^10.9.1
-    tsconfig: "*"
+    tsconfig: "workspace:*"
     tss-react: ^4.5.2
     typanion: ^3.12.1
     typescript: ^4.9.4
-    ui: "*"
+    ui: "workspace:*"
+    usehooks-ts: ^2.9.1
     ws: ^8.12.0
   languageName: unknown
   linkType: soft
@@ -17315,7 +16861,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "web@workspace:apps/web"
   dependencies:
-    "@apollo/client": ^3.7.3
+    "@apollo/client": ^3.7.4
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
@@ -17327,15 +16873,14 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.7
     "@graphql-codegen/typescript-operations": ^2.5.12
     "@graphql-codegen/typescript-react-apollo": ^3.3.7
-    "@graphql-tools/mock": ^8.7.14
-    "@graphql-tools/schema": ^9.0.12
+    "@graphql-tools/mock": ^8.7.15
+    "@graphql-tools/schema": ^9.0.13
     "@jest/globals": ^29.3.1
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.4
-    "@next/eslint-plugin-next": ^13.1.1
-    "@next/font": ^13.1.1
-    "@sentry/nextjs": ^7.30.0
-    "@socialgouv/matomo-next": ^1.4.0
+    "@next/eslint-plugin-next": ^13.1.2
+    "@next/font": ^13.1.2
+    "@socialgouv/matomo-next": ^1.6.0
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.4.0
@@ -17345,6 +16890,7 @@ __metadata:
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
     "@types/jest": ^29.2.5
+    "@types/js-yaml": ^4
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
     "@types/ramda": ^0.28.20
@@ -17354,7 +16900,6 @@ __metadata:
     "@types/react-virtualized-auto-sizer": ^1.0.1
     "@types/react-window": ^1.8.5
     "@types/react-window-infinite-loader": ^1.0.6
-    "@types/sharp": ^0.31.1
     "@typescript-eslint/eslint-plugin": ^5.48.1
     "@typescript-eslint/parser": ^5.48.1
     "@yarnpkg/pnpify": ^4.0.0-rc.35
@@ -17368,20 +16913,20 @@ __metadata:
     dayjs: ^1.11.7
     dompurify: ^2.4.3
     dotenv: ^16.0.3
-    eslint: ^8.31.0
+    eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-custom: "*"
-    eslint-config-next: ^13.1.1
+    eslint-config-custom: "workspace:*"
+    eslint-config-next: ^13.1.2
     eslint-config-prettier: ^8.6.0
     eslint-config-turbo: ^0.0.7
     eslint-import-resolver-typescript: ^3.5.3
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jsx-a11y: ^6.7.0
+    eslint-plugin-import: ^2.27.4
+    eslint-plugin-jsx-a11y: ^6.7.1
     eslint-plugin-react: ^7.32.0
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
-    framer-motion: ^8.4.1
+    framer-motion: ^8.4.3
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
     graphql-ws: ^5.11.2
@@ -17390,11 +16935,12 @@ __metadata:
     jest-cli: ^29.3.1
     jest-environment-jsdom: ^29.3.1
     jest-localstorage-mock: ^2.4.26
-    jest-presets: "*"
+    jest-presets: "workspace:*"
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.1
+    js-yaml: ^4.1.0
     markdown-to-jsx: ^7.1.8
-    next: ^13.1.1
+    next: ^13.1.2
     next-seo: ^5.15.0
     next-translate: ^1.6.0
     numeral: ^2.0.6
@@ -17408,18 +16954,18 @@ __metadata:
     react-virtualized-auto-sizer: ^1.0.7
     react-window: ^1.8.8
     react-window-infinite-loader: ^1.0.8
-    recharts: ^2.2.0
+    recharts: ^2.3.2
     recoil: ^0.7.6
-    shared-utils: "*"
-    sharp: ^0.31.3
+    shared-utils: "workspace:*"
     subscriptions-transport-ws: ^0.11.0
-    ts-jest: ^29.0.3
+    ts-jest: ^29.0.5
     ts-node: ^10.9.1
-    tsconfig: "*"
+    tsconfig: "workspace:*"
     tss-react: ^4.5.2
     typanion: ^3.12.1
     typescript: ^4.9.4
-    ui: "*"
+    ui: "workspace:*"
+    usehooks-ts: ^2.9.1
     ws: ^8.12.0
   languageName: unknown
   linkType: soft

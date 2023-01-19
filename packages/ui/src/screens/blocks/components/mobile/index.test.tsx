@@ -1,7 +1,7 @@
-import Mobile from '@/screens/blocks/components/mobile';
-import { MockTheme } from '@/tests/utils';
 import renderer from 'react-test-renderer';
 import type { AutoSizerProps } from 'react-virtualized-auto-sizer';
+import Mobile from '@/screens/blocks/components/mobile';
+import { MockTheme } from '@/tests/utils';
 
 // ==================================
 // mocks

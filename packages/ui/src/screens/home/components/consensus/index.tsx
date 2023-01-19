@@ -1,14 +1,14 @@
+import Typography from '@mui/material/Typography';
+import useTranslation from 'next-translate/useTranslation';
+import numeral from 'numeral';
+import { FC } from 'react';
+import { PolarAngleAxis, RadialBar, RadialBarChart, Tooltip } from 'recharts';
 import AvatarName from '@/components/avatar_name';
 import Box from '@/components/box';
 import Loading from '@/components/loading';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { useConsensus } from '@/screens/home/components/consensus/hooks';
 import useStyles from '@/screens/home/components/consensus/styles';
-import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
-import numeral from 'numeral';
-import { FC } from 'react';
-import { PolarAngleAxis, RadialBar, RadialBarChart, Tooltip } from 'recharts';
 
 const Consensus: FC<ComponentDefault> = ({ className }) => {
   const { classes, cx, theme } = useStyles();

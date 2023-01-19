@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import Box from '@/components/box';

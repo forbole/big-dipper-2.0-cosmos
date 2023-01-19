@@ -1,9 +1,9 @@
-import useStyles from '@/components/result/styles';
 import Typography from '@mui/material/Typography';
-import Cancel from '@mui/icons-material/Cancel';
-import CheckCircle from '@mui/icons-material/CheckCircle';
+import CancelIcon from '@mui/icons-material/Cancel';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import useTranslation from 'next-translate/useTranslation';
-import React, { FC } from 'react';
+import { FC } from 'react';
+import useStyles from '@/components/result/styles';
 
 type ResultProps = {
   className?: string;
@@ -23,12 +23,12 @@ const Result: FC<ResultProps> = ({ className, success }) => {
     >
       {success ? (
         <>
-          <CheckCircle />
+          <CheckCircleIcon />
           <Typography variant="body1">{t('success')}</Typography>
         </>
       ) : (
         <>
-          <Cancel />
+          <CancelIcon />
           <Typography variant="body1">{t('fail')}</Typography>
         </>
       )}

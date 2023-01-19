@@ -1,11 +1,11 @@
-import Box from '@/components/box';
-import useStyles from '@/screens/block_details/components/miniblocks/styles';
-import type { MiniBlockType } from '@/screens/block_details/types';
-import { MINIBLOCK_DETAILS } from '@/utils/go_to_page';
 import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import { FC } from 'react';
+import Box from '@/components/box';
+import useStyles from '@/screens/block_details/components/miniblocks/styles';
+import type { MiniBlockType } from '@/screens/block_details/types';
+import { MINIBLOCK_DETAILS } from '@/utils/go_to_page';
 
 const MiniBlocks: FC<{ className?: string; miniBlocks: MiniBlockType[] }> = (props) => {
   const { t } = useTranslation('blocks');

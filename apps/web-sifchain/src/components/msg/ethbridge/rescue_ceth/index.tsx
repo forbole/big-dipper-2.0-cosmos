@@ -1,9 +1,9 @@
+import Typography from '@mui/material/Typography';
+import Trans from 'next-translate/Trans';
+import { FC } from 'react';
 import Name from '@/components/name';
 import MsgRescueCeth from '@/models/msg/ethbridge/msg_rescue_ceth';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
-import Typography from '@mui/material/Typography';
-import Trans from 'next-translate/Trans';
-import React, { FC } from 'react';
 
 const RescueCeth: FC<{ message: MsgRescueCeth }> = (props) => {
   const { message } = props;

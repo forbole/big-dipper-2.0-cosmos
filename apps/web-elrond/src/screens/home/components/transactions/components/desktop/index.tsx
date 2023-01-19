@@ -1,11 +1,3 @@
-import AvatarName from '@/components/avatar_name';
-import Result from '@/components/result';
-import useStyles from '@/screens/home/components/transactions/components/desktop/styles';
-import { columns } from '@/screens/home/components/transactions/components/desktop/utils';
-import type { TransactionType } from '@/screens/home/components/transactions/types';
-import dayjs from '@/utils/dayjs';
-import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
-import { TRANSACTION_DETAILS } from '@/utils/go_to_page';
 import Table from '@mui/material/Table';
 import { AnimatePresence, motion, Variants } from 'framer-motion';
 import TableBody from '@mui/material/TableBody';
@@ -15,6 +7,14 @@ import TableRow from '@mui/material/TableRow';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import { FC } from 'react';
+import { TRANSACTION_DETAILS } from '@/utils/go_to_page';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
+import dayjs from '@/utils/dayjs';
+import type { TransactionType } from '@/screens/home/components/transactions/types';
+import { columns } from '@/screens/home/components/transactions/components/desktop/utils';
+import useStyles from '@/screens/home/components/transactions/components/desktop/styles';
+import Result from '@/components/result';
+import AvatarName from '@/components/avatar_name';
 
 const variants: Variants = {
   initial: {

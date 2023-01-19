@@ -1,17 +1,17 @@
+import Typography from '@mui/material/Typography';
+import useTranslation from 'next-translate/useTranslation';
+import { FC } from 'react';
 import Box from '@/components/box';
 import Loading from '@/components/loading';
 import NoData from '@/components/no_data';
 import Pagination from '@/components/pagination';
 import TransactionsList from '@/components/transactions_list';
-import { usePagination } from '@/hooks';
+import { usePagination } from '@/hooks/use_pagination';
 import {
   PAGE_SIZE,
   useTransactions,
 } from '@/screens/account_details/components/transactions/hooks';
 import useStyles from '@/screens/account_details/components/transactions/styles';
-import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
-import { FC } from 'react';
 
 const Transactions: FC<ComponentDefault> = (props) => {
   const { t } = useTranslation('accounts');

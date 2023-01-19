@@ -1,7 +1,8 @@
 import Box from '@/components/box';
-import { useWindowOrigin } from '@/hooks';
+import { useWindowOrigin } from '@/hooks/use_window';
 import { useOverview } from '@/screens/account_details/components/overview/hooks';
 import useStyles from '@/screens/account_details/components/overview/styles';
+import { useDisplayStyles } from '@/styles/useSharedStyles';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import Dialog from '@mui/material/Dialog';
 import Typography from '@mui/material/Typography';
@@ -32,6 +33,7 @@ type OverviewProps = {
 const Overview: FC<OverviewProps> = ({ className, address, withdrawalAddress }) => {
   const { location } = useWindowOrigin();
   const { classes, cx } = useStyles();
+  const display = useDisplayStyles().classes;
   const { t } = useTranslation('accounts');
   const { open, handleClose, handleOpen, handleCopyToClipboard } = useOverview(t);
 
@@ -102,8 +104,8 @@ const Overview: FC<OverviewProps> = ({ className, address, withdrawalAddress }) 
             />
             <ShareIcon onClick={handleOpen} className={classes.actionIcons} />
             <Typography variant="body1" className="value">
-              <span className={classes.hiddenUntilLg}>{address}</span>
-              <span className={classes.hiddenWhenLg}>
+              <span className={display.hiddenUntilLg}>{address}</span>
+              <span className={display.hiddenWhenLg}>
                 {getMiddleEllipsis(address, {
                   beginning: 15,
                   ending: 5,
@@ -123,8 +125,8 @@ const Overview: FC<OverviewProps> = ({ className, address, withdrawalAddress }) 
               onClick={() => handleCopyToClipboard(withdrawalAddress)}
             />
             <Typography variant="body1" className="value">
-              <span className={classes.hiddenUntilLg}>{withdrawalAddress}</span>
-              <span className={classes.hiddenWhenLg}>
+              <span className={display.hiddenUntilLg}>{withdrawalAddress}</span>
+              <span className={display.hiddenWhenLg}>
                 {getMiddleEllipsis(withdrawalAddress, {
                   beginning: 15,
                   ending: 5,

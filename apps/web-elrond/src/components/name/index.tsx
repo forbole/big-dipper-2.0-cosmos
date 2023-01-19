@@ -1,9 +1,9 @@
-import Avatar from '@/components/avatar';
-import useStyles from '@/components/name/styles';
-import { ACCOUNT_DETAILS } from '@/utils/go_to_page';
 import Typography from '@mui/material/Typography';
 import Link from 'next/link';
 import { FC } from 'react';
+import Avatar from '@/components/avatar';
+import useStyles from '@/components/name/styles';
+import { ACCOUNT_DETAILS } from '@/utils/go_to_page';
 
 const AvatarName: FC<AvatarName> = ({
   className,

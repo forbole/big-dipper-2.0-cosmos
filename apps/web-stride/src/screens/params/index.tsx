@@ -1,3 +1,5 @@
+import { NextSeo } from 'next-seo';
+import useTranslation from 'next-translate/useTranslation';
 import BoxDetails from '@/components/box_details';
 import Layout from '@/components/layout';
 import LoadAndExist from '@/components/load_and_exist';
@@ -11,8 +13,6 @@ import {
   formatStakeibc,
   formatStaking,
 } from '@/screens/params/utils';
-import { NextSeo } from 'next-seo';
-import useTranslation from 'next-translate/useTranslation';
 
 const Params = () => {
   const { t } = useTranslation('params');

@@ -1,6 +1,6 @@
+import renderer from 'react-test-renderer';
 import Connections from '@/screens/profile_details/components/connections';
 import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

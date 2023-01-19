@@ -1,7 +1,7 @@
+import renderer from 'react-test-renderer';
 import CreateIscnRecord from '@/components/msg/iscn/create_iscn_record';
 import MsgCreateIscnRecord from '@/models/msg/iscn/msg_create_iscn_record';
 import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

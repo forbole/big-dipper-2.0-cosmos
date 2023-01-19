@@ -1,7 +1,7 @@
+import renderer from 'react-test-renderer';
 import SignDataRequest from '@/components/msg/data/sign_data_request';
 import MsgSignDataRequest from '@/models/msg/data/msg_sign_data_request';
 import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

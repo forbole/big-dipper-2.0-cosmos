@@ -126,6 +126,12 @@ exports[`screen: Proposals matches snapshot 1`] = `
   animation: animation-1 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) 1.15s infinite;
 }
 
+.emotion-5 {
+  visibility: hidden;
+  height: 100%;
+  max-height: 100vh;
+}
+
 <div
   className="emotion-0"
   id="Layout"
@@ -147,6 +153,18 @@ exports[`screen: Proposals matches snapshot 1`] = `
         style={{}}
       />
     </span>
+  </div>
+  <div
+    className="emotion-5"
+  >
+    <div
+      id="List"
+      isItemLoaded={[Function]}
+      itemCount={0}
+      items={[]}
+      loadMoreItems={[Function]}
+      rawDataTotal={0}
+    />
   </div>
 </div>
 `;

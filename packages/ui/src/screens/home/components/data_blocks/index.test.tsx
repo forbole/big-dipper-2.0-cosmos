@@ -1,3 +1,6 @@
+import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
+import { MockedProvider } from '@apollo/client/testing';
+import renderer from 'react-test-renderer';
 import {
   ActiveValidatorCountDocument,
   AverageBlockTimeDocument,
@@ -6,9 +9,6 @@ import {
 } from '@/graphql/types/general_types';
 import DataBlocks from '@/screens/home/components/data_blocks';
 import { MockTheme, wait } from '@/tests/utils';
-import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
-import { MockedProvider } from '@apollo/client/testing';
-import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

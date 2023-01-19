@@ -1,7 +1,7 @@
-import useStyles from '@/components/name/styles';
-import { ADDRESS_DETAILS } from '@/utils/go_to_page';
 import Link from 'next/link';
 import { FC } from 'react';
+import useStyles from '@/components/name/styles';
+import { ADDRESS_DETAILS } from '@/utils/go_to_page';
 
 type NameProps = {
   className?: string;

@@ -1,7 +1,7 @@
+import renderer from 'react-test-renderer';
 import Burn from '@/components/msg/ethbridge/burn';
 import MsgBurn from '@/models/msg/ethbridge/msg_burn';
 import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

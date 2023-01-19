@@ -6,6 +6,7 @@ import Desktop from '@/screens/blocks/components/desktop';
 import Mobile from '@/screens/blocks/components/mobile';
 import { useBlocks } from '@/screens/blocks/hooks';
 import useStyles from '@/screens/blocks/styles';
+import { useDisplayStyles } from '@/styles/useSharedStyles';
 import { NextSeo } from 'next-seo';
 import useTranslation from 'next-translate/useTranslation';
 import { ReactNode } from 'react';
@@ -13,6 +14,7 @@ import { ReactNode } from 'react';
 const Blocks = () => {
   const { t } = useTranslation('blocks');
   const { classes } = useStyles();
+  const display = useDisplayStyles().classes;
   const { state, loadMoreItems, itemCount, isItemLoaded } = useBlocks();
 
   let box: ReactNode;
@@ -27,14 +29,14 @@ const Blocks = () => {
           itemCount={itemCount}
           loadMoreItems={loadMoreItems}
           isItemLoaded={isItemLoaded}
-          className={classes.hiddenUntilLg}
+          className={display.hiddenUntilLg}
         />
         <Mobile
           items={state.items}
           itemCount={itemCount}
           loadMoreItems={loadMoreItems}
           isItemLoaded={isItemLoaded}
-          className={classes.hiddenWhenLg}
+          className={display.hiddenWhenLg}
         />
       </>
     );

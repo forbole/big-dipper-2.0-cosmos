@@ -1,10 +1,10 @@
-import Name from '@/components/name';
-import MsgWithdraw from '@/models/msg/auction/msg_withdraw';
-import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@mui/material/Typography';
 import Trans from 'next-translate/Trans';
 import numeral from 'numeral';
-import React, { FC } from 'react';
+import { FC } from 'react';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
+import MsgWithdraw from '@/models/msg/auction/msg_withdraw';
+import Name from '@/components/name';
 
 const Withdraw: FC<{ message: MsgWithdraw }> = (props) => {
   const { message } = props;

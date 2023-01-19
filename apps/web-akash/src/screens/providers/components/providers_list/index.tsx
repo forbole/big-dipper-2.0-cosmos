@@ -1,11 +1,12 @@
 import Box from '@/components/box';
 import Pagination from '@/components/pagination';
 import Search from '@/components/search';
-import { usePagination } from '@/hooks';
+import { usePagination } from '@/hooks/use_pagination';
 import Desktop from '@/screens/providers/components/providers_list/components/desktop';
 import Mobile from '@/screens/providers/components/providers_list/components/mobile';
 import useStyles from '@/screens/providers/components/providers_list/styles';
 import type { ProvidersListState } from '@/screens/providers/types';
+import { useDisplayStyles } from '@/styles/useSharedStyles';
 import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import { FC } from 'react';
@@ -17,6 +18,7 @@ export interface ProvidersListProps extends ComponentDefault {
 
 const ProvidersList: FC<ProvidersListProps> = (props) => {
   const { classes, cx } = useStyles();
+  const display = useDisplayStyles().classes;
   const { t } = useTranslation('providers');
   const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange } = usePagination({
     rowsPage: props.list.pagination.itemsPerPage,
@@ -25,8 +27,8 @@ const ProvidersList: FC<ProvidersListProps> = (props) => {
 
   const component = (
     <>
-      <Desktop list={props.list.pages[page] || []} className={classes.hiddenUntilLg} />
-      <Mobile list={props.list.pages[page] || []} className={classes.hiddenWhenLg} />
+      <Desktop list={props.list.pages[page] || []} className={display.hiddenUntilLg} />
+      <Mobile list={props.list.pages[page] || []} className={display.hiddenWhenLg} />
     </>
   );
 

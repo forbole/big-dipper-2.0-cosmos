@@ -1,9 +1,9 @@
-import { ProposalsDocument } from '@/graphql/types/general_types';
-import Proposals from '@/screens/proposals';
-import { MockTheme, wait } from '@/tests/utils';
 import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
 import { MockedProvider } from '@apollo/client/testing';
 import renderer from 'react-test-renderer';
+import { ProposalsDocument } from '@/graphql/types/general_types';
+import Proposals from '@/screens/proposals';
+import { MockTheme, wait } from '@/tests/utils';
 
 // ==================================
 // mocks

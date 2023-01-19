@@ -1,9 +1,4 @@
 /* eslint-disable no-nested-ternary */
-import AvatarName from '@/components/avatar_name';
-import { useProfileRecoil } from '@/recoil/profiles/hooks';
-import { columns } from '@/screens/proposal_details/components/votes/components/desktop/utils';
-import type { ItemType } from '@/screens/proposal_details/components/votes/types';
-import { getVoteKey } from '@/screens/proposal_details/components/votes/utils';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -11,6 +6,11 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import useTranslation from 'next-translate/useTranslation';
 import { FC } from 'react';
+import { getVoteKey } from '@/screens/proposal_details/components/votes/utils';
+import type { ItemType } from '@/screens/proposal_details/components/votes/types';
+import { columns } from '@/screens/proposal_details/components/votes/components/desktop/utils';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
+import AvatarName from '@/components/avatar_name';
 
 type VoteRowProps = {
   i: number;

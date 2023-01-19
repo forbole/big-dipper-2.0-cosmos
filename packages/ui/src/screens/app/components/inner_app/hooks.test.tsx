@@ -1,6 +1,6 @@
-import { useChainHealthCheck } from '@/screens/app/components/inner_app/hooks';
 import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
 import { cleanup, renderHook } from '@testing-library/react';
+import { useChainHealthCheck } from '@/screens/app/components/inner_app/hooks';
 
 const mockI18n = {
   t: (key: string) => key,

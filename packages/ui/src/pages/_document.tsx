@@ -1,4 +1,3 @@
-import createEmotionCache from '@/styles/createEmotionCache';
 import createEmotionServer from '@emotion/server/create-instance';
 import { AppType } from 'next/app';
 import Document, {
@@ -10,6 +9,7 @@ import Document, {
   NextScript,
 } from 'next/document';
 import { FC } from 'react';
+import createEmotionCache from '@/styles/createEmotionCache';
 
 export interface DocumentComponentProps {
   emotionStyleTags: JSX.Element[];

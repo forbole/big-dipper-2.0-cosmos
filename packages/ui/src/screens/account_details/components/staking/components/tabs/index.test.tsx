@@ -1,6 +1,6 @@
+import renderer from 'react-test-renderer';
 import TabsHeader from '@/screens/account_details/components/staking/components/tabs';
 import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 // ==================================
 // unit tests

@@ -1,12 +1,12 @@
+import numeral from 'numeral';
+import * as R from 'ramda';
+import { useCallback, useState } from 'react';
 import chainConfig from '@/chainConfig';
 import { ParamsQuery, useParamsQuery } from '@/graphql/types/general_types';
 import { DistributionParams, GovParams, MintParams, SlashingParams, StakingParams } from '@/models';
 import IscnParams from '@/models/iscn_params';
 import type { ParamsState } from '@/screens/params/types';
 import { formatToken } from '@/utils/format_token';
-import numeral from 'numeral';
-import * as R from 'ramda';
-import { useCallback, useState } from 'react';
 
 const { primaryTokenUnit } = chainConfig();
 

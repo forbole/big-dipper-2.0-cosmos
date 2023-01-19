@@ -1,9 +1,9 @@
-import useStyles from '@/screens/account_details/components/staking/components/tabs/styles';
-import { a11yProps } from '@/utils/a11yProps';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
 import useTranslation from 'next-translate/useTranslation';
-import React, { ComponentProps, FC, ReactNode } from 'react';
+import { ComponentProps, FC, ReactNode } from 'react';
+import { a11yProps } from '@/utils/a11yProps';
+import useStyles from '@/screens/account_details/components/staking/components/tabs/styles';
 
 interface TabsHeaderProps {
   className?: string;

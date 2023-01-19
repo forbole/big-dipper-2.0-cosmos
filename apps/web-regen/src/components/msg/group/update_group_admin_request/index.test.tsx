@@ -1,7 +1,7 @@
+import renderer from 'react-test-renderer';
 import UpdateGroupAdminRequest from '@/components/msg/group/update_group_admin_request';
 import MsgUpdateGroupAdminRequest from '@/models/msg/group/msg_update_group_admin_request';
 import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

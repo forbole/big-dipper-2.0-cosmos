@@ -1,8 +1,8 @@
-import { STATS } from '@/api';
-import type { EpochState } from '@/screens/home/components/epoch/types';
 import axios from 'axios';
 import * as R from 'ramda';
 import { useEffect, useState } from 'react';
+import type { EpochState } from '@/screens/home/components/epoch/types';
+import { STATS } from '@/api';
 
 export const useEpoch = () => {
   const [state, setState] = useState<EpochState>({

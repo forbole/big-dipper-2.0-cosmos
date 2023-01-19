@@ -1,7 +1,3 @@
-import useStyles from '@/screens/account_details/components/nfts/components/list/components/desktop/styles';
-import { columns } from '@/screens/account_details/components/nfts/components/list/components/desktop/utils';
-import type { OtherTokenType } from '@/screens/account_details/components/nfts/types';
-import { NFT_DETAILS } from '@/utils/go_to_page';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -10,6 +6,10 @@ import TableRow from '@mui/material/TableRow';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import { FC } from 'react';
+import { NFT_DETAILS } from '@/utils/go_to_page';
+import type { OtherTokenType } from '@/screens/account_details/components/nfts/types';
+import { columns } from '@/screens/account_details/components/nfts/components/list/components/desktop/utils';
+import useStyles from '@/screens/account_details/components/nfts/components/list/components/desktop/styles';
 
 const Desktop: FC<{ className?: string; items: OtherTokenType[] }> = (props) => {
   const { t } = useTranslation('accounts');

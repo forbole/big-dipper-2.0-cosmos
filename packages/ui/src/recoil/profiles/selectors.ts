@@ -1,9 +1,9 @@
+import { bech32 } from 'bech32';
+import { GetRecoilValue, selectorFamily } from 'recoil';
 import chainConfig from '@/chainConfig';
 import { atomFamilyState } from '@/recoil/profiles/atom';
 import type { AtomState as ProfileAtomState } from '@/recoil/profiles/types';
 import { readValidator } from '@/recoil/validators';
-import { bech32 } from 'bech32';
-import { GetRecoilValue, selectorFamily } from 'recoil';
 
 const { prefix } = chainConfig();
 const consensusRegex = new RegExp(`^(${prefix.consensus})`);

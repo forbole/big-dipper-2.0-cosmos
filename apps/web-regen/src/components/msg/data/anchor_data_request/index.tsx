@@ -1,9 +1,9 @@
+import Typography from '@mui/material/Typography';
+import Trans from 'next-translate/Trans';
+import { FC } from 'react';
 import Name from '@/components/name';
 import MsgAnchorDataRequest from '@/models/msg/data/msg_anchor_data_request';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
-import Typography from '@mui/material/Typography';
-import Trans from 'next-translate/Trans';
-import React, { FC } from 'react';
 
 const AnchorDataRequest: FC<{ message: MsgAnchorDataRequest }> = (props) => {
   const { message } = props;

@@ -1,7 +1,7 @@
+import renderer from 'react-test-renderer';
 import StoreRawDataRequest from '@/components/msg/data/store_raw_data_request';
 import MsgStoreRawDataRequest from '@/models/msg/data/msg_store_raw_data_request';
 import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

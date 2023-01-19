@@ -1,7 +1,7 @@
+import renderer from 'react-test-renderer';
 import CreateVestingAccount from '@/components/msg/vesting/create_vesting_account';
 import { MsgCreateVestingAccount } from '@/models';
 import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

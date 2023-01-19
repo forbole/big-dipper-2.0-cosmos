@@ -1,8 +1,8 @@
-import type { Distribution, Gov, Minting, Slashing, Staking } from '@/screens/params/types';
-import { nanoToSeconds, secondsToDays } from '@/utils/time';
 import { Translate } from 'next-translate';
 import numeral from 'numeral';
 import { ReactNode } from 'react';
+import { nanoToSeconds, secondsToDays } from '@/utils/time';
+import type { Distribution, Gov, Minting, Slashing, Staking } from '@/screens/params/types';
 
 const convertBySeconds = (seconds: number, t: Translate) => {
   const SECONDS_IN_DAY = 86400;

@@ -1,10 +1,10 @@
+import * as R from 'ramda';
+import { useState } from 'react';
 import {
   TransactionsListenerSubscription,
   useTransactionsListenerSubscription,
 } from '@/graphql/types/general_types';
 import type { TransactionsState } from '@/screens/home/components/transactions/types';
-import * as R from 'ramda';
-import { useState } from 'react';
 
 const formatTransactions = (data: TransactionsListenerSubscription) =>
   data.transactions.map((x) => ({

@@ -1,9 +1,9 @@
-import { BLOCK_DETAILS } from '@/api';
-import type { BlockDetailsState } from '@/screens/block_details/types';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import { useEffect, useState } from 'react';
+import type { BlockDetailsState } from '@/screens/block_details/types';
+import { BLOCK_DETAILS } from '@/api';
 
 export const useBlockDetails = () => {
   const router = useRouter();

@@ -1,8 +1,8 @@
+import useTranslation from 'next-translate/useTranslation';
+import { FC } from 'react';
 import chainConfig from '@/chainConfig';
 import { useSearchBar } from '@/components/nav/components/search_bar/hooks';
 import Search from '@/components/search';
-import useTranslation from 'next-translate/useTranslation';
-import React, { FC } from 'react';
 
 const { extra } = chainConfig();
 

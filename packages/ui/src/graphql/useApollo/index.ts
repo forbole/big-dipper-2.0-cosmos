@@ -11,8 +11,8 @@ import { HttpLink } from '@apollo/client/link/http';
 import { GraphQLWsLink } from '@apollo/client/link/subscriptions';
 import { WebSocketLink } from '@apollo/client/link/ws';
 import { getMainDefinition } from '@apollo/client/utilities';
-import { Kind, OperationTypeNode } from 'graphql';
 import { createClient } from 'graphql-ws';
+import { Kind, OperationTypeNode } from 'graphql';
 import { useEffect, useState } from 'react';
 
 const { chainType, endpoints, extra } = chainConfig();

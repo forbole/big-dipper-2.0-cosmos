@@ -1,9 +1,9 @@
-import SingleBlock from '@/screens/home/components/data_blocks/components/single_block';
-import { useDataBlocks } from '@/screens/home/components/data_blocks/hooks';
-import useStyles from '@/screens/home/components/data_blocks/styles';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
 import { FC } from 'react';
+import SingleBlock from '@/screens/home/components/data_blocks/components/single_block';
+import { useDataBlocks } from '@/screens/home/components/data_blocks/hooks';
+import useStyles from '@/screens/home/components/data_blocks/styles';
 
 const DataBlocks: FC<ComponentDefault> = ({ className }) => {
   const { t } = useTranslation('home');

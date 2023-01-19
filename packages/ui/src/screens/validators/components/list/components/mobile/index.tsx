@@ -1,5 +1,5 @@
 import AvatarName from '@/components/avatar_name';
-import { useList, useListRow } from '@/hooks';
+import { useList, useListRow } from '@/hooks/use_react_window';
 import Condition from '@/screens/validators/components/list/components/condition';
 import SingleValidator from '@/screens/validators/components/list/components/mobile/component/single_validator';
 import VotingPower from '@/screens/validators/components/list/components/voting_power';

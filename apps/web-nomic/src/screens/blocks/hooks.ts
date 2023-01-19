@@ -1,11 +1,11 @@
+import * as R from 'ramda';
+import { useCallback, useState } from 'react';
 import {
   BlocksListenerSubscription,
   useBlocksListenerSubscription,
   useBlocksQuery,
 } from '@/graphql/types/general_types';
 import type { BlocksState, BlockType } from '@/screens/blocks/types';
-import * as R from 'ramda';
-import { useCallback, useState } from 'react';
 
 // This is a bandaid as it can get extremely
 // expensive if there is too much data

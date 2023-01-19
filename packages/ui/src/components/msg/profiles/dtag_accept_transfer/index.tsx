@@ -1,9 +1,9 @@
+import Typography from '@mui/material/Typography';
+import Trans from 'next-translate/Trans';
+import { FC } from 'react';
 import Name from '@/components/name';
 import { MsgDtagAcceptTransfer } from '@/models';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
-import Typography from '@mui/material/Typography';
-import Trans from 'next-translate/Trans';
-import React, { FC } from 'react';
 
 const DtagAcceptTransfer: FC<{ message: MsgDtagAcceptTransfer }> = (props) => {
   const { message } = props;

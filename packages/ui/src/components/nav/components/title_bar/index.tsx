@@ -1,11 +1,11 @@
+import Typography from '@mui/material/Typography';
+import useTranslation from 'next-translate/useTranslation';
+import { FC } from 'react';
+import { useRecoilValue } from 'recoil';
 import ChainIcon from '@/components/ChainIcon';
 import useStyles from '@/components/nav/components/title_bar/styles';
 import { formatMarket } from '@/components/nav/components/title_bar/utils';
 import { readMarket } from '@/recoil/market';
-import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
-import React, { FC } from 'react';
-import { useRecoilValue } from 'recoil';
 
 type TitleBarProps = {
   className?: string;

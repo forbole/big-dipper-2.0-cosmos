@@ -1,11 +1,11 @@
-import { TRANSACTION_DETAILS } from '@/api';
-import chainConfig from '@/chainConfig';
-import type { ActionType, TransactionDetailsState } from '@/screens/transaction_details/types';
-import { formatToken, formatTokenByExponent } from '@/utils/format_token';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import { useCallback, useEffect, useState } from 'react';
+import { TRANSACTION_DETAILS } from '@/api';
+import chainConfig from '@/chainConfig';
+import type { ActionType, TransactionDetailsState } from '@/screens/transaction_details/types';
+import { formatToken, formatTokenByExponent } from '@/utils/format_token';
 
 const { primaryTokenUnit, tokenUnits } = chainConfig();
 

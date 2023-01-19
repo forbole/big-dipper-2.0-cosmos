@@ -1,5 +1,5 @@
 import { renderHook } from '@testing-library/react';
-import useShallowMemo from '.';
+import useShallowMemo from '@/hooks/useShallowMemo';
 
 describe('hooks: useShallowMemo (no key)', () => {
   it('given the same props when render 10 times then return the same result', async () => {

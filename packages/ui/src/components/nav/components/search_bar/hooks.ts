@@ -1,5 +1,9 @@
-import chainConfig from '@/chainConfig';
-import { readValidator } from '@/recoil/validators';
+import { Translate } from 'next-translate';
+import { useRouter } from 'next/router';
+import numeral from 'numeral';
+import { toast } from 'react-toastify';
+import { useRecoilCallback } from 'recoil';
+import { isValidAddress } from '@/utils/prefix_convert';
 import {
   ACCOUNT_DETAILS,
   BLOCK_DETAILS,
@@ -7,12 +11,8 @@ import {
   TRANSACTION_DETAILS,
   VALIDATOR_DETAILS,
 } from '@/utils/go_to_page';
-import { isValidAddress } from '@/utils/prefix_convert';
-import { Translate } from 'next-translate';
-import { useRouter } from 'next/router';
-import numeral from 'numeral';
-import { toast } from 'react-toastify';
-import { useRecoilCallback } from 'recoil';
+import { readValidator } from '@/recoil/validators';
+import chainConfig from '@/chainConfig';
 
 const { extra, prefix } = chainConfig();
 const consensusRegex = new RegExp(`^(${prefix.consensus})`);

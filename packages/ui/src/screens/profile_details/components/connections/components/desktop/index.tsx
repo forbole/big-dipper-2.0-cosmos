@@ -1,8 +1,3 @@
-import chainConfig from '@/chainConfig';
-import { readDate } from '@/recoil/settings';
-import { columns } from '@/screens/profile_details/components/connections/components/desktop/utils';
-import dayjs, { formatDayJs } from '@/utils/dayjs';
-import { ACCOUNT_DETAILS } from '@/utils/go_to_page';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -12,6 +7,11 @@ import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import { FC, ReactNode } from 'react';
 import { useRecoilValue } from 'recoil';
+import { ACCOUNT_DETAILS } from '@/utils/go_to_page';
+import dayjs, { formatDayJs } from '@/utils/dayjs';
+import { columns } from '@/screens/profile_details/components/connections/components/desktop/utils';
+import { readDate } from '@/recoil/settings';
+import chainConfig from '@/chainConfig';
 
 const { prefix } = chainConfig();
 

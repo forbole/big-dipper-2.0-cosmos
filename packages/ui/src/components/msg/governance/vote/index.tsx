@@ -1,12 +1,12 @@
-import Name from '@/components/name';
-import { MsgVote } from '@/models';
-import { useProfileRecoil } from '@/recoil/profiles/hooks';
-import { PROPOSAL_DETAILS } from '@/utils/go_to_page';
 import Typography from '@mui/material/Typography';
 import Trans from 'next-translate/Trans';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import { FC, useCallback } from 'react';
+import { PROPOSAL_DETAILS } from '@/utils/go_to_page';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
+import { MsgVote } from '@/models';
+import Name from '@/components/name';
 
 const Vote: FC<{ message: MsgVote }> = (props) => {
   const { t } = useTranslation('transactions');

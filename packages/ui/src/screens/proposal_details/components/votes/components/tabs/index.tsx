@@ -1,10 +1,10 @@
-import useStyles from '@/screens/proposal_details/components/votes/components/tabs/styles';
-import { tabLabels } from '@/screens/proposal_details/components/votes/components/tabs/utils';
-import { a11yProps } from '@/utils/a11yProps';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
 import useTranslation from 'next-translate/useTranslation';
-import React, { ComponentProps, FC } from 'react';
+import { ComponentProps, FC } from 'react';
+import { a11yProps } from '@/utils/a11yProps';
+import { tabLabels } from '@/screens/proposal_details/components/votes/components/tabs/utils';
+import useStyles from '@/screens/proposal_details/components/votes/components/tabs/styles';
 
 type TabsHeaderProps = {
   className?: string;

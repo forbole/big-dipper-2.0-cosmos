@@ -1,7 +1,7 @@
+import renderer from 'react-test-renderer';
 import Deregister from '@/components/msg/tokenregistry/deregister';
 import MsgDeregister from '@/models/msg/tokenregistry/msg_deregister';
 import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

@@ -1,7 +1,7 @@
+import renderer from 'react-test-renderer';
 import RescueCeth from '@/components/msg/ethbridge/rescue_ceth';
 import MsgRescueCeth from '@/models/msg/ethbridge/msg_rescue_ceth';
 import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

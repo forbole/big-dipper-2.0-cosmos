@@ -1,9 +1,9 @@
-import { defaultTheme } from '@/styles';
 import createCache, { EmotionCache } from '@emotion/cache';
 import { CacheProvider } from '@emotion/react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { ReactNode } from 'react';
 import { RecoilRoot } from 'recoil';
+import { defaultTheme } from '@/styles';
 
 let appCache: EmotionCache | undefined;
 

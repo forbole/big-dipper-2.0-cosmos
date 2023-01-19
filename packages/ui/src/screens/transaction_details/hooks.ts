@@ -1,10 +1,10 @@
+import { useRouter } from 'next/router';
+import * as R from 'ramda';
+import { SyntheticEvent, useCallback, useEffect, useState } from 'react';
 import { convertMsgsToModels } from '@/components/msg/utils';
 import { TransactionDetailsQuery, useTransactionDetailsQuery } from '@/graphql/types/general_types';
 import type { TransactionState } from '@/screens/transaction_details/types';
 import { formatToken } from '@/utils/format_token';
-import { useRouter } from 'next/router';
-import * as R from 'ramda';
-import { SyntheticEvent, useCallback, useEffect, useState } from 'react';
 
 // =============================
 // overview

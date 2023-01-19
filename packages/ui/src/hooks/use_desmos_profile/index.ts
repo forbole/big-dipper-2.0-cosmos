@@ -1,4 +1,8 @@
 /* eslint-disable no-nested-ternary */
+import { useApolloClient } from '@apollo/client';
+import * as R from 'ramda';
+import { useEffect, useState } from 'react';
+import { useRecoilCallback, useRecoilValue } from 'recoil';
 import chainConfig from '@/chainConfig';
 import {
   DesmosProfileDocument,
@@ -6,14 +10,10 @@ import {
   DesmosProfileLinkDocument,
   DesmosProfileQuery,
 } from '@/graphql/types/profile_types';
+import useShallowMemo from '@/hooks/useShallowMemo';
+import type { Options } from '@/hooks/use_desmos_profile/types';
 import { readDelegatorAddresses, writeProfile } from '@/recoil/profiles/selectors';
 import { isValidAddress } from '@/utils/prefix_convert';
-import { useApolloClient } from '@apollo/client';
-import * as R from 'ramda';
-import { useEffect, useState } from 'react';
-import { useRecoilCallback, useRecoilValue } from 'recoil';
-import useShallowMemo from '../useShallowMemo';
-import type { Options } from './types';
 
 const { prefix } = chainConfig();
 const userRegex = new RegExp(`^(${prefix.account})`);

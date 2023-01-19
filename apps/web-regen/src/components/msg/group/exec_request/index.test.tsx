@@ -1,7 +1,7 @@
+import renderer from 'react-test-renderer';
 import ExecRequest from '@/components/msg/group/exec_request';
 import MsgExecRequest from '@/models/msg/group/msg_exec_request';
 import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

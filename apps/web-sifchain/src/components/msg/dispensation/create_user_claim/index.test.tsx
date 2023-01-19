@@ -1,7 +1,7 @@
+import renderer from 'react-test-renderer';
 import CreateUserClaim from '@/components/msg/dispensation/create_user_claim';
 import MsgCreateUserClaim from '@/models/msg/dispensation/msg_create_user_claim';
 import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

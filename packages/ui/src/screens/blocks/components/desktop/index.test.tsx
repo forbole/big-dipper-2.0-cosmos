@@ -1,8 +1,8 @@
-import Desktop from '@/screens/blocks/components/desktop';
-import { MockTheme } from '@/tests/utils';
 import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
 import renderer from 'react-test-renderer';
 import type { AutoSizerProps } from 'react-virtualized-auto-sizer';
+import { MockTheme } from '@/tests/utils';
+import Desktop from '@/screens/blocks/components/desktop';
 
 // ==================================
 // mocks

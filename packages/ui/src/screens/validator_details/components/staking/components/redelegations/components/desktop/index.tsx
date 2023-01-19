@@ -1,10 +1,3 @@
-import AvatarName from '@/components/avatar_name';
-import { useProfileRecoil } from '@/recoil/profiles/hooks';
-import { readDate } from '@/recoil/settings';
-import { columns } from '@/screens/validator_details/components/staking/components/redelegations/components/desktop/utils';
-import type { ItemType } from '@/screens/validator_details/components/staking/components/redelegations/types';
-import dayjs, { formatDayJs } from '@/utils/dayjs';
-import { formatNumber } from '@/utils/format_token';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -13,6 +6,13 @@ import TableRow from '@mui/material/TableRow';
 import useTranslation from 'next-translate/useTranslation';
 import { FC } from 'react';
 import { useRecoilValue } from 'recoil';
+import { formatNumber } from '@/utils/format_token';
+import dayjs, { formatDayJs } from '@/utils/dayjs';
+import type { ItemType } from '@/screens/validator_details/components/staking/components/redelegations/types';
+import { columns } from '@/screens/validator_details/components/staking/components/redelegations/components/desktop/utils';
+import { readDate } from '@/recoil/settings';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
+import AvatarName from '@/components/avatar_name';
 
 const RedelegationsItem: FC<{ item: ItemType }> = ({ item }) => {
   const { address, imageUrl, name } = useProfileRecoil(item.address);

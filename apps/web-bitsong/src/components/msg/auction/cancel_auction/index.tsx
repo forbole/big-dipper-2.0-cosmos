@@ -1,10 +1,10 @@
-import Name from '@/components/name';
-import MsgCancelAuction from '@/models/msg/auction/msg_cancel_auction';
-import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@mui/material/Typography';
 import Trans from 'next-translate/Trans';
 import numeral from 'numeral';
-import React, { FC } from 'react';
+import { FC } from 'react';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
+import MsgCancelAuction from '@/models/msg/auction/msg_cancel_auction';
+import Name from '@/components/name';
 
 const CancelAuction: FC<{ message: MsgCancelAuction }> = (props) => {
   const { message } = props;

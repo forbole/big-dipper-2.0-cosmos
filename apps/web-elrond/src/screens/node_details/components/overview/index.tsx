@@ -1,4 +1,4 @@
-import React, { FC, isValidElement } from 'react';
+import { FC, isValidElement } from 'react';
 import numeral from 'numeral';
 import useTranslation from 'next-translate/useTranslation';
 import Typography from '@mui/material/Typography';

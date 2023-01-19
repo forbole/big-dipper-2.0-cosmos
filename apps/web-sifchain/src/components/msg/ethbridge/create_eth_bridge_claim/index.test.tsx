@@ -1,7 +1,7 @@
+import renderer from 'react-test-renderer';
 import CreateEthBridgeClaim from '@/components/msg/ethbridge/create_eth_bridge_claim';
 import MsgCreateEthBridgeClaim from '@/models/msg/ethbridge/msg_create_eth_bridge_claim';
 import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

@@ -1,18 +1,18 @@
-import chainConfig from '@/chainConfig';
-import SocialMedia from '@/components/footer/components/social_media';
-import useStyles from '@/components/footer/styles';
-import { donateLink, footerLinks } from '@/components/footer/utils';
-import generalConfig from '@/generalConfig';
-import { readTheme } from '@/recoil/settings';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import Trans from 'next-translate/Trans';
 import useTranslation from 'next-translate/useTranslation';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { useRecoilValue } from 'recoil';
 import FooterLogoLight from 'shared-utils/assets/big-dipper-red.svg';
 import FooterLogoDark from 'shared-utils/assets/big-dipper-white.svg';
+import { readTheme } from '@/recoil/settings';
+import generalConfig from '@/generalConfig';
+import { donateLink, footerLinks } from '@/components/footer/utils';
+import useStyles from '@/components/footer/styles';
+import SocialMedia from '@/components/footer/components/social_media';
+import chainConfig from '@/chainConfig';
 
 const { title } = chainConfig();
 

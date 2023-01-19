@@ -4,6 +4,7 @@ import NoData from '@/components/no_data';
 import CodeBlock from '@/screens/transaction_details/components/code_block';
 import useStyles from '@/screens/transaction_details/components/smart_contract_results/styles';
 import type { ResultType } from '@/screens/transaction_details/types';
+import { useDisplayStyles } from '@/styles/useSharedStyles';
 import { decodeBase64 } from '@/utils/base64';
 import { formatNumber } from '@/utils/format_token';
 import Divider from '@mui/material/Divider';
@@ -14,6 +15,7 @@ import { FC, Fragment } from 'react';
 const SmartContractResults: FC<{ results: ResultType[] }> = (props) => {
   const { t } = useTranslation('transactions');
   const { classes, cx } = useStyles();
+  const display = useDisplayStyles().classes;
 
   if (!props.results.length) {
     return <NoData />;
@@ -43,7 +45,7 @@ const SmartContractResults: FC<{ results: ResultType[] }> = (props) => {
                   </Typography>
                   {x.hash}
                 </div>
-                <div className={cx(classes.item, classes.hiddenUntilLg)}>
+                <div className={cx(classes.item, display.hiddenUntilLg)}>
                   <Typography variant="h4" className="label">
                     {t('value')}
                   </Typography>
@@ -66,7 +68,7 @@ const SmartContractResults: FC<{ results: ResultType[] }> = (props) => {
                   {x.receiver}
                 </div>
               </div>
-              <div className={cx(classes.item, classes.hiddenWhenLg)}>
+              <div className={cx(classes.item, display.hiddenWhenLg)}>
                 <Typography variant="h4" className="label">
                   {t('value')}
                 </Typography>

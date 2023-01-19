@@ -2,9 +2,6 @@
 
 exports[`screen: _app matches snapshot 1`] = `
 [
-  <div
-    className="Toastify"
-  />,
   .emotion-0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -231,5 +228,8 @@ exports[`screen: _app matches snapshot 1`] = `
       desmos-mainnet
     </h2>
   </div>,
+  <div
+    className="Toastify"
+  />,
 ]
 `;

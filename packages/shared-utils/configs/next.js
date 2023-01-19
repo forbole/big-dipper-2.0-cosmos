@@ -18,8 +18,8 @@ function getBaseConfig(basePath, chainName) {
           }
         : {}),
       fontLoaders: [{ loader: '@next/font/google', options: { subsets: ['latin'] } }],
+      esmExternals: 'loose',
     },
-    swcMinify: process.env.NODE_ENV === 'production',
     ...(process.env.BUILD_STANDALONE
       ? {
           output: 'standalone',
@@ -27,7 +27,7 @@ function getBaseConfig(basePath, chainName) {
       : {}),
     poweredByHeader: false,
     basePath,
-    webpack,
+    webpack: webpackConfig,
     eslint: {
       // to speed up the build task
       ignoreDuringBuilds: true,
@@ -38,6 +38,11 @@ function getBaseConfig(basePath, chainName) {
     },
     env: {
       NEXT_PUBLIC_RELEASE: `${chainName}-v${process.env.npm_package_version ?? ''}`,
+    },
+    compiler: {
+      emotion: true,
+      reactRemoveProperties: process.env.NODE_ENV === 'production',
+      removeConsole: process.env.NODE_ENV === 'production',
     },
   };
   return config;
@@ -50,7 +55,7 @@ function getBaseConfig(basePath, chainName) {
  * @param config - This is the webpack configuration object.
  * @returns The config object.
  */
-function webpack(config, options) {
+function webpackConfig(config, { defaultLoaders, isServer, webpack }) {
   /* This is to allow the use of svg files in the project. */
   config.module.rules.push({
     test: /\.svg$/i,
@@ -62,13 +67,18 @@ function webpack(config, options) {
     // issuer: /\.[jtmc]sx?$/,
     resourceQuery: { not: [/url/] }, // exclude react component if *.svg?url
     use: [
-      options.defaultLoaders.babel,
+      defaultLoaders.babel,
       {
         loader: '@svgr/webpack',
         options: { babel: false },
       },
     ],
   });
+  if (!isServer) {
+    // Ensures no server modules are included on the client.
+    config.plugins.push(new webpack.IgnorePlugin({ resourceRegExp: /lib\/server/ }));
+  }
+
   return config;
 }
 

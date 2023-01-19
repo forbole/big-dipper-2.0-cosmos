@@ -1,11 +1,3 @@
-import Loading from '@/components/loading';
-import { useGrid } from '@/hooks';
-import useShallowMemo from '@/hooks/useShallowMemo';
-import useStyles from '@/screens/providers/components/providers_list/components/desktop/styles';
-import { columns } from '@/screens/providers/components/providers_list/components/desktop/utils';
-import type { ProviderInfo } from '@/screens/providers/types';
-import { useAddress } from '@/utils/copy_to_clipboard';
-import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
@@ -15,6 +7,14 @@ import { VariableSizeGrid as Grid } from 'react-window';
 import CopyIcon from 'shared-utils/assets/icon-copy.svg';
 import EmailIcon from 'shared-utils/assets/icon-email.svg';
 import WebArrowIcon from 'shared-utils/assets/icon-web-arrow.svg';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
+import { useAddress } from '@/utils/copy_to_clipboard';
+import type { ProviderInfo } from '@/screens/providers/types';
+import { columns } from '@/screens/providers/components/providers_list/components/desktop/utils';
+import useStyles from '@/screens/providers/components/providers_list/components/desktop/styles';
+import useShallowMemo from '@/hooks/useShallowMemo';
+import { useGrid } from '@/hooks/use_react_window';
+import Loading from '@/components/loading';
 
 const isItemLoaded = (index: number, itemCount: number) => index >= 0 && index < itemCount;
 

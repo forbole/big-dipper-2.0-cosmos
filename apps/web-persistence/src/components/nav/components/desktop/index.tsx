@@ -1,16 +1,16 @@
-import ActionBar from '@/components/nav/components/desktop/components/action_bar';
-import { useDesktop } from '@/components/nav/components/desktop/hooks';
-import useStyles from '@/components/nav/components/desktop/styles';
-import MenuItems from '@/components/nav/components/menu_items';
-import TitleBar from '@/components/nav/components/title_bar';
-import { readTheme } from '@/recoil/settings';
 import AppBar from '@mui/material/AppBar';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 import Drawer from '@mui/material/Drawer';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { useRecoilValue } from 'recoil';
 import BigDipperLogoRed from 'shared-utils/assets/big-dipper-red.svg';
 import BigDipperLogoWhite from 'shared-utils/assets/big-dipper-white.svg';
+import { readTheme } from '@/recoil/settings';
+import TitleBar from '@/components/nav/components/title_bar';
+import MenuItems from '@/components/nav/components/menu_items';
+import useStyles from '@/components/nav/components/desktop/styles';
+import { useDesktop } from '@/components/nav/components/desktop/hooks';
+import ActionBar from '@/components/nav/components/desktop/components/action_bar';
 
 type DesktopProps = {
   className?: string;

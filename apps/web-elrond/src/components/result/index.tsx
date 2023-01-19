@@ -1,10 +1,10 @@
-import useStyles from '@/components/result/styles';
 import Typography from '@mui/material/Typography';
-import Cancel from '@mui/icons-material/Cancel';
-import CheckCircle from '@mui/icons-material/CheckCircle';
-import Help from '@mui/icons-material/Help';
+import CancelIcon from '@mui/icons-material/Cancel';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import HelpIcon from '@mui/icons-material/Help';
 import useTranslation from 'next-translate/useTranslation';
 import { FC } from 'react';
+import useStyles from '@/components/result/styles';
 
 type ResultProps = {
   className?: string;
@@ -19,21 +19,21 @@ const Result: FC<ResultProps> = ({ className, status }) => {
   if (status === 'success') {
     component = (
       <>
-        <CheckCircle />
+        <CheckCircleIcon />
         <Typography variant="body1">{t('success')}</Typography>
       </>
     );
   } else if (status === 'fail') {
     component = (
       <>
-        <Cancel />
+        <CancelIcon />
         <Typography variant="body1">{t('fail')}</Typography>
       </>
     );
   } else {
     component = (
       <>
-        <Help />
+        <HelpIcon />
         <Typography variant="body1">{t('pending')}</Typography>
       </>
     );

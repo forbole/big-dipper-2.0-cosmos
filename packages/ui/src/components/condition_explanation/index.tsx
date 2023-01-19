@@ -1,6 +1,6 @@
-import useStyles from '@/components/condition_explanation/styles';
 import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
+import useStyles from '@/components/condition_explanation/styles';
 
 const ConditionExplanation = () => {
   const { t } = useTranslation('validators');

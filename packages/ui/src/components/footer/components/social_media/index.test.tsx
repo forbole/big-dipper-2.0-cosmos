@@ -1,6 +1,6 @@
+import renderer from 'react-test-renderer';
 import SocialMedia from '@/components/footer/components/social_media';
 import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 // ==================================
 // unit tests

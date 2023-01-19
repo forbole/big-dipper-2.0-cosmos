@@ -1,12 +1,12 @@
+import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
+import useTranslation from 'next-translate/useTranslation';
+import { FC, Fragment } from 'react';
 import AvatarName from '@/components/avatar_name';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import useStyles from '@/screens/proposal_details/components/votes/components/mobile/styles';
 import type { ItemType } from '@/screens/proposal_details/components/votes/types';
 import { getVoteKey } from '@/screens/proposal_details/components/votes/utils';
-import Divider from '@mui/material/Divider';
-import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
-import { FC, Fragment } from 'react';
 
 type VoteItemProps = {
   i: number;

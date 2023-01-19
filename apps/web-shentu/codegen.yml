@@ -1,12 +1,12 @@
 overwrite: true
-config:
-  # omitOperationSuffix: true
-  skipTypeNameForRoot: true
 generates:
   ./src/graphql/types/general_types.ts:
     documents:
       - 'src/graphql/general/*'
     schema: https://gql.certik.forbole.com/v1/graphql
+    config:
+      # omitOperationSuffix: true
+      skipTypeNameForRoot: true
     plugins:
       - "typescript"
       - "typescript-operations"

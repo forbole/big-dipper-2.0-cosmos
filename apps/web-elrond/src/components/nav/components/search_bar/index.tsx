@@ -1,7 +1,7 @@
-import { useSearchBar } from '@/components/nav/components/search_bar/hooks';
-import Search from '@/components/search';
 import useTranslation from 'next-translate/useTranslation';
 import { FC } from 'react';
+import { useSearchBar } from '@/components/nav/components/search_bar/hooks';
+import Search from '@/components/search';
 
 const SearchBar: FC<ComponentDefault> = ({ className }) => {
   const { t } = useTranslation('common');

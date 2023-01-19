@@ -1,5 +1,5 @@
-import useStyles from '@/components/nav/components/networks/components/single_network/styles';
 import Typography from '@mui/material/Typography';
+import useStyles from '@/components/nav/components/networks/components/single_network/styles';
 
 const SingleNetwork = (props: {
   url: string;

@@ -1,7 +1,7 @@
+import renderer from 'react-test-renderer';
 import SetWithdrawalAddress from '@/components/msg/distribution/set_withdrawal_address';
 import { MsgSetWithdrawAddress } from '@/models';
 import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

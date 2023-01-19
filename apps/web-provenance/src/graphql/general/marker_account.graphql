@@ -1,0 +1,16 @@
+query MarkerAccount($limit: Int = 100, $offset: Int = 0, $marker_account_bool_exp: marker_account_bool_exp = {}) {
+  marker_account(limit: $limit, offset: $offset, where: $marker_account_bool_exp, order_by: [{token_unit: {token_name: asc_nulls_last}},{denom: asc_nulls_last}]) {
+    access_control
+    address
+    allow_governance_control
+    denom
+    marker_type
+    status
+    supply
+    token_unit {
+      denom
+      exponent
+      token_name
+    }
+  }
+}

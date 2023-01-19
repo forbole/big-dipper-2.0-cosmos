@@ -1,7 +1,7 @@
-import Name from '@/components/name';
 import useTranslation from 'next-translate/useTranslation';
-import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { FC } from 'react';
+import Name from '@/components/name';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
 
 const SignerName: FC<{ address: string; i: number; addresses: string[] }> = (props) => {
   const { address: theAddress, i, addresses } = props;

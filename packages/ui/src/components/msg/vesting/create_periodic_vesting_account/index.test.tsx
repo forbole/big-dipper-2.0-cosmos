@@ -1,7 +1,7 @@
+import renderer from 'react-test-renderer';
 import CreatePeriodicVestingAccount from '@/components/msg/vesting/create_periodic_vesting_account';
 import { MsgCreatePeriodicVestingAccount } from '@/models';
 import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

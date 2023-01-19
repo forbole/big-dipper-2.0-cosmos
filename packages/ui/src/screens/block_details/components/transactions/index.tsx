@@ -1,12 +1,12 @@
+import Typography from '@mui/material/Typography';
+import useTranslation from 'next-translate/useTranslation';
+import { FC } from 'react';
+import { useRecoilValue } from 'recoil';
 import Box from '@/components/box';
 import TransactionsList from '@/components/transactions_list';
 import TransactionsListDetails from '@/components/transactions_list_details';
 import { readTx } from '@/recoil/settings';
 import useStyles from '@/screens/block_details/components/transactions/styles';
-import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
-import React, { FC } from 'react';
-import { useRecoilValue } from 'recoil';
 
 type TransactionsProps = ComponentDefault & {
   transactions: Transactions[];

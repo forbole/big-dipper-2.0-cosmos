@@ -1,11 +1,11 @@
+import Typography from '@mui/material/Typography';
+import Trans from 'next-translate/Trans';
+import { FC } from 'react';
 import chainConfig from '@/chainConfig';
 import Name from '@/components/name';
 import MsgCreatePool from '@/models/msg/clp/msg_create_pool';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { formatNumber, formatToken } from '@/utils/format_token';
-import Typography from '@mui/material/Typography';
-import Trans from 'next-translate/Trans';
-import React, { FC } from 'react';
 
 const { primaryTokenUnit } = chainConfig();
 

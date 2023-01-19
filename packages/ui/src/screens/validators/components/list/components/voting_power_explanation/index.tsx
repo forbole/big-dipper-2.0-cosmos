@@ -1,6 +1,6 @@
-import useStyles from '@/screens/validators/components/list/components/voting_power_explanation/styles';
 import Typography from '@mui/material/Typography';
 import Trans from 'next-translate/Trans';
+import useStyles from '@/screens/validators/components/list/components/voting_power_explanation/styles';
 
 const VotingPowerExplanation = () => {
   const { classes } = useStyles();

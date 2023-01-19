@@ -1,3 +1,5 @@
+import { NextSeo } from 'next-seo';
+import useTranslation from 'next-translate/useTranslation';
 import Layout from '@/components/layout';
 import LoadAndExist from '@/components/load_and_exist';
 import Overview from '@/screens/block_details/components/overview';
@@ -5,8 +7,6 @@ import Signatures from '@/screens/block_details/components/signatures';
 import Transactions from '@/screens/block_details/components/transactions';
 import { useBlockDetails } from '@/screens/block_details/hooks';
 import useStyles from '@/screens/block_details/styles';
-import { NextSeo } from 'next-seo';
-import useTranslation from 'next-translate/useTranslation';
 
 const BlockDetails = () => {
   const { t } = useTranslation('blocks');

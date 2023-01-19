@@ -1,4 +1,4 @@
-import React, { ComponentProps, FC } from 'react';
+import { ComponentProps, FC } from 'react';
 import useTranslation from 'next-translate/useTranslation';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';

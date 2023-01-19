@@ -1,7 +1,7 @@
+import renderer from 'react-test-renderer';
 import Transfer from '@/components/msg/ibc_transfer/transfer';
 import { MsgTransfer } from '@/models';
 import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

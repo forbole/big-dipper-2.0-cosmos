@@ -1,9 +1,9 @@
+import Typography from '@mui/material/Typography';
+import Trans from 'next-translate/Trans';
+import { FC } from 'react';
 import Name from '@/components/name';
 import MsgUpdateCethReceiverAccount from '@/models/msg/ethbridge/msg_update_ceth_receiver_account';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
-import Typography from '@mui/material/Typography';
-import Trans from 'next-translate/Trans';
-import React, { FC } from 'react';
 
 const UpdateCethReceiverAccount: FC<{ message: MsgUpdateCethReceiverAccount }> = (props) => {
   const { message } = props;

@@ -1,10 +1,3 @@
-import { useList, useListRow } from '@/hooks';
-import useShallowMemo from '@/hooks/useShallowMemo';
-import SingleProvider from '@/screens/providers/components/providers_list/components/mobile/component/single_provider';
-import useStyles from '@/screens/providers/components/providers_list/components/mobile/styles';
-import type { ProviderInfo } from '@/screens/providers/types';
-import { useAddress } from '@/utils/copy_to_clipboard';
-import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
@@ -14,6 +7,13 @@ import { ListChildComponentProps, VariableSizeList as List } from 'react-window'
 import CopyIcon from 'shared-utils/assets/icon-copy.svg';
 import EmailIcon from 'shared-utils/assets/icon-email.svg';
 import WebArrowIcon from 'shared-utils/assets/icon-web-arrow.svg';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
+import { useAddress } from '@/utils/copy_to_clipboard';
+import type { ProviderInfo } from '@/screens/providers/types';
+import useStyles from '@/screens/providers/components/providers_list/components/mobile/styles';
+import SingleProvider from '@/screens/providers/components/providers_list/components/mobile/component/single_provider';
+import useShallowMemo from '@/hooks/useShallowMemo';
+import { useList, useListRow } from '@/hooks/use_react_window';
 
 type ListItemProps = Pick<ListChildComponentProps, 'index' | 'style'> & {
   setRowHeight: Parameters<typeof useListRow>[1];

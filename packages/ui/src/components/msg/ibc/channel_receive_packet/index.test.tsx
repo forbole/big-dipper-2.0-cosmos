@@ -1,7 +1,7 @@
+import renderer from 'react-test-renderer';
 import ReceivePacket from '@/components/msg/ibc/channel_receive_packet';
 import { MsgReceivePacket } from '@/models';
 import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

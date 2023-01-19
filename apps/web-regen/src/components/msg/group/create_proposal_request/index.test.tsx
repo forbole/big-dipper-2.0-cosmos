@@ -1,7 +1,7 @@
+import renderer from 'react-test-renderer';
 import CreateProposalRequest from '@/components/msg/group/create_proposal_request';
 import MsgCreateProposalRequest from '@/models/msg/group/msg_create_proposal_request';
 import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

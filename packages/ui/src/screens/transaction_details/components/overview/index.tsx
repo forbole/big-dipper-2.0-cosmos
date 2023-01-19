@@ -1,3 +1,8 @@
+import useTranslation from 'next-translate/useTranslation';
+import Link from 'next/link';
+import numeral from 'numeral';
+import { FC } from 'react';
+import { useRecoilValue } from 'recoil';
 import BoxDetails from '@/components/box_details';
 import Result from '@/components/result';
 import { readDate } from '@/recoil/settings';
@@ -6,11 +11,6 @@ import type { OverviewType } from '@/screens/transaction_details/types';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
 import { formatNumber } from '@/utils/format_token';
 import { BLOCK_DETAILS } from '@/utils/go_to_page';
-import useTranslation from 'next-translate/useTranslation';
-import Link from 'next/link';
-import numeral from 'numeral';
-import { FC } from 'react';
-import { useRecoilValue } from 'recoil';
 
 type OverviewProps = {
   className?: string;

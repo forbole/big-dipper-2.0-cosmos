@@ -1,8 +1,17 @@
+import Typography from '@mui/material/Typography';
+import useTranslation from 'next-translate/useTranslation';
+import numeral from 'numeral';
+import { ComponentProps, CSSProperties, FC, LegacyRef, ReactNode } from 'react';
+import AutoSizer from 'react-virtualized-auto-sizer';
+import { VariableSizeGrid as Grid } from 'react-window';
+import LiquidStakingFalseIcon from 'shared-utils/assets/liquid-staking-false.svg';
+import LiquidStakingTitleIcon from 'shared-utils/assets/liquid-staking-title.svg';
+import LiquidStakingTrueIcon from 'shared-utils/assets/liquid-staking-true.svg';
 import AvatarName from '@/components/avatar_name';
 import InfoPopover from '@/components/info_popover';
 import LiquidStakingExplanation from '@/components/liquid_staking_explanation';
 import SortArrows from '@/components/sort_arrows';
-import { useGrid } from '@/hooks';
+import { useGrid } from '@/hooks/use_react_window';
 import Condition from '@/screens/validators/components/list/components/condition';
 import useStyles from '@/screens/validators/components/list/components/desktop/styles';
 import { fetchColumns } from '@/screens/validators/components/list/components/desktop/utils';
@@ -11,15 +20,6 @@ import VotingPowerExplanation from '@/screens/validators/components/list/compone
 import type { ItemType } from '@/screens/validators/components/list/types';
 import { getValidatorConditionClass } from '@/utils/get_validator_condition';
 import { getValidatorStatus } from '@/utils/get_validator_status';
-import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
-import numeral from 'numeral';
-import React, { ComponentProps, CSSProperties, FC, LegacyRef, ReactNode } from 'react';
-import AutoSizer from 'react-virtualized-auto-sizer';
-import { VariableSizeGrid as Grid } from 'react-window';
-import LiquidStakingFalseIcon from 'shared-utils/assets/liquid-staking-false.svg';
-import LiquidStakingTitleIcon from 'shared-utils/assets/liquid-staking-title.svg';
-import LiquidStakingTrueIcon from 'shared-utils/assets/liquid-staking-true.svg';
 
 type GridColumnProps = {
   column: ReturnType<typeof fetchColumns>[number];
@@ -209,7 +209,7 @@ const Desktop: FC<DesktopProps> = (props) => {
             {/* Table Body */}
             {/* ======================================= */}
             <Grid
-              ref={gridRef as React.LegacyRef<Grid>}
+              ref={gridRef as LegacyRef<Grid>}
               columnCount={columns.length}
               columnWidth={(index) => getColumnWidth(width, index)}
               height={height - 50}

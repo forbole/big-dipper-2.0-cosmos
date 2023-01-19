@@ -1,7 +1,7 @@
+import renderer from 'react-test-renderer';
 import Acknowledgement from '@/components/msg/ibc/channel_acknowledgement';
 import { MsgAcknowledgement } from '@/models';
 import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

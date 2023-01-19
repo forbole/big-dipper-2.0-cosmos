@@ -1,3 +1,8 @@
+import Big from 'big.js';
+import { useRouter } from 'next/router';
+import numeral from 'numeral';
+import * as R from 'ramda';
+import { SyntheticEvent, useCallback, useEffect, useState } from 'react';
 import chainConfig from '@/chainConfig';
 import {
   useAccountDelegationsQuery,
@@ -15,11 +20,6 @@ import type { RewardsType } from '@/screens/account_details/types';
 import { ValidatorType } from '@/screens/validators/components/list/types';
 import { formatToken } from '@/utils/format_token';
 import { getDenom } from '@/utils/get_denom';
-import Big from 'big.js';
-import { useRouter } from 'next/router';
-import numeral from 'numeral';
-import * as R from 'ramda';
-import { SyntheticEvent, useCallback, useEffect, useState } from 'react';
 
 const { primaryTokenUnit } = chainConfig();
 

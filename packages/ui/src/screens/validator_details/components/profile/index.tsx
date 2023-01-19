@@ -4,6 +4,7 @@ import Markdown from '@/components/markdown';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import useStyles from '@/screens/validator_details/components/profile/styles';
 import type { OverviewType } from '@/screens/validator_details/types';
+import { useDisplayStyles } from '@/styles/useSharedStyles';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
@@ -11,6 +12,7 @@ import { FC } from 'react';
 
 const Profile: FC<{ className?: string; profile: OverviewType }> = ({ className, profile }) => {
   const { classes, cx } = useStyles();
+  const display = useDisplayStyles().classes;
   const { t } = useTranslation('validators');
   const { imageUrl, name } = useProfileRecoil(profile.validator);
 
@@ -27,7 +29,7 @@ const Profile: FC<{ className?: string; profile: OverviewType }> = ({ className,
         <Avatar
           address={profile.operatorAddress}
           imageUrl={imageUrl ?? undefined}
-          className={cx(classes.avatar, classes.hiddenUntilLg)}
+          className={cx(classes.avatar, display.hiddenUntilLg)}
         />
         <div>
           <div className="bio__header">
@@ -38,7 +40,7 @@ const Profile: FC<{ className?: string; profile: OverviewType }> = ({ className,
               <Avatar
                 address={profile.operatorAddress}
                 imageUrl={imageUrl ?? undefined}
-                className={cx(classes.avatar, classes.hiddenWhenLg)}
+                className={cx(classes.avatar, display.hiddenWhenLg)}
               />
               <div className="header__content">
                 <Typography variant="h2">{name}</Typography>

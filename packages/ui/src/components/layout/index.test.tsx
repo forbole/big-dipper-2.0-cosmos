@@ -1,6 +1,6 @@
+import renderer from 'react-test-renderer';
 import Layout from '@/components/layout';
 import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 // ==================================
 // global setup

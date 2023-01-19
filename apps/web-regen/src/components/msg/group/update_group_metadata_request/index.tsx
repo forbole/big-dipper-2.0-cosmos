@@ -1,9 +1,9 @@
+import Typography from '@mui/material/Typography';
+import Trans from 'next-translate/Trans';
+import { FC } from 'react';
 import Name from '@/components/name';
 import MsgUpdateGroupMetadataRequest from '@/models/msg/group/msg_update_group_metadata_request';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
-import Typography from '@mui/material/Typography';
-import Trans from 'next-translate/Trans';
-import React, { FC } from 'react';
 
 const UpdateGroupMetadataRequest: FC<{ message: MsgUpdateGroupMetadataRequest }> = (props) => {
   const { message } = props;

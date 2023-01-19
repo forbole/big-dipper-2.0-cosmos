@@ -1,9 +1,9 @@
-import { ECONOMICS } from '@/api';
-import { writeMarket } from '@/recoil/market/selectors';
-import type { AtomState } from '@/recoil/market/types';
 import axios from 'axios';
 import { useEffect } from 'react';
 import { SetterOrUpdater, useRecoilState } from 'recoil';
+import { ECONOMICS } from '@/api';
+import { writeMarket } from '@/recoil/market/selectors';
+import type { AtomState } from '@/recoil/market/types';
 
 export const useMarketRecoil = () => {
   const [_market, setMarket] = useRecoilState(writeMarket) as [

@@ -1,7 +1,7 @@
+import renderer from 'react-test-renderer';
 import Delegate from '@/components/msg/staking/delegate';
 import { MsgDelegate } from '@/models';
 import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

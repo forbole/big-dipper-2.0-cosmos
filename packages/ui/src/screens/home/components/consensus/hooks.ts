@@ -1,9 +1,9 @@
-import chainConfig from '@/chainConfig';
-import useShallowMemo from '@/hooks/useShallowMemo';
-import { hexToBech32 } from '@/utils/hex_to_bech32';
 import numeral from 'numeral';
 import * as R from 'ramda';
 import { useCallback, useEffect, useState } from 'react';
+import chainConfig from '@/chainConfig';
+import useShallowMemo from '@/hooks/useShallowMemo';
+import { hexToBech32 } from '@/utils/hex_to_bech32';
 
 const { endpoints, prefix } = chainConfig();
 

@@ -1,8 +1,8 @@
+import renderer from 'react-test-renderer';
 import Result from '@/components/result';
 import SingleTransactionMobile from '@/components/single_transaction_mobile';
 import Tag from '@/components/tag';
 import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

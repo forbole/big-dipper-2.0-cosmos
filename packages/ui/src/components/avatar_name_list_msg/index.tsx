@@ -1,6 +1,6 @@
-import Name from '@/components/name';
 import useTranslation from 'next-translate/useTranslation';
 import { Fragment } from 'react';
+import Name from '@/components/name';
 
 /**
  * Used for msg when you have to list multiple users

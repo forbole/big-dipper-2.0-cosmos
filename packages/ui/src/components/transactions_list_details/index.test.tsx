@@ -1,6 +1,6 @@
+import renderer from 'react-test-renderer';
 import TransactionsListDetails from '@/components/transactions_list_details';
 import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 // ==================================
 // global setup

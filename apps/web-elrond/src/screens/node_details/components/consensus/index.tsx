@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import numeral from 'numeral';
 import useTranslation from 'next-translate/useTranslation';
 import Typography from '@mui/material/Typography';

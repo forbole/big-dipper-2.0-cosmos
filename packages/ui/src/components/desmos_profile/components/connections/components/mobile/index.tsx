@@ -1,11 +1,11 @@
-import useStyles from '@/components/desmos_profile/components/connections/components/mobile/styles';
-import { readDate } from '@/recoil/settings';
-import dayjs, { formatDayJs } from '@/utils/dayjs';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
-import React, { FC, Fragment } from 'react';
+import { FC, Fragment } from 'react';
 import { useRecoilValue } from 'recoil';
+import dayjs, { formatDayJs } from '@/utils/dayjs';
+import { readDate } from '@/recoil/settings';
+import useStyles from '@/components/desmos_profile/components/connections/components/mobile/styles';
 
 type MobileProps = {
   className?: string;

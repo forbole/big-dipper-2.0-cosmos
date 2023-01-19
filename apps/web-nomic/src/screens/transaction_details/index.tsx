@@ -1,10 +1,10 @@
+import { NextSeo } from 'next-seo';
+import useTranslation from 'next-translate/useTranslation';
 import Layout from '@/components/layout';
 import LoadAndExist from '@/components/load_and_exist';
 import Overview from '@/screens/transaction_details/components/overview';
 import { useTransactionDetails } from '@/screens/transaction_details/hooks';
 import useStyles from '@/screens/transaction_details/styles';
-import { NextSeo } from 'next-seo';
-import useTranslation from 'next-translate/useTranslation';
 
 const TransactionDetails = () => {
   const { t } = useTranslation('transactions');

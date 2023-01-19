@@ -1,5 +1,5 @@
-import type { Categories } from '@/models/msg/types';
 import * as R from 'ramda';
+import type { Categories } from '@/models/msg/types';
 
 class MsgRemoveLiquidity {
   public category: Categories;

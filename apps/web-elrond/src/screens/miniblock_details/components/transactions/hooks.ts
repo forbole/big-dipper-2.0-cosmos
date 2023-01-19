@@ -1,9 +1,9 @@
-import { TRANSACTIONS, TRANSACTIONS_COUNT } from '@/api';
-import type { TransactionState } from '@/screens/miniblock_details/components/transactions/types';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import { useCallback, useEffect, useState } from 'react';
+import type { TransactionState } from '@/screens/miniblock_details/components/transactions/types';
+import { TRANSACTIONS, TRANSACTIONS_COUNT } from '@/api';
 
 export const PAGE_SIZE = 10;
 

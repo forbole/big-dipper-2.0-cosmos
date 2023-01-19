@@ -1,6 +1,6 @@
+import renderer from 'react-test-renderer';
 import Desktop from '@/screens/home/components/transactions/components/desktop';
 import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

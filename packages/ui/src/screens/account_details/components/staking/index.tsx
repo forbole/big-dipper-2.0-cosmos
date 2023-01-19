@@ -1,3 +1,4 @@
+import { FC, useState } from 'react';
 import Box from '@/components/box';
 import TabPanel from '@/components/tab_panel';
 import Delegations from '@/screens/account_details/components/staking/components/delegations';
@@ -8,7 +9,6 @@ import { useStaking } from '@/screens/account_details/components/staking/hooks';
 import useStyles from '@/screens/account_details/components/staking/styles';
 import type { RewardsType } from '@/screens/account_details/types';
 import { formatCount } from '@/screens/validator_details/components/staking';
-import { FC, useState } from 'react';
 
 type StakingProps = {
   className?: string;

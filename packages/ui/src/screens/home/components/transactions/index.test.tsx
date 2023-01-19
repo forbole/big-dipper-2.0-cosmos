@@ -1,9 +1,9 @@
-import { TransactionsListenerDocument } from '@/graphql/types/general_types';
-import Transactions from '@/screens/home/components/transactions';
-import { MockTheme, wait } from '@/tests/utils';
 import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
 import { MockedProvider } from '@apollo/client/testing';
 import renderer from 'react-test-renderer';
+import { TransactionsListenerDocument } from '@/graphql/types/general_types';
+import Transactions from '@/screens/home/components/transactions';
+import { MockTheme, wait } from '@/tests/utils';
 
 // ==================================
 // mocks

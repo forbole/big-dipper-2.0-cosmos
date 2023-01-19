@@ -1,7 +1,7 @@
+import renderer from 'react-test-renderer';
 import SetRegistry from '@/components/msg/tokenregistry/set_registry';
 import MsgSetRegistry from '@/models/msg/tokenregistry/msg_set_registry';
 import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

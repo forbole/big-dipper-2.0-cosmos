@@ -1,7 +1,7 @@
+import renderer from 'react-test-renderer';
 import GrantAllowance from '@/components/msg/feegrant/grant_allowance';
 import { MsgGrantAllowance } from '@/models';
 import { MockTheme, wait } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

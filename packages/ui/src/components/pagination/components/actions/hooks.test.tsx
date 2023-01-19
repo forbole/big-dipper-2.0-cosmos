@@ -1,5 +1,5 @@
-import { useTablePaginationActions } from '@/components/pagination/components/actions/hooks';
 import { act, cleanup, renderHook } from '@testing-library/react';
+import { useTablePaginationActions } from '@/components/pagination/components/actions/hooks';
 
 const props = {
   count: 100,

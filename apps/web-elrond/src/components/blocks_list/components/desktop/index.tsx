@@ -1,7 +1,3 @@
-import { columns } from '@/components/blocks_list/components/desktop/utils';
-import dayjs from '@/utils/dayjs';
-import { getShardDisplay } from '@/utils/get_shard_display';
-import { BLOCK_DETAILS } from '@/utils/go_to_page';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -11,6 +7,10 @@ import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
 import { FC } from 'react';
+import { BLOCK_DETAILS } from '@/utils/go_to_page';
+import { getShardDisplay } from '@/utils/get_shard_display';
+import dayjs from '@/utils/dayjs';
+import { columns } from '@/components/blocks_list/components/desktop/utils';
 
 const Desktop: FC<{ className?: string; items: BlockType[] }> = (props) => {
   const { t } = useTranslation('blocks');

@@ -1,4 +1,9 @@
-import { useGrid } from '@/hooks';
+import Typography from '@mui/material/Typography';
+import useTranslation from 'next-translate/useTranslation';
+import { FC, LegacyRef, useMemo } from 'react';
+import AutoSizer from 'react-virtualized-auto-sizer';
+import { VariableSizeGrid as Grid } from 'react-window';
+import { useGrid } from '@/hooks/use_react_window';
 import useShallowMemo from '@/hooks/useShallowMemo';
 import useStyles from '@/screens/block_details/components/consensus/components/desktop/styles';
 import {
@@ -6,11 +11,6 @@ import {
   formatRows,
 } from '@/screens/block_details/components/consensus/components/desktop/utils';
 import type { ConsensusType } from '@/screens/block_details/types';
-import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
-import React, { FC, LegacyRef, useMemo } from 'react';
-import AutoSizer from 'react-virtualized-auto-sizer';
-import { VariableSizeGrid as Grid } from 'react-window';
 
 const Desktop: FC<{ items: ConsensusType[]; className?: string }> = (props) => {
   const { t } = useTranslation('blocks');

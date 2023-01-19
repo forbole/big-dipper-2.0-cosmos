@@ -1,11 +1,11 @@
-import Box from '@/components/box';
-import CustomToolTip from '@/components/custom_tool_tip';
-import useStyles from '@/screens/providers/components/memory/styles';
 import Typography from '@mui/material/Typography';
 import useTranslation from 'next-translate/useTranslation';
 import numeral from 'numeral';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { Cell, Pie, PieChart, Tooltip } from 'recharts';
+import useStyles from '@/screens/providers/components/memory/styles';
+import CustomToolTip from '@/components/custom_tool_tip';
+import Box from '@/components/box';
 
 const convertBytesToTB = (bytes: number) => bytes / 10 ** 12;
 

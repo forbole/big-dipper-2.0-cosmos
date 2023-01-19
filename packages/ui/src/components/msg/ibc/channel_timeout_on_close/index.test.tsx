@@ -1,7 +1,7 @@
+import renderer from 'react-test-renderer';
 import TimeoutOnClose from '@/components/msg/ibc/channel_timeout_on_close';
 import { MsgTimeoutOnClose } from '@/models';
 import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

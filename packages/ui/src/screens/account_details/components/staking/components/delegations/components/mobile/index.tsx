@@ -1,12 +1,12 @@
+import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
+import useTranslation from 'next-translate/useTranslation';
+import { FC } from 'react';
 import AvatarName from '@/components/avatar_name';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import useStyles from '@/screens/account_details/components/staking/components/delegations/components/mobile/styles';
 import type { ItemType } from '@/screens/account_details/components/staking/components/delegations/types';
 import { formatNumber } from '@/utils/format_token';
-import Divider from '@mui/material/Divider';
-import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
-import { FC } from 'react';
 
 type DelegationsItemProps = {
   item: ItemType;

@@ -1,3 +1,11 @@
+import { CacheProvider, EmotionCache } from '@emotion/react';
+import CssBaseline from '@mui/material/CssBaseline';
+import { ThemeProvider } from '@mui/material/styles';
+import { Hind_Madurai } from '@next/font/google';
+import { AppProps } from 'next/app';
+import Head from 'next/head';
+import { useEffect } from 'react';
+import { ToastContainer } from 'react-toastify';
 import { useChainIdQuery } from '@/graphql/types/general_types';
 import { useBigDipperNetworksRecoil } from '@/recoil/big_dipper_networks';
 import { useMarketRecoil } from '@/recoil/market';
@@ -8,14 +16,6 @@ import { useGenesis, useTheme } from '@/screens/app/components/main/hooks';
 import Countdown from '@/screens/countdown';
 import InitialLoad from '@/screens/initial_load';
 import createEmotionCache from '@/styles/createEmotionCache';
-import { CacheProvider, EmotionCache } from '@emotion/react';
-import CssBaseline from '@mui/material/CssBaseline';
-import { ThemeProvider } from '@mui/material/styles';
-import { Hind_Madurai } from '@next/font/google';
-import { AppProps } from 'next/app';
-import Head from 'next/head';
-import { useEffect } from 'react';
-import { ToastContainer } from 'react-toastify';
 
 const hindMadurai = Hind_Madurai({
   weight: '400',
@@ -78,18 +78,18 @@ const Main = (props: MainProps) => {
       </Head>
       <ThemeProvider theme={muiTheme}>
         <CssBaseline />
+        {Component}
         <ToastContainer
           position="top-center"
           autoClose={5000}
           newestOnTop={false}
           closeOnClick
           rtl={false}
-          hideProgressBar
           pauseOnFocusLoss
           draggable
           pauseOnHover
+          theme="colored"
         />
-        {Component}
       </ThemeProvider>
     </CacheProvider>
   );

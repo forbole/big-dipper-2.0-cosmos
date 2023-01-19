@@ -1,8 +1,8 @@
+import { useMemo } from 'react';
+import renderer from 'react-test-renderer';
 import chainConfig from '@/chainConfig';
 import ProfileDetails from '@/screens/profile_details';
 import { MockTheme, wait } from '@/tests/utils';
-import { useMemo } from 'react';
-import renderer from 'react-test-renderer';
 
 const { prefix } = chainConfig();
 

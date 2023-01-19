@@ -1,7 +1,7 @@
+import renderer from 'react-test-renderer';
 import Unknown from '@/components/msg/unknown';
 import { MsgUnknown } from '@/models';
 import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks

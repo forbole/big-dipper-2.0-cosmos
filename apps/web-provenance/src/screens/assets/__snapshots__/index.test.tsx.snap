@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Blocks matches snapshot 1`] = `
+.emotion-0 {
+  padding: 16px;
+}
+
+@media (min-width: 1280px) {
+  .emotion-0 {
+    padding: 16px 24px;
+  }
+}
+
+.emotion-0 a {
+  color: #4092CD;
+}
+
+.emotion-1 {
+  min-height: 500px;
+  height: 50vh;
+}
+
+@media (min-width:1280px) {
+  .emotion-1 {
+    height: 100%;
+    min-height: 65vh;
+  }
+}
+
+<div
+  className="emotion-0"
+  id="Layout"
+  navTitle="blocks"
+>
+  <div
+    exists={true}
+    id="LoadAndExist"
+    loading={false}
+  >
+    <div
+      className="emotion-1"
+      id="Box"
+    >
+      <div
+        id="NoData"
+      />
+    </div>
+  </div>
+</div>
+`;

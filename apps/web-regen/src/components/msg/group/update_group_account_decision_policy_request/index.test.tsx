@@ -1,7 +1,7 @@
+import renderer from 'react-test-renderer';
 import UpdateGroupAccountDecisionPolicyRequest from '@/components/msg/group/update_group_account_decision_policy_request';
 import MsgUpdateGroupAccountDecisionPolicyRequest from '@/models/msg/group/msg_update_group_account_decision_policy_request';
 import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks
