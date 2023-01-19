@@ -58,7 +58,7 @@ const RowMobile = ({
           </Grid2>
         ))}
         <Grid2 xs={6} className={classes.showMore} order={1} justifyContent="flex-end">
-          <IconButton color="primary" onClick={handleOpen} size="large">
+          <IconButton color="primary" onClick={handleOpen}>
             {!item ? (
               <Skeleton className={classes.skeleton} />
             ) : (

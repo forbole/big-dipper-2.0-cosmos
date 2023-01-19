@@ -71,6 +71,12 @@ const useStyles = makeStyles()((theme) => ({
         marginLeft: `-${theme.spacing(3)} !important`,
       },
     },
+    '&& .MuiSvgIcon-root': {
+      [theme.breakpoints.down('lg')]: {
+        fontSize: theme.spacing(5),
+        marginRight: `-${theme.spacing(1.5)}`,
+      },
+    },
   },
   label: {
     margin: theme.spacing(0, 0, 0.5, 0),
