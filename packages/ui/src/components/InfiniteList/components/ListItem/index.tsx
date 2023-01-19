@@ -8,8 +8,6 @@ const ListItem = memo(
     style,
     data: { variables, items, itemsPerPage, rowHeight, RowComponent },
     isScrolling,
-    width,
-    height,
   }: ListChildComponentProps<ItemData<TData, TVariables, TItem>>): JSX.Element | null => (
     <RowComponent
       index={index}
@@ -19,8 +17,6 @@ const ListItem = memo(
       itemsPerPage={itemsPerPage}
       rowHeight={rowHeight}
       isScrolling={isScrolling ?? false}
-      width={width}
-      height={height}
     />
   ),
   areEqual

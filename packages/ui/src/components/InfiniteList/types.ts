@@ -16,8 +16,6 @@ export type RowProps<TData, TVariables, TItem> = Pick<JSX.IntrinsicElements['div
     index: number;
     rowHeight: (index: number) => number;
     isScrolling: boolean;
-    width: number;
-    height: number;
   };
 
 export interface ItemData<TData, TVariables, TItem>

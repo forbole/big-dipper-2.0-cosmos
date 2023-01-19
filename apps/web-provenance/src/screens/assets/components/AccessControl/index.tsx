@@ -19,14 +19,16 @@ const AccessControl: FC<{ accessControls: AccessControl[] }> = ({ accessControls
         Access Control
       </Typography>
       {!!accessControls?.length && (
-        <Table style={{ maxWidth: 600 }}>
+        <Table style={{ maxWidth: 560 }}>
           <TableHead>
             <TableRow>
-              {permissionList.map(([permission, description]) => (
-                <TableCell key={permission} title={description} aria-label={description}>
-                  <span>{permission}</span>
-                </TableCell>
-              ))}
+              {permissionList.map(([permission, description], i) =>
+                i === 0 ? null : (
+                  <TableCell key={permission} title={description} aria-label={description}>
+                    <span>{permission}</span>
+                  </TableCell>
+                )
+              )}
             </TableRow>
           </TableHead>
           <TableBody>
@@ -38,15 +40,17 @@ const AccessControl: FC<{ accessControls: AccessControl[] }> = ({ accessControls
                   </TableCell>
                 </TableRow>
                 <TableRow>
-                  {permissionList.map(([permission, description], i) => (
-                    <TableCell key={permission} title={description} aria-label={description}>
-                      <Checkbox
-                        disabled
-                        checked={permissions.some((p) => p === i)}
-                        key={permission}
-                      />
-                    </TableCell>
-                  ))}
+                  {permissionList.map(([permission, description], i) =>
+                    i === 0 ? null : (
+                      <TableCell key={permission} title={description} aria-label={description}>
+                        <Checkbox
+                          disabled
+                          checked={permissions.some((p) => p === i)}
+                          key={permission}
+                        />
+                      </TableCell>
+                    )
+                  )}
                 </TableRow>
               </Fragment>
             ))}
