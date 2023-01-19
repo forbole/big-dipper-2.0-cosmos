@@ -44,7 +44,7 @@ jobs:
         run: |
           export TURBO_BINARY_PATH=$( node <<EOF
           const { execSync } = require('child_process');
-          console.log(execSync('find .yarn/unplugged/turbo-'+process.platform+'-'+process.arch.replace(/^x/,'arm')+'-* -name turbo').toString());
+          console.log(execSync('find .yarn/unplugged/turbo-'+process.platform+'-'+process.arch.replace(/^x/,'')+'-* -name turbo').toString());
           EOF
           )
           echo yarn turbo run build --dry='json' --filter='[${{ github.event.pull_request.base.sha }}]' | tee -a $GITHUB_STEP_SUMMARY
