@@ -68,11 +68,6 @@
     "@next/font": "^13.1.1",
     "@walletconnect/client": "^1.8.0",
     "@walletconnect/encoding": "^1.0.2",
-    "@walletconnect/react-native-compat": "2.1.1",
-    "@walletconnect/sign-client": "^2.1.5",
-    "@walletconnect/utils": "2.1.1",
-    "base64-js": "^1.5.1",
-    "react-qr-reader": "^3.0.0-beta-1",
     "tslib": "^2.4.1"
   }
 }
