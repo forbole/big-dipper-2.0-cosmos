@@ -1,4 +1,4 @@
-import Sentry from '@sentry/nextjs';
+import * as Sentry from '@sentry/nextjs';
 import type { NextPageContext } from 'next';
 
 async function captureUnderscoreErrorException(contextData: NextPageContext) {
