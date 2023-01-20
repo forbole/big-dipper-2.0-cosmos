@@ -37,6 +37,7 @@ export interface InfiniteListProps<TData, TVariables, TItem>
   disablePagination?: boolean;
   HeaderComponent?: ComponentType<HeaderProps<TVariables>>;
   RowComponent: ComponentType<RowProps<TData, TVariables, TItem>>;
+  autoScrollElement?: Element | null;
 }
 
 export interface PaginationProps extends TableFooterProps {

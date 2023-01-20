@@ -62,7 +62,7 @@ const RowMobile = ({
             {!item ? (
               <Skeleton className={classes.skeleton} />
             ) : (
-              <ExpandMoreIcon sx={{ transform: !anchorEl ? 'rotate(0deg)' : 'rotate(180deg)' }} />
+              <ExpandMoreIcon className={cx({ [classes.showMoreButtonActive]: !!anchorEl })} />
             )}
           </IconButton>
         </Grid2>

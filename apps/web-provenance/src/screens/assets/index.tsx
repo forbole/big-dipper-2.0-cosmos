@@ -12,7 +12,7 @@ import Typography from '@mui/material/Typography';
 import Grid2 from '@mui/material/Unstable_Grid2';
 import { NextSeo } from 'next-seo';
 import useTranslation from 'next-translate/useTranslation';
-import { useCallback, useDeferredValue, useMemo, useState } from 'react';
+import { useCallback, useDeferredValue, useMemo, useRef, useState } from 'react';
 
 const Assets = () => {
   const { t } = useTranslation('assets');
@@ -31,12 +31,13 @@ const Assets = () => {
     setSearchText(event.target.value);
   const searchTextDeferred = useDeferredValue(searchText);
   const { variables, refetch, items, itemsPerPage, itemCount } = useAssets(searchTextDeferred);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   return (
     <>
       <NextSeo title={title} description={description} openGraph={{ title, description }} />
       <Layout navTitle={title} className={classes.root}>
-        <Paper className={classes.paper}>
+        <Paper className={classes.paper} ref={containerRef}>
           <Grid2 container columns={12}>
             <Grid2 xs={12} lg={6}>
               <Typography variant="h1">{t('assets')}</Typography>
@@ -57,6 +58,7 @@ const Assets = () => {
             itemCount={itemCount}
             rowHeight={rowHeightMobile}
             RowComponent={RowMobile}
+            autoScrollElement={containerRef.current}
           />
           <InfiniteList
             className={cx(classes.list, display.hiddenUntilLg)}
@@ -68,6 +70,7 @@ const Assets = () => {
             rowHeight={rowHeightDesktop}
             HeaderComponent={HeaderDesktop}
             RowComponent={RowDesktop}
+            autoScrollElement={containerRef.current}
           />
         </Paper>
       </Layout>

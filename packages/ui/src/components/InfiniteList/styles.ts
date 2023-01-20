@@ -2,14 +2,15 @@ import { makeStyles } from 'tss-react/mui';
 
 const useStyles = makeStyles()((theme) => ({
   root: {
-    '&&': {
-      minHeight: '400px',
-      maxHeight: 'calc(100vh - 120px)',
-      overflow: 'hidden',
-      width: '100%',
-    },
+    display: 'flex',
+    minHeight: '400px',
+    overflow: 'hidden',
+    flexFlow: 'column nowrap',
   },
   pagination: {
+    '&&': {
+      borderTop: `1px solid ${theme.palette.divider}`,
+    },
     '&& .MuiTablePagination-toolbar': {
       minHeight: 'auto',
       height: 'auto',
@@ -42,9 +43,9 @@ const useStyles = makeStyles()((theme) => ({
   },
   listContainer: {
     '&&': {
-      height: 'calc(100% - 100px)',
       position: 'relative',
       overflow: 'hidden',
+      flex: 1,
     },
   },
   list: {

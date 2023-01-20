@@ -8,11 +8,6 @@ const useStyles = makeStyles()((theme) => ({
   root: {
     ...(theme.mixins.layout as CSSObject),
   },
-  list: {
-    '&&': {
-      height: 'calc(100vh - 340px)',
-    },
-  },
   header: {
     '&& > .MuiGrid2-root': {
       display: 'flex',
@@ -62,7 +57,12 @@ const useStyles = makeStyles()((theme) => ({
     '&&': {
       padding: theme.spacing(2),
       maxWidth: 640,
+      overflow: 'auto',
+      border: `1px solid ${theme.palette.getContrastText(theme.palette.background.paper)}`,
     },
+  },
+  showMoreButtonActive: {
+    transform: 'rotate(180deg)',
   },
   showMore: {
     '&&': {
@@ -116,6 +116,12 @@ const useStyles = makeStyles()((theme) => ({
   },
   paper: {
     padding: theme.spacing(2),
+    height: '100vh',
+    display: 'flex',
+    flexFlow: 'column nowrap',
+  },
+  list: {
+    flex: 1,
   },
   supply: {
     textAlign: 'right',
