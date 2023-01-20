@@ -5603,6 +5603,7 @@ __metadata:
     "@changesets/cli": ^2.26.0
     "@next/eslint-plugin-next": ^13.1.2
     "@playwright/test": ^1.29.2
+    "@sentry/nextjs": ^7.31.1
     "@types/eslint": ^8.4.10
     "@typescript-eslint/eslint-plugin": ^5.48.2
     "@typescript-eslint/parser": ^5.48.2
