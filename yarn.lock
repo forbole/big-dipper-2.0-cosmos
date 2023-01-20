@@ -4292,15 +4292,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/dompurify@npm:^2.4.0":
-  version: 2.4.0
-  resolution: "@types/dompurify@npm:2.4.0"
-  dependencies:
-    "@types/trusted-types": "*"
-  checksum: b48cd81e997794ebc390c7c5bef1a67ec14a6f2f0521973e07e06af186c7583abe114d94d24868c0632b9573f5bd77131a4b76f3fffdf089ba99a4e53dd46c39
-  languageName: node
-  linkType: hard
-
 "@types/emscripten@npm:^1.39.6":
   version: 1.39.6
   resolution: "@types/emscripten@npm:1.39.6"
@@ -4648,13 +4639,6 @@ __metadata:
   version: 1.0.0
   resolution: "@types/treeify@npm:1.0.0"
   checksum: 1b2397030d13beee7f82b878ca80feeddb0d550a6b00d8be30082a370c0ac5985ecf7b9378cf93ea278ff00c3e900b416ae8d9379f2c7e8caecdece1dfc77380
-  languageName: node
-  linkType: hard
-
-"@types/trusted-types@npm:*":
-  version: 2.0.2
-  resolution: "@types/trusted-types@npm:2.0.2"
-  checksum: 3371eef5f1c50e1c3c07a127c1207b262ba65b83dd167a1c460fc1b135a3fb0c97b9f508efebd383f239cc5dd5b7169093686a692a501fde9c3f7208657d9b0d
   languageName: node
   linkType: hard
 
@@ -6262,6 +6246,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"commander@npm:^2.20.3":
+  version: 2.20.3
+  resolution: "commander@npm:2.20.3"
+  checksum: ab8c07884e42c3a8dbc5dd9592c606176c7eb5c1ca5ff274bcf907039b2c41de3626f684ea75ccf4d361ba004bbaff1f577d5384c155f3871e456bdf27becf9e
+  languageName: node
+  linkType: hard
+
 "commander@npm:^7.2.0":
   version: 7.2.0
   resolution: "commander@npm:7.2.0"
@@ -6484,6 +6475,13 @@ __metadata:
   version: 1.5.1
   resolution: "css.escape@npm:1.5.1"
   checksum: f6d38088d870a961794a2580b2b2af1027731bb43261cfdce14f19238a88664b351cc8978abc20f06cc6bbde725699dec8deb6fe9816b139fc3f2af28719e774
+  languageName: node
+  linkType: hard
+
+"cssfilter@npm:0.0.10":
+  version: 0.0.10
+  resolution: "cssfilter@npm:0.0.10"
+  checksum: bc2c52bbb3426c3f2e4832edb6f8573e6cfa65b40b540932762d1e018f0f0157725e2991b77344bbc8266c6bbf4daa2803b0707cfb1bd0877505bf83a68e4b04
   languageName: node
   linkType: hard
 
@@ -6987,13 +6985,6 @@ __metadata:
   dependencies:
     domelementtype: ^2.2.0
   checksum: 4c665ceed016e1911bf7d1dadc09dc888090b64dee7851cccd2fcf5442747ec39c647bb1cb8c8919f8bbdd0f0c625a6bafeeed4b2d656bbecdbae893f43ffaaa
-  languageName: node
-  linkType: hard
-
-"dompurify@npm:^2.4.3":
-  version: 2.4.3
-  resolution: "dompurify@npm:2.4.3"
-  checksum: b440981f2a38cada2085759cc3d1e2f94571afc34343d011a8a6aa1ad91ae6abf651adbfa4994b0e2283f0ce81f7891cdb04b67d0b234c8d190cb70e9691f026
   languageName: node
   linkType: hard
 
@@ -13836,7 +13827,6 @@ __metadata:
     "@testing-library/react": ^13.4.0
     "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
-    "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
     "@types/jest": ^29.2.6
@@ -13861,7 +13851,6 @@ __metadata:
     copy-to-clipboard: ^3.3.3
     csstype: ^3.1.1
     dayjs: ^1.11.7
-    dompurify: ^2.4.3
     dotenv: ^16.0.3
     eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
@@ -13916,6 +13905,7 @@ __metadata:
     typescript: ^4.9.4
     usehooks-ts: ^2.9.1
     ws: ^8.12.0
+    xss: ^1.0.14
   languageName: unknown
   linkType: soft
 
@@ -14216,7 +14206,6 @@ __metadata:
     "@testing-library/react": ^13.4.0
     "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
-    "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
     "@types/jest": ^29.2.6
@@ -14241,7 +14230,6 @@ __metadata:
     copy-to-clipboard: ^3.3.3
     csstype: ^3.1.1
     dayjs: ^1.11.7
-    dompurify: ^2.4.3
     dotenv: ^16.0.3
     eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
@@ -14297,6 +14285,7 @@ __metadata:
     ui: "workspace:*"
     usehooks-ts: ^2.9.1
     ws: ^8.12.0
+    xss: ^1.0.14
   languageName: unknown
   linkType: soft
 
@@ -14329,7 +14318,6 @@ __metadata:
     "@testing-library/react": ^13.4.0
     "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
-    "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
     "@types/jest": ^29.2.6
@@ -14354,7 +14342,6 @@ __metadata:
     copy-to-clipboard: ^3.3.3
     csstype: ^3.1.1
     dayjs: ^1.11.7
-    dompurify: ^2.4.3
     dotenv: ^16.0.3
     eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
@@ -14410,6 +14397,7 @@ __metadata:
     ui: "workspace:*"
     usehooks-ts: ^2.9.1
     ws: ^8.12.0
+    xss: ^1.0.14
   languageName: unknown
   linkType: soft
 
@@ -14442,7 +14430,6 @@ __metadata:
     "@testing-library/react": ^13.4.0
     "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
-    "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
     "@types/jest": ^29.2.6
@@ -14467,7 +14454,6 @@ __metadata:
     copy-to-clipboard: ^3.3.3
     csstype: ^3.1.1
     dayjs: ^1.11.7
-    dompurify: ^2.4.3
     dotenv: ^16.0.3
     eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
@@ -14523,6 +14509,7 @@ __metadata:
     ui: "workspace:*"
     usehooks-ts: ^2.9.1
     ws: ^8.12.0
+    xss: ^1.0.14
   languageName: unknown
   linkType: soft
 
@@ -14555,7 +14542,6 @@ __metadata:
     "@testing-library/react": ^13.4.0
     "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
-    "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
     "@types/jest": ^29.2.6
@@ -14580,7 +14566,6 @@ __metadata:
     copy-to-clipboard: ^3.3.3
     csstype: ^3.1.1
     dayjs: ^1.11.7
-    dompurify: ^2.4.3
     dotenv: ^16.0.3
     eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
@@ -14636,6 +14621,7 @@ __metadata:
     ui: "workspace:*"
     usehooks-ts: ^2.9.1
     ws: ^8.12.0
+    xss: ^1.0.14
   languageName: unknown
   linkType: soft
 
@@ -14668,7 +14654,6 @@ __metadata:
     "@testing-library/react": ^13.4.0
     "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
-    "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
     "@types/jest": ^29.2.6
@@ -14693,7 +14678,6 @@ __metadata:
     copy-to-clipboard: ^3.3.3
     csstype: ^3.1.1
     dayjs: ^1.11.7
-    dompurify: ^2.4.3
     dotenv: ^16.0.3
     eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
@@ -14749,6 +14733,7 @@ __metadata:
     ui: "workspace:*"
     usehooks-ts: ^2.9.1
     ws: ^8.12.0
+    xss: ^1.0.14
   languageName: unknown
   linkType: soft
 
@@ -14781,7 +14766,6 @@ __metadata:
     "@testing-library/react": ^13.4.0
     "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
-    "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
     "@types/jest": ^29.2.6
@@ -14806,7 +14790,6 @@ __metadata:
     copy-to-clipboard: ^3.3.3
     csstype: ^3.1.1
     dayjs: ^1.11.7
-    dompurify: ^2.4.3
     dotenv: ^16.0.3
     eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
@@ -14862,6 +14845,7 @@ __metadata:
     ui: "workspace:*"
     usehooks-ts: ^2.9.1
     ws: ^8.12.0
+    xss: ^1.0.14
   languageName: unknown
   linkType: soft
 
@@ -14894,7 +14878,6 @@ __metadata:
     "@testing-library/react": ^13.4.0
     "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
-    "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
     "@types/jest": ^29.2.6
@@ -14919,7 +14902,6 @@ __metadata:
     copy-to-clipboard: ^3.3.3
     csstype: ^3.1.1
     dayjs: ^1.11.7
-    dompurify: ^2.4.3
     dotenv: ^16.0.3
     eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
@@ -14975,6 +14957,7 @@ __metadata:
     ui: "workspace:*"
     usehooks-ts: ^2.9.1
     ws: ^8.12.0
+    xss: ^1.0.14
   languageName: unknown
   linkType: soft
 
@@ -15007,7 +14990,6 @@ __metadata:
     "@testing-library/react": ^13.4.0
     "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
-    "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
     "@types/jest": ^29.2.6
@@ -15032,7 +15014,6 @@ __metadata:
     copy-to-clipboard: ^3.3.3
     csstype: ^3.1.1
     dayjs: ^1.11.7
-    dompurify: ^2.4.3
     dotenv: ^16.0.3
     eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
@@ -15088,6 +15069,7 @@ __metadata:
     ui: "workspace:*"
     usehooks-ts: ^2.9.1
     ws: ^8.12.0
+    xss: ^1.0.14
   languageName: unknown
   linkType: soft
 
@@ -15120,7 +15102,6 @@ __metadata:
     "@testing-library/react": ^13.4.0
     "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
-    "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
     "@types/jest": ^29.2.6
@@ -15145,7 +15126,6 @@ __metadata:
     copy-to-clipboard: ^3.3.3
     csstype: ^3.1.1
     dayjs: ^1.11.7
-    dompurify: ^2.4.3
     dotenv: ^16.0.3
     eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
@@ -15201,6 +15181,7 @@ __metadata:
     ui: "workspace:*"
     usehooks-ts: ^2.9.1
     ws: ^8.12.0
+    xss: ^1.0.14
   languageName: unknown
   linkType: soft
 
@@ -15233,7 +15214,6 @@ __metadata:
     "@testing-library/react": ^13.4.0
     "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
-    "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
     "@types/jest": ^29.2.6
@@ -15258,7 +15238,6 @@ __metadata:
     copy-to-clipboard: ^3.3.3
     csstype: ^3.1.1
     dayjs: ^1.11.7
-    dompurify: ^2.4.3
     dotenv: ^16.0.3
     eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
@@ -15314,6 +15293,7 @@ __metadata:
     ui: "workspace:*"
     usehooks-ts: ^2.9.1
     ws: ^8.12.0
+    xss: ^1.0.14
   languageName: unknown
   linkType: soft
 
@@ -15346,7 +15326,6 @@ __metadata:
     "@testing-library/react": ^13.4.0
     "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
-    "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
     "@types/jest": ^29.2.6
@@ -15371,7 +15350,6 @@ __metadata:
     copy-to-clipboard: ^3.3.3
     csstype: ^3.1.1
     dayjs: ^1.11.7
-    dompurify: ^2.4.3
     dotenv: ^16.0.3
     eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
@@ -15427,6 +15405,7 @@ __metadata:
     ui: "workspace:*"
     usehooks-ts: ^2.9.1
     ws: ^8.12.0
+    xss: ^1.0.14
   languageName: unknown
   linkType: soft
 
@@ -15459,7 +15438,6 @@ __metadata:
     "@testing-library/react": ^13.4.0
     "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
-    "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
     "@types/jest": ^29.2.6
@@ -15484,7 +15462,6 @@ __metadata:
     copy-to-clipboard: ^3.3.3
     csstype: ^3.1.1
     dayjs: ^1.11.7
-    dompurify: ^2.4.3
     dotenv: ^16.0.3
     eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
@@ -15540,6 +15517,7 @@ __metadata:
     ui: "workspace:*"
     usehooks-ts: ^2.9.1
     ws: ^8.12.0
+    xss: ^1.0.14
   languageName: unknown
   linkType: soft
 
@@ -15572,7 +15550,6 @@ __metadata:
     "@testing-library/react": ^13.4.0
     "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
-    "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
     "@types/jest": ^29.2.6
@@ -15597,7 +15574,6 @@ __metadata:
     copy-to-clipboard: ^3.3.3
     csstype: ^3.1.1
     dayjs: ^1.11.7
-    dompurify: ^2.4.3
     dotenv: ^16.0.3
     eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
@@ -15653,6 +15629,7 @@ __metadata:
     ui: "workspace:*"
     usehooks-ts: ^2.9.1
     ws: ^8.12.0
+    xss: ^1.0.14
   languageName: unknown
   linkType: soft
 
@@ -15685,7 +15662,6 @@ __metadata:
     "@testing-library/react": ^13.4.0
     "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
-    "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
     "@types/jest": ^29.2.6
@@ -15710,7 +15686,6 @@ __metadata:
     copy-to-clipboard: ^3.3.3
     csstype: ^3.1.1
     dayjs: ^1.11.7
-    dompurify: ^2.4.3
     dotenv: ^16.0.3
     eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
@@ -15766,6 +15741,7 @@ __metadata:
     ui: "workspace:*"
     usehooks-ts: ^2.9.1
     ws: ^8.12.0
+    xss: ^1.0.14
   languageName: unknown
   linkType: soft
 
@@ -15798,7 +15774,6 @@ __metadata:
     "@testing-library/react": ^13.4.0
     "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
-    "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
     "@types/jest": ^29.2.6
@@ -15823,7 +15798,6 @@ __metadata:
     copy-to-clipboard: ^3.3.3
     csstype: ^3.1.1
     dayjs: ^1.11.7
-    dompurify: ^2.4.3
     dotenv: ^16.0.3
     eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
@@ -15879,6 +15853,7 @@ __metadata:
     ui: "workspace:*"
     usehooks-ts: ^2.9.1
     ws: ^8.12.0
+    xss: ^1.0.14
   languageName: unknown
   linkType: soft
 
@@ -15911,7 +15886,6 @@ __metadata:
     "@testing-library/react": ^13.4.0
     "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
-    "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
     "@types/jest": ^29.2.6
@@ -15936,7 +15910,6 @@ __metadata:
     copy-to-clipboard: ^3.3.3
     csstype: ^3.1.1
     dayjs: ^1.11.7
-    dompurify: ^2.4.3
     dotenv: ^16.0.3
     eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
@@ -15992,6 +15965,7 @@ __metadata:
     ui: "workspace:*"
     usehooks-ts: ^2.9.1
     ws: ^8.12.0
+    xss: ^1.0.14
   languageName: unknown
   linkType: soft
 
@@ -16024,7 +15998,6 @@ __metadata:
     "@testing-library/react": ^13.4.0
     "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
-    "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
     "@types/jest": ^29.2.6
@@ -16049,7 +16022,6 @@ __metadata:
     copy-to-clipboard: ^3.3.3
     csstype: ^3.1.1
     dayjs: ^1.11.7
-    dompurify: ^2.4.3
     dotenv: ^16.0.3
     eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
@@ -16105,6 +16077,7 @@ __metadata:
     ui: "workspace:*"
     usehooks-ts: ^2.9.1
     ws: ^8.12.0
+    xss: ^1.0.14
   languageName: unknown
   linkType: soft
 
@@ -16137,7 +16110,6 @@ __metadata:
     "@testing-library/react": ^13.4.0
     "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
-    "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
     "@types/jest": ^29.2.6
@@ -16162,7 +16134,6 @@ __metadata:
     copy-to-clipboard: ^3.3.3
     csstype: ^3.1.1
     dayjs: ^1.11.7
-    dompurify: ^2.4.3
     dotenv: ^16.0.3
     eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
@@ -16218,6 +16189,7 @@ __metadata:
     ui: "workspace:*"
     usehooks-ts: ^2.9.1
     ws: ^8.12.0
+    xss: ^1.0.14
   languageName: unknown
   linkType: soft
 
@@ -16250,7 +16222,6 @@ __metadata:
     "@testing-library/react": ^13.4.0
     "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
-    "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
     "@types/jest": ^29.2.6
@@ -16275,7 +16246,6 @@ __metadata:
     copy-to-clipboard: ^3.3.3
     csstype: ^3.1.1
     dayjs: ^1.11.7
-    dompurify: ^2.4.3
     dotenv: ^16.0.3
     eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
@@ -16331,6 +16301,7 @@ __metadata:
     ui: "workspace:*"
     usehooks-ts: ^2.9.1
     ws: ^8.12.0
+    xss: ^1.0.14
   languageName: unknown
   linkType: soft
 
@@ -16363,7 +16334,6 @@ __metadata:
     "@testing-library/react": ^13.4.0
     "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
-    "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
     "@types/jest": ^29.2.6
@@ -16388,7 +16358,6 @@ __metadata:
     copy-to-clipboard: ^3.3.3
     csstype: ^3.1.1
     dayjs: ^1.11.7
-    dompurify: ^2.4.3
     dotenv: ^16.0.3
     eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
@@ -16444,6 +16413,7 @@ __metadata:
     ui: "workspace:*"
     usehooks-ts: ^2.9.1
     ws: ^8.12.0
+    xss: ^1.0.14
   languageName: unknown
   linkType: soft
 
@@ -16476,7 +16446,6 @@ __metadata:
     "@testing-library/react": ^13.4.0
     "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
-    "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
     "@types/jest": ^29.2.6
@@ -16501,7 +16470,6 @@ __metadata:
     copy-to-clipboard: ^3.3.3
     csstype: ^3.1.1
     dayjs: ^1.11.7
-    dompurify: ^2.4.3
     dotenv: ^16.0.3
     eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
@@ -16557,6 +16525,7 @@ __metadata:
     ui: "workspace:*"
     usehooks-ts: ^2.9.1
     ws: ^8.12.0
+    xss: ^1.0.14
   languageName: unknown
   linkType: soft
 
@@ -16589,7 +16558,6 @@ __metadata:
     "@testing-library/react": ^13.4.0
     "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
-    "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
     "@types/jest": ^29.2.6
@@ -16614,7 +16582,6 @@ __metadata:
     copy-to-clipboard: ^3.3.3
     csstype: ^3.1.1
     dayjs: ^1.11.7
-    dompurify: ^2.4.3
     dotenv: ^16.0.3
     eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
@@ -16670,6 +16637,7 @@ __metadata:
     ui: "workspace:*"
     usehooks-ts: ^2.9.1
     ws: ^8.12.0
+    xss: ^1.0.14
   languageName: unknown
   linkType: soft
 
@@ -16716,7 +16684,6 @@ __metadata:
     "@testing-library/react": ^13.4.0
     "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
-    "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
     "@types/jest": ^29.2.6
@@ -16741,7 +16708,6 @@ __metadata:
     copy-to-clipboard: ^3.3.3
     csstype: ^3.1.1
     dayjs: ^1.11.7
-    dompurify: ^2.4.3
     dotenv: ^16.0.3
     eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
@@ -16797,6 +16763,7 @@ __metadata:
     ui: "workspace:*"
     usehooks-ts: ^2.9.1
     ws: ^8.12.0
+    xss: ^1.0.14
   languageName: unknown
   linkType: soft
 
@@ -16829,7 +16796,6 @@ __metadata:
     "@testing-library/react": ^13.4.0
     "@types/big.js": ^6.1.6
     "@types/color": ^3.0.3
-    "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
     "@types/jest": ^29.2.6
@@ -16854,7 +16820,6 @@ __metadata:
     copy-to-clipboard: ^3.3.3
     csstype: ^3.1.1
     dayjs: ^1.11.7
-    dompurify: ^2.4.3
     dotenv: ^16.0.3
     eslint: ^8.32.0
     eslint-config-airbnb: ^19.0.4
@@ -16910,6 +16875,7 @@ __metadata:
     ui: "workspace:*"
     usehooks-ts: ^2.9.1
     ws: ^8.12.0
+    xss: ^1.0.14
   languageName: unknown
   linkType: soft
 
@@ -17164,6 +17130,18 @@ __metadata:
   version: 2.2.0
   resolution: "xmlchars@npm:2.2.0"
   checksum: 8c70ac94070ccca03f47a81fcce3b271bd1f37a591bf5424e787ae313fcb9c212f5f6786e1fa82076a2c632c0141552babcd85698c437506dfa6ae2d58723062
+  languageName: node
+  linkType: hard
+
+"xss@npm:^1.0.14":
+  version: 1.0.14
+  resolution: "xss@npm:1.0.14"
+  dependencies:
+    commander: ^2.20.3
+    cssfilter: 0.0.10
+  bin:
+    xss: bin/xss
+  checksum: 77c6a60a5f96490098ef837c3b49321c0f31963f323c748cb0a01bc02fc6e465a6accbe4c54cad62f8d6ffe647d984be173879433af861883f6213d9416d3f53
   languageName: node
   linkType: hard
 

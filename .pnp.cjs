@@ -7014,16 +7014,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
-      ["@types/dompurify", [\
-        ["npm:2.4.0", {\
-          "packageLocation": "./.yarn/cache/@types-dompurify-npm-2.4.0-b6ea286bda-b48cd81e99.zip/node_modules/@types/dompurify/",\
-          "packageDependencies": [\
-            ["@types/dompurify", "npm:2.4.0"],\
-            ["@types/trusted-types", "npm:2.0.2"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
       ["@types/emscripten", [\
         ["npm:1.39.6", {\
           "packageLocation": "./.yarn/cache/@types-emscripten-npm-1.39.6-c9c4021365-437f2f9cdf.zip/node_modules/@types/emscripten/",\
@@ -7431,15 +7421,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-treeify-npm-1.0.0-b5e04e9cd3-1b2397030d.zip/node_modules/@types/treeify/",\
           "packageDependencies": [\
             ["@types/treeify", "npm:1.0.0"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@types/trusted-types", [\
-        ["npm:2.0.2", {\
-          "packageLocation": "./.yarn/cache/@types-trusted-types-npm-2.0.2-035cb17c5e-3371eef5f1.zip/node_modules/@types/trusted-types/",\
-          "packageDependencies": [\
-            ["@types/trusted-types", "npm:2.0.2"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -9526,6 +9507,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["commander", [\
+        ["npm:2.20.3", {\
+          "packageLocation": "./.yarn/cache/commander-npm-2.20.3-d8dcbaa39b-ab8c07884e.zip/node_modules/commander/",\
+          "packageDependencies": [\
+            ["commander", "npm:2.20.3"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
         ["npm:7.2.0", {\
           "packageLocation": "./.yarn/cache/commander-npm-7.2.0-19178180f8-53501cbeee.zip/node_modules/commander/",\
           "packageDependencies": [\
@@ -9798,6 +9786,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/css.escape-npm-1.5.1-b24d2ba77a-f6d38088d8.zip/node_modules/css.escape/",\
           "packageDependencies": [\
             ["css.escape", "npm:1.5.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["cssfilter", [\
+        ["npm:0.0.10", {\
+          "packageLocation": "./.yarn/cache/cssfilter-npm-0.0.10-28e06ce546-bc2c52bbb3.zip/node_modules/cssfilter/",\
+          "packageDependencies": [\
+            ["cssfilter", "npm:0.0.10"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -10419,15 +10416,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["domhandler", "npm:4.3.1"],\
             ["domelementtype", "npm:2.3.0"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["dompurify", [\
-        ["npm:2.4.3", {\
-          "packageLocation": "./.yarn/cache/dompurify-npm-2.4.3-de4e3be286-b440981f2a.zip/node_modules/dompurify/",\
-          "packageDependencies": [\
-            ["dompurify", "npm:2.4.3"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -19147,7 +19135,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@testing-library/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.4.0"],\
             ["@types/big.js", "npm:6.1.6"],\
             ["@types/color", "npm:3.0.3"],\
-            ["@types/dompurify", "npm:2.4.0"],\
             ["@types/eslint", "npm:8.4.10"],\
             ["@types/esprima", "npm:4.0.3"],\
             ["@types/jest", "npm:29.2.6"],\
@@ -19172,7 +19159,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["copy-to-clipboard", "npm:3.3.3"],\
             ["csstype", "npm:3.1.1"],\
             ["dayjs", "npm:1.11.7"],\
-            ["dompurify", "npm:2.4.3"],\
             ["dotenv", "npm:16.0.3"],\
             ["eslint", "npm:8.32.0"],\
             ["eslint-config-airbnb", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:19.0.4"],\
@@ -19226,7 +19212,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["typanion", "npm:3.12.1"],\
             ["typescript", "patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=ad5954"],\
             ["usehooks-ts", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.9.1"],\
-            ["ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.12.0"]\
+            ["ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.12.0"],\
+            ["xss", "npm:1.0.14"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -19588,7 +19575,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@testing-library/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.4.0"],\
             ["@types/big.js", "npm:6.1.6"],\
             ["@types/color", "npm:3.0.3"],\
-            ["@types/dompurify", "npm:2.4.0"],\
             ["@types/eslint", "npm:8.4.10"],\
             ["@types/esprima", "npm:4.0.3"],\
             ["@types/jest", "npm:29.2.6"],\
@@ -19613,7 +19599,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["copy-to-clipboard", "npm:3.3.3"],\
             ["csstype", "npm:3.1.1"],\
             ["dayjs", "npm:1.11.7"],\
-            ["dompurify", "npm:2.4.3"],\
             ["dotenv", "npm:16.0.3"],\
             ["eslint", "npm:8.32.0"],\
             ["eslint-config-airbnb", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:19.0.4"],\
@@ -19668,7 +19653,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["typescript", "patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=ad5954"],\
             ["ui", "workspace:packages/ui"],\
             ["usehooks-ts", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.9.1"],\
-            ["ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.12.0"]\
+            ["ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.12.0"],\
+            ["xss", "npm:1.0.14"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -19703,7 +19689,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@testing-library/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.4.0"],\
             ["@types/big.js", "npm:6.1.6"],\
             ["@types/color", "npm:3.0.3"],\
-            ["@types/dompurify", "npm:2.4.0"],\
             ["@types/eslint", "npm:8.4.10"],\
             ["@types/esprima", "npm:4.0.3"],\
             ["@types/jest", "npm:29.2.6"],\
@@ -19728,7 +19713,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["copy-to-clipboard", "npm:3.3.3"],\
             ["csstype", "npm:3.1.1"],\
             ["dayjs", "npm:1.11.7"],\
-            ["dompurify", "npm:2.4.3"],\
             ["dotenv", "npm:16.0.3"],\
             ["eslint", "npm:8.32.0"],\
             ["eslint-config-airbnb", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:19.0.4"],\
@@ -19783,7 +19767,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["typescript", "patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=ad5954"],\
             ["ui", "workspace:packages/ui"],\
             ["usehooks-ts", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.9.1"],\
-            ["ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.12.0"]\
+            ["ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.12.0"],\
+            ["xss", "npm:1.0.14"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -19818,7 +19803,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@testing-library/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.4.0"],\
             ["@types/big.js", "npm:6.1.6"],\
             ["@types/color", "npm:3.0.3"],\
-            ["@types/dompurify", "npm:2.4.0"],\
             ["@types/eslint", "npm:8.4.10"],\
             ["@types/esprima", "npm:4.0.3"],\
             ["@types/jest", "npm:29.2.6"],\
@@ -19843,7 +19827,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["copy-to-clipboard", "npm:3.3.3"],\
             ["csstype", "npm:3.1.1"],\
             ["dayjs", "npm:1.11.7"],\
-            ["dompurify", "npm:2.4.3"],\
             ["dotenv", "npm:16.0.3"],\
             ["eslint", "npm:8.32.0"],\
             ["eslint-config-airbnb", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:19.0.4"],\
@@ -19898,7 +19881,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["typescript", "patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=ad5954"],\
             ["ui", "workspace:packages/ui"],\
             ["usehooks-ts", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.9.1"],\
-            ["ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.12.0"]\
+            ["ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.12.0"],\
+            ["xss", "npm:1.0.14"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -19933,7 +19917,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@testing-library/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.4.0"],\
             ["@types/big.js", "npm:6.1.6"],\
             ["@types/color", "npm:3.0.3"],\
-            ["@types/dompurify", "npm:2.4.0"],\
             ["@types/eslint", "npm:8.4.10"],\
             ["@types/esprima", "npm:4.0.3"],\
             ["@types/jest", "npm:29.2.6"],\
@@ -19958,7 +19941,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["copy-to-clipboard", "npm:3.3.3"],\
             ["csstype", "npm:3.1.1"],\
             ["dayjs", "npm:1.11.7"],\
-            ["dompurify", "npm:2.4.3"],\
             ["dotenv", "npm:16.0.3"],\
             ["eslint", "npm:8.32.0"],\
             ["eslint-config-airbnb", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:19.0.4"],\
@@ -20013,7 +19995,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["typescript", "patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=ad5954"],\
             ["ui", "workspace:packages/ui"],\
             ["usehooks-ts", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.9.1"],\
-            ["ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.12.0"]\
+            ["ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.12.0"],\
+            ["xss", "npm:1.0.14"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -20048,7 +20031,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@testing-library/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.4.0"],\
             ["@types/big.js", "npm:6.1.6"],\
             ["@types/color", "npm:3.0.3"],\
-            ["@types/dompurify", "npm:2.4.0"],\
             ["@types/eslint", "npm:8.4.10"],\
             ["@types/esprima", "npm:4.0.3"],\
             ["@types/jest", "npm:29.2.6"],\
@@ -20073,7 +20055,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["copy-to-clipboard", "npm:3.3.3"],\
             ["csstype", "npm:3.1.1"],\
             ["dayjs", "npm:1.11.7"],\
-            ["dompurify", "npm:2.4.3"],\
             ["dotenv", "npm:16.0.3"],\
             ["eslint", "npm:8.32.0"],\
             ["eslint-config-airbnb", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:19.0.4"],\
@@ -20128,7 +20109,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["typescript", "patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=ad5954"],\
             ["ui", "workspace:packages/ui"],\
             ["usehooks-ts", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.9.1"],\
-            ["ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.12.0"]\
+            ["ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.12.0"],\
+            ["xss", "npm:1.0.14"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -20163,7 +20145,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@testing-library/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.4.0"],\
             ["@types/big.js", "npm:6.1.6"],\
             ["@types/color", "npm:3.0.3"],\
-            ["@types/dompurify", "npm:2.4.0"],\
             ["@types/eslint", "npm:8.4.10"],\
             ["@types/esprima", "npm:4.0.3"],\
             ["@types/jest", "npm:29.2.6"],\
@@ -20188,7 +20169,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["copy-to-clipboard", "npm:3.3.3"],\
             ["csstype", "npm:3.1.1"],\
             ["dayjs", "npm:1.11.7"],\
-            ["dompurify", "npm:2.4.3"],\
             ["dotenv", "npm:16.0.3"],\
             ["eslint", "npm:8.32.0"],\
             ["eslint-config-airbnb", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:19.0.4"],\
@@ -20243,7 +20223,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["typescript", "patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=ad5954"],\
             ["ui", "workspace:packages/ui"],\
             ["usehooks-ts", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.9.1"],\
-            ["ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.12.0"]\
+            ["ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.12.0"],\
+            ["xss", "npm:1.0.14"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -20278,7 +20259,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@testing-library/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.4.0"],\
             ["@types/big.js", "npm:6.1.6"],\
             ["@types/color", "npm:3.0.3"],\
-            ["@types/dompurify", "npm:2.4.0"],\
             ["@types/eslint", "npm:8.4.10"],\
             ["@types/esprima", "npm:4.0.3"],\
             ["@types/jest", "npm:29.2.6"],\
@@ -20303,7 +20283,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["copy-to-clipboard", "npm:3.3.3"],\
             ["csstype", "npm:3.1.1"],\
             ["dayjs", "npm:1.11.7"],\
-            ["dompurify", "npm:2.4.3"],\
             ["dotenv", "npm:16.0.3"],\
             ["eslint", "npm:8.32.0"],\
             ["eslint-config-airbnb", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:19.0.4"],\
@@ -20358,7 +20337,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["typescript", "patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=ad5954"],\
             ["ui", "workspace:packages/ui"],\
             ["usehooks-ts", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.9.1"],\
-            ["ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.12.0"]\
+            ["ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.12.0"],\
+            ["xss", "npm:1.0.14"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -20393,7 +20373,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@testing-library/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.4.0"],\
             ["@types/big.js", "npm:6.1.6"],\
             ["@types/color", "npm:3.0.3"],\
-            ["@types/dompurify", "npm:2.4.0"],\
             ["@types/eslint", "npm:8.4.10"],\
             ["@types/esprima", "npm:4.0.3"],\
             ["@types/jest", "npm:29.2.6"],\
@@ -20418,7 +20397,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["copy-to-clipboard", "npm:3.3.3"],\
             ["csstype", "npm:3.1.1"],\
             ["dayjs", "npm:1.11.7"],\
-            ["dompurify", "npm:2.4.3"],\
             ["dotenv", "npm:16.0.3"],\
             ["eslint", "npm:8.32.0"],\
             ["eslint-config-airbnb", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:19.0.4"],\
@@ -20473,7 +20451,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["typescript", "patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=ad5954"],\
             ["ui", "workspace:packages/ui"],\
             ["usehooks-ts", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.9.1"],\
-            ["ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.12.0"]\
+            ["ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.12.0"],\
+            ["xss", "npm:1.0.14"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -20508,7 +20487,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@testing-library/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.4.0"],\
             ["@types/big.js", "npm:6.1.6"],\
             ["@types/color", "npm:3.0.3"],\
-            ["@types/dompurify", "npm:2.4.0"],\
             ["@types/eslint", "npm:8.4.10"],\
             ["@types/esprima", "npm:4.0.3"],\
             ["@types/jest", "npm:29.2.6"],\
@@ -20533,7 +20511,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["copy-to-clipboard", "npm:3.3.3"],\
             ["csstype", "npm:3.1.1"],\
             ["dayjs", "npm:1.11.7"],\
-            ["dompurify", "npm:2.4.3"],\
             ["dotenv", "npm:16.0.3"],\
             ["eslint", "npm:8.32.0"],\
             ["eslint-config-airbnb", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:19.0.4"],\
@@ -20588,7 +20565,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["typescript", "patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=ad5954"],\
             ["ui", "workspace:packages/ui"],\
             ["usehooks-ts", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.9.1"],\
-            ["ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.12.0"]\
+            ["ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.12.0"],\
+            ["xss", "npm:1.0.14"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -20623,7 +20601,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@testing-library/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.4.0"],\
             ["@types/big.js", "npm:6.1.6"],\
             ["@types/color", "npm:3.0.3"],\
-            ["@types/dompurify", "npm:2.4.0"],\
             ["@types/eslint", "npm:8.4.10"],\
             ["@types/esprima", "npm:4.0.3"],\
             ["@types/jest", "npm:29.2.6"],\
@@ -20648,7 +20625,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["copy-to-clipboard", "npm:3.3.3"],\
             ["csstype", "npm:3.1.1"],\
             ["dayjs", "npm:1.11.7"],\
-            ["dompurify", "npm:2.4.3"],\
             ["dotenv", "npm:16.0.3"],\
             ["eslint", "npm:8.32.0"],\
             ["eslint-config-airbnb", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:19.0.4"],\
@@ -20703,7 +20679,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["typescript", "patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=ad5954"],\
             ["ui", "workspace:packages/ui"],\
             ["usehooks-ts", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.9.1"],\
-            ["ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.12.0"]\
+            ["ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.12.0"],\
+            ["xss", "npm:1.0.14"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -20738,7 +20715,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@testing-library/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.4.0"],\
             ["@types/big.js", "npm:6.1.6"],\
             ["@types/color", "npm:3.0.3"],\
-            ["@types/dompurify", "npm:2.4.0"],\
             ["@types/eslint", "npm:8.4.10"],\
             ["@types/esprima", "npm:4.0.3"],\
             ["@types/jest", "npm:29.2.6"],\
@@ -20763,7 +20739,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["copy-to-clipboard", "npm:3.3.3"],\
             ["csstype", "npm:3.1.1"],\
             ["dayjs", "npm:1.11.7"],\
-            ["dompurify", "npm:2.4.3"],\
             ["dotenv", "npm:16.0.3"],\
             ["eslint", "npm:8.32.0"],\
             ["eslint-config-airbnb", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:19.0.4"],\
@@ -20818,7 +20793,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["typescript", "patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=ad5954"],\
             ["ui", "workspace:packages/ui"],\
             ["usehooks-ts", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.9.1"],\
-            ["ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.12.0"]\
+            ["ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.12.0"],\
+            ["xss", "npm:1.0.14"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -20853,7 +20829,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@testing-library/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.4.0"],\
             ["@types/big.js", "npm:6.1.6"],\
             ["@types/color", "npm:3.0.3"],\
-            ["@types/dompurify", "npm:2.4.0"],\
             ["@types/eslint", "npm:8.4.10"],\
             ["@types/esprima", "npm:4.0.3"],\
             ["@types/jest", "npm:29.2.6"],\
@@ -20878,7 +20853,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["copy-to-clipboard", "npm:3.3.3"],\
             ["csstype", "npm:3.1.1"],\
             ["dayjs", "npm:1.11.7"],\
-            ["dompurify", "npm:2.4.3"],\
             ["dotenv", "npm:16.0.3"],\
             ["eslint", "npm:8.32.0"],\
             ["eslint-config-airbnb", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:19.0.4"],\
@@ -20933,7 +20907,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["typescript", "patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=ad5954"],\
             ["ui", "workspace:packages/ui"],\
             ["usehooks-ts", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.9.1"],\
-            ["ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.12.0"]\
+            ["ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.12.0"],\
+            ["xss", "npm:1.0.14"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -20968,7 +20943,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@testing-library/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.4.0"],\
             ["@types/big.js", "npm:6.1.6"],\
             ["@types/color", "npm:3.0.3"],\
-            ["@types/dompurify", "npm:2.4.0"],\
             ["@types/eslint", "npm:8.4.10"],\
             ["@types/esprima", "npm:4.0.3"],\
             ["@types/jest", "npm:29.2.6"],\
@@ -20993,7 +20967,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["copy-to-clipboard", "npm:3.3.3"],\
             ["csstype", "npm:3.1.1"],\
             ["dayjs", "npm:1.11.7"],\
-            ["dompurify", "npm:2.4.3"],\
             ["dotenv", "npm:16.0.3"],\
             ["eslint", "npm:8.32.0"],\
             ["eslint-config-airbnb", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:19.0.4"],\
@@ -21048,7 +21021,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["typescript", "patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=ad5954"],\
             ["ui", "workspace:packages/ui"],\
             ["usehooks-ts", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.9.1"],\
-            ["ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.12.0"]\
+            ["ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.12.0"],\
+            ["xss", "npm:1.0.14"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -21083,7 +21057,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@testing-library/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.4.0"],\
             ["@types/big.js", "npm:6.1.6"],\
             ["@types/color", "npm:3.0.3"],\
-            ["@types/dompurify", "npm:2.4.0"],\
             ["@types/eslint", "npm:8.4.10"],\
             ["@types/esprima", "npm:4.0.3"],\
             ["@types/jest", "npm:29.2.6"],\
@@ -21108,7 +21081,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["copy-to-clipboard", "npm:3.3.3"],\
             ["csstype", "npm:3.1.1"],\
             ["dayjs", "npm:1.11.7"],\
-            ["dompurify", "npm:2.4.3"],\
             ["dotenv", "npm:16.0.3"],\
             ["eslint", "npm:8.32.0"],\
             ["eslint-config-airbnb", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:19.0.4"],\
@@ -21163,7 +21135,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["typescript", "patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=ad5954"],\
             ["ui", "workspace:packages/ui"],\
             ["usehooks-ts", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.9.1"],\
-            ["ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.12.0"]\
+            ["ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.12.0"],\
+            ["xss", "npm:1.0.14"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -21198,7 +21171,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@testing-library/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.4.0"],\
             ["@types/big.js", "npm:6.1.6"],\
             ["@types/color", "npm:3.0.3"],\
-            ["@types/dompurify", "npm:2.4.0"],\
             ["@types/eslint", "npm:8.4.10"],\
             ["@types/esprima", "npm:4.0.3"],\
             ["@types/jest", "npm:29.2.6"],\
@@ -21223,7 +21195,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["copy-to-clipboard", "npm:3.3.3"],\
             ["csstype", "npm:3.1.1"],\
             ["dayjs", "npm:1.11.7"],\
-            ["dompurify", "npm:2.4.3"],\
             ["dotenv", "npm:16.0.3"],\
             ["eslint", "npm:8.32.0"],\
             ["eslint-config-airbnb", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:19.0.4"],\
@@ -21278,7 +21249,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["typescript", "patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=ad5954"],\
             ["ui", "workspace:packages/ui"],\
             ["usehooks-ts", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.9.1"],\
-            ["ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.12.0"]\
+            ["ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.12.0"],\
+            ["xss", "npm:1.0.14"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -21313,7 +21285,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@testing-library/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.4.0"],\
             ["@types/big.js", "npm:6.1.6"],\
             ["@types/color", "npm:3.0.3"],\
-            ["@types/dompurify", "npm:2.4.0"],\
             ["@types/eslint", "npm:8.4.10"],\
             ["@types/esprima", "npm:4.0.3"],\
             ["@types/jest", "npm:29.2.6"],\
@@ -21338,7 +21309,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["copy-to-clipboard", "npm:3.3.3"],\
             ["csstype", "npm:3.1.1"],\
             ["dayjs", "npm:1.11.7"],\
-            ["dompurify", "npm:2.4.3"],\
             ["dotenv", "npm:16.0.3"],\
             ["eslint", "npm:8.32.0"],\
             ["eslint-config-airbnb", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:19.0.4"],\
@@ -21393,7 +21363,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["typescript", "patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=ad5954"],\
             ["ui", "workspace:packages/ui"],\
             ["usehooks-ts", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.9.1"],\
-            ["ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.12.0"]\
+            ["ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.12.0"],\
+            ["xss", "npm:1.0.14"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -21428,7 +21399,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@testing-library/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.4.0"],\
             ["@types/big.js", "npm:6.1.6"],\
             ["@types/color", "npm:3.0.3"],\
-            ["@types/dompurify", "npm:2.4.0"],\
             ["@types/eslint", "npm:8.4.10"],\
             ["@types/esprima", "npm:4.0.3"],\
             ["@types/jest", "npm:29.2.6"],\
@@ -21453,7 +21423,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["copy-to-clipboard", "npm:3.3.3"],\
             ["csstype", "npm:3.1.1"],\
             ["dayjs", "npm:1.11.7"],\
-            ["dompurify", "npm:2.4.3"],\
             ["dotenv", "npm:16.0.3"],\
             ["eslint", "npm:8.32.0"],\
             ["eslint-config-airbnb", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:19.0.4"],\
@@ -21508,7 +21477,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["typescript", "patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=ad5954"],\
             ["ui", "workspace:packages/ui"],\
             ["usehooks-ts", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.9.1"],\
-            ["ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.12.0"]\
+            ["ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.12.0"],\
+            ["xss", "npm:1.0.14"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -21543,7 +21513,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@testing-library/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.4.0"],\
             ["@types/big.js", "npm:6.1.6"],\
             ["@types/color", "npm:3.0.3"],\
-            ["@types/dompurify", "npm:2.4.0"],\
             ["@types/eslint", "npm:8.4.10"],\
             ["@types/esprima", "npm:4.0.3"],\
             ["@types/jest", "npm:29.2.6"],\
@@ -21568,7 +21537,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["copy-to-clipboard", "npm:3.3.3"],\
             ["csstype", "npm:3.1.1"],\
             ["dayjs", "npm:1.11.7"],\
-            ["dompurify", "npm:2.4.3"],\
             ["dotenv", "npm:16.0.3"],\
             ["eslint", "npm:8.32.0"],\
             ["eslint-config-airbnb", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:19.0.4"],\
@@ -21623,7 +21591,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["typescript", "patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=ad5954"],\
             ["ui", "workspace:packages/ui"],\
             ["usehooks-ts", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.9.1"],\
-            ["ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.12.0"]\
+            ["ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.12.0"],\
+            ["xss", "npm:1.0.14"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -21658,7 +21627,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@testing-library/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.4.0"],\
             ["@types/big.js", "npm:6.1.6"],\
             ["@types/color", "npm:3.0.3"],\
-            ["@types/dompurify", "npm:2.4.0"],\
             ["@types/eslint", "npm:8.4.10"],\
             ["@types/esprima", "npm:4.0.3"],\
             ["@types/jest", "npm:29.2.6"],\
@@ -21683,7 +21651,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["copy-to-clipboard", "npm:3.3.3"],\
             ["csstype", "npm:3.1.1"],\
             ["dayjs", "npm:1.11.7"],\
-            ["dompurify", "npm:2.4.3"],\
             ["dotenv", "npm:16.0.3"],\
             ["eslint", "npm:8.32.0"],\
             ["eslint-config-airbnb", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:19.0.4"],\
@@ -21738,7 +21705,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["typescript", "patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=ad5954"],\
             ["ui", "workspace:packages/ui"],\
             ["usehooks-ts", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.9.1"],\
-            ["ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.12.0"]\
+            ["ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.12.0"],\
+            ["xss", "npm:1.0.14"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -21773,7 +21741,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@testing-library/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.4.0"],\
             ["@types/big.js", "npm:6.1.6"],\
             ["@types/color", "npm:3.0.3"],\
-            ["@types/dompurify", "npm:2.4.0"],\
             ["@types/eslint", "npm:8.4.10"],\
             ["@types/esprima", "npm:4.0.3"],\
             ["@types/jest", "npm:29.2.6"],\
@@ -21798,7 +21765,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["copy-to-clipboard", "npm:3.3.3"],\
             ["csstype", "npm:3.1.1"],\
             ["dayjs", "npm:1.11.7"],\
-            ["dompurify", "npm:2.4.3"],\
             ["dotenv", "npm:16.0.3"],\
             ["eslint", "npm:8.32.0"],\
             ["eslint-config-airbnb", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:19.0.4"],\
@@ -21853,7 +21819,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["typescript", "patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=ad5954"],\
             ["ui", "workspace:packages/ui"],\
             ["usehooks-ts", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.9.1"],\
-            ["ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.12.0"]\
+            ["ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.12.0"],\
+            ["xss", "npm:1.0.14"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -21888,7 +21855,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@testing-library/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.4.0"],\
             ["@types/big.js", "npm:6.1.6"],\
             ["@types/color", "npm:3.0.3"],\
-            ["@types/dompurify", "npm:2.4.0"],\
             ["@types/eslint", "npm:8.4.10"],\
             ["@types/esprima", "npm:4.0.3"],\
             ["@types/jest", "npm:29.2.6"],\
@@ -21913,7 +21879,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["copy-to-clipboard", "npm:3.3.3"],\
             ["csstype", "npm:3.1.1"],\
             ["dayjs", "npm:1.11.7"],\
-            ["dompurify", "npm:2.4.3"],\
             ["dotenv", "npm:16.0.3"],\
             ["eslint", "npm:8.32.0"],\
             ["eslint-config-airbnb", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:19.0.4"],\
@@ -21968,7 +21933,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["typescript", "patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=ad5954"],\
             ["ui", "workspace:packages/ui"],\
             ["usehooks-ts", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.9.1"],\
-            ["ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.12.0"]\
+            ["ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.12.0"],\
+            ["xss", "npm:1.0.14"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -22003,7 +21969,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@testing-library/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.4.0"],\
             ["@types/big.js", "npm:6.1.6"],\
             ["@types/color", "npm:3.0.3"],\
-            ["@types/dompurify", "npm:2.4.0"],\
             ["@types/eslint", "npm:8.4.10"],\
             ["@types/esprima", "npm:4.0.3"],\
             ["@types/jest", "npm:29.2.6"],\
@@ -22028,7 +21993,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["copy-to-clipboard", "npm:3.3.3"],\
             ["csstype", "npm:3.1.1"],\
             ["dayjs", "npm:1.11.7"],\
-            ["dompurify", "npm:2.4.3"],\
             ["dotenv", "npm:16.0.3"],\
             ["eslint", "npm:8.32.0"],\
             ["eslint-config-airbnb", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:19.0.4"],\
@@ -22083,7 +22047,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["typescript", "patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=ad5954"],\
             ["ui", "workspace:packages/ui"],\
             ["usehooks-ts", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.9.1"],\
-            ["ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.12.0"]\
+            ["ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.12.0"],\
+            ["xss", "npm:1.0.14"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -22118,7 +22083,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@testing-library/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.4.0"],\
             ["@types/big.js", "npm:6.1.6"],\
             ["@types/color", "npm:3.0.3"],\
-            ["@types/dompurify", "npm:2.4.0"],\
             ["@types/eslint", "npm:8.4.10"],\
             ["@types/esprima", "npm:4.0.3"],\
             ["@types/jest", "npm:29.2.6"],\
@@ -22143,7 +22107,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["copy-to-clipboard", "npm:3.3.3"],\
             ["csstype", "npm:3.1.1"],\
             ["dayjs", "npm:1.11.7"],\
-            ["dompurify", "npm:2.4.3"],\
             ["dotenv", "npm:16.0.3"],\
             ["eslint", "npm:8.32.0"],\
             ["eslint-config-airbnb", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:19.0.4"],\
@@ -22198,7 +22161,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["typescript", "patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=ad5954"],\
             ["ui", "workspace:packages/ui"],\
             ["usehooks-ts", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.9.1"],\
-            ["ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.12.0"]\
+            ["ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.12.0"],\
+            ["xss", "npm:1.0.14"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -22249,7 +22213,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@testing-library/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.4.0"],\
             ["@types/big.js", "npm:6.1.6"],\
             ["@types/color", "npm:3.0.3"],\
-            ["@types/dompurify", "npm:2.4.0"],\
             ["@types/eslint", "npm:8.4.10"],\
             ["@types/esprima", "npm:4.0.3"],\
             ["@types/jest", "npm:29.2.6"],\
@@ -22274,7 +22237,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["copy-to-clipboard", "npm:3.3.3"],\
             ["csstype", "npm:3.1.1"],\
             ["dayjs", "npm:1.11.7"],\
-            ["dompurify", "npm:2.4.3"],\
             ["dotenv", "npm:16.0.3"],\
             ["eslint", "npm:8.32.0"],\
             ["eslint-config-airbnb", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:19.0.4"],\
@@ -22329,7 +22291,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["typescript", "patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=ad5954"],\
             ["ui", "workspace:packages/ui"],\
             ["usehooks-ts", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.9.1"],\
-            ["ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.12.0"]\
+            ["ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.12.0"],\
+            ["xss", "npm:1.0.14"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -22626,6 +22589,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/xmlchars-npm-2.2.0-8b78f0f5e4-8c70ac9407.zip/node_modules/xmlchars/",\
           "packageDependencies": [\
             ["xmlchars", "npm:2.2.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["xss", [\
+        ["npm:1.0.14", {\
+          "packageLocation": "./.yarn/cache/xss-npm-1.0.14-eb6e57872e-77c6a60a5f.zip/node_modules/xss/",\
+          "packageDependencies": [\
+            ["xss", "npm:1.0.14"],\
+            ["commander", "npm:2.20.3"],\
+            ["cssfilter", "npm:0.0.10"]\
           ],\
           "linkType": "HARD"\
         }]\
