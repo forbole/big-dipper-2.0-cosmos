@@ -4,10 +4,17 @@ import { PaginationProps, UNKNOWN_ITEM_COUNT } from '@/components/InfiniteList/t
 import TablePagination, { LabelDisplayedRowsArgs } from '@mui/material/TablePagination';
 import { FC, MouseEvent } from 'react';
 
-const Pagination: FC<PaginationProps> = ({ itemsPerPage, itemCount, page, onPageChange }) => {
+const Pagination: FC<PaginationProps> = ({
+  itemsPerPage,
+  itemCount,
+  page,
+  onPageChange,
+  cursorMaxPage,
+}) => {
   const { classes } = useStyles();
   const labelDisplayedRows = ({ from, to }: LabelDisplayedRowsArgs) => {
-    const total = itemCount === UNKNOWN_ITEM_COUNT ? `${to}+` : itemCount;
+    const maxPage = Math.max(to, (1 + cursorMaxPage) * itemsPerPage);
+    const total = itemCount === UNKNOWN_ITEM_COUNT ? `${maxPage}+,` : itemCount;
     return `${from}-${to} of ${total}`;
   };
   const handleChangePage = (_: MouseEvent<HTMLButtonElement> | null, newPage: number) => {

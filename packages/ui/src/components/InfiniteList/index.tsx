@@ -109,21 +109,26 @@ const InfiniteList = <TData, TVariables, TItem>({
     () => ({ variables, items, itemsPerPage, rowHeight, RowComponent }),
     [variables, rowHeight, items, itemsPerPage, RowComponent]
   );
+
   const cursor = JSON.stringify(variables);
   const itemKey = useCallback((index: number) => `${cursor}${index}`, [cursor]);
-  useEffect(() => {
-    setPage(0);
-    if (listRef.current) {
-      listRef.current.scrollTo(0);
-      listRef.current.resetAfterIndex(0);
-    }
-  }, [cursor]);
+
   const handlePageChange = useCallback(
     (p: number) => {
       listRef.current?.scrollToItem(p * itemsPerPage, 'start');
     },
     [itemsPerPage]
   );
+
+  const [cursorMaxPage, setCursorMaxPage] = useState(0);
+  useEffect(() => {
+    setPage(0);
+    setCursorMaxPage(0);
+    if (listRef.current) listRef.current.scrollTo(0);
+  }, [cursor]);
+  useEffect(() => {
+    setCursorMaxPage((prev) => (page > prev ? page : prev));
+  }, [page]);
 
   return (
     <Paper className={cx(className, classes.root)} ref={outerRef}>
@@ -172,6 +177,7 @@ const InfiniteList = <TData, TVariables, TItem>({
           itemCount={itemCount ?? UNKNOWN_ITEM_COUNT}
           page={page}
           onPageChange={handlePageChange}
+          cursorMaxPage={cursorMaxPage}
         />
       )}
     </Paper>

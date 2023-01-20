@@ -45,4 +45,5 @@ export interface PaginationProps extends TableFooterProps {
   itemCount: number;
   page: number;
   onPageChange: (newPage: number) => void;
+  cursorMaxPage: number;
 }
