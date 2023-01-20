@@ -92,6 +92,9 @@ const useStyles = makeStyles()((theme) => ({
   description: {
     padding: theme.spacing(1, 0),
     marginBottom: theme.spacing(2),
+    [theme.breakpoints.down('lg')]: {
+      display: 'none',
+    },
   },
   nativeTokenName: {
     display: 'flex',
