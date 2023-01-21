@@ -1,0 +1,10 @@
+{
+  "contractModule": "Contract Module",
+  "contracts": "Contracts",
+  "tokenName": "Token Name",
+  "price": "Price",
+  "markerType": "Marker Type",
+  "supply": "Total Supply",
+  "Search by contract name": "Search by contract name",
+  "description": "The contract module provides an ownership structure for managing tokenized value backed by contracts or other tokenized units of value denominated as unit(s) of coin."
+}

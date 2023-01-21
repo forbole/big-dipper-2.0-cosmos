@@ -1,0 +1,11 @@
+query WasmCode($limit: Int = 100, $offset: Int = 0, $wasm_code_bool_exp: wasm_code_bool_exp = {}) {
+  wasm_code(limit: $limit, offset: $offset, where: $wasm_code_bool_exp, order_by: {code_id: desc_nulls_last}) {
+    code_id
+    height
+    instantiate_permission
+    sender
+    wasm_contracts {
+      contract_info: contract_states(path: "contract_info")
+    }
+  }
+}

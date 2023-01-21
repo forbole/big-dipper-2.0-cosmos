@@ -23,7 +23,7 @@
     "test:ci": "TURBO_BINARY_PATH=$(echo \"console.log(require('child_process').execSync('find .yarn/unplugged/turbo-'+process.platform+'-'+process.arch.replace(/^x/,'')+'-* -name turbo').toString())\" | node) turbo run test --continue",
     "e2e": "playwright test",
     "e2e:install": "playwright install --with-deps",
-    "graphql:codegen": "TURBO_BINARY_PATH=$(echo \"console.log(require('child_process').execSync('find .yarn/unplugged/turbo-'+process.platform+'-'+process.arch.replace(/^x/,'')+'-* -name turbo').toString())\" | node) turbo run graphql:codegen --continue",
+    "graphql:codegen": "turbo run graphql:codegen --continue",
     "postinstall": "husky install"
   },
   "devDependencies": {
