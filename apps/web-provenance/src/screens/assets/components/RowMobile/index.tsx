@@ -22,9 +22,10 @@ const RowMobile = ({
   items: preloadedItems,
   itemsPerPage,
   rowHeight,
+  cursor,
 }: RowProps<MarkerAccountQuery, AssetQueryVariable, AssetType>) => {
   const offset = index - (index % itemsPerPage);
-  const { items } = useAssetsByOffset(variables, offset);
+  const { items } = useAssetsByOffset(cursor, variables, offset);
   const { classes, cx } = useStyles();
   const { t } = useTranslation('assets');
 

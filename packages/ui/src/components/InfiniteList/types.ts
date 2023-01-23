@@ -11,7 +11,7 @@ export type HeaderProps<TVariables> = {
 };
 
 export type RowProps<TData, TVariables, TItem> = Pick<JSX.IntrinsicElements['div'], 'style'> &
-  Pick<InfiniteQuery<TData, TVariables, TItem>, 'items' | 'itemsPerPage'> & {
+  Pick<InfiniteQuery<TData, TVariables, TItem>, 'items' | 'itemsPerPage' | 'cursor'> & {
     variables: TVariables;
     index: number;
     rowHeight: (index: number) => number;
@@ -19,7 +19,7 @@ export type RowProps<TData, TVariables, TItem> = Pick<JSX.IntrinsicElements['div
   };
 
 export interface ItemData<TData, TVariables, TItem>
-  extends Pick<InfiniteQuery<TData, TVariables, TItem>, 'items' | 'itemsPerPage'> {
+  extends Pick<InfiniteQuery<TData, TVariables, TItem>, 'items' | 'itemsPerPage' | 'cursor'> {
   variables: TVariables;
   rowHeight: (index: number) => number;
   RowComponent: ComponentType<RowProps<TData, TVariables, TItem>>;
@@ -28,7 +28,7 @@ export interface ItemData<TData, TVariables, TItem>
 export interface InfiniteListProps<TData, TVariables, TItem>
   extends Pick<
     InfiniteQuery<TData, TVariables, TItem>,
-    'items' | 'itemsPerPage' | 'itemCount' | 'refetch'
+    'items' | 'itemsPerPage' | 'refetch' | 'cursor'
   > {
   variables: TVariables;
   className?: string;
@@ -38,12 +38,14 @@ export interface InfiniteListProps<TData, TVariables, TItem>
   HeaderComponent?: ComponentType<HeaderProps<TVariables>>;
   RowComponent: ComponentType<RowProps<TData, TVariables, TItem>>;
   autoScrollElement?: Element | null;
+  maxFetched: number | undefined;
+  itemCount: number | undefined;
 }
 
 export interface PaginationProps extends TableFooterProps {
   itemsPerPage: number;
   itemCount: number;
+  maxFetched: number | undefined;
   page: number;
   onPageChange: (newPage: number) => void;
-  cursorMaxPage: number;
 }

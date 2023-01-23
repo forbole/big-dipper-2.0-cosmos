@@ -7208,6 +7208,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@types/qs", [\
+        ["npm:6.9.7", {\
+          "packageLocation": "./.yarn/cache/@types-qs-npm-6.9.7-4a3e6ca0d0-7fd6f9c250.zip/node_modules/@types/qs/",\
+          "packageDependencies": [\
+            ["@types/qs", "npm:6.9.7"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@types/ramda", [\
         ["npm:0.28.21", {\
           "packageLocation": "./.yarn/cache/@types-ramda-npm-0.28.21-92ebba53b4-71bae1e5bd.zip/node_modules/@types/ramda/",\
@@ -8118,6 +8127,36 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["apollo-link-rest", [\
+        ["npm:0.9.0", {\
+          "packageLocation": "./.yarn/cache/apollo-link-rest-npm-0.9.0-409968d35a-1aa2ca1311.zip/node_modules/apollo-link-rest/",\
+          "packageDependencies": [\
+            ["apollo-link-rest", "npm:0.9.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0", {\
+          "packageLocation": "./.yarn/__virtual__/apollo-link-rest-virtual-6d814c0af7/0/cache/apollo-link-rest-npm-0.9.0-409968d35a-1aa2ca1311.zip/node_modules/apollo-link-rest/",\
+          "packageDependencies": [\
+            ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
+            ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.4"],\
+            ["@types/apollo__client", null],\
+            ["@types/graphql", null],\
+            ["@types/qs", "npm:6.9.7"],\
+            ["graphql", "npm:16.6.0"],\
+            ["qs", "npm:6.11.0"]\
+          ],\
+          "packagePeers": [\
+            "@apollo/client",\
+            "@types/apollo__client",\
+            "@types/graphql",\
+            "@types/qs",\
+            "graphql",\
+            "qs"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["aproba", [\
         ["npm:1.2.0", {\
           "packageLocation": "./.yarn/cache/aproba-npm-1.2.0-34129f0778-0fca141966.zip/node_modules/aproba/",\
@@ -8357,10 +8396,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.21.2", {\
-          "packageLocation": "./.yarn/__virtual__/axios-mock-adapter-virtual-3c75320de7/0/cache/axios-mock-adapter-npm-1.21.2-67858a7fb9-0d334838a8.zip/node_modules/axios-mock-adapter/",\
+        ["virtual:19a07c992ed503f8b876a08c25698d86a18f4259d31b1e4df2bbace5aee17e5db4cb754470bcd3fd21285ca88238c91dea91246697dc95ecaea75c728a892bdb#npm:1.21.2", {\
+          "packageLocation": "./.yarn/__virtual__/axios-mock-adapter-virtual-70ac925990/0/cache/axios-mock-adapter-npm-1.21.2-67858a7fb9-0d334838a8.zip/node_modules/axios-mock-adapter/",\
           "packageDependencies": [\
-            ["axios-mock-adapter", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.21.2"],\
+            ["axios-mock-adapter", "virtual:19a07c992ed503f8b876a08c25698d86a18f4259d31b1e4df2bbace5aee17e5db4cb754470bcd3fd21285ca88238c91dea91246697dc95ecaea75c728a892bdb#npm:1.21.2"],\
             ["@types/axios", null],\
             ["axios", "npm:1.2.3"],\
             ["fast-deep-equal", "npm:3.1.3"],\
@@ -16434,6 +16473,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["qs", [\
+        ["npm:6.11.0", {\
+          "packageLocation": "./.yarn/cache/qs-npm-6.11.0-caf1bc9dea-6e1f29dd53.zip/node_modules/qs/",\
+          "packageDependencies": [\
+            ["qs", "npm:6.11.0"],\
+            ["side-channel", "npm:1.0.4"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["querystringify", [\
         ["npm:2.2.0", {\
           "packageLocation": "./.yarn/cache/querystringify-npm-2.2.0-4e77c9f606-5641ea231b.zip/node_modules/querystringify/",\
@@ -19088,6 +19137,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/js-yaml", "npm:4.0.5"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/numeral", "npm:2.0.2"],\
+            ["@types/qs", "npm:6.9.7"],\
             ["@types/ramda", "npm:0.28.21"],\
             ["@types/react", "npm:18.0.27"],\
             ["@types/react-dom", "npm:18.0.10"],\
@@ -19098,8 +19148,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/eslint-plugin", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.48.2"],\
             ["@typescript-eslint/parser", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.48.2"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.36"],\
-            ["axios", "npm:1.2.3"],\
-            ["axios-mock-adapter", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.21.2"],\
+            ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
@@ -19139,6 +19188,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["next-translate", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0"],\
             ["numeral", "npm:2.0.6"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
+            ["qs", "npm:6.11.0"],\
             ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
@@ -19528,6 +19578,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/js-yaml", "npm:4.0.5"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/numeral", "npm:2.0.2"],\
+            ["@types/qs", "npm:6.9.7"],\
             ["@types/ramda", "npm:0.28.21"],\
             ["@types/react", "npm:18.0.27"],\
             ["@types/react-dom", "npm:18.0.10"],\
@@ -19538,8 +19589,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/eslint-plugin", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.48.2"],\
             ["@typescript-eslint/parser", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.48.2"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.36"],\
-            ["axios", "npm:1.2.3"],\
-            ["axios-mock-adapter", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.21.2"],\
+            ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
@@ -19579,6 +19629,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["next-translate", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0"],\
             ["numeral", "npm:2.0.6"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
+            ["qs", "npm:6.11.0"],\
             ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
@@ -19642,6 +19693,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/js-yaml", "npm:4.0.5"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/numeral", "npm:2.0.2"],\
+            ["@types/qs", "npm:6.9.7"],\
             ["@types/ramda", "npm:0.28.21"],\
             ["@types/react", "npm:18.0.27"],\
             ["@types/react-dom", "npm:18.0.10"],\
@@ -19652,8 +19704,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/eslint-plugin", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.48.2"],\
             ["@typescript-eslint/parser", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.48.2"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.36"],\
-            ["axios", "npm:1.2.3"],\
-            ["axios-mock-adapter", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.21.2"],\
+            ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
@@ -19693,6 +19744,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["next-translate", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0"],\
             ["numeral", "npm:2.0.6"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
+            ["qs", "npm:6.11.0"],\
             ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
@@ -19756,6 +19808,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/js-yaml", "npm:4.0.5"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/numeral", "npm:2.0.2"],\
+            ["@types/qs", "npm:6.9.7"],\
             ["@types/ramda", "npm:0.28.21"],\
             ["@types/react", "npm:18.0.27"],\
             ["@types/react-dom", "npm:18.0.10"],\
@@ -19766,8 +19819,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/eslint-plugin", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.48.2"],\
             ["@typescript-eslint/parser", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.48.2"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.36"],\
-            ["axios", "npm:1.2.3"],\
-            ["axios-mock-adapter", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.21.2"],\
+            ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
@@ -19807,6 +19859,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["next-translate", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0"],\
             ["numeral", "npm:2.0.6"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
+            ["qs", "npm:6.11.0"],\
             ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
@@ -19870,6 +19923,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/js-yaml", "npm:4.0.5"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/numeral", "npm:2.0.2"],\
+            ["@types/qs", "npm:6.9.7"],\
             ["@types/ramda", "npm:0.28.21"],\
             ["@types/react", "npm:18.0.27"],\
             ["@types/react-dom", "npm:18.0.10"],\
@@ -19880,8 +19934,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/eslint-plugin", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.48.2"],\
             ["@typescript-eslint/parser", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.48.2"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.36"],\
-            ["axios", "npm:1.2.3"],\
-            ["axios-mock-adapter", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.21.2"],\
+            ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
@@ -19921,6 +19974,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["next-translate", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0"],\
             ["numeral", "npm:2.0.6"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
+            ["qs", "npm:6.11.0"],\
             ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
@@ -19984,6 +20038,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/js-yaml", "npm:4.0.5"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/numeral", "npm:2.0.2"],\
+            ["@types/qs", "npm:6.9.7"],\
             ["@types/ramda", "npm:0.28.21"],\
             ["@types/react", "npm:18.0.27"],\
             ["@types/react-dom", "npm:18.0.10"],\
@@ -19994,8 +20049,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/eslint-plugin", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.48.2"],\
             ["@typescript-eslint/parser", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.48.2"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.36"],\
-            ["axios", "npm:1.2.3"],\
-            ["axios-mock-adapter", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.21.2"],\
+            ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
@@ -20035,6 +20089,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["next-translate", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0"],\
             ["numeral", "npm:2.0.6"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
+            ["qs", "npm:6.11.0"],\
             ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
@@ -20098,6 +20153,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/js-yaml", "npm:4.0.5"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/numeral", "npm:2.0.2"],\
+            ["@types/qs", "npm:6.9.7"],\
             ["@types/ramda", "npm:0.28.21"],\
             ["@types/react", "npm:18.0.27"],\
             ["@types/react-dom", "npm:18.0.10"],\
@@ -20108,8 +20164,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/eslint-plugin", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.48.2"],\
             ["@typescript-eslint/parser", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.48.2"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.36"],\
-            ["axios", "npm:1.2.3"],\
-            ["axios-mock-adapter", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.21.2"],\
+            ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
@@ -20149,6 +20204,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["next-translate", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0"],\
             ["numeral", "npm:2.0.6"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
+            ["qs", "npm:6.11.0"],\
             ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
@@ -20212,6 +20268,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/js-yaml", "npm:4.0.5"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/numeral", "npm:2.0.2"],\
+            ["@types/qs", "npm:6.9.7"],\
             ["@types/ramda", "npm:0.28.21"],\
             ["@types/react", "npm:18.0.27"],\
             ["@types/react-dom", "npm:18.0.10"],\
@@ -20222,8 +20279,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/eslint-plugin", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.48.2"],\
             ["@typescript-eslint/parser", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.48.2"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.36"],\
-            ["axios", "npm:1.2.3"],\
-            ["axios-mock-adapter", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.21.2"],\
+            ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
@@ -20263,6 +20319,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["next-translate", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0"],\
             ["numeral", "npm:2.0.6"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
+            ["qs", "npm:6.11.0"],\
             ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
@@ -20326,6 +20383,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/js-yaml", "npm:4.0.5"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/numeral", "npm:2.0.2"],\
+            ["@types/qs", "npm:6.9.7"],\
             ["@types/ramda", "npm:0.28.21"],\
             ["@types/react", "npm:18.0.27"],\
             ["@types/react-dom", "npm:18.0.10"],\
@@ -20336,8 +20394,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/eslint-plugin", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.48.2"],\
             ["@typescript-eslint/parser", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.48.2"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.36"],\
-            ["axios", "npm:1.2.3"],\
-            ["axios-mock-adapter", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.21.2"],\
+            ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
@@ -20377,6 +20434,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["next-translate", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0"],\
             ["numeral", "npm:2.0.6"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
+            ["qs", "npm:6.11.0"],\
             ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
@@ -20440,6 +20498,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/js-yaml", "npm:4.0.5"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/numeral", "npm:2.0.2"],\
+            ["@types/qs", "npm:6.9.7"],\
             ["@types/ramda", "npm:0.28.21"],\
             ["@types/react", "npm:18.0.27"],\
             ["@types/react-dom", "npm:18.0.10"],\
@@ -20450,8 +20509,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/eslint-plugin", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.48.2"],\
             ["@typescript-eslint/parser", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.48.2"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.36"],\
-            ["axios", "npm:1.2.3"],\
-            ["axios-mock-adapter", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.21.2"],\
+            ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
@@ -20491,6 +20549,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["next-translate", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0"],\
             ["numeral", "npm:2.0.6"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
+            ["qs", "npm:6.11.0"],\
             ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
@@ -20554,6 +20613,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/js-yaml", "npm:4.0.5"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/numeral", "npm:2.0.2"],\
+            ["@types/qs", "npm:6.9.7"],\
             ["@types/ramda", "npm:0.28.21"],\
             ["@types/react", "npm:18.0.27"],\
             ["@types/react-dom", "npm:18.0.10"],\
@@ -20564,8 +20624,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/eslint-plugin", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.48.2"],\
             ["@typescript-eslint/parser", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.48.2"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.36"],\
-            ["axios", "npm:1.2.3"],\
-            ["axios-mock-adapter", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.21.2"],\
+            ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
@@ -20605,6 +20664,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["next-translate", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0"],\
             ["numeral", "npm:2.0.6"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
+            ["qs", "npm:6.11.0"],\
             ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
@@ -20643,14 +20703,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
             ["@emotion/server", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.0"],\
             ["@emotion/styled", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
-            ["@graphql-codegen/cli", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.16.4"],\
-            ["@graphql-codegen/client-preset", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.2.6"],\
-            ["@graphql-codegen/fragment-matcher", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.3.3"],\
-            ["@graphql-codegen/typescript", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.8.7"],\
-            ["@graphql-codegen/typescript-operations", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.5.12"],\
-            ["@graphql-codegen/typescript-react-apollo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.3.7"],\
-            ["@graphql-tools/mock", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.7.15"],\
-            ["@graphql-tools/schema", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:9.0.13"],\
             ["@jest/globals", "npm:29.3.1"],\
             ["@mui/icons-material", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.0"],\
             ["@mui/material", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.5"],\
@@ -20668,6 +20720,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/js-yaml", "npm:4.0.5"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/numeral", "npm:2.0.2"],\
+            ["@types/qs", "npm:6.9.7"],\
             ["@types/ramda", "npm:0.28.21"],\
             ["@types/react", "npm:18.0.27"],\
             ["@types/react-dom", "npm:18.0.10"],\
@@ -20678,8 +20731,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/eslint-plugin", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.48.2"],\
             ["@typescript-eslint/parser", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.48.2"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.36"],\
+            ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
             ["axios", "npm:1.2.3"],\
-            ["axios-mock-adapter", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.21.2"],\
+            ["axios-mock-adapter", "virtual:19a07c992ed503f8b876a08c25698d86a18f4259d31b1e4df2bbace5aee17e5db4cb754470bcd3fd21285ca88238c91dea91246697dc95ecaea75c728a892bdb#npm:1.21.2"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
@@ -20719,6 +20773,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["next-translate", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0"],\
             ["numeral", "npm:2.0.6"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
+            ["qs", "npm:6.11.0"],\
             ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
@@ -20782,6 +20837,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/js-yaml", "npm:4.0.5"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/numeral", "npm:2.0.2"],\
+            ["@types/qs", "npm:6.9.7"],\
             ["@types/ramda", "npm:0.28.21"],\
             ["@types/react", "npm:18.0.27"],\
             ["@types/react-dom", "npm:18.0.10"],\
@@ -20792,8 +20848,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/eslint-plugin", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.48.2"],\
             ["@typescript-eslint/parser", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.48.2"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.36"],\
-            ["axios", "npm:1.2.3"],\
-            ["axios-mock-adapter", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.21.2"],\
+            ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
@@ -20833,6 +20888,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["next-translate", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0"],\
             ["numeral", "npm:2.0.6"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
+            ["qs", "npm:6.11.0"],\
             ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
@@ -20896,6 +20952,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/js-yaml", "npm:4.0.5"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/numeral", "npm:2.0.2"],\
+            ["@types/qs", "npm:6.9.7"],\
             ["@types/ramda", "npm:0.28.21"],\
             ["@types/react", "npm:18.0.27"],\
             ["@types/react-dom", "npm:18.0.10"],\
@@ -20906,8 +20963,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/eslint-plugin", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.48.2"],\
             ["@typescript-eslint/parser", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.48.2"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.36"],\
-            ["axios", "npm:1.2.3"],\
-            ["axios-mock-adapter", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.21.2"],\
+            ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
@@ -20947,6 +21003,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["next-translate", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0"],\
             ["numeral", "npm:2.0.6"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
+            ["qs", "npm:6.11.0"],\
             ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
@@ -21010,6 +21067,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/js-yaml", "npm:4.0.5"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/numeral", "npm:2.0.2"],\
+            ["@types/qs", "npm:6.9.7"],\
             ["@types/ramda", "npm:0.28.21"],\
             ["@types/react", "npm:18.0.27"],\
             ["@types/react-dom", "npm:18.0.10"],\
@@ -21020,8 +21078,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/eslint-plugin", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.48.2"],\
             ["@typescript-eslint/parser", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.48.2"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.36"],\
-            ["axios", "npm:1.2.3"],\
-            ["axios-mock-adapter", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.21.2"],\
+            ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
@@ -21061,6 +21118,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["next-translate", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0"],\
             ["numeral", "npm:2.0.6"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
+            ["qs", "npm:6.11.0"],\
             ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
@@ -21124,6 +21182,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/js-yaml", "npm:4.0.5"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/numeral", "npm:2.0.2"],\
+            ["@types/qs", "npm:6.9.7"],\
             ["@types/ramda", "npm:0.28.21"],\
             ["@types/react", "npm:18.0.27"],\
             ["@types/react-dom", "npm:18.0.10"],\
@@ -21134,8 +21193,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/eslint-plugin", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.48.2"],\
             ["@typescript-eslint/parser", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.48.2"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.36"],\
-            ["axios", "npm:1.2.3"],\
-            ["axios-mock-adapter", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.21.2"],\
+            ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
@@ -21175,6 +21233,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["next-translate", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0"],\
             ["numeral", "npm:2.0.6"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
+            ["qs", "npm:6.11.0"],\
             ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
@@ -21238,6 +21297,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/js-yaml", "npm:4.0.5"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/numeral", "npm:2.0.2"],\
+            ["@types/qs", "npm:6.9.7"],\
             ["@types/ramda", "npm:0.28.21"],\
             ["@types/react", "npm:18.0.27"],\
             ["@types/react-dom", "npm:18.0.10"],\
@@ -21248,8 +21308,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/eslint-plugin", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.48.2"],\
             ["@typescript-eslint/parser", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.48.2"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.36"],\
-            ["axios", "npm:1.2.3"],\
-            ["axios-mock-adapter", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.21.2"],\
+            ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
@@ -21289,6 +21348,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["next-translate", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0"],\
             ["numeral", "npm:2.0.6"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
+            ["qs", "npm:6.11.0"],\
             ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
@@ -21352,6 +21412,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/js-yaml", "npm:4.0.5"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/numeral", "npm:2.0.2"],\
+            ["@types/qs", "npm:6.9.7"],\
             ["@types/ramda", "npm:0.28.21"],\
             ["@types/react", "npm:18.0.27"],\
             ["@types/react-dom", "npm:18.0.10"],\
@@ -21362,8 +21423,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/eslint-plugin", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.48.2"],\
             ["@typescript-eslint/parser", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.48.2"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.36"],\
-            ["axios", "npm:1.2.3"],\
-            ["axios-mock-adapter", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.21.2"],\
+            ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
@@ -21403,6 +21463,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["next-translate", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0"],\
             ["numeral", "npm:2.0.6"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
+            ["qs", "npm:6.11.0"],\
             ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
@@ -21466,6 +21527,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/js-yaml", "npm:4.0.5"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/numeral", "npm:2.0.2"],\
+            ["@types/qs", "npm:6.9.7"],\
             ["@types/ramda", "npm:0.28.21"],\
             ["@types/react", "npm:18.0.27"],\
             ["@types/react-dom", "npm:18.0.10"],\
@@ -21476,8 +21538,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/eslint-plugin", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.48.2"],\
             ["@typescript-eslint/parser", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.48.2"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.36"],\
-            ["axios", "npm:1.2.3"],\
-            ["axios-mock-adapter", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.21.2"],\
+            ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
@@ -21517,6 +21578,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["next-translate", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0"],\
             ["numeral", "npm:2.0.6"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
+            ["qs", "npm:6.11.0"],\
             ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
@@ -21580,6 +21642,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/js-yaml", "npm:4.0.5"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/numeral", "npm:2.0.2"],\
+            ["@types/qs", "npm:6.9.7"],\
             ["@types/ramda", "npm:0.28.21"],\
             ["@types/react", "npm:18.0.27"],\
             ["@types/react-dom", "npm:18.0.10"],\
@@ -21590,8 +21653,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/eslint-plugin", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.48.2"],\
             ["@typescript-eslint/parser", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.48.2"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.36"],\
-            ["axios", "npm:1.2.3"],\
-            ["axios-mock-adapter", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.21.2"],\
+            ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
@@ -21631,6 +21693,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["next-translate", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0"],\
             ["numeral", "npm:2.0.6"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
+            ["qs", "npm:6.11.0"],\
             ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
@@ -21694,6 +21757,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/js-yaml", "npm:4.0.5"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/numeral", "npm:2.0.2"],\
+            ["@types/qs", "npm:6.9.7"],\
             ["@types/ramda", "npm:0.28.21"],\
             ["@types/react", "npm:18.0.27"],\
             ["@types/react-dom", "npm:18.0.10"],\
@@ -21704,8 +21768,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/eslint-plugin", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.48.2"],\
             ["@typescript-eslint/parser", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.48.2"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.36"],\
-            ["axios", "npm:1.2.3"],\
-            ["axios-mock-adapter", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.21.2"],\
+            ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
@@ -21745,6 +21808,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["next-translate", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0"],\
             ["numeral", "npm:2.0.6"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
+            ["qs", "npm:6.11.0"],\
             ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
@@ -21808,6 +21872,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/js-yaml", "npm:4.0.5"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/numeral", "npm:2.0.2"],\
+            ["@types/qs", "npm:6.9.7"],\
             ["@types/ramda", "npm:0.28.21"],\
             ["@types/react", "npm:18.0.27"],\
             ["@types/react-dom", "npm:18.0.10"],\
@@ -21818,8 +21883,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/eslint-plugin", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.48.2"],\
             ["@typescript-eslint/parser", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.48.2"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.36"],\
-            ["axios", "npm:1.2.3"],\
-            ["axios-mock-adapter", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.21.2"],\
+            ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
@@ -21859,6 +21923,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["next-translate", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0"],\
             ["numeral", "npm:2.0.6"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
+            ["qs", "npm:6.11.0"],\
             ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
@@ -21922,6 +21987,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/js-yaml", "npm:4.0.5"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/numeral", "npm:2.0.2"],\
+            ["@types/qs", "npm:6.9.7"],\
             ["@types/ramda", "npm:0.28.21"],\
             ["@types/react", "npm:18.0.27"],\
             ["@types/react-dom", "npm:18.0.10"],\
@@ -21932,8 +21998,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/eslint-plugin", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.48.2"],\
             ["@typescript-eslint/parser", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.48.2"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.36"],\
-            ["axios", "npm:1.2.3"],\
-            ["axios-mock-adapter", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.21.2"],\
+            ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
@@ -21973,6 +22038,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["next-translate", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0"],\
             ["numeral", "npm:2.0.6"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
+            ["qs", "npm:6.11.0"],\
             ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
@@ -22036,6 +22102,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/js-yaml", "npm:4.0.5"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/numeral", "npm:2.0.2"],\
+            ["@types/qs", "npm:6.9.7"],\
             ["@types/ramda", "npm:0.28.21"],\
             ["@types/react", "npm:18.0.27"],\
             ["@types/react-dom", "npm:18.0.10"],\
@@ -22046,8 +22113,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/eslint-plugin", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.48.2"],\
             ["@typescript-eslint/parser", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.48.2"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.36"],\
-            ["axios", "npm:1.2.3"],\
-            ["axios-mock-adapter", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.21.2"],\
+            ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
@@ -22087,6 +22153,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["next-translate", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0"],\
             ["numeral", "npm:2.0.6"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
+            ["qs", "npm:6.11.0"],\
             ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
@@ -22166,6 +22233,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/js-yaml", "npm:4.0.5"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/numeral", "npm:2.0.2"],\
+            ["@types/qs", "npm:6.9.7"],\
             ["@types/ramda", "npm:0.28.21"],\
             ["@types/react", "npm:18.0.27"],\
             ["@types/react-dom", "npm:18.0.10"],\
@@ -22176,8 +22244,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/eslint-plugin", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.48.2"],\
             ["@typescript-eslint/parser", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.48.2"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.36"],\
-            ["axios", "npm:1.2.3"],\
-            ["axios-mock-adapter", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.21.2"],\
+            ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
@@ -22217,6 +22284,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["next-translate", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0"],\
             ["numeral", "npm:2.0.6"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
+            ["qs", "npm:6.11.0"],\
             ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\

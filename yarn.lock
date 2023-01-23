@@ -4498,6 +4498,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/qs@npm:^6":
+  version: 6.9.7
+  resolution: "@types/qs@npm:6.9.7"
+  checksum: 7fd6f9c25053e9b5bb6bc9f9f76c1d89e6c04f7707a7ba0e44cc01f17ef5284adb82f230f542c2d5557d69407c9a40f0f3515e8319afd14e1e16b5543ac6cdba
+  languageName: node
+  linkType: hard
+
 "@types/ramda@npm:^0.28.21":
   version: 0.28.21
   resolution: "@types/ramda@npm:0.28.21"
@@ -5151,6 +5158,17 @@ __metadata:
     normalize-path: ^3.0.0
     picomatch: ^2.0.4
   checksum: 3e044fd6d1d26545f235a9fe4d7a534e2029d8e59fa7fd9f2a6eb21230f6b5380ea1eaf55136e60cbf8e613544b3b766e7a6fa2102e2a3a117505466e3025dc2
+  languageName: node
+  linkType: hard
+
+"apollo-link-rest@npm:^0.9.0":
+  version: 0.9.0
+  resolution: "apollo-link-rest@npm:0.9.0"
+  peerDependencies:
+    "@apollo/client": ">=3"
+    graphql: ">=0.11"
+    qs: ">=6"
+  checksum: 1aa2ca1311597a125dfd0ae08a8edce95e32b7e6f661a5bd980305e7c9fa0bf8d833d510407a7c93fc45a5ed85cb649d42918a4149c160d184348e43d7475abe
   languageName: node
   linkType: hard
 
@@ -11772,6 +11790,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"qs@npm:^6.11.0":
+  version: 6.11.0
+  resolution: "qs@npm:6.11.0"
+  dependencies:
+    side-channel: ^1.0.4
+  checksum: 6e1f29dd5385f7488ec74ac7b6c92f4d09a90408882d0c208414a34dd33badc1a621019d4c799a3df15ab9b1d0292f97c1dd71dc7c045e69f81a8064e5af7297
+  languageName: node
+  linkType: hard
+
 "querystringify@npm:^2.1.1":
   version: 2.2.0
   resolution: "querystringify@npm:2.2.0"
@@ -13832,6 +13859,7 @@ __metadata:
     "@types/js-yaml": ^4.0.5
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
+    "@types/qs": ^6
     "@types/ramda": ^0.28.21
     "@types/react": ^18.0.27
     "@types/react-dom": ^18.0.10
@@ -13842,8 +13870,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.48.2
     "@typescript-eslint/parser": ^5.48.2
     "@yarnpkg/pnpify": ^4.0.0-rc.36
-    axios: ^1.2.3
-    axios-mock-adapter: ^1.21.2
+    apollo-link-rest: ^0.9.0
     bech32: ^2.0.0
     big.js: ^6.2.1
     color: ^4.2.3
@@ -13883,6 +13910,7 @@ __metadata:
     next-translate: ^1.6.0
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
+    qs: ^6.11.0
     ramda: ^0.28.0
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -14211,6 +14239,7 @@ __metadata:
     "@types/js-yaml": ^4.0.5
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
+    "@types/qs": ^6
     "@types/ramda": ^0.28.21
     "@types/react": ^18.0.27
     "@types/react-dom": ^18.0.10
@@ -14221,8 +14250,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.48.2
     "@typescript-eslint/parser": ^5.48.2
     "@yarnpkg/pnpify": ^4.0.0-rc.36
-    axios: ^1.2.3
-    axios-mock-adapter: ^1.21.2
+    apollo-link-rest: ^0.9.0
     bech32: ^2.0.0
     big.js: ^6.2.1
     color: ^4.2.3
@@ -14262,6 +14290,7 @@ __metadata:
     next-translate: ^1.6.0
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
+    qs: ^6.11.0
     ramda: ^0.28.0
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -14323,6 +14352,7 @@ __metadata:
     "@types/js-yaml": ^4.0.5
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
+    "@types/qs": ^6
     "@types/ramda": ^0.28.21
     "@types/react": ^18.0.27
     "@types/react-dom": ^18.0.10
@@ -14333,8 +14363,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.48.2
     "@typescript-eslint/parser": ^5.48.2
     "@yarnpkg/pnpify": ^4.0.0-rc.36
-    axios: ^1.2.3
-    axios-mock-adapter: ^1.21.2
+    apollo-link-rest: ^0.9.0
     bech32: ^2.0.0
     big.js: ^6.2.1
     color: ^4.2.3
@@ -14374,6 +14403,7 @@ __metadata:
     next-translate: ^1.6.0
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
+    qs: ^6.11.0
     ramda: ^0.28.0
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -14435,6 +14465,7 @@ __metadata:
     "@types/js-yaml": ^4.0.5
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
+    "@types/qs": ^6
     "@types/ramda": ^0.28.21
     "@types/react": ^18.0.27
     "@types/react-dom": ^18.0.10
@@ -14445,8 +14476,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.48.2
     "@typescript-eslint/parser": ^5.48.2
     "@yarnpkg/pnpify": ^4.0.0-rc.36
-    axios: ^1.2.3
-    axios-mock-adapter: ^1.21.2
+    apollo-link-rest: ^0.9.0
     bech32: ^2.0.0
     big.js: ^6.2.1
     color: ^4.2.3
@@ -14486,6 +14516,7 @@ __metadata:
     next-translate: ^1.6.0
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
+    qs: ^6.11.0
     ramda: ^0.28.0
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -14547,6 +14578,7 @@ __metadata:
     "@types/js-yaml": ^4.0.5
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
+    "@types/qs": ^6
     "@types/ramda": ^0.28.21
     "@types/react": ^18.0.27
     "@types/react-dom": ^18.0.10
@@ -14557,8 +14589,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.48.2
     "@typescript-eslint/parser": ^5.48.2
     "@yarnpkg/pnpify": ^4.0.0-rc.36
-    axios: ^1.2.3
-    axios-mock-adapter: ^1.21.2
+    apollo-link-rest: ^0.9.0
     bech32: ^2.0.0
     big.js: ^6.2.1
     color: ^4.2.3
@@ -14598,6 +14629,7 @@ __metadata:
     next-translate: ^1.6.0
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
+    qs: ^6.11.0
     ramda: ^0.28.0
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -14659,6 +14691,7 @@ __metadata:
     "@types/js-yaml": ^4.0.5
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
+    "@types/qs": ^6
     "@types/ramda": ^0.28.21
     "@types/react": ^18.0.27
     "@types/react-dom": ^18.0.10
@@ -14669,8 +14702,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.48.2
     "@typescript-eslint/parser": ^5.48.2
     "@yarnpkg/pnpify": ^4.0.0-rc.36
-    axios: ^1.2.3
-    axios-mock-adapter: ^1.21.2
+    apollo-link-rest: ^0.9.0
     bech32: ^2.0.0
     big.js: ^6.2.1
     color: ^4.2.3
@@ -14710,6 +14742,7 @@ __metadata:
     next-translate: ^1.6.0
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
+    qs: ^6.11.0
     ramda: ^0.28.0
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -14771,6 +14804,7 @@ __metadata:
     "@types/js-yaml": ^4.0.5
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
+    "@types/qs": ^6
     "@types/ramda": ^0.28.21
     "@types/react": ^18.0.27
     "@types/react-dom": ^18.0.10
@@ -14781,8 +14815,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.48.2
     "@typescript-eslint/parser": ^5.48.2
     "@yarnpkg/pnpify": ^4.0.0-rc.36
-    axios: ^1.2.3
-    axios-mock-adapter: ^1.21.2
+    apollo-link-rest: ^0.9.0
     bech32: ^2.0.0
     big.js: ^6.2.1
     color: ^4.2.3
@@ -14822,6 +14855,7 @@ __metadata:
     next-translate: ^1.6.0
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
+    qs: ^6.11.0
     ramda: ^0.28.0
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -14883,6 +14917,7 @@ __metadata:
     "@types/js-yaml": ^4.0.5
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
+    "@types/qs": ^6
     "@types/ramda": ^0.28.21
     "@types/react": ^18.0.27
     "@types/react-dom": ^18.0.10
@@ -14893,8 +14928,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.48.2
     "@typescript-eslint/parser": ^5.48.2
     "@yarnpkg/pnpify": ^4.0.0-rc.36
-    axios: ^1.2.3
-    axios-mock-adapter: ^1.21.2
+    apollo-link-rest: ^0.9.0
     bech32: ^2.0.0
     big.js: ^6.2.1
     color: ^4.2.3
@@ -14934,6 +14968,7 @@ __metadata:
     next-translate: ^1.6.0
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
+    qs: ^6.11.0
     ramda: ^0.28.0
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -14995,6 +15030,7 @@ __metadata:
     "@types/js-yaml": ^4.0.5
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
+    "@types/qs": ^6
     "@types/ramda": ^0.28.21
     "@types/react": ^18.0.27
     "@types/react-dom": ^18.0.10
@@ -15005,8 +15041,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.48.2
     "@typescript-eslint/parser": ^5.48.2
     "@yarnpkg/pnpify": ^4.0.0-rc.36
-    axios: ^1.2.3
-    axios-mock-adapter: ^1.21.2
+    apollo-link-rest: ^0.9.0
     bech32: ^2.0.0
     big.js: ^6.2.1
     color: ^4.2.3
@@ -15046,6 +15081,7 @@ __metadata:
     next-translate: ^1.6.0
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
+    qs: ^6.11.0
     ramda: ^0.28.0
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -15107,6 +15143,7 @@ __metadata:
     "@types/js-yaml": ^4.0.5
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
+    "@types/qs": ^6
     "@types/ramda": ^0.28.21
     "@types/react": ^18.0.27
     "@types/react-dom": ^18.0.10
@@ -15117,8 +15154,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.48.2
     "@typescript-eslint/parser": ^5.48.2
     "@yarnpkg/pnpify": ^4.0.0-rc.36
-    axios: ^1.2.3
-    axios-mock-adapter: ^1.21.2
+    apollo-link-rest: ^0.9.0
     bech32: ^2.0.0
     big.js: ^6.2.1
     color: ^4.2.3
@@ -15158,6 +15194,7 @@ __metadata:
     next-translate: ^1.6.0
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
+    qs: ^6.11.0
     ramda: ^0.28.0
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -15194,14 +15231,6 @@ __metadata:
     "@emotion/react": ^11.10.5
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.5
-    "@graphql-codegen/cli": ^2.16.4
-    "@graphql-codegen/client-preset": ^1.2.6
-    "@graphql-codegen/fragment-matcher": ^3.3.3
-    "@graphql-codegen/typescript": ^2.8.7
-    "@graphql-codegen/typescript-operations": ^2.5.12
-    "@graphql-codegen/typescript-react-apollo": ^3.3.7
-    "@graphql-tools/mock": ^8.7.15
-    "@graphql-tools/schema": ^9.0.13
     "@jest/globals": ^29.3.1
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.5
@@ -15219,6 +15248,7 @@ __metadata:
     "@types/js-yaml": ^4.0.5
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
+    "@types/qs": ^6
     "@types/ramda": ^0.28.21
     "@types/react": ^18.0.27
     "@types/react-dom": ^18.0.10
@@ -15229,6 +15259,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.48.2
     "@typescript-eslint/parser": ^5.48.2
     "@yarnpkg/pnpify": ^4.0.0-rc.36
+    apollo-link-rest: ^0.9.0
     axios: ^1.2.3
     axios-mock-adapter: ^1.21.2
     bech32: ^2.0.0
@@ -15270,6 +15301,7 @@ __metadata:
     next-translate: ^1.6.0
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
+    qs: ^6.11.0
     ramda: ^0.28.0
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -15331,6 +15363,7 @@ __metadata:
     "@types/js-yaml": ^4.0.5
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
+    "@types/qs": ^6
     "@types/ramda": ^0.28.21
     "@types/react": ^18.0.27
     "@types/react-dom": ^18.0.10
@@ -15341,8 +15374,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.48.2
     "@typescript-eslint/parser": ^5.48.2
     "@yarnpkg/pnpify": ^4.0.0-rc.36
-    axios: ^1.2.3
-    axios-mock-adapter: ^1.21.2
+    apollo-link-rest: ^0.9.0
     bech32: ^2.0.0
     big.js: ^6.2.1
     color: ^4.2.3
@@ -15382,6 +15414,7 @@ __metadata:
     next-translate: ^1.6.0
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
+    qs: ^6.11.0
     ramda: ^0.28.0
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -15443,6 +15476,7 @@ __metadata:
     "@types/js-yaml": ^4.0.5
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
+    "@types/qs": ^6
     "@types/ramda": ^0.28.21
     "@types/react": ^18.0.27
     "@types/react-dom": ^18.0.10
@@ -15453,8 +15487,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.48.2
     "@typescript-eslint/parser": ^5.48.2
     "@yarnpkg/pnpify": ^4.0.0-rc.36
-    axios: ^1.2.3
-    axios-mock-adapter: ^1.21.2
+    apollo-link-rest: ^0.9.0
     bech32: ^2.0.0
     big.js: ^6.2.1
     color: ^4.2.3
@@ -15494,6 +15527,7 @@ __metadata:
     next-translate: ^1.6.0
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
+    qs: ^6.11.0
     ramda: ^0.28.0
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -15555,6 +15589,7 @@ __metadata:
     "@types/js-yaml": ^4.0.5
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
+    "@types/qs": ^6
     "@types/ramda": ^0.28.21
     "@types/react": ^18.0.27
     "@types/react-dom": ^18.0.10
@@ -15565,8 +15600,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.48.2
     "@typescript-eslint/parser": ^5.48.2
     "@yarnpkg/pnpify": ^4.0.0-rc.36
-    axios: ^1.2.3
-    axios-mock-adapter: ^1.21.2
+    apollo-link-rest: ^0.9.0
     bech32: ^2.0.0
     big.js: ^6.2.1
     color: ^4.2.3
@@ -15606,6 +15640,7 @@ __metadata:
     next-translate: ^1.6.0
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
+    qs: ^6.11.0
     ramda: ^0.28.0
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -15667,6 +15702,7 @@ __metadata:
     "@types/js-yaml": ^4.0.5
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
+    "@types/qs": ^6
     "@types/ramda": ^0.28.21
     "@types/react": ^18.0.27
     "@types/react-dom": ^18.0.10
@@ -15677,8 +15713,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.48.2
     "@typescript-eslint/parser": ^5.48.2
     "@yarnpkg/pnpify": ^4.0.0-rc.36
-    axios: ^1.2.3
-    axios-mock-adapter: ^1.21.2
+    apollo-link-rest: ^0.9.0
     bech32: ^2.0.0
     big.js: ^6.2.1
     color: ^4.2.3
@@ -15718,6 +15753,7 @@ __metadata:
     next-translate: ^1.6.0
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
+    qs: ^6.11.0
     ramda: ^0.28.0
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -15779,6 +15815,7 @@ __metadata:
     "@types/js-yaml": ^4.0.5
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
+    "@types/qs": ^6
     "@types/ramda": ^0.28.21
     "@types/react": ^18.0.27
     "@types/react-dom": ^18.0.10
@@ -15789,8 +15826,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.48.2
     "@typescript-eslint/parser": ^5.48.2
     "@yarnpkg/pnpify": ^4.0.0-rc.36
-    axios: ^1.2.3
-    axios-mock-adapter: ^1.21.2
+    apollo-link-rest: ^0.9.0
     bech32: ^2.0.0
     big.js: ^6.2.1
     color: ^4.2.3
@@ -15830,6 +15866,7 @@ __metadata:
     next-translate: ^1.6.0
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
+    qs: ^6.11.0
     ramda: ^0.28.0
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -15891,6 +15928,7 @@ __metadata:
     "@types/js-yaml": ^4.0.5
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
+    "@types/qs": ^6
     "@types/ramda": ^0.28.21
     "@types/react": ^18.0.27
     "@types/react-dom": ^18.0.10
@@ -15901,8 +15939,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.48.2
     "@typescript-eslint/parser": ^5.48.2
     "@yarnpkg/pnpify": ^4.0.0-rc.36
-    axios: ^1.2.3
-    axios-mock-adapter: ^1.21.2
+    apollo-link-rest: ^0.9.0
     bech32: ^2.0.0
     big.js: ^6.2.1
     color: ^4.2.3
@@ -15942,6 +15979,7 @@ __metadata:
     next-translate: ^1.6.0
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
+    qs: ^6.11.0
     ramda: ^0.28.0
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -16003,6 +16041,7 @@ __metadata:
     "@types/js-yaml": ^4.0.5
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
+    "@types/qs": ^6
     "@types/ramda": ^0.28.21
     "@types/react": ^18.0.27
     "@types/react-dom": ^18.0.10
@@ -16013,8 +16052,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.48.2
     "@typescript-eslint/parser": ^5.48.2
     "@yarnpkg/pnpify": ^4.0.0-rc.36
-    axios: ^1.2.3
-    axios-mock-adapter: ^1.21.2
+    apollo-link-rest: ^0.9.0
     bech32: ^2.0.0
     big.js: ^6.2.1
     color: ^4.2.3
@@ -16054,6 +16092,7 @@ __metadata:
     next-translate: ^1.6.0
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
+    qs: ^6.11.0
     ramda: ^0.28.0
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -16115,6 +16154,7 @@ __metadata:
     "@types/js-yaml": ^4.0.5
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
+    "@types/qs": ^6
     "@types/ramda": ^0.28.21
     "@types/react": ^18.0.27
     "@types/react-dom": ^18.0.10
@@ -16125,8 +16165,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.48.2
     "@typescript-eslint/parser": ^5.48.2
     "@yarnpkg/pnpify": ^4.0.0-rc.36
-    axios: ^1.2.3
-    axios-mock-adapter: ^1.21.2
+    apollo-link-rest: ^0.9.0
     bech32: ^2.0.0
     big.js: ^6.2.1
     color: ^4.2.3
@@ -16166,6 +16205,7 @@ __metadata:
     next-translate: ^1.6.0
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
+    qs: ^6.11.0
     ramda: ^0.28.0
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -16227,6 +16267,7 @@ __metadata:
     "@types/js-yaml": ^4.0.5
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
+    "@types/qs": ^6
     "@types/ramda": ^0.28.21
     "@types/react": ^18.0.27
     "@types/react-dom": ^18.0.10
@@ -16237,8 +16278,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.48.2
     "@typescript-eslint/parser": ^5.48.2
     "@yarnpkg/pnpify": ^4.0.0-rc.36
-    axios: ^1.2.3
-    axios-mock-adapter: ^1.21.2
+    apollo-link-rest: ^0.9.0
     bech32: ^2.0.0
     big.js: ^6.2.1
     color: ^4.2.3
@@ -16278,6 +16318,7 @@ __metadata:
     next-translate: ^1.6.0
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
+    qs: ^6.11.0
     ramda: ^0.28.0
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -16339,6 +16380,7 @@ __metadata:
     "@types/js-yaml": ^4.0.5
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
+    "@types/qs": ^6
     "@types/ramda": ^0.28.21
     "@types/react": ^18.0.27
     "@types/react-dom": ^18.0.10
@@ -16349,8 +16391,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.48.2
     "@typescript-eslint/parser": ^5.48.2
     "@yarnpkg/pnpify": ^4.0.0-rc.36
-    axios: ^1.2.3
-    axios-mock-adapter: ^1.21.2
+    apollo-link-rest: ^0.9.0
     bech32: ^2.0.0
     big.js: ^6.2.1
     color: ^4.2.3
@@ -16390,6 +16431,7 @@ __metadata:
     next-translate: ^1.6.0
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
+    qs: ^6.11.0
     ramda: ^0.28.0
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -16451,6 +16493,7 @@ __metadata:
     "@types/js-yaml": ^4.0.5
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
+    "@types/qs": ^6
     "@types/ramda": ^0.28.21
     "@types/react": ^18.0.27
     "@types/react-dom": ^18.0.10
@@ -16461,8 +16504,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.48.2
     "@typescript-eslint/parser": ^5.48.2
     "@yarnpkg/pnpify": ^4.0.0-rc.36
-    axios: ^1.2.3
-    axios-mock-adapter: ^1.21.2
+    apollo-link-rest: ^0.9.0
     bech32: ^2.0.0
     big.js: ^6.2.1
     color: ^4.2.3
@@ -16502,6 +16544,7 @@ __metadata:
     next-translate: ^1.6.0
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
+    qs: ^6.11.0
     ramda: ^0.28.0
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -16563,6 +16606,7 @@ __metadata:
     "@types/js-yaml": ^4.0.5
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
+    "@types/qs": ^6
     "@types/ramda": ^0.28.21
     "@types/react": ^18.0.27
     "@types/react-dom": ^18.0.10
@@ -16573,8 +16617,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.48.2
     "@typescript-eslint/parser": ^5.48.2
     "@yarnpkg/pnpify": ^4.0.0-rc.36
-    axios: ^1.2.3
-    axios-mock-adapter: ^1.21.2
+    apollo-link-rest: ^0.9.0
     bech32: ^2.0.0
     big.js: ^6.2.1
     color: ^4.2.3
@@ -16614,6 +16657,7 @@ __metadata:
     next-translate: ^1.6.0
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
+    qs: ^6.11.0
     ramda: ^0.28.0
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -16689,6 +16733,7 @@ __metadata:
     "@types/js-yaml": ^4.0.5
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
+    "@types/qs": ^6
     "@types/ramda": ^0.28.21
     "@types/react": ^18.0.27
     "@types/react-dom": ^18.0.10
@@ -16699,8 +16744,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.48.2
     "@typescript-eslint/parser": ^5.48.2
     "@yarnpkg/pnpify": ^4.0.0-rc.36
-    axios: ^1.2.3
-    axios-mock-adapter: ^1.21.2
+    apollo-link-rest: ^0.9.0
     bech32: ^2.0.0
     big.js: ^6.2.1
     color: ^4.2.3
@@ -16740,6 +16784,7 @@ __metadata:
     next-translate: ^1.6.0
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
+    qs: ^6.11.0
     ramda: ^0.28.0
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -16801,6 +16846,7 @@ __metadata:
     "@types/js-yaml": ^4.0.5
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
+    "@types/qs": ^6
     "@types/ramda": ^0.28.21
     "@types/react": ^18.0.27
     "@types/react-dom": ^18.0.10
@@ -16811,8 +16857,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.48.2
     "@typescript-eslint/parser": ^5.48.2
     "@yarnpkg/pnpify": ^4.0.0-rc.36
-    axios: ^1.2.3
-    axios-mock-adapter: ^1.21.2
+    apollo-link-rest: ^0.9.0
     bech32: ^2.0.0
     big.js: ^6.2.1
     color: ^4.2.3
@@ -16852,6 +16897,7 @@ __metadata:
     next-translate: ^1.6.0
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
+    qs: ^6.11.0
     ramda: ^0.28.0
     react: ^18.2.0
     react-dom: ^18.2.0

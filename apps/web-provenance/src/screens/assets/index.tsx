@@ -30,7 +30,8 @@ const Assets = () => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) =>
     setSearchText(event.target.value);
   const searchTextDeferred = useDeferredValue(searchText);
-  const { variables, refetch, items, itemsPerPage, itemCount } = useAssets(searchTextDeferred);
+  const { cursor, variables, refetch, items, itemsPerPage, maxFetched, itemCount } =
+    useAssets(searchTextDeferred);
   const containerRef = useRef<HTMLDivElement>(null);
 
   return (
@@ -51,10 +52,12 @@ const Assets = () => {
           </Typography>
           <InfiniteList
             className={cx(classes.list, display.hiddenWhenLg)}
+            cursor={cursor}
             variables={variables}
             refetch={refetch}
             items={items}
             itemsPerPage={itemsPerPage}
+            maxFetched={maxFetched}
             itemCount={itemCount}
             rowHeight={rowHeightMobile}
             RowComponent={RowMobile}
@@ -62,10 +65,12 @@ const Assets = () => {
           />
           <InfiniteList
             className={cx(classes.list, display.hiddenUntilLg)}
+            cursor={cursor}
             variables={variables}
             refetch={refetch}
             items={items}
             itemsPerPage={itemsPerPage}
+            maxFetched={maxFetched}
             itemCount={itemCount}
             rowHeight={rowHeightDesktop}
             HeaderComponent={HeaderDesktop}

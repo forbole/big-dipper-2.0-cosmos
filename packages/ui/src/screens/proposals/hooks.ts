@@ -6,7 +6,7 @@ import xss from 'xss';
 
 const formatProposals = (data: ProposalsQuery) =>
   data.proposals.map((x): ProposalType => {
-    const description = xss(x.description);
+    const description = xss(x.description.replace(/\\n\s?/g, '<br/>'));
     return {
       description,
       id: x.proposalId,

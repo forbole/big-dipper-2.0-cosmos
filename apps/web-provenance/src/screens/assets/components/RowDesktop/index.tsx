@@ -18,9 +18,10 @@ const RowDesktop = ({
   items: preloadedItems,
   itemsPerPage,
   rowHeight,
+  cursor,
 }: RowProps<MarkerAccountQuery, AssetQueryVariable, AssetType>) => {
   const offset = index - (index % itemsPerPage);
-  const { items } = useAssetsByOffset(variables, offset);
+  const { items } = useAssetsByOffset(cursor, variables, offset);
   const { classes, cx } = useStyles();
 
   const item = items?.[index - offset] ?? (offset === 0 ? preloadedItems[index] : undefined);

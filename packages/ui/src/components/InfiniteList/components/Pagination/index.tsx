@@ -7,13 +7,13 @@ import { FC, MouseEvent } from 'react';
 const Pagination: FC<PaginationProps> = ({
   itemsPerPage,
   itemCount,
+  maxFetched,
   page,
   onPageChange,
-  cursorMaxPage,
 }) => {
   const { classes } = useStyles();
   const labelDisplayedRows = ({ from, to }: LabelDisplayedRowsArgs) => {
-    const maxPage = Math.max(to, (1 + cursorMaxPage) * itemsPerPage);
+    const maxPage = maxFetched !== undefined ? Math.max(to, maxFetched) : to;
     const total = itemCount === UNKNOWN_ITEM_COUNT ? `${maxPage}+,` : itemCount;
     return `${from}-${to} of ${total}`;
   };
@@ -28,7 +28,7 @@ const Pagination: FC<PaginationProps> = ({
       count={itemCount}
       labelDisplayedRows={labelDisplayedRows}
       rowsPerPage={itemsPerPage}
-      page={page}
+      page={Math.min(page, Math.floor((itemCount - 1) / itemsPerPage))}
       onPageChange={handleChangePage}
       ActionsComponent={PaginationActions}
     />

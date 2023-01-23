@@ -12,7 +12,6 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import {
   MutableRefObject,
-  RefObject,
   startTransition,
   useCallback,
   useDeferredValue,
@@ -27,7 +26,6 @@ import { useElementSize } from 'usehooks-ts';
 function handleAutoScrollElement(
   scrollProps: ListOnScrollProps,
   lastScrollTime: MutableRefObject<number>,
-  outerRef: RefObject<HTMLDivElement>,
   autoScrollElement?: Element | null
 ) {
   if (!autoScrollElement || typeof window === 'undefined') return;
@@ -72,10 +70,12 @@ function calculatePage(
 
 const InfiniteList = <TData, TVariables, TItem>({
   className,
+  cursor,
   variables,
   items,
   itemsPerPage,
   itemCount,
+  maxFetched,
   refetch,
   reloadOnScollTop,
   disablePagination,
@@ -95,23 +95,35 @@ const InfiniteList = <TData, TVariables, TItem>({
   const lastScrollTime = useRef(new Date().getTime());
 
   useEffect(() => {
-    if (!scrollPropsDefer) return;
-    startTransition(() => {
-      handleAutoScrollElement(scrollPropsDefer, lastScrollTime, outerRef, autoScrollElement);
-      setPage(calculatePage(scrollPropsDefer.scrollOffset, rowHeight, itemsPerPage));
-      handleAutoRefetch(refetchTimer, reloadOnScollTop, scrollPropsDefer, refetch);
-    });
-  }, [itemsPerPage, rowHeight, scrollPropsDefer, refetch, reloadOnScollTop, autoScrollElement]);
+    if (scrollPropsDefer)
+      handleAutoScrollElement(scrollPropsDefer, lastScrollTime, autoScrollElement);
+  }, [autoScrollElement, scrollPropsDefer]);
 
-  const outerRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    startTransition(() => {
+      if (scrollPropsDefer)
+        handleAutoRefetch(refetchTimer, reloadOnScollTop, scrollPropsDefer, refetch);
+    });
+  }, [reloadOnScollTop, refetch, scrollPropsDefer]);
+
+  useEffect(() => {
+    if (scrollPropsDefer)
+      setPage(calculatePage(scrollPropsDefer.scrollOffset, rowHeight, itemsPerPage));
+  }, [itemsPerPage, rowHeight, scrollPropsDefer]);
 
   const itemData = useMemo<ItemData<TData, TVariables, TItem>>(
-    () => ({ variables, items, itemsPerPage, rowHeight, RowComponent }),
-    [variables, rowHeight, items, itemsPerPage, RowComponent]
+    () => ({ cursor, variables, items, itemsPerPage, rowHeight, RowComponent }),
+    [cursor, variables, rowHeight, items, itemsPerPage, RowComponent]
   );
 
-  const cursor = JSON.stringify(variables);
-  const itemKey = useCallback((index: number) => `${cursor}${index}`, [cursor]);
+  const prefix = JSON.stringify(variables);
+  const itemKey = useCallback((index: number) => `${prefix}${index}`, [prefix]);
+
+  useEffect(() => {
+    setPage(0);
+    if (listRef.current) listRef.current.scrollTo(0);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [JSON.stringify(variables)]);
 
   const handlePageChange = useCallback(
     (p: number) => {
@@ -120,18 +132,8 @@ const InfiniteList = <TData, TVariables, TItem>({
     [itemsPerPage]
   );
 
-  const [cursorMaxPage, setCursorMaxPage] = useState(0);
-  useEffect(() => {
-    setPage(0);
-    setCursorMaxPage(0);
-    if (listRef.current) listRef.current.scrollTo(0);
-  }, [cursor]);
-  useEffect(() => {
-    setCursorMaxPage((prev) => (page > prev ? page : prev));
-  }, [page]);
-
   return (
-    <Paper className={cx(className, classes.root)} ref={outerRef}>
+    <Paper className={cx(className, classes.root)}>
       <TableContainer>
         <Table stickyHeader>
           {!!HeaderComponent && (
@@ -175,9 +177,9 @@ const InfiniteList = <TData, TVariables, TItem>({
           className={classes.pagination}
           itemsPerPage={itemsPerPage}
           itemCount={itemCount ?? UNKNOWN_ITEM_COUNT}
+          maxFetched={maxFetched}
           page={page}
           onPageChange={handlePageChange}
-          cursorMaxPage={cursorMaxPage}
         />
       )}
     </Paper>
