@@ -6,12 +6,13 @@ const ListItem = memo(
   <TData, TVariables, TItem>({
     index,
     style,
-    data: { variables, items, itemsPerPage, rowHeight, RowComponent },
+    data: { cursor, variables, items, itemsPerPage, rowHeight, RowComponent },
     isScrolling,
   }: ListChildComponentProps<ItemData<TData, TVariables, TItem>>): JSX.Element | null => (
     <RowComponent
       index={index}
       style={style}
+      cursor={cursor}
       variables={variables}
       items={items}
       itemsPerPage={itemsPerPage}

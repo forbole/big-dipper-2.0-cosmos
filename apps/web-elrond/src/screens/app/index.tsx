@@ -1,8 +1,5 @@
-import { NormalizedCacheObject } from '@apollo/client';
-import { DefaultSeo } from 'next-seo';
-import useTranslation from 'next-translate/useTranslation';
-import { RecoilRoot } from 'recoil';
 import chainConfig from '@/chainConfig';
+import useApollo from '@/graphql/useApollo';
 import { useWindowOrigin } from '@/hooks/use_window';
 import Main, { MainProps } from '@/screens/app/components/main';
 import { useApp } from '@/screens/app/hooks';
@@ -12,11 +9,17 @@ import {
   OPEN_GRAPH_SEO,
   TWITTER_SEO,
 } from '@/screens/app/utils';
+import { ApolloProvider, NormalizedCacheObject } from '@apollo/client';
+import { DefaultSeo } from 'next-seo';
+import useTranslation from 'next-translate/useTranslation';
+import { RecoilRoot } from 'recoil';
 
 const { title } = chainConfig();
 
-function App(props: MainProps<{ initialApolloState?: NormalizedCacheObject }>) {
+function MyApp(props: MainProps<{ initialApolloState?: NormalizedCacheObject }>) {
   useApp();
+  const { pageProps } = props;
+  const apolloClient = useApollo(pageProps.initialApolloState);
   const { t } = useTranslation();
   const { location } = useWindowOrigin();
 
@@ -36,9 +39,11 @@ function App(props: MainProps<{ initialApolloState?: NormalizedCacheObject }>) {
         additionalLinkTags={ADDITIONAL_LINK_TAGS_SEO}
         additionalMetaTags={ADDITIONAL_META_TAGS}
       />
-      <Main {...props} />
+      <ApolloProvider client={apolloClient}>
+        <Main {...props} />
+      </ApolloProvider>
     </RecoilRoot>
   );
 }
 
-export default App;
+export default MyApp;

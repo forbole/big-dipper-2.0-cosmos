@@ -13,7 +13,6 @@ export interface InfiniteQuery<TData, TVariables, TItem> {
   error: ApolloError | undefined;
   items: TItem[];
   itemsPerPage: number;
-  itemCount: number | undefined;
   cursor: string;
   refetch: (variables?: Partial<TVariables> | undefined) => Promise<ApolloQueryResult<TData>>;
 }
@@ -25,6 +24,7 @@ export type UseInfiniteQuery<TData, TVariables, TItem> = (
 ) => InfiniteQuery<TData, TVariables, TItem>;
 
 export interface UseInfiniteQueryParams<TData, TVariables, TItem> {
+  cursor: string;
   document: TypedDocumentNode<TData, TVariables>;
   formatter: (data: TData | undefined) => TItem[];
   variables?: Partial<TVariables>;

@@ -1,5 +1,5 @@
 import { MarkerAccountDocument, MarkerAccountQuery } from '@/graphql/types/general_types';
-import useInfiniteQuery from '@/hooks/useInfiniteQuery';
+import useInfiniteQuery, { itemCountVar, maxFetchedVar } from '@/hooks/useInfiniteQuery';
 import useShallowMemo from '@/hooks/useShallowMemo';
 import MarketType from '@/screens/assets/components/MarkerType';
 import Price from '@/screens/assets/components/Price';
@@ -7,6 +7,8 @@ import ShowMore from '@/screens/assets/components/ShowMore';
 import Supply from '@/screens/assets/components/Supply';
 import TokenName from '@/screens/assets/components/TokenName';
 import { AccessControl, AssetQueryVariable, AssetType } from '@/screens/assets/types';
+import { useReactiveVar } from '@apollo/client';
+import { useId } from 'react';
 
 /**
  * It takes a MarkerAccountQuery object and returns an array of MarkerAccount objects
@@ -16,7 +18,8 @@ const formatter = (data: MarkerAccountQuery | undefined): AssetType[] =>
   data?.marker_account?.map((x) => {
     let accessControls: AccessControl[] = [];
     try {
-      accessControls = JSON.parse(x.access_control) as AccessControl[];
+      if (/^\[.*\]$/.test(x.access_control))
+        accessControls = JSON.parse(x.access_control) as AccessControl[];
     } catch (_) {
       // ignore
     }
@@ -38,22 +41,29 @@ const formatter = (data: MarkerAccountQuery | undefined): AssetType[] =>
   }) ?? [];
 
 export const useAssets = (searchText: string) => {
+  const cursor = useId();
   const ilike = searchText.trim() ? `%${searchText.trim().replace(/([_%\\])/g, '\\$1')}%` : '';
   const initialVariables = useShallowMemo<AssetQueryVariable>({
     marker_account_bool_exp: {
       ...(ilike ? { denom: { _ilike: ilike } } : {}),
     },
   });
-  return useAssetsByOffset(initialVariables, 0);
+  return useAssetsByOffset(cursor, initialVariables, 0);
 };
 
-export const useAssetsByOffset = (variables: AssetQueryVariable, offset: number) => {
+export const useAssetsByOffset = (
+  cursor: string,
+  variables: AssetQueryVariable,
+  offset: number
+) => {
+  const maxFetched = useReactiveVar(maxFetchedVar)[cursor];
+  const itemCount = useReactiveVar(itemCountVar)[cursor];
   const result = useInfiniteQuery<MarkerAccountQuery, AssetQueryVariable, AssetType>({
+    cursor,
     document: MarkerAccountDocument,
     formatter,
     variables,
     offset,
   });
-  const cursor = useShallowMemo(JSON.stringify(variables));
-  return { ...result, variables, cursor };
+  return { ...result, variables, maxFetched, itemCount };
 };
