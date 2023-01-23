@@ -22,10 +22,16 @@ const summaryVars: SummaryVars = {};
  * @returns A ReactiveVar<Summary>
  */
 export function makeSummaryVar(cursor: string, initial: Summary): ReactiveVar<Summary> {
-  if (!(cursor in summaryVars)) summaryVars[cursor] = makeVar<Summary>(initial);
+  if (!(cursor in summaryVars)) {
+    summaryVars[cursor] = makeVar<Summary>(initial);
+    return summaryVars[cursor];
+  }
+
   const summaryVar = summaryVars[cursor];
   const { variables: prevVariables } = summaryVar();
-  if (!R.equals(prevVariables, initial.variables)) summaryVar({ variables: initial.variables });
+  if (!R.equals(prevVariables, initial.variables)) {
+    summaryVar({ variables: initial.variables });
+  }
   return summaryVar;
 }
 
@@ -59,26 +65,26 @@ const useInfiniteQuery = <TData, TVariables, TItem>({
   const items = useMemo(() => formatter(data), [data, formatter]);
 
   const summaryVar = makeSummaryVar(cursor, { variables });
-  const prev = summaryVar();
+  const { maxFetched, itemCount } = summaryVar();
 
   const isCompleted = !loading && !error;
-  const itemCount = offset + (items?.length ?? 0);
+  const newItemCount = offset + (items?.length ?? 0);
   const isNoMore = items?.length < itemsPerPage;
   const hasItem = items?.length > 0;
   useEffect(() => {
     if (!isCompleted) return;
 
-    if (prev.maxFetched === undefined || prev.maxFetched < itemCount) {
-      summaryVar({ ...prev, maxFetched: itemCount });
+    if (maxFetched === undefined || maxFetched < newItemCount) {
+      summaryVar({ ...summaryVar(), maxFetched: newItemCount });
     }
 
     if (
-      (isNoMore && (prev.itemCount === undefined || hasItem || prev.itemCount > itemCount)) ||
-      (prev.itemCount !== undefined && prev.itemCount < itemCount)
+      (isNoMore && (itemCount === undefined || hasItem || itemCount > newItemCount)) ||
+      (itemCount !== undefined && itemCount < newItemCount)
     ) {
-      summaryVar({ ...prev, itemCount });
+      summaryVar({ ...summaryVar(), itemCount: newItemCount });
     }
-  }, [isCompleted, itemCount, isNoMore, cursor, hasItem, summaryVar, prev]);
+  }, [isCompleted, newItemCount, isNoMore, cursor, hasItem, summaryVar, maxFetched, itemCount]);
 
   return { loading, error, items, refetch, itemsPerPage, cursor };
 };
