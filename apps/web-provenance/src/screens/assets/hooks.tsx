@@ -1,5 +1,5 @@
 import { MarkerAccountDocument, MarkerAccountQuery } from '@/graphql/types/general_types';
-import useInfiniteQuery, { itemCountVar, maxFetchedVar } from '@/hooks/useInfiniteQuery';
+import useInfiniteQuery, { makeSummaryVar } from '@/hooks/useInfiniteQuery';
 import useShallowMemo from '@/hooks/useShallowMemo';
 import MarketType from '@/screens/assets/components/MarkerType';
 import Price from '@/screens/assets/components/Price';
@@ -56,8 +56,7 @@ export const useAssetsByOffset = (
   variables: AssetQueryVariable,
   offset: number
 ) => {
-  const maxFetched = useReactiveVar(maxFetchedVar)[cursor];
-  const itemCount = useReactiveVar(itemCountVar)[cursor];
+  const { maxFetched, itemCount } = useReactiveVar(makeSummaryVar(cursor, { variables }));
   const result = useInfiniteQuery<MarkerAccountQuery, AssetQueryVariable, AssetType>({
     cursor,
     document: MarkerAccountDocument,

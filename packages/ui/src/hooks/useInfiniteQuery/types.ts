@@ -1,10 +1,18 @@
-import { ApolloError, ApolloQueryResult, TypedDocumentNode } from '@apollo/client';
+import { ApolloError, ApolloQueryResult, ReactiveVar, TypedDocumentNode } from '@apollo/client';
 
-export type Data<TItem> = {
+export interface Data<TItem> {
   loading: boolean;
   error: ApolloError | undefined;
   items: TItem[];
-};
+}
+
+export interface Summary {
+  variables: object;
+  maxFetched?: number;
+  itemCount?: number;
+}
+
+export type SummaryVars = { [cursor: string]: ReactiveVar<Summary> };
 
 export type UseData<TItem> = (index: number, skip?: boolean) => Data<TItem>;
 
