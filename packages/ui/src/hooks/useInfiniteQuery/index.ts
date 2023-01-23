@@ -23,7 +23,10 @@ const summaryVars: SummaryVars = {};
  */
 export function makeSummaryVar(cursor: string, initial: Summary): ReactiveVar<Summary> {
   if (!(cursor in summaryVars)) summaryVars[cursor] = makeVar<Summary>(initial);
-  return summaryVars[cursor];
+  const summaryVar = summaryVars[cursor];
+  const { variables: prevVariables } = summaryVar();
+  if (!R.equals(prevVariables, initial.variables)) summaryVar({ variables: initial.variables });
+  return summaryVar;
 }
 
 const useInfiniteQuery = <TData, TVariables, TItem>({
@@ -57,8 +60,6 @@ const useInfiniteQuery = <TData, TVariables, TItem>({
 
   const summaryVar = makeSummaryVar(cursor, { variables });
   const prev = summaryVar();
-
-  if (!R.equals(prev.variables, variables)) summaryVar({ variables });
 
   const isCompleted = !loading && !error;
   const itemCount = offset + (items?.length ?? 0);
