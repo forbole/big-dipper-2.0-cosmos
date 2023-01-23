@@ -1,16 +1,30 @@
-import { InfiniteQuery, UseInfiniteQueryParams } from '@/hooks/useInfiniteQuery/types';
-import { makeVar, useQuery } from '@apollo/client';
+import {
+  InfiniteQuery,
+  Summary,
+  SummaryVars,
+  UseInfiniteQueryParams,
+} from '@/hooks/useInfiniteQuery/types';
+import useShallowMemo from '@/hooks/useShallowMemo';
+import { makeVar, ReactiveVar, useQuery } from '@apollo/client';
 import * as R from 'ramda';
 import { useEffect, useMemo } from 'react';
-import useShallowMemo from '../useShallowMemo';
 
 /* A constant that is used to determine how many items to fetch at a time. */
 export const ITEMS_PER_PAGE = 100;
 export const DEFAULT_VARIABLES = {};
 
-const variablesVar = makeVar<{ [cursor: string]: object }>({});
-export const maxFetchedVar = makeVar<{ [cursor: string]: number }>({});
-export const itemCountVar = makeVar<{ [cursor: string]: number }>({});
+const summaryVars: SummaryVars = {};
+
+/**
+ * It creates a reactive variable that holds a summary of the query results
+ * @param {string} cursor - The cursor to the summary.
+ * @param {object} variables - The variables that will be passed to the GraphQL query.
+ * @returns A ReactiveVar<Summary>
+ */
+export function makeSummaryVar(cursor: string, initial: Summary): ReactiveVar<Summary> {
+  if (!(cursor in summaryVars)) summaryVars[cursor] = makeVar<Summary>(initial);
+  return summaryVars[cursor];
+}
 
 const useInfiniteQuery = <TData, TVariables, TItem>({
   cursor,
@@ -41,35 +55,29 @@ const useInfiniteQuery = <TData, TVariables, TItem>({
   /* Using the `useMemo` hook to memoize the `formatter` function. */
   const items = useMemo(() => formatter(data), [data, formatter]);
 
-  // Reset the item count and max fetched when the variables change.
-  const prevVariables = variablesVar();
-  if (!R.equals(prevVariables[cursor], variables)) {
-    variablesVar({ ...prevVariables, [cursor]: variables });
-    maxFetchedVar(R.omit([cursor], maxFetchedVar()));
-    itemCountVar(R.omit([cursor], itemCountVar()));
-  }
+  const summaryVar = makeSummaryVar(cursor, { variables });
+  const prev = summaryVar();
+
+  if (!R.equals(prev.variables, variables)) summaryVar({ variables });
 
   const isCompleted = !loading && !error;
-  const newItemCount = offset + (items?.length ?? 0);
+  const itemCount = offset + (items?.length ?? 0);
   const isNoMore = items?.length < itemsPerPage;
   const hasItem = items?.length > 0;
   useEffect(() => {
     if (!isCompleted) return;
 
-    const prevMaxFetched = maxFetchedVar();
-    if (prevMaxFetched[cursor] === undefined || prevMaxFetched[cursor] < newItemCount) {
-      maxFetchedVar({ ...prevMaxFetched, [cursor]: newItemCount });
+    if (prev.maxFetched === undefined || prev.maxFetched < itemCount) {
+      summaryVar({ ...prev, maxFetched: itemCount });
     }
 
-    const prevItemCount = itemCountVar();
     if (
-      (isNoMore &&
-        (prevItemCount[cursor] === undefined || hasItem || prevItemCount[cursor] > newItemCount)) ||
-      (prevItemCount[cursor] !== undefined && prevItemCount[cursor] < newItemCount)
+      (isNoMore && (prev.itemCount === undefined || hasItem || prev.itemCount > itemCount)) ||
+      (prev.itemCount !== undefined && prev.itemCount < itemCount)
     ) {
-      itemCountVar({ ...prevItemCount, [cursor]: newItemCount });
+      summaryVar({ ...prev, itemCount });
     }
-  }, [isCompleted, newItemCount, isNoMore, cursor, hasItem]);
+  }, [isCompleted, itemCount, isNoMore, cursor, hasItem, summaryVar, prev]);
 
   return { loading, error, items, refetch, itemsPerPage, cursor };
 };

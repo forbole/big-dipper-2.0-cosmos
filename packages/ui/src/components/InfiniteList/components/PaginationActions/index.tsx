@@ -1,7 +1,7 @@
 import useStyles from '@/components/InfiniteList/styles';
+import { UNKNOWN_ITEM_COUNT } from '@/components/InfiniteList/types';
 import Pagination from '@mui/material/Pagination';
 import { ChangeEvent, MouseEvent } from 'react';
-import { UNKNOWN_ITEM_COUNT } from '../../types';
 
 export interface TablePaginationActionsProps {
   count: number;
