@@ -1,6 +1,6 @@
 import Typography from '@mui/material/Typography';
 import Color from 'color';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import numeral from 'numeral';
 import * as R from 'ramda';
 import { FC } from 'react';

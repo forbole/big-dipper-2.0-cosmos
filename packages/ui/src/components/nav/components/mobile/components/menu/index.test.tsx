@@ -17,7 +17,12 @@ const mockI18n = {
 jest.mock('@mui/material/Drawer', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="drawer" {...props} />
 ));
-jest.mock('next-translate/useTranslation', () => () => mockI18n);
+jest.mock('next-i18next', () => ({
+  ...jest.requireActual('next-i18next'),
+  useTranslation() {
+    return mockI18n;
+  },
+}));
 jest.mock('next/router', () => ({
   ...jest.requireActual('next/router'),
   useRouter: () => ({

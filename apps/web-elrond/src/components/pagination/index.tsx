@@ -1,6 +1,6 @@
 import TablePagination from '@mui/material/TablePagination';
 import TablePaginationActions from '@mui/material/TablePagination/TablePaginationActions';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import numeral from 'numeral';
 import { ComponentProps, FC, MouseEvent, useCallback } from 'react';
 import useStyles from '@/components/pagination/styles';

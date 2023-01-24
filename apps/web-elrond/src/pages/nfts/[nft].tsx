@@ -1,6 +1,9 @@
+import withGetStaticProps from '@/pages/withGetStaticProps';
 import type { NextPage } from 'next';
 import NFTDetails from '@/screens/nft_details';
 
 const NFTDetailsPage: NextPage = () => <NFTDetails />;
+
+export const getStaticProps = withGetStaticProps('nfts', 'transactions');
 
 export default NFTDetailsPage;

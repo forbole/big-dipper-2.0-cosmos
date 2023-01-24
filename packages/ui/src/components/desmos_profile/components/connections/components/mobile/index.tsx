@@ -1,6 +1,6 @@
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import { FC, Fragment } from 'react';
 import { useRecoilValue } from 'recoil';
 import dayjs, { formatDayJs } from '@/utils/dayjs';

@@ -1,5 +1,5 @@
 import { NextSeo } from 'next-seo';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import React from 'react';
 import Layout from '@/components/layout';
 import LoadAndExist from '@/components/load_and_exist';

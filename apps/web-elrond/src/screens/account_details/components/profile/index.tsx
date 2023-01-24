@@ -5,7 +5,7 @@ import type { ProfileType } from '@/screens/account_details/types';
 import { useDisplayStyles } from '@/styles/useSharedStyles';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import { FC } from 'react';
 import CopyIcon from 'shared-utils/assets/icon-copy.svg';
 

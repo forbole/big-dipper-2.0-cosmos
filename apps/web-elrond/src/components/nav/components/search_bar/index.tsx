@@ -1,4 +1,4 @@
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import { FC } from 'react';
 import { useSearchBar } from '@/components/nav/components/search_bar/hooks';
 import Search from '@/components/search';

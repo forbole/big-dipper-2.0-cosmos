@@ -1,4 +1,4 @@
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import numeral from 'numeral';
 import { FC } from 'react';
 import SingleBlock from '@/screens/home/components/data_blocks/components/single_block';

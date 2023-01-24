@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import Trans from 'next-translate/Trans';
+import { Trans } from 'next-i18next';
 import { FC } from 'react';
 import MsgIssueDenom from '@/models/msg/nft/msg_issue_denom';
 import ListNames from '@/components/msg/nft/issue_denom/components/list_names';

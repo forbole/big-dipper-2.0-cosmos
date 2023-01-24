@@ -8,8 +8,11 @@ import MyApp from '@/screens/app';
 // ==================================
 const mockClient = new ApolloClient({ link: from([]), cache: new InMemoryCache() });
 
-jest.mock('next-translate/useTranslation', () => () => ({
-  lang: 'en',
+jest.mock('next-i18next', () => ({
+  ...jest.requireActual('next-i18next'),
+  useTranslation() {
+    return { lang: 'en' };
+  },
 }));
 jest.mock('@/graphql/useApollo', () => () => mockClient);
 
@@ -18,7 +21,12 @@ const mockI18n = {
   lang: 'en',
 };
 
-jest.mock('next-translate/useTranslation', () => () => mockI18n);
+jest.mock('next-i18next', () => ({
+  ...jest.requireActual('next-i18next'),
+  useTranslation() {
+    return mockI18n;
+  },
+}));
 
 jest.mock('@/screens/app/hooks', () => ({
   useApp: () => jest.fn(),

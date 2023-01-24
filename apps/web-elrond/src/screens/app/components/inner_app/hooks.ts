@@ -1,5 +1,5 @@
 // import { useEffect, useState } from 'react';
-// import useTranslation from 'next-translate/useTranslation';
+// import { useTranslation } from 'next-i18next';
 // import dayjs from '@/utils/dayjs';
 // import { toast } from 'react-toastify';
 // import * as R from 'ramda';

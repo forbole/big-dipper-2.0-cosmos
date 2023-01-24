@@ -7,7 +7,7 @@ import Mobile from '@/screens/profile_details/components/connections/components/
 import useStyles from '@/screens/profile_details/components/connections/styles';
 import { useDisplayStyles } from '@/styles/useSharedStyles';
 import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import { FC, useMemo } from 'react';
 
 const Connections: FC<{ data: ProfileConnectionType[] }> = ({ data }) => {

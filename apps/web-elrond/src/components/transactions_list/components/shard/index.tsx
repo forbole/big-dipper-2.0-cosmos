@@ -1,5 +1,5 @@
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import { FC } from 'react';
 import { getShardDisplay } from '@/utils/get_shard_display';
 import useStyles from '@/components/transactions_list/components/shard/styles';

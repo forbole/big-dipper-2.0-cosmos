@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import Trans from 'next-translate/Trans';
+import { Trans } from 'next-i18next';
 import { FC } from 'react';
 import Name from '@/components/name';
 import MsgCreateIscnRecord from '@/models/msg/iscn/msg_create_iscn_record';

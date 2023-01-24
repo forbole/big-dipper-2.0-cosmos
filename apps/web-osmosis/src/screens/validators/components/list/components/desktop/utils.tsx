@@ -1,11 +1,11 @@
-import Typography from '@mui/material/Typography';
-import { Translate } from 'next-translate';
-import { ReactNode } from 'react';
-import InfoPopover from '@/components/info_popover';
 import ConditionExplanation from '@/components/condition_explanation';
+import InfoPopover from '@/components/info_popover';
+import Typography from '@mui/material/Typography';
+import { TFunction } from 'next-i18next';
+import { ReactNode } from 'react';
 
 export const fetchColumns = (
-  t: Translate
+  t: TFunction
 ): {
   key: string;
   align?: 'left' | 'center' | 'right' | 'justify' | 'inherit';

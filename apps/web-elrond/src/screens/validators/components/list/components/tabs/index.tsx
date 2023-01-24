@@ -1,5 +1,5 @@
 import { ComponentProps, FC } from 'react';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import { a11yProps } from '@/utils/a11yProps';

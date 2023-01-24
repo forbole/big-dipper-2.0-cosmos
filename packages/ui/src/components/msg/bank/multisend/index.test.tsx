@@ -7,9 +7,12 @@ jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
 
-jest.mock('next-translate/Trans', () => (props: { i18nKey: string }) => (
-  <div id={props.i18nKey} {...props} />
-));
+jest.mock('next-i18next', () => ({
+  ...jest.requireActual('next-i18next'),
+  Trans(props: { i18nKey: string }) {
+    return <div id={props.i18nKey} {...props} />;
+  },
+}));
 
 // ==================================
 // unit tests

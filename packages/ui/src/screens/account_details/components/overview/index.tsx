@@ -6,7 +6,7 @@ import { useDisplayStyles } from '@/styles/useSharedStyles';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import Dialog from '@mui/material/Dialog';
 import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import { QRCodeSVG } from 'qrcode.react';
 import { FC } from 'react';
 import {

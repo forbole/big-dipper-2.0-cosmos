@@ -3,7 +3,7 @@ import { getStatusInfo } from '@/components/single_proposal/utils';
 import Tag from '@/components/tag';
 import { useDisplayStyles } from '@/styles/useSharedStyles';
 import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import { ComponentProps, FC, isValidElement, ReactNode } from 'react';
 
 type SingleproposalProps = {

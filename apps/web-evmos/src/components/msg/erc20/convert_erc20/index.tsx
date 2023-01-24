@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import Trans from 'next-translate/Trans';
+import { Trans } from 'next-i18next';
 import { FC } from 'react';
 import Name from '@/components/name';
 import MsgConvertErc20 from '@/models/msg/erc20/msg_convert_erc20';

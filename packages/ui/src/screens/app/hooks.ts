@@ -1,6 +1,6 @@
 import { init } from '@socialgouv/matomo-next';
 import * as jdenticon from 'jdenticon';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import { useEffect, useRef } from 'react';
 import chainConfig from '@/chainConfig';
 

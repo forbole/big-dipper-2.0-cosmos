@@ -12,7 +12,7 @@ import Popover from '@mui/material/Popover';
 import Skeleton from '@mui/material/Skeleton';
 import Typography from '@mui/material/Typography';
 import Grid2 from '@mui/material/Unstable_Grid2';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import { useState } from 'react';
 
 const RowMobile = ({

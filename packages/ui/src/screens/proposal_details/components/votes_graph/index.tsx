@@ -1,6 +1,6 @@
 import Typography from '@mui/material/Typography';
 import Big from 'big.js';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import numeral from 'numeral';
 import { FC } from 'react';
 import { Cell, Pie, PieChart } from 'recharts';

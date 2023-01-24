@@ -1,5 +1,5 @@
 import { NextSeo } from 'next-seo';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import React from 'react';
 import { useRecoilValue } from 'recoil';
 import TransactionsListDetails from '@/components/transactions_list_details';

@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import numeral from 'numeral';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import BoxDetails from '@/components/box_details';
 import type { StatsType } from '@/screens/node_details/types';
 

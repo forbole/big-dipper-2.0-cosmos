@@ -1,11 +1,11 @@
-import { Translate } from 'next-translate';
-import * as R from 'ramda';
-import { ComponentProps, FC } from 'react';
 import * as COMPONENTS from '@/components/msg';
 import Tag from '@/components/tag';
 import * as MODELS from '@/models';
 import type { Log } from '@/models/msg/types';
 import isKeyOf from '@/utils/isKeyOf';
+import { TFunction } from 'next-i18next';
+import * as R from 'ramda';
+import { ComponentProps, FC } from 'react';
 
 // =====================================
 // DO NOT UPDATE IF THIS IS A FORK.
@@ -427,7 +427,7 @@ export const getMessageModelByType = (type: string): Data['model'] => {
  * Helper function to correctly display the correct UI
  * @param type Model type
  */
-export const getMessageByType = <TMessage,>(message: TMessage, viewRaw: boolean, t: Translate) => {
+export const getMessageByType = <TMessage,>(message: TMessage, viewRaw: boolean, t: TFunction) => {
   const { type } = (message as { type: string }) ?? {};
 
   type ResultType = {

@@ -1,7 +1,7 @@
 import useStyles from '@/screens/assets/styles';
 import SearchIcon from '@mui/icons-material/Search';
 import TextField from '@mui/material/TextField';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import { FC } from 'react';
 
 export interface SearchBoxProps {

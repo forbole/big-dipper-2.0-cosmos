@@ -2,8 +2,11 @@ import type { Router } from 'next/router';
 import renderer from 'react-test-renderer';
 import App from '@/screens/app';
 
-jest.mock('next-translate/useTranslation', () => () => ({
-  lang: 'en',
+jest.mock('next-i18next', () => ({
+  ...jest.requireActual('next-i18next'),
+  useTranslation() {
+    return { lang: 'en' };
+  },
 }));
 
 const mockI18n = {
@@ -11,7 +14,12 @@ const mockI18n = {
   lang: 'en',
 };
 
-jest.mock('next-translate/useTranslation', () => () => mockI18n);
+jest.mock('next-i18next', () => ({
+  ...jest.requireActual('next-i18next'),
+  useTranslation() {
+    return mockI18n;
+  },
+}));
 
 // ==================================
 // unit tests

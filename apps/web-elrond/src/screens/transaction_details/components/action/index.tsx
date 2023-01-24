@@ -1,4 +1,4 @@
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import { FC } from 'react';
 import BoxDetails from '@/components/box_details';
 import useStyles from '@/screens/transaction_details/components/action/styles';

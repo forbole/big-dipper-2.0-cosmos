@@ -12,9 +12,12 @@ jest.mock(
   () => (props: JSX.IntrinsicElements['div']) => <div id="Signers" {...props} />
 );
 
-jest.mock('next-translate/Trans', () => (props: JSX.IntrinsicElements['div']) => (
-  <div id="Trans" {...props} />
-));
+jest.mock('next-i18next', () => ({
+  ...jest.requireActual('next-i18next'),
+  Trans(props: JSX.IntrinsicElements['div']) {
+    return <div id="Trans" {...props} />;
+  },
+}));
 
 // ==================================
 // unit tests

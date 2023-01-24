@@ -1,5 +1,5 @@
 import { FC, Fragment } from 'react';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import type { OtherTokenType } from '@/screens/account_details/types';

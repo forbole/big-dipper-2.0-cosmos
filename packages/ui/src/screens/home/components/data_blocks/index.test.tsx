@@ -19,7 +19,12 @@ const mockI18n = {
 };
 
 beforeEach(() => {
-  jest.mock('next-translate/useTranslation', () => () => mockI18n);
+  jest.mock('next-i18next', () => ({
+    ...jest.requireActual('next-i18next'),
+    useTranslation() {
+      return mockI18n;
+    },
+  }));
   jest.mock(
     '@/screens/home/components/data_blocks/components/single_block',
     () => (props: JSX.IntrinsicElements['div']) => <div id="SingleBlock" {...props} />

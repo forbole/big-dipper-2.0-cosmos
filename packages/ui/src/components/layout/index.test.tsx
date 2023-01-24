@@ -33,7 +33,12 @@ jest.mock('next-seo', () => ({
   NextSeo: (props: JSX.IntrinsicElements['div']) => <div id="NextSeo" {...props} />,
 }));
 
-jest.mock('next-translate/useTranslation', () => () => mockI18n);
+jest.mock('next-i18next', () => ({
+  ...jest.requireActual('next-i18next'),
+  useTranslation() {
+    return mockI18n;
+  },
+}));
 
 jest.mock('next/router', () => ({
   ...jest.requireActual('next/router'),

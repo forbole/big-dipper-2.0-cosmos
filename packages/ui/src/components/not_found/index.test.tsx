@@ -9,7 +9,12 @@ const mockI18n = {
   t: (key: string) => key,
   lang: 'en',
 };
-jest.mock('next-translate/useTranslation', () => () => mockI18n);
+jest.mock('next-i18next', () => ({
+  ...jest.requireActual('next-i18next'),
+  useTranslation() {
+    return mockI18n;
+  },
+}));
 
 const mockPush = jest.fn();
 

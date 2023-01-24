@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import BoxDetails from '@/components/box_details';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import type { OverviewType } from '@/screens/validator_details/types';

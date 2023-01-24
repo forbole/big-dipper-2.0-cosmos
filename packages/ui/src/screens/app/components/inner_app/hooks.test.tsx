@@ -7,7 +7,12 @@ const mockI18n = {
   lang: 'en',
 };
 
-jest.mock('next-translate/useTranslation', () => () => mockI18n);
+jest.mock('next-i18next', () => ({
+  ...jest.requireActual('next-i18next'),
+  useTranslation() {
+    return mockI18n;
+  },
+}));
 
 jest.mock('react-toastify', () => ({
   toast: jest.fn(),

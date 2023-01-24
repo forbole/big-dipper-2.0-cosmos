@@ -10,8 +10,9 @@ import {
   TWITTER_SEO,
 } from '@/screens/app/utils';
 import { ApolloProvider, NormalizedCacheObject } from '@apollo/client';
+import { appWithTranslation } from 'next-i18next';
 import { DefaultSeo } from 'next-seo';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import { RecoilRoot } from 'recoil';
 
 const { title } = chainConfig();
@@ -46,4 +47,4 @@ function MyApp(props: MainProps<{ initialApolloState?: NormalizedCacheObject }>)
   );
 }
 
-export default MyApp;
+export default appWithTranslation(MyApp);

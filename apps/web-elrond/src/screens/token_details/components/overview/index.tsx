@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import Typography from '@mui/material/Typography';
 import BoxDetails from '@/components/box_details';
 import AvatarName from '@/components/avatar_name';

@@ -1,7 +1,7 @@
 import useStyles from '@/screens/assets/styles';
 import { columns } from '@/screens/assets/utils';
 import Grid2 from '@mui/material/Unstable_Grid2';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 
 const HeaderDesktop = () => {
   const { t } = useTranslation('assets');
