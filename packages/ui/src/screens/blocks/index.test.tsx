@@ -3,7 +3,8 @@ import { MockedProvider } from '@apollo/client/testing';
 import renderer from 'react-test-renderer';
 import { BlocksDocument, BlocksListenerDocument } from '@/graphql/types/general_types';
 import Blocks from '@/screens/blocks';
-import { MockTheme, wait } from '@/tests/utils';
+import MockTheme from '@/tests/mocks/MockTheme';
+import wait from '@/tests/utils/wait';
 
 let component: renderer.ReactTestRenderer;
 

@@ -1,7 +1,7 @@
 import renderer from 'react-test-renderer';
 import DeleteProfile from '@/components/msg/profiles/delete_profile';
 import { MsgDeleteProfile } from '@/models';
-import { MockTheme } from '@/tests/utils';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // mocks

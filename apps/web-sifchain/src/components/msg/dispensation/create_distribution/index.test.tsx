@@ -1,22 +1,14 @@
 import renderer from 'react-test-renderer';
 import CreateDistribution from '@/components/msg/dispensation/create_distribution';
 import MsgCreateDistribution from '@/models/msg/dispensation/msg_create_distribution';
-import { MockTheme } from '@/tests/utils';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // mocks
 // ==================================
-
 jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
-
-jest.mock('next-i18next', () => ({
-  ...jest.requireActual('next-i18next'),
-  Trans(props: JSX.IntrinsicElements['div']) {
-    return <div id="Trans" {...props} />;
-  },
-}));
 
 // ==================================
 // unit tests
@@ -38,12 +30,13 @@ describe('screen: TransactionDetails/CreateDistribution', () => {
     const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
 
-    expect(component.root.findByProps({ id: 'Trans' }).props.i18nKey).toEqual(
+    expect(component.root.findByProps({ 'data-testid': 'Trans' }).props.i18nKey).toEqual(
       'message_contents:MsgCreateDistribution'
     );
-    expect(component.root.findByProps({ id: 'Trans' }).props.values.distributionType).toEqual(
-      'DISTRIBUTION_TYPE_AIRDROP'
-    );
+    expect(
+      component.root.findByProps({ i18nKey: 'message_contents:MsgCreateDistribution' }).props.values
+        .distributionType
+    ).toEqual('DISTRIBUTION_TYPE_AIRDROP');
   });
 
   afterEach(() => {

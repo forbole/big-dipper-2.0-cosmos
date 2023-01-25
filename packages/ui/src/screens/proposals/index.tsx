@@ -14,12 +14,12 @@ const Proposals = () => {
   return (
     <>
       <NextSeo
-        title={t('proposals')}
+        title={t('proposals') ?? undefined}
         openGraph={{
-          title: t('proposals'),
+          title: t('proposals') ?? undefined,
         }}
       />
-      <Layout navTitle={t('proposals')} className={classes.root}>
+      <Layout navTitle={t('proposals') ?? undefined} className={classes.root}>
         <LoadAndExist loading={state.loading} exists={state.exists}>
           <List
             items={state.items}

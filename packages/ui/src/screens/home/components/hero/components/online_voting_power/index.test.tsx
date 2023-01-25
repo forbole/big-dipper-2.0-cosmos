@@ -1,23 +1,15 @@
-import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
-import { MockedProvider } from '@apollo/client/testing';
-import renderer from 'react-test-renderer';
 import { OnlineVotingPowerDocument } from '@/graphql/types/general_types';
 import OnlineVotingPower from '@/screens/home/components/hero/components/online_voting_power';
-import { MockTheme, wait } from '@/tests/utils';
+import { mockClient } from '@/tests/mocks/mockApollo';
+import MockTheme from '@/tests/mocks/MockTheme';
+import wait from '@/tests/utils/wait';
+import { ApolloProvider } from '@apollo/client';
+import { MockedProvider } from '@apollo/client/testing';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks
 // ==================================
-const mockI18n = {
-  t: (key: string) => key,
-  lang: 'en',
-};
-jest.mock('next-i18next', () => ({
-  ...jest.requireActual('next-i18next'),
-  useTranslation() {
-    return mockI18n;
-  },
-}));
 jest.mock('@/components/box', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="box" {...props} />
 ));
@@ -60,7 +52,6 @@ const mockOnlineVotingPower = jest.fn().mockReturnValue({
 // ==================================
 describe('screen: Home/OnlineVotingPower', () => {
   it('matches snapshot', async () => {
-    const mockClient = new ApolloClient({ link: from([]), cache: new InMemoryCache() });
     let component: renderer.ReactTestRenderer | undefined;
 
     renderer.act(() => {

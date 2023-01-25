@@ -1,21 +1,10 @@
 import renderer from 'react-test-renderer';
 import NotFound from '@/components/not_found';
-import { MockTheme } from '@/tests/utils';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // mocks
 // ==================================
-const mockI18n = {
-  t: (key: string) => key,
-  lang: 'en',
-};
-jest.mock('next-i18next', () => ({
-  ...jest.requireActual('next-i18next'),
-  useTranslation() {
-    return mockI18n;
-  },
-}));
-
 const mockPush = jest.fn();
 
 jest.mock('next/router', () => ({

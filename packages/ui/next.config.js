@@ -3,6 +3,9 @@ const { readFileSync } = require('fs');
 const { i18n } = require('./next-i18next.config');
 const getNextConfig = require('../shared-utils/configs/next');
 
-const nextConfig = getNextConfig(JSON.parse(readFileSync('./package.json', 'utf8')).name);
+const nextConfig = {
+  ...getNextConfig(JSON.parse(readFileSync('./package.json', 'utf8')).name),
+  i18n,
+};
 
-module.exports = { ...nextConfig, i18n };
+module.exports = nextConfig;

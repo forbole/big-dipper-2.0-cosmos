@@ -1,6 +1,6 @@
 import renderer from 'react-test-renderer';
 import NetworkList from '@/components/nav/components/desktop/components/action_bar/components/network_list';
-import { MockTheme } from '@/tests/utils';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // global setup

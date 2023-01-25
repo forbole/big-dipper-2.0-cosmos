@@ -3,7 +3,8 @@ import MockAdapter from 'axios-mock-adapter';
 import renderer from 'react-test-renderer';
 import { BLOCKS, LATEST_BLOCK_HEIGHT } from '@/api';
 import List from '@/screens/blocks/components/list';
-import { MockTheme, wait } from '@/tests/utils';
+import MockTheme from '@/tests/mocks/MockTheme';
+import wait from '@/tests/utils/wait';
 
 // ==================================
 // unit tests

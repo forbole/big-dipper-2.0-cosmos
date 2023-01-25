@@ -1,17 +1,6 @@
 import renderer from 'react-test-renderer';
 import SingleSlotMobile from '@/components/single_block_mobile';
-import { MockTheme } from '@/tests/utils';
-
-const mockI18n = {
-  t: (key: string) => key,
-  lang: 'en',
-};
-jest.mock('next-i18next', () => ({
-  ...jest.requireActual('next-i18next'),
-  useTranslation() {
-    return mockI18n;
-  },
-}));
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // unit tests

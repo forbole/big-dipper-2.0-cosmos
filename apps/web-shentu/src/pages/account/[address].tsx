@@ -1,4 +1,4 @@
-import withGetStaticProps from '@/pages/withGetStaticProps';
+import withGetServerSideProps from '@/pages/withGetServerSideProps';
 import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
@@ -14,7 +14,7 @@ const AccountDetailsPage: NextPage = () => {
   return null;
 };
 
-export const getStaticProps = withGetStaticProps(
+export const getServerSideProps = withGetServerSideProps(
   'accounts',
   'transactions',
   'validators',

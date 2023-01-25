@@ -17,12 +17,12 @@ const Providers = () => {
   return (
     <>
       <NextSeo
-        title={t('providers')}
+        title={t('providers') ?? undefined}
         openGraph={{
-          title: t('providers'),
+          title: t('providers') ?? undefined,
         }}
       />
-      <Layout navTitle={t('providers')} className={classes.root}>
+      <Layout navTitle={t('providers') ?? undefined} className={classes.root}>
         <DataBlocks
           className={classes.dataBlocks}
           providers={state.activeProvidersCount}

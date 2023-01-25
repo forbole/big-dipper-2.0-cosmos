@@ -1,8 +1,8 @@
+import chainConfig from '@/chainConfig';
 import { init } from '@socialgouv/matomo-next';
 import * as jdenticon from 'jdenticon';
 import { useTranslation } from 'next-i18next';
 import { useEffect, useRef } from 'react';
-import chainConfig from '@/chainConfig';
 
 const { marketing } = chainConfig();
 const matomoUrls = [process.env.NEXT_PUBLIC_MATOMO_URL, marketing.matomoURL];
@@ -12,7 +12,7 @@ export const useApp = () => {
   // ==========================
   // language
   // ==========================
-  const { lang } = useTranslation();
+  const { i18n } = useTranslation();
   const initializedRef = useRef(false);
 
   useEffect(() => {
@@ -35,9 +35,9 @@ export const useApp = () => {
       },
       backColor: '#2a4766',
     });
-  }, [lang]);
+  }, [i18n.language]);
 
   useEffect(() => {
-    document.cookie = `NEXT_LOCALE=${lang}`;
-  }, [lang]);
+    document.cookie = `NEXT_LOCALE=${i18n.language}`;
+  }, [i18n.language]);
 };

@@ -45,12 +45,12 @@ const Blocks = () => {
   return (
     <>
       <NextSeo
-        title={t('blocks')}
+        title={t('blocks') ?? undefined}
         openGraph={{
-          title: t('blocks'),
+          title: t('blocks') ?? undefined,
         }}
       />
-      <Layout navTitle={t('blocks')} className={classes.root}>
+      <Layout navTitle={t('blocks') ?? undefined} className={classes.root}>
         <LoadAndExist loading={state.loading} exists={state.exists}>
           <Box className={classes.box}>{box}</Box>
         </LoadAndExist>

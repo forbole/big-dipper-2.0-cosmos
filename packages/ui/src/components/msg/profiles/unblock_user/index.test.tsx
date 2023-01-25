@@ -1,7 +1,7 @@
 import renderer from 'react-test-renderer';
 import UnBlockUser from '@/components/msg/profiles/unblock_user';
 import { MsgUnblockUser } from '@/models';
-import { MockTheme } from '@/tests/utils';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // mocks

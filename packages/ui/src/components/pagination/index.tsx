@@ -67,7 +67,7 @@ const Pagination: FC<PaginationProps> = ({
         t('paginationLabelOne', {
           from,
           to,
-          count,
+          num: count,
         })
       }
       colSpan={6}

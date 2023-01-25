@@ -14,23 +14,17 @@ exports[`screen: TransactionDetails/CreateEthBridgeClaim matches snapshot 1`] = 
 <p
   className="MuiTypography-root MuiTypography-body1 emotion-0"
 >
-  <div
-    components={
-      [
-        <Unknown
-          address="cosmosSender"
-          name="cosmosSender"
-        />,
-        <b />,
-      ]
-    }
+  <span
+    data-testid="Trans"
     i18nKey="message_contents:MsgUpdateCethReceiverAccount"
-    id="Trans"
-    values={
-      {
-        "cethReceiverAccount": "cethReceiverAccount",
-      }
-    }
-  />
+  >
+    <div
+      address="cosmosSender"
+      id="Name"
+      name="cosmosSender"
+    />
+    <b />
+    {"cethReceiverAccount":"cethReceiverAccount"}
+  </span>
 </p>
 `;

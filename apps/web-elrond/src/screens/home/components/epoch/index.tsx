@@ -1,12 +1,11 @@
+import Box from '@/components/box';
+import { useEpoch } from '@/screens/home/components/epoch/hooks';
+import useStyles from '@/screens/home/components/epoch/styles';
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
-import { useTranslation } from 'next-i18next';
+import { Trans, useTranslation } from 'next-i18next';
 import numeral from 'numeral';
 import { FC } from 'react';
 import { PolarAngleAxis, RadialBar, RadialBarChart, Tooltip } from 'recharts';
-import useStyles from '@/screens/home/components/epoch/styles';
-import { useEpoch } from '@/screens/home/components/epoch/hooks';
-import Box from '@/components/box';
 
 const Epoch: FC<ComponentDefault> = (props) => {
   const { classes, cx, theme } = useStyles();

@@ -1,7 +1,7 @@
 import renderer from 'react-test-renderer';
 import Packet from '@/components/msg/ibc/channel_packet';
 import { MsgPacket } from '@/models';
-import { MockTheme } from '@/tests/utils';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // mocks

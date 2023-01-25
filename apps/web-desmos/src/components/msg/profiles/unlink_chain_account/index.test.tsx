@@ -1,7 +1,7 @@
 import renderer from 'react-test-renderer';
 import UnlinkChainAccount from '@/components/msg/profiles/unlink_chain_account';
 import MsgUnlinkChainAccount from '@/models/msg/profiles/msg_unlink_chain_account';
-import { MockTheme } from '@/tests/utils';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // mocks

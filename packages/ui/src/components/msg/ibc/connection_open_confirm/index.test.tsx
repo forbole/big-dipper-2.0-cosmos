@@ -1,7 +1,7 @@
 import renderer from 'react-test-renderer';
 import ConnectionOpenConfirm from '@/components/msg/ibc/connection_open_confirm';
 import { MsgConnectionOpenConfirm } from '@/models';
-import { MockTheme } from '@/tests/utils';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // mocks

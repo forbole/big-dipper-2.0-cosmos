@@ -1,7 +1,7 @@
 import renderer from 'react-test-renderer';
 import ReportData from '@/components/msg/oracle/report_data';
 import MsgReportData from '@/models/msg/oracle/msg_report_data';
-import { MockTheme } from '@/tests/utils';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // mocks

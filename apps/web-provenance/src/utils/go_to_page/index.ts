@@ -22,4 +22,4 @@ export const ASSETS = '/assets';
  * @returns
  */
 export const ADDRESS_DETAILS = (address: string) =>
-  address.includes(prefix.validator) ? VALIDATOR_DETAILS(address) : ACCOUNT_DETAILS(address);
+  address?.includes(prefix.validator) ? VALIDATOR_DETAILS(address) : ACCOUNT_DETAILS(address);

@@ -32,7 +32,7 @@
   "fail": "Fail",
   "filterBy": "Filter By...",
   "copied": "Copied",
-  "paginationLabelOne": "showing {{from}}-{{to}} of {{count}}",
+  "paginationLabelOne": "showing {{from}}-{{to}} of {{num}}",
   "dark": "Dark",
   "light": "Light",
   "deuteranopia": "Deuteranopia",

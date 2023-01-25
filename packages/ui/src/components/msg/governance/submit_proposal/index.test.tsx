@@ -7,7 +7,7 @@ import {
   MsgSubmitProposal,
   MsgTextProposal,
 } from '@/models';
-import { MockTheme } from '@/tests/utils';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // mocks
@@ -15,13 +15,6 @@ import { MockTheme } from '@/tests/utils';
 jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
-
-jest.mock('next-i18next', () => ({
-  ...jest.requireActual('next-i18next'),
-  Trans(props: JSX.IntrinsicElements['div']) {
-    return <div id="Trans" {...props} />;
-  },
-}));
 
 // ==================================
 // unit tests

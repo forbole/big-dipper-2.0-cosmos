@@ -17,12 +17,12 @@ const AccountDetails = () => {
   return (
     <>
       <NextSeo
-        title={t('accountDetails')}
+        title={t('accountDetails') ?? undefined}
         openGraph={{
-          title: t('accountDetails'),
+          title: t('accountDetails') ?? undefined,
         }}
       />
-      <Layout navTitle={t('accountDetails')}>
+      <Layout navTitle={t('accountDetails') ?? undefined}>
         <LoadAndExist loading={state.loading} exists={state.exists}>
           <div className={classes.root}>
             <Profile className={classes.profile} profile={state.profile} />

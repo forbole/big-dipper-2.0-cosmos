@@ -15,12 +15,12 @@ const MiniBlockDetails = () => {
   return (
     <>
       <NextSeo
-        title={t('miniBlockDetails')}
+        title={t('miniBlockDetails') ?? undefined}
         openGraph={{
-          title: t('miniBlockDetails'),
+          title: t('miniBlockDetails') ?? undefined,
         }}
       />
-      <Layout navTitle={t('miniBlockDetails')} className={classes.root}>
+      <Layout navTitle={t('miniBlockDetails') ?? undefined} className={classes.root}>
         <LoadAndExist loading={state.loading} exists={state.exists}>
           <Overview {...state.overview} />
           <Transactions />

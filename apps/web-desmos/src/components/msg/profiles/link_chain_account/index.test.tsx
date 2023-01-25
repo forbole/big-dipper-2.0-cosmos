@@ -1,7 +1,7 @@
 import renderer from 'react-test-renderer';
 import LinkChainAccount from '@/components/msg/profiles/link_chain_account';
 import MsgLinkChainAccount from '@/models/msg/profiles/msg_link_chain_account';
-import { MockTheme } from '@/tests/utils';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // mocks

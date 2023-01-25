@@ -55,7 +55,9 @@ const ContractDetails: FC<{ className?: string; contract: ContractType }> = (pro
     },
   ];
 
-  return <BoxDetails className={props.className} title={t('contract')} details={details} />;
+  return (
+    <BoxDetails className={props.className} title={t('contract') ?? undefined} details={details} />
+  );
 };
 
 export default ContractDetails;

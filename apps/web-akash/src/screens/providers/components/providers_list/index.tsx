@@ -39,7 +39,7 @@ const ProvidersList: FC<ProvidersListProps> = (props) => {
         <Search
           className={classes.searchBar}
           callback={handleSearch}
-          placeholder={t('searchProviders')}
+          placeholder={t('searchProviders') ?? undefined}
         />
       </div>
 

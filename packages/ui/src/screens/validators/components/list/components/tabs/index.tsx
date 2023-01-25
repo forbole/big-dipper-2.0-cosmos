@@ -28,7 +28,7 @@ const TabsHeader: FC<TabsHeaderProps> = ({ className, tab, handleTabChange, hand
       <Search
         className={classes.searchBar}
         callback={handleSearch}
-        placeholder={t('searchValidator')}
+        placeholder={t('searchValidator') ?? undefined}
       />
     </div>
   );

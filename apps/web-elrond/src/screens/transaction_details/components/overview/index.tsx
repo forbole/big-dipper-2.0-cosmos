@@ -102,7 +102,9 @@ const Overview: FC<OverviewType & ComponentDefault> = (props) => {
     },
   ];
 
-  return <BoxDetails className={props.className} title={t('overview')} details={details} />;
+  return (
+    <BoxDetails className={props.className} title={t('overview') ?? undefined} details={details} />
+  );
 };
 
 export default Overview;

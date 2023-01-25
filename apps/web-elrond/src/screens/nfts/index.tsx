@@ -12,12 +12,12 @@ const Blocks = () => {
   return (
     <>
       <NextSeo
-        title={t('nfts')}
+        title={t('nfts') ?? undefined}
         openGraph={{
-          title: t('nfts'),
+          title: t('nfts') ?? undefined,
         }}
       />
-      <Layout navTitle={t('nfts')} className={classes.root}>
+      <Layout navTitle={t('nfts') ?? undefined} className={classes.root}>
         <List />
       </Layout>
     </>

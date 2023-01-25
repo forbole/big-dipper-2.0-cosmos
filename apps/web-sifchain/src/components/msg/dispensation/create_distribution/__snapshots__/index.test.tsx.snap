@@ -14,23 +14,17 @@ exports[`screen: TransactionDetails/CreateDistribution matches snapshot 1`] = `
 <p
   className="MuiTypography-root MuiTypography-body1 emotion-0"
 >
-  <div
-    components={
-      [
-        <Unknown
-          address="distributor"
-          name="distributor"
-        />,
-        <b />,
-      ]
-    }
+  <span
+    data-testid="Trans"
     i18nKey="message_contents:MsgCreateDistribution"
-    id="Trans"
-    values={
-      {
-        "distributionType": "DISTRIBUTION_TYPE_AIRDROP",
-      }
-    }
-  />
+  >
+    <div
+      address="distributor"
+      id="Name"
+      name="distributor"
+    />
+    <b />
+    {"distributionType":"DISTRIBUTION_TYPE_AIRDROP"}
+  </span>
 </p>
 `;

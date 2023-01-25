@@ -10,12 +10,12 @@ const Validators = () => {
   return (
     <>
       <NextSeo
-        title={t('validators')}
+        title={t('validators') ?? undefined}
         openGraph={{
-          title: t('validators'),
+          title: t('validators') ?? undefined,
         }}
       />
-      <Layout navTitle={t('validators')} className={classes.root}>
+      <Layout navTitle={t('validators') ?? undefined} className={classes.root}>
         <List />
       </Layout>
     </>

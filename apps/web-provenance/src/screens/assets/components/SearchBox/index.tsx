@@ -18,7 +18,7 @@ const SearchBox: FC<SearchBoxProps> = ({ searchText, handleChange }) => {
       value={searchText}
       onChange={handleChange}
       type="search"
-      placeholder={t('Search by asset name')}
+      placeholder={t('Search by asset name') ?? undefined}
       InputProps={{ startAdornment: <SearchIcon /> }}
     />
   );

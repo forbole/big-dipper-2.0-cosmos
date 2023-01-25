@@ -14,12 +14,12 @@ const ProfileDetails = () => {
   return (
     <>
       <NextSeo
-        title={t('profileDetails')}
+        title={t('profileDetails') ?? undefined}
         openGraph={{
-          title: t('profileDetails'),
+          title: t('profileDetails') ?? undefined,
         }}
       />
-      <Layout navTitle={t('profileDetails')}>
+      <Layout navTitle={t('profileDetails') ?? undefined}>
         <LoadAndExist loading={loading} exists={state.exists}>
           {!!state.desmosProfile && (
             <span className={classes.root}>

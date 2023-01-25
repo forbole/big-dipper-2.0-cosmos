@@ -2,21 +2,7 @@ import renderer from 'react-test-renderer';
 import Result from '@/components/result';
 import SingleTransactionMobile from '@/components/single_transaction_mobile';
 import Tag from '@/components/tag';
-import { MockTheme } from '@/tests/utils';
-
-// ==================================
-// mocks
-// ==================================
-const mockI18n = {
-  t: (key: string) => key,
-  lang: 'en',
-};
-jest.mock('next-i18next', () => ({
-  ...jest.requireActual('next-i18next'),
-  useTranslation() {
-    return mockI18n;
-  },
-}));
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // unit tests

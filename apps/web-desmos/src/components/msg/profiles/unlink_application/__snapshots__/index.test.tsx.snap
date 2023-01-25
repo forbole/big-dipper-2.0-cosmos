@@ -14,6 +14,17 @@ exports[`screen: TransactionDetails/MsgUnlinkApplication matches snapshot 1`] = 
 <p
   className="MuiTypography-root MuiTypography-body1 emotion-0"
 >
-  message_contents:txMsgUnlinkApplication
+  <span
+    data-testid="Trans"
+    i18nKey="message_contents:txMsgUnlinkApplication"
+  >
+    <div
+      address="signer"
+      id="Name"
+      name="signer"
+    />
+    <b />
+    {"application":"application","username":"username"}
+  </span>
 </p>
 `;

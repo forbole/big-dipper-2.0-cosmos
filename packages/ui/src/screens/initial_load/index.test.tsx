@@ -1,6 +1,6 @@
 import renderer from 'react-test-renderer';
 import InitialLoad from '@/screens/initial_load';
-import { MockTheme } from '@/tests/utils';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // mocks

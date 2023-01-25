@@ -18,12 +18,12 @@ const NodeDetails = () => {
   return (
     <>
       <NextSeo
-        title={t('nodeDetails')}
+        title={t('nodeDetails') ?? undefined}
         openGraph={{
-          title: t('nodeDetails'),
+          title: t('nodeDetails') ?? undefined,
         }}
       />
-      <Layout navTitle={t('nodeDetails')}>
+      <Layout navTitle={t('nodeDetails') ?? undefined}>
         <LoadAndExist loading={state.loading} exists={state.exists}>
           <div className={classes.root}>
             <Profile

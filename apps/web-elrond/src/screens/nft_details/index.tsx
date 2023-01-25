@@ -14,12 +14,12 @@ const BlockDetails = () => {
   return (
     <>
       <NextSeo
-        title={t('nftDetails')}
+        title={t('nftDetails') ?? undefined}
         openGraph={{
-          title: t('nftDetails'),
+          title: t('nftDetails') ?? undefined,
         }}
       />
-      <Layout navTitle={t('nftDetails')} className={classes.root}>
+      <Layout navTitle={t('nftDetails') ?? undefined} className={classes.root}>
         <LoadAndExist loading={state.loading} exists={state.exists}>
           <Overview {...state.overview} />
         </LoadAndExist>

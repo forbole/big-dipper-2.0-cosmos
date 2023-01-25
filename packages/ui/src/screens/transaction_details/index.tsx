@@ -18,12 +18,12 @@ const TransactionDetails = () => {
   return (
     <>
       <NextSeo
-        title={t('transactionDetails')}
+        title={t('transactionDetails') ?? undefined}
         openGraph={{
-          title: t('transactionDetails'),
+          title: t('transactionDetails') ?? undefined,
         }}
       />
-      <Layout navTitle={t('transactionDetails')}>
+      <Layout navTitle={t('transactionDetails') ?? undefined}>
         <LoadAndExist loading={state.loading} exists={state.exists}>
           <span className={classes.root}>
             <Overview data={overview} />

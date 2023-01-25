@@ -14,21 +14,20 @@ exports[`screen: TransactionDetails/Grant matches snapshot 1`] = `
 <p
   className="MuiTypography-root MuiTypography-body1 emotion-0"
 >
-  <div
-    components={
-      [
-        <Unknown
-          address="fromAddress"
-          name="fromAddress"
-        />,
-        <Unknown
-          address="toAddress"
-          name="toAddress"
-        />,
-      ]
-    }
+  <span
+    data-testid="Trans"
     i18nKey="message_contents:MsgCreateClawbackVestingAccount"
-    id="Trans"
-  />
+  >
+    <div
+      address="fromAddress"
+      id="Name"
+      name="fromAddress"
+    />
+    <div
+      address="toAddress"
+      id="Name"
+      name="toAddress"
+    />
+  </span>
 </p>
 `;

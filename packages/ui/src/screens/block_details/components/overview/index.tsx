@@ -18,7 +18,7 @@ const Overview: FC<OverviewType & ComponentDefault> = (props, { className }) => 
   return (
     <BoxDetails
       className={className}
-      title={t('overview')}
+      title={t('overview') ?? undefined}
       details={[
         {
           key: 'height',

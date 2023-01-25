@@ -1,7 +1,7 @@
 import renderer from 'react-test-renderer';
 import SaveProfile from '@/components/msg/profiles/save_profile';
 import { MsgSaveProfile } from '@/models';
-import { MockTheme } from '@/tests/utils';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // mocks

@@ -30,7 +30,9 @@ const Stats: FC<{ className?: string; stats: StatsType }> = (props) => {
     },
   ];
 
-  return <BoxDetails className={props.className} title={t('stats')} details={details} />;
+  return (
+    <BoxDetails className={props.className} title={t('stats') ?? undefined} details={details} />
+  );
 };
 
 export default Stats;

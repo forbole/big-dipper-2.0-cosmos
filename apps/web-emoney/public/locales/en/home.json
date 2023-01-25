@@ -3,7 +3,7 @@
   "averageBlockTime": "Average Block Time",
   "price": "Price",
   "activeValidators": "Active Validators",
-  "outOfValidators": "out of {{count}} validators",
+  "outOfValidators": "out of {{num}} validators",
   "onlineVotingPower": "Online Voting Power",
   "today": "Today",
   "lastMonth": "Last Month",

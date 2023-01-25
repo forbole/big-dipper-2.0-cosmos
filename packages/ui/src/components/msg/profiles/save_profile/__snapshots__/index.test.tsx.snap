@@ -14,6 +14,15 @@ exports[`screen: TransactionDetails/SaveProfile matches snapshot 1`] = `
 <p
   className="MuiTypography-root MuiTypography-body1 emotion-0"
 >
-  message_contents:txSaveProfileContent
+  <span
+    data-testid="Trans"
+    i18nKey="message_contents:txSaveProfileContent"
+  >
+    <div
+      address="creator"
+      id="Name"
+      name="creator"
+    />
+  </span>
 </p>
 `;

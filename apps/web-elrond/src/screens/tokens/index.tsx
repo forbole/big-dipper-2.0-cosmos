@@ -12,12 +12,12 @@ const Tokens = () => {
   return (
     <>
       <NextSeo
-        title={t('tokens')}
+        title={t('tokens') ?? undefined}
         openGraph={{
-          title: t('tokens'),
+          title: t('tokens') ?? undefined,
         }}
       />
-      <Layout navTitle={t('tokens')} className={classes.root}>
+      <Layout navTitle={t('tokens') ?? undefined} className={classes.root}>
         <List />
       </Layout>
     </>

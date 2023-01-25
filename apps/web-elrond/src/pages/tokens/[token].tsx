@@ -1,9 +1,9 @@
-import withGetStaticProps from '@/pages/withGetStaticProps';
+import withGetServerSideProps from '@/pages/withGetServerSideProps';
 import type { NextPage } from 'next';
 import TokenDetails from '@/screens/token_details';
 
 const TokenDetailsPage: NextPage = () => <TokenDetails />;
 
-export const getStaticProps = withGetStaticProps('tokens', 'transactions');
+export const getServerSideProps = withGetServerSideProps('tokens', 'transactions');
 
 export default TokenDetailsPage;

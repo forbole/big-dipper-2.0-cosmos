@@ -63,7 +63,11 @@ const Overview: FC<OverviewProps> = ({ className, data }) => {
   ];
 
   return (
-    <BoxDetails className={cx(classes.root, className)} title={t('overview')} details={details} />
+    <BoxDetails
+      className={cx(classes.root, className)}
+      title={t('overview') ?? undefined}
+      details={details}
+    />
   );
 };
 

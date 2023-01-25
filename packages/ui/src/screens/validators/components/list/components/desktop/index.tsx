@@ -53,7 +53,7 @@ const GridColumn: FC<GridColumnProps> = ({ column, sortKey, sortDirection, handl
       onClick={() => (sort ? handleSort(sortingKey ?? '') : null)}
       role="button"
       tabIndex={0}
-      aria-label={t(key)}
+      aria-label={t(key) ?? undefined}
     >
       {formattedComponent || (
         <Typography variant="h4" align={align}>

@@ -2,7 +2,7 @@ import renderer from 'react-test-renderer';
 import type { AutoSizerProps } from 'react-virtualized-auto-sizer';
 import { MsgUnknown } from '@/models';
 import Messages from '@/screens/transaction_details/components/messages';
-import { MockTheme } from '@/tests/utils';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // mocks

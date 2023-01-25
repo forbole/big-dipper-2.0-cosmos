@@ -18,12 +18,12 @@ const TokenDetails = () => {
   return (
     <>
       <NextSeo
-        title={t('tokenDetails')}
+        title={t('tokenDetails') ?? undefined}
         openGraph={{
-          title: t('tokenDetails'),
+          title: t('tokenDetails') ?? undefined,
         }}
       />
-      <Layout navTitle={t('tokenDetails')} className={classes.root}>
+      <Layout navTitle={t('tokenDetails') ?? undefined} className={classes.root}>
         <LoadAndExist loading={state.loading} exists={state.exists}>
           <Profile className={classes.profile} profile={state.profile} />
           <Stats className={classes.stats} stats={state.stats} />

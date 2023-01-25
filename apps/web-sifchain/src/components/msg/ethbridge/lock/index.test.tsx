@@ -1,22 +1,14 @@
 import renderer from 'react-test-renderer';
 import Lock from '@/components/msg/ethbridge/lock';
 import MsgLock from '@/models/msg/ethbridge/msg_lock';
-import { MockTheme } from '@/tests/utils';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // mocks
 // ==================================
-
 jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
-
-jest.mock('next-i18next', () => ({
-  ...jest.requireActual('next-i18next'),
-  Trans(props: JSX.IntrinsicElements['div']) {
-    return <div id="Trans" {...props} />;
-  },
-}));
 
 // ==================================
 // unit tests
@@ -37,7 +29,7 @@ describe('screen: TransactionDetails/MsgLock', () => {
     const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
 
-    expect(component.root.findByProps({ id: 'Trans' }).props.i18nKey).toEqual(
+    expect(component.root.findByProps({ 'data-testid': 'Trans' }).props.i18nKey).toEqual(
       'message_contents:MsgLock'
     );
   });

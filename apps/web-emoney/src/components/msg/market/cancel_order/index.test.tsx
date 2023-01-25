@@ -1,7 +1,7 @@
 import renderer from 'react-test-renderer';
 import CancelOrder from '@/components/msg/market/cancel_order';
 import MsgCancelOrder from '@/models/msg/market/msg_cancel_order';
-import { MockTheme } from '@/tests/utils';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // mocks

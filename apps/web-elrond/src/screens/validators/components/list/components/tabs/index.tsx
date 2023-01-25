@@ -34,7 +34,7 @@ const TabsHeader: FC<TabsHeaderProps> = (props) => {
       <Search
         className={classes.searchBar}
         callback={props.handleSearch}
-        placeholder={t('searchValidator')}
+        placeholder={t('searchValidator') ?? undefined}
       />
     </div>
   );

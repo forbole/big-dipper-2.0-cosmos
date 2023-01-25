@@ -1,11 +1,10 @@
-import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
-import { useTranslation } from 'next-i18next';
-import { FC } from 'react';
 import Name from '@/components/name';
 import MsgMintTokens from '@/models/msg/liquidity_provider/msg_mint_tokens';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { formatNumber, formatToken } from '@/utils/format_token';
+import Typography from '@mui/material/Typography';
+import { Trans, useTranslation } from 'next-i18next';
+import { FC } from 'react';
 
 const MintTokens: FC<{ message: MsgMintTokens }> = (props) => {
   const { message } = props;

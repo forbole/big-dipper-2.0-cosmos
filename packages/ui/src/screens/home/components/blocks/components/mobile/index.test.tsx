@@ -1,20 +1,10 @@
 import renderer from 'react-test-renderer';
 import Mobile from '@/screens/home/components/blocks/components/mobile';
-import { MockTheme } from '@/tests/utils';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // mocks
 // ==================================
-const mockI18n = {
-  t: (key: string) => key,
-  lang: 'en',
-};
-jest.mock('next-i18next', () => ({
-  ...jest.requireActual('next-i18next'),
-  useTranslation() {
-    return mockI18n;
-  },
-}));
 jest.mock('@/components/single_block_mobile', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="SingleBlockMobile" {...props} />
 ));

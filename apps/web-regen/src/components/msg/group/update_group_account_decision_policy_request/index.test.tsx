@@ -1,22 +1,14 @@
 import renderer from 'react-test-renderer';
 import UpdateGroupAccountDecisionPolicyRequest from '@/components/msg/group/update_group_account_decision_policy_request';
 import MsgUpdateGroupAccountDecisionPolicyRequest from '@/models/msg/group/msg_update_group_account_decision_policy_request';
-import { MockTheme } from '@/tests/utils';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // mocks
 // ==================================
-
 jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
 ));
-
-jest.mock('next-i18next', () => ({
-  ...jest.requireActual('next-i18next'),
-  Trans(props: JSX.IntrinsicElements['div']) {
-    return <div id="Trans" {...props} />;
-  },
-}));
 
 // ==================================
 // unit tests
@@ -39,7 +31,7 @@ describe('screen: TransactionDetails/UpdateGroupAccountDecisionPolicyRequest', (
     const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
 
-    expect(component.root.findByProps({ id: 'Trans' }).props.i18nKey).toEqual(
+    expect(component.root.findByProps({ 'data-testid': 'Trans' }).props.i18nKey).toEqual(
       'message_contents:MsgUpdateGroupAccountDecisionPolicyRequest'
     );
   });

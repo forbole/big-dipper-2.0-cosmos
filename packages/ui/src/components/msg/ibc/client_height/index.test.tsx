@@ -1,7 +1,7 @@
 import renderer from 'react-test-renderer';
 import Height from '@/components/msg/ibc/client_height';
 import { MsgHeight } from '@/models';
-import { MockTheme } from '@/tests/utils';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // mocks

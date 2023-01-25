@@ -46,7 +46,9 @@ const Overview: FC<{ className?: string; overview: OverviewType }> = (props) => 
     },
   ];
 
-  return <BoxDetails className={props.className} title={t('overview')} details={details} />;
+  return (
+    <BoxDetails className={props.className} title={t('overview') ?? undefined} details={details} />
+  );
 };
 
 export default Overview;

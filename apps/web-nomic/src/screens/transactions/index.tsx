@@ -22,12 +22,12 @@ const Transactions = () => {
   return (
     <>
       <NextSeo
-        title={t('transactions')}
+        title={t('transactions') ?? undefined}
         openGraph={{
-          title: t('transactions'),
+          title: t('transactions') ?? undefined,
         }}
       />
-      <Layout navTitle={t('transactions')} className={classes.root}>
+      <Layout navTitle={t('transactions') ?? undefined} className={classes.root}>
         <LoadAndExist exists={state.exists} loading={state.loading}>
           <Box className={classes.box}>
             {txListFormat === 'compact' ? (

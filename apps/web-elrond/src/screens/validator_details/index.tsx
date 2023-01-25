@@ -19,12 +19,12 @@ const ValidatorDetails = () => {
   return (
     <>
       <NextSeo
-        title={t('validatorDetails')}
+        title={t('validatorDetails') ?? undefined}
         openGraph={{
-          title: t('validatorDetails'),
+          title: t('validatorDetails') ?? undefined,
         }}
       />
-      <Layout navTitle={t('validatorDetails')}>
+      <Layout navTitle={t('validatorDetails') ?? undefined}>
         <LoadAndExist loading={state.loading} exists={state.exists}>
           <div className={classes.root}>
             <Profile className={classes.profile} profile={state.profile} />

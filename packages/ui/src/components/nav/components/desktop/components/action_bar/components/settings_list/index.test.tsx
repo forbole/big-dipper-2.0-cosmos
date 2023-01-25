@@ -1,6 +1,6 @@
 import renderer from 'react-test-renderer';
 import Settings from '@/components/nav/components/desktop/components/action_bar/components/settings_list';
-import { MockTheme } from '@/tests/utils';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // global setup
@@ -10,19 +10,9 @@ let component: renderer.ReactTestRenderer;
 // ==================================
 // mocks
 // ==================================
-const mockI18n = {
-  t: (key: string) => key,
-  lang: 'en',
-};
 jest.mock('@mui/material/Select', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="select" {...props} />
 ));
-jest.mock('next-i18next', () => ({
-  ...jest.requireActual('next-i18next'),
-  useTranslation() {
-    return mockI18n;
-  },
-}));
 jest.mock('next/router', () => ({
   ...jest.requireActual('next/router'),
   useRouter: () => ({
@@ -55,6 +45,5 @@ describe('screen: Nav/SettingList', () => {
 });
 
 afterEach(() => {
-  mockI18n.lang = 'en';
   jest.clearAllMocks();
 });

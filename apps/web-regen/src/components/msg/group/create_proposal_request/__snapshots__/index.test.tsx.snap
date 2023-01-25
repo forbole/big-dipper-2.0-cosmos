@@ -14,17 +14,15 @@ exports[`screen: TransactionDetails/CreateProposalRequest matches snapshot 1`] =
 <p
   className="MuiTypography-root MuiTypography-body1 emotion-0"
 >
-  <div
-    components={
-      [
-        <Unknown
-          address="address"
-          name="address"
-        />,
-      ]
-    }
+  <span
+    data-testid="Trans"
     i18nKey="message_contents:MsgCreateProposalRequest"
-    id="Trans"
-  />
+  >
+    <div
+      address="address"
+      id="Name"
+      name="address"
+    />
+  </span>
 </p>
 `;
