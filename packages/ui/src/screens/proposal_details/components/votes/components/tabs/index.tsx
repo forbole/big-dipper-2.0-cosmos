@@ -1,6 +1,6 @@
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import { ComponentProps, FC } from 'react';
 import { a11yProps } from '@/utils/a11yProps';
 import { tabLabels } from '@/screens/proposal_details/components/votes/components/tabs/utils';

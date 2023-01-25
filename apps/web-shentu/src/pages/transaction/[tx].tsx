@@ -1,3 +1,4 @@
+import withGetServerSideProps from '@/pages/withGetServerSideProps';
 import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
@@ -12,5 +13,11 @@ const TransactionDetailsPage: NextPage = () => {
 
   return null;
 };
+
+export const getServerSideProps = withGetServerSideProps(
+  'transactions',
+  'message_labels',
+  'message_contents'
+);
 
 export default TransactionDetailsPage;

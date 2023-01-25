@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import { FC } from 'react';
 import { useRecoilValue } from 'recoil';
 import NotFoundDark from 'shared-utils/assets/not-found-dark.svg';

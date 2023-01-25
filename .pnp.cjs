@@ -7011,6 +7011,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@types/hoist-non-react-statics", [\
+        ["npm:3.3.1", {\
+          "packageLocation": "./.yarn/cache/@types-hoist-non-react-statics-npm-3.3.1-c0081332b2-2c0778570d.zip/node_modules/@types/hoist-non-react-statics/",\
+          "packageDependencies": [\
+            ["@types/hoist-non-react-statics", "npm:3.3.1"],\
+            ["@types/react", "npm:18.0.27"],\
+            ["hoist-non-react-statics", "npm:3.3.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@types/http-cache-semantics", [\
         ["npm:4.0.1", {\
           "packageLocation": "./.yarn/cache/@types-http-cache-semantics-npm-4.0.1-90863c7a3e-1048aacf62.zip/node_modules/@types/http-cache-semantics/",\
@@ -9603,6 +9614,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["copy-to-clipboard", "npm:3.3.3"],\
             ["toggle-selection", "npm:1.0.6"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["core-js", [\
+        ["npm:3.27.2", {\
+          "packageLocation": "./.yarn/unplugged/core-js-npm-3.27.2-99146711a6/node_modules/core-js/",\
+          "packageDependencies": [\
+            ["core-js", "npm:3.27.2"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -12665,6 +12685,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["html-parse-stringify", [\
+        ["npm:3.0.1", {\
+          "packageLocation": "./.yarn/cache/html-parse-stringify-npm-3.0.1-5762cd4b01-334fdebd4b.zip/node_modules/html-parse-stringify/",\
+          "packageDependencies": [\
+            ["html-parse-stringify", "npm:3.0.1"],\
+            ["void-elements", "npm:3.1.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["html-tokenize", [\
         ["npm:2.0.1", {\
           "packageLocation": "./.yarn/cache/html-tokenize-npm-2.0.1-5a0e21cce5-4e04078fd2.zip/node_modules/html-tokenize/",\
@@ -12762,6 +12792,25 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/husky-npm-8.0.3-b0b59c5127-837bc7e441.zip/node_modules/husky/",\
           "packageDependencies": [\
             ["husky", "npm:8.0.3"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["i18next", [\
+        ["npm:22.4.9", {\
+          "packageLocation": "./.yarn/cache/i18next-npm-22.4.9-7b23bea086-8cce4aaced.zip/node_modules/i18next/",\
+          "packageDependencies": [\
+            ["i18next", "npm:22.4.9"],\
+            ["@babel/runtime", "npm:7.20.7"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["i18next-fs-backend", [\
+        ["npm:2.1.1", {\
+          "packageLocation": "./.yarn/cache/i18next-fs-backend-npm-2.1.1-75c58845e1-fe606df263.zip/node_modules/i18next-fs-backend/",\
+          "packageDependencies": [\
+            ["i18next-fs-backend", "npm:2.1.1"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -15416,6 +15465,45 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["next-i18next", [\
+        ["npm:13.0.3", {\
+          "packageLocation": "./.yarn/cache/next-i18next-npm-13.0.3-8115d29788-2b2cd8b4f1.zip/node_modules/next-i18next/",\
+          "packageDependencies": [\
+            ["next-i18next", "npm:13.0.3"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.0.3", {\
+          "packageLocation": "./.yarn/__virtual__/next-i18next-virtual-3e00cc89ba/0/cache/next-i18next-npm-13.0.3-8115d29788-2b2cd8b4f1.zip/node_modules/next-i18next/",\
+          "packageDependencies": [\
+            ["next-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.0.3"],\
+            ["@babel/runtime", "npm:7.20.7"],\
+            ["@types/hoist-non-react-statics", "npm:3.3.1"],\
+            ["@types/i18next", null],\
+            ["@types/next", null],\
+            ["@types/react", "npm:18.0.27"],\
+            ["@types/react-i18next", null],\
+            ["core-js", "npm:3.27.2"],\
+            ["hoist-non-react-statics", "npm:3.3.2"],\
+            ["i18next", "npm:22.4.9"],\
+            ["i18next-fs-backend", "npm:2.1.1"],\
+            ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.1.2"],\
+            ["react", "npm:18.2.0"],\
+            ["react-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.1.4"]\
+          ],\
+          "packagePeers": [\
+            "@types/i18next",\
+            "@types/next",\
+            "@types/react-i18next",\
+            "@types/react",\
+            "i18next",\
+            "next",\
+            "react-i18next",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["next-seo", [\
         ["npm:5.15.0", {\
           "packageLocation": "./.yarn/cache/next-seo-npm-5.15.0-4ac654b130-05b0769d9c.zip/node_modules/next-seo/",\
@@ -15441,49 +15529,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             "@types/react",\
             "next",\
             "react-dom",\
-            "react"\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["next-translate", [\
-        ["npm:1.6.0", {\
-          "packageLocation": "./.yarn/cache/next-translate-npm-1.6.0-6f2148f6ed-766475bc73.zip/node_modules/next-translate/",\
-          "packageDependencies": [\
-            ["next-translate", "npm:1.6.0"]\
-          ],\
-          "linkType": "SOFT"\
-        }],\
-        ["virtual:5684e10df0b0d4ceda81e7a49e1dce0cdeefe64f7cf73f6b65bae6b36056a2c8afe7954893d9e8e0af41d3fa80eeeeb8dbad164e06bfc993741bc538f79f2b2b#npm:1.6.0", {\
-          "packageLocation": "./.yarn/__virtual__/next-translate-virtual-f1cbfff7a6/0/cache/next-translate-npm-1.6.0-6f2148f6ed-766475bc73.zip/node_modules/next-translate/",\
-          "packageDependencies": [\
-            ["next-translate", "virtual:5684e10df0b0d4ceda81e7a49e1dce0cdeefe64f7cf73f6b65bae6b36056a2c8afe7954893d9e8e0af41d3fa80eeeeb8dbad164e06bfc993741bc538f79f2b2b#npm:1.6.0"],\
-            ["@types/next", null],\
-            ["@types/react", null],\
-            ["next", "virtual:20441f5803153ef55134a5782a7ede93042238aba3db1a6832a71053fed95e61139ea62c9ebabc165cb5fd43d490972554bb3626dcce4265550fbd893ff5cb6f#npm:13.1.2"],\
-            ["react", "npm:18.2.0"]\
-          ],\
-          "packagePeers": [\
-            "@types/next",\
-            "@types/react",\
-            "next",\
-            "react"\
-          ],\
-          "linkType": "HARD"\
-        }],\
-        ["virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0", {\
-          "packageLocation": "./.yarn/__virtual__/next-translate-virtual-18ddfa506d/0/cache/next-translate-npm-1.6.0-6f2148f6ed-766475bc73.zip/node_modules/next-translate/",\
-          "packageDependencies": [\
-            ["next-translate", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0"],\
-            ["@types/next", null],\
-            ["@types/react", "npm:18.0.27"],\
-            ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.1.2"],\
-            ["react", "npm:18.2.0"]\
-          ],\
-          "packagePeers": [\
-            "@types/next",\
-            "@types/react",\
-            "next",\
             "react"\
           ],\
           "linkType": "HARD"\
@@ -16575,6 +16620,42 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["react-i18next", [\
+        ["npm:12.1.4", {\
+          "packageLocation": "./.yarn/cache/react-i18next-npm-12.1.4-1ae4ab69e9-6f0f8a47f0.zip/node_modules/react-i18next/",\
+          "packageDependencies": [\
+            ["react-i18next", "npm:12.1.4"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.1.4", {\
+          "packageLocation": "./.yarn/__virtual__/react-i18next-virtual-7e212daa76/0/cache/react-i18next-npm-12.1.4-1ae4ab69e9-6f0f8a47f0.zip/node_modules/react-i18next/",\
+          "packageDependencies": [\
+            ["react-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.1.4"],\
+            ["@babel/runtime", "npm:7.20.7"],\
+            ["@types/i18next", null],\
+            ["@types/react", "npm:18.0.27"],\
+            ["@types/react-dom", "npm:18.0.10"],\
+            ["@types/react-native", null],\
+            ["html-parse-stringify", "npm:3.0.1"],\
+            ["i18next", "npm:22.4.9"],\
+            ["react", "npm:18.2.0"],\
+            ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
+            ["react-native", null]\
+          ],\
+          "packagePeers": [\
+            "@types/i18next",\
+            "@types/react-dom",\
+            "@types/react-native",\
+            "@types/react",\
+            "i18next",\
+            "react-dom",\
+            "react-native",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["react-is", [\
         ["npm:16.13.1", {\
           "packageLocation": "./.yarn/cache/react-is-npm-16.13.1-a9b9382b4f-f7a19ac349.zip/node_modules/react-is/",\
@@ -17568,7 +17649,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["esprima", "npm:4.0.1"],\
             ["jest", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:29.3.1"],\
             ["next", "virtual:20441f5803153ef55134a5782a7ede93042238aba3db1a6832a71053fed95e61139ea62c9ebabc165cb5fd43d490972554bb3626dcce4265550fbd893ff5cb6f#npm:13.1.2"],\
-            ["next-translate", "virtual:5684e10df0b0d4ceda81e7a49e1dce0cdeefe64f7cf73f6b65bae6b36056a2c8afe7954893d9e8e0af41d3fa80eeeeb8dbad164e06bfc993741bc538f79f2b2b#npm:1.6.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:20441f5803153ef55134a5782a7ede93042238aba3db1a6832a71053fed95e61139ea62c9ebabc165cb5fd43d490972554bb3626dcce4265550fbd893ff5cb6f#npm:18.2.0"],\
             ["ts-jest", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:29.0.5"],\
@@ -19173,6 +19253,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["graphql", "npm:16.6.0"],\
             ["graphql-tag", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.12.6"],\
             ["graphql-ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.2"],\
+            ["i18next", "npm:22.4.9"],\
             ["jdenticon", "npm:3.2.0"],\
             ["jest", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:29.3.1"],\
             ["jest-cli", "virtual:e76011444586cb641866496737454e3caeba177c3dc8d1743191d5d9b46734de6a3bed4854271884a30a795428ddeb5b4aac4aeea5f9acb0b91aab6bb15621ee#npm:29.3.1"],\
@@ -19184,14 +19265,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["js-yaml", "npm:4.1.0"],\
             ["markdown-to-jsx", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.1.8"],\
             ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.1.2"],\
+            ["next-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.0.3"],\
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.15.0"],\
-            ["next-translate", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0"],\
             ["numeral", "npm:2.0.6"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
             ["qs", "npm:6.11.0"],\
             ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
+            ["react-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.1.4"],\
             ["react-share", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.4.1"],\
             ["react-test-renderer", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
             ["react-toastify", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:9.1.1"],\
@@ -19512,6 +19594,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["void-elements", [\
+        ["npm:3.1.0", {\
+          "packageLocation": "./.yarn/cache/void-elements-npm-3.1.0-4f43780839-0390f81810.zip/node_modules/void-elements/",\
+          "packageDependencies": [\
+            ["void-elements", "npm:3.1.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["w3c-xmlserializer", [\
         ["npm:4.0.0", {\
           "packageLocation": "./.yarn/cache/w3c-xmlserializer-npm-4.0.0-f09d0ec3fc-eba070e78d.zip/node_modules/w3c-xmlserializer/",\
@@ -19614,6 +19705,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["graphql", "npm:16.6.0"],\
             ["graphql-tag", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.12.6"],\
             ["graphql-ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.2"],\
+            ["i18next", "npm:22.4.9"],\
             ["jdenticon", "npm:3.2.0"],\
             ["jest", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:29.3.1"],\
             ["jest-cli", "virtual:e76011444586cb641866496737454e3caeba177c3dc8d1743191d5d9b46734de6a3bed4854271884a30a795428ddeb5b4aac4aeea5f9acb0b91aab6bb15621ee#npm:29.3.1"],\
@@ -19625,14 +19717,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["js-yaml", "npm:4.1.0"],\
             ["markdown-to-jsx", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.1.8"],\
             ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.1.2"],\
+            ["next-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.0.3"],\
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.15.0"],\
-            ["next-translate", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0"],\
             ["numeral", "npm:2.0.6"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
             ["qs", "npm:6.11.0"],\
             ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
+            ["react-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.1.4"],\
             ["react-share", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.4.1"],\
             ["react-test-renderer", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
             ["react-toastify", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:9.1.1"],\
@@ -19729,6 +19822,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["graphql", "npm:16.6.0"],\
             ["graphql-tag", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.12.6"],\
             ["graphql-ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.2"],\
+            ["i18next", "npm:22.4.9"],\
             ["jdenticon", "npm:3.2.0"],\
             ["jest", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:29.3.1"],\
             ["jest-cli", "virtual:e76011444586cb641866496737454e3caeba177c3dc8d1743191d5d9b46734de6a3bed4854271884a30a795428ddeb5b4aac4aeea5f9acb0b91aab6bb15621ee#npm:29.3.1"],\
@@ -19740,14 +19834,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["js-yaml", "npm:4.1.0"],\
             ["markdown-to-jsx", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.1.8"],\
             ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.1.2"],\
+            ["next-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.0.3"],\
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.15.0"],\
-            ["next-translate", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0"],\
             ["numeral", "npm:2.0.6"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
             ["qs", "npm:6.11.0"],\
             ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
+            ["react-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.1.4"],\
             ["react-share", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.4.1"],\
             ["react-test-renderer", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
             ["react-toastify", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:9.1.1"],\
@@ -19844,6 +19939,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["graphql", "npm:16.6.0"],\
             ["graphql-tag", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.12.6"],\
             ["graphql-ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.2"],\
+            ["i18next", "npm:22.4.9"],\
             ["jdenticon", "npm:3.2.0"],\
             ["jest", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:29.3.1"],\
             ["jest-cli", "virtual:e76011444586cb641866496737454e3caeba177c3dc8d1743191d5d9b46734de6a3bed4854271884a30a795428ddeb5b4aac4aeea5f9acb0b91aab6bb15621ee#npm:29.3.1"],\
@@ -19855,14 +19951,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["js-yaml", "npm:4.1.0"],\
             ["markdown-to-jsx", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.1.8"],\
             ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.1.2"],\
+            ["next-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.0.3"],\
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.15.0"],\
-            ["next-translate", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0"],\
             ["numeral", "npm:2.0.6"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
             ["qs", "npm:6.11.0"],\
             ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
+            ["react-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.1.4"],\
             ["react-share", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.4.1"],\
             ["react-test-renderer", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
             ["react-toastify", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:9.1.1"],\
@@ -19959,6 +20056,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["graphql", "npm:16.6.0"],\
             ["graphql-tag", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.12.6"],\
             ["graphql-ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.2"],\
+            ["i18next", "npm:22.4.9"],\
             ["jdenticon", "npm:3.2.0"],\
             ["jest", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:29.3.1"],\
             ["jest-cli", "virtual:e76011444586cb641866496737454e3caeba177c3dc8d1743191d5d9b46734de6a3bed4854271884a30a795428ddeb5b4aac4aeea5f9acb0b91aab6bb15621ee#npm:29.3.1"],\
@@ -19970,14 +20068,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["js-yaml", "npm:4.1.0"],\
             ["markdown-to-jsx", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.1.8"],\
             ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.1.2"],\
+            ["next-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.0.3"],\
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.15.0"],\
-            ["next-translate", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0"],\
             ["numeral", "npm:2.0.6"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
             ["qs", "npm:6.11.0"],\
             ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
+            ["react-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.1.4"],\
             ["react-share", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.4.1"],\
             ["react-test-renderer", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
             ["react-toastify", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:9.1.1"],\
@@ -20074,6 +20173,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["graphql", "npm:16.6.0"],\
             ["graphql-tag", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.12.6"],\
             ["graphql-ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.2"],\
+            ["i18next", "npm:22.4.9"],\
             ["jdenticon", "npm:3.2.0"],\
             ["jest", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:29.3.1"],\
             ["jest-cli", "virtual:e76011444586cb641866496737454e3caeba177c3dc8d1743191d5d9b46734de6a3bed4854271884a30a795428ddeb5b4aac4aeea5f9acb0b91aab6bb15621ee#npm:29.3.1"],\
@@ -20085,14 +20185,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["js-yaml", "npm:4.1.0"],\
             ["markdown-to-jsx", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.1.8"],\
             ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.1.2"],\
+            ["next-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.0.3"],\
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.15.0"],\
-            ["next-translate", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0"],\
             ["numeral", "npm:2.0.6"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
             ["qs", "npm:6.11.0"],\
             ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
+            ["react-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.1.4"],\
             ["react-share", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.4.1"],\
             ["react-test-renderer", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
             ["react-toastify", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:9.1.1"],\
@@ -20189,6 +20290,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["graphql", "npm:16.6.0"],\
             ["graphql-tag", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.12.6"],\
             ["graphql-ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.2"],\
+            ["i18next", "npm:22.4.9"],\
             ["jdenticon", "npm:3.2.0"],\
             ["jest", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:29.3.1"],\
             ["jest-cli", "virtual:e76011444586cb641866496737454e3caeba177c3dc8d1743191d5d9b46734de6a3bed4854271884a30a795428ddeb5b4aac4aeea5f9acb0b91aab6bb15621ee#npm:29.3.1"],\
@@ -20200,14 +20302,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["js-yaml", "npm:4.1.0"],\
             ["markdown-to-jsx", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.1.8"],\
             ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.1.2"],\
+            ["next-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.0.3"],\
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.15.0"],\
-            ["next-translate", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0"],\
             ["numeral", "npm:2.0.6"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
             ["qs", "npm:6.11.0"],\
             ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
+            ["react-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.1.4"],\
             ["react-share", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.4.1"],\
             ["react-test-renderer", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
             ["react-toastify", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:9.1.1"],\
@@ -20304,6 +20407,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["graphql", "npm:16.6.0"],\
             ["graphql-tag", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.12.6"],\
             ["graphql-ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.2"],\
+            ["i18next", "npm:22.4.9"],\
             ["jdenticon", "npm:3.2.0"],\
             ["jest", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:29.3.1"],\
             ["jest-cli", "virtual:e76011444586cb641866496737454e3caeba177c3dc8d1743191d5d9b46734de6a3bed4854271884a30a795428ddeb5b4aac4aeea5f9acb0b91aab6bb15621ee#npm:29.3.1"],\
@@ -20315,14 +20419,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["js-yaml", "npm:4.1.0"],\
             ["markdown-to-jsx", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.1.8"],\
             ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.1.2"],\
+            ["next-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.0.3"],\
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.15.0"],\
-            ["next-translate", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0"],\
             ["numeral", "npm:2.0.6"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
             ["qs", "npm:6.11.0"],\
             ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
+            ["react-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.1.4"],\
             ["react-share", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.4.1"],\
             ["react-test-renderer", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
             ["react-toastify", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:9.1.1"],\
@@ -20419,6 +20524,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["graphql", "npm:16.6.0"],\
             ["graphql-tag", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.12.6"],\
             ["graphql-ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.2"],\
+            ["i18next", "npm:22.4.9"],\
             ["jdenticon", "npm:3.2.0"],\
             ["jest", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:29.3.1"],\
             ["jest-cli", "virtual:e76011444586cb641866496737454e3caeba177c3dc8d1743191d5d9b46734de6a3bed4854271884a30a795428ddeb5b4aac4aeea5f9acb0b91aab6bb15621ee#npm:29.3.1"],\
@@ -20430,14 +20536,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["js-yaml", "npm:4.1.0"],\
             ["markdown-to-jsx", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.1.8"],\
             ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.1.2"],\
+            ["next-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.0.3"],\
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.15.0"],\
-            ["next-translate", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0"],\
             ["numeral", "npm:2.0.6"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
             ["qs", "npm:6.11.0"],\
             ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
+            ["react-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.1.4"],\
             ["react-share", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.4.1"],\
             ["react-test-renderer", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
             ["react-toastify", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:9.1.1"],\
@@ -20534,6 +20641,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["graphql", "npm:16.6.0"],\
             ["graphql-tag", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.12.6"],\
             ["graphql-ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.2"],\
+            ["i18next", "npm:22.4.9"],\
             ["jdenticon", "npm:3.2.0"],\
             ["jest", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:29.3.1"],\
             ["jest-cli", "virtual:e76011444586cb641866496737454e3caeba177c3dc8d1743191d5d9b46734de6a3bed4854271884a30a795428ddeb5b4aac4aeea5f9acb0b91aab6bb15621ee#npm:29.3.1"],\
@@ -20545,14 +20653,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["js-yaml", "npm:4.1.0"],\
             ["markdown-to-jsx", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.1.8"],\
             ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.1.2"],\
+            ["next-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.0.3"],\
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.15.0"],\
-            ["next-translate", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0"],\
             ["numeral", "npm:2.0.6"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
             ["qs", "npm:6.11.0"],\
             ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
+            ["react-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.1.4"],\
             ["react-share", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.4.1"],\
             ["react-test-renderer", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
             ["react-toastify", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:9.1.1"],\
@@ -20649,6 +20758,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["graphql", "npm:16.6.0"],\
             ["graphql-tag", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.12.6"],\
             ["graphql-ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.2"],\
+            ["i18next", "npm:22.4.9"],\
             ["jdenticon", "npm:3.2.0"],\
             ["jest", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:29.3.1"],\
             ["jest-cli", "virtual:e76011444586cb641866496737454e3caeba177c3dc8d1743191d5d9b46734de6a3bed4854271884a30a795428ddeb5b4aac4aeea5f9acb0b91aab6bb15621ee#npm:29.3.1"],\
@@ -20660,14 +20770,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["js-yaml", "npm:4.1.0"],\
             ["markdown-to-jsx", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.1.8"],\
             ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.1.2"],\
+            ["next-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.0.3"],\
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.15.0"],\
-            ["next-translate", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0"],\
             ["numeral", "npm:2.0.6"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
             ["qs", "npm:6.11.0"],\
             ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
+            ["react-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.1.4"],\
             ["react-share", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.4.1"],\
             ["react-test-renderer", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
             ["react-toastify", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:9.1.1"],\
@@ -20758,6 +20869,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["graphql", "npm:16.6.0"],\
             ["graphql-tag", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.12.6"],\
             ["graphql-ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.2"],\
+            ["i18next", "npm:22.4.9"],\
             ["jdenticon", "npm:3.2.0"],\
             ["jest", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:29.3.1"],\
             ["jest-cli", "virtual:e76011444586cb641866496737454e3caeba177c3dc8d1743191d5d9b46734de6a3bed4854271884a30a795428ddeb5b4aac4aeea5f9acb0b91aab6bb15621ee#npm:29.3.1"],\
@@ -20769,14 +20881,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["js-yaml", "npm:4.1.0"],\
             ["markdown-to-jsx", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.1.8"],\
             ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.1.2"],\
+            ["next-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.0.3"],\
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.15.0"],\
-            ["next-translate", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0"],\
             ["numeral", "npm:2.0.6"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
             ["qs", "npm:6.11.0"],\
             ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
+            ["react-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.1.4"],\
             ["react-share", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.4.1"],\
             ["react-test-renderer", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
             ["react-toastify", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:9.1.1"],\
@@ -20873,6 +20986,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["graphql", "npm:16.6.0"],\
             ["graphql-tag", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.12.6"],\
             ["graphql-ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.2"],\
+            ["i18next", "npm:22.4.9"],\
             ["jdenticon", "npm:3.2.0"],\
             ["jest", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:29.3.1"],\
             ["jest-cli", "virtual:e76011444586cb641866496737454e3caeba177c3dc8d1743191d5d9b46734de6a3bed4854271884a30a795428ddeb5b4aac4aeea5f9acb0b91aab6bb15621ee#npm:29.3.1"],\
@@ -20884,14 +20998,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["js-yaml", "npm:4.1.0"],\
             ["markdown-to-jsx", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.1.8"],\
             ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.1.2"],\
+            ["next-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.0.3"],\
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.15.0"],\
-            ["next-translate", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0"],\
             ["numeral", "npm:2.0.6"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
             ["qs", "npm:6.11.0"],\
             ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
+            ["react-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.1.4"],\
             ["react-share", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.4.1"],\
             ["react-test-renderer", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
             ["react-toastify", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:9.1.1"],\
@@ -20988,6 +21103,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["graphql", "npm:16.6.0"],\
             ["graphql-tag", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.12.6"],\
             ["graphql-ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.2"],\
+            ["i18next", "npm:22.4.9"],\
             ["jdenticon", "npm:3.2.0"],\
             ["jest", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:29.3.1"],\
             ["jest-cli", "virtual:e76011444586cb641866496737454e3caeba177c3dc8d1743191d5d9b46734de6a3bed4854271884a30a795428ddeb5b4aac4aeea5f9acb0b91aab6bb15621ee#npm:29.3.1"],\
@@ -20999,14 +21115,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["js-yaml", "npm:4.1.0"],\
             ["markdown-to-jsx", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.1.8"],\
             ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.1.2"],\
+            ["next-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.0.3"],\
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.15.0"],\
-            ["next-translate", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0"],\
             ["numeral", "npm:2.0.6"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
             ["qs", "npm:6.11.0"],\
             ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
+            ["react-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.1.4"],\
             ["react-share", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.4.1"],\
             ["react-test-renderer", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
             ["react-toastify", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:9.1.1"],\
@@ -21103,6 +21220,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["graphql", "npm:16.6.0"],\
             ["graphql-tag", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.12.6"],\
             ["graphql-ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.2"],\
+            ["i18next", "npm:22.4.9"],\
             ["jdenticon", "npm:3.2.0"],\
             ["jest", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:29.3.1"],\
             ["jest-cli", "virtual:e76011444586cb641866496737454e3caeba177c3dc8d1743191d5d9b46734de6a3bed4854271884a30a795428ddeb5b4aac4aeea5f9acb0b91aab6bb15621ee#npm:29.3.1"],\
@@ -21114,14 +21232,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["js-yaml", "npm:4.1.0"],\
             ["markdown-to-jsx", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.1.8"],\
             ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.1.2"],\
+            ["next-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.0.3"],\
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.15.0"],\
-            ["next-translate", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0"],\
             ["numeral", "npm:2.0.6"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
             ["qs", "npm:6.11.0"],\
             ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
+            ["react-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.1.4"],\
             ["react-share", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.4.1"],\
             ["react-test-renderer", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
             ["react-toastify", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:9.1.1"],\
@@ -21218,6 +21337,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["graphql", "npm:16.6.0"],\
             ["graphql-tag", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.12.6"],\
             ["graphql-ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.2"],\
+            ["i18next", "npm:22.4.9"],\
             ["jdenticon", "npm:3.2.0"],\
             ["jest", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:29.3.1"],\
             ["jest-cli", "virtual:e76011444586cb641866496737454e3caeba177c3dc8d1743191d5d9b46734de6a3bed4854271884a30a795428ddeb5b4aac4aeea5f9acb0b91aab6bb15621ee#npm:29.3.1"],\
@@ -21229,14 +21349,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["js-yaml", "npm:4.1.0"],\
             ["markdown-to-jsx", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.1.8"],\
             ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.1.2"],\
+            ["next-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.0.3"],\
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.15.0"],\
-            ["next-translate", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0"],\
             ["numeral", "npm:2.0.6"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
             ["qs", "npm:6.11.0"],\
             ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
+            ["react-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.1.4"],\
             ["react-share", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.4.1"],\
             ["react-test-renderer", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
             ["react-toastify", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:9.1.1"],\
@@ -21333,6 +21454,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["graphql", "npm:16.6.0"],\
             ["graphql-tag", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.12.6"],\
             ["graphql-ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.2"],\
+            ["i18next", "npm:22.4.9"],\
             ["jdenticon", "npm:3.2.0"],\
             ["jest", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:29.3.1"],\
             ["jest-cli", "virtual:e76011444586cb641866496737454e3caeba177c3dc8d1743191d5d9b46734de6a3bed4854271884a30a795428ddeb5b4aac4aeea5f9acb0b91aab6bb15621ee#npm:29.3.1"],\
@@ -21344,14 +21466,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["js-yaml", "npm:4.1.0"],\
             ["markdown-to-jsx", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.1.8"],\
             ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.1.2"],\
+            ["next-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.0.3"],\
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.15.0"],\
-            ["next-translate", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0"],\
             ["numeral", "npm:2.0.6"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
             ["qs", "npm:6.11.0"],\
             ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
+            ["react-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.1.4"],\
             ["react-share", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.4.1"],\
             ["react-test-renderer", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
             ["react-toastify", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:9.1.1"],\
@@ -21448,6 +21571,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["graphql", "npm:16.6.0"],\
             ["graphql-tag", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.12.6"],\
             ["graphql-ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.2"],\
+            ["i18next", "npm:22.4.9"],\
             ["jdenticon", "npm:3.2.0"],\
             ["jest", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:29.3.1"],\
             ["jest-cli", "virtual:e76011444586cb641866496737454e3caeba177c3dc8d1743191d5d9b46734de6a3bed4854271884a30a795428ddeb5b4aac4aeea5f9acb0b91aab6bb15621ee#npm:29.3.1"],\
@@ -21459,14 +21583,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["js-yaml", "npm:4.1.0"],\
             ["markdown-to-jsx", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.1.8"],\
             ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.1.2"],\
+            ["next-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.0.3"],\
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.15.0"],\
-            ["next-translate", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0"],\
             ["numeral", "npm:2.0.6"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
             ["qs", "npm:6.11.0"],\
             ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
+            ["react-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.1.4"],\
             ["react-share", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.4.1"],\
             ["react-test-renderer", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
             ["react-toastify", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:9.1.1"],\
@@ -21563,6 +21688,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["graphql", "npm:16.6.0"],\
             ["graphql-tag", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.12.6"],\
             ["graphql-ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.2"],\
+            ["i18next", "npm:22.4.9"],\
             ["jdenticon", "npm:3.2.0"],\
             ["jest", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:29.3.1"],\
             ["jest-cli", "virtual:e76011444586cb641866496737454e3caeba177c3dc8d1743191d5d9b46734de6a3bed4854271884a30a795428ddeb5b4aac4aeea5f9acb0b91aab6bb15621ee#npm:29.3.1"],\
@@ -21574,14 +21700,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["js-yaml", "npm:4.1.0"],\
             ["markdown-to-jsx", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.1.8"],\
             ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.1.2"],\
+            ["next-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.0.3"],\
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.15.0"],\
-            ["next-translate", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0"],\
             ["numeral", "npm:2.0.6"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
             ["qs", "npm:6.11.0"],\
             ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
+            ["react-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.1.4"],\
             ["react-share", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.4.1"],\
             ["react-test-renderer", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
             ["react-toastify", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:9.1.1"],\
@@ -21678,6 +21805,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["graphql", "npm:16.6.0"],\
             ["graphql-tag", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.12.6"],\
             ["graphql-ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.2"],\
+            ["i18next", "npm:22.4.9"],\
             ["jdenticon", "npm:3.2.0"],\
             ["jest", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:29.3.1"],\
             ["jest-cli", "virtual:e76011444586cb641866496737454e3caeba177c3dc8d1743191d5d9b46734de6a3bed4854271884a30a795428ddeb5b4aac4aeea5f9acb0b91aab6bb15621ee#npm:29.3.1"],\
@@ -21689,14 +21817,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["js-yaml", "npm:4.1.0"],\
             ["markdown-to-jsx", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.1.8"],\
             ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.1.2"],\
+            ["next-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.0.3"],\
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.15.0"],\
-            ["next-translate", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0"],\
             ["numeral", "npm:2.0.6"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
             ["qs", "npm:6.11.0"],\
             ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
+            ["react-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.1.4"],\
             ["react-share", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.4.1"],\
             ["react-test-renderer", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
             ["react-toastify", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:9.1.1"],\
@@ -21793,6 +21922,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["graphql", "npm:16.6.0"],\
             ["graphql-tag", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.12.6"],\
             ["graphql-ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.2"],\
+            ["i18next", "npm:22.4.9"],\
             ["jdenticon", "npm:3.2.0"],\
             ["jest", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:29.3.1"],\
             ["jest-cli", "virtual:e76011444586cb641866496737454e3caeba177c3dc8d1743191d5d9b46734de6a3bed4854271884a30a795428ddeb5b4aac4aeea5f9acb0b91aab6bb15621ee#npm:29.3.1"],\
@@ -21804,14 +21934,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["js-yaml", "npm:4.1.0"],\
             ["markdown-to-jsx", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.1.8"],\
             ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.1.2"],\
+            ["next-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.0.3"],\
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.15.0"],\
-            ["next-translate", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0"],\
             ["numeral", "npm:2.0.6"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
             ["qs", "npm:6.11.0"],\
             ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
+            ["react-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.1.4"],\
             ["react-share", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.4.1"],\
             ["react-test-renderer", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
             ["react-toastify", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:9.1.1"],\
@@ -21908,6 +22039,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["graphql", "npm:16.6.0"],\
             ["graphql-tag", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.12.6"],\
             ["graphql-ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.2"],\
+            ["i18next", "npm:22.4.9"],\
             ["jdenticon", "npm:3.2.0"],\
             ["jest", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:29.3.1"],\
             ["jest-cli", "virtual:e76011444586cb641866496737454e3caeba177c3dc8d1743191d5d9b46734de6a3bed4854271884a30a795428ddeb5b4aac4aeea5f9acb0b91aab6bb15621ee#npm:29.3.1"],\
@@ -21919,14 +22051,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["js-yaml", "npm:4.1.0"],\
             ["markdown-to-jsx", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.1.8"],\
             ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.1.2"],\
+            ["next-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.0.3"],\
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.15.0"],\
-            ["next-translate", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0"],\
             ["numeral", "npm:2.0.6"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
             ["qs", "npm:6.11.0"],\
             ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
+            ["react-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.1.4"],\
             ["react-share", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.4.1"],\
             ["react-test-renderer", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
             ["react-toastify", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:9.1.1"],\
@@ -22023,6 +22156,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["graphql", "npm:16.6.0"],\
             ["graphql-tag", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.12.6"],\
             ["graphql-ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.2"],\
+            ["i18next", "npm:22.4.9"],\
             ["jdenticon", "npm:3.2.0"],\
             ["jest", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:29.3.1"],\
             ["jest-cli", "virtual:e76011444586cb641866496737454e3caeba177c3dc8d1743191d5d9b46734de6a3bed4854271884a30a795428ddeb5b4aac4aeea5f9acb0b91aab6bb15621ee#npm:29.3.1"],\
@@ -22034,14 +22168,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["js-yaml", "npm:4.1.0"],\
             ["markdown-to-jsx", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.1.8"],\
             ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.1.2"],\
+            ["next-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.0.3"],\
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.15.0"],\
-            ["next-translate", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0"],\
             ["numeral", "npm:2.0.6"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
             ["qs", "npm:6.11.0"],\
             ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
+            ["react-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.1.4"],\
             ["react-share", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.4.1"],\
             ["react-test-renderer", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
             ["react-toastify", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:9.1.1"],\
@@ -22138,6 +22273,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["graphql", "npm:16.6.0"],\
             ["graphql-tag", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.12.6"],\
             ["graphql-ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.2"],\
+            ["i18next", "npm:22.4.9"],\
             ["jdenticon", "npm:3.2.0"],\
             ["jest", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:29.3.1"],\
             ["jest-cli", "virtual:e76011444586cb641866496737454e3caeba177c3dc8d1743191d5d9b46734de6a3bed4854271884a30a795428ddeb5b4aac4aeea5f9acb0b91aab6bb15621ee#npm:29.3.1"],\
@@ -22149,14 +22285,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["js-yaml", "npm:4.1.0"],\
             ["markdown-to-jsx", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.1.8"],\
             ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.1.2"],\
+            ["next-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.0.3"],\
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.15.0"],\
-            ["next-translate", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0"],\
             ["numeral", "npm:2.0.6"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
             ["qs", "npm:6.11.0"],\
             ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
+            ["react-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.1.4"],\
             ["react-share", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.4.1"],\
             ["react-test-renderer", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
             ["react-toastify", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:9.1.1"],\
@@ -22269,6 +22406,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["graphql", "npm:16.6.0"],\
             ["graphql-tag", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.12.6"],\
             ["graphql-ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.2"],\
+            ["i18next", "npm:22.4.9"],\
             ["jdenticon", "npm:3.2.0"],\
             ["jest", "virtual:f7bc41586b68b5179d26bce3bfb89ba68358f8cd7c2ddff4083d94b6829a704acc2424da9379676891d28c060e6d7ef24661ff4a113dbb2daf852983923aee3a#npm:29.3.1"],\
             ["jest-cli", "virtual:e76011444586cb641866496737454e3caeba177c3dc8d1743191d5d9b46734de6a3bed4854271884a30a795428ddeb5b4aac4aeea5f9acb0b91aab6bb15621ee#npm:29.3.1"],\
@@ -22280,14 +22418,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["js-yaml", "npm:4.1.0"],\
             ["markdown-to-jsx", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:7.1.8"],\
             ["next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.1.2"],\
+            ["next-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.0.3"],\
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.15.0"],\
-            ["next-translate", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.0"],\
             ["numeral", "npm:2.0.6"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
             ["qs", "npm:6.11.0"],\
             ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
+            ["react-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:12.1.4"],\
             ["react-share", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:4.4.1"],\
             ["react-test-renderer", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:18.2.0"],\
             ["react-toastify", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:9.1.1"],\

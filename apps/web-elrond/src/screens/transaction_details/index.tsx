@@ -1,5 +1,5 @@
 import { NextSeo } from 'next-seo';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import React from 'react';
 import Layout from '@/components/layout';
 import LoadAndExist from '@/components/load_and_exist';
@@ -18,12 +18,12 @@ const TransactionDetails = () => {
   return (
     <>
       <NextSeo
-        title={t('transactionDetails')}
+        title={t('transactionDetails') ?? undefined}
         openGraph={{
-          title: t('transactionDetails'),
+          title: t('transactionDetails') ?? undefined,
         }}
       />
-      <Layout navTitle={t('transactionDetails')} className={classes.root}>
+      <Layout navTitle={t('transactionDetails') ?? undefined} className={classes.root}>
         <LoadAndExist loading={state.loading} exists={state.exists}>
           <Overview {...state.overview} />
           {!!state.data && <Data data={state.data} />}

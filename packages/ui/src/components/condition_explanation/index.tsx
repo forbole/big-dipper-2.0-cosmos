@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import useStyles from '@/components/condition_explanation/styles';
 
 const ConditionExplanation = () => {

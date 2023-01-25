@@ -1,9 +1,5 @@
-import { Translate } from 'next-translate';
-import { useRouter } from 'next/router';
-import numeral from 'numeral';
-import { toast } from 'react-toastify';
-import { useRecoilCallback } from 'recoil';
-import { isValidAddress } from '@/utils/prefix_convert';
+import chainConfig from '@/chainConfig';
+import { readValidator } from '@/recoil/validators';
 import {
   ACCOUNT_DETAILS,
   BLOCK_DETAILS,
@@ -11,8 +7,12 @@ import {
   TRANSACTION_DETAILS,
   VALIDATOR_DETAILS,
 } from '@/utils/go_to_page';
-import { readValidator } from '@/recoil/validators';
-import chainConfig from '@/chainConfig';
+import { isValidAddress } from '@/utils/prefix_convert';
+import { TFunction } from 'next-i18next';
+import { useRouter } from 'next/router';
+import numeral from 'numeral';
+import { toast } from 'react-toastify';
+import { useRecoilCallback } from 'recoil';
 
 const { extra, prefix } = chainConfig();
 const consensusRegex = new RegExp(`^(${prefix.consensus})`);
@@ -21,7 +21,7 @@ const userRegex = new RegExp(`^(${prefix.account})`);
 const cosmosUserRegex = /^(cosmos)/;
 const configProfile = extra.profile;
 
-export const useSearchBar = (t: Translate) => {
+export const useSearchBar = (t: TFunction) => {
   const router = useRouter();
 
   const handleOnSubmit = useRecoilCallback(

@@ -1,18 +1,15 @@
-import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
-import { MockedProvider } from '@apollo/client/testing';
-import renderer from 'react-test-renderer';
 import { TransactionsListenerDocument } from '@/graphql/types/general_types';
 import Transactions from '@/screens/home/components/transactions';
-import { MockTheme, wait } from '@/tests/utils';
+import { mockClient } from '@/tests/mocks/mockApollo';
+import MockTheme from '@/tests/mocks/MockTheme';
+import wait from '@/tests/utils/wait';
+import { ApolloProvider } from '@apollo/client';
+import { MockedProvider } from '@apollo/client/testing';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks
 // ==================================
-const mockI18n = {
-  t: (key: string) => key,
-  lang: 'en',
-};
-jest.mock('next-translate/useTranslation', () => () => mockI18n);
 jest.mock('@/components/box', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Box" {...props} />
 ));
@@ -54,7 +51,6 @@ const mockTxsListenerDocument = jest.fn().mockReturnValue({
 // ==================================
 describe('screen: Home/Blocks/Mobile', () => {
   it('matches snapshot', async () => {
-    const mockClient = new ApolloClient({ link: from([]), cache: new InMemoryCache() });
     let component: renderer.ReactTestRenderer | undefined;
 
     renderer.act(() => {

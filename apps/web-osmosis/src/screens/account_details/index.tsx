@@ -1,5 +1,5 @@
 import { NextSeo } from 'next-seo';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import DesmosProfile from '@/components/desmos_profile';
 import Layout from '@/components/layout';
 import LoadAndExist from '@/components/load_and_exist';
@@ -19,12 +19,12 @@ const AccountDetails = () => {
   return (
     <>
       <NextSeo
-        title={t('accountDetails')}
+        title={t('accountDetails') ?? undefined}
         openGraph={{
-          title: t('accountDetails'),
+          title: t('accountDetails') ?? undefined,
         }}
       />
-      <Layout navTitle={t('accountDetails')}>
+      <Layout navTitle={t('accountDetails') ?? undefined}>
         <LoadAndExist loading={state.loading} exists={state.exists}>
           <span className={classes.root}>
             {!!state.desmosProfile && (

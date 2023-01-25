@@ -14,17 +14,15 @@ exports[`screen: TransactionDetails/StoreRawDataRequest matches snapshot 1`] = `
 <p
   className="MuiTypography-root MuiTypography-body1 emotion-0"
 >
-  <div
-    components={
-      [
-        <Unknown
-          address="sender"
-          name="sender"
-        />,
-      ]
-    }
+  <span
+    data-testid="Trans"
     i18nKey="message_contents:MsgStoreRawDataRequest"
-    id="Trans"
-  />
+  >
+    <div
+      address="sender"
+      id="Name"
+      name="sender"
+    />
+  </span>
 </p>
 `;

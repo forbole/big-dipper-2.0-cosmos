@@ -1,7 +1,7 @@
 import renderer from 'react-test-renderer';
 import CreateOracleScript from '@/components/msg/oracle/create_oracle_script';
 import MsgCreateOracleScript from '@/models/msg/oracle/msg_create_oracle_script';
-import { MockTheme } from '@/tests/utils';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // mocks

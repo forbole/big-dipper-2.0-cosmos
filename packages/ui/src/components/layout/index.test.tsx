@@ -1,16 +1,12 @@
 import renderer from 'react-test-renderer';
 import Layout from '@/components/layout';
-import { MockTheme } from '@/tests/utils';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // global setup
 // ==================================
 let component: renderer.ReactTestRenderer;
 
-const mockI18n = {
-  t: (key: string) => key,
-  lang: 'en',
-};
 // ==================================
 // mocks
 // ==================================
@@ -32,8 +28,6 @@ jest.mock('@/components/banner', () => ({
 jest.mock('next-seo', () => ({
   NextSeo: (props: JSX.IntrinsicElements['div']) => <div id="NextSeo" {...props} />,
 }));
-
-jest.mock('next-translate/useTranslation', () => () => mockI18n);
 
 jest.mock('next/router', () => ({
   ...jest.requireActual('next/router'),

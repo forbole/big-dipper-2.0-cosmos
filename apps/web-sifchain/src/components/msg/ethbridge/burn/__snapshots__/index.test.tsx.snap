@@ -14,17 +14,15 @@ exports[`screen: TransactionDetails/MsgBurn matches snapshot 1`] = `
 <p
   className="MuiTypography-root MuiTypography-body1 emotion-0"
 >
-  <div
-    components={
-      [
-        <Unknown
-          address="cosmosSender"
-          name="cosmosSender"
-        />,
-      ]
-    }
+  <span
+    data-testid="Trans"
     i18nKey="message_contents:MsgBurn"
-    id="Trans"
-  />
+  >
+    <div
+      address="cosmosSender"
+      id="Name"
+      name="cosmosSender"
+    />
+  </span>
 </p>
 `;

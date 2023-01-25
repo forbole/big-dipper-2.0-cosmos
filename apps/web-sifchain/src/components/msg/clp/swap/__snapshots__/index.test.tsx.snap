@@ -14,24 +14,17 @@ exports[`screen: TransactionDetails/Swap matches snapshot 1`] = `
 <p
   className="MuiTypography-root MuiTypography-body1 emotion-0"
 >
-  <div
-    components={
-      [
-        <Unknown
-          address="signer"
-          name="signer"
-        />,
-        <b />,
-      ]
-    }
+  <span
+    data-testid="Trans"
     i18nKey="message_contents:MsgSwap"
-    id="Trans"
-    values={
-      {
-        "receivedAmount": "51 DARIC",
-        "sentAmount": "4 DARIC",
-      }
-    }
-  />
+  >
+    <div
+      address="signer"
+      id="Name"
+      name="signer"
+    />
+    <b />
+    {"sentAmount":"4 DARIC","receivedAmount":"51 DARIC"}
+  </span>
 </p>
 `;

@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import { FC, LegacyRef, useMemo } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { VariableSizeGrid as Grid } from 'react-window';

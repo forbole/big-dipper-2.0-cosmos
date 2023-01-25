@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import { FC } from 'react';
 import NoData from '@/components/no_data';
 import Pagination from '@/components/pagination';

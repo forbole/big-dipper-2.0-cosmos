@@ -5,7 +5,7 @@ import type { act } from 'react-test-renderer';
  * before asserting tests
  * @param ms
  */
-export const wait = async (rendererAct: typeof act, ms = 50) => {
+const wait = async (rendererAct: typeof act, ms = 50) => {
   await rendererAct(
     () =>
       new Promise((resolve) => {
@@ -13,3 +13,5 @@ export const wait = async (rendererAct: typeof act, ms = 50) => {
       })
   );
 };
+
+export default wait;

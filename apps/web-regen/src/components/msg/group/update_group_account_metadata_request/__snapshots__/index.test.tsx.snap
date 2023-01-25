@@ -14,21 +14,20 @@ exports[`screen: TransactionDetails/UpdateGroupAccountMetadataRequest matches sn
 <p
   className="MuiTypography-root MuiTypography-body1 emotion-0"
 >
-  <div
-    components={
-      [
-        <Unknown
-          address="admin"
-          name="admin"
-        />,
-        <Unknown
-          address="address"
-          name="address"
-        />,
-      ]
-    }
+  <span
+    data-testid="Trans"
     i18nKey="message_contents:MsgUpdateGroupAccountMetadataRequest"
-    id="Trans"
-  />
+  >
+    <div
+      address="admin"
+      id="Name"
+      name="admin"
+    />
+    <div
+      address="address"
+      id="Name"
+      name="address"
+    />
+  </span>
 </p>
 `;

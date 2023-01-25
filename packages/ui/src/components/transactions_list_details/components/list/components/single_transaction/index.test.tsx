@@ -1,6 +1,6 @@
 import renderer from 'react-test-renderer';
 import SingleTransaction from '@/components/transactions_list_details/components/list/components/single_transaction';
-import { MockTheme } from '@/tests/utils';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // unit tests

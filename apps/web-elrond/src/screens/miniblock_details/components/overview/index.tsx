@@ -1,4 +1,4 @@
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import { FC } from 'react';
 import { useRecoilValue } from 'recoil';
@@ -65,7 +65,9 @@ const Overview: FC<OverviewType & ComponentDefault> = (props) => {
     },
   ];
 
-  return <BoxDetails className={props.className} title={t('overview')} details={details} />;
+  return (
+    <BoxDetails className={props.className} title={t('overview') ?? undefined} details={details} />
+  );
 };
 
 export default Overview;

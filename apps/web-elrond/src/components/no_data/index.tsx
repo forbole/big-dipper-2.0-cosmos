@@ -1,6 +1,6 @@
 import Typography from '@mui/material/Typography';
 import FaceIcon from '@mui/icons-material/Face';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import { FC } from 'react';
 import useStyles from '@/components/no_data/styles';
 

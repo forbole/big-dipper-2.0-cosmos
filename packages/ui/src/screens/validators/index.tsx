@@ -1,5 +1,5 @@
 import { NextSeo } from 'next-seo';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import Layout from '@/components/layout';
 import List from '@/screens/validators/components/list';
 import useStyles from '@/screens/validators/styles';
@@ -10,12 +10,12 @@ const Validators = () => {
   return (
     <>
       <NextSeo
-        title={t('validators')}
+        title={t('validators') ?? undefined}
         openGraph={{
-          title: t('validators'),
+          title: t('validators') ?? undefined,
         }}
       />
-      <Layout navTitle={t('validators')} className={classes.root}>
+      <Layout navTitle={t('validators') ?? undefined} className={classes.root}>
         <List />
       </Layout>
     </>

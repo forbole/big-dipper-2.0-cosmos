@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import numeral from 'numeral';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import BoxDetails from '@/components/box_details';
 import AvatarName from '@/components/avatar_name';
 import { formatNumber } from '@/utils/format_token';
@@ -55,7 +55,9 @@ const ContractDetails: FC<{ className?: string; contract: ContractType }> = (pro
     },
   ];
 
-  return <BoxDetails className={props.className} title={t('contract')} details={details} />;
+  return (
+    <BoxDetails className={props.className} title={t('contract') ?? undefined} details={details} />
+  );
 };
 
 export default ContractDetails;

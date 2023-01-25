@@ -7,17 +7,13 @@ import {
   MsgSubmitProposal,
   MsgTextProposal,
 } from '@/models';
-import { MockTheme } from '@/tests/utils';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // mocks
 // ==================================
 jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
-));
-
-jest.mock('next-translate/Trans', () => (props: JSX.IntrinsicElements['div']) => (
-  <div id="Trans" {...props} />
 ));
 
 // ==================================

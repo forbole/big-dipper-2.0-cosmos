@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import numeral from 'numeral';
 import { FC } from 'react';
 import { useRecoilValue } from 'recoil';
@@ -18,7 +18,7 @@ const Overview: FC<OverviewType & ComponentDefault> = (props, { className }) => 
   return (
     <BoxDetails
       className={className}
-      title={t('overview')}
+      title={t('overview') ?? undefined}
       details={[
         {
           key: 'height',

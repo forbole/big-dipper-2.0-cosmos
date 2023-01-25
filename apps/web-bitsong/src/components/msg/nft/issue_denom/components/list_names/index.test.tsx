@@ -2,7 +2,7 @@ import { ComponentProps } from 'react';
 import renderer from 'react-test-renderer';
 import ListNames from '@/components/msg/nft/issue_denom/components/list_names';
 import type Name from '@/components/name';
-import { MockTheme } from '@/tests/utils';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // mocks

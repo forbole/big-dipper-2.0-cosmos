@@ -1,5 +1,5 @@
 import { NextSeo } from 'next-seo';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import Layout from '@/components/layout';
 import Compute from '@/screens/providers/components/compute';
 import DataBlocks from '@/screens/providers/components/data_blocks';
@@ -17,12 +17,12 @@ const Providers = () => {
   return (
     <>
       <NextSeo
-        title={t('providers')}
+        title={t('providers') ?? undefined}
         openGraph={{
-          title: t('providers'),
+          title: t('providers') ?? undefined,
         }}
       />
-      <Layout navTitle={t('providers')} className={classes.root}>
+      <Layout navTitle={t('providers') ?? undefined} className={classes.root}>
         <DataBlocks
           className={classes.dataBlocks}
           providers={state.activeProvidersCount}

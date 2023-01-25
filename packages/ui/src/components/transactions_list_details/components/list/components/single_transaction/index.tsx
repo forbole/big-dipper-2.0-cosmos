@@ -1,6 +1,6 @@
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import { FC, ReactNode } from 'react';
 import useStyles from '@/components/transactions_list_details/components/list/components/single_transaction/styles';
 

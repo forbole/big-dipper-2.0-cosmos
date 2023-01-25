@@ -1,6 +1,6 @@
 import renderer from 'react-test-renderer';
 import Desktop from '@/components/nav/components/desktop';
-import { MockTheme } from '@/tests/utils';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // global setup

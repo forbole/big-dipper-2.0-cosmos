@@ -1,7 +1,7 @@
 import renderer from 'react-test-renderer';
 import UpdateClient from '@/components/msg/ibc/client_update_client';
 import { MsgUpdateClient } from '@/models';
-import { MockTheme } from '@/tests/utils';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // mocks

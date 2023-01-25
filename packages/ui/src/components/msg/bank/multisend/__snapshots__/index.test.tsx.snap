@@ -19,24 +19,18 @@ exports[`screen: TransactionDetails/MsgMultiSend matches snapshot 1`] = `
   <p
     className="MuiTypography-root MuiTypography-body1 emotion-0"
   >
-    <div
-      components={
-        [
-          <Unknown
-            address="address"
-            name="address"
-          />,
-          <b />,
-        ]
-      }
+    <span
+      data-testid="Trans"
       i18nKey="message_contents:txMultisendContentOne"
-      id="message_contents:txMultisendContentOne"
-      values={
-        {
-          "amount": "20 DARIC",
-        }
-      }
-    />
+    >
+      <div
+        address="address"
+        id="Name"
+        name="address"
+      />
+      <b />
+      {"amount":"20 DARIC"}
+    </span>
   </p>
   <div
     className="emotion-1"
@@ -44,46 +38,34 @@ exports[`screen: TransactionDetails/MsgMultiSend matches snapshot 1`] = `
     <p
       className="MuiTypography-root MuiTypography-body1 emotion-0"
     >
-      <div
-        components={
-          [
-            <Unknown
-              address="output1"
-              name="output1"
-            />,
-            <b />,
-          ]
-        }
+      <span
+        data-testid="Trans"
         i18nKey="message_contents:txMultisendContentTwo"
-        id="message_contents:txMultisendContentTwo"
-        values={
-          {
-            "amount": "19 DARIC",
-          }
-        }
-      />
+      >
+        <div
+          address="output1"
+          id="Name"
+          name="output1"
+        />
+        <b />
+        {"amount":"19 DARIC"}
+      </span>
     </p>
     <p
       className="MuiTypography-root MuiTypography-body1 emotion-0"
     >
-      <div
-        components={
-          [
-            <Unknown
-              address="output2"
-              name="output2"
-            />,
-            <b />,
-          ]
-        }
+      <span
+        data-testid="Trans"
         i18nKey="message_contents:txMultisendContentTwo"
-        id="message_contents:txMultisendContentTwo"
-        values={
-          {
-            "amount": "1 DARIC",
-          }
-        }
-      />
+      >
+        <div
+          address="output2"
+          id="Name"
+          name="output2"
+        />
+        <b />
+        {"amount":"1 DARIC"}
+      </span>
     </p>
   </div>
 </div>

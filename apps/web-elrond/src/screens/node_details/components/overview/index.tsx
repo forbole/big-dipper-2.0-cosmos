@@ -1,6 +1,6 @@
 import { FC, isValidElement } from 'react';
 import numeral from 'numeral';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import Typography from '@mui/material/Typography';
 import Box from '@/components/box';
 import { getShardDisplay } from '@/utils/get_shard_display';

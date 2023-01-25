@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import numeral from 'numeral';
 import { FC } from 'react';
@@ -102,7 +102,9 @@ const Overview: FC<OverviewType & ComponentDefault> = (props) => {
     },
   ];
 
-  return <BoxDetails className={props.className} title={t('overview')} details={details} />;
+  return (
+    <BoxDetails className={props.className} title={t('overview') ?? undefined} details={details} />
+  );
 };
 
 export default Overview;

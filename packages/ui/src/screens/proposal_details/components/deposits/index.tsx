@@ -8,7 +8,7 @@ import { useDeposits } from '@/screens/proposal_details/components/deposits/hook
 import useStyles from '@/screens/proposal_details/components/deposits/styles';
 import { useDisplayStyles } from '@/styles/useSharedStyles';
 import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import { FC, useMemo } from 'react';
 
 const Deposits: FC<ComponentDefault> = (props) => {

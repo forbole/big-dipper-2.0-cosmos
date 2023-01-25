@@ -9,7 +9,7 @@ import { decodeBase64 } from '@/utils/base64';
 import { formatNumber } from '@/utils/format_token';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import { FC, Fragment } from 'react';
 
 const SmartContractResults: FC<{ results: ResultType[] }> = (props) => {

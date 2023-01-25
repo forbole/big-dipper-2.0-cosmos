@@ -2,19 +2,13 @@ import { act, cleanup, renderHook } from '@testing-library/react';
 import { RecoilRoot } from 'recoil';
 import { useSettingList } from '@/components/nav/components/desktop/components/action_bar/components/settings_list/hooks';
 
-const mockI18n = {
-  t: (key: string) => key,
-  lang: 'en',
-};
-jest.mock('next-translate/useTranslation', () => () => mockI18n);
-
 jest.mock('react-toastify', () => ({
   toast: jest.fn(),
 }));
 
 describe('hook: useSettingList', () => {
   test('handles open correctly', () => {
-    const { result } = renderHook(() => useSettingList({ lang: mockI18n.lang }), {
+    const { result } = renderHook(() => useSettingList({ lang: 'en' }), {
       wrapper: RecoilRoot,
     });
     expect(result.current.open).toBe(false);
@@ -24,7 +18,7 @@ describe('hook: useSettingList', () => {
   });
 
   test('handles close correctly', () => {
-    const { result } = renderHook(() => useSettingList({ lang: mockI18n.lang }), {
+    const { result } = renderHook(() => useSettingList({ lang: 'en' }), {
       wrapper: RecoilRoot,
     });
     expect(result.current.open).toBe(false);
@@ -37,7 +31,7 @@ describe('hook: useSettingList', () => {
   });
 
   test('handles cancel correctly', () => {
-    const { result } = renderHook(() => useSettingList({ lang: mockI18n.lang }), {
+    const { result } = renderHook(() => useSettingList({ lang: 'en' }), {
       wrapper: RecoilRoot,
     });
 
@@ -51,7 +45,7 @@ describe('hook: useSettingList', () => {
   });
 
   test('handles language change correctly', () => {
-    const { result } = renderHook(() => useSettingList({ lang: mockI18n.lang }), {
+    const { result } = renderHook(() => useSettingList({ lang: 'en' }), {
       wrapper: RecoilRoot,
     });
 
@@ -65,7 +59,7 @@ describe('hook: useSettingList', () => {
   });
 
   test('handles submit form correctly', () => {
-    const { result } = renderHook(() => useSettingList({ lang: mockI18n.lang }), {
+    const { result } = renderHook(() => useSettingList({ lang: 'en' }), {
       wrapper: RecoilRoot,
     });
 

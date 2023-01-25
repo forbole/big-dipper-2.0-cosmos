@@ -1,6 +1,6 @@
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import { ComponentProps, FC, ReactNode } from 'react';
 import { a11yProps } from '@/utils/a11yProps';
 import useStyles from '@/screens/account_details/components/staking/components/tabs/styles';

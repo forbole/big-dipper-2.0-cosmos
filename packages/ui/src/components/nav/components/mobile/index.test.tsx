@@ -1,6 +1,7 @@
 import renderer from 'react-test-renderer';
 import Mobile from '@/components/nav/components/mobile';
-import { MockTheme, wait } from '@/tests/utils';
+import MockTheme from '@/tests/mocks/MockTheme';
+import wait from '@/tests/utils/wait';
 // ==================================
 // global setup
 // ==================================

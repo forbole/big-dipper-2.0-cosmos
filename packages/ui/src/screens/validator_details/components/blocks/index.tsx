@@ -1,6 +1,6 @@
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import numeral from 'numeral';
 import { FC } from 'react';
 import Loading from '@/components/loading';

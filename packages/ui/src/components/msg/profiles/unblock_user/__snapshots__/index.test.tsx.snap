@@ -14,6 +14,28 @@ exports[`screen: TransactionDetails/UnBlockUser matches snapshot 1`] = `
 <p
   className="MuiTypography-root MuiTypography-body1 emotion-0"
 >
-  message_contents:txUnblockUserContent
+  <span
+    data-testid="Trans"
+    i18nKey="message_contents:txUnblockUserContent"
+  >
+    <div
+      address="blocker"
+      id="Name"
+      name="blocker"
+    />
+    <div
+      address="blocked"
+      id="Name"
+      name="blocked"
+    />
+    <span
+      style={
+        {
+          "wordBreak": "break-all",
+        }
+      }
+    />
+    {"subspace":"subspace"}
+  </span>
 </p>
 `;

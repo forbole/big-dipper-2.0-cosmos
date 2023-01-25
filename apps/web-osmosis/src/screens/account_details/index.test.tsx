@@ -1,10 +1,11 @@
-import { MockedProvider } from '@apollo/client/testing';
-import { useMemo } from 'react';
-import renderer from 'react-test-renderer';
 import chainConfig from '@/chainConfig';
 import { GetMessagesByAddressDocument } from '@/graphql/types/general_types';
 import AccountDetails from '@/screens/account_details';
-import { MockTheme, wait } from '@/tests/utils';
+import MockTheme from '@/tests/mocks/MockTheme';
+import wait from '@/tests/utils/wait';
+import { MockedProvider } from '@apollo/client/testing';
+import { useMemo } from 'react';
+import renderer from 'react-test-renderer';
 
 const { prefix } = chainConfig();
 

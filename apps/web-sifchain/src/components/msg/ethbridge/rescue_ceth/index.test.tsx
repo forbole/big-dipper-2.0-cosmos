@@ -1,18 +1,13 @@
 import renderer from 'react-test-renderer';
 import RescueCeth from '@/components/msg/ethbridge/rescue_ceth';
 import MsgRescueCeth from '@/models/msg/ethbridge/msg_rescue_ceth';
-import { MockTheme } from '@/tests/utils';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // mocks
 // ==================================
-
 jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
-));
-
-jest.mock('next-translate/Trans', () => (props: JSX.IntrinsicElements['div']) => (
-  <div id="Trans" {...props} />
 ));
 
 // ==================================
@@ -34,7 +29,7 @@ describe('screen: TransactionDetails/MsgRescueCeth', () => {
     const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
 
-    expect(component.root.findByProps({ id: 'Trans' }).props.i18nKey).toEqual(
+    expect(component.root.findByProps({ 'data-testid': 'Trans' }).props.i18nKey).toEqual(
       'message_contents:MsgRescueCeth'
     );
   });

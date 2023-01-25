@@ -1,7 +1,7 @@
 import renderer from 'react-test-renderer';
 import UpgradeClient from '@/components/msg/ibc/client_upgrade_client';
 import { MsgUpgradeClient } from '@/models';
-import { MockTheme } from '@/tests/utils';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // mocks

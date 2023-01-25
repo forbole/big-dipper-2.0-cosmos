@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import numeral from 'numeral';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import Typography from '@mui/material/Typography';
 import Tooltip from '@mui/material/Tooltip';
 import Box from '@/components/box';

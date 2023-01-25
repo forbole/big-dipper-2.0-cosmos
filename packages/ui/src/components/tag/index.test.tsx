@@ -1,6 +1,6 @@
 import renderer from 'react-test-renderer';
 import Tag from '@/components/tag';
-import { MockTheme } from '@/tests/utils';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // unit tests

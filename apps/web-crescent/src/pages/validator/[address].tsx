@@ -1,3 +1,4 @@
+import withGetServerSideProps from '@/pages/withGetServerSideProps';
 import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
@@ -12,5 +13,13 @@ const ValidatorDetailsPage: NextPage = () => {
 
   return null;
 };
+
+export const getServerSideProps = withGetServerSideProps(
+  'validators',
+  'transactions',
+  'accounts',
+  'message_labels',
+  'message_contents'
+);
 
 export default ValidatorDetailsPage;

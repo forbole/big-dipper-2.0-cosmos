@@ -1,5 +1,5 @@
 import { NextSeo } from 'next-seo';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import BoxDetails from '@/components/box_details';
 import Layout from '@/components/layout';
 import LoadAndExist from '@/components/load_and_exist';
@@ -21,42 +21,42 @@ const Params = () => {
 
   const staking = state.staking
     ? {
-        title: t('staking'),
+        title: t('staking') ?? undefined,
         details: formatStaking(state.staking, t),
       }
     : null;
 
   const slashing = state.slashing
     ? {
-        title: t('slashing'),
+        title: t('slashing') ?? undefined,
         details: formatSlashing(state.slashing, t),
       }
     : null;
 
   const minting = state.minting
     ? {
-        title: t('minting'),
+        title: t('minting') ?? undefined,
         details: formatMinting(state.minting, t),
       }
     : null;
 
   const distribution = state.distribution
     ? {
-        title: t('distribution'),
+        title: t('distribution') ?? undefined,
         details: formatDistribution(state.distribution, t),
       }
     : null;
 
   const gov = state.gov
     ? {
-        title: t('gov'),
+        title: t('gov') ?? undefined,
         details: formatGov(state.gov, t),
       }
     : null;
 
   const stakeibc = state.stakeibc
     ? {
-        title: t('stakeibc'),
+        title: t('stakeibc') ?? undefined,
         details: formatStakeibc(state.stakeibc, t),
       }
     : null;
@@ -64,12 +64,12 @@ const Params = () => {
   return (
     <>
       <NextSeo
-        title={t('params')}
+        title={t('params') ?? undefined}
         openGraph={{
-          title: t('params'),
+          title: t('params') ?? undefined,
         }}
       />
-      <Layout navTitle={t('params')}>
+      <Layout navTitle={t('params') ?? undefined}>
         <LoadAndExist loading={state.loading} exists={state.exists}>
           <span className={classes.root}>
             {staking && <BoxDetails {...staking} />}

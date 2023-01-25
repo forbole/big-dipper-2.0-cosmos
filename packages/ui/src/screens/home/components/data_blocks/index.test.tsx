@@ -8,18 +8,13 @@ import {
   TokenPriceListenerDocument,
 } from '@/graphql/types/general_types';
 import DataBlocks from '@/screens/home/components/data_blocks';
-import { MockTheme, wait } from '@/tests/utils';
+import MockTheme from '@/tests/mocks/MockTheme';
+import wait from '@/tests/utils/wait';
 
 // ==================================
 // mocks
 // ==================================
-const mockI18n = {
-  t: (key: string) => key,
-  lang: 'en',
-};
-
 beforeEach(() => {
-  jest.mock('next-translate/useTranslation', () => () => mockI18n);
   jest.mock(
     '@/screens/home/components/data_blocks/components/single_block',
     () => (props: JSX.IntrinsicElements['div']) => <div id="SingleBlock" {...props} />

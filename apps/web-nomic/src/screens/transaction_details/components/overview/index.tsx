@@ -1,4 +1,4 @@
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import numeral from 'numeral';
 import { FC } from 'react';
@@ -63,7 +63,11 @@ const Overview: FC<OverviewProps> = ({ className, data }) => {
   ];
 
   return (
-    <BoxDetails className={cx(classes.root, className)} title={t('overview')} details={details} />
+    <BoxDetails
+      className={cx(classes.root, className)}
+      title={t('overview') ?? undefined}
+      details={details}
+    />
   );
 };
 

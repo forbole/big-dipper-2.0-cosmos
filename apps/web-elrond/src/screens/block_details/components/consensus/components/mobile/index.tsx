@@ -1,6 +1,6 @@
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import { FC, LegacyRef, ReactNode, useMemo } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';

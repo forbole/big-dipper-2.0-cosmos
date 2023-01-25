@@ -1,11 +1,10 @@
-import Typography from '@mui/material/Typography';
-import Trans from 'next-translate/Trans';
-import useTranslation from 'next-translate/useTranslation';
-import { FC } from 'react';
 import Name from '@/components/name';
 import { MsgSend } from '@/models';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { formatNumber, formatToken } from '@/utils/format_token';
+import Typography from '@mui/material/Typography';
+import { Trans, useTranslation } from 'next-i18next';
+import { FC } from 'react';
 
 const Send: FC<{ message: MsgSend }> = (props) => {
   const { t } = useTranslation('transactions');

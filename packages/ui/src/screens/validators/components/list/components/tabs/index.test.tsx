@@ -1,6 +1,6 @@
 import renderer from 'react-test-renderer';
 import TabsHeader from '@/screens/validators/components/list/components/tabs';
-import { MockTheme } from '@/tests/utils';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // mocks

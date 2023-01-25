@@ -1,5 +1,5 @@
 import { NextSeo } from 'next-seo';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import Layout from '@/components/layout';
 import LoadAndExist from '@/components/load_and_exist';
 import List from '@/screens/proposals/components/list';
@@ -14,12 +14,12 @@ const Proposals = () => {
   return (
     <>
       <NextSeo
-        title={t('proposals')}
+        title={t('proposals') ?? undefined}
         openGraph={{
-          title: t('proposals'),
+          title: t('proposals') ?? undefined,
         }}
       />
-      <Layout navTitle={t('proposals')} className={classes.root}>
+      <Layout navTitle={t('proposals') ?? undefined} className={classes.root}>
         <LoadAndExist loading={state.loading} exists={state.exists}>
           <List
             items={state.items}

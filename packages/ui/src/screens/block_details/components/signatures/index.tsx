@@ -5,7 +5,7 @@ import Mobile from '@/screens/block_details/components/signatures/components/mob
 import useStyles from '@/screens/block_details/components/signatures/styles';
 import { useDisplayStyles } from '@/styles/useSharedStyles';
 import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import { FC } from 'react';
 
 type SignaturesProps = ComponentDefault & {

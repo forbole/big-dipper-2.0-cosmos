@@ -1,6 +1,6 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import Layout from '@/components/layout';
 import LoadAndExist from '@/components/load_and_exist';
 import Profile from '@/screens/token_details/components/profile';
@@ -18,12 +18,12 @@ const TokenDetails = () => {
   return (
     <>
       <NextSeo
-        title={t('tokenDetails')}
+        title={t('tokenDetails') ?? undefined}
         openGraph={{
-          title: t('tokenDetails'),
+          title: t('tokenDetails') ?? undefined,
         }}
       />
-      <Layout navTitle={t('tokenDetails')} className={classes.root}>
+      <Layout navTitle={t('tokenDetails') ?? undefined} className={classes.root}>
         <LoadAndExist loading={state.loading} exists={state.exists}>
           <Profile className={classes.profile} profile={state.profile} />
           <Stats className={classes.stats} stats={state.stats} />

@@ -1,7 +1,7 @@
 import renderer from 'react-test-renderer';
 import { useRecoilValue } from 'recoil';
 import Networks from '@/components/nav/components/networks';
-import { MockTheme } from '@/tests/utils';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // global setup

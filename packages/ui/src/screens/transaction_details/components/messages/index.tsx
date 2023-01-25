@@ -2,7 +2,7 @@ import Divider from '@mui/material/Divider';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import { ChangeEvent, FC, LegacyRef } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { ListChildComponentProps, VariableSizeList as List } from 'react-window';

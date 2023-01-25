@@ -1,28 +1,13 @@
 import renderer from 'react-test-renderer';
 import Vote from '@/components/msg/governance/vote';
 import { MsgVote } from '@/models';
-import { MockTheme } from '@/tests/utils';
-
-const mockI18n = {
-  t: (key: string) => key,
-  lang: 'en',
-};
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // mocks
 // ==================================
 jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
-));
-
-jest.mock('next-translate/useTranslation', () => () => mockI18n);
-
-jest.mock('next/link', () => ({
-  Link: (props: JSX.IntrinsicElements['div']) => <div id="Link" {...props} />,
-}));
-
-jest.mock('next-translate/Trans', () => (props: JSX.IntrinsicElements['div']) => (
-  <div id="Trans" {...props} />
 ));
 
 // ==================================
@@ -49,7 +34,7 @@ describe('screen: TransactionDetails/MsgVote', () => {
     );
     const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
-    expect(component.root.findByProps({ id: 'Trans' }).props.i18nKey).toEqual(
+    expect(component.root.findByProps({ 'data-testid': 'Trans' }).props.i18nKey).toEqual(
       'message_contents:txVoteContent'
     );
   });

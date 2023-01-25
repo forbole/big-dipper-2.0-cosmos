@@ -1,6 +1,6 @@
 import renderer from 'react-test-renderer';
 import TabsHeader from '@/screens/validator_details/components/staking/components/tabs';
-import { MockTheme } from '@/tests/utils';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // unit tests

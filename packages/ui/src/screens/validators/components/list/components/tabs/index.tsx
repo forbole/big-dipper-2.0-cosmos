@@ -1,6 +1,6 @@
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import { ComponentProps, FC } from 'react';
 import Search from '@/components/search';
 import useStyles from '@/screens/validators/components/list/components/tabs/styles';
@@ -28,7 +28,7 @@ const TabsHeader: FC<TabsHeaderProps> = ({ className, tab, handleTabChange, hand
       <Search
         className={classes.searchBar}
         callback={handleSearch}
-        placeholder={t('searchValidator')}
+        placeholder={t('searchValidator') ?? undefined}
       />
     </div>
   );

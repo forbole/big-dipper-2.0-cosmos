@@ -1,16 +1,10 @@
 import renderer from 'react-test-renderer';
 import Desktop from '@/screens/home/components/transactions/components/desktop';
-import { MockTheme } from '@/tests/utils';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // mocks
 // ==================================
-const mockI18n = {
-  t: (key: string) => key,
-  lang: 'en',
-};
-jest.mock('next-translate/useTranslation', () => () => mockI18n);
-
 jest.mock('@/components/result', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Result" {...props} />
 ));

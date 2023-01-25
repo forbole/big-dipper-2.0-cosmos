@@ -10,7 +10,7 @@ import { ACCOUNT_DETAILS } from '@/utils/go_to_page';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import Big from 'big.js';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import numeral from 'numeral';
 import { FC } from 'react';

@@ -8,7 +8,7 @@ import useStyles from '@/screens/providers/components/providers_list/styles';
 import type { ProvidersListState } from '@/screens/providers/types';
 import { useDisplayStyles } from '@/styles/useSharedStyles';
 import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import { FC } from 'react';
 
 export interface ProvidersListProps extends ComponentDefault {
@@ -39,7 +39,7 @@ const ProvidersList: FC<ProvidersListProps> = (props) => {
         <Search
           className={classes.searchBar}
           callback={handleSearch}
-          placeholder={t('searchProviders')}
+          placeholder={t('searchProviders') ?? undefined}
         />
       </div>
 

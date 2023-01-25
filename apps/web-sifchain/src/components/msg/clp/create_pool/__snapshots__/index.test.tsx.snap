@@ -14,24 +14,17 @@ exports[`screen: TransactionDetails/CreatePool matches snapshot 1`] = `
 <p
   className="MuiTypography-root MuiTypography-body1 emotion-0"
 >
-  <div
-    components={
-      [
-        <Unknown
-          address="signer"
-          name="signer"
-        />,
-        <b />,
-      ]
-    }
+  <span
+    data-testid="Trans"
     i18nKey="message_contents:MsgCreatePool"
-    id="Trans"
-    values={
-      {
-        "externalAssetAmount": "0 BAR",
-        "nativeAssetAmount": "0.000000000004 ROWAN",
-      }
-    }
-  />
+  >
+    <div
+      address="signer"
+      id="Name"
+      name="signer"
+    />
+    <b />
+    {"nativeAssetAmount":"0.000000000004 ROWAN","externalAssetAmount":"0 BAR"}
+  </span>
 </p>
 `;

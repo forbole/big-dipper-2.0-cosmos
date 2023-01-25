@@ -1,7 +1,7 @@
 import renderer from 'react-test-renderer';
 import ConnectionEnd from '@/components/msg/ibc/connection_end';
 import { MsgConnectionEnd } from '@/models';
-import { MockTheme } from '@/tests/utils';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // mocks

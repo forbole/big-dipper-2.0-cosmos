@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import { FC, ReactNode } from 'react';
 import useStyles from '@/components/single_transaction_mobile/styles';
 

@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const nextTranslate = require('next-translate');
 const { basename, resolve } = require('path');
 
 /**
@@ -90,7 +89,7 @@ function getNextConfig(dir) {
   // each chain has its own chains/<chainName>.json
   const [_match, chainName] = /web-(.+)$/.exec(basename(dir)) ?? ['', 'base'];
   const basePath = (process.env.BASE_PATH || `${`/${chainName}`}`).replace(/^(\/|\/base)$/, '');
-  return nextTranslate(getBaseConfig(basePath, chainName));
+  return getBaseConfig(basePath, chainName);
 }
 
 module.exports = getNextConfig;

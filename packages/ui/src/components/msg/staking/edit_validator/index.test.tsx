@@ -1,7 +1,7 @@
 import renderer from 'react-test-renderer';
 import EditValidator from '@/components/msg/staking/edit_validator';
 import { MsgEditValidator } from '@/models';
-import { MockTheme } from '@/tests/utils';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // mocks

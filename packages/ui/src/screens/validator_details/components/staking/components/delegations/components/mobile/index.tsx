@@ -1,6 +1,6 @@
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import { FC, Fragment } from 'react';
 import AvatarName from '@/components/avatar_name';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';

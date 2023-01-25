@@ -1,7 +1,7 @@
 import useStyles from '@/screens/assets/styles';
 import SearchIcon from '@mui/icons-material/Search';
 import TextField from '@mui/material/TextField';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import { FC } from 'react';
 
 export interface SearchBoxProps {
@@ -18,7 +18,7 @@ const SearchBox: FC<SearchBoxProps> = ({ searchText, handleChange }) => {
       value={searchText}
       onChange={handleChange}
       type="search"
-      placeholder={t('Search by asset name')}
+      placeholder={t('Search by asset name') ?? undefined}
       InputProps={{ startAdornment: <SearchIcon /> }}
     />
   );

@@ -3,7 +3,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import { FC } from 'react';
 import FilterIcon from 'shared-utils/assets/icon-filter.svg';
 import { getFilterLabels } from '@/components/transaction_messages_filter/utils';

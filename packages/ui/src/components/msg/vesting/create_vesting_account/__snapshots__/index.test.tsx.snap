@@ -14,17 +14,15 @@ exports[`screen: TransactionDetails/CreateVestingAccount matches snapshot 1`] = 
 <p
   className="MuiTypography-root MuiTypography-body1 emotion-0"
 >
-  <div
-    components={
-      [
-        <Unknown
-          address="toAddress"
-          name="toAddress"
-        />,
-      ]
-    }
+  <span
+    data-testid="Trans"
     i18nKey="message_contents:MsgCreateVestingAccount"
-    id="Trans"
-  />
+  >
+    <div
+      address="toAddress"
+      id="Name"
+      name="toAddress"
+    />
+  </span>
 </p>
 `;

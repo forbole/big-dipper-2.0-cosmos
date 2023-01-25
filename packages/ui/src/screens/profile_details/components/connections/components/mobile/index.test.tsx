@@ -1,17 +1,11 @@
 import renderer from 'react-test-renderer';
 import type { AutoSizerProps } from 'react-virtualized-auto-sizer';
 import Mobile from '@/screens/profile_details/components/connections/components/mobile';
-import { MockTheme } from '@/tests/utils';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // mocks
 // ==================================
-const mockI18n = {
-  t: (key: string) => key,
-  lang: 'en',
-};
-jest.mock('next-translate/useTranslation', () => () => mockI18n);
-
 jest.mock(
   'react-virtualized-auto-sizer',
   () =>

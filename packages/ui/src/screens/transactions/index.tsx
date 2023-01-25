@@ -1,5 +1,5 @@
 import { NextSeo } from 'next-seo';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import { useRecoilValue } from 'recoil';
 import Box from '@/components/box';
 import Layout from '@/components/layout';
@@ -21,12 +21,12 @@ const Transactions = () => {
   return (
     <>
       <NextSeo
-        title={t('transactions')}
+        title={t('transactions') ?? undefined}
         openGraph={{
-          title: t('transactions'),
+          title: t('transactions') ?? undefined,
         }}
       />
-      <Layout navTitle={t('transactions')} className={classes.root}>
+      <Layout navTitle={t('transactions') ?? undefined} className={classes.root}>
         <LoadAndExist exists={state.exists} loading={state.loading}>
           <Box className={classes.box}>
             {txListFormat === 'compact' ? (

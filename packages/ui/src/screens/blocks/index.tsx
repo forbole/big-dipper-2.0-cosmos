@@ -8,7 +8,7 @@ import { useBlocks } from '@/screens/blocks/hooks';
 import useStyles from '@/screens/blocks/styles';
 import { useDisplayStyles } from '@/styles/useSharedStyles';
 import { NextSeo } from 'next-seo';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import { ReactNode } from 'react';
 
 const Blocks = () => {
@@ -44,12 +44,12 @@ const Blocks = () => {
   return (
     <>
       <NextSeo
-        title={t('blocks')}
+        title={t('blocks') ?? undefined}
         openGraph={{
-          title: t('blocks'),
+          title: t('blocks') ?? undefined,
         }}
       />
-      <Layout navTitle={t('blocks')} className={classes.root}>
+      <Layout navTitle={t('blocks') ?? undefined} className={classes.root}>
         <LoadAndExist loading={state.loading} exists={state.exists}>
           <Box className={classes.box}>{box}</Box>
         </LoadAndExist>

@@ -1,6 +1,6 @@
 import renderer from 'react-test-renderer';
 import TransactionList from '@/components/transactions_list_details/components/list';
-import { MockTheme } from '@/tests/utils';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // mocks
@@ -18,12 +18,6 @@ jest.mock(
   '@/components/transactions_list_details/components/list/components/single_transaction',
   () => (props: JSX.IntrinsicElements['div']) => <div id="SingleTransaction" {...props} />
 );
-
-const mockI18n = {
-  t: (key: string) => key,
-  lang: 'en',
-};
-jest.mock('next-translate/useTranslation', () => () => mockI18n);
 
 // ==================================
 // unit tests

@@ -1,18 +1,13 @@
 import renderer from 'react-test-renderer';
 import CreateGroupAccountRequest from '@/components/msg/group/create_group_account_request';
 import MsgCreateGroupAccountRequest from '@/models/msg/group/msg_create_group_account_request';
-import { MockTheme } from '@/tests/utils';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // mocks
 // ==================================
-
 jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
-));
-
-jest.mock('next-translate/Trans', () => (props: JSX.IntrinsicElements['div']) => (
-  <div id="Trans" {...props} />
 ));
 
 // ==================================
@@ -35,7 +30,7 @@ describe('screen: TransactionDetails/CreateGroupAccountRequest', () => {
     const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
 
-    expect(component.root.findByProps({ id: 'Trans' }).props.i18nKey).toEqual(
+    expect(component.root.findByProps({ 'data-testid': 'Trans' }).props.i18nKey).toEqual(
       'message_contents:MsgCreateGroupAccountRequest'
     );
   });
