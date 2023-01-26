@@ -7,7 +7,6 @@ const ErrorPage: NextPage = () => <Error />;
 
 export const getInitialProps = async (contextData: NextPageContext) => {
   await captureUnderscoreErrorException(contextData);
-  const { res, err } = contextData;
   return NextErrorComponent.getInitialProps(contextData);
 };
 
