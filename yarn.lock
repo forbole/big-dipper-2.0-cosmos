@@ -3260,6 +3260,42 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@json2csv/formatters@npm:^6.1.2":
+  version: 6.1.2
+  resolution: "@json2csv/formatters@npm:6.1.2"
+  checksum: 058c288c82aaa0dfe2d06abf70ff114f20d8f77ad8bc5c24e6fbd1ba48eaa65837b405c1887caa97300231f50464b2ac3b1f6bfc158f3ccc246c511e408729f7
+  languageName: node
+  linkType: hard
+
+"@json2csv/node@npm:^6.1.2":
+  version: 6.1.2
+  resolution: "@json2csv/node@npm:6.1.2"
+  dependencies:
+    "@json2csv/plainjs": ^6.1.2
+  checksum: 2f793134a4ba32e1da5a077963644c36a5190c72720c373f42fd74bbf48e36635529a9446f27624ad741eabb178569ae5e542aa52bc6e38f280fda81a8b9e854
+  languageName: node
+  linkType: hard
+
+"@json2csv/plainjs@npm:^6.1.2":
+  version: 6.1.2
+  resolution: "@json2csv/plainjs@npm:6.1.2"
+  dependencies:
+    "@json2csv/formatters": ^6.1.2
+    "@streamparser/json": ^0.0.10
+    lodash.get: ^4.4.2
+  checksum: fa6ea262c14204cc4bb43530f5d1ff2cad790818de7a777c68979a1faa99d450074de5b37d9979d4c30169743e3c2a2c669670d6e2e20214d7cc0c50e5474333
+  languageName: node
+  linkType: hard
+
+"@json2csv/transforms@npm:^6.1.2":
+  version: 6.1.2
+  resolution: "@json2csv/transforms@npm:6.1.2"
+  dependencies:
+    lodash.get: ^4.4.2
+  checksum: 395a0615d6afd806dd81dd8265be40036be20eb7af9aa10256d33152ef4cee4425250ea0c13bd4256d0796532c0df53fa5b040c3c17f6f3b715664febd376448
+  languageName: node
+  linkType: hard
+
 "@manypkg/find-root@npm:^1.1.0":
   version: 1.1.0
   resolution: "@manypkg/find-root@npm:1.1.0"
@@ -4002,6 +4038,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@streamparser/json@npm:^0.0.10":
+  version: 0.0.10
+  resolution: "@streamparser/json@npm:0.0.10"
+  checksum: 70312a774535ca19124bc7c0071d43e8bea0699c89ef9a322e4a6faddb324a870f0a23f7af51124b0bfebd8c082698df97e58387201fe2ad37ece32308b24641
+  languageName: node
+  linkType: hard
+
 "@svgr/babel-plugin-add-jsx-attribute@npm:^6.5.1":
   version: 6.5.1
   resolution: "@svgr/babel-plugin-add-jsx-attribute@npm:6.5.1"
@@ -4444,6 +4487,13 @@ __metadata:
   version: 1.0.0
   resolution: "@types/estree@npm:1.0.0"
   checksum: 910d97fb7092c6738d30a7430ae4786a38542023c6302b95d46f49420b797f21619cdde11fa92b338366268795884111c2eb10356e4bd2c8ad5b92941e9e6443
+  languageName: node
+  linkType: hard
+
+"@types/file-saver@npm:^2":
+  version: 2.0.5
+  resolution: "@types/file-saver@npm:2.0.5"
+  checksum: a31d6ee2abf99598647139f8f35b37b6e1bacf6c7ddf05c66651b9b0e6e53381aa0e8ed13f37faa6e496e0eb1da87c97e6c70fd589d5b83b0c95c57cb64ce92a
   languageName: node
   linkType: hard
 
@@ -8212,6 +8262,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"file-saver@npm:^2.0.5":
+  version: 2.0.5
+  resolution: "file-saver@npm:2.0.5"
+  checksum: c62d96e5cebc58b4bdf3ae8a60d5cf9607ad82f75f798c33a4ee63435ac2203002584d5256a2a780eda7feb5e19dc3b6351c2212e58b3f529e63d265a7cc79f7
+  languageName: node
+  linkType: hard
+
 "fill-range@npm:^7.0.1":
   version: 7.0.1
   resolution: "fill-range@npm:7.0.1"
@@ -10633,6 +10690,13 @@ __metadata:
   version: 4.0.8
   resolution: "lodash.debounce@npm:4.0.8"
   checksum: a3f527d22c548f43ae31c861ada88b2637eb48ac6aa3eb56e82d44917971b8aa96fbb37aa60efea674dc4ee8c42074f90f7b1f772e9db375435f6c83a19b3bc6
+  languageName: node
+  linkType: hard
+
+"lodash.get@npm:^4.4.2":
+  version: 4.4.2
+  resolution: "lodash.get@npm:4.4.2"
+  checksum: e403047ddb03181c9d0e92df9556570e2b67e0f0a930fcbbbd779370972368f5568e914f913e93f3b08f6d492abc71e14d4e9b7a18916c31fa04bd2306efe545
   languageName: node
   linkType: hard
 
@@ -14376,6 +14440,9 @@ __metadata:
     "@graphql-tools/mock": ^8.7.14
     "@graphql-tools/schema": ^9.0.12
     "@jest/globals": ^29.3.1
+    "@json2csv/formatters": ^6.1.2
+    "@json2csv/node": ^6.1.2
+    "@json2csv/transforms": ^6.1.2
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.4
     "@next/eslint-plugin-next": ^13.1.1
@@ -14390,6 +14457,7 @@ __metadata:
     "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
+    "@types/file-saver": ^2
     "@types/jest": ^29.2.5
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
@@ -14427,6 +14495,7 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
+    file-saver: ^2.0.5
     framer-motion: ^8.4.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
@@ -14466,7 +14535,6 @@ __metadata:
     typanion: ^3.12.1
     typescript: ^4.9.4
     ws: ^8.12.0
-    yaml: ^2.2.1
   languageName: unknown
   linkType: soft
 
@@ -14718,6 +14786,9 @@ __metadata:
     "@graphql-tools/mock": ^8.7.14
     "@graphql-tools/schema": ^9.0.12
     "@jest/globals": ^29.3.1
+    "@json2csv/formatters": ^6.1.2
+    "@json2csv/node": ^6.1.2
+    "@json2csv/transforms": ^6.1.2
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.4
     "@next/eslint-plugin-next": ^13.1.1
@@ -14732,6 +14803,7 @@ __metadata:
     "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
+    "@types/file-saver": ^2
     "@types/jest": ^29.2.5
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
@@ -14769,6 +14841,7 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
+    file-saver: ^2.0.5
     framer-motion: ^8.4.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
@@ -14809,7 +14882,6 @@ __metadata:
     typescript: ^4.9.4
     ui: "*"
     ws: ^8.12.0
-    yaml: ^2.2.1
   languageName: unknown
   linkType: soft
 
@@ -14832,6 +14904,9 @@ __metadata:
     "@graphql-tools/mock": ^8.7.14
     "@graphql-tools/schema": ^9.0.12
     "@jest/globals": ^29.3.1
+    "@json2csv/formatters": ^6.1.2
+    "@json2csv/node": ^6.1.2
+    "@json2csv/transforms": ^6.1.2
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.4
     "@next/eslint-plugin-next": ^13.1.1
@@ -14846,6 +14921,7 @@ __metadata:
     "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
+    "@types/file-saver": ^2
     "@types/jest": ^29.2.5
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
@@ -14883,6 +14959,7 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
+    file-saver: ^2.0.5
     framer-motion: ^8.4.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
@@ -14923,7 +15000,6 @@ __metadata:
     typescript: ^4.9.4
     ui: "*"
     ws: ^8.12.0
-    yaml: ^2.2.1
   languageName: unknown
   linkType: soft
 
@@ -14946,6 +15022,9 @@ __metadata:
     "@graphql-tools/mock": ^8.7.14
     "@graphql-tools/schema": ^9.0.12
     "@jest/globals": ^29.3.1
+    "@json2csv/formatters": ^6.1.2
+    "@json2csv/node": ^6.1.2
+    "@json2csv/transforms": ^6.1.2
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.4
     "@next/eslint-plugin-next": ^13.1.1
@@ -14960,6 +15039,7 @@ __metadata:
     "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
+    "@types/file-saver": ^2
     "@types/jest": ^29.2.5
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
@@ -14997,6 +15077,7 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
+    file-saver: ^2.0.5
     framer-motion: ^8.4.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
@@ -15037,7 +15118,6 @@ __metadata:
     typescript: ^4.9.4
     ui: "*"
     ws: ^8.12.0
-    yaml: ^2.2.1
   languageName: unknown
   linkType: soft
 
@@ -15060,6 +15140,9 @@ __metadata:
     "@graphql-tools/mock": ^8.7.14
     "@graphql-tools/schema": ^9.0.12
     "@jest/globals": ^29.3.1
+    "@json2csv/formatters": ^6.1.2
+    "@json2csv/node": ^6.1.2
+    "@json2csv/transforms": ^6.1.2
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.4
     "@next/eslint-plugin-next": ^13.1.1
@@ -15074,6 +15157,7 @@ __metadata:
     "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
+    "@types/file-saver": ^2
     "@types/jest": ^29.2.5
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
@@ -15111,6 +15195,7 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
+    file-saver: ^2.0.5
     framer-motion: ^8.4.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
@@ -15151,7 +15236,6 @@ __metadata:
     typescript: ^4.9.4
     ui: "*"
     ws: ^8.12.0
-    yaml: ^2.2.1
   languageName: unknown
   linkType: soft
 
@@ -15174,6 +15258,9 @@ __metadata:
     "@graphql-tools/mock": ^8.7.14
     "@graphql-tools/schema": ^9.0.12
     "@jest/globals": ^29.3.1
+    "@json2csv/formatters": ^6.1.2
+    "@json2csv/node": ^6.1.2
+    "@json2csv/transforms": ^6.1.2
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.4
     "@next/eslint-plugin-next": ^13.1.1
@@ -15188,6 +15275,7 @@ __metadata:
     "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
+    "@types/file-saver": ^2
     "@types/jest": ^29.2.5
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
@@ -15225,6 +15313,7 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
+    file-saver: ^2.0.5
     framer-motion: ^8.4.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
@@ -15265,7 +15354,6 @@ __metadata:
     typescript: ^4.9.4
     ui: "*"
     ws: ^8.12.0
-    yaml: ^2.2.1
   languageName: unknown
   linkType: soft
 
@@ -15288,6 +15376,9 @@ __metadata:
     "@graphql-tools/mock": ^8.7.14
     "@graphql-tools/schema": ^9.0.12
     "@jest/globals": ^29.3.1
+    "@json2csv/formatters": ^6.1.2
+    "@json2csv/node": ^6.1.2
+    "@json2csv/transforms": ^6.1.2
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.4
     "@next/eslint-plugin-next": ^13.1.1
@@ -15302,6 +15393,7 @@ __metadata:
     "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
+    "@types/file-saver": ^2
     "@types/jest": ^29.2.5
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
@@ -15339,6 +15431,7 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
+    file-saver: ^2.0.5
     framer-motion: ^8.4.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
@@ -15379,7 +15472,6 @@ __metadata:
     typescript: ^4.9.4
     ui: "*"
     ws: ^8.12.0
-    yaml: ^2.2.1
   languageName: unknown
   linkType: soft
 
@@ -15402,6 +15494,9 @@ __metadata:
     "@graphql-tools/mock": ^8.7.14
     "@graphql-tools/schema": ^9.0.12
     "@jest/globals": ^29.3.1
+    "@json2csv/formatters": ^6.1.2
+    "@json2csv/node": ^6.1.2
+    "@json2csv/transforms": ^6.1.2
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.4
     "@next/eslint-plugin-next": ^13.1.1
@@ -15416,6 +15511,7 @@ __metadata:
     "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
+    "@types/file-saver": ^2
     "@types/jest": ^29.2.5
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
@@ -15453,6 +15549,7 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
+    file-saver: ^2.0.5
     framer-motion: ^8.4.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
@@ -15493,7 +15590,6 @@ __metadata:
     typescript: ^4.9.4
     ui: "*"
     ws: ^8.12.0
-    yaml: ^2.2.1
   languageName: unknown
   linkType: soft
 
@@ -15516,6 +15612,9 @@ __metadata:
     "@graphql-tools/mock": ^8.7.14
     "@graphql-tools/schema": ^9.0.12
     "@jest/globals": ^29.3.1
+    "@json2csv/formatters": ^6.1.2
+    "@json2csv/node": ^6.1.2
+    "@json2csv/transforms": ^6.1.2
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.4
     "@next/eslint-plugin-next": ^13.1.1
@@ -15530,6 +15629,7 @@ __metadata:
     "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
+    "@types/file-saver": ^2
     "@types/jest": ^29.2.5
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
@@ -15567,6 +15667,7 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
+    file-saver: ^2.0.5
     framer-motion: ^8.4.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
@@ -15607,7 +15708,6 @@ __metadata:
     typescript: ^4.9.4
     ui: "*"
     ws: ^8.12.0
-    yaml: ^2.2.1
   languageName: unknown
   linkType: soft
 
@@ -15630,6 +15730,9 @@ __metadata:
     "@graphql-tools/mock": ^8.7.14
     "@graphql-tools/schema": ^9.0.12
     "@jest/globals": ^29.3.1
+    "@json2csv/formatters": ^6.1.2
+    "@json2csv/node": ^6.1.2
+    "@json2csv/transforms": ^6.1.2
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.4
     "@next/eslint-plugin-next": ^13.1.1
@@ -15644,6 +15747,7 @@ __metadata:
     "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
+    "@types/file-saver": ^2
     "@types/jest": ^29.2.5
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
@@ -15681,6 +15785,7 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
+    file-saver: ^2.0.5
     framer-motion: ^8.4.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
@@ -15721,7 +15826,6 @@ __metadata:
     typescript: ^4.9.4
     ui: "*"
     ws: ^8.12.0
-    yaml: ^2.2.1
   languageName: unknown
   linkType: soft
 
@@ -15744,6 +15848,9 @@ __metadata:
     "@graphql-tools/mock": ^8.7.14
     "@graphql-tools/schema": ^9.0.12
     "@jest/globals": ^29.3.1
+    "@json2csv/formatters": ^6.1.2
+    "@json2csv/node": ^6.1.2
+    "@json2csv/transforms": ^6.1.2
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.4
     "@next/eslint-plugin-next": ^13.1.1
@@ -15758,6 +15865,7 @@ __metadata:
     "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
+    "@types/file-saver": ^2
     "@types/jest": ^29.2.5
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
@@ -15795,6 +15903,7 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
+    file-saver: ^2.0.5
     framer-motion: ^8.4.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
@@ -15835,7 +15944,6 @@ __metadata:
     typescript: ^4.9.4
     ui: "*"
     ws: ^8.12.0
-    yaml: ^2.2.1
   languageName: unknown
   linkType: soft
 
@@ -15858,6 +15966,9 @@ __metadata:
     "@graphql-tools/mock": ^8.7.14
     "@graphql-tools/schema": ^9.0.12
     "@jest/globals": ^29.3.1
+    "@json2csv/formatters": ^6.1.2
+    "@json2csv/node": ^6.1.2
+    "@json2csv/transforms": ^6.1.2
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.4
     "@next/eslint-plugin-next": ^13.1.1
@@ -15872,6 +15983,7 @@ __metadata:
     "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
+    "@types/file-saver": ^2
     "@types/jest": ^29.2.5
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
@@ -15909,6 +16021,7 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
+    file-saver: ^2.0.5
     framer-motion: ^8.4.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
@@ -15949,7 +16062,6 @@ __metadata:
     typescript: ^4.9.4
     ui: "*"
     ws: ^8.12.0
-    yaml: ^2.2.1
   languageName: unknown
   linkType: soft
 
@@ -15972,6 +16084,9 @@ __metadata:
     "@graphql-tools/mock": ^8.7.14
     "@graphql-tools/schema": ^9.0.12
     "@jest/globals": ^29.3.1
+    "@json2csv/formatters": ^6.1.2
+    "@json2csv/node": ^6.1.2
+    "@json2csv/transforms": ^6.1.2
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.4
     "@next/eslint-plugin-next": ^13.1.1
@@ -15986,6 +16101,7 @@ __metadata:
     "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
+    "@types/file-saver": ^2
     "@types/jest": ^29.2.5
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
@@ -16023,6 +16139,7 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
+    file-saver: ^2.0.5
     framer-motion: ^8.4.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
@@ -16063,7 +16180,6 @@ __metadata:
     typescript: ^4.9.4
     ui: "*"
     ws: ^8.12.0
-    yaml: ^2.2.1
   languageName: unknown
   linkType: soft
 
@@ -16086,6 +16202,9 @@ __metadata:
     "@graphql-tools/mock": ^8.7.14
     "@graphql-tools/schema": ^9.0.12
     "@jest/globals": ^29.3.1
+    "@json2csv/formatters": ^6.1.2
+    "@json2csv/node": ^6.1.2
+    "@json2csv/transforms": ^6.1.2
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.4
     "@next/eslint-plugin-next": ^13.1.1
@@ -16100,6 +16219,7 @@ __metadata:
     "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
+    "@types/file-saver": ^2
     "@types/jest": ^29.2.5
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
@@ -16137,6 +16257,7 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
+    file-saver: ^2.0.5
     framer-motion: ^8.4.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
@@ -16177,7 +16298,6 @@ __metadata:
     typescript: ^4.9.4
     ui: "*"
     ws: ^8.12.0
-    yaml: ^2.2.1
   languageName: unknown
   linkType: soft
 
@@ -16200,6 +16320,9 @@ __metadata:
     "@graphql-tools/mock": ^8.7.14
     "@graphql-tools/schema": ^9.0.12
     "@jest/globals": ^29.3.1
+    "@json2csv/formatters": ^6.1.2
+    "@json2csv/node": ^6.1.2
+    "@json2csv/transforms": ^6.1.2
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.4
     "@next/eslint-plugin-next": ^13.1.1
@@ -16214,6 +16337,7 @@ __metadata:
     "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
+    "@types/file-saver": ^2
     "@types/jest": ^29.2.5
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
@@ -16251,6 +16375,7 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
+    file-saver: ^2.0.5
     framer-motion: ^8.4.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
@@ -16291,7 +16416,6 @@ __metadata:
     typescript: ^4.9.4
     ui: "*"
     ws: ^8.12.0
-    yaml: ^2.2.1
   languageName: unknown
   linkType: soft
 
@@ -16314,6 +16438,9 @@ __metadata:
     "@graphql-tools/mock": ^8.7.14
     "@graphql-tools/schema": ^9.0.12
     "@jest/globals": ^29.3.1
+    "@json2csv/formatters": ^6.1.2
+    "@json2csv/node": ^6.1.2
+    "@json2csv/transforms": ^6.1.2
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.4
     "@next/eslint-plugin-next": ^13.1.1
@@ -16328,6 +16455,7 @@ __metadata:
     "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
+    "@types/file-saver": ^2
     "@types/jest": ^29.2.5
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
@@ -16365,6 +16493,7 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
+    file-saver: ^2.0.5
     framer-motion: ^8.4.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
@@ -16405,7 +16534,6 @@ __metadata:
     typescript: ^4.9.4
     ui: "*"
     ws: ^8.12.0
-    yaml: ^2.2.1
   languageName: unknown
   linkType: soft
 
@@ -16428,6 +16556,9 @@ __metadata:
     "@graphql-tools/mock": ^8.7.14
     "@graphql-tools/schema": ^9.0.12
     "@jest/globals": ^29.3.1
+    "@json2csv/formatters": ^6.1.2
+    "@json2csv/node": ^6.1.2
+    "@json2csv/transforms": ^6.1.2
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.4
     "@next/eslint-plugin-next": ^13.1.1
@@ -16442,6 +16573,7 @@ __metadata:
     "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
+    "@types/file-saver": ^2
     "@types/jest": ^29.2.5
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
@@ -16479,6 +16611,7 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
+    file-saver: ^2.0.5
     framer-motion: ^8.4.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
@@ -16519,7 +16652,6 @@ __metadata:
     typescript: ^4.9.4
     ui: "*"
     ws: ^8.12.0
-    yaml: ^2.2.1
   languageName: unknown
   linkType: soft
 
@@ -16542,6 +16674,9 @@ __metadata:
     "@graphql-tools/mock": ^8.7.14
     "@graphql-tools/schema": ^9.0.12
     "@jest/globals": ^29.3.1
+    "@json2csv/formatters": ^6.1.2
+    "@json2csv/node": ^6.1.2
+    "@json2csv/transforms": ^6.1.2
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.4
     "@next/eslint-plugin-next": ^13.1.1
@@ -16556,6 +16691,7 @@ __metadata:
     "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
+    "@types/file-saver": ^2
     "@types/jest": ^29.2.5
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
@@ -16593,6 +16729,7 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
+    file-saver: ^2.0.5
     framer-motion: ^8.4.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
@@ -16633,7 +16770,6 @@ __metadata:
     typescript: ^4.9.4
     ui: "*"
     ws: ^8.12.0
-    yaml: ^2.2.1
   languageName: unknown
   linkType: soft
 
@@ -16656,6 +16792,9 @@ __metadata:
     "@graphql-tools/mock": ^8.7.14
     "@graphql-tools/schema": ^9.0.12
     "@jest/globals": ^29.3.1
+    "@json2csv/formatters": ^6.1.2
+    "@json2csv/node": ^6.1.2
+    "@json2csv/transforms": ^6.1.2
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.4
     "@next/eslint-plugin-next": ^13.1.1
@@ -16670,6 +16809,7 @@ __metadata:
     "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
+    "@types/file-saver": ^2
     "@types/jest": ^29.2.5
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
@@ -16707,6 +16847,7 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
+    file-saver: ^2.0.5
     framer-motion: ^8.4.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
@@ -16747,7 +16888,6 @@ __metadata:
     typescript: ^4.9.4
     ui: "*"
     ws: ^8.12.0
-    yaml: ^2.2.1
   languageName: unknown
   linkType: soft
 
@@ -16770,6 +16910,9 @@ __metadata:
     "@graphql-tools/mock": ^8.7.14
     "@graphql-tools/schema": ^9.0.12
     "@jest/globals": ^29.3.1
+    "@json2csv/formatters": ^6.1.2
+    "@json2csv/node": ^6.1.2
+    "@json2csv/transforms": ^6.1.2
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.4
     "@next/eslint-plugin-next": ^13.1.1
@@ -16784,6 +16927,7 @@ __metadata:
     "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
+    "@types/file-saver": ^2
     "@types/jest": ^29.2.5
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
@@ -16821,6 +16965,7 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
+    file-saver: ^2.0.5
     framer-motion: ^8.4.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
@@ -16861,7 +17006,6 @@ __metadata:
     typescript: ^4.9.4
     ui: "*"
     ws: ^8.12.0
-    yaml: ^2.2.1
   languageName: unknown
   linkType: soft
 
@@ -16884,6 +17028,9 @@ __metadata:
     "@graphql-tools/mock": ^8.7.14
     "@graphql-tools/schema": ^9.0.12
     "@jest/globals": ^29.3.1
+    "@json2csv/formatters": ^6.1.2
+    "@json2csv/node": ^6.1.2
+    "@json2csv/transforms": ^6.1.2
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.4
     "@next/eslint-plugin-next": ^13.1.1
@@ -16898,6 +17045,7 @@ __metadata:
     "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
+    "@types/file-saver": ^2
     "@types/jest": ^29.2.5
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
@@ -16935,6 +17083,7 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
+    file-saver: ^2.0.5
     framer-motion: ^8.4.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
@@ -16975,7 +17124,6 @@ __metadata:
     typescript: ^4.9.4
     ui: "*"
     ws: ^8.12.0
-    yaml: ^2.2.1
   languageName: unknown
   linkType: soft
 
@@ -16998,6 +17146,9 @@ __metadata:
     "@graphql-tools/mock": ^8.7.14
     "@graphql-tools/schema": ^9.0.12
     "@jest/globals": ^29.3.1
+    "@json2csv/formatters": ^6.1.2
+    "@json2csv/node": ^6.1.2
+    "@json2csv/transforms": ^6.1.2
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.4
     "@next/eslint-plugin-next": ^13.1.1
@@ -17012,6 +17163,7 @@ __metadata:
     "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
+    "@types/file-saver": ^2
     "@types/jest": ^29.2.5
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
@@ -17049,6 +17201,7 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
+    file-saver: ^2.0.5
     framer-motion: ^8.4.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
@@ -17089,7 +17242,6 @@ __metadata:
     typescript: ^4.9.4
     ui: "*"
     ws: ^8.12.0
-    yaml: ^2.2.1
   languageName: unknown
   linkType: soft
 
@@ -17112,6 +17264,9 @@ __metadata:
     "@graphql-tools/mock": ^8.7.14
     "@graphql-tools/schema": ^9.0.12
     "@jest/globals": ^29.3.1
+    "@json2csv/formatters": ^6.1.2
+    "@json2csv/node": ^6.1.2
+    "@json2csv/transforms": ^6.1.2
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.4
     "@next/eslint-plugin-next": ^13.1.1
@@ -17126,6 +17281,7 @@ __metadata:
     "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
+    "@types/file-saver": ^2
     "@types/jest": ^29.2.5
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
@@ -17163,6 +17319,7 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
+    file-saver: ^2.0.5
     framer-motion: ^8.4.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
@@ -17203,7 +17360,6 @@ __metadata:
     typescript: ^4.9.4
     ui: "*"
     ws: ^8.12.0
-    yaml: ^2.2.1
   languageName: unknown
   linkType: soft
 
@@ -17240,6 +17396,9 @@ __metadata:
     "@graphql-tools/mock": ^8.7.14
     "@graphql-tools/schema": ^9.0.12
     "@jest/globals": ^29.3.1
+    "@json2csv/formatters": ^6.1.2
+    "@json2csv/node": ^6.1.2
+    "@json2csv/transforms": ^6.1.2
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.4
     "@next/eslint-plugin-next": ^13.1.1
@@ -17254,6 +17413,7 @@ __metadata:
     "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
+    "@types/file-saver": ^2
     "@types/jest": ^29.2.5
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
@@ -17291,6 +17451,7 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
+    file-saver: ^2.0.5
     framer-motion: ^8.4.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
@@ -17331,7 +17492,6 @@ __metadata:
     typescript: ^4.9.4
     ui: "*"
     ws: ^8.12.0
-    yaml: ^2.2.1
   languageName: unknown
   linkType: soft
 
@@ -17354,6 +17514,9 @@ __metadata:
     "@graphql-tools/mock": ^8.7.14
     "@graphql-tools/schema": ^9.0.12
     "@jest/globals": ^29.3.1
+    "@json2csv/formatters": ^6.1.2
+    "@json2csv/node": ^6.1.2
+    "@json2csv/transforms": ^6.1.2
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.4
     "@next/eslint-plugin-next": ^13.1.1
@@ -17368,6 +17531,7 @@ __metadata:
     "@types/dompurify": ^2.4.0
     "@types/eslint": ^8.4.10
     "@types/esprima": ^4.0.3
+    "@types/file-saver": ^2
     "@types/jest": ^29.2.5
     "@types/node": ^18.11.18
     "@types/numeral": ^2.0.2
@@ -17405,6 +17569,7 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
+    file-saver: ^2.0.5
     framer-motion: ^8.4.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
@@ -17445,7 +17610,6 @@ __metadata:
     typescript: ^4.9.4
     ui: "*"
     ws: ^8.12.0
-    yaml: ^2.2.1
   languageName: unknown
   linkType: soft
 
@@ -17758,13 +17922,6 @@ __metadata:
   version: 2.1.3
   resolution: "yaml@npm:2.1.3"
   checksum: 91316062324a93f9cb547469092392e7d004ff8f70c40fecb420f042a4870b2181557350da56c92f07bd44b8f7a252b0be26e6ade1f548e1f4351bdd01c9d3c7
-  languageName: node
-  linkType: hard
-
-"yaml@npm:^2.2.1":
-  version: 2.2.1
-  resolution: "yaml@npm:2.2.1"
-  checksum: 84f68cbe462d5da4e7ded4a8bded949ffa912bc264472e5a684c3d45b22d8f73a3019963a32164023bdf3d83cfb6f5b58ff7b2b10ef5b717c630f40bd6369a23
   languageName: node
   linkType: hard
 

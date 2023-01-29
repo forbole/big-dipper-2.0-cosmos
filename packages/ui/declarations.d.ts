@@ -5,7 +5,9 @@ declare module '*.svg';
 declare module '*.svg?url';
 declare module '*.gif';
 declare module '*.woff2';
-declare module 'react-csv';
+declare module '@json2csv/node';
+declare module '@json2csv/transforms';
+declare module '@json2csv/formatters';
 
 type Override<T1, T2> = Omit<T1, keyof T2> & T2;
 

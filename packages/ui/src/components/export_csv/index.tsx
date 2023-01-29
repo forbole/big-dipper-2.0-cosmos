@@ -1,44 +1,35 @@
 /* eslint-disable react/no-unused-prop-types */
 import { FC } from 'react';
-import numeral from 'numeral';
-import dayjs from '@/utils/dayjs';
-import { CSVLink } from 'react-csv';
-import YAML from 'yaml';
+import Button from '@mui/material/Button';
+import UploadFileOutlinedIcon from '@mui/icons-material/UploadFileOutlined';
+import FileSaver from 'file-saver';
+import useStyles from '@/components/export_csv/styles';
 import type { TransactionsListState } from '@/components/transactions_list/types';
-import { headers } from '@/components/export_csv/config';
+import { useMessageDetailsHook } from './hooks';
 
 const ExportCSVButton: FC<TransactionsListState> = (props) => {
   const { transactions } = props;
+  const { classes } = useStyles();
+  const csv = useMessageDetailsHook(transactions);
 
-  const messageRes = (tx: any) => {
-    const messageList: unknown[] = [];
-    if (tx.length === 1) {
-      // eslint-disable-next-line no-unused-expressions
-      messageList.push((tx[0] as any).json) ?? messageList.push(tx[0]);
-      return (tx[0] as any).json ?? messageList.push(tx[0]);
+  const handleCSVExport = () => {
+    try {
+      const csvData = new Blob([csv as unknown as string], { type: 'text/csv;charset=utf-8' });
+      FileSaver.saveAs(csvData, 'transaction.csv');
+    } catch (err) {
+      console.error(err);
     }
-    tx.map((message: unknown) =>
-      (message as any).json ? messageList.push((message as any).json) : messageList.push(message)
-    );
-    return messageList;
   };
 
-  const items = transactions.map((x) => ({
-    block: numeral(x.height).format('0,0'),
-    hash: x.hash,
-    type: `${x.type?.[0] ?? ''}`,
-    result: x.success,
-    time: dayjs.utc(x.timestamp).fromNow(),
-    messages: numeral(x.messages.count).format('0,0'),
-    message_details: x.messages.items
-      ? YAML.stringify(messageRes(x.messages.items)).replace(/\n/g, '')
-      : {},
-  }));
-
   return (
-    <CSVLink data={items} filename="Your filename.csv" headers={headers}>
-      Button
-    </CSVLink>
+    <Button
+      className={classes.button}
+      variant="contained"
+      startIcon={<UploadFileOutlinedIcon fontSize="small" />}
+      onClick={handleCSVExport}
+    >
+      EXPORT
+    </Button>
   );
 };
 

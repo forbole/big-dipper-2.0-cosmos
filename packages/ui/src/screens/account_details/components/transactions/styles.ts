@@ -5,6 +5,9 @@ const useStyles = makeStyles()((theme) => ({
     '& .MuiTypography-h2': {
       marginBottom: theme.spacing(2),
     },
+    '& .MuiButtonBase-root': {
+      marginBottom: theme.spacing(2),
+    },
   },
   list: {
     minHeight: '500px',

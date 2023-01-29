@@ -28,6 +28,7 @@
     "copy-to-clipboard": "^3.3.3",
     "dayjs": "^1.11.7",
     "dompurify": "^2.4.3",
+    "file-saver": "^2.0.5",
     "framer-motion": "^8.4.1",
     "graphql": "^16.6.0",
     "graphql-ws": "^5.11.2",
@@ -53,8 +54,7 @@
     "subscriptions-transport-ws": "^0.11.0",
     "tss-react": "^4.5.2",
     "typanion": "^3.12.1",
-    "ws": "^8.12.0",
-    "yaml": "^2.2.1"
+    "ws": "^8.12.0"
   },
   "devDependencies": {
     "@emotion/cache": "^11.10.5",
@@ -68,6 +68,9 @@
     "@graphql-tools/mock": "^8.7.14",
     "@graphql-tools/schema": "^9.0.12",
     "@jest/globals": "^29.3.1",
+    "@json2csv/formatters": "^6.1.2",
+    "@json2csv/node": "^6.1.2",
+    "@json2csv/transforms": "^6.1.2",
     "@next/eslint-plugin-next": "^13.1.1",
     "@svgr/webpack": "^6.5.1",
     "@testing-library/jest-dom": "^5.16.5",
@@ -77,6 +80,7 @@
     "@types/dompurify": "^2.4.0",
     "@types/eslint": "^8.4.10",
     "@types/esprima": "^4.0.3",
+    "@types/file-saver": "^2",
     "@types/jest": "^29.2.5",
     "@types/node": "^18.11.18",
     "@types/numeral": "^2.0.2",
