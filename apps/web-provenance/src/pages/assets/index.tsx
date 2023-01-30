@@ -1,6 +1,6 @@
 import withGetStaticProps from '@/pages/withGetStaticProps';
-import type { NextPage } from 'next';
 import Assets from '@/screens/assets';
+import type { NextPage } from 'next';
 
 const AssetsPage: NextPage = () => <Assets />;
 

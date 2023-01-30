@@ -10,8 +10,8 @@ import { useDisplayStyles } from '@/styles/useSharedStyles';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Grid2 from '@mui/material/Unstable_Grid2';
-import { NextSeo } from 'next-seo';
 import { useTranslation } from 'next-i18next';
+import { NextSeo } from 'next-seo';
 import { useCallback, useDeferredValue, useMemo, useRef, useState } from 'react';
 
 const Assets = () => {
@@ -41,15 +41,14 @@ const Assets = () => {
         <Paper className={classes.paper} ref={containerRef}>
           <Grid2 container columns={12}>
             <Grid2 xs={12} lg={6}>
-              <Typography variant="h1">{t('assets')}</Typography>
+              <Typography variant="h1" title={description} aria-label={description}>
+                {t('assets')}
+              </Typography>
             </Grid2>
             <Grid2 xs={12} lg={6} textAlign={{ lg: 'right' }}>
               <SearchBox searchText={searchText} handleChange={handleChange} />
             </Grid2>
           </Grid2>
-          <Typography variant="subtitle1" className={classes.description}>
-            {description}
-          </Typography>
           <InfiniteList
             className={cx(classes.list, display.hiddenWhenLg)}
             cursor={cursor}

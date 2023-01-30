@@ -1,6 +1,6 @@
 import withGetServerSideProps from '@/pages/withGetServerSideProps';
-import type { NextPage } from 'next';
 import ValidatorDetails from '@/screens/validator_details';
+import type { NextPage } from 'next';
 
 const ValidatorDetailsPage: NextPage = () => <ValidatorDetails />;
 

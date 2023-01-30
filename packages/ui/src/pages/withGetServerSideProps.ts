@@ -4,7 +4,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 function getServerSideProps(...namespacesRequired: string[]) {
   return async ({ locale }: GetServerSidePropsContext) => ({
     props: {
-      ...(await serverSideTranslations(locale ?? 'en', ['common', ...namespacesRequired])),
+      ...(await serverSideTranslations(locale || 'en', ['common', ...namespacesRequired])),
     },
   });
 }
