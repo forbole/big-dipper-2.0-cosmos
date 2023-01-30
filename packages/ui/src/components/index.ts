@@ -32,4 +32,3 @@ export { default as Tag } from '@/components/tag';
 export { default as TransactionsList } from '@/components/transactions_list';
 export { default as TransactionsListDetails } from '@/components/transactions_list_details';
 export { default as TransactionMessagesFilter } from '@/components/transaction_messages_filter';
-// export { default as ExportCSVButton } from '@/components/export_csv';
