@@ -6,7 +6,7 @@ import { unwind, flatten } from '@json2csv/transforms';
 import { stringQuoteOnlyIfNecessary as stringQuoteOnlyIfNecessaryFormatter } from '@json2csv/formatters';
 
 export const useMessageDetailsHook = (transactions: Transactions[]) => {
-  const [csv, setCSV] = React.useState<any[]>();
+  const [csv, setCSV] = React.useState<unknown[]>();
 
   const items = transactions.map((x) => ({
     block: numeral(x.height).format('0,0'),
@@ -82,7 +82,7 @@ export const useMessageDetailsHook = (transactions: Transactions[]) => {
   };
 
   // eslint-disable-next-line consistent-return
-  const convertToCSVString = async (item: any, opts: any) => {
+  const convertToCSVString = async (item: unknown, opts: unknown) => {
     if (item) {
       try {
         const parser = new AsyncParser(opts);
