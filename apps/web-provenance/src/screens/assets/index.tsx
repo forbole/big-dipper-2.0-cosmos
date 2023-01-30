@@ -40,7 +40,7 @@ const Assets = () => {
       <Layout navTitle={title} className={classes.root}>
         <Paper className={classes.paper} ref={containerRef}>
           <Grid2 container columns={12}>
-            <Grid2 xs={12} lg={6}>
+            <Grid2 xs={12} lg={6} paddingBottom={theme.spacing(1)}>
               <Typography variant="h1" title={description} aria-label={description}>
                 {t('assets')}
               </Typography>
