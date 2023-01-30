@@ -6,12 +6,6 @@ const useStyles = makeStyles()((theme) => ({
     '& svg': {
       fill: theme.palette.common.white,
     },
-    [theme.breakpoints.up('lg')]: {
-      display: 'flex',
-    },
-    [theme.breakpoints.down('md')]: {
-      display: 'none',
-    },
   },
 }));
 

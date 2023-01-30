@@ -14,8 +14,10 @@ const ExportCSVButton: FC<TransactionsListState> = (props) => {
 
   const handleCSVExport = () => {
     try {
-      const csvData = new Blob([csv as unknown as string], { type: 'text/csv;charset=utf-8' });
-      FileSaver.saveAs(csvData, 'transaction.csv');
+      const csvData = new File([csv as unknown as string], 'transaction.csv', {
+        type: 'text/csv;charset=utf-8',
+      });
+      FileSaver.saveAs(csvData);
     } catch (err) {
       console.error(err);
     }
