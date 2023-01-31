@@ -2,7 +2,12 @@
 const { withSentryConfig } = require('@sentry/nextjs');
 const getNextConfig = require('../next');
 
-const nextConfig = (dir) =>
-  withSentryConfig(getNextConfig(dir), { sentry: { hideSourceMaps: false } });
+const nextConfig = (dir, base) => {
+  const baseConfig = {
+    ...getNextConfig(dir, base),
+    sentry: { hideSourceMaps: false },
+  };
+  return withSentryConfig(baseConfig, {});
+};
 
 module.exports = nextConfig;
