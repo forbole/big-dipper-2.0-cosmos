@@ -25,7 +25,7 @@ if (process.env.NEXT_PUBLIC_SENTRY_DSN) {
   const nextCode = `apps/${PROJECT_NAME}/next.config.js`;
   let nextConfig = readFileSync(nextCode, 'utf8');
   nextConfig = nextConfig.replace(nextSrc, nextTrg);
-  console.log(`shared-utils/configs/next -> shared-utils/configs/sentry/next`);
+  console.log(`shared-utils/configs/next > shared-utils/configs/sentry/next`);
   writeFileSync(nextCode, nextConfig, 'utf8');
 
   const errorSrc = /\bshared-utils\/configs\/captureUnderscoreErrorException\b/g;
@@ -34,7 +34,7 @@ if (process.env.NEXT_PUBLIC_SENTRY_DSN) {
   let errorPage = readFileSync(errorCode, 'utf8');
   errorPage = errorPage.replace(errorSrc, errorTrg);
   console.log(
-    `shared-utils/configs/captureUnderscoreErrorException -> shared-utils/configs/sentry/captureUnderscoreErrorException`
+    `shared-utils/configs/captureUnderscoreErrorException > shared-utils/configs/sentry/captureUnderscoreErrorException`
   );
   writeFileSync(errorCode, errorPage, 'utf8');
 }
