@@ -15,6 +15,7 @@ if (process.env.NEXT_PUBLIC_SENTRY_DSN) {
   const cmd = `cp -f ${resolve(__dirname, './sentry.config.js')} apps/${PROJECT_NAME}`;
   execSync(`${cmd}/sentry.client.config.js`);
   execSync(`${cmd}/sentry.server.config.js`);
+  execSync(`${cmd}/sentry.edge.config.js`);
 
   console.log(`yarn add @sentry/nextjs@${version}`);
   execSync(`yarn workspace ${PROJECT_NAME} add @sentry/nextjs@${version}`);
