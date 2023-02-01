@@ -24,7 +24,13 @@ const Transactions: FC<ComponentDefault> = (props) => {
   return (
     <Box className={cx(classes.root, props.className)}>
       <Typography variant="h2">{t('transactions')}</Typography>
-      <ExportCSVButton transactions={state.data} itemCount={itemCount} />
+      <ExportCSVButton
+        transactions={state.data}
+        itemCount={itemCount}
+        loadMoreItems={loadMoreItems}
+        isItemLoaded={isItemLoaded}
+        hasNextPage={state.hasNextPage}
+      />
       <div className={classes.list}>
         {txListFormat === 'compact' ? (
           <TransactionsList

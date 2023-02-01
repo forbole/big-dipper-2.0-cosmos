@@ -4,8 +4,14 @@ import dayjs from '@/utils/dayjs';
 import { AsyncParser } from '@json2csv/node';
 import { unwind, flatten } from '@json2csv/transforms';
 import { stringQuoteOnlyIfNecessary as stringQuoteOnlyIfNecessaryFormatter } from '@json2csv/formatters';
+// eslint-disable-next-line import/no-cycle
+import { CSVButtonTypes } from '@/components/export_csv';
 
-export const useMessageDetailsHook = (transactions: Transactions[]) => {
+export const useMessageDetailsHook = ({
+  transactions,
+  loadMoreItems,
+  hasNextPage,
+}: CSVButtonTypes) => {
   const [csv, setCSV] = React.useState<unknown[]>();
 
   const items = transactions.map((x) => ({
@@ -95,9 +101,12 @@ export const useMessageDetailsHook = (transactions: Transactions[]) => {
   };
 
   React.useEffect(() => {
+    if (hasNextPage) {
+      loadMoreItems();
+    }
     convertToCSVString(JSON.stringify(items), options);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [items, transactions]);
+  }, [items, transactions, hasNextPage]);
 
   return csv;
 };

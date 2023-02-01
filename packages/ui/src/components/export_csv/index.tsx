@@ -5,12 +5,23 @@ import UploadFileOutlinedIcon from '@mui/icons-material/UploadFileOutlined';
 import FileSaver from 'file-saver';
 import useStyles from '@/components/export_csv/styles';
 import type { TransactionsListState } from '@/components/transactions_list/types';
+// eslint-disable-next-line import/no-cycle
 import { useMessageDetailsHook } from './hooks';
 
-const ExportCSVButton: FC<TransactionsListState> = (props) => {
-  const { transactions } = props;
+export interface CSVButtonTypes extends TransactionsListState {
+  loadMoreItems: (() => Promise<void>) | (() => null);
+  hasNextPage: boolean;
+}
+
+const ExportCSVButton: FC<CSVButtonTypes> = (props) => {
+  const { transactions, itemCount, hasNextPage, loadMoreItems = () => null } = props;
   const { classes } = useStyles();
-  const csv = useMessageDetailsHook(transactions);
+  const csv = useMessageDetailsHook({
+    transactions,
+    itemCount,
+    loadMoreItems,
+    hasNextPage,
+  });
 
   const handleCSVExport = () => {
     try {
