@@ -27,3 +27,7 @@
 ---
 
 migrate from next-tranlsate to next-i18next
+
+- replace {{count}} in locales/en/\*.json to {{num}} because {{count}} is reserved for next-18next
+- add getServerSideProps to path with dynamic route param
+- add getStaticProps to path without dynamic route param
