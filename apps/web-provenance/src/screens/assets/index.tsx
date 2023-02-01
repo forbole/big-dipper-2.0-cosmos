@@ -61,6 +61,7 @@ const Assets = () => {
             rowHeight={rowHeightMobile}
             RowComponent={RowMobile}
             autoScrollElement={containerRef.current}
+            disablePagination
           />
           <InfiniteList
             className={cx(classes.list, display.hiddenUntilLg)}
@@ -75,6 +76,7 @@ const Assets = () => {
             HeaderComponent={HeaderDesktop}
             RowComponent={RowDesktop}
             autoScrollElement={containerRef.current}
+            disablePagination
           />
         </Paper>
       </Layout>

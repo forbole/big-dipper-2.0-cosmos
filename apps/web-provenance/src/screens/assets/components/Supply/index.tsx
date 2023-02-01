@@ -29,7 +29,7 @@ const Supply: FC<{ supply: string }> = ({ supply }) => {
           ) : (
             <>
               <br />
-              {`${formatNumber(
+              {`$${formatNumber(
                 Big(price)
                   .mul(Amount)
                   .div(10 ** tokenUnits[Denom].exponent)
