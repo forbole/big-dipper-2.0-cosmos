@@ -10,6 +10,7 @@ const useStyles = makeStyles()((theme) => ({
     },
   },
   contentWrapper: {
+    overflow: 'auto',
     [theme.breakpoints.up('lg')]: {
       display: 'flex',
       flex: 1,
