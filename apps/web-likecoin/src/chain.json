@@ -210,7 +210,7 @@
       },
       "marketing": {
         "matomoURL": "https://analytics.bigdipper.live",
-        "matomoSiteID": "9"
+        "matomoSiteID": "8"
       }
     },
     {
@@ -230,7 +230,7 @@
       "tokenUnits": {
         "uekil": {
           "display": "ekil",
-          "exponent": 9
+          "exponent": 6
         }
       },
       "endpoints": {
@@ -239,7 +239,7 @@
       },
       "marketing": {
         "matomoURL": "https://analytics.bigdipper.live",
-        "matomoSiteID": "9"
+        "matomoSiteID": "8"
       }
     },
     {
@@ -259,7 +259,7 @@
       "tokenUnits": {
         "uekil": {
           "display": "ekil",
-          "exponent": 9
+          "exponent": 6
         }
       },
       "endpoints": {
@@ -268,7 +268,7 @@
       },
       "marketing": {
         "matomoURL": "https://analytics.bigdipper.live",
-        "matomoSiteID": "9"
+        "matomoSiteID": "8"
       }
     }
   ]
