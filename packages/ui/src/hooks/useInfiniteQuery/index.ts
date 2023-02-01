@@ -5,7 +5,7 @@ import {
   UseInfiniteQueryParams,
 } from '@/hooks/useInfiniteQuery/types';
 import useShallowMemo from '@/hooks/useShallowMemo';
-import { makeVar, ReactiveVar, useQuery } from '@apollo/client';
+import { makeVar, OperationVariables, ReactiveVar, useQuery } from '@apollo/client';
 import * as R from 'ramda';
 import { useEffect, useMemo } from 'react';
 
@@ -49,7 +49,7 @@ const useInfiniteQuery = <TData, TVariables, TItem>({
     ...variables,
     offset,
     limit: itemsPerPage,
-  } as TVariables);
+  } as OperationVariables);
   const { data, error, loading, refetch } = useQuery(document, {
     variables: anchorVariables,
     skip,
