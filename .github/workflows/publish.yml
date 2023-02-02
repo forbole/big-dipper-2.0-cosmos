@@ -40,7 +40,6 @@ jobs:
     if: ${{ needs.validate-projects.outputs.projects != '[]' }}
     strategy:
       fail-fast: false
-      max-parallel: 1
       matrix:
         project: ${{ fromJSON(needs.validate-projects.outputs.projects) }}
     name: Publish ${{ matrix.project }}
