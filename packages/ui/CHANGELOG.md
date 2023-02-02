@@ -1,5 +1,13 @@
 # ui
 
+## 2.11.1
+
+### Patch Changes
+
+- a04d53bd8: auto refresh timestamp display
+- a04d53bd8: fix: donate link address
+- a04d53bd8: fix: transaction type in details view
+
 ## 2.11.0
 
 ### Minor Changes
