@@ -1,5 +1,17 @@
 # jest-presets
 
+## 0.2.1
+
+### Patch Changes
+
+- d967ae3f: move jest setup coding to ui worksapce
+- Updated dependencies [d967ae3f]
+- Updated dependencies [d967ae3f]
+- Updated dependencies [d967ae3f]
+- Updated dependencies [d967ae3f]
+- Updated dependencies [d967ae3f]
+  - tsconfig@0.2.0
+
 ## 0.2.0
 
 ### Minor Changes
