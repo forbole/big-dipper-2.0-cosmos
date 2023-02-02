@@ -8,9 +8,13 @@ function mockDayJs() {
   const utc = jest.fn(() => ({ format, fromNow, diff, local }));
   const unix = jest.fn(() => ({ format, fromNow, diff, local }));
   const formatDayJs = jest.fn(() => '2020-08-10 12:00:00');
+  const defaultObject = Object.assign(
+    jest.fn(() => ({ format, utc, unix, fromNow })),
+    { format, utc, unix, fromNow }
+  );
   jest.mock('@/utils/dayjs', () => ({
     __esModule: true,
-    default: { format, utc, unix },
+    default: defaultObject,
     formatDayJs,
   }));
 }

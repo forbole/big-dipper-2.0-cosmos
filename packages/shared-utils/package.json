@@ -12,7 +12,7 @@
   "devDependencies": {
     "@emotion/react": "^11.10.5",
     "@next/eslint-plugin-next": "^13.1.6",
-    "@sentry/nextjs": "^7.34.0",
+    "@sentry/nextjs": "^7.35.0",
     "@types/esprima": "^4.0.3",
     "@types/node": "^18.11.18",
     "@typescript-eslint/eslint-plugin": "^5.50.0",
