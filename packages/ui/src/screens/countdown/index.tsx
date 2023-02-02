@@ -1,11 +1,11 @@
+import Typography from '@mui/material/Typography';
+import { FC, useCallback, useState } from 'react';
 import chainConfig from '@/chainConfig';
 import ChainIcon from '@/components/ChainIcon';
 import Loading from '@/components/loading';
-import { useInterval } from '@/hooks';
+import { useInterval } from '@/hooks/use_interval';
 import useStyles from '@/screens/countdown/styles';
 import dayjs from '@/utils/dayjs';
-import Typography from '@mui/material/Typography';
-import React, { FC, useCallback, useState } from 'react';
 
 const { genesis, network } = chainConfig();
 

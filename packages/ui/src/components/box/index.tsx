@@ -1,5 +1,5 @@
+import { FC, ReactNode } from 'react';
 import useStyles from '@/components/box/styles';
-import React, { FC, ReactNode } from 'react';
 
 type BoxProps = {
   className?: string;

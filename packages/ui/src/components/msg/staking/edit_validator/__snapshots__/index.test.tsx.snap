@@ -14,6 +14,16 @@ exports[`screen: TransactionDetails/EditValidator matches snapshot 1`] = `
 <p
   className="MuiTypography-root MuiTypography-body1 emotion-0"
 >
-  message_contents:txEditValidatorContent
+  <span
+    data-testid="Trans"
+    i18nKey="message_contents:txEditValidatorContent"
+  >
+    <div
+      address="validatorAddress"
+      href={[Function]}
+      id="Name"
+      name="validatorAddress"
+    />
+  </span>
 </p>
 `;

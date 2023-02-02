@@ -1,15 +1,15 @@
+import Typography from '@mui/material/Typography';
+import Big from 'big.js';
+import { useTranslation } from 'next-i18next';
+import numeral from 'numeral';
+import { FC } from 'react';
+import { Cell, Pie, PieChart } from 'recharts';
 import Box from '@/components/box';
 import InfoPopover from '@/components/info_popover';
 import QuorumExplanation from '@/screens/proposal_details/components/votes_graph/components/quorum_explanation';
 import { useVotesGraph } from '@/screens/proposal_details/components/votes_graph/hooks';
 import useStyles from '@/screens/proposal_details/components/votes_graph/styles';
 import { formatGraphData } from '@/screens/proposal_details/components/votes_graph/utils';
-import Typography from '@mui/material/Typography';
-import Big from 'big.js';
-import useTranslation from 'next-translate/useTranslation';
-import numeral from 'numeral';
-import { FC } from 'react';
-import { Cell, Pie, PieChart } from 'recharts';
 
 const VotesGraph: FC<ComponentDefault> = (props) => {
   const { classes, cx, theme } = useStyles();

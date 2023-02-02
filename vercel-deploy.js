@@ -79,8 +79,8 @@ if (process.argv[2] === 'manual') {
   cleanUnusedProjects(project, projectList);
   execShell(`YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn install --inline-builds`);
 } else if (process.argv[2] === 'turbo-ignore') {
+  let project = 'web';
   try {
-    let project = 'web';
     const projectList = getProjectList();
 
     // VERCEL_GIT_PULL_REQUEST_ID is the pull request id

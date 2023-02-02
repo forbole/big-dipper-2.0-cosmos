@@ -1,7 +1,7 @@
+import { useTranslation } from 'next-i18next';
+import { FC } from 'react';
 import Name from '@/components/name';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
-import useTranslation from 'next-translate/useTranslation';
-import React, { FC } from 'react';
 
 type CreatorNameProps = {
   address: string;

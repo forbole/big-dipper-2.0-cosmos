@@ -1,14 +1,8 @@
-import CustomToolTip from '@/components/custom_tool_tip';
-import { readDate } from '@/recoil/settings';
-import { usePrice } from '@/screens/home/components/hero/components/token_price/hooks';
-import useStyles from '@/screens/home/components/hero/components/token_price/styles';
-import type { TokenPriceType } from '@/screens/home/components/hero/types';
-import dayjs, { formatDayJs } from '@/utils/dayjs';
 import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import numeral from 'numeral';
 import * as R from 'ramda';
-import React, { FC, useMemo } from 'react';
+import { FC, useMemo } from 'react';
 import {
   Area,
   AreaChart,
@@ -19,6 +13,12 @@ import {
   YAxis,
 } from 'recharts';
 import { useRecoilValue } from 'recoil';
+import dayjs, { formatDayJs } from '@/utils/dayjs';
+import type { TokenPriceType } from '@/screens/home/components/hero/types';
+import useStyles from '@/screens/home/components/hero/components/token_price/styles';
+import { usePrice } from '@/screens/home/components/hero/components/token_price/hooks';
+import { readDate } from '@/recoil/settings';
+import CustomToolTip from '@/components/custom_tool_tip';
 
 const TokenPrice: FC<{ items: TokenPriceType[] }> = (props) => {
   const { classes, theme } = useStyles();

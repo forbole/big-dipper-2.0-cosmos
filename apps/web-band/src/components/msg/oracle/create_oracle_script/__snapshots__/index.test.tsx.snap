@@ -14,6 +14,17 @@ exports[`screen: TransactionDetails/CreateDataSource matches snapshot 1`] = `
 <p
   className="MuiTypography-root MuiTypography-body1 emotion-0"
 >
-  message_contents:txCreateOracleScript
+  <span
+    data-testid="Trans"
+    i18nKey="message_contents:txCreateOracleScript"
+  >
+    <div
+      address="name"
+      id="Name"
+      name="name"
+    />
+    <b />
+    {"name":"name"}
+  </span>
 </p>
 `;

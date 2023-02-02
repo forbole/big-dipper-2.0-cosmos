@@ -130,6 +130,19 @@ exports[`components: LoadAndExist matches snapshot 1`] = `
       />
     </span>
   </div>,
+  .emotion-0 {
+  visibility: hidden;
+  height: 100%;
+  max-height: 100vh;
+}
+
+<div
+    className="emotion-0"
+  >
+    <div>
+      Test 1
+    </div>
+  </div>,
   ",",
   .emotion-0 {
   -webkit-flex: 1;
@@ -199,9 +212,31 @@ exports[`components: LoadAndExist matches snapshot 1`] = `
       </p>
     </div>
   </div>,
+  .emotion-0 {
+  visibility: hidden;
+  height: 100%;
+  max-height: 100vh;
+}
+
+<div
+    className="emotion-0"
+  >
+    <div>
+      Test 2
+    </div>
+  </div>,
   ",",
-  <div>
-    Test 3
+  .emotion-0 {
+  height: 100%;
+  max-height: 100vh;
+}
+
+<div
+    className="emotion-0"
+  >
+    <div>
+      Test 3
+    </div>
   </div>,
 ]
 `;

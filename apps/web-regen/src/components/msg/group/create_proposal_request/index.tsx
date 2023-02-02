@@ -1,9 +1,9 @@
+import Typography from '@mui/material/Typography';
+import { Trans } from 'next-i18next';
+import { FC } from 'react';
 import Name from '@/components/name';
 import MsgCreateProposalRequest from '@/models/msg/group/msg_create_proposal_request';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
-import Typography from '@mui/material/Typography';
-import Trans from 'next-translate/Trans';
-import React, { FC } from 'react';
 
 const CreateProposalRequest: FC<{ message: MsgCreateProposalRequest }> = (props) => {
   const { message } = props;

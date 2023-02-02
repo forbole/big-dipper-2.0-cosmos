@@ -1,10 +1,10 @@
-import Name from '@/components/name';
-import MsgEditAuction from '@/models/msg/auction/msg_edit_auction';
-import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@mui/material/Typography';
-import Trans from 'next-translate/Trans';
+import { Trans } from 'next-i18next';
 import numeral from 'numeral';
-import React, { FC } from 'react';
+import { FC } from 'react';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
+import MsgEditAuction from '@/models/msg/auction/msg_edit_auction';
+import Name from '@/components/name';
 
 const EditAuction: FC<{ message: MsgEditAuction }> = (props) => {
   const { message } = props;

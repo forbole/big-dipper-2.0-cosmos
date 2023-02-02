@@ -1,6 +1,6 @@
-import useStyles from '@/components/tag/styles';
 import Typography from '@mui/material/Typography';
-import React, { FC } from 'react';
+import { FC } from 'react';
+import useStyles from '@/components/tag/styles';
 
 type TagProps = {
   className?: string;

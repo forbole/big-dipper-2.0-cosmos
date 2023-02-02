@@ -2,11 +2,11 @@ import NoData from '@/components/no_data';
 import Desktop from '@/screens/nfts/components/list/components/nfts_list/components/desktop';
 import Mobile from '@/screens/nfts/components/list/components/nfts_list/components/mobile';
 import type { NFTTypes } from '@/screens/nfts/components/list/types';
-import useSharedStyles from '@/styles/useSharedStyles';
+import { useDisplayStyles } from '@/styles/useSharedStyles';
 import { FC } from 'react';
 
 const NftsList: FC<{ items: NFTTypes[] }> = (props) => {
-  const { classes } = useSharedStyles();
+  const display = useDisplayStyles().classes;
 
   if (!props.items.length) {
     return <NoData />;
@@ -14,8 +14,8 @@ const NftsList: FC<{ items: NFTTypes[] }> = (props) => {
 
   return (
     <>
-      <Desktop className={classes.hiddenUntilLg} items={props.items} />
-      <Mobile className={classes.hiddenWhenLg} items={props.items} />
+      <Desktop className={display.hiddenUntilLg} items={props.items} />
+      <Mobile className={display.hiddenWhenLg} items={props.items} />
     </>
   );
 };

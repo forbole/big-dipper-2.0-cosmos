@@ -1,5 +1,5 @@
-import chainConfig from '@/chainConfig';
 import { makeStyles } from 'tss-react/mui';
+import chainConfig from '@/chainConfig';
 
 const { chainName } = chainConfig();
 

@@ -1,17 +1,17 @@
-import AvatarName from '@/components/avatar_name';
-import useStyles from '@/screens/tokens/components/list/components/tokens_list/components/desktop/styles';
-import { columns } from '@/screens/tokens/components/list/components/tokens_list/components/desktop/utils';
-import type { TokenType } from '@/screens/tokens/components/list/types';
-import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
-import { TOKEN_DETAILS } from '@/utils/go_to_page';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import numeral from 'numeral';
-import React, { FC } from 'react';
+import { FC } from 'react';
+import { TOKEN_DETAILS } from '@/utils/go_to_page';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
+import type { TokenType } from '@/screens/tokens/components/list/types';
+import { columns } from '@/screens/tokens/components/list/components/tokens_list/components/desktop/utils';
+import useStyles from '@/screens/tokens/components/list/components/tokens_list/components/desktop/styles';
+import AvatarName from '@/components/avatar_name';
 
 const Desktop: FC<{ className?: string; items: TokenType[] }> = (props) => {
   const { t } = useTranslation('tokens');

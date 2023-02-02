@@ -140,7 +140,10 @@
         "graphqlWebsocket": "wss://gql.osmosis.forbole.com/v1/graphql",
         "publicRpcWebsocket": "wss://rpc.osmosis.forbole.com/websocket"
       },
-      "marketing": {}
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
+      }
     }
   ]
 }

@@ -1,13 +1,13 @@
+import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
+import { useTranslation } from 'next-i18next';
+import Link from 'next/link';
+import { FC, Fragment } from 'react';
 import AvatarName from '@/components/avatar_name';
 import useStyles from '@/screens/transaction_details/components/operations/components/mobile/styles';
 import type { OperationType } from '@/screens/transaction_details/types';
 import { formatNumber } from '@/utils/format_token';
 import { NFT_DETAILS, TOKEN_DETAILS } from '@/utils/go_to_page';
-import Divider from '@mui/material/Divider';
-import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
-import Link from 'next/link';
-import { FC, Fragment } from 'react';
 
 const Mobile: FC<{ className?: string; items: OperationType[] }> = (props) => {
   const { t } = useTranslation('transactions');

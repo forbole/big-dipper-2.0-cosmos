@@ -1,12 +1,12 @@
+import Typography from '@mui/material/Typography';
+import { useTranslation } from 'next-i18next';
+import numeral from 'numeral';
+import { FC, isValidElement } from 'react';
 import Box from '@/components/box';
 import useStyles from '@/screens/account_details/components/overview/styles';
 import type { OverviewType } from '@/screens/account_details/types';
 import { formatNumber } from '@/utils/format_token';
 import { getShardDisplay } from '@/utils/get_shard_display';
-import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
-import numeral from 'numeral';
-import React, { FC, isValidElement } from 'react';
 
 const Overview: FC<{ className?: string; overview: OverviewType }> = (props) => {
   const { t } = useTranslation('accounts');

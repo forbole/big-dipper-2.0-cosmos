@@ -1,6 +1,6 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import Layout from '@/components/layout';
 import LoadAndExist from '@/components/load_and_exist';
 import { useValidatorDetails } from '@/screens/validator_details/hooks';
@@ -19,12 +19,12 @@ const ValidatorDetails = () => {
   return (
     <>
       <NextSeo
-        title={t('validatorDetails')}
+        title={t('validatorDetails') ?? undefined}
         openGraph={{
-          title: t('validatorDetails'),
+          title: t('validatorDetails') ?? undefined,
         }}
       />
-      <Layout navTitle={t('validatorDetails')}>
+      <Layout navTitle={t('validatorDetails') ?? undefined}>
         <LoadAndExist loading={state.loading} exists={state.exists}>
           <div className={classes.root}>
             <Profile className={classes.profile} profile={state.profile} />

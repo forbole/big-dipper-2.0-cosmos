@@ -14,6 +14,22 @@ exports[`screen: TransactionDetails/MsgSend matches snapshot 1`] = `
 <p
   className="MuiTypography-root MuiTypography-body1 emotion-0"
 >
-  message_contents:txSendContent
+  <span
+    data-testid="Trans"
+    i18nKey="message_contents:txSendContent"
+  >
+    <div
+      address="fromAddress"
+      id="Name"
+      name="fromAddress"
+    />
+    <b />
+    <div
+      address="toAddress"
+      id="Name"
+      name="toAddress"
+    />
+    {"amount":"200 DARIC"}
+  </span>
 </p>
 `;

@@ -14,6 +14,17 @@ exports[`screen: TransactionDetails/BurnTokens matches snapshot 1`] = `
 <p
   className="MuiTypography-root MuiTypography-body1 emotion-0"
 >
-  message_contents:txBurnTokens
+  <span
+    data-testid="Trans"
+    i18nKey="message_contents:txBurnTokens"
+  >
+    <div
+      address="liquidityProvider"
+      id="Name"
+      name="liquidityProvider"
+    />
+    <b />
+    {"amount":"100,000 DENOM1  and  200,000 DENOM2"}
+  </span>
 </p>
 `;

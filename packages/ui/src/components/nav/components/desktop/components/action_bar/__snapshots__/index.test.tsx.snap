@@ -100,6 +100,10 @@ exports[`screen: Nav/ActionBar displays network 1`] = `
   cursor: default;
 }
 
+.emotion-3 {
+  border-radius: 12px;
+}
+
 .emotion-4 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -235,6 +239,10 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:focus::-ms-input-p
   animation-duration: 5000s;
   -webkit-animation-name: mui-auto-fill;
   animation-name: mui-auto-fill;
+}
+
+.emotion-6 {
+  padding: 8px 12px;
 }
 
 .emotion-7 {
@@ -428,6 +436,10 @@ exports[`screen: Nav/ActionBar it renders 1`] = `
   cursor: default;
 }
 
+.emotion-3 {
+  border-radius: 12px;
+}
+
 .emotion-4 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -563,6 +575,10 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:focus::-ms-input-p
   animation-duration: 5000s;
   -webkit-animation-name: mui-auto-fill;
   animation-name: mui-auto-fill;
+}
+
+.emotion-6 {
+  padding: 8px 12px;
 }
 
 .emotion-7 {

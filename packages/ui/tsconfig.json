@@ -1,14 +1,13 @@
 {
-  "extends": "../tsconfig/nextjs.json",
+  "extends": "tsconfig/nextjs.json",
   "compilerOptions": {
-    "rootDir": "../..",
-    "baseUrl": ".",
+    "rootDir": ".",
+    "baseUrl": "./src/",
     "paths": {
-      "@/*": ["src/*"],
-      "@/public/*": ["public/*"],
-      "ui/*": ["src/*"]
+      "@/*": ["./*"],
+      "@/public/*": ["../public/*"],
+      "ui/*": ["./*"]
     }
   },
-  "include": ["*.d.ts", "src/**/*.ts", "src/**/*.tsx"],
-  "exclude": ["dist", "build", "node_modules"]
+  "include": ["*.d.ts", "src/**/*.ts", "src/**/*.tsx"]
 }

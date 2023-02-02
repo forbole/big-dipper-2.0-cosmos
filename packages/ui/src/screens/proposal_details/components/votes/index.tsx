@@ -1,6 +1,6 @@
 import Box from '@/components/box';
 import NoData from '@/components/no_data';
-import { usePagination } from '@/hooks';
+import { usePagination } from '@/hooks/use_pagination';
 import useShallowMemo from '@/hooks/useShallowMemo';
 import Desktop from '@/screens/proposal_details/components/votes/components/desktop';
 import Mobile from '@/screens/proposal_details/components/votes/components/mobile';
@@ -9,6 +9,7 @@ import Tabs from '@/screens/proposal_details/components/votes/components/tabs';
 import { useVotes } from '@/screens/proposal_details/components/votes/hooks';
 import useStyles from '@/screens/proposal_details/components/votes/styles';
 import { filterDataByTab } from '@/screens/proposal_details/components/votes/utils';
+import { useDisplayStyles } from '@/styles/useSharedStyles';
 import { FC, ReactNode, useMemo } from 'react';
 
 const Votes: FC<ComponentDefault> = (props) => {
@@ -21,6 +22,7 @@ const Votes: FC<ComponentDefault> = (props) => {
     resetPagination,
   } = usePagination({});
   const { classes, cx } = useStyles();
+  const display = useDisplayStyles().classes;
   const { state, handleTabChange } = useVotes(resetPagination);
   const filteredItemsMemo = useShallowMemo(
     filterDataByTab({
@@ -38,8 +40,8 @@ const Votes: FC<ComponentDefault> = (props) => {
   } else {
     list = (
       <>
-        <Desktop items={items} className={classes.hiddenUntilLg} />
-        <Mobile items={items} className={classes.hiddenWhenLg} />
+        <Desktop items={items} className={display.hiddenUntilLg} />
+        <Mobile items={items} className={display.hiddenWhenLg} />
       </>
     );
   }

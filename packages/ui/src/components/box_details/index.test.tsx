@@ -1,6 +1,6 @@
-import BoxDetails from '@/components/box_details';
-import { MockTheme } from '@/tests/utils';
 import renderer from 'react-test-renderer';
+import BoxDetails from '@/components/box_details';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // unit tests

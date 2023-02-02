@@ -1,13 +1,13 @@
+import Typography from '@mui/material/Typography';
+import { useTranslation } from 'next-i18next';
+import numeral from 'numeral';
+import { FC } from 'react';
 import Avatar from '@/components/avatar';
 import Box from '@/components/box';
 import Connections from '@/components/desmos_profile/components/connections';
 import { useDesmosProfile } from '@/components/desmos_profile/hooks';
 import useStyles from '@/components/desmos_profile/styles';
 import Markdown from '@/components/markdown';
-import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
-import numeral from 'numeral';
-import React, { FC } from 'react';
 
 type DesmosProfileProps = {
   className?: string;

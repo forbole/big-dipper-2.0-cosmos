@@ -6,13 +6,15 @@ import Desktop from '@/screens/blocks/components/desktop';
 import Mobile from '@/screens/blocks/components/mobile';
 import { useBlocks } from '@/screens/blocks/hooks';
 import useStyles from '@/screens/blocks/styles';
+import { useDisplayStyles } from '@/styles/useSharedStyles';
 import { NextSeo } from 'next-seo';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import { ReactNode } from 'react';
 
 const Blocks = () => {
   const { t } = useTranslation('blocks');
   const { classes } = useStyles();
+  const display = useDisplayStyles().classes;
   const { state, loadMoreItems, itemCount, isItemLoaded } = useBlocks();
 
   let box: ReactNode = null;
@@ -23,14 +25,14 @@ const Blocks = () => {
     box = (
       <>
         <Desktop
-          className={classes.hiddenUntilLg}
+          className={display.hiddenUntilLg}
           items={state.items}
           itemCount={itemCount}
           loadMoreItems={loadMoreItems}
           isItemLoaded={isItemLoaded}
         />
         <Mobile
-          className={classes.hiddenWhenLg}
+          className={display.hiddenWhenLg}
           items={state.items}
           itemCount={itemCount}
           loadMoreItems={loadMoreItems}
@@ -43,12 +45,12 @@ const Blocks = () => {
   return (
     <>
       <NextSeo
-        title={t('blocks')}
+        title={t('blocks') ?? undefined}
         openGraph={{
-          title: t('blocks'),
+          title: t('blocks') ?? undefined,
         }}
       />
-      <Layout navTitle={t('blocks')} className={classes.root}>
+      <Layout navTitle={t('blocks') ?? undefined} className={classes.root}>
         <LoadAndExist loading={state.loading} exists={state.exists}>
           <Box className={classes.box}>{box}</Box>
         </LoadAndExist>

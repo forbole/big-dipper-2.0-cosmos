@@ -1,9 +1,9 @@
+import { ThemeOptions } from '@mui/material/styles';
+import * as R from 'ramda';
 import { darkThemeOverride } from '@/styles/theme/dark';
 import { deuteranopiaThemeOverride } from '@/styles/theme/deuteranopia';
 import { lightThemeOverride } from '@/styles/theme/light';
 import { tritanopiaThemeOverride } from '@/styles/theme/tritanopia';
-import { ThemeOptions } from '@mui/material/styles';
-import * as R from 'ramda';
 
 /** Common themes that don't change across light and dark theme */
 export const common: ThemeOptions = {
@@ -174,24 +174,51 @@ export const common: ThemeOptions = {
     MuiTableHead: {
       styleOverrides: {
         root: {
-          backgroundColor: 'initial',
+          '&': {
+            backgroundColor: 'initial',
+          },
+        },
+      },
+    },
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          borderRadius: '12px',
+        },
+      },
+    },
+    MuiInputBase: {
+      styleOverrides: {
+        root: {
+          '&': {
+            borderRadius: '12px',
+          },
+        },
+        input: {
+          '&': {
+            padding: '8px 12px',
+          },
         },
       },
     },
     MuiTooltip: {
       styleOverrides: {
         tooltip: {
-          backgroundColor: 'transparent',
+          '&': {
+            backgroundColor: 'transparent',
+          },
         },
       },
     },
     MuiTableCell: {
       styleOverrides: {
         root: {
-          borderBottom: 'none',
-          padding: '0 16px',
-          height: '50px',
-          fontSize: '1rem',
+          '&': {
+            borderBottom: 'none',
+            padding: '0 16px',
+            height: '50px',
+            fontSize: '1rem',
+          },
         },
       },
     },

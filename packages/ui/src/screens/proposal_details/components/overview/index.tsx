@@ -1,3 +1,10 @@
+import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
+import { useTranslation } from 'next-i18next';
+import numeral from 'numeral';
+import * as R from 'ramda';
+import { FC, useCallback } from 'react';
+import { useRecoilValue } from 'recoil';
 import Box from '@/components/box';
 import Markdown from '@/components/markdown';
 import Name from '@/components/name';
@@ -12,13 +19,6 @@ import type { OverviewType } from '@/screens/proposal_details/types';
 import { getProposalType } from '@/screens/proposal_details/utils';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
 import { formatNumber, formatToken } from '@/utils/format_token';
-import Divider from '@mui/material/Divider';
-import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
-import numeral from 'numeral';
-import * as R from 'ramda';
-import React, { FC, useCallback } from 'react';
-import { useRecoilValue } from 'recoil';
 
 const Overview: FC<{ className?: string; overview: OverviewType }> = ({ className, overview }) => {
   const dateFormat = useRecoilValue(readDate);

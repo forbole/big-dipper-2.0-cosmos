@@ -1,5 +1,5 @@
-import chainConfig from '@/chainConfig';
 import { bech32 } from 'bech32';
+import chainConfig from '@/chainConfig';
 
 const { prefix } = chainConfig();
 

@@ -1,4 +1,6 @@
 /* eslint-disable no-nested-ternary */
+import numeral from 'numeral';
+import { FC, useState } from 'react';
 import Box from '@/components/box';
 import TabPanel from '@/components/tab_panel';
 import Delegations from '@/screens/validator_details/components/staking/components/delegations';
@@ -7,8 +9,6 @@ import Tabs from '@/screens/validator_details/components/staking/components/tabs
 import Unbondings from '@/screens/validator_details/components/staking/components/unbondings';
 import { ROWS_PER_PAGE, useStaking } from '@/screens/validator_details/components/staking/hooks';
 import useStyles from '@/screens/validator_details/components/staking/styles';
-import numeral from 'numeral';
-import { FC, useState } from 'react';
 
 export function formatCount(
   page: number,

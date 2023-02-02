@@ -1,6 +1,7 @@
 import { useSettingList } from '@/components/nav/components/desktop/components/action_bar/components/settings_list/hooks';
 import useStyles from '@/components/nav/components/desktop/components/action_bar/components/settings_list/styles';
 import { DATE_LIST, THEME_LIST, TX_LIST } from '@/recoil/settings';
+import CloseIcon from '@mui/icons-material/Close';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -10,10 +11,9 @@ import IconButton from '@mui/material/IconButton';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import Typography from '@mui/material/Typography';
-import CloseIcon from '@mui/icons-material/Close';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import SettingIcon from 'shared-utils/assets/icon-setting.svg';
 
 const release = `${process.env.NEXT_PUBLIC_RELEASE ?? ''}`;
@@ -21,9 +21,9 @@ const release = `${process.env.NEXT_PUBLIC_RELEASE ?? ''}`;
 const Settings: FC<ComponentDefault> = (props) => {
   const { classes, cx } = useStyles();
   const router = useRouter();
-  const { t, lang } = useTranslation('common');
+  const { t, i18n } = useTranslation('common');
   const { open, handleOpen, state, handleChange, handleFormSubmit, handleCancel } = useSettingList({
-    lang,
+    lang: i18n.language,
   });
 
   return (

@@ -1,10 +1,10 @@
+import Typography from '@mui/material/Typography';
+import { Trans } from 'next-i18next';
+import { FC } from 'react';
 import Name from '@/components/name';
 import { MsgWithdrawDelegatorReward } from '@/models';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { formatNumber } from '@/utils/format_token';
-import Typography from '@mui/material/Typography';
-import Trans from 'next-translate/Trans';
-import React, { FC } from 'react';
 
 const WithdrawReward: FC<{ message: MsgWithdrawDelegatorReward }> = (props) => {
   const { message } = props;

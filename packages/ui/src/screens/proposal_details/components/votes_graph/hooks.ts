@@ -1,3 +1,7 @@
+import Big from 'big.js';
+import { useRouter } from 'next/router';
+import * as R from 'ramda';
+import { useCallback, useState } from 'react';
 import chainConfig from '@/chainConfig';
 import {
   ProposalDetailsTallyQuery,
@@ -5,10 +9,6 @@ import {
 } from '@/graphql/types/general_types';
 import type { VotesGraphState } from '@/screens/proposal_details/components/votes_graph/types';
 import { formatToken } from '@/utils/format_token';
-import Big from 'big.js';
-import { useRouter } from 'next/router';
-import * as R from 'ramda';
-import { useCallback, useState } from 'react';
 
 const { votingPowerTokenUnit } = chainConfig();
 

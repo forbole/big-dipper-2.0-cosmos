@@ -1,13 +1,13 @@
+import { useTranslation } from 'next-i18next';
+import Link from 'next/link';
+import { FC } from 'react';
+import { useRecoilValue } from 'recoil';
 import BoxDetails from '@/components/box_details';
 import { readDate } from '@/recoil/settings';
 import type { OverviewType } from '@/screens/miniblock_details/types';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
 import { getShardDisplay } from '@/utils/get_shard_display';
 import { BLOCK_DETAILS } from '@/utils/go_to_page';
-import useTranslation from 'next-translate/useTranslation';
-import Link from 'next/link';
-import { FC } from 'react';
-import { useRecoilValue } from 'recoil';
 
 const Overview: FC<OverviewType & ComponentDefault> = (props) => {
   const { t } = useTranslation('blocks');
@@ -65,7 +65,9 @@ const Overview: FC<OverviewType & ComponentDefault> = (props) => {
     },
   ];
 
-  return <BoxDetails className={props.className} title={t('overview')} details={details} />;
+  return (
+    <BoxDetails className={props.className} title={t('overview') ?? undefined} details={details} />
+  );
 };
 
 export default Overview;

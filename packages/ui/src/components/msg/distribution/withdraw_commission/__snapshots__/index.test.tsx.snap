@@ -14,6 +14,17 @@ exports[`screen: TransactionDetails/WithdrawCommission matches snapshot 1`] = `
 <p
   className="MuiTypography-root MuiTypography-body1 emotion-0"
 >
-  message_contents:txWithdrawCommissionContent
+  <span
+    data-testid="Trans"
+    i18nKey="message_contents:txWithdrawCommissionContent"
+  >
+    <div
+      address="validatorAddress"
+      id="Name"
+      name="validatorAddress"
+    />
+    <b />
+    {"amount":"0 UDSM"}
+  </span>
 </p>
 `;

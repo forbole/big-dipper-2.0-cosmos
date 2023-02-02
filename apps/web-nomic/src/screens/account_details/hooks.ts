@@ -1,5 +1,9 @@
+import Big from 'big.js';
+import { useRouter } from 'next/router';
+import * as R from 'ramda';
+import { useCallback, useEffect, useState } from 'react';
 import chainConfig from '@/chainConfig';
-import { useDesmosProfile } from '@/hooks';
+import { useDesmosProfile } from '@/hooks/use_desmos_profile';
 import type {
   AccountDetailState,
   BalanceType,
@@ -8,10 +12,6 @@ import type {
 import { useAvailableBalances, useDelegationBalance } from '@/screens/account_details/utils';
 import { formatToken } from '@/utils/format_token';
 import { getDenom } from '@/utils/get_denom';
-import Big from 'big.js';
-import { useRouter } from 'next/router';
-import * as R from 'ramda';
-import { useCallback, useEffect, useState } from 'react';
 
 const { extra, primaryTokenUnit, tokenUnits } = chainConfig();
 

@@ -1,12 +1,13 @@
 import Loading from '@/components/loading';
 import NoData from '@/components/no_data';
 import Pagination from '@/components/pagination';
-import { usePagination } from '@/hooks';
+import { usePagination } from '@/hooks/use_pagination';
 import useShallowMemo from '@/hooks/useShallowMemo';
 import Desktop from '@/screens/account_details/components/staking/components/redelegations/components/desktop';
 import Mobile from '@/screens/account_details/components/staking/components/redelegations/components/mobile';
 import useStyles from '@/screens/account_details/components/staking/components/redelegations/styles';
 import type { RedelegationsType } from '@/screens/account_details/components/staking/types';
+import { useDisplayStyles } from '@/styles/useSharedStyles';
 import { FC, useCallback } from 'react';
 
 type RedelegationsProps = {
@@ -17,6 +18,7 @@ type RedelegationsProps = {
 
 const Redelegations: FC<RedelegationsProps> = (props) => {
   const { classes } = useStyles();
+  const display = useDisplayStyles().classes;
   const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange } = usePagination({});
   const handlePageChangeCallback = useCallback(
     (event: Parameters<typeof handlePageChange>[0], newPage: number) => {
@@ -38,8 +40,8 @@ const Redelegations: FC<RedelegationsProps> = (props) => {
   } else {
     component = (
       <>
-        <Desktop className={classes.hiddenUntilLg} items={itemsMemo} />
-        <Mobile className={classes.hiddenWhenLg} items={itemsMemo} />
+        <Desktop className={display.hiddenUntilLg} items={itemsMemo} />
+        <Mobile className={display.hiddenWhenLg} items={itemsMemo} />
       </>
     );
   }

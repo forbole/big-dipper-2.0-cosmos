@@ -1,6 +1,6 @@
-import Condition from '@/screens/validators/components/list/components/condition';
-import { MockTheme } from '@/tests/utils';
 import renderer from 'react-test-renderer';
+import Condition from '@/screens/validators/components/list/components/condition';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // mocks

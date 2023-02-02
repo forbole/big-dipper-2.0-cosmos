@@ -1,5 +1,5 @@
-import React, { FC } from 'react';
-import useTranslation from 'next-translate/useTranslation';
+import { FC } from 'react';
+import { useTranslation } from 'next-i18next';
 import Table from '@mui/material/Table';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';

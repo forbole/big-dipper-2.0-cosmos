@@ -1,14 +1,14 @@
+import Typography from '@mui/material/Typography';
+import { useTranslation } from 'next-i18next';
+import numeral from 'numeral';
+import { FC } from 'react';
+import { useRecoilValue } from 'recoil';
 import AvatarName from '@/components/avatar_name';
 import BoxDetails from '@/components/box_details';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { readDate } from '@/recoil/settings';
 import type { OverviewType } from '@/screens/block_details/types';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
-import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
-import numeral from 'numeral';
-import { FC } from 'react';
-import { useRecoilValue } from 'recoil';
 
 const Overview: FC<OverviewType & ComponentDefault> = (props, { className }) => {
   const { address, imageUrl, name } = useProfileRecoil(props.proposer);
@@ -18,7 +18,7 @@ const Overview: FC<OverviewType & ComponentDefault> = (props, { className }) => 
   return (
     <BoxDetails
       className={className}
-      title={t('overview')}
+      title={t('overview') ?? undefined}
       details={[
         {
           key: 'height',

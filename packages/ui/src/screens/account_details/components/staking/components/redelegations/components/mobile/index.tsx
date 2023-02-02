@@ -1,3 +1,8 @@
+import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
+import { useTranslation } from 'next-i18next';
+import { FC } from 'react';
+import { useRecoilValue } from 'recoil';
 import AvatarName from '@/components/avatar_name';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { readDate } from '@/recoil/settings';
@@ -5,11 +10,6 @@ import useStyles from '@/screens/account_details/components/staking/components/r
 import type { ItemType } from '@/screens/account_details/components/staking/components/redelegations/types';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
 import { formatNumber } from '@/utils/format_token';
-import Divider from '@mui/material/Divider';
-import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
-import { FC } from 'react';
-import { useRecoilValue } from 'recoil';
 
 type RedelegationsItemProps = {
   item: ItemType;

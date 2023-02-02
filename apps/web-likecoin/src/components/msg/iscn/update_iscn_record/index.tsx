@@ -1,10 +1,10 @@
-import Name from '@/components/name';
-import MsgUpdateIscnRecord from '@/models/msg/iscn/msg_update_iscn_record';
-import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@mui/material/Typography';
-import Trans from 'next-translate/Trans';
+import { Trans } from 'next-i18next';
 import numeral from 'numeral';
-import React, { FC } from 'react';
+import { FC } from 'react';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
+import MsgUpdateIscnRecord from '@/models/msg/iscn/msg_update_iscn_record';
+import Name from '@/components/name';
 
 const UpdateIscnRecord: FC<{ message: MsgUpdateIscnRecord }> = (props) => {
   const { message } = props;

@@ -1,9 +1,9 @@
+import { useEffect, useMemo } from 'react';
 import {
   useAccountBalancesQuery,
   // useAccountWithdrawalAddressQuery,
   useAccountDelegationBalanceQuery,
 } from '@/graphql/types/general_types';
-import { useEffect, useMemo } from 'react';
 
 export const useAvailableBalances = (address?: string) => {
   const defaultReturnValue = useMemo(

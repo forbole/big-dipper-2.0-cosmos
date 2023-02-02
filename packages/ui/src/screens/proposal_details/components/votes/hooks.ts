@@ -1,12 +1,12 @@
+import { useRouter } from 'next/router';
+import * as R from 'ramda';
+import { SyntheticEvent, useCallback, useState } from 'react';
 import {
   ProposalDetailsVotesQuery,
   useProposalDetailsVotesQuery,
 } from '@/graphql/types/general_types';
 import type { VoteState } from '@/screens/proposal_details/components/votes/types';
 import { toValidatorAddress } from '@/utils/prefix_convert';
-import { useRouter } from 'next/router';
-import * as R from 'ramda';
-import { SyntheticEvent, useCallback, useState } from 'react';
 
 const formatVotes = (data: ProposalDetailsVotesQuery) => {
   const validatorDict: { [key: string]: unknown } = {};

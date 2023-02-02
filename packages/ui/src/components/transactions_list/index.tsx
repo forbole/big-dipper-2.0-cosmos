@@ -1,10 +1,10 @@
+import { FC } from 'react';
 import Loading from '@/components/loading';
 import NoData from '@/components/no_data';
 import Desktop from '@/components/transactions_list/components/desktop';
 import Mobile from '@/components/transactions_list/components/mobile';
 import type { TransactionsListState } from '@/components/transactions_list/types';
-import useSharedStyles from '@/styles/useSharedStyles';
-import { FC } from 'react';
+import { useDisplayStyles } from '@/styles/useSharedStyles';
 
 const TransactionsList: FC<TransactionsListState> = (props) => {
   // setting fallback values
@@ -17,7 +17,7 @@ const TransactionsList: FC<TransactionsListState> = (props) => {
     itemCount,
     transactions,
   } = props;
-  const { classes } = useSharedStyles();
+  const display = useDisplayStyles().classes;
 
   const formatProps: TransactionsListState = {
     hasNextPage,
@@ -35,8 +35,8 @@ const TransactionsList: FC<TransactionsListState> = (props) => {
 
   return (
     <>
-      <Desktop className={classes.hiddenUntilLg} {...formatProps} />
-      <Mobile className={classes.hiddenWhenLg} {...formatProps} />
+      <Desktop className={display.hiddenUntilLg} {...formatProps} />
+      <Mobile className={display.hiddenWhenLg} {...formatProps} />
     </>
   );
 };

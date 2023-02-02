@@ -14,6 +14,22 @@ exports[`screen: TransactionDetails/IscnChangeOwnership matches snapshot 1`] = `
 <p
   className="MuiTypography-root MuiTypography-body1 emotion-0"
 >
-  message_contents:txChangeIscnRecordOwnershipContent
+  <span
+    data-testid="Trans"
+    i18nKey="message_contents:txChangeIscnRecordOwnershipContent"
+  >
+    <div
+      address="from"
+      id="Name"
+      name="from"
+    />
+    <b />
+    <div
+      address="newOwner"
+      id="Name"
+      name="newOwner"
+    />
+    {"iscnId":"300"}
+  </span>
 </p>
 `;

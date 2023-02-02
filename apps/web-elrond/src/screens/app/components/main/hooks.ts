@@ -1,6 +1,6 @@
-import { getThemeTemplate, readTheme } from '@/recoil/settings';
 import { createTheme } from '@mui/material/styles';
 import { useRecoilValue } from 'recoil';
+import { getThemeTemplate, readTheme } from '@/recoil/settings';
 import useShallowMemo from '@/hooks/useShallowMemo';
 
 export const useTheme = (fontFamily: string) => {

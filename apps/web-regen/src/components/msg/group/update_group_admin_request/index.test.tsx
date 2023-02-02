@@ -1,18 +1,13 @@
+import renderer from 'react-test-renderer';
 import UpdateGroupAdminRequest from '@/components/msg/group/update_group_admin_request';
 import MsgUpdateGroupAdminRequest from '@/models/msg/group/msg_update_group_admin_request';
-import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // mocks
 // ==================================
-
 jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
-));
-
-jest.mock('next-translate/Trans', () => (props: JSX.IntrinsicElements['div']) => (
-  <div id="Trans" {...props} />
 ));
 
 // ==================================
@@ -37,7 +32,7 @@ describe('screen: TransactionDetails/UpdateGroupAdminRequest', () => {
     const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
 
-    expect(component.root.findByProps({ id: 'Trans' }).props.i18nKey).toEqual(
+    expect(component.root.findByProps({ 'data-testid': 'Trans' }).props.i18nKey).toEqual(
       'message_contents:MsgUpdateGroupAdminRequest'
     );
   });

@@ -1,9 +1,9 @@
-import chainConfig from '@/chainConfig';
-import { useDesmosProfile } from '@/hooks';
-import type { ProfileDetailState } from '@/screens/profile_details/types';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import { useCallback, useEffect, useState } from 'react';
+import chainConfig from '@/chainConfig';
+import { useDesmosProfile } from '@/hooks/use_desmos_profile';
+import type { ProfileDetailState } from '@/screens/profile_details/types';
 
 const { extra, prefix } = chainConfig();
 

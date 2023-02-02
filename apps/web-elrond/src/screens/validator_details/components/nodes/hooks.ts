@@ -2,11 +2,11 @@ import { useCallback, useEffect, useState } from 'react';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
 import axios from 'axios';
+import { waitForAllSettled } from 'recoil';
 import { isBech32 } from '@/utils/bech32';
 import { POLLING_INTERVAL, NODES_COUNT, NODES } from '@/api';
-import { useInterval } from '@/hooks';
+import { useInterval } from '@/hooks/use_interval';
 import type { NodeState } from '@/screens/validator_details/components/nodes/types';
-import { waitForAllSettled } from 'recoil';
 
 export const PAGE_SIZE = 10;
 

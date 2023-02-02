@@ -1,8 +1,8 @@
+import { DefaultValue, ReadOnlySelectorOptions, selector } from 'recoil';
 import { atomState } from '@/recoil/settings/atom';
 import type { Date, Theme, Tx } from '@/recoil/settings/types';
 import { DATE_KEY, setItem, THEME_KEY, TX_KEY } from '@/utils/localstorage';
 import { mergeStateChange } from '@/utils/merge_state_change';
-import { DefaultValue, ReadOnlySelectorOptions, selector } from 'recoil';
 
 const getTheme: ReadOnlySelectorOptions<Theme>['get'] = ({ get }): Theme => {
   const state = get(atomState);

@@ -1,9 +1,9 @@
+import Typography from '@mui/material/Typography';
+import { Trans } from 'next-i18next';
+import { FC } from 'react';
 import Name from '@/components/name';
 import { MsgCreateVestingAccount } from '@/models';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
-import Typography from '@mui/material/Typography';
-import Trans from 'next-translate/Trans';
-import React, { FC } from 'react';
 
 const CreateVestingAccount: FC<{ message: MsgCreateVestingAccount }> = (props) => {
   const { message } = props;

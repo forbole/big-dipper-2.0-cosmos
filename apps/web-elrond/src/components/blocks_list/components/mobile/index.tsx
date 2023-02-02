@@ -1,13 +1,13 @@
+import Divider from '@mui/material/Divider';
+import { useTranslation } from 'next-i18next';
+import Link from 'next/link';
+import numeral from 'numeral';
+import { FC, Fragment } from 'react';
 import SingleBlockMobile from '@/components/single_block_mobile';
 import dayjs from '@/utils/dayjs';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { getShardDisplay } from '@/utils/get_shard_display';
 import { BLOCK_DETAILS } from '@/utils/go_to_page';
-import Divider from '@mui/material/Divider';
-import useTranslation from 'next-translate/useTranslation';
-import Link from 'next/link';
-import numeral from 'numeral';
-import { FC, Fragment } from 'react';
 
 const Mobile: FC<{ className?: string; items: BlockType[] }> = (props) => {
   const { t } = useTranslation('blocks');

@@ -1,7 +1,7 @@
+import renderer from 'react-test-renderer';
 import WithdrawCommission from '@/components/msg/distribution/withdraw_commission';
 import { MsgWithdrawValidatorCommission } from '@/models';
-import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // mocks

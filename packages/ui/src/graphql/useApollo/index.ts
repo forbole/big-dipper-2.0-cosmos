@@ -4,13 +4,14 @@ import {
   DefaultOptions,
   InMemoryCache,
   NormalizedCacheObject,
-  split,
+  split
 } from '@apollo/client';
 import { BatchHttpLink } from '@apollo/client/link/batch-http';
 import { HttpLink } from '@apollo/client/link/http';
 import { GraphQLWsLink } from '@apollo/client/link/subscriptions';
 import { WebSocketLink } from '@apollo/client/link/ws';
 import { getMainDefinition } from '@apollo/client/utilities';
+import { RestLink } from 'apollo-link-rest';
 import { Kind, OperationTypeNode } from 'graphql';
 import { createClient } from 'graphql-ws';
 import { useEffect, useState } from 'react';
@@ -19,6 +20,7 @@ const { chainType, endpoints, extra } = chainConfig();
 
 /* Checking if the code is running on the server or the client. */
 const ssrMode = typeof window === 'undefined';
+
 
 /* A global variable that stores the Apollo Client. */
 let globalApolloClient: ApolloClient<NormalizedCacheObject>;
@@ -100,6 +102,8 @@ export function profileApi() {
   return 'https://gql.mainnet.desmos.network/v1/graphql';
 }
 
+export const BIG_DIPPER_NETWORKS = 'https://raw.githubusercontent.com/forbole/big-dipper-networks/main/';
+
 /**
  * It creates a new Apollo Client, and sets the default options for it
  * @param initialState - The initial state of the cache.
@@ -108,6 +112,8 @@ export function profileApi() {
 function createApolloClient(initialState = {}) {
   /* Restoring the cache from the initial state. */
   const cache = new InMemoryCache().restore(initialState);
+
+  const restLink = new RestLink({ uri: BIG_DIPPER_NETWORKS });
 
   const httpLink = split(
     ({ operationName, variables }) =>
@@ -130,10 +136,16 @@ function createApolloClient(initialState = {}) {
         httpLink
       );
 
-  const link = split(
+  const graphlqllink = split(
     ({ operationName }) => /^DesmosProfile/.test(operationName),
     createHttpBatchLink(profileApi()),
     httpOrWsLink
+  );
+
+  const link = split(
+    ({ operationName }) => operationName === 'Rest',
+    restLink,
+    graphlqllink,
   );
 
   /* Creating a new Apollo Client. */

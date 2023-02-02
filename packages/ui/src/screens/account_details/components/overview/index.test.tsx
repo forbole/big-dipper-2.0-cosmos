@@ -1,6 +1,6 @@
-import Overview from '@/screens/account_details/components/overview';
-import { MockTheme } from '@/tests/utils';
 import renderer from 'react-test-renderer';
+import Overview from '@/screens/account_details/components/overview';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 let component: renderer.ReactTestRenderer;
 

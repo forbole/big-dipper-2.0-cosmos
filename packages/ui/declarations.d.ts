@@ -11,12 +11,14 @@ type Override<T1, T2> = Omit<T1, keyof T2> & T2;
 interface ComponentDefault {
   className?: string;
 }
+// eslint-disable-next-line dot-notation
 interface AvatarName {
   className?: string;
   imageUrl?: string | null;
   address: string;
   name: string;
   href?: (address: string) => string;
+  image?: React.ReactNode;
 }
 
 type Transactions = {

@@ -14,6 +14,22 @@ exports[`screen: TransactionDetails/TransferNFT matches snapshot 1`] = `
 <p
   className="MuiTypography-root MuiTypography-body1 emotion-0"
 >
-  message_contents:txTransferNFTContent
+  <span
+    data-testid="Trans"
+    i18nKey="message_contents:txTransferNFTContent"
+  >
+    <div
+      address="desmosvaloper14nfk5gm99gfrd7nwqtmtvzunzclz8720a6cqh7"
+      id="Name"
+      name="desmosvaloper14nfk5gm99gfrd7nwqtmtvzunzclz8720a6cqh7"
+    />
+    <b />
+    <div
+      address="desmosvaloper1rzhewpmmdl72lhnxj6zmxr4v94f522s4hyz467"
+      id="Name"
+      name="desmosvaloper1rzhewpmmdl72lhnxj6zmxr4v94f522s4hyz467"
+    />
+    {"id":"goodGoodDayDay"}
+  </span>
 </p>
 `;

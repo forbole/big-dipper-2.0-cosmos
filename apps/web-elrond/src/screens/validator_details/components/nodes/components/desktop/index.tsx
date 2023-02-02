@@ -1,18 +1,18 @@
-import useStyles from '@/screens/validator_details/components/nodes/components/desktop/styles';
-import { columns } from '@/screens/validator_details/components/nodes/components/desktop/utils';
-import type { NodeType } from '@/screens/validator_details/components/nodes/types';
-import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
-import { getShardDisplay } from '@/utils/get_shard_display';
-import { NODE_DETAILS } from '@/utils/go_to_page';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import { FC } from 'react';
+import { NODE_DETAILS } from '@/utils/go_to_page';
+import { getShardDisplay } from '@/utils/get_shard_display';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
+import type { NodeType } from '@/screens/validator_details/components/nodes/types';
+import { columns } from '@/screens/validator_details/components/nodes/components/desktop/utils';
+import useStyles from '@/screens/validator_details/components/nodes/components/desktop/styles';
 
 const Desktop: FC<{ className?: string; items: NodeType[] }> = (props) => {
   const { t } = useTranslation('nodes');

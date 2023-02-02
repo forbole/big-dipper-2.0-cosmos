@@ -1,14 +1,14 @@
-import { useTablePaginationActions } from '@/components/pagination/components/actions/hooks';
-import useStyles from '@/components/pagination/components/actions/styles';
 import FormControl from '@mui/material/FormControl';
 import IconButton from '@mui/material/IconButton';
 import InputBase from '@mui/material/InputBase';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import Typography from '@mui/material/Typography';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import NextFastIcon from 'shared-utils/assets/icon-next-fast.svg';
 import NextIcon from 'shared-utils/assets/icon-next.svg';
+import useStyles from '@/components/pagination/components/actions/styles';
+import { useTablePaginationActions } from '@/components/pagination/components/actions/hooks';
 
 type ActionsProps = Parameters<typeof useTablePaginationActions>[0] & {
   rowsPerPageOptions?: number[];

@@ -1,9 +1,8 @@
 import chainConfig from '@/chainConfig';
 import { init } from '@socialgouv/matomo-next';
 import * as jdenticon from 'jdenticon';
-import useTranslation from 'next-translate/useTranslation';
-
-import { useEffect } from 'react';
+import { useTranslation } from 'next-i18next';
+import { useEffect, useRef } from 'react';
 
 const { marketing } = chainConfig();
 const matomoUrls = [process.env.NEXT_PUBLIC_MATOMO_URL, marketing.matomoURL];
@@ -13,9 +12,13 @@ export const useApp = () => {
   // ==========================
   // language
   // ==========================
-  const { lang } = useTranslation();
+  const { i18n } = useTranslation();
+  const initializedRef = useRef(false);
 
   useEffect(() => {
+    if (initializedRef.current) return;
+    initializedRef.current = true;
+
     const url = matomoUrls.find((u) => u);
     const siteId = matomoSiteIds.find((i) => i);
     if (url && siteId) init({ url, siteId });
@@ -32,20 +35,9 @@ export const useApp = () => {
       },
       backColor: '#2a4766',
     });
-  }, []);
+  }, [i18n.language]);
 
   useEffect(() => {
-    document.cookie = `NEXT_LOCALE=${lang}`;
-  }, [lang]);
-
-  // ==========================
-  // css
-  // ==========================
-  useEffect(() => {
-    // Remove the server-side injected CSS.
-    const jssStyles = document.querySelector('#jss-server-side');
-    if (jssStyles) {
-      jssStyles.parentElement?.removeChild(jssStyles);
-    }
-  }, []);
+    document.cookie = `NEXT_LOCALE=${i18n.language}`;
+  }, [i18n.language]);
 };

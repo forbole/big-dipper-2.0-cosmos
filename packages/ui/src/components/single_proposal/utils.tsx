@@ -1,6 +1,6 @@
-import { Translate } from 'next-translate';
+import { TFunction } from 'next-i18next';
 
-export const getStatusInfo = (status: string, t: Translate) => {
+export const getStatusInfo = (status: string, t: TFunction) => {
   const statusDict = {
     PROPOSAL_STATUS_DEPOSIT_PERIOD: {
       value: t('deposit'),

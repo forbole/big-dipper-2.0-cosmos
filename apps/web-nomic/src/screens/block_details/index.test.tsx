@@ -1,7 +1,9 @@
 import { BlockDetailsDocument } from '@/graphql/types/general_types';
 import BlockDetails from '@/screens/block_details';
-import { MockTheme, wait } from '@/tests/utils';
-import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
+import { mockClient } from '@/tests/mocks/mockApollo';
+import MockTheme from '@/tests/mocks/MockTheme';
+import wait from '@/tests/utils/wait';
+import { ApolloProvider } from '@apollo/client';
 import { MockedProvider } from '@apollo/client/testing';
 import renderer from 'react-test-renderer';
 
@@ -94,7 +96,6 @@ const mockAverageBlockTime = jest.fn().mockReturnValue({
 // ==================================
 describe('screen: BlockDetails', () => {
   it.skip('matches snapshot', async () => {
-    const mockClient = new ApolloClient({ link: from([]), cache: new InMemoryCache() });
     let component: renderer.ReactTestRenderer | undefined;
 
     renderer.act(() => {

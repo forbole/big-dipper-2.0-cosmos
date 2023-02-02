@@ -1,11 +1,6 @@
-import Box from '@/components/box';
-import CustomToolTip from '@/components/custom_tool_tip';
-import { usePrice } from '@/screens/home/components/price/hooks';
-import useStyles from '@/screens/home/components/price/styles';
-import dayjs from '@/utils/dayjs';
 import Typography from '@mui/material/Typography';
 import Color from 'color';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import numeral from 'numeral';
 import * as R from 'ramda';
 import { FC } from 'react';
@@ -18,6 +13,11 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
+import dayjs from '@/utils/dayjs';
+import useStyles from '@/screens/home/components/price/styles';
+import { usePrice } from '@/screens/home/components/price/hooks';
+import CustomToolTip from '@/components/custom_tool_tip';
+import Box from '@/components/box';
 
 const Price: FC<ComponentDefault> = (props) => {
   const { classes, cx, theme } = useStyles();

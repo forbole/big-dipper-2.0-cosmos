@@ -1,9 +1,9 @@
-import type { Date, Theme, Tx } from '@/recoil/settings';
-import { THEME_DICTIONARY, writeDate, writeTheme, writeTx } from '@/recoil/settings';
-import setLanguage from 'next-translate/setLanguage';
+import { i18n } from 'next-i18next';
 import * as R from 'ramda';
 import { useCallback, useState } from 'react';
 import { SetterOrUpdater, useRecoilState } from 'recoil';
+import { THEME_DICTIONARY, writeDate, writeTheme, writeTx } from '@/recoil/settings';
+import type { Date, Theme, Tx } from '@/recoil/settings';
 
 type SettingListState = {
   lang: string;
@@ -77,7 +77,7 @@ export const useSettingList = ({ lang }: { lang: string }) => {
     }
 
     if (state.lang !== lang) {
-      setLanguage(state.lang);
+      i18n?.changeLanguage(state.lang);
     }
 
     if (state.dateFormat !== date) {

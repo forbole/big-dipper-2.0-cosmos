@@ -1,12 +1,12 @@
+import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
+import { useTranslation } from 'next-i18next';
+import { FC, Fragment } from 'react';
 import AvatarName from '@/components/avatar_name';
 import useStyles from '@/screens/account_details/components/tokens/components/list/components/mobile/styles';
 import type { OtherTokenType } from '@/screens/account_details/components/tokens/types';
 import { formatNumber } from '@/utils/format_token';
 import { TOKEN_DETAILS } from '@/utils/go_to_page';
-import Divider from '@mui/material/Divider';
-import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
-import React, { FC, Fragment } from 'react';
 
 const Mobile: FC<{ className?: string; items: OtherTokenType[] }> = (props) => {
   const { t } = useTranslation('accounts');

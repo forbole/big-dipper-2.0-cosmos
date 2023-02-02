@@ -1,7 +1,7 @@
+import renderer from 'react-test-renderer';
 import Send from '@/components/msg/bank/send';
 import { MsgSend } from '@/models';
-import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // mocks

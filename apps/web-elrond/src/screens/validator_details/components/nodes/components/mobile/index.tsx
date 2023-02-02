@@ -1,13 +1,13 @@
+import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
+import { useTranslation } from 'next-i18next';
+import Link from 'next/link';
+import { FC, Fragment } from 'react';
 import useStyles from '@/screens/validator_details/components/nodes/components/mobile/styles';
 import type { NodeType } from '@/screens/validator_details/components/nodes/types';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { getShardDisplay } from '@/utils/get_shard_display';
 import { NODE_DETAILS } from '@/utils/go_to_page';
-import Divider from '@mui/material/Divider';
-import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
-import Link from 'next/link';
-import { FC, Fragment } from 'react';
 
 const Mobile: FC<{ className?: string; items: NodeType[] }> = (props) => {
   const { t } = useTranslation('nodes');

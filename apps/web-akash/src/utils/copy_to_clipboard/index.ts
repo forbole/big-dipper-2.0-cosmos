@@ -1,9 +1,9 @@
 import copy from 'copy-to-clipboard';
-import { Translate } from 'next-translate';
+import { TFunction } from 'next-i18next';
 import { useCallback } from 'react';
 import { toast } from 'react-toastify';
 
-export const useAddress = (t: Translate) => {
+export const useAddress = (t: TFunction) => {
   const handleCopyToClipboard = useCallback(
     (value: string) => {
       copy(value);

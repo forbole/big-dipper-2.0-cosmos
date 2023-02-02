@@ -4,13 +4,15 @@ import Desktop from '@/screens/transaction_details/components/operations/compone
 import Mobile from '@/screens/transaction_details/components/operations/components/mobile';
 import useStyles from '@/screens/transaction_details/components/operations/styles';
 import type { OperationType } from '@/screens/transaction_details/types';
+import { useDisplayStyles } from '@/styles/useSharedStyles';
 import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import { FC } from 'react';
 
 const Operations: FC<{ items: OperationType[] }> = (props) => {
   const { t } = useTranslation('transactions');
   const { classes } = useStyles();
+  const display = useDisplayStyles().classes;
 
   if (!props.items.length) {
     return <NoData />;
@@ -21,8 +23,8 @@ const Operations: FC<{ items: OperationType[] }> = (props) => {
       <Typography className={classes.title} variant="h2">
         {t('operations')}
       </Typography>
-      <Desktop items={props.items} className={classes.hiddenUntilLg} />
-      <Mobile items={props.items} className={classes.hiddenWhenLg} />
+      <Desktop items={props.items} className={display.hiddenUntilLg} />
+      <Mobile items={props.items} className={display.hiddenWhenLg} />
     </Box>
   );
 };

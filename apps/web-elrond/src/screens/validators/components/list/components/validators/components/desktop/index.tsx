@@ -1,18 +1,18 @@
+import Typography from '@mui/material/Typography';
+import { useTranslation } from 'next-i18next';
+import numeral from 'numeral';
+import { ComponentProps, CSSProperties, FC, LegacyRef, ReactNode } from 'react';
+import AutoSizer from 'react-virtualized-auto-sizer';
+import { VariableSizeGrid as Grid } from 'react-window';
 import AvatarName from '@/components/avatar_name';
 import SortArrows from '@/components/sort_arrows';
-import { useGrid } from '@/hooks';
+import { useGrid } from '@/hooks/use_react_window';
 import useStyles from '@/screens/validators/components/list/components/validators/components/desktop/styles';
 import { fetchColumns } from '@/screens/validators/components/list/components/validators/components/desktop/utils';
 import VotingPower from '@/screens/validators/components/list/components/validators/components/voting_power';
 import type { ValidatorType } from '@/screens/validators/components/list/types';
 import { formatNumber } from '@/utils/format_token';
 import { NODE_DETAILS, VALIDATOR_DETAILS } from '@/utils/go_to_page';
-import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
-import numeral from 'numeral';
-import { ComponentProps, CSSProperties, FC, LegacyRef, ReactNode } from 'react';
-import AutoSizer from 'react-virtualized-auto-sizer';
-import { VariableSizeGrid as Grid } from 'react-window';
 
 type GridColumnProps = {
   column: ReturnType<typeof fetchColumns>[number];
@@ -40,7 +40,7 @@ const GridColumn: FC<GridColumnProps> = ({ column, sortKey, sortDirection, handl
       onClick={() => (sort ? handleSort(sortingKey ?? '') : null)}
       role="button"
       tabIndex={0}
-      aria-label={t(key)}
+      aria-label={t(key) ?? undefined}
     >
       {formattedComponent || (
         <Typography variant="h4" align={align}>

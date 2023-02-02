@@ -367,6 +367,15 @@ exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
   }
 }
 
+.emotion-25 {
+  color: #4092CD;
+  word-break: break-all;
+}
+
+.emotion-25:hover {
+  cursor: pointer;
+}
+
 <div
   className="emotion-0"
   id="Box"
@@ -408,6 +417,7 @@ exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
               checked={false}
               className="PrivateSwitchBase-input MuiSwitch-input emotion-7"
               onChange={[Function]}
+              required={false}
               type="checkbox"
             />
             <span
@@ -454,6 +464,7 @@ exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
               checked={false}
               className="PrivateSwitchBase-input MuiSwitch-input emotion-7"
               onChange={[Function]}
+              required={false}
               type="checkbox"
             />
             <span
@@ -538,7 +549,27 @@ exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
                 <p
                   className="MuiTypography-root MuiTypography-body1 emotion-10"
                 >
-                  message_contents:txSendContent
+                  <span
+                    data-testid="Trans"
+                    i18nKey="message_contents:txSendContent"
+                  >
+                    <a
+                      className="emotion-25"
+                      href="/accounts/undefined"
+                      onClick={[Function]}
+                      onMouseEnter={[Function]}
+                      onTouchStart={[Function]}
+                    />
+                    <b />
+                    <a
+                      className="emotion-25"
+                      href="/accounts/undefined"
+                      onClick={[Function]}
+                      onMouseEnter={[Function]}
+                      onTouchStart={[Function]}
+                    />
+                    {}
+                  </span>
                 </p>
               </span>
             </div>

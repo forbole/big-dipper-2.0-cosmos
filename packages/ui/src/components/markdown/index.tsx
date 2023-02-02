@@ -1,6 +1,6 @@
-import DOMPurify from 'dompurify';
-import ReactMarkdown from 'markdown-to-jsx';
 import Typography from '@mui/material/Typography';
+import ReactMarkdown from 'markdown-to-jsx';
+import xss from 'xss';
 // import Link from '@mui/material/Link';
 
 // const styles = (theme) => ({
@@ -101,7 +101,7 @@ const options = {
 };
 
 export default function Markdown(props: { markdown: string }) {
-  const clean = DOMPurify.sanitize(props.markdown.replace(/\\n\s?/g, '<br/>'));
+  const clean = xss(props.markdown.replace(/\\n\s?/g, '<br/>'));
   // clean = clean.replace(/\\n\s?/g, '\n'); // this will also work
 
   return <ReactMarkdown options={options}>{clean}</ReactMarkdown>;

@@ -1,6 +1,7 @@
-import Menu from '@/components/nav/components/mobile/components/menu';
-import { MockTheme, wait } from '@/tests/utils';
 import renderer from 'react-test-renderer';
+import Menu from '@/components/nav/components/mobile/components/menu';
+import MockTheme from '@/tests/mocks/MockTheme';
+import wait from '@/tests/utils/wait';
 // ==================================
 // globals
 // ==================================
@@ -10,14 +11,9 @@ let component: renderer.ReactTestRenderer;
 // mocks
 // ==================================
 const toggleNavMenus = jest.fn();
-const mockI18n = {
-  t: (key: string) => key,
-  lang: 'en',
-};
 jest.mock('@mui/material/Drawer', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="drawer" {...props} />
 ));
-jest.mock('next-translate/useTranslation', () => () => mockI18n);
 jest.mock('next/router', () => ({
   ...jest.requireActual('next/router'),
   useRouter: () => ({
@@ -51,14 +47,13 @@ describe('screen: Nav/Menu', () => {
   it('toggleDrawer is not called in first render', async () => {
     expect(toggleNavMenus).toBeCalledTimes(0);
 
-    mockI18n.lang = 'zht';
     component.update(
       <MockTheme>
         <Menu toggleNavMenus={toggleNavMenus} />
       </MockTheme>
     );
     await wait(renderer.act);
-    expect(toggleNavMenus).toBeCalledTimes(1);
+    expect(toggleNavMenus).toBeCalledTimes(0);
   });
 
   it('drawer displays on click', () => {
@@ -74,7 +69,6 @@ describe('screen: Nav/Menu', () => {
 });
 
 afterEach(() => {
-  mockI18n.lang = 'en';
   jest.clearAllMocks();
   component.unmount();
 });

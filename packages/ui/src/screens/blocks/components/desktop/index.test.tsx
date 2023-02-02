@@ -1,17 +1,13 @@
 import Desktop from '@/screens/blocks/components/desktop';
-import { MockTheme } from '@/tests/utils';
-import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
+import { mockClient } from '@/tests/mocks/mockApollo';
+import MockTheme from '@/tests/mocks/MockTheme';
+import { ApolloProvider } from '@apollo/client';
 import renderer from 'react-test-renderer';
 import type { AutoSizerProps } from 'react-virtualized-auto-sizer';
 
 // ==================================
 // mocks
 // ==================================
-const mockI18n = {
-  t: (key: string) => key,
-  lang: 'en',
-};
-jest.mock('next-translate/useTranslation', () => () => mockI18n);
 jest.mock('@/components/loading', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Loading" {...props} />
 ));
@@ -34,7 +30,6 @@ jest.mock(
 // ==================================
 describe('screen: Home/Blocks/Desktop', () => {
   it('matches snapshot', () => {
-    const mockClient = new ApolloClient({ link: from([]), cache: new InMemoryCache() });
     const component = renderer.create(
       <ApolloProvider client={mockClient}>
         <MockTheme>

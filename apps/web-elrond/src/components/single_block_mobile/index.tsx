@@ -1,8 +1,8 @@
-import useStyles from '@/components/single_block_mobile/styles';
-import type { SingleBlockMobileType } from '@/components/single_block_mobile/types';
 import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import { FC } from 'react';
+import type { SingleBlockMobileType } from '@/components/single_block_mobile/types';
+import useStyles from '@/components/single_block_mobile/styles';
 
 const SingleBlockMobile: FC<SingleBlockMobileType & ComponentDefault> = (props) => {
   const { t } = useTranslation('blocks');
