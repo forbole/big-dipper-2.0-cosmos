@@ -1,5 +1,4 @@
 ---
-'web-sifchain': minor
 'ui': minor
 ---
 
