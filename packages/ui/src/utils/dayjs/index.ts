@@ -11,6 +11,7 @@ import utc from 'dayjs/plugin/utc';
 dayjs.extend(relativeTime, {
   thresholds: [
     { l: 's', r: 1 },
+    { l: 'ss', r: 59, d: 'second' },
     { l: 'm', r: 1 },
     { l: 'mm', r: 59, d: 'minute' },
     { l: 'h', r: 1 },
@@ -22,6 +23,7 @@ dayjs.extend(relativeTime, {
     { l: 'y', r: 1 },
     { l: 'yy', d: 'year' },
   ],
+  rounding: Math.round,
 });
 dayjs.extend(utc);
 dayjs.extend(updateLocal);
@@ -33,6 +35,7 @@ dayjs.updateLocale('en', {
     future: 'in %s',
     past: '%s ago',
     s: '%ds',
+    ss: '%ds',
     m: '1 min',
     mm: '%d min',
     h: 'an hr',

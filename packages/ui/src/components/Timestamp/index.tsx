@@ -5,14 +5,15 @@ export type TimestampProps = {
   timestamp: Parameters<typeof dayjs['utc']>[0];
 };
 
-const format = 'YYYY-MM-DDTHH:mm:ssZ';
+const format = 'YYYY-MM-DD HH:mm:ss';
 
 const Timestamp: FC<TimestampProps> = ({ timestamp }) => {
   const timestampDayJs = dayjs.utc(timestamp);
-  const [output, setOutput] = useState(timestampDayJs.fromNow());
+  const [output, setOutput] = useState(() => timestampDayJs.fromNow());
   const interval = useRef<NodeJS.Timer>();
-  const local = timestampDayJs.isUTC() ? `` : ` local ${timestampDayJs.local().format(format)}`;
-  const label = `${timestampDayJs.format(format)}${local}`;
+  const local =
+    dayjs().format('Z') !== '00:00' ? ` Local: ${timestampDayJs.local().format(format)}` : ``;
+  const label = `UTC: ${timestampDayJs.format(format)}${local}`;
   useEffect(() => {
     interval.current = setInterval(() => setOutput(timestampDayJs.fromNow()), 1000);
     return () => {
