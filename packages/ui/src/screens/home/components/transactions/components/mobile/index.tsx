@@ -9,6 +9,7 @@ import type { TransactionType } from '@/screens/home/components/transactions/typ
 import dayjs from '@/utils/dayjs';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { BLOCK_DETAILS, TRANSACTION_DETAILS } from '@/utils/go_to_page';
+import Timestamp from '@/components/Timestamp';
 
 type MobileProps = {
   className?: string;
@@ -38,7 +39,7 @@ const Mobile: FC<MobileProps> = ({ className, items }) => {
       </div>
     ),
     result: <Result success={x.success} />,
-    time: dayjs.utc(x.timestamp).fromNow(),
+    time: <Timestamp timestamp={x.timestamp} />,
     messages: numeral(x.messages).format('0,0'),
   }));
 

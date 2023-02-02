@@ -1,20 +1,20 @@
+import AvatarName from '@/components/avatar_name';
+import Result from '@/components/result';
+import Timestamp from '@/components/Timestamp';
+import useStyles from '@/screens/home/components/transactions/components/desktop/styles';
+import { columns } from '@/screens/home/components/transactions/components/desktop/utils';
+import type { TransactionType } from '@/screens/home/components/transactions/types';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
+import { TRANSACTION_DETAILS } from '@/utils/go_to_page';
 import Table from '@mui/material/Table';
-import { AnimatePresence, motion, Variants } from 'framer-motion';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import { AnimatePresence, motion, Variants } from 'framer-motion';
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import { FC } from 'react';
-import { TRANSACTION_DETAILS } from '@/utils/go_to_page';
-import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
-import dayjs from '@/utils/dayjs';
-import type { TransactionType } from '@/screens/home/components/transactions/types';
-import { columns } from '@/screens/home/components/transactions/components/desktop/utils';
-import useStyles from '@/screens/home/components/transactions/components/desktop/styles';
-import Result from '@/components/result';
-import AvatarName from '@/components/avatar_name';
 
 const variants: Variants = {
   initial: {
@@ -65,7 +65,7 @@ const Desktop: FC<{ className?: string; items: TransactionType[] }> = (props) =>
       />
     ),
     status: <Result status={x.status} />,
-    time: dayjs.utc(dayjs.unix(x.timestamp)).fromNow(),
+    time: <Timestamp timestamp={x.timestamp} />,
   }));
   return (
     <div className={cx(classes.root, props.className)}>

@@ -6,10 +6,10 @@ import useStyles from '@/components/single_block_mobile/styles';
 type SingleBlockMobileProps = {
   className?: string;
   height: ReactNode;
-  hash: string;
-  parentHash?: string;
-  txs: string;
-  time: string;
+  hash: ReactNode;
+  parentHash?: ReactNode;
+  txs: ReactNode;
+  time: ReactNode;
   proposer: ReactNode;
 };
 

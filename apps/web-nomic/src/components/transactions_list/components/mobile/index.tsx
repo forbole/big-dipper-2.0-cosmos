@@ -1,3 +1,12 @@
+import Loading from '@/components/loading';
+import SingleTransactionMobile from '@/components/single_transaction_mobile';
+import Timestamp from '@/components/Timestamp';
+import useStyles from '@/components/transactions_list/components/mobile/styles';
+import type { TransactionsListState } from '@/components/transactions_list/types';
+import { useList, useListRow } from '@/hooks/use_react_window';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
+import { BLOCK_DETAILS, TRANSACTION_DETAILS } from '@/utils/go_to_page';
+import { mergeRefs } from '@/utils/merge_refs';
 import Divider from '@mui/material/Divider';
 import Link from 'next/link';
 import numeral from 'numeral';
@@ -5,15 +14,6 @@ import { FC } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
-import Loading from '@/components/loading';
-import SingleTransactionMobile from '@/components/single_transaction_mobile';
-import useStyles from '@/components/transactions_list/components/mobile/styles';
-import type { TransactionsListState } from '@/components/transactions_list/types';
-import { useList, useListRow } from '@/hooks/use_react_window';
-import dayjs from '@/utils/dayjs';
-import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
-import { BLOCK_DETAILS, TRANSACTION_DETAILS } from '@/utils/go_to_page';
-import { mergeRefs } from '@/utils/merge_refs';
 
 type ListItemProps = Pick<ListChildComponentProps, 'index' | 'style'> & {
   setRowHeight: Parameters<typeof useListRow>[1];
@@ -54,7 +54,7 @@ const ListItem: FC<ListItemProps> = ({
         })}
       </Link>
     ),
-    time: dayjs.utc(transaction.timestamp).fromNow(),
+    time: <Timestamp timestamp={transaction.timestamp} />,
   };
   return (
     <div style={style}>
