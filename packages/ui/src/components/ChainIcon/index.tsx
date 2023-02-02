@@ -206,6 +206,7 @@ const ChainIcon = ({
         type === 'icon'
           ? [quicksilverLogoDark, quicksilverLogoDark]
           : [quicksilverLogoLight, quicksilverLogoLight];
+      break;
     default:
       throw new Error(`chain ${chainName} not supported`);
   }
