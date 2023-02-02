@@ -404,6 +404,12 @@ const customTypeToModel = {
     tagTheme: 'four',
     tagDisplay: 'txUnblockUserLabel',
   },
+  '/desmos.profiles.v3.MsgLinkChainAccount': {
+    model: MODELS.MsgLinkChainAccount,
+    content: COMPONENTS.LinkChainAccount,
+    tagTheme: 'four',
+    tagDisplay: 'txLinkChainAccountLabel',
+  },
 };
 type CustomTypeToModel = typeof customTypeToModel;
 
