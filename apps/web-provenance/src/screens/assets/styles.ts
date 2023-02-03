@@ -29,7 +29,7 @@ const useStyles = makeStyles()((theme) => ({
     },
   },
   row: {
-    background: 'transparent',
+    background: theme.palette.background.paper,
     '&& > .MuiGrid2-container': {
       position: 'relative',
       [theme.breakpoints.down('lg')]: {
