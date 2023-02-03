@@ -161,6 +161,15 @@ export const common: ThemeOptions = {
     },
   },
   components: {
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          '&': {
+            backgroundImage: 'none',
+          },
+        },
+      },
+    },
     MuiSvgIcon: {
       defaultProps: {
         htmlColor: '#999999', // same as custom /general /icons

@@ -1,11 +1,9 @@
-import AvatarName from '@/components/avatar_name';
+import Avatar from '@/components/avatar';
 import ChainIcon from '@/components/ChainIcon';
 import useStyles from '@/screens/assets/styles';
-import { ADDRESS_DETAILS } from '@/utils/go_to_page';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Grid2 from '@mui/material/Unstable_Grid2';
-import Link from 'next/link';
 import { FC } from 'react';
 
 interface TokenNameProps {
@@ -24,14 +22,19 @@ const TokenName: FC<TokenNameProps> = ({ address, denom, tokenName }) => {
             <ChainIcon type="icon" alt={tokenName} />
           </Grid2>
           <Grid2>
-            <Link shallow href={ADDRESS_DETAILS(address)}>
-              <Typography variant="body1">{denom}</Typography>
-            </Link>
+            <Typography variant="body1" aria-label={address} title={address}>
+              {denom}
+            </Typography>
             <Typography variant="subtitle1">{tokenName}</Typography>
           </Grid2>
         </Grid2>
       )}
-      {!tokenName && <AvatarName address={address} name={denom} title={denom} />}
+      {!tokenName && (
+        <div className={classes.tokenName}>
+          <Avatar address={address} />
+          <Typography variant="body1">{denom}</Typography>
+        </div>
+      )}
     </Box>
   );
 };

@@ -641,6 +641,11 @@ exports[`screen: Nav/Menu it renders 1`] = `
   margin-bottom: 4px;
 }
 
+.emotion-5.emotion-5 * {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 .emotion-6 {
   margin: 0;
   font-size: 1rem;

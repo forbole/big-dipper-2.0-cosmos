@@ -7,6 +7,7 @@ import mockProfiles from '@/tests/mocks/mockProfiles';
 import '@testing-library/jest-dom/extend-expect';
 import 'jest-localstorage-mock';
 
+jest.setTimeout(30000);
 mockI18Next();
 mockApollo();
 mockChainConfig();

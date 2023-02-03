@@ -48,7 +48,7 @@ export const getMenuItems = () => {
       icon: <ProposalsIcon {...iconProps} />,
     },
     {
-      key: 'assetModule',
+      key: 'assetsModule',
       url: ASSETS,
       icon: <AssetIcon {...iconProps} />,
     },
