@@ -34,7 +34,7 @@ const MenuItems = () => {
               component="a"
             >
               <ListItemIcon>{x.icon}</ListItemIcon>
-              <ListItemText primary={t(x.key)} />
+              <ListItemText className={classes.listItemText} primary={t(x.key)} />
             </ListItemButton>
           </Link>
         );

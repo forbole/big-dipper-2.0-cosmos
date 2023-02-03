@@ -36,7 +36,7 @@ const useStyles = makeStyles()((theme) => ({
   },
   th: {
     '&&': {
-      background: theme.palette.background.default,
+      background: 'transparent',
       height: 'auto',
       padding: 0,
     },

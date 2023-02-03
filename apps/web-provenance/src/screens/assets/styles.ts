@@ -13,6 +13,7 @@ const useStyles = makeStyles()((theme) => ({
       display: 'flex',
       flexWrap: 'wrap',
       padding: theme.spacing(2),
+      color: theme.palette.text.primary,
     },
   },
   skeleton: {
@@ -28,7 +29,7 @@ const useStyles = makeStyles()((theme) => ({
     },
   },
   row: {
-    background: theme.palette.custom.general.surfaceOne,
+    background: 'transparent',
     '&& > .MuiGrid2-container': {
       position: 'relative',
       [theme.breakpoints.down('lg')]: {
@@ -111,10 +112,16 @@ const useStyles = makeStyles()((theme) => ({
     },
   },
   textfield: {
-    backgroundColor: theme.palette.divider,
+    background: theme.palette.background.default,
     width: '100%',
     [theme.breakpoints.up('lg')]: {
       width: 300,
+    },
+    '&& .Mui-focused': {
+      background: theme.palette.divider,
+      '&& input': {
+        color: theme.palette.custom.fonts.fontFour,
+      },
     },
   },
   paper: {
@@ -128,6 +135,17 @@ const useStyles = makeStyles()((theme) => ({
   },
   supply: {
     textAlign: 'right',
+  },
+  tokenName: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    '& p': {
+      marginLeft: theme.spacing(1),
+      whiteSpace: 'nowrap',
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+    },
   },
 }));
 
