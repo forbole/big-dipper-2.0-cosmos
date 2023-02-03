@@ -25,7 +25,6 @@ export async function waitForClick(selector: string, locator: Locator) {
 }
 
 export async function waitForPopupClick(selector: (p: Page) => Locator, page: Page) {
-  // Test facebook button
   await Promise.all([page.waitForEvent('popup'), selector(page).first().click()]).then(([popup]) =>
     popup.close()
   );
