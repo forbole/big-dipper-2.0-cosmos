@@ -17,6 +17,7 @@ const useStyles = makeStyles()((theme) => ({
       '& .MuiListItemIcon-root': {
         '& svg': {
           fill: theme?.palette?.primary?.main,
+          color: theme?.palette?.primary?.main,
         },
       },
       '& .MuiListItemText-root': {

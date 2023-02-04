@@ -614,6 +614,7 @@ exports[`screen: Nav/Menu it renders 1`] = `
 
 .emotion-3.active .MuiListItemIcon-root svg {
   fill: #FF835B;
+  color: #FF835B;
 }
 
 .emotion-3.active .MuiListItemText-root {
