@@ -1,5 +1,11 @@
 # Unreleased
 
+## 2.8.2
+
+### Patch Changes
+
+- 4c504fcd0: fix: update layout to assign with figma
+
 ## 2.8.1
 
 ### Patch Changes
