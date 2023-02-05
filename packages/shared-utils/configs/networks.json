@@ -432,5 +432,18 @@
         "url": "https://testnet-explorer.marsprotocol.io/"
       }
     ]
+  },
+  {
+    "name": "Migaloo",
+    "chainName": "",
+    "logo": "",
+    "cover": "",
+    "links": [
+      {
+        "name": "Testnet",
+        "chain_id": "narwhal-1",
+        "url": "https://bigdipper.live/migaloo"
+      }
+    ]
   }
 ]
