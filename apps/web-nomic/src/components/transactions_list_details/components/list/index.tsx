@@ -2,10 +2,10 @@ import Loading from '@/components/loading';
 import SingleTransaction from '@/components/transactions_list_details/components/list/components/single_transaction';
 import useStyles from '@/components/transactions_list_details/components/list/styles';
 import type { TransactionsListDetailsState } from '@/components/transactions_list_details/types';
-import { useList, useListRow } from '@/hooks';
+import { useList, useListRow } from '@/hooks/use_react_window';
 import { readDate } from '@/recoil/settings';
 import { TransactionType } from '@/screens/home/components/transactions/types';
-import useSharedStyles from '@/styles/useSharedStyles';
+import { useDisplayStyles } from '@/styles/useSharedStyles';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { BLOCK_DETAILS, TRANSACTION_DETAILS } from '@/utils/go_to_page';
@@ -26,7 +26,7 @@ type ListItemProps = Pick<ListChildComponentProps, 'index' | 'style'> & {
 
 const ListItem: FC<ListItemProps> = ({ index, style, setRowHeight, transaction, isItemLoaded }) => {
   const { rowRef } = useListRow(index, setRowHeight);
-  const { classes } = useSharedStyles();
+  const display = useDisplayStyles().classes;
   const dateFormat = useRecoilValue(readDate);
 
   if (!isItemLoaded?.(index)) {
@@ -46,8 +46,8 @@ const ListItem: FC<ListItemProps> = ({ index, style, setRowHeight, transaction, 
     ),
     hash: (
       <Link shallow href={TRANSACTION_DETAILS(transaction.hash)}>
-        <span className={classes.hiddenUntilLg}>{transaction.hash}</span>
-        <span className={classes.hiddenWhenLg}>
+        <span className={display.hiddenUntilLg}>{transaction.hash}</span>
+        <span className={display.hiddenWhenLg}>
           {getMiddleEllipsis(transaction.hash, {
             beginning: 15,
             ending: 5,

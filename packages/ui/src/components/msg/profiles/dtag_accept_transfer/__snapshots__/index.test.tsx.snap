@@ -14,6 +14,20 @@ exports[`screen: TransactionDetails/DtagAcceptTransfer matches snapshot 1`] = `
 <p
   className="MuiTypography-root MuiTypography-body1 emotion-0"
 >
-  message_contents:txAcceptDTagTransferContent
+  <span
+    data-testid="Trans"
+    i18nKey="message_contents:txAcceptDTagTransferContent"
+  >
+    <div
+      address="sender"
+      id="Name"
+      name="sender"
+    />
+    <div
+      address="receiver"
+      id="Name"
+      name="receiver"
+    />
+  </span>
 </p>
 `;

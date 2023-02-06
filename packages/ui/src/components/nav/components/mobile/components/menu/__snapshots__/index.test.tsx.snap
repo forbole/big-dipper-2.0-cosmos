@@ -614,6 +614,7 @@ exports[`screen: Nav/Menu it renders 1`] = `
 
 .emotion-3.active .MuiListItemIcon-root svg {
   fill: #FF835B;
+  color: #FF835B;
 }
 
 .emotion-3.active .MuiListItemText-root {
@@ -639,6 +640,11 @@ exports[`screen: Nav/Menu it renders 1`] = `
   min-width: 0;
   margin-top: 4px;
   margin-bottom: 4px;
+}
+
+.emotion-5.emotion-5 * {
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .emotion-6 {
@@ -741,6 +747,40 @@ exports[`screen: Nav/Menu it renders 1`] = `
 
 .emotion-37 .MuiTypography-caption {
   margin: 0 0.3rem;
+}
+
+.emotion-39 {
+  margin-left: 20px;
+}
+
+@media (min-width:1280px) {
+  .emotion-39 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+  }
+}
+
+.emotion-39:hover {
+  cursor: pointer;
+}
+
+.emotion-39 svg {
+  fill: none;
+  stroke: #999999;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 <div
@@ -1042,13 +1082,19 @@ exports[`screen: Nav/Menu it renders 1`] = `
       <div>
         <div
           aria-label="connect-wallet-button"
-          className="makeStyles-icon"
+          className="emotion-39"
           onClick={[Function]}
           role="button"
           tabIndex={0}
         >
           <svg />
         </div>
+        <div />
+        <div />
+        <div />
+        <div />
+        <div />
+        <div />
       </div>
     </div>
   </div>,

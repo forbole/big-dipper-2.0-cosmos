@@ -1,14 +1,14 @@
-import chainConfig from '@/chainConfig';
-import { readDate } from '@/recoil/settings';
-import useStyles from '@/screens/profile_details/components/connections/components/mobile/styles';
-import dayjs, { formatDayJs } from '@/utils/dayjs';
-import { ACCOUNT_DETAILS } from '@/utils/go_to_page';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import { FC, Fragment } from 'react';
 import { useRecoilValue } from 'recoil';
+import { ACCOUNT_DETAILS } from '@/utils/go_to_page';
+import dayjs, { formatDayJs } from '@/utils/dayjs';
+import useStyles from '@/screens/profile_details/components/connections/components/mobile/styles';
+import { readDate } from '@/recoil/settings';
+import chainConfig from '@/chainConfig';
 
 const { prefix } = chainConfig();
 

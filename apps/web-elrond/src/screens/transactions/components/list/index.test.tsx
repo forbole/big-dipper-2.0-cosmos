@@ -3,7 +3,8 @@ import renderer from 'react-test-renderer';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import { TRANSACTIONS, TRANSACTIONS_COUNT } from '@/api';
-import { MockTheme, wait } from '@/tests/utils';
+import MockTheme from '@/tests/mocks/MockTheme';
+import wait from '@/tests/utils/wait';
 import List from '@/screens/transactions/components/list';
 
 // ==================================

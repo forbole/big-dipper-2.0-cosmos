@@ -1,9 +1,9 @@
-import useStyles from '@/components/banner/styles';
-import Box from '@/components/box';
 import { AnimatePresence, motion, Variants } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FC, useCallback, useEffect, useRef, useState } from 'react';
+import Box from '@/components/box';
+import useStyles from '@/components/banner/styles';
 
 export interface BannerLink {
   url: string;

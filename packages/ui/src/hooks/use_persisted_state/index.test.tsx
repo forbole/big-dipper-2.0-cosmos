@@ -1,5 +1,5 @@
-import { usePersistedState } from '@/hooks/use_persisted_state';
 import { act, renderHook } from '@testing-library/react';
+import { usePersistedState } from '@/hooks/use_persisted_state';
 
 describe('misc: usePersistedState', () => {
   it('retrieves persisted value from localStorage on mount', async () => {

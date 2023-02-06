@@ -7,8 +7,8 @@ import DialogTitle from '@mui/material/DialogTitle';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import CloseIcon from '@mui/icons-material/Close';
-import useTranslation from 'next-translate/useTranslation';
-import React, { FC } from 'react';
+import { useTranslation } from 'next-i18next';
+import { FC } from 'react';
 import Loading from '@/components/loading';
 
 type SelectNetworkDialogProps = {
@@ -23,7 +23,7 @@ const SelectNetworkDialog: FC<SelectNetworkDialogProps> = ({
   open,
   onClose,
   onContinue,
-  setWallet,
+  // setWallet,
 }) => {
   const { classes } = useStyles();
   const { t } = useTranslation('common');

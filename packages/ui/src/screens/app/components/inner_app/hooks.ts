@@ -1,8 +1,8 @@
-import { useLatestBlockTimestampLazyQuery } from '@/graphql/types/general_types';
-import dayjs from '@/utils/dayjs';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
+import dayjs from '@/utils/dayjs';
+import { useLatestBlockTimestampLazyQuery } from '@/graphql/types/general_types';
 
 const isClient = typeof window === 'object';
 

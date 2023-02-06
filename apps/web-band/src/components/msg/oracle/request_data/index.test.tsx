@@ -1,7 +1,7 @@
+import renderer from 'react-test-renderer';
 import RequestData from '@/components/msg/oracle/request_data';
 import MsgRequestData from '@/models/msg/oracle/msg_request_data';
-import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // mocks

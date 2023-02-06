@@ -1,7 +1,7 @@
+import renderer from 'react-test-renderer';
 import ChannelOpenTry from '@/components/msg/ibc/channel_open_try';
 import { MsgChannelOpenTry } from '@/models';
-import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // mocks

@@ -1,3 +1,5 @@
+import { NextSeo } from 'next-seo';
+import { useTranslation } from 'next-i18next';
 import DesmosProfile from '@/components/desmos_profile';
 import Layout from '@/components/layout';
 import LoadAndExist from '@/components/load_and_exist';
@@ -7,8 +9,6 @@ import ValidatorOverview from '@/screens/validator_details/components/validator_
 import VotingPower from '@/screens/validator_details/components/voting_power';
 import { useValidatorDetails } from '@/screens/validator_details/hooks';
 import useStyles from '@/screens/validator_details/styles';
-import { NextSeo } from 'next-seo';
-import useTranslation from 'next-translate/useTranslation';
 
 const ValidatorDetails = () => {
   const { t } = useTranslation('validators');
@@ -19,12 +19,12 @@ const ValidatorDetails = () => {
   return (
     <>
       <NextSeo
-        title={t('validatorDetails')}
+        title={t('validatorDetails') ?? undefined}
         openGraph={{
-          title: t('validatorDetails'),
+          title: t('validatorDetails') ?? undefined,
         }}
       />
-      <Layout navTitle={t('validatorDetails')}>
+      <Layout navTitle={t('validatorDetails') ?? undefined}>
         <LoadAndExist exists={exists} loading={loading}>
           <span className={classes.root}>
             {desmosProfile ? (

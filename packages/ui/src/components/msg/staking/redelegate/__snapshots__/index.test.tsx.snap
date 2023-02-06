@@ -14,6 +14,27 @@ exports[`screen: TransactionDetails/Redelegate matches snapshot 1`] = `
 <p
   className="MuiTypography-root MuiTypography-body1 emotion-0"
 >
-  message_contents:txRedelegateContent
+  <span
+    data-testid="Trans"
+    i18nKey="message_contents:txRedelegateContent"
+  >
+    <div
+      address="delegatorAddress"
+      id="Name"
+      name="delegatorAddress"
+    />
+    <b />
+    <div
+      address="validatorSrcAddress"
+      id="Name"
+      name="validatorSrcAddress"
+    />
+    <div
+      address="validatorDstAddress"
+      id="Name"
+      name="validatorDstAddress"
+    />
+    {"amount":"1,000 DARIC"}
+  </span>
 </p>
 `;

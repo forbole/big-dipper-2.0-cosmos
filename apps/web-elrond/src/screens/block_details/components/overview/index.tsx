@@ -1,14 +1,14 @@
+import Typography from '@mui/material/Typography';
+import { useTranslation } from 'next-i18next';
+import numeral from 'numeral';
+import { FC } from 'react';
+import { useRecoilValue } from 'recoil';
 import BoxDetails from '@/components/box_details';
 import { readDate } from '@/recoil/settings';
 import type { OverviewType } from '@/screens/block_details/types';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { getShardDisplay } from '@/utils/get_shard_display';
-import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
-import numeral from 'numeral';
-import { FC } from 'react';
-import { useRecoilValue } from 'recoil';
 
 const Overview: FC<OverviewType & ComponentDefault> = (props) => {
   const { t } = useTranslation('blocks');
@@ -104,7 +104,9 @@ const Overview: FC<OverviewType & ComponentDefault> = (props) => {
     });
   }
 
-  return <BoxDetails className={props.className} title={t('overview')} details={details} />;
+  return (
+    <BoxDetails className={props.className} title={t('overview') ?? undefined} details={details} />
+  );
 };
 
 export default Overview;

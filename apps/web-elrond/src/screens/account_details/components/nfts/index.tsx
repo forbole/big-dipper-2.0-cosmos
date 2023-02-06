@@ -1,13 +1,13 @@
+import Typography from '@mui/material/Typography';
+import { useTranslation } from 'next-i18next';
+import { FC } from 'react';
 import Box from '@/components/box';
 import Loading from '@/components/loading';
 import Pagination from '@/components/pagination';
-import { usePagination } from '@/hooks';
+import { usePagination } from '@/hooks/use_pagination';
 import List from '@/screens/account_details/components/nfts/components/list';
 import { PAGE_SIZE, useTokens } from '@/screens/account_details/components/nfts/hooks';
 import useStyles from '@/screens/account_details/components/nfts/styles';
-import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
-import { FC } from 'react';
 
 const Tokens: FC<ComponentDefault> = (props) => {
   const { t } = useTranslation('accounts');

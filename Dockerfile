@@ -70,7 +70,9 @@ RUN export SENTRYCLI_SKIP_DOWNLOAD=$([ -z "${NEXT_PUBLIC_SENTRY_DSN}" ] && echo 
 
 ## Build the project
 COPY --from=pruner /app/out/full/ ./
-RUN turbo run build --filter=${PROJECT_NAME}...
+RUN ([ -z "${NEXT_PUBLIC_SENTRY_DSN}" ] || yarn node packages/shared-utils/configs/sentry/install.js) \
+  && yarn workspace ${PROJECT_NAME} add sharp \
+  && yarn workspace ${PROJECT_NAME} run build
 
 ################################################################################
 

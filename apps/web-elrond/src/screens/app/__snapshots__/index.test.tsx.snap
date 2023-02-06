@@ -3,10 +3,10 @@
 exports[`screen: _app matches snapshot 1`] = `
 [
   <div
-    className="Toastify"
+    id="component"
   />,
   <div
-    id="component"
+    className="Toastify"
   />,
 ]
 `;

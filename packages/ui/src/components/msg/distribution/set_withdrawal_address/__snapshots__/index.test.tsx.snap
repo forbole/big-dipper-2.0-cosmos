@@ -14,6 +14,20 @@ exports[`screen: TransactionDetails/SetWithdrawalAddress matches snapshot 1`] = 
 <p
   className="MuiTypography-root MuiTypography-body1 emotion-0"
 >
-  message_contents:txsetRewardAddressContent
+  <span
+    data-testid="Trans"
+    i18nKey="message_contents:txsetRewardAddressContent"
+  >
+    <div
+      address="delegatorAddress"
+      id="Name"
+      name="delegatorAddress"
+    />
+    <div
+      address="withdrawalAddress"
+      id="Name"
+      name="withdrawalAddress"
+    />
+  </span>
 </p>
 `;

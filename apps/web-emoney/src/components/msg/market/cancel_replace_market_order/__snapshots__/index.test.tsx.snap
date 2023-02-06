@@ -14,6 +14,19 @@ exports[`screen: TransactionDetails/CancelReplaceMarketOrder matches snapshot 1`
 <p
   className="MuiTypography-root MuiTypography-body1 emotion-0"
 >
-  message_contents:txCancelReplaceMarketOrderContent
+  <span
+    data-testid="Trans"
+    i18nKey="message_contents:txCancelReplaceMarketOrderContent"
+  >
+    <div
+      address="owner"
+      id="Name"
+      name="owner"
+    />
+    <b />
+    <b />
+    <b />
+    {"clientOrderId":"originalClientOrderId","source":"source","destination":"500,000 UDARICS"}
+  </span>
 </p>
 `;

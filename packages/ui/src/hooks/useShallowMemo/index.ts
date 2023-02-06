@@ -6,14 +6,12 @@ import { useRef } from 'react';
  * @param {V} value - The value to memoize.
  * @returns The current value of the ref.
  */
-const useShallowMemo = <V, K>(value: V, key?: K): V => {
+const useShallowMemo = <V, K = keyof unknown>(value: V, key?: K): V => {
   const ref = useRef(new Map<K | undefined, V>([[key, value]]));
   if (!R.equals(ref.current.get(key), value)) {
     ref.current.set(key, value);
   }
-  const val = ref.current.get(key);
-  if (!val) throw new Error('Value is undefined');
-  return val;
+  return ref.current.get(key) ?? value;
 };
 
 export default useShallowMemo;

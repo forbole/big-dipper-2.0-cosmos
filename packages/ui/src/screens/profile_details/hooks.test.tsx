@@ -1,8 +1,8 @@
-import chainConfig from '@/chainConfig';
-import type { useDesmosProfile } from '@/hooks';
-import { useProfileDetails } from '@/screens/profile_details/hooks';
 import { act, cleanup, renderHook } from '@testing-library/react';
 import { useMemo } from 'react';
+import chainConfig from '@/chainConfig';
+import type { useDesmosProfile } from '@/hooks/use_desmos_profile';
+import { useProfileDetails } from '@/screens/profile_details/hooks';
 
 const { extra, prefix } = chainConfig();
 
@@ -19,8 +19,8 @@ jest.mock('next/router', () => ({
   useRouter: () => mockRouter,
 }));
 
-jest.mock('@/hooks', () => ({
-  ...jest.requireActual('@/hooks'),
+jest.mock('@/hooks/use_desmos_profile', () => ({
+  ...jest.requireActual('@/hooks/use_desmos_profile'),
   useDesmosProfile: (options: Parameters<typeof useDesmosProfile>[0]) => {
     const address = options.addresses?.[0];
     return useMemo(() => {

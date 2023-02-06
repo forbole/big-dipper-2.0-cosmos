@@ -1,14 +1,14 @@
-import useStyles from '@/components/single_transaction_mobile/styles';
 import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
-import React, { FC, ReactNode } from 'react';
+import { useTranslation } from 'next-i18next';
+import { FC, ReactNode } from 'react';
+import useStyles from '@/components/single_transaction_mobile/styles';
 
 type SingleTransactionMobileProps = {
   className?: string;
   block: ReactNode;
   hash: ReactNode;
-  time: string;
-  messages: string;
+  time: ReactNode;
+  messages: ReactNode;
   result?: ReactNode;
 };
 

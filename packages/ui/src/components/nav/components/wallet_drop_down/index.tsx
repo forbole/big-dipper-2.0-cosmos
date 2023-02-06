@@ -2,7 +2,7 @@ import Box from '@/components/box';
 import { useStyles } from '@/components/nav/components/wallet_drop_down/styles';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import Avatar from '@/components/avatar';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import CopyIcon from 'shared-utils/assets/icon-copy-text.svg';
@@ -12,7 +12,7 @@ import { useRecoilValue } from 'recoil';
 import { readUserAddress, readWalletName } from '@/recoil/user';
 import Link from 'next/link';
 import { ACCOUNT_DETAILS } from '@/utils/go_to_page';
-import React, { FC } from 'react';
+import { FC } from 'react';
 
 type WalletDropDownProps = {
   className?: string;

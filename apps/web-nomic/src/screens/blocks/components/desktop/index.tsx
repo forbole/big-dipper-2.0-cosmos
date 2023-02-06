@@ -1,16 +1,16 @@
 import Loading from '@/components/loading';
-import { useGrid } from '@/hooks';
+import Timestamp from '@/components/Timestamp';
+import { useGrid } from '@/hooks/use_react_window';
 import useStyles from '@/screens/blocks/components/desktop/styles';
 import { columns } from '@/screens/blocks/components/desktop/utils';
 import type { BlockType } from '@/screens/blocks/types';
-import dayjs from '@/utils/dayjs';
 import { BLOCK_DETAILS } from '@/utils/go_to_page';
 import { mergeRefs } from '@/utils/merge_refs';
 import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import numeral from 'numeral';
-import React, { FC, LegacyRef } from 'react';
+import { FC, LegacyRef } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { VariableSizeGrid as Grid } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
@@ -41,7 +41,7 @@ const Desktop: FC<DesktopProps> = ({
       </Link>
     ),
     txs: numeral(x.txs).format('0,0'),
-    time: dayjs.utc(x.timestamp).fromNow(),
+    time: <Timestamp timestamp={x.timestamp} />,
     hash: x.hash,
   }));
 

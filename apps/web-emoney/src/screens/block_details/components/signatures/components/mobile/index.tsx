@@ -1,13 +1,13 @@
-import AvatarName from '@/components/avatar_name';
-import { useList, useListRow } from '@/hooks';
-import { useProfileRecoil } from '@/recoil/profiles/hooks';
-import useStyles from '@/screens/block_details/components/signatures/components/mobile/styles';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
-import React, { FC, LegacyRef } from 'react';
+import { useTranslation } from 'next-i18next';
+import { FC, LegacyRef } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
+import useStyles from '@/screens/block_details/components/signatures/components/mobile/styles';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
+import { useList, useListRow } from '@/hooks/use_react_window';
+import AvatarName from '@/components/avatar_name';
 
 type ListItemProps = Pick<ListChildComponentProps, 'index' | 'style'> & {
   setRowHeight: Parameters<typeof useListRow>[1];

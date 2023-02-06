@@ -1,6 +1,6 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import numeral from 'numeral';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import BoxDetails from '@/components/box_details';
 import type { StatsType } from '@/screens/token_details/types';
 
@@ -30,7 +30,9 @@ const Stats: FC<{ className?: string; stats: StatsType }> = (props) => {
     },
   ];
 
-  return <BoxDetails className={props.className} title={t('stats')} details={details} />;
+  return (
+    <BoxDetails className={props.className} title={t('stats') ?? undefined} details={details} />
+  );
 };
 
 export default Stats;

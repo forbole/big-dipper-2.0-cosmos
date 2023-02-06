@@ -1,13 +1,13 @@
+import Typography from '@mui/material/Typography';
+import { useTranslation } from 'next-i18next';
+import { FC } from 'react';
+import { useRecoilValue } from 'recoil';
 import Box from '@/components/box';
 import TransactionsList from '@/components/transactions_list';
 import TransactionsListDetails from '@/components/transactions_list_details';
 import { readTx } from '@/recoil/settings';
 import { useTransactions } from '@/screens/validator_details/components/transactions/hooks';
 import useStyles from '@/screens/validator_details/components/transactions/styles';
-import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
-import React, { FC } from 'react';
-import { useRecoilValue } from 'recoil';
 
 const Transactions: FC<ComponentDefault> = (props) => {
   const txListFormat = useRecoilValue(readTx);

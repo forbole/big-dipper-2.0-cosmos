@@ -1,7 +1,7 @@
 import * as R from 'ramda';
 import { useCallback, useEffect, useRef } from 'react';
 import type { VariableSizeGrid } from 'react-window';
-import useShallowMemo from '../useShallowMemo';
+import useShallowMemo from '@/hooks/useShallowMemo';
 
 // reusable hook helpers for react window list components
 
@@ -51,11 +51,11 @@ export const useListRow = (
 };
 
 export const useGrid = (
-  columns: {
+  columns: Array<{
     key: string;
     align?: 'left' | 'center' | 'right' | 'justify' | 'inherit';
     width: number;
-  }[]
+  }>
 ) => {
   const gridRef = useRef<VariableSizeGrid>();
   const columnRef = useRef<VariableSizeGrid>();

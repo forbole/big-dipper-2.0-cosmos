@@ -1,9 +1,9 @@
-import type { ConsensusType } from '@/screens/block_details/types';
-import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
-import { NODE_DETAILS } from '@/utils/go_to_page';
 import Link from 'next/link';
 import numeral from 'numeral';
 import { FC } from 'react';
+import type { ConsensusType } from '@/screens/block_details/types';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
+import { NODE_DETAILS } from '@/utils/go_to_page';
 
 export const columns: {
   key: string;

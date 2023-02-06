@@ -40,14 +40,13 @@ jobs:
     if: ${{ needs.validate-projects.outputs.projects != '[]' }}
     strategy:
       fail-fast: false
-      max-parallel: 1
       matrix:
         project: ${{ fromJSON(needs.validate-projects.outputs.projects) }}
     name: Publish ${{ matrix.project }}
     steps:
       - uses: actions/checkout@v3
       - run: |
-          # assign chain_type
+          # Assign chain_type
           node <<EOF | tee -a $GITHUB_OUTPUT
           const chainType = process.env.NEXT_PUBLIC_CHAIN_TYPE?.toLowerCase() || 'mainnet';
           const chainJson = require('./apps/' + process.env.PROJECT_NAME + '/src/chain.json');
@@ -89,7 +88,6 @@ jobs:
           target: web
           tags: |
             forbole/big-dipper-2.0-cosmos:monorepo-${{ matrix.project }}-${{ steps.vars.outputs.chain_type }}-${{ steps.vars.outputs.sha_short }}
-            forbole/big-dipper-2.0-cosmos:monorepo-${{ matrix.project }}-${{ steps.vars.outputs.chain_type }}-latest
       - name: Publish to akash
         run: >
           curl -i -X POST -H "Content-Type: application/json"

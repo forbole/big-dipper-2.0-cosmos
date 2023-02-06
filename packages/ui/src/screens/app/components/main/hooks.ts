@@ -1,9 +1,9 @@
-import chainConfig from '@/chainConfig';
-import { getThemeTemplate, readTheme } from '@/recoil/settings';
-import dayjs from '@/utils/dayjs';
 import { createTheme } from '@mui/material/styles';
 import { useState } from 'react';
 import { useRecoilValue } from 'recoil';
+import chainConfig from '@/chainConfig';
+import { getThemeTemplate, readTheme } from '@/recoil/settings';
+import dayjs from '@/utils/dayjs';
 
 const { genesis } = chainConfig();
 

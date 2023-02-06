@@ -14,6 +14,33 @@ exports[`screen: TransactionDetails/IssueDenom matches snapshot 1`] = `
 <p
   className="MuiTypography-root MuiTypography-body1 emotion-0"
 >
-  message_contents:txIssueDenomContent
+  <span
+    data-testid="Trans"
+    i18nKey="message_contents:txIssueDenomContent"
+  >
+    <div
+      address="desmos1hfhkduejung7g29wv863x369rndf3hu5xj4g93"
+      id="Name"
+      name="desmos1hfhkduejung7g29wv863x369rndf3hu5xj4g93"
+    />
+    , 
+    <div
+      address="desmosvaloper14nfk5gm99gfrd7nwqtmtvzunzclz8720a6cqh7"
+      id="Name"
+      name="desmosvaloper14nfk5gm99gfrd7nwqtmtvzunzclz8720a6cqh7"
+    />
+    , 
+    <div
+      address="desmosvaloper1jh753mzjy358jf86cfqqzkrrtqqefhjxctcre4"
+      id="Name"
+      name="desmosvaloper1jh753mzjy358jf86cfqqzkrrtqqefhjxctcre4"
+    />
+     and 
+    <div
+      address="desmosvaloper1rzhewpmmdl72lhnxj6zmxr4v94f522s4hyz467"
+      id="Name"
+      name="desmosvaloper1rzhewpmmdl72lhnxj6zmxr4v94f522s4hyz467"
+    />
+  </span>
 </p>
 `;

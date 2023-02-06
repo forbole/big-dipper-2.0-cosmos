@@ -1,17 +1,14 @@
+import renderer from 'react-test-renderer';
 import GrantAllowance from '@/components/msg/feegrant/grant_allowance';
 import { MsgGrantAllowance } from '@/models';
-import { MockTheme, wait } from '@/tests/utils';
-import renderer from 'react-test-renderer';
+import MockTheme from '@/tests/mocks/MockTheme';
+import wait from '@/tests/utils/wait';
 
 // ==================================
 // mocks
 // ==================================
 jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
-));
-
-jest.mock('next-translate/Trans', () => (props: JSX.IntrinsicElements['div']) => (
-  <div id="Trans" {...props} />
 ));
 
 // ==================================
@@ -34,7 +31,7 @@ describe('screen: TransactionDetails/Grant', () => {
     const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
 
-    expect(component.root.findByProps({ id: 'Trans' }).props.i18nKey).toEqual(
+    expect(component.root.findByProps({ 'data-testid': 'Trans' }).props.i18nKey).toEqual(
       'message_contents:MsgGrantAllowance'
     );
   });

@@ -17,23 +17,6 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
   }
 }
 
-@keyframes animation-1 {
-  0% {
-    stroke-dasharray: 1px,200px;
-    stroke-dashoffset: 0;
-  }
-
-  50% {
-    stroke-dasharray: 100px,200px;
-    stroke-dashoffset: -15px;
-  }
-
-  100% {
-    stroke-dasharray: 100px,200px;
-    stroke-dashoffset: -125px;
-  }
-}
-
 .emotion-0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -111,8 +94,6 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
   stroke: currentColor;
   stroke-dasharray: 80px,200px;
   stroke-dashoffset: 0;
-  -webkit-animation: animation-1 1.4s ease-in-out infinite;
-  animation: animation-1 1.4s ease-in-out infinite;
 }
 
 <div
@@ -156,7 +137,7 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
         viewBox="22 22 44 44"
       >
         <circle
-          className="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate emotion-6"
+          className="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate MuiCircularProgress-circleDisableShrink emotion-6"
           cx={44}
           cy={44}
           fill="none"

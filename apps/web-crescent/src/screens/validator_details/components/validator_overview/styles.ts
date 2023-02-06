@@ -1,8 +1,6 @@
 import { makeStyles } from 'tss-react/mui';
-import { sharedStyles } from 'ui/src/styles/useSharedStyles';
 
 const useStyles = makeStyles()((theme) => ({
-  ...sharedStyles(theme),
   addressRoot: {
     [theme.breakpoints.up('md')]: {
       display: 'grid',

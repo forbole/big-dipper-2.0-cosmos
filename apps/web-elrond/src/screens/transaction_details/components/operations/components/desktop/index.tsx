@@ -1,18 +1,18 @@
-import AvatarName from '@/components/avatar_name';
-import { columns } from '@/screens/transaction_details/components/operations/components/desktop/utils';
-import type { OperationType } from '@/screens/transaction_details/types';
-import { formatNumber } from '@/utils/format_token';
-import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
-import { NFT_DETAILS, TOKEN_DETAILS } from '@/utils/go_to_page';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import { FC } from 'react';
+import { NFT_DETAILS, TOKEN_DETAILS } from '@/utils/go_to_page';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
+import { formatNumber } from '@/utils/format_token';
+import type { OperationType } from '@/screens/transaction_details/types';
+import { columns } from '@/screens/transaction_details/components/operations/components/desktop/utils';
+import AvatarName from '@/components/avatar_name';
 
 const Desktop: FC<{ className?: string; items: OperationType[] }> = (props) => {
   const { t } = useTranslation('transactions');

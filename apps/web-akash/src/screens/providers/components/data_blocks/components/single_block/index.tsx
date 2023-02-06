@@ -1,6 +1,6 @@
-import useStyles from '@/screens/providers/components/data_blocks/components/single_block/styles';
 import Typography from '@mui/material/Typography';
-import React, { FC } from 'react';
+import { FC } from 'react';
+import useStyles from '@/screens/providers/components/data_blocks/components/single_block/styles';
 
 type SingleBlockProps = {
   className?: string;

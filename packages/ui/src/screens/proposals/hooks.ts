@@ -1,12 +1,12 @@
 import { ProposalsQuery, useProposalsQuery } from '@/graphql/types/general_types';
 import type { ProposalsState, ProposalType } from '@/screens/proposals/types';
-import DOMPurify from 'dompurify';
 import * as R from 'ramda';
 import { useCallback, useState } from 'react';
+import xss from 'xss';
 
 const formatProposals = (data: ProposalsQuery) =>
   data.proposals.map((x): ProposalType => {
-    const description = DOMPurify.sanitize(x.description);
+    const description = xss(x.description.replace(/\\n\s?/g, '<br/>'));
     return {
       description,
       id: x.proposalId,

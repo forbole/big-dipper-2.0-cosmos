@@ -2,7 +2,7 @@ import useConnectWalletList from '@/components/nav/components/connect_wallet/hoo
 import { useStyles } from '@/components/nav/components/connect_wallet/styles';
 import LoginIcon from 'shared-utils/assets/icon-login.svg';
 import LogoutIcon from 'shared-utils/assets/icon-logout.svg';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import AuthorizeConnectionDialog from '@/components/nav/components/connect_wallet/authorize_connection';
 import InstallKeplrExtensionDialog from '@/components/nav/components/connect_wallet/install_keplr_extension';
 import LoginDialog from '@/components/nav/components/connect_wallet/login';
@@ -19,7 +19,7 @@ import {
   readOpenPairConnectWalletDialog,
   readOpenPairKeplrExtensionDialog,
   readWalletConnectURI,
-  readWalletSelection,
+  // readWalletSelection,
 } from '@/recoil/wallet';
 
 type ConnectWalletProps = {
@@ -30,7 +30,7 @@ const ConnectWallet: FC<ConnectWalletProps> = () => {
   const { classes } = useStyles();
   const loggedIn = useRecoilValue(readIsUserLoggedIn);
   const openLoginDialog = useRecoilValue(readOpenLoginDialog);
-  const walletSelection = useRecoilValue(readWalletSelection);
+  // const walletSelection = useRecoilValue(readWalletSelection);
   const openInstallKeplrExtensionDialog = useRecoilValue(readOpenInstallKeplrExtensionDialog);
   const openPairKeplrExtensionDialog = useRecoilValue(readOpenPairKeplrExtensionDialog);
   const openAuthorizeConnectionDialog = useRecoilValue(readOpenAuthorizeConnectionDialog);
@@ -92,7 +92,9 @@ const ConnectWallet: FC<ConnectWalletProps> = () => {
         open={openPairConnectWalletDialog}
         walletConnectURI={walletConnectURI}
         onClose={handleClosetWalletConnectDialog}
-        onContinue={null}
+        onContinue={() => {
+          // do nothing
+        }}
       />
       <LoginSuccessDialog
         open={openLoginSuccessDialog}

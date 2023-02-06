@@ -1,6 +1,6 @@
 import useConnectWalletList from '@/components/nav/components/connect_wallet/hooks';
 import { useStyles } from '@/components/nav/components/connect_wallet/styles';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import Avatar from '@/components/avatar';
 import WalletDropDown from '@/components/nav/components/wallet_drop_down';
 import { readUserAddress, readIsUserLoggedIn } from '@/recoil/user';

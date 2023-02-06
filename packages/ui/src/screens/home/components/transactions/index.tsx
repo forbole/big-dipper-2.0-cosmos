@@ -6,10 +6,11 @@ import Desktop from '@/screens/home/components/transactions/components/desktop';
 import Mobile from '@/screens/home/components/transactions/components/mobile';
 import { useTransactions } from '@/screens/home/components/transactions/hooks';
 import useStyles from '@/screens/home/components/transactions/styles';
+import { useDisplayStyles } from '@/styles/useSharedStyles';
 import { TRANSACTIONS } from '@/utils/go_to_page';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import { FC } from 'react';
 
@@ -17,6 +18,7 @@ const Transactions: FC<ComponentDefault> = ({ className }) => {
   const { t } = useTranslation('home');
   const { state } = useTransactions();
   const { classes, cx } = useStyles();
+  const display = useDisplayStyles().classes;
   return (
     <Box className={cx(classes.root, className)}>
       <div className={classes.label}>
@@ -27,12 +29,12 @@ const Transactions: FC<ComponentDefault> = ({ className }) => {
       </div>
       {state.items.length ? (
         <>
-          <Desktop className={classes.hiddenUntilLg} items={state.items} />
-          <Mobile className={classes.hiddenWhenLg} items={state.items} />
-          <Divider className={classes.hiddenWhenLg} />
+          <Desktop className={display.hiddenUntilLg} items={state.items} />
+          <Mobile className={display.hiddenWhenLg} items={state.items} />
+          <Divider className={display.hiddenWhenLg} />
           <Link
             href={TRANSACTIONS}
-            className={cx(classes.seeMoreFooter, classes.hiddenWhenLg, 'button')}
+            className={cx(classes.seeMoreFooter, display.hiddenWhenLg, 'button')}
             aria-label="see more txs"
           >
             {t('seeMore')}

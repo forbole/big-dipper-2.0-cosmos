@@ -1,6 +1,8 @@
+import withGetServerSideProps from '@/pages/withGetServerSideProps';
 import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
+import nextI18NextConfig from '../../../next-i18next.config';
 
 const ValidatorDetailsPage: NextPage = () => {
   const router = useRouter();
@@ -12,5 +14,14 @@ const ValidatorDetailsPage: NextPage = () => {
 
   return null;
 };
+
+export const getServerSideProps = withGetServerSideProps(
+  nextI18NextConfig,
+  'validators',
+  'transactions',
+  'accounts',
+  'message_labels',
+  'message_contents'
+);
 
 export default ValidatorDetailsPage;

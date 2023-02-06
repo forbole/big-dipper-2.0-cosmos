@@ -14,21 +14,20 @@ exports[`screen: TransactionDetails/SendRequest matches snapshot 1`] = `
 <p
   className="MuiTypography-root MuiTypography-body1 emotion-0"
 >
-  <div
-    components={
-      [
-        <Unknown
-          address="sender"
-          name="sender"
-        />,
-        <Unknown
-          address="recipient"
-          name="recipient"
-        />,
-      ]
-    }
+  <span
+    data-testid="Trans"
     i18nKey="message_contents:MsgSendRequest"
-    id="Trans"
-  />
+  >
+    <div
+      address="sender"
+      id="Name"
+      name="sender"
+    />
+    <div
+      address="recipient"
+      id="Name"
+      name="recipient"
+    />
+  </span>
 </p>
 `;

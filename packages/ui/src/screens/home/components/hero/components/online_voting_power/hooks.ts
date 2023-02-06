@@ -1,9 +1,9 @@
-import chainConfig from '@/chainConfig';
-import { OnlineVotingPowerQuery, useOnlineVotingPowerQuery } from '@/graphql/types/general_types';
-import { formatToken } from '@/utils/format_token';
 import numeral from 'numeral';
 import * as R from 'ramda';
 import { useCallback, useState } from 'react';
+import chainConfig from '@/chainConfig';
+import { OnlineVotingPowerQuery, useOnlineVotingPowerQuery } from '@/graphql/types/general_types';
+import { formatToken } from '@/utils/format_token';
 
 const { votingPowerTokenUnit } = chainConfig();
 

@@ -1,4 +1,3 @@
-import { mergeRefs } from '@/utils/merge_refs';
 import Divider from '@mui/material/Divider';
 import Link from 'next/link';
 import numeral from 'numeral';
@@ -6,11 +5,12 @@ import { FC } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
+import { mergeRefs } from '@/utils/merge_refs';
 
 import Box from '@/components/box';
 import Loading from '@/components/loading';
 import SingleProposal from '@/components/single_proposal';
-import { useList, useListRow } from '@/hooks';
+import { useList, useListRow } from '@/hooks/use_react_window';
 import Total from '@/screens/proposals/components/list/components/total';
 import useStyles from '@/screens/proposals/components/list/styles';
 import type { ProposalType } from '@/screens/proposals/types';

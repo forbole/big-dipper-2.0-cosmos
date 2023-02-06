@@ -1,6 +1,6 @@
-import Paginate from '@/screens/proposal_details/components/votes/components/paginate';
-import { MockTheme } from '@/tests/utils';
 import renderer from 'react-test-renderer';
+import Paginate from '@/screens/proposal_details/components/votes/components/paginate';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // mocks

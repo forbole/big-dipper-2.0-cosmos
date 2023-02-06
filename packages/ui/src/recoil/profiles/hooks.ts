@@ -1,3 +1,4 @@
+import { useRecoilValue } from 'recoil';
 import chainConfig from '@/chainConfig';
 import useShallowMemo from '@/hooks/useShallowMemo';
 import { useDesmosProfile } from '@/hooks/use_desmos_profile';
@@ -7,7 +8,6 @@ import {
   readProfile,
   readProfiles,
 } from '@/recoil/profiles/selectors';
-import { useRecoilValue } from 'recoil';
 
 const { extra } = chainConfig();
 

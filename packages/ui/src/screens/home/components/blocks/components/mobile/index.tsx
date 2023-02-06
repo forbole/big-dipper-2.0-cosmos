@@ -1,8 +1,8 @@
 import AvatarName from '@/components/avatar_name';
 import SingleBlockMobile from '@/components/single_block_mobile';
+import Timestamp from '@/components/Timestamp';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import type { ItemType } from '@/screens/home/components/blocks/types';
-import dayjs from '@/utils/dayjs';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { BLOCK_DETAILS } from '@/utils/go_to_page';
 import Divider from '@mui/material/Divider';
@@ -27,7 +27,7 @@ const BlocksItem: FC<BlocksItemProps> = ({ item, i, isLast }) => {
           </Link>
         }
         txs={numeral(item.txs).format('0,0')}
-        time={dayjs.utc(item.timestamp).fromNow()}
+        time={<Timestamp timestamp={item.timestamp} />}
         proposer={<AvatarName address={address} imageUrl={imageUrl} name={name} />}
         hash={getMiddleEllipsis(item.hash, {
           beginning: 13,

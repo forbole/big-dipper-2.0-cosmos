@@ -507,7 +507,7 @@ exports[`component: layout/footer matches snapshot 1`] = `
             common:donateExcerpt
           </p>
           <a
-            href="https://bigdipper.live/donate"
+            href="https://bigdipper.live/donation"
             rel="noreferrer"
             target="_blank"
           >
@@ -545,14 +545,35 @@ exports[`component: layout/footer matches snapshot 1`] = `
     <p
       className="MuiTypography-root MuiTypography-body1 footer__closing--text emotion-4"
     >
-      common:copyright
+      <span
+        data-testid="Trans"
+        i18nKey="common:copyright"
+      >
+        <a
+          href="https://raw.githubusercontent.com/forbole/big-dipper-2.0-cosmos/master/LICENSE"
+          rel="noreferrer noopener"
+          target="_blank"
+          title="LICENSE"
+        />
+        {"name":"Forbole"}
+      </span>
        
       2017
     </p>
     <p
       className="MuiTypography-root MuiTypography-body1 footer__closing--text emotion-4"
     >
-      common:maintainBy
+      <span
+        data-testid="Trans"
+        i18nKey="common:maintainBy"
+      >
+        <a
+          href="https://forbole.com"
+          rel="noreferrer"
+          target="_blank"
+        />
+        {"name":"Forbole"}
+      </span>
     </p>
   </div>
 </div>

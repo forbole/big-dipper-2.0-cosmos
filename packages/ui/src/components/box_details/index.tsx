@@ -1,7 +1,7 @@
+import Typography from '@mui/material/Typography';
+import { FC, isValidElement, ReactNode } from 'react';
 import Box from '@/components/box';
 import useStyles from '@/components/box_details/styles';
-import Typography from '@mui/material/Typography';
-import React, { FC, isValidElement, ReactNode } from 'react';
 
 type BoxDetailsProps = {
   className?: string;

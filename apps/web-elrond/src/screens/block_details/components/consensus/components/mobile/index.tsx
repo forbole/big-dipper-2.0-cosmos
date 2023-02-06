@@ -1,15 +1,15 @@
-import { useList, useListRow } from '@/hooks';
-import useStyles from '@/screens/block_details/components/consensus/components/mobile/styles';
-import type { ConsensusType } from '@/screens/block_details/types';
-import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
-import { NODE_DETAILS } from '@/utils/go_to_page';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import { FC, LegacyRef, ReactNode, useMemo } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
+import { NODE_DETAILS } from '@/utils/go_to_page';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
+import type { ConsensusType } from '@/screens/block_details/types';
+import useStyles from '@/screens/block_details/components/consensus/components/mobile/styles';
+import { useList, useListRow } from '@/hooks/use_react_window';
 
 type ListItemProps = Pick<ListChildComponentProps, 'index' | 'style'> & {
   setRowHeight: Parameters<typeof useListRow>[1];

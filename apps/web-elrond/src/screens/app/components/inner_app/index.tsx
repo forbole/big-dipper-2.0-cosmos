@@ -1,6 +1,6 @@
-import { useChainHealthCheck } from '@/screens/app/components/inner_app/hooks';
 import { AppProps } from 'next/app';
 import { AnimatePresence } from 'framer-motion';
+import { useChainHealthCheck } from '@/screens/app/components/inner_app/hooks';
 
 function InnerApp({ Component, pageProps }: AppProps) {
   useChainHealthCheck();

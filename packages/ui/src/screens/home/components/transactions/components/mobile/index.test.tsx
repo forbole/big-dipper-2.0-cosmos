@@ -1,15 +1,10 @@
-import Mobile from '@/screens/home/components/transactions/components/mobile';
-import { MockTheme } from '@/tests/utils';
 import renderer from 'react-test-renderer';
+import Mobile from '@/screens/home/components/transactions/components/mobile';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // mocks
 // ==================================
-const mockI18n = {
-  t: (key: string) => key,
-  lang: 'en',
-};
-jest.mock('next-translate/useTranslation', () => () => mockI18n);
 jest.mock('@/components/single_transaction_mobile', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="SingleTransactionMobile" {...props} />
 ));

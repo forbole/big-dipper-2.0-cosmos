@@ -1,13 +1,13 @@
+import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
+import { useTranslation } from 'next-i18next';
+import Link from 'next/link';
+import { FC, Fragment } from 'react';
 import AvatarName from '@/components/avatar_name';
 import useStyles from '@/screens/nfts/components/list/components/nfts_list/components/mobile/styles';
 import type { NFTTypes } from '@/screens/nfts/components/list/types';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { NFT_DETAILS } from '@/utils/go_to_page';
-import Divider from '@mui/material/Divider';
-import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
-import Link from 'next/link';
-import { FC, Fragment } from 'react';
 
 const Mobile: FC<{ className?: string; items: NFTTypes[] }> = (props) => {
   const { t } = useTranslation('nfts');

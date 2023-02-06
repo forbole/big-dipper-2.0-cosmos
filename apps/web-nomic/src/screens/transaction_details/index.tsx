@@ -1,10 +1,10 @@
+import { NextSeo } from 'next-seo';
+import { useTranslation } from 'next-i18next';
 import Layout from '@/components/layout';
 import LoadAndExist from '@/components/load_and_exist';
 import Overview from '@/screens/transaction_details/components/overview';
 import { useTransactionDetails } from '@/screens/transaction_details/hooks';
 import useStyles from '@/screens/transaction_details/styles';
-import { NextSeo } from 'next-seo';
-import useTranslation from 'next-translate/useTranslation';
 
 const TransactionDetails = () => {
   const { t } = useTranslation('transactions');
@@ -15,12 +15,12 @@ const TransactionDetails = () => {
   return (
     <>
       <NextSeo
-        title={t('transactionDetails')}
+        title={t('transactionDetails') ?? undefined}
         openGraph={{
-          title: t('transactionDetails'),
+          title: t('transactionDetails') ?? undefined,
         }}
       />
-      <Layout navTitle={t('transactionDetails')}>
+      <Layout navTitle={t('transactionDetails') ?? undefined}>
         <LoadAndExist loading={state.loading} exists={state.exists}>
           <span className={classes.root}>
             <Overview data={overview} />

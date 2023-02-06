@@ -1,8 +1,8 @@
-import Box from '@/components/box';
-import useStyles from '@/screens/transaction_details/components/logs/styles';
 import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
-import React, { FC } from 'react';
+import { useTranslation } from 'next-i18next';
+import { FC } from 'react';
+import useStyles from '@/screens/transaction_details/components/logs/styles';
+import Box from '@/components/box';
 
 type LogsProps = {
   logs: null | unknown[];

@@ -1,5 +1,5 @@
-import dayjs from '@/utils/dayjs';
 import numeral from 'numeral';
+import dayjs from '@/utils/dayjs';
 
 const formatTime = (time: dayjs.Dayjs, mode: 'locale' | 'utc' = 'locale') => {
   if (mode === 'utc') {

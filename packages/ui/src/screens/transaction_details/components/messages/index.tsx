@@ -1,16 +1,16 @@
-import Box from '@/components/box';
-import { getMessageByType } from '@/components/msg/utils';
-import TransactionMessagesFilter from '@/components/transaction_messages_filter';
-import { useList, useListRow } from '@/hooks';
-import useStyles from '@/screens/transaction_details/components/messages/styles';
 import Divider from '@mui/material/Divider';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
-import React, { ChangeEvent, FC, LegacyRef } from 'react';
+import { useTranslation } from 'next-i18next';
+import { ChangeEvent, FC, LegacyRef } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
+import useStyles from '@/screens/transaction_details/components/messages/styles';
+import { useList, useListRow } from '@/hooks/use_react_window';
+import TransactionMessagesFilter from '@/components/transaction_messages_filter';
+import { getMessageByType } from '@/components/msg/utils';
+import Box from '@/components/box';
 
 type ListItemProps = Pick<ListChildComponentProps, 'index' | 'style'> & {
   setRowHeight: Parameters<typeof useListRow>[1];

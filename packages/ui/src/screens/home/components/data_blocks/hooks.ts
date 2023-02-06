@@ -1,3 +1,5 @@
+import numeral from 'numeral';
+import { useState } from 'react';
 import chainConfig from '@/chainConfig';
 import {
   ActiveValidatorCountQuery,
@@ -8,8 +10,6 @@ import {
   useLatestBlockHeightListenerSubscription,
   useTokenPriceListenerSubscription,
 } from '@/graphql/types/general_types';
-import numeral from 'numeral';
-import { useState } from 'react';
 
 const { primaryTokenUnit, tokenUnits } = chainConfig();
 

@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { IDENTITY, PROVIDERS, PROVIDER_DETAILS, STAKE } from '@/api';
-import chainConfig from '@/chainConfig';
-import type { ValidatorDetailsState } from '@/screens/validator_details/types';
-import { isBech32 } from '@/utils/bech32';
-import { formatNumber, formatToken } from '@/utils/format_token';
 import axios from 'axios';
 import Big from 'big.js';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import { useCallback, useEffect, useState } from 'react';
+import { IDENTITY, PROVIDERS, PROVIDER_DETAILS, STAKE } from '@/api';
+import chainConfig from '@/chainConfig';
+import type { ValidatorDetailsState } from '@/screens/validator_details/types';
+import { isBech32 } from '@/utils/bech32';
+import { formatNumber, formatToken } from '@/utils/format_token';
 
 const { primaryTokenUnit } = chainConfig();
 

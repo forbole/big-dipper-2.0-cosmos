@@ -1,6 +1,6 @@
+import { ComponentProps, FC } from 'react';
 import Pagination from '@/components/pagination';
 import useStyles from '@/screens/proposal_details/components/deposits/components/paginate/styles';
-import { ComponentProps, FC } from 'react';
 
 type Properties = 'total' | 'page' | 'rowsPerPage' | 'handlePageChange' | 'handleRowsPerPageChange';
 type PaginateProps = Pick<ComponentProps<typeof Pagination>, Properties>;

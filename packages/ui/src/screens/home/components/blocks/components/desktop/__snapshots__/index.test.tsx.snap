@@ -35,6 +35,9 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
 
 .emotion-2 {
   display: table-header-group;
+}
+
+.emotion-2 {
   background-color: initial;
 }
 
@@ -69,6 +72,9 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
   text-align: left;
   padding: 16px;
   color: #000000;
+}
+
+.emotion-4 {
   border-bottom: none;
   padding: 0 16px;
   height: 50px;
@@ -90,6 +96,9 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
   -webkit-flex-direction: row-reverse;
   -ms-flex-direction: row-reverse;
   flex-direction: row-reverse;
+}
+
+.emotion-7 {
   border-bottom: none;
   padding: 0 16px;
   height: 50px;
@@ -120,6 +129,9 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
   text-align: left;
   padding: 16px;
   color: #000000;
+}
+
+.emotion-11 {
   border-bottom: none;
   padding: 0 16px;
   height: 50px;
@@ -141,6 +153,9 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
   -webkit-flex-direction: row-reverse;
   -ms-flex-direction: row-reverse;
   flex-direction: row-reverse;
+}
+
+.emotion-14 {
   border-bottom: none;
   padding: 0 16px;
   height: 50px;
@@ -307,7 +322,12 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
               }
             }
           >
-            1 day ago
+            <span
+              aria-label="UTC: 2020-08-10 12:00:00 Local: 2020-08-10 12:00:00"
+              title="UTC: 2020-08-10 12:00:00 Local: 2020-08-10 12:00:00"
+            >
+              1 day ago
+            </span>
           </div>
         </td>
       </tr>

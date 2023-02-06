@@ -1,7 +1,9 @@
 import { TransactionDetailsDocument } from '@/graphql/types/general_types';
 import TransactionDetails from '@/screens/transaction_details';
-import { MockTheme, wait } from '@/tests/utils';
-import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
+import { mockClient } from '@/tests/mocks/mockApollo';
+import MockTheme from '@/tests/mocks/MockTheme';
+import wait from '@/tests/utils/wait';
+import { ApolloProvider } from '@apollo/client';
 import { MockedProvider } from '@apollo/client/testing';
 import renderer from 'react-test-renderer';
 
@@ -17,11 +19,6 @@ jest.mock('next/router', () => ({
   }),
 }));
 
-const mockI18n = {
-  t: (key: string) => key,
-  lang: 'en',
-};
-jest.mock('next-translate/useTranslation', () => () => mockI18n);
 jest.mock('@/components/layout', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Layout" {...props} />
 ));
@@ -146,7 +143,6 @@ const mockTransactionDetailsDocument = jest.fn().mockReturnValue({
 // ==================================
 describe('screen: Blocks/List', () => {
   it('matches snapshot', async () => {
-    const mockClient = new ApolloClient({ link: from([]), cache: new InMemoryCache() });
     let component: renderer.ReactTestRenderer | undefined;
 
     renderer.act(() => {

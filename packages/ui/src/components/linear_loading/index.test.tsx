@@ -1,6 +1,6 @@
-import LinearLoading from '@/components/linear_loading';
-import { MockTheme } from '@/tests/utils';
 import renderer from 'react-test-renderer';
+import LinearLoading from '@/components/linear_loading';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // unit tests

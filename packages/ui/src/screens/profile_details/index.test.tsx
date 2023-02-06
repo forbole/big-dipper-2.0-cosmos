@@ -1,8 +1,9 @@
-import chainConfig from '@/chainConfig';
-import ProfileDetails from '@/screens/profile_details';
-import { MockTheme, wait } from '@/tests/utils';
 import { useMemo } from 'react';
 import renderer from 'react-test-renderer';
+import chainConfig from '@/chainConfig';
+import ProfileDetails from '@/screens/profile_details';
+import MockTheme from '@/tests/mocks/MockTheme';
+import wait from '@/tests/utils/wait';
 
 const { prefix } = chainConfig();
 
@@ -35,8 +36,8 @@ jest.mock(
   () => (props: JSX.IntrinsicElements['div']) => <div id="Connections" {...props} />
 );
 
-jest.mock('@/hooks', () => ({
-  ...jest.requireActual('@/hooks'),
+jest.mock('@/hooks/use_desmos_profile', () => ({
+  ...jest.requireActual('@/hooks/use_desmos_profile'),
   useDesmosProfile: () =>
     useMemo(
       () => ({

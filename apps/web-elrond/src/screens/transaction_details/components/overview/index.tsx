@@ -1,3 +1,9 @@
+import Typography from '@mui/material/Typography';
+import { useTranslation } from 'next-i18next';
+import Link from 'next/link';
+import numeral from 'numeral';
+import { FC } from 'react';
+import { useRecoilValue } from 'recoil';
 import chainConfig from '@/chainConfig';
 import AvatarName from '@/components/avatar_name';
 import BoxDetails from '@/components/box_details';
@@ -9,12 +15,6 @@ import dayjs, { formatDayJs } from '@/utils/dayjs';
 import { formatNumber } from '@/utils/format_token';
 import { getShardDisplay } from '@/utils/get_shard_display';
 import { MINIBLOCK_DETAILS } from '@/utils/go_to_page';
-import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
-import Link from 'next/link';
-import numeral from 'numeral';
-import { FC } from 'react';
-import { useRecoilValue } from 'recoil';
 
 const { primaryTokenUnit } = chainConfig();
 
@@ -102,7 +102,9 @@ const Overview: FC<OverviewType & ComponentDefault> = (props) => {
     },
   ];
 
-  return <BoxDetails className={props.className} title={t('overview')} details={details} />;
+  return (
+    <BoxDetails className={props.className} title={t('overview') ?? undefined} details={details} />
+  );
 };
 
 export default Overview;

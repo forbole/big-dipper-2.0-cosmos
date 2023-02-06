@@ -1,6 +1,6 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import Box from '@/components/box';
 import { formatNumber } from '@/utils/format_token';
 import useStyles from '@/screens/validator_details/components/stake/styles';

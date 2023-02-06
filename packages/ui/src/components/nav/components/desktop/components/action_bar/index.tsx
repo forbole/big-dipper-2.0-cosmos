@@ -5,7 +5,7 @@ import SettingsList from '@/components/nav/components/desktop/components/action_
 import useStyles from '@/components/nav/components/desktop/components/action_bar/styles';
 import SearchBar from '@/components/nav/components/search_bar';
 import WalletDetails from '@/components/nav/components/wallet_details';
-import { useGetComponentDimension } from '@/hooks';
+import { useGetComponentDimension } from '@/hooks/use_get_component_dimension';
 import { FC } from 'react';
 
 type ActionBarProps = {

@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import Box from '@/components/box';
 import LoadAndExist from '@/components/load_and_exist';
 import TabPanel from '@/components/tab_panel';

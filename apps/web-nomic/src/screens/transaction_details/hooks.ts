@@ -1,9 +1,9 @@
-import { TransactionDetailsQuery, useTransactionDetailsQuery } from '@/graphql/types/general_types';
-import type { TransactionState } from '@/screens/transaction_details/types';
-import { formatToken } from '@/utils/format_token';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import { useCallback, useEffect, useState } from 'react';
+import { TransactionDetailsQuery, useTransactionDetailsQuery } from '@/graphql/types/general_types';
+import type { TransactionState } from '@/screens/transaction_details/types';
+import { formatToken } from '@/utils/format_token';
 
 // =============================
 // overview

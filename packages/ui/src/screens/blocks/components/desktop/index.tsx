@@ -1,16 +1,16 @@
 import AvatarName from '@/components/avatar_name';
 import Loading from '@/components/loading';
-import { useGrid } from '@/hooks';
+import Timestamp from '@/components/Timestamp';
+import { useGrid } from '@/hooks/use_react_window';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import useStyles from '@/screens/blocks/components/desktop/styles';
 import { columns } from '@/screens/blocks/components/desktop/utils';
 import type { ItemType } from '@/screens/blocks/types';
-import dayjs from '@/utils/dayjs';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { BLOCK_DETAILS } from '@/utils/go_to_page';
 import { mergeRefs } from '@/utils/merge_refs';
 import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import numeral from 'numeral';
 import { ComponentProps, CSSProperties, FC, LegacyRef, ReactNode } from 'react';
@@ -42,7 +42,7 @@ const BlockItem: FC<BlockItemProps> = ({ item, rowIndex, column, style, align })
       formattedItem = numeral(item.txs).format('0,0');
       break;
     case 'time':
-      formattedItem = dayjs.utc(item.timestamp).fromNow();
+      formattedItem = <Timestamp timestamp={item.timestamp} />;
       break;
     case 'proposer':
       formattedItem = <AvatarName address={address} imageUrl={imageUrl} name={name} />;

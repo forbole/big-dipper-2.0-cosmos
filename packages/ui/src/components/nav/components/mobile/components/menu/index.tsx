@@ -6,11 +6,11 @@ import {
 import useStyles from '@/components/nav/components/mobile/components/menu/styles';
 import type { MenuProps } from '@/components/nav/components/mobile/components/menu/types';
 import { THEME_LIST } from '@/recoil/settings';
+import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
 import Drawer from '@mui/material/Drawer';
 import MenuItem from '@mui/material/MenuItem';
 import Typography from '@mui/material/Typography';
-import ExpandMoreOutlined from '@mui/icons-material/ExpandMoreOutlined';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Language from 'shared-utils/assets/icon-language.svg';
@@ -19,12 +19,12 @@ import ThemeIcon from 'shared-utils/assets/icon-theme.svg';
 
 const Menu = (props: MenuProps) => {
   const router = useRouter();
-  const { t, lang } = useTranslation('common');
+  const { t, i18n } = useTranslation('common');
 
   const { toggleNavMenus, className } = props;
 
   const { classes, cx } = useStyles();
-  const languageOptions = useLanguageDrawer(lang, toggleNavMenus);
+  const languageOptions = useLanguageDrawer(i18n.language, toggleNavMenus);
 
   const themeOptions = useThemeDrawer(toggleNavMenus);
   return (
@@ -41,7 +41,7 @@ const Menu = (props: MenuProps) => {
       >
         <div className="content">
           {router.locales
-            ?.filter((l) => l !== lang)
+            ?.filter((l) => l !== i18n.language)
             .map((l) => (
               <div key={l}>
                 <Link
@@ -94,18 +94,20 @@ const Menu = (props: MenuProps) => {
             role="button"
             onClick={languageOptions.toggleDrawer}
             tabIndex={0}
-            aria-label={router.locale ? t(router.locale) : 'toggle language'}
+            aria-label={(router.locale ? t(router.locale) : null) ?? 'toggle language'}
           >
             <Language />
-            <Typography variant="caption">{router.locale ? t(router.locale) : ''}</Typography>
-            <ExpandMoreOutlined fontSize="small" />
+            <Typography variant="caption">
+              {(router.locale ? t(router.locale) : null) ?? ''}
+            </Typography>
+            <ExpandMoreOutlinedIcon fontSize="small" />
           </div>
           <div
             className={classes.theme}
             role="button"
             onClick={themeOptions.toggleDrawer}
             tabIndex={0}
-            aria-label={t(themeOptions.theme)}
+            aria-label={t(themeOptions.theme) ?? undefined}
           >
             <span role="button">
               <ThemeIcon />

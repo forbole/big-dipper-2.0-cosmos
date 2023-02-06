@@ -1,7 +1,7 @@
+import renderer from 'react-test-renderer';
 import CreateBatchRequest from '@/components/msg/ecocredit/create_batch_request';
 import MsgCreateBatchRequest from '@/models/msg/ecocredit/msg_create_batch_request';
-import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // mocks
@@ -9,10 +9,6 @@ import renderer from 'react-test-renderer';
 
 jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
-));
-
-jest.mock('next-translate/Trans', () => (props: JSX.IntrinsicElements['div']) => (
-  <div id="Trans" {...props} />
 ));
 
 // ==================================
@@ -35,7 +31,7 @@ describe('screen: TransactionDetails/CreateBatchRequest', () => {
     const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
 
-    expect(component.root.findByProps({ id: 'Trans' }).props.i18nKey).toEqual(
+    expect(component.root.findByProps({ 'data-testid': 'Trans' }).props.i18nKey).toEqual(
       'message_contents:MsgCreateBatchRequest'
     );
   });

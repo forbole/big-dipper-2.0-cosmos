@@ -8,7 +8,7 @@ import {
   VALIDATOR_DETAILS,
 } from '@/utils/go_to_page';
 import { isValidAddress } from '@/utils/prefix_convert';
-import { Translate } from 'next-translate';
+import { TFunction } from 'next-i18next';
 import { useRouter } from 'next/router';
 import numeral from 'numeral';
 import { toast } from 'react-toastify';
@@ -19,7 +19,7 @@ const consensusRegex = new RegExp(`^(${prefix.consensus})`);
 const validatorRegex = new RegExp(`^(${prefix.validator})`);
 const userRegex = new RegExp(`^(${prefix.account})`);
 
-export const useSearchBar = (t: Translate) => {
+export const useSearchBar = (t: TFunction) => {
   const router = useRouter();
 
   const handleOnSubmit = useRecoilCallback(

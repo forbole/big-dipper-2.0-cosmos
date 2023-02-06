@@ -1,5 +1,5 @@
-import chainConfig from '@/chainConfig';
 import * as R from 'ramda';
+import chainConfig from '@/chainConfig';
 
 const { primaryTokenUnit } = chainConfig();
 

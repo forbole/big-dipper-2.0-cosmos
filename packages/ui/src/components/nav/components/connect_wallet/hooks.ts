@@ -22,7 +22,7 @@ import {
   writeShowWalletDetails,
   writeWalletConnectURI,
 } from '@/recoil/wallet';
-import { OfflineAminoSigner, OfflineDirectSigner } from '@keplr-wallet/types';
+import type { OfflineAminoSigner, OfflineDirectSigner } from '@keplr-wallet/types';
 import { toBase64 } from '@cosmjs/encoding';
 import { PubKey } from '@/recoil/user/atom';
 import WalletConnect from '@walletconnect/client';
@@ -31,7 +31,9 @@ import { KeplrWalletConnectV1 } from '@keplr-wallet/wc-client';
 const keplrChainID = process?.env?.NEXT_PUBLIC_KEPLR_CHAIN_ID ?? '';
 const keplrURL = process?.env?.NEXT_PUBLIC_KEPLR_LCD_URL ?? '';
 const wcBridgeURL = process?.env?.NEXT_PUBLIC_WC_BRIDGE_URL ?? '';
-const keplrCustomChainInfo = process?.env?.NEXT_PUBLIC_KEPLR_CUSTOM_CHAIN_INFO ?? undefined;
+const keplrCustomChainInfo = process?.env?.NEXT_PUBLIC_KEPLR_CUSTOM_CHAIN_INFO
+  ? JSON.parse(process.env.NEXT_PUBLIC_KEPLR_CUSTOM_CHAIN_INFO)
+  : undefined;
 
 type UserState = {
   address: string;
@@ -114,7 +116,7 @@ const useConnectWalletList = () => {
   ];
 
   const [wcClient, setWCClient] = useState<WalletConnect | undefined>();
-  const [errorMsg, setErrorMsg] = useState(undefined);
+  const [errorMsg, setErrorMsg] = useState<string | undefined>(undefined);
 
   // UserState
   const [userState, setUserState] = useState({
@@ -194,13 +196,14 @@ const useConnectWalletList = () => {
     // enable the chain inside the app
     try {
       await enableChain();
-    } catch (e) {
+    } catch (error) {
+      const e = error as Error;
       setErrorMsg(e.message);
 
       // add custom chain info if chain isn't natively integrated to Keplr extension
       if (e.message.toLowerCase().indexOf('There is no chain info')) {
         if (keplrCustomChainInfo !== undefined) {
-          await window.keplr.experimentalSuggestChain(keplrCustomChainInfo);
+          await window.keplr?.experimentalSuggestChain(keplrCustomChainInfo);
         } else {
           setErrorMsg('chain is not supported. Please add custom chain info and try again.');
         }
@@ -211,15 +214,16 @@ const useConnectWalletList = () => {
     try {
       offlineSigner = getOfflineSigner();
     } catch (e) {
-      setErrorMsg(e.message);
+      setErrorMsg((e as Error).message);
     }
 
     // get offline signer address
     let offlineSignerAddress;
     try {
+      if (!offlineSigner) throw new Error('offline signer is undefined');
       offlineSignerAddress = await getOfflineSignerAddress(offlineSigner);
     } catch (e) {
-      setErrorMsg(e.message);
+      setErrorMsg((e as Error).message);
       return;
     }
 
@@ -230,7 +234,7 @@ const useConnectWalletList = () => {
       const key = await getAccountKey();
 
       // store user info in state
-      saveUserInfo(offlineSignerAddress, offlineSignerPubKey, 'Keplr', key.name);
+      saveUserInfo(offlineSignerAddress, offlineSignerPubKey, 'Keplr', key?.name ?? '');
 
       // continue to log in success screen
       continueToLoginSuccessDialog();
@@ -416,12 +420,12 @@ const useConnectWalletList = () => {
 
   const isKeplrAvailable = () => !!window.keplr;
 
-  const enableChain = () => window.keplr.enable(keplrChainID);
+  const enableChain = () => window.keplr?.enable(keplrChainID);
 
-  const getAccountKey = () => window.keplr.getKey(keplrChainID);
+  const getAccountKey = () => window.keplr?.getKey(keplrChainID);
 
   const getOfflineSigner = () => {
-    const offlineSigner = window.keplr.getOfflineSigner(keplrChainID);
+    const offlineSigner = window.keplr?.getOfflineSigner(keplrChainID);
     return offlineSigner;
   };
 
@@ -526,20 +530,20 @@ const useConnectWalletList = () => {
       try {
         await keplr?.enable(keplrChainID);
       } catch (e) {
-        setErrorMsg(`${e?.message}`);
+        setErrorMsg(`${(e as Error)?.message}`);
       }
       let keplrOfflineSigner;
       try {
         keplrOfflineSigner = keplr.getOfflineSigner(keplrChainID);
       } catch (e) {
-        setErrorMsg(`${e?.message}`);
+        setErrorMsg(`${(e as Error)?.message}`);
       }
 
       if (keplrOfflineSigner) {
         const accounts2 = await keplrOfflineSigner.getAccounts();
         const { address, pubkey } = accounts2[0];
         const key = await keplr.getKey(keplrChainID);
-        saveUserInfo(address, pubkey, 'Wallet Connect', key.name);
+        saveUserInfo(address, pubkey as unknown as PubKey, 'Wallet Connect', key.name);
 
         // continue to log in success screen
         continueToLoginSuccessDialog();
@@ -557,7 +561,7 @@ const useConnectWalletList = () => {
       // create new session
       connector.createSession();
 
-      connector.on('connect', async error => {
+      connector.on('connect', async (error) => {
         if (error) {
           console.warn(error);
           setErrorMsg(`${error}`);

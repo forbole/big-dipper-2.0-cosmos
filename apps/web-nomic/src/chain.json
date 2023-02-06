@@ -154,7 +154,10 @@
         "graphqlWebsocket": "wss://gql.nomic.forbole.com/v1/graphql",
         "publicRpcWebsocket": "wss://gql.nomic.forbole.com/v1/graphql"
       },
-      "marketing": {}
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
+      }
     }
   ]
 }

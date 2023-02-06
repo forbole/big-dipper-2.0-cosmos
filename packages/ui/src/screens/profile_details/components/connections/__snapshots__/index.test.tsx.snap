@@ -41,6 +41,9 @@ exports[`screen: ProfileDetails/Connections matches snapshot 1`] = `
 
 .emotion-3 {
   display: table-header-group;
+}
+
+.emotion-3 {
   background-color: initial;
 }
 
@@ -75,6 +78,9 @@ exports[`screen: ProfileDetails/Connections matches snapshot 1`] = `
   text-align: left;
   padding: 16px;
   color: #000000;
+}
+
+.emotion-5 {
   border-bottom: none;
   padding: 0 16px;
   height: 50px;
@@ -96,6 +102,9 @@ exports[`screen: ProfileDetails/Connections matches snapshot 1`] = `
   -webkit-flex-direction: row-reverse;
   -ms-flex-direction: row-reverse;
   flex-direction: row-reverse;
+}
+
+.emotion-7 {
   border-bottom: none;
   padding: 0 16px;
   height: 50px;
@@ -126,6 +135,9 @@ exports[`screen: ProfileDetails/Connections matches snapshot 1`] = `
   text-align: left;
   padding: 16px;
   color: #000000;
+}
+
+.emotion-10 {
   border-bottom: none;
   padding: 0 16px;
   height: 50px;
@@ -147,6 +159,9 @@ exports[`screen: ProfileDetails/Connections matches snapshot 1`] = `
   -webkit-flex-direction: row-reverse;
   -ms-flex-direction: row-reverse;
   flex-direction: row-reverse;
+}
+
+.emotion-12 {
   border-bottom: none;
   padding: 0 16px;
   height: 50px;

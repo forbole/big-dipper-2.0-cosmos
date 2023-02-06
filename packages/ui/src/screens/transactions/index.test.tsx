@@ -1,7 +1,9 @@
 import { TransactionsDocument, TransactionsListenerDocument } from '@/graphql/types/general_types';
 import Transactions from '@/screens/transactions';
-import { MockTheme, wait } from '@/tests/utils';
-import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
+import { mockClient } from '@/tests/mocks/mockApollo';
+import MockTheme from '@/tests/mocks/MockTheme';
+import wait from '@/tests/utils/wait';
+import { ApolloProvider } from '@apollo/client';
 import { MockedProvider } from '@apollo/client/testing';
 import renderer from 'react-test-renderer';
 
@@ -90,7 +92,6 @@ let component: renderer.ReactTestRenderer | undefined;
 // ==================================
 describe('screen: Transactions', () => {
   it('matches snapshot', async () => {
-    const mockClient = new ApolloClient({ link: from([]), cache: new InMemoryCache() });
     renderer.act(() => {
       component = renderer.create(
         <ApolloProvider client={mockClient}>

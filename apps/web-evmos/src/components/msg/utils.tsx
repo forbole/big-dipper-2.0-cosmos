@@ -3,7 +3,7 @@ import Tag from '@/components/tag';
 import * as MODELS from '@/models';
 import type { Log } from '@/models/msg/types';
 import isKeyOf from '@/utils/isKeyOf';
-import { Translate } from 'next-translate';
+import { TFunction } from 'next-i18next';
 import * as R from 'ramda';
 import { FC } from 'react';
 
@@ -412,7 +412,7 @@ export const getMessageModelByType = (type: string): Data['model'] => {
  * Helper function to correctly display the correct UI
  * @param type Model type
  */
-export const getMessageByType = (message: unknown, viewRaw: boolean, t: Translate) => {
+export const getMessageByType = (message: unknown, viewRaw: boolean, t: TFunction) => {
   const { type } = (message as { type: string }) ?? {};
   type resultType = {
     content: FC<{ message: unknown }>;

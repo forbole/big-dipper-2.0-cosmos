@@ -1,7 +1,7 @@
-import useStyles from '@/screens/validators/components/list/components/mobile/component/single_validator/styles';
 import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
-import React, { FC, ReactNode } from 'react';
+import { useTranslation } from 'next-i18next';
+import { FC, ReactNode } from 'react';
+import useStyles from '@/screens/validators/components/list/components/mobile/component/single_validator/styles';
 
 type SingleValidatorProps = {
   className?: string;

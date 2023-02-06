@@ -1,19 +1,14 @@
-import Desktop from '@/screens/home/components/blocks/components/desktop';
-import { MockTheme } from '@/tests/utils';
 import renderer from 'react-test-renderer';
+import Desktop from '@/screens/home/components/blocks/components/desktop';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // mocks
 // ==================================
-const mockI18n = {
-  t: (key: string) => key,
-  lang: 'en',
-};
-jest.mock('next-translate/useTranslation', () => () => mockI18n);
-
 jest.mock('@/components/avatar_name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="AvatarName" {...props} />
 ));
+
 // ==================================
 // unit tests
 // ==================================

@@ -1,7 +1,7 @@
+import renderer from 'react-test-renderer';
 import ConvertCoin from '@/components/msg/erc20/convert_coin';
 import MsgConvertCoin from '@/models/msg/erc20/msg_convert_coin';
-import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // mocks
@@ -9,10 +9,6 @@ import renderer from 'react-test-renderer';
 
 jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Name" {...props} />
-));
-
-jest.mock('next-translate/Trans', () => (props: JSX.IntrinsicElements['div']) => (
-  <div id="Trans" {...props} />
 ));
 
 // ==================================
@@ -38,12 +34,13 @@ describe('screen: TransactionDetails/MsgConvertCoin', () => {
     );
     const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
-    expect(component.root.findByProps({ id: 'Trans' }).props.values.receiver).toEqual(
-      '0x6B6A7D59f854d1d9F38881A6502f4970f96A0104'
-    );
-    expect(component.root.findByProps({ id: 'Trans' }).props.i18nKey).toEqual(
+    expect(component.root.findByProps({ 'data-testid': 'Trans' }).props.i18nKey).toEqual(
       'message_contents:MsgConvertCoin'
     );
+    expect(
+      component.root.findByProps({ i18nKey: 'message_contents:MsgConvertCoin' }).props.values
+        .receiver
+    ).toEqual('0x6B6A7D59f854d1d9F38881A6502f4970f96A0104');
   });
 
   afterEach(() => {

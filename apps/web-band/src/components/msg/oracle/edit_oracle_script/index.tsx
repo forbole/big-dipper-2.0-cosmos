@@ -1,9 +1,9 @@
+import Typography from '@mui/material/Typography';
+import { Trans } from 'next-i18next';
+import { FC } from 'react';
 import Name from '@/components/name';
 import MsgEditOracleScript from '@/models/msg/oracle/msg_edit_oracle_script';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
-import Typography from '@mui/material/Typography';
-import Trans from 'next-translate/Trans';
-import React, { FC } from 'react';
 
 const EditOracleScript: FC<{ message: MsgEditOracleScript }> = (props) => {
   const { message } = props;

@@ -14,6 +14,21 @@ exports[`screen: TransactionDetails/MsgCreateIssuer matches snapshot 1`] = `
 <p
   className="MuiTypography-root MuiTypography-body1 emotion-0"
 >
-  message_contents:txCreateIssuerContent
+  <span
+    data-testid="Trans"
+    i18nKey="message_contents:txCreateIssuerContent"
+  >
+    <div
+      address="authority"
+      id="Name"
+      name="authority"
+    />
+    <div
+      address="issuer"
+      id="Name"
+      name="issuer"
+    />
+    {"denominations":"donom 1  and  denom 2"}
+  </span>
 </p>
 `;

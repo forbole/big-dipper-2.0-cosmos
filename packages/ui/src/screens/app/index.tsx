@@ -1,6 +1,6 @@
 import chainConfig from '@/chainConfig';
 import useApollo from '@/graphql/useApollo';
-import { useWindowOrigin } from '@/hooks';
+import { useWindowOrigin } from '@/hooks/use_window';
 import Main, { MainProps } from '@/screens/app/components/main';
 import { useApp } from '@/screens/app/hooks';
 import {
@@ -10,8 +10,8 @@ import {
   TWITTER_SEO,
 } from '@/screens/app/utils';
 import { ApolloProvider, NormalizedCacheObject } from '@apollo/client';
+import { useTranslation } from 'next-i18next';
 import { DefaultSeo } from 'next-seo';
-import useTranslation from 'next-translate/useTranslation';
 import { RecoilRoot } from 'recoil';
 
 const { title } = chainConfig();
@@ -27,11 +27,11 @@ function MyApp(props: MainProps<{ initialApolloState?: NormalizedCacheObject }>)
     <RecoilRoot>
       <DefaultSeo
         titleTemplate={`%s | ${title}`}
-        title={t('common:bigDipper')}
-        description={t('common:description')}
+        title={t('common:bigDipper') ?? undefined}
+        description={t('common:description') ?? undefined}
         openGraph={{
           title: `${t('common:bigDipper')} | ${title}`,
-          description: t('common:description'),
+          description: t('common:description') ?? undefined,
           url: location,
           ...OPEN_GRAPH_SEO,
         }}

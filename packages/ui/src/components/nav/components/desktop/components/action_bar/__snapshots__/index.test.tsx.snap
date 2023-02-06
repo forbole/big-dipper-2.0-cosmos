@@ -100,6 +100,10 @@ exports[`screen: Nav/ActionBar displays network 1`] = `
   cursor: default;
 }
 
+.emotion-3 {
+  border-radius: 12px;
+}
+
 .emotion-4 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -237,6 +241,10 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:focus::-ms-input-p
   animation-name: mui-auto-fill;
 }
 
+.emotion-6 {
+  padding: 8px 12px;
+}
+
 .emotion-7 {
   margin-right: 16px;
 }
@@ -246,6 +254,355 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:focus::-ms-input-p
 }
 
 .emotion-8 {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+  position: fixed;
+  right: 60px;
+  background: #E8E8E8;
+  width: 310px;
+  height: 310px;
+  top: 69.6px;
+  right: 55px;
+  opacity: 20%;
+  z-index: 1;
+  border-radius: 8px;
+  overflow: auto;
+}
+
+.emotion-8.emotion-8 {
+  overflow: auto;
+  padding: 16px;
+  border-radius: 4px;
+  background: #FFFFFF;
+}
+
+.emotion-8.open {
+  opacity: 1;
+  visibility: visible;
+  background: #E8E8E8;
+  border-radius: 8px;
+}
+
+@media (min-width:1280px) {
+  .emotion-8 {
+    right: 120px;
+  }
+}
+
+.emotion-9 {
+  height: 124px;
+  border-radius: 8px;
+  background-color: #E8E7E8;
+  margin-top: 8px;
+}
+
+.emotion-10 {
+  vertical-align: middle;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.emotion-11 {
+  padding: 16px 0px 0px 24px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-12 {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  min-height: 28px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #F8F8F8;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  height: 45px;
+  width: 45px;
+}
+
+.emotion-12 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.emotion-13 {
+  height: 12.4px;
+  width: 12.4px;
+  background-color: #E8E7E8;
+  border-radius: 50px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  left: 73px;
+  top: 38px;
+}
+
+.emotion-14 {
+  height: 10.4px;
+  width: 10.4px;
+  background-color: #29CC6A;
+  border-radius: 50px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  left: 74px;
+  top: 39px;
+}
+
+.emotion-15 {
+  padding: 20px 0px 0px 8px;
+  font-size: 14px;
+  font-weight: 590;
+  line-height: 17px;
+  color: #000000;
+  overflow: auto;
+  -webkit-box-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  overflow-wrap: anywhere;
+  max-height: 70px;
+}
+
+.emotion-16 {
+  margin: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.4px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.66;
+  color: #777777;
+}
+
+.emotion-17 {
+  fill: none;
+  width: 16px;
+  padding: 5.6px 4px;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  overflow: visible;
+}
+
+.emotion-17:hover {
+  cursor: pointer;
+}
+
+.emotion-18 {
+  margin: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  border-width: 0;
+  border-style: solid;
+  border-color: #E8E8E8;
+  border-bottom-width: thin;
+  margin: 8px 32.8px 8px 16px;
+  background-color: #34383E;
+}
+
+.emotion-19 {
+  width: 232px;
+  height: 28px;
+  border: 1px solid;
+  border-color: #000000;
+  border-radius: 1000px;
+  margin-left: 24px;
+}
+
+.emotion-19:hover {
+  cursor: pointer;
+  background: #A1A1A1;
+}
+
+.emotion-20 {
+  color: #000000;
+  text-align: center;
+}
+
+.emotion-21 {
+  height: 16px;
+  width: 16px;
+  background-color: #000000;
+  border-radius: 50px;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  margin-top: 4px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.emotion-22 {
+  vertical-align: middle;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  margin-top: 5.6px;
+  margin-left: 4px;
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 400;
+  color: #222222;
+}
+
+.emotion-23 {
+  height: 46px;
+  border-radius: 8px;
+  background-color: #BDBDBD;
+  margin-top: 20.8px;
+}
+
+.emotion-23:hover {
+  cursor: pointer;
+  background: #A1A1A1;
+}
+
+.emotion-24 {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 590;
+  line-height: 20px;
+  color: #222222;
+}
+
+.emotion-25 {
+  margin: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  border-width: 0;
+  border-style: solid;
+  border-color: #E8E8E8;
+  border-bottom-width: thin;
+  margin: 20px 0px 14.4px 0px;
+  background-color: #34383E;
+}
+
+.emotion-26 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.emotion-27 {
+  border: 1px solid;
+  border-color: #222222;
+  border-radius: 24px;
+  text-align: center;
+  width: 112px;
+}
+
+.emotion-27:hover {
+  cursor: pointer;
+  background: #BDBDBD;
+}
+
+.emotion-27 svg {
+  fill: none;
+  color: #222222;
+}
+
+.emotion-28 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+.emotion-29 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  vertical-align: middle;
+  width: 16px;
+  stroke: #222222;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  margin-right: 4px;
+}
+
+.emotion-30 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  vertical-align: middle;
+  padding-top: 6.4px;
+  font-weight: 590;
+  color: #222222;
+}
+
+.emotion-31 {
+  margin-left: 20px;
+}
+
+@media (min-width:1280px) {
+  .emotion-31 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+  }
+}
+
+.emotion-31:hover {
+  cursor: pointer;
+}
+
+.emotion-31 svg {
+  fill: none;
+  stroke: #999999;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.emotion-32 {
   width: 100%;
   z-index: 1201;
   opacity: 0;
@@ -257,7 +614,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:focus::-ms-input-p
   left: 0;
 }
 
-.emotion-8.open {
+.emotion-32.open {
   opacity: 1;
   visibility: visible;
 }
@@ -316,120 +673,124 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:focus::-ms-input-p
       id="network"
       toggleNetwork={[MockFunction]}
     />
-    <div>
+    <div
+      onClick={[Function]}
+      onTouchEnd={[Function]}
+    >
       <div
         aria-label="wallet-details-button"
-        className=""
         onClick={[Function]}
         role="button"
         tabIndex={0}
       />
       <div
-        className="makeStyles-networkList makeStyles-root makeStyles-root"
+        className="emotion-8"
       >
         <div
-          className="makeStyles-walletDetails"
+          className="emotion-9"
         >
           <div
-            className="makeStyles-walletInfo"
+            className="emotion-10"
           >
             <div
-              className="makeStyles-walletAvatar"
+              className="emotion-11"
             >
               <div
-                className="makeStyles-avatar makeStyles-root"
+                className="emotion-12"
               >
                 <svg
-                  data-jdenticon-value="desmos13yp2fq3tslq6mmtq4628q38xzj75ethzela9uu"
+                  data-jdenticon-value=""
                   height="100%"
                   width="100%"
                 />
               </div>
               <div
-                className="makeStyles-whiteDot"
+                className="emotion-13"
               />
               <div
-                className="makeStyles-greenDot"
+                className="emotion-14"
               />
             </div>
             <div
-              className="makeStyles-walletLabel"
+              className="emotion-15"
             >
-              Wallet 3
               <div>
                 <span
-                  className="MuiTypography-root makeStyles-walletAddress MuiTypography-caption"
-                >
-                  desmos13y...9uu
-                </span>
+                  className="MuiTypography-root MuiTypography-caption emotion-16"
+                />
                 <svg
-                  className="makeStyles-copyIcon"
+                  className="emotion-17"
                   onClick={[Function]}
                 />
               </div>
             </div>
           </div>
           <hr
-            className="MuiDivider-root makeStyles-divider"
+            className="MuiDivider-root MuiDivider-fullWidth emotion-18"
           />
           <div
             aria-label="account-details-button"
-            className="makeStyles-accountDetailsButton"
-            onClick={[Function]}
+            className="emotion-19"
             role="button"
             tabIndex={0}
           >
-            <div
-              className="makeStyles-accountDetailsLabel"
+            <a
+              href="/accounts"
+              onClick={[Function]}
+              onMouseEnter={[Function]}
+              onTouchStart={[Function]}
             >
               <div
-                className="makeStyles-blackDot"
-              />
-              <div
-                className="makeStyles-accountDetails"
+                className="emotion-20"
               >
-                accountDetails
+                <div
+                  className="emotion-21"
+                />
+                <div
+                  className="emotion-22"
+                >
+                  common:accountDetails
+                </div>
               </div>
-            </div>
+            </a>
           </div>
         </div>
         <div
           aria-label="change-wallet-button"
-          className="makeStyles-changeWalletButton"
+          className="emotion-23"
           onClick={[Function]}
           role="button"
           tabIndex={0}
         >
           <div
-            className="makeStyles-changeWalletButtonLabel"
+            className="emotion-24"
           >
-            changeWallet
+            common:changeWallet
           </div>
         </div>
         <hr
-          className="MuiDivider-root makeStyles-bottomDivider"
+          className="MuiDivider-root MuiDivider-fullWidth emotion-25"
         />
         <div
-          className="makeStyles-signOut"
+          className="emotion-26"
         >
           <div
             aria-label="sign-out-button"
-            className="makeStyles-signOutButton"
+            className="emotion-27"
             onClick={[Function]}
             role="button"
             tabIndex={0}
           >
             <div
-              className="makeStyles-signOutLabel"
+              className="emotion-28"
             >
               <svg
-                className="makeStyles-signOutIcon"
-                onClick={[Function]}
+                className="emotion-29"
               />
               <div
-                className="makeStyles-signOutText"
+                className="emotion-30"
               >
-                signOut
+                common:signOut
               </div>
             </div>
           </div>
@@ -442,18 +803,24 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:focus::-ms-input-p
     <div>
       <div
         aria-label="connect-wallet-button"
-        className="makeStyles-icon"
+        className="emotion-31"
         onClick={[Function]}
         role="button"
         tabIndex={0}
       >
         <svg />
       </div>
+      <div />
+      <div />
+      <div />
+      <div />
+      <div />
+      <div />
     </div>
   </div>
   <div
     actionHeight={0}
-    className="emotion-8 open"
+    className="emotion-32 open"
     id="NetworkList"
   />
 </div>
@@ -559,6 +926,10 @@ exports[`screen: Nav/ActionBar it renders 1`] = `
   cursor: default;
 }
 
+.emotion-3 {
+  border-radius: 12px;
+}
+
 .emotion-4 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -696,6 +1067,10 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:focus::-ms-input-p
   animation-name: mui-auto-fill;
 }
 
+.emotion-6 {
+  padding: 8px 12px;
+}
+
 .emotion-7 {
   margin-right: 16px;
 }
@@ -705,6 +1080,355 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:focus::-ms-input-p
 }
 
 .emotion-8 {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+  position: fixed;
+  right: 60px;
+  background: #E8E8E8;
+  width: 310px;
+  height: 310px;
+  top: 69.6px;
+  right: 55px;
+  opacity: 20%;
+  z-index: 1;
+  border-radius: 8px;
+  overflow: auto;
+}
+
+.emotion-8.emotion-8 {
+  overflow: auto;
+  padding: 16px;
+  border-radius: 4px;
+  background: #FFFFFF;
+}
+
+.emotion-8.open {
+  opacity: 1;
+  visibility: visible;
+  background: #E8E8E8;
+  border-radius: 8px;
+}
+
+@media (min-width:1280px) {
+  .emotion-8 {
+    right: 120px;
+  }
+}
+
+.emotion-9 {
+  height: 124px;
+  border-radius: 8px;
+  background-color: #E8E7E8;
+  margin-top: 8px;
+}
+
+.emotion-10 {
+  vertical-align: middle;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.emotion-11 {
+  padding: 16px 0px 0px 24px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-12 {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  min-height: 28px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #F8F8F8;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  height: 45px;
+  width: 45px;
+}
+
+.emotion-12 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.emotion-13 {
+  height: 12.4px;
+  width: 12.4px;
+  background-color: #E8E7E8;
+  border-radius: 50px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  left: 73px;
+  top: 38px;
+}
+
+.emotion-14 {
+  height: 10.4px;
+  width: 10.4px;
+  background-color: #29CC6A;
+  border-radius: 50px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  left: 74px;
+  top: 39px;
+}
+
+.emotion-15 {
+  padding: 20px 0px 0px 8px;
+  font-size: 14px;
+  font-weight: 590;
+  line-height: 17px;
+  color: #000000;
+  overflow: auto;
+  -webkit-box-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  overflow-wrap: anywhere;
+  max-height: 70px;
+}
+
+.emotion-16 {
+  margin: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.4px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.66;
+  color: #777777;
+}
+
+.emotion-17 {
+  fill: none;
+  width: 16px;
+  padding: 5.6px 4px;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  overflow: visible;
+}
+
+.emotion-17:hover {
+  cursor: pointer;
+}
+
+.emotion-18 {
+  margin: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  border-width: 0;
+  border-style: solid;
+  border-color: #E8E8E8;
+  border-bottom-width: thin;
+  margin: 8px 32.8px 8px 16px;
+  background-color: #34383E;
+}
+
+.emotion-19 {
+  width: 232px;
+  height: 28px;
+  border: 1px solid;
+  border-color: #000000;
+  border-radius: 1000px;
+  margin-left: 24px;
+}
+
+.emotion-19:hover {
+  cursor: pointer;
+  background: #A1A1A1;
+}
+
+.emotion-20 {
+  color: #000000;
+  text-align: center;
+}
+
+.emotion-21 {
+  height: 16px;
+  width: 16px;
+  background-color: #000000;
+  border-radius: 50px;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  margin-top: 4px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.emotion-22 {
+  vertical-align: middle;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  margin-top: 5.6px;
+  margin-left: 4px;
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 400;
+  color: #222222;
+}
+
+.emotion-23 {
+  height: 46px;
+  border-radius: 8px;
+  background-color: #BDBDBD;
+  margin-top: 20.8px;
+}
+
+.emotion-23:hover {
+  cursor: pointer;
+  background: #A1A1A1;
+}
+
+.emotion-24 {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 590;
+  line-height: 20px;
+  color: #222222;
+}
+
+.emotion-25 {
+  margin: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  border-width: 0;
+  border-style: solid;
+  border-color: #E8E8E8;
+  border-bottom-width: thin;
+  margin: 20px 0px 14.4px 0px;
+  background-color: #34383E;
+}
+
+.emotion-26 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.emotion-27 {
+  border: 1px solid;
+  border-color: #222222;
+  border-radius: 24px;
+  text-align: center;
+  width: 112px;
+}
+
+.emotion-27:hover {
+  cursor: pointer;
+  background: #BDBDBD;
+}
+
+.emotion-27 svg {
+  fill: none;
+  color: #222222;
+}
+
+.emotion-28 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+.emotion-29 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  vertical-align: middle;
+  width: 16px;
+  stroke: #222222;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  margin-right: 4px;
+}
+
+.emotion-30 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  vertical-align: middle;
+  padding-top: 6.4px;
+  font-weight: 590;
+  color: #222222;
+}
+
+.emotion-31 {
+  margin-left: 20px;
+}
+
+@media (min-width:1280px) {
+  .emotion-31 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+  }
+}
+
+.emotion-31:hover {
+  cursor: pointer;
+}
+
+.emotion-31 svg {
+  fill: none;
+  stroke: #999999;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.emotion-32 {
   width: 100%;
   z-index: 1201;
   opacity: 0;
@@ -716,7 +1440,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:focus::-ms-input-p
   left: 0;
 }
 
-.emotion-8.open {
+.emotion-32.open {
   opacity: 1;
   visibility: visible;
 }
@@ -775,120 +1499,124 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:focus::-ms-input-p
       id="network"
       toggleNetwork={[MockFunction]}
     />
-    <div>
+    <div
+      onClick={[Function]}
+      onTouchEnd={[Function]}
+    >
       <div
         aria-label="wallet-details-button"
-        className=""
         onClick={[Function]}
         role="button"
         tabIndex={0}
       />
       <div
-        className="makeStyles-networkList makeStyles-root makeStyles-root"
+        className="emotion-8"
       >
         <div
-          className="makeStyles-walletDetails"
+          className="emotion-9"
         >
           <div
-            className="makeStyles-walletInfo"
+            className="emotion-10"
           >
             <div
-              className="makeStyles-walletAvatar"
+              className="emotion-11"
             >
               <div
-                className="makeStyles-avatar makeStyles-root"
+                className="emotion-12"
               >
                 <svg
-                  data-jdenticon-value="desmos13yp2fq3tslq6mmtq4628q38xzj75ethzela9uu"
+                  data-jdenticon-value=""
                   height="100%"
                   width="100%"
                 />
               </div>
               <div
-                className="makeStyles-whiteDot"
+                className="emotion-13"
               />
               <div
-                className="makeStyles-greenDot"
+                className="emotion-14"
               />
             </div>
             <div
-              className="makeStyles-walletLabel"
+              className="emotion-15"
             >
-              Wallet 3
               <div>
                 <span
-                  className="MuiTypography-root makeStyles-walletAddress MuiTypography-caption"
-                >
-                  desmos13y...9uu
-                </span>
+                  className="MuiTypography-root MuiTypography-caption emotion-16"
+                />
                 <svg
-                  className="makeStyles-copyIcon"
+                  className="emotion-17"
                   onClick={[Function]}
                 />
               </div>
             </div>
           </div>
           <hr
-            className="MuiDivider-root makeStyles-divider"
+            className="MuiDivider-root MuiDivider-fullWidth emotion-18"
           />
           <div
             aria-label="account-details-button"
-            className="makeStyles-accountDetailsButton"
-            onClick={[Function]}
+            className="emotion-19"
             role="button"
             tabIndex={0}
           >
-            <div
-              className="makeStyles-accountDetailsLabel"
+            <a
+              href="/accounts"
+              onClick={[Function]}
+              onMouseEnter={[Function]}
+              onTouchStart={[Function]}
             >
               <div
-                className="makeStyles-blackDot"
-              />
-              <div
-                className="makeStyles-accountDetails"
+                className="emotion-20"
               >
-                accountDetails
+                <div
+                  className="emotion-21"
+                />
+                <div
+                  className="emotion-22"
+                >
+                  common:accountDetails
+                </div>
               </div>
-            </div>
+            </a>
           </div>
         </div>
         <div
           aria-label="change-wallet-button"
-          className="makeStyles-changeWalletButton"
+          className="emotion-23"
           onClick={[Function]}
           role="button"
           tabIndex={0}
         >
           <div
-            className="makeStyles-changeWalletButtonLabel"
+            className="emotion-24"
           >
-            changeWallet
+            common:changeWallet
           </div>
         </div>
         <hr
-          className="MuiDivider-root makeStyles-bottomDivider"
+          className="MuiDivider-root MuiDivider-fullWidth emotion-25"
         />
         <div
-          className="makeStyles-signOut"
+          className="emotion-26"
         >
           <div
             aria-label="sign-out-button"
-            className="makeStyles-signOutButton"
+            className="emotion-27"
             onClick={[Function]}
             role="button"
             tabIndex={0}
           >
             <div
-              className="makeStyles-signOutLabel"
+              className="emotion-28"
             >
               <svg
-                className="makeStyles-signOutIcon"
-                onClick={[Function]}
+                className="emotion-29"
               />
               <div
-                className="makeStyles-signOutText"
+                className="emotion-30"
               >
-                signOut
+                common:signOut
               </div>
             </div>
           </div>
@@ -901,18 +1629,24 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:focus::-ms-input-p
     <div>
       <div
         aria-label="connect-wallet-button"
-        className="makeStyles-icon"
+        className="emotion-31"
         onClick={[Function]}
         role="button"
         tabIndex={0}
       >
         <svg />
       </div>
+      <div />
+      <div />
+      <div />
+      <div />
+      <div />
+      <div />
     </div>
   </div>
   <div
     actionHeight={0}
-    className="emotion-8"
+    className="emotion-32"
     id="NetworkList"
   />
 </div>

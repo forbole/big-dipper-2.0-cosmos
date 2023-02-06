@@ -1,5 +1,5 @@
-import React, { FC } from 'react';
-import useTranslation from 'next-translate/useTranslation';
+import { FC } from 'react';
+import { useTranslation } from 'next-i18next';
 import Typography from '@mui/material/Typography';
 import BoxDetails from '@/components/box_details';
 import AvatarName from '@/components/avatar_name';
@@ -46,7 +46,9 @@ const Overview: FC<{ className?: string; overview: OverviewType }> = (props) => 
     },
   ];
 
-  return <BoxDetails className={props.className} title={t('overview')} details={details} />;
+  return (
+    <BoxDetails className={props.className} title={t('overview') ?? undefined} details={details} />
+  );
 };
 
 export default Overview;

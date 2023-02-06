@@ -1,7 +1,7 @@
-import VotingPower from '@/screens/validators/components/list/components/voting_power';
-import { MockTheme } from '@/tests/utils';
 import numeral from 'numeral';
 import renderer from 'react-test-renderer';
+import VotingPower from '@/screens/validators/components/list/components/voting_power';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // unit tests

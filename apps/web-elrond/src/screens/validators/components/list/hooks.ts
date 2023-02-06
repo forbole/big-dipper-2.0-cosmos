@@ -1,11 +1,11 @@
-import { IDENTITIES, PROVIDERS, STAKE } from '@/api';
-import chainConfig from '@/chainConfig';
-import type { ValidatorsState } from '@/screens/validators/components/list/types';
-import { formatNumber, formatToken } from '@/utils/format_token';
 import axios from 'axios';
 import Big from 'big.js';
 import * as R from 'ramda';
 import { SyntheticEvent, useCallback, useEffect, useState } from 'react';
+import { IDENTITIES, PROVIDERS, STAKE } from '@/api';
+import chainConfig from '@/chainConfig';
+import type { ValidatorsState } from '@/screens/validators/components/list/types';
+import { formatNumber, formatToken } from '@/utils/format_token';
 
 const { primaryTokenUnit } = chainConfig();
 

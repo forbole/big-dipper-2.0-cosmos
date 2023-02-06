@@ -1,9 +1,9 @@
 import Result from '@/components/result';
 import Tag from '@/components/tag';
+import Timestamp from '@/components/Timestamp';
 import useStyles from '@/screens/home/components/transactions/components/desktop/styles';
 import { columns } from '@/screens/home/components/transactions/components/desktop/utils';
 import type { TransactionType } from '@/screens/home/components/transactions/types';
-import dayjs from '@/utils/dayjs';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { BLOCK_DETAILS, TRANSACTION_DETAILS } from '@/utils/go_to_page';
 import Table from '@mui/material/Table';
@@ -12,7 +12,7 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { AnimatePresence, motion, Variants } from 'framer-motion';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import numeral from 'numeral';
 import { FC } from 'react';
@@ -65,7 +65,7 @@ const Desktop: FC<DesktopProps> = ({ className, items }) => {
       </div>
     ),
     result: <Result success={x.success} />,
-    time: dayjs.utc(x.timestamp).fromNow(),
+    time: <Timestamp timestamp={x.timestamp} />,
     messages: numeral(x.messages).format('0,0'),
   }));
 

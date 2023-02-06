@@ -1,5 +1,5 @@
+import { FC } from 'react';
 import useStyles from '@/screens/transaction_details/components/code_block/styles';
-import React, { FC } from 'react';
 
 const CodeBlock: FC<{ message: string }> = (props) => {
   const { message } = props;

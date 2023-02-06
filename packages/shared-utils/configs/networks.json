@@ -414,5 +414,23 @@
         "url": "https://bigdipper.live/nym"
       }
     ]
+  },
+  {
+    "name": "Mars",
+    "chainName": "",
+    "logo": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mars/images/mars-token.svg",
+    "cover": "",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "",
+        "url": "https://explorer.marsprotocol.io/"
+      },
+      {
+        "name": "Testnet",
+        "chain_id": "",
+        "url": "https://testnet-explorer.marsprotocol.io/"
+      }
+    ]
   }
 ]

@@ -1,15 +1,15 @@
-import useStyles from '@/components/single_block_mobile/styles';
 import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
-import React, { FC, ReactNode } from 'react';
+import { useTranslation } from 'next-i18next';
+import { FC, ReactNode } from 'react';
+import useStyles from '@/components/single_block_mobile/styles';
 
 type SingleBlockMobileProps = {
   className?: string;
   height: ReactNode;
-  hash: string;
-  parentHash?: string;
-  txs: string;
-  time: string;
+  hash: ReactNode;
+  parentHash?: ReactNode;
+  txs: ReactNode;
+  time: ReactNode;
   proposer: ReactNode;
 };
 

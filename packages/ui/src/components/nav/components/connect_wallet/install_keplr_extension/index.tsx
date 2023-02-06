@@ -7,9 +7,8 @@ import DialogTitle from '@mui/material/DialogTitle';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import CloseIcon from '@mui/icons-material/Close';
-import useTranslation from 'next-translate/useTranslation';
-import React, { FC } from 'react';
-import Trans from 'next-translate/Trans';
+import { Trans, useTranslation } from 'next-i18next';
+import { FC } from 'react';
 
 type InstallKeplrExtensionDialogProps = {
   walletUrl: string;

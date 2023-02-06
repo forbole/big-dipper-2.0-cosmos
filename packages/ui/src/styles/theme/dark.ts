@@ -1,5 +1,5 @@
-import chainConfig from '@/chainConfig';
 import { ThemeOptions } from '@mui/material';
+import chainConfig from '@/chainConfig';
 
 const { themes } = chainConfig();
 const { dark: theme } = themes;

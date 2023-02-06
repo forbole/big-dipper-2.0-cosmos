@@ -1,6 +1,6 @@
-import TabPanel from '@/components/tab_panel';
-import { MockTheme } from '@/tests/utils';
 import renderer from 'react-test-renderer';
+import TabPanel from '@/components/tab_panel';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // unit tests

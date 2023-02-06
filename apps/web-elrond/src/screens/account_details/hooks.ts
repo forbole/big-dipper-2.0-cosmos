@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ACCOUNT_DETAILS, ACCOUNT_DETAILS_TOKEN_COUNT } from '@/api';
-import chainConfig from '@/chainConfig';
-import type { AccountDetailsType } from '@/screens/account_details/types';
-import { formatToken } from '@/utils/format_token';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import { useEffect, useState } from 'react';
+import { ACCOUNT_DETAILS, ACCOUNT_DETAILS_TOKEN_COUNT } from '@/api';
+import chainConfig from '@/chainConfig';
+import type { AccountDetailsType } from '@/screens/account_details/types';
+import { formatToken } from '@/utils/format_token';
 
 const { primaryTokenUnit } = chainConfig();
 

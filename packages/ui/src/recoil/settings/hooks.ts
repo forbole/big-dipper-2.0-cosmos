@@ -1,10 +1,10 @@
+import { useEffect } from 'react';
+import { useRecoilState } from 'recoil';
 import chainConfig from '@/chainConfig';
 import { atomState } from '@/recoil/settings/atom';
 import type { AtomState, Theme } from '@/recoil/settings/types';
 import { THEME_DICTIONARY } from '@/recoil/settings/utils';
 import { DATE_KEY, getItem, THEME_KEY, TX_KEY } from '@/utils/localstorage';
-import { useEffect } from 'react';
-import { useRecoilState } from 'recoil';
 
 const { themes } = chainConfig();
 const isClient = typeof window === 'object';
