@@ -428,6 +428,12 @@ const customTypeToModel = {
     tagTheme: 'four',
     tagDisplay: 'txMsgUnlinkApplication',
   },
+  '/desmos.profiles.v3.MsgSetDefaultExternalAddress': {
+    model: MODELS.MsgSetDefaultExternalAddress,
+    content: COMPONENTS.SetDefaultExternalAddress,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgSetDefaultExternalAddress',
+  },
 };
 type CustomTypeToModel = typeof customTypeToModel;
 
