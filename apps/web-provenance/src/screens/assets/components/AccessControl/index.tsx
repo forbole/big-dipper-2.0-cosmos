@@ -36,7 +36,7 @@ const AccessControl: FC<{ accessControls: AccessControl[] }> = ({ accessControls
               <Fragment key={address}>
                 <TableRow>
                   <TableCell colSpan={permissionList.length}>
-                    <AvatarName address={address} name={address} />
+                    <AvatarName address={address} name={address} target={address} />
                   </TableCell>
                 </TableRow>
                 <TableRow>

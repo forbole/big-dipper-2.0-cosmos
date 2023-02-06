@@ -82,14 +82,15 @@ function webpackConfig(config, { defaultLoaders, isServer, webpack }) {
 }
 
 /**
- * @param dir - the directory of the current file
- * @returns A function that takes a directory name as an argument and returns a configuration object.
+ * @param dir - the directory of the current chain
+ * @param extraConfig - The extra configuration object.
+ * @returns The base config is being returned with the base config.
  */
-function getNextConfig(dir) {
+function getNextConfig(dir, extraConfig) {
   // each chain has its own chains/<chainName>.json
   const [_match, chainName] = /web-(.+)$/.exec(basename(dir)) ?? ['', 'base'];
   const basePath = (process.env.BASE_PATH || `${`/${chainName}`}`).replace(/^(\/|\/base)$/, '');
-  return getBaseConfig(basePath, chainName);
+  return { ...getBaseConfig(basePath, chainName), ...extraConfig };
 }
 
 module.exports = getNextConfig;

@@ -1,9 +1,9 @@
 import { ReactNode } from 'react';
 
 export interface SingleBlockMobileType {
-  block: string;
+  block: ReactNode;
   shard?: ReactNode;
   hash: ReactNode;
-  txs: string;
-  time: string;
+  txs: ReactNode;
+  time: ReactNode;
 }

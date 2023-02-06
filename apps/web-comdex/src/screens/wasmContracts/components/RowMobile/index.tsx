@@ -22,9 +22,10 @@ const RowMobile = ({
   items: preloadedItems,
   itemsPerPage,
   rowHeight,
+  cursor,
 }: RowProps<WasmContractQuery, ContractQueryVariable, ContractType>) => {
   const offset = index - (index % itemsPerPage);
-  const { items } = useContractsByOffset(variables, offset);
+  const { items } = useContractsByOffset(cursor, variables, offset);
   const { classes, cx } = useStyles();
   const { t } = useTranslation('contracts');
 
@@ -83,7 +84,7 @@ const RowMobile = ({
             horizontal: 'right',
           }}
         >
-          {item.showMore}
+          {/* {item.showMore} */}
         </Popover>
       )}
     </div>

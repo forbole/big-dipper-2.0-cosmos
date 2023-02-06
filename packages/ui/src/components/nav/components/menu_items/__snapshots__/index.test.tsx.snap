@@ -145,6 +145,7 @@ exports[`screen: Nav/MenuItems it renders 1`] = `
 
 .emotion-1.active .MuiListItemIcon-root svg {
   fill: #FF835B;
+  color: #FF835B;
 }
 
 .emotion-1.active .MuiListItemText-root {
@@ -170,6 +171,11 @@ exports[`screen: Nav/MenuItems it renders 1`] = `
   min-width: 0;
   margin-top: 4px;
   margin-bottom: 4px;
+}
+
+.emotion-3.emotion-3 * {
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .emotion-4 {

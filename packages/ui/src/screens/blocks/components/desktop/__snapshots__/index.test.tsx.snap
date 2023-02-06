@@ -350,7 +350,12 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         <div
           className="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight emotion-18"
         >
-          1 day ago
+          <span
+            aria-label="UTC: 2020-08-10 12:00:00 Local: 2020-08-10 12:00:00"
+            title="UTC: 2020-08-10 12:00:00 Local: 2020-08-10 12:00:00"
+          >
+            1 day ago
+          </span>
         </div>
       </div>
       <div
@@ -458,7 +463,12 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
         <div
           className="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight emotion-18"
         >
-          1 day ago
+          <span
+            aria-label="UTC: 2020-08-10 12:00:00 Local: 2020-08-10 12:00:00"
+            title="UTC: 2020-08-10 12:00:00 Local: 2020-08-10 12:00:00"
+          >
+            1 day ago
+          </span>
         </div>
       </div>
     </div>

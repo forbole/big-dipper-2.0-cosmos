@@ -18,9 +18,10 @@ const RowDesktop = ({
   items: preloadedItems,
   itemsPerPage,
   rowHeight,
+  cursor,
 }: RowProps<WasmContractQuery, ContractQueryVariable, ContractType>) => {
   const offset = index - (index % itemsPerPage);
-  const { items } = useContractsByOffset(variables, offset);
+  const { items } = useContractsByOffset(cursor, variables, offset);
   const { classes, cx } = useStyles();
 
   const item = items?.[index - offset] ?? (offset === 0 ? preloadedItems[index] : undefined);
@@ -72,7 +73,7 @@ const RowDesktop = ({
             horizontal: 'right',
           }}
         >
-          {item.showMore}
+          {/* {item.showMore} */}
         </Popover>
       )}
     </div>

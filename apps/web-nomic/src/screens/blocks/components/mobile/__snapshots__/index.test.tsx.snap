@@ -69,7 +69,11 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
               </ForwardRef(LinkComponent)>
             }
             id="SingleBlockMobile"
-            time="1 day ago"
+            time={
+              <Timestamp
+                timestamp=""
+              />
+            }
             txs="2"
           />
           <hr
@@ -103,7 +107,11 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
               </ForwardRef(LinkComponent)>
             }
             id="SingleBlockMobile"
-            time="1 day ago"
+            time={
+              <Timestamp
+                timestamp=""
+              />
+            }
             txs="2"
           />
         </div>

@@ -614,7 +614,12 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
               }
             }
           >
-            1 day ago
+            <span
+              aria-label="UTC: 2020-08-10 12:00:00 Local: 2020-08-10 12:00:00"
+              title="UTC: 2020-08-10 12:00:00 Local: 2020-08-10 12:00:00"
+            >
+              1 day ago
+            </span>
           </td>
         </tr>
       </tbody>
@@ -783,7 +788,12 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
           <p
             className="MuiTypography-root MuiTypography-body1 value emotion-19"
           >
-            1 day ago
+            <span
+              aria-label="UTC: 2020-08-10 12:00:00 Local: 2020-08-10 12:00:00"
+              title="UTC: 2020-08-10 12:00:00 Local: 2020-08-10 12:00:00"
+            >
+              1 day ago
+            </span>
           </p>
         </div>
       </div>

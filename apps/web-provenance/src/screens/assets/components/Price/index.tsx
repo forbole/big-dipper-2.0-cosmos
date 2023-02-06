@@ -16,7 +16,7 @@ const Price = memo(({ denom }: PriceProps) => {
     if (price === null) {
       content = <CircularProgress disableShrink />;
     } else {
-      content = formatNumber(Big(price).toString(), 2);
+      content = `$${formatNumber(Big(price).toString(), 2)}`;
     }
   }
   return <div>{content}</div>;

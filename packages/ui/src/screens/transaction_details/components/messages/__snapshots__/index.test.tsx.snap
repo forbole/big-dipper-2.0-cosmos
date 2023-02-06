@@ -417,6 +417,7 @@ exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
               checked={false}
               className="PrivateSwitchBase-input MuiSwitch-input emotion-7"
               onChange={[Function]}
+              required={false}
               type="checkbox"
             />
             <span
@@ -463,6 +464,7 @@ exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
               checked={false}
               className="PrivateSwitchBase-input MuiSwitch-input emotion-7"
               onChange={[Function]}
+              required={false}
               type="checkbox"
             />
             <span

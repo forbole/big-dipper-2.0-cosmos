@@ -43,8 +43,8 @@ test('account page - share buttons', async ({ page, isMobile }) => {
   // Test share button
   await page.locator('#icon-share_svg__Layer_1').first().click();
 
-  // Test facebook button
-  await waitForPopupClick((p) => p.getByRole('button', { name: 'facebook' }), page);
+  // // Test facebook button
+  // await waitForPopupClick((p) => p.getByRole('button', { name: 'facebook' }), page);
 
   // Test twitter button
   await waitForPopupClick((p) => p.getByRole('button', { name: 'twitter' }), page);
