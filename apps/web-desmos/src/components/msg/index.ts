@@ -6,4 +6,5 @@ export { default as LinkChainAccount } from '@/components/msg/profiles/link_chai
 export { default as UnlinkApplication } from '@/components/msg/profiles/unlink_application';
 export { default as UnlinkChainAccount } from '@/components/msg/profiles/unlink_chain_account';
 export { default as SetDefaultExternalAddress } from '@/components/msg/profiles/set_default_external_address';
+export { default as CreatePost } from '@/components/msg/posts/create_post';
 export * from 'ui/components/msg';

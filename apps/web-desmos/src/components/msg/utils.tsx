@@ -434,6 +434,15 @@ const customTypeToModel = {
     tagTheme: 'four',
     tagDisplay: 'txMsgSetDefaultExternalAddress',
   },
+  // ========================
+  // posts
+  // ========================
+  '/desmos.profiles.v3.MsgCreatePost': {
+    model: MODELS.MsgCreatePost,
+    content: COMPONENTS.CreatePost,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgCreatePost',
+  },
 };
 type CustomTypeToModel = typeof customTypeToModel;
 

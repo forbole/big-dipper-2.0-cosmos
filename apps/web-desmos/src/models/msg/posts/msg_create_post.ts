@@ -1,30 +1,30 @@
 import * as R from 'ramda';
 import type { Categories } from '@/models/msg/types';
 
-class MsgLinkChainAccount {
+class MsgCreatePost {
   public category: Categories;
 
   public type: string;
 
-  public signer: string;
-
   public json: object;
 
+  public author: string;
+
   constructor(payload: object) {
-    this.category = 'profiles';
+    this.category = 'posts';
     this.type = R.pathOr('', ['type'], payload);
-    this.signer = R.pathOr('', ['signer'], payload);
     this.json = R.pathOr({}, ['json'], payload);
+    this.author = R.pathOr('', ['author'], payload);
   }
 
-  static fromJson(json: object): MsgLinkChainAccount {
+  static fromJson(json: object): MsgCreatePost {
     return {
       category: 'profiles',
-      type: R.pathOr('', ['@type'], json),
-      signer: R.pathOr('', ['signer'], json),
       json,
+      type: R.pathOr('', ['@type'], json),
+      author: R.pathOr('', ['author'], json),
     };
   }
 }
 
-export default MsgLinkChainAccount;
+export default MsgCreatePost;

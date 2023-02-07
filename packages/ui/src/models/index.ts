@@ -59,7 +59,6 @@ export { default as MsgDtagRefuseTransfer } from '@/models/msg/profiles/msg_dtag
 export { default as MsgDtagTransferRequest } from '@/models/msg/profiles/msg_dtag_transfer_request';
 export { default as MsgSaveProfile } from '@/models/msg/profiles/msg_save_profile';
 export { default as MsgUnblockUser } from '@/models/msg/profiles/msg_unblock_user';
-export { default as MsgLinkChainAccount } from '@/models/msg/profiles/msg_link_chain_account';
 export { default as MsgUnjail } from '@/models/msg/slashing/msg_unjail';
 export { default as MsgCreateValidator } from '@/models/msg/staking/msg_create_validator';
 export { default as MsgDelegate } from '@/models/msg/staking/msg_delegate';

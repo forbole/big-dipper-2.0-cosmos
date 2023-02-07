@@ -50,7 +50,6 @@ export { default as DtagRefuseTransfer } from '@/components/msg/profiles/dtag_re
 export { default as DtagTransferRequest } from '@/components/msg/profiles/dtag_transfer_request';
 export { default as SaveProfile } from '@/components/msg/profiles/save_profile';
 export { default as UnBlockUser } from '@/components/msg/profiles/unblock_user';
-export { default as LinkChainAccount } from '@/components/msg/profiles/link_chain_account';
 export { default as Unjail } from '@/components/msg/slashing/unjail';
 export { default as CreateValidator } from '@/components/msg/staking/create_validator';
 export { default as Delegate } from '@/components/msg/staking/delegate';

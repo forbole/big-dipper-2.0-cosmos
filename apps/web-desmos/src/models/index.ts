@@ -7,4 +7,5 @@ export { default as MsgLinkChainAccount } from '@/models/msg/profiles/msg_link_c
 export { default as MsgUnlinkApplication } from '@/models/msg/profiles/msg_unlink_application';
 export { default as MsgUnlinkChainAccount } from '@/models/msg/profiles/msg_unlink_chain_account';
 export { default as MsgSetDefaultExternalAddress } from '@/models/msg/profiles/msg_set_default_external_address';
+export { default as MsgCreatePost } from '@/models/msg/posts/msg_create_post';
 export * from 'ui/models';

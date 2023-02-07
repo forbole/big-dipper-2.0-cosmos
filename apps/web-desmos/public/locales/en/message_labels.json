@@ -54,6 +54,7 @@
   "txMsgUnlinkApplication": "Unlink Application",
   "txMsgUnlinkChainAccount": "Unlink Chain Account",
   "txMsgSetDefaultExternalAddress": "Set New Default External Address",
+  "txMsgCreatePost": "Create Post",
   "MsgGrant": "Grant",
   "MsgRevoke": "Revoke",
   "MsgGrantAllowance": "Grant Allowance",
