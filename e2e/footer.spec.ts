@@ -1,8 +1,8 @@
 import { test } from '@playwright/test';
-import { abortLoadingAssets, waitForPopupClick, waitForReady } from './common';
+import { interceptRoutes, waitForPopupClick, waitForReady } from './common';
 
 test('footer', async ({ page, isMobile }) => {
-  await abortLoadingAssets(page);
+  await interceptRoutes(page);
 
   await page.goto('.');
   await waitForReady(page);

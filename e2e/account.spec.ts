@@ -1,10 +1,10 @@
 import { expect, test } from '@playwright/test';
-import { abortLoadingAssets, waitForPopupClick, hasReadPermissions, waitForReady } from './common';
+import { interceptRoutes, waitForPopupClick, hasReadPermissions, waitForReady } from './common';
 
 const address = 'desmos134zrg6jn3a5l5jjpzv9eucdlw3nl2qelgz330c';
 
 test('account page - copy addresses', async ({ page, context }) => {
-  await abortLoadingAssets(page);
+  await interceptRoutes(page);
 
   // Test account url
   await page.goto(`./accounts/${address}`);
@@ -34,7 +34,7 @@ test('account page - copy addresses', async ({ page, context }) => {
 });
 
 test('account page - share buttons', async ({ page, isMobile }) => {
-  await abortLoadingAssets(page);
+  await interceptRoutes(page);
 
   // Test account url
   await page.goto(`./accounts/${address}`);
@@ -57,7 +57,7 @@ test('account page - share buttons', async ({ page, isMobile }) => {
 });
 
 test('account page tabs', async ({ page, isMobile }) => {
-  await abortLoadingAssets(page);
+  await interceptRoutes(page);
 
   // Test account url
   await page.goto(`./accounts/${address}`);
