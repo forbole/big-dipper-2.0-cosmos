@@ -1,8 +1,8 @@
 import { test } from '@playwright/test';
-import { abortLoadingAssets, waitForMenuItemClick, waitForReady } from './common';
+import { interceptRoutes, waitForMenuItemClick, waitForReady } from './common';
 
 test('blocks page', async ({ page, isMobile }) => {
-  await abortLoadingAssets(page);
+  await interceptRoutes(page);
 
   // Test single block url
   await page.goto(`./blocks/1`);
