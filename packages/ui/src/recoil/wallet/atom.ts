@@ -8,8 +8,6 @@ export interface AtomState {
   openPairConnectWalletDialog: boolean;
   openPairKeplrExtensionDialog: boolean;
   openSelectNetworkDialog: boolean;
-  showWalletDetails: boolean;
-  tabValue: number;
   walletConnectURI: string;
   walletSelection: string;
 }
@@ -22,8 +20,6 @@ const initialState: AtomState = {
   openPairConnectWalletDialog: false,
   openPairKeplrExtensionDialog: false,
   openSelectNetworkDialog: false,
-  showWalletDetails: false,
-  tabValue: 1,
   walletConnectURI: '',
   walletSelection: '',
 };

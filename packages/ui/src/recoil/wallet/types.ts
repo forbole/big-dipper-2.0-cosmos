@@ -6,8 +6,6 @@ export interface AtomState {
   openPairConnectWalletDialog: boolean;
   openPairKeplrExtensionDialog: boolean;
   openSelectNetworkDialog: boolean;
-  showWalletDetails: boolean;
-  tabValue: number;
   walletConnectURI: string;
   walletSelection: string;
 }

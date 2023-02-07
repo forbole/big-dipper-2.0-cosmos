@@ -1,6 +1,6 @@
-import { atomState } from '@/recoil/wallet/atom';
 import { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
+import { atomState } from '@/recoil/wallet/atom';
 
 export const useWalletRecoil = () => {
   const [wallet, setWallet] = useRecoilState(atomState);
@@ -16,8 +16,6 @@ export const useWalletRecoil = () => {
     wallet.openPairConnectWalletDialog,
     wallet.openPairKeplrExtensionDialog,
     wallet.openSelectNetworkDialog,
-    wallet.showWalletDetails,
-    wallet.tabValue,
     wallet.walletConnectURI,
     wallet.walletSelection,
   ]);

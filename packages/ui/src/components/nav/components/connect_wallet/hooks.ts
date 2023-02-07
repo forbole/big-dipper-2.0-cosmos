@@ -1,14 +1,12 @@
 import { SigningCosmosClient } from '@cosmjs/launchpad';
-import {
-  writeUserAddress,
-  writeIsUserLoggedIn,
-  writeUserPubKey,
-  writeWalletName,
-} from '@/recoil/user';
 import { SetterOrUpdater, useRecoilState } from 'recoil';
 import * as R from 'ramda';
 import { useCallback, useState } from 'react';
-import { ADDRESS_KEY, CONNECTION_TYPE, PUBKEY_KEY, WALLET_NAME_KEY } from '@/utils/localstorage';
+import { OfflineAminoSigner, OfflineDirectSigner } from '@keplr-wallet/types';
+import { toBase64 } from '@cosmjs/encoding';
+import WalletConnect from '@walletconnect/client';
+import { KeplrWalletConnectV1 } from '@keplr-wallet/wc-client';
+import { PubKey } from '@/recoil/user/atom';
 import {
   writeOpenLoginDialog,
   writeWalletSelection,
@@ -18,15 +16,15 @@ import {
   writeOpenAuthorizeConnectionDialog,
   writeOpenLoginSuccessDialog,
   writeOpenPairConnectWalletDialog,
-  writeTabValue,
-  writeShowWalletDetails,
   writeWalletConnectURI,
 } from '@/recoil/wallet';
-import type { OfflineAminoSigner, OfflineDirectSigner } from '@keplr-wallet/types';
-import { toBase64 } from '@cosmjs/encoding';
-import { PubKey } from '@/recoil/user/atom';
-import WalletConnect from '@walletconnect/client';
-import { KeplrWalletConnectV1 } from '@keplr-wallet/wc-client';
+import { ADDRESS_KEY, CONNECTION_TYPE, PUBKEY_KEY, WALLET_NAME_KEY } from '@/utils/localstorage';
+import {
+  writeUserAddress,
+  writeIsUserLoggedIn,
+  writeUserPubKey,
+  writeWalletName,
+} from '@/recoil/user';
 
 const keplrChainID = process?.env?.NEXT_PUBLIC_KEPLR_CHAIN_ID ?? '';
 const keplrURL = process?.env?.NEXT_PUBLIC_KEPLR_LCD_URL ?? '';
@@ -51,8 +49,6 @@ type WalletState = {
   openAuthorizeConnectionDialog: boolean;
   openLoginSuccessDialog: boolean;
   openPairConnectWalletDialog: boolean;
-  tabValue: number;
-  showWalletDetails: boolean;
   walletConnectURI: string;
 };
 
@@ -102,19 +98,12 @@ const useConnectWalletList = () => {
   const [openPairConnectWalletDialog, setOpenPairConnectWalletDialog] = useRecoilState(
     writeOpenPairConnectWalletDialog
   ) as [boolean, SetterOrUpdater<boolean>];
-  const [tabValue, setTabValue] = useRecoilState(writeTabValue) as [
-    number,
-    SetterOrUpdater<number>
-  ];
-  const [showWalletDetails, setShowWalletDetails] = useRecoilState(writeShowWalletDetails) as [
-    boolean,
-    SetterOrUpdater<boolean>
-  ];
   const [walletConnectURI, setWalletConnectURI] = useRecoilState(writeWalletConnectURI) as [
     string,
     SetterOrUpdater<string>
   ];
 
+  const [showWalletDetails, setShowWalletDetails] = useState(false);
   const [wcClient, setWCClient] = useState<WalletConnect | undefined>();
   const [errorMsg, setErrorMsg] = useState<string | undefined>(undefined);
 
@@ -157,8 +146,6 @@ const useConnectWalletList = () => {
     openAuthorizeConnectionDialog,
     openLoginSuccessDialog,
     openPairConnectWalletDialog,
-    tabValue,
-    showWalletDetails,
     walletConnectURI,
   });
 
@@ -183,8 +170,6 @@ const useConnectWalletList = () => {
       openAuthorizeConnectionDialog,
       openLoginSuccessDialog,
       openPairConnectWalletDialog,
-      tabValue,
-      showWalletDetails,
       walletConnectURI,
     }));
   };
@@ -400,20 +385,11 @@ const useConnectWalletList = () => {
     setErrorMsg(undefined);
   };
 
-  const handleOpenWalletDetails = () => {
-    setShowWalletDetails(true);
-  };
-
   const handleShowWalletDetails = () => {
     if (showWalletDetails) {
       setShowWalletDetails(false);
     } else setShowWalletDetails(true);
   };
-
-  const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
-    setTabValue(newValue);
-  };
-
   const setWalletOption = (walletOption: string) => {
     setWalletSelection(walletOption);
   };
@@ -577,7 +553,6 @@ const useConnectWalletList = () => {
   return {
     errorMsg,
     showWalletDetails,
-    tabValue,
     userState,
     walletState,
     walletConnectURI,
@@ -597,9 +572,7 @@ const useConnectWalletList = () => {
     handleClosetWalletConnectDialog,
     handleLogin,
     handleLogout,
-    handleOpenWalletDetails,
     handleShowWalletDetails,
-    handleTabChange,
     setWalletOption,
   };
 };

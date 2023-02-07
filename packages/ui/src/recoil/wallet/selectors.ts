@@ -1,6 +1,6 @@
+import { DefaultValue, ReadOnlySelectorOptions, selector } from 'recoil';
 import { atomState } from '@/recoil/wallet/atom';
 import { mergeStateChange } from '@/utils/merge_state_change';
-import { DefaultValue, ReadOnlySelectorOptions, selector } from 'recoil';
 
 const getOpenLoginDialog: ReadOnlySelectorOptions<boolean>['get'] = ({ get }) => {
   const state = get(atomState);
@@ -168,48 +168,6 @@ export const writeOpenPairConnectWalletDialog = selector({
 export const readOpenPairConnectWalletDialog = selector({
   key: 'wallet.read.openPairConnectWalletDialog',
   get: getOpenPairConnectWalletDialog,
-});
-
-const getTabValue: ReadOnlySelectorOptions<number>['get'] = ({ get }) => {
-  const state = get(atomState);
-  return state.tabValue;
-};
-
-export const writeTabValue = selector({
-  key: 'wallet.write.tabValue',
-  get: getTabValue,
-  set: ({ get, set }, value) => {
-    if (value instanceof DefaultValue) return;
-    const prevState = get(atomState);
-    const newState = mergeStateChange(prevState, { tabValue: value });
-    set(atomState, newState);
-  },
-});
-
-export const readTabValue = selector({
-  key: 'wallet.read.tabValue',
-  get: getTabValue,
-});
-
-const getShowWalletDetails: ReadOnlySelectorOptions<boolean>['get'] = ({ get }) => {
-  const state = get(atomState);
-  return state.showWalletDetails;
-};
-
-export const writeShowWalletDetails = selector({
-  key: 'wallet.write.showWalletDetails',
-  get: getShowWalletDetails,
-  set: ({ get, set }, value) => {
-    if (value instanceof DefaultValue) return;
-    const prevState = get(atomState);
-    const newState = mergeStateChange(prevState, { showWalletDetails: value });
-    set(atomState, newState);
-  },
-});
-
-export const readShowWalletDetails = selector({
-  key: 'wallet.read.showWalletDetails',
-  get: getShowWalletDetails,
 });
 
 const getWalletConnectURI: ReadOnlySelectorOptions<string>['get'] = ({ get }) => {

@@ -8,8 +8,6 @@ export {
   readOpenPairConnectWalletDialog,
   readOpenPairKeplrExtensionDialog,
   readOpenSelectNetworkDialog,
-  readShowWalletDetails,
-  readTabValue,
   readWalletConnectURI,
   readWalletSelection,
   writeOpenAuthorizeConnectionDialog,
@@ -19,8 +17,6 @@ export {
   writeOpenPairConnectWalletDialog,
   writeOpenPairKeplrExtensionDialog,
   writeOpenSelectNetworkDialog,
-  writeShowWalletDetails,
-  writeTabValue,
   writeWalletConnectURI,
   writeWalletSelection,
 } from '@/recoil/wallet/selectors';
