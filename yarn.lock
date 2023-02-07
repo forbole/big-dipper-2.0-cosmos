@@ -5024,7 +5024,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@walletconnect/encoding@npm:^1.0.1, @walletconnect/encoding@npm:^1.0.2":
+"@walletconnect/encoding@npm:*, @walletconnect/encoding@npm:^1.0.1, @walletconnect/encoding@npm:^1.0.2":
   version: 1.0.2
   resolution: "@walletconnect/encoding@npm:1.0.2"
   dependencies:
@@ -14448,6 +14448,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"tslib@npm:*, tslib@npm:^2.5.0":
+  version: 2.5.0
+  resolution: "tslib@npm:2.5.0"
+  checksum: ae3ed5f9ce29932d049908ebfdf21b3a003a85653a9a140d614da6b767a93ef94f460e52c3d787f0e4f383546981713f165037dc2274df212ea9f8a4541004e1
+  languageName: node
+  linkType: hard
+
 "tslib@npm:1.14.1, tslib@npm:^1.8.1, tslib@npm:^1.9.3":
   version: 1.14.1
   resolution: "tslib@npm:1.14.1"
@@ -14814,6 +14821,7 @@ __metadata:
     ts-jest: ^29.0.5
     ts-node: ^10.9.1
     tsconfig: "workspace:*"
+    tslib: ^2.5.0
     tss-react: ^4.6.0
     typanion: ^3.12.1
     typescript: ^4.9.5
@@ -15208,6 +15216,7 @@ __metadata:
     ts-jest: ^29.0.5
     ts-node: ^10.9.1
     tsconfig: "workspace:*"
+    tslib: ^2.5.0
     tss-react: ^4.6.0
     typanion: ^3.12.1
     typescript: ^4.9.5
@@ -15328,6 +15337,7 @@ __metadata:
     ts-jest: ^29.0.5
     ts-node: ^10.9.1
     tsconfig: "workspace:*"
+    tslib: ^2.5.0
     tss-react: ^4.6.0
     typanion: ^3.12.1
     typescript: ^4.9.5
@@ -15448,6 +15458,7 @@ __metadata:
     ts-jest: ^29.0.5
     ts-node: ^10.9.1
     tsconfig: "workspace:*"
+    tslib: ^2.5.0
     tss-react: ^4.6.0
     typanion: ^3.12.1
     typescript: ^4.9.5
@@ -15568,6 +15579,7 @@ __metadata:
     ts-jest: ^29.0.5
     ts-node: ^10.9.1
     tsconfig: "workspace:*"
+    tslib: ^2.5.0
     tss-react: ^4.6.0
     typanion: ^3.12.1
     typescript: ^4.9.5
@@ -15688,6 +15700,7 @@ __metadata:
     ts-jest: ^29.0.5
     ts-node: ^10.9.1
     tsconfig: "workspace:*"
+    tslib: ^2.5.0
     tss-react: ^4.6.0
     typanion: ^3.12.1
     typescript: ^4.9.5
@@ -15808,6 +15821,7 @@ __metadata:
     ts-jest: ^29.0.5
     ts-node: ^10.9.1
     tsconfig: "workspace:*"
+    tslib: ^2.5.0
     tss-react: ^4.6.0
     typanion: ^3.12.1
     typescript: ^4.9.5
@@ -15928,6 +15942,7 @@ __metadata:
     ts-jest: ^29.0.5
     ts-node: ^10.9.1
     tsconfig: "workspace:*"
+    tslib: ^2.5.0
     tss-react: ^4.6.0
     typanion: ^3.12.1
     typescript: ^4.9.5
@@ -16048,6 +16063,7 @@ __metadata:
     ts-jest: ^29.0.5
     ts-node: ^10.9.1
     tsconfig: "workspace:*"
+    tslib: ^2.5.0
     tss-react: ^4.6.0
     typanion: ^3.12.1
     typescript: ^4.9.5
@@ -16168,6 +16184,7 @@ __metadata:
     ts-jest: ^29.0.5
     ts-node: ^10.9.1
     tsconfig: "workspace:*"
+    tslib: ^2.5.0
     tss-react: ^4.6.0
     typanion: ^3.12.1
     typescript: ^4.9.5
@@ -16282,6 +16299,7 @@ __metadata:
     ts-jest: ^29.0.5
     ts-node: ^10.9.1
     tsconfig: "workspace:*"
+    tslib: ^2.5.0
     tss-react: ^4.6.0
     typanion: ^3.12.1
     typescript: ^4.9.5
@@ -16402,6 +16420,7 @@ __metadata:
     ts-jest: ^29.0.5
     ts-node: ^10.9.1
     tsconfig: "workspace:*"
+    tslib: ^2.5.0
     tss-react: ^4.6.0
     typanion: ^3.12.1
     typescript: ^4.9.5
@@ -16522,6 +16541,7 @@ __metadata:
     ts-jest: ^29.0.5
     ts-node: ^10.9.1
     tsconfig: "workspace:*"
+    tslib: ^2.5.0
     tss-react: ^4.6.0
     typanion: ^3.12.1
     typescript: ^4.9.5
@@ -16642,6 +16662,7 @@ __metadata:
     ts-jest: ^29.0.5
     ts-node: ^10.9.1
     tsconfig: "workspace:*"
+    tslib: ^2.5.0
     tss-react: ^4.6.0
     typanion: ^3.12.1
     typescript: ^4.9.5
@@ -16762,6 +16783,7 @@ __metadata:
     ts-jest: ^29.0.5
     ts-node: ^10.9.1
     tsconfig: "workspace:*"
+    tslib: ^2.5.0
     tss-react: ^4.6.0
     typanion: ^3.12.1
     typescript: ^4.9.5
@@ -16882,6 +16904,7 @@ __metadata:
     ts-jest: ^29.0.5
     ts-node: ^10.9.1
     tsconfig: "workspace:*"
+    tslib: ^2.5.0
     tss-react: ^4.6.0
     typanion: ^3.12.1
     typescript: ^4.9.5
@@ -17002,6 +17025,7 @@ __metadata:
     ts-jest: ^29.0.5
     ts-node: ^10.9.1
     tsconfig: "workspace:*"
+    tslib: ^2.5.0
     tss-react: ^4.6.0
     typanion: ^3.12.1
     typescript: ^4.9.5
@@ -17122,6 +17146,7 @@ __metadata:
     ts-jest: ^29.0.5
     ts-node: ^10.9.1
     tsconfig: "workspace:*"
+    tslib: ^2.5.0
     tss-react: ^4.6.0
     typanion: ^3.12.1
     typescript: ^4.9.5
@@ -17242,6 +17267,7 @@ __metadata:
     ts-jest: ^29.0.5
     ts-node: ^10.9.1
     tsconfig: "workspace:*"
+    tslib: ^2.5.0
     tss-react: ^4.6.0
     typanion: ^3.12.1
     typescript: ^4.9.5
@@ -17362,6 +17388,7 @@ __metadata:
     ts-jest: ^29.0.5
     ts-node: ^10.9.1
     tsconfig: "workspace:*"
+    tslib: ^2.5.0
     tss-react: ^4.6.0
     typanion: ^3.12.1
     typescript: ^4.9.5
@@ -17482,6 +17509,7 @@ __metadata:
     ts-jest: ^29.0.5
     ts-node: ^10.9.1
     tsconfig: "workspace:*"
+    tslib: ^2.5.0
     tss-react: ^4.6.0
     typanion: ^3.12.1
     typescript: ^4.9.5
@@ -17602,6 +17630,7 @@ __metadata:
     ts-jest: ^29.0.5
     ts-node: ^10.9.1
     tsconfig: "workspace:*"
+    tslib: ^2.5.0
     tss-react: ^4.6.0
     typanion: ^3.12.1
     typescript: ^4.9.5
@@ -17736,6 +17765,7 @@ __metadata:
     ts-jest: ^29.0.5
     ts-node: ^10.9.1
     tsconfig: "workspace:*"
+    tslib: ^2.5.0
     tss-react: ^4.6.0
     typanion: ^3.12.1
     typescript: ^4.9.5
@@ -17856,6 +17886,7 @@ __metadata:
     ts-jest: ^29.0.5
     ts-node: ^10.9.1
     tsconfig: "workspace:*"
+    tslib: ^2.5.0
     tss-react: ^4.6.0
     typanion: ^3.12.1
     typescript: ^4.9.5
