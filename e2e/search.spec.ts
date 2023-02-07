@@ -1,5 +1,5 @@
 import { test } from '@playwright/test';
-import { abortLoadingAssets, waitForReady } from './common';
+import { interceptRoutes, waitForReady } from './common';
 
 const placeholder = 'Search for validator / tx hash / block height / address / @dtag';
 const address = 'desmos17lca9smrdlwkznr92hypzrgsjkelnxear4qhyj';
@@ -7,7 +7,7 @@ const validatorAddress = 'desmosvaloper17lca9smrdlwkznr92hypzrgsjkelnxeaacgrwq';
 const transactionHash = '705351F036752DA23C43A4F36D184976EA441CDA4CB2DE9A1236223DE9081FE0';
 
 test('search box', async ({ page }) => {
-  await abortLoadingAssets(page);
+  await interceptRoutes(page);
 
   await page.goto('.');
   await waitForReady(page);

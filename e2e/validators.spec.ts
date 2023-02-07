@@ -1,10 +1,10 @@
 import { test } from '@playwright/test';
-import { abortLoadingAssets, waitForMenuItemClick, waitForReady } from './common';
+import { interceptRoutes, waitForMenuItemClick, waitForReady } from './common';
 
 const validatorAddress = 'desmosvaloper17lca9smrdlwkznr92hypzrgsjkelnxeaacgrwq';
 
 test('validators list page', async ({ page, isMobile }) => {
-  await abortLoadingAssets(page);
+  await interceptRoutes(page);
 
   await page.goto(`.`);
   await waitForReady(page);
