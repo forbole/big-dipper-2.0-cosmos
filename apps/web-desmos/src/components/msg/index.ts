@@ -17,4 +17,5 @@ export { default as RemoveReaction } from '@/components/msg/reactions/remove_rea
 export { default as AddRegisteredReaction } from '@/components/msg/reactions/add_registered_reaction';
 export { default as EditRegisteredReaction } from '@/components/msg/reactions/edit_registered_reaction';
 export { default as RemoveRegisteredReaction } from '@/components/msg/reactions/remove_registered_reaction';
+export { default as SetReactionsParams } from '@/components/msg/reactions/set_reactions_params';
 export * from 'ui/components/msg';
