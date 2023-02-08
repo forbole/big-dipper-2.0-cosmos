@@ -11,4 +11,5 @@ export { default as EditPost } from '@/components/msg/posts/edit_post';
 export { default as DeletePost } from '@/components/msg/posts/delete_post';
 export { default as AddPostAttachment } from '@/components/msg/posts/add_post_attachment';
 export { default as RemovePostAttachment } from '@/components/msg/posts/remove_post_attachment';
+export { default as AnswerPoll } from '@/components/msg/posts/answer_poll';
 export * from 'ui/components/msg';
