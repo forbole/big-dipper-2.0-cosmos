@@ -437,13 +437,13 @@ const customTypeToModel = {
   // ========================
   // posts
   // ========================
-  '/desmos.profiles.v3.MsgCreatePost': {
+  '/desmos.posts.v3.MsgCreatePost': {
     model: MODELS.MsgCreatePost,
     content: COMPONENTS.CreatePost,
     tagTheme: 'four',
     tagDisplay: 'txMsgCreatePost',
   },
-  '/desmos.profiles.v3.MsgEditPost': {
+  '/desmos.posts.v3.MsgEditPost': {
     model: MODELS.MsgEditPost,
     content: COMPONENTS.EditPost,
     tagTheme: 'four',
