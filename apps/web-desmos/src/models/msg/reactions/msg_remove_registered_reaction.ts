@@ -1,7 +1,7 @@
 import * as R from 'ramda';
 import type { Categories } from '@/models/msg/types';
 
-class MsgRemoveReaction {
+class MsgRemoveRegisteredReaction {
   public category: Categories;
 
   public type: string;
@@ -27,4 +27,4 @@ class MsgRemoveReaction {
   }
 }
 
-export default MsgRemoveReaction;
+export default MsgRemoveRegisteredReaction;

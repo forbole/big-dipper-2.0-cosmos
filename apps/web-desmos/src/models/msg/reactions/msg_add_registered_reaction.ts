@@ -23,7 +23,7 @@ class MsgAddRegisteredReaction {
   static fromJson(json: object) {
     return {
       category: 'reactions',
-      type: R.pathOr('', ['type'], json),
+      type: R.pathOr('', ['@type'], json),
       json,
       user: R.pathOr('', ['user'], json),
       displayValue: R.pathOr('', ['display_value'], json),
