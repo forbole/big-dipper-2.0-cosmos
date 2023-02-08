@@ -61,6 +61,7 @@
   "txMsgAddPostAttachment": "<0>{{editor}}</0> added an attachment to a post",
   "txMsgRemovePostAttachment": "<0>{{editor}}</0> removed an attachment to a post",
   "txMsgAnswerPoll": "<0>{{signer}}</0> answered a poll",
+  "txMsgAddReaction": "<0>user</0> added a reaction to a post",
   "MsgGrant": "<0>{{granter}}</0> authorized a grant for <1>{{grantee}}</1>",
   "MsgRevoke": "<0>{{granter}}</0> revoked a grant for <1>{{grantee}}</1>",
   "MsgGrantAllowance": "<0>{{granter}}</0> granted allowance for <1>{{grantee}}</1>",

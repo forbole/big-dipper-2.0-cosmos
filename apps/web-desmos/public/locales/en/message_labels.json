@@ -60,6 +60,7 @@
   "txMsgAddPostAttachment": "Add Post Attachment",
   "txMsgRemovePostAttachment": "Remove Post Attachment",
   "txMsgAnswerPoll": "Answer Poll",
+  "txMsgAddReaction": "Add Reaction",
   "MsgGrant": "Grant",
   "MsgRevoke": "Revoke",
   "MsgGrantAllowance": "Grant Allowance",

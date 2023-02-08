@@ -473,6 +473,15 @@ const customTypeToModel = {
     tagTheme: 'four',
     tagDisplay: 'txMsgAnswerPoll',
   },
+  // ========================
+  // reactions
+  // ========================
+  '/desmos.reactions.v1.MsgAddReaction': {
+    model: MODELS.MsgAddReaction,
+    content: COMPONENTS.AddReaction,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgAddReaction',
+  },
 };
 type CustomTypeToModel = typeof customTypeToModel;
 
