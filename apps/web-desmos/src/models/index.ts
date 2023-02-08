@@ -11,4 +11,5 @@ export { default as MsgCreatePost } from '@/models/msg/posts/msg_create_post';
 export { default as MsgEditPost } from '@/models/msg/posts/msg_edit_post';
 export { default as MsgDeletePost } from '@/models/msg/posts/msg_delete_post';
 export { default as MsgAddPostAttachment } from '@/models/msg/posts/msg_add_post_attachment';
+export { default as MsgRemovePostAttachment } from '@/models/msg/posts/msg_add_post_attachment';
 export * from 'ui/models';

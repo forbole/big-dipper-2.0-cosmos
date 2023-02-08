@@ -1,7 +1,7 @@
 import * as R from 'ramda';
 import type { Categories } from '@/models/msg/types';
 
-class MsgAddPostAttachment {
+class MsgRemovePostAttachment {
   public category: Categories;
 
   public type: string;
@@ -27,4 +27,4 @@ class MsgAddPostAttachment {
   }
 }
 
-export default MsgAddPostAttachment;
+export default MsgRemovePostAttachment;

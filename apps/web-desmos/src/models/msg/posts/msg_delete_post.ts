@@ -20,7 +20,7 @@ class MsgDeletePost {
   static fromJson(json: object): MsgDeletePost {
     return {
       category: 'posts',
-      type: R.pathOr('', ['type'], json),
+      type: R.pathOr('', ['@type'], json),
       json,
       signer: R.pathOr('', ['signer'], json),
     };
