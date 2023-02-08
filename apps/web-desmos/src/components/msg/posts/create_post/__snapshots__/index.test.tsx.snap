@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`screen: TransactionDetails/EditPost matches snapshot 1`] = `
+exports[`screen: TransactionDetails/CreatePost matches snapshot 1`] = `
 .emotion-0 {
   margin: 0;
   font-size: 1rem;
@@ -16,15 +16,15 @@ exports[`screen: TransactionDetails/EditPost matches snapshot 1`] = `
 >
   <span
     data-testid="Trans"
-    i18nKey="message_contents:txMsgEditPost"
+    i18nKey="message_contents:txMsgCreatePost"
   >
     <div
-      address="editor"
+      address="author"
       id="Name"
-      name="editor"
+      name="author"
     />
     <b />
-    {"editor":"editor"}
+    {"author":"author"}
   </span>
 </p>
 `;

@@ -1,6 +1,6 @@
 import renderer from 'react-test-renderer';
-import EditPost from '@/components/msg/posts/edit_post';
-import MsgEditPost from '@/models/msg/posts/msg_edit_post';
+import CreatePost from '@/components/msg/posts/create_post';
+import MsgCreatePost from '@/models/msg/posts/msg_create_post';
 import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
@@ -13,17 +13,17 @@ jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 // unit tests
 // ==================================
-describe('screen: TransactionDetails/EditPost', () => {
+describe('screen: TransactionDetails/CreatePost', () => {
   it('matches snapshot', () => {
-    const message: MsgEditPost = {
+    const message: MsgCreatePost = {
       category: 'posts',
-      type: 'MsgEditPost',
-      editor: 'editor',
+      type: 'MsgCreatePost',
+      author: 'author',
       json: {},
     };
     const component = renderer.create(
       <MockTheme>
-        <EditPost message={message} />
+        <CreatePost message={message} />
       </MockTheme>
     );
     const tree = component?.toJSON();
