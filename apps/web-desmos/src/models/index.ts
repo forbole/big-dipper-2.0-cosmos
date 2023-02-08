@@ -15,4 +15,5 @@ export { default as MsgRemovePostAttachment } from '@/models/msg/posts/msg_add_p
 export { default as MsgAnswerPoll } from '@/models/msg/posts/msg_answer_poll';
 export { default as MsgAddReaction } from '@/models/msg/reactions/msg_add_reaction';
 export { default as MsgRemoveReaction } from '@/models/msg/reactions/msg_remove_reaction';
+export { default as MsgAddRegisteredReaction } from '@/models/msg/reactions/msg_add_registered_reaction';
 export * from 'ui/models';
