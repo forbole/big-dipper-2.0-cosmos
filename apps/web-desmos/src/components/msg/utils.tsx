@@ -482,6 +482,12 @@ const customTypeToModel = {
     tagTheme: 'four',
     tagDisplay: 'txMsgAddReaction',
   },
+  '/desmos.reactions.v1.MsgRemoveReaction': {
+    model: MODELS.MsgRemoveReaction,
+    content: COMPONENTS.RemoveReaction,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgRemoveReaction',
+  },
 };
 type CustomTypeToModel = typeof customTypeToModel;
 

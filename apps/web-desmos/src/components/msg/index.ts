@@ -13,4 +13,5 @@ export { default as AddPostAttachment } from '@/components/msg/posts/add_post_at
 export { default as RemovePostAttachment } from '@/components/msg/posts/remove_post_attachment';
 export { default as AnswerPoll } from '@/components/msg/posts/answer_poll';
 export { default as AddReaction } from '@/components/msg/reactions/add_reaction';
+export { default as RemoveReaction } from '@/components/msg/reactions/remove_reaction';
 export * from 'ui/components/msg';
