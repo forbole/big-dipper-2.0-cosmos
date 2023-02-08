@@ -8,4 +8,5 @@ export { default as UnlinkChainAccount } from '@/components/msg/profiles/unlink_
 export { default as SetDefaultExternalAddress } from '@/components/msg/profiles/set_default_external_address';
 export { default as CreatePost } from '@/components/msg/posts/create_post';
 export { default as EditPost } from '@/components/msg/posts/edit_post';
+export { default as DeletePost } from '@/components/msg/posts/delete_post';
 export * from 'ui/components/msg';

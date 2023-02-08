@@ -449,6 +449,12 @@ const customTypeToModel = {
     tagTheme: 'four',
     tagDisplay: 'txMsgEditPost',
   },
+  '/desmos.posts.v3.MsgDeletePost': {
+    model: MODELS.MsgDeletePost,
+    content: COMPONENTS.DeletePost,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgDeletePost',
+  },
 };
 type CustomTypeToModel = typeof customTypeToModel;
 
