@@ -57,6 +57,7 @@
   "txMsgCreatePost": "Create Post",
   "txMsgEditPost": "Edit Post",
   "txMsgDeletePost": "Delete Post",
+  "txMsgAddPostAttachment": "Add Post Attachment",
   "MsgGrant": "Grant",
   "MsgRevoke": "Revoke",
   "MsgGrantAllowance": "Grant Allowance",

@@ -9,4 +9,5 @@ export { default as SetDefaultExternalAddress } from '@/components/msg/profiles/
 export { default as CreatePost } from '@/components/msg/posts/create_post';
 export { default as EditPost } from '@/components/msg/posts/edit_post';
 export { default as DeletePost } from '@/components/msg/posts/delete_post';
+export { default as AddPostAttachment } from '@/components/msg/posts/add_post_attachment';
 export * from 'ui/components/msg';
