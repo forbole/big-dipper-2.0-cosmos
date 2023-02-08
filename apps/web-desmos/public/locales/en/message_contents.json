@@ -64,6 +64,7 @@
   "txMsgAddReaction": "<0>user</0> added a reaction to a post",
   "txMsgRemoveReaction": "<0>user</0> removed a reaction to a post",
   "txMsgAddRegisteredReaction": "<0>user</0> added a registered reaction <1>{{displayValue}}</1> to a post",
+  "txMsgEditRegisteredReaction": "<0>user</0> edited a registered reaction to <1>{{displayValue}}</1> on a post",
   "MsgGrant": "<0>{{granter}}</0> authorized a grant for <1>{{grantee}}</1>",
   "MsgRevoke": "<0>{{granter}}</0> revoked a grant for <1>{{grantee}}</1>",
   "MsgGrantAllowance": "<0>{{granter}}</0> granted allowance for <1>{{grantee}}</1>",

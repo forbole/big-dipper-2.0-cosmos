@@ -63,6 +63,7 @@
   "txMsgAddReaction": "Add Reaction",
   "txMsgRemoveReaction": "Remove Reaction",
   "txMsgAddRegisteredReaction": "Add Registered Reaction",
+  "txMsgEditRegisteredReaction": "Edit Registered Reaction",
   "MsgGrant": "Grant",
   "MsgRevoke": "Revoke",
   "MsgGrantAllowance": "Grant Allowance",

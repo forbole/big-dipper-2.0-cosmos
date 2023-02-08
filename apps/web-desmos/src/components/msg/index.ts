@@ -15,4 +15,5 @@ export { default as AnswerPoll } from '@/components/msg/posts/answer_poll';
 export { default as AddReaction } from '@/components/msg/reactions/add_reaction';
 export { default as RemoveReaction } from '@/components/msg/reactions/remove_reaction';
 export { default as AddRegisteredReaction } from '@/components/msg/reactions/add_registered_reaction';
+export { default as EditRegisteredReaction } from '@/components/msg/reactions/edit_registered_reaction';
 export * from 'ui/components/msg';
