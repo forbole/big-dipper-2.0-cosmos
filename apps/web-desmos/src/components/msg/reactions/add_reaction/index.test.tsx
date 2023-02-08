@@ -16,7 +16,7 @@ jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
 describe('screen: TransactionDetails/AddReaction', () => {
   it('matches snapshot', () => {
     const message: MsgAddReaction = {
-      category: 'posts',
+      category: 'reactions',
       type: 'MsgAddReaction',
       user: 'user',
       json: {},
