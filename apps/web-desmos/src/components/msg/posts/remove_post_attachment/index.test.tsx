@@ -1,6 +1,6 @@
 import renderer from 'react-test-renderer';
-import AddPostAttachment from '@/components/msg/posts/add_post_attachment';
-import MsgAddPostAttachment from '@/models/msg/posts/msg_add_post_attachment';
+import RemovePostAttachment from '@/components/msg/posts/remove_post_attachment';
+import MsgRemovePostAttachment from '@/models/msg/posts/msg_remove_post_attachment';
 import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
@@ -13,17 +13,17 @@ jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 // unit tests
 // ==================================
-describe('screen: TransactionDetails/AddPostAttachment', () => {
+describe('screen: TransactionDetails/RemovePostAttachment', () => {
   it('matches snapshot', () => {
-    const message: MsgAddPostAttachment = {
+    const message: MsgRemovePostAttachment = {
       category: 'posts',
-      type: 'MsgAddPostAttachment',
+      type: 'MsgRemovePostAttachment',
       editor: 'editor',
       json: {},
     };
     const component = renderer.create(
       <MockTheme>
-        <AddPostAttachment message={message} />
+        <RemovePostAttachment message={message} />
       </MockTheme>
     );
     const tree = component?.toJSON();
