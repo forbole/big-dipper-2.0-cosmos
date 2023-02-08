@@ -13,7 +13,7 @@ jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 // unit tests
 // ==================================
-describe('screen: TransactionDetails/AddReaction', () => {
+describe('screen: TransactionDetails/AddRegisteredReaction', () => {
   it('matches snapshot', () => {
     const message: MsgAddRegisteredReaction = {
       category: 'reactions',

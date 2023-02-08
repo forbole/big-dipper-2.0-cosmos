@@ -1,6 +1,6 @@
 import renderer from 'react-test-renderer';
-import RemoveRegisteredReaction from '@/components/msg/reactions/remove_registered_reaction';
-import MsgRemoveRegisteredReaction from '@/models/msg/reactions/msg_remove_registered_reaction';
+import SetReactionsParams from '@/components/msg/reactions/set_reactions_params';
+import MsgSetReactionsParams from '@/models/msg/reactions/msg_set_reactions_params';
 import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
@@ -13,17 +13,17 @@ jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 // unit tests
 // ==================================
-describe('screen: TransactionDetails/RemoveRegisteredReaction', () => {
+describe('screen: TransactionDetails/SetReactionsParams', () => {
   it('matches snapshot', () => {
-    const message: MsgRemoveRegisteredReaction = {
+    const message: MsgSetReactionsParams = {
       category: 'reactions',
-      type: 'MsgRemoveRegisteredReaction',
+      type: 'MsgSetReactionsParams',
       user: 'user',
       json: {},
     };
     const component = renderer.create(
       <MockTheme>
-        <RemoveRegisteredReaction message={message} />
+        <SetReactionsParams message={message} />
       </MockTheme>
     );
     const tree = component?.toJSON();

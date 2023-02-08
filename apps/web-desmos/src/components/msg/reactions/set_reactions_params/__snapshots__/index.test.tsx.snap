@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`screen: TransactionDetails/EditRegisteredReaction matches snapshot 1`] = `
+exports[`screen: TransactionDetails/SetReactionsParams matches snapshot 1`] = `
 .emotion-0 {
   margin: 0;
   font-size: 1rem;
@@ -16,7 +16,7 @@ exports[`screen: TransactionDetails/EditRegisteredReaction matches snapshot 1`] 
 >
   <span
     data-testid="Trans"
-    i18nKey="message_contents:txMsgEditRegisteredReaction"
+    i18nKey="message_contents:txMsgSetReactionsParams"
   >
     <div
       address="user"
@@ -24,7 +24,7 @@ exports[`screen: TransactionDetails/EditRegisteredReaction matches snapshot 1`] 
       name="user"
     />
     <b />
-    {"user":"user","displayValue":"displayValue"}
+    {"user":"user"}
   </span>
 </p>
 `;
