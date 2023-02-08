@@ -3,7 +3,7 @@ import { Trans } from 'next-i18next';
 import { FC } from 'react';
 import Name from '@/components/name';
 import MsgSetDefaultExternalAddress from '@/models/msg/profiles/msg_set_default_external_address';
-import { useProfileRecoil } from 'ui/src/recoil/profiles/hooks';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
 
 const SetDefaultExternalAddress: FC<{ message: MsgSetDefaultExternalAddress }> = (props) => {
   const { message } = props;
