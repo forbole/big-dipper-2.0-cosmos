@@ -68,6 +68,7 @@
   "txMsgSetReactionsParams": "Set Reaction Params",
   "txMsgCreateReport": "Create Report",
   "txMsgDeleteReport": "Delete Report",
+  "txMsgSupportStandardReason": "Support Standard Reason",
   "MsgGrant": "Grant",
   "MsgRevoke": "Revoke",
   "MsgGrantAllowance": "Grant Allowance",
