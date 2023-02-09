@@ -72,6 +72,7 @@
   "txMsgSupportStandardReason": "Standard reason is supported by <0>{{signer}}</0>",
   "txMsgAddReason": "<0>{{signer}}</0> added a reason titled <1>{{title}}</1> to a subspace",
   "txMsgRemoveReason": "<0>{{signer}}</0> removed a previously added reason",
+  "txMsgCreateSubspace": "<0>{{creator}}</0> created a subspace with the description <1>{{description}}</1>",
   "MsgGrant": "<0>{{granter}}</0> authorized a grant for <1>{{grantee}}</1>",
   "MsgRevoke": "<0>{{granter}}</0> revoked a grant for <1>{{grantee}}</1>",
   "MsgGrantAllowance": "<0>{{granter}}</0> granted allowance for <1>{{grantee}}</1>",

@@ -71,6 +71,7 @@
   "txMsgSupportStandardReason": "Support Standard Reason",
   "txMsgAddReason": "Add Reason",
   "txMsgRemoveReason": "Remove Reason",
+  "txMsgCreateSubspace": "Create Subspace",
   "MsgGrant": "Grant",
   "MsgRevoke": "Revoke",
   "MsgGrantAllowance": "Grant Allowance",

@@ -581,6 +581,15 @@ const customTypeToModel = {
     tagTheme: 'four',
     tagDisplay: 'txMsgRemoveReason',
   },
+  // ========================
+  // subspaces
+  // ========================
+  '/desmos.subspaces.v3.MsgCreateSubspace': {
+    model: MODELS.MsgCreateSubspace,
+    content: COMPONENTS.CreateSubspace,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgCreateSubspace',
+  },
 };
 type CustomTypeToModel = typeof customTypeToModel;
 
