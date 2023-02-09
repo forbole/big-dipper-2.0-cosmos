@@ -26,4 +26,5 @@ export { default as RemoveReason } from '@/components/msg/reports/remove_reason'
 export { default as CreateSubspace } from '@/components/msg/subspaces/create_subspace';
 export { default as EditSubspace } from '@/components/msg/subspaces/edit_subspace';
 export { default as DeleteSubspace } from '@/components/msg/subspaces/delete_subspace';
+export { default as CreateSection } from '@/components/msg/subspaces/create_section';
 export * from 'ui/components/msg';

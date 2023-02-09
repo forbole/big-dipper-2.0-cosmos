@@ -74,6 +74,7 @@
   "txMsgCreateSubspace": "Create Subspace",
   "txMsgEditSubspace": "Edit Subspace",
   "txMsgDeleteSubspace": "Delete Subspace",
+  "txMsgCreateSection": "Create Section",
   "MsgGrant": "Grant",
   "MsgRevoke": "Revoke",
   "MsgGrantAllowance": "Grant Allowance",

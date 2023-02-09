@@ -27,4 +27,5 @@ export { default as MsgRemoveReason } from '@/models/msg/reports/msg_remove_reas
 export { default as MsgCreateSubspace } from '@/models/msg/subspaces/msg_create_subspace';
 export { default as MsgEditSubspace } from '@/models/msg/subspaces/msg_edit_subspace';
 export { default as MsgDeleteSubspace } from '@/models/msg/subspaces/msg_delete_subspace';
+export { default as MsgCreateSection } from '@/models/msg/subspaces/msg_create_section';
 export * from 'ui/models';
