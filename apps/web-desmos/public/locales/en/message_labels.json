@@ -69,6 +69,7 @@
   "txMsgCreateReport": "Create Report",
   "txMsgDeleteReport": "Delete Report",
   "txMsgSupportStandardReason": "Support Standard Reason",
+  "txMsgAddReason": "Add Reason",
   "MsgGrant": "Grant",
   "MsgRevoke": "Revoke",
   "MsgGrantAllowance": "Grant Allowance",

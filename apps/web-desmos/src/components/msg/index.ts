@@ -21,4 +21,5 @@ export { default as SetReactionsParams } from '@/components/msg/reactions/set_re
 export { default as CreateReport } from '@/components/msg/reports/create_report';
 export { default as DeleteReport } from '@/components/msg/reports/delete_report';
 export { default as SupportStandardReason } from '@/components/msg/reports/support_standard_reason';
+export { default as AddReason } from '@/components/msg/reports/add_reason';
 export * from 'ui/components/msg';

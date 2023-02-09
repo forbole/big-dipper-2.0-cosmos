@@ -22,4 +22,5 @@ export { default as MsgSetReactionsParams } from '@/models/msg/reactions/msg_set
 export { default as MsgCreateReport } from '@/models/msg/reports/msg_create_report';
 export { default as MsgDeleteReport } from '@/models/msg/reports/msg_delete_report';
 export { default as MsgSupportStandardReason } from '@/models/msg/reports/msg_support_standard_reason';
+export { default as MsgAddReason } from '@/models/msg/reports/msg_add_reason';
 export * from 'ui/models';

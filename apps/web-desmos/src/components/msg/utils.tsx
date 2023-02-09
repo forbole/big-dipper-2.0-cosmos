@@ -569,6 +569,12 @@ const customTypeToModel = {
     tagTheme: 'four',
     tagDisplay: 'txMsgSupportStandardReason',
   },
+  '/desmos.reports.v1.MsgAddReason': {
+    model: MODELS.MsgAddReason,
+    content: COMPONENTS.AddReason,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgAddReason',
+  },
 };
 type CustomTypeToModel = typeof customTypeToModel;
 
