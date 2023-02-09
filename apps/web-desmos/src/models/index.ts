@@ -36,4 +36,5 @@ export { default as MsgEditUserGroup } from '@/models/msg/subspaces/msg_edit_use
 export { default as MsgMoveUserGroup } from '@/models/msg/subspaces/msg_move_user_group';
 export { default as MsgSetUserGroupPermissions } from '@/models/msg/subspaces/msg_set_user_group_permissions';
 export { default as MsgDeleteUserGroup } from '@/models/msg/subspaces/msg_delete_user_group';
+export { default as MsgAddUserToUserGroup } from '@/models/msg/subspaces/msg_add_user_to_user_group';
 export * from 'ui/models';
