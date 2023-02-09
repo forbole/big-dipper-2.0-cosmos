@@ -19,4 +19,5 @@ export { default as MsgAddRegisteredReaction } from '@/models/msg/reactions/msg_
 export { default as MsgEditRegisteredReaction } from '@/models/msg/reactions/msg_edit_registered_reaction';
 export { default as MsgRemoveRegisteredReaction } from '@/models/msg/reactions/msg_remove_registered_reaction';
 export { default as MsgSetReactionsParams } from '@/models/msg/reactions/msg_set_reactions_params';
+export { default as MsgCreateReport } from '@/models/msg/reports/msg_create_report';
 export * from 'ui/models';

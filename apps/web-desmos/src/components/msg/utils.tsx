@@ -437,11 +437,23 @@ const customTypeToModel = {
   // ========================
   // posts
   // ========================
+  '/desmos.posts.v2.MsgCreatePost': {
+    model: MODELS.MsgCreatePost,
+    content: COMPONENTS.CreatePost,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgCreatePost',
+  },
   '/desmos.posts.v3.MsgCreatePost': {
     model: MODELS.MsgCreatePost,
     content: COMPONENTS.CreatePost,
     tagTheme: 'four',
     tagDisplay: 'txMsgCreatePost',
+  },
+  '/desmos.posts.v2.MsgEditPost': {
+    model: MODELS.MsgEditPost,
+    content: COMPONENTS.EditPost,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgEditPost',
   },
   '/desmos.posts.v3.MsgEditPost': {
     model: MODELS.MsgEditPost,
@@ -449,11 +461,23 @@ const customTypeToModel = {
     tagTheme: 'four',
     tagDisplay: 'txMsgEditPost',
   },
+  '/desmos.posts.v2.MsgDeletePost': {
+    model: MODELS.MsgDeletePost,
+    content: COMPONENTS.DeletePost,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgDeletePost',
+  },
   '/desmos.posts.v3.MsgDeletePost': {
     model: MODELS.MsgDeletePost,
     content: COMPONENTS.DeletePost,
     tagTheme: 'four',
     tagDisplay: 'txMsgDeletePost',
+  },
+  '/desmos.posts.v2.MsgAddPostAttachment': {
+    model: MODELS.MsgAddPostAttachment,
+    content: COMPONENTS.AddPostAttachment,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgAddPostAttachment',
   },
   '/desmos.posts.v3.MsgAddPostAttachment': {
     model: MODELS.MsgAddPostAttachment,
@@ -461,11 +485,23 @@ const customTypeToModel = {
     tagTheme: 'four',
     tagDisplay: 'txMsgAddPostAttachment',
   },
+  '/desmos.posts.v2.MsgRemovePostAttachment': {
+    model: MODELS.MsgRemovePostAttachment,
+    content: COMPONENTS.RemovePostAttachment,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgRemovePostAttachment',
+  },
   '/desmos.posts.v3.MsgRemovePostAttachment': {
     model: MODELS.MsgRemovePostAttachment,
     content: COMPONENTS.RemovePostAttachment,
     tagTheme: 'four',
     tagDisplay: 'txMsgRemovePostAttachment',
+  },
+  '/desmos.posts.v2.MsgAnswerPoll': {
+    model: MODELS.MsgAnswerPoll,
+    content: COMPONENTS.AnswerPoll,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgAnswerPoll',
   },
   '/desmos.posts.v3.MsgAnswerPoll': {
     model: MODELS.MsgAnswerPoll,
@@ -511,6 +547,15 @@ const customTypeToModel = {
     content: COMPONENTS.SetReactionsParams,
     tagTheme: 'four',
     tagDisplay: 'txMsgSetReactionsParams',
+  },
+  // ========================
+  // reports
+  // ========================
+  '/desmos.reports.v1.txMsgCreateReport': {
+    model: MODELS.MsgCreateReport,
+    content: COMPONENTS.CreateReport,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgCreateReport',
   },
 };
 type CustomTypeToModel = typeof customTypeToModel;
