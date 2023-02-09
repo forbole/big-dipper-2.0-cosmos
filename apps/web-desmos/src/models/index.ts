@@ -23,4 +23,5 @@ export { default as MsgCreateReport } from '@/models/msg/reports/msg_create_repo
 export { default as MsgDeleteReport } from '@/models/msg/reports/msg_delete_report';
 export { default as MsgSupportStandardReason } from '@/models/msg/reports/msg_support_standard_reason';
 export { default as MsgAddReason } from '@/models/msg/reports/msg_add_reason';
+export { default as MsgRemoveReason } from '@/models/msg/reports/msg_remove_reason';
 export * from 'ui/models';
