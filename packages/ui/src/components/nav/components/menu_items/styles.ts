@@ -1,5 +1,5 @@
-import { makeStyles } from 'tss-react/mui';
 import Color from 'color';
+import { makeStyles } from 'tss-react/mui';
 
 const useStyles = makeStyles()((theme) => ({
   root: {
@@ -17,11 +17,18 @@ const useStyles = makeStyles()((theme) => ({
       '& .MuiListItemIcon-root': {
         '& svg': {
           fill: theme?.palette?.primary?.main,
+          color: theme?.palette?.primary?.main,
         },
       },
       '& .MuiListItemText-root': {
         color: theme.palette.primary.main,
       },
+    },
+  },
+  listItemText: {
+    '&& *': {
+      whiteSpace: 'nowrap',
+      textOverflow: 'ellipsis',
     },
   },
 }));

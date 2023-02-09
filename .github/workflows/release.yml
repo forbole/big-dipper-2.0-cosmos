@@ -28,5 +28,6 @@ jobs:
         uses: changesets/action@v1
         with:
           version: yarn changeset version
+          publish: echo non-npm packages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,5 +1,16 @@
 # v1.0.4 - 2022-06-20
 
+## 2.9.1
+
+### Patch Changes
+
+- a04d53bd8: auto refresh timestamp display
+- a04d53bd8: fix: transaction type in details view
+- Updated dependencies [a04d53bd8]
+- Updated dependencies [a04d53bd8]
+- Updated dependencies [a04d53bd8]
+  - ui@2.11.1
+
 ## 2.9.0
 
 ### Minor Changes

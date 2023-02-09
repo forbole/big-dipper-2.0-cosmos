@@ -322,7 +322,12 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
               }
             }
           >
-            1 day ago
+            <span
+              aria-label="UTC: 2020-08-10 12:00:00 Local: 2020-08-10 12:00:00"
+              title="UTC: 2020-08-10 12:00:00 Local: 2020-08-10 12:00:00"
+            >
+              1 day ago
+            </span>
           </div>
         </td>
       </tr>

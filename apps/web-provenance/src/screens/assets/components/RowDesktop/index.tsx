@@ -32,7 +32,7 @@ const RowDesktop = ({
   };
   const handleClose = () => setAnchorEl(null);
   return (
-    <div className={cx(classes.row, { [classes.odd]: index % 2 === 1 })} style={style}>
+    <div className={cx(classes.row, { [classes.odd]: index % 2 === 0 })} style={style}>
       <Grid2 container columnGap={4}>
         {columns.map((col) => (
           <Grid2

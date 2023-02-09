@@ -2529,7 +2529,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-tools/merge@npm:8.3.16, @graphql-tools/merge@npm:^8.2.6":
+"@graphql-tools/merge@npm:8.3.16":
   version: 8.3.16
   resolution: "@graphql-tools/merge@npm:8.3.16"
   dependencies:
@@ -2541,17 +2541,29 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-tools/mock@npm:^8.7.16":
-  version: 8.7.16
-  resolution: "@graphql-tools/mock@npm:8.7.16"
+"@graphql-tools/merge@npm:8.3.17, @graphql-tools/merge@npm:^8.2.6":
+  version: 8.3.17
+  resolution: "@graphql-tools/merge@npm:8.3.17"
   dependencies:
-    "@graphql-tools/schema": 9.0.14
-    "@graphql-tools/utils": 9.1.4
+    "@graphql-tools/utils": 9.2.0
+    tslib: ^2.4.0
+  peerDependencies:
+    graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
+  checksum: 943e1ad64575ab9ae6726d434cf7b08e80099442f9d25c1ac9f11fdac7bd0e8e73109f0e2469b47650ad0a0731ac850ede844b5ff8a7eab352027a42c1e78c79
+  languageName: node
+  linkType: hard
+
+"@graphql-tools/mock@npm:^8.7.17":
+  version: 8.7.17
+  resolution: "@graphql-tools/mock@npm:8.7.17"
+  dependencies:
+    "@graphql-tools/schema": 9.0.15
+    "@graphql-tools/utils": 9.2.0
     fast-json-stable-stringify: ^2.1.0
     tslib: ^2.4.0
   peerDependencies:
     graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
-  checksum: 660c3a06f46cabf21a9fcec28cb825238d8feec16d8de51978e26fa0e7f92dea7bfe5920aaa5990b50bb3f96c115a07d8f095c80506dad19c0ce3d53117fe5f0
+  checksum: 29748f1576b79eea29e53bbe65a387c679e95c7b41a36806019c7700d11fda04b01c38aec867805eb8cb200e0d14ecb80b752f338f23f5734a104a55bdb5049c
   languageName: node
   linkType: hard
 
@@ -2622,7 +2634,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-tools/schema@npm:9.0.14, @graphql-tools/schema@npm:^9.0.0, @graphql-tools/schema@npm:^9.0.14":
+"@graphql-tools/schema@npm:9.0.14":
   version: 9.0.14
   resolution: "@graphql-tools/schema@npm:9.0.14"
   dependencies:
@@ -2633,6 +2645,20 @@ __metadata:
   peerDependencies:
     graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
   checksum: ae958892363fe8b1715a9fd3c4bdb56d0d5d429693dbb9774ce930d104ed5a7c94db3c41c12d91fd930bf90ab186337d3ba660e765a99a98bde892f0d2dcf40e
+  languageName: node
+  linkType: hard
+
+"@graphql-tools/schema@npm:9.0.15, @graphql-tools/schema@npm:^9.0.0, @graphql-tools/schema@npm:^9.0.15":
+  version: 9.0.15
+  resolution: "@graphql-tools/schema@npm:9.0.15"
+  dependencies:
+    "@graphql-tools/merge": 8.3.17
+    "@graphql-tools/utils": 9.2.0
+    tslib: ^2.4.0
+    value-or-promise: 1.0.12
+  peerDependencies:
+    graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
+  checksum: 4361cb1a355e8811fd9b762bd137a2f8fd287b05f03cb574bc3d5e6855aeceef462e72bacfa89dd9028138e9fe3cafc4d69c95d7f9a9b6ab7f037ca3e36f52a9
   languageName: node
   linkType: hard
 
@@ -2681,7 +2707,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-tools/utils@npm:9.1.4, @graphql-tools/utils@npm:^9.0.0, @graphql-tools/utils@npm:^9.1.1":
+"@graphql-tools/utils@npm:9.1.4":
   version: 9.1.4
   resolution: "@graphql-tools/utils@npm:9.1.4"
   dependencies:
@@ -2689,6 +2715,18 @@ __metadata:
   peerDependencies:
     graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
   checksum: 467135297a07b21bdd706ca03385354931db85fcf2accc514d69b7415c8cb0fb9e551e4bba0870278eab58bf4de757d354d53c88fd0f55b52d8562dbcba71869
+  languageName: node
+  linkType: hard
+
+"@graphql-tools/utils@npm:9.2.0, @graphql-tools/utils@npm:^9.0.0, @graphql-tools/utils@npm:^9.1.1":
+  version: 9.2.0
+  resolution: "@graphql-tools/utils@npm:9.2.0"
+  dependencies:
+    "@graphql-typed-document-node/core": ^3.1.1
+    tslib: ^2.4.0
+  peerDependencies:
+    graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
+  checksum: 9754f8c6d52490df395626cef224542f37ca040ced6688c8ad80b1e0498006186529a50ac21979465123debba093db33dbfe8f1f7a9101f969dec0f31dc9a45b
   languageName: node
   linkType: hard
 
@@ -3603,16 +3641,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sentry/browser@npm:7.34.0":
-  version: 7.34.0
-  resolution: "@sentry/browser@npm:7.34.0"
+"@sentry/browser@npm:7.35.0":
+  version: 7.35.0
+  resolution: "@sentry/browser@npm:7.35.0"
   dependencies:
-    "@sentry/core": 7.34.0
-    "@sentry/replay": 7.34.0
-    "@sentry/types": 7.34.0
-    "@sentry/utils": 7.34.0
+    "@sentry/core": 7.35.0
+    "@sentry/replay": 7.35.0
+    "@sentry/types": 7.35.0
+    "@sentry/utils": 7.35.0
     tslib: ^1.9.3
-  checksum: ecfea585c41356d8451f14bda0efbfd1e77ae40f767f9a1b1f34619ddd98307cd7c3ab39b951972f511312224111137da5f7d4ffdac181ce0acb0701cef94ed1
+  checksum: 98134d6cc59d1c5ce31b8121c71d078dd5722ab0c2cb1d6d8eaffe23ae66df08c8cf2339a83f6ae90068ae627130fb616d9a5d6ca9a90915790c4aa0ae636ad6
   languageName: node
   linkType: hard
 
@@ -3633,123 +3671,123 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sentry/core@npm:7.34.0":
-  version: 7.34.0
-  resolution: "@sentry/core@npm:7.34.0"
+"@sentry/core@npm:7.35.0":
+  version: 7.35.0
+  resolution: "@sentry/core@npm:7.35.0"
   dependencies:
-    "@sentry/types": 7.34.0
-    "@sentry/utils": 7.34.0
+    "@sentry/types": 7.35.0
+    "@sentry/utils": 7.35.0
     tslib: ^1.9.3
-  checksum: 8ed510b5b9145c07700fe92064ac6412d1466d572736a12124ca4cf7fc4ac0788e51ebd3f886feac5232cf8be88a3b7fb8c6a3d99a5e8190c367a9a67d634fac
+  checksum: 127e31527e60f1f5e22967ab5a3d4fa70de2b03bae209a60812677da601b295bc415fd2c8263dc1bd663b0698b556f911a25de19c04792c12d78a6a99ebbedf2
   languageName: node
   linkType: hard
 
-"@sentry/integrations@npm:7.34.0":
-  version: 7.34.0
-  resolution: "@sentry/integrations@npm:7.34.0"
+"@sentry/integrations@npm:7.35.0":
+  version: 7.35.0
+  resolution: "@sentry/integrations@npm:7.35.0"
   dependencies:
-    "@sentry/types": 7.34.0
-    "@sentry/utils": 7.34.0
+    "@sentry/types": 7.35.0
+    "@sentry/utils": 7.35.0
     localforage: ^1.8.1
     tslib: ^1.9.3
-  checksum: 1f023836811d9278c0b788b51f818d526007c126b3f4621993dea247ddfa266866fcb4fe7087c58c2dec0079c4f1e6f574cdf5046dc1762b189deb40053ca834
+  checksum: dfc41a9197e8087a799ded4abda9bcdddab48b10b92cdf4d94627e6d49e6e9434e227b18b668ef868809fa2e77975584a5d7b37764147e80b60fcd585db50ca1
   languageName: node
   linkType: hard
 
-"@sentry/nextjs@npm:^7.34.0":
-  version: 7.34.0
-  resolution: "@sentry/nextjs@npm:7.34.0"
+"@sentry/nextjs@npm:^7.35.0":
+  version: 7.35.0
+  resolution: "@sentry/nextjs@npm:7.35.0"
   dependencies:
     "@rollup/plugin-commonjs": 24.0.0
-    "@sentry/core": 7.34.0
-    "@sentry/integrations": 7.34.0
-    "@sentry/node": 7.34.0
-    "@sentry/react": 7.34.0
-    "@sentry/tracing": 7.34.0
-    "@sentry/types": 7.34.0
-    "@sentry/utils": 7.34.0
+    "@sentry/core": 7.35.0
+    "@sentry/integrations": 7.35.0
+    "@sentry/node": 7.35.0
+    "@sentry/react": 7.35.0
+    "@sentry/tracing": 7.35.0
+    "@sentry/types": 7.35.0
+    "@sentry/utils": 7.35.0
     "@sentry/webpack-plugin": 1.20.0
     chalk: 3.0.0
     rollup: 2.78.0
     tslib: ^1.9.3
   peerDependencies:
     next: ^10.0.8 || ^11.0 || ^12.0 || ^13.0
-    react: 15.x || 16.x || 17.x || 18.x
+    react: 16.x || 17.x || 18.x
     webpack: ">= 4.0.0"
   peerDependenciesMeta:
     webpack:
       optional: true
-  checksum: 7474a8a8672be3cf8d240c3d73bc8db41a38e5a5eb66e7d906a6e24a6f638b68d9051384d3c8769fae0c6440274bcd772a665d2db6e4ca1d44a88097cb1a6d79
+  checksum: c5879e1512075f7664a07e3362e82fad8efb9d02d142cda76551f42214992c4e84b3051b5e35934392f84b4d0040c9658c7488abb2c3819d2710f014d7972d58
   languageName: node
   linkType: hard
 
-"@sentry/node@npm:7.34.0":
-  version: 7.34.0
-  resolution: "@sentry/node@npm:7.34.0"
+"@sentry/node@npm:7.35.0":
+  version: 7.35.0
+  resolution: "@sentry/node@npm:7.35.0"
   dependencies:
-    "@sentry/core": 7.34.0
-    "@sentry/types": 7.34.0
-    "@sentry/utils": 7.34.0
+    "@sentry/core": 7.35.0
+    "@sentry/types": 7.35.0
+    "@sentry/utils": 7.35.0
     cookie: ^0.4.1
     https-proxy-agent: ^5.0.0
     lru_map: ^0.3.3
     tslib: ^1.9.3
-  checksum: 972eb7edd1217a1d30eaab374e1ad533b4cefc69ab756f123342fc55d0511892f4ebb2e86e03f85edf08fe28b5b22483aff65379c6b8cfc24cda16c988a0d208
+  checksum: 3f5e9b7bb5ac74fe688bbfd58bfc7a59c623ce49c87eca30c3d54a6e38f398579d2109ddd76290f0cf1643dfb7e00a65f4054e8ea2c82519f9008c14c2cfeebf
   languageName: node
   linkType: hard
 
-"@sentry/react@npm:7.34.0":
-  version: 7.34.0
-  resolution: "@sentry/react@npm:7.34.0"
+"@sentry/react@npm:7.35.0":
+  version: 7.35.0
+  resolution: "@sentry/react@npm:7.35.0"
   dependencies:
-    "@sentry/browser": 7.34.0
-    "@sentry/types": 7.34.0
-    "@sentry/utils": 7.34.0
+    "@sentry/browser": 7.35.0
+    "@sentry/types": 7.35.0
+    "@sentry/utils": 7.35.0
     hoist-non-react-statics: ^3.3.2
     tslib: ^1.9.3
   peerDependencies:
     react: 15.x || 16.x || 17.x || 18.x
-  checksum: 99d5fc1d76100a989f8f6a48eb90010e87ca1fd93ad947e80f68c6b364172465a4504bd35e0f950c95cd44aa89d5b3dea5f47fcf60701a810b772eb3ca0cfe1e
+  checksum: d37052d4e017e14cc382d53ba136ea523a2c64e9f168b194020f53b3db4d025812f77884aa221bad680d21a33f6414c687969e1d400e010fc716a1f663848693
   languageName: node
   linkType: hard
 
-"@sentry/replay@npm:7.34.0":
-  version: 7.34.0
-  resolution: "@sentry/replay@npm:7.34.0"
+"@sentry/replay@npm:7.35.0":
+  version: 7.35.0
+  resolution: "@sentry/replay@npm:7.35.0"
   dependencies:
-    "@sentry/core": 7.34.0
-    "@sentry/types": 7.34.0
-    "@sentry/utils": 7.34.0
-  checksum: af95d3d00c474db68a09a395a69fe9bae684ceaf17e40bd37e68c1febc2cbbeeb5e78191f4c8cec800840092ee68ea5818b4916aff37ac931a9a370c12a68a8d
+    "@sentry/core": 7.35.0
+    "@sentry/types": 7.35.0
+    "@sentry/utils": 7.35.0
+  checksum: 7b1109f76ccb242a5fcb4d605bebeb1e43ecb54d6d32a67dd49722388b8ec3ae98fe45ca8953c356805e0f48fd2d7d5668ada000e22a24918c9465f680aaa291
   languageName: node
   linkType: hard
 
-"@sentry/tracing@npm:7.34.0":
-  version: 7.34.0
-  resolution: "@sentry/tracing@npm:7.34.0"
+"@sentry/tracing@npm:7.35.0":
+  version: 7.35.0
+  resolution: "@sentry/tracing@npm:7.35.0"
   dependencies:
-    "@sentry/core": 7.34.0
-    "@sentry/types": 7.34.0
-    "@sentry/utils": 7.34.0
+    "@sentry/core": 7.35.0
+    "@sentry/types": 7.35.0
+    "@sentry/utils": 7.35.0
     tslib: ^1.9.3
-  checksum: f3d006a362a0994bce46d1856ba77f5086dfa11b9f8be6ddc72efd3e81eaa11922036c03efc0272fc8fb541bf6039cc4f6bf74f6f25ddeb59e39722fc8ca9a7c
+  checksum: 9ced53e3ebaf66a65480321ba05cc5c619dd8a49e4616f5c0f29e7bd77620793d28d3a193ea5b5d9881370c1edae73d85bdbd70c89fdbb92f5befe2f4470680a
   languageName: node
   linkType: hard
 
-"@sentry/types@npm:7.34.0":
-  version: 7.34.0
-  resolution: "@sentry/types@npm:7.34.0"
-  checksum: fcd150a85a2ff0e2dffc815bd9e0507fc3b160d53bf72e38394f8678822da7eb191fbd1715f0e9e5b0f36d7f65800c3e5907fa77d446cab0af1d5c083e6d1f93
+"@sentry/types@npm:7.35.0":
+  version: 7.35.0
+  resolution: "@sentry/types@npm:7.35.0"
+  checksum: b0d9398c5c303f9b5a05b7508e4bf10db8dd1b87f0927154e48e778f5b5ff097545829c06e6c71fe273038ce388053ad435d666572740a7565154e1b958d6daf
   languageName: node
   linkType: hard
 
-"@sentry/utils@npm:7.34.0":
-  version: 7.34.0
-  resolution: "@sentry/utils@npm:7.34.0"
+"@sentry/utils@npm:7.35.0":
+  version: 7.35.0
+  resolution: "@sentry/utils@npm:7.35.0"
   dependencies:
-    "@sentry/types": 7.34.0
+    "@sentry/types": 7.35.0
     tslib: ^1.9.3
-  checksum: 3eff4d7f5c6affe0775c83ac5e4a289876912ec886da9af6562d78b3902faea84e87c439d0d88fcf065502d46c865ad3d7077efa4923ed0edd4c4be0b2c916b3
+  checksum: 297a8eb0538e4542c0c877b96fa0748b31374d4b9ef03aeee48bb6b42e2649cf8700d3f6c724fe965f76a3f81b32e1082e17e6833ea77112bdc2f73f662f0308
   languageName: node
   linkType: hard
 
@@ -5321,14 +5359,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^1.3.0":
-  version: 1.3.0
-  resolution: "axios@npm:1.3.0"
+"axios@npm:^1.3.1":
+  version: 1.3.1
+  resolution: "axios@npm:1.3.1"
   dependencies:
     follow-redirects: ^1.15.0
     form-data: ^4.0.0
     proxy-from-env: ^1.1.0
-  checksum: cdb22319fb0d04d9f1388c6dfeb273e3ef688e803a2bf3bae092771f3c9d334546bd27266ae0db9d6c0108f17ab84df8a39e553fe694810363923427b20080cf
+  checksum: 2c83346b81ff6dd182c5272765319c6cb464d4602fc7fb6e5e7d67a7ec17a219524db38176f408ef2189993c7fa0d6a1f4198dc9e312a9e3aa8352df9ddfd832
   languageName: node
   linkType: hard
 
@@ -5571,7 +5609,7 @@ __metadata:
     husky: ^8.0.3
     lint-staged: ^13.1.0
     prettier: 2.8.3
-    turbo: ^1.7.1
+    turbo: ^1.7.2
     typescript: ^4.9.5
   languageName: unknown
   linkType: soft
@@ -7991,9 +8029,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:^8.5.5":
-  version: 8.5.5
-  resolution: "framer-motion@npm:8.5.5"
+"framer-motion@npm:^9.0.1":
+  version: 9.0.1
+  resolution: "framer-motion@npm:9.0.1"
   dependencies:
     "@emotion/is-prop-valid": ^0.8.2
     "@motionone/dom": ^10.15.3
@@ -8005,7 +8043,7 @@ __metadata:
   dependenciesMeta:
     "@emotion/is-prop-valid":
       optional: true
-  checksum: 25912b88eaa954d641f0b5f2b811badfb9ca0dbff659cb0dfdae79216ee917b0004d43b9eeb3f74144f4924cf63d8fbd1c93de519eadd8968b6344ed0d5d9d4c
+  checksum: e4e47bad607ad9882c515223dab2357203812039bb47f2787a29b9e951299cb6b94d18a46989bb6fc6a5a31a417a58c3cf210e2e6867d2ab85190550767465de
   languageName: node
   linkType: hard
 
@@ -8394,12 +8432,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql-ws@npm:5.11.2, graphql-ws@npm:^5.11.2":
+"graphql-ws@npm:5.11.2":
   version: 5.11.2
   resolution: "graphql-ws@npm:5.11.2"
   peerDependencies:
     graphql: ">=0.11 <=16"
   checksum: 2c94b06c1919217dc15a0556474673de7aabcc7179a2982a87ded51856c105e4f4ee6d54a6c135a0a7f55d85a5997a6a15cff514959258885814adec6a61ff00
+  languageName: node
+  linkType: hard
+
+"graphql-ws@npm:^5.11.3":
+  version: 5.11.3
+  resolution: "graphql-ws@npm:5.11.3"
+  peerDependencies:
+    graphql: ">=0.11 <=16"
+  checksum: 75ea80702fa027b8d4ff1faba9824b11184fef0946560c535040b79f0f7f56ac7ce42873ea3b34083373ddf3a439cda1e7b7bfae20939ab739330456f4e7776b
   languageName: node
   linkType: hard
 
@@ -10499,12 +10546,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"markdown-to-jsx@npm:^7.1.8":
-  version: 7.1.8
-  resolution: "markdown-to-jsx@npm:7.1.8"
+"markdown-to-jsx@npm:^7.1.9":
+  version: 7.1.9
+  resolution: "markdown-to-jsx@npm:7.1.9"
   peerDependencies:
     react: ">= 0.14.0"
-  checksum: 4823f90e8bd6734b9a4ad206d217c55358268974e219e0edf3c64407336a14116921cad8c577c54b4bf0349412751ab25f3b6265c8b5a99207a5f6e364716636
+  checksum: 81ab9bd0ad93d4e90c39a67a4df2cc2d3b24579f8f018852f05abce442b246cee9cd705ea9d01304144729a48c972b8b535d40a33e04a0a05d5073958e96ae76
   languageName: node
   linkType: hard
 
@@ -12627,7 +12674,7 @@ __metadata:
   dependencies:
     "@emotion/react": ^11.10.5
     "@next/eslint-plugin-next": ^13.1.6
-    "@sentry/nextjs": ^7.34.0
+    "@sentry/nextjs": ^7.35.0
     "@types/esprima": ^4.0.3
     "@types/node": ^18.11.18
     "@typescript-eslint/eslint-plugin": ^5.50.0
@@ -13671,58 +13718,58 @@ __metadata:
   languageName: node
   linkType: hard
 
-"turbo-darwin-64@npm:1.7.1":
-  version: 1.7.1
-  resolution: "turbo-darwin-64@npm:1.7.1"
+"turbo-darwin-64@npm:1.7.2":
+  version: 1.7.2
+  resolution: "turbo-darwin-64@npm:1.7.2"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-darwin-arm64@npm:1.7.1":
-  version: 1.7.1
-  resolution: "turbo-darwin-arm64@npm:1.7.1"
+"turbo-darwin-arm64@npm:1.7.2":
+  version: 1.7.2
+  resolution: "turbo-darwin-arm64@npm:1.7.2"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo-linux-64@npm:1.7.1":
-  version: 1.7.1
-  resolution: "turbo-linux-64@npm:1.7.1"
+"turbo-linux-64@npm:1.7.2":
+  version: 1.7.2
+  resolution: "turbo-linux-64@npm:1.7.2"
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-linux-arm64@npm:1.7.1":
-  version: 1.7.1
-  resolution: "turbo-linux-arm64@npm:1.7.1"
+"turbo-linux-arm64@npm:1.7.2":
+  version: 1.7.2
+  resolution: "turbo-linux-arm64@npm:1.7.2"
   conditions: os=linux & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo-windows-64@npm:1.7.1":
-  version: 1.7.1
-  resolution: "turbo-windows-64@npm:1.7.1"
+"turbo-windows-64@npm:1.7.2":
+  version: 1.7.2
+  resolution: "turbo-windows-64@npm:1.7.2"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-windows-arm64@npm:1.7.1":
-  version: 1.7.1
-  resolution: "turbo-windows-arm64@npm:1.7.1"
+"turbo-windows-arm64@npm:1.7.2":
+  version: 1.7.2
+  resolution: "turbo-windows-arm64@npm:1.7.2"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo@npm:^1.7.1":
-  version: 1.7.1
-  resolution: "turbo@npm:1.7.1"
+"turbo@npm:^1.7.2":
+  version: 1.7.2
+  resolution: "turbo@npm:1.7.2"
   dependencies:
-    turbo-darwin-64: 1.7.1
-    turbo-darwin-arm64: 1.7.1
-    turbo-linux-64: 1.7.1
-    turbo-linux-arm64: 1.7.1
-    turbo-windows-64: 1.7.1
-    turbo-windows-arm64: 1.7.1
+    turbo-darwin-64: 1.7.2
+    turbo-darwin-arm64: 1.7.2
+    turbo-linux-64: 1.7.2
+    turbo-linux-arm64: 1.7.2
+    turbo-windows-64: 1.7.2
+    turbo-windows-arm64: 1.7.2
   dependenciesMeta:
     turbo-darwin-64:
       optional: true
@@ -13738,7 +13785,7 @@ __metadata:
       optional: true
   bin:
     turbo: bin/turbo
-  checksum: 0d681db1de3679f010207cb818b57dc4c917a175e9cf15b0985d1e630a38a7c15ee61737f6b2e3cb39465d6261f8a07a9d89b65edb80cf6af79bcfa7886aaf90
+  checksum: 50954fbf5c9d21979620a7e905ca16c99d6f7165c5785e3918f3dfe9b15838961f51ec159f0513287781f9531005cd4d73e26c7999c368443037e893c4fd374b
   languageName: node
   linkType: hard
 
@@ -13859,8 +13906,8 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.8
     "@graphql-codegen/typescript-operations": ^2.5.13
     "@graphql-codegen/typescript-react-apollo": ^3.3.7
-    "@graphql-tools/mock": ^8.7.16
-    "@graphql-tools/schema": ^9.0.14
+    "@graphql-tools/mock": ^8.7.17
+    "@graphql-tools/schema": ^9.0.15
     "@jest/globals": ^29.4.1
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.7
@@ -13910,10 +13957,10 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
-    framer-motion: ^8.5.5
+    framer-motion: ^9.0.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
-    graphql-ws: ^5.11.2
+    graphql-ws: ^5.11.3
     i18next: ^22.4.9
     jdenticon: ^3.2.0
     jest: ^29.4.1
@@ -13924,7 +13971,7 @@ __metadata:
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.2
     js-yaml: ^4.1.0
-    markdown-to-jsx: ^7.1.8
+    markdown-to-jsx: ^7.1.9
     next: ^13.1.6
     next-i18next: ^13.0.3
     next-seo: ^5.15.0
@@ -14248,8 +14295,8 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.8
     "@graphql-codegen/typescript-operations": ^2.5.13
     "@graphql-codegen/typescript-react-apollo": ^3.3.7
-    "@graphql-tools/mock": ^8.7.16
-    "@graphql-tools/schema": ^9.0.14
+    "@graphql-tools/mock": ^8.7.17
+    "@graphql-tools/schema": ^9.0.15
     "@jest/globals": ^29.4.1
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.7
@@ -14299,10 +14346,10 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
-    framer-motion: ^8.5.5
+    framer-motion: ^9.0.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
-    graphql-ws: ^5.11.2
+    graphql-ws: ^5.11.3
     i18next: ^22.4.9
     jdenticon: ^3.2.0
     jest: ^29.4.1
@@ -14313,7 +14360,7 @@ __metadata:
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.2
     js-yaml: ^4.1.0
-    markdown-to-jsx: ^7.1.8
+    markdown-to-jsx: ^7.1.9
     next: ^13.1.6
     next-i18next: ^13.0.3
     next-seo: ^5.15.0
@@ -14363,8 +14410,8 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.8
     "@graphql-codegen/typescript-operations": ^2.5.13
     "@graphql-codegen/typescript-react-apollo": ^3.3.7
-    "@graphql-tools/mock": ^8.7.16
-    "@graphql-tools/schema": ^9.0.14
+    "@graphql-tools/mock": ^8.7.17
+    "@graphql-tools/schema": ^9.0.15
     "@jest/globals": ^29.4.1
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.7
@@ -14414,10 +14461,10 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
-    framer-motion: ^8.5.5
+    framer-motion: ^9.0.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
-    graphql-ws: ^5.11.2
+    graphql-ws: ^5.11.3
     i18next: ^22.4.9
     jdenticon: ^3.2.0
     jest: ^29.4.1
@@ -14428,7 +14475,7 @@ __metadata:
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.2
     js-yaml: ^4.1.0
-    markdown-to-jsx: ^7.1.8
+    markdown-to-jsx: ^7.1.9
     next: ^13.1.6
     next-i18next: ^13.0.3
     next-seo: ^5.15.0
@@ -14478,8 +14525,8 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.8
     "@graphql-codegen/typescript-operations": ^2.5.13
     "@graphql-codegen/typescript-react-apollo": ^3.3.7
-    "@graphql-tools/mock": ^8.7.16
-    "@graphql-tools/schema": ^9.0.14
+    "@graphql-tools/mock": ^8.7.17
+    "@graphql-tools/schema": ^9.0.15
     "@jest/globals": ^29.4.1
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.7
@@ -14529,10 +14576,10 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
-    framer-motion: ^8.5.5
+    framer-motion: ^9.0.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
-    graphql-ws: ^5.11.2
+    graphql-ws: ^5.11.3
     i18next: ^22.4.9
     jdenticon: ^3.2.0
     jest: ^29.4.1
@@ -14543,7 +14590,7 @@ __metadata:
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.2
     js-yaml: ^4.1.0
-    markdown-to-jsx: ^7.1.8
+    markdown-to-jsx: ^7.1.9
     next: ^13.1.6
     next-i18next: ^13.0.3
     next-seo: ^5.15.0
@@ -14593,8 +14640,8 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.8
     "@graphql-codegen/typescript-operations": ^2.5.13
     "@graphql-codegen/typescript-react-apollo": ^3.3.7
-    "@graphql-tools/mock": ^8.7.16
-    "@graphql-tools/schema": ^9.0.14
+    "@graphql-tools/mock": ^8.7.17
+    "@graphql-tools/schema": ^9.0.15
     "@jest/globals": ^29.4.1
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.7
@@ -14644,10 +14691,10 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
-    framer-motion: ^8.5.5
+    framer-motion: ^9.0.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
-    graphql-ws: ^5.11.2
+    graphql-ws: ^5.11.3
     i18next: ^22.4.9
     jdenticon: ^3.2.0
     jest: ^29.4.1
@@ -14658,7 +14705,7 @@ __metadata:
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.2
     js-yaml: ^4.1.0
-    markdown-to-jsx: ^7.1.8
+    markdown-to-jsx: ^7.1.9
     next: ^13.1.6
     next-i18next: ^13.0.3
     next-seo: ^5.15.0
@@ -14708,8 +14755,8 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.8
     "@graphql-codegen/typescript-operations": ^2.5.13
     "@graphql-codegen/typescript-react-apollo": ^3.3.7
-    "@graphql-tools/mock": ^8.7.16
-    "@graphql-tools/schema": ^9.0.14
+    "@graphql-tools/mock": ^8.7.17
+    "@graphql-tools/schema": ^9.0.15
     "@jest/globals": ^29.4.1
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.7
@@ -14759,10 +14806,10 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
-    framer-motion: ^8.5.5
+    framer-motion: ^9.0.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
-    graphql-ws: ^5.11.2
+    graphql-ws: ^5.11.3
     i18next: ^22.4.9
     jdenticon: ^3.2.0
     jest: ^29.4.1
@@ -14773,7 +14820,7 @@ __metadata:
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.2
     js-yaml: ^4.1.0
-    markdown-to-jsx: ^7.1.8
+    markdown-to-jsx: ^7.1.9
     next: ^13.1.6
     next-i18next: ^13.0.3
     next-seo: ^5.15.0
@@ -14823,8 +14870,8 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.8
     "@graphql-codegen/typescript-operations": ^2.5.13
     "@graphql-codegen/typescript-react-apollo": ^3.3.7
-    "@graphql-tools/mock": ^8.7.16
-    "@graphql-tools/schema": ^9.0.14
+    "@graphql-tools/mock": ^8.7.17
+    "@graphql-tools/schema": ^9.0.15
     "@jest/globals": ^29.4.1
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.7
@@ -14874,10 +14921,10 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
-    framer-motion: ^8.5.5
+    framer-motion: ^9.0.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
-    graphql-ws: ^5.11.2
+    graphql-ws: ^5.11.3
     i18next: ^22.4.9
     jdenticon: ^3.2.0
     jest: ^29.4.1
@@ -14888,7 +14935,7 @@ __metadata:
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.2
     js-yaml: ^4.1.0
-    markdown-to-jsx: ^7.1.8
+    markdown-to-jsx: ^7.1.9
     next: ^13.1.6
     next-i18next: ^13.0.3
     next-seo: ^5.15.0
@@ -14938,8 +14985,8 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.8
     "@graphql-codegen/typescript-operations": ^2.5.13
     "@graphql-codegen/typescript-react-apollo": ^3.3.7
-    "@graphql-tools/mock": ^8.7.16
-    "@graphql-tools/schema": ^9.0.14
+    "@graphql-tools/mock": ^8.7.17
+    "@graphql-tools/schema": ^9.0.15
     "@jest/globals": ^29.4.1
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.7
@@ -14989,10 +15036,10 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
-    framer-motion: ^8.5.5
+    framer-motion: ^9.0.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
-    graphql-ws: ^5.11.2
+    graphql-ws: ^5.11.3
     i18next: ^22.4.9
     jdenticon: ^3.2.0
     jest: ^29.4.1
@@ -15003,7 +15050,7 @@ __metadata:
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.2
     js-yaml: ^4.1.0
-    markdown-to-jsx: ^7.1.8
+    markdown-to-jsx: ^7.1.9
     next: ^13.1.6
     next-i18next: ^13.0.3
     next-seo: ^5.15.0
@@ -15053,8 +15100,8 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.8
     "@graphql-codegen/typescript-operations": ^2.5.13
     "@graphql-codegen/typescript-react-apollo": ^3.3.7
-    "@graphql-tools/mock": ^8.7.16
-    "@graphql-tools/schema": ^9.0.14
+    "@graphql-tools/mock": ^8.7.17
+    "@graphql-tools/schema": ^9.0.15
     "@jest/globals": ^29.4.1
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.7
@@ -15104,10 +15151,10 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
-    framer-motion: ^8.5.5
+    framer-motion: ^9.0.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
-    graphql-ws: ^5.11.2
+    graphql-ws: ^5.11.3
     i18next: ^22.4.9
     jdenticon: ^3.2.0
     jest: ^29.4.1
@@ -15118,7 +15165,7 @@ __metadata:
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.2
     js-yaml: ^4.1.0
-    markdown-to-jsx: ^7.1.8
+    markdown-to-jsx: ^7.1.9
     next: ^13.1.6
     next-i18next: ^13.0.3
     next-seo: ^5.15.0
@@ -15168,8 +15215,8 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.8
     "@graphql-codegen/typescript-operations": ^2.5.13
     "@graphql-codegen/typescript-react-apollo": ^3.3.7
-    "@graphql-tools/mock": ^8.7.16
-    "@graphql-tools/schema": ^9.0.14
+    "@graphql-tools/mock": ^8.7.17
+    "@graphql-tools/schema": ^9.0.15
     "@jest/globals": ^29.4.1
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.7
@@ -15219,10 +15266,10 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
-    framer-motion: ^8.5.5
+    framer-motion: ^9.0.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
-    graphql-ws: ^5.11.2
+    graphql-ws: ^5.11.3
     i18next: ^22.4.9
     jdenticon: ^3.2.0
     jest: ^29.4.1
@@ -15233,7 +15280,7 @@ __metadata:
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.2
     js-yaml: ^4.1.0
-    markdown-to-jsx: ^7.1.8
+    markdown-to-jsx: ^7.1.9
     next: ^13.1.6
     next-i18next: ^13.0.3
     next-seo: ^5.15.0
@@ -15306,7 +15353,7 @@ __metadata:
     "@typescript-eslint/parser": ^5.50.0
     "@yarnpkg/pnpify": ^4.0.0-rc.37
     apollo-link-rest: ^0.9.0
-    axios: ^1.3.0
+    axios: ^1.3.1
     axios-mock-adapter: ^1.21.2
     bech32: ^2.0.0
     big.js: ^6.2.1
@@ -15328,10 +15375,10 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
-    framer-motion: ^8.5.5
+    framer-motion: ^9.0.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
-    graphql-ws: ^5.11.2
+    graphql-ws: ^5.11.3
     i18next: ^22.4.9
     jdenticon: ^3.2.0
     jest: ^29.4.1
@@ -15342,7 +15389,7 @@ __metadata:
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.2
     js-yaml: ^4.1.0
-    markdown-to-jsx: ^7.1.8
+    markdown-to-jsx: ^7.1.9
     next: ^13.1.6
     next-i18next: ^13.0.3
     next-seo: ^5.15.0
@@ -15392,8 +15439,8 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.8
     "@graphql-codegen/typescript-operations": ^2.5.13
     "@graphql-codegen/typescript-react-apollo": ^3.3.7
-    "@graphql-tools/mock": ^8.7.16
-    "@graphql-tools/schema": ^9.0.14
+    "@graphql-tools/mock": ^8.7.17
+    "@graphql-tools/schema": ^9.0.15
     "@jest/globals": ^29.4.1
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.7
@@ -15443,10 +15490,10 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
-    framer-motion: ^8.5.5
+    framer-motion: ^9.0.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
-    graphql-ws: ^5.11.2
+    graphql-ws: ^5.11.3
     i18next: ^22.4.9
     jdenticon: ^3.2.0
     jest: ^29.4.1
@@ -15457,7 +15504,7 @@ __metadata:
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.2
     js-yaml: ^4.1.0
-    markdown-to-jsx: ^7.1.8
+    markdown-to-jsx: ^7.1.9
     next: ^13.1.6
     next-i18next: ^13.0.3
     next-seo: ^5.15.0
@@ -15507,8 +15554,8 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.8
     "@graphql-codegen/typescript-operations": ^2.5.13
     "@graphql-codegen/typescript-react-apollo": ^3.3.7
-    "@graphql-tools/mock": ^8.7.16
-    "@graphql-tools/schema": ^9.0.14
+    "@graphql-tools/mock": ^8.7.17
+    "@graphql-tools/schema": ^9.0.15
     "@jest/globals": ^29.4.1
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.7
@@ -15558,10 +15605,10 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
-    framer-motion: ^8.5.5
+    framer-motion: ^9.0.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
-    graphql-ws: ^5.11.2
+    graphql-ws: ^5.11.3
     i18next: ^22.4.9
     jdenticon: ^3.2.0
     jest: ^29.4.1
@@ -15572,7 +15619,7 @@ __metadata:
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.2
     js-yaml: ^4.1.0
-    markdown-to-jsx: ^7.1.8
+    markdown-to-jsx: ^7.1.9
     next: ^13.1.6
     next-i18next: ^13.0.3
     next-seo: ^5.15.0
@@ -15622,8 +15669,8 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.8
     "@graphql-codegen/typescript-operations": ^2.5.13
     "@graphql-codegen/typescript-react-apollo": ^3.3.7
-    "@graphql-tools/mock": ^8.7.16
-    "@graphql-tools/schema": ^9.0.14
+    "@graphql-tools/mock": ^8.7.17
+    "@graphql-tools/schema": ^9.0.15
     "@jest/globals": ^29.4.1
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.7
@@ -15673,10 +15720,10 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
-    framer-motion: ^8.5.5
+    framer-motion: ^9.0.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
-    graphql-ws: ^5.11.2
+    graphql-ws: ^5.11.3
     i18next: ^22.4.9
     jdenticon: ^3.2.0
     jest: ^29.4.1
@@ -15687,7 +15734,7 @@ __metadata:
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.2
     js-yaml: ^4.1.0
-    markdown-to-jsx: ^7.1.8
+    markdown-to-jsx: ^7.1.9
     next: ^13.1.6
     next-i18next: ^13.0.3
     next-seo: ^5.15.0
@@ -15737,8 +15784,8 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.8
     "@graphql-codegen/typescript-operations": ^2.5.13
     "@graphql-codegen/typescript-react-apollo": ^3.3.7
-    "@graphql-tools/mock": ^8.7.16
-    "@graphql-tools/schema": ^9.0.14
+    "@graphql-tools/mock": ^8.7.17
+    "@graphql-tools/schema": ^9.0.15
     "@jest/globals": ^29.4.1
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.7
@@ -15788,10 +15835,10 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
-    framer-motion: ^8.5.5
+    framer-motion: ^9.0.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
-    graphql-ws: ^5.11.2
+    graphql-ws: ^5.11.3
     i18next: ^22.4.9
     jdenticon: ^3.2.0
     jest: ^29.4.1
@@ -15802,7 +15849,7 @@ __metadata:
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.2
     js-yaml: ^4.1.0
-    markdown-to-jsx: ^7.1.8
+    markdown-to-jsx: ^7.1.9
     next: ^13.1.6
     next-i18next: ^13.0.3
     next-seo: ^5.15.0
@@ -15852,8 +15899,8 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.8
     "@graphql-codegen/typescript-operations": ^2.5.13
     "@graphql-codegen/typescript-react-apollo": ^3.3.7
-    "@graphql-tools/mock": ^8.7.16
-    "@graphql-tools/schema": ^9.0.14
+    "@graphql-tools/mock": ^8.7.17
+    "@graphql-tools/schema": ^9.0.15
     "@jest/globals": ^29.4.1
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.7
@@ -15903,10 +15950,10 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
-    framer-motion: ^8.5.5
+    framer-motion: ^9.0.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
-    graphql-ws: ^5.11.2
+    graphql-ws: ^5.11.3
     i18next: ^22.4.9
     jdenticon: ^3.2.0
     jest: ^29.4.1
@@ -15917,7 +15964,7 @@ __metadata:
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.2
     js-yaml: ^4.1.0
-    markdown-to-jsx: ^7.1.8
+    markdown-to-jsx: ^7.1.9
     next: ^13.1.6
     next-i18next: ^13.0.3
     next-seo: ^5.15.0
@@ -15967,8 +16014,8 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.8
     "@graphql-codegen/typescript-operations": ^2.5.13
     "@graphql-codegen/typescript-react-apollo": ^3.3.7
-    "@graphql-tools/mock": ^8.7.16
-    "@graphql-tools/schema": ^9.0.14
+    "@graphql-tools/mock": ^8.7.17
+    "@graphql-tools/schema": ^9.0.15
     "@jest/globals": ^29.4.1
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.7
@@ -16018,10 +16065,10 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
-    framer-motion: ^8.5.5
+    framer-motion: ^9.0.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
-    graphql-ws: ^5.11.2
+    graphql-ws: ^5.11.3
     i18next: ^22.4.9
     jdenticon: ^3.2.0
     jest: ^29.4.1
@@ -16032,7 +16079,7 @@ __metadata:
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.2
     js-yaml: ^4.1.0
-    markdown-to-jsx: ^7.1.8
+    markdown-to-jsx: ^7.1.9
     next: ^13.1.6
     next-i18next: ^13.0.3
     next-seo: ^5.15.0
@@ -16082,8 +16129,8 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.8
     "@graphql-codegen/typescript-operations": ^2.5.13
     "@graphql-codegen/typescript-react-apollo": ^3.3.7
-    "@graphql-tools/mock": ^8.7.16
-    "@graphql-tools/schema": ^9.0.14
+    "@graphql-tools/mock": ^8.7.17
+    "@graphql-tools/schema": ^9.0.15
     "@jest/globals": ^29.4.1
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.7
@@ -16133,10 +16180,10 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
-    framer-motion: ^8.5.5
+    framer-motion: ^9.0.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
-    graphql-ws: ^5.11.2
+    graphql-ws: ^5.11.3
     i18next: ^22.4.9
     jdenticon: ^3.2.0
     jest: ^29.4.1
@@ -16147,7 +16194,7 @@ __metadata:
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.2
     js-yaml: ^4.1.0
-    markdown-to-jsx: ^7.1.8
+    markdown-to-jsx: ^7.1.9
     next: ^13.1.6
     next-i18next: ^13.0.3
     next-seo: ^5.15.0
@@ -16197,8 +16244,8 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.8
     "@graphql-codegen/typescript-operations": ^2.5.13
     "@graphql-codegen/typescript-react-apollo": ^3.3.7
-    "@graphql-tools/mock": ^8.7.16
-    "@graphql-tools/schema": ^9.0.14
+    "@graphql-tools/mock": ^8.7.17
+    "@graphql-tools/schema": ^9.0.15
     "@jest/globals": ^29.4.1
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.7
@@ -16248,10 +16295,10 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
-    framer-motion: ^8.5.5
+    framer-motion: ^9.0.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
-    graphql-ws: ^5.11.2
+    graphql-ws: ^5.11.3
     i18next: ^22.4.9
     jdenticon: ^3.2.0
     jest: ^29.4.1
@@ -16262,7 +16309,7 @@ __metadata:
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.2
     js-yaml: ^4.1.0
-    markdown-to-jsx: ^7.1.8
+    markdown-to-jsx: ^7.1.9
     next: ^13.1.6
     next-i18next: ^13.0.3
     next-seo: ^5.15.0
@@ -16312,8 +16359,8 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.8
     "@graphql-codegen/typescript-operations": ^2.5.13
     "@graphql-codegen/typescript-react-apollo": ^3.3.7
-    "@graphql-tools/mock": ^8.7.16
-    "@graphql-tools/schema": ^9.0.14
+    "@graphql-tools/mock": ^8.7.17
+    "@graphql-tools/schema": ^9.0.15
     "@jest/globals": ^29.4.1
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.7
@@ -16363,10 +16410,10 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
-    framer-motion: ^8.5.5
+    framer-motion: ^9.0.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
-    graphql-ws: ^5.11.2
+    graphql-ws: ^5.11.3
     i18next: ^22.4.9
     jdenticon: ^3.2.0
     jest: ^29.4.1
@@ -16377,7 +16424,7 @@ __metadata:
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.2
     js-yaml: ^4.1.0
-    markdown-to-jsx: ^7.1.8
+    markdown-to-jsx: ^7.1.9
     next: ^13.1.6
     next-i18next: ^13.0.3
     next-seo: ^5.15.0
@@ -16427,8 +16474,8 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.8
     "@graphql-codegen/typescript-operations": ^2.5.13
     "@graphql-codegen/typescript-react-apollo": ^3.3.7
-    "@graphql-tools/mock": ^8.7.16
-    "@graphql-tools/schema": ^9.0.14
+    "@graphql-tools/mock": ^8.7.17
+    "@graphql-tools/schema": ^9.0.15
     "@jest/globals": ^29.4.1
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.7
@@ -16478,10 +16525,10 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
-    framer-motion: ^8.5.5
+    framer-motion: ^9.0.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
-    graphql-ws: ^5.11.2
+    graphql-ws: ^5.11.3
     i18next: ^22.4.9
     jdenticon: ^3.2.0
     jest: ^29.4.1
@@ -16492,7 +16539,7 @@ __metadata:
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.2
     js-yaml: ^4.1.0
-    markdown-to-jsx: ^7.1.8
+    markdown-to-jsx: ^7.1.9
     next: ^13.1.6
     next-i18next: ^13.0.3
     next-seo: ^5.15.0
@@ -16542,8 +16589,8 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.8
     "@graphql-codegen/typescript-operations": ^2.5.13
     "@graphql-codegen/typescript-react-apollo": ^3.3.7
-    "@graphql-tools/mock": ^8.7.16
-    "@graphql-tools/schema": ^9.0.14
+    "@graphql-tools/mock": ^8.7.17
+    "@graphql-tools/schema": ^9.0.15
     "@jest/globals": ^29.4.1
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.7
@@ -16593,10 +16640,10 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
-    framer-motion: ^8.5.5
+    framer-motion: ^9.0.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
-    graphql-ws: ^5.11.2
+    graphql-ws: ^5.11.3
     i18next: ^22.4.9
     jdenticon: ^3.2.0
     jest: ^29.4.1
@@ -16607,7 +16654,7 @@ __metadata:
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.2
     js-yaml: ^4.1.0
-    markdown-to-jsx: ^7.1.8
+    markdown-to-jsx: ^7.1.9
     next: ^13.1.6
     next-i18next: ^13.0.3
     next-seo: ^5.15.0
@@ -16671,8 +16718,8 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.8
     "@graphql-codegen/typescript-operations": ^2.5.13
     "@graphql-codegen/typescript-react-apollo": ^3.3.7
-    "@graphql-tools/mock": ^8.7.16
-    "@graphql-tools/schema": ^9.0.14
+    "@graphql-tools/mock": ^8.7.17
+    "@graphql-tools/schema": ^9.0.15
     "@jest/globals": ^29.4.1
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.7
@@ -16722,10 +16769,10 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
-    framer-motion: ^8.5.5
+    framer-motion: ^9.0.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
-    graphql-ws: ^5.11.2
+    graphql-ws: ^5.11.3
     i18next: ^22.4.9
     jdenticon: ^3.2.0
     jest: ^29.4.1
@@ -16736,7 +16783,7 @@ __metadata:
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.2
     js-yaml: ^4.1.0
-    markdown-to-jsx: ^7.1.8
+    markdown-to-jsx: ^7.1.9
     next: ^13.1.6
     next-i18next: ^13.0.3
     next-seo: ^5.15.0
@@ -16786,8 +16833,8 @@ __metadata:
     "@graphql-codegen/typescript": ^2.8.8
     "@graphql-codegen/typescript-operations": ^2.5.13
     "@graphql-codegen/typescript-react-apollo": ^3.3.7
-    "@graphql-tools/mock": ^8.7.16
-    "@graphql-tools/schema": ^9.0.14
+    "@graphql-tools/mock": ^8.7.17
+    "@graphql-tools/schema": ^9.0.15
     "@jest/globals": ^29.4.1
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.7
@@ -16837,10 +16884,10 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-turbo: ^0.0.7
     esprima: ^4.0.1
-    framer-motion: ^8.5.5
+    framer-motion: ^9.0.1
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
-    graphql-ws: ^5.11.2
+    graphql-ws: ^5.11.3
     i18next: ^22.4.9
     jdenticon: ^3.2.0
     jest: ^29.4.1
@@ -16851,7 +16898,7 @@ __metadata:
     jest-transform-stub: ^2.0.0
     jest-watch-typeahead: ^2.2.2
     js-yaml: ^4.1.0
-    markdown-to-jsx: ^7.1.8
+    markdown-to-jsx: ^7.1.9
     next: ^13.1.6
     next-i18next: ^13.0.3
     next-seo: ^5.15.0

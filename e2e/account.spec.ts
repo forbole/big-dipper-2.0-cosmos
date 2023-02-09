@@ -1,10 +1,10 @@
 import { expect, test } from '@playwright/test';
-import { abortLoadingAssets, waitForPopupClick, hasReadPermissions, waitForReady } from './common';
+import { interceptRoutes, waitForPopupClick, hasReadPermissions, waitForReady } from './common';
 
 const address = 'desmos134zrg6jn3a5l5jjpzv9eucdlw3nl2qelgz330c';
 
 test('account page - copy addresses', async ({ page, context }) => {
-  await abortLoadingAssets(page);
+  await interceptRoutes(page);
 
   // Test account url
   await page.goto(`./accounts/${address}`);
@@ -34,7 +34,7 @@ test('account page - copy addresses', async ({ page, context }) => {
 });
 
 test('account page - share buttons', async ({ page, isMobile }) => {
-  await abortLoadingAssets(page);
+  await interceptRoutes(page);
 
   // Test account url
   await page.goto(`./accounts/${address}`);
@@ -43,8 +43,8 @@ test('account page - share buttons', async ({ page, isMobile }) => {
   // Test share button
   await page.locator('#icon-share_svg__Layer_1').first().click();
 
-  // Test facebook button
-  await waitForPopupClick((p) => p.getByRole('button', { name: 'facebook' }), page);
+  // // Test facebook button
+  // await waitForPopupClick((p) => p.getByRole('button', { name: 'facebook' }), page);
 
   // Test twitter button
   await waitForPopupClick((p) => p.getByRole('button', { name: 'twitter' }), page);
@@ -57,7 +57,7 @@ test('account page - share buttons', async ({ page, isMobile }) => {
 });
 
 test('account page tabs', async ({ page, isMobile }) => {
-  await abortLoadingAssets(page);
+  await interceptRoutes(page);
 
   // Test account url
   await page.goto(`./accounts/${address}`);

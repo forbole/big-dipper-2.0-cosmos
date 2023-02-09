@@ -1,3 +1,14 @@
+import AvatarName from '@/components/avatar_name';
+import Loading from '@/components/loading';
+import SingleBlockMobile from '@/components/single_block_mobile';
+import Timestamp from '@/components/Timestamp';
+import { useList, useListRow } from '@/hooks/use_react_window';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
+import useStyles from '@/screens/blocks/components/mobile/styles';
+import type { ItemType } from '@/screens/blocks/types';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
+import { BLOCK_DETAILS } from '@/utils/go_to_page';
+import { mergeRefs } from '@/utils/merge_refs';
 import Divider from '@mui/material/Divider';
 import Link from 'next/link';
 import numeral from 'numeral';
@@ -5,17 +16,6 @@ import { FC } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
-import AvatarName from '@/components/avatar_name';
-import Loading from '@/components/loading';
-import SingleBlockMobile from '@/components/single_block_mobile';
-import { useList, useListRow } from '@/hooks/use_react_window';
-import { useProfileRecoil } from '@/recoil/profiles/hooks';
-import useStyles from '@/screens/blocks/components/mobile/styles';
-import type { ItemType } from '@/screens/blocks/types';
-import dayjs from '@/utils/dayjs';
-import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
-import { BLOCK_DETAILS } from '@/utils/go_to_page';
-import { mergeRefs } from '@/utils/merge_refs';
 
 type ListItemProps = Pick<ListChildComponentProps, 'index' | 'style'> & {
   setRowHeight: Parameters<typeof useListRow>[1];
@@ -40,7 +40,7 @@ const ListItem: FC<ListItemProps> = ({
       </Link>
     ),
     txs: numeral(item.txs).format('0,0'),
-    time: dayjs.utc(item.timestamp).fromNow(),
+    time: <Timestamp timestamp={item.timestamp} />,
     proposer: <AvatarName address={address} imageUrl={imageUrl} name={name} />,
     hash: getMiddleEllipsis(item.hash, {
       beginning: 13,
