@@ -82,6 +82,7 @@
   "txMsgEditUserGroup": "Edit User Group",
   "txMsgMoveUserGroup": "Move User Group",
   "txMsgSetUserGroupPermissions": "Set User Group Permissions",
+  "txMsgDeleteUserGroup": "Delete User Group",
   "MsgGrant": "Grant",
   "MsgRevoke": "Revoke",
   "MsgGrantAllowance": "Grant Allowance",
