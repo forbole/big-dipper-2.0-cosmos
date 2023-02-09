@@ -73,6 +73,7 @@
   "txMsgRemoveReason": "Remove Reason",
   "txMsgCreateSubspace": "Create Subspace",
   "txMsgEditSubspace": "Edit Subspace",
+  "txMsgDeleteSubspace": "Delete Subspace",
   "MsgGrant": "Grant",
   "MsgRevoke": "Revoke",
   "MsgGrantAllowance": "Grant Allowance",
