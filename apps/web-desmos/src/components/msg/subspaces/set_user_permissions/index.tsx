@@ -12,8 +12,6 @@ const SetUserPermissions: FC<{ message: MsgSetUserPermissions }> = (props) => {
 
   const signerMoniker = signer ? signer?.name : message.signer;
 
-  console.log('check', message);
-
   return (
     <Typography>
       <Trans
