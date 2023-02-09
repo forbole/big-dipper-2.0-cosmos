@@ -5,7 +5,7 @@ import Name from '@/components/name';
 import MsgCreateSubspace from '@/models/msg/subspaces/msg_create_subspace';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 
-const CreateReport: FC<{ message: MsgCreateSubspace }> = (props) => {
+const CreateSubspace: FC<{ message: MsgCreateSubspace }> = (props) => {
   const { message } = props;
 
   const creator = useProfileRecoil(message.creator);
@@ -26,4 +26,4 @@ const CreateReport: FC<{ message: MsgCreateSubspace }> = (props) => {
   );
 };
 
-export default CreateReport;
+export default CreateSubspace;
