@@ -24,4 +24,5 @@ export { default as SupportStandardReason } from '@/components/msg/reports/suppo
 export { default as AddReason } from '@/components/msg/reports/add_reason';
 export { default as RemoveReason } from '@/components/msg/reports/remove_reason';
 export { default as CreateSubspace } from '@/components/msg/subspaces/create_subspace';
+export { default as EditSubspace } from '@/components/msg/subspaces/edit_subspace';
 export * from 'ui/components/msg';
