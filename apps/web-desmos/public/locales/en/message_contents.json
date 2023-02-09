@@ -80,6 +80,7 @@
   "txMsgDeleteSection": "<0>{{editor}}</0> deleted a section",
   "txMsgMoveSection": "<0>{{signer}}</0> moved a section to another parent",
   "txMsgCreateUserGroup": "<0>{{creator}}</0> created a user group with the name <1>{{name}}</1>",
+  "txMsgEditUserGroup": "<0>{{signer}}</0> edited a user group with the new description <1>{{description}}</1>",
   "MsgGrant": "<0>{{granter}}</0> authorized a grant for <1>{{grantee}}</1>",
   "MsgRevoke": "<0>{{granter}}</0> revoked a grant for <1>{{grantee}}</1>",
   "MsgGrantAllowance": "<0>{{granter}}</0> granted allowance for <1>{{grantee}}</1>",

@@ -32,4 +32,5 @@ export { default as MsgEditSection } from '@/models/msg/subspaces/msg_edit_secti
 export { default as MsgMoveSection } from '@/models/msg/subspaces/msg_move_section';
 export { default as MsgDeleteSection } from '@/models/msg/subspaces/msg_delete_section';
 export { default as MsgCreateUserGroup } from '@/models/msg/subspaces/msg_create_user_group';
+export { default as MsgEditUserGroup } from '@/models/msg/subspaces/msg_edit_user_group';
 export * from 'ui/models';

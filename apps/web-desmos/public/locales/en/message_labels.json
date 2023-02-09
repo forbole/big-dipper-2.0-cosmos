@@ -79,6 +79,7 @@
   "txMsgMoveSection": "Move Section",
   "txMsgDeleteSection": "Delete Section",
   "txMsgCreateUserGroup": "Create User Group",
+  "txMsgEditUserGroup": "Edit User Group",
   "MsgGrant": "Grant",
   "MsgRevoke": "Revoke",
   "MsgGrantAllowance": "Grant Allowance",
