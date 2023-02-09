@@ -551,7 +551,7 @@ const customTypeToModel = {
   // ========================
   // reports
   // ========================
-  '/desmos.reports.v1.txMsgCreateReport': {
+  '/desmos.reports.v1.MsgCreateReport': {
     model: MODELS.MsgCreateReport,
     content: COMPONENTS.CreateReport,
     tagTheme: 'four',
