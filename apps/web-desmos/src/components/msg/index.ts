@@ -32,4 +32,5 @@ export { default as MoveSection } from '@/components/msg/subspaces/move_section'
 export { default as DeleteSection } from '@/components/msg/subspaces/delete_section';
 export { default as CreateUserGroup } from '@/components/msg/subspaces/create_user_group';
 export { default as EditUserGroup } from '@/components/msg/subspaces/edit_user_group';
+export { default as MoveUserGroup } from '@/components/msg/subspaces/move_user_group';
 export * from 'ui/components/msg';
