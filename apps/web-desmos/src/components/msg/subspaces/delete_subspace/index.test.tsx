@@ -16,7 +16,7 @@ jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
 describe('screen: TransactionDetails/DeleteSubspace', () => {
   it('matches snapshot', () => {
     const message: MsgDeleteSubspace = {
-      category: 'reports',
+      category: 'subspaces',
       type: 'MsgDeleteSubspace',
       signer: 'signer',
       json: {},

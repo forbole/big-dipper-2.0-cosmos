@@ -1,6 +1,6 @@
 import renderer from 'react-test-renderer';
-import EditSubspace from '@/components/msg/subspaces/edit_subspace';
-import MsgEditSubspace from '@/models/msg/subspaces/msg_edit_subspace';
+import MoveSection from '@/components/msg/subspaces/move_section';
+import MsgMoveSection from '@/models/msg/subspaces/msg_move_section';
 import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
@@ -13,18 +13,17 @@ jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 // unit tests
 // ==================================
-describe('screen: TransactionDetails/EditSubspace', () => {
+describe('screen: TransactionDetails/MoveSection', () => {
   it('matches snapshot', () => {
-    const message: MsgEditSubspace = {
+    const message: MsgMoveSection = {
       category: 'subspaces',
-      type: 'MsgEditSubspace',
+      type: 'MsgMoveSection',
       signer: 'signer',
-      description: 'description',
       json: {},
     };
     const component = renderer.create(
       <MockTheme>
-        <EditSubspace message={message} />
+        <MoveSection message={message} />
       </MockTheme>
     );
     const tree = component?.toJSON();

@@ -16,7 +16,7 @@ jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
 describe('screen: TransactionDetails/EditSection', () => {
   it('matches snapshot', () => {
     const message: MsgEditSection = {
-      category: 'posts',
+      category: 'subspaces',
       type: 'MsgEditSection',
       editor: 'editor',
       json: {},
