@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`screen: TransactionDetails/CreateSection matches snapshot 1`] = `
+exports[`screen: TransactionDetails/CreateUserGroup matches snapshot 1`] = `
 .emotion-0 {
   margin: 0;
   font-size: 1rem;
@@ -16,7 +16,7 @@ exports[`screen: TransactionDetails/CreateSection matches snapshot 1`] = `
 >
   <span
     data-testid="Trans"
-    i18nKey="message_contents:txMsgCreateSection"
+    i18nKey="message_contents:txMsgCreateUserGroup"
   >
     <div
       address="creator"

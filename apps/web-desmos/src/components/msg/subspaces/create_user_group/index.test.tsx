@@ -1,6 +1,6 @@
 import renderer from 'react-test-renderer';
-import CreateSection from '@/components/msg/subspaces/create_section';
-import MsgCreateSection from '@/models/msg/subspaces/msg_create_section';
+import CreateUserGroup from '@/components/msg/subspaces/create_user_group';
+import MsgCreateUserGroup from '@/models/msg/subspaces/msg_create_user_group';
 import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
@@ -13,18 +13,18 @@ jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 // unit tests
 // ==================================
-describe('screen: TransactionDetails/CreateSection', () => {
+describe('screen: TransactionDetails/CreateUserGroup', () => {
   it('matches snapshot', () => {
-    const message: MsgCreateSection = {
+    const message: MsgCreateUserGroup = {
       category: 'subspaces',
-      type: 'MsgCreateSection',
+      type: 'MsgCreateUserGroup',
       creator: 'creator',
       name: 'name',
       json: {},
     };
     const component = renderer.create(
       <MockTheme>
-        <CreateSection message={message} />
+        <CreateUserGroup message={message} />
       </MockTheme>
     );
     const tree = component?.toJSON();

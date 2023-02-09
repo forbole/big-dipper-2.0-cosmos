@@ -626,6 +626,12 @@ const customTypeToModel = {
     tagTheme: 'four',
     tagDisplay: 'txMsgDeleteSection',
   },
+  '/desmos.subspaces.v3.MsgCreateUserGroup': {
+    model: MODELS.MsgCreateUserGroup,
+    content: COMPONENTS.CreateUserGroup,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgCreateUserGroup',
+  },
 };
 type CustomTypeToModel = typeof customTypeToModel;
 
