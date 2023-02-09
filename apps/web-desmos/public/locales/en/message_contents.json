@@ -85,6 +85,7 @@
   "txMsgSetUserGroupPermissions": "<0>{{signer}}</0> set the permissions of a user group",
   "txMsgDeleteUserGroup": "<0>{{signer}}</0> deleted a user group",
   "txMsgAddUserToUserGroup": "<0>{{signer}}</0> added <1>{{user}}</1> to a user group",
+  "txMsgRemoveUserFromUserGroup": "<0>{{signer}}</0> removed <1>{{user}}</1> from a user group",
   "MsgGrant": "<0>{{granter}}</0> authorized a grant for <1>{{grantee}}</1>",
   "MsgRevoke": "<0>{{granter}}</0> revoked a grant for <1>{{grantee}}</1>",
   "MsgGrantAllowance": "<0>{{granter}}</0> granted allowance for <1>{{grantee}}</1>",
