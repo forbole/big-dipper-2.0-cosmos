@@ -10,11 +10,14 @@ class MsgAddReason {
 
   public signer: string;
 
+  public title: string;
+
   constructor(payload: object) {
     this.category = 'reactions';
     this.type = R.pathOr('', ['type'], payload);
     this.json = R.pathOr({}, ['json'], payload);
     this.signer = R.pathOr('', ['signer'], payload);
+    this.title = R.pathOr('', ['title'], payload);
   }
 
   static fromJson(json: object) {
@@ -23,6 +26,7 @@ class MsgAddReason {
       type: R.pathOr('', ['@type'], json),
       json,
       signer: R.pathOr('', ['signer'], json),
+      title: R.pathOr('', ['title'], json),
     };
   }
 }

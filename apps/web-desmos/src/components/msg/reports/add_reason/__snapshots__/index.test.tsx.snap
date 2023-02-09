@@ -24,7 +24,7 @@ exports[`screen: TransactionDetails/AddReason matches snapshot 1`] = `
       name="signer"
     />
     <b />
-    {"signer":"signer"}
+    {"signer":"signer","title":"title"}
   </span>
 </p>
 `;

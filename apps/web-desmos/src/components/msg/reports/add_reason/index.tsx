@@ -19,6 +19,7 @@ const AddReason: FC<{ message: MsgAddReason }> = (props) => {
         components={[<Name address={message.signer} name={signerMoniker} />, <b />]}
         values={{
           signer: signerMoniker,
+          title: message.title,
         }}
       />
     </Typography>

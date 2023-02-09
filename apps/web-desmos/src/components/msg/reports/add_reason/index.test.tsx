@@ -19,6 +19,7 @@ describe('screen: TransactionDetails/AddReason', () => {
       category: 'reports',
       type: 'MsgAddReason',
       signer: 'signer',
+      title: 'title',
       json: {},
     };
     const component = renderer.create(
