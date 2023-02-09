@@ -608,6 +608,12 @@ const customTypeToModel = {
     tagTheme: 'four',
     tagDisplay: 'txMsgCreateSection',
   },
+  '/desmos.subspaces.v3.MsgEditSection': {
+    model: MODELS.MsgEditSection,
+    content: COMPONENTS.EditSection,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgEditSection',
+  },
 };
 type CustomTypeToModel = typeof customTypeToModel;
 
