@@ -13,16 +13,16 @@ class MsgCreateSubspace {
   public description: string;
 
   constructor(payload: object) {
-    this.category = 'reactions';
+    this.category = 'subspaces';
     this.type = R.pathOr('', ['type'], payload);
     this.json = R.pathOr({}, ['json'], payload);
     this.creator = R.pathOr('', ['creator'], payload);
     this.description = R.pathOr('', ['description'], payload);
   }
 
-  static fromJson(json: object) {
+  static fromJson(json: object): MsgCreateSubspace {
     return {
-      category: 'reactions',
+      category: 'subspaces',
       type: R.pathOr('', ['@type'], json),
       json,
       creator: R.pathOr('', ['creator'], json),

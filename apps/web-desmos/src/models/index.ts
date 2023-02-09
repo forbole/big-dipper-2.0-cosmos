@@ -28,4 +28,5 @@ export { default as MsgCreateSubspace } from '@/models/msg/subspaces/msg_create_
 export { default as MsgEditSubspace } from '@/models/msg/subspaces/msg_edit_subspace';
 export { default as MsgDeleteSubspace } from '@/models/msg/subspaces/msg_delete_subspace';
 export { default as MsgCreateSection } from '@/models/msg/subspaces/msg_create_section';
+export { default as MsgEditSection } from '@/models/msg/subspaces/msg_edit_section';
 export * from 'ui/models';

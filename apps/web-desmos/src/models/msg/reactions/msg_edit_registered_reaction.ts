@@ -20,7 +20,7 @@ class MsgEditRegisteredReaction {
     this.displayValue = R.pathOr('', ['displayValue'], payload);
   }
 
-  static fromJson(json: object) {
+  static fromJson(json: object): MsgEditRegisteredReaction {
     return {
       category: 'reactions',
       type: R.pathOr('', ['@type'], json),

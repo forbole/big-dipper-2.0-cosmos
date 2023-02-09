@@ -1,30 +1,30 @@
 import * as R from 'ramda';
 import type { Categories } from '@/models/msg/types';
 
-class MsgDeleteSubspace {
+class MsgEditSection {
   public category: Categories;
 
   public type: string;
 
   public json: object;
 
-  public signer: string;
+  public editor: string;
 
   constructor(payload: object) {
     this.category = 'subspaces';
     this.type = R.pathOr('', ['type'], payload);
     this.json = R.pathOr({}, ['json'], payload);
-    this.signer = R.pathOr('', ['signer'], payload);
+    this.editor = R.pathOr('', ['editor'], payload);
   }
 
-  static fromJson(json: object): MsgDeleteSubspace {
+  static fromJson(json: object): MsgEditSection {
     return {
       category: 'subspaces',
-      type: R.pathOr('', ['@type'], json),
       json,
-      signer: R.pathOr('', ['signer'], json),
+      type: R.pathOr('', ['@type'], json),
+      editor: R.pathOr('', ['editor'], json),
     };
   }
 }
 
-export default MsgDeleteSubspace;
+export default MsgEditSection;

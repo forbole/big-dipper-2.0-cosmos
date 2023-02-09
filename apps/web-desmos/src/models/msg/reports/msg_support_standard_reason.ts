@@ -11,15 +11,15 @@ class MsgSupportStandardReason {
   public signer: string;
 
   constructor(payload: object) {
-    this.category = 'reactions';
+    this.category = 'reports';
     this.type = R.pathOr('', ['type'], payload);
     this.json = R.pathOr({}, ['json'], payload);
     this.signer = R.pathOr('', ['signer'], payload);
   }
 
-  static fromJson(json: object) {
+  static fromJson(json: object): MsgSupportStandardReason {
     return {
-      category: 'reactions',
+      category: 'reports',
       type: R.pathOr('', ['@type'], json),
       json,
       signer: R.pathOr('', ['signer'], json),

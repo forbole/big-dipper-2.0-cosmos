@@ -11,15 +11,15 @@ class MsgCreateReport {
   public reporter: string;
 
   constructor(payload: object) {
-    this.category = 'reactions';
+    this.category = 'reports';
     this.type = R.pathOr('', ['type'], payload);
     this.json = R.pathOr({}, ['json'], payload);
     this.reporter = R.pathOr('', ['reporter'], payload);
   }
 
-  static fromJson(json: object) {
+  static fromJson(json: object): MsgCreateReport {
     return {
-      category: 'reactions',
+      category: 'reports',
       type: R.pathOr('', ['@type'], json),
       json,
       reporter: R.pathOr('', ['reporter'], json),

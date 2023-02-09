@@ -13,16 +13,16 @@ class MsgCreateSection {
   public name: string;
 
   constructor(payload: object) {
-    this.category = 'reactions';
+    this.category = 'subspaces';
     this.type = R.pathOr('', ['type'], payload);
     this.json = R.pathOr({}, ['json'], payload);
     this.creator = R.pathOr('', ['creator'], payload);
     this.name = R.pathOr('', ['name'], payload);
   }
 
-  static fromJson(json: object) {
+  static fromJson(json: object): MsgCreateSection {
     return {
-      category: 'reactions',
+      category: 'subspaces',
       type: R.pathOr('', ['@type'], json),
       json,
       creator: R.pathOr('', ['creator'], json),

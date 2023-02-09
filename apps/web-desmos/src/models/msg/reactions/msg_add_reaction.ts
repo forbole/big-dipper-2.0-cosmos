@@ -17,7 +17,7 @@ class MsgAddReaction {
     this.user = R.pathOr('', ['user'], payload);
   }
 
-  static fromJson(json: object) {
+  static fromJson(json: object): MsgAddReaction {
     return {
       category: 'reactions',
       type: R.pathOr('', ['@type'], json),

@@ -13,16 +13,16 @@ class MsgEditSubspace {
   public description: string;
 
   constructor(payload: object) {
-    this.category = 'reactions';
+    this.category = 'subspaces';
     this.type = R.pathOr('', ['type'], payload);
     this.json = R.pathOr({}, ['json'], payload);
     this.signer = R.pathOr('', ['signer'], payload);
     this.description = R.pathOr('', ['description'], payload);
   }
 
-  static fromJson(json: object) {
+  static fromJson(json: object): MsgEditSubspace {
     return {
-      category: 'reactions',
+      category: 'subspaces',
       type: R.pathOr('', ['@type'], json),
       json,
       signer: R.pathOr('', ['signer'], json),

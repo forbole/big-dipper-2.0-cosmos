@@ -17,7 +17,7 @@ class MsgRemoveReaction {
     this.user = R.pathOr('', ['user'], payload);
   }
 
-  static fromJson(json: object) {
+  static fromJson(json: object): MsgRemoveReaction {
     return {
       category: 'reactions',
       type: R.pathOr('', ['@type'], json),
