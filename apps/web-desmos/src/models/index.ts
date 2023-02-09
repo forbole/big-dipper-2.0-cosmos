@@ -30,4 +30,5 @@ export { default as MsgDeleteSubspace } from '@/models/msg/subspaces/msg_delete_
 export { default as MsgCreateSection } from '@/models/msg/subspaces/msg_create_section';
 export { default as MsgEditSection } from '@/models/msg/subspaces/msg_edit_section';
 export { default as MsgMoveSection } from '@/models/msg/subspaces/msg_move_section';
+export { default as MsgDeleteSection } from '@/models/msg/subspaces/msg_delete_section';
 export * from 'ui/models';

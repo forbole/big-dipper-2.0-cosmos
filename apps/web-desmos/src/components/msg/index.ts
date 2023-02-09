@@ -29,4 +29,5 @@ export { default as DeleteSubspace } from '@/components/msg/subspaces/delete_sub
 export { default as CreateSection } from '@/components/msg/subspaces/create_section';
 export { default as EditSection } from '@/components/msg/subspaces/edit_section';
 export { default as MoveSection } from '@/components/msg/subspaces/move_section';
+export { default as DeleteSection } from '@/components/msg/subspaces/delete_section';
 export * from 'ui/components/msg';

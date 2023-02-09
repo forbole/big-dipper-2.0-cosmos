@@ -77,6 +77,7 @@
   "txMsgDeleteSubspace": "<0>{{signer}}</0> deleted a subspace",
   "txMsgCreateSection":"<0>{{creator}}</0> created a section with the name <1>{{name}}</1>",
   "txMsgEditSection": "<0>{{editor}}</0> edited a section",
+  "txMsgDeleteSection": "<0>{{editor}}</0> deleted a section",
   "txMsgMoveSection":"<0>{{signer}}</0> moved a section to another parent",
   "MsgGrant": "<0>{{granter}}</0> authorized a grant for <1>{{grantee}}</1>",
   "MsgRevoke": "<0>{{granter}}</0> revoked a grant for <1>{{grantee}}</1>",
