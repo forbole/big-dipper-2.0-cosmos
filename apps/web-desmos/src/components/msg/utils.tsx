@@ -557,6 +557,12 @@ const customTypeToModel = {
     tagTheme: 'four',
     tagDisplay: 'txMsgCreateReport',
   },
+  '/desmos.reports.v1.MsgDeleteReport': {
+    model: MODELS.MsgDeleteReport,
+    content: COMPONENTS.DeleteReport,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgDeleteReport',
+  },
 };
 type CustomTypeToModel = typeof customTypeToModel;
 
