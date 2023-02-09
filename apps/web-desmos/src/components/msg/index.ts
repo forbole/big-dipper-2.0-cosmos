@@ -37,4 +37,5 @@ export { default as SetUserGroupPermissions } from '@/components/msg/subspaces/s
 export { default as DeleteUserGroup } from '@/components/msg/subspaces/delete_user_group';
 export { default as AddUserToUserGroup } from '@/components/msg/subspaces/add_user_to_user_group';
 export { default as RemoveUserFromUserGroup } from '@/components/msg/subspaces/remove_user_from_user_group';
+export { default as SetUserPermissions } from '@/components/msg/subspaces/set_user_permissions';
 export * from 'ui/components/msg';

@@ -668,6 +668,12 @@ const customTypeToModel = {
     tagTheme: 'four',
     tagDisplay: 'txMsgRemoveUserFromUserGroup',
   },
+  '/desmos.subspaces.v3.MsgSetUserPermissions': {
+    model: MODELS.MsgSetUserPermissions,
+    content: COMPONENTS.SetUserPermissions,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgSetUserPermissions',
+  },
 };
 type CustomTypeToModel = typeof customTypeToModel;
 
