@@ -243,33 +243,6 @@
       }
     },
     {
-      "network": "stargate-final",
-      "chainType": "Testnet",
-      "genesis": {
-        "time": "",
-        "height": 0
-      },
-      "prefix": {
-        "consensus": "",
-        "validator": "",
-        "account": ""
-      },
-      "primaryTokenUnit": "",
-      "votingPowerTokenUnit": "",
-      "tokenUnits": {
-        "": {
-          "exponent": 0
-        }
-      },
-      "endpoints": {
-        "publicRpcWebsocket": "wss://gaia.bigdipper.live/sockjs/580/arrnnrzd/websocket"
-      },
-      "marketing": {
-        "matomoURL": "https://analytics.bigdipper.live",
-        "matomoSiteID": "8"
-      }
-    },
-    {
       "network": "cosmoshub-3",
       "chainType": "Retired",
       "genesis": {
@@ -289,7 +262,7 @@
         }
       },
       "endpoints": {
-        "publicRpcWebsocket": "wss://cosmoshub-3.bigdipper.live/sockjs/902/2yvx74io/websocket"
+        "publicRpcWebsocket": "wss://cosmoshub-3.bigdipper.live/sockjs/930/r22e6smk/websocket"
       },
       "marketing": {
         "matomoURL": "https://analytics.bigdipper.live",
