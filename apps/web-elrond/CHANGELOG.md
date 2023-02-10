@@ -1,5 +1,13 @@
 # v1.0.4 - 2022-06-20
 
+## 2.9.3
+
+### Patch Changes
+
+- Updated dependencies [b4ac0a0c5]
+  - shared-utils@2.6.3
+  - ui@2.12.1
+
 ## 2.9.2
 
 ### Patch Changes

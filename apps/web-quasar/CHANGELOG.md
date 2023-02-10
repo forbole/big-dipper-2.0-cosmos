@@ -1,5 +1,14 @@
 # Unreleased
 
+## 2.8.2
+
+### Patch Changes
+
+- b4ac0a0c5: feat: setup Quasar testnet
+- Updated dependencies [b4ac0a0c5]
+  - shared-utils@2.6.3
+  - ui@2.12.1
+
 ## 2.8.1
 
 ### Patch Changes
