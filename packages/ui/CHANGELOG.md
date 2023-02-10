@@ -1,5 +1,11 @@
 # ui
 
+## 2.12.0
+
+### Minor Changes
+
+- e12c3b0c2: add custom message types, including Profiles, Posts, Reactions, Reports and Subspaces modules
+
 ## 2.11.1
 
 ### Patch Changes
