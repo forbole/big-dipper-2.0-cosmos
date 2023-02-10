@@ -1,3 +1,5080 @@
+cat <<EOF > packages/shared-utils/configs/networks.json
+[
+  {
+    "name": "Cosmos Hub",
+    "chainName": "cosmos",
+    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/cosmoshub.svg?sanitize=true",
+    "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/cosmos.png?sanitize=true",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "cosmoshub-4",
+        "url": "https://bigdipper.live/cosmos"
+      },
+      {
+        "name": "Retired",
+        "chain_id": "cosmoshub-3",
+        "url": "https://cosmoshub-3.bigdipper.live"
+      },
+      {
+        "name": "Retired",
+        "chain_id": "cosmoshub-2",
+        "url": "https://cosmoshub-2.bigdipper.live"
+      },
+      {
+        "name": "Retired",
+        "chain_id": "cosmoshub-1",
+        "url": "https://cosmoshub-1.bigdipper.live"
+      }
+    ]
+  },
+  {
+    "name": "Akash",
+    "chainName": "akash",
+    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/akash.svg?sanitize=true",
+    "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/akash.png?sanitize=true",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "akashnet-2",
+        "url": "https://bigdipper.live/akash"
+      },
+      {
+        "name": "Retired",
+        "chain_id": "akashnet-1",
+        "url": "https://akashnet-1.bigdipper.live"
+      }
+    ]
+  },
+  {
+    "name": "e-Money",
+    "chainName": "emoney",
+    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/e-money.svg?sanitize=true",
+    "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/e-money.png?sanitize=true",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "emoney-3",
+        "url": "https://bigdipper.live/emoney"
+      }
+    ]
+  },
+  {
+    "name": "Band Protocol",
+    "chainName": "band",
+    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/band.svg?sanitize=true",
+    "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/band-protocol.png?sanitize=true",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "laozi-mainnet",
+        "url": "https://bigdipper.live/band"
+      },
+      {
+        "name": "Retired",
+        "chain_id": "band-guanyu-mainnet",
+        "url": "https://band-guanyu.bigdipper.live/"
+      }
+    ]
+  },
+  {
+    "name": "LikeCoin",
+    "chainName": "likecoin",
+    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/likecoin.svg?sanitize=true",
+    "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/likecoin.png?sanitize=true",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "likecoin-mainnet-2",
+        "url": "https://bigdipper.live/likecoin"
+      },
+      {
+        "name": "Testnet",
+        "chain_id": "likecoin-public-testnet-5",
+        "url": "https://testnet.bigdipper.live/likecoin"
+      }
+    ]
+  },
+  {
+    "name": "Fetch.AI",
+    "chainName": "",
+    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/fetch.ai.svg?sanitize=true",
+    "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/fetch-ai.png?sanitize=true",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "fetchhub-1",
+        "url": "https://explore.fetch.ai/"
+      }
+    ]
+  },
+  {
+    "name": "Desmos",
+    "chainName": "desmos",
+    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/desmos.svg?sanitize=true",
+    "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/desmos.png?sanitize=true",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "desmos-mainnet",
+        "url": "https://bigdipper.live/desmos"
+      },
+      {
+        "name": "Testnet",
+        "chain_id": "morpheus-apollo-3",
+        "url": "https://testnet.bigdipper.live/desmos"
+      }
+    ]
+  },
+  {
+    "name": "Crypto.org Chain",
+    "chainName": "",
+    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/crypto.org.svg?sanitize=true",
+    "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/crypto.png?sanitize=true",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "crypto-org-chain-mainnet-1",
+        "url": "https://crypto-org.bigdipper.live/"
+      }
+    ]
+  },
+  {
+    "name": "Osmosis",
+    "chainName": "osmosis",
+    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/osmosis.svg?sanitize=true",
+    "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/osmosis.png?sanitize=true",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "osmosis-1",
+        "url": "https://bigdipper.live/osmosis"
+      }
+    ]
+  },
+  {
+    "name": "Bitsong",
+    "chainName": "bitsong",
+    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/bitsong.svg?sanitize=true",
+    "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/bitsong.png?sanitize=true",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "bitsong-2b",
+        "url": "https://bigdipper.live/bitsong"
+      }
+    ]
+  },
+  {
+    "name": "Regen Network",
+    "chainName": "regen",
+    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/regen.png?sanitize=true",
+    "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/regen.png?sanitize=true",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "regen-1",
+        "url": "https://bigdipper.live/regen"
+      }
+    ]
+  },
+  {
+    "name": "Agoric",
+    "chainName": "agoric",
+    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/agoric.png?sanitize=true",
+    "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/agoric.png?sanitize=true",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "agoric-3",
+        "url": "https://bigdipper.live/agoric"
+      }
+    ]
+  },
+  {
+    "name": "Rizon",
+    "chainName": "rizon",
+    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/rizon.png?sanitize=true",
+    "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/rizon.png?sanitize=true",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "titan-1",
+        "url": "https://bigdipper.live/rizon"
+      }
+    ]
+  },
+  {
+    "name": "Elrond",
+    "chainName": "elrond",
+    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/elrond.png?sanitize=true",
+    "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/elrond.png?sanitize=true",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "mainnet",
+        "url": "https://bigdipper.live/elrond"
+      }
+    ]
+  },
+  {
+    "name": "Evmos",
+    "chainName": "evmos",
+    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/evmos.svg?sanitize=true",
+    "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/evmos.png?sanitize=true",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "evmos_9001-2",
+        "url": "https://bigdipper.live/evmos"
+      },
+      {
+        "name": "Testnet",
+        "chain_id": "evmos_9000-4",
+        "url": "https://testnet.bigdipper.live/evmos"
+      }
+    ]
+  },
+  {
+    "name": "Cheqd",
+    "chainName": "",
+    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/cheqd.png?sanitize=true",
+    "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/cheqd.png?sanitize=true",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "cheqd-mainnet-1",
+        "url": "https://explorer.cheqd.io"
+      },
+      {
+        "name": "Testnet",
+        "chain_id": "cheqd-testnet-4",
+        "url": "https://testnet-explorer.cheqd.io"
+      }
+    ]
+  },
+  {
+    "name": "Comdex",
+    "chainName": "comdex",
+    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/comdex.svg?sanitize=true",
+    "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/comdex.png?sanitize=true",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "comdex-1",
+        "url": "https://bigdipper.live/comdex"
+      }
+    ]
+  },
+  {
+    "name": "Crescent",
+    "chainName": "crescent",
+    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/crescent.svg?sanitize=true",
+    "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/crescent.png?sanitize=true",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "crescent-1",
+        "url": "https://bigdipper.live/crescent"
+      }
+    ]
+  },
+  {
+    "name": "Sifchain",
+    "chainName": "sifchain",
+    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/sifchain.svg?sanitize=true",
+    "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/sifchain.png?sanitize=true",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "sifchain-1",
+        "url": "https://bigdipper.live/sifchain"
+      }
+    ]
+  },
+  {
+    "name": "AssetMantle",
+    "chainName": "assetmantle",
+    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/assetmantle.svg?sanitize=true",
+    "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/assetmantle.png?sanitize=true",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "mantle-1",
+        "url": "https://bigdipper.live/assetmantle"
+      }
+    ]
+  },
+  {
+    "name": "Provenance",
+    "chainName": "provenance",
+    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/provenance.svg?sanitize=true",
+    "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/provenance.png?sanitize=true",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "pio-mainnet-1",
+        "url": "https://bigdipper.live/provenance"
+      }
+    ]
+  },
+  {
+    "name": "Nomic",
+    "chainName": "nomic",
+    "logo": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nomic/images/nomic.svg",
+    "cover": "",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "nomic-stakenet-2",
+        "url": "https://bigdipper.live/nomic"
+      }
+    ]
+  },
+  {
+    "name": "Shentu",
+    "chainName": "shentu",
+    "logo": "https://raw.githubusercontent.com/cosmos/chain-registry/master/shentu/images/ctk.png",
+    "cover": "",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "shentu-2.2",
+        "url": "https://bigdipper.live/shentu"
+      }
+    ]
+  },
+  {
+    "name": "Persistence",
+    "chainName": "persistence",
+    "logo": "https://raw.githubusercontent.com/cosmos/chain-registry/master/persistence/images/xprt.svg",
+    "cover": "",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "core-1",
+        "url": "https://bigdipper.live/persistence"
+      }
+    ]
+  },
+  {
+    "name": "Stride",
+    "chainName": "stride",
+    "logo": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/strd.svg",
+    "cover": "",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "stride-1",
+        "url": "https://bigdipper.live/stride"
+      }
+    ]
+  },
+  {
+    "name": "NYM",
+    "chainName": "nym",
+    "logo": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nym/images/nym.svg",
+    "cover": "",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "nyx",
+        "url": "https://bigdipper.live/nym"
+      }
+    ]
+  },
+  {
+    "name": "Quicksilver",
+    "chainName": "quicksilver",
+    "logo": "https://raw.githubusercontent.com/cosmos/chain-registry/master/quicksliver/images/quicksliver.svg",
+    "cover": "",
+    "links": [
+      {
+        "name": "Testnet",
+        "chain_id": "innuendo-3",
+        "url": "https://bigdipper.live/quicksilver"
+      }
+    ]
+  },
+  {
+    "name": "Mars",
+    "chainName": "",
+    "logo": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mars/images/mars-token.svg",
+    "cover": "",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "mars-1",
+        "url": "https://explorer.marsprotocol.io/"
+      },
+      {
+        "name": "Testnet",
+        "chain_id": "ares-1",
+        "url": "https://testnet-explorer.marsprotocol.io/"
+      }
+    ]
+  },
+  {
+    "name": "Quasar",
+    "chainName": "quasar",
+    "logo": "https://raw.githubusercontent.com/quasar-finance/questnet/main/assets/quasar.png",
+    "cover": "",
+    "links": [
+      {
+        "name": "Testnet",
+        "chain_id": "quasar",
+        "url": "https://testnet.bigdipper.live/quasar"
+      }
+    ]
+  }
+]
+EOF
+cat <<EOF > apps/web/src/chain.json
+{
+  "chainName": "base",
+  "title": "Desmos Block Explorer",
+  "extra": {
+    "profile": true,
+    "graphqlWs": false
+  },
+  "previewImage": "https://s3.bigdipper.live/desmos.png",
+  "themes": {
+    "default": "light",
+    "themeList": [
+      "dark",
+      "light",
+      "deuteranopia",
+      "tritanopia"
+    ],
+    "dark": {
+      "primary": {
+        "main": "#FF835B",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#000000",
+        "paper": "#131316"
+      },
+      "divider": "#282828",
+      "text": {
+        "primary": "#E6E6E6",
+        "secondary": "#C4C4C4"
+      },
+      "custom": {
+        "general": {
+          "background": "#000000",
+          "surfaceOne": "#131316",
+          "surfaceTwo": "#212123",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#E6E6E6",
+          "fontTwo": "#C4C4C4",
+          "fontThree": "#818181",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#4092CD"
+        },
+        "primaryData": {
+          "one": "#F87255",
+          "two": "#FA9147",
+          "three": "#43BE7C",
+          "four": "#43A1BE"
+        },
+        "results": {
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "one": "#43A1BE",
+          "two": "#E3BB55",
+          "three": "#20D292"
+        },
+        "condition": {
+          "zero": "#E6E6E6",
+          "one": "#1EC490",
+          "two": "#FF9338",
+          "three": "#FF608A"
+        },
+        "charts": {
+          "zero": "#E6E6E6",
+          "one": "#43BE7C",
+          "two": "#FA9147",
+          "three": "#F44747",
+          "four": "#43A1BE",
+          "five": "#C25396"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA897",
+          "three": "#E79726",
+          "four": "#F17053",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9950",
+          "nine": "#B49F37",
+          "ten": "#E9A852",
+          "eleven": "#E94687",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        }
+      }
+    },
+    "light": {
+      "primary": {
+        "main": "#FF835B",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#F8F8F8",
+        "paper": "#FFFFFF"
+      },
+      "divider": "#E8E8E8",
+      "text": {
+        "primary": "#000000",
+        "secondary": "#414141"
+      },
+      "custom": {
+        "general": {
+          "background": "#F8F8F8",
+          "surfaceOne": "#FFFFFF",
+          "surfaceTwo": "#F8F8F8",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#000000",
+          "fontTwo": "#414141",
+          "fontThree": "#777777",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#4092CD"
+        },
+        "primaryData": {
+          "one": "#F87255",
+          "two": "#FA9147",
+          "three": "#20D494",
+          "four": "#2FB6E0"
+        },
+        "results": {
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "one": "#2FB6E0",
+          "two": "#FFC93D",
+          "three": "#20D494"
+        },
+        "condition": {
+          "zero": "#E6E6E6",
+          "one": "#1EC490",
+          "two": "#FF9338",
+          "three": "#FF608A"
+        },
+        "charts": {
+          "zero": "#E6E6E6",
+          "one": "#20D494",
+          "two": "#FF8732",
+          "three": "#F44747",
+          "four": "#2FB6E0",
+          "five": "#E95EB1"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA891",
+          "three": "#E79720",
+          "four": "#F17047",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9944",
+          "nine": "#B49F31",
+          "ten": "#E9A846",
+          "eleven": "#E94681",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        }
+      }
+    }
+  },
+  "chains": [
+    {
+      "network": "desmos-mainnet",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "2021-08-31T16:15:00",
+        "height": 1
+      },
+      "prefix": {
+        "consensus": "desmosvalcons",
+        "validator": "desmosvaloper",
+        "account": "desmos"
+      },
+      "primaryTokenUnit": "udsm",
+      "votingPowerTokenUnit": "udsm",
+      "tokenUnits": {
+        "udsm": {
+          "display": "dsm",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.desmos.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.desmos.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc.desmos.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
+      }
+    },
+    {
+      "network": "morpheus-apollo-3",
+      "chainType": "Testnet",
+      "genesis": {
+        "time": "2022-10-24T08:00:00",
+        "height": 7942286
+      },
+      "prefix": {
+        "consensus": "desmosvalcons",
+        "validator": "desmosvaloper",
+        "account": "desmos"
+      },
+      "primaryTokenUnit": "udaric",
+      "votingPowerTokenUnit": "udaric",
+      "tokenUnits": {
+        "udaric": {
+          "display": "daric",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql-morpheus.desmos.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql-morpheus.desmos.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc-morpheus.desmos.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
+      }
+    }
+  ]
+}
+EOF
+cp apps/web/src/chain.json packages/ui/src/chain.json
+
+[ ! -d apps/web-cosmos ] && cp -av apps/web apps/web-cosmos && node <<EOF
+const { readFileSync, writeFileSync } = require('fs');
+const package = JSON.parse(readFileSync('apps/web-cosmos/package.json'));
+package.name = "web-cosmos";
+writeFileSync('apps/web-cosmos/package.json', JSON.stringify(package, null, 2), 'utf8');
+EOF
+cat <<EOF > apps/web-cosmos/src/chain.json
+{
+  "chainName": "cosmos",
+  "title": "Cosmos Hub Block Explorer",
+  "extra": {
+    "profile": true,
+    "graphqlWs": true
+  },
+  "previewImage": "https://s3.bigdipper.live/cosmoshub.png",
+  "themes": {
+    "default": "dark",
+    "themeList": [
+      "dark",
+      "light",
+      "deuteranopia",
+      "tritanopia"
+    ],
+    "dark": {
+      "primary": {
+        "main": "#6B9EFF",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#020202",
+        "paper": "#191B26"
+      },
+      "divider": "#363A51",
+      "text": {
+        "primary": "#E6E6E6",
+        "secondary": "#C4C4C4"
+      },
+      "custom": {
+        "general": {
+          "background": "#020202",
+          "surfaceOne": "#191B26",
+          "surfaceTwo": "#282A36",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#E6E6E6",
+          "fontTwo": "#C4C4C4",
+          "fontThree": "#818181",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#6AA6FF"
+        },
+        "primaryData": {
+          "one": "#AE73F8",
+          "two": "#6B9EFF",
+          "three": "#5ACF78",
+          "four": "#E3AB55"
+        },
+        "results": {
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "one": "#5E94FF",
+          "two": "#E3AB55",
+          "three": "#5ACF78"
+        },
+        "condition": {
+          "zero": "#E8E8E8",
+          "one": "#1EC490",
+          "two": "#FF961B",
+          "three": "#FC6A8A"
+        },
+        "charts": {
+          "zero": "#E8E8E8",
+          "one": "#5ACF78",
+          "two": "#5E94FF",
+          "three": "#AE73F8",
+          "four": "#E3AB55",
+          "five": "#C25396"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA891",
+          "three": "#E79720",
+          "four": "#F17047",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9944",
+          "nine": "#B49F31",
+          "ten": "#E9A846",
+          "eleven": "#E94681",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        }
+      }
+    },
+    "light": {
+      "primary": {
+        "main": "#6B9EFF",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#F7F7FF",
+        "paper": "#FFFFFF"
+      },
+      "divider": "#707070",
+      "text": {
+        "primary": "#000000",
+        "secondary": "#414141"
+      },
+      "custom": {
+        "general": {
+          "background": "#F7F7FF",
+          "surfaceOne": "#FFFFFF",
+          "surfaceTwo": "#EFEFEF",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#000000",
+          "fontTwo": "#414141",
+          "fontThree": "#777777",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#6AA6FF"
+        },
+        "primaryData": {
+          "one": "#AE73F8",
+          "two": "#6B9EFF",
+          "three": "#5ACF78",
+          "four": "#E3AB55"
+        },
+        "results": {
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "one": "#5E94FF",
+          "two": "#E3AB55",
+          "three": "#5ACF78"
+        },
+        "condition": {
+          "zero": "#E8E8E8",
+          "one": "#1EC490",
+          "two": "#FF961B",
+          "three": "#FC6A8A"
+        },
+        "charts": {
+          "zero": "#E8E8E8",
+          "one": "#5ACF78",
+          "two": "#5E94FF",
+          "three": "#AE73F8",
+          "four": "#E3AB55",
+          "five": "#C25396"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA891",
+          "three": "#E79720",
+          "four": "#F17047",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9944",
+          "nine": "#B49F31",
+          "ten": "#E9A846",
+          "eleven": "#E94681",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        }
+      }
+    }
+  },
+  "chains": [
+    {
+      "network": "cosmoshub-4",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "2019-12-11T16:11:34",
+        "height": 5200791
+      },
+      "prefix": {
+        "consensus": "cosmosvalcons",
+        "validator": "cosmosvaloper",
+        "account": "cosmos"
+      },
+      "primaryTokenUnit": "uatom",
+      "votingPowerTokenUnit": "uatom",
+      "tokenUnits": {
+        "uatom": {
+          "display": "atom",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.cosmos.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.cosmos.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc.cosmoshub.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
+      }
+    },
+    {
+      "network": "theta-testnet-001",
+      "chainType": "Testnet",
+      "genesis": {
+        "time": "2019-12-11T16:11:34",
+        "height": 9034670
+      },
+      "prefix": {
+        "consensus": "cosmosvalcons",
+        "validator": "cosmosvaloper",
+        "account": "cosmos"
+      },
+      "primaryTokenUnit": "uatom",
+      "votingPowerTokenUnit": "uatom",
+      "tokenUnits": {
+        "uatom": {
+          "display": "atom",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql-testnet.cosmos.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql-testnet.cosmos.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc-testnet.cosmos.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
+      }
+    },
+    {
+      "network": "cosmoshub-3",
+      "chainType": "Retired",
+      "genesis": {
+        "time": "",
+        "height": 0
+      },
+      "prefix": {
+        "consensus": "",
+        "validator": "",
+        "account": ""
+      },
+      "primaryTokenUnit": "",
+      "votingPowerTokenUnit": "",
+      "tokenUnits": {
+        "": {
+          "exponent": 0
+        }
+      },
+      "endpoints": {
+        "publicRpcWebsocket": "wss://cosmoshub-3.bigdipper.live/sockjs/930/r22e6smk/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
+      }
+    },
+    {
+      "network": "cosmoshub-2",
+      "chainType": "Retired",
+      "genesis": {
+        "time": "",
+        "height": 0
+      },
+      "prefix": {
+        "consensus": "",
+        "validator": "",
+        "account": ""
+      },
+      "primaryTokenUnit": "",
+      "votingPowerTokenUnit": "",
+      "tokenUnits": {
+        "": {
+          "exponent": 0
+        }
+      },
+      "endpoints": {
+        "publicRpcWebsocket": "wss://cosmoshub-2.bigdipper.live/sockjs/383/tbt49zsw/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
+      }
+    },
+    {
+      "network": "cosmoshub-1",
+      "chainType": "Retired",
+      "genesis": {
+        "time": "",
+        "height": 0
+      },
+      "prefix": {
+        "consensus": "",
+        "validator": "",
+        "account": ""
+      },
+      "primaryTokenUnit": "",
+      "votingPowerTokenUnit": "",
+      "tokenUnits": {
+        "": {
+          "exponent": 0
+        }
+      },
+      "endpoints": {
+        "publicRpcWebsocket": "wss://cosmoshub-1.bigdipper.live/sockjs/795/sieku_si/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
+      }
+    }
+  ]
+}
+EOF
+
+[ ! -d apps/web-akash ] && cp -av apps/web apps/web-akash && node <<EOF
+const { readFileSync, writeFileSync } = require('fs');
+const package = JSON.parse(readFileSync('apps/web-akash/package.json'));
+package.name = "web-akash";
+writeFileSync('apps/web-akash/package.json', JSON.stringify(package, null, 2), 'utf8');
+EOF
+cat <<EOF > apps/web-akash/src/chain.json
+{
+  "chainName": "akash",
+  "title": "Akash Block Explorer",
+  "extra": {
+    "profile": true,
+    "graphqlWs": true
+  },
+  "previewImage": "https://s3.bigdipper.live/akash.png",
+  "themes": {
+    "default": "dark",
+    "themeList": [
+      "dark",
+      "deuteranopia",
+      "tritanopia"
+    ],
+    "dark": {
+      "primary": {
+        "main": "#FF6557",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#000000",
+        "paper": "#171717"
+      },
+      "divider": "#282828",
+      "text": {
+        "primary": "#E6E6E6",
+        "secondary": "#C4C4C4"
+      },
+      "custom": {
+        "general": {
+          "background": "#000000",
+          "surfaceOne": "#171717",
+          "surfaceTwo": "#242424",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#E6E6E6",
+          "fontTwo": "#C4C4C4",
+          "fontThree": "#818181",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#379AFE"
+        },
+        "primaryData": {
+          "one": "#D84839",
+          "two": "#FE5834",
+          "three": "#B021F3",
+          "four": "#4C78EA"
+        },
+        "results": {
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "one": "#E46245",
+          "two": "#E3BB55",
+          "three": "#20D292"
+        },
+        "condition": {
+          "zero": "#E6E6E6",
+          "one": "#1EC490",
+          "two": "#FF9338",
+          "three": "#FF608A"
+        },
+        "charts": {
+          "zero": "#E6E6E6",
+          "one": "#5ACF78",
+          "two": "#E46245",
+          "three": "#D2463A",
+          "four": "#E3AB55",
+          "five": "#C25396"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA892",
+          "three": "#E79721",
+          "four": "#F17048",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9945",
+          "nine": "#B49F32",
+          "ten": "#E9A847",
+          "eleven": "#E94682",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        }
+      }
+    },
+    "light": {
+      "primary": {},
+      "background": {},
+      "text": {},
+      "custom": {
+        "general": {
+          "icon": "#999999"
+        },
+        "fonts": {},
+        "primaryData": {},
+        "results": {},
+        "tokenomics": {},
+        "condition": {},
+        "charts": {},
+        "tags": {}
+      }
+    }
+  },
+  "chains": [
+    {
+      "network": "akashnet-2",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "2021-03-08T15:00:00",
+        "height": 1
+      },
+      "prefix": {
+        "consensus": "akashvalcons",
+        "validator": "akashvaloper",
+        "account": "akash"
+      },
+      "primaryTokenUnit": "uakt",
+      "votingPowerTokenUnit": "uakt",
+      "tokenUnits": {
+        "uakt": {
+          "display": "akt",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.akash.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.akash.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc.akash.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
+      }
+    },
+    {
+      "network": "akashnet-1",
+      "chainType": "Retired",
+      "genesis": {
+        "time": "",
+        "height": 0
+      },
+      "prefix": {
+        "consensus": "",
+        "validator": "",
+        "account": ""
+      },
+      "primaryTokenUnit": "",
+      "votingPowerTokenUnit": "",
+      "tokenUnits": {
+        "": {
+          "exponent": 0
+        }
+      },
+      "endpoints": {
+        "publicRpcWebsocket": "wss://akashnet-1.bigdipper.live/sockjs/148/5fvjwp4h/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
+      }
+    }
+  ]
+}
+EOF
+
+[ ! -d apps/web-emoney ] && cp -av apps/web apps/web-emoney && node <<EOF
+const { readFileSync, writeFileSync } = require('fs');
+const package = JSON.parse(readFileSync('apps/web-emoney/package.json'));
+package.name = "web-emoney";
+writeFileSync('apps/web-emoney/package.json', JSON.stringify(package, null, 2), 'utf8');
+EOF
+cat <<EOF > apps/web-emoney/src/chain.json
+{
+  "chainName": "emoney",
+  "title": "e-Money Block Explorer",
+  "extra": {
+    "profile": true,
+    "graphqlWs": true
+  },
+  "previewImage": "https://s3.bigdipper.live/emoney.png",
+  "themes": {
+    "default": "",
+    "themeList": [
+      "dark",
+      "deuteranopia",
+      "tritanopia"
+    ],
+    "dark": {
+      "primary": {
+        "main": "#3FB3BD",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#13141D",
+        "paper": "#1A202B"
+      },
+      "divider": "#2D374A",
+      "text": {
+        "primary": "#E6E6E6",
+        "secondary": "#C4C4C4"
+      },
+      "custom": {
+        "general": {
+          "background": "#13141D",
+          "surfaceOne": "#1A202B",
+          "surfaceTwo": "#222A39",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#E6E6E6",
+          "fontTwo": "#C4C4C4",
+          "fontThree": "#818181",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#3BA8F7"
+        },
+        "primaryData": {
+          "one": "#4AA6AE",
+          "two": "#3372E0",
+          "three": "#DDBC57",
+          "four": "#5638A3"
+        },
+        "results": {
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "one": "#3372E0",
+          "two": "#DDBC57",
+          "three": "#5638A3"
+        },
+        "condition": {
+          "zero": "#E8E8E8",
+          "one": "#1EC490",
+          "two": "#FF961B",
+          "three": "#FC6A8A"
+        },
+        "charts": {
+          "zero": "#6D6D6C",
+          "one": "#EB3AA4",
+          "two": "#497BFF",
+          "three": "#FF961B",
+          "four": "#1EC490",
+          "five": "#9F46EC"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA893",
+          "three": "#E79722",
+          "four": "#F17049",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9946",
+          "nine": "#B49F33",
+          "ten": "#E9A848",
+          "eleven": "#E94683",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        }
+      }
+    },
+    "light": {
+      "primary": {},
+      "background": {},
+      "text": {},
+      "custom": {
+        "general": {
+          "icon": "#999999"
+        },
+        "fonts": {},
+        "primaryData": {},
+        "results": {},
+        "tokenomics": {},
+        "condition": {},
+        "charts": {},
+        "tags": {}
+      }
+    }
+  },
+  "chains": [
+    {
+      "network": "emoney-3",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "2020-11-04T13:00:00",
+        "height": 1
+      },
+      "prefix": {
+        "consensus": "emoneyvalcons",
+        "validator": "emoneyvaloper",
+        "account": "emoney"
+      },
+      "primaryTokenUnit": "ungm",
+      "votingPowerTokenUnit": "ungm",
+      "tokenUnits": {
+        "ungm": {
+          "display": "ngm",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.emoney.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.emoney.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc.emoney.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
+      }
+    },
+    {
+      "network": "emoney-3",
+      "chainType": "Testnet",
+      "genesis": {
+        "time": "2020-11-04T13:00:00",
+        "height": 1
+      },
+      "prefix": {
+        "consensus": "emoneyvalcons",
+        "validator": "emoneyvaloper",
+        "account": "emoney"
+      },
+      "primaryTokenUnit": "ungm",
+      "votingPowerTokenUnit": "ungm",
+      "tokenUnits": {
+        "ungm": {
+          "display": "ngm",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.emoney.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.emoney.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc.emoney.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
+      }
+    }
+  ]
+}
+EOF
+
+[ ! -d apps/web-band ] && cp -av apps/web apps/web-band && node <<EOF
+const { readFileSync, writeFileSync } = require('fs');
+const package = JSON.parse(readFileSync('apps/web-band/package.json'));
+package.name = "web-band";
+writeFileSync('apps/web-band/package.json', JSON.stringify(package, null, 2), 'utf8');
+EOF
+cat <<EOF > apps/web-band/src/chain.json
+{
+  "chainName": "band",
+  "title": "Band Protocol Block Explorer",
+  "extra": {
+    "profile": false,
+    "graphqlWs": true
+  },
+  "previewImage": "https://s3.bigdipper.live/band.png",
+  "themes": {
+    "default": "dark",
+    "themeList": [
+      "dark",
+      "deuteranopia",
+      "tritanopia"
+    ],
+    "dark": {
+      "primary": {
+        "main": "#4160FF",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#13141D",
+        "paper": "#1A202B"
+      },
+      "divider": "#2D374A",
+      "text": {
+        "primary": "#E6E6E6",
+        "secondary": "#C4C4C4"
+      },
+      "custom": {
+        "general": {
+          "background": "#13141D",
+          "surfaceOne": "#1A202B",
+          "surfaceTwo": "#222A39",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#E6E6E6",
+          "fontTwo": "#C4C4C4",
+          "fontThree": "#818181",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#4C7CF8"
+        },
+        "primaryData": {
+          "one": "#4520E6",
+          "two": "#394DFF",
+          "three": "#088A93",
+          "four": "#8541E0"
+        },
+        "results": {
+          "pass": "#198A65",
+          "fail": "#BB3746"
+        },
+        "tokenomics": {
+          "one": "#394DFF",
+          "two": "#B1943A",
+          "three": "#088A93"
+        },
+        "condition": {
+          "zero": "#E8E8E8",
+          "one": "#1EC490",
+          "two": "#FF9338",
+          "three": "#FF608A"
+        },
+        "charts": {
+          "zero": "#6D6D6C",
+          "one": "#43BE7C",
+          "two": "#3372E0",
+          "three": "#D37C3E",
+          "four": "#7145E4",
+          "five": "#C25396"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA894",
+          "three": "#E79723",
+          "four": "#F17050",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9947",
+          "nine": "#B49F34",
+          "ten": "#E9A849",
+          "eleven": "#E94684",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        }
+      }
+    },
+    "light": {
+      "primary": {},
+      "background": {},
+      "text": {},
+      "custom": {
+        "general": {
+          "icon": "#999999"
+        },
+        "fonts": {},
+        "primaryData": {},
+        "results": {},
+        "tokenomics": {},
+        "condition": {},
+        "charts": {},
+        "tags": {}
+      }
+    }
+  },
+  "chains": [
+    {
+      "network": "laozi-mainnet",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "2021-09-23T12:00:00",
+        "height": 0
+      },
+      "prefix": {
+        "consensus": "bandvalcons",
+        "validator": "bandvaloper",
+        "account": "band"
+      },
+      "primaryTokenUnit": "uband",
+      "votingPowerTokenUnit": "uband",
+      "tokenUnits": {
+        "uband": {
+          "display": "band",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.band.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.band.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc.band.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
+      }
+    },
+    {
+      "network": "band-guanyu-mainnet",
+      "chainType": "Retired",
+      "genesis": {
+        "time": "",
+        "height": 0
+      },
+      "prefix": {
+        "consensus": "",
+        "validator": "",
+        "account": ""
+      },
+      "primaryTokenUnit": "",
+      "votingPowerTokenUnit": "",
+      "tokenUnits": {
+        "": {
+          "exponent": 0
+        }
+      },
+      "endpoints": {
+        "publicRpcWebsocket": "wss://band-guanyu.bigdipper.live/sockjs/931/88vfskpn/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
+      }
+    }
+  ]
+}
+EOF
+
+[ ! -d apps/web-likecoin ] && cp -av apps/web apps/web-likecoin && node <<EOF
+const { readFileSync, writeFileSync } = require('fs');
+const package = JSON.parse(readFileSync('apps/web-likecoin/package.json'));
+package.name = "web-likecoin";
+writeFileSync('apps/web-likecoin/package.json', JSON.stringify(package, null, 2), 'utf8');
+EOF
+cat <<EOF > apps/web-likecoin/src/chain.json
+{
+  "chainName": "likecoin",
+  "title": "LikeCoin Block Explorer",
+  "extra": {
+    "profile": true,
+    "graphqlWs": true,
+    "votingPowerExponent": 3
+  },
+  "previewImage": "https://s3.bigdipper.live/likecoin.png",
+  "themes": {
+    "default": "light",
+    "themeList": [
+      "dark",
+      "light",
+      "deuteranopia",
+      "tritanopia"
+    ],
+    "dark": {
+      "primary": {
+        "main": "rgba(253,59,76,0.7)",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#0A0A0A",
+        "paper": "#131316"
+      },
+      "divider": "#3D3D43",
+      "text": {
+        "primary": "#E6E6E6",
+        "secondary": "#AAAAAB"
+      },
+      "custom": {
+        "general": {
+          "background": "#0A0A0A",
+          "surfaceOne": "#131316",
+          "surfaceTwo": "#19191D",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#E6E6E6",
+          "fontTwo": "#AAAAAB",
+          "fontThree": "#818181",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#1D86FF"
+        },
+        "primaryData": {
+          "one": "#af2929",
+          "two": "#b44516",
+          "three": "#b14237",
+          "four": "#b16919"
+        },
+        "results": {
+          "pass": "#198a65",
+          "fail": "#b12a34"
+        },
+        "tokenomics": {
+          "one": "#50B6D7",
+          "two": "#F4CD69",
+          "three": "#45A884"
+        },
+        "condition": {
+          "zero": "#E6E6E6",
+          "one": "#1EC490",
+          "two": "#FF9338",
+          "three": "#FF608A"
+        },
+        "charts": {
+          "zero": "#6D6D6C",
+          "one": "#45A884",
+          "two": "#50B6D7",
+          "three": "#F4CD69",
+          "four": "#F2A46B",
+          "five": "#C975F0"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA896",
+          "three": "#E79725",
+          "four": "#F17052",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9949",
+          "nine": "#B49F36",
+          "ten": "#E9A851",
+          "eleven": "#E94686",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        }
+      }
+    },
+    "light": {
+      "primary": {
+        "main": "#488D98",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#F8F8F8",
+        "paper": "#FFFFFF"
+      },
+      "divider": "#E8E8E8",
+      "text": {
+        "primary": "#000000",
+        "secondary": "#414141"
+      },
+      "custom": {
+        "general": {
+          "background": "#F8F8F8",
+          "surfaceOne": "#FFFFFF",
+          "surfaceTwo": "#F8F8F8",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#000000",
+          "fontTwo": "#414141",
+          "fontThree": "#777777",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#0075FF"
+        },
+        "primaryData": {
+          "one": "#488D98",
+          "two": "#45A884",
+          "three": "#48A2B0",
+          "four": "#47B0AA"
+        },
+        "results": {
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "one": "#50B6D7",
+          "two": "#F4CD69",
+          "three": "#45A884"
+        },
+        "condition": {
+          "zero": "#E6E6E6",
+          "one": "#1EC490",
+          "two": "#FF9338",
+          "three": "#FF608A"
+        },
+        "charts": {
+          "zero": "#E6E6E6",
+          "one": "#45A884",
+          "two": "#50B6D7",
+          "three": "#F4CD69",
+          "four": "#F2A46B",
+          "five": "#C975F0"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA891",
+          "three": "#E79720",
+          "four": "#F17047",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9944",
+          "nine": "#B49F31",
+          "ten": "#E9A846",
+          "eleven": "#E94681",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        }
+      }
+    }
+  },
+  "chains": [
+    {
+      "network": "likecoin-mainnet-2",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "2021-08-18T13:30:00",
+        "height": 0
+      },
+      "prefix": {
+        "consensus": "likevalcons",
+        "validator": "likevaloper",
+        "account": "like"
+      },
+      "primaryTokenUnit": "nanolike",
+      "votingPowerTokenUnit": "nanolike",
+      "tokenUnits": {
+        "nanolike": {
+          "display": "like",
+          "exponent": 9
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.likecoin.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.likecoin.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc.likecoin.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
+      }
+    },
+    {
+      "network": "likecoin-public-testnet-5",
+      "chainType": "Testnet",
+      "genesis": {
+        "time": "2022-04-04T07:07:39",
+        "height": 1
+      },
+      "prefix": {
+        "consensus": "cosmosvalcons",
+        "validator": "likevaloper",
+        "account": "cosmos"
+      },
+      "primaryTokenUnit": "uekil",
+      "votingPowerTokenUnit": "uekil",
+      "tokenUnits": {
+        "uekil": {
+          "display": "ekil",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql-testnet.likecoin.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql-testnet.likecoin.forbole.com/v1/graphql"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
+      }
+    },
+    {
+      "network": "likecoin-public-testnet-5",
+      "chainType": "Testnet",
+      "genesis": {
+        "time": "2022-04-04T07:07:39",
+        "height": 1
+      },
+      "prefix": {
+        "consensus": "cosmosvalcons",
+        "validator": "likevaloper",
+        "account": "cosmos"
+      },
+      "primaryTokenUnit": "uekil",
+      "votingPowerTokenUnit": "uekil",
+      "tokenUnits": {
+        "uekil": {
+          "display": "ekil",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql-ws-testnet.likecoin.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql-ws-testnet.likecoin.forbole.com/v1/graphql"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
+      }
+    }
+  ]
+}
+EOF
+
+[ ! -d apps/web-desmos ] && cp -av apps/web apps/web-desmos && node <<EOF
+const { readFileSync, writeFileSync } = require('fs');
+const package = JSON.parse(readFileSync('apps/web-desmos/package.json'));
+package.name = "web-desmos";
+writeFileSync('apps/web-desmos/package.json', JSON.stringify(package, null, 2), 'utf8');
+EOF
+cat <<EOF > apps/web-desmos/src/chain.json
+{
+  "chainName": "desmos",
+  "title": "Desmos Block Explorer",
+  "extra": {
+    "profile": true,
+    "graphqlWs": false
+  },
+  "previewImage": "https://s3.bigdipper.live/desmos.png",
+  "themes": {
+    "default": "light",
+    "themeList": [
+      "dark",
+      "light",
+      "deuteranopia",
+      "tritanopia"
+    ],
+    "dark": {
+      "primary": {
+        "main": "#FF835B",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#000000",
+        "paper": "#131316"
+      },
+      "divider": "#282828",
+      "text": {
+        "primary": "#E6E6E6",
+        "secondary": "#C4C4C4"
+      },
+      "custom": {
+        "general": {
+          "background": "#000000",
+          "surfaceOne": "#131316",
+          "surfaceTwo": "#212123",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#E6E6E6",
+          "fontTwo": "#C4C4C4",
+          "fontThree": "#818181",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#4092CD"
+        },
+        "primaryData": {
+          "one": "#F87255",
+          "two": "#FA9147",
+          "three": "#43BE7C",
+          "four": "#43A1BE"
+        },
+        "results": {
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "one": "#43A1BE",
+          "two": "#E3BB55",
+          "three": "#20D292"
+        },
+        "condition": {
+          "zero": "#E6E6E6",
+          "one": "#1EC490",
+          "two": "#FF9338",
+          "three": "#FF608A"
+        },
+        "charts": {
+          "zero": "#E6E6E6",
+          "one": "#43BE7C",
+          "two": "#FA9147",
+          "three": "#F44747",
+          "four": "#43A1BE",
+          "five": "#C25396"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA897",
+          "three": "#E79726",
+          "four": "#F17053",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9950",
+          "nine": "#B49F37",
+          "ten": "#E9A852",
+          "eleven": "#E94687",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        }
+      }
+    },
+    "light": {
+      "primary": {
+        "main": "#FF835B",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#F8F8F8",
+        "paper": "#FFFFFF"
+      },
+      "divider": "#E8E8E8",
+      "text": {
+        "primary": "#000000",
+        "secondary": "#414141"
+      },
+      "custom": {
+        "general": {
+          "background": "#F8F8F8",
+          "surfaceOne": "#FFFFFF",
+          "surfaceTwo": "#F8F8F8",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#000000",
+          "fontTwo": "#414141",
+          "fontThree": "#777777",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#4092CD"
+        },
+        "primaryData": {
+          "one": "#F87255",
+          "two": "#FA9147",
+          "three": "#20D494",
+          "four": "#2FB6E0"
+        },
+        "results": {
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "one": "#2FB6E0",
+          "two": "#FFC93D",
+          "three": "#20D494"
+        },
+        "condition": {
+          "zero": "#E6E6E6",
+          "one": "#1EC490",
+          "two": "#FF9338",
+          "three": "#FF608A"
+        },
+        "charts": {
+          "zero": "#E6E6E6",
+          "one": "#20D494",
+          "two": "#FF8732",
+          "three": "#F44747",
+          "four": "#2FB6E0",
+          "five": "#E95EB1"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA891",
+          "three": "#E79720",
+          "four": "#F17047",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9944",
+          "nine": "#B49F31",
+          "ten": "#E9A846",
+          "eleven": "#E94681",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        }
+      }
+    }
+  },
+  "chains": [
+    {
+      "network": "desmos-mainnet",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "2021-08-31T16:15:00",
+        "height": 1
+      },
+      "prefix": {
+        "consensus": "desmosvalcons",
+        "validator": "desmosvaloper",
+        "account": "desmos"
+      },
+      "primaryTokenUnit": "udsm",
+      "votingPowerTokenUnit": "udsm",
+      "tokenUnits": {
+        "udsm": {
+          "display": "dsm",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.desmos.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.desmos.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc.desmos.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
+      }
+    },
+    {
+      "network": "morpheus-apollo-3",
+      "chainType": "Testnet",
+      "genesis": {
+        "time": "2022-10-24T08:00:00",
+        "height": 7942286
+      },
+      "prefix": {
+        "consensus": "desmosvalcons",
+        "validator": "desmosvaloper",
+        "account": "desmos"
+      },
+      "primaryTokenUnit": "udaric",
+      "votingPowerTokenUnit": "udaric",
+      "tokenUnits": {
+        "udaric": {
+          "display": "daric",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql-morpheus.desmos.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql-morpheus.desmos.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc-morpheus.desmos.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
+      }
+    }
+  ]
+}
+EOF
+
+[ ! -d apps/web-osmosis ] && cp -av apps/web apps/web-osmosis && node <<EOF
+const { readFileSync, writeFileSync } = require('fs');
+const package = JSON.parse(readFileSync('apps/web-osmosis/package.json'));
+package.name = "web-osmosis";
+writeFileSync('apps/web-osmosis/package.json', JSON.stringify(package, null, 2), 'utf8');
+EOF
+cat <<EOF > apps/web-osmosis/src/chain.json
+{
+  "chainName": "osmosis",
+  "title": "Osmosis Block Explorer",
+  "extra": {
+    "profile": true,
+    "graphqlWs": false
+  },
+  "previewImage": "https://s3.bigdipper.live/osmosis.png",
+  "themes": {
+    "default": "dark",
+    "themeList": [
+      "dark",
+      "deuteranopia",
+      "tritanopia"
+    ],
+    "dark": {
+      "primary": {
+        "main": "#DC7BFC",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#0E0826",
+        "paper": "#1B173A"
+      },
+      "divider": "#262058",
+      "text": {
+        "primary": "#E6E6E6",
+        "secondary": "#C4C4C4"
+      },
+      "custom": {
+        "general": {
+          "background": "#0E0826",
+          "surfaceOne": "#1B173A",
+          "surfaceTwo": "#160F32",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#E6E6E6",
+          "fontTwo": "#C4C4C4",
+          "fontThree": "#818181",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#56B4E9"
+        },
+        "primaryData": {
+          "one": "#9D35FF",
+          "two": "#F372DB",
+          "three": "#36B9AB",
+          "four": "#4EABF0"
+        },
+        "results": {
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "one": "#2E9CED",
+          "two": "#E3AB55",
+          "three": "#5ACF78"
+        },
+        "condition": {
+          "zero": "#E8E8E8",
+          "one": "#1EC490",
+          "two": "#FF961B",
+          "three": "#FC6A8A"
+        },
+        "charts": {
+          "zero": "#E6E6E6",
+          "one": "#5E94FF",
+          "two": "#497BFF",
+          "three": "#5ACF78",
+          "four": "#E3AB55",
+          "five": "#C25396"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA897",
+          "three": "#E79726",
+          "four": "#F17053",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9950",
+          "nine": "#B49F37",
+          "ten": "#E9A852",
+          "eleven": "#E94687",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        }
+      }
+    },
+    "light": {
+      "primary": {},
+      "background": {},
+      "text": {},
+      "custom": {
+        "general": {
+          "icon": "#999999"
+        },
+        "fonts": {},
+        "primaryData": {},
+        "results": {},
+        "tokenomics": {},
+        "condition": {},
+        "charts": {},
+        "tags": {}
+      }
+    }
+  },
+  "chains": [
+    {
+      "network": "osmosis-1",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "2021-06-18T17:00:00",
+        "height": 1
+      },
+      "prefix": {
+        "consensus": "osmovalcons",
+        "validator": "osmovaloper",
+        "account": "osmo"
+      },
+      "primaryTokenUnit": "uosmo",
+      "votingPowerTokenUnit": "uosmo",
+      "tokenUnits": {
+        "uosmo": {
+          "display": "osmo",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.osmosis.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.osmosis.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc.osmosis.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
+      }
+    }
+  ]
+}
+EOF
+
+[ ! -d apps/web-bitsong ] && cp -av apps/web apps/web-bitsong && node <<EOF
+const { readFileSync, writeFileSync } = require('fs');
+const package = JSON.parse(readFileSync('apps/web-bitsong/package.json'));
+package.name = "web-bitsong";
+writeFileSync('apps/web-bitsong/package.json', JSON.stringify(package, null, 2), 'utf8');
+EOF
+cat <<EOF > apps/web-bitsong/src/chain.json
+{
+  "chainName": "bitsong",
+  "title": "Bitsong Block Explorer",
+  "extra": {
+    "profile": true,
+    "graphqlWs": true
+  },
+  "previewImage": "https://s3.bigdipper.live/bitsong.png",
+  "themes": {
+    "default": "dark",
+    "themeList": [
+      "dark",
+      "deuteranopia",
+      "tritanopia"
+    ],
+    "dark": {
+      "primary": {
+        "main": "#FE4080",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#000000",
+        "paper": "#0F101C"
+      },
+      "divider": "#363A51",
+      "text": {
+        "primary": "#E6E6E6",
+        "secondary": "#C4C4C4"
+      },
+      "custom": {
+        "general": {
+          "background": "#000000",
+          "surfaceOne": "#0F101C",
+          "surfaceTwo": "#181A2D",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#E6E6E6",
+          "fontTwo": "#C4C4C4",
+          "fontThree": "#818181",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#6AA6FF"
+        },
+        "primaryData": {
+          "one": "#D3356F",
+          "two": "#B443DB",
+          "three": "#6333ED",
+          "four": "#14AACB"
+        },
+        "results": {
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "one": "#915EFF",
+          "two": "#19B0C5",
+          "three": "#1EC490"
+        },
+        "condition": {
+          "zero": "#E8E8E8",
+          "one": "#1EC490",
+          "two": "#FF9338",
+          "three": "#FF608A"
+        },
+        "charts": {
+          "zero": "#6D6D6C",
+          "one": "#5ACF78",
+          "two": "#ED6295",
+          "three": "#19A1BF",
+          "four": "#8453C2",
+          "five": "#C2A353"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA897",
+          "three": "#E79726",
+          "four": "#F17053",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9950",
+          "nine": "#B49F37",
+          "ten": "#E9A852",
+          "eleven": "#E94687",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        }
+      }
+    },
+    "light": {
+      "primary": {},
+      "background": {},
+      "text": {},
+      "custom": {
+        "general": {
+          "icon": "#999999"
+        },
+        "fonts": {},
+        "primaryData": {},
+        "results": {},
+        "tokenomics": {},
+        "condition": {},
+        "charts": {},
+        "tags": {}
+      }
+    }
+  },
+  "chains": [
+    {
+      "network": "bitsong-2b",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "2021-10-21T11:00:00",
+        "height": 2966151
+      },
+      "prefix": {
+        "consensus": "bitsongvalcons",
+        "validator": "bitsongvaloper",
+        "account": "bitsong"
+      },
+      "primaryTokenUnit": "ubtsg",
+      "votingPowerTokenUnit": "ubtsg",
+      "tokenUnits": {
+        "ubtsg": {
+          "display": "btsg",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.bitsong.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.bitsong.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc.bitsong.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
+      }
+    }
+  ]
+}
+EOF
+
+[ ! -d apps/web-regen ] && cp -av apps/web apps/web-regen && node <<EOF
+const { readFileSync, writeFileSync } = require('fs');
+const package = JSON.parse(readFileSync('apps/web-regen/package.json'));
+package.name = "web-regen";
+writeFileSync('apps/web-regen/package.json', JSON.stringify(package, null, 2), 'utf8');
+EOF
+cat <<EOF > apps/web-regen/src/chain.json
+{
+  "chainName": "regen",
+  "title": "Regen Network Block Explorer",
+  "extra": {
+    "profile": true,
+    "graphqlWs": false,
+    "votingPowerExponent": 4
+  },
+  "previewImage": "https://s3.bigdipper.live/regen.png",
+  "themes": {
+    "default": "light",
+    "themeList": [
+      "light",
+      "deuteranopia",
+      "tritanopia"
+    ],
+    "dark": {
+      "primary": {},
+      "background": {},
+      "text": {},
+      "custom": {
+        "general": {},
+        "fonts": {},
+        "primaryData": {},
+        "results": {},
+        "tokenomics": {},
+        "condition": {},
+        "charts": {},
+        "tags": {}
+      }
+    },
+    "light": {
+      "primary": {
+        "main": "#53B476",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#F8F8F8",
+        "paper": "#FFFFFF"
+      },
+      "divider": "#E8E8E8",
+      "text": {
+        "primary": "#000000",
+        "secondary": "#414141"
+      },
+      "custom": {
+        "general": {
+          "background": "#F8F8F8",
+          "surfaceOne": "#FFFFFF",
+          "surfaceTwo": "#F8F8F8"
+        },
+        "fonts": {
+          "fontOne": "#000000",
+          "fontTwo": "#414141",
+          "fontThree": "#777777",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#197CD8"
+        },
+        "primaryData": {
+          "one": "#53B577",
+          "two": "#1DAFB8",
+          "three": "#3BB39F",
+          "four": "#DFA431"
+        },
+        "results": {
+          "pass": "#53B577",
+          "fail": "#EF5562"
+        },
+        "tokenomics": {
+          "one": "#53B577",
+          "two": "#F2B235",
+          "three": "#ED7D5A"
+        },
+        "condition": {
+          "zero": "#D3D3D3",
+          "one": "#67B878",
+          "two": "#ED862E",
+          "three": "#EB5079"
+        },
+        "charts": {
+          "zero": "#D3D3D3",
+          "one": "#30A6E9",
+          "two": "#53B476",
+          "three": "#EB9E58",
+          "four": "#ED7D5A",
+          "five": "#906CDE"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA891",
+          "three": "#E79720",
+          "four": "#F17047",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9944",
+          "nine": "#B49F31",
+          "ten": "#E9A846",
+          "eleven": "#E94681",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        }
+      }
+    }
+  },
+  "chains": [
+    {
+      "network": "regen-1",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "2021-04-15T15:00:00",
+        "height": 1
+      },
+      "prefix": {
+        "consensus": "regenvalcons",
+        "validator": "regenvaloper",
+        "account": "regen"
+      },
+      "primaryTokenUnit": "uregen",
+      "votingPowerTokenUnit": "uregen",
+      "tokenUnits": {
+        "uregen": {
+          "display": "regen",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.regen.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.regen.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc.regen.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
+      }
+    }
+  ]
+}
+EOF
+
+[ ! -d apps/web-agoric ] && cp -av apps/web apps/web-agoric && node <<EOF
+const { readFileSync, writeFileSync } = require('fs');
+const package = JSON.parse(readFileSync('apps/web-agoric/package.json'));
+package.name = "web-agoric";
+writeFileSync('apps/web-agoric/package.json', JSON.stringify(package, null, 2), 'utf8');
+EOF
+cat <<EOF > apps/web-agoric/src/chain.json
+{
+  "chainName": "agoric",
+  "title": "Agoric Block Explorer",
+  "extra": {
+    "profile": true,
+    "graphqlWs": true
+  },
+  "previewImage": "https://s3.bigdipper.live/agoric.png",
+  "themes": {
+    "default": "light",
+    "themeList": [
+      "light",
+      "deuteranopia",
+      "tritanopia"
+    ],
+    "dark": {
+      "primary": {},
+      "background": {},
+      "text": {},
+      "custom": {
+        "general": {},
+        "fonts": {},
+        "primaryData": {},
+        "results": {},
+        "tokenomics": {},
+        "condition": {},
+        "charts": {},
+        "tags": {}
+      }
+    },
+    "light": {
+      "primary": {
+        "main": "#BB2D40",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#F8F8F8",
+        "paper": "#FFFFFF"
+      },
+      "divider": "#E8E8E8",
+      "text": {
+        "primary": "#000000",
+        "secondary": "#414141"
+      },
+      "custom": {
+        "general": {
+          "background": "#F8F8F8",
+          "surfaceOne": "#FFFFFF",
+          "surfaceTwo": "#F8F8F8"
+        },
+        "fonts": {
+          "fontOne": "#000000",
+          "fontTwo": "#414141",
+          "fontThree": "#777777",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#197CD8"
+        },
+        "primaryData": {
+          "one": "#C64155",
+          "two": "#4AA6B6",
+          "three": "#419B8C",
+          "four": "#DFA431"
+        },
+        "results": {
+          "pass": "#34B596",
+          "fail": "#EF5562"
+        },
+        "tokenomics": {
+          "one": "#4AA6B6",
+          "two": "#DFA431",
+          "three": "#B0515F"
+        },
+        "condition": {
+          "zero": "#D3D3D3",
+          "one": "#67B878",
+          "two": "#ED862E",
+          "three": "#EB5079"
+        },
+        "charts": {
+          "zero": "#D3D3D3",
+          "one": "#34B596",
+          "two": "#DE6071",
+          "three": "#EB9E58",
+          "four": "#6A82E4",
+          "five": "#906CDE"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA891",
+          "three": "#E79720",
+          "four": "#F17047",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9944",
+          "nine": "#B49F31",
+          "ten": "#E9A846",
+          "eleven": "#E94681",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        }
+      }
+    }
+  },
+  "chains": [
+    {
+      "network": "agoric-3",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "2021-05-15T04:22:21",
+        "height": 2115669
+      },
+      "prefix": {
+        "consensus": "agoricvalcons",
+        "validator": "agoricvaloper",
+        "account": "agoric"
+      },
+      "primaryTokenUnit": "ubld",
+      "votingPowerTokenUnit": "ubld",
+      "tokenUnits": {
+        "ubld": {
+          "display": "bld",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.agoric.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.agoric.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc.agoric.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
+      }
+    }
+  ]
+}
+EOF
+
+[ ! -d apps/web-rizon ] && cp -av apps/web apps/web-rizon && node <<EOF
+const { readFileSync, writeFileSync } = require('fs');
+const package = JSON.parse(readFileSync('apps/web-rizon/package.json'));
+package.name = "web-rizon";
+writeFileSync('apps/web-rizon/package.json', JSON.stringify(package, null, 2), 'utf8');
+EOF
+cat <<EOF > apps/web-rizon/src/chain.json
+{
+  "chainName": "rizon",
+  "title": "Rizon Block Explorer",
+  "extra": {
+    "profile": true,
+    "graphqlWs": false
+  },
+  "previewImage": "https://s3.bigdipper.live/rizon.png",
+  "themes": {
+    "default": "dark",
+    "themeList": [
+      "dark",
+      "deuteranopia",
+      "tritanopia"
+    ],
+    "dark": {
+      "primary": {
+        "main": "#6A63FF",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#0F0F22",
+        "paper": "#1A1A35"
+      },
+      "divider": "#363A51",
+      "text": {
+        "primary": "#E6E6E6",
+        "secondary": "#C4C4C4"
+      },
+      "custom": {
+        "general": {
+          "background": "#0F0F22",
+          "surfaceOne": "#1A1A35",
+          "surfaceTwo": "#2A2A45",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#E6E6E6",
+          "fontTwo": "#C4C4C4",
+          "fontThree": "#818181",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#6AA6FF"
+        },
+        "primaryData": {
+          "one": "#5A579C",
+          "two": "#25BE97",
+          "three": "#1CAFE0",
+          "four": "#D4B855"
+        },
+        "results": {
+          "pass": "#25BE97",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "one": "#25BE97",
+          "two": "#D4B855",
+          "three": "#1CAFE0"
+        },
+        "condition": {
+          "zero": "#E8E8E8",
+          "one": "#25BE97",
+          "two": "#FF9338",
+          "three": "#FF608A"
+        },
+        "charts": {
+          "zero": "#E8E8E8",
+          "one": "#25BE97",
+          "two": "#6E69D2",
+          "three": "#1CAFE0",
+          "four": "#D4B855",
+          "five": "#D859B4"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA897",
+          "three": "#E79726",
+          "four": "#F17053",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9950",
+          "nine": "#B49F37",
+          "ten": "#E9A852",
+          "eleven": "#E94687",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        }
+      }
+    },
+    "light": {
+      "primary": {},
+      "background": {},
+      "text": {},
+      "custom": {
+        "general": {
+          "icon": "#999999"
+        },
+        "fonts": {},
+        "primaryData": {},
+        "results": {},
+        "tokenomics": {},
+        "condition": {},
+        "charts": {},
+        "tags": {}
+      }
+    }
+  },
+  "chains": [
+    {
+      "network": "titan-1",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "2021-09-28T08:00:00",
+        "height": 1
+      },
+      "prefix": {
+        "consensus": "rizonvalcons",
+        "validator": "rizonvaloper",
+        "account": "rizon"
+      },
+      "primaryTokenUnit": "uatolo",
+      "votingPowerTokenUnit": "uatolo",
+      "tokenUnits": {
+        "uatolo": {
+          "display": "atolo",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.rizon.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.rizon.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc.rizon.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
+      }
+    }
+  ]
+}
+EOF
+
+[ ! -d apps/web-elrond ] && cp -av apps/web apps/web-elrond && node <<EOF
+const { readFileSync, writeFileSync } = require('fs');
+const package = JSON.parse(readFileSync('apps/web-elrond/package.json'));
+package.name = "web-elrond";
+writeFileSync('apps/web-elrond/package.json', JSON.stringify(package, null, 2), 'utf8');
+EOF
+cat <<EOF > apps/web-elrond/src/chain.json
+{
+  "chainName": "elrond",
+  "title": "Elrond Block Explorer",
+  "extra": {
+    "profile": false,
+    "graphqlWs": false
+  },
+  "previewImage": "https://s3.bigdipper.live/elrond.png",
+  "themes": {
+    "default": "light",
+    "themeList": [
+      "light",
+      "deuteranopia",
+      "tritanopia"
+    ],
+    "dark": {
+      "primary": {},
+      "background": {},
+      "text": {},
+      "custom": {
+        "general": {},
+        "fonts": {},
+        "primaryData": {},
+        "results": {},
+        "tokenomics": {},
+        "condition": {},
+        "charts": {},
+        "tags": {}
+      }
+    },
+    "light": {
+      "primary": {
+        "main": "#2F65DD",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#F8F8F8",
+        "paper": "#FFFFFF"
+      },
+      "divider": "#E8E8E8",
+      "text": {
+        "primary": "#000000",
+        "secondary": "#414141"
+      },
+      "custom": {
+        "general": {
+          "background": "#F8F8F8",
+          "surfaceOne": "#FFFFFF",
+          "surfaceTwo": "#F8F8F8"
+        },
+        "fonts": {
+          "fontOne": "#000000",
+          "fontTwo": "#414141",
+          "fontThree": "#777777",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#2F65DD"
+        },
+        "primaryData": {
+          "one": "#3E71E3",
+          "two": "#4493DB",
+          "three": "#279FBA",
+          "four": "#27BAA8"
+        },
+        "results": {
+          "pass": "#12B785",
+          "fail": "#E94848"
+        },
+        "tokenomics": {
+          "one": "#3E71E3",
+          "two": "#F79E4D",
+          "three": "#27BAA8"
+        },
+        "condition": {
+          "zero": "#E8E8E8",
+          "one": "#1EC490",
+          "two": "#FF961B",
+          "three": "#FC6A8A"
+        },
+        "charts": {
+          "zero": "#E8E8E8",
+          "one": "#EB3AA4",
+          "two": "#497BFF",
+          "three": "#FF961B",
+          "four": "#1EC490",
+          "five": "#9F46EC"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA891",
+          "three": "#E79720",
+          "four": "#F17047",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9944",
+          "nine": "#B49F31",
+          "ten": "#E9A846",
+          "eleven": "#E94681",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        }
+      }
+    }
+  },
+  "chains": [
+    {
+      "network": "mainnet",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "",
+        "height": 0
+      },
+      "prefix": {
+        "consensus": "",
+        "validator": "",
+        "account": "erd1"
+      },
+      "primaryTokenUnit": "egld",
+      "votingPowerTokenUnit": "egld",
+      "tokenUnits": {
+        "egld": {
+          "display": "egld",
+          "exponent": 18
+        }
+      },
+      "endpoints": {},
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
+      }
+    }
+  ]
+}
+EOF
+
+[ ! -d apps/web-evmos ] && cp -av apps/web apps/web-evmos && node <<EOF
+const { readFileSync, writeFileSync } = require('fs');
+const package = JSON.parse(readFileSync('apps/web-evmos/package.json'));
+package.name = "web-evmos";
+writeFileSync('apps/web-evmos/package.json', JSON.stringify(package, null, 2), 'utf8');
+EOF
+cat <<EOF > apps/web-evmos/src/chain.json
+{
+  "chainName": "evmos",
+  "title": "Evmos Block Explorer",
+  "extra": {
+    "profile": false,
+    "graphqlWs": true
+  },
+  "previewImage": "https://s3.bigdipper.live/evmos.png",
+  "themes": {
+    "default": "light",
+    "themeList": [
+      "light",
+      "deuteranopia",
+      "tritanopia"
+    ],
+    "dark": {
+      "primary": {},
+      "background": {},
+      "text": {},
+      "custom": {
+        "general": {},
+        "fonts": {},
+        "primaryData": {},
+        "results": {},
+        "tokenomics": {},
+        "condition": {},
+        "charts": {},
+        "tags": {}
+      }
+    },
+    "light": {
+      "primary": {
+        "main": "#237BF9",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#F8F8F8",
+        "paper": "#FFFFFF"
+      },
+      "divider": "#E8E8E8",
+      "text": {
+        "primary": "#000000",
+        "secondary": "#414141"
+      },
+      "custom": {
+        "general": {
+          "background": "#F8F8F8",
+          "surfaceOne": "#FFFFFF",
+          "surfaceTwo": "#F8F8F8"
+        },
+        "fonts": {
+          "fontOne": "#000000",
+          "fontTwo": "#414141",
+          "fontThree": "#777777",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#237BF9"
+        },
+        "primaryData": {
+          "one": "#237BF9",
+          "two": "#5961F3",
+          "three": "#8F78F3",
+          "four": "#32B47D"
+        },
+        "results": {
+          "pass": "#37C465",
+          "fail": "#EF5562"
+        },
+        "tokenomics": {
+          "one": "#ECBA3A",
+          "two": "#8F78F3",
+          "three": "#32B47D"
+        },
+        "condition": {
+          "zero": "#D3D3D3",
+          "one": "#37C365",
+          "two": "#ED862E",
+          "three": "#EB5079"
+        },
+        "charts": {
+          "zero": "#D3D3D3",
+          "one": "#30A6E9",
+          "two": "#32B47D",
+          "three": "#8F78F3",
+          "four": "#ECBA3A",
+          "five": "#F58A4E"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA891",
+          "three": "#E79720",
+          "four": "#F17047",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9944",
+          "nine": "#B49F31",
+          "ten": "#E9A846",
+          "eleven": "#E94681",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        }
+      }
+    }
+  },
+  "chains": [
+    {
+      "network": "evmos_9001-2",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "2022-04-27T16:00:00",
+        "height": 58701
+      },
+      "prefix": {
+        "consensus": "evmosvalcons",
+        "validator": "evmosvaloper",
+        "account": "evmos"
+      },
+      "primaryTokenUnit": "aevmos",
+      "votingPowerTokenUnit": "aevmos",
+      "tokenUnits": {
+        "aevmos": {
+          "display": "evmos",
+          "exponent": 18
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.evmos.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.evmos.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://evmos-archive-testnet.api.bdnodes.net:26657/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
+      }
+    },
+    {
+      "network": "evmos_9000-4",
+      "chainType": "Testnet",
+      "genesis": {
+        "time": "2022-02-17T00:00:00",
+        "height": 709050
+      },
+      "prefix": {
+        "consensus": "evmosvalcons",
+        "validator": "evmosvaloper",
+        "account": "evmos"
+      },
+      "primaryTokenUnit": "atevmos",
+      "votingPowerTokenUnit": "atevmos",
+      "tokenUnits": {
+        "atevmos": {
+          "display": "evmos",
+          "exponent": 0
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql-testnet.evmos.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql-testnet.evmos.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://evmos-archive-testnet.api.bdnodes.net:26657/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
+      }
+    },
+    {
+      "network": "evmos_9000-3",
+      "chainType": "Testnet",
+      "genesis": {
+        "time": "",
+        "height": 0
+      },
+      "prefix": {
+        "consensus": "",
+        "validator": "",
+        "account": ""
+      },
+      "primaryTokenUnit": "",
+      "votingPowerTokenUnit": "",
+      "tokenUnits": {
+        "": {
+          "exponent": 0
+        }
+      },
+      "endpoints": {},
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
+      }
+    }
+  ]
+}
+EOF
+
+[ ! -d apps/web-comdex ] && cp -av apps/web apps/web-comdex && node <<EOF
+const { readFileSync, writeFileSync } = require('fs');
+const package = JSON.parse(readFileSync('apps/web-comdex/package.json'));
+package.name = "web-comdex";
+writeFileSync('apps/web-comdex/package.json', JSON.stringify(package, null, 2), 'utf8');
+EOF
+cat <<EOF > apps/web-comdex/src/chain.json
+{
+  "chainName": "comdex",
+  "title": "Comdex Block Explorer",
+  "extra": {
+    "profile": true,
+    "graphqlWs": true
+  },
+  "previewImage": "https://s3.bigdipper.live/comdex.png",
+  "themes": {
+    "default": "dark",
+    "themeList": [
+      "dark",
+      "deuteranopia",
+      "tritanopia"
+    ],
+    "dark": {
+      "primary": {
+        "main": "#FE4350",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#040516",
+        "paper": "#14142D"
+      },
+      "divider": "#363A51",
+      "text": {
+        "primary": "#E6E6E6",
+        "secondary": "#C4C4C4"
+      },
+      "custom": {
+        "general": {
+          "background": "#040516",
+          "surfaceOne": "#14142D",
+          "surfaceTwo": "#0C1C3C",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#E6E6E6",
+          "fontTwo": "#C4C4C4",
+          "fontThree": "#818181",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#6AA6FF"
+        },
+        "primaryData": {
+          "one": "#FE4350",
+          "two": "#EA5356",
+          "three": "#285ED5",
+          "four": "#183F9F"
+        },
+        "results": {
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "one": "#EA5356",
+          "two": "#285ED5",
+          "three": "#1EC490"
+        },
+        "condition": {
+          "zero": "#E8E8E8",
+          "one": "#1EC490",
+          "two": "#FF9338",
+          "three": "#FF608A"
+        },
+        "charts": {
+          "zero": "#E8E8E8",
+          "one": "#1EC490",
+          "two": "#EA5356",
+          "three": "#285ED5",
+          "four": "#E3AB55",
+          "five": "#C25396"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA897",
+          "three": "#E79726",
+          "four": "#F17053",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9950",
+          "nine": "#B49F37",
+          "ten": "#E9A852",
+          "eleven": "#E94687",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        }
+      }
+    },
+    "light": {
+      "primary": {},
+      "background": {},
+      "text": {},
+      "custom": {
+        "general": {
+          "icon": "#999999"
+        },
+        "fonts": {},
+        "primaryData": {},
+        "results": {},
+        "tokenomics": {},
+        "condition": {},
+        "charts": {},
+        "tags": {}
+      }
+    }
+  },
+  "chains": [
+    {
+      "network": "comdex-1",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "2021-11-20T14:00:00",
+        "height": 1
+      },
+      "prefix": {
+        "consensus": "comdexvalcons",
+        "validator": "comdexvaloper",
+        "account": "comdex"
+      },
+      "primaryTokenUnit": "ucmdx",
+      "votingPowerTokenUnit": "ucmdx",
+      "tokenUnits": {
+        "ucmdx": {
+          "display": "cmdx",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.comdex.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.comdex.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc.comdex.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
+      }
+    },
+    {
+      "network": "meteor-test",
+      "chainType": "Testnet",
+      "genesis": {
+        "time": "2021-10-15T12:58:04",
+        "height": 4078001
+      },
+      "prefix": {
+        "consensus": "comdexvalcons",
+        "validator": "comdexvaloper",
+        "account": "comdex"
+      },
+      "primaryTokenUnit": "ucmdx",
+      "votingPowerTokenUnit": "ucmdx",
+      "tokenUnits": {
+        "ucmdx": {
+          "display": "cmdx",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql-testnet.comdex.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql-testnet.comdex.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "ws://65.108.130.132:26657/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
+      }
+    }
+  ]
+}
+EOF
+
+[ ! -d apps/web-crescent ] && cp -av apps/web apps/web-crescent && node <<EOF
+const { readFileSync, writeFileSync } = require('fs');
+const package = JSON.parse(readFileSync('apps/web-crescent/package.json'));
+package.name = "web-crescent";
+writeFileSync('apps/web-crescent/package.json', JSON.stringify(package, null, 2), 'utf8');
+EOF
+cat <<EOF > apps/web-crescent/src/chain.json
+{
+  "chainName": "crescent",
+  "title": "Crescent Block Explorer",
+  "extra": {
+    "profile": true,
+    "graphqlWs": true
+  },
+  "previewImage": "https://s3.bigdipper.live/crescent.png",
+  "themes": {
+    "default": "dark",
+    "themeList": [
+      "dark",
+      "deuteranopia",
+      "tritanopia"
+    ],
+    "dark": {
+      "primary": {
+        "main": "#FFC780",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#1F0E0B",
+        "paper": "#2E150F"
+      },
+      "divider": "#4D4441",
+      "text": {
+        "primary": "#E6E6E6",
+        "secondary": "#C4C4C4"
+      },
+      "custom": {
+        "general": {
+          "background": "#1F0E0B",
+          "surfaceOne": "#2E150F",
+          "surfaceTwo": "#333333",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#E6E6E6",
+          "fontTwo": "#C4C4C4",
+          "fontThree": "#818181",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#6AA6FF"
+        },
+        "primaryData": {
+          "one": "#FFC780",
+          "two": "#ECA54C",
+          "three": "#D17A0C",
+          "four": "#D1530C"
+        },
+        "results": {
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "one": "#ED512F",
+          "two": "#FFC780",
+          "three": "#5FBE15"
+        },
+        "condition": {
+          "zero": "#E8E8E8",
+          "one": "#1EC490",
+          "two": "#FF9338",
+          "three": "#FF608A"
+        },
+        "charts": {
+          "zero": "#E8E8E8",
+          "one": "#1EC490",
+          "two": "#EA5356",
+          "three": "#285ED5",
+          "four": "#FFC780",
+          "five": "#DE51A6"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA897",
+          "three": "#E79726",
+          "four": "#F17053",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9950",
+          "nine": "#B49F37",
+          "ten": "#E9A852",
+          "eleven": "#E94687",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        }
+      }
+    },
+    "light": {
+      "primary": {},
+      "background": {},
+      "text": {},
+      "custom": {
+        "general": {
+          "icon": "#999999"
+        },
+        "fonts": {},
+        "primaryData": {},
+        "results": {},
+        "tokenomics": {},
+        "condition": {},
+        "charts": {},
+        "tags": {}
+      }
+    }
+  },
+  "chains": [
+    {
+      "network": "crescent-1",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "2022-04-13T00:00:00",
+        "height": 1
+      },
+      "prefix": {
+        "consensus": "crevalcons",
+        "validator": "crevaloper",
+        "account": "cre"
+      },
+      "primaryTokenUnit": "ucre",
+      "votingPowerTokenUnit": "ucre",
+      "tokenUnits": {
+        "ucre": {
+          "display": "cre",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.crescent.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.crescent.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc.crescent.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
+      }
+    }
+  ]
+}
+EOF
+
+[ ! -d apps/web-assetmantle ] && cp -av apps/web apps/web-assetmantle && node <<EOF
+const { readFileSync, writeFileSync } = require('fs');
+const package = JSON.parse(readFileSync('apps/web-assetmantle/package.json'));
+package.name = "web-assetmantle";
+writeFileSync('apps/web-assetmantle/package.json', JSON.stringify(package, null, 2), 'utf8');
+EOF
+cat <<EOF > apps/web-assetmantle/src/chain.json
+{
+  "chainName": "assetmantle",
+  "title": "AssetMantle Block Explorer",
+  "extra": {
+    "profile": true,
+    "graphqlWs": true
+  },
+  "previewImage": "https://s3.bigdipper.live/assetmantle.png",
+  "themes": {
+    "default": "dark",
+    "themeList": [
+      "dark",
+      "deuteranopia",
+      "tritanopia"
+    ],
+    "dark": {
+      "primary": {
+        "main": "#F3B211",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#000000",
+        "paper": "#1F1F1F"
+      },
+      "divider": "#494949",
+      "text": {
+        "primary": "#E6E6E6",
+        "secondary": "#C4C4C4"
+      },
+      "custom": {
+        "general": {
+          "background": "#000000",
+          "surfaceOne": "#1F1F1F",
+          "surfaceTwo": "#2C2C2C",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#E6E6E6",
+          "fontTwo": "#C4C4C4",
+          "fontThree": "#818181",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#0075FF"
+        },
+        "primaryData": {
+          "one": "#F3B211",
+          "two": "#C69006",
+          "three": "#B7B00A",
+          "four": "#C86002"
+        },
+        "results": {
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "one": "#F3B211",
+          "two": "#2665FF",
+          "three": "#12F3B3"
+        },
+        "condition": {
+          "zero": "#E8E8E8",
+          "one": "#1EC490",
+          "two": "#FF9338",
+          "three": "#FF608A"
+        },
+        "charts": {
+          "zero": "#E8E8E8",
+          "one": "#12F3B3",
+          "two": "#F26511",
+          "three": "#0D50E2",
+          "four": "#F3B211",
+          "five": "#F312C2"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA897",
+          "three": "#E79726",
+          "four": "#F17053",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9950",
+          "nine": "#B49F37",
+          "ten": "#E9A852",
+          "eleven": "#E94687",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        }
+      }
+    },
+    "light": {
+      "primary": {},
+      "background": {},
+      "text": {},
+      "custom": {
+        "general": {
+          "icon": "#999999"
+        },
+        "fonts": {},
+        "primaryData": {},
+        "results": {},
+        "tokenomics": {},
+        "condition": {},
+        "charts": {},
+        "tags": {}
+      }
+    }
+  },
+  "chains": [
+    {
+      "network": "mantle-1",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "2022-07-12T02:34:54",
+        "height": 1
+      },
+      "prefix": {
+        "consensus": "mantlevalcons",
+        "validator": "mantlevaloper",
+        "account": "mantle"
+      },
+      "primaryTokenUnit": "umntl",
+      "votingPowerTokenUnit": "umntl",
+      "tokenUnits": {
+        "umntl": {
+          "display": "mntl",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.assetmantle.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.assetmantle.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc.assetmantle.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
+      }
+    }
+  ]
+}
+EOF
+
+[ ! -d apps/web-provenance ] && cp -av apps/web apps/web-provenance && node <<EOF
+const { readFileSync, writeFileSync } = require('fs');
+const package = JSON.parse(readFileSync('apps/web-provenance/package.json'));
+package.name = "web-provenance";
+writeFileSync('apps/web-provenance/package.json', JSON.stringify(package, null, 2), 'utf8');
+EOF
+cat <<EOF > apps/web-provenance/src/chain.json
+{
+  "chainName": "provenance",
+  "title": "Provenance Block Explorer",
+  "extra": {
+    "profile": true,
+    "graphqlWs": false,
+    "votingPowerExponent": 3
+  },
+  "previewImage": "https://s3.bigdipper.live/provenance.png",
+  "themes": {
+    "default": "dark",
+    "themeList": [
+      "dark",
+      "deuteranopia",
+      "tritanopia"
+    ],
+    "dark": {
+      "primary": {
+        "main": "#2A70EA",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#000000",
+        "paper": "#131721"
+      },
+      "divider": "#464646",
+      "text": {
+        "primary": "#E6E6E6",
+        "secondary": "#C4C4C4"
+      },
+      "custom": {
+        "general": {
+          "background": "#000000",
+          "surfaceOne": "#131721",
+          "surfaceTwo": "#232632",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#E6E6E6",
+          "fontTwo": "#C4C4C4",
+          "fontThree": "#818181",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#4092CD"
+        },
+        "primaryData": {
+          "one": "#2A70EA",
+          "two": "#0D479A",
+          "three": "#404999",
+          "four": "#37357C"
+        },
+        "results": {
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "one": "#2A70EA",
+          "two": "#CC336B",
+          "three": "#18B8B2"
+        },
+        "condition": {
+          "zero": "#E6E6E6",
+          "one": "#1EC490",
+          "two": "#FF9338",
+          "three": "#FF608A"
+        },
+        "charts": {
+          "zero": "#E8E8E8",
+          "one": "#33CCB0",
+          "two": "#CC6A33",
+          "three": "#CC336B",
+          "four": "#3379CC",
+          "five": "#8933CC"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA897",
+          "three": "#E79726",
+          "four": "#F17053",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9950",
+          "nine": "#B49F37",
+          "ten": "#E9A852",
+          "eleven": "#E94687",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        }
+      }
+    },
+    "light": {
+      "primary": {},
+      "background": {},
+      "text": {},
+      "custom": {
+        "general": {
+          "icon": "#999999"
+        },
+        "fonts": {},
+        "primaryData": {},
+        "results": {},
+        "tokenomics": {},
+        "condition": {},
+        "charts": {},
+        "tags": {}
+      }
+    }
+  },
+  "chains": [
+    {
+      "network": "pio-mainnet-1",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "2021-04-20T16:20:00",
+        "height": 1
+      },
+      "prefix": {
+        "consensus": "pbvalcons",
+        "validator": "pbvaloper",
+        "account": "pb"
+      },
+      "primaryTokenUnit": "nhash",
+      "votingPowerTokenUnit": "nhash",
+      "tokenUnits": {
+        "nhash": {
+          "display": "hash",
+          "exponent": 9
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.provenance.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.provenance.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc.provenance.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
+      }
+    }
+  ]
+}
+EOF
+
+[ ! -d apps/web-nomic ] && cp -av apps/web apps/web-nomic && node <<EOF
+const { readFileSync, writeFileSync } = require('fs');
+const package = JSON.parse(readFileSync('apps/web-nomic/package.json'));
+package.name = "web-nomic";
+writeFileSync('apps/web-nomic/package.json', JSON.stringify(package, null, 2), 'utf8');
+EOF
+cat <<EOF > apps/web-nomic/src/chain.json
+{
+  "chainName": "nomic",
+  "title": "Nomic Block Explorer",
+  "extra": {
+    "profile": true,
+    "graphqlWs": false,
+    "votingPowerExponent": 6
+  },
+  "previewImage": "https://s3.bigdipper.live/nomic.png",
+  "themes": {
+    "default": "dark",
+    "themeList": [
+      "dark",
+      "deuteranopia",
+      "tritanopia"
+    ],
+    "dark": {
+      "primary": {
+        "main": "#6000FF",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#000000",
+        "paper": "#1A1B1F"
+      },
+      "divider": "#707070",
+      "text": {
+        "primary": "#E6E6E6",
+        "secondary": "#C4C4C4"
+      },
+      "custom": {
+        "general": {
+          "background": "#000000",
+          "surfaceOne": "#1A1B1F",
+          "surfaceTwo": "#282828",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#E6E6E6",
+          "fontTwo": "#C4C4C4",
+          "fontThree": "#818181",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#0075FF"
+        },
+        "primaryData": {
+          "one": "#7D73C2",
+          "two": "#6A59DD",
+          "three": "#422FAF",
+          "four": "#2810B4"
+        },
+        "results": {
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "one": "#6366F1",
+          "two": "#F7931A",
+          "three": "#03B5AA"
+        },
+        "condition": {
+          "zero": "#E6E6E6",
+          "one": "#1EC490",
+          "two": "#FF9338",
+          "three": "#FF608A"
+        },
+        "charts": {
+          "zero": "#E8E8E8",
+          "one": "#8B5CF6",
+          "two": "#F7931A",
+          "three": "#ED254E",
+          "four": "#03B5AA",
+          "five": "#FF608A"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA897",
+          "three": "#E79726",
+          "four": "#F17053",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9950",
+          "nine": "#B49F37",
+          "ten": "#E9A852",
+          "eleven": "#E94687",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        }
+      }
+    },
+    "light": {
+      "primary": {},
+      "background": {},
+      "text": {},
+      "custom": {
+        "general": {
+          "icon": "#999999"
+        },
+        "fonts": {},
+        "primaryData": {},
+        "results": {},
+        "tokenomics": {},
+        "condition": {},
+        "charts": {},
+        "tags": {}
+      }
+    }
+  },
+  "chains": [
+    {
+      "network": "nomic-stakenet-2",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "2022-07-04T00:00:00",
+        "height": 0
+      },
+      "prefix": {
+        "consensus": "nomicvalcons",
+        "validator": "nomicvaloper",
+        "account": "nomic"
+      },
+      "primaryTokenUnit": "unom",
+      "votingPowerTokenUnit": "unom",
+      "tokenUnits": {
+        "unom": {
+          "display": "nom",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.nomic.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.nomic.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://gql.nomic.forbole.com/v1/graphql"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
+      }
+    }
+  ]
+}
+EOF
+
+[ ! -d apps/web-shentu ] && cp -av apps/web apps/web-shentu && node <<EOF
+const { readFileSync, writeFileSync } = require('fs');
+const package = JSON.parse(readFileSync('apps/web-shentu/package.json'));
+package.name = "web-shentu";
+writeFileSync('apps/web-shentu/package.json', JSON.stringify(package, null, 2), 'utf8');
+EOF
+cat <<EOF > apps/web-shentu/src/chain.json
+{
+  "chainName": "shentu",
+  "title": "Shentu Block Explorer",
+  "extra": {
+    "profile": true,
+    "graphqlWs": true
+  },
+  "previewImage": "https://s3.bigdipper.live/shentu.png",
+  "themes": {
+    "default": "light",
+    "themeList": [
+      "light",
+      "deuteranopia",
+      "tritanopia"
+    ],
+    "dark": {
+      "primary": {},
+      "background": {},
+      "text": {},
+      "custom": {
+        "general": {},
+        "fonts": {},
+        "primaryData": {},
+        "results": {},
+        "tokenomics": {},
+        "condition": {},
+        "charts": {},
+        "tags": {}
+      }
+    },
+    "light": {
+      "primary": {
+        "main": "#E1AB4C",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#F8F8F8",
+        "paper": "#FFFFFF"
+      },
+      "divider": "#E8E8E8",
+      "text": {
+        "primary": "#000000",
+        "secondary": "#414141"
+      },
+      "custom": {
+        "general": {
+          "background": "#F8F8F8",
+          "surfaceOne": "#FFFFFF",
+          "surfaceTwo": "#F9F9F9"
+        },
+        "fonts": {
+          "fontOne": "#000000",
+          "fontTwo": "#414141",
+          "fontThree": "#777777",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#0075FF"
+        },
+        "primaryData": {
+          "one": "#E7BD74",
+          "two": "#4D6380",
+          "three": "#354559",
+          "four": "#354559"
+        },
+        "results": {
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "one": "#E1AB4C",
+          "two": "#93B2A5",
+          "three": "#EC674C"
+        },
+        "condition": {
+          "zero": "#E6E6E6",
+          "one": "#1EC490",
+          "two": "#FF9338",
+          "three": "#FF608A"
+        },
+        "charts": {
+          "zero": "#E6E6E6",
+          "one": "#5494E4",
+          "two": "#E1AB4C",
+          "three": "#CE4C4C",
+          "four": "#74BB9D",
+          "five": "#7E74BB"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA891",
+          "three": "#E79720",
+          "four": "#F17047",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9944",
+          "nine": "#B49F31",
+          "ten": "#E9A846",
+          "eleven": "#E94681",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        }
+      }
+    }
+  },
+  "chains": [
+    {
+      "network": "shentu-2.2",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "2020-10-24T14:24:00",
+        "height": 4602989
+      },
+      "prefix": {
+        "consensus": "certikvalcons",
+        "validator": "certikvaloper",
+        "account": "certik"
+      },
+      "primaryTokenUnit": "uctk",
+      "votingPowerTokenUnit": "uctk",
+      "tokenUnits": {
+        "uctk": {
+          "display": "ctk",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.certik.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.certik.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc.certik.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
+      }
+    }
+  ]
+}
+EOF
+
+[ ! -d apps/web-persistence ] && cp -av apps/web apps/web-persistence && node <<EOF
+const { readFileSync, writeFileSync } = require('fs');
+const package = JSON.parse(readFileSync('apps/web-persistence/package.json'));
+package.name = "web-persistence";
+writeFileSync('apps/web-persistence/package.json', JSON.stringify(package, null, 2), 'utf8');
+EOF
+cat <<EOF > apps/web-persistence/src/chain.json
+{
+  "chainName": "persistence",
+  "title": "Persistence Block Explorer",
+  "extra": {
+    "profile": true,
+    "graphqlWs": true
+  },
+  "previewImage": "https://s3.bigdipper.live/persistence.png",
+  "themes": {
+    "default": "dark",
+    "themeList": [
+      "dark",
+      "deuteranopia",
+      "tritanopia"
+    ],
+    "dark": {
+      "primary": {
+        "main": "#FF3D47",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#000000",
+        "paper": "#1F1F1F"
+      },
+      "divider": "#504949",
+      "text": {
+        "primary": "#E6E6E6",
+        "secondary": "#C4C4C4"
+      },
+      "custom": {
+        "general": {
+          "background": "#000000",
+          "surfaceOne": "#1F1F1F",
+          "surfaceTwo": "#363636",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#E6E6E6",
+          "fontTwo": "#C4C4C4",
+          "fontThree": "#818181",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#0075FF"
+        },
+        "primaryData": {
+          "one": "#FF3D47",
+          "two": "#CD4A49",
+          "three": "#883434",
+          "four": "#451918"
+        },
+        "results": {
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "one": "#FF3D47",
+          "two": "#3DC8FF",
+          "three": "#A8FF3D"
+        },
+        "condition": {
+          "zero": "#E8E8E8",
+          "one": "#1EC490",
+          "two": "#FF9338",
+          "three": "#FF608A"
+        },
+        "charts": {
+          "zero": "#E8E8E8",
+          "one": "#31F6AB",
+          "two": "#FF5D00",
+          "three": "#313BF6",
+          "four": "#F6ED31",
+          "five": "#F631BF"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA897",
+          "three": "#E79726",
+          "four": "#F17053",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9950",
+          "nine": "#B49F37",
+          "ten": "#E9A852",
+          "eleven": "#E94687",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        }
+      }
+    },
+    "light": {
+      "primary": {},
+      "background": {},
+      "text": {},
+      "custom": {
+        "general": {
+          "icon": "#999999"
+        },
+        "fonts": {},
+        "primaryData": {},
+        "results": {},
+        "tokenomics": {},
+        "condition": {},
+        "charts": {},
+        "tags": {}
+      }
+    }
+  },
+  "chains": [
+    {
+      "network": "core-1",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "2021-03-30T12:08:46",
+        "height": 1
+      },
+      "prefix": {
+        "consensus": "persistencevalcons",
+        "validator": "persistencevaloper",
+        "account": "persistence"
+      },
+      "primaryTokenUnit": "uxprt",
+      "votingPowerTokenUnit": "uxprt",
+      "tokenUnits": {
+        "uxprt": {
+          "display": "xprt",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.persistence.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.persistence.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc.persistence.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
+      }
+    }
+  ]
+}
+EOF
+
+[ ! -d apps/web-stride ] && cp -av apps/web apps/web-stride && node <<EOF
+const { readFileSync, writeFileSync } = require('fs');
+const package = JSON.parse(readFileSync('apps/web-stride/package.json'));
+package.name = "web-stride";
+writeFileSync('apps/web-stride/package.json', JSON.stringify(package, null, 2), 'utf8');
+EOF
+cat <<EOF > apps/web-stride/src/chain.json
+{
+  "chainName": "stride",
+  "title": "Stride Block Explorer",
+  "extra": {
+    "profile": true,
+    "graphqlWs": false
+  },
+  "previewImage": "https://s3.bigdipper.live/stride.png",
+  "themes": {
+    "default": "light",
+    "themeList": [
+      "dark",
+      "light",
+      "deuteranopia",
+      "tritanopia"
+    ],
+    "dark": {
+      "primary": {
+        "main": "rgba(233,17,121,1)",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#141617",
+        "paper": "#232829"
+      },
+      "divider": "#525252",
+      "text": {
+        "primary": "#E6E6E6",
+        "secondary": "#C4C4C4"
+      },
+      "custom": {
+        "general": {
+          "background": "#141617",
+          "surfaceOne": "#232829",
+          "surfaceTwo": "#333333",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#E6E6E6",
+          "fontTwo": "#C4C4C4",
+          "fontThree": "#818181",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#4092CD"
+        },
+        "primaryData": {
+          "one": "#E91179",
+          "two": "#F14196",
+          "three": "#45B1C4",
+          "four": "#378D9B"
+        },
+        "results": {
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "one": "#1EC490",
+          "two": "#497BFF",
+          "three": "#9F46EC"
+        },
+        "condition": {
+          "zero": "#E8E8E8",
+          "one": "#1EC490",
+          "two": "#FF9338",
+          "three": "#FF608A"
+        },
+        "charts": {
+          "zero": "#E8E8E8",
+          "one": "55F28C',",
+          "two": "#1A88FF",
+          "three": "#DD1AFF",
+          "four": "#FFDC19",
+          "five": "#E91179"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA897",
+          "three": "#E79726",
+          "four": "#F17053",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9950",
+          "nine": "#B49F37",
+          "ten": "#E9A852",
+          "eleven": "#E94687",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        }
+      }
+    },
+    "light": {
+      "primary": {
+        "main": "#E91179",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#F2FBFD",
+        "paper": "#FEFFFF"
+      },
+      "divider": "#7A7A7A",
+      "text": {
+        "primary": "#000000",
+        "secondary": "#525252"
+      },
+      "custom": {
+        "general": {
+          "background": "#F2FBFD",
+          "surfaceOne": "#FEFFFF",
+          "surfaceTwo": "#EFEFEF",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#000000",
+          "fontTwo": "#414141",
+          "fontThree": "#777777",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#4092CD"
+        },
+        "primaryData": {
+          "one": "#E91179",
+          "two": "#F14196",
+          "three": "#45B1C4",
+          "four": "#378D9B"
+        },
+        "results": {
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "one": "#1EC490",
+          "two": "#497BFF",
+          "three": "#9F46EC"
+        },
+        "condition": {
+          "zero": "#E8E8E8",
+          "one": "#1EC490",
+          "two": "#FF961B",
+          "three": "#FC6A8A"
+        },
+        "charts": {
+          "zero": "#D3D3D3",
+          "one": "#EB3AA4",
+          "two": "#497BFF",
+          "three": "#FF961B",
+          "four": "#1EC490",
+          "five": "#9F46EC"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA891",
+          "three": "#E79720",
+          "four": "#F17047",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9944",
+          "nine": "#B49F31",
+          "ten": "#E9A846",
+          "eleven": "#E94681",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        }
+      }
+    }
+  },
+  "chains": [
+    {
+      "network": "stride-1",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "2022-09-04T19:00:00",
+        "height": 1
+      },
+      "prefix": {
+        "consensus": "stridevalcons",
+        "validator": "stridevaloper",
+        "account": "stride"
+      },
+      "primaryTokenUnit": "ustrd",
+      "votingPowerTokenUnit": "ustrd",
+      "tokenUnits": {
+        "ustrd": {
+          "display": "strd",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.stride.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.stride.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc.stride.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
+      }
+    }
+  ]
+}
+EOF
+
+[ ! -d apps/web-nym ] && cp -av apps/web apps/web-nym && node <<EOF
+const { readFileSync, writeFileSync } = require('fs');
+const package = JSON.parse(readFileSync('apps/web-nym/package.json'));
+package.name = "web-nym";
+writeFileSync('apps/web-nym/package.json', JSON.stringify(package, null, 2), 'utf8');
+EOF
+cat <<EOF > apps/web-nym/src/chain.json
+{
+  "chainName": "nym",
+  "title": "NYM Block Explorer",
+  "extra": {
+    "profile": true,
+    "graphqlWs": false
+  },
+  "previewImage": "https://s3.bigdipper.live/nym.png",
+  "themes": {
+    "default": "light",
+    "themeList": [
+      "dark",
+      "light",
+      "deuteranopia",
+      "tritanopia"
+    ],
+    "dark": {
+      "primary": {
+        "main": "rgba(251,110,78,1)",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#000000",
+        "paper": "#1C1F1F"
+      },
+      "divider": "#525252",
+      "text": {
+        "primary": "#E6E6E6",
+        "secondary": "#E6E6E6"
+      },
+      "custom": {
+        "general": {
+          "background": "#000000",
+          "surfaceOne": "#1C1F1F",
+          "surfaceTwo": "#333333",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#E6E6E6",
+          "fontTwo": "#C4C4C4",
+          "fontThree": "#818181",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#4092CD"
+        },
+        "primaryData": {
+          "one": "#FB6E4E",
+          "two": "#DE4454",
+          "three": "#656565",
+          "four": "#434343"
+        },
+        "results": {
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "one": "#1EC490",
+          "two": "#497BFF",
+          "three": "#9F46EC"
+        },
+        "condition": {
+          "zero": "#E8E8E8",
+          "one": "#1EC490",
+          "two": "#FF9338",
+          "three": "#FF608A"
+        },
+        "charts": {
+          "zero": "#E8E8E8",
+          "one": "#8FF053",
+          "two": "#4E7EFB",
+          "three": "#AF4EFB",
+          "four": "#FBCB4E",
+          "five": "#FB6E4E"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA897",
+          "three": "#E79726",
+          "four": "#F17053",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9950",
+          "nine": "#B49F37",
+          "ten": "#E9A852",
+          "eleven": "#E94687",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        }
+      }
+    },
+    "light": {
+      "primary": {
+        "main": "#FB6E4E",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#F6F6F6",
+        "paper": "#FEFFFF"
+      },
+      "divider": "#7A7A7A",
+      "text": {
+        "primary": "#000000",
+        "secondary": "#525252"
+      },
+      "custom": {
+        "general": {
+          "background": "#F6F6F6",
+          "surfaceOne": "#FEFFFF",
+          "surfaceTwo": "#EFEFEF",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#000000",
+          "fontTwo": "#414141",
+          "fontThree": "#777777",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#4092CD"
+        },
+        "primaryData": {
+          "one": "#FB6E4E",
+          "two": "#DE4454",
+          "three": "#656565",
+          "four": "#434343"
+        },
+        "results": {
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "one": "#1EC490",
+          "two": "#497BFF",
+          "three": "#9F46EC"
+        },
+        "condition": {
+          "zero": "#E8E8E8",
+          "one": "#1EC490",
+          "two": "#FF9338",
+          "three": "#FF608A"
+        },
+        "charts": {
+          "zero": "#E8E8E8",
+          "one": "#55F28C",
+          "two": "#1A88FF",
+          "three": "#DD1AFF",
+          "four": "#FFDC19",
+          "five": "#E91179"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA891",
+          "three": "#E79720",
+          "four": "#F17047",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9944",
+          "nine": "#B49F31",
+          "ten": "#E9A846",
+          "eleven": "#E94681",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        }
+      }
+    }
+  },
+  "chains": [
+    {
+      "network": "nyx",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "2022-01-31T21:00:00",
+        "height": 1
+      },
+      "prefix": {
+        "consensus": "nvalcons",
+        "validator": "nvaloper",
+        "account": "n"
+      },
+      "primaryTokenUnit": "unyx",
+      "votingPowerTokenUnit": "unyx",
+      "tokenUnits": {
+        "unyx": {
+          "display": "nym",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.nym.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.nym.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc.nym.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
+      }
+    }
+  ]
+}
+EOF
+
+[ ! -d apps/web-quicksilver ] && cp -av apps/web apps/web-quicksilver && node <<EOF
+const { readFileSync, writeFileSync } = require('fs');
+const package = JSON.parse(readFileSync('apps/web-quicksilver/package.json'));
+package.name = "web-quicksilver";
+writeFileSync('apps/web-quicksilver/package.json', JSON.stringify(package, null, 2), 'utf8');
+EOF
+cat <<EOF > apps/web-quicksilver/src/chain.json
+{
+  "chainName": "quicksilver",
+  "title": "Quicksilver Block Explorer",
+  "extra": {
+    "profile": true,
+    "graphqlWs": true
+  },
+  "previewImage": "https://s3.bigdipper.live/quicksilver.png",
+  "themes": {
+    "default": "",
+    "themeList": [
+      "dark",
+      "light",
+      "deuteranopia",
+      "tritanopia"
+    ],
+    "dark": {
+      "primary": {
+        "main": "#7F8397",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#000000",
+        "paper": "#1C1F1F"
+      },
+      "divider": "#525252",
+      "text": {
+        "primary": "#E6E6E6",
+        "secondary": "#C4C4C4"
+      },
+      "custom": {
+        "general": {
+          "background": "#000000",
+          "surfaceOne": "#1C1F1F",
+          "surfaceTwo": "#333333",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#E6E6E6",
+          "fontTwo": "#C4C4C4",
+          "fontThree": "#818181",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#4092CD"
+        },
+        "primaryData": {
+          "one": "#3B3D48",
+          "two": "#5C5F70",
+          "three": "#7F8397",
+          "four": "#9396A7"
+        },
+        "results": {
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "one": "#AFB1BD",
+          "two": "#D2B261",
+          "three": "#5D50AC"
+        },
+        "condition": {
+          "zero": "#E8E8E8",
+          "one": "#1EC490",
+          "two": "#FF9338",
+          "three": "#FF608A"
+        },
+        "charts": {
+          "zero": "#E8E8E8",
+          "one": "#8CD261",
+          "two": "#61AAD2",
+          "three": "#9361D2",
+          "four": "#D2B261",
+          "five": "#D261AC"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA897",
+          "three": "#E79726",
+          "four": "#F17053",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9950",
+          "nine": "#B49F37",
+          "ten": "#E9A852",
+          "eleven": "#E94687",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        }
+      }
+    },
+    "light": {
+      "primary": {
+        "main": "#7F8397",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#F6F6F6",
+        "paper": "#FEFFFF"
+      },
+      "divider": "#7A7A7A",
+      "text": {
+        "primary": "#000000",
+        "secondary": "#525252"
+      },
+      "custom": {
+        "general": {
+          "background": "#F6F6F6",
+          "surfaceOne": "#FEFFFF",
+          "surfaceTwo": "#EFEFEF",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#000000",
+          "fontTwo": "#414141",
+          "fontThree": "#777777",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#4092CD"
+        },
+        "primaryData": {
+          "one": "#3B3D48",
+          "two": "#5C5F70",
+          "three": "#7F8397",
+          "four": "#9396A7"
+        },
+        "results": {
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "one": "#AFB1BD",
+          "two": "#D2B261",
+          "three": "#5D50AC"
+        },
+        "condition": {
+          "zero": "#E8E8E8",
+          "one": "#1EC490",
+          "two": "#FF9338",
+          "three": "#FF608A"
+        },
+        "charts": {
+          "zero": "#D3D3D3",
+          "one": "#8CD261",
+          "two": "#61AAD2",
+          "three": "#9361D2",
+          "four": "#D2B261",
+          "five": "#D261AC"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA891",
+          "three": "#E79720",
+          "four": "#F17047",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9944",
+          "nine": "#B49F31",
+          "ten": "#E9A846",
+          "eleven": "#E94681",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        }
+      }
+    }
+  },
+  "chains": [
+    {
+      "network": "innuendo-3",
+      "chainType": "Testnet",
+      "genesis": {
+        "time": "2022-09-26T10:30:00.000Z",
+        "height": 1
+      },
+      "prefix": {
+        "consensus": "quickvalcons",
+        "validator": "quickvaloper",
+        "account": "quick"
+      },
+      "primaryTokenUnit": "uqck",
+      "votingPowerTokenUnit": "uqck",
+      "tokenUnits": {
+        "uqck": {
+          "display": "qck",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql-testnet.quicksilver.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql-testnet.quicksilver.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://gql-testnet.quicksilver.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
+      }
+    }
+  ]
+}
+EOF
+
+[ ! -d apps/web-quasar ] && cp -av apps/web apps/web-quasar && node <<EOF
+const { readFileSync, writeFileSync } = require('fs');
+const package = JSON.parse(readFileSync('apps/web-quasar/package.json'));
+package.name = "web-quasar";
+writeFileSync('apps/web-quasar/package.json', JSON.stringify(package, null, 2), 'utf8');
+EOF
+cat <<EOF > apps/web-quasar/src/chain.json
 {
   "chainName": "quasar",
   "title": "Quasar Block Explorer",
@@ -119,12 +5196,12 @@
       "network": "quasar",
       "chainType": "Testnet",
       "genesis": {
-        "time": "2021-04-20T16:20:00",
-        "height": 1
+        "time": "",
+        "height": 0
       },
       "prefix": {
-        "consensus": "qsrvalcons",
-        "validator": "qsrvaloper",
+        "consensus": "quasarvalcons",
+        "validator": "quasarvaloper",
         "account": "quasar"
       },
       "primaryTokenUnit": "uqsr",
@@ -136,9 +5213,9 @@
         }
       },
       "endpoints": {
-        "graphql": "https://gql.provenance.forbole.com/v1/graphql",
-        "graphqlWebsocket": "wss://gql.provenance.forbole.com/v1/graphql",
-        "publicRpcWebsocket": "wss://rpc.provenance.forbole.com/websocket"
+        "graphql": "https://gql-testnet.quasar.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql-testnet.quasar.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc-testnet.quasar.forbole.com/websocket"
       },
       "marketing": {
         "matomoURL": "https://analytics.bigdipper.live",
@@ -147,3 +5224,4 @@
     }
   ]
 }
+EOF
