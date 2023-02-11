@@ -1,5 +1,13 @@
 # ui
 
+## 2.12.1
+
+### Patch Changes
+
+- b4ac0a0c5: feat: setup Quasar testnet
+- Updated dependencies [b4ac0a0c5]
+  - shared-utils@2.6.3
+
 ## 2.12.0
 
 ### Minor Changes
