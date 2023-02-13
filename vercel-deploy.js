@@ -85,6 +85,7 @@ if (process.argv[2] === 'manual') {
 
     // VERCEL_GIT_PULL_REQUEST_ID is the pull request id
     const pullId = process.env.VERCEL_GIT_PULL_REQUEST_ID;
+    const base = process.env.VERCEL_GIT_COMMIT_REF;
     console.log(`VERCEL_GIT_PULL_REQUEST_ID:`, pullId);
 
     // GITHUB_API_TOKEN is the github api token, we need it to get the pull request title
@@ -110,7 +111,9 @@ if (process.argv[2] === 'manual') {
           `-H 'Accept: application/vnd.github+json' ` +
           `-H 'Authorization: Bearer '$GITHUB_API_TOKEN ` +
           `-H 'X-GitHub-Api-Version: 2022-11-28' ` +
-          `https://api.github.com/repos/forbole/big-dipper-2.0-cosmos/pulls?direction=desc&per_page=1`
+          `https://api.github.com/repos/forbole/big-dipper-2.0-cosmos/pulls?state=open${
+            base ? `&base=${encodeURIComponent(base)}` : ''
+          }&per_page=1`
       );
       const [page] = JSON.parse(response) ?? [];
       const { title } = page ?? {};
