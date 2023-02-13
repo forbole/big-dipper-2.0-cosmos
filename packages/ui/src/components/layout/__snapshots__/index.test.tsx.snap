@@ -14,10 +14,6 @@ exports[`component: Layout it renders 1`] = `
   }
 }
 
-.emotion-1 {
-  overflow: auto;
-}
-
 @media (min-width:1280px) {
   .emotion-1 {
     display: -webkit-box;

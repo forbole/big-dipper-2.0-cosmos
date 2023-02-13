@@ -28,8 +28,27 @@ exports[`screen: ProposalDetails matches snapshot 1`] = `
   }
 }
 
+@media (min-width:768px) {
+  .emotion-2 {
+    grid-column: 1/2;
+  }
+}
+
 @media (min-width:1280px) {
   .emotion-2 {
+    grid-column: 1/4;
+    height: auto;
+  }
+}
+
+@media (min-width:1280px) {
+  .emotion-3 {
+    grid-column: 1/4;
+  }
+}
+
+@media (min-width:1280px) {
+  .emotion-4 {
     grid-column: 1/4;
   }
 }
@@ -41,7 +60,7 @@ exports[`screen: ProposalDetails matches snapshot 1`] = `
   <div
     exists={true}
     id="LoadAndExist"
-    loading={true}
+    loading={false}
   >
     <span
       className="emotion-0"
@@ -52,24 +71,33 @@ exports[`screen: ProposalDetails matches snapshot 1`] = `
         overview={
           {
             "content": {
-              "amount": [],
-              "recipient": "",
+              "@type": "/cosmos.gov.v1beta1.TextProposal",
+              "description": "Set the minimum commission to 5%. This will help ensure network stability. It also ensures that validators earn enough to support secure and stable validation. We must create a healthier network. If this proposal is accepted, it will mean that the blockchain needs to be updated so that the fee of all validators can be changed automatically.",
+              "title": "Increase minimum commission rate to 5%",
             },
-            "depositEndTime": "",
-            "description": "",
-            "id": 0,
-            "proposalType": "",
-            "proposer": "",
-            "status": "",
-            "submitTime": "",
-            "title": "",
-            "votingEndTime": "",
-            "votingStartTime": "",
+            "depositEndTime": "2022-02-22T19:03:14.969688",
+            "description": "Set the minimum commission to 5%. This will help ensure network stability. It also ensures that validators earn enough to support secure and stable validation. We must create a healthier network. If this proposal is accepted, it will mean that the blockchain needs to be updated so that the fee of all validators can be changed automatically.",
+            "id": 14,
+            "proposalType": "CommunityPoolSpend",
+            "proposer": "desmos1e4g9807ephy5t7zzt6vu0kw7tryqh9k39w3gc2",
+            "status": "PROPOSAL_STATUS_PASSED",
+            "submitTime": "2022-02-19T19:03:14.969688",
+            "title": "Increase minimum commission rate to 5%",
+            "votingEndTime": "2022-02-26T19:03:14.969688",
+            "votingStartTime": "2022-02-19T19:03:14.969688",
           }
         }
       />
       <div
         className="emotion-2"
+        id="VotesGraph"
+      />
+      <div
+        className="emotion-3"
+        id="Votes"
+      />
+      <div
+        className="emotion-4"
         id="Deposits"
       />
     </span>

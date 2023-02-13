@@ -4,7 +4,7 @@ generates:
     documents:
       - 'src/graphql/general/*'
     schema: https://gql.stride.forbole.com/v1/graphql
-    # yarn dlx graphql-codegen download-schema https://gql.quicksilver.forbole.com/v1/graphql --output apps/web-stride/src/graphql/schema.json
+    # yarn dlx graphql-codegen download-schema https://gql.stride.forbole.com/v1/graphql --output apps/web-stride/src/graphql/schema.json
     # schema: 'src/graphql/schema.json'
     config:
       # omitOperationSuffix: true

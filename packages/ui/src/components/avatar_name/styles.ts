@@ -5,16 +5,28 @@ const useStyles = makeStyles()((theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'flex-start',
-    '& p': {
-      color: theme.palette.custom.fonts.highlight,
-      marginLeft: theme.spacing(1),
-      whiteSpace: 'nowrap',
-      overflow: 'hidden',
-      textOverflow: 'ellipsis',
-    },
+    gap: theme.spacing(1),
+    flexFlow: 'row nowrap',
     '&:hover': {
       cursor: 'pointer',
     },
+  },
+  avatar: {
+    '&': {
+      flex: `0 0 ${theme.spacing(3.5)}`,
+    },
+  },
+  text: {
+    '&': {
+      flex: `1 1 auto`,
+      color: theme.palette.custom.fonts.highlight,
+    },
+  },
+  popper: {
+    marginTop: `-${theme.spacing(2)} !important`,
+  },
+  tooltip: {
+    maxWidth: 'none',
   },
 }));
 

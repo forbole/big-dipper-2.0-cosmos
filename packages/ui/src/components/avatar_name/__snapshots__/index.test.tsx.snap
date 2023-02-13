@@ -14,14 +14,11 @@ exports[`component: AvatarName matches snapshot 1`] = `
   -ms-flex-pack: start;
   -webkit-justify-content: flex-start;
   justify-content: flex-start;
-}
-
-.emotion-0 p {
-  color: #4092CD;
-  margin-left: 8px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  gap: 8px;
+  -webkit-box-flex-flow: row nowrap;
+  -webkit-flex-flow: row nowrap;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
 }
 
 .emotion-0:hover {
@@ -29,19 +26,73 @@ exports[`component: AvatarName matches snapshot 1`] = `
 }
 
 .emotion-1 {
-  margin: 0;
-  font-size: 1rem;
-  white-space: pre-wrap;
-  letter-spacing: 0.5px;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
-  font-weight: 400;
-  line-height: 1.5;
+  -webkit-flex: 0 0 28px;
+  -ms-flex: 0 0 28px;
+  flex: 0 0 28px;
+}
+
+.emotion-2 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-flex-flow: row nowrap;
+  -webkit-flex-flow: row nowrap;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 100%;
+  text-align: left;
+}
+
+.emotion-2 {
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  color: #4092CD;
+}
+
+.emotion-3.emotion-3 {
+  letter-spacing: 0;
+  display: inline-block;
+  -webkit-flex: 0 1 auto;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  overflow: hidden;
+  height: 1lh;
+  line-height: 1lh;
+  max-width: 50%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.emotion-4.emotion-4 {
+  letter-spacing: 0;
+  display: inline-block;
+  -webkit-flex: 0 1 auto;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  overflow: hidden;
+  height: 1lh;
+  line-height: 1lh;
+  max-width: 50;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 <a
+  aria-label={null}
+  aria-labelledby={null}
+  data-mui-internal-clone-element={true}
   href="/accounts/123"
+  onBlur={[Function]}
   onClick={[Function]}
+  onFocus={[Function]}
   onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  onMouseOver={[Function]}
+  onTouchEnd={[Function]}
   onTouchStart={[Function]}
 >
   <div
@@ -49,13 +100,21 @@ exports[`component: AvatarName matches snapshot 1`] = `
   >
     <div
       address="123"
+      className="emotion-1"
       id="Avatar"
     />
-    <p
-      className="MuiTypography-root MuiTypography-body1 emotion-1"
+    <span
+      className="emotion-2"
     >
-      name
-    </p>
+      <span
+        className="emotion-3"
+      />
+      <span
+        className="emotion-4"
+      >
+        name
+      </span>
+    </span>
   </div>
 </a>
 `;
@@ -74,14 +133,11 @@ exports[`component: AvatarName matches snapshot with imageUrl 1`] = `
   -ms-flex-pack: start;
   -webkit-justify-content: flex-start;
   justify-content: flex-start;
-}
-
-.emotion-0 p {
-  color: #4092CD;
-  margin-left: 8px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  gap: 8px;
+  -webkit-box-flex-flow: row nowrap;
+  -webkit-flex-flow: row nowrap;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
 }
 
 .emotion-0:hover {
@@ -89,19 +145,73 @@ exports[`component: AvatarName matches snapshot with imageUrl 1`] = `
 }
 
 .emotion-1 {
-  margin: 0;
-  font-size: 1rem;
-  white-space: pre-wrap;
-  letter-spacing: 0.5px;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
-  font-weight: 400;
-  line-height: 1.5;
+  -webkit-flex: 0 0 28px;
+  -ms-flex: 0 0 28px;
+  flex: 0 0 28px;
+}
+
+.emotion-2 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-flex-flow: row nowrap;
+  -webkit-flex-flow: row nowrap;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 100%;
+  text-align: left;
+}
+
+.emotion-2 {
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  color: #4092CD;
+}
+
+.emotion-3.emotion-3 {
+  letter-spacing: 0;
+  display: inline-block;
+  -webkit-flex: 0 1 auto;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  overflow: hidden;
+  height: 1lh;
+  line-height: 1lh;
+  max-width: 50%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.emotion-4.emotion-4 {
+  letter-spacing: 0;
+  display: inline-block;
+  -webkit-flex: 0 1 auto;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  overflow: hidden;
+  height: 1lh;
+  line-height: 1lh;
+  max-width: 50;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 <a
+  aria-label={null}
+  aria-labelledby={null}
+  data-mui-internal-clone-element={true}
   href="/accounts/123"
+  onBlur={[Function]}
   onClick={[Function]}
+  onFocus={[Function]}
   onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  onMouseOver={[Function]}
+  onTouchEnd={[Function]}
   onTouchStart={[Function]}
 >
   <div
@@ -109,14 +219,22 @@ exports[`component: AvatarName matches snapshot with imageUrl 1`] = `
   >
     <div
       address="123"
+      className="emotion-1"
       id="Avatar"
       imageUrl="https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg"
     />
-    <p
-      className="MuiTypography-root MuiTypography-body1 emotion-1"
+    <span
+      className="emotion-2"
     >
-      name
-    </p>
+      <span
+        className="emotion-3"
+      />
+      <span
+        className="emotion-4"
+      >
+        name
+      </span>
+    </span>
   </div>
 </a>
 `;

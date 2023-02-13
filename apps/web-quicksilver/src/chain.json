@@ -7,7 +7,7 @@
   },
   "previewImage": "https://s3.bigdipper.live/quicksilver.png",
   "themes": {
-    "default": "",
+    "default": "dark",
     "themeList": [
       "dark",
       "light",

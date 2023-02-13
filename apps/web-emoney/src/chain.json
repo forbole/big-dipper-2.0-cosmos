@@ -7,7 +7,7 @@
   },
   "previewImage": "https://s3.bigdipper.live/emoney.png",
   "themes": {
-    "default": "",
+    "default": "dark",
     "themeList": [
       "dark",
       "deuteranopia",

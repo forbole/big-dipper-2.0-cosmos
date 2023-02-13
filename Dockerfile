@@ -61,7 +61,8 @@ ENV NEXT_PUBLIC_RPC_WEBSOCKET={{NEXT_PUBLIC_RPC_WEBSOCKET}}
 RUN export SENTRYCLI_SKIP_DOWNLOAD=$([ -z "${NEXT_PUBLIC_SENTRY_DSN}" ] && echo 1) \
   && corepack enable && yarn -v \
   && yarn config set supportedArchitectures --json '{}' \
-  && YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn install --inline-builds
+  && YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn install --inline-builds \
+  && yarn workspace ${PROJECT_NAME} add sharp
 
 ## Build the project
 COPY --from=pruner /app/out/full/ ./

@@ -80,7 +80,7 @@ describe('screen: Home/DataBlocks', () => {
           <MockedProvider
             mocks={[
               {
-                request: { query: LatestBlockHeightListenerDocument },
+                request: { query: LatestBlockHeightListenerDocument, variables: { offset: 0 } },
                 result: mockLatestBlockHeight,
               },
               { request: { query: TokenPriceListenerDocument }, result: mockTokenPrice },
