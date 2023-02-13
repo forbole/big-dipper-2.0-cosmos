@@ -1,5 +1,19 @@
 # Unreleased
 
+## 2.8.4
+
+### Patch Changes
+
+- Updated dependencies [af2e8add5]
+  - shared-utils@2.7.0
+  - ui@2.13.0
+
+## 2.8.3
+
+### Patch Changes
+
+- 5ffa2cf9e: fix: exponent setting
+
 ## 2.8.2
 
 ### Patch Changes

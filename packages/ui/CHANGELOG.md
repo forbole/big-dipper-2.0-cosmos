@@ -1,5 +1,30 @@
 # ui
 
+## 2.13.0
+
+### Minor Changes
+
+- af2e8add5: add: quicksilver workspace
+
+### Patch Changes
+
+- Updated dependencies [af2e8add5]
+  - shared-utils@2.7.0
+
+## 2.12.1
+
+### Patch Changes
+
+- b4ac0a0c5: feat: setup Quasar testnet
+- Updated dependencies [b4ac0a0c5]
+  - shared-utils@2.6.3
+
+## 2.12.0
+
+### Minor Changes
+
+- e12c3b0c2: add custom message types, including Profiles, Posts, Reactions, Reports and Subspaces modules
+
 ## 2.11.1
 
 ### Patch Changes

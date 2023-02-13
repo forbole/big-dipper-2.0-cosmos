@@ -1,5 +1,11 @@
 # shared-utils
 
+## 2.7.0
+
+### Minor Changes
+
+- af2e8add5: add: quicksilver workspace
+
 ## 2.6.3
 
 ### Patch Changes
