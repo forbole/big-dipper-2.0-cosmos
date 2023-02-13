@@ -32,7 +32,7 @@ function decompressGzip(byteCode: string): Uint8Array {
   return pako.inflate(bytes);
 }
 
-const steps = ['Decompressing', 'Converting binary to text', 'Decompiling as C'];
+const steps = ['Decompressing', 'Converting binary to text', 'Done'];
 
 // https://github.com/CosmWasm/wasmd/blob/main/docs/proto/proto-docs.md#cosmwasm.wasm.v1.Model
 const ByteCode: FC<ByteCodeProps> = ({ className, byteCode }) => {
