@@ -219,6 +219,7 @@ export const common = (theme: ThemeOptions) =>
           tooltip: {
             pointerEvents: 'auto',
             background: theme.palette?.divider,
+            color: theme.palette?.getContrastText?.(theme.palette?.divider ?? '#000000'),
             padding: 4,
             borderRadius: 4,
           },

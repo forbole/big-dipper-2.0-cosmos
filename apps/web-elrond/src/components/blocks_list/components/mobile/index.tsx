@@ -28,9 +28,10 @@ const Mobile: FC<{ className?: string; items: BlockType[] }> = (props) => {
         </Link>
       ),
       txs: numeral(x.txs).format('0,0'),
-      time: <Timestamp timestamp={x.timestamp} />,
+      time: <Timestamp timestamp={x.timestamp} isUnix />,
     };
   });
+
   return (
     <div className={props.className}>
       {formattedItems?.map((x, i) => (

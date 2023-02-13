@@ -49,8 +49,9 @@ const Desktop: FC<{ className?: string; items: TransactionType[] }> = (props) =>
       />
     ),
     status: <Result status={x.status} />,
-    time: <Timestamp timestamp={x.timestamp} />,
+    time: <Timestamp timestamp={x.timestamp} isUnix />,
   }));
+
   return (
     <div className={cx(classes.root, className)}>
       <Table>
