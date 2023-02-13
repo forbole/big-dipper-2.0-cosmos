@@ -39,7 +39,9 @@ const ByteCode: FC<ByteCodeProps> = ({ className, byteCode }) => {
   const { classes } = useStyles();
   const { t } = useTranslation('wasm_contracts');
   const [activeStep, setActiveStep] = useState(0);
-  const [code, setCode] = useState(byteCode);
+  const [displayStep, setDisplayStep] = useState(0);
+  const [codeBinary, setCodeBinary] = useState(byteCode);
+  const [codeText, setCodeText] = useState(byteCode);
   const firstRun = useRef(true);
 
   useEffect(() => {
@@ -54,7 +56,7 @@ const ByteCode: FC<ByteCodeProps> = ({ className, byteCode }) => {
           Prism.languages.clike,
           'clike'
         );
-        setCode(decompressedCode);
+        setCodeBinary(decompressedCode);
 
         (async () => {
           const readWasm = await readWasmPromise;
@@ -66,17 +68,20 @@ const ByteCode: FC<ByteCodeProps> = ({ className, byteCode }) => {
               mod.generateNames();
               const modCode = Prism.highlight(modText, Prism.languages.clike, 'clike');
               mod.destroy();
-              setCode(modCode);
+              setCodeText(modCode);
             } catch (error) {
               console.error(error);
             }
             setActiveStep(2);
+            setDisplayStep(2);
           });
         })();
         setActiveStep(1);
+        setDisplayStep(1);
       } catch (error) {
         console.error(error);
         setActiveStep(steps.length - 1);
+        setDisplayStep(steps.length - 1);
       }
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -101,7 +106,12 @@ const ByteCode: FC<ByteCodeProps> = ({ className, byteCode }) => {
                 {steps.map((label, index) => {
                   const stepProps = { completed: activeStep >= index };
                   return (
-                    <Step key={label} {...stepProps} sx={{ position: 'relative' }}>
+                    <Step
+                      key={label}
+                      {...stepProps}
+                      sx={{ position: 'relative', cursor: 'pointer' }}
+                      onClick={() => setDisplayStep(index)}
+                    >
                       {index === activeStep && index < steps.length - 1 && (
                         <CircularProgress
                           color="secondary"
@@ -120,13 +130,33 @@ const ByteCode: FC<ByteCodeProps> = ({ className, byteCode }) => {
                   );
                 })}
               </Stepper>
-              <pre className={classes.codeBlock}>
+              <pre
+                className={classes.codeBlock}
+                style={{ display: displayStep === 0 ? 'block' : 'none' }}
+              >
+                <code className="language-hex">{byteCode}</code>
+              </pre>
+              <pre
+                className={classes.codeBlock}
+                style={{ display: displayStep === 1 ? 'block' : 'none' }}
+              >
                 {
-                  // eslint-disable-next-line react/no-danger
-                  <code className="language-hex" dangerouslySetInnerHTML={{ __html: code }} />
+                  <code
+                    className="language-clike"
+                    // eslint-disable-next-line react/no-danger
+                    dangerouslySetInnerHTML={{ __html: codeBinary }}
+                  />
                 }
               </pre>
-              <Script src="https://rawgit.com/wwwg/wasmdec/master/wasmdec.js/wasmdec.js" />
+              <pre
+                className={classes.codeBlock}
+                style={{ display: displayStep === 2 ? 'block' : 'none' }}
+              >
+                {
+                  // eslint-disable-next-line react/no-danger
+                  <code className="language-clike" dangerouslySetInnerHTML={{ __html: codeText }} />
+                }
+              </pre>
             </div>
           ),
           className: classes.codeItem,
