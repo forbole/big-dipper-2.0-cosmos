@@ -1,6 +1,9 @@
 # Build artifacts
 /target
 /pkg
+!/pkg/*.js
+!/pkg/*.ts
+!/pkg/*.wasm
 
 # wasm-pack generated files
 /node_modules
