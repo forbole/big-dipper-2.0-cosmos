@@ -54,7 +54,7 @@ export function useMarketRecoil() {
     const [communityPoolCoin] = ((data?.communityPool?.[0].coins as MsgCoin[]) ?? []).filter(
       (x) => x.denom === primaryTokenUnit
     );
-    const inflation = 0; // data?.inflation?.[0]?.value ?? 0;
+    const inflation = data?.inflation?.[0]?.value ?? 0;
 
     /* Getting the supply amount and formatting it. */
     const rawSupplyAmount = getDenom(data?.supply?.[0]?.coins, primaryTokenUnit).amount;
