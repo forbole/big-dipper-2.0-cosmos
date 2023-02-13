@@ -206,7 +206,7 @@ exports[`component: DesmosProfile matches snapshot 1`] = `
   <div
     className="emotion-2"
   >
-    <div
+    <span
       className="emotion-3"
     >
       <img
@@ -226,7 +226,7 @@ exports[`component: DesmosProfile matches snapshot 1`] = `
         }
         width={0}
       />
-    </div>
+    </span>
     <p
       className="MuiTypography-root MuiTypography-body1 emotion-5"
       onClick={[Function]}
