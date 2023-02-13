@@ -62,6 +62,8 @@ import sifchainLogoLight from 'shared-utils/assets/logos/sifchain-light.png';
 import solanaLogoLight from 'shared-utils/assets/logos/solana-dark.svg?url';
 import strideLogoDark from 'shared-utils/assets/logos/stride-dark.svg?url';
 import strideLogoLight from 'shared-utils/assets/logos/stride-light.svg?url';
+import quicksilverLogoLight from 'shared-utils/assets/logos/quicksilver-light.svg?url';
+import quicksilverLogoDark from 'shared-utils/assets/logos/quicksilver-dark.svg?url';
 
 interface IconProps extends Omit<ImageProps, 'id' | 'src'> {
   type: 'icon' | 'logo';
@@ -204,6 +206,12 @@ const ChainIcon = ({
     case 'quasar':
       [iconDark, iconLight] =
         type === 'icon' ? [quasarIconDark, quasarIconDark] : [quasarLogoDark, quasarLogoDark];
+      break;
+    case 'quicksilver':
+      [iconDark, iconLight] =
+        type === 'icon'
+          ? [quicksilverLogoDark, quicksilverLogoDark]
+          : [quicksilverLogoLight, quicksilverLogoLight];
       break;
     default:
       throw new Error(`chain ${chainName} not supported`);
