@@ -9,45 +9,30 @@ import Stepper from '@mui/material/Stepper';
 import { useTranslation } from 'next-i18next';
 import dynamic from 'next/dynamic';
 import Script from 'next/script';
+import pako from 'pako';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-clike';
 import 'prismjs/themes/prism.css';
 import { FC, startTransition, useEffect, useRef, useState } from 'react';
-import loadWasm, { decode } from 'rust-wasm/dist/rust_wasm';
 
 // Check if the bytecode is gzipped by checking the first two bytes
 const isGzipped = (byteCode: string) => /^\\x1f8b/.test(byteCode);
 
-declare global {
-  // eslint-disable-next-line @typescript-eslint/no-namespace
-  namespace Wasmdec {
-    class Decompiler {
-      constructor(a: boolean, b: boolean, type: 'wasm' | 'wast', inputWasm: unknown);
+// const strToUint8Array = (str: string) => new Uint8Array(str.split('').map((c) => c.charCodeAt(0)));
 
-      decompile(): boolean;
+const hexToUint8Array = (hex: string) =>
+  new Uint8Array(Array.from(hex.match(/[\da-f]{2}/gi) as string[], (h) => parseInt(h, 16)));
 
-      getDecompiledCode(): string;
+function decompressGzip(byteCode: string): Uint8Array {
+  const bytes = hexToUint8Array(byteCode);
 
-      destroy(): void;
-    }
-  }
+  if (!isGzipped(byteCode)) return bytes;
+
+  // Decompress the gzipped bytecode
+  return pako.inflate(bytes);
 }
 
-const strToUint8Array = (str: string) => new Uint8Array(str.split('').map((c) => c.charCodeAt(0)));
-
-// const hexToUint8Array = (hex: string) =>
-//   new Uint8Array(Array.from(hex.match(/[\da-f]{2}/gi) as string[], (h) => parseInt(h, 16)));
-
-// function decompressGzip(byteCode: string): Uint8Array {
-//   const bytes = hexToUInt8Array(byteCode);
-
-//   if (!isGzipped(byteCode)) return bytes;
-
-//   // Decompress the gzipped bytecode
-//   return pako.inflate(bytes);
-// }
-
-const steps = ['Decompressing', 'Converting binary to text', 'Decompiling as C', 'Done'];
+const steps = ['Decompressing', 'Converting binary to text', 'Decompiling as C'];
 
 // https://github.com/CosmWasm/wasmd/blob/main/docs/proto/proto-docs.md#cosmwasm.wasm.v1.Model
 const ByteCode: FC<ByteCodeProps> = ({ className, byteCode }) => {
@@ -60,68 +45,40 @@ const ByteCode: FC<ByteCodeProps> = ({ className, byteCode }) => {
   useEffect(() => {
     if (!firstRun.current) return;
     firstRun.current = false;
-    // const wasmdecPromise = require('https://rawgit.com/wwwg/wasmdec/master/wasmdec.js/wasmdec.js');
-    const wasmPromise = loadWasm();
     const readWasmPromise = import('wabt').then((w) => w.default()).then((w) => w.readWasm);
-    (async () => {
-      await wasmPromise;
+    startTransition(() => {
+      try {
+        const decompressed = decompressGzip(byteCode);
+        const decompressedCode = Prism.highlight(
+          new TextDecoder('ascii').decode(decompressed),
+          Prism.languages.clike,
+          'clike'
+        );
+        setCode(decompressedCode);
 
-      startTransition(() => {
-        try {
-          const decompressed = decode(strToUint8Array(byteCode));
-          const decompressedCode = Prism.highlight(
-            new TextDecoder('ascii').decode(decompressed),
-            Prism.languages.clike,
-            'clike'
-          );
-          setCode(decompressedCode);
+        (async () => {
+          const readWasm = await readWasmPromise;
 
-          (async () => {
-            const readWasm = await readWasmPromise;
-
-            startTransition(() => {
-              try {
-                const mod = readWasm(decompressed, { readDebugNames: true });
-                const modText = mod.toText({ foldExprs: false, inlineExport: false });
-                mod.generateNames();
-                const modCode = Prism.highlight(modText, Prism.languages.clike, 'clike');
-                mod.destroy();
-                setCode(modCode);
-
-                startTransition(() => {
-                  try {
-                    const decompiler = new Wasmdec.Decompiler(
-                      true,
-                      false,
-                      'wasm',
-                      strToUint8Array(modText)
-                    );
-                    const success = decompiler.decompile();
-                    if (success) {
-                      const cCode = decompiler.getDecompiledCode();
-                      // decompiler must be manually freed because it's a C++ object allocated on the heap
-                      decompiler.destroy();
-                      setCode(cCode);
-                    }
-                  } catch (error) {
-                    console.error(error);
-                  }
-                  setActiveStep(3);
-                });
-                setActiveStep(2);
-              } catch (error) {
-                console.error(error);
-                setActiveStep(3);
-              }
-            });
-          })();
-          setActiveStep(1);
-        } catch (error) {
-          console.error(error);
-          setActiveStep(3);
-        }
-      });
-    })();
+          startTransition(() => {
+            try {
+              const mod = readWasm(decompressed, { readDebugNames: true });
+              const modText = mod.toText({ foldExprs: false, inlineExport: false });
+              mod.generateNames();
+              const modCode = Prism.highlight(modText, Prism.languages.clike, 'clike');
+              mod.destroy();
+              setCode(modCode);
+            } catch (error) {
+              console.error(error);
+            }
+            setActiveStep(2);
+          });
+        })();
+        setActiveStep(1);
+      } catch (error) {
+        console.error(error);
+        setActiveStep(steps.length - 1);
+      }
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   if (!byteCode) return null;

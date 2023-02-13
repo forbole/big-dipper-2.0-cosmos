@@ -4,15 +4,14 @@
   "license": "Apache-2.0",
   "private": true,
   "scripts": {
-    "dev": "yarn rust-wasm:build && RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED=false next dev",
-    "build": "yarn rust-wasm:build && next build",
+    "dev": "RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED=false next dev",
+    "build": "next build",
     "clean": "rm -rf .next .swc .turbo coverage node_modules",
     "start": "next start",
     "check-types": "pnpify tsc --noemit",
     "lint": "next lint",
     "test": "pnpify jest --passWithNoTests --ci --no-watchman --runInBand",
-    "graphql:codegen": "pnpify graphql-codegen",
-    "rust-wasm:build": "yarn workspace rust-wasm build"
+    "graphql:codegen": "pnpify graphql-codegen"
   },
   "dependencies": {
     "@apollo/client": "^3.7.7",
@@ -41,6 +40,7 @@
     "next-i18next": "^13.1.5",
     "next-seo": "^5.15.0",
     "numeral": "^2.0.6",
+    "pako": "^2.1.0",
     "prismjs": "^1.29.0",
     "qrcode.react": "^3.1.0",
     "qs": "^6.11.0",
@@ -55,7 +55,6 @@
     "react-window-infinite-loader": "^1.0.8",
     "recharts": "^2.4.1",
     "recoil": "^0.7.6",
-    "rust-wasm": "workspace:*",
     "shared-utils": "workspace:*",
     "subscriptions-transport-ws": "^0.11.0",
     "tsconfig": "workspace:*",
@@ -92,6 +91,7 @@
     "@types/js-yaml": "^4.0.5",
     "@types/node": "^18.13.0",
     "@types/numeral": "^2.0.2",
+    "@types/pako": "^2",
     "@types/prismjs": "^1",
     "@types/qs": "^6.9.7",
     "@types/ramda": "^0.28.23",

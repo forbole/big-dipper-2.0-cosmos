@@ -120,10 +120,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:packages/jest-presets"\
       },\
       {\
-        "name": "rust-wasm",\
-        "reference": "workspace:packages/rust-wasm"\
-      },\
-      {\
         "name": "shared-utils",\
         "reference": "workspace:packages/shared-utils"\
       },\
@@ -142,7 +138,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["big-dipper-2.0-cosmos", ["workspace:."]],\
       ["eslint-config-custom", ["workspace:packages/eslint-config-custom"]],\
       ["jest-presets", ["workspace:packages/jest-presets"]],\
-      ["rust-wasm", ["workspace:packages/rust-wasm"]],\
       ["shared-utils", ["workspace:packages/shared-utils"]],\
       ["tsconfig", ["workspace:packages/tsconfig"]],\
       ["ui", ["workspace:packages/ui"]],\
@@ -7173,6 +7168,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-numeral-npm-2.0.2-9d4395fc9c-d8b778ef5d.zip/node_modules/@types/numeral/",\
           "packageDependencies": [\
             ["@types/numeral", "npm:2.0.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@types/pako", [\
+        ["npm:2.0.0", {\
+          "packageLocation": "./.yarn/cache/@types-pako-npm-2.0.0-cfc56150de-50240a036b.zip/node_modules/@types/pako/",\
+          "packageDependencies": [\
+            ["@types/pako", "npm:2.0.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -16139,6 +16143,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["pako", [\
+        ["npm:2.1.0", {\
+          "packageLocation": "./.yarn/cache/pako-npm-2.1.0-78df11948c-7166654864.zip/node_modules/pako/",\
+          "packageDependencies": [\
+            ["pako", "npm:2.1.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["param-case", [\
         ["npm:3.0.4", {\
           "packageLocation": "./.yarn/cache/param-case-npm-3.0.4-cfb242ad97-b34227fd0f.zip/node_modules/param-case/",\
@@ -17586,15 +17599,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["queue-microtask", "npm:1.2.3"]\
           ],\
           "linkType": "HARD"\
-        }]\
-      ]],\
-      ["rust-wasm", [\
-        ["workspace:packages/rust-wasm", {\
-          "packageLocation": "./packages/rust-wasm/",\
-          "packageDependencies": [\
-            ["rust-wasm", "workspace:packages/rust-wasm"]\
-          ],\
-          "linkType": "SOFT"\
         }]\
       ]],\
       ["rxjs", [\
@@ -20528,6 +20532,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/js-yaml", "npm:4.0.5"],\
             ["@types/node", "npm:18.13.0"],\
             ["@types/numeral", "npm:2.0.2"],\
+            ["@types/pako", "npm:2.0.0"],\
             ["@types/prismjs", "npm:1.26.0"],\
             ["@types/qs", "npm:6.9.7"],\
             ["@types/ramda", "npm:0.28.23"],\
@@ -20580,6 +20585,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["next-i18next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:13.1.5"],\
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.15.0"],\
             ["numeral", "npm:2.0.6"],\
+            ["pako", "npm:2.1.0"],\
             ["prismjs", "npm:1.29.0"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
             ["qs", "npm:6.11.0"],\
@@ -20595,7 +20601,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-window-infinite-loader", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.0.8"],\
             ["recharts", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:2.4.1"],\
             ["recoil", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.7.6"],\
-            ["rust-wasm", "workspace:packages/rust-wasm"],\
             ["shared-utils", "workspace:packages/shared-utils"],\
             ["subscriptions-transport-ws", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.11.0"],\
             ["ts-jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:29.0.5"],\

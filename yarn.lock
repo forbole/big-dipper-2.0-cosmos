@@ -4478,6 +4478,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/pako@npm:^2":
+  version: 2.0.0
+  resolution: "@types/pako@npm:2.0.0"
+  checksum: 50240a036b5e6acabbf36ac4dca93ec9e619241f0404da8d401cdb427bec3029833324b8a04c4b1ae2ecbc33422fdec31dbf9f43653d9d07cafb82ace78dfccd
+  languageName: node
+  linkType: hard
+
 "@types/parse-json@npm:^4.0.0":
   version: 4.0.0
   resolution: "@types/parse-json@npm:4.0.0"
@@ -11530,6 +11537,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"pako@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "pako@npm:2.1.0"
+  checksum: 71666548644c9a4d056bcaba849ca6fd7242c6cf1af0646d3346f3079a1c7f4a66ffec6f7369ee0dc88f61926c10d6ab05da3e1fca44b83551839e89edd75a3e
+  languageName: node
+  linkType: hard
+
 "param-case@npm:^3.0.4":
   version: 3.0.4
   resolution: "param-case@npm:3.0.4"
@@ -12628,12 +12642,6 @@ __metadata:
   checksum: cb4f97ad25a75ebc11a8ef4e33bb962f8af8516bb2001082ceabd8902e15b98f4b84b4f8a9b222e5d57fc3bd1379c483886ed4619367a7680dad65316993021d
   languageName: node
   linkType: hard
-
-"rust-wasm@workspace:*, rust-wasm@workspace:packages/rust-wasm":
-  version: 0.0.0-use.local
-  resolution: "rust-wasm@workspace:packages/rust-wasm"
-  languageName: unknown
-  linkType: soft
 
 "rxjs@npm:^7.5.5, rxjs@npm:^7.5.7":
   version: 7.5.7
@@ -15024,6 +15032,7 @@ __metadata:
     "@types/js-yaml": ^4.0.5
     "@types/node": ^18.13.0
     "@types/numeral": ^2.0.2
+    "@types/pako": ^2
     "@types/prismjs": ^1
     "@types/qs": ^6.9.7
     "@types/ramda": ^0.28.23
@@ -15076,6 +15085,7 @@ __metadata:
     next-i18next: ^13.1.5
     next-seo: ^5.15.0
     numeral: ^2.0.6
+    pako: ^2.1.0
     prismjs: ^1.29.0
     qrcode.react: ^3.1.0
     qs: ^6.11.0
@@ -15091,7 +15101,6 @@ __metadata:
     react-window-infinite-loader: ^1.0.8
     recharts: ^2.4.1
     recoil: ^0.7.6
-    rust-wasm: "workspace:*"
     shared-utils: "workspace:*"
     subscriptions-transport-ws: ^0.11.0
     ts-jest: ^29.0.5
