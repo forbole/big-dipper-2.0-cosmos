@@ -1,5 +1,14 @@
 # v1.0.4 - 2022-06-20
 
+## 2.9.5
+
+### Patch Changes
+
+- Updated dependencies [d08c0dfd]
+  - shared-utils@2.8.0
+  - tsconfig@0.3.0
+  - ui@2.14.0
+
 ## 2.9.4
 
 ### Patch Changes
