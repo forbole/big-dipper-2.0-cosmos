@@ -132,7 +132,7 @@
       "tokenUnits": {
         "uqsr": {
           "display": "qsr",
-          "exponent": 9
+          "exponent": 6
         }
       },
       "endpoints": {
