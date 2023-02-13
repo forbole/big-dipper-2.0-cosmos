@@ -87,11 +87,11 @@ if (process.argv[2] === 'manual') {
     const pullId = process.env.VERCEL_GIT_PULL_REQUEST_ID;
     console.log(`VERCEL_GIT_PULL_REQUEST_ID:`, pullId);
 
-    if (pullId) {
-      // GITHUB_API_TOKEN is the github api token, we need it to get the pull request title
-      const apiToken = process.env.GITHUB_API_TOKEN;
-      if (!apiToken) throw new Error('GITHUB_API_TOKEN is not defined');
+    // GITHUB_API_TOKEN is the github api token, we need it to get the pull request title
+    const apiToken = process.env.GITHUB_API_TOKEN;
+    if (!apiToken) throw new Error('GITHUB_API_TOKEN is not defined');
 
+    if (pullId) {
       /* Getting the pull request title. */
       const response = execShell(
         `curl ` +
@@ -101,6 +101,19 @@ if (process.argv[2] === 'manual') {
           `https://api.github.com/repos/forbole/big-dipper-2.0-cosmos/pulls/${pullId}`
       );
       const { title } = JSON.parse(response);
+
+      project = projectList.find((p) => title.endsWith(`[${p}]`)) || 'web';
+    } else {
+      /* Getting the pull request title. */
+      const response = execShell(
+        `curl ` +
+          `-H 'Accept: application/vnd.github+json' ` +
+          `-H 'Authorization: Bearer '$GITHUB_API_TOKEN ` +
+          `-H 'X-GitHub-Api-Version: 2022-11-28' ` +
+          `https://api.github.com/repos/forbole/big-dipper-2.0-cosmos/pulls?direction=desc&per_page=1`
+      );
+      const [page] = JSON.parse(response) ?? [];
+      const { title } = page ?? {};
 
       project = projectList.find((p) => title.endsWith(`[${p}]`)) || 'web';
     }
