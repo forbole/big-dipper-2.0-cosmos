@@ -10,6 +10,7 @@ import { FC, Fragment } from 'react';
 
 const Mobile: FC<{ className?: string; items: BlockType[] }> = (props) => {
   const formattedItems = props.items.map((x) => ({
+    key: x.hash,
     block: numeral(x.block).format('0,0'),
     hash: (
       <Link shallow prefetch={false} href={BLOCK_DETAILS(x.hash)} className="value">
@@ -20,13 +21,13 @@ const Mobile: FC<{ className?: string; items: BlockType[] }> = (props) => {
       </Link>
     ),
     txs: numeral(x.txs).format('0,0'),
-    time: <Timestamp timestamp={x.timestamp} />,
+    time: <Timestamp timestamp={x.timestamp} isUnix />,
   }));
 
   return (
-    <div>
+    <div className={props.className}>
       {formattedItems?.map((x, i) => (
-        <Fragment key={x.block}>
+        <Fragment key={x.key}>
           <SingleBlockMobile {...x} />
           {i !== formattedItems.length - 1 && <Divider />}
         </Fragment>

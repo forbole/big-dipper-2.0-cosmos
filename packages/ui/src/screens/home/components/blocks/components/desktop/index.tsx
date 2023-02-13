@@ -70,9 +70,9 @@ const BlockRow: FC<BlockRowProps> = ({ item }) => {
       {columns.map((column) => {
         const { key, align } = column;
         return (
-          <TableCell key={`${item.height}-${key}`} align={align}>
+          <TableCell key={`${item.hash}-${key}`} align={align}>
             <motion.div
-              key={`${item.height}-${key}`}
+              key={`${item.hash}-${key}`}
               initial="initial"
               animate="animate"
               exit="exit"
@@ -112,7 +112,7 @@ const Desktop: FC<DesktopProps> = ({ className, items }) => {
         <TableBody>
           <AnimatePresence initial={false}>
             {items.map((row) => (
-              <BlockRow key={row.height} item={row} />
+              <BlockRow key={row.hash} item={row} />
             ))}
           </AnimatePresence>
         </TableBody>

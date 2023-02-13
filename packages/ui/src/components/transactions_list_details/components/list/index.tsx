@@ -43,7 +43,7 @@ const ListItem: FC<ListItemProps> = ({ index, style, setRowHeight, isItemLoaded,
   }
 
   const item = {
-    key: transaction.height,
+    key: transaction.hash,
     block: (
       <Link shallow prefetch={false} href={BLOCK_DETAILS(transaction.height)}>
         {numeral(transaction.height).format('0,0')}

@@ -103,7 +103,7 @@ const Mobile: FC<MobileProps> = ({ className, items, itemCount, loadMoreItems, i
               >
                 {({ index, style }) => (
                   <ListItem
-                    key={items[index].height}
+                    key={items[index].hash}
                     index={index}
                     style={style}
                     setRowHeight={setRowHeight}

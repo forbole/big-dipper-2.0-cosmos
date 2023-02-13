@@ -29,10 +29,10 @@ const AvatarName: FC<AvatarName & JSX.IntrinsicElements['div']> = ({
       slotProps={{ tooltip: { className: classes.tooltip } }}
     >
       <Link shallow href={href(address)} target={target}>
-        <div className={cx(classes.root, className)} {...props}>
+        <span className={cx(classes.root, className)} {...props}>
           <Avatar className={classes.avatar} address={address} imageUrl={imageUrl ?? undefined} />
           <MiddleEllipsis className={classes.text} content={name} />
-        </div>
+        </span>
       </Link>
     </Tooltip>
   );

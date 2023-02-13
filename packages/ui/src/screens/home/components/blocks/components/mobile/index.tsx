@@ -19,7 +19,7 @@ type BlocksItemProps = {
 const BlocksItem: FC<BlocksItemProps> = ({ item, i, isLast }) => {
   const { name, address, imageUrl } = useProfileRecoil(item.proposer);
   return (
-    <Fragment key={`${i}-${item.height}`}>
+    <Fragment key={`${i}-${item.hash}`}>
       <SingleBlockMobile
         height={
           <Link shallow prefetch={false} href={BLOCK_DETAILS(item.height)} className="value">
@@ -47,7 +47,7 @@ type MobileProps = {
 const Mobile: FC<MobileProps> = ({ className, items }) => (
   <div className={className}>
     {items?.map((x, i) => (
-      <BlocksItem key={x.height} item={x} i={i} isLast={i === items.length - 1} />
+      <BlocksItem key={x.hash} item={x} i={i} isLast={i === items.length - 1} />
     ))}
   </div>
 );

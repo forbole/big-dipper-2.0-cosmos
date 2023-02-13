@@ -7,7 +7,6 @@ import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import Stepper from '@mui/material/Stepper';
 import { useTranslation } from 'next-i18next';
-import dynamic from 'next/dynamic';
 import pako from 'pako';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-clike';
@@ -163,4 +162,4 @@ const ByteCode: FC<ByteCodeProps> = ({ className, byteCode }) => {
   );
 };
 
-export default dynamic(() => Promise.resolve(ByteCode), { ssr: false });
+export default ByteCode;
