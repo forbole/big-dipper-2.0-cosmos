@@ -9,9 +9,10 @@ if (argRest[0] === 'test') {
     cwd: resolve(__dirname, '../..'),
   });
 } else if (argRest[0] === 'build') {
-  execSync(`wasm-pack build --target web --out-dir ${resolve(__dirname, 'pkg')}}`, {
+  execSync(`wasm-pack build --target web --out-dir ${resolve(__dirname, 'pkg')}`, {
     cwd: resolve(__dirname, '../..'),
   });
+  execSync(`cp ${resolve(__dirname, 'pkg')}/*.{js,ts,wasm} ${__dirname}/dist/`);
 } else {
   execSync(`wasm-pack ${argRest.join(' ')}`, {
     cwd: resolve(__dirname, '../..'),

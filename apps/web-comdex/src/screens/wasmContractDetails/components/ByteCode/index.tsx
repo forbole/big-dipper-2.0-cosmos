@@ -13,7 +13,7 @@ import Prism from 'prismjs';
 import 'prismjs/components/prism-clike';
 import 'prismjs/themes/prism.css';
 import { FC, startTransition, useEffect, useRef, useState } from 'react';
-import loadWasm, { decode } from 'rust-wasm/pkg/rust_wasm';
+import loadWasm, { decode } from 'rust-wasm/dist/rust_wasm';
 
 // Check if the bytecode is gzipped by checking the first two bytes
 const isGzipped = (byteCode: string) => /^\\x1f8b/.test(byteCode);
