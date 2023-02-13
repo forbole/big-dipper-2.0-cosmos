@@ -8,7 +8,6 @@ import StepLabel from '@mui/material/StepLabel';
 import Stepper from '@mui/material/Stepper';
 import { useTranslation } from 'next-i18next';
 import dynamic from 'next/dynamic';
-import Script from 'next/script';
 import pako from 'pako';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-clike';
@@ -152,10 +151,8 @@ const ByteCode: FC<ByteCodeProps> = ({ className, byteCode }) => {
                 className={classes.codeBlock}
                 style={{ display: displayStep === 2 ? 'block' : 'none' }}
               >
-                {
-                  // eslint-disable-next-line react/no-danger
-                  <code className="language-clike" dangerouslySetInnerHTML={{ __html: codeText }} />
-                }
+                {/* eslint-disable-next-line react/no-danger */}
+                <code className="language-clike" dangerouslySetInnerHTML={{ __html: codeText }} />
               </pre>
             </div>
           ),

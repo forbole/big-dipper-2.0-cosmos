@@ -19,7 +19,7 @@
   "sender": "Sender",
   "wasmContractDetails": "WASM Contract Details",
   "wasmCode": "WASM Code",
-  "byteCode": "Source Code",
+  "byteCode": "Compiled Code",
   "compression": "Compression",
   "gzipped": "Gzipped",
   "uncompressed": "Uncompressed"
