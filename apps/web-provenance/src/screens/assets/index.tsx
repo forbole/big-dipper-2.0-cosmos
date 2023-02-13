@@ -18,7 +18,7 @@ const Assets = () => {
   const { t } = useTranslation('assets');
   const { classes, cx, theme } = useStyles();
 
-  const title = t('assetModule');
+  const title = t('assetsModule');
   const description = t('description');
   const display = useDisplayStyles().classes;
   const heightMobile = useMemo(() => parseInt(theme.spacing(HEIGHT_MOBILE), 10), [theme]);

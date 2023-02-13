@@ -1,5 +1,27 @@
 # ui
 
+## 2.12.1
+
+### Patch Changes
+
+- b4ac0a0c5: feat: setup Quasar testnet
+- Updated dependencies [b4ac0a0c5]
+  - shared-utils@2.6.3
+
+## 2.12.0
+
+### Minor Changes
+
+- e12c3b0c2: add custom message types, including Profiles, Posts, Reactions, Reports and Subspaces modules
+
+## 2.11.1
+
+### Patch Changes
+
+- a04d53bd8: auto refresh timestamp display
+- a04d53bd8: fix: donate link address
+- a04d53bd8: fix: transaction type in details view
+
 ## 2.11.0
 
 ### Minor Changes

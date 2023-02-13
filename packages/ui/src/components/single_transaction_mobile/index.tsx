@@ -7,8 +7,8 @@ type SingleTransactionMobileProps = {
   className?: string;
   block: ReactNode;
   hash: ReactNode;
-  time: string;
-  messages: string;
+  time: ReactNode;
+  messages: ReactNode;
   result?: ReactNode;
 };
 

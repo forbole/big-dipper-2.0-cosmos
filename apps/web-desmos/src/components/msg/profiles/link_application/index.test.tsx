@@ -13,7 +13,7 @@ jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 // unit tests
 // ==================================
-describe('screen: TransactionDetails/MsgLinkApplication', () => {
+describe('screen: TransactionDetails/LinkApplication', () => {
   it('matches snapshot', () => {
     const message: MsgLinkApplication = {
       category: 'profiles',

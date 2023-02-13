@@ -1,3 +1,5 @@
+import chainCoing from '@/chainConfig';
+import useStyles from '@/components/ChainIcon/useStyles';
 import Image, { type ImageProps } from 'next/image';
 import agoricIconLight from 'shared-utils/assets/icons/agoric-light.svg?url';
 import akashIconDark from 'shared-utils/assets/icons/akash-dark.svg?url';
@@ -22,6 +24,7 @@ import osmosisIconDark from 'shared-utils/assets/icons/osmosis-dark.svg?url';
 import osmosisIconLight from 'shared-utils/assets/icons/osmosis-light.svg?url';
 import persistenceIconDark from 'shared-utils/assets/icons/persistence-dark.svg?url';
 import provenanceIconDark from 'shared-utils/assets/icons/provenance-dark.svg?url';
+import quasarIconDark from 'shared-utils/assets/icons/quasar-dark.png';
 import quicksliverIconLight from 'shared-utils/assets/icons/quicksilver-light.svg?url';
 import regenIconLight from 'shared-utils/assets/icons/regen-light.svg?url';
 import rizonIconLight from 'shared-utils/assets/icons/rizon-dark.svg?url';
@@ -51,6 +54,7 @@ import nymLogoLight from 'shared-utils/assets/logos/nym-light.svg?url';
 import osmosisLogoDark from 'shared-utils/assets/logos/osmosis-dark.svg?url';
 import persistenceLogoDark from 'shared-utils/assets/logos/persistence-dark.svg?url';
 import provenanceLogoDark from 'shared-utils/assets/logos/provenance-dark.svg?url';
+import quasarLogoDark from 'shared-utils/assets/logos/quasar-dark.png';
 import regenLogoLight from 'shared-utils/assets/logos/regen-light.png';
 import rizonLogoLight from 'shared-utils/assets/logos/rizon-dark.svg?url';
 import shentuLogoLight from 'shared-utils/assets/logos/shentu-light.svg?url';
@@ -60,8 +64,6 @@ import strideLogoDark from 'shared-utils/assets/logos/stride-dark.svg?url';
 import strideLogoLight from 'shared-utils/assets/logos/stride-light.svg?url';
 import quicksilverLogoLight from 'shared-utils/assets/logos/quicksilver-light.svg?url';
 import quicksilverLogoDark from 'shared-utils/assets/logos/quicksilver-dark.svg?url';
-import useStyles from '@/components/ChainIcon/useStyles';
-import chainCoing from '@/chainConfig';
 
 interface IconProps extends Omit<ImageProps, 'id' | 'src'> {
   type: 'icon' | 'logo';
@@ -200,6 +202,10 @@ const ChainIcon = ({
     case 'stride':
       [iconDark, iconLight] =
         type === 'icon' ? [strideIconDark, strideIconDark] : [strideLogoDark, strideLogoLight];
+      break;
+    case 'quasar':
+      [iconDark, iconLight] =
+        type === 'icon' ? [quasarIconDark, quasarIconDark] : [quasarLogoDark, quasarLogoDark];
       break;
     case 'quicksilver':
       [iconDark, iconLight] =

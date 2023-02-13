@@ -1,5 +1,35 @@
 # Unreleased
 
+## 2.8.4
+
+### Patch Changes
+
+- Updated dependencies [b4ac0a0c5]
+  - shared-utils@2.6.3
+  - ui@2.12.1
+
+## 2.8.3
+
+### Patch Changes
+
+- Updated dependencies [e12c3b0c2]
+  - ui@2.12.0
+
+## 2.8.2
+
+### Patch Changes
+
+- 4c504fcd0: fix: update layout to assign with figma
+
+## 2.8.1
+
+### Patch Changes
+
+- Updated dependencies [a04d53bd8]
+- Updated dependencies [a04d53bd8]
+- Updated dependencies [a04d53bd8]
+  - ui@2.11.1
+
 ## 2.8.0
 
 ### Minor Changes

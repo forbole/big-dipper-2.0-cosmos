@@ -8,17 +8,7 @@
       {
         "name": "Mainnet",
         "chain_id": "cosmoshub-4",
-        "url": "https://cosmos.bigdipper.live"
-      },
-      {
-        "name": "Testnet",
-        "chain_id": "theta-testnet-001",
-        "url": "https://testnet.cosmos.bigdipper.live/"
-      },
-      {
-        "name": "Testnet",
-        "chain_id": "stargate-final",
-        "url": "https://gaia.bigdipper.live/"
+        "url": "https://bigdipper.live/cosmos"
       },
       {
         "name": "Retired",
@@ -46,7 +36,7 @@
       {
         "name": "Mainnet",
         "chain_id": "akashnet-2",
-        "url": "https://akash.bigdipper.live"
+        "url": "https://bigdipper.live/akash"
       },
       {
         "name": "Retired",
@@ -64,7 +54,7 @@
       {
         "name": "Mainnet",
         "chain_id": "emoney-3",
-        "url": "https://emoney.bigdipper.live"
+        "url": "https://bigdipper.live/emoney"
       }
     ]
   },
@@ -75,37 +65,14 @@
     "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/band-protocol.png?sanitize=true",
     "links": [
       {
-        "name": "Retired",
-        "chain_id": "band-guanyu-mainnet",
-        "url": "https://band-guanyu.bigdipper.live"
-      },
-      {
         "name": "Mainnet",
         "chain_id": "laozi-mainnet",
-        "url": "https://band.bigdipper.live"
-      }
-    ]
-  },
-  {
-    "name": "Kava",
-    "chainName": "",
-    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/kava.svg?sanitize=true",
-    "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/kava.png?sanitize=true",
-    "links": [
-      {
-        "name": "Mainnet",
-        "chain_id": "kava-7",
-        "url": "https://kava.bigdipper.live"
+        "url": "https://bigdipper.live/band"
       },
       {
         "name": "Retired",
-        "chain_id": "kava-3",
-        "url": "https://kava-3.bigdipper.live"
-      },
-      {
-        "name": "Retired",
-        "chain_id": "kava-2",
-        "url": "https://kava-2.bigdipper.live"
+        "chain_id": "band-guanyu-mainnet",
+        "url": "https://band-guanyu.bigdipper.live/"
       }
     ]
   },
@@ -123,7 +90,7 @@
       {
         "name": "Testnet",
         "chain_id": "likecoin-public-testnet-5",
-        "url": "https://testnet.likecoin.bigdipper.live"
+        "url": "https://testnet.bigdipper.live/likecoin"
       }
     ]
   },
@@ -147,14 +114,14 @@
     "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/desmos.png?sanitize=true",
     "links": [
       {
-        "name": "Testnet",
-        "chain_id": "morpheus-apollo-3",
-        "url": "https://morpheus.desmos.network"
-      },
-      {
         "name": "Mainnet",
         "chain_id": "desmos-mainnet",
-        "url": "https://explorer.desmos.network"
+        "url": "https://bigdipper.live/desmos"
+      },
+      {
+        "name": "Testnet",
+        "chain_id": "morpheus-apollo-3",
+        "url": "https://testnet.bigdipper.live/desmos"
       }
     ]
   },
@@ -180,7 +147,7 @@
       {
         "name": "Mainnet",
         "chain_id": "osmosis-1",
-        "url": "https://osmosis.bigdipper.live/"
+        "url": "https://bigdipper.live/osmosis"
       }
     ]
   },
@@ -193,7 +160,7 @@
       {
         "name": "Mainnet",
         "chain_id": "bitsong-2b",
-        "url": "https://bitsong.bigdipper.live/"
+        "url": "https://bigdipper.live/bitsong"
       }
     ]
   },
@@ -206,7 +173,7 @@
       {
         "name": "Mainnet",
         "chain_id": "regen-1",
-        "url": "https://regen.bigdipper.live/"
+        "url": "https://bigdipper.live/regen"
       }
     ]
   },
@@ -219,7 +186,7 @@
       {
         "name": "Mainnet",
         "chain_id": "agoric-3",
-        "url": "https://agoric.bigdipper.live/"
+        "url": "https://bigdipper.live/agoric"
       }
     ]
   },
@@ -245,7 +212,7 @@
       {
         "name": "Mainnet",
         "chain_id": "mainnet",
-        "url": "https://elrond.bigdipper.live/"
+        "url": "https://bigdipper.live/elrond"
       }
     ]
   },
@@ -258,12 +225,12 @@
       {
         "name": "Mainnet",
         "chain_id": "evmos_9001-2",
-        "url": "https://evmos.bigdipper.live/"
+        "url": "https://bigdipper.live/evmos"
       },
       {
         "name": "Testnet",
         "chain_id": "evmos_9000-4",
-        "url": "https://testnet.evmos.bigdipper.live/"
+        "url": "https://testnet.bigdipper.live/evmos"
       }
     ]
   },
@@ -294,7 +261,7 @@
       {
         "name": "Mainnet",
         "chain_id": "comdex-1",
-        "url": "https://comdex.bigdipper.live/"
+        "url": "https://bigdipper.live/comdex"
       }
     ]
   },
@@ -307,7 +274,7 @@
       {
         "name": "Mainnet",
         "chain_id": "crescent-1",
-        "url": "https://crescent.bigdipper.live/"
+        "url": "https://bigdipper.live/crescent"
       }
     ]
   },
@@ -416,6 +383,19 @@
     ]
   },
   {
+    "name": "Quicksilver",
+    "chainName": "quicksilver",
+    "logo": "https://raw.githubusercontent.com/cosmos/chain-registry/master/quicksliver/images/quicksliver.svg",
+    "cover": "",
+    "links": [
+      {
+        "name": "Testnet",
+        "chain_id": "innuendo-3",
+        "url": "https://bigdipper.live/quicksilver"
+      }
+    ]
+  },
+  {
     "name": "Mars",
     "chainName": "",
     "logo": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mars/images/mars-token.svg",
@@ -423,13 +403,26 @@
     "links": [
       {
         "name": "Mainnet",
-        "chain_id": "",
+        "chain_id": "mars-1",
         "url": "https://explorer.marsprotocol.io/"
       },
       {
         "name": "Testnet",
-        "chain_id": "",
+        "chain_id": "ares-1",
         "url": "https://testnet-explorer.marsprotocol.io/"
+      }
+    ]
+  },
+  {
+    "name": "Quasar",
+    "chainName": "quasar",
+    "logo": "https://raw.githubusercontent.com/quasar-finance/questnet/main/assets/quasar.png",
+    "cover": "",
+    "links": [
+      {
+        "name": "Testnet",
+        "chain_id": "quasar",
+        "url": "https://testnet.bigdipper.live/quasar"
       }
     ]
   }

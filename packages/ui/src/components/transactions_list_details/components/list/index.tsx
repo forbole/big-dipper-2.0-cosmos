@@ -62,7 +62,7 @@ const ListItem: FC<ListItemProps> = ({ index, style, setRowHeight, isItemLoaded,
     ),
     type: (
       <div>
-        <Tag value="txDelegateLabel" theme="six" />
+        <Tag value={transaction.type?.[0] ?? ''} theme="six" />
         {transaction.messages.count > 1 && ' +'}
       </div>
     ),

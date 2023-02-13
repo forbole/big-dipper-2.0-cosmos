@@ -23,7 +23,7 @@
   "proposals": "Proposals",
   "params": "Params",
   "assets": "Assets",
-  "assetModule": "Assets Module",
+  "assetsModule": "Assets Module",
   "providers": "Providers",
   "searchBarPlaceholder": "Search for validator / tx hash / block height / address",
   "searchBarPlaceholderDtag": "Search for validator / tx hash / block height / address / @dtag",

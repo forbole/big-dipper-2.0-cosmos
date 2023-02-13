@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: TransactionDetails/AddUserToUserGroup matches snapshot 1`] = `
+.emotion-0 {
+  margin: 0;
+  font-size: 1rem;
+  white-space: pre-wrap;
+  letter-spacing: 0.5px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+<p
+  className="MuiTypography-root MuiTypography-body1 emotion-0"
+>
+  <span
+    data-testid="Trans"
+    i18nKey="message_contents:txMsgAddUserToUserGroup"
+  >
+    <div
+      address="signer"
+      id="Name"
+      name="signer"
+    />
+    <b />
+    {"signer":"signer","user":"user"}
+  </span>
+</p>
+`;

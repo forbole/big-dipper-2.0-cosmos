@@ -507,7 +507,7 @@ exports[`component: layout/footer matches snapshot 1`] = `
             common:donateExcerpt
           </p>
           <a
-            href="https://bigdipper.live/donate"
+            href="https://bigdipper.live/donation"
             rel="noreferrer"
             target="_blank"
           >
