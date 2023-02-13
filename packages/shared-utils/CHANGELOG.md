@@ -1,5 +1,11 @@
 # shared-utils
 
+## 2.8.0
+
+### Minor Changes
+
+- d08c0dfd: feat: add WASM Contract module
+
 ## 2.7.0
 
 ### Minor Changes

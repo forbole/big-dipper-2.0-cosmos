@@ -1,5 +1,18 @@
 # Unreleased
 
+## 2.9.0
+
+### Minor Changes
+
+- d08c0dfd: feat: add WASM Contract module
+
+### Patch Changes
+
+- Updated dependencies [d08c0dfd]
+  - shared-utils@2.8.0
+  - tsconfig@0.3.0
+  - ui@2.14.0
+
 ## 2.8.4
 
 ### Patch Changes

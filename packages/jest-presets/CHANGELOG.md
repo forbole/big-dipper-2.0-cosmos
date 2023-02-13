@@ -1,5 +1,16 @@
 # jest-presets
 
+## 0.3.0
+
+### Minor Changes
+
+- d08c0dfd: feat: add WASM Contract module
+
+### Patch Changes
+
+- Updated dependencies [d08c0dfd]
+  - tsconfig@0.3.0
+
 ## 0.2.1
 
 ### Patch Changes
