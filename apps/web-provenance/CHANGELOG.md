@@ -1,5 +1,13 @@
 # Unreleased
 
+## 2.8.7
+
+### Patch Changes
+
+- 4079b219: fix: ssr issue Text content does not match server-rendered HTML
+- Updated dependencies [4079b219]
+  - ui@2.14.1
+
 ## 2.8.6
 
 ### Patch Changes
