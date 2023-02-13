@@ -1,5 +1,16 @@
 # ui
 
+## 2.13.0
+
+### Minor Changes
+
+- af2e8add5: add: quicksilver workspace
+
+### Patch Changes
+
+- Updated dependencies [af2e8add5]
+  - shared-utils@2.7.0
+
 ## 2.12.1
 
 ### Patch Changes

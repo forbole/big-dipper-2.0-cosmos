@@ -1,5 +1,13 @@
 # Unreleased
 
+## 2.9.2
+
+### Patch Changes
+
+- Updated dependencies [af2e8add5]
+  - shared-utils@2.7.0
+  - ui@2.13.0
+
 ## 2.9.1
 
 ### Patch Changes
