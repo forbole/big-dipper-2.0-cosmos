@@ -5,6 +5,7 @@ import nextI18NextConfig from '../../next-i18next.config';
 
 const ProfileDetailsPage: NextPage = () => <ProfileDetails />;
 
+export const getStaticPaths = () => ({ paths: [], fallback: 'blocking' });
 export const getStaticProps = withGetStaticProps(nextI18NextConfig, 'profiles', 'accounts');
 
 export default ProfileDetailsPage;
