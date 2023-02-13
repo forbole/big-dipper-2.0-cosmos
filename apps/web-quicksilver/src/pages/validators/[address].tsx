@@ -5,6 +5,7 @@ import nextI18NextConfig from '../../../next-i18next.config';
 
 const ValidatorDetailsPage: NextPage = () => <ValidatorDetails />;
 
+export const getStaticPaths = () => ({ paths: [], fallback: 'blocking' });
 export const getStaticProps = withGetStaticProps(
   nextI18NextConfig,
   'validators',

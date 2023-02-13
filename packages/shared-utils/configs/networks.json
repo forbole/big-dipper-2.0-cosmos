@@ -391,7 +391,7 @@
       {
         "name": "Testnet",
         "chain_id": "innuendo-3",
-        "url": "https://bigdipper.live/quicksilver"
+        "url": "https://testnet.bigdipper.live/quicksilver"
       }
     ]
   },
