@@ -1,5 +1,11 @@
 # Unreleased
 
+## 2.8.3
+
+### Patch Changes
+
+- 5ffa2cf9e: fix: exponent setting
+
 ## 2.8.2
 
 ### Patch Changes
