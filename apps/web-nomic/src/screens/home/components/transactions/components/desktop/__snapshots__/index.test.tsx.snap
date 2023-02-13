@@ -300,8 +300,15 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
             }
           >
             <span
-              aria-label="UTC: 2020-08-10 12:00:00 Local: 2020-08-10 12:00:00"
-              title="UTC: 2020-08-10 12:00:00 Local: 2020-08-10 12:00:00"
+              aria-label={null}
+              aria-labelledby={null}
+              data-mui-internal-clone-element={true}
+              onBlur={[Function]}
+              onFocus={[Function]}
+              onMouseLeave={[Function]}
+              onMouseOver={[Function]}
+              onTouchEnd={[Function]}
+              onTouchStart={[Function]}
             >
               1 day ago
             </span>

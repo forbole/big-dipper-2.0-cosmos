@@ -89,6 +89,8 @@ jobs:
           echo '```' >> $GITHUB_STEP_SUMMARY
         env:
           TURBO_BINARY_PATH: ${{ needs.detect-changes.outputs.TURBO_BINARY_PATH }}
+      - name: install wasm-pack
+        run: curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
       - name: test
         run: |
           echo '```' >> $GITHUB_STEP_SUMMARY

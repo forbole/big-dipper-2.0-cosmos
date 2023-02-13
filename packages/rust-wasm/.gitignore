@@ -1,0 +1,18 @@
+# Build artifacts
+/target
+/pkg
+
+# wasm-pack generated files
+/node_modules
+/web
+
+# Rust dependencies
+/Cargo.lock
+
+# IDE files
+/.vscode
+/.idea
+
+# Miscellaneous files
+/npm-debug.log
+/yarn-error.log

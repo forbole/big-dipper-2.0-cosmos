@@ -182,14 +182,11 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
   -ms-flex-pack: start;
   -webkit-justify-content: flex-start;
   justify-content: flex-start;
-}
-
-.emotion-17 p {
-  color: #2F65DD;
-  margin-left: 8px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  gap: 8px;
+  -webkit-box-flex-flow: row nowrap;
+  -webkit-flex-flow: row nowrap;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
 }
 
 .emotion-17:hover {
@@ -615,8 +612,15 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
             }
           >
             <span
-              aria-label="UTC: 2020-08-10 12:00:00 Local: 2020-08-10 12:00:00"
-              title="UTC: 2020-08-10 12:00:00 Local: 2020-08-10 12:00:00"
+              aria-label={null}
+              aria-labelledby={null}
+              data-mui-internal-clone-element={true}
+              onBlur={[Function]}
+              onFocus={[Function]}
+              onMouseLeave={[Function]}
+              onMouseOver={[Function]}
+              onTouchEnd={[Function]}
+              onTouchStart={[Function]}
             >
               1 day ago
             </span>
@@ -789,8 +793,15 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
             className="MuiTypography-root MuiTypography-body1 value emotion-19"
           >
             <span
-              aria-label="UTC: 2020-08-10 12:00:00 Local: 2020-08-10 12:00:00"
-              title="UTC: 2020-08-10 12:00:00 Local: 2020-08-10 12:00:00"
+              aria-label={null}
+              aria-labelledby={null}
+              data-mui-internal-clone-element={true}
+              onBlur={[Function]}
+              onFocus={[Function]}
+              onMouseLeave={[Function]}
+              onMouseOver={[Function]}
+              onTouchEnd={[Function]}
+              onTouchStart={[Function]}
             >
               1 day ago
             </span>

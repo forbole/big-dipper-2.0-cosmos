@@ -1,7 +1,8 @@
 import { CSSObject } from 'tss-react';
 import { makeStyles } from 'tss-react/mui';
 
-export const HEIGHT_MOBILE = 36;
+export const HEIGHT_MOBILE_CODE = 25;
+export const HEIGHT_MOBILE_CONTRACT = 49;
 export const HEIGHT_DESKTOP = 7;
 
 const useStyles = makeStyles()((theme) => ({
@@ -13,6 +14,7 @@ const useStyles = makeStyles()((theme) => ({
       display: 'flex',
       flexWrap: 'wrap',
       padding: theme.spacing(2),
+      color: theme.palette.text.primary,
     },
   },
   skeleton: {
@@ -22,13 +24,8 @@ const useStyles = makeStyles()((theme) => ({
   odd: {
     background: theme.palette.custom.general.surfaceTwo,
   },
-  price: {
-    [theme.breakpoints.up('lg')]: {
-      lineHeight: theme.spacing(HEIGHT_DESKTOP),
-    },
-  },
   row: {
-    background: theme.palette.custom.general.surfaceOne,
+    background: theme.palette.background.paper,
     '&& > .MuiGrid2-container': {
       position: 'relative',
       [theme.breakpoints.down('lg')]: {
@@ -48,10 +45,11 @@ const useStyles = makeStyles()((theme) => ({
       color: theme.palette.custom.fonts.highlight,
     },
   },
-  Popper: {
-    '&&': {
-      width: theme.spacing(2),
-    },
+  cell: {
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    width: '100%',
   },
   showMoreContainer: {
     '&&': {
@@ -89,45 +87,41 @@ const useStyles = makeStyles()((theme) => ({
     height: theme.spacing(HEIGHT_DESKTOP),
     width: '100%',
   },
-  description: {
-    padding: theme.spacing(1, 0),
-    marginBottom: theme.spacing(2),
-    [theme.breakpoints.down('lg')]: {
-      display: 'none',
-    },
-  },
-  nativeTokenName: {
-    display: 'flex',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    '& .MuiGrid2-root': {
-      padding: 0,
-      margin: 0,
-    },
-    '& .MuiGrid2-root:first-of-type': {
-      width: theme.spacing(4),
-      padding: theme.spacing(0, 0.125, 0, 0.125),
-      marginRight: theme.spacing(0.5),
-    },
-  },
   textfield: {
-    backgroundColor: theme.palette.divider,
+    background: theme.palette.background.default,
     width: '100%',
     [theme.breakpoints.up('lg')]: {
       width: 300,
     },
+    '&& .Mui-focused': {
+      background: theme.palette.divider,
+      '&& input': {
+        color: theme.palette.custom.fonts.fontFour,
+      },
+    },
   },
   paper: {
     padding: theme.spacing(2),
-    height: '100vh',
     display: 'flex',
     flexFlow: 'column nowrap',
+    minHeight: 'calc(100vh - 105px)',
+    '& .MuiTab-root': {
+      fontSize: theme.typography.h2.fontSize,
+      paddingRight: theme.spacing(8),
+    },
+    '&& .Mui-selected': {
+      color: theme.palette.custom.fonts.fontOne,
+    },
   },
   list: {
     flex: 1,
   },
-  supply: {
-    textAlign: 'right',
+  contractName: {
+    '.MuiTypography-subtitle1': {
+      whiteSpace: 'nowrap',
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+    },
   },
 }));
 

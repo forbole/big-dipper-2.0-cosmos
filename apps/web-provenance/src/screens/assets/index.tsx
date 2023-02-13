@@ -45,7 +45,7 @@ const Assets = () => {
                 {t('assets')}
               </Typography>
             </Grid2>
-            <Grid2 xs={12} lg={6} textAlign={{ lg: 'right' }}>
+            <Grid2 xs={12} lg={6} textAlign={{ lg: 'right' }} sx={{ paddingY: 1 }}>
               <SearchBox searchText={searchText} handleChange={handleChange} />
             </Grid2>
           </Grid2>

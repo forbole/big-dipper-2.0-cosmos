@@ -1,11 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const { basename, resolve } = require('path');
 
-/**
- * It takes the chainConfigJson and returns a baseConfig object
- * @param basePath - This is the basePath.
- * @returns The base config object.
- */
 function getBaseConfig(basePath, chainName) {
   const config = {
     reactStrictMode: true,
@@ -31,6 +26,23 @@ function getBaseConfig(basePath, chainName) {
       // to speed up the build task
       ignoreDuringBuilds: true,
     },
+    redirects: async () => [
+      {
+        source: '/account/:path*',
+        destination: '/accounts/:path*',
+        permanent: true,
+      },
+      {
+        source: '/transaction/:path*',
+        destination: '/transactions/:path*',
+        permanent: true,
+      },
+      {
+        source: '/validator/:path*',
+        destination: '/validators/:path*',
+        permanent: true,
+      },
+    ],
     transpilePackages: ['ui'],
     typescript: {
       ignoreBuildErrors: true,
@@ -55,6 +67,7 @@ function getBaseConfig(basePath, chainName) {
  * @returns The config object.
  */
 function webpackConfig(config, { defaultLoaders, isServer, webpack }) {
+  config.resolve.fallback = { fs: false };
   /* This is to allow the use of svg files in the project. */
   config.module.rules.push({
     test: /\.svg$/i,
@@ -83,14 +96,13 @@ function webpackConfig(config, { defaultLoaders, isServer, webpack }) {
 
 /**
  * @param dir - the directory of the current chain
- * @param extraConfig - The extra configuration object.
  * @returns The base config is being returned with the base config.
  */
-function getNextConfig(dir, extraConfig) {
+function getNextConfig(dir) {
   // each chain has its own chains/<chainName>.json
   const [_match, chainName] = /web-(.+)$/.exec(basename(dir)) ?? ['', 'base'];
   const basePath = (process.env.BASE_PATH || `${`/${chainName}`}`).replace(/^(\/|\/base)$/, '');
-  return { ...getBaseConfig(basePath, chainName), ...extraConfig };
+  return getBaseConfig(basePath, chainName);
 }
 
 module.exports = getNextConfig;

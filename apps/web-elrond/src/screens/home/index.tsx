@@ -1,13 +1,11 @@
 import Layout from '@/components/layout';
 import Blocks from '@/screens/home/components/blocks';
 import DataBlocks from '@/screens/home/components/data_blocks';
+import Epoch from '@/screens/home/components/epoch';
 import Price from '@/screens/home/components/price';
 import Staking from '@/screens/home/components/staking';
 import Transactions from '@/screens/home/components/transactions';
 import useStyles from '@/screens/home/styles';
-import dynamic from 'next/dynamic';
-
-const Epoch = dynamic(import('@/screens/home/components/epoch'), { ssr: false });
 
 const Home = () => {
   const { classes } = useStyles();

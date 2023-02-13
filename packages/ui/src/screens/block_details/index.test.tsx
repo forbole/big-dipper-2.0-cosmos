@@ -101,7 +101,15 @@ describe('screen: BlockDetails', () => {
       component = renderer.create(
         <ApolloProvider client={new ApolloClient({ link: from([]), cache: new InMemoryCache() })}>
           <MockedProvider
-            mocks={[{ request: { query: BlockDetailsDocument }, result: mockAverageBlockTime }]}
+            mocks={[
+              {
+                request: {
+                  query: BlockDetailsDocument,
+                  variables: { height: 300, signatureHeight: 301 },
+                },
+                result: mockAverageBlockTime,
+              },
+            ]}
           >
             <MockTheme>
               <BlockDetails />

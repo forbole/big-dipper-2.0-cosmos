@@ -1,62 +1,84 @@
-import { WasmContractQuery } from '@/graphql/types/general_types';
+import { WasmCodeQuery, WasmContractQuery } from '@/graphql/types/general_types';
 import { InfiniteQuery } from '@/hooks/useInfiniteQuery/types';
+import { ReactNode } from 'react';
+import z from 'zod';
 
-export interface ContractType {
-  contractName: string;
-  contractType: string;
-  contractAddress: string;
-  height: number;
-  creator: string;
-  executes: number;
-  initiatedAt: string;
-  lastExecuted: string;
+/* WASM Contracts */
+export interface WasmContractType {
+  contractName: ReactNode;
+  contractTypeName: ReactNode;
+  contractAddress: ReactNode;
+  height: ReactNode;
+  creator: ReactNode;
+  executes: ReactNode;
+  initiatedAt: ReactNode;
+  lastExecuted: ReactNode;
+  showMore: ReactNode;
 }
 
-export type ContractQueryVariable = object;
+export type WasmContractQueryVariable = object;
 
-export type UseContracts = InfiniteQuery<WasmContractQuery, ContractQueryVariable, ContractType>;
+export type UseWasmContracts = InfiniteQuery<
+  WasmContractQuery,
+  WasmContractQueryVariable,
+  WasmContractType
+>;
 
-export interface PriceProps {
-  denom: string;
+export interface CodeIdProps {
+  codeId: WasmContractQuery['wasm_contract'][0]['code_id'];
 }
 
-export interface MarkerProps {
-  markerType: string;
+export interface ContractNameProps {
+  name: WasmContractQuery['wasm_contract'][0]['name'];
+  codeId: WasmContractQuery['wasm_contract'][0]['code_id'];
 }
 
-export interface AccessControl {
-  address: string;
-  permissions: number[];
+export interface ContractTypeNameProps {
+  contractInfo: WasmContractQuery['wasm_contract'][0]['contract_info'];
 }
 
-export type ShowMoreProps = {
-  accessControls: AccessControl[];
-  allowGovernanceControl: boolean;
-  statusId: string;
-};
+export interface ContractSearchBoxProps {
+  searchText: string;
+  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
 
-export const permissionList = [
-  ['Unspecified', 'Defines a no-op vote option.'],
-  ['Mint', 'To increase the supply of a marker'],
-  ['Burn', 'To decrease the supply of the marker using coin held by the marker.'],
-  ['Deposit', 'To set a marker reference to this marker in the metadata/scopes module'],
-  ['Withdraw', 'To remove marker references to this marker in from metadata/scopes or'],
-  [
-    'Delete',
-    'To move a proposed, finalized or active marker into the cancelled state. This access also allows cancelled markers to be marked for deletion',
-  ],
-  ['Admin', 'To add access grants for accounts to the list of marker permissions.'],
-  [
-    'Transfer',
-    'To invoke a send operation using the marker module to facilitate exchange. This capability is useful when the marker denomination has "send enabled = false" preventing normal bank transfer',
-  ],
-];
+export const zContractName = z.coerce.string().catch('');
 
-export const statusList = {
-  '0': 'Unspecified - Unknown/Invalid Marker Status',
-  '1': 'Proposed - Initial configuration period, updates allowed, token supply not created.',
-  '2': 'Finalized - Configuration finalized, ready for supply creation.',
-  '3': 'Active - Supply is created, rules are in force.',
-  '4': 'Cancelled - Marker has been cancelled, pending destroy.',
-  '5': 'Destroyed - Marker supply has all been recalled, marker is considered destroyed and no further actions allowed.',
-};
+export const zInstantiatePermission = z
+  .object({
+    permission: z.coerce.number().optional(),
+    address: z.coerce.string().optional(),
+    addresses: z.coerce.string().optional(),
+  })
+  .optional()
+  .catch(undefined);
+export type InstantiatePermission = z.infer<typeof zInstantiatePermission>;
+
+export interface ShowMoreProps {
+  wasmCode: WasmContractQuery['wasm_contract'][0]['wasm_code'];
+  codeId: WasmContractQuery['wasm_contract'][0]['code_id'];
+}
+
+export const zContractInfo = z
+  .object({
+    contract: z.coerce.string().optional(),
+    version: z.coerce.string().optional(),
+  })
+  .optional()
+  .catch(undefined);
+export type ContractInfo = z.infer<typeof zContractInfo>;
+
+/* WASM Codes */
+export interface InstantiatePermissionProps {
+  instantiatePermission: WasmCodeQuery['wasm_code'][0]['instantiate_permission'];
+}
+export interface WasmCodeType {
+  id: ReactNode;
+  height: ReactNode;
+  instantiatePermission: ReactNode;
+  sender: ReactNode;
+}
+
+export type WasmCodeQueryVariable = object;
+
+export type UseWasmCodes = InfiniteQuery<WasmCodeQuery, WasmCodeQueryVariable, WasmCodeType>;

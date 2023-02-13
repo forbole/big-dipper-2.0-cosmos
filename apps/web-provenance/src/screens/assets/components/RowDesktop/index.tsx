@@ -9,7 +9,7 @@ import IconButton from '@mui/material/IconButton';
 import Popover from '@mui/material/Popover';
 import Skeleton from '@mui/material/Skeleton';
 import Grid2 from '@mui/material/Unstable_Grid2';
-import { ReactNode, useState } from 'react';
+import { useState } from 'react';
 
 const RowDesktop = ({
   index,
@@ -42,11 +42,7 @@ const RowDesktop = ({
             textAlign={col.textAlign}
             height={height}
           >
-            {!item ? (
-              <Skeleton className={classes.skeleton} />
-            ) : (
-              ((item as unknown as AssetType)?.[col.columnKey] as ReactNode)
-            )}
+            {!item ? <Skeleton className={classes.skeleton} /> : item?.[col.columnKey]}
           </Grid2>
         ))}
         <Grid2 xs="auto" className={classes.showMore}>

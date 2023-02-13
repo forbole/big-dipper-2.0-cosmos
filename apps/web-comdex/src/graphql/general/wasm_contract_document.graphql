@@ -3,12 +3,16 @@ query WasmContract($limit: Int = 100, $offset: Int = 0, $wasm_contract_bool_exp:
     label
     name: raw_contract_message(path: "name")
     contract_info: contract_states(path: "contract_info")
+    code_id
     contract_address
     height
     creator
     instantiated_at
-    contract_states
-    raw_contract_message
+    wasm_code {
+    	height
+      instantiate_permission
+      sender
+  	}
     wasm_execute_contracts_aggregate {
       aggregate {
         count

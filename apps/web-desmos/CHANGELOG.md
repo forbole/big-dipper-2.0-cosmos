@@ -1,5 +1,24 @@
 # Unreleased
 
+## 2.9.1
+
+### Patch Changes
+
+- Updated dependencies [b4ac0a0c5]
+  - shared-utils@2.6.3
+  - ui@2.12.1
+
+## 2.9.0
+
+### Minor Changes
+
+- e12c3b0c2: add custom message types, including Profiles, Posts, Reactions, Reports and Subspaces modules
+
+### Patch Changes
+
+- Updated dependencies [e12c3b0c2]
+  - ui@2.12.0
+
 ## 2.8.1
 
 ### Patch Changes

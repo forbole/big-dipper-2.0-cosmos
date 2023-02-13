@@ -38,7 +38,7 @@ const mockTxsListenerDocument = jest.fn().mockReturnValue({
           timestamp: '2021-05-28T00:08:33.700487',
         },
         hash: '76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857',
-        messages: 12,
+        messages: [],
         success: true,
         logs: [],
       },
@@ -58,7 +58,13 @@ describe('screen: Home/Blocks/Mobile', () => {
         <ApolloProvider client={mockClient}>
           <MockedProvider
             mocks={[
-              { request: { query: TransactionsListenerDocument }, result: mockTxsListenerDocument },
+              {
+                request: {
+                  query: TransactionsListenerDocument,
+                  variables: { limit: 7, offset: 0 },
+                },
+                result: mockTxsListenerDocument,
+              },
             ]}
           >
             <MockTheme>

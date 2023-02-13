@@ -42,27 +42,67 @@ exports[`screen: BlockDetails matches snapshot 1`] = `
   <div
     exists={true}
     id="LoadAndExist"
-    loading={true}
+    loading={false}
   >
     <span
       className="emotion-0"
     >
       <div
-        hash=""
-        height={0}
+        hash="E568ACFE5717F79A44979563410FF7F6C3043A07307E541EF21E15FC478C3DF0"
+        height={999}
         id="Overview"
-        proposer=""
-        timestamp=""
-        txs={0}
+        proposer="desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3"
+        timestamp="2021-04-27T16:27:34.331769"
+        txs={1}
       />
       <div
         className="emotion-1"
         id="Signatures"
-        signatures={[]}
+        signatures={
+          [
+            "desmosvaloper1qlh47ty9ah2d5e0xq6gsvqjvfulljl9602k7f9",
+          ]
+        }
       />
       <div
         id="Transactions"
-        transactions={[]}
+        transactions={
+          [
+            {
+              "hash": "393310C681CB39E09CD3AC16C600DBFDACB2DF5085277DA81E52698620C06136",
+              "height": 999,
+              "messages": {
+                "count": 1,
+                "items": [
+                  {
+                    "amount": {
+                      "amount": "27466368",
+                      "denom": "udaric",
+                    },
+                    "category": "staking",
+                    "delegatorAddress": "desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr",
+                    "json": {
+                      "@type": "/cosmos.staking.v1beta1.MsgDelegate",
+                      "amount": {
+                        "amount": "27466368",
+                        "denom": "udaric",
+                      },
+                      "delegator_address": "desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr",
+                      "validator_address": "desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3",
+                    },
+                    "type": "/cosmos.staking.v1beta1.MsgDelegate",
+                    "validatorAddress": "desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3",
+                  },
+                ],
+              },
+              "success": true,
+              "timestamp": "2021-04-27T16:27:34.331769",
+              "type": [
+                "Delegate",
+              ],
+            },
+          ]
+        }
       />
     </span>
   </div>

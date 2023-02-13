@@ -1,22 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
-@keyframes animation-0 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
 .emotion-0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -63,8 +47,37 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
   line-height: 1.2;
 }
 
-.emotion-3 {
-  padding: 16px 0px;
+@media (max-width:1279.95px) {
+  .emotion-3 {
+    display: none;
+  }
+}
+
+@media (min-width:1280px) {
+  .emotion-4 {
+    display: none;
+  }
+}
+
+.emotion-5 {
+  margin: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  border-width: 0;
+  border-style: solid;
+  border-color: #E8E8E8;
+  border-bottom-width: thin;
+}
+
+@media (min-width:1280px) {
+  .emotion-5 {
+    display: none;
+  }
+}
+
+.emotion-6 {
+  padding-top: 16px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -79,21 +92,10 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
   justify-content: center;
 }
 
-.emotion-4 {
-  display: inline-block;
-  color: #FF835B;
-  -webkit-animation: animation-0 1.4s linear infinite;
-  animation: animation-0 1.4s linear infinite;
-}
-
-.emotion-5 {
-  display: block;
-}
-
-.emotion-6 {
-  stroke: currentColor;
-  stroke-dasharray: 80px,200px;
-  stroke-dashoffset: 0;
+@media (min-width:1280px) {
+  .emotion-6 {
+    display: none;
+  }
 }
 
 <div
@@ -121,32 +123,48 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
   </div>
   <div
     className="emotion-3"
-  >
-    <span
-      className="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary emotion-4"
-      role="progressbar"
-      style={
+    id="Desktop"
+    items={
+      [
         {
-          "height": 40,
-          "width": 40,
-        }
-      }
-    >
-      <svg
-        className="MuiCircularProgress-svg emotion-5"
-        viewBox="22 22 44 44"
-      >
-        <circle
-          className="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate MuiCircularProgress-circleDisableShrink emotion-6"
-          cx={44}
-          cy={44}
-          fill="none"
-          r={20.2}
-          strokeWidth={3.6}
-          style={{}}
-        />
-      </svg>
-    </span>
-  </div>
+          "hash": "76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857",
+          "height": 2000,
+          "messages": 0,
+          "success": true,
+          "timestamp": "2021-05-28T00:08:33.700487",
+          "type": [],
+        },
+      ]
+    }
+  />
+  <div
+    className="emotion-4"
+    id="Mobile"
+    items={
+      [
+        {
+          "hash": "76nwV8zz8tLz97SBRXH6uwHvgHXtqJDLQfF66jZhQ857",
+          "height": 2000,
+          "messages": 0,
+          "success": true,
+          "timestamp": "2021-05-28T00:08:33.700487",
+          "type": [],
+        },
+      ]
+    }
+  />
+  <hr
+    className="MuiDivider-root MuiDivider-fullWidth emotion-5"
+  />
+  <a
+    aria-label="see more txs"
+    className="button emotion-6"
+    href="/transactions"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+    onTouchStart={[Function]}
+  >
+    seeMore
+  </a>
 </div>
 `;

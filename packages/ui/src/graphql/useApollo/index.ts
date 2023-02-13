@@ -116,10 +116,15 @@ function createApolloClient(initialState = {}) {
   const restLink = new RestLink({ uri: BIG_DIPPER_NETWORKS });
 
   const httpLink = split(
-    ({ operationName, variables }) =>
-      /^(Account|Validator)Delegations$/.test(operationName) && variables?.pagination,
-    createHttpLink(urlEndpoints.find((u) => u)),
-    createHttpBatchLink(urlEndpoints.find((u) => u))
+    ({ operationName }) =>
+      /^(?:WasmCode|WasmContract|WasmCodeWithByteCode)$/.test(operationName),
+      createHttpBatchLink('https://gql.juno.forbole.com/v1/graphql'),
+    split(
+      ({ operationName, variables }) =>
+        /^(?:Account|Validator)Delegations$/.test(operationName) && variables?.pagination,
+      createHttpLink(urlEndpoints.find((u) => u)),
+      createHttpBatchLink(urlEndpoints.find((u) => u))
+    )
   );
   const httpOrWsLink = ssrMode
     ? createHttpBatchLink(urlEndpoints.find((u) => u))

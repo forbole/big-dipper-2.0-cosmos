@@ -151,7 +151,7 @@ describe('screen: Blocks/List', () => {
           <MockedProvider
             mocks={[
               {
-                request: { query: TransactionDetailsDocument },
+                request: { query: TransactionDetailsDocument, variables: { hash: 3 } },
                 result: mockTransactionDetailsDocument,
               },
             ]}

@@ -49,11 +49,6 @@ const useStyles = makeStyles()((theme) => ({
       color: theme.palette.custom.fonts.highlight,
     },
   },
-  Popper: {
-    '&&': {
-      width: theme.spacing(2),
-    },
-  },
   showMoreContainer: {
     '&&': {
       padding: theme.spacing(2),
@@ -90,13 +85,6 @@ const useStyles = makeStyles()((theme) => ({
     height: theme.spacing(HEIGHT_DESKTOP),
     width: '100%',
   },
-  description: {
-    padding: theme.spacing(1, 0),
-    marginBottom: theme.spacing(2),
-    [theme.breakpoints.down('lg')]: {
-      display: 'none',
-    },
-  },
   nativeTokenName: {
     display: 'flex',
     justifyContent: 'flex-start',
@@ -126,9 +114,9 @@ const useStyles = makeStyles()((theme) => ({
   },
   paper: {
     padding: theme.spacing(2),
-    height: '100vh',
     display: 'flex',
     flexFlow: 'column nowrap',
+    minHeight: 'calc(100vh - 105px)',
   },
   list: {
     flex: 1,

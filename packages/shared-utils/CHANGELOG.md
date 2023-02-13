@@ -1,5 +1,11 @@
 # shared-utils
 
+## 2.6.3
+
+### Patch Changes
+
+- b4ac0a0c5: feat: setup Quasar testnet
+
 ## 2.6.2
 
 ### Patch Changes

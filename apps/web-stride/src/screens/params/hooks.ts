@@ -125,7 +125,7 @@ const formatGov = (data: ParamsQuery) => {
 // ================================
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const formatStakeibc = (data: ParamsQuery) =>
+const formatStakeibc = (_: ParamsQuery) =>
   // if (data.stakeibcParams.length) {
   //   const stakeibcParamsRaw = StakeibcParams(data?.stakeibcParams?.[0]?.params);
   //   return stakeibcParamsRaw;

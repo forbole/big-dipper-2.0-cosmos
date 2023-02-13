@@ -80,7 +80,10 @@ describe('screen: ProposalDetails', () => {
         <ApolloProvider client={mockClient}>
           <MockedProvider
             mocks={[
-              { request: { query: ProposalDetailsDocument }, result: mockProposalDetailsDocument },
+              {
+                request: { query: ProposalDetailsDocument, variables: { proposalId: 4 } },
+                result: mockProposalDetailsDocument,
+              },
             ]}
           >
             <MockTheme>

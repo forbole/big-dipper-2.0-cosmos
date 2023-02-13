@@ -67,6 +67,10 @@ exports[`components: LoadAndExist matches snapshot 1`] = `
   }
 }
 
+.emotion-0.emotion-0 {
+  max-height: 100vh;
+}
+
 .emotion-1 {
   position: relative;
   overflow: hidden;
@@ -133,7 +137,6 @@ exports[`components: LoadAndExist matches snapshot 1`] = `
   .emotion-0 {
   visibility: hidden;
   height: 100%;
-  max-height: 100vh;
 }
 
 <div
@@ -215,7 +218,6 @@ exports[`components: LoadAndExist matches snapshot 1`] = `
   .emotion-0 {
   visibility: hidden;
   height: 100%;
-  max-height: 100vh;
 }
 
 <div
@@ -228,7 +230,6 @@ exports[`components: LoadAndExist matches snapshot 1`] = `
   ",",
   .emotion-0 {
   height: 100%;
-  max-height: 100vh;
 }
 
 <div
