@@ -1,5 +1,12 @@
+import CustomToolTip from '@/components/custom_tool_tip';
+import { readDate } from '@/recoil/settings';
+import { usePrice } from '@/screens/home/components/hero/components/token_price/hooks';
+import useStyles from '@/screens/home/components/hero/components/token_price/styles';
+import type { TokenPriceType } from '@/screens/home/components/hero/types';
+import dayjs, { formatDayJs } from '@/utils/dayjs';
 import Typography from '@mui/material/Typography';
 import { useTranslation } from 'next-i18next';
+import dynamic from 'next/dynamic';
 import numeral from 'numeral';
 import * as R from 'ramda';
 import { FC, useMemo } from 'react';
@@ -13,12 +20,10 @@ import {
   YAxis,
 } from 'recharts';
 import { useRecoilValue } from 'recoil';
-import dayjs, { formatDayJs } from '@/utils/dayjs';
-import type { TokenPriceType } from '@/screens/home/components/hero/types';
-import useStyles from '@/screens/home/components/hero/components/token_price/styles';
-import { usePrice } from '@/screens/home/components/hero/components/token_price/hooks';
-import { readDate } from '@/recoil/settings';
-import CustomToolTip from '@/components/custom_tool_tip';
+
+const DynamicResponsiveContainer = dynamic(() => Promise.resolve(ResponsiveContainer), {
+  ssr: false,
+});
 
 const TokenPrice: FC<{ items: TokenPriceType[] }> = (props) => {
   const { classes, theme } = useStyles();
@@ -40,7 +45,7 @@ const TokenPrice: FC<{ items: TokenPriceType[] }> = (props) => {
     <div>
       <Typography variant="h2">{t('priceHistory')}</Typography>
       <div className={classes.chart}>
-        <ResponsiveContainer width="99%">
+        <DynamicResponsiveContainer width="99%">
           <AreaChart
             data={formatItems}
             margin={{
@@ -94,7 +99,7 @@ const TokenPrice: FC<{ items: TokenPriceType[] }> = (props) => {
               fill={theme.palette.custom.primaryData.one}
             />
           </AreaChart>
-        </ResponsiveContainer>
+        </DynamicResponsiveContainer>
       </div>
     </div>
   );

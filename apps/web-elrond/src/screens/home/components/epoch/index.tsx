@@ -8,6 +8,8 @@ import numeral from 'numeral';
 import { FC } from 'react';
 import { PolarAngleAxis, RadialBar, RadialBarChart, Tooltip } from 'recharts';
 
+const DynamicRadialBarChart = dynamic(() => Promise.resolve(RadialBarChart), { ssr: false });
+
 const Chart: FC = () => {
   const { classes, theme } = useStyles();
   const { t } = useTranslation('home');
@@ -23,7 +25,7 @@ const Chart: FC = () => {
   const circleSize = 200;
   return (
     <>
-      <RadialBarChart
+      <DynamicRadialBarChart
         className={classes.chart}
         width={circleSize}
         height={circleSize}
@@ -52,7 +54,7 @@ const Chart: FC = () => {
         <text x={circleSize / 2 - 20} y={circleSize / 2 + 30}>
           <tspan className={classes.chartLabel}>{t('epoch')}</tspan>
         </text>
-      </RadialBarChart>
+      </DynamicRadialBarChart>
       <Typography variant="body2" className={classes.time}>
         <Trans
           i18nKey="home:epochRoundsLeft"
@@ -66,8 +68,6 @@ const Chart: FC = () => {
   );
 };
 
-const DynamicChart = dynamic(() => Promise.resolve(Chart), { ssr: false });
-
 const Epoch: FC<ComponentDefault> = (props) => {
   const { classes, cx } = useStyles();
   const { t } = useTranslation('home');
@@ -78,7 +78,7 @@ const Epoch: FC<ComponentDefault> = (props) => {
         {t('epoch')}
       </Typography>
       <div className={classes.content}>
-        <DynamicChart />
+        <Chart />
       </div>
     </Box>
   );

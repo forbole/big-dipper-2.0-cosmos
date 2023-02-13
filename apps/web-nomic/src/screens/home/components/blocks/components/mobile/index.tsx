@@ -16,7 +16,7 @@ const Mobile: FC<{
     {items?.map((x, i) => {
       const isLast = i === items.length - 1;
       return (
-        <Fragment key={x.height}>
+        <Fragment key={x.hash}>
           <SingleBlockMobile
             height={
               <Link shallow prefetch={false} href={BLOCK_DETAILS(x.height)} className="value">

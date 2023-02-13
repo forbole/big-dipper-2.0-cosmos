@@ -31,7 +31,7 @@ const Avatar: FC<AvatarProps> = ({ className, address, imageUrl }) => {
   const hasNoImage = !hasImageUrl;
 
   return (
-    <div className={cx(classes.root, className)}>
+    <span className={cx(classes.root, className)}>
       {hasImageUrl && (
         <Image
           width={0}
@@ -44,7 +44,7 @@ const Avatar: FC<AvatarProps> = ({ className, address, imageUrl }) => {
         />
       )}
       {hasNoImage && <svg data-jdenticon-value={address} height="100%" ref={icon} width="100%" />}
-    </div>
+    </span>
   );
 };
 

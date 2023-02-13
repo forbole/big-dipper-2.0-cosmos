@@ -1,11 +1,14 @@
+import Box from '@/components/box';
+import CustomToolTip from '@/components/custom_tool_tip';
+import useStyles from '@/screens/providers/components/compute/styles';
 import Typography from '@mui/material/Typography';
 import { useTranslation } from 'next-i18next';
+import dynamic from 'next/dynamic';
 import numeral from 'numeral';
 import { FC } from 'react';
 import { Cell, Pie, PieChart, Tooltip } from 'recharts';
-import useStyles from '@/screens/providers/components/compute/styles';
-import CustomToolTip from '@/components/custom_tool_tip';
-import Box from '@/components/box';
+
+const DynamicPieChart = dynamic(() => Promise.resolve(PieChart), { ssr: false });
 
 type ComputeProps = {
   className?: string;
@@ -46,7 +49,7 @@ const Compute: FC<ComputeProps> = ({ className, compute }) => {
         {t('compute')}
       </Typography>
       <div className={classes.content}>
-        <PieChart width={200} height={200}>
+        <DynamicPieChart width={200} height={200}>
           <Pie
             stroke="none"
             cornerRadius={100}
@@ -76,7 +79,7 @@ const Compute: FC<ComputeProps> = ({ className, compute }) => {
               </CustomToolTip>
             }
           />
-        </PieChart>
+        </DynamicPieChart>
 
         <div className={classes.legends}>
           {data.map((x) => (

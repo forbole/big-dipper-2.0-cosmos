@@ -166,7 +166,7 @@ const Desktop: FC<DesktopProps> = ({
                     const item = items[rowIndex];
                     return (
                       <BlockRow
-                        key={`${item.height}-${key}`}
+                        key={`${item.hash}-${key}`}
                         columnKey={key}
                         style={style}
                         rowIndex={rowIndex}

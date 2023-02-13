@@ -14,7 +14,7 @@ const Mobile: FC<{ className?: string; items: BlockType[] }> = (props) => {
   const formattedItems = props.items.map((x) => {
     const shard = getShardDisplay(x.shard);
     return {
-      key: x.block,
+      key: x.hash,
       block: numeral(x.block).format('0,0'),
       shard: t(shard.key, {
         num: shard.num,

@@ -52,7 +52,7 @@ const Desktop: FC<DesktopProps> = ({ className, items }) => {
   const { classes, cx } = useStyles();
 
   const formattedData = items.map((x) => ({
-    key: `${x.height}-${x.timestamp}`,
+    key: `${x.hash}-${x.timestamp}`,
     height: (
       <Link shallow prefetch={false} href={BLOCK_DETAILS(x.height)} className="value">
         {numeral(x.height).format('0,0')}
@@ -86,9 +86,9 @@ const Desktop: FC<DesktopProps> = ({ className, items }) => {
                   const { key, align } = column;
                   const item = row[key as keyof typeof row];
                   return (
-                    <TableCell key={`${row.height}-${key}`} align={align}>
+                    <TableCell key={`${row.hash}-${key}`} align={align}>
                       <motion.div
-                        key={`${row.height}-${key}`}
+                        key={`${row.hash}-${key}`}
                         initial="initial"
                         animate="animate"
                         exit="exit"
