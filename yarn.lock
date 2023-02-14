@@ -17445,6 +17445,8 @@ __metadata:
   resolution: "web-quasar@workspace:apps/web-quasar"
   dependencies:
     "@apollo/client": ^3.7.7
+    "@cosmjs/encoding": ^0.29.5
+    "@cosmjs/launchpad": ^0.27.1
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
@@ -17459,6 +17461,7 @@ __metadata:
     "@graphql-tools/mock": ^8.7.18
     "@graphql-tools/schema": ^9.0.16
     "@jest/globals": ^29.4.2
+    "@keplr-wallet/wc-client": ^0.11.38
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.8
     "@next/eslint-plugin-next": ^13.1.6
@@ -17485,6 +17488,8 @@ __metadata:
     "@types/react-window-infinite-loader": ^1.0.6
     "@typescript-eslint/eslint-plugin": ^5.51.0
     "@typescript-eslint/parser": ^5.51.0
+    "@walletconnect/client": ^1.8.0
+    "@walletconnect/encoding": ^1.0.2
     "@yarnpkg/pnpify": ^4.0.0-rc.39
     apollo-link-rest: ^0.9.0
     bech32: ^2.0.0
@@ -17545,6 +17550,7 @@ __metadata:
     ts-jest: ^29.0.5
     ts-node: ^10.9.1
     tsconfig: "workspace:*"
+    tslib: ^2.5.0
     tss-react: ^4.6.0
     typanion: ^3.12.1
     typescript: ^4.9.5
@@ -17561,6 +17567,8 @@ __metadata:
   resolution: "web-quicksilver@workspace:apps/web-quicksilver"
   dependencies:
     "@apollo/client": ^3.7.7
+    "@cosmjs/encoding": ^0.29.5
+    "@cosmjs/launchpad": ^0.27.1
     "@emotion/cache": ^11.10.5
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.5
@@ -17575,6 +17583,7 @@ __metadata:
     "@graphql-tools/mock": ^8.7.18
     "@graphql-tools/schema": ^9.0.16
     "@jest/globals": ^29.4.2
+    "@keplr-wallet/wc-client": ^0.11.38
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.8
     "@next/eslint-plugin-next": ^13.1.6
@@ -17601,6 +17610,8 @@ __metadata:
     "@types/react-window-infinite-loader": ^1.0.6
     "@typescript-eslint/eslint-plugin": ^5.51.0
     "@typescript-eslint/parser": ^5.51.0
+    "@walletconnect/client": ^1.8.0
+    "@walletconnect/encoding": ^1.0.2
     "@yarnpkg/pnpify": ^4.0.0-rc.39
     apollo-link-rest: ^0.9.0
     bech32: ^2.0.0
@@ -17661,6 +17672,7 @@ __metadata:
     ts-jest: ^29.0.5
     ts-node: ^10.9.1
     tsconfig: "workspace:*"
+    tslib: ^2.5.0
     tss-react: ^4.6.0
     typanion: ^3.12.1
     typescript: ^4.9.5
