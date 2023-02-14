@@ -1,5 +1,12 @@
 # unreleased
 
+## 2.8.8
+
+### Patch Changes
+
+- Updated dependencies [e0f32672]
+  - ui@2.14.3
+
 ## 2.8.7
 
 ### Patch Changes

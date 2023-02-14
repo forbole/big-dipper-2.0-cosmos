@@ -1,5 +1,12 @@
 # Unreleased
 
+## 2.9.4
+
+### Patch Changes
+
+- Updated dependencies [e0f32672]
+  - ui@2.14.3
+
 ## 2.9.3
 
 ### Patch Changes

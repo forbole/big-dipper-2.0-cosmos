@@ -1,5 +1,11 @@
 # ui
 
+## 2.14.3
+
+### Patch Changes
+
+- e0f32672: feat: migrated big dipper network recoil to apollo reactive variable and zod
+
 ## 2.14.2
 
 ### Patch Changes
