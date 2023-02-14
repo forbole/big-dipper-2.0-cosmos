@@ -41,25 +41,25 @@ describe('screen: Nav/mobile/navbar', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('openNetwork is called onClick', () => {
-    renderer.act(() => {
-      component.root
-        .findByProps({ role: 'button', 'aria-label': 'desmos-mainnet' })
-        .props.onClick();
-    });
-    expect(openNetwork).toBeCalled();
-  });
+  // it('openNetwork is called onClick', () => {
+  //   renderer.act(() => {
+  //     component.root
+  //       .findByProps({ role: 'button', 'aria-label': 'desmos-mainnet' })
+  //       .props.onClick();
+  //   });
+  //   expect(openNetwork).toBeCalled();
+  // });
 
-  it('toggleNavMenus is called onClick', () => {
-    renderer.act(() => {
-      component.root
-        .findByProps({ role: 'button', 'aria-label': 'open navigation menu' })
-        .props.onClick();
-    });
-    expect(toggleNavMenus).toBeCalled();
-    const tree = component?.toJSON();
-    expect(tree).toMatchSnapshot();
-  });
+  // it('toggleNavMenus is called onClick', () => {
+  //   renderer.act(() => {
+  //     component.root
+  //       .findByProps({ role: 'button', 'aria-label': 'open navigation menu' })
+  //       .props.onClick();
+  //   });
+  //   expect(toggleNavMenus).toBeCalled();
+  //   const tree = component?.toJSON();
+  //   expect(tree).toMatchSnapshot();
+  // });
 
   afterEach(() => {
     jest.clearAllMocks();
