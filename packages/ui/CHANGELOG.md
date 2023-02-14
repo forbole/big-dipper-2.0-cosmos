@@ -1,5 +1,11 @@
 # ui
 
+## 2.14.2
+
+### Patch Changes
+
+- e11d768a: fix: Text content does not match server-rendered HTML.
+
 ## 2.14.1
 
 ### Patch Changes
