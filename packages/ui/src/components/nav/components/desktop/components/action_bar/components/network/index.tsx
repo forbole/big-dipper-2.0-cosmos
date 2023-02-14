@@ -1,10 +1,11 @@
-import Typography from '@mui/material/Typography';
+import ChainIcon from '@/components/ChainIcon';
+import useStyles from '@/components/nav/components/desktop/components/action_bar/components/network/styles';
+import { readSelectedNetwork } from '@/recoil/big_dipper_networks';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Typography from '@mui/material/Typography';
+import dynamic from 'next/dynamic';
 import { FC } from 'react';
 import { useRecoilValue } from 'recoil';
-import { readSelectedNetwork } from '@/recoil/big_dipper_networks';
-import useStyles from '@/components/nav/components/desktop/components/action_bar/components/network/styles';
-import ChainIcon from '@/components/ChainIcon';
 
 type NetworkProps = {
   className?: string;
@@ -30,4 +31,4 @@ const Network: FC<NetworkProps> = ({ className, toggleNetwork }) => {
   );
 };
 
-export default Network;
+export default dynamic(() => Promise.resolve(Network), { ssr: false });

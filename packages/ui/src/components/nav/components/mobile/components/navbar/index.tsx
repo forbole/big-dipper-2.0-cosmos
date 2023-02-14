@@ -1,13 +1,14 @@
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Link from 'next/link';
-import { useRecoilValue } from 'recoil';
-import BigDipperLogoRed from 'shared-utils/assets/big-dipper-red.svg';
-import BigDipperLogoWhite from 'shared-utils/assets/big-dipper-white.svg';
 import useStyles from '@/components/nav/components/mobile/components/navbar/styles';
 import type { NavbarProps } from '@/components/nav/components/mobile/components/navbar/types';
 import { readSelectedNetwork } from '@/recoil/big_dipper_networks';
 import { readTheme } from '@/recoil/settings';
 import { HOME } from '@/utils/go_to_page';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import dynamic from 'next/dynamic';
+import Link from 'next/link';
+import { useRecoilValue } from 'recoil';
+import BigDipperLogoRed from 'shared-utils/assets/big-dipper-red.svg';
+import BigDipperLogoWhite from 'shared-utils/assets/big-dipper-white.svg';
 
 const Navbar = (props: NavbarProps) => {
   const { classes, cx } = useStyles();
@@ -57,4 +58,4 @@ const Navbar = (props: NavbarProps) => {
   );
 };
 
-export default Navbar;
+export default dynamic(() => Promise.resolve(Navbar), { ssr: false });
