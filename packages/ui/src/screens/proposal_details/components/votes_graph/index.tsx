@@ -7,12 +7,9 @@ import { formatGraphData } from '@/screens/proposal_details/components/votes_gra
 import Typography from '@mui/material/Typography';
 import Big from 'big.js';
 import { useTranslation } from 'next-i18next';
-import dynamic from 'next/dynamic';
 import numeral from 'numeral';
 import { FC } from 'react';
 import { Cell, Pie, PieChart } from 'recharts';
-
-const DynamicPieChart = dynamic(() => Promise.resolve(PieChart), { ssr: false });
 
 const VotesGraph: FC<ComponentDefault> = (props) => {
   const { classes, cx, theme } = useStyles();
@@ -42,7 +39,7 @@ const VotesGraph: FC<ComponentDefault> = (props) => {
   return (
     <Box className={cx(classes.root, props.className)}>
       <div className={classes.pie}>
-        <DynamicPieChart width={250} height={250}>
+        <PieChart width={250} height={250}>
           <Pie
             cx="50%"
             cy="50%"
@@ -57,7 +54,7 @@ const VotesGraph: FC<ComponentDefault> = (props) => {
               <Cell key={`cell-${index}`} fill={entry.color} stroke={entry.color} />
             ))}
           </Pie>
-        </DynamicPieChart>
+        </PieChart>
       </div>
       <div className={classes.legend}>
         <div className={classes.total}>

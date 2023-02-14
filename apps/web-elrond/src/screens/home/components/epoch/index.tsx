@@ -3,12 +3,9 @@ import { useEpoch } from '@/screens/home/components/epoch/hooks';
 import useStyles from '@/screens/home/components/epoch/styles';
 import Typography from '@mui/material/Typography';
 import { Trans, useTranslation } from 'next-i18next';
-import dynamic from 'next/dynamic';
 import numeral from 'numeral';
 import { FC } from 'react';
 import { PolarAngleAxis, RadialBar, RadialBarChart, Tooltip } from 'recharts';
-
-const DynamicRadialBarChart = dynamic(() => Promise.resolve(RadialBarChart), { ssr: false });
 
 const Chart: FC = () => {
   const { classes, theme } = useStyles();
@@ -25,7 +22,7 @@ const Chart: FC = () => {
   const circleSize = 200;
   return (
     <>
-      <DynamicRadialBarChart
+      <RadialBarChart
         className={classes.chart}
         width={circleSize}
         height={circleSize}
@@ -54,7 +51,7 @@ const Chart: FC = () => {
         <text x={circleSize / 2 - 20} y={circleSize / 2 + 30}>
           <tspan className={classes.chartLabel}>{t('epoch')}</tspan>
         </text>
-      </DynamicRadialBarChart>
+      </RadialBarChart>
       <Typography variant="body2" className={classes.time}>
         <Trans
           i18nKey="home:epochRoundsLeft"

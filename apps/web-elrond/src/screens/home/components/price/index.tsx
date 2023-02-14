@@ -6,7 +6,6 @@ import dayjs from '@/utils/dayjs';
 import Typography from '@mui/material/Typography';
 import Color from 'color';
 import { useTranslation } from 'next-i18next';
-import dynamic from 'next/dynamic';
 import numeral from 'numeral';
 import * as R from 'ramda';
 import { FC } from 'react';
@@ -19,10 +18,6 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
-
-const DynamicResponsiveContainer = dynamic(() => Promise.resolve(ResponsiveContainer), {
-  ssr: false,
-});
 
 const Price: FC<ComponentDefault> = (props) => {
   const { classes, cx, theme } = useStyles();
@@ -40,7 +35,7 @@ const Price: FC<ComponentDefault> = (props) => {
         {t('price')}
       </Typography>
       <div className={classes.chart}>
-        <DynamicResponsiveContainer width="99%">
+        <ResponsiveContainer width="99%">
           <AreaChart
             data={formatItems}
             margin={{
@@ -73,7 +68,7 @@ const Price: FC<ComponentDefault> = (props) => {
               fill={Color(theme.palette.custom.primaryData.one).alpha(0.7).toString()}
             />
           </AreaChart>
-        </DynamicResponsiveContainer>
+        </ResponsiveContainer>
       </div>
     </Box>
   );

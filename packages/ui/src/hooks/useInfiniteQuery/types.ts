@@ -27,14 +27,14 @@ export interface InfiniteQuery<TData, TVariables, TItem> {
 
 export type UseInfiniteQuery<TData, TVariables, TItem> = (
   document: TypedDocumentNode<TData, TVariables>,
-  formatter: (data: TData | undefined) => TItem[],
+  dataMapper: (data: TData | undefined) => TItem[],
   getOffsetVariables: (data: TData | undefined) => TVariables
 ) => InfiniteQuery<TData, TVariables, TItem>;
 
 export interface UseInfiniteQueryParams<TData, TVariables, TItem> {
   cursor: string;
   document: TypedDocumentNode<TData, TVariables>;
-  formatter: (data: TData | undefined) => TItem[];
+  dataMapper: (data: TData | undefined) => TItem[];
   variables?: Partial<TVariables>;
   offset?: number;
   skip?: boolean;

@@ -4,12 +4,9 @@ import { useStaking } from '@/screens/home/components/staking/hooks';
 import useStyles from '@/screens/home/components/staking/styles';
 import Typography from '@mui/material/Typography';
 import { useTranslation } from 'next-i18next';
-import dynamic from 'next/dynamic';
 import numeral from 'numeral';
 import { FC } from 'react';
 import { Cell, Pie, PieChart, Tooltip } from 'recharts';
-
-const DynamicPieChart = dynamic(() => Promise.resolve(PieChart), { ssr: false });
 
 const Staking: FC<ComponentDefault> = ({ className }) => {
   const { t } = useTranslation('home');
@@ -54,7 +51,7 @@ const Staking: FC<ComponentDefault> = ({ className }) => {
         ))}
       </div>
       <div className={classes.content}>
-        <DynamicPieChart width={200} height={100} cy={100}>
+        <PieChart width={200} height={100} cy={100}>
           <Pie
             stroke="none"
             cy={90}
@@ -84,7 +81,7 @@ const Staking: FC<ComponentDefault> = ({ className }) => {
               </CustomToolTip>
             }
           />
-        </DynamicPieChart>
+        </PieChart>
 
         <div className={classes.legends}>
           {data.map((x) => (

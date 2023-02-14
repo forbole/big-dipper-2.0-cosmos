@@ -27,7 +27,7 @@ import { useId } from 'react';
 /* WASM Contract */
 const formatExecutes = R.pipe(R.defaultTo(0), numeral, (r) => r.format('0,0'));
 
-const wasmContractFormatter = (data: WasmContractQuery | undefined): WasmContractType[] =>
+const mapDataToModel = (data: WasmContractQuery | undefined): WasmContractType[] =>
   data?.wasm_contract?.map((x) => ({
     contractName: <ContractName name={x.name || x.label} codeId={x.code_id} />,
     contractTypeName: <ContractTypeName contractInfo={x.contract_info} />,
@@ -69,7 +69,7 @@ export const useWasmContractsByOffset = (
   const result = useInfiniteQuery<WasmContractQuery, WasmContractQueryVariable, WasmContractType>({
     cursor,
     document: WasmContractDocument,
-    formatter: wasmContractFormatter,
+    dataMapper: mapDataToModel,
     variables,
     offset,
   });
@@ -104,7 +104,7 @@ export const useWasmCodesByOffset = (
   const result = useInfiniteQuery<WasmCodeQuery, WasmCodeQueryVariable, WasmCodeType>({
     cursor,
     document: WasmCodeDocument,
-    formatter: wasmCodeFormatter,
+    dataMapper: wasmCodeFormatter,
     variables,
     offset,
   });
