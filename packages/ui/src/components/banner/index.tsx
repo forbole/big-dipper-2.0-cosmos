@@ -10,6 +10,9 @@ export interface BannerLink {
   img: string;
 }
 
+/**
+ * a list of ad banners from .env
+ */
 const bannersJsons = [process.env.NEXT_PUBLIC_BANNERS_JSON];
 
 /**
