@@ -1,5 +1,12 @@
 # Unreleased
 
+## 2.9.2
+
+### Patch Changes
+
+- Updated dependencies [e11d768a]
+  - ui@2.14.2
+
 ## 2.9.1
 
 ### Patch Changes
