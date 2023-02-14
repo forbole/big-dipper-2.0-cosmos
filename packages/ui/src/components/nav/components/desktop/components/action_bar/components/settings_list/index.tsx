@@ -12,6 +12,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import Typography from '@mui/material/Typography';
 import { useTranslation } from 'next-i18next';
+import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { FC } from 'react';
 import SettingIcon from 'shared-utils/assets/icon-setting.svg';
@@ -142,4 +143,4 @@ const Settings: FC<ComponentDefault> = (props) => {
   );
 };
 
-export default Settings;
+export default dynamic(() => Promise.resolve(Settings), { ssr: false });
