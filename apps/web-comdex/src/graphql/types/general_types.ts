@@ -12527,6 +12527,33 @@ export type ValidatorAddressesQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type ValidatorAddressesQuery = { validator: Array<{ __typename?: 'validator', validatorInfo?: { __typename?: 'validator_info', operatorAddress: string, selfDelegateAddress?: string | null, consensusAddress: string } | null, validatorDescriptions: Array<{ __typename?: 'validator_description', moniker?: string | null, avatarUrl?: string | null }> }> };
 
+export type WasmCodeQueryVariables = Exact<{
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  wasm_code_bool_exp?: InputMaybe<Wasm_Code_Bool_Exp>;
+}>;
+
+
+export type WasmCodeQuery = { wasm_code: Array<{ __typename?: 'wasm_code', code_id: any, height: any, instantiate_permission?: any | null, sender?: string | null }> };
+
+export type WasmCodeWithByteCodeQueryVariables = Exact<{
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  wasm_code_bool_exp?: InputMaybe<Wasm_Code_Bool_Exp>;
+}>;
+
+
+export type WasmCodeWithByteCodeQuery = { wasm_code: Array<{ __typename?: 'wasm_code', code_id: any, height: any, instantiate_permission?: any | null, sender?: string | null, byte_code: any, wasm_contracts: Array<{ __typename?: 'wasm_contract', label?: string | null, contract_address: string, height: any, creator: string, instantiated_at: any, name: any, contract_info: any, wasm_execute_contracts_aggregate: { __typename?: 'wasm_execute_contract_aggregate', aggregate?: { __typename?: 'wasm_execute_contract_aggregate_fields', count: number, max?: { __typename?: 'wasm_execute_contract_max_fields', executed_at?: any | null } | null } | null } }> }> };
+
+export type WasmContractQueryVariables = Exact<{
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  wasm_contract_bool_exp?: InputMaybe<Wasm_Contract_Bool_Exp>;
+}>;
+
+
+export type WasmContractQuery = { wasm_contract: Array<{ __typename?: 'wasm_contract', label?: string | null, code_id: any, contract_address: string, height: any, creator: string, instantiated_at: any, name: any, contract_info: any, wasm_code: { __typename?: 'wasm_code', height: any, instantiate_permission?: any | null, sender?: string | null }, wasm_execute_contracts_aggregate: { __typename?: 'wasm_execute_contract_aggregate', aggregate?: { __typename?: 'wasm_execute_contract_aggregate_fields', count: number, max?: { __typename?: 'wasm_execute_contract_max_fields', executed_at?: any | null } | null } | null } }> };
+
 
 export const AccountCommissionDocument = gql`
     query AccountCommission($validatorAddress: String!) {
@@ -14341,3 +14368,173 @@ export function useValidatorAddressesLazyQuery(baseOptions?: Apollo.LazyQueryHoo
 export type ValidatorAddressesQueryHookResult = ReturnType<typeof useValidatorAddressesQuery>;
 export type ValidatorAddressesLazyQueryHookResult = ReturnType<typeof useValidatorAddressesLazyQuery>;
 export type ValidatorAddressesQueryResult = Apollo.QueryResult<ValidatorAddressesQuery, ValidatorAddressesQueryVariables>;
+export const WasmCodeDocument = gql`
+    query WasmCode($limit: Int = 100, $offset: Int = 0, $wasm_code_bool_exp: wasm_code_bool_exp = {}) {
+  wasm_code(
+    limit: $limit
+    offset: $offset
+    where: {_and: [{_not: {wasm_contracts: {}}}, $wasm_code_bool_exp]}
+    order_by: {code_id: desc_nulls_last}
+  ) {
+    code_id
+    height
+    instantiate_permission
+    sender
+  }
+}
+    `;
+
+/**
+ * __useWasmCodeQuery__
+ *
+ * To run a query within a React component, call `useWasmCodeQuery` and pass it any options that fit your needs.
+ * When your component renders, `useWasmCodeQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useWasmCodeQuery({
+ *   variables: {
+ *      limit: // value for 'limit'
+ *      offset: // value for 'offset'
+ *      wasm_code_bool_exp: // value for 'wasm_code_bool_exp'
+ *   },
+ * });
+ */
+export function useWasmCodeQuery(baseOptions?: Apollo.QueryHookOptions<WasmCodeQuery, WasmCodeQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<WasmCodeQuery, WasmCodeQueryVariables>(WasmCodeDocument, options);
+      }
+export function useWasmCodeLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<WasmCodeQuery, WasmCodeQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<WasmCodeQuery, WasmCodeQueryVariables>(WasmCodeDocument, options);
+        }
+export type WasmCodeQueryHookResult = ReturnType<typeof useWasmCodeQuery>;
+export type WasmCodeLazyQueryHookResult = ReturnType<typeof useWasmCodeLazyQuery>;
+export type WasmCodeQueryResult = Apollo.QueryResult<WasmCodeQuery, WasmCodeQueryVariables>;
+export const WasmCodeWithByteCodeDocument = gql`
+    query WasmCodeWithByteCode($limit: Int = 100, $offset: Int = 0, $wasm_code_bool_exp: wasm_code_bool_exp = {}) {
+  wasm_code(
+    limit: $limit
+    offset: $offset
+    where: $wasm_code_bool_exp
+    order_by: {code_id: desc_nulls_last}
+  ) {
+    code_id
+    height
+    instantiate_permission
+    sender
+    byte_code
+    wasm_contracts {
+      label
+      name: raw_contract_message(path: "name")
+      contract_info: contract_states(path: "contract_info")
+      contract_address
+      height
+      creator
+      instantiated_at
+      wasm_execute_contracts_aggregate {
+        aggregate {
+          count
+          max {
+            executed_at
+          }
+        }
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useWasmCodeWithByteCodeQuery__
+ *
+ * To run a query within a React component, call `useWasmCodeWithByteCodeQuery` and pass it any options that fit your needs.
+ * When your component renders, `useWasmCodeWithByteCodeQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useWasmCodeWithByteCodeQuery({
+ *   variables: {
+ *      limit: // value for 'limit'
+ *      offset: // value for 'offset'
+ *      wasm_code_bool_exp: // value for 'wasm_code_bool_exp'
+ *   },
+ * });
+ */
+export function useWasmCodeWithByteCodeQuery(baseOptions?: Apollo.QueryHookOptions<WasmCodeWithByteCodeQuery, WasmCodeWithByteCodeQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<WasmCodeWithByteCodeQuery, WasmCodeWithByteCodeQueryVariables>(WasmCodeWithByteCodeDocument, options);
+      }
+export function useWasmCodeWithByteCodeLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<WasmCodeWithByteCodeQuery, WasmCodeWithByteCodeQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<WasmCodeWithByteCodeQuery, WasmCodeWithByteCodeQueryVariables>(WasmCodeWithByteCodeDocument, options);
+        }
+export type WasmCodeWithByteCodeQueryHookResult = ReturnType<typeof useWasmCodeWithByteCodeQuery>;
+export type WasmCodeWithByteCodeLazyQueryHookResult = ReturnType<typeof useWasmCodeWithByteCodeLazyQuery>;
+export type WasmCodeWithByteCodeQueryResult = Apollo.QueryResult<WasmCodeWithByteCodeQuery, WasmCodeWithByteCodeQueryVariables>;
+export const WasmContractDocument = gql`
+    query WasmContract($limit: Int = 100, $offset: Int = 0, $wasm_contract_bool_exp: wasm_contract_bool_exp = {}) {
+  wasm_contract(
+    limit: $limit
+    offset: $offset
+    where: $wasm_contract_bool_exp
+    order_by: {instantiated_at: desc_nulls_last}
+  ) {
+    label
+    name: raw_contract_message(path: "name")
+    contract_info: contract_states(path: "contract_info")
+    code_id
+    contract_address
+    height
+    creator
+    instantiated_at
+    wasm_code {
+      height
+      instantiate_permission
+      sender
+    }
+    wasm_execute_contracts_aggregate {
+      aggregate {
+        count
+        max {
+          executed_at
+        }
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useWasmContractQuery__
+ *
+ * To run a query within a React component, call `useWasmContractQuery` and pass it any options that fit your needs.
+ * When your component renders, `useWasmContractQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useWasmContractQuery({
+ *   variables: {
+ *      limit: // value for 'limit'
+ *      offset: // value for 'offset'
+ *      wasm_contract_bool_exp: // value for 'wasm_contract_bool_exp'
+ *   },
+ * });
+ */
+export function useWasmContractQuery(baseOptions?: Apollo.QueryHookOptions<WasmContractQuery, WasmContractQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<WasmContractQuery, WasmContractQueryVariables>(WasmContractDocument, options);
+      }
+export function useWasmContractLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<WasmContractQuery, WasmContractQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<WasmContractQuery, WasmContractQueryVariables>(WasmContractDocument, options);
+        }
+export type WasmContractQueryHookResult = ReturnType<typeof useWasmContractQuery>;
+export type WasmContractLazyQueryHookResult = ReturnType<typeof useWasmContractLazyQuery>;
+export type WasmContractQueryResult = Apollo.QueryResult<WasmContractQuery, WasmContractQueryVariables>;

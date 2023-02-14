@@ -14,7 +14,7 @@ const Mobile: FC<{ className?: string; items: BlockType[] }> = (props) => {
   const formattedItems = props.items.map((x) => {
     const shard = getShardDisplay(x.shard);
     return {
-      key: x.block,
+      key: x.hash,
       block: numeral(x.block).format('0,0'),
       shard: t(shard.key, {
         num: shard.num,
@@ -28,9 +28,10 @@ const Mobile: FC<{ className?: string; items: BlockType[] }> = (props) => {
         </Link>
       ),
       txs: numeral(x.txs).format('0,0'),
-      time: <Timestamp timestamp={x.timestamp} />,
+      time: <Timestamp timestamp={x.timestamp} isUnix />,
     };
   });
+
   return (
     <div className={props.className}>
       {formattedItems?.map((x, i) => (

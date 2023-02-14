@@ -198,7 +198,6 @@ exports[`screen: Nav/mobile/navbar it renders 1`] = `
 .emotion-12 {
   height: 10.4px;
   width: 10.4px;
-  background-color: #29CC6A;
   border-radius: 50px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -512,7 +511,7 @@ exports[`screen: Nav/mobile/navbar it renders 1`] = `
             <div
               className="emotion-9"
             >
-              <div
+              <span
                 className="emotion-10"
               >
                 <svg
@@ -520,7 +519,7 @@ exports[`screen: Nav/mobile/navbar it renders 1`] = `
                   height="100%"
                   width="100%"
                 />
-              </div>
+              </span>
               <div
                 className="emotion-11"
               />
@@ -829,7 +828,6 @@ exports[`screen: Nav/mobile/navbar toggleNavMenus is called onClick 1`] = `
 .emotion-12 {
   height: 10.4px;
   width: 10.4px;
-  background-color: #29CC6A;
   border-radius: 50px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -1143,7 +1141,7 @@ exports[`screen: Nav/mobile/navbar toggleNavMenus is called onClick 1`] = `
             <div
               className="emotion-9"
             >
-              <div
+              <span
                 className="emotion-10"
               >
                 <svg
@@ -1151,7 +1149,7 @@ exports[`screen: Nav/mobile/navbar toggleNavMenus is called onClick 1`] = `
                   height="100%"
                   width="100%"
                 />
-              </div>
+              </span>
               <div
                 className="emotion-11"
               />

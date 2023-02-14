@@ -1,13 +1,22 @@
 ARG BASE_IMAGE=node:18
 ARG PROJECT_NAME=web
 
-# Stage: base
-FROM ${BASE_IMAGE} AS base
+# This is a multiple stage Dockerfile.
+# - Stage 1: starter (base image with Node.js 18 and the turbo package installed globally)
+
+# - Stage 2: pruner (copies all necessary files and sets up yarn configurations, runs turbo prune)
+
+# - Stage 3: builder (adds dependencies, environment variables, and builds the project using yarn)
+
+# - Stage 4: runner (final image for the web project, sets environment variables, starts the server)
+
+# Stage: starter
+FROM ${BASE_IMAGE} AS starter
 WORKDIR /app
 RUN npm i -g turbo
 
 # Stage: pruner
-FROM base AS pruner
+FROM starter AS pruner
 
 COPY ./ ./
 
@@ -19,7 +28,7 @@ RUN yarn config set nodeLinker node-modules \
 ################################################################################
 
 # Stage: builder
-FROM base AS builder
+FROM starter AS builder
 
 ### First install the dependencies (as they change less often)
 COPY .yarnrc.yml ./
@@ -38,7 +47,6 @@ ENV SENTRY_URL=https://sentry.io/
 ENV SENTRY_ORG=forbole
 ENV SENTRY_PROJECT=big-dipper
 ENV SENTRY_ENVIRONMENT=production
-ENV NEXT_TELEMETRY_DISABLED=1
 ARG BASE_PATH
 ENV BASE_PATH=${BASE_PATH}
 ENV CI=1
@@ -49,7 +57,7 @@ ARG TURBO_TOKEN
 ENV TURBO_TOKEN=${TURBO_TOKEN}
 ENV BUILD_STANDALONE=1
 
-# add placeholder for env variables to be injected in web stage
+# add placeholder for env variables to be injected in runner stage
 ENV NEXT_PUBLIC_CHAIN_TYPE={{NEXT_PUBLIC_CHAIN_TYPE}}
 ENV NEXT_PUBLIC_BANNERS_JSON={{NEXT_PUBLIC_BANNERS_JSON}}
 ENV NEXT_PUBLIC_GRAPHQL_URL={{NEXT_PUBLIC_GRAPHQL_URL}}
@@ -66,20 +74,20 @@ ENV NEXT_PUBLIC_WC_BRIDGE_URL={{NEXT_PUBLIC_WC_BRIDGE_URL}}
 RUN export SENTRYCLI_SKIP_DOWNLOAD=$([ -z "${NEXT_PUBLIC_SENTRY_DSN}" ] && echo 1) \
   && corepack enable && yarn -v \
   && yarn config set supportedArchitectures --json '{}' \
-  && YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn install --inline-builds
+  && YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn install --inline-builds \
+  && yarn workspace ${PROJECT_NAME} add sharp
 
 ## Build the project
 COPY --from=pruner /app/out/full/ ./
 RUN ([ -z "${NEXT_PUBLIC_SENTRY_DSN}" ] || yarn node packages/shared-utils/configs/sentry/install.js) \
-  && yarn workspace ${PROJECT_NAME} add sharp \
   && yarn workspace ${PROJECT_NAME} run build
 
 ################################################################################
 
-# Stage: web
-FROM ${BASE_IMAGE} AS web
+# Stage: runner
+FROM ${BASE_IMAGE} AS runner
  
-# Copying the files from the builder stage to the web stage.
+# Copying the files from the builder stage to the runner stage.
 ARG PROJECT_NAME
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1

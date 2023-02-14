@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
     inputs:
       projects:
-        description: 'Project to publish (to Vercel)'
+        description: 'Publish Workspaces (to Vercel)'
         required: true
       chain_type:
         description: 'Chain Type to publish (default to mainnet when more than 1 was configured)'
@@ -15,17 +15,18 @@ jobs:
   validate-projects:
     runs-on: ubuntu-latest
     outputs:
-      projects: ${{ steps.vars.outputs.projects }}
+      projects: ${{ steps.extract-projects.outputs.projects }}
     steps:
       - uses: actions/checkout@v3
-      - run: |
+      - name: Extract projects
+        run: |
           export ALL_PROJECTS=$(yarn workspaces list --json | jq -csr '[ .[].name | select(. | startswith("web") ) ]')
           node <<EOF | tee -a $GITHUB_OUTPUT $GITHUB_STEP_SUMMARY
           const allProjects = JSON.parse(process.env.ALL_PROJECTS);
           const projects = process.env.PROJECTS === '*' ? null : process.env.PROJECTS.split(/,/).map(p => p.trim()).filter(p => p);
           console.log('projects=' + JSON.stringify(allProjects.filter(a => !projects || projects.includes(a))));
           EOF
-        id: vars
+        id: extract-projects
         env:
           PROJECTS: ${{ github.event.inputs.projects }}
   publish:
@@ -40,7 +41,8 @@ jobs:
     name: Publish ${{ matrix.project }}
     steps:
       - uses: actions/checkout@v3
-      - run: |
+      - name: Assign chain type
+        run: |
           # assign chain_type
           node <<EOF | tee -a $GITHUB_OUTPUT
           const chainType = process.env.NEXT_PUBLIC_CHAIN_TYPE?.toLowerCase() || 'mainnet';
@@ -55,7 +57,7 @@ jobs:
             throw new Error('Chain type ' + process.env.NEXT_PUBLIC_CHAIN_TYPE + ' not found in chain.json');
           console.log('chain_type=' + chain.chainType.toLowerCase());
           EOF
-        id: vars
+        id: assign-chain-type
         env:
           PROJECT_NAME: ${{ matrix.project }}
           NEXT_PUBLIC_CHAIN_TYPE: ${{ github.event.inputs.chain_type }}
@@ -78,7 +80,7 @@ jobs:
           EOF
         env:
           PROJECT_NAME: ${{ matrix.project }}
-          NEXT_PUBLIC_CHAIN_TYPE: ${{ steps.vars.outputs.chain_type }}
+          NEXT_PUBLIC_CHAIN_TYPE: ${{ steps.assign-chain-type.outputs.chain_type }}
       - name: Deploy preview to Vercel
         run: vercel -t ${{ secrets.VERCEL_TOKEN }} | tee -a $GITHUB_STEP_SUMMARY
         env:

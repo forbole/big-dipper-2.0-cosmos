@@ -3,7 +3,7 @@ import { makeStyles } from 'tss-react/mui';
 const useStyles = makeStyles()((theme) => ({
   root: {
     display: 'flex',
-    minHeight: '400px',
+    minHeight: '200px',
     overflow: 'hidden',
     flexFlow: 'column nowrap',
   },

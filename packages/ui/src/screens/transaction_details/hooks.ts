@@ -143,7 +143,7 @@ export const useTransactionDetails = () => {
   );
 
   const toggleMessageDisplay = useCallback(
-    (event: SyntheticEvent<HTMLInputElement>, checked: boolean) => {
+    (_: SyntheticEvent<HTMLInputElement>, checked: boolean) => {
       handleSetState((prevState) => ({
         ...prevState,
         messages: {

@@ -24,14 +24,14 @@ import { ListOnScrollProps, VariableSizeList, VariableSizeListProps } from 'reac
 import { useElementSize } from 'usehooks-ts';
 
 function handleAutoScrollElement(
-  scrollProps: ListOnScrollProps,
+  scrollUpdateWasRequested: ListOnScrollProps['scrollUpdateWasRequested'] | undefined,
+  scrollOffset: ListOnScrollProps['scrollOffset'] | undefined,
   lastScrollTime: MutableRefObject<number>,
   autoScrollElement?: Element | null
 ) {
   if (!autoScrollElement || typeof window === 'undefined') return;
-  if (lastScrollTime.current + 2000 > new Date().getTime()) return;
-  const { scrollUpdateWasRequested, scrollDirection } = scrollProps;
-  if (scrollUpdateWasRequested || scrollDirection === 'backward') return;
+  if (lastScrollTime.current && lastScrollTime.current + 2000 > new Date().getTime()) return;
+  if (scrollUpdateWasRequested || !scrollOffset) return;
   lastScrollTime.current = new Date().getTime();
   const top = autoScrollElement.getBoundingClientRect().top + window.scrollY;
   window.scrollTo({ top, behavior: 'smooth' });
@@ -92,12 +92,16 @@ const InfiniteList = <TData, TVariables, TItem>({
   const [scrollProps, setScrollProps] = useState<ListOnScrollProps>();
   const handleScroll = (props: ListOnScrollProps) => setScrollProps(props);
   const scrollPropsDefer = useDeferredValue(scrollProps);
-  const lastScrollTime = useRef(new Date().getTime());
+  const lastScrollTime = useRef(0);
 
   useEffect(() => {
-    if (scrollPropsDefer)
-      handleAutoScrollElement(scrollPropsDefer, lastScrollTime, autoScrollElement);
-  }, [autoScrollElement, scrollPropsDefer]);
+    handleAutoScrollElement(
+      scrollProps?.scrollUpdateWasRequested,
+      scrollProps?.scrollOffset,
+      lastScrollTime,
+      autoScrollElement
+    );
+  }, [autoScrollElement, scrollProps]);
 
   useEffect(() => {
     startTransition(() => {

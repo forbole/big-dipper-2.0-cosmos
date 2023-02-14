@@ -44,7 +44,7 @@ const Mobile: FC<{ className?: string; items: TransactionType[] }> = (props) => 
       />
     ),
     status: <Result status={x.status} />,
-    time: <Timestamp timestamp={x.timestamp} />,
+    time: <Timestamp timestamp={x.timestamp} isUnix />,
   }));
 
   return (

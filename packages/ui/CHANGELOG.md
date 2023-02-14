@@ -1,5 +1,54 @@
 # ui
 
+## 2.14.2
+
+### Patch Changes
+
+- e11d768a: fix: Text content does not match server-rendered HTML.
+
+## 2.14.1
+
+### Patch Changes
+
+- 4079b219: fix: ssr issue Text content does not match server-rendered HTML
+
+## 2.14.0
+
+### Minor Changes
+
+- d08c0dfd: feat: add WASM Contract module
+
+### Patch Changes
+
+- Updated dependencies [d08c0dfd]
+  - shared-utils@2.8.0
+  - tsconfig@0.3.0
+
+## 2.13.0
+
+### Minor Changes
+
+- af2e8add5: add: quicksilver workspace
+
+### Patch Changes
+
+- Updated dependencies [af2e8add5]
+  - shared-utils@2.7.0
+
+## 2.12.1
+
+### Patch Changes
+
+- b4ac0a0c5: feat: setup Quasar testnet
+- Updated dependencies [b4ac0a0c5]
+  - shared-utils@2.6.3
+
+## 2.12.0
+
+### Minor Changes
+
+- e12c3b0c2: add custom message types, including Profiles, Posts, Reactions, Reports and Subspaces modules
+
 ## 2.11.1
 
 ### Patch Changes

@@ -18,6 +18,19 @@ export type Scalars = {
   timestamp: any;
 };
 
+/** Boolean expression to compare columns of type "Int". All fields are combined with logical 'AND'. */
+export type Int_Comparison_Exp = {
+  _eq?: InputMaybe<Scalars['Int']>;
+  _gt?: InputMaybe<Scalars['Int']>;
+  _gte?: InputMaybe<Scalars['Int']>;
+  _in?: InputMaybe<Array<Scalars['Int']>>;
+  _is_null?: InputMaybe<Scalars['Boolean']>;
+  _lt?: InputMaybe<Scalars['Int']>;
+  _lte?: InputMaybe<Scalars['Int']>;
+  _neq?: InputMaybe<Scalars['Int']>;
+  _nin?: InputMaybe<Array<Scalars['Int']>>;
+};
+
 /** Boolean expression to compare columns of type "String". All fields are combined with logical 'AND'. */
 export type String_Comparison_Exp = {
   _eq?: InputMaybe<Scalars['String']>;
@@ -56,6 +69,7 @@ export type Application_Link = {
   __typename?: 'application_link';
   application: Scalars['String'];
   creation_time: Scalars['timestamp'];
+  expiration_time: Scalars['timestamp'];
   /** An object relationship */
   oracle_request?: Maybe<Application_Link_Oracle_Request>;
   /** An object relationship */
@@ -86,6 +100,7 @@ export type Application_Link_Bool_Exp = {
   _or?: InputMaybe<Array<Application_Link_Bool_Exp>>;
   application?: InputMaybe<String_Comparison_Exp>;
   creation_time?: InputMaybe<Timestamp_Comparison_Exp>;
+  expiration_time?: InputMaybe<Timestamp_Comparison_Exp>;
   oracle_request?: InputMaybe<Application_Link_Oracle_Request_Bool_Exp>;
   profile?: InputMaybe<Profile_Bool_Exp>;
   result?: InputMaybe<Jsonb_Comparison_Exp>;
@@ -98,6 +113,7 @@ export type Application_Link_Bool_Exp = {
 export type Application_Link_Max_Order_By = {
   application?: InputMaybe<Order_By>;
   creation_time?: InputMaybe<Order_By>;
+  expiration_time?: InputMaybe<Order_By>;
   state?: InputMaybe<Order_By>;
   user_address?: InputMaybe<Order_By>;
   username?: InputMaybe<Order_By>;
@@ -107,6 +123,7 @@ export type Application_Link_Max_Order_By = {
 export type Application_Link_Min_Order_By = {
   application?: InputMaybe<Order_By>;
   creation_time?: InputMaybe<Order_By>;
+  expiration_time?: InputMaybe<Order_By>;
   state?: InputMaybe<Order_By>;
   user_address?: InputMaybe<Order_By>;
   username?: InputMaybe<Order_By>;
@@ -115,8 +132,6 @@ export type Application_Link_Min_Order_By = {
 /** columns and relationships of "application_link_oracle_request" */
 export type Application_Link_Oracle_Request = {
   __typename?: 'application_link_oracle_request';
-  /** An object relationship */
-  application_link: Application_Link;
   call_data: Scalars['jsonb'];
   client_id: Scalars['String'];
   request_id: Scalars['bigint'];
@@ -134,7 +149,6 @@ export type Application_Link_Oracle_Request_Bool_Exp = {
   _and?: InputMaybe<Array<Application_Link_Oracle_Request_Bool_Exp>>;
   _not?: InputMaybe<Application_Link_Oracle_Request_Bool_Exp>;
   _or?: InputMaybe<Array<Application_Link_Oracle_Request_Bool_Exp>>;
-  application_link?: InputMaybe<Application_Link_Bool_Exp>;
   call_data?: InputMaybe<Jsonb_Comparison_Exp>;
   client_id?: InputMaybe<String_Comparison_Exp>;
   request_id?: InputMaybe<Bigint_Comparison_Exp>;
@@ -143,7 +157,6 @@ export type Application_Link_Oracle_Request_Bool_Exp = {
 
 /** Ordering options when selecting data from "application_link_oracle_request". */
 export type Application_Link_Oracle_Request_Order_By = {
-  application_link?: InputMaybe<Application_Link_Order_By>;
   call_data?: InputMaybe<Order_By>;
   client_id?: InputMaybe<Order_By>;
   request_id?: InputMaybe<Order_By>;
@@ -166,6 +179,7 @@ export enum Application_Link_Oracle_Request_Select_Column {
 export type Application_Link_Order_By = {
   application?: InputMaybe<Order_By>;
   creation_time?: InputMaybe<Order_By>;
+  expiration_time?: InputMaybe<Order_By>;
   oracle_request?: InputMaybe<Application_Link_Oracle_Request_Order_By>;
   profile?: InputMaybe<Profile_Order_By>;
   result?: InputMaybe<Order_By>;
@@ -174,12 +188,55 @@ export type Application_Link_Order_By = {
   username?: InputMaybe<Order_By>;
 };
 
+/** columns and relationships of "application_link_score" */
+export type Application_Link_Score = {
+  __typename?: 'application_link_score';
+  details: Scalars['jsonb'];
+  score: Scalars['Int'];
+  timestamp: Scalars['timestamp'];
+};
+
+
+/** columns and relationships of "application_link_score" */
+export type Application_Link_ScoreDetailsArgs = {
+  path?: InputMaybe<Scalars['String']>;
+};
+
+/** Boolean expression to filter rows from the table "application_link_score". All fields are combined with a logical 'AND'. */
+export type Application_Link_Score_Bool_Exp = {
+  _and?: InputMaybe<Array<Application_Link_Score_Bool_Exp>>;
+  _not?: InputMaybe<Application_Link_Score_Bool_Exp>;
+  _or?: InputMaybe<Array<Application_Link_Score_Bool_Exp>>;
+  details?: InputMaybe<Jsonb_Comparison_Exp>;
+  score?: InputMaybe<Int_Comparison_Exp>;
+  timestamp?: InputMaybe<Timestamp_Comparison_Exp>;
+};
+
+/** Ordering options when selecting data from "application_link_score". */
+export type Application_Link_Score_Order_By = {
+  details?: InputMaybe<Order_By>;
+  score?: InputMaybe<Order_By>;
+  timestamp?: InputMaybe<Order_By>;
+};
+
+/** select columns of table "application_link_score" */
+export enum Application_Link_Score_Select_Column {
+  /** column name */
+  Details = 'details',
+  /** column name */
+  Score = 'score',
+  /** column name */
+  Timestamp = 'timestamp'
+}
+
 /** select columns of table "application_link" */
 export enum Application_Link_Select_Column {
   /** column name */
   Application = 'application',
   /** column name */
   CreationTime = 'creation_time',
+  /** column name */
+  ExpirationTime = 'expiration_time',
   /** column name */
   Result = 'result',
   /** column name */
@@ -687,6 +744,8 @@ export type Query_Root = {
   application_link: Array<Application_Link>;
   /** fetch data from the table: "application_link_oracle_request" */
   application_link_oracle_request: Array<Application_Link_Oracle_Request>;
+  /** fetch data from the table: "application_link_score" */
+  application_link_score: Array<Application_Link_Score>;
   /** fetch data from the table: "chain_link" */
   chain_link: Array<Chain_Link>;
   /** fetch data from the table: "chain_link_chain_config" */
@@ -719,6 +778,15 @@ export type Query_RootApplication_Link_Oracle_RequestArgs = {
   offset?: InputMaybe<Scalars['Int']>;
   order_by?: InputMaybe<Array<Application_Link_Oracle_Request_Order_By>>;
   where?: InputMaybe<Application_Link_Oracle_Request_Bool_Exp>;
+};
+
+
+export type Query_RootApplication_Link_ScoreArgs = {
+  distinct_on?: InputMaybe<Array<Application_Link_Score_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Application_Link_Score_Order_By>>;
+  where?: InputMaybe<Application_Link_Score_Bool_Exp>;
 };
 
 
@@ -786,6 +854,8 @@ export type Subscription_Root = {
   application_link: Array<Application_Link>;
   /** fetch data from the table: "application_link_oracle_request" */
   application_link_oracle_request: Array<Application_Link_Oracle_Request>;
+  /** fetch data from the table: "application_link_score" */
+  application_link_score: Array<Application_Link_Score>;
   /** fetch data from the table: "chain_link" */
   chain_link: Array<Chain_Link>;
   /** fetch data from the table: "chain_link_chain_config" */
@@ -818,6 +888,15 @@ export type Subscription_RootApplication_Link_Oracle_RequestArgs = {
   offset?: InputMaybe<Scalars['Int']>;
   order_by?: InputMaybe<Array<Application_Link_Oracle_Request_Order_By>>;
   where?: InputMaybe<Application_Link_Oracle_Request_Bool_Exp>;
+};
+
+
+export type Subscription_RootApplication_Link_ScoreArgs = {
+  distinct_on?: InputMaybe<Array<Application_Link_Score_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Application_Link_Score_Order_By>>;
+  where?: InputMaybe<Application_Link_Score_Bool_Exp>;
 };
 
 

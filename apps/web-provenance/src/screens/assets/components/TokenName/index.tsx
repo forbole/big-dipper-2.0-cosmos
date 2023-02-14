@@ -32,7 +32,7 @@ const TokenName: FC<TokenNameProps> = ({ address, denom, tokenName }) => {
       {!tokenName && (
         <div className={classes.tokenName}>
           <Avatar address={address} />
-          <Typography variant="body1">{denom}</Typography>
+          <span>{denom}</span>
         </div>
       )}
     </Box>

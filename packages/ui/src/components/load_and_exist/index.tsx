@@ -16,15 +16,9 @@ const LoadAndExist: FC<PropsWithChildren<LoadAndExistProps>> = (props) => {
   // eslint-disable-next-line react/jsx-no-useless-fragment
   return (
     <>
-      {loading && <LinearLoading />}
+      {loading && <LinearLoading className={maxHeight.maxHScreen} />}
       {!exists && !loading && <NotFound />}
-      <div
-        className={cx(
-          { [visibility.invisible]: loading || !exists },
-          height.hFull,
-          maxHeight.maxHScreen
-        )}
-      >
+      <div className={cx({ [visibility.invisible]: loading || !exists }, height.hFull)}>
         {children}
       </div>
     </>

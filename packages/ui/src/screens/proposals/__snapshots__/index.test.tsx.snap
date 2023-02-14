@@ -1,40 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: Proposals matches snapshot 1`] = `
-@keyframes animation-0 {
-  0% {
-    left: -35%;
-    right: 100%;
-  }
-
-  60% {
-    left: 100%;
-    right: -90%;
-  }
-
-  100% {
-    left: 100%;
-    right: -90%;
-  }
-}
-
-@keyframes animation-1 {
-  0% {
-    left: -200%;
-    right: 100%;
-  }
-
-  60% {
-    left: 107%;
-    right: -8%;
-  }
-
-  100% {
-    left: 107%;
-    right: -8%;
-  }
-}
-
 .emotion-0 {
   padding: 16px;
 }
@@ -50,86 +16,7 @@ exports[`screen: Proposals matches snapshot 1`] = `
 }
 
 .emotion-1 {
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
   height: 100%;
-  min-height: 150px;
-  padding: 16px;
-}
-
-.emotion-1>* {
-  width: 70%;
-}
-
-@media (min-width:768px) {
-  .emotion-1>* {
-    width: 40%;
-  }
-}
-
-.emotion-2 {
-  position: relative;
-  overflow: hidden;
-  display: block;
-  height: 4px;
-  z-index: 0;
-  background-color: rgb(255, 207, 192);
-}
-
-@media print {
-  .emotion-2 {
-    -webkit-print-color-adjust: exact;
-    color-adjust: exact;
-  }
-}
-
-.emotion-3 {
-  width: 100%;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  top: 0;
-  -webkit-transition: -webkit-transform 0.2s linear;
-  transition: transform 0.2s linear;
-  transform-origin: left;
-  background-color: #FF835B;
-  width: auto;
-  -webkit-animation: animation-0 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
-  animation: animation-0 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
-}
-
-.emotion-4 {
-  width: 100%;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  top: 0;
-  -webkit-transition: -webkit-transform 0.2s linear;
-  transition: transform 0.2s linear;
-  transform-origin: left;
-  background-color: #FF835B;
-  width: auto;
-  -webkit-animation: animation-1 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) 1.15s infinite;
-  animation: animation-1 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) 1.15s infinite;
-}
-
-.emotion-5 {
-  visibility: hidden;
-  height: 100%;
-  max-height: 100vh;
 }
 
 <div
@@ -140,30 +27,40 @@ exports[`screen: Proposals matches snapshot 1`] = `
   <div
     className="emotion-1"
   >
-    <span
-      className="MuiLinearProgress-root MuiLinearProgress-colorPrimary MuiLinearProgress-indeterminate emotion-2"
-      role="progressbar"
-    >
-      <span
-        className="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary MuiLinearProgress-bar1Indeterminate emotion-3"
-        style={{}}
-      />
-      <span
-        className="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary MuiLinearProgress-bar2Indeterminate emotion-4"
-        style={{}}
-      />
-    </span>
-  </div>
-  <div
-    className="emotion-5"
-  >
     <div
       id="List"
       isItemLoaded={[Function]}
-      itemCount={0}
-      items={[]}
+      itemCount={4}
+      items={
+        [
+          {
+            "description": "Update max validators",
+            "id": 7,
+            "status": "PROPOSAL_STATUS_REJECTED",
+            "title": "Staking Param Change Part Two",
+          },
+          {
+            "description": "software upgrade description",
+            "id": 6,
+            "status": "PROPOSAL_STATUS_INVALID",
+            "title": "upgrading the software",
+          },
+          {
+            "description": "Update max validators",
+            "id": 5,
+            "status": "PROPOSAL_STATUS_INVALID",
+            "title": "Staking Param Change",
+          },
+          {
+            "description": "My not so awesome proposal",
+            "id": 4,
+            "status": "PROPOSAL_STATUS_REJECTED",
+            "title": "BD Proposal",
+          },
+        ]
+      }
       loadMoreItems={[Function]}
-      rawDataTotal={0}
+      rawDataTotal={4}
     />
   </div>
 </div>

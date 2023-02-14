@@ -1119,8 +1119,6 @@ export type Double_Sign_Vote = {
   round: Scalars['Int'];
   signature: Scalars['String'];
   type: Scalars['smallint'];
-  /** An object relationship */
-  validator: Validator;
   validator_address: Scalars['String'];
   validator_index: Scalars['Int'];
 };
@@ -1195,21 +1193,6 @@ export type Double_Sign_Vote_Aggregate_FieldsCountArgs = {
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
-/** order by aggregate values of table "double_sign_vote" */
-export type Double_Sign_Vote_Aggregate_Order_By = {
-  avg?: InputMaybe<Double_Sign_Vote_Avg_Order_By>;
-  count?: InputMaybe<Order_By>;
-  max?: InputMaybe<Double_Sign_Vote_Max_Order_By>;
-  min?: InputMaybe<Double_Sign_Vote_Min_Order_By>;
-  stddev?: InputMaybe<Double_Sign_Vote_Stddev_Order_By>;
-  stddev_pop?: InputMaybe<Double_Sign_Vote_Stddev_Pop_Order_By>;
-  stddev_samp?: InputMaybe<Double_Sign_Vote_Stddev_Samp_Order_By>;
-  sum?: InputMaybe<Double_Sign_Vote_Sum_Order_By>;
-  var_pop?: InputMaybe<Double_Sign_Vote_Var_Pop_Order_By>;
-  var_samp?: InputMaybe<Double_Sign_Vote_Var_Samp_Order_By>;
-  variance?: InputMaybe<Double_Sign_Vote_Variance_Order_By>;
-};
-
 /** aggregate avg on columns */
 export type Double_Sign_Vote_Avg_Fields = {
   __typename?: 'double_sign_vote_avg_fields';
@@ -1218,15 +1201,6 @@ export type Double_Sign_Vote_Avg_Fields = {
   round?: Maybe<Scalars['Float']>;
   type?: Maybe<Scalars['Float']>;
   validator_index?: Maybe<Scalars['Float']>;
-};
-
-/** order by avg() on columns of table "double_sign_vote" */
-export type Double_Sign_Vote_Avg_Order_By = {
-  height?: InputMaybe<Order_By>;
-  id?: InputMaybe<Order_By>;
-  round?: InputMaybe<Order_By>;
-  type?: InputMaybe<Order_By>;
-  validator_index?: InputMaybe<Order_By>;
 };
 
 /** Boolean expression to filter rows from the table "double_sign_vote". All fields are combined with a logical 'AND'. */
@@ -1242,7 +1216,6 @@ export type Double_Sign_Vote_Bool_Exp = {
   round?: InputMaybe<Int_Comparison_Exp>;
   signature?: InputMaybe<String_Comparison_Exp>;
   type?: InputMaybe<Smallint_Comparison_Exp>;
-  validator?: InputMaybe<Validator_Bool_Exp>;
   validator_address?: InputMaybe<String_Comparison_Exp>;
   validator_index?: InputMaybe<Int_Comparison_Exp>;
 };
@@ -1260,18 +1233,6 @@ export type Double_Sign_Vote_Max_Fields = {
   validator_index?: Maybe<Scalars['Int']>;
 };
 
-/** order by max() on columns of table "double_sign_vote" */
-export type Double_Sign_Vote_Max_Order_By = {
-  block_id?: InputMaybe<Order_By>;
-  height?: InputMaybe<Order_By>;
-  id?: InputMaybe<Order_By>;
-  round?: InputMaybe<Order_By>;
-  signature?: InputMaybe<Order_By>;
-  type?: InputMaybe<Order_By>;
-  validator_address?: InputMaybe<Order_By>;
-  validator_index?: InputMaybe<Order_By>;
-};
-
 /** aggregate min on columns */
 export type Double_Sign_Vote_Min_Fields = {
   __typename?: 'double_sign_vote_min_fields';
@@ -1285,18 +1246,6 @@ export type Double_Sign_Vote_Min_Fields = {
   validator_index?: Maybe<Scalars['Int']>;
 };
 
-/** order by min() on columns of table "double_sign_vote" */
-export type Double_Sign_Vote_Min_Order_By = {
-  block_id?: InputMaybe<Order_By>;
-  height?: InputMaybe<Order_By>;
-  id?: InputMaybe<Order_By>;
-  round?: InputMaybe<Order_By>;
-  signature?: InputMaybe<Order_By>;
-  type?: InputMaybe<Order_By>;
-  validator_address?: InputMaybe<Order_By>;
-  validator_index?: InputMaybe<Order_By>;
-};
-
 /** Ordering options when selecting data from "double_sign_vote". */
 export type Double_Sign_Vote_Order_By = {
   block_id?: InputMaybe<Order_By>;
@@ -1307,7 +1256,6 @@ export type Double_Sign_Vote_Order_By = {
   round?: InputMaybe<Order_By>;
   signature?: InputMaybe<Order_By>;
   type?: InputMaybe<Order_By>;
-  validator?: InputMaybe<Validator_Order_By>;
   validator_address?: InputMaybe<Order_By>;
   validator_index?: InputMaybe<Order_By>;
 };
@@ -1342,15 +1290,6 @@ export type Double_Sign_Vote_Stddev_Fields = {
   validator_index?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev() on columns of table "double_sign_vote" */
-export type Double_Sign_Vote_Stddev_Order_By = {
-  height?: InputMaybe<Order_By>;
-  id?: InputMaybe<Order_By>;
-  round?: InputMaybe<Order_By>;
-  type?: InputMaybe<Order_By>;
-  validator_index?: InputMaybe<Order_By>;
-};
-
 /** aggregate stddev_pop on columns */
 export type Double_Sign_Vote_Stddev_Pop_Fields = {
   __typename?: 'double_sign_vote_stddev_pop_fields';
@@ -1359,15 +1298,6 @@ export type Double_Sign_Vote_Stddev_Pop_Fields = {
   round?: Maybe<Scalars['Float']>;
   type?: Maybe<Scalars['Float']>;
   validator_index?: Maybe<Scalars['Float']>;
-};
-
-/** order by stddev_pop() on columns of table "double_sign_vote" */
-export type Double_Sign_Vote_Stddev_Pop_Order_By = {
-  height?: InputMaybe<Order_By>;
-  id?: InputMaybe<Order_By>;
-  round?: InputMaybe<Order_By>;
-  type?: InputMaybe<Order_By>;
-  validator_index?: InputMaybe<Order_By>;
 };
 
 /** aggregate stddev_samp on columns */
@@ -1380,15 +1310,6 @@ export type Double_Sign_Vote_Stddev_Samp_Fields = {
   validator_index?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_samp() on columns of table "double_sign_vote" */
-export type Double_Sign_Vote_Stddev_Samp_Order_By = {
-  height?: InputMaybe<Order_By>;
-  id?: InputMaybe<Order_By>;
-  round?: InputMaybe<Order_By>;
-  type?: InputMaybe<Order_By>;
-  validator_index?: InputMaybe<Order_By>;
-};
-
 /** aggregate sum on columns */
 export type Double_Sign_Vote_Sum_Fields = {
   __typename?: 'double_sign_vote_sum_fields';
@@ -1397,15 +1318,6 @@ export type Double_Sign_Vote_Sum_Fields = {
   round?: Maybe<Scalars['Int']>;
   type?: Maybe<Scalars['smallint']>;
   validator_index?: Maybe<Scalars['Int']>;
-};
-
-/** order by sum() on columns of table "double_sign_vote" */
-export type Double_Sign_Vote_Sum_Order_By = {
-  height?: InputMaybe<Order_By>;
-  id?: InputMaybe<Order_By>;
-  round?: InputMaybe<Order_By>;
-  type?: InputMaybe<Order_By>;
-  validator_index?: InputMaybe<Order_By>;
 };
 
 /** aggregate var_pop on columns */
@@ -1418,15 +1330,6 @@ export type Double_Sign_Vote_Var_Pop_Fields = {
   validator_index?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_pop() on columns of table "double_sign_vote" */
-export type Double_Sign_Vote_Var_Pop_Order_By = {
-  height?: InputMaybe<Order_By>;
-  id?: InputMaybe<Order_By>;
-  round?: InputMaybe<Order_By>;
-  type?: InputMaybe<Order_By>;
-  validator_index?: InputMaybe<Order_By>;
-};
-
 /** aggregate var_samp on columns */
 export type Double_Sign_Vote_Var_Samp_Fields = {
   __typename?: 'double_sign_vote_var_samp_fields';
@@ -1437,15 +1340,6 @@ export type Double_Sign_Vote_Var_Samp_Fields = {
   validator_index?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_samp() on columns of table "double_sign_vote" */
-export type Double_Sign_Vote_Var_Samp_Order_By = {
-  height?: InputMaybe<Order_By>;
-  id?: InputMaybe<Order_By>;
-  round?: InputMaybe<Order_By>;
-  type?: InputMaybe<Order_By>;
-  validator_index?: InputMaybe<Order_By>;
-};
-
 /** aggregate variance on columns */
 export type Double_Sign_Vote_Variance_Fields = {
   __typename?: 'double_sign_vote_variance_fields';
@@ -1454,15 +1348,6 @@ export type Double_Sign_Vote_Variance_Fields = {
   round?: Maybe<Scalars['Float']>;
   type?: Maybe<Scalars['Float']>;
   validator_index?: Maybe<Scalars['Float']>;
-};
-
-/** order by variance() on columns of table "double_sign_vote" */
-export type Double_Sign_Vote_Variance_Order_By = {
-  height?: InputMaybe<Order_By>;
-  id?: InputMaybe<Order_By>;
-  round?: InputMaybe<Order_By>;
-  type?: InputMaybe<Order_By>;
-  validator_index?: InputMaybe<Order_By>;
 };
 
 /** columns and relationships of "genesis" */
@@ -1729,7 +1614,6 @@ export type Ibc_Transfer_Params_Variance_Fields = {
 export type Inflation = {
   __typename?: 'inflation';
   height: Scalars['bigint'];
-  one_row_id: Scalars['Boolean'];
   value: Scalars['String'];
 };
 
@@ -1775,7 +1659,6 @@ export type Inflation_Bool_Exp = {
   _not?: InputMaybe<Inflation_Bool_Exp>;
   _or?: InputMaybe<Array<Inflation_Bool_Exp>>;
   height?: InputMaybe<Bigint_Comparison_Exp>;
-  one_row_id?: InputMaybe<Boolean_Comparison_Exp>;
   value?: InputMaybe<String_Comparison_Exp>;
 };
 
@@ -1796,7 +1679,6 @@ export type Inflation_Min_Fields = {
 /** Ordering options when selecting data from "inflation". */
 export type Inflation_Order_By = {
   height?: InputMaybe<Order_By>;
-  one_row_id?: InputMaybe<Order_By>;
   value?: InputMaybe<Order_By>;
 };
 
@@ -1804,8 +1686,6 @@ export type Inflation_Order_By = {
 export enum Inflation_Select_Column {
   /** column name */
   Height = 'height',
-  /** column name */
-  OneRowId = 'one_row_id',
   /** column name */
   Value = 'value'
 }
@@ -2206,8 +2086,6 @@ export type Query_Root = {
   inflation: Array<Inflation>;
   /** fetch aggregated fields from the table: "inflation" */
   inflation_aggregate: Inflation_Aggregate;
-  /** fetch data from the table: "inflation" using primary key columns */
-  inflation_by_pk?: Maybe<Inflation>;
   /** fetch data from the table: "pre_commit" */
   pre_commit: Array<Pre_Commit>;
   /** fetch aggregated fields from the table: "pre_commit" */
@@ -2216,14 +2094,10 @@ export type Query_Root = {
   staking_pool: Array<Staking_Pool>;
   /** fetch aggregated fields from the table: "staking_pool" */
   staking_pool_aggregate: Staking_Pool_Aggregate;
-  /** fetch data from the table: "staking_pool" using primary key columns */
-  staking_pool_by_pk?: Maybe<Staking_Pool>;
   /** fetch data from the table: "supply" */
   supply: Array<Supply>;
   /** fetch aggregated fields from the table: "supply" */
   supply_aggregate: Supply_Aggregate;
-  /** fetch data from the table: "supply" using primary key columns */
-  supply_by_pk?: Maybe<Supply>;
   /** fetch data from the table: "token" */
   token: Array<Token>;
   /** fetch aggregated fields from the table: "token" */
@@ -2481,11 +2355,6 @@ export type Query_RootInflation_AggregateArgs = {
 };
 
 
-export type Query_RootInflation_By_PkArgs = {
-  one_row_id: Scalars['Boolean'];
-};
-
-
 export type Query_RootPre_CommitArgs = {
   distinct_on?: InputMaybe<Array<Pre_Commit_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -2522,11 +2391,6 @@ export type Query_RootStaking_Pool_AggregateArgs = {
 };
 
 
-export type Query_RootStaking_Pool_By_PkArgs = {
-  one_row_id: Scalars['Boolean'];
-};
-
-
 export type Query_RootSupplyArgs = {
   distinct_on?: InputMaybe<Array<Supply_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -2542,11 +2406,6 @@ export type Query_RootSupply_AggregateArgs = {
   offset?: InputMaybe<Scalars['Int']>;
   order_by?: InputMaybe<Array<Supply_Order_By>>;
   where?: InputMaybe<Supply_Bool_Exp>;
-};
-
-
-export type Query_RootSupply_By_PkArgs = {
-  one_row_id: Scalars['Boolean'];
 };
 
 
@@ -2760,7 +2619,6 @@ export type Staking_Pool = {
   bonded_tokens: Scalars['String'];
   height: Scalars['bigint'];
   not_bonded_tokens: Scalars['String'];
-  one_row_id: Scalars['Boolean'];
 };
 
 /** aggregated selection of "staking_pool" */
@@ -2807,7 +2665,6 @@ export type Staking_Pool_Bool_Exp = {
   bonded_tokens?: InputMaybe<String_Comparison_Exp>;
   height?: InputMaybe<Bigint_Comparison_Exp>;
   not_bonded_tokens?: InputMaybe<String_Comparison_Exp>;
-  one_row_id?: InputMaybe<Boolean_Comparison_Exp>;
 };
 
 /** aggregate max on columns */
@@ -2831,7 +2688,6 @@ export type Staking_Pool_Order_By = {
   bonded_tokens?: InputMaybe<Order_By>;
   height?: InputMaybe<Order_By>;
   not_bonded_tokens?: InputMaybe<Order_By>;
-  one_row_id?: InputMaybe<Order_By>;
 };
 
 /** select columns of table "staking_pool" */
@@ -2841,9 +2697,7 @@ export enum Staking_Pool_Select_Column {
   /** column name */
   Height = 'height',
   /** column name */
-  NotBondedTokens = 'not_bonded_tokens',
-  /** column name */
-  OneRowId = 'one_row_id'
+  NotBondedTokens = 'not_bonded_tokens'
 }
 
 /** aggregate stddev on columns */
@@ -2936,8 +2790,6 @@ export type Subscription_Root = {
   inflation: Array<Inflation>;
   /** fetch aggregated fields from the table: "inflation" */
   inflation_aggregate: Inflation_Aggregate;
-  /** fetch data from the table: "inflation" using primary key columns */
-  inflation_by_pk?: Maybe<Inflation>;
   /** fetch data from the table: "pre_commit" */
   pre_commit: Array<Pre_Commit>;
   /** fetch aggregated fields from the table: "pre_commit" */
@@ -2946,14 +2798,10 @@ export type Subscription_Root = {
   staking_pool: Array<Staking_Pool>;
   /** fetch aggregated fields from the table: "staking_pool" */
   staking_pool_aggregate: Staking_Pool_Aggregate;
-  /** fetch data from the table: "staking_pool" using primary key columns */
-  staking_pool_by_pk?: Maybe<Staking_Pool>;
   /** fetch data from the table: "supply" */
   supply: Array<Supply>;
   /** fetch aggregated fields from the table: "supply" */
   supply_aggregate: Supply_Aggregate;
-  /** fetch data from the table: "supply" using primary key columns */
-  supply_by_pk?: Maybe<Supply>;
   /** fetch data from the table: "token" */
   token: Array<Token>;
   /** fetch aggregated fields from the table: "token" */
@@ -3200,11 +3048,6 @@ export type Subscription_RootInflation_AggregateArgs = {
 };
 
 
-export type Subscription_RootInflation_By_PkArgs = {
-  one_row_id: Scalars['Boolean'];
-};
-
-
 export type Subscription_RootPre_CommitArgs = {
   distinct_on?: InputMaybe<Array<Pre_Commit_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -3241,11 +3084,6 @@ export type Subscription_RootStaking_Pool_AggregateArgs = {
 };
 
 
-export type Subscription_RootStaking_Pool_By_PkArgs = {
-  one_row_id: Scalars['Boolean'];
-};
-
-
 export type Subscription_RootSupplyArgs = {
   distinct_on?: InputMaybe<Array<Supply_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -3261,11 +3099,6 @@ export type Subscription_RootSupply_AggregateArgs = {
   offset?: InputMaybe<Scalars['Int']>;
   order_by?: InputMaybe<Array<Supply_Order_By>>;
   where?: InputMaybe<Supply_Bool_Exp>;
-};
-
-
-export type Subscription_RootSupply_By_PkArgs = {
-  one_row_id: Scalars['Boolean'];
 };
 
 
@@ -3465,7 +3298,6 @@ export type Supply = {
   __typename?: 'supply';
   coins: Scalars['_coin'];
   height: Scalars['bigint'];
-  one_row_id: Scalars['Boolean'];
 };
 
 /** aggregated selection of "supply" */
@@ -3511,7 +3343,6 @@ export type Supply_Bool_Exp = {
   _or?: InputMaybe<Array<Supply_Bool_Exp>>;
   coins?: InputMaybe<_Coin_Comparison_Exp>;
   height?: InputMaybe<Bigint_Comparison_Exp>;
-  one_row_id?: InputMaybe<Boolean_Comparison_Exp>;
 };
 
 /** aggregate max on columns */
@@ -3530,7 +3361,6 @@ export type Supply_Min_Fields = {
 export type Supply_Order_By = {
   coins?: InputMaybe<Order_By>;
   height?: InputMaybe<Order_By>;
-  one_row_id?: InputMaybe<Order_By>;
 };
 
 /** select columns of table "supply" */
@@ -3538,9 +3368,7 @@ export enum Supply_Select_Column {
   /** column name */
   Coins = 'coins',
   /** column name */
-  Height = 'height',
-  /** column name */
-  OneRowId = 'one_row_id'
+  Height = 'height'
 }
 
 /** aggregate stddev on columns */
@@ -4431,10 +4259,6 @@ export type Transaction_Variance_Order_By = {
 export type Validator = {
   __typename?: 'validator';
   consensus_address: Scalars['String'];
-  /** An array relationship */
-  double_sign_votes: Array<Double_Sign_Vote>;
-  /** An aggregate relationship */
-  double_sign_votes_aggregate: Double_Sign_Vote_Aggregate;
   height: Scalars['bigint'];
   self_delegate_address: Scalars['String'];
   /** An object relationship */
@@ -4453,26 +4277,6 @@ export type Validator = {
   validator_voting_powers: Array<Validator_Voting_Power>;
   /** An aggregate relationship */
   validator_voting_powers_aggregate: Validator_Voting_Power_Aggregate;
-};
-
-
-/** columns and relationships of "validator" */
-export type ValidatorDouble_Sign_VotesArgs = {
-  distinct_on?: InputMaybe<Array<Double_Sign_Vote_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Double_Sign_Vote_Order_By>>;
-  where?: InputMaybe<Double_Sign_Vote_Bool_Exp>;
-};
-
-
-/** columns and relationships of "validator" */
-export type ValidatorDouble_Sign_Votes_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Double_Sign_Vote_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Double_Sign_Vote_Order_By>>;
-  where?: InputMaybe<Double_Sign_Vote_Bool_Exp>;
 };
 
 
@@ -4577,7 +4381,6 @@ export type Validator_Bool_Exp = {
   _not?: InputMaybe<Validator_Bool_Exp>;
   _or?: InputMaybe<Array<Validator_Bool_Exp>>;
   consensus_address?: InputMaybe<String_Comparison_Exp>;
-  double_sign_votes?: InputMaybe<Double_Sign_Vote_Bool_Exp>;
   height?: InputMaybe<Bigint_Comparison_Exp>;
   self_delegate_address?: InputMaybe<String_Comparison_Exp>;
   validator_commission?: InputMaybe<Validator_Commission_Bool_Exp>;
@@ -5064,7 +4867,6 @@ export type Validator_Min_Fields = {
 /** Ordering options when selecting data from "validator". */
 export type Validator_Order_By = {
   consensus_address?: InputMaybe<Order_By>;
-  double_sign_votes_aggregate?: InputMaybe<Double_Sign_Vote_Aggregate_Order_By>;
   height?: InputMaybe<Order_By>;
   self_delegate_address?: InputMaybe<Order_By>;
   validator_commission?: InputMaybe<Validator_Commission_Order_By>;

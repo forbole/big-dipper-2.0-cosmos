@@ -3613,6 +3613,137 @@ export type Pre_Commit_Variance_Order_By = {
   voting_power?: InputMaybe<Order_By>;
 };
 
+/** columns and relationships of "profiles_params" */
+export type Profiles_Params = {
+  __typename?: 'profiles_params';
+  height: Scalars['bigint'];
+  one_row_id: Scalars['Boolean'];
+  params: Scalars['jsonb'];
+};
+
+
+/** columns and relationships of "profiles_params" */
+export type Profiles_ParamsParamsArgs = {
+  path?: InputMaybe<Scalars['String']>;
+};
+
+/** aggregated selection of "profiles_params" */
+export type Profiles_Params_Aggregate = {
+  __typename?: 'profiles_params_aggregate';
+  aggregate?: Maybe<Profiles_Params_Aggregate_Fields>;
+  nodes: Array<Profiles_Params>;
+};
+
+/** aggregate fields of "profiles_params" */
+export type Profiles_Params_Aggregate_Fields = {
+  __typename?: 'profiles_params_aggregate_fields';
+  avg?: Maybe<Profiles_Params_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Profiles_Params_Max_Fields>;
+  min?: Maybe<Profiles_Params_Min_Fields>;
+  stddev?: Maybe<Profiles_Params_Stddev_Fields>;
+  stddev_pop?: Maybe<Profiles_Params_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Profiles_Params_Stddev_Samp_Fields>;
+  sum?: Maybe<Profiles_Params_Sum_Fields>;
+  var_pop?: Maybe<Profiles_Params_Var_Pop_Fields>;
+  var_samp?: Maybe<Profiles_Params_Var_Samp_Fields>;
+  variance?: Maybe<Profiles_Params_Variance_Fields>;
+};
+
+
+/** aggregate fields of "profiles_params" */
+export type Profiles_Params_Aggregate_FieldsCountArgs = {
+  columns?: InputMaybe<Array<Profiles_Params_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type Profiles_Params_Avg_Fields = {
+  __typename?: 'profiles_params_avg_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** Boolean expression to filter rows from the table "profiles_params". All fields are combined with a logical 'AND'. */
+export type Profiles_Params_Bool_Exp = {
+  _and?: InputMaybe<Array<Profiles_Params_Bool_Exp>>;
+  _not?: InputMaybe<Profiles_Params_Bool_Exp>;
+  _or?: InputMaybe<Array<Profiles_Params_Bool_Exp>>;
+  height?: InputMaybe<Bigint_Comparison_Exp>;
+  one_row_id?: InputMaybe<Boolean_Comparison_Exp>;
+  params?: InputMaybe<Jsonb_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Profiles_Params_Max_Fields = {
+  __typename?: 'profiles_params_max_fields';
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregate min on columns */
+export type Profiles_Params_Min_Fields = {
+  __typename?: 'profiles_params_min_fields';
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** Ordering options when selecting data from "profiles_params". */
+export type Profiles_Params_Order_By = {
+  height?: InputMaybe<Order_By>;
+  one_row_id?: InputMaybe<Order_By>;
+  params?: InputMaybe<Order_By>;
+};
+
+/** select columns of table "profiles_params" */
+export enum Profiles_Params_Select_Column {
+  /** column name */
+  Height = 'height',
+  /** column name */
+  OneRowId = 'one_row_id',
+  /** column name */
+  Params = 'params'
+}
+
+/** aggregate stddev on columns */
+export type Profiles_Params_Stddev_Fields = {
+  __typename?: 'profiles_params_stddev_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Profiles_Params_Stddev_Pop_Fields = {
+  __typename?: 'profiles_params_stddev_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Profiles_Params_Stddev_Samp_Fields = {
+  __typename?: 'profiles_params_stddev_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate sum on columns */
+export type Profiles_Params_Sum_Fields = {
+  __typename?: 'profiles_params_sum_fields';
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregate var_pop on columns */
+export type Profiles_Params_Var_Pop_Fields = {
+  __typename?: 'profiles_params_var_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type Profiles_Params_Var_Samp_Fields = {
+  __typename?: 'profiles_params_var_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type Profiles_Params_Variance_Fields = {
+  __typename?: 'profiles_params_variance_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
 /** columns and relationships of "proposal" */
 export type Proposal = {
   __typename?: 'proposal';
@@ -5289,6 +5420,12 @@ export type Query_Root = {
   pre_commit: Array<Pre_Commit>;
   /** fetch aggregated fields from the table: "pre_commit" */
   pre_commit_aggregate: Pre_Commit_Aggregate;
+  /** fetch data from the table: "profiles_params" */
+  profiles_params: Array<Profiles_Params>;
+  /** fetch aggregated fields from the table: "profiles_params" */
+  profiles_params_aggregate: Profiles_Params_Aggregate;
+  /** fetch data from the table: "profiles_params" using primary key columns */
+  profiles_params_by_pk?: Maybe<Profiles_Params>;
   /** fetch data from the table: "proposal" */
   proposal: Array<Proposal>;
   /** fetch aggregated fields from the table: "proposal" */
@@ -5885,6 +6022,29 @@ export type Query_RootPre_Commit_AggregateArgs = {
   offset?: InputMaybe<Scalars['Int']>;
   order_by?: InputMaybe<Array<Pre_Commit_Order_By>>;
   where?: InputMaybe<Pre_Commit_Bool_Exp>;
+};
+
+
+export type Query_RootProfiles_ParamsArgs = {
+  distinct_on?: InputMaybe<Array<Profiles_Params_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Profiles_Params_Order_By>>;
+  where?: InputMaybe<Profiles_Params_Bool_Exp>;
+};
+
+
+export type Query_RootProfiles_Params_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Profiles_Params_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Profiles_Params_Order_By>>;
+  where?: InputMaybe<Profiles_Params_Bool_Exp>;
+};
+
+
+export type Query_RootProfiles_Params_By_PkArgs = {
+  one_row_id: Scalars['Boolean'];
 };
 
 
@@ -6908,6 +7068,12 @@ export type Subscription_Root = {
   pre_commit: Array<Pre_Commit>;
   /** fetch aggregated fields from the table: "pre_commit" */
   pre_commit_aggregate: Pre_Commit_Aggregate;
+  /** fetch data from the table: "profiles_params" */
+  profiles_params: Array<Profiles_Params>;
+  /** fetch aggregated fields from the table: "profiles_params" */
+  profiles_params_aggregate: Profiles_Params_Aggregate;
+  /** fetch data from the table: "profiles_params" using primary key columns */
+  profiles_params_by_pk?: Maybe<Profiles_Params>;
   /** fetch data from the table: "proposal" */
   proposal: Array<Proposal>;
   /** fetch aggregated fields from the table: "proposal" */
@@ -7418,6 +7584,29 @@ export type Subscription_RootPre_Commit_AggregateArgs = {
   offset?: InputMaybe<Scalars['Int']>;
   order_by?: InputMaybe<Array<Pre_Commit_Order_By>>;
   where?: InputMaybe<Pre_Commit_Bool_Exp>;
+};
+
+
+export type Subscription_RootProfiles_ParamsArgs = {
+  distinct_on?: InputMaybe<Array<Profiles_Params_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Profiles_Params_Order_By>>;
+  where?: InputMaybe<Profiles_Params_Bool_Exp>;
+};
+
+
+export type Subscription_RootProfiles_Params_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Profiles_Params_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Profiles_Params_Order_By>>;
+  where?: InputMaybe<Profiles_Params_Bool_Exp>;
+};
+
+
+export type Subscription_RootProfiles_Params_By_PkArgs = {
+  one_row_id: Scalars['Boolean'];
 };
 
 

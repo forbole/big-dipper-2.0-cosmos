@@ -65,7 +65,12 @@ describe('screen: Proposals', () => {
       component = renderer.create(
         <ApolloProvider client={mockClient}>
           <MockedProvider
-            mocks={[{ request: { query: ProposalsDocument }, result: mockProposals }]}
+            mocks={[
+              {
+                request: { query: ProposalsDocument, variables: { limit: 50, offset: 0 } },
+                result: mockProposals,
+              },
+            ]}
           >
             <MockTheme>
               <Proposals />

@@ -362,7 +362,6 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:focus::-ms-input-p
 .emotion-14 {
   height: 10.4px;
   width: 10.4px;
-  background-color: #29CC6A;
   border-radius: 50px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -695,7 +694,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:focus::-ms-input-p
             <div
               className="emotion-11"
             >
-              <div
+              <span
                 className="emotion-12"
               >
                 <svg
@@ -703,7 +702,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:focus::-ms-input-p
                   height="100%"
                   width="100%"
                 />
-              </div>
+              </span>
               <div
                 className="emotion-13"
               />
@@ -1188,7 +1187,6 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:focus::-ms-input-p
 .emotion-14 {
   height: 10.4px;
   width: 10.4px;
-  background-color: #29CC6A;
   border-radius: 50px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -1521,7 +1519,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:focus::-ms-input-p
             <div
               className="emotion-11"
             >
-              <div
+              <span
                 className="emotion-12"
               >
                 <svg
@@ -1529,7 +1527,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:focus::-ms-input-p
                   height="100%"
                   width="100%"
                 />
-              </div>
+              </span>
               <div
                 className="emotion-13"
               />

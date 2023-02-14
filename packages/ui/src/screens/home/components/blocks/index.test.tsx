@@ -56,7 +56,10 @@ describe('screen: Home/Blocks/Mobile', () => {
         <ApolloProvider client={mockClient}>
           <MockedProvider
             mocks={[
-              { request: { query: BlocksListenerDocument }, result: mockBlocksListenerDocument },
+              {
+                request: { query: BlocksListenerDocument, variables: { limit: 7, offset: 0 } },
+                result: mockBlocksListenerDocument,
+              },
             ]}
           >
             <MockTheme>

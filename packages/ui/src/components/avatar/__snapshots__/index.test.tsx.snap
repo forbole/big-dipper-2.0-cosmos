@@ -30,7 +30,7 @@ exports[`component: Avatar matches snapshot 1`] = `
   object-position: center center;
 }
 
-<div
+<span
   className="emotion-0"
 >
   <svg
@@ -38,7 +38,7 @@ exports[`component: Avatar matches snapshot 1`] = `
     height="100%"
     width="100%"
   />
-</div>
+</span>
 `;
 
 exports[`component: Avatar matches snapshot with imageUrl 1`] = `
@@ -76,7 +76,7 @@ exports[`component: Avatar matches snapshot with imageUrl 1`] = `
   height: auto;
 }
 
-<div
+<span
   className="emotion-0"
 >
   <img
@@ -96,5 +96,5 @@ exports[`component: Avatar matches snapshot with imageUrl 1`] = `
     }
     width={0}
   />
-</div>
+</span>
 `;

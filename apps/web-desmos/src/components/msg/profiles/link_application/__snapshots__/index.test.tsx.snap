@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`screen: TransactionDetails/MsgLinkApplication matches snapshot 1`] = `
+exports[`screen: TransactionDetails/LinkApplication matches snapshot 1`] = `
 .emotion-0 {
   margin: 0;
   font-size: 1rem;

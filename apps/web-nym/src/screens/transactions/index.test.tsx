@@ -98,10 +98,16 @@ describe('screen: Transactions', () => {
           <MockedProvider
             mocks={[
               {
-                request: { query: TransactionsListenerDocument },
+                request: {
+                  query: TransactionsListenerDocument,
+                  variables: { limit: 1, offset: 0 },
+                },
                 result: mockTransactionsListenerDocument,
               },
-              { request: { query: TransactionsDocument }, result: mockTransactionsDocument },
+              {
+                request: { query: TransactionsDocument, variables: { limit: 51, offset: 1 } },
+                result: mockTransactionsDocument,
+              },
             ]}
           >
             <MockTheme>

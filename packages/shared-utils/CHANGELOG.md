@@ -1,5 +1,23 @@
 # shared-utils
 
+## 2.8.0
+
+### Minor Changes
+
+- d08c0dfd: feat: add WASM Contract module
+
+## 2.7.0
+
+### Minor Changes
+
+- af2e8add5: add: quicksilver workspace
+
+## 2.6.3
+
+### Patch Changes
+
+- b4ac0a0c5: feat: setup Quasar testnet
+
 ## 2.6.2
 
 ### Patch Changes

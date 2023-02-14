@@ -1,19 +1,23 @@
+import chainConfig from '@/chainConfig';
+import Box from '@/components/box';
+import useShallowMemo from '@/hooks/useShallowMemo';
+import { readMarket } from '@/recoil/market';
+import useStyles from '@/screens/account_details/components/balance/styles';
+import { formatBalanceData } from '@/screens/account_details/components/balance/utils';
+import { formatNumber } from '@/utils/format_token';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import Big from 'big.js';
 import { useTranslation } from 'next-i18next';
+import dynamic from 'next/dynamic';
 import numeral from 'numeral';
 import { FC } from 'react';
 import { Cell, Pie, PieChart, ResponsiveContainer } from 'recharts';
 import { useRecoilValue } from 'recoil';
-import { formatNumber } from '@/utils/format_token';
-import { formatBalanceData } from '@/screens/account_details/components/balance/utils';
-import useStyles from '@/screens/account_details/components/balance/styles';
-import { readMarket } from '@/recoil/market';
-import useShallowMemo from '@/hooks/useShallowMemo';
-import Box from '@/components/box';
-import chainConfig from '@/chainConfig';
 
+const DynamicResponsiveContainer = dynamic(() => Promise.resolve(ResponsiveContainer), {
+  ssr: false,
+});
 const { primaryTokenUnit, tokenUnits } = chainConfig();
 
 type BalanceProps = Parameters<typeof formatBalanceData>[0] & {
@@ -62,7 +66,7 @@ const Balance: FC<BalanceProps> = (props) => {
       <Typography variant="h2">{t('balance')}</Typography>
       <div className={classes.chartWrapper}>
         <div className={classes.chart}>
-          <ResponsiveContainer width="99%">
+          <DynamicResponsiveContainer width="99%">
             <PieChart>
               <Pie
                 dataKey="value"
@@ -80,7 +84,7 @@ const Balance: FC<BalanceProps> = (props) => {
                 ))}
               </Pie>
             </PieChart>
-          </ResponsiveContainer>
+          </DynamicResponsiveContainer>
         </div>
         <div className={classes.legends}>
           {dataMemo.map((x) => {
