@@ -9,11 +9,13 @@ import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import Big from 'big.js';
 import { useTranslation } from 'next-i18next';
+import dynamic from 'next/dynamic';
 import numeral from 'numeral';
 import { FC } from 'react';
 import { Cell, Pie, PieChart, ResponsiveContainer } from 'recharts';
 import { useRecoilValue } from 'recoil';
 
+const DynamicPieChart = dynamic(() => Promise.resolve(PieChart), { ssr: false });
 const { primaryTokenUnit, tokenUnits } = chainConfig();
 
 type BalanceProps = Parameters<typeof formatBalanceData>[0] & {
@@ -63,7 +65,7 @@ const Balance: FC<BalanceProps> = (props) => {
       <div className={classes.chartWrapper}>
         <div className={classes.chart}>
           <ResponsiveContainer width="99%">
-            <PieChart>
+            <DynamicPieChart>
               <Pie
                 dataKey="value"
                 data={dataMemo}
@@ -79,7 +81,7 @@ const Balance: FC<BalanceProps> = (props) => {
                   <Cell key={entry.key} fill={entry.background} stroke={entry.background} />
                 ))}
               </Pie>
-            </PieChart>
+            </DynamicPieChart>
           </ResponsiveContainer>
         </div>
         <div className={classes.legends}>

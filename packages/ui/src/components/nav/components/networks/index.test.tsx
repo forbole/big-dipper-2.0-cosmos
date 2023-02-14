@@ -1,7 +1,10 @@
-import renderer from 'react-test-renderer';
-import { useRecoilValue } from 'recoil';
 import Networks from '@/components/nav/components/networks';
+import { mockChainId, mockQuery } from '@/hooks/useBigDipperNetworks/mocks';
+import { mockClient } from '@/tests/mocks/mockApollo';
 import MockTheme from '@/tests/mocks/MockTheme';
+import { ApolloProvider } from '@apollo/client';
+import { MockedProvider } from '@apollo/client/testing';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // global setup
@@ -16,52 +19,19 @@ jest.mock('recoil', () => ({
   useRecoilValue: jest.fn(),
 }));
 
-beforeEach(() => {
-  (useRecoilValue as jest.Mock).mockImplementation(() => [
-    {
-      logo: 'logo',
-      name: 'Cosmos',
-      mainnet: [
-        {
-          name: 'Mainnet',
-          chainId: 'cosmoshub-4',
-          url: 'https://cosmos.bigdipper.live',
-        },
-      ],
-      testnet: [
-        {
-          name: 'Testnet',
-          chainId: 'stargate-final',
-          url: 'https://gaia.bigdipper.live/',
-        },
-      ],
-      retired: [
-        {
-          name: 'Retired',
-          chainId: 'stargate-retired',
-          url: 'https://stargate-retired.bigdipper.live/',
-        },
-      ],
-      other: [
-        {
-          name: 'Other',
-          chainId: 'other',
-          url: '',
-        },
-      ],
-    },
-  ]);
-});
-
 // ==================================
 // unit tests
 // ==================================
 describe('screen: Nav/Networks', () => {
   beforeEach(() => {
     component = renderer.create(
-      <MockTheme>
-        <Networks />
-      </MockTheme>
+      <ApolloProvider client={mockClient}>
+        <MockedProvider mocks={[mockQuery, mockChainId]}>
+          <MockTheme>
+            <Networks />
+          </MockTheme>
+        </MockedProvider>
+      </ApolloProvider>
     );
   });
 

@@ -14,7 +14,7 @@ const Overview: FC<{ className?: string; overview: OverviewType }> = (props) => 
       ending: 7,
     });
     details.push({
-      key: 'distribution',
+      key: `distribution-${x.key}`,
       label: `${t('distribution')} (${key})`,
       detail: `${x.value}`,
     });

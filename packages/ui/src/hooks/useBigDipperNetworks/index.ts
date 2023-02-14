@@ -1,11 +1,14 @@
+import chainConfig from '@/chainConfig';
 import { ChainIdQuery, useChainIdQuery } from '@/graphql/types/general_types';
 import { BigDipperNetwork, zBigDipperNetwork } from '@/models/bigDipperNetwork';
 import { gql, makeVar, useQuery, useReactiveVar } from '@apollo/client';
 import { useCallback, useEffect } from 'react';
 import z from 'zod';
 
+const { network } = chainConfig();
+
 // Define a GraphQL query to fetch the networks data
-const query = gql`
+export const query = gql`
   query Rest {
     networks @rest(type: "BigDipperNetworks", path: "networks.json") {
       name
@@ -49,9 +52,9 @@ const mapChainIdToModel = (data?: ChainIdQuery) => data?.genesis?.[0]?.chainId ?
 
 // Create a reactive variable to hold the Big Dipper network data
 const networksVar = makeVar<BigDipperNetwork[]>([]);
-const selectedNameVar = makeVar<BigDipperNetwork['name'] | undefined>(undefined);
+const selectedNameVar = makeVar<BigDipperNetwork['name']>(network);
 
-function useBigDipperNetworks() {
+function useBigDipperNetworks(skipChainId = false) {
   // Fetch the networks data using the GraphQL query
   const { loading, error, data, refetch } = useQuery<Query>(query);
 
@@ -68,7 +71,7 @@ function useBigDipperNetworks() {
   }, [isCompleted, data]);
 
   // Fetch the chain ID using a GraphQL query
-  const chainIdQuery = useChainIdQuery();
+  const chainIdQuery = useChainIdQuery({ skip: skipChainId });
 
   // Refetch the query if there's an error and loading is completed
   const shouldRefetchChainId = !!chainIdQuery.error && !chainIdQuery.loading;

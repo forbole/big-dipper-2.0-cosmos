@@ -1,3 +1,393 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`screen: Nav/mobile/navbar it renders 1`] = `null`;
+exports[`screen: Nav/mobile/navbar it renders 1`] = `
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  padding: 24px 16px 0px;
+}
+
+.emotion-1 {
+  line-height: 0;
+  z-index: 200;
+}
+
+.emotion-2 {
+  width: 120px;
+}
+
+.emotion-2:hover {
+  cursor: pointer;
+}
+
+.emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+}
+
+.emotion-4 {
+  z-index: 150;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  margin: 0 0.3rem 0 0.7rem;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.emotion-4:hover {
+  cursor: pointer;
+}
+
+.emotion-4 .text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.emotion-5 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentColor;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 1.25rem;
+}
+
+.emotion-6 {
+  z-index: 200;
+  width: 20px;
+}
+
+.emotion-6:hover {
+  cursor: pointer;
+}
+
+.emotion-6:before,
+.emotion-6:after,
+.emotion-6 .hamburger-content {
+  content: "";
+  background-color: #999999;
+  border-radius: 10px;
+  display: block;
+  height: 2px;
+  margin: 4px 0;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.emotion-6.active:before {
+  -webkit-transform: translateY(7px) rotate(137deg);
+  -moz-transform: translateY(7px) rotate(137deg);
+  -ms-transform: translateY(7px) rotate(137deg);
+  transform: translateY(7px) rotate(137deg);
+}
+
+.emotion-6.active:after {
+  -webkit-transform: translateY(-5px) rotate(-140deg);
+  -moz-transform: translateY(-5px) rotate(-140deg);
+  -ms-transform: translateY(-5px) rotate(-140deg);
+  transform: translateY(-5px) rotate(-140deg);
+}
+
+.emotion-6.active .hamburger-content {
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+}
+
+<div
+  className="emotion-0"
+>
+  <a
+    className="emotion-1"
+    href="/"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+    onTouchStart={[Function]}
+  >
+    <div
+      className="emotion-2"
+      id="RED"
+    />
+  </a>
+  <div
+    className="emotion-3"
+  >
+    <div
+      aria-label="desmos-mainnet"
+      className="emotion-4"
+      onClick={[MockFunction]}
+      role="button"
+      tabIndex={0}
+    >
+      <p
+        className="text"
+      >
+        desmos-mainnet
+      </p>
+      <svg
+        aria-hidden={true}
+        className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall emotion-5"
+        color="#999999"
+        data-testid="ExpandMoreIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+        />
+      </svg>
+    </div>
+    <div
+      aria-label="open navigation menu"
+      className="emotion-6"
+      onClick={[MockFunction]}
+      role="button"
+      tabIndex={0}
+    >
+      <div
+        className="hamburger-content"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`screen: Nav/mobile/navbar toggleNavMenus is called onClick 1`] = `
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  padding: 24px 16px 0px;
+}
+
+.emotion-1 {
+  line-height: 0;
+  z-index: 200;
+}
+
+.emotion-2 {
+  width: 120px;
+}
+
+.emotion-2:hover {
+  cursor: pointer;
+}
+
+.emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+}
+
+.emotion-4 {
+  z-index: 150;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  margin: 0 0.3rem 0 0.7rem;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.emotion-4:hover {
+  cursor: pointer;
+}
+
+.emotion-4 .text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.emotion-5 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentColor;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 1.25rem;
+}
+
+.emotion-6 {
+  z-index: 200;
+  width: 20px;
+}
+
+.emotion-6:hover {
+  cursor: pointer;
+}
+
+.emotion-6:before,
+.emotion-6:after,
+.emotion-6 .hamburger-content {
+  content: "";
+  background-color: #999999;
+  border-radius: 10px;
+  display: block;
+  height: 2px;
+  margin: 4px 0;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.emotion-6.active:before {
+  -webkit-transform: translateY(7px) rotate(137deg);
+  -moz-transform: translateY(7px) rotate(137deg);
+  -ms-transform: translateY(7px) rotate(137deg);
+  transform: translateY(7px) rotate(137deg);
+}
+
+.emotion-6.active:after {
+  -webkit-transform: translateY(-5px) rotate(-140deg);
+  -moz-transform: translateY(-5px) rotate(-140deg);
+  -ms-transform: translateY(-5px) rotate(-140deg);
+  transform: translateY(-5px) rotate(-140deg);
+}
+
+.emotion-6.active .hamburger-content {
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+}
+
+<div
+  className="emotion-0"
+>
+  <a
+    className="emotion-1"
+    href="/"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+    onTouchStart={[Function]}
+  >
+    <div
+      className="emotion-2"
+      id="RED"
+    />
+  </a>
+  <div
+    className="emotion-3"
+  >
+    <div
+      aria-label="desmos-mainnet"
+      className="emotion-4"
+      onClick={[MockFunction]}
+      role="button"
+      tabIndex={0}
+    >
+      <p
+        className="text"
+      >
+        desmos-mainnet
+      </p>
+      <svg
+        aria-hidden={true}
+        className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall emotion-5"
+        color="#999999"
+        data-testid="ExpandMoreIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+        />
+      </svg>
+    </div>
+    <div
+      aria-label="open navigation menu"
+      className="emotion-6"
+      onClick={
+        [MockFunction] {
+          "calls": [
+            [],
+          ],
+          "results": [
+            {
+              "type": "return",
+              "value": undefined,
+            },
+          ],
+        }
+      }
+      role="button"
+      tabIndex={0}
+    >
+      <div
+        className="hamburger-content"
+      />
+    </div>
+  </div>
+</div>
+`;

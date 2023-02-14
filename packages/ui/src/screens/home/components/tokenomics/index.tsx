@@ -5,10 +5,12 @@ import { useTokenomics } from '@/screens/home/components/tokenomics/hooks';
 import useStyles from '@/screens/home/components/tokenomics/styles';
 import Typography from '@mui/material/Typography';
 import { useTranslation } from 'next-i18next';
+import dynamic from 'next/dynamic';
 import numeral from 'numeral';
 import { FC } from 'react';
 import { Cell, Pie, PieChart, Tooltip } from 'recharts';
 
+const DynamicPieChart = dynamic(() => Promise.resolve(PieChart), { ssr: false });
 const { tokenUnits } = chainConfig();
 
 const Tokenomics: FC<ComponentDefault> = ({ className }) => {
@@ -77,7 +79,7 @@ const Tokenomics: FC<ComponentDefault> = ({ className }) => {
         ))}
       </div>
       <div className={classes.content}>
-        <PieChart width={200} height={100} cy={100}>
+        <DynamicPieChart width={200} height={100} cy={100}>
           <Pie
             stroke="none"
             // cornerRadius={40}
@@ -99,7 +101,7 @@ const Tokenomics: FC<ComponentDefault> = ({ className }) => {
             ))}
           </Pie>
           <Tooltip content={customToolTip} />
-        </PieChart>
+        </DynamicPieChart>
 
         <div className={classes.legends}>
           {data.map((x) => (

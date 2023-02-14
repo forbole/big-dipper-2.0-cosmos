@@ -36,7 +36,7 @@ const Main = (props: MainProps) => {
   // init recoil values
   // =====================================
   // useSettingsRecoil();
-  useBigDipperNetworks();
+  useBigDipperNetworks(true);
   useMarketRecoil();
   // const { loading } = useValidatorRecoil();
 
