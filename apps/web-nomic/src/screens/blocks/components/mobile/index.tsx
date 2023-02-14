@@ -1,9 +1,9 @@
 import Loading from '@/components/loading';
 import SingleBlockMobile from '@/components/single_block_mobile';
-import { useList, useListRow } from '@/hooks';
+import Timestamp from '@/components/Timestamp';
+import { useList, useListRow } from '@/hooks/use_react_window';
 import useStyles from '@/screens/blocks/components/mobile/styles';
 import type { BlockType } from '@/screens/blocks/types';
-import dayjs from '@/utils/dayjs';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { BLOCK_DETAILS } from '@/utils/go_to_page';
 import { mergeRefs } from '@/utils/merge_refs';
@@ -48,7 +48,7 @@ const ListItem: FC<ListItemProps> = ({
       </Link>
     ),
     txs: numeral(item.txs).format('0,0'),
-    time: dayjs.utc(item.timestamp).fromNow(),
+    time: <Timestamp timestamp={item.timestamp} />,
     hash: getMiddleEllipsis(item.hash, {
       beginning: 16,
       ending: 12,
@@ -103,7 +103,7 @@ const Mobile: FC<MobileProps> = ({ className, items, itemCount, loadMoreItems, i
               >
                 {({ index, style }) => (
                   <ListItem
-                    key={items[index].height}
+                    key={items[index].hash}
                     index={index}
                     style={style}
                     setRowHeight={setRowHeight}

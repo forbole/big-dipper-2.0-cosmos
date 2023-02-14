@@ -1,10 +1,10 @@
-import Name from '@/components/name';
-import MsgChangeIscnRecordOwnership from '@/models/msg/iscn/msg_change_iscn_record_ownership';
-import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@mui/material/Typography';
-import Trans from 'next-translate/Trans';
+import { Trans } from 'next-i18next';
 import numeral from 'numeral';
-import React, { FC } from 'react';
+import { FC } from 'react';
+import { useProfileRecoil } from '@/recoil/profiles/hooks';
+import MsgChangeIscnRecordOwnership from '@/models/msg/iscn/msg_change_iscn_record_ownership';
+import Name from '@/components/name';
 
 const IscnChangeOwnership: FC<{ message: MsgChangeIscnRecordOwnership }> = (props) => {
   const { message } = props;

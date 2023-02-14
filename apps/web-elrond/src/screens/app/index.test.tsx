@@ -1,17 +1,6 @@
-import App from '@/screens/app';
 import type { Router } from 'next/router';
 import renderer from 'react-test-renderer';
-
-jest.mock('next-translate/useTranslation', () => () => ({
-  lang: 'en',
-}));
-
-const mockI18n = {
-  t: (key: string) => key,
-  lang: 'en',
-};
-
-jest.mock('next-translate/useTranslation', () => () => mockI18n);
+import App from '@/screens/app';
 
 // ==================================
 // unit tests

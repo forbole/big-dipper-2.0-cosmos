@@ -1,9 +1,9 @@
+import Typography from '@mui/material/Typography';
+import { Trans } from 'next-i18next';
+import { FC } from 'react';
 import Name from '@/components/name';
 import MsgRetireRequest from '@/models/msg/ecocredit/msg_retire_request';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
-import Typography from '@mui/material/Typography';
-import Trans from 'next-translate/Trans';
-import React, { FC } from 'react';
 
 const RetireRequest: FC<{ message: MsgRetireRequest }> = (props) => {
   const { message } = props;

@@ -14,17 +14,15 @@ exports[`screen: TransactionDetails/RetireRequest matches snapshot 1`] = `
 <p
   className="MuiTypography-root MuiTypography-body1 emotion-0"
 >
-  <div
-    components={
-      [
-        <Unknown
-          address="holder"
-          name="holder"
-        />,
-      ]
-    }
+  <span
+    data-testid="Trans"
     i18nKey="message_contents:MsgRetireRequest"
-    id="Trans"
-  />
+  >
+    <div
+      address="holder"
+      id="Name"
+      name="holder"
+    />
+  </span>
 </p>
 `;

@@ -1,9 +1,9 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
+import { useTranslation } from 'next-i18next';
+import { useRecoilValue } from 'recoil';
 import BoxDetails from '@/components/box_details';
 import AvatarName from '@/components/avatar_name';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
-import useTranslation from 'next-translate/useTranslation';
-import { useRecoilValue } from 'recoil';
 import { readDate } from '@/recoil/settings';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import type { OverviewType } from '@/screens/nft_details/types';
@@ -74,7 +74,9 @@ const Overview: FC<OverviewType & ComponentDefault> = (props) => {
     ]
   );
 
-  return <BoxDetails className={props.className} title={t('overview')} details={details} />;
+  return (
+    <BoxDetails className={props.className} title={t('overview') ?? undefined} details={details} />
+  );
 };
 
 export default Overview;

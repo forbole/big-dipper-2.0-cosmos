@@ -44,7 +44,7 @@ exports[`screen: Blocks/List matches snapshot 1`] = `
   <div
     exists={true}
     id="LoadAndExist"
-    loading={true}
+    loading={false}
   >
     <span
       className="emotion-0"
@@ -54,18 +54,18 @@ exports[`screen: Blocks/List matches snapshot 1`] = `
           {
             "error": "",
             "fee": {
-              "baseDenom": "",
-              "displayDenom": "",
-              "exponent": 0,
-              "value": "0",
+              "baseDenom": "udaric",
+              "displayDenom": "daric",
+              "exponent": 6,
+              "value": "0.000050",
             },
-            "gasUsed": 0,
-            "gasWanted": 0,
-            "hash": "",
-            "height": 0,
+            "gasUsed": 149488,
+            "gasWanted": 200000,
+            "hash": "7D373DE5C5FB03EA72006F6CEC8F908545D435AE1C598A1B53AD0770C243822A",
+            "height": 54290,
             "memo": "",
-            "success": false,
-            "timestamp": "",
+            "success": true,
+            "timestamp": "2021-05-01T07:47:40.855759",
           }
         }
         id="Overview"
@@ -73,10 +73,94 @@ exports[`screen: Blocks/List matches snapshot 1`] = `
       <div
         className="emotion-1"
         id="Messages"
-        messages={[]}
+        messages={
+          [
+            {
+              "amount": {
+                "amount": "8371578",
+                "denom": "udaric",
+              },
+              "category": "staking",
+              "delegatorAddress": "desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr",
+              "json": {
+                "@type": "/cosmos.staking.v1beta1.MsgDelegate",
+                "amount": {
+                  "amount": "8371578",
+                  "denom": "udaric",
+                },
+                "delegator_address": "desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr",
+                "validator_address": "desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3",
+              },
+              "type": "/cosmos.staking.v1beta1.MsgDelegate",
+              "validatorAddress": "desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3",
+            },
+          ]
+        }
         onMessageFilterCallback={[Function]}
         toggleMessageDisplay={[Function]}
         viewRaw={false}
+      />
+      <div
+        id="Logs"
+        logs={
+          [
+            {
+              "events": [
+                {
+                  "attributes": [
+                    {
+                      "key": "validator",
+                      "value": "desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3",
+                    },
+                    {
+                      "key": "amount",
+                      "value": "8371578",
+                    },
+                  ],
+                  "type": "delegate",
+                },
+                {
+                  "attributes": [
+                    {
+                      "key": "action",
+                      "value": "delegate",
+                    },
+                    {
+                      "key": "sender",
+                      "value": "desmos1jv65s3grqf6v6jl3dp4t6c9t9rk99cd8n8fv78",
+                    },
+                    {
+                      "key": "module",
+                      "value": "staking",
+                    },
+                    {
+                      "key": "sender",
+                      "value": "desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr",
+                    },
+                  ],
+                  "type": "message",
+                },
+                {
+                  "attributes": [
+                    {
+                      "key": "recipient",
+                      "value": "desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr",
+                    },
+                    {
+                      "key": "sender",
+                      "value": "desmos1jv65s3grqf6v6jl3dp4t6c9t9rk99cd8n8fv78",
+                    },
+                    {
+                      "key": "amount",
+                      "value": "3094654udaric",
+                    },
+                  ],
+                  "type": "transfer",
+                },
+              ],
+            },
+          ]
+        }
       />
     </span>
   </div>

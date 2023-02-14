@@ -1,3 +1,6 @@
+import { useRouter } from 'next/router';
+import * as R from 'ramda';
+import { useCallback, useState } from 'react';
 import chainConfig from '@/chainConfig';
 import {
   ProposalDetailsDepositsQuery,
@@ -5,9 +8,6 @@ import {
 } from '@/graphql/types/general_types';
 import type { DepositState } from '@/screens/proposal_details/components/deposits/types';
 import { formatToken } from '@/utils/format_token';
-import { useRouter } from 'next/router';
-import * as R from 'ramda';
-import { useCallback, useState } from 'react';
 
 const { primaryTokenUnit } = chainConfig();
 

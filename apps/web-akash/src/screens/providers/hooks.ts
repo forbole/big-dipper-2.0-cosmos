@@ -1,3 +1,5 @@
+import * as R from 'ramda';
+import { useCallback, useState } from 'react';
 import {
   CpuMemoryStorageListenerSubscription,
   ProvidersQuery,
@@ -8,8 +10,6 @@ import {
   useProvidersQuery,
 } from '@/graphql/types/general_types';
 import type { ProviderInfo, ProvidersState } from '@/screens/providers/types';
-import * as R from 'ramda';
-import { useCallback, useState } from 'react';
 
 /**
  * Paginates the given data by splitting it into a list of arrays,

@@ -14,6 +14,26 @@ exports[`screen: TransactionDetails/DepositProposal matches snapshot 1`] = `
 <p
   className="MuiTypography-root MuiTypography-body1 emotion-0"
 >
-  message_contents:txDepositContent
+  <span
+    data-testid="Trans"
+    i18nKey="message_contents:txDepositContent"
+  >
+    <div
+      address="depositor"
+      id="Name"
+      name="depositor"
+    />
+    <b />
+    <a
+      href="/proposals/0"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onTouchStart={[Function]}
+    >
+      #
+      0
+    </a>
+    {"amount":"2 DARIC"}
+  </span>
 </p>
 `;

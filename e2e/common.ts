@@ -12,10 +12,10 @@ export async function waitForMenuItemClick(selector: string, locator: Locator, i
   if (isMobile) {
     await page.getByRole('button', { name: 'open navigation menu' }).first().click();
   }
-  await waitForClick(selector, locator, isMobile);
+  await waitForClick(selector, locator);
 }
 
-export async function waitForClick(selector: string, locator: Locator, isMobile?: boolean) {
+export async function waitForClick(selector: string, locator: Locator) {
   const page = locator.page();
   await Promise.all([
     page.waitForFunction(`!!document.querySelector(${JSON.stringify(selector)})`),
@@ -25,16 +25,24 @@ export async function waitForClick(selector: string, locator: Locator, isMobile?
 }
 
 export async function waitForPopupClick(selector: (p: Page) => Locator, page: Page) {
-  // Test facebook button
   await Promise.all([page.waitForEvent('popup'), selector(page).first().click()]).then(([popup]) =>
     popup.close()
   );
 }
 
-export async function abortLoadingAssets(page: Page) {
+export async function interceptRoutes(page: Page) {
   await page.route('**/*', (route) => {
     if (RESOURCE_EXCLUSTIONS.includes(route.request().resourceType())) {
       route.abort();
+    } else if (
+      !/^[^/]*\/\/(localhost(|:\d+)|raw\.githubusercontent\.com|gql\..+\.forbole\.com|gql\..+\.desmos\.network)/.test(
+        route.request().url()
+      )
+    ) {
+      route.fulfill({
+        status: 200,
+        body: route.request().url(),
+      });
     } else {
       route.continue();
     }

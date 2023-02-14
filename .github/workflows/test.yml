@@ -15,7 +15,7 @@ defaults:
   run:
     shell: bash
 jobs:
-  check-cache:
+  check-yarn-cache:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -24,7 +24,7 @@ jobs:
         with:
           node-version: 18
       - run: yarn --immutable --immutable-cache --check-cache
-  detect-changes:
+  changed-workspaces:
     runs-on: ubuntu-latest
     outputs:
       projects: ${{ steps.dry-run.outputs.projects }}
@@ -32,18 +32,18 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          fetch-depth: 2
+          fetch-depth: 0
       - run: corepack enable
       - uses: actions/setup-node@v3
         with:
           node-version: 18
       - run: yarn --immutable --immutable-cache
-      - name: Set needs.detect-changes.outputs.{projects,projects-web}
+      - name: Set needs.changed-workspaces.outputs.{projects,projects-web}
         id: dry-run
         run: |
-          echo yarn turbo run build --dry='json' --filter='[${{ github.event.pull_request.base.sha }}]' | tee -a $GITHUB_STEP_SUMMARY
+          echo yarn build:ci --dry='json' --filter='[${{ github.event.pull_request.base.sha }}]' | tee -a $GITHUB_STEP_SUMMARY
           export DRY_BUILD_JSON=$(
-            yarn turbo run build --dry='json' --filter='[${{ github.event.pull_request.base.sha }}]'
+            yarn build:ci --dry='json' --filter='[${{ github.event.pull_request.base.sha }}]'
           )
           node <<EOF | tee -a $GITHUB_OUTPUT $GITHUB_STEP_SUMMARY
           const { packages } = JSON.parse(process.env.DRY_BUILD_JSON);
@@ -53,14 +53,14 @@ jobs:
           const { packages } = JSON.parse(process.env.DRY_BUILD_JSON);
           console.log('projects-web=' + JSON.stringify(packages.filter(p => /^web.*$/.test(p))));
           EOF
-  check-apps:
-    if: ${{ success() && needs.detect-changes.outputs.projects != '[]' }}
-    needs: detect-changes
+  ts-lint-build:
+    if: ${{ success() && needs.changed-workspaces.outputs.projects != '[]' }}
+    needs: changed-workspaces
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        project: ${{ fromJSON(needs.detect-changes.outputs.projects) }}
+        project: ${{ fromJSON(needs.changed-workspaces.outputs.projects) }}
     steps:
       - uses: actions/checkout@v3
       - run: corepack enable
@@ -68,32 +68,47 @@ jobs:
         with:
           node-version: 18
       - run: yarn --immutable --immutable-cache
-      - name: check-types
+      - name: ts-check
         run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
-          yarn turbo run check-types --filter=${{ matrix.project }} | tee -a $GITHUB_STEP_SUMMARY
+          yarn ts-check:ci --filter=${{ matrix.project }} | tee -a $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
       - name: lint
         run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
-          yarn turbo run lint --filter=${{ matrix.project }} | tee -a $GITHUB_STEP_SUMMARY
-          echo '```' >> $GITHUB_STEP_SUMMARY
-      - name: test
-        run: |
-          echo '```' >> $GITHUB_STEP_SUMMARY
-          yarn test:ci --filter=${{ matrix.project }} -- --coverage | tee -a $GITHUB_STEP_SUMMARY
+          yarn lint:ci --filter=${{ matrix.project }} | tee -a $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
       - name: build
-        if: ${{ needs.detect-changes.outputs.projects-web != '[]' }}
+        if: ${{ needs.changed-workspaces.outputs.projects-web != '[]' }}
         run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
           yarn build:ci --filter=${{ matrix.project }} | tee -a $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
-  check-e2e:
-    if: ${{ success() && needs.detect-changes.outputs.projects-web != '[]' }}
-    needs: detect-changes
+  jest-test:
+    if: ${{ success() && needs.changed-workspaces.outputs.projects != '[]' }}
+    needs: changed-workspaces
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        shardIndex: [1, 2, 3, 4, 5]
+        shardTotal: [5]
+    steps:
+      - uses: actions/checkout@v3
+      - run: corepack enable
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - run: yarn --immutable --immutable-cache
+      - name: test
+        run: |
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          yarn test:ci --filter=${{ join(fromJSON(needs.changed-workspaces.outputs.projects), ' --filter=') }} -- --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }} --coverage | tee -a $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+  e2e-playwright:
+    if: ${{ success() && needs.changed-workspaces.outputs.projects-web != '[]' }}
+    needs: changed-workspaces
+    runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
@@ -107,10 +122,7 @@ jobs:
         shardIndex: [1, 2, 3, 4, 5]
         shardTotal: [5]
     container:
-      image: mcr.microsoft.com/playwright:v1.29.2-focal
-    defaults:
-      run:
-        shell: bash
+      image: mcr.microsoft.com/playwright:v1.30.0-focal
     steps:
       - uses: actions/checkout@v3
       - run: corepack enable

@@ -1,12 +1,12 @@
+import numeral from 'numeral';
+import * as R from 'ramda';
+import { useCallback, useState } from 'react';
 import chainConfig from '@/chainConfig';
 import { ParamsQuery, useParamsQuery } from '@/graphql/types/general_types';
 import { DistributionParams, GovParams, MintParams, SlashingParams, StakingParams } from '@/models';
 // import StakeibcParams from '@/models/stakeibc_params';
 import type { ParamsState } from '@/screens/params/types';
 import { formatToken } from '@/utils/format_token';
-import numeral from 'numeral';
-import * as R from 'ramda';
-import { useCallback, useState } from 'react';
 
 const { primaryTokenUnit } = chainConfig();
 
@@ -125,7 +125,7 @@ const formatGov = (data: ParamsQuery) => {
 // ================================
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const formatStakeibc = (data: ParamsQuery) =>
+const formatStakeibc = (_: ParamsQuery) =>
   // if (data.stakeibcParams.length) {
   //   const stakeibcParamsRaw = StakeibcParams(data?.stakeibcParams?.[0]?.params);
   //   return stakeibcParamsRaw;

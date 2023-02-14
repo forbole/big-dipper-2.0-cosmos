@@ -1,9 +1,9 @@
-import useStyles from '@/screens/validators/components/list/components/mobile/component/single_validator/styles';
 import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import { FC, ReactNode } from 'react';
 import LiquidStakingFalseIcon from 'shared-utils/assets/liquid-staking-false.svg';
 import LiquidStakingTrueIcon from 'shared-utils/assets/liquid-staking-true.svg';
+import useStyles from '@/screens/validators/components/list/components/mobile/component/single_validator/styles';
 
 type SingleValidatorProps = {
   className?: string;

@@ -1,6 +1,6 @@
-import { useScreenSize } from '@/hooks';
 import * as R from 'ramda';
 import { useCallback, useEffect, useState } from 'react';
+import { useScreenSize } from '@/hooks/use_screen_size';
 
 type MobileState = {
   isMenu?: boolean;

@@ -3,7 +3,7 @@ import Tag from '@/components/tag';
 import * as MODELS from '@/models';
 import type { Log } from '@/models/msg/types';
 import isKeyOf from '@/utils/isKeyOf';
-import { Translate } from 'next-translate';
+import { TFunction } from 'next-i18next';
 import * as R from 'ramda';
 import { FC } from 'react';
 
@@ -428,6 +428,252 @@ const customTypeToModel = {
     tagTheme: 'four',
     tagDisplay: 'txMsgUnlinkApplication',
   },
+  '/desmos.profiles.v3.MsgSetDefaultExternalAddress': {
+    model: MODELS.MsgSetDefaultExternalAddress,
+    content: COMPONENTS.SetDefaultExternalAddress,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgSetDefaultExternalAddress',
+  },
+  // ========================
+  // posts
+  // ========================
+  '/desmos.posts.v2.MsgCreatePost': {
+    model: MODELS.MsgCreatePost,
+    content: COMPONENTS.CreatePost,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgCreatePost',
+  },
+  '/desmos.posts.v3.MsgCreatePost': {
+    model: MODELS.MsgCreatePost,
+    content: COMPONENTS.CreatePost,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgCreatePost',
+  },
+  '/desmos.posts.v2.MsgEditPost': {
+    model: MODELS.MsgEditPost,
+    content: COMPONENTS.EditPost,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgEditPost',
+  },
+  '/desmos.posts.v3.MsgEditPost': {
+    model: MODELS.MsgEditPost,
+    content: COMPONENTS.EditPost,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgEditPost',
+  },
+  '/desmos.posts.v2.MsgDeletePost': {
+    model: MODELS.MsgDeletePost,
+    content: COMPONENTS.DeletePost,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgDeletePost',
+  },
+  '/desmos.posts.v3.MsgDeletePost': {
+    model: MODELS.MsgDeletePost,
+    content: COMPONENTS.DeletePost,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgDeletePost',
+  },
+  '/desmos.posts.v2.MsgAddPostAttachment': {
+    model: MODELS.MsgAddPostAttachment,
+    content: COMPONENTS.AddPostAttachment,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgAddPostAttachment',
+  },
+  '/desmos.posts.v3.MsgAddPostAttachment': {
+    model: MODELS.MsgAddPostAttachment,
+    content: COMPONENTS.AddPostAttachment,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgAddPostAttachment',
+  },
+  '/desmos.posts.v2.MsgRemovePostAttachment': {
+    model: MODELS.MsgRemovePostAttachment,
+    content: COMPONENTS.RemovePostAttachment,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgRemovePostAttachment',
+  },
+  '/desmos.posts.v3.MsgRemovePostAttachment': {
+    model: MODELS.MsgRemovePostAttachment,
+    content: COMPONENTS.RemovePostAttachment,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgRemovePostAttachment',
+  },
+  '/desmos.posts.v2.MsgAnswerPoll': {
+    model: MODELS.MsgAnswerPoll,
+    content: COMPONENTS.AnswerPoll,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgAnswerPoll',
+  },
+  '/desmos.posts.v3.MsgAnswerPoll': {
+    model: MODELS.MsgAnswerPoll,
+    content: COMPONENTS.AnswerPoll,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgAnswerPoll',
+  },
+  // ========================
+  // reactions
+  // ========================
+  '/desmos.reactions.v1.MsgAddReaction': {
+    model: MODELS.MsgAddReaction,
+    content: COMPONENTS.AddReaction,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgAddReaction',
+  },
+  '/desmos.reactions.v1.MsgRemoveReaction': {
+    model: MODELS.MsgRemoveReaction,
+    content: COMPONENTS.RemoveReaction,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgRemoveReaction',
+  },
+  '/desmos.reactions.v1.MsgAddRegisteredReaction': {
+    model: MODELS.MsgAddRegisteredReaction,
+    content: COMPONENTS.AddRegisteredReaction,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgAddRegisteredReaction',
+  },
+  '/desmos.reactions.v1.MsgEditRegisteredReaction': {
+    model: MODELS.MsgEditRegisteredReaction,
+    content: COMPONENTS.EditRegisteredReaction,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgEditRegisteredReaction',
+  },
+  '/desmos.reactions.v1.MsgRemoveRegisteredReaction': {
+    model: MODELS.MsgRemoveRegisteredReaction,
+    content: COMPONENTS.RemoveRegisteredReaction,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgRemoveRegisteredReaction',
+  },
+  '/desmos.reactions.v1.MsgSetReactionsParams': {
+    model: MODELS.MsgSetReactionsParams,
+    content: COMPONENTS.SetReactionsParams,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgSetReactionsParams',
+  },
+  // ========================
+  // reports
+  // ========================
+  '/desmos.reports.v1.MsgCreateReport': {
+    model: MODELS.MsgCreateReport,
+    content: COMPONENTS.CreateReport,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgCreateReport',
+  },
+  '/desmos.reports.v1.MsgDeleteReport': {
+    model: MODELS.MsgDeleteReport,
+    content: COMPONENTS.DeleteReport,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgDeleteReport',
+  },
+  '/desmos.reports.v1.MsgSupportStandardReason': {
+    model: MODELS.MsgSupportStandardReason,
+    content: COMPONENTS.SupportStandardReason,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgSupportStandardReason',
+  },
+  '/desmos.reports.v1.MsgAddReason': {
+    model: MODELS.MsgAddReason,
+    content: COMPONENTS.AddReason,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgAddReason',
+  },
+  '/desmos.reports.v1.MsgRemoveReason': {
+    model: MODELS.MsgRemoveReason,
+    content: COMPONENTS.RemoveReason,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgRemoveReason',
+  },
+  // ========================
+  // subspaces
+  // ========================
+  '/desmos.subspaces.v3.MsgCreateSubspace': {
+    model: MODELS.MsgCreateSubspace,
+    content: COMPONENTS.CreateSubspace,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgCreateSubspace',
+  },
+  '/desmos.subspaces.v3.MsgEditSubspace': {
+    model: MODELS.MsgEditSubspace,
+    content: COMPONENTS.EditSubspace,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgEditSubspace',
+  },
+  '/desmos.subspaces.v3.MsgDeleteSubspace': {
+    model: MODELS.MsgDeleteSubspace,
+    content: COMPONENTS.DeleteSubspace,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgDeleteSubspace',
+  },
+  '/desmos.subspaces.v3.MsgCreateSection': {
+    model: MODELS.MsgCreateSection,
+    content: COMPONENTS.CreateSection,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgCreateSection',
+  },
+  '/desmos.subspaces.v3.MsgEditSection': {
+    model: MODELS.MsgEditSection,
+    content: COMPONENTS.EditSection,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgEditSection',
+  },
+  '/desmos.subspaces.v3.MsgMoveSection': {
+    model: MODELS.MsgMoveSection,
+    content: COMPONENTS.MoveSection,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgMoveSection',
+  },
+  '/desmos.subspaces.v3.MsgDeleteSection': {
+    model: MODELS.MsgDeleteSection,
+    content: COMPONENTS.DeleteSection,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgDeleteSection',
+  },
+  '/desmos.subspaces.v3.MsgCreateUserGroup': {
+    model: MODELS.MsgCreateUserGroup,
+    content: COMPONENTS.CreateUserGroup,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgCreateUserGroup',
+  },
+  '/desmos.subspaces.v3.MsgEditUserGroup': {
+    model: MODELS.MsgEditUserGroup,
+    content: COMPONENTS.EditUserGroup,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgEditUserGroup',
+  },
+  '/desmos.subspaces.v3.MsgMoveUserGroup': {
+    model: MODELS.MsgMoveUserGroup,
+    content: COMPONENTS.MoveUserGroup,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgMoveUserGroup',
+  },
+  '/desmos.subspaces.v3.MsgSetUserGroupPermissions': {
+    model: MODELS.MsgSetUserGroupPermissions,
+    content: COMPONENTS.SetUserGroupPermissions,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgSetUserGroupPermissions',
+  },
+  '/desmos.subspaces.v3.MsgDeleteUserGroup': {
+    model: MODELS.MsgDeleteUserGroup,
+    content: COMPONENTS.DeleteUserGroup,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgDeleteUserGroup',
+  },
+  '/desmos.subspaces.v3.MsgAddUserToUserGroup': {
+    model: MODELS.MsgAddUserToUserGroup,
+    content: COMPONENTS.AddUserToUserGroup,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgAddUserToUserGroup',
+  },
+  '/desmos.subspaces.v3.MsgRemoveUserFromUserGroup': {
+    model: MODELS.MsgRemoveUserFromUserGroup,
+    content: COMPONENTS.RemoveUserFromUserGroup,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgRemoveUserFromUserGroup',
+  },
+  '/desmos.subspaces.v3.MsgSetUserPermissions': {
+    model: MODELS.MsgSetUserPermissions,
+    content: COMPONENTS.SetUserPermissions,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgSetUserPermissions',
+  },
 };
 type CustomTypeToModel = typeof customTypeToModel;
 
@@ -463,7 +709,7 @@ export const getMessageModelByType = (type: string): Data['model'] => {
  * Helper function to correctly display the correct UI
  * @param type Model type
  */
-export const getMessageByType = (message: unknown, viewRaw: boolean, t: Translate) => {
+export const getMessageByType = (message: unknown, viewRaw: boolean, t: TFunction) => {
   const { type } = (message as { type: string }) ?? {};
   type resultType = {
     content: FC<{ message: unknown }>;

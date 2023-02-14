@@ -1,3 +1,7 @@
+import Typography from '@mui/material/Typography';
+import { useTranslation } from 'next-i18next';
+import { FC } from 'react';
+import { useRecoilValue } from 'recoil';
 import Box from '@/components/box';
 import TransactionsList from '@/components/transactions_list';
 import TransactionsListDetails from '@/components/transactions_list_details';
@@ -5,10 +9,6 @@ import ExportCSVButton from '@/components/export_csv';
 import { readTx } from '@/recoil/settings';
 import { useTransactions } from '@/screens/account_details/components/transactions/hooks';
 import useStyles from '@/screens/account_details/components/transactions/styles';
-import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
-import { FC } from 'react';
-import { useRecoilValue } from 'recoil';
 
 const Transactions: FC<ComponentDefault> = (props) => {
   const txListFormat = useRecoilValue(readTx);

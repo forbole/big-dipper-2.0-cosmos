@@ -1,14 +1,14 @@
-import chainConfig from '@/chainConfig';
-import { useValidatorsQuery, ValidatorsQuery } from '@/graphql/types/general_types';
+import Big from 'big.js';
+import numeral from 'numeral';
+import * as R from 'ramda';
+import { SyntheticEvent, useCallback, useState } from 'react';
 import type {
   ItemType,
   ValidatorsState,
   ValidatorType,
 } from '@/screens/validators/components/list/types';
-import Big from 'big.js';
-import numeral from 'numeral';
-import * as R from 'ramda';
-import { SyntheticEvent, useCallback, useState } from 'react';
+import { useValidatorsQuery, ValidatorsQuery } from '@/graphql/types/general_types';
+import chainConfig from '@/chainConfig';
 
 const { extra } = chainConfig();
 

@@ -31,6 +31,9 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
 
 .emotion-2 {
   display: table-header-group;
+}
+
+.emotion-2 {
   background-color: initial;
 }
 
@@ -65,6 +68,9 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
   text-align: left;
   padding: 16px;
   color: #E6E6E6;
+}
+
+.emotion-4 {
   border-bottom: none;
   padding: 0 16px;
   height: 50px;
@@ -86,6 +92,9 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
   -webkit-flex-direction: row-reverse;
   -ms-flex-direction: row-reverse;
   flex-direction: row-reverse;
+}
+
+.emotion-6 {
   border-bottom: none;
   padding: 0 16px;
   height: 50px;
@@ -116,6 +125,9 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
   text-align: left;
   padding: 16px;
   color: #E6E6E6;
+}
+
+.emotion-9 {
   border-bottom: none;
   padding: 0 16px;
   height: 50px;
@@ -137,6 +149,9 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
   -webkit-flex-direction: row-reverse;
   -ms-flex-direction: row-reverse;
   flex-direction: row-reverse;
+}
+
+.emotion-11 {
   border-bottom: none;
   padding: 0 16px;
   height: 50px;
@@ -284,7 +299,19 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
               }
             }
           >
-            1 day ago
+            <span
+              aria-label={null}
+              aria-labelledby={null}
+              data-mui-internal-clone-element={true}
+              onBlur={[Function]}
+              onFocus={[Function]}
+              onMouseLeave={[Function]}
+              onMouseOver={[Function]}
+              onTouchEnd={[Function]}
+              onTouchStart={[Function]}
+            >
+              1 day ago
+            </span>
           </div>
         </td>
       </tr>

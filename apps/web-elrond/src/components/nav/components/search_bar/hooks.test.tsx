@@ -20,8 +20,6 @@ jest.mock('react-toastify', () => ({
   toast: jest.fn(),
 }));
 
-const t = jest.fn((value) => value);
-
 xdescribe('misc: useSearchBar', () => {
   xit('use a validator address', async () => {
     const { result } = renderHook(() => useSearchBar(), {

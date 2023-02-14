@@ -3,13 +3,14 @@ import Tag from '@/components/tag';
 import { useAddress } from '@/screens/validator_details/components/validator_overview/hooks';
 import useStyles from '@/screens/validator_details/components/validator_overview/styles';
 import type { OverviewType, StatusType } from '@/screens/validator_details/types';
+import { useDisplayStyles } from '@/styles/useSharedStyles';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { getValidatorStatus } from '@/utils/get_validator_status';
 import { ACCOUNT_DETAILS } from '@/utils/go_to_page';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import Big from 'big.js';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import numeral from 'numeral';
 import { FC } from 'react';
@@ -23,6 +24,7 @@ type ValidatorOverviewProps = {
 
 const ValidatorOverview: FC<ValidatorOverviewProps> = ({ status, overview, className }) => {
   const { classes, cx } = useStyles();
+  const display = useDisplayStyles().classes;
   const { t } = useTranslation('validators');
   const { handleCopyToClipboard } = useAddress(t);
 
@@ -81,8 +83,8 @@ const ValidatorOverview: FC<ValidatorOverviewProps> = ({ status, overview, class
               className={classes.actionIcons}
             />
             <Typography variant="body1" className="value">
-              <span className={classes.hiddenUntilLg}>{overview.operatorAddress}</span>
-              <span className={classes.hiddenWhenLg}>
+              <span className={display.hiddenUntilLg}>{overview.operatorAddress}</span>
+              <span className={display.hiddenWhenLg}>
                 {getMiddleEllipsis(overview.operatorAddress, {
                   beginning: 15,
                   ending: 5,
@@ -107,8 +109,8 @@ const ValidatorOverview: FC<ValidatorOverviewProps> = ({ status, overview, class
               href={ACCOUNT_DETAILS(overview.selfDelegateAddress)}
               className="value"
             >
-              <span className={classes.hiddenUntilLg}>{overview.selfDelegateAddress}</span>
-              <span className={classes.hiddenWhenLg}>
+              <span className={display.hiddenUntilLg}>{overview.selfDelegateAddress}</span>
+              <span className={display.hiddenWhenLg}>
                 {getMiddleEllipsis(overview.selfDelegateAddress, {
                   beginning: 15,
                   ending: 5,

@@ -2,11 +2,13 @@ import Box from '@/components/box';
 import CustomToolTip from '@/components/custom_tool_tip';
 import useStyles from '@/screens/providers/components/memory/styles';
 import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
+import dynamic from 'next/dynamic';
 import numeral from 'numeral';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { Cell, Pie, PieChart, Tooltip } from 'recharts';
 
+const DynamicPieChart = dynamic(() => Promise.resolve(PieChart), { ssr: false });
 const convertBytesToTB = (bytes: number) => bytes / 10 ** 12;
 
 type MemoryProps = {
@@ -48,7 +50,7 @@ const Memory: FC<MemoryProps> = ({ className, memory }) => {
         {t('memory')}
       </Typography>
       <div className={classes.content}>
-        <PieChart width={200} height={200}>
+        <DynamicPieChart width={200} height={200}>
           <Pie
             stroke="none"
             cornerRadius={100}
@@ -78,7 +80,7 @@ const Memory: FC<MemoryProps> = ({ className, memory }) => {
               </CustomToolTip>
             }
           />
-        </PieChart>
+        </DynamicPieChart>
 
         <div className={classes.legends}>
           {data.map((x) => (

@@ -1,5 +1,6 @@
 import chainConfig from '@/chainConfig';
-import { useWindowOrigin } from '@/hooks';
+import useApollo from '@/graphql/useApollo';
+import { useWindowOrigin } from '@/hooks/use_window';
 import Main, { MainProps } from '@/screens/app/components/main';
 import { useApp } from '@/screens/app/hooks';
 import {
@@ -8,15 +9,17 @@ import {
   OPEN_GRAPH_SEO,
   TWITTER_SEO,
 } from '@/screens/app/utils';
-import { NormalizedCacheObject } from '@apollo/client';
+import { ApolloProvider, NormalizedCacheObject } from '@apollo/client';
+import { useTranslation } from 'next-i18next';
 import { DefaultSeo } from 'next-seo';
-import useTranslation from 'next-translate/useTranslation';
 import { RecoilRoot } from 'recoil';
 
 const { title } = chainConfig();
 
-function App(props: MainProps<{ initialApolloState?: NormalizedCacheObject }>) {
+function MyApp(props: MainProps<{ initialApolloState?: NormalizedCacheObject }>) {
   useApp();
+  const { pageProps } = props;
+  const apolloClient = useApollo(pageProps.initialApolloState);
   const { t } = useTranslation();
   const { location } = useWindowOrigin();
 
@@ -24,21 +27,23 @@ function App(props: MainProps<{ initialApolloState?: NormalizedCacheObject }>) {
     <RecoilRoot>
       <DefaultSeo
         titleTemplate={`%s | ${title}`}
-        title={t('common:bigDipper')}
-        description={t('common:description')}
+        title={t('common:bigDipper') ?? undefined}
+        description={t('common:description') ?? undefined}
         openGraph={{
           title: `${t('common:bigDipper')} | ${title}`,
           url: location,
-          description: t('common:description'),
+          description: t('common:description') ?? undefined,
           ...OPEN_GRAPH_SEO,
         }}
         twitter={TWITTER_SEO}
         additionalLinkTags={ADDITIONAL_LINK_TAGS_SEO}
         additionalMetaTags={ADDITIONAL_META_TAGS}
       />
-      <Main {...props} />
+      <ApolloProvider client={apolloClient}>
+        <Main {...props} />
+      </ApolloProvider>
     </RecoilRoot>
   );
 }
 
-export default App;
+export default MyApp;

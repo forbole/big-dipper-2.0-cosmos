@@ -1,7 +1,7 @@
+import renderer from 'react-test-renderer';
 import DtagCancelTransfer from '@/components/msg/profiles/dtag_cancel_transfer';
 import { MsgDtagCancelTransfer } from '@/models';
-import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // mocks

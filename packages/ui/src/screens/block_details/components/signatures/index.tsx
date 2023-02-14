@@ -3,8 +3,9 @@ import NoData from '@/components/no_data';
 import Desktop from '@/screens/block_details/components/signatures/components/desktop';
 import Mobile from '@/screens/block_details/components/signatures/components/mobile';
 import useStyles from '@/screens/block_details/components/signatures/styles';
+import { useDisplayStyles } from '@/styles/useSharedStyles';
 import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import { FC } from 'react';
 
 type SignaturesProps = ComponentDefault & {
@@ -14,6 +15,7 @@ type SignaturesProps = ComponentDefault & {
 const Signatures: FC<SignaturesProps> = ({ className, signatures }) => {
   const { t } = useTranslation('blocks');
   const { classes, cx } = useStyles();
+  const display = useDisplayStyles().classes;
 
   return (
     <Box className={cx(classes.root, className)}>
@@ -24,8 +26,8 @@ const Signatures: FC<SignaturesProps> = ({ className, signatures }) => {
         <NoData />
       ) : (
         <div className={classes.wrapper}>
-          <Desktop className={classes.hiddenUntilLg} signatures={signatures} />
-          <Mobile className={classes.hiddenWhenLg} signatures={signatures} />
+          <Desktop className={display.hiddenUntilLg} signatures={signatures} />
+          <Mobile className={display.hiddenWhenLg} signatures={signatures} />
         </div>
       )}
     </Box>

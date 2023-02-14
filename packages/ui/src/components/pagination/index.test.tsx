@@ -1,6 +1,6 @@
-import Pagination from '@/components/pagination';
-import { MockTheme } from '@/tests/utils';
 import renderer from 'react-test-renderer';
+import Pagination from '@/components/pagination';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // mocks

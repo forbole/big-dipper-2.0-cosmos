@@ -1,10 +1,10 @@
-import ChainIcon from '@/components/ChainIcon';
-import useStyles from '@/components/nav/components/desktop/components/action_bar/components/network/styles';
-import { readSelectedNetwork } from '@/recoil/big_dipper_networks';
 import Typography from '@mui/material/Typography';
-import ExpandMore from '@mui/icons-material/ExpandMore';
-import React, { FC } from 'react';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { FC } from 'react';
 import { useRecoilValue } from 'recoil';
+import { readSelectedNetwork } from '@/recoil/big_dipper_networks';
+import useStyles from '@/components/nav/components/desktop/components/action_bar/components/network/styles';
+import ChainIcon from '@/components/ChainIcon';
 
 type NetworkProps = {
   className?: string;
@@ -25,7 +25,7 @@ const Network: FC<NetworkProps> = ({ className, toggleNetwork }) => {
     >
       <ChainIcon type="icon" className={classes.icon} alt="icon" />
       <Typography variant="body1">{selected}</Typography>
-      <ExpandMore />
+      <ExpandMoreIcon />
     </div>
   );
 };

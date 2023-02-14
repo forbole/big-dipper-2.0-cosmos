@@ -1,16 +1,11 @@
-import Desktop from '@/screens/blocks/components/desktop';
-import { MockTheme } from '@/tests/utils';
 import renderer from 'react-test-renderer';
 import { AutoSizerProps } from 'react-virtualized-auto-sizer';
+import Desktop from '@/screens/blocks/components/desktop';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // mocks
 // ==================================
-const mockI18n = {
-  t: (key: string) => key,
-  lang: 'en',
-};
-jest.mock('next-translate/useTranslation', () => () => mockI18n);
 jest.mock('@/components/loading', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Loading" {...props} />
 ));

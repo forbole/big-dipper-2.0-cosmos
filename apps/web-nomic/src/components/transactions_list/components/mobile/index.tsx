@@ -1,9 +1,9 @@
 import Loading from '@/components/loading';
 import SingleTransactionMobile from '@/components/single_transaction_mobile';
+import Timestamp from '@/components/Timestamp';
 import useStyles from '@/components/transactions_list/components/mobile/styles';
 import type { TransactionsListState } from '@/components/transactions_list/types';
-import { useList, useListRow } from '@/hooks';
-import dayjs from '@/utils/dayjs';
+import { useList, useListRow } from '@/hooks/use_react_window';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { BLOCK_DETAILS, TRANSACTION_DETAILS } from '@/utils/go_to_page';
 import { mergeRefs } from '@/utils/merge_refs';
@@ -54,7 +54,7 @@ const ListItem: FC<ListItemProps> = ({
         })}
       </Link>
     ),
-    time: dayjs.utc(transaction.timestamp).fromNow(),
+    time: <Timestamp timestamp={transaction.timestamp} />,
   };
   return (
     <div style={style}>

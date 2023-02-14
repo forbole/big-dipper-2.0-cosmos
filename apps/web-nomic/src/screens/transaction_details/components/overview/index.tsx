@@ -1,3 +1,8 @@
+import { useTranslation } from 'next-i18next';
+import Link from 'next/link';
+import numeral from 'numeral';
+import { FC } from 'react';
+import { useRecoilValue } from 'recoil';
 import BoxDetails from '@/components/box_details';
 import { readDate } from '@/recoil/settings';
 import useStyles from '@/screens/transaction_details/components/overview/styles';
@@ -5,11 +10,6 @@ import type { OverviewType } from '@/screens/transaction_details/types';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
 import { formatNumber } from '@/utils/format_token';
 import { BLOCK_DETAILS } from '@/utils/go_to_page';
-import useTranslation from 'next-translate/useTranslation';
-import Link from 'next/link';
-import numeral from 'numeral';
-import { FC } from 'react';
-import { useRecoilValue } from 'recoil';
 
 type OverviewProps = {
   className?: string;
@@ -63,7 +63,11 @@ const Overview: FC<OverviewProps> = ({ className, data }) => {
   ];
 
   return (
-    <BoxDetails className={cx(classes.root, className)} title={t('overview')} details={details} />
+    <BoxDetails
+      className={cx(classes.root, className)}
+      title={t('overview') ?? undefined}
+      details={details}
+    />
   );
 };
 

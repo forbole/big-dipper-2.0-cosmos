@@ -1,5 +1,5 @@
 import React from 'react';
-import { usePagination } from '@/hooks';
+import { usePagination } from '@/hooks/use_pagination';
 import Pagination from '@/components/pagination';
 import NoData from '@/components/no_data';
 import Box from '@/components/box';

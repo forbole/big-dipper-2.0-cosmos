@@ -1,8 +1,8 @@
 import AvatarName from '@/components/avatar_name';
 import SingleBlockMobile from '@/components/single_block_mobile';
+import Timestamp from '@/components/Timestamp';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import type { ItemType } from '@/screens/home/components/blocks/types';
-import dayjs from '@/utils/dayjs';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { BLOCK_DETAILS } from '@/utils/go_to_page';
 import Divider from '@mui/material/Divider';
@@ -19,7 +19,7 @@ type BlocksItemProps = {
 const BlocksItem: FC<BlocksItemProps> = ({ item, i, isLast }) => {
   const { name, address, imageUrl } = useProfileRecoil(item.proposer);
   return (
-    <Fragment key={`${i}-${item.height}`}>
+    <Fragment key={`${i}-${item.hash}`}>
       <SingleBlockMobile
         height={
           <Link shallow prefetch={false} href={BLOCK_DETAILS(item.height)} className="value">
@@ -27,7 +27,7 @@ const BlocksItem: FC<BlocksItemProps> = ({ item, i, isLast }) => {
           </Link>
         }
         txs={numeral(item.txs).format('0,0')}
-        time={dayjs.utc(item.timestamp).fromNow()}
+        time={<Timestamp timestamp={item.timestamp} />}
         proposer={<AvatarName address={address} imageUrl={imageUrl} name={name} />}
         hash={getMiddleEllipsis(item.hash, {
           beginning: 13,
@@ -47,7 +47,7 @@ type MobileProps = {
 const Mobile: FC<MobileProps> = ({ className, items }) => (
   <div className={className}>
     {items?.map((x, i) => (
-      <BlocksItem key={x.height} item={x} i={i} isLast={i === items.length - 1} />
+      <BlocksItem key={x.hash} item={x} i={i} isLast={i === items.length - 1} />
     ))}
   </div>
 );

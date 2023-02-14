@@ -22,7 +22,7 @@ const exportFunc = async () => {
     moduleNameMapper: {
       ...configFromNext.moduleNameMapper,
       ...pathsToModuleNameMapper(tsconfig.compilerOptions.paths, {
-        prefix: '<rootDir>/',
+        prefix: '<rootDir>/src/',
       }),
     },
   };

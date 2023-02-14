@@ -3,11 +3,13 @@ import Box from '@/components/box';
 import Markdown from '@/components/markdown';
 import useStyles from '@/screens/token_details/components/profile/styles';
 import type { ProfileType } from '@/screens/token_details/types';
+import { useDisplayStyles } from '@/styles/useSharedStyles';
 import Typography from '@mui/material/Typography';
 import { FC } from 'react';
 
 const Profile: FC<{ className?: string; profile: ProfileType }> = ({ className, profile }) => {
   const { classes, cx } = useStyles();
+  const display = useDisplayStyles().classes;
 
   return (
     <Box className={className}>
@@ -15,7 +17,7 @@ const Profile: FC<{ className?: string; profile: ProfileType }> = ({ className, 
         <Avatar
           address={profile.name}
           imageUrl={profile.imageUrl}
-          className={cx(classes.avatar, classes.hiddenUntilLg)}
+          className={cx(classes.avatar, display.hiddenUntilLg)}
         />
         <div>
           <div className="bio__header">
@@ -26,7 +28,7 @@ const Profile: FC<{ className?: string; profile: ProfileType }> = ({ className, 
               <Avatar
                 address={profile.name}
                 imageUrl={profile.imageUrl}
-                className={cx(classes.avatar, classes.hiddenWhenLg)}
+                className={cx(classes.avatar, display.hiddenWhenLg)}
               />
               <div className="header__content">
                 <Typography variant="h2">{profile.name}</Typography>

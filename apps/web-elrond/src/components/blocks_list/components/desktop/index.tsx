@@ -1,5 +1,5 @@
 import { columns } from '@/components/blocks_list/components/desktop/utils';
-import dayjs from '@/utils/dayjs';
+import Timestamp from '@/components/Timestamp';
 import { getShardDisplay } from '@/utils/get_shard_display';
 import { BLOCK_DETAILS } from '@/utils/go_to_page';
 import Table from '@mui/material/Table';
@@ -7,7 +7,7 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import numeral from 'numeral';
 import { FC } from 'react';
@@ -28,9 +28,10 @@ const Desktop: FC<{ className?: string; items: BlockType[] }> = (props) => {
         </Link>
       ),
       txs: numeral(x.txs).format('0,0'),
-      time: dayjs.utc(dayjs.unix(x.timestamp)).fromNow(),
+      time: <Timestamp timestamp={x.timestamp} isUnix />,
     };
   });
+
   return (
     <div className={props.className}>
       <Table>

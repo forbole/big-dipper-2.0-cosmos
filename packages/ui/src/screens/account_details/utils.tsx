@@ -1,3 +1,4 @@
+import { useEffect, useMemo } from 'react';
 import {
   useAccountBalancesQuery,
   useAccountCommissionQuery,
@@ -7,7 +8,6 @@ import {
   useAccountWithdrawalAddressQuery,
 } from '@/graphql/types/general_types';
 import { toValidatorAddress } from '@/utils/prefix_convert';
-import { useEffect, useMemo } from 'react';
 
 export const useCommission = (address?: string) => {
   /* Converting the address to a validator address. */

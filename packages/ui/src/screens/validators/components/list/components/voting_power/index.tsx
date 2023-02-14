@@ -1,6 +1,6 @@
-import useStyles from '@/screens/validators/components/list/components/voting_power/styles';
 import Typography from '@mui/material/Typography';
-import React, { FC } from 'react';
+import { FC } from 'react';
+import useStyles from '@/screens/validators/components/list/components/voting_power/styles';
 
 type VotingPowerProps = {
   className?: string;

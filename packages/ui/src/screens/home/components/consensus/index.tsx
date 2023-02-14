@@ -5,10 +5,13 @@ import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { useConsensus } from '@/screens/home/components/consensus/hooks';
 import useStyles from '@/screens/home/components/consensus/styles';
 import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
+import dynamic from 'next/dynamic';
 import numeral from 'numeral';
 import { FC } from 'react';
 import { PolarAngleAxis, RadialBar, RadialBarChart, Tooltip } from 'recharts';
+
+const DynamicRadialBarChart = dynamic(() => Promise.resolve(RadialBarChart), { ssr: false });
 
 const Consensus: FC<ComponentDefault> = ({ className }) => {
   const { classes, cx, theme } = useStyles();
@@ -54,7 +57,7 @@ const Consensus: FC<ComponentDefault> = ({ className }) => {
         {state.loadingNewStep ? (
           <Loading />
         ) : (
-          <RadialBarChart
+          <DynamicRadialBarChart
             className={classes.chart}
             width={circleSize}
             height={circleSize}
@@ -94,7 +97,7 @@ const Consensus: FC<ComponentDefault> = ({ className }) => {
                 })}
               </tspan>
             </text>
-          </RadialBarChart>
+          </DynamicRadialBarChart>
         )}
       </div>
     </Box>

@@ -1,7 +1,7 @@
-import { type AtomState } from '@/recoil/market';
-import { formatNumber } from '@/utils/format_token';
 import Big from 'big.js';
 import numeral from 'numeral';
+import { type AtomState } from '@/recoil/market';
+import { formatNumber } from '@/utils/format_token';
 
 export const formatMarket = (data: AtomState) => {
   const exludedItems = [null, 0];

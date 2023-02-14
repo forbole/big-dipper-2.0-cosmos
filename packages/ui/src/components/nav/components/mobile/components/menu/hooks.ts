@@ -1,6 +1,6 @@
-import { writeTheme, type Theme } from '@/recoil/settings';
 import { useCallback, useEffect, useState } from 'react';
 import { SetterOrUpdater, useRecoilState } from 'recoil';
+import { writeTheme, type Theme } from '@/recoil/settings';
 
 export const useLanguageDrawer = (lang: string, toggleNavMenus: () => void) => {
   const [currentLang, setLang] = useState(lang);

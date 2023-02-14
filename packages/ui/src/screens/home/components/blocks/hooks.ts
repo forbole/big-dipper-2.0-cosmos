@@ -1,10 +1,10 @@
+import * as R from 'ramda';
+import { useCallback, useState } from 'react';
 import {
   BlocksListenerSubscription,
   useBlocksListenerSubscription,
 } from '@/graphql/types/general_types';
 import type { BlocksState } from '@/screens/home/components/blocks/types';
-import * as R from 'ramda';
-import { useCallback, useState } from 'react';
 
 const formatBlocks = (data: BlocksListenerSubscription) =>
   data.blocks.map((x) => {

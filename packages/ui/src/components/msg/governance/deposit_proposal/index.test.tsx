@@ -1,7 +1,7 @@
+import renderer from 'react-test-renderer';
 import DepositProposal from '@/components/msg/governance/deposit_proposal';
 import { MsgDeposit } from '@/models';
-import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // mocks

@@ -1,8 +1,9 @@
 import useStyles from '@/components/single_proposal/styles';
 import { getStatusInfo } from '@/components/single_proposal/utils';
 import Tag from '@/components/tag';
+import { useDisplayStyles } from '@/styles/useSharedStyles';
 import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import { ComponentProps, FC, isValidElement, ReactNode } from 'react';
 
 type SingleproposalProps = {
@@ -16,6 +17,7 @@ type SingleproposalProps = {
 const SingleProposal: FC<SingleproposalProps> = ({ className, id, title, status, description }) => {
   const { t } = useTranslation('proposals');
   const { classes, cx } = useStyles();
+  const display = useDisplayStyles().classes;
   const statusInfo = getStatusInfo(status, t);
 
   return (
@@ -24,7 +26,7 @@ const SingleProposal: FC<SingleproposalProps> = ({ className, id, title, status,
         <Typography variant="h4" className={classes.id}>
           {id}
         </Typography>
-        <span className={classes.hiddenWhenLg}>
+        <span className={display.hiddenWhenLg}>
           <Tag
             theme={statusInfo.tag as ComponentProps<typeof Tag>['theme']}
             value={statusInfo.value}
@@ -51,7 +53,7 @@ const SingleProposal: FC<SingleproposalProps> = ({ className, id, title, status,
       </div>
       {/* ================= */}
       {/* ================= */}
-      <span className={classes.hiddenUntilLg}>
+      <span className={display.hiddenUntilLg}>
         <Tag
           theme={statusInfo.tag as ComponentProps<typeof Tag>['theme']}
           value={statusInfo.value}

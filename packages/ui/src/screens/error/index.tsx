@@ -1,8 +1,7 @@
 import useStyles from '@/screens/error/styles';
 import { HOME } from '@/utils/go_to_page';
 import Typography from '@mui/material/Typography';
-import Trans from 'next-translate/Trans';
-import useTranslation from 'next-translate/useTranslation';
+import { Trans, useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import { FC, useCallback } from 'react';
 import generalConfig from 'shared-utils/configs/general.json';

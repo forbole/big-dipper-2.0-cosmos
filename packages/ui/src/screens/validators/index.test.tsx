@@ -1,6 +1,6 @@
-import Validators from '@/screens/validators';
-import { MockTheme } from '@/tests/utils';
 import renderer from 'react-test-renderer';
+import Validators from '@/screens/validators';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // mocks

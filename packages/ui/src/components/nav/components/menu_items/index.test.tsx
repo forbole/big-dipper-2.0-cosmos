@@ -1,6 +1,6 @@
-import MenuItems from '@/components/nav/components/menu_items';
-import { MockTheme } from '@/tests/utils';
 import renderer from 'react-test-renderer';
+import MenuItems from '@/components/nav/components/menu_items';
+import MockTheme from '@/tests/mocks/MockTheme';
 // ==================================
 // global setup
 // ==================================
@@ -9,12 +9,6 @@ let component: renderer.ReactTestRenderer;
 // ==================================
 // mocks
 // ==================================
-const mockI18n = {
-  t: (key: string) => key,
-  lang: 'en',
-};
-jest.mock('next-translate/useTranslation', () => () => mockI18n);
-
 const mockPush = jest.fn();
 
 jest.mock('next/router', () => ({

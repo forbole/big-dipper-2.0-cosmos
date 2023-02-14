@@ -1,9 +1,9 @@
-import CustomToolTip from '@/components/custom_tool_tip';
-import { MockTheme } from '@/tests/utils';
 import numeral from 'numeral';
 import { ReactNode } from 'react';
 import renderer from 'react-test-renderer';
 import { Cell, Pie, PieChart, Tooltip } from 'recharts';
+import MockTheme from '@/tests/mocks/MockTheme';
+import CustomToolTip from '@/components/custom_tool_tip';
 
 // to fix error, this.wrapperNode is null node_modules/recharts/src/component/Tooltip.tsx:143
 jest.mock('recharts', () => ({

@@ -1,14 +1,14 @@
+import Divider from '@mui/material/Divider';
+import numeral from 'numeral';
+import { FC, LegacyRef } from 'react';
+import AutoSizer from 'react-virtualized-auto-sizer';
+import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
 import AvatarName from '@/components/avatar_name';
-import { useList, useListRow } from '@/hooks';
+import { useList, useListRow } from '@/hooks/use_react_window';
 import SingleValidator from '@/screens/validators/components/list/components/mobile/component/single_validator';
 import VotingPower from '@/screens/validators/components/list/components/voting_power';
 import type { ItemType } from '@/screens/validators/components/list/types';
 import { getValidatorStatus } from '@/utils/get_validator_status';
-import Divider from '@mui/material/Divider';
-import numeral from 'numeral';
-import React, { FC, LegacyRef } from 'react';
-import AutoSizer from 'react-virtualized-auto-sizer';
-import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
 
 type ListItemProps = Pick<ListChildComponentProps, 'index' | 'style'> & {
   setRowHeight: Parameters<typeof useListRow>[1];

@@ -1,3 +1,4 @@
+import { ThemeOptions } from '@mui/material/styles';
 import chainConfig from '@/chainConfig';
 import {
   darkTemplate,
@@ -5,7 +6,6 @@ import {
   lightTemplate,
   tritanopiaTemplate,
 } from '@/styles/theme';
-import { ThemeOptions } from '@mui/material/styles';
 
 const { themes } = chainConfig();
 type ThemeDictionaryType = { [theme: string]: ThemeOptions };

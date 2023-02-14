@@ -1,8 +1,8 @@
-import { ProposalDetailsQuery, useProposalDetailsQuery } from '@/graphql/types/general_types';
-import type { ProposalState } from '@/screens/proposal_details/types';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import { useCallback, useState } from 'react';
+import type { ProposalState } from '@/screens/proposal_details/types';
+import { ProposalDetailsQuery, useProposalDetailsQuery } from '@/graphql/types/general_types';
 
 // =========================
 // overview

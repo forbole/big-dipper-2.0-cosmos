@@ -1,6 +1,6 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import Layout from '@/components/layout';
 import LoadAndExist from '@/components/load_and_exist';
 import Overview from '@/screens/miniblock_details/components/overview';
@@ -15,12 +15,12 @@ const MiniBlockDetails = () => {
   return (
     <>
       <NextSeo
-        title={t('miniBlockDetails')}
+        title={t('miniBlockDetails') ?? undefined}
         openGraph={{
-          title: t('miniBlockDetails'),
+          title: t('miniBlockDetails') ?? undefined,
         }}
       />
-      <Layout navTitle={t('miniBlockDetails')} className={classes.root}>
+      <Layout navTitle={t('miniBlockDetails') ?? undefined} className={classes.root}>
         <LoadAndExist loading={state.loading} exists={state.exists}>
           <Overview {...state.overview} />
           <Transactions />

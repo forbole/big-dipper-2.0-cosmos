@@ -1,6 +1,6 @@
-import ActionBar from '@/components/nav/components/desktop/components/action_bar';
-import { MockTheme } from '@/tests/utils';
 import renderer from 'react-test-renderer';
+import ActionBar from '@/components/nav/components/desktop/components/action_bar';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // global setup

@@ -1,8 +1,8 @@
+import Typography from '@mui/material/Typography';
+import { Trans } from 'next-i18next';
 import Name from '@/components/name';
 import MsgUpdateGroupAccountDecisionPolicyRequest from '@/models/msg/group/msg_update_group_account_decision_policy_request';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
-import Typography from '@mui/material/Typography';
-import Trans from 'next-translate/Trans';
 
 const UpdateGroupAccountDecisionPolicyRequest = (props: {
   message: MsgUpdateGroupAccountDecisionPolicyRequest;

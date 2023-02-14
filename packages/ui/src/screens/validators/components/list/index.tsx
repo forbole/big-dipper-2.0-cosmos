@@ -1,3 +1,4 @@
+import { FC, ReactNode, useMemo } from 'react';
 import Box from '@/components/box';
 import LoadAndExist from '@/components/load_and_exist';
 import NoData from '@/components/no_data';
@@ -8,10 +9,11 @@ import Mobile from '@/screens/validators/components/list/components/mobile';
 import Tabs from '@/screens/validators/components/list/components/tabs';
 import { useValidators } from '@/screens/validators/components/list/hooks';
 import useStyles from '@/screens/validators/components/list/styles';
-import { FC, ReactNode, useMemo } from 'react';
+import { useDisplayStyles } from '@/styles/useSharedStyles';
 
 const List: FC<ComponentDefault> = ({ className }) => {
   const { classes, cx } = useStyles();
+  const display = useDisplayStyles().classes;
   const { state, handleTabChange, handleSearch, handleSort, sortItems, search } = useValidators();
   const validatorsMemo = useShallowMemo(state.items.map((x) => x.validator));
   const { profiles: dataProfiles, loading } = useProfilesRecoil(validatorsMemo);
@@ -33,12 +35,12 @@ const List: FC<ComponentDefault> = ({ className }) => {
           handleSort={handleSort}
           items={items}
           search={search}
-          className={classes.hiddenUntilLg}
+          className={display.hiddenUntilLg}
         />
         <Mobile
           items={items}
           search={search}
-          className={cx(classes.hiddenWhenLg, classes.mobile)}
+          className={cx(display.hiddenWhenLg, classes.mobile)}
         />
       </>
     );

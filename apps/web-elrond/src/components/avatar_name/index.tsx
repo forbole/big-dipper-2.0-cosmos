@@ -1,7 +1,6 @@
 import Avatar from '@/components/avatar';
 import useStyles from '@/components/avatar_name/styles';
 import { ACCOUNT_DETAILS } from '@/utils/go_to_page';
-import Typography from '@mui/material/Typography';
 import Link from 'next/link';
 import { FC } from 'react';
 
@@ -15,10 +14,10 @@ const AvatarName: FC<AvatarName> = ({
   const { classes, cx } = useStyles();
   return (
     <Link shallow href={href(address || name)}>
-      <div className={cx(classes.root, className)}>
+      <span className={cx(classes.root, className)}>
         <Avatar address={address} imageUrl={imageUrl ?? undefined} />
-        <Typography variant="body1">{name}</Typography>
-      </div>
+        <span>{name}</span>
+      </span>
     </Link>
   );
 };

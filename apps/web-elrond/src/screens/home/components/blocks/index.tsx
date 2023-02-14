@@ -6,15 +6,17 @@ import Desktop from '@/screens/home/components/blocks/components/desktop';
 import Mobile from '@/screens/home/components/blocks/components/mobile';
 import { useBlocks } from '@/screens/home/components/blocks/hooks';
 import useStyles from '@/screens/home/components/blocks/styles';
+import { useDisplayStyles } from '@/styles/useSharedStyles';
 import { BLOCKS } from '@/utils/go_to_page';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import { FC } from 'react';
 
 const Blocks: FC<ComponentDefault> = (props) => {
   const { classes, cx } = useStyles();
+  const display = useDisplayStyles().classes;
   const { t } = useTranslation('home');
   const { state } = useBlocks();
   return (
@@ -27,13 +29,13 @@ const Blocks: FC<ComponentDefault> = (props) => {
       </div>
       {state.items.length ? (
         <>
-          <Desktop className={classes.hiddenUntilLg} items={state.items} />
-          <Mobile className={classes.hiddenWhenLg} items={state.items} />
-          <Divider className={classes.hiddenWhenLg} />
+          <Desktop className={display.hiddenUntilLg} items={state.items} />
+          <Mobile className={display.hiddenWhenLg} items={state.items} />
+          <Divider className={display.hiddenWhenLg} />
           <Link
             shallow
             href={BLOCKS}
-            className={cx(classes.seeMoreFooter, classes.hiddenWhenLg, 'button')}
+            className={cx(classes.seeMoreFooter, display.hiddenWhenLg, 'button')}
             aria-label="see more blocks"
           >
             {t('seeMore')}

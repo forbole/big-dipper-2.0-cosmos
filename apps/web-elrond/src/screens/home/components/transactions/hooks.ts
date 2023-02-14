@@ -1,9 +1,9 @@
-import { POLLING_INTERVAL, TRANSACTIONS } from '@/api';
-import { useInterval } from '@/hooks';
-import type { TransactionState } from '@/screens/home/components/transactions/types';
 import axios from 'axios';
 import * as R from 'ramda';
 import { useCallback, useState } from 'react';
+import { POLLING_INTERVAL, TRANSACTIONS } from '@/api';
+import { useInterval } from '@/hooks/use_interval';
+import type { TransactionState } from '@/screens/home/components/transactions/types';
 
 export const PAGE_SIZE = 7;
 

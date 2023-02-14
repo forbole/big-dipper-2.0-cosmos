@@ -306,9 +306,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
       >
         <div
           className="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight emotion-14"
-        >
-          1 day ago
-        </div>
+        />
       </div>
       <div
         className="emotion-9"
@@ -390,9 +388,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
       >
         <div
           className="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight emotion-14"
-        >
-          1 day ago
-        </div>
+        />
       </div>
     </div>
   </div>

@@ -1,18 +1,14 @@
 import { BlocksListenerDocument } from '@/graphql/types/general_types';
 import Blocks from '@/screens/home/components/blocks';
-import { MockTheme } from '@/tests/utils';
-import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
+import { mockClient } from '@/tests/mocks/mockApollo';
+import MockTheme from '@/tests/mocks/MockTheme';
+import { ApolloProvider } from '@apollo/client';
 import { MockedProvider } from '@apollo/client/testing';
 import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks
 // ==================================
-const mockI18n = {
-  t: (key: string) => key,
-  lang: 'en',
-};
-jest.mock('next-translate/useTranslation', () => () => mockI18n);
 jest.mock('@/components/box', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="Box" {...props} />
 ));
@@ -53,8 +49,6 @@ const mockBlocksListenerDocument = jest.fn().mockReturnValue({
 // ==================================
 describe('screen: Home/Blocks/Mobile', () => {
   it('matches snapshot', () => {
-    const mockClient = new ApolloClient({ link: from([]), cache: new InMemoryCache() });
-
     let component: renderer.ReactTestRenderer | undefined;
 
     renderer.act(() => {
@@ -62,7 +56,10 @@ describe('screen: Home/Blocks/Mobile', () => {
         <ApolloProvider client={mockClient}>
           <MockedProvider
             mocks={[
-              { request: { query: BlocksListenerDocument }, result: mockBlocksListenerDocument },
+              {
+                request: { query: BlocksListenerDocument, variables: { limit: 7, offset: 0 } },
+                result: mockBlocksListenerDocument,
+              },
             ]}
           >
             <MockTheme>

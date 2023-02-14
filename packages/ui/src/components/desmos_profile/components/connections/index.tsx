@@ -2,15 +2,16 @@ import Desktop from '@/components/desmos_profile/components/connections/componen
 import Mobile from '@/components/desmos_profile/components/connections/components/mobile';
 import useStyles from '@/components/desmos_profile/components/connections/styles';
 import Pagination from '@/components/pagination';
-import { usePagination } from '@/hooks';
+import { usePagination } from '@/hooks/use_pagination';
 import useShallowMemo from '@/hooks/useShallowMemo';
+import { useDisplayStyles } from '@/styles/useSharedStyles';
 import CloseIcon from '@mui/icons-material/Close';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import { FC, useMemo } from 'react';
 
 type ConnectionsProps = {
@@ -21,6 +22,7 @@ type ConnectionsProps = {
 
 const Connections: FC<ConnectionsProps> = ({ handleClose, open, data }) => {
   const { classes, cx } = useStyles();
+  const display = useDisplayStyles().classes;
   const { t } = useTranslation('accounts');
   const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange, sliceItems } =
     usePagination({});
@@ -42,8 +44,8 @@ const Connections: FC<ConnectionsProps> = ({ handleClose, open, data }) => {
         </IconButton>
       </DialogTitle>
       <DialogContent dividers>
-        <Desktop className={cx(classes.noWrap, classes.hiddenUntilLg)} items={items} />
-        <Mobile className={classes.hiddenWhenLg} items={items} />
+        <Desktop className={cx(classes.noWrap, display.hiddenUntilLg)} items={items} />
+        <Mobile className={display.hiddenWhenLg} items={items} />
         <Pagination
           className={classes.paginate}
           total={data.length}

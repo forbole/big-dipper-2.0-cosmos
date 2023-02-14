@@ -1,11 +1,11 @@
 import { expect, test } from '@playwright/test';
-import { abortLoadingAssets, hasReadPermissions, waitForReady } from './common';
+import { interceptRoutes, hasReadPermissions, waitForReady } from './common';
 
 const validatorAddress = 'desmosvaloper134zrg6jn3a5l5jjpzv9eucdlw3nl2qelk0e992';
 const rewardAddress = 'desmos134zrg6jn3a5l5jjpzv9eucdlw3nl2qelgz330c';
 
 test('validator page', async ({ page, context }) => {
-  await abortLoadingAssets(page);
+  await interceptRoutes(page);
 
   // Test validator url
   await page.goto(`./validators/${validatorAddress}`);
@@ -35,7 +35,7 @@ test('validator page', async ({ page, context }) => {
 });
 
 test('validator page tabs', async ({ page, isMobile }) => {
-  await abortLoadingAssets(page);
+  await interceptRoutes(page);
 
   // Test validator url
   await page.goto(`./validators/${validatorAddress}`);

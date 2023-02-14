@@ -1,8 +1,8 @@
-import ListNames from '@/components/msg/nft/issue_denom/components/list_names';
-import MsgIssueDenom from '@/models/msg/nft/msg_issue_denom';
 import Typography from '@mui/material/Typography';
-import Trans from 'next-translate/Trans';
-import React, { FC } from 'react';
+import { Trans } from 'next-i18next';
+import { FC } from 'react';
+import MsgIssueDenom from '@/models/msg/nft/msg_issue_denom';
+import ListNames from '@/components/msg/nft/issue_denom/components/list_names';
 
 const IssueDenom: FC<{ message: MsgIssueDenom }> = (props) => {
   const { message } = props;

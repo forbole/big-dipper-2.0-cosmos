@@ -76,7 +76,11 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
                 name="address"
               />
             }
-            time="1 day ago"
+            time={
+              <Timestamp
+                timestamp=""
+              />
+            }
             txs="2"
           />
           <hr
@@ -117,7 +121,11 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
                 name="address"
               />
             }
-            time="1 day ago"
+            time={
+              <Timestamp
+                timestamp=""
+              />
+            }
             txs="2"
           />
         </div>

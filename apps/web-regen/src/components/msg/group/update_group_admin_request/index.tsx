@@ -1,9 +1,9 @@
+import Typography from '@mui/material/Typography';
+import { Trans } from 'next-i18next';
+import { FC } from 'react';
 import Name from '@/components/name';
 import MsgUpdateGroupAdminRequest from '@/models/msg/group/msg_update_group_admin_request';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
-import Typography from '@mui/material/Typography';
-import Trans from 'next-translate/Trans';
-import React, { FC } from 'react';
 
 const UpdateGroupAdminRequest: FC<{ message: MsgUpdateGroupAdminRequest }> = (props) => {
   const { message } = props;

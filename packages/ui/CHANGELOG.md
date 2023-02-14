@@ -1,5 +1,88 @@
 # ui
 
+## 2.14.2
+
+### Patch Changes
+
+- e11d768a: fix: Text content does not match server-rendered HTML.
+
+## 2.14.1
+
+### Patch Changes
+
+- 4079b219: fix: ssr issue Text content does not match server-rendered HTML
+
+## 2.14.0
+
+### Minor Changes
+
+- d08c0dfd: feat: add WASM Contract module
+
+### Patch Changes
+
+- Updated dependencies [d08c0dfd]
+  - shared-utils@2.8.0
+  - tsconfig@0.3.0
+
+## 2.13.0
+
+### Minor Changes
+
+- af2e8add5: add: quicksilver workspace
+
+### Patch Changes
+
+- Updated dependencies [af2e8add5]
+  - shared-utils@2.7.0
+
+## 2.12.1
+
+### Patch Changes
+
+- b4ac0a0c5: feat: setup Quasar testnet
+- Updated dependencies [b4ac0a0c5]
+  - shared-utils@2.6.3
+
+## 2.12.0
+
+### Minor Changes
+
+- e12c3b0c2: add custom message types, including Profiles, Posts, Reactions, Reports and Subspaces modules
+
+## 2.11.1
+
+### Patch Changes
+
+- a04d53bd8: auto refresh timestamp display
+- a04d53bd8: fix: donate link address
+- a04d53bd8: fix: transaction type in details view
+
+## 2.11.0
+
+### Minor Changes
+
+- d967ae3f: migrate from next-tranlsate to next-i18next
+
+  - replace {{count}} in locales/en/\*.json to {{num}} because {{count}} is reserved for next-18next
+  - add getServerSideProps to path with dynamic route param
+  - add getStaticProps to path without dynamic route param
+
+- d967ae3f: feat: remove sifchain workspace
+- d967ae3f: Add asset module to Provenance BD
+
+### Patch Changes
+
+- d967ae3f: remove @sentry/nextjs package, add install sentry script to install @sentry/nextjs when deployment via docker
+- d967ae3f: replace dompurify package with xss
+- d967ae3f: feat: change matomoSiteID to 8
+- d967ae3f: move jest setup coding to ui worksapce
+- Updated dependencies [d967ae3f]
+- Updated dependencies [d967ae3f]
+- Updated dependencies [d967ae3f]
+- Updated dependencies [d967ae3f]
+- Updated dependencies [d967ae3f]
+  - tsconfig@0.2.0
+
 ## 2.10.4
 
 ### Patch Changes

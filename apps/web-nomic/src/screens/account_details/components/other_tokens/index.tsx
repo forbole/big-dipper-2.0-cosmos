@@ -1,13 +1,14 @@
 import Box from '@/components/box';
 import Pagination from '@/components/pagination';
-import { usePagination } from '@/hooks';
+import { usePagination } from '@/hooks/use_pagination';
 import useShallowMemo from '@/hooks/useShallowMemo';
 import Desktop from '@/screens/account_details/components/other_tokens/components/desktop';
 import Mobile from '@/screens/account_details/components/other_tokens/components/mobile';
 import useStyles from '@/screens/account_details/components/other_tokens/styles';
 import type { OtherTokenType } from '@/screens/account_details/types';
+import { useDisplayStyles } from '@/styles/useSharedStyles';
 import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import { FC, useMemo } from 'react';
 
 type OtherTokensProps = {
@@ -21,6 +22,7 @@ type OtherTokensProps = {
 const OtherTokens: FC<OtherTokensProps> = ({ className, otherTokens }) => {
   const { t } = useTranslation('accounts');
   const { classes } = useStyles();
+  const display = useDisplayStyles().classes;
   const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange, sliceItems } =
     usePagination({});
   const dataMemo = useShallowMemo(otherTokens.data);
@@ -34,8 +36,8 @@ const OtherTokens: FC<OtherTokensProps> = ({ className, otherTokens }) => {
   return (
     <Box className={className}>
       <Typography variant="h2">{t('otherTokens')}</Typography>
-      <Desktop className={classes.hiddenUntilLg} items={items} />
-      <Mobile className={classes.hiddenWhenLg} items={items} />
+      <Desktop className={display.hiddenUntilLg} items={items} />
+      <Mobile className={display.hiddenWhenLg} items={items} />
       <Pagination
         className={classes.paginate}
         total={count}

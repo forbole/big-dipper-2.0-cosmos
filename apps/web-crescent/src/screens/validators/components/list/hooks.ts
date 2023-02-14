@@ -1,3 +1,7 @@
+import Big from 'big.js';
+import numeral from 'numeral';
+import * as R from 'ramda';
+import { SyntheticEvent, useCallback, useState } from 'react';
 import chainConfig from '@/chainConfig';
 import { useValidatorsQuery, ValidatorsQuery } from '@/graphql/types/general_types';
 import { SlashingParams } from '@/models';
@@ -8,10 +12,6 @@ import type {
 } from '@/screens/validators/components/list/types';
 import { formatToken } from '@/utils/format_token';
 import { getValidatorCondition } from '@/utils/get_validator_condition';
-import Big from 'big.js';
-import numeral from 'numeral';
-import * as R from 'ramda';
-import { SyntheticEvent, useCallback, useState } from 'react';
 
 const { votingPowerTokenUnit } = chainConfig();
 

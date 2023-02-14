@@ -14,6 +14,17 @@ exports[`screen: TransactionDetails/IBCChannelOpenAck matches snapshot 1`] = `
 <p
   className="MuiTypography-root MuiTypography-body1 emotion-0"
 >
-  message_contents:txChannelOpenAckContent
+  <span
+    data-testid="Trans"
+    i18nKey="message_contents:txChannelOpenAckContent"
+  >
+    <div
+      address="desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz"
+      id="Name"
+      name="desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz"
+    />
+    <b />
+    {"channelId":"1","portId":"21","counterpartyChannelId":"12","counterpartyVersion":"1.0"}
+  </span>
 </p>
 `;

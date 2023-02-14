@@ -28,7 +28,7 @@
       "outputs": [],
       "persistent": true
     },
-    "check-types": {
+    "ts-check": {
       "outputs": []
     },
     "lint": {
@@ -62,5 +62,11 @@
     "SENTRY_URL",
     "VERCEL"
   ],
-  "globalDependencies": [".env", ".eslintrc.js", ".gitignore", ".yarnrc.yml", "shared-utils/**/*"]
+  "globalDependencies": [
+    ".env",
+    ".eslintrc.js",
+    ".gitignore",
+    ".yarnrc.yml",
+    "packages/shared-utils/**/*"
+  ]
 }

@@ -1,6 +1,6 @@
-import useStyles from '@/components/linear_loading/styles';
 import LinearProgress from '@mui/material/LinearProgress';
-import React, { FC } from 'react';
+import { FC } from 'react';
+import useStyles from '@/components/linear_loading/styles';
 
 const LinearLoading: FC<ComponentDefault> = ({ className }) => {
   const { classes, cx } = useStyles();

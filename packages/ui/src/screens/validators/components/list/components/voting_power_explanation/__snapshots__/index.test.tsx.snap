@@ -21,7 +21,12 @@ exports[`screen: Validators/VotingPowerExplanation matches snapshot 1`] = `
   <p
     className="MuiTypography-root MuiTypography-body1 emotion-1"
   >
-    validators:votingPowerExplanation
+    <span
+      data-testid="Trans"
+      i18nKey="validators:votingPowerExplanation"
+    >
+      <b />
+    </span>
   </p>
 </div>
 `;

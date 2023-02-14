@@ -1,7 +1,7 @@
+import renderer from 'react-test-renderer';
 import Fund from '@/components/msg/distribution/fund';
 import { MsgFundCommunityPool } from '@/models';
-import { MockTheme } from '@/tests/utils';
-import renderer from 'react-test-renderer';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // mocks

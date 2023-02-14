@@ -3,7 +3,7 @@ const BIG_DIPPER_URL = 'https://bigdipper.live';
 
 export const donateLink = {
   key: 'donate',
-  url: `${BIG_DIPPER_URL}/donate`,
+  url: `${BIG_DIPPER_URL}/donation`,
 };
 
 export const footerLinks = [

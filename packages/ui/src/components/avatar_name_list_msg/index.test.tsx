@@ -1,6 +1,6 @@
-import AvatarNameListMsg from '@/components/avatar_name_list_msg';
-import { MockTheme } from '@/tests/utils';
 import renderer from 'react-test-renderer';
+import AvatarNameListMsg from '@/components/avatar_name_list_msg';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // unit tests

@@ -6,8 +6,8 @@ import TransactionsListDetails from '@/components/transactions_list_details';
 import { readTx } from '@/recoil/settings';
 import { useTransactions } from '@/screens/transactions/hooks';
 import useStyles from '@/screens/transactions/styles';
+import { useTranslation } from 'next-i18next';
 import { NextSeo } from 'next-seo';
-import useTranslation from 'next-translate/useTranslation';
 import { useRecoilValue } from 'recoil';
 
 const Transactions = () => {
@@ -21,12 +21,12 @@ const Transactions = () => {
   return (
     <>
       <NextSeo
-        title={t('transactions')}
+        title={t('transactions') ?? undefined}
         openGraph={{
-          title: t('transactions'),
+          title: t('transactions') ?? undefined,
         }}
       />
-      <Layout navTitle={t('transactions')} className={classes.root}>
+      <Layout navTitle={t('transactions') ?? undefined} className={classes.root}>
         <LoadAndExist exists={state.exists} loading={state.loading}>
           <Box className={classes.box}>
             {txListFormat === 'compact' ? (

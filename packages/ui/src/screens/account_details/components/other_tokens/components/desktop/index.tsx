@@ -1,13 +1,13 @@
-import { columns } from '@/screens/account_details/components/other_tokens/components/desktop/utils';
-import type { OtherTokenType } from '@/screens/account_details/types';
-import { formatNumber } from '@/utils/format_token';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import { FC } from 'react';
+import { formatNumber } from '@/utils/format_token';
+import type { OtherTokenType } from '@/screens/account_details/types';
+import { columns } from '@/screens/account_details/components/other_tokens/components/desktop/utils';
 
 type DesktopProps = {
   className?: string;

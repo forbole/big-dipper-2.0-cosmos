@@ -2,12 +2,20 @@ import type { ChainIdQuery, useChainIdQuery } from '@/graphql/types/general_type
 import { BigDipperNetwork } from '@/models';
 import { writeNetworks, writeSelectedNetwork } from '@/recoil/big_dipper_networks/selectors';
 import type { Networks, Selected } from '@/recoil/big_dipper_networks/types';
-import axios from 'axios';
+import { gql, useApolloClient } from '@apollo/client';
 import { useEffect } from 'react';
 import { SetterOrUpdater, useRecoilState } from 'recoil';
 
-const NETWORK_LIST_API =
-  'https://raw.githubusercontent.com/forbole/big-dipper-networks/main/networks.json';
+const query = gql`
+  query Rest {
+    networks @rest(type: "BigDipperNetworks", path: "networks.json") {
+      name
+      logo
+      cover
+      links
+    }
+  }
+`;
 
 /**
  * `useBigDipperNetworksRecoil` is a React Hook that fetches a list of networks from the BigDipper API
@@ -22,6 +30,7 @@ export function useBigDipperNetworksRecoil(useQuery?: typeof useChainIdQuery) {
   const disabledSelection = !useQuery;
   const [_, setNetworks] = useRecoilState(writeNetworks) as [Networks, SetterOrUpdater<Networks>];
   const [selectedNetwork, setSelectedNetwork] = useSelectedHook(disabledSelection);
+  const client = useApolloClient();
 
   useEffect(() => {
     const getNetworkList = async () => {
@@ -29,8 +38,8 @@ export function useBigDipperNetworksRecoil(useQuery?: typeof useChainIdQuery) {
       try {
         /* Making a GET request to the NETWORK_LIST_API and storing the response in the results
         variable. */
-        const results = await axios.get(NETWORK_LIST_API);
-        data = results?.data ?? [];
+        const results = await client.query({ query });
+        data = results?.data.networks ?? [];
       } catch (error) {
         console.error(error);
       }
@@ -44,7 +53,7 @@ export function useBigDipperNetworksRecoil(useQuery?: typeof useChainIdQuery) {
     };
     getNetworkList();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [client]);
 
   /* A function that takes in a useQuery and returns a function that takes in a
   useQuery and returns a function that takes in a useQuery and returns a function that

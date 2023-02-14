@@ -14,18 +14,16 @@ exports[`screen: TransactionDetails/SubmitProposal matches snapshot with Communi
 <p
   className="MuiTypography-root MuiTypography-body1 emotion-0"
 >
-  <div
-    components={
-      [
-        <Unknown
-          address="desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz"
-          name="desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz"
-        />,
-      ]
-    }
+  <span
+    data-testid="Trans"
     i18nKey="message_contents:txSubmitProposalContent"
-    id="Trans"
-  />
+  >
+    <div
+      address="desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz"
+      id="Name"
+      name="desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz"
+    />
+  </span>
 </p>
 `;
 
@@ -43,18 +41,16 @@ exports[`screen: TransactionDetails/SubmitProposal matches snapshot with Paramet
 <p
   className="MuiTypography-root MuiTypography-body1 emotion-0"
 >
-  <div
-    components={
-      [
-        <Unknown
-          address="desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz"
-          name="desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz"
-        />,
-      ]
-    }
+  <span
+    data-testid="Trans"
     i18nKey="message_contents:txSubmitProposalContent"
-    id="Trans"
-  />
+  >
+    <div
+      address="desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz"
+      id="Name"
+      name="desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz"
+    />
+  </span>
 </p>
 `;
 
@@ -72,18 +68,16 @@ exports[`screen: TransactionDetails/SubmitProposal matches snapshot with Softwar
 <p
   className="MuiTypography-root MuiTypography-body1 emotion-0"
 >
-  <div
-    components={
-      [
-        <Unknown
-          address="desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz"
-          name="desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz"
-        />,
-      ]
-    }
+  <span
+    data-testid="Trans"
     i18nKey="message_contents:txSubmitProposalContent"
-    id="Trans"
-  />
+  >
+    <div
+      address="desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz"
+      id="Name"
+      name="desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz"
+    />
+  </span>
 </p>
 `;
 
@@ -101,17 +95,15 @@ exports[`screen: TransactionDetails/SubmitProposal matches snapshot with Text Pr
 <p
   className="MuiTypography-root MuiTypography-body1 emotion-0"
 >
-  <div
-    components={
-      [
-        <Unknown
-          address="desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz"
-          name="desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz"
-        />,
-      ]
-    }
+  <span
+    data-testid="Trans"
     i18nKey="message_contents:txSubmitProposalContent"
-    id="Trans"
-  />
+  >
+    <div
+      address="desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz"
+      id="Name"
+      name="desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz"
+    />
+  </span>
 </p>
 `;

@@ -14,6 +14,17 @@ exports[`screen: TransactionDetails/BlockUser matches snapshot 1`] = `
 <p
   className="MuiTypography-root MuiTypography-body1 emotion-0"
 >
-  message_contents:txReportData
+  <span
+    data-testid="Trans"
+    i18nKey="message_contents:txReportData"
+  >
+    <div
+      address="validator"
+      id="Name"
+      name="validator"
+    />
+    <b />
+    {"requestId":"100"}
+  </span>
 </p>
 `;

@@ -14,17 +14,15 @@ exports[`screen: TransactionDetails/UpdateGroupMembersRequest matches snapshot 1
 <p
   className="MuiTypography-root MuiTypography-body1 emotion-0"
 >
-  <div
-    components={
-      [
-        <Unknown
-          address="admin"
-          name="admin"
-        />,
-      ]
-    }
+  <span
+    data-testid="Trans"
     i18nKey="message_contents:MsgUpdateGroupMembersRequest"
-    id="Trans"
-  />
+  >
+    <div
+      address="admin"
+      id="Name"
+      name="admin"
+    />
+  </span>
 </p>
 `;

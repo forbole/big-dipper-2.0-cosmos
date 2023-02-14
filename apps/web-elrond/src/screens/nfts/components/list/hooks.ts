@@ -1,8 +1,8 @@
-import { NFTS, NFTS_COUNT } from '@/api';
-import type { BlockState } from '@/screens/nfts/components/list/types';
 import axios from 'axios';
 import * as R from 'ramda';
 import { useCallback, useEffect, useState } from 'react';
+import type { BlockState } from '@/screens/nfts/components/list/types';
+import { NFTS, NFTS_COUNT } from '@/api';
 
 export const PAGE_SIZE = 25;
 

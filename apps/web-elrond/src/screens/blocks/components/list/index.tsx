@@ -3,7 +3,7 @@ import Box from '@/components/box';
 import Loading from '@/components/loading';
 import NoData from '@/components/no_data';
 import Pagination from '@/components/pagination';
-import { usePagination } from '@/hooks';
+import { usePagination } from '@/hooks/use_pagination';
 import { PAGE_SIZE, useBlocks } from '@/screens/blocks/components/list/hooks';
 import useStyles from '@/screens/blocks/components/list/styles';
 

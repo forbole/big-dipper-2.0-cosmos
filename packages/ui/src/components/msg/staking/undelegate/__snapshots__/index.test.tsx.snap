@@ -14,6 +14,22 @@ exports[`screen: TransactionDetails/Undelegate matches snapshot 1`] = `
 <p
   className="MuiTypography-root MuiTypography-body1 emotion-0"
 >
-  message_contents:txUndelegateContent
+  <span
+    data-testid="Trans"
+    i18nKey="message_contents:txUndelegateContent"
+  >
+    <div
+      address="delegatorAddress"
+      id="Name"
+      name="delegatorAddress"
+    />
+    <b />
+    <div
+      address="validatorAddress"
+      id="Name"
+      name="validatorAddress"
+    />
+    {"amount":"1,000 DARIC"}
+  </span>
 </p>
 `;

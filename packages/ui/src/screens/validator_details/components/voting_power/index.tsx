@@ -1,12 +1,12 @@
-import Box from '@/components/box';
-import useStyles from '@/screens/validator_details/components/voting_power/styles';
-import type { VotingPowerType } from '@/screens/validator_details/types';
-import { BLOCK_DETAILS } from '@/utils/go_to_page';
 import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import numeral from 'numeral';
 import { FC } from 'react';
+import { BLOCK_DETAILS } from '@/utils/go_to_page';
+import type { VotingPowerType } from '@/screens/validator_details/types';
+import useStyles from '@/screens/validator_details/components/voting_power/styles';
+import Box from '@/components/box';
 
 type VotingPowerProps = {
   className?: string;

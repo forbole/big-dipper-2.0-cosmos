@@ -11,7 +11,7 @@ export const useInfoPopover = () => {
     setAnchorEl(null);
   };
 
-  const open = Boolean(anchorEl);
+  const open = !!anchorEl;
 
   return {
     handlePopoverOpen,

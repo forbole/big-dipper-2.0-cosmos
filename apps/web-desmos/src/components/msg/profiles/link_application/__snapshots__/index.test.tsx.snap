@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`screen: TransactionDetails/MsgLinkApplication matches snapshot 1`] = `
+exports[`screen: TransactionDetails/LinkApplication matches snapshot 1`] = `
 .emotion-0 {
   margin: 0;
   font-size: 1rem;
@@ -14,6 +14,17 @@ exports[`screen: TransactionDetails/MsgLinkApplication matches snapshot 1`] = `
 <p
   className="MuiTypography-root MuiTypography-body1 emotion-0"
 >
-  message_contents:txMsgLinkApplication
+  <span
+    data-testid="Trans"
+    i18nKey="message_contents:txMsgLinkApplication"
+  >
+    <div
+      address="sender"
+      id="Name"
+      name="sender"
+    />
+    <b />
+    {"username":"username","application":"application"}
+  </span>
 </p>
 `;

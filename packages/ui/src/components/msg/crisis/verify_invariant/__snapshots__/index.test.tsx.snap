@@ -14,6 +14,15 @@ exports[`screen: TransactionDetails/MsgVerifyInvariant matches snapshot 1`] = `
 <p
   className="MuiTypography-root MuiTypography-body1 emotion-0"
 >
-  message_contents:txVerifyInvariantContent
+  <span
+    data-testid="Trans"
+    i18nKey="message_contents:txVerifyInvariantContent"
+  >
+    <div
+      address="sender"
+      id="Name"
+      name="sender"
+    />
+  </span>
 </p>
 `;

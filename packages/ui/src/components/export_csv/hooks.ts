@@ -1,11 +1,10 @@
-import * as React from 'react';
-import numeral from 'numeral';
+import type { CSVButtonTypes } from '@/components/export_csv';
 import dayjs from '@/utils/dayjs';
-import { AsyncParser } from '@json2csv/node';
-import { unwind, flatten } from '@json2csv/transforms';
 import { stringQuoteOnlyIfNecessary as stringQuoteOnlyIfNecessaryFormatter } from '@json2csv/formatters';
-// eslint-disable-next-line import/no-cycle
-import { CSVButtonTypes } from '@/components/export_csv';
+import { AsyncParser } from '@json2csv/node';
+import { flatten, unwind } from '@json2csv/transforms';
+import numeral from 'numeral';
+import * as React from 'react';
 
 export const useMessageDetailsHook = ({
   transactions,

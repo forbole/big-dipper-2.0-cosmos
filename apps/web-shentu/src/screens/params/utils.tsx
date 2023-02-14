@@ -1,10 +1,10 @@
 import type { Distribution, Gov, Minting, Slashing, Staking } from '@/screens/params/types';
 import { nanoToSeconds, secondsToDays } from '@/utils/time';
-import { Translate } from 'next-translate';
+import { TFunction } from 'next-i18next';
 import numeral from 'numeral';
 import { ReactNode } from 'react';
 
-const convertBySeconds = (seconds: number, t: Translate) => {
+const convertBySeconds = (seconds: number, t: TFunction) => {
   const SECONDS_IN_DAY = 86400;
   return seconds >= SECONDS_IN_DAY
     ? t('days', {
@@ -15,7 +15,7 @@ const convertBySeconds = (seconds: number, t: Translate) => {
       });
 };
 
-export const formatStaking = (data: Staking, t: Translate) => [
+export const formatStaking = (data: Staking, t: TFunction) => [
   {
     key: 'bondDenom',
     label: t('bondDenom'),
@@ -43,7 +43,7 @@ export const formatStaking = (data: Staking, t: Translate) => [
   },
 ];
 
-export const formatSlashing = (data: Slashing, t: Translate) => [
+export const formatSlashing = (data: Slashing, t: TFunction) => [
   {
     key: 'downtimeJailDuration',
     label: t('downtimeJailDuration'),
@@ -73,7 +73,7 @@ export const formatSlashing = (data: Slashing, t: Translate) => [
   },
 ];
 
-export const formatMinting = (data: Minting, t: Translate) => [
+export const formatMinting = (data: Minting, t: TFunction) => [
   {
     key: 'blocksPerYear',
     label: t('blocksPerYear'),
@@ -106,7 +106,7 @@ export const formatMinting = (data: Minting, t: Translate) => [
   },
 ];
 
-export const formatDistribution = (data: Distribution, t: Translate) => [
+export const formatDistribution = (data: Distribution, t: TFunction) => [
   {
     key: 'baseProposerReward',
     label: t('baseProposerReward'),
@@ -131,7 +131,7 @@ export const formatDistribution = (data: Distribution, t: Translate) => [
 
 export const formatGov = (
   data: Gov,
-  t: Translate
+  t: TFunction
 ): Array<{
   key: string;
   label: ReactNode;

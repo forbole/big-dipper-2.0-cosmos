@@ -1,11 +1,5 @@
-import { useOverview } from '@/screens/account_details/components/overview/hooks';
 import { act, cleanup, renderHook } from '@testing-library/react';
-
-const mockI18n = {
-  t: (key: string) => key,
-  lang: 'en',
-};
-jest.mock('next-translate/useTranslation', () => () => mockI18n);
+import { useOverview } from '@/screens/account_details/components/overview/hooks';
 
 jest.mock('react-toastify', () => ({
   toast: jest.fn(),

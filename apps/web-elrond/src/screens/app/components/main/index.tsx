@@ -1,19 +1,19 @@
-import InitialLoad from '@/screens/initial_load';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
 import { AppProps } from 'next/app';
 import { ToastContainer } from 'react-toastify';
 // import { useSettingsRecoil } from '@/recoil/settings';
+import { CacheProvider, EmotionCache } from '@emotion/react';
+import { Hind_Madurai } from '@next/font/google';
+import Head from 'next/head';
+import { useEffect } from 'react';
 import { useBigDipperNetworksRecoil } from '@/recoil/big_dipper_networks';
 import { useMarketRecoil } from '@/recoil/market';
 // import { useValidatorRecoil } from '@/recoil/validators';
 import InnerApp from '@/screens/app/components/inner_app';
 import { useTheme } from '@/screens/app/components/main/hooks';
 import createEmotionCache from '@/styles/createEmotionCache';
-import { CacheProvider, EmotionCache } from '@emotion/react';
-import { Hind_Madurai } from '@next/font/google';
-import Head from 'next/head';
-import { useEffect } from 'react';
+import InitialLoad from '@/screens/initial_load';
 
 const hindMadurai = Hind_Madurai({
   weight: '400',
@@ -63,19 +63,19 @@ const Main = (props: MainProps) => {
       </Head>
       <ThemeProvider theme={muiTheme}>
         <CssBaseline />
+        {loading && <InitialLoad {...props.pageProps} />}
+        <InnerApp {...props} />
         <ToastContainer
           position="top-center"
           autoClose={5000}
           newestOnTop={false}
           closeOnClick
           rtl={false}
-          hideProgressBar
           pauseOnFocusLoss
           draggable
           pauseOnHover
+          theme="colored"
         />
-        {loading && <InitialLoad {...props.pageProps} />}
-        <InnerApp {...props} />
       </ThemeProvider>
     </CacheProvider>
   );

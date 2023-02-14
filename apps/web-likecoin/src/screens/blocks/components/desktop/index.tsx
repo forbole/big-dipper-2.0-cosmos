@@ -1,16 +1,16 @@
 import AvatarName from '@/components/avatar_name';
 import Loading from '@/components/loading';
-import { useGrid } from '@/hooks';
+import Timestamp from '@/components/Timestamp';
+import { useGrid } from '@/hooks/use_react_window';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import useStyles from '@/screens/blocks/components/desktop/styles';
 import { columns } from '@/screens/blocks/components/desktop/utils';
 import type { ItemType } from '@/screens/blocks/types';
-import dayjs from '@/utils/dayjs';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { BLOCK_DETAILS } from '@/utils/go_to_page';
 import { mergeRefs } from '@/utils/merge_refs';
 import Typography from '@mui/material/Typography';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import numeral from 'numeral';
 import { ComponentProps, CSSProperties, FC, LegacyRef } from 'react';
@@ -36,7 +36,7 @@ const BlockRow: FC<BlockRowProps> = ({ style, columnKey, rowIndex, align, item }
       </Link>
     ),
     txs: numeral(item.txs).format('0,0'),
-    time: dayjs.utc(item.timestamp).fromNow(),
+    time: <Timestamp timestamp={item.timestamp} />,
     proposer: (
       <AvatarName address={proposer.address} imageUrl={proposer.imageUrl} name={proposer.name} />
     ),
@@ -166,7 +166,7 @@ const Desktop: FC<DesktopProps> = ({
                     const item = items[rowIndex];
                     return (
                       <BlockRow
-                        key={`${item.height}-${key}`}
+                        key={`${item.hash}-${key}`}
                         columnKey={key}
                         style={style}
                         rowIndex={rowIndex}

@@ -1,6 +1,6 @@
-import Mobile from '@/components/desmos_profile/components/connections/components/mobile';
-import { MockTheme } from '@/tests/utils';
 import renderer from 'react-test-renderer';
+import Mobile from '@/components/desmos_profile/components/connections/components/mobile';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // global setup

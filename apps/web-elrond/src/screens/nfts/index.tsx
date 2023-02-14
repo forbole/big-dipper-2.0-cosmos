@@ -1,6 +1,6 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import Layout from '@/components/layout';
 import List from '@/screens/nfts/components/list';
 import useStyles from '@/screens/nfts/styles';
@@ -12,12 +12,12 @@ const Blocks = () => {
   return (
     <>
       <NextSeo
-        title={t('nfts')}
+        title={t('nfts') ?? undefined}
         openGraph={{
-          title: t('nfts'),
+          title: t('nfts') ?? undefined,
         }}
       />
-      <Layout navTitle={t('nfts')} className={classes.root}>
+      <Layout navTitle={t('nfts') ?? undefined} className={classes.root}>
         <List />
       </Layout>
     </>

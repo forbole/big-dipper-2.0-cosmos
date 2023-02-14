@@ -1,12 +1,11 @@
 /* eslint-disable react/no-unused-prop-types */
-import { FC } from 'react';
-import Button from '@mui/material/Button';
-import UploadFileOutlinedIcon from '@mui/icons-material/UploadFileOutlined';
-import FileSaver from 'file-saver';
+import { useMessageDetailsHook } from '@/components/export_csv/hooks';
 import useStyles from '@/components/export_csv/styles';
 import type { TransactionsListState } from '@/components/transactions_list/types';
-// eslint-disable-next-line import/no-cycle
-import { useMessageDetailsHook } from './hooks';
+import UploadFileOutlinedIcon from '@mui/icons-material/UploadFileOutlined';
+import Button from '@mui/material/Button';
+import FileSaver from 'file-saver';
+import { FC } from 'react';
 
 export interface CSVButtonTypes extends TransactionsListState {
   loadMoreItems: (() => Promise<void>) | (() => null);

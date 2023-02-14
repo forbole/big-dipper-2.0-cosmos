@@ -1,3 +1,6 @@
+import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
+import { MockedProvider } from '@apollo/client/testing';
+import renderer from 'react-test-renderer';
 import {
   ActiveValidatorCountDocument,
   AverageBlockTimeDocument,
@@ -5,21 +8,13 @@ import {
   TokenPriceListenerDocument,
 } from '@/graphql/types/general_types';
 import DataBlocks from '@/screens/home/components/data_blocks';
-import { MockTheme, wait } from '@/tests/utils';
-import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
-import { MockedProvider } from '@apollo/client/testing';
-import renderer from 'react-test-renderer';
+import MockTheme from '@/tests/mocks/MockTheme';
+import wait from '@/tests/utils/wait';
 
 // ==================================
 // mocks
 // ==================================
-const mockI18n = {
-  t: (key: string) => key,
-  lang: 'en',
-};
-
 beforeEach(() => {
-  jest.mock('next-translate/useTranslation', () => () => mockI18n);
   jest.mock(
     '@/screens/home/components/data_blocks/components/single_block',
     () => (props: JSX.IntrinsicElements['div']) => <div id="SingleBlock" {...props} />
@@ -85,7 +80,7 @@ describe('screen: Home/DataBlocks', () => {
           <MockedProvider
             mocks={[
               {
-                request: { query: LatestBlockHeightListenerDocument },
+                request: { query: LatestBlockHeightListenerDocument, variables: { offset: 0 } },
                 result: mockLatestBlockHeight,
               },
               { request: { query: TokenPriceListenerDocument }, result: mockTokenPrice },

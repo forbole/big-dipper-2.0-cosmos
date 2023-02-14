@@ -58,7 +58,7 @@ export const useTablePaginationActions = (props: {
       selectedPageIndex = pageNeighbors;
     }
 
-    availablePages.forEach((x, i) => {
+    availablePages.forEach((_, i) => {
       if (i !== selectedPageIndex) {
         availablePages[i] = page - selectedPageIndex + i;
       } else {

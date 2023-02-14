@@ -1,5 +1,5 @@
-import React, { FC } from 'react';
-import useTranslation from 'next-translate/useTranslation';
+import { FC } from 'react';
+import { useTranslation } from 'next-i18next';
 import Typography from '@mui/material/Typography';
 import Box from '@/components/box';
 import BlocksList from '@/components/blocks_list';

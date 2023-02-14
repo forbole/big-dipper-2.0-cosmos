@@ -4,9 +4,8 @@ import { MsgMultiSend } from '@/models';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { formatNumber, formatToken } from '@/utils/format_token';
 import Typography from '@mui/material/Typography';
-import Trans from 'next-translate/Trans';
-import useTranslation from 'next-translate/useTranslation';
-import React, { FC } from 'react';
+import { Trans, useTranslation } from 'next-i18next';
+import { FC } from 'react';
 
 const RecieverName: FC<{ address: string; coins: MsgCoin[] }> = (props) => {
   const { address: theAddress, coins } = props;

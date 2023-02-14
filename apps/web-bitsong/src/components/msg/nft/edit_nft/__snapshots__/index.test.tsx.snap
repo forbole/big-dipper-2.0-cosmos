@@ -14,6 +14,17 @@ exports[`screen: TransactionDetails/EditNFT matches snapshot 1`] = `
 <p
   className="MuiTypography-root MuiTypography-body1 emotion-0"
 >
-  message_contents:txEditNFTContent
+  <span
+    data-testid="Trans"
+    i18nKey="message_contents:txEditNFTContent"
+  >
+    <div
+      address="desmosvaloper14nfk5gm99gfrd7nwqtmtvzunzclz8720a6cqh7"
+      id="Name"
+      name="desmosvaloper14nfk5gm99gfrd7nwqtmtvzunzclz8720a6cqh7"
+    />
+    <b />
+    {"id":"goodGoodDayDay"}
+  </span>
 </p>
 `;

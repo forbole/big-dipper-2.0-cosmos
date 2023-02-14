@@ -36,15 +36,9 @@ exports[`screen: Nav/Mobile it renders 1`] = `
 
 .emotion-3 {
   padding: 16px;
-  height: 100%;
-  overflow: auto;
 }
 
 .emotion-4 {
-  padding: 16px;
-}
-
-.emotion-5 {
   padding: 8px 16px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -64,7 +58,7 @@ exports[`screen: Nav/Mobile it renders 1`] = `
 }
 
 @media (min-width:1280px) {
-  .emotion-5 {
+  .emotion-4 {
     padding: 8px 24px;
     display: -webkit-box;
     display: -webkit-flex;
@@ -83,7 +77,7 @@ exports[`screen: Nav/Mobile it renders 1`] = `
     width: 100%;
   }
 
-  .emotion-5 .MuiTypography-h1 {
+  .emotion-4 .MuiTypography-h1 {
     line-height: 1;
     -webkit-align-self: flex-end;
     -ms-flex-item-align: flex-end;
@@ -91,11 +85,11 @@ exports[`screen: Nav/Mobile it renders 1`] = `
   }
 }
 
-.emotion-5.emotion-5 h1 {
+.emotion-4.emotion-4 h1 {
   line-height: 56px;
 }
 
-.emotion-6 {
+.emotion-5 {
   margin: 0;
   font-size: 2rem;
   letter-spacing: 0.25px;
@@ -104,7 +98,7 @@ exports[`screen: Nav/Mobile it renders 1`] = `
   line-height: 1.167;
 }
 
-.emotion-7 {
+.emotion-6 {
   width: 100%;
   background: #FFFFFF;
   margin-top: 16px;
@@ -128,7 +122,7 @@ exports[`screen: Nav/Mobile it renders 1`] = `
 }
 
 @media (min-width:768px) {
-  .emotion-7 {
+  .emotion-6 {
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row;
@@ -136,7 +130,7 @@ exports[`screen: Nav/Mobile it renders 1`] = `
 }
 
 @media (min-width:1280px) {
-  .emotion-7 {
+  .emotion-6 {
     -webkit-align-items: center;
     -webkit-box-align: center;
     -ms-flex-align: center;
@@ -154,7 +148,7 @@ exports[`screen: Nav/Mobile it renders 1`] = `
   }
 }
 
-.emotion-8 {
+.emotion-7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -174,12 +168,12 @@ exports[`screen: Nav/Mobile it renders 1`] = `
   width: 100%;
 }
 
-.emotion-8 .label {
+.emotion-7 .label {
   margin-right: 8px;
 }
 
 @media (min-width:375px) {
-  .emotion-8 {
+  .emotion-7 {
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row;
@@ -194,19 +188,19 @@ exports[`screen: Nav/Mobile it renders 1`] = `
 }
 
 @media (min-width:768px) {
-  .emotion-8 {
+  .emotion-7 {
     width: 50%;
   }
 }
 
 @media (min-width:1280px) {
-  .emotion-8 {
+  .emotion-7 {
     padding: 0;
     width: auto;
   }
 }
 
-.emotion-9 {
+.emotion-8 {
   margin: 0;
   font-size: 1rem;
   white-space: pre-wrap;
@@ -227,11 +221,7 @@ exports[`screen: Nav/Mobile it renders 1`] = `
     />
     <span
       className="emotion-1"
-    >
-      <div
-        className="emotion-3"
-      />
-    </span>
+    />
     <div
       id="navbar"
       isOpen={false}
@@ -239,7 +229,7 @@ exports[`screen: Nav/Mobile it renders 1`] = `
       toggleNavMenus={[Function]}
     />
     <div
-      className="emotion-4"
+      className="emotion-3"
       id="searchBar"
     />
   </div>
@@ -251,82 +241,82 @@ exports[`screen: Nav/Mobile it renders 1`] = `
     }
   />
   <div
-    className="emotion-5"
+    className="emotion-4"
   >
     <h1
-      className="MuiTypography-root MuiTypography-h1 emotion-6"
+      className="MuiTypography-root MuiTypography-h1 emotion-5"
     >
       hello world
     </h1>
     <div
-      className="emotion-7"
+      className="emotion-6"
     >
       <div
-        className="emotion-8"
+        className="emotion-7"
       >
         <p
-          className="MuiTypography-root MuiTypography-body1 label emotion-9"
+          className="MuiTypography-root MuiTypography-body1 label emotion-8"
         >
           marketCap
         </p>
         <p
-          className="MuiTypography-root MuiTypography-body1 emotion-9"
+          className="MuiTypography-root MuiTypography-body1 emotion-8"
         >
           N/A
         </p>
       </div>
       <div
-        className="emotion-8"
+        className="emotion-7"
       >
         <p
-          className="MuiTypography-root MuiTypography-body1 label emotion-9"
+          className="MuiTypography-root MuiTypography-body1 label emotion-8"
         >
           inflation
         </p>
         <p
-          className="MuiTypography-root MuiTypography-body1 emotion-9"
+          className="MuiTypography-root MuiTypography-body1 emotion-8"
         >
           0%
         </p>
       </div>
       <div
-        className="emotion-8"
+        className="emotion-7"
       >
         <p
-          className="MuiTypography-root MuiTypography-body1 label emotion-9"
+          className="MuiTypography-root MuiTypography-body1 label emotion-8"
         >
           apr
         </p>
         <p
-          className="MuiTypography-root MuiTypography-body1 emotion-9"
+          className="MuiTypography-root MuiTypography-body1 emotion-8"
         >
           0%
         </p>
       </div>
       <div
-        className="emotion-8"
+        className="emotion-7"
       >
         <p
-          className="MuiTypography-root MuiTypography-body1 label emotion-9"
+          className="MuiTypography-root MuiTypography-body1 label emotion-8"
         >
           supply
         </p>
         <p
-          className="MuiTypography-root MuiTypography-body1 emotion-9"
+          className="MuiTypography-root MuiTypography-body1 emotion-8"
         >
           0 
         </p>
       </div>
       <div
-        className="emotion-8"
+        className="emotion-7"
       >
         <p
-          className="MuiTypography-root MuiTypography-body1 label emotion-9"
+          className="MuiTypography-root MuiTypography-body1 label emotion-8"
         >
           communityPool
         </p>
         <p
-          className="MuiTypography-root MuiTypography-body1 emotion-9"
+          className="MuiTypography-root MuiTypography-body1 emotion-8"
         >
           0 
         </p>

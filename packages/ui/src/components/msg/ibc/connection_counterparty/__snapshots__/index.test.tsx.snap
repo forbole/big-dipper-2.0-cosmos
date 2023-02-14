@@ -14,6 +14,16 @@ exports[`screen: TransactionDetails/IBCCounterpartyConnection matches snapshot 1
 <p
   className="MuiTypography-root MuiTypography-body1 emotion-0"
 >
-  message_contents:txCounterpartyContent
+  <span
+    data-testid="Trans"
+    i18nKey="message_contents:txCounterpartyContent"
+  >
+    <div
+      address="desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz"
+      id="Name"
+      name="desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz"
+    />
+    <b />
+  </span>
 </p>
 `;

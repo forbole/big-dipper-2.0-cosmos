@@ -1,9 +1,9 @@
-import { useInfoPopover } from '@/components/info_popover/hooks';
-import useStyles from '@/components/info_popover/styles';
 import Paper from '@mui/material/Paper';
 import Popover from '@mui/material/Popover';
-import HelpOutline from '@mui/icons-material/HelpOutline';
-import React, { FC, ReactNode } from 'react';
+import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import { FC, ReactNode } from 'react';
+import useStyles from '@/components/info_popover/styles';
+import { useInfoPopover } from '@/components/info_popover/hooks';
 
 type InfoPopoverProps = {
   className?: string;
@@ -25,7 +25,7 @@ const InfoPopover: FC<InfoPopoverProps> = ({ className, content, display }) => {
         onMouseLeave={handlePopoverClose}
         className={classes.root}
       >
-        {display || <HelpOutline className={cx(className, classes.icon)} />}
+        {display || <HelpOutlineIcon className={cx(className, classes.icon)} />}
       </span>
       <Popover
         id="mouse-over-popover"

@@ -1,9 +1,9 @@
-import { TokenomicsQuery, useTokenomicsQuery } from '@/graphql/types/general_types';
-import { StakingParams } from '@/models';
-import { formatToken } from '@/utils/format_token';
 import numeral from 'numeral';
 import * as R from 'ramda';
 import { useState } from 'react';
+import { TokenomicsQuery, useTokenomicsQuery } from '@/graphql/types/general_types';
+import { StakingParams } from '@/models';
+import { formatToken } from '@/utils/format_token';
 
 type TokenomicsState = {
   bonded: number;

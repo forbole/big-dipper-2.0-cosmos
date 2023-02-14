@@ -28,7 +28,11 @@ exports[`screen: Home/Transactions/Mobile matches snapshot 1`] = `
         success={true}
       />
     }
-    time="1 day ago"
+    time={
+      <Timestamp
+        timestamp="2021-02-18T09:02:28.668623"
+      />
+    }
     type={
       <div>
         <Unknown

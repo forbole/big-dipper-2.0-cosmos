@@ -1,13 +1,13 @@
+import { useRouter } from 'next/router';
+import * as R from 'ramda';
+import { useCallback, useEffect, useState } from 'react';
 import chainConfig from '@/chainConfig';
 import { useValidatorDetailsQuery, ValidatorDetailsQuery } from '@/graphql/types/general_types';
-import { useDesmosProfile } from '@/hooks';
+import { useDesmosProfile } from '@/hooks/use_desmos_profile';
 import { SlashingParams } from '@/models';
 import { StatusType, ValidatorDetailsState } from '@/screens/validator_details/types';
 import { formatToken } from '@/utils/format_token';
 import { getValidatorCondition } from '@/utils/get_validator_condition';
-import { useRouter } from 'next/router';
-import * as R from 'ramda';
-import { useCallback, useEffect, useState } from 'react';
 
 const { extra, votingPowerTokenUnit } = chainConfig();
 

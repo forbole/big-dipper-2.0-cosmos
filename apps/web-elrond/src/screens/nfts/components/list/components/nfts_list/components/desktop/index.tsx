@@ -1,16 +1,16 @@
-import AvatarName from '@/components/avatar_name';
-import useStyles from '@/screens/nfts/components/list/components/nfts_list/components/desktop/styles';
-import { columns } from '@/screens/nfts/components/list/components/nfts_list/components/desktop/utils';
-import type { NFTTypes } from '@/screens/nfts/components/list/types';
-import { NFT_DETAILS } from '@/utils/go_to_page';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import useTranslation from 'next-translate/useTranslation';
+import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import { FC } from 'react';
+import { NFT_DETAILS } from '@/utils/go_to_page';
+import type { NFTTypes } from '@/screens/nfts/components/list/types';
+import { columns } from '@/screens/nfts/components/list/components/nfts_list/components/desktop/utils';
+import useStyles from '@/screens/nfts/components/list/components/nfts_list/components/desktop/styles';
+import AvatarName from '@/components/avatar_name';
 
 const Desktop: FC<{ className?: string; items: NFTTypes[] }> = (props) => {
   const { t } = useTranslation('nfts');

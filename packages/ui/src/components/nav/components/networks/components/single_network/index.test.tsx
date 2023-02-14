@@ -1,6 +1,6 @@
-import SingleNetwork from '@/components/nav/components/networks/components/single_network';
-import { MockTheme } from '@/tests/utils';
 import renderer from 'react-test-renderer';
+import SingleNetwork from '@/components/nav/components/networks/components/single_network';
+import MockTheme from '@/tests/mocks/MockTheme';
 // ==================================
 // global setup
 // ==================================

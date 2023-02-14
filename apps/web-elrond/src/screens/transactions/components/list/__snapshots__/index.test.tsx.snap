@@ -32,6 +32,9 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
 
 .emotion-2 {
   display: table-header-group;
+}
+
+.emotion-2 {
   background-color: initial;
 }
 
@@ -66,6 +69,9 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
   text-align: left;
   padding: 16px;
   color: #000000;
+}
+
+.emotion-4 {
   border-bottom: none;
   padding: 0 16px;
   height: 50px;
@@ -87,6 +93,9 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
   -webkit-flex-direction: row-reverse;
   -ms-flex-direction: row-reverse;
   flex-direction: row-reverse;
+}
+
+.emotion-9 {
   border-bottom: none;
   padding: 0 16px;
   height: 50px;
@@ -117,6 +126,9 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
   text-align: left;
   padding: 16px;
   color: #000000;
+}
+
+.emotion-12 {
   border-bottom: none;
   padding: 0 16px;
   height: 50px;
@@ -170,14 +182,11 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
   -ms-flex-pack: start;
   -webkit-justify-content: flex-start;
   justify-content: flex-start;
-}
-
-.emotion-17 p {
-  color: #2F65DD;
-  margin-left: 8px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  gap: 8px;
+  -webkit-box-flex-flow: row nowrap;
+  -webkit-flex-flow: row nowrap;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
 }
 
 .emotion-17:hover {
@@ -213,17 +222,7 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
   object-position: center center;
 }
 
-.emotion-19 {
-  margin: 0;
-  font-size: 1rem;
-  white-space: pre-wrap;
-  letter-spacing: 0.5px;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
-  font-weight: 400;
-  line-height: 1.5;
-}
-
-.emotion-25 {
+.emotion-23 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -239,13 +238,13 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
   color: #414141;
 }
 
-.emotion-25 svg {
+.emotion-23 svg {
   width: 16px;
   height: 16px;
   margin-right: 4px;
 }
 
-.emotion-26 {
+.emotion-24 {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -262,7 +261,17 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
   font-size: 1.5rem;
 }
 
-.emotion-28 {
+.emotion-25 {
+  margin: 0;
+  font-size: 1rem;
+  white-space: pre-wrap;
+  letter-spacing: 0.5px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.emotion-26 {
   font-size: 0.875rem;
   letter-spacing: 0.25px;
   font-family: "Roboto","Helvetica","Arial",sans-serif;
@@ -277,6 +286,9 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
   -webkit-flex-direction: row-reverse;
   -ms-flex-direction: row-reverse;
   flex-direction: row-reverse;
+}
+
+.emotion-26 {
   border-bottom: none;
   padding: 0 16px;
   height: 50px;
@@ -284,33 +296,33 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
 }
 
 @media (min-width:1280px) {
-  .emotion-29 {
+  .emotion-27 {
     display: none;
   }
 }
 
-.emotion-30 {
+.emotion-28 {
   margin: 16px 0px;
 }
 
-.emotion-31 {
+.emotion-29 {
   margin-bottom: 16px;
 }
 
-.emotion-31 .label {
+.emotion-29 .label {
   margin-bottom: 8px;
   color: #777777;
 }
 
-.emotion-31 p.value {
+.emotion-29 p.value {
   color: #414141;
 }
 
-.emotion-31 a {
+.emotion-29 a {
   color: #2F65DD;
 }
 
-.emotion-32 {
+.emotion-30 {
   margin: 0;
   font-size: 1rem;
   letter-spacing: 0.15px;
@@ -319,7 +331,7 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
   line-height: 1.235;
 }
 
-.emotion-47 {
+.emotion-43 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -334,11 +346,11 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
   justify-content: flex-start;
 }
 
-.emotion-47>div {
+.emotion-43>div {
   width: 50%;
 }
 
-.emotion-56 {
+.emotion-52 {
   margin-top: 24px;
 }
 
@@ -504,10 +516,10 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
               onMouseEnter={[Function]}
               onTouchStart={[Function]}
             >
-              <div
+              <span
                 className="emotion-17"
               >
-                <div
+                <span
                   className="emotion-18"
                 >
                   <svg
@@ -515,13 +527,11 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
                     height="100%"
                     width="100%"
                   />
-                </div>
-                <p
-                  className="MuiTypography-root MuiTypography-body1 emotion-19"
-                >
+                </span>
+                <span>
                   erd16x7le8...8zzs75tzry
-                </p>
-              </div>
+                </span>
+              </span>
             </a>
           </td>
           <td
@@ -539,10 +549,10 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
               onMouseEnter={[Function]}
               onTouchStart={[Function]}
             >
-              <div
+              <span
                 className="emotion-17"
               >
-                <div
+                <span
                   className="emotion-18"
                 >
                   <svg
@@ -550,13 +560,11 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
                     height="100%"
                     width="100%"
                   />
-                </div>
-                <p
-                  className="MuiTypography-root MuiTypography-body1 emotion-19"
-                >
+                </span>
+                <span>
                   erd18d87cz...9tuq7mhfwk
-                </p>
-              </div>
+                </span>
+              </span>
             </a>
           </td>
           <td
@@ -569,11 +577,11 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
             }
           >
             <div
-              className="emotion-25"
+              className="emotion-23"
             >
               <svg
                 aria-hidden={true}
-                className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-26"
+                className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-24"
                 color="#999999"
                 data-testid="HelpIcon"
                 focusable="false"
@@ -584,7 +592,7 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
                 />
               </svg>
               <p
-                className="MuiTypography-root MuiTypography-body1 emotion-19"
+                className="MuiTypography-root MuiTypography-body1 emotion-25"
               >
                 pending
               </p>
@@ -592,30 +600,42 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
           </td>
           <td
             aria-sort={null}
-            className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium emotion-28"
+            className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium emotion-26"
             style={
               {
                 "width": "10%",
               }
             }
           >
-            1 day ago
+            <span
+              aria-label={null}
+              aria-labelledby={null}
+              data-mui-internal-clone-element={true}
+              onBlur={[Function]}
+              onFocus={[Function]}
+              onMouseLeave={[Function]}
+              onMouseOver={[Function]}
+              onTouchEnd={[Function]}
+              onTouchStart={[Function]}
+            >
+              1 day ago
+            </span>
           </td>
         </tr>
       </tbody>
     </table>
   </div>
   <div
-    className="emotion-29"
+    className="emotion-27"
   >
     <div
-      className="emotion-30"
+      className="emotion-28"
     >
       <div
-        className="emotion-31"
+        className="emotion-29"
       >
         <h4
-          className="MuiTypography-root MuiTypography-h4 label emotion-32"
+          className="MuiTypography-root MuiTypography-h4 label emotion-30"
         >
           hash
         </h4>
@@ -630,10 +650,10 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
         </a>
       </div>
       <div
-        className="emotion-31"
+        className="emotion-29"
       >
         <h4
-          className="MuiTypography-root MuiTypography-h4 label emotion-32"
+          className="MuiTypography-root MuiTypography-h4 label emotion-30"
         >
           shard
         </h4>
@@ -657,10 +677,10 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
         </div>
       </div>
       <div
-        className="emotion-31"
+        className="emotion-29"
       >
         <h4
-          className="MuiTypography-root MuiTypography-h4 label emotion-32"
+          className="MuiTypography-root MuiTypography-h4 label emotion-30"
         >
           from
         </h4>
@@ -670,10 +690,10 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
           onMouseEnter={[Function]}
           onTouchStart={[Function]}
         >
-          <div
+          <span
             className="emotion-17"
           >
-            <div
+            <span
               className="emotion-18"
             >
               <svg
@@ -681,20 +701,18 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
                 height="100%"
                 width="100%"
               />
-            </div>
-            <p
-              className="MuiTypography-root MuiTypography-body1 emotion-19"
-            >
+            </span>
+            <span>
               erd16x7le8dpk...sd88x8zzs75tzry
-            </p>
-          </div>
+            </span>
+          </span>
         </a>
       </div>
       <div
-        className="emotion-31"
+        className="emotion-29"
       >
         <h4
-          className="MuiTypography-root MuiTypography-h4 label emotion-32"
+          className="MuiTypography-root MuiTypography-h4 label emotion-30"
         >
           to
         </h4>
@@ -704,10 +722,10 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
           onMouseEnter={[Function]}
           onTouchStart={[Function]}
         >
-          <div
+          <span
             className="emotion-17"
           >
-            <div
+            <span
               className="emotion-18"
             >
               <svg
@@ -715,32 +733,30 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
                 height="100%"
                 width="100%"
               />
-            </div>
-            <p
-              className="MuiTypography-root MuiTypography-body1 emotion-19"
-            >
+            </span>
+            <span>
               erd18d87czmgx...awwwj9tuq7mhfwk
-            </p>
-          </div>
+            </span>
+          </span>
         </a>
       </div>
       <div
-        className="emotion-47"
+        className="emotion-43"
       >
         <div
-          className="emotion-31"
+          className="emotion-29"
         >
           <h4
-            className="MuiTypography-root MuiTypography-h4 label emotion-32"
+            className="MuiTypography-root MuiTypography-h4 label emotion-30"
           >
             status
           </h4>
           <div
-            className="emotion-25"
+            className="emotion-23"
           >
             <svg
               aria-hidden={true}
-              className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-26"
+              className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-24"
               color="#999999"
               data-testid="HelpIcon"
               focusable="false"
@@ -751,31 +767,43 @@ exports[`screen: Transactions/List matches snapshot 1`] = `
               />
             </svg>
             <p
-              className="MuiTypography-root MuiTypography-body1 emotion-19"
+              className="MuiTypography-root MuiTypography-body1 emotion-25"
             >
               pending
             </p>
           </div>
         </div>
         <div
-          className="emotion-31"
+          className="emotion-29"
         >
           <h4
-            className="MuiTypography-root MuiTypography-h4 label emotion-32"
+            className="MuiTypography-root MuiTypography-h4 label emotion-30"
           >
             time
           </h4>
           <p
-            className="MuiTypography-root MuiTypography-body1 value emotion-19"
+            className="MuiTypography-root MuiTypography-body1 value emotion-25"
           >
-            1 day ago
+            <span
+              aria-label={null}
+              aria-labelledby={null}
+              data-mui-internal-clone-element={true}
+              onBlur={[Function]}
+              onFocus={[Function]}
+              onMouseLeave={[Function]}
+              onMouseOver={[Function]}
+              onTouchEnd={[Function]}
+              onTouchStart={[Function]}
+            >
+              1 day ago
+            </span>
           </p>
         </div>
       </div>
     </div>
   </div>
   <div
-    className="emotion-56"
+    className="emotion-52"
     handlePageChange={[Function]}
     handleRowsPerPageChange={[Function]}
     id="Pagination"

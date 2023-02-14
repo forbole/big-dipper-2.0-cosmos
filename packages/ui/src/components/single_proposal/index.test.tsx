@@ -1,15 +1,6 @@
-import SingleProposal from '@/components/single_proposal';
-import { MockTheme } from '@/tests/utils';
 import renderer from 'react-test-renderer';
-
-// ==================================
-// mocks
-// ==================================
-const mockI18n = {
-  t: (key: string) => key,
-  lang: 'en',
-};
-jest.mock('next-translate/useTranslation', () => () => mockI18n);
+import SingleProposal from '@/components/single_proposal';
+import MockTheme from '@/tests/mocks/MockTheme';
 
 // ==================================
 // unit tests

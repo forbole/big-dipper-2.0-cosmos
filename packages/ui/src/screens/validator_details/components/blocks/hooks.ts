@@ -1,9 +1,9 @@
+import { useRouter } from 'next/router';
+import { useState } from 'react';
 import {
   LastHundredBlocksSubscription,
   useLastHundredBlocksSubscription,
 } from '@/graphql/types/general_types';
-import { useRouter } from 'next/router';
-import { useState } from 'react';
 
 const formatLastHundredBlocks = (data: LastHundredBlocksSubscription) =>
   data.block.map((x) => ({

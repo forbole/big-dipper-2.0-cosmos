@@ -1,10 +1,10 @@
+import Typography from '@mui/material/Typography';
+import { Trans } from 'next-i18next';
+import { FC } from 'react';
 import Name from '@/components/name';
 import { MsgEditValidator } from '@/models';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { VALIDATOR_DETAILS } from '@/utils/go_to_page';
-import Typography from '@mui/material/Typography';
-import Trans from 'next-translate/Trans';
-import React, { FC } from 'react';
 
 const EditValidator: FC<{ message: MsgEditValidator }> = (props) => {
   const { message } = props;

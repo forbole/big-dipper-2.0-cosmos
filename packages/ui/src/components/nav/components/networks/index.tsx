@@ -2,8 +2,9 @@ import SingleNetwork from '@/components/nav/components/networks/components/singl
 import useStyles from '@/components/nav/components/networks/styles';
 import { readNetworks } from '@/recoil/big_dipper_networks';
 import Typography from '@mui/material/Typography';
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { useRecoilValue } from 'recoil';
 
 const Networks: FC<ComponentDefault> = ({ className }) => {
@@ -60,4 +61,4 @@ const Networks: FC<ComponentDefault> = ({ className }) => {
   );
 };
 
-export default Networks;
+export default dynamic(() => Promise.resolve(Networks), { ssr: false });
