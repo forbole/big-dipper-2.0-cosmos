@@ -1,7 +1,6 @@
 // ================================
 // Transaction Message Types
 // ================================
-export { default as BigDipperNetwork } from '@/models/big_dipper_network';
 export { default as DistributionParams } from '@/models/distribution_params';
 export { default as GovParams } from '@/models/gov_params';
 export { default as MintParams } from '@/models/mint_params';

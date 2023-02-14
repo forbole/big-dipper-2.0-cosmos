@@ -1,11 +1,9 @@
 import ChainIcon from '@/components/ChainIcon';
 import useStyles from '@/components/nav/components/desktop/components/action_bar/components/network/styles';
-import { readSelectedNetwork } from '@/recoil/big_dipper_networks';
+import useBigDipperNetworks from '@/hooks/useBigDipperNetworks';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Typography from '@mui/material/Typography';
-import dynamic from 'next/dynamic';
 import { FC } from 'react';
-import { useRecoilValue } from 'recoil';
 
 type NetworkProps = {
   className?: string;
@@ -14,7 +12,7 @@ type NetworkProps = {
 
 const Network: FC<NetworkProps> = ({ className, toggleNetwork }) => {
   const { classes, cx } = useStyles();
-  const selected = useRecoilValue(readSelectedNetwork);
+  const { selectedName } = useBigDipperNetworks();
 
   return (
     <div
@@ -22,13 +20,13 @@ const Network: FC<NetworkProps> = ({ className, toggleNetwork }) => {
       onClick={toggleNetwork}
       role="button"
       tabIndex={0}
-      aria-label={selected}
+      aria-label={selectedName}
     >
       <ChainIcon type="icon" className={classes.icon} alt="icon" />
-      <Typography variant="body1">{selected}</Typography>
+      <Typography variant="body1">{selectedName}</Typography>
       <ExpandMoreIcon />
     </div>
   );
 };
 
-export default dynamic(() => Promise.resolve(Network), { ssr: false });
+export default Network;

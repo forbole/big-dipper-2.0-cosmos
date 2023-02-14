@@ -42,7 +42,7 @@ export interface ContractSearchBoxProps {
   handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const zContractName = z.coerce.string().catch('');
+export const zContractName = z.coerce.string().default('').catch('');
 
 export const zInstantiatePermission = z
   .object({

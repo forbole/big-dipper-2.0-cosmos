@@ -17,7 +17,7 @@ const Desktop: FC<{ className?: string; items: BlockType[] }> = (props) => {
   const formattedItems = props.items.map((x) => {
     const shard = getShardDisplay(x.shard);
     return {
-      key: `${x.block}-${x.timestamp}`,
+      key: `${x.hash}-${x.timestamp}`,
       block: numeral(x.block).format('0,0'),
       shard: t(shard.key, {
         num: shard.num,

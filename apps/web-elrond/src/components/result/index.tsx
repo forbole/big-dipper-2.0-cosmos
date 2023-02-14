@@ -1,10 +1,10 @@
-import Typography from '@mui/material/Typography';
+import useStyles from '@/components/result/styles';
 import CancelIcon from '@mui/icons-material/Cancel';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import HelpIcon from '@mui/icons-material/Help';
+import Typography from '@mui/material/Typography';
 import { useTranslation } from 'next-i18next';
 import { FC } from 'react';
-import useStyles from '@/components/result/styles';
 
 type ResultProps = {
   className?: string;
@@ -20,34 +20,40 @@ const Result: FC<ResultProps> = ({ className, status }) => {
     component = (
       <>
         <CheckCircleIcon />
-        <Typography variant="body1">{t('success')}</Typography>
+        <Typography component="span" variant="body1">
+          {t('success')}
+        </Typography>
       </>
     );
   } else if (status === 'fail') {
     component = (
       <>
         <CancelIcon />
-        <Typography variant="body1">{t('fail')}</Typography>
+        <Typography component="span" variant="body1">
+          {t('fail')}
+        </Typography>
       </>
     );
   } else {
     component = (
       <>
         <HelpIcon />
-        <Typography variant="body1">{t('pending')}</Typography>
+        <Typography component="span" variant="body1">
+          {t('pending')}
+        </Typography>
       </>
     );
   }
 
   return (
-    <div
+    <span
       className={cx(classes.root, className, {
         [classes.success]: status === 'success',
         [classes.fail]: status === 'fail',
       })}
     >
       {component}
-    </div>
+    </span>
   );
 };
 

@@ -38,9 +38,7 @@ xdescribe('misc: useSearchBar', () => {
   //     wrapper: RecoilRoot,
   //   });
   //   act(() => {
-  //     result.current.handleOnSubmit(
-  //       `${prefix.consensus}1rzhewpmmdl72lhnxj6zmxr4v94f522s4hyz467`
-  //     );
+  //     result.current.handleOnSubmit(`${prefix.consensus}1rzhewpmmdl72lhnxj6zmxr4v94f522s4hyz467`);
   //   });
   //   expect(mockPush).toBeCalledTimes(0);
   // });
@@ -50,9 +48,7 @@ xdescribe('misc: useSearchBar', () => {
   //     wrapper: RecoilRoot,
   //   });
   //   act(() => {
-  //     result.current.handleOnSubmit(
-  //       `${prefix.account}1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz`
-  //     );
+  //     result.current.handleOnSubmit(`${prefix.account}1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz`);
   //   });
   //   expect(mockPush).toBeCalledWith(
   //     `/accounts/${prefix.account}1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz`

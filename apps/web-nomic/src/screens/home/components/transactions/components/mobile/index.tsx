@@ -16,7 +16,7 @@ type MobileProps = {
 
 const Mobile: FC<MobileProps> = ({ className, items }) => {
   const formattedData = items.map((x) => ({
-    key: x.height,
+    key: x.hash,
     block: (
       <Link shallow prefetch={false} href={BLOCK_DETAILS(x.height)}>
         {numeral(x.height).format('0,0')}

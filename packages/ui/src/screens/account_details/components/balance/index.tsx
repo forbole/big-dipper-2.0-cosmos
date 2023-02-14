@@ -15,9 +15,7 @@ import { FC } from 'react';
 import { Cell, Pie, PieChart, ResponsiveContainer } from 'recharts';
 import { useRecoilValue } from 'recoil';
 
-const DynamicResponsiveContainer = dynamic(() => Promise.resolve(ResponsiveContainer), {
-  ssr: false,
-});
+const DynamicPieChart = dynamic(() => Promise.resolve(PieChart), { ssr: false });
 const { primaryTokenUnit, tokenUnits } = chainConfig();
 
 type BalanceProps = Parameters<typeof formatBalanceData>[0] & {
@@ -66,8 +64,8 @@ const Balance: FC<BalanceProps> = (props) => {
       <Typography variant="h2">{t('balance')}</Typography>
       <div className={classes.chartWrapper}>
         <div className={classes.chart}>
-          <DynamicResponsiveContainer width="99%">
-            <PieChart>
+          <ResponsiveContainer width="99%">
+            <DynamicPieChart>
               <Pie
                 dataKey="value"
                 data={dataMemo}
@@ -83,8 +81,8 @@ const Balance: FC<BalanceProps> = (props) => {
                   <Cell key={entry.key} fill={entry.background} stroke={entry.background} />
                 ))}
               </Pie>
-            </PieChart>
-          </DynamicResponsiveContainer>
+            </DynamicPieChart>
+          </ResponsiveContainer>
         </div>
         <div className={classes.legends}>
           {dataMemo.map((x) => {

@@ -38,7 +38,7 @@ export function makeSummaryVar(cursor: string, initial: Summary): ReactiveVar<Su
 const useInfiniteQuery = <TData, TVariables, TItem>({
   cursor,
   document,
-  formatter,
+  dataMapper: mapDataToModel,
   variables = DEFAULT_VARIABLES,
   offset = 0,
   skip = false,
@@ -61,8 +61,8 @@ const useInfiniteQuery = <TData, TVariables, TItem>({
     if (shouldRefetch) refetch();
   }, [shouldRefetch, refetch]);
 
-  /* Using the `useMemo` hook to memoize the `formatter` function. */
-  const items = useMemo(() => formatter(data), [data, formatter]);
+  /* Using the `useMemo` hook to memoize the `mapDataToModel` function. */
+  const items = useMemo(() => mapDataToModel(data), [data, mapDataToModel]);
 
   const summaryVar = makeSummaryVar(cursor, { variables });
   const { maxFetched, itemCount } = summaryVar();

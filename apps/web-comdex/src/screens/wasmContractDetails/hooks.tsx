@@ -10,7 +10,7 @@ import { useRouter } from 'next/router';
 import numeral from 'numeral';
 import { useEffect } from 'react';
 
-export const formatter = (data: WasmCodeWithByteCodeQuery | undefined): BlockDetailsType[] =>
+export const mapDataToModel = (data: WasmCodeWithByteCodeQuery | undefined): BlockDetailsType[] =>
   data?.wasm_code?.map((wasmCode) => ({
     overview: <Overview overview={wasmCode.wasm_contracts?.[0]} codeId={wasmCode.code_id} />,
     wasmCode: <WasmCode wasmCode={wasmCode} />,
@@ -39,8 +39,8 @@ export const useWasmContractDetails = () => {
     if (shouldRefetch) refetch();
   }, [shouldRefetch, refetch]);
 
-  /* Using the `useMemo` hook to memoize the `formatter` function. */
-  const items = formatter(data);
+  /* Using the `useMemo` hook to memoize the `mapDataToModel` function. */
+  const items = mapDataToModel(data);
 
   return {
     loading,

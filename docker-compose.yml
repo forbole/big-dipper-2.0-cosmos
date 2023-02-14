@@ -1,23 +1,28 @@
 version: "3.8"
+
+x-args: &args
+  PROJECT_NAME: ${PROJECT_NAME:-web}
+  NEXT_PUBLIC_CHAIN_TYPE: ${NEXT_PUBLIC_CHAIN_TYPE:-}
+  TURBO_TEAM: ${TURBO_TEAM:-}                         # for Turborepo remote cache
+  TURBO_TOKEN: ${TURBO_TOKEN:-}                       # for Turborepo remote cache
+  NEXT_PUBLIC_SENTRY_DSN: ${NEXT_PUBLIC_SENTRY_DSN:-} # for Sentry.io
+  SENTRY_AUTH_TOKEN: ${SENTRY_AUTH_TOKEN:-}           # for Sentry.io
+
+x-build: &build
+  context: .
+  args: *args
+  target: runner
+
 x-web: &web
-  build:
-    context: .
-    args:
-      PROJECT_NAME: ${PROJECT_NAME:-web}
-      NEXT_PUBLIC_CHAIN_TYPE: ${NEXT_PUBLIC_CHAIN_TYPE:-}
-      TURBO_TEAM: ${TURBO_TEAM:-}                         # for Turborepo remote cache
-      TURBO_TOKEN: ${TURBO_TOKEN:-}                       # for Turborepo remote cache
-      NEXT_PUBLIC_SENTRY_DSN: ${NEXT_PUBLIC_SENTRY_DSN:-} # for Sentry.io
-      SENTRY_AUTH_TOKEN: ${SENTRY_AUTH_TOKEN:-}           # for Sentry.io
-    target: runner
+  build: *build
   restart: always
   platform: linux/amd64
-  volumes:
-    - yarn-cache:/root/.yarn/berry/cache:rw
   ports:
     - ${PORT:-3000}:${PORT:-3000}
   networks:
     - app_network
+  env_file: .env
+
 services:
   # default web
   web: *web
@@ -25,11 +30,11 @@ services:
   web-arm64v8:
     <<: *web
     build:
+      <<: *build
       args:
+        <<: *args
         BASE_IMAGE: arm64v8/node:18
 # Define a network, which allows containers to communicate
 # with each other, by using their container name as a hostname
 networks:
   app_network:
-volumes:
-  yarn-cache:

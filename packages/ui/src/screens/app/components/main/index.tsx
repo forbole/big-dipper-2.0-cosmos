@@ -1,5 +1,4 @@
-import { useChainIdQuery } from '@/graphql/types/general_types';
-import { useBigDipperNetworksRecoil } from '@/recoil/big_dipper_networks';
+import useBigDipperNetworks from '@/hooks/useBigDipperNetworks';
 import { useMarketRecoil } from '@/recoil/market';
 import { useSettingsRecoil } from '@/recoil/settings';
 import { useValidatorRecoil } from '@/recoil/validators/hooks';
@@ -13,9 +12,8 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
 import { Hind_Madurai } from '@next/font/google';
 import { AppProps } from 'next/app';
-import dynamic from 'next/dynamic';
 import Head from 'next/head';
-import { FC, useEffect } from 'react';
+import { useEffect } from 'react';
 import { ToastContainer } from 'react-toastify';
 
 const hindMadurai = Hind_Madurai({
@@ -28,12 +26,6 @@ const hindMadurai = Hind_Madurai({
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
 
-export const NetworkLoader: FC = () => {
-  useBigDipperNetworksRecoil(useChainIdQuery);
-  return null;
-};
-export const DynamicNetworkLoader = dynamic(() => Promise.resolve(NetworkLoader), { ssr: false });
-
 export interface MainProps<T = object> extends AppProps<T> {
   emotionCache?: EmotionCache;
 }
@@ -45,6 +37,7 @@ const Main = (props: MainProps) => {
   // init recoil values
   // =====================================
   useSettingsRecoil();
+  useBigDipperNetworks();
   useMarketRecoil();
   const { loading } = useValidatorRecoil();
 
@@ -84,7 +77,6 @@ const Main = (props: MainProps) => {
       </Head>
       <ThemeProvider theme={muiTheme}>
         <CssBaseline />
-        <NetworkLoader />
         {Component}
         <ToastContainer
           position="top-center"

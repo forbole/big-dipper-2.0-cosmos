@@ -6,7 +6,6 @@ import type { TokenPriceType } from '@/screens/home/components/hero/types';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
 import Typography from '@mui/material/Typography';
 import { useTranslation } from 'next-i18next';
-import dynamic from 'next/dynamic';
 import numeral from 'numeral';
 import * as R from 'ramda';
 import { FC, useMemo } from 'react';
@@ -20,10 +19,6 @@ import {
   YAxis,
 } from 'recharts';
 import { useRecoilValue } from 'recoil';
-
-const DynamicResponsiveContainer = dynamic(() => Promise.resolve(ResponsiveContainer), {
-  ssr: false,
-});
 
 const TokenPrice: FC<{ items: TokenPriceType[] }> = (props) => {
   const { classes, theme } = useStyles();
@@ -45,7 +40,7 @@ const TokenPrice: FC<{ items: TokenPriceType[] }> = (props) => {
     <div>
       <Typography variant="h2">{t('priceHistory')}</Typography>
       <div className={classes.chart}>
-        <DynamicResponsiveContainer width="99%">
+        <ResponsiveContainer width="99%">
           <AreaChart
             data={formatItems}
             margin={{
@@ -99,7 +94,7 @@ const TokenPrice: FC<{ items: TokenPriceType[] }> = (props) => {
               fill={theme.palette.custom.primaryData.one}
             />
           </AreaChart>
-        </DynamicResponsiveContainer>
+        </ResponsiveContainer>
       </div>
     </div>
   );
