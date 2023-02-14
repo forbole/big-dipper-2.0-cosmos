@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Extract projects
-      - run: |
+        run: |
           export ALL_PROJECTS=$(yarn workspaces list --json | jq -csr '[ .[].name | select(. | startswith("web") ) ]')
           node <<EOF | tee -a $GITHUB_OUTPUT $GITHUB_STEP_SUMMARY
           const allProjects = JSON.parse(process.env.ALL_PROJECTS);
