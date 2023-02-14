@@ -9,7 +9,7 @@ x-web: &web
       TURBO_TOKEN: ${TURBO_TOKEN:-}                       # for Turborepo remote cache
       NEXT_PUBLIC_SENTRY_DSN: ${NEXT_PUBLIC_SENTRY_DSN:-} # for Sentry.io
       SENTRY_AUTH_TOKEN: ${SENTRY_AUTH_TOKEN:-}           # for Sentry.io
-    target: web
+    target: runner
   restart: always
   platform: linux/amd64
   volumes:
