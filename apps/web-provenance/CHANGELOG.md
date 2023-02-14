@@ -1,5 +1,13 @@
 # Unreleased
 
+## 2.8.9
+
+### Patch Changes
+
+- e0f32672: feat: migrated big dipper network recoil to apollo reactive variable and zod
+- Updated dependencies [e0f32672]
+  - ui@2.14.3
+
 ## 2.8.8
 
 ### Patch Changes
