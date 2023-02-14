@@ -28,7 +28,7 @@
       "outputs": [],
       "persistent": true
     },
-    "check-types": {
+    "ts-check": {
       "outputs": []
     },
     "lint": {

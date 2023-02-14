@@ -8,7 +8,7 @@
     "build": "next build",
     "clean": "rm -rf .next .swc .turbo coverage node_modules",
     "start": "next start",
-    "check-types": "pnpify tsc --noemit",
+    "ts-check": "pnpify tsc --noemit",
     "lint": "next lint",
     "test": "pnpify jest --passWithNoTests --ci --no-watchman --runInBand",
     "graphql:codegen": "echo no hasura for Elrond"
