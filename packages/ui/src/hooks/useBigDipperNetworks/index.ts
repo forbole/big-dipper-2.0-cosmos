@@ -85,7 +85,7 @@ function useBigDipperNetworks(skipChainId = false) {
 
   // Store the fetched chain ID in the reactive variable when the data is loaded
   useEffect(() => {
-    if (isCompletedChainId) selectedNameVar(mapChainIdToModel(dataChainId));
+    if (isCompletedChainId && dataChainId) selectedNameVar(mapChainIdToModel(dataChainId));
   }, [isCompletedChainId, dataChainId]);
 
   const networks = useReactiveVar(networksVar);
