@@ -10,7 +10,7 @@ test('footer', async ({ page, isMobile }) => {
   // Test company footer section
   await waitForPopupClick((p) => p.getByRole('link', { name: 'Forbole' }), page);
 
-  if (!isMobile) {
+  if (isMobile) {
     // turn this off since it sometime fails on mobile
     return;
   }
