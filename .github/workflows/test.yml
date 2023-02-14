@@ -113,7 +113,6 @@ jobs:
         with:
           node-version: 18
       - run: yarn --immutable --immutable-cache
-    steps:
       - name: test
         run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
