@@ -89,13 +89,6 @@ jobs:
           echo '```' >> $GITHUB_STEP_SUMMARY
         env:
           TURBO_BINARY_PATH: ${{ needs.detect-changes.outputs.TURBO_BINARY_PATH }}
-      - name: test
-        run: |
-          echo '```' >> $GITHUB_STEP_SUMMARY
-          yarn turbo run test --filter=${{ matrix.project }} -- --coverage | tee -a $GITHUB_STEP_SUMMARY
-          echo '```' >> $GITHUB_STEP_SUMMARY
-        env:
-          TURBO_BINARY_PATH: ${{ needs.detect-changes.outputs.TURBO_BINARY_PATH }}
       - name: build
         if: ${{ needs.detect-changes.outputs.projects-web != '[]' }}
         run: |
@@ -104,11 +97,34 @@ jobs:
           echo '```' >> $GITHUB_STEP_SUMMARY
         env:
           TURBO_BINARY_PATH: ${{ needs.detect-changes.outputs.TURBO_BINARY_PATH }}
+  check-jest:
+    if: ${{ success() && needs.detect-changes.outputs.projects != '[]' }}
+    needs: detect-changes
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        shardIndex: [1, 2, 3, 4, 5]
+        shardTotal: [5]
+    steps:
+      - uses: actions/checkout@v3
+      - run: corepack enable
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - run: yarn --immutable --immutable-cache
+    steps:
+      - name: test
+        run: |
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          yarn turbo run test --filter=${{ matrix.project }} -- --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }} --coverage | tee -a $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+        env:
+          TURBO_BINARY_PATH: ${{ needs.detect-changes.outputs.TURBO_BINARY_PATH }}
   check-e2e:
     if: ${{ success() && needs.detect-changes.outputs.projects-web != '[]' }}
     needs: detect-changes
     runs-on: ubuntu-latest
-    timeout-minutes: 30
     strategy:
       fail-fast: false
       matrix:
@@ -123,9 +139,6 @@ jobs:
         shardTotal: [5]
     container:
       image: mcr.microsoft.com/playwright:v1.30.0-focal
-    defaults:
-      run:
-        shell: bash
     steps:
       - uses: actions/checkout@v3
       - run: corepack enable
