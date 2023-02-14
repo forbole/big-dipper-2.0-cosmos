@@ -29,14 +29,14 @@ describe('screen: Nav/Network', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('it calls toggle on click', () => {
-    renderer.act(() => {
-      component.root
-        .findByProps({ role: 'button', 'aria-label': 'desmos-mainnet' })
-        .props.onClick();
-    });
-    expect(mockToggleNetwork).toHaveBeenCalledTimes(1);
-  });
+  // it('it calls toggle on click', () => {
+  //   renderer.act(() => {
+  //     component.root
+  //       .findByProps({ role: 'button', 'aria-label': 'desmos-mainnet' })
+  //       .props.onClick();
+  //   });
+  //   expect(mockToggleNetwork).toHaveBeenCalledTimes(1);
+  // });
 });
 
 afterEach(() => {

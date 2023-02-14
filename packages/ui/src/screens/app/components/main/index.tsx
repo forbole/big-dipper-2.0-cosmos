@@ -1,11 +1,3 @@
-import { CacheProvider, EmotionCache } from '@emotion/react';
-import CssBaseline from '@mui/material/CssBaseline';
-import { ThemeProvider } from '@mui/material/styles';
-import { Hind_Madurai } from '@next/font/google';
-import { AppProps } from 'next/app';
-import Head from 'next/head';
-import { useEffect } from 'react';
-import { ToastContainer } from 'react-toastify';
 import { useChainIdQuery } from '@/graphql/types/general_types';
 import { useBigDipperNetworksRecoil } from '@/recoil/big_dipper_networks';
 import { useMarketRecoil } from '@/recoil/market';
@@ -16,6 +8,15 @@ import { useGenesis, useTheme } from '@/screens/app/components/main/hooks';
 import Countdown from '@/screens/countdown';
 import InitialLoad from '@/screens/initial_load';
 import createEmotionCache from '@/styles/createEmotionCache';
+import { CacheProvider, EmotionCache } from '@emotion/react';
+import CssBaseline from '@mui/material/CssBaseline';
+import { ThemeProvider } from '@mui/material/styles';
+import { Hind_Madurai } from '@next/font/google';
+import { AppProps } from 'next/app';
+import dynamic from 'next/dynamic';
+import Head from 'next/head';
+import { FC, useEffect } from 'react';
+import { ToastContainer } from 'react-toastify';
 
 const hindMadurai = Hind_Madurai({
   weight: '400',
@@ -26,6 +27,12 @@ const hindMadurai = Hind_Madurai({
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
+
+export const NetworkLoader: FC = () => {
+  useBigDipperNetworksRecoil(useChainIdQuery);
+  return null;
+};
+export const DynamicNetworkLoader = dynamic(() => Promise.resolve(NetworkLoader), { ssr: false });
 
 export interface MainProps<T = object> extends AppProps<T> {
   emotionCache?: EmotionCache;
@@ -38,7 +45,6 @@ const Main = (props: MainProps) => {
   // init recoil values
   // =====================================
   useSettingsRecoil();
-  useBigDipperNetworksRecoil(useChainIdQuery);
   useMarketRecoil();
   const { loading } = useValidatorRecoil();
 
@@ -78,6 +84,7 @@ const Main = (props: MainProps) => {
       </Head>
       <ThemeProvider theme={muiTheme}>
         <CssBaseline />
+        <NetworkLoader />
         {Component}
         <ToastContainer
           position="top-center"

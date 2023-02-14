@@ -6,7 +6,7 @@ import { ToastContainer } from 'react-toastify';
 import { CacheProvider, EmotionCache } from '@emotion/react';
 import { Hind_Madurai } from '@next/font/google';
 import Head from 'next/head';
-import { useEffect } from 'react';
+import { FC, useEffect } from 'react';
 import { useBigDipperNetworksRecoil } from '@/recoil/big_dipper_networks';
 import { useMarketRecoil } from '@/recoil/market';
 // import { useValidatorRecoil } from '@/recoil/validators';
@@ -14,6 +14,7 @@ import InnerApp from '@/screens/app/components/inner_app';
 import { useTheme } from '@/screens/app/components/main/hooks';
 import createEmotionCache from '@/styles/createEmotionCache';
 import InitialLoad from '@/screens/initial_load';
+import dynamic from 'next/dynamic';
 
 const hindMadurai = Hind_Madurai({
   weight: '400',
@@ -29,6 +30,12 @@ export interface MainProps<T = object> extends AppProps<T> {
   emotionCache?: EmotionCache;
 }
 
+export const NetworkLoader: FC = () => {
+  useBigDipperNetworksRecoil();
+  return null;
+};
+export const DynamicNetworkLoader = dynamic(() => Promise.resolve(NetworkLoader), { ssr: false });
+
 const Main = (props: MainProps) => {
   const { emotionCache = clientSideEmotionCache } = props;
 
@@ -36,7 +43,6 @@ const Main = (props: MainProps) => {
   // init recoil values
   // =====================================
   // useSettingsRecoil();
-  useBigDipperNetworksRecoil();
   useMarketRecoil();
   // const { loading } = useValidatorRecoil();
 
@@ -63,6 +69,7 @@ const Main = (props: MainProps) => {
       </Head>
       <ThemeProvider theme={muiTheme}>
         <CssBaseline />
+        <DynamicNetworkLoader />
         {loading && <InitialLoad {...props.pageProps} />}
         <InnerApp {...props} />
         <ToastContainer
