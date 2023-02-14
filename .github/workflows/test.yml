@@ -116,7 +116,7 @@ jobs:
       - name: test
         run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
-          yarn turbo run test --filter=${{ matrix.project }} -- --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }} --coverage | tee -a $GITHUB_STEP_SUMMARY
+          yarn turbo run test --filter=${{ join(fromJSON(needs.detect-changes.outputs.projects), ' --filter=') }} -- --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }} --coverage | tee -a $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
         env:
           TURBO_BINARY_PATH: ${{ needs.detect-changes.outputs.TURBO_BINARY_PATH }}
