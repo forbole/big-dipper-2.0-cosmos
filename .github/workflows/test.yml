@@ -29,7 +29,6 @@ jobs:
     outputs:
       projects: ${{ steps.dry-run.outputs.projects }}
       projects-web: ${{ steps.dry-run.outputs.projects-web }}
-      TURBO_BINARY_PATH: ${{ steps.dry-run.outputs.TURBO_BINARY_PATH }}
     steps:
       - uses: actions/checkout@v3
         with:
@@ -42,14 +41,9 @@ jobs:
       - name: Set needs.changed-workspaces.outputs.{projects,projects-web}
         id: dry-run
         run: |
-          export TURBO_BINARY_PATH=$( node <<EOF
-          const { execSync } = require('child_process');
-          console.log(execSync('find .yarn/unplugged/turbo-'+process.platform+'-'+process.arch.replace(/^x/,'')+'-* -name turbo').toString());
-          EOF
-          )
-          echo yarn turbo run build --dry='json' --filter='[${{ github.event.pull_request.base.sha }}]' | tee -a $GITHUB_STEP_SUMMARY
+          echo yarn build:ci --dry='json' --filter='[${{ github.event.pull_request.base.sha }}]' | tee -a $GITHUB_STEP_SUMMARY
           export DRY_BUILD_JSON=$(
-            yarn turbo run build --dry='json' --filter='[${{ github.event.pull_request.base.sha }}]'
+            yarn build:ci --dry='json' --filter='[${{ github.event.pull_request.base.sha }}]'
           )
           node <<EOF | tee -a $GITHUB_OUTPUT $GITHUB_STEP_SUMMARY
           const { packages } = JSON.parse(process.env.DRY_BUILD_JSON);
@@ -59,7 +53,6 @@ jobs:
           const { packages } = JSON.parse(process.env.DRY_BUILD_JSON);
           console.log('projects-web=' + JSON.stringify(packages.filter(p => /^web.*$/.test(p))));
           EOF
-          echo TURBO_BINARY_PATH=$TURBO_BINARY_PATH | tee -a $GITHUB_OUTPUT $GITHUB_STEP_SUMMARY
   ts-lint-build:
     if: ${{ success() && needs.changed-workspaces.outputs.projects != '[]' }}
     needs: changed-workspaces
@@ -78,25 +71,19 @@ jobs:
       - name: ts-check
         run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
-          yarn turbo run ts-check --filter=${{ matrix.project }} | tee -a $GITHUB_STEP_SUMMARY
+          yarn ts-check:ci --filter=${{ matrix.project }} | tee -a $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
-        env:
-          TURBO_BINARY_PATH: ${{ needs.changed-workspaces.outputs.TURBO_BINARY_PATH }}
       - name: lint
         run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
-          yarn turbo run lint --filter=${{ matrix.project }} | tee -a $GITHUB_STEP_SUMMARY
+          yarn lint:ci --filter=${{ matrix.project }} | tee -a $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
-        env:
-          TURBO_BINARY_PATH: ${{ needs.changed-workspaces.outputs.TURBO_BINARY_PATH }}
       - name: build
         if: ${{ needs.changed-workspaces.outputs.projects-web != '[]' }}
         run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
-          yarn turbo run build --filter=${{ matrix.project }} | tee -a $GITHUB_STEP_SUMMARY
+          yarn build:ci --filter=${{ matrix.project }} | tee -a $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
-        env:
-          TURBO_BINARY_PATH: ${{ needs.changed-workspaces.outputs.TURBO_BINARY_PATH }}
   jest-test:
     if: ${{ success() && needs.changed-workspaces.outputs.projects != '[]' }}
     needs: changed-workspaces
@@ -116,10 +103,8 @@ jobs:
       - name: test
         run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
-          yarn turbo run test:ci --filter=${{ join(fromJSON(needs.changed-workspaces.outputs.projects), ' --filter=') }} -- --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }} --coverage | tee -a $GITHUB_STEP_SUMMARY
+          yarn test:ci --filter=${{ join(fromJSON(needs.changed-workspaces.outputs.projects), ' --filter=') }} -- --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }} --coverage | tee -a $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
-        env:
-          TURBO_BINARY_PATH: ${{ needs.changed-workspaces.outputs.TURBO_BINARY_PATH }}
   e2e-playwright:
     if: ${{ success() && needs.changed-workspaces.outputs.projects-web != '[]' }}
     needs: changed-workspaces
