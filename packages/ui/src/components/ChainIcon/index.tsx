@@ -25,7 +25,7 @@ import osmosisIconLight from 'shared-utils/assets/icons/osmosis-light.svg?url';
 import persistenceIconDark from 'shared-utils/assets/icons/persistence-dark.svg?url';
 import provenanceIconDark from 'shared-utils/assets/icons/provenance-dark.svg?url';
 import quasarIconDark from 'shared-utils/assets/icons/quasar-dark.png';
-import quicksliverIconLight from 'shared-utils/assets/icons/quicksilver-light.svg?url';
+import quicksliverIconLight from 'shared-utils/assets/icons/quicksilver.svg?url';
 import regenIconLight from 'shared-utils/assets/icons/regen-light.svg?url';
 import rizonIconLight from 'shared-utils/assets/icons/rizon-dark.svg?url';
 import shentuIconLight from 'shared-utils/assets/icons/shentu-light.svg?url';
@@ -175,7 +175,7 @@ const ChainIcon = ({
     case 'quicksliver':
       [iconDark, iconLight] =
         type === 'icon'
-          ? [quicksliverIconLight, quicksliverIconLight]
+          ? [quicksilverLogoLight, quicksilverLogoLight]
           : [quicksilverLogoDark, quicksilverLogoDark];
       break;
     case 'regen':
@@ -213,8 +213,8 @@ const ChainIcon = ({
     case 'quicksilver':
       [iconDark, iconLight] =
         type === 'icon'
-          ? [quicksilverLogoDark, quicksilverLogoDark]
-          : [quicksilverLogoLight, quicksilverLogoLight];
+          ? [quicksliverIconLight, quicksliverIconLight]
+          : [quicksilverLogoDark, quicksilverLogoLight];
       break;
     default:
       throw new Error(`chain ${chainName} not supported`);
