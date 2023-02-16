@@ -1,5 +1,17 @@
 # Unreleased
 
+## 2.9.0
+
+### Minor Changes
+
+- 9f2e26b1: add quicksilver mainnet
+
+### Patch Changes
+
+- Updated dependencies [9f2e26b1]
+  - shared-utils@2.9.0
+  - ui@2.15.0
+
 ## 2.8.8
 
 ### Patch Changes
