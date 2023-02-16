@@ -389,6 +389,11 @@
     "cover": "",
     "links": [
       {
+        "name": "Mainnet",
+        "chain_id": "quicksilver-2",
+        "url": "https://bigdipper.live/quicksilver"
+      },
+      {
         "name": "Testnet",
         "chain_id": "innuendo-3",
         "url": "https://testnet.bigdipper.live/quicksilver"
