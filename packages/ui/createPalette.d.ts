@@ -22,6 +22,7 @@ declare module '@mui/material/styles/createPalette' {
       surfaceOne: string;
       surfaceTwo: string;
       icon: string;
+      single_block: string;
     };
     fonts: {
       fontOne: string;

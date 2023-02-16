@@ -3,11 +3,12 @@ generates:
   ./src/graphql/types/general_types.ts:
     documents:
       - 'src/graphql/general/*'
-    schema: https://gql.desmos.forbole.com/v1/graphql
+    # schema: https://gql.desmos.forbole.com/v1/graphql
+    schema: http://localhost:8080/
     config:
       # omitOperationSuffix: true
       skipTypeNameForRoot: true
     plugins:
-      - "typescript"
-      - "typescript-operations"
-      - "typescript-react-apollo" # To generate custom hooks per query
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-react-apollo' # To generate custom hooks per query

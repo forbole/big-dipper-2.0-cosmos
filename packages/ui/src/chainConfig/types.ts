@@ -50,6 +50,7 @@ export interface PaletteSettings {
       surfaceTwo?: string;
       surfaceThree?: string;
       icon?: string;
+      single_block?: string;
     };
     fonts: {
       fontOne?: string;

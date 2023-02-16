@@ -21,7 +21,7 @@ export const common = (theme: ThemeOptions) =>
     mixins: {
       toolbar: {
         '@media (min-width: 1280px)': {
-          height: '160px',
+          height: 80,
           overflow: 'hidden',
         },
       },
@@ -96,7 +96,8 @@ export const common = (theme: ThemeOptions) =>
           background: '#E6E6E6',
           surfaceOne: '#818181',
           surfaceTwo: '#818181',
-          icon: '#999999',
+          // icon: '#999999',
+          icon: '#868991',
         },
         fonts: {
           fontOne: '#E6E6E6',
@@ -173,7 +174,8 @@ export const common = (theme: ThemeOptions) =>
       },
       MuiSvgIcon: {
         defaultProps: {
-          htmlColor: theme.palette?.custom?.general?.icon ?? '#999999', // same as custom /general /icons
+          // htmlColor: theme.palette?.custom?.general?.icon ?? '#999999', // same as custom /general /icons
+          htmlColor: '#868991',
         },
       },
       MuiButton: {

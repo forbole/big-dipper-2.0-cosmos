@@ -3,10 +3,11 @@ import ClickAwayListener from '@mui/material/ClickAwayListener';
 import Drawer from '@mui/material/Drawer';
 import { FC } from 'react';
 import { useRecoilValue } from 'recoil';
-import BigDipperLogoRed from 'shared-utils/assets/big-dipper-red.svg';
-import BigDipperLogoWhite from 'shared-utils/assets/big-dipper-white.svg';
+// import BigDipperLogoRed from 'shared-utils/assets/big-dipper-red.svg';
+// import BigDipperLogoWhite from 'shared-utils/assets/big-dipper-white.svg';
+import CoreumDark from '@/assets/logo.svg';
 import { readTheme } from '@/recoil/settings';
-import TitleBar from '@/components/nav/components/title_bar';
+// import TitleBar from '@/components/nav/components/title_bar';
 import MenuItems from '@/components/nav/components/menu_items';
 import useStyles from '@/components/nav/components/desktop/styles';
 import { useDesktop } from '@/components/nav/components/desktop/hooks';
@@ -14,10 +15,10 @@ import ActionBar from '@/components/nav/components/desktop/components/action_bar
 
 type DesktopProps = {
   className?: string;
-  title: string;
+  // title: string;
 };
 
-const Desktop: FC<DesktopProps> = ({ className, title }) => {
+const Desktop: FC<DesktopProps> = ({ className }) => {
   const { classes, cx } = useStyles();
   const theme = useRecoilValue(readTheme);
   const { isMenu, toggleMenu, turnOffAll, toggleNetwork, isNetwork } = useDesktop();
@@ -31,7 +32,7 @@ const Desktop: FC<DesktopProps> = ({ className, title }) => {
           })}
         >
           <ActionBar toggleNetwork={toggleNetwork} isNetwork={isNetwork} />
-          <TitleBar title={title} />
+          {/* <TitleBar title={title} /> */}
         </AppBar>
         <Drawer
           variant="permanent"
@@ -50,21 +51,25 @@ const Desktop: FC<DesktopProps> = ({ className, title }) => {
             }),
           }}
         >
-          {theme === 'light' ? (
-            <BigDipperLogoRed
-              className={classes.logo}
-              onClick={toggleMenu}
-              role="button"
-              aria-label="toggle menu"
-            />
+          <div className={classes.container}>
+            <CoreumDark className="logo" onClick={toggleMenu} role="button" />
+          </div>
+          {/* {theme === 'light' ? (
+            // <BigDipperLogoRed
+            //   className={classes.logo}
+            //   onClick={toggleMenu}
+            //   role="button"
+            //   aria-label="toggle menu"
+            // />
+         
           ) : (
-            <BigDipperLogoWhite
-              className={classes.logo}
-              onClick={toggleMenu}
-              role="button"
-              aria-label="toggle menu"
-            />
-          )}
+            // <BigDipperLogoWhite
+            //   className={classes.logo}
+            //   onClick={toggleMenu}
+            //   role="button"
+            //   aria-label="toggle menu"
+            // />
+          )} */}
           <MenuItems />
         </Drawer>
       </div>

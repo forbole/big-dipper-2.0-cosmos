@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import Network from '@/components/nav/components/desktop/components/action_bar/components/network';
-import NetworkList from '@/components/nav/components/desktop/components/action_bar/components/network_list';
+// import Network from '@/components/nav/components/desktop/components/action_bar/components/network';
+// import NetworkList from '@/components/nav/components/desktop/components/action_bar/components/network_list';
 import SettingsList from '@/components/nav/components/desktop/components/action_bar/components/settings_list';
 import useStyles from '@/components/nav/components/desktop/components/action_bar/styles';
 import SearchBar from '@/components/nav/components/search_bar';
@@ -19,18 +19,18 @@ const ActionBar: FC<ActionBarProps> = ({ toggleNetwork, className, isNetwork }) 
     <div className={cx(classes.root, className)} ref={heightRef}>
       <div className={classes.actions}>
         <SearchBar className={cx(classes.searchBar, { open: isNetwork })} />
-        <Network
+        {/* <Network
           className={cx(classes.network, { open: isNetwork })}
           toggleNetwork={toggleNetwork}
-        />
+        /> */}
         <SettingsList />
       </div>
-      <NetworkList
+      {/* <NetworkList
         actionHeight={height}
         className={cx(classes.networkList, {
           open: isNetwork,
         })}
-      />
+      /> */}
     </div>
   );
 };

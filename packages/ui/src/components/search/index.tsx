@@ -1,4 +1,4 @@
-import InputAdornment from '@mui/material/InputAdornment';
+// import InputAdornment from '@mui/material/InputAdornment';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import { FC } from 'react';
@@ -25,10 +25,10 @@ const Search: FC<SearchProps> = ({ className, placeholder, callback }) => {
         inputProps={{
           'aria-label': placeholder,
         }}
-        startAdornment={
-          <InputAdornment position="start">
-            <SearchIcon fontSize="small" />
-          </InputAdornment>
+        endAdornment={
+          // <InputAdornment position="start">
+          <SearchIcon fontSize="small" className="Search-icon" />
+          // </InputAdornment>
         }
       />
     </form>

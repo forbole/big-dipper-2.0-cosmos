@@ -8,12 +8,7 @@
   "previewImage": "https://s3.bigdipper.live/desmos.png",
   "themes": {
     "default": "light",
-    "themeList": [
-      "dark",
-      "light",
-      "deuteranopia",
-      "tritanopia"
-    ],
+    "themeList": ["dark", "light", "deuteranopia", "tritanopia"],
     "dark": {
       "primary": {
         "main": "#FF835B",
@@ -190,9 +185,9 @@
         "height": 1
       },
       "prefix": {
-        "consensus": "desmosvalcons",
-        "validator": "desmosvaloper",
-        "account": "desmos"
+        "consensus": "[consensus]",
+        "validator": "[validator]",
+        "account": "[account]"
       },
       "primaryTokenUnit": "udsm",
       "votingPowerTokenUnit": "udsm",
@@ -224,11 +219,11 @@
         "validator": "desmosvaloper",
         "account": "desmos"
       },
-      "primaryTokenUnit": "udaric",
-      "votingPowerTokenUnit": "udaric",
+      "primaryTokenUnit": "core",
+      "votingPowerTokenUnit": "core",
       "tokenUnits": {
-        "udaric": {
-          "display": "daric",
+        "core": {
+          "display": "core",
           "exponent": 6
         }
       },

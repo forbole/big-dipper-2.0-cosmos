@@ -8,15 +8,10 @@
   "previewImage": "https://s3.bigdipper.live/desmos.png",
   "themes": {
     "default": "light",
-    "themeList": [
-      "dark",
-      "light",
-      "deuteranopia",
-      "tritanopia"
-    ],
+    "themeList": ["dark", "light", "deuteranopia", "tritanopia"],
     "dark": {
       "primary": {
-        "main": "#FF835B",
+        "main": "#25D695",
         "contrastText": "#FFFFFF"
       },
       "background": {
@@ -25,15 +20,16 @@
       },
       "divider": "#282828",
       "text": {
-        "primary": "#E6E6E6",
-        "secondary": "#C4C4C4"
+        "primary": "#f3f3f3",
+        "secondary": "#868991"
       },
       "custom": {
         "general": {
           "background": "#000000",
           "surfaceOne": "#131316",
           "surfaceTwo": "#212123",
-          "icon": "#999999"
+          "icon": "#999999",
+          "single_block": "linear-gradient(110.16deg, rgba(94,103,115, 0.35) 0%, rgba(94,103,115,0.5) 100%)"
         },
         "fonts": {
           "fontOne": "#E6E6E6",
@@ -99,7 +95,7 @@
     },
     "light": {
       "primary": {
-        "main": "#FF835B",
+        "main": "#25D695",
         "contrastText": "#FFFFFF"
       },
       "background": {
@@ -116,7 +112,8 @@
           "background": "#F8F8F8",
           "surfaceOne": "#FFFFFF",
           "surfaceTwo": "#F8F8F8",
-          "icon": "#999999"
+          "icon": "#999999",
+          "single_block": "linear-gradient(110.16deg, rgba(94,103,115, 0.35) 0%, rgba(94,103,115,0.5) 100%)"
         },
         "fonts": {
           "fontOne": "#000000",

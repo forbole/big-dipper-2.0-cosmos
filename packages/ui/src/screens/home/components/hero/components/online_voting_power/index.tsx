@@ -19,7 +19,7 @@ const OnlineVotingPower: FC<ComponentDefault> = () => {
   return (
     <div className={classes.root}>
       <Typography variant="h2">{t('onlineVotingPower')}</Typography>
-      <div className={classes.data}>
+      {/* <div className={classes.data}>
         <Typography variant="h3" className="primary__data">
           {`${votingPowerPercent.format('0,0.00', (n) => Math.floor(n))}%`}
         </Typography>
@@ -30,6 +30,20 @@ const OnlineVotingPower: FC<ComponentDefault> = () => {
       </div>
       <div className={classes.chart}>
         <div className={classes.active} />
+      </div> */}
+      <div className={classes.chartContainer}>
+        <div className={classes.chart}>
+          <div className={classes.active} />
+        </div>
+        <div className={classes.data}>
+          <Typography variant="h3" className="primary__data">
+            {`${votingPowerPercent.format('0,0.00', (n) => ~~n)}%`}
+          </Typography>
+          <Typography variant="body1">
+            {numeral(state.votingPower).format('0,0')} /{' '}
+            {numeral(state.totalVotingPower).format('0,0')}
+          </Typography>
+        </div>
       </div>
       <div className={classes.itemsContainer}>
         <div className={classes.item}>
