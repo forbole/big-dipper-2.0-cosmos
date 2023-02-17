@@ -23,7 +23,7 @@
     "test:ci": "yarn turbo:setup -- turbo run test --continue",
     "e2e": "playwright test",
     "e2e:install": "playwright install --with-deps",
-    "graphql:codegen": "turbo:setup -- turbo run graphql:codegen --continue",
+    "graphql:codegen": "yarn turbo:setup -- turbo run graphql:codegen --continue",
     "postinstall": "husky install",
     "dotenv:setup": "dotenv -v TURBO_BINARY_PATH=$(yarn turbo:env)",
     "turbo:setup": "dotenv -v TURBO_BINARY_PATH=$(yarn turbo:env) -e /dev/null",
