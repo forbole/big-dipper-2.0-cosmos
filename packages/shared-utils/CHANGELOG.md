@@ -1,5 +1,11 @@
 # shared-utils
 
+## 2.9.0
+
+### Minor Changes
+
+- 9f2e26b1: add quicksilver mainnet
+
 ## 2.8.0
 
 ### Minor Changes
