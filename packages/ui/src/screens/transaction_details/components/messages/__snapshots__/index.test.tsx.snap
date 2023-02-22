@@ -66,8 +66,8 @@ exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
   margin: 0;
   font-size: 1.5rem;
   letter-spacing: 0;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
-  font-weight: 300;
+  font-weight: 600;
+  font-family: "Noto Sans",sans-serif;
   line-height: 1.2;
 }
 
@@ -215,11 +215,11 @@ exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
 }
 
 .emotion-6.Mui-checked {
-  color: #FF835B;
+  color: #25D695;
 }
 
 .emotion-6.Mui-checked:hover {
-  background-color: rgba(255, 131, 91, 0.04);
+  background-color: rgba(37, 214, 149, 0.04);
 }
 
 @media (hover: none) {
@@ -229,11 +229,11 @@ exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
 }
 
 .emotion-6.Mui-checked.Mui-disabled {
-  color: rgb(255, 207, 192);
+  color: rgb(172, 239, 214);
 }
 
 .emotion-6.Mui-checked+.MuiSwitch-track {
-  background-color: #FF835B;
+  background-color: #25D695;
 }
 
 .emotion-7 {
@@ -273,7 +273,7 @@ exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
   font-size: 1rem;
   white-space: pre-wrap;
   letter-spacing: 0.5px;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: "Noto Sans",sans-serif;
   font-weight: 400;
   line-height: 1.5;
 }

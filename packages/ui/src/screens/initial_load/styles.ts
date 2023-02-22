@@ -22,6 +22,9 @@ const useStyles = makeStyles()((theme) => ({
   },
   logo: {
     width: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
     [theme.breakpoints.up('sm')]: {
       width: '300px',
     },

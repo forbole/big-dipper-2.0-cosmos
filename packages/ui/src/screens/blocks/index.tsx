@@ -10,10 +10,11 @@ import { useDisplayStyles } from '@/styles/useSharedStyles';
 import { NextSeo } from 'next-seo';
 import { useTranslation } from 'next-i18next';
 import { ReactNode } from 'react';
+import { Typography } from '@mui/material';
 
 const Blocks = () => {
   const { t } = useTranslation('blocks');
-  const { classes } = useStyles();
+  const { classes, cx } = useStyles();
   const display = useDisplayStyles().classes;
   const { state, loadMoreItems, itemCount, isItemLoaded } = useBlocks();
 
@@ -51,7 +52,8 @@ const Blocks = () => {
       />
       <Layout navTitle={t('blocks') ?? undefined} className={classes.root}>
         <LoadAndExist loading={state.loading} exists={state.exists}>
-          <Box className={classes.box}>{box}</Box>
+          <Typography variant="h1">{t('blocks')}</Typography>
+          <Box className={cx(classes.box, 'scrollbar')}>{box}</Box>
         </LoadAndExist>
       </Layout>
     </>

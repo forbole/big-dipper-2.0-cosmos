@@ -5,13 +5,15 @@ import { FC } from 'react';
 import { useRecoilValue } from 'recoil';
 // import BigDipperLogoRed from 'shared-utils/assets/big-dipper-red.svg';
 // import BigDipperLogoWhite from 'shared-utils/assets/big-dipper-white.svg';
-import CoreumDark from '@/assets/logo.svg';
 import { readTheme } from '@/recoil/settings';
 // import TitleBar from '@/components/nav/components/title_bar';
 import MenuItems from '@/components/nav/components/menu_items';
 import useStyles from '@/components/nav/components/desktop/styles';
 import { useDesktop } from '@/components/nav/components/desktop/hooks';
 import ActionBar from '@/components/nav/components/desktop/components/action_bar';
+import Logo from '@assets/logo.svg';
+import LogoTextDark from '@assets/logo-text-dark.svg';
+import DevnetBadge from '@assets/devnet-badge.svg';
 
 type DesktopProps = {
   className?: string;
@@ -51,8 +53,40 @@ const Desktop: FC<DesktopProps> = ({ className }) => {
             }),
           }}
         >
-          <div className={classes.container}>
-            <CoreumDark className="logo" onClick={toggleMenu} role="button" />
+          <div className={classes.logo} role="button" onClick={toggleMenu}>
+            {/* FIXME get light and dark theme assets */}
+            {theme === 'light' ? <LogoTextDark /> : <Logo />}
+            {isMenu && theme === 'light' ? (
+              <div className={classes.logo_text}>
+                <LogoTextDark
+                  style={{
+                    opacity: isMenu ? 1 : 0,
+                    transition: '.3s ease',
+                  }}
+                />
+                <DevnetBadge
+                  style={{
+                    opacity: isMenu ? 1 : 0,
+                    transition: '.3s ease',
+                  }}
+                />
+              </div>
+            ) : (
+              <div className={classes.logo_text}>
+                <Logo
+                  style={{
+                    opacity: isMenu ? 1 : 0,
+                    transition: '.3s ease',
+                  }}
+                />
+                <DevnetBadge
+                  style={{
+                    opacity: isMenu ? 1 : 0,
+                    transition: '.3s ease',
+                  }}
+                />
+              </div>
+            )}
           </div>
           {/* {theme === 'light' ? (
             // <BigDipperLogoRed

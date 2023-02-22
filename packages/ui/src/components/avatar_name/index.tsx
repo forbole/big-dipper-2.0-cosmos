@@ -1,6 +1,7 @@
 import Avatar from '@/components/avatar';
 import useStyles from '@/components/avatar_name/styles';
 import MiddleEllipsis from '@/components/MiddleEllipsis';
+import { Typography } from '@mui/material';
 import { ADDRESS_DETAILS } from '@/utils/go_to_page';
 import Tooltip from '@mui/material/Tooltip';
 import Zoom from '@mui/material/Zoom';
@@ -15,6 +16,7 @@ const AvatarName: FC<AvatarName & JSX.IntrinsicElements['div']> = ({
   href = ADDRESS_DETAILS,
   image,
   target,
+  shorten,
   ...props
 }) => {
   const { classes, cx } = useStyles();
@@ -31,7 +33,11 @@ const AvatarName: FC<AvatarName & JSX.IntrinsicElements['div']> = ({
       <Link shallow href={href(address)} target={target}>
         <span className={cx(classes.root, className)} {...props}>
           <Avatar className={classes.avatar} address={address} imageUrl={imageUrl ?? undefined} />
-          <MiddleEllipsis className={classes.text} content={name} />
+          {/* <MiddleEllipsis className={classes.text} content={name} /> */}
+
+          <Typography variant="body1" className={shorten ? classes.short : undefined}>
+            {name}
+          </Typography>
         </span>
       </Link>
     </Tooltip>

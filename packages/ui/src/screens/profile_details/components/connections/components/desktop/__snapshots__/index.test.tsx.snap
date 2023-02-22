@@ -11,7 +11,7 @@ exports[`screen: ProfileDetails/Connections/Desktop matches snapshot 1`] = `
 .emotion-0 caption {
   font-size: 0.875rem;
   letter-spacing: 0.25px;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: "Noto Sans",sans-serif;
   font-weight: 400;
   line-height: 1.43;
   padding: 16px;
@@ -40,17 +40,17 @@ exports[`screen: ProfileDetails/Connections/Desktop matches snapshot 1`] = `
 }
 
 .emotion-2.Mui-selected {
-  background-color: rgba(255, 131, 91, 0.08);
+  background-color: rgba(37, 214, 149, 0.08);
 }
 
 .emotion-2.Mui-selected:hover {
-  background-color: rgba(255, 131, 91, 0.12);
+  background-color: rgba(37, 214, 149, 0.12);
 }
 
 .emotion-3 {
   font-size: 0.875rem;
   letter-spacing: 0.25px;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: "Noto Sans",sans-serif;
   font-weight: 500;
   line-height: 1.5rem;
   display: table-cell;
@@ -71,7 +71,7 @@ exports[`screen: ProfileDetails/Connections/Desktop matches snapshot 1`] = `
 .emotion-5 {
   font-size: 0.875rem;
   letter-spacing: 0.25px;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: "Noto Sans",sans-serif;
   font-weight: 500;
   line-height: 1.5rem;
   display: table-cell;
@@ -107,7 +107,7 @@ exports[`screen: ProfileDetails/Connections/Desktop matches snapshot 1`] = `
 .emotion-8 {
   font-size: 0.875rem;
   letter-spacing: 0.25px;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: "Noto Sans",sans-serif;
   font-weight: 400;
   line-height: 1.43;
   display: table-cell;
@@ -128,7 +128,7 @@ exports[`screen: ProfileDetails/Connections/Desktop matches snapshot 1`] = `
 .emotion-10 {
   font-size: 0.875rem;
   letter-spacing: 0.25px;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: "Noto Sans",sans-serif;
   font-weight: 400;
   line-height: 1.43;
   display: table-cell;
@@ -228,15 +228,7 @@ exports[`screen: ProfileDetails/Connections/Desktop matches snapshot 1`] = `
             }
           }
         >
-          <a
-            className="value"
-            href="/accounts/desmos1rzhewpmmdl72lhnxj6zmxr4v94f522s4ff2psv"
-            onClick={[Function]}
-            onMouseEnter={[Function]}
-            onTouchStart={[Function]}
-          >
-            desmos1rzhewpmmdl72lhnxj6zmxr4v94f522s4ff2psv
-          </a>
+          desmos1rzhewpmmdl72lhnxj6zmxr4v94f522s4ff2psv
         </td>
         <td
           aria-sort={null}

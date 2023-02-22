@@ -1,34 +1,32 @@
 import useStyles from '@/components/nav/components/mobile/components/navbar/styles';
 import type { NavbarProps } from '@/components/nav/components/mobile/components/navbar/types';
-import useBigDipperNetworks from '@/hooks/useBigDipperNetworks';
+// import useBigDipperNetworks from '@/hooks/useBigDipperNetworks';
 import { readTheme } from '@/recoil/settings';
 import { HOME } from '@/utils/go_to_page';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+// import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Logo from '@assets/logo.svg';
+import LogoTextDark from '@assets/logo-text-dark.svg';
 import Link from 'next/link';
 import { useRecoilValue } from 'recoil';
-import BigDipperLogoRed from 'shared-utils/assets/big-dipper-red.svg';
-import BigDipperLogoWhite from 'shared-utils/assets/big-dipper-white.svg';
+// import BigDipperLogoRed from 'shared-utils/assets/big-dipper-red.svg';
+// import BigDipperLogoWhite from 'shared-utils/assets/big-dipper-white.svg';
 
 const Navbar = (props: NavbarProps) => {
   const { classes, cx } = useStyles();
   const theme = useRecoilValue(readTheme);
-  const { selectedName } = useBigDipperNetworks();
-  const { isOpen, openNetwork, toggleNavMenus } = props;
+  // const { selectedName } = useBigDipperNetworks();
+  const { isOpen, toggleNavMenus } = props; //Deleted openNetwork since its not being used
 
   return (
     <div className={classes.root}>
       <Link shallow href={HOME} className={classes.a}>
-        {theme === 'light' ? (
-          <BigDipperLogoRed className={classes.logo} />
-        ) : (
-          <BigDipperLogoWhite className={classes.logo} />
-        )}
+        {theme === 'light' ? <LogoTextDark /> : <Logo />}
       </Link>
       <div className={classes.actions}>
         {/* =================================== */}
         {/* Network */}
         {/* =================================== */}
-        <div
+        {/* <div
           className={classes.network}
           onClick={openNetwork}
           role="button"
@@ -37,7 +35,7 @@ const Navbar = (props: NavbarProps) => {
         >
           <p className="text">{selectedName}</p>
           <ExpandMoreIcon fontSize="small" />
-        </div>
+        </div> */}
         {/* =================================== */}
         {/* Hamburger */}
         {/* =================================== */}

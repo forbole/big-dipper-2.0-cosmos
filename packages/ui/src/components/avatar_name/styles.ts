@@ -11,6 +11,11 @@ const useStyles = makeStyles()((theme) => ({
       cursor: 'pointer',
     },
   },
+  short: {
+    maxWidth: '16ch',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+  },
   avatar: {
     '&': {
       flex: `0 0 ${theme.spacing(3.5)}`,

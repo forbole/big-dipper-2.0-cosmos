@@ -6,7 +6,7 @@ exports[`screen: TransactionDetails/SubmitProposal matches snapshot with Communi
   font-size: 1rem;
   white-space: pre-wrap;
   letter-spacing: 0.5px;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: "Noto Sans",sans-serif;
   font-weight: 400;
   line-height: 1.5;
 }
@@ -33,7 +33,7 @@ exports[`screen: TransactionDetails/SubmitProposal matches snapshot with Paramet
   font-size: 1rem;
   white-space: pre-wrap;
   letter-spacing: 0.5px;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: "Noto Sans",sans-serif;
   font-weight: 400;
   line-height: 1.5;
 }
@@ -60,7 +60,7 @@ exports[`screen: TransactionDetails/SubmitProposal matches snapshot with Softwar
   font-size: 1rem;
   white-space: pre-wrap;
   letter-spacing: 0.5px;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: "Noto Sans",sans-serif;
   font-weight: 400;
   line-height: 1.5;
 }
@@ -87,7 +87,7 @@ exports[`screen: TransactionDetails/SubmitProposal matches snapshot with Text Pr
   font-size: 1rem;
   white-space: pre-wrap;
   letter-spacing: 0.5px;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: "Noto Sans",sans-serif;
   font-weight: 400;
   line-height: 1.5;
 }

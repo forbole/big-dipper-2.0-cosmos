@@ -33,26 +33,6 @@ const Consensus: FC<ComponentDefault> = ({ className }) => {
       <Typography variant="h2" className={classes.label}>
         {t('consensus')}
       </Typography>
-      <div className={classes.info}>
-        <div>
-          <Typography variant="caption" className="label" component="div">
-            {t('height')}
-          </Typography>
-          <Typography variant="caption" className="label" component="div">
-            {t('proposer')}
-          </Typography>
-        </div>
-        <div>
-          <Typography variant="h4">
-            {state.loadingNewRound ? '-' : numeral(state.height).format('0,0')}
-          </Typography>
-          {!state.loadingNewStep && state.proposer ? (
-            <AvatarName address={address} imageUrl={imageUrl} name={name} />
-          ) : (
-            '-'
-          )}
-        </div>
-      </div>
       <div className={classes.content}>
         {state.loadingNewStep ? (
           <Loading />
@@ -99,6 +79,26 @@ const Consensus: FC<ComponentDefault> = ({ className }) => {
             </text>
           </DynamicRadialBarChart>
         )}
+      </div>
+      <div className={classes.info}>
+        <div>
+          <Typography variant="caption" className="label" component="div">
+            {t('height')}
+          </Typography>
+          <Typography variant="caption" className="label" component="div">
+            {t('proposer')}
+          </Typography>
+        </div>
+        <div>
+          <Typography variant="h4">
+            {state.loadingNewRound ? '-' : numeral(state.height).format('0,0')}
+          </Typography>
+          {!state.loadingNewStep && state.proposer ? (
+            <AvatarName address={address} imageUrl={imageUrl} name={name} />
+          ) : (
+            '-'
+          )}
+        </div>
       </div>
     </Box>
   );

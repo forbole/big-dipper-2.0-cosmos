@@ -78,7 +78,7 @@ exports[`components: Pagination matches snapshot 1`] = `
 
 @media (min-width: 1280px) {
   .emotion-1 {
-    height: 160px;
+    height: 80px;
     overflow: hidden;
   }
 }
@@ -112,7 +112,7 @@ exports[`components: Pagination matches snapshot 1`] = `
 .emotion-3 {
   font-size: 0.875rem;
   letter-spacing: 0.25px;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: "Noto Sans",sans-serif;
   font-weight: 400;
   line-height: 1.43;
   -webkit-flex-shrink: 0;

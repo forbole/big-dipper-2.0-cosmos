@@ -206,7 +206,7 @@ exports[`screen: Nav/Desktop it renders 1`] = `
   top: 0;
   left: auto;
   right: 0;
-  background-color: #FF835B;
+  background-color: #25D695;
   color: #FFFFFF;
 }
 
@@ -243,7 +243,7 @@ exports[`screen: Nav/Desktop it renders 1`] = `
 
 @media (min-width: 1280px) {
   .emotion-1.emotion-1 {
-    height: 160px;
+    height: 80px;
     overflow: hidden;
   }
 }
@@ -312,12 +312,26 @@ exports[`screen: Nav/Desktop it renders 1`] = `
 }
 
 .emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 24px;
   width: 216px;
-  padding: 16px 14px 20px;
+  height: 70px;
+  padding: 20px;
 }
 
 .emotion-4:hover {
   cursor: pointer;
+}
+
+.emotion-5 {
+  display: grid;
 }
 
 <div
@@ -333,10 +347,6 @@ exports[`screen: Nav/Desktop it renders 1`] = `
       isNetwork={false}
       toggleNetwork={[Function]}
     />
-    <div
-      id="TitleBar"
-      title="hello world"
-    />
   </header>
   <div
     className="MuiDrawer-root MuiDrawer-docked closed emotion-2"
@@ -344,12 +354,33 @@ exports[`screen: Nav/Desktop it renders 1`] = `
     <div
       className="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiDrawer-paper closed MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft emotion-3"
     >
-      <svg
-        aria-label="toggle menu"
+      <div
         className="emotion-4"
         onClick={[Function]}
         role="button"
-      />
+      >
+        <svg />
+        <div
+          className="emotion-5"
+        >
+          <svg
+            style={
+              {
+                "opacity": 0,
+                "transition": ".3s ease",
+              }
+            }
+          />
+          <svg
+            style={
+              {
+                "opacity": 0,
+                "transition": ".3s ease",
+              }
+            }
+          />
+        </div>
+      </div>
       <div
         id="MenuItems"
       />

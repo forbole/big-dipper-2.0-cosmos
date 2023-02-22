@@ -19,7 +19,7 @@ const useStyles = makeStyles()((theme) => ({
   },
   searchBar: {
     flex: 1,
-    marginRight: theme.spacing(2),
+    // marginRight: theme.spacing(2),
     '&.open': {
       '& .MuiInputBase-root': {
         background: theme.palette.background.default,

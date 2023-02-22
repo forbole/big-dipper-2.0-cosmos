@@ -53,8 +53,8 @@ const Desktop: FC<DesktopProps> = ({ className, items }) => {
     hash: (
       <Link shallow prefetch={false} href={TRANSACTION_DETAILS(x.hash)}>
         {getMiddleEllipsis(x.hash, {
-          beginning: 4,
-          ending: 4,
+          beginning: 15,
+          ending: 5,
         })}
       </Link>
     ),
@@ -79,6 +79,7 @@ const Desktop: FC<DesktopProps> = ({ className, items }) => {
                 key={column.key}
                 align={column.align}
                 style={{ width: `${column.width}%` }}
+                className={classes.header}
               >
                 {t(column.key)}
               </TableCell>

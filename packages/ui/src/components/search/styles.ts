@@ -7,10 +7,10 @@ const useStyles = makeStyles()((theme) => ({
     alignItems: 'center',
     '& .MuiInputBase-root': {
       width: '100%',
-      background: theme.palette.background.paper,
+      height: '100%',
+      background: theme.palette.custom.general.search,
       padding: theme.spacing(1, 2),
       borderRadius: 48,
-      height: '100%',
     },
     '& .MuiInputBase-input': {
       textOverflow: 'ellipsis',

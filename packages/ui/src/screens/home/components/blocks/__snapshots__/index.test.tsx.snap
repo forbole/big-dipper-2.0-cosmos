@@ -12,7 +12,7 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
 }
 
 .emotion-0 .button {
-  color: #414141;
+  color: #25D695;
 }
 
 .emotion-0 .button:hover {
@@ -38,8 +38,8 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
   margin: 0;
   font-size: 1.5rem;
   letter-spacing: 0;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
-  font-weight: 300;
+  font-weight: 600;
+  font-family: "Noto Sans",sans-serif;
   line-height: 1.2;
 }
 

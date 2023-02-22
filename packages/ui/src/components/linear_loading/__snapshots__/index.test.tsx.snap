@@ -72,7 +72,7 @@ exports[`component: LinearLoading matches snapshot 1`] = `
   display: block;
   height: 4px;
   z-index: 0;
-  background-color: rgb(255, 207, 192);
+  background-color: rgb(172, 239, 214);
 }
 
 @media print {
@@ -91,7 +91,7 @@ exports[`component: LinearLoading matches snapshot 1`] = `
   -webkit-transition: -webkit-transform 0.2s linear;
   transition: transform 0.2s linear;
   transform-origin: left;
-  background-color: #FF835B;
+  background-color: #25D695;
   width: auto;
   -webkit-animation: animation-0 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
   animation: animation-0 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
@@ -106,7 +106,7 @@ exports[`component: LinearLoading matches snapshot 1`] = `
   -webkit-transition: -webkit-transform 0.2s linear;
   transition: transform 0.2s linear;
   transform-origin: left;
-  background-color: #FF835B;
+  background-color: #25D695;
   width: auto;
   -webkit-animation: animation-1 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) 1.15s infinite;
   animation: animation-1 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) 1.15s infinite;

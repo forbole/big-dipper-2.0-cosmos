@@ -103,7 +103,7 @@ const Desktop: FC<DesktopProps> = ({ className, items }) => {
         <TableHead>
           <TableRow>
             {columns.map((column) => (
-              <TableCell key={column.key} align={column.align}>
+              <TableCell key={column.key} align={column.align} className={classes.header}>
                 {t(column.key)}
               </TableCell>
             ))}

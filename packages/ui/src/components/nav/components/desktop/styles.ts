@@ -11,18 +11,19 @@ const useStyles = makeStyles()((theme) => {
         border: 'none',
       },
     },
-    container: {
-      display: 'grid',
-      placeItems: 'center',
-
-      '& .logo': {
-        height: 'fit-content',
-        width: '216px',
-        padding: theme.spacing(2, 1.75, 2.5),
-        '&:hover': {
-          cursor: 'pointer',
-        },
+    logo: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: 24,
+      width: '216px',
+      height: 70,
+      padding: theme.spacing(2.5),
+      '&:hover': {
+        cursor: 'pointer',
       },
+    },
+    logo_text: {
+      display: 'grid',
     },
 
     appBar: {
@@ -60,6 +61,7 @@ const useStyles = makeStyles()((theme) => {
       boxSizing: 'border-box',
     },
     drawerOpen: {
+      background: theme.palette.custom.general.nav_drawer,
       width: OPEN_DRAWER_WIDTH,
       transition: theme.transitions.create('width', {
         easing: theme.transitions.easing.easeIn,
@@ -67,6 +69,7 @@ const useStyles = makeStyles()((theme) => {
       }),
     },
     drawerClose: {
+      background: theme.palette.custom.general.nav_drawer,
       transition: theme.transitions.create('width', {
         easing: theme.transitions.easing.easeIn,
         duration: theme.transitions.duration.enteringScreen,

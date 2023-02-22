@@ -15,9 +15,10 @@ export const darkThemeOverride: DeepPartial<ThemeOptions> = {
   mixins: {
     tableCell: {
       background: theme.custom.general.surfaceOne, // surface one
-      '&.odd': {
-        background: theme.custom.general.surfaceTwo, // surface two
-      },
+      borderBottom: '1px solid #23272E',
+      // '&.odd': {
+      //   background: theme.custom.general.surfaceTwo, // surface two
+      // },
     },
   },
   palette: {
@@ -30,11 +31,12 @@ export const darkThemeOverride: DeepPartial<ThemeOptions> = {
         root: {
           '& .MuiTableRow-root': {
             '&:nth-of-type(odd)': {
-              backgroundColor: theme.custom.general.surfaceTwo, // surface two
+              // backgroundColor: theme.custom.general.surfaceTwo, // surface two
             },
           },
           '& .MuiTableCell-root': {
             color: theme.custom.fonts.fontTwo, // font two
+            borderBotton: '1px solid #23272E',
           },
         },
       },

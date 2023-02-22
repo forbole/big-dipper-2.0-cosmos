@@ -13,6 +13,9 @@ jest.mock('@/components/layout', () => (props: JSX.IntrinsicElements['div']) => 
   <div id="Layout" {...props} />
 ));
 
+jest.mock('@/screens/home/components/main_info', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="MainInfo" {...props} />
+));
 jest.mock('@/screens/home/components/data_blocks', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="DataBlocks" {...props} />
 ));

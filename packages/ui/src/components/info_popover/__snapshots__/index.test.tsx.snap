@@ -41,7 +41,7 @@ exports[`component: InfoPopover matches snapshot 1`] = `
   <svg
     aria-hidden={true}
     className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-1"
-    color="#999999"
+    color="#868991"
     data-testid="HelpOutlineIcon"
     focusable="false"
     viewBox="0 0 24 24"

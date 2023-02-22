@@ -1,6 +1,6 @@
 {
   "chainName": "base",
-  "title": "Desmos Block Explorer",
+  "title": "Coreum Block Explorer",
   "extra": {
     "profile": true,
     "graphqlWs": false
@@ -8,14 +8,14 @@
   "previewImage": "https://s3.bigdipper.live/desmos.png",
   "themes": {
     "default": "light",
-    "themeList": ["dark", "light", "deuteranopia", "tritanopia"],
+    "themeList": ["dark", "light"],
     "dark": {
       "primary": {
         "main": "#25D695",
         "contrastText": "#FFFFFF"
       },
       "background": {
-        "default": "#000000",
+        "default": "#17191E",
         "paper": "#131316"
       },
       "divider": "#282828",
@@ -25,11 +25,14 @@
       },
       "custom": {
         "general": {
-          "background": "#000000",
+          "background": "#17191E",
           "surfaceOne": "#131316",
           "surfaceTwo": "#212123",
           "icon": "#999999",
-          "single_block": "linear-gradient(110.16deg, rgba(94,103,115, 0.35) 0%, rgba(94,103,115,0.5) 100%)"
+          "single_block": "linear-gradient(110.16deg, rgba(94,103,115, 0.35) 0%, rgba(94,103,115,0.5) 100%)",
+          "nav_drawer": "#2B3138",
+          "modal_header": "#1D222C",
+          "search": "#2B3138"
         },
         "fonts": {
           "fontOne": "#E6E6E6",
@@ -37,7 +40,10 @@
           "fontThree": "#818181",
           "fontFour": "#999999",
           "fontFive": "#FFFFFF",
-          "highlight": "#4092CD"
+          "highlight": "#F1C34E",
+          "settings_label": "#868991",
+          "table_headers": "#6C6F78",
+          "data_blocks": "#25D695"
         },
         "primaryData": {
           "one": "#F87255",
@@ -50,9 +56,9 @@
           "fail": "#FD3B4C"
         },
         "tokenomics": {
-          "one": "#43A1BE",
-          "two": "#E3BB55",
-          "three": "#20D292"
+          "one": "#004DC2",
+          "two": "#E3AB55",
+          "three": "#25D695"
         },
         "condition": {
           "zero": "#E6E6E6",
@@ -120,6 +126,7 @@
           "fontTwo": "#414141",
           "fontThree": "#777777",
           "fontFour": "#999999",
+          "data_blocks": "#FFF",
           "fontFive": "#FFFFFF",
           "highlight": "#4092CD"
         },
@@ -180,22 +187,22 @@
   },
   "chains": [
     {
-      "network": "desmos-mainnet",
+      "network": "coreum",
       "chainType": "Mainnet",
       "genesis": {
         "time": "2021-08-31T16:15:00",
         "height": 1
       },
       "prefix": {
-        "consensus": "desmosvalcons",
-        "validator": "desmosvaloper",
-        "account": "desmos"
+        "consensus": "corevalcons",
+        "validator": "corevaloper",
+        "account": "core"
       },
-      "primaryTokenUnit": "udsm",
-      "votingPowerTokenUnit": "udsm",
+      "primaryTokenUnit": "ucore",
+      "votingPowerTokenUnit": "ucore",
       "tokenUnits": {
-        "udsm": {
-          "display": "dsm",
+        "ucore": {
+          "display": "core",
           "exponent": 6
         }
       },
@@ -210,22 +217,52 @@
       }
     },
     {
-      "network": "morpheus-apollo-3",
+      "network": "coreum-testnet",
       "chainType": "Testnet",
       "genesis": {
         "time": "2022-10-24T08:00:00",
         "height": 7942286
       },
       "prefix": {
-        "consensus": "desmosvalcons",
-        "validator": "desmosvaloper",
-        "account": "desmos"
+        "consensus": "testcorevalcons",
+        "validator": "testcorevaloper",
+        "account": "testcore"
       },
-      "primaryTokenUnit": "udaric",
-      "votingPowerTokenUnit": "udaric",
+      "primaryTokenUnit": "utestcore",
+      "votingPowerTokenUnit": "utestcore",
       "tokenUnits": {
-        "udaric": {
-          "display": "daric",
+        "utestcore": {
+          "display": "testcore",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql-morpheus.desmos.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql-morpheus.desmos.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc-morpheus.desmos.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
+      }
+    },
+    {
+      "network": "coreum-devnet",
+      "chainType": "Devnet",
+      "genesis": {
+        "time": "2022-10-24T08:00:00",
+        "height": 7942286
+      },
+      "prefix": {
+        "consensus": "devcorevalcons",
+        "validator": "devcorevaloper",
+        "account": "devcore"
+      },
+      "primaryTokenUnit": "udevcore",
+      "votingPowerTokenUnit": "udevcore",
+      "tokenUnits": {
+        "udevcore": {
+          "display": "devcore",
           "exponent": 6
         }
       },

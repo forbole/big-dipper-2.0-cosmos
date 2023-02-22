@@ -67,7 +67,7 @@ exports[`screen: Nav/Network it renders 1`] = `
   font-size: 1rem;
   white-space: pre-wrap;
   letter-spacing: 0.5px;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: "Noto Sans",sans-serif;
   font-weight: 400;
   line-height: 1.5;
 }
@@ -90,7 +90,7 @@ exports[`screen: Nav/Network it renders 1`] = `
 }
 
 <div
-  aria-label="desmos-mainnet"
+  aria-label="coreum"
   className="emotion-0"
   onClick={[MockFunction]}
   role="button"
@@ -137,12 +137,12 @@ exports[`screen: Nav/Network it renders 1`] = `
   <p
     className="MuiTypography-root MuiTypography-body1 emotion-4"
   >
-    desmos-mainnet
+    coreum
   </p>
   <svg
     aria-hidden={true}
     className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-5"
-    color="#999999"
+    color="#868991"
     data-testid="ExpandMoreIcon"
     focusable="false"
     viewBox="0 0 24 24"

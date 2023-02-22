@@ -7,6 +7,8 @@ import LoadAndExist from '@/components/load_and_exist';
 import TransactionsList from '@/components/transactions_list';
 import TransactionsListDetails from '@/components/transactions_list_details';
 import { readTx } from '@/recoil/settings';
+import { Switch, Typography } from '@mui/material';
+import { useSettingList } from '@/components/nav/components/desktop/components/action_bar/components/settings_list/hooks';
 import { useTransactions } from '@/screens/transactions/hooks';
 import useStyles from '@/screens/transactions/styles';
 
@@ -15,6 +17,7 @@ const Transactions = () => {
   const { t } = useTranslation('transactions');
   const { classes } = useStyles();
   const { state, loadNextPage } = useTransactions();
+  const { updateTxFormat } = useSettingList({ lang: 'en' });
   const loadMoreItems = state.isNextPageLoading ? () => null : loadNextPage;
   const isItemLoaded = (index: number) => !state.hasNextPage || index < state.items.length;
   const itemCount = state.hasNextPage ? state.items.length + 1 : state.items.length;
@@ -28,6 +31,17 @@ const Transactions = () => {
       />
       <Layout navTitle={t('transactions') ?? undefined} className={classes.root}>
         <LoadAndExist exists={state.exists} loading={state.loading}>
+          <div className={classes.header}>
+            <Typography variant="h1">{t('transactions')}</Typography>
+            <div className={classes.header}>
+              <Typography variant="h4">{t('showDetails')}</Typography>
+              <Switch
+                color="primary"
+                checked={txListFormat === 'detailed'}
+                onChange={updateTxFormat}
+              />
+            </div>
+          </div>
           <Box className={classes.box}>
             {txListFormat === 'compact' ? (
               <TransactionsList

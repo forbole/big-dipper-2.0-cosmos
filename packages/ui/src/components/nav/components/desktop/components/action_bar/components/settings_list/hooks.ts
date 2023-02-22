@@ -70,6 +70,11 @@ export const useSettingList = ({ lang }: { lang: string }) => {
     }
   };
 
+  // Custom method that allows for changing state from tx page
+  const updateTxFormat = () => {
+    setTx(tx === 'compact' ? 'detailed' : 'compact');
+  };
+
   const handleFormSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     if (state.theme !== theme) {
@@ -84,9 +89,9 @@ export const useSettingList = ({ lang }: { lang: string }) => {
       setDate(state.dateFormat);
     }
 
-    if (state.txListFormat !== tx) {
-      setTx(state.txListFormat);
-    }
+    // if (state.txListFormat !== tx) {
+    //   setTx(state.txListFormat);
+    // }
 
     handleClose();
   };
@@ -99,5 +104,6 @@ export const useSettingList = ({ lang }: { lang: string }) => {
     handleChange,
     handleFormSubmit,
     handleCancel,
+    updateTxFormat,
   };
 };

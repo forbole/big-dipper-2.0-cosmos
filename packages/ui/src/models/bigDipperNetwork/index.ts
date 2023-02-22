@@ -16,6 +16,7 @@ export type Link = z.infer<typeof zLink>;
 const isNotNetwork = (regExp: RegExp) => R.complement(R.test(regExp));
 const isMainnet = R.test(/mainnet/i);
 const isTestnet = R.allPass([isNotNetwork(/mainnet/i), R.test(/testnet/i)]);
+const isDevNet = R.allPass([isNotNetwork(/mainnet|testnet/i), R.test(/devnet/i)]);
 const isRetired = R.allPass([isNotNetwork(/mainnet|testnet/i), R.test(/retired/i)]);
 const isOther = isNotNetwork(/mainnet|testnet|retired/i);
 
@@ -34,6 +35,7 @@ export const zBigDipperNetwork = z
     name,
     mainnet: links.filter((l) => isMainnet(l.name)),
     testnet: links.filter((l) => isTestnet(l.name)),
+    devnet: links.filter((l) => isDevNet(l.name)),
     retired: links.filter((l) => isRetired(l.name)),
     other: links.filter((l) => isOther(l.name)),
   }));

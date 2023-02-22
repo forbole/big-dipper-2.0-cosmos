@@ -4,7 +4,7 @@ const { basePath, previewImage } = chainConfig();
 
 export const OPEN_GRAPH_SEO = {
   type: 'website',
-  site_name: 'Big Dipper',
+  site_name: 'CoreumX',
   images: [
     {
       url: previewImage ?? '',

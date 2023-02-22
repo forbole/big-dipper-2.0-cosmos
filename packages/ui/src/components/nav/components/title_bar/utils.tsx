@@ -3,10 +3,10 @@ import { type AtomState } from '@/recoil/market';
 import { formatNumber } from '@/utils/format_token';
 
 export const formatMarket = (data: AtomState) => {
-  const exludedItems = [null, 0];
-  const marketCap = exludedItems.includes(data.marketCap)
-    ? 'N/A'
-    : `$${formatNumber(data.marketCap?.toString() ?? '', 2)}`;
+  const marketCap = `$${formatNumber(
+    (Number(data.supply.value) * Number(data.price)).toFixed(),
+    2
+  )}`;
 
   return [
     {

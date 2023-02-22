@@ -8,6 +8,12 @@ const useStyles = makeStyles()((theme) => ({
   cell: {
     ...(theme.mixins.tableCell as CSSObject),
   },
+  header: {
+    ...(theme.mixins.tableCell as CSSObject),
+    background: theme.palette.custom.general.modal_header,
+    color: theme.palette.custom.fonts.table_headers,
+    textTransform: 'uppercase',
+  },
   body: {
     color: theme.palette.custom.fonts.fontTwo,
   },

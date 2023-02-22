@@ -42,7 +42,7 @@ exports[`component: SingleProposal matches snapshot 1`] = `
   margin: 0;
   font-size: 1rem;
   letter-spacing: 0.15px;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: "Noto Sans",sans-serif;
   font-weight: 400;
   line-height: 1.235;
   color: #777777;
@@ -77,7 +77,7 @@ exports[`component: SingleProposal matches snapshot 1`] = `
   font-size: 1rem;
   white-space: pre-wrap;
   letter-spacing: 0.5px;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: "Noto Sans",sans-serif;
   font-weight: 400;
   line-height: 1.5;
 }
@@ -90,7 +90,7 @@ exports[`component: SingleProposal matches snapshot 1`] = `
   margin: 0;
   font-size: 1.25rem;
   letter-spacing: 0.15px;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: "Noto Sans",sans-serif;
   font-weight: 400;
   line-height: 1.167;
 }

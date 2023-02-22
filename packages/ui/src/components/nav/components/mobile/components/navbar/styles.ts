@@ -10,6 +10,9 @@ const useStyles = makeStyles()((theme) => ({
   a: {
     lineHeight: 0,
     zIndex: 200,
+    display: 'flex',
+    alignItems: 'center',
+    gap: 6,
   },
   logo: {
     width: '120px',

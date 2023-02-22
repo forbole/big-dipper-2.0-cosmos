@@ -24,14 +24,14 @@ export const getMenuItems = () => {
       icon: <BlockIcon {...iconProps} />,
     },
     {
-      key: 'validators',
-      url: VALIDATORS,
-      icon: <UserIcon {...iconProps} />,
-    },
-    {
       key: 'transactions',
       url: TRANSACTIONS,
       icon: <TransactionIcon {...iconProps} />,
+    },
+    {
+      key: 'validators',
+      url: VALIDATORS,
+      icon: <UserIcon {...iconProps} />,
     },
     {
       key: 'proposals',

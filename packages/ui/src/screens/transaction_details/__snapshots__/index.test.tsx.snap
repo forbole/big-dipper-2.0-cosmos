@@ -26,12 +26,24 @@ exports[`screen: Blocks/List matches snapshot 1`] = `
 }
 
 .emotion-1 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width:1280px) {
+  .emotion-1 {
+    grid-template-columns: 1.25fr 1fr;
+  }
+}
+
+.emotion-2 {
   min-height: 500px;
   height: 50vh;
 }
 
 @media (min-width:1280px) {
-  .emotion-1 {
+  .emotion-2 {
     min-height: 650px;
     height: 40vh;
   }
@@ -50,56 +62,60 @@ exports[`screen: Blocks/List matches snapshot 1`] = `
       className="emotion-0"
     >
       <div
-        data={
-          {
-            "error": "",
-            "fee": {
-              "baseDenom": "udaric",
-              "displayDenom": "daric",
-              "exponent": 6,
-              "value": "0.000050",
-            },
-            "gasUsed": 149488,
-            "gasWanted": 200000,
-            "hash": "7D373DE5C5FB03EA72006F6CEC8F908545D435AE1C598A1B53AD0770C243822A",
-            "height": 54290,
-            "memo": "",
-            "success": true,
-            "timestamp": "2021-05-01T07:47:40.855759",
-          }
-        }
-        id="Overview"
-      />
-      <div
         className="emotion-1"
-        id="Messages"
-        messages={
-          [
+      >
+        <div
+          data={
             {
-              "amount": {
-                "amount": "8371578",
-                "denom": "udaric",
+              "error": "",
+              "fee": {
+                "baseDenom": "udaric",
+                "displayDenom": "daric",
+                "exponent": 6,
+                "value": "0.000050",
               },
-              "category": "staking",
-              "delegatorAddress": "desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr",
-              "json": {
-                "@type": "/cosmos.staking.v1beta1.MsgDelegate",
+              "gasUsed": 149488,
+              "gasWanted": 200000,
+              "hash": "7D373DE5C5FB03EA72006F6CEC8F908545D435AE1C598A1B53AD0770C243822A",
+              "height": 54290,
+              "memo": "",
+              "success": true,
+              "timestamp": "2021-05-01T07:47:40.855759",
+            }
+          }
+          id="Overview"
+        />
+        <div
+          className="emotion-2"
+          id="Messages"
+          messages={
+            [
+              {
                 "amount": {
                   "amount": "8371578",
                   "denom": "udaric",
                 },
-                "delegator_address": "desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr",
-                "validator_address": "desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3",
+                "category": "staking",
+                "delegatorAddress": "desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr",
+                "json": {
+                  "@type": "/cosmos.staking.v1beta1.MsgDelegate",
+                  "amount": {
+                    "amount": "8371578",
+                    "denom": "udaric",
+                  },
+                  "delegator_address": "desmos18kvwy5hzcu3ss08lcfcnx0eajuecg69ujmkwjr",
+                  "validator_address": "desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3",
+                },
+                "type": "/cosmos.staking.v1beta1.MsgDelegate",
+                "validatorAddress": "desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3",
               },
-              "type": "/cosmos.staking.v1beta1.MsgDelegate",
-              "validatorAddress": "desmosvaloper18kvwy5hzcu3ss08lcfcnx0eajuecg69uvk76c3",
-            },
-          ]
-        }
-        onMessageFilterCallback={[Function]}
-        toggleMessageDisplay={[Function]}
-        viewRaw={false}
-      />
+            ]
+          }
+          onMessageFilterCallback={[Function]}
+          toggleMessageDisplay={[Function]}
+          viewRaw={false}
+        />
+      </div>
       <div
         id="Logs"
         logs={

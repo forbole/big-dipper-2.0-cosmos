@@ -1,11 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`screen: Nav/SearchBar it renders 1`] = `
+.emotion-0 {
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
 .emotion-0 .MuiInputBase-root {
   width: 100%;
-  background: #FFFFFF;
-  padding: 3.2px 9.6px;
-  border-radius: 4px;
+  height: 100%;
+  padding: 8px 16px;
+  border-radius: 48px;
 }
 
 .emotion-0 .MuiInputBase-input {
@@ -28,11 +40,20 @@ exports[`screen: Nav/SearchBar it renders 1`] = `
   color: #999999;
 }
 
+.emotion-0 .Search-icon {
+  background: #25D695;
+  border-radius: 100%;
+  padding: 5px;
+  width: 30px;
+  height: 30px;
+  color: white;
+}
+
 .emotion-1 {
   font-size: 1rem;
   white-space: pre-wrap;
   letter-spacing: 0.5px;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: "Noto Sans",sans-serif;
   font-weight: 400;
   line-height: 1.4375em;
   color: #000000;
@@ -59,39 +80,6 @@ exports[`screen: Nav/SearchBar it renders 1`] = `
 }
 
 .emotion-2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  height: 0.01em;
-  max-height: 2em;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  white-space: nowrap;
-  color: rgba(0, 0, 0, 0.54);
-  margin-right: 8px;
-}
-
-.emotion-3 {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  width: 1em;
-  height: 1em;
-  display: inline-block;
-  fill: currentColor;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  font-size: 1.25rem;
-}
-
-.emotion-4 {
   font: inherit;
   letter-spacing: inherit;
   color: currentColor;
@@ -111,92 +99,109 @@ exports[`screen: Nav/SearchBar it renders 1`] = `
   animation-duration: 10ms;
 }
 
-.emotion-4::-webkit-input-placeholder {
+.emotion-2::-webkit-input-placeholder {
   color: currentColor;
   opacity: 0.42;
   -webkit-transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 
-.emotion-4::-moz-placeholder {
+.emotion-2::-moz-placeholder {
   color: currentColor;
   opacity: 0.42;
   -webkit-transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 
-.emotion-4:-ms-input-placeholder {
+.emotion-2:-ms-input-placeholder {
   color: currentColor;
   opacity: 0.42;
   -webkit-transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 
-.emotion-4::-ms-input-placeholder {
+.emotion-2::-ms-input-placeholder {
   color: currentColor;
   opacity: 0.42;
   -webkit-transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 
-.emotion-4:focus {
+.emotion-2:focus {
   outline: 0;
 }
 
-.emotion-4:invalid {
+.emotion-2:invalid {
   box-shadow: none;
 }
 
-.emotion-4::-webkit-search-decoration {
+.emotion-2::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
-label[data-shrink=false]+.MuiInputBase-formControl .emotion-4::-webkit-input-placeholder {
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-2::-webkit-input-placeholder {
   opacity: 0!important;
 }
 
-label[data-shrink=false]+.MuiInputBase-formControl .emotion-4::-moz-placeholder {
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-2::-moz-placeholder {
   opacity: 0!important;
 }
 
-label[data-shrink=false]+.MuiInputBase-formControl .emotion-4:-ms-input-placeholder {
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-2:-ms-input-placeholder {
   opacity: 0!important;
 }
 
-label[data-shrink=false]+.MuiInputBase-formControl .emotion-4::-ms-input-placeholder {
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-2::-ms-input-placeholder {
   opacity: 0!important;
 }
 
-label[data-shrink=false]+.MuiInputBase-formControl .emotion-4:focus::-webkit-input-placeholder {
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-2:focus::-webkit-input-placeholder {
   opacity: 0.42;
 }
 
-label[data-shrink=false]+.MuiInputBase-formControl .emotion-4:focus::-moz-placeholder {
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-2:focus::-moz-placeholder {
   opacity: 0.42;
 }
 
-label[data-shrink=false]+.MuiInputBase-formControl .emotion-4:focus:-ms-input-placeholder {
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-2:focus:-ms-input-placeholder {
   opacity: 0.42;
 }
 
-label[data-shrink=false]+.MuiInputBase-formControl .emotion-4:focus::-ms-input-placeholder {
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-2:focus::-ms-input-placeholder {
   opacity: 0.42;
 }
 
-.emotion-4.Mui-disabled {
+.emotion-2.Mui-disabled {
   opacity: 1;
   -webkit-text-fill-color: rgba(0, 0, 0, 0.38);
 }
 
-.emotion-4:-webkit-autofill {
+.emotion-2:-webkit-autofill {
   -webkit-animation-duration: 5000s;
   animation-duration: 5000s;
   -webkit-animation-name: mui-auto-fill;
   animation-name: mui-auto-fill;
 }
 
-.emotion-4 {
+.emotion-2 {
   padding: 8px 12px;
+}
+
+.emotion-3 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentColor;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 1.25rem;
 }
 
 <form
@@ -204,33 +209,12 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-4:focus::-ms-input-p
   onSubmit={[Function]}
 >
   <div
-    className="MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-adornedStart emotion-1"
+    className="MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-adornedEnd emotion-1"
     onClick={[Function]}
   >
-    <div
-      className="MuiInputAdornment-root MuiInputAdornment-positionStart emotion-2"
-    >
-      <span
-        className="notranslate"
-      >
-        ​
-      </span>
-      <svg
-        aria-hidden={true}
-        className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall emotion-3"
-        color="#999999"
-        data-testid="SearchIcon"
-        focusable="false"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-        />
-      </svg>
-    </div>
     <input
       aria-label="placeholder"
-      className="MuiInputBase-input MuiInputBase-inputAdornedStart emotion-4"
+      className="MuiInputBase-input MuiInputBase-inputAdornedEnd emotion-2"
       onAnimationStart={[Function]}
       onBlur={[Function]}
       onChange={[Function]}
@@ -240,16 +224,40 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-4:focus::-ms-input-p
       type="text"
       value=""
     />
+    <svg
+      aria-hidden={true}
+      className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall Search-icon emotion-3"
+      color="#868991"
+      data-testid="SearchIcon"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+      />
+    </svg>
   </div>
 </form>
 `;
 
 exports[`screen: Nav/SearchBar onChange 1`] = `
+.emotion-0 {
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
 .emotion-0 .MuiInputBase-root {
   width: 100%;
-  background: #FFFFFF;
-  padding: 3.2px 9.6px;
-  border-radius: 4px;
+  height: 100%;
+  padding: 8px 16px;
+  border-radius: 48px;
 }
 
 .emotion-0 .MuiInputBase-input {
@@ -272,11 +280,20 @@ exports[`screen: Nav/SearchBar onChange 1`] = `
   color: #999999;
 }
 
+.emotion-0 .Search-icon {
+  background: #25D695;
+  border-radius: 100%;
+  padding: 5px;
+  width: 30px;
+  height: 30px;
+  color: white;
+}
+
 .emotion-1 {
   font-size: 1rem;
   white-space: pre-wrap;
   letter-spacing: 0.5px;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: "Noto Sans",sans-serif;
   font-weight: 400;
   line-height: 1.4375em;
   color: #000000;
@@ -303,39 +320,6 @@ exports[`screen: Nav/SearchBar onChange 1`] = `
 }
 
 .emotion-2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  height: 0.01em;
-  max-height: 2em;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  white-space: nowrap;
-  color: rgba(0, 0, 0, 0.54);
-  margin-right: 8px;
-}
-
-.emotion-3 {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  width: 1em;
-  height: 1em;
-  display: inline-block;
-  fill: currentColor;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  font-size: 1.25rem;
-}
-
-.emotion-4 {
   font: inherit;
   letter-spacing: inherit;
   color: currentColor;
@@ -355,92 +339,109 @@ exports[`screen: Nav/SearchBar onChange 1`] = `
   animation-duration: 10ms;
 }
 
-.emotion-4::-webkit-input-placeholder {
+.emotion-2::-webkit-input-placeholder {
   color: currentColor;
   opacity: 0.42;
   -webkit-transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 
-.emotion-4::-moz-placeholder {
+.emotion-2::-moz-placeholder {
   color: currentColor;
   opacity: 0.42;
   -webkit-transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 
-.emotion-4:-ms-input-placeholder {
+.emotion-2:-ms-input-placeholder {
   color: currentColor;
   opacity: 0.42;
   -webkit-transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 
-.emotion-4::-ms-input-placeholder {
+.emotion-2::-ms-input-placeholder {
   color: currentColor;
   opacity: 0.42;
   -webkit-transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 
-.emotion-4:focus {
+.emotion-2:focus {
   outline: 0;
 }
 
-.emotion-4:invalid {
+.emotion-2:invalid {
   box-shadow: none;
 }
 
-.emotion-4::-webkit-search-decoration {
+.emotion-2::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
-label[data-shrink=false]+.MuiInputBase-formControl .emotion-4::-webkit-input-placeholder {
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-2::-webkit-input-placeholder {
   opacity: 0!important;
 }
 
-label[data-shrink=false]+.MuiInputBase-formControl .emotion-4::-moz-placeholder {
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-2::-moz-placeholder {
   opacity: 0!important;
 }
 
-label[data-shrink=false]+.MuiInputBase-formControl .emotion-4:-ms-input-placeholder {
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-2:-ms-input-placeholder {
   opacity: 0!important;
 }
 
-label[data-shrink=false]+.MuiInputBase-formControl .emotion-4::-ms-input-placeholder {
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-2::-ms-input-placeholder {
   opacity: 0!important;
 }
 
-label[data-shrink=false]+.MuiInputBase-formControl .emotion-4:focus::-webkit-input-placeholder {
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-2:focus::-webkit-input-placeholder {
   opacity: 0.42;
 }
 
-label[data-shrink=false]+.MuiInputBase-formControl .emotion-4:focus::-moz-placeholder {
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-2:focus::-moz-placeholder {
   opacity: 0.42;
 }
 
-label[data-shrink=false]+.MuiInputBase-formControl .emotion-4:focus:-ms-input-placeholder {
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-2:focus:-ms-input-placeholder {
   opacity: 0.42;
 }
 
-label[data-shrink=false]+.MuiInputBase-formControl .emotion-4:focus::-ms-input-placeholder {
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-2:focus::-ms-input-placeholder {
   opacity: 0.42;
 }
 
-.emotion-4.Mui-disabled {
+.emotion-2.Mui-disabled {
   opacity: 1;
   -webkit-text-fill-color: rgba(0, 0, 0, 0.38);
 }
 
-.emotion-4:-webkit-autofill {
+.emotion-2:-webkit-autofill {
   -webkit-animation-duration: 5000s;
   animation-duration: 5000s;
   -webkit-animation-name: mui-auto-fill;
   animation-name: mui-auto-fill;
 }
 
-.emotion-4 {
+.emotion-2 {
   padding: 8px 12px;
+}
+
+.emotion-3 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentColor;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 1.25rem;
 }
 
 <form
@@ -448,33 +449,12 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-4:focus::-ms-input-p
   onSubmit={[Function]}
 >
   <div
-    className="MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-adornedStart emotion-1"
+    className="MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-adornedEnd emotion-1"
     onClick={[Function]}
   >
-    <div
-      className="MuiInputAdornment-root MuiInputAdornment-positionStart emotion-2"
-    >
-      <span
-        className="notranslate"
-      >
-        ​
-      </span>
-      <svg
-        aria-hidden={true}
-        className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall emotion-3"
-        color="#999999"
-        data-testid="SearchIcon"
-        focusable="false"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-        />
-      </svg>
-    </div>
     <input
       aria-label="placeholder"
-      className="MuiInputBase-input MuiInputBase-inputAdornedStart emotion-4"
+      className="MuiInputBase-input MuiInputBase-inputAdornedEnd emotion-2"
       onAnimationStart={[Function]}
       onBlur={[Function]}
       onChange={[Function]}
@@ -484,6 +464,18 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-4:focus::-ms-input-p
       type="text"
       value="wallet"
     />
+    <svg
+      aria-hidden={true}
+      className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall Search-icon emotion-3"
+      color="#868991"
+      data-testid="SearchIcon"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+      />
+    </svg>
   </div>
 </form>
 `;

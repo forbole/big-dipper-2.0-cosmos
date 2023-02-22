@@ -1,7 +1,7 @@
 html {
   font-size: 16px;
   box-sizing: border-box;
-  font-family: 'Hind Madurai', sans-serif;
+  font-family: 'Noto Sans', sans-serif;
 }
 
 * {
@@ -16,7 +16,7 @@ html {
 }
 
 body {
-  font-family: 'Hind Madurai', sans-serif;
+  font-family: 'Noto Sans', sans-serif;
   font-size: 16px;
 }
 
@@ -31,7 +31,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Hind Madurai', sans-serif;
+  font-family: 'Noto Sans', sans-serif;
   font-weight: 400;
   margin: 0;
 }
@@ -88,6 +88,20 @@ button {
 svg {
   fill: #999999;
   color: #999999;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #25d695;
+  border-radius: 4px;
 }
 
 .scrollbar::-webkit-scrollbar {

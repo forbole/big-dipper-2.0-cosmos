@@ -10,7 +10,7 @@ const useStyles = makeStyles()((theme) => ({
     flexDirection: 'column',
     alignItems: 'flex-start',
     justifyContent: 'space-between',
-    color: theme.palette.custom.fonts.fontFive,
+    color: theme.palette.custom.fonts.data_blocks,
     '& .label': {
       marginBottom: theme.spacing(2),
     },
@@ -22,6 +22,7 @@ const useStyles = makeStyles()((theme) => ({
     },
     '& .description': {
       display: 'none',
+      color: theme.palette.custom.fonts.fontFive,
       [theme.breakpoints.up('md')]: {
         display: 'block',
       },

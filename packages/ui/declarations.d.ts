@@ -19,6 +19,7 @@ interface AvatarName {
   href?: (address: string) => string;
   image?: React.ReactNode;
   target?: JSX.IntrinsicElements['a']['target'];
+  shorten?: boolean;
 }
 
 type Transactions = {

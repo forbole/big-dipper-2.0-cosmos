@@ -11,6 +11,9 @@ function chainConfig() {
   if (!chain && chainType !== 'testnet') {
     chain = chains.find((c) => c.chainType?.toLowerCase() === 'testnet');
   }
+  if (!chain && chainType !== 'devnet') {
+    chain = chains.find((c) => c.chainType?.toLowerCase() === 'devnet');
+  }
 
   /* If the chainType is not found, it will use the first chain in the array. */
   if (!chain) [chain] = chains;

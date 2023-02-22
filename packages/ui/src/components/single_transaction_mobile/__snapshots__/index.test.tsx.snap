@@ -27,7 +27,7 @@ exports[`component: SingleTransactionMobile matches snapshot 1`] = `
   margin: 0;
   font-size: 1rem;
   letter-spacing: 0.15px;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: "Noto Sans",sans-serif;
   font-weight: 400;
   line-height: 1.235;
 }
@@ -37,7 +37,7 @@ exports[`component: SingleTransactionMobile matches snapshot 1`] = `
   font-size: 1rem;
   white-space: pre-wrap;
   letter-spacing: 0.5px;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: "Noto Sans",sans-serif;
   font-weight: 400;
   line-height: 1.5;
 }
@@ -75,33 +75,11 @@ exports[`component: SingleTransactionMobile matches snapshot 1`] = `
   -webkit-justify-content: flex-start;
   justify-content: flex-start;
   color: #414141;
-}
-
-.emotion-12 svg {
-  width: 16px;
-  height: 16px;
-  margin-right: 4px;
+  gap: 4px;
 }
 
 .emotion-12 .MuiSvgIcon-root {
   fill: #1EC490;
-}
-
-.emotion-13 {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  width: 1em;
-  height: 1em;
-  display: inline-block;
-  fill: currentColor;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  font-size: 1.5rem;
 }
 
 <div
@@ -163,18 +141,7 @@ exports[`component: SingleTransactionMobile matches snapshot 1`] = `
       <span
         className="emotion-12"
       >
-        <svg
-          aria-hidden={true}
-          className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-13"
-          color="#999999"
-          data-testid="CheckCircleIcon"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
-          />
-        </svg>
+        <svg />
         <span
           className="MuiTypography-root MuiTypography-body1 emotion-5"
         >

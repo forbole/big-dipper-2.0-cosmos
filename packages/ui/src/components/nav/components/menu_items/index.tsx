@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { getMenuItems } from '@/components/nav/components/menu_items/utils';
 import useStyles from '@/components/nav/components/menu_items/styles';
+import { SettingsList } from '../desktop/components/action_bar/components';
 
 const MenuItems = () => {
   const { classes, cx } = useStyles();
@@ -39,6 +40,7 @@ const MenuItems = () => {
           </Link>
         );
       })}
+      <SettingsList className={classes.root} />
     </List>
   );
 };

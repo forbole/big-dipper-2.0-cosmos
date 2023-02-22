@@ -2,9 +2,9 @@ import { ThemeOptions } from '@mui/material/styles';
 import chainConfig from '@/chainConfig';
 import {
   darkTemplate,
-  deuteranopiaTemplate,
+  // deuteranopiaTemplate,
   lightTemplate,
-  tritanopiaTemplate,
+  // tritanopiaTemplate,
 } from '@/styles/theme';
 
 const { themes } = chainConfig();
@@ -21,12 +21,13 @@ const getThemeDictionary = (list: string[]): ThemeDictionaryType => {
       case 'dark':
         themeDict.dark = darkTemplate;
         break;
-      case 'deuteranopia':
-        themeDict.deuteranopia = deuteranopiaTemplate;
-        break;
-      case 'tritanopia':
-        themeDict.tritanopia = tritanopiaTemplate;
-        break;
+      //Commented out since they are ommited in Coreum BD Repo
+      // case 'deuteranopia':
+      //   themeDict.deuteranopia = deuteranopiaTemplate;
+      //   break;
+      // case 'tritanopia':
+      //   themeDict.tritanopia = tritanopiaTemplate;
+      //   break;
       default:
         break;
     }

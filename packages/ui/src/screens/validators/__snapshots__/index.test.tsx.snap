@@ -15,11 +15,26 @@ exports[`screen: Validators matches snapshot 1`] = `
   color: #4092CD;
 }
 
+.emotion-1 {
+  margin: 0;
+  font-size: 2rem;
+  letter-spacing: 0.25px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  font-family: "Noto Sans",sans-serif;
+  line-height: 1.167;
+}
+
 <div
   className="emotion-0"
   id="Layout"
   navTitle="validators"
 >
+  <h1
+    className="MuiTypography-root MuiTypography-h1 emotion-1"
+  >
+    validators
+  </h1>
   <div
     id="List"
   />

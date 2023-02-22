@@ -5,6 +5,7 @@ import Layout from '@/components/layout';
 import LoadAndExist from '@/components/load_and_exist';
 import { useParams } from '@/screens/params/hooks';
 import useStyles from '@/screens/params/styles';
+import { Typography } from '@mui/material';
 import {
   formatDistribution,
   formatGov,
@@ -63,6 +64,9 @@ const Params = () => {
       />
       <Layout navTitle={t('params') ?? undefined}>
         <LoadAndExist loading={state.loading} exists={state.exists}>
+          <Typography variant="h1" className={classes.header}>
+            {t('params')}
+          </Typography>
           <span className={classes.root}>
             {staking && <BoxDetails {...staking} />}
             {slashing && <BoxDetails {...slashing} />}

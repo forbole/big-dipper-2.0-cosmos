@@ -9,11 +9,11 @@ import { useGetComponentDimension } from '@/hooks/use_get_component_dimension';
 type ActionBarProps = {
   isNetwork: boolean;
   className?: string;
-  toggleNetwork: () => void;
+  // toggleNetwork?: () => void;
 };
 
-const ActionBar: FC<ActionBarProps> = ({ toggleNetwork, className, isNetwork }) => {
-  const { ref: heightRef, height } = useGetComponentDimension();
+const ActionBar: FC<ActionBarProps> = ({ className, isNetwork }) => {
+  const { ref: heightRef } = useGetComponentDimension();
   const { classes, cx } = useStyles();
   return (
     <div className={cx(classes.root, className)} ref={heightRef}>
@@ -22,8 +22,8 @@ const ActionBar: FC<ActionBarProps> = ({ toggleNetwork, className, isNetwork }) 
         {/* <Network
           className={cx(classes.network, { open: isNetwork })}
           toggleNetwork={toggleNetwork}
-        /> */}
-        <SettingsList />
+        />
+        <SettingsList /> */}
       </div>
       {/* <NetworkList
         actionHeight={height}

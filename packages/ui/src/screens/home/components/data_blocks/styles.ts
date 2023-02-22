@@ -6,12 +6,12 @@ const useStyles = makeStyles()((theme) => ({
     gap: theme.spacing(1),
     gridTemplateRows: 'auto',
     [theme.breakpoints.up('sm')]: {
-      gridTemplateColumns: 'repeat(2, 1fr)',
+      gridTemplateColumns: '1fr 1.5 fr 1.5fr',
     },
-    [theme.breakpoints.up('lg')]: {
-      gap: theme.spacing(2),
-      gridTemplateColumns: 'repeat(4, 1fr)',
-    },
+    // [theme.breakpoints.up('lg')]: {
+    //   gap: theme.spacing(2),
+    //   gridTemplateColumns: 'repeat(4, 1fr)',
+    // },
   },
   blockHeight: {
     background: theme.palette.custom.general.single_block,

@@ -4,7 +4,7 @@ import Color from 'color';
 const useStyles = makeStyles()((theme) => ({
   root: {
     background: theme.palette.background.paper,
-    padding: theme.spacing(6, 3, 6),
+    padding: theme.spacing(0, 3),
     color: theme.palette.custom.fonts.fontOne,
     '& .footer__closing--container': {
       '& a': {

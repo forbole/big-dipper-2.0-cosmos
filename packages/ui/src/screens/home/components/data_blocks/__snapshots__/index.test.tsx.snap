@@ -9,20 +9,13 @@ exports[`screen: Home/DataBlocks matches snapshot 1`] = `
 
 @media (min-width:375px) {
   .emotion-0 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width:1280px) {
-  .emotion-0 {
-    gap: 16px;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 1fr 1.5 fr 1.5fr;
   }
 }
 
 .emotion-1 {
   padding: 16px;
-  background: #FF835B;
+  background: #25D695;
   border-radius: 4px;
   height: 110px;
   display: -webkit-box;
@@ -39,8 +32,7 @@ exports[`screen: Home/DataBlocks matches snapshot 1`] = `
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   justify-content: space-between;
-  color: #FFFFFF;
-  background: #F87255;
+  background: linear-gradient(110.16deg, rgba(94,103,115, 0.35) 0%, rgba(94,103,115,0.5) 100%);
 }
 
 .emotion-1 .label {
@@ -64,6 +56,7 @@ exports[`screen: Home/DataBlocks matches snapshot 1`] = `
 
 .emotion-1 .description {
   display: none;
+  color: #FFFFFF;
 }
 
 @media (min-width:768px) {
@@ -76,7 +69,7 @@ exports[`screen: Home/DataBlocks matches snapshot 1`] = `
   margin: 0;
   font-size: 0.875rem;
   letter-spacing: 0.25px;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: "Noto Sans",sans-serif;
   font-weight: 400;
   line-height: 1.43;
 }
@@ -85,14 +78,15 @@ exports[`screen: Home/DataBlocks matches snapshot 1`] = `
   margin: 0;
   font-size: 2rem;
   letter-spacing: 0.25px;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
-  font-weight: 300;
+  font-weight: 600;
+  margin-bottom: 12px;
+  font-family: "Noto Sans",sans-serif;
   line-height: 1.167;
 }
 
 .emotion-4 {
   padding: 16px;
-  background: #FF835B;
+  background: #25D695;
   border-radius: 4px;
   height: 110px;
   display: -webkit-box;
@@ -109,8 +103,7 @@ exports[`screen: Home/DataBlocks matches snapshot 1`] = `
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   justify-content: space-between;
-  color: #FFFFFF;
-  background: #FA9147;
+  background: linear-gradient(110.16deg, rgba(94,103,115, 0.35) 0%, rgba(94,103,115,0.5) 100%);
 }
 
 .emotion-4 .label {
@@ -134,6 +127,7 @@ exports[`screen: Home/DataBlocks matches snapshot 1`] = `
 
 .emotion-4 .description {
   display: none;
+  color: #FFFFFF;
 }
 
 @media (min-width:768px) {
@@ -144,7 +138,7 @@ exports[`screen: Home/DataBlocks matches snapshot 1`] = `
 
 .emotion-7 {
   padding: 16px;
-  background: #FF835B;
+  background: #25D695;
   border-radius: 4px;
   height: 110px;
   display: -webkit-box;
@@ -161,8 +155,7 @@ exports[`screen: Home/DataBlocks matches snapshot 1`] = `
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   justify-content: space-between;
-  color: #FFFFFF;
-  background: #20D494;
+  background: linear-gradient(110.16deg, rgba(94,103,115, 0.35) 0%, rgba(94,103,115,0.5) 100%);
 }
 
 .emotion-7 .label {
@@ -186,6 +179,7 @@ exports[`screen: Home/DataBlocks matches snapshot 1`] = `
 
 .emotion-7 .description {
   display: none;
+  color: #FFFFFF;
 }
 
 @media (min-width:768px) {
@@ -195,62 +189,10 @@ exports[`screen: Home/DataBlocks matches snapshot 1`] = `
 }
 
 .emotion-10 {
-  padding: 16px;
-  background: #FF835B;
-  border-radius: 4px;
-  height: 110px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  justify-content: space-between;
-  color: #FFFFFF;
-  background: #2FB6E0;
-}
-
-.emotion-10 .label {
-  margin-bottom: 16px;
-}
-
-.emotion-10 .content {
-  width: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: flex-end;
-  -webkit-box-align: flex-end;
-  -ms-flex-align: flex-end;
-  align-items: flex-end;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  justify-content: space-between;
-}
-
-.emotion-10 .description {
-  display: none;
-}
-
-@media (min-width:768px) {
-  .emotion-10 .description {
-    display: block;
-  }
-}
-
-.emotion-13 {
   margin: 0;
   font-size: 0.75rem;
   letter-spacing: 0.4px;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: "Noto Sans",sans-serif;
   font-weight: 400;
   line-height: 1.66;
 }
@@ -300,24 +242,6 @@ exports[`screen: Home/DataBlocks matches snapshot 1`] = `
     <p
       className="MuiTypography-root MuiTypography-body2 label emotion-2"
     >
-      price
-    </p>
-    <div
-      className="content"
-    >
-      <h1
-        className="MuiTypography-root MuiTypography-h1 emotion-3"
-      >
-        N/A
-      </h1>
-    </div>
-  </div>
-  <div
-    className="emotion-10"
-  >
-    <p
-      className="MuiTypography-root MuiTypography-body2 label emotion-2"
-    >
       activeValidators
     </p>
     <div
@@ -329,7 +253,7 @@ exports[`screen: Home/DataBlocks matches snapshot 1`] = `
         200
       </h1>
       <span
-        className="MuiTypography-root MuiTypography-caption description emotion-13"
+        className="MuiTypography-root MuiTypography-caption description emotion-10"
       >
         outOfValidators
       </span>

@@ -1,7 +1,9 @@
 import { useSettingList } from '@/components/nav/components/desktop/components/action_bar/components/settings_list/hooks';
 import useStyles from '@/components/nav/components/desktop/components/action_bar/components/settings_list/styles';
-import { DATE_LIST, THEME_LIST, TX_LIST } from '@/recoil/settings';
+import { readTx, TX_LIST } from '@/recoil/settings';
 import CloseIcon from '@mui/icons-material/Close';
+import { default as Dark } from '@mui/icons-material/Brightness2';
+import { default as Light } from '@mui/icons-material/Brightness7';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -10,11 +12,14 @@ import DialogTitle from '@mui/material/DialogTitle';
 import IconButton from '@mui/material/IconButton';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
+import { ListItemIcon, ListItemText, ListItemButton } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import { FC } from 'react';
+import { useRecoilValue } from 'recoil';
 import SettingIcon from 'shared-utils/assets/icon-setting.svg';
+import generalConfig from '@/generalConfig';
 
 const release = `${process.env.NEXT_PUBLIC_RELEASE ?? ''}`;
 
@@ -25,50 +30,47 @@ const Settings: FC<ComponentDefault> = (props) => {
   const { open, handleOpen, state, handleChange, handleFormSubmit, handleCancel } = useSettingList({
     lang: i18n.language,
   });
+  const txListFormat = useRecoilValue(readTx);
 
   return (
     <div>
-      <div
-        onClick={handleOpen}
-        role="button"
-        className={cx(props.className, classes.icon)}
-        tabIndex={0}
-        aria-label="settings-button"
-      >
-        <SettingIcon />
-      </div>
+      <ListItemButton className={props.className} onClick={handleOpen}>
+        <ListItemIcon>
+          <div role="button" className={classes.icon}>
+            <SettingIcon />
+          </div>
+        </ListItemIcon>
+        <ListItemText primary={t('settings')} />
+      </ListItemButton>
       <Dialog maxWidth="md" onClose={handleCancel} open={open} className={classes.dialog}>
         <DialogTitle className={classes.header}>
           <div className={classes.title}>
             <Typography variant="h2">{t('settings')}</Typography>
-            <Typography variant="body2" className={classes.version}>
-              ({release})
-            </Typography>
           </div>
           <IconButton aria-label="close" onClick={handleCancel} size="large">
             <CloseIcon />
           </IconButton>
         </DialogTitle>
-        <DialogContent dividers>
+        <DialogContent>
           <form onSubmit={handleFormSubmit}>
             <div className={classes.formItem}>
               <Typography className="form-item--label">{t('theme')}</Typography>
-              <Select
-                variant="outlined"
-                value={state.theme}
-                onChange={(e) => handleChange('theme', (e?.target?.value as string) ?? '')}
-                MenuProps={{
-                  MenuListProps: {
-                    disablePadding: true,
-                  },
-                }}
-              >
-                {THEME_LIST.map((l) => (
-                  <MenuItem key={l} value={l}>
-                    {t(l)}
-                  </MenuItem>
-                ))}
-              </Select>
+              <div className="theme_container">
+                <div
+                  className={`theme_item ${state.theme === 'dark' ? 'active' : ''}`}
+                  role="button"
+                  onClick={() => handleChange('theme', 'dark')}
+                >
+                  <Dark htmlColor={state.theme === 'dark' ? 'white' : undefined} />
+                </div>
+                <div
+                  className={`theme_item ${state.theme === 'light' ? 'active' : ''}`}
+                  role="button"
+                  onClick={() => handleChange('theme', 'light')}
+                >
+                  <Light htmlColor={state.theme === 'light' ? 'white' : undefined} />
+                </div>
+              </div>
             </div>
 
             <div className={classes.formItem}>
@@ -91,7 +93,7 @@ const Settings: FC<ComponentDefault> = (props) => {
               </Select>
             </div>
 
-            <div className={classes.formItem}>
+            {/* <div className={classes.formItem}>
               <Typography className="form-item--label">{t('dateFormat')}</Typography>
               <Select
                 variant="outlined"
@@ -109,13 +111,13 @@ const Settings: FC<ComponentDefault> = (props) => {
                   </MenuItem>
                 ))}
               </Select>
-            </div>
+            </div> */}
 
             <div className={classes.formItem}>
               <Typography className="form-item--label">{t('txListFormat')}</Typography>
               <Select
                 variant="outlined"
-                value={state.txListFormat}
+                value={txListFormat}
                 onChange={(e) => handleChange('txListFormat', (e?.target?.value as string) ?? '')}
                 MenuProps={{
                   MenuListProps: {
@@ -132,7 +134,17 @@ const Settings: FC<ComponentDefault> = (props) => {
             </div>
           </form>
         </DialogContent>
-        <DialogActions>
+        <div />
+        <DialogActions
+          style={{
+            justifyContent: 'space-between',
+            paddingLeft: '24px',
+          }}
+        >
+          <Typography variant="body2" className={classes.version}>
+            {t('version')}
+            {generalConfig.version}
+          </Typography>
           <Button onClick={handleFormSubmit} color="primary">
             Save
           </Button>

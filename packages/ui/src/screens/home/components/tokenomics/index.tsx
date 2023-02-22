@@ -35,7 +35,7 @@ const Tokenomics: FC<ComponentDefault> = ({ className }) => {
     {
       legendKey: 'bonded',
       percentKey: 'bondedPercent',
-      value: numeral(state.bonded).format('0,0'),
+      value: numeral(state.bonded).format('0a'),
       rawValue: state.bonded,
       percent: `${numeral((state.bonded * 100) / state.total).format('0.00')}%`,
       fill: theme.palette.custom.tokenomics.one,
@@ -43,14 +43,14 @@ const Tokenomics: FC<ComponentDefault> = ({ className }) => {
     {
       legendKey: 'unbonded',
       percentKey: 'unbondedPercent',
-      value: numeral(state.unbonded).format('0,0'),
+      value: numeral(state.unbonded).format('0a'),
       rawValue: state.unbonded,
       percent: `${numeral((state.unbonded * 100) / state.total).format('0.00')}%`,
       fill: theme.palette.custom.tokenomics.two,
     },
     {
       legendKey: 'unbonding',
-      value: numeral(state.unbonding).format('0,0'),
+      value: numeral(state.unbonding).format('0a'),
       rawValue: state.unbonding,
       percent: `${numeral((state.unbonding * 100) / state.total).format('0.00')}%`,
       fill: theme.palette.custom.tokenomics.three,
@@ -62,31 +62,16 @@ const Tokenomics: FC<ComponentDefault> = ({ className }) => {
       <Typography variant="h2" className={classes.label}>
         {t('tokenomics')}
       </Typography>
-      <div className={classes.data}>
-        {data.slice(0, 2).map((x) => (
-          <div className="data__item" key={x.percentKey}>
-            <Typography variant="h4">
-              {x.value} {tokenUnits?.[state.denom]?.display?.toUpperCase()}
-            </Typography>
-            <Typography variant="caption">
-              {x.percentKey
-                ? t(x.percentKey, {
-                    percent: x.percent,
-                  })
-                : ''}
-            </Typography>
-          </div>
-        ))}
-      </div>
+      {/* Commented, as it was removed in one of the previous commits */}
       <div className={classes.content}>
-        <DynamicPieChart width={200} height={100} cy={100}>
+        <DynamicPieChart width={200} height={200} cy={100}>
           <Pie
             stroke="none"
             // cornerRadius={40}
             cy={90}
             data={data}
-            startAngle={180}
-            endAngle={0}
+            startAngle={0}
+            endAngle={360}
             // innerRadius={79}
             outerRadius={90}
             fill="#8884d8"
@@ -102,14 +87,30 @@ const Tokenomics: FC<ComponentDefault> = ({ className }) => {
           </Pie>
           <Tooltip content={customToolTip} />
         </DynamicPieChart>
-
-        <div className={classes.legends}>
+        {/* <div className={classes.legends}>
           {data.map((x) => (
             <div className="legends__item" key={x.legendKey}>
               <Typography variant="caption">{t(x.legendKey)}</Typography>
             </div>
           ))}
-        </div>
+        </div> */}
+      </div>
+      {/*  */}
+      <div className={classes.data}>
+        {data.slice(0, 2).map((x) => (
+          <div className="data__item" key={x.percentKey}>
+            <Typography variant="h4">
+              {x.value} {tokenUnits?.[state.denom]?.display?.toUpperCase()}
+            </Typography>
+            <Typography variant="caption">
+              {x.percentKey
+                ? t(x.percentKey, {
+                    percent: x.percent,
+                  })
+                : ''}
+            </Typography>
+          </div>
+        ))}
       </div>
     </Box>
   );

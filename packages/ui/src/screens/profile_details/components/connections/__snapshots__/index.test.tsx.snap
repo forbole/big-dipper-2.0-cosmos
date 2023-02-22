@@ -5,8 +5,8 @@ exports[`screen: ProfileDetails/Connections matches snapshot 1`] = `
   margin: 0;
   font-size: 1.5rem;
   letter-spacing: 0;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
-  font-weight: 300;
+  font-weight: 600;
+  font-family: "Noto Sans",sans-serif;
   line-height: 1.2;
 }
 
@@ -30,7 +30,7 @@ exports[`screen: ProfileDetails/Connections matches snapshot 1`] = `
 .emotion-2 caption {
   font-size: 0.875rem;
   letter-spacing: 0.25px;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: "Noto Sans",sans-serif;
   font-weight: 400;
   line-height: 1.43;
   padding: 16px;
@@ -59,17 +59,17 @@ exports[`screen: ProfileDetails/Connections matches snapshot 1`] = `
 }
 
 .emotion-4.Mui-selected {
-  background-color: rgba(255, 131, 91, 0.08);
+  background-color: rgba(37, 214, 149, 0.08);
 }
 
 .emotion-4.Mui-selected:hover {
-  background-color: rgba(255, 131, 91, 0.12);
+  background-color: rgba(37, 214, 149, 0.12);
 }
 
 .emotion-5 {
   font-size: 0.875rem;
   letter-spacing: 0.25px;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: "Noto Sans",sans-serif;
   font-weight: 500;
   line-height: 1.5rem;
   display: table-cell;
@@ -90,7 +90,7 @@ exports[`screen: ProfileDetails/Connections matches snapshot 1`] = `
 .emotion-7 {
   font-size: 0.875rem;
   letter-spacing: 0.25px;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: "Noto Sans",sans-serif;
   font-weight: 500;
   line-height: 1.5rem;
   display: table-cell;
@@ -126,7 +126,7 @@ exports[`screen: ProfileDetails/Connections matches snapshot 1`] = `
 .emotion-10 {
   font-size: 0.875rem;
   letter-spacing: 0.25px;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: "Noto Sans",sans-serif;
   font-weight: 400;
   line-height: 1.43;
   display: table-cell;
@@ -147,7 +147,7 @@ exports[`screen: ProfileDetails/Connections matches snapshot 1`] = `
 .emotion-12 {
   font-size: 0.875rem;
   letter-spacing: 0.25px;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: "Noto Sans",sans-serif;
   font-weight: 400;
   line-height: 1.43;
   display: table-cell;
@@ -200,7 +200,7 @@ exports[`screen: ProfileDetails/Connections matches snapshot 1`] = `
   margin: 0;
   font-size: 1rem;
   letter-spacing: 0.15px;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: "Noto Sans",sans-serif;
   font-weight: 400;
   line-height: 1.235;
 }
@@ -210,7 +210,7 @@ exports[`screen: ProfileDetails/Connections matches snapshot 1`] = `
   font-size: 1rem;
   white-space: pre-wrap;
   letter-spacing: 0.5px;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: "Noto Sans",sans-serif;
   font-weight: 400;
   line-height: 1.5;
 }
@@ -319,15 +319,7 @@ exports[`screen: ProfileDetails/Connections matches snapshot 1`] = `
               }
             }
           >
-            <a
-              className="value"
-              href="/accounts/desmos1rzhewpmmdl72lhnxj6zmxr4v94f522s4ff2psv"
-              onClick={[Function]}
-              onMouseEnter={[Function]}
-              onTouchStart={[Function]}
-            >
-              desmos1rzhewpmmdl72lhnxj6zmxr4v94f522s4ff2psv
-            </a>
+            desmos1rzhewpmmdl72lhnxj6zmxr4v94f522s4ff2psv
           </td>
           <td
             aria-sort={null}
@@ -413,15 +405,7 @@ exports[`screen: ProfileDetails/Connections matches snapshot 1`] = `
         <p
           className="MuiTypography-root MuiTypography-body1 value emotion-21"
         >
-          <a
-            className="value"
-            href="/accounts/desmos1rzhewpmmdl72lhnxj6zmxr4v94f522s4ff2psv"
-            onClick={[Function]}
-            onMouseEnter={[Function]}
-            onTouchStart={[Function]}
-          >
-            desmos1rzhewpmmdl72lhnxj6zmxr4v94f522s4ff2psv
-          </a>
+          desmos1rzhewpmmdl72lhnxj6zmxr4v94f522s4ff2psv
         </p>
       </div>
       <div

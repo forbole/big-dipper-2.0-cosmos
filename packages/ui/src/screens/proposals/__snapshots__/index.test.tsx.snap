@@ -19,6 +19,16 @@ exports[`screen: Proposals matches snapshot 1`] = `
   height: 100%;
 }
 
+.emotion-2 {
+  margin: 0;
+  font-size: 2rem;
+  letter-spacing: 0.25px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  font-family: "Noto Sans",sans-serif;
+  line-height: 1.167;
+}
+
 <div
   className="emotion-0"
   id="Layout"
@@ -27,6 +37,11 @@ exports[`screen: Proposals matches snapshot 1`] = `
   <div
     className="emotion-1"
   >
+    <h1
+      className="MuiTypography-root MuiTypography-h1 emotion-2"
+    >
+      proposals
+    </h1>
     <div
       id="List"
       isItemLoaded={[Function]}

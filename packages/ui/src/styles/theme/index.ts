@@ -45,13 +45,17 @@ export const common = (theme: ThemeOptions) =>
       },
     },
     typography: {
+      fontFamily: '"Noto Sans", sans-serif',
       h1: {
         fontSize: '2rem',
         letterSpacing: 0.25,
+        fontWeight: 600,
+        marginBottom: 12,
       },
       h2: {
         fontSize: '1.5rem',
         letterSpacing: 0,
+        fontWeight: 600,
       },
       h3: {
         fontSize: '1.25rem',

@@ -3,15 +3,18 @@ import { makeStyles } from 'tss-react/mui';
 const useStyles = makeStyles()((theme) => ({
   root: {
     height: '100%',
-    display: 'flex',
-    justifyContent: 'center',
-    flexDirection: 'column',
+    display: 'grid',
+    gridTemplateRows: 'auto 1fr auto',
+    // justifyContent: 'center',
+    // flexDirection: 'column',
   },
   label: {
     marginBottom: theme.spacing(2),
   },
   data: {
     display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
     '& .data__item': {
       width: '50%',
       whiteSpace: 'pre-wrap',
@@ -21,6 +24,9 @@ const useStyles = makeStyles()((theme) => ({
       '& .MuiTypography-caption': {
         color: theme.palette.custom.fonts.fontThree,
       },
+    },
+    '& .data__item:last-child': {
+      textAlign: 'right',
     },
   },
   legends: {
@@ -56,11 +62,11 @@ const useStyles = makeStyles()((theme) => ({
     },
   },
   content: {
-    flex: 1,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-around',
     flexDirection: 'column',
+    height: '100%',
   },
 }));
 

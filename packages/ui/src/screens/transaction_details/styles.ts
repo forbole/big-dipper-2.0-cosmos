@@ -15,6 +15,14 @@ const useStyles = makeStyles()((theme) => ({
       gap: theme.spacing(2),
     },
   },
+  top: {
+    display: 'grid',
+    gridTemplateColumns: '1fr',
+    gap: theme.spacing(2),
+    [theme.breakpoints.up('lg')]: {
+      gridTemplateColumns: '1.25fr 1fr',
+    },
+  },
   messages: {
     minHeight: '500px',
     height: '50vh',

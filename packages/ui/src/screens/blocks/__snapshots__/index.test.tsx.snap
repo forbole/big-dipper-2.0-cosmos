@@ -16,12 +16,23 @@ exports[`screen: Blocks matches snapshot 1`] = `
 }
 
 .emotion-1 {
+  margin: 0;
+  font-size: 2rem;
+  letter-spacing: 0.25px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  font-family: "Noto Sans",sans-serif;
+  line-height: 1.167;
+}
+
+.emotion-2 {
   min-height: 500px;
   height: 50vh;
+  padding: 0px!important;
 }
 
 @media (min-width:1280px) {
-  .emotion-1 {
+  .emotion-2 {
     height: 100%;
     min-height: 65vh;
   }
@@ -37,8 +48,13 @@ exports[`screen: Blocks matches snapshot 1`] = `
     id="LoadAndExist"
     loading={false}
   >
+    <h1
+      className="MuiTypography-root MuiTypography-h1 emotion-1"
+    >
+      blocks
+    </h1>
     <div
-      className="emotion-1"
+      className="emotion-2 scrollbar"
       id="Box"
     >
       <div

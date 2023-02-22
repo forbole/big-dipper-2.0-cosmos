@@ -26,7 +26,7 @@ function MyApp(props: MainProps<{ initialApolloState?: NormalizedCacheObject }>)
   return (
     <RecoilRoot>
       <DefaultSeo
-        titleTemplate={`%s | ${title}`}
+        titleTemplate={`${title}`}
         title={t('common:bigDipper') ?? undefined}
         description={t('common:description') ?? undefined}
         openGraph={{

@@ -4,6 +4,7 @@ import Layout from '@/components/layout';
 import LoadAndExist from '@/components/load_and_exist';
 import List from '@/screens/proposals/components/list';
 import { useProposals } from '@/screens/proposals/hooks';
+import { Typography } from '@mui/material';
 import useStyles from '@/screens/proposals/styles';
 
 const Proposals = () => {
@@ -21,6 +22,7 @@ const Proposals = () => {
       />
       <Layout navTitle={t('proposals') ?? undefined} className={classes.root}>
         <LoadAndExist loading={state.loading} exists={state.exists}>
+          <Typography variant="h1">{t('proposals')}</Typography>
           <List
             items={state.items}
             rawDataTotal={state.rawDataTotal}

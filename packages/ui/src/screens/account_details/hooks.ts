@@ -99,7 +99,7 @@ const formatBalance = (data: Data): BalanceType => {
   const rewardsAmount = formatToken(rewards, primaryTokenUnit);
 
   const commission = getDenom(
-    R.pathOr<NonNullable<NonNullable<typeof data['commission']>['coins']>>(
+    R.pathOr<NonNullable<NonNullable<(typeof data)['commission']>['coins']>>(
       [],
       ['commission', 'coins'],
       data
@@ -169,7 +169,7 @@ const formatOtherTokens = (data: Data) => {
     const availableRawAmount = getDenom(available, x);
     const availableAmount = formatToken(availableRawAmount.amount, x);
     const rewardsRawAmount = rewards.reduce((a, b) => {
-      const coins = R.pathOr<NonNullable<typeof b['coins']>>([], ['coins'], b);
+      const coins = R.pathOr<NonNullable<(typeof b)['coins']>>([], ['coins'], b);
       const denom = getDenom(coins, x);
       return Big(a).plus(denom.amount).toPrecision();
     }, '0');
@@ -247,11 +247,11 @@ export const useAccountDetails = () => {
 
   useEffect(() => {
     const formattedRawData: {
-      commission?: typeof commission['commission'];
-      accountBalances?: typeof available['accountBalances'];
-      delegationBalance?: typeof delegation['delegationBalance'];
-      unbondingBalance?: typeof unbonding['unbondingBalance'];
-      delegationRewards?: typeof rewards['delegationRewards'];
+      commission?: (typeof commission)['commission'];
+      accountBalances?: (typeof available)['accountBalances'];
+      delegationBalance?: (typeof delegation)['delegationBalance'];
+      unbondingBalance?: (typeof unbonding)['unbondingBalance'];
+      delegationRewards?: (typeof rewards)['delegationRewards'];
     } = {};
     formattedRawData.commission = R.pathOr({ coins: [] }, ['commission'], commission);
     formattedRawData.accountBalances = R.pathOr({ coins: [] }, ['accountBalances'], available);

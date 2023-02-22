@@ -6,7 +6,6 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
 }
 
 .emotion-1 {
-  background: #FFFFFF;
   height: 50px;
   padding: 16px;
   display: -webkit-box;
@@ -17,6 +16,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  text-transform: uppercase;
 }
 
 .emotion-1.odd {
@@ -35,7 +35,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
   margin: 0;
   font-size: 1rem;
   letter-spacing: 0.15px;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: "Noto Sans",sans-serif;
   font-weight: 400;
   line-height: 1.235;
 }
@@ -44,7 +44,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
   margin: 0;
   font-size: 1rem;
   letter-spacing: 0.15px;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: "Noto Sans",sans-serif;
   font-weight: 400;
   line-height: 1.235;
   text-align: right;
@@ -82,7 +82,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
   font-size: 1rem;
   white-space: pre-wrap;
   letter-spacing: 0.5px;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: "Noto Sans",sans-serif;
   font-weight: 400;
   line-height: 1.5;
 }
@@ -92,7 +92,7 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
   font-size: 1rem;
   white-space: pre-wrap;
   letter-spacing: 0.5px;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: "Noto Sans",sans-serif;
   font-weight: 400;
   line-height: 1.5;
   text-align: right;

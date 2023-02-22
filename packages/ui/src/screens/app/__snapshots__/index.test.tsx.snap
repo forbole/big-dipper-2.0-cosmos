@@ -97,8 +97,9 @@ exports[`screen: _app matches snapshot 1`] = `
   margin: 0;
   font-size: 2rem;
   letter-spacing: 0.25px;
+  font-weight: 600;
+  margin-bottom: 12px;
   font-family: fontFamily;
-  font-weight: 300;
   line-height: 1.167;
 }
 
@@ -115,10 +116,10 @@ exports[`screen: _app matches snapshot 1`] = `
   margin: 0;
   font-size: 1.5rem;
   letter-spacing: 0;
+  font-weight: 600;
   font-family: fontFamily;
-  font-weight: 300;
   line-height: 1.2;
-  color: #FF835B;
+  color: #25D695;
 }
 
 <div
@@ -225,7 +226,7 @@ exports[`screen: _app matches snapshot 1`] = `
     <h2
       className="MuiTypography-root MuiTypography-h2 emotion-17"
     >
-      desmos-mainnet
+      coreum
     </h2>
   </div>,
   <div

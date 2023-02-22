@@ -3,9 +3,9 @@ import Menu from '@/components/nav/components/mobile/components/menu';
 import Navbar from '@/components/nav/components/mobile/components/navbar';
 import { useMobile } from '@/components/nav/components/mobile/hooks';
 import useStyles from '@/components/nav/components/mobile/styles';
-import Networks from '@/components/nav/components/networks';
+// import Networks from '@/components/nav/components/networks';
 import SearchBar from '@/components/nav/components/search_bar';
-import TitleBar from '@/components/nav/components/title_bar';
+// import TitleBar from '@/components/nav/components/title_bar';
 import { useGetComponentDimension } from '@/hooks/use_get_component_dimension';
 
 type MobileProps = {
@@ -13,9 +13,9 @@ type MobileProps = {
   title: string;
 };
 
-const Mobile: FC<MobileProps> = ({ className, title }) => {
+const Mobile: FC<MobileProps> = ({ className }) => {
   const { ref: heightRef, height } = useGetComponentDimension();
-  const { isMenu, isNetwork, isOpen, openNetwork, toggleNavMenus } = useMobile();
+  const { isMenu, isOpen, openNetwork, toggleNavMenus } = useMobile();
   const { classes, cx } = useStyles();
 
   return (
@@ -28,14 +28,14 @@ const Mobile: FC<MobileProps> = ({ className, title }) => {
             menu: isMenu,
           })}
         />
-        <span
+        {/* <span
           className={cx(classes.screens, {
             open: isNetwork,
             network: isNetwork,
           })}
         >
           <Networks className={classes.networks} />
-        </span>
+        </span> */}
         <Navbar isOpen={isOpen} openNetwork={openNetwork} toggleNavMenus={toggleNavMenus} />
         <SearchBar className={classes.searchBar} />
       </div>
@@ -43,7 +43,7 @@ const Mobile: FC<MobileProps> = ({ className, title }) => {
       {/* Height placeholder */}
       {/* ============================== */}
       <div style={{ height }} />
-      <TitleBar title={title} />
+      {/* <TitleBar  /> */}
     </div>
   );
 };

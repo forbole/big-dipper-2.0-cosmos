@@ -49,7 +49,7 @@ exports[`component: Layout it renders 1`] = `
 
 @media (min-width: 1280px) {
   .emotion-3 {
-    height: 160px;
+    height: 80px;
     overflow: hidden;
   }
 }

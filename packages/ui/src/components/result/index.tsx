@@ -1,9 +1,11 @@
 import useStyles from '@/components/result/styles';
-import CancelIcon from '@mui/icons-material/Cancel';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+// import CancelIcon from '@mui/icons-material/Cancel';
+// import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import Typography from '@mui/material/Typography';
 import { useTranslation } from 'next-i18next';
 import { FC } from 'react';
+import Check from '@assets/icon-check.svg';
+import Cross from '@assets/icon-cross.svg';
 
 type ResultProps = {
   className?: string;
@@ -23,14 +25,14 @@ const Result: FC<ResultProps> = ({ className, success }) => {
     >
       {success ? (
         <>
-          <CheckCircleIcon />
+          <Check />
           <Typography component="span" variant="body1">
             {t('success')}
           </Typography>
         </>
       ) : (
         <>
-          <CancelIcon />
+          <Cross />
           <Typography component="span" variant="body1">
             {t('fail')}
           </Typography>

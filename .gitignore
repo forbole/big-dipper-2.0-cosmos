@@ -15,6 +15,7 @@ coverage/
 out/
 build/
 dist/
+.yarn
 .swc/
 
 # misc
@@ -40,6 +41,9 @@ yarn-error.log*
 .vercel/
 # vercel config, generated via vercel.js
 vercel.json
+
+.idea
+.vscode
 
 # Sentry
 .sentryclirc

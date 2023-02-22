@@ -8,32 +8,31 @@
   "previewImage": "https://s3.bigdipper.live/cosmoshub.png",
   "themes": {
     "default": "dark",
-    "themeList": [
-      "dark",
-      "light",
-      "deuteranopia",
-      "tritanopia"
-    ],
+    "themeList": ["dark", "light"],
     "dark": {
       "primary": {
-        "main": "#6B9EFF",
+        "main": "#25D695",
         "contrastText": "#FFFFFF"
       },
       "background": {
-        "default": "#020202",
-        "paper": "#191B26"
+        "default": "#17191E",
+        "paper": "#131316"
       },
-      "divider": "#363A51",
+      "divider": "#282828",
       "text": {
-        "primary": "#E6E6E6",
-        "secondary": "#C4C4C4"
+        "primary": "#f3f3f3",
+        "secondary": "#868991"
       },
       "custom": {
         "general": {
-          "background": "#020202",
-          "surfaceOne": "#191B26",
-          "surfaceTwo": "#282A36",
-          "icon": "#999999"
+          "background": "#17191E",
+          "surfaceOne": "#131316",
+          "surfaceTwo": "#212123",
+          "icon": "#999999",
+          "single_block": "linear-gradient(110.16deg, rgba(94,103,115, 0.35) 0%, rgba(94,103,115,0.5) 100%)",
+          "nav_drawer": "#2B3138",
+          "modal_header": "#1D222C",
+          "search": "#2B3138"
         },
         "fonts": {
           "fontOne": "#E6E6E6",
@@ -41,7 +40,10 @@
           "fontThree": "#818181",
           "fontFour": "#999999",
           "fontFive": "#FFFFFF",
-          "highlight": "#6AA6FF"
+          "highlight": "#F1C34E",
+          "settings_label": "#868991",
+          "table_headers": "#6C6F78",
+          "data_blocks": "#25D695"
         },
         "primaryData": {
           "one": "#AE73F8",
@@ -54,9 +56,9 @@
           "fail": "#FD3B4C"
         },
         "tokenomics": {
-          "one": "#5E94FF",
+          "one": "#004DC2",
           "two": "#E3AB55",
-          "three": "#5ACF78"
+          "three": "#25D695"
         },
         "condition": {
           "zero": "#E8E8E8",
@@ -123,6 +125,7 @@
           "fontTwo": "#414141",
           "fontThree": "#777777",
           "fontFour": "#999999",
+          "data_blocks": "#FFF",
           "fontFive": "#FFFFFF",
           "highlight": "#6AA6FF"
         },

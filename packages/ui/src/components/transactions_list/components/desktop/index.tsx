@@ -75,7 +75,7 @@ const Desktop: FC<TransactionsListState> = ({
                 const { key, align } = columns[columnIndex];
 
                 return (
-                  <div style={style} className={classes.cell}>
+                  <div style={style} className={classes.header}>
                     <Typography variant="h4" align={align}>
                       {t(key)}
                     </Typography>
@@ -139,7 +139,7 @@ const Desktop: FC<TransactionsListState> = ({
                     }
 
                     const { key, align } = columns[columnIndex];
-                    const item = items[rowIndex][key as keyof typeof items[number]];
+                    const item = items[rowIndex][key as keyof (typeof items)[number]];
                     return (
                       <div
                         style={style}

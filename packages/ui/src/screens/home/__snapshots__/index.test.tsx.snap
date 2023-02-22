@@ -6,7 +6,7 @@ exports[`screen: Home matches snapshot 1`] = `
   display: grid;
   gap: 8px;
   grid-template-rows: auto auto 1fr;
-  grid-template-columns: repeat(1, 1fr);
+  grid-template-columns: 1fr;
 }
 
 @media (min-width: 1280px) {
@@ -21,6 +21,8 @@ exports[`screen: Home matches snapshot 1`] = `
 
 @media (min-width:768px) {
   .emotion-0 {
+    grid-gap: 16px;
+    padding-right: 8px;
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -28,8 +30,13 @@ exports[`screen: Home matches snapshot 1`] = `
 @media (min-width:1280px) {
   .emotion-0 {
     gap: 16px;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    padding-right: 24px;
   }
+}
+
+.emotion-1 {
+  grid-column: 1;
 }
 
 @media (min-width:768px) {
@@ -40,78 +47,121 @@ exports[`screen: Home matches snapshot 1`] = `
 
 @media (min-width:1280px) {
   .emotion-1 {
-    grid-column: 1/5;
-  }
-}
-
-@media (min-width:768px) {
-  .emotion-2 {
-    grid-column: 1/3;
-  }
-}
-
-@media (min-width:1280px) {
-  .emotion-2 {
     grid-column: 1/3;
     height: 350px;
   }
 }
 
-.emotion-3 {
-  height: 375px;
+.emotion-2 {
+  grid-column: 1;
 }
 
 @media (min-width:768px) {
-  .emotion-3 {
+  .emotion-2 {
     grid-column: 1/2;
   }
 }
 
 @media (min-width:1280px) {
-  .emotion-3 {
+  .emotion-2 {
     grid-column: 3/4;
-    height: 100%;
   }
 }
 
-.emotion-4 {
-  height: 375px;
+.emotion-3 {
+  gridcolumn: 1;
 }
 
 @media (min-width:768px) {
-  .emotion-4 {
+  .emotion-3 {
     grid-column: 2/3;
   }
 }
 
 @media (min-width:1280px) {
+  .emotion-3 {
+    grid-column: 1/2;
+    height: 350px;
+  }
+}
+
+.emotion-4 {
+  grid-column: 1;
+  height: 375px;
+}
+
+@media (min-width:768px) {
   .emotion-4 {
-    grid-column: 4/5;
+    grid-column: 1/2;
+  }
+}
+
+@media (min-width:1280px) {
+  .emotion-4 {
+    grid-column: 2/3;
     height: 100%;
   }
 }
 
+.emotion-5 {
+  grid-column: 1;
+  height: 375px;
+}
+
 @media (min-width:768px) {
   .emotion-5 {
-    grid-column: 1/3;
+    grid-column: 2/3;
   }
 }
 
 @media (min-width:1280px) {
   .emotion-5 {
-    grid-column: 1/3;
+    grid-column: 3/4;
+    height: 100%;
   }
+}
+
+.emotion-6 {
+  grid-column: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
 }
 
 @media (min-width:768px) {
   .emotion-6 {
-    grid-column: 1/3;
+    grid-column: 1/4;
   }
 }
 
 @media (min-width:1280px) {
   .emotion-6 {
-    grid-column: 3/5;
+    grid-gap: 16px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width:768px) {
+  .emotion-6 .blocks {
+    grid-column: 1;
+  }
+}
+
+@media (min-width:1280px) {
+  .emotion-6 .blocks {
+    grid-column: 1;
+  }
+}
+
+@media (min-width:768px) {
+  .emotion-6 .transactions {
+    grid-column: 1;
+  }
+}
+
+@media (min-width:1280px) {
+  .emotion-6 .transactions {
+    grid-column: 2;
   }
 }
 
@@ -121,27 +171,35 @@ exports[`screen: Home matches snapshot 1`] = `
 >
   <div
     className="emotion-1"
-    id="DataBlocks"
+    id="MainInfo"
   />
   <div
     className="emotion-2"
-    id="Hero"
+    id="DataBlocks"
   />
   <div
     className="emotion-3"
-    id="Tokenomics"
+    id="Hero"
   />
   <div
     className="emotion-4"
-    id="Consensus"
+    id="Tokenomics"
   />
   <div
     className="emotion-5"
-    id="Blocks"
+    id="Consensus"
   />
   <div
     className="emotion-6"
-    id="Transactions"
-  />
+  >
+    <div
+      className="blocks"
+      id="Blocks"
+    />
+    <div
+      className="transactions"
+      id="Transactions"
+    />
+  </div>
 </div>
 `;

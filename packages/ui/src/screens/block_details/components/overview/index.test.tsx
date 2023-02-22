@@ -5,8 +5,8 @@ import MockTheme from '@/tests/mocks/MockTheme';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@/components/box_details', () => (props: JSX.IntrinsicElements['div']) => (
-  <div id="BoxDetails" {...props} />
+jest.mock('@/components/box', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Box" {...props} />
 ));
 jest.mock('@/components/avatar_name', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="BoxDetailAvatarName" {...props} />

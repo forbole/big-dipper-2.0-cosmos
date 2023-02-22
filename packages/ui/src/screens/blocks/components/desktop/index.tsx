@@ -110,7 +110,7 @@ const Desktop: FC<DesktopProps> = ({
                 const { key, align } = columns[columnIndex];
 
                 return (
-                  <div style={style} className={classes.cell}>
+                  <div style={style} className={classes.header}>
                     <Typography variant="h4" align={align}>
                       {t(key)}
                     </Typography>

@@ -50,7 +50,7 @@ exports[`screen: ProfileDetails matches snapshot 1`] = `
           [
             {
               "creationTime": "2021-10-06T00:10:45.761731",
-              "identifier": "desmostest",
+              "identifier": "coretest",
               "network": "desmos",
             },
           ]

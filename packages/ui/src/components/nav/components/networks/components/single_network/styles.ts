@@ -28,6 +28,9 @@ const useStyles = makeStyles()((theme) => ({
     '&.testnet': {
       background: theme.palette.custom.primaryData.three,
     },
+    '&.devnet': {
+      background: theme.palette.custom.primaryData.three,
+    },
     '&.mainnet': {
       background: theme.palette.primary.main,
     },

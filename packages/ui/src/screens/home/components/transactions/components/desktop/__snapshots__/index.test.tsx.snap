@@ -15,7 +15,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
 .emotion-1 caption {
   font-size: 0.875rem;
   letter-spacing: 0.25px;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: "Noto Sans",sans-serif;
   font-weight: 400;
   line-height: 1.43;
   padding: 16px;
@@ -49,17 +49,17 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
 }
 
 .emotion-3.Mui-selected {
-  background-color: rgba(255, 131, 91, 0.08);
+  background-color: rgba(37, 214, 149, 0.08);
 }
 
 .emotion-3.Mui-selected:hover {
-  background-color: rgba(255, 131, 91, 0.12);
+  background-color: rgba(37, 214, 149, 0.12);
 }
 
 .emotion-4 {
   font-size: 0.875rem;
   letter-spacing: 0.25px;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: "Noto Sans",sans-serif;
   font-weight: 500;
   line-height: 1.5rem;
   display: table-cell;
@@ -68,6 +68,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
   text-align: left;
   padding: 16px;
   color: #000000;
+  text-transform: uppercase;
 }
 
 .emotion-4 {
@@ -80,7 +81,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
 .emotion-7 {
   font-size: 0.875rem;
   letter-spacing: 0.25px;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: "Noto Sans",sans-serif;
   font-weight: 500;
   line-height: 1.5rem;
   display: table-cell;
@@ -92,6 +93,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
   -webkit-flex-direction: row-reverse;
   -ms-flex-direction: row-reverse;
   flex-direction: row-reverse;
+  text-transform: uppercase;
 }
 
 .emotion-7 {
@@ -116,7 +118,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
 .emotion-11 {
   font-size: 0.875rem;
   letter-spacing: 0.25px;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: "Noto Sans",sans-serif;
   font-weight: 400;
   line-height: 1.43;
   display: table-cell;
@@ -137,7 +139,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
 .emotion-14 {
   font-size: 0.875rem;
   letter-spacing: 0.25px;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: "Noto Sans",sans-serif;
   font-weight: 400;
   line-height: 1.43;
   display: table-cell;
@@ -299,7 +301,7 @@ exports[`screen: Home/Transactions/Desktop matches snapshot 1`] = `
               onMouseEnter={[Function]}
               onTouchStart={[Function]}
             >
-              76nw...Q857
+              76nwV8zz8tLz97S...hQ857
             </a>
           </div>
         </td>

@@ -15,6 +15,9 @@ const useStyles = makeStyles()((theme) => ({
       gridTemplateColumns: 'repeat(2, 1fr)',
     },
   },
+  header: {
+    paddingLeft: theme.spacing(2),
+  },
 }));
 
 export default useStyles;

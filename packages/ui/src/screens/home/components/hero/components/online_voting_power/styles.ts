@@ -3,20 +3,26 @@ import Color from 'color';
 
 const useStyles = makeStyles<{ percentage: number | string }>()((theme, { percentage }) => ({
   root: {
-    display: 'flex',
-    flexDirection: 'column',
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr 3fr',
+    height: '100%',
     '& .MuiTypography-h2': {
       marginBottom: theme.spacing(2),
     },
   },
   data: {
     display: 'flex',
-    alignItems: 'flex-end',
+    alignItems: 'center',
+    justifyContent: 'space-between',
     '& .primary__data': {
       color: theme.palette.primary.main,
       marginRight: theme.spacing(2),
       fontSize: '2.5rem',
     },
+  },
+  chartContainer: {
+    display: 'flex',
+    flexDirection: 'column',
   },
   chart: {
     display: 'flex',
@@ -32,23 +38,24 @@ const useStyles = makeStyles<{ percentage: number | string }>()((theme, { percen
     transition: '0.3s',
   },
   itemsContainer: {
-    [theme.breakpoints.up('lg')]: {
+    [theme.breakpoints.up('md')]: {
       flex: 1,
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'flex-end',
+      display: 'grid',
+      gridTemplateColumns: 'repeat(2 1fr)',
+      gap: theme.spacing(1),
     },
   },
   item: {
-    '&:not(:last-child)': {
-      marginBottom: theme.spacing(2),
-    },
+    // '&:not(:last-child)': {
+    //   marginBottom: theme.spacing(2),
+    // },
     '& .label': {
-      marginBottom: theme.spacing(1),
+      // marginBottom: theme.spacing(1),
       color: theme.palette.custom.fonts.fontThree,
     },
     '& p.value': {
-      color: theme.palette.custom.fonts.fontTwo,
+      color: theme.palette.custom.fonts.fontOne,
+      fontWeight: theme.typography.fontWeightBold,
       '& .positive': {
         color: theme.palette.custom.tags.one,
       },
@@ -61,9 +68,10 @@ const useStyles = makeStyles<{ percentage: number | string }>()((theme, { percen
     },
 
     [theme.breakpoints.up('md')]: {
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-between',
+      display: 'grid',
+      placeItems: 'start',
+      // alignItems: 'center',
+      // justifyContent: 'space-between',
     },
   },
 }));

@@ -5,7 +5,7 @@ const useStyles = makeStyles()((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     '& .button': {
-      color: theme.palette.custom.fonts.fontTwo,
+      color: theme.palette.primary.main,
       '&:hover': {
         cursor: 'pointer',
       },

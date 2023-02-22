@@ -3,71 +3,21 @@
 exports[`screen: Home/Tokenomics matches snapshot 1`] = `
 .emotion-0 {
   height: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
 }
 
 .emotion-1 {
   margin: 0;
   font-size: 1.5rem;
   letter-spacing: 0;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
-  font-weight: 300;
+  font-weight: 600;
+  font-family: "Noto Sans",sans-serif;
   line-height: 1.2;
   margin-bottom: 16px;
 }
 
 .emotion-2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-2 .data__item {
-  width: 50%;
-  white-space: pre-wrap;
-}
-
-.emotion-2 .data__item h4 {
-  color: #414141;
-}
-
-.emotion-2 .data__item .MuiTypography-caption {
-  color: #777777;
-}
-
-.emotion-3 {
-  margin: 0;
-  font-size: 1rem;
-  letter-spacing: 0.15px;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
-  font-weight: 400;
-  line-height: 1.235;
-}
-
-.emotion-4 {
-  margin: 0;
-  font-size: 0.75rem;
-  letter-spacing: 0.4px;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
-  font-weight: 400;
-  line-height: 1.66;
-}
-
-.emotion-7 {
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -83,58 +33,56 @@ exports[`screen: Home/Tokenomics matches snapshot 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+  height: 100%;
 }
 
-.emotion-8 {
+.emotion-3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  -webkit-justify-content: flex-start;
-  justify-content: flex-start;
-  -webkit-box-flex-wrap: wrap;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
 }
 
-.emotion-8 .MuiTypography-caption {
-  color: #777777;
-}
-
-.emotion-8 .legends__item {
+.emotion-3 .data__item {
   width: 50%;
+  white-space: pre-wrap;
 }
 
-.emotion-8 .legends__item:before {
-  content: "";
-  display: inline-block;
-  width: 12px;
-  height: 12px;
-  margin-right: 5px;
+.emotion-3 .data__item h4 {
+  color: #414141;
 }
 
-.emotion-8 .legends__item:first-of-type:before {
-  background: #2FB6E0;
-}
-
-.emotion-8 .legends__item:nth-of-type(2):before {
-  background: #FFC93D;
-}
-
-.emotion-8 .legends__item:last-child:before {
-  background: #20D494;
-}
-
-.emotion-8 .legends__item .caption__percent {
+.emotion-3 .data__item .MuiTypography-caption {
   color: #777777;
+}
+
+.emotion-3 .data__item:last-child {
+  text-align: right;
+}
+
+.emotion-4 {
+  margin: 0;
+  font-size: 1rem;
+  letter-spacing: 0.15px;
+  font-family: "Noto Sans",sans-serif;
+  font-weight: 400;
+  line-height: 1.235;
+}
+
+.emotion-5 {
+  margin: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.4px;
+  font-family: "Noto Sans",sans-serif;
+  font-weight: 400;
+  line-height: 1.66;
 }
 
 <div
@@ -148,18 +96,21 @@ exports[`screen: Home/Tokenomics matches snapshot 1`] = `
   </h2>
   <div
     className="emotion-2"
+  />
+  <div
+    className="emotion-3"
   >
     <div
       className="data__item"
     >
       <h4
-        className="MuiTypography-root MuiTypography-h4 emotion-3"
+        className="MuiTypography-root MuiTypography-h4 emotion-4"
       >
-        254,578,529,800
+        255b
          
       </h4>
       <span
-        className="MuiTypography-root MuiTypography-caption emotion-4"
+        className="MuiTypography-root MuiTypography-caption emotion-5"
       >
         bondedPercent
       </span>
@@ -168,51 +119,16 @@ exports[`screen: Home/Tokenomics matches snapshot 1`] = `
       className="data__item"
     >
       <h4
-        className="MuiTypography-root MuiTypography-h4 emotion-3"
+        className="MuiTypography-root MuiTypography-h4 emotion-4"
       >
-        -459,465,964,998
+        -459b
          
       </h4>
       <span
-        className="MuiTypography-root MuiTypography-caption emotion-4"
+        className="MuiTypography-root MuiTypography-caption emotion-5"
       >
         unbondedPercent
       </span>
-    </div>
-  </div>
-  <div
-    className="emotion-7"
-  >
-    <div
-      className="emotion-8"
-    >
-      <div
-        className="legends__item"
-      >
-        <span
-          className="MuiTypography-root MuiTypography-caption emotion-4"
-        >
-          bonded
-        </span>
-      </div>
-      <div
-        className="legends__item"
-      >
-        <span
-          className="MuiTypography-root MuiTypography-caption emotion-4"
-        >
-          unbonded
-        </span>
-      </div>
-      <div
-        className="legends__item"
-      >
-        <span
-          className="MuiTypography-root MuiTypography-caption emotion-4"
-        >
-          unbonding
-        </span>
-      </div>
     </div>
   </div>
 </div>

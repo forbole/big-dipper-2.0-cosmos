@@ -7,70 +7,100 @@ const useStyles = makeStyles()((theme) => ({
     display: 'grid',
     gap: theme.spacing(1),
     gridTemplateRows: 'auto auto 1fr',
-    gridTemplateColumns: 'repeat(1, 1fr)',
+    gridTemplateColumns: '1fr',
     '& a': {
       color: theme.palette.custom.fonts.highlight,
     },
     [theme.breakpoints.up('md')]: {
+      gridGap: theme.spacing(2),
+      paddingRight: theme.spacing(1),
       gridTemplateColumns: 'repeat(2, 1fr)',
     },
     [theme.breakpoints.up('lg')]: {
       gap: theme.spacing(2),
-      gridTemplateColumns: 'repeat(4, 1fr)',
+      gridTemplateColumns: 'repeat(3, 1fr)',
+      paddingRight: theme.spacing(3),
+    },
+  },
+  mainInfo: {
+    gridColumn: '1',
+    [theme.breakpoints.up('md')]: {
+      gridColumn: '1 / 3',
+    },
+    [theme.breakpoints.up('lg')]: {
+      gridColumn: '1 / 3',
+      height: '350px',
     },
   },
   dataBlocks: {
+    gridColumn: '1',
     [theme.breakpoints.up('md')]: {
-      gridColumn: '1 / 3',
+      gridColumn: '1 / 2',
     },
     [theme.breakpoints.up('lg')]: {
-      gridColumn: '1 / 5',
+      gridColumn: '3 / 4',
     },
   },
   hero: {
+    gridcolumn: '1',
     [theme.breakpoints.up('md')]: {
-      gridColumn: '1 / 3',
+      gridColumn: '2 / 3',
     },
     [theme.breakpoints.up('lg')]: {
-      gridColumn: '1 / 3',
+      gridColumn: '1 / 2',
       // height: '400px', // if we can get the change feature
       height: '350px',
     },
   },
   tokenomics: {
+    gridColumn: '1',
     height: '375px',
     [theme.breakpoints.up('md')]: {
       gridColumn: '1 / 2',
+    },
+    [theme.breakpoints.up('lg')]: {
+      gridColumn: '2 / 3',
+      height: '100%',
+    },
+  },
+  consensus: {
+    gridColumn: '1',
+    height: '375px',
+    [theme.breakpoints.up('md')]: {
+      gridColumn: '2 / 3',
     },
     [theme.breakpoints.up('lg')]: {
       gridColumn: '3 / 4',
       height: '100%',
     },
   },
-  consensus: {
-    height: '375px',
+  bottom: {
+    gridColumn: '1',
+    display: 'grid',
+    gridTemplateColumns: '1fr',
+    gap: theme.spacing(2),
     [theme.breakpoints.up('md')]: {
-      gridColumn: '2 / 3',
+      gridColumn: '1 / 4',
     },
     [theme.breakpoints.up('lg')]: {
-      gridColumn: '4 / 5',
-      height: '100%',
+      gridGap: theme.spacing(2),
+      gridTemplateColumns: 'repeat(2, 1fr)',
     },
-  },
-  blocks: {
-    [theme.breakpoints.up('md')]: {
-      gridColumn: '1 / 3',
+    '& .blocks': {
+      [theme.breakpoints.up('md')]: {
+        gridColumn: '1',
+      },
+      [theme.breakpoints.up('lg')]: {
+        gridColumn: '1',
+      },
     },
-    [theme.breakpoints.up('lg')]: {
-      gridColumn: '1 / 3',
-    },
-  },
-  transactions: {
-    [theme.breakpoints.up('md')]: {
-      gridColumn: '1 / 3',
-    },
-    [theme.breakpoints.up('lg')]: {
-      gridColumn: '3 / 5',
+    '& .transactions': {
+      [theme.breakpoints.up('md')]: {
+        gridColumn: '1',
+      },
+      [theme.breakpoints.up('lg')]: {
+        gridColumn: '2',
+      },
     },
   },
 }));

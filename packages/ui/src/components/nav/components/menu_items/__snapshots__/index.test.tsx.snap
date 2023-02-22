@@ -102,20 +102,20 @@ exports[`screen: Nav/MenuItems it renders 1`] = `
 }
 
 .emotion-1.Mui-selected {
-  background-color: rgba(255, 131, 91, 0.08);
+  background-color: rgba(37, 214, 149, 0.08);
 }
 
 .emotion-1.Mui-selected.Mui-focusVisible {
-  background-color: rgba(255, 131, 91, 0.2);
+  background-color: rgba(37, 214, 149, 0.2);
 }
 
 .emotion-1.Mui-selected:hover {
-  background-color: rgba(255, 131, 91, 0.12);
+  background-color: rgba(37, 214, 149, 0.12);
 }
 
 @media (hover: none) {
   .emotion-1.Mui-selected:hover {
-    background-color: rgba(255, 131, 91, 0.08);
+    background-color: rgba(37, 214, 149, 0.08);
   }
 }
 
@@ -140,16 +140,16 @@ exports[`screen: Nav/MenuItems it renders 1`] = `
 }
 
 .emotion-1.active {
-  background: hsl(0, 0%, 100%);
+  background: hsla(158, 70.5%, 73.8%, 0.2);
 }
 
 .emotion-1.active .MuiListItemIcon-root svg {
-  fill: #FF835B;
-  color: #FF835B;
+  fill: #25D695;
+  color: #25D695;
 }
 
 .emotion-1.active .MuiListItemText-root {
-  color: #FF835B;
+  color: #25D695;
 }
 
 .emotion-2 {
@@ -183,10 +183,46 @@ exports[`screen: Nav/MenuItems it renders 1`] = `
   font-size: 1rem;
   white-space: pre-wrap;
   letter-spacing: 0.5px;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: "Noto Sans",sans-serif;
   font-weight: 400;
   line-height: 1.5;
   display: block;
+}
+
+.emotion-27 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.emotion-27:hover {
+  cursor: pointer;
+}
+
+.emotion-27 svg {
+  fill: #999999;
+}
+
+.emotion-27 svg path {
+  fill: #999999;
+}
+
+.emotion-28 {
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  min-width: 0;
+  margin-top: 4px;
+  margin-bottom: 4px;
 }
 
 <ul
@@ -268,43 +304,6 @@ exports[`screen: Nav/MenuItems it renders 1`] = `
   </a>
   <a
     className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters emotion-1"
-    href="/validators"
-    onBlur={[Function]}
-    onClick={[Function]}
-    onContextMenu={[Function]}
-    onDragLeave={[Function]}
-    onFocus={[Function]}
-    onKeyDown={[Function]}
-    onKeyUp={[Function]}
-    onMouseDown={[Function]}
-    onMouseEnter={[Function]}
-    onMouseLeave={[Function]}
-    onMouseUp={[Function]}
-    onTouchEnd={[Function]}
-    onTouchMove={[Function]}
-    onTouchStart={[Function]}
-    tabIndex={0}
-  >
-    <div
-      className="MuiListItemIcon-root emotion-2"
-    >
-      <svg
-        height={24}
-        width={24}
-      />
-    </div>
-    <div
-      className="MuiListItemText-root emotion-3"
-    >
-      <span
-        className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary emotion-4"
-      >
-        validators
-      </span>
-    </div>
-  </a>
-  <a
-    className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters emotion-1"
     href="/transactions"
     onBlur={[Function]}
     onClick={[Function]}
@@ -337,6 +336,43 @@ exports[`screen: Nav/MenuItems it renders 1`] = `
         className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary emotion-4"
       >
         transactions
+      </span>
+    </div>
+  </a>
+  <a
+    className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters emotion-1"
+    href="/validators"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onContextMenu={[Function]}
+    onDragLeave={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    tabIndex={0}
+  >
+    <div
+      className="MuiListItemIcon-root emotion-2"
+    >
+      <svg
+        height={24}
+        width={24}
+      />
+    </div>
+    <div
+      className="MuiListItemText-root emotion-3"
+    >
+      <span
+        className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary emotion-4"
+      >
+        validators
       </span>
     </div>
   </a>
@@ -414,5 +450,45 @@ exports[`screen: Nav/MenuItems it renders 1`] = `
       </span>
     </div>
   </a>
+  <div>
+    <div
+      className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters emotion-1"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onContextMenu={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      role="button"
+      tabIndex={0}
+    >
+      <div
+        className="MuiListItemIcon-root emotion-2"
+      >
+        <div
+          className="emotion-27"
+          role="button"
+        >
+          <svg />
+        </div>
+      </div>
+      <div
+        className="MuiListItemText-root emotion-28"
+      >
+        <span
+          className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary emotion-4"
+        >
+          settings
+        </span>
+      </div>
+    </div>
+  </div>
 </ul>
 `;
