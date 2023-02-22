@@ -1,6 +1,6 @@
 {
   "name": "web-evmos",
-  "version": "2.8.9",
+  "version": "2.8.10",
   "license": "Apache-2.0",
   "private": true,
   "scripts": {

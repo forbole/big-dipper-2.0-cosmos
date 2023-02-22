@@ -1,5 +1,11 @@
 # ui
 
+## 2.15.1
+
+### Patch Changes
+
+- 29f3ac40: fix exponent setting in validator details page
+
 ## 2.15.0
 
 ### Minor Changes
