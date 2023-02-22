@@ -12,7 +12,7 @@
     "dev:ci": "yarn turbo:setup -- turbo run dev --continue",
     "build": "yarn dotenv:setup -- turbo run build --filter=$(dotenv -- printenv PROJECT_NAME || echo web)...",
     "build:ci": "yarn turbo:setup -- turbo run build --continue --concurrency=1",
-    "clean": "yarn cache clean --mirror && [ -d \"node_modules\" ] && turbo:setup -- turbo run clean && rm -rf node_modules",
+    "clean": "yarn cache clean --mirror && [ -d \"node_modules\" ] && yarn turbo:setup -- turbo run clean && rm -rf node_modules",
     "start": "yarn dotenv:setup -- turbo run start --filter=$(dotenv -- printenv PROJECT_NAME || echo web)...",
     "format": "prettier --write \"{**/src/{,**/}*.{js,ts,tsx,mjs,cjs,md},e2e/{,**/}*.{js,ts,tsx,mjs,cjs,md}}\"",
     "ts-check": "yarn dotenv:setup -- turbo run ts-check --filter=$(dotenv -- printenv PROJECT_NAME || echo web)...",
