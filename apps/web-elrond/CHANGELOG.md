@@ -1,5 +1,12 @@
 # v1.0.4 - 2022-06-20
 
+## 2.9.10
+
+### Patch Changes
+
+- Updated dependencies [29f3ac40]
+  - ui@2.15.1
+
 ## 2.9.9
 
 ### Patch Changes

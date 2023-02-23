@@ -1,6 +1,6 @@
 {
   "name": "web-elrond",
-  "version": "2.9.9",
+  "version": "2.9.10",
   "license": "Apache-2.0",
   "private": true,
   "scripts": {

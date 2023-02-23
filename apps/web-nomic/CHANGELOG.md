@@ -1,5 +1,13 @@
 # Unreleased
 
+## 2.9.10
+
+### Patch Changes
+
+- 29f3ac40: fix exponent setting in validator details page
+- Updated dependencies [29f3ac40]
+  - ui@2.15.1
+
 ## 2.9.9
 
 ### Patch Changes
