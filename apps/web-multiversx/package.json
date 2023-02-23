@@ -1,6 +1,6 @@
 {
-  "name": "web-elrond",
-  "version": "2.9.10",
+  "name": "web-multiversx",
+  "version": "2.9.9",
   "license": "Apache-2.0",
   "private": true,
   "scripts": {
@@ -11,7 +11,7 @@
     "ts-check": "pnpify tsc --noemit",
     "lint": "next lint",
     "test": "pnpify jest --passWithNoTests --ci --no-watchman --runInBand",
-    "graphql:codegen": "echo no hasura for Elrond"
+    "graphql:codegen": "echo no hasura for Multiversx"
   },
   "dependencies": {
     "@apollo/client": "^3.7.7",

@@ -1,11 +1,11 @@
 {
-  "chainName": "elrond",
-  "title": "Elrond Block Explorer",
+  "chainName": "multiversx",
+  "title": "MultiversX Block Explorer",
   "extra": {
     "profile": false,
     "graphqlWs": false
   },
-  "previewImage": "https://s3.bigdipper.live/elrond.png",
+  "previewImage": "https://s3.bigdipper.live/multiversx.png",
   "themes": {
     "default": "light",
     "themeList": [

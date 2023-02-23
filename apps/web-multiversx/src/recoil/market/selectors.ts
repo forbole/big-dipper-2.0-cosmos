@@ -9,7 +9,7 @@ const getMarket: ReadOnlySelectorOptions<AtomState>['get'] = ({ get }): AtomStat
 };
 
 export const writeMarket = selector({
-  key: 'elrond/market.write.market',
+  key: 'multiversx/market.write.market',
   get: getMarket,
   set: ({ get, set }, value) => {
     if (value instanceof DefaultValue) return;
@@ -20,6 +20,6 @@ export const writeMarket = selector({
 });
 
 export const readMarket = selector({
-  key: 'elrond/market.read.market',
+  key: 'multiversx/market.read.market',
   get: getMarket,
 });

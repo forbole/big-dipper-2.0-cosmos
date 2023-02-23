@@ -12,7 +12,8 @@ import comdexIconLight from 'shared-utils/assets/icons/comdex-light.svg?url';
 import cosmosIconLight from 'shared-utils/assets/icons/cosmosHub-light.svg?url';
 import crescentIconDark from 'shared-utils/assets/icons/crescent-dark.svg?url';
 import cryptoorgIconLight from 'shared-utils/assets/icons/cryptoorgChain-light.svg?url';
-import elrondIconLight from 'shared-utils/assets/icons/elrond-light.svg?url';
+import multiversxIconLight from 'shared-utils/assets/icons/multiversx-light.svg?url';
+import multiversxIconDark from 'shared-utils/assets/icons/multiversx-dark.svg?url';
 import emoneyIconDark from 'shared-utils/assets/icons/emoney-dark.svg?url';
 import evmosIconLight from 'shared-utils/assets/icons/evmos-light.svg?url';
 import flowIconLight from 'shared-utils/assets/icons/flow-light.svg?url';
@@ -43,7 +44,6 @@ import comdexLogoDark from 'shared-utils/assets/logos/comdex-dark.svg?url';
 import cosmosLogoDark from 'shared-utils/assets/logos/cosmos-dark.svg?url';
 import cosmosLogoLight from 'shared-utils/assets/logos/cosmos-light.svg?url';
 import crescentLogoDark from 'shared-utils/assets/logos/crescent-dark.svg?url';
-import elrondLogoLight from 'shared-utils/assets/logos/elrond-light.svg?url';
 import emoneyLogoDark from 'shared-utils/assets/logos/emoney-dark.svg?url';
 import evmosLogoLight from 'shared-utils/assets/logos/evmos-light.svg?url';
 import flowLogoLight from 'shared-utils/assets/logos/flow-light.svg?url';
@@ -64,6 +64,8 @@ import strideLogoDark from 'shared-utils/assets/logos/stride-dark.svg?url';
 import strideLogoLight from 'shared-utils/assets/logos/stride-light.svg?url';
 import quicksilverLogoLight from 'shared-utils/assets/logos/quicksilver-light.svg?url';
 import quicksilverLogoDark from 'shared-utils/assets/logos/quicksilver-dark.svg?url';
+import multiversxLogoLight from 'shared-utils/assets/logos/multiversx-light.svg?url';
+import multiversxLogoDark from 'shared-utils/assets/logos/multiversx-dark.svg?url';
 
 interface IconProps extends Omit<ImageProps, 'id' | 'src'> {
   type: 'icon' | 'logo';
@@ -126,9 +128,11 @@ const ChainIcon = ({
       break;
     case 'desmos':
       break;
-    case 'elrond':
+    case 'multiversx':
       [iconDark, iconLight] =
-        type === 'icon' ? [elrondIconLight, elrondIconLight] : [elrondLogoLight, elrondLogoLight];
+        type === 'icon'
+          ? [multiversxIconDark, multiversxIconLight]
+          : [multiversxLogoDark, multiversxLogoLight];
       break;
     case 'emoney':
       [iconDark, iconLight] =

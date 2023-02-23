@@ -1,7 +1,7 @@
 // ==================================
 // DEFAULTS
 // ==================================
-export const BASE_URL = 'https://api.elrond.com';
+export const BASE_URL = 'https://api.multiversx.com';
 export const POLLING_INTERVAL = 15000;
 
 // ==================================
@@ -17,7 +17,8 @@ export const MINIBLOCK_DETAILS = (hash: string) => `${BASE_URL}/miniblocks/${has
 export const TRANSACTIONS = `${BASE_URL}/transactions`;
 export const TRANSACTION_DETAILS = (hash: string) => `${BASE_URL}/transactions/${hash}`;
 export const STATS = `${BASE_URL}/stats`;
-export const PRICE_HISTORY = 'https://data.elrond.com/latestcomplete/quoteshistorical/egld/price';
+export const PRICE_HISTORY =
+  'https://data.multiversx.com/latestcomplete/quoteshistorical/egld/price';
 export const IDENTITIES = `${BASE_URL}/identities`;
 export const IDENTITY = (identity: string) => `${BASE_URL}/identities/${identity}`;
 export const PROVIDERS = `${BASE_URL}/providers`;
