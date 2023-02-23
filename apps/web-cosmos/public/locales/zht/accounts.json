@@ -1,9 +1,9 @@
 {
     "accountDetails": "帳戶詳細資料",
-    "balance": "平衡",
+    "balance": "餘額",
     "overview": "概述",
     "address": "地址",
-    "rewardAddress": "打賞地址",
+    "rewardAddress": "獎賞地址",
     "total": "全部的 {{unit}}",
     "delegations": "代表團 ({{num}})",
     "redelegations": "重新授權 ({{num}})",
