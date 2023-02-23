@@ -1,5 +1,16 @@
 # ui
 
+## 2.16.0
+
+### Minor Changes
+
+- 35f47327d: Change Elrond to MultiversX
+
+### Patch Changes
+
+- Updated dependencies [35f47327d]
+  - shared-utils@2.10.0
+
 ## 2.15.1
 
 ### Patch Changes

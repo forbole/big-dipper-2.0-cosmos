@@ -1,5 +1,17 @@
 # v1.0.4 - 2022-06-20
 
+## 2.10.0
+
+### Minor Changes
+
+- 35f47327d: Change Elrond to MultiversX
+
+### Patch Changes
+
+- Updated dependencies [35f47327d]
+  - shared-utils@2.10.0
+  - ui@2.16.0
+
 ## 2.9.10
 
 ### Patch Changes
