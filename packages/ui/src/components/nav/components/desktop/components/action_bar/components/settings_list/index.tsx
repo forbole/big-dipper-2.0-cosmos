@@ -15,7 +15,6 @@ import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import { FC } from 'react';
 import SettingIcon from 'shared-utils/assets/icon-setting.svg';
-import { LOCALES } from '@/generalConfig/i18nConfig';
 
 const release = `${process.env.NEXT_PUBLIC_RELEASE ?? ''}`;
 
@@ -84,7 +83,7 @@ const Settings: FC<ComponentDefault> = (props) => {
                   },
                 }}
               >
-                {LOCALES.map((l) => (
+                {router?.locales?.map((l) => (
                   <MenuItem key={l} value={l}>
                     {t(l)}
                   </MenuItem>
