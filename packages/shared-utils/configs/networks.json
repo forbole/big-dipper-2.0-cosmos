@@ -204,15 +204,15 @@
     ]
   },
   {
-    "name": "Elrond",
-    "chainName": "elrond",
-    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/elrond.png?sanitize=true",
-    "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/elrond.png?sanitize=true",
+    "name": "MultiversX",
+    "chainName": "multiversx",
+    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/multiversx.png?sanitize=true",
+    "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/multiversx.png?sanitize=true",
     "links": [
       {
         "name": "Mainnet",
         "chain_id": "mainnet",
-        "url": "https://bigdipper.live/elrond"
+        "url": "https://bigdipper.live/multiversx"
       }
     ]
   },
