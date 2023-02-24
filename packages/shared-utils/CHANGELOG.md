@@ -1,5 +1,11 @@
 # shared-utils
 
+## 2.10.0
+
+### Minor Changes
+
+- 35f47327d: Change Elrond to MultiversX
+
 ## 2.9.0
 
 ### Minor Changes
