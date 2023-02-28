@@ -18,7 +18,7 @@ const AccessType = {
 
 const CodeInstantiatePermission: FC<InstantiatePermissionProps> = ({ instantiatePermission }) => {
   const { permission, address, addresses } =
-    zInstantiatePermission.parse(instantiatePermission) ?? {};
+    zInstantiatePermission.optional().parse(instantiatePermission) ?? {};
   switch (permission) {
     case AccessType.ACCESS_TYPE_NOBODY:
       return <span>Access Type: Forbidden</span>;

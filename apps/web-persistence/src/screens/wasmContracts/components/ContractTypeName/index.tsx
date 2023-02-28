@@ -47,7 +47,10 @@ const predefined = {
   'crates.io:cw-utils': ['Utils: Common types / utilities for specs', 'CW-Utils Contract'],
 };
 
-const parseContractInfo = R.pipe(R.tryCatch(JSON.parse, R.always(undefined)), zContractInfo.parse);
+const parseContractInfo = R.pipe(
+  R.tryCatch(JSON.parse, R.always(undefined)),
+  zContractInfo.nullable().optional().parse
+);
 
 const ContractTypeName = memo(({ contractInfo }: ContractTypeNameProps) => {
   const { contract, version } = parseContractInfo(contractInfo) ?? {};

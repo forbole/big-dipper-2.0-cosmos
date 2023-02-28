@@ -44,14 +44,11 @@ export interface ContractSearchBoxProps {
 
 export const zContractName = z.coerce.string().default('').catch('');
 
-export const zInstantiatePermission = z
-  .object({
-    permission: z.coerce.number().optional(),
-    address: z.coerce.string().optional(),
-    addresses: z.coerce.string().optional(),
-  })
-  .optional()
-  .catch(undefined);
+export const zInstantiatePermission = z.object({
+  permission: z.coerce.number().nullable().optional(),
+  address: z.coerce.string().nullable().optional(),
+  addresses: z.coerce.string().nullable().optional(),
+});
 export type InstantiatePermission = z.infer<typeof zInstantiatePermission>;
 
 export interface ShowMoreProps {
@@ -59,13 +56,10 @@ export interface ShowMoreProps {
   codeId: WasmContractQuery['wasm_contract'][0]['code_id'];
 }
 
-export const zContractInfo = z
-  .object({
-    contract: z.coerce.string().optional(),
-    version: z.coerce.string().optional(),
-  })
-  .optional()
-  .catch(undefined);
+export const zContractInfo = z.object({
+  contract: z.coerce.string().nullable().optional(),
+  version: z.coerce.string().nullable().optional(),
+});
 export type ContractInfo = z.infer<typeof zContractInfo>;
 
 /* WASM Codes */
