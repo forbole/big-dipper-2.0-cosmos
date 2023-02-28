@@ -21,12 +21,13 @@ export type Scalars = {
   _coin: any;
   _dec_coin: any;
   _text: any;
+  access_config: any;
   bigint: any;
+  bytea: any;
   jsonb: any;
   numeric: any;
   smallint: any;
   timestamp: any;
-  timestamptz: any;
 };
 
 export type ActionAddress = {
@@ -166,14 +167,23 @@ export type _Text_Comparison_Exp = {
   _nin?: InputMaybe<Array<Scalars['_text']>>;
 };
 
+/** Boolean expression to compare columns of type "access_config". All fields are combined with logical 'AND'. */
+export type Access_Config_Comparison_Exp = {
+  _eq?: InputMaybe<Scalars['access_config']>;
+  _gt?: InputMaybe<Scalars['access_config']>;
+  _gte?: InputMaybe<Scalars['access_config']>;
+  _in?: InputMaybe<Array<Scalars['access_config']>>;
+  _is_null?: InputMaybe<Scalars['Boolean']>;
+  _lt?: InputMaybe<Scalars['access_config']>;
+  _lte?: InputMaybe<Scalars['access_config']>;
+  _neq?: InputMaybe<Scalars['access_config']>;
+  _nin?: InputMaybe<Array<Scalars['access_config']>>;
+};
+
 /** columns and relationships of "account" */
 export type Account = {
   __typename?: 'account';
   address: Scalars['String'];
-  /** An array relationship */
-  feeGrantAllowancesByGranterAddress: Array<Fee_Grant_Allowance>;
-  /** An array relationship */
-  fee_grant_allowances: Array<Fee_Grant_Allowance>;
   /** An array relationship */
   proposal_deposits: Array<Proposal_Deposit>;
   /** An array relationship */
@@ -184,34 +194,10 @@ export type Account = {
   proposals_aggregate: Proposal_Aggregate;
   /** An array relationship */
   validator_infos: Array<Validator_Info>;
-  /** An aggregate relationship */
-  validator_infos_aggregate: Validator_Info_Aggregate;
   /** An object relationship */
   vesting_account?: Maybe<Vesting_Account>;
   /** An array relationship */
   vesting_accounts: Array<Vesting_Account>;
-  /** An aggregate relationship */
-  vesting_accounts_aggregate: Vesting_Account_Aggregate;
-};
-
-
-/** columns and relationships of "account" */
-export type AccountFeeGrantAllowancesByGranterAddressArgs = {
-  distinct_on?: InputMaybe<Array<Fee_Grant_Allowance_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Fee_Grant_Allowance_Order_By>>;
-  where?: InputMaybe<Fee_Grant_Allowance_Bool_Exp>;
-};
-
-
-/** columns and relationships of "account" */
-export type AccountFee_Grant_AllowancesArgs = {
-  distinct_on?: InputMaybe<Array<Fee_Grant_Allowance_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Fee_Grant_Allowance_Order_By>>;
-  where?: InputMaybe<Fee_Grant_Allowance_Bool_Exp>;
 };
 
 
@@ -266,27 +252,7 @@ export type AccountValidator_InfosArgs = {
 
 
 /** columns and relationships of "account" */
-export type AccountValidator_Infos_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Validator_Info_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Validator_Info_Order_By>>;
-  where?: InputMaybe<Validator_Info_Bool_Exp>;
-};
-
-
-/** columns and relationships of "account" */
 export type AccountVesting_AccountsArgs = {
-  distinct_on?: InputMaybe<Array<Vesting_Account_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Vesting_Account_Order_By>>;
-  where?: InputMaybe<Vesting_Account_Bool_Exp>;
-};
-
-
-/** columns and relationships of "account" */
-export type AccountVesting_Accounts_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Vesting_Account_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -300,8 +266,6 @@ export type Account_Bool_Exp = {
   _not?: InputMaybe<Account_Bool_Exp>;
   _or?: InputMaybe<Array<Account_Bool_Exp>>;
   address?: InputMaybe<String_Comparison_Exp>;
-  feeGrantAllowancesByGranterAddress?: InputMaybe<Fee_Grant_Allowance_Bool_Exp>;
-  fee_grant_allowances?: InputMaybe<Fee_Grant_Allowance_Bool_Exp>;
   proposal_deposits?: InputMaybe<Proposal_Deposit_Bool_Exp>;
   proposal_votes?: InputMaybe<Proposal_Vote_Bool_Exp>;
   proposals?: InputMaybe<Proposal_Bool_Exp>;
@@ -313,8 +277,6 @@ export type Account_Bool_Exp = {
 /** Ordering options when selecting data from "account". */
 export type Account_Order_By = {
   address?: InputMaybe<Order_By>;
-  feeGrantAllowancesByGranterAddress_aggregate?: InputMaybe<Fee_Grant_Allowance_Aggregate_Order_By>;
-  fee_grant_allowances_aggregate?: InputMaybe<Fee_Grant_Allowance_Aggregate_Order_By>;
   proposal_deposits_aggregate?: InputMaybe<Proposal_Deposit_Aggregate_Order_By>;
   proposal_votes_aggregate?: InputMaybe<Proposal_Vote_Aggregate_Order_By>;
   proposals_aggregate?: InputMaybe<Proposal_Aggregate_Order_By>;
@@ -699,6 +661,19 @@ export type Block_Variance_Order_By = {
   height?: InputMaybe<Order_By>;
   num_txs?: InputMaybe<Order_By>;
   total_gas?: InputMaybe<Order_By>;
+};
+
+/** Boolean expression to compare columns of type "bytea". All fields are combined with logical 'AND'. */
+export type Bytea_Comparison_Exp = {
+  _eq?: InputMaybe<Scalars['bytea']>;
+  _gt?: InputMaybe<Scalars['bytea']>;
+  _gte?: InputMaybe<Scalars['bytea']>;
+  _in?: InputMaybe<Array<Scalars['bytea']>>;
+  _is_null?: InputMaybe<Scalars['Boolean']>;
+  _lt?: InputMaybe<Scalars['bytea']>;
+  _lte?: InputMaybe<Scalars['bytea']>;
+  _neq?: InputMaybe<Scalars['bytea']>;
+  _nin?: InputMaybe<Array<Scalars['bytea']>>;
 };
 
 /** columns and relationships of "community_pool" */
@@ -1102,26 +1077,6 @@ export type Fee_Grant_AllowanceAllowanceArgs = {
   path?: InputMaybe<Scalars['String']>;
 };
 
-/** order by aggregate values of table "fee_grant_allowance" */
-export type Fee_Grant_Allowance_Aggregate_Order_By = {
-  avg?: InputMaybe<Fee_Grant_Allowance_Avg_Order_By>;
-  count?: InputMaybe<Order_By>;
-  max?: InputMaybe<Fee_Grant_Allowance_Max_Order_By>;
-  min?: InputMaybe<Fee_Grant_Allowance_Min_Order_By>;
-  stddev?: InputMaybe<Fee_Grant_Allowance_Stddev_Order_By>;
-  stddev_pop?: InputMaybe<Fee_Grant_Allowance_Stddev_Pop_Order_By>;
-  stddev_samp?: InputMaybe<Fee_Grant_Allowance_Stddev_Samp_Order_By>;
-  sum?: InputMaybe<Fee_Grant_Allowance_Sum_Order_By>;
-  var_pop?: InputMaybe<Fee_Grant_Allowance_Var_Pop_Order_By>;
-  var_samp?: InputMaybe<Fee_Grant_Allowance_Var_Samp_Order_By>;
-  variance?: InputMaybe<Fee_Grant_Allowance_Variance_Order_By>;
-};
-
-/** order by avg() on columns of table "fee_grant_allowance" */
-export type Fee_Grant_Allowance_Avg_Order_By = {
-  height?: InputMaybe<Order_By>;
-};
-
 /** Boolean expression to filter rows from the table "fee_grant_allowance". All fields are combined with a logical 'AND'. */
 export type Fee_Grant_Allowance_Bool_Exp = {
   _and?: InputMaybe<Array<Fee_Grant_Allowance_Bool_Exp>>;
@@ -1133,20 +1088,6 @@ export type Fee_Grant_Allowance_Bool_Exp = {
   granter?: InputMaybe<Account_Bool_Exp>;
   granter_address?: InputMaybe<String_Comparison_Exp>;
   height?: InputMaybe<Bigint_Comparison_Exp>;
-};
-
-/** order by max() on columns of table "fee_grant_allowance" */
-export type Fee_Grant_Allowance_Max_Order_By = {
-  grantee_address?: InputMaybe<Order_By>;
-  granter_address?: InputMaybe<Order_By>;
-  height?: InputMaybe<Order_By>;
-};
-
-/** order by min() on columns of table "fee_grant_allowance" */
-export type Fee_Grant_Allowance_Min_Order_By = {
-  grantee_address?: InputMaybe<Order_By>;
-  granter_address?: InputMaybe<Order_By>;
-  height?: InputMaybe<Order_By>;
 };
 
 /** Ordering options when selecting data from "fee_grant_allowance". */
@@ -1170,41 +1111,6 @@ export enum Fee_Grant_Allowance_Select_Column {
   /** column name */
   Height = 'height'
 }
-
-/** order by stddev() on columns of table "fee_grant_allowance" */
-export type Fee_Grant_Allowance_Stddev_Order_By = {
-  height?: InputMaybe<Order_By>;
-};
-
-/** order by stddev_pop() on columns of table "fee_grant_allowance" */
-export type Fee_Grant_Allowance_Stddev_Pop_Order_By = {
-  height?: InputMaybe<Order_By>;
-};
-
-/** order by stddev_samp() on columns of table "fee_grant_allowance" */
-export type Fee_Grant_Allowance_Stddev_Samp_Order_By = {
-  height?: InputMaybe<Order_By>;
-};
-
-/** order by sum() on columns of table "fee_grant_allowance" */
-export type Fee_Grant_Allowance_Sum_Order_By = {
-  height?: InputMaybe<Order_By>;
-};
-
-/** order by var_pop() on columns of table "fee_grant_allowance" */
-export type Fee_Grant_Allowance_Var_Pop_Order_By = {
-  height?: InputMaybe<Order_By>;
-};
-
-/** order by var_samp() on columns of table "fee_grant_allowance" */
-export type Fee_Grant_Allowance_Var_Samp_Order_By = {
-  height?: InputMaybe<Order_By>;
-};
-
-/** order by variance() on columns of table "fee_grant_allowance" */
-export type Fee_Grant_Allowance_Variance_Order_By = {
-  height?: InputMaybe<Order_By>;
-};
 
 /** columns and relationships of "genesis" */
 export type Genesis = {
@@ -1360,8 +1266,6 @@ export type Message = {
   involved_accounts_addresses: Scalars['_text'];
   /** An object relationship */
   transaction?: Maybe<Transaction>;
-  /** An object relationship */
-  transactionByPartitionIdTransactionHash?: Maybe<Transaction>;
   transaction_hash: Scalars['String'];
   type: Scalars['String'];
   value: Scalars['jsonb'];
@@ -1373,27 +1277,6 @@ export type MessageValueArgs = {
   path?: InputMaybe<Scalars['String']>;
 };
 
-/** order by aggregate values of table "message" */
-export type Message_Aggregate_Order_By = {
-  avg?: InputMaybe<Message_Avg_Order_By>;
-  count?: InputMaybe<Order_By>;
-  max?: InputMaybe<Message_Max_Order_By>;
-  min?: InputMaybe<Message_Min_Order_By>;
-  stddev?: InputMaybe<Message_Stddev_Order_By>;
-  stddev_pop?: InputMaybe<Message_Stddev_Pop_Order_By>;
-  stddev_samp?: InputMaybe<Message_Stddev_Samp_Order_By>;
-  sum?: InputMaybe<Message_Sum_Order_By>;
-  var_pop?: InputMaybe<Message_Var_Pop_Order_By>;
-  var_samp?: InputMaybe<Message_Var_Samp_Order_By>;
-  variance?: InputMaybe<Message_Variance_Order_By>;
-};
-
-/** order by avg() on columns of table "message" */
-export type Message_Avg_Order_By = {
-  height?: InputMaybe<Order_By>;
-  index?: InputMaybe<Order_By>;
-};
-
 /** Boolean expression to filter rows from the table "message". All fields are combined with a logical 'AND'. */
 export type Message_Bool_Exp = {
   _and?: InputMaybe<Array<Message_Bool_Exp>>;
@@ -1403,26 +1286,9 @@ export type Message_Bool_Exp = {
   index?: InputMaybe<Bigint_Comparison_Exp>;
   involved_accounts_addresses?: InputMaybe<_Text_Comparison_Exp>;
   transaction?: InputMaybe<Transaction_Bool_Exp>;
-  transactionByPartitionIdTransactionHash?: InputMaybe<Transaction_Bool_Exp>;
   transaction_hash?: InputMaybe<String_Comparison_Exp>;
   type?: InputMaybe<String_Comparison_Exp>;
   value?: InputMaybe<Jsonb_Comparison_Exp>;
-};
-
-/** order by max() on columns of table "message" */
-export type Message_Max_Order_By = {
-  height?: InputMaybe<Order_By>;
-  index?: InputMaybe<Order_By>;
-  transaction_hash?: InputMaybe<Order_By>;
-  type?: InputMaybe<Order_By>;
-};
-
-/** order by min() on columns of table "message" */
-export type Message_Min_Order_By = {
-  height?: InputMaybe<Order_By>;
-  index?: InputMaybe<Order_By>;
-  transaction_hash?: InputMaybe<Order_By>;
-  type?: InputMaybe<Order_By>;
 };
 
 /** Ordering options when selecting data from "message". */
@@ -1431,7 +1297,6 @@ export type Message_Order_By = {
   index?: InputMaybe<Order_By>;
   involved_accounts_addresses?: InputMaybe<Order_By>;
   transaction?: InputMaybe<Transaction_Order_By>;
-  transactionByPartitionIdTransactionHash?: InputMaybe<Transaction_Order_By>;
   transaction_hash?: InputMaybe<Order_By>;
   type?: InputMaybe<Order_By>;
   value?: InputMaybe<Order_By>;
@@ -1452,48 +1317,6 @@ export enum Message_Select_Column {
   /** column name */
   Value = 'value'
 }
-
-/** order by stddev() on columns of table "message" */
-export type Message_Stddev_Order_By = {
-  height?: InputMaybe<Order_By>;
-  index?: InputMaybe<Order_By>;
-};
-
-/** order by stddev_pop() on columns of table "message" */
-export type Message_Stddev_Pop_Order_By = {
-  height?: InputMaybe<Order_By>;
-  index?: InputMaybe<Order_By>;
-};
-
-/** order by stddev_samp() on columns of table "message" */
-export type Message_Stddev_Samp_Order_By = {
-  height?: InputMaybe<Order_By>;
-  index?: InputMaybe<Order_By>;
-};
-
-/** order by sum() on columns of table "message" */
-export type Message_Sum_Order_By = {
-  height?: InputMaybe<Order_By>;
-  index?: InputMaybe<Order_By>;
-};
-
-/** order by var_pop() on columns of table "message" */
-export type Message_Var_Pop_Order_By = {
-  height?: InputMaybe<Order_By>;
-  index?: InputMaybe<Order_By>;
-};
-
-/** order by var_samp() on columns of table "message" */
-export type Message_Var_Samp_Order_By = {
-  height?: InputMaybe<Order_By>;
-  index?: InputMaybe<Order_By>;
-};
-
-/** order by variance() on columns of table "message" */
-export type Message_Variance_Order_By = {
-  height?: InputMaybe<Order_By>;
-  index?: InputMaybe<Order_By>;
-};
 
 export type Messages_By_Address_Args = {
   addresses?: InputMaybe<Scalars['_text']>;
@@ -2016,7 +1839,7 @@ export type Proposal_Deposit = {
   /** An object relationship */
   proposal: Proposal;
   proposal_id: Scalars['Int'];
-  timestamp?: Maybe<Scalars['timestamptz']>;
+  timestamp?: Maybe<Scalars['timestamp']>;
 };
 
 /** order by aggregate values of table "proposal_deposit" */
@@ -2052,7 +1875,7 @@ export type Proposal_Deposit_Bool_Exp = {
   height?: InputMaybe<Bigint_Comparison_Exp>;
   proposal?: InputMaybe<Proposal_Bool_Exp>;
   proposal_id?: InputMaybe<Int_Comparison_Exp>;
-  timestamp?: InputMaybe<Timestamptz_Comparison_Exp>;
+  timestamp?: InputMaybe<Timestamp_Comparison_Exp>;
 };
 
 /** order by max() on columns of table "proposal_deposit" */
@@ -2677,7 +2500,7 @@ export type Proposal_Vote = {
   /** An object relationship */
   proposal: Proposal;
   proposal_id: Scalars['Int'];
-  timestamp?: Maybe<Scalars['timestamptz']>;
+  timestamp?: Maybe<Scalars['timestamp']>;
   voter_address: Scalars['String'];
 };
 
@@ -2713,7 +2536,7 @@ export type Proposal_Vote_Bool_Exp = {
   option?: InputMaybe<String_Comparison_Exp>;
   proposal?: InputMaybe<Proposal_Bool_Exp>;
   proposal_id?: InputMaybe<Int_Comparison_Exp>;
-  timestamp?: InputMaybe<Timestamptz_Comparison_Exp>;
+  timestamp?: InputMaybe<Timestamp_Comparison_Exp>;
   voter_address?: InputMaybe<String_Comparison_Exp>;
 };
 
@@ -2919,8 +2742,6 @@ export type Query_Root = {
   validator_description_by_pk?: Maybe<Validator_Description>;
   /** fetch data from the table: "validator_info" */
   validator_info: Array<Validator_Info>;
-  /** fetch aggregated fields from the table: "validator_info" */
-  validator_info_aggregate: Validator_Info_Aggregate;
   /** fetch data from the table: "validator_info" using primary key columns */
   validator_info_by_pk?: Maybe<Validator_Info>;
   /** fetch data from the table: "validator_signing_info" */
@@ -2941,12 +2762,26 @@ export type Query_Root = {
   validator_voting_power_by_pk?: Maybe<Validator_Voting_Power>;
   /** fetch data from the table: "vesting_account" */
   vesting_account: Array<Vesting_Account>;
-  /** fetch aggregated fields from the table: "vesting_account" */
-  vesting_account_aggregate: Vesting_Account_Aggregate;
   /** fetch data from the table: "vesting_period" */
   vesting_period: Array<Vesting_Period>;
-  /** fetch aggregated fields from the table: "vesting_period" */
-  vesting_period_aggregate: Vesting_Period_Aggregate;
+  /** fetch data from the table: "wasm_code" */
+  wasm_code: Array<Wasm_Code>;
+  /** fetch aggregated fields from the table: "wasm_code" */
+  wasm_code_aggregate: Wasm_Code_Aggregate;
+  /** fetch data from the table: "wasm_contract" */
+  wasm_contract: Array<Wasm_Contract>;
+  /** fetch aggregated fields from the table: "wasm_contract" */
+  wasm_contract_aggregate: Wasm_Contract_Aggregate;
+  /** fetch data from the table: "wasm_execute_contract" */
+  wasm_execute_contract: Array<Wasm_Execute_Contract>;
+  /** fetch aggregated fields from the table: "wasm_execute_contract" */
+  wasm_execute_contract_aggregate: Wasm_Execute_Contract_Aggregate;
+  /** fetch data from the table: "wasm_params" */
+  wasm_params: Array<Wasm_Params>;
+  /** fetch aggregated fields from the table: "wasm_params" */
+  wasm_params_aggregate: Wasm_Params_Aggregate;
+  /** fetch data from the table: "wasm_params" using primary key columns */
+  wasm_params_by_pk?: Maybe<Wasm_Params>;
 };
 
 
@@ -3460,15 +3295,6 @@ export type Query_RootValidator_InfoArgs = {
 };
 
 
-export type Query_RootValidator_Info_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Validator_Info_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Validator_Info_Order_By>>;
-  where?: InputMaybe<Validator_Info_Bool_Exp>;
-};
-
-
 export type Query_RootValidator_Info_By_PkArgs = {
   consensus_address: Scalars['String'];
 };
@@ -3543,15 +3369,6 @@ export type Query_RootVesting_AccountArgs = {
 };
 
 
-export type Query_RootVesting_Account_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Vesting_Account_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Vesting_Account_Order_By>>;
-  where?: InputMaybe<Vesting_Account_Bool_Exp>;
-};
-
-
 export type Query_RootVesting_PeriodArgs = {
   distinct_on?: InputMaybe<Array<Vesting_Period_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -3561,12 +3378,80 @@ export type Query_RootVesting_PeriodArgs = {
 };
 
 
-export type Query_RootVesting_Period_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Vesting_Period_Select_Column>>;
+export type Query_RootWasm_CodeArgs = {
+  distinct_on?: InputMaybe<Array<Wasm_Code_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Vesting_Period_Order_By>>;
-  where?: InputMaybe<Vesting_Period_Bool_Exp>;
+  order_by?: InputMaybe<Array<Wasm_Code_Order_By>>;
+  where?: InputMaybe<Wasm_Code_Bool_Exp>;
+};
+
+
+export type Query_RootWasm_Code_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Wasm_Code_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Wasm_Code_Order_By>>;
+  where?: InputMaybe<Wasm_Code_Bool_Exp>;
+};
+
+
+export type Query_RootWasm_ContractArgs = {
+  distinct_on?: InputMaybe<Array<Wasm_Contract_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Wasm_Contract_Order_By>>;
+  where?: InputMaybe<Wasm_Contract_Bool_Exp>;
+};
+
+
+export type Query_RootWasm_Contract_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Wasm_Contract_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Wasm_Contract_Order_By>>;
+  where?: InputMaybe<Wasm_Contract_Bool_Exp>;
+};
+
+
+export type Query_RootWasm_Execute_ContractArgs = {
+  distinct_on?: InputMaybe<Array<Wasm_Execute_Contract_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Wasm_Execute_Contract_Order_By>>;
+  where?: InputMaybe<Wasm_Execute_Contract_Bool_Exp>;
+};
+
+
+export type Query_RootWasm_Execute_Contract_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Wasm_Execute_Contract_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Wasm_Execute_Contract_Order_By>>;
+  where?: InputMaybe<Wasm_Execute_Contract_Bool_Exp>;
+};
+
+
+export type Query_RootWasm_ParamsArgs = {
+  distinct_on?: InputMaybe<Array<Wasm_Params_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Wasm_Params_Order_By>>;
+  where?: InputMaybe<Wasm_Params_Bool_Exp>;
+};
+
+
+export type Query_RootWasm_Params_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Wasm_Params_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Wasm_Params_Order_By>>;
+  where?: InputMaybe<Wasm_Params_Bool_Exp>;
+};
+
+
+export type Query_RootWasm_Params_By_PkArgs = {
+  one_row_id: Scalars['Boolean'];
 };
 
 /** columns and relationships of "slashing_params" */
@@ -3966,8 +3851,6 @@ export type Subscription_Root = {
   validator_description_by_pk?: Maybe<Validator_Description>;
   /** fetch data from the table: "validator_info" */
   validator_info: Array<Validator_Info>;
-  /** fetch aggregated fields from the table: "validator_info" */
-  validator_info_aggregate: Validator_Info_Aggregate;
   /** fetch data from the table: "validator_info" using primary key columns */
   validator_info_by_pk?: Maybe<Validator_Info>;
   /** fetch data from the table: "validator_signing_info" */
@@ -3988,12 +3871,26 @@ export type Subscription_Root = {
   validator_voting_power_by_pk?: Maybe<Validator_Voting_Power>;
   /** fetch data from the table: "vesting_account" */
   vesting_account: Array<Vesting_Account>;
-  /** fetch aggregated fields from the table: "vesting_account" */
-  vesting_account_aggregate: Vesting_Account_Aggregate;
   /** fetch data from the table: "vesting_period" */
   vesting_period: Array<Vesting_Period>;
-  /** fetch aggregated fields from the table: "vesting_period" */
-  vesting_period_aggregate: Vesting_Period_Aggregate;
+  /** fetch data from the table: "wasm_code" */
+  wasm_code: Array<Wasm_Code>;
+  /** fetch aggregated fields from the table: "wasm_code" */
+  wasm_code_aggregate: Wasm_Code_Aggregate;
+  /** fetch data from the table: "wasm_contract" */
+  wasm_contract: Array<Wasm_Contract>;
+  /** fetch aggregated fields from the table: "wasm_contract" */
+  wasm_contract_aggregate: Wasm_Contract_Aggregate;
+  /** fetch data from the table: "wasm_execute_contract" */
+  wasm_execute_contract: Array<Wasm_Execute_Contract>;
+  /** fetch aggregated fields from the table: "wasm_execute_contract" */
+  wasm_execute_contract_aggregate: Wasm_Execute_Contract_Aggregate;
+  /** fetch data from the table: "wasm_params" */
+  wasm_params: Array<Wasm_Params>;
+  /** fetch aggregated fields from the table: "wasm_params" */
+  wasm_params_aggregate: Wasm_Params_Aggregate;
+  /** fetch data from the table: "wasm_params" using primary key columns */
+  wasm_params_by_pk?: Maybe<Wasm_Params>;
 };
 
 
@@ -4421,15 +4318,6 @@ export type Subscription_RootValidator_InfoArgs = {
 };
 
 
-export type Subscription_RootValidator_Info_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Validator_Info_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Validator_Info_Order_By>>;
-  where?: InputMaybe<Validator_Info_Bool_Exp>;
-};
-
-
 export type Subscription_RootValidator_Info_By_PkArgs = {
   consensus_address: Scalars['String'];
 };
@@ -4504,15 +4392,6 @@ export type Subscription_RootVesting_AccountArgs = {
 };
 
 
-export type Subscription_RootVesting_Account_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Vesting_Account_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Vesting_Account_Order_By>>;
-  where?: InputMaybe<Vesting_Account_Bool_Exp>;
-};
-
-
 export type Subscription_RootVesting_PeriodArgs = {
   distinct_on?: InputMaybe<Array<Vesting_Period_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -4522,12 +4401,80 @@ export type Subscription_RootVesting_PeriodArgs = {
 };
 
 
-export type Subscription_RootVesting_Period_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Vesting_Period_Select_Column>>;
+export type Subscription_RootWasm_CodeArgs = {
+  distinct_on?: InputMaybe<Array<Wasm_Code_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Vesting_Period_Order_By>>;
-  where?: InputMaybe<Vesting_Period_Bool_Exp>;
+  order_by?: InputMaybe<Array<Wasm_Code_Order_By>>;
+  where?: InputMaybe<Wasm_Code_Bool_Exp>;
+};
+
+
+export type Subscription_RootWasm_Code_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Wasm_Code_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Wasm_Code_Order_By>>;
+  where?: InputMaybe<Wasm_Code_Bool_Exp>;
+};
+
+
+export type Subscription_RootWasm_ContractArgs = {
+  distinct_on?: InputMaybe<Array<Wasm_Contract_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Wasm_Contract_Order_By>>;
+  where?: InputMaybe<Wasm_Contract_Bool_Exp>;
+};
+
+
+export type Subscription_RootWasm_Contract_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Wasm_Contract_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Wasm_Contract_Order_By>>;
+  where?: InputMaybe<Wasm_Contract_Bool_Exp>;
+};
+
+
+export type Subscription_RootWasm_Execute_ContractArgs = {
+  distinct_on?: InputMaybe<Array<Wasm_Execute_Contract_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Wasm_Execute_Contract_Order_By>>;
+  where?: InputMaybe<Wasm_Execute_Contract_Bool_Exp>;
+};
+
+
+export type Subscription_RootWasm_Execute_Contract_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Wasm_Execute_Contract_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Wasm_Execute_Contract_Order_By>>;
+  where?: InputMaybe<Wasm_Execute_Contract_Bool_Exp>;
+};
+
+
+export type Subscription_RootWasm_ParamsArgs = {
+  distinct_on?: InputMaybe<Array<Wasm_Params_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Wasm_Params_Order_By>>;
+  where?: InputMaybe<Wasm_Params_Bool_Exp>;
+};
+
+
+export type Subscription_RootWasm_Params_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Wasm_Params_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Wasm_Params_Order_By>>;
+  where?: InputMaybe<Wasm_Params_Bool_Exp>;
+};
+
+
+export type Subscription_RootWasm_Params_By_PkArgs = {
+  one_row_id: Scalars['Boolean'];
 };
 
 /** columns and relationships of "supply" */
@@ -4571,19 +4518,6 @@ export type Timestamp_Comparison_Exp = {
   _lte?: InputMaybe<Scalars['timestamp']>;
   _neq?: InputMaybe<Scalars['timestamp']>;
   _nin?: InputMaybe<Array<Scalars['timestamp']>>;
-};
-
-/** Boolean expression to compare columns of type "timestamptz". All fields are combined with logical 'AND'. */
-export type Timestamptz_Comparison_Exp = {
-  _eq?: InputMaybe<Scalars['timestamptz']>;
-  _gt?: InputMaybe<Scalars['timestamptz']>;
-  _gte?: InputMaybe<Scalars['timestamptz']>;
-  _in?: InputMaybe<Array<Scalars['timestamptz']>>;
-  _is_null?: InputMaybe<Scalars['Boolean']>;
-  _lt?: InputMaybe<Scalars['timestamptz']>;
-  _lte?: InputMaybe<Scalars['timestamptz']>;
-  _neq?: InputMaybe<Scalars['timestamptz']>;
-  _nin?: InputMaybe<Array<Scalars['timestamptz']>>;
 };
 
 /** columns and relationships of "token" */
@@ -5036,8 +4970,6 @@ export type Transaction = {
   logs?: Maybe<Scalars['jsonb']>;
   memo?: Maybe<Scalars['String']>;
   messages: Scalars['jsonb'];
-  /** An array relationship */
-  messagesByTransactionHashPartitionId: Array<Message>;
   raw_log?: Maybe<Scalars['String']>;
   signatures: Scalars['_text'];
   signer_infos: Scalars['jsonb'];
@@ -5060,16 +4992,6 @@ export type TransactionLogsArgs = {
 /** columns and relationships of "transaction" */
 export type TransactionMessagesArgs = {
   path?: InputMaybe<Scalars['String']>;
-};
-
-
-/** columns and relationships of "transaction" */
-export type TransactionMessagesByTransactionHashPartitionIdArgs = {
-  distinct_on?: InputMaybe<Array<Message_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Message_Order_By>>;
-  where?: InputMaybe<Message_Bool_Exp>;
 };
 
 
@@ -5114,7 +5036,6 @@ export type Transaction_Bool_Exp = {
   logs?: InputMaybe<Jsonb_Comparison_Exp>;
   memo?: InputMaybe<String_Comparison_Exp>;
   messages?: InputMaybe<Jsonb_Comparison_Exp>;
-  messagesByTransactionHashPartitionId?: InputMaybe<Message_Bool_Exp>;
   raw_log?: InputMaybe<String_Comparison_Exp>;
   signatures?: InputMaybe<_Text_Comparison_Exp>;
   signer_infos?: InputMaybe<Jsonb_Comparison_Exp>;
@@ -5152,7 +5073,6 @@ export type Transaction_Order_By = {
   logs?: InputMaybe<Order_By>;
   memo?: InputMaybe<Order_By>;
   messages?: InputMaybe<Order_By>;
-  messagesByTransactionHashPartitionId_aggregate?: InputMaybe<Message_Aggregate_Order_By>;
   raw_log?: InputMaybe<Order_By>;
   signatures?: InputMaybe<Order_By>;
   signer_infos?: InputMaybe<Order_By>;
@@ -5261,8 +5181,6 @@ export type Validator = {
   validator_info?: Maybe<Validator_Info>;
   /** An array relationship */
   validator_infos: Array<Validator_Info>;
-  /** An aggregate relationship */
-  validator_infos_aggregate: Validator_Info_Aggregate;
   /** An array relationship */
   validator_signing_infos: Array<Validator_Signing_Info>;
   /** An array relationship */
@@ -5348,16 +5266,6 @@ export type ValidatorValidator_DescriptionsArgs = {
 
 /** columns and relationships of "validator" */
 export type ValidatorValidator_InfosArgs = {
-  distinct_on?: InputMaybe<Array<Validator_Info_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Validator_Info_Order_By>>;
-  where?: InputMaybe<Validator_Info_Bool_Exp>;
-};
-
-
-/** columns and relationships of "validator" */
-export type ValidatorValidator_Infos_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Validator_Info_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -5716,7 +5624,6 @@ export type Validator_Info = {
   /** An object relationship */
   account?: Maybe<Account>;
   consensus_address: Scalars['String'];
-  height: Scalars['bigint'];
   max_change_rate: Scalars['String'];
   max_rate: Scalars['String'];
   operator_address: Scalars['String'];
@@ -5725,60 +5632,11 @@ export type Validator_Info = {
   validator: Validator;
 };
 
-/** aggregated selection of "validator_info" */
-export type Validator_Info_Aggregate = {
-  __typename?: 'validator_info_aggregate';
-  aggregate?: Maybe<Validator_Info_Aggregate_Fields>;
-  nodes: Array<Validator_Info>;
-};
-
-/** aggregate fields of "validator_info" */
-export type Validator_Info_Aggregate_Fields = {
-  __typename?: 'validator_info_aggregate_fields';
-  avg?: Maybe<Validator_Info_Avg_Fields>;
-  count: Scalars['Int'];
-  max?: Maybe<Validator_Info_Max_Fields>;
-  min?: Maybe<Validator_Info_Min_Fields>;
-  stddev?: Maybe<Validator_Info_Stddev_Fields>;
-  stddev_pop?: Maybe<Validator_Info_Stddev_Pop_Fields>;
-  stddev_samp?: Maybe<Validator_Info_Stddev_Samp_Fields>;
-  sum?: Maybe<Validator_Info_Sum_Fields>;
-  var_pop?: Maybe<Validator_Info_Var_Pop_Fields>;
-  var_samp?: Maybe<Validator_Info_Var_Samp_Fields>;
-  variance?: Maybe<Validator_Info_Variance_Fields>;
-};
-
-
-/** aggregate fields of "validator_info" */
-export type Validator_Info_Aggregate_FieldsCountArgs = {
-  columns?: InputMaybe<Array<Validator_Info_Select_Column>>;
-  distinct?: InputMaybe<Scalars['Boolean']>;
-};
-
 /** order by aggregate values of table "validator_info" */
 export type Validator_Info_Aggregate_Order_By = {
-  avg?: InputMaybe<Validator_Info_Avg_Order_By>;
   count?: InputMaybe<Order_By>;
   max?: InputMaybe<Validator_Info_Max_Order_By>;
   min?: InputMaybe<Validator_Info_Min_Order_By>;
-  stddev?: InputMaybe<Validator_Info_Stddev_Order_By>;
-  stddev_pop?: InputMaybe<Validator_Info_Stddev_Pop_Order_By>;
-  stddev_samp?: InputMaybe<Validator_Info_Stddev_Samp_Order_By>;
-  sum?: InputMaybe<Validator_Info_Sum_Order_By>;
-  var_pop?: InputMaybe<Validator_Info_Var_Pop_Order_By>;
-  var_samp?: InputMaybe<Validator_Info_Var_Samp_Order_By>;
-  variance?: InputMaybe<Validator_Info_Variance_Order_By>;
-};
-
-/** aggregate avg on columns */
-export type Validator_Info_Avg_Fields = {
-  __typename?: 'validator_info_avg_fields';
-  height?: Maybe<Scalars['Float']>;
-};
-
-/** order by avg() on columns of table "validator_info" */
-export type Validator_Info_Avg_Order_By = {
-  height?: InputMaybe<Order_By>;
 };
 
 /** Boolean expression to filter rows from the table "validator_info". All fields are combined with a logical 'AND'. */
@@ -5788,7 +5646,6 @@ export type Validator_Info_Bool_Exp = {
   _or?: InputMaybe<Array<Validator_Info_Bool_Exp>>;
   account?: InputMaybe<Account_Bool_Exp>;
   consensus_address?: InputMaybe<String_Comparison_Exp>;
-  height?: InputMaybe<Bigint_Comparison_Exp>;
   max_change_rate?: InputMaybe<String_Comparison_Exp>;
   max_rate?: InputMaybe<String_Comparison_Exp>;
   operator_address?: InputMaybe<String_Comparison_Exp>;
@@ -5796,42 +5653,18 @@ export type Validator_Info_Bool_Exp = {
   validator?: InputMaybe<Validator_Bool_Exp>;
 };
 
-/** aggregate max on columns */
-export type Validator_Info_Max_Fields = {
-  __typename?: 'validator_info_max_fields';
-  consensus_address?: Maybe<Scalars['String']>;
-  height?: Maybe<Scalars['bigint']>;
-  max_change_rate?: Maybe<Scalars['String']>;
-  max_rate?: Maybe<Scalars['String']>;
-  operator_address?: Maybe<Scalars['String']>;
-  self_delegate_address?: Maybe<Scalars['String']>;
-};
-
 /** order by max() on columns of table "validator_info" */
 export type Validator_Info_Max_Order_By = {
   consensus_address?: InputMaybe<Order_By>;
-  height?: InputMaybe<Order_By>;
   max_change_rate?: InputMaybe<Order_By>;
   max_rate?: InputMaybe<Order_By>;
   operator_address?: InputMaybe<Order_By>;
   self_delegate_address?: InputMaybe<Order_By>;
 };
 
-/** aggregate min on columns */
-export type Validator_Info_Min_Fields = {
-  __typename?: 'validator_info_min_fields';
-  consensus_address?: Maybe<Scalars['String']>;
-  height?: Maybe<Scalars['bigint']>;
-  max_change_rate?: Maybe<Scalars['String']>;
-  max_rate?: Maybe<Scalars['String']>;
-  operator_address?: Maybe<Scalars['String']>;
-  self_delegate_address?: Maybe<Scalars['String']>;
-};
-
 /** order by min() on columns of table "validator_info" */
 export type Validator_Info_Min_Order_By = {
   consensus_address?: InputMaybe<Order_By>;
-  height?: InputMaybe<Order_By>;
   max_change_rate?: InputMaybe<Order_By>;
   max_rate?: InputMaybe<Order_By>;
   operator_address?: InputMaybe<Order_By>;
@@ -5842,7 +5675,6 @@ export type Validator_Info_Min_Order_By = {
 export type Validator_Info_Order_By = {
   account?: InputMaybe<Account_Order_By>;
   consensus_address?: InputMaybe<Order_By>;
-  height?: InputMaybe<Order_By>;
   max_change_rate?: InputMaybe<Order_By>;
   max_rate?: InputMaybe<Order_By>;
   operator_address?: InputMaybe<Order_By>;
@@ -5855,8 +5687,6 @@ export enum Validator_Info_Select_Column {
   /** column name */
   ConsensusAddress = 'consensus_address',
   /** column name */
-  Height = 'height',
-  /** column name */
   MaxChangeRate = 'max_change_rate',
   /** column name */
   MaxRate = 'max_rate',
@@ -5865,83 +5695,6 @@ export enum Validator_Info_Select_Column {
   /** column name */
   SelfDelegateAddress = 'self_delegate_address'
 }
-
-/** aggregate stddev on columns */
-export type Validator_Info_Stddev_Fields = {
-  __typename?: 'validator_info_stddev_fields';
-  height?: Maybe<Scalars['Float']>;
-};
-
-/** order by stddev() on columns of table "validator_info" */
-export type Validator_Info_Stddev_Order_By = {
-  height?: InputMaybe<Order_By>;
-};
-
-/** aggregate stddev_pop on columns */
-export type Validator_Info_Stddev_Pop_Fields = {
-  __typename?: 'validator_info_stddev_pop_fields';
-  height?: Maybe<Scalars['Float']>;
-};
-
-/** order by stddev_pop() on columns of table "validator_info" */
-export type Validator_Info_Stddev_Pop_Order_By = {
-  height?: InputMaybe<Order_By>;
-};
-
-/** aggregate stddev_samp on columns */
-export type Validator_Info_Stddev_Samp_Fields = {
-  __typename?: 'validator_info_stddev_samp_fields';
-  height?: Maybe<Scalars['Float']>;
-};
-
-/** order by stddev_samp() on columns of table "validator_info" */
-export type Validator_Info_Stddev_Samp_Order_By = {
-  height?: InputMaybe<Order_By>;
-};
-
-/** aggregate sum on columns */
-export type Validator_Info_Sum_Fields = {
-  __typename?: 'validator_info_sum_fields';
-  height?: Maybe<Scalars['bigint']>;
-};
-
-/** order by sum() on columns of table "validator_info" */
-export type Validator_Info_Sum_Order_By = {
-  height?: InputMaybe<Order_By>;
-};
-
-/** aggregate var_pop on columns */
-export type Validator_Info_Var_Pop_Fields = {
-  __typename?: 'validator_info_var_pop_fields';
-  height?: Maybe<Scalars['Float']>;
-};
-
-/** order by var_pop() on columns of table "validator_info" */
-export type Validator_Info_Var_Pop_Order_By = {
-  height?: InputMaybe<Order_By>;
-};
-
-/** aggregate var_samp on columns */
-export type Validator_Info_Var_Samp_Fields = {
-  __typename?: 'validator_info_var_samp_fields';
-  height?: Maybe<Scalars['Float']>;
-};
-
-/** order by var_samp() on columns of table "validator_info" */
-export type Validator_Info_Var_Samp_Order_By = {
-  height?: InputMaybe<Order_By>;
-};
-
-/** aggregate variance on columns */
-export type Validator_Info_Variance_Fields = {
-  __typename?: 'validator_info_variance_fields';
-  height?: Maybe<Scalars['Float']>;
-};
-
-/** order by variance() on columns of table "validator_info" */
-export type Validator_Info_Variance_Order_By = {
-  height?: InputMaybe<Order_By>;
-};
 
 /** Ordering options when selecting data from "validator". */
 export type Validator_Order_By = {
@@ -6129,7 +5882,6 @@ export type Validator_Status = {
   height: Scalars['bigint'];
   jailed: Scalars['Boolean'];
   status: Scalars['Int'];
-  tombstoned: Scalars['Boolean'];
   /** An object relationship */
   validator: Validator;
   validator_address: Scalars['String'];
@@ -6201,7 +5953,6 @@ export type Validator_Status_Bool_Exp = {
   height?: InputMaybe<Bigint_Comparison_Exp>;
   jailed?: InputMaybe<Boolean_Comparison_Exp>;
   status?: InputMaybe<Int_Comparison_Exp>;
-  tombstoned?: InputMaybe<Boolean_Comparison_Exp>;
   validator?: InputMaybe<Validator_Bool_Exp>;
   validator_address?: InputMaybe<String_Comparison_Exp>;
 };
@@ -6241,7 +5992,6 @@ export type Validator_Status_Order_By = {
   height?: InputMaybe<Order_By>;
   jailed?: InputMaybe<Order_By>;
   status?: InputMaybe<Order_By>;
-  tombstoned?: InputMaybe<Order_By>;
   validator?: InputMaybe<Validator_Order_By>;
   validator_address?: InputMaybe<Order_By>;
 };
@@ -6254,8 +6004,6 @@ export enum Validator_Status_Select_Column {
   Jailed = 'jailed',
   /** column name */
   Status = 'status',
-  /** column name */
-  Tombstoned = 'tombstoned',
   /** column name */
   ValidatorAddress = 'validator_address'
 }
@@ -6585,8 +6333,6 @@ export type Vesting_Account = {
   type: Scalars['String'];
   /** An array relationship */
   vesting_periods: Array<Vesting_Period>;
-  /** An aggregate relationship */
-  vesting_periods_aggregate: Vesting_Period_Aggregate;
 };
 
 
@@ -6597,38 +6343,6 @@ export type Vesting_AccountVesting_PeriodsArgs = {
   offset?: InputMaybe<Scalars['Int']>;
   order_by?: InputMaybe<Array<Vesting_Period_Order_By>>;
   where?: InputMaybe<Vesting_Period_Bool_Exp>;
-};
-
-
-/** columns and relationships of "vesting_account" */
-export type Vesting_AccountVesting_Periods_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Vesting_Period_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Vesting_Period_Order_By>>;
-  where?: InputMaybe<Vesting_Period_Bool_Exp>;
-};
-
-/** aggregated selection of "vesting_account" */
-export type Vesting_Account_Aggregate = {
-  __typename?: 'vesting_account_aggregate';
-  aggregate?: Maybe<Vesting_Account_Aggregate_Fields>;
-  nodes: Array<Vesting_Account>;
-};
-
-/** aggregate fields of "vesting_account" */
-export type Vesting_Account_Aggregate_Fields = {
-  __typename?: 'vesting_account_aggregate_fields';
-  count: Scalars['Int'];
-  max?: Maybe<Vesting_Account_Max_Fields>;
-  min?: Maybe<Vesting_Account_Min_Fields>;
-};
-
-
-/** aggregate fields of "vesting_account" */
-export type Vesting_Account_Aggregate_FieldsCountArgs = {
-  columns?: InputMaybe<Array<Vesting_Account_Select_Column>>;
-  distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
 /** order by aggregate values of table "vesting_account" */
@@ -6652,30 +6366,12 @@ export type Vesting_Account_Bool_Exp = {
   vesting_periods?: InputMaybe<Vesting_Period_Bool_Exp>;
 };
 
-/** aggregate max on columns */
-export type Vesting_Account_Max_Fields = {
-  __typename?: 'vesting_account_max_fields';
-  address?: Maybe<Scalars['String']>;
-  end_time?: Maybe<Scalars['timestamp']>;
-  start_time?: Maybe<Scalars['timestamp']>;
-  type?: Maybe<Scalars['String']>;
-};
-
 /** order by max() on columns of table "vesting_account" */
 export type Vesting_Account_Max_Order_By = {
   address?: InputMaybe<Order_By>;
   end_time?: InputMaybe<Order_By>;
   start_time?: InputMaybe<Order_By>;
   type?: InputMaybe<Order_By>;
-};
-
-/** aggregate min on columns */
-export type Vesting_Account_Min_Fields = {
-  __typename?: 'vesting_account_min_fields';
-  address?: Maybe<Scalars['String']>;
-  end_time?: Maybe<Scalars['timestamp']>;
-  start_time?: Maybe<Scalars['timestamp']>;
-  type?: Maybe<Scalars['String']>;
 };
 
 /** order by min() on columns of table "vesting_account" */
@@ -6721,36 +6417,6 @@ export type Vesting_Period = {
   vesting_account: Vesting_Account;
 };
 
-/** aggregated selection of "vesting_period" */
-export type Vesting_Period_Aggregate = {
-  __typename?: 'vesting_period_aggregate';
-  aggregate?: Maybe<Vesting_Period_Aggregate_Fields>;
-  nodes: Array<Vesting_Period>;
-};
-
-/** aggregate fields of "vesting_period" */
-export type Vesting_Period_Aggregate_Fields = {
-  __typename?: 'vesting_period_aggregate_fields';
-  avg?: Maybe<Vesting_Period_Avg_Fields>;
-  count: Scalars['Int'];
-  max?: Maybe<Vesting_Period_Max_Fields>;
-  min?: Maybe<Vesting_Period_Min_Fields>;
-  stddev?: Maybe<Vesting_Period_Stddev_Fields>;
-  stddev_pop?: Maybe<Vesting_Period_Stddev_Pop_Fields>;
-  stddev_samp?: Maybe<Vesting_Period_Stddev_Samp_Fields>;
-  sum?: Maybe<Vesting_Period_Sum_Fields>;
-  var_pop?: Maybe<Vesting_Period_Var_Pop_Fields>;
-  var_samp?: Maybe<Vesting_Period_Var_Samp_Fields>;
-  variance?: Maybe<Vesting_Period_Variance_Fields>;
-};
-
-
-/** aggregate fields of "vesting_period" */
-export type Vesting_Period_Aggregate_FieldsCountArgs = {
-  columns?: InputMaybe<Array<Vesting_Period_Select_Column>>;
-  distinct?: InputMaybe<Scalars['Boolean']>;
-};
-
 /** order by aggregate values of table "vesting_period" */
 export type Vesting_Period_Aggregate_Order_By = {
   avg?: InputMaybe<Vesting_Period_Avg_Order_By>;
@@ -6764,13 +6430,6 @@ export type Vesting_Period_Aggregate_Order_By = {
   var_pop?: InputMaybe<Vesting_Period_Var_Pop_Order_By>;
   var_samp?: InputMaybe<Vesting_Period_Var_Samp_Order_By>;
   variance?: InputMaybe<Vesting_Period_Variance_Order_By>;
-};
-
-/** aggregate avg on columns */
-export type Vesting_Period_Avg_Fields = {
-  __typename?: 'vesting_period_avg_fields';
-  length?: Maybe<Scalars['Float']>;
-  period_order?: Maybe<Scalars['Float']>;
 };
 
 /** order by avg() on columns of table "vesting_period" */
@@ -6790,24 +6449,10 @@ export type Vesting_Period_Bool_Exp = {
   vesting_account?: InputMaybe<Vesting_Account_Bool_Exp>;
 };
 
-/** aggregate max on columns */
-export type Vesting_Period_Max_Fields = {
-  __typename?: 'vesting_period_max_fields';
-  length?: Maybe<Scalars['bigint']>;
-  period_order?: Maybe<Scalars['bigint']>;
-};
-
 /** order by max() on columns of table "vesting_period" */
 export type Vesting_Period_Max_Order_By = {
   length?: InputMaybe<Order_By>;
   period_order?: InputMaybe<Order_By>;
-};
-
-/** aggregate min on columns */
-export type Vesting_Period_Min_Fields = {
-  __typename?: 'vesting_period_min_fields';
-  length?: Maybe<Scalars['bigint']>;
-  period_order?: Maybe<Scalars['bigint']>;
 };
 
 /** order by min() on columns of table "vesting_period" */
@@ -6834,24 +6479,10 @@ export enum Vesting_Period_Select_Column {
   PeriodOrder = 'period_order'
 }
 
-/** aggregate stddev on columns */
-export type Vesting_Period_Stddev_Fields = {
-  __typename?: 'vesting_period_stddev_fields';
-  length?: Maybe<Scalars['Float']>;
-  period_order?: Maybe<Scalars['Float']>;
-};
-
 /** order by stddev() on columns of table "vesting_period" */
 export type Vesting_Period_Stddev_Order_By = {
   length?: InputMaybe<Order_By>;
   period_order?: InputMaybe<Order_By>;
-};
-
-/** aggregate stddev_pop on columns */
-export type Vesting_Period_Stddev_Pop_Fields = {
-  __typename?: 'vesting_period_stddev_pop_fields';
-  length?: Maybe<Scalars['Float']>;
-  period_order?: Maybe<Scalars['Float']>;
 };
 
 /** order by stddev_pop() on columns of table "vesting_period" */
@@ -6860,24 +6491,10 @@ export type Vesting_Period_Stddev_Pop_Order_By = {
   period_order?: InputMaybe<Order_By>;
 };
 
-/** aggregate stddev_samp on columns */
-export type Vesting_Period_Stddev_Samp_Fields = {
-  __typename?: 'vesting_period_stddev_samp_fields';
-  length?: Maybe<Scalars['Float']>;
-  period_order?: Maybe<Scalars['Float']>;
-};
-
 /** order by stddev_samp() on columns of table "vesting_period" */
 export type Vesting_Period_Stddev_Samp_Order_By = {
   length?: InputMaybe<Order_By>;
   period_order?: InputMaybe<Order_By>;
-};
-
-/** aggregate sum on columns */
-export type Vesting_Period_Sum_Fields = {
-  __typename?: 'vesting_period_sum_fields';
-  length?: Maybe<Scalars['bigint']>;
-  period_order?: Maybe<Scalars['bigint']>;
 };
 
 /** order by sum() on columns of table "vesting_period" */
@@ -6886,24 +6503,10 @@ export type Vesting_Period_Sum_Order_By = {
   period_order?: InputMaybe<Order_By>;
 };
 
-/** aggregate var_pop on columns */
-export type Vesting_Period_Var_Pop_Fields = {
-  __typename?: 'vesting_period_var_pop_fields';
-  length?: Maybe<Scalars['Float']>;
-  period_order?: Maybe<Scalars['Float']>;
-};
-
 /** order by var_pop() on columns of table "vesting_period" */
 export type Vesting_Period_Var_Pop_Order_By = {
   length?: InputMaybe<Order_By>;
   period_order?: InputMaybe<Order_By>;
-};
-
-/** aggregate var_samp on columns */
-export type Vesting_Period_Var_Samp_Fields = {
-  __typename?: 'vesting_period_var_samp_fields';
-  length?: Maybe<Scalars['Float']>;
-  period_order?: Maybe<Scalars['Float']>;
 };
 
 /** order by var_samp() on columns of table "vesting_period" */
@@ -6912,17 +6515,893 @@ export type Vesting_Period_Var_Samp_Order_By = {
   period_order?: InputMaybe<Order_By>;
 };
 
-/** aggregate variance on columns */
-export type Vesting_Period_Variance_Fields = {
-  __typename?: 'vesting_period_variance_fields';
-  length?: Maybe<Scalars['Float']>;
-  period_order?: Maybe<Scalars['Float']>;
-};
-
 /** order by variance() on columns of table "vesting_period" */
 export type Vesting_Period_Variance_Order_By = {
   length?: InputMaybe<Order_By>;
   period_order?: InputMaybe<Order_By>;
+};
+
+/** columns and relationships of "wasm_code" */
+export type Wasm_Code = {
+  __typename?: 'wasm_code';
+  byte_code: Scalars['bytea'];
+  code_id: Scalars['bigint'];
+  height: Scalars['bigint'];
+  instantiate_permission?: Maybe<Scalars['access_config']>;
+  sender?: Maybe<Scalars['String']>;
+  /** An array relationship */
+  wasm_contracts: Array<Wasm_Contract>;
+  /** An aggregate relationship */
+  wasm_contracts_aggregate: Wasm_Contract_Aggregate;
+};
+
+
+/** columns and relationships of "wasm_code" */
+export type Wasm_CodeWasm_ContractsArgs = {
+  distinct_on?: InputMaybe<Array<Wasm_Contract_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Wasm_Contract_Order_By>>;
+  where?: InputMaybe<Wasm_Contract_Bool_Exp>;
+};
+
+
+/** columns and relationships of "wasm_code" */
+export type Wasm_CodeWasm_Contracts_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Wasm_Contract_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Wasm_Contract_Order_By>>;
+  where?: InputMaybe<Wasm_Contract_Bool_Exp>;
+};
+
+/** aggregated selection of "wasm_code" */
+export type Wasm_Code_Aggregate = {
+  __typename?: 'wasm_code_aggregate';
+  aggregate?: Maybe<Wasm_Code_Aggregate_Fields>;
+  nodes: Array<Wasm_Code>;
+};
+
+/** aggregate fields of "wasm_code" */
+export type Wasm_Code_Aggregate_Fields = {
+  __typename?: 'wasm_code_aggregate_fields';
+  avg?: Maybe<Wasm_Code_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Wasm_Code_Max_Fields>;
+  min?: Maybe<Wasm_Code_Min_Fields>;
+  stddev?: Maybe<Wasm_Code_Stddev_Fields>;
+  stddev_pop?: Maybe<Wasm_Code_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Wasm_Code_Stddev_Samp_Fields>;
+  sum?: Maybe<Wasm_Code_Sum_Fields>;
+  var_pop?: Maybe<Wasm_Code_Var_Pop_Fields>;
+  var_samp?: Maybe<Wasm_Code_Var_Samp_Fields>;
+  variance?: Maybe<Wasm_Code_Variance_Fields>;
+};
+
+
+/** aggregate fields of "wasm_code" */
+export type Wasm_Code_Aggregate_FieldsCountArgs = {
+  columns?: InputMaybe<Array<Wasm_Code_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type Wasm_Code_Avg_Fields = {
+  __typename?: 'wasm_code_avg_fields';
+  code_id?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** Boolean expression to filter rows from the table "wasm_code". All fields are combined with a logical 'AND'. */
+export type Wasm_Code_Bool_Exp = {
+  _and?: InputMaybe<Array<Wasm_Code_Bool_Exp>>;
+  _not?: InputMaybe<Wasm_Code_Bool_Exp>;
+  _or?: InputMaybe<Array<Wasm_Code_Bool_Exp>>;
+  byte_code?: InputMaybe<Bytea_Comparison_Exp>;
+  code_id?: InputMaybe<Bigint_Comparison_Exp>;
+  height?: InputMaybe<Bigint_Comparison_Exp>;
+  instantiate_permission?: InputMaybe<Access_Config_Comparison_Exp>;
+  sender?: InputMaybe<String_Comparison_Exp>;
+  wasm_contracts?: InputMaybe<Wasm_Contract_Bool_Exp>;
+};
+
+/** aggregate max on columns */
+export type Wasm_Code_Max_Fields = {
+  __typename?: 'wasm_code_max_fields';
+  code_id?: Maybe<Scalars['bigint']>;
+  height?: Maybe<Scalars['bigint']>;
+  sender?: Maybe<Scalars['String']>;
+};
+
+/** aggregate min on columns */
+export type Wasm_Code_Min_Fields = {
+  __typename?: 'wasm_code_min_fields';
+  code_id?: Maybe<Scalars['bigint']>;
+  height?: Maybe<Scalars['bigint']>;
+  sender?: Maybe<Scalars['String']>;
+};
+
+/** Ordering options when selecting data from "wasm_code". */
+export type Wasm_Code_Order_By = {
+  byte_code?: InputMaybe<Order_By>;
+  code_id?: InputMaybe<Order_By>;
+  height?: InputMaybe<Order_By>;
+  instantiate_permission?: InputMaybe<Order_By>;
+  sender?: InputMaybe<Order_By>;
+  wasm_contracts_aggregate?: InputMaybe<Wasm_Contract_Aggregate_Order_By>;
+};
+
+/** select columns of table "wasm_code" */
+export enum Wasm_Code_Select_Column {
+  /** column name */
+  ByteCode = 'byte_code',
+  /** column name */
+  CodeId = 'code_id',
+  /** column name */
+  Height = 'height',
+  /** column name */
+  InstantiatePermission = 'instantiate_permission',
+  /** column name */
+  Sender = 'sender'
+}
+
+/** aggregate stddev on columns */
+export type Wasm_Code_Stddev_Fields = {
+  __typename?: 'wasm_code_stddev_fields';
+  code_id?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Wasm_Code_Stddev_Pop_Fields = {
+  __typename?: 'wasm_code_stddev_pop_fields';
+  code_id?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Wasm_Code_Stddev_Samp_Fields = {
+  __typename?: 'wasm_code_stddev_samp_fields';
+  code_id?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate sum on columns */
+export type Wasm_Code_Sum_Fields = {
+  __typename?: 'wasm_code_sum_fields';
+  code_id?: Maybe<Scalars['bigint']>;
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregate var_pop on columns */
+export type Wasm_Code_Var_Pop_Fields = {
+  __typename?: 'wasm_code_var_pop_fields';
+  code_id?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type Wasm_Code_Var_Samp_Fields = {
+  __typename?: 'wasm_code_var_samp_fields';
+  code_id?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type Wasm_Code_Variance_Fields = {
+  __typename?: 'wasm_code_variance_fields';
+  code_id?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** columns and relationships of "wasm_contract" */
+export type Wasm_Contract = {
+  __typename?: 'wasm_contract';
+  admin?: Maybe<Scalars['String']>;
+  code_id: Scalars['bigint'];
+  contract_address: Scalars['String'];
+  contract_info_extension?: Maybe<Scalars['String']>;
+  contract_states: Scalars['jsonb'];
+  creator: Scalars['String'];
+  data?: Maybe<Scalars['String']>;
+  funds: Scalars['_coin'];
+  height: Scalars['bigint'];
+  instantiated_at: Scalars['timestamp'];
+  label?: Maybe<Scalars['String']>;
+  raw_contract_message: Scalars['jsonb'];
+  sender?: Maybe<Scalars['String']>;
+  /** An object relationship */
+  wasm_code: Wasm_Code;
+  /** An array relationship */
+  wasm_execute_contracts: Array<Wasm_Execute_Contract>;
+  /** An aggregate relationship */
+  wasm_execute_contracts_aggregate: Wasm_Execute_Contract_Aggregate;
+};
+
+
+/** columns and relationships of "wasm_contract" */
+export type Wasm_ContractContract_StatesArgs = {
+  path?: InputMaybe<Scalars['String']>;
+};
+
+
+/** columns and relationships of "wasm_contract" */
+export type Wasm_ContractRaw_Contract_MessageArgs = {
+  path?: InputMaybe<Scalars['String']>;
+};
+
+
+/** columns and relationships of "wasm_contract" */
+export type Wasm_ContractWasm_Execute_ContractsArgs = {
+  distinct_on?: InputMaybe<Array<Wasm_Execute_Contract_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Wasm_Execute_Contract_Order_By>>;
+  where?: InputMaybe<Wasm_Execute_Contract_Bool_Exp>;
+};
+
+
+/** columns and relationships of "wasm_contract" */
+export type Wasm_ContractWasm_Execute_Contracts_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Wasm_Execute_Contract_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Wasm_Execute_Contract_Order_By>>;
+  where?: InputMaybe<Wasm_Execute_Contract_Bool_Exp>;
+};
+
+/** aggregated selection of "wasm_contract" */
+export type Wasm_Contract_Aggregate = {
+  __typename?: 'wasm_contract_aggregate';
+  aggregate?: Maybe<Wasm_Contract_Aggregate_Fields>;
+  nodes: Array<Wasm_Contract>;
+};
+
+/** aggregate fields of "wasm_contract" */
+export type Wasm_Contract_Aggregate_Fields = {
+  __typename?: 'wasm_contract_aggregate_fields';
+  avg?: Maybe<Wasm_Contract_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Wasm_Contract_Max_Fields>;
+  min?: Maybe<Wasm_Contract_Min_Fields>;
+  stddev?: Maybe<Wasm_Contract_Stddev_Fields>;
+  stddev_pop?: Maybe<Wasm_Contract_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Wasm_Contract_Stddev_Samp_Fields>;
+  sum?: Maybe<Wasm_Contract_Sum_Fields>;
+  var_pop?: Maybe<Wasm_Contract_Var_Pop_Fields>;
+  var_samp?: Maybe<Wasm_Contract_Var_Samp_Fields>;
+  variance?: Maybe<Wasm_Contract_Variance_Fields>;
+};
+
+
+/** aggregate fields of "wasm_contract" */
+export type Wasm_Contract_Aggregate_FieldsCountArgs = {
+  columns?: InputMaybe<Array<Wasm_Contract_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']>;
+};
+
+/** order by aggregate values of table "wasm_contract" */
+export type Wasm_Contract_Aggregate_Order_By = {
+  avg?: InputMaybe<Wasm_Contract_Avg_Order_By>;
+  count?: InputMaybe<Order_By>;
+  max?: InputMaybe<Wasm_Contract_Max_Order_By>;
+  min?: InputMaybe<Wasm_Contract_Min_Order_By>;
+  stddev?: InputMaybe<Wasm_Contract_Stddev_Order_By>;
+  stddev_pop?: InputMaybe<Wasm_Contract_Stddev_Pop_Order_By>;
+  stddev_samp?: InputMaybe<Wasm_Contract_Stddev_Samp_Order_By>;
+  sum?: InputMaybe<Wasm_Contract_Sum_Order_By>;
+  var_pop?: InputMaybe<Wasm_Contract_Var_Pop_Order_By>;
+  var_samp?: InputMaybe<Wasm_Contract_Var_Samp_Order_By>;
+  variance?: InputMaybe<Wasm_Contract_Variance_Order_By>;
+};
+
+/** aggregate avg on columns */
+export type Wasm_Contract_Avg_Fields = {
+  __typename?: 'wasm_contract_avg_fields';
+  code_id?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by avg() on columns of table "wasm_contract" */
+export type Wasm_Contract_Avg_Order_By = {
+  code_id?: InputMaybe<Order_By>;
+  height?: InputMaybe<Order_By>;
+};
+
+/** Boolean expression to filter rows from the table "wasm_contract". All fields are combined with a logical 'AND'. */
+export type Wasm_Contract_Bool_Exp = {
+  _and?: InputMaybe<Array<Wasm_Contract_Bool_Exp>>;
+  _not?: InputMaybe<Wasm_Contract_Bool_Exp>;
+  _or?: InputMaybe<Array<Wasm_Contract_Bool_Exp>>;
+  admin?: InputMaybe<String_Comparison_Exp>;
+  code_id?: InputMaybe<Bigint_Comparison_Exp>;
+  contract_address?: InputMaybe<String_Comparison_Exp>;
+  contract_info_extension?: InputMaybe<String_Comparison_Exp>;
+  contract_states?: InputMaybe<Jsonb_Comparison_Exp>;
+  creator?: InputMaybe<String_Comparison_Exp>;
+  data?: InputMaybe<String_Comparison_Exp>;
+  funds?: InputMaybe<_Coin_Comparison_Exp>;
+  height?: InputMaybe<Bigint_Comparison_Exp>;
+  instantiated_at?: InputMaybe<Timestamp_Comparison_Exp>;
+  label?: InputMaybe<String_Comparison_Exp>;
+  raw_contract_message?: InputMaybe<Jsonb_Comparison_Exp>;
+  sender?: InputMaybe<String_Comparison_Exp>;
+  wasm_code?: InputMaybe<Wasm_Code_Bool_Exp>;
+  wasm_execute_contracts?: InputMaybe<Wasm_Execute_Contract_Bool_Exp>;
+};
+
+/** aggregate max on columns */
+export type Wasm_Contract_Max_Fields = {
+  __typename?: 'wasm_contract_max_fields';
+  admin?: Maybe<Scalars['String']>;
+  code_id?: Maybe<Scalars['bigint']>;
+  contract_address?: Maybe<Scalars['String']>;
+  contract_info_extension?: Maybe<Scalars['String']>;
+  creator?: Maybe<Scalars['String']>;
+  data?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
+  instantiated_at?: Maybe<Scalars['timestamp']>;
+  label?: Maybe<Scalars['String']>;
+  sender?: Maybe<Scalars['String']>;
+};
+
+/** order by max() on columns of table "wasm_contract" */
+export type Wasm_Contract_Max_Order_By = {
+  admin?: InputMaybe<Order_By>;
+  code_id?: InputMaybe<Order_By>;
+  contract_address?: InputMaybe<Order_By>;
+  contract_info_extension?: InputMaybe<Order_By>;
+  creator?: InputMaybe<Order_By>;
+  data?: InputMaybe<Order_By>;
+  height?: InputMaybe<Order_By>;
+  instantiated_at?: InputMaybe<Order_By>;
+  label?: InputMaybe<Order_By>;
+  sender?: InputMaybe<Order_By>;
+};
+
+/** aggregate min on columns */
+export type Wasm_Contract_Min_Fields = {
+  __typename?: 'wasm_contract_min_fields';
+  admin?: Maybe<Scalars['String']>;
+  code_id?: Maybe<Scalars['bigint']>;
+  contract_address?: Maybe<Scalars['String']>;
+  contract_info_extension?: Maybe<Scalars['String']>;
+  creator?: Maybe<Scalars['String']>;
+  data?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
+  instantiated_at?: Maybe<Scalars['timestamp']>;
+  label?: Maybe<Scalars['String']>;
+  sender?: Maybe<Scalars['String']>;
+};
+
+/** order by min() on columns of table "wasm_contract" */
+export type Wasm_Contract_Min_Order_By = {
+  admin?: InputMaybe<Order_By>;
+  code_id?: InputMaybe<Order_By>;
+  contract_address?: InputMaybe<Order_By>;
+  contract_info_extension?: InputMaybe<Order_By>;
+  creator?: InputMaybe<Order_By>;
+  data?: InputMaybe<Order_By>;
+  height?: InputMaybe<Order_By>;
+  instantiated_at?: InputMaybe<Order_By>;
+  label?: InputMaybe<Order_By>;
+  sender?: InputMaybe<Order_By>;
+};
+
+/** Ordering options when selecting data from "wasm_contract". */
+export type Wasm_Contract_Order_By = {
+  admin?: InputMaybe<Order_By>;
+  code_id?: InputMaybe<Order_By>;
+  contract_address?: InputMaybe<Order_By>;
+  contract_info_extension?: InputMaybe<Order_By>;
+  contract_states?: InputMaybe<Order_By>;
+  creator?: InputMaybe<Order_By>;
+  data?: InputMaybe<Order_By>;
+  funds?: InputMaybe<Order_By>;
+  height?: InputMaybe<Order_By>;
+  instantiated_at?: InputMaybe<Order_By>;
+  label?: InputMaybe<Order_By>;
+  raw_contract_message?: InputMaybe<Order_By>;
+  sender?: InputMaybe<Order_By>;
+  wasm_code?: InputMaybe<Wasm_Code_Order_By>;
+  wasm_execute_contracts_aggregate?: InputMaybe<Wasm_Execute_Contract_Aggregate_Order_By>;
+};
+
+/** select columns of table "wasm_contract" */
+export enum Wasm_Contract_Select_Column {
+  /** column name */
+  Admin = 'admin',
+  /** column name */
+  CodeId = 'code_id',
+  /** column name */
+  ContractAddress = 'contract_address',
+  /** column name */
+  ContractInfoExtension = 'contract_info_extension',
+  /** column name */
+  ContractStates = 'contract_states',
+  /** column name */
+  Creator = 'creator',
+  /** column name */
+  Data = 'data',
+  /** column name */
+  Funds = 'funds',
+  /** column name */
+  Height = 'height',
+  /** column name */
+  InstantiatedAt = 'instantiated_at',
+  /** column name */
+  Label = 'label',
+  /** column name */
+  RawContractMessage = 'raw_contract_message',
+  /** column name */
+  Sender = 'sender'
+}
+
+/** aggregate stddev on columns */
+export type Wasm_Contract_Stddev_Fields = {
+  __typename?: 'wasm_contract_stddev_fields';
+  code_id?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev() on columns of table "wasm_contract" */
+export type Wasm_Contract_Stddev_Order_By = {
+  code_id?: InputMaybe<Order_By>;
+  height?: InputMaybe<Order_By>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Wasm_Contract_Stddev_Pop_Fields = {
+  __typename?: 'wasm_contract_stddev_pop_fields';
+  code_id?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_pop() on columns of table "wasm_contract" */
+export type Wasm_Contract_Stddev_Pop_Order_By = {
+  code_id?: InputMaybe<Order_By>;
+  height?: InputMaybe<Order_By>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Wasm_Contract_Stddev_Samp_Fields = {
+  __typename?: 'wasm_contract_stddev_samp_fields';
+  code_id?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_samp() on columns of table "wasm_contract" */
+export type Wasm_Contract_Stddev_Samp_Order_By = {
+  code_id?: InputMaybe<Order_By>;
+  height?: InputMaybe<Order_By>;
+};
+
+/** aggregate sum on columns */
+export type Wasm_Contract_Sum_Fields = {
+  __typename?: 'wasm_contract_sum_fields';
+  code_id?: Maybe<Scalars['bigint']>;
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** order by sum() on columns of table "wasm_contract" */
+export type Wasm_Contract_Sum_Order_By = {
+  code_id?: InputMaybe<Order_By>;
+  height?: InputMaybe<Order_By>;
+};
+
+/** aggregate var_pop on columns */
+export type Wasm_Contract_Var_Pop_Fields = {
+  __typename?: 'wasm_contract_var_pop_fields';
+  code_id?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_pop() on columns of table "wasm_contract" */
+export type Wasm_Contract_Var_Pop_Order_By = {
+  code_id?: InputMaybe<Order_By>;
+  height?: InputMaybe<Order_By>;
+};
+
+/** aggregate var_samp on columns */
+export type Wasm_Contract_Var_Samp_Fields = {
+  __typename?: 'wasm_contract_var_samp_fields';
+  code_id?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_samp() on columns of table "wasm_contract" */
+export type Wasm_Contract_Var_Samp_Order_By = {
+  code_id?: InputMaybe<Order_By>;
+  height?: InputMaybe<Order_By>;
+};
+
+/** aggregate variance on columns */
+export type Wasm_Contract_Variance_Fields = {
+  __typename?: 'wasm_contract_variance_fields';
+  code_id?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by variance() on columns of table "wasm_contract" */
+export type Wasm_Contract_Variance_Order_By = {
+  code_id?: InputMaybe<Order_By>;
+  height?: InputMaybe<Order_By>;
+};
+
+/** columns and relationships of "wasm_execute_contract" */
+export type Wasm_Execute_Contract = {
+  __typename?: 'wasm_execute_contract';
+  contract_address: Scalars['String'];
+  data?: Maybe<Scalars['String']>;
+  executed_at: Scalars['timestamp'];
+  funds: Scalars['_coin'];
+  height: Scalars['bigint'];
+  raw_contract_message: Scalars['jsonb'];
+  sender: Scalars['String'];
+  /** An object relationship */
+  wasm_contract: Wasm_Contract;
+};
+
+
+/** columns and relationships of "wasm_execute_contract" */
+export type Wasm_Execute_ContractRaw_Contract_MessageArgs = {
+  path?: InputMaybe<Scalars['String']>;
+};
+
+/** aggregated selection of "wasm_execute_contract" */
+export type Wasm_Execute_Contract_Aggregate = {
+  __typename?: 'wasm_execute_contract_aggregate';
+  aggregate?: Maybe<Wasm_Execute_Contract_Aggregate_Fields>;
+  nodes: Array<Wasm_Execute_Contract>;
+};
+
+/** aggregate fields of "wasm_execute_contract" */
+export type Wasm_Execute_Contract_Aggregate_Fields = {
+  __typename?: 'wasm_execute_contract_aggregate_fields';
+  avg?: Maybe<Wasm_Execute_Contract_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Wasm_Execute_Contract_Max_Fields>;
+  min?: Maybe<Wasm_Execute_Contract_Min_Fields>;
+  stddev?: Maybe<Wasm_Execute_Contract_Stddev_Fields>;
+  stddev_pop?: Maybe<Wasm_Execute_Contract_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Wasm_Execute_Contract_Stddev_Samp_Fields>;
+  sum?: Maybe<Wasm_Execute_Contract_Sum_Fields>;
+  var_pop?: Maybe<Wasm_Execute_Contract_Var_Pop_Fields>;
+  var_samp?: Maybe<Wasm_Execute_Contract_Var_Samp_Fields>;
+  variance?: Maybe<Wasm_Execute_Contract_Variance_Fields>;
+};
+
+
+/** aggregate fields of "wasm_execute_contract" */
+export type Wasm_Execute_Contract_Aggregate_FieldsCountArgs = {
+  columns?: InputMaybe<Array<Wasm_Execute_Contract_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']>;
+};
+
+/** order by aggregate values of table "wasm_execute_contract" */
+export type Wasm_Execute_Contract_Aggregate_Order_By = {
+  avg?: InputMaybe<Wasm_Execute_Contract_Avg_Order_By>;
+  count?: InputMaybe<Order_By>;
+  max?: InputMaybe<Wasm_Execute_Contract_Max_Order_By>;
+  min?: InputMaybe<Wasm_Execute_Contract_Min_Order_By>;
+  stddev?: InputMaybe<Wasm_Execute_Contract_Stddev_Order_By>;
+  stddev_pop?: InputMaybe<Wasm_Execute_Contract_Stddev_Pop_Order_By>;
+  stddev_samp?: InputMaybe<Wasm_Execute_Contract_Stddev_Samp_Order_By>;
+  sum?: InputMaybe<Wasm_Execute_Contract_Sum_Order_By>;
+  var_pop?: InputMaybe<Wasm_Execute_Contract_Var_Pop_Order_By>;
+  var_samp?: InputMaybe<Wasm_Execute_Contract_Var_Samp_Order_By>;
+  variance?: InputMaybe<Wasm_Execute_Contract_Variance_Order_By>;
+};
+
+/** aggregate avg on columns */
+export type Wasm_Execute_Contract_Avg_Fields = {
+  __typename?: 'wasm_execute_contract_avg_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by avg() on columns of table "wasm_execute_contract" */
+export type Wasm_Execute_Contract_Avg_Order_By = {
+  height?: InputMaybe<Order_By>;
+};
+
+/** Boolean expression to filter rows from the table "wasm_execute_contract". All fields are combined with a logical 'AND'. */
+export type Wasm_Execute_Contract_Bool_Exp = {
+  _and?: InputMaybe<Array<Wasm_Execute_Contract_Bool_Exp>>;
+  _not?: InputMaybe<Wasm_Execute_Contract_Bool_Exp>;
+  _or?: InputMaybe<Array<Wasm_Execute_Contract_Bool_Exp>>;
+  contract_address?: InputMaybe<String_Comparison_Exp>;
+  data?: InputMaybe<String_Comparison_Exp>;
+  executed_at?: InputMaybe<Timestamp_Comparison_Exp>;
+  funds?: InputMaybe<_Coin_Comparison_Exp>;
+  height?: InputMaybe<Bigint_Comparison_Exp>;
+  raw_contract_message?: InputMaybe<Jsonb_Comparison_Exp>;
+  sender?: InputMaybe<String_Comparison_Exp>;
+  wasm_contract?: InputMaybe<Wasm_Contract_Bool_Exp>;
+};
+
+/** aggregate max on columns */
+export type Wasm_Execute_Contract_Max_Fields = {
+  __typename?: 'wasm_execute_contract_max_fields';
+  contract_address?: Maybe<Scalars['String']>;
+  data?: Maybe<Scalars['String']>;
+  executed_at?: Maybe<Scalars['timestamp']>;
+  height?: Maybe<Scalars['bigint']>;
+  sender?: Maybe<Scalars['String']>;
+};
+
+/** order by max() on columns of table "wasm_execute_contract" */
+export type Wasm_Execute_Contract_Max_Order_By = {
+  contract_address?: InputMaybe<Order_By>;
+  data?: InputMaybe<Order_By>;
+  executed_at?: InputMaybe<Order_By>;
+  height?: InputMaybe<Order_By>;
+  sender?: InputMaybe<Order_By>;
+};
+
+/** aggregate min on columns */
+export type Wasm_Execute_Contract_Min_Fields = {
+  __typename?: 'wasm_execute_contract_min_fields';
+  contract_address?: Maybe<Scalars['String']>;
+  data?: Maybe<Scalars['String']>;
+  executed_at?: Maybe<Scalars['timestamp']>;
+  height?: Maybe<Scalars['bigint']>;
+  sender?: Maybe<Scalars['String']>;
+};
+
+/** order by min() on columns of table "wasm_execute_contract" */
+export type Wasm_Execute_Contract_Min_Order_By = {
+  contract_address?: InputMaybe<Order_By>;
+  data?: InputMaybe<Order_By>;
+  executed_at?: InputMaybe<Order_By>;
+  height?: InputMaybe<Order_By>;
+  sender?: InputMaybe<Order_By>;
+};
+
+/** Ordering options when selecting data from "wasm_execute_contract". */
+export type Wasm_Execute_Contract_Order_By = {
+  contract_address?: InputMaybe<Order_By>;
+  data?: InputMaybe<Order_By>;
+  executed_at?: InputMaybe<Order_By>;
+  funds?: InputMaybe<Order_By>;
+  height?: InputMaybe<Order_By>;
+  raw_contract_message?: InputMaybe<Order_By>;
+  sender?: InputMaybe<Order_By>;
+  wasm_contract?: InputMaybe<Wasm_Contract_Order_By>;
+};
+
+/** select columns of table "wasm_execute_contract" */
+export enum Wasm_Execute_Contract_Select_Column {
+  /** column name */
+  ContractAddress = 'contract_address',
+  /** column name */
+  Data = 'data',
+  /** column name */
+  ExecutedAt = 'executed_at',
+  /** column name */
+  Funds = 'funds',
+  /** column name */
+  Height = 'height',
+  /** column name */
+  RawContractMessage = 'raw_contract_message',
+  /** column name */
+  Sender = 'sender'
+}
+
+/** aggregate stddev on columns */
+export type Wasm_Execute_Contract_Stddev_Fields = {
+  __typename?: 'wasm_execute_contract_stddev_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev() on columns of table "wasm_execute_contract" */
+export type Wasm_Execute_Contract_Stddev_Order_By = {
+  height?: InputMaybe<Order_By>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Wasm_Execute_Contract_Stddev_Pop_Fields = {
+  __typename?: 'wasm_execute_contract_stddev_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_pop() on columns of table "wasm_execute_contract" */
+export type Wasm_Execute_Contract_Stddev_Pop_Order_By = {
+  height?: InputMaybe<Order_By>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Wasm_Execute_Contract_Stddev_Samp_Fields = {
+  __typename?: 'wasm_execute_contract_stddev_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_samp() on columns of table "wasm_execute_contract" */
+export type Wasm_Execute_Contract_Stddev_Samp_Order_By = {
+  height?: InputMaybe<Order_By>;
+};
+
+/** aggregate sum on columns */
+export type Wasm_Execute_Contract_Sum_Fields = {
+  __typename?: 'wasm_execute_contract_sum_fields';
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** order by sum() on columns of table "wasm_execute_contract" */
+export type Wasm_Execute_Contract_Sum_Order_By = {
+  height?: InputMaybe<Order_By>;
+};
+
+/** aggregate var_pop on columns */
+export type Wasm_Execute_Contract_Var_Pop_Fields = {
+  __typename?: 'wasm_execute_contract_var_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_pop() on columns of table "wasm_execute_contract" */
+export type Wasm_Execute_Contract_Var_Pop_Order_By = {
+  height?: InputMaybe<Order_By>;
+};
+
+/** aggregate var_samp on columns */
+export type Wasm_Execute_Contract_Var_Samp_Fields = {
+  __typename?: 'wasm_execute_contract_var_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_samp() on columns of table "wasm_execute_contract" */
+export type Wasm_Execute_Contract_Var_Samp_Order_By = {
+  height?: InputMaybe<Order_By>;
+};
+
+/** aggregate variance on columns */
+export type Wasm_Execute_Contract_Variance_Fields = {
+  __typename?: 'wasm_execute_contract_variance_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by variance() on columns of table "wasm_execute_contract" */
+export type Wasm_Execute_Contract_Variance_Order_By = {
+  height?: InputMaybe<Order_By>;
+};
+
+/** columns and relationships of "wasm_params" */
+export type Wasm_Params = {
+  __typename?: 'wasm_params';
+  code_upload_access: Scalars['access_config'];
+  height: Scalars['bigint'];
+  instantiate_default_permission: Scalars['Int'];
+  one_row_id: Scalars['Boolean'];
+};
+
+/** aggregated selection of "wasm_params" */
+export type Wasm_Params_Aggregate = {
+  __typename?: 'wasm_params_aggregate';
+  aggregate?: Maybe<Wasm_Params_Aggregate_Fields>;
+  nodes: Array<Wasm_Params>;
+};
+
+/** aggregate fields of "wasm_params" */
+export type Wasm_Params_Aggregate_Fields = {
+  __typename?: 'wasm_params_aggregate_fields';
+  avg?: Maybe<Wasm_Params_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Wasm_Params_Max_Fields>;
+  min?: Maybe<Wasm_Params_Min_Fields>;
+  stddev?: Maybe<Wasm_Params_Stddev_Fields>;
+  stddev_pop?: Maybe<Wasm_Params_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Wasm_Params_Stddev_Samp_Fields>;
+  sum?: Maybe<Wasm_Params_Sum_Fields>;
+  var_pop?: Maybe<Wasm_Params_Var_Pop_Fields>;
+  var_samp?: Maybe<Wasm_Params_Var_Samp_Fields>;
+  variance?: Maybe<Wasm_Params_Variance_Fields>;
+};
+
+
+/** aggregate fields of "wasm_params" */
+export type Wasm_Params_Aggregate_FieldsCountArgs = {
+  columns?: InputMaybe<Array<Wasm_Params_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type Wasm_Params_Avg_Fields = {
+  __typename?: 'wasm_params_avg_fields';
+  height?: Maybe<Scalars['Float']>;
+  instantiate_default_permission?: Maybe<Scalars['Float']>;
+};
+
+/** Boolean expression to filter rows from the table "wasm_params". All fields are combined with a logical 'AND'. */
+export type Wasm_Params_Bool_Exp = {
+  _and?: InputMaybe<Array<Wasm_Params_Bool_Exp>>;
+  _not?: InputMaybe<Wasm_Params_Bool_Exp>;
+  _or?: InputMaybe<Array<Wasm_Params_Bool_Exp>>;
+  code_upload_access?: InputMaybe<Access_Config_Comparison_Exp>;
+  height?: InputMaybe<Bigint_Comparison_Exp>;
+  instantiate_default_permission?: InputMaybe<Int_Comparison_Exp>;
+  one_row_id?: InputMaybe<Boolean_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Wasm_Params_Max_Fields = {
+  __typename?: 'wasm_params_max_fields';
+  height?: Maybe<Scalars['bigint']>;
+  instantiate_default_permission?: Maybe<Scalars['Int']>;
+};
+
+/** aggregate min on columns */
+export type Wasm_Params_Min_Fields = {
+  __typename?: 'wasm_params_min_fields';
+  height?: Maybe<Scalars['bigint']>;
+  instantiate_default_permission?: Maybe<Scalars['Int']>;
+};
+
+/** Ordering options when selecting data from "wasm_params". */
+export type Wasm_Params_Order_By = {
+  code_upload_access?: InputMaybe<Order_By>;
+  height?: InputMaybe<Order_By>;
+  instantiate_default_permission?: InputMaybe<Order_By>;
+  one_row_id?: InputMaybe<Order_By>;
+};
+
+/** select columns of table "wasm_params" */
+export enum Wasm_Params_Select_Column {
+  /** column name */
+  CodeUploadAccess = 'code_upload_access',
+  /** column name */
+  Height = 'height',
+  /** column name */
+  InstantiateDefaultPermission = 'instantiate_default_permission',
+  /** column name */
+  OneRowId = 'one_row_id'
+}
+
+/** aggregate stddev on columns */
+export type Wasm_Params_Stddev_Fields = {
+  __typename?: 'wasm_params_stddev_fields';
+  height?: Maybe<Scalars['Float']>;
+  instantiate_default_permission?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Wasm_Params_Stddev_Pop_Fields = {
+  __typename?: 'wasm_params_stddev_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+  instantiate_default_permission?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Wasm_Params_Stddev_Samp_Fields = {
+  __typename?: 'wasm_params_stddev_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+  instantiate_default_permission?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate sum on columns */
+export type Wasm_Params_Sum_Fields = {
+  __typename?: 'wasm_params_sum_fields';
+  height?: Maybe<Scalars['bigint']>;
+  instantiate_default_permission?: Maybe<Scalars['Int']>;
+};
+
+/** aggregate var_pop on columns */
+export type Wasm_Params_Var_Pop_Fields = {
+  __typename?: 'wasm_params_var_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+  instantiate_default_permission?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type Wasm_Params_Var_Samp_Fields = {
+  __typename?: 'wasm_params_var_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+  instantiate_default_permission?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type Wasm_Params_Variance_Fields = {
+  __typename?: 'wasm_params_variance_fields';
+  height?: Maybe<Scalars['Float']>;
+  instantiate_default_permission?: Maybe<Scalars['Float']>;
 };
 
 export type AccountCommissionQueryVariables = Exact<{
