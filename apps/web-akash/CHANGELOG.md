@@ -1,5 +1,11 @@
 # Unreleased
 
+## 2.9.0
+
+### Minor Changes
+
+- dc638ed53: providers page: enable search by provider's organisation name
+
 ## 2.8.11
 
 ### Patch Changes
