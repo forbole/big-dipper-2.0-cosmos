@@ -185,8 +185,6 @@ export const useProviders = () => {
             x.ownerAddress.toLowerCase().includes(formattedSearch) ||
             x.organization?.toLowerCase().replace(/ /g, '').includes(formattedSearch)
           );
-          // if x.organization !==undefined, then return search results
-          // || x.organization.toLowerCase().replace(/ /g, '').includes(formattedSearch);
         });
       }
 
