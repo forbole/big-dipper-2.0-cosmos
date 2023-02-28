@@ -181,7 +181,10 @@ export const useProviders = () => {
       if (search) {
         filteredPaginatedItems = state.providers.items.filter((x) => {
           const formattedSearch = search.toLowerCase().replace(/ /g, '');
-          return x.ownerAddress.toLowerCase().includes(formattedSearch);
+          return (
+            x.ownerAddress.toLowerCase().includes(formattedSearch) ||
+            x.organization?.toLowerCase().replace(/ /g, '').includes(formattedSearch)
+          );
           // if x.organization !==undefined, then return search results
           // || x.organization.toLowerCase().replace(/ /g, '').includes(formattedSearch);
         });
