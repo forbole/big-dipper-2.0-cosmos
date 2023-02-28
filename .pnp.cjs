@@ -178,6 +178,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {\
           "packageLocation": "./",\
           "packageDependencies": [\
+            ["@changesets/changelog-github", "npm:0.4.8"],\
             ["@changesets/cli", "npm:2.26.0"],\
             ["@next/eslint-plugin-next", "npm:13.1.6"],\
             ["@playwright/test", "npm:1.30.0"],\
@@ -3050,6 +3051,18 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@changesets/changelog-github", [\
+        ["npm:0.4.8", {\
+          "packageLocation": "./.yarn/cache/@changesets-changelog-github-npm-0.4.8-cc18274ceb-8a357cc087.zip/node_modules/@changesets/changelog-github/",\
+          "packageDependencies": [\
+            ["@changesets/changelog-github", "npm:0.4.8"],\
+            ["@changesets/get-github-info", "npm:0.5.2"],\
+            ["@changesets/types", "npm:5.2.1"],\
+            ["dotenv", "npm:8.6.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@changesets/cli", [\
         ["npm:2.26.0", {\
           "packageLocation": "./.yarn/cache/@changesets-cli-npm-2.26.0-49d5c5f72d-12a911b419.zip/node_modules/@changesets/cli/",\
@@ -3128,6 +3141,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["chalk", "npm:2.4.2"],\
             ["fs-extra", "npm:7.0.1"],\
             ["semver", "npm:5.7.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@changesets/get-github-info", [\
+        ["npm:0.5.2", {\
+          "packageLocation": "./.yarn/cache/@changesets-get-github-info-npm-0.5.2-7f1c5b2a67-067e07eeae.zip/node_modules/@changesets/get-github-info/",\
+          "packageDependencies": [\
+            ["@changesets/get-github-info", "npm:0.5.2"],\
+            ["dataloader", "npm:1.4.0"],\
+            ["node-fetch", "virtual:7f1c5b2a67fc16666aa31fba83ea7856ecb0e95595b13dccc7cae5cd164022bdf1a0a32cb6af01f93f4862b7b4f8dc76c7d04aff1bc0947186d7a6048d58d336#npm:2.6.9"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -8768,6 +8792,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["big-dipper-2.0-cosmos", "workspace:."],\
+            ["@changesets/changelog-github", "npm:0.4.8"],\
             ["@changesets/cli", "npm:2.26.0"],\
             ["@next/eslint-plugin-next", "npm:13.1.6"],\
             ["@playwright/test", "npm:1.30.0"],\
@@ -10033,6 +10058,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["dataloader", [\
+        ["npm:1.4.0", {\
+          "packageLocation": "./.yarn/cache/dataloader-npm-1.4.0-ba03bd2183-e2c93d43af.zip/node_modules/dataloader/",\
+          "packageDependencies": [\
+            ["dataloader", "npm:1.4.0"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
         ["npm:2.1.0", {\
           "packageLocation": "./.yarn/cache/dataloader-npm-2.1.0-d26357d865-bbd43496c4.zip/node_modules/dataloader/",\
           "packageDependencies": [\
@@ -10466,6 +10498,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/dotenv-npm-16.0.3-4cc29121dc-afcf03f373.zip/node_modules/dotenv/",\
           "packageDependencies": [\
             ["dotenv", "npm:16.0.3"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:8.6.0", {\
+          "packageLocation": "./.yarn/cache/dotenv-npm-8.6.0-2ce3e9f7bb-38e902c80b.zip/node_modules/dotenv/",\
+          "packageDependencies": [\
+            ["dotenv", "npm:8.6.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -15612,10 +15651,31 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
+        ["npm:2.6.9", {\
+          "packageLocation": "./.yarn/cache/node-fetch-npm-2.6.9-9fc9a54529-acb04f9ce7.zip/node_modules/node-fetch/",\
+          "packageDependencies": [\
+            ["node-fetch", "npm:2.6.9"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
         ["virtual:11e655b3b18fc42f748e18c58023ec098038b688753d5feed37f47812eba5f10ef43c5ef8e9790efa865f43dd6ff4118ecfcbabb399095f9e39083b2080ff762#npm:2.6.7", {\
           "packageLocation": "./.yarn/__virtual__/node-fetch-virtual-845ce42cc5/0/cache/node-fetch-npm-2.6.7-777aa2a6df-8d816ffd1e.zip/node_modules/node-fetch/",\
           "packageDependencies": [\
             ["node-fetch", "virtual:11e655b3b18fc42f748e18c58023ec098038b688753d5feed37f47812eba5f10ef43c5ef8e9790efa865f43dd6ff4118ecfcbabb399095f9e39083b2080ff762#npm:2.6.7"],\
+            ["@types/encoding", null],\
+            ["encoding", null],\
+            ["whatwg-url", "npm:5.0.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/encoding",\
+            "encoding"\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["virtual:7f1c5b2a67fc16666aa31fba83ea7856ecb0e95595b13dccc7cae5cd164022bdf1a0a32cb6af01f93f4862b7b4f8dc76c7d04aff1bc0947186d7a6048d58d336#npm:2.6.9", {\
+          "packageLocation": "./.yarn/__virtual__/node-fetch-virtual-6cab7411e5/0/cache/node-fetch-npm-2.6.9-9fc9a54529-acb04f9ce7.zip/node_modules/node-fetch/",\
+          "packageDependencies": [\
+            ["node-fetch", "virtual:7f1c5b2a67fc16666aa31fba83ea7856ecb0e95595b13dccc7cae5cd164022bdf1a0a32cb6af01f93f4862b7b4f8dc76c7d04aff1bc0947186d7a6048d58d336#npm:2.6.9"],\
             ["@types/encoding", null],\
             ["encoding", null],\
             ["whatwg-url", "npm:5.0.0"]\

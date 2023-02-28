@@ -30,6 +30,7 @@
     "turbo:env": "echo \"console.log(require('child_process').execSync('find .yarn/unplugged/turbo-'+process.platform+'-'+process.arch.replace(/^x/,'')+'-* -name turbo').toString())\"|node"
   },
   "devDependencies": {
+    "@changesets/changelog-github": "^0.4.8",
     "@changesets/cli": "^2.26.0",
     "@next/eslint-plugin-next": "^13.1.6",
     "@playwright/test": "^1.30.0",
