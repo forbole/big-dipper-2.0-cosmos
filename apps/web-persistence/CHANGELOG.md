@@ -1,5 +1,11 @@
 # Unreleased
 
+## 2.9.0
+
+### Minor Changes
+
+- [#1172](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1172) [`132977bc1`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/132977bc18400a7c9ae15bfa62829d1997f4c592) Thanks [@teamchong](https://github.com/teamchong)! - add WASM contract module
+
 ## 2.8.11
 
 ### Patch Changes
