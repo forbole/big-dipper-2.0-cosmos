@@ -209,9 +209,9 @@
         }
       },
       "endpoints": {
-        "graphql": "https://gql.desmos.forbole.com/v1/graphql",
-        "graphqlWebsocket": "wss://gql.desmos.forbole.com/v1/graphql",
-        "publicRpcWebsocket": "wss://rpc.desmos.forbole.com/websocket"
+        "graphql": "https://hasura.mainnet-1.coreum.dev/v1/graphql",
+        "graphqlWebsocket": "wss://hasura.mainnet-1.coreum.dev/v1/graphql",
+        "publicRpcWebsocket": "wss://full-node-pluto.mainnet-1.coreum.dev:26657/websocket"
       },
       "marketing": {
         "matomoURL": "https://analytics.bigdipper.live",
@@ -269,9 +269,9 @@
         }
       },
       "endpoints": {
-        "graphql": "https://gql-morpheus.desmos.forbole.com/v1/graphql",
-        "graphqlWebsocket": "wss://gql-morpheus.desmos.forbole.com/v1/graphql",
-        "publicRpcWebsocket": "wss://rpc-morpheus.desmos.forbole.com/websocket"
+        "graphql": "https://hasura.devnet-1.coreum.dev/v1/graphql",
+        "graphqlWebsocket": "wss://hasura.devnet-1.coreum.dev/v1/graphql",
+        "publicRpcWebsocket": "wss://full-node-pluto.devnet-1.coreum.dev:26657/websocket"
       },
       "marketing": {
         "matomoURL": "https://analytics.bigdipper.live",

@@ -33,6 +33,5 @@
   "authz": "Authz",
   "feegrant": "Feegrant",
   "vesting": "Vesting",
-  "logs": "Logs",
-  "showDetails": "Show Details"
+  "logs": "Logs"
 }
