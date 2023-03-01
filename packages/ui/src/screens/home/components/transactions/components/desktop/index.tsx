@@ -24,16 +24,16 @@ type DesktopProps = {
 
 const variants: Variants = {
   initial: {
-    opacity: 0,
+    // opacity: 0,
     height: 50,
-    display: 'flex',
+    display: 'inline-flex',
     alignItems: 'center',
     overflow: 'hidden',
   },
   animate: {
     opacity: 1,
     height: 50,
-    display: 'flex',
+    display: 'inline-flex',
     alignItems: 'center',
     overflow: 'hidden',
   },
@@ -58,12 +58,12 @@ const Desktop: FC<DesktopProps> = ({ className, items }) => {
         })}
       </Link>
     ),
-    type: (
-      <div>
-        <Tag value={x.type?.[0] ?? ''} theme="six" />
-        {x.messages > 1 && ` + ${x.messages - 1}`}
-      </div>
-    ),
+    // type: (
+    //   <div>
+    //     <Tag value={x.type?.[0] ?? ''} theme="six" />
+    //     {x.messages > 1 && ` + ${x.messages - 1}`}
+    //   </div>
+    // ),
     result: <Result success={x.success} />,
     time: <Timestamp timestamp={x.timestamp} />,
     messages: numeral(x.messages).format('0,0'),
@@ -87,34 +87,34 @@ const Desktop: FC<DesktopProps> = ({ className, items }) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          <AnimatePresence initial={false}>
-            {formattedData.map((row) => (
-              // eslint-disable-next-line react/no-array-index-key
-              <TableRow key={row.key}>
-                {columns.map((column) => {
-                  const { key, align } = column;
-                  const item = row[key as keyof typeof row];
-                  return (
-                    <TableCell
+          {/* <AnimatePresence initial={false}> */}
+          {formattedData.map((row) => (
+            // eslint-disable-next-line react/no-array-index-key
+            <TableRow key={row.key}>
+              {columns.map((column) => {
+                const { key, align } = column;
+                const item = row[key as keyof typeof row];
+                return (
+                  <TableCell
+                    key={`${row.key}-${key}`}
+                    style={{ width: `${column.width}%` }}
+                    align={align}
+                  >
+                    <motion.div
                       key={`${row.key}-${key}`}
-                      style={{ width: `${column.width}%` }}
-                      align={align}
+                      initial="initial"
+                      animate="animate"
+                      variants={variants}
+                      transition={{ duration: 0.3 }}
                     >
-                      <motion.div
-                        key={`${row.key}-${key}`}
-                        initial="initial"
-                        animate="animate"
-                        variants={variants}
-                        transition={{ duration: 0.3 }}
-                      >
-                        {item}
-                      </motion.div>
-                    </TableCell>
-                  );
-                })}
-              </TableRow>
-            ))}
-          </AnimatePresence>
+                      {item}
+                    </motion.div>
+                  </TableCell>
+                );
+              })}
+            </TableRow>
+          ))}
+          {/* </AnimatePresence> */}
         </TableBody>
       </Table>
     </div>

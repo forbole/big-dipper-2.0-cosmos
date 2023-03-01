@@ -43,7 +43,7 @@ const Mobile: FC<MobileProps> = ({ className, title }) => {
       {/* Height placeholder */}
       {/* ============================== */}
       <div style={{ height }} />
-      <TitleBar title={title} />
+      <TitleBar />
     </div>
   );
 };

@@ -27,7 +27,7 @@ const Search: FC<SearchProps> = ({ className, placeholder, callback }) => {
         }}
         endAdornment={
           // <InputAdornment position="start">
-          <SearchIcon fontSize="small" className="Search-icon" />
+          <SearchIcon fontSize="small" className="Search-icon" onClick={handleOnSubmit} />
           // </InputAdornment>
         }
       />

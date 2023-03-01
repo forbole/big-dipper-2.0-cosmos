@@ -7,11 +7,11 @@ import Nav from '@/components/nav';
 
 const bannerLinks = getBannersLinks();
 
-const variants: Variants = {
-  initial: { filter: 'blur(4px)' },
-  animate: { filter: 'blur(0px)' },
-  exit: { filter: 'blur(4px)' },
-};
+// const variants: Variants = {
+//   initial: { filter: 'blur(4px)' },
+//   animate: { filter: 'blur(0px)' },
+//   exit: { filter: 'blur(4px)' },
+// };
 
 const transition: Transition = {
   duration: 1,
@@ -26,7 +26,7 @@ const Layout = (props: LayoutProps) => {
       initial="initial"
       animate="animate"
       exit="exit"
-      variants={variants}
+      // variants={variants}
       transition={transition}
       className={classes.root}
     >

@@ -76,7 +76,7 @@ export const usePositionStyles = makeStyles()((theme: Theme) => ({
 }));
 export const useVisiblityStyles = makeStyles()((theme: Theme) => ({
   ...makeResponsiveStyles('visible', { visibility: 'visible' }, theme),
-  ...makeResponsiveStyles('invisible', { visibility: 'hidden' }, theme),
+  ...makeResponsiveStyles('invisible', { visibility: 'hidden', display: 'none' }, theme),
 }));
 export const usePaddingStyles = makeStyles()((theme: Theme) => ({
   ...makeResponsiveStyles('p0', { padding: theme.spacing(0) }, theme),

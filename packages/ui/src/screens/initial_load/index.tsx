@@ -1,6 +1,6 @@
 import LinearProgress from '@mui/material/LinearProgress';
 import useStyles from '@/screens/initial_load/styles';
-import LogoFull from '@assets/logo-full.svg';
+import LogoFull from '@/assets/logo-full.svg';
 
 const InitialLoad = () => {
   const { classes } = useStyles();

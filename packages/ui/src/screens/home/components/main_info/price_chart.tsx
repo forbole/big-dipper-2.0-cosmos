@@ -9,7 +9,7 @@ import useStyles from './styles';
 
 const TitleBar: React.FC = () => {
   const { classes } = useStyles();
-  const chartRef = useRef<IChartApi>(null);
+  const chartRef = useRef<IChartApi>();
   const theme = useRecoilValue(readTheme);
   const [data, setData] = useState<SingleValueData[]>();
 
@@ -49,7 +49,8 @@ const TitleBar: React.FC = () => {
         handleScroll: false,
         handleScale: false,
       };
-      chartRef.current = createChart(document.getElementById('price-chart'), chartOptions);
+      const chartPrice = document.getElementById('price-chart')!;
+      chartRef.current = createChart(chartPrice, chartOptions);
       const baselineSeries = chartRef.current.addBaselineSeries({
         baseValue: {
           type: 'price',
@@ -93,7 +94,7 @@ const TitleBar: React.FC = () => {
   useEffect(() => {
     const handle = () => {
       if (chartRef.current) {
-        const container = document.getElementById('price-chart');
+        const container: any = document.getElementById('price-chart');
         const dimensions = {
           width: container.clientWidth,
           height: container.clientHeight,

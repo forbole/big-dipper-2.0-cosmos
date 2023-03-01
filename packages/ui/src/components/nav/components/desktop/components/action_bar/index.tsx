@@ -1,7 +1,7 @@
 import { FC } from 'react';
 // import Network from '@/components/nav/components/desktop/components/action_bar/components/network';
 // import NetworkList from '@/components/nav/components/desktop/components/action_bar/components/network_list';
-import SettingsList from '@/components/nav/components/desktop/components/action_bar/components/settings_list';
+// import SettingsList from '@/components/nav/components/desktop/components/action_bar/components/settings_list';
 import useStyles from '@/components/nav/components/desktop/components/action_bar/styles';
 import SearchBar from '@/components/nav/components/search_bar';
 import { useGetComponentDimension } from '@/hooks/use_get_component_dimension';
@@ -13,7 +13,7 @@ type ActionBarProps = {
 };
 
 const ActionBar: FC<ActionBarProps> = ({ className, isNetwork }) => {
-  const { ref: heightRef } = useGetComponentDimension();
+  const { ref: heightRef, height } = useGetComponentDimension();
   const { classes, cx } = useStyles();
   return (
     <div className={cx(classes.root, className)} ref={heightRef}>

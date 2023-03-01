@@ -4,6 +4,9 @@ import { makeStyles } from 'tss-react/mui';
 const useStyles = makeStyles()((theme) => ({
   root: {
     height: '100%',
+    '&:-webkit-scrollbar': {
+      display: 'block',
+    },
   },
   cell: {
     ...(theme.mixins.tableCell as CSSObject),

@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 import { useTranslation } from 'next-i18next';
 import dynamic from 'next/dynamic';
 import numeral from 'numeral';
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import { Cell, Pie, PieChart, Tooltip } from 'recharts';
 
 const DynamicPieChart = dynamic(() => Promise.resolve(PieChart), { ssr: false });
@@ -99,7 +99,7 @@ const Tokenomics: FC<ComponentDefault> = ({ className }) => {
       <div className={classes.data}>
         {data.slice(0, 2).map((x) => (
           <div className="data__item" key={x.percentKey}>
-            <Typography variant="h4">
+            <Typography variant="h4" style={{ color: x.fill }}>
               {x.value} {tokenUnits?.[state.denom]?.display?.toUpperCase()}
             </Typography>
             <Typography variant="caption">

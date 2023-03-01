@@ -11,9 +11,10 @@ import MenuItems from '@/components/nav/components/menu_items';
 import useStyles from '@/components/nav/components/desktop/styles';
 import { useDesktop } from '@/components/nav/components/desktop/hooks';
 import ActionBar from '@/components/nav/components/desktop/components/action_bar';
-import Logo from '@assets/logo.svg';
-import LogoTextDark from '@assets/logo-text-dark.svg';
-import DevnetBadge from '@assets/devnet-badge.svg';
+import Logo from '@/assets/logo.svg';
+import LogoTextDark from '@/assets/logo-text-dark.svg';
+import DevnetBadge from '@/assets/devnet-badge.svg';
+import ArrowIcon from '@/assets/icon_nav.svg';
 
 type DesktopProps = {
   className?: string;
@@ -24,6 +25,7 @@ const Desktop: FC<DesktopProps> = ({ className }) => {
   const { classes, cx } = useStyles();
   const theme = useRecoilValue(readTheme);
   const { isMenu, toggleMenu, turnOffAll, toggleNetwork, isNetwork } = useDesktop();
+
   return (
     <ClickAwayListener onClickAway={turnOffAll}>
       <div className={cx(classes.root, className)}>
@@ -33,9 +35,13 @@ const Desktop: FC<DesktopProps> = ({ className }) => {
             open: isMenu,
           })}
         >
-          <ActionBar toggleNetwork={toggleNetwork} isNetwork={isNetwork} />
+          <ActionBar isNetwork={isNetwork} />
           {/* <TitleBar title={title} /> */}
         </AppBar>
+        <ArrowIcon
+          className={cx(classes.arrowIcon, isMenu ? 'collapse' : '')}
+          onClick={toggleMenu}
+        />
         <Drawer
           variant="permanent"
           className={cx(classes.drawer, {
@@ -55,8 +61,8 @@ const Desktop: FC<DesktopProps> = ({ className }) => {
         >
           <div className={classes.logo} role="button" onClick={toggleMenu}>
             {/* FIXME get light and dark theme assets */}
-            {theme === 'light' ? <LogoTextDark /> : <Logo />}
-            {isMenu && theme === 'light' ? (
+            {<Logo />}
+            {
               <div className={classes.logo_text}>
                 <LogoTextDark
                   style={{
@@ -71,22 +77,7 @@ const Desktop: FC<DesktopProps> = ({ className }) => {
                   }}
                 />
               </div>
-            ) : (
-              <div className={classes.logo_text}>
-                <Logo
-                  style={{
-                    opacity: isMenu ? 1 : 0,
-                    transition: '.3s ease',
-                  }}
-                />
-                <DevnetBadge
-                  style={{
-                    opacity: isMenu ? 1 : 0,
-                    transition: '.3s ease',
-                  }}
-                />
-              </div>
-            )}
+            }
           </div>
           {/* {theme === 'light' ? (
             // <BigDipperLogoRed

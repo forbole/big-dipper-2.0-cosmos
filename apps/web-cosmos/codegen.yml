@@ -4,7 +4,7 @@ generates:
     documents:
       - 'src/graphql/general/*'
     # schema: https://gql.cosmos.forbole.com/v1/graphql
-    schema: http://localhost:8080/v1/graphql
+    schema: https://hasura.testnet-1.coreum.dev/v1/graphql
     config:
       # omitOperationSuffix: true
       skipTypeNameForRoot: true

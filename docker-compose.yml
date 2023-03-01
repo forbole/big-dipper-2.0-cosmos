@@ -1,12 +1,12 @@
-version: "3.8"
+version: '3.8'
 
 x-args: &args
   PROJECT_NAME: ${PROJECT_NAME:-web}
   NEXT_PUBLIC_CHAIN_TYPE: ${NEXT_PUBLIC_CHAIN_TYPE:-}
-  TURBO_TEAM: ${TURBO_TEAM:-}                         # for Turborepo remote cache
-  TURBO_TOKEN: ${TURBO_TOKEN:-}                       # for Turborepo remote cache
+  TURBO_TEAM: ${TURBO_TEAM:-} # for Turborepo remote cache
+  TURBO_TOKEN: ${TURBO_TOKEN:-} # for Turborepo remote cache
   NEXT_PUBLIC_SENTRY_DSN: ${NEXT_PUBLIC_SENTRY_DSN:-} # for Sentry.io
-  SENTRY_AUTH_TOKEN: ${SENTRY_AUTH_TOKEN:-}           # for Sentry.io
+  SENTRY_AUTH_TOKEN: ${SENTRY_AUTH_TOKEN:-} # for Sentry.io
 
 x-build: &build
   context: .

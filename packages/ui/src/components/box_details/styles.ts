@@ -3,6 +3,9 @@ import { makeStyles } from 'tss-react/mui';
 const useStyles = makeStyles()((theme) => ({
   root: {
     overflow: 'hidden',
+    h2: {
+      color: theme.palette.primary.main,
+    },
   },
   header: {},
   item: {
@@ -19,8 +22,13 @@ const useStyles = makeStyles()((theme) => ({
     },
     '& .label': {
       marginBottom: theme.spacing(1),
+      fontSize: 14,
     },
     '& .detail': {
+      color: theme.palette.custom.fonts.fontFive,
+      fontSize: 16,
+      fontWeight: 600,
+      lineHeight: '24px',
       '&.MuiTypography-body1': {
         wordWrap: 'break-word',
       },

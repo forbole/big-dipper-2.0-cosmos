@@ -24,6 +24,7 @@ const useStyles = makeStyles()((theme) => ({
   },
   mainInfo: {
     gridColumn: '1',
+    overflowY: 'hidden',
     [theme.breakpoints.up('md')]: {
       gridColumn: '1 / 3',
     },
@@ -42,7 +43,7 @@ const useStyles = makeStyles()((theme) => ({
     },
   },
   hero: {
-    gridcolumn: '1',
+    gridColumn: '1',
     [theme.breakpoints.up('md')]: {
       gridColumn: '2 / 3',
     },

@@ -36,7 +36,7 @@ export const darkThemeOverride: DeepPartial<ThemeOptions> = {
           },
           '& .MuiTableCell-root': {
             color: theme.custom.fonts.fontTwo, // font two
-            borderBotton: '1px solid #23272E',
+            borderBottom: '1px solid #23272E',
           },
         },
       },

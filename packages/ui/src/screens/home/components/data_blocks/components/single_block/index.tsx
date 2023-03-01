@@ -11,6 +11,8 @@ type SingleBlockProps = {
 
 const SingleBlock: FC<SingleBlockProps> = ({ className, label, value, description }) => {
   const { classes, cx } = useStyles();
+  //Number of validators without text
+  let validatorNum = description?.replace(/[^0-9]/g, '');
 
   return (
     <div className={cx(classes.root, className)}>
@@ -21,7 +23,7 @@ const SingleBlock: FC<SingleBlockProps> = ({ className, label, value, descriptio
         <Typography variant="h1">{value}</Typography>
         {!!description && (
           <Typography variant="caption" className="description">
-            {description}
+            {` / ${validatorNum}`}
           </Typography>
         )}
       </div>

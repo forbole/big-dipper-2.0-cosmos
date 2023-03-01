@@ -1,6 +1,6 @@
 {
   "chainName": "cosmos",
-  "title": "Cosmos Hub Block Explorer",
+  "title": "Cosmos Block Explorer (cosmos)",
   "extra": {
     "profile": true,
     "graphqlWs": true
@@ -29,7 +29,7 @@
           "surfaceOne": "#131316",
           "surfaceTwo": "#212123",
           "icon": "#999999",
-          "single_block": "linear-gradient(110.16deg, rgba(94,103,115, 0.35) 0%, rgba(94,103,115,0.5) 100%)",
+          "single_block": "linear-gradient(110.16deg, rgba(37, 214, 149, 0.15) 0%, rgba(37, 214, 149, 0.05) 100%)",
           "nav_drawer": "#2B3138",
           "modal_header": "#1D222C",
           "search": "#2B3138"

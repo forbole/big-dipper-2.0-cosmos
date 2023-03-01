@@ -4,7 +4,7 @@ import Color from 'color';
 const useStyles = makeStyles<{ percentage: number | string }>()((theme, { percentage }) => ({
   root: {
     display: 'grid',
-    gridTemplateColumns: '1fr 1fr 3fr',
+    // gridTemplateRows: '1fr 1.5fr 1.5fr',
     height: '100%',
     '& .MuiTypography-h2': {
       marginBottom: theme.spacing(2),
@@ -41,7 +41,7 @@ const useStyles = makeStyles<{ percentage: number | string }>()((theme, { percen
     [theme.breakpoints.up('md')]: {
       flex: 1,
       display: 'grid',
-      gridTemplateColumns: 'repeat(2 1fr)',
+      gridTemplateColumns: 'repeat(2, 1fr)',
       gap: theme.spacing(1),
     },
   },

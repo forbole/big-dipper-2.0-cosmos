@@ -5,7 +5,7 @@ const useStyles = makeStyles()((theme) => ({
     height: '100%',
     display: 'grid',
     gridTemplateRows: '1fr auto 1fr',
-    gap: 16,
+    gap: 8,
     [theme.breakpoints.up('md')]: {
       gridTemplateColumns: '1.5fr auto 1fr',
       gridTemplateRows: 'unset',

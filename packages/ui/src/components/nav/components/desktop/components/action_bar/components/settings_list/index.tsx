@@ -18,7 +18,7 @@ import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import { FC } from 'react';
 import { useRecoilValue } from 'recoil';
-import SettingIcon from 'shared-utils/assets/icon-setting.svg';
+import SettingIcon from 'shared-utils/assets/icon_settings.svg';
 import generalConfig from '@/generalConfig';
 
 const release = `${process.env.NEXT_PUBLIC_RELEASE ?? ''}`;
@@ -35,12 +35,12 @@ const Settings: FC<ComponentDefault> = (props) => {
   return (
     <div>
       <ListItemButton className={props.className} onClick={handleOpen}>
-        <ListItemIcon>
+        <ListItemIcon className={classes.listItemIcon}>
           <div role="button" className={classes.icon}>
-            <SettingIcon />
+            <SettingIcon style={{ color: 'none' }} />
           </div>
         </ListItemIcon>
-        <ListItemText primary={t('settings')} />
+        <ListItemText className={classes.listItemText} primary={t('settings')} />
       </ListItemButton>
       <Dialog maxWidth="md" onClose={handleCancel} open={open} className={classes.dialog}>
         <DialogTitle className={classes.header}>

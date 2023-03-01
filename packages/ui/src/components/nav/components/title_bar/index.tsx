@@ -10,6 +10,7 @@ import axios from 'axios';
 
 type TitleBarProps = {
   className?: string;
+  title?: string;
 };
 
 const TitleBar: FC<TitleBarProps> = ({ className }) => {

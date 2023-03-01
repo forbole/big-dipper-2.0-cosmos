@@ -2,7 +2,7 @@ import { makeStyles } from 'tss-react/mui';
 
 const useStyles = makeStyles()((theme) => ({
   root: {
-    padding: theme.spacing(1, 2),
+    // padding: theme.spacing(1, 2),
     display: 'grid',
     // justifyContent: 'center',
     // flexDirection: 'column',

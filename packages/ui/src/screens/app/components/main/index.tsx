@@ -10,13 +10,14 @@ import createEmotionCache from '@/styles/createEmotionCache';
 import { CacheProvider, EmotionCache } from '@emotion/react';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
-import { Hind_Madurai } from '@next/font/google';
+// import { Hind_Madurai } from '@next/font/google';
+import { Noto_Sans } from '@next/font/google';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import { useEffect } from 'react';
 import { ToastContainer } from 'react-toastify';
 
-const hindMadurai = Hind_Madurai({
+const notoSans = Noto_Sans({
   weight: '400',
   style: 'normal',
   display: 'swap',
@@ -44,7 +45,7 @@ const Main = (props: MainProps) => {
   // =====================================
   // general setup
   // =====================================
-  const { muiTheme } = useTheme(hindMadurai.style.fontFamily);
+  const { muiTheme } = useTheme(notoSans.style.fontFamily);
   const { genesisStarted, startGenesis } = useGenesis();
 
   let Component = null;

@@ -199,6 +199,7 @@ const Desktop: FC<DesktopProps> = (props) => {
               rowHeight={getRowHeight}
               width={width}
               className="scrollbar"
+              style={{ overflowX: 'hidden' }}
             >
               {({ columnIndex, rowIndex, style }) => {
                 const { key, align } = columns[columnIndex];

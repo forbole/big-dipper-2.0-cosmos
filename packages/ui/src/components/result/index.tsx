@@ -4,8 +4,8 @@ import useStyles from '@/components/result/styles';
 import Typography from '@mui/material/Typography';
 import { useTranslation } from 'next-i18next';
 import { FC } from 'react';
-import Check from '@assets/icon-check.svg';
-import Cross from '@assets/icon-cross.svg';
+import Check from '@/assets/icon-check.svg';
+import Cross from '@/assets/icon-cross.svg';
 
 type ResultProps = {
   className?: string;

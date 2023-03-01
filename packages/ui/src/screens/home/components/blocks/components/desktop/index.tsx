@@ -23,29 +23,29 @@ type BlockRowProps = {
 
 const variants: Variants = {
   initial: {
-    height: 0,
-    display: 'flex',
+    height: 50,
+    display: 'inline-flex',
     alignItems: 'center',
     overflow: 'hidden',
     clipPath: 'inset(0 50 0 50)',
   },
-  animate: {
-    height: 50,
-    display: 'flex',
-    alignItems: 'center',
-    overflow: 'hidden',
-    clipPath: 'inset(0 0 0 0)',
-  },
-  exit: {
-    height: 50,
-    display: 'flex',
-    alignItems: 'center',
-    overflow: 'hidden',
-    position: 'absolute',
-    marginTop: [50, 60],
-    opacity: 0,
-    transition: { duration: 0.5 },
-  },
+  // animate: {
+  //   height: 50,
+  //   display: 'inline-flex',
+  //   alignItems: 'center',
+  //   overflow: 'hidden',
+  //   clipPath: 'inset(0 50 0 50)',
+  // },
+  // exit: {
+  //   height: 50,
+  //   display: 'none',
+  //   alignItems: 'center',
+  //   overflow: 'hidden',
+  //   // position: 'absolute',
+  //   // marginTop: [50, 60],
+  //   opacity: 0,
+  //   // transition: { duration: 0.015 },
+  // },
 };
 
 const BlockRow: FC<BlockRowProps> = ({ item }) => {
@@ -74,10 +74,10 @@ const BlockRow: FC<BlockRowProps> = ({ item }) => {
             <motion.div
               key={`${item.hash}-${key}`}
               initial="initial"
-              animate="animate"
-              exit="exit"
+              // animate="animate"
+              // exit="exit"
               variants={variants}
-              transition={{ duration: 1.5 }}
+              // transition={{ duration: 1.5 }}
             >
               {formattedData[key as keyof typeof formattedData]}
             </motion.div>
@@ -110,11 +110,11 @@ const Desktop: FC<DesktopProps> = ({ className, items }) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          <AnimatePresence initial={false}>
-            {items.map((row) => (
-              <BlockRow key={row.hash} item={row} />
-            ))}
-          </AnimatePresence>
+          {/* <AnimatePresence initial={false}> */}
+          {items.map((row) => (
+            <BlockRow key={row.hash} item={row} />
+          ))}
+          {/* </AnimatePresence> */}
         </TableBody>
       </Table>
     </div>

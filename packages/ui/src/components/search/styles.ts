@@ -25,6 +25,7 @@ const useStyles = makeStyles()((theme) => ({
       width: 30,
       height: 30,
       color: 'white',
+      cursor: 'pointer',
     },
   },
 }));

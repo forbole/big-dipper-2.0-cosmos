@@ -34,7 +34,9 @@ const MenuItems = () => {
               })}
               component="a"
             >
-              <ListItemIcon>{x.icon}</ListItemIcon>
+              <ListItemIcon className={classes.listItemIcon}>
+                {isActive ? x.iconActive : x.iconInactive}
+              </ListItemIcon>
               <ListItemText className={classes.listItemText} primary={t(x.key)} />
             </ListItemButton>
           </Link>

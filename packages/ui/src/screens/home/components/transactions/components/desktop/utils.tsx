@@ -5,24 +5,24 @@ export const columns: {
 }[] = [
   {
     key: 'block',
-    width: 20,
+    width: 25,
   },
   {
     key: 'hash',
-    width: 20,
+    width: 25,
   },
-  {
-    key: 'type',
-    width: 20,
-  },
+  // {
+  //   key: 'type',
+  //   width: 25,
+  // },
   {
     key: 'result',
     align: 'right',
-    width: 20,
+    width: 25,
   },
   {
     key: 'time',
     align: 'right',
-    width: 20,
+    width: 25,
   },
 ];
