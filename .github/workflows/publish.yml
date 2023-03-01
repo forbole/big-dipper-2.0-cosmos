@@ -95,3 +95,4 @@ jobs:
           target: runner
           tags: |
             forbole/big-dipper-2.0-cosmos:monorepo-${{ matrix.project }}-${{ steps.assign-chain-type.outputs.chain_type }}-${{ steps.assign-chain-type.outputs.sha_short }}
+            forbole/big-dipper-2.0-cosmos:monorepo-${{ matrix.project }}-${{ steps.assign-chain-type.outputs.chain_type }}-latest
