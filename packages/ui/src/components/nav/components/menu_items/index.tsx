@@ -8,12 +8,24 @@ import { useRouter } from 'next/router';
 import { getMenuItems } from '@/components/nav/components/menu_items/utils';
 import useStyles from '@/components/nav/components/menu_items/styles';
 import { SettingsList } from '../desktop/components/action_bar/components';
+import { useState, useEffect } from 'react';
+import NetworkSelector from '../network_selector';
+
+const isClient = typeof window === 'object';
 
 const MenuItems = () => {
   const { classes, cx } = useStyles();
   const router = useRouter();
   const { t } = useTranslation('common');
   const items = getMenuItems();
+  const { width } = getSize();
+  const [windowWidth, setWindowWidth] = useState<number>(0);
+
+  useEffect(() => {
+    if (width) {
+      setWindowWidth(width);
+    }
+  }, [width]);
 
   return (
     <List>
@@ -42,9 +54,17 @@ const MenuItems = () => {
           </Link>
         );
       })}
-      <SettingsList className={classes.root} />
+      {windowWidth > 1024 && <SettingsList className={classes.root} />}
+      {windowWidth < 1025 && <NetworkSelector />}
     </List>
   );
 };
+
+function getSize() {
+  return {
+    width: isClient ? window.innerWidth : undefined,
+    height: isClient ? window.innerHeight : undefined,
+  };
+}
 
 export default MenuItems;

@@ -12,7 +12,7 @@ import useStyles from '@/components/nav/components/desktop/styles';
 import { useDesktop } from '@/components/nav/components/desktop/hooks';
 import ActionBar from '@/components/nav/components/desktop/components/action_bar';
 import Logo from '@/assets/logo.svg';
-import LogoTextDark from '@/assets/logo-text-dark.svg';
+import LogoText from '@/assets/logo-text-white.svg';
 import DevnetBadge from '@/assets/devnet-badge.svg';
 import ArrowIcon from '@/assets/icon_nav.svg';
 import NetworkSelector from '../network_selector';
@@ -65,7 +65,7 @@ const Desktop: FC<DesktopProps> = ({ className }) => {
             {<Logo />}
             {
               <div className={classes.logo_text}>
-                <LogoTextDark
+                <LogoText
                   style={{
                     opacity: isMenu ? 1 : 0,
                     transition: '.3s ease',

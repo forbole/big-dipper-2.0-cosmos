@@ -4,7 +4,6 @@ import Color from 'color';
 const useStyles = makeStyles<{ percentage: number | string }>()((theme, { percentage }) => ({
   root: {
     display: 'grid',
-    // gridTemplateRows: '1fr 1.5fr 1.5fr',
     height: '100%',
     '& .MuiTypography-h2': {
       marginBottom: theme.spacing(2),
@@ -18,6 +17,17 @@ const useStyles = makeStyles<{ percentage: number | string }>()((theme, { percen
       color: theme.palette.primary.main,
       marginRight: theme.spacing(2),
       fontSize: '2.5rem',
+      [theme.breakpoints.down(1025)]: {
+        fontSize: '2rem',
+      },
+    },
+    '& .secondary__data': {
+      [theme.breakpoints.down(1025)]: {
+        fontSize: '0.85rem',
+      },
+    },
+    [theme.breakpoints.down(1025)]: {
+      marginBottom: theme.spacing(2),
     },
   },
   chartContainer: {
@@ -46,11 +56,15 @@ const useStyles = makeStyles<{ percentage: number | string }>()((theme, { percen
     },
   },
   item: {
-    // '&:not(:last-child)': {
-    //   marginBottom: theme.spacing(2),
-    // },
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    padding: theme.spacing(1),
+    borderBottom: `1px solid ${theme.palette.divider}`,
+    '&:last-child': {
+      borderBottom: 'none',
+    },
     '& .label': {
-      // marginBottom: theme.spacing(1),
       color: theme.palette.custom.fonts.fontThree,
     },
     '& p.value': {
@@ -70,8 +84,6 @@ const useStyles = makeStyles<{ percentage: number | string }>()((theme, { percen
     [theme.breakpoints.up('md')]: {
       display: 'grid',
       placeItems: 'start',
-      // alignItems: 'center',
-      // justifyContent: 'space-between',
     },
   },
 }));

@@ -7,10 +7,21 @@ const useStyles = makeStyles()((theme) => ({
     padding: theme.spacing(0, 3),
     color: theme.palette.custom.fonts.fontOne,
     width: 'calc(100% - 77px)',
+    [theme.breakpoints.down(1025)]: {
+      width: '100%',
+    },
     alignSelf: 'flex-end',
     '& .footer__closing--container': {
       '& a': {
         color: theme.palette.custom.fonts.highlight,
+      },
+      [theme.breakpoints.down(1025)]: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        '& p': {
+          fontSize: '0.85rem',
+        },
       },
     },
     '& .MuiDivider-root': {
