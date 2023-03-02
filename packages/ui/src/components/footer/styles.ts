@@ -6,6 +6,8 @@ const useStyles = makeStyles()((theme) => ({
     background: theme.palette.background.paper,
     padding: theme.spacing(0, 3),
     color: theme.palette.custom.fonts.fontOne,
+    width: 'calc(100% - 77px)',
+    alignSelf: 'flex-end',
     '& .footer__closing--container': {
       '& a': {
         color: theme.palette.custom.fonts.highlight,

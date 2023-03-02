@@ -32,7 +32,9 @@
           "single_block": "linear-gradient(110.16deg, rgba(37, 214, 149, 0.15) 0%, rgba(37, 214, 149, 0.05) 100%)",
           "nav_drawer": "#2B3138",
           "modal_header": "#1D222C",
-          "search": "#2B3138"
+          "search": "#2B3138",
+          "net_selector": "#373E48",
+          "modal_background": "#2B4A46"
         },
         "fonts": {
           "fontOne": "#E6E6E6",
@@ -121,13 +123,16 @@
           "icon": "#999999",
           "search": "#FFFFFF",
           "nav_drawer": "#2B3138",
-          "single_block": "linear-gradient(110.16deg, rgba(37, 214, 149, 0.15) 0%, rgba(37, 214, 149, 0.05) 100%)"
+          "single_block": "linear-gradient(110.16deg, rgba(37, 214, 149, 0.15) 0%, rgba(37, 214, 149, 0.05) 100%)",
+          "net_selector": "#373E48",
+          "modal_background": "#2B4A46"
         },
         "fonts": {
           "fontOne": "#000000",
           "fontTwo": "#373E48",
           "fontThree": "#777777",
           "fontFour": "#999999",
+          "settings_label": "#868991",
           "data_blocks": "#FFF",
           "fontFive": "#373E48",
           "highlight": "#F1C34E"
