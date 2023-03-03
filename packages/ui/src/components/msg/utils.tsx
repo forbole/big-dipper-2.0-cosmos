@@ -404,6 +404,12 @@ const customTypeToModel = {
     tagTheme: 'four',
     tagDisplay: 'txUnblockUserLabel',
   },
+  '/coreum.asset.ft.v1.MsgIssue': {
+    model: MODELS.MsgIssue,
+    content: COMPONENTS.Issue,
+    tagTheme: 'one',
+    tagDisplay: 'msgIssueLabel',
+  },
 };
 type CustomTypeToModel = typeof customTypeToModel;
 

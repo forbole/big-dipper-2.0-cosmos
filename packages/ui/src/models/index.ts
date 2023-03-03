@@ -69,3 +69,4 @@ export { default as MsgCreateVestingAccount } from '@/models/msg/vesting/msg_cre
 export { default as SlashingParams } from '@/models/slashing_params';
 export { default as StakingParams } from '@/models/staking_params';
 export { default as FeeModelParams } from '@/models/feemodel_params';
+export { default as MsgIssue } from '@/models/msg/asset/msg_issue';
