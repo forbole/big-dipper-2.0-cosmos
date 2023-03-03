@@ -12,6 +12,7 @@ import {
   formatMinting,
   formatSlashing,
   formatStaking,
+  formatFeeModel,
 } from '@/screens/params/utils';
 
 const Params = () => {
@@ -54,6 +55,13 @@ const Params = () => {
       }
     : null;
 
+  const feeModel = state.feeModel
+    ? {
+        title: t('feeModel') ?? undefined,
+        details: formatFeeModel(state.feeModel, t),
+      }
+    : null;
+
   return (
     <>
       <NextSeo
@@ -73,6 +81,7 @@ const Params = () => {
             {minting && <BoxDetails {...minting} />}
             {distribution && <BoxDetails {...distribution} />}
             {gov && <BoxDetails {...gov} />}
+            {feeModel && <BoxDetails {...feeModel} />}
           </span>
         </LoadAndExist>
       </Layout>

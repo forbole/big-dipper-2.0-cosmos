@@ -60,7 +60,7 @@ class GovParams {
         maxDepositPeriod: R.pathOr(0, ['depositParams', 'max_deposit_period'], data),
       },
       tallyParams: {
-        quorum: R.pathOr('0', ['depositParams', 'quorum'], data),
+        quorum: R.pathOr('0', ['tallyParams', 'quorum'], data),
         threshold: R.pathOr('0', ['tallyParams', 'threshold'], data),
         vetoThreshold: R.pathOr('0', ['tallyParams', 'veto_threshold'], data),
       },

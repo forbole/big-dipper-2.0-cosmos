@@ -1,4 +1,11 @@
-import type { Distribution, Gov, Minting, Slashing, Staking } from '@/screens/params/types';
+import type {
+  Distribution,
+  Gov,
+  Minting,
+  Slashing,
+  Staking,
+  FeeModel,
+} from '@/screens/params/types';
 import { nanoToSeconds, secondsToDays } from '@/utils/time';
 import { TFunction } from 'next-i18next';
 import numeral from 'numeral';
@@ -158,5 +165,43 @@ export const formatGov = (data: Gov, t: TFunction) => [
     key: 'votingPeriod',
     label: t('votingPeriod'),
     detail: convertBySeconds(nanoToSeconds(data.votingPeriod), t),
+  },
+];
+
+export const formatFeeModel = (data: FeeModel, t: TFunction) => [
+  {
+    key: 'maxDiscount',
+    label: t('maxDiscount'),
+    detail: `${numeral(data.maxDiscount * 100).format('0.[00]')}%`,
+  },
+  {
+    key: 'maxBlockGas',
+    label: t('maxBlockGas'),
+    detail: numeral(data.maxBlockGas).format('0,0'),
+  },
+  {
+    key: 'initialGasPrice',
+    label: t('initialGasPrice'),
+    detail: numeral(data.initialGasPrice).format('0,0'),
+  },
+  {
+    key: 'longEmaBlockLength',
+    label: t('longEmaBlockLength'),
+    detail: numeral(data.longEmaBlockLength).format('0,0'),
+  },
+  {
+    key: 'shortEmaBlockLength',
+    label: t('shortEmaBlockLength'),
+    detail: numeral(data.shortEmaBlockLength).format('0,0'),
+  },
+  {
+    key: 'maxGasPriceMultiplier',
+    label: t('maxGasPriceMultiplier'),
+    detail: numeral(data.maxGasPriceMultiplier).format('0,0'),
+  },
+  {
+    key: 'escalationStartFraction',
+    label: t('escalationStartFraction'),
+    detail: numeral(data.escalationStartFraction).format('0,0'),
   },
 ];
