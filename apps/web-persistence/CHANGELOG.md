@@ -1,5 +1,11 @@
 # Unreleased
 
+## 2.10.0
+
+### Minor Changes
+
+- [#1176](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1176) [`3db3933ca`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/3db3933cae3b4355d331837cde0c7c6665300e18) Thanks [@teamchong](https://github.com/teamchong)! - Enable wasm contracts on mainnet
+
 ## 2.9.0
 
 ### Minor Changes
