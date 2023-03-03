@@ -47,19 +47,15 @@ export const getMenuItems = () => {
       url: PROPOSALS,
       icon: <ProposalsIcon {...iconProps} />,
     },
-    ...(process.env.NEXT_PUBLIC_CHAIN_TYPE === 'testnet'
-      ? [
-          {
-            key: 'params',
-            url: PARAMS,
-            icon: <ParamIcon {...iconProps} />,
-          },
-          {
-            key: 'wasmContracts',
-            url: WASM_CONTRACTS,
-            icon: <WasmContractIcon {...iconProps} />,
-          },
-        ]
-      : []),
+    {
+      key: 'params',
+      url: PARAMS,
+      icon: <ParamIcon {...iconProps} />,
+    },
+    {
+      key: 'wasmContracts',
+      url: WASM_CONTRACTS,
+      icon: <WasmContractIcon {...iconProps} />,
+    },
   ];
 };
