@@ -50,12 +50,12 @@ const useStyles = makeStyles()((theme) => ({
     },
     '&.yes': {
       '&::before': {
-        background: theme.palette.custom.charts.four,
+        background: theme.palette.custom.charts.one,
       },
     },
     '&.no': {
       '&::before': {
-        background: theme.palette.custom.charts.one,
+        background: theme.palette.custom.charts.four,
       },
     },
     '&.veto': {

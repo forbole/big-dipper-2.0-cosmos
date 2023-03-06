@@ -12,8 +12,8 @@ type FormatGraphType = {
 export const formatGraphData = ({ data, theme, total }: FormatGraphType) => {
   const keys = R.keys(data);
   const color = {
-    0: theme.palette?.custom?.charts.four,
-    1: theme.palette?.custom?.charts.one,
+    0: theme.palette?.custom?.charts.one,
+    1: theme.palette?.custom?.charts.four,
     2: theme.palette?.custom?.charts.three,
     3: theme.palette?.custom?.charts.two,
   };
