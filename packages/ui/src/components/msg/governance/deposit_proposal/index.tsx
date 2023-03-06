@@ -6,12 +6,16 @@ import { PROPOSAL_DETAILS } from '@/utils/go_to_page';
 import Typography from '@mui/material/Typography';
 import { Trans, useTranslation } from 'next-i18next';
 import Link, { LinkProps } from 'next/link';
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 
-const LinkText = ({ href, children }: React.PropsWithChildren<LinkProps>) => (
-  <Link href={href || ''}>{children}</Link>
-);
-
+const LinkText: FC<{ href: LinkProps['href']; children: ReactNode }> = (props) => {
+  const { href, children } = props;
+  return (
+    <Link shallow href={href || ''}>
+      {children}
+    </Link>
+  );
+};
 const DepositProposal: FC<{ message: MsgDeposit }> = (props) => {
   const { t } = useTranslation('transactions');
   const { message } = props;
@@ -35,9 +39,7 @@ const DepositProposal: FC<{ message: MsgDeposit }> = (props) => {
         components={[
           <Name address={message.depositor} name={depositorMoniker} />,
           <b />,
-          <LinkText shallow href={PROPOSAL_DETAILS(message.proposalId)}>
-            #{message.proposalId}
-          </LinkText>,
+          <LinkText href={PROPOSAL_DETAILS(message.proposalId)}>#{message.proposalId}</LinkText>,
         ]}
         values={{
           amount: parsedAmount,
