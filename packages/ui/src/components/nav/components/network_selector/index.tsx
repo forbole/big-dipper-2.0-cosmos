@@ -95,46 +95,46 @@ const NetworkSelector: FC<NetSelectorProps> = ({ isNavOpen }) => {
         </div>
       </ClickAwayListener>
     );
-  } else {
-    return (
-      <ClickAwayListener onClickAway={() => setIsModalOpen(false)}>
-        <div
-          className={cx(classes.root, isNavOpen ? 'active' : '')}
-          onClick={() => setIsModalOpen((prev) => !prev)}
-        >
-          <IconConnected className="netIcon" />
-          <div className={cx('netContent', isNavOpen ? 'active' : '')}>
-            <div className="currentNetName">{`${selectedNetwork.name} ${
-              selectedNetwork.version ? selectedNetwork.version : ''
-            }`}</div>
-            <div className="currentNetLink">{selectedNetwork.link}</div>
-          </div>
-          <Arrow className={cx('arrowIcon', isModalOpen ? 'modalShow' : '')} />
-          <div className={cx('modal', isModalOpen ? 'modalShow' : '', isNavOpen ? 'active' : '')}>
-            {networks.map((network, idx) => {
-              let isSelected = false;
-              if (selectedNetwork.name === network.name) isSelected = true;
-              return (
-                <a
-                  href={isSelected ? '#' : `https://${network.link}`}
-                  className={cx(
-                    'linkItem',
-                    selectedNetwork.name === network.name ? 'selectedItem' : ''
-                  )}
-                  key={`${network.name} ${idx}`}
-                >
-                  <div className="netName">{`${network.name} ${
-                    network.version ? network.version : ''
-                  }`}</div>
-                  <div className="netLink">{network.link}</div>
-                </a>
-              );
-            })}
-          </div>
-        </div>
-      </ClickAwayListener>
-    );
   }
+
+  return (
+    <ClickAwayListener onClickAway={() => setIsModalOpen(false)}>
+      <div
+        className={cx(classes.root, isNavOpen ? 'active' : '')}
+        onClick={() => setIsModalOpen((prev) => !prev)}
+      >
+        <IconConnected className="netIcon" />
+        <div className={cx('netContent', isNavOpen ? 'active' : '')}>
+          <div className="currentNetName">{`${selectedNetwork.name} ${
+            selectedNetwork.version ? selectedNetwork.version : ''
+          }`}</div>
+          <div className="currentNetLink">{selectedNetwork.link}</div>
+        </div>
+        <Arrow className={cx('arrowIcon', isModalOpen ? 'modalShow' : '')} />
+        <div className={cx('modal', isModalOpen ? 'modalShow' : '', isNavOpen ? 'active' : '')}>
+          {networks.map((network, idx) => {
+            let isSelected = false;
+            if (selectedNetwork.name === network.name) isSelected = true;
+            return (
+              <a
+                href={isSelected ? '#' : `https://${network.link}`}
+                className={cx(
+                  'linkItem',
+                  selectedNetwork.name === network.name ? 'selectedItem' : ''
+                )}
+                key={`${network.name} ${idx}`}
+              >
+                <div className="netName">{`${network.name} ${
+                  network.version ? network.version : ''
+                }`}</div>
+                <div className="netLink">{network.link}</div>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </ClickAwayListener>
+  );
 };
 
 function getSize() {
