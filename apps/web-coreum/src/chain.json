@@ -1,11 +1,11 @@
 {
   "chainName": "coreum",
-  "title": "Coreum Block Explorer",
+  "title": "Blockchain Explorer | Coreum",
   "extra": {
     "profile": true,
     "graphqlWs": false
   },
-  "previewImage": "https://s3.bigdipper.live/desmos.png",
+  "previewImage": "https://www.coreum.com/assets/images/smart-tokens/use-cases-graphic.png",
   "themes": {
     "default": "dark",
     "themeList": ["dark", "light"],
