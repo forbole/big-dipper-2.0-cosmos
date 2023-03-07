@@ -1,6 +1,6 @@
 {
   "chainName": "coreum",
-  "title": "Coreum Block Explorer",
+  "title": "Blockchain Explorer | Coreum",
   "extra": {
     "profile": true,
     "graphqlWs": false
