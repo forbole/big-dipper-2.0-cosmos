@@ -26,6 +26,15 @@ const useStyles = makeStyles()((theme) => ({
   },
   listItemIcon: {
     minWidth: 0,
+    [theme.breakpoints.down(1025)]: {
+      '&.active': {
+        '& svg': {
+          '& path': {
+            fill: '#25D695',
+          },
+        },
+      },
+    },
   },
   listItemText: {
     '&& *': {

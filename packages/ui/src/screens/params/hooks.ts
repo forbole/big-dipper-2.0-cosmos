@@ -3,7 +3,14 @@ import * as R from 'ramda';
 import { useCallback, useState } from 'react';
 import chainConfig from '@/chainConfig';
 import { ParamsQuery, useParamsQuery } from '@/graphql/types/general_types';
-import { DistributionParams, GovParams, MintParams, SlashingParams, StakingParams } from '@/models';
+import {
+  DistributionParams,
+  GovParams,
+  MintParams,
+  SlashingParams,
+  StakingParams,
+  FeeModelParams,
+} from '@/models';
 import type { ParamsState } from '@/screens/params/types';
 import { formatToken } from '@/utils/format_token';
 
@@ -17,6 +24,7 @@ const initialState: ParamsState = {
   minting: null,
   distribution: null,
   gov: null,
+  feeModel: null,
 };
 
 // ================================
@@ -118,6 +126,28 @@ const formatGov = (data: ParamsQuery) => {
   return null;
 };
 
+// ================================
+// fee model params
+// ================================
+const formatFeeModel = (data: ParamsQuery) => {
+  console.log(data);
+  if (data.feeModelParams?.length) {
+    const feeModelParamsRaw = FeeModelParams.fromJson(data?.feeModelParams?.[0] ?? {});
+
+    return {
+      maxDiscount: feeModelParamsRaw.maxDiscount,
+      maxBlockGas: feeModelParamsRaw.maxBlockGas,
+      initialGasPrice: feeModelParamsRaw.initialGasPrice,
+      longEmaBlockLength: feeModelParamsRaw.longEmaBlockLength,
+      shortEmaBlockLength: feeModelParamsRaw.shortEmaBlockLength,
+      maxGasPriceMultiplier: feeModelParamsRaw.maxGasPriceMultiplier,
+      escalationStartFraction: feeModelParamsRaw.escalationStartFraction,
+    };
+  }
+
+  return null;
+};
+
 const formatParam = (data: ParamsQuery) => {
   const results: Partial<ParamsState> = {};
 
@@ -130,6 +160,8 @@ const formatParam = (data: ParamsQuery) => {
   results.distribution = formatDistribution(data);
 
   results.gov = formatGov(data);
+
+  results.feeModel = formatFeeModel(data);
 
   return results;
 };

@@ -18,7 +18,6 @@ const useStyles = makeStyles()((theme) => ({
   footer: {
     [theme.breakpoints.up('lg')]: {
       position: 'relative',
-      zIndex: 1299,
     },
   },
   appBarPlaceholder: {

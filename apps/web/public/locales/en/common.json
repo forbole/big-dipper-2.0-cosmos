@@ -62,6 +62,5 @@
   "detailed": "Detailed",
   "profilesNotEnabled": "Profiles not enabled for this explorer",
   "insertValidDtag": "Please insert a valid dtag",
-  "invalidAddress": "Invalid Address",
-  "version": "Version: "
+  "invalidAddress": "Invalid Address"
 }

@@ -32,5 +32,12 @@
   "quorum": "Quorum",
   "threshold": "Threshold",
   "vetoThreshold": "Veto Threshold",
-  "votingPeriod": "Voting Period"
+  "votingPeriod": "Voting Period",
+  "maxDiscount": "Max Discount",
+  "maxBlockGas": "Max Block Gas",
+  "initialGasPrice": "Initial Gas Price",
+  "longEmaBlockLength": "Long Ema Block Length",
+  "shortEmaBlockLength": "Short Ema Block Length",
+  "maxGasPriceMultiplier": "Max Gas Price Multiplier",
+  "escalationStartFraction": "Escalation Start Fraction"
 }

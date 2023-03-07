@@ -28,16 +28,8 @@ const Mobile: FC<MobileProps> = ({ className }) => {
             menu: isMenu,
           })}
         />
-        {/* <span
-          className={cx(classes.screens, {
-            open: isNetwork,
-            network: isNetwork,
-          })}
-        >
-          <Networks className={classes.networks} />
-        </span> */}
         <Navbar isOpen={isOpen} openNetwork={openNetwork} toggleNavMenus={toggleNavMenus} />
-        <SearchBar className={classes.searchBar} />
+        {/* <SearchBar className={classes.searchBar} /> */}
       </div>
       {/* ============================== */}
       {/* Height placeholder */}

@@ -1,38 +1,39 @@
 {
   "chainName": "base",
-  "title": "Coreum Block Explorer (web)",
+  "title": "Desmos Block Explorer",
   "extra": {
     "profile": true,
     "graphqlWs": false
   },
   "previewImage": "https://s3.bigdipper.live/desmos.png",
   "themes": {
-    "default": "dark",
-    "themeList": ["dark", "light"],
+    "default": "light",
+    "themeList": [
+      "dark",
+      "light",
+      "deuteranopia",
+      "tritanopia"
+    ],
     "dark": {
       "primary": {
-        "main": "#25D695",
+        "main": "#FF835B",
         "contrastText": "#FFFFFF"
       },
       "background": {
-        "default": "#17191E",
-        "paper": "#1B1D23"
+        "default": "#000000",
+        "paper": "#131316"
       },
       "divider": "#282828",
       "text": {
-        "primary": "#f3f3f3",
-        "secondary": "#868991"
+        "primary": "#E6E6E6",
+        "secondary": "#C4C4C4"
       },
       "custom": {
         "general": {
-          "background": "#17191E",
-          "surfaceOne": "#1B1D23",
+          "background": "#000000",
+          "surfaceOne": "#131316",
           "surfaceTwo": "#212123",
-          "icon": "#999999",
-          "single_block": "linear-gradient(110.16deg, rgba(37, 214, 149, 0.15) 0%, rgba(37, 214, 149, 0.05) 100%)",
-          "nav_drawer": "#2B3138",
-          "modal_header": "#1D222C",
-          "search": "#2B3138"
+          "icon": "#999999"
         },
         "fonts": {
           "fontOne": "#E6E6E6",
@@ -40,10 +41,7 @@
           "fontThree": "#818181",
           "fontFour": "#999999",
           "fontFive": "#FFFFFF",
-          "highlight": "#F1C34E",
-          "settings_label": "#868991",
-          "table_headers": "#6C6F78",
-          "data_blocks": "#25D695"
+          "highlight": "#4092CD"
         },
         "primaryData": {
           "one": "#F87255",
@@ -56,9 +54,9 @@
           "fail": "#FD3B4C"
         },
         "tokenomics": {
-          "one": "#25D695",
-          "two": "#004DC2",
-          "three": "#FFFFFF"
+          "one": "#43A1BE",
+          "two": "#E3BB55",
+          "three": "#20D292"
         },
         "condition": {
           "zero": "#E6E6E6",
@@ -101,11 +99,11 @@
     },
     "light": {
       "primary": {
-        "main": "#25D695",
-        "contrastText": "#6C6F78"
+        "main": "#FF835B",
+        "contrastText": "#FFFFFF"
       },
       "background": {
-        "default": "#F5F5F5",
+        "default": "#F8F8F8",
         "paper": "#FFFFFF"
       },
       "divider": "#E8E8E8",
@@ -118,17 +116,13 @@
           "background": "#F8F8F8",
           "surfaceOne": "#FFFFFF",
           "surfaceTwo": "#F8F8F8",
-          "icon": "#999999",
-          "search": "#FFFFFF",
-          "nav_drawer": "#2B3138",
-          "single_block": "linear-gradient(110.16deg, rgba(37, 214, 149, 0.15) 0%, rgba(37, 214, 149, 0.05) 100%)"
+          "icon": "#999999"
         },
         "fonts": {
           "fontOne": "#000000",
           "fontTwo": "#414141",
           "fontThree": "#777777",
           "fontFour": "#999999",
-          "data_blocks": "#FFF",
           "fontFive": "#FFFFFF",
           "highlight": "#4092CD"
         },
@@ -143,9 +137,9 @@
           "fail": "#FD3B4C"
         },
         "tokenomics": {
-          "one": "#25D695",
-          "two": "#004DC2",
-          "three": "#FFFFFF"
+          "one": "#2FB6E0",
+          "two": "#FFC93D",
+          "three": "#20D494"
         },
         "condition": {
           "zero": "#E6E6E6",
@@ -189,22 +183,22 @@
   },
   "chains": [
     {
-      "network": "coreum",
+      "network": "desmos-mainnet",
       "chainType": "Mainnet",
       "genesis": {
         "time": "2021-08-31T16:15:00",
         "height": 1
       },
       "prefix": {
-        "consensus": "corevalcons",
-        "validator": "corevaloper",
-        "account": "core"
+        "consensus": "desmosvalcons",
+        "validator": "desmosvaloper",
+        "account": "desmos"
       },
-      "primaryTokenUnit": "ucore",
-      "votingPowerTokenUnit": "ucore",
+      "primaryTokenUnit": "udsm",
+      "votingPowerTokenUnit": "udsm",
       "tokenUnits": {
-        "ucore": {
-          "display": "core",
+        "udsm": {
+          "display": "dsm",
           "exponent": 6
         }
       },
@@ -219,52 +213,22 @@
       }
     },
     {
-      "network": "coreum-testnet",
+      "network": "morpheus-apollo-3",
       "chainType": "Testnet",
       "genesis": {
         "time": "2022-10-24T08:00:00",
         "height": 7942286
       },
       "prefix": {
-        "consensus": "testcorevalcons",
-        "validator": "testcorevaloper",
-        "account": "testcore"
+        "consensus": "desmosvalcons",
+        "validator": "desmosvaloper",
+        "account": "desmos"
       },
-      "primaryTokenUnit": "utestcore",
-      "votingPowerTokenUnit": "utestcore",
+      "primaryTokenUnit": "udaric",
+      "votingPowerTokenUnit": "udaric",
       "tokenUnits": {
-        "utestcore": {
-          "display": "testcore",
-          "exponent": 6
-        }
-      },
-      "endpoints": {
-        "graphql": "https://gql-morpheus.desmos.forbole.com/v1/graphql",
-        "graphqlWebsocket": "wss://gql-morpheus.desmos.forbole.com/v1/graphql",
-        "publicRpcWebsocket": "wss://rpc-morpheus.desmos.forbole.com/websocket"
-      },
-      "marketing": {
-        "matomoURL": "https://analytics.bigdipper.live",
-        "matomoSiteID": "8"
-      }
-    },
-    {
-      "network": "coreum-devnet",
-      "chainType": "Devnet",
-      "genesis": {
-        "time": "2022-10-24T08:00:00",
-        "height": 7942286
-      },
-      "prefix": {
-        "consensus": "devcorevalcons",
-        "validator": "devcorevaloper",
-        "account": "devcore"
-      },
-      "primaryTokenUnit": "udevcore",
-      "votingPowerTokenUnit": "udevcore",
-      "tokenUnits": {
-        "udevcore": {
-          "display": "devcore",
+        "udaric": {
+          "display": "daric",
           "exponent": 6
         }
       },

@@ -5,7 +5,7 @@ const useStyles = makeStyles()((theme) => ({
     display: 'flex',
     alignItems: 'flex-start',
     justifyContent: 'space-between',
-    padding: theme.spacing(3, 2, 0),
+    padding: theme.spacing(3, 2),
   },
   a: {
     lineHeight: 0,

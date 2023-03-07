@@ -15,6 +15,8 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Language from 'shared-utils/assets/icon-language.svg';
 import ThemeIcon from 'shared-utils/assets/icon-theme.svg';
+import SearchBar from '@/components/nav/components/search_bar';
+import NetworkSelector from '../../../network_selector';
 
 const Menu = (props: MenuProps) => {
   const router = useRouter();
@@ -81,6 +83,7 @@ const Menu = (props: MenuProps) => {
       {/* Main Content */}
       {/* ================================== */}
       <div className={cx(classes.root, className)}>
+        <SearchBar className="searchBar" />
         <div className={classes.menu}>
           <MenuItems />
         </div>

@@ -1,6 +1,6 @@
 {
   "chainName": "cosmos",
-  "title": "Cosmos Block Explorer (cosmos)",
+  "title": "Cosmos Hub Block Explorer",
   "extra": {
     "profile": true,
     "graphqlWs": true
@@ -8,31 +8,32 @@
   "previewImage": "https://s3.bigdipper.live/cosmoshub.png",
   "themes": {
     "default": "dark",
-    "themeList": ["dark", "light"],
+    "themeList": [
+      "dark",
+      "light",
+      "deuteranopia",
+      "tritanopia"
+    ],
     "dark": {
       "primary": {
-        "main": "#25D695",
+        "main": "#6B9EFF",
         "contrastText": "#FFFFFF"
       },
       "background": {
-        "default": "#17191E",
-        "paper": "#131316"
+        "default": "#020202",
+        "paper": "#191B26"
       },
-      "divider": "#282828",
+      "divider": "#363A51",
       "text": {
-        "primary": "#f3f3f3",
-        "secondary": "#868991"
+        "primary": "#E6E6E6",
+        "secondary": "#C4C4C4"
       },
       "custom": {
         "general": {
-          "background": "#17191E",
-          "surfaceOne": "#131316",
-          "surfaceTwo": "#212123",
-          "icon": "#999999",
-          "single_block": "linear-gradient(110.16deg, rgba(37, 214, 149, 0.15) 0%, rgba(37, 214, 149, 0.05) 100%)",
-          "nav_drawer": "#2B3138",
-          "modal_header": "#1D222C",
-          "search": "#2B3138"
+          "background": "#020202",
+          "surfaceOne": "#191B26",
+          "surfaceTwo": "#282A36",
+          "icon": "#999999"
         },
         "fonts": {
           "fontOne": "#E6E6E6",
@@ -40,10 +41,7 @@
           "fontThree": "#818181",
           "fontFour": "#999999",
           "fontFive": "#FFFFFF",
-          "highlight": "#F1C34E",
-          "settings_label": "#868991",
-          "table_headers": "#6C6F78",
-          "data_blocks": "#25D695"
+          "highlight": "#6AA6FF"
         },
         "primaryData": {
           "one": "#AE73F8",
@@ -56,9 +54,9 @@
           "fail": "#FD3B4C"
         },
         "tokenomics": {
-          "one": "#004DC2",
+          "one": "#5E94FF",
           "two": "#E3AB55",
-          "three": "#25D695"
+          "three": "#5ACF78"
         },
         "condition": {
           "zero": "#E8E8E8",
@@ -125,7 +123,6 @@
           "fontTwo": "#414141",
           "fontThree": "#777777",
           "fontFour": "#999999",
-          "data_blocks": "#FFF",
           "fontFive": "#FFFFFF",
           "highlight": "#6AA6FF"
         },

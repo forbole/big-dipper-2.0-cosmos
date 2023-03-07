@@ -14,20 +14,20 @@ export const common = (theme: ThemeOptions) =>
         xs: 0,
         sm: 375,
         md: 768,
-        lg: 1280,
+        lg: 1025,
         xl: 1920,
       },
     },
     mixins: {
       toolbar: {
-        '@media (min-width: 1280px)': {
+        '@media (min-width: 1025px)': {
           height: 80,
           overflow: 'hidden',
         },
       },
       layout: {
         padding: '16px',
-        '@media (min-width: 1280px)': {
+        '@media (min-width: 1025px)': {
           padding: '16px 24px',
         },
       },

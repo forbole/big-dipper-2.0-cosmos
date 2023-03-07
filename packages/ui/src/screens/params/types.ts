@@ -39,6 +39,16 @@ export interface Gov {
   votingPeriod: number;
 }
 
+export interface FeeModel {
+  maxDiscount: number;
+  maxBlockGas: number;
+  initialGasPrice: number;
+  longEmaBlockLength: number;
+  shortEmaBlockLength: number;
+  maxGasPriceMultiplier: number;
+  escalationStartFraction: number;
+}
+
 export interface ParamsState {
   loading: boolean;
   exists: boolean;
@@ -47,4 +57,5 @@ export interface ParamsState {
   minting: Minting | null;
   distribution: Distribution | null;
   gov: Gov | null;
+  feeModel: FeeModel | null;
 }
