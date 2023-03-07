@@ -182,7 +182,7 @@ export const formatFeeModel = (data: FeeModel, t: TFunction) => [
   {
     key: 'initialGasPrice',
     label: t('initialGasPrice'),
-    detail: numeral(data.initialGasPrice).format('0,0'),
+    detail: numeral(data.initialGasPrice).format('0.[0000]'),
   },
   {
     key: 'longEmaBlockLength',
@@ -202,6 +202,6 @@ export const formatFeeModel = (data: FeeModel, t: TFunction) => [
   {
     key: 'escalationStartFraction',
     label: t('escalationStartFraction'),
-    detail: numeral(data.escalationStartFraction).format('0,0'),
+    detail: numeral(data.escalationStartFraction).format('0.[000]'),
   },
 ];
