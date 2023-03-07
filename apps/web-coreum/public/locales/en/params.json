@@ -33,6 +33,7 @@
   "threshold": "Threshold",
   "vetoThreshold": "Veto Threshold",
   "votingPeriod": "Voting Period",
+  "feeModel": "Fee Model",
   "maxDiscount": "Max Discount",
   "maxBlockGas": "Max Block Gas",
   "initialGasPrice": "Initial Gas Price",

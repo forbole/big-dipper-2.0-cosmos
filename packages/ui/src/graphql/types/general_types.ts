@@ -12766,9 +12766,6 @@ export const ParamsDocument = gql`
     tallyParams: tally_params
     votingParams: voting_params
   }
-  feeModelParams: feemodel_params (limit: 1, order_by: {height: desc}) {
-    params
-  }
 }
     `;
 

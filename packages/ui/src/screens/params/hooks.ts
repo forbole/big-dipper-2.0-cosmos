@@ -130,9 +130,8 @@ const formatGov = (data: ParamsQuery) => {
 // fee model params
 // ================================
 const formatFeeModel = (data: ParamsQuery) => {
-  console.log(data);
   if (data.feeModelParams?.length) {
-    const feeModelParamsRaw = FeeModelParams.fromJson(data?.feeModelParams?.[0] ?? {});
+    const feeModelParamsRaw = FeeModelParams.fromJson(data?.feeModelParams?.[0].params.model ?? {});
 
     return {
       maxDiscount: feeModelParamsRaw.maxDiscount,
