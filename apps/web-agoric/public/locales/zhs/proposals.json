@@ -1,7 +1,7 @@
 {
   "proposals": "提案",
   "totalProposals": "总共 {{amount}} 提案",
-  "proposer": "提议者",
+  "proposer": "提案人",
   "submissionTime": "提交时间",
   "votingTimeStart": "投票时间开始",
   "proposalDetails": "提案详情",
