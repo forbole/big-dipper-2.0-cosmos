@@ -21,7 +21,7 @@
   "staking": "质押",
   "others": "其他的",
   "profiles": "简介",
-  "filterBy": "过滤",
+  "filterBy": "筛选",
   "and": "和",
   "yes": "是的",
   "no": "不",
@@ -31,7 +31,7 @@
   "raw": "原始资料",
   "details": "细节",
   "authz": "授权",
-  "feegrant": "费格朗",
-  "vesting": "归属",
+  "feegrant": "费用拨款",
+  "vesting": "生效中",
   "logs": "日志"
 }
