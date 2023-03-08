@@ -57,4 +57,4 @@
   "MsgCreateVestingAccount": "歸屬賬戶創建於 <0>{{toAddress}}</0>",
   "MsgCreatePeriodicVestingAccount": "為以下項目創建的定期歸屬賬戶 <0>{{toAddress}}</0>",
   "txLinkChainAccountContent": "<0>{{user}}</0> 創建了一個新的鏈接連帳戶"
-  }
+}
