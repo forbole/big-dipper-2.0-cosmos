@@ -1,15 +1,15 @@
 {
   "blocks": "Bloki",
-  "blockDetails": "Zablokuj szczegóły",
+  "blockDetails": "Szczegóły bloku",
   "height": "Wysokość",
   "validator": "Walidator",
-  "hash": "Haszysz",
-  "txs": "txs",
+  "hash": "Hasz",
+  "txs": "Txs",
   "time": "Czas",
   "overview": "Przegląd",
-  "signedVotingPower": "Podpisane Moc Głosowania",
+  "signedVotingPower": "Przydzielona moc głosowania",
   "proposer": "Proponujący",
-  "signatures": "Podpisy",
-  "votingPower": "Siła głosu",
-  "signed": "Podpisano"
+  "signatures": "Sygnatury",
+  "votingPower": "Moc głosu",
+  "signed": "Podpisany"
 }
