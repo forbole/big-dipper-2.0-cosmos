@@ -1,5 +1,11 @@
 # ui
 
+## 2.17.0
+
+### Minor Changes
+
+- [#1178](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1178) [`98505b6e1`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/98505b6e1ca3001a6b078d30266ed33456c808df) Thanks [@rachelhox](https://github.com/rachelhox)! - fix proposal voting theme
+
 ## 2.16.0
 
 ### Minor Changes
