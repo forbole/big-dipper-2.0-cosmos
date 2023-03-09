@@ -6,9 +6,9 @@ import { PROPOSAL_DETAILS } from '@/utils/go_to_page';
 import Typography from '@mui/material/Typography';
 import { Trans, useTranslation } from 'next-i18next';
 import Link, { LinkProps } from 'next/link';
-import { FC, ReactNode } from 'react';
+import { FC, PropsWithChildren } from 'react';
 
-const LinkText: FC<{ href: LinkProps['href']; children: ReactNode }> = (props) => {
+const LinkText: FC<PropsWithChildren<{ href: LinkProps['href'] }>> = (props) => {
   const { href, children } = props;
   return (
     <Link shallow href={href || ''}>
@@ -16,6 +16,7 @@ const LinkText: FC<{ href: LinkProps['href']; children: ReactNode }> = (props) =
     </Link>
   );
 };
+
 const DepositProposal: FC<{ message: MsgDeposit }> = (props) => {
   const { t } = useTranslation('transactions');
   const { message } = props;
