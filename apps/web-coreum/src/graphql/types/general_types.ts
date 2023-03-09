@@ -12766,12 +12766,13 @@ export const ParamsDocument = gql`
     tallyParams: tally_params
     votingParams: voting_params
   }
-  feeModelParams: feemodel_params (limit: 1, order_by: {height: desc}) {
-    params
-  }
-  customParams: customparams_params  (limit: 1, order_by: {height: desc}) {
-    customStakingParams: staking_params
-  }
+  #Commented Out until backed is updated
+  #feeModelParams: feemodel_params (limit: 1, order_by: {height: desc}) {
+  #  params
+  #}
+  #customParams: customparams_params  (limit: 1, order_by: {height: desc}) {
+  #  customStakingParams: staking_params
+  #}
 }
     `;
 

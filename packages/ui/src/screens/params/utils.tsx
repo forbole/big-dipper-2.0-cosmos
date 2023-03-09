@@ -47,11 +47,12 @@ export const formatStaking = (data: Staking, t: TFunction) => [
     label: t('maxValidators'),
     detail: numeral(data.maxValidators).format('0,0'),
   },
-  {
-    key: 'minSelfDelegation',
-    label: t('minSelfDelegation'),
-    detail: numeral(data.minSelfDelegation).format('0,0'),
-  },
+  // commented out until backend is updated
+  // {
+  //   key: 'minSelfDelegation',
+  //   label: t('minSelfDelegation'),
+  //   detail: `${numeral(data.minSelfDelegation).format('0,0')} ${data.bondDenom}`,
+  // },
 ];
 
 export const formatSlashing = (data: Slashing, t: TFunction) => [

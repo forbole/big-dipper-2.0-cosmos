@@ -34,11 +34,9 @@ const initialState: ParamsState = {
 const formatStaking = (data: ParamsQuery) => {
   if (data.stakingParams.length) {
     const stakingParamsRaw = StakingParams.fromJson(data?.stakingParams?.[0]?.params ?? {});
-    // if (data.customParams?.[0]?.customStakingParams) {
     const customStakingParamsRaw = customStakingParams.fromJson(
       data?.customParams?.[0]?.customStakingParams ?? {}
     );
-    // }
     return {
       bondDenom: stakingParamsRaw.bondDenom,
       unbondingTime: stakingParamsRaw.unbondingTime,

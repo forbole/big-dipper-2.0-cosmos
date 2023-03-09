@@ -18,7 +18,7 @@ const Issue: FC<{ message: MsgIssue }> = (props) => {
         values={{
           issuer: message.issuer,
           amount: message.initial_amount,
-          symbol: message.symbol,
+          subunit: message.subunit,
         }}
       />
     </Typography>
