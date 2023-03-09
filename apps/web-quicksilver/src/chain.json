@@ -205,7 +205,7 @@
       "endpoints": {
         "graphql": "https://gql.quicksilver.forbole.com/v1/graphql",
         "graphqlWebsocket": "wss://gql.quicksilver.forbole.com/v1/graphql",
-        "publicRpcWebsocket": "wss://gql.quicksilver.forbole.com/websocket"
+        "publicRpcWebsocket": "wss://rpc.quicksilver.forbole.com/websocket"
       },
       "marketing": {
         "matomoURL": "https://analytics.bigdipper.live",
