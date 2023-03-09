@@ -1,5 +1,11 @@
 # shared-utils
 
+## 2.11.0
+
+### Minor Changes
+
+- [#1179](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1179) [`717cb798b`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/717cb798b200f5a3afde49695548266fa6bdfb3d) Thanks [@rachelhox](https://github.com/rachelhox)! - quicksilver rpc endpoint update for consensus module
+
 ## 2.10.0
 
 ### Minor Changes
