@@ -35,11 +35,11 @@
   "subspace": "子空間",
   "key": "鑰匙",
   "value": "價值",
-  "deposit": "保證金",
+  "deposit": "籌集保證金",
   "invalid": "無效",
-  "voting": "表決",
+  "voting": "正在投票",
   "passed": "通過",
-  "rejected": "否決",
+  "rejected": "被否決",
   "failed": "失敗",
   "plan": "計劃",
   "name": "姓名",
@@ -49,4 +49,4 @@
   "notVoted": "未投票",
   "votedTotalCaption": "投票 / 總數 ({{totalVotedPercent}})",
   "quorumExplanation": "要使提案有效，投票必須至少達到 <0>{{quorum}}%</0> 法定人數"
-}
+  }
