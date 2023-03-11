@@ -1,6 +1,6 @@
 {
   "validators": "验证人",
-  "allValidators": "所有验证热人",
+  "allValidators": "所有验证人",
   "active": "有效",
   "idx": "标号",
   "validator": "验证人",
@@ -54,7 +54,7 @@
   "missedBlockCounter": "错过的区块数目： {{amount}}",
   "signedBlockWindow": "已验证区： {{amount}}",
   "lastSeen": "最后上线时间",
-  "status": "地位",
+  "status": "状态",
   "votingPowerExplanation": "由于前 34% 的投票权很容易 <0>降低网络安全</0> 和 <0>停止网络</0> 它们将以不同的方式突出显示，以教育和鼓励权力下放",
   "tombstoned": "被封印",
   "votingPowerPercent": "投票权百分比",
