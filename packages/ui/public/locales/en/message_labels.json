@@ -25,7 +25,6 @@
   "txRefuseDTagTransferLabel": "Refuse DTag Transfer",
   "txBlockUserLabel": "Block User",
   "txUnblockUserLabel": "Unblock User",
-  "txLinkChainAccountLabel": "Create Chain Link",
   "txCreateClientLabel": "IBC Create Client",
   "txUpdateClientLabel": "IBC Update Client",
   "txUpgradeClientLabel": "IBC Upgrade Client",
