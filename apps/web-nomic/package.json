@@ -1,6 +1,6 @@
 {
   "name": "web-nomic",
-  "version": "2.9.13",
+  "version": "2.9.14",
   "license": "Apache-2.0",
   "private": true,
   "scripts": {
