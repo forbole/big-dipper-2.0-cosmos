@@ -11,6 +11,7 @@ import {
   StakingParams,
   FeeModelParams,
 } from '@/models';
+import { customStakingParams } from '@/models/staking_params';
 import type { ParamsState } from '@/screens/params/types';
 import { formatToken } from '@/utils/format_token';
 
@@ -33,12 +34,16 @@ const initialState: ParamsState = {
 const formatStaking = (data: ParamsQuery) => {
   if (data.stakingParams.length) {
     const stakingParamsRaw = StakingParams.fromJson(data?.stakingParams?.[0]?.params ?? {});
+    const customStakingParamsRaw = customStakingParams.fromJson(
+      data?.customParams?.[0]?.customStakingParams ?? {}
+    );
     return {
       bondDenom: stakingParamsRaw.bondDenom,
       unbondingTime: stakingParamsRaw.unbondingTime,
       maxEntries: stakingParamsRaw.maxEntries,
       historicalEntries: stakingParamsRaw.historicalEntries,
       maxValidators: stakingParamsRaw.maxValidators,
+      minSelfDelegation: customStakingParamsRaw.minSelfDelegation,
     };
   }
 
@@ -130,9 +135,8 @@ const formatGov = (data: ParamsQuery) => {
 // fee model params
 // ================================
 const formatFeeModel = (data: ParamsQuery) => {
-  console.log(data);
   if (data.feeModelParams?.length) {
-    const feeModelParamsRaw = FeeModelParams.fromJson(data?.feeModelParams?.[0] ?? {});
+    const feeModelParamsRaw = FeeModelParams.fromJson(data?.feeModelParams?.[0].params.model ?? {});
 
     return {
       maxDiscount: feeModelParamsRaw.maxDiscount,

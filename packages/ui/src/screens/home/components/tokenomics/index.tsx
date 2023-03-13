@@ -87,15 +87,8 @@ const Tokenomics: FC<ComponentDefault> = ({ className }) => {
           </Pie>
           <Tooltip content={customToolTip} />
         </DynamicPieChart>
-        {/* <div className={classes.legends}>
-          {data.map((x) => (
-            <div className="legends__item" key={x.legendKey}>
-              <Typography variant="caption">{t(x.legendKey)}</Typography>
-            </div>
-          ))}
-        </div> */}
       </div>
-      {/*  */}
+
       <div className={classes.data}>
         {data.slice(0, 2).map((x) => (
           <div className="data__item" key={x.percentKey}>

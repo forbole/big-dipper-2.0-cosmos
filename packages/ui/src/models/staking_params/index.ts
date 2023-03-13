@@ -32,5 +32,17 @@ class StakingParams {
     };
   }
 }
+export class customStakingParams {
+  public minSelfDelegation: number;
+
+  constructor(payload: object) {
+    this.minSelfDelegation = R.pathOr(0, ['minSelfDelegation'], payload);
+  }
+  static fromJson(data: object): customStakingParams {
+    return {
+      minSelfDelegation: R.pathOr(0, ['min_self_delegation'], data),
+    };
+  }
+}
 
 export default StakingParams;

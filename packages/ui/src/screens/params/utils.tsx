@@ -47,6 +47,12 @@ export const formatStaking = (data: Staking, t: TFunction) => [
     label: t('maxValidators'),
     detail: numeral(data.maxValidators).format('0,0'),
   },
+  // commented out until backend is updated
+  // {
+  //   key: 'minSelfDelegation',
+  //   label: t('minSelfDelegation'),
+  //   detail: `${numeral(data.minSelfDelegation).format('0,0')} ${data.bondDenom}`,
+  // },
 ];
 
 export const formatSlashing = (data: Slashing, t: TFunction) => [
@@ -182,7 +188,7 @@ export const formatFeeModel = (data: FeeModel, t: TFunction) => [
   {
     key: 'initialGasPrice',
     label: t('initialGasPrice'),
-    detail: numeral(data.initialGasPrice).format('0,0'),
+    detail: numeral(data.initialGasPrice).format('0.[0000]'),
   },
   {
     key: 'longEmaBlockLength',
@@ -202,6 +208,6 @@ export const formatFeeModel = (data: FeeModel, t: TFunction) => [
   {
     key: 'escalationStartFraction',
     label: t('escalationStartFraction'),
-    detail: numeral(data.escalationStartFraction).format('0,0'),
+    detail: numeral(data.escalationStartFraction).format('0.[000]'),
   },
 ];

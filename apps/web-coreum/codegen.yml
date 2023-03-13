@@ -3,8 +3,7 @@ generates:
   ./src/graphql/types/general_types.ts:
     documents:
       - 'src/graphql/general/*'
-    # schema: https://gql.desmos.forbole.com/v1/graphql
-    schema: https://hasura.testnet-1.coreum.dev/v1/graphql
+    schema: https://hasura.devnet-1.coreum.dev/v1/graphql
     config:
       # omitOperationSuffix: true
       skipTypeNameForRoot: true

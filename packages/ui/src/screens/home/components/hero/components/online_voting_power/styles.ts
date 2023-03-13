@@ -60,10 +60,6 @@ const useStyles = makeStyles<{ percentage: number | string }>()((theme, { percen
     alignItems: 'center',
     justifyContent: 'space-between',
     padding: theme.spacing(1),
-    borderBottom: `1px solid ${theme.palette.divider}`,
-    '&:last-child': {
-      borderBottom: 'none',
-    },
     '& .label': {
       color: theme.palette.custom.fonts.fontThree,
     },

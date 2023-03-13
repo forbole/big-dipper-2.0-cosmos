@@ -22,6 +22,8 @@ const Desktop: FC<TransactionsListState> = ({
   className,
   itemCount,
   loadMoreItems,
+  hasNextPage,
+  isNextPageLoading,
   isItemLoaded,
   transactions,
 }) => {
@@ -46,14 +48,19 @@ const Desktop: FC<TransactionsListState> = ({
     ),
     type: (
       <div>
-        <Tag value={x.type?.[0] ?? ''} theme="six" />
-        {x.messages.count > 1 && ` + ${x.messages.count - 1}`}
+        <Tag value={x.type?.[0] ? x.type[0] : ''} theme="six" />
+        {x.messages.count > 1 ? ` + ${x.messages.count - 1}` : ''}
       </div>
     ),
     result: <Result success={x.success} />,
     time: <Timestamp timestamp={x.timestamp} />,
     messages: numeral(x.messages.count).format('0,0'),
   }));
+
+  if (itemCount < 10 && hasNextPage && !isNextPageLoading && loadMoreItems) {
+    loadMoreItems();
+  }
+
   return (
     <div className={cx(classes.root, className)}>
       <AutoSizer onResize={onResize}>
@@ -121,7 +128,11 @@ const Desktop: FC<TransactionsListState> = ({
                   className="scrollbar"
                 >
                   {({ columnIndex, rowIndex, style }) => {
-                    if (!isItemLoaded?.(rowIndex) && columnIndex === 0) {
+                    if (
+                      !isItemLoaded?.(rowIndex) &&
+                      columnIndex === 0
+                      // rowIndex < transactions.length
+                    ) {
                       return (
                         <div
                           style={{

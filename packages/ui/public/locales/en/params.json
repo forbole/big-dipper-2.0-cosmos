@@ -8,6 +8,7 @@
   "maxEntries": "Max Entries",
   "historicalEntries": "Historical Entries",
   "maxValidators": "Max Validators",
+  "minSelfDelegation": "Min Self Delegation",
   "slashing": "Slashing",
   "downtimeJailDuration": "Downtime Jail Duration",
   "minSignedPerWindow": "Min Signed Per Window",
