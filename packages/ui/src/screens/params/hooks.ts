@@ -43,7 +43,10 @@ const formatStaking = (data: ParamsQuery) => {
       maxEntries: stakingParamsRaw.maxEntries,
       historicalEntries: stakingParamsRaw.historicalEntries,
       maxValidators: stakingParamsRaw.maxValidators,
-      minSelfDelegation: customStakingParamsRaw.minSelfDelegation,
+      minSelfDelegation: formatToken(
+        customStakingParamsRaw.minSelfDelegation,
+        stakingParamsRaw.bondDenom
+      ),
     };
   }
 
@@ -114,6 +117,7 @@ const formatDistribution = (data: ParamsQuery) => {
 const formatGov = (data: ParamsQuery) => {
   if (data.govParams.length) {
     const govParamsRaw = GovParams.fromJson(data?.govParams?.[0] ?? {});
+    console.log(govParamsRaw.depositParams);
     return {
       minDeposit: formatToken(
         govParamsRaw.depositParams.minDeposit?.[0]?.amount ?? 0,

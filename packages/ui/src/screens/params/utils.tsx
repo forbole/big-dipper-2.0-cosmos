@@ -51,7 +51,9 @@ export const formatStaking = (data: Staking, t: TFunction) => [
   {
     key: 'minSelfDelegation',
     label: t('minSelfDelegation'),
-    detail: `${numeral(data.minSelfDelegation).format('0,0')} ${data.bondDenom}`,
+    detail: `${numeral(data.minSelfDelegation.value).format(
+      '0,0'
+    )} ${data.minSelfDelegation.displayDenom.toUpperCase()}`,
   },
 ];
 

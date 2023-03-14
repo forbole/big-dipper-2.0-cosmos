@@ -4,7 +4,7 @@ export interface Staking {
   maxEntries: number;
   historicalEntries: number;
   maxValidators: number;
-  minSelfDelegation?: number;
+  minSelfDelegation: TokenUnit;
 }
 
 export interface Slashing {
