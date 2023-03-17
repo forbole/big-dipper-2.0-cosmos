@@ -3,6 +3,7 @@ import type { NavbarProps } from '@/components/nav/components/mobile/components/
 import { readTheme } from '@/recoil/settings';
 import { HOME } from '@/utils/go_to_page';
 import Logo from '@/assets/logo-full.svg';
+import LogoWhite from '@/assets/logo-full-light.svg';
 import Link from 'next/link';
 import { useRecoilValue } from 'recoil';
 
@@ -11,10 +12,12 @@ const Navbar = (props: NavbarProps) => {
   const theme = useRecoilValue(readTheme);
   const { isOpen, toggleNavMenus } = props; //Deleted openNetwork since its not being used
 
+  console.log(theme);
+
   return (
     <div className={classes.root}>
       <Link shallow href={HOME} className={classes.a}>
-        <Logo />
+        {theme === 'dark' ? <Logo /> : <LogoWhite />}
       </Link>
       <div className={classes.actions}>
         <div
