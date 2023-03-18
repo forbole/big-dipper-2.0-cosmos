@@ -12,8 +12,6 @@ const Navbar = (props: NavbarProps) => {
   const theme = useRecoilValue(readTheme);
   const { isOpen, toggleNavMenus } = props; //Deleted openNetwork since its not being used
 
-  console.log(theme);
-
   return (
     <div className={classes.root}>
       <Link shallow href={HOME} className={classes.a}>

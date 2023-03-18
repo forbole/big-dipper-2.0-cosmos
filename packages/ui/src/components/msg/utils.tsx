@@ -345,6 +345,7 @@ type DefaultTypeToModel = typeof defaultTypeToModel;
 
 // =====================================
 // Update your chain's message types here
+// The tagTheme is the color of the tag.
 // =====================================
 const customTypeToModel = {
   // ========================
@@ -409,6 +410,48 @@ const customTypeToModel = {
     content: COMPONENTS.Issue,
     tagTheme: 'one',
     tagDisplay: 'msgIssueLabel',
+  },
+  '/coreum.asset.ft.v1.MsgMint': {
+    model: MODELS.MsgMint,
+    content: COMPONENTS.Mint,
+    tagTheme: 'one',
+    tagDisplay: 'msgMintLabel',
+  },
+  '/coreum.asset.ft.v1.MsgBurn': {
+    model: MODELS.MsgBurn,
+    content: COMPONENTS.Burn,
+    tagTheme: 'one',
+    tagDisplay: 'msgBurnLabel',
+  },
+  '/coreum.asset.ft.v1.MsgFreeze': {
+    model: MODELS.MsgFreeze,
+    content: COMPONENTS.Freeze,
+    tagTheme: 'one',
+    tagDisplay: 'msgFreezeLabel',
+  },
+  '/coreum.asset.ft.v1.MsgUnfreeze': {
+    model: MODELS.MsgUnfreeze,
+    content: COMPONENTS.Unfreeze,
+    tagTheme: 'one',
+    tagDisplay: 'msgUnfreezeLabel',
+  },
+  '/coreum.asset.ft.v1.MsgGloballyFreeze': {
+    model: MODELS.MsgGloballyFreeze,
+    content: COMPONENTS.GloballyFreeze,
+    tagTheme: 'one',
+    tagDisplay: 'msgGloballyFreezeLabel',
+  },
+  '/coreum.asset.ft.v1.MsgGloballyUnfreeze': {
+    model: MODELS.MsgGloballyUnfreeze,
+    content: COMPONENTS.GloballyUnfreeze,
+    tagTheme: 'one',
+    tagDisplay: 'msgGloballyUnfreezeLabel',
+  },
+  '/coreum.asset.ft.v1.MsgSetWhitelistedLimit': {
+    model: MODELS.MsgSetWhitelistedLimit,
+    content: COMPONENTS.SetWhitelistedLimit,
+    tagTheme: 'one',
+    tagDisplay: 'msgSetWhitelistedLimitLabel',
   },
 };
 type CustomTypeToModel = typeof customTypeToModel;
