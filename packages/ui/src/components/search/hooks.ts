@@ -7,8 +7,14 @@ export const useSearch = (callback: (value: string, clear?: () => void) => void)
     setValue(newValue);
   };
 
+  const handleSubmitOnChange: ChangeEventHandler<HTMLTextAreaElement> = (e) => {
+    const newValue = e?.target?.value ?? '';
+    setValue(newValue);
+    callback(newValue);
+  };
+
   const handleOnSubmit = () => {
-    callback(value, clear);
+    callback(value);
   };
 
   const handleKeyDown: KeyboardEventHandler<HTMLTextAreaElement> = (e) => {
@@ -16,7 +22,7 @@ export const useSearch = (callback: (value: string, clear?: () => void) => void)
     const isEnter = e?.keyCode === 13 || e?.key === 'Enter';
     if (isEnter && !shift) {
       e.preventDefault();
-      callback(value, clear);
+      callback(value);
     }
   };
 
@@ -29,5 +35,6 @@ export const useSearch = (callback: (value: string, clear?: () => void) => void)
     handleOnSubmit,
     value,
     handleKeyDown,
+    handleSubmitOnChange,
   };
 };

@@ -55,5 +55,17 @@
   "MsgRevokeAllowance": "Revoke Allowance",
   "MsgCreateVestingAccount": "Create Vesting Account",
   "MsgCreatePeriodicVestingAccount": "Create Periodic Vesting Account",
-  "msgIssueLabel": "Issue"
+  "msgIssueLabel": "Issue",
+  "msgMintLabel": "Mint",
+  "msgBurnLabel": "Burn",
+  "msgFreezeLabel": "Freeze",
+  "msgUnfreezeLabel": "Unfreeze",
+  "msgGloballyFreezeLabel": "Globally Freeze",
+  "msgGloballyUnfreezeLabel": "Globally Unfreeze",
+  "msgSetWhitelistedLimitLabel": "Set Whitelisted Limit",
+  "msgNftMintLabel": "NFT Mint",
+  "msgNftBurnLabel": "NFT Burn",
+  "msgNftFreezeLabel": "NFT Freeze",
+  "msgNftUnfreezeLabel": "NFT Unfreeze",
+  "msgNftIssueClassLabel": "NFT Issue Class"
 }

@@ -14,7 +14,7 @@ import {
 const { primaryTokenUnit, tokenUnits } = chainConfig();
 
 type DataBlocksState = {
-  blockHeight: number;
+  blockHeight: number | null;
   blockTime: number;
   price: number | null;
   validators: {
@@ -40,7 +40,7 @@ const formatActiveValidatorsCount = (data: ActiveValidatorCountQuery) => ({
 
 export const useDataBlocks = () => {
   const [state, setState] = useState<DataBlocksState>({
-    blockHeight: 0,
+    blockHeight: null,
     blockTime: 0,
     price: null,
     validators: {

@@ -8,18 +8,21 @@ import { useSearch } from '@/components/search/hooks';
 type SearchProps = {
   className?: string;
   placeholder: string;
+  submitOnChange?: boolean;
   callback: (value: string) => void;
 };
 
-const Search: FC<SearchProps> = ({ className, placeholder, callback }) => {
+const Search: FC<SearchProps> = ({ className, placeholder, callback, submitOnChange = false }) => {
   const { classes, cx } = useStyles();
 
-  const { handleOnSubmit, handleOnChange, handleKeyDown, value } = useSearch(callback);
+  const { handleOnSubmit, handleOnChange, handleSubmitOnChange, handleKeyDown, value } =
+    useSearch(callback);
+
   return (
     <form className={cx(classes.root, className)} onSubmit={handleOnSubmit}>
       <InputBase
         placeholder={placeholder}
-        onChange={handleOnChange}
+        onChange={submitOnChange ? handleSubmitOnChange : handleOnChange}
         onKeyDown={handleKeyDown}
         value={value}
         inputProps={{

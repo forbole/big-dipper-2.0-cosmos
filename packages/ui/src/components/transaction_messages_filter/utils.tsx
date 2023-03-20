@@ -44,6 +44,10 @@ export const getFilterLabels = () => [
     display: 'profiles',
   },
   {
+    key: 'asset',
+    display: 'asset',
+  },
+  {
     key: 'others',
     display: 'others',
   },

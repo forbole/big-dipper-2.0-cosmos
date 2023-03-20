@@ -3,12 +3,20 @@ import { makeStyles } from 'tss-react/mui';
 const useStyles = makeStyles()((theme) => ({
   root: {
     display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'flex-end',
+    [theme.breakpoints.up('md')]: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+    },
     alignItems: 'center',
-    justifyContent: 'space-between',
+    gap: '1rem',
   },
   searchBar: {
-    display: 'none',
-    [theme.breakpoints.up('lg')]: {
+    display: 'block',
+    padding: 0,
+    width: '100%',
+    [theme.breakpoints.up('md')]: {
       display: 'block',
       width: '300px',
       '& .MuiInputBase-root': {

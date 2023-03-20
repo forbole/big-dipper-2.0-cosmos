@@ -9,6 +9,9 @@ const useStyles = makeStyles()((theme) => ({
   },
   bio: {
     display: 'flex',
+    gap: '1rem',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
     '& .bio__header': {
       display: 'flex',
       alignItems: 'flex-start',
@@ -33,7 +36,7 @@ const useStyles = makeStyles()((theme) => ({
     display: 'flex',
     alignItems: 'center',
     '& .header__content': {
-      marginLeft: theme.spacing(1),
+      marginLeft: theme.spacing(2),
     },
     '& .MuiTypography-h2': {
       marginBottom: theme.spacing(1),

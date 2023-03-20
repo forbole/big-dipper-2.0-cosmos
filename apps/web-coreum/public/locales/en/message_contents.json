@@ -56,5 +56,17 @@
   "MsgRevokeAllowance": "<0>{{granter}}</0> revoked allowance for <1>{{grantee}}</1>",
   "MsgCreateVestingAccount": "Vesting account created for <0>{{toAddress}}</0>",
   "MsgCreatePeriodicVestingAccount": "Periodic vesting account created for <0>{{toAddress}}</0>",
-  "msgIssueContent": "<0>{{issuer}}</0> issued <1>{{amount}}</1> units of <1>{{subunit}}</1> "
+  "msgIssueContent": "<0>{{issuer}}</0> issued <1>{{amount}}</1> units of <1>{{subunit}}</1> ",
+  "msgMintContent": "<0>{{sender}}</0> has minted <1>{{amount}}</1> ",
+  "msgBurnContent": "<0>{{sender}}</0> has burned <1>{{amount}}</1> ",
+  "msgFreezeContent": "<0>{{sender}}</0> has frozen <1>{{amount}}</1> on <2>{{account}}</2>",
+  "msgUnfreezeContent": "<0>{{sender}}</0> has unfrozen <1>{{amount}}</1> on <2>{{account}}</2>",
+  "msgGloballyFreezeContent": "<0>{{sender}}</0> has globally frozen the token<1>{{denom}}</1>",
+  "msgGloballyUnfreezeContent": "<0>{{sender}}</0> has globally unfrozen the token<1>{{denom}}</1>",
+  "msgSetWhitelistedLimitContent": "<0>{{sender}}</0> has set the whitelisted limit for <1>{{account}}</1> to <2>{{amount}}</2>",
+  "msgNftMintContent": "Account <0>{{sender}}</0> has minted NFT <1>{{id}}</1> with class <2>{{class_id}}</2>",
+  "msgNftBurnContent": "Account <0>{{sender}}</0> has burned NFT <1>{{id}}</1> with class <2>{{class_id}}</2>",
+  "msgNftFreezeContent": "Account <0>{{sender}}</0> has frozen NFT <1>{{id}}</1> with class <2>{{class_id}}</2>",
+  "msgNftUnfreezeContent": "Account <0>{{sender}}</0> has unfrozen NFT <1>{{id}}</1> with class <2>{{class_id}}</2>",
+  "msgNftIssueClassContent": "A new NFT Class <0>{{name}}</0> has been issued by <1>{{issuer}}</1>"
 }

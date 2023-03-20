@@ -67,7 +67,8 @@ export function useTransactions() {
     },
     onCompleted: (data) => {
       const itemsLength = data.messagesByAddress.length;
-      const newItems = R.uniq([...state.data, ...formatTransactions(data)]);
+      //Previously joining together ...state.data and ...formatTransactions(data) was causing duplicate transactions to be displayed
+      const newItems = R.uniq([...formatTransactions(data)]);
 
       const stateChange: TransactionState = {
         data: newItems,

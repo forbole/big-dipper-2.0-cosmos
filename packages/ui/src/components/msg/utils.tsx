@@ -345,6 +345,7 @@ type DefaultTypeToModel = typeof defaultTypeToModel;
 
 // =====================================
 // Update your chain's message types here
+// The tagTheme is the color of the tag.
 // =====================================
 const customTypeToModel = {
   // ========================
@@ -409,6 +410,78 @@ const customTypeToModel = {
     content: COMPONENTS.Issue,
     tagTheme: 'one',
     tagDisplay: 'msgIssueLabel',
+  },
+  '/coreum.asset.ft.v1.MsgMint': {
+    model: MODELS.MsgMint,
+    content: COMPONENTS.Mint,
+    tagTheme: 'one',
+    tagDisplay: 'msgMintLabel',
+  },
+  '/coreum.asset.ft.v1.MsgBurn': {
+    model: MODELS.MsgBurn,
+    content: COMPONENTS.Burn,
+    tagTheme: 'one',
+    tagDisplay: 'msgBurnLabel',
+  },
+  '/coreum.asset.ft.v1.MsgFreeze': {
+    model: MODELS.MsgFreeze,
+    content: COMPONENTS.Freeze,
+    tagTheme: 'one',
+    tagDisplay: 'msgFreezeLabel',
+  },
+  '/coreum.asset.ft.v1.MsgUnfreeze': {
+    model: MODELS.MsgUnfreeze,
+    content: COMPONENTS.Unfreeze,
+    tagTheme: 'one',
+    tagDisplay: 'msgUnfreezeLabel',
+  },
+  '/coreum.asset.ft.v1.MsgGloballyFreeze': {
+    model: MODELS.MsgGloballyFreeze,
+    content: COMPONENTS.GloballyFreeze,
+    tagTheme: 'one',
+    tagDisplay: 'msgGloballyFreezeLabel',
+  },
+  '/coreum.asset.ft.v1.MsgGloballyUnfreeze': {
+    model: MODELS.MsgGloballyUnfreeze,
+    content: COMPONENTS.GloballyUnfreeze,
+    tagTheme: 'one',
+    tagDisplay: 'msgGloballyUnfreezeLabel',
+  },
+  '/coreum.asset.ft.v1.MsgSetWhitelistedLimit': {
+    model: MODELS.MsgSetWhitelistedLimit,
+    content: COMPONENTS.SetWhitelistedLimit,
+    tagTheme: 'one',
+    tagDisplay: 'msgSetWhitelistedLimitLabel',
+  },
+  '/coreum.asset.nft.v1.MsgBurn': {
+    model: MODELS.MsgNftBurn,
+    content: COMPONENTS.NftBurn,
+    tagTheme: 'one',
+    tagDisplay: 'msgNftBurnLabel',
+  },
+  '/coreum.asset.nft.v1.MsgMint': {
+    model: MODELS.MsgNftMint,
+    content: COMPONENTS.NftMint,
+    tagTheme: 'one',
+    tagDisplay: 'msgNftMintLabel',
+  },
+  '/coreum.asset.nft.v1.MsgIssueClass': {
+    model: MODELS.MsgNftIssueClass,
+    content: COMPONENTS.NftIssueClass,
+    tagTheme: 'one',
+    tagDisplay: 'msgNftIssueClassLabel',
+  },
+  '/coreum.asset.nft.v1.MsgFreeze': {
+    model: MODELS.MsgNftFreeze,
+    content: COMPONENTS.NftFreeze,
+    tagTheme: 'one',
+    tagDisplay: 'msgNftFreezeLabel',
+  },
+  '/coreum.asset.nft.v1.MsgUnfreeze': {
+    model: MODELS.MsgNftUnfreeze,
+    content: COMPONENTS.NftUnfreeze,
+    tagTheme: 'one',
+    tagDisplay: 'msgNftUnfreezeLabel',
   },
 };
 type CustomTypeToModel = typeof customTypeToModel;

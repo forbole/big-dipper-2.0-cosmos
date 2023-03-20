@@ -15,6 +15,14 @@ const useStyles = makeStyles()((theme) => ({
   },
   table: {
     '& .MuiTableBody-root': {
+      overflow: 'hidden',
+      '& .MuiTableRow-root': {
+        '& .MuiTableCell-root': {
+          '&:last-child': {
+            minWidth: 100,
+          },
+        },
+      },
       '& .MuiTableCell-root': {
         whiteSpace: 'nowrap',
         height: 'auto',
