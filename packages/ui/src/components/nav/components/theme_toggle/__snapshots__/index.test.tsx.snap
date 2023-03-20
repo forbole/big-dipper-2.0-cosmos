@@ -1,0 +1,303 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Nav/ThemeToggle it renders 1`] = `
+.emotion-1 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 58px;
+  height: 38px;
+  overflow: hidden;
+  padding: 12px;
+  box-sizing: border-box;
+  position: relative;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  z-index: 0;
+  vertical-align: middle;
+  width: 48px;
+  height: 26px;
+  padding: 0;
+}
+
+@media print {
+  .emotion-1 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-1 .MuiSwitch-switchBase {
+  padding: 0;
+  margin: 2px;
+  transition-duration: 300ms;
+}
+
+.emotion-1 .MuiSwitch-switchBase.Mui-checked {
+  -webkit-transform: translateX(21px);
+  -moz-transform: translateX(21px);
+  -ms-transform: translateX(21px);
+  transform: translateX(21px);
+  color: #E6E6E6;
+}
+
+.emotion-1 .MuiSwitch-switchBase.Mui-checked+.MuiSwitch-track {
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.99087 3.19234C10.0908 3.19234 10.1901 3.19234 10.2885 3.19234C9.31555 4.09642 8.69015 5.31287 8.52103 6.63023C8.35191 7.94759 8.64976 9.28256 9.36281 10.4031C10.0759 11.5236 11.159 12.3589 12.424 12.7636C13.689 13.1684 15.0558 13.1171 16.2869 12.6186C15.8134 13.7581 15.0394 14.7476 14.0475 15.4817C13.0557 16.2158 11.8831 16.6668 10.655 16.7867C9.42691 16.9067 8.18928 16.691 7.07414 16.1627C5.959 15.6344 5.00819 14.8133 4.32313 13.7869C3.63806 12.7606 3.24445 11.5676 3.18426 10.3351C3.12408 9.10263 3.39958 7.87692 3.98139 6.78874C4.56319 5.70056 5.42948 4.79072 6.48784 4.15627C7.54619 3.52183 8.75692 3.18658 9.99087 3.18628V3.19234Z' stroke='white' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M13.7643 3.47534C13.7643 3.87708 13.9238 4.26236 14.2079 4.54643C14.492 4.8305 14.8773 4.99009 15.279 4.99009C14.8773 4.99009 14.492 5.14968 14.2079 5.43375C13.9238 5.71782 13.7643 6.1031 13.7643 6.50484C13.7643 6.1031 13.6047 5.71782 13.3206 5.43375C13.0365 5.14968 12.6512 4.99009 12.2495 4.99009C12.6512 4.99009 13.0365 4.8305 13.3206 4.54643C13.6047 4.26236 13.7643 3.87708 13.7643 3.47534Z' fill='white' stroke='white' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M16.6667 8.48535V10.0001M15.9093 9.24273H17.424H15.9093Z' stroke='white' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  -webkit-background-position: 8%;
+  background-position: 8%;
+  background-repeat: no-repeat;
+  background-color: #818181;
+  opacity: 1;
+  border: 0;
+}
+
+.emotion-1 .MuiSwitch-switchBase.Mui-checked.Mui-disabled+.MuiSwitch-track {
+  opacity: 0.5;
+  background-color: #282828;
+}
+
+.emotion-1 .MuiSwitch-switchBase.Mui-focusVisible .MuiSwitch-thumb {
+  color: #33cf4d;
+  border: 6px solid #fff;
+}
+
+.emotion-1 .MuiSwitch-switchBase.Mui-disabled .MuiSwitch-thumb {
+  color: C4C4C4;
+}
+
+.emotion-1 .MuiSwitch-switchBase.Mui-disabled+.MuiSwitch-track {
+  opacity: 0.7;
+}
+
+.emotion-1 .MuiSwitch-thumb {
+  box-sizing: border-box;
+  width: 22px;
+  height: 22px;
+  color: #E6E6E6;
+}
+
+.emotion-1 .MuiSwitch-track {
+  border-radius: 13px;
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_2515_60015)'%3E%3Cpath d='M9.99992 14.1666C12.3011 14.1666 14.1666 12.3011 14.1666 9.99992C14.1666 7.69873 12.3011 5.83325 9.99992 5.83325C7.69873 5.83325 5.83325 7.69873 5.83325 9.99992C5.83325 12.3011 7.69873 14.1666 9.99992 14.1666Z' stroke='%23F7F7FF' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M5.25 14.75L4.66667 15.3333M2.5 10H3.33333H2.5ZM10 2.5V3.33333V2.5ZM16.6667 10H17.5H16.6667ZM10 16.6667V17.5V16.6667ZM4.66667 4.66667L5.25 5.25L4.66667 4.66667ZM15.3333 4.66667L14.75 5.25L15.3333 4.66667ZM14.75 14.75L15.3333 15.3333L14.75 14.75Z' stroke='%23F7F7FF' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_2515_60015'%3E%3Crect width='20' height='20' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  -webkit-background-position: 92%;
+  background-position: 92%;
+  background-color: #777777;
+  opacity: 1;
+  -webkit-transition: background-color 500ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 500ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.emotion-2 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
+  padding: 9px;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  color: #fff;
+  -webkit-transition: left 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,-webkit-transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: left 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.emotion-2::-moz-focus-inner {
+  border-style: none;
+}
+
+.emotion-2.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media print {
+  .emotion-2 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-2.Mui-checked {
+  -webkit-transform: translateX(20px);
+  -moz-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  transform: translateX(20px);
+}
+
+.emotion-2.Mui-disabled {
+  color: #f5f5f5;
+}
+
+.emotion-2.Mui-checked+.MuiSwitch-track {
+  opacity: 0.5;
+}
+
+.emotion-2.Mui-disabled+.MuiSwitch-track {
+  opacity: 0.12;
+}
+
+.emotion-2 .MuiSwitch-input {
+  left: -100%;
+  width: 300%;
+}
+
+.emotion-2:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+@media (hover: none) {
+  .emotion-2:hover {
+    background-color: transparent;
+  }
+}
+
+.emotion-2.Mui-checked {
+  color: #FF835B;
+}
+
+.emotion-2.Mui-checked:hover {
+  background-color: rgba(255, 131, 91, 0.04);
+}
+
+@media (hover: none) {
+  .emotion-2.Mui-checked:hover {
+    background-color: transparent;
+  }
+}
+
+.emotion-2.Mui-checked.Mui-disabled {
+  color: rgb(255, 207, 192);
+}
+
+.emotion-2.Mui-checked+.MuiSwitch-track {
+  background-color: #FF835B;
+}
+
+.emotion-3 {
+  cursor: inherit;
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+}
+
+.emotion-4 {
+  box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
+  background-color: currentColor;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.emotion-5 {
+  height: 100%;
+  width: 100%;
+  border-radius: 7px;
+  z-index: -1;
+  -webkit-transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  background-color: #000;
+  opacity: 0.38;
+}
+
+.emotion-6 {
+  margin: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.4px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.66;
+  margin-left: 8px;
+  font-size: 16px;
+}
+
+@media (min-width:1280px) {
+  .emotion-6 {
+    display: none;
+    margin: 0;
+  }
+}
+
+<div
+  className="MuiBox-root emotion-0"
+>
+  <span
+    className="MuiSwitch-root MuiSwitch-sizeMedium emotion-1"
+  >
+    <span
+      className="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary emotion-2"
+      onBlur={[Function]}
+      onContextMenu={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={null}
+    >
+      <input
+        className="PrivateSwitchBase-input MuiSwitch-input emotion-3"
+        disabled={false}
+        onChange={[Function]}
+        required={false}
+        type="checkbox"
+        value="light"
+      />
+      <span
+        className="MuiSwitch-thumb emotion-4"
+      />
+    </span>
+    <span
+      className="MuiSwitch-track emotion-5"
+    />
+  </span>
+  <span
+    className="MuiTypography-root MuiTypography-caption emotion-6"
+  >
+    light
+  </span>
+</div>
+`;
