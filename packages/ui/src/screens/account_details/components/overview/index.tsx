@@ -37,8 +37,8 @@ const Overview: FC<OverviewProps> = ({ className, address, withdrawalAddress }) 
   const { t } = useTranslation('accounts');
   const { open, handleClose, handleOpen, handleCopyToClipboard } = useOverview(t);
 
-  const url = `${location}/accounts/${address}`;
-  const hashTags = ['bigdipperexplorer', 'bigdipper'];
+  const url = `${location}/coreum/accounts/${address}`;
+  const hashTags = ['coreumexplorer', 'coreum'];
   return (
     <>
       <Dialog maxWidth="xl" onClose={handleClose} aria-labelledby="simple-dialog-title" open={open}>
