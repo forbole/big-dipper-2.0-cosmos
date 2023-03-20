@@ -14,7 +14,6 @@ export const useSearch = (callback: (value: string, clear?: () => void) => void)
   };
 
   const handleOnSubmit = () => {
-    console.log(value);
     callback(value);
   };
 
