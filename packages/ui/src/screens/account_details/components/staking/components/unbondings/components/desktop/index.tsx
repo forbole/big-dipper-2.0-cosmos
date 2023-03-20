@@ -10,7 +10,7 @@ import { formatNumber } from '@/utils/format_token';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
 import type { ItemType } from '@/screens/account_details/components/staking/components/unbondings/types';
 import { columns } from '@/screens/account_details/components/staking/components/unbondings/components/desktop/utils';
-import { readDate } from '@/recoil/settings';
+import { readDate, readTimeFormat } from '@/recoil/settings';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import AvatarName from '@/components/avatar_name';
 
@@ -21,6 +21,7 @@ type UnbondingsRowProps = {
 const UnbondingsRow: FC<UnbondingsRowProps> = ({ item }) => {
   const { name, address, imageUrl } = useProfileRecoil(item.validator);
   const dateFormat = useRecoilValue(readDate);
+  const timeFormat = useRecoilValue(readTimeFormat);
   const formattedItem = {
     validator: <AvatarName address={address} imageUrl={imageUrl} name={name} />,
     amount: item.amount
@@ -29,7 +30,7 @@ const UnbondingsRow: FC<UnbondingsRowProps> = ({ item }) => {
           item.amount.exponent
         )} ${item.amount.displayDenom.toUpperCase()}`
       : '',
-    completionTime: formatDayJs(dayjs.utc(item.completionTime), dateFormat),
+    completionTime: formatDayJs(dayjs.utc(item.completionTime), dateFormat, timeFormat),
   };
   return (
     <TableRow>

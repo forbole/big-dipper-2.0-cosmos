@@ -5,7 +5,7 @@ import { FC } from 'react';
 import { useRecoilValue } from 'recoil';
 import BoxDetails from '@/components/box_details';
 import Result from '@/components/result';
-import { readDate } from '@/recoil/settings';
+import { readDate, readTimeFormat } from '@/recoil/settings';
 import useStyles from '@/screens/transaction_details/components/overview/styles';
 import type { OverviewType } from '@/screens/transaction_details/types';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
@@ -21,6 +21,7 @@ const Overview: FC<OverviewProps> = ({ className, data }) => {
   const { t } = useTranslation('transactions');
   const { classes, cx } = useStyles();
   const dateFormat = useRecoilValue(readDate);
+  const timeFormat = useRecoilValue(readTimeFormat);
 
   const details = [
     {
@@ -40,7 +41,7 @@ const Overview: FC<OverviewProps> = ({ className, data }) => {
     {
       key: 'time',
       label: t('time'),
-      detail: formatDayJs(dayjs.utc(data.timestamp), dateFormat),
+      detail: formatDayJs(dayjs.utc(data.timestamp), dateFormat, timeFormat),
     },
     {
       key: 'fee',

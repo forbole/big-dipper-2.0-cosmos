@@ -22,4 +22,6 @@ export const getThemeTemplate = (theme: Theme, fontFamily: string) => {
 
 export const DATE_LIST = ['locale', 'utc'];
 
+export const TIME_FORMAT_LIST = ['12-hour', '24-hour'];
+
 export const TX_LIST = ['compact', 'detailed'];

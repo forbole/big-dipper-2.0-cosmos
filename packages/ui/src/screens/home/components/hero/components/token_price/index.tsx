@@ -1,5 +1,5 @@
 import CustomToolTip from '@/components/custom_tool_tip';
-import { readDate } from '@/recoil/settings';
+import { readDate, readTimeFormat } from '@/recoil/settings';
 import { usePrice } from '@/screens/home/components/hero/components/token_price/hooks';
 import useStyles from '@/screens/home/components/hero/components/token_price/styles';
 import type { TokenPriceType } from '@/screens/home/components/hero/types';
@@ -25,15 +25,16 @@ const TokenPrice: FC<{ items: TokenPriceType[] }> = (props) => {
   const { t } = useTranslation('home');
   const { tickPriceFormatter, formatTime } = usePrice();
   const dateFormat = useRecoilValue(readDate);
+  const timeFormat = useRecoilValue(readTimeFormat);
 
   const formatItems = useMemo(
     () =>
       props.items.map((x) => ({
         time: formatTime(dayjs.utc(x.time), dateFormat),
-        fullTime: formatDayJs(dayjs.utc(x.time), dateFormat),
+        fullTime: formatDayJs(dayjs.utc(x.time), dateFormat, timeFormat),
         value: x.value,
       })),
-    [props.items, formatTime, dateFormat]
+    [props.items, formatTime, dateFormat, timeFormat]
   );
 
   return (

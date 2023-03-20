@@ -10,7 +10,7 @@ import Markdown from '@/components/markdown';
 import Name from '@/components/name';
 import SingleProposal from '@/components/single_proposal';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
-import { readDate } from '@/recoil/settings';
+import { readDate, readTimeFormat } from '@/recoil/settings';
 import CommunityPoolSpend from '@/screens/proposal_details/components/overview/components/community_pool_spend';
 import ParamsChange from '@/screens/proposal_details/components/overview/components/params_change';
 import SoftwareUpgrade from '@/screens/proposal_details/components/overview/components/software_upgrade';
@@ -22,6 +22,7 @@ import { formatNumber, formatToken } from '@/utils/format_token';
 
 const Overview: FC<{ className?: string; overview: OverviewType }> = ({ className, overview }) => {
   const dateFormat = useRecoilValue(readDate);
+  const timeFormat = useRecoilValue(readTimeFormat);
   const { classes, cx } = useStyles();
   const { t } = useTranslation('proposals');
 
@@ -110,7 +111,7 @@ const Overview: FC<{ className?: string; overview: OverviewType }> = ({ classNam
               {t('submitTime')}
             </Typography>
             <Typography variant="body1" className="value">
-              {formatDayJs(dayjs.utc(overview.submitTime), dateFormat)}
+              {formatDayJs(dayjs.utc(overview.submitTime), dateFormat, timeFormat)}
             </Typography>
           </>
         )}
@@ -120,7 +121,7 @@ const Overview: FC<{ className?: string; overview: OverviewType }> = ({ classNam
               {t('depositEndTime')}
             </Typography>
             <Typography variant="body1" className="value">
-              {formatDayJs(dayjs.utc(overview.depositEndTime), dateFormat)}
+              {formatDayJs(dayjs.utc(overview.depositEndTime), dateFormat, timeFormat)}
             </Typography>
           </>
         )}
@@ -130,7 +131,7 @@ const Overview: FC<{ className?: string; overview: OverviewType }> = ({ classNam
               {t('votingStartTime')}
             </Typography>
             <Typography variant="body1" className="value">
-              {formatDayJs(dayjs.utc(overview.votingStartTime), dateFormat)}
+              {formatDayJs(dayjs.utc(overview.votingStartTime), dateFormat, timeFormat)}
             </Typography>
           </>
         )}
@@ -140,7 +141,7 @@ const Overview: FC<{ className?: string; overview: OverviewType }> = ({ classNam
               {t('votingEndTime')}
             </Typography>
             <Typography variant="body1" className="value">
-              {formatDayJs(dayjs.utc(overview.votingEndTime), dateFormat)}
+              {formatDayJs(dayjs.utc(overview.votingEndTime), dateFormat, timeFormat)}
             </Typography>
           </>
         )}

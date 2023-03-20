@@ -55,12 +55,20 @@ export default dayjs;
  * Util to switch between UTC or locale time
  * @param time current dayjs.Dayjs time
  * @param mode utc or locale, defaults to locale
+ * @param format 12-hour or 24-hour, defaults to 12-hour
  * @returns a string with to correct time
  */
-export const formatDayJs = (time: dayjs.Dayjs, mode: 'locale' | 'utc' = 'locale') => {
+export const formatDayJs = (
+  time: dayjs.Dayjs,
+  mode: 'locale' | 'utc' = 'locale',
+  format: '12-hour' | '24-hour' = '12-hour'
+) => {
   if (mode === 'utc') {
-    return time.format('MMM DD, YYYY hh:mm:ss A [(UTC)]');
+    if (format === '12-hour') return time.format('MMM DD, YYYY hh:mm:ss A [(UTC)]');
+
+    return time.format('MMM DD, YYYY HH:mm:ss [(UTC)]');
   }
 
+  if (format === '24-hour') return time.local().format('MMM DD, YYYY HH:mm:ss (z)');
   return time.local().format('MMM DD, YYYY hh:mm:ss A (z)');
 };

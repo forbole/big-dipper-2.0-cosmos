@@ -4,7 +4,7 @@ import { useTranslation } from 'next-i18next';
 import { FC, Fragment } from 'react';
 import { useRecoilValue } from 'recoil';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
-import { readDate } from '@/recoil/settings';
+import { readDate, readTimeFormat } from '@/recoil/settings';
 import useStyles from '@/components/desmos_profile/components/connections/components/mobile/styles';
 
 type MobileProps = {
@@ -14,6 +14,7 @@ type MobileProps = {
 
 const Mobile: FC<MobileProps> = ({ className, items }) => {
   const dateFormat = useRecoilValue(readDate);
+  const timeFormat = useRecoilValue(readTimeFormat);
   const { classes } = useStyles();
   const { t } = useTranslation('accounts');
 
@@ -46,7 +47,7 @@ const Mobile: FC<MobileProps> = ({ className, items }) => {
                   {t('creationTime')}
                 </Typography>
                 <Typography variant="body1" className="value">
-                  {formatDayJs(dayjs.utc(x.creationTime), dateFormat)}
+                  {formatDayJs(dayjs.utc(x.creationTime), dateFormat, timeFormat)}
                 </Typography>
               </div>
             </div>

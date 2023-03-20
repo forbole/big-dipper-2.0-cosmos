@@ -5,7 +5,7 @@ import { FC, Fragment } from 'react';
 import { useRecoilValue } from 'recoil';
 import AvatarName from '@/components/avatar_name';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
-import { readDate } from '@/recoil/settings';
+import { readDate, readTimeFormat } from '@/recoil/settings';
 import useStyles from '@/screens/proposal_details/components/deposits/components/mobile/styles';
 import type { ItemType } from '@/screens/proposal_details/components/deposits/types';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
@@ -21,6 +21,7 @@ const DepositsRow: FC<DepositRowProps> = ({ i, item, isLast }) => {
   const { t } = useTranslation('proposals');
   const { classes } = useStyles();
   const dateFormat = useRecoilValue(readDate);
+  const timeFormat = useRecoilValue(readTimeFormat);
   const { name, address, imageUrl } = useProfileRecoil(item.user);
 
   return (
@@ -50,7 +51,7 @@ const DepositsRow: FC<DepositRowProps> = ({ i, item, isLast }) => {
             {t('time')}
           </Typography>
           <Typography variant="body1" className="value">
-            {formatDayJs(dayjs.utc(item.timestamp), dateFormat)}
+            {formatDayJs(dayjs.utc(item.timestamp), dateFormat, timeFormat)}
           </Typography>
         </div>
       </div>
