@@ -10,12 +10,14 @@ const SearchBar: FC<{ className?: string }> = ({ className }) => {
   const { t } = useTranslation('common');
   const { handleOnSubmit } = useSearchBar(t);
 
-  let placeholderText;
-  if (extra.profile) {
-    placeholderText = t('searchBarPlaceholderDtag');
-  } else {
-    placeholderText = t('searchBarPlaceholder');
-  }
+  //Modified search placeholder to hide DTag search
+  let placeholderText = t('searchBarPlaceholder');
+
+  // if (extra.profile) {
+  //   placeholderText = t('searchBarPlaceholderDtag');
+  // } else {
+  //   placeholderText = t('searchBarPlaceholder');
+  // }
 
   return <Search className={className} placeholder={placeholderText} callback={handleOnSubmit} />;
 };
