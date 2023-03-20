@@ -77,3 +77,8 @@ export { default as MsgUnfreeze } from '@/models/msg/asset/msg_unfreeze';
 export { default as MsgGloballyFreeze } from '@/models/msg/asset/msg_globally_freeze';
 export { default as MsgGloballyUnfreeze } from '@/models/msg/asset/msg_globally_unfreeze';
 export { default as MsgSetWhitelistedLimit } from '@/models/msg/asset/msg_set_whitelisted_limit';
+export { default as MsgNftBurn } from '@/models/msg/asset/msg_nft_burn';
+export { default as MsgNftMint } from '@/models/msg/asset/msg_nft_mint';
+export { default as MsgNftFreeze } from '@/models/msg/asset/msg_nft_freeze';
+export { default as MsgNftUnfreeze } from '@/models/msg/asset/msg_nft_unfreeze';
+export { default as MsgNftIssueClass } from '@/models/msg/asset/msg_nft_issue_class';

@@ -22,7 +22,7 @@ const SetWhitelistedLimit: FC<{ message: MsgSetWhitelistedLimit }> = (props) => 
   return (
     <Typography>
       <Trans
-        i18nKey="message_contents:msgIssueContent"
+        i18nKey="message_contents:msgSetWhitelistedLimitContent"
         components={[
           <Name address={message.sender} name={sender.name ?? message.sender} />,
           <Name address={message.account} name={account.name ?? message.account} />,

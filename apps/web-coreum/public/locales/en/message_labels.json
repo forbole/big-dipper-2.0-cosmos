@@ -62,5 +62,10 @@
   "msgUnfreezeLabel": "Unfreeze",
   "msgGloballyFreezeLabel": "Globally Freeze",
   "msgGloballyUnfreezeLabel": "Globally Unfreeze",
-  "msgSetWhitelistedLimitLabel": "Set Whitelisted Limit"
+  "msgSetWhitelistedLimitLabel": "Set Whitelisted Limit",
+  "msgNftMintLabel": "NFT Mint",
+  "msgNftBurnLabel": "NFT Burn",
+  "msgNftFreezeLabel": "NFT Freeze",
+  "msgNftUnfreezeLabel": "NFT Unfreeze",
+  "msgNftIssueClassLabel": "NFT Issue Class"
 }

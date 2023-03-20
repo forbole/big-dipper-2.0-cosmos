@@ -453,6 +453,36 @@ const customTypeToModel = {
     tagTheme: 'one',
     tagDisplay: 'msgSetWhitelistedLimitLabel',
   },
+  '/coreum.asset.nft.v1.MsgBurn': {
+    model: MODELS.MsgNftBurn,
+    content: COMPONENTS.NftBurn,
+    tagTheme: 'one',
+    tagDisplay: 'msgNftBurnLabel',
+  },
+  '/coreum.asset.nft.v1.MsgMint': {
+    model: MODELS.MsgNftMint,
+    content: COMPONENTS.NftMint,
+    tagTheme: 'one',
+    tagDisplay: 'msgNftMintLabel',
+  },
+  '/coreum.asset.nft.v1.MsgIssueClass': {
+    model: MODELS.MsgNftIssueClass,
+    content: COMPONENTS.NftIssueClass,
+    tagTheme: 'one',
+    tagDisplay: 'msgNftIssueClassLabel',
+  },
+  '/coreum.asset.nft.v1.MsgFreeze': {
+    model: MODELS.MsgNftFreeze,
+    content: COMPONENTS.NftFreeze,
+    tagTheme: 'one',
+    tagDisplay: 'msgNftFreezeLabel',
+  },
+  '/coreum.asset.nft.v1.MsgUnfreeze': {
+    model: MODELS.MsgNftUnfreeze,
+    content: COMPONENTS.NftUnfreeze,
+    tagTheme: 'one',
+    tagDisplay: 'msgNftUnfreezeLabel',
+  },
 };
 type CustomTypeToModel = typeof customTypeToModel;
 

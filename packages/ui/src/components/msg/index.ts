@@ -67,3 +67,8 @@ export { default as Unfreeze } from '@/components/msg/asset/unfreeze';
 export { default as GloballyFreeze } from '@/components/msg/asset/globally_freeze';
 export { default as GloballyUnfreeze } from '@/components/msg/asset/globally_unfreeze';
 export { default as SetWhitelistedLimit } from '@/components/msg/asset/set_whitelisted_limit';
+export { default as NftBurn } from '@/components/msg/asset/nft_burn';
+export { default as NftMint } from '@/components/msg/asset/nft_mint';
+export { default as NftFreeze } from '@/components/msg/asset/nft_freeze';
+export { default as NftUnfreeze } from '@/components/msg/asset/nft_unfreeze';
+export { default as NftIssueClass } from '@/components/msg/asset/nft_issue_class';
