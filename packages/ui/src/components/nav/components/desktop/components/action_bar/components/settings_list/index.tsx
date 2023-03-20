@@ -83,7 +83,7 @@ const Settings: FC<ComponentDefault> = (props) => {
                   },
                 }}
               >
-                {router.locales?.map((l) => (
+                {router?.locales?.map((l) => (
                   <MenuItem key={l} value={l}>
                     {t(l)}
                   </MenuItem>
