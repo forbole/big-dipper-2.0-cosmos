@@ -2,25 +2,22 @@ import { i18n } from 'next-i18next';
 import * as R from 'ramda';
 import { useCallback, useState } from 'react';
 import { SetterOrUpdater, useRecoilState } from 'recoil';
-import { THEME_DICTIONARY, writeDate, writeTheme, writeTx } from '@/recoil/settings';
-import type { Date, Theme, Tx } from '@/recoil/settings';
+import { writeDate, writeTx } from '@/recoil/settings';
+import type { Date, Tx } from '@/recoil/settings';
 
 type SettingListState = {
   lang: string;
-  theme: Theme;
   dateFormat: Date;
   txListFormat: Tx;
 };
 
 export const useSettingList = ({ lang }: { lang: string }) => {
-  const [theme, setTheme] = useRecoilState(writeTheme) as [Theme, SetterOrUpdater<Theme>];
   const [date, setDate] = useRecoilState(writeDate) as [Date, SetterOrUpdater<Date>];
   const [tx, setTx] = useRecoilState(writeTx) as [Tx, SetterOrUpdater<Tx>];
 
   const [open, setOpen] = useState(false);
   const [state, setState] = useState({
     lang,
-    theme,
     dateFormat: date,
     txListFormat: tx,
   });
@@ -38,7 +35,6 @@ export const useSettingList = ({ lang }: { lang: string }) => {
   const resetSettings = () => {
     handleSetState((prevState) => ({
       ...prevState,
-      theme,
       dateFormat: date,
       lang,
     }));
@@ -64,17 +60,8 @@ export const useSettingList = ({ lang }: { lang: string }) => {
     }));
   };
 
-  const changeTheme = (value: Theme) => {
-    if (THEME_DICTIONARY[value]) {
-      setTheme(value);
-    }
-  };
-
   const handleFormSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    if (state.theme !== theme) {
-      changeTheme(state.theme);
-    }
 
     if (state.lang !== lang) {
       i18n?.changeLanguage(state.lang);

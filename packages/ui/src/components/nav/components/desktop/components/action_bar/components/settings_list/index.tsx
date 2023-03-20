@@ -1,6 +1,6 @@
 import { useSettingList } from '@/components/nav/components/desktop/components/action_bar/components/settings_list/hooks';
 import useStyles from '@/components/nav/components/desktop/components/action_bar/components/settings_list/styles';
-import { DATE_LIST, THEME_LIST, TX_LIST } from '@/recoil/settings';
+import { DATE_LIST, TX_LIST } from '@/recoil/settings';
 import CloseIcon from '@mui/icons-material/Close';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
@@ -51,26 +51,6 @@ const Settings: FC<ComponentDefault> = (props) => {
         </DialogTitle>
         <DialogContent dividers>
           <form onSubmit={handleFormSubmit}>
-            <div className={classes.formItem}>
-              <Typography className="form-item--label">{t('theme')}</Typography>
-              <Select
-                variant="outlined"
-                value={state.theme}
-                onChange={(e) => handleChange('theme', (e?.target?.value as string) ?? '')}
-                MenuProps={{
-                  MenuListProps: {
-                    disablePadding: true,
-                  },
-                }}
-              >
-                {THEME_LIST.map((l) => (
-                  <MenuItem key={l} value={l}>
-                    {t(l)}
-                  </MenuItem>
-                ))}
-              </Select>
-            </div>
-
             <div className={classes.formItem}>
               <Typography className="form-item--label">{t('language')}</Typography>
               <Select

@@ -39,7 +39,6 @@ describe('hook: useSettingList', () => {
     expect(result.current.state).toStrictEqual({
       dateFormat: 'locale',
       lang: 'en',
-      theme: 'light',
       txListFormat: 'compact',
     });
   });
@@ -53,7 +52,6 @@ describe('hook: useSettingList', () => {
     expect(result.current.state).toStrictEqual({
       dateFormat: 'locale',
       lang: 'zht',
-      theme: 'light',
       txListFormat: 'compact',
     });
   });
@@ -67,7 +65,6 @@ describe('hook: useSettingList', () => {
     expect(result.current.state).toStrictEqual({
       dateFormat: 'locale',
       lang: 'en',
-      theme: 'light',
       txListFormat: 'compact',
     });
   });
