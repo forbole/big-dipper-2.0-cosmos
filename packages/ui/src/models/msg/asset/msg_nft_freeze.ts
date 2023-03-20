@@ -14,9 +14,9 @@ class MsgNftFreeze {
     this.category = 'asset';
     this.type = R.pathOr('', ['type'], payload);
     this.json = R.pathOr({}, ['json'], payload);
-    this.sender = R.pathOr('', ['value', 'sender'], payload);
-    this.class_id = R.pathOr('', ['value', 'class_id'], payload);
-    this.id = R.pathOr('', ['value', 'id'], payload);
+    this.sender = R.pathOr('', ['sender'], payload);
+    this.class_id = R.pathOr('', ['class_id'], payload);
+    this.id = R.pathOr('', ['id'], payload);
   }
 
   static fromJson(json: any) {

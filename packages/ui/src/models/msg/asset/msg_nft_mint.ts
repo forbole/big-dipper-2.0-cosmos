@@ -17,12 +17,12 @@ class MsgNftMint {
     this.category = 'asset';
     this.type = R.pathOr('', ['type'], payload);
     this.json = R.pathOr({}, ['json'], payload);
-    this.sender = R.pathOr('', ['value', 'sender'], payload);
-    this.class_id = R.pathOr('', ['value', 'class_id'], payload);
-    this.id = R.pathOr('', ['value', 'id'], payload);
-    this.uri = R.pathOr('', ['value', 'uri'], payload);
-    this.uri_hash = R.pathOr('', ['value', 'uri_hash'], payload);
-    this.data = R.pathOr({}, ['value', 'data'], payload);
+    this.sender = R.pathOr('', ['sender'], payload);
+    this.class_id = R.pathOr('', ['class_id'], payload);
+    this.id = R.pathOr('', ['id'], payload);
+    this.uri = R.pathOr('', ['uri'], payload);
+    this.uri_hash = R.pathOr('', ['uri_hash'], payload);
+    this.data = R.pathOr({}, ['data'], payload);
   }
 
   static fromJson(json: any) {

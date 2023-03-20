@@ -14,7 +14,11 @@ const NftUnfreeze: FC<{ message: MsgNftUnfreeze }> = (props) => {
     <Typography>
       <Trans
         i18nKey="message_contents:msgNftUnfreezeContent"
-        components={[<Name address={message.sender} name={sender.name ?? message.sender} />, <b />]}
+        components={[
+          <Name address={message.sender} name={sender.name ?? message.sender} />,
+          <b />,
+          <b />,
+        ]}
         values={{
           sender: message.sender,
           id: message.id,

@@ -14,10 +14,10 @@ const NftIssueClass: FC<{ message: MsgNftIssueClass }> = (props) => {
     <Typography>
       <Trans
         i18nKey="message_contents:msgNftIssueClassContent"
-        components={[<Name address={message.issuer} name={issuer.name ?? message.issuer} />, <b />]}
+        components={[<b />, <Name address={message.issuer} name={issuer.name ?? message.issuer} />]}
         values={{
-          issuer: message.issuer,
           name: message.name,
+          issuer: message.issuer,
         }}
       />
     </Typography>
