@@ -11,7 +11,7 @@ const useStyles = makeStyles()((theme) => ({
   box: {
     minHeight: '500px',
     height: '50vh',
-    overflow: 'hidden',
+    overflow: 'hidden !important',
     [theme.breakpoints.up('lg')]: {
       height: '100%',
       minHeight: '65vh',
