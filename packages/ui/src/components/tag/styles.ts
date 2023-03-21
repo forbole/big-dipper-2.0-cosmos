@@ -7,7 +7,9 @@ const useStyles = makeStyles()((theme) => ({
     padding: theme.spacing(0.5, 1),
     display: 'inline-block',
     color: theme.palette.custom.tags.zero,
-    background: Color(theme.palette.custom.tags.zero).alpha(0.2).string(),
+    background:
+      theme.palette.custom.tags_bg.zero ||
+      Color(theme.palette.custom.tags.zero).alpha(0.2).string(),
     '&:not(:last-child)': {
       marginRight: theme.spacing(1),
     },

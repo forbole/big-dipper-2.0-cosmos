@@ -72,6 +72,29 @@ declare module '@mui/material/styles/createPalette' {
       nineteen: string;
       twenty: string;
     };
+    tags_bg: {
+      zero: string;
+      one: string;
+      two: string;
+      three: string;
+      four: string;
+      five: string;
+      six: string;
+      seven: string;
+      eight: string;
+      nine: string;
+      ten: string;
+      eleven: string;
+      twelve: string;
+      thirteen: string;
+      fourteen: string;
+      fifteen: string;
+      sixteen: string;
+      seventeen: string;
+      eighteen: string;
+      nineteen: string;
+      twenty: string;
+    };
     charts: {
       zero: string;
       one: string;
