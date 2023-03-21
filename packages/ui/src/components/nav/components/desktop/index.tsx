@@ -17,7 +17,6 @@ import DevnetBadge from '@/assets/devnet-badge.svg';
 import TestnetBadge from '@/assets/testnet-badge.svg';
 import MainnetBadge from '@/assets/mainnet-badge.svg';
 import ArrowIcon from '@/assets/icon_nav.svg';
-import NetworkSelector from '../network_selector';
 
 type DesktopProps = {
   className?: string;
@@ -102,7 +101,6 @@ const Desktop: FC<DesktopProps> = ({ className }) => {
           )} */}
           <MenuItems />
         </Drawer>
-        <NetworkSelector isNavOpen={isMenu} />
       </div>
     </ClickAwayListener>
   );

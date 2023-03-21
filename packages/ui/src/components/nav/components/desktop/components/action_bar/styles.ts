@@ -11,14 +11,16 @@ const useStyles = makeStyles()((theme) => ({
     height: '100%',
   },
   actions: {
-    width: '50%',
+    width: '60%',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'flex-end',
+    gap: 12,
     zIndex: 5000,
   },
   searchBar: {
     flex: 1,
+    height: 48,
     // marginRight: theme.spacing(2),
     '&.open': {
       '& .MuiInputBase-root': {

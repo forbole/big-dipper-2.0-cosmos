@@ -1,4 +1,4 @@
-import useStyles from '@/components/nav/components/network_selector/styles';
+import useStyles from '@/components/network_selector/styles';
 import IconConnected from '@/assets/icon_connected.svg';
 import Arrow from '@/assets/icon_network_expand.svg';
 import { FC, useEffect, useState } from 'react';
@@ -6,7 +6,6 @@ import ClickAwayListener from '@mui/material/ClickAwayListener';
 
 type NetSelectorProps = {
   className?: string;
-  isNavOpen?: boolean;
 };
 
 type NetType = {
@@ -17,7 +16,7 @@ type NetType = {
 
 const isClient = typeof window === 'object';
 
-const NetworkSelector: FC<NetSelectorProps> = ({ isNavOpen }) => {
+const NetworkSelector: FC<NetSelectorProps> = () => {
   const { classes, cx } = useStyles();
   const netNameLowercase = process.env.NEXT_PUBLIC_CHAIN_TYPE;
   let netName: string = '';
@@ -65,8 +64,8 @@ const NetworkSelector: FC<NetSelectorProps> = ({ isNavOpen }) => {
         <div className={cx(classes.root)} onClick={() => setIsModalOpen((prev) => !prev)}>
           <IconConnected className="netIcon" />
           <div className={cx('netContent')}>
-            <div className="currentNetName">{`${selectedNetwork.name} ${
-              selectedNetwork.version ? selectedNetwork.version : ''
+            <div className="currentNetName">{`${selectedNetwork.name}${
+              selectedNetwork.version ?? ''
             }`}</div>
             <div className="currentNetLink">{selectedNetwork.link}</div>
           </div>
@@ -99,19 +98,15 @@ const NetworkSelector: FC<NetSelectorProps> = ({ isNavOpen }) => {
 
   return (
     <ClickAwayListener onClickAway={() => setIsModalOpen(false)}>
-      <div
-        className={cx(classes.root, isNavOpen ? 'active' : '')}
-        onClick={() => setIsModalOpen((prev) => !prev)}
-      >
+      <div className={cx(classes.root)} onClick={() => setIsModalOpen((prev) => !prev)}>
         <IconConnected className="netIcon" />
-        <div className={cx('netContent', isNavOpen ? 'active' : '')}>
+        <div className={cx('netContent')}>
           <div className="currentNetName">{`${selectedNetwork.name} ${
             selectedNetwork.version ? selectedNetwork.version : ''
           }`}</div>
-          <div className="currentNetLink">{selectedNetwork.link}</div>
         </div>
         <Arrow className={cx('arrowIcon', isModalOpen ? 'modalShow' : '')} />
-        <div className={cx('modal', isModalOpen ? 'modalShow' : '', isNavOpen ? 'active' : '')}>
+        <div className={cx('modal', isModalOpen ? 'modalShow' : '')}>
           {networks.map((network, idx) => {
             let isSelected = false;
             if (selectedNetwork.name === network.name) isSelected = true;
