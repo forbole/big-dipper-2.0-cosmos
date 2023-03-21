@@ -38,8 +38,8 @@
   "maxDiscount": "Max Discount",
   "maxBlockGas": "Max Block Gas",
   "initialGasPrice": "Initial Gas Price",
-  "longEmaBlockLength": "Long Ema Block Length",
-  "shortEmaBlockLength": "Short Ema Block Length",
+  "longEmaBlockLength": "Long EMA Block Length",
+  "shortEmaBlockLength": "Short EMA Block Length",
   "maxGasPriceMultiplier": "Max Gas Price Multiplier",
   "escalationStartFraction": "Escalation Start Fraction"
 }

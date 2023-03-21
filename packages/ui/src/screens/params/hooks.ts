@@ -117,7 +117,6 @@ const formatDistribution = (data: ParamsQuery) => {
 const formatGov = (data: ParamsQuery) => {
   if (data.govParams.length) {
     const govParamsRaw = GovParams.fromJson(data?.govParams?.[0] ?? {});
-    console.log(govParamsRaw.depositParams);
     return {
       minDeposit: formatToken(
         govParamsRaw.depositParams.minDeposit?.[0]?.amount ?? 0,

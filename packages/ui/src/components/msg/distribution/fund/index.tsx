@@ -13,7 +13,8 @@ const Fund: FC<{ message: MsgFundCommunityPool }> = (props) => {
   const parsedAmount = message?.amount
     ?.map((x) => {
       const amount = formatToken(x.amount, x.denom);
-      return `${formatNumber(amount.value, amount.exponent)} ${amount.displayDenom.toUpperCase()}`;
+      //Removed ".toUpperCase()" from the end of the line below per Reza's request
+      return `${formatNumber(amount.value, amount.exponent)} ${amount.displayDenom}`;
     })
     .reduce(
       (text, value, i, array) => text + (i < array.length - 1 ? ', ' : ` ${t('and')} `) + value

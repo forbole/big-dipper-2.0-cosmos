@@ -23,7 +23,8 @@ const DelegationsRow: FC<DelegationsRowProps> = ({ item }) => {
       ? `${formatNumber(
           item.amount.value,
           item.amount.exponent
-        )} ${item.amount.displayDenom.toUpperCase()}`
+          //Removed ".toUpperCase()" from the end of the line below per Reza's request
+        )} ${item.amount.displayDenom}`
       : '',
   };
 

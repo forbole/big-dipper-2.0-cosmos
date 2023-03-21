@@ -33,7 +33,8 @@ const DelegationsItem: FC<DelegationsItemProps> = ({ item, isLast }) => {
             </Typography>
             <Typography variant="body1" className="value">
               {item.amount ? formatNumber(item.amount.value, item.amount.exponent) : ''}{' '}
-              {item.amount?.displayDenom.toUpperCase()}
+              {/* //Removed ".toUpperCase()" from the end of the line below per Reza's request */}
+              {item.amount?.displayDenom}
             </Typography>
           </div>
           <div className={classes.item}>
@@ -50,7 +51,8 @@ const DelegationsItem: FC<DelegationsItemProps> = ({ item, isLast }) => {
             </Typography>
             <Typography variant="body1" className="value">
               {item.reward ? formatNumber(item.reward.value, item.reward.exponent) : ''}{' '}
-              {item.reward?.displayDenom.toUpperCase()}
+              {/* //Removed ".toUpperCase()" from the end of the line below per Reza's request */}
+              {item.reward?.displayDenom}
             </Typography>
           </div>
         </div>

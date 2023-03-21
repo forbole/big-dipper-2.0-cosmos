@@ -38,7 +38,8 @@ const Overview: FC<{ className?: string; overview: OverviewType }> = ({ classNam
     ? `${formatNumber(
         amountRequested.value,
         amountRequested.exponent
-      )} ${amountRequested.displayDenom.toUpperCase()}`
+        //Removed ".toUpperCase()" from the end of the line below per Reza's request
+      )} ${amountRequested.displayDenom}`
     : '';
 
   const getExtraDetails = useCallback(() => {
