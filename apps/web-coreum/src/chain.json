@@ -86,7 +86,7 @@
           "three": "#E79726",
           "four": "#F17053",
           "five": "#DA4B4B",
-          "six": "#9438DC",
+          "six": "#C3C3C3",
           "seven": "#1A869D",
           "eight": "#2C9950",
           "nine": "#B49F37",
@@ -101,6 +101,9 @@
           "eighteen": "#F0A479",
           "nineteen": "#D37763",
           "twenty": "#D9C788"
+        },
+        "tags_bg": {
+          "six": "#36383F"
         }
       }
     },
@@ -179,7 +182,7 @@
           "three": "#E79720",
           "four": "#F17047",
           "five": "#DA4B4B",
-          "six": "#9438DC",
+          "six": "#868991",
           "seven": "#1A869D",
           "eight": "#2C9944",
           "nine": "#B49F31",
@@ -194,6 +197,9 @@
           "eighteen": "#F0A479",
           "nineteen": "#D37763",
           "twenty": "#D9C788"
+        },
+        "tags_bg": {
+          "six": "#eaeaea"
         }
       }
     }

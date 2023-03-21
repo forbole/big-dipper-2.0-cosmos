@@ -19,31 +19,31 @@ const defaultTypeToModel = {
   '/cosmos.staking.v1beta1.MsgDelegate': {
     model: MODELS.MsgDelegate,
     content: COMPONENTS.Delegate,
-    tagTheme: 'one',
+    tagTheme: 'six',
     tagDisplay: 'txDelegateLabel',
   },
   '/cosmos.staking.v1beta1.MsgBeginRedelegate': {
     model: MODELS.MsgRedelegate,
     content: COMPONENTS.Redelegate,
-    tagTheme: 'one',
+    tagTheme: 'six',
     tagDisplay: 'txRedelegateLabel',
   },
   '/cosmos.staking.v1beta1.MsgUndelegate': {
     model: MODELS.MsgUndelegate,
     content: COMPONENTS.Undelegate,
-    tagTheme: 'one',
+    tagTheme: 'six',
     tagDisplay: 'txUndelegateLabel',
   },
   '/cosmos.staking.v1beta1.MsgCreateValidator': {
     model: MODELS.MsgCreateValidator,
     content: COMPONENTS.CreateValidator,
-    tagTheme: 'one',
+    tagTheme: 'six',
     tagDisplay: 'txCreateValidatorLabel',
   },
   '/cosmos.staking.v1beta1.MsgEditValidator': {
     model: MODELS.MsgEditValidator,
     content: COMPONENTS.EditValidator,
-    tagTheme: 'one',
+    tagTheme: 'six',
     tagDisplay: 'txEditValidatorLabel',
   },
   // ========================
@@ -52,13 +52,13 @@ const defaultTypeToModel = {
   '/cosmos.bank.v1beta1.MsgSend': {
     model: MODELS.MsgSend,
     content: COMPONENTS.Send,
-    tagTheme: 'two',
+    tagTheme: 'six',
     tagDisplay: 'txSendLabel',
   },
   '/cosmos.bank.v1beta1.MsgMultiSend': {
     model: MODELS.MsgMultiSend,
     content: COMPONENTS.Multisend,
-    tagTheme: 'two',
+    tagTheme: 'six',
     tagDisplay: 'txMultisendLabel',
   },
   // ========================
@@ -67,7 +67,7 @@ const defaultTypeToModel = {
   '/cosmos.crisis.v1beta1.MsgVerifyInvariant': {
     model: MODELS.MsgVerifyInvariant,
     content: COMPONENTS.VerifyInvariant,
-    tagTheme: 'three',
+    tagTheme: 'six',
     tagDisplay: 'txVerifyInvariantLabel',
   },
   // ========================
@@ -76,7 +76,7 @@ const defaultTypeToModel = {
   '/cosmos.slashing.v1beta1.MsgUnjail': {
     model: MODELS.MsgUnjail,
     content: COMPONENTS.Unjail,
-    tagTheme: 'five',
+    tagTheme: 'six',
     tagDisplay: 'txUnjailLabel',
   },
   // ========================
@@ -112,19 +112,19 @@ const defaultTypeToModel = {
   '/cosmos.gov.v1beta1.MsgDeposit': {
     model: MODELS.MsgDeposit,
     content: COMPONENTS.DepositProposal,
-    tagTheme: 'seven',
+    tagTheme: 'six',
     tagDisplay: 'txDepositLabel',
   },
   '/cosmos.gov.v1beta1.MsgVote': {
     model: MODELS.MsgVote,
     content: COMPONENTS.Vote,
-    tagTheme: 'seven',
+    tagTheme: 'six',
     tagDisplay: 'txVoteLabel',
   },
   '/cosmos.gov.v1beta1.MsgSubmitProposal': {
     model: MODELS.MsgSubmitProposal,
     content: COMPONENTS.SubmitProposal,
-    tagTheme: 'seven',
+    tagTheme: 'six',
     tagDisplay: 'txSubmitProposalLabel',
   },
   // ========================
@@ -133,31 +133,31 @@ const defaultTypeToModel = {
   '/ibc.core.client.v1.MsgCreateClient': {
     model: MODELS.MsgCreateClient,
     content: COMPONENTS.CreateClient,
-    tagTheme: 'nine',
+    tagTheme: 'six',
     tagDisplay: 'txCreateClientLabel',
   },
   '/ibc.core.client.v1.MsgUpdateClient': {
     model: MODELS.MsgUpdateClient,
     content: COMPONENTS.UpdateClient,
-    tagTheme: 'nine',
+    tagTheme: 'six',
     tagDisplay: 'txUpdateClientLabel',
   },
   '/ibc.core.client.v1.MsgUpgradeClient': {
     model: MODELS.MsgUpgradeClient,
     content: COMPONENTS.UpgradeClient,
-    tagTheme: 'nine',
+    tagTheme: 'six',
     tagDisplay: 'txUpgradeClientLabel',
   },
   '/ibc.core.client.v1.MsgSubmitMisbehaviour': {
     model: MODELS.MsgSubmitMisbehaviour,
     content: COMPONENTS.SubmitMisbehaviour,
-    tagTheme: 'nine',
+    tagTheme: 'six',
     tagDisplay: 'txSubmitMisbehaviourLabel',
   },
   '/ibc.core.client.v1.Height': {
     model: MODELS.MsgHeight,
     content: COMPONENTS.Height,
-    tagTheme: 'nine',
+    tagTheme: 'six',
     tagDisplay: 'txHeightLabel',
   },
   // ========================
@@ -166,79 +166,79 @@ const defaultTypeToModel = {
   '/ibc.core.channel.v1.MsgRecvPacket': {
     model: MODELS.MsgReceivePacket,
     content: COMPONENTS.ReceivePacket,
-    tagTheme: 'nine',
+    tagTheme: 'six',
     tagDisplay: 'txRecvPacketLabel',
   },
   '/ibc.core.channel.v1.Channel': {
     model: MODELS.MsgChannel,
     content: COMPONENTS.Channel,
-    tagTheme: 'nine',
+    tagTheme: 'six',
     tagDisplay: 'txChannelLabel',
   },
   '/ibc.core.channel.v1.Counterparty': {
     model: MODELS.MsgCounterpartyChannel,
     content: COMPONENTS.CounterpartyChannel,
-    tagTheme: 'nine',
+    tagTheme: 'six',
     tagDisplay: 'txCounterpartyLabel',
   },
   '/ibc.core.channel.v1.Packet': {
     model: MODELS.MsgPacket,
     content: COMPONENTS.Packet,
-    tagTheme: 'nine',
+    tagTheme: 'six',
     tagDisplay: 'txPacketLabel',
   },
   '/ibc.core.channel.v1.MsgAcknowledgement': {
     model: MODELS.MsgAcknowledgement,
     content: COMPONENTS.Acknowledgement,
-    tagTheme: 'nine',
+    tagTheme: 'six',
     tagDisplay: 'txAcknowledgementLabel',
   },
   '/ibc.core.channel.v1.MsgChannelCloseConfirm': {
     model: MODELS.MsgChannelCloseConfirm,
     content: COMPONENTS.ChannelCloseConfirm,
-    tagTheme: 'nine',
+    tagTheme: 'six',
     tagDisplay: 'txChannelCloseConfirmLabel',
   },
   '/ibc.core.channel.v1.MsgChannelCloseInit': {
     model: MODELS.MsgChannelCloseInit,
     content: COMPONENTS.ChannelCloseInit,
-    tagTheme: 'nine',
+    tagTheme: 'six',
     tagDisplay: 'txChannelCloseInitLabel',
   },
   '/ibc.core.channel.v1.MsgChannelOpenAck': {
     model: MODELS.MsgChannelOpenAck,
     content: COMPONENTS.ChannelOpenAck,
-    tagTheme: 'nine',
+    tagTheme: 'six',
     tagDisplay: 'txChannelOpenAckLabel',
   },
   '/ibc.core.channel.v1.MsgChannelOpenConfirm': {
     model: MODELS.MsgChannelOpenConfirm,
     content: COMPONENTS.ChannelOpenConfirm,
-    tagTheme: 'nine',
+    tagTheme: 'six',
     tagDisplay: 'txChannelOpenConfirmLabel',
   },
   '/ibc.core.channel.v1.MsgChannelOpenInit': {
     model: MODELS.MsgChannelOpenInit,
     content: COMPONENTS.ChannelOpenInit,
-    tagTheme: 'nine',
+    tagTheme: 'six',
     tagDisplay: 'txChannelOpenInitLabel',
   },
   '/ibc.core.channel.v1.MsgChannelOpenTry': {
     model: MODELS.MsgChannelOpenTry,
     content: COMPONENTS.ChannelOpenTry,
-    tagTheme: 'nine',
+    tagTheme: 'six',
     tagDisplay: 'txChannelOpenTryLabel',
   },
   '/ibc.core.channel.v1.MsgTimeout': {
     model: MODELS.MsgTimeout,
     content: COMPONENTS.Timeout,
-    tagTheme: 'nine',
+    tagTheme: 'six',
     tagDisplay: 'txTimeoutLabel',
   },
   '/ibc.core.channel.v1.MsgTimeoutOnClose': {
     model: MODELS.MsgTimeoutOnClose,
     content: COMPONENTS.TimeoutOnClose,
-    tagTheme: 'nine',
+    tagTheme: 'six',
     tagDisplay: 'txTimeoutOnCloseLabel',
   },
   // ========================
@@ -247,43 +247,43 @@ const defaultTypeToModel = {
   '/ibc.core.connection.v1.MsgConnectionOpenAck': {
     model: MODELS.MsgConnectionOpenAck,
     content: COMPONENTS.ConnectionOpenAck,
-    tagTheme: 'nine',
+    tagTheme: 'six',
     tagDisplay: 'txConnectionOpenAckLabel',
   },
   '/ibc.core.connection.v1.MsgConnectionOpenConfirm': {
     model: MODELS.MsgConnectionOpenConfirm,
     content: COMPONENTS.ConnectionOpenConfirm,
-    tagTheme: 'nine',
+    tagTheme: 'six',
     tagDisplay: 'txConnectionOpenConfirmLabel',
   },
   '/ibc.core.connection.v1.MsgConnectionOpenInit': {
     model: MODELS.MsgConnectionOpenInit,
     content: COMPONENTS.ConnectionOpenInit,
-    tagTheme: 'nine',
+    tagTheme: 'six',
     tagDisplay: 'txConnectionOpenInitLabel',
   },
   '/ibc.core.connection.v1.MsgConnectionOpenTry': {
     model: MODELS.MsgConnectionOpenTry,
     content: COMPONENTS.ConnectionOpenTry,
-    tagTheme: 'nine',
+    tagTheme: 'six',
     tagDisplay: 'txConnectionOpenTryLabel',
   },
   '/ibc.core.connection.v1.ConnectionEnd': {
     model: MODELS.MsgConnectionEnd,
     content: COMPONENTS.ConnectionEnd,
-    tagTheme: 'nine',
+    tagTheme: 'six',
     tagDisplay: 'txConnectionEndLabel',
   },
   '/ibc.core.connection.v1.Counterparty': {
     model: MODELS.MsgCounterpartyConnection,
     content: COMPONENTS.CounterpartyConnection,
-    tagTheme: 'nine',
+    tagTheme: 'six',
     tagDisplay: 'txCounterpartyLabel',
   },
   '/ibc.core.connection.v1.Version': {
     model: MODELS.MsgVersion,
     content: COMPONENTS.Version,
-    tagTheme: 'nine',
+    tagTheme: 'six',
     tagDisplay: 'txVersionLabel',
   },
   // ========================
@@ -292,7 +292,7 @@ const defaultTypeToModel = {
   '/ibc.applications.transfer.v1.MsgTransfer': {
     model: MODELS.MsgTransfer,
     content: COMPONENTS.Transfer,
-    tagTheme: 'ten',
+    tagTheme: 'six',
     tagDisplay: 'txTransferLabel',
   },
   // ========================
@@ -301,13 +301,13 @@ const defaultTypeToModel = {
   '/cosmos.authz.v1beta1.MsgGrant': {
     model: MODELS.MsgGrant,
     content: COMPONENTS.Grant,
-    tagTheme: 'thirteen',
+    tagTheme: 'six',
     tagDisplay: 'MsgGrant',
   },
   '/cosmos.authz.v1beta1.MsgRevoke': {
     model: MODELS.MsgRevoke,
     content: COMPONENTS.Revoke,
-    tagTheme: 'thirteen',
+    tagTheme: 'six',
     tagDisplay: 'MsgRevoke',
   },
   // ========================
@@ -316,13 +316,13 @@ const defaultTypeToModel = {
   '/cosmos.feegrant.v1beta1.MsgGrantAllowance': {
     model: MODELS.MsgGrantAllowance,
     content: COMPONENTS.GrantAllowance,
-    tagTheme: 'fourteen',
+    tagTheme: 'six',
     tagDisplay: 'MsgGrantAllowance',
   },
   '/cosmos.feegrant.v1beta1.MsgRevokeAllowance': {
     model: MODELS.MsgRevokeAllowance,
     content: COMPONENTS.RevokeAllowance,
-    tagTheme: 'fourteen',
+    tagTheme: 'six',
     tagDisplay: 'MsgRevokeAllowance',
   },
   // ========================
@@ -331,13 +331,13 @@ const defaultTypeToModel = {
   '/cosmos.vesting.v1beta1.MsgCreateVestingAccount': {
     model: MODELS.MsgCreateVestingAccount,
     content: COMPONENTS.CreateVestingAccount,
-    tagTheme: 'fifteen',
+    tagTheme: 'six',
     tagDisplay: 'MsgCreateVestingAccount',
   },
   '/cosmos.vesting.v1beta1.MsgCreatePeriodicVestingAccount': {
     model: MODELS.MsgCreatePeriodicVestingAccount,
     content: COMPONENTS.CreatePeriodicVestingAccount,
-    tagTheme: 'fifteen',
+    tagTheme: 'six',
     tagDisplay: 'MsgCreatePeriodicVestingAccount',
   },
 };
@@ -345,7 +345,7 @@ type DefaultTypeToModel = typeof defaultTypeToModel;
 
 // =====================================
 // Update your chain's message types here
-// The tagTheme is the color of the tag.
+// The tagTheme six the color of the tag.
 // =====================================
 const customTypeToModel = {
   // ========================
@@ -354,133 +354,133 @@ const customTypeToModel = {
   '/desmos.profiles.v3.MsgSaveProfile': {
     model: MODELS.MsgSaveProfile,
     content: COMPONENTS.SaveProfile,
-    tagTheme: 'four',
+    tagTheme: 'six',
     tagDisplay: 'txSaveProfileLabel',
   },
   '/desmos.profiles.v3.MsgDeleteProfile': {
     model: MODELS.MsgDeleteProfile,
     content: COMPONENTS.DeleteProfile,
-    tagTheme: 'four',
+    tagTheme: 'six',
     tagDisplay: 'txDeleteProfileLabel',
   },
   '/desmos.profiles.v3.MsgCreateRelationship': {
     model: MODELS.MsgCreateRelationship,
     content: COMPONENTS.CreateRelationship,
-    tagTheme: 'four',
+    tagTheme: 'six',
     tagDisplay: 'txCreateRelationshipLabel',
   },
   '/desmos.profiles.v3.MsgRequestDTagTransfer': {
     model: MODELS.MsgDtagTransferRequest,
     content: COMPONENTS.DtagTransferRequest,
-    tagTheme: 'four',
+    tagTheme: 'six',
     tagDisplay: 'txRequestDTagTransferLabel',
   },
   '/desmos.profiles.v3.MsgAcceptDTagTransfer': {
     model: MODELS.MsgDtagAcceptTransfer,
     content: COMPONENTS.DtagAcceptTransfer,
-    tagTheme: 'four',
+    tagTheme: 'six',
     tagDisplay: 'txAcceptDTagTransferLabel',
   },
   '/desmos.profiles.v3.MsgCancelDTagTransfer': {
     model: MODELS.MsgDtagCancelTransfer,
     content: COMPONENTS.DtagCancelTransfer,
-    tagTheme: 'four',
+    tagTheme: 'six',
     tagDisplay: 'txCancelDTagTransferLabel',
   },
   '/desmos.profiles.v3.MsgRefuseDTagTransfer': {
     model: MODELS.MsgDtagRefuseTransfer,
     content: COMPONENTS.DtagRefuseTransfer,
-    tagTheme: 'four',
+    tagTheme: 'six',
     tagDisplay: 'txRefuseDTagTransferLabel',
   },
   '/desmos.profiles.v3.MsgBlockUser': {
     model: MODELS.MsgBlockUser,
     content: COMPONENTS.BlockUser,
-    tagTheme: 'four',
+    tagTheme: 'six',
     tagDisplay: 'txBlockUserLabel',
   },
   '/desmos.profiles.v3.MsgUnblockUser': {
     model: MODELS.MsgUnblockUser,
     content: COMPONENTS.UnBlockUser,
-    tagTheme: 'four',
+    tagTheme: 'six',
     tagDisplay: 'txUnblockUserLabel',
   },
   '/coreum.asset.ft.v1.MsgIssue': {
     model: MODELS.MsgIssue,
     content: COMPONENTS.Issue,
-    tagTheme: 'one',
+    tagTheme: 'six',
     tagDisplay: 'msgIssueLabel',
   },
   '/coreum.asset.ft.v1.MsgMint': {
     model: MODELS.MsgMint,
     content: COMPONENTS.Mint,
-    tagTheme: 'one',
+    tagTheme: 'six',
     tagDisplay: 'msgMintLabel',
   },
   '/coreum.asset.ft.v1.MsgBurn': {
     model: MODELS.MsgBurn,
     content: COMPONENTS.Burn,
-    tagTheme: 'one',
+    tagTheme: 'six',
     tagDisplay: 'msgBurnLabel',
   },
   '/coreum.asset.ft.v1.MsgFreeze': {
     model: MODELS.MsgFreeze,
     content: COMPONENTS.Freeze,
-    tagTheme: 'one',
+    tagTheme: 'six',
     tagDisplay: 'msgFreezeLabel',
   },
   '/coreum.asset.ft.v1.MsgUnfreeze': {
     model: MODELS.MsgUnfreeze,
     content: COMPONENTS.Unfreeze,
-    tagTheme: 'one',
+    tagTheme: 'six',
     tagDisplay: 'msgUnfreezeLabel',
   },
   '/coreum.asset.ft.v1.MsgGloballyFreeze': {
     model: MODELS.MsgGloballyFreeze,
     content: COMPONENTS.GloballyFreeze,
-    tagTheme: 'one',
+    tagTheme: 'six',
     tagDisplay: 'msgGloballyFreezeLabel',
   },
   '/coreum.asset.ft.v1.MsgGloballyUnfreeze': {
     model: MODELS.MsgGloballyUnfreeze,
     content: COMPONENTS.GloballyUnfreeze,
-    tagTheme: 'one',
+    tagTheme: 'six',
     tagDisplay: 'msgGloballyUnfreezeLabel',
   },
   '/coreum.asset.ft.v1.MsgSetWhitelistedLimit': {
     model: MODELS.MsgSetWhitelistedLimit,
     content: COMPONENTS.SetWhitelistedLimit,
-    tagTheme: 'one',
+    tagTheme: 'six',
     tagDisplay: 'msgSetWhitelistedLimitLabel',
   },
   '/coreum.asset.nft.v1.MsgBurn': {
     model: MODELS.MsgNftBurn,
     content: COMPONENTS.NftBurn,
-    tagTheme: 'one',
+    tagTheme: 'six',
     tagDisplay: 'msgNftBurnLabel',
   },
   '/coreum.asset.nft.v1.MsgMint': {
     model: MODELS.MsgNftMint,
     content: COMPONENTS.NftMint,
-    tagTheme: 'one',
+    tagTheme: 'six',
     tagDisplay: 'msgNftMintLabel',
   },
   '/coreum.asset.nft.v1.MsgIssueClass': {
     model: MODELS.MsgNftIssueClass,
     content: COMPONENTS.NftIssueClass,
-    tagTheme: 'one',
+    tagTheme: 'six',
     tagDisplay: 'msgNftIssueClassLabel',
   },
   '/coreum.asset.nft.v1.MsgFreeze': {
     model: MODELS.MsgNftFreeze,
     content: COMPONENTS.NftFreeze,
-    tagTheme: 'one',
+    tagTheme: 'six',
     tagDisplay: 'msgNftFreezeLabel',
   },
   '/coreum.asset.nft.v1.MsgUnfreeze': {
     model: MODELS.MsgNftUnfreeze,
     content: COMPONENTS.NftUnfreeze,
-    tagTheme: 'one',
+    tagTheme: 'six',
     tagDisplay: 'msgNftUnfreezeLabel',
   },
 };
