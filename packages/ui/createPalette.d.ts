@@ -24,6 +24,7 @@ declare module '@mui/material/styles/createPalette' {
       icon: string;
       single_block: string;
       nav_drawer: string;
+      modal_net_selector: string;
       modal_header: string;
       search: string;
       net_selector: string;
@@ -36,7 +37,9 @@ declare module '@mui/material/styles/createPalette' {
       fontFour: string;
       fontFive: string;
       highlight: string;
+      netSelector_label: string;
       settings_label: string;
+      netSelector_link: string;
       table_headers: string;
       data_blocks: string;
     };

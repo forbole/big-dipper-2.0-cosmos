@@ -9,7 +9,7 @@ import { getMenuItems } from '@/components/nav/components/menu_items/utils';
 import useStyles from '@/components/nav/components/menu_items/styles';
 import { SettingsList } from '../desktop/components/action_bar/components';
 import { useState, useEffect } from 'react';
-import NetworkSelector from '../network_selector';
+import NetworkSelector from '@/components/network_selector';
 
 const isClient = typeof window === 'object';
 

@@ -31,6 +31,7 @@
           "icon": "#999999",
           "single_block": "linear-gradient(110.16deg, rgba(37, 214, 149, 0.15) 0%, rgba(37, 214, 149, 0.05) 100%)",
           "nav_drawer": "#2B3138",
+          "modal_net_selector": "#2B3138",
           "modal_header": "#1D222C",
           "search": "#2B3138",
           "net_selector": "#373E48",
@@ -43,6 +44,8 @@
           "fontFour": "#999999",
           "fontFive": "#FFFFFF",
           "highlight": "#F1C34E",
+          "netSelector_label": "#c3c3c3",
+          "netSelector_link": "#eeeeee",
           "settings_label": "#868991",
           "table_headers": "#6C6F78",
           "data_blocks": "#25D695"
@@ -123,9 +126,10 @@
           "icon": "#999999",
           "search": "#FFFFFF",
           "nav_drawer": "#2B3138",
+          "modal_net_selector": "#ffff",
           "single_block": "linear-gradient(110.16deg, rgba(37, 214, 149, 0.15) 0%, rgba(37, 214, 149, 0.05) 100%)",
-          "net_selector": "#373E48",
-          "modal_background": "#2B4A46"
+          "net_selector": "#f8f8f8",
+          "modal_background": "#D9F0E6"
         },
         "fonts": {
           "fontOne": "#000000",
@@ -133,6 +137,8 @@
           "fontThree": "#777777",
           "fontFour": "#999999",
           "settings_label": "#868991",
+          "netSelector_label": "#777777",
+          "netSelector_link": "#999999",
           "data_blocks": "#FFF",
           "fontFive": "#373E48",
           "highlight": "#F1C34E"
