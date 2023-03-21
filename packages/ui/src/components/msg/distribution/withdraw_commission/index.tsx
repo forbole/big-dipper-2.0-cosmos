@@ -11,7 +11,8 @@ const WithdrawCommission: FC<{ message: MsgWithdrawValidatorCommission }> = (pro
   const validator = useProfileRecoil(message.validatorAddress);
   const validatorMoniker = validator ? validator?.name : message.validatorAddress;
   const parsedAmount = message.amounts
-    .map((x) => `${formatNumber(x.value, x.exponent)} ${x.displayDenom.toUpperCase()}`)
+    //Removed ".toUpperCase()" from the end of the line below per Reza's request
+    .map((x) => `${formatNumber(x.value, x.exponent)} ${x.displayDenom}`)
     .join(', ');
 
   return (

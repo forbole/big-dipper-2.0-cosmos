@@ -15,7 +15,8 @@ export const formatBalanceData = (data: {
       display: `${formatNumber(
         data.available.value,
         data.available.exponent
-      )} ${data.available.displayDenom.toUpperCase()}`,
+        //Removed ".toUpperCase()" from the end of the line below per Reza's request
+      )} ${data.available.displayDenom}`,
       value: data.available.value,
     },
     {
@@ -23,7 +24,8 @@ export const formatBalanceData = (data: {
       display: `${formatNumber(
         data.delegate.value,
         data.delegate.exponent
-      )} ${data.delegate.displayDenom.toUpperCase()}`,
+        //Removed ".toUpperCase()" from the end of the line below per Reza's request
+      )} ${data.delegate.displayDenom}`,
       value: data.delegate.value,
     },
     {
@@ -31,7 +33,8 @@ export const formatBalanceData = (data: {
       display: `${formatNumber(
         data.unbonding.value,
         data.unbonding.exponent
-      )} ${data.unbonding.displayDenom.toUpperCase()}`,
+        //Removed ".toUpperCase()" from the end of the line below per Reza's request
+      )} ${data.unbonding.displayDenom}`,
       value: data.unbonding.value,
     },
     {
@@ -40,7 +43,8 @@ export const formatBalanceData = (data: {
         ? `${formatNumber(
             data.reward.value,
             data.reward.exponent
-          )} ${data.reward.displayDenom.toUpperCase()}`
+            //Removed ".toUpperCase()" from the end of the line below per Reza's request
+          )} ${data.reward.displayDenom}`
         : '',
       value: data.reward?.value,
     },
@@ -52,7 +56,8 @@ export const formatBalanceData = (data: {
       display: `${formatNumber(
         data.commission.value,
         data.commission.exponent
-      )} ${data.commission.displayDenom.toUpperCase()}`,
+        //Removed ".toUpperCase()" from the end of the line below per Reza's request
+      )} ${data.commission.displayDenom}`,
       value: data.commission.value,
     });
   }

@@ -17,7 +17,8 @@ const Freeze: FC<{ message: MsgFreeze }> = (props) => {
   const parsedAmount = `${formatNumber(
     amount.value,
     amount.exponent
-  )} ${amount.displayDenom.toUpperCase()}`;
+    //Removed ".toUpperCase()" from the end of the line below per Reza's request
+  )} ${amount.displayDenom}`;
 
   return (
     <Typography>

@@ -19,7 +19,8 @@ const Desktop: FC<DesktopProps> = ({ className, items }) => {
 
   const formattedItems = items?.map((x, i) => ({
     key: i,
-    token: x.denom.toUpperCase(),
+    //Removed ".toUpperCase()" from the end of the line below per Reza's request
+    token: x.denom,
     commission: formatNumber(x.commission.value, x.commission.exponent),
     available: formatNumber(x.available.value, x.available.exponent),
     reward: x.reward ? formatNumber(x.reward.value, x.reward.exponent) : '',

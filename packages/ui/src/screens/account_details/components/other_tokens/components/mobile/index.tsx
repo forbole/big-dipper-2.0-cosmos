@@ -30,7 +30,8 @@ const Mobile: FC<MobileProps> = ({ className, items }) => {
                   {t('token')}
                 </Typography>
                 <Typography variant="body1" className="value">
-                  {x.denom.toUpperCase()}
+                  {/* //Removed ".toUpperCase()" from the end of the line below per Reza's request */}
+                  {x.denom}
                 </Typography>
               </div>
               <div className={classes.item}>

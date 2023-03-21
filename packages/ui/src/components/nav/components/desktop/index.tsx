@@ -14,6 +14,8 @@ import ActionBar from '@/components/nav/components/desktop/components/action_bar
 import Logo from '@/assets/logo.svg';
 import LogoText from '@/assets/logo-text-white.svg';
 import DevnetBadge from '@/assets/devnet-badge.svg';
+import TestnetBadge from '@/assets/testnet-badge.svg';
+import MainnetBadge from '@/assets/mainnet-badge.svg';
 import ArrowIcon from '@/assets/icon_nav.svg';
 import NetworkSelector from '../network_selector';
 
@@ -25,6 +27,7 @@ type DesktopProps = {
 const Desktop: FC<DesktopProps> = ({ className }) => {
   const { classes, cx } = useStyles();
   const theme = useRecoilValue(readTheme);
+  const netName = process.env.NEXT_PUBLIC_CHAIN_TYPE;
   const { isMenu, toggleMenu, turnOffAll, toggleNetwork, isNetwork } = useDesktop();
 
   return (
@@ -71,12 +74,13 @@ const Desktop: FC<DesktopProps> = ({ className }) => {
                     transition: '.3s ease',
                   }}
                 />
-                <DevnetBadge
-                  style={{
-                    opacity: isMenu ? 1 : 0,
-                    transition: '.3s ease',
-                  }}
-                />
+                {netName === 'devnet' ? (
+                  <DevnetBadge style={{ opacity: isMenu ? 1 : 0, transition: '.3s ease' }} />
+                ) : netName === 'testnet' ? (
+                  <TestnetBadge style={{ opacity: isMenu ? 1 : 0, transition: '.3s ease' }} />
+                ) : (
+                  <MainnetBadge style={{ opacity: isMenu ? 1 : 0, transition: '.3s ease' }} />
+                )}
               </div>
             }
           </div>

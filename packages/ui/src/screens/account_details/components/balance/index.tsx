@@ -108,7 +108,8 @@ const Balance: FC<BalanceProps> = (props) => {
           <div className="total__single--container">
             <Typography variant="h3" className="label">
               {t('total', {
-                unit: props.total.displayDenom.toUpperCase(),
+                //Removed ".toUpperCase()" from the end of the line below per Reza's request
+                unit: props.total.displayDenom,
               })}
             </Typography>
             <Typography variant="h3">{totalDisplay}</Typography>
@@ -116,7 +117,8 @@ const Balance: FC<BalanceProps> = (props) => {
           <div className="total__secondary--container total__single--container">
             <Typography variant="body1" className="label">
               ${numeral(market.price).format('0,0.[00]', Math.floor)} /{' '}
-              {(tokenUnits?.[primaryTokenUnit]?.display ?? '').toUpperCase()}
+              {/* Removed ".toUpperCase()" from the end of the line below per Reza's request */}
+              {tokenUnits?.[primaryTokenUnit]?.display ?? ''}
             </Typography>
             <Typography variant="body1">{totalAmount}</Typography>
           </div>
