@@ -28,7 +28,13 @@ const DesmosProfile: FC<DesmosProfileProps> = (props) => {
         </div>
 
         <div className={classes.avatarContainer}>
-          <Avatar address={props.dtag} imageUrl={props.imageUrl} className={classes.avatar} />
+          <Avatar address={props.dtag} imageUrl={props.imageUrl} className={classes.avatar} />{' '}
+          <div className={classes.nicknameWrapper}>
+            <Typography variant="h2">{props.nickname}</Typography>
+            <Typography variant="body2" className="tag">
+              @{props.dtag}
+            </Typography>
+          </div>
           <Typography
             variant="body1"
             className={cx(classes.link, displayConnections)}
@@ -40,12 +46,7 @@ const DesmosProfile: FC<DesmosProfileProps> = (props) => {
             })}
           </Typography>
         </div>
-        <div className={classes.nicknameWrapper}>
-          <Typography variant="h2">{props.nickname}</Typography>
-          <Typography variant="body2" className="tag">
-            @{props.dtag}
-          </Typography>
-        </div>
+
         {props.bio && (
           <div>
             <Markdown markdown={props.bio} />

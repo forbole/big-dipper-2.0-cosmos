@@ -148,6 +148,7 @@ function formatDesmosProfile(data: DesmosProfileQuery | undefined): DesmosProfil
       coverUrl: profile.coverPic,
       bio: profile.bio,
       connections: [nativeData, ...connectionsWithoutNativeSorted],
+      applicationLinks: applications || null,
     };
   });
 }
