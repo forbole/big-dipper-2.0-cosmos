@@ -1,5 +1,16 @@
 # ui
 
+## 2.20.0
+
+### Minor Changes
+
+- [#1183](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1183) [`33750408b`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/33750408bfa3bc3195124b78be72c0d54b414bd7) Thanks [@rachelhox](https://github.com/rachelhox)! - feat: theme toggle button and 12-hour/24-hour toggle button
+
+### Patch Changes
+
+- Updated dependencies [[`33750408b`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/33750408bfa3bc3195124b78be72c0d54b414bd7)]:
+  - shared-utils@2.12.0
+
 ## 2.19.0
 
 ### Minor Changes
