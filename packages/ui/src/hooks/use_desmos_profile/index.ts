@@ -147,6 +147,7 @@ function formatDesmosProfile(data: DesmosProfileQuery | undefined): DesmosProfil
       imageUrl: profile.profilePic,
       coverUrl: profile.coverPic,
       bio: profile.bio,
+      creationTime: profile.creationTime,
       connections: [nativeData, ...connectionsWithoutNativeSorted],
       applicationLinks: applications || null,
     };

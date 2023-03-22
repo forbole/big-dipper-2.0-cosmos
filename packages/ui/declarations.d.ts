@@ -68,6 +68,7 @@ type DesmosProfile = {
   imageUrl: string;
   coverUrl: string;
   bio: string;
+  creationTime: string;
   connections: ProfileConnectionType[];
   validator?: ValidatorProfile;
   applicationLinks?: ApplicationLink;

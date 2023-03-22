@@ -33,8 +33,11 @@ describe('component: DesmosProfile', () => {
           nickname="test_nickname"
           imageUrl="testurl.com"
           bio="test bio"
+          creationTime="date"
           connections={connection}
           coverUrl="testcoverurl.com"
+          withdrawalAddress="test_rewardAddress"
+          address="test_address"
         />
       </MockTheme>
     );

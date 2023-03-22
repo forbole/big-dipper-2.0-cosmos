@@ -1,9 +1,11 @@
 import { act, cleanup, renderHook } from '@testing-library/react';
 import { useDesmosProfile } from '@/components/desmos_profile/hooks';
 
+const t = jest.fn((value) => value);
+
 describe('hook: useDesmosProfile', () => {
   test('handles open connections correctly', () => {
-    const { result } = renderHook(() => useDesmosProfile());
+    const { result } = renderHook(() => useDesmosProfile({ t, bio: 'mock string' }));
     expect(result.current.connectionsOpen).toBe(false);
 
     act(() => result.current.handleConnectionsOpen());
@@ -11,7 +13,7 @@ describe('hook: useDesmosProfile', () => {
   });
 
   test('handles close connections correctly', () => {
-    const { result } = renderHook(() => useDesmosProfile());
+    const { result } = renderHook(() => useDesmosProfile({ t, bio: 'mock string' }));
     expect(result.current.connectionsOpen).toBe(false);
 
     act(() => result.current.handleConnectionsOpen());

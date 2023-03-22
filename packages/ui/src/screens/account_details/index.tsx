@@ -35,6 +35,9 @@ const AccountDetails = () => {
                 bio={state.desmosProfile.bio}
                 connections={state.desmosProfile.connections}
                 coverUrl={state.desmosProfile.coverUrl}
+                creationTime={state.desmosProfile.creationTime}
+                withdrawalAddress={state.overview.withdrawalAddress}
+                address={state.overview.address}
               />
             )}
             <Overview
