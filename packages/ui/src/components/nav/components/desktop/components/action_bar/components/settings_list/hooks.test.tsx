@@ -50,8 +50,8 @@ describe('hook: useSettingList', () => {
     act(() => result.current.handleCancel());
     expect(result.current.state).toStrictEqual({
       dateFormat: 'locale',
+      timeFormat: '12-hour',
       lang: 'en',
-      theme: 'light',
       txListFormat: 'compact',
     });
   });
@@ -75,10 +75,19 @@ describe('hook: useSettingList', () => {
     act(() => result.current.handleChange('lang', 'zht'));
     expect(result.current.state).toStrictEqual({
       dateFormat: 'locale',
+      timeFormat: '12-hour',
       lang: 'zht',
-      theme: 'light',
       txListFormat: 'compact',
     });
+  });
+
+  test('handles time format change correctly', () => {
+    const { result } = renderHook(() => useSettingList({ lang: 'en' }), {
+      wrapper: RecoilRoot,
+    });
+
+    act(() => result.current.handleTimeFormatChange());
+    expect(result.current.time).toStrictEqual('24-hour');
   });
 
   test('handles submit form correctly', () => {
@@ -100,8 +109,8 @@ describe('hook: useSettingList', () => {
     act(() => result.current.handleFormSubmit({ preventDefault: jest.fn() }));
     expect(result.current.state).toStrictEqual({
       dateFormat: 'locale',
+      timeFormat: '12-hour',
       lang: 'en',
-      theme: 'light',
       txListFormat: 'compact',
     });
   });

@@ -4,6 +4,7 @@ import NetworkList from '@/components/nav/components/desktop/components/action_b
 import SettingsList from '@/components/nav/components/desktop/components/action_bar/components/settings_list';
 import useStyles from '@/components/nav/components/desktop/components/action_bar/styles';
 import SearchBar from '@/components/nav/components/search_bar';
+import ThemeToggle from '@/components/nav/components/theme_toggle';
 import { useGetComponentDimension } from '@/hooks/use_get_component_dimension';
 
 type ActionBarProps = {
@@ -23,6 +24,7 @@ const ActionBar: FC<ActionBarProps> = ({ toggleNetwork, className, isNetwork }) 
           className={cx(classes.network, { open: isNetwork })}
           toggleNetwork={toggleNetwork}
         />
+        <ThemeToggle className={classes.toggle} />
         <SettingsList />
       </div>
       <NetworkList

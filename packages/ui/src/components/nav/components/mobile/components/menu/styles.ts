@@ -12,7 +12,8 @@ const useStyles = makeStyles()((theme) => ({
   },
   footerActions: {
     display: 'flex',
-    alignItems: 'center',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
     justifyContent: 'flex-start',
     padding: '1rem',
   },
@@ -20,8 +21,10 @@ const useStyles = makeStyles()((theme) => ({
     width: '50%',
     display: 'flex',
     alignItems: 'center',
+    paddingBottom: theme.spacing(2),
     '& .MuiTypography-caption': {
-      margin: '0 0.3rem',
+      fontSize: theme.spacing(2),
+      margin: theme.spacing(0, 1, 0, 3.8),
     },
   },
   theme: {

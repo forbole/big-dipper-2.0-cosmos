@@ -1,29 +1,30 @@
 import { i18n } from 'next-i18next';
 import * as R from 'ramda';
 import { useCallback, useState } from 'react';
-import { useRouter } from 'next/router';
 import { SetterOrUpdater, useRecoilState } from 'recoil';
-import { THEME_DICTIONARY, writeDate, writeTheme, writeTx } from '@/recoil/settings';
-import type { Date, Theme, Tx } from '@/recoil/settings';
+import { writeDate, writeTx, writeTimeFormat } from '@/recoil/settings';
+import type { Date, Tx, TimeFormat } from '@/recoil/settings';
 
 type SettingListState = {
   lang: string;
-  theme: Theme;
   dateFormat: Date;
+  timeFormat: TimeFormat;
   txListFormat: Tx;
 };
 
 export const useSettingList = ({ lang }: { lang: string }) => {
-  const router = useRouter();
-  const [theme, setTheme] = useRecoilState(writeTheme) as [Theme, SetterOrUpdater<Theme>];
   const [date, setDate] = useRecoilState(writeDate) as [Date, SetterOrUpdater<Date>];
   const [tx, setTx] = useRecoilState(writeTx) as [Tx, SetterOrUpdater<Tx>];
+  const [time, setTimeFormat] = useRecoilState(writeTimeFormat) as [
+    TimeFormat,
+    SetterOrUpdater<TimeFormat>
+  ];
 
   const [open, setOpen] = useState(false);
   const [state, setState] = useState({
     lang,
-    theme,
     dateFormat: date,
+    timeFormat: time,
     txListFormat: tx,
   });
 
@@ -40,7 +41,6 @@ export const useSettingList = ({ lang }: { lang: string }) => {
   const resetSettings = () => {
     handleSetState((prevState) => ({
       ...prevState,
-      theme,
       dateFormat: date,
       lang,
     }));
@@ -66,32 +66,23 @@ export const useSettingList = ({ lang }: { lang: string }) => {
     }));
   };
 
-  const changeTheme = (value: Theme) => {
-    if (THEME_DICTIONARY[value]) {
-      setTheme(value);
-    }
+  const handleTimeFormatChange = () => {
+    setTimeFormat((prevTheme: TimeFormat) => (prevTheme === '12-hour' ? '24-hour' : '12-hour'));
   };
 
   const handleFormSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    if (state.theme !== theme) {
-      changeTheme(state.theme);
-    }
 
     if (state.lang !== lang) {
-      router.push(
-        {
-          pathname: router.pathname,
-          query: router.query,
-        },
-        router.asPath,
-        { locale: state.lang }
-      );
       i18n?.changeLanguage(state.lang);
     }
 
     if (state.dateFormat !== date) {
       setDate(state.dateFormat);
+    }
+
+    if (state.timeFormat !== time) {
+      setTimeFormat(time);
     }
 
     if (state.txListFormat !== tx) {
@@ -107,6 +98,8 @@ export const useSettingList = ({ lang }: { lang: string }) => {
     handleClose,
     state,
     handleChange,
+    handleTimeFormatChange,
+    time,
     handleFormSubmit,
     handleCancel,
   };

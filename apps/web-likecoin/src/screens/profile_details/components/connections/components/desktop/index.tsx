@@ -10,7 +10,7 @@ import { useRecoilValue } from 'recoil';
 import { ACCOUNT_DETAILS } from '@/utils/go_to_page';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
 import { columns } from '@/screens/profile_details/components/connections/components/desktop/utils';
-import { readDate } from '@/recoil/settings';
+import { readDate, readTimeFormat } from '@/recoil/settings';
 import chainConfig from '@/chainConfig';
 
 const { prefix } = chainConfig();
@@ -22,6 +22,7 @@ type DesktopProps = {
 
 const Desktop: FC<DesktopProps> = ({ className, items }) => {
   const dateFormat = useRecoilValue(readDate);
+  const timeFormat = useRecoilValue(readTimeFormat);
   const { t } = useTranslation('accounts');
 
   const formattedItems = items?.map((x) => {
@@ -38,7 +39,7 @@ const Desktop: FC<DesktopProps> = ({ className, items }) => {
       key: `${x.identifier}-${x.creationTime}`,
       network: x.network.toUpperCase(),
       identifier: identity,
-      creationTime: formatDayJs(dayjs.utc(x.creationTime), dateFormat),
+      creationTime: formatDayJs(dayjs.utc(x.creationTime), dateFormat, timeFormat),
     };
   });
 

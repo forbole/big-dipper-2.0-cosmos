@@ -7,7 +7,7 @@ import { useTranslation } from 'next-i18next';
 import { FC, ReactNode } from 'react';
 import { useRecoilValue } from 'recoil';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
-import { readDate } from '@/recoil/settings';
+import { readDate, readTimeFormat } from '@/recoil/settings';
 import { columns } from '@/components/desmos_profile/components/connections/components/desktop/utils';
 
 type DesktopProps = {
@@ -17,6 +17,7 @@ type DesktopProps = {
 
 const Desktop: FC<DesktopProps> = ({ className, items }) => {
   const dateFormat = useRecoilValue(readDate);
+  const timeFormat = useRecoilValue(readTimeFormat);
   const { t } = useTranslation('accounts');
 
   return (
@@ -50,7 +51,7 @@ const Desktop: FC<DesktopProps> = ({ className, items }) => {
                       node = row.identifier;
                       break;
                     case 'creationTime':
-                      node = formatDayJs(dayjs.utc(row.creationTime), dateFormat);
+                      node = formatDayJs(dayjs.utc(row.creationTime), dateFormat, timeFormat);
                       break;
                     default:
                   }

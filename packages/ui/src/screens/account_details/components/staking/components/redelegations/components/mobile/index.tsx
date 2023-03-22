@@ -5,7 +5,7 @@ import { FC } from 'react';
 import { useRecoilValue } from 'recoil';
 import AvatarName from '@/components/avatar_name';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
-import { readDate } from '@/recoil/settings';
+import { readDate, readTimeFormat } from '@/recoil/settings';
 import useStyles from '@/screens/account_details/components/staking/components/redelegations/components/mobile/styles';
 import type { ItemType } from '@/screens/account_details/components/staking/components/redelegations/types';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
@@ -26,6 +26,7 @@ const RedelegationsItem: FC<RedelegationsItemProps> = ({ item, isLast }) => {
   const { classes } = useStyles();
   const { t } = useTranslation('accounts');
   const dateFormat = useRecoilValue(readDate);
+  const timeFormat = useRecoilValue(readTimeFormat);
   return (
     <>
       <div className={classes.list}>
@@ -45,7 +46,7 @@ const RedelegationsItem: FC<RedelegationsItemProps> = ({ item, isLast }) => {
           <Typography variant="h4" className="label">
             {t('completionTime')}
           </Typography>
-          {formatDayJs(dayjs.utc(item.completionTime), dateFormat)}
+          {formatDayJs(dayjs.utc(item.completionTime), dateFormat, timeFormat)}
         </div>
         <div className={classes.item}>
           <Typography variant="h4" className="label">

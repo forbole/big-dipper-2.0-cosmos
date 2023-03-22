@@ -15,6 +15,12 @@ const useStyles = makeStyles()((theme) => ({
       },
     },
   },
+  timeToggleDiv: {
+    display: 'flex',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    paddingTop: theme.spacing(1.25),
+  },
   closeButton: {
     position: 'absolute',
     right: theme.spacing(1),

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { FC } from 'react';
 import { useRecoilValue } from 'recoil';
 import BoxDetails from '@/components/box_details';
-import { readDate } from '@/recoil/settings';
+import { readDate, readTimeFormat } from '@/recoil/settings';
 import type { OverviewType } from '@/screens/miniblock_details/types';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
 import { getShardDisplay } from '@/utils/get_shard_display';
@@ -12,6 +12,7 @@ import { BLOCK_DETAILS } from '@/utils/go_to_page';
 const Overview: FC<OverviewType & ComponentDefault> = (props) => {
   const { t } = useTranslation('blocks');
   const dateFormat = useRecoilValue(readDate);
+  const timeFormat = useRecoilValue(readTimeFormat);
   const senderShard = getShardDisplay(props.senderShard);
   const receiverShard = getShardDisplay(props.receiverShard);
 
@@ -56,7 +57,7 @@ const Overview: FC<OverviewType & ComponentDefault> = (props) => {
     {
       key: 'time',
       label: t('time'),
-      detail: formatDayJs(dayjs.utc(dayjs.unix(props.timestamp)), dateFormat),
+      detail: formatDayJs(dayjs.utc(dayjs.unix(props.timestamp)), dateFormat, timeFormat),
     },
     {
       key: 'type',

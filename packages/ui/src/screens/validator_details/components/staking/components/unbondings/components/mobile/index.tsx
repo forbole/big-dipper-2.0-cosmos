@@ -5,7 +5,7 @@ import { FC, Fragment } from 'react';
 import { useRecoilValue } from 'recoil';
 import AvatarName from '@/components/avatar_name';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
-import { readDate } from '@/recoil/settings';
+import { readDate, readTimeFormat } from '@/recoil/settings';
 import useStyles from '@/screens/validator_details/components/staking/components/unbondings/components/mobile/styles';
 import type { ItemType } from '@/screens/validator_details/components/staking/components/unbondings/types';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
@@ -22,6 +22,7 @@ const UnbondingsItem: FC<UnbondingsItemProps> = ({ i, item, isLast }) => {
   const { classes } = useStyles();
   const { t } = useTranslation('accounts');
   const dateFormat = useRecoilValue(readDate);
+  const timeFormat = useRecoilValue(readTimeFormat);
   return (
     <Fragment key={`votes-mobile-${i}`}>
       <div className={classes.list}>
@@ -35,7 +36,7 @@ const UnbondingsItem: FC<UnbondingsItemProps> = ({ i, item, isLast }) => {
           <Typography variant="h4" className="label">
             {t('completionTime')}
           </Typography>
-          {formatDayJs(dayjs.utc(item.completionTime), dateFormat)}
+          {formatDayJs(dayjs.utc(item.completionTime), dateFormat, timeFormat)}
         </div>
         <div className={classes.item}>
           <Typography variant="h4" className="label">
