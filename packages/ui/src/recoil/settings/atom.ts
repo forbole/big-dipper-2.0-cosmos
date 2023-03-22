@@ -7,6 +7,7 @@ const { themes } = chainConfig();
 const initialState: AtomState = {
   theme: themes.default as AtomState['theme'],
   dateFormat: 'locale',
+  timeFormat: '12-hour',
   txListFormat: 'compact',
 };
 

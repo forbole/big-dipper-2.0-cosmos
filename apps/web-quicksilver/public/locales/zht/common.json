@@ -63,5 +63,7 @@
   "detailed": "詳細",
   "profilesNotEnabled": "未為此資源管理器啟用配置文件",
   "insertValidDtag": "請插入有效的 dtag",
-  "invalidAddress": "無效地址"
+    "invalidAddress": "無效地址",
+  "24-hour": "24 小時制",
+  "12-hour": "12 小時制"
 }

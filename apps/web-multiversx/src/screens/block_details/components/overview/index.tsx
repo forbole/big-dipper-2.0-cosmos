@@ -4,7 +4,7 @@ import numeral from 'numeral';
 import { FC } from 'react';
 import { useRecoilValue } from 'recoil';
 import BoxDetails from '@/components/box_details';
-import { readDate } from '@/recoil/settings';
+import { readDate, readTimeFormat } from '@/recoil/settings';
 import type { OverviewType } from '@/screens/block_details/types';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
@@ -13,6 +13,7 @@ import { getShardDisplay } from '@/utils/get_shard_display';
 const Overview: FC<OverviewType & ComponentDefault> = (props) => {
   const { t } = useTranslation('blocks');
   const dateFormat = useRecoilValue(readDate);
+  const timeFormat = useRecoilValue(readTimeFormat);
   const shard = getShardDisplay(props.shard);
 
   const details = [
@@ -54,7 +55,7 @@ const Overview: FC<OverviewType & ComponentDefault> = (props) => {
     {
       key: 'time',
       label: t('time'),
-      detail: formatDayJs(dayjs.utc(dayjs.unix(props.timestamp)), dateFormat),
+      detail: formatDayJs(dayjs.utc(dayjs.unix(props.timestamp)), dateFormat, timeFormat),
     },
     {
       key: 'shard',

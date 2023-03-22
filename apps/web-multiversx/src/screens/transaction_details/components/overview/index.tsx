@@ -8,7 +8,7 @@ import chainConfig from '@/chainConfig';
 import AvatarName from '@/components/avatar_name';
 import BoxDetails from '@/components/box_details';
 import Result from '@/components/result';
-import { readDate } from '@/recoil/settings';
+import { readDate, readTimeFormat } from '@/recoil/settings';
 import useStyles from '@/screens/transaction_details/components/overview/styles';
 import type { OverviewType } from '@/screens/transaction_details/types';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
@@ -22,6 +22,7 @@ const Overview: FC<OverviewType & ComponentDefault> = (props) => {
   const { t } = useTranslation('transactions');
   const { classes } = useStyles();
   const dateFormat = useRecoilValue(readDate);
+  const timeFormat = useRecoilValue(readTimeFormat);
   const senderShard = getShardDisplay(props.fromShard);
   const receiverShard = getShardDisplay(props.toShard);
 
@@ -98,7 +99,7 @@ const Overview: FC<OverviewType & ComponentDefault> = (props) => {
     {
       key: 'time',
       label: t('time'),
-      detail: formatDayJs(dayjs.utc(dayjs.unix(props.timestamp)), dateFormat),
+      detail: formatDayJs(dayjs.utc(dayjs.unix(props.timestamp)), dateFormat, timeFormat),
     },
   ];
 

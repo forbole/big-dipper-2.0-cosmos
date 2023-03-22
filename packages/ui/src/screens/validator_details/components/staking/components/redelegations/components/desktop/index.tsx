@@ -10,7 +10,7 @@ import { formatNumber } from '@/utils/format_token';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
 import type { ItemType } from '@/screens/validator_details/components/staking/components/redelegations/types';
 import { columns } from '@/screens/validator_details/components/staking/components/redelegations/components/desktop/utils';
-import { readDate } from '@/recoil/settings';
+import { readDate, readTimeFormat } from '@/recoil/settings';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import AvatarName from '@/components/avatar_name';
 
@@ -18,6 +18,7 @@ const RedelegationsItem: FC<{ item: ItemType }> = ({ item }) => {
   const { address, imageUrl, name } = useProfileRecoil(item.address);
   const { address: toAddress, imageUrl: toImageUrl, name: toName } = useProfileRecoil(item.to);
   const dateFormat = useRecoilValue(readDate);
+  const timeFormat = useRecoilValue(readTimeFormat);
   const formattedItem = {
     address: <AvatarName address={address} imageUrl={imageUrl} name={name} />,
     to: <AvatarName address={toAddress} imageUrl={toImageUrl} name={toName} />,
@@ -27,7 +28,7 @@ const RedelegationsItem: FC<{ item: ItemType }> = ({ item }) => {
           item.amount.exponent
         )} ${item.amount.displayDenom.toUpperCase()}`
       : '',
-    completionTime: formatDayJs(dayjs.utc(item.completionTime), dateFormat),
+    completionTime: formatDayJs(dayjs.utc(item.completionTime), dateFormat, timeFormat),
   };
   return (
     <TableRow>

@@ -65,5 +65,7 @@
   "detailed": "Szczegółowy",
   "profilesNotEnabled": "Profile nie są aktywne dla tego eksploratora",
   "insertValidDtag": "Proszę wprowadzić poprawny dtag",
-  "invalidAddress": "Błędny adres"
+  "invalidAddress": "Błędny adres",
+  "24-hour": "Czas 24-godzinny",
+  "12-hour": "12-godzinny czas"
 }

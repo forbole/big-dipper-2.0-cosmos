@@ -1,6 +1,6 @@
 import { useSettingList } from '@/components/nav/components/desktop/components/action_bar/components/settings_list/hooks';
 import useStyles from '@/components/nav/components/desktop/components/action_bar/components/settings_list/styles';
-import { DATE_LIST, THEME_LIST, TX_LIST } from '@/recoil/settings';
+import { DATE_LIST, TX_LIST } from '@/recoil/settings';
 import CloseIcon from '@mui/icons-material/Close';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
@@ -15,6 +15,7 @@ import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import { FC } from 'react';
 import SettingIcon from 'shared-utils/assets/icon-setting.svg';
+import Toggle from '@/components/toggle';
 
 const release = `${process.env.NEXT_PUBLIC_RELEASE ?? ''}`;
 
@@ -22,7 +23,16 @@ const Settings: FC<ComponentDefault> = (props) => {
   const { classes, cx } = useStyles();
   const router = useRouter();
   const { t, i18n } = useTranslation('common');
-  const { open, handleOpen, state, handleChange, handleFormSubmit, handleCancel } = useSettingList({
+  const {
+    open,
+    handleOpen,
+    state,
+    time,
+    handleChange,
+    handleFormSubmit,
+    handleTimeFormatChange,
+    handleCancel,
+  } = useSettingList({
     lang: i18n.language,
   });
 
@@ -51,26 +61,6 @@ const Settings: FC<ComponentDefault> = (props) => {
         </DialogTitle>
         <DialogContent dividers>
           <form onSubmit={handleFormSubmit}>
-            <div className={classes.formItem}>
-              <Typography className="form-item--label">{t('theme')}</Typography>
-              <Select
-                variant="outlined"
-                value={state.theme}
-                onChange={(e) => handleChange('theme', (e?.target?.value as string) ?? '')}
-                MenuProps={{
-                  MenuListProps: {
-                    disablePadding: true,
-                  },
-                }}
-              >
-                {THEME_LIST.map((l) => (
-                  <MenuItem key={l} value={l}>
-                    {t(l)}
-                  </MenuItem>
-                ))}
-              </Select>
-            </div>
-
             <div className={classes.formItem}>
               <Typography className="form-item--label">{t('language')}</Typography>
               <Select
@@ -109,6 +99,12 @@ const Settings: FC<ComponentDefault> = (props) => {
                   </MenuItem>
                 ))}
               </Select>
+              <Toggle
+                className={classes.timeToggleDiv}
+                onToggle={handleTimeFormatChange}
+                checked={time === '24-hour'}
+                placeholder={t(time)}
+              />
             </div>
 
             <div className={classes.formItem}>

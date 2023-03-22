@@ -4,13 +4,14 @@ import { useRecoilValue } from 'recoil';
 import BoxDetails from '@/components/box_details';
 import AvatarName from '@/components/avatar_name';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
-import { readDate } from '@/recoil/settings';
+import { readDate, readTimeFormat } from '@/recoil/settings';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import type { OverviewType } from '@/screens/nft_details/types';
 
 const Overview: FC<OverviewType & ComponentDefault> = (props) => {
   const { t } = useTranslation('nfts');
   const dateFormat = useRecoilValue(readDate);
+  const timeFormat = useRecoilValue(readTimeFormat);
 
   const details = [
     {
@@ -69,7 +70,7 @@ const Overview: FC<OverviewType & ComponentDefault> = (props) => {
       {
         key: 'minted',
         label: t('minted'),
-        detail: formatDayJs(dayjs.utc(dayjs.unix(props.minted)), dateFormat),
+        detail: formatDayJs(dayjs.utc(dayjs.unix(props.minted)), dateFormat, timeFormat),
       },
     ]
   );

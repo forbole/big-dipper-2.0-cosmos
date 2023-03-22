@@ -11,7 +11,7 @@ import { formatNumber } from '@/utils/format_token';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
 import type { ItemType } from '@/screens/proposal_details/components/deposits/types';
 import { columns } from '@/screens/proposal_details/components/deposits/components/desktop/utils';
-import { readDate } from '@/recoil/settings';
+import { readDate, readTimeFormat } from '@/recoil/settings';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import AvatarName from '@/components/avatar_name';
 
@@ -22,6 +22,7 @@ type DepositsRowProps = {
 
 const DepositsRow: FC<DepositsRowProps> = ({ i, item }) => {
   const dateFormat = useRecoilValue(readDate);
+  const timeFormat = useRecoilValue(readTimeFormat);
   const { name, address, imageUrl } = useProfileRecoil(item.user);
 
   return (
@@ -49,7 +50,7 @@ const DepositsRow: FC<DepositsRowProps> = ({ i, item }) => {
               ''
             )
           ) : column.key === 'time' ? (
-            formatDayJs(dayjs.utc(item.timestamp), dateFormat)
+            formatDayJs(dayjs.utc(item.timestamp), dateFormat, timeFormat)
           ) : null}
         </TableCell>
       ))}
