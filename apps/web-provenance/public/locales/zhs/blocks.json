@@ -1,0 +1,15 @@
+{
+  "blocks": "区块",
+  "blockDetails": "区块詳情",
+  "height": "高度",
+  "validator": "验证人",
+  "hash": "交易码",
+  "txs": "交易",
+  "time": "时间",
+  "overview": "概述",
+  "signedVotingPower": "已验证投票权",
+  "proposer": "区块发起人",
+  "signatures": "签名",
+  "votingPower": "投票权",
+  "signed": "已验证"
+}

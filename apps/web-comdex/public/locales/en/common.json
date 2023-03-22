@@ -1,6 +1,9 @@
 {
   "en": "English",
-  "zht": "中文",
+  "zht": "繁體中文",
+  "zhs": "简体中文",
+  "it": "Italiano",
+  "pl": "Polski",
   "bigDipper": "Big Dipper",
   "forbole": "Forbole",
   "copyright": "<0>License</0> © Forbole",
@@ -53,7 +56,6 @@
   "params": "Params",
   "assets": "Assets",
   "assetsModule": "Assets Module",
-  "wasmContracts": "WASM Contracts",
   "errorTitle": "Opps! Looks like something went wrong :(",
   "errorDetails": "If you have time please report it to our github at <0>{{issue}}</0> with the url that caused the error.",
   "errorHome": "Click here to go back home",
