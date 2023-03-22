@@ -19,8 +19,8 @@ test('home page', async ({ page, isMobile }) => {
     // Test theme change
     await page.getByRole('button', { name: 'settings-button' }).first().click();
     await page.getByRole('button', { name: 'Save' }).waitFor();
-    await page.getByRole('button', { name: 'Light' }).first().click();
-    await page.getByRole('option', { name: 'Dark' }).first().click();
+    await page.getByRole('button', { name: 'Light Mode' }).first().click();
+    await page.getByRole('option', { name: 'Dark Mode' }).first().click();
     await page.getByRole('button', { name: 'Save' }).first().click();
 
     // Test date format change
