@@ -63,5 +63,7 @@
   "detailed": "Detailed",
   "profilesNotEnabled": "Profiles not enabled for this explorer",
   "insertValidDtag": "Please insert a valid dtag",
-  "invalidAddress": "Invalid Address"
+  "invalidAddress": "Invalid Address",
+  "24-hour": "24-Hour Time",
+  "12-hour": "12-Hour Time"
 }
