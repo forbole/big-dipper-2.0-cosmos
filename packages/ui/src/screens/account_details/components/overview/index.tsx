@@ -23,6 +23,7 @@ import {
 } from 'react-share';
 import CopyIcon from 'shared-utils/assets/icon-copy.svg';
 import ShareIcon from 'shared-utils/assets/icon-share.svg';
+import CloseButton from '@/assets/close-share-modal.svg';
 
 type OverviewProps = {
   className?: string;
@@ -43,12 +44,24 @@ const Overview: FC<OverviewProps> = ({ className, address, withdrawalAddress }) 
     <>
       <Dialog maxWidth="xl" onClose={handleClose} aria-labelledby="simple-dialog-title" open={open}>
         <Box className={classes.dialog}>
-          <Typography variant="body1" align="center">
-            {t('scanForAddress')}
-          </Typography>
-          <QRCodeSVG value={address} size={200} bgColor="#ffffff" fgColor="#000000" />
+          <div className="modal-header">
+            <Typography variant="h3" align="center">
+              {t('shareAddress')}
+            </Typography>
+            <div onClick={handleClose} className="close-btn">
+              <CloseButton />
+            </div>
+          </div>
+          <div className="qrWrapper">
+            <Typography variant="body1" align="center">
+              {t('scanForAddress')}
+            </Typography>
+            <QRCodeSVG value={address} size={200} bgColor="#ffffff" fgColor="#000000" />
+          </div>
+          <br />
           <div className="dialog__share--wrapper">
             <Typography variant="body1">{t('shareTo')}</Typography>
+            <br />
             <div className={classes.icons}>
               <FacebookShareButton
                 url={url}

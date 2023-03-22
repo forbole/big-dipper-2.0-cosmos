@@ -15,6 +15,7 @@
   "from": "From",
   "to": "To",
   "linkedUntil": "Linked Until",
+  "shareAddress": "Share Address",
   "scanForAddress": "Scan for address",
   "shareTo": "Share to",
   "transactions": "Transactions",

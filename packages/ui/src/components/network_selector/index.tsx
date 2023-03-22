@@ -37,14 +37,14 @@ const NetworkSelector: FC<NetSelectorProps> = () => {
       link: 'explorer.coreum.com',
     },
     {
-      name: 'Devnet',
-      version: 1,
-      link: 'explorer.devnet-1.coreum.dev',
-    },
-    {
       name: 'Testnet',
       version: 1,
       link: 'explorer.testnet-1.coreum.dev',
+    },
+    {
+      name: 'Devnet',
+      version: 1,
+      link: 'explorer.devnet-1.coreum.dev',
     },
   ];
 
