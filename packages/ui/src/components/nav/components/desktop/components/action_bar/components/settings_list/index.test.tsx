@@ -13,6 +13,9 @@ let component: renderer.ReactTestRenderer;
 jest.mock('@mui/material/Select', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="select" {...props} />
 ));
+jest.mock('@/components/toggle', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="Toggle" {...props} />
+));
 jest.mock('next/router', () => ({
   ...jest.requireActual('next/router'),
   useRouter: () => ({
