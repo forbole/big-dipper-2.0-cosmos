@@ -28,7 +28,7 @@ type BalanceProps = Parameters<typeof formatBalanceData>[0] & {
 const Balance: FC<BalanceProps> = (props) => {
   const { t } = useTranslation('accounts');
   const { classes, cx, theme } = useStyles();
-  let market = useRecoilValue(readMarket);
+  const market = useRecoilValue(readMarket);
   const formattedChartData = formatBalanceData(props);
   const empty = {
     key: 'empty',
@@ -51,15 +51,24 @@ const Balance: FC<BalanceProps> = (props) => {
   const notEmpty = formatData.some((x) => x.value && Big(x.value).gt(0));
   const dataMemo = useShallowMemo(notEmpty ? formatData : [...formatData, empty]);
 
-  const [price, set] = useState<number>(0);
+  const [price, setPrice] = useState<number>(0);
+
   useEffect(() => {
-    const setPrice = async () => {
-      const { data } = await axios.get(
-        'https://api.coingecko.com/api/v3/simple/price?ids=coreum&vs_currencies=usd'
-      );
-      set(data.coreum.usd);
+    const getPrice = async () => {
+      try {
+        const response = await axios.get(
+          'https://api.coingecko.com/api/v3/simple/price?ids=coreum&vs_currencies=usd'
+        );
+
+        if (response.status === 200) {
+          setPrice(response.data.coreum.usd);
+        }
+      } catch (e) {
+        console.error('Error fetching Coreum - USD price from CoinGecko. Price defaulted to 0.', e);
+        setPrice(0);
+      }
     };
-    setPrice();
+    getPrice();
   }, []);
 
   const dataCount = formatData.filter((x) => x.value && Big(x.value).gt(0)).length;
