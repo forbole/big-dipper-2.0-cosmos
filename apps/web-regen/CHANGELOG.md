@@ -1,5 +1,12 @@
 # Unreleased
 
+## 2.8.15
+
+### Patch Changes
+
+- Updated dependencies [[`f4e9417a0`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/f4e9417a06c3a5667fe541eee2bf2b820566496d), [`f4e9417a0`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/f4e9417a06c3a5667fe541eee2bf2b820566496d)]:
+  - ui@2.19.0
+
 ## 2.8.14
 
 ### Patch Changes

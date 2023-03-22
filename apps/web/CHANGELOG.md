@@ -1,5 +1,18 @@
 # Unreleased
 
+## 2.9.0
+
+### Minor Changes
+
+- [#1166](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1166) [`f4e9417a0`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/f4e9417a06c3a5667fe541eee2bf2b820566496d) Thanks [@rachelhox](https://github.com/rachelhox)! - add en zht zhs it pl locales
+
+- [#1166](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1166) [`f4e9417a0`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/f4e9417a06c3a5667fe541eee2bf2b820566496d) Thanks [@rachelhox](https://github.com/rachelhox)! - add zht, zhs, pl and it locales
+
+### Patch Changes
+
+- Updated dependencies [[`f4e9417a0`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/f4e9417a06c3a5667fe541eee2bf2b820566496d), [`f4e9417a0`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/f4e9417a06c3a5667fe541eee2bf2b820566496d)]:
+  - ui@2.19.0
+
 ## 2.8.14
 
 ### Patch Changes
