@@ -3,6 +3,8 @@ import Tooltip from '@mui/material/Tooltip';
 import Zoom from '@mui/material/Zoom';
 import { FC, useEffect, useRef, useState } from 'react';
 import { makeStyles } from 'tss-react/mui';
+import { readTimeFormat } from '@/recoil/settings';
+import { useRecoilValue } from 'recoil';
 
 /* styles */
 const useStyles = makeStyles()(() => ({
@@ -13,14 +15,16 @@ const useStyles = makeStyles()(() => ({
 
 /* types */
 export type TimestampProps = {
-  timestamp: Parameters<typeof dayjs['utc']>[0] | Parameters<typeof dayjs['unix']>[0];
+  timestamp: Parameters<(typeof dayjs)['utc']>[0] | Parameters<(typeof dayjs)['unix']>[0];
   isUnix?: boolean;
 };
 
-/* module variables */
-const format = 'YYYY-MM-DD HH:mm:ss';
-
 const Timestamp: FC<TimestampProps> = ({ timestamp, isUnix }) => {
+  const timeFormat = useRecoilValue(readTimeFormat);
+
+  /* module variables */
+  const format = timeFormat === '24-hour' ? 'YYYY-MM-DD HH:mm:ss' : 'YYYY-MM-DD hh:mm:ss A';
+
   // eslint-disable-next-line no-nested-ternary
   const timestampDayJs = timestamp
     ? isUnix
