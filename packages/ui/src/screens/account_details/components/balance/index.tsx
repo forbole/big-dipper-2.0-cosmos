@@ -14,6 +14,8 @@ import numeral from 'numeral';
 import { FC } from 'react';
 import { Cell, Pie, PieChart, ResponsiveContainer } from 'recharts';
 import { useRecoilValue } from 'recoil';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const DynamicPieChart = dynamic(() => Promise.resolve(PieChart), { ssr: false });
 const { primaryTokenUnit, tokenUnits } = chainConfig();
@@ -26,7 +28,7 @@ type BalanceProps = Parameters<typeof formatBalanceData>[0] & {
 const Balance: FC<BalanceProps> = (props) => {
   const { t } = useTranslation('accounts');
   const { classes, cx, theme } = useStyles();
-  const market = useRecoilValue(readMarket);
+  let market = useRecoilValue(readMarket);
   const formattedChartData = formatBalanceData(props);
   const empty = {
     key: 'empty',
@@ -49,9 +51,20 @@ const Balance: FC<BalanceProps> = (props) => {
   const notEmpty = formatData.some((x) => x.value && Big(x.value).gt(0));
   const dataMemo = useShallowMemo(notEmpty ? formatData : [...formatData, empty]);
 
+  const [price, set] = useState<number>(0);
+  useEffect(() => {
+    const setPrice = async () => {
+      const { data } = await axios.get(
+        'https://api.coingecko.com/api/v3/simple/price?ids=coreum&vs_currencies=usd'
+      );
+      set(data.coreum.usd);
+    };
+    setPrice();
+  }, []);
+
   const dataCount = formatData.filter((x) => x.value && Big(x.value).gt(0)).length;
   const totalAmount = `$${numeral(
-    Big(market.price || 0)
+    Big(market.price || price || 0)
       ?.times(props.total.value)
       .toPrecision()
   ).format('0,0.00')}`;
@@ -116,7 +129,7 @@ const Balance: FC<BalanceProps> = (props) => {
           </div>
           <div className="total__secondary--container total__single--container">
             <Typography variant="body1" className="label">
-              ${numeral(market.price).format('0,0.[00]', Math.floor)} /{' '}
+              ${numeral(market.price || price).format('0,0.[00]', Math.floor)} /{' '}
               {/* Removed ".toUpperCase()" from the end of the line below per Reza's request */}
               {tokenUnits?.[primaryTokenUnit]?.display ?? ''}
             </Typography>
