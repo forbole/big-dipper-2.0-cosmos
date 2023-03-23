@@ -6,11 +6,20 @@ import { TFunction } from 'next-i18next';
 type DesmosProfileHooksProps = {
   t?: TFunction;
   bio?: string;
+  links?: ApplicationLink[];
 };
 
-export const useDesmosProfile = ({ t, bio }: DesmosProfileHooksProps) => {
+const appLinkDict = {
+  twitter: 'https://twitter.com/',
+  discord: 'https://discord.com/users/',
+  github: 'https://github.com/',
+  domain: 'https://',
+};
+
+export const useDesmosProfile = ({ t, bio, links }: DesmosProfileHooksProps) => {
   const [connectionsOpen, setConnectionsOpen] = useState(false);
   const [readMore, setReadMore] = useState<boolean | undefined>(true);
+  const [appLinks, setAppLinks] = useState<{ appLink?: string; identifier?: string }[]>([{}]);
 
   const handleConnectionsOpen = useCallback(() => {
     setConnectionsOpen(true);
@@ -36,6 +45,31 @@ export const useDesmosProfile = ({ t, bio }: DesmosProfileHooksProps) => {
       setReadMore(true);
     }
   }, [bio]);
+
+  // useEffect(() => {
+  //   if (links) {
+
+  //     links.map((link) => {
+  //     switch (link.network) {
+  //       let result;
+  //       let username;
+  //       case 'twitter':
+  //         result = `${appLinkDict['twitter']}${link.indentifier}`;
+  //         username = `@${link.identifier}`;
+  //         break;
+  //       default:
+  //         result = '';
+  //         username = '';
+  //     }
+  //     return {
+  //       result,
+  //       username
+  //     }
+  //   }
+  //   })
+  // }
+
+  // }, [links])
 
   return {
     connectionsOpen,

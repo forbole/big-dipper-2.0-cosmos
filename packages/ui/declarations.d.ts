@@ -60,7 +60,7 @@ type ApplicationLink = {
   network: string;
   identifier: string;
   creationTime: unknown;
-}[];
+};
 
 type DesmosProfile = {
   dtag: string;
@@ -71,7 +71,7 @@ type DesmosProfile = {
   creationTime: string;
   connections: ProfileConnectionType[];
   validator?: ValidatorProfile;
-  applicationLinks?: ApplicationLink;
+  applicationLinks: ApplicationLink[] | [];
 };
 
 type TagTheme =

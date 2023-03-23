@@ -149,6 +149,10 @@ const useStyles = makeStyles<{ coverUrl?: string }>()((theme, { coverUrl }) => (
     width: theme.spacing(2),
     height: theme.spacing(2),
   },
+  infoDiv: {
+    display: 'flex',
+    flexDirection: 'row',
+  },
 }));
 
 export default useStyles;

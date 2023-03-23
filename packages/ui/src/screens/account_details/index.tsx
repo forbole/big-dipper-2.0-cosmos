@@ -29,6 +29,7 @@ const AccountDetails = () => {
           <span className={classes.root}>
             {!!state.desmosProfile && (
               <DesmosProfile
+                applicationLinks={state.desmosProfile.applicationLinks}
                 dtag={state.desmosProfile.dtag}
                 nickname={state.desmosProfile.nickname}
                 imageUrl={state.desmosProfile.imageUrl}

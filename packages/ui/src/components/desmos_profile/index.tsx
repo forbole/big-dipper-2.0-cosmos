@@ -28,7 +28,7 @@ const DesmosProfile: FC<DesmosProfileProps> = (props) => {
     handleCopyToClipboard,
     handleReadMore,
     readMore,
-  } = useDesmosProfile({ t, bio: props.bio });
+  } = useDesmosProfile({ t, bio: props.bio, links: props.applicationLinks });
 
   const displayConnections = props.connections.length ? '' : 'hide';
 
@@ -113,6 +113,13 @@ const DesmosProfile: FC<DesmosProfileProps> = (props) => {
               </Typography>
             )}
           </div>
+        )}
+        {props.applicationLinks && (
+          <>
+            {props.applicationLinks.map((app) => (
+              <div className={cx(classes.link, classes.infoDiv)}>{app.network}</div>
+            ))}
+          </>
         )}
       </Box>
       <Connections
