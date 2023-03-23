@@ -8,8 +8,10 @@ import Typography from '@mui/material/Typography';
 import { useTranslation } from 'next-i18next';
 import dynamic from 'next/dynamic';
 import numeral from 'numeral';
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import { PolarAngleAxis, RadialBar, RadialBarChart, Tooltip } from 'recharts';
+import { readDelegatorAddress, readProfile } from '@/recoil/profiles/selectors';
+import { useRecoilValue } from 'recoil';
 
 const DynamicRadialBarChart = dynamic(() => Promise.resolve(RadialBarChart), { ssr: false });
 
@@ -26,7 +28,10 @@ const Consensus: FC<ComponentDefault> = ({ className }) => {
   ];
 
   const circleSize = 200;
-  const { name, address, imageUrl } = useProfileRecoil(state.proposer);
+
+  const delegator = useRecoilValue(readDelegatorAddress(state.proposer));
+
+  const { name, imageUrl } = useProfileRecoil(delegator);
 
   return (
     <Box className={cx(classes.root, className)}>
@@ -94,7 +99,7 @@ const Consensus: FC<ComponentDefault> = ({ className }) => {
             {state.loadingNewRound ? '-' : numeral(state.height).format('0,0')}
           </Typography>
           {!state.loadingNewStep && state.proposer ? (
-            <AvatarName address={address} imageUrl={imageUrl} name={name} />
+            <AvatarName address={delegator} imageUrl={imageUrl} name={name} />
           ) : (
             '-'
           )}
