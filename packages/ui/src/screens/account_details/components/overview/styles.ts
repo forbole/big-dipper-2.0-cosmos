@@ -12,8 +12,30 @@ const useStyles = makeStyles()((theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'column',
-    '& .MuiTypography-body1': {
-      marginBottom: theme.spacing(2),
+    '& .modal-header': {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      marginTop: '-16px',
+      width: '100%',
+      height: 64,
+      '& .close-btn': {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        cursor: 'pointer',
+      },
+    },
+    '& .qrWrapper': {
+      display: 'flex',
+      flexDirection: 'column-reverse',
+      backgroundColor: '#fff',
+      padding: theme.spacing(2),
+      borderRadius: theme.spacing(1),
+      '& .MuiTypography-body1': {
+        marginTop: theme.spacing(2),
+        color: '#000',
+      },
     },
     '& .dialog__share--wrapper': {
       marginTop: theme.spacing(2),

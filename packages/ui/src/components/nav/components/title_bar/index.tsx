@@ -14,16 +14,24 @@ type TitleBarProps = {
 };
 
 const TitleBar: FC<TitleBarProps> = ({ className }) => {
-  const [price, set] = useState<number>(0);
+  const [price, setPrice] = useState<number>(0);
 
   useEffect(() => {
-    const setPrice = async () => {
-      const { data } = await axios.get(
-        'https://api.coingecko.com/api/v3/simple/price?ids=coreum&vs_currencies=usd'
-      );
-      set(data.coreum.usd);
+    const getPrice = async () => {
+      try {
+        const response = await axios.get(
+          'https://api.coingecko.com/api/v3/simple/price?ids=coreum&vs_currencies=usd'
+        );
+
+        if (response.status === 200) {
+          setPrice(response.data.coreum.usd);
+        }
+      } catch (e) {
+        console.error('Error fetching Coreum - USD price from CoinGecko. Price defaulted to 0.', e);
+        setPrice(0);
+      }
     };
-    setPrice();
+    getPrice();
   }, []);
 
   const { t } = useTranslation('common');
