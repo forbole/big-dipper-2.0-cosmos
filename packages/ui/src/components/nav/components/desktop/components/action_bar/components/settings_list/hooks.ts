@@ -85,13 +85,13 @@ export const useSettingList = ({ lang }: { lang: string }) => {
       i18n?.changeLanguage(state.lang);
     }
 
-    if (state.dateFormat !== date) {
-      setDate(state.dateFormat);
-    }
-
-    // if (state.txListFormat !== tx) {
-    //   setTx(state.txListFormat);
+    // if (state.dateFormat !== date) {
+    //   setDate(state.dateFormat);
     // }
+
+    if (state.txListFormat !== tx) {
+      setTx(state.txListFormat);
+    }
 
     handleClose();
   };

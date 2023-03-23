@@ -117,7 +117,7 @@ const Settings: FC<ComponentDefault> = (props) => {
               <Typography className="form-item--label">{t('txListFormat')}</Typography>
               <Select
                 variant="outlined"
-                value={txListFormat}
+                value={state.txListFormat}
                 onChange={(e) => handleChange('txListFormat', (e?.target?.value as string) ?? '')}
                 MenuProps={{
                   MenuListProps: {
