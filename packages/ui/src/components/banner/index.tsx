@@ -1,9 +1,10 @@
+import useStyles from '@/components/banner/styles';
+import Box from '@/components/box';
+import CoinzillaBanner from '@/components/CoinzillaBanner';
 import { AnimatePresence, motion, Variants } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FC, useCallback, useEffect, useRef, useState } from 'react';
-import Box from '@/components/box';
-import useStyles from '@/components/banner/styles';
 
 export interface BannerLink {
   url: string;
@@ -12,11 +13,6 @@ export interface BannerLink {
 
 const bannersJsons = [process.env.NEXT_PUBLIC_BANNERS_JSON];
 
-/**
- * It returns an array of objects with two properties, `title` and `url`, which are used to render the
- * banner links
- * @returns An array of objects with a string key and a string value.
- */
 export function getBannersLinks() {
   const bannersJson = bannersJsons.find((b) => b);
   let bannerLinks: BannerLink[] = [];
@@ -29,18 +25,17 @@ export function getBannersLinks() {
       // ignore
     }
   }
+  if (process.env.NEXT_PUBLIC_COINZILLA_ZONE) {
+    bannerLinks.push({ url: process.env.NEXT_PUBLIC_COINZILLA_ZONE, img: '' });
+  }
   return bannerLinks;
 }
 
 const bannersLinks = getBannersLinks();
 
-/**
- * Props is an object with a property called index that is a number.
- * @property {number} index - The index of the item in the list.
- */
-type BannerProps = {
+interface BannerProps {
   index?: number;
-};
+}
 
 const MotionImage = motion(Image);
 const ROTATE_TIMER = 6 * 1000;
@@ -59,11 +54,10 @@ const variants: Variants = {
   },
 };
 
-/**
- * We create a random number between 0 and 1, and then use that number to select a banner from the
- * array of banners
- * @returns A Box component with a link to the banner url and an image of the banner.
- */
+function isZone(url: string) {
+  return process.env.NEXT_PUBLIC_COINZILLA_ZONE && url === process.env.NEXT_PUBLIC_COINZILLA_ZONE;
+}
+
 const Banner: FC<BannerProps> = ({ index = Math.floor(Math.random() * bannersLinks.length) }) => {
   const timer = useRef<NodeJS.Timeout>();
   const isRotated = useRef(false);
@@ -93,44 +87,59 @@ const Banner: FC<BannerProps> = ({ index = Math.floor(Math.random() * bannersLin
   }, []);
 
   return (
-    <AnimatePresence initial={false}>
-      <Box className={classes.root}>
-        {isRotated.current && (
-          <Link
-            prefetch={false}
-            href={prevBanner.url}
-            target="_blank"
-            rel="noreferrer"
-            key={prevBannerIndex}
-          >
-            <MotionImage
-              src={prevBanner.img}
-              fill
-              alt="prev-banner"
-              unoptimized
-              initial="prevInitial"
-              animate="prevAnimate"
-              variants={variants}
-              transition={{ duration: 1.5 }}
-            />
-          </Link>
-        )}
-        <Link prefetch={false} href={banner.url} target="_blank" rel="noreferrer" key={bannerIndex}>
-          <MotionImage
-            src={banner.img}
-            fill
-            alt="banner"
-            unoptimized
-            initial="initial"
-            animate="animate"
-            variants={variants}
-            transition={{ duration: 1.5 }}
+    <div>
+      <AnimatePresence initial={false}>
+        <Box className={classes.root}>
+          {!isZone(prevBanner.url) && isRotated.current && (
+            <Link
+              prefetch={false}
+              href={prevBanner.url}
+              target="_blank"
+              rel="noreferrer"
+              key={prevBannerIndex}
+            >
+              <MotionImage
+                src={prevBanner.img}
+                fill
+                alt="prev-banner"
+                unoptimized
+                initial="prevInitial"
+                animate="prevAnimate"
+                variants={variants}
+                transition={{ duration: 1.5 }}
+              />
+            </Link>
+          )}
+          {!isZone(banner.url) && (
+            <Link
+              prefetch={false}
+              href={banner.url}
+              target="_blank"
+              rel="noreferrer"
+              key={bannerIndex}
+            >
+              <MotionImage
+                src={banner.img}
+                fill
+                alt="banner"
+                unoptimized
+                initial="initial"
+                animate="animate"
+                variants={variants}
+                transition={{ duration: 1.5 }}
+                onMouseOver={handlerMouseOver}
+                onMouseOut={handleMouseOut}
+              />
+            </Link>
+          )}
+          <CoinzillaBanner
+            zone={banner.url}
             onMouseOver={handlerMouseOver}
             onMouseOut={handleMouseOut}
           />
-        </Link>
-      </Box>
-    </AnimatePresence>
+        </Box>
+      </AnimatePresence>
+    </div>
   );
 };
 
