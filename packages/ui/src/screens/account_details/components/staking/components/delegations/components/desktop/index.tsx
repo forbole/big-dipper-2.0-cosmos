@@ -24,11 +24,11 @@ const DelegationsRow: FC<DelegationsRowProps> = ({ item, i }) => {
   const formattedItem = {
     identifier: i,
     validator: <AvatarName name={name} address={address} imageUrl={imageUrl} />,
-    //Removed ".toUpperCase()" from the end of the line below per Reza's request
-    amount: `${amount} ${item.amount?.displayDenom}`,
+    //Kept the "toUpperCase()" in order to show the token symbol in uppercase
+    amount: `${amount} ${item.amount?.displayDenom.toUpperCase()}`,
     commission: `${commission} %`,
-    //Removed ".toUpperCase()" from the end of the line below per Reza's request
-    reward: `${reward} ${item.reward?.displayDenom}`,
+    //Kept the "toUpperCase()" in order to show the token symbol in uppercase
+    reward: `${reward} ${item.reward?.displayDenom.toUpperCase()}`,
   };
   return (
     <TableRow>

@@ -34,8 +34,8 @@ const DelegationsItem: FC<DelegationsItemProps> = ({ i, item, isLast }) => {
           </Typography>
           <Typography variant="body1" className="value">
             {item.amount ? formatNumber(item.amount.value, item.amount.exponent) : ''}{' '}
-            {/* //Removed ".toUpperCase()" from the end of the line below per Reza's request */}
-            {item.amount?.displayDenom}
+            {/* //Kept the "toUpperCase()" in order to show the token symbol in uppercase */}
+            {item.amount?.displayDenom.toUpperCase()}
           </Typography>
         </div>
       </div>

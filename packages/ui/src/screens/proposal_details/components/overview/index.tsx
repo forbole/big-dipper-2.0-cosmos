@@ -38,8 +38,8 @@ const Overview: FC<{ className?: string; overview: OverviewType }> = ({ classNam
     ? `${formatNumber(
         amountRequested.value,
         amountRequested.exponent
-        //Removed ".toUpperCase()" from the end of the line below per Reza's request
-      )} ${amountRequested.displayDenom}`
+        //Kept the "toUpperCase()" in order to show the token symbol in uppercase
+      )} ${amountRequested.displayDenom.toUpperCase()}`
     : '';
 
   const getExtraDetails = useCallback(() => {

@@ -51,10 +51,10 @@ export const formatStaking = (data: Staking, t: TFunction) => [
   {
     key: 'minSelfDelegation',
     label: t('minSelfDelegation'),
-    //Removed ".toUpperCase()" from the end of the line below per Reza's request
-    detail: `${numeral(data.minSelfDelegation.value).format('0,0')} ${
-      data.minSelfDelegation.displayDenom
-    }`,
+    //Kept the "toUpperCase()" in order to show the token symbol in uppercase
+    detail: `${numeral(data.minSelfDelegation.value).format(
+      '0,0'
+    )} ${data.minSelfDelegation.displayDenom.toUpperCase()}`,
   },
 ];
 
@@ -148,8 +148,8 @@ export const formatGov = (data: Gov, t: TFunction) => [
   {
     key: 'minDeposit',
     label: t('minDeposit'),
-    //Removed ".toUpperCase()" from the end of the line below per Reza's request
-    detail: `${data.minDeposit.value} ${data.minDeposit.displayDenom}`,
+    //Kept the "toUpperCase()" in order to show the token symbol in uppercase
+    detail: `${data.minDeposit.value} ${data.minDeposit.displayDenom.toUpperCase()}`,
   },
   {
     key: 'maxDepositPeriod',

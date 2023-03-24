@@ -17,8 +17,8 @@ const Transfer: FC<{ message: MsgTransfer }> = (props) => {
   const token = `${formatNumber(
     tokenFormatDenom.value,
     tokenFormatDenom.exponent
-    //Removed ".toUpperCase()" from the end of the line below per Reza's request
-  )} ${tokenFormatDenom.displayDenom}`;
+    //Kept the "toUpperCase()" in order to show the token symbol in uppercase
+  )} ${tokenFormatDenom.displayDenom.toUpperCase()}`;
 
   return (
     <Typography>

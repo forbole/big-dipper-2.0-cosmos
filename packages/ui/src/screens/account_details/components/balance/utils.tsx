@@ -15,8 +15,8 @@ export const formatBalanceData = (data: {
       display: `${formatNumber(
         data.available.value,
         data.available.exponent
-        //Removed ".toUpperCase()" from the end of the line below per Reza's request
-      )} ${data.available.displayDenom}`,
+        //Kept the "toUpperCase()" in order to show the token symbol in uppercase
+      )} ${data.available.displayDenom.toUpperCase()}`,
       value: data.available.value,
     },
     {
@@ -24,8 +24,8 @@ export const formatBalanceData = (data: {
       display: `${formatNumber(
         data.delegate.value,
         data.delegate.exponent
-        //Removed ".toUpperCase()" from the end of the line below per Reza's request
-      )} ${data.delegate.displayDenom}`,
+        //Kept the "toUpperCase()" in order to show the token symbol in uppercase
+      )} ${data.delegate.displayDenom.toUpperCase()}`,
       value: data.delegate.value,
     },
     {
@@ -33,8 +33,8 @@ export const formatBalanceData = (data: {
       display: `${formatNumber(
         data.unbonding.value,
         data.unbonding.exponent
-        //Removed ".toUpperCase()" from the end of the line below per Reza's request
-      )} ${data.unbonding.displayDenom}`,
+        //Kept the "toUpperCase()" in order to show the token symbol in uppercase
+      )} ${data.unbonding.displayDenom.toUpperCase()}`,
       value: data.unbonding.value,
     },
     {
@@ -43,8 +43,8 @@ export const formatBalanceData = (data: {
         ? `${formatNumber(
             data.reward.value,
             data.reward.exponent
-            //Removed ".toUpperCase()" from the end of the line below per Reza's request
-          )} ${data.reward.displayDenom}`
+            //Kept the "toUpperCase()" in order to show the token symbol in uppercase
+          )} ${data.reward.displayDenom.toUpperCase()}`
         : '',
       value: data.reward?.value,
     },
@@ -56,8 +56,8 @@ export const formatBalanceData = (data: {
       display: `${formatNumber(
         data.commission.value,
         data.commission.exponent
-        //Removed ".toUpperCase()" from the end of the line below per Reza's request
-      )} ${data.commission.displayDenom}`,
+        //Kept the "toUpperCase()" in order to show the token symbol in uppercase
+      )} ${data.commission.displayDenom.toUpperCase()}`,
       value: data.commission.value,
     });
   }
