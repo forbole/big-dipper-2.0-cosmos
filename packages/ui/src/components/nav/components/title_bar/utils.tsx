@@ -23,13 +23,14 @@ export const formatMarket = (data: AtomState) => {
     },
     {
       key: 'supply',
-      //Removed ".toUpperCase()" from the end of the line below per Reza's request
-      data: `${formatNumber(data.supply.value, 2)} ${data.supply.displayDenom}`,
+      data: `${formatNumber(data.supply.value, 2)} ${data.supply.displayDenom.toUpperCase()}`,
     },
     {
       key: 'communityPool',
-      //Removed ".toUpperCase()" from the end of the line below per Reza's request
-      data: `${formatNumber(data.communityPool.value, 2)} ${data.communityPool.displayDenom}`,
+      data: `${formatNumber(
+        data.communityPool.value,
+        2
+      )} ${data.communityPool.displayDenom.toUpperCase()}`,
     },
   ];
 };
