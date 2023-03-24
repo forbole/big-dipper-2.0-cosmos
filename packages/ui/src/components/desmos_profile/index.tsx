@@ -5,6 +5,7 @@ import { useDisplayStyles } from '@/styles/useSharedStyles';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import Avatar from '@/components/avatar';
 import Box from '@/components/box';
+import Link from '@mui/material/Link';
 import Connections from '@/components/desmos_profile/components/connections';
 import { useDesmosProfile } from '@/components/desmos_profile/hooks';
 import useStyles from '@/components/desmos_profile/styles';
@@ -17,6 +18,25 @@ type DesmosProfileProps = {
   address: string;
 } & Omit<DesmosProfile, 'address'>;
 
+const appLinkDict = {
+  twitter: 'https://twitter.com/',
+  discord: 'https://discord.com/users/',
+  github: 'https://github.com/',
+  domain: 'https://',
+};
+
+const LinkDisplay: FC<Pick<ApplicationLink, 'network' | 'identifier'>> = ({
+  network,
+  identifier,
+}) => (
+  <Link
+    href={`${appLinkDict[network as keyof typeof appLinkDict]}${identifier}`}
+    target="_blank"
+    rel="noreferrer"
+  >
+    {network === 'domain' ? `${identifier}` : `@${identifier}`}
+  </Link>
+);
 const DesmosProfile: FC<DesmosProfileProps> = (props) => {
   const { t } = useTranslation('accounts');
   const { classes, cx } = useStyles({ coverUrl: props.coverUrl });
@@ -30,7 +50,7 @@ const DesmosProfile: FC<DesmosProfileProps> = (props) => {
     readMore,
   } = useDesmosProfile({ t, bio: props.bio, links: props.applicationLinks });
 
-  const displayConnections = props.connections.length ? '' : 'hide';
+  const displayConnections = props?.connections?.length ? '' : 'hide';
 
   return (
     <>
@@ -114,10 +134,10 @@ const DesmosProfile: FC<DesmosProfileProps> = (props) => {
             )}
           </div>
         )}
-        {props.applicationLinks && (
+        {props.applicationLinks.length > 0 && (
           <>
             {props.applicationLinks.map((app) => (
-              <div className={cx(classes.link, classes.infoDiv)}>{app.network}</div>
+              <LinkDisplay network={app.network} identifier={app.identifier} />
             ))}
           </>
         )}
