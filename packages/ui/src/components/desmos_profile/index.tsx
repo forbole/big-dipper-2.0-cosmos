@@ -1,6 +1,7 @@
 import Typography from '@mui/material/Typography';
 import { useTranslation } from 'next-i18next';
 import { FC } from 'react';
+import dayjs from 'dayjs';
 import { useDisplayStyles } from '@/styles/useSharedStyles';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import Avatar from '@/components/avatar';
@@ -11,6 +12,8 @@ import { useDesmosProfile } from '@/components/desmos_profile/hooks';
 import useStyles from '@/components/desmos_profile/styles';
 import Markdown from '@/components/markdown';
 import CopyIcon from 'shared-utils/assets/icon-copy.svg';
+import LinkIcon from 'shared-utils/assets/icon-link.svg';
+import DateIcon from 'shared-utils/assets/icon-date.svg';
 
 type DesmosProfileProps = {
   className?: string;
@@ -37,10 +40,12 @@ const LinkDisplay: FC<Pick<ApplicationLink, 'network' | 'identifier'>> = ({
     {network === 'domain' ? `${identifier}` : `@${identifier}`}
   </Link>
 );
+
 const DesmosProfile: FC<DesmosProfileProps> = (props) => {
   const { t } = useTranslation('accounts');
   const { classes, cx } = useStyles({ coverUrl: props.coverUrl });
   const display = useDisplayStyles().classes;
+  const format = 'MMM YYYY';
   const {
     connectionsOpen,
     handleConnectionsClose,
@@ -125,7 +130,7 @@ const DesmosProfile: FC<DesmosProfileProps> = (props) => {
             {readMore && (
               <Typography
                 variant="body1"
-                className={cx(classes.link, displayConnections)}
+                className={classes.link}
                 onClick={handleReadMore}
                 role="button"
               >
@@ -137,9 +142,20 @@ const DesmosProfile: FC<DesmosProfileProps> = (props) => {
         {props.applicationLinks.length > 0 && (
           <>
             {props.applicationLinks.map((app) => (
-              <LinkDisplay network={app.network} identifier={app.identifier} />
+              <Box key={app.identifier} className={classes.infoDiv}>
+                <LinkIcon className={classes.icon} />
+                <LinkDisplay network={app.network} identifier={app.identifier} />
+              </Box>
             ))}
           </>
+        )}
+        {props.creationTime && (
+          <Box className={classes.infoDiv}>
+            <DateIcon className={classes.icon} />
+            <Typography variant="body2" className="tag">
+              Joined {dayjs(props.creationTime).format(format)}
+            </Typography>
+          </Box>
         )}
       </Box>
       <Connections

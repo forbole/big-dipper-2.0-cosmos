@@ -7,6 +7,10 @@ const { chainName } = chainConfig();
 const useStyles = makeStyles<{ coverUrl?: string }>()((theme, { coverUrl }) => ({
   root: {
     overflow: 'hidden',
+    '& a': {
+      color: '#0075FF',
+      textDecoration: 'none',
+    },
   },
   cover: {
     height: '150px',
@@ -85,7 +89,7 @@ const useStyles = makeStyles<{ coverUrl?: string }>()((theme, { coverUrl }) => (
     },
   },
   link: {
-    color: theme.palette.custom.fonts.highlight,
+    color: '#0075FF',
     '&:hover': {
       cursor: 'pointer',
     },
@@ -152,6 +156,14 @@ const useStyles = makeStyles<{ coverUrl?: string }>()((theme, { coverUrl }) => (
   infoDiv: {
     display: 'flex',
     flexDirection: 'row',
+    alignItems: 'center',
+    padding: `${theme.spacing(2, 0, 2, 0)}!important` as any,
+    a: {
+      paddingLeft: 2,
+    },
+  },
+  icon: {
+    fill: 'none',
   },
 }));
 
