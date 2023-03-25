@@ -89,7 +89,7 @@ const useStyles = makeStyles<{ coverUrl?: string }>()((theme, { coverUrl }) => (
     },
   },
   link: {
-    color: '#0075FF',
+    color: '#0075FF!important' as any,
     '&:hover': {
       cursor: 'pointer',
     },
@@ -155,11 +155,41 @@ const useStyles = makeStyles<{ coverUrl?: string }>()((theme, { coverUrl }) => (
   },
   infoDiv: {
     display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    padding: `${theme.spacing(1, 0, 1, 0)}!important` as any,
+    [theme.breakpoints.up('lg')]: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      padding: `${theme.spacing(2, 0, 2, 0)}!important` as any,
+    },
+    a: {
+      paddingLeft: 3,
+      fontSize: theme.spacing(1.75),
+    },
+  },
+  flexDiv: {
+    display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    padding: `${theme.spacing(2, 0, 2, 0)}!important` as any,
-    a: {
-      paddingLeft: 2,
+    padding: theme.spacing(0, 0, 1, 0),
+    '&:first-child': {
+      paddingTop: 0,
+    },
+    '&:last-child': {
+      paddingBottom: 0,
+    },
+    [theme.breakpoints.up('lg')]: {
+      padding: theme.spacing(0, 2, 0, 0),
+      '&:last-child': {
+        paddingRight: 0,
+      },
+    },
+    p: {
+      paddingLeft: 5,
+      fontWeight: 600,
+      fontSize: theme.spacing(1.75),
+      color: theme.palette.custom.fonts.fontFour,
     },
   },
   icon: {

@@ -33,5 +33,6 @@
   "creationTime": "创建时间",
   "bio": "简述",
   "status": "状态",
-  "completionTime": "完成时间"
+    "completionTime": "完成时间",
+  "joined": "创建时间 {{date}}"
 }

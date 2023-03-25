@@ -33,5 +33,6 @@
   "creationTime": "Tempo di creazione",
   "bio": "Bio",
   "status": "Stato",
-  "completionTime": "Tempo di completamento"
+    "completionTime": "Tempo di completamento",
+  "joined": "Tempo di creazione {{date}}"
 }

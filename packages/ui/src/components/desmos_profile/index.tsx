@@ -1,8 +1,8 @@
 import Typography from '@mui/material/Typography';
 import { useTranslation } from 'next-i18next';
+import numeral from 'numeral';
 import { FC } from 'react';
 import dayjs from 'dayjs';
-import { useDisplayStyles } from '@/styles/useSharedStyles';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import Avatar from '@/components/avatar';
 import Box from '@/components/box';
@@ -14,6 +14,7 @@ import Markdown from '@/components/markdown';
 import CopyIcon from 'shared-utils/assets/icon-copy.svg';
 import LinkIcon from 'shared-utils/assets/icon-link.svg';
 import DateIcon from 'shared-utils/assets/icon-date.svg';
+import ConnectionIcon from 'shared-utils/assets/icon-connection.svg';
 
 type DesmosProfileProps = {
   className?: string;
@@ -44,7 +45,6 @@ const LinkDisplay: FC<Pick<ApplicationLink, 'network' | 'identifier'>> = ({
 const DesmosProfile: FC<DesmosProfileProps> = (props) => {
   const { t } = useTranslation('accounts');
   const { classes, cx } = useStyles({ coverUrl: props.coverUrl });
-  const display = useDisplayStyles().classes;
   const format = 'MMM YYYY';
   const {
     connectionsOpen,
@@ -72,16 +72,6 @@ const DesmosProfile: FC<DesmosProfileProps> = (props) => {
               @{props.dtag}
             </Typography>
           </div>
-          {/* <Typography
-            variant="body1"
-            className={cx(classes.link, displayConnections)}
-            onClick={handleConnectionsOpen}
-            role="button"
-          >
-            {t('connections', {
-              connections: numeral(props.connections.length).format('0,0'),
-            })}
-          </Typography> */}
           <div className={classes.addressBox}>
             <div className={classes.address}>
               <Typography variant="body1" className="value">
@@ -139,24 +129,43 @@ const DesmosProfile: FC<DesmosProfileProps> = (props) => {
             )}
           </div>
         )}
-        {props.applicationLinks.length > 0 && (
-          <>
-            {props.applicationLinks.map((app) => (
-              <Box key={app.identifier} className={classes.infoDiv}>
-                <LinkIcon className={classes.icon} />
-                <LinkDisplay network={app.network} identifier={app.identifier} />
-              </Box>
-            ))}
-          </>
-        )}
-        {props.creationTime && (
-          <Box className={classes.infoDiv}>
-            <DateIcon className={classes.icon} />
-            <Typography variant="body2" className="tag">
-              Joined {dayjs(props.creationTime).format(format)}
-            </Typography>
-          </Box>
-        )}
+        <div className={classes.infoDiv}>
+          {props.applicationLinks.length > 0 && (
+            <>
+              {props.applicationLinks.map((app) => (
+                <div key={app.identifier} className={classes.flexDiv}>
+                  <LinkIcon className={classes.icon} />
+                  <LinkDisplay network={app.network} identifier={app.identifier} />
+                </div>
+              ))}
+            </>
+          )}
+          {props.creationTime && (
+            <div className={classes.flexDiv}>
+              <DateIcon className={classes.icon} />
+              <Typography variant="body2">
+                {t('joined', {
+                  date: dayjs(props.creationTime).format(format),
+                })}
+              </Typography>
+            </div>
+          )}
+          {props.connections && (
+            <div className={classes.flexDiv}>
+              <ConnectionIcon className={classes.icon} />
+              <Typography
+                variant="body1"
+                className={cx(classes.link, displayConnections)}
+                onClick={handleConnectionsOpen}
+                role="button"
+              >
+                {t('connections', {
+                  connections: numeral(props.connections.length).format('0,0'),
+                })}
+              </Typography>
+            </div>
+          )}
+        </div>
       </Box>
       <Connections
         open={connectionsOpen}
