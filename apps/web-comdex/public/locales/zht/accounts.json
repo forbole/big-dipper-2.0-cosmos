@@ -33,7 +33,6 @@
   "creationTime": "創建時間",
   "bio": "簡介",
   "status": "狀態",
-     "completionTime": "完成時間",
-  "joined": "創建時間 {{date}}",
-  "joined": "创建时间 {{date}}"
+  "completionTime": "完成時間",
+  "joined": "創建時間 {{date}}"
 }
