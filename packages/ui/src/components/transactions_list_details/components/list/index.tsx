@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import numeral from 'numeral';
@@ -52,10 +53,9 @@ const ListItem: FC<ListItemProps> = ({ index, style, setRowHeight, isItemLoaded,
     ),
     hash: (
       <Link shallow prefetch={false} href={TRANSACTION_DETAILS(transaction.hash)}>
-        <span className={display.hiddenUntilLg}>{transaction.hash}</span>
-        <span className={display.hiddenWhenLg}>
+        <span>
           {getMiddleEllipsis(transaction.hash, {
-            beginning: 15,
+            beginning: 5,
             ending: 5,
           })}
         </span>
@@ -64,13 +64,23 @@ const ListItem: FC<ListItemProps> = ({ index, style, setRowHeight, isItemLoaded,
     type: (
       <div>
         <Tag value={transaction.type?.[0] ?? ''} theme="six" />
-        {transaction.messages.count > 1 && ' +'}
       </div>
     ),
     result: <Result success={transaction.success} />,
     time: formatDayJs(dayjs.utc(transaction.timestamp), dateFormat, timeFormat),
     messageCount: numeral(transaction.messages.count).format('0,0'),
     messages: transaction.messages.items.map((message) => getMessageByType(message, false, t)),
+    amount: transaction.messages.items
+      .map((message: any) =>
+        'amounts' in message
+          ? message.amounts
+              .map((amount: any) => parseFloat(amount.value))
+              .reduce((x: any, y: any) => x + y)
+          : 'amount' in message
+          ? message.amount.amount / 1000000
+          : 0
+      )
+      .reduce((prev, next) => prev + next),
   };
   return (
     <div style={style}>
