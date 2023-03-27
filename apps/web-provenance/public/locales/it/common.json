@@ -68,5 +68,7 @@
     "invalidAddress": "Address non valido",
   "24-hour": "Tempo di 24 ore",
   "12-hour": "Tempo di 12 ore",
-  "select a chain": "Seleziona una blockchain"
+  "select a chain": "Seleziona una blockchain",
+  "networkSearchBarPlaceholder": "Ricerca per nome",
+  "search": "Ricerca"
 }

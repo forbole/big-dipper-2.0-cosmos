@@ -66,5 +66,7 @@
   "invalidAddress": "無效地址",
   "24-hour": "24 小時制",
   "12-hour": "12 小時制",
-  "select a chain": "選擇區塊鏈"
+  "select a chain": "選擇區塊鏈",
+  "networkSearchBarPlaceholder": "按名稱搜索",
+  "search": "搜索"
 }

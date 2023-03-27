@@ -68,5 +68,7 @@
     "invalidAddress": "无效地址",
   "24-hour": "24 小时制",
   "12-hour": "12 小时制",
-  "select a chain": "選擇区块鏈"
+    "select a chain": "选择区块链",
+    "networkSearchBarPlaceholder": "按名称搜索",
+  "search": "搜索"
 }

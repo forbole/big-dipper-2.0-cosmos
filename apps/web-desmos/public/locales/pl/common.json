@@ -68,5 +68,7 @@
     "invalidAddress": "Błędny adres",
   "24-hour": "Czas 24-godzinny",
   "12-hour": "12-godzinny czas",
-  "select a chain": "Wybierz łańcuch bloków"
+  "select a chain": "Wybierz łańcuch bloków",
+  "networkSearchBarPlaceholder": "Szukaj według nazwy",
+  "search": "Szukaj"
 }
