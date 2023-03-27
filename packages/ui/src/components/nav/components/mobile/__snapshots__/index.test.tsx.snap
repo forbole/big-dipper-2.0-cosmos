@@ -67,6 +67,27 @@ exports[`screen: Nav/Mobile it renders 1`] = `
   min-width: 0;
 }
 
+.emotion-4 .iconName {
+  border: 1px solid #707070;
+  border-radius: 8px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 8px 8px;
+}
+
+.emotion-4 .iconName:hover {
+  border: 1px solid #FF835B;
+}
+
 .emotion-5 {
   width: auto;
   height: auto;
@@ -329,31 +350,35 @@ exports[`screen: Nav/Mobile it renders 1`] = `
         <div
           className="emotion-4"
         >
-          <img
-            alt="logo"
-            className="emotion-5"
-            data-nimg="1"
-            decoding="async"
-            height={0}
-            loading="lazy"
-            onError={[Function]}
-            onLoad={[Function]}
-            src="https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/desmos.svg?sanitize=true"
-            style={
-              {
-                "color": "transparent",
-              }
-            }
-            width={0}
-          />
           <div
             className="network"
           >
-            <h4
-              className="MuiTypography-root MuiTypography-h4 emotion-6"
+            <div
+              className="iconName"
             >
-              Desmos
-            </h4>
+              <img
+                alt="logo"
+                className="emotion-5"
+                data-nimg="1"
+                decoding="async"
+                height={0}
+                loading="lazy"
+                onError={[Function]}
+                onLoad={[Function]}
+                src="https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/desmos.svg?sanitize=true"
+                style={
+                  {
+                    "color": "transparent",
+                  }
+                }
+                width={0}
+              />
+              <h4
+                className="MuiTypography-root MuiTypography-h4 emotion-6"
+              >
+                Desmos
+              </h4>
+            </div>
             <a
               className="emotion-7"
               href="https://explorer.desmos.network"

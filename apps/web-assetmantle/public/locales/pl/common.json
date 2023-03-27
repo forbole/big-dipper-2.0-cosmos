@@ -67,5 +67,6 @@
   "insertValidDtag": "Proszę wprowadzić poprawny dtag",
     "invalidAddress": "Błędny adres",
   "24-hour": "Czas 24-godzinny",
-  "12-hour": "12-godzinny czas"
+  "12-hour": "12-godzinny czas",
+  "select a chain": "Wybierz łańcuch bloków"
 }
