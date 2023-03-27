@@ -7,7 +7,7 @@ import { useRecoilValue } from 'recoil';
 // import useTranslation from 'next-translate/useTranslation';
 import useStyles from './styles';
 
-const TitleBar: React.FC = () => {
+const PriceChart: React.FC = () => {
   const { classes } = useStyles();
   const chartRef = useRef<IChartApi>();
   const theme = useRecoilValue(readTheme);
@@ -112,4 +112,4 @@ const TitleBar: React.FC = () => {
   return <div className={classes.chart} id="price-chart" />;
 };
 
-export default TitleBar;
+export default PriceChart;
