@@ -3,6 +3,7 @@ import axios from 'axios';
 import { createChart, IChartApi, SingleValueData } from 'lightweight-charts';
 import React, { useEffect, useRef, useState } from 'react';
 import { useRecoilValue } from 'recoil';
+import Spinner from '@/components/loadingSpinner';
 
 // import useTranslation from 'next-translate/useTranslation';
 import useStyles from './styles';
@@ -11,19 +12,33 @@ const PriceChart: React.FC = () => {
   const { classes } = useStyles();
   const chartRef = useRef<IChartApi>();
   const theme = useRecoilValue(readTheme);
+  const [isLoading, setIsLoading] = useState<Boolean>(false);
+  const [isError, setIsError] = useState<Boolean>(false);
   const [data, setData] = useState<SingleValueData[]>();
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
       (async () => {
-        const chartData: any = await axios.get(
-          'https://api.coingecko.com/api/v3/coins/coreum/market_chart?vs_currency=usd&days=7'
-        );
-        const formatted = chartData.data.prices.map((entry: any) => ({
-          time: entry[0] / 1000,
-          value: entry[1],
-        }));
-        setData(formatted);
+        try {
+          setIsLoading(true);
+          setIsError(false);
+          const response: any = await axios.get(
+            'https://api.coingecko.com/api/v3/coins/coreum/market_chart?vs_currency=usd&days=7'
+          );
+
+          if (response.status === 200) {
+            const formatted = response.data.prices.map((entry: any) => ({
+              time: entry[0] / 1000,
+              value: entry[1],
+            }));
+            setData(formatted);
+            setIsLoading(false);
+          }
+        } catch (e) {
+          console.error('Error fetching price chart from CoinGecko.', e);
+          setIsLoading(false);
+          setIsError(true);
+        }
       })();
     }
   }, []);
@@ -109,7 +124,20 @@ const PriceChart: React.FC = () => {
     };
   }, []);
 
-  return <div className={classes.chart} id="price-chart" />;
+  return (
+    <>
+      {isLoading ? (
+        <Spinner customStyle={{ justifyContent: 'center' }} />
+      ) : (
+        !isError && <div className={classes.chart} id="price-chart" />
+      )}
+      {isError && (
+        <div className={classes.error}>
+          Error getting price chart. Please refresh or try again later
+        </div>
+      )}
+    </>
+  );
 };
 
 export default PriceChart;

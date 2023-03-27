@@ -138,6 +138,7 @@ const Desktop: FC<TransactionsListState> = ({
                   rowHeight={getRowHeight}
                   width={width}
                   className="scrollbar"
+                  style={{ overflowX: 'hidden' }}
                 >
                   {({ columnIndex, rowIndex, style }) => {
                     if (

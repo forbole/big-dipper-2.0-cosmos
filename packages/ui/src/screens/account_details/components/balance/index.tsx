@@ -16,6 +16,7 @@ import { Cell, Pie, PieChart, ResponsiveContainer } from 'recharts';
 import { useRecoilValue } from 'recoil';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import Spinner from '@/components/loadingSpinner';
 
 const DynamicPieChart = dynamic(() => Promise.resolve(PieChart), { ssr: false });
 const { primaryTokenUnit, tokenUnits } = chainConfig();
@@ -52,19 +53,26 @@ const Balance: FC<BalanceProps> = (props) => {
   const dataMemo = useShallowMemo(notEmpty ? formatData : [...formatData, empty]);
 
   const [price, setPrice] = useState<number>(0);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isError, setIsError] = useState<boolean>(false);
 
   useEffect(() => {
     const getPrice = async () => {
       try {
+        setIsLoading(true);
+        setIsError(false);
         const response = await axios.get(
           'https://api.coingecko.com/api/v3/simple/price?ids=coreum&vs_currencies=usd'
         );
 
         if (response.status === 200) {
           setPrice(response.data.coreum.usd);
+          setIsLoading(false);
         }
       } catch (e) {
         console.error('Error fetching Coreum - USD price from CoinGecko. Price defaulted to 0.', e);
+        setIsLoading(false);
+        setIsError(true);
         setPrice(0);
       }
     };
@@ -73,7 +81,7 @@ const Balance: FC<BalanceProps> = (props) => {
 
   const dataCount = formatData.filter((x) => x.value && Big(x.value).gt(0)).length;
   const totalAmount = `$${numeral(
-    Big(market.price || price || 0)
+    Big(market.price || price)
       ?.times(props.total.value)
       .toPrecision()
   ).format('0,0.00')}`;
@@ -136,13 +144,25 @@ const Balance: FC<BalanceProps> = (props) => {
             </Typography>
             <Typography variant="h3">{totalDisplay}</Typography>
           </div>
+          <Divider />
           <div className="total__secondary--container total__single--container">
-            <Typography variant="body1" className="label">
-              ${numeral(market.price || price).format('0,0.[00]', Math.floor)} /{' '}
-              {/* Kept the "toUpperCase()" in order to show the token symbol in uppercase */}
-              {tokenUnits?.[primaryTokenUnit]?.display?.toUpperCase() ?? ''}
+            <Typography
+              variant="body1"
+              className="label"
+              style={isError ? { color: '#F34747' } : {}}
+            >
+              {isLoading ? (
+                <Spinner customStyle={{ marginLeft: '1rem', justifyContent: 'center' }} />
+              ) : isError ? (
+                'Error fetching CORE-USD price'
+              ) : (
+                /* Kept the "toUpperCase()" in order to show the token symbol in uppercase */
+                `$${numeral(market.price || price).format('0,0.[00]', Math.floor)} / ${
+                  tokenUnits?.[primaryTokenUnit]?.display?.toUpperCase() ?? ''
+                }`
+              )}
             </Typography>
-            <Typography variant="body1">{totalAmount}</Typography>
+            <Typography variant="body1">{price === 0 ? '--' : totalAmount}</Typography>
           </div>
         </div>
       </div>
