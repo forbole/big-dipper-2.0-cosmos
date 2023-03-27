@@ -3,7 +3,8 @@
   "title": "Cheqd Block Explorer",
   "extra": {
     "profile": false,
-    "graphqlWs": false
+    "graphqlWs": false,
+    "votingPowerExponent": 3
   },
   "previewImage": "https://s3.bigdipper.live/previews/cheqd.png",
   "themes": {
