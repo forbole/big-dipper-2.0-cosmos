@@ -16,6 +16,9 @@ import { FC } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
+import CopyIcon from 'shared-utils/assets/icon-copy.svg';
+import copy from 'copy-to-clipboard';
+import { toast } from 'react-toastify';
 
 type ListItemProps = Pick<ListChildComponentProps, 'index' | 'style'> & {
   setRowHeight: Parameters<typeof useListRow>[1];
@@ -50,12 +53,26 @@ const ListItem: FC<ListItemProps> = ({
       </Link>
     ),
     hash: (
-      <Link shallow prefetch={false} href={TRANSACTION_DETAILS(transaction.hash)}>
-        {getMiddleEllipsis(transaction.hash, {
-          beginning: 15,
-          ending: 5,
-        })}
-      </Link>
+      <>
+        <Link shallow prefetch={false} href={TRANSACTION_DETAILS(transaction.hash)}>
+          {getMiddleEllipsis(transaction.hash, {
+            beginning: 15,
+            ending: 5,
+          })}
+        </Link>
+        <CopyIcon
+          onClick={() => {
+            copy(transaction.hash);
+            toast<string>('Hash Copied');
+          }}
+          style={{
+            cursor: 'pointer',
+            width: 20,
+            height: 20,
+            marginLeft: 8,
+          }}
+        />
+      </>
     ),
     type: (
       <div>
