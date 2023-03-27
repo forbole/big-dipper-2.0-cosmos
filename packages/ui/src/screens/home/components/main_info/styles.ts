@@ -28,6 +28,11 @@ const useStyles = makeStyles()((theme) => ({
   container: {
     display: 'grid',
     gridTemplateRows: 'auto 1fr',
+    '& #price-chart': {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
   },
   divider: {
     height: '90%',

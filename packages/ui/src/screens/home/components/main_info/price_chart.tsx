@@ -107,16 +107,13 @@ const PriceChart: React.FC = () => {
   }, [theme]);
 
   useEffect(() => {
-    const handle = () => {
-      if (chartRef.current) {
-        const container: any = document.getElementById('price-chart');
-        const dimensions = {
-          width: container.clientWidth,
-          height: container.clientHeight,
-        };
-        chartRef.current.applyOptions(dimensions);
-        // chartRef.current.timeScale().fitContent();
-      }
+    const handle = (e: any) => {
+      const container: any = document.getElementById('price-chart');
+      const dimensions = {
+        width: e.target.innerWidth * 0.85,
+        height: container.clientHeight,
+      };
+      chartRef.current?.applyOptions(dimensions);
     };
     window.addEventListener('resize', handle);
     return () => {
