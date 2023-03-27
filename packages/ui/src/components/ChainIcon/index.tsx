@@ -34,6 +34,7 @@ import sifchainIconLight from 'shared-utils/assets/icons/sifchain-light.svg?url'
 import solanaIconDark from 'shared-utils/assets/icons/solana-dark.svg?url';
 import solanaIconLight from 'shared-utils/assets/icons/solana-light.svg?url';
 import strideIconDark from 'shared-utils/assets/icons/stride-dark.svg?url';
+import humansaiIconDark from 'shared-utils/assets/icons/humansai-both.svg?url';
 import agoricLogoLight from 'shared-utils/assets/logos/agoric-light.png';
 import akashLogoDark from 'shared-utils/assets/logos/akash-dark.svg?url';
 import assetmantleLogoDark from 'shared-utils/assets/logos/assetmantle-dark.svg?url';
@@ -66,6 +67,7 @@ import quicksilverLogoLight from 'shared-utils/assets/logos/quicksilver-light.sv
 import quicksilverLogoDark from 'shared-utils/assets/logos/quicksilver-dark.svg?url';
 import multiversxLogoLight from 'shared-utils/assets/logos/multiversx-light.svg?url';
 import multiversxLogoDark from 'shared-utils/assets/logos/multiversx-dark.svg?url';
+import humansaiLogoDark from 'shared-utils/assets/logos/humansai-dark.svg?url';
 
 interface IconProps extends Omit<ImageProps, 'id' | 'src'> {
   type: 'icon' | 'logo';
@@ -219,6 +221,12 @@ const ChainIcon = ({
         type === 'icon'
           ? [quicksliverIconLight, quicksliverIconLight]
           : [quicksilverLogoDark, quicksilverLogoLight];
+      break;
+    case 'humansai':
+      [iconDark, iconLight] =
+        type === 'icon'
+          ? [humansaiIconDark, humansaiIconDark]
+          : [humansaiLogoDark, humansaiLogoDark];
       break;
     default:
       throw new Error(`chain ${chainName} not supported`);
