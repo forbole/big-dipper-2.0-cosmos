@@ -89,7 +89,7 @@ const Menu = (props: MenuProps) => {
         {/* ========================= */}
         {/* Footer Actions */}
         {/* ========================= */}
-        <div className={classes.footerActions}>
+        {/* <div className={classes.footerActions}>
           <div
             className={classes.language}
             role="button"
@@ -115,7 +115,7 @@ const Menu = (props: MenuProps) => {
             </span>
             <Typography variant="caption">{t(themeOptions.theme)}</Typography>
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );

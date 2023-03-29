@@ -59,13 +59,13 @@ const MenuItems = () => {
           </Tooltip>
         );
       })}
-      {windowWidth > 1024 && (
-        <Tooltip title={t('settings')} placement="right" arrow enterDelay={800}>
-          <div>
-            <SettingsList className={classes.root} />
-          </div>
-        </Tooltip>
-      )}
+      {/* {windowWidth > 1024 && ( */}
+      <Tooltip title={t('settings')} placement="right" arrow enterDelay={800}>
+        <div>
+          <SettingsList className={classes.root} />
+        </div>
+      </Tooltip>
+      {/* )} */}
       {windowWidth < 1025 && <NetworkSelector />}
     </List>
   );
