@@ -61,7 +61,7 @@ const useStyles = makeStyles()((theme) => ({
   },
   total: {
     '& .total__single--container': {
-      marginBottom: theme.spacing(1),
+      margin: theme.spacing(1.5, 0),
       '& .label': {
         marginBottom: theme.spacing(0.5),
         color: theme.palette.custom.fonts.fontTwo,
@@ -76,6 +76,7 @@ const useStyles = makeStyles()((theme) => ({
       },
     },
     '& .total__secondary--container': {
+      marginTop: theme.spacing(1.5),
       [theme.breakpoints.up('md')]: {
         color: theme.palette.custom.fonts.fontTwo,
       },

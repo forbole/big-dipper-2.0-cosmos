@@ -23,12 +23,9 @@ const useStyles = makeStyles()((theme) => ({
       justifyContent: 'flex-end',
     },
     '& .description': {
-      display: 'none',
+      display: 'block',
       color: theme.palette.primary.contrastText,
       fontSize: '1rem',
-      [theme.breakpoints.up('md')]: {
-        display: 'block',
-      },
     },
   },
 }));

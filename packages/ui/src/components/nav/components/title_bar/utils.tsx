@@ -11,7 +11,7 @@ export const formatMarket = (data: AtomState) => {
   return [
     {
       key: 'marketCap',
-      data: marketCap,
+      data: data.price === 0 ? '--' : marketCap,
     },
     {
       key: 'inflation',

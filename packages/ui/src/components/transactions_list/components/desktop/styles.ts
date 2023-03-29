@@ -19,6 +19,13 @@ const useStyles = makeStyles()((theme) => ({
   },
   body: {
     color: theme.palette.custom.fonts.fontTwo,
+    '& .copy-icon': {
+      paddingLeft: theme.spacing(1),
+      paddingTop: theme.spacing(1),
+      cursor: 'pointer',
+      width: theme.spacing(3),
+      height: theme.spacing(3),
+    },
   },
 }));
 

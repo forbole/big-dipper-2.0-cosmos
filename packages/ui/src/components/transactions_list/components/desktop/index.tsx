@@ -17,6 +17,9 @@ import { FC, LegacyRef } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { VariableSizeGrid as Grid } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
+import CopyIcon from 'shared-utils/assets/icon-copy.svg';
+import copy from 'copy-to-clipboard';
+import { toast } from 'react-toastify';
 
 const Desktop: FC<TransactionsListState> = ({
   className,
@@ -39,12 +42,21 @@ const Desktop: FC<TransactionsListState> = ({
       </Link>
     ),
     hash: (
-      <Link shallow prefetch={false} href={TRANSACTION_DETAILS(x.hash)}>
-        {getMiddleEllipsis(x.hash, {
-          beginning: 4,
-          ending: 4,
-        })}
-      </Link>
+      <>
+        <Link shallow prefetch={false} href={TRANSACTION_DETAILS(x.hash)}>
+          {getMiddleEllipsis(x.hash, {
+            beginning: 4,
+            ending: 4,
+          })}
+        </Link>
+        <CopyIcon
+          onClick={() => {
+            copy(x.hash);
+            toast<string>(t ? t('common:copied') : 'copied');
+          }}
+          className="copy-icon"
+        />
+      </>
     ),
     type: (
       <div>
@@ -126,6 +138,7 @@ const Desktop: FC<TransactionsListState> = ({
                   rowHeight={getRowHeight}
                   width={width}
                   className="scrollbar"
+                  style={{ overflowX: 'hidden' }}
                 >
                   {({ columnIndex, rowIndex, style }) => {
                     if (

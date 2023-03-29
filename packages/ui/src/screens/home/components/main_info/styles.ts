@@ -18,9 +18,21 @@ const useStyles = makeStyles()((theme) => ({
     display: 'grid',
     placeItems: 'stretch',
   },
+  error: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '100%',
+    color: theme.palette.error.main,
+  },
   container: {
     display: 'grid',
     gridTemplateRows: 'auto 1fr',
+    '& #price-chart': {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
   },
   divider: {
     height: '90%',
