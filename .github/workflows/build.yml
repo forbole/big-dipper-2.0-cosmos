@@ -14,13 +14,13 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        env: [ "znet" ]
+        env: [ "devnet" ]
         include:
-          - env: "znet"
-            NEXT_PUBLIC_GRAPHQL_URL: "http://localhost:8080/v1/graphql"
-            NEXT_PUBLIC_GRAPHQL_WS: "ws://localhost:8080/v1/graphql"
-            NEXT_PUBLIC_URL: "http://localhost:3030"
-            NEXT_PUBLIC_RPC_WEBSOCKET: "ws://localhost:26657/websocket"
+          - env: "devnet"
+            NEXT_PUBLIC_GRAPHQL_URL: "https://hasura.devnet-1.coreum.dev/v1/graphql"
+            NEXT_PUBLIC_GRAPHQL_WS: "wss:/hasura.devnet-1.coreum.dev/v1/graphql"
+            NEXT_PUBLIC_URL: "https://explorer.devnet-1.coreum.dev"
+            NEXT_PUBLIC_RPC_WEBSOCKET: "wss://full-node-eris.devnet-1.coreum.dev:26657/websocket"
             NEXT_PUBLIC_CHAIN_TYPE: "devnet"
             NODE_ENV: "production"
             PORT: "3000"
