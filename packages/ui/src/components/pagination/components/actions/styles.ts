@@ -48,6 +48,10 @@ const useStyles = makeStyles()((theme) => ({
   },
   prev: {
     transform: 'rotate(180deg)',
+    fill: theme.palette.text.secondary,
+  },
+  next: {
+    fill: theme.palette.text.secondary,
   },
   rowSelection: {
     '& .MuiInputBase-input': {
