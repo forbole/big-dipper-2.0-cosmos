@@ -57,26 +57,33 @@ const Balance: FC<BalanceProps> = (props) => {
   const [isError, setIsError] = useState<boolean>(false);
 
   useEffect(() => {
-    const getPrice = async () => {
-      try {
-        setIsLoading(true);
-        setIsError(false);
-        const response = await axios.get(
-          'https://api.coingecko.com/api/v3/simple/price?ids=coreum&vs_currencies=usd'
-        );
+    if (typeof window !== 'undefined') {
+      (async () => {
+        try {
+          setIsLoading(true);
+          const symbols = [
+            'XRP/USD+rhub8VRN55s94qWKDv6jmDy1pUykJzF3wq',
+            '434F524500000000000000000000000000000000+rcoreNywaoz2ZCQ8Lg2EbSLnGuRBmun6D/XRP',
+          ];
+          const response = await axios.post('https://api.sologenic.org/api/v1/tickers/24h', {
+            symbols,
+          });
 
-        if (response.status === 200) {
-          setPrice(response.data.coreum.usd);
+          if (response.status === 200) {
+            const coreXrp: any = Object.values(response.data)[0];
+            const xrpUsd: any = Object.values(response.data)[1];
+
+            const coreumPrice = Big(coreXrp.last_price).times(xrpUsd.last_price);
+            setPrice(coreumPrice.toNumber());
+            setIsLoading(false);
+          }
+        } catch (e) {
+          setIsError(true);
+          console.error(e);
           setIsLoading(false);
         }
-      } catch (e) {
-        console.error('Error fetching Coreum - USD price from CoinGecko. Price defaulted to 0.', e);
-        setIsLoading(false);
-        setIsError(true);
-        setPrice(0);
-      }
-    };
-    getPrice();
+      })();
+    }
   }, []);
 
   const dataCount = formatData.filter((x) => x.value && Big(x.value).gt(0)).length;

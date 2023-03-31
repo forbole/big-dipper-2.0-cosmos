@@ -12,7 +12,7 @@ export type BaseCategories =
   | 'feegrant'
   | 'vesting'
   | 'others';
-export type CustomCategories = 'asset'; // custom modules
+export type CustomCategories = 'asset' | 'nft'; // custom modules
 export type Categories = BaseCategories | CustomCategories;
 export interface Log {
   events?: Array<{

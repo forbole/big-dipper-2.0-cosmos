@@ -310,6 +310,12 @@ const defaultTypeToModel = {
     tagTheme: 'six',
     tagDisplay: 'MsgRevoke',
   },
+  '/cosmos.authz.v1beta1.MsgExec': {
+    model: MODELS.MsgExec,
+    content: COMPONENTS.Exec,
+    tagTheme: 'six',
+    tagDisplay: 'MsgExec',
+  },
   // ========================
   // feegrant
   // ========================
@@ -482,6 +488,12 @@ const customTypeToModel = {
     content: COMPONENTS.NftUnfreeze,
     tagTheme: 'six',
     tagDisplay: 'msgNftUnfreezeLabel',
+  },
+  '/coreum.nft.v1beta1.MsgSend': {
+    model: MODELS.MsgNftSend,
+    content: COMPONENTS.NftSend,
+    tagTheme: 'six',
+    tagDisplay: 'msgNftSendLabel',
   },
 };
 type CustomTypeToModel = typeof customTypeToModel;

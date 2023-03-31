@@ -86,10 +86,10 @@ const Messages: FC<MessagesProps> = ({ className, ...props }) => {
             }
             label={t('raw')}
           />
-          <TransactionMessagesFilter
+          {/* <TransactionMessagesFilter
             className={classes.filter}
             callback={props.onMessageFilterCallback}
-          />
+          /> */}
         </div>
       </div>
       <Divider />
