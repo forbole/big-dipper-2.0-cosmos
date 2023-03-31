@@ -23,6 +23,7 @@ jobs:
             NEXT_PUBLIC_RPC_WEBSOCKET: "wss://full-node-eris.devnet-1.coreum.dev:26657/websocket"
             NEXT_PUBLIC_CHAIN_TYPE: "devnet"
             NODE_ENV: "production"
+            PROJECT_NAME: "web-coreum"
             PORT: "3000"
     runs-on: ubuntu-latest
     steps:
@@ -63,4 +64,5 @@ jobs:
             "NEXT_PUBLIC_RPC_WEBSOCKET=${{ matrix.NEXT_PUBLIC_RPC_WEBSOCKET }}"
             "NEXT_PUBLIC_CHAIN_TYPE=${{ matrix.NEXT_PUBLIC_CHAIN_TYPE }}"
             "NODE_ENV=${{ matrix.NODE_ENV }}"
+            "PROJECT_NAME=${{ matrix.PROJECT_NAME }}"
             "PORT=${{ matrix.PORT }}"
