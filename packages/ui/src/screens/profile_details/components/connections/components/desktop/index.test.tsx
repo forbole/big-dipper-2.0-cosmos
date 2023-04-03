@@ -1,6 +1,6 @@
 import Desktop from '@/screens/profile_details/components/connections/components/desktop';
 import MockTheme from '@/tests/mocks/MockTheme';
-import { ComponentProps, PropsWithChildren } from 'react';
+import { ComponentProps } from 'react';
 import renderer from 'react-test-renderer';
 import AutoSizer from 'react-virtualized-auto-sizer';
 

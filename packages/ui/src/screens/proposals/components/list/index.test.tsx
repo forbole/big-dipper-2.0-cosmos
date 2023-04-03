@@ -1,7 +1,7 @@
 import ProposalsList from '@/screens/proposals/components/list';
 import MockTheme from '@/tests/mocks/MockTheme';
 import wait from '@/tests/utils/wait';
-import { ComponentProps, PropsWithChildren } from 'react';
+import { ComponentProps } from 'react';
 import renderer from 'react-test-renderer';
 import AutoSizer from 'react-virtualized-auto-sizer';
 

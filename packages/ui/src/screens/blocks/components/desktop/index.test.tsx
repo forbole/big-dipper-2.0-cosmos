@@ -2,7 +2,7 @@ import Desktop from '@/screens/blocks/components/desktop';
 import MockTheme from '@/tests/mocks/MockTheme';
 import { mockClient } from '@/tests/mocks/mockApollo';
 import { ApolloProvider } from '@apollo/client';
-import { ComponentProps, PropsWithChildren } from 'react';
+import { ComponentProps } from 'react';
 import renderer from 'react-test-renderer';
 import AutoSizer from 'react-virtualized-auto-sizer';
 
