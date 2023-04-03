@@ -3386,13 +3386,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/font@npm:*, @next/font@npm:^13.2.4":
-  version: 13.2.4
-  resolution: "@next/font@npm:13.2.4"
-  checksum: f5319c895b6a6633b181f1c17d52dd98753dd7706db27644bf12383e0fa164f5223b8c5c70eb28edb9b9a113cdfb04a995accc16dba1655b850c9db8a05036b7
-  languageName: node
-  linkType: hard
-
 "@next/swc-android-arm-eabi@npm:13.2.4":
   version: 13.2.4
   resolution: "@next/swc-android-arm-eabi@npm:13.2.4"
@@ -10997,7 +10990,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next@npm:*, next@npm:^13.2.4":
+"next@npm:^13.2.4":
   version: 13.2.4
   resolution: "next@npm:13.2.4"
   dependencies:
@@ -12022,7 +12015,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:*, react-dom@npm:^18.2.0":
+"react-dom@npm:^18.2.0":
   version: 18.2.0
   resolution: "react-dom@npm:18.2.0"
   dependencies:
@@ -12218,7 +12211,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:*, react@npm:^18.2.0":
+"react@npm:^18.2.0":
   version: 18.2.0
   resolution: "react@npm:18.2.0"
   dependencies:
@@ -14050,7 +14043,6 @@ __metadata:
     "@mui/icons-material": ^5.11.11
     "@mui/material": ^5.11.15
     "@next/eslint-plugin-next": ^13.2.4
-    "@next/font": ^13.2.4
     "@socialgouv/matomo-next": ^1.6.1
     "@svgr/webpack": ^7.0.0
     "@testing-library/jest-dom": ^5.16.5
@@ -14457,7 +14449,6 @@ __metadata:
     "@mui/icons-material": ^5.11.11
     "@mui/material": ^5.11.15
     "@next/eslint-plugin-next": ^13.2.4
-    "@next/font": ^13.2.4
     "@socialgouv/matomo-next": ^1.6.1
     "@svgr/webpack": ^7.0.0
     "@testing-library/jest-dom": ^5.16.5
@@ -14573,7 +14564,6 @@ __metadata:
     "@mui/icons-material": ^5.11.11
     "@mui/material": ^5.11.15
     "@next/eslint-plugin-next": ^13.2.4
-    "@next/font": ^13.2.4
     "@socialgouv/matomo-next": ^1.6.1
     "@svgr/webpack": ^7.0.0
     "@testing-library/jest-dom": ^5.16.5
@@ -14689,7 +14679,6 @@ __metadata:
     "@mui/icons-material": ^5.11.11
     "@mui/material": ^5.11.15
     "@next/eslint-plugin-next": ^13.2.4
-    "@next/font": ^13.2.4
     "@socialgouv/matomo-next": ^1.6.1
     "@svgr/webpack": ^7.0.0
     "@testing-library/jest-dom": ^5.16.5
@@ -14805,7 +14794,6 @@ __metadata:
     "@mui/icons-material": ^5.11.11
     "@mui/material": ^5.11.15
     "@next/eslint-plugin-next": ^13.2.4
-    "@next/font": ^13.2.4
     "@socialgouv/matomo-next": ^1.6.1
     "@svgr/webpack": ^7.0.0
     "@testing-library/jest-dom": ^5.16.5
@@ -14921,7 +14909,6 @@ __metadata:
     "@mui/icons-material": ^5.11.11
     "@mui/material": ^5.11.15
     "@next/eslint-plugin-next": ^13.2.4
-    "@next/font": ^13.2.4
     "@socialgouv/matomo-next": ^1.6.1
     "@svgr/webpack": ^7.0.0
     "@testing-library/jest-dom": ^5.16.5
@@ -15037,7 +15024,6 @@ __metadata:
     "@mui/icons-material": ^5.11.11
     "@mui/material": ^5.11.15
     "@next/eslint-plugin-next": ^13.2.4
-    "@next/font": ^13.2.4
     "@socialgouv/matomo-next": ^1.6.1
     "@svgr/webpack": ^7.0.0
     "@testing-library/jest-dom": ^5.16.5
@@ -15158,7 +15144,6 @@ __metadata:
     "@mui/icons-material": ^5.11.11
     "@mui/material": ^5.11.15
     "@next/eslint-plugin-next": ^13.2.4
-    "@next/font": ^13.2.4
     "@socialgouv/matomo-next": ^1.6.1
     "@svgr/webpack": ^7.0.0
     "@testing-library/jest-dom": ^5.16.5
@@ -15274,7 +15259,6 @@ __metadata:
     "@mui/icons-material": ^5.11.11
     "@mui/material": ^5.11.15
     "@next/eslint-plugin-next": ^13.2.4
-    "@next/font": ^13.2.4
     "@socialgouv/matomo-next": ^1.6.1
     "@svgr/webpack": ^7.0.0
     "@testing-library/jest-dom": ^5.16.5
@@ -15390,7 +15374,6 @@ __metadata:
     "@mui/icons-material": ^5.11.11
     "@mui/material": ^5.11.15
     "@next/eslint-plugin-next": ^13.2.4
-    "@next/font": ^13.2.4
     "@socialgouv/matomo-next": ^1.6.1
     "@svgr/webpack": ^7.0.0
     "@testing-library/jest-dom": ^5.16.5
@@ -15506,7 +15489,6 @@ __metadata:
     "@mui/icons-material": ^5.11.11
     "@mui/material": ^5.11.15
     "@next/eslint-plugin-next": ^13.2.4
-    "@next/font": ^13.2.4
     "@socialgouv/matomo-next": ^1.6.1
     "@svgr/webpack": ^7.0.0
     "@testing-library/jest-dom": ^5.16.5
@@ -15622,7 +15604,6 @@ __metadata:
     "@mui/icons-material": ^5.11.11
     "@mui/material": ^5.11.15
     "@next/eslint-plugin-next": ^13.2.4
-    "@next/font": ^13.2.4
     "@socialgouv/matomo-next": ^1.6.1
     "@svgr/webpack": ^7.0.0
     "@testing-library/jest-dom": ^5.16.5
@@ -15738,7 +15719,6 @@ __metadata:
     "@mui/icons-material": ^5.11.11
     "@mui/material": ^5.11.15
     "@next/eslint-plugin-next": ^13.2.4
-    "@next/font": ^13.2.4
     "@socialgouv/matomo-next": ^1.6.1
     "@svgr/webpack": ^7.0.0
     "@testing-library/jest-dom": ^5.16.5
@@ -15846,7 +15826,6 @@ __metadata:
     "@mui/icons-material": ^5.11.11
     "@mui/material": ^5.11.15
     "@next/eslint-plugin-next": ^13.2.4
-    "@next/font": ^13.2.4
     "@socialgouv/matomo-next": ^1.6.1
     "@svgr/webpack": ^7.0.0
     "@testing-library/jest-dom": ^5.16.5
@@ -15964,7 +15943,6 @@ __metadata:
     "@mui/icons-material": ^5.11.11
     "@mui/material": ^5.11.15
     "@next/eslint-plugin-next": ^13.2.4
-    "@next/font": ^13.2.4
     "@socialgouv/matomo-next": ^1.6.1
     "@svgr/webpack": ^7.0.0
     "@testing-library/jest-dom": ^5.16.5
@@ -16080,7 +16058,6 @@ __metadata:
     "@mui/icons-material": ^5.11.11
     "@mui/material": ^5.11.15
     "@next/eslint-plugin-next": ^13.2.4
-    "@next/font": ^13.2.4
     "@socialgouv/matomo-next": ^1.6.1
     "@svgr/webpack": ^7.0.0
     "@testing-library/jest-dom": ^5.16.5
@@ -16196,7 +16173,6 @@ __metadata:
     "@mui/icons-material": ^5.11.11
     "@mui/material": ^5.11.15
     "@next/eslint-plugin-next": ^13.2.4
-    "@next/font": ^13.2.4
     "@socialgouv/matomo-next": ^1.6.1
     "@svgr/webpack": ^7.0.0
     "@testing-library/jest-dom": ^5.16.5
@@ -16312,7 +16288,6 @@ __metadata:
     "@mui/icons-material": ^5.11.11
     "@mui/material": ^5.11.15
     "@next/eslint-plugin-next": ^13.2.4
-    "@next/font": ^13.2.4
     "@socialgouv/matomo-next": ^1.6.1
     "@svgr/webpack": ^7.0.0
     "@testing-library/jest-dom": ^5.16.5
@@ -16433,7 +16408,6 @@ __metadata:
     "@mui/icons-material": ^5.11.11
     "@mui/material": ^5.11.15
     "@next/eslint-plugin-next": ^13.2.4
-    "@next/font": ^13.2.4
     "@socialgouv/matomo-next": ^1.6.1
     "@svgr/webpack": ^7.0.0
     "@testing-library/jest-dom": ^5.16.5
@@ -16549,7 +16523,6 @@ __metadata:
     "@mui/icons-material": ^5.11.11
     "@mui/material": ^5.11.15
     "@next/eslint-plugin-next": ^13.2.4
-    "@next/font": ^13.2.4
     "@socialgouv/matomo-next": ^1.6.1
     "@svgr/webpack": ^7.0.0
     "@testing-library/jest-dom": ^5.16.5
@@ -16665,7 +16638,6 @@ __metadata:
     "@mui/icons-material": ^5.11.11
     "@mui/material": ^5.11.15
     "@next/eslint-plugin-next": ^13.2.4
-    "@next/font": ^13.2.4
     "@socialgouv/matomo-next": ^1.6.1
     "@svgr/webpack": ^7.0.0
     "@testing-library/jest-dom": ^5.16.5
@@ -16781,7 +16753,6 @@ __metadata:
     "@mui/icons-material": ^5.11.11
     "@mui/material": ^5.11.15
     "@next/eslint-plugin-next": ^13.2.4
-    "@next/font": ^13.2.4
     "@socialgouv/matomo-next": ^1.6.1
     "@svgr/webpack": ^7.0.0
     "@testing-library/jest-dom": ^5.16.5
@@ -16897,7 +16868,6 @@ __metadata:
     "@mui/icons-material": ^5.11.11
     "@mui/material": ^5.11.15
     "@next/eslint-plugin-next": ^13.2.4
-    "@next/font": ^13.2.4
     "@socialgouv/matomo-next": ^1.6.1
     "@svgr/webpack": ^7.0.0
     "@testing-library/jest-dom": ^5.16.5
@@ -17013,7 +16983,6 @@ __metadata:
     "@mui/icons-material": ^5.11.11
     "@mui/material": ^5.11.15
     "@next/eslint-plugin-next": ^13.2.4
-    "@next/font": ^13.2.4
     "@socialgouv/matomo-next": ^1.6.1
     "@svgr/webpack": ^7.0.0
     "@testing-library/jest-dom": ^5.16.5
@@ -17143,7 +17112,6 @@ __metadata:
     "@mui/icons-material": ^5.11.11
     "@mui/material": ^5.11.15
     "@next/eslint-plugin-next": ^13.2.4
-    "@next/font": ^13.2.4
     "@socialgouv/matomo-next": ^1.6.1
     "@svgr/webpack": ^7.0.0
     "@testing-library/jest-dom": ^5.16.5
@@ -17259,7 +17227,6 @@ __metadata:
     "@mui/icons-material": ^5.11.11
     "@mui/material": ^5.11.15
     "@next/eslint-plugin-next": ^13.2.4
-    "@next/font": ^13.2.4
     "@socialgouv/matomo-next": ^1.6.1
     "@svgr/webpack": ^7.0.0
     "@testing-library/jest-dom": ^5.16.5

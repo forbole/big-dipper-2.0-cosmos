@@ -25,9 +25,8 @@ export async function waitForClick(selector: string, locator: Locator) {
 }
 
 export async function waitForPopupClick(selector: (p: Page) => Locator, page: Page) {
-  await Promise.all([page.waitForEvent('popup'), selector(page).first().click()]).then(([popup]) =>
-    popup.close()
-  );
+  const [popup] = await Promise.all([page.waitForEvent('popup'), selector(page).first().click()]);
+  popup.close();
 }
 
 export async function interceptRoutes(page: Page) {
