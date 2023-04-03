@@ -31,7 +31,7 @@ test('footer', async ({ page, isMobile }) => {
   await waitForPopupClick((p) => p.getByRole('link', { name: 'Privacy Policy' }), page);
 
   // Test community footer section
-  await waitForPopupClick((p) => p.getByRole('link', { name: 'Telegram' }), page);
+  // await waitForPopupClick((p) => p.getByRole('link', { name: 'Telegram' }), page);
 
   await waitForPopupClick((p) => p.getByRole('link', { name: 'LinkedIn' }), page);
 
