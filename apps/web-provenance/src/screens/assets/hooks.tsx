@@ -29,7 +29,8 @@ const mapDataToModel = (data: MarkerAccountQuery | undefined): AssetType[] =>
       ),
       price: <Price denom={x.token_unit?.denom ?? ''} />,
       markerType: <MarketType markerType={x.marker_type} />,
-      supply: <Supply supply={x.supply} />,
+      // supply: <Supply supply={x.supply} />,
+      supply: <Supply supply="" />,
       showMore: (
         <ShowMore
           accessControls={accessControls}

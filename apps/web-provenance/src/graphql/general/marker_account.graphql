@@ -6,7 +6,6 @@ query MarkerAccount($limit: Int = 100, $offset: Int = 0, $marker_account_bool_ex
     denom
     marker_type
     status
-    supply
     token_unit {
       denom
       exponent

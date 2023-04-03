@@ -144,7 +144,7 @@ const InfiniteList = <TData, TVariables, TItem>({
             <TableHead>
               <TableRow>
                 <TableCell className={classes.th}>
-                  <HeaderComponent variables={variables} width={width} height={height} />
+                  <HeaderComponent variables={variables} width={width ?? 0} height={height ?? 0} />
                 </TableCell>
               </TableRow>
             </TableHead>
@@ -165,8 +165,8 @@ const InfiniteList = <TData, TVariables, TItem>({
             ref={listRef}
             itemCount={itemCount ?? UNKNOWN_ITEM_COUNT}
             itemData={itemData as VariableSizeListProps['itemData']}
-            width={width}
-            height={height}
+            width={width ?? 0}
+            height={height ?? 0}
             itemSize={rowHeight}
             itemKey={itemKey}
             onScroll={handleScroll}
