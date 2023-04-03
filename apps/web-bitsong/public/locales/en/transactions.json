@@ -36,5 +36,6 @@
   "authz": "Authz",
   "feegrant": "Feegrant",
   "vesting": "Vesting",
-  "logs": "Logs"
+  "logs": "Logs",
+  "messagesNumber": "Message ({{number}})"
 }

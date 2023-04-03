@@ -46,7 +46,7 @@ const useStyles = makeStyles()((theme) => ({
     },
   },
   tags: {
-    marginBottom: theme.spacing(2),
+    // marginBottom: theme.spacing(2),
   },
   infoDiv: {
     display: 'flex',
@@ -58,6 +58,17 @@ const useStyles = makeStyles()((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-start',
+    fontSize: theme.spacing(1.5),
+    div: {
+      '&:not(:last-child)': {
+        paddingBottom: theme.spacing(1),
+      },
+    },
+  },
+  endDiv: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-end',
     fontSize: theme.spacing(1.5),
     div: {
       '&:not(:last-child)': {
@@ -81,6 +92,20 @@ const useStyles = makeStyles()((theme) => ({
   dsmDiv: {
     fontSize: theme.spacing(2),
     fontWeight: 600,
+  },
+  accordion: {
+    background: theme.palette.common.black,
+    svg: {
+      fill: 'none',
+    },
+    p: {
+      paddingLeft: theme.spacing(1),
+    },
+    '.Mui-expanded': {
+      display: 'flex',
+      flexDirection: 'row',
+      justifyItems: 'center',
+    },
   },
 }));
 

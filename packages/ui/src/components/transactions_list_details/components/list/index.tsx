@@ -2,7 +2,7 @@
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import numeral from 'numeral';
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
@@ -26,9 +26,19 @@ type ListItemProps = Pick<ListChildComponentProps, 'index' | 'style'> & {
   setRowHeight: Parameters<typeof useListRow>[1];
   isItemLoaded: TransactionsListDetailsState['isItemLoaded'];
   transaction: TransactionsListDetailsState['transactions'][number];
+  handleExpand: (id: number) => void;
+  expandedAccordionID: number[];
 };
 
-const ListItem: FC<ListItemProps> = ({ index, style, setRowHeight, isItemLoaded, transaction }) => {
+const ListItem: FC<ListItemProps> = ({
+  index,
+  style,
+  setRowHeight,
+  isItemLoaded,
+  transaction,
+  handleExpand,
+  expandedAccordionID,
+}) => {
   const { rowRef } = useListRow(index, setRowHeight);
   const display = useDisplayStyles().classes;
   const { t } = useTranslation('transactions');
@@ -84,8 +94,14 @@ const ListItem: FC<ListItemProps> = ({ index, style, setRowHeight, isItemLoaded,
   };
   return (
     <div style={style}>
-      <div ref={rowRef}>
-        <SingleTransaction {...item} />
+      <div>
+        <SingleTransaction
+          {...item}
+          expandedAccordionID={expandedAccordionID}
+          handleExpandID={() => handleExpand(index)}
+          index={index}
+          rowRef={rowRef}
+        />
       </div>
     </div>
   );
@@ -101,6 +117,19 @@ const TransactionList: FC<TransactionsListDetailsState> = ({
   const { classes, cx } = useStyles();
 
   const { listRef, getRowHeight, setRowHeight } = useList();
+
+  // will move this into a custom hook, i.e., useAccordionExpand()
+  const [expandedAccordionIDs, setExpandedAccordionIDs] = useState<number[]>([]);
+
+  const handleExpand = (id: number) => {
+    let expandArr;
+    if (expandedAccordionIDs?.includes(id)) {
+      expandArr = expandedAccordionIDs?.filter((e) => e !== id);
+      setExpandedAccordionIDs(expandArr);
+    } else {
+      setExpandedAccordionIDs((prev) => [...prev, id]);
+    }
+  };
 
   return (
     <div className={cx(classes.root, className)}>
@@ -134,6 +163,8 @@ const TransactionList: FC<TransactionsListDetailsState> = ({
                     setRowHeight={setRowHeight}
                     isItemLoaded={isItemLoaded}
                     transaction={transactions[index]}
+                    handleExpand={() => handleExpand(index)}
+                    expandedAccordionID={expandedAccordionIDs}
                   />
                 )}
               </List>

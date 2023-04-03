@@ -33,5 +33,6 @@
   "authz": "授權",
   "feegrant": "費用授權",
   "vesting": "歸屬",
-  "logs": "記錄"
+  "logs": "記錄",
+  "messagesNumber": "訊息 ({{number}})"
 }

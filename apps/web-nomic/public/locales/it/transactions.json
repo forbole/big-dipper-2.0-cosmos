@@ -33,5 +33,6 @@
   "authz": "Authz",
   "feegrant": "Pagamento delle fee",
   "vesting": "Vesting",
-  "logs": "Logs"
+  "logs": "Logs",
+  "messagesNumber": "Messaggio ({{number}})"
 }
