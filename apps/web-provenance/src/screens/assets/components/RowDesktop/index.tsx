@@ -40,7 +40,7 @@ const RowDesktop = ({
             xs={col.width}
             justifyContent={col.justifyContent}
             textAlign={col.textAlign}
-            height={height}
+            height={height ?? 0}
           >
             {!item ? <Skeleton className={classes.skeleton} /> : item?.[col.columnKey]}
           </Grid2>
