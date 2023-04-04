@@ -34,7 +34,7 @@ test('validator page', async ({ page, context }) => {
   }
 });
 
-test('validator page tabs', async ({ page, isMobile }) => {
+test('validator page tabs', async ({ page }) => {
   await interceptRoutes(page);
 
   // Test validator url

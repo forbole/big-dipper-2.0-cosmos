@@ -1,7 +1,8 @@
-import renderer from 'react-test-renderer';
-import { AutoSizerProps } from 'react-virtualized-auto-sizer';
 import Mobile from '@/screens/blocks/components/mobile';
 import MockTheme from '@/tests/mocks/MockTheme';
+import { ComponentProps } from 'react';
+import renderer from 'react-test-renderer';
+import AutoSizer from 'react-virtualized-auto-sizer';
 
 // ==================================
 // mocks
@@ -19,7 +20,7 @@ jest.mock('@/components/avatar_name', () => (props: JSX.IntrinsicElements['div']
 jest.mock(
   'react-virtualized-auto-sizer',
   () =>
-    ({ children }: AutoSizerProps) =>
+    ({ children }: ComponentProps<typeof AutoSizer>) =>
       children({
         height: 600,
         width: 600,

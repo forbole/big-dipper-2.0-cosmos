@@ -1,8 +1,9 @@
-import renderer from 'react-test-renderer';
-import type { AutoSizerProps } from 'react-virtualized-auto-sizer';
 import { MsgUnknown } from '@/models';
 import Messages from '@/screens/transaction_details/components/messages';
 import MockTheme from '@/tests/mocks/MockTheme';
+import { ComponentProps } from 'react';
+import renderer from 'react-test-renderer';
+import AutoSizer from 'react-virtualized-auto-sizer';
 
 // ==================================
 // mocks
@@ -21,7 +22,7 @@ jest.mock(
 jest.mock(
   'react-virtualized-auto-sizer',
   () =>
-    ({ children }: AutoSizerProps) =>
+    ({ children }: ComponentProps<typeof AutoSizer>) =>
       children({
         height: 600,
         width: 600,

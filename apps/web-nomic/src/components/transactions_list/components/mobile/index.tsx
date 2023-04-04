@@ -94,12 +94,12 @@ const Mobile: FC<TransactionsListState> = ({
             {({ onItemsRendered, ref }) => (
               <List
                 className="List"
-                height={height}
+                height={height ?? 0}
                 itemCount={itemCount}
                 itemSize={getRowHeight}
                 onItemsRendered={onItemsRendered}
                 ref={mergeRefs(listRef, ref)}
-                width={width}
+                width={width ?? 0}
               >
                 {({ index, style }) => (
                   <ListItem

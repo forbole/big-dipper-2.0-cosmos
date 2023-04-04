@@ -115,11 +115,11 @@ const Desktop: FC<{ list: ProviderInfo[]; className?: string }> = ({ list, class
             <Grid
               ref={columnRef as LegacyRef<Grid>}
               columnCount={columns.length}
-              columnWidth={(index) => getColumnWidth(width, index)}
+              columnWidth={(index) => getColumnWidth(width ?? 0, index)}
               height={50}
               rowCount={1}
               rowHeight={() => 50}
-              width={width}
+              width={width ?? 0}
             >
               {({ columnIndex, style }) => {
                 const { key, align } = columns[columnIndex];
@@ -140,11 +140,11 @@ const Desktop: FC<{ list: ProviderInfo[]; className?: string }> = ({ list, class
             <Grid
               ref={gridRef as LegacyRef<Grid>}
               columnCount={columns.length}
-              columnWidth={(index) => getColumnWidth(width, index)}
-              height={height - 50}
+              columnWidth={(index) => getColumnWidth(width ?? 0, index)}
+              height={(height ?? 0) - 50}
               rowCount={itemCount}
               rowHeight={getRowHeight}
-              width={width}
+              width={width ?? 0}
             >
               {({ columnIndex, rowIndex, style }) => {
                 if (!isItemLoaded?.(rowIndex, itemCount) && columnIndex === 0) {
@@ -165,7 +165,7 @@ const Desktop: FC<{ list: ProviderInfo[]; className?: string }> = ({ list, class
                 }
 
                 const { key, align } = columns[columnIndex];
-                const item = itemsNew[rowIndex][key as keyof typeof itemsNew[number]];
+                const item = itemsNew[rowIndex][key as keyof (typeof itemsNew)[number]];
                 return (
                   <div
                     style={style}
