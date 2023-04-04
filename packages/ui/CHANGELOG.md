@@ -1,6 +1,10 @@
 # ui
 
-## 2.20.1
+## 2.21.0
+
+### Minor Changes
+
+- [#1195](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1195) [`e1502b5d1`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/e1502b5d1ecb50b8da94fc157ac1866ee40df9a8) Thanks [@rachelhox](https://github.com/rachelhox)! - fix txVoteContent proposal id visualization
 
 ### Patch Changes
 
