@@ -43,12 +43,8 @@ const useStyles = makeStyles()((theme) => ({
     maxWidth: '100%',
     maxHeight: '80vh',
     marginTop: '2rem',
-    '&& *': {
-      overflowWrap: 'anywhere',
-      whiteSpace: 'normal',
-      maxWidth: '100%',
-      maxHeight: '80vh',
-    },
+    width: '100%',
+    height: '500px',
   },
 }));
 
