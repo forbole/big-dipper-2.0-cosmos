@@ -1,5 +1,5 @@
 {
-  "extends": "tsconfig/nextjs.json",
+  "extends": "../../packages/tsconfig/nextjs.json",
   "compilerOptions": {
     "rootDirs": ["../../packages/ui", "."],
     "baseUrl": "./src/",

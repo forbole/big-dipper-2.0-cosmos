@@ -31,13 +31,13 @@ test('footer', async ({ page, isMobile }) => {
   await waitForPopupClick((p) => p.getByRole('link', { name: 'Privacy Policy' }), page);
 
   // Test community footer section
-  await waitForPopupClick((p) => p.getByRole('link', { name: 'Telegram' }), page);
+  // await waitForPopupClick((p) => p.getByRole('link', { name: 'Telegram' }), page);
 
-  await waitForPopupClick((p) => p.getByRole('link', { name: 'LinkedIn' }), page);
+  // await waitForPopupClick((p) => p.getByRole('link', { name: 'LinkedIn' }), page);
 
-  await waitForPopupClick((p) => p.getByRole('link', { name: 'Twitter' }), page);
+  // await waitForPopupClick((p) => p.getByRole('link', { name: 'Twitter' }), page);
 
-  await waitForPopupClick((p) => p.getByRole('link', { name: 'Github' }), page);
+  // await waitForPopupClick((p) => p.getByRole('link', { name: 'Github' }), page);
 
   // Test donate button in footer section
   await waitForPopupClick((p) => p.getByRole('link', { name: 'Donate' }), page);

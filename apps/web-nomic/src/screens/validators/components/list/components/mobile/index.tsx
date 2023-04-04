@@ -76,11 +76,11 @@ const Mobile: FC<MobileProps> = ({ className, items, search }) => {
         {({ height, width }) => (
           <List
             className="List"
-            height={height}
+            height={height ?? 0}
             itemCount={items.length}
             itemSize={getRowHeight}
             ref={listRef as LegacyRef<List>}
-            width={width}
+            width={width ?? 0}
           >
             {({ index, style }) => (
               <ListItem
