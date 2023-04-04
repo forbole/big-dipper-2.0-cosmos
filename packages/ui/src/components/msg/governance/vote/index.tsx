@@ -31,6 +31,7 @@ const Vote: FC<{ message: MsgVote }> = (props) => {
         components={[<Name address={message.voter} name={voterMoniker} />, <b />, Proposal]}
         values={{
           vote,
+          proposal: message.proposalId,
         }}
       />
     </Typography>
