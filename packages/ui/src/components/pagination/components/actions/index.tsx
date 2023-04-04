@@ -83,7 +83,7 @@ const Actions: FC<ActionsProps> = (props) => {
           aria-label="next page"
           size="large"
         >
-          <NextIcon />
+          <NextIcon className={classes.next} />
         </IconButton>
       </li>
       <li className="last">
@@ -95,7 +95,7 @@ const Actions: FC<ActionsProps> = (props) => {
           aria-label="last page"
           size="large"
         >
-          <NextFastIcon />
+          <NextFastIcon className={classes.next} />
         </IconButton>
       </li>
       {!!rowsPerPageOptions && (

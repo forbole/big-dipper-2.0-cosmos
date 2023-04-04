@@ -4,6 +4,7 @@ import { createChart, IChartApi, SingleValueData } from 'lightweight-charts';
 import React, { useEffect, useRef, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import Spinner from '@/components/loadingSpinner';
+import daysjs from 'dayjs';
 
 // import useTranslation from 'next-translate/useTranslation';
 import useStyles from './styles';
@@ -22,20 +23,23 @@ const PriceChart: React.FC = () => {
         try {
           setIsLoading(true);
           setIsError(false);
-          const response: any = await axios.get(
-            'https://api.coingecko.com/api/v3/coins/coreum/market_chart?vs_currency=usd&days=7'
-          );
-
+          const to = daysjs();
+          const from = daysjs().subtract(7, 'day');
+          const response = await axios.get('https://api.sologenic.org/api/v1/chartcombinator', {
+            params: {
+              period: '1h',
+              from: from.unix(),
+              to: to.unix(),
+              issuer: 'rcoreNywaoz2ZCQ8Lg2EbSLnGuRBmun6D',
+              currency: '434F524500000000000000000000000000000000',
+            },
+          });
           if (response.status === 200) {
-            const formatted = response.data.prices.map((entry: any) => ({
-              time: entry[0] / 1000,
-              value: entry[1],
-            }));
-            setData(formatted);
+            setData(response.data);
             setIsLoading(false);
           }
         } catch (e) {
-          console.error('Error fetching price chart from CoinGecko.', e);
+          console.error('Error fetching price chart.', e);
           setIsLoading(false);
           setIsError(true);
         }
@@ -110,7 +114,7 @@ const PriceChart: React.FC = () => {
     const handle = (e: any) => {
       const container: any = document.getElementById('price-chart');
       const dimensions = {
-        width: e.target.innerWidth * 0.85,
+        width: e.target.innerWidth * (e.target.innerWidth > 767 ? 0.5 : 0.83),
         height: container.clientHeight,
       };
       chartRef.current?.applyOptions(dimensions);

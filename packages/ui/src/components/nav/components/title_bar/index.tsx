@@ -7,6 +7,7 @@ import useStyles from '@/components/nav/components/title_bar/styles';
 import { formatMarket } from '@/components/nav/components/title_bar/utils';
 import { readMarket } from '@/recoil/market';
 import axios from 'axios';
+import Big from 'big.js';
 
 type TitleBarProps = {
   className?: string;
@@ -17,21 +18,30 @@ const TitleBar: FC<TitleBarProps> = ({ className }) => {
   const [price, setPrice] = useState<number>(0);
 
   useEffect(() => {
-    const getPrice = async () => {
-      try {
-        const response = await axios.get(
-          'https://api.coingecko.com/api/v3/simple/price?ids=coreum&vs_currencies=usd'
-        );
+    if (typeof window !== 'undefined') {
+      (async () => {
+        try {
+          const symbols = [
+            'XRP/USD+rhub8VRN55s94qWKDv6jmDy1pUykJzF3wq',
+            '434F524500000000000000000000000000000000+rcoreNywaoz2ZCQ8Lg2EbSLnGuRBmun6D/XRP',
+          ];
+          const response = await axios.post('https://api.sologenic.org/api/v1/tickers/24h', {
+            symbols,
+          });
 
-        if (response.status === 200) {
-          setPrice(response.data.coreum.usd);
+          if (response.status === 200) {
+            const coreXrp: any = Object.values(response.data)[0];
+            const xrpUsd: any = Object.values(response.data)[1];
+
+            const coreumPrice = Big(coreXrp.last_price).times(xrpUsd.last_price);
+            setPrice(coreumPrice.toNumber());
+          }
+        } catch (e) {
+          console.error('Error getting CORE price', e);
+          setPrice(0);
         }
-      } catch (e) {
-        console.error('Error fetching Coreum - USD price from CoinGecko. Price defaulted to 0.', e);
-        setPrice(0);
-      }
-    };
-    getPrice();
+      })();
+    }
   }, []);
 
   const { t } = useTranslation('common');

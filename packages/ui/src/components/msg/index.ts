@@ -3,6 +3,7 @@
 // =========================
 export { default as Grant } from '@/components/msg/authz/grant';
 export { default as Revoke } from '@/components/msg/authz/revoke';
+export { default as Exec } from '@/components/msg/authz/exec';
 export { default as Multisend } from '@/components/msg/bank/multisend';
 export { default as Send } from '@/components/msg/bank/send';
 export { default as VerifyInvariant } from '@/components/msg/crisis/verify_invariant';
@@ -72,3 +73,4 @@ export { default as NftMint } from '@/components/msg/asset/nft_mint';
 export { default as NftFreeze } from '@/components/msg/asset/nft_freeze';
 export { default as NftUnfreeze } from '@/components/msg/asset/nft_unfreeze';
 export { default as NftIssueClass } from '@/components/msg/asset/nft_issue_class';
+export { default as NftSend } from '@/components/msg/nft/send';

@@ -51,6 +51,7 @@
   "txTransferLabel": "IBC Transfer",
   "MsgGrant": "Grant",
   "MsgRevoke": "Revoke",
+  "MsgExec": "Execute",
   "MsgGrantAllowance": "Grant Allowance",
   "MsgRevokeAllowance": "Revoke Allowance",
   "MsgCreateVestingAccount": "Create Vesting Account",
@@ -67,5 +68,6 @@
   "msgNftBurnLabel": "NFT Burn",
   "msgNftFreezeLabel": "NFT Freeze",
   "msgNftUnfreezeLabel": "NFT Unfreeze",
-  "msgNftIssueClassLabel": "NFT Issue Class"
+  "msgNftIssueClassLabel": "NFT Issue Class",
+  "msgNftSendLabel": "NFT Send"
 }
