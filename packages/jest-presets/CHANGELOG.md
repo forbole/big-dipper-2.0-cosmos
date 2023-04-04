@@ -1,5 +1,11 @@
 # jest-presets
 
+## 0.3.1
+
+### Patch Changes
+
+- [#1196](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1196) [`c4d1d83e3`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/c4d1d83e30922bdb86ffc20d8cde36adad34bd0c) Thanks [@teamchong](https://github.com/teamchong)! - chore: versions bump
+
 ## 0.3.0
 
 ### Minor Changes
