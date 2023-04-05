@@ -41,9 +41,9 @@ jobs:
       - name: Set needs.changed-workspaces.outputs.{projects,projects-web}
         id: dry-run
         run: |
-          echo yarn build:ci --dry='json' --filter='[${{ github.event.pull_request.base.sha }}]' | tee -a $GITHUB_STEP_SUMMARY
+          echo yarn turbo run build --dry='json' --filter='[${{ github.event.pull_request.base.sha }}]' | tee -a $GITHUB_STEP_SUMMARY
           export DRY_BUILD_JSON=$(
-            yarn build:ci --dry='json' --filter='[${{ github.event.pull_request.base.sha }}]'
+            yarn turbo run build --dry='json' --filter='[${{ github.event.pull_request.base.sha }}]'
           )
           node <<EOF | tee -a $GITHUB_OUTPUT $GITHUB_STEP_SUMMARY
           const { packages } = JSON.parse(process.env.DRY_BUILD_JSON);
