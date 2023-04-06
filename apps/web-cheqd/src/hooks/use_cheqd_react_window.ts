@@ -22,15 +22,12 @@ export const useGrid = <T = VariableSizeGrid>(
     }
   };
 
-  const getColumnWidth = (width: number, index: string | number) => {
-    return (columns[index as any].width * width) / 100;
-  };
+  const getColumnWidth = (width: number, index: string | number) =>
+    (columns[index as any].width * width) / 100;
 
-  const getRowHeight = () => {
+  const getRowHeight = () =>
     // this matches mui table height setup
-    return 50;
-  };
-
+    50;
   return {
     gridRef,
     columnRef,
