@@ -45,7 +45,7 @@ export interface ContractSearchBoxProps {
 export const zContractName = z.coerce.string().default('').catch('');
 
 export const zInstantiatePermission = z.object({
-  permission: z.coerce.number().nullable().optional(),
+  permission: z.coerce.string().nullable().optional(),
   address: z.coerce.string().nullable().optional(),
   addresses: z.coerce.string().nullable().optional(),
 });

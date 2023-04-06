@@ -7189,15 +7189,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
-      ["@types/prismjs", [\
-        ["npm:1.26.0", {\
-          "packageLocation": "./.yarn/cache/@types-prismjs-npm-1.26.0-e89ec94ae4-cd5e7a6214.zip/node_modules/@types/prismjs/",\
-          "packageDependencies": [\
-            ["@types/prismjs", "npm:1.26.0"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
       ["@types/prop-types", [\
         ["npm:15.7.5", {\
           "packageLocation": "./.yarn/cache/@types-prop-types-npm-15.7.5-2aa48aa177-5b43b8b154.zip/node_modules/@types/prop-types/",\
@@ -16409,15 +16400,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
-      ["prismjs", [\
-        ["npm:1.29.0", {\
-          "packageLocation": "./.yarn/cache/prismjs-npm-1.29.0-6faa5b04b8-007a8869d4.zip/node_modules/prismjs/",\
-          "packageDependencies": [\
-            ["prismjs", "npm:1.29.0"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
       ["process-nextick-args", [\
         ["npm:2.0.1", {\
           "packageLocation": "./.yarn/cache/process-nextick-args-npm-2.0.1-b8d7971609-1d38588e52.zip/node_modules/process-nextick-args/",\
@@ -20463,7 +20445,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:18.15.11"],\
             ["@types/numeral", "npm:2.0.2"],\
             ["@types/pako", "npm:2.0.0"],\
-            ["@types/prismjs", "npm:1.26.0"],\
             ["@types/qs", "npm:6.9.7"],\
             ["@types/ramda", "npm:0.28.23"],\
             ["@types/react", "npm:18.0.32"],\
@@ -20516,7 +20497,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:6.0.0"],\
             ["numeral", "npm:2.0.6"],\
             ["pako", "npm:2.1.0"],\
-            ["prismjs", "npm:1.29.0"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
             ["qs", "npm:6.11.1"],\
             ["ramda", "npm:0.29.0"],\
@@ -21749,7 +21729,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:18.15.11"],\
             ["@types/numeral", "npm:2.0.2"],\
             ["@types/pako", "npm:2.0.0"],\
-            ["@types/prismjs", "npm:1.26.0"],\
             ["@types/qs", "npm:6.9.7"],\
             ["@types/ramda", "npm:0.28.23"],\
             ["@types/react", "npm:18.0.32"],\
@@ -21802,7 +21781,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["next-seo", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:6.0.0"],\
             ["numeral", "npm:2.0.6"],\
             ["pako", "npm:2.1.0"],\
-            ["prismjs", "npm:1.29.0"],\
             ["qrcode.react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.1.0"],\
             ["qs", "npm:6.11.1"],\
             ["ramda", "npm:0.29.0"],\

@@ -4496,13 +4496,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/prismjs@npm:^1.26.0":
-  version: 1.26.0
-  resolution: "@types/prismjs@npm:1.26.0"
-  checksum: cd5e7a6214c1f4213ec512a5fcf6d8fe37a56b813fc57ac95b5ff5ee074742bfdbd2f2730d9fd985205bf4586728e09baa97023f739e5aa1c9735a7c1ecbd11a
-  languageName: node
-  linkType: hard
-
 "@types/prop-types@npm:*, @types/prop-types@npm:^15.7.5":
   version: 15.7.5
   resolution: "@types/prop-types@npm:15.7.5"
@@ -11826,13 +11819,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prismjs@npm:^1.29.0":
-  version: 1.29.0
-  resolution: "prismjs@npm:1.29.0"
-  checksum: 007a8869d4456ff8049dc59404e32d5666a07d99c3b0e30a18bd3b7676dfa07d1daae9d0f407f20983865fd8da56de91d09cb08e6aa61f5bc420a27c0beeaf93
-  languageName: node
-  linkType: hard
-
 "process-nextick-args@npm:~2.0.0":
   version: 2.0.1
   resolution: "process-nextick-args@npm:2.0.1"
@@ -15037,7 +15023,6 @@ __metadata:
     "@types/node": ^18.15.11
     "@types/numeral": ^2.0.2
     "@types/pako": ^2.0.0
-    "@types/prismjs": ^1.26.0
     "@types/qs": ^6.9.7
     "@types/ramda": ^0.28.23
     "@types/react": ^18.0.32
@@ -15090,7 +15075,6 @@ __metadata:
     next-seo: ^6.0.0
     numeral: ^2.0.6
     pako: ^2.1.0
-    prismjs: ^1.29.0
     qrcode.react: ^3.1.0
     qs: ^6.11.1
     ramda: ^0.29.0
@@ -16301,7 +16285,6 @@ __metadata:
     "@types/node": ^18.15.11
     "@types/numeral": ^2.0.2
     "@types/pako": ^2.0.0
-    "@types/prismjs": ^1.26.0
     "@types/qs": ^6.9.7
     "@types/ramda": ^0.28.23
     "@types/react": ^18.0.32
@@ -16354,7 +16337,6 @@ __metadata:
     next-seo: ^6.0.0
     numeral: ^2.0.6
     pako: ^2.1.0
-    prismjs: ^1.29.0
     qrcode.react: ^3.1.0
     qs: ^6.11.1
     ramda: ^0.29.0
