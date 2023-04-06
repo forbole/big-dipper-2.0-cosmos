@@ -5,7 +5,7 @@ import {
   PROPOSALS,
   TRANSACTIONS,
   VALIDATORS,
-  // WASM_CONTRACTS,
+  WASM_CONTRACTS,
 } from '@/utils/go_to_page';
 import BlockIcon from 'shared-utils/assets/icon-block.svg';
 import HomeIcon from 'shared-utils/assets/icon-home.svg';
@@ -13,7 +13,7 @@ import ParamIcon from 'shared-utils/assets/icon-param.svg';
 import ProposalsIcon from 'shared-utils/assets/icon-proposals.svg';
 import TransactionIcon from 'shared-utils/assets/icon-transaction.svg';
 import UserIcon from 'shared-utils/assets/icon-user.svg';
-// import WasmContractIcon from 'shared-utils/assets/icon-wasm-contract.svg';
+import WasmContractIcon from 'shared-utils/assets/icon-wasm-contract.svg';
 
 export const getMenuItems = () => {
   const iconProps = {
@@ -52,10 +52,10 @@ export const getMenuItems = () => {
       url: PARAMS,
       icon: <ParamIcon {...iconProps} />,
     },
-    // {
-    //   key: 'wasmContracts',
-    //   url: WASM_CONTRACTS,
-    //   icon: <WasmContractIcon {...iconProps} />,
-    // },
+    {
+      key: 'wasmContracts',
+      url: WASM_CONTRACTS,
+      icon: <WasmContractIcon {...iconProps} />,
+    },
   ];
 };
