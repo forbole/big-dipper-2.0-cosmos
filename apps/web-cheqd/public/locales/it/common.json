@@ -65,7 +65,8 @@
   "detailed": "Dettagliato",
   "profilesNotEnabled": "Profili non abilitati per questo explorer",
   "insertValidDtag": "Si prega di inserire una dtag valida",
-    "invalidAddress": "Address non valido",
+  "invalidAddress": "Address non valido",
   "24-hour": "Tempo di 24 ore",
-  "12-hour": "Tempo di 12 ore"
+  "12-hour": "Tempo di 12 ore",
+  "top_accounts": "Migliori account"
 }

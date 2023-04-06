@@ -33,5 +33,11 @@
   "creationTime": "创建时间",
   "bio": "简述",
   "status": "状态",
-  "completionTime": "完成时间"
+  "completionTime": "完成时间",
+  "topAccounts": "顶级帐户",
+  "top_rank": "名次",
+  "top_address": "地址",
+  "top_dtag": "标签",
+  "top_balance": "代币余额",
+  "top_percentage": "百分比"
 }

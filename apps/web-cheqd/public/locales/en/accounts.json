@@ -33,5 +33,11 @@
   "creationTime": "Creation Time",
   "bio": "Bio",
   "status": "Status",
-  "completionTime": "Completion Time"
+  "completionTime": "Completion Time",
+  "topAccounts": "Top Accounts",
+  "top_rank": "Rank",
+  "top_address": "Address",
+  "top_dtag": "DTag",
+  "top_balance": "Token Balance",
+  "top_percentage": "Percentage"
 }
