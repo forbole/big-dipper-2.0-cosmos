@@ -12,7 +12,7 @@ const mockI18n = {
 };
 jest.mock('next-i18next', () => () => mockI18n);
 
-jest.mock('@src/recoil/profiles/hooks', () => ({
+jest.mock('@/recoil/profiles/hooks', () => ({
   useProfileRecoil: (address: string) => ({
     name: 'name',
     address,

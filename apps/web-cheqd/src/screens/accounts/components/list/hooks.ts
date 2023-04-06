@@ -1,3 +1,4 @@
+/* eslint-disable turbo/no-undeclared-env-vars */
 /* eslint-disable camelcase, object-curly-newline */
 import { useTopAccountsQuery } from '@/graphql/types/general_types';
 import Big from 'big.js';

@@ -1,7 +1,8 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-one-expression-per-line, object-curly-newline */
 import { Table, TableBody, TableHead, TableRow } from '@mui/material';
-import { Header } from './components/Header';
-import { Row } from './components/Row';
+import { Header } from '@/screens/accounts/components/list/components/desktop/components/Header';
+import { Row } from '@/screens/accounts/components/list/components/desktop/components/Row';
 import useStyles from '@/screens/accounts/components/list/components/desktop/styles';
 import { DesktopProps } from '@/screens/accounts/components/list/components/desktop/types';
 import { useColumns } from '@/screens/accounts/components/list/components/desktop/utils';

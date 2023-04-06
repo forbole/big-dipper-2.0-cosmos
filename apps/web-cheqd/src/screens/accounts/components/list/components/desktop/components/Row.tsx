@@ -26,12 +26,12 @@ export const Row = memo(({ data, columnIndex, rowIndex, style }: RowProps) => {
         <Cell
           style={style}
           rowIndex={rowIndex}
-          cx={!(rowIndex % 2) ? `odd` : null}
+          cx={!(rowIndex % 2) ? 'odd' : ''}
         >{`#${data.rank}`}</Cell>
       );
     case 'top_address':
       return (
-        <Cell style={style} rowIndex={rowIndex} cx={!(rowIndex % 2) ? `odd` : null}>
+        <Cell style={style} rowIndex={rowIndex} cx={!(rowIndex % 2) ? 'odd' : ''}>
           <AvatarName
             name={profile.name}
             address={data.address}
@@ -42,7 +42,7 @@ export const Row = memo(({ data, columnIndex, rowIndex, style }: RowProps) => {
       );
     case 'top_dtag':
       return (
-        <Cell style={style} rowIndex={rowIndex} cx={!(rowIndex % 2) ? `odd` : null}>
+        <Cell style={style} rowIndex={rowIndex} cx={!(rowIndex % 2) ? 'odd' : ''}>
           {/^@/.test(profile.name) && (
             <Typography variant="h4" className="label">
               {`@${profile.name}`}
@@ -52,13 +52,13 @@ export const Row = memo(({ data, columnIndex, rowIndex, style }: RowProps) => {
       );
     case 'top_balance':
       return (
-        <Cell style={style} rowIndex={rowIndex} cx={!(rowIndex % 2) ? `odd` : null}>
+        <Cell style={style} rowIndex={rowIndex} cx={!(rowIndex % 2) ? 'odd' : ''}>
           {Big(token.value).toFixed(0)} {token.displayDenom.toUpperCase()}
         </Cell>
       );
     case 'top_percentage':
       return (
-        <Cell style={style} rowIndex={rowIndex} cx={!(rowIndex % 2) ? `odd` : null}>
+        <Cell style={style} rowIndex={rowIndex} cx={!(rowIndex % 2) ? 'odd' : ''}>
           {`${data.percentage.toFixed(4)} %`}
         </Cell>
       );

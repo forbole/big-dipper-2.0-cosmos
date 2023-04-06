@@ -10,7 +10,7 @@ export type CellProps = {
   style: CSSProperties;
   rowIndex: number;
   children: ReactNode;
-  cx: any;
+  cx: string;
 };
 export type HeaderProps = {
   style: CSSProperties;

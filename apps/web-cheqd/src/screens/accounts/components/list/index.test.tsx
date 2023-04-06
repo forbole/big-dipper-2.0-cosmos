@@ -7,20 +7,28 @@ import { ApolloProvider } from '@apollo/client';
 import { MockedProvider } from '@apollo/client/testing';
 import renderer from 'react-test-renderer';
 import { RecoilRoot } from 'recoil';
-import List from '.';
+import List from '@/screens/accounts/components/list';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('./components', () => ({
+jest.mock('@/screens/accounts/components/list/components/mobile', () => ({
   Mobile: (props: JSX.IntrinsicElements['div']) => <div id="Mobile" {...props} />,
-  Desktop: (props: JSX.IntrinsicElements['div']) => <div id="Desktop" {...props} />,
-  Tabs: (props: JSX.IntrinsicElements['div']) => <div id="Tabs" {...props} />,
 }));
 
-jest.mock('@components', () => ({
+jest.mock('@/screens/accounts/components/list/components/desktop', () => ({
+  Desktop: (props: JSX.IntrinsicElements['div']) => <div id="Desktop" {...props} />,
+}));
+
+jest.mock('@/components/box', () => ({
   Box: (props: JSX.IntrinsicElements['div']) => <div id="Box" {...props} />,
+}));
+
+jest.mock('@/components/no_data', () => ({
   NoData: (props: JSX.IntrinsicElements['div']) => <div id="NoData" {...props} />,
+}));
+
+jest.mock('@/components/load_and_exist', () => ({
   LoadAndExist: (props: JSX.IntrinsicElements['div']) => <div id="LoadAndExist" {...props} />,
 }));
 

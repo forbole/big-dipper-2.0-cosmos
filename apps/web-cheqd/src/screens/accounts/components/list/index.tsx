@@ -6,11 +6,11 @@ import Pagination from '@/components/pagination';
 import { useProfilesRecoil } from '@/recoil/profiles';
 import dynamic from 'next/dynamic';
 import React, { ComponentProps, useCallback, useMemo } from 'react';
-import { useAccounts } from './hooks';
 import useStyles from '@/screens/accounts/components/list/styles';
+import { useAccounts } from './hooks';
 
-const Desktop = dynamic(() => import('./components/desktop'));
-const Mobile = dynamic(() => import('./components/mobile'));
+const Desktop = dynamic(() => import('@/screens/accounts/components/list/components/desktop'));
+const Mobile = dynamic(() => import('@/screens/accounts/components/list/components/mobile'));
 
 type Props = {
   className?: string;

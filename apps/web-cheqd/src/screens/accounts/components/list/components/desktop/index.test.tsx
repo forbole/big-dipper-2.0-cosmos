@@ -12,7 +12,7 @@ const mockI18n = {
 };
 jest.mock('next-i18next', () => () => mockI18n);
 
-jest.mock('@src/recoil/profiles/hooks', () => ({
+jest.mock('@/recoil/profiles/hooks', () => ({
   useProfileRecoil: (address: string) => ({
     name: 'name',
     address,
@@ -20,8 +20,11 @@ jest.mock('@src/recoil/profiles/hooks', () => ({
   }),
 }));
 
-jest.mock('@components', () => ({
+jest.mock('@/components/avatar_name', () => ({
   AvatarName: (props: JSX.IntrinsicElements['div']) => <div id="AvatarName" {...props} />,
+}));
+
+jest.mock('@/components/sort_arrows', () => ({
   SortArrows: (props: JSX.IntrinsicElements['div']) => <div id="SortArrows" {...props} />,
 }));
 
