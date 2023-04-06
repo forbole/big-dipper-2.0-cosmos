@@ -529,13 +529,14 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:focus::-ms-input-p
   -webkit-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out;
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 5%;
+  left: 20%;
 }
 
 .emotion-16.open {
   opacity: 1;
   visibility: visible;
+  max-width: 1200px;
 }
 
 <div
@@ -1168,13 +1169,14 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:focus::-ms-input-p
   -webkit-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out;
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 5%;
+  left: 20%;
 }
 
 .emotion-15.open {
   opacity: 1;
   visibility: visible;
+  max-width: 1200px;
 }
 
 <div

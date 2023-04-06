@@ -17,13 +17,30 @@ exports[`screen: Nav/NetworkList it renders 1`] = `
   padding: 16px 14px 20px;
 }
 
+.emotion-0 h2 {
+  color: #000000;
+  width: 216px;
+  font-weight: 800;
+  font-size: 24px;
+  padding: 16px 0px 16px 16px;
+}
+
 .emotion-1 {
-  padding: 24px;
+  margin: 0;
+  font-size: 1.5rem;
+  letter-spacing: 0;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.emotion-2 {
+  padding: 8px;
   height: 400px;
   overflow: auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 24px 16px;
+  gap: 16px 16px;
 }
 
 <div
@@ -36,10 +53,14 @@ exports[`screen: Nav/NetworkList it renders 1`] = `
       }
     }
   >
-    <svg />
+    <h2
+      className="MuiTypography-root MuiTypography-h2 emotion-1"
+    >
+      select a chain
+    </h2>
   </div>
   <Networks
-    className="emotion-1"
+    className="emotion-2"
   />
 </div>
 `;

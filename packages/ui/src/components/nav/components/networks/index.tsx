@@ -13,9 +13,18 @@ const Networks: FC<ComponentDefault> = ({ className }) => {
     <div className={className}>
       {networks.map((x) => (
         <div className={classes.networkList} key={x.name}>
-          <Image width={0} height={0} className={classes.img} src={x.logo} alt="logo" unoptimized />
           <div className="network">
-            <Typography variant="h4">{x.name}</Typography>
+            <div className="iconName">
+              <Image
+                width={0}
+                height={0}
+                className={classes.img}
+                src={x.logo}
+                alt="logo"
+                unoptimized
+              />
+              <Typography variant="h4">{x.name}</Typography>
+            </div>
             {x.mainnet.map((network) => (
               <SingleNetwork
                 className="mainnet"

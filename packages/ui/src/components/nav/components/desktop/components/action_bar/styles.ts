@@ -41,11 +41,12 @@ const useStyles = makeStyles()((theme) => ({
     visibility: 'hidden',
     transition: '0.2s ease-in-out',
     position: 'fixed',
-    top: 0,
-    left: 0,
+    top: '5%',
+    left: '20%',
     '&.open': {
       opacity: 1,
       visibility: 'visible',
+      maxWidth: '1200px',
     },
   },
 }));

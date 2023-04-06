@@ -13,6 +13,17 @@ const useStyles = makeStyles()((theme) => ({
       flex: 1,
       minWidth: 0,
     },
+    '& .iconName': {
+      border: theme.palette.mode === 'dark' ? '1px solid #414141' : '1px solid #707070',
+      borderRadius: theme.spacing(1),
+      display: 'flex',
+      flexDirection: 'row',
+      alignItems: 'center',
+      padding: theme.spacing(1, 1),
+      '&:hover': {
+        border: `1px solid ${theme.palette.primary.main}`,
+      },
+    },
   },
   img: {
     width: 'auto',
