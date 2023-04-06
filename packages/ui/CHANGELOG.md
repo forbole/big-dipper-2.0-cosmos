@@ -1,5 +1,18 @@
 # ui
 
+## 2.21.0
+
+### Minor Changes
+
+- [#1195](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1195) [`e1502b5d1`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/e1502b5d1ecb50b8da94fc157ac1866ee40df9a8) Thanks [@rachelhox](https://github.com/rachelhox)! - fix txVoteContent proposal id visualization
+
+### Patch Changes
+
+- [#1196](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1196) [`c4d1d83e3`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/c4d1d83e30922bdb86ffc20d8cde36adad34bd0c) Thanks [@teamchong](https://github.com/teamchong)! - chore: versions bump
+
+- Updated dependencies [[`c4d1d83e3`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/c4d1d83e30922bdb86ffc20d8cde36adad34bd0c)]:
+  - shared-utils@2.12.1
+
 ## 2.20.0
 
 ### Minor Changes
