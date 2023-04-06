@@ -7,10 +7,18 @@ const useStyles = makeStyles()((theme) => ({
   },
   timeContainer: {
     background: theme.palette.custom.general.surfaceTwo,
+    padding: theme.spacing(1, 2),
     color: theme.palette.custom.fonts.fontTwo,
   },
   itemContainer: {
     padding: theme.spacing(2, 2, 1),
+  },
+  itemPrimaryDetailsContainer: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(2, 1fr)',
+    [theme.breakpoints.up('lg')]: {
+      gridTemplateColumns: 'repeat(4, 1fr)',
+    },
   },
   item: {
     gridColumn: '1/3',
@@ -46,66 +54,7 @@ const useStyles = makeStyles()((theme) => ({
     },
   },
   tags: {
-    // marginBottom: theme.spacing(2),
-  },
-  infoDiv: {
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    justifyContent: 'space-between',
-  },
-  innerDiv: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-    fontSize: theme.spacing(1.5),
-    div: {
-      '&:not(:last-child)': {
-        paddingBottom: theme.spacing(1),
-      },
-    },
-  },
-  endDiv: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'flex-end',
-    fontSize: theme.spacing(1.5),
-    div: {
-      '&:not(:last-child)': {
-        paddingBottom: theme.spacing(1),
-      },
-    },
-  },
-  iconFlexDiv: {
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    a: {
-      paddingRight: theme.spacing(1),
-    },
-  },
-  icon: {
-    width: theme.spacing(2),
-    height: theme.spacing(2),
-    fill: 'none',
-  },
-  dsmDiv: {
-    fontSize: theme.spacing(2),
-    fontWeight: 600,
-  },
-  accordion: {
-    background: theme.palette.common.black,
-    svg: {
-      fill: 'none',
-    },
-    p: {
-      paddingLeft: theme.spacing(1),
-    },
-    '.Mui-expanded': {
-      display: 'flex',
-      flexDirection: 'row',
-      justifyItems: 'center',
-    },
+    marginBottom: theme.spacing(2),
   },
 }));
 

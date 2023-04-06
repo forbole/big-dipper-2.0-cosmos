@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component: TransactionsListDetails/TransactionList matches snapshot 1`] = `
+.emotion-0 {
+  height: 100%;
+}
+
+<div
+  className="emotion-0"
+>
+  <div
+    style={
+      {
+        "height": 0,
+        "overflow": "visible",
+        "width": 0,
+      }
+    }
+  />
+</div>
+`;

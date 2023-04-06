@@ -12,6 +12,12 @@ exports[`component: DesmosProfile matches snapshot 1`] = `
   background: #FFFFFF;
 }
 
+.emotion-0 a {
+  color: #0075FF;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
 .emotion-1 {
   height: 150px;
   background: #999999;
@@ -303,11 +309,88 @@ exports[`component: DesmosProfile matches snapshot 1`] = `
   font-family: "Roboto","Helvetica","Arial",sans-serif;
   font-weight: 400;
   line-height: 1.5;
-  color: #4092CD;
+  color: #0075FF!important;
 }
 
 .emotion-19:hover {
   cursor: pointer;
+}
+
+.emotion-20 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  padding: 8px 0px 8px 0px!important;
+}
+
+@media (min-width:1280px) {
+  .emotion-20 {
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 16px 0px 16px 0px!important;
+  }
+}
+
+.emotion-20 a {
+  padding-left: 3px;
+  font-size: 14px;
+}
+
+.emotion-21 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0px 0px 8px 0px;
+}
+
+.emotion-21:first-child {
+  padding-top: 0;
+}
+
+.emotion-21:last-child {
+  padding-bottom: 0;
+}
+
+@media (min-width:1280px) {
+  .emotion-21 {
+    padding: 0px 16px 0px 0px;
+  }
+
+  .emotion-21:last-child {
+    padding-right: 0;
+  }
+}
+
+.emotion-21 p {
+  padding-left: 5px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #999999;
+}
+
+.emotion-22 {
+  fill: none;
 }
 
 <div
@@ -424,6 +507,36 @@ exports[`component: DesmosProfile matches snapshot 1`] = `
     >
       more
     </p>
+  </div>
+  <div
+    className="emotion-20"
+  >
+    <div
+      className="emotion-21"
+    >
+      <svg
+        className="emotion-22"
+      />
+      <p
+        className="MuiTypography-root MuiTypography-body2 emotion-7"
+      >
+        joined
+      </p>
+    </div>
+    <div
+      className="emotion-21"
+    >
+      <svg
+        className="emotion-22"
+      />
+      <p
+        className="MuiTypography-root MuiTypography-body1 emotion-19"
+        onClick={[Function]}
+        role="button"
+      >
+        connections
+      </p>
+    </div>
   </div>
 </div>
 `;

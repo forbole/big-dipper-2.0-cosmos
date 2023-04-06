@@ -130,7 +130,7 @@ const DesmosProfile: FC<DesmosProfileProps> = (props) => {
           </div>
         )}
         <div className={classes.infoDiv}>
-          {props.applicationLinks.length > 0 && (
+          {props.applicationLinks && props.applicationLinks.length > 0 && (
             <>
               {props.applicationLinks.map((app) => (
                 <div key={app.identifier} className={classes.flexDiv}>

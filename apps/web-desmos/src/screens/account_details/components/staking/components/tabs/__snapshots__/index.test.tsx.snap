@@ -1,0 +1,243 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Validators/Tabs matches snapshot 1`] = `
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+
+.emotion-1 {
+  overflow: hidden;
+  min-height: 48px;
+  -webkit-overflow-scrolling: touch;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media (max-width:374.95px) {
+  .emotion-1 .MuiTabs-scrollButtons {
+    display: none;
+  }
+}
+
+.emotion-1 .MuiTab-textColorInherit {
+  color: #777777;
+  opacity: 1;
+  font-size: 1rem;
+}
+
+.emotion-1 .MuiTab-textColorInherit.Mui-selected {
+  color: #000000;
+}
+
+.emotion-1 .MuiTabs-indicator {
+  background-color: #000000;
+}
+
+.emotion-1.MuiTabs-root,
+.emotion-1 .MuiTab-root {
+  min-height: 40px;
+}
+
+.emotion-2 {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+}
+
+.emotion-2::-webkit-scrollbar {
+  display: none;
+}
+
+.emotion-3 {
+  position: relative;
+  display: inline-block;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.emotion-3::-webkit-scrollbar {
+  display: none;
+}
+
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-5 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
+  font-size: 0.875rem;
+  letter-spacing: 1.25px;
+  text-transform: none;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 500;
+  line-height: 1.25;
+  max-width: 360px;
+  min-width: 90px;
+  position: relative;
+  min-height: 48px;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  padding: 12px 16px;
+  overflow: hidden;
+  white-space: normal;
+  text-align: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  color: #414141;
+}
+
+.emotion-5::-moz-focus-inner {
+  border-style: none;
+}
+
+.emotion-5.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media print {
+  .emotion-5 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-5.Mui-selected {
+  color: #FF835B;
+}
+
+.emotion-5.Mui-disabled {
+  color: rgba(0, 0, 0, 0.38);
+}
+
+.emotion-6 {
+  position: absolute;
+  height: 2px;
+  bottom: 0;
+  width: 100%;
+  -webkit-transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  background-color: #FF835B;
+}
+
+<div
+  className="emotion-0"
+>
+  <div
+    className="MuiTabs-root emotion-1"
+  >
+    <div
+      className="MuiTabs-scrollableX MuiTabs-hideScrollbar emotion-2"
+      style={
+        {
+          "height": 99,
+          "overflow": "scroll",
+          "position": "absolute",
+          "top": -9999,
+          "width": 99,
+        }
+      }
+    />
+    <div
+      className="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX emotion-3"
+      onScroll={[Function]}
+      style={
+        {
+          "marginBottom": -0,
+          "overflow": "hidden",
+        }
+      }
+    >
+      <div
+        aria-orientation={null}
+        className="MuiTabs-flexContainer emotion-4"
+        onKeyDown={[Function]}
+        role="tablist"
+      >
+        <button
+          aria-controls="simple-tabpanel-0"
+          aria-selected={true}
+          className="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected emotion-5"
+          disabled={false}
+          id="simple-tab-0"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onContextMenu={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          role="tab"
+          tabIndex={0}
+          type="button"
+        >
+          key
+          <span
+            className="MuiTabs-indicator emotion-6"
+            style={{}}
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
