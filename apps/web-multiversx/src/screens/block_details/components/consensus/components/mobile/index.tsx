@@ -72,11 +72,11 @@ const Mobile: FC<{ items: ConsensusType[]; className?: string }> = (props) => {
         {({ height, width }) => (
           <List
             className="List"
-            height={height}
+            height={height ?? 0}
             itemCount={props.items.length}
             itemSize={getRowHeight}
             ref={listRef as LegacyRef<List>}
-            width={width}
+            width={width ?? 0}
           >
             {({ index, style }) => (
               <ListItem

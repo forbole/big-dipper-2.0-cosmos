@@ -8,9 +8,6 @@ import StepLabel from '@mui/material/StepLabel';
 import Stepper from '@mui/material/Stepper';
 import { useTranslation } from 'next-i18next';
 import pako from 'pako';
-import Prism from 'prismjs';
-import 'prismjs/components/prism-clike';
-import 'prismjs/themes/prism.css';
 import { FC, startTransition, useEffect, useRef, useState } from 'react';
 
 // Check if the bytecode is gzipped by checking the first two bytes
@@ -49,11 +46,7 @@ const ByteCode: FC<ByteCodeProps> = ({ className, byteCode }) => {
     startTransition(() => {
       try {
         const decompressed = decompressGzip(byteCode);
-        const decompressedCode = Prism.highlight(
-          new TextDecoder('ascii').decode(decompressed),
-          Prism.languages.clike,
-          'clike'
-        );
+        const decompressedCode = new TextDecoder('ascii').decode(decompressed);
         setCodeBinary(decompressedCode);
 
         (async () => {
@@ -64,7 +57,7 @@ const ByteCode: FC<ByteCodeProps> = ({ className, byteCode }) => {
               const mod = readWasm(decompressed, { readDebugNames: true });
               const modText = mod.toText({ foldExprs: false, inlineExport: false });
               mod.generateNames();
-              const modCode = Prism.highlight(modText, Prism.languages.clike, 'clike');
+              const modCode = modText;
               mod.destroy();
               setCodeText(modCode);
             } catch (error) {
@@ -128,31 +121,21 @@ const ByteCode: FC<ByteCodeProps> = ({ className, byteCode }) => {
                   );
                 })}
               </Stepper>
-              <pre
+              <textarea
                 className={classes.codeBlock}
                 style={{ display: displayStep === 0 ? 'block' : 'none' }}
-              >
-                <code className="language-hex">{byteCode}</code>
-              </pre>
-              <pre
+                value={byteCode}
+              />
+              <textarea
                 className={classes.codeBlock}
                 style={{ display: displayStep === 1 ? 'block' : 'none' }}
-              >
-                {
-                  <code
-                    className="language-clike"
-                    // eslint-disable-next-line react/no-danger
-                    dangerouslySetInnerHTML={{ __html: codeBinary }}
-                  />
-                }
-              </pre>
-              <pre
+                value={codeBinary}
+              />
+              <textarea
                 className={classes.codeBlock}
                 style={{ display: displayStep === 2 ? 'block' : 'none' }}
-              >
-                {/* eslint-disable-next-line react/no-danger */}
-                <code className="language-clike" dangerouslySetInnerHTML={{ __html: codeText }} />
-              </pre>
+                value={codeText}
+              />
             </div>
           ),
           className: classes.codeItem,

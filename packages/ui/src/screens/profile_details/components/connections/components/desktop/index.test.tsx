@@ -1,7 +1,8 @@
-import renderer from 'react-test-renderer';
-import type { AutoSizerProps } from 'react-virtualized-auto-sizer';
 import Desktop from '@/screens/profile_details/components/connections/components/desktop';
 import MockTheme from '@/tests/mocks/MockTheme';
+import { ComponentProps } from 'react';
+import renderer from 'react-test-renderer';
+import AutoSizer from 'react-virtualized-auto-sizer';
 
 // ==================================
 // mocks
@@ -9,7 +10,7 @@ import MockTheme from '@/tests/mocks/MockTheme';
 jest.mock(
   'react-virtualized-auto-sizer',
   () =>
-    ({ children }: AutoSizerProps) =>
+    ({ children }: ComponentProps<typeof AutoSizer>) =>
       children({
         height: 600,
         width: 600,

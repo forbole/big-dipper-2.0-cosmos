@@ -1,7 +1,7 @@
 import { test } from '@playwright/test';
 import { interceptRoutes, waitForMenuItemClick, waitForReady } from './common';
 
-test('proposals list page', async ({ page, isMobile }) => {
+test('proposals list page', async ({ page }) => {
   await interceptRoutes(page);
 
   await page.goto('./proposals');
