@@ -11,7 +11,7 @@ ARG PROJECT_NAME=web
 # - Stage 4: runner (final image for the web project, sets environment variables, starts the server)
 
 # Stage: starter
-FROM ${BASE_IMAGE} AS starter
+FROM --platform=$BUILDPLATFORM ${BASE_IMAGE} AS starter
 WORKDIR /app
 RUN npm i -g turbo
 
@@ -80,7 +80,7 @@ RUN ([ -z "${NEXT_PUBLIC_SENTRY_DSN}" ] || yarn node packages/shared-utils/confi
 ################################################################################
 
 # Stage: runner
-FROM ${BASE_IMAGE} AS runner
+FROM --platform=$TARGETPLATFORM ${BASE_IMAGE} AS runner
  
 # Copying the files from the builder stage to the runner stage.
 ARG PROJECT_NAME
