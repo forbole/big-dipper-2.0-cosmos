@@ -3,7 +3,7 @@ import { useRef } from 'react';
 import * as R from 'ramda';
 import { VariableSizeGrid } from 'react-window';
 
-export const useGrid = <T = VariableSizeGrid>(
+const useGrid = <T = VariableSizeGrid>(
   columns: {
     key: string;
     align?: 'left' | 'center' | 'right' | 'justify' | 'inherit';
@@ -15,15 +15,15 @@ export const useGrid = <T = VariableSizeGrid>(
 
   const onResize = () => {
     if (gridRef.current != null) {
-      R.pathOr(() => null, ['current', 'resetAfterColumnIndex'], gridRef)(0);
+      R.pathOr((_: number) => null, ['current', 'resetAfterColumnIndex'], gridRef)(0);
     }
     if (columnRef.current != null) {
-      R.pathOr(() => null, ['current', 'resetAfterColumnIndex'], columnRef)(0);
+      R.pathOr((_: number) => null, ['current', 'resetAfterColumnIndex'], columnRef)(0);
     }
   };
 
-  const getColumnWidth = (width: number, index: string | number) =>
-    (columns[index as any].width * width) / 100;
+  const getColumnWidth = (width: number, index: number) =>
+    ((columns[index].width ?? 0) * width) / 100;
 
   const getRowHeight = () =>
     // this matches mui table height setup
@@ -36,3 +36,5 @@ export const useGrid = <T = VariableSizeGrid>(
     getRowHeight,
   };
 };
+
+export default useGrid;
