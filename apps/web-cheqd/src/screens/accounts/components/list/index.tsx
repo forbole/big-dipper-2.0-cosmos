@@ -19,15 +19,15 @@ type Props = {
 const List: React.FC<Props> = ({ className }) => {
   const { classes, cx } = useStyles();
   const { items, loading, exists, page, setPage, rowsPerPage, setRowsPerPage } = useAccounts();
-  const addresses = useMemo(() => items?.map((x: any) => x.address ?? '') ?? [], [items]);
-  const dataProfiles = useProfilesRecoil(addresses);
+  const addresses = useMemo(() => items?.map((x) => x.address ?? '') ?? [], [items]);
+  const dataProfiles = useProfilesRecoil(addresses).profiles;
   const mergedDataWithProfiles = useMemo(
     () =>
-      items?.map((x: any, i: any) => ({
+      items?.map((x, i) => ({
         ...x,
-        Account: dataProfiles[i as keyof typeof dataProfiles],
+        Account: dataProfiles[i],
       })),
-    [JSON.stringify(items), JSON.stringify(dataProfiles)]
+    [dataProfiles, items]
   );
   const handleChangePage = useCallback<ComponentProps<typeof Pagination>['handlePageChange']>(
     (_, newPage) => setPage(newPage),

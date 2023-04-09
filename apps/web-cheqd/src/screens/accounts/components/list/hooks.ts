@@ -52,7 +52,7 @@ export const useAccounts = (): UseAccountsState => {
           .div(TOTAL_SUPPLY)
           .toNumber(),
       })),
-    [data]
+    [data?.top_accounts, offset]
   );
 
   const exists = useMemo(() => loading || !!items?.length, [loading, items]);
