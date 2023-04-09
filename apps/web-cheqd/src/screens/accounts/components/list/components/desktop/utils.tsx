@@ -1,4 +1,4 @@
-import useGrid from '@/hooks/use_cheqd_react_window';
+import useGrid from '@/hooks/useGrid';
 
 const columns: Parameters<typeof useGrid>[0] = [
   {
