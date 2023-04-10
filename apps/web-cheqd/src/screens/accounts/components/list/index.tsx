@@ -7,7 +7,7 @@ import { useProfilesRecoil } from '@/recoil/profiles';
 import dynamic from 'next/dynamic';
 import React, { ComponentProps, useCallback, useMemo } from 'react';
 import useStyles from '@/screens/accounts/components/list/styles';
-import { useAccounts } from './hooks';
+import { useAccounts } from '@/screens/accounts/components/list/hooks';
 
 const Desktop = dynamic(() => import('@/screens/accounts/components/list/components/desktop'));
 const Mobile = dynamic(() => import('@/screens/accounts/components/list/components/mobile'));
