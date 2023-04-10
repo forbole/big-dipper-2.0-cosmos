@@ -3,7 +3,7 @@ import LoadAndExist from '@/components/load_and_exist';
 import Box from '@/components/box';
 import NoData from '@/components/no_data';
 import Pagination from '@/components/pagination';
-import { useProfilesRecoil } from '@/recoil/profiles';
+import { useProfilesRecoil } from '@/recoil/profiles/hooks';
 import dynamic from 'next/dynamic';
 import React, { ComponentProps, useCallback, useMemo } from 'react';
 import useStyles from '@/screens/accounts/components/list/styles';

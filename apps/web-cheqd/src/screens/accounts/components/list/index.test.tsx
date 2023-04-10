@@ -7,51 +7,15 @@ import wait from '@/tests/utils/wait';
 import { ApolloProvider } from '@apollo/client';
 import { MockedProvider } from '@apollo/client/testing';
 import renderer from 'react-test-renderer';
-import { RecoilRoot } from 'recoil';
 
 // ==================================
 // mocks
 // ==================================
-jest.mock('next/router', () => ({
-  ...jest.requireActual('next/router'),
-  useRouter: () => ({
-    query: {
-      id: 4,
-    },
-  }),
-}));
-
-jest.mock(
-  '@/screens/accounts/components/list/components/mobile',
-  () => (props: JSX.IntrinsicElements['div']) => <div id="Mobile" {...props} />
-);
-
-jest.mock(
-  '@/screens/accounts/components/list/components/desktop',
-  () => (props: JSX.IntrinsicElements['div']) => <div id="Desktop" {...props} />
-);
-
-jest.mock(
-  '@/screens/accounts/components/list/components/desktop/components/Header',
-  () => (props: JSX.IntrinsicElements['div']) => <div id="Header" {...props} />
-);
-
-jest.mock('next/router', () => ({
-  ...jest.requireActual('next/router'),
-  useRouter: () => ({
-    locales: ['en', 'zh'],
-    pathname: '/app/accounts',
-    query: {
-      key: 'val',
-    },
-  }),
-}));
-
 const mockAccountBalancesDocument = jest.fn().mockReturnValue({
   data: {
     top_accounts: [
       {
-        address: 'address',
+        address: 'address1',
         available: 0,
         delegation: 0,
         redelegation: 0,
@@ -60,7 +24,7 @@ const mockAccountBalancesDocument = jest.fn().mockReturnValue({
         unbonding: 0,
       },
       {
-        address: 'address',
+        address: 'address2',
         available: 0,
         delegation: 0,
         redelegation: 0,
@@ -81,28 +45,26 @@ describe('screen: Accounts/List', () => {
 
     renderer.act(() => {
       component = renderer.create(
-        <RecoilRoot>
-          <ApolloProvider client={mockClient}>
-            <MockedProvider
-              mocks={[
-                {
-                  request: {
-                    query: TopAccountsDocument,
-                    variables: {
-                      limit: 100,
-                      offset: 0,
-                    },
+        <ApolloProvider client={mockClient}>
+          <MockedProvider
+            mocks={[
+              {
+                request: {
+                  query: TopAccountsDocument,
+                  variables: {
+                    limit: 100,
+                    offset: 0,
                   },
-                  result: mockAccountBalancesDocument,
                 },
-              ]}
-            >
-              <MockTheme>
-                <List />
-              </MockTheme>
-            </MockedProvider>
-          </ApolloProvider>
-        </RecoilRoot>
+                result: mockAccountBalancesDocument,
+              },
+            ]}
+          >
+            <MockTheme>
+              <List />
+            </MockTheme>
+          </MockedProvider>
+        </ApolloProvider>
       );
     });
     await wait(renderer.act);
