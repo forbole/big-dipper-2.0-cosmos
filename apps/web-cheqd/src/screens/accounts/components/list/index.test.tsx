@@ -42,7 +42,7 @@ jest.mock('next/router', () => ({
   }),
 }));
 
-const mockAccountBalancesDocument = jest.fn().mockResolvedValue({
+const mockAccountBalancesDocument = jest.fn().mockReturnValue({
   data: {
     top_accounts: [
       {
