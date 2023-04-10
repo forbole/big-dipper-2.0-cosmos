@@ -12,12 +12,29 @@ const mockI18n = {
 };
 jest.mock('next-i18next', () => () => mockI18n);
 
+// ==================================
+// mocks
+// ==================================
 jest.mock('@/recoil/profiles/hooks', () => ({
-  useProfileRecoil: (address: string) => ({
-    name: 'name',
+  ...jest.requireActual<object>('@/recoil/profiles/hooks'),
+  useProfileRecoil: jest.fn((address) => ({
     address,
-    imageUrl: undefined,
-  }),
+    name:
+      address === 'desmosvaloper14nfk5gm99gfrd7nwqtmtvzunzclz8720a6cqh7'
+        ? 'AC Validator 🦦'
+        : address,
+    imageUrl: '',
+  })),
+  useProfilesRecoil: jest.fn((addresses) =>
+    addresses.map((address: string) => ({
+      address,
+      name:
+        address === 'desmosvaloper14nfk5gm99gfrd7nwqtmtvzunzclz8720a6cqh7'
+          ? 'AC Validator 🦦'
+          : address,
+      imageUrl: '',
+    }))
+  ),
 }));
 
 jest.mock('@/components/avatar_name', () => (props: JSX.IntrinsicElements['div']) => (
