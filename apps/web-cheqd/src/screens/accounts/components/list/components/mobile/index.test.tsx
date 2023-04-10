@@ -6,8 +6,23 @@ import Mobile from '@/screens/accounts/components/list/components/mobile';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@/screens/accounts/components/list/components/desktop/components/Row', () => ({
-  Row: (props: JSX.IntrinsicElements['div']) => <div id="Row" {...props} />,
+const mockI18n = {
+  t: (key: string) => key,
+  lang: 'en',
+};
+jest.mock('next-i18next', () => () => mockI18n);
+
+jest.mock(
+  '@/screens/accounts/components/list/components/mobile/components/Row',
+  () => (props: JSX.IntrinsicElements['div']) => <div id="Row" {...props} />
+);
+
+jest.mock('@/recoil/profiles/hooks', () => ({
+  useProfileRecoil: (address: string) => ({
+    name: 'name',
+    address,
+    imageUrl: undefined,
+  }),
 }));
 
 // ==================================

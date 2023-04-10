@@ -7,7 +7,7 @@ import { memo } from 'react';
 import { HeaderProps } from '@/screens/accounts/components/list/components/desktop/types';
 import { useColumns } from '../utils';
 
-export const Header = memo(({ columnIndex, style }: HeaderProps) => {
+const Header = memo(({ columnIndex, style }: HeaderProps) => {
   const { t } = useTranslation('accounts');
   const columns = useColumns();
 
@@ -21,3 +21,5 @@ export const Header = memo(({ columnIndex, style }: HeaderProps) => {
     </TableCell>
   );
 });
+
+export default Header;

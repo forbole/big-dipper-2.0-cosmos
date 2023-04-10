@@ -1,6 +1,6 @@
 /* eslint-disable object-curly-newline, react/require-default-props */
-import { FC } from 'react';
-import { Row } from '@/screens/accounts/components/list/components/mobile/components/Row';
+import React, { FC } from 'react';
+import Row from '@/screens/accounts/components/list/components/mobile/components/Row';
 import useStyles from '@/screens/accounts/components/list/components/mobile/styles';
 import { MobileProps } from '@/screens/accounts/components/list/components/mobile/types';
 

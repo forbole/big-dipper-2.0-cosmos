@@ -13,7 +13,7 @@ import { useColumns } from '../utils';
 
 const { primaryTokenUnit } = chainConfig();
 
-export const Row = memo(({ data, columnIndex, rowIndex, style }: RowProps) => {
+const Row = memo(({ data, columnIndex, rowIndex, style }: RowProps) => {
   const profile = useProfileRecoil(data.address);
   const columns = useColumns();
 
@@ -66,3 +66,5 @@ export const Row = memo(({ data, columnIndex, rowIndex, style }: RowProps) => {
       return null;
   }
 });
+
+export default Row;

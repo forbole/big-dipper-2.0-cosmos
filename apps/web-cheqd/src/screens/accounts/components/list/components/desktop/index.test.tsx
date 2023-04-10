@@ -6,13 +6,27 @@ import Desktop from '@/screens/accounts/components/list/components/desktop';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@/screens/accounts/components/list/components/desktop/components/Header', () => ({
-  Header: (props: JSX.IntrinsicElements['div']) => <div id="Header" {...props} />,
+const mockI18n = {
+  t: (key: string) => key,
+  lang: 'en',
+};
+jest.mock('next-i18next', () => () => mockI18n);
+
+jest.mock('@/recoil/profiles/hooks', () => ({
+  useProfileRecoil: (address: string) => ({
+    name: 'name',
+    address,
+    imageUrl: undefined,
+  }),
 }));
 
-jest.mock('@/screens/accounts/components/list/components/desktop/components/Row', () => ({
-  Row: (props: JSX.IntrinsicElements['div']) => <div id="Row" {...props} />,
-}));
+jest.mock('@/components/avatar_name', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="AvatarName" {...props} />
+));
+
+jest.mock('@/components/sort_arrows', () => (props: JSX.IntrinsicElements['div']) => (
+  <div id="SortArrows" {...props} />
+));
 
 // ==================================
 // unit tests

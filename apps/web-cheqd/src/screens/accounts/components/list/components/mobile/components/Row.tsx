@@ -13,7 +13,7 @@ import { RowProps } from '@/screens/accounts/components/list/components/mobile/t
 
 const { primaryTokenUnit } = chainConfig();
 
-export const Row = memo(({ data, index, itemCount }: RowProps) => {
+const Row = memo(({ data, index, itemCount }: RowProps) => {
   const profile = useProfileRecoil(data.address);
   const token = formatToken(data.balance, primaryTokenUnit);
   const { t } = useTranslation('accounts');
@@ -72,3 +72,5 @@ export const Row = memo(({ data, index, itemCount }: RowProps) => {
     </div>
   );
 });
+
+export default Row;
