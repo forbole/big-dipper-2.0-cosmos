@@ -6,19 +6,14 @@ import Mobile from '@/screens/accounts/components/list/components/mobile';
 // ==================================
 // mocks
 // ==================================
-
-jest.mock('@/recoil/profiles/hooks', () => ({
-  useProfileRecoil: (address: string) => ({
-    name: 'name',
-    address,
-    imageUrl: undefined,
-  }),
+jest.mock('@/screens/accounts/components/list/components/desktop/components/Row', () => ({
+  Row: (props: JSX.IntrinsicElements['div']) => <div id="Row" {...props} />,
 }));
 
 // ==================================
 // unit tests
 // ==================================
-describe('screen: Accounts/Tabs', () => {
+describe('screen: Accounts/Mobile', () => {
   it('matches snapshot', () => {
     const component = renderer.create(
       <MockTheme>

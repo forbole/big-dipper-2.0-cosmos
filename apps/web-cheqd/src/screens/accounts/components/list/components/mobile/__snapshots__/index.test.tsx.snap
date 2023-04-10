@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`screen: Accounts/Tabs matches snapshot 1`] = `
+exports[`screen: Accounts/Mobile matches snapshot 1`] = `
 .emotion-0 {
   min-height: 100%;
 }
@@ -228,11 +228,13 @@ exports[`screen: Accounts/Tabs matches snapshot 1`] = `
             >
               <span
                 className="emotion-11"
-              />
+              >
+                cheqvalcon10
+              </span>
               <span
                 className="emotion-12"
               >
-                name
+                000000000000000050
               </span>
             </span>
           </span>
@@ -332,11 +334,13 @@ exports[`screen: Accounts/Tabs matches snapshot 1`] = `
             >
               <span
                 className="emotion-11"
-              />
+              >
+                cheqvalcon10
+              </span>
               <span
                 className="emotion-12"
               >
-                name
+                000000000000000049
               </span>
             </span>
           </span>

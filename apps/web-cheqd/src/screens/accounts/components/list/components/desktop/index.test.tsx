@@ -6,20 +6,12 @@ import Desktop from '@/screens/accounts/components/list/components/desktop';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@/recoil/profiles/hooks', () => ({
-  useProfileRecoil: (address: string) => ({
-    name: 'name',
-    address,
-    imageUrl: undefined,
-  }),
+jest.mock('@/screens/accounts/components/list/components/desktop/components/Header', () => ({
+  Header: (props: JSX.IntrinsicElements['div']) => <div id="Header" {...props} />,
 }));
 
-jest.mock('@/components/avatar_name', () => ({
-  AvatarName: (props: JSX.IntrinsicElements['div']) => <div id="AvatarName" {...props} />,
-}));
-
-jest.mock('@/components/sort_arrows', () => ({
-  SortArrows: (props: JSX.IntrinsicElements['div']) => <div id="SortArrows" {...props} />,
+jest.mock('@/screens/accounts/components/list/components/desktop/components/Row', () => ({
+  Row: (props: JSX.IntrinsicElements['div']) => <div id="Row" {...props} />,
 }));
 
 // ==================================
@@ -48,7 +40,7 @@ describe('screen: Accounts/Desktop', () => {
         />
       </MockTheme>
     );
-    const tree = component?.toJSON();
+    const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
 

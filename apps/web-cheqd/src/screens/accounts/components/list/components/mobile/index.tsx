@@ -1,10 +1,10 @@
 /* eslint-disable object-curly-newline, react/require-default-props */
-import React from 'react';
+import { FC } from 'react';
 import { Row } from '@/screens/accounts/components/list/components/mobile/components/Row';
 import useStyles from '@/screens/accounts/components/list/components/mobile/styles';
 import { MobileProps } from '@/screens/accounts/components/list/components/mobile/types';
 
-const Mobile: React.FC<MobileProps> = ({ className, items }) => {
+const Mobile: FC<MobileProps> = ({ className, items }) => {
   const { classes, cx } = useStyles();
 
   return (

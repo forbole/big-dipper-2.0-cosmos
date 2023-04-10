@@ -12,24 +12,13 @@ import List from '@/screens/accounts/components/list';
 // ==================================
 // mocks
 // ==================================
-jest.mock('@/screens/accounts/components/list/components/mobile', () => ({
-  Mobile: (props: JSX.IntrinsicElements['div']) => <div id="Mobile" {...props} />,
-}));
-
-jest.mock('@/screens/accounts/components/list/components/desktop', () => ({
-  Desktop: (props: JSX.IntrinsicElements['div']) => <div id="Desktop" {...props} />,
-}));
-
-jest.mock('@/components/box', () => ({
-  Box: (props: JSX.IntrinsicElements['div']) => <div id="Box" {...props} />,
-}));
-
-jest.mock('@/components/no_data', () => ({
-  NoData: (props: JSX.IntrinsicElements['div']) => <div id="NoData" {...props} />,
-}));
-
-jest.mock('@/components/load_and_exist', () => ({
-  LoadAndExist: (props: JSX.IntrinsicElements['div']) => <div id="LoadAndExist" {...props} />,
+jest.mock('next/router', () => ({
+  ...jest.requireActual('next/router'),
+  useRouter: () => ({
+    query: {
+      id: 4,
+    },
+  }),
 }));
 
 const mockAccountBalancesDocument = jest.fn().mockResolvedValue({
