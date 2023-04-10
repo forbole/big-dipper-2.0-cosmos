@@ -31,16 +31,19 @@ const useStyles = makeStyles()((theme) => ({
   content: {
     marginTop: theme.spacing(2),
     display: 'grid',
+    p: {
+      lineHeight: 1.8,
+    },
     '& ul': {
-      padding: '0.5rem 1rem',
+      padding: '0.25rem 0.5rem',
       [theme.breakpoints.up('lg')]: {
-        padding: '1rem 2rem',
+        padding: '0.5rem 1rem',
       },
     },
     '& li': {
-      padding: '0.5rem 1rem',
+      padding: '0.25rem 0.5rem',
       [theme.breakpoints.up('lg')]: {
-        padding: '1rem 2rem',
+        padding: '0.5rem 1rem',
       },
     },
     '& > *': {
