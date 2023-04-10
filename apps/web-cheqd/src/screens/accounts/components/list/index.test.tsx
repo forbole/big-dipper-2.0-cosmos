@@ -1,13 +1,13 @@
 /* eslint-disable object-curly-newline */
 import { TopAccountsDocument } from '@/graphql/types/general_types';
+import List from '@/screens/accounts/components/list';
 import MockTheme from '@/tests/mocks/MockTheme';
-import wait from '@/tests/utils/wait';
 import { mockClient } from '@/tests/mocks/mockApollo';
+import wait from '@/tests/utils/wait';
 import { ApolloProvider } from '@apollo/client';
 import { MockedProvider } from '@apollo/client/testing';
 import renderer from 'react-test-renderer';
 import { RecoilRoot } from 'recoil';
-import List from '@/screens/accounts/components/list';
 
 // ==================================
 // mocks
@@ -29,6 +29,11 @@ jest.mock(
 jest.mock(
   '@/screens/accounts/components/list/components/desktop',
   () => (props: JSX.IntrinsicElements['div']) => <div id="Desktop" {...props} />
+);
+
+jest.mock(
+  '@/screens/accounts/components/list/components/desktop/components/Header',
+  () => (props: JSX.IntrinsicElements['div']) => <div id="Header" {...props} />
 );
 
 jest.mock('next/router', () => ({

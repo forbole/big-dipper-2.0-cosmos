@@ -45,6 +45,11 @@ jest.mock('@/components/sort_arrows', () => (props: JSX.IntrinsicElements['div']
   <div id="SortArrows" {...props} />
 ));
 
+jest.mock(
+  '@/screens/accounts/components/list/components/desktop/components/Header',
+  () => (props: JSX.IntrinsicElements['div']) => <div id="Header" {...props} />
+);
+
 // ==================================
 // unit tests
 // ==================================

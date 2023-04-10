@@ -79,6 +79,27 @@ exports[`screen: Accounts/Desktop matches snapshot 1`] = `
   color: #AAAAAB;
 }
 
+.emotion-6 {
+  font-size: 0.875rem;
+  letter-spacing: 0.25px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.43;
+  display: table-cell;
+  vertical-align: inherit;
+  border-bottom: 1px solid rgba(19, 19, 21, 1);
+  text-align: left;
+  padding: 16px;
+  color: #E6E6E6;
+}
+
+.emotion-6 {
+  border-bottom: none;
+  padding: 0 16px;
+  height: 50px;
+  font-size: 1rem;
+}
+
 <div
   className="desktop emotion-0"
 >
@@ -154,56 +175,39 @@ exports[`screen: Accounts/Desktop matches snapshot 1`] = `
         className="MuiTableRow-root emotion-3"
         role={null}
       >
-        <div
-          columnIndex={0}
-          data={
-            {
-              "address": "cheqvalcon10000000000000000050",
-              "balance": 5100000000,
-              "percentage": 51,
-              "rank": 1,
-            }
-          }
-          id="Row"
-          rowIndex={0}
+        <td
+          aria-sort={null}
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium odd emotion-6"
           style={
             {
               "textAlign": undefined,
               "width": "5%",
             }
           }
-        />
-        <div
-          columnIndex={1}
-          data={
-            {
-              "address": "cheqvalcon10000000000000000050",
-              "balance": 5100000000,
-              "percentage": 51,
-              "rank": 1,
-            }
-          }
-          id="Row"
-          rowIndex={0}
+        >
+          #1
+        </td>
+        <td
+          aria-sort={null}
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium odd emotion-6"
           style={
             {
               "textAlign": undefined,
               "width": "25%",
             }
           }
-        />
-        <div
-          columnIndex={2}
-          data={
-            {
-              "address": "cheqvalcon10000000000000000050",
-              "balance": 5100000000,
-              "percentage": 51,
-              "rank": 1,
-            }
-          }
-          id="Row"
-          rowIndex={0}
+        >
+          <div
+            address="cheqvalcon10000000000000000050"
+            href={[Function]}
+            id="AvatarName"
+            imageUrl=""
+            name="cheqvalcon10000000000000000050"
+          />
+        </td>
+        <td
+          aria-sort={null}
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium odd emotion-6"
           style={
             {
               "textAlign": undefined,
@@ -211,99 +215,70 @@ exports[`screen: Accounts/Desktop matches snapshot 1`] = `
             }
           }
         />
-        <div
-          columnIndex={3}
-          data={
-            {
-              "address": "cheqvalcon10000000000000000050",
-              "balance": 5100000000,
-              "percentage": 51,
-              "rank": 1,
-            }
-          }
-          id="Row"
-          rowIndex={0}
+        <td
+          aria-sort={null}
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium odd emotion-6"
           style={
             {
               "textAlign": undefined,
               "width": "30%",
             }
           }
-        />
-        <div
-          columnIndex={4}
-          data={
-            {
-              "address": "cheqvalcon10000000000000000050",
-              "balance": 5100000000,
-              "percentage": 51,
-              "rank": 1,
-            }
-          }
-          id="Row"
-          rowIndex={0}
+        >
+          5100000000
+           
+          NCHEQ
+        </td>
+        <td
+          aria-sort={null}
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium odd emotion-6"
           style={
             {
               "textAlign": "right",
               "width": "15%",
             }
           }
-        />
+        >
+          51.0000 %
+        </td>
       </tr>
       <tr
         className="MuiTableRow-root emotion-3"
         role={null}
       >
-        <div
-          columnIndex={0}
-          data={
-            {
-              "address": "cheqvalcon10000000000000000049",
-              "balance": 4900000000,
-              "percentage": 49,
-              "rank": 2,
-            }
-          }
-          id="Row"
-          rowIndex={1}
+        <td
+          aria-sort={null}
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium emotion-6"
           style={
             {
               "textAlign": undefined,
               "width": "5%",
             }
           }
-        />
-        <div
-          columnIndex={1}
-          data={
-            {
-              "address": "cheqvalcon10000000000000000049",
-              "balance": 4900000000,
-              "percentage": 49,
-              "rank": 2,
-            }
-          }
-          id="Row"
-          rowIndex={1}
+        >
+          #2
+        </td>
+        <td
+          aria-sort={null}
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium emotion-6"
           style={
             {
               "textAlign": undefined,
               "width": "25%",
             }
           }
-        />
-        <div
-          columnIndex={2}
-          data={
-            {
-              "address": "cheqvalcon10000000000000000049",
-              "balance": 4900000000,
-              "percentage": 49,
-              "rank": 2,
-            }
-          }
-          id="Row"
-          rowIndex={1}
+        >
+          <div
+            address="cheqvalcon10000000000000000049"
+            href={[Function]}
+            id="AvatarName"
+            imageUrl=""
+            name="cheqvalcon10000000000000000049"
+          />
+        </td>
+        <td
+          aria-sort={null}
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium emotion-6"
           style={
             {
               "textAlign": undefined,
@@ -311,44 +286,32 @@ exports[`screen: Accounts/Desktop matches snapshot 1`] = `
             }
           }
         />
-        <div
-          columnIndex={3}
-          data={
-            {
-              "address": "cheqvalcon10000000000000000049",
-              "balance": 4900000000,
-              "percentage": 49,
-              "rank": 2,
-            }
-          }
-          id="Row"
-          rowIndex={1}
+        <td
+          aria-sort={null}
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium emotion-6"
           style={
             {
               "textAlign": undefined,
               "width": "30%",
             }
           }
-        />
-        <div
-          columnIndex={4}
-          data={
-            {
-              "address": "cheqvalcon10000000000000000049",
-              "balance": 4900000000,
-              "percentage": 49,
-              "rank": 2,
-            }
-          }
-          id="Row"
-          rowIndex={1}
+        >
+          4900000000
+           
+          NCHEQ
+        </td>
+        <td
+          aria-sort={null}
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium emotion-6"
           style={
             {
               "textAlign": "right",
               "width": "15%",
             }
           }
-        />
+        >
+          49.0000 %
+        </td>
       </tr>
     </tbody>
   </table>
