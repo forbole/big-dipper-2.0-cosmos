@@ -4,7 +4,7 @@
   "extra": {
     "profile": false,
     "graphqlWs": false,
-    "votingPowerExponent": 3
+    "votingPowerExponent": 9
   },
   "previewImage": "https://s3.bigdipper.live/previews/cheqd.png",
   "themes": {
