@@ -1,16 +1,11 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import MockTheme from '@/tests/mocks/MockTheme';
-import Mobile from '.';
+import Mobile from '@/screens/accounts/components/list/components/mobile';
 
 // ==================================
 // mocks
 // ==================================
-const mockI18n = {
-  t: (key: string) => key,
-  lang: 'en',
-};
-jest.mock('next-i18next', () => () => mockI18n);
 
 jest.mock('@/recoil/profiles/hooks', () => ({
   useProfileRecoil: (address: string) => ({

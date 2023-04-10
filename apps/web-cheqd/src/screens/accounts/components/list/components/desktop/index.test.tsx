@@ -6,12 +6,6 @@ import Desktop from '@/screens/accounts/components/list/components/desktop';
 // ==================================
 // mocks
 // ==================================
-const mockI18n = {
-  t: (key: string) => key,
-  lang: 'en',
-};
-jest.mock('next-i18next', () => () => mockI18n);
-
 jest.mock('@/recoil/profiles/hooks', () => ({
   useProfileRecoil: (address: string) => ({
     name: 'name',
@@ -50,10 +44,11 @@ describe('screen: Accounts/Desktop', () => {
               percentage: 49,
             },
           ]}
+          className="desktop"
         />
       </MockTheme>
     );
-    const tree = component.toJSON();
+    const tree = component?.toJSON();
     expect(tree).toMatchSnapshot();
   });
 
