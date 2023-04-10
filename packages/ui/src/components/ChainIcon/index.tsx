@@ -9,7 +9,7 @@ import baseIconLight from 'shared-utils/assets/icons/base-light.svg?url';
 import bitsongIconDark from 'shared-utils/assets/icons/bitsong-dark.svg?url';
 import comdexIconDark from 'shared-utils/assets/icons/comdex-dark.svg?url';
 import comdexIconLight from 'shared-utils/assets/icons/comdex-light.svg?url';
-import cheqdIconLight from 'shared-utils/assets/icons/cheqd-light.svg?url';
+import cheqdIconTransparent from 'shared-utils/assets/icons/cheqd-transparent.svg?url';
 import cosmosIconLight from 'shared-utils/assets/icons/cosmosHub-light.svg?url';
 import crescentIconDark from 'shared-utils/assets/icons/crescent-dark.svg?url';
 import cryptoorgIconLight from 'shared-utils/assets/icons/cryptoorgChain-light.svg?url';
@@ -131,7 +131,9 @@ const ChainIcon = ({
       break;
     case 'cheqd':
       [iconDark, iconLight] =
-        type === 'icon' ? [cheqdIconLight, cheqdIconLight] : [cheqdLogoDark, cheqdLogoLight];
+        type === 'icon'
+          ? [cheqdIconTransparent, cheqdIconTransparent]
+          : [cheqdLogoDark, cheqdLogoLight];
       break;
     case 'desmos':
       break;
