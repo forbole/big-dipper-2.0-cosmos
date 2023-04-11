@@ -46,10 +46,12 @@ export const useAccounts = (): UseAccountsState => {
         rank: 1 + offset + i,
         address: row.address,
         balance: row.sum ?? 0,
-        percentage: Big(row.sum)
-          .div(10 ** exponent)
-          .div(TOTAL_SUPPLY)
-          .toNumber(),
+        percentage: exponent
+          ? Big(row.sum)
+              .div(10 ** exponent)
+              .div(TOTAL_SUPPLY)
+              .toNumber()
+          : 0,
       })),
     [data?.top_accounts, offset]
   );
