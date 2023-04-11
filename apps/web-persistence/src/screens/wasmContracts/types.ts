@@ -1,4 +1,4 @@
-import { WasmCodeQuery, WasmContractQuery } from '@/graphql/types/general_types';
+import { WasmCodeQuery } from '@/graphql/types/general_types';
 import { InfiniteQuery } from '@/hooks/useInfiniteQuery/types';
 import { ReactNode } from 'react';
 import z from 'zod';
@@ -16,25 +16,25 @@ export interface WasmContractType {
   showMore: ReactNode;
 }
 
-export type WasmContractQueryVariable = object;
+export type WasmCodeQueryVariable = object;
 
 export type UseWasmContracts = InfiniteQuery<
-  WasmContractQuery,
-  WasmContractQueryVariable,
+  WasmCodeQuery,
+  WasmCodeQueryVariable,
   WasmContractType
 >;
 
 export interface CodeIdProps {
-  codeId: WasmContractQuery['wasm_contract'][0]['code_id'];
+  codeId: WasmCodeQuery['wasm_contract'][0]['code_id'];
 }
 
 export interface ContractNameProps {
-  name: WasmContractQuery['wasm_contract'][0]['name'];
-  codeId: WasmContractQuery['wasm_contract'][0]['code_id'];
+  name: WasmCodeQuery['wasm_contract'][0]['name'];
+  codeId: WasmCodeQuery['wasm_contract'][0]['code_id'];
 }
 
 export interface ContractTypeNameProps {
-  contractInfo: WasmContractQuery['wasm_contract'][0]['contract_info'];
+  contractInfo: WasmCodeQuery['wasm_contract'][0]['contract_info'];
 }
 
 export interface ContractSearchBoxProps {
@@ -52,8 +52,8 @@ export const zInstantiatePermission = z.object({
 export type InstantiatePermission = z.infer<typeof zInstantiatePermission>;
 
 export interface ShowMoreProps {
-  wasmCode: WasmContractQuery['wasm_contract'][0]['wasm_code'];
-  codeId: WasmContractQuery['wasm_contract'][0]['code_id'];
+  wasmCode: WasmCodeQuery['wasm_contract'][0]['wasm_code'];
+  codeId: WasmCodeQuery['wasm_contract'][0]['code_id'];
 }
 
 export const zContractInfo = z.object({

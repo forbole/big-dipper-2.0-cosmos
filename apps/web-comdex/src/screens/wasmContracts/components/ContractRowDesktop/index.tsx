@@ -1,8 +1,8 @@
 import { RowProps } from '@/components/InfiniteList/types';
-import { WasmContractQuery } from '@/graphql/types/general_types';
+import { WasmCodeQuery } from '@/graphql/types/general_types';
 import { useWasmContractsByOffset } from '@/screens/wasmContracts/hooks';
 import useStyles from '@/screens/wasmContracts/styles';
-import { WasmContractQueryVariable, WasmContractType } from '@/screens/wasmContracts/types';
+import { WasmCodeQueryVariable, WasmContractType } from '@/screens/wasmContracts/types';
 import { columnsContract } from '@/screens/wasmContracts/utils';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import IconButton from '@mui/material/IconButton';
@@ -19,7 +19,7 @@ const ContractRowDesktop = ({
   itemsPerPage,
   rowHeight,
   cursor,
-}: RowProps<WasmContractQuery, WasmContractQueryVariable, WasmContractType>) => {
+}: RowProps<WasmCodeQuery, WasmCodeQueryVariable, WasmContractType>) => {
   const offset = index - (index % itemsPerPage);
   const { items } = useWasmContractsByOffset(cursor, variables, offset);
   const { classes, cx } = useStyles();
