@@ -33,7 +33,7 @@ import {
 const WasmContracts = () => {
   const { t } = useTranslation('wasm_contracts');
   const { classes, cx, theme } = useStyles();
-  const [tab, setTab] = useState(0);
+  const [tab, setTab] = useState(1); // 0: contracts, 1: codes (default), since there's no contract yet
   const handleTabChange = (_: SyntheticEvent, newValue: number) => setTab(newValue);
 
   const title = t('wasmContracts');
