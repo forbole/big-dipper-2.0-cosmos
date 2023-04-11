@@ -1,5 +1,11 @@
 # shared-utils
 
+## 2.13.0
+
+### Minor Changes
+
+- [#1188](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1188) [`bf192489d`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/bf192489dfc10cf9f6679f08e6a1b96d390e2e00) Thanks [@rachelhox](https://github.com/rachelhox)! - add Quasar and Cheqd Big Dipper
+
 ## 2.12.1
 
 ### Patch Changes

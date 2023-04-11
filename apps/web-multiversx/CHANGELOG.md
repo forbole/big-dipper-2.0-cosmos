@@ -1,5 +1,13 @@
 # v1.0.4 - 2022-06-20
 
+## 2.11.2
+
+### Patch Changes
+
+- Updated dependencies [[`9049e712c`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/9049e712c6dacedc5a4733830b2517f7fc6d4862), [`b756f45fd`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/b756f45fde55cb582aa312f4fc9c5c49ce21173c), [`bf192489d`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/bf192489dfc10cf9f6679f08e6a1b96d390e2e00)]:
+  - ui@2.22.0
+  - shared-utils@2.13.0
+
 ## 2.11.1
 
 ### Patch Changes
