@@ -5,7 +5,7 @@ import chainConfig from '@/chainConfig';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { formatToken } from '@/utils/format_token';
 import { ACCOUNT_DETAILS } from '@/utils/go_to_page';
-import Big from 'big.js';
+import numeral from 'numeral';
 import { memo } from 'react';
 import { Cell } from './Cell';
 import { RowProps } from '../types';
@@ -53,13 +53,13 @@ const Row = memo(({ data, columnIndex, rowIndex, style }: RowProps) => {
     case 'top_balance':
       return (
         <Cell style={style} rowIndex={rowIndex} cx={!(rowIndex % 2) ? 'odd' : ''}>
-          {Big(token.value).toFixed(0)} {token.displayDenom.toUpperCase()}
+          {numeral(token.value).format('0,0')} {token.displayDenom.toUpperCase()}
         </Cell>
       );
     case 'top_percentage':
       return (
         <Cell style={style} rowIndex={rowIndex} cx={!(rowIndex % 2) ? 'odd' : ''}>
-          {`${data.percentage.toFixed(4)} %`}
+          {numeral(data.percentage).format('0,0.0000')} %
         </Cell>
       );
     default:

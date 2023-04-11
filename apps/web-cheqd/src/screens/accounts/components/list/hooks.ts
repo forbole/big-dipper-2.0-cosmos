@@ -1,13 +1,13 @@
-/* eslint-disable turbo/no-undeclared-env-vars */
-/* eslint-disable camelcase, object-curly-newline */
+/* eslint-disable turbo/no-undeclared-env-vars, camelcase, object-curly-newline */
+import chainConfig from '@/chainConfig';
 import { useTopAccountsQuery } from '@/graphql/types/general_types';
+import { UseAccountsState } from '@/screens/accounts/components/list/types';
 import Big from 'big.js';
 import { useEffect, useMemo, useState } from 'react';
-import { UseAccountsState } from '@/screens/accounts/components/list/types';
 
-// const { primaryTokenUnit, tokenUnits } = chainConfig ?? {};
-// const { exponent } = tokenUnits[primaryTokenUnit] ?? {};
-const TOTAL_SUPPLY = Big(process.env.NEXT_PUBLIC_TOTAL_SUPPLY || 163_255_708).toNumber();
+const { primaryTokenUnit, tokenUnits } = chainConfig();
+const { exponent } = tokenUnits[primaryTokenUnit] ?? {};
+const TOTAL_SUPPLY = Big(process.env.NEXT_PUBLIC_CHEQD_TOTAL_SUPPLY || 163_255_708).toNumber();
 
 /**
  * `useAccounts` is a custom hook that will be used to fetch the top accounts.
@@ -47,8 +47,7 @@ export const useAccounts = (): UseAccountsState => {
         address: row.address,
         balance: row.sum ?? 0,
         percentage: Big(row.sum)
-          .mul(100)
-          // .div(10 ** exponent)
+          .div(10 ** exponent)
           .div(TOTAL_SUPPLY)
           .toNumber(),
       })),
