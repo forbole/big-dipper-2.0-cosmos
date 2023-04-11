@@ -1,5 +1,11 @@
 # ui
 
+## 2.23.0
+
+### Minor Changes
+
+- [#1190](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1190) [`26b06277b`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/26b06277b6df0ccdf17a8207c39e74d147a20e6e) Thanks [@rachelhox](https://github.com/rachelhox)! - proposal ui update
+
 ## 2.22.0
 
 ### Minor Changes
