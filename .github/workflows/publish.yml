@@ -91,6 +91,7 @@ jobs:
             NEXT_PUBLIC_CHAIN_TYPE=${{ steps.assign-chain-type.outputs.chain_type }}
             NEXT_PUBLIC_BANNERS_JSON=${{ secrets.BANNERS_JSON }}
             NEXT_PUBLIC_COINZILLA_ZONE=${{ secrets.COINZILLA_ZONE }}
+            NEXT_PUBLIC_CHEQD_TOTAL_SUPPLY=${{ secrets.CHEQD_TOTAL_SUPPLY }}
             NEXT_PUBLIC_SENTRY_DSN=${{ secrets.SENTRY_DSN }}
             SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }}
           target: runner
