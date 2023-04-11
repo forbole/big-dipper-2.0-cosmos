@@ -65,5 +65,6 @@
   "insertValidDtag": "請插入有效的 dtag",
   "invalidAddress": "無效地址",
   "24-hour": "24 小時制",
-  "12-hour": "12 小時制"
+  "12-hour": "12 小時制",
+  "documentation": "文檔"
 }
