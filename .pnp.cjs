@@ -206,7 +206,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lint-staged", "npm:13.2.0"],\
             ["prettier", "npm:2.8.7"],\
             ["turbo", "npm:1.8.8"],\
-            ["typescipt", "npm:1.0.0"],\
             ["typescript", "patch:typescript@npm%3A5.0.3#~builtin<compat/typescript>::version=5.0.3&hash=85af82"]\
           ],\
           "linkType": "SOFT"\
@@ -8821,7 +8820,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lint-staged", "npm:13.2.0"],\
             ["prettier", "npm:2.8.7"],\
             ["turbo", "npm:1.8.8"],\
-            ["typescipt", "npm:1.0.0"],\
             ["typescript", "patch:typescript@npm%3A5.0.3#~builtin<compat/typescript>::version=5.0.3&hash=85af82"]\
           ],\
           "linkType": "SOFT"\
@@ -19321,15 +19319,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/type-fest-npm-3.3.0-ea45be3411-6f260466dd.zip/node_modules/type-fest/",\
           "packageDependencies": [\
             ["type-fest", "npm:3.3.0"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["typescipt", [\
-        ["npm:1.0.0", {\
-          "packageLocation": "./.yarn/cache/typescipt-npm-1.0.0-0c05cb459c-3301d7d0d4.zip/node_modules/typescipt/",\
-          "packageDependencies": [\
-            ["typescipt", "npm:1.0.0"]\
           ],\
           "linkType": "HARD"\
         }]\
