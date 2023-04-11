@@ -1,6 +1,7 @@
 import { i18n } from 'next-i18next';
 import * as R from 'ramda';
 import { useCallback, useState } from 'react';
+import { useRouter } from 'next/router';
 import { SetterOrUpdater, useRecoilState } from 'recoil';
 import { writeDate, writeTx, writeTimeFormat } from '@/recoil/settings';
 import type { Date, Tx, TimeFormat } from '@/recoil/settings';
@@ -13,6 +14,7 @@ type SettingListState = {
 };
 
 export const useSettingList = ({ lang }: { lang: string }) => {
+  const router = useRouter();
   const [date, setDate] = useRecoilState(writeDate) as [Date, SetterOrUpdater<Date>];
   const [tx, setTx] = useRecoilState(writeTx) as [Tx, SetterOrUpdater<Tx>];
   const [time, setTimeFormat] = useRecoilState(writeTimeFormat) as [
@@ -74,6 +76,14 @@ export const useSettingList = ({ lang }: { lang: string }) => {
     e.preventDefault();
 
     if (state.lang !== lang) {
+      router.push(
+        {
+          pathname: router.pathname,
+          query: router.query,
+        },
+        router.asPath,
+        { locale: state.lang }
+      );
       i18n?.changeLanguage(state.lang);
     }
 

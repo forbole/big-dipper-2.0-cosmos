@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Accounts/Mobile matches snapshot 1`] = `
+.emotion-0 {
+  min-height: 100%;
+}
+
+<div
+  className="emotion-0"
+>
+  <div
+    data={
+      {
+        "address": "cheqvalcon10000000000000000050",
+        "balance": 5100000000,
+        "percentage": 51,
+        "rank": 1,
+      }
+    }
+    id="Row"
+    index={0}
+    itemCount={2}
+  />
+  <div
+    data={
+      {
+        "address": "cheqvalcon10000000000000000049",
+        "balance": 4900000000,
+        "percentage": 49,
+        "rank": 2,
+      }
+    }
+    id="Row"
+    index={1}
+    itemCount={2}
+  />
+</div>
+`;
