@@ -1,0 +1,54 @@
+query ProposalDetails($proposalId: Int) {
+  proposal(where: {id: {_eq: $proposalId}}) {
+    proposer: proposer_address
+    title
+    description
+    status
+    content
+    proposalId: id
+    submitTime: submit_time
+    proposalType: proposal_type
+    depositEndTime: deposit_end_time
+    votingStartTime: voting_start_time
+    votingEndTime: voting_end_time
+  }
+}
+
+query ProposalDetailsTally($proposalId: Int) {
+	proposalTallyResult: proposal_tally_result(where: {proposal_id: {_eq: $proposalId}}) {
+    yes
+    no
+    noWithVeto: no_with_veto
+    abstain
+  }
+  stakingPool: proposal_staking_pool_snapshot(where: {proposal_id: {_eq: $proposalId}}) {
+    bondedTokens: bonded_tokens
+  }
+  quorum: gov_params (limit: 1, order_by: {height: desc}) {
+    tallyParams: tally_params 
+  }
+}
+
+query ProposalDetailsDeposits($proposalId: Int) {
+  proposalDeposit: proposal_deposit(where: {proposal_id: {_eq: $proposalId}}, order_by: {height: desc}) {
+    amount
+    depositorAddress: depositor_address
+    block {
+      timestamp
+    }
+  }
+}
+
+query ProposalDetailsVotes($proposalId: Int) {
+  proposalVote: proposal_vote(where: {proposal_id: {_eq: $proposalId}}, order_by: {height: desc}) {
+    option
+    voterAddress: voter_address
+  }
+  validatorStatuses: proposal_validator_status_snapshot(where: {proposal_id: {_eq: $proposalId}, status: {_eq: 3}}) {
+    validator {
+      validatorInfo: validator_info {
+        selfDelegateAddress: self_delegate_address
+      }
+    }
+  }
+}

@@ -50,6 +50,7 @@
     "lint-staged": "^13.2.0",
     "prettier": "2.8.7",
     "turbo": "^1.8.8",
+    "typescipt": "^1.0.0",
     "typescript": "^5.0.3"
   },
   "packageManager": "yarn@3.5.0",

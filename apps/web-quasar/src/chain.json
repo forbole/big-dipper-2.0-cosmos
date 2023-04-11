@@ -117,10 +117,40 @@
   "chains": [
     {
       "network": "quasar",
-      "chainType": "Testnet",
+      "chainType": "Mainnet",
       "genesis": {
         "time": "2023-02-10T15:00:00",
         "height": 0
+      },
+      "prefix": {
+        "consensus": "quasarvalcons",
+        "validator": "quasarvaloper",
+        "account": "quasar"
+      },
+      "primaryTokenUnit": "uqsr",
+      "votingPowerTokenUnit": "uqsr",
+      "tokenUnits": {
+        "uqsr": {
+          "display": "qsr",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.quasar.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.quasar.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc.quasar.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
+      }
+    },
+    {
+      "network": "qsr-questnet-04",
+      "chainType": "Testnet",
+      "genesis": {
+        "time": "2023-02-10T15:00:00",
+        "height": 1
       },
       "prefix": {
         "consensus": "quasarvalcons",
