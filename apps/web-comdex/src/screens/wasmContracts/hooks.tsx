@@ -7,7 +7,6 @@ import CodeId from '@/screens/wasmContracts/components/CodeId';
 import InstantiatePermission from '@/screens/wasmContracts/components/CodeInstantiatePermission';
 import ContractName from '@/screens/wasmContracts/components/ContractName';
 import ContractTypeName from '@/screens/wasmContracts/components/ContractTypeName';
-import ShowMore from '@/screens/wasmContracts/components/ShowMore';
 import {
   WasmCodeQueryVariable,
   WasmCodeType,
@@ -23,28 +22,48 @@ const formatExecutes = R.pipe(R.defaultTo(0), numeral, (r) => r.format('0,0'));
 
 const mapDataToModel = (data: WasmCodeQuery | undefined): WasmContractType[] =>
   data?.wasm_code
-    ?.map((code) => ({ code, x: code.wasm_contracts[0] }))
-    ?.map(({ code, x }) => ({
-      contractName: x ? <ContractName name={x.name || x.label} codeId={x.code_id} /> : null,
-      contractTypeName: x ? <ContractTypeName contractInfo={x.contract_info} /> : null,
-      contractAddress: x ? (
-        <AvatarName address={x.contract_address} name={x.contract_address} />
+    ?.flatMap((x) =>
+      x.wasm_contracts.length
+        ? x.wasm_contracts.map((c) => ({ c, x }))
+        : [{ c: x.wasm_contracts[0], x }]
+    )
+    ?.map(({ x, c }) => ({
+      contractName: (
+        <>
+          {c && <ContractName name={c.name || c.label} codeId={c.code_id} />}
+          WASM Code ID: <CodeId codeId={x.code_id} />{' '}
+        </>
+      ),
+      contractTypeName: (
+        <>
+          {c && (
+            <div>
+              <ContractTypeName contractInfo={c.contract_info} />
+            </div>
+          )}
+          <InstantiatePermission instantiatePermission={x.instantiate_permission} />
+        </>
+      ),
+      contractAddress: c && <AvatarName address={c.contract_address} name={c.contract_address} />,
+      height: (
+        <>
+          {c && <div>{numeral(c.height).format('0,0')}</div>}
+          {numeral(x.height).format('0,0')}
+        </>
+      ),
+      creator: !!x.sender && <AvatarName address={x.sender} name={x.sender} />,
+      executes: c ? formatExecutes(c.wasm_execute_contracts_aggregate?.aggregate?.count) : null,
+      initiatedAt: c ? <Timestamp timestamp={c.instantiated_at} /> : null,
+      lastExecuted: c ? (
+        <Timestamp timestamp={c.wasm_execute_contracts_aggregate?.aggregate?.max?.executed_at} />
       ) : null,
-      height: x ? numeral(x.height).format('0,0') : code.height,
-      creator: x ? <AvatarName address={x.creator} name={x.creator} /> : null,
-      executes: x ? formatExecutes(x.wasm_execute_contracts_aggregate?.aggregate?.count) : null,
-      initiatedAt: x ? <Timestamp timestamp={x.instantiated_at} /> : null,
-      lastExecuted: x ? (
-        <Timestamp timestamp={x.wasm_execute_contracts_aggregate?.aggregate?.max?.executed_at} />
-      ) : null,
-      showMore: <ShowMore wasmCode={x.wasm_code} codeId={x.code_id} />,
     })) ?? [];
 
 export const useWasmContracts = (searchText: string) => {
   const cursor = useId();
   const ilike = searchText.trim() ? `%${searchText.trim().replace(/([_%\\])/g, '\\$1')}%` : '';
   const initialVariables = useShallowMemo<WasmCodeQueryVariable>({
-    wasm_contract_bool_exp: {
+    wasm_code_bool_exp: {
       ...(ilike
         ? {
             _or: [
@@ -84,14 +103,6 @@ const wasmCodeFormatter = (data: WasmCodeQuery | undefined): WasmCodeType[] =>
     ),
     sender: !!x.sender && <AvatarName address={x.sender} name={x.sender} />,
   })) ?? [];
-
-export const useWasmCodes = () => {
-  const cursor = useId();
-  const initialVariables = useShallowMemo<WasmCodeQueryVariable>({
-    wasm_code_bool_exp: {},
-  });
-  return useWasmCodesByOffset(cursor, initialVariables, 0);
-};
 
 export const useWasmCodesByOffset = (
   cursor: string,

@@ -1,10 +1,10 @@
 query WasmCode($limit: Int = 100, $offset: Int = 0, $wasm_code_bool_exp: wasm_code_bool_exp = {}) {
-  wasm_code(limit: $limit, offset: $offset, where: {_and: [{_not: {wasm_contracts: {}}}, $wasm_code_bool_exp]}, order_by: {code_id: desc_nulls_last}) {
+  wasm_code(limit: $limit, offset: $offset, where: $wasm_code_bool_exp, order_by: {code_id: desc_nulls_last}) {
     code_id
     height
     instantiate_permission
     sender
-    wasm_contracts {
+    wasm_contracts(order_by: {instantiated_at: desc_nulls_last}) {
       label
       name: raw_contract_message(path: "name")
       contract_info: contract_states(path: "contract_info")
@@ -13,11 +13,6 @@ query WasmCode($limit: Int = 100, $offset: Int = 0, $wasm_code_bool_exp: wasm_co
       height
       creator
       instantiated_at
-      wasm_code {
-        height
-        instantiate_permission
-        sender
-      }
       wasm_execute_contracts_aggregate {
         aggregate {
           count
@@ -37,24 +32,7 @@ query WasmCodeWithByteCode($limit: Int = 100, $offset: Int = 0, $wasm_code_bool_
     instantiate_permission
     sender
     byte_code
-    wasm_contracts {
-      label
-      name: raw_contract_message(path: "name")
-      contract_info: contract_states(path: "contract_info")
-      contract_address
-      height
-      creator
-      instantiated_at
-      wasm_execute_contracts_aggregate {
-        aggregate {
-          count
-          max {
-            executed_at
-          }
-        }
-      }
-    }
-    wasm_contracts {
+    wasm_contracts(order_by: {instantiated_at: desc_nulls_last}) {
       label
       name: raw_contract_message(path: "name")
       contract_info: contract_states(path: "contract_info")
@@ -63,11 +41,6 @@ query WasmCodeWithByteCode($limit: Int = 100, $offset: Int = 0, $wasm_code_bool_
       height
       creator
       instantiated_at
-      wasm_code {
-        height
-        instantiate_permission
-        sender
-      }
       wasm_execute_contracts_aggregate {
         aggregate {
           count
