@@ -47,6 +47,10 @@ export const footerLinks = [
         key: 'privacyPolicy',
         url: `${BIG_DIPPER_URL}/privacy-policy`,
       },
+      {
+        key: 'documentation',
+        url: 'https://docs.bigdipper.live/',
+      },
     ],
   },
 ];

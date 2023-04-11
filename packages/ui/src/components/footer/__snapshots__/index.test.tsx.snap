@@ -392,6 +392,13 @@ exports[`component: layout/footer matches snapshot 1`] = `
         >
           common:privacyPolicy
         </a>
+        <a
+          href="https://docs.bigdipper.live/"
+          rel="noreferrer"
+          target="_blank"
+        >
+          common:documentation
+        </a>
       </div>
       <div
         className="footer__social"
