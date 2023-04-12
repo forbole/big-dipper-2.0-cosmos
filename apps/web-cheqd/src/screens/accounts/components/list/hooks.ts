@@ -1,19 +1,14 @@
 /* eslint-disable turbo/no-undeclared-env-vars, camelcase, object-curly-newline */
 import chainConfig from '@/chainConfig';
+import { readMarket } from '@/recoil/market/selectors';
 import { useTopAccountsQuery } from '@/graphql/types/general_types';
 import { UseAccountsState } from '@/screens/accounts/components/list/types';
 import Big from 'big.js';
 import { useEffect, useMemo, useState } from 'react';
+import { useRecoilValue } from 'recoil';
 
 const { primaryTokenUnit, tokenUnits } = chainConfig();
 const { exponent } = tokenUnits[primaryTokenUnit] ?? {};
-
-let TOTAL_SUPPLY = 1_073_752_522;
-try {
-  TOTAL_SUPPLY = Big(process.env.NEXT_PUBLIC_CHEQD_TOTAL_SUPPLY || 1_073_752_522).toNumber();
-} catch (_error) {
-  // do nothing
-}
 
 /**
  * `useAccounts` is a custom hook that will be used to fetch the top accounts.
@@ -39,6 +34,7 @@ export const useAccounts = (): UseAccountsState => {
       limit: rowsPerPage,
     },
   });
+  const { supply } = useRecoilValue(readMarket);
 
   /* If there is an error, refetch the data. */
   useEffect(() => {
@@ -59,11 +55,11 @@ export const useAccounts = (): UseAccountsState => {
             ? Big(row.sum)
                 .mul(100)
                 .div(10 ** exponent)
-                .div(TOTAL_SUPPLY)
+                .div(supply.value)
                 .toNumber()
             : 0,
         })),
-    [data?.top_accounts, offset]
+    [data?.top_accounts, offset, supply.value]
   );
 
   const exists = useMemo(() => loading || !!items?.length, [loading, items]);
