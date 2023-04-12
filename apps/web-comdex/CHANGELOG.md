@@ -1,5 +1,11 @@
 # Unreleased
 
+## 2.13.2
+
+### Patch Changes
+
+- [#1212](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1212) [`9c8378ae1`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/9c8378ae18541bedec5754f5c43bc1719fe721ad) Thanks [@teamchong](https://github.com/teamchong)! - feat: set codes as the default tab for WASMContract page
+
 ## 2.13.1
 
 ### Patch Changes
