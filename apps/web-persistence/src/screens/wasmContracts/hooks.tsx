@@ -66,10 +66,12 @@ export const useWasmContracts = (searchText: string) => {
     wasm_code_bool_exp: {
       ...(ilike
         ? {
-            _or: [
-              { raw_contract_message: { _contains: { name: searchText.trim() } } },
-              { label: { _ilike: ilike } },
-            ],
+            wasm_contracts: {
+              _or: [
+                { raw_contract_message: { _contains: { name: searchText.trim() } } },
+                { label: { _ilike: ilike } },
+              ],
+            },
           }
         : {}),
     },
