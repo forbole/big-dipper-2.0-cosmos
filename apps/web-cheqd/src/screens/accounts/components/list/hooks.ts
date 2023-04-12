@@ -8,9 +8,9 @@ import { useEffect, useMemo, useState } from 'react';
 const { primaryTokenUnit, tokenUnits } = chainConfig();
 const { exponent } = tokenUnits[primaryTokenUnit] ?? {};
 
-let TOTAL_SUPPLY = 227_175_358;
+let TOTAL_SUPPLY = 1_073_752_522;
 try {
-  TOTAL_SUPPLY = Big(process.env.NEXT_PUBLIC_CHEQD_TOTAL_SUPPLY || 227_175_358).toNumber();
+  TOTAL_SUPPLY = Big(process.env.NEXT_PUBLIC_CHEQD_TOTAL_SUPPLY || 1_073_752_522).toNumber();
 } catch (_error) {
   // do nothing
 }
@@ -48,18 +48,21 @@ export const useAccounts = (): UseAccountsState => {
   // Format the data returned from the query.
   const items = useMemo(
     () =>
-      data?.top_accounts.map((row, i) => ({
-        rank: 1 + offset + i,
-        address: row.address,
-        balance: row.sum ?? 0,
-        percentage:
-          exponent && row.sum
+      data?.top_accounts
+        // Remove the cheqd address from the list.
+        .filter((row) => row.address !== 'cheqd1fl48vsnmsdzcv85q5d2q4z5ajdha8yu3me90jx')
+        .map((row, i) => ({
+          rank: 1 + offset + i,
+          address: row.address,
+          balance: row.sum ?? 0,
+          percentage: row.sum
             ? Big(row.sum)
+                .mul(100)
                 .div(10 ** exponent)
                 .div(TOTAL_SUPPLY)
                 .toNumber()
             : 0,
-      })),
+        })),
     [data?.top_accounts, offset]
   );
 
