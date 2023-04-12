@@ -7,7 +7,13 @@ import { useEffect, useMemo, useState } from 'react';
 
 const { primaryTokenUnit, tokenUnits } = chainConfig();
 const { exponent } = tokenUnits[primaryTokenUnit] ?? {};
-const TOTAL_SUPPLY = Big(process.env.NEXT_PUBLIC_CHEQD_TOTAL_SUPPLY || 163_255_708).toNumber();
+
+let TOTAL_SUPPLY = 227_175_358;
+try {
+  TOTAL_SUPPLY = Big(process.env.NEXT_PUBLIC_CHEQD_TOTAL_SUPPLY || 227_175_358).toNumber();
+} catch (_error) {
+  // do nothing
+}
 
 /**
  * `useAccounts` is a custom hook that will be used to fetch the top accounts.
@@ -46,12 +52,13 @@ export const useAccounts = (): UseAccountsState => {
         rank: 1 + offset + i,
         address: row.address,
         balance: row.sum ?? 0,
-        percentage: exponent
-          ? Big(row.sum)
-              .div(10 ** exponent)
-              .div(TOTAL_SUPPLY)
-              .toNumber()
-          : 0,
+        percentage:
+          exponent && row.sum
+            ? Big(row.sum)
+                .div(10 ** exponent)
+                .div(TOTAL_SUPPLY)
+                .toNumber()
+            : 0,
       })),
     [data?.top_accounts, offset]
   );
