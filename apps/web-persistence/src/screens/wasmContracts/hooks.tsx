@@ -1,22 +1,15 @@
 import AvatarName from '@/components/avatar_name';
 import Timestamp from '@/components/Timestamp';
-import {
-  WasmCodeDocument,
-  WasmCodeQuery,
-  WasmContractDocument,
-  WasmContractQuery,
-} from '@/graphql/types/general_types';
+import { WasmCodeDocument, WasmCodeQuery } from '@/graphql/types/general_types';
 import useInfiniteQuery, { makeSummaryVar } from '@/hooks/useInfiniteQuery';
 import useShallowMemo from '@/hooks/useShallowMemo';
 import CodeId from '@/screens/wasmContracts/components/CodeId';
 import InstantiatePermission from '@/screens/wasmContracts/components/CodeInstantiatePermission';
 import ContractName from '@/screens/wasmContracts/components/ContractName';
 import ContractTypeName from '@/screens/wasmContracts/components/ContractTypeName';
-import ShowMore from '@/screens/wasmContracts/components/ShowMore';
 import {
   WasmCodeQueryVariable,
   WasmCodeType,
-  WasmContractQueryVariable,
   WasmContractType,
 } from '@/screens/wasmContracts/types';
 import { useReactiveVar } from '@apollo/client';
@@ -27,26 +20,50 @@ import { useId } from 'react';
 /* WASM Contract */
 const formatExecutes = R.pipe(R.defaultTo(0), numeral, (r) => r.format('0,0'));
 
-const mapDataToModel = (data: WasmContractQuery | undefined): WasmContractType[] =>
-  data?.wasm_contract?.map((x) => ({
-    contractName: <ContractName name={x.name || x.label} codeId={x.code_id} />,
-    contractTypeName: <ContractTypeName contractInfo={x.contract_info} />,
-    contractAddress: <AvatarName address={x.contract_address} name={x.contract_address} />,
-    height: numeral(x.height).format('0,0'),
-    creator: <AvatarName address={x.creator} name={x.creator} />,
-    executes: formatExecutes(x.wasm_execute_contracts_aggregate?.aggregate?.count),
-    initiatedAt: <Timestamp timestamp={x.instantiated_at} />,
-    lastExecuted: (
-      <Timestamp timestamp={x.wasm_execute_contracts_aggregate?.aggregate?.max?.executed_at} />
-    ),
-    showMore: <ShowMore wasmCode={x.wasm_code} codeId={x.code_id} />,
-  })) ?? [];
+const mapDataToModel = (data: WasmCodeQuery | undefined): WasmContractType[] =>
+  data?.wasm_code
+    ?.flatMap((x) =>
+      x.wasm_contracts.length
+        ? x.wasm_contracts.map((c) => ({ c, x }))
+        : [{ c: x.wasm_contracts[0], x }]
+    )
+    ?.map(({ x, c }) => ({
+      contractName: (
+        <>
+          {c && <ContractName name={c.name || c.label} codeId={c.code_id} />}
+          WASM Code ID: <CodeId codeId={x.code_id} />{' '}
+        </>
+      ),
+      contractTypeName: (
+        <>
+          {c && (
+            <div>
+              <ContractTypeName contractInfo={c.contract_info} />
+            </div>
+          )}
+          <InstantiatePermission instantiatePermission={x.instantiate_permission} />
+        </>
+      ),
+      contractAddress: c && <AvatarName address={c.contract_address} name={c.contract_address} />,
+      height: (
+        <>
+          {c && <div>{numeral(c.height).format('0,0')}</div>}
+          {numeral(x.height).format('0,0')}
+        </>
+      ),
+      creator: !!x.sender && <AvatarName address={x.sender} name={x.sender} />,
+      executes: c ? formatExecutes(c.wasm_execute_contracts_aggregate?.aggregate?.count) : null,
+      initiatedAt: c ? <Timestamp timestamp={c.instantiated_at} /> : null,
+      lastExecuted: c ? (
+        <Timestamp timestamp={c.wasm_execute_contracts_aggregate?.aggregate?.max?.executed_at} />
+      ) : null,
+    })) ?? [];
 
 export const useWasmContracts = (searchText: string) => {
   const cursor = useId();
   const ilike = searchText.trim() ? `%${searchText.trim().replace(/([_%\\])/g, '\\$1')}%` : '';
-  const initialVariables = useShallowMemo<WasmContractQueryVariable>({
-    wasm_contract_bool_exp: {
+  const initialVariables = useShallowMemo<WasmCodeQueryVariable>({
+    wasm_code_bool_exp: {
       ...(ilike
         ? {
             _or: [
@@ -62,13 +79,13 @@ export const useWasmContracts = (searchText: string) => {
 
 export const useWasmContractsByOffset = (
   cursor: string,
-  variables: WasmContractQueryVariable,
+  variables: WasmCodeQueryVariable,
   offset: number
 ) => {
   const { maxFetched, itemCount } = useReactiveVar(makeSummaryVar(cursor, { variables }));
-  const result = useInfiniteQuery<WasmContractQuery, WasmContractQueryVariable, WasmContractType>({
+  const result = useInfiniteQuery<WasmCodeQuery, WasmCodeQueryVariable, WasmContractType>({
     cursor,
-    document: WasmContractDocument,
+    document: WasmCodeDocument,
     dataMapper: mapDataToModel,
     variables,
     offset,
@@ -86,14 +103,6 @@ const wasmCodeFormatter = (data: WasmCodeQuery | undefined): WasmCodeType[] =>
     ),
     sender: !!x.sender && <AvatarName address={x.sender} name={x.sender} />,
   })) ?? [];
-
-export const useWasmCodes = () => {
-  const cursor = useId();
-  const initialVariables = useShallowMemo<WasmCodeQueryVariable>({
-    wasm_code_bool_exp: {},
-  });
-  return useWasmCodesByOffset(cursor, initialVariables, 0);
-};
 
 export const useWasmCodesByOffset = (
   cursor: string,

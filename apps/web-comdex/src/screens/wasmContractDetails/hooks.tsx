@@ -12,7 +12,9 @@ import { useEffect } from 'react';
 
 export const mapDataToModel = (data: WasmCodeWithByteCodeQuery | undefined): BlockDetailsType[] =>
   data?.wasm_code?.map((wasmCode) => ({
-    overview: <Overview overview={wasmCode.wasm_contracts?.[0]} codeId={wasmCode.code_id} />,
+    overview: wasmCode.wasm_contracts.map((overview) => (
+      <Overview overview={overview} codeId={wasmCode.code_id} />
+    )),
     wasmCode: <WasmCode wasmCode={wasmCode} />,
     byteCode: <ByteCode byteCode={wasmCode.byte_code} />,
   })) ?? [];
