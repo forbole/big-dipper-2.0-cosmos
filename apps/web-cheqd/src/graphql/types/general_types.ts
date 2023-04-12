@@ -8129,7 +8129,7 @@ export type TokenomicsQueryHookResult = ReturnType<typeof useTokenomicsQuery>;
 export type TokenomicsLazyQueryHookResult = ReturnType<typeof useTokenomicsLazyQuery>;
 export type TokenomicsQueryResult = Apollo.QueryResult<TokenomicsQuery, TokenomicsQueryVariables>;
 export const TopAccountsDocument = gql`
-    query TopAccounts($limit: Int = 100, $offset: Int = 0) {
+query TopAccounts($limit: Int = 100, $offset: Int = 0) {
   top_accounts(limit: $limit, offset: $offset, order_by: {sum: desc}) {
     address
     available

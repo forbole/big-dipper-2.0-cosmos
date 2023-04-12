@@ -5667,7 +5667,6 @@ __metadata:
     lint-staged: ^13.2.0
     prettier: 2.8.7
     turbo: ^1.8.8
-    typescipt: ^1.0.0
     typescript: ^5.0.3
   languageName: unknown
   linkType: soft
@@ -13998,13 +13997,6 @@ __metadata:
   version: 3.3.0
   resolution: "type-fest@npm:3.3.0"
   checksum: 6f260466dd1847048bca4481412f39c32fbb69abbe6daf1ead67e682529adfe8ab8f150a9937eddd065fa544eaf92c15e35ebad0f45f46feadcfbd3a87ae5a2d
-  languageName: node
-  linkType: hard
-
-"typescipt@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "typescipt@npm:1.0.0"
-  checksum: 3301d7d0d47c8ed5ab464b65078fcb028764ba865cfa0ad38931ce5a58445aadaacaa96c70915f4a1af8156297dcd0bc8d9a28c94ed0ca574427378d3c5c8334
   languageName: node
   linkType: hard
 
