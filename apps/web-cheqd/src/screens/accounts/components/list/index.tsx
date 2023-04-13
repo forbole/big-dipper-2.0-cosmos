@@ -2,7 +2,6 @@
 import Box from '@/components/box';
 import LoadAndExist from '@/components/load_and_exist';
 import Loading from '@/components/loading';
-import NoData from '@/components/no_data';
 import Pagination from '@/components/pagination';
 import { useProfilesRecoil } from '@/recoil/profiles/hooks';
 import { useAccounts } from '@/screens/accounts/components/list/hooks';
@@ -43,8 +42,7 @@ const List: React.FC<Props> = ({ className }) => {
     <LoadAndExist loading={loading} exists={exists}>
       <Box className={cx(className, classes.root)}>
         <div className={classes.refreshDelayNotice}>{t('accounts:refresh_delay_notice')}</div>
-        {loading && <Loading />}
-        {!showData && <NoData />}
+        {showData && <Loading />}
         {showData && <Desktop className={classes.desktop} items={mergedDataWithProfiles} />}
         {showData && <Mobile className={classes.mobile} items={mergedDataWithProfiles} />}
         {showData && (
