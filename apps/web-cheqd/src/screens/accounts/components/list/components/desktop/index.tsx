@@ -13,6 +13,7 @@ const Desktop: React.FC<DesktopProps> = ({ className, items }) => {
 
   return (
     <div className={cx(className, classes.root)}>
+      <div>Please note that the top account only refreshes data at 00:00 GMT.</div>
       <Table>
         {/* ======================================= */}
         {/* Table Header */}

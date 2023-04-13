@@ -9,6 +9,7 @@ const Mobile: FC<MobileProps> = ({ className, items }) => {
 
   return (
     <div className={cx(className, classes.root)}>
+      <div>Please note that the top account only refreshes data at 00:00 GMT.</div>
       {items?.map((item, i) => (
         <Row key={item?.address} data={item} index={i} itemCount={items?.length} />
       ))}
