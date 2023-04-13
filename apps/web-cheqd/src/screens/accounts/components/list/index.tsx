@@ -37,7 +37,7 @@ const List: React.FC<Props> = ({ className }) => {
     [setPage]
   );
 
-  const showData = !!items?.length;
+  const showData = !loading && !!items?.length;
 
   return (
     <LoadAndExist loading={loading} exists={exists}>
