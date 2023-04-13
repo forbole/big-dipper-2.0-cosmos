@@ -24,3 +24,12 @@ jobs:
         env:
           SONAR_HOST_URL: ${{ secrets.SONARQUBE_HOST }}
           SONAR_TOKEN: ${{ secrets.SONARQUBE_TOKEN }}
+
+      - name: Post SonarQube Report ✍
+        uses: phwt/sonarqube-quality-gate-action@v1.3.2
+        if: "!cancelled()"
+        with:
+          sonar-project-key: big-dipper-2-cosmos
+          sonar-host-url: ${{ secrets.SONARQUBE_HOST }}
+          sonar-token: ${{ secrets.SONARQUBE_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
