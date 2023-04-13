@@ -4,6 +4,9 @@ const useStyles = makeStyles()((theme) => ({
   root: {
     minHeight: '100vh',
   },
+  refreshDelayNotice: {
+    padding: '1rem',
+  },
   paginate: {
     marginTop: theme.spacing(3),
   },

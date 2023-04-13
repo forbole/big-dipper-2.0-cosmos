@@ -39,5 +39,6 @@
   "top_address": "Indirizzo",
   "top_dtag": "DTag",
   "top_balance": "Saldo token",
-  "top_percentage": "Percentuale"
+  "top_percentage": "Percentuale",
+  "refresh_delay_notice": "Si prega di notare che l'account principale aggiorna i dati solo alle 00:00 GMT."
 }

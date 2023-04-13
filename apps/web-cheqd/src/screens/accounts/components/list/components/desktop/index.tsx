@@ -12,47 +12,42 @@ const Desktop: React.FC<DesktopProps> = ({ className, items }) => {
   const { classes, cx } = useStyles();
 
   return (
-    <>
-      <div style={{ padding: '1rem' }}>
-        Please note that the top account only refreshes data at 00:00 GMT.
-      </div>
-      <div className={cx(className, classes.root)}>
-        <Table>
-          {/* ======================================= */}
-          {/* Table Header */}
-          {/* ======================================= */}
-          <TableHead>
-            <TableRow>
+    <div className={cx(className, classes.root)}>
+      <Table>
+        {/* ======================================= */}
+        {/* Table Header */}
+        {/* ======================================= */}
+        <TableHead>
+          <TableRow>
+            {columns.map((column, columnIndex) => (
+              <Header
+                key={column.key}
+                columnIndex={columnIndex}
+                style={{ width: `${column.width}%`, textAlign: column.align }}
+              />
+            ))}
+          </TableRow>
+        </TableHead>
+        {/* ======================================= */}
+        {/* Table Body */}
+        {/* ======================================= */}
+        <TableBody>
+          {items?.map((row, rowIndex) => (
+            <TableRow key={row.address}>
               {columns.map((column, columnIndex) => (
-                <Header
-                  key={column.key}
+                <Row
+                  key={`${row.address}-${column.key}`}
+                  data={row}
+                  rowIndex={rowIndex}
                   columnIndex={columnIndex}
                   style={{ width: `${column.width}%`, textAlign: column.align }}
                 />
               ))}
             </TableRow>
-          </TableHead>
-          {/* ======================================= */}
-          {/* Table Body */}
-          {/* ======================================= */}
-          <TableBody>
-            {items?.map((row, rowIndex) => (
-              <TableRow key={row.address}>
-                {columns.map((column, columnIndex) => (
-                  <Row
-                    key={`${row.address}-${column.key}`}
-                    data={row}
-                    rowIndex={rowIndex}
-                    columnIndex={columnIndex}
-                    style={{ width: `${column.width}%`, textAlign: column.align }}
-                  />
-                ))}
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </div>
-    </>
+          ))}
+        </TableBody>
+      </Table>
+    </div>
   );
 };
 

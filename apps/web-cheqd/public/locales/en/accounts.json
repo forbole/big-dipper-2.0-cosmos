@@ -39,5 +39,6 @@
   "top_address": "Address",
   "top_dtag": "DTag",
   "top_balance": "Token Balance",
-  "top_percentage": "Percentage"
+  "top_percentage": "Percentage",
+  "refresh_delay_notice": "Please note that the top account only refreshes data at 00:00 GMT."
 }
