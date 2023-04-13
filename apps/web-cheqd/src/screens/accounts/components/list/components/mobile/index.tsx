@@ -8,14 +8,11 @@ const Mobile: FC<MobileProps> = ({ className, items }) => {
   const { classes, cx } = useStyles();
 
   return (
-    <>
-      <div>Please note that the top account only refreshes data at 00:00 GMT.</div>
-      <div className={cx(className, classes.root)}>
-        {items?.map((item, i) => (
-          <Row key={item?.address} data={item} index={i} itemCount={items?.length} />
-        ))}
-      </div>
-    </>
+    <div className={cx(className, classes.root)}>
+      {items?.map((item, i) => (
+        <Row key={item?.address} data={item} index={i} itemCount={items?.length} />
+      ))}
+    </div>
   );
 };
 
