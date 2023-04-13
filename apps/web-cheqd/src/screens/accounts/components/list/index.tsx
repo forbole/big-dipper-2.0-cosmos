@@ -43,8 +43,8 @@ const List: React.FC<Props> = ({ className }) => {
       <Box className={cx(className, classes.root)}>
         <div className={classes.refreshDelayNotice}>{t('accounts:refresh_delay_notice')}</div>
         {!showData && <Loading />}
-        {showData && <Desktop className={classes.desktop} items={mergedDataWithProfiles} />}
-        {showData && <Mobile className={classes.mobile} items={mergedDataWithProfiles} />}
+        <Desktop className={classes.desktop} items={mergedDataWithProfiles} />
+        <Mobile className={classes.mobile} items={mergedDataWithProfiles} />
         {showData && (
           <Pagination
             className={classes.paginate}
