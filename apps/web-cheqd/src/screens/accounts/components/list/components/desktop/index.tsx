@@ -12,43 +12,45 @@ const Desktop: React.FC<DesktopProps> = ({ className, items }) => {
   const { classes, cx } = useStyles();
 
   return (
-    <div className={cx(className, classes.root)}>
+    <>
       <div>Please note that the top account only refreshes data at 00:00 GMT.</div>
-      <Table>
-        {/* ======================================= */}
-        {/* Table Header */}
-        {/* ======================================= */}
-        <TableHead>
-          <TableRow>
-            {columns.map((column, columnIndex) => (
-              <Header
-                key={column.key}
-                columnIndex={columnIndex}
-                style={{ width: `${column.width}%`, textAlign: column.align }}
-              />
-            ))}
-          </TableRow>
-        </TableHead>
-        {/* ======================================= */}
-        {/* Table Body */}
-        {/* ======================================= */}
-        <TableBody>
-          {items?.map((row, rowIndex) => (
-            <TableRow key={row.address}>
+      <div className={cx(className, classes.root)}>
+        <Table>
+          {/* ======================================= */}
+          {/* Table Header */}
+          {/* ======================================= */}
+          <TableHead>
+            <TableRow>
               {columns.map((column, columnIndex) => (
-                <Row
-                  key={`${row.address}-${column.key}`}
-                  data={row}
-                  rowIndex={rowIndex}
+                <Header
+                  key={column.key}
                   columnIndex={columnIndex}
                   style={{ width: `${column.width}%`, textAlign: column.align }}
                 />
               ))}
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </div>
+          </TableHead>
+          {/* ======================================= */}
+          {/* Table Body */}
+          {/* ======================================= */}
+          <TableBody>
+            {items?.map((row, rowIndex) => (
+              <TableRow key={row.address}>
+                {columns.map((column, columnIndex) => (
+                  <Row
+                    key={`${row.address}-${column.key}`}
+                    data={row}
+                    rowIndex={rowIndex}
+                    columnIndex={columnIndex}
+                    style={{ width: `${column.width}%`, textAlign: column.align }}
+                  />
+                ))}
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </div>
+    </>
   );
 };
 
