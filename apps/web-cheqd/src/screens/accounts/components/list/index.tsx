@@ -1,13 +1,14 @@
 /* eslint-disable object-curly-newline, react/require-default-props */
-import LoadAndExist from '@/components/load_and_exist';
 import Box from '@/components/box';
+import LoadAndExist from '@/components/load_and_exist';
+import Loading from '@/components/loading';
 import NoData from '@/components/no_data';
 import Pagination from '@/components/pagination';
 import { useProfilesRecoil } from '@/recoil/profiles/hooks';
+import { useAccounts } from '@/screens/accounts/components/list/hooks';
+import useStyles from '@/screens/accounts/components/list/styles';
 import dynamic from 'next/dynamic';
 import React, { ComponentProps, useCallback, useMemo } from 'react';
-import useStyles from '@/screens/accounts/components/list/styles';
-import { useAccounts } from '@/screens/accounts/components/list/hooks';
 import { useTranslation } from 'react-i18next';
 
 const Desktop = dynamic(() => import('@/screens/accounts/components/list/components/desktop'));
@@ -42,6 +43,7 @@ const List: React.FC<Props> = ({ className }) => {
     <LoadAndExist loading={loading} exists={exists}>
       <Box className={cx(className, classes.root)}>
         <div className={classes.refreshDelayNotice}>{t('accounts:refresh_delay_notice')}</div>
+        {loading && <Loading />}
         {!showData && <NoData />}
         {showData && <Desktop className={classes.desktop} items={mergedDataWithProfiles} />}
         {showData && <Mobile className={classes.mobile} items={mergedDataWithProfiles} />}
