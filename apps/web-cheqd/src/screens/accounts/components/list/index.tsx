@@ -42,7 +42,7 @@ const List: React.FC<Props> = ({ className }) => {
     <LoadAndExist loading={loading} exists={exists}>
       <Box className={cx(className, classes.root)}>
         <div className={classes.refreshDelayNotice}>{t('accounts:refresh_delay_notice')}</div>
-        {showData && <Loading />}
+        {!showData && <Loading />}
         {showData && <Desktop className={classes.desktop} items={mergedDataWithProfiles} />}
         {showData && <Mobile className={classes.mobile} items={mergedDataWithProfiles} />}
         {showData && (
