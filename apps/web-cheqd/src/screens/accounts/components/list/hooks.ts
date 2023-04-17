@@ -44,21 +44,18 @@ export const useAccounts = (): UseAccountsState => {
   // Format the data returned from the query.
   const items = useMemo(
     () =>
-      data?.top_accounts
-        // Remove the cheqd address from the list.
-        .filter((row) => row.address !== 'cheqd1fl48vsnmsdzcv85q5d2q4z5ajdha8yu3me90jx')
-        .map((row, i) => ({
-          rank: 1 + offset + i,
-          address: row.address,
-          balance: row.sum ?? 0,
-          percentage: row.sum
-            ? Big(row.sum)
-                .mul(100)
-                .div(10 ** exponent)
-                .div(supply.value)
-                .toNumber()
-            : 0,
-        })),
+      data?.top_accounts.map((row, i) => ({
+        rank: 1 + offset + i,
+        address: row.address,
+        balance: row.sum ?? 0,
+        percentage: row.sum
+          ? Big(row.sum)
+              .mul(100)
+              .div(10 ** exponent)
+              .div(supply.value)
+              .toNumber()
+          : 0,
+      })),
     [data?.top_accounts, offset, supply.value]
   );
 

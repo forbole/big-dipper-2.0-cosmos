@@ -1,13 +1,14 @@
 /* eslint-disable object-curly-newline, react/require-default-props */
-import LoadAndExist from '@/components/load_and_exist';
 import Box from '@/components/box';
-import NoData from '@/components/no_data';
+import LoadAndExist from '@/components/load_and_exist';
+import Loading from '@/components/loading';
 import Pagination from '@/components/pagination';
 import { useProfilesRecoil } from '@/recoil/profiles/hooks';
+import { useAccounts } from '@/screens/accounts/components/list/hooks';
+import useStyles from '@/screens/accounts/components/list/styles';
 import dynamic from 'next/dynamic';
 import React, { ComponentProps, useCallback, useMemo } from 'react';
-import useStyles from '@/screens/accounts/components/list/styles';
-import { useAccounts } from '@/screens/accounts/components/list/hooks';
+import { useTranslation } from 'react-i18next';
 
 const Desktop = dynamic(() => import('@/screens/accounts/components/list/components/desktop'));
 const Mobile = dynamic(() => import('@/screens/accounts/components/list/components/mobile'));
@@ -18,6 +19,7 @@ type Props = {
 
 const List: React.FC<Props> = ({ className }) => {
   const { classes, cx } = useStyles();
+  const { t } = useTranslation('accounts');
   const { items, loading, exists, page, setPage, rowsPerPage, setRowsPerPage } = useAccounts();
   const addresses = useMemo(() => items?.map((x) => x.address ?? '') ?? [], [items]);
   const dataProfiles = useProfilesRecoil(addresses).profiles;
@@ -34,14 +36,15 @@ const List: React.FC<Props> = ({ className }) => {
     [setPage]
   );
 
-  const showData = !!items?.length;
+  const showData = !loading && !!items?.length;
 
   return (
     <LoadAndExist loading={loading} exists={exists}>
       <Box className={cx(className, classes.root)}>
-        {!showData && <NoData />}
-        {showData && <Desktop className={classes.desktop} items={mergedDataWithProfiles} />}
-        {showData && <Mobile className={classes.mobile} items={mergedDataWithProfiles} />}
+        <div className={classes.refreshDelayNotice}>{t('accounts:refresh_delay_notice')}</div>
+        {!showData && <Loading />}
+        <Desktop className={classes.desktop} items={mergedDataWithProfiles} />
+        <Mobile className={classes.mobile} items={mergedDataWithProfiles} />
         {showData && (
           <Pagination
             className={classes.paginate}
