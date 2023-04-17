@@ -21,6 +21,7 @@ const hindMadurai = Hind_Madurai({
   style: 'normal',
   display: 'swap',
   preload: true,
+  subsets: ['latin', 'latin-ext', 'tamil'],
 });
 
 // Client-side cache, shared for the whole session of the user in the browser.
