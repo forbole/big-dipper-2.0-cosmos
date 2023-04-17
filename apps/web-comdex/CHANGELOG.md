@@ -1,5 +1,11 @@
 # Unreleased
 
+## 2.13.3
+
+### Patch Changes
+
+- [#1221](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1221) [`2913130b0`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/2913130b072e8c3964ca104a94e7edb841001e6a) Thanks [@teamchong](https://github.com/teamchong)! - feat: combine WASM contract and code tab
+
 ## 2.13.2
 
 ### Patch Changes
