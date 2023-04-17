@@ -15,6 +15,7 @@ export const mapDataToModel = (data: WasmCodeWithByteCodeQuery | undefined): Blo
     overview: wasmCode.wasm_contracts[0] ? (
       <Overview
         overview={wasmCode.wasm_contracts[0]}
+        codeId={wasmCode.code_id}
         count={wasmCode.wasm_contracts.reduce(
           (s, c) => s + (c?.wasm_execute_contracts_aggregate?.aggregate?.count ?? 0),
           0
