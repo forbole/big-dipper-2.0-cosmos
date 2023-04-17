@@ -710,6 +710,204 @@ export enum Community_Pool_Select_Column {
   Height = 'height'
 }
 
+/** columns and relationships of "did_doc" */
+export type Did_Doc = {
+  __typename?: 'did_doc';
+  also_known_as?: Maybe<Scalars['_text']>;
+  assertion_method?: Maybe<Scalars['_text']>;
+  authentication?: Maybe<Scalars['_text']>;
+  capability_delegation?: Maybe<Scalars['_text']>;
+  capability_invocation?: Maybe<Scalars['_text']>;
+  context?: Maybe<Scalars['_text']>;
+  controller?: Maybe<Scalars['_text']>;
+  from_address?: Maybe<Scalars['String']>;
+  height: Scalars['bigint'];
+  id: Scalars['String'];
+  key_agreement?: Maybe<Scalars['_text']>;
+  service?: Maybe<Scalars['jsonb']>;
+  verification_method?: Maybe<Scalars['jsonb']>;
+  version_id?: Maybe<Scalars['String']>;
+};
+
+
+/** columns and relationships of "did_doc" */
+export type Did_DocServiceArgs = {
+  path?: InputMaybe<Scalars['String']>;
+};
+
+
+/** columns and relationships of "did_doc" */
+export type Did_DocVerification_MethodArgs = {
+  path?: InputMaybe<Scalars['String']>;
+};
+
+/** aggregated selection of "did_doc" */
+export type Did_Doc_Aggregate = {
+  __typename?: 'did_doc_aggregate';
+  aggregate?: Maybe<Did_Doc_Aggregate_Fields>;
+  nodes: Array<Did_Doc>;
+};
+
+/** aggregate fields of "did_doc" */
+export type Did_Doc_Aggregate_Fields = {
+  __typename?: 'did_doc_aggregate_fields';
+  avg?: Maybe<Did_Doc_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Did_Doc_Max_Fields>;
+  min?: Maybe<Did_Doc_Min_Fields>;
+  stddev?: Maybe<Did_Doc_Stddev_Fields>;
+  stddev_pop?: Maybe<Did_Doc_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Did_Doc_Stddev_Samp_Fields>;
+  sum?: Maybe<Did_Doc_Sum_Fields>;
+  var_pop?: Maybe<Did_Doc_Var_Pop_Fields>;
+  var_samp?: Maybe<Did_Doc_Var_Samp_Fields>;
+  variance?: Maybe<Did_Doc_Variance_Fields>;
+};
+
+
+/** aggregate fields of "did_doc" */
+export type Did_Doc_Aggregate_FieldsCountArgs = {
+  columns?: InputMaybe<Array<Did_Doc_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type Did_Doc_Avg_Fields = {
+  __typename?: 'did_doc_avg_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** Boolean expression to filter rows from the table "did_doc". All fields are combined with a logical 'AND'. */
+export type Did_Doc_Bool_Exp = {
+  _and?: InputMaybe<Array<Did_Doc_Bool_Exp>>;
+  _not?: InputMaybe<Did_Doc_Bool_Exp>;
+  _or?: InputMaybe<Array<Did_Doc_Bool_Exp>>;
+  also_known_as?: InputMaybe<_Text_Comparison_Exp>;
+  assertion_method?: InputMaybe<_Text_Comparison_Exp>;
+  authentication?: InputMaybe<_Text_Comparison_Exp>;
+  capability_delegation?: InputMaybe<_Text_Comparison_Exp>;
+  capability_invocation?: InputMaybe<_Text_Comparison_Exp>;
+  context?: InputMaybe<_Text_Comparison_Exp>;
+  controller?: InputMaybe<_Text_Comparison_Exp>;
+  from_address?: InputMaybe<String_Comparison_Exp>;
+  height?: InputMaybe<Bigint_Comparison_Exp>;
+  id?: InputMaybe<String_Comparison_Exp>;
+  key_agreement?: InputMaybe<_Text_Comparison_Exp>;
+  service?: InputMaybe<Jsonb_Comparison_Exp>;
+  verification_method?: InputMaybe<Jsonb_Comparison_Exp>;
+  version_id?: InputMaybe<String_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Did_Doc_Max_Fields = {
+  __typename?: 'did_doc_max_fields';
+  from_address?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
+  id?: Maybe<Scalars['String']>;
+  version_id?: Maybe<Scalars['String']>;
+};
+
+/** aggregate min on columns */
+export type Did_Doc_Min_Fields = {
+  __typename?: 'did_doc_min_fields';
+  from_address?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
+  id?: Maybe<Scalars['String']>;
+  version_id?: Maybe<Scalars['String']>;
+};
+
+/** Ordering options when selecting data from "did_doc". */
+export type Did_Doc_Order_By = {
+  also_known_as?: InputMaybe<Order_By>;
+  assertion_method?: InputMaybe<Order_By>;
+  authentication?: InputMaybe<Order_By>;
+  capability_delegation?: InputMaybe<Order_By>;
+  capability_invocation?: InputMaybe<Order_By>;
+  context?: InputMaybe<Order_By>;
+  controller?: InputMaybe<Order_By>;
+  from_address?: InputMaybe<Order_By>;
+  height?: InputMaybe<Order_By>;
+  id?: InputMaybe<Order_By>;
+  key_agreement?: InputMaybe<Order_By>;
+  service?: InputMaybe<Order_By>;
+  verification_method?: InputMaybe<Order_By>;
+  version_id?: InputMaybe<Order_By>;
+};
+
+/** select columns of table "did_doc" */
+export enum Did_Doc_Select_Column {
+  /** column name */
+  AlsoKnownAs = 'also_known_as',
+  /** column name */
+  AssertionMethod = 'assertion_method',
+  /** column name */
+  Authentication = 'authentication',
+  /** column name */
+  CapabilityDelegation = 'capability_delegation',
+  /** column name */
+  CapabilityInvocation = 'capability_invocation',
+  /** column name */
+  Context = 'context',
+  /** column name */
+  Controller = 'controller',
+  /** column name */
+  FromAddress = 'from_address',
+  /** column name */
+  Height = 'height',
+  /** column name */
+  Id = 'id',
+  /** column name */
+  KeyAgreement = 'key_agreement',
+  /** column name */
+  Service = 'service',
+  /** column name */
+  VerificationMethod = 'verification_method',
+  /** column name */
+  VersionId = 'version_id'
+}
+
+/** aggregate stddev on columns */
+export type Did_Doc_Stddev_Fields = {
+  __typename?: 'did_doc_stddev_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Did_Doc_Stddev_Pop_Fields = {
+  __typename?: 'did_doc_stddev_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Did_Doc_Stddev_Samp_Fields = {
+  __typename?: 'did_doc_stddev_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate sum on columns */
+export type Did_Doc_Sum_Fields = {
+  __typename?: 'did_doc_sum_fields';
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregate var_pop on columns */
+export type Did_Doc_Var_Pop_Fields = {
+  __typename?: 'did_doc_var_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type Did_Doc_Var_Samp_Fields = {
+  __typename?: 'did_doc_var_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type Did_Doc_Variance_Fields = {
+  __typename?: 'did_doc_variance_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
 /** columns and relationships of "distribution_params" */
 export type Distribution_Params = {
   __typename?: 'distribution_params';
@@ -2814,6 +3012,12 @@ export type Query_Root = {
   block_by_pk?: Maybe<Block>;
   /** fetch data from the table: "community_pool" */
   community_pool: Array<Community_Pool>;
+  /** fetch data from the table: "did_doc" */
+  did_doc: Array<Did_Doc>;
+  /** fetch aggregated fields from the table: "did_doc" */
+  did_doc_aggregate: Did_Doc_Aggregate;
+  /** fetch data from the table: "did_doc" using primary key columns */
+  did_doc_by_pk?: Maybe<Did_Doc>;
   /** fetch data from the table: "distribution_params" */
   distribution_params: Array<Distribution_Params>;
   /** fetch data from the table: "double_sign_evidence" */
@@ -2862,6 +3066,12 @@ export type Query_Root = {
   proposal_validator_status_snapshot: Array<Proposal_Validator_Status_Snapshot>;
   /** fetch data from the table: "proposal_vote" */
   proposal_vote: Array<Proposal_Vote>;
+  /** fetch data from the table: "resource" */
+  resource: Array<Resource>;
+  /** fetch aggregated fields from the table: "resource" */
+  resource_aggregate: Resource_Aggregate;
+  /** fetch data from the table: "resource" using primary key columns */
+  resource_by_pk?: Maybe<Resource>;
   /** fetch data from the table: "slashing_params" */
   slashing_params: Array<Slashing_Params>;
   /** fetch data from the table: "software_upgrade_plan" */
@@ -2886,6 +3096,12 @@ export type Query_Root = {
   top_accounts: Array<Top_Accounts>;
   /** fetch data from the table: "top_accounts" using primary key columns */
   top_accounts_by_pk?: Maybe<Top_Accounts>;
+  /** fetch data from the table: "top_accounts_params" */
+  top_accounts_params: Array<Top_Accounts_Params>;
+  /** fetch aggregated fields from the table: "top_accounts_params" */
+  top_accounts_params_aggregate: Top_Accounts_Params_Aggregate;
+  /** fetch data from the table: "top_accounts_params" using primary key columns */
+  top_accounts_params_by_pk?: Maybe<Top_Accounts_Params>;
   /** fetch data from the table: "transaction" */
   transaction: Array<Transaction>;
   /** fetch data from the table: "validator" */
@@ -3083,6 +3299,29 @@ export type Query_RootCommunity_PoolArgs = {
   offset?: InputMaybe<Scalars['Int']>;
   order_by?: InputMaybe<Array<Community_Pool_Order_By>>;
   where?: InputMaybe<Community_Pool_Bool_Exp>;
+};
+
+
+export type Query_RootDid_DocArgs = {
+  distinct_on?: InputMaybe<Array<Did_Doc_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Did_Doc_Order_By>>;
+  where?: InputMaybe<Did_Doc_Bool_Exp>;
+};
+
+
+export type Query_RootDid_Doc_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Did_Doc_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Did_Doc_Order_By>>;
+  where?: InputMaybe<Did_Doc_Bool_Exp>;
+};
+
+
+export type Query_RootDid_Doc_By_PkArgs = {
+  id: Scalars['String'];
 };
 
 
@@ -3287,6 +3526,29 @@ export type Query_RootProposal_VoteArgs = {
 };
 
 
+export type Query_RootResourceArgs = {
+  distinct_on?: InputMaybe<Array<Resource_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Resource_Order_By>>;
+  where?: InputMaybe<Resource_Bool_Exp>;
+};
+
+
+export type Query_RootResource_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Resource_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Resource_Order_By>>;
+  where?: InputMaybe<Resource_Bool_Exp>;
+};
+
+
+export type Query_RootResource_By_PkArgs = {
+  id: Scalars['String'];
+};
+
+
 export type Query_RootSlashing_ParamsArgs = {
   distinct_on?: InputMaybe<Array<Slashing_Params_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -3388,6 +3650,29 @@ export type Query_RootTop_AccountsArgs = {
 
 export type Query_RootTop_Accounts_By_PkArgs = {
   address: Scalars['String'];
+};
+
+
+export type Query_RootTop_Accounts_ParamsArgs = {
+  distinct_on?: InputMaybe<Array<Top_Accounts_Params_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Top_Accounts_Params_Order_By>>;
+  where?: InputMaybe<Top_Accounts_Params_Bool_Exp>;
+};
+
+
+export type Query_RootTop_Accounts_Params_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Top_Accounts_Params_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Top_Accounts_Params_Order_By>>;
+  where?: InputMaybe<Top_Accounts_Params_Bool_Exp>;
+};
+
+
+export type Query_RootTop_Accounts_Params_By_PkArgs = {
+  one_row_id: Scalars['Boolean'];
 };
 
 
@@ -3531,6 +3816,185 @@ export type Query_RootVesting_PeriodArgs = {
   offset?: InputMaybe<Scalars['Int']>;
   order_by?: InputMaybe<Array<Vesting_Period_Order_By>>;
   where?: InputMaybe<Vesting_Period_Bool_Exp>;
+};
+
+/** columns and relationships of "resource" */
+export type Resource = {
+  __typename?: 'resource';
+  also_known_as?: Maybe<Scalars['jsonb']>;
+  collection_id?: Maybe<Scalars['String']>;
+  data?: Maybe<Scalars['jsonb']>;
+  from_address?: Maybe<Scalars['String']>;
+  height: Scalars['bigint'];
+  id: Scalars['String'];
+  name?: Maybe<Scalars['String']>;
+  resource_type?: Maybe<Scalars['String']>;
+  version?: Maybe<Scalars['String']>;
+};
+
+
+/** columns and relationships of "resource" */
+export type ResourceAlso_Known_AsArgs = {
+  path?: InputMaybe<Scalars['String']>;
+};
+
+
+/** columns and relationships of "resource" */
+export type ResourceDataArgs = {
+  path?: InputMaybe<Scalars['String']>;
+};
+
+/** aggregated selection of "resource" */
+export type Resource_Aggregate = {
+  __typename?: 'resource_aggregate';
+  aggregate?: Maybe<Resource_Aggregate_Fields>;
+  nodes: Array<Resource>;
+};
+
+/** aggregate fields of "resource" */
+export type Resource_Aggregate_Fields = {
+  __typename?: 'resource_aggregate_fields';
+  avg?: Maybe<Resource_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Resource_Max_Fields>;
+  min?: Maybe<Resource_Min_Fields>;
+  stddev?: Maybe<Resource_Stddev_Fields>;
+  stddev_pop?: Maybe<Resource_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Resource_Stddev_Samp_Fields>;
+  sum?: Maybe<Resource_Sum_Fields>;
+  var_pop?: Maybe<Resource_Var_Pop_Fields>;
+  var_samp?: Maybe<Resource_Var_Samp_Fields>;
+  variance?: Maybe<Resource_Variance_Fields>;
+};
+
+
+/** aggregate fields of "resource" */
+export type Resource_Aggregate_FieldsCountArgs = {
+  columns?: InputMaybe<Array<Resource_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type Resource_Avg_Fields = {
+  __typename?: 'resource_avg_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** Boolean expression to filter rows from the table "resource". All fields are combined with a logical 'AND'. */
+export type Resource_Bool_Exp = {
+  _and?: InputMaybe<Array<Resource_Bool_Exp>>;
+  _not?: InputMaybe<Resource_Bool_Exp>;
+  _or?: InputMaybe<Array<Resource_Bool_Exp>>;
+  also_known_as?: InputMaybe<Jsonb_Comparison_Exp>;
+  collection_id?: InputMaybe<String_Comparison_Exp>;
+  data?: InputMaybe<Jsonb_Comparison_Exp>;
+  from_address?: InputMaybe<String_Comparison_Exp>;
+  height?: InputMaybe<Bigint_Comparison_Exp>;
+  id?: InputMaybe<String_Comparison_Exp>;
+  name?: InputMaybe<String_Comparison_Exp>;
+  resource_type?: InputMaybe<String_Comparison_Exp>;
+  version?: InputMaybe<String_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Resource_Max_Fields = {
+  __typename?: 'resource_max_fields';
+  collection_id?: Maybe<Scalars['String']>;
+  from_address?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
+  id?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  resource_type?: Maybe<Scalars['String']>;
+  version?: Maybe<Scalars['String']>;
+};
+
+/** aggregate min on columns */
+export type Resource_Min_Fields = {
+  __typename?: 'resource_min_fields';
+  collection_id?: Maybe<Scalars['String']>;
+  from_address?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
+  id?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  resource_type?: Maybe<Scalars['String']>;
+  version?: Maybe<Scalars['String']>;
+};
+
+/** Ordering options when selecting data from "resource". */
+export type Resource_Order_By = {
+  also_known_as?: InputMaybe<Order_By>;
+  collection_id?: InputMaybe<Order_By>;
+  data?: InputMaybe<Order_By>;
+  from_address?: InputMaybe<Order_By>;
+  height?: InputMaybe<Order_By>;
+  id?: InputMaybe<Order_By>;
+  name?: InputMaybe<Order_By>;
+  resource_type?: InputMaybe<Order_By>;
+  version?: InputMaybe<Order_By>;
+};
+
+/** select columns of table "resource" */
+export enum Resource_Select_Column {
+  /** column name */
+  AlsoKnownAs = 'also_known_as',
+  /** column name */
+  CollectionId = 'collection_id',
+  /** column name */
+  Data = 'data',
+  /** column name */
+  FromAddress = 'from_address',
+  /** column name */
+  Height = 'height',
+  /** column name */
+  Id = 'id',
+  /** column name */
+  Name = 'name',
+  /** column name */
+  ResourceType = 'resource_type',
+  /** column name */
+  Version = 'version'
+}
+
+/** aggregate stddev on columns */
+export type Resource_Stddev_Fields = {
+  __typename?: 'resource_stddev_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Resource_Stddev_Pop_Fields = {
+  __typename?: 'resource_stddev_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Resource_Stddev_Samp_Fields = {
+  __typename?: 'resource_stddev_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate sum on columns */
+export type Resource_Sum_Fields = {
+  __typename?: 'resource_sum_fields';
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregate var_pop on columns */
+export type Resource_Var_Pop_Fields = {
+  __typename?: 'resource_var_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type Resource_Var_Samp_Fields = {
+  __typename?: 'resource_var_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type Resource_Variance_Fields = {
+  __typename?: 'resource_variance_fields';
+  height?: Maybe<Scalars['Float']>;
 };
 
 /** columns and relationships of "slashing_params" */
@@ -3846,6 +4310,12 @@ export type Subscription_Root = {
   block_by_pk?: Maybe<Block>;
   /** fetch data from the table: "community_pool" */
   community_pool: Array<Community_Pool>;
+  /** fetch data from the table: "did_doc" */
+  did_doc: Array<Did_Doc>;
+  /** fetch aggregated fields from the table: "did_doc" */
+  did_doc_aggregate: Did_Doc_Aggregate;
+  /** fetch data from the table: "did_doc" using primary key columns */
+  did_doc_by_pk?: Maybe<Did_Doc>;
   /** fetch data from the table: "distribution_params" */
   distribution_params: Array<Distribution_Params>;
   /** fetch data from the table: "double_sign_evidence" */
@@ -3894,6 +4364,12 @@ export type Subscription_Root = {
   proposal_validator_status_snapshot: Array<Proposal_Validator_Status_Snapshot>;
   /** fetch data from the table: "proposal_vote" */
   proposal_vote: Array<Proposal_Vote>;
+  /** fetch data from the table: "resource" */
+  resource: Array<Resource>;
+  /** fetch aggregated fields from the table: "resource" */
+  resource_aggregate: Resource_Aggregate;
+  /** fetch data from the table: "resource" using primary key columns */
+  resource_by_pk?: Maybe<Resource>;
   /** fetch data from the table: "slashing_params" */
   slashing_params: Array<Slashing_Params>;
   /** fetch data from the table: "software_upgrade_plan" */
@@ -3918,6 +4394,12 @@ export type Subscription_Root = {
   top_accounts: Array<Top_Accounts>;
   /** fetch data from the table: "top_accounts" using primary key columns */
   top_accounts_by_pk?: Maybe<Top_Accounts>;
+  /** fetch data from the table: "top_accounts_params" */
+  top_accounts_params: Array<Top_Accounts_Params>;
+  /** fetch aggregated fields from the table: "top_accounts_params" */
+  top_accounts_params_aggregate: Top_Accounts_Params_Aggregate;
+  /** fetch data from the table: "top_accounts_params" using primary key columns */
+  top_accounts_params_by_pk?: Maybe<Top_Accounts_Params>;
   /** fetch data from the table: "transaction" */
   transaction: Array<Transaction>;
   /** fetch data from the table: "validator" */
@@ -4029,6 +4511,29 @@ export type Subscription_RootCommunity_PoolArgs = {
   offset?: InputMaybe<Scalars['Int']>;
   order_by?: InputMaybe<Array<Community_Pool_Order_By>>;
   where?: InputMaybe<Community_Pool_Bool_Exp>;
+};
+
+
+export type Subscription_RootDid_DocArgs = {
+  distinct_on?: InputMaybe<Array<Did_Doc_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Did_Doc_Order_By>>;
+  where?: InputMaybe<Did_Doc_Bool_Exp>;
+};
+
+
+export type Subscription_RootDid_Doc_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Did_Doc_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Did_Doc_Order_By>>;
+  where?: InputMaybe<Did_Doc_Bool_Exp>;
+};
+
+
+export type Subscription_RootDid_Doc_By_PkArgs = {
+  id: Scalars['String'];
 };
 
 
@@ -4233,6 +4738,29 @@ export type Subscription_RootProposal_VoteArgs = {
 };
 
 
+export type Subscription_RootResourceArgs = {
+  distinct_on?: InputMaybe<Array<Resource_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Resource_Order_By>>;
+  where?: InputMaybe<Resource_Bool_Exp>;
+};
+
+
+export type Subscription_RootResource_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Resource_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Resource_Order_By>>;
+  where?: InputMaybe<Resource_Bool_Exp>;
+};
+
+
+export type Subscription_RootResource_By_PkArgs = {
+  id: Scalars['String'];
+};
+
+
 export type Subscription_RootSlashing_ParamsArgs = {
   distinct_on?: InputMaybe<Array<Slashing_Params_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -4334,6 +4862,29 @@ export type Subscription_RootTop_AccountsArgs = {
 
 export type Subscription_RootTop_Accounts_By_PkArgs = {
   address: Scalars['String'];
+};
+
+
+export type Subscription_RootTop_Accounts_ParamsArgs = {
+  distinct_on?: InputMaybe<Array<Top_Accounts_Params_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Top_Accounts_Params_Order_By>>;
+  where?: InputMaybe<Top_Accounts_Params_Bool_Exp>;
+};
+
+
+export type Subscription_RootTop_Accounts_Params_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Top_Accounts_Params_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Top_Accounts_Params_Order_By>>;
+  where?: InputMaybe<Top_Accounts_Params_Bool_Exp>;
+};
+
+
+export type Subscription_RootTop_Accounts_Params_By_PkArgs = {
+  one_row_id: Scalars['Boolean'];
 };
 
 
@@ -4998,6 +5549,141 @@ export type Top_Accounts_Order_By = {
   reward?: InputMaybe<Order_By>;
   sum?: InputMaybe<Order_By>;
   unbonding?: InputMaybe<Order_By>;
+};
+
+/** columns and relationships of "top_accounts_params" */
+export type Top_Accounts_Params = {
+  __typename?: 'top_accounts_params';
+  height: Scalars['bigint'];
+  one_row_id: Scalars['Boolean'];
+  total_accounts: Scalars['bigint'];
+};
+
+/** aggregated selection of "top_accounts_params" */
+export type Top_Accounts_Params_Aggregate = {
+  __typename?: 'top_accounts_params_aggregate';
+  aggregate?: Maybe<Top_Accounts_Params_Aggregate_Fields>;
+  nodes: Array<Top_Accounts_Params>;
+};
+
+/** aggregate fields of "top_accounts_params" */
+export type Top_Accounts_Params_Aggregate_Fields = {
+  __typename?: 'top_accounts_params_aggregate_fields';
+  avg?: Maybe<Top_Accounts_Params_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Top_Accounts_Params_Max_Fields>;
+  min?: Maybe<Top_Accounts_Params_Min_Fields>;
+  stddev?: Maybe<Top_Accounts_Params_Stddev_Fields>;
+  stddev_pop?: Maybe<Top_Accounts_Params_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Top_Accounts_Params_Stddev_Samp_Fields>;
+  sum?: Maybe<Top_Accounts_Params_Sum_Fields>;
+  var_pop?: Maybe<Top_Accounts_Params_Var_Pop_Fields>;
+  var_samp?: Maybe<Top_Accounts_Params_Var_Samp_Fields>;
+  variance?: Maybe<Top_Accounts_Params_Variance_Fields>;
+};
+
+
+/** aggregate fields of "top_accounts_params" */
+export type Top_Accounts_Params_Aggregate_FieldsCountArgs = {
+  columns?: InputMaybe<Array<Top_Accounts_Params_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type Top_Accounts_Params_Avg_Fields = {
+  __typename?: 'top_accounts_params_avg_fields';
+  height?: Maybe<Scalars['Float']>;
+  total_accounts?: Maybe<Scalars['Float']>;
+};
+
+/** Boolean expression to filter rows from the table "top_accounts_params". All fields are combined with a logical 'AND'. */
+export type Top_Accounts_Params_Bool_Exp = {
+  _and?: InputMaybe<Array<Top_Accounts_Params_Bool_Exp>>;
+  _not?: InputMaybe<Top_Accounts_Params_Bool_Exp>;
+  _or?: InputMaybe<Array<Top_Accounts_Params_Bool_Exp>>;
+  height?: InputMaybe<Bigint_Comparison_Exp>;
+  one_row_id?: InputMaybe<Boolean_Comparison_Exp>;
+  total_accounts?: InputMaybe<Bigint_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Top_Accounts_Params_Max_Fields = {
+  __typename?: 'top_accounts_params_max_fields';
+  height?: Maybe<Scalars['bigint']>;
+  total_accounts?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregate min on columns */
+export type Top_Accounts_Params_Min_Fields = {
+  __typename?: 'top_accounts_params_min_fields';
+  height?: Maybe<Scalars['bigint']>;
+  total_accounts?: Maybe<Scalars['bigint']>;
+};
+
+/** Ordering options when selecting data from "top_accounts_params". */
+export type Top_Accounts_Params_Order_By = {
+  height?: InputMaybe<Order_By>;
+  one_row_id?: InputMaybe<Order_By>;
+  total_accounts?: InputMaybe<Order_By>;
+};
+
+/** select columns of table "top_accounts_params" */
+export enum Top_Accounts_Params_Select_Column {
+  /** column name */
+  Height = 'height',
+  /** column name */
+  OneRowId = 'one_row_id',
+  /** column name */
+  TotalAccounts = 'total_accounts'
+}
+
+/** aggregate stddev on columns */
+export type Top_Accounts_Params_Stddev_Fields = {
+  __typename?: 'top_accounts_params_stddev_fields';
+  height?: Maybe<Scalars['Float']>;
+  total_accounts?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Top_Accounts_Params_Stddev_Pop_Fields = {
+  __typename?: 'top_accounts_params_stddev_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+  total_accounts?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Top_Accounts_Params_Stddev_Samp_Fields = {
+  __typename?: 'top_accounts_params_stddev_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+  total_accounts?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate sum on columns */
+export type Top_Accounts_Params_Sum_Fields = {
+  __typename?: 'top_accounts_params_sum_fields';
+  height?: Maybe<Scalars['bigint']>;
+  total_accounts?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregate var_pop on columns */
+export type Top_Accounts_Params_Var_Pop_Fields = {
+  __typename?: 'top_accounts_params_var_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+  total_accounts?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type Top_Accounts_Params_Var_Samp_Fields = {
+  __typename?: 'top_accounts_params_var_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+  total_accounts?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type Top_Accounts_Params_Variance_Fields = {
+  __typename?: 'top_accounts_params_variance_fields';
+  height?: Maybe<Scalars['Float']>;
+  total_accounts?: Maybe<Scalars['Float']>;
 };
 
 /** select columns of table "top_accounts" */
@@ -8129,7 +8815,7 @@ export type TokenomicsQueryHookResult = ReturnType<typeof useTokenomicsQuery>;
 export type TokenomicsLazyQueryHookResult = ReturnType<typeof useTokenomicsLazyQuery>;
 export type TokenomicsQueryResult = Apollo.QueryResult<TokenomicsQuery, TokenomicsQueryVariables>;
 export const TopAccountsDocument = gql`
-query TopAccounts($limit: Int = 100, $offset: Int = 0) {
+    query TopAccounts($limit: Int = 100, $offset: Int = 0) {
   top_accounts(limit: $limit, offset: $offset, order_by: {sum: desc}) {
     address
     available

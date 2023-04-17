@@ -9768,7 +9768,7 @@ export const WasmCodeDocument = gql`
     height
     instantiate_permission
     sender
-    wasm_contracts(order_by: {instantiated_at: desc_nulls_last}) {
+    wasm_contracts(order_by: {height: desc_nulls_last}) {
       label
       name: raw_contract_message(path: "name")
       contract_info: contract_states(path: "contract_info")
@@ -9832,7 +9832,7 @@ export const WasmCodeWithByteCodeDocument = gql`
     instantiate_permission
     sender
     byte_code
-    wasm_contracts(order_by: {instantiated_at: desc_nulls_last}) {
+    wasm_contracts(order_by: {height: desc_nulls_last}) {
       label
       name: raw_contract_message(path: "name")
       contract_info: contract_states(path: "contract_info")
