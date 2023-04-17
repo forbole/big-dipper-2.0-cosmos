@@ -11,7 +11,7 @@ import { FC } from 'react';
 
 const formatExecutes = R.pipe(R.defaultTo(0), numeral, (r) => r.format('0,0'));
 
-const Overview: FC<OverviewProps> = ({ className, overview, codeId }) => {
+const Overview: FC<OverviewProps> = ({ className, overview, codeId, count, executed_at }) => {
   const { t } = useTranslation('wasm_contracts');
 
   if (!overview) return null;
@@ -50,7 +50,7 @@ const Overview: FC<OverviewProps> = ({ className, overview, codeId }) => {
         {
           key: 'executes',
           label: t('executes'),
-          detail: formatExecutes(overview.wasm_execute_contracts_aggregate?.aggregate?.count),
+          detail: formatExecutes(count),
         },
         {
           key: 'initiatedAt',
@@ -60,11 +60,7 @@ const Overview: FC<OverviewProps> = ({ className, overview, codeId }) => {
         {
           key: 'lastExecuted',
           label: t('lastExecuted'),
-          detail: (
-            <Timestamp
-              timestamp={overview.wasm_execute_contracts_aggregate?.aggregate?.max?.executed_at}
-            />
-          ),
+          detail: <Timestamp timestamp={executed_at} />,
         },
       ]}
     />

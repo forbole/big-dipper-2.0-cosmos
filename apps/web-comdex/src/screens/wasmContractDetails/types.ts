@@ -5,6 +5,8 @@ import { ReactNode } from 'react';
 export interface OverviewProps extends BoxProps {
   overview: WasmCodeWithByteCodeQuery['wasm_code'][0]['wasm_contracts'][0];
   codeId: WasmCodeWithByteCodeQuery['wasm_code'][0]['code_id'];
+  count: number | undefined;
+  executed_at: string | undefined;
 }
 
 export interface WasmCodeProps extends BoxProps {

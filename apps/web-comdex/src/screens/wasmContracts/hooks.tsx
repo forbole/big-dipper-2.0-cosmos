@@ -22,15 +22,22 @@ const formatExecutes = R.pipe(R.defaultTo(0), numeral, (r) => r.format('0,0'));
 
 const mapDataToModel = (data: WasmCodeQuery | undefined): WasmContractType[] =>
   data?.wasm_code
-    ?.flatMap((x) =>
-      x.wasm_contracts.length
-        ? x.wasm_contracts.map((c) => ({ c, x }))
-        : [{ c: x.wasm_contracts[0], x }]
-    )
-    ?.map(({ x, c }) => ({
+    ?.map((x) => ({
+      x,
+      c: x.wasm_contracts[0],
+      count: x.wasm_contracts.reduce(
+        (s, c) => s + (c.wasm_execute_contracts_aggregate?.aggregate?.count ?? 0),
+        0
+      ),
+      executed_at: x.wasm_contracts.reduce(
+        (s, c) => s || c.wasm_execute_contracts_aggregate?.aggregate?.max?.executed_at,
+        undefined
+      ),
+    }))
+    ?.map(({ x, c, count, executed_at }) => ({
       contractName: (
         <>
-          {c && <ContractName name={c.name || c.label} codeId={c.code_id} />}
+          {c && <ContractName name={c.name || c.label} codeId={x.code_id} />}
           WASM Code ID: <CodeId codeId={x.code_id} />{' '}
         </>
       ),
@@ -52,11 +59,9 @@ const mapDataToModel = (data: WasmCodeQuery | undefined): WasmContractType[] =>
         </>
       ),
       creator: !!x.sender && <AvatarName address={x.sender} name={x.sender} />,
-      executes: c ? formatExecutes(c.wasm_execute_contracts_aggregate?.aggregate?.count) : null,
+      executes: c ? formatExecutes(count) : null,
       initiatedAt: c ? <Timestamp timestamp={c.instantiated_at} /> : null,
-      lastExecuted: c ? (
-        <Timestamp timestamp={c.wasm_execute_contracts_aggregate?.aggregate?.max?.executed_at} />
-      ) : null,
+      lastExecuted: c ? <Timestamp timestamp={executed_at} /> : null,
     })) ?? [];
 
 export const useWasmContracts = (searchText: string) => {
