@@ -1,5 +1,11 @@
 # Unreleased
 
+## 2.11.2
+
+### Patch Changes
+
+- [#1218](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1218) [`37c5aaf84`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/37c5aaf84a9e1b231ee6cce72d75476ddefa0622) Thanks [@teamchong](https://github.com/teamchong)! - feat: Add notice for top account
+
 ## 2.11.1
 
 ### Patch Changes
