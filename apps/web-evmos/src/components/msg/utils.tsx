@@ -310,6 +310,12 @@ const defaultTypeToModel = {
     tagTheme: 'thirteen',
     tagDisplay: 'MsgRevoke',
   },
+  '/cosmos.authz.v1beta1.MsgExec': {
+    model: MODELS.MsgExec,
+    content: COMPONENTS.Exec,
+    tagTheme: 'thirteen',
+    tagDisplay: 'MsgExec',
+  },
   // ========================
   // feegrant
   // ========================
