@@ -14,6 +14,7 @@ const TransactionDetails = () => {
   const { state, onMessageFilterCallback, toggleMessageDisplay, filterMessages } =
     useTransactionDetails();
   const { overview, logs, messages } = state;
+  console.log('message type', messages);
 
   return (
     <>

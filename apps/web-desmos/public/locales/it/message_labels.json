@@ -88,6 +88,7 @@
   "txMsgSetUserPermissions": "Impostazione autorizzazioni utente",
   "MsgGrant": "Grant",
   "MsgRevoke": "Revoca",
+  "MsgExec": "Esec",
   "MsgGrantAllowance": "Concessione grant",
   "MsgRevokeAllowance": "Concessione revoca",
   "MsgCreateVestingAccount": "Creazione conto di vesting",

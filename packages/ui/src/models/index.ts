@@ -6,6 +6,7 @@ export { default as GovParams } from '@/models/gov_params';
 export { default as MintParams } from '@/models/mint_params';
 export { default as MsgGrant } from '@/models/msg/authz/msg_grant';
 export { default as MsgRevoke } from '@/models/msg/authz/msg_revoke';
+export { default as MsgExec } from '@/models/msg/authz/msg_exec';
 export { default as MsgMultiSend } from '@/models/msg/bank/msg_multi_send';
 export { default as MsgSend } from '@/models/msg/bank/msg_send';
 export { default as MsgVerifyInvariant } from '@/models/msg/crisis/msg_verify_invariant';

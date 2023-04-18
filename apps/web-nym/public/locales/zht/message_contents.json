@@ -52,6 +52,7 @@
   "txTimeoutOnCloseContent": "<0>{{signer}}</0> 關閉時 IBC 超時",
   "MsgGrant": "<0>{{granter}}</0> 授權撥款 <1>{{grantee}}</1>",
   "MsgRevoke": "<0>{{granter}}</0> 撤銷了對 <1>{{grantee}}</1> 撥款",
+  "MsgExec": "<0>{{grantee}}</0> 執行交易",
   "MsgGrantAllowance": "<0>{{granter}}</0> 給予津貼 <1>{{grantee}}</1>",
   "MsgRevokeAllowance": "<0>{{granter}}</0> 撤銷津貼 <1>{{grantee}}</1>",
   "MsgCreateVestingAccount": "歸屬賬戶創建於 <0>{{toAddress}}</0>",
