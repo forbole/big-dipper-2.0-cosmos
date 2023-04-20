@@ -1,5 +1,16 @@
 # Unreleased
 
+## 2.11.0
+
+### Minor Changes
+
+- [#1223](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1223) [`9082afdce`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/9082afdce5e76b378c612c5cd4f74161403c4a67) Thanks [@rachelhox](https://github.com/rachelhox)! - fix: missing messages from authz module
+
+### Patch Changes
+
+- Updated dependencies [[`9082afdce`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/9082afdce5e76b378c612c5cd4f74161403c4a67)]:
+  - ui@2.24.0
+
 ## 2.10.1
 
 ### Patch Changes

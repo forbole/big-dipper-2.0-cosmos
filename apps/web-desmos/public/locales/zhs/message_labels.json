@@ -88,6 +88,7 @@
   "txMsgSetUserPermissions": "设置用户权限",
   "MsgGrant": "授予",
   "MsgRevoke": "撤销",
+  "MsgExec": "执行",
   "MsgGrantAllowance": "津贴",
   "MsgRevokeAllowance": "撤销津贴",
   "MsgCreateVestingAccount": "创建归属账户",
