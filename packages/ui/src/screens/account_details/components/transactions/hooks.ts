@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { convertMsgsToModels } from '@/components/msg/utils';
 import {
   GetMessagesByAddressQuery,
