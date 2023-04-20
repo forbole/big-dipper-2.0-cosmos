@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
-import { useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { convertMsgsToModels } from '@/components/msg/utils';
 import {
   GetMessagesByAddressQuery,
@@ -50,6 +50,22 @@ export function useTransactions() {
     isNextPageLoading: true,
     offsetCount: 0,
   });
+  const isFirst = useRef(true);
+
+  // reset state when address changes
+  useEffect(() => {
+    if (isFirst.current) {
+      isFirst.current = false;
+    } else {
+      setState((prevState) => ({
+        ...prevState,
+        data: [],
+        hasNextPage: false,
+        isNextPageLoading: true,
+        offsetCount: 0,
+      }));
+    }
+  }, [router?.query?.address]);
 
   const handleSetState = (stateChange: (prevState: TransactionState) => TransactionState) => {
     setState((prevState) => {
@@ -58,7 +74,7 @@ export function useTransactions() {
     });
   };
 
-  const transactionQuery = useGetMessagesByAddressQuery({
+  const { fetchMore } = useGetMessagesByAddressQuery({
     variables: {
       limit: LIMIT + 1, // to check if more exist
       offset: 0,
@@ -81,24 +97,22 @@ export function useTransactions() {
   const loadNextPage = async () => {
     handleSetState((prevState) => ({ ...prevState, isNextPageLoading: true }));
     // refetch query
-    await transactionQuery
-      .fetchMore({
-        variables: {
-          offset: state.offsetCount,
-          limit: LIMIT + 1,
-        },
-      })
-      .then(({ data }) => {
-        const itemsLength = data.messagesByAddress.length;
-        const newItems = R.uniq([...state.data, ...formatTransactions(data)]);
-        const stateChange: TransactionState = {
-          data: newItems,
-          hasNextPage: itemsLength === 51,
-          isNextPageLoading: false,
-          offsetCount: state.offsetCount + LIMIT,
-        };
-        handleSetState((prevState) => ({ ...prevState, ...stateChange }));
-      });
+    await fetchMore({
+      variables: {
+        offset: state.offsetCount,
+        limit: LIMIT + 1,
+      },
+    }).then(({ data }) => {
+      const itemsLength = data.messagesByAddress.length;
+      const newItems = R.uniq([...state.data, ...formatTransactions(data)]);
+      const stateChange: TransactionState = {
+        data: newItems,
+        hasNextPage: itemsLength === 51,
+        isNextPageLoading: false,
+        offsetCount: state.offsetCount + LIMIT,
+      };
+      handleSetState((prevState) => ({ ...prevState, ...stateChange }));
+    });
   };
 
   return {
