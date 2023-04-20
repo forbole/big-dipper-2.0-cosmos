@@ -1,0 +1,170 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: AccountDetails/Overview matches snapshot 1`] = `
+@media (min-width:768px) {
+  .emotion-0 {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
+.emotion-1 {
+  padding: 16px 0px;
+  color: #414141;
+}
+
+.emotion-1 .detail {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+}
+
+.emotion-1 .detail svg {
+  width: 1rem;
+  margin-left: 8px;
+}
+
+.emotion-1:first-of-type {
+  padding-top: 0;
+}
+
+.emotion-1:last-child {
+  padding-bottom: 0;
+}
+
+.emotion-1:not(:last-child) {
+  border-bottom: solid 1px #E8E8E8;
+}
+
+.emotion-1 .label {
+  margin-bottom: 8px;
+}
+
+.emotion-1 .detail.MuiTypography-body1 {
+  word-wrap: break-word;
+}
+
+@media (min-width:768px) {
+  .emotion-1 {
+    padding: 0;
+  }
+
+  .emotion-1:not(:last-child) {
+    border-bottom: none;
+  }
+
+  .emotion-1 .label {
+    margin-bottom: 0;
+  }
+}
+
+.emotion-2 {
+  margin: 0;
+  font-size: 1rem;
+  white-space: pre-wrap;
+  letter-spacing: 0.5px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.emotion-3:hover {
+  cursor: pointer;
+}
+
+@media (max-width:1279.95px) {
+  .emotion-6 {
+    display: none;
+  }
+}
+
+@media (min-width:1280px) {
+  .emotion-7 {
+    display: none;
+  }
+}
+
+<div
+  className="emotion-0"
+  id="Box"
+>
+  <div
+    className="emotion-1"
+  >
+    <p
+      className="MuiTypography-root MuiTypography-body1 label emotion-2"
+    >
+      address
+    </p>
+    <div
+      className="detail"
+    >
+      <svg
+        className="emotion-3"
+        onClick={[Function]}
+      />
+      <svg
+        className="emotion-3"
+        onClick={[Function]}
+      />
+      <p
+        className="MuiTypography-root MuiTypography-body1 value emotion-2"
+      >
+        <span
+          className="emotion-6"
+        >
+          desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz
+        </span>
+        <span
+          className="emotion-7"
+        >
+          desmos1jrld5g99...y94nz
+        </span>
+      </p>
+    </div>
+  </div>
+  <div
+    className="emotion-1"
+  >
+    <p
+      className="MuiTypography-root MuiTypography-body1 label emotion-2"
+    >
+      rewardAddress
+    </p>
+    <div
+      className="detail"
+    >
+      <svg
+        className="emotion-3"
+        onClick={[Function]}
+      />
+      <p
+        className="MuiTypography-root MuiTypography-body1 value emotion-2"
+      >
+        <span
+          className="emotion-6"
+        >
+          desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz
+        </span>
+        <span
+          className="emotion-7"
+        >
+          desmos1jrld5g99...y94nz
+        </span>
+      </p>
+    </div>
+  </div>
+</div>
+`;

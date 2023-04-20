@@ -33,5 +33,6 @@
   "authz": "授权",
   "feegrant": "费用拨款",
   "vesting": "生效中",
-  "logs": "日志"
+    "logs": "日志",
+  "messagesNumber": "讯息 ({{number}})"
 }

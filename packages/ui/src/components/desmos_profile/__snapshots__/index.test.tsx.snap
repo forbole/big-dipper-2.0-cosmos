@@ -12,6 +12,12 @@ exports[`component: DesmosProfile matches snapshot 1`] = `
   background: #FFFFFF;
 }
 
+.emotion-0 a {
+  color: #0075FF;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
 .emotion-1 {
   height: 150px;
   background: #999999;
@@ -38,19 +44,19 @@ exports[`component: DesmosProfile matches snapshot 1`] = `
 
 @media (min-width:375px) {
   .emotion-1 {
-    height: 200px;
+    height: 100px;
   }
 }
 
 @media (min-width:768px) {
   .emotion-1 {
-    height: 300px;
+    height: 120px;
   }
 }
 
 @media (min-width:1280px) {
   .emotion-1 {
-    height: 360px;
+    height: 160px;
   }
 }
 
@@ -61,15 +67,17 @@ exports[`component: DesmosProfile matches snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: end;
-  -ms-flex-pack: end;
-  -webkit-justify-content: flex-end;
-  justify-content: flex-end;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
   padding: 8px 0px;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .emotion-2 .hide {
@@ -85,6 +93,13 @@ exports[`component: DesmosProfile matches snapshot 1`] = `
 @media (min-width:1280px) {
   .emotion-2 {
     padding-bottom: 28px;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
   }
 }
 
@@ -109,12 +124,12 @@ exports[`component: DesmosProfile matches snapshot 1`] = `
   -webkit-justify-content: center;
   justify-content: center;
   position: absolute;
-  width: 75px;
-  height: 75px;
-  min-height: 75px;
-  min-width: 75px;
+  width: 60px;
+  height: 60px;
+  min-height: 60px;
+  min-width: 60px;
   border: solid 3px #FFFFFF;
-  top: -32px;
+  top: -20px;
   left: 0;
 }
 
@@ -127,22 +142,22 @@ exports[`component: DesmosProfile matches snapshot 1`] = `
 
 @media (min-width:768px) {
   .emotion-3 {
-    width: 115px;
-    height: 115px;
-    min-height: 115px;
-    min-width: 115px;
-    top: -64px;
+    width: 76px;
+    height: 76px;
+    min-height: 76px;
+    min-width: 76px;
+    top: -24px;
     border-width: 4px;
   }
 }
 
 @media (min-width:1280px) {
   .emotion-3 {
-    width: 150px;
-    height: 150px;
-    min-height: 150px;
-    min-width: 150px;
-    top: -88px;
+    width: 100px;
+    height: 100px;
+    min-height: 100px;
+    min-width: 100px;
+    top: -32px;
     border-width: 5px;
   }
 }
@@ -153,29 +168,28 @@ exports[`component: DesmosProfile matches snapshot 1`] = `
 }
 
 .emotion-5 {
-  margin: 0;
-  font-size: 1rem;
-  white-space: pre-wrap;
-  letter-spacing: 0.5px;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #4092CD;
+  margin: 4px 0px;
+  padding-left: 60px;
 }
 
-.emotion-5:hover {
-  cursor: pointer;
+@media (min-width:768px) {
+  .emotion-5 {
+    margin: 8px 0px;
+    padding-left: 85px;
+  }
 }
 
-.emotion-6 {
-  margin: 8px 0px;
+@media (min-width:1280px) {
+  .emotion-5 {
+    padding-left: 116px;
+  }
 }
 
-.emotion-6 .tag {
+.emotion-5 .tag {
   color: #999999;
 }
 
-.emotion-7 {
+.emotion-6 {
   margin: 0;
   font-size: 1.5rem;
   letter-spacing: 0;
@@ -184,13 +198,199 @@ exports[`component: DesmosProfile matches snapshot 1`] = `
   line-height: 1.2;
 }
 
-.emotion-8 {
+.emotion-7 {
   margin: 0;
   font-size: 0.875rem;
   letter-spacing: 0.25px;
   font-family: "Roboto","Helvetica","Arial",sans-serif;
   font-weight: 400;
   line-height: 1.43;
+}
+
+.emotion-8 {
+  width: 100%;
+}
+
+@media (min-width:768px) {
+  .emotion-8 {
+    width: 100%;
+  }
+}
+
+@media (min-width:1280px) {
+  .emotion-8 {
+    width: 30%;
+  }
+}
+
+.emotion-9 {
+  background: #282828;
+  border-radius: 8px 8px 0px 0px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  padding: 8px 16px;
+}
+
+.emotion-10 {
+  margin: 0;
+  font-size: 1rem;
+  white-space: pre-wrap;
+  letter-spacing: 0.5px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.emotion-11 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-11 span {
+  padding-right: 8px;
+}
+
+.emotion-13 {
+  width: 16px;
+  height: 16px;
+}
+
+.emotion-13:hover {
+  cursor: pointer;
+}
+
+.emotion-14 {
+  margin-top: 1px;
+  background: #282828;
+  border-radius: 0px 0px 8px 8px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  padding: 8px 16px;
+}
+
+.emotion-19 {
+  margin: 0;
+  font-size: 1rem;
+  white-space: pre-wrap;
+  letter-spacing: 0.5px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #0075FF!important;
+}
+
+.emotion-19:hover {
+  cursor: pointer;
+}
+
+.emotion-20 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  padding: 8px 0px 8px 0px!important;
+}
+
+@media (min-width:1280px) {
+  .emotion-20 {
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 16px 0px 16px 0px!important;
+  }
+}
+
+.emotion-20 a {
+  padding-left: 3px;
+  font-size: 14px;
+}
+
+.emotion-21 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0px 0px 8px 0px;
+}
+
+.emotion-21:first-child {
+  padding-top: 0;
+}
+
+.emotion-21:last-child {
+  padding-bottom: 0;
+}
+
+@media (min-width:1280px) {
+  .emotion-21 {
+    padding: 0px 16px 0px 0px;
+  }
+
+  .emotion-21:last-child {
+    padding-right: 0;
+  }
+}
+
+.emotion-21 p {
+  padding-left: 5px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #999999;
+}
+
+.emotion-22 {
+  fill: none;
 }
 
 <div
@@ -227,33 +427,116 @@ exports[`component: DesmosProfile matches snapshot 1`] = `
         width={0}
       />
     </span>
-    <p
-      className="MuiTypography-root MuiTypography-body1 emotion-5"
-      onClick={[Function]}
-      role="button"
+     
+    <div
+      className="emotion-5"
     >
-      connections
-    </p>
-  </div>
-  <div
-    className="emotion-6"
-  >
-    <h2
-      className="MuiTypography-root MuiTypography-h2 emotion-7"
+      <h2
+        className="MuiTypography-root MuiTypography-h2 emotion-6"
+      >
+        test_nickname
+      </h2>
+      <p
+        className="MuiTypography-root MuiTypography-body2 tag emotion-7"
+      >
+        @
+        test
+      </p>
+    </div>
+    <div
+      className="emotion-8"
     >
-      test_nickname
-    </h2>
-    <p
-      className="MuiTypography-root MuiTypography-body2 tag emotion-8"
-    >
-      @
-      test
-    </p>
+      <div
+        className="emotion-9"
+      >
+        <p
+          className="MuiTypography-root MuiTypography-body1 value emotion-10"
+        >
+          address
+        </p>
+        <div
+          className="emotion-11"
+        >
+          <p
+            className="MuiTypography-root MuiTypography-body1 emotion-10"
+          >
+            <span>
+              test_address
+            </span>
+          </p>
+          <svg
+            className="emotion-13"
+            onClick={[Function]}
+          />
+        </div>
+      </div>
+      <div
+        className="emotion-14"
+      >
+        <p
+          className="MuiTypography-root MuiTypography-body1 value emotion-10"
+        >
+          rewardAddress
+        </p>
+        <div
+          className="emotion-11"
+        >
+          <p
+            className="MuiTypography-root MuiTypography-body1 emotion-10"
+          >
+            <span>
+              test_rewa...ess
+            </span>
+          </p>
+          <svg
+            className="emotion-13"
+            onClick={[Function]}
+          />
+        </div>
+      </div>
+    </div>
   </div>
   <div>
     <p>
       test bio
     </p>
+    <p
+      className="MuiTypography-root MuiTypography-body1 emotion-19"
+      onClick={[Function]}
+      role="button"
+    >
+      more
+    </p>
+  </div>
+  <div
+    className="emotion-20"
+  >
+    <div
+      className="emotion-21"
+    >
+      <svg
+        className="emotion-22"
+      />
+      <p
+        className="MuiTypography-root MuiTypography-body2 emotion-7"
+      >
+        joined
+      </p>
+    </div>
+    <div
+      className="emotion-21"
+    >
+      <svg
+        className="emotion-22"
+      />
+      <p
+        className="MuiTypography-root MuiTypography-body1 emotion-19"
+        onClick={[Function]}
+        role="button"
+      >
+        connections
+      </p>
+    </div>
   </div>
 </div>
 `;

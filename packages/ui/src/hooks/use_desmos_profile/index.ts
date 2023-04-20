@@ -141,13 +141,17 @@ function formatDesmosProfile(data: DesmosProfileQuery | undefined): DesmosProfil
       R.comparator((a, b) => a.network.toLowerCase() < b.network.toLowerCase())
     );
 
+    const externalConnections = [...applications];
+
     return {
       dtag: profile.dtag,
       nickname: profile.nickname,
       imageUrl: profile.profilePic,
       coverUrl: profile.coverPic,
       bio: profile.bio,
+      creationTime: profile.creationTime,
       connections: [nativeData, ...connectionsWithoutNativeSorted],
+      applicationLinks: externalConnections,
     };
   });
 }

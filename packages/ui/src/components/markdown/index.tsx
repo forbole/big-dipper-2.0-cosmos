@@ -100,9 +100,18 @@ const options = {
   },
 };
 
-export default function Markdown(props: { markdown: string }) {
-  const clean = xss(props.markdown.replace(/\\n\s?/g, '<br/>'));
-  // clean = clean.replace(/\\n\s?/g, '\n'); // this will also work
+type MarkdownProp = {
+  markdown: string;
+  readMore?: boolean | undefined;
+};
 
-  return <ReactMarkdown options={options}>{clean}</ReactMarkdown>;
+export default function Markdown({ markdown, readMore }: MarkdownProp) {
+  const clean = xss(markdown.replace(/\\n\s?/g, '<br/>'));
+  // clean = clean.replace(/\\n\s?/g, '\n'); // this will also work
+  const delimiter = '<br>';
+  const limit = 3;
+  const less = clean.split(delimiter).slice(0, limit).join(delimiter);
+  const result = readMore ? less : clean;
+
+  return <ReactMarkdown options={options}>{result}</ReactMarkdown>;
 }

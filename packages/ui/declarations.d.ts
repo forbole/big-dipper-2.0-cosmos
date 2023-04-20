@@ -56,14 +56,22 @@ type ValidatorProfile = {
   lastSeen: string;
 };
 
+type ApplicationLink = {
+  network: string;
+  identifier: string;
+  creationTime: unknown;
+};
+
 type DesmosProfile = {
   dtag: string;
   nickname: string;
   imageUrl: string;
   coverUrl: string;
   bio: string;
+  creationTime: string;
   connections: ProfileConnectionType[];
   validator?: ValidatorProfile;
+  applicationLinks: ApplicationLink[] | [];
 };
 
 type TagTheme =

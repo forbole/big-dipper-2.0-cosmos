@@ -33,5 +33,6 @@
   "authz": "Autoryzacja",
   "feegrant": "Dotacja",
   "vesting": "Vesting",
-  "logs": "Logi"
+    "logs": "Logi",
+  "messagesNumber": "Wiadomość ({{number}})"
 }
