@@ -8,4 +8,5 @@ export { default as EditDataSource } from '@/components/msg/oracle/edit_data_sou
 export { default as EditOracleScript } from '@/components/msg/oracle/edit_oracle_script';
 export { default as ReportData } from '@/components/msg/oracle/report_data';
 export { default as RequestData } from '@/components/msg/oracle/request_data';
+export { default as AddReporter } from '@/components/msg/oracle/add_reporter';
 export * from 'ui/components/msg';
