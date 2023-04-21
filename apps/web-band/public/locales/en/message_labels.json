@@ -63,5 +63,6 @@
   "MsgRevokeAllowance": "Revoke Allowance",
   "MsgCreateVestingAccount": "Create Vesting Account",
   "MsgCreatePeriodicVestingAccount": "Create Periodic Vesting Account",
-  "txAddReporter": "Add Reporter"
+  "txAddReporter": "Add Reporter",
+  "txRemoveReporter": "Remove Reporter"
 }

@@ -404,6 +404,12 @@ const customTypeToModel = {
     tagTheme: 'four',
     tagDisplay: 'txAddReporter',
   },
+  '/oracle.v1.MsgRemoveReporter': {
+    model: MODELS.MsgRemoveReporter,
+    content: COMPONENTS.RemoveReporter,
+    tagTheme: 'four',
+    tagDisplay: 'txRemoveReporter',
+  },
 };
 type CustomTypeToModel = typeof customTypeToModel;
 
