@@ -15,12 +15,12 @@
     ],
     "dark": {
       "primary": {
-        "main": "#DC7BFC",
+        "main": "#164094",
         "contrastText": "#FFFFFF"
       },
       "background": {
-        "default": "#0E0826",
-        "paper": "#1B173A"
+        "default": "#000000",
+        "paper": "#080613"
       },
       "divider": "#262058",
       "text": {
@@ -29,8 +29,8 @@
       },
       "custom": {
         "general": {
-          "background": "#0E0826",
-          "surfaceOne": "#1B173A",
+          "background": "#000000",
+          "surfaceOne": "#080613",
           "surfaceTwo": "#160F32",
           "icon": "#999999"
         },
@@ -43,10 +43,10 @@
           "highlight": "#56B4E9"
         },
         "primaryData": {
-          "one": "#9D35FF",
-          "two": "#F372DB",
-          "three": "#36B9AB",
-          "four": "#4EABF0"
+          "one": "#0F0C48",
+          "two": "#FF2B57",
+          "three": "#686868",
+          "four": "#164094"
         },
         "results": {
           "pass": "#1EC490",

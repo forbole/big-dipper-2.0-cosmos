@@ -206,7 +206,7 @@
   {
     "name": "MultiversX",
     "chainName": "multiversx",
-    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/multiversx.png?sanitize=true",
+    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/multiversx.svg?sanitize=true",
     "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/multiversx.png?sanitize=true",
     "links": [
       {
@@ -237,7 +237,7 @@
   {
     "name": "Cheqd",
     "chainName": "cheqd",
-    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/cheqd.png?sanitize=true",
+    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/cheqd.svg?sanitize=true",
     "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/cheqd.png?sanitize=true",
     "links": [
       {
@@ -377,7 +377,7 @@
   {
     "name": "NYM",
     "chainName": "nym",
-    "logo": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nym/images/nym.svg",
+    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/nym.svg?sanitize=true",
     "cover": "",
     "links": [
       {
@@ -390,7 +390,7 @@
   {
     "name": "Quicksilver",
     "chainName": "quicksilver",
-    "logo": "https://raw.githubusercontent.com/cosmos/chain-registry/master/quicksliver/images/quicksliver.svg",
+    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/quicksilver.svg?sanitize=true",
     "cover": "",
     "links": [
       {
@@ -402,6 +402,19 @@
         "name": "Testnet",
         "chain_id": "innuendo-3",
         "url": "https://testnet.bigdipper.live/quicksilver"
+      }
+    ]
+  },
+  {
+    "name": "Wormhole",
+    "chainName": "wormhole",
+    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/wormhole.svg?sanitize=true",
+    "cover": "",
+    "links": [
+      {
+        "name": "Mainnet",
+        "chain_id": "wormchain",
+        "url": "https://bigdipper.live/wormhole"
       }
     ]
   },
@@ -442,8 +455,8 @@
     ]
   },
   {
-    "name": "Humans.ai",
-    "chainName": "",
+    "name": "Humansai",
+    "chainName": "humansai",
     "logo": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/humanstestnet/images/humans.png",
     "cover": "",
     "links": [
