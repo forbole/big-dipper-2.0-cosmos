@@ -9,7 +9,7 @@ exports[`screen: Home/DataBlocks matches snapshot 1`] = `
 
 @media (min-width:375px) {
   .emotion-0 {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -255,6 +255,75 @@ exports[`screen: Home/DataBlocks matches snapshot 1`] = `
   line-height: 1.66;
 }
 
+.emotion-14 {
+  padding: 16px;
+  background: rgba(253,59,76,0.7);
+  border-radius: 4px;
+  height: 110px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  color: #FFFFFF;
+  background: #af2929;
+}
+
+.emotion-14 .label {
+  margin-bottom: 16px;
+}
+
+.emotion-14 .content {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-end;
+  -webkit-box-align: flex-end;
+  -ms-flex-align: flex-end;
+  align-items: flex-end;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+
+.emotion-14 .description {
+  display: none;
+}
+
+@media (min-width:768px) {
+  .emotion-14 .description {
+    display: block;
+  }
+}
+
+@media (max-width:1279.95px) {
+  .emotion-14 {
+    grid-column: 1/span 2;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+
+  .emotion-14 .content {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+  }
+}
+
 <div
   className="emotion-0"
 >
@@ -336,7 +405,7 @@ exports[`screen: Home/DataBlocks matches snapshot 1`] = `
     </div>
   </div>
   <div
-    className="emotion-1"
+    className="emotion-14"
   >
     <p
       className="MuiTypography-root MuiTypography-body2 label emotion-2"
