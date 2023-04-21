@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Home/SingleBlock matches snapshot 1`] = `
+.emotion-0 {
+  padding: 16px;
+  background: rgba(253,59,76,0.7);
+  border-radius: 4px;
+  height: 110px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  color: #FFFFFF;
+}
+
+.emotion-0 .label {
+  margin-bottom: 16px;
+}
+
+.emotion-0 .content {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-end;
+  -webkit-box-align: flex-end;
+  -ms-flex-align: flex-end;
+  align-items: flex-end;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+
+.emotion-0 .description {
+  display: none;
+}
+
+@media (min-width:768px) {
+  .emotion-0 .description {
+    display: block;
+  }
+}
+
+.emotion-1 {
+  margin: 0;
+  font-size: 0.875rem;
+  letter-spacing: 0.25px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.43;
+}
+
+.emotion-2 {
+  margin: 0;
+  font-size: 2rem;
+  letter-spacing: 0.25px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 300;
+  line-height: 1.167;
+}
+
+<div
+  className="emotion-0"
+>
+  <p
+    className="MuiTypography-root MuiTypography-body2 label emotion-1"
+  >
+    Price
+  </p>
+  <div
+    className="content"
+  >
+    <h1
+      className="MuiTypography-root MuiTypography-h1 emotion-2"
+    >
+      $4.40
+    </h1>
+  </div>
+</div>
+`;

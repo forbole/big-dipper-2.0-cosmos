@@ -8360,7 +8360,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/axios-npm-1.3.5-f8ffbd6db8-4d6bcf933b.zip/node_modules/axios/",\
           "packageDependencies": [\
             ["axios", "npm:1.3.5"],\
-            ["follow-redirects", "virtual:f8ffbd6db860234aec9e3b1f7357c76ae7346ca1bf8803ae8f0fba9f68c4cf3e69a2687237b9715f6e3ebbfebfa2d74cb0fb87edc7fbe8b6577e440ac6443c68#npm:1.15.2"],\
+            ["follow-redirects", "virtual:59e004d5b84a97427dda0ad4249f0c81b0fbb405c29f984ec81bc2a9dcb6d994af354e28948d3ac063760130fb01df1f1de493b93519a036c255b7630d7f918f#npm:1.15.2"],\
+            ["form-data", "npm:4.0.0"],\
+            ["proxy-from-env", "npm:1.1.0"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:1.3.6", {\
+          "packageLocation": "./.yarn/cache/axios-npm-1.3.6-59e004d5b8-c90497ebf7.zip/node_modules/axios/",\
+          "packageDependencies": [\
+            ["axios", "npm:1.3.6"],\
+            ["follow-redirects", "virtual:59e004d5b84a97427dda0ad4249f0c81b0fbb405c29f984ec81bc2a9dcb6d994af354e28948d3ac063760130fb01df1f1de493b93519a036c255b7630d7f918f#npm:1.15.2"],\
             ["form-data", "npm:4.0.0"],\
             ["proxy-from-env", "npm:1.1.0"]\
           ],\
@@ -8374,6 +8384,21 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["axios-mock-adapter", "npm:1.21.4"]\
           ],\
           "linkType": "SOFT"\
+        }],\
+        ["virtual:6c8ce1b7e37064ce1b1a065a14f359f075ac0642f5ddfc2258388bb89f54ff7543a5493d4b830db9a1e83264d794ce71a63d6a14677f961d652d359596141ace#npm:1.21.4", {\
+          "packageLocation": "./.yarn/__virtual__/axios-mock-adapter-virtual-32afc22cf9/0/cache/axios-mock-adapter-npm-1.21.4-374b41c5a8-adcd838c8b.zip/node_modules/axios-mock-adapter/",\
+          "packageDependencies": [\
+            ["axios-mock-adapter", "virtual:6c8ce1b7e37064ce1b1a065a14f359f075ac0642f5ddfc2258388bb89f54ff7543a5493d4b830db9a1e83264d794ce71a63d6a14677f961d652d359596141ace#npm:1.21.4"],\
+            ["@types/axios", null],\
+            ["axios", "npm:1.3.6"],\
+            ["fast-deep-equal", "npm:3.1.3"],\
+            ["is-buffer", "npm:2.0.5"]\
+          ],\
+          "packagePeers": [\
+            "@types/axios",\
+            "axios"\
+          ],\
+          "linkType": "HARD"\
         }],\
         ["virtual:98a359ee082b163d58865c48beb01d249ff8e9b7dbc06d2a42f00bed7b11a4af7e0f0f659be1694181f4b5ad25eb6d7352849bf7145f64b2df7258695c451aec#npm:1.21.4", {\
           "packageLocation": "./.yarn/__virtual__/axios-mock-adapter-virtual-dd607e5922/0/cache/axios-mock-adapter-npm-1.21.4-374b41c5a8-adcd838c8b.zip/node_modules/axios-mock-adapter/",\
@@ -11954,10 +11979,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:f8ffbd6db860234aec9e3b1f7357c76ae7346ca1bf8803ae8f0fba9f68c4cf3e69a2687237b9715f6e3ebbfebfa2d74cb0fb87edc7fbe8b6577e440ac6443c68#npm:1.15.2", {\
-          "packageLocation": "./.yarn/__virtual__/follow-redirects-virtual-bad0d3b6de/0/cache/follow-redirects-npm-1.15.2-1ec1dd82be-faa66059b6.zip/node_modules/follow-redirects/",\
+        ["virtual:59e004d5b84a97427dda0ad4249f0c81b0fbb405c29f984ec81bc2a9dcb6d994af354e28948d3ac063760130fb01df1f1de493b93519a036c255b7630d7f918f#npm:1.15.2", {\
+          "packageLocation": "./.yarn/__virtual__/follow-redirects-virtual-ba66909603/0/cache/follow-redirects-npm-1.15.2-1ec1dd82be-faa66059b6.zip/node_modules/follow-redirects/",\
           "packageDependencies": [\
-            ["follow-redirects", "virtual:f8ffbd6db860234aec9e3b1f7357c76ae7346ca1bf8803ae8f0fba9f68c4cf3e69a2687237b9715f6e3ebbfebfa2d74cb0fb87edc7fbe8b6577e440ac6443c68#npm:1.15.2"],\
+            ["follow-redirects", "virtual:59e004d5b84a97427dda0ad4249f0c81b0fbb405c29f984ec81bc2a9dcb6d994af354e28948d3ac063760130fb01df1f1de493b93519a036c255b7630d7f918f#npm:1.15.2"],\
             ["@types/debug", null],\
             ["debug", null]\
           ],\
@@ -20489,6 +20514,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/parser", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.58.0"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.42"],\
             ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
+            ["axios", "npm:1.3.6"],\
+            ["axios-mock-adapter", "virtual:6c8ce1b7e37064ce1b1a065a14f359f075ac0642f5ddfc2258388bb89f54ff7543a5493d4b830db9a1e83264d794ce71a63d6a14677f961d652d359596141ace#npm:1.21.4"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
