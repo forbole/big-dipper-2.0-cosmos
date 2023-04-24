@@ -39,5 +39,6 @@
   "top_address": "地址",
   "top_dtag": "標籤",
   "top_balance": "代幣餘額",
-  "top_percentage": "百分比"
+  "top_percentage": "百分比",
+  "refresh_delay_notice": "請注意，頂級帳戶只在格林威治標準時間的00:00刷新數據。"
 }

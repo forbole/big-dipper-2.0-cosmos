@@ -88,6 +88,7 @@
   "txMsgSetUserPermissions": "Ustaw uprawnienia użytkownika",
   "MsgGrant": "Przyznaj",
   "MsgRevoke": "Rewokuj",
+  "MsgExec": "Wykonawcy",
   "MsgGrantAllowance": "Przyznaj dotację",
   "MsgRevokeAllowance": "Cofnij dotację",
   "MsgCreateVestingAccount": "Utwórz konto vestingowe",

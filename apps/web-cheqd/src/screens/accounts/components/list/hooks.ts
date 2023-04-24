@@ -1,13 +1,14 @@
-/* eslint-disable turbo/no-undeclared-env-vars */
-/* eslint-disable camelcase, object-curly-newline */
+/* eslint-disable turbo/no-undeclared-env-vars, camelcase, object-curly-newline */
+import chainConfig from '@/chainConfig';
+import { readMarket } from '@/recoil/market/selectors';
 import { useTopAccountsQuery } from '@/graphql/types/general_types';
+import { UseAccountsState } from '@/screens/accounts/components/list/types';
 import Big from 'big.js';
 import { useEffect, useMemo, useState } from 'react';
-import { UseAccountsState } from '@/screens/accounts/components/list/types';
+import { useRecoilValue } from 'recoil';
 
-// const { primaryTokenUnit, tokenUnits } = chainConfig ?? {};
-// const { exponent } = tokenUnits[primaryTokenUnit] ?? {};
-const TOTAL_SUPPLY = Big(process.env.NEXT_PUBLIC_TOTAL_SUPPLY || 163_255_708).toNumber();
+const { primaryTokenUnit, tokenUnits } = chainConfig();
+const { exponent } = tokenUnits[primaryTokenUnit] ?? {};
 
 /**
  * `useAccounts` is a custom hook that will be used to fetch the top accounts.
@@ -33,6 +34,7 @@ export const useAccounts = (): UseAccountsState => {
       limit: rowsPerPage,
     },
   });
+  const { supply } = useRecoilValue(readMarket);
 
   /* If there is an error, refetch the data. */
   useEffect(() => {
@@ -46,13 +48,15 @@ export const useAccounts = (): UseAccountsState => {
         rank: 1 + offset + i,
         address: row.address,
         balance: row.sum ?? 0,
-        percentage: Big(row.sum)
-          .mul(100)
-          // .div(10 ** exponent)
-          .div(TOTAL_SUPPLY)
-          .toNumber(),
+        percentage: row.sum
+          ? Big(row.sum)
+              .mul(100)
+              .div(10 ** exponent)
+              .div(supply.value)
+              .toNumber()
+          : 0,
       })),
-    [data?.top_accounts, offset]
+    [data?.top_accounts, offset, supply.value]
   );
 
   const exists = useMemo(() => loading || !!items?.length, [loading, items]);

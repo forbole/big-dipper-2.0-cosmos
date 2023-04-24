@@ -51,6 +51,7 @@
   "txTransferLabel": "Trasferimento IBC",
   "MsgGrant": "Grant",
   "MsgRevoke": "Revoca",
+  "MsgExec": "Esec",
   "MsgGrantAllowance": "Concessione Grant",
   "MsgRevokeAllowance": "Revoca Grant",
   "MsgCreateVestingAccount": "Creazione conto di vesting",

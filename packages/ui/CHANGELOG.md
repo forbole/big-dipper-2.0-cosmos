@@ -1,5 +1,17 @@
 # ui
 
+## 2.24.0
+
+### Minor Changes
+
+- [#1223](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1223) [`9082afdce`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/9082afdce5e76b378c612c5cd4f74161403c4a67) Thanks [@rachelhox](https://github.com/rachelhox)! - fix: missing messages from authz module
+
+## 2.23.0
+
+### Minor Changes
+
+- [#1190](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1190) [`26b06277b`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/26b06277b6df0ccdf17a8207c39e74d147a20e6e) Thanks [@rachelhox](https://github.com/rachelhox)! - proposal ui update
+
 ## 2.22.0
 
 ### Minor Changes

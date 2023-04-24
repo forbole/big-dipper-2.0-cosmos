@@ -225,7 +225,7 @@ exports[`screen: Accounts/Desktop matches snapshot 1`] = `
             }
           }
         >
-          5100000000
+          5,100,000,000
            
           NCHEQ
         </td>
@@ -239,7 +239,8 @@ exports[`screen: Accounts/Desktop matches snapshot 1`] = `
             }
           }
         >
-          51.0000 %
+          51.0000
+           %
         </td>
       </tr>
       <tr
@@ -296,7 +297,7 @@ exports[`screen: Accounts/Desktop matches snapshot 1`] = `
             }
           }
         >
-          4900000000
+          4,900,000,000
            
           NCHEQ
         </td>
@@ -310,7 +311,8 @@ exports[`screen: Accounts/Desktop matches snapshot 1`] = `
             }
           }
         >
-          49.0000 %
+          49.0000
+           %
         </td>
       </tr>
     </tbody>

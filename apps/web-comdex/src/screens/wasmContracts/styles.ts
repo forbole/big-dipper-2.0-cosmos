@@ -51,31 +51,6 @@ const useStyles = makeStyles()((theme) => ({
     textOverflow: 'ellipsis',
     width: '100%',
   },
-  showMoreContainer: {
-    '&&': {
-      padding: theme.spacing(2),
-      maxWidth: 640,
-      overflow: 'auto',
-      border: `1px solid ${theme.palette.getContrastText(theme.palette.background.paper)}`,
-    },
-  },
-  showMoreButtonActive: {
-    transform: 'rotate(180deg)',
-  },
-  showMore: {
-    '&&': {
-      [theme.breakpoints.up('lg')]: {
-        width: theme.spacing(8),
-        marginLeft: `-${theme.spacing(3)} !important`,
-      },
-    },
-    '&& .MuiSvgIcon-root': {
-      [theme.breakpoints.down('lg')]: {
-        fontSize: theme.spacing(5),
-        marginRight: `-${theme.spacing(1.5)}`,
-      },
-    },
-  },
   label: {
     margin: theme.spacing(0, 0, 0.5, 0),
     color: theme.palette.custom.fonts.fontThree,

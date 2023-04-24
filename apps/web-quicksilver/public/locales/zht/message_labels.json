@@ -52,6 +52,7 @@
   "txTransferLabel": "IBC 轉賬",
   "MsgGrant": "授予",
   "MsgRevoke": "撤銷",
+  "MsgExec": "執行",
   "MsgGrantAllowance": "津貼",
   "MsgRevokeAllowance": "撤銷津貼",
   "MsgCreateVestingAccount": "創建歸屬賬戶",

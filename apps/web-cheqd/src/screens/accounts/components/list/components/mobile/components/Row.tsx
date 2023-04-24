@@ -5,8 +5,8 @@ import AvatarName from '@/components/avatar_name';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { formatToken } from '@/utils/format_token';
 import { ACCOUNT_DETAILS } from '@/utils/go_to_page';
-import Big from 'big.js';
 import { useTranslation } from 'next-i18next';
+import numeral from 'numeral';
 import { memo } from 'react';
 import useStyles from '@/screens/accounts/components/list/components/mobile/styles';
 import { RowProps } from '@/screens/accounts/components/list/components/mobile/types';
@@ -57,7 +57,7 @@ const Row = memo(({ data, index, itemCount }: RowProps) => {
           {t('top_balance')}
         </Typography>
         <Typography variant="body1" className="value">
-          {Big(token.value).toFixed(0)} {token.displayDenom.toUpperCase()}
+          {numeral(token.value).format('0,0')} {token.displayDenom.toUpperCase()}
         </Typography>
       </div>
       <div className={classes.item}>
@@ -65,7 +65,7 @@ const Row = memo(({ data, index, itemCount }: RowProps) => {
           {t('top_percentage')}
         </Typography>
         <Typography variant="body1" className="value">
-          {`${data.percentage.toFixed(4)} %`}
+          {numeral(data.percentage).format('0,0.0000')} %
         </Typography>
       </div>
       {!isLast && <Divider />}
