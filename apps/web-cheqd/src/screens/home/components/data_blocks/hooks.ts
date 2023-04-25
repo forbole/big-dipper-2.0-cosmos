@@ -1,7 +1,6 @@
 import numeral from 'numeral';
 import * as R from 'ramda';
-import axios from 'axios';
-import { useEffect, useState, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import chainConfig from '@/chainConfig';
 import {
   ActiveValidatorCountQuery,
@@ -11,8 +10,9 @@ import {
   useAverageBlockTimeQuery,
   useLatestBlockHeightListenerSubscription,
   useTokenPriceListenerSubscription,
+  useTopAccountsParamsQuery,
+  TopAccountsParamsQuery,
 } from '@/graphql/types/general_types';
-import { CHEQD_WALLETS } from '@/api';
 
 const { primaryTokenUnit, tokenUnits } = chainConfig();
 
@@ -41,6 +41,13 @@ const formatActiveValidatorsCount = (data: ActiveValidatorCountQuery) => ({
   active: data.activeTotal.aggregate?.count ?? 0,
   total: data.total?.aggregate?.count ?? 0,
 });
+
+const formatTopAccountsParams = (data: TopAccountsParamsQuery) => {
+  const {
+    top_accounts_params: [{ total_accounts }],
+  } = data;
+  return total_accounts;
+};
 
 export const useDataBlocks = () => {
   const [state, setState] = useState<DataBlocksState>({
@@ -119,20 +126,14 @@ export const useDataBlocks = () => {
   // ====================================
   // Cheqd Wallets
   // ====================================
-  useEffect(() => {
-    const getWallets = async () => {
-      try {
-        const { data: walletsData } = await axios.get(CHEQD_WALLETS);
-        const {
-          pagination: { total },
-        } = walletsData;
-        handleSetState((prevState) => ({ ...prevState, cheqdWallets: total }));
-      } catch (err) {
-        console.error((err as Error).message);
-      }
-    };
-    getWallets();
-  }, [handleSetState]);
+  useTopAccountsParamsQuery({
+    onCompleted: (data) => {
+      handleSetState((prevState) => ({
+        ...prevState,
+        cheqdWallets: formatTopAccountsParams(data),
+      }));
+    },
+  });
 
   return {
     state,

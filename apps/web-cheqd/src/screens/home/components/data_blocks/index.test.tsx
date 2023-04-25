@@ -1,5 +1,3 @@
-import axios from 'axios';
-import MockAdapter from 'axios-mock-adapter';
 import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client';
 import { MockedProvider } from '@apollo/client/testing';
 import renderer from 'react-test-renderer';
@@ -8,8 +6,8 @@ import {
   AverageBlockTimeDocument,
   LatestBlockHeightListenerDocument,
   TokenPriceListenerDocument,
+  TopAccountsParamsDocument,
 } from '@/graphql/types/general_types';
-import { CHEQD_WALLETS } from '@/api';
 import DataBlocks from '@/screens/home/components/data_blocks';
 import MockTheme from '@/tests/mocks/MockTheme';
 import wait from '@/tests/utils/wait';
@@ -70,35 +68,22 @@ const mockActiveValidatorsCount = jest.fn().mockReturnValue({
   },
 });
 
+const mockTopAccountsParams = jest.fn().mockReturnValue({
+  data: {
+    top_accounts_params: [
+      {
+        total_accounts: 79106,
+      },
+    ],
+  },
+});
+
 // ==================================
 // unit tests
 // ==================================
 describe('screen: Home/DataBlocks', () => {
   it('matches snapshot', async () => {
     let component: renderer.ReactTestRenderer | undefined;
-    const mock = new MockAdapter(axios);
-
-    mock.onGet(CHEQD_WALLETS).reply(() => [
-      200,
-      {
-        accounts: [
-          {
-            '@type': '/cosmos.auth.v1beta1.BaseAccount',
-            address: 'cheqd1qp929gfcxhmt0pltgncwvsdl9u4arl0pafr8hj',
-            pub_key: {
-              '@type': '/cosmos.crypto.secp256k1.PubKey',
-              key: 'AuB2tVVljLNtdnPglTv/zpVOPCOd4jU/X3imJ55yTe8X',
-            },
-            account_number: '65215',
-            sequence: '1',
-          },
-        ],
-        pagination: {
-          next_key: 'key',
-          total: '79094',
-        },
-      },
-    ]);
 
     renderer.act(() => {
       component = renderer.create(
@@ -114,6 +99,10 @@ describe('screen: Home/DataBlocks', () => {
               {
                 request: { query: ActiveValidatorCountDocument },
                 result: mockActiveValidatorsCount,
+              },
+              {
+                request: { query: TopAccountsParamsDocument },
+                result: mockTopAccountsParams,
               },
             ]}
           >
