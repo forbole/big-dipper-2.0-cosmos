@@ -18,7 +18,7 @@ const VotingPower: FC<VotingPowerProps> = ({ className, data, status }) => {
   const { t } = useTranslation('validators');
   const votingPowerPercent =
     status === 3
-      ? numeral((data.self / (numeral(data.overall.value).value() ?? 0)) * 100 ?? 0)
+      ? numeral((data.self / (numeral(data.overall.value).value() ?? 0)) * 100)
       : numeral(0);
 
   const { classes, cx } = useStyles({

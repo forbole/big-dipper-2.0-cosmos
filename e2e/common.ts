@@ -25,12 +25,13 @@ export async function waitForClick(selector: string, locator: Locator) {
 }
 
 export async function waitForPopupClick(selector: (p: Page) => Locator, page: Page) {
-  await Promise.all([page.waitForEvent('popup'), selector(page).first().click()]).then(([popup]) =>
-    popup.close()
-  );
+  const popupPromise = page.waitForEvent('popup');
+  await selector(page).first().click();
+  await popupPromise;
 }
 
 export async function interceptRoutes(page: Page) {
+  await page.on('popup', (popup) => interceptRoutes(popup));
   await page.route('**/*', (route) => {
     if (RESOURCE_EXCLUSTIONS.includes(route.request().resourceType())) {
       route.abort();

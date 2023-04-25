@@ -1,5 +1,128 @@
 # Unreleased
 
+## 2.15.0
+
+### Minor Changes
+
+- [#1223](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1223) [`9082afdce`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/9082afdce5e76b378c612c5cd4f74161403c4a67) Thanks [@rachelhox](https://github.com/rachelhox)! - fix: missing messages from authz module
+
+### Patch Changes
+
+- Updated dependencies [[`9082afdce`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/9082afdce5e76b378c612c5cd4f74161403c4a67)]:
+  - ui@2.24.0
+
+## 2.14.1
+
+### Patch Changes
+
+- Updated dependencies [[`26b06277b`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/26b06277b6df0ccdf17a8207c39e74d147a20e6e)]:
+  - ui@2.23.0
+
+## 2.14.0
+
+### Minor Changes
+
+- [#1191](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1191) [`9049e712c`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/9049e712c6dacedc5a4733830b2517f7fc6d4862) Thanks [@rachelhox](https://github.com/rachelhox)! - feat: footer add documentation link
+
+### Patch Changes
+
+- Updated dependencies [[`9049e712c`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/9049e712c6dacedc5a4733830b2517f7fc6d4862), [`b756f45fd`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/b756f45fde55cb582aa312f4fc9c5c49ce21173c), [`bf192489d`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/bf192489dfc10cf9f6679f08e6a1b96d390e2e00)]:
+  - ui@2.22.0
+  - shared-utils@2.13.0
+
+## 2.13.1
+
+### Patch Changes
+
+- [#1196](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1196) [`c4d1d83e3`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/c4d1d83e30922bdb86ffc20d8cde36adad34bd0c) Thanks [@teamchong](https://github.com/teamchong)! - chore: versions bump
+
+- Updated dependencies [[`c4d1d83e3`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/c4d1d83e30922bdb86ffc20d8cde36adad34bd0c), [`e1502b5d1`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/e1502b5d1ecb50b8da94fc157ac1866ee40df9a8)]:
+  - shared-utils@2.12.1
+  - ui@2.21.0
+
+## 2.13.0
+
+### Minor Changes
+
+- [#1183](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1183) [`33750408b`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/33750408bfa3bc3195124b78be72c0d54b414bd7) Thanks [@rachelhox](https://github.com/rachelhox)! - feat: theme toggle button and 12-hour/24-hour toggle button
+
+### Patch Changes
+
+- Updated dependencies [[`33750408b`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/33750408bfa3bc3195124b78be72c0d54b414bd7)]:
+  - shared-utils@2.12.0
+  - ui@2.20.0
+
+## 2.12.0
+
+### Minor Changes
+
+- [#1166](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1166) [`f4e9417a0`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/f4e9417a06c3a5667fe541eee2bf2b820566496d) Thanks [@rachelhox](https://github.com/rachelhox)! - add en zht zhs it pl locales
+
+### Patch Changes
+
+- Updated dependencies [[`f4e9417a0`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/f4e9417a06c3a5667fe541eee2bf2b820566496d), [`f4e9417a0`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/f4e9417a06c3a5667fe541eee2bf2b820566496d)]:
+  - ui@2.19.0
+
+## 2.11.1
+
+### Patch Changes
+
+- Updated dependencies [[`8fbfb95d5`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/8fbfb95d5d64ba23bff774aa95ea885839475603)]:
+  - ui@2.18.0
+
+## 2.11.0
+
+### Minor Changes
+
+- [#1179](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1179) [`717cb798b`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/717cb798b200f5a3afde49695548266fa6bdfb3d) Thanks [@rachelhox](https://github.com/rachelhox)! - quicksilver rpc endpoint update for consensus module
+
+### Patch Changes
+
+- Updated dependencies [[`717cb798b`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/717cb798b200f5a3afde49695548266fa6bdfb3d)]:
+  - shared-utils@2.11.0
+  - ui@2.17.1
+
+## 2.10.3
+
+### Patch Changes
+
+- Updated dependencies [[`98505b6e1`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/98505b6e1ca3001a6b078d30266ed33456c808df)]:
+  - ui@2.17.0
+
+## 2.10.2
+
+### Patch Changes
+
+- Updated dependencies [35f47327d]
+  - shared-utils@2.10.0
+  - ui@2.16.0
+
+## 2.10.1
+
+### Patch Changes
+
+- Updated dependencies [29f3ac40]
+  - ui@2.15.1
+
+## 2.10.0
+
+### Minor Changes
+
+- 9f2e26b1: add quicksilver mainnet
+
+### Patch Changes
+
+- Updated dependencies [9f2e26b1]
+  - shared-utils@2.9.0
+  - ui@2.15.0
+
+## 2.9.4
+
+### Patch Changes
+
+- Updated dependencies [e0f32672]
+  - ui@2.14.3
+
 ## 2.9.3
 
 ### Patch Changes

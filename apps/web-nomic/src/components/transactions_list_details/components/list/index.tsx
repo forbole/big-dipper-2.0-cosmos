@@ -3,7 +3,7 @@ import SingleTransaction from '@/components/transactions_list_details/components
 import useStyles from '@/components/transactions_list_details/components/list/styles';
 import type { TransactionsListDetailsState } from '@/components/transactions_list_details/types';
 import { useList, useListRow } from '@/hooks/use_react_window';
-import { readDate } from '@/recoil/settings';
+import { readDate, readTimeFormat } from '@/recoil/settings';
 import { TransactionType } from '@/screens/home/components/transactions/types';
 import { useDisplayStyles } from '@/styles/useSharedStyles';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
@@ -28,6 +28,7 @@ const ListItem: FC<ListItemProps> = ({ index, style, setRowHeight, transaction, 
   const { rowRef } = useListRow(index, setRowHeight);
   const display = useDisplayStyles().classes;
   const dateFormat = useRecoilValue(readDate);
+  const timeFormat = useRecoilValue(readTimeFormat);
 
   if (!isItemLoaded?.(index)) {
     return (
@@ -55,7 +56,7 @@ const ListItem: FC<ListItemProps> = ({ index, style, setRowHeight, transaction, 
         </span>
       </Link>
     ),
-    time: formatDayJs(dayjs.utc(transaction.timestamp), dateFormat),
+    time: formatDayJs(dayjs.utc(transaction.timestamp), dateFormat, timeFormat),
   };
   return (
     <div style={style}>
@@ -94,12 +95,12 @@ const TransactionList: FC<TransactionsListDetailsState> = ({
             {({ onItemsRendered, ref }) => (
               <List
                 className="List"
-                height={height}
+                height={height ?? 0}
                 itemCount={itemCount}
                 itemSize={getRowHeight}
                 onItemsRendered={onItemsRendered}
                 ref={mergeRefs(listRef, ref)}
-                width={width}
+                width={width ?? 0}
               >
                 {({ index, style }) => (
                   <ListItem

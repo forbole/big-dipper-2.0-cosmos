@@ -1,7 +1,11 @@
-import renderer from 'react-test-renderer';
 import Navbar from '@/components/nav/components/mobile/components/navbar';
+import { mockChainId, mockQuery } from '@/hooks/useBigDipperNetworks/mocks';
+import { mockClient } from '@/tests/mocks/mockApollo';
 import MockTheme from '@/tests/mocks/MockTheme';
 import wait from '@/tests/utils/wait';
+import { ApolloProvider } from '@apollo/client';
+import { MockedProvider } from '@apollo/client/testing';
+import renderer from 'react-test-renderer';
 
 // ==================================
 // mocks
@@ -23,15 +27,20 @@ let component: renderer.ReactTestRenderer;
 // ==================================
 const openNetwork = jest.fn();
 const toggleNavMenus = jest.fn();
+
 // ==================================
 // unit tests
 // ==================================
 describe('screen: Nav/mobile/navbar', () => {
   beforeEach(async () => {
     component = renderer.create(
-      <MockTheme>
-        <Navbar isOpen={false} openNetwork={openNetwork} toggleNavMenus={toggleNavMenus} />
-      </MockTheme>
+      <ApolloProvider client={mockClient}>
+        <MockedProvider mocks={[mockQuery, mockChainId]}>
+          <MockTheme>
+            <Navbar isOpen={false} openNetwork={openNetwork} toggleNavMenus={toggleNavMenus} />
+          </MockTheme>
+        </MockedProvider>
+      </ApolloProvider>
     );
     await wait(renderer.act);
   });

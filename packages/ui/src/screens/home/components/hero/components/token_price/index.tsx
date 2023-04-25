@@ -1,12 +1,11 @@
 import CustomToolTip from '@/components/custom_tool_tip';
-import { readDate } from '@/recoil/settings';
+import { readDate, readTimeFormat } from '@/recoil/settings';
 import { usePrice } from '@/screens/home/components/hero/components/token_price/hooks';
 import useStyles from '@/screens/home/components/hero/components/token_price/styles';
 import type { TokenPriceType } from '@/screens/home/components/hero/types';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
 import Typography from '@mui/material/Typography';
 import { useTranslation } from 'next-i18next';
-import dynamic from 'next/dynamic';
 import numeral from 'numeral';
 import * as R from 'ramda';
 import { FC, useMemo } from 'react';
@@ -21,31 +20,28 @@ import {
 } from 'recharts';
 import { useRecoilValue } from 'recoil';
 
-const DynamicResponsiveContainer = dynamic(() => Promise.resolve(ResponsiveContainer), {
-  ssr: false,
-});
-
 const TokenPrice: FC<{ items: TokenPriceType[] }> = (props) => {
   const { classes, theme } = useStyles();
   const { t } = useTranslation('home');
   const { tickPriceFormatter, formatTime } = usePrice();
   const dateFormat = useRecoilValue(readDate);
+  const timeFormat = useRecoilValue(readTimeFormat);
 
   const formatItems = useMemo(
     () =>
       props.items.map((x) => ({
         time: formatTime(dayjs.utc(x.time), dateFormat),
-        fullTime: formatDayJs(dayjs.utc(x.time), dateFormat),
+        fullTime: formatDayJs(dayjs.utc(x.time), dateFormat, timeFormat),
         value: x.value,
       })),
-    [props.items, formatTime, dateFormat]
+    [props.items, formatTime, dateFormat, timeFormat]
   );
 
   return (
     <div>
       <Typography variant="h2">{t('priceHistory')}</Typography>
       <div className={classes.chart}>
-        <DynamicResponsiveContainer width="99%">
+        <ResponsiveContainer width="99%">
           <AreaChart
             data={formatItems}
             margin={{
@@ -99,7 +95,7 @@ const TokenPrice: FC<{ items: TokenPriceType[] }> = (props) => {
               fill={theme.palette.custom.primaryData.one}
             />
           </AreaChart>
-        </DynamicResponsiveContainer>
+        </ResponsiveContainer>
       </div>
     </div>
   );

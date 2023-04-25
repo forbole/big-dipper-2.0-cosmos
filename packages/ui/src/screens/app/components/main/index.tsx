@@ -1,13 +1,4 @@
-import { CacheProvider, EmotionCache } from '@emotion/react';
-import CssBaseline from '@mui/material/CssBaseline';
-import { ThemeProvider } from '@mui/material/styles';
-import { Hind_Madurai } from '@next/font/google';
-import { AppProps } from 'next/app';
-import Head from 'next/head';
-import { useEffect } from 'react';
-import { ToastContainer } from 'react-toastify';
-import { useChainIdQuery } from '@/graphql/types/general_types';
-import { useBigDipperNetworksRecoil } from '@/recoil/big_dipper_networks';
+import useBigDipperNetworks from '@/hooks/useBigDipperNetworks';
 import { useMarketRecoil } from '@/recoil/market';
 import { useSettingsRecoil } from '@/recoil/settings';
 import { useValidatorRecoil } from '@/recoil/validators/hooks';
@@ -18,12 +9,21 @@ import { useGenesis, useTheme } from '@/screens/app/components/main/hooks';
 import Countdown from '@/screens/countdown';
 import InitialLoad from '@/screens/initial_load';
 import createEmotionCache from '@/styles/createEmotionCache';
+import { CacheProvider, EmotionCache } from '@emotion/react';
+import CssBaseline from '@mui/material/CssBaseline';
+import { ThemeProvider } from '@mui/material/styles';
+import { AppProps } from 'next/app';
+import { Hind_Madurai } from 'next/font/google';
+import Head from 'next/head';
+import { useEffect } from 'react';
+import { ToastContainer } from 'react-toastify';
 
 const hindMadurai = Hind_Madurai({
   weight: '400',
   style: 'normal',
   display: 'swap',
   preload: true,
+  subsets: ['latin', 'latin-ext', 'tamil'],
 });
 
 // Client-side cache, shared for the whole session of the user in the browser.
@@ -40,7 +40,7 @@ const Main = (props: MainProps) => {
   // init recoil values
   // =====================================
   useSettingsRecoil();
-  useBigDipperNetworksRecoil(useChainIdQuery);
+  useBigDipperNetworks();
   useMarketRecoil();
   useUserRecoil();
   useWalletRecoil();

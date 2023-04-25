@@ -1,9 +1,12 @@
+import CustomToolTip from '@/components/custom_tool_tip';
+import MockTheme from '@/tests/mocks/MockTheme';
+import dynamic from 'next/dynamic';
 import numeral from 'numeral';
 import { ReactNode } from 'react';
 import renderer from 'react-test-renderer';
 import { Cell, Pie, PieChart, Tooltip } from 'recharts';
-import MockTheme from '@/tests/mocks/MockTheme';
-import CustomToolTip from '@/components/custom_tool_tip';
+
+const DynamicPieChart = dynamic(() => Promise.resolve(PieChart), { ssr: false });
 
 // to fix error, this.wrapperNode is null node_modules/recharts/src/component/Tooltip.tsx:143
 jest.mock('recharts', () => ({
@@ -44,7 +47,7 @@ describe('component: CustomToolTip', () => {
 
     const component = renderer.create(
       <MockTheme>
-        <PieChart width={200} height={100} cy={100}>
+        <DynamicPieChart width={200} height={100} cy={100}>
           <Pie
             stroke="none"
             cy={90}
@@ -72,7 +75,7 @@ describe('component: CustomToolTip', () => {
               }
             />
           </Pie>
-        </PieChart>
+        </DynamicPieChart>
       </MockTheme>
     );
     const tree = component?.toJSON();

@@ -204,15 +204,15 @@
     ]
   },
   {
-    "name": "Elrond",
-    "chainName": "elrond",
-    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/elrond.png?sanitize=true",
-    "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/elrond.png?sanitize=true",
+    "name": "MultiversX",
+    "chainName": "multiversx",
+    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/multiversx.png?sanitize=true",
+    "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/multiversx.png?sanitize=true",
     "links": [
       {
         "name": "Mainnet",
         "chain_id": "mainnet",
-        "url": "https://bigdipper.live/elrond"
+        "url": "https://bigdipper.live/multiversx"
       }
     ]
   },
@@ -236,14 +236,14 @@
   },
   {
     "name": "Cheqd",
-    "chainName": "",
+    "chainName": "cheqd",
     "logo": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/logos/cheqd.png?sanitize=true",
     "cover": "https://raw.githubusercontent.com/forbole/big-dipper-networks/main/covers/cheqd.png?sanitize=true",
     "links": [
       {
         "name": "Mainnet",
         "chain_id": "cheqd-mainnet-1",
-        "url": "https://explorer.cheqd.io"
+        "url": "https://bigdipper.live/cheqd"
       },
       {
         "name": "Testnet",
@@ -353,6 +353,11 @@
         "name": "Mainnet",
         "chain_id": "core-1",
         "url": "https://bigdipper.live/persistence"
+      },
+      {
+        "name": "Testnet",
+        "chain_id": "test-core-1",
+        "url": "https://testnet.bigdipper.live/persistence"
       }
     ]
   },
@@ -389,6 +394,11 @@
     "cover": "",
     "links": [
       {
+        "name": "Mainnet",
+        "chain_id": "quicksilver-2",
+        "url": "https://bigdipper.live/quicksilver"
+      },
+      {
         "name": "Testnet",
         "chain_id": "innuendo-3",
         "url": "https://testnet.bigdipper.live/quicksilver"
@@ -420,9 +430,27 @@
     "cover": "",
     "links": [
       {
-        "name": "Testnet",
+        "name": "Mainnet",
         "chain_id": "quasar",
+        "url": "https://bigdipper.live/quasar"
+      },
+      {
+        "name": "Testnet",
+        "chain_id": "qsr-questnet-04",
         "url": "https://testnet.bigdipper.live/quasar"
+      }
+    ]
+  },
+  {
+    "name": "Humans.ai",
+    "chainName": "",
+    "logo": "https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/humanstestnet/images/humans.png",
+    "cover": "",
+    "links": [
+      {
+        "name": "Testnet",
+        "chain_id": "testnet-1",
+        "url": "https://testnet.bigdipper.live/humansai"
       }
     ]
   }

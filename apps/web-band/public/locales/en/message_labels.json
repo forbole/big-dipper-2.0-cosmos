@@ -58,8 +58,11 @@
   "txActivate": "Activate",
   "MsgGrant": "Grant",
   "MsgRevoke": "Revoke",
+  "MsgExec": "Exec",
   "MsgGrantAllowance": "Grant Allowance",
   "MsgRevokeAllowance": "Revoke Allowance",
   "MsgCreateVestingAccount": "Create Vesting Account",
-  "MsgCreatePeriodicVestingAccount": "Create Periodic Vesting Account"
+  "MsgCreatePeriodicVestingAccount": "Create Periodic Vesting Account",
+  "txAddReporter": "Add Reporter",
+  "txRemoveReporter": "Remove Reporter"
 }

@@ -4,7 +4,7 @@ import * as jdenticon from 'jdenticon';
 import { useTranslation } from 'next-i18next';
 import { useEffect, useRef } from 'react';
 
-const { marketing } = chainConfig();
+const { chainType, marketing } = chainConfig();
 const matomoUrls = [process.env.NEXT_PUBLIC_MATOMO_URL, marketing.matomoURL];
 const matomoSiteIds = [process.env.NEXT_PUBLIC_MATOMO_SITE_ID, marketing.matomoSiteID];
 
@@ -21,7 +21,7 @@ export const useApp = () => {
 
     const url = matomoUrls.find((u) => u);
     const siteId = matomoSiteIds.find((i) => i);
-    if (url && siteId) init({ url, siteId });
+    if (url && siteId && /^mainnet$/i.test(chainType)) init({ url, siteId });
     // jdenticon theme
     jdenticon.configure({
       hues: [207],

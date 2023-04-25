@@ -125,7 +125,9 @@ const formatStatus = (data: ValidatorDetailsQuery) => {
 // votingPower
 // ============================
 const formatVotingPower = (data: ValidatorDetailsQuery) => {
-  const selfVotingPower = data.validator[0]?.validatorVotingPowers?.[0]?.votingPower ?? 0;
+  const selfVotingPower =
+    (data.validator[0]?.validatorVotingPowers?.[0]?.votingPower ?? 0) /
+    10 ** (extra.votingPowerExponent ?? 0);
 
   const votingPower = {
     self: selfVotingPower,

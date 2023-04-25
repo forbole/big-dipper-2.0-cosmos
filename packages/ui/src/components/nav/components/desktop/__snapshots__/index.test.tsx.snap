@@ -92,9 +92,10 @@ exports[`screen: Nav/Desktop hook toggles correctly 1`] = `
   white-space: nowrap;
   padding-left: 16px;
   box-sizing: border-box;
-  width: 230px;
   -webkit-transition: width 225ms cubic-bezier(0.4, 0, 1, 1) 0ms;
   transition: width 225ms cubic-bezier(0.4, 0, 1, 1) 0ms;
+  overflow-x: hidden;
+  width: 59px;
 }
 
 .emotion-3 {
@@ -122,9 +123,10 @@ exports[`screen: Nav/Desktop hook toggles correctly 1`] = `
   outline: 0;
   left: 0;
   border-right: 1px solid #E8E8E8;
-  width: 230px;
   -webkit-transition: width 225ms cubic-bezier(0.4, 0, 1, 1) 0ms;
   transition: width 225ms cubic-bezier(0.4, 0, 1, 1) 0ms;
+  overflow-x: hidden;
+  width: 59px;
 }
 
 .emotion-3 {
@@ -146,7 +148,7 @@ exports[`screen: Nav/Desktop hook toggles correctly 1`] = `
   onTouchEnd={[Function]}
 >
   <header
-    className="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionFixed open mui-fixed emotion-1"
+    className="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionFixed mui-fixed emotion-1"
   >
     <div
       id="actionBar"
@@ -159,10 +161,10 @@ exports[`screen: Nav/Desktop hook toggles correctly 1`] = `
     />
   </header>
   <div
-    className="MuiDrawer-root MuiDrawer-docked open emotion-2"
+    className="MuiDrawer-root MuiDrawer-docked closed emotion-2"
   >
     <div
-      className="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiDrawer-paper open MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft emotion-3"
+      className="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiDrawer-paper closed MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft emotion-3"
     >
       <svg
         aria-label="toggle menu"
@@ -270,10 +272,9 @@ exports[`screen: Nav/Desktop it renders 1`] = `
   white-space: nowrap;
   padding-left: 16px;
   box-sizing: border-box;
+  width: 230px;
   -webkit-transition: width 225ms cubic-bezier(0.4, 0, 1, 1) 0ms;
   transition: width 225ms cubic-bezier(0.4, 0, 1, 1) 0ms;
-  overflow-x: hidden;
-  width: 59px;
 }
 
 .emotion-3 {
@@ -301,10 +302,9 @@ exports[`screen: Nav/Desktop it renders 1`] = `
   outline: 0;
   left: 0;
   border-right: 1px solid #E8E8E8;
+  width: 230px;
   -webkit-transition: width 225ms cubic-bezier(0.4, 0, 1, 1) 0ms;
   transition: width 225ms cubic-bezier(0.4, 0, 1, 1) 0ms;
-  overflow-x: hidden;
-  width: 59px;
 }
 
 .emotion-3 {
@@ -326,7 +326,7 @@ exports[`screen: Nav/Desktop it renders 1`] = `
   onTouchEnd={[Function]}
 >
   <header
-    className="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionFixed mui-fixed emotion-1"
+    className="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionFixed open mui-fixed emotion-1"
   >
     <div
       id="actionBar"
@@ -339,10 +339,10 @@ exports[`screen: Nav/Desktop it renders 1`] = `
     />
   </header>
   <div
-    className="MuiDrawer-root MuiDrawer-docked closed emotion-2"
+    className="MuiDrawer-root MuiDrawer-docked open emotion-2"
   >
     <div
-      className="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiDrawer-paper closed MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft emotion-3"
+      className="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiDrawer-paper open MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft emotion-3"
     >
       <svg
         aria-label="toggle menu"

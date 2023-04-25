@@ -1,6 +1,9 @@
 {
   "en": "English",
-  "zht": "中文",
+  "zht": "繁體中文",
+  "zhs": "简体中文",
+  "it": "Italiano",
+  "pl": "Polski",
   "bigDipper": "Big Dipper",
   "forbole": "Forbole",
   "copyright": "<0>License</0> © Forbole",
@@ -24,6 +27,7 @@
   "searchBarPlaceholder": "Search for validator / tx hash / block height / address",
   "searchBarPlaceholderDtag": "Search for validator / tx hash / block height / address / @dtag",
   "marketCap": "Market Cap",
+  "communityPool": "Community Pool",
   "price": "Price",
   "inflation": "Inflation",
   "apr": "APR",
@@ -32,8 +36,8 @@
   "filterBy": "Filter By...",
   "copied": "Copied",
   "paginationLabelOne": "showing {{from}}-{{to}} of {{num}}",
-  "dark": "Dark",
-  "light": "Light",
+  "dark": "Dark Mode",
+  "light": "Light Mode",
   "deuteranopia": "Deuteranopia",
   "tritanopia": "Tritanopia",
   "achromatopsia": "Achromatopsia",
@@ -62,6 +66,9 @@
   "profilesNotEnabled": "Profiles not enabled for this explorer",
   "insertValidDtag": "Please insert a valid dtag",
   "invalidAddress": "Invalid Address",
+  "24-hour": "24-Hour Time",
+  "12-hour": "12-Hour Time",
+  "documentation": "Documentation",
   "welcomeToBigDipper": "Welcome to Big Dipper",
   "logIn": "Log in",
   "signOut": "Sign out",
@@ -77,5 +84,5 @@
   "waitingForAuthorize": "Waiting for authorize...",
   "loginSuccess": "Login Success",
   "loginSuccessMsg": "System will automatically redirect to previous page in 3s..",
-  "scanWalletConnectQR": "Scan the QR with a WalletConnect compatible Wallet." 
+  "scanWalletConnectQR": "Scan the QR with a WalletConnect compatible Wallet."
 }

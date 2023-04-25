@@ -1,7 +1,11 @@
-import renderer from 'react-test-renderer';
 import Mobile from '@/components/nav/components/mobile';
+import { mockChainId, mockQuery } from '@/hooks/useBigDipperNetworks/mocks';
+import { mockClient } from '@/tests/mocks/mockApollo';
 import MockTheme from '@/tests/mocks/MockTheme';
 import wait from '@/tests/utils/wait';
+import { ApolloProvider } from '@apollo/client';
+import { MockedProvider } from '@apollo/client/testing';
+import renderer from 'react-test-renderer';
 // ==================================
 // global setup
 // ==================================
@@ -28,9 +32,13 @@ jest.mock('@/components/nav/components/search_bar', () => (props: JSX.IntrinsicE
 describe('screen: Nav/Mobile', () => {
   beforeEach(async () => {
     component = renderer.create(
-      <MockTheme>
-        <Mobile title="hello world" />
-      </MockTheme>
+      <ApolloProvider client={mockClient}>
+        <MockedProvider mocks={[mockQuery, mockChainId]}>
+          <MockTheme>
+            <Mobile title="hello world" />
+          </MockTheme>
+        </MockedProvider>
+      </ApolloProvider>
     );
     await wait(renderer.act);
   });

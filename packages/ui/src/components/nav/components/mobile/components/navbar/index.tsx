@@ -1,19 +1,19 @@
+import useStyles from '@/components/nav/components/mobile/components/navbar/styles';
+import type { NavbarProps } from '@/components/nav/components/mobile/components/navbar/types';
+import useBigDipperNetworks from '@/hooks/useBigDipperNetworks';
+import { readTheme } from '@/recoil/settings';
+import { HOME } from '@/utils/go_to_page';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Link from 'next/link';
 import { useRecoilValue } from 'recoil';
 import BigDipperLogoRed from 'shared-utils/assets/big-dipper-red.svg';
 import BigDipperLogoWhite from 'shared-utils/assets/big-dipper-white.svg';
-import useStyles from '@/components/nav/components/mobile/components/navbar/styles';
-import type { NavbarProps } from '@/components/nav/components/mobile/components/navbar/types';
-import { readSelectedNetwork } from '@/recoil/big_dipper_networks';
-import { readTheme } from '@/recoil/settings';
-import { HOME } from '@/utils/go_to_page';
 import WalletDetails from '@/components/nav/components/wallet_details';
 
 const Navbar = (props: NavbarProps) => {
   const { classes, cx } = useStyles();
   const theme = useRecoilValue(readTheme);
-  const selected = useRecoilValue(readSelectedNetwork);
+  const { selectedName } = useBigDipperNetworks();
   const { isOpen, openNetwork, toggleNavMenus } = props;
 
   return (
@@ -34,9 +34,9 @@ const Navbar = (props: NavbarProps) => {
           onClick={openNetwork}
           role="button"
           tabIndex={0}
-          aria-label={selected}
+          aria-label={selectedName}
         >
-          <p className="text">{selected}</p>
+          <p className="text">{selectedName}</p>
           <ExpandMoreIcon fontSize="small" />
         </div>
         {/* =================================== */}

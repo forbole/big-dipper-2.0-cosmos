@@ -31,6 +31,9 @@ const useStyles = makeStyles()((theme) => ({
       background: theme.palette.background.default,
     },
   },
+  toggle: {
+    marginRight: theme.spacing(2),
+  },
   networkList: {
     width: '100%',
     zIndex: 1201,

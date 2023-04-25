@@ -5,8 +5,17 @@ import { formatNumber, formatToken } from '@/utils/format_token';
 import { PROPOSAL_DETAILS } from '@/utils/go_to_page';
 import Typography from '@mui/material/Typography';
 import { Trans, useTranslation } from 'next-i18next';
-import Link from 'next/link';
-import { FC, useMemo } from 'react';
+import Link, { LinkProps } from 'next/link';
+import { FC, PropsWithChildren } from 'react';
+
+const LinkText: FC<PropsWithChildren<{ href: LinkProps['href'] }>> = (props) => {
+  const { href, children } = props;
+  return (
+    <Link shallow href={href || ''}>
+      {children}
+    </Link>
+  );
+};
 
 const DepositProposal: FC<{ message: MsgDeposit }> = (props) => {
   const { t } = useTranslation('transactions');
@@ -24,21 +33,18 @@ const DepositProposal: FC<{ message: MsgDeposit }> = (props) => {
   const depositor = useProfileRecoil(message.depositor);
   const depositorMoniker = depositor ? depositor?.name : message.depositor;
 
-  const Proposal = useMemo(
-    () => (
-      <Link shallow href={PROPOSAL_DETAILS(message.proposalId)}>
-        #{message.proposalId}
-      </Link>
-    ),
-    [message.proposalId]
-  );
   return (
     <Typography>
       <Trans
         i18nKey="message_contents:txDepositContent"
-        components={[<Name address={message.depositor} name={depositorMoniker} />, <b />, Proposal]}
+        components={[
+          <Name address={message.depositor} name={depositorMoniker} />,
+          <b />,
+          <LinkText href={PROPOSAL_DETAILS(message.proposalId)}>#{message.proposalId}</LinkText>,
+        ]}
         values={{
           amount: parsedAmount,
+          proposal: message.proposalId,
         }}
       />
     </Typography>

@@ -12,6 +12,8 @@ const useStyles = makeStyles()((theme) => ({
         padding: theme.spacing(1),
         maxWidth: '100%',
         objectFit: 'contain',
+        zIndex: 1,
+        background: theme.palette.background.paper,
       },
     },
   },

@@ -183,6 +183,36 @@
   },
   "chains": [
     {
+      "network": "quicksilver-2",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "2023-01-03T09:00:00.000Z",
+        "height": 0
+      },
+      "prefix": {
+        "consensus": "quickvalcons",
+        "validator": "quickvaloper",
+        "account": "quick"
+      },
+      "primaryTokenUnit": "uqck",
+      "votingPowerTokenUnit": "uqck",
+      "tokenUnits": {
+        "uqck": {
+          "display": "qck",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.quicksilver.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.quicksilver.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc.quicksilver.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
+      }
+    },
+    {
       "network": "innuendo-3",
       "chainType": "Testnet",
       "genesis": {

@@ -6,7 +6,7 @@ import { useRecoilValue } from 'recoil';
 import AvatarName from '@/components/avatar_name';
 import BoxDetails from '@/components/box_details';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
-import { readDate } from '@/recoil/settings';
+import { readDate, readTimeFormat } from '@/recoil/settings';
 import type { OverviewType } from '@/screens/block_details/types';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
 
@@ -14,6 +14,7 @@ const Overview: FC<OverviewType & ComponentDefault> = (props, { className }) => 
   const { address, imageUrl, name } = useProfileRecoil(props.proposer);
   const { t } = useTranslation('blocks');
   const dateFormat = useRecoilValue(readDate);
+  const timeFormat = useRecoilValue(readTimeFormat);
 
   return (
     <BoxDetails
@@ -42,7 +43,7 @@ const Overview: FC<OverviewType & ComponentDefault> = (props, { className }) => 
         {
           key: 'time',
           label: t('time'),
-          detail: formatDayJs(dayjs.utc(props.timestamp), dateFormat),
+          detail: formatDayJs(dayjs.utc(props.timestamp), dateFormat, timeFormat),
         },
         {
           key: 'txs',

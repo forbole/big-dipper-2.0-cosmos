@@ -14,7 +14,7 @@ import { useId } from 'react';
  * It takes a MarkerAccountQuery object and returns an array of MarkerAccount objects
  * @param {MarkerAccountQuery | undefined} data - MarkerAccountQuery | undefined
  */
-const formatter = (data: MarkerAccountQuery | undefined): AssetType[] =>
+const mapDataToModel = (data: MarkerAccountQuery | undefined): AssetType[] =>
   data?.marker_account?.map((x) => {
     let accessControls: AccessControl[] = [];
     try {
@@ -29,7 +29,8 @@ const formatter = (data: MarkerAccountQuery | undefined): AssetType[] =>
       ),
       price: <Price denom={x.token_unit?.denom ?? ''} />,
       markerType: <MarketType markerType={x.marker_type} />,
-      supply: <Supply supply={x.supply} />,
+      // supply: <Supply supply={x.supply} />,
+      supply: <Supply supply="" />,
       showMore: (
         <ShowMore
           accessControls={accessControls}
@@ -60,7 +61,7 @@ export const useAssetsByOffset = (
   const result = useInfiniteQuery<MarkerAccountQuery, AssetQueryVariable, AssetType>({
     cursor,
     document: MarkerAccountDocument,
-    formatter,
+    dataMapper: mapDataToModel,
     variables,
     offset,
   });

@@ -13,9 +13,9 @@ import Typography from '@mui/material/Typography';
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import ThemeToggle from '@/components/nav/components/theme_toggle';
 import Language from 'shared-utils/assets/icon-language.svg';
 import ConnectWallet from '@/components/nav/components/connect_wallet';
-import ThemeIcon from 'shared-utils/assets/icon-theme.svg';
 
 const Menu = (props: MenuProps) => {
   const router = useRouter();
@@ -102,18 +102,7 @@ const Menu = (props: MenuProps) => {
             </Typography>
             <ExpandMoreOutlinedIcon fontSize="small" />
           </div>
-          <div
-            className={classes.theme}
-            role="button"
-            onClick={themeOptions.toggleDrawer}
-            tabIndex={0}
-            aria-label={t(themeOptions.theme) ?? undefined}
-          >
-            <span role="button">
-              <ThemeIcon />
-            </span>
-            <Typography variant="caption">{t(themeOptions.theme)}</Typography>
-          </div>
+          <ThemeToggle />
           <ConnectWallet />
         </div>
       </div>

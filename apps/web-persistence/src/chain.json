@@ -157,6 +157,36 @@
         "matomoURL": "https://analytics.bigdipper.live",
         "matomoSiteID": "8"
       }
+    },
+    {
+      "network": "test-core-1",
+      "chainType": "Testnet",
+      "genesis": {
+        "time": "2021-03-15T12:03:19",
+        "height": 1
+      },
+      "prefix": {
+        "consensus": "persistencevalcons",
+        "validator": "persistencevaloper",
+        "account": "persistence"
+      },
+      "primaryTokenUnit": "uxprt",
+      "votingPowerTokenUnit": "uxprt",
+      "tokenUnits": {
+        "uxprt": {
+          "display": "xprt",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql-testnet.persistence.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql-testnet.persistence.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc-testnet.persistence.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
+      }
     }
   ]
 }

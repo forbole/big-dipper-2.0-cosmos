@@ -14,7 +14,7 @@ import SingleTransaction from '@/components/transactions_list_details/components
 import useStyles from '@/components/transactions_list_details/components/list/styles';
 import type { TransactionsListDetailsState } from '@/components/transactions_list_details/types';
 import { useList, useListRow } from '@/hooks/use_react_window';
-import { readDate } from '@/recoil/settings';
+import { readDate, readTimeFormat } from '@/recoil/settings';
 import { useDisplayStyles } from '@/styles/useSharedStyles';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
@@ -32,6 +32,7 @@ const ListItem: FC<ListItemProps> = ({ index, style, setRowHeight, isItemLoaded,
   const display = useDisplayStyles().classes;
   const { t } = useTranslation('transactions');
   const dateFormat = useRecoilValue(readDate);
+  const timeFormat = useRecoilValue(readTimeFormat);
   if (!isItemLoaded?.(index)) {
     return (
       <div style={style}>
@@ -67,7 +68,7 @@ const ListItem: FC<ListItemProps> = ({ index, style, setRowHeight, isItemLoaded,
       </div>
     ),
     result: <Result success={transaction.success} />,
-    time: formatDayJs(dayjs.utc(transaction.timestamp), dateFormat),
+    time: formatDayJs(dayjs.utc(transaction.timestamp), dateFormat, timeFormat),
     messageCount: numeral(transaction.messages.count).format('0,0'),
     messages: transaction.messages.items.map((message) => getMessageByType(message, false, t)),
   };
@@ -108,12 +109,12 @@ const TransactionList: FC<TransactionsListDetailsState> = ({
             {({ onItemsRendered, ref }) => (
               <List
                 className="List"
-                height={height}
+                height={height ?? 0}
                 itemCount={itemCount}
                 itemSize={getRowHeight}
                 onItemsRendered={onItemsRendered}
                 ref={mergeRefs(listRef, ref)}
-                width={width}
+                width={width ?? 0}
               >
                 {({ index, style }) => (
                   <ListItem

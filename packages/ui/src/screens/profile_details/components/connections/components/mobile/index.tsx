@@ -7,7 +7,7 @@ import { useRecoilValue } from 'recoil';
 import { ACCOUNT_DETAILS } from '@/utils/go_to_page';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
 import useStyles from '@/screens/profile_details/components/connections/components/mobile/styles';
-import { readDate } from '@/recoil/settings';
+import { readDate, readTimeFormat } from '@/recoil/settings';
 import chainConfig from '@/chainConfig';
 
 const { prefix } = chainConfig();
@@ -19,6 +19,7 @@ type MobileProps = {
 
 const Mobile: FC<MobileProps> = ({ className, items }) => {
   const dateFormat = useRecoilValue(readDate);
+  const timeFormat = useRecoilValue(readTimeFormat);
   const { classes } = useStyles();
   const { t } = useTranslation('accounts');
   const itemCount = items?.length;
@@ -62,7 +63,7 @@ const Mobile: FC<MobileProps> = ({ className, items }) => {
                   {t('creationTime')}
                 </Typography>
                 <Typography variant="body1" className="value">
-                  {formatDayJs(dayjs.utc(x.creationTime), dateFormat)}
+                  {formatDayJs(dayjs.utc(x.creationTime), dateFormat, timeFormat)}
                 </Typography>
               </div>
             </div>

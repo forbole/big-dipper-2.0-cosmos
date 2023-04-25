@@ -14,6 +14,8 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - run: corepack enable
 
       - name: Setup Node.js 18
@@ -28,6 +30,7 @@ jobs:
         uses: changesets/action@v1
         with:
           version: yarn changeset version
-          publish: echo non-npm packages
+          publish: yarn changeset tag
+          createGithubReleases: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

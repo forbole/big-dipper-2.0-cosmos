@@ -5,6 +5,7 @@ import SettingsList from '@/components/nav/components/desktop/components/action_
 import useStyles from '@/components/nav/components/desktop/components/action_bar/styles';
 import SearchBar from '@/components/nav/components/search_bar';
 import WalletDetails from '@/components/nav/components/wallet_details';
+import ThemeToggle from '@/components/nav/components/theme_toggle';
 import { useGetComponentDimension } from '@/hooks/use_get_component_dimension';
 import { FC } from 'react';
 
@@ -26,6 +27,7 @@ const ActionBar: FC<ActionBarProps> = ({ toggleNetwork, className, isNetwork }) 
           toggleNetwork={toggleNetwork}
         />
         <WalletDetails />
+        <ThemeToggle className={classes.toggle} />
         <SettingsList />
         <ConnectWallet />
       </div>

@@ -1,5 +1,41 @@
 # shared-utils
 
+## 2.13.0
+
+### Minor Changes
+
+- [#1188](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1188) [`bf192489d`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/bf192489dfc10cf9f6679f08e6a1b96d390e2e00) Thanks [@rachelhox](https://github.com/rachelhox)! - add Quasar and Cheqd Big Dipper
+
+## 2.12.1
+
+### Patch Changes
+
+- [#1196](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1196) [`c4d1d83e3`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/c4d1d83e30922bdb86ffc20d8cde36adad34bd0c) Thanks [@teamchong](https://github.com/teamchong)! - chore: versions bump
+
+## 2.12.0
+
+### Minor Changes
+
+- [#1183](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1183) [`33750408b`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/33750408bfa3bc3195124b78be72c0d54b414bd7) Thanks [@rachelhox](https://github.com/rachelhox)! - feat: theme toggle button and 12-hour/24-hour toggle button
+
+## 2.11.0
+
+### Minor Changes
+
+- [#1179](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1179) [`717cb798b`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/717cb798b200f5a3afde49695548266fa6bdfb3d) Thanks [@rachelhox](https://github.com/rachelhox)! - quicksilver rpc endpoint update for consensus module
+
+## 2.10.0
+
+### Minor Changes
+
+- 35f47327d: Change Elrond to MultiversX
+
+## 2.9.0
+
+### Minor Changes
+
+- 9f2e26b1: add quicksilver mainnet
+
 ## 2.8.0
 
 ### Minor Changes
