@@ -1,5 +1,6 @@
 import numeral from 'numeral';
-import { useState } from 'react';
+import * as R from 'ramda';
+import { useState, useCallback } from 'react';
 import chainConfig from '@/chainConfig';
 import {
   ActiveValidatorCountQuery,
@@ -9,6 +10,8 @@ import {
   useAverageBlockTimeQuery,
   useLatestBlockHeightListenerSubscription,
   useTokenPriceListenerSubscription,
+  useTopAccountsParamsQuery,
+  TopAccountsParamsQuery,
 } from '@/graphql/types/general_types';
 
 const { primaryTokenUnit, tokenUnits } = chainConfig();
@@ -21,6 +24,7 @@ type DataBlocksState = {
     active: number;
     total: number;
   };
+  cheqdWallets: number;
 };
 
 const formatAverageBlockTime = (data: AverageBlockTimeQuery, state: DataBlocksState) =>
@@ -38,6 +42,13 @@ const formatActiveValidatorsCount = (data: ActiveValidatorCountQuery) => ({
   total: data.total?.aggregate?.count ?? 0,
 });
 
+const formatTopAccountsParams = (data: TopAccountsParamsQuery) => {
+  const {
+    top_accounts_params: [{ total_accounts }],
+  } = data;
+  return total_accounts;
+};
+
 export const useDataBlocks = () => {
   const [state, setState] = useState<DataBlocksState>({
     blockHeight: 0,
@@ -47,6 +58,7 @@ export const useDataBlocks = () => {
       active: 0,
       total: 0,
     },
+    cheqdWallets: 0,
   });
 
   // ====================================
@@ -97,6 +109,28 @@ export const useDataBlocks = () => {
       setState((prevState) => ({
         ...prevState,
         validators: formatActiveValidatorsCount(data),
+      }));
+    },
+  });
+
+  const handleSetState = useCallback(
+    (stateChange: (prevState: DataBlocksState) => DataBlocksState) => {
+      setState((prevState) => {
+        const newState = stateChange(prevState);
+        return R.equals(prevState, newState) ? prevState : newState;
+      });
+    },
+    []
+  );
+
+  // ====================================
+  // Cheqd Wallets
+  // ====================================
+  useTopAccountsParamsQuery({
+    onCompleted: (data) => {
+      handleSetState((prevState) => ({
+        ...prevState,
+        cheqdWallets: formatTopAccountsParams(data),
       }));
     },
   });

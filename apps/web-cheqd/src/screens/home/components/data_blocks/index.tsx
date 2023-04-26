@@ -33,6 +33,11 @@ const DataBlocks: FC<ComponentDefault> = ({ className }) => {
       }),
       className: classes.validators,
     },
+    {
+      key: t('cheqdWallets'),
+      value: numeral(state.cheqdWallets).format('0,0'),
+      className: classes.cheqdWallets,
+    },
   ];
 
   return (
