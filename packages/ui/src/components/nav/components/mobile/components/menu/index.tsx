@@ -15,7 +15,6 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import ThemeToggle from '@/components/nav/components/theme_toggle';
 import Language from 'shared-utils/assets/icon-language.svg';
-import ConnectWallet from '@/components/nav/components/connect_wallet';
 
 const Menu = (props: MenuProps) => {
   const router = useRouter();
@@ -103,7 +102,6 @@ const Menu = (props: MenuProps) => {
             <ExpandMoreOutlinedIcon fontSize="small" />
           </div>
           <ThemeToggle />
-          <ConnectWallet />
         </div>
       </div>
     </>
