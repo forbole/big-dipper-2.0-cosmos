@@ -28,7 +28,7 @@ const formatAverageBlockTime = (data: AverageBlockTimeQuery, state: DataBlocksSt
 
 const formatTokenPrice = (data: TokenPriceListenerSubscription, state: DataBlocksState) => {
   if (data?.tokenPrice[0]?.price) {
-    return numeral(numeral(data?.tokenPrice[0]?.price).format('0.[00]', Math.floor)).value();
+    return numeral(numeral(data?.tokenPrice[0]?.price).format('0.0000', Math.floor)).value();
   }
   return state.price;
 };

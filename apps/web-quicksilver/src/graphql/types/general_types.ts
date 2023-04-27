@@ -3031,14 +3031,20 @@ export type Query_Root = {
   transaction: Array<Transaction>;
   /** fetch data from the table: "validator" */
   validator: Array<Validator>;
+  /** fetch aggregated fields from the table: "validator" */
+  validator_aggregate: Validator_Aggregate;
   /** fetch data from the table: "validator" using primary key columns */
   validator_by_pk?: Maybe<Validator>;
   /** fetch data from the table: "validator_commission" */
   validator_commission: Array<Validator_Commission>;
+  /** fetch aggregated fields from the table: "validator_commission" */
+  validator_commission_aggregate: Validator_Commission_Aggregate;
   /** fetch data from the table: "validator_commission" using primary key columns */
   validator_commission_by_pk?: Maybe<Validator_Commission>;
   /** fetch data from the table: "validator_description" */
   validator_description: Array<Validator_Description>;
+  /** fetch aggregated fields from the table: "validator_description" */
+  validator_description_aggregate: Validator_Description_Aggregate;
   /** fetch data from the table: "validator_description" using primary key columns */
   validator_description_by_pk?: Maybe<Validator_Description>;
   /** fetch data from the table: "validator_info" */
@@ -3049,6 +3055,8 @@ export type Query_Root = {
   validator_info_by_pk?: Maybe<Validator_Info>;
   /** fetch data from the table: "validator_signing_info" */
   validator_signing_info: Array<Validator_Signing_Info>;
+  /** fetch aggregated fields from the table: "validator_signing_info" */
+  validator_signing_info_aggregate: Validator_Signing_Info_Aggregate;
   /** fetch data from the table: "validator_signing_info" using primary key columns */
   validator_signing_info_by_pk?: Maybe<Validator_Signing_Info>;
   /** fetch data from the table: "validator_status" */
@@ -3561,6 +3569,15 @@ export type Query_RootValidatorArgs = {
 };
 
 
+export type Query_RootValidator_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Validator_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Validator_Order_By>>;
+  where?: InputMaybe<Validator_Bool_Exp>;
+};
+
+
 export type Query_RootValidator_By_PkArgs = {
   consensus_address: Scalars['String'];
 };
@@ -3575,12 +3592,30 @@ export type Query_RootValidator_CommissionArgs = {
 };
 
 
+export type Query_RootValidator_Commission_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Validator_Commission_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Validator_Commission_Order_By>>;
+  where?: InputMaybe<Validator_Commission_Bool_Exp>;
+};
+
+
 export type Query_RootValidator_Commission_By_PkArgs = {
   validator_address: Scalars['String'];
 };
 
 
 export type Query_RootValidator_DescriptionArgs = {
+  distinct_on?: InputMaybe<Array<Validator_Description_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Validator_Description_Order_By>>;
+  where?: InputMaybe<Validator_Description_Bool_Exp>;
+};
+
+
+export type Query_RootValidator_Description_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Validator_Description_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3618,6 +3653,15 @@ export type Query_RootValidator_Info_By_PkArgs = {
 
 
 export type Query_RootValidator_Signing_InfoArgs = {
+  distinct_on?: InputMaybe<Array<Validator_Signing_Info_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Validator_Signing_Info_Order_By>>;
+  where?: InputMaybe<Validator_Signing_Info_Bool_Exp>;
+};
+
+
+export type Query_RootValidator_Signing_Info_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Validator_Signing_Info_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -4085,14 +4129,20 @@ export type Subscription_Root = {
   transaction: Array<Transaction>;
   /** fetch data from the table: "validator" */
   validator: Array<Validator>;
+  /** fetch aggregated fields from the table: "validator" */
+  validator_aggregate: Validator_Aggregate;
   /** fetch data from the table: "validator" using primary key columns */
   validator_by_pk?: Maybe<Validator>;
   /** fetch data from the table: "validator_commission" */
   validator_commission: Array<Validator_Commission>;
+  /** fetch aggregated fields from the table: "validator_commission" */
+  validator_commission_aggregate: Validator_Commission_Aggregate;
   /** fetch data from the table: "validator_commission" using primary key columns */
   validator_commission_by_pk?: Maybe<Validator_Commission>;
   /** fetch data from the table: "validator_description" */
   validator_description: Array<Validator_Description>;
+  /** fetch aggregated fields from the table: "validator_description" */
+  validator_description_aggregate: Validator_Description_Aggregate;
   /** fetch data from the table: "validator_description" using primary key columns */
   validator_description_by_pk?: Maybe<Validator_Description>;
   /** fetch data from the table: "validator_info" */
@@ -4103,6 +4153,8 @@ export type Subscription_Root = {
   validator_info_by_pk?: Maybe<Validator_Info>;
   /** fetch data from the table: "validator_signing_info" */
   validator_signing_info: Array<Validator_Signing_Info>;
+  /** fetch aggregated fields from the table: "validator_signing_info" */
+  validator_signing_info_aggregate: Validator_Signing_Info_Aggregate;
   /** fetch data from the table: "validator_signing_info" using primary key columns */
   validator_signing_info_by_pk?: Maybe<Validator_Signing_Info>;
   /** fetch data from the table: "validator_status" */
@@ -4529,6 +4581,15 @@ export type Subscription_RootValidatorArgs = {
 };
 
 
+export type Subscription_RootValidator_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Validator_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Validator_Order_By>>;
+  where?: InputMaybe<Validator_Bool_Exp>;
+};
+
+
 export type Subscription_RootValidator_By_PkArgs = {
   consensus_address: Scalars['String'];
 };
@@ -4543,12 +4604,30 @@ export type Subscription_RootValidator_CommissionArgs = {
 };
 
 
+export type Subscription_RootValidator_Commission_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Validator_Commission_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Validator_Commission_Order_By>>;
+  where?: InputMaybe<Validator_Commission_Bool_Exp>;
+};
+
+
 export type Subscription_RootValidator_Commission_By_PkArgs = {
   validator_address: Scalars['String'];
 };
 
 
 export type Subscription_RootValidator_DescriptionArgs = {
+  distinct_on?: InputMaybe<Array<Validator_Description_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Validator_Description_Order_By>>;
+  where?: InputMaybe<Validator_Description_Bool_Exp>;
+};
+
+
+export type Subscription_RootValidator_Description_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Validator_Description_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -4586,6 +4665,15 @@ export type Subscription_RootValidator_Info_By_PkArgs = {
 
 
 export type Subscription_RootValidator_Signing_InfoArgs = {
+  distinct_on?: InputMaybe<Array<Validator_Signing_Info_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Validator_Signing_Info_Order_By>>;
+  where?: InputMaybe<Validator_Signing_Info_Bool_Exp>;
+};
+
+
+export type Subscription_RootValidator_Signing_Info_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Validator_Signing_Info_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -5374,8 +5462,12 @@ export type Validator = {
   proposal_validator_status_snapshots: Array<Proposal_Validator_Status_Snapshot>;
   /** An array relationship */
   validator_commissions: Array<Validator_Commission>;
+  /** An aggregate relationship */
+  validator_commissions_aggregate: Validator_Commission_Aggregate;
   /** An array relationship */
   validator_descriptions: Array<Validator_Description>;
+  /** An aggregate relationship */
+  validator_descriptions_aggregate: Validator_Description_Aggregate;
   /** An object relationship */
   validator_info?: Maybe<Validator_Info>;
   /** An array relationship */
@@ -5384,6 +5476,8 @@ export type Validator = {
   validator_infos_aggregate: Validator_Info_Aggregate;
   /** An array relationship */
   validator_signing_infos: Array<Validator_Signing_Info>;
+  /** An aggregate relationship */
+  validator_signing_infos_aggregate: Validator_Signing_Info_Aggregate;
   /** An array relationship */
   validator_statuses: Array<Validator_Status>;
   /** An aggregate relationship */
@@ -5456,7 +5550,27 @@ export type ValidatorValidator_CommissionsArgs = {
 
 
 /** columns and relationships of "validator" */
+export type ValidatorValidator_Commissions_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Validator_Commission_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Validator_Commission_Order_By>>;
+  where?: InputMaybe<Validator_Commission_Bool_Exp>;
+};
+
+
+/** columns and relationships of "validator" */
 export type ValidatorValidator_DescriptionsArgs = {
+  distinct_on?: InputMaybe<Array<Validator_Description_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Validator_Description_Order_By>>;
+  where?: InputMaybe<Validator_Description_Bool_Exp>;
+};
+
+
+/** columns and relationships of "validator" */
+export type ValidatorValidator_Descriptions_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Validator_Description_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -5487,6 +5601,16 @@ export type ValidatorValidator_Infos_AggregateArgs = {
 
 /** columns and relationships of "validator" */
 export type ValidatorValidator_Signing_InfosArgs = {
+  distinct_on?: InputMaybe<Array<Validator_Signing_Info_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Validator_Signing_Info_Order_By>>;
+  where?: InputMaybe<Validator_Signing_Info_Bool_Exp>;
+};
+
+
+/** columns and relationships of "validator" */
+export type ValidatorValidator_Signing_Infos_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Validator_Signing_Info_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -5534,6 +5658,28 @@ export type ValidatorValidator_Voting_Powers_AggregateArgs = {
   where?: InputMaybe<Validator_Voting_Power_Bool_Exp>;
 };
 
+/** aggregated selection of "validator" */
+export type Validator_Aggregate = {
+  __typename?: 'validator_aggregate';
+  aggregate?: Maybe<Validator_Aggregate_Fields>;
+  nodes: Array<Validator>;
+};
+
+/** aggregate fields of "validator" */
+export type Validator_Aggregate_Fields = {
+  __typename?: 'validator_aggregate_fields';
+  count: Scalars['Int'];
+  max?: Maybe<Validator_Max_Fields>;
+  min?: Maybe<Validator_Min_Fields>;
+};
+
+
+/** aggregate fields of "validator" */
+export type Validator_Aggregate_FieldsCountArgs = {
+  columns?: InputMaybe<Array<Validator_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']>;
+};
+
 /** Boolean expression to filter rows from the table "validator". All fields are combined with a logical 'AND'. */
 export type Validator_Bool_Exp = {
   _and?: InputMaybe<Array<Validator_Bool_Exp>>;
@@ -5566,6 +5712,36 @@ export type Validator_Commission = {
   validator_address: Scalars['String'];
 };
 
+/** aggregated selection of "validator_commission" */
+export type Validator_Commission_Aggregate = {
+  __typename?: 'validator_commission_aggregate';
+  aggregate?: Maybe<Validator_Commission_Aggregate_Fields>;
+  nodes: Array<Validator_Commission>;
+};
+
+/** aggregate fields of "validator_commission" */
+export type Validator_Commission_Aggregate_Fields = {
+  __typename?: 'validator_commission_aggregate_fields';
+  avg?: Maybe<Validator_Commission_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Validator_Commission_Max_Fields>;
+  min?: Maybe<Validator_Commission_Min_Fields>;
+  stddev?: Maybe<Validator_Commission_Stddev_Fields>;
+  stddev_pop?: Maybe<Validator_Commission_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Validator_Commission_Stddev_Samp_Fields>;
+  sum?: Maybe<Validator_Commission_Sum_Fields>;
+  var_pop?: Maybe<Validator_Commission_Var_Pop_Fields>;
+  var_samp?: Maybe<Validator_Commission_Var_Samp_Fields>;
+  variance?: Maybe<Validator_Commission_Variance_Fields>;
+};
+
+
+/** aggregate fields of "validator_commission" */
+export type Validator_Commission_Aggregate_FieldsCountArgs = {
+  columns?: InputMaybe<Array<Validator_Commission_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']>;
+};
+
 /** order by aggregate values of table "validator_commission" */
 export type Validator_Commission_Aggregate_Order_By = {
   avg?: InputMaybe<Validator_Commission_Avg_Order_By>;
@@ -5579,6 +5755,14 @@ export type Validator_Commission_Aggregate_Order_By = {
   var_pop?: InputMaybe<Validator_Commission_Var_Pop_Order_By>;
   var_samp?: InputMaybe<Validator_Commission_Var_Samp_Order_By>;
   variance?: InputMaybe<Validator_Commission_Variance_Order_By>;
+};
+
+/** aggregate avg on columns */
+export type Validator_Commission_Avg_Fields = {
+  __typename?: 'validator_commission_avg_fields';
+  commission?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  min_self_delegation?: Maybe<Scalars['Float']>;
 };
 
 /** order by avg() on columns of table "validator_commission" */
@@ -5600,12 +5784,30 @@ export type Validator_Commission_Bool_Exp = {
   validator_address?: InputMaybe<String_Comparison_Exp>;
 };
 
+/** aggregate max on columns */
+export type Validator_Commission_Max_Fields = {
+  __typename?: 'validator_commission_max_fields';
+  commission?: Maybe<Scalars['numeric']>;
+  height?: Maybe<Scalars['bigint']>;
+  min_self_delegation?: Maybe<Scalars['bigint']>;
+  validator_address?: Maybe<Scalars['String']>;
+};
+
 /** order by max() on columns of table "validator_commission" */
 export type Validator_Commission_Max_Order_By = {
   commission?: InputMaybe<Order_By>;
   height?: InputMaybe<Order_By>;
   min_self_delegation?: InputMaybe<Order_By>;
   validator_address?: InputMaybe<Order_By>;
+};
+
+/** aggregate min on columns */
+export type Validator_Commission_Min_Fields = {
+  __typename?: 'validator_commission_min_fields';
+  commission?: Maybe<Scalars['numeric']>;
+  height?: Maybe<Scalars['bigint']>;
+  min_self_delegation?: Maybe<Scalars['bigint']>;
+  validator_address?: Maybe<Scalars['String']>;
 };
 
 /** order by min() on columns of table "validator_commission" */
@@ -5637,11 +5839,27 @@ export enum Validator_Commission_Select_Column {
   ValidatorAddress = 'validator_address'
 }
 
+/** aggregate stddev on columns */
+export type Validator_Commission_Stddev_Fields = {
+  __typename?: 'validator_commission_stddev_fields';
+  commission?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  min_self_delegation?: Maybe<Scalars['Float']>;
+};
+
 /** order by stddev() on columns of table "validator_commission" */
 export type Validator_Commission_Stddev_Order_By = {
   commission?: InputMaybe<Order_By>;
   height?: InputMaybe<Order_By>;
   min_self_delegation?: InputMaybe<Order_By>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Validator_Commission_Stddev_Pop_Fields = {
+  __typename?: 'validator_commission_stddev_pop_fields';
+  commission?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  min_self_delegation?: Maybe<Scalars['Float']>;
 };
 
 /** order by stddev_pop() on columns of table "validator_commission" */
@@ -5651,11 +5869,27 @@ export type Validator_Commission_Stddev_Pop_Order_By = {
   min_self_delegation?: InputMaybe<Order_By>;
 };
 
+/** aggregate stddev_samp on columns */
+export type Validator_Commission_Stddev_Samp_Fields = {
+  __typename?: 'validator_commission_stddev_samp_fields';
+  commission?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  min_self_delegation?: Maybe<Scalars['Float']>;
+};
+
 /** order by stddev_samp() on columns of table "validator_commission" */
 export type Validator_Commission_Stddev_Samp_Order_By = {
   commission?: InputMaybe<Order_By>;
   height?: InputMaybe<Order_By>;
   min_self_delegation?: InputMaybe<Order_By>;
+};
+
+/** aggregate sum on columns */
+export type Validator_Commission_Sum_Fields = {
+  __typename?: 'validator_commission_sum_fields';
+  commission?: Maybe<Scalars['numeric']>;
+  height?: Maybe<Scalars['bigint']>;
+  min_self_delegation?: Maybe<Scalars['bigint']>;
 };
 
 /** order by sum() on columns of table "validator_commission" */
@@ -5665,6 +5899,14 @@ export type Validator_Commission_Sum_Order_By = {
   min_self_delegation?: InputMaybe<Order_By>;
 };
 
+/** aggregate var_pop on columns */
+export type Validator_Commission_Var_Pop_Fields = {
+  __typename?: 'validator_commission_var_pop_fields';
+  commission?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  min_self_delegation?: Maybe<Scalars['Float']>;
+};
+
 /** order by var_pop() on columns of table "validator_commission" */
 export type Validator_Commission_Var_Pop_Order_By = {
   commission?: InputMaybe<Order_By>;
@@ -5672,11 +5914,27 @@ export type Validator_Commission_Var_Pop_Order_By = {
   min_self_delegation?: InputMaybe<Order_By>;
 };
 
+/** aggregate var_samp on columns */
+export type Validator_Commission_Var_Samp_Fields = {
+  __typename?: 'validator_commission_var_samp_fields';
+  commission?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  min_self_delegation?: Maybe<Scalars['Float']>;
+};
+
 /** order by var_samp() on columns of table "validator_commission" */
 export type Validator_Commission_Var_Samp_Order_By = {
   commission?: InputMaybe<Order_By>;
   height?: InputMaybe<Order_By>;
   min_self_delegation?: InputMaybe<Order_By>;
+};
+
+/** aggregate variance on columns */
+export type Validator_Commission_Variance_Fields = {
+  __typename?: 'validator_commission_variance_fields';
+  commission?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  min_self_delegation?: Maybe<Scalars['Float']>;
 };
 
 /** order by variance() on columns of table "validator_commission" */
@@ -5701,6 +5959,36 @@ export type Validator_Description = {
   website?: Maybe<Scalars['String']>;
 };
 
+/** aggregated selection of "validator_description" */
+export type Validator_Description_Aggregate = {
+  __typename?: 'validator_description_aggregate';
+  aggregate?: Maybe<Validator_Description_Aggregate_Fields>;
+  nodes: Array<Validator_Description>;
+};
+
+/** aggregate fields of "validator_description" */
+export type Validator_Description_Aggregate_Fields = {
+  __typename?: 'validator_description_aggregate_fields';
+  avg?: Maybe<Validator_Description_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Validator_Description_Max_Fields>;
+  min?: Maybe<Validator_Description_Min_Fields>;
+  stddev?: Maybe<Validator_Description_Stddev_Fields>;
+  stddev_pop?: Maybe<Validator_Description_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Validator_Description_Stddev_Samp_Fields>;
+  sum?: Maybe<Validator_Description_Sum_Fields>;
+  var_pop?: Maybe<Validator_Description_Var_Pop_Fields>;
+  var_samp?: Maybe<Validator_Description_Var_Samp_Fields>;
+  variance?: Maybe<Validator_Description_Variance_Fields>;
+};
+
+
+/** aggregate fields of "validator_description" */
+export type Validator_Description_Aggregate_FieldsCountArgs = {
+  columns?: InputMaybe<Array<Validator_Description_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']>;
+};
+
 /** order by aggregate values of table "validator_description" */
 export type Validator_Description_Aggregate_Order_By = {
   avg?: InputMaybe<Validator_Description_Avg_Order_By>;
@@ -5714,6 +6002,12 @@ export type Validator_Description_Aggregate_Order_By = {
   var_pop?: InputMaybe<Validator_Description_Var_Pop_Order_By>;
   var_samp?: InputMaybe<Validator_Description_Var_Samp_Order_By>;
   variance?: InputMaybe<Validator_Description_Variance_Order_By>;
+};
+
+/** aggregate avg on columns */
+export type Validator_Description_Avg_Fields = {
+  __typename?: 'validator_description_avg_fields';
+  height?: Maybe<Scalars['Float']>;
 };
 
 /** order by avg() on columns of table "validator_description" */
@@ -5737,6 +6031,19 @@ export type Validator_Description_Bool_Exp = {
   website?: InputMaybe<String_Comparison_Exp>;
 };
 
+/** aggregate max on columns */
+export type Validator_Description_Max_Fields = {
+  __typename?: 'validator_description_max_fields';
+  avatar_url?: Maybe<Scalars['String']>;
+  details?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
+  identity?: Maybe<Scalars['String']>;
+  moniker?: Maybe<Scalars['String']>;
+  security_contact?: Maybe<Scalars['String']>;
+  validator_address?: Maybe<Scalars['String']>;
+  website?: Maybe<Scalars['String']>;
+};
+
 /** order by max() on columns of table "validator_description" */
 export type Validator_Description_Max_Order_By = {
   avatar_url?: InputMaybe<Order_By>;
@@ -5747,6 +6054,19 @@ export type Validator_Description_Max_Order_By = {
   security_contact?: InputMaybe<Order_By>;
   validator_address?: InputMaybe<Order_By>;
   website?: InputMaybe<Order_By>;
+};
+
+/** aggregate min on columns */
+export type Validator_Description_Min_Fields = {
+  __typename?: 'validator_description_min_fields';
+  avatar_url?: Maybe<Scalars['String']>;
+  details?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
+  identity?: Maybe<Scalars['String']>;
+  moniker?: Maybe<Scalars['String']>;
+  security_contact?: Maybe<Scalars['String']>;
+  validator_address?: Maybe<Scalars['String']>;
+  website?: Maybe<Scalars['String']>;
 };
 
 /** order by min() on columns of table "validator_description" */
@@ -5794,9 +6114,21 @@ export enum Validator_Description_Select_Column {
   Website = 'website'
 }
 
+/** aggregate stddev on columns */
+export type Validator_Description_Stddev_Fields = {
+  __typename?: 'validator_description_stddev_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
 /** order by stddev() on columns of table "validator_description" */
 export type Validator_Description_Stddev_Order_By = {
   height?: InputMaybe<Order_By>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Validator_Description_Stddev_Pop_Fields = {
+  __typename?: 'validator_description_stddev_pop_fields';
+  height?: Maybe<Scalars['Float']>;
 };
 
 /** order by stddev_pop() on columns of table "validator_description" */
@@ -5804,9 +6136,21 @@ export type Validator_Description_Stddev_Pop_Order_By = {
   height?: InputMaybe<Order_By>;
 };
 
+/** aggregate stddev_samp on columns */
+export type Validator_Description_Stddev_Samp_Fields = {
+  __typename?: 'validator_description_stddev_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
 /** order by stddev_samp() on columns of table "validator_description" */
 export type Validator_Description_Stddev_Samp_Order_By = {
   height?: InputMaybe<Order_By>;
+};
+
+/** aggregate sum on columns */
+export type Validator_Description_Sum_Fields = {
+  __typename?: 'validator_description_sum_fields';
+  height?: Maybe<Scalars['bigint']>;
 };
 
 /** order by sum() on columns of table "validator_description" */
@@ -5814,14 +6158,32 @@ export type Validator_Description_Sum_Order_By = {
   height?: InputMaybe<Order_By>;
 };
 
+/** aggregate var_pop on columns */
+export type Validator_Description_Var_Pop_Fields = {
+  __typename?: 'validator_description_var_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
 /** order by var_pop() on columns of table "validator_description" */
 export type Validator_Description_Var_Pop_Order_By = {
   height?: InputMaybe<Order_By>;
 };
 
+/** aggregate var_samp on columns */
+export type Validator_Description_Var_Samp_Fields = {
+  __typename?: 'validator_description_var_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
 /** order by var_samp() on columns of table "validator_description" */
 export type Validator_Description_Var_Samp_Order_By = {
   height?: InputMaybe<Order_By>;
+};
+
+/** aggregate variance on columns */
+export type Validator_Description_Variance_Fields = {
+  __typename?: 'validator_description_variance_fields';
+  height?: Maybe<Scalars['Float']>;
 };
 
 /** order by variance() on columns of table "validator_description" */
@@ -6062,6 +6424,20 @@ export type Validator_Info_Variance_Order_By = {
   height?: InputMaybe<Order_By>;
 };
 
+/** aggregate max on columns */
+export type Validator_Max_Fields = {
+  __typename?: 'validator_max_fields';
+  consensus_address?: Maybe<Scalars['String']>;
+  consensus_pubkey?: Maybe<Scalars['String']>;
+};
+
+/** aggregate min on columns */
+export type Validator_Min_Fields = {
+  __typename?: 'validator_min_fields';
+  consensus_address?: Maybe<Scalars['String']>;
+  consensus_pubkey?: Maybe<Scalars['String']>;
+};
+
 /** Ordering options when selecting data from "validator". */
 export type Validator_Order_By = {
   blocks_aggregate?: InputMaybe<Block_Aggregate_Order_By>;
@@ -6100,6 +6476,36 @@ export type Validator_Signing_Info = {
   validator_address: Scalars['String'];
 };
 
+/** aggregated selection of "validator_signing_info" */
+export type Validator_Signing_Info_Aggregate = {
+  __typename?: 'validator_signing_info_aggregate';
+  aggregate?: Maybe<Validator_Signing_Info_Aggregate_Fields>;
+  nodes: Array<Validator_Signing_Info>;
+};
+
+/** aggregate fields of "validator_signing_info" */
+export type Validator_Signing_Info_Aggregate_Fields = {
+  __typename?: 'validator_signing_info_aggregate_fields';
+  avg?: Maybe<Validator_Signing_Info_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Validator_Signing_Info_Max_Fields>;
+  min?: Maybe<Validator_Signing_Info_Min_Fields>;
+  stddev?: Maybe<Validator_Signing_Info_Stddev_Fields>;
+  stddev_pop?: Maybe<Validator_Signing_Info_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Validator_Signing_Info_Stddev_Samp_Fields>;
+  sum?: Maybe<Validator_Signing_Info_Sum_Fields>;
+  var_pop?: Maybe<Validator_Signing_Info_Var_Pop_Fields>;
+  var_samp?: Maybe<Validator_Signing_Info_Var_Samp_Fields>;
+  variance?: Maybe<Validator_Signing_Info_Variance_Fields>;
+};
+
+
+/** aggregate fields of "validator_signing_info" */
+export type Validator_Signing_Info_Aggregate_FieldsCountArgs = {
+  columns?: InputMaybe<Array<Validator_Signing_Info_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']>;
+};
+
 /** order by aggregate values of table "validator_signing_info" */
 export type Validator_Signing_Info_Aggregate_Order_By = {
   avg?: InputMaybe<Validator_Signing_Info_Avg_Order_By>;
@@ -6113,6 +6519,15 @@ export type Validator_Signing_Info_Aggregate_Order_By = {
   var_pop?: InputMaybe<Validator_Signing_Info_Var_Pop_Order_By>;
   var_samp?: InputMaybe<Validator_Signing_Info_Var_Samp_Order_By>;
   variance?: InputMaybe<Validator_Signing_Info_Variance_Order_By>;
+};
+
+/** aggregate avg on columns */
+export type Validator_Signing_Info_Avg_Fields = {
+  __typename?: 'validator_signing_info_avg_fields';
+  height?: Maybe<Scalars['Float']>;
+  index_offset?: Maybe<Scalars['Float']>;
+  missed_blocks_counter?: Maybe<Scalars['Float']>;
+  start_height?: Maybe<Scalars['Float']>;
 };
 
 /** order by avg() on columns of table "validator_signing_info" */
@@ -6137,6 +6552,17 @@ export type Validator_Signing_Info_Bool_Exp = {
   validator_address?: InputMaybe<String_Comparison_Exp>;
 };
 
+/** aggregate max on columns */
+export type Validator_Signing_Info_Max_Fields = {
+  __typename?: 'validator_signing_info_max_fields';
+  height?: Maybe<Scalars['bigint']>;
+  index_offset?: Maybe<Scalars['bigint']>;
+  jailed_until?: Maybe<Scalars['timestamp']>;
+  missed_blocks_counter?: Maybe<Scalars['bigint']>;
+  start_height?: Maybe<Scalars['bigint']>;
+  validator_address?: Maybe<Scalars['String']>;
+};
+
 /** order by max() on columns of table "validator_signing_info" */
 export type Validator_Signing_Info_Max_Order_By = {
   height?: InputMaybe<Order_By>;
@@ -6145,6 +6571,17 @@ export type Validator_Signing_Info_Max_Order_By = {
   missed_blocks_counter?: InputMaybe<Order_By>;
   start_height?: InputMaybe<Order_By>;
   validator_address?: InputMaybe<Order_By>;
+};
+
+/** aggregate min on columns */
+export type Validator_Signing_Info_Min_Fields = {
+  __typename?: 'validator_signing_info_min_fields';
+  height?: Maybe<Scalars['bigint']>;
+  index_offset?: Maybe<Scalars['bigint']>;
+  jailed_until?: Maybe<Scalars['timestamp']>;
+  missed_blocks_counter?: Maybe<Scalars['bigint']>;
+  start_height?: Maybe<Scalars['bigint']>;
+  validator_address?: Maybe<Scalars['String']>;
 };
 
 /** order by min() on columns of table "validator_signing_info" */
@@ -6186,12 +6623,30 @@ export enum Validator_Signing_Info_Select_Column {
   ValidatorAddress = 'validator_address'
 }
 
+/** aggregate stddev on columns */
+export type Validator_Signing_Info_Stddev_Fields = {
+  __typename?: 'validator_signing_info_stddev_fields';
+  height?: Maybe<Scalars['Float']>;
+  index_offset?: Maybe<Scalars['Float']>;
+  missed_blocks_counter?: Maybe<Scalars['Float']>;
+  start_height?: Maybe<Scalars['Float']>;
+};
+
 /** order by stddev() on columns of table "validator_signing_info" */
 export type Validator_Signing_Info_Stddev_Order_By = {
   height?: InputMaybe<Order_By>;
   index_offset?: InputMaybe<Order_By>;
   missed_blocks_counter?: InputMaybe<Order_By>;
   start_height?: InputMaybe<Order_By>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Validator_Signing_Info_Stddev_Pop_Fields = {
+  __typename?: 'validator_signing_info_stddev_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+  index_offset?: Maybe<Scalars['Float']>;
+  missed_blocks_counter?: Maybe<Scalars['Float']>;
+  start_height?: Maybe<Scalars['Float']>;
 };
 
 /** order by stddev_pop() on columns of table "validator_signing_info" */
@@ -6202,12 +6657,30 @@ export type Validator_Signing_Info_Stddev_Pop_Order_By = {
   start_height?: InputMaybe<Order_By>;
 };
 
+/** aggregate stddev_samp on columns */
+export type Validator_Signing_Info_Stddev_Samp_Fields = {
+  __typename?: 'validator_signing_info_stddev_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+  index_offset?: Maybe<Scalars['Float']>;
+  missed_blocks_counter?: Maybe<Scalars['Float']>;
+  start_height?: Maybe<Scalars['Float']>;
+};
+
 /** order by stddev_samp() on columns of table "validator_signing_info" */
 export type Validator_Signing_Info_Stddev_Samp_Order_By = {
   height?: InputMaybe<Order_By>;
   index_offset?: InputMaybe<Order_By>;
   missed_blocks_counter?: InputMaybe<Order_By>;
   start_height?: InputMaybe<Order_By>;
+};
+
+/** aggregate sum on columns */
+export type Validator_Signing_Info_Sum_Fields = {
+  __typename?: 'validator_signing_info_sum_fields';
+  height?: Maybe<Scalars['bigint']>;
+  index_offset?: Maybe<Scalars['bigint']>;
+  missed_blocks_counter?: Maybe<Scalars['bigint']>;
+  start_height?: Maybe<Scalars['bigint']>;
 };
 
 /** order by sum() on columns of table "validator_signing_info" */
@@ -6218,6 +6691,15 @@ export type Validator_Signing_Info_Sum_Order_By = {
   start_height?: InputMaybe<Order_By>;
 };
 
+/** aggregate var_pop on columns */
+export type Validator_Signing_Info_Var_Pop_Fields = {
+  __typename?: 'validator_signing_info_var_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+  index_offset?: Maybe<Scalars['Float']>;
+  missed_blocks_counter?: Maybe<Scalars['Float']>;
+  start_height?: Maybe<Scalars['Float']>;
+};
+
 /** order by var_pop() on columns of table "validator_signing_info" */
 export type Validator_Signing_Info_Var_Pop_Order_By = {
   height?: InputMaybe<Order_By>;
@@ -6226,12 +6708,30 @@ export type Validator_Signing_Info_Var_Pop_Order_By = {
   start_height?: InputMaybe<Order_By>;
 };
 
+/** aggregate var_samp on columns */
+export type Validator_Signing_Info_Var_Samp_Fields = {
+  __typename?: 'validator_signing_info_var_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+  index_offset?: Maybe<Scalars['Float']>;
+  missed_blocks_counter?: Maybe<Scalars['Float']>;
+  start_height?: Maybe<Scalars['Float']>;
+};
+
 /** order by var_samp() on columns of table "validator_signing_info" */
 export type Validator_Signing_Info_Var_Samp_Order_By = {
   height?: InputMaybe<Order_By>;
   index_offset?: InputMaybe<Order_By>;
   missed_blocks_counter?: InputMaybe<Order_By>;
   start_height?: InputMaybe<Order_By>;
+};
+
+/** aggregate variance on columns */
+export type Validator_Signing_Info_Variance_Fields = {
+  __typename?: 'validator_signing_info_variance_fields';
+  height?: Maybe<Scalars['Float']>;
+  index_offset?: Maybe<Scalars['Float']>;
+  missed_blocks_counter?: Maybe<Scalars['Float']>;
+  start_height?: Maybe<Scalars['Float']>;
 };
 
 /** order by variance() on columns of table "validator_signing_info" */
