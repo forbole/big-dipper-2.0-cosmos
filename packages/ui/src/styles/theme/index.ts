@@ -162,7 +162,7 @@ export const common = (theme: ThemeOptions) =>
       },
       wallet: {
         background: '#5E5E5E',
-        backgroundTwo: '#393939',
+        backgroundTwo: '#212123',
         surfaceOne: '#5E5C5C',
         surfaceTwo: '#D9D9D9',
         surfaceThree: '#4D4D4D',
