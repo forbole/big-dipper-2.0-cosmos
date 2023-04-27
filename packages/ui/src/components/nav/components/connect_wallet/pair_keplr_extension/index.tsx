@@ -1,7 +1,5 @@
 import { useStyles } from '@/components/nav/components/connect_wallet/styles';
-import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import IconButton from '@mui/material/IconButton';
@@ -9,19 +7,14 @@ import Typography from '@mui/material/Typography';
 import CloseIcon from '@mui/icons-material/Close';
 import { useTranslation } from 'next-i18next';
 import { FC } from 'react';
-import Loading from '@/components/loading';
+import LinearLoading from '@/components/linear_loading';
 
 type PairKeplExtensionDialogProps = {
   open: boolean;
   onClose: () => void;
-  onContinue: () => void;
 };
 
-const PairKeplrExtensionDialog: FC<PairKeplExtensionDialogProps> = ({
-  open,
-  onClose,
-  onContinue,
-}) => {
+const PairKeplrExtensionDialog: FC<PairKeplExtensionDialogProps> = ({ open, onClose }) => {
   const { classes } = useStyles();
   const { t } = useTranslation();
 
@@ -29,13 +22,14 @@ const PairKeplrExtensionDialog: FC<PairKeplExtensionDialogProps> = ({
     <div>
       <Dialog maxWidth="md" onClose={onClose} open={open} className={classes.dialog}>
         <DialogTitle>
-          <div className={classes.warningMsg}>
+          <div className={classes.header}>
+            <Typography className={classes.title} gutterBottom>
+              {t('common:pleaseOpenWallet', {
+                wallet: 'Keplr Wallet',
+              })}
+            </Typography>
             <div>
-              <Typography variant="h2" align="center" className={classes.msgHeader}>
-                {t('common:pleaseOpenWallet', {
-                  wallet: 'Keplr Wallet',
-                })}
-              </Typography>
+              <Typography className={classes.subtitle}>{t('common:pleasePairWallet')}</Typography>
             </div>
             <IconButton aria-label="close" onClick={onClose} className={classes.closeButton}>
               <CloseIcon />
@@ -43,20 +37,11 @@ const PairKeplrExtensionDialog: FC<PairKeplExtensionDialogProps> = ({
           </div>
         </DialogTitle>
         <DialogContent>
-          <div className={classes.msgContent}>
-            <Typography variant="h4" align="center">
-              {t('common:pleasePairWallet')}
-            </Typography>
+          <LinearLoading className={classes.loading} />
+          <div className={classes.loadingText}>
+            <Typography variant="h4">{t('common:loading')}</Typography>
           </div>
-          <Loading className={classes.loading} />
         </DialogContent>
-        <DialogActions>
-          <div className={classes.actions}>
-            <Button onClick={onContinue} color="primary" className={classes.actionsButton}>
-              <Typography variant="h3">{t('common:continue')}</Typography>
-            </Button>
-          </div>
-        </DialogActions>
       </Dialog>
     </div>
   );

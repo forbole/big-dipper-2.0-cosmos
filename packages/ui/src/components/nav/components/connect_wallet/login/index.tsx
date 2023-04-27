@@ -1,23 +1,23 @@
 import { useStyles } from '@/components/nav/components/connect_wallet/styles';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import CloseIcon from '@mui/icons-material/Close';
+import WalletConnectIcon from 'shared-utils/assets/wallet-connect.svg';
+import KeplrIcon from 'shared-utils/assets/keplr-wallet.svg';
 import { useTranslation } from 'next-i18next';
 import { FC } from 'react';
 
 type LoginDialogProps = {
   open: boolean;
   onClose: () => void;
-  onContinue: () => void;
-  setWallet: (walletOption: string) => void;
+  handleConnectWallet: (wallet: string) => void;
 };
 
-const LoginDialog: FC<LoginDialogProps> = ({ open, onClose, onContinue, setWallet }) => {
+const LoginDialog: FC<LoginDialogProps> = ({ open, onClose, handleConnectWallet }) => {
   const { classes } = useStyles();
   const { t } = useTranslation();
 
@@ -26,54 +26,49 @@ const LoginDialog: FC<LoginDialogProps> = ({ open, onClose, onContinue, setWalle
       <Dialog maxWidth="md" onClose={onClose} open={open} className={classes.dialog}>
         <DialogTitle>
           <div className={classes.header}>
-            <div className={classes.title}>
-              <Typography variant="h2" gutterBottom>
-                {t('common:logIn')}
-              </Typography>
-            </div>
+            <Typography className={classes.title} gutterBottom>
+              {t('common:welcomeToBigDipper')}
+            </Typography>
             <div>
-              <Typography variant="h4">{t('common:welcomeToBigDipper')}</Typography>
+              <Typography className={classes.subtitle}>{t('common:chooseYourWallet')}</Typography>
             </div>
             <IconButton aria-label="close" onClick={onClose} className={classes.closeButton}>
               <CloseIcon />
             </IconButton>
           </div>
         </DialogTitle>
-        <DialogContent style={{ overflow: 'visible', alignSelf: 'center' }}>
-          <div className={classes.dialogContent}>
-            <div className={classes.connectWalletButton}>
-              <Button
-                onClick={(e: { preventDefault: () => void }) => {
-                  e.preventDefault();
-                  setWallet('Wallet Connect');
-                }}
-                aria-label="connect-walletconnect-wallet-button"
-                className={classes.walletButton}
-              >
-                <div className={classes.walletConnectLabel}>Wallet connect</div>
-              </Button>
-            </div>
-            <div className={classes.connectKeplrButton}>
-              <Button
-                onClick={(e: { preventDefault: () => void }) => {
-                  e.preventDefault();
-                  setWallet('Keplr Extension');
-                }}
-                aria-label="connect-keplr-extension-button"
-                className={classes.walletButton}
-              >
-                <div className={classes.label}>Keplr</div>
-              </Button>
-            </div>
-          </div>
-        </DialogContent>
-        <DialogActions>
-          <div className={classes.actions}>
-            <Button onClick={onContinue} color="primary" className={classes.actionsButton}>
-              <Typography variant="h3">{t('common:continue')}</Typography>
+        <DialogContent className={classes.dialogContent}>
+          <div className={classes.dialogContentButton}>
+            <Button
+              aria-label="connect-walletconnect-wallet-button"
+              onClick={(e: { preventDefault: () => void }) => {
+                e.preventDefault();
+                handleConnectWallet('Wallet Connect');
+              }}
+              className={classes.walletButton}
+            >
+              <div className={classes.walletIcon}>
+                <WalletConnectIcon />
+                <div className={classes.walletConnectLabel}>Wallet Connect</div>
+              </div>
             </Button>
           </div>
-        </DialogActions>
+          <div className={classes.dialogContentButton}>
+            <Button
+              onClick={(e: { preventDefault: () => void }) => {
+                e.preventDefault();
+                handleConnectWallet('Keplr Extension');
+              }}
+              aria-label="connect-keplr-extension-button"
+              className={classes.walletButton}
+            >
+              <div className={classes.walletIcon}>
+                <KeplrIcon />
+                <div className={classes.walletConnectLabel}>Keplr</div>
+              </div>
+            </Button>
+          </div>
+        </DialogContent>
       </Dialog>
     </div>
   );

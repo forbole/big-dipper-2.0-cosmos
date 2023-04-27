@@ -1,8 +1,5 @@
 import { useStyles } from '@/components/nav/components/connect_wallet/styles';
-import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
@@ -14,14 +11,12 @@ type InstallKeplrExtensionDialogProps = {
   walletUrl: string;
   open: boolean;
   onClose: () => void;
-  onContinue: () => void;
 };
 
 const InstallKeplrExtensionDialog: FC<InstallKeplrExtensionDialogProps> = ({
   walletUrl,
   open,
   onClose,
-  onContinue,
 }) => {
   const { classes } = useStyles();
   const { t } = useTranslation();
@@ -30,12 +25,25 @@ const InstallKeplrExtensionDialog: FC<InstallKeplrExtensionDialogProps> = ({
     <div>
       <Dialog maxWidth="md" onClose={onClose} open={open} className={classes.dialog}>
         <DialogTitle>
-          <div className={classes.warningMsg}>
+          <div className={classes.header}>
+            <Typography className={classes.title} gutterBottom>
+              {t('common:pleaseInstallWallet', {
+                wallet: 'Keplr Wallet',
+              })}
+            </Typography>
             <div>
-              <Typography variant="h2" align="center" className={classes.msgHeader}>
-                {t('common:pleaseInstallWallet', {
-                  wallet: 'Keplr Wallet',
-                })}
+              <Typography className={classes.subtitle}>
+                <Trans
+                  i18nKey="common:couldntFindWalletExtension"
+                  components={[
+                    <a target="_blank" rel="noreferrer" href={walletUrl}>
+                      {}
+                    </a>,
+                  ]}
+                  values={{
+                    wallet: 'Keplr Wallet',
+                  }}
+                />
               </Typography>
             </div>
             <IconButton aria-label="close" onClick={onClose} className={classes.closeButton}>
@@ -43,30 +51,6 @@ const InstallKeplrExtensionDialog: FC<InstallKeplrExtensionDialogProps> = ({
             </IconButton>
           </div>
         </DialogTitle>
-        <DialogContent>
-          <div className={classes.warningMsgDetails}>
-            <Typography variant="h4" align="center">
-              <Trans
-                i18nKey="common:couldntFindWalletExtension"
-                components={[
-                  <a target="_blank" rel="noreferrer" href={walletUrl}>
-                    {}
-                  </a>,
-                ]}
-                values={{
-                  wallet: 'Keplr Wallet',
-                }}
-              />
-            </Typography>
-          </div>
-        </DialogContent>
-        <DialogActions>
-          <div className={classes.actions}>
-            <Button onClick={onContinue} color="primary" className={classes.actionsButton}>
-              <Typography variant="h3">{t('common:retry')}</Typography>
-            </Button>
-          </div>
-        </DialogActions>
       </Dialog>
     </div>
   );

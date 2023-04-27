@@ -19,7 +19,6 @@ import {
   readOpenPairConnectWalletDialog,
   readOpenPairKeplrExtensionDialog,
   readWalletConnectURI,
-  // readWalletSelection,
 } from '@/recoil/wallet';
 
 type ConnectWalletProps = {
@@ -30,7 +29,6 @@ const ConnectWallet: FC<ConnectWalletProps> = () => {
   const { classes } = useStyles();
   const loggedIn = useRecoilValue(readIsUserLoggedIn);
   const openLoginDialog = useRecoilValue(readOpenLoginDialog);
-  // const walletSelection = useRecoilValue(readWalletSelection);
   const openInstallKeplrExtensionDialog = useRecoilValue(readOpenInstallKeplrExtensionDialog);
   const openPairKeplrExtensionDialog = useRecoilValue(readOpenPairKeplrExtensionDialog);
   const openAuthorizeConnectionDialog = useRecoilValue(readOpenAuthorizeConnectionDialog);
@@ -39,23 +37,19 @@ const ConnectWallet: FC<ConnectWalletProps> = () => {
   const walletConnectURI = useRecoilValue(readWalletConnectURI);
 
   const {
-    continueToAuthorizeKeplrConnectionDialog,
-    continueToKeplrExtensionPairingDialog,
-    continueToLoginSuccessDialog,
     errorMsg,
-    handleCloseAuthorizeConnectionDialog,
-    handleCloseInstallKeplrExtensionDialog,
-    handleCloseKeplrPairingDialog,
-    handleCloseLoginDialog,
-    handleCloseLoginSuccessDialog,
-    handleClosetWalletConnectDialog,
+    closeAuthorizeConnectionDialog,
+    closeInstallKeplrExtensionDialog,
+    closeKeplrPairingDialog,
+    closeLoginDialog,
+    closeLoginSuccessDialog,
+    closeWalletConnectDialog,
     handleConnectWallet,
     handleLogin,
     handleLogout,
-    setWalletOption,
   } = useConnectWalletList();
   return (
-    <div>
+    <div className={classes.connectWallet}>
       <div
         onClick={loggedIn ? handleLogout : handleLogin}
         role="button"
@@ -67,40 +61,29 @@ const ConnectWallet: FC<ConnectWalletProps> = () => {
       </div>
       <LoginDialog
         open={openLoginDialog}
-        setWallet={setWalletOption}
-        onClose={handleCloseLoginDialog}
-        onContinue={handleConnectWallet}
+        handleConnectWallet={handleConnectWallet}
+        onClose={closeLoginDialog}
       />
       <InstallKeplrExtensionDialog
         walletUrl="https://www.keplr.app/download"
         open={openInstallKeplrExtensionDialog}
-        onClose={handleCloseInstallKeplrExtensionDialog}
-        onContinue={continueToKeplrExtensionPairingDialog}
+        onClose={closeInstallKeplrExtensionDialog}
       />
       <PairKeplrExtensionDialog
         open={openPairKeplrExtensionDialog}
-        onClose={handleCloseKeplrPairingDialog}
-        onContinue={continueToAuthorizeKeplrConnectionDialog}
+        onClose={closeKeplrPairingDialog}
       />
       <AuthorizeConnectionDialog
         open={openAuthorizeConnectionDialog}
         errorMsg={errorMsg}
-        onClose={handleCloseAuthorizeConnectionDialog}
-        onContinue={continueToLoginSuccessDialog}
+        onClose={closeAuthorizeConnectionDialog}
       />
       <PairConnectWalletDialog
         open={openPairConnectWalletDialog}
         walletConnectURI={walletConnectURI}
-        onClose={handleClosetWalletConnectDialog}
-        onContinue={() => {
-          // do nothing
-        }}
+        onClose={closeWalletConnectDialog}
       />
-      <LoginSuccessDialog
-        open={openLoginSuccessDialog}
-        onClose={handleCloseLoginSuccessDialog}
-        onContinue={handleCloseLoginSuccessDialog}
-      />
+      <LoginSuccessDialog open={openLoginSuccessDialog} onClose={closeLoginSuccessDialog} />
     </div>
   );
 };

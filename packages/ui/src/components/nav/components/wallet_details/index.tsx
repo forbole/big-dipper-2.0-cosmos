@@ -16,7 +16,7 @@ const WalletDetails: FC<WalletDetailsProps> = ({ className }) => {
   const {
     showWalletDetails,
     handleShowWalletDetails,
-    handleCloseWalletDetails,
+    closeWalletDetails,
     handleLogout,
     handleLogin,
   } = useConnectWalletList();
@@ -27,7 +27,7 @@ const WalletDetails: FC<WalletDetailsProps> = ({ className }) => {
     <ClickAwayListener
       onClickAway={(e: { preventDefault: () => void }) => {
         e.preventDefault();
-        handleCloseWalletDetails();
+        closeWalletDetails();
       }}
     >
       <div>
