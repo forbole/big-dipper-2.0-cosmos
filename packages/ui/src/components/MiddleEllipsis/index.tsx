@@ -19,7 +19,7 @@ const useStyles = makeStyles()(() => ({
       overflow: 'hidden',
       height: '1lh',
       lineHeight: '1lh',
-      width: '30%',
+      width: '25%',
       maxWidth: '50%',
       whiteSpace: 'nowrap',
       textOverflow: 'ellipsis',
