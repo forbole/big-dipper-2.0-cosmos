@@ -1,5 +1,17 @@
 # Unreleased
 
+## 2.13.0
+
+### Minor Changes
+
+- [#1228](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1228) [`2113969f5`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/2113969f5dea2d4a2cc177dc94f6ac8994080a67) Thanks [@rachelhox](https://github.com/rachelhox)! - ui: increase market price precision web-cheqd: add custom wallets module
+
+### Patch Changes
+
+- Updated dependencies [[`d106401de`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/d106401de6ad55be1efa2eedc248ad7277ce524a), [`381e863d1`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/381e863d12c2c56e1a32946f828de6cbd5350c46), [`2113969f5`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/2113969f5dea2d4a2cc177dc94f6ac8994080a67)]:
+  - ui@2.25.0
+  - shared-utils@2.14.0
+
 ## 2.12.0
 
 ### Minor Changes
