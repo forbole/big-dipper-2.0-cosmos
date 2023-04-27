@@ -1,135 +1,6 @@
 import { makeStyles } from 'tss-react/mui';
 
-const styles = makeStyles()(theme => ({
-  icon: {
-    marginLeft: '20px',
-    [theme.breakpoints.up('lg')]: {
-      display: 'flex',
-      alignItems: 'center',
-      textAlign: 'center',
-      justifyContent: 'center',
-    },
-    '&:hover': {
-      cursor: 'pointer',
-    },
-    '& svg': {
-      fill: 'none',
-      stroke: theme.palette.custom.general.icon,
-      strokeWidth: '1.6',
-      strokeLinecap: 'round',
-      strokeLinejoin: 'round',
-    },
-  },
-  connectWalletButton: {
-    padding: '0px 15px',
-    whiteSpace: 'nowrap',
-    textOverflow: 'ellipsis',
-    [theme.breakpoints.down('sm')]: {
-      padding: '0px 12px',
-      whiteSpace: 'normal',
-    },
-    [theme.breakpoints.up('md')]: {
-      padding: '0px 70px',
-    },
-  },
-  connectKeplrButton: {
-    padding: '0px 20px',
-    [theme.breakpoints.down('sm')]: {
-      padding: '0px 12px',
-    },
-    [theme.breakpoints.up('md')]: {
-      padding: '0px 70px',
-    },
-  },
-  connectButterButton: {
-    padding: '0px 15px',
-    [theme.breakpoints.down('sm')]: {
-      padding: '0px 12px',
-    },
-    [theme.breakpoints.up('md')]: {
-      padding: '0px 30px',
-    },
-  },
-  closeButton: {
-    position: 'absolute',
-    right: '24px',
-    top: '16px',
-    color: theme.palette.grey[500],
-    [theme.breakpoints.down('xs')]: {
-      left: '250px',
-    },
-  },
-  walletButton: {
-    border: 'solid 1px #D9D9D9',
-    borderRadius: '24px',
-    width: '70px',
-    height: '70px',
-    fontSize: '14px',
-    justifyContent: 'left',
-    overflow: 'visible',
-    background: theme.palette.custom.wallet.surfaceTwo,
-    '&:hover': {
-      background: theme.palette.primary.main,
-      borderColor: theme.palette.primary.main,
-    },
-    '&:focus': {
-      background: theme.palette.primary.main,
-      borderColor: theme.palette.primary.main,
-    },
-    [theme.breakpoints.up('md')]: {
-      borderRadius: '24px',
-      width: '100px',
-      height: '100px',
-    },
-    color: theme.palette.custom.wallet.surfaceTwo,
-  },
-  header: {
-    alignItems: 'center',
-    padding: '72px 32px 32px 19px',
-    [theme.breakpoints.up('md')]: {
-      padding: '72px 32px 32px 37px',
-    },
-  },
-  title: {
-    display: 'flex',
-    alignItems: 'center',
-  },
-  dialog: {
-    '& .MuiDialog-paper': {
-      width: '330px',
-      backgroundColor: theme.palette.custom.wallet.backgroundTwo,
-      [theme.breakpoints.up('md')]: {
-        width: '600px',
-        height: '541px',
-      },
-    },
-  },
-  dialogContent: {
-    display: 'inline-flex',
-    paddingBottom: '24px',
-    paddingTop: '23px',
-    overflow: 'visible',
-  },
-  label: {
-    fontSize: '16px',
-    marginTop: '160px',
-    marginLeft: '-10px',
-    textAlign: 'left',
-    lineHeight: 'normal',
-    [theme.breakpoints.up('md')]: {
-      marginTop: '160px',
-    },
-  },
-  walletConnectLabel: {
-    fontSize: '16px',
-    marginTop: '182px',
-    marginLeft: '-10px',
-    textAlign: 'left',
-    lineHeight: 'normal',
-    [theme.breakpoints.up('md')]: {
-      marginTop: '160px',
-    },
-  },
+const styles = makeStyles()((theme) => ({
   actions: {
     display: 'flex',
     position: 'relative',
@@ -157,19 +28,6 @@ const styles = makeStyles()(theme => ({
       left: '54px',
     },
   },
-  walletDetailsButton: {
-    opacity: 0,
-    visibility: 'hidden',
-    transition: '0.2s ease-in-out',
-    position: 'fixed',
-    right: 60,
-    '&.open': {
-      opacity: 1,
-      visibility: 'visible',
-      background: theme.palette.custom.wallet.background,
-      borderRadius: '8px',
-    },
-  },
   avatar: {
     margin: '0px 20px 0px 5px',
     borderRadius: '100px',
@@ -186,26 +44,93 @@ const styles = makeStyles()(theme => ({
       fill: 'none',
     },
   },
-  msgHeader: {
-    fontWeight: 700,
-    lineHeight: '160%',
-    letterSpacing: '0.15px',
-    paddingTop: '50px',
-  },
-  warningMsg: {
-    alignItems: 'center',
-    padding: '72px 32px 0px 19px',
-    [theme.breakpoints.up('md')]: {
-      padding: '72px 32px 0px 37px',
+  closeButton: {
+    position: 'absolute',
+    right: '24px',
+    top: '16px',
+    color: theme.palette.grey[500],
+    [theme.breakpoints.down('xs')]: {
+      left: '250px',
     },
   },
-  warningMsgDetails: {
-    display: 'flex',
-    position: 'absolute',
-    top: '185px',
-    padding: '0px 32px 0px 19px',
+  dialog: {
+    '& .MuiDialog-paper': {
+      width: '330px',
+      height: '330px',
+      backgroundColor: theme.palette.custom.wallet.backgroundTwo,
+      [theme.breakpoints.up('md')]: {
+        width: '561px',
+        height: '550px',
+      },
+    },
+  },
+  dialogContent: {
+    display: 'inline-flex',
+    alignSelf: 'center',
+    marginTop: '10px',
     [theme.breakpoints.up('md')]: {
-      padding: '0px 32px 0px 37px',
+      marginTop: '70px',
+    },
+  },
+  dialogContentButton: {
+    padding: '8px',
+  },
+  errorMsg: {
+    color: theme.palette.custom.results.fail,
+    fontWeight: '550',
+    display: 'flex',
+    textAlign: 'center',
+    justifyContent: 'center',
+    overflowWrap: 'anywhere',
+  },
+  header: {
+    paddingTop: '20px',
+  },
+  icon: {
+    marginLeft: '20px',
+    [theme.breakpoints.up('lg')]: {
+      display: 'flex',
+      alignItems: 'center',
+      textAlign: 'center',
+      justifyContent: 'center',
+    },
+    '&:hover': {
+      cursor: 'pointer',
+    },
+    '& svg': {
+      fill: 'none',
+      stroke: theme.palette.custom.general.icon,
+      strokeWidth: '1.6',
+      strokeLinecap: 'round',
+      strokeLinejoin: 'round',
+    },
+  },
+  loginSuccessIcon: {
+    position: 'relative',
+    left: '95px',
+    fill: 'none',
+    stroke: theme.palette.primary.main,
+    strokeWidth: '4',
+    strokeLinecap: 'round',
+    strokeLinejoin: 'round',
+    [theme.breakpoints.up('md')]: {
+      top: '95px',
+      left: '210px',
+    },
+  },
+  loading: {
+    height: '150px',
+    [theme.breakpoints.up('md')]: {
+      height: '250px',
+    },
+  },
+  loadingText: {
+    fontWeight: '550',
+    position: 'relative',
+    textAlign: 'center',
+    bottom: '60px',
+    [theme.breakpoints.up('md')]: {
+      bottom: '103px',
     },
   },
   msgContent: {
@@ -214,74 +139,102 @@ const styles = makeStyles()(theme => ({
     top: '185px',
     left: '172px',
   },
-  loginSuccessMsgContent: {
-    display: 'flex',
-    position: 'absolute',
-    top: '185px',
-    left: '100px',
-  },
-  loginSuccessIcon: {
-    position: 'relative',
-    top: '55px',
-    left: '250px',
-  },
-  loading: {
-    position: 'relative',
-    top: '50px',
-    '& .MuiCircularProgress-colorPrimary': {
-      color: '#D9D9D9',
-    },
-  },
-  walletConnectHeader: {
+  msgHeader: {
     fontWeight: 700,
+    lineHeight: '160%',
     letterSpacing: '0.15px',
     display: 'flex',
-    position: 'absolute',
-    left: '60px',
-    marginTop: '5px',
-  },
-  walletConnectContent: {
-    display: 'inline-flex',
-    padding: '30px 0px',
-  },
-  walletConnectMsg: {
-    display: 'flex',
-    position: 'absolute',
-    left: '60px',
-    paddingTop: '5px',
-  },
-  grayDot: {
-    height: '28px',
-    width: '28px',
-    backgroundColor: theme.palette.custom.wallet.surfaceTwo,
-    borderRadius: 50,
-    display: 'flex',
-    position: 'absolute',
+    textAlign: 'left',
   },
   qrCode: {
-    position: 'absolute',
-    left: '176px',
-    top: '155px',
-    border: 'solid 21px #FFFFFF',
+    border: 'solid 10px #FFFFFF',
     borderRadius: '8px',
     backgroundColor: '#FFFFFF',
-  },
-  qrCodeLoading: {
-    position: 'absolute',
-    left: '280px',
-    top: '235px',
-    '& .MuiCircularProgress-colorPrimary': {
-      color: '#D9D9D9',
+    [theme.breakpoints.up('md')]: {
+      border: 'solid 21px #FFFFFF',
+      position: 'absolute',
+      left: '166px',
+      top: '160px',
     },
   },
-  errorMsg: {
-    color: theme.palette.custom.results.fail,
-    fontWeight: '550',
+  qrContent: {
     display: 'flex',
-    textAlign: 'center',
     justifyContent: 'center',
-    marginTop: '125px',
-    overflowWrap: 'anywhere',
+  },
+  subtitle: {
+    fontSize: '12px',
+    lineHeight: '30px',
+    paddingTop: '5px',
+    fontWeight: 400,
+    letterSpacing: '0.005rem',
+    color: theme.palette.text.secondary,
+    fontFamily: 'Helvetica Neue',
+    [theme.breakpoints.up('md')]: {
+      fontSize: '16px',
+    },
+  },
+  title: {
+    display: 'flex',
+    fontSize: '16px',
+    [theme.breakpoints.up('md')]: {
+      fontSize: '24px',
+    },
+  },
+  walletButton: {
+    border: 'solid 1px',
+    borderColor: theme.palette.custom.wallet.surfaceFour,
+    borderRadius: '24px',
+    width: '120px',
+    height: '120px',
+    display: 'flex',
+    padding: '16px',
+    justifyContent: 'center',
+    '&:hover': {
+      background: theme.palette.custom.wallet.surfaceFour,
+      borderColor: theme.palette.custom.wallet.surfaceFour,
+    },
+    [theme.breakpoints.up('md')]: {
+      borderRadius: '24px',
+      width: '153px',
+      height: '152px',
+    },
+    color: theme.palette.custom.wallet.surfaceTwo,
+  },
+  walletConnectLabel: {
+    fontSize: '14px',
+    lineHeight: '17px',
+    justifyContent: 'center',
+    whiteSpace: 'nowrap',
+    display: 'flex',
+    fontStyle: 'normal',
+    fontWeight: 590,
+    letterSpacing: '-0.002em',
+    [theme.breakpoints.up('md')]: {
+      marginTop: '4px',
+    },
+  },
+  walletDetailsButton: {
+    opacity: 0,
+    visibility: 'hidden',
+    transition: '0.2s ease-in-out',
+    position: 'fixed',
+    right: 60,
+    '&.open': {
+      opacity: 1,
+      visibility: 'visible',
+      background: theme.palette.custom.wallet.background,
+      borderRadius: '8px',
+    },
+  },
+  walletIcon: {
+    display: 'inline-table',
+  },
+  connectWallet: {
+    [theme.breakpoints.down('lg')]: {
+      position: 'relative',
+      top: '3px',
+      right: '15px',
+    },
   },
 }));
 
