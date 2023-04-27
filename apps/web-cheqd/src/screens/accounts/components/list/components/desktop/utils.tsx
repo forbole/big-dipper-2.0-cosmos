@@ -7,15 +7,15 @@ const columns: Parameters<typeof useGrid>[0] = [
   },
   {
     key: 'top_address',
-    width: 35,
+    width: 40,
   },
   {
     key: 'top_dtag',
-    width: 20,
+    width: 10,
   },
   {
     key: 'top_balance',
-    width: 20,
+    width: 25,
   },
   {
     key: 'top_percentage',
