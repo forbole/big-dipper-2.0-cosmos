@@ -14068,7 +14068,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^5.0.3, typescript@npm:^5.0.4":
+"typescript@npm:^5.0.4":
   version: 5.0.4
   resolution: "typescript@npm:5.0.4"
   bin:
@@ -14078,7 +14078,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@^5.0.3#~builtin<compat/typescript>, typescript@patch:typescript@^5.0.4#~builtin<compat/typescript>":
+"typescript@patch:typescript@^5.0.4#~builtin<compat/typescript>":
   version: 5.0.4
   resolution: "typescript@patch:typescript@npm%3A5.0.4#~builtin<compat/typescript>::version=5.0.4&hash=85af82"
   bin:
@@ -17496,7 +17496,7 @@ __metadata:
     tsconfig: "workspace:*"
     tss-react: ^4.8.2
     typanion: ^3.12.1
-    typescript: ^5.0.3
+    typescript: ^5.0.4
     ui: "workspace:*"
     usehooks-ts: ^2.9.1
     ws: ^8.13.0
