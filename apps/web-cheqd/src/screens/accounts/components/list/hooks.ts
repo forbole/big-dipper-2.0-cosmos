@@ -44,18 +44,20 @@ export const useAccounts = (): UseAccountsState => {
   // Format the data returned from the query.
   const items = useMemo(
     () =>
-      data?.top_accounts.map((row, i) => ({
-        rank: 1 + offset + i,
-        address: row.address,
-        balance: row.sum ?? 0,
-        percentage: row.sum
-          ? Big(row.sum)
-              .mul(100)
-              .div(10 ** exponent)
-              .div(supply.value)
-              .toNumber()
-          : 0,
-      })),
+      data?.top_accounts
+        .filter(({ type }) => type !== 'cosmos.auth.v1beta1.ModuleAccount')
+        .map((row, i) => ({
+          rank: 1 + offset + i,
+          address: row.address,
+          balance: row.sum ?? 0,
+          percentage: row.sum
+            ? Big(row.sum)
+                .mul(100)
+                .div(10 ** exponent)
+                .div(supply.value)
+                .toNumber()
+            : 0,
+        })),
     [data?.top_accounts, offset, supply.value]
   );
 
