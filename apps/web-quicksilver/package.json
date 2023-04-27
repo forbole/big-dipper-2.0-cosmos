@@ -1,6 +1,6 @@
 {
   "name": "web-quicksilver",
-  "version": "2.15.0",
+  "version": "2.15.1",
   "license": "Apache-2.0",
   "private": true,
   "scripts": {

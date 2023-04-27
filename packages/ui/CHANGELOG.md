@@ -1,5 +1,20 @@
 # ui
 
+## 2.25.0
+
+### Minor Changes
+
+- [#1206](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1206) [`381e863d1`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/381e863d12c2c56e1a32946f828de6cbd5350c46) Thanks [@rachelhox](https://github.com/rachelhox)! - add Wormhole Big Dipper
+
+- [#1228](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1228) [`2113969f5`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/2113969f5dea2d4a2cc177dc94f6ac8994080a67) Thanks [@rachelhox](https://github.com/rachelhox)! - ui: increase market price precision web-cheqd: add custom wallets module
+
+### Patch Changes
+
+- [#1226](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1226) [`d106401de`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/d106401de6ad55be1efa2eedc248ad7277ce524a) Thanks [@teamchong](https://github.com/teamchong)! - fix: reset transaction state when address changed at account page
+
+- Updated dependencies [[`381e863d1`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/381e863d12c2c56e1a32946f828de6cbd5350c46)]:
+  - shared-utils@2.14.0
+
 ## 2.24.0
 
 ### Minor Changes
