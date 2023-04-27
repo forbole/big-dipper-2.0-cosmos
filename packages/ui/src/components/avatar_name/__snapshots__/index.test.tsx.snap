@@ -62,9 +62,20 @@ exports[`component: AvatarName matches snapshot 1`] = `
   overflow: hidden;
   height: 1lh;
   line-height: 1lh;
-  max-width: 50%;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+@media (min-width:375px) {
+  .emotion-3.emotion-3 {
+    max-width: 50%;
+  }
+}
+
+@media (min-width:768px) {
+  .emotion-3.emotion-3 {
+    max-width: 50%;
+  }
 }
 
 .emotion-4.emotion-4 {
@@ -76,7 +87,9 @@ exports[`component: AvatarName matches snapshot 1`] = `
   overflow: hidden;
   height: 1lh;
   line-height: 1lh;
-  max-width: 50;
+  max-width: -webkit-max-content;
+  max-width: -moz-max-content;
+  max-width: max-content;
   white-space: normal;
   overflow-wrap: anywhere;
 }
@@ -181,9 +194,20 @@ exports[`component: AvatarName matches snapshot with imageUrl 1`] = `
   overflow: hidden;
   height: 1lh;
   line-height: 1lh;
-  max-width: 50%;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+@media (min-width:375px) {
+  .emotion-3.emotion-3 {
+    max-width: 50%;
+  }
+}
+
+@media (min-width:768px) {
+  .emotion-3.emotion-3 {
+    max-width: 50%;
+  }
 }
 
 .emotion-4.emotion-4 {
@@ -195,7 +219,9 @@ exports[`component: AvatarName matches snapshot with imageUrl 1`] = `
   overflow: hidden;
   height: 1lh;
   line-height: 1lh;
-  max-width: 50;
+  max-width: -webkit-max-content;
+  max-width: -moz-max-content;
+  max-width: max-content;
   white-space: normal;
   overflow-wrap: anywhere;
 }

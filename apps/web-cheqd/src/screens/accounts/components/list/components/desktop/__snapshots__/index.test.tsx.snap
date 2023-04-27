@@ -131,7 +131,7 @@ exports[`screen: Accounts/Desktop matches snapshot 1`] = `
           style={
             {
               "textAlign": undefined,
-              "width": "25%",
+              "width": "40%",
             }
           }
         />
@@ -141,7 +141,7 @@ exports[`screen: Accounts/Desktop matches snapshot 1`] = `
           style={
             {
               "textAlign": undefined,
-              "width": "30%",
+              "width": "10%",
             }
           }
         />
@@ -151,7 +151,7 @@ exports[`screen: Accounts/Desktop matches snapshot 1`] = `
           style={
             {
               "textAlign": undefined,
-              "width": "30%",
+              "width": "25%",
             }
           }
         />
@@ -161,7 +161,7 @@ exports[`screen: Accounts/Desktop matches snapshot 1`] = `
           style={
             {
               "textAlign": "right",
-              "width": "15%",
+              "width": "20%",
             }
           }
         />
@@ -193,7 +193,7 @@ exports[`screen: Accounts/Desktop matches snapshot 1`] = `
           style={
             {
               "textAlign": undefined,
-              "width": "25%",
+              "width": "40%",
             }
           }
         >
@@ -211,7 +211,7 @@ exports[`screen: Accounts/Desktop matches snapshot 1`] = `
           style={
             {
               "textAlign": undefined,
-              "width": "30%",
+              "width": "10%",
             }
           }
         />
@@ -221,7 +221,7 @@ exports[`screen: Accounts/Desktop matches snapshot 1`] = `
           style={
             {
               "textAlign": undefined,
-              "width": "30%",
+              "width": "25%",
             }
           }
         >
@@ -235,7 +235,7 @@ exports[`screen: Accounts/Desktop matches snapshot 1`] = `
           style={
             {
               "textAlign": "right",
-              "width": "15%",
+              "width": "20%",
             }
           }
         >
@@ -265,7 +265,7 @@ exports[`screen: Accounts/Desktop matches snapshot 1`] = `
           style={
             {
               "textAlign": undefined,
-              "width": "25%",
+              "width": "40%",
             }
           }
         >
@@ -283,7 +283,7 @@ exports[`screen: Accounts/Desktop matches snapshot 1`] = `
           style={
             {
               "textAlign": undefined,
-              "width": "30%",
+              "width": "10%",
             }
           }
         />
@@ -293,7 +293,7 @@ exports[`screen: Accounts/Desktop matches snapshot 1`] = `
           style={
             {
               "textAlign": undefined,
-              "width": "30%",
+              "width": "25%",
             }
           }
         >
@@ -307,7 +307,7 @@ exports[`screen: Accounts/Desktop matches snapshot 1`] = `
           style={
             {
               "textAlign": "right",
-              "width": "15%",
+              "width": "20%",
             }
           }
         >
