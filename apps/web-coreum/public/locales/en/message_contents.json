@@ -70,5 +70,5 @@
   "msgNftFreezeContent": "Account <0>{{sender}}</0> has frozen NFT <1>{{id}}</1> with class <2>{{class_id}}</2>",
   "msgNftUnfreezeContent": "Account <0>{{sender}}</0> has unfrozen NFT <1>{{id}}</1> with class <2>{{class_id}}</2>",
   "msgNftIssueClassContent": "A new NFT Class <0>{{name}}</0> has been issued by <1>{{issuer}}</1>",
-  "msgNftSendContent": "Account <0>{{sender}}</0> has sent NFT <1>{{id}}</1> with class <2>{{class_id}}</2> to <3>{{receiver}}</3>"
+  "msgNftSendContent": "Account <0>{{sender}}</0> has sent NFT <1>{{id}}</1> with class <2>{{class_id}}</2> to <3>{{recipient}}</3>"
 }
