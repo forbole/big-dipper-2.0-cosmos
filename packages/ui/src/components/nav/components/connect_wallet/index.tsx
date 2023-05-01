@@ -1,3 +1,5 @@
+import Button from '@mui/material/Button';
+import { useTranslation } from 'next-i18next';
 import useConnectWalletList from '@/components/nav/components/connect_wallet/hooks';
 import { useStyles } from '@/components/nav/components/connect_wallet/styles';
 import LoginIcon from 'shared-utils/assets/icon-login.svg';
@@ -27,6 +29,7 @@ type ConnectWalletProps = {
 
 const ConnectWallet: FC<ConnectWalletProps> = () => {
   const { classes } = useStyles();
+  const { t } = useTranslation();
   const loggedIn = useRecoilValue(readIsUserLoggedIn);
   const openLoginDialog = useRecoilValue(readOpenLoginDialog);
   const openInstallKeplrExtensionDialog = useRecoilValue(readOpenInstallKeplrExtensionDialog);
@@ -57,7 +60,13 @@ const ConnectWallet: FC<ConnectWalletProps> = () => {
         tabIndex={0}
         aria-label="connect-wallet-button"
       >
-        {loggedIn ? <LogoutIcon /> : <LoginIcon />}
+        {loggedIn ? (
+          <LogoutIcon />
+        ) : (
+          <Button startIcon={<LoginIcon />} className={classes.logInButton}>
+            {t('common:logIn')}
+          </Button>
+        )}
       </div>
       <LoginDialog
         open={openLoginDialog}

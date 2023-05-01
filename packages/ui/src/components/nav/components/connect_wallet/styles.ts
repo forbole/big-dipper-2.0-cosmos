@@ -28,6 +28,31 @@ const styles = makeStyles()((theme) => ({
       left: '54px',
     },
   },
+  logInButton: {
+    background: theme.palette.custom.primaryData.one,
+    height: theme.spacing(4),
+    borderRadius: theme.spacing(0.5),
+    fontWeight: 600,
+    fontSize: theme.spacing(1.75),
+    color: theme.palette.common.white,
+    padding: theme.spacing(1, 1.5),
+    '& .MuiButton-startIcon': {
+      marginRight: 1,
+    },
+    '& svg': {
+      fill: 'none',
+      color: theme.palette.common.white,
+      stroke: theme.palette.common.white,
+      strokeWidth: '1.6',
+      strokeLinecap: 'round',
+      strokeLinejoin: 'round',
+      height: theme.spacing(2.5),
+      width: theme.spacing(2.5),
+      '& path': {
+        stroke: theme.palette.common.white,
+      },
+    },
+  },
   avatar: {
     margin: '0px 20px 0px 5px',
     borderRadius: '100px',
