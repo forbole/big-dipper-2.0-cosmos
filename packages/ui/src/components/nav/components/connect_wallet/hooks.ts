@@ -1,7 +1,8 @@
 import { SetterOrUpdater, useRecoilState } from 'recoil';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import WalletConnect from '@walletconnect/client';
 import { KeplrWalletConnectV1 } from '@keplr-wallet/wc-client';
+import { ChainIdQuery, useChainIdQuery } from '@/graphql/types/general_types';
 import { PubKey } from '@/recoil/user/atom';
 import {
   writeOpenLoginDialog,
@@ -29,9 +30,27 @@ import {
   getOfflineSignerPubKey,
   getCosmosClient,
 } from './keplr_utils';
-import { keplrChainID, wcBridgeURL, keplrCustomChainInfo } from './utils';
+import { wcBridgeURL, keplrCustomChainInfo } from './utils';
+
+// Get the chain ID from a GraphQL query response
+const mapChainIdToModel = (data?: ChainIdQuery) => data?.genesis?.[0]?.chainId ?? '';
 
 const useConnectWalletList = () => {
+  // keplr chain ID
+  const [keplrChainID, setKeplrChainID] = useState<string>('');
+  const chainIdQuery = useChainIdQuery();
+  const isCompletedChainId = !chainIdQuery.loading && !chainIdQuery.error;
+  const dataChainId = chainIdQuery.data;
+
+  // Store the fetched chain ID in the reactive variable when the data is loaded
+  useEffect(() => {
+    if (isCompletedChainId && dataChainId) {
+      setKeplrChainID(mapChainIdToModel(dataChainId));
+    }
+  }, [isCompletedChainId, dataChainId]);
+
+  console.log('keple chain id', keplrChainID);
+
   // UserState
   const [, setUserAddress] = useRecoilState(writeUserAddress) as [string, SetterOrUpdater<string>];
   const [, setUserIsLoggedIn] = useRecoilState(writeIsUserLoggedIn) as [
@@ -150,7 +169,7 @@ const useConnectWalletList = () => {
 
   const connectKeplrWallet = async (connector: WalletConnect) => {
     const keplr = new KeplrWalletConnectV1(connector);
-    if (keplr) {
+    if (keplr && keplrChainID !== '') {
       setOpenPairConnectWalletDialog(false);
       setOpenAuthorizeConnectionDialog(true);
       setErrorMsg(undefined);
