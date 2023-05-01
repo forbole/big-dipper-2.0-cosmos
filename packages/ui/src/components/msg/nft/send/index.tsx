@@ -18,13 +18,13 @@ const NftSend: FC<{ message: MsgNftSend }> = (props) => {
         i18nKey="message_contents:msgNftSendContent"
         components={[
           <Name address={message.sender} name={sender.name ?? message.sender} />,
+          <b />,
+          <b />,
           <Name address={message.receiver} name={receiver.name ?? message.receiver} />,
-          <b />,
-          <b />,
         ]}
         values={{
-          class_id: message.class_id,
           id: message.id,
+          class_id: message.class_id,
         }}
       />
     </Typography>
