@@ -127,11 +127,11 @@
         "validator": "wormholevaloper",
         "account": "wormhole"
       },
-      "primaryTokenUnit": "uworm",
-      "votingPowerTokenUnit": "uworm",
+      "primaryTokenUnit": "uhole",
+      "votingPowerTokenUnit": "uhole",
       "tokenUnits": {
-        "uworm": {
-          "display": "worm",
+        "uhole": {
+          "display": "hole",
           "exponent": 6
         }
       },
