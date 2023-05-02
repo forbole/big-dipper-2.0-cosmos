@@ -1,0 +1,13 @@
+{
+  "extends": "../../packages/tsconfig/nextjs.json",
+  "compilerOptions": {
+    "rootDirs": ["../../packages/ui", "."],
+    "baseUrl": "./src/",
+    "paths": {
+      "@/*": ["./*", "../../../packages/ui/src/*"],
+      "@/public/*": ["../public/*"],
+      "ui/*": ["../../../packages/ui/src/*"]
+    }
+  },
+  "include": ["*.d.ts", "src/**/*.ts", "src/**/*.tsx", "../../packages/ui/*.d.ts"]
+}
