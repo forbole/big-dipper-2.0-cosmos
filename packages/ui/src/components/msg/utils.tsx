@@ -489,6 +489,18 @@ const customTypeToModel = {
     tagTheme: 'six',
     tagDisplay: 'msgNftUnfreezeLabel',
   },
+  '/coreum.asset.nft.v1.MsgAddToWhitelist': {
+    model: MODELS.MsgNftAddToWhitelist,
+    content: COMPONENTS.NftAddToWhitelist,
+    tagTheme: 'six',
+    tagDisplay: 'msgNftAddToWhitelistLabel',
+  },
+  '/coreum.asset.nft.v1.MsgRemoveFromWhitelist': {
+    model: MODELS.MsgNftRemoveFromWhitelist,
+    content: COMPONENTS.NftRemoveFromWhitelist,
+    tagTheme: 'six',
+    tagDisplay: 'msgNftRemoveFromWhitelistLabel',
+  },
   '/coreum.nft.v1beta1.MsgSend': {
     model: MODELS.MsgNftSend,
     content: COMPONENTS.NftSend,

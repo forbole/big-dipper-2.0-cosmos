@@ -65,6 +65,8 @@
   "msgGloballyFreezeContent": "<0>{{sender}}</0> has globally frozen the token<1>{{denom}}</1>",
   "msgGloballyUnfreezeContent": "<0>{{sender}}</0> has globally unfrozen the token<1>{{denom}}</1>",
   "msgSetWhitelistedLimitContent": "<0>{{sender}}</0> has set the whitelisted limit for <1>{{account}}</1> to <2>{{amount}}</2>",
+  "msgNftAddToWhitelistContent": "Account <0>{{sender}}</0> whitelisted <1>{{account}}</1> to hold <2>{{id}}</2> NFT with class <3>{{class_id}}</3>.",
+  "msgRemoveFromWhitelistContent": "Account <0>{{sender}}</0> removed <1>{{account}}</1> from whitelist to hold <2>{{id}}</2> NFT with class <3>{{class_id}}</3> collection",
   "msgNftMintContent": "Account <0>{{sender}}</0> has minted NFT <1>{{id}}</1> with class <2>{{class_id}}</2>",
   "msgNftBurnContent": "Account <0>{{sender}}</0> has burned NFT <1>{{id}}</1> with class <2>{{class_id}}</2>",
   "msgNftFreezeContent": "Account <0>{{sender}}</0> has frozen NFT <1>{{id}}</1> with class <2>{{class_id}}</2>",

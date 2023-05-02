@@ -84,3 +84,5 @@ export { default as MsgNftFreeze } from '@/models/msg/asset/msg_nft_freeze';
 export { default as MsgNftUnfreeze } from '@/models/msg/asset/msg_nft_unfreeze';
 export { default as MsgNftIssueClass } from '@/models/msg/asset/msg_nft_issue_class';
 export { default as MsgNftSend } from '@/models/msg/nft/msg_send';
+export { default as MsgNftAddToWhitelist } from '@/models/msg/asset/msg_nft_add_to_whitelist';
+export { default as MsgNftRemoveFromWhitelist } from '@/models/msg/asset/msg_nft_remove_from_whitelist';

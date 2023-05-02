@@ -69,5 +69,7 @@
   "msgNftFreezeLabel": "NFT Freeze",
   "msgNftUnfreezeLabel": "NFT Unfreeze",
   "msgNftIssueClassLabel": "NFT Issue Class",
-  "msgNftSendLabel": "NFT Send"
+  "msgNftSendLabel": "NFT Send",
+  "msgNftAddToWhitelistLabel": "Add to Whitelist",
+  "msgNftRemoveFromWhitelistLabel": "Remove from Whitelist"
 }
