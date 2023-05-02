@@ -12,10 +12,9 @@ import LoginSuccessIcon from 'shared-utils/assets/icon-success.svg';
 type LoginSuccessDialogProps = {
   open: boolean;
   onClose: () => void;
-  onContinue: () => void;
 };
 
-const LoginSuccessDialog: FC<LoginSuccessDialogProps> = ({ open, onClose, onContinue }) => {
+const LoginSuccessDialog: FC<LoginSuccessDialogProps> = ({ open, onClose }) => {
   const { classes } = useStyles();
   const { t } = useTranslation();
 

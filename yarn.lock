@@ -3440,6 +3440,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@keplr-wallet/types@npm:^0.11.59":
+  version: 0.11.59
+  resolution: "@keplr-wallet/types@npm:0.11.59"
+  dependencies:
+    axios: ^0.27.2
+    long: ^4.0.0
+  checksum: 5fb3999cf73ee81d05c80f608bf40c25c63407f8344b18241405678e7abc9fe842012073f6932118a2766e4d0288b97c0d8e7be7ca5fcf5098d621d53fd3c353
+  languageName: node
+  linkType: hard
+
 "@keplr-wallet/wc-client@npm:^0.11.38":
   version: 0.11.38
   resolution: "@keplr-wallet/wc-client@npm:0.11.38"
@@ -14913,6 +14923,7 @@ __metadata:
     "@graphql-tools/mock": ^8.7.20
     "@graphql-tools/schema": ^9.0.18
     "@jest/globals": ^29.5.0
+    "@keplr-wallet/types": ^0.11.59
     "@keplr-wallet/wc-client": ^0.11.38
     "@mui/icons-material": ^5.11.16
     "@mui/material": ^5.12.0
@@ -15326,6 +15337,7 @@ __metadata:
     "@graphql-tools/mock": ^8.7.20
     "@graphql-tools/schema": ^9.0.18
     "@jest/globals": ^29.5.0
+    "@keplr-wallet/types": ^0.11.59
     "@keplr-wallet/wc-client": ^0.11.38
     "@mui/icons-material": ^5.11.16
     "@mui/material": ^5.12.0
@@ -15448,6 +15460,7 @@ __metadata:
     "@graphql-tools/mock": ^8.7.20
     "@graphql-tools/schema": ^9.0.18
     "@jest/globals": ^29.5.0
+    "@keplr-wallet/types": ^0.11.59
     "@keplr-wallet/wc-client": ^0.11.38
     "@mui/icons-material": ^5.11.16
     "@mui/material": ^5.12.0
@@ -15570,6 +15583,7 @@ __metadata:
     "@graphql-tools/mock": ^8.7.20
     "@graphql-tools/schema": ^9.0.18
     "@jest/globals": ^29.5.0
+    "@keplr-wallet/types": ^0.11.59
     "@keplr-wallet/wc-client": ^0.11.38
     "@mui/icons-material": ^5.11.16
     "@mui/material": ^5.12.0
@@ -15692,6 +15706,7 @@ __metadata:
     "@graphql-tools/mock": ^8.7.20
     "@graphql-tools/schema": ^9.0.18
     "@jest/globals": ^29.5.0
+    "@keplr-wallet/types": ^0.11.59
     "@keplr-wallet/wc-client": ^0.11.38
     "@mui/icons-material": ^5.11.16
     "@mui/material": ^5.12.0
@@ -15814,6 +15829,7 @@ __metadata:
     "@graphql-tools/mock": ^8.7.20
     "@graphql-tools/schema": ^9.0.18
     "@jest/globals": ^29.5.0
+    "@keplr-wallet/types": ^0.11.59
     "@keplr-wallet/wc-client": ^0.11.38
     "@mui/icons-material": ^5.11.16
     "@mui/material": ^5.12.0
@@ -15934,6 +15950,7 @@ __metadata:
     "@graphql-tools/mock": ^8.7.20
     "@graphql-tools/schema": ^9.0.18
     "@jest/globals": ^29.5.0
+    "@keplr-wallet/types": ^0.11.59
     "@mui/icons-material": ^5.11.16
     "@mui/material": ^5.12.0
     "@next/eslint-plugin-next": ^13.3.0
@@ -16052,6 +16069,7 @@ __metadata:
     "@graphql-tools/mock": ^8.7.20
     "@graphql-tools/schema": ^9.0.18
     "@jest/globals": ^29.5.0
+    "@keplr-wallet/types": ^0.11.59
     "@keplr-wallet/wc-client": ^0.11.38
     "@mui/icons-material": ^5.11.16
     "@mui/material": ^5.12.0
@@ -16177,6 +16195,7 @@ __metadata:
     "@graphql-tools/mock": ^8.7.20
     "@graphql-tools/schema": ^9.0.18
     "@jest/globals": ^29.5.0
+    "@keplr-wallet/types": ^0.11.59
     "@keplr-wallet/wc-client": ^0.11.38
     "@mui/icons-material": ^5.11.16
     "@mui/material": ^5.12.0
@@ -16299,6 +16318,7 @@ __metadata:
     "@graphql-tools/mock": ^8.7.20
     "@graphql-tools/schema": ^9.0.18
     "@jest/globals": ^29.5.0
+    "@keplr-wallet/types": ^0.11.59
     "@keplr-wallet/wc-client": ^0.11.38
     "@mui/icons-material": ^5.11.16
     "@mui/material": ^5.12.0
@@ -16421,6 +16441,7 @@ __metadata:
     "@graphql-tools/mock": ^8.7.20
     "@graphql-tools/schema": ^9.0.18
     "@jest/globals": ^29.5.0
+    "@keplr-wallet/types": ^0.11.59
     "@keplr-wallet/wc-client": ^0.11.38
     "@mui/icons-material": ^5.11.16
     "@mui/material": ^5.12.0
@@ -16543,6 +16564,7 @@ __metadata:
     "@graphql-tools/mock": ^8.7.20
     "@graphql-tools/schema": ^9.0.18
     "@jest/globals": ^29.5.0
+    "@keplr-wallet/types": ^0.11.59
     "@keplr-wallet/wc-client": ^0.11.38
     "@mui/icons-material": ^5.11.16
     "@mui/material": ^5.12.0
@@ -16665,6 +16687,7 @@ __metadata:
     "@graphql-tools/mock": ^8.7.20
     "@graphql-tools/schema": ^9.0.18
     "@jest/globals": ^29.5.0
+    "@keplr-wallet/types": ^0.11.59
     "@keplr-wallet/wc-client": ^0.11.38
     "@mui/icons-material": ^5.11.16
     "@mui/material": ^5.12.0
@@ -16787,6 +16810,7 @@ __metadata:
     "@graphql-tools/mock": ^8.7.20
     "@graphql-tools/schema": ^9.0.18
     "@jest/globals": ^29.5.0
+    "@keplr-wallet/types": ^0.11.59
     "@keplr-wallet/wc-client": ^0.11.38
     "@mui/icons-material": ^5.11.16
     "@mui/material": ^5.12.0
@@ -16901,6 +16925,7 @@ __metadata:
     "@emotion/server": ^11.10.0
     "@emotion/styled": ^11.10.6
     "@jest/globals": ^29.5.0
+    "@keplr-wallet/types": ^0.11.59
     "@keplr-wallet/wc-client": ^0.11.38
     "@mui/icons-material": ^5.11.16
     "@mui/material": ^5.12.0
@@ -17024,6 +17049,7 @@ __metadata:
     "@graphql-tools/mock": ^8.7.20
     "@graphql-tools/schema": ^9.0.18
     "@jest/globals": ^29.5.0
+    "@keplr-wallet/types": ^0.11.59
     "@keplr-wallet/wc-client": ^0.11.38
     "@mui/icons-material": ^5.11.16
     "@mui/material": ^5.12.0
@@ -17146,6 +17172,7 @@ __metadata:
     "@graphql-tools/mock": ^8.7.20
     "@graphql-tools/schema": ^9.0.18
     "@jest/globals": ^29.5.0
+    "@keplr-wallet/types": ^0.11.59
     "@keplr-wallet/wc-client": ^0.11.38
     "@mui/icons-material": ^5.11.16
     "@mui/material": ^5.12.0
@@ -17268,6 +17295,7 @@ __metadata:
     "@graphql-tools/mock": ^8.7.20
     "@graphql-tools/schema": ^9.0.18
     "@jest/globals": ^29.5.0
+    "@keplr-wallet/types": ^0.11.59
     "@keplr-wallet/wc-client": ^0.11.38
     "@mui/icons-material": ^5.11.16
     "@mui/material": ^5.12.0
@@ -17390,6 +17418,7 @@ __metadata:
     "@graphql-tools/mock": ^8.7.20
     "@graphql-tools/schema": ^9.0.18
     "@jest/globals": ^29.5.0
+    "@keplr-wallet/types": ^0.11.59
     "@keplr-wallet/wc-client": ^0.11.38
     "@mui/icons-material": ^5.11.16
     "@mui/material": ^5.12.0
@@ -17515,6 +17544,7 @@ __metadata:
     "@graphql-tools/mock": ^8.7.20
     "@graphql-tools/schema": ^9.0.18
     "@jest/globals": ^29.5.0
+    "@keplr-wallet/types": ^0.11.59
     "@keplr-wallet/wc-client": ^0.11.38
     "@mui/icons-material": ^5.11.16
     "@mui/material": ^5.12.0
@@ -17637,6 +17667,7 @@ __metadata:
     "@graphql-tools/mock": ^8.7.20
     "@graphql-tools/schema": ^9.0.18
     "@jest/globals": ^29.5.0
+    "@keplr-wallet/types": ^0.11.59
     "@keplr-wallet/wc-client": ^0.11.38
     "@mui/icons-material": ^5.11.16
     "@mui/material": ^5.12.0
@@ -17759,6 +17790,7 @@ __metadata:
     "@graphql-tools/mock": ^8.7.20
     "@graphql-tools/schema": ^9.0.18
     "@jest/globals": ^29.5.0
+    "@keplr-wallet/types": ^0.11.59
     "@keplr-wallet/wc-client": ^0.11.38
     "@mui/icons-material": ^5.11.16
     "@mui/material": ^5.12.0
@@ -17881,6 +17913,7 @@ __metadata:
     "@graphql-tools/mock": ^8.7.20
     "@graphql-tools/schema": ^9.0.18
     "@jest/globals": ^29.5.0
+    "@keplr-wallet/types": ^0.11.59
     "@keplr-wallet/wc-client": ^0.11.38
     "@mui/icons-material": ^5.11.16
     "@mui/material": ^5.12.0
@@ -18003,6 +18036,7 @@ __metadata:
     "@graphql-tools/mock": ^8.7.20
     "@graphql-tools/schema": ^9.0.18
     "@jest/globals": ^29.5.0
+    "@keplr-wallet/types": ^0.11.59
     "@keplr-wallet/wc-client": ^0.11.38
     "@mui/icons-material": ^5.11.16
     "@mui/material": ^5.12.0
@@ -18125,6 +18159,7 @@ __metadata:
     "@graphql-tools/mock": ^8.7.20
     "@graphql-tools/schema": ^9.0.18
     "@jest/globals": ^29.5.0
+    "@keplr-wallet/types": ^0.11.59
     "@keplr-wallet/wc-client": ^0.11.38
     "@mui/icons-material": ^5.11.16
     "@mui/material": ^5.12.0
@@ -18261,6 +18296,7 @@ __metadata:
     "@graphql-tools/mock": ^8.7.20
     "@graphql-tools/schema": ^9.0.18
     "@jest/globals": ^29.5.0
+    "@keplr-wallet/types": ^0.11.59
     "@keplr-wallet/wc-client": ^0.11.38
     "@mui/icons-material": ^5.11.16
     "@mui/material": ^5.12.0
@@ -18381,6 +18417,7 @@ __metadata:
     "@graphql-tools/mock": ^8.7.19
     "@graphql-tools/schema": ^9.0.17
     "@jest/globals": ^29.5.0
+    "@keplr-wallet/types": ^0.11.59
     "@mui/icons-material": ^5.11.11
     "@mui/material": ^5.11.15
     "@next/eslint-plugin-next": ^13.2.4
@@ -18499,6 +18536,7 @@ __metadata:
     "@graphql-tools/mock": ^8.7.20
     "@graphql-tools/schema": ^9.0.18
     "@jest/globals": ^29.5.0
+    "@keplr-wallet/types": ^0.11.59
     "@keplr-wallet/wc-client": ^0.11.38
     "@mui/icons-material": ^5.11.16
     "@mui/material": ^5.12.0

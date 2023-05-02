@@ -2,11 +2,9 @@ import { SigningCosmosClient } from '@cosmjs/launchpad';
 import { OfflineAminoSigner, OfflineDirectSigner } from '@keplr-wallet/types';
 import { toBase64 } from '@cosmjs/encoding';
 import { PubKey } from '@/recoil/user/atom';
-import { keplrURL, wcBridgeURL, keplrCustomChainInfo } from './utils';
+import { keplrURL } from '@/components/nav/components/connect_wallet/api';
 
 export const isKeplrAvailable = () => !!window.keplr;
-
-export const enableChain = (keplrChainID: string) => window.keplr?.enable(keplrChainID);
 
 export const getAccountKey = (keplrChainID: string) => window.keplr?.getKey(keplrChainID);
 
