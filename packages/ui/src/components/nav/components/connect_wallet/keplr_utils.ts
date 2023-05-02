@@ -2,15 +2,15 @@ import { SigningCosmosClient } from '@cosmjs/launchpad';
 import { OfflineAminoSigner, OfflineDirectSigner } from '@keplr-wallet/types';
 import { toBase64 } from '@cosmjs/encoding';
 import { PubKey } from '@/recoil/user/atom';
-import { keplrChainID, keplrURL, wcBridgeURL, keplrCustomChainInfo } from './utils';
+import { keplrURL, wcBridgeURL, keplrCustomChainInfo } from './utils';
 
 export const isKeplrAvailable = () => !!window.keplr;
 
-export const enableChain = () => window.keplr?.enable(keplrChainID);
+export const enableChain = (keplrChainID: string) => window.keplr?.enable(keplrChainID);
 
-export const getAccountKey = () => window.keplr?.getKey(keplrChainID);
+export const getAccountKey = (keplrChainID: string) => window.keplr?.getKey(keplrChainID);
 
-export const getOfflineSigner = () => {
+export const getOfflineSigner = (keplrChainID: string) => {
   const offlineSigner = window.keplr?.getOfflineSigner(keplrChainID);
   return offlineSigner;
 };

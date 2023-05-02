@@ -1,5 +1,5 @@
 import { SetterOrUpdater, useRecoilState } from 'recoil';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import WalletConnect from '@walletconnect/client';
 import { KeplrWalletConnectV1 } from '@keplr-wallet/wc-client';
 import { ChainIdQuery, useChainIdQuery } from '@/graphql/types/general_types';
@@ -38,18 +38,13 @@ const mapChainIdToModel = (data?: ChainIdQuery) => data?.genesis?.[0]?.chainId ?
 const useConnectWalletList = () => {
   // keplr chain ID
   const [keplrChainID, setKeplrChainID] = useState<string>('');
-  const chainIdQuery = useChainIdQuery();
-  const isCompletedChainId = !chainIdQuery.loading && !chainIdQuery.error;
-  const dataChainId = chainIdQuery.data;
+  const { data: chainId } = useChainIdQuery();
 
-  // Store the fetched chain ID in the reactive variable when the data is loaded
   useEffect(() => {
-    if (isCompletedChainId && dataChainId) {
-      setKeplrChainID(mapChainIdToModel(dataChainId));
+    if (chainId) {
+      setKeplrChainID(mapChainIdToModel(chainId));
     }
-  }, [isCompletedChainId, dataChainId]);
-
-  console.log('keple chain id', keplrChainID);
+  }, [chainId]);
 
   // UserState
   const [, setUserAddress] = useRecoilState(writeUserAddress) as [string, SetterOrUpdater<string>];
@@ -169,7 +164,7 @@ const useConnectWalletList = () => {
 
   const connectKeplrWallet = async (connector: WalletConnect) => {
     const keplr = new KeplrWalletConnectV1(connector);
-    if (keplr && keplrChainID !== '') {
+    if (keplr && chainId) {
       setOpenPairConnectWalletDialog(false);
       setOpenAuthorizeConnectionDialog(true);
       setErrorMsg(undefined);
@@ -230,7 +225,7 @@ const useConnectWalletList = () => {
 
   const connectWalletConnect = async () => {
     const connector = initWalletConnectClient();
-    if (connector.connected) {
+    if (connector.connected && chainId) {
       connectKeplrWallet(connector);
     }
 
@@ -279,7 +274,7 @@ const useConnectWalletList = () => {
 
     // enable the chain inside the app
     try {
-      await enableChain();
+      await enableChain(keplrChainID);
     } catch (error) {
       const e = error as Error;
       setErrorMsg(e.message);
@@ -296,7 +291,7 @@ const useConnectWalletList = () => {
 
     let offlineSigner;
     try {
-      offlineSigner = getOfflineSigner();
+      offlineSigner = getOfflineSigner(keplrChainID);
     } catch (e) {
       setErrorMsg((e as Error).message);
     }
@@ -315,7 +310,7 @@ const useConnectWalletList = () => {
     const cosmJS = getCosmosClient(offlineSignerAddress, offlineSigner);
 
     if (cosmJS) {
-      const key = await getAccountKey();
+      const key = await getAccountKey(keplrChainID);
 
       // store user info in state
       saveUserInfo(offlineSignerAddress, offlineSignerPubKey, 'Keplr', key?.name ?? '');
