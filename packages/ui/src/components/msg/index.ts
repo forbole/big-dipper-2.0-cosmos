@@ -74,3 +74,5 @@ export { default as NftFreeze } from '@/components/msg/asset/nft_freeze';
 export { default as NftUnfreeze } from '@/components/msg/asset/nft_unfreeze';
 export { default as NftIssueClass } from '@/components/msg/asset/nft_issue_class';
 export { default as NftSend } from '@/components/msg/nft/send';
+export { default as NftAddToWhitelist } from '@/components/msg/asset/nft_add_whitelist';
+export { default as NftRemoveFromWhitelist } from '@/components/msg/asset/nft_remove_whitelist';

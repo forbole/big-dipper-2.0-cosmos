@@ -3,38 +3,31 @@ import { useProfileRecoil } from '@/recoil/profiles';
 import { Typography } from '@mui/material';
 import { Trans } from 'react-i18next';
 import Name from '@/components/name';
-import { MsgFreeze } from '@/models';
-import { formatToken, formatNumber } from '@/utils';
+import { MsgNftAddToWhitelist } from '@/models';
 
-const Freeze: FC<{ message: MsgFreeze }> = (props) => {
+const NftAddToWhitelist: FC<{ message: MsgNftAddToWhitelist }> = (props) => {
   const { message } = props;
 
   const sender = useProfileRecoil(message.sender);
   const account = useProfileRecoil(message.account);
 
-  const amount = formatToken(message.coin.amount, message.coin.denom);
-
-  const parsedAmount = `${formatNumber(
-    amount.value,
-    amount.exponent
-    //Kept the "toUpperCase()" in order to show the token symbol in uppercase
-  )} ${amount.displayDenom.toUpperCase()}`;
-
   return (
     <Typography>
       <Trans
-        i18nKey="message_contents:msgFreezeContent"
+        i18nKey="message_contents:msgNftAddToWhitelistContent"
         components={[
           <Name address={message.sender} name={sender.name ?? message.sender} />,
-          <b />,
           <Name address={message.account} name={account.name ?? message.account} />,
+          <b />,
+          <b />,
         ]}
         values={{
-          amount: parsedAmount,
+          id: message.id,
+          class_id: message.class_id,
         }}
       />
     </Typography>
   );
 };
 
-export default Freeze;
+export default NftAddToWhitelist;
