@@ -8976,10 +8976,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["npm:1.3.5", {\
-          "packageLocation": "./.yarn/cache/axios-npm-1.3.5-f8ffbd6db8-4d6bcf933b.zip/node_modules/axios/",\
+        ["npm:1.4.0", {\
+          "packageLocation": "./.yarn/cache/axios-npm-1.4.0-4d7ce8ca3e-7fb6a4313b.zip/node_modules/axios/",\
           "packageDependencies": [\
-            ["axios", "npm:1.3.5"],\
+            ["axios", "npm:1.4.0"],\
             ["follow-redirects", "virtual:e278873748b4e9d158db595d2f6cb0351c74052f52b53924aec4d9299e7b6babfb62aead374cf2f6e453bc8bea3b052380dc6b1137a162bbfc102bbb1c8cac42#npm:1.15.2"],\
             ["form-data", "npm:4.0.0"],\
             ["proxy-from-env", "npm:1.1.0"]\
@@ -9000,7 +9000,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["axios-mock-adapter", "virtual:98a359ee082b163d58865c48beb01d249ff8e9b7dbc06d2a42f00bed7b11a4af7e0f0f659be1694181f4b5ad25eb6d7352849bf7145f64b2df7258695c451aec#npm:1.21.4"],\
             ["@types/axios", null],\
-            ["axios", "npm:1.3.5"],\
+            ["axios", "npm:1.4.0"],\
             ["fast-deep-equal", "npm:3.1.3"],\
             ["is-buffer", "npm:2.0.5"]\
           ],\
@@ -20410,6 +20410,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@walletconnect/encoding", "npm:1.0.2"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.42"],\
             ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
+            ["axios", "npm:1.4.0"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
@@ -20877,6 +20878,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@walletconnect/encoding", "npm:1.0.2"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.42"],\
             ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
+            ["axios", "npm:1.4.0"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
@@ -21000,6 +21002,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@walletconnect/encoding", "npm:1.0.2"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.42"],\
             ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
+            ["axios", "npm:1.4.0"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
@@ -21123,6 +21126,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@walletconnect/encoding", "npm:1.0.2"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.42"],\
             ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
+            ["axios", "npm:1.4.0"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
@@ -21246,6 +21250,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@walletconnect/encoding", "npm:1.0.2"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.42"],\
             ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
+            ["axios", "npm:1.4.0"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
@@ -21369,6 +21374,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@walletconnect/encoding", "npm:1.0.2"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.42"],\
             ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
+            ["axios", "npm:1.4.0"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
@@ -21492,6 +21498,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@walletconnect/encoding", "npm:1.0.2"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.42"],\
             ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
+            ["axios", "npm:1.4.0"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
@@ -21610,6 +21617,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/parser", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.59.0"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.42"],\
             ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
+            ["axios", "npm:1.4.0"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
@@ -21733,6 +21741,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@walletconnect/encoding", "npm:1.0.2"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.42"],\
             ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
+            ["axios", "npm:1.4.0"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
@@ -21858,6 +21867,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@walletconnect/encoding", "npm:1.0.2"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.42"],\
             ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
+            ["axios", "npm:1.4.0"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
@@ -21981,6 +21991,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@walletconnect/encoding", "npm:1.0.2"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.42"],\
             ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
+            ["axios", "npm:1.4.0"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
@@ -22104,6 +22115,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@walletconnect/encoding", "npm:1.0.2"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.42"],\
             ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
+            ["axios", "npm:1.4.0"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
@@ -22227,6 +22239,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@walletconnect/encoding", "npm:1.0.2"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.42"],\
             ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
+            ["axios", "npm:1.4.0"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
@@ -22350,6 +22363,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@walletconnect/encoding", "npm:1.0.2"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.42"],\
             ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
+            ["axios", "npm:1.4.0"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
@@ -22473,6 +22487,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@walletconnect/encoding", "npm:1.0.2"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.42"],\
             ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
+            ["axios", "npm:1.4.0"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
@@ -22588,7 +22603,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@walletconnect/encoding", "npm:1.0.2"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.42"],\
             ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
-            ["axios", "npm:1.3.5"],\
+            ["axios", "npm:1.4.0"],\
             ["axios-mock-adapter", "virtual:98a359ee082b163d58865c48beb01d249ff8e9b7dbc06d2a42f00bed7b11a4af7e0f0f659be1694181f4b5ad25eb6d7352849bf7145f64b2df7258695c451aec#npm:1.21.4"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
@@ -22713,6 +22728,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@walletconnect/encoding", "npm:1.0.2"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.42"],\
             ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
+            ["axios", "npm:1.4.0"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
@@ -22836,6 +22852,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@walletconnect/encoding", "npm:1.0.2"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.42"],\
             ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
+            ["axios", "npm:1.4.0"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
@@ -22959,6 +22976,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@walletconnect/encoding", "npm:1.0.2"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.42"],\
             ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
+            ["axios", "npm:1.4.0"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
@@ -23083,6 +23101,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@walletconnect/encoding", "npm:1.0.2"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.42"],\
             ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
+            ["axios", "npm:1.4.0"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
@@ -23208,6 +23227,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@walletconnect/encoding", "npm:1.0.2"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.42"],\
             ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
+            ["axios", "npm:1.4.0"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
@@ -23331,6 +23351,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@walletconnect/encoding", "npm:1.0.2"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.42"],\
             ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
+            ["axios", "npm:1.4.0"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
@@ -23454,6 +23475,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@walletconnect/encoding", "npm:1.0.2"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.42"],\
             ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
+            ["axios", "npm:1.4.0"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
@@ -23577,6 +23599,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@walletconnect/encoding", "npm:1.0.2"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.42"],\
             ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
+            ["axios", "npm:1.4.0"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
@@ -23700,6 +23723,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@walletconnect/encoding", "npm:1.0.2"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.42"],\
             ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
+            ["axios", "npm:1.4.0"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
@@ -23823,6 +23847,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@walletconnect/encoding", "npm:1.0.2"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.42"],\
             ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
+            ["axios", "npm:1.4.0"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
@@ -23962,6 +23987,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@walletconnect/encoding", "npm:1.0.2"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.42"],\
             ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
+            ["axios", "npm:1.4.0"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\
@@ -24080,6 +24106,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/parser", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.59.0"],\
             ["@yarnpkg/pnpify", "npm:4.0.0-rc.42"],\
             ["apollo-link-rest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:0.9.0"],\
+            ["axios", "npm:1.4.0"],\
             ["bech32", "npm:2.0.0"],\
             ["big.js", "npm:6.2.1"],\
             ["color", "npm:4.2.3"],\

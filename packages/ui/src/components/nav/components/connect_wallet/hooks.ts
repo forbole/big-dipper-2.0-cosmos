@@ -1,5 +1,6 @@
+import axios from 'axios';
 import { SetterOrUpdater, useRecoilState } from 'recoil';
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import WalletConnect from '@walletconnect/client';
 import { KeplrWalletConnectV1 } from '@keplr-wallet/wc-client';
 import { ChainIdQuery, useChainIdQuery } from '@/graphql/types/general_types';
@@ -30,7 +31,7 @@ import {
   getOfflineSignerPubKey,
   getCosmosClient,
 } from './keplr_utils';
-import { wcBridgeURL, keplrCustomChainInfo } from './utils';
+import { wcBridgeURL, keplrCustomChainInfo, CHAIN_REGISTRY_URL } from './utils';
 
 // Get the chain ID from a GraphQL query response
 const mapChainIdToModel = (data?: ChainIdQuery) => data?.genesis?.[0]?.chainId ?? '';
