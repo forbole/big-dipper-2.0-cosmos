@@ -1,5 +1,11 @@
 # Unreleased
 
+## 2.14.0
+
+### Minor Changes
+
+- [#1230](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1230) [`3b0114620`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/3b0114620e217d0fd1e50be7b6aa435178f38d24) Thanks [@rachelhox](https://github.com/rachelhox)! - Cheqd top accounts module: hide Module Accounts
+
 ## 2.13.0
 
 ### Minor Changes
