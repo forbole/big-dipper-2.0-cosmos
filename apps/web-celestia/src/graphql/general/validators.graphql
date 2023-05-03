@@ -12,9 +12,17 @@ query Validators {
       missedBlocksCounter: missed_blocks_counter
       tombstoned
     }
+    validatorDescriptions: validator_descriptions {
+      moniker
+      avatar_url
+      validator_address
+      website
+      details
+    }
     validatorInfo: validator_info {
       operatorAddress: operator_address
       selfDelegateAddress: self_delegate_address
+      consensusAddress: consensus_address
     }
     validatorVotingPowers: validator_voting_powers(offset: 0, limit: 1, order_by: {height: desc}) {
       votingPower: voting_power
