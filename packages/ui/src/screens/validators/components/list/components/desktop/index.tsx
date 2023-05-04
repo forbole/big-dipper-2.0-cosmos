@@ -16,6 +16,7 @@ import VotingPowerExplanation from '@/screens/validators/components/list/compone
 import type { ItemType } from '@/screens/validators/components/list/types';
 import { getValidatorConditionClass } from '@/utils/get_validator_condition';
 import { getValidatorStatus } from '@/utils/get_validator_status';
+import StakingButton from '@/screens/validators/components/list/components/staking/index';
 
 type GridColumnProps = {
   column: ReturnType<typeof fetchColumns>[number];
@@ -126,6 +127,9 @@ const GridRow: FC<GridRowProps> = ({ column, style, rowIndex, align, item, searc
           {t(status.status)}
         </Typography>
       );
+      break;
+    case 'staking':
+      formatItem = <StakingButton />;
       break;
     default:
       break;

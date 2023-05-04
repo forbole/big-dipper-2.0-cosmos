@@ -27,7 +27,7 @@ export const fetchColumns = (
   {
     key: 'votingPower',
     sortKey: 'votingPower',
-    width: 30,
+    width: 25,
     sort: true,
   },
   {
@@ -64,6 +64,11 @@ export const fetchColumns = (
   },
   {
     key: 'status',
-    width: 10,
+    width: 8,
+  },
+  {
+    key: 'staking',
+    align: 'center',
+    width: 7,
   },
 ];

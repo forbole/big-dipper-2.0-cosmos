@@ -9,6 +9,7 @@
   "votingPower": "Voting Power",
   "liquidStaking": "Liquid Staking",
   "condition": "Condition",
+  "staking": "Staking",
   "conditionExplanation": "The overall health of a validator within the current signed block window",
   "searchValidator": "Search Validator",
   "validatorDetails": "Validator Details",

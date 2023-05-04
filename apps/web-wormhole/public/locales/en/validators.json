@@ -8,6 +8,7 @@
   "commission": "Commission",
   "votingPower": "Voting Power",
   "condition": "Condition",
+  "staking": "Staking",
   "conditionExplanation": "The overall health of a guardian within the current signed block window",
   "searchValidator": "Search Guardian",
   "validatorDetails": "Guardian Details",
