@@ -129,7 +129,14 @@ const GridRow: FC<GridRowProps> = ({ column, style, rowIndex, align, item, searc
       );
       break;
     case 'staking':
-      formatItem = <StakingButton />;
+      formatItem = (
+        <StakingButton
+          address={address}
+          imageUrl={imageUrl}
+          name={name}
+          commission={`${numeral(item.commission).format('0.[00]')}%`}
+        />
+      );
       break;
     default:
       break;

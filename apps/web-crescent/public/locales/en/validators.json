@@ -69,5 +69,9 @@
   "delegation": "Delegation",
   "amountPlaceholder": "Amount...",
   "delegate": "Delegate",
+  "stake": "Stake",
+  "redelegate": "Redelegate",
+  "undelegate": "Undelegate",
+  "claimRewards": "Claim Rewards",
   "liquidStakingExplanation": "Liquid Staking Validators allow you to stake CRE to receive bCRE. bCRE can then be deposited into liquidity pools to earn further rewards."
 }

@@ -68,5 +68,13 @@
   "delegation": "Delegation",
   "amountPlaceholder": "Amount...",
   "delegate": "Delegate",
-  "delegate": "Delegate"
+  "stake": "Stake",
+  "redelegate": "Redelegate",
+  "undelegate": "Undelegate",
+  "claimRewards": "Claim Rewards",
+  "delegate": "Delegate",
+  "stake": "Stake",
+  "redelegate": "Redelegate",
+  "undelegate": "Undelegate",
+  "claimRewards": "Claim Rewards"
 }
