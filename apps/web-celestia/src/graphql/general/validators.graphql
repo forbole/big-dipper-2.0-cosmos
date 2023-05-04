@@ -38,3 +38,13 @@ query Validators {
     params
   }
 }
+
+query CustomValidator($consensusAddress: String!) {
+  validatorDescriptions: validator_description(where:{validator_address: {_eq: $consensusAddress}}) {
+    moniker
+    avatar_url
+    validator_address
+    website
+    details
+  }
+}

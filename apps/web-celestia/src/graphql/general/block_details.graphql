@@ -14,6 +14,7 @@ query BlockDetails($height: bigint, $signatureHeight: bigint) {
     validator {
       validatorInfo: validator_info {
         operatorAddress: operator_address
+        consensusAddress: consensus_address
       }
     }
   }

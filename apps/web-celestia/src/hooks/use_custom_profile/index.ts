@@ -18,6 +18,7 @@ interface AvatarName {
 export const useCustomProfile = (item: ValidatorType[]) => {
   const [loading, setLoading] = useState(true);
   const [profiles, setProfiles] = useState<AvatarName[]>([]);
+
   useEffect(() => {
     if (item.length) {
       const data = item.map((x) => {
@@ -38,5 +39,6 @@ export const useCustomProfile = (item: ValidatorType[]) => {
       setLoading(false);
     }
   }, [item, loading]);
+
   return { profiles, loading };
 };
