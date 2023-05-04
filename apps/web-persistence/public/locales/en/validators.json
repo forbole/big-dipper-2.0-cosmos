@@ -58,5 +58,14 @@
   "votingPowerExplanation": "As the top 34% voting power can easily <0>decrease network security</0> and <0>halt the network</0> they will be highlighted differently in order to educate and encourage decentralization",
   "tombstoned": "Tombstoned",
   "votingPowerPercent": "Voting Power %",
-  "maxRate": "Max Commission Rate"
+  "maxRate": "Max Commission Rate",
+  "delegateTo": "Delegate to",
+  "howMuchToDelegate": "How much to delegate?",
+  "available": "Available",
+  "memo": "Memo",
+  "optional": "Optional",
+  "delegation": "Delegation",
+  "amountPlaceholder": "Amount...",
+  "delegate": "Delegate",
+  "delegate": "Delegate"
 }
