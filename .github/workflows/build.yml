@@ -8,6 +8,9 @@ on:
 env:
   REPO: big-dipper-ui
   ORG: coreumfoundation
+  DEVNET_WEBHOOK_ENDPOINT: https://keel.devnet-1.coreum.dev/v1/webhooks/native
+  TESTNET_WEBHOOK_ENDPOINT: https://keel.testnet-1.coreum.dev/v1/webhooks/native
+  MAINNET_WEBHOOK_ENDPOINT: https://keel.mainnet-1.coreum.dev/v1/webhooks/native
 
 jobs:
   Build-and-Publish:
@@ -44,3 +47,15 @@ jobs:
           push: true
           build-args: |
             "PROJECT_NAME=web-coreum"
+
+      - name: Update Devnet Deployment
+        run: |-
+          curl -v -u "${{ secrets.KEEL_DEVNET_USERNAME }}:${{ secrets.KEEL_DEVNET_PASSWORD }}" -X POST ${{ env.DEVNET_WEBHOOK_ENDPOINT }}  -H "Content-Type: application/json" -d "{\"name\": \"${{ env.ORG }}/${{ env.REPO }}\", \"tag\": \"${{ env.BUILD_SHA }}\"}"
+
+      - name: Update Testnet Deployment
+        run: |-
+          curl -v -u "${{ secrets.KEEL_TESTNET_USERNAME }}:${{ secrets.KEEL_TESTNET_PASSWORD }}" -X POST ${{ env.TESTNET_WEBHOOK_ENDPOINT }} -H "Content-Type: application/json" -d "{\"name\": \"${{ env.ORG }}/${{ env.REPO }}\", \"tag\": \"${{ env.BUILD_SHA }}\"}"
+
+      - name: Update Mainnet Deployment
+        run: |-
+          curl -v -u "${{ secrets.KEEL_MAINNET_USERNAME }}:${{ secrets.KEEL_MAINNET_PASSWORD }}" -X POST ${{ env.MAINNET_WEBHOOK_ENDPOINT }} -H "Content-Type: application/json" -d "{\"name\": \"${{ env.ORG }}/${{ env.REPO }}\", \"tag\": \"${{ env.BUILD_SHA }}\"}"
