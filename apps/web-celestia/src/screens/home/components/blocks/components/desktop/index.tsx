@@ -15,7 +15,7 @@ import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import numeral from 'numeral';
 import { FC } from 'react';
-import { useCelestiaProfile } from '@/hooks/use_celestia_profile';
+import useCelestiaProfile from '@/hooks/useCelestiaProfile';
 
 type BlockRowProps = {
   item: ItemType;

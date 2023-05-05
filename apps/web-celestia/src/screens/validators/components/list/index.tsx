@@ -8,7 +8,7 @@ import Tabs from '@/screens/validators/components/list/components/tabs';
 import { useValidators } from '@/screens/validators/components/list/hooks';
 import useStyles from '@/screens/validators/components/list/styles';
 import { useDisplayStyles } from '@/styles/useSharedStyles';
-import { useCustomProfile } from '@/hooks/use_custom_profile';
+import useCustomProfile from '@/hooks/useCustomProfile';
 
 const List: FC<ComponentDefault> = ({ className }) => {
   const { classes, cx } = useStyles();

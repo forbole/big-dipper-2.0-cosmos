@@ -20,7 +20,7 @@ type Profile = {
  * @returns The return value is an object with the following properties:
  * name, address, imageUrl
  */
-export const useCelestiaProfile = (consensus: string, validator: string) => {
+const useCelestiaProfile = (consensus: string, validator: string) => {
   const { data, loading } = useCustomValidatorQuery({ variables: { consensusAddress: consensus } });
   const [profile, setProfile] = useState<Profile>();
   const setAvatarName = useRecoilCallback(
@@ -55,3 +55,5 @@ export const useCelestiaProfile = (consensus: string, validator: string) => {
 
   return { profile, loading };
 };
+
+export default useCelestiaProfile;

@@ -13,9 +13,10 @@ interface AvatarName {
 
 /**
  * Accepts a list of state items and returns the appropriate profiles
- * @param state.items
+ * @param item
+ * @return a loading state and a list of profiles
  */
-export const useCustomProfile = (item: ValidatorType[]) => {
+const useCustomProfile = (item: ValidatorType[]) => {
   const [loading, setLoading] = useState(true);
   const [profiles, setProfiles] = useState<AvatarName[]>([]);
 
@@ -42,3 +43,5 @@ export const useCustomProfile = (item: ValidatorType[]) => {
 
   return { profiles, loading };
 };
+
+export default useCustomProfile;
