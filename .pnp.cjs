@@ -3303,6 +3303,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@cosmjs/utils", "npm:0.29.5"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:0.30.1", {\
+          "packageLocation": "./.yarn/cache/@cosmjs-amino-npm-0.30.1-fa65a9d84a-aa254f936f.zip/node_modules/@cosmjs/amino/",\
+          "packageDependencies": [\
+            ["@cosmjs/amino", "npm:0.30.1"],\
+            ["@cosmjs/crypto", "npm:0.30.1"],\
+            ["@cosmjs/encoding", "npm:0.30.1"],\
+            ["@cosmjs/math", "npm:0.30.1"],\
+            ["@cosmjs/utils", "npm:0.30.1"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["@cosmjs/crypto", [\
@@ -3319,6 +3330,20 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["libsodium-wrappers", "npm:0.7.10"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:0.30.1", {\
+          "packageLocation": "./.yarn/cache/@cosmjs-crypto-npm-0.30.1-00df919891-f1989a5cab.zip/node_modules/@cosmjs/crypto/",\
+          "packageDependencies": [\
+            ["@cosmjs/crypto", "npm:0.30.1"],\
+            ["@cosmjs/encoding", "npm:0.30.1"],\
+            ["@cosmjs/math", "npm:0.30.1"],\
+            ["@cosmjs/utils", "npm:0.30.1"],\
+            ["@noble/hashes", "npm:1.3.0"],\
+            ["bn.js", "npm:5.2.1"],\
+            ["elliptic", "npm:6.5.4"],\
+            ["libsodium-wrappers", "npm:0.7.10"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["@cosmjs/encoding", [\
@@ -3326,6 +3351,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@cosmjs-encoding-npm-0.29.5-252043f46b-b53dd8625b.zip/node_modules/@cosmjs/encoding/",\
           "packageDependencies": [\
             ["@cosmjs/encoding", "npm:0.29.5"],\
+            ["base64-js", "npm:1.5.1"],\
+            ["bech32", "npm:1.1.4"],\
+            ["readonly-date", "npm:1.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:0.30.1", {\
+          "packageLocation": "./.yarn/cache/@cosmjs-encoding-npm-0.30.1-f979f5afa7-bd1932fafe.zip/node_modules/@cosmjs/encoding/",\
+          "packageDependencies": [\
+            ["@cosmjs/encoding", "npm:0.30.1"],\
             ["base64-js", "npm:1.5.1"],\
             ["bech32", "npm:1.1.4"],\
             ["readonly-date", "npm:1.0.0"]\
@@ -3352,6 +3387,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["bn.js", "npm:5.2.1"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:0.30.1", {\
+          "packageLocation": "./.yarn/cache/@cosmjs-math-npm-0.30.1-bfef2aeb61-c13d2a8934.zip/node_modules/@cosmjs/math/",\
+          "packageDependencies": [\
+            ["@cosmjs/math", "npm:0.30.1"],\
+            ["bn.js", "npm:5.2.1"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["@cosmjs/proto-signing", [\
@@ -3365,6 +3408,20 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@cosmjs/math", "npm:0.29.5"],\
             ["@cosmjs/utils", "npm:0.29.5"],\
             ["cosmjs-types", "npm:0.5.2"],\
+            ["long", "npm:4.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:0.30.1", {\
+          "packageLocation": "./.yarn/cache/@cosmjs-proto-signing-npm-0.30.1-b42598b7f0-15e13e3397.zip/node_modules/@cosmjs/proto-signing/",\
+          "packageDependencies": [\
+            ["@cosmjs/proto-signing", "npm:0.30.1"],\
+            ["@cosmjs/amino", "npm:0.30.1"],\
+            ["@cosmjs/crypto", "npm:0.30.1"],\
+            ["@cosmjs/encoding", "npm:0.30.1"],\
+            ["@cosmjs/math", "npm:0.30.1"],\
+            ["@cosmjs/utils", "npm:0.30.1"],\
+            ["cosmjs-types", "npm:0.7.2"],\
             ["long", "npm:4.0.0"]\
           ],\
           "linkType": "HARD"\
@@ -3438,6 +3495,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@cosmjs-utils-npm-0.29.5-668b1002e6-7939a6d324.zip/node_modules/@cosmjs/utils/",\
           "packageDependencies": [\
             ["@cosmjs/utils", "npm:0.29.5"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:0.30.1", {\
+          "packageLocation": "./.yarn/cache/@cosmjs-utils-npm-0.30.1-c5856c2196-64ea16cdeb.zip/node_modules/@cosmjs/utils/",\
+          "packageDependencies": [\
+            ["@cosmjs/utils", "npm:0.30.1"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -9143,7 +9207,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/axios-npm-0.21.4-e278873748-44245f24ac.zip/node_modules/axios/",\
           "packageDependencies": [\
             ["axios", "npm:0.21.4"],\
-            ["follow-redirects", "virtual:e278873748b4e9d158db595d2f6cb0351c74052f52b53924aec4d9299e7b6babfb62aead374cf2f6e453bc8bea3b052380dc6b1137a162bbfc102bbb1c8cac42#npm:1.15.2"]\
+            ["follow-redirects", "virtual:dbe3a48aea1dd5649e16abaf23d4ae05582d2149e16141955113766a0f84f681baf358c77ddccfc82eb23e4ccc66c6c912df62a9c01f2a83f1842bf86cc297b1#npm:1.15.2"]\
           ],\
           "linkType": "HARD"\
         }],\
@@ -9151,7 +9215,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/axios-npm-0.27.2-dbe3a48aea-38cb754046.zip/node_modules/axios/",\
           "packageDependencies": [\
             ["axios", "npm:0.27.2"],\
-            ["follow-redirects", "virtual:e278873748b4e9d158db595d2f6cb0351c74052f52b53924aec4d9299e7b6babfb62aead374cf2f6e453bc8bea3b052380dc6b1137a162bbfc102bbb1c8cac42#npm:1.15.2"],\
+            ["follow-redirects", "virtual:dbe3a48aea1dd5649e16abaf23d4ae05582d2149e16141955113766a0f84f681baf358c77ddccfc82eb23e4ccc66c6c912df62a9c01f2a83f1842bf86cc297b1#npm:1.15.2"],\
             ["form-data", "npm:4.0.0"]\
           ],\
           "linkType": "HARD"\
@@ -9160,7 +9224,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/axios-npm-1.3.5-f8ffbd6db8-4d6bcf933b.zip/node_modules/axios/",\
           "packageDependencies": [\
             ["axios", "npm:1.3.5"],\
-            ["follow-redirects", "virtual:e278873748b4e9d158db595d2f6cb0351c74052f52b53924aec4d9299e7b6babfb62aead374cf2f6e453bc8bea3b052380dc6b1137a162bbfc102bbb1c8cac42#npm:1.15.2"],\
+            ["follow-redirects", "virtual:dbe3a48aea1dd5649e16abaf23d4ae05582d2149e16141955113766a0f84f681baf358c77ddccfc82eb23e4ccc66c6c912df62a9c01f2a83f1842bf86cc297b1#npm:1.15.2"],\
             ["form-data", "npm:4.0.0"],\
             ["proxy-from-env", "npm:1.1.0"]\
           ],\
@@ -10563,6 +10627,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/cosmjs-types-npm-0.5.2-cf7bc203f4-0362cb2136.zip/node_modules/cosmjs-types/",\
           "packageDependencies": [\
             ["cosmjs-types", "npm:0.5.2"],\
+            ["long", "npm:4.0.0"],\
+            ["protobufjs", "npm:6.11.3"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:0.7.2", {\
+          "packageLocation": "./.yarn/cache/cosmjs-types-npm-0.7.2-655e4f4384-4a0b730a7f.zip/node_modules/cosmjs-types/",\
+          "packageDependencies": [\
+            ["cosmjs-types", "npm:0.7.2"],\
             ["long", "npm:4.0.0"],\
             ["protobufjs", "npm:6.11.3"]\
           ],\
@@ -12982,10 +13055,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:e278873748b4e9d158db595d2f6cb0351c74052f52b53924aec4d9299e7b6babfb62aead374cf2f6e453bc8bea3b052380dc6b1137a162bbfc102bbb1c8cac42#npm:1.15.2", {\
-          "packageLocation": "./.yarn/__virtual__/follow-redirects-virtual-a3e7f4d39a/0/cache/follow-redirects-npm-1.15.2-1ec1dd82be-faa66059b6.zip/node_modules/follow-redirects/",\
+        ["virtual:dbe3a48aea1dd5649e16abaf23d4ae05582d2149e16141955113766a0f84f681baf358c77ddccfc82eb23e4ccc66c6c912df62a9c01f2a83f1842bf86cc297b1#npm:1.15.2", {\
+          "packageLocation": "./.yarn/__virtual__/follow-redirects-virtual-42073a9d6a/0/cache/follow-redirects-npm-1.15.2-1ec1dd82be-faa66059b6.zip/node_modules/follow-redirects/",\
           "packageDependencies": [\
-            ["follow-redirects", "virtual:e278873748b4e9d158db595d2f6cb0351c74052f52b53924aec4d9299e7b6babfb62aead374cf2f6e453bc8bea3b052380dc6b1137a162bbfc102bbb1c8cac42#npm:1.15.2"],\
+            ["follow-redirects", "virtual:dbe3a48aea1dd5649e16abaf23d4ae05582d2149e16141955113766a0f84f681baf358c77ddccfc82eb23e4ccc66c6c912df62a9c01f2a83f1842bf86cc297b1#npm:1.15.2"],\
             ["@types/debug", null],\
             ["debug", null]\
           ],\
@@ -20615,6 +20688,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["ui", "workspace:packages/ui"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.12"],\
             ["@cosmjs/encoding", "npm:0.29.5"],\
+            ["@cosmjs/proto-signing", "npm:0.30.1"],\
             ["@cosmjs/stargate", "npm:0.29.5"],\
             ["@emotion/cache", "npm:11.10.7"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
@@ -21082,7 +21156,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["web", "workspace:apps/web"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.12"],\
             ["@cosmjs/encoding", "npm:0.29.5"],\
-            ["@cosmjs/stargate", "npm:0.29.5"],\
+            ["@cosmjs/proto-signing", "npm:0.30.1"],\
             ["@emotion/cache", "npm:11.10.7"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.6"],\
@@ -21205,6 +21279,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["web-agoric", "workspace:apps/web-agoric"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.12"],\
             ["@cosmjs/encoding", "npm:0.29.5"],\
+            ["@cosmjs/proto-signing", "npm:0.30.1"],\
             ["@cosmjs/stargate", "npm:0.29.5"],\
             ["@emotion/cache", "npm:11.10.7"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
@@ -21328,6 +21403,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["web-akash", "workspace:apps/web-akash"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.12"],\
             ["@cosmjs/encoding", "npm:0.29.5"],\
+            ["@cosmjs/proto-signing", "npm:0.30.1"],\
             ["@cosmjs/stargate", "npm:0.29.5"],\
             ["@emotion/cache", "npm:11.10.7"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
@@ -21451,6 +21527,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["web-assetmantle", "workspace:apps/web-assetmantle"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.12"],\
             ["@cosmjs/encoding", "npm:0.29.5"],\
+            ["@cosmjs/proto-signing", "npm:0.30.1"],\
             ["@cosmjs/stargate", "npm:0.29.5"],\
             ["@emotion/cache", "npm:11.10.7"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
@@ -21574,6 +21651,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["web-band", "workspace:apps/web-band"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.12"],\
             ["@cosmjs/encoding", "npm:0.29.5"],\
+            ["@cosmjs/proto-signing", "npm:0.30.1"],\
             ["@cosmjs/stargate", "npm:0.29.5"],\
             ["@emotion/cache", "npm:11.10.7"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
@@ -21697,6 +21775,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["web-bitsong", "workspace:apps/web-bitsong"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.12"],\
             ["@cosmjs/encoding", "npm:0.29.5"],\
+            ["@cosmjs/proto-signing", "npm:0.30.1"],\
             ["@cosmjs/stargate", "npm:0.29.5"],\
             ["@emotion/cache", "npm:11.10.7"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
@@ -21937,6 +22016,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["web-comdex", "workspace:apps/web-comdex"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.12"],\
             ["@cosmjs/encoding", "npm:0.29.5"],\
+            ["@cosmjs/proto-signing", "npm:0.30.1"],\
             ["@cosmjs/stargate", "npm:0.29.5"],\
             ["@emotion/cache", "npm:11.10.7"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
@@ -22063,6 +22143,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["web-cosmos", "workspace:apps/web-cosmos"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.12"],\
             ["@cosmjs/encoding", "npm:0.29.5"],\
+            ["@cosmjs/proto-signing", "npm:0.30.1"],\
             ["@cosmjs/stargate", "npm:0.29.5"],\
             ["@emotion/cache", "npm:11.10.7"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
@@ -22186,6 +22267,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["web-crescent", "workspace:apps/web-crescent"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.12"],\
             ["@cosmjs/encoding", "npm:0.29.5"],\
+            ["@cosmjs/proto-signing", "npm:0.30.1"],\
             ["@cosmjs/stargate", "npm:0.29.5"],\
             ["@emotion/cache", "npm:11.10.7"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
@@ -22309,6 +22391,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["web-desmos", "workspace:apps/web-desmos"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.12"],\
             ["@cosmjs/encoding", "npm:0.29.5"],\
+            ["@cosmjs/proto-signing", "npm:0.30.1"],\
             ["@cosmjs/stargate", "npm:0.29.5"],\
             ["@emotion/cache", "npm:11.10.7"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
@@ -22432,6 +22515,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["web-emoney", "workspace:apps/web-emoney"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.12"],\
             ["@cosmjs/encoding", "npm:0.29.5"],\
+            ["@cosmjs/proto-signing", "npm:0.30.1"],\
             ["@cosmjs/stargate", "npm:0.29.5"],\
             ["@emotion/cache", "npm:11.10.7"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
@@ -22555,6 +22639,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["web-evmos", "workspace:apps/web-evmos"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.12"],\
             ["@cosmjs/encoding", "npm:0.29.5"],\
+            ["@cosmjs/proto-signing", "npm:0.30.1"],\
             ["@cosmjs/stargate", "npm:0.29.5"],\
             ["@emotion/cache", "npm:11.10.7"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
@@ -22678,6 +22763,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["web-likecoin", "workspace:apps/web-likecoin"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.12"],\
             ["@cosmjs/encoding", "npm:0.29.5"],\
+            ["@cosmjs/proto-signing", "npm:0.30.1"],\
             ["@cosmjs/stargate", "npm:0.29.5"],\
             ["@emotion/cache", "npm:11.10.7"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
@@ -22801,6 +22887,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["web-multiversx", "workspace:apps/web-multiversx"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.12"],\
             ["@cosmjs/encoding", "npm:0.29.5"],\
+            ["@cosmjs/proto-signing", "npm:0.30.1"],\
             ["@cosmjs/stargate", "npm:0.29.5"],\
             ["@emotion/cache", "npm:11.10.7"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
@@ -22918,6 +23005,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["web-nomic", "workspace:apps/web-nomic"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.12"],\
             ["@cosmjs/encoding", "npm:0.29.5"],\
+            ["@cosmjs/proto-signing", "npm:0.30.1"],\
             ["@cosmjs/stargate", "npm:0.29.5"],\
             ["@emotion/cache", "npm:11.10.7"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
@@ -23041,6 +23129,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["web-nym", "workspace:apps/web-nym"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.12"],\
             ["@cosmjs/encoding", "npm:0.29.5"],\
+            ["@cosmjs/proto-signing", "npm:0.30.1"],\
             ["@cosmjs/stargate", "npm:0.29.5"],\
             ["@emotion/cache", "npm:11.10.7"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
@@ -23164,6 +23253,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["web-osmosis", "workspace:apps/web-osmosis"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.12"],\
             ["@cosmjs/encoding", "npm:0.29.5"],\
+            ["@cosmjs/proto-signing", "npm:0.30.1"],\
             ["@cosmjs/stargate", "npm:0.29.5"],\
             ["@emotion/cache", "npm:11.10.7"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
@@ -23287,6 +23377,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["web-persistence", "workspace:apps/web-persistence"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.12"],\
             ["@cosmjs/encoding", "npm:0.29.5"],\
+            ["@cosmjs/proto-signing", "npm:0.30.1"],\
             ["@cosmjs/stargate", "npm:0.29.5"],\
             ["@emotion/cache", "npm:11.10.7"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
@@ -23413,6 +23504,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["web-provenance", "workspace:apps/web-provenance"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.12"],\
             ["@cosmjs/encoding", "npm:0.29.5"],\
+            ["@cosmjs/proto-signing", "npm:0.30.1"],\
             ["@cosmjs/stargate", "npm:0.29.5"],\
             ["@emotion/cache", "npm:11.10.7"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
@@ -23536,6 +23628,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["web-quasar", "workspace:apps/web-quasar"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.12"],\
             ["@cosmjs/encoding", "npm:0.29.5"],\
+            ["@cosmjs/proto-signing", "npm:0.30.1"],\
             ["@cosmjs/stargate", "npm:0.29.5"],\
             ["@emotion/cache", "npm:11.10.7"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
@@ -23659,6 +23752,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["web-quicksilver", "workspace:apps/web-quicksilver"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.12"],\
             ["@cosmjs/encoding", "npm:0.29.5"],\
+            ["@cosmjs/proto-signing", "npm:0.30.1"],\
             ["@cosmjs/stargate", "npm:0.29.5"],\
             ["@emotion/cache", "npm:11.10.7"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
@@ -23782,6 +23876,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["web-regen", "workspace:apps/web-regen"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.12"],\
             ["@cosmjs/encoding", "npm:0.29.5"],\
+            ["@cosmjs/proto-signing", "npm:0.30.1"],\
             ["@cosmjs/stargate", "npm:0.29.5"],\
             ["@emotion/cache", "npm:11.10.7"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
@@ -23905,6 +24000,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["web-rizon", "workspace:apps/web-rizon"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.12"],\
             ["@cosmjs/encoding", "npm:0.29.5"],\
+            ["@cosmjs/proto-signing", "npm:0.30.1"],\
             ["@cosmjs/stargate", "npm:0.29.5"],\
             ["@emotion/cache", "npm:11.10.7"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
@@ -24028,6 +24124,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["web-shentu", "workspace:apps/web-shentu"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.12"],\
             ["@cosmjs/encoding", "npm:0.29.5"],\
+            ["@cosmjs/proto-signing", "npm:0.30.1"],\
             ["@cosmjs/stargate", "npm:0.29.5"],\
             ["@emotion/cache", "npm:11.10.7"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\
@@ -24167,6 +24264,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["web-stride", "workspace:apps/web-stride"],\
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.12"],\
             ["@cosmjs/encoding", "npm:0.29.5"],\
+            ["@cosmjs/proto-signing", "npm:0.30.1"],\
             ["@cosmjs/stargate", "npm:0.29.5"],\
             ["@emotion/cache", "npm:11.10.7"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.10.5"],\

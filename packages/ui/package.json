@@ -13,6 +13,7 @@
   "dependencies": {
     "@apollo/client": "^3.7.12",
     "@cosmjs/encoding": "^0.29.5",
+    "@cosmjs/proto-signing": "^0.30.1",
     "@cosmjs/stargate": "^0.29.0",
     "@emotion/react": "^11.10.6",
     "@emotion/server": "^11.10.0",
