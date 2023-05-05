@@ -13,6 +13,11 @@ type Profile = {
   consensusAddress: string;
 };
 
+interface CelestiaProfileResult {
+  profile: Profile | undefined;
+  loading: boolean;
+}
+
 /**
  * Accepts consensus address and returns the appropriate profile
  * @param consensus - the consensus address of the validator
@@ -20,7 +25,7 @@ type Profile = {
  * @returns The return value is an object with the following properties:
  * name, address, imageUrl
  */
-const useCelestiaProfile = (consensus: string, validator: string) => {
+const useCelestiaProfile = (consensus: string, validator: string): CelestiaProfileResult => {
   const { data, loading } = useCustomValidatorQuery({ variables: { consensusAddress: consensus } });
   const [profile, setProfile] = useState<Profile>();
   const setAvatarName = useRecoilCallback(
