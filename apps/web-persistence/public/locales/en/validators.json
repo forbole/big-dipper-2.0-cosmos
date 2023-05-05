@@ -60,7 +60,7 @@
   "tombstoned": "Tombstoned",
   "votingPowerPercent": "Voting Power %",
   "maxRate": "Max Commission Rate",
-  "delegateTo": "Delegate to",
+  "delegateTo": "Delegate to...",
   "howMuchToDelegate": "How much to delegate?",
   "available": "Available",
   "memo": "Memo",
