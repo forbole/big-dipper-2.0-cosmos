@@ -1,5 +1,17 @@
 # Unreleased
 
+## 2.12.0
+
+### Minor Changes
+
+- [#1233](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1233) [`2949b87b9`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/2949b87b93676df46bfb824ac486e9b96b9a5ba4) Thanks [@rachelhox](https://github.com/rachelhox)! - add Celestia Big Dipper
+
+### Patch Changes
+
+- Updated dependencies [[`2949b87b9`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/2949b87b93676df46bfb824ac486e9b96b9a5ba4)]:
+  - shared-utils@2.15.0
+  - ui@2.26.0
+
 ## 2.11.0
 
 ### Minor Changes
