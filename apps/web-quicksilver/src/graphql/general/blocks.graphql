@@ -7,6 +7,7 @@ subscription BlocksListener($limit: Int = 7, $offset: Int = 0) {
     validator {
       validatorInfo: validator_info {
         operatorAddress: operator_address
+        consensusAddress: consensus_address
       }
     }
   }
@@ -23,6 +24,7 @@ query Blocks($limit: Int = 7, $offset: Int = 0) {
       validatorInfo: validator_info {
         operatorAddress: operator_address
         self_delegate_address
+        consensusAddress: consensus_address
       }
       validatorDescriptions: validator_descriptions(limit: 1, order_by: {height: desc}) {
         moniker
