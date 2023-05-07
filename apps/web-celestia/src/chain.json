@@ -204,6 +204,7 @@
       }
     }
   },
+  "keplr": "",
   "chains": [
     {
       "network": "blockspacerace-0",

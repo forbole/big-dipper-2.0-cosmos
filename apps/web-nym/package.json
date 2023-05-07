@@ -30,7 +30,6 @@
     "@walletconnect/encoding": "^1.0.2",
     "@yarnpkg/pnpify": "^4.0.0-rc.42",
     "apollo-link-rest": "^0.9.0",
-    "axios": "^1.4.0",
     "bech32": "^2.0.0",
     "big.js": "^6.2.1",
     "color": "^4.2.3",

@@ -54,7 +54,7 @@ export const getOfflineSignerAddress = async (
   // But, currently, Keplr extension manages only one address/public key pair.
   // XXX: This line is needed to set the sender address for SigningCosmosClient.
   const accounts = await offlineSigner.getAccounts();
-  return accounts[0].address;
+  return accounts?.[0]?.address;
 };
 
 export const getOfflineSignerPubKey = async (
@@ -63,12 +63,11 @@ export const getOfflineSignerPubKey = async (
 ) => {
   const accounts = await offlineSigner.getAccounts();
   let pubkey;
-  if (accounts) {
-    if (isSecp256k1PubKey(accounts[0].pubkey)) {
-      pubkey = encodeSecp256k1PubKey(accounts[0].pubkey);
-    }
+  if (accounts?.[0]?.pubkey) {
     if (isEd25519PubKey(accounts[0].pubkey)) {
       pubkey = encodeEd25519PubKey(accounts[0].pubkey);
+    } else if (isSecp256k1PubKey(accounts[0].pubkey)) {
+      pubkey = encodeSecp256k1PubKey(accounts[0].pubkey);
     }
     return pubkey;
   }

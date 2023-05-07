@@ -144,4 +144,5 @@ export interface ChainConfig extends ChainSettings {
     dark: PaletteSettings;
     light: PaletteSettings;
   };
+  keplr: string | undefined;
 }

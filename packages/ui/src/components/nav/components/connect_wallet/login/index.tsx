@@ -1,15 +1,25 @@
+import chainConfig from '@/chainConfig';
 import { useStyles } from '@/components/nav/components/connect_wallet/styles';
+import { ChainInfo } from '@keplr-wallet/types';
+import CloseIcon from '@mui/icons-material/Close';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import CloseIcon from '@mui/icons-material/Close';
-import WalletConnectIcon from 'shared-utils/assets/wallet-connect.svg';
-import KeplrIcon from 'shared-utils/assets/keplr-wallet.svg';
 import { useTranslation } from 'next-i18next';
 import { FC } from 'react';
+import KeplrIcon from 'shared-utils/assets/keplr-wallet.svg';
+import WalletConnectIcon from 'shared-utils/assets/wallet-connect.svg';
+
+// Get the keplr chain info from chainConfig
+const { keplr } = chainConfig();
+
+let keplrCustomChainInfo: ChainInfo | undefined = undefined;
+if (keplr) {
+  keplrCustomChainInfo = JSON.parse(keplr);
+}
 
 type LoginDialogProps = {
   open: boolean;
@@ -53,21 +63,23 @@ const LoginDialog: FC<LoginDialogProps> = ({ open, onClose, handleConnectWallet 
               </div>
             </Button>
           </div>
-          <div className={classes.dialogContentButton}>
-            <Button
-              onClick={(e: { preventDefault: () => void }) => {
-                e.preventDefault();
-                handleConnectWallet('Keplr Extension');
-              }}
-              aria-label="connect-keplr-extension-button"
-              className={classes.walletButton}
-            >
-              <div className={classes.walletIcon}>
-                <KeplrIcon />
-                <div className={classes.walletConnectLabel}>Keplr</div>
-              </div>
-            </Button>
-          </div>
+          {!!keplrCustomChainInfo && (
+            <div className={classes.dialogContentButton}>
+              <Button
+                onClick={(e: { preventDefault: () => void }) => {
+                  e.preventDefault();
+                  handleConnectWallet('Keplr Extension');
+                }}
+                aria-label="connect-keplr-extension-button"
+                className={classes.walletButton}
+              >
+                <div className={classes.walletIcon}>
+                  <KeplrIcon />
+                  <div className={classes.walletConnectLabel}>Keplr</div>
+                </div>
+              </Button>
+            </div>
+          )}
         </DialogContent>
       </Dialog>
     </div>

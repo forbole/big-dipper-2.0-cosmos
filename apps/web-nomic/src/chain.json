@@ -127,6 +127,7 @@
       }
     }
   },
+  "keplr": "",
   "chains": [
     {
       "network": "nomic-stakenet-2",

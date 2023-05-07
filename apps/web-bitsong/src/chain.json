@@ -126,6 +126,7 @@
       }
     }
   },
+  "keplr": "",
   "chains": [
     {
       "network": "bitsong-2b",

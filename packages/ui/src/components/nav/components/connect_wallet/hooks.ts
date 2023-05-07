@@ -1,37 +1,45 @@
-import axios from 'axios';
-import { SetterOrUpdater, useRecoilState } from 'recoil';
-import { useState, useEffect } from 'react';
-import WalletConnect from '@walletconnect/client';
-import { KeplrWalletConnectV1 } from '@keplr-wallet/wc-client';
-import { ChainInfo, Window as KeplrWindow } from '@keplr-wallet/types';
-import { ChainIdQuery, useChainIdQuery } from '@/graphql/types/general_types';
-import { PubKey } from '@/recoil/user/atom';
+import chainConfig from '@/chainConfig';
+import { wcBridgeURL } from '@/components/nav/components/connect_wallet/api';
 import {
-  writeOpenLoginDialog,
-  writeWalletSelection,
-  writeOpenInstallKeplrExtensionDialog,
-  writeOpenPairKeplrExtensionDialog,
-  writeOpenAuthorizeConnectionDialog,
-  writeOpenLoginSuccessDialog,
-  writeOpenPairConnectWalletDialog,
-  writeWalletConnectURI,
-} from '@/recoil/wallet';
-import { ADDRESS_KEY, CONNECTION_TYPE, PUBKEY_KEY, WALLET_NAME_KEY } from '@/utils/localstorage';
-import {
-  writeUserAddress,
-  writeIsUserLoggedIn,
-  writeUserPubKey,
-  writeWalletName,
-} from '@/recoil/user';
-import {
-  isKeplrAvailable,
   getAccountKey,
+  getCosmosClient,
   getOfflineSigner,
   getOfflineSignerAddress,
   getOfflineSignerPubKey,
-  getCosmosClient,
+  isKeplrAvailable,
 } from '@/components/nav/components/connect_wallet/keplr_utils';
-import { wcBridgeURL, CHAIN_REGISTRY_URL } from '@/components/nav/components/connect_wallet/api';
+import { ChainIdQuery, useChainIdQuery } from '@/graphql/types/general_types';
+import {
+  writeIsUserLoggedIn,
+  writeUserAddress,
+  writeUserPubKey,
+  writeWalletName,
+} from '@/recoil/user';
+import { PubKey } from '@/recoil/user/atom';
+import {
+  writeOpenAuthorizeConnectionDialog,
+  writeOpenInstallKeplrExtensionDialog,
+  writeOpenLoginDialog,
+  writeOpenLoginSuccessDialog,
+  writeOpenPairConnectWalletDialog,
+  writeOpenPairKeplrExtensionDialog,
+  writeWalletConnectURI,
+  writeWalletSelection,
+} from '@/recoil/wallet';
+import { ADDRESS_KEY, CONNECTION_TYPE, PUBKEY_KEY, WALLET_NAME_KEY } from '@/utils/localstorage';
+import { ChainInfo, Window as KeplrWindow } from '@keplr-wallet/types';
+import { KeplrWalletConnectV1 } from '@keplr-wallet/wc-client';
+import WalletConnect from '@walletconnect/client';
+import { useState } from 'react';
+import { SetterOrUpdater, useRecoilState } from 'recoil';
+
+// Get the keplr chain info from chainConfig
+const { keplr } = chainConfig();
+
+let keplrCustomChainInfo: ChainInfo | undefined = undefined;
+if (keplr) {
+  keplrCustomChainInfo = JSON.parse(keplr);
+}
 
 // Cast window as KeplrWindow
 declare const window: KeplrWindow & typeof globalThis;
@@ -39,49 +47,9 @@ declare const window: KeplrWindow & typeof globalThis;
 // Get the chain ID from a GraphQL query response
 const mapChainIdToModel = (data?: ChainIdQuery) => data?.genesis?.[0]?.chainId ?? '';
 
-async function fetchChainInfo(chainID: string) {
-  const url = `${CHAIN_REGISTRY_URL}/${chainID}.json`;
-  try {
-    const response = await axios.get(url);
-    return response.data;
-  } catch (error) {
-    console.error(`Failed to fetch chain info for chain ID ${chainID}:`, error);
-    return null;
-  }
-}
-
 const useConnectWalletList = () => {
   // keplr chain ID
-  const [keplrChainID, setKeplrChainID] = useState<string>('');
   const { data: chainId } = useChainIdQuery();
-
-  useEffect(() => {
-    if (chainId) {
-      setKeplrChainID(mapChainIdToModel(chainId));
-    }
-  }, [chainId]);
-
-  // keplr custom chain info states
-  const [custom, setCustom] = useState(true);
-
-  const [keplrCustomChainInfo, setKeplrCustomChainInfo] = useState<ChainInfo | null>(null);
-
-  useEffect(() => {
-    let isMounted = true;
-    const fetchData = async () => {
-      if (keplrChainID && custom) {
-        const data = await fetchChainInfo(keplrChainID);
-        if (isMounted) {
-          setKeplrCustomChainInfo(data);
-          setCustom(false);
-        }
-      }
-    };
-    fetchData();
-    return () => {
-      isMounted = false;
-    };
-  }, [keplrChainID]);
 
   // UserState
   const [, setUserAddress] = useRecoilState(writeUserAddress) as [string, SetterOrUpdater<string>];
@@ -201,41 +169,46 @@ const useConnectWalletList = () => {
 
   const connectKeplrWallet = async (connector: WalletConnect) => {
     const keplr = new KeplrWalletConnectV1(connector);
-    if (keplr && chainId) {
+    if (keplr && keplrCustomChainInfo?.chainId) {
       setOpenPairConnectWalletDialog(false);
       setOpenAuthorizeConnectionDialog(true);
       setErrorMsg(undefined);
 
-      if (keplrCustomChainInfo !== null) {
-        try {
-          await keplr.experimentalSuggestChain(keplrCustomChainInfo);
-        } catch (err) {
-          // Right now suggest the chain is not supported using wallet connect.
-        }
+      try {
+        await keplr.experimentalSuggestChain(keplrCustomChainInfo);
+      } catch (err) {
+        // Right now suggest the chain is not supported using wallet connect.
+        setErrorMsg(`Chain not supported by Keplr`);
+        return;
       }
 
       // enable connection and approve it inside the mobile app
       // to obtain address, pubkey and wallet name
       try {
-        await keplr?.enable(keplrChainID);
+        await keplr?.enable(keplrCustomChainInfo.chainId);
       } catch (e) {
         setErrorMsg(`${(e as Error)?.message}`);
+        return;
       }
+
       let keplrOfflineSigner;
       try {
-        keplrOfflineSigner = keplr.getOfflineSigner(keplrChainID);
+        keplrOfflineSigner = keplr.getOfflineSigner(keplrCustomChainInfo.chainId);
       } catch (e) {
         setErrorMsg(`${(e as Error)?.message}`);
+        return;
       }
 
       if (keplrOfflineSigner) {
         const accounts2 = await keplrOfflineSigner.getAccounts();
         const { address, pubkey } = accounts2[0];
-        const key = await keplr.getKey(keplrChainID);
+        const key = await keplr.getKey(keplrCustomChainInfo.chainId);
         saveUserInfo(address, pubkey as unknown as PubKey, 'Wallet Connect', key.name);
 
         // continue to log in success screen
         continueToLoginSuccessDialog();
+      } else {
+        setErrorMsg(`Chain not supported by Keplr`);
       }
     }
   };
@@ -262,7 +235,7 @@ const useConnectWalletList = () => {
 
   const connectWalletConnect = async () => {
     const connector = initWalletConnectClient();
-    if (connector.connected && keplrChainID) {
+    if (connector.connected && keplrCustomChainInfo?.chainId) {
       connectKeplrWallet(connector);
     }
 
@@ -292,7 +265,7 @@ const useConnectWalletList = () => {
       setOpenPairKeplrExtensionDialog(true);
 
       // proceed to authorize dialog after 3 seconds
-      if (keplrCustomChainInfo) {
+      if (keplrCustomChainInfo?.chainId) {
         setTimeout(() => {
           setOpenPairKeplrExtensionDialog(false);
           continueToAuthorizeKeplrConnectionDialog();
@@ -308,27 +281,26 @@ const useConnectWalletList = () => {
   };
 
   const continueToAuthorizeKeplrConnectionDialog = async () => {
+    if (!keplrCustomChainInfo?.chainId) {
+      throw new Error('Chain not supported by Keplr');
+    }
     setOpenPairKeplrExtensionDialog(false);
     setOpenAuthorizeConnectionDialog(true);
 
     try {
       // enable the chain inside the app
       try {
-        await window.keplr?.enable(keplrChainID);
+        await window.keplr?.enable(keplrCustomChainInfo.chainId);
       } catch (e) {
         if ((e as Error).message.toLowerCase().indexOf('there is no chain info') !== -1) {
-          if (keplrCustomChainInfo !== null) {
-            await window.keplr?.experimentalSuggestChain(keplrCustomChainInfo);
-          } else {
-            setErrorMsg('chain is not supported. Please add custom chain info and try again.');
-          }
+          await window.keplr?.experimentalSuggestChain(keplrCustomChainInfo);
         }
       }
 
       // get offline signer address
       let offlineSigner;
       try {
-        offlineSigner = getOfflineSigner(keplrChainID);
+        offlineSigner = getOfflineSigner(keplrCustomChainInfo.chainId);
       } catch (e) {
         setErrorMsg((e as Error).message);
       }
@@ -347,7 +319,7 @@ const useConnectWalletList = () => {
       const cosmJS = getCosmosClient(offlineSignerAddress, offlineSigner);
 
       if (cosmJS) {
-        const key = await getAccountKey(keplrChainID);
+        const key = await getAccountKey(keplrCustomChainInfo.chainId);
 
         // store user info in state
         saveUserInfo(offlineSignerAddress, offlineSignerPubKey, 'Keplr', key?.name ?? '');

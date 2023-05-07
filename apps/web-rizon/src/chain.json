@@ -126,6 +126,7 @@
       }
     }
   },
+  "keplr": "",
   "chains": [
     {
       "network": "titan-1",
