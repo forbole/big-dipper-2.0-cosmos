@@ -7672,7 +7672,7 @@ export type ValidatorUndelegationsQuery = { undelegations?: { __typename?: 'Acti
 export type ValidatorsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ValidatorsQuery = { stakingPool: Array<{ __typename?: 'staking_pool', bondedTokens: string }>, validator: Array<{ __typename?: 'validator', validatorStatuses: Array<{ __typename?: 'validator_status', status: number, jailed: boolean, height: any }>, validatorSigningInfos: Array<{ __typename?: 'validator_signing_info', tombstoned: boolean, missedBlocksCounter: any }>, validatorInfo?: { __typename?: 'validator_info', operatorAddress: string, selfDelegateAddress?: string | null } | null, validatorVotingPowers: Array<{ __typename?: 'validator_voting_power', votingPower: any }>, validatorCommissions: Array<{ __typename?: 'validator_commission', commission: any }> }>, slashingParams: Array<{ __typename?: 'slashing_params', params: any }> };
+export type ValidatorsQuery = { stakingPool: Array<{ __typename?: 'staking_pool', bondedTokens: string }>, validator: Array<{ __typename?: 'validator', validatorStatuses: Array<{ __typename?: 'validator_status', status: number, jailed: boolean, height: any }>, validatorSigningInfos: Array<{ __typename?: 'validator_signing_info', tombstoned: boolean, missedBlocksCounter: any }>, validatorDescriptions: Array<{ __typename?: 'validator_description', moniker?: string | null, avatar_url?: string | null, validator_address: string, website?: string | null, details?: string | null }>, validatorInfo?: { __typename?: 'validator_info', operatorAddress: string, selfDelegateAddress?: string | null, consensusAddress: string } | null, validatorVotingPowers: Array<{ __typename?: 'validator_voting_power', votingPower: any }>, validatorCommissions: Array<{ __typename?: 'validator_commission', commission: any }> }>, slashingParams: Array<{ __typename?: 'slashing_params', params: any }> };
 
 export type ValidatorsAddressListQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -9348,9 +9348,17 @@ export const ValidatorsDocument = gql`
       missedBlocksCounter: missed_blocks_counter
       tombstoned
     }
+    validatorDescriptions: validator_descriptions {
+      moniker
+      avatar_url
+      validator_address
+      website
+      details
+    }
     validatorInfo: validator_info {
       operatorAddress: operator_address
       selfDelegateAddress: self_delegate_address
+      consensusAddress: consensus_address
     }
     validatorVotingPowers: validator_voting_powers(
       offset: 0
