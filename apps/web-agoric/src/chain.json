@@ -25,7 +25,8 @@
         "tokenomics": {},
         "condition": {},
         "charts": {},
-        "tags": {}
+        "tags": {},
+        "wallet": {}
       }
     },
     "light": {

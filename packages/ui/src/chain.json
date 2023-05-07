@@ -30,7 +30,6 @@
       },
       "custom": {
         "general": {
-          "background": "#000000",
           "surfaceOne": "#131316",
           "surfaceTwo": "#212123",
           "icon": "#999999"
@@ -105,7 +104,7 @@
           "surfaceFive": "#777777",
           "divider": "#34383E",
           "textPrimary": "#000000",
-          "textSecondary": "#222222"
+          "textSecondary": "#DDDDDD"
         }
       }
     },

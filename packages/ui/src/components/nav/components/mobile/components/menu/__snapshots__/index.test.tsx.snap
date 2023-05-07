@@ -988,40 +988,6 @@ exports[`screen: Nav/Menu it renders 1`] = `
   }
 }
 
-.emotion-39 {
-  margin-left: 20px;
-}
-
-@media (min-width:1280px) {
-  .emotion-39 {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-align-items: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    text-align: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-  }
-}
-
-.emotion-39:hover {
-  cursor: pointer;
-}
-
-.emotion-39 svg {
-  fill: none;
-  stroke: #999999;
-  stroke-width: 1.6;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
 <div
     className="emotion-0"
   >
@@ -1346,23 +1312,6 @@ exports[`screen: Nav/Menu it renders 1`] = `
         >
           light
         </span>
-      </div>
-      <div>
-        <div
-          aria-label="connect-wallet-button"
-          className="emotion-39"
-          onClick={[Function]}
-          role="button"
-          tabIndex={0}
-        >
-          <svg />
-        </div>
-        <div />
-        <div />
-        <div />
-        <div />
-        <div />
-        <div />
       </div>
     </div>
   </div>,

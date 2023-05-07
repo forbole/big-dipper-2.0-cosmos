@@ -24,6 +24,14 @@ jest.mock(
   '@/components/nav/components/desktop/components/action_bar/components/settings_list',
   () => (props: JSX.IntrinsicElements['div']) => <div id="SettingsList" {...props} />
 );
+jest.mock(
+  '@/components/nav/components/connect_wallet',
+  () => (props: JSX.IntrinsicElements['div']) => <div id="connect_wallet" {...props} />
+);
+jest.mock(
+  '@/components/nav/components/wallet_details',
+  () => (props: JSX.IntrinsicElements['div']) => <div id="wallet_details" {...props} />
+);
 
 jest.mock('next/router', () => ({
   ...jest.requireActual('next/router'),

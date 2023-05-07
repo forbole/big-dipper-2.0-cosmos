@@ -13,9 +13,9 @@ const styles = makeStyles()((theme) => ({
     padding: '6px 16px',
     width: '103px',
     height: '40px',
-    background: theme.palette.custom.wallet.surfaceTwo,
+    background: theme.palette.custom.wallet?.surfaceTwo,
     borderRadius: '8px',
-    color: theme.palette.custom.wallet.textPrimary,
+    color: theme.palette.custom.wallet?.textPrimary,
     '&:hover': {
       background: theme.palette.primary.main,
       borderColor: theme.palette.primary.main,
@@ -82,7 +82,7 @@ const styles = makeStyles()((theme) => ({
     '& .MuiDialog-paper': {
       width: '330px',
       height: '330px',
-      backgroundColor: theme.palette.custom.wallet.backgroundTwo,
+      backgroundColor: theme.palette.custom.wallet?.backgroundTwo,
       [theme.breakpoints.up('md')]: {
         width: '561px',
         height: '550px',
@@ -207,7 +207,7 @@ const styles = makeStyles()((theme) => ({
   },
   walletButton: {
     border: 'solid 1px',
-    borderColor: theme.palette.custom.wallet.surfaceFour,
+    borderColor: theme.palette.custom.wallet?.surfaceFour,
     borderRadius: '24px',
     width: '120px',
     height: '120px',
@@ -215,15 +215,15 @@ const styles = makeStyles()((theme) => ({
     padding: '16px',
     justifyContent: 'center',
     '&:hover': {
-      background: theme.palette.custom.wallet.surfaceFour,
-      borderColor: theme.palette.custom.wallet.surfaceFour,
+      background: theme.palette.custom.wallet?.surfaceFour,
+      borderColor: theme.palette.custom.wallet?.surfaceFour,
     },
     [theme.breakpoints.up('md')]: {
       borderRadius: '24px',
       width: '153px',
       height: '152px',
     },
-    color: theme.palette.custom.wallet.surfaceTwo,
+    color: theme.palette.custom.wallet?.surfaceTwo,
   },
   walletConnectLabel: {
     fontSize: '14px',
@@ -247,7 +247,7 @@ const styles = makeStyles()((theme) => ({
     '&.open': {
       opacity: 1,
       visibility: 'visible',
-      background: theme.palette.custom.wallet.background,
+      background: theme.palette.custom.wallet?.background,
       borderRadius: '8px',
     },
   },
@@ -261,6 +261,7 @@ const styles = makeStyles()((theme) => ({
       right: '15px',
     },
   },
+  warningMsg: {},
 }));
 
 export const useStyles = () => styles();

@@ -2,7 +2,7 @@ import { makeStyles } from 'tss-react/mui';
 
 const styles = makeStyles()((theme) => ({
   root: {
-    background: theme.palette.custom.wallet.background,
+    background: theme.palette.custom.wallet?.background,
     width: '310px',
     height: '310px',
     top: theme.spacing(8.7),
@@ -18,7 +18,7 @@ const styles = makeStyles()((theme) => ({
   walletDetails: {
     height: '124px',
     borderRadius: theme.spacing(1),
-    backgroundColor: theme.palette.custom.wallet.surfaceTwo,
+    backgroundColor: theme.palette.custom.wallet?.surfaceTwo,
     marginTop: theme.spacing(1),
   },
   walletInfo: {
@@ -28,11 +28,11 @@ const styles = makeStyles()((theme) => ({
   changeWalletButton: {
     height: '46px',
     borderRadius: theme.spacing(1),
-    backgroundColor: theme.palette.custom.wallet.surfaceThree,
+    backgroundColor: theme.palette.custom.wallet?.surfaceThree,
     marginTop: theme.spacing(2.6),
     '&:hover': {
       cursor: 'pointer',
-      background: theme.palette.custom.wallet.surfaceFour,
+      background: theme.palette.custom.wallet?.surfaceFour,
     },
   },
   changeWalletButtonLabel: {
@@ -40,7 +40,7 @@ const styles = makeStyles()((theme) => ({
     fontSize: theme.spacing(2),
     fontWeight: 590,
     lineHeight: '20px',
-    color: theme.palette.custom.wallet.textSecondary,
+    color: theme.palette.custom.wallet?.textSecondary,
   },
   walletAvatar: {
     padding: theme.spacing(2, 0, 0, 3),
@@ -51,18 +51,18 @@ const styles = makeStyles()((theme) => ({
     fontSize: '14px',
     fontWeight: 590,
     lineHeight: '17px',
-    color: theme.palette.custom.wallet.textPrimary,
+    color: theme.palette.custom.wallet?.textPrimary,
     overflow: 'auto',
     flexWrap: 'wrap',
     overflowWrap: 'anywhere',
     maxHeight: '70px',
   },
   walletAddress: {
-    color: theme.palette.custom.wallet.surfaceFive,
+    color: theme.palette.custom.wallet?.surfaceFive,
   },
   divider: {
     margin: theme.spacing(1, 4.1, 1, 2),
-    backgroundColor: theme.palette.custom.wallet.divider,
+    backgroundColor: theme.palette.custom.wallet?.divider,
   },
   bottomDivider: {
     margin: theme.spacing(2.5, 0, 1.8, 0),
@@ -86,16 +86,16 @@ const styles = makeStyles()((theme) => ({
     width: '232px',
     height: '28px',
     border: '1px solid',
-    borderColor: theme.palette.custom.wallet.textPrimary,
+    borderColor: theme.palette.custom.wallet?.textPrimary,
     borderRadius: '1000px',
     marginLeft: theme.spacing(3),
     '&:hover': {
       cursor: 'pointer',
-      background: theme.palette.custom.wallet.surfaceFour,
+      background: theme.palette.custom.wallet?.surfaceFour,
     },
   },
   accountDetailsLabel: {
-    color: theme.palette.custom.wallet.textPrimary,
+    color: theme.palette.custom.wallet?.textPrimary,
     textAlign: 'center',
   },
   accountDetails: {
@@ -111,7 +111,7 @@ const styles = makeStyles()((theme) => ({
   blackDot: {
     height: theme.spacing(2),
     width: theme.spacing(2),
-    backgroundColor: theme.palette.custom.wallet.textPrimary,
+    backgroundColor: theme.palette.custom.wallet?.textPrimary,
     borderRadius: 50,
     display: 'inline-flex',
     marginTop: theme.spacing(0.5),
@@ -121,7 +121,7 @@ const styles = makeStyles()((theme) => ({
   greenDot: {
     height: theme.spacing(1.3),
     width: theme.spacing(1.3),
-    backgroundColor: theme.palette.custom.wallet.active,
+    backgroundColor: theme.palette.custom.wallet?.active,
     borderRadius: 50,
     display: 'flex',
     position: 'absolute',
@@ -131,7 +131,7 @@ const styles = makeStyles()((theme) => ({
   redDot: {
     height: theme.spacing(1.3),
     width: theme.spacing(1.3),
-    backgroundColor: theme.palette.custom.wallet.inactive,
+    backgroundColor: theme.palette.custom.wallet?.inactive,
     borderRadius: 50,
     display: 'flex',
     position: 'absolute',
@@ -141,7 +141,7 @@ const styles = makeStyles()((theme) => ({
   whiteDot: {
     height: theme.spacing(1.55),
     width: theme.spacing(1.55),
-    backgroundColor: theme.palette.custom.wallet.surfaceTwo,
+    backgroundColor: theme.palette.custom.wallet?.surfaceTwo,
     borderRadius: 50,
     display: 'flex',
     position: 'absolute',
@@ -150,15 +150,15 @@ const styles = makeStyles()((theme) => ({
   },
   signOutButton: {
     border: '1px solid',
-    borderColor: theme.palette.custom.wallet.textSecondary,
+    borderColor: theme.palette.custom.wallet?.textSecondary,
     borderRadius: theme.spacing(3),
     '&:hover': {
       cursor: 'pointer',
-      background: theme.palette.custom.wallet.surfaceThree,
+      background: theme.palette.custom.wallet?.surfaceThree,
     },
     '& svg': {
       fill: 'none',
-      color: theme.palette.custom.wallet.textSecondary,
+      color: theme.palette.custom.wallet?.textSecondary,
     },
     textAlign: 'center',
     width: theme.spacing(14),
@@ -167,7 +167,7 @@ const styles = makeStyles()((theme) => ({
     display: 'flex',
     verticalAlign: 'middle',
     width: theme.spacing(2),
-    stroke: theme.palette.custom.wallet.textSecondary,
+    stroke: theme.palette.custom.wallet?.textSecondary,
     strokeWidth: '1.6',
     strokeLinecap: 'round',
     strokeLinejoin: 'round',
@@ -186,7 +186,7 @@ const styles = makeStyles()((theme) => ({
     verticalAlign: 'middle',
     paddingTop: theme.spacing(0.8),
     fontWeight: 590,
-    color: theme.palette.custom.wallet.textSecondary,
+    color: theme.palette.custom.wallet?.textSecondary,
   },
 }));
 

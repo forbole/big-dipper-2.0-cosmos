@@ -593,6 +593,9 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:focus::-ms-input-p
       toggleNetwork={[MockFunction]}
     />
     <div
+      id="wallet_details"
+    />
+    <div
       className="MuiBox-root emotion-8"
     >
       <span
@@ -642,23 +645,9 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:focus::-ms-input-p
     <div
       id="SettingsList"
     />
-    <div>
-      <div
-        aria-label="connect-wallet-button"
-        className="emotion-31"
-        onClick={[Function]}
-        role="button"
-        tabIndex={0}
-      >
-        <svg />
-      </div>
-      <div />
-      <div />
-      <div />
-      <div />
-      <div />
-      <div />
-    </div>
+    <div
+      id="connect_wallet"
+    />
   </div>
   <div
     actionHeight={0}
@@ -1249,6 +1238,9 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:focus::-ms-input-p
       toggleNetwork={[MockFunction]}
     />
     <div
+      id="wallet_details"
+    />
+    <div
       className="MuiBox-root emotion-8"
     >
       <span
@@ -1295,23 +1287,9 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:focus::-ms-input-p
     <div
       id="SettingsList"
     />
-    <div>
-      <div
-        aria-label="connect-wallet-button"
-        className="emotion-31"
-        onClick={[Function]}
-        role="button"
-        tabIndex={0}
-      >
-        <svg />
-      </div>
-      <div />
-      <div />
-      <div />
-      <div />
-      <div />
-      <div />
-    </div>
+    <div
+      id="connect_wallet"
+    />
   </div>
   <div
     actionHeight={0}

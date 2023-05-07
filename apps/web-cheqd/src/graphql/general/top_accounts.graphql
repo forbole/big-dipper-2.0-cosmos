@@ -7,5 +7,6 @@ query TopAccounts($limit: Int = 100, $offset: Int = 0) {
     unbonding
     reward
     sum
+    type
   }
 }

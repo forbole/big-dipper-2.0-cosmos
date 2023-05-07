@@ -1,6 +1,6 @@
 {
   "name": "web-rizon",
-  "version": "2.12.0",
+  "version": "2.12.2",
   "license": "Apache-2.0",
   "private": true,
   "scripts": {
@@ -16,6 +16,7 @@
   "dependencies": {
     "@apollo/client": "^3.7.12",
     "@cosmjs/encoding": "^0.29.5",
+    "@cosmjs/launchpad": "^0.27.1",
     "@cosmjs/stargate": "^0.29.0",
     "@emotion/react": "^11.10.6",
     "@emotion/server": "^11.10.0",

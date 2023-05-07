@@ -8,6 +8,6 @@ generates:
       # omitOperationSuffix: true
       skipTypeNameForRoot: true
     plugins:
-      - 'typescript'
-      - 'typescript-operations'
-      - 'typescript-react-apollo' # To generate custom hooks per query
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-react-apollo" # To generate custom hooks per query

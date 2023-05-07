@@ -1,18 +1,12 @@
-import Button from '@mui/material/Button';
-import { useTranslation } from 'next-i18next';
-import useConnectWalletList from '@/components/nav/components/connect_wallet/hooks';
-import { useStyles } from '@/components/nav/components/connect_wallet/styles';
-import LoginIcon from 'shared-utils/assets/icon-login.svg';
-import LogoutIcon from 'shared-utils/assets/icon-logout.svg';
-import { FC } from 'react';
 import AuthorizeConnectionDialog from '@/components/nav/components/connect_wallet/authorize_connection';
+import useConnectWalletList from '@/components/nav/components/connect_wallet/hooks';
 import InstallKeplrExtensionDialog from '@/components/nav/components/connect_wallet/install_keplr_extension';
 import LoginDialog from '@/components/nav/components/connect_wallet/login';
 import LoginSuccessDialog from '@/components/nav/components/connect_wallet/login_success';
-import PairKeplrExtensionDialog from '@/components/nav/components/connect_wallet/pair_keplr_extension';
 import PairConnectWalletDialog from '@/components/nav/components/connect_wallet/pair_connect_wallet';
+import PairKeplrExtensionDialog from '@/components/nav/components/connect_wallet/pair_keplr_extension';
+import { useStyles } from '@/components/nav/components/connect_wallet/styles';
 import { readIsUserLoggedIn } from '@/recoil/user';
-import { useRecoilValue } from 'recoil';
 import {
   readOpenAuthorizeConnectionDialog,
   readOpenInstallKeplrExtensionDialog,
@@ -22,6 +16,12 @@ import {
   readOpenPairKeplrExtensionDialog,
   readWalletConnectURI,
 } from '@/recoil/wallet';
+import Button from '@mui/material/Button';
+import { useTranslation } from 'next-i18next';
+import { FC } from 'react';
+import { useRecoilValue } from 'recoil';
+import LoginIcon from 'shared-utils/assets/icon-login.svg';
+import LogoutIcon from 'shared-utils/assets/icon-logout.svg';
 
 type ConnectWalletProps = {
   className?: string;
