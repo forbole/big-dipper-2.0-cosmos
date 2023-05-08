@@ -1,4 +1,4 @@
-import { SigningCosmosClient } from '@cosmjs/launchpad';
+import { SigningStargateClient } from '@cosmjs/stargate';
 import { OfflineAminoSigner, OfflineDirectSigner } from '@keplr-wallet/types';
 import { toBase64 } from '@cosmjs/encoding';
 import { PubKey } from '@/recoil/user/atom';
@@ -44,7 +44,7 @@ export const getCosmosClient = (
   offlineSigner: OfflineAminoSigner & OfflineDirectSigner
 ) => {
   // Initialize the gaia api with the offline signer that is injected by Keplr extension.
-  const cosmJS = new SigningCosmosClient(keplrURL, address, offlineSigner);
+  const cosmJS = new SigningStargateClient(keplrURL, address, offlineSigner);
   return cosmJS;
 };
 
@@ -54,7 +54,7 @@ export const getOfflineSignerAddress = async (
   // You can get the address/public keys by `getAccounts` method.
   // It can return the array of address/public key.
   // But, currently, Keplr extension manages only one address/public key pair.
-  // XXX: This line is needed to set the sender address for SigningCosmosClient.
+  // XXX: This line is needed to set the sender address for SigningStargateClient.
   const accounts = await offlineSigner.getAccounts();
   return accounts[0].address;
 };
