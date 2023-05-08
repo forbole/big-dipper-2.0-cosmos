@@ -1,6 +1,6 @@
 {
   "name": "web",
-  "version": "2.12.0",
+  "version": "2.13.0",
   "license": "Apache-2.0",
   "private": true,
   "scripts": {
@@ -17,9 +17,11 @@
     "@apollo/client": "^3.7.12",
     "@cosmjs/encoding": "^0.29.5",
     "@cosmjs/proto-signing": "^0.30.1",
+    "@cosmjs/stargate": "^0.29.0",
     "@emotion/react": "^11.10.6",
     "@emotion/server": "^11.10.0",
     "@emotion/styled": "^11.10.6",
+    "@keplr-wallet/types": "^0.11.59",
     "@keplr-wallet/wc-client": "^0.11.38",
     "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.12.0",

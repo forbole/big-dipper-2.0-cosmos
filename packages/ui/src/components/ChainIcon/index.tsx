@@ -36,6 +36,7 @@ import solanaIconDark from 'shared-utils/assets/icons/solana-dark.svg?url';
 import solanaIconLight from 'shared-utils/assets/icons/solana-light.svg?url';
 import strideIconDark from 'shared-utils/assets/icons/stride-dark.svg?url';
 import wormholeIconDark from 'shared-utils/assets/icons/wormhole.svg?url';
+import celestiaIconDark from 'shared-utils/assets/icons/celestia-both.svg?url';
 import agoricLogoLight from 'shared-utils/assets/logos/agoric-light.png';
 import akashLogoDark from 'shared-utils/assets/logos/akash-dark.svg?url';
 import assetmantleLogoDark from 'shared-utils/assets/logos/assetmantle-dark.svg?url';
@@ -71,6 +72,8 @@ import quicksilverLogoDark from 'shared-utils/assets/logos/quicksilver-dark.svg?
 import multiversxLogoLight from 'shared-utils/assets/logos/multiversx-light.svg?url';
 import multiversxLogoDark from 'shared-utils/assets/logos/multiversx-dark.svg?url';
 import wormholeLogoDark from 'shared-utils/assets/logos/wormhole.svg?url';
+import celestiaLogoDark from 'shared-utils/assets/logos/celestia-dark.svg?url';
+import celestiaLogoLight from 'shared-utils/assets/logos/celestia-light.svg?url';
 
 interface IconProps extends Omit<ImageProps, 'id' | 'src'> {
   type: 'icon' | 'logo';
@@ -236,6 +239,12 @@ const ChainIcon = ({
         type === 'icon'
           ? [wormholeIconDark, wormholeIconDark]
           : [wormholeLogoDark, wormholeLogoDark];
+      break;
+    case 'celestia':
+      [iconDark, iconLight] =
+        type === 'icon'
+          ? [celestiaIconDark, celestiaIconDark]
+          : [celestiaLogoDark, celestiaLogoLight];
       break;
     default:
       throw new Error(`chain ${chainName} not supported`);

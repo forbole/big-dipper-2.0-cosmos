@@ -35,17 +35,17 @@ export async function interceptRoutes(page: Page) {
   await page.route('**/*', (route) => {
     if (RESOURCE_EXCLUSTIONS.includes(route.request().resourceType())) {
       route.abort();
-    } else if (
-      !/^[^/]*\/\/(localhost(|:\d+)|raw\.githubusercontent\.com|gql\..+\.forbole\.com|gql\..+\.desmos\.network)/.test(
-        route.request().url()
-      )
-    ) {
-      route.fulfill({
-        status: 200,
-        body: route.request().url(),
-      });
     } else {
-      route.continue();
+      const url = route.request().url();
+      if (
+        !/^[^/]*\/\/(localhost(|:\d+)|raw\.githubusercontent\.com|gql\..+\.forbole\.com|gql\..+\.desmos\.network)/.test(
+          url
+        )
+      ) {
+        route.fulfill({ status: 200, body: url });
+      } else {
+        route.continue();
+      }
     }
   });
 }

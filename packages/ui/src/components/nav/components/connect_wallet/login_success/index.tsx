@@ -1,4 +1,3 @@
-import { useStyles } from '@/components/nav/components/connect_wallet/styles';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
@@ -8,14 +7,14 @@ import CloseIcon from '@mui/icons-material/Close';
 import { useTranslation } from 'next-i18next';
 import { FC } from 'react';
 import LoginSuccessIcon from 'shared-utils/assets/icon-success.svg';
+import { useStyles } from '@/components/nav/components/connect_wallet/styles';
 
 type LoginSuccessDialogProps = {
   open: boolean;
   onClose: () => void;
-  onContinue: () => void;
 };
 
-const LoginSuccessDialog: FC<LoginSuccessDialogProps> = ({ open, onClose, onContinue }) => {
+const LoginSuccessDialog: FC<LoginSuccessDialogProps> = ({ open, onClose }) => {
   const { classes } = useStyles();
   const { t } = useTranslation();
 

@@ -31,7 +31,6 @@
       },
       "custom": {
         "general": {
-          "background": "#020202",
           "surfaceOne": "#131316",
           "surfaceTwo": "#19191D",
           "icon": "#999999"
@@ -95,6 +94,18 @@
           "eighteen": "#F0A479",
           "nineteen": "#D37763",
           "twenty": "#D9C788"
+        },
+        "wallet": {
+          "background": "#5E5E5E",
+          "backgroundTwo": "#212123",
+          "surfaceOne": "#5E5C5C",
+          "surfaceTwo": "#D9D9D9",
+          "surfaceThree": "#4D4D4D",
+          "surfaceFour": "#414141",
+          "surfaceFive": "#777777",
+          "divider": "#34383E",
+          "textPrimary": "#000000",
+          "textSecondary": "#DDDDDD"
         }
       }
     },
@@ -178,10 +189,23 @@
           "eighteen": "#F0A479",
           "nineteen": "#D37763",
           "twenty": "#D9C788"
+        },
+        "wallet": {
+          "background": "#E8E8E8",
+          "backgroundTwo": "#FFFFFF",
+          "surfaceOne": "#5E5C5C",
+          "surfaceTwo": "#E8E7E8",
+          "surfaceThree": "#BDBDBD",
+          "surfaceFour": "#A1A1A1",
+          "surfaceFive": "#777777",
+          "divider": "#34383E",
+          "textPrimary": "#000000",
+          "textSecondary": "#222222"
         }
       }
     }
   },
+  "keplr": "{\"chainId\":\"cheqd-mainnet-1\",\"chainName\":\"cheqd\",\"chainSymbolImageUrl\":\"https://raw.githubusercontent.com/chainapsis/keplr-chain-registry/main/images/cheqd-mainnet/chain.png\",\"rpc\":\"https://rpc.cheqd.net\",\"rest\":\"https://api.cheqd.net\",\"nodeProvider\":{\"name\":\"cheqd Network\",\"email\":\"security-github@cheqd.io\",\"website\":\"https://cheqd.io/\"},\"walletUrlForStaking\":\"https://cheqd.omniflix.co\",\"bip44\":{\"coinType\":118},\"bech32Config\":{\"bech32PrefixAccAddr\":\"cheqd\",\"bech32PrefixAccPub\":\"cheqdpub\",\"bech32PrefixValAddr\":\"cheqdvaloper\",\"bech32PrefixValPub\":\"cheqdvaloperpub\",\"bech32PrefixConsAddr\":\"cheqdvalcons\",\"bech32PrefixConsPub\":\"cheqdvalconspub\"},\"currencies\":[{\"coinDenom\":\"CHEQ\",\"coinMinimalDenom\":\"ncheq\",\"coinDecimals\":9,\"coinGeckoId\":\"cheqd-network\"}],\"feeCurrencies\":[{\"coinDenom\":\"CHEQ\",\"coinMinimalDenom\":\"ncheq\",\"coinDecimals\":9,\"coinGeckoId\":\"cheqd-network\",\"gasPriceStep\":{\"low\":25,\"average\":50,\"high\":100}}],\"stakeCurrency\":{\"coinDenom\":\"CHEQ\",\"coinMinimalDenom\":\"ncheq\",\"coinDecimals\":9,\"coinGeckoId\":\"cheqd-network\"},\"features\":[]}",
   "chains": [
     {
       "network": "cheqd-mainnet-1",

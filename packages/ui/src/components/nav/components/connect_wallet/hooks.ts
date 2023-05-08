@@ -1,35 +1,47 @@
-import { SetterOrUpdater, useRecoilState } from 'recoil';
-import { useState } from 'react';
-import WalletConnect from '@walletconnect/client';
-import { KeplrWalletConnectV1 } from '@keplr-wallet/wc-client';
-import { PubKey } from '@/recoil/user/atom';
+import chainConfig from '@/chainConfig';
+import { wcBridgeURL } from '@/components/nav/components/connect_wallet/api';
 import {
-  writeOpenLoginDialog,
-  writeWalletSelection,
-  writeOpenInstallKeplrExtensionDialog,
-  writeOpenPairKeplrExtensionDialog,
-  writeOpenAuthorizeConnectionDialog,
-  writeOpenLoginSuccessDialog,
-  writeOpenPairConnectWalletDialog,
-  writeWalletConnectURI,
-} from '@/recoil/wallet';
-import { ADDRESS_KEY, CONNECTION_TYPE, PUBKEY_KEY, WALLET_NAME_KEY } from '@/utils/localstorage';
-import {
-  writeUserAddress,
-  writeIsUserLoggedIn,
-  writeUserPubKey,
-  writeWalletName,
-} from '@/recoil/user';
-import {
-  isKeplrAvailable,
-  enableChain,
   getAccountKey,
+  getCosmosClient,
   getOfflineSigner,
   getOfflineSignerAddress,
   getOfflineSignerPubKey,
-  getCosmosClient,
-} from './keplr_utils';
-import { keplrChainID, wcBridgeURL, keplrCustomChainInfo } from './utils';
+  isKeplrAvailable,
+} from '@/components/nav/components/connect_wallet/keplr_utils';
+import {
+  writeIsUserLoggedIn,
+  writeUserAddress,
+  writeUserPubKey,
+  writeWalletName,
+} from '@/recoil/user';
+import { PubKey } from '@/recoil/user/atom';
+import {
+  writeOpenAuthorizeConnectionDialog,
+  writeOpenInstallKeplrExtensionDialog,
+  writeOpenLoginDialog,
+  writeOpenLoginSuccessDialog,
+  writeOpenPairConnectWalletDialog,
+  writeOpenPairKeplrExtensionDialog,
+  writeWalletConnectURI,
+  writeWalletSelection,
+} from '@/recoil/wallet';
+import { ADDRESS_KEY, CONNECTION_TYPE, PUBKEY_KEY, WALLET_NAME_KEY } from '@/utils/localstorage';
+import { ChainInfo, Window as KeplrWindow } from '@keplr-wallet/types';
+import { KeplrWalletConnectV1 } from '@keplr-wallet/wc-client';
+import WalletConnect from '@walletconnect/client';
+import { useState } from 'react';
+import { SetterOrUpdater, useRecoilState } from 'recoil';
+
+// Get the keplr chain info from chainConfig
+const { keplr } = chainConfig();
+
+let keplrCustomChainInfo: ChainInfo | undefined;
+if (keplr) {
+  keplrCustomChainInfo = JSON.parse(keplr);
+}
+
+// Cast window as KeplrWindow
+declare const window: KeplrWindow & typeof globalThis;
 
 const useConnectWalletList = () => {
   // UserState
@@ -149,42 +161,47 @@ const useConnectWalletList = () => {
   };
 
   const connectKeplrWallet = async (connector: WalletConnect) => {
-    const keplr = new KeplrWalletConnectV1(connector);
-    if (keplr) {
+    const keplrWallet = new KeplrWalletConnectV1(connector);
+    if (keplrWallet && keplrCustomChainInfo?.chainId) {
       setOpenPairConnectWalletDialog(false);
       setOpenAuthorizeConnectionDialog(true);
       setErrorMsg(undefined);
 
-      if (keplrCustomChainInfo !== undefined) {
-        try {
-          await keplr.experimentalSuggestChain(keplrCustomChainInfo);
-        } catch (err) {
-          // Right now suggest the chain is not supported using wallet connect.
-        }
+      try {
+        await keplrWallet.experimentalSuggestChain(keplrCustomChainInfo);
+      } catch (err) {
+        // Right now suggest the chain is not supported using wallet connect.
+        setErrorMsg(`Chain not supported by Keplr`);
+        return;
       }
 
       // enable connection and approve it inside the mobile app
       // to obtain address, pubkey and wallet name
       try {
-        await keplr?.enable(keplrChainID);
+        await keplrWallet?.enable(keplrCustomChainInfo.chainId);
       } catch (e) {
         setErrorMsg(`${(e as Error)?.message}`);
+        return;
       }
+
       let keplrOfflineSigner;
       try {
-        keplrOfflineSigner = keplr.getOfflineSigner(keplrChainID);
+        keplrOfflineSigner = keplrWallet.getOfflineSigner(keplrCustomChainInfo.chainId);
       } catch (e) {
         setErrorMsg(`${(e as Error)?.message}`);
+        return;
       }
 
       if (keplrOfflineSigner) {
         const accounts2 = await keplrOfflineSigner.getAccounts();
         const { address, pubkey } = accounts2[0];
-        const key = await keplr.getKey(keplrChainID);
+        const key = await keplrWallet.getKey(keplrCustomChainInfo.chainId);
         saveUserInfo(address, pubkey as unknown as PubKey, 'Wallet Connect', key.name);
 
         // continue to log in success screen
         continueToLoginSuccessDialog();
+      } else {
+        setErrorMsg(`Chain not supported by Keplr`);
       }
     }
   };
@@ -211,7 +228,7 @@ const useConnectWalletList = () => {
 
   const connectWalletConnect = async () => {
     const connector = initWalletConnectClient();
-    if (connector.connected) {
+    if (connector.connected && keplrCustomChainInfo?.chainId) {
       connectKeplrWallet(connector);
     }
 
@@ -241,10 +258,12 @@ const useConnectWalletList = () => {
       setOpenPairKeplrExtensionDialog(true);
 
       // proceed to authorize dialog after 3 seconds
-      setTimeout(() => {
-        setOpenPairKeplrExtensionDialog(false);
-        continueToAuthorizeKeplrConnectionDialog();
-      }, 3000);
+      if (keplrCustomChainInfo?.chainId) {
+        setTimeout(() => {
+          setOpenPairKeplrExtensionDialog(false);
+          continueToAuthorizeKeplrConnectionDialog();
+        }, 3000);
+      }
     }
   };
 
@@ -255,54 +274,56 @@ const useConnectWalletList = () => {
   };
 
   const continueToAuthorizeKeplrConnectionDialog = async () => {
+    if (!keplrCustomChainInfo?.chainId) {
+      throw new Error('Chain not supported by Keplr');
+    }
     setOpenPairKeplrExtensionDialog(false);
     setOpenAuthorizeConnectionDialog(true);
 
-    // enable the chain inside the app
     try {
-      await enableChain();
-    } catch (error) {
-      const e = error as Error;
-      setErrorMsg(e.message);
-
-      // add custom chain info if chain isn't natively integrated to Keplr extension
-      if (e.message.toLowerCase().indexOf('There is no chain info')) {
-        if (keplrCustomChainInfo !== undefined) {
+      // enable the chain inside the app
+      try {
+        await window.keplr?.enable(keplrCustomChainInfo.chainId);
+      } catch (e) {
+        if ((e as Error).message.toLowerCase().indexOf('there is no chain info') !== -1) {
           await window.keplr?.experimentalSuggestChain(keplrCustomChainInfo);
-        } else {
-          setErrorMsg('chain is not supported. Please add custom chain info and try again.');
         }
       }
-    }
 
-    let offlineSigner;
-    try {
-      offlineSigner = getOfflineSigner();
+      // get offline signer address
+      let offlineSigner;
+      try {
+        offlineSigner = getOfflineSigner(keplrCustomChainInfo.chainId);
+      } catch (e) {
+        setErrorMsg((e as Error).message);
+      }
+
+      // get offline signer address
+      let offlineSignerAddress;
+      try {
+        if (!offlineSigner) throw new Error('offline signer is undefined');
+        offlineSignerAddress = await getOfflineSignerAddress(offlineSigner);
+      } catch (e) {
+        setErrorMsg((e as Error).message);
+        return;
+      }
+
+      const offlineSignerPubKey = await getOfflineSignerPubKey(offlineSigner);
+      const cosmJS = getCosmosClient(offlineSignerAddress, offlineSigner);
+
+      if (cosmJS) {
+        const key = await getAccountKey(keplrCustomChainInfo.chainId);
+
+        // store user info in state
+        saveUserInfo(offlineSignerAddress, offlineSignerPubKey, 'Keplr', key?.name ?? '');
+
+        // continue to log in success screen
+        continueToLoginSuccessDialog();
+      }
     } catch (e) {
-      setErrorMsg((e as Error).message);
-    }
-
-    // get offline signer address
-    let offlineSignerAddress;
-    try {
-      if (!offlineSigner) throw new Error('offline signer is undefined');
-      offlineSignerAddress = await getOfflineSignerAddress(offlineSigner);
-    } catch (e) {
-      setErrorMsg((e as Error).message);
-      return;
-    }
-
-    const offlineSignerPubKey = await getOfflineSignerPubKey(offlineSigner);
-    const cosmJS = getCosmosClient(offlineSignerAddress, offlineSigner);
-
-    if (cosmJS) {
-      const key = await getAccountKey();
-
-      // store user info in state
-      saveUserInfo(offlineSignerAddress, offlineSignerPubKey, 'Keplr', key?.name ?? '');
-
-      // continue to log in success screen
-      continueToLoginSuccessDialog();
+      if ((e as Error).message.toLowerCase().indexOf('request rejected') !== -1) {
+        closeAuthorizeConnectionDialog();
+      }
     }
   };
 

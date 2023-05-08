@@ -54,6 +54,7 @@
   "params": "參數",
   "assets": "資產",
   "assetsModule": "資產模組",
+  "wasmContracts": "WASM Contracts",
   "errorTitle": "哎呀！",
   "errorDetails": "如果您有時間，請將其報告給我們的 Github <0>{{issue}}</0> 使用導致錯誤的網址。",
   "errorHome": "點擊此處返回主頁",
@@ -63,7 +64,7 @@
   "detailed": "詳細",
   "profilesNotEnabled": "未為此資源管理器啟用配置文件",
   "insertValidDtag": "請插入有效的 dtag",
-    "invalidAddress": "無效地址",
+  "invalidAddress": "無效地址",
   "24-hour": "24 小時制",
   "12-hour": "12 小時制",
   "documentation": "文檔"

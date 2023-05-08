@@ -1,5 +1,33 @@
 # unreleased
 
+## 2.13.0
+
+### Minor Changes
+
+- [#1128](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1128) [`1edb0b236`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/1edb0b236d80993a19b11dc598cbcbb44d1905b4) Thanks [@MonikaCat](https://github.com/MonikaCat)! - Added login with Keplr and WalletConnect([\#1128](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1128))
+
+### Patch Changes
+
+- Updated dependencies [[`1edb0b236`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/1edb0b236d80993a19b11dc598cbcbb44d1905b4)]:
+  - shared-utils@2.16.0
+  - ui@2.27.0
+
+## 2.12.2
+
+### Patch Changes
+
+- Updated dependencies [[`2949b87b9`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/2949b87b93676df46bfb824ac486e9b96b9a5ba4)]:
+  - shared-utils@2.15.0
+  - ui@2.26.0
+
+## 2.12.1
+
+### Patch Changes
+
+- Updated dependencies [[`d106401de`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/d106401de6ad55be1efa2eedc248ad7277ce524a), [`381e863d1`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/381e863d12c2c56e1a32946f828de6cbd5350c46), [`2113969f5`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/2113969f5dea2d4a2cc177dc94f6ac8994080a67)]:
+  - ui@2.25.0
+  - shared-utils@2.14.0
+
 ## 2.12.0
 
 ### Minor Changes

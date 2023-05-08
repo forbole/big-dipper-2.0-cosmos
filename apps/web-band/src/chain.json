@@ -29,7 +29,6 @@
       },
       "custom": {
         "general": {
-          "background": "#13141D",
           "surfaceOne": "#1A202B",
           "surfaceTwo": "#222A39",
           "icon": "#999999"
@@ -127,6 +126,7 @@
       }
     }
   },
+  "keplr": "",
   "chains": [
     {
       "network": "laozi-mainnet",

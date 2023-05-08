@@ -56,6 +56,7 @@
   "params": "参数",
   "assets": "资产",
   "assetsModule": "资产模块",
+  "wasmContracts": "WASM Contracts",
   "errorTitle": "哎呀！",
   "errorDetails": "如果您有时间，请将其报告给我们 github <0>{{issue}}</0> 。",
   "errorHome": "点击此处返回主页",
@@ -65,8 +66,8 @@
   "detailed": "详细",
   "profilesNotEnabled": "未为此资源管理器启用配置文件",
   "insertValidDtag": "请插入有效的 dtag",
-    "invalidAddress": "无效地址",
+  "invalidAddress": "无效地址",
   "24-hour": "24 小时制",
-    "12-hour": "12 小时制",
+  "12-hour": "12 小时制",
   "documentation": "文档"
 }

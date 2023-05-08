@@ -8,7 +8,7 @@
   "delegations": "质押 ({{num}})",
   "redelegations": "重新质押 ({{num}})",
   "unbondings": "解绑（{{num}})",
-  "validator": "验证人",
+  "validator": "Guardian",
   "amount": "数量",
   "reward": "奖励",
   "commission": "委员会",

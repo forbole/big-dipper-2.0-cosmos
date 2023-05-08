@@ -17,6 +17,10 @@ jest.mock('@/components/layout', () => (props: JSX.IntrinsicElements['div']) => 
 jest.mock('@/screens/proposals/components/list', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="List" {...props} />
 ));
+jest.mock(
+  '@/components/nav/components/connect_wallet',
+  () => (props: JSX.IntrinsicElements['div']) => <div id="connect_wallet" {...props} />
+);
 
 const mockProposals = jest.fn().mockReturnValue({
   data: {

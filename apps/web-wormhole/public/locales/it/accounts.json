@@ -8,7 +8,7 @@
   "delegations": "Deleghe ({{num}})",
   "redelegations": "Rideleghe ({{num}})",
   "unbondings": "In Svincolamento ({{num}})",
-  "validator": "Validatore",
+  "validator": "Guardian",
   "amount": "Quantità",
   "reward": "Reward",
   "commission": "Commissione",

@@ -2,15 +2,13 @@ import { SigningStargateClient } from '@cosmjs/stargate';
 import { OfflineAminoSigner, OfflineDirectSigner } from '@keplr-wallet/types';
 import { toBase64 } from '@cosmjs/encoding';
 import { PubKey } from '@/recoil/user/atom';
-import { keplrChainID, keplrURL, wcBridgeURL, keplrCustomChainInfo } from './utils';
+import { keplrURL } from '@/components/nav/components/connect_wallet/api';
 
 export const isKeplrAvailable = () => !!window.keplr;
 
-export const enableChain = () => window.keplr?.enable(keplrChainID);
+export const getAccountKey = (keplrChainID: string) => window.keplr?.getKey(keplrChainID);
 
-export const getAccountKey = () => window.keplr?.getKey(keplrChainID);
-
-export const getOfflineSigner = () => {
+export const getOfflineSigner = (keplrChainID: string) => {
   const offlineSigner = window.keplr?.getOfflineSigner(keplrChainID);
   return offlineSigner;
 };
@@ -54,9 +52,9 @@ export const getOfflineSignerAddress = async (
   // You can get the address/public keys by `getAccounts` method.
   // It can return the array of address/public key.
   // But, currently, Keplr extension manages only one address/public key pair.
-  // XXX: This line is needed to set the sender address for SigningStargateClient.
+  // XXX: This line is needed to set the sender address for SigningCosmosClient.
   const accounts = await offlineSigner.getAccounts();
-  return accounts[0].address;
+  return accounts?.[0]?.address;
 };
 
 export const getOfflineSignerPubKey = async (
@@ -65,12 +63,11 @@ export const getOfflineSignerPubKey = async (
 ) => {
   const accounts = await offlineSigner.getAccounts();
   let pubkey;
-  if (accounts) {
-    if (isSecp256k1PubKey(accounts[0].pubkey)) {
-      pubkey = encodeSecp256k1PubKey(accounts[0].pubkey);
-    }
+  if (accounts?.[0]?.pubkey) {
     if (isEd25519PubKey(accounts[0].pubkey)) {
       pubkey = encodeEd25519PubKey(accounts[0].pubkey);
+    } else if (isSecp256k1PubKey(accounts[0].pubkey)) {
+      pubkey = encodeSecp256k1PubKey(accounts[0].pubkey);
     }
     return pubkey;
   }
