@@ -117,7 +117,7 @@ const config: PlaywrightTestConfig = {
       RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED: 'false',
     },
     timeout: process.env.CI ? 2 * 60 * 1000 : undefined,
-    reuseExistingServer: false,
+    reuseExistingServer: true,
   },
 };
 

@@ -55,9 +55,9 @@
   "signedBlockWindow": "已驗證區塊： {{amount}}",
   "lastSeen": "最後上線時間",
   "status": "狀態",
-  "inActiveSet": "有效",
   "votingPowerExplanation": "由於擁有前 34% 投票權的驗證者有機會 <0>降低網絡安全</0> 及 <0>停止網絡</0> 它們將以特別的方式突出顯示，以教育及鼓勵權力下放",
   "tombstoned": "墓碑化",
   "votingPowerPercent": "投票權百分比",
-  "maxRate": "最高佣金率"
+  "maxRate": "最高佣金率",
+  "inActiveSet": "有效"
 }

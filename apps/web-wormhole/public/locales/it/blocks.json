@@ -2,7 +2,7 @@
   "blocks": "Blocchi",
   "blockDetails": "Dettagli del blocco",
   "height": "Altezza",
-  "validator": "Validatore",
+  "validator": "Guardian",
   "hash": "Hash",
   "txs": "Txs",
   "time": "Tempo",

@@ -2,8 +2,8 @@
   "latestBlock": "最新区块",
   "averageBlockTime": "平均出块时间",
   "price": "价格",
-  "activeValidators": "有效的验证人",
-  "outOfValidators": "在......之外 {{num}} 验证人",
+  "activeValidators": "有效的Guardian",
+  "outOfValidators": "在......之外 {{num}} Guardian",
   "onlineVotingPower": "在线投票权",
   "today": "今天",
   "lastMonth": "上个月",
@@ -29,6 +29,6 @@
   "totalVotingPower": "总投票权",
   "lastVotingPowerChange": "最后投票权变更",
   "powerChange": "<0>{{change}}</0> 在区块 ",
-  "validators": "验证人",
+  "validators": "Guardians",
   "priceHistory": "价格（~24 小时）"
 }

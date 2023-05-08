@@ -31,7 +31,6 @@
       },
       "custom": {
         "general": {
-          "background": "#0A0A0A",
           "surfaceOne": "#131316",
           "surfaceTwo": "#19191D",
           "icon": "#999999"
@@ -95,6 +94,18 @@
           "eighteen": "#F0A479",
           "nineteen": "#D37763",
           "twenty": "#D9C788"
+        },
+        "wallet": {
+          "background": "#5E5E5E",
+          "backgroundTwo": "#212123",
+          "surfaceOne": "#5E5C5C",
+          "surfaceTwo": "#D9D9D9",
+          "surfaceThree": "#4D4D4D",
+          "surfaceFour": "#414141",
+          "surfaceFive": "#777777",
+          "divider": "#34383E",
+          "textPrimary": "#000000",
+          "textSecondary": "#DDDDDD"
         }
       }
     },
@@ -178,10 +189,23 @@
           "eighteen": "#F0A479",
           "nineteen": "#D37763",
           "twenty": "#D9C788"
+        },
+        "wallet": {
+          "background": "#E8E8E8",
+          "backgroundTwo": "#FFFFFF",
+          "surfaceOne": "#5E5C5C",
+          "surfaceTwo": "#E8E7E8",
+          "surfaceThree": "#BDBDBD",
+          "surfaceFour": "#A1A1A1",
+          "surfaceFive": "#777777",
+          "divider": "#34383E",
+          "textPrimary": "#000000",
+          "textSecondary": "#222222"
         }
       }
     }
   },
+  "keplr": "{\"chainId\":\"likecoin-mainnet-2\",\"chainName\":\"LikeCoin\",\"chainSymbolImageUrl\":\"https://raw.githubusercontent.com/chainapsis/keplr-chain-registry/main/images/likecoin-mainnet/chain.png\",\"rpc\":\"https://mainnet-node-rpc.like.co\",\"rest\":\"https://mainnet-node.like.co\",\"nodeProvider\":{\"name\":\"like.co\",\"email\":\"team@like.co\",\"website\":\"https://like.co/\"},\"walletUrlForStaking\":\"https://dao.like.co/validators/\",\"bip44\":{\"coinType\":118},\"bech32Config\":{\"bech32PrefixAccAddr\":\"like\",\"bech32PrefixAccPub\":\"likepub\",\"bech32PrefixValAddr\":\"likevaloper\",\"bech32PrefixValPub\":\"likevaloperpub\",\"bech32PrefixConsAddr\":\"likevalcons\",\"bech32PrefixConsPub\":\"likevalconspub\"},\"currencies\":[{\"coinDenom\":\"LIKE\",\"coinMinimalDenom\":\"nanolike\",\"coinDecimals\":9,\"coinGeckoId\":\"likecoin\"}],\"feeCurrencies\":[{\"coinDenom\":\"LIKE\",\"coinMinimalDenom\":\"nanolike\",\"coinDecimals\":9,\"coinGeckoId\":\"likecoin\",\"gasPriceStep\":{\"low\":1,\"average\":10,\"high\":1000}}],\"stakeCurrency\":{\"coinDenom\":\"LIKE\",\"coinMinimalDenom\":\"nanolike\",\"coinDecimals\":9,\"coinGeckoId\":\"likecoin\"},\"features\":[]}",
   "chains": [
     {
       "network": "likecoin-mainnet-2",

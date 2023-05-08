@@ -593,6 +593,9 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:focus::-ms-input-p
       toggleNetwork={[MockFunction]}
     />
     <div
+      id="wallet_details"
+    />
+    <div
       className="MuiBox-root emotion-8"
     >
       <span
@@ -641,6 +644,9 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:focus::-ms-input-p
     </div>
     <div
       id="SettingsList"
+    />
+    <div
+      id="connect_wallet"
     />
   </div>
   <div
@@ -1232,6 +1238,9 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:focus::-ms-input-p
       toggleNetwork={[MockFunction]}
     />
     <div
+      id="wallet_details"
+    />
+    <div
       className="MuiBox-root emotion-8"
     >
       <span
@@ -1277,6 +1286,9 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:focus::-ms-input-p
     </div>
     <div
       id="SettingsList"
+    />
+    <div
+      id="connect_wallet"
     />
   </div>
   <div

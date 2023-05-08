@@ -1,0 +1,15 @@
+{
+  "blocks": "區塊",
+  "blockDetails": "區塊詳情",
+  "height": "區塊高度",
+  "validator": "驗證者",
+  "hash": "雜湊碼",
+  "txs": "發送交易",
+  "time": "時間",
+  "overview": "總覽",
+  "signedVotingPower": "已驗證投票權",
+  "proposer": "提議者",
+  "signatures": "簽名",
+  "votingPower": "投票權",
+  "signed": "已驗證"
+}

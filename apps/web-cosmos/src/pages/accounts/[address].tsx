@@ -1,6 +1,6 @@
 import withGetStaticProps from '@/pages/withGetStaticProps';
-import type { NextPage } from 'next';
 import AccountDetails from '@/screens/account_details';
+import type { NextPage } from 'next';
 import nextI18NextConfig from '../../../next-i18next.config';
 
 const AccountDetailsPage: NextPage = () => <AccountDetails />;

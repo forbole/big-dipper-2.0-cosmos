@@ -25,7 +25,8 @@
         "tokenomics": {},
         "condition": {},
         "charts": {},
-        "tags": {}
+        "tags": {},
+        "wallet": {}
       }
     },
     "light": {
@@ -107,10 +108,23 @@
           "eighteen": "#F0A479",
           "nineteen": "#D37763",
           "twenty": "#D9C788"
+        },
+        "wallet": {
+          "background": "#E8E8E8",
+          "backgroundTwo": "#FFFFFF",
+          "surfaceOne": "#5E5C5C",
+          "surfaceTwo": "#E8E7E8",
+          "surfaceThree": "#BDBDBD",
+          "surfaceFour": "#A1A1A1",
+          "surfaceFive": "#777777",
+          "divider": "#34383E",
+          "textPrimary": "#000000",
+          "textSecondary": "#222222"
         }
       }
     }
   },
+  "keplr": "{\"rpc\":\"https://rpc-agoric.keplr.app\",\"rest\":\"https://lcd-agoric.keplr.app\",\"chainId\":\"agoric-3\",\"chainName\":\"Agoric\",\"chainSymbolImageUrl\":\"https://raw.githubusercontent.com/chainapsis/keplr-chain-registry/main/images/agoric/chain.png\",\"stakeCurrency\":{\"coinDenom\":\"BLD\",\"coinMinimalDenom\":\"ubld\",\"coinDecimals\":6,\"coinGeckoId\":\"agoric\"},\"walletUrl\":\"https://wallet.keplr.app/chains/agoric\",\"walletUrlForStaking\":\"https://wallet.keplr.app/chains/agoric\",\"bip44\":{\"coinType\":564},\"bech32Config\":{\"bech32PrefixAccAddr\":\"agoric\",\"bech32PrefixAccPub\":\"agoricpub\",\"bech32PrefixValAddr\":\"agoricvaloper\",\"bech32PrefixValPub\":\"agoricvaloperpub\",\"bech32PrefixConsAddr\":\"agoricvalcons\",\"bech32PrefixConsPub\":\"agoricvalconspub\"},\"currencies\":[{\"coinDenom\":\"BLD\",\"coinMinimalDenom\":\"ubld\",\"coinDecimals\":6,\"coinGeckoId\":\"agoric\"},{\"coinDenom\":\"IST\",\"coinMinimalDenom\":\"uist\",\"coinDecimals\":6}],\"feeCurrencies\":[{\"coinDenom\":\"BLD\",\"coinMinimalDenom\":\"ubld\",\"coinDecimals\":6,\"coinGeckoId\":\"agoric\",\"gasPriceStep\":{\"low\":0.03,\"average\":0.05,\"high\":0.07}},{\"coinDenom\":\"IST\",\"coinMinimalDenom\":\"uist\",\"coinDecimals\":6,\"coinGeckoId\":\"inter-stable-token\",\"gasPriceStep\":{\"low\":0.0034,\"average\":0.007,\"high\":0.02}}],\"features\":[],\"alternativeBIP44s\":[{\"coinType\":118}]}",
   "chains": [
     {
       "network": "agoric-3",

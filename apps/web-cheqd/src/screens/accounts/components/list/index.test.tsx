@@ -22,6 +22,7 @@ const mockAccountBalancesDocument = jest.fn().mockReturnValue({
         reward: 0,
         sum: 0,
         unbonding: 0,
+        type: '',
       },
       {
         address: 'address2',
@@ -31,6 +32,7 @@ const mockAccountBalancesDocument = jest.fn().mockReturnValue({
         reward: 0,
         sum: 0,
         unbonding: 0,
+        type: '',
       },
     ],
   },

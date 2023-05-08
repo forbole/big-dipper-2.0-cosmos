@@ -27,6 +27,7 @@ exports[`component: layout/footer matches snapshot 1`] = `
   className=" emotion-0 social-media"
 >
   <a
+    aria-label="telegram"
     className="media telegram"
     href="https://t.me/forbole"
     rel="noreferrer"
@@ -51,6 +52,7 @@ exports[`component: layout/footer matches snapshot 1`] = `
     </svg>
   </a>
   <a
+    aria-label="linkedin"
     className="media linkedin"
     href="https://www.linkedin.com/company/forbole"
     rel="noreferrer"
@@ -76,6 +78,7 @@ exports[`component: layout/footer matches snapshot 1`] = `
     </svg>
   </a>
   <a
+    aria-label="twitter"
     className="media twitter"
     href="https://twitter.com/bigdipperlive"
     rel="noreferrer"
@@ -100,6 +103,7 @@ exports[`component: layout/footer matches snapshot 1`] = `
     </svg>
   </a>
   <a
+    aria-label="github"
     className="media github"
     href="https://github.com/forbole"
     rel="noreferrer"

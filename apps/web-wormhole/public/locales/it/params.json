@@ -7,7 +7,7 @@
   "unbondingTime": "Tempo di svincolamento",
   "maxEntries": "Voci massime",
   "historicalEntries": "Voci storiche",
-  "maxValidators": "Numero massimo validatori",
+  "maxValidators": "Numero massimo guardian",
   "slashing": "Slashing",
   "downtimeJailDuration": "Durata del jailing per tempi di inattività",
   "minSignedPerWindow": "Min firmato per finestra",

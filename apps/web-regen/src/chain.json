@@ -26,7 +26,8 @@
         "tokenomics": {},
         "condition": {},
         "charts": {},
-        "tags": {}
+        "tags": {},
+        "wallet": {}
       }
     },
     "light": {
@@ -108,10 +109,23 @@
           "eighteen": "#F0A479",
           "nineteen": "#D37763",
           "twenty": "#D9C788"
+        },
+        "wallet": {
+          "background": "#E8E8E8",
+          "backgroundTwo": "#FFFFFF",
+          "surfaceOne": "#5E5C5C",
+          "surfaceTwo": "#E8E7E8",
+          "surfaceThree": "#BDBDBD",
+          "surfaceFour": "#A1A1A1",
+          "surfaceFive": "#777777",
+          "divider": "#34383E",
+          "textPrimary": "#000000",
+          "textSecondary": "#222222"
         }
       }
     }
   },
+  "keplr": "{\"rpc\":\"https://rpc-regen.keplr.app\",\"rest\":\"https://lcd-regen.keplr.app\",\"chainId\":\"regen-1\",\"chainName\":\"Regen\",\"chainSymbolImageUrl\":\"https://raw.githubusercontent.com/chainapsis/keplr-chain-registry/main/images/regen/chain.png\",\"stakeCurrency\":{\"coinDenom\":\"REGEN\",\"coinMinimalDenom\":\"uregen\",\"coinDecimals\":6,\"coinGeckoId\":\"regen\"},\"walletUrl\":\"https://wallet.keplr.app/chains/regen\",\"walletUrlForStaking\":\"https://wallet.keplr.app/chains/regen\",\"bip44\":{\"coinType\":118},\"bech32Config\":{\"bech32PrefixAccAddr\":\"regen\",\"bech32PrefixAccPub\":\"regenpub\",\"bech32PrefixValAddr\":\"regenvaloper\",\"bech32PrefixValPub\":\"regenvaloperpub\",\"bech32PrefixConsAddr\":\"regenvalcons\",\"bech32PrefixConsPub\":\"regenvalconspub\"},\"currencies\":[{\"coinDenom\":\"REGEN\",\"coinMinimalDenom\":\"uregen\",\"coinDecimals\":6,\"coinGeckoId\":\"regen\"},{\"coinDenom\":\"NCT\",\"coinMinimalDenom\":\"eco.uC.NCT\",\"coinDecimals\":6,\"coinGeckoId\":\"toucan-protocol-nature-carbon-tonne\"}],\"feeCurrencies\":[{\"coinDenom\":\"REGEN\",\"coinMinimalDenom\":\"uregen\",\"coinDecimals\":6,\"coinGeckoId\":\"regen\",\"gasPriceStep\":{\"low\":0.015,\"average\":0.025,\"high\":0.04}}],\"features\":[]}",
   "chains": [
     {
       "network": "regen-1",
