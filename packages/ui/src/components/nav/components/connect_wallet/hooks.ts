@@ -8,7 +8,6 @@ import {
   getOfflineSignerPubKey,
   isKeplrAvailable,
 } from '@/components/nav/components/connect_wallet/keplr_utils';
-import { ChainIdQuery, useChainIdQuery } from '@/graphql/types/general_types';
 import {
   writeIsUserLoggedIn,
   writeUserAddress,

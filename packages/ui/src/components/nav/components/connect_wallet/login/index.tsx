@@ -16,7 +16,7 @@ import WalletConnectIcon from 'shared-utils/assets/wallet-connect.svg';
 // Get the keplr chain info from chainConfig
 const { keplr } = chainConfig();
 
-let keplrCustomChainInfo: ChainInfo | undefined = undefined;
+let keplrCustomChainInfo: ChainInfo | undefined;
 if (keplr) {
   keplrCustomChainInfo = JSON.parse(keplr);
 }
