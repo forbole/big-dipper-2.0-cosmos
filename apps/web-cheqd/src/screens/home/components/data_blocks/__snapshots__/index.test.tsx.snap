@@ -1,0 +1,426 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Home/DataBlocks matches snapshot 1`] = `
+.emotion-0 {
+  display: grid;
+  gap: 8px;
+  grid-template-rows: auto;
+}
+
+@media (min-width:375px) {
+  .emotion-0 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width:1280px) {
+  .emotion-0 {
+    gap: 16px;
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.emotion-1 {
+  padding: 16px;
+  background: rgba(253,59,76,0.7);
+  border-radius: 4px;
+  height: 110px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  color: #FFFFFF;
+  background: #af2929;
+}
+
+.emotion-1 .label {
+  margin-bottom: 16px;
+}
+
+.emotion-1 .content {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-end;
+  -webkit-box-align: flex-end;
+  -ms-flex-align: flex-end;
+  align-items: flex-end;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+
+.emotion-1 .description {
+  display: none;
+}
+
+@media (min-width:768px) {
+  .emotion-1 .description {
+    display: block;
+  }
+}
+
+.emotion-2 {
+  margin: 0;
+  font-size: 0.875rem;
+  letter-spacing: 0.25px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.43;
+}
+
+.emotion-3 {
+  margin: 0;
+  font-size: 2rem;
+  letter-spacing: 0.25px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 300;
+  line-height: 1.167;
+}
+
+.emotion-4 {
+  padding: 16px;
+  background: rgba(253,59,76,0.7);
+  border-radius: 4px;
+  height: 110px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  color: #FFFFFF;
+  background: #b44516;
+}
+
+.emotion-4 .label {
+  margin-bottom: 16px;
+}
+
+.emotion-4 .content {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-end;
+  -webkit-box-align: flex-end;
+  -ms-flex-align: flex-end;
+  align-items: flex-end;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+
+.emotion-4 .description {
+  display: none;
+}
+
+@media (min-width:768px) {
+  .emotion-4 .description {
+    display: block;
+  }
+}
+
+.emotion-7 {
+  padding: 16px;
+  background: rgba(253,59,76,0.7);
+  border-radius: 4px;
+  height: 110px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  color: #FFFFFF;
+  background: #b14237;
+}
+
+.emotion-7 .label {
+  margin-bottom: 16px;
+}
+
+.emotion-7 .content {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-end;
+  -webkit-box-align: flex-end;
+  -ms-flex-align: flex-end;
+  align-items: flex-end;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+
+.emotion-7 .description {
+  display: none;
+}
+
+@media (min-width:768px) {
+  .emotion-7 .description {
+    display: block;
+  }
+}
+
+.emotion-10 {
+  padding: 16px;
+  background: rgba(253,59,76,0.7);
+  border-radius: 4px;
+  height: 110px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  color: #FFFFFF;
+  background: #b16919;
+}
+
+.emotion-10 .label {
+  margin-bottom: 16px;
+}
+
+.emotion-10 .content {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-end;
+  -webkit-box-align: flex-end;
+  -ms-flex-align: flex-end;
+  align-items: flex-end;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+
+.emotion-10 .description {
+  display: none;
+}
+
+@media (min-width:768px) {
+  .emotion-10 .description {
+    display: block;
+  }
+}
+
+.emotion-13 {
+  margin: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.4px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.66;
+}
+
+.emotion-14 {
+  padding: 16px;
+  background: rgba(253,59,76,0.7);
+  border-radius: 4px;
+  height: 110px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  color: #FFFFFF;
+  background: #af2929;
+}
+
+.emotion-14 .label {
+  margin-bottom: 16px;
+}
+
+.emotion-14 .content {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-end;
+  -webkit-box-align: flex-end;
+  -ms-flex-align: flex-end;
+  align-items: flex-end;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+
+.emotion-14 .description {
+  display: none;
+}
+
+@media (min-width:768px) {
+  .emotion-14 .description {
+    display: block;
+  }
+}
+
+@media (max-width:1279.95px) {
+  .emotion-14 {
+    grid-column: 1/span 2;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+
+  .emotion-14 .content {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+  }
+}
+
+<div
+  className="emotion-0"
+>
+  <div
+    className="emotion-1"
+  >
+    <p
+      className="MuiTypography-root MuiTypography-body2 label emotion-2"
+    >
+      latestBlock
+    </p>
+    <div
+      className="content"
+    >
+      <h1
+        className="MuiTypography-root MuiTypography-h1 emotion-3"
+      >
+        953,992
+      </h1>
+    </div>
+  </div>
+  <div
+    className="emotion-4"
+  >
+    <p
+      className="MuiTypography-root MuiTypography-body2 label emotion-2"
+    >
+      averageBlockTime
+    </p>
+    <div
+      className="content"
+    >
+      <h1
+        className="MuiTypography-root MuiTypography-h1 emotion-3"
+      >
+        6.54 s
+      </h1>
+    </div>
+  </div>
+  <div
+    className="emotion-7"
+  >
+    <p
+      className="MuiTypography-root MuiTypography-body2 label emotion-2"
+    >
+      price
+    </p>
+    <div
+      className="content"
+    >
+      <h1
+        className="MuiTypography-root MuiTypography-h1 emotion-3"
+      >
+        N/A
+      </h1>
+    </div>
+  </div>
+  <div
+    className="emotion-10"
+  >
+    <p
+      className="MuiTypography-root MuiTypography-body2 label emotion-2"
+    >
+      activeValidators
+    </p>
+    <div
+      className="content"
+    >
+      <h1
+        className="MuiTypography-root MuiTypography-h1 emotion-3"
+      >
+        200
+      </h1>
+      <span
+        className="MuiTypography-root MuiTypography-caption description emotion-13"
+      >
+        outOfValidators
+      </span>
+    </div>
+  </div>
+  <div
+    className="emotion-14"
+  >
+    <p
+      className="MuiTypography-root MuiTypography-body2 label emotion-2"
+    >
+      cheqdWallets
+    </p>
+    <div
+      className="content"
+    >
+      <h1
+        className="MuiTypography-root MuiTypography-h1 emotion-3"
+      >
+        79,106
+      </h1>
+    </div>
+  </div>
+</div>
+`;

@@ -2,6 +2,8 @@ import useBigDipperNetworks from '@/hooks/useBigDipperNetworks';
 import { useMarketRecoil } from '@/recoil/market';
 import { useSettingsRecoil } from '@/recoil/settings';
 import { useValidatorRecoil } from '@/recoil/validators/hooks';
+import { useUserRecoil } from '@/recoil/user';
+import { useWalletRecoil } from '@/recoil/wallet';
 import InnerApp from '@/screens/app/components/inner_app';
 import { useGenesis, useTheme } from '@/screens/app/components/main/hooks';
 import Countdown from '@/screens/countdown';
@@ -40,6 +42,8 @@ const Main = (props: MainProps) => {
   useSettingsRecoil();
   useBigDipperNetworks();
   useMarketRecoil();
+  useUserRecoil();
+  useWalletRecoil();
   const { loading } = useValidatorRecoil();
 
   // =====================================

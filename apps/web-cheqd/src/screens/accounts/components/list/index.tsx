@@ -6,9 +6,9 @@ import Pagination from '@/components/pagination';
 import { useProfilesRecoil } from '@/recoil/profiles/hooks';
 import { useAccounts } from '@/screens/accounts/components/list/hooks';
 import useStyles from '@/screens/accounts/components/list/styles';
+import { useTranslation } from 'next-i18next';
 import dynamic from 'next/dynamic';
 import React, { ComponentProps, useCallback, useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 
 const Desktop = dynamic(() => import('@/screens/accounts/components/list/components/desktop'));
 const Mobile = dynamic(() => import('@/screens/accounts/components/list/components/mobile'));

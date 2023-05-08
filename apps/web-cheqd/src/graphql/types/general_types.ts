@@ -3094,6 +3094,8 @@ export type Query_Root = {
   token_unit: Array<Token_Unit>;
   /** fetch data from the table: "top_accounts" */
   top_accounts: Array<Top_Accounts>;
+  /** fetch aggregated fields from the table: "top_accounts" */
+  top_accounts_aggregate: Top_Accounts_Aggregate;
   /** fetch data from the table: "top_accounts" using primary key columns */
   top_accounts_by_pk?: Maybe<Top_Accounts>;
   /** fetch data from the table: "top_accounts_params" */
@@ -3640,6 +3642,15 @@ export type Query_RootToken_UnitArgs = {
 
 
 export type Query_RootTop_AccountsArgs = {
+  distinct_on?: InputMaybe<Array<Top_Accounts_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Top_Accounts_Order_By>>;
+  where?: InputMaybe<Top_Accounts_Bool_Exp>;
+};
+
+
+export type Query_RootTop_Accounts_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Top_Accounts_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -4392,6 +4403,8 @@ export type Subscription_Root = {
   token_unit: Array<Token_Unit>;
   /** fetch data from the table: "top_accounts" */
   top_accounts: Array<Top_Accounts>;
+  /** fetch aggregated fields from the table: "top_accounts" */
+  top_accounts_aggregate: Top_Accounts_Aggregate;
   /** fetch data from the table: "top_accounts" using primary key columns */
   top_accounts_by_pk?: Maybe<Top_Accounts>;
   /** fetch data from the table: "top_accounts_params" */
@@ -4852,6 +4865,15 @@ export type Subscription_RootToken_UnitArgs = {
 
 
 export type Subscription_RootTop_AccountsArgs = {
+  distinct_on?: InputMaybe<Array<Top_Accounts_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Top_Accounts_Order_By>>;
+  where?: InputMaybe<Top_Accounts_Bool_Exp>;
+};
+
+
+export type Subscription_RootTop_Accounts_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Top_Accounts_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -5518,10 +5540,54 @@ export type Top_Accounts = {
   address: Scalars['String'];
   available?: Maybe<Scalars['bigint']>;
   delegation?: Maybe<Scalars['bigint']>;
+  height: Scalars['bigint'];
   redelegation?: Maybe<Scalars['bigint']>;
   reward?: Maybe<Scalars['bigint']>;
   sum: Scalars['bigint'];
+  type?: Maybe<Scalars['String']>;
   unbonding?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregated selection of "top_accounts" */
+export type Top_Accounts_Aggregate = {
+  __typename?: 'top_accounts_aggregate';
+  aggregate?: Maybe<Top_Accounts_Aggregate_Fields>;
+  nodes: Array<Top_Accounts>;
+};
+
+/** aggregate fields of "top_accounts" */
+export type Top_Accounts_Aggregate_Fields = {
+  __typename?: 'top_accounts_aggregate_fields';
+  avg?: Maybe<Top_Accounts_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Top_Accounts_Max_Fields>;
+  min?: Maybe<Top_Accounts_Min_Fields>;
+  stddev?: Maybe<Top_Accounts_Stddev_Fields>;
+  stddev_pop?: Maybe<Top_Accounts_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Top_Accounts_Stddev_Samp_Fields>;
+  sum?: Maybe<Top_Accounts_Sum_Fields>;
+  var_pop?: Maybe<Top_Accounts_Var_Pop_Fields>;
+  var_samp?: Maybe<Top_Accounts_Var_Samp_Fields>;
+  variance?: Maybe<Top_Accounts_Variance_Fields>;
+};
+
+
+/** aggregate fields of "top_accounts" */
+export type Top_Accounts_Aggregate_FieldsCountArgs = {
+  columns?: InputMaybe<Array<Top_Accounts_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type Top_Accounts_Avg_Fields = {
+  __typename?: 'top_accounts_avg_fields';
+  available?: Maybe<Scalars['Float']>;
+  delegation?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  redelegation?: Maybe<Scalars['Float']>;
+  reward?: Maybe<Scalars['Float']>;
+  sum?: Maybe<Scalars['Float']>;
+  unbonding?: Maybe<Scalars['Float']>;
 };
 
 /** Boolean expression to filter rows from the table "top_accounts". All fields are combined with a logical 'AND'. */
@@ -5533,10 +5599,40 @@ export type Top_Accounts_Bool_Exp = {
   address?: InputMaybe<String_Comparison_Exp>;
   available?: InputMaybe<Bigint_Comparison_Exp>;
   delegation?: InputMaybe<Bigint_Comparison_Exp>;
+  height?: InputMaybe<Bigint_Comparison_Exp>;
   redelegation?: InputMaybe<Bigint_Comparison_Exp>;
   reward?: InputMaybe<Bigint_Comparison_Exp>;
   sum?: InputMaybe<Bigint_Comparison_Exp>;
+  type?: InputMaybe<String_Comparison_Exp>;
   unbonding?: InputMaybe<Bigint_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Top_Accounts_Max_Fields = {
+  __typename?: 'top_accounts_max_fields';
+  address?: Maybe<Scalars['String']>;
+  available?: Maybe<Scalars['bigint']>;
+  delegation?: Maybe<Scalars['bigint']>;
+  height?: Maybe<Scalars['bigint']>;
+  redelegation?: Maybe<Scalars['bigint']>;
+  reward?: Maybe<Scalars['bigint']>;
+  sum?: Maybe<Scalars['bigint']>;
+  type?: Maybe<Scalars['String']>;
+  unbonding?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregate min on columns */
+export type Top_Accounts_Min_Fields = {
+  __typename?: 'top_accounts_min_fields';
+  address?: Maybe<Scalars['String']>;
+  available?: Maybe<Scalars['bigint']>;
+  delegation?: Maybe<Scalars['bigint']>;
+  height?: Maybe<Scalars['bigint']>;
+  redelegation?: Maybe<Scalars['bigint']>;
+  reward?: Maybe<Scalars['bigint']>;
+  sum?: Maybe<Scalars['bigint']>;
+  type?: Maybe<Scalars['String']>;
+  unbonding?: Maybe<Scalars['bigint']>;
 };
 
 /** Ordering options when selecting data from "top_accounts". */
@@ -5545,9 +5641,11 @@ export type Top_Accounts_Order_By = {
   address?: InputMaybe<Order_By>;
   available?: InputMaybe<Order_By>;
   delegation?: InputMaybe<Order_By>;
+  height?: InputMaybe<Order_By>;
   redelegation?: InputMaybe<Order_By>;
   reward?: InputMaybe<Order_By>;
   sum?: InputMaybe<Order_By>;
+  type?: InputMaybe<Order_By>;
   unbonding?: InputMaybe<Order_By>;
 };
 
@@ -5695,14 +5793,102 @@ export enum Top_Accounts_Select_Column {
   /** column name */
   Delegation = 'delegation',
   /** column name */
+  Height = 'height',
+  /** column name */
   Redelegation = 'redelegation',
   /** column name */
   Reward = 'reward',
   /** column name */
   Sum = 'sum',
   /** column name */
+  Type = 'type',
+  /** column name */
   Unbonding = 'unbonding'
 }
+
+/** aggregate stddev on columns */
+export type Top_Accounts_Stddev_Fields = {
+  __typename?: 'top_accounts_stddev_fields';
+  available?: Maybe<Scalars['Float']>;
+  delegation?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  redelegation?: Maybe<Scalars['Float']>;
+  reward?: Maybe<Scalars['Float']>;
+  sum?: Maybe<Scalars['Float']>;
+  unbonding?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Top_Accounts_Stddev_Pop_Fields = {
+  __typename?: 'top_accounts_stddev_pop_fields';
+  available?: Maybe<Scalars['Float']>;
+  delegation?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  redelegation?: Maybe<Scalars['Float']>;
+  reward?: Maybe<Scalars['Float']>;
+  sum?: Maybe<Scalars['Float']>;
+  unbonding?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Top_Accounts_Stddev_Samp_Fields = {
+  __typename?: 'top_accounts_stddev_samp_fields';
+  available?: Maybe<Scalars['Float']>;
+  delegation?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  redelegation?: Maybe<Scalars['Float']>;
+  reward?: Maybe<Scalars['Float']>;
+  sum?: Maybe<Scalars['Float']>;
+  unbonding?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate sum on columns */
+export type Top_Accounts_Sum_Fields = {
+  __typename?: 'top_accounts_sum_fields';
+  available?: Maybe<Scalars['bigint']>;
+  delegation?: Maybe<Scalars['bigint']>;
+  height?: Maybe<Scalars['bigint']>;
+  redelegation?: Maybe<Scalars['bigint']>;
+  reward?: Maybe<Scalars['bigint']>;
+  sum?: Maybe<Scalars['bigint']>;
+  unbonding?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregate var_pop on columns */
+export type Top_Accounts_Var_Pop_Fields = {
+  __typename?: 'top_accounts_var_pop_fields';
+  available?: Maybe<Scalars['Float']>;
+  delegation?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  redelegation?: Maybe<Scalars['Float']>;
+  reward?: Maybe<Scalars['Float']>;
+  sum?: Maybe<Scalars['Float']>;
+  unbonding?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type Top_Accounts_Var_Samp_Fields = {
+  __typename?: 'top_accounts_var_samp_fields';
+  available?: Maybe<Scalars['Float']>;
+  delegation?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  redelegation?: Maybe<Scalars['Float']>;
+  reward?: Maybe<Scalars['Float']>;
+  sum?: Maybe<Scalars['Float']>;
+  unbonding?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type Top_Accounts_Variance_Fields = {
+  __typename?: 'top_accounts_variance_fields';
+  available?: Maybe<Scalars['Float']>;
+  delegation?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  redelegation?: Maybe<Scalars['Float']>;
+  reward?: Maybe<Scalars['Float']>;
+  sum?: Maybe<Scalars['Float']>;
+  unbonding?: Maybe<Scalars['Float']>;
+};
 
 /** columns and relationships of "transaction" */
 export type Transaction = {
@@ -7496,7 +7682,12 @@ export type TopAccountsQueryVariables = Exact<{
 }>;
 
 
-export type TopAccountsQuery = { top_accounts: Array<{ __typename?: 'top_accounts', address: string, available?: any | null, delegation?: any | null, redelegation?: any | null, unbonding?: any | null, reward?: any | null, sum: any }> };
+export type TopAccountsQuery = { top_accounts: Array<{ __typename?: 'top_accounts', address: string, available?: any | null, delegation?: any | null, redelegation?: any | null, unbonding?: any | null, reward?: any | null, sum: any, type?: string | null }> };
+
+export type TopAccountsParamsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type TopAccountsParamsQuery = { top_accounts_params: Array<{ __typename?: 'top_accounts_params', total_accounts: any }> };
 
 export type TransactionDetailsQueryVariables = Exact<{
   hash?: InputMaybe<Scalars['String']>;
@@ -8824,6 +9015,7 @@ export const TopAccountsDocument = gql`
     unbonding
     reward
     sum
+    type
   }
 }
     `;
@@ -8856,6 +9048,40 @@ export function useTopAccountsLazyQuery(baseOptions?: Apollo.LazyQueryHookOption
 export type TopAccountsQueryHookResult = ReturnType<typeof useTopAccountsQuery>;
 export type TopAccountsLazyQueryHookResult = ReturnType<typeof useTopAccountsLazyQuery>;
 export type TopAccountsQueryResult = Apollo.QueryResult<TopAccountsQuery, TopAccountsQueryVariables>;
+export const TopAccountsParamsDocument = gql`
+    query TopAccountsParams {
+  top_accounts_params {
+    total_accounts
+  }
+}
+    `;
+
+/**
+ * __useTopAccountsParamsQuery__
+ *
+ * To run a query within a React component, call `useTopAccountsParamsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useTopAccountsParamsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useTopAccountsParamsQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useTopAccountsParamsQuery(baseOptions?: Apollo.QueryHookOptions<TopAccountsParamsQuery, TopAccountsParamsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<TopAccountsParamsQuery, TopAccountsParamsQueryVariables>(TopAccountsParamsDocument, options);
+      }
+export function useTopAccountsParamsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<TopAccountsParamsQuery, TopAccountsParamsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<TopAccountsParamsQuery, TopAccountsParamsQueryVariables>(TopAccountsParamsDocument, options);
+        }
+export type TopAccountsParamsQueryHookResult = ReturnType<typeof useTopAccountsParamsQuery>;
+export type TopAccountsParamsLazyQueryHookResult = ReturnType<typeof useTopAccountsParamsLazyQuery>;
+export type TopAccountsParamsQueryResult = Apollo.QueryResult<TopAccountsParamsQuery, TopAccountsParamsQueryVariables>;
 export const TransactionDetailsDocument = gql`
     query TransactionDetails($hash: String) {
   transaction(where: {hash: {_eq: $hash}}, limit: 1) {

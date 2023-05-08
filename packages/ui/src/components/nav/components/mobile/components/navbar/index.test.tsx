@@ -17,6 +17,15 @@ jest.mock(
 jest.mock('shared-utils/assets/big-dipper-red.svg', () => (props: JSX.IntrinsicElements['div']) => (
   <div id="RED" {...props} />
 ));
+jest.mock(
+  '@/components/nav/components/connect_wallet',
+  () => (props: JSX.IntrinsicElements['div']) => <div id="connect_wallet" {...props} />
+);
+jest.mock(
+  '@/components/nav/components/wallet_details',
+  () => (props: JSX.IntrinsicElements['div']) => <div id="wallet_details" {...props} />
+);
+
 // ==================================
 // global setup
 // ==================================

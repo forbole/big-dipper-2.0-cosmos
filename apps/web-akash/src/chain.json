@@ -29,7 +29,6 @@
       },
       "custom": {
         "general": {
-          "background": "#000000",
           "surfaceOne": "#171717",
           "surfaceTwo": "#242424",
           "icon": "#999999"
@@ -93,6 +92,18 @@
           "eighteen": "#F0A479",
           "nineteen": "#D37763",
           "twenty": "#D9C788"
+        },
+        "wallet": {
+          "background": "#5E5E5E",
+          "backgroundTwo": "#212123",
+          "surfaceOne": "#5E5C5C",
+          "surfaceTwo": "#D9D9D9",
+          "surfaceThree": "#4D4D4D",
+          "surfaceFour": "#414141",
+          "surfaceFive": "#777777",
+          "divider": "#34383E",
+          "textPrimary": "#000000",
+          "textSecondary": "#DDDDDD"
         }
       }
     },
@@ -110,10 +121,12 @@
         "tokenomics": {},
         "condition": {},
         "charts": {},
-        "tags": {}
+        "tags": {},
+        "wallet": {}
       }
     }
   },
+  "keplr": "{\"rpc\":\"https://rpc-akash.keplr.app\",\"rest\":\"https://lcd-akash.keplr.app\",\"chainId\":\"akashnet-2\",\"chainName\":\"Akash\",\"chainSymbolImageUrl\":\"https://raw.githubusercontent.com/chainapsis/keplr-chain-registry/main/images/akashnet/chain.png\",\"stakeCurrency\":{\"coinDenom\":\"AKT\",\"coinMinimalDenom\":\"uakt\",\"coinDecimals\":6,\"coinGeckoId\":\"akash-network\"},\"walletUrl\":\"https://wallet.keplr.app/chains/akash\",\"walletUrlForStaking\":\"https://wallet.keplr.app/chains/akash\",\"bip44\":{\"coinType\":118},\"bech32Config\":{\"bech32PrefixAccAddr\":\"akash\",\"bech32PrefixAccPub\":\"akashpub\",\"bech32PrefixValAddr\":\"akashvaloper\",\"bech32PrefixValPub\":\"akashvaloperpub\",\"bech32PrefixConsAddr\":\"akashvalcons\",\"bech32PrefixConsPub\":\"akashvalconspub\"},\"currencies\":[{\"coinDenom\":\"AKT\",\"coinMinimalDenom\":\"uakt\",\"coinDecimals\":6,\"coinGeckoId\":\"akash-network\"}],\"feeCurrencies\":[{\"coinDenom\":\"AKT\",\"coinMinimalDenom\":\"uakt\",\"coinDecimals\":6,\"coinGeckoId\":\"akash-network\"}],\"features\":[]}",
   "chains": [
     {
       "network": "akashnet-2",
