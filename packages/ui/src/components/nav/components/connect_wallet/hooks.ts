@@ -25,7 +25,13 @@ import {
   writeWalletConnectURI,
   writeWalletSelection,
 } from '@/recoil/wallet';
-import { ADDRESS_KEY, CONNECTION_TYPE, PUBKEY_KEY, WALLET_NAME_KEY } from '@/utils/localstorage';
+import {
+  ADDRESS_KEY,
+  CONNECTION_TYPE,
+  PUBKEY_KEY,
+  WALLET_NAME_KEY,
+  CHAIN_ID,
+} from '@/utils/localstorage';
 import { ChainInfo, Window as KeplrWindow } from '@keplr-wallet/types';
 import { KeplrWalletConnectV1 } from '@keplr-wallet/wc-client';
 import WalletConnect from '@walletconnect/client';
@@ -93,12 +99,14 @@ const useConnectWalletList = () => {
     address: string,
     pubkey: PubKey | undefined,
     connectionType: string,
-    wallet: string
+    wallet: string,
+    chainID: string
   ) => {
     localStorage.setItem(ADDRESS_KEY, address);
     localStorage.setItem(PUBKEY_KEY, JSON.stringify(pubkey));
     localStorage.setItem(CONNECTION_TYPE, connectionType);
     localStorage.setItem(WALLET_NAME_KEY, wallet);
+    localStorage.setItem(CHAIN_ID, chainID);
     setUserAddress(address);
     setUserPubKey(pubkey ?? { type: '', value: '' });
     setWalletName(wallet);
@@ -111,6 +119,7 @@ const useConnectWalletList = () => {
     localStorage.setItem(PUBKEY_KEY, '');
     localStorage.setItem(WALLET_NAME_KEY, '');
     localStorage.setItem(CONNECTION_TYPE, '');
+    localStorage.setItem(CHAIN_ID, '');
     setShowWalletDetails(false);
     setUserAddress('');
     setUserPubKey({ type: '', value: '' });
@@ -196,7 +205,13 @@ const useConnectWalletList = () => {
         const accounts2 = await keplrOfflineSigner.getAccounts();
         const { address, pubkey } = accounts2[0];
         const key = await keplrWallet.getKey(keplrCustomChainInfo.chainId);
-        saveUserInfo(address, pubkey as unknown as PubKey, 'Wallet Connect', key.name);
+        saveUserInfo(
+          address,
+          pubkey as unknown as PubKey,
+          'Wallet Connect',
+          key.name,
+          keplrCustomChainInfo.chainId
+        );
 
         // continue to log in success screen
         continueToLoginSuccessDialog();
@@ -315,7 +330,13 @@ const useConnectWalletList = () => {
         const key = await getAccountKey(keplrCustomChainInfo.chainId);
 
         // store user info in state
-        saveUserInfo(offlineSignerAddress, offlineSignerPubKey, 'Keplr', key?.name ?? '');
+        saveUserInfo(
+          offlineSignerAddress,
+          offlineSignerPubKey,
+          'Keplr',
+          key?.name ?? '',
+          keplrCustomChainInfo.chainId
+        );
 
         // continue to log in success screen
         continueToLoginSuccessDialog();
