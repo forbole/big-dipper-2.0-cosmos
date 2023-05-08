@@ -234,6 +234,10 @@ const styles = makeStyles()((theme) => ({
     fontStyle: 'normal',
     fontWeight: 590,
     letterSpacing: '-0.002em',
+    color: theme.palette.custom.wallet?.surfaceFour,
+    '&:hover': {
+      color: theme.palette.custom.wallet?.surfaceTwo,
+    },
     [theme.breakpoints.up('md')]: {
       marginTop: '4px',
     },
@@ -247,7 +251,7 @@ const styles = makeStyles()((theme) => ({
     '&.open': {
       opacity: 1,
       visibility: 'visible',
-      background: theme.palette.custom.wallet?.background,
+      background: theme.palette.custom.wallet?.backgroundTwo,
       borderRadius: '8px',
     },
   },
