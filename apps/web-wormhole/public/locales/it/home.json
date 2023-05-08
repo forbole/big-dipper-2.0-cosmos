@@ -2,8 +2,8 @@
   "latestBlock": "Ultimo blocco",
   "averageBlockTime": "Tempo medio di blocco",
   "price": "Prezzo",
-  "activeValidators": "Validatori attivi",
-  "outOfValidators": "Su {{num}} validatori",
+  "activeValidators": "Guardian attivi",
+  "outOfValidators": "Su {{num}} guardian",
   "onlineVotingPower": "Potere di voto online",
   "today": "Oggi",
   "lastMonth": "Lo scorso mese",
@@ -29,6 +29,6 @@
   "totalVotingPower": "Potere di voto totale",
   "lastVotingPowerChange": "Ultima modifica del potere di voto",
   "powerChange": "<0>{{change}}</0> a blocco ",
-  "validators": "Validatori",
+  "validators": "Guardian",
   "priceHistory": "Prezzo (~24 ore)"
 }

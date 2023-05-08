@@ -55,9 +55,9 @@
   "signedBlockWindow": "已验证区： {{amount}}",
   "lastSeen": "最后上线时间",
   "status": "状态",
-  "inActiveSet": "有效",
   "votingPowerExplanation": "由于前 34% 的投票权很容易 <0>降低网络安全</0> 和 <0>停止网络</0> 它们将以不同的方式突出显示，以教育和鼓励权力下放",
   "tombstoned": "被封印",
   "votingPowerPercent": "投票权百分比",
-  "maxRate": "最高佣金率"
+  "maxRate": "最高佣金率",
+  "inActiveSet": "有效"
 }

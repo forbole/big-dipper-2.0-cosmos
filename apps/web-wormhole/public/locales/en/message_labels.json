@@ -51,6 +51,7 @@
   "txTransferLabel": "IBC Transfer",
   "MsgGrant": "Grant",
   "MsgRevoke": "Revoke",
+  "MsgExec": "Exec",
   "MsgGrantAllowance": "Grant Allowance",
   "MsgRevokeAllowance": "Revoke Allowance",
   "MsgCreateVestingAccount": "Create Vesting Account",

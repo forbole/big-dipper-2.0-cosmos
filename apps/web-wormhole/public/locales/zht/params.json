@@ -7,7 +7,7 @@
   "unbondingTime": "解綁時間",
   "maxEntries": "最大條目數量",
   "historicalEntries": "歷史條目數量",
-  "maxValidators": "最大驗證人數目限制",
+  "maxValidators": "最大Guardian數目限制",
   "slashing": "削減",
   "downtimeJailDuration": "停機時間",
   "minSignedPerWindow": "最少簽署窗口",

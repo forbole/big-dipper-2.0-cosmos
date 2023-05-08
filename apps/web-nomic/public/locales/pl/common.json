@@ -56,6 +56,7 @@
   "params": "Parametry",
   "assets": "Aktywa",
   "assetsModule": "Moduł aktywów",
+  "wasmContracts": "WASM Contracts",
   "errorTitle": "Ups! ",
   "errorDetails": "Jeśli masz czas, zgłoś to na naszym githubie pod adresem <0>{{issue}}</0> dołączając adres URL strony gdzie wystąpił błąd.",
   "errorHome": "Kliknij tutaj, aby wrócić do strony głównej",
@@ -65,7 +66,7 @@
   "detailed": "Szczegółowy",
   "profilesNotEnabled": "Profile nie są aktywne dla tego eksploratora",
   "insertValidDtag": "Proszę wprowadzić poprawny dtag",
-    "invalidAddress": "Błędny adres",
+  "invalidAddress": "Błędny adres",
   "24-hour": "Czas 24-godzinny",
   "12-hour": "12-godzinny czas",
   "documentation": "Dokumentacja"

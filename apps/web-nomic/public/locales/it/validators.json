@@ -55,9 +55,9 @@
   "signedBlockWindow": "Finestra del blocco firmato: {{amount}}",
   "lastSeen": "Ultima visualizzazione",
   "status": "Stato",
-  "inActiveSet": "In set attivo",
   "votingPowerExplanation": "Poiché il massimo potere di voto del 34% può facilmente <0>diminuire la sicurezza della rete</0> E <0>fermare la rete</0> saranno evidenziati in modo diverso per educare e incoraggiare la decentralizzazione",
   "tombstoned": "Tombstoned",
   "votingPowerPercent": "Potere di voto %",
-  "maxRate": "Tasso massimo di commissione"
+  "maxRate": "Tasso massimo di commissione",
+  "inActiveSet": "In set attivo"
 }
