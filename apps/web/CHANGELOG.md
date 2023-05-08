@@ -1,5 +1,17 @@
 # Unreleased
 
+## 2.13.0
+
+### Minor Changes
+
+- [#1128](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1128) [`1edb0b236`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/1edb0b236d80993a19b11dc598cbcbb44d1905b4) Thanks [@MonikaCat](https://github.com/MonikaCat)! - Added login with Keplr and WalletConnect([\#1128](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1128))
+
+### Patch Changes
+
+- Updated dependencies [[`1edb0b236`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/1edb0b236d80993a19b11dc598cbcbb44d1905b4)]:
+  - shared-utils@2.16.0
+  - ui@2.27.0
+
 ## 2.12.2
 
 ### Patch Changes
@@ -312,6 +324,7 @@
   - ui@2.3.0
 
 - Display `requested amount` and `recipient` fields inside Community Pool Spend proposal details page ([\#1053](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1053))
+- Added Connect Wallet pop up screen ([\#1068](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1068))
 
 # main-v2.2.0 - 2022-11-22
 

@@ -30,7 +30,6 @@
       },
       "custom": {
         "general": {
-          "background": "#000000",
           "surfaceOne": "#1C1F1F",
           "surfaceTwo": "#333333",
           "icon": "#999999"
@@ -94,6 +93,18 @@
           "eighteen": "#F0A479",
           "nineteen": "#D37763",
           "twenty": "#D9C788"
+        },
+        "wallet": {
+          "background": "#5E5E5E",
+          "backgroundTwo": "#212123",
+          "surfaceOne": "#5E5C5C",
+          "surfaceTwo": "#D9D9D9",
+          "surfaceThree": "#4D4D4D",
+          "surfaceFour": "#414141",
+          "surfaceFive": "#777777",
+          "divider": "#34383E",
+          "textPrimary": "#000000",
+          "textSecondary": "#DDDDDD"
         }
       }
     },
@@ -177,10 +188,23 @@
           "eighteen": "#F0A479",
           "nineteen": "#D37763",
           "twenty": "#D9C788"
+        },
+        "wallet": {
+          "background": "#E8E8E8",
+          "backgroundTwo": "#FFFFFF",
+          "surfaceOne": "#5E5C5C",
+          "surfaceTwo": "#E8E7E8",
+          "surfaceThree": "#BDBDBD",
+          "surfaceFour": "#A1A1A1",
+          "surfaceFive": "#777777",
+          "divider": "#34383E",
+          "textPrimary": "#000000",
+          "textSecondary": "#222222"
         }
       }
     }
   },
+  "keplr": "{\"rpc\":\"https://rpc-quicksilver.keplr.app\",\"rest\":\"https://lcd-quicksilver.keplr.app\",\"chainId\":\"quicksilver-2\",\"chainName\":\"Quicksilver\",\"chainSymbolImageUrl\":\"https://raw.githubusercontent.com/chainapsis/keplr-chain-registry/main/images/quicksilver/chain.png\",\"stakeCurrency\":{\"coinDenom\":\"QCK\",\"coinMinimalDenom\":\"uqck\",\"coinDecimals\":6,\"coinGeckoId\":\"quicksilver\"},\"walletUrlForStaking\":\"https://wallet.keplr.app/chains/quicksilver\",\"bip44\":{\"coinType\":118},\"bech32Config\":{\"bech32PrefixAccAddr\":\"quick\",\"bech32PrefixAccPub\":\"quickpub\",\"bech32PrefixValAddr\":\"quickvaloper\",\"bech32PrefixValPub\":\"quickvaloperpub\",\"bech32PrefixConsAddr\":\"quickvalcons\",\"bech32PrefixConsPub\":\"quickvalconspub\"},\"currencies\":[{\"coinDenom\":\"QCK\",\"coinMinimalDenom\":\"uqck\",\"coinDecimals\":6,\"coinGeckoId\":\"quicksilver\"},{\"coinDenom\":\"qSTARS\",\"coinMinimalDenom\":\"uqstars\",\"coinDecimals\":6},{\"coinDenom\":\"qATOM\",\"coinMinimalDenom\":\"uqatom\",\"coinDecimals\":6},{\"coinDenom\":\"qREGEN\",\"coinMinimalDenom\":\"uqregen\",\"coinDecimals\":6},{\"coinDenom\":\"qOSMO\",\"coinMinimalDenom\":\"uqosmo\",\"coinDecimals\":6}],\"feeCurrencies\":[{\"coinDenom\":\"QCK\",\"coinMinimalDenom\":\"uqck\",\"coinDecimals\":6,\"coinGeckoId\":\"quicksilver\",\"gasPriceStep\":{\"low\":0.0001,\"average\":0.0001,\"high\":0.00025}}],\"features\":[]}",
   "chains": [
     {
       "network": "quicksilver-2",

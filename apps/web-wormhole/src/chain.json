@@ -29,7 +29,6 @@
       },
       "custom": {
         "general": {
-          "background": "#000000",
           "surfaceOne": "#080613",
           "surfaceTwo": "#160F32",
           "icon": "#999999"
@@ -93,6 +92,18 @@
           "eighteen": "#F0A479",
           "nineteen": "#D37763",
           "twenty": "#D9C788"
+        },
+        "wallet": {
+          "background": "#5E5E5E",
+          "backgroundTwo": "#212123",
+          "surfaceOne": "#5E5C5C",
+          "surfaceTwo": "#D9D9D9",
+          "surfaceThree": "#4D4D4D",
+          "surfaceFour": "#414141",
+          "surfaceFive": "#777777",
+          "divider": "#34383E",
+          "textPrimary": "#000000",
+          "textSecondary": "#DDDDDD"
         }
       }
     },
@@ -110,10 +121,12 @@
         "tokenomics": {},
         "condition": {},
         "charts": {},
-        "tags": {}
+        "tags": {},
+        "wallet": {}
       }
     }
   },
+  "keplr": "",
   "chains": [
     {
       "network": "wormchain",

@@ -1,6 +1,6 @@
 import withGetStaticProps from '@/pages/withGetStaticProps';
-import type { NextPage } from 'next';
 import Tokens from '@/screens/proposals';
+import type { NextPage } from 'next';
 import nextI18NextConfig from '../../../next-i18next.config';
 
 const TokensPage: NextPage = () => <Tokens />;

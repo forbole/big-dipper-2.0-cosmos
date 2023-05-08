@@ -1,11 +1,13 @@
-import { FC } from 'react';
+import ConnectWallet from '@/components/nav/components/connect_wallet';
 import Network from '@/components/nav/components/desktop/components/action_bar/components/network';
 import NetworkList from '@/components/nav/components/desktop/components/action_bar/components/network_list';
 import SettingsList from '@/components/nav/components/desktop/components/action_bar/components/settings_list';
 import useStyles from '@/components/nav/components/desktop/components/action_bar/styles';
 import SearchBar from '@/components/nav/components/search_bar';
+import WalletDetails from '@/components/nav/components/wallet_details';
 import ThemeToggle from '@/components/nav/components/theme_toggle';
 import { useGetComponentDimension } from '@/hooks/use_get_component_dimension';
+import { FC } from 'react';
 
 type ActionBarProps = {
   isNetwork: boolean;
@@ -24,8 +26,10 @@ const ActionBar: FC<ActionBarProps> = ({ toggleNetwork, className, isNetwork }) 
           className={cx(classes.network, { open: isNetwork })}
           toggleNetwork={toggleNetwork}
         />
+        <WalletDetails />
         <ThemeToggle className={classes.toggle} />
         <SettingsList />
+        <ConnectWallet />
       </div>
       <NetworkList
         actionHeight={height}

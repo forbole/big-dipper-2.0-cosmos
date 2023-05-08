@@ -2,8 +2,8 @@
     "latestBlock": "最新區塊",
     "averageBlockTime": "平均出塊時間",
     "price": "價格",
-    "activeValidators": "活躍驗證者",
-    "outOfValidators": "在......之外 {{num}} 驗證者",
+    "activeValidators": "活躍Guardian",
+    "outOfValidators": "在......之外 {{num}} Guardian",
     "onlineVotingPower": "在線投票權",
     "today": "今天",
     "lastMonth": "上個月",
@@ -29,6 +29,6 @@
     "totalVotingPower": "總投票權",
     "lastVotingPowerChange": "最後投票權變更",
     "powerChange": "<0>{{change}}</0> 在區塊 ",
-    "validators": "驗證者",
+    "validators": "Guardians",
     "priceHistory": "價格（~24 小時）"
 }
