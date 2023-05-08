@@ -44,13 +44,7 @@ if (keplr) {
 // Cast window as KeplrWindow
 declare const window: KeplrWindow & typeof globalThis;
 
-// Get the chain ID from a GraphQL query response
-const mapChainIdToModel = (data?: ChainIdQuery) => data?.genesis?.[0]?.chainId ?? '';
-
 const useConnectWalletList = () => {
-  // keplr chain ID
-  const { data: chainId } = useChainIdQuery();
-
   // UserState
   const [, setUserAddress] = useRecoilState(writeUserAddress) as [string, SetterOrUpdater<string>];
   const [, setUserIsLoggedIn] = useRecoilState(writeIsUserLoggedIn) as [
@@ -168,14 +162,14 @@ const useConnectWalletList = () => {
   };
 
   const connectKeplrWallet = async (connector: WalletConnect) => {
-    const keplr = new KeplrWalletConnectV1(connector);
-    if (keplr && keplrCustomChainInfo?.chainId) {
+    const keplrWallet = new KeplrWalletConnectV1(connector);
+    if (keplrWallet && keplrCustomChainInfo?.chainId) {
       setOpenPairConnectWalletDialog(false);
       setOpenAuthorizeConnectionDialog(true);
       setErrorMsg(undefined);
 
       try {
-        await keplr.experimentalSuggestChain(keplrCustomChainInfo);
+        await keplrWallet.experimentalSuggestChain(keplrCustomChainInfo);
       } catch (err) {
         // Right now suggest the chain is not supported using wallet connect.
         setErrorMsg(`Chain not supported by Keplr`);
@@ -185,7 +179,7 @@ const useConnectWalletList = () => {
       // enable connection and approve it inside the mobile app
       // to obtain address, pubkey and wallet name
       try {
-        await keplr?.enable(keplrCustomChainInfo.chainId);
+        await keplrWallet?.enable(keplrCustomChainInfo.chainId);
       } catch (e) {
         setErrorMsg(`${(e as Error)?.message}`);
         return;
@@ -193,7 +187,7 @@ const useConnectWalletList = () => {
 
       let keplrOfflineSigner;
       try {
-        keplrOfflineSigner = keplr.getOfflineSigner(keplrCustomChainInfo.chainId);
+        keplrOfflineSigner = keplrWallet.getOfflineSigner(keplrCustomChainInfo.chainId);
       } catch (e) {
         setErrorMsg(`${(e as Error)?.message}`);
         return;
@@ -202,7 +196,7 @@ const useConnectWalletList = () => {
       if (keplrOfflineSigner) {
         const accounts2 = await keplrOfflineSigner.getAccounts();
         const { address, pubkey } = accounts2[0];
-        const key = await keplr.getKey(keplrCustomChainInfo.chainId);
+        const key = await keplrWallet.getKey(keplrCustomChainInfo.chainId);
         saveUserInfo(address, pubkey as unknown as PubKey, 'Wallet Connect', key.name);
 
         // continue to log in success screen
