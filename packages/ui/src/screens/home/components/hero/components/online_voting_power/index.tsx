@@ -11,7 +11,7 @@ const OnlineVotingPower: FC<ComponentDefault> = () => {
 
   const votingPowerPercent =
     state.totalVotingPower === 0
-      ? numeral(0)
+      ? numeral((state.activeValidators / state.votingPower) * 100)
       : numeral((state.votingPower / state.totalVotingPower) * 100);
 
   const { classes } = useStyles({ percentage: votingPowerPercent.format('0') });
@@ -25,7 +25,9 @@ const OnlineVotingPower: FC<ComponentDefault> = () => {
         </Typography>
         <Typography variant="body1">
           {numeral(state.votingPower).format('0,0')} /{' '}
-          {numeral(state.totalVotingPower).format('0,0')}
+          {state.totalVotingPower === 0
+            ? numeral(state.votingPower).format('0,0')
+            : numeral(state.totalVotingPower).format('0,0')}
         </Typography>
       </div>
       <div className={classes.chart}>
@@ -56,14 +58,16 @@ const OnlineVotingPower: FC<ComponentDefault> = () => {
             {numeral(state.votingPower).format('0,0')}
           </Typography>
         </div>
-        <div className={classes.item}>
-          <Typography variant="h4" className="label">
-            {t('totalVotingPower')}
-          </Typography>
-          <Typography variant="body1" className="value">
-            {numeral(state.totalVotingPower).format('0,0')}
-          </Typography>
-        </div>
+        {state.totalVotingPower === 0 ? null : (
+          <div className={classes.item}>
+            <Typography variant="h4" className="label">
+              {t('totalVotingPower')}
+            </Typography>
+            <Typography variant="body1" className="value">
+              {numeral(state.totalVotingPower).format('0,0')}
+            </Typography>
+          </div>
+        )}
       </div>
     </div>
   );

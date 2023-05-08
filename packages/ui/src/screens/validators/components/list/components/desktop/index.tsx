@@ -93,7 +93,12 @@ const GridRow: FC<GridRowProps> = ({ column, style, rowIndex, align, item, searc
   const status = getValidatorStatus(item.status, item.jailed, item.tombstoned);
   const condition = item.status === 3 ? getValidatorConditionClass(item.condition) : undefined;
   const percentDisplay =
-    item.status === 3 ? `${numeral(item.votingPowerPercent.toFixed(6)).format('0.[00]')}%` : '0%';
+    // eslint-disable-next-line no-nested-ternary
+    item.status === 3
+      ? item.votingPowerPercent === 0
+        ? `${numeral(item.votingPower.toFixed(6)).format('0.[00]')}%`
+        : `${numeral(item.votingPowerPercent.toFixed(6)).format('0.[00]')}%`
+      : '0%';
   const votingPower = numeral(item.votingPower).format('0,0');
 
   let formatItem: ReactNode | null = null;
@@ -114,7 +119,7 @@ const GridRow: FC<GridRowProps> = ({ column, style, rowIndex, align, item, searc
       formatItem = (
         <VotingPower
           percentDisplay={percentDisplay}
-          percentage={item.votingPowerPercent}
+          percentage={item.votingPowerPercent === 0 ? item.votingPower : item.votingPowerPercent}
           content={votingPower}
           topVotingPower={item.topVotingPower ?? false}
         />
