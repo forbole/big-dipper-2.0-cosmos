@@ -14,10 +14,10 @@ const OnlineVotingPower: FC<ComponentDefault> = () => {
 
   const votingPowerPercent =
     // eslint-disable-next-line no-nested-ternary
-    state.totalVotingPower === 0
-      ? numeral(0)
-      : chainName === 'wormhole'
+    chainName === 'wormhole'
       ? numeral((state.activeValidators / state.votingPower) * 100)
+      : state.totalVotingPower === 0
+      ? numeral(0)
       : numeral((state.votingPower / state.totalVotingPower) * 100);
 
   const { classes } = useStyles({ percentage: votingPowerPercent.format('0') });
