@@ -25,6 +25,10 @@ const styles = makeStyles()((theme) => ({
       theme.palette.mode === 'dark' ? '#282828' : theme.palette.custom.wallet?.surfaceTwo,
     border: `1px solid ${theme.palette.custom.wallet?.surfaceFour}`,
     borderRadius: theme.spacing(0.5),
+    ':hover': {
+      backgroundColor:
+        theme.palette.mode === 'dark' ? theme.palette.custom.wallet?.surfaceFour : '#12121229',
+    },
   },
   walletInfo: {
     verticalAlign: 'middle',
@@ -41,6 +45,8 @@ const styles = makeStyles()((theme) => ({
     marginTop: theme.spacing(2.6),
     '&:hover': {
       cursor: 'pointer',
+      backgroundColor:
+        theme.palette.mode === 'dark' ? theme.palette.custom.wallet?.surfaceFour : '#12121229',
     },
   },
   changeWalletButtonLabel: {
