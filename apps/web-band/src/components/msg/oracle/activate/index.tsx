@@ -14,7 +14,7 @@ const Activate: FC<{ message: MsgActivate }> = (props) => {
   return (
     <Typography>
       <Trans
-        i18nKey="chain_band:message_contents_txActivate"
+        i18nKey="web-band:message_contents_txActivate"
         components={[<Name address={message.validator} name={validatorMoniker} />]}
       />
     </Typography>

@@ -15,7 +15,7 @@ const ReportData: FC<{ message: MsgReportData }> = (props) => {
   return (
     <Typography>
       <Trans
-        i18nKey="chain_band:message_contents_txReportData"
+        i18nKey="web-band:message_contents_txReportData"
         components={[<Name address={message.validator} name={validatorMoniker} />, <b />]}
         values={{
           requestId: numeral(message.requestId).format('0,0'),

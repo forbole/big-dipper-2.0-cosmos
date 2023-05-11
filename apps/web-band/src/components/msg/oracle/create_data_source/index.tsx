@@ -14,7 +14,7 @@ const CreateDataSource: FC<{ message: MsgCreateDataSource }> = (props) => {
   return (
     <Typography>
       <Trans
-        i18nKey="chain_band:message_contents_txCreateDataSource"
+        i18nKey="web-band:message_contents_txCreateDataSource"
         components={[<Name address={message.sender} name={senderMoniker} />, <b />]}
         values={{
           name: message.name,

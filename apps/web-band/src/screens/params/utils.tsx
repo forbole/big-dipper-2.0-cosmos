@@ -164,58 +164,58 @@ export const formatGov = (data: Gov, t: TFunction) => [
 export const formatOracle = (data: Oracle, t: TFunction) => [
   {
     key: 'maxAskCount',
-    label: t('maxAskCount'),
+    label: t('web-band:params_maxAskCount'),
     detail: numeral(data.maxAskCount).format('0,0'),
   },
   {
     key: 'baseOwsmGas',
-    label: t('baseOwsmGas'),
+    label: t('web-band:params_baseOwsmGas'),
     detail: numeral(data.baseOwsmGas).format('0,0'),
   },
   {
     key: 'maxCalldataSize',
-    label: t('maxCalldataSize'),
-    detail: t('bytes', {
+    label: t('web-band:params_maxCalldataSize'),
+    detail: t('web-band:params_bytes', {
       bytes: numeral(data.maxCalldataSize).format('0,0'),
     }),
   },
   {
     key: 'samplingTryCount',
-    label: t('samplingTryCount'),
+    label: t('web-band:params_samplingTryCount'),
     detail: numeral(data.samplingTryCount).format('0,0'),
   },
   {
     key: 'maxReportDataSize',
-    label: t('maxReportDataSize'),
-    detail: t('bytes', {
+    label: t('web-band:params_maxReportDataSize'),
+    detail: t('web-band:params_bytes', {
       bytes: numeral(data.maxReportDataSize).format('0,0'),
     }),
   },
   {
     key: 'maxRawRequestCount',
-    label: t('maxRawRequestCount'),
+    label: t('web-band:params_maxRawRequestCount'),
     detail: numeral(data.maxRawRequestCount).format('0,0'),
   },
   {
     key: 'expirationBlockCount',
-    label: t('expirationBlockCount'),
+    label: t('web-band:params_expirationBlockCount'),
     detail: numeral(data.expirationBlockCount).format('0,0'),
   },
   {
     key: 'oracleRewardPercentage',
-    label: t('oracleRewardPercentage'),
+    label: t('web-band:params_oracleRewardPercentage'),
     detail: `${numeral(data.oracleRewardPercentage).format('0.[00]')}%`,
   },
   {
     key: 'inactivePenaltyDuration',
-    label: t('inactivePenaltyDuration'),
+    label: t('web-band:params_inactivePenaltyDuration'),
     detail: t('seconds', {
       second: numeral(nanoToSeconds(data.inactivePenaltyDuration)).format('0,0'),
     }),
   },
   {
     key: 'perValidatorRequestGas',
-    label: t('perValidatorRequestGas'),
+    label: t('web-band:params_perValidatorRequestGas'),
     detail: numeral(data.perValidatorRequestGas).format('0,0'),
   },
 ];

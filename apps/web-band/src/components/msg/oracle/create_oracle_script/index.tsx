@@ -14,7 +14,7 @@ const CreateOracleScript: FC<{ message: MsgCreateOracleScript }> = (props) => {
   return (
     <Typography>
       <Trans
-        i18nKey="chain_band:message_contents_txCreateOracleScript"
+        i18nKey="web-band:message_contents_txCreateOracleScript"
         components={[<Name address={message.sender} name={senderMoniker} />, <b />]}
         values={{
           name: message.name,
