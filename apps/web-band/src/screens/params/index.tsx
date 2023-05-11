@@ -56,7 +56,7 @@ const Params = () => {
 
   const oracle = state.oracle
     ? {
-        title: t('oracle') ?? undefined,
+        title: t('chain_bandoracle') ?? undefined,
         details: formatOracle(state.oracle, t),
       }
     : null;

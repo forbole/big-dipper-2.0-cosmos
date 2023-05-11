@@ -15,7 +15,7 @@ const RequestData: FC<{ message: MsgRequestData }> = (props) => {
   return (
     <Typography>
       <Trans
-        i18nKey="message_contents:txRequestData"
+        i18nKey="chain_band:message_contents_txRequestData"
         components={[<Name address={message.sender} name={senderMoniker} />, <b />]}
         values={{
           oracleScriptId: numeral(message.oracleScriptId).format('0,0'),

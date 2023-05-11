@@ -1,0 +1,23 @@
+{
+  "common_accounts_validator": "Guardian",
+  "common_blocks_validator": "Guardian",
+  "common_common_validators": "Guardians",
+  "common_searchBarPlaceholder": "Cerca guardian / hash tx / altezza blocco / address",
+  "common_searchBarPlaceholderDtag": "Cerca guardian / hash tx / altezza blocco / address / @dtag",
+  "common_useValidatorAddress": "Utilizza l'address del guardian",
+  "home_activeValidators": "Guardian attivi",
+  "home_outOfValidators": "Su {{num}} guardian",
+  "home_validators": "Guardians",
+  "message_contents_txWithdrawCommissionContent": "<0>{{user}}</0> withdrew <1>{{amount}}</1> from their guardian commission",
+  "message_contents_txCreateValidatorContent": "<0>{{user}}</0> ha creato il guardian <1>{{validator}}</1>",
+  "message_contents_txEditValidatorContent": "<0>{{validator}}</0> ha aggiornato i dettagli del suo guardian",
+  "message_labels_txCreateValidatorLabel": "Crea guardians",
+  "message_labels_txEditValidatorLabel": "Modifica guardian",
+  "params_maxValidators": "Max Guardians",
+  "validators_validators": "Guardians",
+  "validators_allValidators": "Tutti i guardian",
+  "validators_validator": "Guardian",
+  "validators_conditionExplanation": "Lo stato generale di un guardian all'interno della finestra del blocco firmato corrente",
+  "validators_searchValidator": "Ricerca guardian",
+  "validators_validatorDetails": "Dettagli guardian"
+}

@@ -14,7 +14,7 @@ const RemoveReporter: FC<{ message: MsgRemoveReporter }> = (props) => {
   return (
     <Typography>
       <Trans
-        i18nKey="message_contents:txRemoveReporter"
+        i18nKey="chain_band:message_contents_txRemoveReporter"
         components={[<Name address={message.validatorAddress} name={validatorMoniker} />, <b />]}
         values={{
           reporterAddress: message.reporterAddress,

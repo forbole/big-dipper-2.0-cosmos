@@ -16,7 +16,7 @@ exports[`screen: TransactionDetails/BlockUser matches snapshot 1`] = `
 >
   <span
     data-testid="Trans"
-    i18nKey="message_contents:txRequestData"
+    i18nKey="chain_band:message_contents_txRequestData"
   >
     <div
       address="sender"

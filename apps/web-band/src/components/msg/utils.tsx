@@ -360,55 +360,55 @@ const customTypeToModel = {
     model: MODELS.MsgRequestData,
     content: COMPONENTS.RequestData,
     tagTheme: 'four',
-    tagDisplay: 'txRequestData',
+    tagDisplay: 'chain_band:message_labels_txRequestData',
   },
   '/oracle.v1.MsgReportData': {
     model: MODELS.MsgReportData,
     content: COMPONENTS.ReportData,
     tagTheme: 'four',
-    tagDisplay: 'txReportData',
+    tagDisplay: 'chain_band:message_labels_txReportData',
   },
   '/oracle.v1.MsgCreateDataSource': {
     model: MODELS.MsgCreateDataSource,
     content: COMPONENTS.CreateDataSource,
     tagTheme: 'four',
-    tagDisplay: 'txCreateDataSource',
+    tagDisplay: 'chain_band:message_labels_txCreateDataSource',
   },
   '/oracle.v1.MsgEditDataSource': {
     model: MODELS.MsgEditDataSource,
     content: COMPONENTS.EditDataSource,
     tagTheme: 'four',
-    tagDisplay: 'txEditDataSource',
+    tagDisplay: 'chain_band:message_labels_txEditDataSource',
   },
   '/oracle.v1.MsgCreateOracleScript': {
     model: MODELS.MsgCreateOracleScript,
     content: COMPONENTS.CreateOracleScript,
     tagTheme: 'four',
-    tagDisplay: 'txCreateOracleScript',
+    tagDisplay: 'chain_band:message_labels_txCreateOracleScript',
   },
   '/oracle.v1.MsgEditOracleScript': {
     model: MODELS.MsgEditOracleScript,
     content: COMPONENTS.EditOracleScript,
     tagTheme: 'four',
-    tagDisplay: 'txEditOracleScript',
+    tagDisplay: 'chain_band:message_labels_txEditOracleScript',
   },
   '/oracle.v1.MsgActivate': {
     model: MODELS.MsgActivate,
     content: COMPONENTS.Activate,
     tagTheme: 'four',
-    tagDisplay: 'txActivate',
+    tagDisplay: 'chain_band:message_labels_txActivate',
   },
   '/oracle.v1.MsgAddReporter': {
     model: MODELS.MsgAddReporter,
     content: COMPONENTS.AddReporter,
     tagTheme: 'four',
-    tagDisplay: 'txAddReporter',
+    tagDisplay: 'chain_band:message_labels_txAddReporter',
   },
   '/oracle.v1.MsgRemoveReporter': {
     model: MODELS.MsgRemoveReporter,
     content: COMPONENTS.RemoveReporter,
     tagTheme: 'four',
-    tagDisplay: 'txRemoveReporter',
+    tagDisplay: 'chain_band:message_labels_txRemoveReporter',
   },
 };
 type CustomTypeToModel = typeof customTypeToModel;
@@ -478,7 +478,14 @@ export const getMessageByType = <TMessage,>(message: TMessage, viewRaw: boolean,
   const Content = results.content;
 
   return {
-    type: <Tag value={t(`message_labels:${results.tagDisplay}`)} theme={results.tagTheme} />,
+    type: (
+      <Tag
+        value={t(
+          /:/.test(results.tagDisplay) ? results.tagDisplay : `message_labels:${results.tagDisplay}`
+        )}
+        theme={results.tagTheme}
+      />
+    ),
     message: <Content message={message as unknown as ComponentProps<typeof Content>['message']} />,
   };
 };

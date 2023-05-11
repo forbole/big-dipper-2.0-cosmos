@@ -1,0 +1,11 @@
+{
+  "accounts_topAccounts": "Migliori account",
+  "accounts_top_rank": "Rango",
+  "accounts_top_address": "Indirizzo",
+  "accounts_top_dtag": "DTag",
+  "accounts_top_balance": "Saldo token",
+  "accounts_top_percentage": "Percentuale",
+  "accounts_refresh_delay_notice": "Si prega di notare che l'account principale aggiorna i dati solo alle 00:00 GMT.",
+  "common_top_accounts": "Migliori account",
+  "home_cheqdWallets": "N. di portafogli"
+}

@@ -14,7 +14,7 @@ const EditDataSource: FC<{ message: MsgEditDataSource }> = (props) => {
   return (
     <Typography>
       <Trans
-        i18nKey="message_contents:txEditDataSource"
+        i18nKey="chain_band:message_contents_txEditDataSource"
         components={[<Name address={message.sender} name={senderMoniker} />, <b />]}
         values={{
           name: message.name,
