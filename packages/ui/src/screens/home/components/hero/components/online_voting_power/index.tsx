@@ -2,6 +2,7 @@ import Typography from '@mui/material/Typography';
 import { useTranslation } from 'next-i18next';
 import numeral from 'numeral';
 import { FC } from 'react';
+import chainConfig from '@/chainConfig';
 import useStyles from '@/screens/home/components/hero/components/online_voting_power/styles';
 import { useOnlineVotingPower } from '@/screens/home/components/hero/components/online_voting_power/hooks';
 
@@ -9,8 +10,13 @@ const OnlineVotingPower: FC<ComponentDefault> = () => {
   const { t } = useTranslation('home');
   const { state } = useOnlineVotingPower();
 
+  const { chainName } = chainConfig();
+
   const votingPowerPercent =
-    state.totalVotingPower === 0
+    // eslint-disable-next-line no-nested-ternary
+    chainName === 'wormhole'
+      ? numeral((state.activeValidators / state.votingPower) * 100)
+      : state.totalVotingPower === 0
       ? numeral(0)
       : numeral((state.votingPower / state.totalVotingPower) * 100);
 
@@ -25,7 +31,9 @@ const OnlineVotingPower: FC<ComponentDefault> = () => {
         </Typography>
         <Typography variant="body1">
           {numeral(state.votingPower).format('0,0')} /{' '}
-          {numeral(state.totalVotingPower).format('0,0')}
+          {state.totalVotingPower === 0
+            ? numeral(state.votingPower).format('0,0')
+            : numeral(state.totalVotingPower).format('0,0')}
         </Typography>
       </div>
       <div className={classes.chart}>
@@ -56,14 +64,16 @@ const OnlineVotingPower: FC<ComponentDefault> = () => {
             {numeral(state.votingPower).format('0,0')}
           </Typography>
         </div>
-        <div className={classes.item}>
-          <Typography variant="h4" className="label">
-            {t('totalVotingPower')}
-          </Typography>
-          <Typography variant="body1" className="value">
-            {numeral(state.totalVotingPower).format('0,0')}
-          </Typography>
-        </div>
+        {state.totalVotingPower === 0 ? null : (
+          <div className={classes.item}>
+            <Typography variant="h4" className="label">
+              {t('totalVotingPower')}
+            </Typography>
+            <Typography variant="body1" className="value">
+              {numeral(state.totalVotingPower).format('0,0')}
+            </Typography>
+          </div>
+        )}
       </div>
     </div>
   );
