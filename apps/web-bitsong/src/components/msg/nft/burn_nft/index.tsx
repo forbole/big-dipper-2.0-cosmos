@@ -14,7 +14,7 @@ const BurnNFT: FC<{ message: MsgBurnNFT }> = (props) => {
   return (
     <Typography>
       <Trans
-        i18nKey="message_contents:txBurnNFTContent"
+        i18nKey="web_bitsong:message_contents.txBurnNFTContent"
         components={[<Name address={message.sender} name={senderMoniker} />, <b />]}
         values={{
           id: message.id,

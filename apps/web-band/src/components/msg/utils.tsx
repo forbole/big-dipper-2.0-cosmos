@@ -360,55 +360,55 @@ const customTypeToModel = {
     model: MODELS.MsgRequestData,
     content: COMPONENTS.RequestData,
     tagTheme: 'four',
-    tagDisplay: 'web-band:message_labels_txRequestData',
+    tagDisplay: 'txRequestData',
   },
   '/oracle.v1.MsgReportData': {
     model: MODELS.MsgReportData,
     content: COMPONENTS.ReportData,
     tagTheme: 'four',
-    tagDisplay: 'web-band:message_labels_txReportData',
+    tagDisplay: 'txReportData',
   },
   '/oracle.v1.MsgCreateDataSource': {
     model: MODELS.MsgCreateDataSource,
     content: COMPONENTS.CreateDataSource,
     tagTheme: 'four',
-    tagDisplay: 'web-band:message_labels_txCreateDataSource',
+    tagDisplay: 'txCreateDataSource',
   },
   '/oracle.v1.MsgEditDataSource': {
     model: MODELS.MsgEditDataSource,
     content: COMPONENTS.EditDataSource,
     tagTheme: 'four',
-    tagDisplay: 'web-band:message_labels_txEditDataSource',
+    tagDisplay: 'txEditDataSource',
   },
   '/oracle.v1.MsgCreateOracleScript': {
     model: MODELS.MsgCreateOracleScript,
     content: COMPONENTS.CreateOracleScript,
     tagTheme: 'four',
-    tagDisplay: 'web-band:message_labels_txCreateOracleScript',
+    tagDisplay: 'txCreateOracleScript',
   },
   '/oracle.v1.MsgEditOracleScript': {
     model: MODELS.MsgEditOracleScript,
     content: COMPONENTS.EditOracleScript,
     tagTheme: 'four',
-    tagDisplay: 'web-band:message_labels_txEditOracleScript',
+    tagDisplay: 'txEditOracleScript',
   },
   '/oracle.v1.MsgActivate': {
     model: MODELS.MsgActivate,
     content: COMPONENTS.Activate,
     tagTheme: 'four',
-    tagDisplay: 'web-band:message_labels_txActivate',
+    tagDisplay: 'txActivate',
   },
   '/oracle.v1.MsgAddReporter': {
     model: MODELS.MsgAddReporter,
     content: COMPONENTS.AddReporter,
     tagTheme: 'four',
-    tagDisplay: 'web-band:message_labels_txAddReporter',
+    tagDisplay: 'txAddReporter',
   },
   '/oracle.v1.MsgRemoveReporter': {
     model: MODELS.MsgRemoveReporter,
     content: COMPONENTS.RemoveReporter,
     tagTheme: 'four',
-    tagDisplay: 'web-band:message_labels_txRemoveReporter',
+    tagDisplay: 'txRemoveReporter',
   },
 };
 type CustomTypeToModel = typeof customTypeToModel;
@@ -480,9 +480,9 @@ export const getMessageByType = <TMessage,>(message: TMessage, viewRaw: boolean,
   return {
     type: (
       <Tag
-        value={t(
-          /:/.test(results.tagDisplay) ? results.tagDisplay : `message_labels:${results.tagDisplay}`
-        )}
+        value={t(`${process.env.NEXT_PUBLIC_APP_NAME}:message_labels.${results.tagDisplay}`, {
+          defaultMessage: t(results.tagDisplay),
+        })}
         theme={results.tagTheme}
       />
     ),

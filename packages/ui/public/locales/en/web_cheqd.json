@@ -1,0 +1,11 @@
+{
+  "accounts.topAccounts": "Top Accounts",
+  "accounts.top_rank": "Rank",
+  "accounts.top_address": "Address",
+  "accounts.top_dtag": "DTag",
+  "accounts.top_balance": "Token Balance",
+  "accounts.top_percentage": "Percentage",
+  "accounts.refresh_delay_notice": "Please note that the top account only refreshes data at 00:00 GMT.",
+  "common.top_accounts": "Top Accounts",
+  "home.cheqdWallets": "No. of Wallets"
+}

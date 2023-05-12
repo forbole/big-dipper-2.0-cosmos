@@ -15,7 +15,7 @@ const EditAuction: FC<{ message: MsgEditAuction }> = (props) => {
   return (
     <Typography>
       <Trans
-        i18nKey="message_contents:txMsgEditAuction"
+        i18nKey="web_bitsong:message_contents.txMsgEditAuction"
         components={[<Name address={message.owner} name={ownerMoniker} />, <b />]}
         values={{
           id: numeral(message.id).format('0,0'),

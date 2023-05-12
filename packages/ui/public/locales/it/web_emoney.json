@@ -1,0 +1,23 @@
+{
+  "message_contents.txCreateIssuerContent": "<0>{{authority}}</0> created an issuer <1>{{issuer}}</1> for <2>{{denominations}}</2>",
+  "message_contents.txAddLimitOrderContent": "<0>{{owner}}</0> created limit order ID <1>{{clientOrderId}}</1> for <2>{{destination}}</2> with <3>{{source}}</3>",
+  "message_contents.txAddMarketOrderContent": "<0>{{owner}}</0> created market order ID <1>{{clientOrderId}}</1> for <2>{{destination}}</2> with <3>{{source}}</3>",
+  "message_contents.txCancelOrderContent": "<0>{{owner}}</0> cancelled order ID <1>{{clientOrderId}}</1>",
+  "message_contents.txCancelReplaceLimitOrderContent": "<0>{{owner}}</0> replaced limit order ID <1>{{clientOrderId}}</1> with a new order for <2>{{destination}}</2> with <3>{{source}}</3>",
+  "message_contents.txCancelReplaceMarketOrderContent": "<0>{{owner}}</0> replaced market order ID <1>{{clientOrderId}}</1> with a new order for <2>{{destination}}</2> with <3>{{source}}</3>",
+  "message_contents.txMintTokens": "<0>{{liquidityProvider}}</0> minted <1>{{amount}}</1>",
+  "message_contents.txBurnTokens": "<0>{{liquidityProvider}}</0> burned <1>{{amount}}</1>",
+  "message_labels.txCreateIssuerLabel": "Create Issuer",
+  "message_labels.txAddLimitOrderLabel": "Add Limit Order",
+  "message_labels.txAddMarketOrderLabel": "Add Market Order",
+  "message_labels.txCancelOrderLabel": "Cancel Order",
+  "message_labels.txCancelReplaceLimitOrderLabel": "Replace Limit Order",
+  "message_labels.txCancelReplaceMarketOrderLabel": "Replace Market Order",
+  "message_labels.txMintTokens": "Mint Tokens",
+  "message_labels.txBurnTokens": "Burn Tokens",
+  "params.inflationRate": "Inflation Rate",
+  "params.gasPrice": "Gas Price",
+  "transactions.authority": "Authority",
+  "transactions.market": "Market",
+  "transactions.liquidityProvider": "Liquidity Provider"
+}

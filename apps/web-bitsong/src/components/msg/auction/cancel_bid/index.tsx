@@ -15,7 +15,7 @@ const CancelBid: FC<{ message: MsgCancelBid }> = (props) => {
   return (
     <Typography>
       <Trans
-        i18nKey="message_contents:txMsgCancelBid"
+        i18nKey="web_bitsong:message_contents.txMsgCancelBid"
         components={[<Name address={message.bidder} name={bidderMoniker} />, <b />]}
         values={{
           id: numeral(message.auctionId).format('0,0'),

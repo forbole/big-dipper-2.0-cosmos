@@ -14,7 +14,7 @@ const BurnFanToken: FC<{ message: MsgBurnFanToken }> = (props) => {
   return (
     <Typography>
       <Trans
-        i18nKey="message_contents:txMsgBurnFanToken"
+        i18nKey="web_bitsong:message_contents.txMsgBurnFanToken"
         components={[<Name address={message.sender} name={senderMoniker} />]}
       />
     </Typography>

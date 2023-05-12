@@ -14,7 +14,7 @@ const OpenAuction: FC<{ message: MsgOpenAuction }> = (props) => {
   return (
     <Typography>
       <Trans
-        i18nKey="message_contents:txMsgOpenAuction"
+        i18nKey="web_bitsong:message_contents.txMsgOpenAuction"
         components={[<Name address={message.owner} name={ownerMoniker} />, <b />]}
         values={{
           nftId: message.nftId,

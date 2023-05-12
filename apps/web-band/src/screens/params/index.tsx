@@ -56,7 +56,7 @@ const Params = () => {
 
   const oracle = state.oracle
     ? {
-        title: t('web-band:params:oracle') ?? undefined,
+        title: t('web_band:params.oracle') ?? undefined,
         details: formatOracle(state.oracle, t),
       }
     : null;

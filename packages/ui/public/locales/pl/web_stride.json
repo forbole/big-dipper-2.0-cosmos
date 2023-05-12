@@ -1,0 +1,18 @@
+{
+  "params.stakeibc": "Stake IBC",
+  "params.bufferSize": "Buffer Size",
+  "params.depositInterval": "Deposit Interval",
+  "params.rewardsInterval": "Rewards Interval",
+  "params.delegateInterval": "Delegate Interval",
+  "params.icaTimeoutNanos": "Ica Timeout Nanos",
+  "params.reinvestInterval": "Reinvest Interval",
+  "params.strideCommission": "Stride Commission",
+  "params.ibcTimeoutBlocks": "IBC Timeout Blocks",
+  "params.redemptionRateInterval": "Redemption Rate Interval",
+  "params.feeTransferTimeoutNanos": "Fee Transfer Timeout Nanos",
+  "params.ibcTransferTimeoutNanos": "IBC Transfer Timeout Nanos",
+  "params.maxStakeIcaCallsPerEpoch": "Max Stake Ica Calls per Epoch",
+  "params.validatorRebalancingThreshold": "Validator Rebalancing Threshold",
+  "params.safetyMaxRedemptionRateThreshold": "Safety Max Redemption rate threshold",
+  "params.safetyMinRedemptionRateThreshold": "Safety Min Redemption Rate Threshold"
+}

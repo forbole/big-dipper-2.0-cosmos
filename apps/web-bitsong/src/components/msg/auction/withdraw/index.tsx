@@ -15,7 +15,7 @@ const Withdraw: FC<{ message: MsgWithdraw }> = (props) => {
   return (
     <Typography>
       <Trans
-        i18nKey="message_contents:txMsgWithdraw"
+        i18nKey="web_bitsong:message_contents.txMsgWithdraw"
         components={[<Name address={message.recipient} name={recipientMoniker} />, <b />]}
         values={{
           id: numeral(message.auctionId).format('0,0'),

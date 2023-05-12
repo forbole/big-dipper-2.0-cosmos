@@ -14,7 +14,7 @@ const EditFanToken: FC<{ message: MsgEditFanToken }> = (props) => {
   return (
     <Typography>
       <Trans
-        i18nKey="message_contents:txMsgEditFanToken"
+        i18nKey="web_bitsong:message_contents.txMsgEditFanToken"
         components={[<Name address={message.owner} name={ownerMoniker} />]}
       />
     </Typography>

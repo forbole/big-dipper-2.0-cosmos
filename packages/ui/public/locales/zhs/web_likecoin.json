@@ -1,0 +1,12 @@
+{
+  "message_contents.txCreateIscnRecordContent": "<0>{{from}}</0> created a new iscn record",
+  "message_contents.txUpdateIscnRecordContent": "<0>{{from}}</0> updated iscn record <1>{{iscnId}}</1>",
+  "message_contents.txChangeIscnRecordOwnershipContent": "<0>{{from}}</0> transferred iscn record <1>{{iscnId}}</1> ownership to <2>{{newOwner}}</2>",
+  "message_labels.txCreateIscnRecordLabel": "ISCN Record Create",
+  "message_labels.txUpdateIscnRecordLabel": "ISCN Record Update",
+  "message_labels.txChangeIscnRecordOwnershipLabel": "ISCN Record Change Owndership",
+  "params.votingPeriod": "Voting Period",
+  "params.feePerByte": "Fee Per Byte",
+  "params.registryName": "Registry Name",
+  "params.iscn": "Iscn"
+}

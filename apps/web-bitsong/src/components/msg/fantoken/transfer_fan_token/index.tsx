@@ -17,7 +17,7 @@ const TransferFanToken: FC<{ message: MsgTransferFanTokenOwner }> = (props) => {
   return (
     <Typography>
       <Trans
-        i18nKey="message_contents:txMsgTransferFanTokenOwner"
+        i18nKey="web_bitsong:message_contents.txMsgTransferFanTokenOwner"
         components={[
           <Name address={message.srcOwner} name={srcMoniker} />,
           <b />,

@@ -11,7 +11,7 @@ const IssueDenom: FC<{ message: MsgIssueDenom }> = (props) => {
   return (
     <Typography>
       <Trans
-        i18nKey="message_contents:txIssueDenomContent"
+        i18nKey="bitsong:message_contents:txIssueDenomContent"
         components={[<ListNames creators={creators} />]}
       />
     </Typography>

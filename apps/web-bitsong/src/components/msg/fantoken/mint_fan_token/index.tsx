@@ -14,7 +14,7 @@ const MintFanToken: FC<{ message: MsgMintFanToken }> = (props) => {
   return (
     <Typography>
       <Trans
-        i18nKey="message_contents:txMsgMintFanToken"
+        i18nKey="web_bitsong:message_contents.txMsgMintFanToken"
         components={[<Name address={message.recipient} name={recipientMoniker} />]}
       />
     </Typography>

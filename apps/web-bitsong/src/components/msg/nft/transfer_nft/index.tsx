@@ -17,7 +17,7 @@ const TransferNFT: FC<{ message: MsgTransferNFT }> = (props) => {
   return (
     <Typography>
       <Trans
-        i18nKey="message_contents:txTransferNFTContent"
+        i18nKey="web_bitsong:message_contents.txTransferNFTContent"
         components={[
           <Name address={message.sender} name={senderMoniker} />,
           <b />,

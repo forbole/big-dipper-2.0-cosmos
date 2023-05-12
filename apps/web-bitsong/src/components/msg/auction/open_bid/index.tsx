@@ -23,7 +23,7 @@ const OpenBid: FC<{ message: MsgOpenBid }> = (props) => {
   return (
     <Typography>
       <Trans
-        i18nKey="message_contents:txMsgOpenBid"
+        i18nKey="web_bitsong:message_contents.txMsgOpenBid"
         components={[<Name address={message.bidder} name={bidderMoniker} />, <b />]}
         values={{
           id: numeral(message.auctionId).format('0,0'),

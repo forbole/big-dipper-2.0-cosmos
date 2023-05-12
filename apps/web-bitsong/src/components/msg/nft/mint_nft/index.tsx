@@ -14,7 +14,7 @@ const MintNFT: FC<{ message: MsgMintNFT }> = (props) => {
   return (
     <Typography>
       <Trans
-        i18nKey="message_contents:txMintNFTContent"
+        i18nKey="web_bitsong:message_contents.txMintNFTContent"
         components={[<Name address={message.sender} name={senderMoniker} />, <b />]}
         values={{
           id: message.id,

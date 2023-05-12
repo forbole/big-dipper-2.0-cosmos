@@ -39,7 +39,7 @@ const Mobile: FC<{ className?: string; items: NFTTypes[] }> = (props) => {
           <div className={classes.root}>
             <div className={classes.item}>
               <Typography variant="h4" className="label">
-                {t('nft')}
+                {t('web_bitsong:transactions.nft')}
               </Typography>
               {x.nft}
             </div>
