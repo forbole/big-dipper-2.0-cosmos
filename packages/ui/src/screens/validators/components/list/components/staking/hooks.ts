@@ -12,6 +12,7 @@ import {
   getOfflineSignerAddress,
   getOfflineSignerPubKey,
   getCosmosClient,
+  getChainID,
 } from '@/components/nav/components/connect_wallet/keplr_utils';
 // import { MsgDelegate } from '@cosmjs/stargate/build/codec/cosmos/staking/v1beta1/tx';
 import {
@@ -46,10 +47,13 @@ import {
 //   MsgUndelegate,
 // } from 'cosmjs-types/cosmos/staking/v1beta1/tx';
 import { coin, coins, decodeTxRaw, DirectSecp256k1HdWallet, Registry } from '@cosmjs/proto-signing';
+import { ADDRESS_KEY, CHAIN_ID } from '@/utils/localstorage';
 
 const useStakingHooks = () => {
   const [amount, setAmount] = React.useState('');
-  const [userAddress, setUserAddress] = React.useState(localStorage.getItem('ADDRESS_KEY'));
+  const [userAddress, setUserAddress] = React.useState(localStorage.getItem(ADDRESS_KEY));
+  const [chainID, setChainID] = React.useState(localStorage.getItem(CHAIN_ID));
+
   const [memo, setMemo] = React.useState('');
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [openStakingDialog, setOpenStakingDialog] = React.useState(false);
@@ -91,6 +95,23 @@ const useStakingHooks = () => {
     setOpenStakingDialog(true);
   };
 
+  const getFee = async (
+    chosenNetwork: string,
+    address: string,
+    ledgerType: SUPPORTED_WALLET,
+    message: any[],
+    memo: string
+  ) => {
+    const client = await signingClient(chosenNetwork, ledgerType);
+    const gasUsed = await client.simulate(address, message, memo);
+
+    const gasLimit = Math.round(gasUsed * DEFAULT_GAS_MULTIPLIER);
+
+    const fee = calculateFee(gasLimit, gasPrice);
+
+    return fee;
+  };
+
   const handleDelegateAction = async (
     delegateAmount: string,
     delegateDenom: string,
@@ -98,9 +119,10 @@ const useStakingHooks = () => {
   ) => {
     setOpenStakingDialog(false);
 
+    console.log(chainID);
     let offlineSigner;
     try {
-      offlineSigner = getOfflineSigner();
+      offlineSigner = getOfflineSigner(chainID);
     } catch (e) {
       console.log(e);
     }
@@ -116,14 +138,21 @@ const useStakingHooks = () => {
     }
 
     const client = getCosmosClient(offlineSignerAddress, offlineSigner);
-    const stk_balance = await client.getBalance(userAddress, baseDenom);
-    console.log(stk_balance);
-
+    // const stk_balance = await client.getBalance(userAddress, baseDenom);
+    // console.log(stk_balance);
+    // const gasUsed = await client.simulate(userAddress, message, memo);
+    const gasPrice = GasPrice.fromString(`0.002${baseDenom}`);
+    const txFee = calculateFee(300000, gasPrice);
     const result = await client.delegateTokens(
       userAddress,
       validator,
       coin(amount, baseDenom),
-      'auto',
+      txFee,
+      // 'auto',
+      // {
+      //   amount: coins(2000, 'ucmdx'),
+      //   gas: '200000',
+      // },
       memo
     );
     console.log(result);
