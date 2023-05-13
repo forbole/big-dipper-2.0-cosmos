@@ -476,11 +476,10 @@ export const getMessageByType = <TMessage,>(message: TMessage, viewRaw: boolean,
   }
 
   const Content = results.content;
-
   return {
     type: (
       <Tag
-        value={t(`${process.env.NEXT_PUBLIC_APP_NAME}:message_labels.${results.tagDisplay}`, {
+        value={tApp(`message_labels_${results.tagDisplay}`, {
           defaultValue: t(results.tagDisplay),
         })}
         theme={results.tagTheme}

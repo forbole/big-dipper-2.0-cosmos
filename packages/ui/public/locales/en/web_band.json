@@ -18,7 +18,7 @@
   "message_labels.txAddReporter": "Add Reporter",
   "message_labels.txRemoveReporter": "Remove Reporter",
   "params.oracle": "Oracle",
-  "params_maxAskCount": "Max Ask Count",
+  "params.maxAskCount": "Max Ask Count",
   "params.baseOwsmGas": "Base Owsm Gas",
   "params.maxCalldataSize": "Max Calldata Size",
   "params.samplingTryCount": "Sampling Try Count",

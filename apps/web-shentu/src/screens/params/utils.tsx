@@ -18,35 +18,35 @@ const convertBySeconds = (seconds: number, t: TFunction) => {
 export const formatStaking = (data: Staking, t: TFunction) => [
   {
     key: 'bondDenom',
-    label: t(`${process.env.NEXT_PUBLIC_APP_NAME}:params.bondDenom`, {
+    label: tApp(`params_bondDenom`, {
       defaultValue: t('bondDenom'),
     }),
     detail: data.bondDenom,
   },
   {
     key: 'unbondingTime',
-    label: t(`${process.env.NEXT_PUBLIC_APP_NAME}:params.unbondingTime`, {
+    label: tApp(`params_unbondingTime`, {
       defaultValue: t('unbondingTime'),
     }),
     detail: convertBySeconds(nanoToSeconds(data.unbondingTime), t),
   },
   {
     key: 'maxEntries',
-    label: t(`${process.env.NEXT_PUBLIC_APP_NAME}:params.maxEntries`, {
+    label: tApp(`params_maxEntries`, {
       defaultValue: t('maxEntries'),
     }),
     detail: numeral(data.maxEntries).format('0,0'),
   },
   {
     key: 'historicalEntries',
-    label: t(`${process.env.NEXT_PUBLIC_APP_NAME}:params.historicalEntries`, {
+    label: tApp(`params_historicalEntries`, {
       defaultValue: t('historicalEntries'),
     }),
     detail: numeral(data.historicalEntries).format('0,0'),
   },
   {
     key: 'maxValidators',
-    label: t(`${process.env.NEXT_PUBLIC_APP_NAME}:params.maxValidators`, {
+    label: tApp(`params_maxValidators`, {
       defaultValue: t('maxValidators'),
     }),
     detail: numeral(data.maxValidators).format('0,0'),
@@ -56,7 +56,7 @@ export const formatStaking = (data: Staking, t: TFunction) => [
 export const formatSlashing = (data: Slashing, t: TFunction) => [
   {
     key: 'downtimeJailDuration',
-    label: t(`${process.env.NEXT_PUBLIC_APP_NAME}:params.downtimeJailDuration`, {
+    label: tApp(`params_downtimeJailDuration`, {
       defaultValue: t('downtimeJailDuration'),
     }),
     detail: t('seconds', {
@@ -65,28 +65,28 @@ export const formatSlashing = (data: Slashing, t: TFunction) => [
   },
   {
     key: 'minSignedPerWindow',
-    label: t(`${process.env.NEXT_PUBLIC_APP_NAME}:params.minSignedPerWindow`, {
+    label: tApp(`params_minSignedPerWindow`, {
       defaultValue: t('minSignedPerWindow'),
     }),
     detail: `${numeral(data.minSignedPerWindow * 100).format('0.[00]')}%`,
   },
   {
     key: 'signedBlockWindow',
-    label: t(`${process.env.NEXT_PUBLIC_APP_NAME}:params.signedBlockWindow`, {
+    label: tApp(`params_signedBlockWindow`, {
       defaultValue: t('signedBlockWindow'),
     }),
     detail: numeral(data.signedBlockWindow).format('0,0'),
   },
   {
     key: 'slashFractionDoubleSign',
-    label: t(`${process.env.NEXT_PUBLIC_APP_NAME}:params.slashFractionDoubleSign`, {
+    label: tApp(`params_slashFractionDoubleSign`, {
       defaultValue: t('slashFractionDoubleSign'),
     }),
     detail: `${data.slashFractionDoubleSign * 100} / 100`,
   },
   {
     key: 'slashFractionDowntime',
-    label: t(`${process.env.NEXT_PUBLIC_APP_NAME}:params.slashFractionDowntime`, {
+    label: tApp(`params_slashFractionDowntime`, {
       defaultValue: t('slashFractionDowntime'),
     }),
     detail: `${data.slashFractionDowntime * 10000} / ${numeral(10000).format('0,0')}`,
@@ -96,42 +96,42 @@ export const formatSlashing = (data: Slashing, t: TFunction) => [
 export const formatMinting = (data: Minting, t: TFunction) => [
   {
     key: 'blocksPerYear',
-    label: t(`${process.env.NEXT_PUBLIC_APP_NAME}:params.blocksPerYear`, {
+    label: tApp(`params_blocksPerYear`, {
       defaultValue: t('blocksPerYear'),
     }),
     detail: numeral(data.blocksPerYear).format('0,0'),
   },
   {
     key: 'goalBonded',
-    label: t(`${process.env.NEXT_PUBLIC_APP_NAME}:params.goalBonded`, {
+    label: tApp(`params_goalBonded`, {
       defaultValue: t('goalBonded'),
     }),
     detail: `${numeral(data.goalBonded * 100).format('0.[00]')}%`,
   },
   {
     key: 'inflationMax',
-    label: t(`${process.env.NEXT_PUBLIC_APP_NAME}:params.inflationMax`, {
+    label: tApp(`params_inflationMax`, {
       defaultValue: t('inflationMax'),
     }),
     detail: `${numeral(data.inflationMax * 100).format('0.[00]')}%`,
   },
   {
     key: 'inflationMin',
-    label: t(`${process.env.NEXT_PUBLIC_APP_NAME}:params.inflationMin`, {
+    label: tApp(`params_inflationMin`, {
       defaultValue: t('inflationMin'),
     }),
     detail: `${numeral(data.inflationMin * 100).format('0.[00]')}%`,
   },
   {
     key: 'inflationRateChange',
-    label: t(`${process.env.NEXT_PUBLIC_APP_NAME}:params.inflationRateChange`, {
+    label: tApp(`params_inflationRateChange`, {
       defaultValue: t('inflationRateChange'),
     }),
     detail: `${numeral(data.inflationRateChange * 100).format('0.[00]')}%`,
   },
   {
     key: 'mintDenom',
-    label: t(`${process.env.NEXT_PUBLIC_APP_NAME}:params.mintDenom`, {
+    label: tApp(`params_mintDenom`, {
       defaultValue: t('mintDenom'),
     }),
     detail: data.mintDenom,
@@ -141,28 +141,28 @@ export const formatMinting = (data: Minting, t: TFunction) => [
 export const formatDistribution = (data: Distribution, t: TFunction) => [
   {
     key: 'baseProposerReward',
-    label: t(`${process.env.NEXT_PUBLIC_APP_NAME}:params.baseProposerReward`, {
+    label: tApp(`params_baseProposerReward`, {
       defaultValue: t('baseProposerReward'),
     }),
     detail: `${numeral(data.baseProposerReward * 100).format('0.[00]')}%`,
   },
   {
     key: 'bonusProposerReward',
-    label: t(`${process.env.NEXT_PUBLIC_APP_NAME}:params.bonusProposerReward`, {
+    label: tApp(`params_bonusProposerReward`, {
       defaultValue: t('bonusProposerReward'),
     }),
     detail: `${numeral(data.bonusProposerReward * 100).format('0.[00]')}%`,
   },
   {
     key: 'communityTax',
-    label: t(`${process.env.NEXT_PUBLIC_APP_NAME}:params.communityTax`, {
+    label: tApp(`params_communityTax`, {
       defaultValue: t('communityTax'),
     }),
     detail: `${numeral(data.communityTax * 100).format('0.[00]')}%`,
   },
   {
     key: 'withdrawAddressEnabled',
-    label: t(`${process.env.NEXT_PUBLIC_APP_NAME}:params.withdrawAddressEnabled`, {
+    label: tApp(`params_withdrawAddressEnabled`, {
       defaultValue: t('withdrawAddressEnabled'),
     }),
     detail: `${data.withdrawAddressEnabled}`.toUpperCase(),
@@ -179,102 +179,102 @@ export const formatGov = (
 }> => [
   {
     key: 'minDeposit',
-    label: t(`${process.env.NEXT_PUBLIC_APP_NAME}:params.minDeposit`, {
+    label: tApp(`params_minDeposit`, {
       defaultValue: t('minDeposit'),
     }),
     detail: `${data.minDeposit.value} ${data.minDeposit.displayDenom.toUpperCase()}`,
   },
   {
     key: 'maxDepositPeriod',
-    label: t(`${process.env.NEXT_PUBLIC_APP_NAME}:params.maxDepositPeriod`, {
+    label: tApp(`params_maxDepositPeriod`, {
       defaultValue: t('maxDepositPeriod'),
     }),
     detail: convertBySeconds(nanoToSeconds(data.maxDepositPeriod), t),
   },
   {
     key: 'votingPeriod',
-    label: t(`${process.env.NEXT_PUBLIC_APP_NAME}:params.votingPeriod`, {
+    label: tApp(`params_votingPeriod`, {
       defaultValue: t('votingPeriod'),
     }),
     detail: convertBySeconds(nanoToSeconds(data.votingPeriod), t),
   },
   {
     key: 'default',
-    label: t(`${process.env.NEXT_PUBLIC_APP_NAME}:params.default`, {
+    label: tApp(`params_default`, {
       defaultValue: t('default'),
     }),
   },
   {
     key: 'quorum',
-    label: t(`${process.env.NEXT_PUBLIC_APP_NAME}:params.quorum`, {
+    label: tApp(`params_quorum`, {
       defaultValue: t('quorum'),
     }),
     detail: `${numeral(data.default.quorum * 100).format('0.[00]')}%`,
   },
   {
     key: 'threshold',
-    label: t(`${process.env.NEXT_PUBLIC_APP_NAME}:params.threshold`, {
+    label: tApp(`params_threshold`, {
       defaultValue: t('threshold'),
     }),
     detail: `${numeral(data.default.threshold * 100).format('0.[00]')}%`,
   },
   {
     key: 'vetoThreshold',
-    label: t(`${process.env.NEXT_PUBLIC_APP_NAME}:params.vetoThreshold`, {
+    label: tApp(`params_vetoThreshold`, {
       defaultValue: t('vetoThreshold'),
     }),
     detail: `${numeral(data.default.vetoThreshold * 100).format('0.[00]')}%`,
   },
   {
     key: 'certifierStakeVote',
-    label: t(`${process.env.NEXT_PUBLIC_APP_NAME}:params.certifierStakeVote`, {
+    label: tApp(`params_certifierStakeVote`, {
       defaultValue: t('certifierStakeVote'),
     }),
   },
   {
     key: 'quorum',
-    label: t(`${process.env.NEXT_PUBLIC_APP_NAME}:params.quorum`, {
+    label: tApp(`params_quorum`, {
       defaultValue: t('quorum'),
     }),
     detail: `${numeral(data.certifierStakeVote.quorum * 100).format('0.[00]')}%`,
   },
   {
     key: 'threshold',
-    label: t(`${process.env.NEXT_PUBLIC_APP_NAME}:params.threshold`, {
+    label: tApp(`params_threshold`, {
       defaultValue: t('threshold'),
     }),
     detail: `${numeral(data.certifierStakeVote.threshold * 100).format('0.[00]')}%`,
   },
   {
     key: 'vetoThreshold',
-    label: t(`${process.env.NEXT_PUBLIC_APP_NAME}:params.vetoThreshold`, {
+    label: tApp(`params_vetoThreshold`, {
       defaultValue: t('vetoThreshold'),
     }),
     detail: `${numeral(data.certifierStakeVote.vetoThreshold * 100).format('0.[00]')}%`,
   },
   {
     key: 'certifierSecurityVote',
-    label: t(`${process.env.NEXT_PUBLIC_APP_NAME}:params.certifierSecurityVote`, {
+    label: tApp(`params_certifierSecurityVote`, {
       defaultValue: t('certifierSecurityVote'),
     }),
   },
   {
     key: 'quorum',
-    label: t(`${process.env.NEXT_PUBLIC_APP_NAME}:params.quorum`, {
+    label: tApp(`params_quorum`, {
       defaultValue: t('quorum'),
     }),
     detail: `${numeral(data.certifierSecurityVote.quorum * 100).format('0.[00]')}%`,
   },
   {
     key: 'threshold',
-    label: t(`${process.env.NEXT_PUBLIC_APP_NAME}:params.threshold`, {
+    label: tApp(`params_threshold`, {
       defaultValue: t('threshold'),
     }),
     detail: `${numeral(data.certifierSecurityVote.threshold * 100).format('0.[00]')}%`,
   },
   {
     key: 'vetoThreshold',
-    label: t(`${process.env.NEXT_PUBLIC_APP_NAME}:params.vetoThreshold`, {
+    label: tApp(`params_vetoThreshold`, {
       defaultValue: t('vetoThreshold'),
     }),
     detail: `${numeral(data.certifierSecurityVote.vetoThreshold * 100).format('0.[00]')}%`,

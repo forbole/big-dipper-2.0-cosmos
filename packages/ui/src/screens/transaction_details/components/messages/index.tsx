@@ -29,7 +29,7 @@ const ListItem: FC<ListItemProps> = ({
   isLast,
   viewRaw,
 }) => {
-  const { t } = useTranslation('transactions');
+  const { t } = useTranslation(['transactions', process.env.NEXT_PUBLIC_APP_NAME ?? '']);
   const { rowRef } = useListRow(index, setRowHeight);
   const formattedItem = getMessageByType(message, viewRaw, t);
   return (

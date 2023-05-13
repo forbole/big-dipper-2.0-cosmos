@@ -16,7 +16,7 @@ import {
 } from '@/screens/params/utils';
 
 const Params = () => {
-  const { t } = useTranslation('params');
+  const { t } = useTranslation(['params', process.env.NEXT_PUBLIC_APP_NAME ?? '']);
   const { classes } = useStyles();
   const { state } = useParams();
 

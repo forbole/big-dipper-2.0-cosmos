@@ -31,6 +31,7 @@ const ListItem: FC<ListItemProps> = ({ index, style, setRowHeight, isItemLoaded,
   const { rowRef } = useListRow(index, setRowHeight);
   const display = useDisplayStyles().classes;
   const { t } = useTranslation('transactions');
+  const { t: tApp } = useTranslation(process.env.NEXT_PUBLIC_APP_NAME);
   const dateFormat = useRecoilValue(readDate);
   const timeFormat = useRecoilValue(readTimeFormat);
   if (!isItemLoaded?.(index)) {

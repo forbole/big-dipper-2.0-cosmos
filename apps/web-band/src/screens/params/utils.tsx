@@ -65,7 +65,7 @@ export const formatSlashing = (data: Slashing, t: TFunction) => [
   {
     key: 'minSignedPerWindow',
     label: t(`${process.env.NEXT_PUBLIC_APP_NAME}:params.minSignedPerWindow`, {
-      defdefaultValueault: t('minSignedPerWindow'),
+      defaultValue: t('minSignedPerWindow'),
     }),
     detail: `${numeral(data.minSignedPerWindow * 100).format('0.[00]')}%`,
   },

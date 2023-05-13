@@ -8,7 +8,7 @@ import type { OtherTokenType } from '@/screens/account_details/components/nfts/t
 import useStyles from '@/screens/account_details/components/nfts/components/list/components/mobile/styles';
 
 const Mobile: FC<{ className?: string; items: OtherTokenType[] }> = (props) => {
-  const { t } = useTranslation('accounts');
+  const { t } = useTranslation(['accounts', process.env.NEXT_PUBLIC_APP_NAME ?? '']);
   const { classes } = useStyles();
   const formattedItems = props.items.map((x, i) => ({
     key: `${x.identifier}-${i}`,
@@ -28,7 +28,9 @@ const Mobile: FC<{ className?: string; items: OtherTokenType[] }> = (props) => {
           <div className={classes.root}>
             <div className={classes.item}>
               <Typography variant="h4" className="label">
-                {t('web_bitsong:transactions.nft')}
+                {tApp('transactions_nft', {
+                  defaultValue: t('nft'),
+                })}
               </Typography>
               {x.nft}
             </div>

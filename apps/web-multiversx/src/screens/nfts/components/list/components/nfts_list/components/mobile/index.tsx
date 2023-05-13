@@ -11,6 +11,7 @@ import { NFT_DETAILS } from '@/utils/go_to_page';
 
 const Mobile: FC<{ className?: string; items: NFTTypes[] }> = (props) => {
   const { t } = useTranslation('nfts');
+  const { t: tApp } = useTranslation(process.env.NEXT_PUBLIC_APP_NAME);
   const { classes } = useStyles();
   const formattedItems = props.items.map((x, i) => ({
     key: `${x.identifier}-${i}`,
@@ -39,7 +40,9 @@ const Mobile: FC<{ className?: string; items: NFTTypes[] }> = (props) => {
           <div className={classes.root}>
             <div className={classes.item}>
               <Typography variant="h4" className="label">
-                {t('web_bitsong:transactions.nft')}
+                {tApp('transactions_nft', {
+                  defaultValue: t('nft'),
+                })}
               </Typography>
               {x.nft}
             </div>
