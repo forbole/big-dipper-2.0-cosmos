@@ -1,6 +1,6 @@
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import { FC, Fragment } from 'react';
 import { useRecoilValue } from 'recoil';
 import AvatarName from '@/components/avatar_name';
@@ -20,7 +20,7 @@ type UnbondingsItemProps = {
 const UnbondingsItem: FC<UnbondingsItemProps> = ({ i, item, isLast }) => {
   const { name, address, imageUrl } = useProfileRecoil(item.address);
   const { classes } = useStyles();
-  const { t } = useAppTranslation('accounts');
+  const { t } = useTranslationByApp('accounts');
   const dateFormat = useRecoilValue(readDate);
   const timeFormat = useRecoilValue(readTimeFormat);
   return (

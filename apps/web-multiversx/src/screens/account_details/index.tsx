@@ -1,5 +1,5 @@
 import { NextSeo } from 'next-seo';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import Layout from '@/components/layout';
 import LoadAndExist from '@/components/load_and_exist';
 import Nfts from '@/screens/account_details/components/nfts';
@@ -12,7 +12,7 @@ import useStyles from '@/screens/account_details/styles';
 
 const AccountDetails = () => {
   const { classes } = useStyles();
-  const { t } = useAppTranslation('accounts');
+  const { t } = useTranslationByApp('accounts');
   const { state } = useAccountDetails();
   return (
     <>

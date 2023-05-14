@@ -1,6 +1,6 @@
 import useStyles from '@/components/single_transaction_mobile/styles';
 import Typography from '@mui/material/Typography';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import { FC, ReactNode } from 'react';
 
 type SingleTransactionMobileProps = {
@@ -16,7 +16,7 @@ const SingleTransactionMobile: FC<SingleTransactionMobileProps> = ({
   hash,
   time,
 }) => {
-  const { t } = useAppTranslation('transactions');
+  const { t } = useTranslationByApp('transactions');
   const { classes, cx } = useStyles();
 
   return (

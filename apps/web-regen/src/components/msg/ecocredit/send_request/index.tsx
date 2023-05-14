@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
+import TransByApp from '@/components/TransByApp';
 import { FC } from 'react';
 import Name from '@/components/name';
 import MsgSendRequest from '@/models/msg/ecocredit/msg_send_request';
@@ -16,7 +16,7 @@ const SendRequest: FC<{ message: MsgSendRequest }> = (props) => {
 
   return (
     <Typography>
-      <Trans
+      <TransByApp
         i18nKey="message_contents:MsgSendRequest"
         components={[
           <Name address={message.sender} name={senderMoniker} />,

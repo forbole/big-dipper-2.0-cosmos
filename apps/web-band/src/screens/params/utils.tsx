@@ -1,6 +1,6 @@
 import type { Distribution, Gov, Minting, Oracle, Slashing, Staking } from '@/screens/params/types';
 import { nanoToSeconds, secondsToDays } from '@/utils/time';
-import type { TFunction } from '@/hooks/useAppTranslation';
+import type { TFunction } from '@/hooks/useTranslationByApp';
 import numeral from 'numeral';
 
 const convertBySeconds = (seconds: number, t: TFunction) => {

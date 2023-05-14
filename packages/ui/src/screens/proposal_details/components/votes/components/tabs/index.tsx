@@ -1,6 +1,6 @@
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import { ComponentProps, FC } from 'react';
 import { a11yProps } from '@/utils/a11yProps';
 import { tabLabels } from '@/screens/proposal_details/components/votes/components/tabs/utils';
@@ -21,7 +21,7 @@ type TabsHeaderProps = {
 
 const TabsHeader: FC<TabsHeaderProps> = ({ className, tab, handleTabChange, data }) => {
   const { classes, cx } = useStyles();
-  const { t } = useAppTranslation('proposals');
+  const { t } = useTranslationByApp('proposals');
 
   return (
     <div className={cx(classes.root, className)}>

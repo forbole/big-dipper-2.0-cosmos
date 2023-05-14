@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
+import TransByApp from '@/components/TransByApp';
 import { FC } from 'react';
 import Name from '@/components/name';
 import { MsgVerifyInvariant } from '@/models';
@@ -13,7 +13,7 @@ const VerifyInvariant: FC<{ message: MsgVerifyInvariant }> = (props) => {
 
   return (
     <Typography>
-      <Trans
+      <TransByApp
         i18nKey="message_contents:txVerifyInvariantContent"
         components={[<Name address={message.sender} name={userMoniker} />]}
       />

@@ -2,7 +2,7 @@ import useStyles from '@/components/result/styles';
 import CancelIcon from '@mui/icons-material/Cancel';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import Typography from '@mui/material/Typography';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import { FC } from 'react';
 
 type ResultProps = {
@@ -11,7 +11,7 @@ type ResultProps = {
 };
 
 const Result: FC<ResultProps> = ({ className, success }) => {
-  const { t } = useAppTranslation('common');
+  const { t } = useTranslationByApp('common');
   const { classes, cx } = useStyles();
 
   return (

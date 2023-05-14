@@ -1,6 +1,6 @@
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import { FC } from 'react';
 import AvatarName from '@/components/avatar_name';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
@@ -16,7 +16,7 @@ type DelegationsItemProps = {
 const DelegationsItem: FC<DelegationsItemProps> = ({ item, isLast }) => {
   const { name, address, imageUrl } = useProfileRecoil(item.validator);
   const { classes } = useStyles();
-  const { t } = useAppTranslation('accounts');
+  const { t } = useTranslationByApp('accounts');
   return (
     <>
       <div className={classes.list}>

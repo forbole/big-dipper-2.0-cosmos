@@ -6,11 +6,11 @@ import useStyles from '@/screens/transaction_details/components/operations/style
 import type { OperationType } from '@/screens/transaction_details/types';
 import { useDisplayStyles } from '@/styles/useSharedStyles';
 import Typography from '@mui/material/Typography';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import { FC } from 'react';
 
 const Operations: FC<{ items: OperationType[] }> = (props) => {
-  const { t } = useAppTranslation('transactions');
+  const { t } = useTranslationByApp('transactions');
   const { classes } = useStyles();
   const display = useDisplayStyles().classes;
 

@@ -7,13 +7,13 @@ import type { OverviewType } from '@/screens/validator_details/types';
 import { useDisplayStyles } from '@/styles/useSharedStyles';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import { FC } from 'react';
 
 const Profile: FC<{ className?: string; profile: OverviewType }> = ({ className, profile }) => {
   const { classes, cx } = useStyles();
   const display = useDisplayStyles().classes;
-  const { t } = useAppTranslation('validators');
+  const { t } = useTranslationByApp('validators');
   const { imageUrl, name } = useProfileRecoil(profile.validator);
 
   const pattern = /^((http|https|ftp):\/\/)/;

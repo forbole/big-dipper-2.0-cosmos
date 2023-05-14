@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import { useRecoilValue } from 'recoil';
 import BoxDetails from '@/components/box_details';
 import AvatarName from '@/components/avatar_name';
@@ -9,7 +9,7 @@ import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import type { OverviewType } from '@/screens/nft_details/types';
 
 const Overview: FC<OverviewType & ComponentDefault> = (props) => {
-  const { t } = useAppTranslation('nfts');
+  const { t } = useTranslationByApp('nfts');
   const dateFormat = useRecoilValue(readDate);
   const timeFormat = useRecoilValue(readTimeFormat);
 

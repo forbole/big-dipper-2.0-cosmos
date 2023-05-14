@@ -5,7 +5,7 @@ import Mobile from '@/screens/block_details/components/signatures/components/mob
 import useStyles from '@/screens/block_details/components/signatures/styles';
 import { useDisplayStyles } from '@/styles/useSharedStyles';
 import Typography from '@mui/material/Typography';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import { FC } from 'react';
 
 type SignaturesProps = ComponentDefault & {
@@ -13,7 +13,7 @@ type SignaturesProps = ComponentDefault & {
 };
 
 const Signatures: FC<SignaturesProps> = ({ className, signatures }) => {
-  const { t } = useAppTranslation('block');
+  const { t } = useTranslationByApp('block');
   const { classes, cx } = useStyles();
   const display = useDisplayStyles().classes;
 

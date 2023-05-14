@@ -1,12 +1,12 @@
 import React from 'react';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import { NextSeo } from 'next-seo';
 import Layout from '@/components/layout';
 import useStyles from '@/screens/accounts/styles';
 import List from '@/screens/accounts/components/list';
 
 const Accounts = () => {
-  const { t } = useAppTranslation('accounts');
+  const { t } = useTranslationByApp('accounts');
   const { classes } = useStyles();
   return (
     <>

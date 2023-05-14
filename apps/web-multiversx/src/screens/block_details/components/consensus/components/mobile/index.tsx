@@ -1,6 +1,6 @@
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import Link from 'next/link';
 import { FC, LegacyRef, ReactNode, useMemo } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
@@ -28,7 +28,7 @@ const ListItem: FC<ListItemProps> = ({
   item,
   isLast,
 }) => {
-  const { t } = useAppTranslation('block');
+  const { t } = useTranslationByApp('block');
   const { rowRef } = useListRow(index, setRowHeight);
   return (
     <div style={style}>

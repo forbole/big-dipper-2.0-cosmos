@@ -1,11 +1,11 @@
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import { FC } from 'react';
 import Name from '@/components/name';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 
 const SignerName: FC<{ address: string; i: number; addresses: string[] }> = (props) => {
   const { address: theAddress, i, addresses } = props;
-  const { t } = useAppTranslation('transactions');
+  const { t } = useTranslationByApp('transactions');
   const { address, name } = useProfileRecoil(theAddress);
   const signerMoniker = name || theAddress;
   if (addresses.length === 1) {

@@ -1,4 +1,4 @@
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import { FC } from 'react';
 import Name from '@/components/name';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
@@ -12,7 +12,7 @@ type CreatorNameProps = {
 
 const CreatorName: FC<CreatorNameProps> = (props) => {
   const { address: theAddress, addresses, isLast, is2ndLast } = props;
-  const { t } = useAppTranslation('transactions');
+  const { t } = useTranslationByApp('transactions');
   const { address, name } = useProfileRecoil(theAddress);
 
   let suffix = '';

@@ -16,7 +16,7 @@ exports[`screen: TransactionDetails/Activate matches snapshot 1`] = `
 >
   <span
     data-testid="Trans"
-    i18nKey="web_band:message_contents.txActivate"
+    i18nKey="message_contents:txActivate"
   >
     <div
       address="validator"

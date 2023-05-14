@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import numeral from 'numeral';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import Typography from '@mui/material/Typography';
 import Tooltip from '@mui/material/Tooltip';
 import Box from '@/components/box';
@@ -9,7 +9,7 @@ import useStyles from '@/screens/node_details/components/consensus/styles';
 import type { ConsensusType } from '@/screens/node_details/types';
 
 const Consensus: FC<{ className?: string; consensus: ConsensusType }> = (props) => {
-  const { t } = useAppTranslation('nodes');
+  const { t } = useTranslationByApp('nodes');
   const { classes, cx } = useStyles();
 
   return (

@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
+import TransByApp from '@/components/TransByApp';
 import { FC } from 'react';
 import Name from '@/components/name';
 import MsgBurnFanToken from '@/models/msg/fantoken/msg_burn_fan_token';
@@ -13,8 +13,8 @@ const BurnFanToken: FC<{ message: MsgBurnFanToken }> = (props) => {
 
   return (
     <Typography>
-      <Trans
-        i18nKey="web_bitsong:message_contents.txMsgBurnFanToken"
+      <TransByApp
+        i18nKey="message_contents:txMsgBurnFanToken"
         components={[<Name address={message.sender} name={senderMoniker} />]}
       />
     </Typography>

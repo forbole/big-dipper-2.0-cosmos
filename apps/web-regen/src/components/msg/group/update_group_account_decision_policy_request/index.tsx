@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
+import TransByApp from '@/components/TransByApp';
 import Name from '@/components/name';
 import MsgUpdateGroupAccountDecisionPolicyRequest from '@/models/msg/group/msg_update_group_account_decision_policy_request';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
@@ -17,7 +17,7 @@ const UpdateGroupAccountDecisionPolicyRequest = (props: {
 
   return (
     <Typography>
-      <Trans
+      <TransByApp
         i18nKey="message_contents:MsgUpdateGroupAccountDecisionPolicyRequest"
         components={[
           <Name address={message.admin} name={adminMoniker} />,

@@ -1,12 +1,12 @@
 import Typography from '@mui/material/Typography';
 import FaceIcon from '@mui/icons-material/Face';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import { FC } from 'react';
 import useStyles from '@/components/no_data/styles';
 
 const NoData: FC<ComponentDefault> = ({ className }) => {
   const { classes, cx } = useStyles();
-  const { t } = useAppTranslation('common');
+  const { t } = useTranslationByApp('common');
   return (
     <div className={cx(classes.root, className)}>
       <div className={classes.content}>

@@ -1,4 +1,4 @@
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import numeral from 'numeral';
 import { FC } from 'react';
 import SingleBlock from '@/screens/home/components/data_blocks/components/single_block';
@@ -6,7 +6,7 @@ import { useDataBlocks } from '@/screens/home/components/data_blocks/hooks';
 import useStyles from '@/screens/home/components/data_blocks/styles';
 
 const DataBlocks: FC<ComponentDefault> = ({ className }) => {
-  const { t } = useAppTranslation('home');
+  const { t } = useTranslationByApp('home');
   const { classes, cx } = useStyles();
   const { state } = useDataBlocks();
   const data = [

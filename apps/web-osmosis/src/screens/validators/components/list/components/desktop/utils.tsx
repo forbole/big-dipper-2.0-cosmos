@@ -1,7 +1,7 @@
 import ConditionExplanation from '@/components/condition_explanation';
 import InfoPopover from '@/components/info_popover';
 import Typography from '@mui/material/Typography';
-import type { TFunction } from '@/hooks/useAppTranslation';
+import type { TFunction } from '@/hooks/useTranslationByApp';
 import { ReactNode } from 'react';
 
 export const fetchColumns = (

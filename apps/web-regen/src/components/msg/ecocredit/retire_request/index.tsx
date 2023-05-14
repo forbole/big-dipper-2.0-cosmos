@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
+import TransByApp from '@/components/TransByApp';
 import { FC } from 'react';
 import Name from '@/components/name';
 import MsgRetireRequest from '@/models/msg/ecocredit/msg_retire_request';
@@ -13,7 +13,7 @@ const RetireRequest: FC<{ message: MsgRetireRequest }> = (props) => {
 
   return (
     <Typography>
-      <Trans
+      <TransByApp
         i18nKey="message_contents:MsgRetireRequest"
         components={[<Name address={message.holder} name={holderMoniker} />]}
       />

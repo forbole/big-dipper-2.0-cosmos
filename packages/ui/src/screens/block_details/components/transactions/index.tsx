@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import { FC } from 'react';
 import { useRecoilValue } from 'recoil';
 import Box from '@/components/box';
@@ -14,7 +14,7 @@ type TransactionsProps = ComponentDefault & {
 
 const Transactions: FC<TransactionsProps> = ({ className, transactions }) => {
   const txListFormat = useRecoilValue(readTx);
-  const { t } = useAppTranslation('transactions');
+  const { t } = useTranslationByApp('transactions');
   const { classes, cx } = useStyles();
   return (
     <Box className={cx(classes.root, className)}>

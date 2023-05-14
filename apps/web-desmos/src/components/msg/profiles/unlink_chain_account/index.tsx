@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
+import TransByApp from '@/components/TransByApp';
 import { FC } from 'react';
 import Name from '@/components/name';
 import MsgUnlinkChainAccount from '@/models/msg/profiles/msg_unlink_chain_account';
@@ -12,7 +12,7 @@ const UnlinkChainAccount: FC<{ message: MsgUnlinkChainAccount }> = (props) => {
 
   return (
     <Typography>
-      <Trans
+      <TransByApp
         i18nKey="message_contents:txMsgUnlinkChainAccount"
         components={[<Name address={message.owner} name={ownerMoniker} />, <b />]}
         values={{

@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
+import TransByApp from '@/components/TransByApp';
 import { FC } from 'react';
 import Name from '@/components/name';
 import MsgActivate from '@/models/msg/oracle/msg_activate';
@@ -13,8 +13,8 @@ const Activate: FC<{ message: MsgActivate }> = (props) => {
 
   return (
     <Typography>
-      <Trans
-        i18nKey="web_band:message_contents.txActivate"
+      <TransByApp
+        i18nKey="message_contents:txActivate"
         components={[<Name address={message.validator} name={validatorMoniker} />]}
       />
     </Typography>

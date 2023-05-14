@@ -1,13 +1,13 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import Layout from '@/components/layout';
 import List from '@/screens/tokens/components/list';
 import useStyles from '@/screens/tokens/styles';
 
 const Tokens = () => {
   const { classes } = useStyles();
-  const { t } = useAppTranslation('tokens');
+  const { t } = useTranslationByApp('tokens');
 
   return (
     <>

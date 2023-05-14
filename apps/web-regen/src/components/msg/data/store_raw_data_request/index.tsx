@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
+import TransByApp from '@/components/TransByApp';
 import { FC } from 'react';
 import Name from '@/components/name';
 import MsgStoreRawDataRequest from '@/models/msg/data/msg_store_raw_data_request';
@@ -13,7 +13,7 @@ const StoreRawDataRequest: FC<{ message: MsgStoreRawDataRequest }> = (props) => 
 
   return (
     <Typography>
-      <Trans
+      <TransByApp
         i18nKey="message_contents:MsgStoreRawDataRequest"
         components={[<Name address={message.sender} name={senderMoniker} />]}
       />

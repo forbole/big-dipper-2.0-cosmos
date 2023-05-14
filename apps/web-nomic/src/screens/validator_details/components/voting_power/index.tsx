@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import Link from 'next/link';
 import numeral from 'numeral';
 import { FC } from 'react';
@@ -15,7 +15,7 @@ type VotingPowerProps = {
 };
 
 const VotingPower: FC<VotingPowerProps> = ({ className, data, inActiveSet }) => {
-  const { t } = useAppTranslation('validators');
+  const { t } = useTranslationByApp('validators');
   const votingPowerPercent =
     inActiveSet === 'true'
       ? numeral((data.self / (numeral(data.overall.value).value() ?? 0)) * 100)

@@ -1,6 +1,6 @@
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import Link from 'next/link';
 import { FC, Fragment } from 'react';
 import AvatarName from '@/components/avatar_name';
@@ -10,7 +10,7 @@ import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { NFT_DETAILS } from '@/utils/go_to_page';
 
 const Mobile: FC<{ className?: string; items: NFTTypes[] }> = (props) => {
-  const { t } = useAppTranslation('nfts');
+  const { t } = useTranslationByApp('nfts');
   const { classes } = useStyles();
   const formattedItems = props.items.map((x, i) => ({
     key: `${x.identifier}-${i}`,

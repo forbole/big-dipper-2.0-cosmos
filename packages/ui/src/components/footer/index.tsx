@@ -7,8 +7,8 @@ import { readTheme } from '@/recoil/settings';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import TransByApp from '@/components/TransByApp';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import { FC } from 'react';
 import { useRecoilValue } from 'recoil';
 import FooterLogoLight from 'shared-utils/assets/big-dipper-red.svg';
@@ -17,7 +17,7 @@ import FooterLogoDark from 'shared-utils/assets/big-dipper-white.svg';
 const { title } = chainConfig();
 
 const Footer: FC<{ className?: string }> = ({ className }) => {
-  const { t } = useAppTranslation();
+  const { t } = useTranslationByApp();
   const { classes, cx } = useStyles();
   const theme = useRecoilValue(readTheme);
 
@@ -81,7 +81,7 @@ const Footer: FC<{ className?: string }> = ({ className }) => {
             RESPECT OPEN SOURCE!!
           */}
           {/* ============================= */}
-          <Trans
+          <TransByApp
             i18nKey="common:copyright"
             components={[
               // eslint-disable-next-line
@@ -99,7 +99,7 @@ const Footer: FC<{ className?: string }> = ({ className }) => {
           {year}
         </Typography>
         <Typography className="footer__closing--text">
-          <Trans
+          <TransByApp
             i18nKey="common:maintainBy"
             components={[
               <a href={generalConfig.maintainer.url} target="_blank" rel="noreferrer">

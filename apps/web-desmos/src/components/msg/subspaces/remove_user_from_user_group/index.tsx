@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
+import TransByApp from '@/components/TransByApp';
 import { FC } from 'react';
 import Name from '@/components/name';
 import MsgRemoveUserFromUserGroup from '@/models/msg/subspaces/msg_remove_user_from_user_group';
@@ -14,7 +14,7 @@ const RemoveUserFromUserGroup: FC<{ message: MsgRemoveUserFromUserGroup }> = (pr
 
   return (
     <Typography>
-      <Trans
+      <TransByApp
         i18nKey="message_contents:txMsgRemoveUserFromUserGroup"
         components={[<Name address={message.signer} name={signerMoniker} />, <b />]}
         values={{

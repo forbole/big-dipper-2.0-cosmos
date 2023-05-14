@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import { FC, ReactNode } from 'react';
 import useStyles from '@/screens/providers/components/providers_list/components/mobile/component/single_provider/styles';
 
@@ -30,7 +30,7 @@ const SingleProvider: FC<SingleProviderProps> = ({
   email,
   website,
 }) => {
-  const { t } = useAppTranslation('providers');
+  const { t } = useTranslationByApp('providers');
   const { classes, cx } = useStyles();
   return (
     <div className={cx(classes.root, className)}>

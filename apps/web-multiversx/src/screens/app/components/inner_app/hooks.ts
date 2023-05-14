@@ -1,5 +1,5 @@
 // import { useEffect, useState } from 'react';
-// import useAppTranslation from '@/hooks/useAppTranslation';
+// import useTranslationByApp from '@/hooks/useTranslationByApp';
 // import dayjs from '@/utils/dayjs';
 // import { toast } from 'react-toastify';
 // import * as R from 'ramda';
@@ -7,7 +7,7 @@
 // const  isClient = typeof window === 'object';
 
 export const useChainHealthCheck = () => {
-  // const { t } = useAppTranslation('common');
+  // const { t } = useTranslationByApp('common');
   // const [_chainActive, _setChainActive] = useState(true);
   // const [useLatestBlockTimestamp] = useLatestBlockTimestampLazyQuery({
   //   onCompleted: (data) => {

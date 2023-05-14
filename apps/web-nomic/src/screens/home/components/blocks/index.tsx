@@ -10,12 +10,12 @@ import { useDisplayStyles } from '@/styles/useSharedStyles';
 import { BLOCKS } from '@/utils/go_to_page';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import Link from 'next/link';
 import { FC } from 'react';
 
 const Blocks: FC<ComponentDefault> = ({ className }) => {
-  const { t } = useAppTranslation('home');
+  const { t } = useTranslationByApp('home');
   const { classes, cx } = useStyles();
   const display = useDisplayStyles().classes;
   const { state } = useBlocks();

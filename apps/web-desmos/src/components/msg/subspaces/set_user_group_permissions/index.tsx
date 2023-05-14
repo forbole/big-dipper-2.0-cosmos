@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
+import TransByApp from '@/components/TransByApp';
 import { FC } from 'react';
 import Name from '@/components/name';
 import MsgSetUserGroupPermissions from '@/models/msg/subspaces/msg_set_user_group_permissions';
@@ -14,7 +14,7 @@ const SetUserGroupPermissions: FC<{ message: MsgSetUserGroupPermissions }> = (pr
 
   return (
     <Typography>
-      <Trans
+      <TransByApp
         i18nKey="message_contents:txMsgSetUserGroupPermissions"
         components={[<Name address={message.signer} name={signerMoniker} />, <b />]}
         values={{

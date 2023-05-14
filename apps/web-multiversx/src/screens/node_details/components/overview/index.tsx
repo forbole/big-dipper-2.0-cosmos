@@ -1,6 +1,6 @@
 import { FC, isValidElement } from 'react';
 import numeral from 'numeral';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import Typography from '@mui/material/Typography';
 import Box from '@/components/box';
 import { getShardDisplay } from '@/utils/get_shard_display';
@@ -8,7 +8,7 @@ import useStyles from '@/screens/node_details/components/overview/styles';
 import type { OverviewType } from '@/screens/node_details/types';
 
 const Overview: FC<{ className?: string; overview: OverviewType }> = (props) => {
-  const { t } = useAppTranslation('nodes');
+  const { t } = useTranslationByApp('nodes');
   const { classes } = useStyles();
   const shard = getShardDisplay(props.overview.shard);
 

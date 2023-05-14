@@ -1,5 +1,5 @@
 import { NextSeo } from 'next-seo';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import { useRecoilValue } from 'recoil';
 import Box from '@/components/box';
 import Layout from '@/components/layout';
@@ -12,7 +12,7 @@ import useStyles from '@/screens/transactions/styles';
 
 const Transactions = () => {
   const txListFormat = useRecoilValue(readTx);
-  const { t } = useAppTranslation('transactions');
+  const { t } = useTranslationByApp('transactions');
   const { classes } = useStyles();
   const { state, loadNextPage } = useTransactions();
   const loadMoreItems = state.isNextPageLoading ? () => null : loadNextPage;

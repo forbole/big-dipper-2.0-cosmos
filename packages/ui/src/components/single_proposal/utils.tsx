@@ -1,4 +1,4 @@
-import type { TFunction } from '@/hooks/useAppTranslation';
+import type { TFunction } from '@/hooks/useTranslationByApp';
 
 export const getStatusInfo = (status: string, t: TFunction) => {
   const statusDict = {

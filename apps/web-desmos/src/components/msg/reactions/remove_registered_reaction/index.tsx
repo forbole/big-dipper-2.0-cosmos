@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
+import TransByApp from '@/components/TransByApp';
 import { FC } from 'react';
 import Name from '@/components/name';
 import MsgRemoveRegisteredReaction from '@/models/msg/reactions/msg_remove_registered_reaction';
@@ -14,7 +14,7 @@ const RemoveRegisteredReaction: FC<{ message: MsgRemoveRegisteredReaction }> = (
 
   return (
     <Typography>
-      <Trans
+      <TransByApp
         i18nKey="message_contents:txMsgRemoveRegisteredReaction"
         components={[<Name address={message.user} name={userMoniker} />, <b />]}
         values={{

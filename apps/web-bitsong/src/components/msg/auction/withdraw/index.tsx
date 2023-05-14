@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
+import TransByApp from '@/components/TransByApp';
 import numeral from 'numeral';
 import { FC } from 'react';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
@@ -14,8 +14,8 @@ const Withdraw: FC<{ message: MsgWithdraw }> = (props) => {
 
   return (
     <Typography>
-      <Trans
-        i18nKey="web_bitsong:message_contents.txMsgWithdraw"
+      <TransByApp
+        i18nKey="message_contents:txMsgWithdraw"
         components={[<Name address={message.recipient} name={recipientMoniker} />, <b />]}
         values={{
           id: numeral(message.auctionId).format('0,0'),

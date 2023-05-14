@@ -3,7 +3,7 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import { FC, ReactNode } from 'react';
 import { useRecoilValue } from 'recoil';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
@@ -18,7 +18,7 @@ type DesktopProps = {
 const Desktop: FC<DesktopProps> = ({ className, items }) => {
   const dateFormat = useRecoilValue(readDate);
   const timeFormat = useRecoilValue(readTimeFormat);
-  const { t } = useAppTranslation('accounts');
+  const { t } = useTranslationByApp('accounts');
 
   return (
     <div className={className}>

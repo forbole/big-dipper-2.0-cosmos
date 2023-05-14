@@ -2,11 +2,11 @@ import Layout from '@/components/layout';
 import LoadAndExist from '@/components/load_and_exist';
 import { useWasmContractDetails } from '@/screens/wasmContractDetails/hooks';
 import useStyles from '@/screens/wasmContractDetails/styles';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import { NextSeo } from 'next-seo';
 
 const WasmContractDetails = () => {
-  const { t } = useAppTranslation('wasm_contracts');
+  const { t } = useTranslationByApp('wasm_contracts');
   const { classes } = useStyles();
   const { loading, items } = useWasmContractDetails();
 

@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
+import TransByApp from '@/components/TransByApp';
 import numeral from 'numeral';
 import { FC } from 'react';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
@@ -14,8 +14,8 @@ const RequestData: FC<{ message: MsgRequestData }> = (props) => {
 
   return (
     <Typography>
-      <Trans
-        i18nKey="web_band:message_contents.txRequestData"
+      <TransByApp
+        i18nKey="message_contents:txRequestData"
         components={[<Name address={message.sender} name={senderMoniker} />, <b />]}
         values={{
           oracleScriptId: numeral(message.oracleScriptId).format('0,0'),

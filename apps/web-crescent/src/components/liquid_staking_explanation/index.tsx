@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
+import TransByApp from '@/components/TransByApp';
 import useStyles from '@/components/liquid_staking_explanation/styles';
 
 const LiquidStakingExplanation = () => {
@@ -8,7 +8,7 @@ const LiquidStakingExplanation = () => {
   return (
     <div className={classes.root}>
       <Typography>
-        <Trans i18nKey="validators:liquidStakingExplanation" components={[<b />]} />
+        <TransByApp i18nKey="validators:liquidStakingExplanation" components={[<b />]} />
       </Typography>
     </div>
   );

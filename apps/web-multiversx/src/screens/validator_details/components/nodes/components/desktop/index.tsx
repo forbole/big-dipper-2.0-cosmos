@@ -4,7 +4,7 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import Link from 'next/link';
 import { FC } from 'react';
 import { NODE_DETAILS } from '@/utils/go_to_page';
@@ -15,7 +15,7 @@ import { columns } from '@/screens/validator_details/components/nodes/components
 import useStyles from '@/screens/validator_details/components/nodes/components/desktop/styles';
 
 const Desktop: FC<{ className?: string; items: NodeType[] }> = (props) => {
-  const { t } = useAppTranslation('nodes');
+  const { t } = useTranslationByApp('nodes');
   const { classes } = useStyles();
 
   const formattedItems = props.items.map((x, i) => {

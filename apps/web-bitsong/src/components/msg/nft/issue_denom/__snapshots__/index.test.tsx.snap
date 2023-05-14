@@ -16,7 +16,7 @@ exports[`screen: TransactionDetails/IssueDenom matches snapshot 1`] = `
 >
   <span
     data-testid="Trans"
-    i18nKey="bitsong:message_contents:txIssueDenomContent"
+    i18nKey="message_contents:txIssueDenomContent"
   >
     <div
       address="desmos1hfhkduejung7g29wv863x369rndf3hu5xj4g93"

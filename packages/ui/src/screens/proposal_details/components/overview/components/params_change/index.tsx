@@ -3,7 +3,7 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import { FC } from 'react';
 
 type ParamsChangeProps = {
@@ -15,7 +15,7 @@ type ParamsChangeProps = {
 };
 
 const ParamsChange: FC<ParamsChangeProps> = ({ changes }) => {
-  const { t } = useAppTranslation('proposals');
+  const { t } = useTranslationByApp('proposals');
   return (
     <div style={{ overflow: 'auto' }}>
       <Table>

@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import { FC } from 'react';
 import Box from '@/components/box';
 import Loading from '@/components/loading';
@@ -12,7 +12,7 @@ import { PAGE_SIZE, useBlocks } from '@/screens/validator_details/components/nod
 import useStyles from '@/screens/validator_details/components/nodes/styles';
 
 const Nodes: FC<ComponentDefault> = (props) => {
-  const { t } = useAppTranslation('validators');
+  const { t } = useTranslationByApp('validators');
   const { classes, cx } = useStyles();
   const { state, handlePageChangeCallback } = useBlocks();
   const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange } = usePagination({

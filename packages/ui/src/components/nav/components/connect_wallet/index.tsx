@@ -17,7 +17,7 @@ import {
   readWalletConnectURI,
 } from '@/recoil/wallet';
 import Button from '@mui/material/Button';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import { FC } from 'react';
 import { useRecoilValue } from 'recoil';
 import LoginIcon from 'shared-utils/assets/icon-login.svg';
@@ -29,7 +29,7 @@ type ConnectWalletProps = {
 
 const ConnectWallet: FC<ConnectWalletProps> = () => {
   const { classes } = useStyles();
-  const { t } = useAppTranslation();
+  const { t } = useTranslationByApp();
   const loggedIn = useRecoilValue(readIsUserLoggedIn);
   const openLoginDialog = useRecoilValue(readOpenLoginDialog);
   const openInstallKeplrExtensionDialog = useRecoilValue(readOpenInstallKeplrExtensionDialog);

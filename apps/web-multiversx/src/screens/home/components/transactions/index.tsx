@@ -8,14 +8,14 @@ import { useDisplayStyles } from '@/styles/useSharedStyles';
 import { TRANSACTIONS } from '@/utils/go_to_page';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import Link from 'next/link';
 import { FC } from 'react';
 
 const Transactions: FC<ComponentDefault> = (props) => {
   const { classes, cx } = useStyles();
   const display = useDisplayStyles().classes;
-  const { t } = useAppTranslation('home');
+  const { t } = useTranslationByApp('home');
   const { state } = useBlocks();
   return (
     <Box className={props.className}>

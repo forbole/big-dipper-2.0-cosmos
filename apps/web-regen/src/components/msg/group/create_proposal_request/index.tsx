@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
+import TransByApp from '@/components/TransByApp';
 import { FC } from 'react';
 import Name from '@/components/name';
 import MsgCreateProposalRequest from '@/models/msg/group/msg_create_proposal_request';
@@ -13,7 +13,7 @@ const CreateProposalRequest: FC<{ message: MsgCreateProposalRequest }> = (props)
 
   return (
     <Typography>
-      <Trans
+      <TransByApp
         i18nKey="message_contents:MsgCreateProposalRequest"
         components={[<Name address={message.address} name={addressMoniker} />]}
       />

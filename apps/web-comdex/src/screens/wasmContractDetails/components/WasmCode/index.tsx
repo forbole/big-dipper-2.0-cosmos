@@ -3,12 +3,12 @@ import BoxDetails from '@/components/box_details';
 import { WasmCodeProps } from '@/screens/wasmContractDetails/types';
 import CodeId from '@/screens/wasmContracts/components/CodeId';
 import CodeInstantiatePermission from '@/screens/wasmContracts/components/CodeInstantiatePermission';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import numeral from 'numeral';
 import { FC } from 'react';
 
 const WasmCode: FC<WasmCodeProps> = ({ className, wasmCode }) => {
-  const { t } = useAppTranslation('wasm_contracts');
+  const { t } = useTranslationByApp('wasm_contracts');
 
   return (
     <BoxDetails

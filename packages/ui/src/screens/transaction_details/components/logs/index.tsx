@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import { FC } from 'react';
 import useStyles from '@/screens/transaction_details/components/logs/styles';
 import Box from '@/components/box';
@@ -10,7 +10,7 @@ type LogsProps = {
 
 const Logs: FC<LogsProps> = ({ logs }) => {
   const { classes } = useStyles();
-  const { t } = useAppTranslation('transactions');
+  const { t } = useTranslationByApp('transactions');
   return (
     <Box className={classes.root}>
       <Typography variant="h2" className={classes.header}>

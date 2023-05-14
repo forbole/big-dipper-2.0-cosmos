@@ -1,6 +1,6 @@
 import TablePagination from '@mui/material/TablePagination';
 import TablePaginationActions from '@mui/material/TablePagination/TablePaginationActions';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import numeral from 'numeral';
 import { ComponentProps, FC, MouseEvent, useCallback } from 'react';
 import useStyles from '@/components/pagination/styles';
@@ -28,7 +28,7 @@ const Pagination: FC<PaginationProps> = ({
   handleRowsPerPageChange,
   rowsPerPageOptions,
 }) => {
-  const { t } = useAppTranslation('common');
+  const { t } = useTranslationByApp('common');
   const { classes, cx } = useStyles();
 
   const actionsComponents = useCallback(

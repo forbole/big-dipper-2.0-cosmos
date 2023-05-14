@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
+import TransByApp from '@/components/TransByApp';
 import { FC } from 'react';
 import Name from '@/components/name';
 import MsgCreateReport from '@/models/msg/reports/msg_create_report';
@@ -14,7 +14,7 @@ const CreateReport: FC<{ message: MsgCreateReport }> = (props) => {
 
   return (
     <Typography>
-      <Trans
+      <TransByApp
         i18nKey="message_contents:txMsgCreateReport"
         components={[<Name address={message.reporter} name={reporterMoniker} />, <b />]}
         values={{

@@ -2,7 +2,7 @@ import Divider from '@mui/material/Divider';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import Typography from '@mui/material/Typography';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import { ChangeEvent, FC, LegacyRef } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
@@ -29,7 +29,7 @@ const ListItem: FC<ListItemProps> = ({
   isLast,
   viewRaw,
 }) => {
-  const { t } = useAppTranslation('transactions');
+  const { t } = useTranslationByApp('transactions');
   const { rowRef } = useListRow(index, setRowHeight);
   const formattedItem = getMessageByType(message, viewRaw, t);
   return (
@@ -54,7 +54,7 @@ type MessagesProps = {
 };
 
 const Messages: FC<MessagesProps> = ({ className, ...props }) => {
-  const { t } = useAppTranslation('transactions');
+  const { t } = useTranslationByApp('transactions');
   const { classes, cx } = useStyles();
 
   const { listRef, getRowHeight, setRowHeight } = useList();

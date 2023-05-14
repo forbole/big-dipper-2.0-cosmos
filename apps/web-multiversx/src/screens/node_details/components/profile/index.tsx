@@ -7,13 +7,13 @@ import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { VALIDATOR_DETAILS } from '@/utils/go_to_page';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import Link from 'next/link';
 import { FC } from 'react';
 import CopyIcon from 'shared-utils/assets/icon-copy.svg';
 
 const Profile: FC<{ className?: string; profile: ProfileType; showRating: boolean }> = (props) => {
-  const { t } = useAppTranslation('nodes');
+  const { t } = useTranslationByApp('nodes');
   const { classes, cx } = useStyles();
   const display = useDisplayStyles().classes;
   const { handleCopyToClipboard } = useProfile(t);

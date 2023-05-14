@@ -5,7 +5,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import CloseIcon from '@mui/icons-material/Close';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import { FC } from 'react';
 import LinearLoading from '@/components/linear_loading';
 
@@ -16,7 +16,7 @@ type PairKeplExtensionDialogProps = {
 
 const PairKeplrExtensionDialog: FC<PairKeplExtensionDialogProps> = ({ open, onClose }) => {
   const { classes } = useStyles();
-  const { t } = useAppTranslation();
+  const { t } = useTranslationByApp();
 
   return (
     <div>

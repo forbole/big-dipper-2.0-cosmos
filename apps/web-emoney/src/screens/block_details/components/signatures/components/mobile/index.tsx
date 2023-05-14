@@ -1,6 +1,6 @@
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import { FC, LegacyRef } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
@@ -16,7 +16,7 @@ type ListItemProps = Pick<ListChildComponentProps, 'index' | 'style'> & {
 };
 
 const ListItem: FC<ListItemProps> = ({ index, style, setRowHeight, signatures, classes }) => {
-  const { t } = useAppTranslation('block');
+  const { t } = useTranslationByApp('block');
   const { rowRef } = useListRow(index, setRowHeight);
   const selectedItem = signatures?.[index];
   const { address, imageUrl, name } = useProfileRecoil(selectedItem ?? '');

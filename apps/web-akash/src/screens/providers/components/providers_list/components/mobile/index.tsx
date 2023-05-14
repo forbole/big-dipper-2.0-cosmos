@@ -1,6 +1,6 @@
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import Link from 'next/link';
 import { FC, LegacyRef } from 'react';
 import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
@@ -24,7 +24,7 @@ type ListItemProps = Pick<ListChildComponentProps, 'index' | 'style'> & {
 
 const ListItem: FC<ListItemProps> = ({ index, style, setRowHeight, classes, item, isLast }) => {
   const { rowRef } = useListRow(index, setRowHeight);
-  const { t } = useAppTranslation('providers');
+  const { t } = useTranslationByApp('providers');
   const { handleCopyToClipboard } = useAddress(t);
   const itemNew = {
     key: item.ownerAddress,

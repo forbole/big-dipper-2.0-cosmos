@@ -1,10 +1,10 @@
 import useStyles from '@/screens/assets/styles';
 import { columns } from '@/screens/assets/utils';
 import Grid2 from '@mui/material/Unstable_Grid2';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 
 const HeaderDesktop = () => {
-  const { t } = useAppTranslation('assets');
+  const { t } = useTranslationByApp('assets');
   const { classes } = useStyles();
   return (
     <Grid2 container className={classes.header} columnGap={4}>

@@ -3,7 +3,7 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import Link from 'next/link';
 import { FC } from 'react';
 import { NFT_DETAILS } from '@/utils/go_to_page';
@@ -12,7 +12,7 @@ import { columns } from '@/screens/account_details/components/nfts/components/li
 import useStyles from '@/screens/account_details/components/nfts/components/list/components/desktop/styles';
 
 const Desktop: FC<{ className?: string; items: OtherTokenType[] }> = (props) => {
-  const { t } = useAppTranslation('accounts');
+  const { t } = useTranslationByApp('accounts');
   const { classes, cx } = useStyles();
   const formattedItems = props.items.map((x, i) => ({
     key: `${x.identifier}-${i}`,

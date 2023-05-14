@@ -6,11 +6,11 @@ import useStyles from '@/screens/block_details/components/consensus/styles';
 import type { ConsensusType } from '@/screens/block_details/types';
 import { useDisplayStyles } from '@/styles/useSharedStyles';
 import Typography from '@mui/material/Typography';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import { FC } from 'react';
 
 const Consensus: FC<{ className?: string; consensus: ConsensusType[] }> = (props) => {
-  const { t } = useAppTranslation('block');
+  const { t } = useTranslationByApp('block');
   const { classes, cx } = useStyles();
   const display = useDisplayStyles().classes;
   return (

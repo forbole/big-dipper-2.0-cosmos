@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
+import TransByApp from '@/components/TransByApp';
 import { FC } from 'react';
 import Name from '@/components/name';
 import { type MsgChannelCloseInit } from '@/models';
@@ -13,7 +13,7 @@ const ChannelCloseInit: FC<{ message: MsgChannelCloseInit }> = (props) => {
 
   return (
     <Typography>
-      <Trans
+      <TransByApp
         i18nKey="message_contents:txChannelCloseInitContent"
         components={[<Name address={message.signer} name={signerMoniker} />, <b />]}
         values={{

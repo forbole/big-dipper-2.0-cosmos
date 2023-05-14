@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
+import TransByApp from '@/components/TransByApp';
 import numeral from 'numeral';
 import { FC } from 'react';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
@@ -14,8 +14,8 @@ const ReportData: FC<{ message: MsgReportData }> = (props) => {
 
   return (
     <Typography>
-      <Trans
-        i18nKey="web_band:message_contents.txReportData"
+      <TransByApp
+        i18nKey="message_contents:txReportData"
         components={[<Name address={message.validator} name={validatorMoniker} />, <b />]}
         values={{
           requestId: numeral(message.requestId).format('0,0'),

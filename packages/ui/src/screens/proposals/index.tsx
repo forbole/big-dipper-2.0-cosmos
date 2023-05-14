@@ -1,5 +1,5 @@
 import { NextSeo } from 'next-seo';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import Layout from '@/components/layout';
 import LoadAndExist from '@/components/load_and_exist';
 import List from '@/screens/proposals/components/list';
@@ -7,7 +7,7 @@ import { useProposals } from '@/screens/proposals/hooks';
 import useStyles from '@/screens/proposals/styles';
 
 const Proposals = () => {
-  const { t } = useAppTranslation('proposals');
+  const { t } = useTranslationByApp('proposals');
   const { classes } = useStyles();
   const { state, loadMoreItems, itemCount, isItemLoaded } = useProposals();
 

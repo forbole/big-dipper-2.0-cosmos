@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
+import TransByApp from '@/components/TransByApp';
 import useStyles from '@/screens/validators/components/list/components/voting_power_explanation/styles';
 
 const VotingPowerExplanation = () => {
@@ -8,7 +8,7 @@ const VotingPowerExplanation = () => {
   return (
     <div className={classes.root}>
       <Typography>
-        <Trans i18nKey="validators:votingPowerExplanation" components={[<b />]} />
+        <TransByApp i18nKey="validators:votingPowerExplanation" components={[<b />]} />
       </Typography>
     </div>
   );

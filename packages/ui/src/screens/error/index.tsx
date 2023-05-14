@@ -1,15 +1,15 @@
 import useStyles from '@/screens/error/styles';
 import { HOME } from '@/utils/go_to_page';
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import TransByApp from '@/components/TransByApp';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import { useRouter } from 'next/router';
 import { FC, useCallback } from 'react';
 import generalConfig from 'shared-utils/configs/general.json';
 
 const Error: FC = () => {
   const { classes } = useStyles();
-  const { t } = useAppTranslation();
+  const { t } = useTranslationByApp();
   const router = useRouter();
   const handleHomeClick = useCallback(() => {
     router.replace(HOME);
@@ -20,7 +20,7 @@ const Error: FC = () => {
       <div className="container">
         <Typography variant="h2">{t('common:errorTitle')}</Typography>
         <Typography className="details">
-          <Trans
+          <TransByApp
             i18nKey="common:errorDetails"
             components={[
               // eslint-disable-next-line

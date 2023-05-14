@@ -1,5 +1,5 @@
 import { NextSeo } from 'next-seo';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import React from 'react';
 import Layout from '@/components/layout';
 import LoadAndExist from '@/components/load_and_exist';
@@ -13,7 +13,7 @@ import useStyles from '@/screens/node_details/styles';
 
 const NodeDetails = () => {
   const { classes } = useStyles();
-  const { t } = useAppTranslation('nodes');
+  const { t } = useTranslationByApp('nodes');
   const { state } = useNodeDetails();
   return (
     <>

@@ -4,7 +4,7 @@ import CustomToolTip, { type CustomToolTipData } from '@/components/custom_tool_
 import { useTokenomics } from '@/screens/home/components/tokenomics/hooks';
 import useStyles from '@/screens/home/components/tokenomics/styles';
 import Typography from '@mui/material/Typography';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import dynamic from 'next/dynamic';
 import numeral from 'numeral';
 import { FC } from 'react';
@@ -14,7 +14,7 @@ const DynamicPieChart = dynamic(() => Promise.resolve(PieChart), { ssr: false })
 const { tokenUnits } = chainConfig();
 
 const Tokenomics: FC<ComponentDefault> = ({ className }) => {
-  const { t } = useAppTranslation('home');
+  const { t } = useTranslationByApp('home');
   const { classes, cx, theme } = useStyles();
   const { state } = useTokenomics();
 

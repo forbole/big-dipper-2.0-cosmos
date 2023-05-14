@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import numeral from 'numeral';
 import { FC } from 'react';
 import Avatar from '@/components/avatar';
@@ -14,7 +14,7 @@ type DesmosProfileProps = {
 } & Omit<DesmosProfile, 'address'>;
 
 const DesmosProfile: FC<DesmosProfileProps> = (props) => {
-  const { t } = useAppTranslation('accounts');
+  const { t } = useTranslationByApp('accounts');
   const { classes, cx } = useStyles({ coverUrl: props.coverUrl });
   const { connectionsOpen, handleConnectionsClose, handleConnectionsOpen } = useDesmosProfile();
 

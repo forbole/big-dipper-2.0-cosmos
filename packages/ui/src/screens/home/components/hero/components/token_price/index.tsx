@@ -5,7 +5,7 @@ import useStyles from '@/screens/home/components/hero/components/token_price/sty
 import type { TokenPriceType } from '@/screens/home/components/hero/types';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
 import Typography from '@mui/material/Typography';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import numeral from 'numeral';
 import * as R from 'ramda';
 import { FC, useMemo } from 'react';
@@ -22,7 +22,7 @@ import { useRecoilValue } from 'recoil';
 
 const TokenPrice: FC<{ items: TokenPriceType[] }> = (props) => {
   const { classes, theme } = useStyles();
-  const { t } = useAppTranslation('home');
+  const { t } = useTranslationByApp('home');
   const { tickPriceFormatter, formatTime } = usePrice();
   const dateFormat = useRecoilValue(readDate);
   const timeFormat = useRecoilValue(readTimeFormat);

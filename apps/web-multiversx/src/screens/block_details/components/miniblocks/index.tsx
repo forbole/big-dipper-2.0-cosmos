@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import Link from 'next/link';
 import { FC } from 'react';
 import Box from '@/components/box';
@@ -8,7 +8,7 @@ import type { MiniBlockType } from '@/screens/block_details/types';
 import { MINIBLOCK_DETAILS } from '@/utils/go_to_page';
 
 const MiniBlocks: FC<{ className?: string; miniBlocks: MiniBlockType[] }> = (props) => {
-  const { t } = useAppTranslation('block');
+  const { t } = useTranslationByApp('block');
   const { classes, cx } = useStyles();
   return (
     <Box className={cx(classes.root, props.className)}>

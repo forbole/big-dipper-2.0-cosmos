@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
+import TransByApp from '@/components/TransByApp';
 import { FC } from 'react';
 import Name from '@/components/name';
 import { type MsgDeleteProfile } from '@/models';
@@ -13,7 +13,7 @@ const DeleteProfile: FC<{ message: MsgDeleteProfile }> = (props) => {
 
   return (
     <Typography>
-      <Trans
+      <TransByApp
         i18nKey="message_contents:txDeleteProfileContent"
         components={[<Name address={message.creator} name={creatorMoniker} />]}
       />

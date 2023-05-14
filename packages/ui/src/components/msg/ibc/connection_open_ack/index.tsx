@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
+import TransByApp from '@/components/TransByApp';
 import { FC } from 'react';
 import Name from '@/components/name';
 import { type MsgConnectionOpenAck } from '@/models';
@@ -13,7 +13,7 @@ const ConnectionOpenAck: FC<{ message: MsgConnectionOpenAck }> = (props) => {
 
   return (
     <Typography>
-      <Trans
+      <TransByApp
         i18nKey="message_contents:txConnectionOpenAckContent"
         components={[<Name address={message.signer} name={signerMoniker} />, <b />]}
         values={{

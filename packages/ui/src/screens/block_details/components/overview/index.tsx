@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import numeral from 'numeral';
 import { FC } from 'react';
 import { useRecoilValue } from 'recoil';
@@ -12,7 +12,7 @@ import dayjs, { formatDayJs } from '@/utils/dayjs';
 
 const Overview: FC<OverviewType & ComponentDefault> = (props, { className }) => {
   const { address, imageUrl, name } = useProfileRecoil(props.proposer);
-  const { t } = useAppTranslation('block');
+  const { t } = useTranslationByApp('block');
   const dateFormat = useRecoilValue(readDate);
   const timeFormat = useRecoilValue(readTimeFormat);
 

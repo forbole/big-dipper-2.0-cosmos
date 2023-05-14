@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
+import TransByApp from '@/components/TransByApp';
 import { FC } from 'react';
 import Name from '@/components/name';
 import MsgCreateDataSource from '@/models/msg/oracle/msg_create_data_source';
@@ -13,8 +13,8 @@ const CreateDataSource: FC<{ message: MsgCreateDataSource }> = (props) => {
 
   return (
     <Typography>
-      <Trans
-        i18nKey="web_band:message_contents.txCreateDataSource"
+      <TransByApp
+        i18nKey="message_contents:txCreateDataSource"
         components={[<Name address={message.sender} name={senderMoniker} />, <b />]}
         values={{
           name: message.name,

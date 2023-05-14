@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import { FC } from 'react';
 import Box from '@/components/box';
 import Loading from '@/components/loading';
@@ -14,7 +14,7 @@ import {
 import useStyles from '@/screens/account_details/components/transactions/styles';
 
 const Transactions: FC<ComponentDefault> = (props) => {
-  const { t } = useAppTranslation('accounts');
+  const { t } = useTranslationByApp('accounts');
   const { classes, cx } = useStyles();
   const { state, handlePageChangeCallback } = useTransactions();
   const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange } = usePagination({

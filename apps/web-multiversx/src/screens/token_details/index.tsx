@@ -1,6 +1,6 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import Layout from '@/components/layout';
 import LoadAndExist from '@/components/load_and_exist';
 import Profile from '@/screens/token_details/components/profile';
@@ -12,7 +12,7 @@ import { useTokenDetails } from '@/screens/token_details/hooks';
 
 const TokenDetails = () => {
   const { classes } = useStyles();
-  const { t } = useAppTranslation('tokens');
+  const { t } = useTranslationByApp('tokens');
   const { state } = useTokenDetails();
   // console.log(state, 'stat');
   return (

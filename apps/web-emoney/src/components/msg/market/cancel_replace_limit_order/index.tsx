@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
+import TransByApp from '@/components/TransByApp';
 import { FC } from 'react';
 import Name from '@/components/name';
 import MsgCancelReplaceLimitOrder from '@/models/msg/market/msg_cancel_replace_limit_order';
@@ -14,7 +14,7 @@ const CancelReplaceLimitOrder: FC<{ message: MsgCancelReplaceLimitOrder }> = (pr
   const destination = formatToken(message.destination.amount, message.destination.denom);
   return (
     <Typography>
-      <Trans
+      <TransByApp
         i18nKey="message_contents:txCancelReplaceLimitOrderContent"
         components={[<Name address={message.owner} name={ownerMoniker} />, <b />, <b />, <b />]}
         values={{

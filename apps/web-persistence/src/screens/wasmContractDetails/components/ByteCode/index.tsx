@@ -6,7 +6,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import Stepper from '@mui/material/Stepper';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import pako from 'pako';
 import { FC, startTransition, useEffect, useRef, useState } from 'react';
 
@@ -32,7 +32,7 @@ const steps = ['Decompressing', 'Converting binary to text', 'Done'];
 // https://github.com/CosmWasm/wasmd/blob/main/docs/proto/proto-docs.md#cosmwasm.wasm.v1.Model
 const ByteCode: FC<ByteCodeProps> = ({ className, byteCode }) => {
   const { classes } = useStyles();
-  const { t } = useAppTranslation('wasm_contracts');
+  const { t } = useTranslationByApp('wasm_contracts');
   const [activeStep, setActiveStep] = useState(0);
   const [displayStep, setDisplayStep] = useState(0);
   const [codeBinary, setCodeBinary] = useState(byteCode);

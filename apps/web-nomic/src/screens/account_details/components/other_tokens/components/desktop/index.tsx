@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import Table from '@mui/material/Table';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
@@ -15,7 +15,7 @@ type DesktopProps = {
 };
 
 const Desktop: FC<DesktopProps> = ({ className, items }) => {
-  const { t } = useAppTranslation('accounts');
+  const { t } = useTranslationByApp('accounts');
 
   const formattedItems = items?.map((x, i) => ({
     key: i,

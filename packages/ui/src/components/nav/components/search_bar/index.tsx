@@ -1,4 +1,4 @@
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import { FC } from 'react';
 import chainConfig from '@/chainConfig';
 import { useSearchBar } from '@/components/nav/components/search_bar/hooks';
@@ -7,7 +7,7 @@ import Search from '@/components/search';
 const { extra } = chainConfig();
 
 const SearchBar: FC<{ className?: string }> = ({ className }) => {
-  const { t } = useAppTranslation('common');
+  const { t } = useTranslationByApp('common');
   const { handleOnSubmit } = useSearchBar(t);
 
   let placeholderText;

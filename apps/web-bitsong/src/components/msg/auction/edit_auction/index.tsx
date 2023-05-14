@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
+import TransByApp from '@/components/TransByApp';
 import numeral from 'numeral';
 import { FC } from 'react';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
@@ -14,8 +14,8 @@ const EditAuction: FC<{ message: MsgEditAuction }> = (props) => {
 
   return (
     <Typography>
-      <Trans
-        i18nKey="web_bitsong:message_contents.txMsgEditAuction"
+      <TransByApp
+        i18nKey="message_contents:txMsgEditAuction"
         components={[<Name address={message.owner} name={ownerMoniker} />, <b />]}
         values={{
           id: numeral(message.id).format('0,0'),

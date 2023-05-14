@@ -7,13 +7,13 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import Link from 'next/link';
 import numeral from 'numeral';
 import { FC } from 'react';
 
 const Desktop: FC<{ className?: string; items: BlockType[] }> = (props) => {
-  const { t } = useAppTranslation('block');
+  const { t } = useTranslationByApp('block');
   const formattedItems = props.items.map((x) => {
     const shard = getShardDisplay(x.shard);
     return {

@@ -1,12 +1,12 @@
 import React from 'react';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import { NextSeo } from 'next-seo';
 import Layout from '@/components/layout';
 import List from '@/screens/validators/components/list';
 import useStyles from '@/screens/validators/styles';
 
 const Validators = () => {
-  const { t } = useAppTranslation('validators');
+  const { t } = useTranslationByApp('validators');
   const { classes } = useStyles();
   return (
     <>

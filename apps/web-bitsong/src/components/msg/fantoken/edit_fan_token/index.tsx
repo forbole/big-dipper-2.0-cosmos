@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
+import TransByApp from '@/components/TransByApp';
 import { FC } from 'react';
 import Name from '@/components/name';
 import MsgEditFanToken from '@/models/msg/fantoken/msg_edit_fan_token';
@@ -13,8 +13,8 @@ const EditFanToken: FC<{ message: MsgEditFanToken }> = (props) => {
 
   return (
     <Typography>
-      <Trans
-        i18nKey="web_bitsong:message_contents.txMsgEditFanToken"
+      <TransByApp
+        i18nKey="message_contents:txMsgEditFanToken"
         components={[<Name address={message.owner} name={ownerMoniker} />]}
       />
     </Typography>

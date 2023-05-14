@@ -1,6 +1,6 @@
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import Link from 'next/link';
 import { FC, Fragment } from 'react';
 import useStyles from '@/screens/validator_details/components/nodes/components/mobile/styles';
@@ -10,7 +10,7 @@ import { getShardDisplay } from '@/utils/get_shard_display';
 import { NODE_DETAILS } from '@/utils/go_to_page';
 
 const Mobile: FC<{ className?: string; items: NodeType[] }> = (props) => {
-  const { t } = useAppTranslation('nodes');
+  const { t } = useTranslationByApp('nodes');
   const { classes } = useStyles();
   const formattedItems = props.items.map((x) => {
     const shard = getShardDisplay(x.shard);

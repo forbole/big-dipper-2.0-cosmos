@@ -16,7 +16,7 @@ exports[`screen: TransactionDetails/CreateDataSource matches snapshot 1`] = `
 >
   <span
     data-testid="Trans"
-    i18nKey="web_band:message_contents.txEditDataSource"
+    i18nKey="message_contents:txEditDataSource"
   >
     <div
       address="name"

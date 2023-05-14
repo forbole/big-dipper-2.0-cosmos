@@ -16,7 +16,7 @@ exports[`screen: TransactionDetails/BurnNFT matches snapshot 1`] = `
 >
   <span
     data-testid="Trans"
-    i18nKey="web_bitsong:message_contents.txBurnNFTContent"
+    i18nKey="message_contents:txBurnNFTContent"
   >
     <div
       address="desmosvaloper14nfk5gm99gfrd7nwqtmtvzunzclz8720a6cqh7"

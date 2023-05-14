@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
+import TransByApp from '@/components/TransByApp';
 import { FC } from 'react';
 import Name from '@/components/name';
 import MsgEditOracleScript from '@/models/msg/oracle/msg_edit_oracle_script';
@@ -13,8 +13,8 @@ const EditOracleScript: FC<{ message: MsgEditOracleScript }> = (props) => {
 
   return (
     <Typography>
-      <Trans
-        i18nKey="web_band:message_contents.txEditOracleScript"
+      <TransByApp
+        i18nKey="message_contents:txEditOracleScript"
         components={[<Name address={message.sender} name={senderMoniker} />, <b />]}
         values={{
           name: message.name,

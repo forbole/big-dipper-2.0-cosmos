@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
+import TransByApp from '@/components/TransByApp';
 import { FC } from 'react';
 import Name from '@/components/name';
 import { MsgWithdrawDelegatorReward } from '@/models';
@@ -20,7 +20,7 @@ const WithdrawReward: FC<{ message: MsgWithdrawDelegatorReward }> = (props) => {
 
   return (
     <Typography>
-      <Trans
+      <TransByApp
         i18nKey="message_contents:txWithdrawRewardContent"
         components={[
           <Name address={message.delegatorAddress} name={delegatorMoniker} />,

@@ -5,7 +5,7 @@ import AvatarName from '@/components/avatar_name';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { formatToken } from '@/utils/format_token';
 import { ACCOUNT_DETAILS } from '@/utils/go_to_page';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import numeral from 'numeral';
 import { memo } from 'react';
 import useStyles from '@/screens/accounts/components/list/components/mobile/styles';
@@ -16,7 +16,7 @@ const { primaryTokenUnit } = chainConfig();
 const Row = memo(({ data, index, itemCount }: RowProps) => {
   const profile = useProfileRecoil(data.address);
   const token = formatToken(data.balance, primaryTokenUnit);
-  const { t } = useAppTranslation('accounts');
+  const { t } = useTranslationByApp('accounts');
   const { classes } = useStyles();
   const isLast = itemCount ? index === itemCount - 1 : false;
   return (

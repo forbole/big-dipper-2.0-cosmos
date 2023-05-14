@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
+import TransByApp from '@/components/TransByApp';
 import { FC } from 'react';
 import Name from '@/components/name';
 import { type MsgDelegate } from '@/models';
@@ -22,7 +22,7 @@ const Delegate: FC<{ message: MsgDelegate }> = (props) => {
 
   return (
     <Typography>
-      <Trans
+      <TransByApp
         i18nKey="message_contents:txDelegateContent"
         components={[
           <Name address={message.delegatorAddress} name={delegatorMoniker} />,

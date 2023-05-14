@@ -10,7 +10,7 @@ import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { BLOCK_DETAILS } from '@/utils/go_to_page';
 import { mergeRefs } from '@/utils/merge_refs';
 import Typography from '@mui/material/Typography';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import Link from 'next/link';
 import numeral from 'numeral';
 import { ComponentProps, CSSProperties, FC, LegacyRef, ReactNode } from 'react';
@@ -85,7 +85,7 @@ const Desktop: FC<DesktopProps> = ({
   loadMoreItems,
   isItemLoaded,
 }) => {
-  const { t } = useAppTranslation('block');
+  const { t } = useTranslationByApp('block');
   const { classes, cx } = useStyles();
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
 

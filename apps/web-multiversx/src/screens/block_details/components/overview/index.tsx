@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import numeral from 'numeral';
 import { FC } from 'react';
 import { useRecoilValue } from 'recoil';
@@ -11,7 +11,7 @@ import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { getShardDisplay } from '@/utils/get_shard_display';
 
 const Overview: FC<OverviewType & ComponentDefault> = (props) => {
-  const { t } = useAppTranslation('block');
+  const { t } = useTranslationByApp('block');
   const dateFormat = useRecoilValue(readDate);
   const timeFormat = useRecoilValue(readTimeFormat);
   const shard = getShardDisplay(props.shard);

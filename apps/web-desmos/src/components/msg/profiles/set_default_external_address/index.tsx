@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
+import TransByApp from '@/components/TransByApp';
 import { FC } from 'react';
 import Name from '@/components/name';
 import MsgSetDefaultExternalAddress from '@/models/msg/profiles/msg_set_default_external_address';
@@ -13,7 +13,7 @@ const SetDefaultExternalAddress: FC<{ message: MsgSetDefaultExternalAddress }> =
 
   return (
     <Typography>
-      <Trans
+      <TransByApp
         i18nKey="message_contents:txMsgSetDefaultExternalAddress"
         components={[<Name address={message.signer} name={signerMoniker} />, <b />]}
         values={{ chainName: message.chainName, target: message.target }}

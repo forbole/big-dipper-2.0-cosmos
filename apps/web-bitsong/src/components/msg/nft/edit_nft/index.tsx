@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
+import TransByApp from '@/components/TransByApp';
 import { FC } from 'react';
 import Name from '@/components/name';
 import MsgEditNFT from '@/models/msg/nft/msg_edit_nft';
@@ -13,8 +13,8 @@ const EditNFT: FC<{ message: MsgEditNFT }> = (props) => {
 
   return (
     <Typography>
-      <Trans
-        i18nKey="web_bitsong:message_contents.txEditNFTContent"
+      <TransByApp
+        i18nKey="message_contents:txEditNFTContent"
         components={[<Name address={message.sender} name={senderMoniker} />, <b />]}
         values={{
           id: message.id,

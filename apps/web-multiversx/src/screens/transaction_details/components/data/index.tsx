@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import { FC } from 'react';
 import Box from '@/components/box';
 import CodeBlock from '@/screens/transaction_details/components/code_block';
@@ -8,7 +8,7 @@ import type { DataType } from '@/screens/transaction_details/types';
 import { decodeBase64 } from '@/utils/base64';
 
 const Data: FC<{ className?: string; data: DataType }> = (props) => {
-  const { t } = useAppTranslation('transactions');
+  const { t } = useTranslationByApp('transactions');
   const { classes, cx } = useStyles();
   const data = decodeBase64(props.data);
   return (

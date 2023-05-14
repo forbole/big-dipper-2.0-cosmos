@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import { FC, ReactNode } from 'react';
 import useStyles from '@/components/single_block_mobile/styles';
 
@@ -22,7 +22,7 @@ const SingleBlockMobile: FC<SingleBlockMobileProps> = ({
   time,
   proposer,
 }) => {
-  const { t } = useAppTranslation('block');
+  const { t } = useTranslationByApp('block');
   const { classes, cx } = useStyles();
 
   return (

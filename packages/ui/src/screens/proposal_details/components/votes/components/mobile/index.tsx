@@ -1,6 +1,6 @@
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import { FC, Fragment } from 'react';
 import AvatarName from '@/components/avatar_name';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
@@ -15,7 +15,7 @@ type VoteItemProps = {
 };
 
 const VoteItem: FC<VoteItemProps> = ({ i, item, isLast }) => {
-  const { t } = useAppTranslation('proposals');
+  const { t } = useTranslationByApp('proposals');
   const { classes } = useStyles();
   const { name, address, imageUrl } = useProfileRecoil(item.user);
 

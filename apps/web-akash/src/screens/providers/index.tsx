@@ -1,5 +1,5 @@
 import { NextSeo } from 'next-seo';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import Layout from '@/components/layout';
 import Compute from '@/screens/providers/components/compute';
 import DataBlocks from '@/screens/providers/components/data_blocks';
@@ -10,7 +10,7 @@ import { useProviders } from '@/screens/providers/hooks';
 import useStyles from '@/screens/providers/styles';
 
 const Providers = () => {
-  const { t } = useAppTranslation('providers');
+  const { t } = useTranslationByApp('providers');
   const { classes } = useStyles();
   const { state, handleSearch } = useProviders();
 

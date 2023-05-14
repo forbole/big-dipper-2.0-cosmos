@@ -1,6 +1,6 @@
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
-import useAppTranslation from '@/hooks/useAppTranslation';
+import useTranslationByApp from '@/hooks/useTranslationByApp';
 import { ComponentProps, FC } from 'react';
 import Search from '@/components/search';
 import useStyles from '@/screens/validators/components/list/components/tabs/styles';
@@ -16,7 +16,7 @@ type TabsHeaderProps = {
 
 const TabsHeader: FC<TabsHeaderProps> = ({ className, tab, handleTabChange, handleSearch }) => {
   const { classes, cx } = useStyles();
-  const { t } = useAppTranslation('validators');
+  const { t } = useTranslationByApp('validators');
 
   return (
     <div className={cx(classes.root, className)}>
