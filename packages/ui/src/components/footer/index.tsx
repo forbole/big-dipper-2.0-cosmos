@@ -7,7 +7,8 @@ import { readTheme } from '@/recoil/settings';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import { Trans, useTranslation } from 'next-i18next';
+import { Trans } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC } from 'react';
 import { useRecoilValue } from 'recoil';
 import FooterLogoLight from 'shared-utils/assets/big-dipper-red.svg';
@@ -16,7 +17,7 @@ import FooterLogoDark from 'shared-utils/assets/big-dipper-white.svg';
 const { title } = chainConfig();
 
 const Footer: FC<{ className?: string }> = ({ className }) => {
-  const { t } = useTranslation();
+  const { t } = useAppTranslation();
   const { classes, cx } = useStyles();
   const theme = useRecoilValue(readTheme);
 

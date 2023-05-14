@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC } from 'react';
 import NoData from '@/components/no_data';
 import Pagination from '@/components/pagination';
@@ -14,7 +14,7 @@ import {
 import useStyles from '@/screens/validator_details/components/transactions/styles';
 
 const Transactions: FC<{ className?: string; provider: string }> = (props) => {
-  const { t } = useTranslation('validators');
+  const { t } = useAppTranslation('validators');
   const { classes } = useStyles();
   const { state, handlePageChangeCallback } = useTransactions(props.provider);
   const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange } = usePagination({

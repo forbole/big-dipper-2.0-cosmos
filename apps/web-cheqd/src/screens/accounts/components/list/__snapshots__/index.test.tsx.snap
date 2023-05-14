@@ -659,7 +659,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-19:focus::-ms-input-
     <div
       className="emotion-2"
     >
-      accounts:refresh_delay_notice
+      web_cheqd:accounts.refresh_delay_notice
     </div>
     <div
       className="MuiTablePagination-root emotion-3"

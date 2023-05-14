@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC, ReactNode } from 'react';
 import useStyles from '@/components/single_transaction_mobile/styles';
 
@@ -20,7 +20,7 @@ const SingleTransactionMobile: FC<SingleTransactionMobileProps> = ({
   messages,
   result,
 }) => {
-  const { t } = useTranslation('transactions');
+  const { t } = useAppTranslation('transactions');
   const { classes, cx } = useStyles();
 
   return (

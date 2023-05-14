@@ -5,7 +5,7 @@ import AvatarName from '@/components/avatar_name';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { formatToken } from '@/utils/format_token';
 import { ACCOUNT_DETAILS } from '@/utils/go_to_page';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import numeral from 'numeral';
 import { memo } from 'react';
 import useStyles from '@/screens/accounts/components/list/components/mobile/styles';
@@ -16,14 +16,14 @@ const { primaryTokenUnit } = chainConfig();
 const Row = memo(({ data, index, itemCount }: RowProps) => {
   const profile = useProfileRecoil(data.address);
   const token = formatToken(data.balance, primaryTokenUnit);
-  const { t } = useTranslation('accounts');
+  const { t } = useAppTranslation('accounts');
   const { classes } = useStyles();
   const isLast = itemCount ? index === itemCount - 1 : false;
   return (
     <div className={classes.list}>
       <div className={classes.item}>
         <Typography variant="h4" className="label">
-          {t('top_rank')}
+          {t('web_cheqd:accounts.top_rank')}
         </Typography>
         <Typography variant="body1" className="value">
           {`#${data.rank}`}
@@ -31,7 +31,7 @@ const Row = memo(({ data, index, itemCount }: RowProps) => {
       </div>
       <div className={classes.item}>
         <Typography variant="h4" className="label">
-          {t('top_address')}
+          {t('web_cheqd:accounts.top_address')}
         </Typography>
         <Typography variant="body1" className="value">
           <AvatarName
@@ -45,7 +45,7 @@ const Row = memo(({ data, index, itemCount }: RowProps) => {
       {/^@/.test(profile.name) && (
         <div className={classes.item}>
           <Typography variant="h4" className="label">
-            {t('top_dtag')}
+            {t('web_cheqd:accounts.top_dtag')}
           </Typography>
           <Typography variant="body1" className="value">
             {profile.name}
@@ -54,7 +54,7 @@ const Row = memo(({ data, index, itemCount }: RowProps) => {
       )}
       <div className={classes.item}>
         <Typography variant="h4" className="label">
-          {t('top_balance')}
+          {t('web_cheqd:accounts.top_balance')}
         </Typography>
         <Typography variant="body1" className="value">
           {numeral(token.value).format('0,0')} {token.displayDenom.toUpperCase()}
@@ -62,7 +62,7 @@ const Row = memo(({ data, index, itemCount }: RowProps) => {
       </div>
       <div className={classes.item}>
         <Typography variant="h4" className="label">
-          {t('top_percentage')}
+          {t('web_cheqd:accounts.top_percentage')}
         </Typography>
         <Typography variant="body1" className="value">
           {numeral(data.percentage).format('0,0.0000')} %

@@ -3,7 +3,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC } from 'react';
 import FilterIcon from 'shared-utils/assets/icon-filter.svg';
 import { getFilterLabels } from '@/components/transaction_messages_filter/utils';
@@ -17,7 +17,7 @@ type TransactionMessagesFilterProps = {
 
 const TransactionMessagesFilter: FC<TransactionMessagesFilterProps> = ({ className, callback }) => {
   const filterLabels = getFilterLabels();
-  const { t } = useTranslation('transactions');
+  const { t } = useAppTranslation('transactions');
   const { classes, cx } = useStyles();
   const { handleSelect, selectedFilter } = useTransactionsFilter(callback);
 

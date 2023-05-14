@@ -3,7 +3,7 @@ import Tag from '@/components/tag';
 import * as MODELS from '@/models';
 import type { Log } from '@/models/msg/types';
 import isKeyOf from '@/utils/isKeyOf';
-import { TFunction } from 'next-i18next';
+import type { TFunction } from '@/hooks/useAppTranslation';
 import * as R from 'ramda';
 import { FC } from 'react';
 
@@ -744,14 +744,7 @@ export const getMessageByType = (message: unknown, viewRaw: boolean, t: TFunctio
   }
 
   return {
-    type: (
-      <Tag
-        value={t(`message_labels_${results.tagDisplay}`, {
-          defaultValue: t(results.tagDisplay),
-        })}
-        theme={results.tagTheme}
-      />
-    ),
+    type: <Tag value={t(results.tagDisplay)} theme={results.tagTheme} />,
     message: <results.content message={message} />,
   };
 };

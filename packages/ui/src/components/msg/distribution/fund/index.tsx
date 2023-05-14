@@ -3,11 +3,12 @@ import { MsgFundCommunityPool } from '@/models';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { formatNumber, formatToken } from '@/utils/format_token';
 import Typography from '@mui/material/Typography';
-import { Trans, useTranslation } from 'next-i18next';
+import { Trans } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC } from 'react';
 
 const Fund: FC<{ message: MsgFundCommunityPool }> = (props) => {
-  const { t } = useTranslation('transactions');
+  const { t } = useAppTranslation('transactions');
   const { message } = props;
 
   const parsedAmount = message?.amount

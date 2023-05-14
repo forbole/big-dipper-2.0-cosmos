@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import Link from 'next/link';
 import { FC, LegacyRef } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
@@ -22,7 +22,7 @@ const Desktop: FC<{ list: ProviderInfo[]; className?: string }> = ({ list, class
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
 
   const { classes, cx } = useStyles();
-  const { t } = useTranslation('providers');
+  const { t } = useAppTranslation('providers');
   const { handleCopyToClipboard } = useAddress(t);
 
   const itemCount = list.length;

@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import Table from '@mui/material/Table';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
@@ -15,7 +15,7 @@ type DesktopProps = {
 };
 
 const Desktop: FC<DesktopProps> = ({ className, items }) => {
-  const { t } = useTranslation('accounts');
+  const { t } = useAppTranslation('accounts');
 
   const formattedItems = items?.map((x, i) => ({
     key: i,

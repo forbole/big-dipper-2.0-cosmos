@@ -1,8 +1,7 @@
-import { NextSeo } from 'next-seo';
-import { useTranslation } from 'next-i18next';
 import BoxDetails from '@/components/box_details';
 import Layout from '@/components/layout';
 import LoadAndExist from '@/components/load_and_exist';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { useParams } from '@/screens/params/hooks';
 import useStyles from '@/screens/params/styles';
 import {
@@ -13,9 +12,10 @@ import {
   formatSlashing,
   formatStaking,
 } from '@/screens/params/utils';
+import { NextSeo } from 'next-seo';
 
 const Params = () => {
-  const { t } = useTranslation(['params', process.env.NEXT_PUBLIC_APP_NAME ?? '']);
+  const { t } = useAppTranslation('params');
   const { classes } = useStyles();
   const { state } = useParams();
 

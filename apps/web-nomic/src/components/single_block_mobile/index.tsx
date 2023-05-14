@@ -1,6 +1,6 @@
 import useStyles from '@/components/single_block_mobile/styles';
 import Typography from '@mui/material/Typography';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC, ReactNode } from 'react';
 
 type SingleBlockMobileProps = {
@@ -20,7 +20,7 @@ const SingleBlockMobile: FC<SingleBlockMobileProps> = ({
   txs,
   time,
 }) => {
-  const { t } = useTranslation('blocks');
+  const { t } = useAppTranslation('block');
   const { classes, cx } = useStyles();
 
   return (

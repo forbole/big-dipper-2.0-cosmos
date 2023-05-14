@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { useRouter } from 'next/router';
 import { FC, useEffect } from 'react';
 import { useRecoilValue } from 'recoil';
@@ -13,7 +13,7 @@ const ssrMode = typeof window === 'undefined';
 
 const NotFound: FC<NotFoundProps> = ({ className }) => {
   const { classes, cx } = useStyles();
-  const { t } = useTranslation('common');
+  const { t } = useAppTranslation('common');
   const theme = useRecoilValue(readTheme);
   const router = useRouter();
 

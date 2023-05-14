@@ -2,7 +2,8 @@ import Box from '@/components/box';
 import { useEpoch } from '@/screens/home/components/epoch/hooks';
 import useStyles from '@/screens/home/components/epoch/styles';
 import Typography from '@mui/material/Typography';
-import { Trans, useTranslation } from 'next-i18next';
+import { Trans } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import dynamic from 'next/dynamic';
 import numeral from 'numeral';
 import { FC } from 'react';
@@ -12,7 +13,7 @@ const DynamicRadialBarChart = dynamic(() => Promise.resolve(RadialBarChart), { s
 
 const Chart: FC = () => {
   const { classes, theme } = useStyles();
-  const { t } = useTranslation('home');
+  const { t } = useAppTranslation('home');
   const { state } = useEpoch();
 
   const data = [
@@ -70,7 +71,7 @@ const Chart: FC = () => {
 
 const Epoch: FC<ComponentDefault> = (props) => {
   const { classes, cx } = useStyles();
-  const { t } = useTranslation('home');
+  const { t } = useAppTranslation('home');
 
   return (
     <Box className={cx(classes.root, props.className)}>

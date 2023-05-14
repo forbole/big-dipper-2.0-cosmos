@@ -2,7 +2,7 @@ import Box from '@/components/box';
 import { useStyles } from '@/components/nav/components/wallet_drop_down/styles';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import Avatar from '@/components/avatar';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import CopyIcon from 'shared-utils/assets/icon-copy-text.svg';
@@ -21,7 +21,7 @@ type WalletDropDownProps = {
 };
 
 const WalletDropDown: FC<WalletDropDownProps> = ({ className, handleLogin, handleLogout }) => {
-  const { t } = useTranslation();
+  const { t } = useAppTranslation();
   const { classes, cx } = useStyles();
   const { handleCopyToClipboard } = useAddress(t);
   const address = useRecoilValue(readUserAddress);

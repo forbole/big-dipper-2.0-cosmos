@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC } from 'react';
 import Name from '@/components/name';
 
@@ -14,7 +14,7 @@ const CommunityPoolSpend: FC<communityPoolSpendProps> = ({
   recipientMoniker,
   amountRequested,
 }) => {
-  const { t } = useTranslation('proposals');
+  const { t } = useAppTranslation('proposals');
   return (
     <div className="content">
       <div className="recipient">

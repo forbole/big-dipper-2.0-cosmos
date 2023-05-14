@@ -1,11 +1,11 @@
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC } from 'react';
 import { getShardDisplay } from '@/utils/get_shard_display';
 import useStyles from '@/components/transactions_list/components/shard/styles';
 
 const Shard: FC<{ to: number; from: number }> = (props) => {
-  const { t } = useTranslation('common');
+  const { t } = useAppTranslation('common');
   const { classes } = useStyles();
   const from = getShardDisplay(props.from);
   const to = getShardDisplay(props.to);

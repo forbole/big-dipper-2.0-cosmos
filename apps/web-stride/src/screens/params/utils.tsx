@@ -7,7 +7,7 @@ import type {
   Staking,
 } from '@/screens/params/types';
 import { nanoToSeconds, secondsToDays } from '@/utils/time';
-import { TFunction } from 'next-i18next';
+import type { TFunction } from '@/hooks/useAppTranslation';
 import numeral from 'numeral';
 
 const convertBySeconds = (seconds: number, t: TFunction) => {
@@ -24,37 +24,27 @@ const convertBySeconds = (seconds: number, t: TFunction) => {
 export const formatStaking = (data: Staking, t: TFunction) => [
   {
     key: 'bondDenom',
-    label: tApp(`params_bondDenom`, {
-      defaultValue: t('bondDenom'),
-    }),
+    label: t('bondDenom'),
     detail: data.bondDenom,
   },
   {
     key: 'unbondingTime',
-    label: tApp(`params_unbondingTime`, {
-      defaultValue: t('unbondingTime'),
-    }),
+    label: t('unbondingTime'),
     detail: convertBySeconds(nanoToSeconds(data.unbondingTime), t),
   },
   {
     key: 'maxEntries',
-    label: tApp(`params_maxEntries`, {
-      defaultValue: t('maxEntries'),
-    }),
+    label: t('maxEntries'),
     detail: numeral(data.maxEntries).format('0,0'),
   },
   {
     key: 'historicalEntries',
-    label: tApp(`params_historicalEntries`, {
-      defaultValue: t('historicalEntries'),
-    }),
+    label: t('historicalEntries'),
     detail: numeral(data.historicalEntries).format('0,0'),
   },
   {
     key: 'maxValidators',
-    label: tApp(`params_maxValidators`, {
-      defaultValue: t('maxValidators'),
-    }),
+    label: t('maxValidators'),
     detail: numeral(data.maxValidators).format('0,0'),
   },
 ];
@@ -62,39 +52,29 @@ export const formatStaking = (data: Staking, t: TFunction) => [
 export const formatSlashing = (data: Slashing, t: TFunction) => [
   {
     key: 'downtimeJailDuration',
-    label: tApp(`params_downtimeJailDuration`, {
-      defaultValue: t('downtimeJailDuration'),
-    }),
+    label: t('downtimeJailDuration'),
     detail: t('seconds', {
       second: numeral(nanoToSeconds(data.downtimeJailDuration)).format('0,0'),
     }),
   },
   {
     key: 'minSignedPerWindow',
-    label: tApp(`params_minSignedPerWindow`, {
-      defaultValue: t('minSignedPerWindow'),
-    }),
+    label: t('minSignedPerWindow'),
     detail: `${numeral(data.minSignedPerWindow * 100).format('0.[00]')}%`,
   },
   {
     key: 'signedBlockWindow',
-    label: tApp(`params_signedBlockWindow`, {
-      defaultValue: t('signedBlockWindow'),
-    }),
+    label: t('signedBlockWindow'),
     detail: numeral(data.signedBlockWindow).format('0,0'),
   },
   {
     key: 'slashFractionDoubleSign',
-    label: tApp(`params_slashFractionDoubleSign`, {
-      defaultValue: t('slashFractionDoubleSign'),
-    }),
+    label: t('slashFractionDoubleSign'),
     detail: `${data.slashFractionDoubleSign * 100} / 100`,
   },
   {
     key: 'slashFractionDowntime',
-    label: tApp(`params_slashFractionDowntime`, {
-      defaultValue: t('slashFractionDowntime'),
-    }),
+    label: t('slashFractionDowntime'),
     detail: `${data.slashFractionDowntime * 10000} / ${numeral(10000).format('0,0')}`,
   },
 ];
@@ -102,44 +82,32 @@ export const formatSlashing = (data: Slashing, t: TFunction) => [
 export const formatMinting = (data: Minting, t: TFunction) => [
   {
     key: 'blocksPerYear',
-    label: tApp(`params_blocksPerYear`, {
-      defaultValue: t('blocksPerYear'),
-    }),
+    label: t('blocksPerYear'),
     detail: numeral(data.blocksPerYear).format('0,0'),
   },
   {
     key: 'goalBonded',
-    label: tApp(`params_goalBonded`, {
-      defaultValue: t('goalBonded'),
-    }),
+    label: t('goalBonded'),
     detail: `${numeral(data.goalBonded * 100).format('0.[00]')}%`,
   },
   {
     key: 'inflationMax',
-    label: tApp(`params_inflationMax`, {
-      defaultValue: t('inflationMax'),
-    }),
+    label: t('inflationMax'),
     detail: `${numeral(data.inflationMax * 100).format('0.[00]')}%`,
   },
   {
     key: 'inflationMin',
-    label: tApp(`params_inflationMin`, {
-      defaultValue: t('inflationMin'),
-    }),
+    label: t('inflationMin'),
     detail: `${numeral(data.inflationMin * 100).format('0.[00]')}%`,
   },
   {
     key: 'inflationRateChange',
-    label: tApp(`params_inflationRateChange`, {
-      defaultValue: t('inflationRateChange'),
-    }),
+    label: t('inflationRateChange'),
     detail: `${numeral(data.inflationRateChange * 100).format('0.[00]')}%`,
   },
   {
     key: 'mintDenom',
-    label: tApp(`params_mintDenom`, {
-      defaultValue: t('mintDenom'),
-    }),
+    label: t('mintDenom'),
     detail: data.mintDenom,
   },
 ];
@@ -147,30 +115,22 @@ export const formatMinting = (data: Minting, t: TFunction) => [
 export const formatDistribution = (data: Distribution, t: TFunction) => [
   {
     key: 'baseProposerReward',
-    label: tApp(`params_baseProposerReward`, {
-      defaultValue: t('baseProposerReward'),
-    }),
+    label: t('baseProposerReward'),
     detail: `${numeral(data.baseProposerReward * 100).format('0.[00]')}%`,
   },
   {
     key: 'bonusProposerReward',
-    label: tApp(`params_bonusProposerReward`, {
-      defaultValue: t('bonusProposerReward'),
-    }),
+    label: t('bonusProposerReward'),
     detail: `${numeral(data.bonusProposerReward * 100).format('0.[00]')}%`,
   },
   {
     key: 'communityTax',
-    label: tApp(`params_communityTax`, {
-      defaultValue: t('communityTax'),
-    }),
+    label: t('communityTax'),
     detail: `${numeral(data.communityTax * 100).format('0.[00]')}%`,
   },
   {
     key: 'withdrawAddressEnabled',
-    label: tApp(`params_withdrawAddressEnabled`, {
-      defaultValue: t('withdrawAddressEnabled'),
-    }),
+    label: t('withdrawAddressEnabled'),
     detail: `${data.withdrawAddressEnabled}`.toUpperCase(),
   },
 ];
@@ -178,44 +138,32 @@ export const formatDistribution = (data: Distribution, t: TFunction) => [
 export const formatGov = (data: Gov, t: TFunction) => [
   {
     key: 'minDeposit',
-    label: tApp(`params_minDeposit`, {
-      defaultValue: t('minDeposit'),
-    }),
+    label: t('minDeposit'),
     detail: `${data.minDeposit.value} ${data.minDeposit.displayDenom.toUpperCase()}`,
   },
   {
     key: 'maxDepositPeriod',
-    label: tApp(`params_maxDepositPeriod`, {
-      defaultValue: t('maxDepositPeriod'),
-    }),
+    label: t('maxDepositPeriod'),
     detail: convertBySeconds(nanoToSeconds(data.maxDepositPeriod), t),
   },
   {
     key: 'quorum',
-    label: tApp(`params_quorum`, {
-      defaultValue: t('quorum'),
-    }),
+    label: t('quorum'),
     detail: `${numeral(data.quorum * 100).format('0.[00]')}%`,
   },
   {
     key: 'threshold',
-    label: tApp(`params_threshold`, {
-      defaultValue: t('threshold'),
-    }),
+    label: t('threshold'),
     detail: `${numeral(data.threshold * 100).format('0.[00]')}%`,
   },
   {
     key: 'vetoThreshold',
-    label: tApp(`params_vetoThreshold`, {
-      defaultValue: t('vetoThreshold'),
-    }),
+    label: t('vetoThreshold'),
     detail: `${numeral(data.vetoThreshold * 100).format('0.[00]')}%`,
   },
   {
     key: 'votingPeriod',
-    label: tApp(`params_votingPeriod`, {
-      defaultValue: t('votingPeriod'),
-    }),
+    label: t('votingPeriod'),
     detail: convertBySeconds(nanoToSeconds(data.votingPeriod), t),
   },
 ];
@@ -223,107 +171,77 @@ export const formatGov = (data: Gov, t: TFunction) => [
 export const formatStakeibc = (data: Stakeibc, t: TFunction) => [
   {
     key: 'bufferSize',
-    label: tApp(`params_bufferSize`, {
-      defaultValue: t('bufferSize'),
-    }),
+    label: t('bufferSize'),
     detail: data.bufferSize,
   },
   {
     key: 'depositInterval',
-    label: tApp(`params_depositInterval`, {
-      defaultValue: t('depositInterval'),
-    }),
+    label: t('depositInterval'),
     detail: data.depositInterval,
   },
   {
     key: 'rewardsInterval',
-    label: tApp(`params_rewardsInterval`, {
-      defaultValue: t('rewardsInterval'),
-    }),
+    label: t('rewardsInterval'),
     detail: data.rewardsInterval,
   },
   {
     key: 'delegateInterval',
-    label: tApp(`params_delegateInterval`, {
-      defaultValue: t('delegateInterval'),
-    }),
+    label: t('delegateInterval'),
     detail: data.delegateInterval,
   },
   {
     key: 'icaTimeoutNanos',
-    label: tApp(`params_icaTimeoutNanos`, {
-      defaultValue: t('icaTimeoutNanos'),
-    }),
+    label: t('icaTimeoutNanos'),
     detail: convertBySeconds(nanoToSeconds(data.icaTimeoutNanos), t),
   },
   {
     key: 'reinvestInterval',
-    label: tApp(`params_reinvestInterval`, {
-      defaultValue: t('reinvestInterval'),
-    }),
+    label: t('reinvestInterval'),
     detail: data.reinvestInterval,
   },
   {
     key: 'strideCommission',
-    label: tApp(`params_strideCommission`, {
-      defaultValue: t('strideCommission'),
-    }),
+    label: t('strideCommission'),
     detail: data.strideCommission,
   },
   {
     key: 'ibcTimeoutBlocks',
-    label: tApp(`params_ibcTimeoutBlocks`, {
-      defaultValue: t('ibcTimeoutBlocks'),
-    }),
+    label: t('ibcTimeoutBlocks'),
     detail: data.ibcTimeoutBlocks,
   },
   {
     key: 'redemptionRateInterval',
-    label: tApp(`params_redemptionRateInterval`, {
-      defaultValue: t('redemptionRateInterval'),
-    }),
+    label: t('redemptionRateInterval'),
     detail: data.redemptionRateInterval,
   },
   {
     key: 'feeTransferTimeoutNanos',
-    label: tApp(`params_feeTransferTimeoutNanos`, {
-      defaultValue: t('feeTransferTimeoutNanos'),
-    }),
+    label: t('feeTransferTimeoutNanos'),
     detail: convertBySeconds(nanoToSeconds(data.feeTransferTimeoutNanos), t),
   },
   {
     key: 'ibcTransferTimeoutNanos',
-    label: tApp(`params_ibcTransferTimeoutNanos`, {
-      defaultValue: t('ibcTransferTimeoutNanos'),
-    }),
+    label: t('ibcTransferTimeoutNanos'),
     detail: convertBySeconds(nanoToSeconds(data.ibcTransferTimeoutNanos), t),
   },
   {
     key: 'maxStakeIcaCallsPerEpoch',
-    label: tApp(`params_maxStakeIcaCallsPerEpoch`, {
-      defaultValue: t('maxStakeIcaCallsPerEpoch'),
-    }),
+    label: t('maxStakeIcaCallsPerEpoch'),
     detail: data.maxStakeIcaCallsPerEpoch,
   },
   {
     key: 'validatorRebalancingThreshold',
-    label: tApp(`params_validatorRebalancingThreshold`, {
-      defaultValue: t('validatorRebalancingThreshold'),
-    }),
+    label: t('validatorRebalancingThreshold'),
     detail: `${numeral(data.safetyMaxRedemptionRateThreshold * 100).format('0.[00]')}%`,
   },
   {
     key: 'safetyMaxRedemptionRateThreshold',
-    label: tApp(`params_safetyMaxRedemptionRateThreshold`, {
-      defaultValue: t('safetyMaxRedemptionRateThreshold'),
-    }),
+    label: t('safetyMaxRedemptionRateThreshold'),
     detail: `${numeral(data.safetyMaxRedemptionRateThreshold * 100).format('0.[00]')}%`,
   },
   {
     key: 'safetyMinRedemptionRateThreshold',
-    label: tApp(`params_safetyMinRedemptionRateThreshold`, {
-      defaultValue: t('safetyMinRedemptionRateThreshold'),
-    }),
+    label: t('safetyMinRedemptionRateThreshold'),
     detail: `${numeral(data.safetyMinRedemptionRateThreshold * 100).format('0.[00]')}%`,
   },
 ];

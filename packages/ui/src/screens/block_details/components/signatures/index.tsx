@@ -5,7 +5,7 @@ import Mobile from '@/screens/block_details/components/signatures/components/mob
 import useStyles from '@/screens/block_details/components/signatures/styles';
 import { useDisplayStyles } from '@/styles/useSharedStyles';
 import Typography from '@mui/material/Typography';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC } from 'react';
 
 type SignaturesProps = ComponentDefault & {
@@ -13,7 +13,7 @@ type SignaturesProps = ComponentDefault & {
 };
 
 const Signatures: FC<SignaturesProps> = ({ className, signatures }) => {
-  const { t } = useTranslation('blocks');
+  const { t } = useAppTranslation('block');
   const { classes, cx } = useStyles();
   const display = useDisplayStyles().classes;
 

@@ -1,6 +1,6 @@
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import Link from 'next/link';
 import { FC, Fragment } from 'react';
 import { NFT_DETAILS } from '@/utils/go_to_page';
@@ -8,7 +8,7 @@ import type { OtherTokenType } from '@/screens/account_details/components/nfts/t
 import useStyles from '@/screens/account_details/components/nfts/components/list/components/mobile/styles';
 
 const Mobile: FC<{ className?: string; items: OtherTokenType[] }> = (props) => {
-  const { t } = useTranslation(['accounts', process.env.NEXT_PUBLIC_APP_NAME ?? '']);
+  const { t } = useAppTranslation('accounts');
   const { classes } = useStyles();
   const formattedItems = props.items.map((x, i) => ({
     key: `${x.identifier}-${i}`,
@@ -28,9 +28,7 @@ const Mobile: FC<{ className?: string; items: OtherTokenType[] }> = (props) => {
           <div className={classes.root}>
             <div className={classes.item}>
               <Typography variant="h4" className="label">
-                {tApp('transactions_nft', {
-                  defaultValue: t('nft'),
-                })}
+                {t('nft')}
               </Typography>
               {x.nft}
             </div>

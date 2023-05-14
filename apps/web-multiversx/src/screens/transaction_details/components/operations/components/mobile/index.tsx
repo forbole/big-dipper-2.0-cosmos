@@ -1,6 +1,6 @@
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import Link from 'next/link';
 import { FC, Fragment } from 'react';
 import AvatarName from '@/components/avatar_name';
@@ -10,7 +10,7 @@ import { formatNumber } from '@/utils/format_token';
 import { NFT_DETAILS, TOKEN_DETAILS } from '@/utils/go_to_page';
 
 const Mobile: FC<{ className?: string; items: OperationType[] }> = (props) => {
-  const { t } = useTranslation('transactions');
+  const { t } = useAppTranslation('transactions');
   const { classes } = useStyles();
   const formattedItems = props.items.map((x, i) => {
     const isToken = x?.identifier ?? ''.split('-').length === 2;

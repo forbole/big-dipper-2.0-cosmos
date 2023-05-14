@@ -2,12 +2,13 @@ import Name from '@/components/name';
 import MsgCreateIssuer from '@/models/msg/authority/msg_create_issuer';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import Typography from '@mui/material/Typography';
-import { Trans, useTranslation } from 'next-i18next';
+import { Trans } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC } from 'react';
 
 const CreateIssuer: FC<{ message: MsgCreateIssuer }> = (props) => {
   const { message } = props;
-  const { t } = useTranslation('transactions');
+  const { t } = useAppTranslation('transactions');
 
   const authority = useProfileRecoil(message.authority);
   const authorityMoniker = authority ? authority?.name : message.authority;

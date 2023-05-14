@@ -1,9 +1,9 @@
 import Typography from '@mui/material/Typography';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import useStyles from '@/components/condition_explanation/styles';
 
 const ConditionExplanation = () => {
-  const { t } = useTranslation('validators');
+  const { t } = useAppTranslation('validators');
   const { classes, cx } = useStyles();
 
   const conditions = [
