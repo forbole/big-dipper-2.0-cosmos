@@ -38,7 +38,7 @@ const TransByApp = (props: ComponentProps<typeof Trans>) => {
   );
 
   // return `Trans` component with `i18nKeysMerged` as `i18nKey` prop.
-  return <TransByApp {...propsRest} i18nKey={i18nKeysMerged} />;
+  return <Trans {...propsRest} i18nKey={i18nKeysMerged} />;
 };
 
 export default TransByApp;
