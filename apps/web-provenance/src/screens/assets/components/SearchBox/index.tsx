@@ -1,7 +1,7 @@
 import useStyles from '@/screens/assets/styles';
 import SearchIcon from '@mui/icons-material/Search';
 import TextField from '@mui/material/TextField';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC } from 'react';
 
 export interface SearchBoxProps {
@@ -10,7 +10,7 @@ export interface SearchBoxProps {
 }
 
 const SearchBox: FC<SearchBoxProps> = ({ searchText, handleChange }) => {
-  const { t } = useTranslationByApp('assets');
+  const { t } = useAppTranslation('assets');
   const { classes } = useStyles();
   return (
     <TextField

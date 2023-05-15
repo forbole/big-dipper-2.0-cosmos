@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import TransByApp from '@/components/TransByApp';
+import AppTrans from '@/components/AppTrans';
 import { FC } from 'react';
 import Name from '@/components/name';
 import MsgTransferNFT from '@/models/msg/nft/msg_transfer_nft';
@@ -16,7 +16,7 @@ const TransferNFT: FC<{ message: MsgTransferNFT }> = (props) => {
 
   return (
     <Typography>
-      <TransByApp
+      <AppTrans
         i18nKey="message_contents:txTransferNFTContent"
         components={[
           <Name address={message.sender} name={senderMoniker} />,

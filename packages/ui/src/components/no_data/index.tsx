@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC } from 'react';
 import { useRecoilValue } from 'recoil';
 import NotFoundDark from 'shared-utils/assets/not-found-dark.svg';
@@ -9,7 +9,7 @@ import useStyles from '@/components/no_data/styles';
 
 const NoData: FC<ComponentDefault> = ({ className }) => {
   const { classes, cx } = useStyles();
-  const { t } = useTranslationByApp('common');
+  const { t } = useAppTranslation('common');
   const theme = useRecoilValue(readTheme);
 
   return (

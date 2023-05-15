@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC } from 'react';
 import { useRecoilValue } from 'recoil';
 import ChainIcon from '@/components/ChainIcon';
@@ -13,7 +13,7 @@ type TitleBarProps = {
 };
 
 const TitleBar: FC<TitleBarProps> = ({ className, title }) => {
-  const { t } = useTranslationByApp('common');
+  const { t } = useAppTranslation('common');
   const { classes, cx } = useStyles();
   const marketState = useRecoilValue(readMarket);
 

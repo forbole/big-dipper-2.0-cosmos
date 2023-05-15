@@ -1,4 +1,4 @@
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import numeral from 'numeral';
 import { FC } from 'react';
 import SingleBlock from '@/screens/home/components/data_blocks/components/single_block';
@@ -6,7 +6,7 @@ import { useDataBlocks } from '@/screens/home/components/data_blocks/hooks';
 import useStyles from '@/screens/home/components/data_blocks/styles';
 
 const DataBlocks: FC<ComponentDefault> = ({ className }) => {
-  const { t } = useTranslationByApp('home');
+  const { t } = useAppTranslation('home');
   const { classes, cx } = useStyles();
   const { state } = useDataBlocks();
   const data = [
@@ -34,7 +34,7 @@ const DataBlocks: FC<ComponentDefault> = ({ className }) => {
       className: classes.validators,
     },
     {
-      key: t('web_cheqd:home.cheqdWallets'),
+      key: t('cheqdWallets'),
       value: numeral(state.cheqdWallets).format('0,0'),
       className: classes.cheqdWallets,
     },

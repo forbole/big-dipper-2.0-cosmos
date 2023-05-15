@@ -4,13 +4,13 @@ import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { getShardDisplay } from '@/utils/get_shard_display';
 import { BLOCK_DETAILS } from '@/utils/go_to_page';
 import Divider from '@mui/material/Divider';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
 import { FC, Fragment } from 'react';
 
 const Mobile: FC<{ className?: string; items: BlockType[] }> = (props) => {
-  const { t } = useTranslationByApp('block');
+  const { t } = useAppTranslation('block');
   const formattedItems = props.items.map((x) => {
     const shard = getShardDisplay(x.shard);
     return {

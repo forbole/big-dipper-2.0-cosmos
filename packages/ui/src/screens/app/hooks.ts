@@ -1,7 +1,7 @@
 import chainConfig from '@/chainConfig';
 import { init } from '@socialgouv/matomo-next';
 import * as jdenticon from 'jdenticon';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { useEffect, useRef } from 'react';
 
 const { chainType, marketing } = chainConfig();
@@ -12,7 +12,7 @@ export const useApp = () => {
   // ==========================
   // language
   // ==========================
-  const { i18n } = useTranslationByApp();
+  const { i18n } = useAppTranslation();
   const initializedRef = useRef(false);
 
   useEffect(() => {

@@ -1,6 +1,6 @@
 import type { Distribution, Gov, Minting, Slashing, Staking } from '@/screens/params/types';
 import { nanoToSeconds, secondsToDays } from '@/utils/time';
-import type { TFunction } from '@/hooks/useTranslationByApp';
+import type { TFunction } from '@/hooks/useAppTranslation';
 import numeral from 'numeral';
 import { ReactNode } from 'react';
 

@@ -9,7 +9,7 @@ import Divider from '@mui/material/Divider';
 import Skeleton from '@mui/material/Skeleton';
 import Typography from '@mui/material/Typography';
 import Grid2 from '@mui/material/Unstable_Grid2';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 
 const CodeRowMobile = ({
   index,
@@ -23,7 +23,7 @@ const CodeRowMobile = ({
   const offset = index - (index % itemsPerPage);
   const { items } = useWasmCodesByOffset(cursor, variables, offset);
   const { classes, cx } = useStyles();
-  const { t } = useTranslationByApp('wasm_contracts');
+  const { t } = useAppTranslation('wasm_contracts');
 
   const item = items?.[index - offset] ?? (offset === 0 ? preloadedItems[index] : undefined);
   return (

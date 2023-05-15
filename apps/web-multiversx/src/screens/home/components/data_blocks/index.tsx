@@ -1,4 +1,4 @@
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import numeral from 'numeral';
 import { FC } from 'react';
 import { useRecoilValue } from 'recoil';
@@ -8,7 +8,7 @@ import { useDataBlocks } from '@/screens/home/components/data_blocks/hooks';
 import useStyles from '@/screens/home/components/data_blocks/styles';
 
 const DataBlocks: FC<ComponentDefault> = (props) => {
-  const { t } = useTranslationByApp('home');
+  const { t } = useAppTranslation('home');
   const { classes, cx } = useStyles();
   const marketState = useRecoilValue(readMarket);
   const { state } = useDataBlocks();

@@ -1,4 +1,4 @@
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import dayjs from '@/utils/dayjs';
@@ -8,7 +8,7 @@ const isClient = typeof window === 'object';
 
 export function useChainHealthCheck() {
   const [chainActive, setChainActive] = useState(true);
-  const { t } = useTranslationByApp('common');
+  const { t } = useAppTranslation('common');
   const [getLatestBlockTimestamp] = useLatestBlockTimestampLazyQuery({
     onCompleted: (data) => {
       const timestamp = dayjs.utc(data?.block?.[0]?.timestamp ?? '');

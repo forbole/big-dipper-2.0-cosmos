@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import TransByApp from '@/components/TransByApp';
+import AppTrans from '@/components/AppTrans';
 import { FC } from 'react';
 import Name from '@/components/name';
 import MsgEditRegisteredReaction from '@/models/msg/reactions/msg_edit_registered_reaction';
@@ -14,7 +14,7 @@ const EditRegisteredReaction: FC<{ message: MsgEditRegisteredReaction }> = (prop
 
   return (
     <Typography>
-      <TransByApp
+      <AppTrans
         i18nKey="message_contents:txMsgEditRegisteredReaction"
         components={[<Name address={message.user} name={userMoniker} />, <b />]}
         values={{

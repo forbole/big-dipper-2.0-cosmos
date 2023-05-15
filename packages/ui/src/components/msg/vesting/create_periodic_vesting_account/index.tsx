@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import TransByApp from '@/components/TransByApp';
+import AppTrans from '@/components/AppTrans';
 import { FC } from 'react';
 import Name from '@/components/name';
 import { MsgCreatePeriodicVestingAccount } from '@/models';
@@ -13,7 +13,7 @@ const CreatePeriodicVestingAccount: FC<{ message: MsgCreatePeriodicVestingAccoun
 
   return (
     <Typography>
-      <TransByApp
+      <AppTrans
         i18nKey="message_contents:MsgCreatePeriodicVestingAccount"
         components={[<Name address={message.toAddress} name={toMoniker} />]}
       />

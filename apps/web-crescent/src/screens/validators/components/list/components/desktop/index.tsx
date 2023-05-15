@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import numeral from 'numeral';
 import { ComponentProps, CSSProperties, FC, LegacyRef, ReactNode } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
@@ -30,7 +30,7 @@ type GridColumnProps = {
 };
 
 const GridColumn: FC<GridColumnProps> = ({ column, sortKey, sortDirection, handleSort, style }) => {
-  const { t } = useTranslationByApp('validators');
+  const { t } = useAppTranslation('validators');
   const { classes, cx } = useStyles();
 
   const { key, align, component, sort, sortKey: sortingKey } = column;
@@ -92,7 +92,7 @@ type GridRowProps = {
 const GridRow: FC<GridRowProps> = ({ column, style, rowIndex, align, item, search, i }) => {
   const { classes, cx } = useStyles();
   const { name, address, imageUrl } = item.validator;
-  const { t } = useTranslationByApp('validators');
+  const { t } = useAppTranslation('validators');
 
   if (search) {
     const formattedSearch = search.toLowerCase().replace(/ /g, '');
@@ -173,7 +173,7 @@ type DesktopProps = {
 };
 
 const Desktop: FC<DesktopProps> = (props) => {
-  const { t } = useTranslationByApp('validators');
+  const { t } = useAppTranslation('validators');
   const { classes, cx } = useStyles();
   const columns = fetchColumns(t);
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);

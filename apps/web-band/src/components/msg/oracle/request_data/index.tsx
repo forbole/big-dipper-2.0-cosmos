@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import TransByApp from '@/components/TransByApp';
+import AppTrans from '@/components/AppTrans';
 import numeral from 'numeral';
 import { FC } from 'react';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
@@ -14,7 +14,7 @@ const RequestData: FC<{ message: MsgRequestData }> = (props) => {
 
   return (
     <Typography>
-      <TransByApp
+      <AppTrans
         i18nKey="message_contents:txRequestData"
         components={[<Name address={message.sender} name={senderMoniker} />, <b />]}
         values={{

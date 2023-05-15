@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import TransByApp from '@/components/TransByApp';
+import AppTrans from '@/components/AppTrans';
 import { FC } from 'react';
 import Name from '@/components/name';
 import { MsgExec } from '@/models';
@@ -13,7 +13,7 @@ const Exec: FC<{ message: MsgExec }> = (props) => {
 
   return (
     <Typography>
-      <TransByApp
+      <AppTrans
         i18nKey="message_contents:MsgExec"
         components={[<Name address={message.grantee} name={granteeMoniker} />]}
       />

@@ -7,13 +7,13 @@ import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { TRANSACTION_DETAILS } from '@/utils/go_to_page';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import Link from 'next/link';
 import { FC, Fragment } from 'react';
 
 const Mobile: FC<{ className?: string; items: TransactionType[] }> = (props) => {
   const { classes } = useStyles();
-  const { t } = useTranslationByApp('transactions');
+  const { t } = useAppTranslation('transactions');
 
   const formattedItems = props.items.map((x) => ({
     key: x.hash,

@@ -3,13 +3,13 @@ import MsgBurnTokens from '@/models/msg/liquidity_provider/msg_burn_tokens';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { formatNumber, formatToken } from '@/utils/format_token';
 import Typography from '@mui/material/Typography';
-import TransByApp from '@/components/TransByApp';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import AppTrans from '@/components/AppTrans';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC } from 'react';
 
 const BurnTokens: FC<{ message: MsgBurnTokens }> = (props) => {
   const { message } = props;
-  const { t } = useTranslationByApp('transactions');
+  const { t } = useAppTranslation('transactions');
 
   const liquidityProvider = useProfileRecoil(message.liquidityProvider);
   const liqdPvdMoniker = liquidityProvider ? liquidityProvider?.name : message.liquidityProvider;
@@ -28,7 +28,7 @@ const BurnTokens: FC<{ message: MsgBurnTokens }> = (props) => {
 
   return (
     <Typography>
-      <TransByApp
+      <AppTrans
         i18nKey="message_contents:txBurnTokens"
         components={[<Name address={message.liquidityProvider} name={liqdPvdMoniker} />, <b />]}
         values={{

@@ -1,7 +1,7 @@
 import BoxDetails from '@/components/box_details';
 import Layout from '@/components/layout';
 import LoadAndExist from '@/components/load_and_exist';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { useParams } from '@/screens/params/hooks';
 import useStyles from '@/screens/params/styles';
 import {
@@ -15,7 +15,7 @@ import {
 import { NextSeo } from 'next-seo';
 
 const Params = () => {
-  const { t } = useTranslationByApp('params');
+  const { t } = useAppTranslation('params');
   const { classes } = useStyles();
   const { state } = useParams();
 
@@ -56,7 +56,7 @@ const Params = () => {
 
   const oracle = state.oracle
     ? {
-        title: t('web_band:params.oracle') ?? undefined,
+        title: t('params:oracle') ?? undefined,
         details: formatOracle(state.oracle, t),
       }
     : null;

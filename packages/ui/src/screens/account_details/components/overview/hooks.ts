@@ -1,5 +1,5 @@
 import copy from 'copy-to-clipboard';
-import type { TFunction } from '@/hooks/useTranslationByApp';
+import type { TFunction } from '@/hooks/useAppTranslation';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 

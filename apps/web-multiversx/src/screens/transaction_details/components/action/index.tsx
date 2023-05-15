@@ -1,4 +1,4 @@
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC } from 'react';
 import BoxDetails from '@/components/box_details';
 import useStyles from '@/screens/transaction_details/components/action/styles';
@@ -6,7 +6,7 @@ import type { ActionType } from '@/screens/transaction_details/types';
 
 const Action: FC<ActionType & ComponentDefault> = (props) => {
   const { classes } = useStyles();
-  const { t } = useTranslationByApp('transactions');
+  const { t } = useAppTranslation('transactions');
 
   const details = [
     {

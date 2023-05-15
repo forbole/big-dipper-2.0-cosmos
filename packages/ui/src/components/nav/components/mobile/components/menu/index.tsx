@@ -10,7 +10,7 @@ import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
 import Drawer from '@mui/material/Drawer';
 import MenuItem from '@mui/material/MenuItem';
 import Typography from '@mui/material/Typography';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import ThemeToggle from '@/components/nav/components/theme_toggle';
@@ -18,7 +18,7 @@ import Language from 'shared-utils/assets/icon-language.svg';
 
 const Menu = (props: MenuProps) => {
   const router = useRouter();
-  const { t, i18n } = useTranslationByApp('common');
+  const { t, i18n } = useAppTranslation('common');
 
   const { toggleNavMenus, className } = props;
 

@@ -4,8 +4,8 @@ import DialogTitle from '@mui/material/DialogTitle';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import CloseIcon from '@mui/icons-material/Close';
-import TransByApp from '@/components/TransByApp';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import AppTrans from '@/components/AppTrans';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC } from 'react';
 
 type InstallKeplrExtensionDialogProps = {
@@ -20,7 +20,7 @@ const InstallKeplrExtensionDialog: FC<InstallKeplrExtensionDialogProps> = ({
   onClose,
 }) => {
   const { classes } = useStyles();
-  const { t } = useTranslationByApp();
+  const { t } = useAppTranslation();
 
   return (
     <div>
@@ -34,7 +34,7 @@ const InstallKeplrExtensionDialog: FC<InstallKeplrExtensionDialogProps> = ({
             </Typography>
             <div>
               <Typography className={classes.subtitle}>
-                <TransByApp
+                <AppTrans
                   i18nKey="common:couldntFindWalletExtension"
                   components={[
                     <a target="_blank" rel="noreferrer" href={walletUrl}>

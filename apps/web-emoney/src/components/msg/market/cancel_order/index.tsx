@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import TransByApp from '@/components/TransByApp';
+import AppTrans from '@/components/AppTrans';
 import { FC } from 'react';
 import Name from '@/components/name';
 import MsgCancelOrder from '@/models/msg/market/msg_cancel_order';
@@ -12,7 +12,7 @@ const CancelOrder: FC<{ message: MsgCancelOrder }> = (props) => {
 
   return (
     <Typography>
-      <TransByApp
+      <AppTrans
         i18nKey="message_contents:txCancelOrderContent"
         components={[<Name address={message.owner} name={ownerMoniker} />, <b />]}
         values={{

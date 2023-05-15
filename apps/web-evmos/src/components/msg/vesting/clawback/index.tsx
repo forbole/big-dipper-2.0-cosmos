@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import TransByApp from '@/components/TransByApp';
+import AppTrans from '@/components/AppTrans';
 import { FC } from 'react';
 import Name from '@/components/name';
 import MsgClawback from '@/models/msg/vesting/msg_clawback';
@@ -16,7 +16,7 @@ const Clawback: FC<{ message: MsgClawback }> = (props) => {
 
   return (
     <Typography>
-      <TransByApp
+      <AppTrans
         i18nKey="message_contents:MsgClawback"
         components={[
           <Name address={message.accountAddress} name={accountMoniker} />,

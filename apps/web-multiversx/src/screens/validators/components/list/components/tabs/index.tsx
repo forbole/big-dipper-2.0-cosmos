@@ -1,5 +1,5 @@
 import { ComponentProps, FC } from 'react';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import { a11yProps } from '@/utils/a11yProps';
@@ -17,7 +17,7 @@ type TabsHeaderProps = {
 
 const TabsHeader: FC<TabsHeaderProps> = (props) => {
   const { classes, cx } = useStyles();
-  const { t } = useTranslationByApp('validators');
+  const { t } = useAppTranslation('validators');
 
   return (
     <div className={cx(classes.root, props.className)}>

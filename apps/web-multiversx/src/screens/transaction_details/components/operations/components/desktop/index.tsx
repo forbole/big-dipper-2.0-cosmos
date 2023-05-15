@@ -4,7 +4,7 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import Link from 'next/link';
 import { FC } from 'react';
 import { NFT_DETAILS, TOKEN_DETAILS } from '@/utils/go_to_page';
@@ -15,7 +15,7 @@ import { columns } from '@/screens/transaction_details/components/operations/com
 import AvatarName from '@/components/avatar_name';
 
 const Desktop: FC<{ className?: string; items: OperationType[] }> = (props) => {
-  const { t } = useTranslationByApp('transactions');
+  const { t } = useAppTranslation('transactions');
   const formattedItems = props.items.map((x, i) => {
     const isToken = x?.identifier ?? ''.split('-').length === 2;
     const isNft = x?.identifier ?? ''.split('-').length === 3;

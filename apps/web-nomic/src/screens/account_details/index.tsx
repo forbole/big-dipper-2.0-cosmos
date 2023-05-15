@@ -1,5 +1,5 @@
 import React from 'react';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { NextSeo } from 'next-seo';
 import Layout from '@/components/layout';
 import LoadAndExist from '@/components/load_and_exist';
@@ -11,7 +11,7 @@ import OtherTokens from '@/screens/account_details/components/other_tokens';
 import { useAccountDetails } from '@/screens/account_details/hooks';
 
 const AccountDetails = () => {
-  const { t } = useTranslationByApp('accounts');
+  const { t } = useAppTranslation('accounts');
   const { classes } = useStyles();
   const { state } = useAccountDetails();
 

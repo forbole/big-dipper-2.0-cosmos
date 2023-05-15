@@ -9,12 +9,12 @@ import useStyles, { HEIGHT_DESKTOP, HEIGHT_MOBILE_CONTRACT } from '@/screens/was
 import { useDisplayStyles } from '@/styles/useSharedStyles';
 import Paper from '@mui/material/Paper';
 import Grid2 from '@mui/material/Unstable_Grid2';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { NextSeo } from 'next-seo';
 import { ChangeEvent, useCallback, useDeferredValue, useMemo, useRef, useState } from 'react';
 
 const WasmContracts = () => {
-  const { t } = useTranslationByApp('wasm_contracts');
+  const { t } = useAppTranslation('wasm_contracts');
   const { classes, cx, theme } = useStyles();
 
   const title = t('wasmContracts');

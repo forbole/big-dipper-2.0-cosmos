@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import Typography from '@mui/material/Typography';
 import Box from '@/components/box';
 import BlocksList from '@/components/blocks_list';
@@ -7,7 +7,7 @@ import NoData from '@/components/no_data';
 import useStyles from '@/screens/node_details/components/blocks/styles';
 
 const Blocks: FC<{ className?: string; blocks: BlockType[] }> = (props) => {
-  const { t } = useTranslationByApp('nodes');
+  const { t } = useAppTranslation('nodes');
   const { classes } = useStyles();
   let component = null;
   if (!props.blocks.length) {

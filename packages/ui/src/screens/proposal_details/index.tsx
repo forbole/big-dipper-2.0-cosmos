@@ -1,5 +1,5 @@
 import { NextSeo } from 'next-seo';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import Layout from '@/components/layout';
 import LoadAndExist from '@/components/load_and_exist';
 import Deposits from '@/screens/proposal_details/components/deposits';
@@ -11,7 +11,7 @@ import useStyles from '@/screens/proposal_details/styles';
 import { shouldShowData } from '@/screens/proposal_details/utils';
 
 const ProposalDetails = () => {
-  const { t } = useTranslationByApp('proposals');
+  const { t } = useAppTranslation('proposals');
   const { classes } = useStyles();
   const { state } = useProposalDetails();
   const { overview } = state;

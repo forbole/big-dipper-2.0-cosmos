@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC } from 'react';
 import NoData from '@/components/no_data';
 import Pagination from '@/components/pagination';
@@ -14,7 +14,7 @@ import {
 import useStyles from '@/screens/miniblock_details/components/transactions/styles';
 
 const Transactions: FC<ComponentDefault> = (props) => {
-  const { t } = useTranslationByApp('block');
+  const { t } = useAppTranslation('block');
   const { classes, cx } = useStyles();
   const { state, handlePageChangeCallback } = useTransactions();
   const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange } = usePagination({

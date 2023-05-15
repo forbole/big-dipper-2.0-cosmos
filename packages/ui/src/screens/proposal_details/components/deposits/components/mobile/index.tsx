@@ -1,6 +1,6 @@
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC, Fragment } from 'react';
 import { useRecoilValue } from 'recoil';
 import AvatarName from '@/components/avatar_name';
@@ -18,7 +18,7 @@ type DepositRowProps = {
 };
 
 const DepositsRow: FC<DepositRowProps> = ({ i, item, isLast }) => {
-  const { t } = useTranslationByApp('proposals');
+  const { t } = useAppTranslation('proposals');
   const { classes } = useStyles();
   const dateFormat = useRecoilValue(readDate);
   const timeFormat = useRecoilValue(readTimeFormat);

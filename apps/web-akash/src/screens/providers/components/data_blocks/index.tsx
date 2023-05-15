@@ -1,4 +1,4 @@
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import numeral from 'numeral';
 import { FC } from 'react';
 import useStyles from '@/screens/providers/components/data_blocks/styles';
@@ -11,7 +11,7 @@ type DataBlocksProps = {
 };
 
 const DataBlocks: FC<DataBlocksProps> = ({ className, providers, leases }) => {
-  const { t } = useTranslationByApp('providers');
+  const { t } = useAppTranslation('providers');
   const { classes, cx } = useStyles();
   const data = [
     {

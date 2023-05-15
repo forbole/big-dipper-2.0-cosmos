@@ -8,11 +8,11 @@ import { useBlocks } from '@/screens/blocks/hooks';
 import useStyles from '@/screens/blocks/styles';
 import { useDisplayStyles } from '@/styles/useSharedStyles';
 import { NextSeo } from 'next-seo';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { ReactNode } from 'react';
 
 const Blocks = () => {
-  const { t } = useTranslationByApp('block');
+  const { t } = useAppTranslation('block');
   const { classes } = useStyles();
   const display = useDisplayStyles().classes;
   const { state, loadMoreItems, itemCount, isItemLoaded } = useBlocks();

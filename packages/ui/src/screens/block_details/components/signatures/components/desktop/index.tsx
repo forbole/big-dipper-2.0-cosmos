@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC, LegacyRef, useMemo } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { VariableSizeGrid as Grid } from 'react-window';
@@ -17,7 +17,7 @@ type DesktopProps = {
 };
 
 const Desktop: FC<DesktopProps> = ({ className, signatures }) => {
-  const { t } = useTranslationByApp('block');
+  const { t } = useAppTranslation('block');
   const { classes, cx } = useStyles();
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
   const signaturesMemo = useShallowMemo(signatures);

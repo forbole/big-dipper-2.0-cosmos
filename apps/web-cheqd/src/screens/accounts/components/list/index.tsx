@@ -6,7 +6,7 @@ import Pagination from '@/components/pagination';
 import { useProfilesRecoil } from '@/recoil/profiles/hooks';
 import { useAccounts } from '@/screens/accounts/components/list/hooks';
 import useStyles from '@/screens/accounts/components/list/styles';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import dynamic from 'next/dynamic';
 import React, { ComponentProps, useCallback, useMemo } from 'react';
 
@@ -19,7 +19,7 @@ type Props = {
 
 const List: React.FC<Props> = ({ className }) => {
   const { classes, cx } = useStyles();
-  const { t } = useTranslationByApp('accounts');
+  const { t } = useAppTranslation('accounts');
   const { items, loading, exists, page, setPage, rowsPerPage, setRowsPerPage } = useAccounts();
   const addresses = useMemo(() => items?.map((x) => x.address ?? '') ?? [], [items]);
   const dataProfiles = useProfilesRecoil(addresses).profiles;
@@ -41,9 +41,7 @@ const List: React.FC<Props> = ({ className }) => {
   return (
     <LoadAndExist loading={loading} exists={exists}>
       <Box className={cx(className, classes.root)}>
-        <div className={classes.refreshDelayNotice}>
-          {t('web_cheqd:accounts.refresh_delay_notice')}
-        </div>
+        <div className={classes.refreshDelayNotice}>{t('accounts:refresh_delay_notice')}</div>
         {!showData && <Loading />}
         <Desktop className={classes.desktop} items={mergedDataWithProfiles} />
         <Mobile className={classes.mobile} items={mergedDataWithProfiles} />

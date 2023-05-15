@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import TransByApp from '@/components/TransByApp';
+import AppTrans from '@/components/AppTrans';
 import numeral from 'numeral';
 import { FC } from 'react';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
@@ -17,7 +17,7 @@ const IscnChangeOwnership: FC<{ message: MsgChangeIscnRecordOwnership }> = (prop
 
   return (
     <Typography>
-      <TransByApp
+      <AppTrans
         i18nKey="message_contents:txChangeIscnRecordOwnershipContent"
         components={[
           <Name address={message.from} name={fromMoniker} />,

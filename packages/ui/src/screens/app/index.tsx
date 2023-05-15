@@ -10,7 +10,7 @@ import {
   TWITTER_SEO,
 } from '@/screens/app/utils';
 import { ApolloProvider, NormalizedCacheObject } from '@apollo/client';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { DefaultSeo } from 'next-seo';
 import { RecoilRoot } from 'recoil';
 
@@ -20,7 +20,7 @@ function MyApp(props: MainProps<{ initialApolloState?: NormalizedCacheObject }>)
   useApp();
   const { pageProps } = props;
   const apolloClient = useApollo(pageProps.initialApolloState);
-  const { t } = useTranslationByApp();
+  const { t } = useAppTranslation();
   const { location } = useWindowOrigin();
 
   return (

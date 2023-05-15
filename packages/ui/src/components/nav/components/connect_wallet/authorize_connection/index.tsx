@@ -5,7 +5,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import CloseIcon from '@mui/icons-material/Close';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC } from 'react';
 import LinearLoading from '@/components/linear_loading';
 
@@ -21,7 +21,7 @@ const AuthorizeConnectionDialog: FC<AuthorizeConnectionDialogProps> = ({
   onClose,
 }) => {
   const { classes } = useStyles();
-  const { t } = useTranslationByApp();
+  const { t } = useAppTranslation();
 
   return (
     <div>

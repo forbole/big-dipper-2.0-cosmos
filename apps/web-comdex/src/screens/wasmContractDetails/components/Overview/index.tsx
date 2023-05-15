@@ -4,7 +4,7 @@ import Timestamp from '@/components/Timestamp';
 import { OverviewProps } from '@/screens/wasmContractDetails/types';
 import ContractName from '@/screens/wasmContracts/components/ContractName';
 import ContractTypeName from '@/screens/wasmContracts/components/ContractTypeName';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import numeral from 'numeral';
 import * as R from 'ramda';
 import { FC } from 'react';
@@ -12,7 +12,7 @@ import { FC } from 'react';
 const formatExecutes = R.pipe(R.defaultTo(0), numeral, (r) => r.format('0,0'));
 
 const Overview: FC<OverviewProps> = ({ className, overview, codeId, count, executed_at }) => {
-  const { t } = useTranslationByApp('wasm_contracts');
+  const { t } = useAppTranslation('wasm_contracts');
 
   if (!overview) return null;
   return (

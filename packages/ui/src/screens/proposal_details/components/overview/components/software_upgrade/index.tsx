@@ -2,7 +2,7 @@ import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import numeral from 'numeral';
 import { FC } from 'react';
 
@@ -13,7 +13,7 @@ type SoftwareUpgradeProps = {
 };
 
 const SoftwareUpgrade: FC<SoftwareUpgradeProps> = ({ height, info, name }) => {
-  const { t } = useTranslationByApp('proposals');
+  const { t } = useAppTranslation('proposals');
   return (
     <div
       style={{

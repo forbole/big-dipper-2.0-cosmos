@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import TransByApp from '@/components/TransByApp';
+import AppTrans from '@/components/AppTrans';
 import { FC } from 'react';
 import Name from '@/components/name';
 import MsgDeleteSubspace from '@/models/msg/subspaces/msg_delete_subspace';
@@ -14,7 +14,7 @@ const DeleteSubspace: FC<{ message: MsgDeleteSubspace }> = (props) => {
 
   return (
     <Typography>
-      <TransByApp
+      <AppTrans
         i18nKey="message_contents:txMsgDeleteSubspace"
         components={[<Name address={message.signer} name={signerMoniker} />, <b />]}
         values={{

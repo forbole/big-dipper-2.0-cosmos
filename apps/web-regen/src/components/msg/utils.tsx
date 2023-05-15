@@ -3,7 +3,7 @@ import Tag from '@/components/tag';
 import * as MODELS from '@/models';
 import type { Log } from '@/models/msg/types';
 import isKeyOf from '@/utils/isKeyOf';
-import type { TFunction } from '@/hooks/useTranslationByApp';
+import type { TFunction } from '@/hooks/useAppTranslation';
 import * as R from 'ramda';
 import { FC } from 'react';
 

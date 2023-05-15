@@ -1,5 +1,5 @@
 import { NextSeo } from 'next-seo';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import Layout from '@/components/layout';
 import LoadAndExist from '@/components/load_and_exist';
 import Overview from '@/screens/block_details/components/overview';
@@ -9,7 +9,7 @@ import { useBlockDetails } from '@/screens/block_details/hooks';
 import useStyles from '@/screens/block_details/styles';
 
 const BlockDetails = () => {
-  const { t } = useTranslationByApp('block');
+  const { t } = useAppTranslation('block');
   const { classes } = useStyles();
   const { state } = useBlockDetails();
   const { overview, signatures, transactions } = state;

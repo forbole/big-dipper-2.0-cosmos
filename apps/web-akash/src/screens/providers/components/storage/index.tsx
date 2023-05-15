@@ -2,7 +2,7 @@ import Box from '@/components/box';
 import CustomToolTip from '@/components/custom_tool_tip';
 import useStyles from '@/screens/providers/components/storage/styles';
 import Typography from '@mui/material/Typography';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import dynamic from 'next/dynamic';
 import numeral from 'numeral';
 import { FC } from 'react';
@@ -22,7 +22,7 @@ type StorageProps = {
 };
 
 const Storage: FC<StorageProps> = ({ className, storage }) => {
-  const { t } = useTranslationByApp('providers');
+  const { t } = useAppTranslation('providers');
   const { classes, cx, theme } = useStyles();
 
   const total = storage.available + storage.used + storage.pending;

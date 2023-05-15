@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component: AppTrans renders app-specific translation when available 1`] = `
+<span
+  data-testid="Trans"
+  i18nKey={
+    [
+      "app_name:translation.testKey",
+      "translation:testKey",
+    ]
+  }
+/>
+`;
+
+exports[`component: AppTrans renders default translation if app-specific translation is not available 1`] = `
+<span
+  data-testid="Trans"
+  i18nKey="translation:testKey"
+/>
+`;

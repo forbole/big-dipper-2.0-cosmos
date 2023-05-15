@@ -1,11 +1,11 @@
 import { FC } from 'react';
 import numeral from 'numeral';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import BoxDetails from '@/components/box_details';
 import type { StatsType } from '@/screens/node_details/types';
 
 const Stats: FC<{ className?: string; stats: StatsType }> = (props) => {
-  const { t } = useTranslationByApp('nodes');
+  const { t } = useAppTranslation('nodes');
   const details = [
     {
       key: 'ignoredSignatures',

@@ -1,11 +1,11 @@
 import Typography from '@mui/material/Typography';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC } from 'react';
 import type { SingleBlockMobileType } from '@/components/single_block_mobile/types';
 import useStyles from '@/components/single_block_mobile/styles';
 
 const SingleBlockMobile: FC<SingleBlockMobileType & ComponentDefault> = (props) => {
-  const { t } = useTranslationByApp('block');
+  const { t } = useAppTranslation('block');
   const { classes, cx } = useStyles();
 
   return (

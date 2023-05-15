@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import TransByApp from '@/components/TransByApp';
+import AppTrans from '@/components/AppTrans';
 import { FC } from 'react';
 import Name from '@/components/name';
 import MsgLinkApplication from '@/models/msg/profiles/msg_link_application';
@@ -13,7 +13,7 @@ const LinkApplication: FC<{ message: MsgLinkApplication }> = (props) => {
 
   return (
     <Typography>
-      <TransByApp
+      <AppTrans
         i18nKey="message_contents:txMsgLinkApplication"
         components={[<Name address={message.sender} name={senderMoniker} />, <b />]}
         values={{

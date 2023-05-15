@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import TransByApp from '@/components/TransByApp';
+import AppTrans from '@/components/AppTrans';
 import { FC } from 'react';
 import Name from '@/components/name';
 import MsgEditDataSource from '@/models/msg/oracle/msg_edit_data_source';
@@ -13,7 +13,7 @@ const EditDataSource: FC<{ message: MsgEditDataSource }> = (props) => {
 
   return (
     <Typography>
-      <TransByApp
+      <AppTrans
         i18nKey="message_contents:txEditDataSource"
         components={[<Name address={message.sender} name={senderMoniker} />, <b />]}
         values={{

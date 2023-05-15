@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import TransByApp from '@/components/TransByApp';
+import AppTrans from '@/components/AppTrans';
 import numeral from 'numeral';
 import { FC } from 'react';
 import Name from '@/components/name';
@@ -22,7 +22,7 @@ const OpenBid: FC<{ message: MsgOpenBid }> = (props) => {
 
   return (
     <Typography>
-      <TransByApp
+      <AppTrans
         i18nKey="message_contents:txMsgOpenBid"
         components={[<Name address={message.bidder} name={bidderMoniker} />, <b />]}
         values={{

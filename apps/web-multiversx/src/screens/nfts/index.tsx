@@ -1,13 +1,13 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import Layout from '@/components/layout';
 import List from '@/screens/nfts/components/list';
 import useStyles from '@/screens/nfts/styles';
 
 const Blocks = () => {
   const { classes } = useStyles();
-  const { t } = useTranslationByApp('nfts');
+  const { t } = useAppTranslation('nfts');
 
   return (
     <>

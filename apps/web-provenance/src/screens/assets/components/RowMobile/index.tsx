@@ -12,7 +12,7 @@ import Popover from '@mui/material/Popover';
 import Skeleton from '@mui/material/Skeleton';
 import Typography from '@mui/material/Typography';
 import Grid2 from '@mui/material/Unstable_Grid2';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { useState } from 'react';
 
 const RowMobile = ({
@@ -27,7 +27,7 @@ const RowMobile = ({
   const offset = index - (index % itemsPerPage);
   const { items } = useAssetsByOffset(cursor, variables, offset);
   const { classes, cx } = useStyles();
-  const { t } = useTranslationByApp('assets');
+  const { t } = useAppTranslation('assets');
 
   const item = items?.[index - offset] ?? (offset === 0 ? preloadedItems[index] : undefined);
 

@@ -9,11 +9,11 @@ import { decodeBase64 } from '@/utils/base64';
 import { formatNumber } from '@/utils/format_token';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC, Fragment } from 'react';
 
 const SmartContractResults: FC<{ results: ResultType[] }> = (props) => {
-  const { t } = useTranslationByApp('transactions');
+  const { t } = useAppTranslation('transactions');
   const { classes, cx } = useStyles();
   const display = useDisplayStyles().classes;
 

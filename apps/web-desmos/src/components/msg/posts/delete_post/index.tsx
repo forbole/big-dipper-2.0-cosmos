@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import TransByApp from '@/components/TransByApp';
+import AppTrans from '@/components/AppTrans';
 import { FC } from 'react';
 import Name from '@/components/name';
 import MsgDeletePost from '@/models/msg/posts/msg_delete_post';
@@ -14,7 +14,7 @@ const DeletePost: FC<{ message: MsgDeletePost }> = (props) => {
 
   return (
     <Typography>
-      <TransByApp
+      <AppTrans
         i18nKey="message_contents:txMsgDeletePost"
         components={[<Name address={message.signer} name={signerMoniker} />, <b />]}
         values={{

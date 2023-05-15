@@ -1,22 +1,22 @@
 import React from 'react';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { NextSeo } from 'next-seo';
 import Layout from '@/components/layout';
 import useStyles from '@/screens/accounts/styles';
 import List from '@/screens/accounts/components/list';
 
 const Accounts = () => {
-  const { t } = useTranslationByApp('accounts');
+  const { t } = useAppTranslation('accounts');
   const { classes } = useStyles();
   return (
     <>
       <NextSeo
-        title={t('web_cheqd:accounts.topAccounts') ?? undefined}
+        title={t('accounts:topAccounts') ?? undefined}
         openGraph={{
-          title: t('web_cheqd:accounts.topAccounts') ?? undefined,
+          title: t('accounts:topAccounts') ?? undefined,
         }}
       />
-      <Layout navTitle={t('web_cheqd:accounts.topAccounts') ?? undefined} className={classes.root}>
+      <Layout navTitle={t('accounts:topAccounts') ?? undefined} className={classes.root}>
         <List />
       </Layout>
     </>

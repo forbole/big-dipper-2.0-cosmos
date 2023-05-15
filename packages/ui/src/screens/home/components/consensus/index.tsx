@@ -5,7 +5,7 @@ import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { useConsensus } from '@/screens/home/components/consensus/hooks';
 import useStyles from '@/screens/home/components/consensus/styles';
 import Typography from '@mui/material/Typography';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import dynamic from 'next/dynamic';
 import numeral from 'numeral';
 import { FC } from 'react';
@@ -16,7 +16,7 @@ const DynamicRadialBarChart = dynamic(() => Promise.resolve(RadialBarChart), { s
 const Consensus: FC<ComponentDefault> = ({ className }) => {
   const { classes, cx, theme } = useStyles();
   const { state } = useConsensus();
-  const { t } = useTranslationByApp('home');
+  const { t } = useAppTranslation('home');
 
   const data = [
     {

@@ -1,5 +1,5 @@
 import { NextSeo } from 'next-seo';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import DesmosProfile from '@/components/desmos_profile';
 import Layout from '@/components/layout';
 import LoadAndExist from '@/components/load_and_exist';
@@ -11,7 +11,7 @@ import { useValidatorDetails } from '@/screens/validator_details/hooks';
 import useStyles from '@/screens/validator_details/styles';
 
 const ValidatorDetails = () => {
-  const { t } = useTranslationByApp('validators');
+  const { t } = useAppTranslation('validators');
   const { classes } = useStyles();
   const { state, loading } = useValidatorDetails();
   const { desmosProfile, exists, overview, status, votingPower } = state;

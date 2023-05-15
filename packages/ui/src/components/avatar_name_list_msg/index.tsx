@@ -1,4 +1,4 @@
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { Fragment } from 'react';
 import Name from '@/components/name';
 
@@ -7,7 +7,7 @@ import Name from '@/components/name';
  * using AvatarNames
  */
 const AvatarNameListMsg = (props: { avatars: AvatarName[] }) => {
-  const { t } = useTranslationByApp('transactions');
+  const { t } = useAppTranslation('transactions');
   const { avatars } = props;
   return (
     <>

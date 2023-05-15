@@ -1,5 +1,5 @@
 import { NextSeo } from 'next-seo';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import Layout from '@/components/layout';
 import LoadAndExist from '@/components/load_and_exist';
 import Logs from '@/screens/transaction_details/components/logs';
@@ -9,7 +9,7 @@ import { useTransactionDetails } from '@/screens/transaction_details/hooks';
 import useStyles from '@/screens/transaction_details/styles';
 
 const TransactionDetails = () => {
-  const { t } = useTranslationByApp('transactions');
+  const { t } = useAppTranslation('transactions');
   const { classes } = useStyles();
   const { state, onMessageFilterCallback, toggleMessageDisplay, filterMessages } =
     useTransactionDetails();

@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC } from 'react';
 
 type TotalProps = {
@@ -8,7 +8,7 @@ type TotalProps = {
 };
 
 const Total: FC<TotalProps> = ({ className, total }) => {
-  const { t } = useTranslationByApp('proposals');
+  const { t } = useAppTranslation('proposals');
   return (
     <Typography variant="body1" className={className}>
       {t('totalProposals', {

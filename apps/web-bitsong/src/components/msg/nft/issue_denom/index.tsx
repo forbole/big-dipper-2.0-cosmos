@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import TransByApp from '@/components/TransByApp';
+import AppTrans from '@/components/AppTrans';
 import { FC } from 'react';
 import MsgIssueDenom from '@/models/msg/nft/msg_issue_denom';
 import ListNames from '@/components/msg/nft/issue_denom/components/list_names';
@@ -10,8 +10,8 @@ const IssueDenom: FC<{ message: MsgIssueDenom }> = (props) => {
 
   return (
     <Typography>
-      <TransByApp
-        i18nKey="bitsong:message_contents:txIssueDenomContent"
+      <AppTrans
+        i18nKey="message_contents:txIssueDenomContent"
         components={[<ListNames creators={creators} />]}
       />
     </Typography>

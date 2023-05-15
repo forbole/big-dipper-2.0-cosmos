@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import TransByApp from '@/components/TransByApp';
+import AppTrans from '@/components/AppTrans';
 import { FC } from 'react';
 import Name from '@/components/name';
 import { MsgEditValidator } from '@/models';
@@ -14,7 +14,7 @@ const EditValidator: FC<{ message: MsgEditValidator }> = (props) => {
 
   return (
     <Typography>
-      <TransByApp
+      <AppTrans
         i18nKey="message_contents:txEditValidatorContent"
         components={[
           <Name

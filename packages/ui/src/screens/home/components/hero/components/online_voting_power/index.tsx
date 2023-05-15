@@ -1,12 +1,12 @@
 import Typography from '@mui/material/Typography';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import numeral from 'numeral';
 import { FC } from 'react';
 import useStyles from '@/screens/home/components/hero/components/online_voting_power/styles';
 import { useOnlineVotingPower } from '@/screens/home/components/hero/components/online_voting_power/hooks';
 
 const OnlineVotingPower: FC<ComponentDefault> = () => {
-  const { t } = useTranslationByApp('home');
+  const { t } = useAppTranslation('home');
   const { state } = useOnlineVotingPower();
 
   const votingPowerPercent =

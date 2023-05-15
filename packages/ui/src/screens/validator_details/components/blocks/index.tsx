@@ -1,6 +1,6 @@
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import numeral from 'numeral';
 import { FC } from 'react';
 import Loading from '@/components/loading';
@@ -19,7 +19,7 @@ type BlockBoxProps = {
 
 const BlockBox: FC<BlockBoxProps> = ({ i, item, state }) => {
   const { address, imageUrl, name } = useProfileRecoil(item.proposer);
-  const { t } = useTranslationByApp('validators');
+  const { t } = useAppTranslation('validators');
   const { classes, cx } = useStyles();
   return (
     <Tooltip
@@ -70,7 +70,7 @@ const BlockBox: FC<BlockBoxProps> = ({ i, item, state }) => {
 };
 
 const Blocks: FC<ComponentDefault> = ({ className }) => {
-  const { t } = useTranslationByApp('validators');
+  const { t } = useAppTranslation('validators');
   const { state, loading } = useBlocks();
   const { classes, cx } = useStyles();
   return (

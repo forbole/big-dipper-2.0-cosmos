@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC } from 'react';
 import NoData from '@/components/no_data';
 import Pagination from '@/components/pagination';
@@ -11,7 +11,7 @@ import { PAGE_SIZE, useTransactions } from '@/screens/token_details/components/t
 import useStyles from '@/screens/token_details/components/transactions/styles';
 
 const Transactions: FC<ComponentDefault> = (props) => {
-  const { t } = useTranslationByApp('tokens');
+  const { t } = useAppTranslation('tokens');
   const { classes } = useStyles();
   const { state, handlePageChangeCallback } = useTransactions();
   const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange } = usePagination({

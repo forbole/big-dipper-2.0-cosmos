@@ -2,7 +2,7 @@ import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { getMenuItems } from '@/components/nav/components/menu_items/utils';
@@ -11,7 +11,7 @@ import useStyles from '@/components/nav/components/menu_items/styles';
 const MenuItems = () => {
   const { classes, cx } = useStyles();
   const router = useRouter();
-  const { t } = useTranslationByApp('common');
+  const { t } = useAppTranslation('common');
   const items = getMenuItems();
 
   return (

@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import TransByApp from '@/components/TransByApp';
+import AppTrans from '@/components/AppTrans';
 import { FC } from 'react';
 import Name from '@/components/name';
 import { MsgBlockUser } from '@/models';
@@ -16,7 +16,7 @@ const BlockUser: FC<{ message: MsgBlockUser }> = (props) => {
 
   return (
     <Typography>
-      <TransByApp
+      <AppTrans
         i18nKey="message_contents:txBlockUserContent"
         components={[
           <Name address={message.blocker} name={blockerMoniker} />,

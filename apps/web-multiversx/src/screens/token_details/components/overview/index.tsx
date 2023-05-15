@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import Typography from '@mui/material/Typography';
 import BoxDetails from '@/components/box_details';
 import AvatarName from '@/components/avatar_name';
@@ -7,7 +7,7 @@ import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import type { OverviewType } from '@/screens/token_details/types';
 
 const Overview: FC<{ className?: string; overview: OverviewType }> = (props) => {
-  const { t } = useTranslationByApp('tokens');
+  const { t } = useAppTranslation('tokens');
 
   const details = [
     {

@@ -1,11 +1,11 @@
 import { NextSeo } from 'next-seo';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import Layout from '@/components/layout';
 import List from '@/screens/validators/components/list';
 import useStyles from '@/screens/validators/styles';
 
 const Validators = () => {
-  const { t } = useTranslationByApp('validators');
+  const { t } = useAppTranslation('validators');
   const { classes } = useStyles();
   return (
     <>

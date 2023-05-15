@@ -8,7 +8,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC } from 'react';
 import KeplrIcon from 'shared-utils/assets/keplr-wallet.svg';
 import WalletConnectIcon from 'shared-utils/assets/wallet-connect.svg';
@@ -29,7 +29,7 @@ type LoginDialogProps = {
 
 const LoginDialog: FC<LoginDialogProps> = ({ open, onClose, handleConnectWallet }) => {
   const { classes } = useStyles();
-  const { t } = useTranslationByApp();
+  const { t } = useAppTranslation();
 
   return (
     <div>

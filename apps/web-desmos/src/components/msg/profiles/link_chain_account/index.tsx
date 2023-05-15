@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import TransByApp from '@/components/TransByApp';
+import AppTrans from '@/components/AppTrans';
 import { FC } from 'react';
 import Name from '@/components/name';
 import MsgLinkChainAccount from '@/models/msg/profiles/msg_link_chain_account';
@@ -13,7 +13,7 @@ const LinkChainAccount: FC<{ message: MsgLinkChainAccount }> = (props) => {
 
   return (
     <Typography>
-      <TransByApp
+      <AppTrans
         i18nKey="message_contents:txLinkChainAccount"
         components={[<Name address={message.signer} name={signerMoniker} />, <b />]}
         values={{

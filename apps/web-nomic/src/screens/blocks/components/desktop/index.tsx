@@ -7,7 +7,7 @@ import type { BlockType } from '@/screens/blocks/types';
 import { BLOCK_DETAILS } from '@/utils/go_to_page';
 import { mergeRefs } from '@/utils/merge_refs';
 import Typography from '@mui/material/Typography';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
 import { FC, LegacyRef } from 'react';
@@ -30,7 +30,7 @@ const Desktop: FC<DesktopProps> = ({
   loadMoreItems,
   isItemLoaded,
 }) => {
-  const { t } = useTranslationByApp('block');
+  const { t } = useAppTranslation('block');
   const { classes, cx } = useStyles();
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
 

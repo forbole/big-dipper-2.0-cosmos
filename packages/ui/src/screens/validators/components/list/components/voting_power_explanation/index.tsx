@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import TransByApp from '@/components/TransByApp';
+import AppTrans from '@/components/AppTrans';
 import useStyles from '@/screens/validators/components/list/components/voting_power_explanation/styles';
 
 const VotingPowerExplanation = () => {
@@ -8,7 +8,7 @@ const VotingPowerExplanation = () => {
   return (
     <div className={classes.root}>
       <Typography>
-        <TransByApp i18nKey="validators:votingPowerExplanation" components={[<b />]} />
+        <AppTrans i18nKey="validators:votingPowerExplanation" components={[<b />]} />
       </Typography>
     </div>
   );

@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import TransByApp from '@/components/TransByApp';
+import AppTrans from '@/components/AppTrans';
 import { FC } from 'react';
 import Name from '@/components/name';
 import MsgConvertErc20 from '@/models/msg/erc20/msg_convert_erc20';
@@ -13,7 +13,7 @@ const ConvertErc20: FC<{ message: MsgConvertErc20 }> = (props) => {
 
   return (
     <Typography>
-      <TransByApp
+      <AppTrans
         i18nKey="message_contents:MsgConvertErc20"
         components={[<Name address={message.receiver} name={receiverMoniker} />, <b />]}
         values={{

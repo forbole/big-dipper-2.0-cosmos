@@ -10,7 +10,7 @@ import { ACCOUNT_DETAILS } from '@/utils/go_to_page';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import Big from 'big.js';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
 import { FC } from 'react';
@@ -25,7 +25,7 @@ type ValidatorOverviewProps = {
 const ValidatorOverview: FC<ValidatorOverviewProps> = ({ status, overview, className }) => {
   const { classes, cx } = useStyles();
   const display = useDisplayStyles().classes;
-  const { t } = useTranslationByApp('validators');
+  const { t } = useAppTranslation('validators');
   const { handleCopyToClipboard } = useAddress(t);
 
   const statusTheme = getValidatorStatus(status.inActiveSet, status.jailed, status.tombstoned);

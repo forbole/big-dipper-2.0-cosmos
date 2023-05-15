@@ -8,7 +8,7 @@ import { formatNumber } from '@/utils/format_token';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import Big from 'big.js';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import dynamic from 'next/dynamic';
 import numeral from 'numeral';
 import { FC } from 'react';
@@ -24,7 +24,7 @@ type BalanceProps = Parameters<typeof formatBalanceData>[0] & {
 };
 
 const Balance: FC<BalanceProps> = (props) => {
-  const { t } = useTranslationByApp('accounts');
+  const { t } = useAppTranslation('accounts');
   const { classes, cx, theme } = useStyles();
   const market = useRecoilValue(readMarket);
   const formattedChartData = formatBalanceData(props);

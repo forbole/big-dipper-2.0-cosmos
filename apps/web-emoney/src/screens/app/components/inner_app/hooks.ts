@@ -1,4 +1,4 @@
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import dayjs from '@/utils/dayjs';
@@ -7,7 +7,7 @@ import { useLatestBlockTimestampLazyQuery } from '@/graphql/types/general_types'
 const isClient = typeof window === 'object';
 
 export function useChainHealthCheck() {
-  const { t } = useTranslationByApp('common');
+  const { t } = useAppTranslation('common');
   const [chainActive, setChainActive] = useState(true);
 
   const [getLatestBlockTimestamp] = useLatestBlockTimestampLazyQuery({

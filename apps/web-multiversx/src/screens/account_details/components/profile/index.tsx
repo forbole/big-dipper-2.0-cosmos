@@ -5,14 +5,14 @@ import type { ProfileType } from '@/screens/account_details/types';
 import { useDisplayStyles } from '@/styles/useSharedStyles';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import Typography from '@mui/material/Typography';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC } from 'react';
 import CopyIcon from 'shared-utils/assets/icon-copy.svg';
 
 const Profile: FC<{ className?: string; profile: ProfileType }> = ({ className, profile }) => {
   const { classes, cx } = useStyles();
   const display = useDisplayStyles().classes;
-  const { t } = useTranslationByApp('accounts');
+  const { t } = useAppTranslation('accounts');
   const { handleCopyToClipboard } = useOverview(t);
 
   return (

@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import TransByApp from '@/components/TransByApp';
+import AppTrans from '@/components/AppTrans';
 import { FC } from 'react';
 import Name from '@/components/name';
 import MsgMoveSection from '@/models/msg/subspaces/msg_move_section';
@@ -14,7 +14,7 @@ const MoveSection: FC<{ message: MsgMoveSection }> = (props) => {
 
   return (
     <Typography>
-      <TransByApp
+      <AppTrans
         i18nKey="message_contents:txMsgMoveSection"
         components={[<Name address={message.signer} name={signerMoniker} />, <b />]}
         values={{

@@ -1,6 +1,6 @@
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC, Fragment } from 'react';
 import AvatarName from '@/components/avatar_name';
 import useStyles from '@/screens/account_details/components/tokens/components/list/components/mobile/styles';
@@ -9,7 +9,7 @@ import { formatNumber } from '@/utils/format_token';
 import { TOKEN_DETAILS } from '@/utils/go_to_page';
 
 const Mobile: FC<{ className?: string; items: OtherTokenType[] }> = (props) => {
-  const { t } = useTranslationByApp('accounts');
+  const { t } = useAppTranslation('accounts');
   const { classes } = useStyles();
   const formattedItems = props.items.map((x, i) => ({
     key: `${x.identifier}-${i}`,

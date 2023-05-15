@@ -1,6 +1,6 @@
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import Link from 'next/link';
 import { FC, Fragment } from 'react';
 import { useRecoilValue } from 'recoil';
@@ -21,7 +21,7 @@ const Mobile: FC<MobileProps> = ({ className, items }) => {
   const dateFormat = useRecoilValue(readDate);
   const timeFormat = useRecoilValue(readTimeFormat);
   const { classes } = useStyles();
-  const { t } = useTranslationByApp('accounts');
+  const { t } = useAppTranslation('accounts');
   const itemCount = items?.length;
   return (
     <div className={className}>

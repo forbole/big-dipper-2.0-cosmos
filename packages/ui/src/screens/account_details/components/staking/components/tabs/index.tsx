@@ -1,6 +1,6 @@
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { ComponentProps, FC, ReactNode } from 'react';
 import { a11yProps } from '@/utils/a11yProps';
 import useStyles from '@/screens/account_details/components/staking/components/tabs/styles';
@@ -19,7 +19,7 @@ interface TabsHeaderProps {
 
 const TabsHeader: FC<TabsHeaderProps> = ({ className, tab, handleTabChange, tabs }) => {
   const { classes, cx } = useStyles();
-  const { t } = useTranslationByApp('accounts');
+  const { t } = useAppTranslation('accounts');
 
   return (
     <div className={cx(classes.root, className)}>

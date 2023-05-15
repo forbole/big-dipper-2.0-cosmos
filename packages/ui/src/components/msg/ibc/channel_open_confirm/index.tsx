@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import TransByApp from '@/components/TransByApp';
+import AppTrans from '@/components/AppTrans';
 import { FC } from 'react';
 import Name from '@/components/name';
 import { type MsgChannelOpenConfirm } from '@/models';
@@ -13,7 +13,7 @@ const ChannelOpenConfirm: FC<{ message: MsgChannelOpenConfirm }> = (props) => {
 
   return (
     <Typography>
-      <TransByApp
+      <AppTrans
         i18nKey="message_contents:txChannelOpenConfirmContent"
         components={[<Name address={message.signer} name={signerMoniker} />, <b />]}
         values={{

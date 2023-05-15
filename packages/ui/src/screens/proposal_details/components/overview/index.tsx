@@ -1,6 +1,6 @@
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import numeral from 'numeral';
 import * as R from 'ramda';
 import { FC, useCallback } from 'react';
@@ -24,7 +24,7 @@ const Overview: FC<{ className?: string; overview: OverviewType }> = ({ classNam
   const dateFormat = useRecoilValue(readDate);
   const timeFormat = useRecoilValue(readTimeFormat);
   const { classes, cx } = useStyles();
-  const { t } = useTranslationByApp('proposals');
+  const { t } = useAppTranslation('proposals');
 
   const type = getProposalType(R.pathOr('', ['@type'], overview.content));
 

@@ -1,6 +1,6 @@
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC, Fragment } from 'react';
 import { formatNumber } from '@/utils/format_token';
 import type { OtherTokenType } from '@/screens/account_details/types';
@@ -13,7 +13,7 @@ type MobileProps = {
 
 const Mobile: FC<MobileProps> = ({ className, items }) => {
   const { classes } = useStyles();
-  const { t } = useTranslationByApp('accounts');
+  const { t } = useAppTranslation('accounts');
   return (
     <div className={className}>
       {items?.map((x, i) => {

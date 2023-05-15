@@ -12,7 +12,7 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { AnimatePresence, motion, Variants } from 'framer-motion';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import Link from 'next/link';
 import { FC } from 'react';
 
@@ -34,7 +34,7 @@ const variants: Variants = {
 };
 
 const Desktop: FC<{ className?: string; items: TransactionType[] }> = (props) => {
-  const { t } = useTranslationByApp('transactions');
+  const { t } = useAppTranslation('transactions');
   const { classes, cx } = useStyles();
   const formattedItems = props.items.map((x) => ({
     key: `${x.hash}-${x.timestamp}`,

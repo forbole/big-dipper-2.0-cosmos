@@ -1,4 +1,4 @@
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
 import { FC } from 'react';
@@ -30,7 +30,7 @@ type ListItemProps = Pick<ListChildComponentProps, 'index' | 'style'> & {
 const ListItem: FC<ListItemProps> = ({ index, style, setRowHeight, isItemLoaded, transaction }) => {
   const { rowRef } = useListRow(index, setRowHeight);
   const display = useDisplayStyles().classes;
-  const { t } = useTranslationByApp('transactions');
+  const { t } = useAppTranslation('transactions');
   const dateFormat = useRecoilValue(readDate);
   const timeFormat = useRecoilValue(readTimeFormat);
   if (!isItemLoaded?.(index)) {

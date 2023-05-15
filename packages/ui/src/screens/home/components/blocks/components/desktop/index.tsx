@@ -12,7 +12,7 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { AnimatePresence, motion, Variants } from 'framer-motion';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
 import { FC } from 'react';
@@ -94,7 +94,7 @@ type DesktopProps = {
 };
 
 const Desktop: FC<DesktopProps> = ({ className, items }) => {
-  const { t } = useTranslationByApp('block');
+  const { t } = useAppTranslation('block');
   const { classes, cx } = useStyles();
 
   return (

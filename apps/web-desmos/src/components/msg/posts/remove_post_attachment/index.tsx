@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import TransByApp from '@/components/TransByApp';
+import AppTrans from '@/components/AppTrans';
 import { FC } from 'react';
 import Name from '@/components/name';
 import MsgRemovePostAttachment from '@/models/msg/posts/msg_remove_post_attachment';
@@ -14,7 +14,7 @@ const RemovePostAttachment: FC<{ message: MsgRemovePostAttachment }> = (props) =
 
   return (
     <Typography>
-      <TransByApp
+      <AppTrans
         i18nKey="message_contents:txMsgRemovePostAttachment"
         components={[<Name address={message.editor} name={editorMoniker} />, <b />]}
         values={{ editor: editorMoniker }}

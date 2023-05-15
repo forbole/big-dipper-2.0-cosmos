@@ -3,7 +3,7 @@ import CancelIcon from '@mui/icons-material/Cancel';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import HelpIcon from '@mui/icons-material/Help';
 import Typography from '@mui/material/Typography';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC } from 'react';
 
 type ResultProps = {
@@ -12,7 +12,7 @@ type ResultProps = {
 };
 
 const Result: FC<ResultProps> = ({ className, status }) => {
-  const { t } = useTranslationByApp('common');
+  const { t } = useAppTranslation('common');
   const { classes, cx } = useStyles();
 
   let component = null;

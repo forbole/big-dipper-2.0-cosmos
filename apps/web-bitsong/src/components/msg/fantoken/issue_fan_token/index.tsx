@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import TransByApp from '@/components/TransByApp';
+import AppTrans from '@/components/AppTrans';
 import { FC } from 'react';
 import Name from '@/components/name';
 import MsgIssueFanToken from '@/models/msg/fantoken/msg_issue_fan_token';
@@ -13,7 +13,7 @@ const IssueFanToken: FC<{ message: MsgIssueFanToken }> = (props) => {
 
   return (
     <Typography>
-      <TransByApp
+      <AppTrans
         i18nKey="message_contents:txMsgIssueFanToken"
         components={[<Name address={message.owner} name={ownerMoniker} />, <b />]}
         values={{

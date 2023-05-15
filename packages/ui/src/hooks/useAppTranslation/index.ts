@@ -2,13 +2,25 @@ import { useTranslation } from 'next-i18next';
 import { useCallback, useMemo } from 'react';
 import { UseTranslationOptions } from 'react-i18next';
 
-const appName = process.env.NEXT_PUBLIC_APP_NAME ?? '';
+/**
+ * Returns the first item in an array or the input itself if it's a string or null.
+ * @param arg - The input array, string, or null.
+ * @returns The first item in the array or the input itself if it's a string or null.
+ */
+function getFirstItem(arg: string[] | string | null): string {
+  if (Array.isArray(arg)) {
+    return arg[0];
+  }
+  return arg ?? '';
+}
 
 /**
- * The `useTranslationByApp` function is a custom hook that extends the `useTranslation` hook from the
+ * The `useAppTranslation` function is a custom hook that extends the `useTranslation` hook from the
  * `react-i18next` library to include the app name as a namespace and handle key formatting.
  */
-const useTranslationByApp = (ns?: string | string[], options?: UseTranslationOptions) => {
+const useAppTranslation = (ns?: string | string[], options?: UseTranslationOptions) => {
+  const appName = process.env.NEXT_PUBLIC_APP_NAME ?? '';
+
   // The `nsArray` variable is the original namespace(s) to be used when `useTranslation` is called.
   // If not defined, it will be an empty array and all namespaces will be loaded by default.
   const nsArray = useMemo(() => {
@@ -22,7 +34,7 @@ const useTranslationByApp = (ns?: string | string[], options?: UseTranslationOpt
       return [ns];
     }
     return undefined;
-  }, [ns]);
+  }, [ns, appName]);
 
   // The `nsArrayWithApp` variable will be the parameters to be used
   // for `useTransaction` with namespace `appName` appended
@@ -35,12 +47,12 @@ const useTranslationByApp = (ns?: string | string[], options?: UseTranslationOpt
       return [...nsArray, appName];
     }
     return undefined;
-  }, [nsArray]);
+  }, [nsArray, appName]);
 
   // The `t` function is the translation function to be used when `useTranslation` is called.
   const { t, ...tRest } = useTranslation(nsArrayWithApp, options);
 
-  // The `tApp` function is the translation function to be used when `useTranslationByApp` is called.
+  // The `tApp` function is the translation function to be used when `useAppTranslation` is called.
   const tApp = useCallback(
     (key: string[] | string, tOptions?: object): string => {
       if (!appName) {
@@ -73,27 +85,28 @@ const useTranslationByApp = (ns?: string | string[], options?: UseTranslationOpt
             return [`${appName}:common.${k}`];
           });
 
+        const finalKeys = [...keysForApp, ...key];
         // If `tOptions` is defined, it will be used to translate the key.
         if (tOptions) {
-          return t([...keysForApp, ...key], tOptions);
+          return getFirstItem(t(finalKeys, tOptions));
         }
-        return t([...keysForApp, ...key]);
+        return getFirstItem(t(finalKeys));
       }
 
       // If `tOptions` is defined, it will be used to translate the key.
       if (tOptions) {
-        return t(key, tOptions);
+        return getFirstItem(t(key, tOptions));
       }
-      return t(key);
+      return getFirstItem(t(key));
     },
-    [nsArray, t]
+    [nsArray, appName, t]
   );
 
   return { t: tApp, ...tRest };
 };
 
-// The `TFunction` type is the return type of the `useTranslationByApp` hook.
-export type TFunction = ReturnType<typeof useTranslationByApp>['t'];
+// The `TFunction` type is the return type of the `useAppTranslation` hook.
+export type TFunction = ReturnType<typeof useAppTranslation>['t'];
 
-// The `useTranslationByApp` hook is exported as the default export.
-export default useTranslationByApp;
+// The `useAppTranslation` hook is exported as the default export.
+export default useAppTranslation;

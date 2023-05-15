@@ -3,7 +3,7 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC } from 'react';
 import { useRecoilValue } from 'recoil';
 import { formatNumber } from '@/utils/format_token';
@@ -47,7 +47,7 @@ type DesktopProps = {
 };
 
 const Desktop: FC<DesktopProps> = ({ className, items }) => {
-  const { t } = useTranslationByApp('accounts');
+  const { t } = useAppTranslation('accounts');
 
   return (
     <div className={className}>

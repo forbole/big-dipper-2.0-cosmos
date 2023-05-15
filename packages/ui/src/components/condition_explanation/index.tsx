@@ -1,9 +1,9 @@
 import Typography from '@mui/material/Typography';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import useStyles from '@/components/condition_explanation/styles';
 
 const ConditionExplanation = () => {
-  const { t } = useTranslationByApp('validators');
+  const { t } = useAppTranslation('validators');
   const { classes, cx } = useStyles();
 
   const conditions = [

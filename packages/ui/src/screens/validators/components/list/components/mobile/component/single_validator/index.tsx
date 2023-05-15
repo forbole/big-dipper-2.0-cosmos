@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import useTranslationByApp from '@/hooks/useTranslationByApp';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC, ReactNode } from 'react';
 import useStyles from '@/screens/validators/components/list/components/mobile/component/single_validator/styles';
 
@@ -21,7 +21,7 @@ const SingleValidator: FC<SingleValidatorProps> = ({
   votingPower,
   status,
 }) => {
-  const { t } = useTranslationByApp('validators');
+  const { t } = useAppTranslation('validators');
   const { classes, cx } = useStyles();
 
   return (

@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import TransByApp from '@/components/TransByApp';
+import AppTrans from '@/components/AppTrans';
 import { FC } from 'react';
 import Name from '@/components/name';
 import MsgCreateOracleScript from '@/models/msg/oracle/msg_create_oracle_script';
@@ -13,7 +13,7 @@ const CreateOracleScript: FC<{ message: MsgCreateOracleScript }> = (props) => {
 
   return (
     <Typography>
-      <TransByApp
+      <AppTrans
         i18nKey="message_contents:txCreateOracleScript"
         components={[<Name address={message.sender} name={senderMoniker} />, <b />]}
         values={{
