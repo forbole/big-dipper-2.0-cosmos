@@ -540,7 +540,7 @@ exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
                 <div
                   id="Tag"
                   theme="two"
-                  value="txSendLabel"
+                  value="message_labels:txSendLabel"
                 />
               </div>
               <span
