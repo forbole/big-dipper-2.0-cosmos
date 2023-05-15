@@ -89,7 +89,7 @@ const GridRow: FC<GridRowProps> = ({
 }) => {
   const { classes, cx } = useStyles();
   const { name, address, imageUrl } = item.validator;
-  const { t } = useTranslation('validators');
+  const { t } = useAppTranslation('validators');
   const { chainName } = chainConfig();
 
   if (search) {
