@@ -342,7 +342,7 @@ const useConnectWalletList = () => {
           keplrCustomChainInfo.chainId
         );
 
-        // continue to log in success screen
+        // continue to Sign in success screen
         continueToLoginSuccessDialog();
       }
     } catch (e) {
