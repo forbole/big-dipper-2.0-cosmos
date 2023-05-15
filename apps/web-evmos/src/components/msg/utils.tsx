@@ -447,7 +447,7 @@ export const getMessageByType = (message: unknown, viewRaw: boolean, t: TFunctio
   }
 
   return {
-    type: <Tag value={t(results.tagDisplay)} theme={results.tagTheme} />,
+    type: <Tag value={t(`message_labels:${results.tagDisplay}`)} theme={results.tagTheme} />,
     message: <results.content message={message} />,
   };
 };

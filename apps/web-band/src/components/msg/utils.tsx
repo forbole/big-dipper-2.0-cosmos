@@ -477,7 +477,7 @@ export const getMessageByType = <TMessage,>(message: TMessage, viewRaw: boolean,
 
   const Content = results.content;
   return {
-    type: <Tag value={t(results.tagDisplay)} theme={results.tagTheme} />,
+    type: <Tag value={t(`message_labels:${results.tagDisplay}`)} theme={results.tagTheme} />,
     message: <Content message={message as unknown as ComponentProps<typeof Content>['message']} />,
   };
 };
