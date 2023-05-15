@@ -10,7 +10,6 @@ import DelegateDialog from './delegate';
 import RedelegateDialog from './redelegate';
 import UndelegateDialog from './undelegate';
 import useStakingHooks from './hooks';
-import SnackBar from './snackbar';
 
 type StakeButtonProps = {
   address: string;
@@ -81,7 +80,6 @@ const StakeButton = (props: StakeButtonProps) => {
         />
         {/* <MenuItem onClick={handleCloseClaimRewardsDialog}> {t('validators:claimRewards')}</MenuItem> */}
       </Menu>
-      <SnackBar />
     </div>
   );
 };
