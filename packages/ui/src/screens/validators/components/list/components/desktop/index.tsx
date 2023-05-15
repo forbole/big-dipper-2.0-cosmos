@@ -10,13 +10,18 @@ import SortArrows from '@/components/sort_arrows';
 import { useGrid } from '@/hooks/use_react_window';
 import Condition from '@/screens/validators/components/list/components/condition';
 import useStyles from '@/screens/validators/components/list/components/desktop/styles';
-import { fetchColumns } from '@/screens/validators/components/list/components/desktop/utils';
+import {
+  fetchColumns,
+  fetchLoggedInColumns,
+} from '@/screens/validators/components/list/components/desktop/utils';
 import VotingPower from '@/screens/validators/components/list/components/voting_power';
 import VotingPowerExplanation from '@/screens/validators/components/list/components/voting_power_explanation';
 import type { ItemType } from '@/screens/validators/components/list/types';
 import { getValidatorConditionClass } from '@/utils/get_validator_condition';
 import { getValidatorStatus } from '@/utils/get_validator_status';
 import StakeButton from '@/screens/validators/components/list/components/staking/index';
+import { readIsUserLoggedIn } from '@/recoil/user';
+import { useRecoilValue } from 'recoil';
 
 type GridColumnProps = {
   column: ReturnType<typeof fetchColumns>[number];
@@ -74,9 +79,19 @@ type GridRowProps = {
   item: ItemType;
   search: string;
   i: number;
+  loggedIn: boolean;
 };
 
-const GridRow: FC<GridRowProps> = ({ column, style, rowIndex, align, item, search, i }) => {
+const GridRow: FC<GridRowProps> = ({
+  column,
+  style,
+  rowIndex,
+  align,
+  item,
+  search,
+  i,
+  loggedIn,
+}) => {
   const { classes, cx } = useStyles();
   const { name, address, imageUrl } = item.validator;
   const { t } = useTranslation('validators');
@@ -129,14 +144,14 @@ const GridRow: FC<GridRowProps> = ({ column, style, rowIndex, align, item, searc
       );
       break;
     case 'staking':
-      formatItem = (
+      formatItem = loggedIn ? (
         <StakeButton
           address={address}
           imageUrl={imageUrl}
           name={name}
           commission={`${numeral(item.commission).format('0.[00]')}%`}
         />
-      );
+      ) : null;
       break;
     default:
       break;
@@ -168,7 +183,9 @@ type DesktopProps = {
 const Desktop: FC<DesktopProps> = (props) => {
   const { t } = useTranslation('validators');
   const { classes, cx } = useStyles();
-  const columns = fetchColumns(t);
+  const loggedIn = useRecoilValue(readIsUserLoggedIn);
+
+  const columns = loggedIn ? fetchLoggedInColumns(t) : fetchColumns(t);
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
 
   return (
@@ -225,6 +242,7 @@ const Desktop: FC<DesktopProps> = (props) => {
                     item={item}
                     search={props.search}
                     i={rowIndex}
+                    loggedIn
                   />
                 );
               }}
