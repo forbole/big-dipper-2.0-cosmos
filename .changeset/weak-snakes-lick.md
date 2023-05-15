@@ -31,4 +31,4 @@
 'web': patch
 ---
 
-Shared translation for workspaces
+Shared translations for workspaces
