@@ -18,30 +18,31 @@ import useStakingHooks from '../hooks';
 type UndelegateDialogProps = {
   open: boolean;
   onClose: () => void;
-  address: string;
-  name: string;
+  validatorAddress: string;
+  validatorName: string;
   imageUrl: string;
-  commission: string;
+  validatorCommission: string;
 };
 
 const UndelegateDialog: FC<UndelegateDialogProps> = ({
   open,
   onClose,
-  address,
-  name,
+  validatorAddress,
+  validatorName,
   imageUrl,
-  commission,
+  validatorCommission,
 }) => {
   const { classes } = useStyles();
   const { t } = useTranslation();
   const {
-    setUndelegateAmount,
-    setMemoValue,
-    handleUndelegateAction,
     amount,
     memo,
     tokenFormatDenom,
     token,
+    errorMsg,
+    handleStakingAction,
+    setMemoValue,
+    setTxAmount,
   } = useStakingHooks();
 
   return (
@@ -57,14 +58,14 @@ const UndelegateDialog: FC<UndelegateDialogProps> = ({
           <Typography className={classes.subtitle}>{t('validators:undelegateFrom')}</Typography>
           <div className={classes.validatorCard}>
             <AvatarName
-              address={address}
+              address={validatorAddress}
               imageUrl={imageUrl}
-              name={name}
+              name={validatorName}
               className={classes.validatorAvatar}
             />
             <Typography className={classes.commissionLabel}>
               {t('validators:commission')}
-              <Typography className={classes.commissionValue}>{commission} </Typography>
+              <Typography className={classes.commissionValue}>{validatorCommission} </Typography>
             </Typography>
             <IconButton aria-label="close" onClick={onClose} className={classes.closeButton}>
               <CloseIcon />
@@ -99,7 +100,7 @@ const UndelegateDialog: FC<UndelegateDialogProps> = ({
             }}
             className={classes.textField}
             onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-              setUndelegateAmount(event.target.value);
+              setTxAmount(event.target.value);
             }}
           />
           <Typography className={classes.subtitle} id="memo">
@@ -123,11 +124,16 @@ const UndelegateDialog: FC<UndelegateDialogProps> = ({
               setMemoValue(event.target.value);
             }}
           />
+          {errorMsg !== '' ? (
+            <Typography variant="h5" className={classes.errorMsg}>
+              Error: {errorMsg}
+            </Typography>
+          ) : null}
         </DialogContent>
         <DialogActions>
           <div className={classes.dialogActions}>
             <Button
-              onClick={handleUndelegateAction}
+              onClick={() => handleStakingAction(validatorAddress, 'undelegate')}
               color="primary"
               className={classes.delegateButton}
             >

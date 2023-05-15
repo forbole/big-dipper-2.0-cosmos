@@ -11,35 +11,37 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import useStyles from '@/screens/validators/components/list/components/staking/styles';
 import AvatarName from '@/components/avatar_name';
+import * as React from 'react';
 import useStakingHooks from '../hooks';
 
 type DelegateDialogProps = {
   open: boolean;
   onClose: () => void;
-  address: string;
-  name: string;
+  validatorAddress: string;
+  validatorName: string;
   imageUrl: string;
-  commission: string;
+  validatorCommission: string;
 };
 
 const DelegateDialog: FC<DelegateDialogProps> = ({
   open,
   onClose,
-  address,
-  name,
+  validatorAddress,
+  validatorName,
   imageUrl,
-  commission,
+  validatorCommission,
 }) => {
   const { classes } = useStyles();
   const { t } = useTranslation();
   const {
-    setDelegateAmount,
-    setMemoValue,
-    handleDelegateAction,
     amount,
+    errorMsg,
     memo,
-    tokenFormatDenom,
     token,
+    tokenFormatDenom,
+    handleStakingAction,
+    setTxAmount,
+    setMemoValue,
   } = useStakingHooks();
 
   return (
@@ -55,14 +57,14 @@ const DelegateDialog: FC<DelegateDialogProps> = ({
           <Typography className={classes.subtitle}>{t('validators:delegateTo')}</Typography>
           <div className={classes.validatorCard}>
             <AvatarName
-              address={address}
+              address={validatorAddress}
               imageUrl={imageUrl}
-              name={name}
+              name={validatorName}
               className={classes.validatorAvatar}
             />
             <Typography className={classes.commissionLabel}>
               {t('validators:commission')}
-              <Typography className={classes.commissionValue}>{commission} </Typography>
+              <Typography className={classes.commissionValue}>{validatorCommission} </Typography>
             </Typography>
             <IconButton aria-label="close" onClick={onClose} className={classes.closeButton}>
               <CloseIcon />
@@ -84,7 +86,6 @@ const DelegateDialog: FC<DelegateDialogProps> = ({
             required
             hiddenLabel
             fullWidth
-            // margin="normal"
             placeholder={t('validators:amountPlaceholder')}
             variant="filled"
             id="delegate-amount-input"
@@ -97,7 +98,7 @@ const DelegateDialog: FC<DelegateDialogProps> = ({
             }}
             className={classes.textField}
             onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-              setDelegateAmount(event.target.value);
+              setTxAmount(event.target.value);
             }}
           />
           <Typography className={classes.subtitle} id="memo">
@@ -107,9 +108,6 @@ const DelegateDialog: FC<DelegateDialogProps> = ({
             value={memo}
             hiddenLabel
             fullWidth
-            // margin="dense"
-            // multiline={true}
-            // rows={1}
             placeholder={t('validators:optional')}
             variant="filled"
             id="delegate-memo-input"
@@ -124,11 +122,16 @@ const DelegateDialog: FC<DelegateDialogProps> = ({
               setMemoValue(event.target.value);
             }}
           />
+          {errorMsg !== '' ? (
+            <Typography variant="h5" className={classes.errorMsg}>
+              Error: {errorMsg}
+            </Typography>
+          ) : null}
         </DialogContent>
         <DialogActions>
           <div className={classes.dialogActions}>
             <Button
-              onClick={handleDelegateAction}
+              onClick={() => handleStakingAction(validatorAddress, 'delegate')}
               color="primary"
               className={classes.delegateButton}
             >

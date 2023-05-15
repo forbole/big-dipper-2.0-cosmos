@@ -23,6 +23,15 @@ const useStyles = makeStyles()((theme) => ({
       left: '250px',
     },
   },
+  errorMsg: {
+    color: theme.palette.custom.results.fail,
+    fontWeight: '550',
+    display: 'flex',
+    textAlign: 'center',
+    justifyContent: 'center',
+    overflowWrap: 'anywhere',
+    paddingTop: '16px',
+  },
   dialog: {
     '& .MuiDialog-paper': {
       width: '330px',

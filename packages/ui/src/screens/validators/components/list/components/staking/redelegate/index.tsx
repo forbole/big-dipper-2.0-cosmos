@@ -17,27 +17,28 @@ import useStakingHooks from '../hooks';
 type RedelegateDialogProps = {
   open: boolean;
   onClose: () => void;
-  address: string;
-  name: string;
+  validatorAddress: string;
+  validatorName: string;
   imageUrl: string;
-  commission: string;
+  validatorCommission: string;
 };
 
 const RedelegateDialog: FC<RedelegateDialogProps> = ({
   open,
   onClose,
-  address,
-  name,
+  validatorAddress,
+  validatorName,
   imageUrl,
-  commission,
+  validatorCommission,
 }) => {
   const { classes } = useStyles();
   const { t } = useTranslation();
   const {
-    setRedelegateAmount,
+    setTxAmount,
     setMemoValue,
-    handleRedelegateAction,
+    handleStakingAction,
     amount,
+    errorMsg,
     memo,
     tokenFormatDenom,
     token,
@@ -56,14 +57,14 @@ const RedelegateDialog: FC<RedelegateDialogProps> = ({
           <Typography className={classes.subtitle}>{t('validators:redelegateFrom')}</Typography>
           <div className={classes.validatorCard}>
             <AvatarName
-              address={address}
+              address={validatorAddress}
               imageUrl={imageUrl}
-              name={name}
+              name={validatorName}
               className={classes.validatorAvatar}
             />
             <Typography className={classes.commissionLabel}>
               {t('validators:commission')}
-              <Typography className={classes.commissionValue}>{commission} </Typography>
+              <Typography className={classes.commissionValue}>{validatorCommission} </Typography>
             </Typography>
             <IconButton aria-label="close" onClick={onClose} className={classes.closeButton}>
               <CloseIcon />
@@ -97,7 +98,7 @@ const RedelegateDialog: FC<RedelegateDialogProps> = ({
             }}
             className={classes.textField}
             onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-              setRedelegateAmount(event.target.value);
+              setTxAmount(event.target.value);
             }}
           />
           <Typography className={classes.subtitle} id="memo">
@@ -121,11 +122,16 @@ const RedelegateDialog: FC<RedelegateDialogProps> = ({
               setMemoValue(event.target.value);
             }}
           />
+          {errorMsg !== '' ? (
+            <Typography variant="h5" className={classes.errorMsg}>
+              Error: {errorMsg}
+            </Typography>
+          ) : null}
         </DialogContent>
         <DialogActions>
           <div className={classes.dialogActions}>
             <Button
-              onClick={handleRedelegateAction}
+              onClick={() => handleStakingAction(validatorAddress, 'redelegate')}
               color="primary"
               className={classes.delegateButton}
             >
