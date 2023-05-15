@@ -29,6 +29,8 @@ import {
   // coin,
   assertIsBroadcastTxSuccess,
 } from '@cosmjs/stargate';
+import { useEffect } from 'react';
+
 // import { MsgDelegate } from 'cosmjs-types/cosmos/staking/v1beta1/tx';
 // import {
 //   coin,
@@ -51,12 +53,16 @@ import { ADDRESS_KEY, CHAIN_ID } from '@/utils/localstorage';
 
 const useStakingHooks = () => {
   const [amount, setAmount] = React.useState('');
-  const [userAddress, setUserAddress] = React.useState(localStorage.getItem(ADDRESS_KEY));
-  const [chainID, setChainID] = React.useState(localStorage.getItem(CHAIN_ID));
+  const [userAddress, setUserAddress] = React.useState('');
+  const [chainID, setChainID] = React.useState('');
 
   const [memo, setMemo] = React.useState('');
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [openStakingDialog, setOpenStakingDialog] = React.useState(false);
+
+  const [openRedelegateDialog, setOpenRedelegateDialog] = React.useState(false);
+  const [openUndelegateDialog, setOpenUndelegateDialog] = React.useState(false);
+
   const open = Boolean(anchorEl);
 
   // Get mint denom
@@ -94,6 +100,19 @@ const useStakingHooks = () => {
   const handleDelegate = () => {
     setOpenStakingDialog(true);
   };
+
+  const handleRedelegate = () => {
+    setOpenRedelegateDialog(true);
+  };
+
+  const handleUndelegate = () => {
+    setOpenUndelegateDialog(true);
+  };
+
+  useEffect(() => {
+    setUserAddress(localStorage.getItem(ADDRESS_KEY));
+    setChainID(localStorage.getItem(CHAIN_ID));
+  }, []);
 
   const getFee = async (
     chosenNetwork: string,
@@ -165,6 +184,8 @@ const useStakingHooks = () => {
     handleClick,
     handleClose,
     handleDelegate,
+    handleRedelegate,
+    handleUndelegate,
     setDelegateAmount,
     setMemoValue,
     getAmount,
@@ -174,6 +195,8 @@ const useStakingHooks = () => {
     open,
     anchorEl,
     openStakingDialog,
+    openRedelegateDialog,
+    openUndelegateDialog,
     available,
     baseDenom,
     availableForStaking,

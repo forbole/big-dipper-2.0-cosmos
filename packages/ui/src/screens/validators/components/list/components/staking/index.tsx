@@ -7,7 +7,10 @@ import MenuItem from '@mui/material/MenuItem';
 import * as React from 'react';
 import { useTranslation } from 'next-i18next';
 import DelegateDialog from './delegate';
+import RedelegateDialog from './redelegate';
+import UndelegateDialog from './undelegate';
 import useStakingHooks from './hooks';
+import SnackBar from './snackbar';
 
 type StakeButtonProps = {
   address: string;
@@ -19,13 +22,23 @@ type StakeButtonProps = {
 const StakeButton = (props: StakeButtonProps) => {
   const { classes } = useStyles();
   const { t } = useTranslation();
-  const { handleClick, handleClose, handleDelegate, open, anchorEl, openStakingDialog } =
-    useStakingHooks();
+  const {
+    handleClick,
+    handleClose,
+    handleDelegate,
+    handleRedelegate,
+    handleUndelegate,
+    open,
+    anchorEl,
+    openStakingDialog,
+    openRedelegateDialog,
+    openUndelegateDialog,
+  } = useStakingHooks();
 
   return (
     <div>
       <Button id="stake-button" onClick={handleClick} className={classes.staking}>
-        <Typography variant="body1" className={classes.label}>
+        <Typography variant="body2" className={classes.label}>
           {t('validators:stake')}
         </Typography>
         <ExpandMoreIcon />
@@ -40,10 +53,27 @@ const StakeButton = (props: StakeButtonProps) => {
           name={props.name}
           commission={props.commission}
         />
-        <MenuItem onClick={handleClose}> {t('validators:redelegate')}</MenuItem>
-        <MenuItem onClick={handleClose}> {t('validators:undelegate')}</MenuItem>
+        <MenuItem onClick={handleRedelegate}> {t('validators:redelegate')}</MenuItem>
+        <RedelegateDialog
+          open={openRedelegateDialog}
+          onClose={handleClose}
+          address={props.address}
+          imageUrl={props.imageUrl}
+          name={props.name}
+          commission={props.commission}
+        />
+        <MenuItem onClick={handleUndelegate}> {t('validators:undelegate')}</MenuItem>
+        <UndelegateDialog
+          open={openUndelegateDialog}
+          onClose={handleClose}
+          address={props.address}
+          imageUrl={props.imageUrl}
+          name={props.name}
+          commission={props.commission}
+        />
         <MenuItem onClick={handleClose}> {t('validators:claimRewards')}</MenuItem>
       </Menu>
+      <SnackBar />
     </div>
   );
 };
