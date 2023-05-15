@@ -1,4 +1,4 @@
-import { SigningStargateClient } from '@cosmjs/stargate';
+import { SigningStargateClient, GasPrice } from '@cosmjs/stargate';
 import { OfflineAminoSigner, OfflineDirectSigner } from '@keplr-wallet/types';
 import { toBase64 } from '@cosmjs/encoding';
 import { PubKey } from '@/recoil/user/atom';
@@ -37,12 +37,16 @@ export const isEd25519PubKey = (pubKey: Uint8Array) => {
   return true;
 };
 
-export const getCosmosClient = (
+export const getCosmosClient = async (
   address: string,
+  mintDenom: string,
   offlineSigner: OfflineAminoSigner & OfflineDirectSigner
 ) => {
   // Initialize the gaia api with the offline signer that is injected by Keplr extension.
-  const cosmJS = new SigningStargateClient(keplrURL, address, offlineSigner);
+  const cosmJS = await SigningStargateClient.connectWithSigner(keplrURL, offlineSigner, {
+    gasPrice: GasPrice.fromString(`0.01${mintDenom}`),
+  });
+
   return cosmJS;
 };
 
@@ -71,4 +75,32 @@ export const getOfflineSignerPubKey = async (
     }
     return pubkey;
   }
+};
+
+export const getClient = async (chainID: string) => {
+  let offlineSigner;
+  let offlineSignerAddress;
+  let client;
+
+  try {
+    offlineSigner = getOfflineSigner(chainID);
+  } catch (e) {
+    return (e as Error).message;
+  }
+
+  // get offline signer address
+  try {
+    if (!offlineSigner) throw new Error('offline signer is undefined');
+    offlineSignerAddress = await getOfflineSignerAddress(offlineSigner);
+  } catch (e) {
+    return (e as Error).message;
+  }
+
+  try {
+    client = await getCosmosClient(offlineSignerAddress, 'udsm', offlineSigner);
+  } catch (e) {
+    return (e as Error).message;
+  }
+
+  return client;
 };

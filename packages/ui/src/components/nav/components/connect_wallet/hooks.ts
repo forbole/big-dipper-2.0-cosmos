@@ -324,7 +324,11 @@ const useConnectWalletList = () => {
       }
 
       const offlineSignerPubKey = await getOfflineSignerPubKey(offlineSigner);
-      const cosmJS = getCosmosClient(offlineSignerAddress, offlineSigner);
+      const cosmJS = await getCosmosClient(
+        offlineSignerAddress,
+        keplrCustomChainInfo?.stakeCurrency?.coinMinimalDenom,
+        offlineSigner
+      );
 
       if (cosmJS) {
         const key = await getAccountKey(keplrCustomChainInfo.chainId);
@@ -347,7 +351,6 @@ const useConnectWalletList = () => {
       }
     }
   };
-
   const continueToLoginSuccessDialog = () => {
     const address = localStorage.getItem(ADDRESS_KEY);
     // check if user is logged in before opening login success dialog
