@@ -7,14 +7,21 @@ import { useProfilesRecoil } from '@/recoil/profiles/hooks';
 import Desktop from '@/screens/validators/components/list/components/desktop';
 import Mobile from '@/screens/validators/components/list/components/mobile';
 import Tabs from '@/screens/validators/components/list/components/tabs';
-import { useValidators } from '@/screens/validators/components/list/hooks';
+import { useValidators, useStakingDistribution } from '@/screens/validators/components/list/hooks';
 import useStyles from '@/screens/validators/components/list/styles';
 import { useDisplayStyles } from '@/styles/useSharedStyles';
+import StakeButton from '@/screens/validators/components/list/components/staking/index';
+import Button from '@mui/material/Button';
+import { useTranslation } from 'next-i18next';
+import Typography from '@mui/material/Typography';
 
 const List: FC<ComponentDefault> = ({ className }) => {
   const { classes, cx } = useStyles();
+  const { t } = useTranslation();
   const display = useDisplayStyles().classes;
   const { state, handleTabChange, handleSearch, handleSort, sortItems, search } = useValidators();
+  const { handleStakingDistribution } = useStakingDistribution();
+
   const validatorsMemo = useShallowMemo(state.items.map((x) => x.validator));
   const { profiles: dataProfiles, loading } = useProfilesRecoil(validatorsMemo);
   const items = useMemo(
@@ -47,12 +54,28 @@ const List: FC<ComponentDefault> = ({ className }) => {
   }
 
   return (
-    <LoadAndExist loading={state.loading || !!loading} exists={state.exists}>
-      <Box className={className}>
-        <Tabs tab={state.tab} handleTabChange={handleTabChange} handleSearch={handleSearch} />
-        <div className={classes.list}>{list}</div>
-      </Box>
-    </LoadAndExist>
+    <div>
+      <div className={classes.stakingButtons}>
+        <div className={classes.staking}>
+          <StakeButton address="address" imageUrl="imageUrl" name="name" commission="12" />
+        </div>
+        <div className={classes.stakingDistribution}>
+          <Button
+            onClick={handleStakingDistribution}
+            color="primary"
+            className={classes.stakingDistrButton}
+          >
+            <Typography variant="h5">{t('validators:stakingDistribution')}</Typography>
+          </Button>
+        </div>
+      </div>
+      <LoadAndExist loading={state.loading || !!loading} exists={state.exists}>
+        <Box className={className}>
+          <Tabs tab={state.tab} handleTabChange={handleTabChange} handleSearch={handleSearch} />
+          <div className={classes.list}>{list}</div>
+        </Box>
+      </LoadAndExist>
+    </div>
   );
 };
 
