@@ -20,12 +20,14 @@ const AppTrans = (props: ComponentProps<typeof Trans>) => {
   }, [i18nKey]);
 
   // convert `i18nKey` to array of strings as store in `i18nKeysForApp` variable.
-  const i18nKeysForApp = useMemo(() => {
-    return i18nKeys.filter(Boolean).flatMap((key) => {
-      if (/:/.test(key)) return `${appName}:${key.replace(/:/, '.')}`;
-      return `${appName}:common.${key}`;
-    });
-  }, [i18nKeys, appName]);
+  const i18nKeysForApp = useMemo(
+    () =>
+      i18nKeys.filter(Boolean).flatMap((key) => {
+        if (/:/.test(key)) return `${appName}:${key.replace(/:/, '.')}`;
+        return `${appName}:common.${key}`;
+      }),
+    [i18nKeys, appName]
+  );
 
   // merge `i18nKeys` and `i18nKeysForApp` to `i18nKeysMerged` variable.
   const i18nKeysMerged = useMemo(

@@ -1,5 +1,4 @@
 import AppTrans from '@/components/AppTrans';
-import { render, screen } from '@testing-library/react';
 import i18n from 'i18next';
 import { I18nextProvider, initReactI18next } from 'react-i18next';
 import renderer from 'react-test-renderer';
