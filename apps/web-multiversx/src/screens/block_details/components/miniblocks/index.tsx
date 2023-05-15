@@ -8,7 +8,7 @@ import type { MiniBlockType } from '@/screens/block_details/types';
 import { MINIBLOCK_DETAILS } from '@/utils/go_to_page';
 
 const MiniBlocks: FC<{ className?: string; miniBlocks: MiniBlockType[] }> = (props) => {
-  const { t } = useAppTranslation('block');
+  const { t } = useAppTranslation('blocks');
   const { classes, cx } = useStyles();
   return (
     <Box className={cx(classes.root, props.className)}>

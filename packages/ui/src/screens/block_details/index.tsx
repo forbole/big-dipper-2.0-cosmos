@@ -9,7 +9,7 @@ import { useBlockDetails } from '@/screens/block_details/hooks';
 import useStyles from '@/screens/block_details/styles';
 
 const BlockDetails = () => {
-  const { t } = useAppTranslation('block');
+  const { t } = useAppTranslation('blocks');
   const { classes } = useStyles();
   const { state } = useBlockDetails();
   const { overview, signatures, transactions } = state;

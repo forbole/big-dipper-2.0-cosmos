@@ -10,7 +10,7 @@ import useStyles from '@/screens/miniblock_details/styles';
 
 const MiniBlockDetails = () => {
   const { classes } = useStyles();
-  const { t } = useAppTranslation('block');
+  const { t } = useAppTranslation('blocks');
   const { state } = useBlockDetails();
   return (
     <>

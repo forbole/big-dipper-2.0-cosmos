@@ -17,7 +17,7 @@ type DesktopProps = {
 };
 
 const Desktop: FC<DesktopProps> = ({ className, signatures }) => {
-  const { t } = useAppTranslation('block');
+  const { t } = useAppTranslation('blocks');
   const { classes, cx } = useStyles();
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
   const signaturesMemo = useShallowMemo(signatures);

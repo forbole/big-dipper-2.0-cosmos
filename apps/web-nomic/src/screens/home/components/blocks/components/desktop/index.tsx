@@ -48,7 +48,7 @@ const variants: Variants = {
 };
 
 const Desktop: FC<DesktopProps> = ({ className, items }) => {
-  const { t } = useAppTranslation('block');
+  const { t } = useAppTranslation('blocks');
   const { classes, cx } = useStyles();
 
   const formattedData = items.map((x) => ({

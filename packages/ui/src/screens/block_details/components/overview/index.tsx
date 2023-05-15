@@ -12,7 +12,7 @@ import dayjs, { formatDayJs } from '@/utils/dayjs';
 
 const Overview: FC<OverviewType & ComponentDefault> = (props, { className }) => {
   const { address, imageUrl, name } = useProfileRecoil(props.proposer);
-  const { t } = useAppTranslation('block');
+  const { t } = useAppTranslation('blocks');
   const dateFormat = useRecoilValue(readDate);
   const timeFormat = useRecoilValue(readTimeFormat);
 

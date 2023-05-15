@@ -14,7 +14,7 @@ import {
 import useStyles from '@/screens/miniblock_details/components/transactions/styles';
 
 const Transactions: FC<ComponentDefault> = (props) => {
-  const { t } = useAppTranslation('block');
+  const { t } = useAppTranslation('blocks');
   const { classes, cx } = useStyles();
   const { state, handlePageChangeCallback } = useTransactions();
   const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange } = usePagination({

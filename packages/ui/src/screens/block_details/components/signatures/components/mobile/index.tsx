@@ -15,7 +15,7 @@ type ListItemProps = Pick<ListChildComponentProps, 'index' | 'style'> & {
 };
 
 const ListItem: FC<ListItemProps> = ({ index, style, setRowHeight, signatures }) => {
-  const { t } = useAppTranslation('block');
+  const { t } = useAppTranslation('blocks');
   const { classes } = useStyles();
   const { rowRef } = useListRow(index, setRowHeight);
   const selectedItem = signatures?.[index];

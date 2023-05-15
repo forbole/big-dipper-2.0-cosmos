@@ -6,7 +6,7 @@ import useStyles from '@/screens/blocks/styles';
 
 const Blocks = () => {
   const { classes } = useStyles();
-  const { t } = useAppTranslation('block');
+  const { t } = useAppTranslation('blocks');
 
   return (
     <>

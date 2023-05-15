@@ -13,7 +13,7 @@ type SignaturesProps = ComponentDefault & {
 };
 
 const Signatures: FC<SignaturesProps> = ({ className, signatures }) => {
-  const { t } = useAppTranslation('block');
+  const { t } = useAppTranslation('blocks');
   const { classes, cx } = useStyles();
   const display = useDisplayStyles().classes;
 

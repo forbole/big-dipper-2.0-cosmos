@@ -12,7 +12,7 @@ import useAppTranslation from '@/hooks/useAppTranslation';
 import { ReactNode } from 'react';
 
 const Blocks = () => {
-  const { t } = useAppTranslation('block');
+  const { t } = useAppTranslation('blocks');
   const { classes } = useStyles();
   const display = useDisplayStyles().classes;
   const { state, loadMoreItems, itemCount, isItemLoaded } = useBlocks();

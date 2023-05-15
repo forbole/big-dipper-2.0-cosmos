@@ -5,7 +5,7 @@ import type { SingleBlockMobileType } from '@/components/single_block_mobile/typ
 import useStyles from '@/components/single_block_mobile/styles';
 
 const SingleBlockMobile: FC<SingleBlockMobileType & ComponentDefault> = (props) => {
-  const { t } = useAppTranslation('block');
+  const { t } = useAppTranslation('blocks');
   const { classes, cx } = useStyles();
 
   return (

@@ -1,7 +1,7 @@
 {
-  "common.accounts_validator": "Guardian",
-  "common.blocks_validator": "Guardian",
-  "common.common_validators": "Guardians",
+  "accounts.validator": "Guardian",
+  "blocks.validator": "Guardian",
+  "common.validators": "Guardians",
   "common.searchBarPlaceholder": "Cerca guardian / hash tx / altezza blocco / address",
   "common.searchBarPlaceholderDtag": "Cerca guardian / hash tx / altezza blocco / address / @dtag",
   "common.useValidatorAddress": "Utilizza l'address del guardian",

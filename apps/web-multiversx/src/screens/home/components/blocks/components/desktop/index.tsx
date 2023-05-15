@@ -33,7 +33,7 @@ const variants: Variants = {
 };
 
 const Desktop: FC<{ className?: string; items: BlockType[] }> = (props) => {
-  const { t } = useAppTranslation('block');
+  const { t } = useAppTranslation('blocks');
   const { classes, cx } = useStyles();
   const formattedItems = props.items.map((x) => ({
     key: x.hash,

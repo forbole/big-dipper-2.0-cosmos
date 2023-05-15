@@ -22,7 +22,7 @@ const SingleBlockMobile: FC<SingleBlockMobileProps> = ({
   time,
   proposer,
 }) => {
-  const { t } = useAppTranslation('block');
+  const { t } = useAppTranslation('blocks');
   const { classes, cx } = useStyles();
 
   return (

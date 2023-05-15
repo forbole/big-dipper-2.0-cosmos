@@ -10,7 +10,7 @@ import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC } from 'react';
 
 const Consensus: FC<{ className?: string; consensus: ConsensusType[] }> = (props) => {
-  const { t } = useAppTranslation('block');
+  const { t } = useAppTranslation('blocks');
   const { classes, cx } = useStyles();
   const display = useDisplayStyles().classes;
   return (

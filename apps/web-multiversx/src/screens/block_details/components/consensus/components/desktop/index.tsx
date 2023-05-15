@@ -13,7 +13,7 @@ import {
 import type { ConsensusType } from '@/screens/block_details/types';
 
 const Desktop: FC<{ items: ConsensusType[]; className?: string }> = (props) => {
-  const { t } = useAppTranslation('block');
+  const { t } = useAppTranslation('blocks');
   const { classes, cx } = useStyles();
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
   const itemsMemo = useShallowMemo(props.items);

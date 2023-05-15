@@ -30,7 +30,7 @@ const Desktop: FC<DesktopProps> = ({
   loadMoreItems,
   isItemLoaded,
 }) => {
-  const { t } = useAppTranslation('block');
+  const { t } = useAppTranslation('blocks');
   const { classes, cx } = useStyles();
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
 

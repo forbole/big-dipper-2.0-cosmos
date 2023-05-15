@@ -10,7 +10,7 @@ import useStyles from '@/screens/block_details/styles';
 
 const BlockDetails = () => {
   const { classes } = useStyles();
-  const { t } = useAppTranslation('block');
+  const { t } = useAppTranslation('blocks');
   const { state } = useBlockDetails();
   return (
     <>

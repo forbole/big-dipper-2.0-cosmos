@@ -1,7 +1,7 @@
 {
-  "common.accounts_validator": "Guardian",
-  "common.blocks_validator": "Guardian",
-  "common.common_validators": "Guardians",
+  "accounts.validator": "Guardian",
+  "blocks.validator": "Guardian",
+  "common.validators": "Guardians",
   "common.searchBarPlaceholder": "搜索Guardian/交易雜湊/區塊高度/錢包地址",
   "common.searchBarPlaceholderDtag": "搜索 guardian / tx hash / block height / address / @dtag",
   "common.useValidatorAddress": "請改用Guardian地址",

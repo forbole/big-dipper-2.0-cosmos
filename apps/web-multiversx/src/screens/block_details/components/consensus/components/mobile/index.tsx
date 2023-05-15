@@ -28,7 +28,7 @@ const ListItem: FC<ListItemProps> = ({
   item,
   isLast,
 }) => {
-  const { t } = useAppTranslation('block');
+  const { t } = useAppTranslation('blocks');
   const { rowRef } = useListRow(index, setRowHeight);
   return (
     <div style={style}>

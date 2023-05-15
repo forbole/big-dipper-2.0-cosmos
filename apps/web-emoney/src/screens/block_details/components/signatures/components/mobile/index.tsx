@@ -16,7 +16,7 @@ type ListItemProps = Pick<ListChildComponentProps, 'index' | 'style'> & {
 };
 
 const ListItem: FC<ListItemProps> = ({ index, style, setRowHeight, signatures, classes }) => {
-  const { t } = useAppTranslation('block');
+  const { t } = useAppTranslation('blocks');
   const { rowRef } = useListRow(index, setRowHeight);
   const selectedItem = signatures?.[index];
   const { address, imageUrl, name } = useProfileRecoil(selectedItem ?? '');

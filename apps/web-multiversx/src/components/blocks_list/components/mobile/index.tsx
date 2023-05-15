@@ -10,7 +10,7 @@ import numeral from 'numeral';
 import { FC, Fragment } from 'react';
 
 const Mobile: FC<{ className?: string; items: BlockType[] }> = (props) => {
-  const { t } = useAppTranslation('block');
+  const { t } = useAppTranslation('blocks');
   const formattedItems = props.items.map((x) => {
     const shard = getShardDisplay(x.shard);
     return {
