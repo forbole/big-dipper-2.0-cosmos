@@ -2,6 +2,8 @@ import useBigDipperNetworks from '@/hooks/useBigDipperNetworks';
 import { useMarketRecoil } from '@/recoil/market';
 import { useSettingsRecoil } from '@/recoil/settings';
 import { useValidatorRecoil } from '@/recoil/validators/hooks';
+import { useUserRecoil } from '@/recoil/user';
+import { useWalletRecoil } from '@/recoil/wallet';
 import InnerApp from '@/screens/app/components/inner_app';
 import { useGenesis, useTheme } from '@/screens/app/components/main/hooks';
 import Countdown from '@/screens/countdown';
@@ -10,8 +12,8 @@ import createEmotionCache from '@/styles/createEmotionCache';
 import { CacheProvider, EmotionCache } from '@emotion/react';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
-import { Hind_Madurai } from '@next/font/google';
 import { AppProps } from 'next/app';
+import { Hind_Madurai } from 'next/font/google';
 import Head from 'next/head';
 import { useEffect } from 'react';
 import { ToastContainer } from 'react-toastify';
@@ -21,6 +23,7 @@ const hindMadurai = Hind_Madurai({
   style: 'normal',
   display: 'swap',
   preload: true,
+  subsets: ['latin', 'latin-ext', 'tamil'],
 });
 
 // Client-side cache, shared for the whole session of the user in the browser.
@@ -39,6 +42,8 @@ const Main = (props: MainProps) => {
   useSettingsRecoil();
   useBigDipperNetworks();
   useMarketRecoil();
+  useUserRecoil();
+  useWalletRecoil();
   const { loading } = useValidatorRecoil();
 
   // =====================================

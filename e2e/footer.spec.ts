@@ -1,5 +1,9 @@
-import { test } from '@playwright/test';
+import { Locator, Page, expect, test } from '@playwright/test';
 import { interceptRoutes, waitForPopupClick, waitForReady } from './common';
+
+async function getHref(locator: Locator) {
+  return await (await locator).first().getAttribute('href');
+}
 
 test('footer', async ({ page, isMobile }) => {
   await interceptRoutes(page);
@@ -7,38 +11,63 @@ test('footer', async ({ page, isMobile }) => {
   await page.goto('.');
   await waitForReady(page);
 
-  // Test company footer section
-  await waitForPopupClick((p) => p.getByRole('link', { name: 'Forbole' }), page);
+  // Test company footer section`
+  expect(await getHref(page.getByRole('link', { name: 'Forbole', exact: true }))).toBe(
+    'https://www.forbole.com'
+  );
 
-  if (isMobile) {
-    // turn this off since it sometime fails on mobile
-    return;
-  }
+  expect(await getHref(page.getByRole('link', { name: 'Stake Now', exact: true }))).toBe(
+    'https://www.forbole.com/stake-now'
+  );
 
-  await waitForPopupClick((p) => p.getByRole('link', { name: 'Stake Now' }), page);
+  expect(await getHref(page.getByRole('link', { name: 'Contact Us', exact: true }))).toBe(
+    'https://www.forbole.com/contact'
+  );
 
-  await waitForPopupClick((p) => p.getByRole('link', { name: 'Contact Us' }), page);
-
-  await waitForPopupClick((p) => p.getByRole('link', { name: 'Blog' }), page);
+  expect(await getHref(page.getByRole('link', { name: 'Blog', exact: true }))).toBe(
+    'https://www.forbole.com/blog'
+  );
 
   // Test Big Dipper footer section
-  await waitForPopupClick((p) => p.getByRole('link', { name: 'About' }), page);
+  expect(await getHref(page.getByRole('link', { name: 'About', exact: true }))).toBe(
+    'https://bigdipper.live/#about'
+  );
 
-  await waitForPopupClick((p) => p.getByRole('link', { name: 'FAQ' }), page);
+  expect(await getHref(page.getByRole('link', { name: 'FAQ', exact: true }))).toBe(
+    'https://bigdipper.live/faq'
+  );
 
-  await waitForPopupClick((p) => p.getByRole('link', { name: 'Terms and conditions' }), page);
+  expect(await getHref(page.getByRole('link', { name: 'Terms and conditions', exact: true }))).toBe(
+    'https://bigdipper.live/terms-and-conditions'
+  );
 
-  await waitForPopupClick((p) => p.getByRole('link', { name: 'Privacy Policy' }), page);
+  expect(await getHref(page.getByRole('link', { name: 'Privacy Policy', exact: true }))).toBe(
+    'https://bigdipper.live/privacy-policy'
+  );
+
+  expect(await getHref(page.getByRole('link', { name: 'Documentation', exact: true }))).toBe(
+    'https://docs.bigdipper.live/'
+  );
 
   // Test community footer section
-  await waitForPopupClick((p) => p.getByRole('link', { name: 'Telegram' }), page);
+  expect(await getHref(page.getByRole('link', { name: 'telegram', exact: true }))).toBe(
+    'https://t.me/forbole'
+  );
 
-  await waitForPopupClick((p) => p.getByRole('link', { name: 'LinkedIn' }), page);
+  expect(await getHref(page.getByRole('link', { name: 'linkedin', exact: true }))).toBe(
+    'https://www.linkedin.com/company/forbole'
+  );
 
-  await waitForPopupClick((p) => p.getByRole('link', { name: 'Twitter' }), page);
+  expect(await getHref(page.getByRole('link', { name: 'twitter', exact: true }))).toBe(
+    'https://twitter.com/bigdipperlive'
+  );
 
-  await waitForPopupClick((p) => p.getByRole('link', { name: 'Github' }), page);
+  expect(await getHref(page.getByRole('link', { name: 'github', exact: true }))).toBe(
+    'https://github.com/forbole'
+  );
 
   // Test donate button in footer section
-  await waitForPopupClick((p) => p.getByRole('link', { name: 'Donate' }), page);
+  expect(await getHref(page.getByRole('link', { name: 'Donate', exact: true }))).toBe(
+    'https://bigdipper.live/donation'
+  );
 });

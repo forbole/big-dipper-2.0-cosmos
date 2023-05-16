@@ -33,7 +33,7 @@ test('account page - copy addresses', async ({ page, context }) => {
   }
 });
 
-test('account page - share buttons', async ({ page, isMobile }) => {
+test('account page - share buttons', async ({ page }) => {
   await interceptRoutes(page);
 
   // Test account url
@@ -44,7 +44,7 @@ test('account page - share buttons', async ({ page, isMobile }) => {
   await page.locator('#icon-share_svg__Layer_1').first().click();
 
   // // Test facebook button
-  // await waitForPopupClick((p) => p.getByRole('button', { name: 'facebook' }), page);
+  await waitForPopupClick((p) => p.getByRole('button', { name: 'facebook' }), page);
 
   // Test twitter button
   await waitForPopupClick((p) => p.getByRole('button', { name: 'twitter' }), page);
@@ -56,7 +56,7 @@ test('account page - share buttons', async ({ page, isMobile }) => {
   await waitForPopupClick((p) => p.getByRole('button', { name: 'whatsapp' }), page);
 });
 
-test('account page tabs', async ({ page, isMobile }) => {
+test('account page tabs', async ({ page }) => {
   await interceptRoutes(page);
 
   // Test account url

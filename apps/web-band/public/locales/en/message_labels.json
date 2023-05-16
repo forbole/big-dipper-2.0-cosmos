@@ -49,6 +49,13 @@
   "txConnectionEndLabel": "IBC Connection End",
   "txVersionLabel": "IBC Version",
   "txTransferLabel": "IBC Transfer",
+  "MsgGrant": "Grant",
+  "MsgRevoke": "Revoke",
+  "MsgExec": "Exec",
+  "MsgGrantAllowance": "Grant Allowance",
+  "MsgRevokeAllowance": "Revoke Allowance",
+  "MsgCreateVestingAccount": "Create Vesting Account",
+  "MsgCreatePeriodicVestingAccount": "Create Periodic Vesting Account",
   "txRequestData": "Request Data",
   "txReportData": "Report Data",
   "txCreateDataSource": "Create Data Source",
@@ -56,10 +63,6 @@
   "txCreateOracleScript": "Create Oracle Script",
   "txEditOracleScript": "Edit Oracle Script",
   "txActivate": "Activate",
-  "MsgGrant": "Grant",
-  "MsgRevoke": "Revoke",
-  "MsgGrantAllowance": "Grant Allowance",
-  "MsgRevokeAllowance": "Revoke Allowance",
-  "MsgCreateVestingAccount": "Create Vesting Account",
-  "MsgCreatePeriodicVestingAccount": "Create Periodic Vesting Account"
+  "txAddReporter": "Add Reporter",
+  "txRemoveReporter": "Remove Reporter"
 }

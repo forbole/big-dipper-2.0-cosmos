@@ -58,6 +58,30 @@ exports[`screen: BlockDetails/Overview matches snapshot 1`] = `
   display: grid;
 }
 
+.emotion-2 p {
+  line-height: 1.8;
+}
+
+.emotion-2 ul {
+  padding: 0.25rem 0.5rem;
+}
+
+@media (min-width:1280px) {
+  .emotion-2 ul {
+    padding: 0.5rem 1rem;
+  }
+}
+
+.emotion-2 li {
+  padding: 0.25rem 0.5rem;
+}
+
+@media (min-width:1280px) {
+  .emotion-2 li {
+    padding: 0.5rem 1rem;
+  }
+}
+
 .emotion-2>* {
   margin-bottom: 8px;
 }

@@ -6745,6 +6745,8 @@ export type Software_Upgrade_Plan = {
   height: Scalars['bigint'];
   info: Scalars['String'];
   plan_name: Scalars['String'];
+  /** An object relationship */
+  proposal?: Maybe<Proposal>;
   proposal_id?: Maybe<Scalars['Int']>;
   upgrade_height: Scalars['bigint'];
 };
@@ -6795,6 +6797,7 @@ export type Software_Upgrade_Plan_Bool_Exp = {
   height?: InputMaybe<Bigint_Comparison_Exp>;
   info?: InputMaybe<String_Comparison_Exp>;
   plan_name?: InputMaybe<String_Comparison_Exp>;
+  proposal?: InputMaybe<Proposal_Bool_Exp>;
   proposal_id?: InputMaybe<Int_Comparison_Exp>;
   upgrade_height?: InputMaybe<Bigint_Comparison_Exp>;
 };
@@ -6824,6 +6827,7 @@ export type Software_Upgrade_Plan_Order_By = {
   height?: InputMaybe<Order_By>;
   info?: InputMaybe<Order_By>;
   plan_name?: InputMaybe<Order_By>;
+  proposal?: InputMaybe<Proposal_Order_By>;
   proposal_id?: InputMaybe<Order_By>;
   upgrade_height?: InputMaybe<Order_By>;
 };

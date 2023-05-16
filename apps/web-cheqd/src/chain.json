@@ -1,0 +1,271 @@
+{
+  "chainName": "cheqd",
+  "title": "Cheqd Block Explorer",
+  "extra": {
+    "profile": false,
+    "graphqlWs": false,
+    "votingPowerExponent": 9
+  },
+  "previewImage": "https://s3.bigdipper.live/previews/cheqd.png",
+  "themes": {
+    "default": "dark",
+    "themeList": [
+      "dark",
+      "light",
+      "deuteranopia",
+      "tritanopia"
+    ],
+    "dark": {
+      "primary": {
+        "main": "rgba(253,59,76,0.7)",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#0A0A0A",
+        "paper": "#131316"
+      },
+      "divider": "#3D3D43",
+      "text": {
+        "primary": "#E6E6E6",
+        "secondary": "#AAAAAB"
+      },
+      "custom": {
+        "general": {
+          "surfaceOne": "#131316",
+          "surfaceTwo": "#19191D",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#E6E6E6",
+          "fontTwo": "#AAAAAB",
+          "fontThree": "#818181",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#1D86FF"
+        },
+        "primaryData": {
+          "one": "#af2929",
+          "two": "#b44516",
+          "three": "#b14237",
+          "four": "#b16919"
+        },
+        "results": {
+          "pass": "#198a65",
+          "fail": "#b12a34"
+        },
+        "tokenomics": {
+          "one": "#5E94FF",
+          "two": "#E3AB55",
+          "three": "#5ACF78"
+        },
+        "condition": {
+          "zero": "#E8E8E8",
+          "one": "#1EC490",
+          "two": "#FF961B",
+          "three": "#FC6A8A"
+        },
+        "charts": {
+          "zero": "#E8E8E8",
+          "one": "#5ACF78",
+          "two": "#5E94FF",
+          "three": "#AE73F8",
+          "four": "#E3AB55",
+          "five": "#C25396"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA891",
+          "three": "#E79720",
+          "four": "#F17047",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9944",
+          "nine": "#B49F31",
+          "ten": "#E9A846",
+          "eleven": "#E94681",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        },
+        "wallet": {
+          "background": "#5E5E5E",
+          "backgroundTwo": "#212123",
+          "surfaceOne": "#5E5C5C",
+          "surfaceTwo": "#D9D9D9",
+          "surfaceThree": "#4D4D4D",
+          "surfaceFour": "#414141",
+          "surfaceFive": "#777777",
+          "divider": "#34383E",
+          "textPrimary": "#000000",
+          "textSecondary": "#DDDDDD"
+        }
+      }
+    },
+    "light": {
+      "primary": {
+        "main": "#FD3B4C",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#F8F8F8",
+        "paper": "#FFFFFF"
+      },
+      "divider": "#E8E8E8",
+      "text": {
+        "primary": "#000000",
+        "secondary": "#414141"
+      },
+      "custom": {
+        "general": {
+          "background": "#F8F8F8",
+          "surfaceOne": "#FFFFFF",
+          "surfaceTwo": "#F8F8F8",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#000000",
+          "fontTwo": "#414141",
+          "fontThree": "#777777",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#6AA6FF"
+        },
+        "primaryData": {
+          "one": "#FA3A39",
+          "two": "#FD5E1F",
+          "three": "#FD5D4E",
+          "four": "#FD9526"
+        },
+        "results": {
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "one": "#FD9526",
+          "two": "#F4CD69",
+          "three": "#45A884"
+        },
+        "condition": {
+          "zero": "#E6E6E6",
+          "one": "#1EC490",
+          "two": "#FF9338",
+          "three": "#FF608A"
+        },
+        "charts": {
+          "zero": "#E6E6E6",
+          "one": "#45A884",
+          "two": "#50B6D7",
+          "three": "#F4CD69",
+          "four": "#F2A46B",
+          "five": "#C975F0"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA891",
+          "three": "#E79720",
+          "four": "#F17047",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9944",
+          "nine": "#B49F31",
+          "ten": "#E9A846",
+          "eleven": "#E94681",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        },
+        "wallet": {
+          "background": "#E8E8E8",
+          "backgroundTwo": "#FFFFFF",
+          "surfaceOne": "#5E5C5C",
+          "surfaceTwo": "#E8E7E8",
+          "surfaceThree": "#BDBDBD",
+          "surfaceFour": "#A1A1A1",
+          "surfaceFive": "#777777",
+          "divider": "#34383E",
+          "textPrimary": "#000000",
+          "textSecondary": "#222222"
+        }
+      }
+    }
+  },
+  "keplr": "{\"chainId\":\"cheqd-mainnet-1\",\"chainName\":\"cheqd\",\"chainSymbolImageUrl\":\"https://raw.githubusercontent.com/chainapsis/keplr-chain-registry/main/images/cheqd-mainnet/chain.png\",\"rpc\":\"https://rpc.cheqd.net\",\"rest\":\"https://api.cheqd.net\",\"nodeProvider\":{\"name\":\"cheqd Network\",\"email\":\"security-github@cheqd.io\",\"website\":\"https://cheqd.io/\"},\"walletUrlForStaking\":\"https://cheqd.omniflix.co\",\"bip44\":{\"coinType\":118},\"bech32Config\":{\"bech32PrefixAccAddr\":\"cheqd\",\"bech32PrefixAccPub\":\"cheqdpub\",\"bech32PrefixValAddr\":\"cheqdvaloper\",\"bech32PrefixValPub\":\"cheqdvaloperpub\",\"bech32PrefixConsAddr\":\"cheqdvalcons\",\"bech32PrefixConsPub\":\"cheqdvalconspub\"},\"currencies\":[{\"coinDenom\":\"CHEQ\",\"coinMinimalDenom\":\"ncheq\",\"coinDecimals\":9,\"coinGeckoId\":\"cheqd-network\"}],\"feeCurrencies\":[{\"coinDenom\":\"CHEQ\",\"coinMinimalDenom\":\"ncheq\",\"coinDecimals\":9,\"coinGeckoId\":\"cheqd-network\",\"gasPriceStep\":{\"low\":25,\"average\":50,\"high\":100}}],\"stakeCurrency\":{\"coinDenom\":\"CHEQ\",\"coinMinimalDenom\":\"ncheq\",\"coinDecimals\":9,\"coinGeckoId\":\"cheqd-network\"},\"features\":[]}",
+  "chains": [
+    {
+      "network": "cheqd-mainnet-1",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "2021-11-11T14:47:05",
+        "height": 1
+      },
+      "prefix": {
+        "consensus": "cheqdvalcons",
+        "validator": "cheqdvaloper",
+        "account": "cheqd"
+      },
+      "primaryTokenUnit": "ncheq",
+      "votingPowerTokenUnit": "ncheq",
+      "tokenUnits": {
+        "ncheq": {
+          "display": "cheq",
+          "exponent": 9
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.cheqd.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.cheqd.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc.cheqd.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
+      }
+    },
+    {
+      "network": "cheqd-testnet-4",
+      "chainType": "Testnet",
+      "genesis": {
+        "time": "2021-09-24T14:47:05",
+        "height": 1
+      },
+      "prefix": {
+        "consensus": "cheqdvalcons",
+        "validator": "cheqdvaloper",
+        "account": "cheqd"
+      },
+      "primaryTokenUnit": "ucheq",
+      "votingPowerTokenUnit": "ucheq",
+      "tokenUnits": {
+        "ucheq": {
+          "display": "cheq",
+          "exponent": 9
+        }
+      },
+      "endpoints": {
+        "graphql": "https://testnet-gql.cheqd.io/v1/graphql",
+        "graphqlWebsocket": "wss://testnet-gql.cheqd.io/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc.cheqd.network/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
+      }
+    }
+  ]
+}

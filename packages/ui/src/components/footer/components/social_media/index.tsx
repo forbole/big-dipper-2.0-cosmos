@@ -13,6 +13,7 @@ const SocialMedia = (props: Props) => {
           href={x.url}
           target="_blank"
           rel="noreferrer"
+          aria-label={x.className}
           className={`media ${x.className}`}
         >
           {x.component}

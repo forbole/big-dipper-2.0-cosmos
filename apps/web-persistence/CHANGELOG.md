@@ -1,5 +1,81 @@
 # Unreleased
 
+## 2.15.0
+
+### Minor Changes
+
+- [#1128](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1128) [`1edb0b236`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/1edb0b236d80993a19b11dc598cbcbb44d1905b4) Thanks [@MonikaCat](https://github.com/MonikaCat)! - Added login with Keplr and WalletConnect([\#1128](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1128))
+
+### Patch Changes
+
+- Updated dependencies [[`1edb0b236`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/1edb0b236d80993a19b11dc598cbcbb44d1905b4)]:
+  - shared-utils@2.16.0
+  - ui@2.27.0
+
+## 2.14.2
+
+### Patch Changes
+
+- Updated dependencies [[`2949b87b9`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/2949b87b93676df46bfb824ac486e9b96b9a5ba4)]:
+  - shared-utils@2.15.0
+  - ui@2.26.0
+
+## 2.14.1
+
+### Patch Changes
+
+- Updated dependencies [[`d106401de`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/d106401de6ad55be1efa2eedc248ad7277ce524a), [`381e863d1`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/381e863d12c2c56e1a32946f828de6cbd5350c46), [`2113969f5`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/2113969f5dea2d4a2cc177dc94f6ac8994080a67)]:
+  - ui@2.25.0
+  - shared-utils@2.14.0
+
+## 2.14.0
+
+### Minor Changes
+
+- [#1223](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1223) [`9082afdce`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/9082afdce5e76b378c612c5cd4f74161403c4a67) Thanks [@rachelhox](https://github.com/rachelhox)! - fix: missing messages from authz module
+
+### Patch Changes
+
+- Updated dependencies [[`9082afdce`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/9082afdce5e76b378c612c5cd4f74161403c4a67)]:
+  - ui@2.24.0
+
+## 2.13.2
+
+### Patch Changes
+
+- [#1221](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1221) [`2913130b0`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/2913130b072e8c3964ca104a94e7edb841001e6a) Thanks [@teamchong](https://github.com/teamchong)! - feat: combine WASM contract and code tab
+
+## 2.13.1
+
+### Patch Changes
+
+- Updated dependencies [[`26b06277b`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/26b06277b6df0ccdf17a8207c39e74d147a20e6e)]:
+  - ui@2.23.0
+
+## 2.13.0
+
+### Minor Changes
+
+- [#1191](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1191) [`9049e712c`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/9049e712c6dacedc5a4733830b2517f7fc6d4862) Thanks [@rachelhox](https://github.com/rachelhox)! - feat: footer add documentation link
+
+- [#1188](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1188) [`bf192489d`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/bf192489dfc10cf9f6679f08e6a1b96d390e2e00) Thanks [@rachelhox](https://github.com/rachelhox)! - add Quasar and Cheqd Big Dipper
+
+### Patch Changes
+
+- Updated dependencies [[`9049e712c`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/9049e712c6dacedc5a4733830b2517f7fc6d4862), [`b756f45fd`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/b756f45fde55cb582aa312f4fc9c5c49ce21173c), [`bf192489d`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/bf192489dfc10cf9f6679f08e6a1b96d390e2e00)]:
+  - ui@2.22.0
+  - shared-utils@2.13.0
+
+## 2.12.1
+
+### Patch Changes
+
+- [#1196](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1196) [`c4d1d83e3`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/c4d1d83e30922bdb86ffc20d8cde36adad34bd0c) Thanks [@teamchong](https://github.com/teamchong)! - chore: versions bump
+
+- Updated dependencies [[`c4d1d83e3`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/c4d1d83e30922bdb86ffc20d8cde36adad34bd0c), [`e1502b5d1`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/e1502b5d1ecb50b8da94fc157ac1866ee40df9a8)]:
+  - shared-utils@2.12.1
+  - ui@2.21.0
+
 ## 2.12.0
 
 ### Minor Changes

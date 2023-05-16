@@ -84,6 +84,20 @@ declare module '@mui/material/styles/createPalette' {
       pass: string;
       fail: string;
     };
+    wallet: {
+      background: string;
+      backgroundTwo: string;
+      surfaceOne: string;
+      surfaceTwo: string;
+      surfaceThree: string;
+      surfaceFour: string;
+      surfaceFive: string;
+      divider: string;
+      textPrimary: string;
+      textSecondary: string;
+      active: string;
+      inactive: string;
+    };
   }
 
   interface PaletteOptions {

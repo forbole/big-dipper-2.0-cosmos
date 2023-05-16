@@ -310,6 +310,12 @@ const defaultTypeToModel = {
     tagTheme: 'thirteen',
     tagDisplay: 'MsgRevoke',
   },
+  '/cosmos.authz.v1beta1.MsgExec': {
+    model: MODELS.MsgExec,
+    content: COMPONENTS.Exec,
+    tagTheme: 'thirteen',
+    tagDisplay: 'MsgExec',
+  },
   // ========================
   // feegrant
   // ========================
@@ -391,6 +397,18 @@ const customTypeToModel = {
     content: COMPONENTS.Activate,
     tagTheme: 'four',
     tagDisplay: 'txActivate',
+  },
+  '/oracle.v1.MsgAddReporter': {
+    model: MODELS.MsgAddReporter,
+    content: COMPONENTS.AddReporter,
+    tagTheme: 'four',
+    tagDisplay: 'txAddReporter',
+  },
+  '/oracle.v1.MsgRemoveReporter': {
+    model: MODELS.MsgRemoveReporter,
+    content: COMPONENTS.RemoveReporter,
+    tagTheme: 'four',
+    tagDisplay: 'txRemoveReporter',
   },
 };
 type CustomTypeToModel = typeof customTypeToModel;

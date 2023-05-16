@@ -165,11 +165,11 @@ const Desktop: FC<DesktopProps> = (props) => {
             <Grid
               ref={columnRef as LegacyRef<Grid>}
               columnCount={columns.length}
-              columnWidth={(index) => getColumnWidth(width, index)}
+              columnWidth={(index) => getColumnWidth(width ?? 0, index)}
               height={50}
               rowCount={1}
               rowHeight={() => 50}
-              width={width}
+              width={width ?? 0}
             >
               {({ columnIndex, style }) => (
                 <GridColumn
@@ -187,11 +187,11 @@ const Desktop: FC<DesktopProps> = (props) => {
             <Grid
               ref={gridRef as LegacyRef<Grid>}
               columnCount={columns.length}
-              columnWidth={(index) => getColumnWidth(width, index)}
-              height={height - 50}
+              columnWidth={(index) => getColumnWidth(width ?? 0, index)}
+              height={(height ?? 0) - 50}
               rowCount={props.items.length}
               rowHeight={getRowHeight}
-              width={width}
+              width={width ?? 0}
               className="scrollbar"
             >
               {({ columnIndex, rowIndex, style }) => {

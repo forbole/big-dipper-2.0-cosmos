@@ -111,6 +111,20 @@ export interface PaletteSettings {
       nineteen?: string;
       twenty?: string;
     };
+    wallet: {
+      background?: string;
+      backgroundTwo?: string;
+      surfaceOne: string;
+      surfaceTwo: string;
+      surfaceThree: string;
+      surfaceFour: string;
+      surfaceFive: string;
+      divider?: string;
+      textPrimary?: string;
+      textSecondary?: string;
+      active?: string;
+      inactive?: string;
+    };
   };
 }
 
@@ -130,4 +144,5 @@ export interface ChainConfig extends ChainSettings {
     dark: PaletteSettings;
     light: PaletteSettings;
   };
+  keplr: string | undefined;
 }

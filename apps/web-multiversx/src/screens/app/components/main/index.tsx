@@ -6,7 +6,7 @@ import { ToastContainer } from 'react-toastify';
 import useBigDipperNetworks from '@/hooks/useBigDipperNetworks';
 import { useMarketRecoil } from '@/recoil/market';
 import { CacheProvider, EmotionCache } from '@emotion/react';
-import { Hind_Madurai } from '@next/font/google';
+import { Hind_Madurai } from 'next/font/google';
 import Head from 'next/head';
 import { useEffect } from 'react';
 // import { useValidatorRecoil } from '@/recoil/validators';
@@ -20,6 +20,7 @@ const hindMadurai = Hind_Madurai({
   style: 'normal',
   display: 'swap',
   preload: true,
+  subsets: ['latin', 'latin-ext', 'tamil'],
 });
 
 // Client-side cache, shared for the whole session of the user in the browser.

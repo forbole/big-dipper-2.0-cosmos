@@ -4,6 +4,7 @@ import numeral from 'numeral';
 import { ComponentProps, CSSProperties, FC, LegacyRef, ReactNode } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { VariableSizeGrid as Grid } from 'react-window';
+import chainConfig from '@/chainConfig';
 import AvatarName from '@/components/avatar_name';
 import InfoPopover from '@/components/info_popover';
 import SortArrows from '@/components/sort_arrows';
@@ -73,12 +74,23 @@ type GridRowProps = {
   item: ItemType;
   search: string;
   i: number;
+  valLength: number;
 };
 
-const GridRow: FC<GridRowProps> = ({ column, style, rowIndex, align, item, search, i }) => {
+const GridRow: FC<GridRowProps> = ({
+  column,
+  style,
+  rowIndex,
+  align,
+  item,
+  search,
+  i,
+  valLength,
+}) => {
   const { classes, cx } = useStyles();
   const { name, address, imageUrl } = item.validator;
   const { t } = useTranslation('validators');
+  const { chainName } = chainConfig();
 
   if (search) {
     const formattedSearch = search.toLowerCase().replace(/ /g, '');
@@ -93,7 +105,12 @@ const GridRow: FC<GridRowProps> = ({ column, style, rowIndex, align, item, searc
   const status = getValidatorStatus(item.status, item.jailed, item.tombstoned);
   const condition = item.status === 3 ? getValidatorConditionClass(item.condition) : undefined;
   const percentDisplay =
-    item.status === 3 ? `${numeral(item.votingPowerPercent.toFixed(6)).format('0.[00]')}%` : '0%';
+    // eslint-disable-next-line no-nested-ternary
+    item.status === 3
+      ? chainName === 'wormhole'
+        ? `${numeral(item.votingPower.toFixed(6)).format('0.[00]')}%`
+        : `${numeral(item.votingPowerPercent.toFixed(6)).format('0.[00]')}%`
+      : '0%';
   const votingPower = numeral(item.votingPower).format('0,0');
 
   let formatItem: ReactNode | null = null;
@@ -113,8 +130,16 @@ const GridRow: FC<GridRowProps> = ({ column, style, rowIndex, align, item, searc
     case 'votingPower':
       formatItem = (
         <VotingPower
-          percentDisplay={percentDisplay}
-          percentage={item.votingPowerPercent}
+          percentDisplay={
+            chainName === 'wormhole'
+              ? `${numeral((item.votingPower / valLength) * 100).format('0.[00]')}%`
+              : percentDisplay
+          }
+          percentage={
+            chainName === 'wormhole'
+              ? (item.votingPower / valLength) * 100
+              : item.votingPowerPercent
+          }
           content={votingPower}
           topVotingPower={item.topVotingPower ?? false}
         />
@@ -171,11 +196,11 @@ const Desktop: FC<DesktopProps> = (props) => {
             <Grid
               ref={columnRef as LegacyRef<Grid>}
               columnCount={columns.length}
-              columnWidth={(index) => getColumnWidth(width, index)}
+              columnWidth={(index) => getColumnWidth(width ?? 0, index)}
               height={50}
               rowCount={1}
               rowHeight={() => 50}
-              width={width}
+              width={width ?? 0}
             >
               {({ columnIndex, style }) => (
                 <GridColumn
@@ -193,11 +218,11 @@ const Desktop: FC<DesktopProps> = (props) => {
             <Grid
               ref={gridRef as LegacyRef<Grid>}
               columnCount={columns.length}
-              columnWidth={(index) => getColumnWidth(width, index)}
-              height={height - 50}
+              columnWidth={(index) => getColumnWidth(width ?? 0, index)}
+              height={(height ?? 0) - 50}
               rowCount={props.items.length}
               rowHeight={getRowHeight}
-              width={width}
+              width={width ?? 0}
               className="scrollbar"
             >
               {({ columnIndex, rowIndex, style }) => {
@@ -213,6 +238,7 @@ const Desktop: FC<DesktopProps> = (props) => {
                     align={align}
                     item={item}
                     search={props.search}
+                    valLength={props.items.length}
                     i={rowIndex}
                   />
                 );

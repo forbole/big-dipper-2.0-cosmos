@@ -8,4 +8,4 @@ import * as R from 'ramda';
  * @returns newly merged object replacing prev state items with new state items
  */
 export const mergeStateChange = <T extends object>(prevState: T, change: Partial<T>) =>
-  R.mergeDeepLeft(change, prevState) as T;
+  R.mergeDeepLeft(change, prevState) as unknown as T;

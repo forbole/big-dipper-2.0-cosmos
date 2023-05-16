@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { makeStyles } from 'tss-react/mui';
 
 /* styles */
-const useStyles = makeStyles()(() => ({
+const useStyles = makeStyles<{ length: number }>()((theme, { length }) => ({
   root: {
     display: 'inline-flex',
     flexFlow: 'row nowrap',
@@ -19,9 +19,14 @@ const useStyles = makeStyles()(() => ({
       overflow: 'hidden',
       height: '1lh',
       lineHeight: '1lh',
-      maxWidth: '50%',
       whiteSpace: 'nowrap',
       textOverflow: 'ellipsis',
+      [theme.breakpoints.up('sm')]: {
+        maxWidth: length > 24 ? '20%' : '50%',
+      },
+      [theme.breakpoints.up('md')]: {
+        maxWidth: '50%',
+      },
     },
   },
   clip: {
@@ -32,7 +37,7 @@ const useStyles = makeStyles()(() => ({
       overflow: 'hidden',
       height: '1lh',
       lineHeight: '1lh',
-      maxWidth: '50',
+      maxWidth: 'max-content',
       whiteSpace: 'normal',
       overflowWrap: 'anywhere',
     },
@@ -66,10 +71,10 @@ const MiddleEllipsis: FC<MiddleEllipsisProps> = ({
   ellipsisOnEnd,
   ...rest
 }) => {
-  const { classes, cx } = useStyles();
   const midIndex = (content?.length ?? 0) / 2;
   const beginning = (content ?? '').substring(0, Math.max(0, midIndex - 3));
   const ending = (content ?? '').substring(beginning.length);
+  const { classes, cx } = useStyles({ length: ending.length ?? 0 });
   const [begin, end] = ellipsisOnEnd
     ? [classes.clip, classes.ellipsisEnd]
     : [classes.ellipsis, classes.clip];

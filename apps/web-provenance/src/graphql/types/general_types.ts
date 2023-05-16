@@ -26,6 +26,7 @@ export type Scalars = {
   numeric: any;
   smallint: any;
   timestamp: any;
+  timestamptz: any;
 };
 
 export type ActionAddress = {
@@ -2888,10 +2889,11 @@ export type Marker_Account = {
   denom: Scalars['String'];
   height: Scalars['bigint'];
   marker_type: Scalars['String'];
+  price: Scalars['numeric'];
   status: Scalars['String'];
-  supply: Scalars['String'];
   /** An object relationship */
   token_unit?: Maybe<Token_Unit>;
+  total_supply: Scalars['String'];
 };
 
 /** order by aggregate values of table "marker_account" */
@@ -2912,6 +2914,7 @@ export type Marker_Account_Aggregate_Order_By = {
 /** order by avg() on columns of table "marker_account" */
 export type Marker_Account_Avg_Order_By = {
   height?: InputMaybe<Order_By>;
+  price?: InputMaybe<Order_By>;
 };
 
 /** Boolean expression to filter rows from the table "marker_account". All fields are combined with a logical 'AND'. */
@@ -2926,9 +2929,10 @@ export type Marker_Account_Bool_Exp = {
   denom?: InputMaybe<String_Comparison_Exp>;
   height?: InputMaybe<Bigint_Comparison_Exp>;
   marker_type?: InputMaybe<String_Comparison_Exp>;
+  price?: InputMaybe<Numeric_Comparison_Exp>;
   status?: InputMaybe<String_Comparison_Exp>;
-  supply?: InputMaybe<String_Comparison_Exp>;
   token_unit?: InputMaybe<Token_Unit_Bool_Exp>;
+  total_supply?: InputMaybe<String_Comparison_Exp>;
 };
 
 /** order by max() on columns of table "marker_account" */
@@ -2938,8 +2942,9 @@ export type Marker_Account_Max_Order_By = {
   denom?: InputMaybe<Order_By>;
   height?: InputMaybe<Order_By>;
   marker_type?: InputMaybe<Order_By>;
+  price?: InputMaybe<Order_By>;
   status?: InputMaybe<Order_By>;
-  supply?: InputMaybe<Order_By>;
+  total_supply?: InputMaybe<Order_By>;
 };
 
 /** order by min() on columns of table "marker_account" */
@@ -2949,8 +2954,9 @@ export type Marker_Account_Min_Order_By = {
   denom?: InputMaybe<Order_By>;
   height?: InputMaybe<Order_By>;
   marker_type?: InputMaybe<Order_By>;
+  price?: InputMaybe<Order_By>;
   status?: InputMaybe<Order_By>;
-  supply?: InputMaybe<Order_By>;
+  total_supply?: InputMaybe<Order_By>;
 };
 
 /** Ordering options when selecting data from "marker_account". */
@@ -2962,9 +2968,10 @@ export type Marker_Account_Order_By = {
   denom?: InputMaybe<Order_By>;
   height?: InputMaybe<Order_By>;
   marker_type?: InputMaybe<Order_By>;
+  price?: InputMaybe<Order_By>;
   status?: InputMaybe<Order_By>;
-  supply?: InputMaybe<Order_By>;
   token_unit?: InputMaybe<Token_Unit_Order_By>;
+  total_supply?: InputMaybe<Order_By>;
 };
 
 /** select columns of table "marker_account" */
@@ -2982,44 +2989,53 @@ export enum Marker_Account_Select_Column {
   /** column name */
   MarkerType = 'marker_type',
   /** column name */
+  Price = 'price',
+  /** column name */
   Status = 'status',
   /** column name */
-  Supply = 'supply'
+  TotalSupply = 'total_supply'
 }
 
 /** order by stddev() on columns of table "marker_account" */
 export type Marker_Account_Stddev_Order_By = {
   height?: InputMaybe<Order_By>;
+  price?: InputMaybe<Order_By>;
 };
 
 /** order by stddev_pop() on columns of table "marker_account" */
 export type Marker_Account_Stddev_Pop_Order_By = {
   height?: InputMaybe<Order_By>;
+  price?: InputMaybe<Order_By>;
 };
 
 /** order by stddev_samp() on columns of table "marker_account" */
 export type Marker_Account_Stddev_Samp_Order_By = {
   height?: InputMaybe<Order_By>;
+  price?: InputMaybe<Order_By>;
 };
 
 /** order by sum() on columns of table "marker_account" */
 export type Marker_Account_Sum_Order_By = {
   height?: InputMaybe<Order_By>;
+  price?: InputMaybe<Order_By>;
 };
 
 /** order by var_pop() on columns of table "marker_account" */
 export type Marker_Account_Var_Pop_Order_By = {
   height?: InputMaybe<Order_By>;
+  price?: InputMaybe<Order_By>;
 };
 
 /** order by var_samp() on columns of table "marker_account" */
 export type Marker_Account_Var_Samp_Order_By = {
   height?: InputMaybe<Order_By>;
+  price?: InputMaybe<Order_By>;
 };
 
 /** order by variance() on columns of table "marker_account" */
 export type Marker_Account_Variance_Order_By = {
   height?: InputMaybe<Order_By>;
+  price?: InputMaybe<Order_By>;
 };
 
 /** columns and relationships of "marker_params" */
@@ -4123,6 +4139,7 @@ export type Proposal_Deposit = {
   /** An object relationship */
   proposal: Proposal;
   proposal_id: Scalars['Int'];
+  timestamp?: Maybe<Scalars['timestamptz']>;
 };
 
 /** aggregated selection of "proposal_deposit" */
@@ -4195,6 +4212,7 @@ export type Proposal_Deposit_Bool_Exp = {
   height?: InputMaybe<Bigint_Comparison_Exp>;
   proposal?: InputMaybe<Proposal_Bool_Exp>;
   proposal_id?: InputMaybe<Int_Comparison_Exp>;
+  timestamp?: InputMaybe<Timestamptz_Comparison_Exp>;
 };
 
 /** aggregate max on columns */
@@ -4203,6 +4221,7 @@ export type Proposal_Deposit_Max_Fields = {
   depositor_address?: Maybe<Scalars['String']>;
   height?: Maybe<Scalars['bigint']>;
   proposal_id?: Maybe<Scalars['Int']>;
+  timestamp?: Maybe<Scalars['timestamptz']>;
 };
 
 /** order by max() on columns of table "proposal_deposit" */
@@ -4210,6 +4229,7 @@ export type Proposal_Deposit_Max_Order_By = {
   depositor_address?: InputMaybe<Order_By>;
   height?: InputMaybe<Order_By>;
   proposal_id?: InputMaybe<Order_By>;
+  timestamp?: InputMaybe<Order_By>;
 };
 
 /** aggregate min on columns */
@@ -4218,6 +4238,7 @@ export type Proposal_Deposit_Min_Fields = {
   depositor_address?: Maybe<Scalars['String']>;
   height?: Maybe<Scalars['bigint']>;
   proposal_id?: Maybe<Scalars['Int']>;
+  timestamp?: Maybe<Scalars['timestamptz']>;
 };
 
 /** order by min() on columns of table "proposal_deposit" */
@@ -4225,6 +4246,7 @@ export type Proposal_Deposit_Min_Order_By = {
   depositor_address?: InputMaybe<Order_By>;
   height?: InputMaybe<Order_By>;
   proposal_id?: InputMaybe<Order_By>;
+  timestamp?: InputMaybe<Order_By>;
 };
 
 /** Ordering options when selecting data from "proposal_deposit". */
@@ -4236,6 +4258,7 @@ export type Proposal_Deposit_Order_By = {
   height?: InputMaybe<Order_By>;
   proposal?: InputMaybe<Proposal_Order_By>;
   proposal_id?: InputMaybe<Order_By>;
+  timestamp?: InputMaybe<Order_By>;
 };
 
 /** select columns of table "proposal_deposit" */
@@ -4247,7 +4270,9 @@ export enum Proposal_Deposit_Select_Column {
   /** column name */
   Height = 'height',
   /** column name */
-  ProposalId = 'proposal_id'
+  ProposalId = 'proposal_id',
+  /** column name */
+  Timestamp = 'timestamp'
 }
 
 /** aggregate stddev on columns */
@@ -5238,6 +5263,7 @@ export type Proposal_Vote = {
   /** An object relationship */
   proposal: Proposal;
   proposal_id: Scalars['Int'];
+  timestamp?: Maybe<Scalars['timestamptz']>;
   voter_address: Scalars['String'];
 };
 
@@ -5310,6 +5336,7 @@ export type Proposal_Vote_Bool_Exp = {
   option?: InputMaybe<String_Comparison_Exp>;
   proposal?: InputMaybe<Proposal_Bool_Exp>;
   proposal_id?: InputMaybe<Int_Comparison_Exp>;
+  timestamp?: InputMaybe<Timestamptz_Comparison_Exp>;
   voter_address?: InputMaybe<String_Comparison_Exp>;
 };
 
@@ -5319,6 +5346,7 @@ export type Proposal_Vote_Max_Fields = {
   height?: Maybe<Scalars['bigint']>;
   option?: Maybe<Scalars['String']>;
   proposal_id?: Maybe<Scalars['Int']>;
+  timestamp?: Maybe<Scalars['timestamptz']>;
   voter_address?: Maybe<Scalars['String']>;
 };
 
@@ -5327,6 +5355,7 @@ export type Proposal_Vote_Max_Order_By = {
   height?: InputMaybe<Order_By>;
   option?: InputMaybe<Order_By>;
   proposal_id?: InputMaybe<Order_By>;
+  timestamp?: InputMaybe<Order_By>;
   voter_address?: InputMaybe<Order_By>;
 };
 
@@ -5336,6 +5365,7 @@ export type Proposal_Vote_Min_Fields = {
   height?: Maybe<Scalars['bigint']>;
   option?: Maybe<Scalars['String']>;
   proposal_id?: Maybe<Scalars['Int']>;
+  timestamp?: Maybe<Scalars['timestamptz']>;
   voter_address?: Maybe<Scalars['String']>;
 };
 
@@ -5344,6 +5374,7 @@ export type Proposal_Vote_Min_Order_By = {
   height?: InputMaybe<Order_By>;
   option?: InputMaybe<Order_By>;
   proposal_id?: InputMaybe<Order_By>;
+  timestamp?: InputMaybe<Order_By>;
   voter_address?: InputMaybe<Order_By>;
 };
 
@@ -5355,6 +5386,7 @@ export type Proposal_Vote_Order_By = {
   option?: InputMaybe<Order_By>;
   proposal?: InputMaybe<Proposal_Order_By>;
   proposal_id?: InputMaybe<Order_By>;
+  timestamp?: InputMaybe<Order_By>;
   voter_address?: InputMaybe<Order_By>;
 };
 
@@ -5366,6 +5398,8 @@ export enum Proposal_Vote_Select_Column {
   Option = 'option',
   /** column name */
   ProposalId = 'proposal_id',
+  /** column name */
+  Timestamp = 'timestamp',
   /** column name */
   VoterAddress = 'voter_address'
 }
@@ -7000,6 +7034,8 @@ export type Staking_Pool = {
   bonded_tokens: Scalars['String'];
   height: Scalars['bigint'];
   not_bonded_tokens: Scalars['String'];
+  staked_not_bonded_tokens?: Maybe<Scalars['String']>;
+  unbonding_tokens?: Maybe<Scalars['String']>;
 };
 
 /** aggregated selection of "staking_pool" */
@@ -7046,6 +7082,8 @@ export type Staking_Pool_Bool_Exp = {
   bonded_tokens?: InputMaybe<String_Comparison_Exp>;
   height?: InputMaybe<Bigint_Comparison_Exp>;
   not_bonded_tokens?: InputMaybe<String_Comparison_Exp>;
+  staked_not_bonded_tokens?: InputMaybe<String_Comparison_Exp>;
+  unbonding_tokens?: InputMaybe<String_Comparison_Exp>;
 };
 
 /** aggregate max on columns */
@@ -7054,6 +7092,8 @@ export type Staking_Pool_Max_Fields = {
   bonded_tokens?: Maybe<Scalars['String']>;
   height?: Maybe<Scalars['bigint']>;
   not_bonded_tokens?: Maybe<Scalars['String']>;
+  staked_not_bonded_tokens?: Maybe<Scalars['String']>;
+  unbonding_tokens?: Maybe<Scalars['String']>;
 };
 
 /** aggregate min on columns */
@@ -7062,6 +7102,8 @@ export type Staking_Pool_Min_Fields = {
   bonded_tokens?: Maybe<Scalars['String']>;
   height?: Maybe<Scalars['bigint']>;
   not_bonded_tokens?: Maybe<Scalars['String']>;
+  staked_not_bonded_tokens?: Maybe<Scalars['String']>;
+  unbonding_tokens?: Maybe<Scalars['String']>;
 };
 
 /** Ordering options when selecting data from "staking_pool". */
@@ -7069,6 +7111,8 @@ export type Staking_Pool_Order_By = {
   bonded_tokens?: InputMaybe<Order_By>;
   height?: InputMaybe<Order_By>;
   not_bonded_tokens?: InputMaybe<Order_By>;
+  staked_not_bonded_tokens?: InputMaybe<Order_By>;
+  unbonding_tokens?: InputMaybe<Order_By>;
 };
 
 /** select columns of table "staking_pool" */
@@ -7078,7 +7122,11 @@ export enum Staking_Pool_Select_Column {
   /** column name */
   Height = 'height',
   /** column name */
-  NotBondedTokens = 'not_bonded_tokens'
+  NotBondedTokens = 'not_bonded_tokens',
+  /** column name */
+  StakedNotBondedTokens = 'staked_not_bonded_tokens',
+  /** column name */
+  UnbondingTokens = 'unbonding_tokens'
 }
 
 /** aggregate stddev on columns */
@@ -8414,6 +8462,19 @@ export type Timestamp_Comparison_Exp = {
   _lte?: InputMaybe<Scalars['timestamp']>;
   _neq?: InputMaybe<Scalars['timestamp']>;
   _nin?: InputMaybe<Array<Scalars['timestamp']>>;
+};
+
+/** Boolean expression to compare columns of type "timestamptz". All fields are combined with logical 'AND'. */
+export type Timestamptz_Comparison_Exp = {
+  _eq?: InputMaybe<Scalars['timestamptz']>;
+  _gt?: InputMaybe<Scalars['timestamptz']>;
+  _gte?: InputMaybe<Scalars['timestamptz']>;
+  _in?: InputMaybe<Array<Scalars['timestamptz']>>;
+  _is_null?: InputMaybe<Scalars['Boolean']>;
+  _lt?: InputMaybe<Scalars['timestamptz']>;
+  _lte?: InputMaybe<Scalars['timestamptz']>;
+  _neq?: InputMaybe<Scalars['timestamptz']>;
+  _nin?: InputMaybe<Array<Scalars['timestamptz']>>;
 };
 
 /** columns and relationships of "token" */
@@ -11916,7 +11977,7 @@ export type MarkerAccountQueryVariables = Exact<{
 }>;
 
 
-export type MarkerAccountQuery = { marker_account: Array<{ __typename?: 'marker_account', access_control: string, address: string, allow_governance_control: boolean, denom: string, marker_type: string, status: string, supply: string, token_unit?: { __typename?: 'token_unit', denom: string, exponent: number, token_name: string } | null }> };
+export type MarkerAccountQuery = { marker_account: Array<{ __typename?: 'marker_account', access_control: string, address: string, allow_governance_control: boolean, denom: string, marker_type: string, status: string, token_unit?: { __typename?: 'token_unit', denom: string, exponent: number, token_name: string } | null }> };
 
 export type MarketDataQueryVariables = Exact<{
   denom?: InputMaybe<Scalars['String']>;
@@ -12789,7 +12850,6 @@ export const MarkerAccountDocument = gql`
     denom
     marker_type
     status
-    supply
     token_unit {
       denom
       exponent

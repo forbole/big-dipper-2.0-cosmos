@@ -1,0 +1,321 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Accounts/Desktop matches snapshot 1`] = `
+.emotion-0 {
+  height: 100%;
+}
+
+.emotion-0 .status.one {
+  color: #2460FA;
+}
+
+.emotion-0 .status.two {
+  color: #2BA891;
+}
+
+.emotion-0 .status.three {
+  color: #E79720;
+}
+
+.emotion-0 .status.zero {
+  color: #E8E8E8;
+}
+
+.emotion-1 {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.emotion-1 caption {
+  font-size: 0.875rem;
+  letter-spacing: 0.25px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.43;
+  padding: 16px;
+  color: #AAAAAB;
+  text-align: left;
+  caption-side: bottom;
+}
+
+.emotion-2 {
+  display: table-header-group;
+}
+
+.emotion-2 {
+  background-color: initial;
+}
+
+.emotion-3 {
+  color: inherit;
+  display: table-row;
+  vertical-align: middle;
+  outline: 0;
+}
+
+.emotion-3.MuiTableRow-hover:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.emotion-3.Mui-selected {
+  background-color: rgba(253, 59, 76, 0.16);
+}
+
+.emotion-3.Mui-selected:hover {
+  background-color: rgba(253, 59, 76, 0.24);
+}
+
+.emotion-4 {
+  display: table-row-group;
+}
+
+.emotion-4 .MuiTableRow-root:nth-of-type(odd) {
+  background-color: #19191D;
+}
+
+.emotion-4 .MuiTableCell-root {
+  color: #AAAAAB;
+}
+
+.emotion-6 {
+  font-size: 0.875rem;
+  letter-spacing: 0.25px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.43;
+  display: table-cell;
+  vertical-align: inherit;
+  border-bottom: 1px solid rgba(19, 19, 21, 1);
+  text-align: left;
+  padding: 16px;
+  color: #E6E6E6;
+}
+
+.emotion-6 {
+  border-bottom: none;
+  padding: 0 16px;
+  height: 50px;
+  font-size: 1rem;
+}
+
+<div
+  className="desktop emotion-0"
+>
+  <table
+    className="MuiTable-root emotion-1"
+    role={null}
+  >
+    <thead
+      className="MuiTableHead-root emotion-2"
+      role={null}
+    >
+      <tr
+        className="MuiTableRow-root MuiTableRow-head emotion-3"
+        role={null}
+      >
+        <div
+          columnIndex={0}
+          id="Header"
+          style={
+            {
+              "textAlign": undefined,
+              "width": "5%",
+            }
+          }
+        />
+        <div
+          columnIndex={1}
+          id="Header"
+          style={
+            {
+              "textAlign": undefined,
+              "width": "40%",
+            }
+          }
+        />
+        <div
+          columnIndex={2}
+          id="Header"
+          style={
+            {
+              "textAlign": undefined,
+              "width": "10%",
+            }
+          }
+        />
+        <div
+          columnIndex={3}
+          id="Header"
+          style={
+            {
+              "textAlign": undefined,
+              "width": "25%",
+            }
+          }
+        />
+        <div
+          columnIndex={4}
+          id="Header"
+          style={
+            {
+              "textAlign": "right",
+              "width": "20%",
+            }
+          }
+        />
+      </tr>
+    </thead>
+    <tbody
+      className="MuiTableBody-root emotion-4"
+      role={null}
+    >
+      <tr
+        className="MuiTableRow-root emotion-3"
+        role={null}
+      >
+        <td
+          aria-sort={null}
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium odd emotion-6"
+          style={
+            {
+              "textAlign": undefined,
+              "width": "5%",
+            }
+          }
+        >
+          #1
+        </td>
+        <td
+          aria-sort={null}
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium odd emotion-6"
+          style={
+            {
+              "textAlign": undefined,
+              "width": "40%",
+            }
+          }
+        >
+          <div
+            address="cheqvalcon10000000000000000050"
+            href={[Function]}
+            id="AvatarName"
+            imageUrl=""
+            name="cheqvalcon10000000000000000050"
+          />
+        </td>
+        <td
+          aria-sort={null}
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium odd emotion-6"
+          style={
+            {
+              "textAlign": undefined,
+              "width": "10%",
+            }
+          }
+        />
+        <td
+          aria-sort={null}
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium odd emotion-6"
+          style={
+            {
+              "textAlign": undefined,
+              "width": "25%",
+            }
+          }
+        >
+          5,100,000,000
+           
+          NCHEQ
+        </td>
+        <td
+          aria-sort={null}
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium odd emotion-6"
+          style={
+            {
+              "textAlign": "right",
+              "width": "20%",
+            }
+          }
+        >
+          51.0000
+           %
+        </td>
+      </tr>
+      <tr
+        className="MuiTableRow-root emotion-3"
+        role={null}
+      >
+        <td
+          aria-sort={null}
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium emotion-6"
+          style={
+            {
+              "textAlign": undefined,
+              "width": "5%",
+            }
+          }
+        >
+          #2
+        </td>
+        <td
+          aria-sort={null}
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium emotion-6"
+          style={
+            {
+              "textAlign": undefined,
+              "width": "40%",
+            }
+          }
+        >
+          <div
+            address="cheqvalcon10000000000000000049"
+            href={[Function]}
+            id="AvatarName"
+            imageUrl=""
+            name="cheqvalcon10000000000000000049"
+          />
+        </td>
+        <td
+          aria-sort={null}
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium emotion-6"
+          style={
+            {
+              "textAlign": undefined,
+              "width": "10%",
+            }
+          }
+        />
+        <td
+          aria-sort={null}
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium emotion-6"
+          style={
+            {
+              "textAlign": undefined,
+              "width": "25%",
+            }
+          }
+        >
+          4,900,000,000
+           
+          NCHEQ
+        </td>
+        <td
+          aria-sort={null}
+          className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium emotion-6"
+          style={
+            {
+              "textAlign": "right",
+              "width": "20%",
+            }
+          }
+        >
+          49.0000
+           %
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;

@@ -16,7 +16,7 @@ test('transactions list page', async ({ page, isMobile }) => {
   );
 });
 
-test(`transactions page ${transactionHash}`, async ({ page, isMobile }) => {
+test(`transactions page ${transactionHash}`, async ({ page }) => {
   await interceptRoutes(page);
 
   await page.goto(`./transactions/${transactionHash}`);

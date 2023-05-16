@@ -18,7 +18,6 @@ const ContractHeaderDesktop = () => {
           {t(col.columnKey)}
         </Grid2>
       ))}
-      <Grid2 xs="auto" className={classes.showMore} />
     </Grid2>
   );
 };

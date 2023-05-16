@@ -25,26 +25,27 @@ export async function waitForClick(selector: string, locator: Locator) {
 }
 
 export async function waitForPopupClick(selector: (p: Page) => Locator, page: Page) {
-  await Promise.all([page.waitForEvent('popup'), selector(page).first().click()]).then(([popup]) =>
-    popup.close()
-  );
+  const popupPromise = page.waitForEvent('popup');
+  await selector(page).first().click();
+  await popupPromise;
 }
 
 export async function interceptRoutes(page: Page) {
+  await page.on('popup', (popup) => interceptRoutes(popup));
   await page.route('**/*', (route) => {
     if (RESOURCE_EXCLUSTIONS.includes(route.request().resourceType())) {
       route.abort();
-    } else if (
-      !/^[^/]*\/\/(localhost(|:\d+)|raw\.githubusercontent\.com|gql\..+\.forbole\.com|gql\..+\.desmos\.network)/.test(
-        route.request().url()
-      )
-    ) {
-      route.fulfill({
-        status: 200,
-        body: route.request().url(),
-      });
     } else {
-      route.continue();
+      const url = route.request().url();
+      if (
+        !/^[^/]*\/\/(localhost(|:\d+)|raw\.githubusercontent\.com|gql\..+\.forbole\.com|gql\..+\.desmos\.network)/.test(
+          url
+        )
+      ) {
+        route.fulfill({ status: 200, body: url });
+      } else {
+        route.continue();
+      }
     }
   });
 }
