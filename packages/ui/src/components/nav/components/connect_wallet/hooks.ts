@@ -317,7 +317,7 @@ const useConnectWalletList = () => {
         // store user info in state
         saveUserInfo(offlineSignerAddress, offlineSignerPubKey, 'Keplr', key?.name ?? '');
 
-        // continue to log in success screen
+        // continue to Sign in success screen
         continueToLoginSuccessDialog();
       }
     } catch (e) {

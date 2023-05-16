@@ -13,13 +13,8 @@ type WalletDetailsProps = {
 
 const WalletDetails: FC<WalletDetailsProps> = ({ className }) => {
   const { classes, cx } = useStyles();
-  const {
-    showWalletDetails,
-    handleShowWalletDetails,
-    closeWalletDetails,
-    handleLogout,
-    handleLogin,
-  } = useConnectWalletList();
+  const { showWalletDetails, handleShowWalletDetails, closeWalletDetails, handleLogin } =
+    useConnectWalletList();
   const loggedIn = useRecoilValue(readIsUserLoggedIn);
   const userAddress = useRecoilValue(readUserAddress);
 
@@ -44,7 +39,6 @@ const WalletDetails: FC<WalletDetailsProps> = ({ className }) => {
           className={cx(classes.walletDetailsButton, {
             open: showWalletDetails,
           })}
-          handleLogout={handleLogout}
           handleLogin={handleLogin}
         />
       </div>
