@@ -94,6 +94,18 @@
           "eighteen": "#F0A479",
           "nineteen": "#D37763",
           "twenty": "#D9C788"
+        },
+        "wallet": {
+          "background": "#5E5E5E",
+          "backgroundTwo": "#212123",
+          "surfaceOne": "#5E5C5C",
+          "surfaceTwo": "#D9D9D9",
+          "surfaceThree": "#4D4D4D",
+          "surfaceFour": "#414141",
+          "surfaceFive": "#777777",
+          "divider": "#34383E",
+          "textPrimary": "#000000",
+          "textSecondary": "#DDDDDD"
         }
       }
     },
@@ -177,16 +189,29 @@
           "eighteen": "#F0A479",
           "nineteen": "#D37763",
           "twenty": "#D9C788"
+        },
+        "wallet": {
+          "background": "#E8E8E8",
+          "backgroundTwo": "#FFFFFF",
+          "surfaceOne": "#5E5C5C",
+          "surfaceTwo": "#E8E7E8",
+          "surfaceThree": "#BDBDBD",
+          "surfaceFour": "#A1A1A1",
+          "surfaceFive": "#777777",
+          "divider": "#34383E",
+          "textPrimary": "#000000",
+          "textSecondary": "#222222"
         }
       }
     }
   },
+  "keplr": "",
   "chains": [
     {
-      "network": "testnet-1",
+      "network": "humans_3000-23",
       "chainType": "Testnet",
       "genesis": {
-        "time": "2022-11-09T04:16:29",
+        "time": "2023-05-11T09:00:00",
         "height": 1
       },
       "prefix": {
@@ -199,7 +224,7 @@
       "tokenUnits": {
         "uheart": {
           "display": "heart",
-          "exponent": 6
+          "exponent": 18
         }
       },
       "endpoints": {
