@@ -1,5 +1,4 @@
 import React from 'react';
-import classnames from 'classnames';
 import Link from 'next/link';
 import Typography from '@mui/material/Typography';
 import { DID_URL } from '@/utils/go_to_page';
@@ -10,11 +9,11 @@ const DID: React.FC<{ className?: string; did: string; href?: (did: string) => s
   did,
   href = DID_URL,
 }) => {
-  const { classes } = useStyles();
+  const { classes, cx } = useStyles();
 
   return (
     <Link target="_blank" href={href(did)} passHref>
-      <Typography variant="body1" className={classnames(className, classes.root)} component="a">
+      <Typography variant="body1" className={cx(className, classes.root)} component="a">
         {did}
       </Typography>
     </Link>
