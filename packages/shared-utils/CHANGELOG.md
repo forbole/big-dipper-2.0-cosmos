@@ -1,5 +1,11 @@
 # shared-utils
 
+## 2.16.1
+
+### Patch Changes
+
+- [#1225](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1225) [`5316f55cf`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/5316f55cfccc31a44cac4d42de704d0d3f058048) Thanks [@teamchong](https://github.com/teamchong)! - Bump package versions
+
 ## 2.16.0
 
 ### Minor Changes
