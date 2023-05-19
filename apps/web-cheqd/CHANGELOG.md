@@ -1,5 +1,11 @@
 # Unreleased
 
+## 2.17.0
+
+### Minor Changes
+
+- [#1245](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1245) [`035a7a098`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/035a7a09841d8ca7af3748f7991f42f7e8430d54) Thanks [@rachelhox](https://github.com/rachelhox)! - fix cheqd custom message types
+
 ## 2.16.0
 
 ### Minor Changes
