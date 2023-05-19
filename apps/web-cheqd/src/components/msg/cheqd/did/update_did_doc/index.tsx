@@ -11,7 +11,7 @@ const UpdateDidDoc = (props: { message: MsgUpdateDidDoc }) => {
     <Typography>
       <Trans
         i18nKey="message_contents:MsgUpdateDidDoc"
-        components={[<DID did={message.payload.id} />]}
+        components={[<DID did={message.payload?.id ?? ''} />]}
       />
     </Typography>
   );

@@ -11,7 +11,7 @@ const DeactivateDidDoc = (props: { message: MsgDeactivateDidDoc }) => {
     <Typography>
       <Trans
         i18nKey="message_contents:MsgDeactivateDidDoc"
-        components={[<DID did={message.payload.id} />]}
+        components={[<DID did={message.payload?.id ?? ''} />]}
       />
     </Typography>
   );
