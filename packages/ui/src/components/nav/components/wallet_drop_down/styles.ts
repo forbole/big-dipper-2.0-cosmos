@@ -100,7 +100,7 @@ const styles = makeStyles()((theme) => ({
   greenDot: {
     height: theme.spacing(1.3),
     width: theme.spacing(1.3),
-    backgroundColor: `${theme.palette.custom.wallet.active} !important` as any,
+    backgroundColor: `${theme.palette.custom.wallet.active} !important`,
     borderRadius: 50,
     display: 'flex',
     position: 'absolute',

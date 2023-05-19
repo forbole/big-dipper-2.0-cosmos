@@ -4,7 +4,6 @@ import CustomToolTip, { type CustomToolTipData } from '@/components/custom_tool_
 import { useTokenomics } from '@/screens/home/components/tokenomics/hooks';
 import useStyles from '@/screens/home/components/tokenomics/styles';
 import Typography from '@mui/material/Typography';
-import Big from 'big.js';
 import { useTranslation } from 'next-i18next';
 import dynamic from 'next/dynamic';
 import numeral from 'numeral';
