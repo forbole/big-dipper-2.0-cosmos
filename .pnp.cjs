@@ -6267,15 +6267,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
-      ["@next/font", [\
-        ["npm:13.4.2", {\
-          "packageLocation": "./.yarn/cache/@next-font-npm-13.4.2-2682f81c05-c7579b3f76.zip/node_modules/@next/font/",\
-          "packageDependencies": [\
-            ["@next/font", "npm:13.4.2"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
       ["@next/swc-darwin-arm64", [\
         ["npm:13.4.2", {\
           "packageLocation": "./.yarn/unplugged/@next-swc-darwin-arm64-npm-13.4.2-c805a6a575/node_modules/@next/swc-darwin-arm64/",\
@@ -23873,7 +23864,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@mui/icons-material", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.16"],\
             ["@mui/material", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.13.0"],\
             ["@next/eslint-plugin-next", "npm:13.4.2"],\
-            ["@next/font", "npm:13.4.2"],\
             ["@socialgouv/matomo-next", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:1.6.1"],\
             ["@svgr/webpack", "npm:6.5.1"],\
             ["@testing-library/jest-dom", "npm:5.16.5"],\

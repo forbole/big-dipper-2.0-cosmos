@@ -3817,13 +3817,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/font@npm:^13.1.6":
-  version: 13.4.2
-  resolution: "@next/font@npm:13.4.2"
-  checksum: c7579b3f76028395592851e36010e17dda562d8110e82f6273a1fbef03dd431333441d55dfc1e55e4c51c0a22357675dd5b0c55da5437b38be14dbc0b15b84b7
-  languageName: node
-  linkType: hard
-
 "@next/swc-darwin-arm64@npm:13.4.2":
   version: 13.4.2
   resolution: "@next/swc-darwin-arm64@npm:13.4.2"
@@ -17620,7 +17613,6 @@ __metadata:
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.8
     "@next/eslint-plugin-next": ^13.1.6
-    "@next/font": ^13.1.6
     "@socialgouv/matomo-next": ^1.6.1
     "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": ^5.16.5
