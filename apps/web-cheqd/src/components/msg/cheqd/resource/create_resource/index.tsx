@@ -12,7 +12,10 @@ const CreateResource = (props: { message: MsgCreateResource }) => {
       <Trans
         i18nKey="message_contents:MsgCreateResource"
         components={[
-          <Resource collection={message.payload.collection_id} id={message.payload.id} />,
+          <Resource
+            collection={message.payload?.collection_id ?? ''}
+            id={message.payload?.id ?? ''}
+          />,
         ]}
       />
     </Typography>
