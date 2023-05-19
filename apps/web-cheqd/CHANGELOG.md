@@ -1,5 +1,27 @@
 # Unreleased
 
+## 2.17.0
+
+### Minor Changes
+
+- [#1245](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1245) [`035a7a098`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/035a7a09841d8ca7af3748f7991f42f7e8430d54) Thanks [@rachelhox](https://github.com/rachelhox)! - fix cheqd custom message types
+
+## 2.16.0
+
+### Minor Changes
+
+- [#1238](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1238) [`a0653bd55`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/a0653bd552af9d2e1c29ea3516b32da3b94d7e0b) Thanks [@rachelhox](https://github.com/rachelhox)! - update login ui
+
+- [#1243](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1243) [`18c829ee2`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/18c829ee206477c85d7e149e14b5009b2f34a564) Thanks [@rachelhox](https://github.com/rachelhox)! - fix: cheqd top accounts query
+
+### Patch Changes
+
+- [#1225](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1225) [`5316f55cf`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/5316f55cfccc31a44cac4d42de704d0d3f058048) Thanks [@teamchong](https://github.com/teamchong)! - Bump package versions
+
+- Updated dependencies [[`a0653bd55`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/a0653bd552af9d2e1c29ea3516b32da3b94d7e0b), [`acfb8cf38`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/acfb8cf38ab779cd70117109f86c07f7d87d7a42), [`5316f55cf`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/5316f55cfccc31a44cac4d42de704d0d3f058048)]:
+  - ui@2.28.0
+  - shared-utils@2.16.1
+
 ## 2.15.0
 
 ### Minor Changes

@@ -5,12 +5,12 @@ concurrency:
   group: ${{ github.ref }}-test
   cancel-in-progress: true
 env:
-  HUSKY: 0                                # disable husky
-  TURBO_TEAM: ${{ secrets.TURBO_TEAM }}   # for Turborepo remote cache
+  HUSKY: 0 # disable husky
+  TURBO_TEAM: ${{ secrets.TURBO_TEAM }} # for Turborepo remote cache
   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }} # for Turborepo remote cache
-  NEXT_TELEMETRY_DISABLED: 1              # disable NextJS telemetry
-  SENTRYCLI_SKIP_DOWNLOAD: 1              # disable Sentry.io CLI download
-  FORCE_COLOR: 0                          # disable terminal color in yarn berry
+  NEXT_TELEMETRY_DISABLED: 1 # disable NextJS telemetry
+  SENTRYCLI_SKIP_DOWNLOAD: 1 # disable Sentry.io CLI download
+  FORCE_COLOR: 0 # disable terminal color in yarn berry
 defaults:
   run:
     shell: bash
@@ -122,7 +122,7 @@ jobs:
         shardIndex: [1, 2, 3, 4, 5]
         shardTotal: [5]
     container:
-      image: mcr.microsoft.com/playwright:v1.32.1-focal
+      image: mcr.microsoft.com/playwright:v1.33.0-focal
     steps:
       - uses: actions/checkout@v3
       - run: corepack enable
