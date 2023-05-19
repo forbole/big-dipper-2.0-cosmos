@@ -4,6 +4,7 @@ import CustomToolTip, { type CustomToolTipData } from '@/components/custom_tool_
 import { useTokenomics } from '@/screens/home/components/tokenomics/hooks';
 import useStyles from '@/screens/home/components/tokenomics/styles';
 import Typography from '@mui/material/Typography';
+import Big from 'big.js';
 import { useTranslation } from 'next-i18next';
 import dynamic from 'next/dynamic';
 import numeral from 'numeral';
@@ -35,7 +36,7 @@ const Tokenomics: FC<ComponentDefault> = ({ className }) => {
     {
       legendKey: 'bonded',
       percentKey: 'bondedPercent',
-      value: numeral(state.bonded).format('0,0'),
+      value: numeral(state.bonded).format('0,0a'),
       rawValue: state.bonded,
       percent: `${numeral((state.bonded * 100) / state.total).format('0.00')}%`,
       fill: theme.palette.custom.tokenomics.one,
@@ -43,14 +44,14 @@ const Tokenomics: FC<ComponentDefault> = ({ className }) => {
     {
       legendKey: 'unbonded',
       percentKey: 'unbondedPercent',
-      value: numeral(state.unbonded).format('0,0'),
+      value: numeral(state.unbonded).format('0,0a'),
       rawValue: state.unbonded,
       percent: `${numeral((state.unbonded * 100) / state.total).format('0.00')}%`,
       fill: theme.palette.custom.tokenomics.two,
     },
     {
       legendKey: 'unbonding',
-      value: numeral(state.unbonding).format('0,0'),
+      value: numeral(state.unbonding).format('0,0a'),
       rawValue: state.unbonding,
       percent: `${numeral((state.unbonding * 100) / state.total).format('0.00')}%`,
       fill: theme.palette.custom.tokenomics.three,
