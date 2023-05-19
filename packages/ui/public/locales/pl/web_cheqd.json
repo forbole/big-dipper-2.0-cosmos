@@ -7,5 +7,13 @@
   "accounts.top_percentage": "Percentuale",
   "accounts.refresh_delay_notice": "Proszę zauważyć, że najlepsze konto odświeża dane tylko o godzinie 00:00 GMT.",
   "common.top_accounts": "Najlepsze konta",
-  "home.cheqdWallets": "Liczba portfeli"
+  "home.cheqdWallets": "Liczba portfeli",
+  "message_contents.MsgCreateDidDoc": "DID document created <0>{{did}}</0>",
+  "message_contents.MsgUpdateDidDoc": "DID document updated <0>{{did}}</0>",
+  "message_contents.MsgDeactivateDidDoc": "DID document deactivated <0>{{did}}</0>",
+  "message_contents.MsgCreateResource": "Resource created <0>{{resource}}</0>",
+  "message_labels.MsgCreateDidDoc": "Create DID Document",
+  "message_labels.MsgUpdateDidDoc": "Update DID Document",
+  "message_labels.MsgDeactivateDidDoc": "Deactivate DID Document",
+  "message_labels.MsgCreateResource": "Create Resource"
 }
