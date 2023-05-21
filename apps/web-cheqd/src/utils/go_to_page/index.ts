@@ -1,5 +1,7 @@
 import chainConfig from '@/chainConfig';
 
+const network = process.env.NEXT_PUBLIC_CHAIN_TYPE;
+
 const { prefix } = chainConfig();
 
 export const HOME = '/';
@@ -26,5 +28,7 @@ export const ACCOUNTS = '/accounts';
 export const ADDRESS_DETAILS = (address: string) =>
   address.includes(prefix.validator) ? VALIDATOR_DETAILS(address) : ACCOUNT_DETAILS(address);
 
-export const DID_RESOLVER_URL = (did: string) =>
-  `https://resolver.cheqd.net/1.0/identifiers/${did}`;
+export const DID_URL = (did: string) => `https://resolver.cheqd.net/1.0/identifiers/${did}`;
+
+export const RESOURCE_URL = (collection: string, id: string) =>
+  `https://resolver.cheqd.net/1.0/identifiers/did:cheqd:${network}:${collection}/resources/${id}`;

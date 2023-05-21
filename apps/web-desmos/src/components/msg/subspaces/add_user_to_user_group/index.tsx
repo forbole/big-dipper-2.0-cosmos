@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
+import AppTrans from '@/components/AppTrans';
 import { FC } from 'react';
 import Name from '@/components/name';
 import MsgAddUserToUserGroup from '@/models/msg/subspaces/msg_add_user_to_user_group';
@@ -14,7 +14,7 @@ const AddUserToUserGroup: FC<{ message: MsgAddUserToUserGroup }> = (props) => {
 
   return (
     <Typography>
-      <Trans
+      <AppTrans
         i18nKey="message_contents:txMsgAddUserToUserGroup"
         components={[<Name address={message.signer} name={signerMoniker} />, <b />]}
         values={{

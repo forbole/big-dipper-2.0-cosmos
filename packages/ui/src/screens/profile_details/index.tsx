@@ -1,5 +1,5 @@
 import { NextSeo } from 'next-seo';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import DesmosProfile from '@/components/desmos_profile';
 import Layout from '@/components/layout';
 import LoadAndExist from '@/components/load_and_exist';
@@ -8,7 +8,7 @@ import { useProfileDetails } from '@/screens/profile_details/hooks';
 import useStyles from '@/screens/profile_details/styles';
 
 const ProfileDetails = () => {
-  const { t } = useTranslation('profiles');
+  const { t } = useAppTranslation('profiles');
   const { classes } = useStyles();
   const { state, loading } = useProfileDetails();
   return (

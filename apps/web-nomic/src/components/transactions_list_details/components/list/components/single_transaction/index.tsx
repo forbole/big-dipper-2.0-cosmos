@@ -1,6 +1,6 @@
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC, ReactNode } from 'react';
 import useStyles from '@/components/transactions_list_details/components/list/components/single_transaction/styles';
 
@@ -12,7 +12,7 @@ type SingleTransactionProps = {
 };
 
 const SingleTransaction: FC<SingleTransactionProps> = ({ className, block, hash, time }) => {
-  const { t } = useTranslation('transactions');
+  const { t } = useAppTranslation('transactions');
   const { classes, cx } = useStyles();
 
   return (

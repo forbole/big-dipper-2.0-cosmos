@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
+import AppTrans from '@/components/AppTrans';
 import useStyles from '@/screens/proposal_details/components/votes_graph/components/quorum_explanation/styles';
 
 const QuorumExplanation = (props: { quorum: string }) => {
@@ -8,7 +8,7 @@ const QuorumExplanation = (props: { quorum: string }) => {
   return (
     <div className={classes.root}>
       <Typography>
-        <Trans
+        <AppTrans
           i18nKey="proposals:quorumExplanation"
           components={[<b />]}
           values={{

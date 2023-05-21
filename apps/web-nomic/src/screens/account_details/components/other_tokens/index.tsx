@@ -8,7 +8,7 @@ import useStyles from '@/screens/account_details/components/other_tokens/styles'
 import type { OtherTokenType } from '@/screens/account_details/types';
 import { useDisplayStyles } from '@/styles/useSharedStyles';
 import Typography from '@mui/material/Typography';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC, useMemo } from 'react';
 
 type OtherTokensProps = {
@@ -20,7 +20,7 @@ type OtherTokensProps = {
 };
 
 const OtherTokens: FC<OtherTokensProps> = ({ className, otherTokens }) => {
-  const { t } = useTranslation('accounts');
+  const { t } = useAppTranslation('accounts');
   const { classes } = useStyles();
   const display = useDisplayStyles().classes;
   const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange, sliceItems } =

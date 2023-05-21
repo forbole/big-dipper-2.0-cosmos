@@ -1,8 +1,7 @@
-import { NextSeo } from 'next-seo';
-import { useTranslation } from 'next-i18next';
 import BoxDetails from '@/components/box_details';
 import Layout from '@/components/layout';
 import LoadAndExist from '@/components/load_and_exist';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { useParams } from '@/screens/params/hooks';
 import useStyles from '@/screens/params/styles';
 import {
@@ -13,9 +12,10 @@ import {
   formatSlashing,
   formatStaking,
 } from '@/screens/params/utils';
+import { NextSeo } from 'next-seo';
 
 const Params = () => {
-  const { t } = useTranslation('params');
+  const { t } = useAppTranslation('params');
   const { classes } = useStyles();
   const { state } = useParams();
 
@@ -56,7 +56,7 @@ const Params = () => {
 
   const oracle = state.oracle
     ? {
-        title: t('oracle') ?? undefined,
+        title: t('params:oracle') ?? undefined,
         details: formatOracle(state.oracle, t),
       }
     : null;

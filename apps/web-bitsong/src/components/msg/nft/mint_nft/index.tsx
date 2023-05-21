@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
+import AppTrans from '@/components/AppTrans';
 import { FC } from 'react';
 import Name from '@/components/name';
 import MsgMintNFT from '@/models/msg/nft/msg_mint_nft';
@@ -13,7 +13,7 @@ const MintNFT: FC<{ message: MsgMintNFT }> = (props) => {
 
   return (
     <Typography>
-      <Trans
+      <AppTrans
         i18nKey="message_contents:txMintNFTContent"
         components={[<Name address={message.sender} name={senderMoniker} />, <b />]}
         values={{

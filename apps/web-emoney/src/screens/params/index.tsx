@@ -1,5 +1,5 @@
 import { NextSeo } from 'next-seo';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import BoxDetails from '@/components/box_details';
 import Layout from '@/components/layout';
 import LoadAndExist from '@/components/load_and_exist';
@@ -16,7 +16,7 @@ import {
 } from '@/screens/params/utils';
 
 const Params = () => {
-  const { t } = useTranslation('params');
+  const { t } = useAppTranslation('params');
   const { classes } = useStyles();
   const { state } = useParams();
 

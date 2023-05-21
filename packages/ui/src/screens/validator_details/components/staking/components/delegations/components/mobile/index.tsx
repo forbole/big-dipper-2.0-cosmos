@@ -1,6 +1,6 @@
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC, Fragment } from 'react';
 import AvatarName from '@/components/avatar_name';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
@@ -17,7 +17,7 @@ type DelegationsItemProps = {
 const DelegationsItem: FC<DelegationsItemProps> = ({ i, item, isLast }) => {
   const { name, address, imageUrl } = useProfileRecoil(item.address);
   const { classes } = useStyles();
-  const { t } = useTranslation('accounts');
+  const { t } = useAppTranslation('accounts');
 
   return (
     <Fragment key={`votes-mobile-${i}`}>

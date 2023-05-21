@@ -1,6 +1,6 @@
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC, Fragment } from 'react';
 import { useRecoilValue } from 'recoil';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
@@ -16,7 +16,7 @@ const Mobile: FC<MobileProps> = ({ className, items }) => {
   const dateFormat = useRecoilValue(readDate);
   const timeFormat = useRecoilValue(readTimeFormat);
   const { classes } = useStyles();
-  const { t } = useTranslation('accounts');
+  const { t } = useAppTranslation('accounts');
 
   return (
     <div className={className}>

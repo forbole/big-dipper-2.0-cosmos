@@ -6,7 +6,7 @@ import { useDisplayStyles } from '@/styles/useSharedStyles';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import Dialog from '@mui/material/Dialog';
 import Typography from '@mui/material/Typography';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { QRCodeSVG } from 'qrcode.react';
 import { FC } from 'react';
 import {
@@ -34,7 +34,7 @@ const Overview: FC<OverviewProps> = ({ className, address, withdrawalAddress }) 
   const { location } = useWindowOrigin();
   const { classes, cx } = useStyles();
   const display = useDisplayStyles().classes;
-  const { t } = useTranslation('accounts');
+  const { t } = useAppTranslation('accounts');
   const { open, handleClose, handleOpen, handleCopyToClipboard } = useOverview(t);
 
   const url = `${location}/accounts/${address}`;

@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
+import AppTrans from '@/components/AppTrans';
 import { FC } from 'react';
 import Name from '@/components/name';
 import MsgCreateBatchRequest from '@/models/msg/ecocredit/msg_create_batch_request';
@@ -13,7 +13,7 @@ const CreateBatchRequest: FC<{ message: MsgCreateBatchRequest }> = (props) => {
 
   return (
     <Typography>
-      <Trans
+      <AppTrans
         i18nKey="message_contents:MsgCreateBatchRequest"
         components={[<Name address={message.issuer} name={issuerMoniker} />]}
       />

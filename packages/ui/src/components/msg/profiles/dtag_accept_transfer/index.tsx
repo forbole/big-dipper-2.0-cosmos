@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
+import AppTrans from '@/components/AppTrans';
 import { FC } from 'react';
 import Name from '@/components/name';
 import { MsgDtagAcceptTransfer } from '@/models';
@@ -16,7 +16,7 @@ const DtagAcceptTransfer: FC<{ message: MsgDtagAcceptTransfer }> = (props) => {
 
   return (
     <Typography>
-      <Trans
+      <AppTrans
         i18nKey="message_contents:txAcceptDTagTransferContent"
         components={[
           <Name address={message.sender} name={senderMoniker} />,

@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
+import AppTrans from '@/components/AppTrans';
 import { FC } from 'react';
 import Name from '@/components/name';
 import MsgCreatePost from '@/models/msg/posts/msg_create_post';
@@ -14,7 +14,7 @@ const CreatePost: FC<{ message: MsgCreatePost }> = (props) => {
 
   return (
     <Typography>
-      <Trans
+      <AppTrans
         i18nKey="message_contents:txMsgCreatePost"
         components={[<Name address={message.author} name={authorMoniker} />, <b />]}
         values={{

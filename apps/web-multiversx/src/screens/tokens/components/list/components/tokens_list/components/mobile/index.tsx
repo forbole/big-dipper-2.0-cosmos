@@ -1,6 +1,6 @@
 import { FC, Fragment } from 'react';
 import numeral from 'numeral';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
@@ -10,7 +10,7 @@ import type { TokenType } from '@/screens/tokens/components/list/types';
 import useStyles from '@/screens/tokens/components/list/components/tokens_list/components/mobile/styles';
 
 const Mobile: FC<{ className?: string; items: TokenType[] }> = (props) => {
-  const { t } = useTranslation('tokens');
+  const { t } = useAppTranslation('tokens');
   const { classes } = useStyles();
   const formattedItems = props.items.map((x, i) => ({
     key: `${x.identifier}-${i}`,

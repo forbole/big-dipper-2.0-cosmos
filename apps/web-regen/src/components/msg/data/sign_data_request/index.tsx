@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
+import AppTrans from '@/components/AppTrans';
 import { FC } from 'react';
 import MsgSignDataRequest from '@/models/msg/data/msg_sign_data_request';
 import Signers from '@/components/msg/data/sign_data_request/components/signers';
@@ -9,7 +9,7 @@ const SignDataRequest: FC<{ message: MsgSignDataRequest }> = (props) => {
 
   return (
     <Typography>
-      <Trans
+      <AppTrans
         i18nKey="message_contents:MsgSignDataRequest"
         components={[<Signers signers={message.signers} />]}
       />

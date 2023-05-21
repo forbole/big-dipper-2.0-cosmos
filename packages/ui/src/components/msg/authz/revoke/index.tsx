@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
+import AppTrans from '@/components/AppTrans';
 import { FC } from 'react';
 import Name from '@/components/name';
 import { MsgRevoke } from '@/models';
@@ -16,7 +16,7 @@ const Revoke: FC<{ message: MsgRevoke }> = (props) => {
 
   return (
     <Typography>
-      <Trans
+      <AppTrans
         i18nKey="message_contents:MsgRevoke"
         components={[
           <Name address={message.granter} name={granterMoniker} />,

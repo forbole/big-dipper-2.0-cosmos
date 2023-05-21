@@ -1,10 +1,10 @@
 import useStyles from '@/screens/wasmContracts/styles';
 import { columnsContract } from '@/screens/wasmContracts/utils';
 import Grid2 from '@mui/material/Unstable_Grid2';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 
 const ContractHeaderDesktop = () => {
-  const { t } = useTranslation('wasm_contracts');
+  const { t } = useAppTranslation('wasm_contracts');
   const { classes } = useStyles();
   return (
     <Grid2 container className={classes.header} columnGap={1}>

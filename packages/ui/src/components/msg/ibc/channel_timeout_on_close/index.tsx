@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
+import AppTrans from '@/components/AppTrans';
 import { FC } from 'react';
 import Name from '@/components/name';
 import { type MsgTimeoutOnClose } from '@/models';
@@ -13,7 +13,7 @@ const TimeoutOnClose: FC<{ message: MsgTimeoutOnClose }> = (props) => {
 
   return (
     <Typography>
-      <Trans
+      <AppTrans
         i18nKey="message_contents:txTimeoutOnCloseContent"
         components={[<Name address={message.signer} name={signerMoniker} />, <b />]}
       />

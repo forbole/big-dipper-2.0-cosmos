@@ -1,5 +1,29 @@
 # Unreleased
 
+## 2.13.1
+
+### Patch Changes
+
+- [#1242](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1242) [`66586e088`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/66586e088e49686ef920c00af8035dab1798317e) Thanks [@teamchong](https://github.com/teamchong)! - Shared translations for workspaces
+
+- Updated dependencies [[`66586e088`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/66586e088e49686ef920c00af8035dab1798317e)]:
+  - shared-utils@2.16.2
+  - ui@2.28.1
+
+## 2.13.0
+
+### Minor Changes
+
+- [#1238](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1238) [`a0653bd55`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/a0653bd552af9d2e1c29ea3516b32da3b94d7e0b) Thanks [@rachelhox](https://github.com/rachelhox)! - update login ui
+
+### Patch Changes
+
+- [#1225](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1225) [`5316f55cf`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/5316f55cfccc31a44cac4d42de704d0d3f058048) Thanks [@teamchong](https://github.com/teamchong)! - Bump package versions
+
+- Updated dependencies [[`a0653bd55`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/a0653bd552af9d2e1c29ea3516b32da3b94d7e0b), [`acfb8cf38`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/acfb8cf38ab779cd70117109f86c07f7d87d7a42), [`5316f55cf`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/5316f55cfccc31a44cac4d42de704d0d3f058048)]:
+  - ui@2.28.0
+  - shared-utils@2.16.1
+
 ## 2.12.0
 
 ### Minor Changes

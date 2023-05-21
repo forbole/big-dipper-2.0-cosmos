@@ -5,7 +5,7 @@ import useStyles from '@/screens/home/components/price/styles';
 import dayjs from '@/utils/dayjs';
 import Typography from '@mui/material/Typography';
 import Color from 'color';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import numeral from 'numeral';
 import * as R from 'ramda';
 import { FC } from 'react';
@@ -21,7 +21,7 @@ import {
 
 const Price: FC<ComponentDefault> = (props) => {
   const { classes, cx, theme } = useStyles();
-  const { t } = useTranslation('home');
+  const { t } = useAppTranslation('home');
   const { state, tickPriceFormatter } = usePrice();
 
   const formatItems = state.items.map((x) => ({

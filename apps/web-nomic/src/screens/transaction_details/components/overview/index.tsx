@@ -1,4 +1,4 @@
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
 import { FC } from 'react';
@@ -17,7 +17,7 @@ type OverviewProps = {
 };
 
 const Overview: FC<OverviewProps> = ({ className, data }) => {
-  const { t } = useTranslation('transactions');
+  const { t } = useAppTranslation('transactions');
   const { classes, cx } = useStyles();
   const dateFormat = useRecoilValue(readDate);
   const timeFormat = useRecoilValue(readTimeFormat);

@@ -4,7 +4,7 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC } from 'react';
 import { getVoteKey } from '@/screens/proposal_details/components/votes/utils';
 import type { ItemType } from '@/screens/proposal_details/components/votes/types';
@@ -18,7 +18,7 @@ type VoteRowProps = {
 };
 
 const VoteRow: FC<VoteRowProps> = ({ i, item }) => {
-  const { t } = useTranslation('proposals');
+  const { t } = useAppTranslation('proposals');
   const { name, address, imageUrl } = useProfileRecoil(item.user);
   return (
     <TableRow>
@@ -46,7 +46,7 @@ type DesktopProps = {
 };
 
 const Desktop: FC<DesktopProps> = ({ className, items }) => {
-  const { t } = useTranslation('proposals');
+  const { t } = useAppTranslation('proposals');
 
   return (
     <div className={className}>

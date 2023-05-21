@@ -7,13 +7,13 @@ import Mobile from '@/screens/profile_details/components/connections/components/
 import useStyles from '@/screens/profile_details/components/connections/styles';
 import { useDisplayStyles } from '@/styles/useSharedStyles';
 import Typography from '@mui/material/Typography';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC, useMemo } from 'react';
 
 const Connections: FC<{ data: ProfileConnectionType[] }> = ({ data }) => {
   const { classes, cx } = useStyles();
   const display = useDisplayStyles().classes;
-  const { t } = useTranslation('accounts');
+  const { t } = useAppTranslation('accounts');
   const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange, sliceItems } =
     usePagination({});
   const dataMemo = useShallowMemo(data);

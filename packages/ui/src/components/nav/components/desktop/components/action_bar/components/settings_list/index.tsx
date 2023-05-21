@@ -11,7 +11,7 @@ import IconButton from '@mui/material/IconButton';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import Typography from '@mui/material/Typography';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { useRouter } from 'next/router';
 import { FC } from 'react';
 import SettingIcon from 'shared-utils/assets/icon-setting.svg';
@@ -22,7 +22,7 @@ const release = `${process.env.NEXT_PUBLIC_RELEASE ?? ''}`;
 const Settings: FC<ComponentDefault> = (props) => {
   const { classes, cx } = useStyles();
   const router = useRouter();
-  const { t, i18n } = useTranslation('common');
+  const { t, i18n } = useAppTranslation('common');
   const {
     open,
     handleOpen,

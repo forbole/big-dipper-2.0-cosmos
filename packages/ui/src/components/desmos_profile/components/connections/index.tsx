@@ -11,7 +11,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC, useMemo } from 'react';
 
 type ConnectionsProps = {
@@ -23,7 +23,7 @@ type ConnectionsProps = {
 const Connections: FC<ConnectionsProps> = ({ handleClose, open, data }) => {
   const { classes, cx } = useStyles();
   const display = useDisplayStyles().classes;
-  const { t } = useTranslation('accounts');
+  const { t } = useAppTranslation('accounts');
   const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange, sliceItems } =
     usePagination({});
   const dataMemo = useShallowMemo(data);

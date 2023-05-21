@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
+import AppTrans from '@/components/AppTrans';
 import { FC } from 'react';
 import Name from '@/components/name';
 import MsgMintFanToken from '@/models/msg/fantoken/msg_mint_fan_token';
@@ -13,7 +13,7 @@ const MintFanToken: FC<{ message: MsgMintFanToken }> = (props) => {
 
   return (
     <Typography>
-      <Trans
+      <AppTrans
         i18nKey="message_contents:txMsgMintFanToken"
         components={[<Name address={message.recipient} name={recipientMoniker} />]}
       />

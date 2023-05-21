@@ -35,7 +35,7 @@ const styles = makeStyles()((theme) => ({
     fontWeight: 600,
     fontSize: theme.spacing(1.75),
     color: theme.palette.common.white,
-    padding: theme.spacing(1, 1.5),
+    padding: theme.spacing(1.5),
     '& .MuiButton-startIcon': {
       marginRight: 1,
     },
@@ -215,7 +215,10 @@ const styles = makeStyles()((theme) => ({
     padding: '16px',
     justifyContent: 'center',
     '&:hover': {
-      background: theme.palette.custom.wallet?.surfaceFour,
+      background:
+        theme.palette.mode === 'dark'
+          ? theme.palette.custom.wallet?.surfaceFour
+          : theme.palette.common.white,
       borderColor: theme.palette.custom.wallet?.surfaceFour,
     },
     [theme.breakpoints.up('md')]: {
@@ -234,6 +237,16 @@ const styles = makeStyles()((theme) => ({
     fontStyle: 'normal',
     fontWeight: 590,
     letterSpacing: '-0.002em',
+    color:
+      theme.palette.mode === 'dark'
+        ? theme.palette.common.white
+        : theme.palette.custom.wallet?.surfaceFour,
+    '&:hover': {
+      color:
+        theme.palette.mode === 'dark'
+          ? theme.palette.common.white
+          : theme.palette.custom.wallet?.surfaceTwo,
+    },
     [theme.breakpoints.up('md')]: {
       marginTop: '4px',
     },
@@ -247,7 +260,7 @@ const styles = makeStyles()((theme) => ({
     '&.open': {
       opacity: 1,
       visibility: 'visible',
-      background: theme.palette.custom.wallet?.background,
+      background: theme.palette.custom.wallet?.backgroundTwo,
       borderRadius: '8px',
     },
   },
