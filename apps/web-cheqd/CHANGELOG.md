@@ -1,5 +1,19 @@
 # Unreleased
 
+## 2.18.0
+
+### Minor Changes
+
+- [#1242](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1242) [`66586e088`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/66586e088e49686ef920c00af8035dab1798317e) Thanks [@teamchong](https://github.com/teamchong)! - fix cheqd custom message types
+
+### Patch Changes
+
+- [#1242](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1242) [`66586e088`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/66586e088e49686ef920c00af8035dab1798317e) Thanks [@teamchong](https://github.com/teamchong)! - Shared translations for workspaces
+
+- Updated dependencies [[`66586e088`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/66586e088e49686ef920c00af8035dab1798317e)]:
+  - shared-utils@2.16.2
+  - ui@2.28.1
+
 ## 2.17.0
 
 ### Minor Changes
