@@ -4,7 +4,8 @@ import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { formatNumber, formatToken } from '@/utils/format_token';
 import { PROPOSAL_DETAILS } from '@/utils/go_to_page';
 import Typography from '@mui/material/Typography';
-import { Trans, useTranslation } from 'next-i18next';
+import AppTrans from '@/components/AppTrans';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import Link, { LinkProps } from 'next/link';
 import { FC, PropsWithChildren } from 'react';
 
@@ -18,7 +19,7 @@ const LinkText: FC<PropsWithChildren<{ href: LinkProps['href'] }>> = (props) => 
 };
 
 const DepositProposal: FC<{ message: MsgDeposit }> = (props) => {
-  const { t } = useTranslation('transactions');
+  const { t } = useAppTranslation('transactions');
   const { message } = props;
 
   const parsedAmount = message?.amount
@@ -35,7 +36,7 @@ const DepositProposal: FC<{ message: MsgDeposit }> = (props) => {
 
   return (
     <Typography>
-      <Trans
+      <AppTrans
         i18nKey="message_contents:txDepositContent"
         components={[
           <Name address={message.depositor} name={depositorMoniker} />,

@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
+import AppTrans from '@/components/AppTrans';
 import { FC } from 'react';
 import Name from '@/components/name';
 import { MsgGrantAllowance } from '@/models';
@@ -16,7 +16,7 @@ const GrantAllowance: FC<{ message: MsgGrantAllowance }> = (props) => {
 
   return (
     <Typography>
-      <Trans
+      <AppTrans
         i18nKey="message_contents:MsgGrantAllowance"
         components={[
           <Name address={message.granter} name={granterMoniker} />,

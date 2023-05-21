@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
+import AppTrans from '@/components/AppTrans';
 import { FC } from 'react';
 import Name from '@/components/name';
 import MsgEditSection from '@/models/msg/subspaces/msg_edit_section';
@@ -14,7 +14,7 @@ const EditSection: FC<{ message: MsgEditSection }> = (props) => {
 
   return (
     <Typography>
-      <Trans
+      <AppTrans
         i18nKey="message_contents:txMsgEditSection"
         components={[<Name address={message.editor} name={editorMoniker} />, <b />]}
         values={{

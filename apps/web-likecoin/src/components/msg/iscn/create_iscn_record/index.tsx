@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
+import AppTrans from '@/components/AppTrans';
 import { FC } from 'react';
 import Name from '@/components/name';
 import MsgCreateIscnRecord from '@/models/msg/iscn/msg_create_iscn_record';
@@ -13,7 +13,7 @@ const CreateIscnRecord: FC<{ message: MsgCreateIscnRecord }> = (props) => {
 
   return (
     <Typography>
-      <Trans
+      <AppTrans
         i18nKey="message_contents:txCreateIscnRecordContent"
         components={[<Name address={message.from} name={fromMoniker} />]}
       />

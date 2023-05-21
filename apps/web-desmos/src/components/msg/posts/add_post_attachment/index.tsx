@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
+import AppTrans from '@/components/AppTrans';
 import { FC } from 'react';
 import Name from '@/components/name';
 import MsgAddPostAttachment from '@/models/msg/posts/msg_add_post_attachment';
@@ -14,7 +14,7 @@ const AddPostAttachment: FC<{ message: MsgAddPostAttachment }> = (props) => {
 
   return (
     <Typography>
-      <Trans
+      <AppTrans
         i18nKey="message_contents:txMsgCreatePost"
         components={[<Name address={message.editor} name={editorMoniker} />, <b />]}
         values={{

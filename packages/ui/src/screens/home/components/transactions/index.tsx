@@ -10,12 +10,12 @@ import { useDisplayStyles } from '@/styles/useSharedStyles';
 import { TRANSACTIONS } from '@/utils/go_to_page';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import Link from 'next/link';
 import { FC } from 'react';
 
 const Transactions: FC<ComponentDefault> = ({ className }) => {
-  const { t } = useTranslation('home');
+  const { t } = useAppTranslation('home');
   const { state } = useTransactions();
   const { classes, cx } = useStyles();
   const display = useDisplayStyles().classes;

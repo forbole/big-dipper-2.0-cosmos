@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC } from 'react';
 import { useRecoilValue } from 'recoil';
 import Box from '@/components/box';
@@ -12,7 +12,7 @@ import useStyles from '@/screens/validator_details/components/transactions/style
 const Transactions: FC<ComponentDefault> = (props) => {
   const txListFormat = useRecoilValue(readTx);
   const { classes, cx } = useStyles();
-  const { t } = useTranslation('validators');
+  const { t } = useAppTranslation('validators');
 
   const { state, loadNextPage } = useTransactions();
 

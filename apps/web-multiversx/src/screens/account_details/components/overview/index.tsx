@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import numeral from 'numeral';
 import { FC, isValidElement } from 'react';
 import Box from '@/components/box';
@@ -9,7 +9,7 @@ import { formatNumber } from '@/utils/format_token';
 import { getShardDisplay } from '@/utils/get_shard_display';
 
 const Overview: FC<{ className?: string; overview: OverviewType }> = (props) => {
-  const { t } = useTranslation('accounts');
+  const { t } = useAppTranslation('accounts');
   const { classes } = useStyles();
   const shard = getShardDisplay(props.overview.shard);
 

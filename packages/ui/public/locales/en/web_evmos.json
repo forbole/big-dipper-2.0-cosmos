@@ -1,0 +1,10 @@
+{
+  "message_contents.MsgConvertCoin": "<0>{{receiver}}</0> received <0>{{coin}}</0> from <1>{{sender}}</1>",
+  "message_contents.MsgConvertErc20": "<0>{{receiver}}</0> received <1>{{amount}}</1> from <1>{{sender}}</1>",
+  "message_contents.MsgCreateClawbackVestingAccount": "<0>{{fromAddress}}</0> created a clawback vesting account for <1>{{toAddress}}</1>",
+  "message_contents.MsgClawback": "<0>{{accountAddress}}</0> unvested tokens has been clawbacked to <1>{{destAddress}}</1>",
+  "message_labels.MsgConvertCoin": "Convert Coin",
+  "message_labels.MsgConvertErc20": "Convert ERC20",
+  "message_labels.MsgCreateClawbackVestingAccount": "Create Clawback Vesting Account",
+  "message_labels.MsgClawback": "Clawback"
+}

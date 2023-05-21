@@ -1,4 +1,4 @@
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import numeral from 'numeral';
 import { FC } from 'react';
 import SingleBlock from '@/screens/home/components/data_blocks/components/single_block';
@@ -6,7 +6,7 @@ import { useDataBlocks } from '@/screens/home/components/data_blocks/hooks';
 import useStyles from '@/screens/home/components/data_blocks/styles';
 
 const DataBlocks: FC<ComponentDefault> = ({ className }) => {
-  const { t } = useTranslation('home');
+  const { t } = useAppTranslation('home');
   const { classes, cx } = useStyles();
   const { state } = useDataBlocks();
   const data = [

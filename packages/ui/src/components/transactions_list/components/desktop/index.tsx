@@ -10,7 +10,7 @@ import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { BLOCK_DETAILS, TRANSACTION_DETAILS } from '@/utils/go_to_page';
 import { mergeRefs } from '@/utils/merge_refs';
 import Typography from '@mui/material/Typography';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
 import { FC, LegacyRef } from 'react';
@@ -28,7 +28,7 @@ const Desktop: FC<TransactionsListState> = ({
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
 
   const { classes, cx } = useStyles();
-  const { t } = useTranslation('transactions');
+  const { t } = useAppTranslation('transactions');
 
   const items = transactions.map((x) => ({
     block: (

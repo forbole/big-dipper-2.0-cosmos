@@ -6,7 +6,7 @@ import useStyles from '@/screens/proposal_details/components/votes_graph/styles'
 import { formatGraphData } from '@/screens/proposal_details/components/votes_graph/utils';
 import Typography from '@mui/material/Typography';
 import Big from 'big.js';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import dynamic from 'next/dynamic';
 import numeral from 'numeral';
 import { FC } from 'react';
@@ -16,7 +16,7 @@ const DynamicPieChart = dynamic(() => Promise.resolve(PieChart), { ssr: false })
 
 const VotesGraph: FC<ComponentDefault> = (props) => {
   const { classes, cx, theme } = useStyles();
-  const { t } = useTranslation('proposals');
+  const { t } = useAppTranslation('proposals');
   const { state } = useVotesGraph();
   const { votes } = state;
   const { quorum } = state;

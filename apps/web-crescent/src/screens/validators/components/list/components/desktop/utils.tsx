@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { TFunction } from 'next-i18next';
+import type { TFunction } from '@/hooks/useAppTranslation';
 import { ReactNode } from 'react';
 import InfoPopover from '@/components/info_popover';
 import ConditionExplanation from '@/components/condition_explanation';

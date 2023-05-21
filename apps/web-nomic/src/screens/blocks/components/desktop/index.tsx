@@ -7,7 +7,7 @@ import type { BlockType } from '@/screens/blocks/types';
 import { BLOCK_DETAILS } from '@/utils/go_to_page';
 import { mergeRefs } from '@/utils/merge_refs';
 import Typography from '@mui/material/Typography';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
 import { FC, LegacyRef } from 'react';
@@ -30,7 +30,7 @@ const Desktop: FC<DesktopProps> = ({
   loadMoreItems,
   isItemLoaded,
 }) => {
-  const { t } = useTranslation('blocks');
+  const { t } = useAppTranslation('blocks');
   const { classes, cx } = useStyles();
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
 

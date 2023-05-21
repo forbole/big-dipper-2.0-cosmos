@@ -8,11 +8,11 @@ import { useDeposits } from '@/screens/proposal_details/components/deposits/hook
 import useStyles from '@/screens/proposal_details/components/deposits/styles';
 import { useDisplayStyles } from '@/styles/useSharedStyles';
 import Typography from '@mui/material/Typography';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC, useMemo } from 'react';
 
 const Deposits: FC<ComponentDefault> = (props) => {
-  const { t } = useTranslation('proposals');
+  const { t } = useAppTranslation('proposals');
   const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange, sliceItems } =
     usePagination({});
   const { state } = useDeposits();

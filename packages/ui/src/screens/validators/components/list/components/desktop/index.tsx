@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import numeral from 'numeral';
 import { ComponentProps, CSSProperties, FC, LegacyRef, ReactNode } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
@@ -27,7 +27,7 @@ type GridColumnProps = {
 };
 
 const GridColumn: FC<GridColumnProps> = ({ column, sortKey, sortDirection, handleSort, style }) => {
-  const { t } = useTranslation('validators');
+  const { t } = useAppTranslation('validators');
   const { classes, cx } = useStyles();
 
   const { key, align, component, sort, sortKey: sortingKey } = column;
@@ -89,7 +89,7 @@ const GridRow: FC<GridRowProps> = ({
 }) => {
   const { classes, cx } = useStyles();
   const { name, address, imageUrl } = item.validator;
-  const { t } = useTranslation('validators');
+  const { t } = useAppTranslation('validators');
   const { chainName } = chainConfig();
 
   if (search) {
@@ -180,7 +180,7 @@ type DesktopProps = {
 };
 
 const Desktop: FC<DesktopProps> = (props) => {
-  const { t } = useTranslation('validators');
+  const { t } = useAppTranslation('validators');
   const { classes, cx } = useStyles();
   const columns = fetchColumns(t);
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);

@@ -10,7 +10,7 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { AnimatePresence, motion, Variants } from 'framer-motion';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
 import { FC } from 'react';
@@ -33,7 +33,7 @@ const variants: Variants = {
 };
 
 const Desktop: FC<{ className?: string; items: BlockType[] }> = (props) => {
-  const { t } = useTranslation('blocks');
+  const { t } = useAppTranslation('blocks');
   const { classes, cx } = useStyles();
   const formattedItems = props.items.map((x) => ({
     key: x.hash,

@@ -1,8 +1,8 @@
 import Box from '@/components/box';
 import CustomToolTip from '@/components/custom_tool_tip';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import useStyles from '@/screens/providers/components/compute/styles';
 import Typography from '@mui/material/Typography';
-import { useTranslation } from 'next-i18next';
 import dynamic from 'next/dynamic';
 import numeral from 'numeral';
 import { FC } from 'react';
@@ -19,7 +19,7 @@ type ComputeProps = {
 };
 
 const Compute: FC<ComputeProps> = ({ className, compute }) => {
-  const { t } = useTranslation('providers');
+  const { t } = useAppTranslation('providers');
   const { classes, cx, theme } = useStyles();
 
   const total = compute.available + compute.used;

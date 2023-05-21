@@ -10,12 +10,12 @@ import { useDisplayStyles } from '@/styles/useSharedStyles';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Grid2 from '@mui/material/Unstable_Grid2';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { NextSeo } from 'next-seo';
 import { useCallback, useDeferredValue, useMemo, useRef, useState } from 'react';
 
 const Assets = () => {
-  const { t } = useTranslation('assets');
+  const { t } = useAppTranslation('assets');
   const { classes, cx, theme } = useStyles();
 
   const title = t('assetsModule');

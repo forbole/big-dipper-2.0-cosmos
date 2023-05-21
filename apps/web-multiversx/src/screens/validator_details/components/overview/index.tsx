@@ -1,11 +1,11 @@
 import { FC } from 'react';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import BoxDetails from '@/components/box_details';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import type { OverviewType } from '@/screens/validator_details/types';
 
 const Overview: FC<{ className?: string; overview: OverviewType }> = (props) => {
-  const { t } = useTranslation('validators');
+  const { t } = useAppTranslation('validators');
   const details = [];
 
   props.overview.stakeDistribution.forEach((x) => {

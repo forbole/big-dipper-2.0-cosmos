@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
+import AppTrans from '@/components/AppTrans';
 import { FC } from 'react';
 import Name from '@/components/name';
 import MsgConvertCoin from '@/models/msg/erc20/msg_convert_coin';
@@ -20,7 +20,7 @@ const ConvertCoin: FC<{ message: MsgConvertCoin }> = (props) => {
 
   return (
     <Typography>
-      <Trans
+      <AppTrans
         i18nKey="message_contents:MsgConvertCoin"
         components={[<b />, <Name address={message.sender} name={senderMoniker} />]}
         values={{

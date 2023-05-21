@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC, LegacyRef, useMemo } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { VariableSizeGrid as Grid } from 'react-window';
@@ -13,7 +13,7 @@ import {
 import type { ConsensusType } from '@/screens/block_details/types';
 
 const Desktop: FC<{ items: ConsensusType[]; className?: string }> = (props) => {
-  const { t } = useTranslation('blocks');
+  const { t } = useAppTranslation('blocks');
   const { classes, cx } = useStyles();
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
   const itemsMemo = useShallowMemo(props.items);

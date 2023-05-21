@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
+import AppTrans from '@/components/AppTrans';
 import { FC } from 'react';
 import Name from '@/components/name';
 import MsgUpdateGroupMembersRequest from '@/models/msg/group/msg_update_group_members_request';
@@ -13,7 +13,7 @@ const UpdateGroupMembersRequest: FC<{ message: MsgUpdateGroupMembersRequest }> =
 
   return (
     <Typography>
-      <Trans
+      <AppTrans
         i18nKey="message_contents:MsgUpdateGroupMembersRequest"
         components={[<Name address={message.admin} name={adminMoniker} />]}
       />

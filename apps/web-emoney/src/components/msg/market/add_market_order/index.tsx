@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
+import AppTrans from '@/components/AppTrans';
 import { FC } from 'react';
 import Name from '@/components/name';
 import MsgAddMarketOrder from '@/models/msg/market/msg_add_market_order';
@@ -14,7 +14,7 @@ const AddMarketOrder: FC<{ message: MsgAddMarketOrder }> = (props) => {
 
   return (
     <Typography>
-      <Trans
+      <AppTrans
         i18nKey="message_contents:txAddMarketOrderContent"
         components={[<Name address={message.owner} name={ownerMoniker} />, <b />, <b />, <b />]}
         values={{

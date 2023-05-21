@@ -5,7 +5,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import CloseIcon from '@mui/icons-material/Close';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC } from 'react';
 import { QRCodeSVG } from 'qrcode.react';
 import { useScreenSize } from '@/hooks/use_screen_size';
@@ -23,7 +23,7 @@ const PairConnectWalletDialog: FC<PairWalletConnectDialogProps> = ({
   onClose,
 }) => {
   const { classes } = useStyles();
-  const { t } = useTranslation();
+  const { t } = useAppTranslation();
   const { isDesktop } = useScreenSize();
   return (
     <div>

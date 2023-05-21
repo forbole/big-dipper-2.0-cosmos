@@ -1,0 +1,23 @@
+{
+  "accounts.validator": "Guardian",
+  "blocks.validator": "Guardian",
+  "common.validators": "Guardians",
+  "common.searchBarPlaceholder": "搜索Guardian/交易哈希/区块高度/地址",
+  "common.searchBarPlaceholderDtag": "搜索Guardian/交易哈希/区块高度/地址 / @dtag",
+  "common.useValidatorAddress": "请用Guardian地址",
+  "home.activeValidators": "有效的Guardian",
+  "home.outOfValidators": "在......之外 {{num}} Guardian",
+  "home.validators": "Guardians",
+  "message_contents.txWithdrawCommissionContent": "<0>{{user}}</0> 提取 <1>{{amount}}</1> 来自他们的Guardian佣金",
+  "message_contents.txCreateValidatorContent": "<0>{{user}}</0> 创建Guardian <1>{{validator}}</1>",
+  "message_contents.txEditValidatorContent": "<0>{{validator}}</0> 更新了他们的Guardian详细信息",
+  "message_labels.txCreateValidatorLabel": "创建Guardian",
+  "message_labels.txEditValidatorLabel": "编辑Guardian",
+  "params.maxValidators": "最大Guardian人数量",
+  "validators.validators": "Guardians",
+  "validators.allValidators": "所有Guardian",
+  "validators.validator": "Guardian",
+  "validators.conditionExplanation": "当前已验证区块内，Guardian的整体表现",
+  "validators.searchValidator": "搜索Guardian",
+  "validators.validatorDetails": "Guardian详细信息"
+}

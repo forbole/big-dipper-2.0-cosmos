@@ -1,0 +1,23 @@
+{
+  "accounts.validator": "Guardian",
+  "blocks.validator": "Guardian",
+  "common.validators": "Guardians",
+  "common.searchBarPlaceholder": "Search for guardian / tx hash / block height / address",
+  "common.searchBarPlaceholderDtag": "Search for guardian / tx hash / block height / address / @dtag",
+  "common.useValidatorAddress": "Please use a guardian address instead",
+  "home.activeValidators": "Active Guardians",
+  "home.outOfValidators": "out of {{num}} guardians",
+  "home.validators": "Guardians",
+  "message.contents:txWithdrawCommissionContent": "<0>{{user}}</0> withdrew <1>{{amount}}</1> from their guardian commission",
+  "message.contents:txCreateValidatorContent": "<0>{{user}}</0> created guardian <1>{{validator}}</1>",
+  "message.contents:txEditValidatorContent": "<0>{{validator}}</0> updated their guardian details",
+  "message.labels:txCreateValidatorLabel": "Create Guardian",
+  "message.labels:txEditValidatorLabel": "Edit Guardian",
+  "params.maxValidators": "Max Guardians",
+  "validators.validators": "Guardians",
+  "validators.allValidators": "All Guardians",
+  "validators.validator": "Guardian",
+  "validators.conditionExplanation": "The overall health of a guardian within the current signed block window",
+  "validators.searchValidator": "Search Guardian",
+  "validators.validatorDetails": "Guardian Details"
+}

@@ -5,7 +5,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import CloseIcon from '@mui/icons-material/Close';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC } from 'react';
 import LoginSuccessIcon from 'shared-utils/assets/icon-success.svg';
 
@@ -16,7 +16,7 @@ type LoginSuccessDialogProps = {
 
 const LoginSuccessDialog: FC<LoginSuccessDialogProps> = ({ open, onClose }) => {
   const { classes } = useStyles();
-  const { t } = useTranslation();
+  const { t } = useAppTranslation();
 
   return (
     <div>

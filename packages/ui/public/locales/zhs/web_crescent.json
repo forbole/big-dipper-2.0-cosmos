@@ -1,0 +1,4 @@
+{
+  "validators.liquidStaking": "Liquid Staking",
+  "validators.liquidStakingExplanation": "Liquid Staking Validators allow you to stake CRE to receive bCRE. bCRE can then be deposited into liquidity pools to earn further rewards."
+}

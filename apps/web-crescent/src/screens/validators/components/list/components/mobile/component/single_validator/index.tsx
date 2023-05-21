@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC, ReactNode } from 'react';
 import LiquidStakingFalseIcon from 'shared-utils/assets/liquid-staking-false.svg';
 import LiquidStakingTrueIcon from 'shared-utils/assets/liquid-staking-true.svg';
@@ -25,7 +25,7 @@ const SingleValidator: FC<SingleValidatorProps> = ({
   status,
   liquidStaking,
 }) => {
-  const { t } = useTranslation('validators');
+  const { t } = useAppTranslation('validators');
   const { classes, cx } = useStyles();
   return (
     <div className={cx(classes.root, className)}>

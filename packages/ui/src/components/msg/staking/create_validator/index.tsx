@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
+import AppTrans from '@/components/AppTrans';
 import { FC } from 'react';
 import Name from '@/components/name';
 import { MsgCreateValidator } from '@/models';
@@ -13,7 +13,7 @@ const CreateValidator: FC<{ message: MsgCreateValidator }> = (props) => {
 
   return (
     <Typography>
-      <Trans
+      <AppTrans
         i18nKey="message_contents:txCreateValidatorContent"
         components={[
           <Name address={message.delegatorAddress} name={delegatorMoniker} />,

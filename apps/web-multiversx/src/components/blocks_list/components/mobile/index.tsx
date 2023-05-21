@@ -4,13 +4,13 @@ import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { getShardDisplay } from '@/utils/get_shard_display';
 import { BLOCK_DETAILS } from '@/utils/go_to_page';
 import Divider from '@mui/material/Divider';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
 import { FC, Fragment } from 'react';
 
 const Mobile: FC<{ className?: string; items: BlockType[] }> = (props) => {
-  const { t } = useTranslation('blocks');
+  const { t } = useAppTranslation('blocks');
   const formattedItems = props.items.map((x) => {
     const shard = getShardDisplay(x.shard);
     return {
