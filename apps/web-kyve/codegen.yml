@@ -1,0 +1,13 @@
+overwrite: true
+generates:
+  ./src/graphql/types/general_types.ts:
+    documents:
+      - 'src/graphql/general/*'
+    schema: https://gql.kyve.forbole.com/v1/graphql
+    config:
+      # omitOperationSuffix: true
+      skipTypeNameForRoot: true
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-react-apollo' # To generate custom hooks per query

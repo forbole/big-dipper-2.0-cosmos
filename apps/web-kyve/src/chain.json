@@ -1,6 +1,6 @@
 {
-  "chainName": "coreum",
-  "title": "Coreum Block Explorer",
+  "chainName": "kyve",
+  "title": "Kyve Block Explorer",
   "extra": {
     "profile": false,
     "graphqlWs": true
@@ -207,29 +207,29 @@
   "keplr": "",
   "chains": [
     {
-      "network": "coreum-mainnet-1",
+      "network": "kyve-1",
       "chainType": "Mainnet",
       "genesis": {
-        "time": "2023-03-12T00:00:00",
+        "time": "2023-03-14T14:03:14",
         "height": 1
       },
       "prefix": {
-        "consensus": "corevalcons",
-        "validator": "corevaloper",
-        "account": "core"
+        "consensus": "kyvevalcons",
+        "validator": "kyvevaloper",
+        "account": "kyve"
       },
-      "primaryTokenUnit": "ucore",
-      "votingPowerTokenUnit": "ucore",
+      "primaryTokenUnit": "ukyve",
+      "votingPowerTokenUnit": "ukyve",
       "tokenUnits": {
-        "ucore": {
-          "display": "core",
+        "ukyve": {
+          "display": "kyve",
           "exponent": 6
         }
       },
       "endpoints": {
-        "graphql": "https://gql.coreum.forbole.com/v1/graphql",
-        "graphqlWebsocket": "wss://gql.coreum.forbole.com/v1/graphql",
-        "publicRpcWebsocket": "wss://rpc.coreum.forbole.com/websocket"
+        "graphql": "https://gql.kyve.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.kyve.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc.kyve.forbole.com/websocket"
       },
       "marketing": {
         "matomoURL": "https://analytics.bigdipper.live",
