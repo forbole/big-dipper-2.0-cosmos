@@ -1,6 +1,6 @@
 {
   "name": "shared-utils",
-  "version": "2.16.2",
+  "version": "2.17.0",
   "license": "Apache-2.0",
   "private": true,
   "scripts": {
