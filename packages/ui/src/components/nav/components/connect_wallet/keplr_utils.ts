@@ -2,7 +2,10 @@ import { SigningStargateClient, GasPrice } from '@cosmjs/stargate';
 import { OfflineAminoSigner, OfflineDirectSigner } from '@keplr-wallet/types';
 import { toBase64 } from '@cosmjs/encoding';
 import { PubKey } from '@/recoil/user/atom';
-import { keplrURL } from '@/components/nav/components/connect_wallet/api';
+import chainConfig from '@/chainConfig';
+
+// Get the keplr chain info from chainConfig
+const { keplrRpc } = chainConfig();
 
 export const isKeplrAvailable = () => !!window.keplr;
 
@@ -44,13 +47,9 @@ export const getCosmosClient = async (
 ) => {
   // Initialize the gaia api with the offline signer that is injected by Keplr extension.
   // using rpc endpoint instead of keplrURL
-  const cosmJS = await SigningStargateClient.connectWithSigner(
-    'https://rpc.desmos.forbole.com/',
-    offlineSigner,
-    {
-      gasPrice: GasPrice.fromString(`0.01${mintDenom}`),
-    }
-  );
+  const cosmJS = await SigningStargateClient.connectWithSigner(keplrRpc, offlineSigner, {
+    gasPrice: GasPrice.fromString(`0.01${mintDenom}`),
+  });
 
   return cosmJS;
 };

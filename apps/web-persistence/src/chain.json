@@ -29,6 +29,7 @@
       },
       "custom": {
         "general": {
+          "background": "#000000",
           "surfaceOne": "#1F1F1F",
           "surfaceTwo": "#363636",
           "icon": "#999999"
@@ -127,6 +128,7 @@
     }
   },
   "keplr": "",
+  "keplrRpc": "https://rpc.persistence.forbole.com/",
   "chains": [
     {
       "network": "core-1",

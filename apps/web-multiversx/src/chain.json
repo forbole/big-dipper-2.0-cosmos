@@ -125,6 +125,7 @@
     }
   },
   "keplr": "",
+  "keplrRpc": "https://rpc.multiversx.forbole.com/",
   "chains": [
     {
       "network": "mainnet",
