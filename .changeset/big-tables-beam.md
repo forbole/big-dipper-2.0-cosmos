@@ -21,7 +21,6 @@
 'web-nomic': minor
 'web-rizon': minor
 'web-band': minor
-'web-main': minor
 'web-nym': minor
 'ui': minor
 'web': minor
