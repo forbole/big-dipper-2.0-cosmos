@@ -1,5 +1,17 @@
 # Unreleased
 
+## 2.15.0
+
+### Minor Changes
+
+- [#1236](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1236) [`fe24afcda`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/fe24afcdad91cb859ee637f2c61d79d177d8c616) Thanks [@rachelhox](https://github.com/rachelhox)! - fix quicksilver validator moniker display
+
+### Patch Changes
+
+- Updated dependencies [[`376b4b356`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/376b4b356b58375f14f004f62a3c2e1a11c8dccf), [`fe24afcda`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/fe24afcdad91cb859ee637f2c61d79d177d8c616)]:
+  - shared-utils@2.17.0
+  - ui@2.29.0
+
 ## 2.14.1
 
 ### Patch Changes
