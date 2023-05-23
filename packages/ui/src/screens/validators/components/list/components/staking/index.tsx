@@ -14,7 +14,7 @@ import useStakingHooks from './hooks';
 type StakeButtonProps = {
   address: string;
   name: string;
-  imageUrl: string;
+  imageUrl?: string;
   commission: string;
 };
 
@@ -56,7 +56,7 @@ const StakeButton = (props: StakeButtonProps) => {
           open={openDelegateDialog}
           onClose={handleCloseDelegateDialog}
           validatorAddress={props.address}
-          imageUrl={props.imageUrl}
+          imageUrl={props.imageUrl ?? ''}
           validatorName={props.name}
           validatorCommission={props.commission}
         />
@@ -65,7 +65,7 @@ const StakeButton = (props: StakeButtonProps) => {
           open={openRedelegateDialog}
           onClose={handleCloseRedelegateDialog}
           validatorAddress={props.address}
-          imageUrl={props.imageUrl}
+          imageUrl={props.imageUrl ?? ''}
           validatorName={props.name}
           validatorCommission={props.commission}
         />
@@ -74,7 +74,7 @@ const StakeButton = (props: StakeButtonProps) => {
           open={openUndelegateDialog}
           onClose={handleCloseUndelegateDialog}
           validatorAddress={props.address}
-          imageUrl={props.imageUrl}
+          imageUrl={props.imageUrl ?? ''}
           validatorName={props.name}
           validatorCommission={props.commission}
         />
