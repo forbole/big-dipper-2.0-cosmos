@@ -1,14 +1,13 @@
 {
-  "chainName": "cheqd",
-  "title": "Cheqd Block Explorer",
+  "chainName": "humansai",
+  "title": "Humansai Block Explorer",
   "extra": {
     "profile": false,
-    "graphqlWs": true,
-    "votingPowerExponent": 9
+    "graphqlWs": true
   },
-  "previewImage": "https://s3.bigdipper.live/previews/cheqd.png",
+  "previewImage": "https://s3.bigdipper.live/previews/humansai.png",
   "themes": {
-    "default": "dark",
+    "default": "light",
     "themeList": [
       "dark",
       "light",
@@ -31,7 +30,7 @@
       },
       "custom": {
         "general": {
-          "background": "#020202",
+          "background": "#0A0A0A",
           "surfaceOne": "#131316",
           "surfaceTwo": "#19191D",
           "icon": "#999999"
@@ -55,37 +54,37 @@
           "fail": "#b12a34"
         },
         "tokenomics": {
-          "one": "#5E94FF",
-          "two": "#E3AB55",
-          "three": "#5ACF78"
+          "one": "#50B6D7",
+          "two": "#F4CD69",
+          "three": "#45A884"
         },
         "condition": {
-          "zero": "#E8E8E8",
+          "zero": "#E6E6E6",
           "one": "#1EC490",
-          "two": "#FF961B",
-          "three": "#FC6A8A"
+          "two": "#FF9338",
+          "three": "#FF608A"
         },
         "charts": {
-          "zero": "#E8E8E8",
-          "one": "#5ACF78",
-          "two": "#5E94FF",
-          "three": "#AE73F8",
-          "four": "#E3AB55",
-          "five": "#C25396"
+          "zero": "#6D6D6C",
+          "one": "#45A884",
+          "two": "#50B6D7",
+          "three": "#F4CD69",
+          "four": "#F2A46B",
+          "five": "#C975F0"
         },
         "tags": {
           "zero": "#E8E8E8",
           "one": "#2460FA",
-          "two": "#2BA891",
-          "three": "#E79720",
-          "four": "#F17047",
+          "two": "#2BA896",
+          "three": "#E79725",
+          "four": "#F17052",
           "five": "#DA4B4B",
           "six": "#9438DC",
           "seven": "#1A869D",
-          "eight": "#2C9944",
-          "nine": "#B49F31",
-          "ten": "#E9A846",
-          "eleven": "#E94681",
+          "eight": "#2C9949",
+          "nine": "#B49F36",
+          "ten": "#E9A851",
+          "eleven": "#E94686",
           "twelve": "#C15EC4",
           "thirteen": "#C388D9",
           "fourteen": "#46AEE9",
@@ -112,7 +111,7 @@
     },
     "light": {
       "primary": {
-        "main": "#FD3B4C",
+        "main": "#488D98",
         "contrastText": "#FFFFFF"
       },
       "background": {
@@ -137,20 +136,20 @@
           "fontThree": "#777777",
           "fontFour": "#999999",
           "fontFive": "#FFFFFF",
-          "highlight": "#6AA6FF"
+          "highlight": "#0075FF"
         },
         "primaryData": {
-          "one": "#FA3A39",
-          "two": "#FD5E1F",
-          "three": "#FD5D4E",
-          "four": "#FD9526"
+          "one": "#488D98",
+          "two": "#45A884",
+          "three": "#48A2B0",
+          "four": "#47B0AA"
         },
         "results": {
           "pass": "#1EC490",
           "fail": "#FD3B4C"
         },
         "tokenomics": {
-          "one": "#FD9526",
+          "one": "#50B6D7",
           "two": "#F4CD69",
           "three": "#45A884"
         },
@@ -206,62 +205,32 @@
       }
     }
   },
-  "keplr": "{\"chainId\":\"cheqd-mainnet-1\",\"chainName\":\"cheqd\",\"chainSymbolImageUrl\":\"https://raw.githubusercontent.com/chainapsis/keplr-chain-registry/main/images/cheqd-mainnet/chain.png\",\"rpc\":\"https://rpc.cheqd.net\",\"rest\":\"https://api.cheqd.net\",\"nodeProvider\":{\"name\":\"cheqd Network\",\"email\":\"security-github@cheqd.io\",\"website\":\"https://cheqd.io/\"},\"walletUrlForStaking\":\"https://cheqd.omniflix.co\",\"bip44\":{\"coinType\":118},\"bech32Config\":{\"bech32PrefixAccAddr\":\"cheqd\",\"bech32PrefixAccPub\":\"cheqdpub\",\"bech32PrefixValAddr\":\"cheqdvaloper\",\"bech32PrefixValPub\":\"cheqdvaloperpub\",\"bech32PrefixConsAddr\":\"cheqdvalcons\",\"bech32PrefixConsPub\":\"cheqdvalconspub\"},\"currencies\":[{\"coinDenom\":\"CHEQ\",\"coinMinimalDenom\":\"ncheq\",\"coinDecimals\":9,\"coinGeckoId\":\"cheqd-network\"}],\"feeCurrencies\":[{\"coinDenom\":\"CHEQ\",\"coinMinimalDenom\":\"ncheq\",\"coinDecimals\":9,\"coinGeckoId\":\"cheqd-network\",\"gasPriceStep\":{\"low\":25,\"average\":50,\"high\":100}}],\"stakeCurrency\":{\"coinDenom\":\"CHEQ\",\"coinMinimalDenom\":\"ncheq\",\"coinDecimals\":9,\"coinGeckoId\":\"cheqd-network\"},\"features\":[]}",
+  "keplr": "",
   "chains": [
     {
-      "network": "cheqd-mainnet-1",
-      "chainType": "Mainnet",
-      "genesis": {
-        "time": "2021-11-11T14:47:05",
-        "height": 1
-      },
-      "prefix": {
-        "consensus": "cheqdvalcons",
-        "validator": "cheqdvaloper",
-        "account": "cheqd"
-      },
-      "primaryTokenUnit": "ncheq",
-      "votingPowerTokenUnit": "ncheq",
-      "tokenUnits": {
-        "ncheq": {
-          "display": "cheq",
-          "exponent": 9
-        }
-      },
-      "endpoints": {
-        "graphql": "https://gql.cheqd.forbole.com/v1/graphql",
-        "graphqlWebsocket": "wss://gql.cheqd.forbole.com/v1/graphql",
-        "publicRpcWebsocket": "wss://rpc.cheqd.forbole.com/websocket"
-      },
-      "marketing": {
-        "matomoURL": "https://analytics.bigdipper.live",
-        "matomoSiteID": "8"
-      }
-    },
-    {
-      "network": "cheqd-testnet-4",
+      "network": "humans_3000-31",
       "chainType": "Testnet",
       "genesis": {
-        "time": "2021-09-24T14:47:05",
+        "time": "2023-05-23T09:00:00",
         "height": 1
       },
       "prefix": {
-        "consensus": "cheqdvalcons",
-        "validator": "cheqdvaloper",
-        "account": "cheqd"
+        "consensus": "humanvalcons",
+        "validator": "humanvaloper",
+        "account": "human"
       },
-      "primaryTokenUnit": "ucheq",
-      "votingPowerTokenUnit": "ucheq",
+      "primaryTokenUnit": "uheart",
+      "votingPowerTokenUnit": "uheart",
       "tokenUnits": {
-        "ucheq": {
-          "display": "cheq",
-          "exponent": 9
+        "uheart": {
+          "display": "heart",
+          "exponent": 18
         }
       },
       "endpoints": {
-        "graphql": "https://testnet-gql.cheqd.io/v1/graphql",
-        "graphqlWebsocket": "wss://testnet-gql.cheqd.io/v1/graphql",
-        "publicRpcWebsocket": "wss://rpc.cheqd.network/websocket"
+        "graphql": "https://gql-testnet.humansai.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql-testnet.humansai.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc-testnet.humansai.forbole.com/websocket"
       },
       "marketing": {
         "matomoURL": "https://analytics.bigdipper.live",
