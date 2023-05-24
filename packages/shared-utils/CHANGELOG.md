@@ -1,5 +1,13 @@
 # shared-utils
 
+## 2.18.0
+
+### Minor Changes
+
+- [#1253](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1253) [`c59a66729`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/c59a66729196471a7adafa23823dc4b1b21e334b) Thanks [@rachelhox](https://github.com/rachelhox)! - add humansai big dipper
+
+- [#1250](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1250) [`3df0639ae`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/3df0639ae1ce872cfd05b535ae55edd9292995b3) Thanks [@rachelhox](https://github.com/rachelhox)! - add kyve Big Dipper
+
 ## 2.17.0
 
 ### Minor Changes
