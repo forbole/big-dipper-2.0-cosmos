@@ -5,7 +5,7 @@ import { getDenom } from '@/utils/get_denom';
 import * as R from 'ramda';
 import { formatNumber, formatToken } from '@/utils/format_token';
 import { getClient } from '@/components/nav/components/connect_wallet/keplr_utils';
-import { assertIsBroadcastTxSuccess } from '@cosmjs/stargate';
+import { assertIsDeliverTxSuccess } from '@cosmjs/stargate';
 import { useEffect } from 'react';
 import { coin } from '@cosmjs/proto-signing';
 import { ADDRESS_KEY, CHAIN_ID } from '@/utils/localstorage';
@@ -148,13 +148,16 @@ const useStakingHooks = () => {
         break;
       case 'redelegate':
         try {
-          result = await client.redelegateTokens(
-            userAddress,
-            validator,
-            coin(amount, baseDenom ?? ''),
-            'auto',
-            memo
-          );
+          // to do: this function is still in [PR](https://github.com/cosmos/cosmjs/pull/922/files)
+          if ('redelegateTokens' in client && typeof client.redelegateTokens === 'function') {
+            result = await client.redelegateTokens(
+              userAddress,
+              validator,
+              coin(amount, baseDenom ?? ''),
+              'auto',
+              memo
+            );
+          }
         } catch (e) {
           setErrorMsg((e as Error).message);
           return;
@@ -189,7 +192,7 @@ const useStakingHooks = () => {
     // eslint-disable-next-line no-console
     console.log(result);
     try {
-      assertIsBroadcastTxSuccess(result);
+      assertIsDeliverTxSuccess(result);
     } catch (e) {
       setErrorMsg((e as Error).message);
       return;

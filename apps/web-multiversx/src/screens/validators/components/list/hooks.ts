@@ -7,6 +7,8 @@ import chainConfig from '@/chainConfig';
 import type { ValidatorsState } from '@/screens/validators/components/list/types';
 import { formatNumber, formatToken } from '@/utils/format_token';
 
+export { useStakingDistribution } from 'ui/screens/validators/components/list/hooks';
+
 const { primaryTokenUnit } = chainConfig();
 
 type ValidatorData = {

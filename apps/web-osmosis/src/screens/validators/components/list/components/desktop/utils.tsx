@@ -4,6 +4,8 @@ import Typography from '@mui/material/Typography';
 import type { TFunction } from '@/hooks/useAppTranslation';
 import { ReactNode } from 'react';
 
+export { fetchLoggedInColumns } from 'ui/screens/validators/components/list/components/desktop/utils';
+
 export const fetchColumns = (
   t: TFunction
 ): {

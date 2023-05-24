@@ -2686,6 +2686,8 @@ export type Query_Root = {
   software_upgrade_plan_aggregate: Software_Upgrade_Plan_Aggregate;
   /** fetch data from the table: "staking_params" */
   staking_params: Array<Staking_Params>;
+  /** fetch aggregated fields from the table: "staking_params" */
+  staking_params_aggregate: Staking_Params_Aggregate;
   /** fetch data from the table: "staking_pool" */
   staking_pool: Array<Staking_Pool>;
   /** fetch data from the table: "supply" */
@@ -3135,6 +3137,15 @@ export type Query_RootStaking_ParamsArgs = {
 };
 
 
+export type Query_RootStaking_Params_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Staking_Params_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Staking_Params_Order_By>>;
+  where?: InputMaybe<Staking_Params_Bool_Exp>;
+};
+
+
 export type Query_RootStaking_PoolArgs = {
   distinct_on?: InputMaybe<Array<Staking_Pool_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -3556,6 +3567,42 @@ export type Staking_ParamsParamsArgs = {
   path?: InputMaybe<Scalars['String']>;
 };
 
+/** aggregated selection of "staking_params" */
+export type Staking_Params_Aggregate = {
+  __typename?: 'staking_params_aggregate';
+  aggregate?: Maybe<Staking_Params_Aggregate_Fields>;
+  nodes: Array<Staking_Params>;
+};
+
+/** aggregate fields of "staking_params" */
+export type Staking_Params_Aggregate_Fields = {
+  __typename?: 'staking_params_aggregate_fields';
+  avg?: Maybe<Staking_Params_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Staking_Params_Max_Fields>;
+  min?: Maybe<Staking_Params_Min_Fields>;
+  stddev?: Maybe<Staking_Params_Stddev_Fields>;
+  stddev_pop?: Maybe<Staking_Params_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Staking_Params_Stddev_Samp_Fields>;
+  sum?: Maybe<Staking_Params_Sum_Fields>;
+  var_pop?: Maybe<Staking_Params_Var_Pop_Fields>;
+  var_samp?: Maybe<Staking_Params_Var_Samp_Fields>;
+  variance?: Maybe<Staking_Params_Variance_Fields>;
+};
+
+
+/** aggregate fields of "staking_params" */
+export type Staking_Params_Aggregate_FieldsCountArgs = {
+  columns?: InputMaybe<Array<Staking_Params_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type Staking_Params_Avg_Fields = {
+  __typename?: 'staking_params_avg_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
 /** Boolean expression to filter rows from the table "staking_params". All fields are combined with a logical 'AND'. */
 export type Staking_Params_Bool_Exp = {
   _and?: InputMaybe<Array<Staking_Params_Bool_Exp>>;
@@ -3563,6 +3610,18 @@ export type Staking_Params_Bool_Exp = {
   _or?: InputMaybe<Array<Staking_Params_Bool_Exp>>;
   height?: InputMaybe<Bigint_Comparison_Exp>;
   params?: InputMaybe<Jsonb_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Staking_Params_Max_Fields = {
+  __typename?: 'staking_params_max_fields';
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregate min on columns */
+export type Staking_Params_Min_Fields = {
+  __typename?: 'staking_params_min_fields';
+  height?: Maybe<Scalars['bigint']>;
 };
 
 /** Ordering options when selecting data from "staking_params". */
@@ -3578,6 +3637,48 @@ export enum Staking_Params_Select_Column {
   /** column name */
   Params = 'params'
 }
+
+/** aggregate stddev on columns */
+export type Staking_Params_Stddev_Fields = {
+  __typename?: 'staking_params_stddev_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Staking_Params_Stddev_Pop_Fields = {
+  __typename?: 'staking_params_stddev_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Staking_Params_Stddev_Samp_Fields = {
+  __typename?: 'staking_params_stddev_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate sum on columns */
+export type Staking_Params_Sum_Fields = {
+  __typename?: 'staking_params_sum_fields';
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregate var_pop on columns */
+export type Staking_Params_Var_Pop_Fields = {
+  __typename?: 'staking_params_var_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type Staking_Params_Var_Samp_Fields = {
+  __typename?: 'staking_params_var_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type Staking_Params_Variance_Fields = {
+  __typename?: 'staking_params_variance_fields';
+  height?: Maybe<Scalars['Float']>;
+};
 
 /** columns and relationships of "staking_pool" */
 export type Staking_Pool = {
@@ -3700,6 +3801,8 @@ export type Subscription_Root = {
   software_upgrade_plan_aggregate: Software_Upgrade_Plan_Aggregate;
   /** fetch data from the table: "staking_params" */
   staking_params: Array<Staking_Params>;
+  /** fetch aggregated fields from the table: "staking_params" */
+  staking_params_aggregate: Staking_Params_Aggregate;
   /** fetch data from the table: "staking_pool" */
   staking_pool: Array<Staking_Pool>;
   /** fetch data from the table: "supply" */
@@ -4055,6 +4158,15 @@ export type Subscription_RootSoftware_Upgrade_Plan_AggregateArgs = {
 
 
 export type Subscription_RootStaking_ParamsArgs = {
+  distinct_on?: InputMaybe<Array<Staking_Params_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Staking_Params_Order_By>>;
+  where?: InputMaybe<Staking_Params_Bool_Exp>;
+};
+
+
+export type Subscription_RootStaking_Params_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Staking_Params_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;

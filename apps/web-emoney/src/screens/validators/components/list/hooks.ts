@@ -13,6 +13,8 @@ import type {
 import { formatToken } from '@/utils/format_token';
 import { getValidatorCondition } from '@/utils/get_validator_condition';
 
+export { useStakingDistribution } from 'ui/screens/validators/components/list/hooks';
+
 const { votingPowerTokenUnit } = chainConfig();
 
 // ==========================

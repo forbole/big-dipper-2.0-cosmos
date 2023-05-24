@@ -56,7 +56,7 @@ const List: FC<ComponentDefault> = ({ className }) => {
   return (
     <div>
       <div className={classes.stakingButtons}>
-        <div className={classes.staking}>
+        <div>
           <StakeButton address="address" imageUrl="imageUrl" name="name" commission="12" />
         </div>
         <div className={classes.stakingDistribution}>

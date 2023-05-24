@@ -58,5 +58,8 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,mjs,cjs,css,md}": "yarn dlx prettier --write"
+  },
+  "dependencies": {
+    "@cosmjs/stargate": "^0.30.1"
   }
 }

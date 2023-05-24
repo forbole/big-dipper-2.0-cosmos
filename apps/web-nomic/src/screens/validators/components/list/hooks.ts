@@ -10,6 +10,8 @@ import type {
 import { useValidatorsQuery, ValidatorsQuery } from '@/graphql/types/general_types';
 import chainConfig from '@/chainConfig';
 
+export { useStakingDistribution } from 'ui/screens/validators/components/list/hooks';
+
 const { extra } = chainConfig();
 
 // ==========================
