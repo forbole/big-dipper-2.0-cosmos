@@ -1,0 +1,23 @@
+{
+  "accounts.validator": "Guardian",
+  "blocks.validator": "Guardian",
+  "common.validators": "Guardians",
+  "common.searchBarPlaceholder": "搜索Guardian/交易雜湊/區塊高度/錢包地址",
+  "common.searchBarPlaceholderDtag": "搜索 guardian / tx hash / block height / address / @dtag",
+  "common.useValidatorAddress": "請改用Guardian地址",
+  "home.activeValidators": "活躍Guardian",
+  "home.outOfValidators": "在......之外 {{num}} Guardian",
+  "home.validators": "Guardians",
+  "message_contents.txWithdrawCommissionContent": "<0>{{user}}</0> 提取 <1>{{amount}}</1> 來自他們的驗證者佣金",
+  "message_contents.txCreateValidatorContent": "<0>{{user}}</0> 創建驗證者 <1>{{validator}}</1>",
+  "message_contents.txEditValidatorContent": "<0>{{validator}}</0> 更新了他們的驗證者詳細資料",
+  "message_labels.txCreateValidatorLabel": "創建Guardian",
+  "message_labels.txEditValidatorLabel": "編輯Guardian",
+  "params.maxValidators": "最大Guardian數目限制",
+  "validators.validators": "Guardians",
+  "validators.allValidators": "所有Guardian",
+  "validators.validator": "Guardian",
+  "validators.conditionExplanation": "當前已驗證區塊內，Guardian的整體表現",
+  "validators.searchValidator": "搜尋Guardian",
+  "validators.validatorDetails": "Guardian詳細資料"
+}

@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
+import AppTrans from '@/components/AppTrans';
 import { FC } from 'react';
 import Name from '@/components/name';
 import MsgRemoveReason from '@/models/msg/reports/msg_remove_reason';
@@ -14,7 +14,7 @@ const RemoveReason: FC<{ message: MsgRemoveReason }> = (props) => {
 
   return (
     <Typography>
-      <Trans
+      <AppTrans
         i18nKey="message_contents:txMsgRemoveReason"
         components={[<Name address={message.signer} name={signerMoniker} />, <b />]}
         values={{

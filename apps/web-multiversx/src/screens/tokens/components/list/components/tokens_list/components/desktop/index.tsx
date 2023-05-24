@@ -3,7 +3,7 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import numeral from 'numeral';
 import { FC } from 'react';
 import { TOKEN_DETAILS } from '@/utils/go_to_page';
@@ -14,7 +14,7 @@ import useStyles from '@/screens/tokens/components/list/components/tokens_list/c
 import AvatarName from '@/components/avatar_name';
 
 const Desktop: FC<{ className?: string; items: TokenType[] }> = (props) => {
-  const { t } = useTranslation('tokens');
+  const { t } = useAppTranslation('tokens');
   const { classes, cx } = useStyles();
   const formattedItems = props.items.map((x, i) => ({
     key: `${x.identifier}-${i}`,

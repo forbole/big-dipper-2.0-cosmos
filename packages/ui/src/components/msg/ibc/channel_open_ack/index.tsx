@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
+import AppTrans from '@/components/AppTrans';
 import { FC } from 'react';
 import Name from '@/components/name';
 import { type MsgChannelOpenAck } from '@/models';
@@ -13,7 +13,7 @@ const ChannelOpenAck: FC<{ message: MsgChannelOpenAck }> = (props) => {
 
   return (
     <Typography>
-      <Trans
+      <AppTrans
         i18nKey="message_contents:txChannelOpenAckContent"
         components={[<Name address={message.signer} name={signerMoniker} />, <b />]}
         values={{

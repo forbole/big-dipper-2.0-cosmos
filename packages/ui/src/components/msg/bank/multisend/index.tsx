@@ -4,12 +4,13 @@ import { MsgMultiSend } from '@/models';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { formatNumber, formatToken } from '@/utils/format_token';
 import Typography from '@mui/material/Typography';
-import { Trans, useTranslation } from 'next-i18next';
+import AppTrans from '@/components/AppTrans';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC } from 'react';
 
 const RecieverName: FC<{ address: string; coins: MsgCoin[] }> = (props) => {
   const { address: theAddress, coins } = props;
-  const { t } = useTranslation('transactions');
+  const { t } = useAppTranslation('transactions');
   const { address, name } = useProfileRecoil(theAddress);
   const recieverMoniker = name || theAddress;
   const parsedAmount = coins
@@ -22,7 +23,7 @@ const RecieverName: FC<{ address: string; coins: MsgCoin[] }> = (props) => {
     );
   return (
     <Typography>
-      <Trans
+      <AppTrans
         i18nKey="message_contents:txMultisendContentTwo"
         components={[<Name address={address} name={recieverMoniker} />, <b />]}
         values={{
@@ -34,7 +35,7 @@ const RecieverName: FC<{ address: string; coins: MsgCoin[] }> = (props) => {
 };
 
 const Multisend: FC<{ message: MsgMultiSend }> = (props) => {
-  const { t } = useTranslation('transactions');
+  const { t } = useAppTranslation('transactions');
   const { classes } = useStyles();
 
   const { message } = props;
@@ -55,7 +56,7 @@ const Multisend: FC<{ message: MsgMultiSend }> = (props) => {
   return (
     <div>
       <Typography>
-        <Trans
+        <AppTrans
           i18nKey="message_contents:txMultisendContentOne"
           components={[<Name address={address} name={validatorMoniker} />, <b />]}
           values={{

@@ -1,5 +1,5 @@
 import copy from 'copy-to-clipboard';
-import { TFunction } from 'next-i18next';
+import type { TFunction } from '@/hooks/useAppTranslation';
 import { useCallback } from 'react';
 import { toast } from 'react-toastify';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import Layout from '@/components/layout';
 import LoadAndExist from '@/components/load_and_exist';
 import Overview from '@/screens/nft_details/components/overview';
@@ -9,7 +9,7 @@ import useStyles from '@/screens/nft_details/styles';
 
 const BlockDetails = () => {
   const { classes } = useStyles();
-  const { t } = useTranslation('nfts');
+  const { t } = useAppTranslation('nfts');
   const { state } = useBlockDetails();
   return (
     <>

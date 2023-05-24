@@ -1,5 +1,4 @@
 import Button from '@mui/material/Button';
-import { useTranslation } from 'next-i18next';
 import { FC } from 'react';
 import { useRecoilValue } from 'recoil';
 import LoginIcon from 'shared-utils/assets/icon-login.svg';
@@ -22,6 +21,7 @@ import {
   readOpenPairKeplrExtensionDialog,
   readWalletConnectURI,
 } from '@/recoil/wallet';
+import useAppTranslation from '@/hooks/useAppTranslation';
 
 type ConnectWalletProps = {
   className?: string;
@@ -29,7 +29,7 @@ type ConnectWalletProps = {
 
 const ConnectWallet: FC<ConnectWalletProps> = () => {
   const { classes } = useStyles();
-  const { t } = useTranslation();
+  const { t } = useAppTranslation();
   const loggedIn = useRecoilValue(readIsUserLoggedIn);
   const openLoginDialog = useRecoilValue(readOpenLoginDialog);
   const openInstallKeplrExtensionDialog = useRecoilValue(readOpenInstallKeplrExtensionDialog);

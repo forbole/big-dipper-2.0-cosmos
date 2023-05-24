@@ -1,11 +1,11 @@
 import { FC } from 'react';
 import numeral from 'numeral';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import BoxDetails from '@/components/box_details';
 import type { StatsType } from '@/screens/token_details/types';
 
 const Stats: FC<{ className?: string; stats: StatsType }> = (props) => {
-  const { t } = useTranslation('tokens');
+  const { t } = useAppTranslation('tokens');
 
   const details = [
     {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import Layout from '@/components/layout';
 import LoadAndExist from '@/components/load_and_exist';
 import Overview from '@/screens/miniblock_details/components/overview';
@@ -10,7 +10,7 @@ import useStyles from '@/screens/miniblock_details/styles';
 
 const MiniBlockDetails = () => {
   const { classes } = useStyles();
-  const { t } = useTranslation('blocks');
+  const { t } = useAppTranslation('blocks');
   const { state } = useBlockDetails();
   return (
     <>

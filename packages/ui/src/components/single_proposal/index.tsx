@@ -3,7 +3,7 @@ import { getStatusInfo } from '@/components/single_proposal/utils';
 import Tag from '@/components/tag';
 import { useDisplayStyles } from '@/styles/useSharedStyles';
 import Typography from '@mui/material/Typography';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { ComponentProps, FC, isValidElement, ReactNode } from 'react';
 
 type SingleproposalProps = {
@@ -15,7 +15,7 @@ type SingleproposalProps = {
 };
 
 const SingleProposal: FC<SingleproposalProps> = ({ className, id, title, status, description }) => {
-  const { t } = useTranslation('proposals');
+  const { t } = useAppTranslation('proposals');
   const { classes, cx } = useStyles();
   const display = useDisplayStyles().classes;
   const statusInfo = getStatusInfo(status, t);

@@ -11,13 +11,13 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import Link from 'next/link';
 import { FC } from 'react';
 
 const Desktop: FC<{ className?: string; items: TransactionType[] }> = (props) => {
   const { className, items } = props;
-  const { t } = useTranslation('transactions');
+  const { t } = useAppTranslation('transactions');
   const { classes, cx } = useStyles();
   const formattedItems = items.map((x) => ({
     key: `${x.hash}-${x.timestamp}`,

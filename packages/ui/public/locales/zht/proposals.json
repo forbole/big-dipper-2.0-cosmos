@@ -49,4 +49,4 @@
   "notVoted": "未投票",
   "votedTotalCaption": "投票 / 總數 ({{totalVotedPercent}})",
   "quorumExplanation": "要使提案有效，投票必須至少達到 <0>{{quorum}}%</0> 法定人數"
-  }
+}

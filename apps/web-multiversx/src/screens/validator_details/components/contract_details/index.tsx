@@ -1,13 +1,13 @@
 import { FC } from 'react';
 import numeral from 'numeral';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import BoxDetails from '@/components/box_details';
 import AvatarName from '@/components/avatar_name';
 import { formatNumber } from '@/utils/format_token';
 import type { ContractType } from '@/screens/validator_details/types';
 
 const ContractDetails: FC<{ className?: string; contract: ContractType }> = (props) => {
-  const { t } = useTranslation('validators');
+  const { t } = useAppTranslation('validators');
   const details = [
     {
       key: 'address',

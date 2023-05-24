@@ -12,7 +12,7 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { AnimatePresence, motion, Variants } from 'framer-motion';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
 import { FC } from 'react';
@@ -41,7 +41,7 @@ const variants: Variants = {
 
 const Desktop: FC<DesktopProps> = ({ className, items }) => {
   const { classes, cx } = useStyles();
-  const { t } = useTranslation('transactions');
+  const { t } = useAppTranslation('transactions');
 
   const formattedData = items.map((x, i) => ({
     key: `${x.hash}-${i}`,

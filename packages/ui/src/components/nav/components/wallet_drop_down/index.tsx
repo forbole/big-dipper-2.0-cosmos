@@ -1,16 +1,16 @@
+import Avatar from '@/components/avatar';
 import Box from '@/components/box';
 import { useStyles } from '@/components/nav/components/wallet_drop_down/styles';
-import Typography from '@mui/material/Typography';
-import { useTranslation } from 'next-i18next';
-import Avatar from '@/components/avatar';
-import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
-import CopyIcon from 'shared-utils/assets/icon-copy-text.svg';
-import { useAddress } from '@/screens/validator_details/components/validator_overview/hooks';
-import { useRecoilValue } from 'recoil';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { readUserAddress, readWalletName } from '@/recoil/user';
-import Link from 'next/link';
+import { useAddress } from '@/screens/validator_details/components/validator_overview/hooks';
+import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { ACCOUNT_DETAILS } from '@/utils/go_to_page';
+import Typography from '@mui/material/Typography';
+import Link from 'next/link';
 import { FC } from 'react';
+import { useRecoilValue } from 'recoil';
+import CopyIcon from 'shared-utils/assets/icon-copy-text.svg';
 import NextIcon from 'shared-utils/assets/icon-next.svg';
 
 type WalletDropDownProps = {
@@ -19,7 +19,7 @@ type WalletDropDownProps = {
 };
 
 const WalletDropDown: FC<WalletDropDownProps> = ({ className, handleLogin }) => {
-  const { t } = useTranslation('common');
+  const { t } = useAppTranslation('common');
   const { classes, cx } = useStyles();
   const { handleCopyToClipboard } = useAddress(t);
   const address = useRecoilValue(readUserAddress);

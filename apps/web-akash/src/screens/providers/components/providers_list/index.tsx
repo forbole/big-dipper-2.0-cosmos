@@ -8,7 +8,7 @@ import useStyles from '@/screens/providers/components/providers_list/styles';
 import type { ProvidersListState } from '@/screens/providers/types';
 import { useDisplayStyles } from '@/styles/useSharedStyles';
 import Typography from '@mui/material/Typography';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC } from 'react';
 
 export interface ProvidersListProps extends ComponentDefault {
@@ -19,7 +19,7 @@ export interface ProvidersListProps extends ComponentDefault {
 const ProvidersList: FC<ProvidersListProps> = (props) => {
   const { classes, cx } = useStyles();
   const display = useDisplayStyles().classes;
-  const { t } = useTranslation('providers');
+  const { t } = useAppTranslation('providers');
   const { page, rowsPerPage, handlePageChange, handleRowsPerPageChange } = usePagination({
     rowsPage: props.list.pagination.itemsPerPage,
   });

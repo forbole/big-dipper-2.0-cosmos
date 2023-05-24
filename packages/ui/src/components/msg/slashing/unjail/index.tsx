@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Trans } from 'next-i18next';
+import AppTrans from '@/components/AppTrans';
 import { FC } from 'react';
 import Name from '@/components/name';
 import { type MsgUnjail } from '@/models';
@@ -12,7 +12,7 @@ const Unjail: FC<{ message: MsgUnjail }> = (props) => {
 
   return (
     <Typography>
-      <Trans
+      <AppTrans
         i18nKey="message_contents:txUnjailContent"
         components={[<Name address={message.validatorAddress} name={validatorMoniker} />]}
       />

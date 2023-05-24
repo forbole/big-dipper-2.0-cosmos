@@ -1,13 +1,13 @@
 import { FC } from 'react';
 import Typography from '@mui/material/Typography';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import Box from '@/components/box';
 import { formatNumber } from '@/utils/format_token';
 import useStyles from '@/screens/validator_details/components/stake/styles';
 import type { StakeType } from '@/screens/validator_details/types';
 
 const Stake: FC<{ className?: string; stake: StakeType }> = ({ className, stake }) => {
-  const { t } = useTranslation('validators');
+  const { t } = useAppTranslation('validators');
 
   const { classes, cx } = useStyles({ percentage: stake.stakePercent });
 

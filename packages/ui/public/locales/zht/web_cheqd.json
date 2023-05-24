@@ -1,0 +1,19 @@
+{
+  "accounts.topAccounts": "頂級帳戶",
+  "accounts.top_rank": "排名",
+  "accounts.top_address": "地址",
+  "accounts.top_dtag": "標籤",
+  "accounts.top_balance": "代幣餘額",
+  "accounts.top_percentage": "百分比",
+  "accounts.refresh_delay_notice": "請注意，頂級帳戶只在格林威治標準時間的00:00刷新數據。",
+  "common.top_accounts": "頂級帳戶",
+  "home.cheqdWallets": "帳戶數目",
+  "message_contents.MsgCreateDidDoc": "DID document created <0>{{did}}</0>",
+  "message_contents.MsgUpdateDidDoc": "DID document updated <0>{{did}}</0>",
+  "message_contents.MsgDeactivateDidDoc": "DID document deactivated <0>{{did}}</0>",
+  "message_contents.MsgCreateResource": "Resource created <0>{{resource}}</0>",
+  "message_labels.MsgCreateDidDoc": "Create DID Document",
+  "message_labels.MsgUpdateDidDoc": "Update DID Document",
+  "message_labels.MsgDeactivateDidDoc": "Deactivate DID Document",
+  "message_labels.MsgCreateResource": "Create Resource"
+}

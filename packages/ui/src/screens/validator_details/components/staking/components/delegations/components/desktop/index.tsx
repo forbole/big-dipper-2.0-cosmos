@@ -3,7 +3,7 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC } from 'react';
 import { formatNumber } from '@/utils/format_token';
 import type { ItemType } from '@/screens/validator_details/components/staking/components/delegations/types';
@@ -44,7 +44,7 @@ type DesktopProps = {
 };
 
 const Desktop: FC<DesktopProps> = ({ className, items }) => {
-  const { t } = useTranslation('accounts');
+  const { t } = useAppTranslation('accounts');
 
   return (
     <div className={className}>

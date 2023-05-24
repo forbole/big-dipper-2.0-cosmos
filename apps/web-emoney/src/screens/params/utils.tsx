@@ -8,7 +8,7 @@ import type {
   Staking,
 } from '@/screens/params/types';
 import { nanoToSeconds, secondsToDays } from '@/utils/time';
-import { TFunction } from 'next-i18next';
+import type { TFunction } from '@/hooks/useAppTranslation';
 import numeral from 'numeral';
 
 const convertBySeconds = (seconds: number, t: TFunction) => {

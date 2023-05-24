@@ -3,7 +3,6 @@ query TopAccounts($limit: Int = 100, $offset: Int = 0) {
     address
     available
     delegation
-    redelegation
     unbonding
     reward
     sum

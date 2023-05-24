@@ -2,7 +2,7 @@ import Box from '@/components/box';
 import CustomToolTip from '@/components/custom_tool_tip';
 import useStyles from '@/screens/providers/components/memory/styles';
 import Typography from '@mui/material/Typography';
-import { useTranslation } from 'next-i18next';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import dynamic from 'next/dynamic';
 import numeral from 'numeral';
 import { FC } from 'react';
@@ -20,7 +20,7 @@ type MemoryProps = {
 };
 
 const Memory: FC<MemoryProps> = ({ className, memory }) => {
-  const { t } = useTranslation('providers');
+  const { t } = useAppTranslation('providers');
   const { classes, cx, theme } = useStyles();
 
   const total = memory.available + memory.used;
