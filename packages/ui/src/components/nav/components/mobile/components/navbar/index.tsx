@@ -8,8 +8,6 @@ import Link from 'next/link';
 import { useRecoilValue } from 'recoil';
 import BigDipperLogoRed from 'shared-utils/assets/big-dipper-red.svg';
 import BigDipperLogoWhite from 'shared-utils/assets/big-dipper-white.svg';
-import WalletDetails from '@/components/nav/components/wallet_details';
-import ConnectWallet from '@/components/nav/components/connect_wallet';
 
 const Navbar = (props: NavbarProps) => {
   const { classes, cx } = useStyles();
@@ -40,11 +38,6 @@ const Navbar = (props: NavbarProps) => {
           <p className="text">{selectedName}</p>
           <ExpandMoreIcon fontSize="small" />
         </div>
-        {/* =================================== */}
-        {/* Wallet Details */}
-        {/* =================================== */}
-        <WalletDetails />
-        <ConnectWallet />
         {/* =================================== */}
         {/* Hamburger */}
         {/* =================================== */}
