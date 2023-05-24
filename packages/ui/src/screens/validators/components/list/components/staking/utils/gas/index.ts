@@ -3,7 +3,7 @@ import { SigningStargateClient, calculateFee, GasPrice } from '@cosmjs/stargate'
 export const estimateFee = async (
   client: SigningStargateClient,
   address: string,
-  msgs: any[],
+  msgs: Parameters<SigningStargateClient['simulate']>[1],
   memo: string,
   denom: string
 ) => {

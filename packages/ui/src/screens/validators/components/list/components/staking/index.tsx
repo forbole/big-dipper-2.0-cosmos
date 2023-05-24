@@ -1,15 +1,15 @@
-import Typography from '@mui/material/Typography';
+import useAppTranslation from '@/hooks/useAppTranslation';
 import useStyles from '@/screens/validators/components/list/components/staking/styles';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import Typography from '@mui/material/Typography';
 import * as React from 'react';
-import { useTranslation } from 'next-i18next';
 import DelegateDialog from './delegate';
+import useStakingHooks from './hooks';
 import RedelegateDialog from './redelegate';
 import UndelegateDialog from './undelegate';
-import useStakingHooks from './hooks';
 
 type StakeButtonProps = {
   address: string;
@@ -20,7 +20,7 @@ type StakeButtonProps = {
 
 const StakeButton = (props: StakeButtonProps) => {
   const { classes } = useStyles();
-  const { t } = useTranslation();
+  const { t } = useAppTranslation();
   const {
     anchorEl,
     openStakingMenu,

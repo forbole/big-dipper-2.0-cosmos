@@ -1,18 +1,17 @@
+import AvatarName from '@/components/avatar_name';
+import useAppTranslation from '@/hooks/useAppTranslation';
+import useStyles from '@/screens/validators/components/list/components/staking/styles';
+import CloseIcon from '@mui/icons-material/Close';
+import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
-import DialogActions from '@mui/material/DialogActions';
 import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import CloseIcon from '@mui/icons-material/Close';
-import { useTranslation } from 'next-i18next';
-import { FC } from 'react';
-import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import useStyles from '@/screens/validators/components/list/components/staking/styles';
-import AvatarName from '@/components/avatar_name';
+import Typography from '@mui/material/Typography';
 import * as React from 'react';
-import Snackbar from '@mui/material/Snackbar';
+import { FC } from 'react';
 import useStakingHooks from '../hooks';
 
 type UndelegateDialogProps = {
@@ -33,7 +32,7 @@ const UndelegateDialog: FC<UndelegateDialogProps> = ({
   validatorCommission,
 }) => {
   const { classes } = useStyles();
-  const { t } = useTranslation();
+  const { t } = useAppTranslation();
   const {
     amount,
     memo,

@@ -90,331 +90,17 @@ exports[`screen: Nav/mobile/navbar it renders 1`] = `
 }
 
 .emotion-6 {
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transition: 0.2s ease-in-out;
-  transition: 0.2s ease-in-out;
-  position: fixed;
-  right: 60px;
-  background: #E8E8E8;
-  width: 310px;
-  height: 310px;
-  top: 69.6px;
-  right: 55px;
-  opacity: 20%;
-  z-index: 1;
-  border-radius: 8px;
-  overflow: auto;
-}
-
-.emotion-6.emotion-6 {
-  overflow: auto;
-  padding: 16px;
-  border-radius: 4px;
-  background: #FFFFFF;
-}
-
-.emotion-6.open {
-  opacity: 1;
-  visibility: visible;
-  background: #E8E8E8;
-  border-radius: 8px;
-}
-
-@media (min-width:1280px) {
-  .emotion-6 {
-    right: 120px;
-  }
-}
-
-.emotion-7 {
-  height: 124px;
-  border-radius: 8px;
-  background-color: #E8E7E8;
-  margin-top: 8px;
-}
-
-.emotion-8 {
-  vertical-align: middle;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-}
-
-.emotion-9 {
-  padding: 16px 0px 0px 24px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-10 {
-  width: 28px;
-  height: 28px;
-  min-width: 28px;
-  min-height: 28px;
-  border-radius: 50%;
-  overflow: hidden;
-  background: #F8F8F8;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  height: 45px;
-  width: 45px;
-}
-
-.emotion-10 img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center center;
-}
-
-.emotion-11 {
-  height: 12.4px;
-  width: 12.4px;
-  background-color: #E8E7E8;
-  border-radius: 50px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  position: absolute;
-  left: 73px;
-  top: 38px;
-}
-
-.emotion-12 {
-  height: 10.4px;
-  width: 10.4px;
-  border-radius: 50px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  position: absolute;
-  left: 74px;
-  top: 39px;
-}
-
-.emotion-13 {
-  padding: 20px 0px 0px 8px;
-  font-size: 14px;
-  font-weight: 590;
-  line-height: 17px;
-  color: #000000;
-  overflow: auto;
-  -webkit-box-flex-wrap: wrap;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  overflow-wrap: anywhere;
-  max-height: 70px;
-}
-
-.emotion-14 {
-  margin: 0;
-  font-size: 0.75rem;
-  letter-spacing: 0.4px;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
-  font-weight: 400;
-  line-height: 1.66;
-  color: #777777;
-}
-
-.emotion-15 {
-  fill: none;
-  width: 16px;
-  padding: 5.6px 4px;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  overflow: visible;
-}
-
-.emotion-15:hover {
-  cursor: pointer;
-}
-
-.emotion-16 {
-  margin: 0;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  border-width: 0;
-  border-style: solid;
-  border-color: #E8E8E8;
-  border-bottom-width: thin;
-  margin: 8px 32.8px 8px 16px;
-  background-color: #34383E;
-}
-
-.emotion-17 {
-  width: 232px;
-  height: 28px;
-  border: 1px solid;
-  border-color: #000000;
-  border-radius: 1000px;
-  margin-left: 24px;
-}
-
-.emotion-17:hover {
-  cursor: pointer;
-  background: #A1A1A1;
-}
-
-.emotion-18 {
-  color: #000000;
-  text-align: center;
-}
-
-.emotion-19 {
-  height: 16px;
-  width: 16px;
-  background-color: #000000;
-  border-radius: 50px;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  margin-top: 4px;
-  margin-left: 8px;
-  vertical-align: middle;
-}
-
-.emotion-20 {
-  vertical-align: middle;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  margin-top: 5.6px;
-  margin-left: 4px;
-  font-size: 12px;
-  line-height: 14px;
-  font-weight: 400;
-  color: #222222;
-}
-
-.emotion-21 {
-  height: 46px;
-  border-radius: 8px;
-  background-color: #BDBDBD;
-  margin-top: 20.8px;
-}
-
-.emotion-21:hover {
-  cursor: pointer;
-  background: #A1A1A1;
-}
-
-.emotion-22 {
-  padding: 12px 24px;
-  font-size: 16px;
-  font-weight: 590;
-  line-height: 20px;
-  color: #222222;
-}
-
-.emotion-23 {
-  margin: 0;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  border-width: 0;
-  border-style: solid;
-  border-color: #E8E8E8;
-  border-bottom-width: thin;
-  margin: 20px 0px 14.4px 0px;
-  background-color: #34383E;
-}
-
-.emotion-24 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-}
-
-.emotion-25 {
-  border: 1px solid;
-  border-color: #222222;
-  border-radius: 24px;
-  text-align: center;
-  width: 112px;
-}
-
-.emotion-25:hover {
-  cursor: pointer;
-  background: #BDBDBD;
-}
-
-.emotion-25 svg {
-  fill: none;
-  color: #222222;
-}
-
-.emotion-26 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  vertical-align: middle;
-}
-
-.emotion-27 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  vertical-align: middle;
-  width: 16px;
-  stroke: #222222;
-  stroke-width: 1.6;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  margin-right: 4px;
-}
-
-.emotion-28 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  vertical-align: middle;
-  padding-top: 6.4px;
-  font-weight: 590;
-  color: #222222;
-}
-
-.emotion-29 {
   z-index: 200;
   width: 20px;
 }
 
-.emotion-29:hover {
+.emotion-6:hover {
   cursor: pointer;
 }
 
-.emotion-29:before,
-.emotion-29:after,
-.emotion-29 .hamburger-content {
+.emotion-6:before,
+.emotion-6:after,
+.emotion-6 .hamburger-content {
   content: "";
   background-color: #999999;
   border-radius: 10px;
@@ -425,21 +111,21 @@ exports[`screen: Nav/mobile/navbar it renders 1`] = `
   transition: all 0.4s ease-in-out;
 }
 
-.emotion-29.active:before {
+.emotion-6.active:before {
   -webkit-transform: translateY(7px) rotate(137deg);
   -moz-transform: translateY(7px) rotate(137deg);
   -ms-transform: translateY(7px) rotate(137deg);
   transform: translateY(7px) rotate(137deg);
 }
 
-.emotion-29.active:after {
+.emotion-6.active:after {
   -webkit-transform: translateY(-5px) rotate(-140deg);
   -moz-transform: translateY(-5px) rotate(-140deg);
   -ms-transform: translateY(-5px) rotate(-140deg);
   transform: translateY(-5px) rotate(-140deg);
 }
 
-.emotion-29.active .hamburger-content {
+.emotion-6.active .hamburger-content {
   -webkit-transform: scale(0);
   -moz-transform: scale(0);
   -ms-transform: scale(0);
@@ -497,7 +183,7 @@ exports[`screen: Nav/mobile/navbar it renders 1`] = `
     />
     <div
       aria-label="open navigation menu"
-      className="emotion-29"
+      className="emotion-6"
       onClick={[MockFunction]}
       role="button"
       tabIndex={0}
@@ -600,331 +286,17 @@ exports[`screen: Nav/mobile/navbar toggleNavMenus is called onClick 1`] = `
 }
 
 .emotion-6 {
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transition: 0.2s ease-in-out;
-  transition: 0.2s ease-in-out;
-  position: fixed;
-  right: 60px;
-  background: #E8E8E8;
-  width: 310px;
-  height: 310px;
-  top: 69.6px;
-  right: 55px;
-  opacity: 20%;
-  z-index: 1;
-  border-radius: 8px;
-  overflow: auto;
-}
-
-.emotion-6.emotion-6 {
-  overflow: auto;
-  padding: 16px;
-  border-radius: 4px;
-  background: #FFFFFF;
-}
-
-.emotion-6.open {
-  opacity: 1;
-  visibility: visible;
-  background: #E8E8E8;
-  border-radius: 8px;
-}
-
-@media (min-width:1280px) {
-  .emotion-6 {
-    right: 120px;
-  }
-}
-
-.emotion-7 {
-  height: 124px;
-  border-radius: 8px;
-  background-color: #E8E7E8;
-  margin-top: 8px;
-}
-
-.emotion-8 {
-  vertical-align: middle;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-}
-
-.emotion-9 {
-  padding: 16px 0px 0px 24px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-10 {
-  width: 28px;
-  height: 28px;
-  min-width: 28px;
-  min-height: 28px;
-  border-radius: 50%;
-  overflow: hidden;
-  background: #F8F8F8;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  height: 45px;
-  width: 45px;
-}
-
-.emotion-10 img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center center;
-}
-
-.emotion-11 {
-  height: 12.4px;
-  width: 12.4px;
-  background-color: #E8E7E8;
-  border-radius: 50px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  position: absolute;
-  left: 73px;
-  top: 38px;
-}
-
-.emotion-12 {
-  height: 10.4px;
-  width: 10.4px;
-  border-radius: 50px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  position: absolute;
-  left: 74px;
-  top: 39px;
-}
-
-.emotion-13 {
-  padding: 20px 0px 0px 8px;
-  font-size: 14px;
-  font-weight: 590;
-  line-height: 17px;
-  color: #000000;
-  overflow: auto;
-  -webkit-box-flex-wrap: wrap;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  overflow-wrap: anywhere;
-  max-height: 70px;
-}
-
-.emotion-14 {
-  margin: 0;
-  font-size: 0.75rem;
-  letter-spacing: 0.4px;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
-  font-weight: 400;
-  line-height: 1.66;
-  color: #777777;
-}
-
-.emotion-15 {
-  fill: none;
-  width: 16px;
-  padding: 5.6px 4px;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  overflow: visible;
-}
-
-.emotion-15:hover {
-  cursor: pointer;
-}
-
-.emotion-16 {
-  margin: 0;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  border-width: 0;
-  border-style: solid;
-  border-color: #E8E8E8;
-  border-bottom-width: thin;
-  margin: 8px 32.8px 8px 16px;
-  background-color: #34383E;
-}
-
-.emotion-17 {
-  width: 232px;
-  height: 28px;
-  border: 1px solid;
-  border-color: #000000;
-  border-radius: 1000px;
-  margin-left: 24px;
-}
-
-.emotion-17:hover {
-  cursor: pointer;
-  background: #A1A1A1;
-}
-
-.emotion-18 {
-  color: #000000;
-  text-align: center;
-}
-
-.emotion-19 {
-  height: 16px;
-  width: 16px;
-  background-color: #000000;
-  border-radius: 50px;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  margin-top: 4px;
-  margin-left: 8px;
-  vertical-align: middle;
-}
-
-.emotion-20 {
-  vertical-align: middle;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  margin-top: 5.6px;
-  margin-left: 4px;
-  font-size: 12px;
-  line-height: 14px;
-  font-weight: 400;
-  color: #222222;
-}
-
-.emotion-21 {
-  height: 46px;
-  border-radius: 8px;
-  background-color: #BDBDBD;
-  margin-top: 20.8px;
-}
-
-.emotion-21:hover {
-  cursor: pointer;
-  background: #A1A1A1;
-}
-
-.emotion-22 {
-  padding: 12px 24px;
-  font-size: 16px;
-  font-weight: 590;
-  line-height: 20px;
-  color: #222222;
-}
-
-.emotion-23 {
-  margin: 0;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  border-width: 0;
-  border-style: solid;
-  border-color: #E8E8E8;
-  border-bottom-width: thin;
-  margin: 20px 0px 14.4px 0px;
-  background-color: #34383E;
-}
-
-.emotion-24 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-}
-
-.emotion-25 {
-  border: 1px solid;
-  border-color: #222222;
-  border-radius: 24px;
-  text-align: center;
-  width: 112px;
-}
-
-.emotion-25:hover {
-  cursor: pointer;
-  background: #BDBDBD;
-}
-
-.emotion-25 svg {
-  fill: none;
-  color: #222222;
-}
-
-.emotion-26 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  vertical-align: middle;
-}
-
-.emotion-27 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  vertical-align: middle;
-  width: 16px;
-  stroke: #222222;
-  stroke-width: 1.6;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  margin-right: 4px;
-}
-
-.emotion-28 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  vertical-align: middle;
-  padding-top: 6.4px;
-  font-weight: 590;
-  color: #222222;
-}
-
-.emotion-29 {
   z-index: 200;
   width: 20px;
 }
 
-.emotion-29:hover {
+.emotion-6:hover {
   cursor: pointer;
 }
 
-.emotion-29:before,
-.emotion-29:after,
-.emotion-29 .hamburger-content {
+.emotion-6:before,
+.emotion-6:after,
+.emotion-6 .hamburger-content {
   content: "";
   background-color: #999999;
   border-radius: 10px;
@@ -935,21 +307,21 @@ exports[`screen: Nav/mobile/navbar toggleNavMenus is called onClick 1`] = `
   transition: all 0.4s ease-in-out;
 }
 
-.emotion-29.active:before {
+.emotion-6.active:before {
   -webkit-transform: translateY(7px) rotate(137deg);
   -moz-transform: translateY(7px) rotate(137deg);
   -ms-transform: translateY(7px) rotate(137deg);
   transform: translateY(7px) rotate(137deg);
 }
 
-.emotion-29.active:after {
+.emotion-6.active:after {
   -webkit-transform: translateY(-5px) rotate(-140deg);
   -moz-transform: translateY(-5px) rotate(-140deg);
   -ms-transform: translateY(-5px) rotate(-140deg);
   transform: translateY(-5px) rotate(-140deg);
 }
 
-.emotion-29.active .hamburger-content {
+.emotion-6.active .hamburger-content {
   -webkit-transform: scale(0);
   -moz-transform: scale(0);
   -ms-transform: scale(0);
@@ -1007,7 +379,7 @@ exports[`screen: Nav/mobile/navbar toggleNavMenus is called onClick 1`] = `
     />
     <div
       aria-label="open navigation menu"
-      className="emotion-29"
+      className="emotion-6"
       onClick={
         [MockFunction] {
           "calls": [

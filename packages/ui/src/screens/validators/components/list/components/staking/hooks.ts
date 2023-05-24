@@ -25,7 +25,6 @@ const useStakingHooks = () => {
   const [openRedelegateDialog, setOpenRedelegateDialog] = React.useState(false);
   const [openUndelegateDialog, setOpenUndelegateDialog] = React.useState(false);
   const [openSuccessSnackbar, setOpenSuccessSnackbar] = React.useState(false);
-  const [openSnack, setOpenSnack] = React.useState(false);
   const [openDelegateDialog, setOpenDelegateDialog] = React.useState(false);
   const [openValidatorRedelegateMenu, setOpenValidatorRedelegateMenu] = React.useState(false);
 
@@ -105,8 +104,8 @@ const useStakingHooks = () => {
   };
 
   useEffect(() => {
-    setUserAddress(localStorage.getItem(ADDRESS_KEY));
-    setChainID(localStorage.getItem(CHAIN_ID));
+    setUserAddress(localStorage.getItem(ADDRESS_KEY) ?? '');
+    setChainID(localStorage.getItem(CHAIN_ID) ?? '');
   }, []);
 
   const handleOpenValidatorRedelegateMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -117,11 +116,16 @@ const useStakingHooks = () => {
   };
 
   const handleStakingAction = async (validator: string, action: string) => {
-    let client;
+    type SigningStargateClient = ReturnType<typeof getClient> extends Promise<infer T>
+      ? T extends string
+        ? never
+        : T
+      : never;
+    let client: SigningStargateClient;
     let result;
 
     try {
-      client = await getClient(chainID);
+      client = (await getClient(chainID)) as SigningStargateClient;
     } catch (e) {
       setErrorMsg((e as Error).message);
       return;
@@ -133,7 +137,7 @@ const useStakingHooks = () => {
           result = await client.delegateTokens(
             userAddress,
             validator,
-            coin(amount, baseDenom),
+            coin(amount, baseDenom ?? ''),
             'auto',
             memo
           );
@@ -147,7 +151,7 @@ const useStakingHooks = () => {
           result = await client.redelegateTokens(
             userAddress,
             validator,
-            coin(amount, baseDenom),
+            coin(amount, baseDenom ?? ''),
             'auto',
             memo
           );
@@ -161,7 +165,7 @@ const useStakingHooks = () => {
           result = await client.undelegateTokens(
             userAddress,
             validator,
-            coin(amount, baseDenom),
+            coin(amount, baseDenom ?? ''),
             'auto',
             memo
           );
@@ -182,6 +186,7 @@ const useStakingHooks = () => {
         return;
     }
 
+    // eslint-disable-next-line no-console
     console.log(result);
     try {
       assertIsBroadcastTxSuccess(result);
