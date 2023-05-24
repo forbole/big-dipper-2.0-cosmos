@@ -176,12 +176,6 @@ exports[`screen: Nav/mobile/navbar it renders 1`] = `
       </svg>
     </div>
     <div
-      id="wallet_details"
-    />
-    <div
-      id="connect_wallet"
-    />
-    <div
       aria-label="open navigation menu"
       className="emotion-6"
       onClick={[MockFunction]}
@@ -371,12 +365,6 @@ exports[`screen: Nav/mobile/navbar toggleNavMenus is called onClick 1`] = `
         />
       </svg>
     </div>
-    <div
-      id="wallet_details"
-    />
-    <div
-      id="connect_wallet"
-    />
     <div
       aria-label="open navigation menu"
       className="emotion-6"
