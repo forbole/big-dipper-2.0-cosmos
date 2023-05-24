@@ -43,8 +43,8 @@ const Navbar = (props: NavbarProps) => {
         {/* =================================== */}
         {/* Wallet Details */}
         {/* =================================== */}
-        <WalletDetails />
-        <ConnectWallet />
+        {/* <WalletDetails /> */}
+        {/* <ConnectWallet /> */}
         {/* =================================== */}
         {/* Hamburger */}
         {/* =================================== */}

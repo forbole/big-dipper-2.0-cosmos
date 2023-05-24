@@ -26,10 +26,10 @@ const ActionBar: FC<ActionBarProps> = ({ toggleNetwork, className, isNetwork }) 
           className={cx(classes.network, { open: isNetwork })}
           toggleNetwork={toggleNetwork}
         />
-        <WalletDetails />
+        {/* <WalletDetails /> */}
         <ThemeToggle className={classes.toggle} />
         <SettingsList />
-        <ConnectWallet />
+        {/* <ConnectWallet /> */}
       </div>
       <NetworkList
         actionHeight={height}
