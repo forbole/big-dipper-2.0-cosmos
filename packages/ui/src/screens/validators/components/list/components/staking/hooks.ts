@@ -11,7 +11,7 @@ import { coin } from '@cosmjs/proto-signing';
 import { ADDRESS_KEY, CHAIN_ID } from '@/utils/localstorage';
 
 const useStakingHooks = () => {
-  const [amount, setAmount] = React.useState('');
+  const [amount, setAmount] = React.useState(0);
   const [userAddress, setUserAddress] = React.useState('');
   const [chainID, setChainID] = React.useState('');
 
@@ -47,11 +47,8 @@ const useStakingHooks = () => {
     setAmount(value);
   };
 
-  const setTxAmount = (value: string) => {
-    const regex = /^[0-9\b]+$/;
-    if (value === '' || regex.test(value)) {
-      setAmount(value);
-    }
+  const setTxAmount = (value: number) => {
+    setAmount(value);
   };
 
   const setMemoValue = (value: string) => {

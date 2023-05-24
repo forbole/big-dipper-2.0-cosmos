@@ -89,17 +89,19 @@ const UndelegateDialog: FC<UndelegateDialogProps> = ({
             // margin="normal"
             placeholder={t('validators:amountPlaceholder')}
             variant="filled"
-            id="delegate-amount-input"
+            id="undelegate-amount-input"
+            type="number"
             InputProps={{
               disableUnderline: true,
               endAdornment: tokenFormatDenom?.displayDenom.toUpperCase(),
               style: {
                 height: '44px',
               },
+              inputProps: { min: 0, step: 0.000001 },
             }}
             className={classes.textField}
             onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-              setTxAmount(event.target.value);
+              setTxAmount(parseFloat(event.target.value));
             }}
           />
           <Typography className={classes.subtitle} id="memo">
@@ -111,7 +113,7 @@ const UndelegateDialog: FC<UndelegateDialogProps> = ({
             fullWidth
             placeholder={t('validators:optional')}
             variant="filled"
-            id="delegate-memo-input"
+            id="undelegate-memo-input"
             InputProps={{
               disableUnderline: true,
               style: {
