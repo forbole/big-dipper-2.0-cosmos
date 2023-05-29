@@ -165,7 +165,7 @@ const GridRow: FC<GridRowProps> = ({
         <StakeButton
           address={address}
           imageUrl={imageUrl ?? ''}
-          name={name}
+          name={name ?? ''}
           commission={`${numeral(item.commission).format('0.[00]')}%`}
         />
       ) : null;

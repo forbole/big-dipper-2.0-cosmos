@@ -57,7 +57,13 @@ const List: FC<ComponentDefault> = ({ className }) => {
     <div>
       <div className={classes.stakingButtons}>
         <div>
-          <StakeButton address="address" imageUrl="imageUrl" name="name" commission="12" />
+          <StakeButton
+            validators={items}
+            address=""
+            imageUrl="imageUrl"
+            name="name"
+            commission="12"
+          />
         </div>
         <div className={classes.stakingDistribution}>
           <Button

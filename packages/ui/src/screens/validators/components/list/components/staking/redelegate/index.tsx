@@ -55,6 +55,7 @@ const RedelegateDialog: FC<RedelegateDialogProps> = ({
           </div>
 
           <Typography className={classes.subtitle}>{t('validators:redelegateFrom')}</Typography>
+          {/* if validatorAddress === null ? <ValidatorFilterInput validators={validators}/> :  */}
           <div className={classes.validatorCard}>
             <AvatarName
               address={validatorAddress}

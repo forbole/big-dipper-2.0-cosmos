@@ -6,6 +6,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Typography from '@mui/material/Typography';
 import * as React from 'react';
+import type { ItemType } from '@/screens/validators/components/list/types';
 import DelegateDialog from './delegate';
 import useStakingHooks from './hooks';
 import RedelegateDialog from './redelegate';
@@ -16,6 +17,7 @@ type StakeButtonProps = {
   name: string;
   imageUrl?: string;
   commission: string;
+  validators?: ItemType[];
 };
 
 const StakeButton = (props: StakeButtonProps) => {
@@ -59,6 +61,7 @@ const StakeButton = (props: StakeButtonProps) => {
           imageUrl={props.imageUrl ?? ''}
           validatorName={props.name}
           validatorCommission={props.commission}
+          validators={props.validators ?? undefined}
         />
         <MenuItem onClick={handleOpenRedelegateDialog}> {t('validators:redelegate')}</MenuItem>
         <RedelegateDialog

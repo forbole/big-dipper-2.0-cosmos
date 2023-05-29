@@ -10,9 +10,12 @@ import DialogTitle from '@mui/material/DialogTitle';
 import IconButton from '@mui/material/IconButton';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
+import Autocomplete from '@mui/material/Autocomplete';
 import * as React from 'react';
 import { FC } from 'react';
 import useStakingHooks from '../hooks';
+import ValidatorFilterInput from '@/screens/validators/components/list/components/staking/validator_filter';
+import type { ItemType } from '@/screens/validators/components/list/types';
 
 type DelegateDialogProps = {
   open: boolean;
@@ -21,6 +24,7 @@ type DelegateDialogProps = {
   validatorName: string;
   imageUrl: string;
   validatorCommission: string;
+  validators?: ItemType[];
 };
 
 const DelegateDialog: FC<DelegateDialogProps> = ({
@@ -30,6 +34,7 @@ const DelegateDialog: FC<DelegateDialogProps> = ({
   validatorName,
   imageUrl,
   validatorCommission,
+  validators,
 }) => {
   const { classes } = useStyles();
   const { t } = useAppTranslation();
@@ -44,6 +49,10 @@ const DelegateDialog: FC<DelegateDialogProps> = ({
     setMemoValue,
   } = useStakingHooks();
 
+  // validatorAddress needs to be a state, if validatorAddress is not "", setValidatorAddress to be the state
+
+  console.log('validatorAddress', validatorAddress);
+
   return (
     <div>
       <Dialog maxWidth="md" onClose={onClose} open={open} className={classes.dialog}>
@@ -55,21 +64,25 @@ const DelegateDialog: FC<DelegateDialogProps> = ({
           </div>
 
           <Typography className={classes.subtitle}>{t('validators:delegateTo')}</Typography>
-          <div className={classes.validatorCard}>
-            <AvatarName
-              address={validatorAddress}
-              imageUrl={imageUrl}
-              name={validatorName}
-              className={classes.validatorAvatar}
-            />
-            <Typography className={classes.commissionLabel}>
-              {t('validators:commission')}
-              <Typography className={classes.commissionValue}>{validatorCommission} </Typography>
-            </Typography>
-            <IconButton aria-label="close" onClick={onClose} className={classes.closeButton}>
-              <CloseIcon />
-            </IconButton>
-          </div>
+          {validators ? (
+            <ValidatorFilterInput options={validators} />
+          ) : (
+            <div className={classes.validatorCard}>
+              <AvatarName
+                address={validatorAddress}
+                imageUrl={imageUrl}
+                name={validatorName}
+                className={classes.validatorAvatar}
+              />
+              <Typography className={classes.commissionLabel}>
+                {t('validators:commission')}
+                <Typography className={classes.commissionValue}>{validatorCommission} </Typography>
+              </Typography>
+              <IconButton aria-label="close" onClick={onClose} className={classes.closeButton}>
+                <CloseIcon />
+              </IconButton>
+            </div>
+          )}
         </DialogTitle>
         <DialogContent>
           <div className={classes.ddd}>

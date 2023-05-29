@@ -55,6 +55,7 @@ const UndelegateDialog: FC<UndelegateDialogProps> = ({
           </div>
 
           <Typography className={classes.subtitle}>{t('validators:undelegateFrom')}</Typography>
+          {/* if validatorAddress === null ? <ValidatorFilterInput validators={validators}/> :  */}
           <div className={classes.validatorCard}>
             <AvatarName
               address={validatorAddress}
