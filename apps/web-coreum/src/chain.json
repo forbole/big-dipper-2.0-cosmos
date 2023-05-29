@@ -5,7 +5,7 @@
     "profile": true,
     "graphqlWs": false
   },
-  "previewImage": "https://www.coreum.com/assets/images/smart-tokens/use-cases-graphic.png",
+  "previewImage": "https://explorer.coreum.com/coreum/images/explorer_thumbnail.png",
   "themes": {
     "default": "dark",
     "themeList": ["dark", "light"],
