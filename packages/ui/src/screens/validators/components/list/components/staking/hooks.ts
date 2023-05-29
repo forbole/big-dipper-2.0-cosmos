@@ -9,11 +9,14 @@ import { assertIsDeliverTxSuccess } from '@cosmjs/stargate';
 import { useEffect } from 'react';
 import { coin } from '@cosmjs/proto-signing';
 import { ADDRESS_KEY, CHAIN_ID } from '@/utils/localstorage';
+import type { ItemType } from '@/screens/validators/components/list/types';
 
-const useStakingHooks = () => {
+const useStakingHooks = (validators?: ItemType[]) => {
   const [amount, setAmount] = React.useState<string | number>(0);
   const [userAddress, setUserAddress] = React.useState('');
   const [chainID, setChainID] = React.useState('');
+
+  const [valAddress, setValAddress] = React.useState('');
 
   const [memo, setMemo] = React.useState('');
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -113,6 +116,7 @@ const useStakingHooks = () => {
   };
 
   const handleStakingAction = async (validator: string, action: string) => {
+    const stakingAddress = validators ? valAddress : validator;
     type SigningStargateClient = ReturnType<typeof getClient> extends Promise<infer T>
       ? T extends string
         ? never
@@ -133,7 +137,7 @@ const useStakingHooks = () => {
         try {
           result = await client.delegateTokens(
             userAddress,
-            validator,
+            stakingAddress,
             coin(amount, baseDenom ?? ''),
             'auto',
             memo
@@ -149,7 +153,7 @@ const useStakingHooks = () => {
           if ('redelegateTokens' in client && typeof client.redelegateTokens === 'function') {
             result = await client.redelegateTokens(
               userAddress,
-              validator,
+              stakingAddress,
               coin(amount, baseDenom ?? ''),
               'auto',
               memo
@@ -164,7 +168,7 @@ const useStakingHooks = () => {
         try {
           result = await client.undelegateTokens(
             userAddress,
-            validator,
+            stakingAddress,
             coin(amount, baseDenom ?? ''),
             'auto',
             memo
@@ -176,7 +180,7 @@ const useStakingHooks = () => {
         break;
       case 'claim rewards':
         try {
-          result = await client.withdrawRewards(userAddress, validator, 'auto', memo);
+          result = await client.withdrawRewards(userAddress, stakingAddress, 'auto', memo);
         } catch (e) {
           setErrorMsg((e as Error).message);
           return;
@@ -217,6 +221,8 @@ const useStakingHooks = () => {
     handleCloseDelegateDialog,
     handleCloseRedelegateDialog,
     handleCloseUndelegateDialog,
+    setValAddress,
+    valAddress,
     amount,
     errorMsg,
     memo,

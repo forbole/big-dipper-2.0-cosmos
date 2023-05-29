@@ -10,12 +10,11 @@ import DialogTitle from '@mui/material/DialogTitle';
 import IconButton from '@mui/material/IconButton';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import Autocomplete from '@mui/material/Autocomplete';
 import * as React from 'react';
 import { FC } from 'react';
-import useStakingHooks from '../hooks';
 import ValidatorFilterInput from '@/screens/validators/components/list/components/staking/validator_filter';
 import type { ItemType } from '@/screens/validators/components/list/types';
+import useStakingHooks from '@/screens/validators/components/list/components/staking/hooks';
 
 type DelegateDialogProps = {
   open: boolean;
@@ -47,11 +46,9 @@ const DelegateDialog: FC<DelegateDialogProps> = ({
     handleStakingAction,
     setTxAmount,
     setMemoValue,
-  } = useStakingHooks();
-
-  // validatorAddress needs to be a state, if validatorAddress is not "", setValidatorAddress to be the state
-
-  console.log('validatorAddress', validatorAddress);
+    setValAddress,
+    valAddress,
+  } = useStakingHooks(validators);
 
   return (
     <div>
@@ -65,7 +62,11 @@ const DelegateDialog: FC<DelegateDialogProps> = ({
 
           <Typography className={classes.subtitle}>{t('validators:delegateTo')}</Typography>
           {validators ? (
-            <ValidatorFilterInput options={validators} />
+            <ValidatorFilterInput
+              options={validators}
+              setValidatorAddress={setValAddress}
+              validatorAddress={valAddress}
+            />
           ) : (
             <div className={classes.validatorCard}>
               <AvatarName
