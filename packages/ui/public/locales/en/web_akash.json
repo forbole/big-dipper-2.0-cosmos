@@ -1,0 +1,22 @@
+{	
+  "providers:providers": "Providers",	
+  "providers:activeProviders": "Active Providers",	
+  "providers:activeLeases": "Active Leases",	
+  "providers:memory": "Memory",	
+  "providers:compute": "Compute",	
+  "providers:storage": "Storage",	
+  "providers:ownerAddress": "Owner Address",	
+  "providers:hostUri": "Host Uri",	
+  "providers:region": "Region",	
+  "providers:organization": "Organization",	
+  "providers:email": "Email",	
+  "providers:website": "Website",	
+  "providers:available": "Available",	
+  "providers:used": "Used",	
+  "providers:pending": "Pending",	
+  "providers:availablePercent": "Available Percent",	
+  "providers:usedPercent": "Used Percent",	
+  "providers:pendingPercent": "Pending Percent",	
+  "providers:searchProviders": "Search Providers",	
+  "providers:providersList": "Providers List"	
+}	
