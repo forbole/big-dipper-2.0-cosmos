@@ -47,7 +47,6 @@ const ValidatorFilterInput: FC<ValidatorFilterInputProps> = ({
         </span>
       )}
       filterOptions={filterOptions}
-      className={classes.validatorFilter}
       value={options.find((option) => option.validator.address === validatorAddress) || null}
       onChange={handleOnChange}
       renderInput={(params) => (
