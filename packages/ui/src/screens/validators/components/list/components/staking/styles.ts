@@ -180,7 +180,30 @@ const useStyles = makeStyles()((theme) => ({
     paddingBottom: '10px',
     paddingLeft: '10px',
   },
+  validatorOption: {
+    padding: theme.spacing(1, 1.5),
+  },
+  avatar: {
+    '&': {
+      flex: `0 0 ${theme.spacing(3.5)}`,
+    },
+  },
+  text: {
+    '&': {
+      flex: `1 1 auto`,
+      color: theme.palette.custom.fonts.highlight,
+    },
+  },
+  validatorOptionSpan: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    gap: theme.spacing(1),
+    flexFlow: 'row nowrap',
+    '&:hover': {
+      cursor: 'pointer',
+    },
+  },
 }));
 
 export default useStyles;
-// #292829
