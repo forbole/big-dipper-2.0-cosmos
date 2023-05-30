@@ -187,6 +187,7 @@ const useStyles = makeStyles()((theme) => ({
     '&': {
       flex: `0 0 ${theme.spacing(3.5)}`,
     },
+    marginRight: theme.spacing(1),
   },
   text: {
     '&': {

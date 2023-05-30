@@ -1,7 +1,6 @@
 import { FC } from 'react';
 import Autocomplete from '@mui/material/Autocomplete';
 import Avatar from '@/components/avatar';
-import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import MiddleEllipsis from '@/components/MiddleEllipsis';
 import useAppTranslation from '@/hooks/useAppTranslation';
@@ -38,16 +37,14 @@ const ValidatorFilterInput: FC<ValidatorFilterInputProps> = ({
       options={options}
       getOptionLabel={({ validator }) => validator.name}
       renderOption={(props, option) => (
-        <Box className={classes.validatorOption}>
-          <span className={classes.validatorOptionSpan} {...props}>
-            <Avatar
-              className={classes.avatar}
-              address={option.validator.address}
-              imageUrl={option.validator.imageUrl ?? undefined}
-            />
-            <MiddleEllipsis className={classes.text} content={option.validator.name} />
-          </span>
-        </Box>
+        <span className={classes.validatorOptionSpan} {...props}>
+          <Avatar
+            className={classes.avatar}
+            address={option.validator.address}
+            imageUrl={option.validator.imageUrl ?? undefined}
+          />
+          <MiddleEllipsis className={classes.text} content={option.validator.name} />
+        </span>
       )}
       filterOptions={filterOptions}
       className={classes.validatorFilter}
