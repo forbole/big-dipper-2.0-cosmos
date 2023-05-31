@@ -4,26 +4,14 @@ ARG PROJECT_NAME=web
 # This is a multiple stage Dockerfile.
 # - Stage 1: starter (base image with Node.js 18 and the turbo package installed globally)
 
-# - Stage 2: pruner (copies all necessary files and sets up yarn configurations, runs turbo prune)
+# - Stage 2: builder (adds dependencies, environment variables, and builds the project using yarn)
 
-# - Stage 3: builder (adds dependencies, environment variables, and builds the project using yarn)
-
-# - Stage 4: runner (final image for the web project, sets environment variables, starts the server)
+# - Stage 3: runner (final image for the web project, sets environment variables, starts the server)
 
 # Stage: starter
 FROM ${BASE_IMAGE} AS starter
 WORKDIR /app
 RUN npm i -g turbo
-
-# Stage: pruner
-FROM starter AS pruner
-
-COPY ./ ./
-
-ARG PROJECT_NAME
-RUN yarn config set nodeLinker node-modules \
-  && yarn config set supportedArchitectures --json '{}' \
-  && turbo prune --scope=${PROJECT_NAME} --docker
 
 ################################################################################
 
@@ -31,9 +19,7 @@ RUN yarn config set nodeLinker node-modules \
 FROM starter AS builder
 
 ### First install the dependencies (as they change less often)
-COPY .yarnrc.yml ./
-COPY .yarn/ ./.yarn/
-COPY --from=pruner /app/out/json/ /app/out/yarn.lock ./
+COPY . .
 
 ## Setting up the environment variables for the docker container.
 ARG PROJECT_NAME
@@ -55,30 +41,12 @@ ARG TURBO_TEAM
 ENV TURBO_TEAM=${TURBO_TEAM}
 ARG TURBO_TOKEN
 ENV TURBO_TOKEN=${TURBO_TOKEN}
-ENV BUILD_STANDALONE=1
-
-# add placeholder for env variables to be injected in runner stage
-ENV NEXT_PUBLIC_CHAIN_TYPE={{NEXT_PUBLIC_CHAIN_TYPE}}
-ENV NEXT_PUBLIC_BANNERS_JSON={{NEXT_PUBLIC_BANNERS_JSON}}
-ENV NEXT_PUBLIC_COINZILLA_ZONE={{NEXT_PUBLIC_COINZILLA_ZONE}}
-ENV NEXT_PUBLIC_GRAPHQL_URL={{NEXT_PUBLIC_GRAPHQL_URL}}
-ENV NEXT_PUBLIC_GRAPHQL_WS={{NEXT_PUBLIC_GRAPHQL_WS}}
-ENV NEXT_PUBLIC_KEPLR_CHAIN_ID={{NEXT_PUBLIC_KEPLR_CHAIN_ID}}
-ENV NEXT_PUBLIC_KEPLR_CUSTOM_CHAIN_INFO={{NEXT_PUBLIC_KEPLR_CUSTOM_CHAIN_INFO}}
-ENV NEXT_PUBLIC_KEPLR_LCD_URL={{NEXT_PUBLIC_KEPLR_LCD_URL}}
-ENV NEXT_PUBLIC_MATOMO_URL={{NEXT_PUBLIC_MATOMO_URL}}
-ENV NEXT_PUBLIC_MATOMO_SITE_ID={{NEXT_PUBLIC_MATOMO_SITE_ID}}
-ENV NEXT_PUBLIC_NETWORK_NAME={{NEXT_PUBLIC_NETWORK_NAME}}
-ENV NEXT_PUBLIC_RPC_WEBSOCKET={{NEXT_PUBLIC_RPC_WEBSOCKET}}
-ENV NEXT_PUBLIC_WC_BRIDGE_URL={{NEXT_PUBLIC_WC_BRIDGE_URL}}
 
 RUN export SENTRYCLI_SKIP_DOWNLOAD=$([ -z "${NEXT_PUBLIC_SENTRY_DSN}" ] && echo 1) \
   && corepack enable && yarn -v \
-  && yarn config set supportedArchitectures --json '{}' \
-  && YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn install --inline-builds
+  && yarn install --inline-builds
 
 ## Build the project
-COPY --from=pruner /app/out/full/ ./
 RUN ([ -z "${NEXT_PUBLIC_SENTRY_DSN}" ] || yarn node packages/shared-utils/configs/sentry/install.js) \
   && yarn workspace ${PROJECT_NAME} add sharp \
   && yarn workspace ${PROJECT_NAME} run build
@@ -134,60 +102,12 @@ COPY --chown=nextjs:nodejs --from=builder \
   /app/.yarn/ \
   ../../.yarn/
 COPY --chown=nextjs:nodejs --from=builder \
-  /app/apps/${PROJECT_NAME}/.next/apps/${PROJECT_NAME}/server.js /app/apps/${PROJECT_NAME}/package.json \
+  /app/apps/${PROJECT_NAME}/ /app/apps/${PROJECT_NAME}/ \
   ./
 COPY --chown=nextjs:nodejs --from=builder \
-  /app/apps/${PROJECT_NAME}/public/ \
-  ./public/
-COPY --chown=nextjs:nodejs --from=builder \
-  /app/apps/${PROJECT_NAME}/.next/apps/${PROJECT_NAME}/.next/ \
-  ./.next/
-COPY --chown=nextjs:nodejs --from=builder \
-  /app/apps/${PROJECT_NAME}/.next/static/ \
-  ./.next/static/
-
-# reference: https://github.com/vercel/next.js/discussions/34894
-RUN printf 'const { readFileSync, writeFileSync } = require("fs");\n\
-function inject(file) {\n\
-  const code = readFileSync(file, "utf8").replace(/(['\
-"'"\
-'"`])[{][{](\
-NEXT_PUBLIC_CHAIN_TYPE|\
-NEXT_PUBLIC_BANNERS_JSON|\
-NEXT_PUBLIC_COINZILLA_ZONE|\
-NEXT_PUBLIC_GRAPHQL_URL|\
-NEXT_PUBLIC_GRAPHQL_WS|\
-NEXT_PUBLIC_KEPLR_CHAIN_ID|\
-NEXT_PUBLIC_KEPLR_CUSTOM_CHAIN_INFO|\
-NEXT_PUBLIC_KEPLR_LCD_URL|\
-NEXT_PUBLIC_MATOMO_URL|\
-NEXT_PUBLIC_MATOMO_SITE_ID|\
-NEXT_PUBLIC_NETWORK_NAME|\
-NEXT_PUBLIC_RPC_WEBSOCKET|\
-NEXT_PUBLIC_WC_BRIDGE_URL\
-)[}][}]\\1/gi, (match, quote, name) => {\n\
-  console.log(`inject ${match} with ${JSON.stringify(process.env[name.toUpperCase()])} in ${file}`);\n\
-  return JSON.stringify(process.env[name] ?? "")\n\
-});\n\
-  writeFileSync(file, code, "utf8");\n\
-}\n' > ./inject.js \
-  && egrep -ilr '[{][{](\
-NEXT_PUBLIC_CHAIN_TYPE|\
-NEXT_PUBLIC_BANNERS_JSON|\
-NEXT_PUBLIC_COINZILLA_ZONE|\
-NEXT_PUBLIC_GRAPHQL_URL|\
-NEXT_PUBLIC_GRAPHQL_WS|\
-NEXT_PUBLIC_KEPLR_CHAIN_ID|\
-NEXT_PUBLIC_KEPLR_CUSTOM_CHAIN_INFO|\
-NEXT_PUBLIC_KEPLR_LCD_URL|\
-NEXT_PUBLIC_MATOMO_URL|\
-NEXT_PUBLIC_MATOMO_SITE_ID|\
-NEXT_PUBLIC_NETWORK_NAME|\
-NEXT_PUBLIC_RPC_WEBSOCKET|\
-NEXT_PUBLIC_WC_BRIDGE_URL\
-)[}][}]' ./.next | xargs -I{} printf 'inject("'{}'");\n' | tee -a ./inject.js;
+  /app/packages/ /app/packages/
 
 # Don't run production as root
 USER nextjs
 
-CMD node ./inject.js && yarn node ./server.js
+CMD yarn next start -p ${PORT}

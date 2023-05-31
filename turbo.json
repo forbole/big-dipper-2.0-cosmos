@@ -48,7 +48,6 @@
   },
   "globalEnv": [
     "BASE_PATH",
-    "BUILD_STANDALONE",
     "NEXT_PUBLIC_APP_NAME",
     "NEXT_PUBLIC_CHAIN_TYPE",
     "NEXT_PUBLIC_KEPLR_CHAIN_ID",
