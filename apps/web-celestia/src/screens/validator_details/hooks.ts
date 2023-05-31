@@ -3,7 +3,6 @@ import * as R from 'ramda';
 import { useCallback, useEffect, useState } from 'react';
 import chainConfig from '@/chainConfig';
 import { useValidatorDetailsQuery, ValidatorDetailsQuery } from '@/graphql/types/general_types';
-
 import useCelestiaProfile from '@/hooks/useCelestiaProfile';
 import { SlashingParams } from '@/models';
 import { StatusType, ValidatorDetailsState } from '@/screens/validator_details/types';
