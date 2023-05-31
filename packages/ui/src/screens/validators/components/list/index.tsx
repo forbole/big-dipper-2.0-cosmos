@@ -4,6 +4,8 @@ import NoData from '@/components/no_data';
 import useAppTranslation from '@/hooks/useAppTranslation';
 import useShallowMemo from '@/hooks/useShallowMemo';
 import { useProfilesRecoil } from '@/recoil/profiles/hooks';
+import { readIsUserLoggedIn, readUserAddress } from '@/recoil/user/selectors';
+import { useRecoilValue } from 'recoil';
 import Desktop from '@/screens/validators/components/list/components/desktop';
 import Mobile from '@/screens/validators/components/list/components/mobile';
 import StakeButton from '@/screens/validators/components/list/components/staking/index';
@@ -14,6 +16,8 @@ import { useDisplayStyles } from '@/styles/useSharedStyles';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { FC, ReactNode, useMemo } from 'react';
+import Link from 'next/link';
+import { ACCOUNT_DETAILS } from '@/utils/go_to_page';
 
 const List: FC<ComponentDefault> = ({ className }) => {
   const { classes, cx } = useStyles();
@@ -28,6 +32,9 @@ const List: FC<ComponentDefault> = ({ className }) => {
     () => sortItems(state.items.map((x, i) => ({ ...x, validator: dataProfiles?.[i] }))),
     [state.items, dataProfiles, sortItems]
   );
+
+  const loggedIn = useRecoilValue(readIsUserLoggedIn);
+  const address = useRecoilValue(readUserAddress);
 
   let list: ReactNode;
 
@@ -55,26 +62,24 @@ const List: FC<ComponentDefault> = ({ className }) => {
 
   return (
     <div>
-      <div className={classes.stakingButtons}>
-        <div>
-          <StakeButton
-            validators={items}
-            address=""
-            imageUrl="imageUrl"
-            name="name"
-            commission="12"
-          />
+      {loggedIn && (
+        <div className={classes.stakingButtons}>
+          <div>
+            <StakeButton validators={items} address="" imageUrl="" name="" commission="" />
+          </div>
+          <div className={classes.stakingDistribution}>
+            <Link shallow prefetch={false} href={ACCOUNT_DETAILS(address)} className="value">
+              <Button
+                onClick={handleStakingDistribution}
+                color="primary"
+                className={classes.stakingDistrButton}
+              >
+                <Typography variant="h5">{t('validators:stakingDistribution')}</Typography>
+              </Button>
+            </Link>
+          </div>
         </div>
-        <div className={classes.stakingDistribution}>
-          <Button
-            onClick={handleStakingDistribution}
-            color="primary"
-            className={classes.stakingDistrButton}
-          >
-            <Typography variant="h5">{t('validators:stakingDistribution')}</Typography>
-          </Button>
-        </div>
-      </div>
+      )}
       <LoadAndExist loading={state.loading || !!loading} exists={state.exists}>
         <Box className={className}>
           <Tabs tab={state.tab} handleTabChange={handleTabChange} handleSearch={handleSearch} />
