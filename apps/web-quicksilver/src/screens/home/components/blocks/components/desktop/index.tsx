@@ -1,5 +1,7 @@
 import AvatarName from '@/components/avatar_name';
 import Timestamp from '@/components/Timestamp';
+import useAppTranslation from '@/hooks/useAppTranslation';
+import useConsensusProfile from '@/hooks/useConsensusProfile';
 import useStyles from '@/screens/home/components/blocks/components/desktop/styles';
 import { columns } from '@/screens/home/components/blocks/components/desktop/utils';
 import type { ItemType } from '@/screens/home/components/blocks/types';
@@ -11,11 +13,9 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { AnimatePresence, motion, Variants } from 'framer-motion';
-import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import numeral from 'numeral';
 import { FC } from 'react';
-import useConsensusProfile from '@/hooks/useConsensusProfile';
 
 type BlockRowProps = {
   item: ItemType;
@@ -97,7 +97,7 @@ type DesktopProps = {
 };
 
 const Desktop: FC<DesktopProps> = ({ className, items }) => {
-  const { t } = useTranslation('blocks');
+  const { t } = useAppTranslation('blocks');
   const { classes, cx } = useStyles();
 
   return (
