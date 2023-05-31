@@ -1792,6 +1792,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@corex/deepmerge@npm:^4.0.43":
+  version: 4.0.43
+  resolution: "@corex/deepmerge@npm:4.0.43"
+  checksum: f0103bfcfb9938ba478868fad522b018b92615ba186b0322c92aa1f57e539b87d4379d88fee3a404264a83bd4b13c384cfb07834377997d6d71cd840a880b4c4
+  languageName: node
+  linkType: hard
+
 "@cosmjs/amino@npm:0.27.1":
   version: 0.27.1
   resolution: "@cosmjs/amino@npm:0.27.1"
@@ -3696,6 +3703,13 @@ __metadata:
   peerDependencies:
     react: ^17.0.0 || ^18.0.0
   checksum: bec2d8e173805e2a7446aa4fa7a3119d96a62787b685dbf59908f337daec922fa74a54bc60038cf1269621aebb7b61e7a52caa4ac4daa0140c5e290adce20160
+  languageName: node
+  linkType: hard
+
+"@next/env@npm:*":
+  version: 13.4.4
+  resolution: "@next/env@npm:13.4.4"
+  checksum: 9ab9b9ac4e5920cb9911273a776a5e2564844ac735a9c483bf584e090a7f534ce4a8fcda313132d338837e634513f680885c6b4ee811d5175db1b98b0bba4b35
   languageName: node
   linkType: hard
 
@@ -8639,7 +8653,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-glob@npm:^3.2.11, fast-glob@npm:^3.2.2, fast-glob@npm:^3.2.9":
+"fast-glob@npm:^3.2.11, fast-glob@npm:^3.2.12, fast-glob@npm:^3.2.2, fast-glob@npm:^3.2.9":
   version: 3.2.12
   resolution: "fast-glob@npm:3.2.12"
   dependencies:
@@ -11696,10 +11710,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minimist@npm:^1.2.0, minimist@npm:^1.2.6, minimist@npm:~1.2.5":
-  version: 1.2.7
-  resolution: "minimist@npm:1.2.7"
-  checksum: 7346574a1038ca23c32e02252f603801f09384dd1d78b69a943a4e8c2c28730b80e96193882d3d3b22a063445f460e48316b29b8a25addca2d7e5e8f75478bec
+"minimist@npm:^1.2.0, minimist@npm:^1.2.6, minimist@npm:^1.2.8, minimist@npm:~1.2.5":
+  version: 1.2.8
+  resolution: "minimist@npm:1.2.8"
+  checksum: 75a6d645fb122dad29c06a7597bddea977258957ed88d7a6df59b5cd3fe4a527e253e9bbf2e783e4b73657f9098b96a5fe96ab8a113655d4109108577ecf85b0
   languageName: node
   linkType: hard
 
@@ -11912,6 +11926,23 @@ __metadata:
     react: ">=16.0.0"
     react-dom: ">=16.0.0"
   checksum: aa986b3731386bc91408df6bca09a9edc0cdd8a7730bcdc331f283ab50803a6d60047b685eeec4b11bde1660dbb792e3737e81ef05a65682323d0d07fa9edd85
+  languageName: node
+  linkType: hard
+
+"next-sitemap@npm:^4.1.3":
+  version: 4.1.3
+  resolution: "next-sitemap@npm:4.1.3"
+  dependencies:
+    "@corex/deepmerge": ^4.0.43
+    fast-glob: ^3.2.12
+    minimist: ^1.2.8
+  peerDependencies:
+    "@next/env": "*"
+    next: "*"
+  bin:
+    next-sitemap: bin/next-sitemap.mjs
+    next-sitemap-cjs: bin/next-sitemap.cjs
+  checksum: de9b292dffdafcaf0a1cd661471f34892aaad37820b613d6776f04a30ab5b1ead21b79890dcfdfb2de72e0f12d052674ffe165692f5b106495759f3d9cf5141e
   languageName: node
   linkType: hard
 
@@ -15153,6 +15184,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -15567,6 +15599,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -15690,6 +15723,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -15813,6 +15847,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -15936,6 +15971,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -16059,6 +16095,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -16182,6 +16219,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -16305,6 +16343,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -16429,6 +16468,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     pako: ^2.1.0
     qrcode.react: ^3.1.0
@@ -16554,6 +16594,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -16677,6 +16718,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -16800,6 +16842,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -16923,6 +16966,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -17046,6 +17090,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -17169,6 +17214,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -17292,6 +17338,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -17415,6 +17462,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -17538,6 +17586,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -17655,6 +17704,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -17778,6 +17828,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -17901,6 +17952,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -18024,6 +18076,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -18148,6 +18201,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     pako: ^2.1.0
     qrcode.react: ^3.1.0
@@ -18273,6 +18327,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -18396,6 +18451,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -18519,6 +18575,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -18642,6 +18699,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -18765,6 +18823,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -18888,6 +18947,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -19025,6 +19085,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -19148,6 +19209,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -19271,6 +19333,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1

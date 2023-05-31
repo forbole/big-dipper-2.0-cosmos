@@ -66,6 +66,7 @@
     "SENTRY_PROJECT",
     "SENTRY_ORG",
     "SENTRY_URL",
+    "SITE_URL",
     "VERCEL"
   ],
   "globalDependencies": [
