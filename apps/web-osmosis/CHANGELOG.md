@@ -1,5 +1,16 @@
 # unreleased
 
+## 2.15.2
+
+### Patch Changes
+
+- [#1256](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1256) [`5654972fd`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/5654972fdf2bb50bcd8566320dc93294301facab) Thanks [@teamchong](https://github.com/teamchong)! - - Restored i18n locale JSON files that were accidentally deleted in a previous pull request. This restoration ensures all necessary translations are available for the application.
+  - Migrated existing code to use a new wrapper function for loading i18n translations, enhancing the efficiency and reliability of our translation loading process.
+  - Fixed an issue with the Next.js standalone build process that was causing complications with Docker deployment, thereby improving the stability of deployments.
+- Updated dependencies [[`5654972fd`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/5654972fdf2bb50bcd8566320dc93294301facab)]:
+  - shared-utils@2.18.1
+  - ui@2.30.1
+
 ## 2.15.1
 
 ### Patch Changes
