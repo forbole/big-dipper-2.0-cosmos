@@ -15,47 +15,47 @@
     ],
     "dark": {
       "primary": {
-        "main": "rgba(253,59,76,0.7)",
+        "main": "#25D695",
         "contrastText": "#FFFFFF"
       },
       "background": {
-        "default": "#0A0A0A",
-        "paper": "#131316"
+        "default": "#17191E",
+        "paper": "#1B1D23"
       },
-      "divider": "#3D3D43",
+      "divider": "#282828",
       "text": {
-        "primary": "#E6E6E6",
-        "secondary": "#AAAAAB"
+        "primary": "#F3F3F3",
+        "secondary": "#868991"
       },
       "custom": {
         "general": {
-          "background": "#0A0A0A",
-          "surfaceOne": "#131316",
-          "surfaceTwo": "#19191D",
+          "background": "#17191E",
+          "surfaceOne": "#1B1D23",
+          "surfaceTwo": "#212123",
           "icon": "#999999"
         },
         "fonts": {
           "fontOne": "#E6E6E6",
-          "fontTwo": "#AAAAAB",
+          "fontTwo": "#C4C4C4",
           "fontThree": "#818181",
           "fontFour": "#999999",
           "fontFive": "#FFFFFF",
-          "highlight": "#1D86FF"
+          "highlight": "#F1C34E"
         },
         "primaryData": {
-          "one": "#af2929",
-          "two": "#b44516",
-          "three": "#b14237",
-          "four": "#b16919"
+          "one": "#F87255",
+          "two": "#FA9147",
+          "three": "#43BE7C",
+          "four": "#43A1BE"
         },
         "results": {
-          "pass": "#198a65",
-          "fail": "#b12a34"
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
         },
         "tokenomics": {
-          "one": "#50B6D7",
-          "two": "#F4CD69",
-          "three": "#45A884"
+          "one": "#25D695",
+          "two": "#004DC2",
+          "three": "#FFFFFF"
         },
         "condition": {
           "zero": "#E6E6E6",
@@ -64,26 +64,26 @@
           "three": "#FF608A"
         },
         "charts": {
-          "zero": "#6D6D6C",
-          "one": "#45A884",
-          "two": "#50B6D7",
-          "three": "#F4CD69",
-          "four": "#F2A46B",
-          "five": "#C975F0"
+          "zero": "#E6E6E6",
+          "one": "#43BE7C",
+          "two": "#FA9147",
+          "three": "#F44747",
+          "four": "#43A1BE",
+          "five": "#C25396"
         },
         "tags": {
           "zero": "#E8E8E8",
           "one": "#2460FA",
-          "two": "#2BA896",
-          "three": "#E79725",
-          "four": "#F17052",
+          "two": "#2BA897",
+          "three": "#E79726",
+          "four": "#F17053",
           "five": "#DA4B4B",
-          "six": "#9438DC",
+          "six": "#C3C3C3",
           "seven": "#1A869D",
-          "eight": "#2C9949",
-          "nine": "#B49F36",
-          "ten": "#E9A851",
-          "eleven": "#E94686",
+          "eight": "#2C9950",
+          "nine": "#B49F37",
+          "ten": "#E9A852",
+          "eleven": "#E94687",
           "twelve": "#C15EC4",
           "thirteen": "#C388D9",
           "fourteen": "#46AEE9",
@@ -110,11 +110,11 @@
     },
     "light": {
       "primary": {
-        "main": "#488D98",
-        "contrastText": "#FFFFFF"
+        "main": "#25D695",
+        "contrastText": "#6C6F78"
       },
       "background": {
-        "default": "#F8F8F8",
+        "default": "#F5F5F5",
         "paper": "#FFFFFF"
       },
       "divider": "#E8E8E8",
@@ -131,26 +131,26 @@
         },
         "fonts": {
           "fontOne": "#000000",
-          "fontTwo": "#414141",
+          "fontTwo": "#373E48",
           "fontThree": "#777777",
           "fontFour": "#999999",
-          "fontFive": "#FFFFFF",
-          "highlight": "#0075FF"
+          "fontFive": "#373E48",
+          "highlight": "#F1C34E"
         },
         "primaryData": {
-          "one": "#488D98",
-          "two": "#45A884",
-          "three": "#48A2B0",
-          "four": "#47B0AA"
+          "one": "#F87255",
+          "two": "#FA9147",
+          "three": "#20D494",
+          "four": "#2FB6E0"
         },
         "results": {
           "pass": "#1EC490",
           "fail": "#FD3B4C"
         },
         "tokenomics": {
-          "one": "#50B6D7",
-          "two": "#F4CD69",
-          "three": "#45A884"
+          "one": "#25D695",
+          "two": "#004DC2",
+          "three": "#FFFFFF"
         },
         "condition": {
           "zero": "#E6E6E6",
@@ -160,11 +160,11 @@
         },
         "charts": {
           "zero": "#E6E6E6",
-          "one": "#45A884",
-          "two": "#50B6D7",
-          "three": "#F4CD69",
-          "four": "#F2A46B",
-          "five": "#C975F0"
+          "one": "#20D494",
+          "two": "#FF8732",
+          "three": "#F44747",
+          "four": "#2FB6E0",
+          "five": "#E95EB1"
         },
         "tags": {
           "zero": "#E8E8E8",
@@ -173,7 +173,7 @@
           "three": "#E79720",
           "four": "#F17047",
           "five": "#DA4B4B",
-          "six": "#9438DC",
+          "six": "#868991",
           "seven": "#1A869D",
           "eight": "#2C9944",
           "nine": "#B49F31",
