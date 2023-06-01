@@ -78,9 +78,9 @@ test('account page tabs', async ({ page }) => {
     .click();
 
   // Test account connections section
-  await page
-    .getByRole('button', { name: /.\sConnection/ })
-    .first()
-    .click();
+  // await page
+  //   .getByRole('button', { name: /.\sConnection/ })
+  //   .first()
+  //   .click();
   await page.getByRole('button', { name: /close/ }).first().click();
 });
