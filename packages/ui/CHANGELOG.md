@@ -1,5 +1,11 @@
 # ui
 
+## 2.30.2
+
+### Patch Changes
+
+- [#1264](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1264) [`f5392fbba`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/f5392fbbabf50763001c80faa0f7fefca343f287) Thanks [@teamchong](https://github.com/teamchong)! - Fix missing translation issue
+
 ## 2.30.1
 
 ### Patch Changes
