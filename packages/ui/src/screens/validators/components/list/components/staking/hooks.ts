@@ -12,7 +12,7 @@ import { ADDRESS_KEY, CHAIN_ID } from '@/utils/localstorage';
 import type { ItemType } from '@/screens/validators/components/list/types';
 
 const useStakingHooks = (validators?: ItemType[]) => {
-  const [amount, setAmount] = React.useState<string | number>(0);
+  const [amount, setAmount] = React.useState<string | number>('');
   const [userAddress, setUserAddress] = React.useState('');
   const [chainID, setChainID] = React.useState('');
 

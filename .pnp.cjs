@@ -3335,6 +3335,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@cosmjs/utils", "npm:0.30.1"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:0.31.0-alpha.1", {\
+          "packageLocation": "./.yarn/cache/@cosmjs-amino-npm-0.31.0-alpha.1-1ccd8bc1f2-3437415c45.zip/node_modules/@cosmjs/amino/",\
+          "packageDependencies": [\
+            ["@cosmjs/amino", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/crypto", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/encoding", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/math", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/utils", "npm:0.31.0-alpha.1"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["@cosmjs/crypto", [\
@@ -3368,6 +3379,20 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["libsodium-wrappers", "npm:0.7.10"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:0.31.0-alpha.1", {\
+          "packageLocation": "./.yarn/cache/@cosmjs-crypto-npm-0.31.0-alpha.1-99afc19765-4f1371822e.zip/node_modules/@cosmjs/crypto/",\
+          "packageDependencies": [\
+            ["@cosmjs/crypto", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/encoding", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/math", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/utils", "npm:0.31.0-alpha.1"],\
+            ["@noble/hashes", "npm:1.3.0"],\
+            ["bn.js", "npm:5.2.1"],\
+            ["elliptic", "npm:6.5.4"],\
+            ["libsodium-wrappers-sumo", "npm:0.7.11"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["@cosmjs/encoding", [\
@@ -3390,6 +3415,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["readonly-date", "npm:1.0.0"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:0.31.0-alpha.1", {\
+          "packageLocation": "./.yarn/cache/@cosmjs-encoding-npm-0.31.0-alpha.1-29dd913e87-bed13a5936.zip/node_modules/@cosmjs/encoding/",\
+          "packageDependencies": [\
+            ["@cosmjs/encoding", "npm:0.31.0-alpha.1"],\
+            ["base64-js", "npm:1.5.1"],\
+            ["bech32", "npm:1.1.4"],\
+            ["readonly-date", "npm:1.0.0"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["@cosmjs/json-rpc", [\
@@ -3398,6 +3433,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@cosmjs/json-rpc", "npm:0.30.1"],\
             ["@cosmjs/stream", "npm:0.30.1"],\
+            ["xstream", "npm:11.14.0"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:0.31.0-alpha.1", {\
+          "packageLocation": "./.yarn/cache/@cosmjs-json-rpc-npm-0.31.0-alpha.1-5c6c2430ff-91fff585eb.zip/node_modules/@cosmjs/json-rpc/",\
+          "packageDependencies": [\
+            ["@cosmjs/json-rpc", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/stream", "npm:0.31.0-alpha.1"],\
             ["xstream", "npm:11.14.0"]\
           ],\
           "linkType": "HARD"\
@@ -3435,6 +3479,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["bn.js", "npm:5.2.1"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:0.31.0-alpha.1", {\
+          "packageLocation": "./.yarn/cache/@cosmjs-math-npm-0.31.0-alpha.1-0070715d4b-61828e6c43.zip/node_modules/@cosmjs/math/",\
+          "packageDependencies": [\
+            ["@cosmjs/math", "npm:0.31.0-alpha.1"],\
+            ["bn.js", "npm:5.2.1"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["@cosmjs/proto-signing", [\
@@ -3451,6 +3503,20 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["long", "npm:4.0.0"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:0.31.0-alpha.1", {\
+          "packageLocation": "./.yarn/cache/@cosmjs-proto-signing-npm-0.31.0-alpha.1-09bc0e5197-4bf8263005.zip/node_modules/@cosmjs/proto-signing/",\
+          "packageDependencies": [\
+            ["@cosmjs/proto-signing", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/amino", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/crypto", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/encoding", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/math", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/utils", "npm:0.31.0-alpha.1"],\
+            ["cosmjs-types", "npm:0.8.0"],\
+            ["long", "npm:4.0.0"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["@cosmjs/socket", [\
@@ -3459,6 +3525,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@cosmjs/socket", "npm:0.30.1"],\
             ["@cosmjs/stream", "npm:0.30.1"],\
+            ["isomorphic-ws", "virtual:b6625f9d6968fb31d7a3f12f2dd87f1f42a2c0811e2ecd8e2dd265d7550fa450701a0e497a82d17d31ff6cd943f2201daef44b78f660c832b251509dc80b1c83#npm:4.0.1"],\
+            ["ws", "virtual:b6625f9d6968fb31d7a3f12f2dd87f1f42a2c0811e2ecd8e2dd265d7550fa450701a0e497a82d17d31ff6cd943f2201daef44b78f660c832b251509dc80b1c83#npm:7.5.9"],\
+            ["xstream", "npm:11.14.0"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:0.31.0-alpha.1", {\
+          "packageLocation": "./.yarn/cache/@cosmjs-socket-npm-0.31.0-alpha.1-d0b2d46ccb-ff5bf25322.zip/node_modules/@cosmjs/socket/",\
+          "packageDependencies": [\
+            ["@cosmjs/socket", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/stream", "npm:0.31.0-alpha.1"],\
             ["isomorphic-ws", "virtual:b6625f9d6968fb31d7a3f12f2dd87f1f42a2c0811e2ecd8e2dd265d7550fa450701a0e497a82d17d31ff6cd943f2201daef44b78f660c832b251509dc80b1c83#npm:4.0.1"],\
             ["ws", "virtual:b6625f9d6968fb31d7a3f12f2dd87f1f42a2c0811e2ecd8e2dd265d7550fa450701a0e497a82d17d31ff6cd943f2201daef44b78f660c832b251509dc80b1c83#npm:7.5.9"],\
             ["xstream", "npm:11.14.0"]\
@@ -3485,6 +3562,25 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["xstream", "npm:11.14.0"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:0.31.0-alpha.1", {\
+          "packageLocation": "./.yarn/cache/@cosmjs-stargate-npm-0.31.0-alpha.1-ded9a72c5a-6610eed451.zip/node_modules/@cosmjs/stargate/",\
+          "packageDependencies": [\
+            ["@cosmjs/stargate", "npm:0.31.0-alpha.1"],\
+            ["@confio/ics23", "npm:0.6.8"],\
+            ["@cosmjs/amino", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/encoding", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/math", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/proto-signing", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/stream", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/tendermint-rpc", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/utils", "npm:0.31.0-alpha.1"],\
+            ["cosmjs-types", "npm:0.8.0"],\
+            ["long", "npm:4.0.0"],\
+            ["protobufjs", "npm:6.11.3"],\
+            ["xstream", "npm:11.14.0"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["@cosmjs/stream", [\
@@ -3492,6 +3588,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@cosmjs-stream-npm-0.30.1-dc2511b696-f9e48a8377.zip/node_modules/@cosmjs/stream/",\
           "packageDependencies": [\
             ["@cosmjs/stream", "npm:0.30.1"],\
+            ["xstream", "npm:11.14.0"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:0.31.0-alpha.1", {\
+          "packageLocation": "./.yarn/cache/@cosmjs-stream-npm-0.31.0-alpha.1-91678a8da7-395c933057.zip/node_modules/@cosmjs/stream/",\
+          "packageDependencies": [\
+            ["@cosmjs/stream", "npm:0.31.0-alpha.1"],\
             ["xstream", "npm:11.14.0"]\
           ],\
           "linkType": "HARD"\
@@ -3514,6 +3618,23 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["xstream", "npm:11.14.0"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:0.31.0-alpha.1", {\
+          "packageLocation": "./.yarn/cache/@cosmjs-tendermint-rpc-npm-0.31.0-alpha.1-22ddc6f3d7-df06063be1.zip/node_modules/@cosmjs/tendermint-rpc/",\
+          "packageDependencies": [\
+            ["@cosmjs/tendermint-rpc", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/crypto", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/encoding", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/json-rpc", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/math", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/socket", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/stream", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/utils", "npm:0.31.0-alpha.1"],\
+            ["axios", "npm:0.21.4"],\
+            ["readonly-date", "npm:1.0.0"],\
+            ["xstream", "npm:11.14.0"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["@cosmjs/utils", [\
@@ -3528,6 +3649,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@cosmjs-utils-npm-0.30.1-c5856c2196-64ea16cdeb.zip/node_modules/@cosmjs/utils/",\
           "packageDependencies": [\
             ["@cosmjs/utils", "npm:0.30.1"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:0.31.0-alpha.1", {\
+          "packageLocation": "./.yarn/cache/@cosmjs-utils-npm-0.31.0-alpha.1-5e66e750c7-16a611ba82.zip/node_modules/@cosmjs/utils/",\
+          "packageDependencies": [\
+            ["@cosmjs/utils", "npm:0.31.0-alpha.1"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -10480,6 +10608,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["protobufjs", "npm:6.11.3"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:0.8.0", {\
+          "packageLocation": "./.yarn/cache/cosmjs-types-npm-0.8.0-4c175fd383-99714ec956.zip/node_modules/cosmjs-types/",\
+          "packageDependencies": [\
+            ["cosmjs-types", "npm:0.8.0"],\
+            ["long", "npm:4.0.0"],\
+            ["protobufjs", "npm:6.11.3"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["create-hash", [\
@@ -15613,12 +15750,31 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["libsodium-sumo", [\
+        ["npm:0.7.11", {\
+          "packageLocation": "./.yarn/cache/libsodium-sumo-npm-0.7.11-aaac6bcc6c-9efac902a0.zip/node_modules/libsodium-sumo/",\
+          "packageDependencies": [\
+            ["libsodium-sumo", "npm:0.7.11"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["libsodium-wrappers", [\
         ["npm:0.7.10", {\
           "packageLocation": "./.yarn/cache/libsodium-wrappers-npm-0.7.10-1e41dfad84-294ac09889.zip/node_modules/libsodium-wrappers/",\
           "packageDependencies": [\
             ["libsodium-wrappers", "npm:0.7.10"],\
             ["libsodium", "npm:0.7.10"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["libsodium-wrappers-sumo", [\
+        ["npm:0.7.11", {\
+          "packageLocation": "./.yarn/cache/libsodium-wrappers-sumo-npm-0.7.11-08fe1b2cf4-26c7aaf8c4.zip/node_modules/libsodium-wrappers-sumo/",\
+          "packageDependencies": [\
+            ["libsodium-wrappers-sumo", "npm:0.7.11"],\
+            ["libsodium-sumo", "npm:0.7.11"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -20524,8 +20680,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.14"],\
             ["@cosmjs/encoding", "npm:0.30.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
-            ["@cosmjs/proto-signing", "npm:0.30.1"],\
-            ["@cosmjs/stargate", "npm:0.30.1"],\
+            ["@cosmjs/proto-signing", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/stargate", "npm:0.31.0-alpha.1"],\
             ["@emotion/cache", "npm:11.11.0"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
@@ -20994,8 +21150,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.14"],\
             ["@cosmjs/encoding", "npm:0.30.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
-            ["@cosmjs/proto-signing", "npm:0.30.1"],\
-            ["@cosmjs/stargate", "npm:0.30.1"],\
+            ["@cosmjs/proto-signing", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/stargate", "npm:0.31.0-alpha.1"],\
             ["@emotion/cache", "npm:11.11.0"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
@@ -21120,8 +21276,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.14"],\
             ["@cosmjs/encoding", "npm:0.30.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
-            ["@cosmjs/proto-signing", "npm:0.30.1"],\
-            ["@cosmjs/stargate", "npm:0.30.1"],\
+            ["@cosmjs/proto-signing", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/stargate", "npm:0.31.0-alpha.1"],\
             ["@emotion/cache", "npm:11.11.0"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
@@ -21371,8 +21527,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.14"],\
             ["@cosmjs/encoding", "npm:0.30.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
-            ["@cosmjs/proto-signing", "npm:0.30.1"],\
-            ["@cosmjs/stargate", "npm:0.30.1"],\
+            ["@cosmjs/proto-signing", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/stargate", "npm:0.31.0-alpha.1"],\
             ["@emotion/cache", "npm:11.11.0"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
@@ -21497,8 +21653,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.14"],\
             ["@cosmjs/encoding", "npm:0.30.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
-            ["@cosmjs/proto-signing", "npm:0.30.1"],\
-            ["@cosmjs/stargate", "npm:0.30.1"],\
+            ["@cosmjs/proto-signing", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/stargate", "npm:0.31.0-alpha.1"],\
             ["@emotion/cache", "npm:11.11.0"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
@@ -21623,8 +21779,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.14"],\
             ["@cosmjs/encoding", "npm:0.30.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
-            ["@cosmjs/proto-signing", "npm:0.30.1"],\
-            ["@cosmjs/stargate", "npm:0.30.1"],\
+            ["@cosmjs/proto-signing", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/stargate", "npm:0.31.0-alpha.1"],\
             ["@emotion/cache", "npm:11.11.0"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
@@ -21999,8 +22155,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.14"],\
             ["@cosmjs/encoding", "npm:0.30.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
-            ["@cosmjs/proto-signing", "npm:0.30.1"],\
-            ["@cosmjs/stargate", "npm:0.30.1"],\
+            ["@cosmjs/proto-signing", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/stargate", "npm:0.31.0-alpha.1"],\
             ["@emotion/cache", "npm:11.11.0"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
@@ -22253,8 +22409,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.14"],\
             ["@cosmjs/encoding", "npm:0.30.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
-            ["@cosmjs/proto-signing", "npm:0.30.1"],\
-            ["@cosmjs/stargate", "npm:0.30.1"],\
+            ["@cosmjs/proto-signing", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/stargate", "npm:0.31.0-alpha.1"],\
             ["@emotion/cache", "npm:11.11.0"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
@@ -22379,8 +22535,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.14"],\
             ["@cosmjs/encoding", "npm:0.30.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
-            ["@cosmjs/proto-signing", "npm:0.30.1"],\
-            ["@cosmjs/stargate", "npm:0.30.1"],\
+            ["@cosmjs/proto-signing", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/stargate", "npm:0.31.0-alpha.1"],\
             ["@emotion/cache", "npm:11.11.0"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
@@ -22505,8 +22661,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.14"],\
             ["@cosmjs/encoding", "npm:0.30.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
-            ["@cosmjs/proto-signing", "npm:0.30.1"],\
-            ["@cosmjs/stargate", "npm:0.30.1"],\
+            ["@cosmjs/proto-signing", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/stargate", "npm:0.31.0-alpha.1"],\
             ["@emotion/cache", "npm:11.11.0"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
@@ -22631,8 +22787,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.14"],\
             ["@cosmjs/encoding", "npm:0.30.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
-            ["@cosmjs/proto-signing", "npm:0.30.1"],\
-            ["@cosmjs/stargate", "npm:0.30.1"],\
+            ["@cosmjs/proto-signing", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/stargate", "npm:0.31.0-alpha.1"],\
             ["@emotion/cache", "npm:11.11.0"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
@@ -22757,8 +22913,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.14"],\
             ["@cosmjs/encoding", "npm:0.30.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
-            ["@cosmjs/proto-signing", "npm:0.30.1"],\
-            ["@cosmjs/stargate", "npm:0.30.1"],\
+            ["@cosmjs/proto-signing", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/stargate", "npm:0.31.0-alpha.1"],\
             ["@emotion/cache", "npm:11.11.0"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
@@ -23133,8 +23289,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.14"],\
             ["@cosmjs/encoding", "npm:0.30.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
-            ["@cosmjs/proto-signing", "npm:0.30.1"],\
-            ["@cosmjs/stargate", "npm:0.30.1"],\
+            ["@cosmjs/proto-signing", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/stargate", "npm:0.31.0-alpha.1"],\
             ["@emotion/cache", "npm:11.11.0"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
@@ -23259,8 +23415,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.14"],\
             ["@cosmjs/encoding", "npm:0.30.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
-            ["@cosmjs/proto-signing", "npm:0.30.1"],\
-            ["@cosmjs/stargate", "npm:0.30.1"],\
+            ["@cosmjs/proto-signing", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/stargate", "npm:0.31.0-alpha.1"],\
             ["@emotion/cache", "npm:11.11.0"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
@@ -23379,8 +23535,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.14"],\
             ["@cosmjs/encoding", "npm:0.30.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
-            ["@cosmjs/proto-signing", "npm:0.30.1"],\
-            ["@cosmjs/stargate", "npm:0.30.1"],\
+            ["@cosmjs/proto-signing", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/stargate", "npm:0.31.0-alpha.1"],\
             ["@emotion/cache", "npm:11.11.0"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
@@ -23505,8 +23661,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.14"],\
             ["@cosmjs/encoding", "npm:0.30.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
-            ["@cosmjs/proto-signing", "npm:0.30.1"],\
-            ["@cosmjs/stargate", "npm:0.30.1"],\
+            ["@cosmjs/proto-signing", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/stargate", "npm:0.31.0-alpha.1"],\
             ["@emotion/cache", "npm:11.11.0"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
@@ -23631,8 +23787,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.14"],\
             ["@cosmjs/encoding", "npm:0.30.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
-            ["@cosmjs/proto-signing", "npm:0.30.1"],\
-            ["@cosmjs/stargate", "npm:0.30.1"],\
+            ["@cosmjs/proto-signing", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/stargate", "npm:0.31.0-alpha.1"],\
             ["@emotion/cache", "npm:11.11.0"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
@@ -23757,8 +23913,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.14"],\
             ["@cosmjs/encoding", "npm:0.30.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
-            ["@cosmjs/proto-signing", "npm:0.30.1"],\
-            ["@cosmjs/stargate", "npm:0.30.1"],\
+            ["@cosmjs/proto-signing", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/stargate", "npm:0.31.0-alpha.1"],\
             ["@emotion/cache", "npm:11.11.0"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
@@ -23886,8 +24042,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.14"],\
             ["@cosmjs/encoding", "npm:0.30.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
-            ["@cosmjs/proto-signing", "npm:0.30.1"],\
-            ["@cosmjs/stargate", "npm:0.30.1"],\
+            ["@cosmjs/proto-signing", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/stargate", "npm:0.31.0-alpha.1"],\
             ["@emotion/cache", "npm:11.11.0"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
@@ -24012,8 +24168,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.14"],\
             ["@cosmjs/encoding", "npm:0.30.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
-            ["@cosmjs/proto-signing", "npm:0.30.1"],\
-            ["@cosmjs/stargate", "npm:0.30.1"],\
+            ["@cosmjs/proto-signing", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/stargate", "npm:0.31.0-alpha.1"],\
             ["@emotion/cache", "npm:11.11.0"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
@@ -24138,8 +24294,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.14"],\
             ["@cosmjs/encoding", "npm:0.30.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
-            ["@cosmjs/proto-signing", "npm:0.30.1"],\
-            ["@cosmjs/stargate", "npm:0.30.1"],\
+            ["@cosmjs/proto-signing", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/stargate", "npm:0.31.0-alpha.1"],\
             ["@emotion/cache", "npm:11.11.0"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
@@ -24264,8 +24420,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.14"],\
             ["@cosmjs/encoding", "npm:0.30.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
-            ["@cosmjs/proto-signing", "npm:0.30.1"],\
-            ["@cosmjs/stargate", "npm:0.30.1"],\
+            ["@cosmjs/proto-signing", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/stargate", "npm:0.31.0-alpha.1"],\
             ["@emotion/cache", "npm:11.11.0"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
@@ -24390,8 +24546,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.14"],\
             ["@cosmjs/encoding", "npm:0.30.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
-            ["@cosmjs/proto-signing", "npm:0.30.1"],\
-            ["@cosmjs/stargate", "npm:0.30.1"],\
+            ["@cosmjs/proto-signing", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/stargate", "npm:0.31.0-alpha.1"],\
             ["@emotion/cache", "npm:11.11.0"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
@@ -24516,8 +24672,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.14"],\
             ["@cosmjs/encoding", "npm:0.30.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
-            ["@cosmjs/proto-signing", "npm:0.30.1"],\
-            ["@cosmjs/stargate", "npm:0.30.1"],\
+            ["@cosmjs/proto-signing", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/stargate", "npm:0.31.0-alpha.1"],\
             ["@emotion/cache", "npm:11.11.0"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
@@ -24658,8 +24814,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.14"],\
             ["@cosmjs/encoding", "npm:0.30.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
-            ["@cosmjs/proto-signing", "npm:0.30.1"],\
-            ["@cosmjs/stargate", "npm:0.30.1"],\
+            ["@cosmjs/proto-signing", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/stargate", "npm:0.31.0-alpha.1"],\
             ["@emotion/cache", "npm:11.11.0"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\

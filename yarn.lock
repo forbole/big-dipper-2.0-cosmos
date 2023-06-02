@@ -1816,6 +1816,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@cosmjs/amino@npm:^0.31.0-alpha.1":
+  version: 0.31.0-alpha.1
+  resolution: "@cosmjs/amino@npm:0.31.0-alpha.1"
+  dependencies:
+    "@cosmjs/crypto": ^0.31.0-alpha.1
+    "@cosmjs/encoding": ^0.31.0-alpha.1
+    "@cosmjs/math": ^0.31.0-alpha.1
+    "@cosmjs/utils": ^0.31.0-alpha.1
+  checksum: 3437415c45cf829a3b7ffa5938c52bbe36073530790f5655500aa2bad110d306a8be154cded2d650e9142bea46f6e57d45f82bf56ab4a2de9d2d5027a1502d1f
+  languageName: node
+  linkType: hard
+
 "@cosmjs/crypto@npm:0.27.1":
   version: 0.27.1
   resolution: "@cosmjs/crypto@npm:0.27.1"
@@ -1849,6 +1861,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@cosmjs/crypto@npm:^0.31.0-alpha.1":
+  version: 0.31.0-alpha.1
+  resolution: "@cosmjs/crypto@npm:0.31.0-alpha.1"
+  dependencies:
+    "@cosmjs/encoding": ^0.31.0-alpha.1
+    "@cosmjs/math": ^0.31.0-alpha.1
+    "@cosmjs/utils": ^0.31.0-alpha.1
+    "@noble/hashes": ^1
+    bn.js: ^5.2.0
+    elliptic: ^6.5.4
+    libsodium-wrappers-sumo: ^0.7.11
+  checksum: 4f1371822e6d68b6a7b78673d74890569f8b162ad9a980ed434059c01140c9fd4733a610b7ba52d9f2cd27e2dabf9619bd9ade92b0628ac83c3ad5aea9749275
+  languageName: node
+  linkType: hard
+
 "@cosmjs/encoding@npm:0.27.1":
   version: 0.27.1
   resolution: "@cosmjs/encoding@npm:0.27.1"
@@ -1871,6 +1898,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@cosmjs/encoding@npm:^0.31.0-alpha.1":
+  version: 0.31.0-alpha.1
+  resolution: "@cosmjs/encoding@npm:0.31.0-alpha.1"
+  dependencies:
+    base64-js: ^1.3.0
+    bech32: ^1.1.4
+    readonly-date: ^1.0.0
+  checksum: bed13a5936738070ec5f28097b8ad0b59f19a5792b44462d979d8e22a053667b067b83cc9aeec508ed54c6ca11b073baca066201aa8776bee1f71fae093c1721
+  languageName: node
+  linkType: hard
+
 "@cosmjs/json-rpc@npm:^0.30.1":
   version: 0.30.1
   resolution: "@cosmjs/json-rpc@npm:0.30.1"
@@ -1878,6 +1916,16 @@ __metadata:
     "@cosmjs/stream": ^0.30.1
     xstream: ^11.14.0
   checksum: 750686d53cd4ee239fd24a41d556ab08307f099c9f7bb633a566af417b0baad0ff954498272b6bdb02d4cad596c7ac8f24e38f0cf25c7fbe6200b539c2f56266
+  languageName: node
+  linkType: hard
+
+"@cosmjs/json-rpc@npm:^0.31.0-alpha.1":
+  version: 0.31.0-alpha.1
+  resolution: "@cosmjs/json-rpc@npm:0.31.0-alpha.1"
+  dependencies:
+    "@cosmjs/stream": ^0.31.0-alpha.1
+    xstream: ^11.14.0
+  checksum: 91fff585ebc6e40fd39fe46266ab389b9ea9c25ac2122908342b2b465d85863545f830c9813967abf67be08aa67e78d7d939620c2b23e9d6ec5aa3950ee51962
   languageName: node
   linkType: hard
 
@@ -1914,6 +1962,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@cosmjs/math@npm:^0.31.0-alpha.1":
+  version: 0.31.0-alpha.1
+  resolution: "@cosmjs/math@npm:0.31.0-alpha.1"
+  dependencies:
+    bn.js: ^5.2.0
+  checksum: 61828e6c43c4554e90de9b4dd934f1845f4c38f4774e4450b771ee0e910370771b6964beaa19722151c883279f9bec61dd5040eaadd7cf62075814cbf6a6f047
+  languageName: node
+  linkType: hard
+
 "@cosmjs/proto-signing@npm:^0.30.1":
   version: 0.30.1
   resolution: "@cosmjs/proto-signing@npm:0.30.1"
@@ -1929,6 +1986,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@cosmjs/proto-signing@npm:^0.31.0-alpha.1":
+  version: 0.31.0-alpha.1
+  resolution: "@cosmjs/proto-signing@npm:0.31.0-alpha.1"
+  dependencies:
+    "@cosmjs/amino": ^0.31.0-alpha.1
+    "@cosmjs/crypto": ^0.31.0-alpha.1
+    "@cosmjs/encoding": ^0.31.0-alpha.1
+    "@cosmjs/math": ^0.31.0-alpha.1
+    "@cosmjs/utils": ^0.31.0-alpha.1
+    cosmjs-types: ^0.8.0
+    long: ^4.0.0
+  checksum: 4bf8263005fe2358edf88cba29094150c1c59b118d0a15085ceb9d8ff602fcd0adf30c0d54446bc3296683b7a76be5dad413f003aa50ede4e2e74295139aa5da
+  languageName: node
+  linkType: hard
+
 "@cosmjs/socket@npm:^0.30.1":
   version: 0.30.1
   resolution: "@cosmjs/socket@npm:0.30.1"
@@ -1938,6 +2010,18 @@ __metadata:
     ws: ^7
     xstream: ^11.14.0
   checksum: ef5e5d7bbcd89b5bfbd6fa4039133e15e5db848e6b0bc812b89872d28d9ced73d8a12fbf6581e6b0b08de28f2c1a9c7b05825804be65eb07d2f3d3532babea91
+  languageName: node
+  linkType: hard
+
+"@cosmjs/socket@npm:^0.31.0-alpha.1":
+  version: 0.31.0-alpha.1
+  resolution: "@cosmjs/socket@npm:0.31.0-alpha.1"
+  dependencies:
+    "@cosmjs/stream": ^0.31.0-alpha.1
+    isomorphic-ws: ^4.0.1
+    ws: ^7
+    xstream: ^11.14.0
+  checksum: ff5bf2532254731a644b7d5b816fc0396a1edbb246dd06d799f650662e734d255ef9e5431b835c65f1d29e780df52af9cbca34adf5d4bfeb5603c963f4c156fb
   languageName: node
   linkType: hard
 
@@ -1961,12 +2045,41 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@cosmjs/stargate@npm:^0.31.0-alpha.1":
+  version: 0.31.0-alpha.1
+  resolution: "@cosmjs/stargate@npm:0.31.0-alpha.1"
+  dependencies:
+    "@confio/ics23": ^0.6.8
+    "@cosmjs/amino": ^0.31.0-alpha.1
+    "@cosmjs/encoding": ^0.31.0-alpha.1
+    "@cosmjs/math": ^0.31.0-alpha.1
+    "@cosmjs/proto-signing": ^0.31.0-alpha.1
+    "@cosmjs/stream": ^0.31.0-alpha.1
+    "@cosmjs/tendermint-rpc": ^0.31.0-alpha.1
+    "@cosmjs/utils": ^0.31.0-alpha.1
+    cosmjs-types: ^0.8.0
+    long: ^4.0.0
+    protobufjs: ~6.11.3
+    xstream: ^11.14.0
+  checksum: 6610eed45181339a4cde3e9f169d0329bc43b15ff37e72ea3c17189cf8fc17961240bb1607b587297e4efe1a8e44b8675480489f3ee7b679969a622b1c1cf4bd
+  languageName: node
+  linkType: hard
+
 "@cosmjs/stream@npm:^0.30.1":
   version: 0.30.1
   resolution: "@cosmjs/stream@npm:0.30.1"
   dependencies:
     xstream: ^11.14.0
   checksum: f9e48a8377c2d3cfbf288fcf4fad745905c042dabc442d2cbb93d4280033e3c8e493a3328f58c0b645b60f9c2188d14603b2bb37a174bc0619686c5e70b13dca
+  languageName: node
+  linkType: hard
+
+"@cosmjs/stream@npm:^0.31.0-alpha.1":
+  version: 0.31.0-alpha.1
+  resolution: "@cosmjs/stream@npm:0.31.0-alpha.1"
+  dependencies:
+    xstream: ^11.14.0
+  checksum: 395c93305712fe8953d0a23c9dd3dd6016ee5e5c6fea6f7f29a499bb01a746c09a54768da6277a7645d8163829a3c78a3fee11a9d9700b0b61effa4567d97cf8
   languageName: node
   linkType: hard
 
@@ -1988,6 +2101,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@cosmjs/tendermint-rpc@npm:^0.31.0-alpha.1":
+  version: 0.31.0-alpha.1
+  resolution: "@cosmjs/tendermint-rpc@npm:0.31.0-alpha.1"
+  dependencies:
+    "@cosmjs/crypto": ^0.31.0-alpha.1
+    "@cosmjs/encoding": ^0.31.0-alpha.1
+    "@cosmjs/json-rpc": ^0.31.0-alpha.1
+    "@cosmjs/math": ^0.31.0-alpha.1
+    "@cosmjs/socket": ^0.31.0-alpha.1
+    "@cosmjs/stream": ^0.31.0-alpha.1
+    "@cosmjs/utils": ^0.31.0-alpha.1
+    axios: ^0.21.2
+    readonly-date: ^1.0.0
+    xstream: ^11.14.0
+  checksum: df06063be1bd19b68a5d1c184880694638373b23f99333ab58260de7022af5c3056fbb653f182e4769a321a325da0143f1308ca99a3248fe9a76fcc5ca178673
+  languageName: node
+  linkType: hard
+
 "@cosmjs/utils@npm:0.27.1":
   version: 0.27.1
   resolution: "@cosmjs/utils@npm:0.27.1"
@@ -1999,6 +2130,13 @@ __metadata:
   version: 0.30.1
   resolution: "@cosmjs/utils@npm:0.30.1"
   checksum: 64ea16cdeba64d2b346a0b45ca47059ab4297fdf5c4e5fd89ec262eec488807f49f94dcdc294628142015ce4669c4eaf7426d1f8a6538146da5601dcc484cb19
+  languageName: node
+  linkType: hard
+
+"@cosmjs/utils@npm:^0.31.0-alpha.1":
+  version: 0.31.0-alpha.1
+  resolution: "@cosmjs/utils@npm:0.31.0-alpha.1"
+  checksum: 16a611ba8251fde7cb1e0ef49c76a909be9442c87441edd63873ee3e1c4448c45f16d7bcd2ca3632e191cb767e15649949d5205b4830ba6f68975b296a0efccc
   languageName: node
   linkType: hard
 
@@ -7140,6 +7278,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"cosmjs-types@npm:^0.8.0":
+  version: 0.8.0
+  resolution: "cosmjs-types@npm:0.8.0"
+  dependencies:
+    long: ^4.0.0
+    protobufjs: ~6.11.2
+  checksum: 99714ec956d2cb2e521d39896c9c9a24cf9df0d370265c203646ea015b51e86472efc0cb11f67a80f0649d178b0bcff77ac659e67fdfc8b2437cd7a42018577f
+  languageName: node
+  linkType: hard
+
 "create-hash@npm:^1.1.0, create-hash@npm:^1.2.0":
   version: 1.2.0
   resolution: "create-hash@npm:1.2.0"
@@ -11107,6 +11255,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"libsodium-sumo@npm:^0.7.11":
+  version: 0.7.11
+  resolution: "libsodium-sumo@npm:0.7.11"
+  checksum: 9efac902a05002e1caca1c1df3a7cd838ac370588cfa31107d6e787cb5a181f4ca46c7961e3136943c8b07b1d543c0283b91e08a141f9b55a74f10808c3017ef
+  languageName: node
+  linkType: hard
+
+"libsodium-wrappers-sumo@npm:^0.7.11":
+  version: 0.7.11
+  resolution: "libsodium-wrappers-sumo@npm:0.7.11"
+  dependencies:
+    libsodium-sumo: ^0.7.11
+  checksum: 26c7aaf8c4b6da6b06ef17637e5541e16c796be9611b194d795501f021ac04abfeda09cadae66b3b515308993cd57361a571eefabdf9d9b3377b070a17535440
+  languageName: node
+  linkType: hard
+
 "libsodium-wrappers@npm:^0.7.6":
   version: 0.7.10
   resolution: "libsodium-wrappers@npm:0.7.10"
@@ -15059,8 +15223,8 @@ __metadata:
     "@apollo/client": ^3.7.14
     "@cosmjs/encoding": ^0.30.1
     "@cosmjs/launchpad": ^0.27.1
-    "@cosmjs/proto-signing": ^0.30.1
-    "@cosmjs/stargate": ^0.30.1
+    "@cosmjs/proto-signing": ^0.31.0-alpha.1
+    "@cosmjs/stargate": ^0.31.0-alpha.1
     "@emotion/cache": ^11.11.0
     "@emotion/jest": ^11.11.0
     "@emotion/react": ^11.11.0
@@ -15474,8 +15638,8 @@ __metadata:
     "@apollo/client": ^3.7.14
     "@cosmjs/encoding": ^0.30.1
     "@cosmjs/launchpad": ^0.27.1
-    "@cosmjs/proto-signing": ^0.30.1
-    "@cosmjs/stargate": ^0.30.1
+    "@cosmjs/proto-signing": ^0.31.0-alpha.1
+    "@cosmjs/stargate": ^0.31.0-alpha.1
     "@emotion/cache": ^11.11.0
     "@emotion/jest": ^11.11.0
     "@emotion/react": ^11.11.0
@@ -15721,8 +15885,8 @@ __metadata:
     "@apollo/client": ^3.7.14
     "@cosmjs/encoding": ^0.30.1
     "@cosmjs/launchpad": ^0.27.1
-    "@cosmjs/proto-signing": ^0.30.1
-    "@cosmjs/stargate": ^0.30.1
+    "@cosmjs/proto-signing": ^0.31.0-alpha.1
+    "@cosmjs/stargate": ^0.31.0-alpha.1
     "@emotion/cache": ^11.11.0
     "@emotion/jest": ^11.11.0
     "@emotion/react": ^11.11.0
@@ -15845,8 +16009,8 @@ __metadata:
     "@apollo/client": ^3.7.14
     "@cosmjs/encoding": ^0.30.1
     "@cosmjs/launchpad": ^0.27.1
-    "@cosmjs/proto-signing": ^0.30.1
-    "@cosmjs/stargate": ^0.30.1
+    "@cosmjs/proto-signing": ^0.31.0-alpha.1
+    "@cosmjs/stargate": ^0.31.0-alpha.1
     "@emotion/cache": ^11.11.0
     "@emotion/jest": ^11.11.0
     "@emotion/react": ^11.11.0
@@ -15969,8 +16133,8 @@ __metadata:
     "@apollo/client": ^3.7.14
     "@cosmjs/encoding": ^0.30.1
     "@cosmjs/launchpad": ^0.27.1
-    "@cosmjs/proto-signing": ^0.30.1
-    "@cosmjs/stargate": ^0.30.1
+    "@cosmjs/proto-signing": ^0.31.0-alpha.1
+    "@cosmjs/stargate": ^0.31.0-alpha.1
     "@emotion/cache": ^11.11.0
     "@emotion/jest": ^11.11.0
     "@emotion/react": ^11.11.0
@@ -16339,8 +16503,8 @@ __metadata:
     "@apollo/client": ^3.7.14
     "@cosmjs/encoding": ^0.30.1
     "@cosmjs/launchpad": ^0.27.1
-    "@cosmjs/proto-signing": ^0.30.1
-    "@cosmjs/stargate": ^0.30.1
+    "@cosmjs/proto-signing": ^0.31.0-alpha.1
+    "@cosmjs/stargate": ^0.31.0-alpha.1
     "@emotion/cache": ^11.11.0
     "@emotion/jest": ^11.11.0
     "@emotion/react": ^11.11.0
@@ -16589,8 +16753,8 @@ __metadata:
     "@apollo/client": ^3.7.14
     "@cosmjs/encoding": ^0.30.1
     "@cosmjs/launchpad": ^0.27.1
-    "@cosmjs/proto-signing": ^0.30.1
-    "@cosmjs/stargate": ^0.30.1
+    "@cosmjs/proto-signing": ^0.31.0-alpha.1
+    "@cosmjs/stargate": ^0.31.0-alpha.1
     "@emotion/cache": ^11.11.0
     "@emotion/jest": ^11.11.0
     "@emotion/react": ^11.11.0
@@ -16713,8 +16877,8 @@ __metadata:
     "@apollo/client": ^3.7.14
     "@cosmjs/encoding": ^0.30.1
     "@cosmjs/launchpad": ^0.27.1
-    "@cosmjs/proto-signing": ^0.30.1
-    "@cosmjs/stargate": ^0.30.1
+    "@cosmjs/proto-signing": ^0.31.0-alpha.1
+    "@cosmjs/stargate": ^0.31.0-alpha.1
     "@emotion/cache": ^11.11.0
     "@emotion/jest": ^11.11.0
     "@emotion/react": ^11.11.0
@@ -16837,8 +17001,8 @@ __metadata:
     "@apollo/client": ^3.7.14
     "@cosmjs/encoding": ^0.30.1
     "@cosmjs/launchpad": ^0.27.1
-    "@cosmjs/proto-signing": ^0.30.1
-    "@cosmjs/stargate": ^0.30.1
+    "@cosmjs/proto-signing": ^0.31.0-alpha.1
+    "@cosmjs/stargate": ^0.31.0-alpha.1
     "@emotion/cache": ^11.11.0
     "@emotion/jest": ^11.11.0
     "@emotion/react": ^11.11.0
@@ -16961,8 +17125,8 @@ __metadata:
     "@apollo/client": ^3.7.14
     "@cosmjs/encoding": ^0.30.1
     "@cosmjs/launchpad": ^0.27.1
-    "@cosmjs/proto-signing": ^0.30.1
-    "@cosmjs/stargate": ^0.30.1
+    "@cosmjs/proto-signing": ^0.31.0-alpha.1
+    "@cosmjs/stargate": ^0.31.0-alpha.1
     "@emotion/cache": ^11.11.0
     "@emotion/jest": ^11.11.0
     "@emotion/react": ^11.11.0
@@ -17085,8 +17249,8 @@ __metadata:
     "@apollo/client": ^3.7.14
     "@cosmjs/encoding": ^0.30.1
     "@cosmjs/launchpad": ^0.27.1
-    "@cosmjs/proto-signing": ^0.30.1
-    "@cosmjs/stargate": ^0.30.1
+    "@cosmjs/proto-signing": ^0.31.0-alpha.1
+    "@cosmjs/stargate": ^0.31.0-alpha.1
     "@emotion/cache": ^11.11.0
     "@emotion/jest": ^11.11.0
     "@emotion/react": ^11.11.0
@@ -17455,8 +17619,8 @@ __metadata:
     "@apollo/client": ^3.7.14
     "@cosmjs/encoding": ^0.30.1
     "@cosmjs/launchpad": ^0.27.1
-    "@cosmjs/proto-signing": ^0.30.1
-    "@cosmjs/stargate": ^0.30.1
+    "@cosmjs/proto-signing": ^0.31.0-alpha.1
+    "@cosmjs/stargate": ^0.31.0-alpha.1
     "@emotion/cache": ^11.11.0
     "@emotion/jest": ^11.11.0
     "@emotion/react": ^11.11.0
@@ -17579,8 +17743,8 @@ __metadata:
     "@apollo/client": ^3.7.14
     "@cosmjs/encoding": ^0.30.1
     "@cosmjs/launchpad": ^0.27.1
-    "@cosmjs/proto-signing": ^0.30.1
-    "@cosmjs/stargate": ^0.30.1
+    "@cosmjs/proto-signing": ^0.31.0-alpha.1
+    "@cosmjs/stargate": ^0.31.0-alpha.1
     "@emotion/cache": ^11.11.0
     "@emotion/jest": ^11.11.0
     "@emotion/react": ^11.11.0
@@ -17697,8 +17861,8 @@ __metadata:
     "@apollo/client": ^3.7.14
     "@cosmjs/encoding": ^0.30.1
     "@cosmjs/launchpad": ^0.27.1
-    "@cosmjs/proto-signing": ^0.30.1
-    "@cosmjs/stargate": ^0.30.1
+    "@cosmjs/proto-signing": ^0.31.0-alpha.1
+    "@cosmjs/stargate": ^0.31.0-alpha.1
     "@emotion/cache": ^11.11.0
     "@emotion/jest": ^11.11.0
     "@emotion/react": ^11.11.0
@@ -17821,8 +17985,8 @@ __metadata:
     "@apollo/client": ^3.7.14
     "@cosmjs/encoding": ^0.30.1
     "@cosmjs/launchpad": ^0.27.1
-    "@cosmjs/proto-signing": ^0.30.1
-    "@cosmjs/stargate": ^0.30.1
+    "@cosmjs/proto-signing": ^0.31.0-alpha.1
+    "@cosmjs/stargate": ^0.31.0-alpha.1
     "@emotion/cache": ^11.11.0
     "@emotion/jest": ^11.11.0
     "@emotion/react": ^11.11.0
@@ -17945,8 +18109,8 @@ __metadata:
     "@apollo/client": ^3.7.14
     "@cosmjs/encoding": ^0.30.1
     "@cosmjs/launchpad": ^0.27.1
-    "@cosmjs/proto-signing": ^0.30.1
-    "@cosmjs/stargate": ^0.30.1
+    "@cosmjs/proto-signing": ^0.31.0-alpha.1
+    "@cosmjs/stargate": ^0.31.0-alpha.1
     "@emotion/cache": ^11.11.0
     "@emotion/jest": ^11.11.0
     "@emotion/react": ^11.11.0
@@ -18069,8 +18233,8 @@ __metadata:
     "@apollo/client": ^3.7.14
     "@cosmjs/encoding": ^0.30.1
     "@cosmjs/launchpad": ^0.27.1
-    "@cosmjs/proto-signing": ^0.30.1
-    "@cosmjs/stargate": ^0.30.1
+    "@cosmjs/proto-signing": ^0.31.0-alpha.1
+    "@cosmjs/stargate": ^0.31.0-alpha.1
     "@emotion/cache": ^11.11.0
     "@emotion/jest": ^11.11.0
     "@emotion/react": ^11.11.0
@@ -18196,8 +18360,8 @@ __metadata:
     "@apollo/client": ^3.7.14
     "@cosmjs/encoding": ^0.30.1
     "@cosmjs/launchpad": ^0.27.1
-    "@cosmjs/proto-signing": ^0.30.1
-    "@cosmjs/stargate": ^0.30.1
+    "@cosmjs/proto-signing": ^0.31.0-alpha.1
+    "@cosmjs/stargate": ^0.31.0-alpha.1
     "@emotion/cache": ^11.11.0
     "@emotion/jest": ^11.11.0
     "@emotion/react": ^11.11.0
@@ -18320,8 +18484,8 @@ __metadata:
     "@apollo/client": ^3.7.14
     "@cosmjs/encoding": ^0.30.1
     "@cosmjs/launchpad": ^0.27.1
-    "@cosmjs/proto-signing": ^0.30.1
-    "@cosmjs/stargate": ^0.30.1
+    "@cosmjs/proto-signing": ^0.31.0-alpha.1
+    "@cosmjs/stargate": ^0.31.0-alpha.1
     "@emotion/cache": ^11.11.0
     "@emotion/jest": ^11.11.0
     "@emotion/react": ^11.11.0
@@ -18444,8 +18608,8 @@ __metadata:
     "@apollo/client": ^3.7.14
     "@cosmjs/encoding": ^0.30.1
     "@cosmjs/launchpad": ^0.27.1
-    "@cosmjs/proto-signing": ^0.30.1
-    "@cosmjs/stargate": ^0.30.1
+    "@cosmjs/proto-signing": ^0.31.0-alpha.1
+    "@cosmjs/stargate": ^0.31.0-alpha.1
     "@emotion/cache": ^11.11.0
     "@emotion/jest": ^11.11.0
     "@emotion/react": ^11.11.0
@@ -18568,8 +18732,8 @@ __metadata:
     "@apollo/client": ^3.7.14
     "@cosmjs/encoding": ^0.30.1
     "@cosmjs/launchpad": ^0.27.1
-    "@cosmjs/proto-signing": ^0.30.1
-    "@cosmjs/stargate": ^0.30.1
+    "@cosmjs/proto-signing": ^0.31.0-alpha.1
+    "@cosmjs/stargate": ^0.31.0-alpha.1
     "@emotion/cache": ^11.11.0
     "@emotion/jest": ^11.11.0
     "@emotion/react": ^11.11.0
@@ -18692,8 +18856,8 @@ __metadata:
     "@apollo/client": ^3.7.14
     "@cosmjs/encoding": ^0.30.1
     "@cosmjs/launchpad": ^0.27.1
-    "@cosmjs/proto-signing": ^0.30.1
-    "@cosmjs/stargate": ^0.30.1
+    "@cosmjs/proto-signing": ^0.31.0-alpha.1
+    "@cosmjs/stargate": ^0.31.0-alpha.1
     "@emotion/cache": ^11.11.0
     "@emotion/jest": ^11.11.0
     "@emotion/react": ^11.11.0
@@ -18816,8 +18980,8 @@ __metadata:
     "@apollo/client": ^3.7.14
     "@cosmjs/encoding": ^0.30.1
     "@cosmjs/launchpad": ^0.27.1
-    "@cosmjs/proto-signing": ^0.30.1
-    "@cosmjs/stargate": ^0.30.1
+    "@cosmjs/proto-signing": ^0.31.0-alpha.1
+    "@cosmjs/stargate": ^0.31.0-alpha.1
     "@emotion/cache": ^11.11.0
     "@emotion/jest": ^11.11.0
     "@emotion/react": ^11.11.0
@@ -18954,8 +19118,8 @@ __metadata:
     "@apollo/client": ^3.7.14
     "@cosmjs/encoding": ^0.30.1
     "@cosmjs/launchpad": ^0.27.1
-    "@cosmjs/proto-signing": ^0.30.1
-    "@cosmjs/stargate": ^0.30.1
+    "@cosmjs/proto-signing": ^0.31.0-alpha.1
+    "@cosmjs/stargate": ^0.31.0-alpha.1
     "@emotion/cache": ^11.11.0
     "@emotion/jest": ^11.11.0
     "@emotion/react": ^11.11.0
@@ -19201,8 +19365,8 @@ __metadata:
     "@apollo/client": ^3.7.14
     "@cosmjs/encoding": ^0.30.1
     "@cosmjs/launchpad": ^0.27.1
-    "@cosmjs/proto-signing": ^0.30.1
-    "@cosmjs/stargate": ^0.30.1
+    "@cosmjs/proto-signing": ^0.31.0-alpha.1
+    "@cosmjs/stargate": ^0.31.0-alpha.1
     "@emotion/cache": ^11.11.0
     "@emotion/jest": ^11.11.0
     "@emotion/react": ^11.11.0
