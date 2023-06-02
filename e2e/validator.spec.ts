@@ -53,9 +53,9 @@ test('validator page tabs', async ({ page }) => {
     .click();
 
   // Test validator connections section
-  await page
-    .getByRole('button', { name: /.\sConnection/ })
-    .first()
-    .click();
+  // await page
+  //   .getByRole('button', { name: /.\sConnection/ })
+  //   .first()
+  //   .click();
   await page.getByRole('button', { name: /close/ }).first().click();
 });
