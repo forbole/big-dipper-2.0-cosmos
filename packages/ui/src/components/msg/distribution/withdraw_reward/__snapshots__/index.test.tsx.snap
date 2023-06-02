@@ -29,7 +29,7 @@ exports[`screen: TransactionDetails/WithdrawReward matches snapshot 1`] = `
       id="Name"
       name="validatorAddress"
     />
-    {"amount":"0 UDSM"}
+    {"amount":"0 DARIC"}
   </span>
 </p>
 `;

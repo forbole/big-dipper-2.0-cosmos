@@ -3,7 +3,7 @@ import { useAvailableBalances } from '@/screens/account_details/utils';
 import { useParams } from '@/screens/params/hooks';
 import { getDenom } from '@/utils/get_denom';
 import * as R from 'ramda';
-import { formatNumber, formatToken } from '@/utils/format_token';
+import { formatNumber, formatToken, baseToDisplayUnit } from '@/utils/format_token';
 import { getClient } from '@/components/nav/components/connect_wallet/keplr_utils';
 import { assertIsDeliverTxSuccess } from '@cosmjs/stargate';
 import { useEffect } from 'react';
@@ -138,7 +138,7 @@ const useStakingHooks = (validators?: ItemType[]) => {
           result = await client.delegateTokens(
             userAddress,
             stakingAddress,
-            coin(amount, baseDenom ?? ''),
+            coin(baseToDisplayUnit(amount), baseDenom ?? ''),
             'auto',
             memo
           );
