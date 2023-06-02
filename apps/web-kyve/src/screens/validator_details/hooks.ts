@@ -3,7 +3,7 @@ import * as R from 'ramda';
 import { useCallback, useEffect, useState } from 'react';
 import chainConfig from '@/chainConfig';
 import { useValidatorDetailsQuery, ValidatorDetailsQuery } from '@/graphql/types/general_types';
-import useCelestiaProfile from '@/hooks/useCelestiaProfile';
+import useKyveProfile from '@/hooks/useKyveProfile';
 import { SlashingParams } from '@/models';
 import { StatusType, ValidatorDetailsState } from '@/screens/validator_details/types';
 import { formatToken } from '@/utils/format_token';
@@ -135,7 +135,7 @@ export const useValidatorDetails = () => {
   // ==========================
   // Celestia Profile
   // ==========================
-  const { profile: dataDesmosProfile, loading: loadingDesmosProfile } = useCelestiaProfile(
+  const { profile: dataDesmosProfile, loading: loadingDesmosProfile } = useKyveProfile(
     state.overview.consensusAddress,
     state.overview.selfDelegateAddress
   );

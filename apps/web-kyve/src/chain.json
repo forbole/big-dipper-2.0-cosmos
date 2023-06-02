@@ -5,6 +5,7 @@
     "profile": false,
     "graphqlWs": true
   },
+  "previewImage": "https://s3.bigdipper.live/previews/kyve.png",
   "themes": {
     "default": "light",
     "themeList": [
