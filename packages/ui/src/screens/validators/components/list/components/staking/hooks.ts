@@ -135,12 +135,13 @@ const useStakingHooks = (validators?: ItemType[]) => {
     switch (action) {
       case 'delegate':
         try {
+          const base64Amount = baseToDisplayUnit(amount);
           result = await client.delegateTokens(
             userAddress,
             stakingAddress,
-            coin(baseToDisplayUnit(amount), baseDenom ?? ''),
+            coin(base64Amount, baseDenom ?? ''),
             'auto',
-            memo
+            memo ?? ''
           );
         } catch (e) {
           setErrorMsg((e as Error).message);
@@ -190,8 +191,6 @@ const useStakingHooks = (validators?: ItemType[]) => {
         return;
     }
 
-    // eslint-disable-next-line no-console
-    console.log(result);
     try {
       assertIsDeliverTxSuccess(result);
     } catch (e) {

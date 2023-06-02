@@ -119,16 +119,15 @@ export const removeEndingZeros = (value: string) => {
  * Util to transform a display denom amount
  * in to a base denom amount
  * @param input the number or string amount in display denom unit
- * @returns number value in base denom unit
+ * @returns string value in base denom unit
  */
-export const baseToDisplayUnit = (input: number | string) => {
+export const baseToDisplayUnit = (input: string | number) => {
   if (typeof input === 'string') {
     input = +input;
   }
-
   const power = tokenUnits?.[primaryTokenUnit].exponent;
 
   const output = input * 10 ** power;
 
-  return output;
+  return `${output}`;
 };
