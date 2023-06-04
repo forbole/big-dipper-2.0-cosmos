@@ -30,6 +30,7 @@ const useStakingHooks = (validators?: ItemType[]) => {
   const [openSuccessSnackbar, setOpenSuccessSnackbar] = React.useState(false);
   const [openDelegateDialog, setOpenDelegateDialog] = React.useState(false);
   const [openValidatorRedelegateMenu, setOpenValidatorRedelegateMenu] = React.useState(false);
+  const [txHash, setTxHash] = React.useState('');
 
   // Get mint denom
   const { state } = useParams();
@@ -91,10 +92,6 @@ const useStakingHooks = (validators?: ItemType[]) => {
     setOpenUndelegateDialog(true);
   };
 
-  const handleSuccessSnackbar = () => {
-    setOpenSuccessSnackbar(true);
-  };
-
   const handleCloseSnackBar = (event: React.SyntheticEvent | Event, reason?: string) => {
     if (reason === 'clickaway') {
       return;
@@ -102,6 +99,16 @@ const useStakingHooks = (validators?: ItemType[]) => {
 
     setOpenSuccessSnackbar(false);
   };
+
+  const resetDialogInfo = () => {
+    setValAddress('');
+    setAmount('');
+    setMemo('');
+  };
+
+  // Add a new state to control the success state of the delegation action
+  const [delegationSuccess, setDelegationSuccess] = React.useState(false);
+  const [loading, setLoading] = React.useState(false);
 
   useEffect(() => {
     setUserAddress(localStorage.getItem(ADDRESS_KEY) ?? '');
@@ -135,6 +142,7 @@ const useStakingHooks = (validators?: ItemType[]) => {
     switch (action) {
       case 'delegate':
         try {
+          setLoading(true);
           const base64Amount = baseToDisplayUnit(amount);
           result = await client.delegateTokens(
             userAddress,
@@ -143,8 +151,14 @@ const useStakingHooks = (validators?: ItemType[]) => {
             'auto',
             memo ?? ''
           );
+          setDelegationSuccess(true);
+          setTxHash(result.transactionHash);
+          assertIsDeliverTxSuccess(result);
+          setLoading(false);
         } catch (e) {
           setErrorMsg((e as Error).message);
+          handleCloseDelegateDialog();
+          setOpenSuccessSnackbar(false);
           return;
         }
         break;
@@ -190,13 +204,6 @@ const useStakingHooks = (validators?: ItemType[]) => {
       default:
         return;
     }
-
-    try {
-      assertIsDeliverTxSuccess(result);
-    } catch (e) {
-      setErrorMsg((e as Error).message);
-      return;
-    }
     client.disconnect();
   };
 
@@ -211,7 +218,6 @@ const useStakingHooks = (validators?: ItemType[]) => {
     openValidatorRedelegateMenu,
     redelegateAnchorEl,
     handleStakingAction,
-    handleSuccessSnackbar,
     setDelegateAmount,
     setTxAmount,
     setMemoValue,
@@ -220,7 +226,14 @@ const useStakingHooks = (validators?: ItemType[]) => {
     handleCloseDelegateDialog,
     handleCloseRedelegateDialog,
     handleCloseUndelegateDialog,
+    setOpenDelegateDialog,
     setValAddress,
+    setDelegationSuccess,
+    setTxHash,
+    setOpenSuccessSnackbar,
+    resetDialogInfo,
+    setLoading,
+    delegationSuccess,
     valAddress,
     amount,
     errorMsg,
@@ -237,6 +250,8 @@ const useStakingHooks = (validators?: ItemType[]) => {
     availableForStaking,
     tokenFormatDenom,
     token,
+    txHash,
+    loading,
   };
 };
 

@@ -10,11 +10,13 @@ import DialogTitle from '@mui/material/DialogTitle';
 import IconButton from '@mui/material/IconButton';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
+import CircularProgress from '@mui/material/CircularProgress';
 import * as React from 'react';
 import { FC } from 'react';
 import ValidatorFilterInput from '@/screens/validators/components/list/components/staking/validator_filter';
 import type { ItemType } from '@/screens/validators/components/list/types';
 import useStakingHooks from '@/screens/validators/components/list/components/staking/hooks';
+import CustomSnackbar from '@/components/snackbar';
 
 type DelegateDialogProps = {
   open: boolean;
@@ -27,7 +29,7 @@ type DelegateDialogProps = {
 };
 
 const DelegateDialog: FC<DelegateDialogProps> = ({
-  open,
+  open: openDelegateDialog,
   onClose,
   validatorAddress,
   validatorName,
@@ -43,16 +45,34 @@ const DelegateDialog: FC<DelegateDialogProps> = ({
     memo,
     token,
     tokenFormatDenom,
+    loading,
     handleStakingAction,
     setTxAmount,
     setMemoValue,
     setValAddress,
     valAddress,
+    delegationSuccess,
+    setDelegationSuccess,
+    setOpenSuccessSnackbar,
+    openSuccessSnackbar,
+    handleCloseSnackBar,
+    txHash,
+    resetDialogInfo,
   } = useStakingHooks(validators);
+
+  // Add a useEffect to close the delegation dialog when the delegationSuccess state is true
+  React.useEffect(() => {
+    if (delegationSuccess) {
+      onClose();
+      setOpenSuccessSnackbar(true);
+      resetDialogInfo();
+      setDelegationSuccess(false);
+    }
+  }, [delegationSuccess, onClose, resetDialogInfo, setDelegationSuccess, setOpenSuccessSnackbar]);
 
   return (
     <div>
-      <Dialog maxWidth="md" onClose={onClose} open={open} className={classes.dialog}>
+      <Dialog maxWidth="md" onClose={onClose} open={openDelegateDialog} className={classes.dialog}>
         <DialogTitle>
           <div className={classes.header}>
             <Typography className={classes.title} gutterBottom>
@@ -151,11 +171,25 @@ const DelegateDialog: FC<DelegateDialogProps> = ({
               color="primary"
               className={classes.delegateButton}
             >
-              <Typography variant="h5">{t('validators:delegate')}</Typography>
+              {loading ? (
+                <CircularProgress size={20} color="inherit" />
+              ) : (
+                <Typography variant="h5">{t('validators:delegate')}</Typography>
+              )}
             </Button>
           </div>
         </DialogActions>
       </Dialog>
+      <CustomSnackbar
+        open={openSuccessSnackbar}
+        onClose={handleCloseSnackBar}
+        type="success"
+        actionMsg="viewTxs"
+        msg="trackingOfTxDetailsIsNowAvailable"
+        trans="validators"
+        link={txHash}
+        anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+      />
     </div>
   );
 };
