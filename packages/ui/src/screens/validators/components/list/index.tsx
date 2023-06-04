@@ -23,7 +23,15 @@ const List: FC<ComponentDefault> = ({ className }) => {
   const { classes, cx } = useStyles();
   const { t } = useAppTranslation();
   const display = useDisplayStyles().classes;
-  const { state, handleTabChange, handleSearch, handleSort, sortItems, search } = useValidators();
+  const {
+    state,
+    delegationValidators,
+    handleTabChange,
+    handleSearch,
+    handleSort,
+    sortItems,
+    search,
+  } = useValidators();
   const { handleStakingDistribution } = useStakingDistribution();
 
   const validatorsMemo = useShallowMemo(state.items.map((x) => x.validator));
@@ -32,6 +40,16 @@ const List: FC<ComponentDefault> = ({ className }) => {
     () => sortItems(state.items.map((x, i) => ({ ...x, validator: dataProfiles?.[i] }))),
     [state.items, dataProfiles, sortItems]
   );
+
+  // const redelegations Memo
+  const delegationsMemo = useShallowMemo(delegationValidators?.map((y) => y.validator)) ?? [];
+  const { profiles: delegationProfiles } = useProfilesRecoil(delegationsMemo);
+  const delegationItems = useMemo(
+    () => delegationProfiles.map((d, j) => dataProfiles?.[j]),
+    [delegationProfiles, dataProfiles]
+  );
+
+  console.log('check', delegationItems);
 
   const loggedIn = useRecoilValue(readIsUserLoggedIn);
   const address = useRecoilValue(readUserAddress);
@@ -65,7 +83,14 @@ const List: FC<ComponentDefault> = ({ className }) => {
       {loggedIn && (
         <div className={classes.stakingButtons}>
           <div>
-            <StakeButton validators={items} address="" imageUrl="" name="" commission="" />
+            <StakeButton
+              validators={items}
+              delegations={delegationItems}
+              address=""
+              imageUrl=""
+              name=""
+              commission=""
+            />
           </div>
           <div className={classes.stakingDistribution}>
             <Link shallow prefetch={false} href={ACCOUNT_DETAILS(address)} className="value">

@@ -18,6 +18,7 @@ type StakeButtonProps = {
   imageUrl?: string;
   commission: string;
   validators?: ItemType[];
+  delegations?: AvatarName[];
 };
 
 const StakeButton = (props: StakeButtonProps) => {
@@ -38,6 +39,7 @@ const StakeButton = (props: StakeButtonProps) => {
     handleCloseRedelegateDialog,
     handleCloseUndelegateDialog,
   } = useStakingHooks();
+  // console.log('delegations', props.delegations);
 
   return (
     <div>
@@ -71,6 +73,7 @@ const StakeButton = (props: StakeButtonProps) => {
           imageUrl={props.imageUrl ?? ''}
           validatorName={props.name}
           validatorCommission={props.commission}
+          delegations={props.delegations ?? undefined}
         />
         <MenuItem onClick={handleOpenUndelegateDialog}> {t('validators:undelegate')}</MenuItem>
         <UndelegateDialog

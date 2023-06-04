@@ -5,7 +5,7 @@ import { getDenom } from '@/utils/get_denom';
 import * as R from 'ramda';
 import { formatNumber, formatToken, baseToDisplayUnit } from '@/utils/format_token';
 import { getClient } from '@/components/nav/components/connect_wallet/keplr_utils';
-import { assertIsDeliverTxSuccess } from '@cosmjs/stargate';
+import { assertIsDeliverTxSuccess, MsgBeginRedelegateEncodeObject } from '@cosmjs/stargate';
 import { useEffect } from 'react';
 import { coin } from '@cosmjs/proto-signing';
 import { ADDRESS_KEY, CHAIN_ID } from '@/utils/localstorage';
@@ -164,16 +164,16 @@ const useStakingHooks = (validators?: ItemType[]) => {
         break;
       case 'redelegate':
         try {
-          // to do: this function is still in [PR](https://github.com/cosmos/cosmjs/pull/922/files)
-          if ('redelegateTokens' in client && typeof client.redelegateTokens === 'function') {
-            result = await client.redelegateTokens(
-              userAddress,
-              stakingAddress,
-              coin(amount, baseDenom ?? ''),
-              'auto',
-              memo
-            );
-          }
+          const redelegateMsg: MsgBeginRedelegateEncodeObject = {
+            typeUrl: '/cosmos.staking.v1beta1.MsgBeginRedelegate',
+            value: {
+              delegatorAddress: userAddress,
+              validatorSrcAddress: validator,
+              validatorDstAddress: stakingAddress, // to set
+              amount: coin(amount, baseDenom ?? ''),
+            },
+          };
+          client.signAndBroadcast(userAddress, [redelegateMsg], 'auto', memo);
         } catch (e) {
           setErrorMsg((e as Error).message);
           return;

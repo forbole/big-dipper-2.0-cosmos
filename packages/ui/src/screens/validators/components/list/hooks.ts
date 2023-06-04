@@ -1,10 +1,15 @@
 import Big from 'big.js';
 import numeral from 'numeral';
 import * as R from 'ramda';
-import { SyntheticEvent, useCallback, useState } from 'react';
+import { SyntheticEvent, useCallback, useState, useEffect } from 'react';
 import chainConfig from '@/chainConfig';
-import { useValidatorsQuery, ValidatorsQuery } from '@/graphql/types/general_types';
+import {
+  useValidatorsQuery,
+  ValidatorsQuery,
+  useAccountDelegationsQuery,
+} from '@/graphql/types/general_types';
 import { SlashingParams } from '@/models';
+import { ADDRESS_KEY } from '@/utils/localstorage';
 import type {
   ItemType,
   ValidatorsState,
@@ -90,6 +95,8 @@ export const useValidators = () => {
     sortKey: 'validator.name',
     sortDirection: 'asc',
   });
+  const [userAddress, setUserAddress] = useState<string>('');
+  const [delegationValidators, setDelegationValidators] = useState<ValidatorType[]>([]);
 
   const handleSetState = useCallback(
     (stateChange: (prevState: ValidatorsState) => ValidatorsState) => {
@@ -101,8 +108,12 @@ export const useValidators = () => {
     []
   );
 
+  useEffect(() => {
+    setUserAddress(localStorage.getItem(ADDRESS_KEY) ?? '');
+  }, []);
+
   // ==========================
-  // Fetch Data
+  // Fetch Validators Data
   // ==========================
   useValidatorsQuery({
     onCompleted: (data) => {
@@ -120,6 +131,39 @@ export const useValidators = () => {
       }));
     },
   });
+
+  // ==========================
+  // Fetch Relegation Data
+  // ==========================
+  const {
+    data: delegationsData,
+    loading: delegationsLoading,
+    error: delegationsError,
+  } = useAccountDelegationsQuery({
+    variables: {
+      address: userAddress,
+      limit: 20,
+    },
+  });
+
+  useEffect(() => {
+    if (delegationsData && delegationsData.delegations) {
+      const {
+        delegations: { delegations },
+      } = delegationsData;
+      const delegatedValidators = delegations?.map((data) => ({
+        validator: data.validator_address ?? '',
+        votingPower: 0,
+        votingPowerPercent: 0,
+        commission: 0,
+        condition: 0,
+        status: 0,
+        jailed: false,
+        tombstoned: false,
+      }));
+      setDelegationValidators(delegatedValidators || []);
+    }
+  }, [delegationsData, delegationsLoading, delegationsError]);
 
   const handleTabChange = useCallback(
     (_event: SyntheticEvent<Element, globalThis.Event>, newValue: number) => {
@@ -202,6 +246,7 @@ export const useValidators = () => {
 
   return {
     state,
+    delegationValidators,
     handleTabChange,
     handleSort,
     handleSearch,

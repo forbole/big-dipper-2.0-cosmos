@@ -12,6 +12,7 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import * as React from 'react';
 import { FC } from 'react';
+import AvatarNameFilterInput from '@/screens/validators/components/list/components/staking/avatar_name_filter';
 import useStakingHooks from '../hooks';
 
 type RedelegateDialogProps = {
@@ -21,6 +22,7 @@ type RedelegateDialogProps = {
   validatorName: string;
   imageUrl: string;
   validatorCommission: string;
+  delegations?: AvatarName[];
 };
 
 const RedelegateDialog: FC<RedelegateDialogProps> = ({
@@ -30,6 +32,7 @@ const RedelegateDialog: FC<RedelegateDialogProps> = ({
   validatorName,
   imageUrl,
   validatorCommission,
+  delegations,
 }) => {
   const { classes } = useStyles();
   const { t } = useAppTranslation();
@@ -55,22 +58,26 @@ const RedelegateDialog: FC<RedelegateDialogProps> = ({
           </div>
 
           <Typography className={classes.subtitle}>{t('validators:redelegateFrom')}</Typography>
-          {/* if validatorAddress === null ? <ValidatorFilterInput validators={validators}/> :  */}
-          <div className={classes.validatorCard}>
-            <AvatarName
-              address={validatorAddress}
-              imageUrl={imageUrl}
-              name={validatorName}
-              className={classes.validatorAvatar}
-            />
-            <Typography className={classes.commissionLabel}>
-              {t('validators:commission')}
-              <Typography className={classes.commissionValue}>{validatorCommission} </Typography>
-            </Typography>
-            <IconButton aria-label="close" onClick={onClose} className={classes.closeButton}>
-              <CloseIcon />
-            </IconButton>
-          </div>
+          {delegations ? (
+            // add more props:
+            <AvatarNameFilterInput options={delegations} />
+          ) : (
+            <div className={classes.validatorCard}>
+              <AvatarName
+                address={validatorAddress}
+                imageUrl={imageUrl}
+                name={validatorName}
+                className={classes.validatorAvatar}
+              />
+              <Typography className={classes.commissionLabel}>
+                {t('validators:commission')}
+                <Typography className={classes.commissionValue}>{validatorCommission} </Typography>
+              </Typography>
+              <IconButton aria-label="close" onClick={onClose} className={classes.closeButton}>
+                <CloseIcon />
+              </IconButton>
+            </div>
+          )}
         </DialogTitle>
         <DialogContent>
           <div className={classes.ddd}>
