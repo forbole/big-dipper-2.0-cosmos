@@ -170,6 +170,10 @@ export type Account = {
   __typename?: 'account';
   address: Scalars['String'];
   /** An array relationship */
+  feeGrantAllowancesByGranterAddress: Array<Fee_Grant_Allowance>;
+  /** An array relationship */
+  fee_grant_allowances: Array<Fee_Grant_Allowance>;
+  /** An array relationship */
   proposal_deposits: Array<Proposal_Deposit>;
   /** An array relationship */
   proposal_votes: Array<Proposal_Vote>;
@@ -183,6 +187,26 @@ export type Account = {
   vesting_account?: Maybe<Vesting_Account>;
   /** An array relationship */
   vesting_accounts: Array<Vesting_Account>;
+};
+
+
+/** columns and relationships of "account" */
+export type AccountFeeGrantAllowancesByGranterAddressArgs = {
+  distinct_on?: InputMaybe<Array<Fee_Grant_Allowance_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Fee_Grant_Allowance_Order_By>>;
+  where?: InputMaybe<Fee_Grant_Allowance_Bool_Exp>;
+};
+
+
+/** columns and relationships of "account" */
+export type AccountFee_Grant_AllowancesArgs = {
+  distinct_on?: InputMaybe<Array<Fee_Grant_Allowance_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Fee_Grant_Allowance_Order_By>>;
+  where?: InputMaybe<Fee_Grant_Allowance_Bool_Exp>;
 };
 
 
@@ -251,6 +275,8 @@ export type Account_Bool_Exp = {
   _not?: InputMaybe<Account_Bool_Exp>;
   _or?: InputMaybe<Array<Account_Bool_Exp>>;
   address?: InputMaybe<String_Comparison_Exp>;
+  feeGrantAllowancesByGranterAddress?: InputMaybe<Fee_Grant_Allowance_Bool_Exp>;
+  fee_grant_allowances?: InputMaybe<Fee_Grant_Allowance_Bool_Exp>;
   proposal_deposits?: InputMaybe<Proposal_Deposit_Bool_Exp>;
   proposal_votes?: InputMaybe<Proposal_Vote_Bool_Exp>;
   proposals?: InputMaybe<Proposal_Bool_Exp>;
@@ -262,6 +288,8 @@ export type Account_Bool_Exp = {
 /** Ordering options when selecting data from "account". */
 export type Account_Order_By = {
   address?: InputMaybe<Order_By>;
+  feeGrantAllowancesByGranterAddress_aggregate?: InputMaybe<Fee_Grant_Allowance_Aggregate_Order_By>;
+  fee_grant_allowances_aggregate?: InputMaybe<Fee_Grant_Allowance_Aggregate_Order_By>;
   proposal_deposits_aggregate?: InputMaybe<Proposal_Deposit_Aggregate_Order_By>;
   proposal_votes_aggregate?: InputMaybe<Proposal_Vote_Aggregate_Order_By>;
   proposals_aggregate?: InputMaybe<Proposal_Aggregate_Order_By>;
@@ -647,6 +675,42 @@ export type Block_Variance_Order_By = {
   num_txs?: InputMaybe<Order_By>;
   total_gas?: InputMaybe<Order_By>;
 };
+
+/** columns and relationships of "bundles_params" */
+export type Bundles_Params = {
+  __typename?: 'bundles_params';
+  height: Scalars['bigint'];
+  params: Scalars['jsonb'];
+};
+
+
+/** columns and relationships of "bundles_params" */
+export type Bundles_ParamsParamsArgs = {
+  path?: InputMaybe<Scalars['String']>;
+};
+
+/** Boolean expression to filter rows from the table "bundles_params". All fields are combined with a logical 'AND'. */
+export type Bundles_Params_Bool_Exp = {
+  _and?: InputMaybe<Array<Bundles_Params_Bool_Exp>>;
+  _not?: InputMaybe<Bundles_Params_Bool_Exp>;
+  _or?: InputMaybe<Array<Bundles_Params_Bool_Exp>>;
+  height?: InputMaybe<Bigint_Comparison_Exp>;
+  params?: InputMaybe<Jsonb_Comparison_Exp>;
+};
+
+/** Ordering options when selecting data from "bundles_params". */
+export type Bundles_Params_Order_By = {
+  height?: InputMaybe<Order_By>;
+  params?: InputMaybe<Order_By>;
+};
+
+/** select columns of table "bundles_params" */
+export enum Bundles_Params_Select_Column {
+  /** column name */
+  Height = 'height',
+  /** column name */
+  Params = 'params'
+}
 
 /** columns and relationships of "community_pool" */
 export type Community_Pool = {
@@ -1049,6 +1113,26 @@ export type Fee_Grant_AllowanceAllowanceArgs = {
   path?: InputMaybe<Scalars['String']>;
 };
 
+/** order by aggregate values of table "fee_grant_allowance" */
+export type Fee_Grant_Allowance_Aggregate_Order_By = {
+  avg?: InputMaybe<Fee_Grant_Allowance_Avg_Order_By>;
+  count?: InputMaybe<Order_By>;
+  max?: InputMaybe<Fee_Grant_Allowance_Max_Order_By>;
+  min?: InputMaybe<Fee_Grant_Allowance_Min_Order_By>;
+  stddev?: InputMaybe<Fee_Grant_Allowance_Stddev_Order_By>;
+  stddev_pop?: InputMaybe<Fee_Grant_Allowance_Stddev_Pop_Order_By>;
+  stddev_samp?: InputMaybe<Fee_Grant_Allowance_Stddev_Samp_Order_By>;
+  sum?: InputMaybe<Fee_Grant_Allowance_Sum_Order_By>;
+  var_pop?: InputMaybe<Fee_Grant_Allowance_Var_Pop_Order_By>;
+  var_samp?: InputMaybe<Fee_Grant_Allowance_Var_Samp_Order_By>;
+  variance?: InputMaybe<Fee_Grant_Allowance_Variance_Order_By>;
+};
+
+/** order by avg() on columns of table "fee_grant_allowance" */
+export type Fee_Grant_Allowance_Avg_Order_By = {
+  height?: InputMaybe<Order_By>;
+};
+
 /** Boolean expression to filter rows from the table "fee_grant_allowance". All fields are combined with a logical 'AND'. */
 export type Fee_Grant_Allowance_Bool_Exp = {
   _and?: InputMaybe<Array<Fee_Grant_Allowance_Bool_Exp>>;
@@ -1060,6 +1144,20 @@ export type Fee_Grant_Allowance_Bool_Exp = {
   granter?: InputMaybe<Account_Bool_Exp>;
   granter_address?: InputMaybe<String_Comparison_Exp>;
   height?: InputMaybe<Bigint_Comparison_Exp>;
+};
+
+/** order by max() on columns of table "fee_grant_allowance" */
+export type Fee_Grant_Allowance_Max_Order_By = {
+  grantee_address?: InputMaybe<Order_By>;
+  granter_address?: InputMaybe<Order_By>;
+  height?: InputMaybe<Order_By>;
+};
+
+/** order by min() on columns of table "fee_grant_allowance" */
+export type Fee_Grant_Allowance_Min_Order_By = {
+  grantee_address?: InputMaybe<Order_By>;
+  granter_address?: InputMaybe<Order_By>;
+  height?: InputMaybe<Order_By>;
 };
 
 /** Ordering options when selecting data from "fee_grant_allowance". */
@@ -1083,6 +1181,41 @@ export enum Fee_Grant_Allowance_Select_Column {
   /** column name */
   Height = 'height'
 }
+
+/** order by stddev() on columns of table "fee_grant_allowance" */
+export type Fee_Grant_Allowance_Stddev_Order_By = {
+  height?: InputMaybe<Order_By>;
+};
+
+/** order by stddev_pop() on columns of table "fee_grant_allowance" */
+export type Fee_Grant_Allowance_Stddev_Pop_Order_By = {
+  height?: InputMaybe<Order_By>;
+};
+
+/** order by stddev_samp() on columns of table "fee_grant_allowance" */
+export type Fee_Grant_Allowance_Stddev_Samp_Order_By = {
+  height?: InputMaybe<Order_By>;
+};
+
+/** order by sum() on columns of table "fee_grant_allowance" */
+export type Fee_Grant_Allowance_Sum_Order_By = {
+  height?: InputMaybe<Order_By>;
+};
+
+/** order by var_pop() on columns of table "fee_grant_allowance" */
+export type Fee_Grant_Allowance_Var_Pop_Order_By = {
+  height?: InputMaybe<Order_By>;
+};
+
+/** order by var_samp() on columns of table "fee_grant_allowance" */
+export type Fee_Grant_Allowance_Var_Samp_Order_By = {
+  height?: InputMaybe<Order_By>;
+};
+
+/** order by variance() on columns of table "fee_grant_allowance" */
+export type Fee_Grant_Allowance_Variance_Order_By = {
+  height?: InputMaybe<Order_By>;
+};
 
 /** columns and relationships of "genesis" */
 export type Genesis = {
@@ -1117,6 +1250,42 @@ export enum Genesis_Select_Column {
   InitialHeight = 'initial_height',
   /** column name */
   Time = 'time'
+}
+
+/** columns and relationships of "global_params" */
+export type Global_Params = {
+  __typename?: 'global_params';
+  height: Scalars['bigint'];
+  params: Scalars['jsonb'];
+};
+
+
+/** columns and relationships of "global_params" */
+export type Global_ParamsParamsArgs = {
+  path?: InputMaybe<Scalars['String']>;
+};
+
+/** Boolean expression to filter rows from the table "global_params". All fields are combined with a logical 'AND'. */
+export type Global_Params_Bool_Exp = {
+  _and?: InputMaybe<Array<Global_Params_Bool_Exp>>;
+  _not?: InputMaybe<Global_Params_Bool_Exp>;
+  _or?: InputMaybe<Array<Global_Params_Bool_Exp>>;
+  height?: InputMaybe<Bigint_Comparison_Exp>;
+  params?: InputMaybe<Jsonb_Comparison_Exp>;
+};
+
+/** Ordering options when selecting data from "global_params". */
+export type Global_Params_Order_By = {
+  height?: InputMaybe<Order_By>;
+  params?: InputMaybe<Order_By>;
+};
+
+/** select columns of table "global_params" */
+export enum Global_Params_Select_Column {
+  /** column name */
+  Height = 'height',
+  /** column name */
+  Params = 'params'
 }
 
 /** columns and relationships of "gov_params" */
@@ -1238,6 +1407,8 @@ export type Message = {
   involved_accounts_addresses: Scalars['_text'];
   /** An object relationship */
   transaction?: Maybe<Transaction>;
+  /** An object relationship */
+  transactionByPartitionIdTransactionHash?: Maybe<Transaction>;
   transaction_hash: Scalars['String'];
   type: Scalars['String'];
   value: Scalars['jsonb'];
@@ -1249,6 +1420,27 @@ export type MessageValueArgs = {
   path?: InputMaybe<Scalars['String']>;
 };
 
+/** order by aggregate values of table "message" */
+export type Message_Aggregate_Order_By = {
+  avg?: InputMaybe<Message_Avg_Order_By>;
+  count?: InputMaybe<Order_By>;
+  max?: InputMaybe<Message_Max_Order_By>;
+  min?: InputMaybe<Message_Min_Order_By>;
+  stddev?: InputMaybe<Message_Stddev_Order_By>;
+  stddev_pop?: InputMaybe<Message_Stddev_Pop_Order_By>;
+  stddev_samp?: InputMaybe<Message_Stddev_Samp_Order_By>;
+  sum?: InputMaybe<Message_Sum_Order_By>;
+  var_pop?: InputMaybe<Message_Var_Pop_Order_By>;
+  var_samp?: InputMaybe<Message_Var_Samp_Order_By>;
+  variance?: InputMaybe<Message_Variance_Order_By>;
+};
+
+/** order by avg() on columns of table "message" */
+export type Message_Avg_Order_By = {
+  height?: InputMaybe<Order_By>;
+  index?: InputMaybe<Order_By>;
+};
+
 /** Boolean expression to filter rows from the table "message". All fields are combined with a logical 'AND'. */
 export type Message_Bool_Exp = {
   _and?: InputMaybe<Array<Message_Bool_Exp>>;
@@ -1258,9 +1450,26 @@ export type Message_Bool_Exp = {
   index?: InputMaybe<Bigint_Comparison_Exp>;
   involved_accounts_addresses?: InputMaybe<_Text_Comparison_Exp>;
   transaction?: InputMaybe<Transaction_Bool_Exp>;
+  transactionByPartitionIdTransactionHash?: InputMaybe<Transaction_Bool_Exp>;
   transaction_hash?: InputMaybe<String_Comparison_Exp>;
   type?: InputMaybe<String_Comparison_Exp>;
   value?: InputMaybe<Jsonb_Comparison_Exp>;
+};
+
+/** order by max() on columns of table "message" */
+export type Message_Max_Order_By = {
+  height?: InputMaybe<Order_By>;
+  index?: InputMaybe<Order_By>;
+  transaction_hash?: InputMaybe<Order_By>;
+  type?: InputMaybe<Order_By>;
+};
+
+/** order by min() on columns of table "message" */
+export type Message_Min_Order_By = {
+  height?: InputMaybe<Order_By>;
+  index?: InputMaybe<Order_By>;
+  transaction_hash?: InputMaybe<Order_By>;
+  type?: InputMaybe<Order_By>;
 };
 
 /** Ordering options when selecting data from "message". */
@@ -1269,6 +1478,7 @@ export type Message_Order_By = {
   index?: InputMaybe<Order_By>;
   involved_accounts_addresses?: InputMaybe<Order_By>;
   transaction?: InputMaybe<Transaction_Order_By>;
+  transactionByPartitionIdTransactionHash?: InputMaybe<Transaction_Order_By>;
   transaction_hash?: InputMaybe<Order_By>;
   type?: InputMaybe<Order_By>;
   value?: InputMaybe<Order_By>;
@@ -1289,6 +1499,48 @@ export enum Message_Select_Column {
   /** column name */
   Value = 'value'
 }
+
+/** order by stddev() on columns of table "message" */
+export type Message_Stddev_Order_By = {
+  height?: InputMaybe<Order_By>;
+  index?: InputMaybe<Order_By>;
+};
+
+/** order by stddev_pop() on columns of table "message" */
+export type Message_Stddev_Pop_Order_By = {
+  height?: InputMaybe<Order_By>;
+  index?: InputMaybe<Order_By>;
+};
+
+/** order by stddev_samp() on columns of table "message" */
+export type Message_Stddev_Samp_Order_By = {
+  height?: InputMaybe<Order_By>;
+  index?: InputMaybe<Order_By>;
+};
+
+/** order by sum() on columns of table "message" */
+export type Message_Sum_Order_By = {
+  height?: InputMaybe<Order_By>;
+  index?: InputMaybe<Order_By>;
+};
+
+/** order by var_pop() on columns of table "message" */
+export type Message_Var_Pop_Order_By = {
+  height?: InputMaybe<Order_By>;
+  index?: InputMaybe<Order_By>;
+};
+
+/** order by var_samp() on columns of table "message" */
+export type Message_Var_Samp_Order_By = {
+  height?: InputMaybe<Order_By>;
+  index?: InputMaybe<Order_By>;
+};
+
+/** order by variance() on columns of table "message" */
+export type Message_Variance_Order_By = {
+  height?: InputMaybe<Order_By>;
+  index?: InputMaybe<Order_By>;
+};
 
 export type Messages_By_Address_Args = {
   addresses?: InputMaybe<Scalars['_text']>;
@@ -1385,6 +1637,168 @@ export enum Order_By {
   DescNullsFirst = 'desc_nulls_first',
   /** in descending order, nulls last */
   DescNullsLast = 'desc_nulls_last'
+}
+
+/** columns and relationships of "pool" */
+export type Pool = {
+  __typename?: 'pool';
+  config: Scalars['String'];
+  current_compression_id: Scalars['String'];
+  current_index: Scalars['String'];
+  current_key: Scalars['String'];
+  current_storage_provider_id: Scalars['String'];
+  current_summary: Scalars['String'];
+  disabled: Scalars['Boolean'];
+  funders: Scalars['jsonb'];
+  height: Scalars['bigint'];
+  id: Scalars['Int'];
+  logo: Scalars['String'];
+  max_bundle_size: Scalars['String'];
+  min_delegation: Scalars['String'];
+  name: Scalars['String'];
+  operating_cost: Scalars['String'];
+  protocol: Scalars['jsonb'];
+  /** An array relationship */
+  protocol_validator_pools: Array<Protocol_Validator_Pool>;
+  runtime: Scalars['String'];
+  start_key: Scalars['String'];
+  total_bundles: Scalars['String'];
+  total_funds: Scalars['String'];
+  upgrade_plan: Scalars['jsonb'];
+  upload_interval: Scalars['String'];
+};
+
+
+/** columns and relationships of "pool" */
+export type PoolFundersArgs = {
+  path?: InputMaybe<Scalars['String']>;
+};
+
+
+/** columns and relationships of "pool" */
+export type PoolProtocolArgs = {
+  path?: InputMaybe<Scalars['String']>;
+};
+
+
+/** columns and relationships of "pool" */
+export type PoolProtocol_Validator_PoolsArgs = {
+  distinct_on?: InputMaybe<Array<Protocol_Validator_Pool_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Protocol_Validator_Pool_Order_By>>;
+  where?: InputMaybe<Protocol_Validator_Pool_Bool_Exp>;
+};
+
+
+/** columns and relationships of "pool" */
+export type PoolUpgrade_PlanArgs = {
+  path?: InputMaybe<Scalars['String']>;
+};
+
+/** Boolean expression to filter rows from the table "pool". All fields are combined with a logical 'AND'. */
+export type Pool_Bool_Exp = {
+  _and?: InputMaybe<Array<Pool_Bool_Exp>>;
+  _not?: InputMaybe<Pool_Bool_Exp>;
+  _or?: InputMaybe<Array<Pool_Bool_Exp>>;
+  config?: InputMaybe<String_Comparison_Exp>;
+  current_compression_id?: InputMaybe<String_Comparison_Exp>;
+  current_index?: InputMaybe<String_Comparison_Exp>;
+  current_key?: InputMaybe<String_Comparison_Exp>;
+  current_storage_provider_id?: InputMaybe<String_Comparison_Exp>;
+  current_summary?: InputMaybe<String_Comparison_Exp>;
+  disabled?: InputMaybe<Boolean_Comparison_Exp>;
+  funders?: InputMaybe<Jsonb_Comparison_Exp>;
+  height?: InputMaybe<Bigint_Comparison_Exp>;
+  id?: InputMaybe<Int_Comparison_Exp>;
+  logo?: InputMaybe<String_Comparison_Exp>;
+  max_bundle_size?: InputMaybe<String_Comparison_Exp>;
+  min_delegation?: InputMaybe<String_Comparison_Exp>;
+  name?: InputMaybe<String_Comparison_Exp>;
+  operating_cost?: InputMaybe<String_Comparison_Exp>;
+  protocol?: InputMaybe<Jsonb_Comparison_Exp>;
+  protocol_validator_pools?: InputMaybe<Protocol_Validator_Pool_Bool_Exp>;
+  runtime?: InputMaybe<String_Comparison_Exp>;
+  start_key?: InputMaybe<String_Comparison_Exp>;
+  total_bundles?: InputMaybe<String_Comparison_Exp>;
+  total_funds?: InputMaybe<String_Comparison_Exp>;
+  upgrade_plan?: InputMaybe<Jsonb_Comparison_Exp>;
+  upload_interval?: InputMaybe<String_Comparison_Exp>;
+};
+
+/** Ordering options when selecting data from "pool". */
+export type Pool_Order_By = {
+  config?: InputMaybe<Order_By>;
+  current_compression_id?: InputMaybe<Order_By>;
+  current_index?: InputMaybe<Order_By>;
+  current_key?: InputMaybe<Order_By>;
+  current_storage_provider_id?: InputMaybe<Order_By>;
+  current_summary?: InputMaybe<Order_By>;
+  disabled?: InputMaybe<Order_By>;
+  funders?: InputMaybe<Order_By>;
+  height?: InputMaybe<Order_By>;
+  id?: InputMaybe<Order_By>;
+  logo?: InputMaybe<Order_By>;
+  max_bundle_size?: InputMaybe<Order_By>;
+  min_delegation?: InputMaybe<Order_By>;
+  name?: InputMaybe<Order_By>;
+  operating_cost?: InputMaybe<Order_By>;
+  protocol?: InputMaybe<Order_By>;
+  protocol_validator_pools_aggregate?: InputMaybe<Protocol_Validator_Pool_Aggregate_Order_By>;
+  runtime?: InputMaybe<Order_By>;
+  start_key?: InputMaybe<Order_By>;
+  total_bundles?: InputMaybe<Order_By>;
+  total_funds?: InputMaybe<Order_By>;
+  upgrade_plan?: InputMaybe<Order_By>;
+  upload_interval?: InputMaybe<Order_By>;
+};
+
+/** select columns of table "pool" */
+export enum Pool_Select_Column {
+  /** column name */
+  Config = 'config',
+  /** column name */
+  CurrentCompressionId = 'current_compression_id',
+  /** column name */
+  CurrentIndex = 'current_index',
+  /** column name */
+  CurrentKey = 'current_key',
+  /** column name */
+  CurrentStorageProviderId = 'current_storage_provider_id',
+  /** column name */
+  CurrentSummary = 'current_summary',
+  /** column name */
+  Disabled = 'disabled',
+  /** column name */
+  Funders = 'funders',
+  /** column name */
+  Height = 'height',
+  /** column name */
+  Id = 'id',
+  /** column name */
+  Logo = 'logo',
+  /** column name */
+  MaxBundleSize = 'max_bundle_size',
+  /** column name */
+  MinDelegation = 'min_delegation',
+  /** column name */
+  Name = 'name',
+  /** column name */
+  OperatingCost = 'operating_cost',
+  /** column name */
+  Protocol = 'protocol',
+  /** column name */
+  Runtime = 'runtime',
+  /** column name */
+  StartKey = 'start_key',
+  /** column name */
+  TotalBundles = 'total_bundles',
+  /** column name */
+  TotalFunds = 'total_funds',
+  /** column name */
+  UpgradePlan = 'upgrade_plan',
+  /** column name */
+  UploadInterval = 'upload_interval'
 }
 
 /** columns and relationships of "pre_commit" */
@@ -2598,6 +3012,383 @@ export type Proposal_Vote_Variance_Order_By = {
   proposal_id?: InputMaybe<Order_By>;
 };
 
+/** columns and relationships of "protocol_validator" */
+export type Protocol_Validator = {
+  __typename?: 'protocol_validator';
+  /** An object relationship */
+  account?: Maybe<Account>;
+  address: Scalars['String'];
+  height: Scalars['bigint'];
+  /** An object relationship */
+  protocol_validator_commission?: Maybe<Protocol_Validator_Commission>;
+  /** An object relationship */
+  protocol_validator_delegation?: Maybe<Protocol_Validator_Delegation>;
+  /** An object relationship */
+  protocol_validator_description?: Maybe<Protocol_Validator_Description>;
+  /** An array relationship */
+  protocol_validator_pool: Array<Protocol_Validator_Pool>;
+};
+
+
+/** columns and relationships of "protocol_validator" */
+export type Protocol_ValidatorProtocol_Validator_PoolArgs = {
+  distinct_on?: InputMaybe<Array<Protocol_Validator_Pool_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Protocol_Validator_Pool_Order_By>>;
+  where?: InputMaybe<Protocol_Validator_Pool_Bool_Exp>;
+};
+
+/** Boolean expression to filter rows from the table "protocol_validator". All fields are combined with a logical 'AND'. */
+export type Protocol_Validator_Bool_Exp = {
+  _and?: InputMaybe<Array<Protocol_Validator_Bool_Exp>>;
+  _not?: InputMaybe<Protocol_Validator_Bool_Exp>;
+  _or?: InputMaybe<Array<Protocol_Validator_Bool_Exp>>;
+  account?: InputMaybe<Account_Bool_Exp>;
+  address?: InputMaybe<String_Comparison_Exp>;
+  height?: InputMaybe<Bigint_Comparison_Exp>;
+  protocol_validator_commission?: InputMaybe<Protocol_Validator_Commission_Bool_Exp>;
+  protocol_validator_delegation?: InputMaybe<Protocol_Validator_Delegation_Bool_Exp>;
+  protocol_validator_description?: InputMaybe<Protocol_Validator_Description_Bool_Exp>;
+  protocol_validator_pool?: InputMaybe<Protocol_Validator_Pool_Bool_Exp>;
+};
+
+/** columns and relationships of "protocol_validator_commission" */
+export type Protocol_Validator_Commission = {
+  __typename?: 'protocol_validator_commission';
+  address: Scalars['String'];
+  commission: Scalars['String'];
+  height: Scalars['bigint'];
+  pending_commission_change: Scalars['jsonb'];
+  /** An object relationship */
+  protocol_validator?: Maybe<Protocol_Validator>;
+  self_delegation: Scalars['bigint'];
+};
+
+
+/** columns and relationships of "protocol_validator_commission" */
+export type Protocol_Validator_CommissionPending_Commission_ChangeArgs = {
+  path?: InputMaybe<Scalars['String']>;
+};
+
+/** Boolean expression to filter rows from the table "protocol_validator_commission". All fields are combined with a logical 'AND'. */
+export type Protocol_Validator_Commission_Bool_Exp = {
+  _and?: InputMaybe<Array<Protocol_Validator_Commission_Bool_Exp>>;
+  _not?: InputMaybe<Protocol_Validator_Commission_Bool_Exp>;
+  _or?: InputMaybe<Array<Protocol_Validator_Commission_Bool_Exp>>;
+  address?: InputMaybe<String_Comparison_Exp>;
+  commission?: InputMaybe<String_Comparison_Exp>;
+  height?: InputMaybe<Bigint_Comparison_Exp>;
+  pending_commission_change?: InputMaybe<Jsonb_Comparison_Exp>;
+  protocol_validator?: InputMaybe<Protocol_Validator_Bool_Exp>;
+  self_delegation?: InputMaybe<Bigint_Comparison_Exp>;
+};
+
+/** Ordering options when selecting data from "protocol_validator_commission". */
+export type Protocol_Validator_Commission_Order_By = {
+  address?: InputMaybe<Order_By>;
+  commission?: InputMaybe<Order_By>;
+  height?: InputMaybe<Order_By>;
+  pending_commission_change?: InputMaybe<Order_By>;
+  protocol_validator?: InputMaybe<Protocol_Validator_Order_By>;
+  self_delegation?: InputMaybe<Order_By>;
+};
+
+/** select columns of table "protocol_validator_commission" */
+export enum Protocol_Validator_Commission_Select_Column {
+  /** column name */
+  Address = 'address',
+  /** column name */
+  Commission = 'commission',
+  /** column name */
+  Height = 'height',
+  /** column name */
+  PendingCommissionChange = 'pending_commission_change',
+  /** column name */
+  SelfDelegation = 'self_delegation'
+}
+
+/** columns and relationships of "protocol_validator_delegation" */
+export type Protocol_Validator_Delegation = {
+  __typename?: 'protocol_validator_delegation';
+  address: Scalars['String'];
+  delegator_count: Scalars['bigint'];
+  height: Scalars['bigint'];
+  /** An object relationship */
+  protocol_validator?: Maybe<Protocol_Validator>;
+  self_delegation: Scalars['bigint'];
+  total_delegation: Scalars['bigint'];
+};
+
+/** Boolean expression to filter rows from the table "protocol_validator_delegation". All fields are combined with a logical 'AND'. */
+export type Protocol_Validator_Delegation_Bool_Exp = {
+  _and?: InputMaybe<Array<Protocol_Validator_Delegation_Bool_Exp>>;
+  _not?: InputMaybe<Protocol_Validator_Delegation_Bool_Exp>;
+  _or?: InputMaybe<Array<Protocol_Validator_Delegation_Bool_Exp>>;
+  address?: InputMaybe<String_Comparison_Exp>;
+  delegator_count?: InputMaybe<Bigint_Comparison_Exp>;
+  height?: InputMaybe<Bigint_Comparison_Exp>;
+  protocol_validator?: InputMaybe<Protocol_Validator_Bool_Exp>;
+  self_delegation?: InputMaybe<Bigint_Comparison_Exp>;
+  total_delegation?: InputMaybe<Bigint_Comparison_Exp>;
+};
+
+/** Ordering options when selecting data from "protocol_validator_delegation". */
+export type Protocol_Validator_Delegation_Order_By = {
+  address?: InputMaybe<Order_By>;
+  delegator_count?: InputMaybe<Order_By>;
+  height?: InputMaybe<Order_By>;
+  protocol_validator?: InputMaybe<Protocol_Validator_Order_By>;
+  self_delegation?: InputMaybe<Order_By>;
+  total_delegation?: InputMaybe<Order_By>;
+};
+
+/** select columns of table "protocol_validator_delegation" */
+export enum Protocol_Validator_Delegation_Select_Column {
+  /** column name */
+  Address = 'address',
+  /** column name */
+  DelegatorCount = 'delegator_count',
+  /** column name */
+  Height = 'height',
+  /** column name */
+  SelfDelegation = 'self_delegation',
+  /** column name */
+  TotalDelegation = 'total_delegation'
+}
+
+/** columns and relationships of "protocol_validator_description" */
+export type Protocol_Validator_Description = {
+  __typename?: 'protocol_validator_description';
+  address: Scalars['String'];
+  avatar_url?: Maybe<Scalars['String']>;
+  details?: Maybe<Scalars['String']>;
+  height: Scalars['bigint'];
+  identity?: Maybe<Scalars['String']>;
+  moniker?: Maybe<Scalars['String']>;
+  /** An object relationship */
+  protocol_validator?: Maybe<Protocol_Validator>;
+  security_contact?: Maybe<Scalars['String']>;
+  website?: Maybe<Scalars['String']>;
+};
+
+/** Boolean expression to filter rows from the table "protocol_validator_description". All fields are combined with a logical 'AND'. */
+export type Protocol_Validator_Description_Bool_Exp = {
+  _and?: InputMaybe<Array<Protocol_Validator_Description_Bool_Exp>>;
+  _not?: InputMaybe<Protocol_Validator_Description_Bool_Exp>;
+  _or?: InputMaybe<Array<Protocol_Validator_Description_Bool_Exp>>;
+  address?: InputMaybe<String_Comparison_Exp>;
+  avatar_url?: InputMaybe<String_Comparison_Exp>;
+  details?: InputMaybe<String_Comparison_Exp>;
+  height?: InputMaybe<Bigint_Comparison_Exp>;
+  identity?: InputMaybe<String_Comparison_Exp>;
+  moniker?: InputMaybe<String_Comparison_Exp>;
+  protocol_validator?: InputMaybe<Protocol_Validator_Bool_Exp>;
+  security_contact?: InputMaybe<String_Comparison_Exp>;
+  website?: InputMaybe<String_Comparison_Exp>;
+};
+
+/** Ordering options when selecting data from "protocol_validator_description". */
+export type Protocol_Validator_Description_Order_By = {
+  address?: InputMaybe<Order_By>;
+  avatar_url?: InputMaybe<Order_By>;
+  details?: InputMaybe<Order_By>;
+  height?: InputMaybe<Order_By>;
+  identity?: InputMaybe<Order_By>;
+  moniker?: InputMaybe<Order_By>;
+  protocol_validator?: InputMaybe<Protocol_Validator_Order_By>;
+  security_contact?: InputMaybe<Order_By>;
+  website?: InputMaybe<Order_By>;
+};
+
+/** select columns of table "protocol_validator_description" */
+export enum Protocol_Validator_Description_Select_Column {
+  /** column name */
+  Address = 'address',
+  /** column name */
+  AvatarUrl = 'avatar_url',
+  /** column name */
+  Details = 'details',
+  /** column name */
+  Height = 'height',
+  /** column name */
+  Identity = 'identity',
+  /** column name */
+  Moniker = 'moniker',
+  /** column name */
+  SecurityContact = 'security_contact',
+  /** column name */
+  Website = 'website'
+}
+
+/** Ordering options when selecting data from "protocol_validator". */
+export type Protocol_Validator_Order_By = {
+  account?: InputMaybe<Account_Order_By>;
+  address?: InputMaybe<Order_By>;
+  height?: InputMaybe<Order_By>;
+  protocol_validator_commission?: InputMaybe<Protocol_Validator_Commission_Order_By>;
+  protocol_validator_delegation?: InputMaybe<Protocol_Validator_Delegation_Order_By>;
+  protocol_validator_description?: InputMaybe<Protocol_Validator_Description_Order_By>;
+  protocol_validator_pool_aggregate?: InputMaybe<Protocol_Validator_Pool_Aggregate_Order_By>;
+};
+
+/** columns and relationships of "protocol_validator_pool" */
+export type Protocol_Validator_Pool = {
+  __typename?: 'protocol_validator_pool';
+  address: Scalars['String'];
+  balance: Scalars['bigint'];
+  height: Scalars['bigint'];
+  id: Scalars['Int'];
+  pool: Scalars['String'];
+  /** An object relationship */
+  protocol_validator?: Maybe<Protocol_Validator>;
+  /** An object relationship */
+  stakers_pool: Pool;
+  validator_address: Scalars['String'];
+};
+
+/** order by aggregate values of table "protocol_validator_pool" */
+export type Protocol_Validator_Pool_Aggregate_Order_By = {
+  avg?: InputMaybe<Protocol_Validator_Pool_Avg_Order_By>;
+  count?: InputMaybe<Order_By>;
+  max?: InputMaybe<Protocol_Validator_Pool_Max_Order_By>;
+  min?: InputMaybe<Protocol_Validator_Pool_Min_Order_By>;
+  stddev?: InputMaybe<Protocol_Validator_Pool_Stddev_Order_By>;
+  stddev_pop?: InputMaybe<Protocol_Validator_Pool_Stddev_Pop_Order_By>;
+  stddev_samp?: InputMaybe<Protocol_Validator_Pool_Stddev_Samp_Order_By>;
+  sum?: InputMaybe<Protocol_Validator_Pool_Sum_Order_By>;
+  var_pop?: InputMaybe<Protocol_Validator_Pool_Var_Pop_Order_By>;
+  var_samp?: InputMaybe<Protocol_Validator_Pool_Var_Samp_Order_By>;
+  variance?: InputMaybe<Protocol_Validator_Pool_Variance_Order_By>;
+};
+
+/** order by avg() on columns of table "protocol_validator_pool" */
+export type Protocol_Validator_Pool_Avg_Order_By = {
+  balance?: InputMaybe<Order_By>;
+  height?: InputMaybe<Order_By>;
+  id?: InputMaybe<Order_By>;
+};
+
+/** Boolean expression to filter rows from the table "protocol_validator_pool". All fields are combined with a logical 'AND'. */
+export type Protocol_Validator_Pool_Bool_Exp = {
+  _and?: InputMaybe<Array<Protocol_Validator_Pool_Bool_Exp>>;
+  _not?: InputMaybe<Protocol_Validator_Pool_Bool_Exp>;
+  _or?: InputMaybe<Array<Protocol_Validator_Pool_Bool_Exp>>;
+  address?: InputMaybe<String_Comparison_Exp>;
+  balance?: InputMaybe<Bigint_Comparison_Exp>;
+  height?: InputMaybe<Bigint_Comparison_Exp>;
+  id?: InputMaybe<Int_Comparison_Exp>;
+  pool?: InputMaybe<String_Comparison_Exp>;
+  protocol_validator?: InputMaybe<Protocol_Validator_Bool_Exp>;
+  stakers_pool?: InputMaybe<Pool_Bool_Exp>;
+  validator_address?: InputMaybe<String_Comparison_Exp>;
+};
+
+/** order by max() on columns of table "protocol_validator_pool" */
+export type Protocol_Validator_Pool_Max_Order_By = {
+  address?: InputMaybe<Order_By>;
+  balance?: InputMaybe<Order_By>;
+  height?: InputMaybe<Order_By>;
+  id?: InputMaybe<Order_By>;
+  pool?: InputMaybe<Order_By>;
+  validator_address?: InputMaybe<Order_By>;
+};
+
+/** order by min() on columns of table "protocol_validator_pool" */
+export type Protocol_Validator_Pool_Min_Order_By = {
+  address?: InputMaybe<Order_By>;
+  balance?: InputMaybe<Order_By>;
+  height?: InputMaybe<Order_By>;
+  id?: InputMaybe<Order_By>;
+  pool?: InputMaybe<Order_By>;
+  validator_address?: InputMaybe<Order_By>;
+};
+
+/** Ordering options when selecting data from "protocol_validator_pool". */
+export type Protocol_Validator_Pool_Order_By = {
+  address?: InputMaybe<Order_By>;
+  balance?: InputMaybe<Order_By>;
+  height?: InputMaybe<Order_By>;
+  id?: InputMaybe<Order_By>;
+  pool?: InputMaybe<Order_By>;
+  protocol_validator?: InputMaybe<Protocol_Validator_Order_By>;
+  stakers_pool?: InputMaybe<Pool_Order_By>;
+  validator_address?: InputMaybe<Order_By>;
+};
+
+/** select columns of table "protocol_validator_pool" */
+export enum Protocol_Validator_Pool_Select_Column {
+  /** column name */
+  Address = 'address',
+  /** column name */
+  Balance = 'balance',
+  /** column name */
+  Height = 'height',
+  /** column name */
+  Id = 'id',
+  /** column name */
+  Pool = 'pool',
+  /** column name */
+  ValidatorAddress = 'validator_address'
+}
+
+/** order by stddev() on columns of table "protocol_validator_pool" */
+export type Protocol_Validator_Pool_Stddev_Order_By = {
+  balance?: InputMaybe<Order_By>;
+  height?: InputMaybe<Order_By>;
+  id?: InputMaybe<Order_By>;
+};
+
+/** order by stddev_pop() on columns of table "protocol_validator_pool" */
+export type Protocol_Validator_Pool_Stddev_Pop_Order_By = {
+  balance?: InputMaybe<Order_By>;
+  height?: InputMaybe<Order_By>;
+  id?: InputMaybe<Order_By>;
+};
+
+/** order by stddev_samp() on columns of table "protocol_validator_pool" */
+export type Protocol_Validator_Pool_Stddev_Samp_Order_By = {
+  balance?: InputMaybe<Order_By>;
+  height?: InputMaybe<Order_By>;
+  id?: InputMaybe<Order_By>;
+};
+
+/** order by sum() on columns of table "protocol_validator_pool" */
+export type Protocol_Validator_Pool_Sum_Order_By = {
+  balance?: InputMaybe<Order_By>;
+  height?: InputMaybe<Order_By>;
+  id?: InputMaybe<Order_By>;
+};
+
+/** order by var_pop() on columns of table "protocol_validator_pool" */
+export type Protocol_Validator_Pool_Var_Pop_Order_By = {
+  balance?: InputMaybe<Order_By>;
+  height?: InputMaybe<Order_By>;
+  id?: InputMaybe<Order_By>;
+};
+
+/** order by var_samp() on columns of table "protocol_validator_pool" */
+export type Protocol_Validator_Pool_Var_Samp_Order_By = {
+  balance?: InputMaybe<Order_By>;
+  height?: InputMaybe<Order_By>;
+  id?: InputMaybe<Order_By>;
+};
+
+/** order by variance() on columns of table "protocol_validator_pool" */
+export type Protocol_Validator_Pool_Variance_Order_By = {
+  balance?: InputMaybe<Order_By>;
+  height?: InputMaybe<Order_By>;
+  id?: InputMaybe<Order_By>;
+};
+
+/** select columns of table "protocol_validator" */
+export enum Protocol_Validator_Select_Column {
+  /** column name */
+  Address = 'address',
+  /** column name */
+  Height = 'height'
+}
+
 export type Query_Root = {
   __typename?: 'query_root';
   /** fetch data from the table: "account" */
@@ -2628,6 +3419,8 @@ export type Query_Root = {
   block: Array<Block>;
   /** fetch data from the table: "block" using primary key columns */
   block_by_pk?: Maybe<Block>;
+  /** fetch data from the table: "bundles_params" */
+  bundles_params: Array<Bundles_Params>;
   /** fetch data from the table: "community_pool" */
   community_pool: Array<Community_Pool>;
   /** fetch data from the table: "distribution_params" */
@@ -2640,6 +3433,8 @@ export type Query_Root = {
   fee_grant_allowance: Array<Fee_Grant_Allowance>;
   /** fetch data from the table: "genesis" */
   genesis: Array<Genesis>;
+  /** fetch data from the table: "global_params" */
+  global_params: Array<Global_Params>;
   /** fetch data from the table: "gov_params" */
   gov_params: Array<Gov_Params>;
   /** fetch data from the table: "inflation" */
@@ -2654,6 +3449,10 @@ export type Query_Root = {
   modules: Array<Modules>;
   /** fetch data from the table: "modules" using primary key columns */
   modules_by_pk?: Maybe<Modules>;
+  /** fetch data from the table: "pool" */
+  pool: Array<Pool>;
+  /** fetch data from the table: "pool" using primary key columns */
+  pool_by_pk?: Maybe<Pool>;
   /** fetch data from the table: "pre_commit" */
   pre_commit: Array<Pre_Commit>;
   /** fetch aggregated fields from the table: "pre_commit" */
@@ -2678,12 +3477,34 @@ export type Query_Root = {
   proposal_validator_status_snapshot: Array<Proposal_Validator_Status_Snapshot>;
   /** fetch data from the table: "proposal_vote" */
   proposal_vote: Array<Proposal_Vote>;
+  /** fetch data from the table: "protocol_validator" */
+  protocol_validator: Array<Protocol_Validator>;
+  /** fetch data from the table: "protocol_validator" using primary key columns */
+  protocol_validator_by_pk?: Maybe<Protocol_Validator>;
+  /** fetch data from the table: "protocol_validator_commission" */
+  protocol_validator_commission: Array<Protocol_Validator_Commission>;
+  /** fetch data from the table: "protocol_validator_commission" using primary key columns */
+  protocol_validator_commission_by_pk?: Maybe<Protocol_Validator_Commission>;
+  /** fetch data from the table: "protocol_validator_delegation" */
+  protocol_validator_delegation: Array<Protocol_Validator_Delegation>;
+  /** fetch data from the table: "protocol_validator_delegation" using primary key columns */
+  protocol_validator_delegation_by_pk?: Maybe<Protocol_Validator_Delegation>;
+  /** fetch data from the table: "protocol_validator_description" */
+  protocol_validator_description: Array<Protocol_Validator_Description>;
+  /** fetch data from the table: "protocol_validator_description" using primary key columns */
+  protocol_validator_description_by_pk?: Maybe<Protocol_Validator_Description>;
+  /** An array relationship */
+  protocol_validator_pool: Array<Protocol_Validator_Pool>;
+  /** fetch data from the table: "protocol_validator_pool" using primary key columns */
+  protocol_validator_pool_by_pk?: Maybe<Protocol_Validator_Pool>;
   /** fetch data from the table: "slashing_params" */
   slashing_params: Array<Slashing_Params>;
   /** fetch data from the table: "software_upgrade_plan" */
   software_upgrade_plan: Array<Software_Upgrade_Plan>;
   /** fetch aggregated fields from the table: "software_upgrade_plan" */
   software_upgrade_plan_aggregate: Software_Upgrade_Plan_Aggregate;
+  /** fetch data from the table: "stakers_params" */
+  stakers_params: Array<Stakers_Params>;
   /** fetch data from the table: "staking_params" */
   staking_params: Array<Staking_Params>;
   /** fetch data from the table: "staking_pool" */
@@ -2889,6 +3710,15 @@ export type Query_RootBlock_By_PkArgs = {
 };
 
 
+export type Query_RootBundles_ParamsArgs = {
+  distinct_on?: InputMaybe<Array<Bundles_Params_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Bundles_Params_Order_By>>;
+  where?: InputMaybe<Bundles_Params_Bool_Exp>;
+};
+
+
 export type Query_RootCommunity_PoolArgs = {
   distinct_on?: InputMaybe<Array<Community_Pool_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -2940,6 +3770,15 @@ export type Query_RootGenesisArgs = {
   offset?: InputMaybe<Scalars['Int']>;
   order_by?: InputMaybe<Array<Genesis_Order_By>>;
   where?: InputMaybe<Genesis_Bool_Exp>;
+};
+
+
+export type Query_RootGlobal_ParamsArgs = {
+  distinct_on?: InputMaybe<Array<Global_Params_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Global_Params_Order_By>>;
+  where?: InputMaybe<Global_Params_Bool_Exp>;
 };
 
 
@@ -3000,6 +3839,20 @@ export type Query_RootModulesArgs = {
 
 export type Query_RootModules_By_PkArgs = {
   module_name: Scalars['String'];
+};
+
+
+export type Query_RootPoolArgs = {
+  distinct_on?: InputMaybe<Array<Pool_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Pool_Order_By>>;
+  where?: InputMaybe<Pool_Bool_Exp>;
+};
+
+
+export type Query_RootPool_By_PkArgs = {
+  id: Scalars['Int'];
 };
 
 
@@ -3099,6 +3952,76 @@ export type Query_RootProposal_VoteArgs = {
 };
 
 
+export type Query_RootProtocol_ValidatorArgs = {
+  distinct_on?: InputMaybe<Array<Protocol_Validator_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Protocol_Validator_Order_By>>;
+  where?: InputMaybe<Protocol_Validator_Bool_Exp>;
+};
+
+
+export type Query_RootProtocol_Validator_By_PkArgs = {
+  address: Scalars['String'];
+};
+
+
+export type Query_RootProtocol_Validator_CommissionArgs = {
+  distinct_on?: InputMaybe<Array<Protocol_Validator_Commission_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Protocol_Validator_Commission_Order_By>>;
+  where?: InputMaybe<Protocol_Validator_Commission_Bool_Exp>;
+};
+
+
+export type Query_RootProtocol_Validator_Commission_By_PkArgs = {
+  address: Scalars['String'];
+};
+
+
+export type Query_RootProtocol_Validator_DelegationArgs = {
+  distinct_on?: InputMaybe<Array<Protocol_Validator_Delegation_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Protocol_Validator_Delegation_Order_By>>;
+  where?: InputMaybe<Protocol_Validator_Delegation_Bool_Exp>;
+};
+
+
+export type Query_RootProtocol_Validator_Delegation_By_PkArgs = {
+  address: Scalars['String'];
+};
+
+
+export type Query_RootProtocol_Validator_DescriptionArgs = {
+  distinct_on?: InputMaybe<Array<Protocol_Validator_Description_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Protocol_Validator_Description_Order_By>>;
+  where?: InputMaybe<Protocol_Validator_Description_Bool_Exp>;
+};
+
+
+export type Query_RootProtocol_Validator_Description_By_PkArgs = {
+  address: Scalars['String'];
+};
+
+
+export type Query_RootProtocol_Validator_PoolArgs = {
+  distinct_on?: InputMaybe<Array<Protocol_Validator_Pool_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Protocol_Validator_Pool_Order_By>>;
+  where?: InputMaybe<Protocol_Validator_Pool_Bool_Exp>;
+};
+
+
+export type Query_RootProtocol_Validator_Pool_By_PkArgs = {
+  id: Scalars['Int'];
+};
+
+
 export type Query_RootSlashing_ParamsArgs = {
   distinct_on?: InputMaybe<Array<Slashing_Params_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -3123,6 +4046,15 @@ export type Query_RootSoftware_Upgrade_Plan_AggregateArgs = {
   offset?: InputMaybe<Scalars['Int']>;
   order_by?: InputMaybe<Array<Software_Upgrade_Plan_Order_By>>;
   where?: InputMaybe<Software_Upgrade_Plan_Bool_Exp>;
+};
+
+
+export type Query_RootStakers_ParamsArgs = {
+  distinct_on?: InputMaybe<Array<Stakers_Params_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Stakers_Params_Order_By>>;
+  where?: InputMaybe<Stakers_Params_Bool_Exp>;
 };
 
 
@@ -3543,6 +4475,42 @@ export type Software_Upgrade_Plan_Variance_Fields = {
   upgrade_height?: Maybe<Scalars['Float']>;
 };
 
+/** columns and relationships of "stakers_params" */
+export type Stakers_Params = {
+  __typename?: 'stakers_params';
+  height: Scalars['bigint'];
+  params: Scalars['jsonb'];
+};
+
+
+/** columns and relationships of "stakers_params" */
+export type Stakers_ParamsParamsArgs = {
+  path?: InputMaybe<Scalars['String']>;
+};
+
+/** Boolean expression to filter rows from the table "stakers_params". All fields are combined with a logical 'AND'. */
+export type Stakers_Params_Bool_Exp = {
+  _and?: InputMaybe<Array<Stakers_Params_Bool_Exp>>;
+  _not?: InputMaybe<Stakers_Params_Bool_Exp>;
+  _or?: InputMaybe<Array<Stakers_Params_Bool_Exp>>;
+  height?: InputMaybe<Bigint_Comparison_Exp>;
+  params?: InputMaybe<Jsonb_Comparison_Exp>;
+};
+
+/** Ordering options when selecting data from "stakers_params". */
+export type Stakers_Params_Order_By = {
+  height?: InputMaybe<Order_By>;
+  params?: InputMaybe<Order_By>;
+};
+
+/** select columns of table "stakers_params" */
+export enum Stakers_Params_Select_Column {
+  /** column name */
+  Height = 'height',
+  /** column name */
+  Params = 'params'
+}
+
 /** columns and relationships of "staking_params" */
 export type Staking_Params = {
   __typename?: 'staking_params';
@@ -3642,6 +4610,8 @@ export type Subscription_Root = {
   block: Array<Block>;
   /** fetch data from the table: "block" using primary key columns */
   block_by_pk?: Maybe<Block>;
+  /** fetch data from the table: "bundles_params" */
+  bundles_params: Array<Bundles_Params>;
   /** fetch data from the table: "community_pool" */
   community_pool: Array<Community_Pool>;
   /** fetch data from the table: "distribution_params" */
@@ -3654,6 +4624,8 @@ export type Subscription_Root = {
   fee_grant_allowance: Array<Fee_Grant_Allowance>;
   /** fetch data from the table: "genesis" */
   genesis: Array<Genesis>;
+  /** fetch data from the table: "global_params" */
+  global_params: Array<Global_Params>;
   /** fetch data from the table: "gov_params" */
   gov_params: Array<Gov_Params>;
   /** fetch data from the table: "inflation" */
@@ -3668,6 +4640,10 @@ export type Subscription_Root = {
   modules: Array<Modules>;
   /** fetch data from the table: "modules" using primary key columns */
   modules_by_pk?: Maybe<Modules>;
+  /** fetch data from the table: "pool" */
+  pool: Array<Pool>;
+  /** fetch data from the table: "pool" using primary key columns */
+  pool_by_pk?: Maybe<Pool>;
   /** fetch data from the table: "pre_commit" */
   pre_commit: Array<Pre_Commit>;
   /** fetch aggregated fields from the table: "pre_commit" */
@@ -3692,12 +4668,34 @@ export type Subscription_Root = {
   proposal_validator_status_snapshot: Array<Proposal_Validator_Status_Snapshot>;
   /** fetch data from the table: "proposal_vote" */
   proposal_vote: Array<Proposal_Vote>;
+  /** fetch data from the table: "protocol_validator" */
+  protocol_validator: Array<Protocol_Validator>;
+  /** fetch data from the table: "protocol_validator" using primary key columns */
+  protocol_validator_by_pk?: Maybe<Protocol_Validator>;
+  /** fetch data from the table: "protocol_validator_commission" */
+  protocol_validator_commission: Array<Protocol_Validator_Commission>;
+  /** fetch data from the table: "protocol_validator_commission" using primary key columns */
+  protocol_validator_commission_by_pk?: Maybe<Protocol_Validator_Commission>;
+  /** fetch data from the table: "protocol_validator_delegation" */
+  protocol_validator_delegation: Array<Protocol_Validator_Delegation>;
+  /** fetch data from the table: "protocol_validator_delegation" using primary key columns */
+  protocol_validator_delegation_by_pk?: Maybe<Protocol_Validator_Delegation>;
+  /** fetch data from the table: "protocol_validator_description" */
+  protocol_validator_description: Array<Protocol_Validator_Description>;
+  /** fetch data from the table: "protocol_validator_description" using primary key columns */
+  protocol_validator_description_by_pk?: Maybe<Protocol_Validator_Description>;
+  /** An array relationship */
+  protocol_validator_pool: Array<Protocol_Validator_Pool>;
+  /** fetch data from the table: "protocol_validator_pool" using primary key columns */
+  protocol_validator_pool_by_pk?: Maybe<Protocol_Validator_Pool>;
   /** fetch data from the table: "slashing_params" */
   slashing_params: Array<Slashing_Params>;
   /** fetch data from the table: "software_upgrade_plan" */
   software_upgrade_plan: Array<Software_Upgrade_Plan>;
   /** fetch aggregated fields from the table: "software_upgrade_plan" */
   software_upgrade_plan_aggregate: Software_Upgrade_Plan_Aggregate;
+  /** fetch data from the table: "stakers_params" */
+  stakers_params: Array<Stakers_Params>;
   /** fetch data from the table: "staking_params" */
   staking_params: Array<Staking_Params>;
   /** fetch data from the table: "staking_pool" */
@@ -3817,6 +4815,15 @@ export type Subscription_RootBlock_By_PkArgs = {
 };
 
 
+export type Subscription_RootBundles_ParamsArgs = {
+  distinct_on?: InputMaybe<Array<Bundles_Params_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Bundles_Params_Order_By>>;
+  where?: InputMaybe<Bundles_Params_Bool_Exp>;
+};
+
+
 export type Subscription_RootCommunity_PoolArgs = {
   distinct_on?: InputMaybe<Array<Community_Pool_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -3868,6 +4875,15 @@ export type Subscription_RootGenesisArgs = {
   offset?: InputMaybe<Scalars['Int']>;
   order_by?: InputMaybe<Array<Genesis_Order_By>>;
   where?: InputMaybe<Genesis_Bool_Exp>;
+};
+
+
+export type Subscription_RootGlobal_ParamsArgs = {
+  distinct_on?: InputMaybe<Array<Global_Params_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Global_Params_Order_By>>;
+  where?: InputMaybe<Global_Params_Bool_Exp>;
 };
 
 
@@ -3928,6 +4944,20 @@ export type Subscription_RootModulesArgs = {
 
 export type Subscription_RootModules_By_PkArgs = {
   module_name: Scalars['String'];
+};
+
+
+export type Subscription_RootPoolArgs = {
+  distinct_on?: InputMaybe<Array<Pool_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Pool_Order_By>>;
+  where?: InputMaybe<Pool_Bool_Exp>;
+};
+
+
+export type Subscription_RootPool_By_PkArgs = {
+  id: Scalars['Int'];
 };
 
 
@@ -4027,6 +5057,76 @@ export type Subscription_RootProposal_VoteArgs = {
 };
 
 
+export type Subscription_RootProtocol_ValidatorArgs = {
+  distinct_on?: InputMaybe<Array<Protocol_Validator_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Protocol_Validator_Order_By>>;
+  where?: InputMaybe<Protocol_Validator_Bool_Exp>;
+};
+
+
+export type Subscription_RootProtocol_Validator_By_PkArgs = {
+  address: Scalars['String'];
+};
+
+
+export type Subscription_RootProtocol_Validator_CommissionArgs = {
+  distinct_on?: InputMaybe<Array<Protocol_Validator_Commission_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Protocol_Validator_Commission_Order_By>>;
+  where?: InputMaybe<Protocol_Validator_Commission_Bool_Exp>;
+};
+
+
+export type Subscription_RootProtocol_Validator_Commission_By_PkArgs = {
+  address: Scalars['String'];
+};
+
+
+export type Subscription_RootProtocol_Validator_DelegationArgs = {
+  distinct_on?: InputMaybe<Array<Protocol_Validator_Delegation_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Protocol_Validator_Delegation_Order_By>>;
+  where?: InputMaybe<Protocol_Validator_Delegation_Bool_Exp>;
+};
+
+
+export type Subscription_RootProtocol_Validator_Delegation_By_PkArgs = {
+  address: Scalars['String'];
+};
+
+
+export type Subscription_RootProtocol_Validator_DescriptionArgs = {
+  distinct_on?: InputMaybe<Array<Protocol_Validator_Description_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Protocol_Validator_Description_Order_By>>;
+  where?: InputMaybe<Protocol_Validator_Description_Bool_Exp>;
+};
+
+
+export type Subscription_RootProtocol_Validator_Description_By_PkArgs = {
+  address: Scalars['String'];
+};
+
+
+export type Subscription_RootProtocol_Validator_PoolArgs = {
+  distinct_on?: InputMaybe<Array<Protocol_Validator_Pool_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Protocol_Validator_Pool_Order_By>>;
+  where?: InputMaybe<Protocol_Validator_Pool_Bool_Exp>;
+};
+
+
+export type Subscription_RootProtocol_Validator_Pool_By_PkArgs = {
+  id: Scalars['Int'];
+};
+
+
 export type Subscription_RootSlashing_ParamsArgs = {
   distinct_on?: InputMaybe<Array<Slashing_Params_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -4051,6 +5151,15 @@ export type Subscription_RootSoftware_Upgrade_Plan_AggregateArgs = {
   offset?: InputMaybe<Scalars['Int']>;
   order_by?: InputMaybe<Array<Software_Upgrade_Plan_Order_By>>;
   where?: InputMaybe<Software_Upgrade_Plan_Bool_Exp>;
+};
+
+
+export type Subscription_RootStakers_ParamsArgs = {
+  distinct_on?: InputMaybe<Array<Stakers_Params_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Stakers_Params_Order_By>>;
+  where?: InputMaybe<Stakers_Params_Bool_Exp>;
 };
 
 
@@ -4752,6 +5861,8 @@ export type Transaction = {
   logs?: Maybe<Scalars['jsonb']>;
   memo?: Maybe<Scalars['String']>;
   messages: Scalars['jsonb'];
+  /** An array relationship */
+  messagesByPartitionIdTransactionHash: Array<Message>;
   raw_log?: Maybe<Scalars['String']>;
   signatures: Scalars['_text'];
   signer_infos: Scalars['jsonb'];
@@ -4774,6 +5885,16 @@ export type TransactionLogsArgs = {
 /** columns and relationships of "transaction" */
 export type TransactionMessagesArgs = {
   path?: InputMaybe<Scalars['String']>;
+};
+
+
+/** columns and relationships of "transaction" */
+export type TransactionMessagesByPartitionIdTransactionHashArgs = {
+  distinct_on?: InputMaybe<Array<Message_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Message_Order_By>>;
+  where?: InputMaybe<Message_Bool_Exp>;
 };
 
 
@@ -4818,6 +5939,7 @@ export type Transaction_Bool_Exp = {
   logs?: InputMaybe<Jsonb_Comparison_Exp>;
   memo?: InputMaybe<String_Comparison_Exp>;
   messages?: InputMaybe<Jsonb_Comparison_Exp>;
+  messagesByPartitionIdTransactionHash?: InputMaybe<Message_Bool_Exp>;
   raw_log?: InputMaybe<String_Comparison_Exp>;
   signatures?: InputMaybe<_Text_Comparison_Exp>;
   signer_infos?: InputMaybe<Jsonb_Comparison_Exp>;
@@ -4855,6 +5977,7 @@ export type Transaction_Order_By = {
   logs?: InputMaybe<Order_By>;
   memo?: InputMaybe<Order_By>;
   messages?: InputMaybe<Order_By>;
+  messagesByPartitionIdTransactionHash_aggregate?: InputMaybe<Message_Aggregate_Order_By>;
   raw_log?: InputMaybe<Order_By>;
   signatures?: InputMaybe<Order_By>;
   signer_infos?: InputMaybe<Order_By>;
@@ -6386,7 +7509,7 @@ export type BlockDetailsQueryVariables = Exact<{
 }>;
 
 
-export type BlockDetailsQuery = { transaction: Array<{ __typename?: 'transaction', height: any, hash: string, messages: any, success: boolean, logs?: any | null }>, block: Array<{ __typename?: 'block', height: any, hash: string, timestamp: any, txs?: number | null, validator?: { __typename?: 'validator', validatorInfo?: { __typename?: 'validator_info', operatorAddress: string } | null } | null }>, preCommitsAggregate: { __typename?: 'pre_commit_aggregate', aggregate?: { __typename?: 'pre_commit_aggregate_fields', sum?: { __typename?: 'pre_commit_sum_fields', votingPower?: any | null } | null } | null }, preCommits: Array<{ __typename?: 'pre_commit', validator: { __typename?: 'validator', validatorInfo?: { __typename?: 'validator_info', operatorAddress: string } | null } }> };
+export type BlockDetailsQuery = { transaction: Array<{ __typename?: 'transaction', height: any, hash: string, messages: any, success: boolean, logs?: any | null }>, block: Array<{ __typename?: 'block', height: any, hash: string, timestamp: any, txs?: number | null, validator?: { __typename?: 'validator', validatorInfo?: { __typename?: 'validator_info', operatorAddress: string, consensusAddress: string } | null } | null }>, preCommitsAggregate: { __typename?: 'pre_commit_aggregate', aggregate?: { __typename?: 'pre_commit_aggregate_fields', sum?: { __typename?: 'pre_commit_sum_fields', votingPower?: any | null } | null } | null }, preCommits: Array<{ __typename?: 'pre_commit', validator: { __typename?: 'validator', validatorInfo?: { __typename?: 'validator_info', operatorAddress: string } | null } }> };
 
 export type LatestBlockHeightListenerSubscriptionVariables = Exact<{
   offset?: InputMaybe<Scalars['Int']>;
@@ -6413,7 +7536,7 @@ export type BlocksListenerSubscriptionVariables = Exact<{
 }>;
 
 
-export type BlocksListenerSubscription = { blocks: Array<{ __typename?: 'block', height: any, hash: string, timestamp: any, txs?: number | null, validator?: { __typename?: 'validator', validatorInfo?: { __typename?: 'validator_info', operatorAddress: string } | null } | null }> };
+export type BlocksListenerSubscription = { blocks: Array<{ __typename?: 'block', height: any, hash: string, timestamp: any, txs?: number | null, validator?: { __typename?: 'validator', validatorInfo?: { __typename?: 'validator_info', operatorAddress: string, consensusAddress: string } | null } | null }> };
 
 export type BlocksQueryVariables = Exact<{
   limit?: InputMaybe<Scalars['Int']>;
@@ -6421,7 +7544,7 @@ export type BlocksQueryVariables = Exact<{
 }>;
 
 
-export type BlocksQuery = { blocks: Array<{ __typename?: 'block', height: any, hash: string, timestamp: any, txs?: number | null, validator?: { __typename?: 'validator', validatorInfo?: { __typename?: 'validator_info', self_delegate_address?: string | null, operatorAddress: string } | null, validatorDescriptions: Array<{ __typename?: 'validator_description', moniker?: string | null, identity?: string | null }> } | null }> };
+export type BlocksQuery = { blocks: Array<{ __typename?: 'block', height: any, hash: string, timestamp: any, txs?: number | null, validator?: { __typename?: 'validator', validatorInfo?: { __typename?: 'validator_info', self_delegate_address?: string | null, operatorAddress: string, consensusAddress: string } | null, validatorDescriptions: Array<{ __typename?: 'validator_description', moniker?: string | null, identity?: string | null }> } | null }> };
 
 export type ChainIdQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -6553,7 +7676,7 @@ export type ValidatorDetailsQueryVariables = Exact<{
 }>;
 
 
-export type ValidatorDetailsQuery = { stakingPool: Array<{ __typename?: 'staking_pool', height: any, bonded: string }>, validator: Array<{ __typename?: 'validator', validatorDescriptions: Array<{ __typename?: 'validator_description', details?: string | null, website?: string | null }>, validatorStatuses: Array<{ __typename?: 'validator_status', status: number, jailed: boolean, height: any }>, validatorSigningInfos: Array<{ __typename?: 'validator_signing_info', tombstoned: boolean, missedBlocksCounter: any }>, validatorInfo?: { __typename?: 'validator_info', operatorAddress: string, selfDelegateAddress?: string | null, maxRate: string } | null, validatorCommissions: Array<{ __typename?: 'validator_commission', commission: any }>, validatorVotingPowers: Array<{ __typename?: 'validator_voting_power', height: any, votingPower: any }> }>, slashingParams: Array<{ __typename?: 'slashing_params', params: any }> };
+export type ValidatorDetailsQuery = { stakingPool: Array<{ __typename?: 'staking_pool', height: any, bonded: string }>, validator: Array<{ __typename?: 'validator', validatorDescriptions: Array<{ __typename?: 'validator_description', details?: string | null, website?: string | null }>, validatorStatuses: Array<{ __typename?: 'validator_status', status: number, jailed: boolean, height: any }>, validatorSigningInfos: Array<{ __typename?: 'validator_signing_info', tombstoned: boolean, missedBlocksCounter: any }>, validatorInfo?: { __typename?: 'validator_info', operatorAddress: string, selfDelegateAddress?: string | null, consensusAddress: string, maxRate: string } | null, validatorCommissions: Array<{ __typename?: 'validator_commission', commission: any }>, validatorVotingPowers: Array<{ __typename?: 'validator_voting_power', height: any, votingPower: any }> }>, slashingParams: Array<{ __typename?: 'slashing_params', params: any }> };
 
 export type ValidatorDelegationsQueryVariables = Exact<{
   validatorAddress: Scalars['String'];
@@ -6588,7 +7711,14 @@ export type ValidatorUndelegationsQuery = { undelegations?: { __typename?: 'Acti
 export type ValidatorsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ValidatorsQuery = { stakingPool: Array<{ __typename?: 'staking_pool', bondedTokens: string }>, validator: Array<{ __typename?: 'validator', validatorStatuses: Array<{ __typename?: 'validator_status', status: number, jailed: boolean, height: any }>, validatorSigningInfos: Array<{ __typename?: 'validator_signing_info', tombstoned: boolean, missedBlocksCounter: any }>, validatorInfo?: { __typename?: 'validator_info', operatorAddress: string, selfDelegateAddress?: string | null } | null, validatorVotingPowers: Array<{ __typename?: 'validator_voting_power', votingPower: any }>, validatorCommissions: Array<{ __typename?: 'validator_commission', commission: any }> }>, slashingParams: Array<{ __typename?: 'slashing_params', params: any }> };
+export type ValidatorsQuery = { stakingPool: Array<{ __typename?: 'staking_pool', bondedTokens: string }>, validator: Array<{ __typename?: 'validator', validatorStatuses: Array<{ __typename?: 'validator_status', status: number, jailed: boolean, height: any }>, validatorSigningInfos: Array<{ __typename?: 'validator_signing_info', tombstoned: boolean, missedBlocksCounter: any }>, validatorDescriptions: Array<{ __typename?: 'validator_description', moniker?: string | null, avatar_url?: string | null, validator_address: string, website?: string | null, details?: string | null }>, validatorInfo?: { __typename?: 'validator_info', operatorAddress: string, selfDelegateAddress?: string | null, consensusAddress: string } | null, validatorVotingPowers: Array<{ __typename?: 'validator_voting_power', votingPower: any }>, validatorCommissions: Array<{ __typename?: 'validator_commission', commission: any }> }>, slashingParams: Array<{ __typename?: 'slashing_params', params: any }> };
+
+export type CustomValidatorQueryVariables = Exact<{
+  consensusAddress: Scalars['String'];
+}>;
+
+
+export type CustomValidatorQuery = { validatorDescriptions: Array<{ __typename?: 'validator_description', moniker?: string | null, avatar_url?: string | null, validator_address: string, website?: string | null, details?: string | null }> };
 
 export type ValidatorsAddressListQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -7007,6 +8137,7 @@ export const BlockDetailsDocument = gql`
     validator {
       validatorInfo: validator_info {
         operatorAddress: operator_address
+        consensusAddress: consensus_address
       }
     }
   }
@@ -7169,6 +8300,7 @@ export const BlocksListenerDocument = gql`
     validator {
       validatorInfo: validator_info {
         operatorAddress: operator_address
+        consensusAddress: consensus_address
       }
     }
   }
@@ -7209,6 +8341,7 @@ export const BlocksDocument = gql`
       validatorInfo: validator_info {
         operatorAddress: operator_address
         self_delegate_address
+        consensusAddress: consensus_address
       }
       validatorDescriptions: validator_descriptions(
         limit: 1
@@ -8070,6 +9203,7 @@ export const ValidatorDetailsDocument = gql`
     validatorInfo: validator_info {
       operatorAddress: operator_address
       selfDelegateAddress: self_delegate_address
+      consensusAddress: consensus_address
       maxRate: max_rate
     }
     validatorCommissions: validator_commissions(order_by: {height: desc}, limit: 1) {
@@ -8267,9 +9401,17 @@ export const ValidatorsDocument = gql`
       missedBlocksCounter: missed_blocks_counter
       tombstoned
     }
+    validatorDescriptions: validator_descriptions {
+      moniker
+      avatar_url
+      validator_address
+      website
+      details
+    }
     validatorInfo: validator_info {
       operatorAddress: operator_address
       selfDelegateAddress: self_delegate_address
+      consensusAddress: consensus_address
     }
     validatorVotingPowers: validator_voting_powers(
       offset: 0
@@ -8320,6 +9462,47 @@ export function useValidatorsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions
 export type ValidatorsQueryHookResult = ReturnType<typeof useValidatorsQuery>;
 export type ValidatorsLazyQueryHookResult = ReturnType<typeof useValidatorsLazyQuery>;
 export type ValidatorsQueryResult = Apollo.QueryResult<ValidatorsQuery, ValidatorsQueryVariables>;
+export const CustomValidatorDocument = gql`
+    query CustomValidator($consensusAddress: String!) {
+  validatorDescriptions: validator_description(
+    where: {validator_address: {_eq: $consensusAddress}}
+  ) {
+    moniker
+    avatar_url
+    validator_address
+    website
+    details
+  }
+}
+    `;
+
+/**
+ * __useCustomValidatorQuery__
+ *
+ * To run a query within a React component, call `useCustomValidatorQuery` and pass it any options that fit your needs.
+ * When your component renders, `useCustomValidatorQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useCustomValidatorQuery({
+ *   variables: {
+ *      consensusAddress: // value for 'consensusAddress'
+ *   },
+ * });
+ */
+export function useCustomValidatorQuery(baseOptions: Apollo.QueryHookOptions<CustomValidatorQuery, CustomValidatorQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<CustomValidatorQuery, CustomValidatorQueryVariables>(CustomValidatorDocument, options);
+      }
+export function useCustomValidatorLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<CustomValidatorQuery, CustomValidatorQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<CustomValidatorQuery, CustomValidatorQueryVariables>(CustomValidatorDocument, options);
+        }
+export type CustomValidatorQueryHookResult = ReturnType<typeof useCustomValidatorQuery>;
+export type CustomValidatorLazyQueryHookResult = ReturnType<typeof useCustomValidatorLazyQuery>;
+export type CustomValidatorQueryResult = Apollo.QueryResult<CustomValidatorQuery, CustomValidatorQueryVariables>;
 export const ValidatorsAddressListDocument = gql`
     query ValidatorsAddressList {
   validator {
