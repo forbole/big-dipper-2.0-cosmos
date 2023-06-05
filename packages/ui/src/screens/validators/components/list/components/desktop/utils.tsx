@@ -90,7 +90,7 @@ export const fetchLoggedInColumns = (
   {
     key: 'condition',
     align: 'center',
-    width: 10,
+    width: 15,
     component: (
       <Typography variant="h4" className="label popover">
         {t('condition')}
