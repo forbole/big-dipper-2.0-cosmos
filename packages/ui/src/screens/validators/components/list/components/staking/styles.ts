@@ -96,6 +96,9 @@ const useStyles = makeStyles()((theme) => ({
       textOverflow: 'ellipsis',
       whiteSpace: 'nowrap',
     },
+    '> svg': {
+      fill: '#FFFFFF',
+    },
     background: theme.palette.primary.main,
     borderRadius: '4px',
     width: '86px',

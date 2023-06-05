@@ -170,16 +170,14 @@ const GridRow: FC<GridRowProps> = ({
       break;
     case 'staking':
       formatItem = loggedIn ? (
-        <Box display="flex" justifyContent="center">
-          <StakeButton
-            address={address}
-            imageUrl={imageUrl ?? ''}
-            name={name ?? ''}
-            commission={`${numeral(item.commission).format('0.[00]')}%`}
-            validators={validators}
-            delegations={delegations}
-          />
-        </Box>
+        <StakeButton
+          address={address}
+          imageUrl={imageUrl ?? ''}
+          name={name ?? ''}
+          commission={`${numeral(item.commission).format('0.[00]')}%`}
+          validators={validators}
+          delegations={delegations}
+        />
       ) : null;
       break;
     default:
