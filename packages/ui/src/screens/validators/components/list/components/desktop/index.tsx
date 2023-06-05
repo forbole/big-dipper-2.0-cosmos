@@ -1,5 +1,4 @@
 import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
 import useAppTranslation from '@/hooks/useAppTranslation';
 import numeral from 'numeral';
 import { ComponentProps, CSSProperties, FC, LegacyRef, ReactNode } from 'react';
