@@ -86,6 +86,8 @@ const StakeButton = (props: StakeButtonProps) => {
           imageUrl={props.imageUrl ?? ''}
           validatorName={props.name}
           validatorCommission={props.commission}
+          validators={props.validators ?? undefined}
+          delegations={props.delegations ?? undefined}
         />
         {/* <MenuItem onClick={handleCloseClaimRewardsDialog}> {t('validators:claimRewards')}</MenuItem> */}
       </Menu>

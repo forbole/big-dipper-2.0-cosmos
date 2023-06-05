@@ -10,8 +10,15 @@ import DialogTitle from '@mui/material/DialogTitle';
 import IconButton from '@mui/material/IconButton';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
+import CircularProgress from '@mui/material/CircularProgress';
 import * as React from 'react';
 import { FC } from 'react';
+import AvatarNameFilterInput from '@/screens/validators/components/list/components/staking/avatar_name_filter';
+import type {
+  ItemType,
+  ValidatorsAvatarNameType,
+} from '@/screens/validators/components/list/types';
+import CustomSnackbar from '@/components/snackbar';
 import useStakingHooks from '../hooks';
 
 type UndelegateDialogProps = {
@@ -21,6 +28,8 @@ type UndelegateDialogProps = {
   validatorName: string;
   imageUrl: string;
   validatorCommission: string;
+  delegations?: ValidatorsAvatarNameType[];
+  validators?: ItemType[];
 };
 
 const UndelegateDialog: FC<UndelegateDialogProps> = ({
@@ -30,6 +39,8 @@ const UndelegateDialog: FC<UndelegateDialogProps> = ({
   validatorName,
   imageUrl,
   validatorCommission,
+  delegations,
+  validators,
 }) => {
   const { classes } = useStyles();
   const { t } = useAppTranslation();
@@ -37,12 +48,40 @@ const UndelegateDialog: FC<UndelegateDialogProps> = ({
     amount,
     memo,
     tokenFormatDenom,
-    token,
+    stakedToken,
     errorMsg,
+    delegationSuccess,
+    txHash,
+    validatorSourceAddress,
+    loading,
+    resetDialogInfo,
     handleStakingAction,
     setMemoValue,
+    setValidatorSourceAddress,
     setTxAmount,
-  } = useStakingHooks();
+    setDelegationSuccess,
+    setOpenSuccessSnackbar,
+    openSuccessSnackbar,
+    handleCloseSnackBar,
+  } = useStakingHooks(validators, delegations);
+
+  // set sources delegated address to validatorAddress input if validatorAddress prop is passed
+  React.useEffect(() => {
+    if (validatorAddress && delegations) {
+      setValidatorSourceAddress(validatorAddress);
+    }
+    return () => setValidatorSourceAddress('');
+  }, [delegations, setValidatorSourceAddress, validatorAddress]);
+
+  React.useEffect(() => {
+    if (delegationSuccess) {
+      onClose();
+      setOpenSuccessSnackbar(true);
+      resetDialogInfo();
+      setDelegationSuccess(false);
+    }
+    return () => setDelegationSuccess(false);
+  }, [delegationSuccess, onClose, resetDialogInfo, setDelegationSuccess, setOpenSuccessSnackbar]);
 
   return (
     <div>
@@ -55,22 +94,29 @@ const UndelegateDialog: FC<UndelegateDialogProps> = ({
           </div>
 
           <Typography className={classes.subtitle}>{t('validators:undelegateFrom')}</Typography>
-          {/* if validatorAddress === null ? <ValidatorFilterInput validators={validators}/> :  */}
-          <div className={classes.validatorCard}>
-            <AvatarName
-              address={validatorAddress}
-              imageUrl={imageUrl}
-              name={validatorName}
-              className={classes.validatorAvatar}
+          {delegations && !validatorAddress ? (
+            <AvatarNameFilterInput
+              options={delegations.map((item) => item.validator)}
+              setValidatorAvatarAddress={setValidatorSourceAddress}
+              validatorAvatarAddress={validatorSourceAddress}
             />
-            <Typography className={classes.commissionLabel}>
-              {t('validators:commission')}
-              <Typography className={classes.commissionValue}>{validatorCommission} </Typography>
-            </Typography>
-            <IconButton aria-label="close" onClick={onClose} className={classes.closeButton}>
-              <CloseIcon />
-            </IconButton>
-          </div>
+          ) : (
+            <div className={classes.validatorCard}>
+              <AvatarName
+                address={validatorAddress}
+                imageUrl={imageUrl}
+                name={validatorName}
+                className={classes.validatorAvatar}
+              />
+              <Typography className={classes.commissionLabel}>
+                {t('validators:commission')}
+                <Typography className={classes.commissionValue}>{validatorCommission} </Typography>
+              </Typography>
+              <IconButton aria-label="close" onClick={onClose} className={classes.closeButton}>
+                <CloseIcon />
+              </IconButton>
+            </div>
+          )}
         </DialogTitle>
         <DialogContent>
           <div className={classes.ddd}>
@@ -79,7 +125,7 @@ const UndelegateDialog: FC<UndelegateDialogProps> = ({
             </Typography>
             <Typography className={classes.subtitle} align="right">
               {t('validators:stakedAmount')}
-              <div className={classes.amountLabel}>{token}</div>
+              <div className={classes.amountLabel}>{stakedToken}</div>
             </Typography>
           </div>
           <TextField
@@ -135,15 +181,34 @@ const UndelegateDialog: FC<UndelegateDialogProps> = ({
         <DialogActions>
           <div className={classes.dialogActions}>
             <Button
-              onClick={() => handleStakingAction(validatorAddress, 'undelegate')}
+              onClick={() =>
+                handleStakingAction(
+                  validatorSourceAddress === '' ? validatorAddress : validatorSourceAddress,
+                  'undelegate'
+                )
+              }
               color="primary"
               className={classes.delegateButton}
             >
-              <Typography variant="h5">{t('validators:undelegate')}</Typography>
+              {loading ? (
+                <CircularProgress size={20} color="inherit" />
+              ) : (
+                <Typography variant="h5">{t('validators:undelegate')}</Typography>
+              )}
             </Button>
           </div>
         </DialogActions>
       </Dialog>
+      <CustomSnackbar
+        open={openSuccessSnackbar}
+        onClose={handleCloseSnackBar}
+        type="success"
+        actionMsg="viewTxs"
+        msg="trackingOfTxDetailsIsNowAvailable"
+        trans="validators"
+        link={txHash}
+        anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+      />
     </div>
   );
 };

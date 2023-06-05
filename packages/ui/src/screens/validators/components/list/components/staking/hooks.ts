@@ -206,6 +206,7 @@ const useStakingHooks = (validators?: ItemType[], delegations?: ValidatorsAvatar
           setTxHash(result.transactionHash);
           assertIsDeliverTxSuccess(result);
           setLoading(false);
+          setValidatorSourceAddress('');
         } catch (e) {
           setErrorMsg((e as Error).message);
           handleCloseRedelegateDialog();
@@ -215,15 +216,24 @@ const useStakingHooks = (validators?: ItemType[], delegations?: ValidatorsAvatar
         break;
       case 'undelegate':
         try {
+          setLoading(true);
+          const base64Amount = baseToDisplayUnit(amount);
           result = await client.undelegateTokens(
             userAddress,
-            stakingAddress,
-            coin(amount, baseDenom ?? ''),
+            validatorSourceAddress,
+            coin(base64Amount, baseDenom ?? ''),
             'auto',
             memo
           );
+          setDelegationSuccess(true);
+          setTxHash(result.transactionHash);
+          assertIsDeliverTxSuccess(result);
+          setLoading(false);
+          setValidatorSourceAddress('');
         } catch (e) {
           setErrorMsg((e as Error).message);
+          handleCloseRedelegateDialog();
+          setOpenSuccessSnackbar(false);
           return;
         }
         break;
