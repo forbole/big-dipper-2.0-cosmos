@@ -208,6 +208,8 @@ const useStakingHooks = (validators?: ItemType[], delegations?: ValidatorsAvatar
           setLoading(false);
         } catch (e) {
           setErrorMsg((e as Error).message);
+          handleCloseRedelegateDialog();
+          setOpenSuccessSnackbar(false);
           return;
         }
         break;

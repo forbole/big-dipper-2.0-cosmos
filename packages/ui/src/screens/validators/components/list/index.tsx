@@ -71,7 +71,7 @@ const List: FC<ComponentDefault> = ({ className }) => {
           search={search}
           className={display.hiddenUntilLg}
           validators={items}
-          // delegations={delegationItems}
+          delegations={delegationItems}
         />
         <Mobile
           items={items}

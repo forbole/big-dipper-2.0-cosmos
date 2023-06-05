@@ -17,7 +17,10 @@ import {
 } from '@/screens/validators/components/list/components/desktop/utils';
 import VotingPower from '@/screens/validators/components/list/components/voting_power';
 import VotingPowerExplanation from '@/screens/validators/components/list/components/voting_power_explanation';
-import type { ItemType } from '@/screens/validators/components/list/types';
+import type {
+  ItemType,
+  ValidatorsAvatarNameType,
+} from '@/screens/validators/components/list/types';
 import { getValidatorConditionClass } from '@/utils/get_validator_condition';
 import { getValidatorStatus } from '@/utils/get_validator_status';
 import StakeButton from '@/screens/validators/components/list/components/staking/index';
@@ -83,6 +86,7 @@ type GridRowProps = {
   valLength: number;
   loggedIn: boolean;
   validators?: ItemType[];
+  delegations?: ValidatorsAvatarNameType[];
 };
 
 const GridRow: FC<GridRowProps> = ({
@@ -96,6 +100,7 @@ const GridRow: FC<GridRowProps> = ({
   valLength,
   loggedIn,
   validators,
+  delegations,
 }) => {
   const { classes, cx } = useStyles();
   const { name, address, imageUrl } = item.validator;
@@ -170,6 +175,7 @@ const GridRow: FC<GridRowProps> = ({
           name={name ?? ''}
           commission={`${numeral(item.commission).format('0.[00]')}%`}
           validators={validators}
+          delegations={delegations}
         />
       ) : null;
       break;
@@ -199,6 +205,7 @@ type DesktopProps = {
   items: ItemType[];
   search: string;
   validators?: ItemType[];
+  delegations?: ValidatorsAvatarNameType[];
 };
 
 const Desktop: FC<DesktopProps> = (props) => {
@@ -266,6 +273,7 @@ const Desktop: FC<DesktopProps> = (props) => {
                     i={rowIndex}
                     loggedIn
                     validators={props.validators}
+                    delegations={props.delegations}
                   />
                 );
               }}

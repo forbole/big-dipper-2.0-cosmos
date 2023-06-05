@@ -69,6 +69,14 @@ const RedelegateDialog: FC<RedelegateDialogProps> = ({
     valAddress,
   } = useStakingHooks(validators, delegations);
 
+  // set sources address to validatorAddress input if validatorAddress prop is passed
+  React.useEffect(() => {
+    if (validatorAddress && delegations) {
+      setValidatorSourceAddress(validatorAddress);
+    }
+    return () => setValidatorSourceAddress('');
+  }, [delegations, setValidatorSourceAddress, validatorAddress]);
+
   React.useEffect(() => {
     if (delegationSuccess) {
       onClose();
@@ -90,7 +98,7 @@ const RedelegateDialog: FC<RedelegateDialogProps> = ({
           </div>
 
           <Typography className={classes.subtitle}>{t('validators:redelegateFrom')}</Typography>
-          {delegations ? (
+          {delegations && !validatorAddress ? (
             <AvatarNameFilterInput
               options={delegations.map((item) => item.validator)}
               setValidatorAvatarAddress={setValidatorSourceAddress}
