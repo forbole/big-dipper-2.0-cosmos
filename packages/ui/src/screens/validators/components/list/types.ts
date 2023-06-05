@@ -1,3 +1,5 @@
+import { Coin } from '@cosmjs/proto-signing';
+
 export interface ValidatorType {
   validator: string;
   votingPower: number;
@@ -18,6 +20,16 @@ export interface ValidatorsState {
   sortDirection: 'asc' | 'desc';
   votingPowerOverall: number;
   items: ValidatorType[];
+}
+
+export interface DelegationValidatorsType {
+  validator: string;
+  coins: Coin[];
+}
+
+export interface ValidatorsAvatarNameType {
+  validator: AvatarName;
+  coins: Coin;
 }
 
 export type ItemType = Override<ValidatorType, { validator: AvatarName }>;

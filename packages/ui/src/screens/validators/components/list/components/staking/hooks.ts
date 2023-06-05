@@ -9,9 +9,12 @@ import { assertIsDeliverTxSuccess, MsgBeginRedelegateEncodeObject } from '@cosmj
 import { useEffect } from 'react';
 import { coin } from '@cosmjs/proto-signing';
 import { ADDRESS_KEY, CHAIN_ID } from '@/utils/localstorage';
-import type { ItemType } from '@/screens/validators/components/list/types';
+import type {
+  ItemType,
+  ValidatorsAvatarNameType,
+} from '@/screens/validators/components/list/types';
 
-const useStakingHooks = (validators?: ItemType[]) => {
+const useStakingHooks = (validators?: ItemType[], delegations?: ValidatorsAvatarNameType[]) => {
   const [amount, setAmount] = React.useState<string | number>('');
   const [userAddress, setUserAddress] = React.useState('');
   const [chainID, setChainID] = React.useState('');
@@ -110,6 +113,29 @@ const useStakingHooks = (validators?: ItemType[]) => {
   const [delegationSuccess, setDelegationSuccess] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
 
+  const [stakedToken, setStakedToken] = React.useState<string>('');
+
+  const [validatorSourceAddress, setValidatorSourceAddress] = React.useState('');
+
+  useEffect(() => {
+    if (validatorSourceAddress !== '') {
+      const coinsAmount =
+        delegations?.find((d) => d.validator.address === validatorSourceAddress)?.coins.amount ??
+        '';
+      const denom =
+        delegations?.find((d) => d.validator.address === validatorSourceAddress)?.coins.denom ??
+        baseDenom;
+      const tokenDenomFormat = formatToken(coinsAmount, denom);
+      const sToken = `${formatNumber(
+        tokenDenomFormat.value,
+        tokenDenomFormat.exponent
+      )} ${tokenDenomFormat.displayDenom.toUpperCase()}`;
+      setStakedToken(sToken);
+    } else {
+      setStakedToken(token);
+    }
+  }, [validatorSourceAddress, valAddress, delegations, baseDenom, token]);
+
   useEffect(() => {
     setUserAddress(localStorage.getItem(ADDRESS_KEY) ?? '');
     setChainID(localStorage.getItem(CHAIN_ID) ?? '');
@@ -164,16 +190,22 @@ const useStakingHooks = (validators?: ItemType[]) => {
         break;
       case 'redelegate':
         try {
+          setLoading(true);
+          const base64Amount = baseToDisplayUnit(amount);
           const redelegateMsg: MsgBeginRedelegateEncodeObject = {
             typeUrl: '/cosmos.staking.v1beta1.MsgBeginRedelegate',
             value: {
               delegatorAddress: userAddress,
-              validatorSrcAddress: validator,
+              validatorSrcAddress: validatorSourceAddress,
               validatorDstAddress: stakingAddress, // to set
-              amount: coin(amount, baseDenom ?? ''),
+              amount: coin(base64Amount, baseDenom ?? ''),
             },
           };
-          client.signAndBroadcast(userAddress, [redelegateMsg], 'auto', memo);
+          result = await client.signAndBroadcast(userAddress, [redelegateMsg], 'auto', memo);
+          setDelegationSuccess(true);
+          setTxHash(result.transactionHash);
+          assertIsDeliverTxSuccess(result);
+          setLoading(false);
         } catch (e) {
           setErrorMsg((e as Error).message);
           return;
@@ -233,6 +265,9 @@ const useStakingHooks = (validators?: ItemType[]) => {
     setOpenSuccessSnackbar,
     resetDialogInfo,
     setLoading,
+    setValidatorSourceAddress,
+    validatorSourceAddress,
+    stakedToken,
     delegationSuccess,
     valAddress,
     amount,

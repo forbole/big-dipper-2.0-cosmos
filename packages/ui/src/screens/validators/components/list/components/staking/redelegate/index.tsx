@@ -10,9 +10,17 @@ import DialogTitle from '@mui/material/DialogTitle';
 import IconButton from '@mui/material/IconButton';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
+import CircularProgress from '@mui/material/CircularProgress';
 import * as React from 'react';
 import { FC } from 'react';
+import Loading from '@/components/loading';
 import AvatarNameFilterInput from '@/screens/validators/components/list/components/staking/avatar_name_filter';
+import ValidatorFilterInput from '@/screens/validators/components/list/components/staking/validator_filter';
+import type {
+  ItemType,
+  ValidatorsAvatarNameType,
+} from '@/screens/validators/components/list/types';
+import CustomSnackbar from '@/components/snackbar';
 import useStakingHooks from '../hooks';
 
 type RedelegateDialogProps = {
@@ -22,7 +30,8 @@ type RedelegateDialogProps = {
   validatorName: string;
   imageUrl: string;
   validatorCommission: string;
-  delegations?: AvatarName[];
+  delegations?: ValidatorsAvatarNameType[];
+  validators?: ItemType[];
 };
 
 const RedelegateDialog: FC<RedelegateDialogProps> = ({
@@ -33,19 +42,42 @@ const RedelegateDialog: FC<RedelegateDialogProps> = ({
   imageUrl,
   validatorCommission,
   delegations,
+  validators,
 }) => {
   const { classes } = useStyles();
   const { t } = useAppTranslation();
   const {
     setTxAmount,
     setMemoValue,
+    setValidatorSourceAddress,
+    setValAddress,
     handleStakingAction,
+    loading,
+    delegationSuccess,
+    txHash,
+    setDelegationSuccess,
+    setOpenSuccessSnackbar,
+    openSuccessSnackbar,
+    handleCloseSnackBar,
+    resetDialogInfo,
     amount,
     errorMsg,
     memo,
     tokenFormatDenom,
-    token,
-  } = useStakingHooks();
+    stakedToken,
+    validatorSourceAddress,
+    valAddress,
+  } = useStakingHooks(validators, delegations);
+
+  React.useEffect(() => {
+    if (delegationSuccess) {
+      onClose();
+      setOpenSuccessSnackbar(true);
+      resetDialogInfo();
+      setDelegationSuccess(false);
+    }
+    return () => setDelegationSuccess(false);
+  }, [delegationSuccess, onClose, resetDialogInfo, setDelegationSuccess, setOpenSuccessSnackbar]);
 
   return (
     <div>
@@ -59,8 +91,11 @@ const RedelegateDialog: FC<RedelegateDialogProps> = ({
 
           <Typography className={classes.subtitle}>{t('validators:redelegateFrom')}</Typography>
           {delegations ? (
-            // add more props:
-            <AvatarNameFilterInput options={delegations} />
+            <AvatarNameFilterInput
+              options={delegations.map((item) => item.validator)}
+              setValidatorAvatarAddress={setValidatorSourceAddress}
+              validatorAvatarAddress={validatorSourceAddress}
+            />
           ) : (
             <div className={classes.validatorCard}>
               <AvatarName
@@ -78,6 +113,16 @@ const RedelegateDialog: FC<RedelegateDialogProps> = ({
               </IconButton>
             </div>
           )}
+          <Typography className={classes.subtitle}>{t('validators:redelegateTo')}</Typography>
+          {validators ? (
+            <ValidatorFilterInput
+              options={validators}
+              setValidatorAddress={setValAddress}
+              validatorAddress={valAddress}
+            />
+          ) : (
+            <Loading />
+          )}
         </DialogTitle>
         <DialogContent>
           <div className={classes.ddd}>
@@ -86,7 +131,7 @@ const RedelegateDialog: FC<RedelegateDialogProps> = ({
             </Typography>
             <Typography className={classes.subtitle} align="right">
               {t('validators:stakedAmount')}
-              <div className={classes.amountLabel}>{token}</div>
+              <div className={classes.amountLabel}>{stakedToken}</div>
             </Typography>
           </div>
           <TextField
@@ -145,11 +190,25 @@ const RedelegateDialog: FC<RedelegateDialogProps> = ({
               color="primary"
               className={classes.delegateButton}
             >
-              <Typography variant="h5">{t('validators:redelegate')}</Typography>
+              {loading ? (
+                <CircularProgress size={20} color="inherit" />
+              ) : (
+                <Typography variant="h5">{t('validators:redelegate')}</Typography>
+              )}
             </Button>
           </div>
         </DialogActions>
       </Dialog>
+      <CustomSnackbar
+        open={openSuccessSnackbar}
+        onClose={handleCloseSnackBar}
+        type="success"
+        actionMsg="viewTxs"
+        msg="trackingOfTxDetailsIsNowAvailable"
+        trans="validators"
+        link={txHash}
+        anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+      />
     </div>
   );
 };

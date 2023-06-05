@@ -68,6 +68,7 @@ const DelegateDialog: FC<DelegateDialogProps> = ({
       resetDialogInfo();
       setDelegationSuccess(false);
     }
+    return () => setDelegationSuccess(false);
   }, [delegationSuccess, onClose, resetDialogInfo, setDelegationSuccess, setOpenSuccessSnackbar]);
 
   return (

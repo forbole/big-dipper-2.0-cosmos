@@ -9,14 +9,14 @@ import useAvatarNameFilterHook from '@/screens/validators/components/list/compon
 
 interface AvatarNameFilterInputProps {
   options: AvatarName[];
-  setValidatorAddress: (address: string) => void;
-  validatorAddress: string;
+  setValidatorAvatarAddress: (address: string) => void;
+  validatorAvatarAddress: string;
 }
 
 const AvatarNameFilterInput: FC<AvatarNameFilterInputProps> = ({
   options,
-  setValidatorAddress,
-  validatorAddress,
+  setValidatorAvatarAddress,
+  validatorAvatarAddress,
 }) => {
   const { classes } = useStyles();
   const { t } = useAppTranslation('validators');
@@ -24,9 +24,9 @@ const AvatarNameFilterInput: FC<AvatarNameFilterInputProps> = ({
 
   const handleOnChange = (_: React.ChangeEvent<any>, value: AvatarName | null) => {
     if (value) {
-      setValidatorAddress(value.address);
+      setValidatorAvatarAddress(value.address);
     } else {
-      setValidatorAddress('');
+      setValidatorAvatarAddress('');
     }
   };
 
@@ -45,7 +45,7 @@ const AvatarNameFilterInput: FC<AvatarNameFilterInputProps> = ({
         </span>
       )}
       filterOptions={filterOptions}
-      value={options.find((option) => option.address === validatorAddress) || null}
+      value={options.find((option) => option.address === validatorAvatarAddress) || null}
       onChange={handleOnChange}
       renderInput={(params) => (
         <TextField

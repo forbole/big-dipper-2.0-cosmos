@@ -82,6 +82,7 @@ type GridRowProps = {
   i: number;
   valLength: number;
   loggedIn: boolean;
+  validators?: ItemType[];
 };
 
 const GridRow: FC<GridRowProps> = ({
@@ -94,6 +95,7 @@ const GridRow: FC<GridRowProps> = ({
   i,
   valLength,
   loggedIn,
+  validators,
 }) => {
   const { classes, cx } = useStyles();
   const { name, address, imageUrl } = item.validator;
@@ -167,6 +169,7 @@ const GridRow: FC<GridRowProps> = ({
           imageUrl={imageUrl ?? ''}
           name={name ?? ''}
           commission={`${numeral(item.commission).format('0.[00]')}%`}
+          validators={validators}
         />
       ) : null;
       break;
@@ -195,6 +198,7 @@ type DesktopProps = {
   handleSort: (key: string) => void;
   items: ItemType[];
   search: string;
+  validators?: ItemType[];
 };
 
 const Desktop: FC<DesktopProps> = (props) => {
@@ -261,6 +265,7 @@ const Desktop: FC<DesktopProps> = (props) => {
                     valLength={props.items.length}
                     i={rowIndex}
                     loggedIn
+                    validators={props.validators}
                   />
                 );
               }}

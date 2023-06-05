@@ -14,6 +14,7 @@ import type {
   ItemType,
   ValidatorsState,
   ValidatorType,
+  DelegationValidatorsType,
 } from '@/screens/validators/components/list/types';
 import { formatToken } from '@/utils/format_token';
 import { getValidatorCondition } from '@/utils/get_validator_condition';
@@ -96,7 +97,7 @@ export const useValidators = () => {
     sortDirection: 'asc',
   });
   const [userAddress, setUserAddress] = useState<string>('');
-  const [delegationValidators, setDelegationValidators] = useState<ValidatorType[]>([]);
+  const [delegationValidators, setDelegationValidators] = useState<DelegationValidatorsType[]>([]);
 
   const handleSetState = useCallback(
     (stateChange: (prevState: ValidatorsState) => ValidatorsState) => {
@@ -153,13 +154,7 @@ export const useValidators = () => {
       } = delegationsData;
       const delegatedValidators = delegations?.map((data) => ({
         validator: data.validator_address ?? '',
-        votingPower: 0,
-        votingPowerPercent: 0,
-        commission: 0,
-        condition: 0,
-        status: 0,
-        jailed: false,
-        tombstoned: false,
+        coins: data.coins ?? {},
       }));
       setDelegationValidators(delegatedValidators || []);
     }

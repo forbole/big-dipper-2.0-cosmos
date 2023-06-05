@@ -45,11 +45,13 @@ const List: FC<ComponentDefault> = ({ className }) => {
   const delegationsMemo = useShallowMemo(delegationValidators?.map((y) => y.validator)) ?? [];
   const { profiles: delegationProfiles } = useProfilesRecoil(delegationsMemo);
   const delegationItems = useMemo(
-    () => delegationProfiles.map((d, j) => dataProfiles?.[j]),
-    [delegationProfiles, dataProfiles]
+    () =>
+      delegationValidators.map((d, j) => ({
+        coins: d.coins?.[0],
+        validator: delegationProfiles?.[j],
+      })),
+    [delegationValidators, delegationProfiles]
   );
-
-  console.log('check', delegationItems);
 
   const loggedIn = useRecoilValue(readIsUserLoggedIn);
   const address = useRecoilValue(readUserAddress);
@@ -68,6 +70,8 @@ const List: FC<ComponentDefault> = ({ className }) => {
           items={items}
           search={search}
           className={display.hiddenUntilLg}
+          validators={items}
+          // delegations={delegationItems}
         />
         <Mobile
           items={items}
