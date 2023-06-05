@@ -90,7 +90,7 @@ export const fetchLoggedInColumns = (
   {
     key: 'condition',
     align: 'center',
-    width: 15,
+    width: 10,
     component: (
       <Typography variant="h4" className="label popover">
         {t('condition')}
@@ -100,11 +100,11 @@ export const fetchLoggedInColumns = (
   },
   {
     key: 'status',
-    width: 8,
+    width: 5,
   },
   {
     key: 'staking',
     align: 'center',
-    width: 7,
+    width: 15,
   },
 ];

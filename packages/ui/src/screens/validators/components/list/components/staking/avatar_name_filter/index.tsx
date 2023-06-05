@@ -50,7 +50,7 @@ const AvatarNameFilterInput: FC<AvatarNameFilterInputProps> = ({
       renderInput={(params) => (
         <TextField
           {...params}
-          placeholder={!params.inputProps.value ? t('validators filter label') : ''}
+          placeholder={!params.inputProps.value ? t('validators') : ''}
           InputProps={{
             ...params.InputProps,
             startAdornment: (

@@ -1,4 +1,5 @@
 import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
 import useAppTranslation from '@/hooks/useAppTranslation';
 import numeral from 'numeral';
 import { ComponentProps, CSSProperties, FC, LegacyRef, ReactNode } from 'react';
@@ -169,14 +170,16 @@ const GridRow: FC<GridRowProps> = ({
       break;
     case 'staking':
       formatItem = loggedIn ? (
-        <StakeButton
-          address={address}
-          imageUrl={imageUrl ?? ''}
-          name={name ?? ''}
-          commission={`${numeral(item.commission).format('0.[00]')}%`}
-          validators={validators}
-          delegations={delegations}
-        />
+        <Box display="flex" justifyContent="center">
+          <StakeButton
+            address={address}
+            imageUrl={imageUrl ?? ''}
+            name={name ?? ''}
+            commission={`${numeral(item.commission).format('0.[00]')}%`}
+            validators={validators}
+            delegations={delegations}
+          />
+        </Box>
       ) : null;
       break;
     default:
