@@ -1,5 +1,20 @@
 # Unreleased
 
+## 2.15.2
+
+### Patch Changes
+
+- Updated dependencies [[`f5392fbba`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/f5392fbbabf50763001c80faa0f7fefca343f287)]:
+  - ui@2.30.2
+
+## 2.15.1
+
+### Patch Changes
+
+- Updated dependencies [[`5654972fd`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/5654972fdf2bb50bcd8566320dc93294301facab)]:
+  - shared-utils@2.18.1
+  - ui@2.30.1
+
 ## 2.15.0
 
 ### Minor Changes

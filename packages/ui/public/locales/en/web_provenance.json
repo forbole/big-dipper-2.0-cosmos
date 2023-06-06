@@ -1,0 +1,10 @@
+{
+  "assets.assetsModule": "Asset Module",
+  "assets.assets": "Assets",
+  "assets.tokenName": "Token Name",
+  "assets.price": "Price",
+  "assets.markerType": "Marker Type",
+  "assets.supply": "Total Supply",
+  "assets.Search by asset name": "Search by asset name",
+  "assets.description": "The asset module provides an ownership structure for managing tokenized value backed by assets or other tokenized units of value denominated as unit(s) of coin."
+}

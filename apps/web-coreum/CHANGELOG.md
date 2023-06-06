@@ -1,5 +1,26 @@
 # Unreleased
 
+## 2.17.1
+
+### Patch Changes
+
+- Updated dependencies [[`f5392fbba`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/f5392fbbabf50763001c80faa0f7fefca343f287)]:
+  - ui@2.30.2
+
+## 2.17.0
+
+### Minor Changes
+
+- [#1261](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1261) [`1d3da4000`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/1d3da4000fc8cd834711d5e91e8704ab5fd09ea3) Thanks [@rachelhox](https://github.com/rachelhox)! - update coreum color scheme
+
+## 2.16.1
+
+### Patch Changes
+
+- Updated dependencies [[`5654972fd`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/5654972fdf2bb50bcd8566320dc93294301facab)]:
+  - shared-utils@2.18.1
+  - ui@2.30.1
+
 ## 2.16.0
 
 ### Minor Changes

@@ -1,23 +1,12 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { basename, resolve } = require('path');
+const { basename } = require('path');
 
 function getBaseConfig(basePath, chainName) {
   const config = {
     reactStrictMode: true,
     experimental: {
-      ...(process.env.BUILD_STANDALONE
-        ? {
-            // this includes files from the monorepo base two directories up
-            outputFileTracingRoot: resolve(__dirname, '../../'),
-          }
-        : {}),
       esmExternals: 'loose',
     },
-    ...(process.env.BUILD_STANDALONE
-      ? {
-          output: 'standalone',
-        }
-      : {}),
     poweredByHeader: false,
     basePath,
     webpack: webpackConfig,

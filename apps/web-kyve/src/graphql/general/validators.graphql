@@ -12,9 +12,17 @@ query Validators {
       missedBlocksCounter: missed_blocks_counter
       tombstoned
     }
+    validatorDescriptions: validator_descriptions {
+      moniker
+      avatar_url
+      validator_address
+      website
+      details
+    }
     validatorInfo: validator_info {
       operatorAddress: operator_address
       selfDelegateAddress: self_delegate_address
+      consensusAddress: consensus_address
     }
     validatorVotingPowers: validator_voting_powers(offset: 0, limit: 1, order_by: {height: desc}) {
       votingPower: voting_power
@@ -28,5 +36,15 @@ query Validators {
   }
   slashingParams: slashing_params(order_by: {height: desc}, limit: 1) {
     params
+  }
+}
+
+query CustomValidator($consensusAddress: String!) {
+  validatorDescriptions: validator_description(where:{validator_address: {_eq: $consensusAddress}}) {
+    moniker
+    avatar_url
+    validator_address
+    website
+    details
   }
 }

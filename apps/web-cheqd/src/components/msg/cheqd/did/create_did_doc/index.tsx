@@ -1,7 +1,7 @@
+import AppTrans from '@/components/AppTrans';
+import DID from '@/components/did';
 import { MsgCreateDidDoc } from '@/models/msg/cheqd/did/msg_create_did';
 import Typography from '@mui/material/Typography';
-import DID from '@/components/did';
-import { Trans } from 'next-i18next';
 import React from 'react';
 
 const CreateDidDoc = (props: { message: MsgCreateDidDoc }) => {
@@ -9,7 +9,7 @@ const CreateDidDoc = (props: { message: MsgCreateDidDoc }) => {
 
   return (
     <Typography>
-      <Trans
+      <AppTrans
         i18nKey="message_contents:MsgCreateDidDoc"
         components={[<DID did={message.payload?.id ?? ''} />]}
       />
