@@ -19,4 +19,8 @@ export interface ValidatorsState {
   items: ValidatorType[];
 }
 
+export type {
+  DelegationValidatorsType,
+  ValidatorsAvatarNameType,
+} from 'ui/screens/validators/components/list/types';
 export type ItemType = Override<ValidatorType, { validator: AvatarName }>;

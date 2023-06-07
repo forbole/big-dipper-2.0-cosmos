@@ -60,10 +60,10 @@ exports[`screen: Transactions matches snapshot 1`] = `
                   {
                     "amounts": [
                       {
-                        "baseDenom": "udaric",
-                        "displayDenom": "daric",
-                        "exponent": 6,
-                        "value": "0.000000",
+                        "baseDenom": "udsm",
+                        "displayDenom": "udsm",
+                        "exponent": 0,
+                        "value": "0",
                       },
                     ],
                     "category": "distribution",
@@ -79,10 +79,10 @@ exports[`screen: Transactions matches snapshot 1`] = `
                   {
                     "amounts": [
                       {
-                        "baseDenom": "udaric",
-                        "displayDenom": "daric",
-                        "exponent": 6,
-                        "value": "0.000000",
+                        "baseDenom": "udsm",
+                        "displayDenom": "udsm",
+                        "exponent": 0,
+                        "value": "0",
                       },
                     ],
                     "category": "distribution",

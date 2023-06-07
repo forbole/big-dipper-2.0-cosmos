@@ -90,7 +90,7 @@ exports[`screen: Nav/Network it renders 1`] = `
 }
 
 <div
-  aria-label="morpheus-apollo-3"
+  aria-label="desmos-mainnet"
   className="emotion-0"
   onClick={[MockFunction]}
   role="button"
@@ -137,7 +137,7 @@ exports[`screen: Nav/Network it renders 1`] = `
   <p
     className="MuiTypography-root MuiTypography-body1 emotion-4"
   >
-    morpheus-apollo-3
+    desmos-mainnet
   </p>
   <svg
     aria-hidden={true}

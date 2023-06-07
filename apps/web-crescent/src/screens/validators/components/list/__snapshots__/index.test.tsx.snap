@@ -28,76 +28,99 @@ exports[`screen: Validators/List matches snapshot 1`] = `
   height: 100%;
 }
 
-<div
-  exists={true}
-  id="LoadAndExist"
-  loading={false}
->
+<div>
   <div
-    id="Box"
+    exists={true}
+    id="LoadAndExist"
+    loading={false}
   >
     <div
-      handleSearch={[Function]}
-      handleTabChange={[Function]}
-      id="Tabs"
-      tab={0}
-    />
-    <div
-      className="emotion-0"
+      id="Box"
     >
       <div
-        className="emotion-1"
-        handleSort={[Function]}
-        id="Desktop"
-        items={
-          [
-            {
-              "commission": 10,
-              "condition": -Infinity,
-              "jailed": false,
-              "liquidStaking": "Yes",
-              "status": 3,
-              "tombstoned": false,
-              "topVotingPower": true,
-              "validator": {
-                "address": "desmosvaloper1njm853h4h9vh8xge3v9mf7nnukzhgt6z6dwsr3",
-                "imageUrl": "",
-                "name": "desmosvaloper1njm853h4h9vh8xge3v9mf7nnukzhgt6z6dwsr3",
-              },
-              "votingPower": 22,
-              "votingPowerPercent": 5.593712118482551e-10,
-            },
-          ]
-        }
-        search=""
-        sortDirection="asc"
-        sortKey="validator.name"
+        handleSearch={[Function]}
+        handleTabChange={[Function]}
+        id="Tabs"
+        tab={0}
       />
       <div
-        className="emotion-2"
-        id="Mobile"
-        items={
-          [
-            {
-              "commission": 10,
-              "condition": -Infinity,
-              "jailed": false,
-              "liquidStaking": "Yes",
-              "status": 3,
-              "tombstoned": false,
-              "topVotingPower": true,
-              "validator": {
-                "address": "desmosvaloper1njm853h4h9vh8xge3v9mf7nnukzhgt6z6dwsr3",
-                "imageUrl": "",
-                "name": "desmosvaloper1njm853h4h9vh8xge3v9mf7nnukzhgt6z6dwsr3",
+        className="emotion-0"
+      >
+        <div
+          className="emotion-1"
+          delegations={[]}
+          handleSort={[Function]}
+          id="Desktop"
+          items={
+            [
+              {
+                "commission": 10,
+                "condition": -Infinity,
+                "jailed": false,
+                "liquidStaking": "Yes",
+                "status": 3,
+                "tombstoned": false,
+                "topVotingPower": true,
+                "validator": {
+                  "address": "desmosvaloper1njm853h4h9vh8xge3v9mf7nnukzhgt6z6dwsr3",
+                  "imageUrl": "",
+                  "name": "desmosvaloper1njm853h4h9vh8xge3v9mf7nnukzhgt6z6dwsr3",
+                },
+                "votingPower": 22,
+                "votingPowerPercent": 5.593712118482551e-10,
               },
-              "votingPower": 22,
-              "votingPowerPercent": 5.593712118482551e-10,
-            },
-          ]
-        }
-        search=""
-      />
+            ]
+          }
+          search=""
+          sortDirection="asc"
+          sortKey="validator.name"
+          validators={
+            [
+              {
+                "commission": 10,
+                "condition": -Infinity,
+                "jailed": false,
+                "liquidStaking": "Yes",
+                "status": 3,
+                "tombstoned": false,
+                "topVotingPower": true,
+                "validator": {
+                  "address": "desmosvaloper1njm853h4h9vh8xge3v9mf7nnukzhgt6z6dwsr3",
+                  "imageUrl": "",
+                  "name": "desmosvaloper1njm853h4h9vh8xge3v9mf7nnukzhgt6z6dwsr3",
+                },
+                "votingPower": 22,
+                "votingPowerPercent": 5.593712118482551e-10,
+              },
+            ]
+          }
+        />
+        <div
+          className="emotion-2"
+          id="Mobile"
+          items={
+            [
+              {
+                "commission": 10,
+                "condition": -Infinity,
+                "jailed": false,
+                "liquidStaking": "Yes",
+                "status": 3,
+                "tombstoned": false,
+                "topVotingPower": true,
+                "validator": {
+                  "address": "desmosvaloper1njm853h4h9vh8xge3v9mf7nnukzhgt6z6dwsr3",
+                  "imageUrl": "",
+                  "name": "desmosvaloper1njm853h4h9vh8xge3v9mf7nnukzhgt6z6dwsr3",
+                },
+                "votingPower": 22,
+                "votingPowerPercent": 5.593712118482551e-10,
+              },
+            ]
+          }
+          search=""
+        />
+      </div>
     </div>
   </div>
 </div>

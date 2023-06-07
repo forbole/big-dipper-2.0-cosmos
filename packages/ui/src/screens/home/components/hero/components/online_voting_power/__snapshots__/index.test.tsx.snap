@@ -73,7 +73,7 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 1`] = `
 }
 
 .emotion-6 {
-  width: 100000000%;
+  width: 100%;
   background: #FF835B;
   -webkit-transition: 0.3s;
   transition: 0.3s;
@@ -162,7 +162,7 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 1`] = `
     <h3
       className="MuiTypography-root MuiTypography-h3 primary__data emotion-3"
     >
-      100,000,000.00%
+      100.00%
     </h3>
     <p
       className="MuiTypography-root MuiTypography-body1 emotion-4"
@@ -170,7 +170,7 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 1`] = `
       76,341,043
        /
        
-      76
+      76,341,043
     </p>
   </div>
   <div
@@ -208,7 +208,7 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 1`] = `
       <p
         className="MuiTypography-root MuiTypography-body1 value emotion-4"
       >
-        100,000,000.00%
+        100.00%
       </p>
     </div>
     <div
@@ -236,7 +236,7 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 1`] = `
       <p
         className="MuiTypography-root MuiTypography-body1 value emotion-4"
       >
-        76
+        76,341,043
       </p>
     </div>
   </div>
@@ -316,7 +316,7 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 2`] = `
 }
 
 .emotion-6 {
-  width: 100000000%;
+  width: 100%;
   background: #FF835B;
   -webkit-transition: 0.3s;
   transition: 0.3s;
@@ -405,7 +405,7 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 2`] = `
     <h3
       className="MuiTypography-root MuiTypography-h3 primary__data emotion-3"
     >
-      100,000,000.00%
+      100.00%
     </h3>
     <p
       className="MuiTypography-root MuiTypography-body1 emotion-4"
@@ -413,7 +413,7 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 2`] = `
       76,341,043
        /
        
-      76
+      76,341,043
     </p>
   </div>
   <div
@@ -451,7 +451,7 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 2`] = `
       <p
         className="MuiTypography-root MuiTypography-body1 value emotion-4"
       >
-        100,000,000.00%
+        100.00%
       </p>
     </div>
     <div
@@ -479,7 +479,7 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 2`] = `
       <p
         className="MuiTypography-root MuiTypography-body1 value emotion-4"
       >
-        76
+        76,341,043
       </p>
     </div>
   </div>

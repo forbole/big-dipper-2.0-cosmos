@@ -10,7 +10,8 @@ import Desktop from '@/screens/validators/components/list/components/desktop';
 import Mobile from '@/screens/validators/components/list/components/mobile';
 import StakeButton from '@/screens/validators/components/list/components/staking/index';
 import Tabs from '@/screens/validators/components/list/components/tabs';
-import { useStakingDistribution, useValidators } from '@/screens/validators/components/list/hooks';
+import { useValidators } from '@/screens/validators/components/list/hooks';
+import useStakingDistribution from '@/screens/validators/components/list/useStakingDistribution';
 import useStyles from '@/screens/validators/components/list/styles';
 import { useDisplayStyles } from '@/styles/useSharedStyles';
 import Button from '@mui/material/Button';
@@ -46,10 +47,10 @@ const List: FC<ComponentDefault> = ({ className }) => {
   const { profiles: delegationProfiles } = useProfilesRecoil(delegationsMemo);
   const delegationItems = useMemo(
     () =>
-      delegationValidators.map((d, j) => ({
+      delegationValidators?.map((d, j) => ({
         coins: d.coins?.[0],
         validator: delegationProfiles?.[j],
-      })),
+      })) ?? [],
     [delegationValidators, delegationProfiles]
   );
 

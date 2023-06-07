@@ -10,10 +10,10 @@ import type {
   ItemType,
   ValidatorsAvatarNameType,
 } from '@/screens/validators/components/list/types';
-import DelegateDialog from './delegate';
-import useStakingHooks from './hooks';
-import RedelegateDialog from './redelegate';
-import UndelegateDialog from './undelegate';
+import DelegateDialog from '@/screens/validators/components/list/components/staking/delegate';
+import useStakingHooks from '@/screens/validators/components/list/components/staking/hooks';
+import RedelegateDialog from '@/screens/validators/components/list/components/staking/redelegate';
+import UndelegateDialog from '@/screens/validators/components/list/components/staking/undelegate';
 
 type StakeButtonProps = {
   address: string;

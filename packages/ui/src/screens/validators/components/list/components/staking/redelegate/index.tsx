@@ -21,7 +21,7 @@ import type {
   ValidatorsAvatarNameType,
 } from '@/screens/validators/components/list/types';
 import CustomSnackbar from '@/components/snackbar';
-import useStakingHooks from '../hooks';
+import useStakingHooks from '@/screens/validators/components/list/components/staking/hooks';
 
 type RedelegateDialogProps = {
   open: boolean;

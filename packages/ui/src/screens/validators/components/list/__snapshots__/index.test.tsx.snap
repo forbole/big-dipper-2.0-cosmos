@@ -12,26 +12,28 @@ exports[`screen: Validators/List matches snapshot 1`] = `
   }
 }
 
-<div
-  exists={true}
-  id="LoadAndExist"
-  loading={true}
->
+<div>
   <div
-    id="Box"
+    exists={true}
+    id="LoadAndExist"
+    loading={true}
   >
     <div
-      handleSearch={[Function]}
-      handleTabChange={[Function]}
-      id="Tabs"
-      tab={1}
-    />
-    <div
-      className="emotion-0"
+      id="Box"
     >
       <div
-        id="NoData"
+        handleSearch={[Function]}
+        handleTabChange={[Function]}
+        id="Tabs"
+        tab={1}
       />
+      <div
+        className="emotion-0"
+      >
+        <div
+          id="NoData"
+        />
+      </div>
     </div>
   </div>
 </div>

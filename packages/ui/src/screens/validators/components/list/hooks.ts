@@ -249,13 +249,3 @@ export const useValidators = () => {
     search,
   };
 };
-
-export const useStakingDistribution = () => {
-  const handleStakingDistribution = () => {
-    // TO DO
-  };
-
-  return {
-    handleStakingDistribution,
-  };
-};

@@ -165,6 +165,10 @@ const GridRow: FC<GridRowProps> = ({ column, style, rowIndex, align, item, searc
 
 type DesktopProps = {
   className?: string;
+  // eslint-disable-next-line react/no-unused-prop-types
+  validators: unknown[];
+  // eslint-disable-next-line react/no-unused-prop-types
+  delegations: unknown[];
   sortDirection: 'desc' | 'asc';
   sortKey: string;
   handleSort: (key: string) => void;

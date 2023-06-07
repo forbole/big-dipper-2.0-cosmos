@@ -6,14 +6,13 @@ import chainConfig from '@/chainConfig';
 import { useValidatorsQuery, ValidatorsQuery } from '@/graphql/types/general_types';
 import { SlashingParams } from '@/models';
 import type {
+  DelegationValidatorsType,
   ItemType,
   ValidatorsState,
   ValidatorType,
 } from '@/screens/validators/components/list/types';
 import { formatToken } from '@/utils/format_token';
 import { getValidatorCondition } from '@/utils/get_validator_condition';
-
-export { useStakingDistribution } from 'ui/screens/validators/components/list/hooks';
 
 const { votingPowerTokenUnit } = chainConfig();
 
@@ -194,8 +193,11 @@ export const useValidators = () => {
     setSearch(value);
   }, []);
 
+  const [delegationValidators] = useState<DelegationValidatorsType[]>([]);
+
   return {
     state,
+    delegationValidators,
     handleTabChange,
     handleSort,
     handleSearch,

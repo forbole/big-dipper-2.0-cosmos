@@ -3,14 +3,13 @@ import numeral from 'numeral';
 import * as R from 'ramda';
 import { SyntheticEvent, useCallback, useState } from 'react';
 import type {
+  DelegationValidatorsType,
   ItemType,
   ValidatorsState,
   ValidatorType,
 } from '@/screens/validators/components/list/types';
 import { useValidatorsQuery, ValidatorsQuery } from '@/graphql/types/general_types';
 import chainConfig from '@/chainConfig';
-
-export { useStakingDistribution } from 'ui/screens/validators/components/list/hooks';
 
 const { extra } = chainConfig();
 
@@ -176,8 +175,11 @@ export const useValidators = () => {
     setSearch(value);
   };
 
+  const [delegationValidators] = useState<DelegationValidatorsType[]>([]);
+
   return {
     state,
+    delegationValidators,
     handleTabChange,
     handleSort,
     handleSearch,
