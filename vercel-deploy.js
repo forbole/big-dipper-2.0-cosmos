@@ -136,5 +136,7 @@ if (process.argv[2] === 'manual') {
 } else {
   /* Building the project. */
   const { name } = JSON.parse(execShell(`cat apps/web/package.json`));
-  execShell(`BASE_PATH=/ yarn workspace ${name} next build`);
+  execShell(
+    `BASE_PATH=/ yarn workspace ${name} next build && BASE_PATH=/ yarn workspace ${name} next-sitemap`
+  );
 }

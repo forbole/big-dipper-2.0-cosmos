@@ -71,3 +71,6 @@ Cargo.lock
 
 # Rust package manager
 .cargo/
+
+**/public/robots.txt
+**/public/sitemap*.xml
