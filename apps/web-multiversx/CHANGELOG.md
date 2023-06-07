@@ -1,5 +1,17 @@
 # v1.0.4 - 2022-06-20
 
+## 2.15.0
+
+### Minor Changes
+
+- [#1258](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1258) [`12079a781`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/12079a78141eb2e5ddee1c9211c5e81bc4e6d0d1) Thanks [@teamchong](https://github.com/teamchong)! - - Integrated `next-sitemap` to auto-generate sitemaps for each Next.js app in the monorepo. This enhancement improves our SEO capabilities and website visibility on search engines. The sitemap will be automatically updated with every build, ensuring it always reflects the current state of the site.
+
+### Patch Changes
+
+- Updated dependencies [[`12079a781`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/12079a78141eb2e5ddee1c9211c5e81bc4e6d0d1)]:
+  - shared-utils@2.19.0
+  - ui@2.31.0
+
 ## 2.14.3
 
 ### Patch Changes
