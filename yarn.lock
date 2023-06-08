@@ -15762,7 +15762,8 @@ __metadata:
     "@apollo/client": ^3.7.14
     "@cosmjs/encoding": ^0.30.1
     "@cosmjs/launchpad": ^0.27.1
-    "@cosmjs/stargate": ^0.30.1
+    "@cosmjs/proto-signing": ^0.31.0-alpha.1
+    "@cosmjs/stargate": ^0.31.0-alpha.1
     "@emotion/cache": ^11.11.0
     "@emotion/jest": ^11.11.0
     "@emotion/react": ^11.11.0
@@ -16257,7 +16258,8 @@ __metadata:
     "@apollo/client": ^3.7.14
     "@cosmjs/encoding": ^0.30.1
     "@cosmjs/launchpad": ^0.27.1
-    "@cosmjs/stargate": ^0.30.1
+    "@cosmjs/proto-signing": ^0.31.0-alpha.1
+    "@cosmjs/stargate": ^0.31.0-alpha.1
     "@emotion/cache": ^11.11.0
     "@emotion/jest": ^11.11.0
     "@emotion/react": ^11.11.0
@@ -16380,7 +16382,8 @@ __metadata:
     "@apollo/client": ^3.7.14
     "@cosmjs/encoding": ^0.30.1
     "@cosmjs/launchpad": ^0.27.1
-    "@cosmjs/stargate": ^0.30.1
+    "@cosmjs/proto-signing": ^0.31.0-alpha.1
+    "@cosmjs/stargate": ^0.31.0-alpha.1
     "@emotion/cache": ^11.11.0
     "@emotion/jest": ^11.11.0
     "@emotion/react": ^11.11.0
@@ -16630,7 +16633,8 @@ __metadata:
     "@apollo/client": ^3.7.14
     "@cosmjs/encoding": ^0.30.1
     "@cosmjs/launchpad": ^0.27.1
-    "@cosmjs/stargate": ^0.30.1
+    "@cosmjs/proto-signing": ^0.31.0-alpha.1
+    "@cosmjs/stargate": ^0.31.0-alpha.1
     "@emotion/cache": ^11.11.0
     "@emotion/jest": ^11.11.0
     "@emotion/react": ^11.11.0
@@ -17373,7 +17377,8 @@ __metadata:
     "@apollo/client": ^3.7.14
     "@cosmjs/encoding": ^0.30.1
     "@cosmjs/launchpad": ^0.27.1
-    "@cosmjs/stargate": ^0.30.1
+    "@cosmjs/proto-signing": ^0.31.0-alpha.1
+    "@cosmjs/stargate": ^0.31.0-alpha.1
     "@emotion/cache": ^11.11.0
     "@emotion/jest": ^11.11.0
     "@emotion/react": ^11.11.0
@@ -17496,7 +17501,8 @@ __metadata:
     "@apollo/client": ^3.7.14
     "@cosmjs/encoding": ^0.30.1
     "@cosmjs/launchpad": ^0.27.1
-    "@cosmjs/stargate": ^0.30.1
+    "@cosmjs/proto-signing": ^0.31.0-alpha.1
+    "@cosmjs/stargate": ^0.31.0-alpha.1
     "@emotion/cache": ^11.11.0
     "@emotion/jest": ^11.11.0
     "@emotion/react": ^11.11.0
@@ -19242,7 +19248,8 @@ __metadata:
     "@apollo/client": ^3.7.14
     "@cosmjs/encoding": ^0.30.1
     "@cosmjs/launchpad": ^0.27.1
-    "@cosmjs/stargate": ^0.30.1
+    "@cosmjs/proto-signing": ^0.31.0-alpha.1
+    "@cosmjs/stargate": ^0.31.0-alpha.1
     "@emotion/cache": ^11.11.0
     "@emotion/jest": ^11.11.0
     "@emotion/react": ^11.11.0

@@ -23,6 +23,10 @@ export interface ChainSettings {
     graphqlWebsocket?: string;
     publicRpcWebsocket?: string;
   };
+  keplrConfig: {
+    keplrRpc: string;
+    keplr: string | undefined;
+  };
   marketing: {
     matomoURL?: string;
     matomoSiteID?: string;
@@ -144,6 +148,4 @@ export interface ChainConfig extends ChainSettings {
     dark: PaletteSettings;
     light: PaletteSettings;
   };
-  keplr: string | undefined;
-  keplrRpc: string;
 }

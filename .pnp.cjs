@@ -21402,7 +21402,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.14"],\
             ["@cosmjs/encoding", "npm:0.30.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
-            ["@cosmjs/stargate", "npm:0.30.1"],\
+            ["@cosmjs/proto-signing", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/stargate", "npm:0.31.0-alpha.1"],\
             ["@emotion/cache", "npm:11.11.0"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
@@ -21905,7 +21906,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.14"],\
             ["@cosmjs/encoding", "npm:0.30.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
-            ["@cosmjs/stargate", "npm:0.30.1"],\
+            ["@cosmjs/proto-signing", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/stargate", "npm:0.31.0-alpha.1"],\
             ["@emotion/cache", "npm:11.11.0"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
@@ -22030,7 +22032,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.14"],\
             ["@cosmjs/encoding", "npm:0.30.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
-            ["@cosmjs/stargate", "npm:0.30.1"],\
+            ["@cosmjs/proto-signing", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/stargate", "npm:0.31.0-alpha.1"],\
             ["@emotion/cache", "npm:11.11.0"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
@@ -22284,7 +22287,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.14"],\
             ["@cosmjs/encoding", "npm:0.30.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
-            ["@cosmjs/stargate", "npm:0.30.1"],\
+            ["@cosmjs/proto-signing", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/stargate", "npm:0.31.0-alpha.1"],\
             ["@emotion/cache", "npm:11.11.0"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
@@ -23039,7 +23043,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.14"],\
             ["@cosmjs/encoding", "npm:0.30.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
-            ["@cosmjs/stargate", "npm:0.30.1"],\
+            ["@cosmjs/proto-signing", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/stargate", "npm:0.31.0-alpha.1"],\
             ["@emotion/cache", "npm:11.11.0"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
@@ -23164,7 +23169,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.14"],\
             ["@cosmjs/encoding", "npm:0.30.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
-            ["@cosmjs/stargate", "npm:0.30.1"],\
+            ["@cosmjs/proto-signing", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/stargate", "npm:0.31.0-alpha.1"],\
             ["@emotion/cache", "npm:11.11.0"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
@@ -24940,7 +24946,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@apollo/client", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:3.7.14"],\
             ["@cosmjs/encoding", "npm:0.30.1"],\
             ["@cosmjs/launchpad", "npm:0.27.1"],\
-            ["@cosmjs/stargate", "npm:0.30.1"],\
+            ["@cosmjs/proto-signing", "npm:0.31.0-alpha.1"],\
+            ["@cosmjs/stargate", "npm:0.31.0-alpha.1"],\
             ["@emotion/cache", "npm:11.11.0"],\
             ["@emotion/jest", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\
             ["@emotion/react", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:11.11.0"],\

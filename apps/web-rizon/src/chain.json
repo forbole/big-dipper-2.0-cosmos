@@ -127,8 +127,6 @@
       }
     }
   },
-  "keplr": "",
-  "keplrRpc": "https://rpc.rizon.forbole.com/",
   "chains": [
     {
       "network": "titan-1",
@@ -154,6 +152,10 @@
         "graphql": "https://gql.rizon.forbole.com/v1/graphql",
         "graphqlWebsocket": "wss://gql.rizon.forbole.com/v1/graphql",
         "publicRpcWebsocket": "wss://rpc.rizon.forbole.com/websocket"
+      },
+      "keplrConfig": {
+        "keplrRpc": "https://rpc.rizon.forbole.com/",
+        "keplr": ""
       },
       "marketing": {
         "matomoURL": "https://analytics.bigdipper.live",

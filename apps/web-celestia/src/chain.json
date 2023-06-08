@@ -205,8 +205,6 @@
       }
     }
   },
-  "keplr": "",
-  "keplrRpc": "https://rpc.celestia.forbole.com/",
   "chains": [
     {
       "network": "blockspacerace-0",
@@ -232,6 +230,10 @@
         "graphql": "https://gql-testnet.celestia.forbole.com/v1/graphql",
         "graphqlWebsocket": "wss://gql-testnet.celestia.forbole.com/v1/graphql",
         "publicRpcWebsocket": "wss://rpc-testnet.celestia.forbole.com/websocket"
+      },
+      "keplrConfig": {
+        "keplrRpc": "https://rpc.celestia.forbole.com/",
+        "keplr": ""
       },
       "marketing": {
         "matomoURL": "https://analytics.bigdipper.live",

@@ -205,7 +205,6 @@
       }
     }
   },
-  "keplr": "",
   "chains": [
     {
       "network": "humans_3000-31",
@@ -231,6 +230,10 @@
         "graphql": "https://gql-testnet.humansai.forbole.com/v1/graphql",
         "graphqlWebsocket": "wss://gql-testnet.humansai.forbole.com/v1/graphql",
         "publicRpcWebsocket": "wss://rpc-testnet.humansai.forbole.com/websocket"
+      },
+      "keplrConfig": {
+        "keplrRpc": "https://rpc.humansai.forbole.com/",
+        "keplr": ""
       },
       "marketing": {
         "matomoURL": "https://analytics.bigdipper.live",

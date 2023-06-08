@@ -39,10 +39,12 @@ import { useState } from 'react';
 import { SetterOrUpdater, useRecoilState } from 'recoil';
 
 // Get the keplr chain info from chainConfig
-const { keplr } = chainConfig();
+const {
+  keplrConfig: { keplr },
+} = chainConfig();
 
 let keplrCustomChainInfo: ChainInfo | undefined;
-if (keplr) {
+if (keplr !== undefined && keplr !== '') {
   keplrCustomChainInfo = JSON.parse(keplr);
 }
 

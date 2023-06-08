@@ -14,10 +14,12 @@ import KeplrIcon from 'shared-utils/assets/keplr-wallet.svg';
 import WalletConnectIcon from 'shared-utils/assets/wallet-connect.svg';
 
 // Get the keplr chain info from chainConfig
-const { keplr } = chainConfig();
+const {
+  keplrConfig: { keplr },
+} = chainConfig();
 
 let keplrCustomChainInfo: ChainInfo | undefined;
-if (keplr) {
+if (keplr !== undefined && keplr !== '') {
   keplrCustomChainInfo = JSON.parse(keplr);
 }
 

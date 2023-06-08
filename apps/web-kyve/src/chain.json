@@ -205,7 +205,6 @@
       }
     }
   },
-  "keplr": "",
   "chains": [
     {
       "network": "kyve-1",
@@ -231,6 +230,10 @@
         "graphql": "https://gql.kyve.forbole.com/v1/graphql",
         "graphqlWebsocket": "wss://gql.kyve.forbole.com/v1/graphql",
         "publicRpcWebsocket": "wss://rpc.kyve.forbole.com/websocket"
+      },
+      "keplrConfig": {
+        "keplrRpc": "https://rpc.kyve.forbole.com/",
+        "keplr": ""
       },
       "marketing": {
         "matomoURL": "https://analytics.bigdipper.live",

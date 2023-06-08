@@ -127,8 +127,6 @@
       }
     }
   },
-  "keplr": "{\"rpc\":\"https://rpc-osmosis.keplr.app\",\"rest\":\"https://lcd-osmosis.keplr.app\",\"chainId\":\"osmosis-1\",\"chainName\":\"Osmosis\",\"chainSymbolImageUrl\":\"https://raw.githubusercontent.com/chainapsis/keplr-chain-registry/main/images/osmosis/chain.png\",\"stakeCurrency\":{\"coinDenom\":\"OSMO\",\"coinMinimalDenom\":\"uosmo\",\"coinDecimals\":6,\"coinGeckoId\":\"osmosis\"},\"walletUrl\":\"https://app.osmosis.zone\",\"walletUrlForStaking\":\"https://wallet.keplr.app/chains/osmosis\",\"bip44\":{\"coinType\":118},\"bech32Config\":{\"bech32PrefixAccAddr\":\"osmo\",\"bech32PrefixAccPub\":\"osmopub\",\"bech32PrefixValAddr\":\"osmovaloper\",\"bech32PrefixValPub\":\"osmovaloperpub\",\"bech32PrefixConsAddr\":\"osmovalcons\",\"bech32PrefixConsPub\":\"osmovalconspub\"},\"currencies\":[{\"coinDenom\":\"OSMO\",\"coinMinimalDenom\":\"uosmo\",\"coinDecimals\":6,\"coinGeckoId\":\"osmosis\"},{\"coinDenom\":\"ION\",\"coinMinimalDenom\":\"uion\",\"coinDecimals\":6,\"coinGeckoId\":\"ion\"}],\"feeCurrencies\":[{\"coinDenom\":\"OSMO\",\"coinMinimalDenom\":\"uosmo\",\"coinDecimals\":6,\"coinGeckoId\":\"osmosis\",\"gasPriceStep\":{\"low\":0.0025,\"average\":0.025,\"high\":0.04}}],\"features\":[\"cosmwasm\",\"osmosis-txfees\"]}",
-  "keplrRpc": "https://rpc.osmosis.forbole.com/",
   "chains": [
     {
       "network": "osmosis-1",
@@ -154,6 +152,10 @@
         "graphql": "https://gql.osmosis.forbole.com/v1/graphql",
         "graphqlWebsocket": "wss://gql.osmosis.forbole.com/v1/graphql",
         "publicRpcWebsocket": "wss://rpc.osmosis.forbole.com/websocket"
+      },
+      "keplrConfig": {
+        "keplrRpc": "https://rpc.osmosis.forbole.com/",
+        "keplr": "{\"rpc\":\"https://rpc-osmosis.keplr.app\",\"rest\":\"https://lcd-osmosis.keplr.app\",\"chainId\":\"osmosis-1\",\"chainName\":\"Osmosis\",\"chainSymbolImageUrl\":\"https://raw.githubusercontent.com/chainapsis/keplr-chain-registry/main/images/osmosis/chain.png\",\"stakeCurrency\":{\"coinDenom\":\"OSMO\",\"coinMinimalDenom\":\"uosmo\",\"coinDecimals\":6,\"coinGeckoId\":\"osmosis\"},\"walletUrl\":\"https://app.osmosis.zone\",\"walletUrlForStaking\":\"https://wallet.keplr.app/chains/osmosis\",\"bip44\":{\"coinType\":118},\"bech32Config\":{\"bech32PrefixAccAddr\":\"osmo\",\"bech32PrefixAccPub\":\"osmopub\",\"bech32PrefixValAddr\":\"osmovaloper\",\"bech32PrefixValPub\":\"osmovaloperpub\",\"bech32PrefixConsAddr\":\"osmovalcons\",\"bech32PrefixConsPub\":\"osmovalconspub\"},\"currencies\":[{\"coinDenom\":\"OSMO\",\"coinMinimalDenom\":\"uosmo\",\"coinDecimals\":6,\"coinGeckoId\":\"osmosis\"},{\"coinDenom\":\"ION\",\"coinMinimalDenom\":\"uion\",\"coinDecimals\":6,\"coinGeckoId\":\"ion\"}],\"feeCurrencies\":[{\"coinDenom\":\"OSMO\",\"coinMinimalDenom\":\"uosmo\",\"coinDecimals\":6,\"coinGeckoId\":\"osmosis\",\"gasPriceStep\":{\"low\":0.0025,\"average\":0.025,\"high\":0.04}}],\"features\":[\"cosmwasm\",\"osmosis-txfees\"]}"
       },
       "marketing": {
         "matomoURL": "https://analytics.bigdipper.live",

@@ -206,8 +206,6 @@
       }
     }
   },
-  "keplr": "{\"chainId\":\"likecoin-mainnet-2\",\"chainName\":\"LikeCoin\",\"chainSymbolImageUrl\":\"https://raw.githubusercontent.com/chainapsis/keplr-chain-registry/main/images/likecoin-mainnet/chain.png\",\"rpc\":\"https://mainnet-node-rpc.like.co\",\"rest\":\"https://mainnet-node.like.co\",\"nodeProvider\":{\"name\":\"like.co\",\"email\":\"team@like.co\",\"website\":\"https://like.co/\"},\"walletUrlForStaking\":\"https://dao.like.co/validators/\",\"bip44\":{\"coinType\":118},\"bech32Config\":{\"bech32PrefixAccAddr\":\"like\",\"bech32PrefixAccPub\":\"likepub\",\"bech32PrefixValAddr\":\"likevaloper\",\"bech32PrefixValPub\":\"likevaloperpub\",\"bech32PrefixConsAddr\":\"likevalcons\",\"bech32PrefixConsPub\":\"likevalconspub\"},\"currencies\":[{\"coinDenom\":\"LIKE\",\"coinMinimalDenom\":\"nanolike\",\"coinDecimals\":9,\"coinGeckoId\":\"likecoin\"}],\"feeCurrencies\":[{\"coinDenom\":\"LIKE\",\"coinMinimalDenom\":\"nanolike\",\"coinDecimals\":9,\"coinGeckoId\":\"likecoin\",\"gasPriceStep\":{\"low\":1,\"average\":10,\"high\":1000}}],\"stakeCurrency\":{\"coinDenom\":\"LIKE\",\"coinMinimalDenom\":\"nanolike\",\"coinDecimals\":9,\"coinGeckoId\":\"likecoin\"},\"features\":[]}",
-  "keplrRpc": "https://rpc.likecoin.forbole.com/",
   "chains": [
     {
       "network": "likecoin-mainnet-2",
@@ -233,6 +231,10 @@
         "graphql": "https://gql.likecoin.forbole.com/v1/graphql",
         "graphqlWebsocket": "wss://gql.likecoin.forbole.com/v1/graphql",
         "publicRpcWebsocket": "wss://rpc.likecoin.forbole.com/websocket"
+      },
+      "keplrConfig": {
+        "keplrRpc": "https://rpc.likecoin.forbole.com/",
+        "keplr": "{\"chainId\":\"likecoin-mainnet-2\",\"chainName\":\"LikeCoin\",\"chainSymbolImageUrl\":\"https://raw.githubusercontent.com/chainapsis/keplr-chain-registry/main/images/likecoin-mainnet/chain.png\",\"rpc\":\"https://mainnet-node-rpc.like.co\",\"rest\":\"https://mainnet-node.like.co\",\"nodeProvider\":{\"name\":\"like.co\",\"email\":\"team@like.co\",\"website\":\"https://like.co/\"},\"walletUrlForStaking\":\"https://dao.like.co/validators/\",\"bip44\":{\"coinType\":118},\"bech32Config\":{\"bech32PrefixAccAddr\":\"like\",\"bech32PrefixAccPub\":\"likepub\",\"bech32PrefixValAddr\":\"likevaloper\",\"bech32PrefixValPub\":\"likevaloperpub\",\"bech32PrefixConsAddr\":\"likevalcons\",\"bech32PrefixConsPub\":\"likevalconspub\"},\"currencies\":[{\"coinDenom\":\"LIKE\",\"coinMinimalDenom\":\"nanolike\",\"coinDecimals\":9,\"coinGeckoId\":\"likecoin\"}],\"feeCurrencies\":[{\"coinDenom\":\"LIKE\",\"coinMinimalDenom\":\"nanolike\",\"coinDecimals\":9,\"coinGeckoId\":\"likecoin\",\"gasPriceStep\":{\"low\":1,\"average\":10,\"high\":1000}}],\"stakeCurrency\":{\"coinDenom\":\"LIKE\",\"coinMinimalDenom\":\"nanolike\",\"coinDecimals\":9,\"coinGeckoId\":\"likecoin\"},\"features\":[]}"
       },
       "marketing": {
         "matomoURL": "https://analytics.bigdipper.live",
@@ -263,6 +265,10 @@
         "graphql": "https://gql-testnet.likecoin.forbole.com/v1/graphql",
         "graphqlWebsocket": "wss://gql-testnet.likecoin.forbole.com/v1/graphql"
       },
+      "keplrConfig": {
+        "keplrRpc": "https://rpc.likecoin.forbole.com/",
+        "keplr": ""
+      },
       "marketing": {
         "matomoURL": "https://analytics.bigdipper.live",
         "matomoSiteID": "8"
@@ -291,6 +297,10 @@
       "endpoints": {
         "graphql": "https://gql-ws-testnet.likecoin.forbole.com/v1/graphql",
         "graphqlWebsocket": "wss://gql-ws-testnet.likecoin.forbole.com/v1/graphql"
+      },
+      "keplrConfig": {
+        "keplrRpc": "https://rpc.likecoin.forbole.com/",
+        "keplr": ""
       },
       "marketing": {
         "matomoURL": "https://analytics.bigdipper.live",
