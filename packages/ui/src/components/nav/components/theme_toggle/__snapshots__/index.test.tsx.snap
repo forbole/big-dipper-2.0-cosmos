@@ -265,6 +265,7 @@ exports[`screen: Nav/ThemeToggle it renders 1`] = `
     <span
       className="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary emotion-2"
       onBlur={[Function]}
+      onClick={[Function]}
       onContextMenu={[Function]}
       onDragLeave={[Function]}
       onFocus={[Function]}
@@ -279,12 +280,12 @@ exports[`screen: Nav/ThemeToggle it renders 1`] = `
       tabIndex={null}
     >
       <input
+        checked={false}
         className="PrivateSwitchBase-input MuiSwitch-input emotion-3"
         disabled={false}
         onChange={[Function]}
         required={false}
         type="checkbox"
-        value="light"
       />
       <span
         className="MuiSwitch-thumb emotion-4"

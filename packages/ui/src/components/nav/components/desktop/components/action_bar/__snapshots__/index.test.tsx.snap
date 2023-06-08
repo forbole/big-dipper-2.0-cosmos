@@ -604,6 +604,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:focus::-ms-input-p
         <span
           className="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary emotion-10"
           onBlur={[Function]}
+          onClick={[Function]}
           onContextMenu={[Function]}
           onDragLeave={[Function]}
           onFocus={[Function]}
@@ -618,12 +619,12 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:focus::-ms-input-p
           tabIndex={null}
         >
           <input
+            checked={false}
             className="PrivateSwitchBase-input MuiSwitch-input emotion-11"
             disabled={false}
             onChange={[Function]}
             required={false}
             type="checkbox"
-            value="light"
           />
           <span
             className="MuiSwitch-thumb emotion-12"
@@ -1249,6 +1250,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:focus::-ms-input-p
         <span
           className="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary emotion-10"
           onBlur={[Function]}
+          onClick={[Function]}
           onContextMenu={[Function]}
           onDragLeave={[Function]}
           onFocus={[Function]}
@@ -1263,12 +1265,12 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-6:focus::-ms-input-p
           tabIndex={null}
         >
           <input
+            checked={false}
             className="PrivateSwitchBase-input MuiSwitch-input emotion-11"
             disabled={false}
             onChange={[Function]}
             required={false}
             type="checkbox"
-            value="light"
           />
           <span
             className="MuiSwitch-thumb emotion-12"
