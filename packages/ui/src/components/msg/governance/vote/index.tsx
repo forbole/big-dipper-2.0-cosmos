@@ -24,8 +24,6 @@ const Vote: FC<{ message: MsgVote }> = (props) => {
     [message.proposalId]
   );
 
-  console.log(Proposal);
-
   return (
     <Typography>
       <Trans
