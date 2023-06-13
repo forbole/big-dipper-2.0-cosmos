@@ -23,9 +23,17 @@ type GridColumnProps = {
   sortKey: string;
   handleSort: (key: string) => void;
   style: CSSProperties;
+  items?: ItemType[];
 };
 
-const GridColumn: FC<GridColumnProps> = ({ column, sortKey, sortDirection, handleSort, style }) => {
+const GridColumn: FC<GridColumnProps> = ({
+  column,
+  sortKey,
+  sortDirection,
+  handleSort,
+  style,
+  items,
+}) => {
   const { t } = useTranslation('validators');
   const { classes, cx } = useStyles();
 
@@ -37,7 +45,9 @@ const GridColumn: FC<GridColumnProps> = ({ column, sortKey, sortDirection, handl
       <Typography variant="h4" className="label popover">
         {t('votingPower')}
         <InfoPopover content={<VotingPowerExplanation />} />
-        {!!sort && <SortArrows sort={sortKey === sortingKey ? sortDirection : undefined} />}
+        {!!sort && items && items.length > 1 && (
+          <SortArrows sort={sortKey === sortingKey ? sortDirection : undefined} />
+        )}
       </Typography>
     );
   }
@@ -58,7 +68,9 @@ const GridColumn: FC<GridColumnProps> = ({ column, sortKey, sortDirection, handl
       {formattedComponent || (
         <Typography variant="h4" align={align}>
           {t(key)}
-          {!!sort && <SortArrows sort={sortKey === sortingKey ? sortDirection : undefined} />}
+          {!!sort && items && items.length > 1 && (
+            <SortArrows sort={sortKey === sortingKey ? sortDirection : undefined} />
+          )}
         </Typography>
       )}
     </div>
@@ -184,6 +196,7 @@ const Desktop: FC<DesktopProps> = (props) => {
                   sortDirection={props.sortDirection}
                   handleSort={props.handleSort}
                   style={style}
+                  items={props.items}
                 />
               )}
             </Grid>

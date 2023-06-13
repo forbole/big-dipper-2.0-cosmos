@@ -18,7 +18,7 @@ const Vote: FC<{ message: MsgVote }> = (props) => {
   const Proposal = useMemo(
     () => (
       <Link shallow href={PROPOSAL_DETAILS(message.proposalId)}>
-        #{message.proposalId}
+        {message.proposalId}
       </Link>
     ),
     [message.proposalId]
@@ -31,6 +31,7 @@ const Vote: FC<{ message: MsgVote }> = (props) => {
         components={[<Name address={message.voter} name={voterMoniker} />, <b />, Proposal]}
         values={{
           vote,
+          proposal: `#${message.proposalId}`,
         }}
       />
     </Typography>

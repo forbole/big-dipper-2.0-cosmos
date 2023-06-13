@@ -40,6 +40,7 @@ const DepositProposal: FC<{ message: MsgDeposit }> = (props) => {
         components={[<Name address={message.depositor} name={depositorMoniker} />, <b />, Proposal]}
         values={{
           amount: parsedAmount,
+          proposal: `#${message.proposalId}`,
         }}
       />
     </Typography>
