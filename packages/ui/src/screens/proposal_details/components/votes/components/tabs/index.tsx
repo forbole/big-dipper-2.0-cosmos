@@ -25,7 +25,7 @@ const TabsHeader: FC<TabsHeaderProps> = ({ className, tab, handleTabChange, data
 
   return (
     <div className={cx(classes.root, className)}>
-      <Tabs variant="scrollable" scrollButtons={false} value={tab} onChange={handleTabChange}>
+      <Tabs variant="scrollable" scrollButtons={'auto'} value={tab} onChange={handleTabChange}>
         {tabLabels(data).map((x, i) => (
           <Tab key={x.key} label={`${t(x.key)} (${x.num})`} {...a11yProps(i)} />
         ))}

@@ -50,14 +50,14 @@ const Mobile: FC<MobileProps> = ({ className, items }) => {
                   {reward}
                 </Typography>
               </div>
-              <div className={classes.item}>
+              {/* <div className={classes.item}>
                 <Typography variant="h4" className="label">
                   {t('commission')}
                 </Typography>
                 <Typography variant="body1" className="value">
                   {commission}
                 </Typography>
-              </div>
+              </div> */}
             </div>
             {!isLast && <Divider />}
           </Fragment>

@@ -21,6 +21,14 @@ const useStyles = makeStyles()((theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
+    [theme.breakpoints.down(401)]: {
+      '& > h1': {
+        fontSize: '1.75rem',
+      },
+      '& > h4': {
+        fontSize: '0.75rem',
+      },
+    },
   },
 }));
 
