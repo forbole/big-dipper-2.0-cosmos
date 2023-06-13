@@ -143,7 +143,8 @@ export const useValidators = () => {
   } = useAccountDelegationsQuery({
     variables: {
       address: userAddress,
-      limit: 20,
+      // pass the validator set params here
+      limit: 50,
     },
   });
 

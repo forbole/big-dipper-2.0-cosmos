@@ -44,7 +44,12 @@ const useStakingHooks = (validators?: ItemType[], delegations?: ValidatorsAvatar
     R.pathOr([], ['accountBalances', 'coins'], available),
     baseDenom
   );
-  const tokenFormatDenom = formatToken(availableForStaking?.amount, availableForStaking.denom);
+
+  const tokenFormatDenom = React.useMemo(
+    () => formatToken(availableForStaking?.amount, availableForStaking.denom),
+    [availableForStaking]
+  );
+  // const tokenFormatDenom = formatToken(availableForStaking?.amount, availableForStaking.denom);
   const token = `${formatNumber(
     tokenFormatDenom.value,
     tokenFormatDenom.exponent
@@ -121,7 +126,7 @@ const useStakingHooks = (validators?: ItemType[], delegations?: ValidatorsAvatar
     if (validatorSourceAddress !== '') {
       const coinsAmount =
         delegations?.find((d) => d.validator.address === validatorSourceAddress)?.coins.amount ??
-        '';
+        '0';
       const denom =
         delegations?.find((d) => d.validator.address === validatorSourceAddress)?.coins.denom ??
         baseDenom;
@@ -139,7 +144,7 @@ const useStakingHooks = (validators?: ItemType[], delegations?: ValidatorsAvatar
   useEffect(() => {
     setUserAddress(localStorage.getItem(ADDRESS_KEY) ?? '');
     setChainID(localStorage.getItem(CHAIN_ID) ?? '');
-  }, []);
+  }, [userAddress, setUserAddress]);
 
   const handleOpenValidatorRedelegateMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
     setRedelegateAnchorEl(event.currentTarget);

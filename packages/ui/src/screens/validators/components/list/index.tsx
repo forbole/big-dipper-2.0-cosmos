@@ -42,6 +42,13 @@ const List: FC<ComponentDefault> = ({ className }) => {
     [state.items, dataProfiles, sortItems]
   );
 
+  // full validator list
+  // TODO: filter items to avoid duplicate key
+  const validatorItems = useMemo(
+    () => state.items.map((v, j) => ({ ...v, validator: dataProfiles?.[j] })),
+    [state.items, dataProfiles]
+  );
+
   // const redelegations Memo
   const delegationsMemo = useShallowMemo(delegationValidators?.map((y) => y.validator)) ?? [];
   const { profiles: delegationProfiles } = useProfilesRecoil(delegationsMemo);
@@ -71,7 +78,7 @@ const List: FC<ComponentDefault> = ({ className }) => {
           items={items}
           search={search}
           className={display.hiddenUntilLg}
-          validators={items}
+          validators={validatorItems}
           delegations={delegationItems}
         />
         <Mobile
