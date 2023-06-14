@@ -168,7 +168,7 @@ const GridRow: FC<GridRowProps> = ({
       );
       break;
     case 'staking':
-      formatItem = loggedIn ? (
+      formatItem = (
         <StakeButton
           address={address}
           imageUrl={imageUrl ?? ''}
@@ -176,8 +176,9 @@ const GridRow: FC<GridRowProps> = ({
           commission={`${numeral(item.commission).format('0.[00]')}%`}
           validators={validators}
           delegations={delegations}
+          disabled={!loggedIn}
         />
-      ) : null;
+      );
       break;
     default:
       break;
@@ -213,7 +214,7 @@ const Desktop: FC<DesktopProps> = (props) => {
   const { classes, cx } = useStyles();
   const loggedIn = useRecoilValue(readIsUserLoggedIn);
 
-  const columns = loggedIn ? fetchLoggedInColumns(t) : fetchColumns(t);
+  const columns = fetchLoggedInColumns(t);
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
 
   return (
@@ -271,7 +272,7 @@ const Desktop: FC<DesktopProps> = (props) => {
                     search={props.search}
                     valLength={props.items.length}
                     i={rowIndex}
-                    loggedIn
+                    loggedIn={loggedIn}
                     validators={props.validators}
                     delegations={props.delegations}
                   />

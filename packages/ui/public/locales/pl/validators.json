@@ -58,5 +58,6 @@
   "votingPowerExplanation": "Jako ze top 34% mocy głosu może z łatwością <0>obniżyć bezpieczeństwo sieci</0> oraz nawet <0>zatrzymać sieć</0>, część walidatorów została wyróżniona aby edukować i zachęcać uzytkownikow do utrzymywania decentralizacji.",
   "tombstoned": "W grobie",
   "votingPowerPercent": "Moc głosu %",
-  "maxRate": "Maksymalna stawka prowizji"
+  "maxRate": "Maksymalna stawka prowizji",
+  "filterBarPlaceholder": "Wyszukaj walidatora / adres"
 }

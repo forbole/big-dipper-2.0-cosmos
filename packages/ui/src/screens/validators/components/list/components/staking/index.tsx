@@ -22,6 +22,7 @@ type StakeButtonProps = {
   commission: string;
   validators?: ItemType[];
   delegations?: ValidatorsAvatarNameType[];
+  disabled: boolean;
 };
 
 const StakeButton = (props: StakeButtonProps) => {
@@ -45,7 +46,12 @@ const StakeButton = (props: StakeButtonProps) => {
 
   return (
     <div>
-      <Button id="stake-button" onClick={handleOpenStakingMenu} className={classes.staking}>
+      <Button
+        id="stake-button"
+        onClick={handleOpenStakingMenu}
+        className={classes.staking}
+        disabled={props.disabled}
+      >
         <Typography variant="body2" className={classes.label}>
           {t('validators:stake')}
         </Typography>

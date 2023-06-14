@@ -92,31 +92,31 @@ const List: FC<ComponentDefault> = ({ className }) => {
 
   return (
     <div>
-      {loggedIn && (
-        <div className={classes.stakingButtons}>
-          <div>
-            <StakeButton
-              validators={items}
-              delegations={delegationItems}
-              address=""
-              imageUrl=""
-              name=""
-              commission=""
-            />
-          </div>
-          <div className={classes.stakingDistribution}>
-            <Link shallow prefetch={false} href={ACCOUNT_DETAILS(address)} className="value">
-              <Button
-                onClick={handleStakingDistribution}
-                color="primary"
-                className={classes.stakingDistrButton}
-              >
-                <Typography variant="h5">{t('validators:stakingDistribution')}</Typography>
-              </Button>
-            </Link>
-          </div>
+      <div className={classes.stakingButtons}>
+        <div>
+          <StakeButton
+            validators={validatorItems}
+            delegations={delegationItems}
+            address=""
+            imageUrl=""
+            name=""
+            commission=""
+            disabled={!loggedIn}
+          />
         </div>
-      )}
+        <div className={classes.stakingDistribution}>
+          <Link shallow prefetch={false} href={ACCOUNT_DETAILS(address)} className="value">
+            <Button
+              onClick={handleStakingDistribution}
+              color="primary"
+              className={classes.stakingDistrButton}
+              disabled={!loggedIn}
+            >
+              <Typography variant="h5">{t('validators:stakingDistribution')}</Typography>
+            </Button>
+          </Link>
+        </div>
+      </div>
       <LoadAndExist loading={state.loading || !!loading} exists={state.exists}>
         <Box className={className}>
           <Tabs tab={state.tab} handleTabChange={handleTabChange} handleSearch={handleSearch} />

@@ -83,5 +83,6 @@
   "claimRewards": "Claim Rewards",
   "success": "Success!",
   "trackingOfTxDetailsIsNowAvailable": "Tracking of transaction details is now available.",
-  "viewTxs": "View transactions"
+  "viewTxs": "View transactions",
+  "filterBarPlaceholder": "Search for validator / address"
 }
