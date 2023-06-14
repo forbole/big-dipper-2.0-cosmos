@@ -81,7 +81,7 @@ RUN ([ -z "${NEXT_PUBLIC_SENTRY_DSN}" ] || yarn node packages/shared-utils/confi
 
 # Stage: runner
 FROM --platform=$TARGETPLATFORM ${BASE_IMAGE} AS runner
- 
+
 # Copying the files from the builder stage to the runner stage.
 ARG PROJECT_NAME
 ENV NODE_ENV=production
@@ -107,7 +107,7 @@ WORKDIR /app/apps/${PROJECT_NAME}
 
 RUN addgroup --system --gid 1001 nodejs \
   && adduser --system --uid 1001 nextjs \
-  && chown -R nextjs:nodejs /home/nextjs /app
+  && chown -R nextjs:nodejs /app
 
 COPY --chown=nextjs:nodejs --from=builder \
   /app/package.json /app/.pnp.* /app/.yarnrc.yml /app/yarn.lock \
