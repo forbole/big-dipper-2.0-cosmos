@@ -30,10 +30,19 @@ const useStyles = makeStyles()((theme) => ({
       background: theme.palette.custom.wallet?.surfaceFour,
     },
     fontFamily: 'SF Pro',
-    fontWeight: '590',
+    '> h5': {
+      fontWeight: 700,
+    },
     lineHeight: '17px',
     display: 'flex',
     letterSpacing: '-0.002em',
+    '&.Mui-disabled': {
+      color: '#007FFF',
+      opacity: '50%',
+      '> h5': {
+        fontWeight: 700,
+      },
+    },
   },
 }));
 

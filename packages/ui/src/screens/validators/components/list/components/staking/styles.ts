@@ -104,6 +104,9 @@ const useStyles = makeStyles()((theme) => ({
     width: '86px',
     height: '32px',
     justifyContent: 'center',
+    '&.Mui-disabled': {
+      opacity: '50%',
+    },
   },
   stakingButton: {
     display: 'flex',
