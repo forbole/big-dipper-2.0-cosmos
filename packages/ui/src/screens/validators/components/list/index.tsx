@@ -43,7 +43,6 @@ const List: FC<ComponentDefault> = ({ className }) => {
   );
 
   // full validator list
-  // TODO: filter items to avoid duplicate key
   const validatorItems = useMemo(
     () => state.items.map((v, j) => ({ ...v, validator: dataProfiles?.[j] })),
     [state.items, dataProfiles]

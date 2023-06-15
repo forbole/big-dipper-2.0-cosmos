@@ -14,6 +14,12 @@ import numeral from 'numeral';
 import { FC } from 'react';
 import { Cell, Pie, PieChart, ResponsiveContainer } from 'recharts';
 import { useRecoilValue } from 'recoil';
+import { useDisplayStyles } from '@/styles/useSharedStyles';
+import type {
+  ItemType,
+  ValidatorsAvatarNameType,
+} from '@/screens/validators/components/list/types';
+import StakeButton from '@/screens/validators/components/list/components/staking/index';
 
 const DynamicPieChart = dynamic(() => Promise.resolve(PieChart), { ssr: false });
 const { primaryTokenUnit, tokenUnits } = chainConfig();
@@ -21,6 +27,9 @@ const { primaryTokenUnit, tokenUnits } = chainConfig();
 type BalanceProps = Parameters<typeof formatBalanceData>[0] & {
   className?: string;
   total: TokenUnit;
+  validators: ItemType[];
+  delegations: ValidatorsAvatarNameType[];
+  loggedIn: boolean;
 };
 
 const Balance: FC<BalanceProps> = (props) => {
@@ -59,9 +68,24 @@ const Balance: FC<BalanceProps> = (props) => {
   // format
   const totalDisplay = formatNumber(props.total.value, props.total.exponent);
 
+  const display = useDisplayStyles().classes;
+
   return (
     <Box className={cx(classes.root, props.className)}>
-      <Typography variant="h2">{t('balance')}</Typography>
+      <span className={classes.titleWrapper}>
+        <Typography variant="h2">{t('balance')}</Typography>
+        <span className={display.hiddenUntilLg}>
+          <StakeButton
+            address=""
+            imageUrl=""
+            name=""
+            commission=""
+            validators={props.validators}
+            delegations={props.delegations}
+            disabled={!props.loggedIn}
+          />
+        </span>
+      </span>
       <div className={classes.chartWrapper}>
         <div className={classes.chart}>
           <ResponsiveContainer width="99%">
