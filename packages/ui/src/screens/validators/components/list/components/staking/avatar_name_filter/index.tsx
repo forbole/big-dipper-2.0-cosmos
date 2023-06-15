@@ -6,9 +6,11 @@ import MiddleEllipsis from '@/components/MiddleEllipsis';
 import useAppTranslation from '@/hooks/useAppTranslation';
 import useStyles from '@/screens/validators/components/list/components/staking/styles';
 import useAvatarNameFilterHook from '@/screens/validators/components/list/components/staking/avatar_name_filter/hooks';
+import { getValidatorConditionClass } from '@/utils/get_validator_condition';
+import Condition from '@/screens/validators/components/list/components/condition';
 
 interface AvatarNameFilterInputProps {
-  options: AvatarName[];
+  options: (AvatarName & { condition: number; status: number })[];
   setValidatorAvatarAddress: (address: string) => void;
   validatorAvatarAddress: string;
 }
@@ -20,30 +22,28 @@ const AvatarNameFilterInput: FC<AvatarNameFilterInputProps> = ({
 }) => {
   const { classes } = useStyles();
   const { t } = useAppTranslation('validators');
-  const { filterOptions } = useAvatarNameFilterHook();
-
-  const handleOnChange = (_: React.ChangeEvent<any>, value: AvatarName | null) => {
-    if (value) {
-      setValidatorAvatarAddress(value.address);
-    } else {
-      setValidatorAvatarAddress('');
-    }
-  };
+  const { filterOptions, handleOnChange, selectedOption } =
+    useAvatarNameFilterHook(setValidatorAvatarAddress);
 
   return (
     <Autocomplete
       options={options}
       getOptionLabel={(option) => option.name}
-      renderOption={(props, option) => (
-        <span className={classes.validatorOptionSpan} {...props}>
-          <Avatar
-            className={classes.avatar}
-            address={option.address}
-            imageUrl={option.imageUrl || undefined}
-          />
-          <MiddleEllipsis className={classes.text} content={option.name} />
-        </span>
-      )}
+      renderOption={(props, option) => {
+        const condition =
+          option.status === 3 ? getValidatorConditionClass(option.condition) : undefined;
+        return (
+          <span className={classes.validatorOptionSpan} {...props}>
+            <Avatar
+              className={classes.avatar}
+              address={option.address}
+              imageUrl={option.imageUrl || undefined}
+            />
+            <MiddleEllipsis className={classes.text} content={option.name} />
+            <Condition className={condition} />
+          </span>
+        );
+      }}
       filterOptions={filterOptions}
       value={options.find((option) => option.address === validatorAvatarAddress) || null}
       onChange={handleOnChange}
@@ -59,12 +59,15 @@ const AvatarNameFilterInput: FC<AvatarNameFilterInputProps> = ({
                 {params.inputProps.value && (
                   <Avatar
                     imageUrl={
-                      options.find((option) => option.name === params.inputProps.value)?.imageUrl ||
-                      undefined
+                      options.find(
+                        (option) => option.name === selectedOption?.name ?? params.inputProps.value
+                      )?.imageUrl || undefined
                     }
                     address={
-                      options.find((option) => option.address === params.inputProps.value)
-                        ?.address || ''
+                      options.find(
+                        (option) =>
+                          option.address === selectedOption?.address ?? params.inputProps.value
+                      )?.address || ''
                     }
                   />
                 )}

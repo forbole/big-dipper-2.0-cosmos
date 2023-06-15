@@ -24,11 +24,13 @@ export interface ValidatorsState {
 
 export interface DelegationValidatorsType {
   validator: string;
+  condition: number;
+  status: number;
   coins: Coin[];
 }
 
 export interface ValidatorsAvatarNameType {
-  validator: AvatarName;
+  validator: AvatarName & { condition: number; status: number };
   coins: Coin;
 }
 

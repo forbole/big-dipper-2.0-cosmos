@@ -149,17 +149,22 @@ export const useValidators = () => {
   });
 
   useEffect(() => {
-    if (delegationsData && delegationsData.delegations) {
+    if (delegationsData && delegationsData.delegations && state.items) {
       const {
         delegations: { delegations },
       } = delegationsData;
-      const delegatedValidators = delegations?.map((data) => ({
-        validator: data.validator_address ?? '',
-        coins: data.coins ?? {},
-      }));
+      const delegatedValidators = delegations?.map((data) => {
+        const target = state.items.find((x) => x.validator === data.validator_address);
+        return {
+          status: target?.status ?? 0,
+          condition: target?.condition ?? 0,
+          validator: data.validator_address ?? '',
+          coins: data.coins ?? {},
+        };
+      });
       setDelegationValidators(delegatedValidators || []);
     }
-  }, [delegationsData, delegationsLoading, delegationsError]);
+  }, [delegationsData, delegationsLoading, delegationsError, state.items]);
 
   const handleTabChange = useCallback(
     (_event: SyntheticEvent<Element, globalThis.Event>, newValue: number) => {

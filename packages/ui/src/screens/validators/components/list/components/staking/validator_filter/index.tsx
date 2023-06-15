@@ -7,6 +7,8 @@ import useAppTranslation from '@/hooks/useAppTranslation';
 import useStyles from '@/screens/validators/components/list/components/staking/styles';
 import useValidatorFilterHook from '@/screens/validators/components/list/components/staking/validator_filter/hooks';
 import type { ItemType } from '@/screens/validators/components/list/types';
+import { getValidatorConditionClass } from '@/utils/get_validator_condition';
+import Condition from '@/screens/validators/components/list/components/condition';
 
 interface ValidatorFilterInputProps {
   options: ItemType[];
@@ -21,31 +23,31 @@ const ValidatorFilterInput: FC<ValidatorFilterInputProps> = ({
 }) => {
   const { classes } = useStyles();
   const { t } = useAppTranslation('validators');
-  const { filterOptions } = useValidatorFilterHook();
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const handleOnChange = (_: React.ChangeEvent<any>, value: ItemType | null) => {
-    if (value) {
-      setValidatorAddress(value.validator.address);
-    } else {
-      setValidatorAddress('');
-    }
-  };
+  const { filterOptions, handleOnChange, selectedOption } =
+    useValidatorFilterHook(setValidatorAddress);
 
   return (
     <Autocomplete
       options={options}
-      getOptionLabel={({ validator }) => validator.name}
-      renderOption={(props, option) => (
-        <span className={classes.validatorOptionSpan} {...props}>
-          <Avatar
-            className={classes.avatar}
-            address={option.validator.address}
-            imageUrl={option.validator.imageUrl ?? undefined}
-          />
-          <MiddleEllipsis className={classes.text} content={option.validator.name} />
-        </span>
-      )}
+      getOptionLabel={({ validator }) => `${validator.name} (${validator.address})`}
+      renderOption={(props, option) => {
+        const condition =
+          option.status === 3 ? getValidatorConditionClass(option.condition) : undefined;
+        return (
+          <span className={classes.validatorOptionSpan} key={option.validator.address} {...props}>
+            <Avatar
+              className={classes.avatar}
+              address={option.validator.address}
+              imageUrl={option.validator.imageUrl ?? undefined}
+            />
+            <MiddleEllipsis
+              className={classes.text}
+              content={option.validator.name || option.validator.address}
+            />
+            <Condition className={condition} />
+          </span>
+        );
+      }}
       filterOptions={filterOptions}
       value={options.find((option) => option.validator.address === validatorAddress) || null}
       onChange={handleOnChange}
@@ -61,12 +63,18 @@ const ValidatorFilterInput: FC<ValidatorFilterInputProps> = ({
                 {params.inputProps.value && (
                   <Avatar
                     imageUrl={
-                      options.find((option) => option.validator.name === params.inputProps.value)
-                        ?.validator.imageUrl ?? undefined
+                      options.find(
+                        (option) =>
+                          option.validator.name === selectedOption?.validator.name ??
+                          params.inputProps.value
+                      )?.validator.imageUrl ?? undefined
                     }
                     address={
-                      options.find((option) => option.validator.address === params.inputProps.value)
-                        ?.validator.address ?? ''
+                      options.find(
+                        (option) =>
+                          option.validator.address === selectedOption?.validator.address ??
+                          params.inputProps.value
+                      )?.validator.address ?? ''
                     }
                   />
                 )}

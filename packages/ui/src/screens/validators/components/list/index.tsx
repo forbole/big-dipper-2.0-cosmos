@@ -56,7 +56,7 @@ const List: FC<ComponentDefault> = ({ className }) => {
     () =>
       delegationValidators?.map((d, j) => ({
         coins: d.coins?.[0],
-        validator: delegationProfiles?.[j],
+        validator: { ...delegationProfiles?.[j], status: d.status, condition: d.condition },
       })) ?? [],
     [delegationValidators, delegationProfiles]
   );
