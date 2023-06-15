@@ -220,25 +220,36 @@ export const useValidators = () => {
         });
       }
 
-      if (state.sortKey && state.sortDirection) {
-        sorted.sort((a, b) => {
-          let compareA = R.pathOr('', [...state.sortKey.split('.')], a);
-          let compareB = R.pathOr('', [...state.sortKey.split('.')], b);
+      sorted.sort((a, b) => {
+        const compareA = a.validator.name.toLowerCase();
+        const compareB = b.validator.name.toLowerCase();
 
-          if (typeof compareA === 'string' && typeof compareB === 'string') {
-            compareA = compareA.toLowerCase();
-            compareB = compareB.toLowerCase();
+        if (compareA === 'forbole' && compareB !== 'forbole') {
+          return -1;
+        }
+        if (compareA !== 'forbole' && compareB === 'forbole') {
+          return 1;
+        }
+
+        if (state.sortKey && state.sortDirection) {
+          let compareValueA = R.pathOr('', [...state.sortKey.split('.')], a);
+          let compareValueB = R.pathOr('', [...state.sortKey.split('.')], b);
+
+          if (typeof compareValueA === 'string' && typeof compareValueB === 'string') {
+            compareValueA = compareValueA.toLowerCase();
+            compareValueB = compareValueB.toLowerCase();
           }
 
-          if (compareA < compareB) {
+          if (compareValueA < compareValueB) {
             return state.sortDirection === 'asc' ? -1 : 1;
           }
-          if (compareA > compareB) {
+          if (compareValueA > compareValueB) {
             return state.sortDirection === 'asc' ? 1 : -1;
           }
-          return 0;
-        });
-      }
+        }
+
+        return 0;
+      });
 
       return sorted;
     },
