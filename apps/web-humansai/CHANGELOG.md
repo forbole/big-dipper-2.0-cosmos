@@ -1,5 +1,11 @@
 # Unreleased
 
+## 2.18.0
+
+### Minor Changes
+
+- [#1271](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1271) [`7230937d2`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/7230937d2c46c65e08a9f7bd51a53e2b7d524928) Thanks [@rachelhox](https://github.com/rachelhox)! - release humansai mainnet big dipper
+
 ## 2.17.0
 
 ### Minor Changes
