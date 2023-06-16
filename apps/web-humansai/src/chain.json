@@ -208,6 +208,36 @@
   "keplr": "",
   "chains": [
     {
+      "network": "humans_1089-1",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "2023-05-29T10:00:00.000Z",
+        "height": 1
+      },
+      "prefix": {
+        "consensus": "humanvalcons",
+        "validator": "humanvaloper",
+        "account": "human"
+      },
+      "primaryTokenUnit": "aheart",
+      "votingPowerTokenUnit": "aheart",
+      "tokenUnits": {
+        "aheart": {
+          "display": "heart",
+          "exponent": 18
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.humansai.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.humansai.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc.humansai.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
+      }
+    },
+    {
       "network": "humans_3000-31",
       "chainType": "Testnet",
       "genesis": {
