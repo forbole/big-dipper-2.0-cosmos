@@ -40,6 +40,7 @@ import celestiaIconDark from 'shared-utils/assets/icons/celestia-both.svg?url';
 import coreumIconBoth from 'shared-utils/assets/icons/coreum-both.svg?url';
 import kyveIconBoth from 'shared-utils/assets/icons/kyve-both.svg?url';
 import humansaiIconDark from 'shared-utils/assets/icons/humansai-both.svg?url';
+import gitopiaIconDark from 'shared-utils/assets/icons/gitopia-both.svg?url';
 import agoricLogoLight from 'shared-utils/assets/logos/agoric-light.png';
 import akashLogoDark from 'shared-utils/assets/logos/akash-dark.svg?url';
 import assetmantleLogoDark from 'shared-utils/assets/logos/assetmantle-dark.svg?url';
@@ -81,6 +82,8 @@ import coreumLogoBoth from 'shared-utils/assets/logos/coreum-both.svg?url';
 import kyveLogoDark from 'shared-utils/assets/logos/kyve-dark.svg?url';
 import kyveLogoLight from 'shared-utils/assets/logos/kyve-light.svg?url';
 import humansaiLogoDark from 'shared-utils/assets/logos/humansai-dark.svg?url';
+import gitopiaLogoDark from 'shared-utils/assets/logos/gitopia-dark.svg?url';
+import gitopiaLogoLight from 'shared-utils/assets/logos/gitopia-light.svg?url';
 
 interface IconProps extends Omit<ImageProps, 'id' | 'src'> {
   type: 'icon' | 'logo';
@@ -266,6 +269,10 @@ const ChainIcon = ({
         type === 'icon'
           ? [humansaiIconDark, humansaiIconDark]
           : [humansaiLogoDark, humansaiLogoDark];
+      break;
+    case 'gitopia':
+      [iconDark, iconLight] =
+        type === 'icon' ? [gitopiaIconDark, gitopiaIconDark] : [gitopiaLogoDark, gitopiaLogoLight];
       break;
     default:
       throw new Error(`chain ${chainName} not supported`);
