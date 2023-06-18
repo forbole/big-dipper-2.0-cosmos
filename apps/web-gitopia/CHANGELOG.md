@@ -1,5 +1,17 @@
 # Unreleased
 
+## 2.17.0
+
+### Minor Changes
+
+- [#1273](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1273) [`4a8dd7a48`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/4a8dd7a480a65aadefd3ea3af6fc1d5280dacbc2) Thanks [@rachelhox](https://github.com/rachelhox)! - add Gitopia Big Dipper
+
+### Patch Changes
+
+- Updated dependencies [[`4a8dd7a48`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/4a8dd7a480a65aadefd3ea3af6fc1d5280dacbc2)]:
+  - shared-utils@2.20.0
+  - ui@2.32.0
+
 ## 2.16.0
 
 ### Minor Changes
