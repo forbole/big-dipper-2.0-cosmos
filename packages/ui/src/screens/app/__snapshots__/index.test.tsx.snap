@@ -225,7 +225,7 @@ exports[`screen: _app matches snapshot 1`] = `
     <h2
       className="MuiTypography-root MuiTypography-h2 emotion-17"
     >
-      morpheus-apollo-3
+      desmos-mainnet
     </h2>
   </div>,
   <div

@@ -150,6 +150,10 @@ exports[`screen: Validators/List matches snapshot 1`] = `
   fill: #FFFFFF;
 }
 
+.emotion-1.Mui-disabled {
+  opacity: 50%;
+}
+
 .emotion-2 {
   margin: 0;
   font-size: 0.875rem;
@@ -235,7 +239,6 @@ exports[`screen: Validators/List matches snapshot 1`] = `
   border: 1px solid #007FFF;
   color: #007FFF;
   font-family: SF Pro;
-  font-weight: 590;
   line-height: 17px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -295,6 +298,19 @@ exports[`screen: Validators/List matches snapshot 1`] = `
 .emotion-5:hover {
   cursor: pointer;
   background: #A1A1A1;
+}
+
+.emotion-5>h5 {
+  font-weight: 700;
+}
+
+.emotion-5.Mui-disabled {
+  color: #007FFF;
+  opacity: 50%;
+}
+
+.emotion-5.Mui-disabled>h5 {
+  font-weight: 700;
 }
 
 .emotion-6 {
