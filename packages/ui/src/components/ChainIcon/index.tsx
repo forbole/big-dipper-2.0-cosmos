@@ -78,7 +78,8 @@ import multiversxLogoDark from 'shared-utils/assets/logos/multiversx-dark.svg?ur
 import wormholeLogoDark from 'shared-utils/assets/logos/wormhole.svg?url';
 import celestiaLogoDark from 'shared-utils/assets/logos/celestia-dark.svg?url';
 import celestiaLogoLight from 'shared-utils/assets/logos/celestia-light.svg?url';
-import coreumLogoBoth from 'shared-utils/assets/logos/coreum-both.svg?url';
+import coreumLogoDark from 'shared-utils/assets/logos/coreum-dark.svg?url';
+import coreumLogoLight from 'shared-utils/assets/logos/coreum-light.svg?url';
 import kyveLogoDark from 'shared-utils/assets/logos/kyve-dark.svg?url';
 import kyveLogoLight from 'shared-utils/assets/logos/kyve-light.svg?url';
 import humansaiLogoDark from 'shared-utils/assets/logos/humansai-dark.svg?url';
@@ -258,7 +259,7 @@ const ChainIcon = ({
       break;
     case 'coreum':
       [iconDark, iconLight] =
-        type === 'icon' ? [coreumIconBoth, coreumIconBoth] : [coreumLogoBoth, coreumLogoBoth];
+        type === 'icon' ? [coreumIconBoth, coreumIconBoth] : [coreumLogoDark, coreumLogoLight];
       break;
     case 'kyve':
       [iconDark, iconLight] =
