@@ -22,7 +22,7 @@ export interface ValidatorsState {
   items: ValidatorType[];
 }
 
-export interface DelegationValidatorsType {
+export interface ValidatorsCoinsConditionType {
   validator: string;
   condition: number;
   status: number;

@@ -22,7 +22,7 @@ export interface ValidatorsState {
 }
 
 export type {
-  DelegationValidatorsType,
+  ValidatorsCoinsConditionType,
   ValidatorsAvatarNameType,
 } from 'ui/screens/validators/components/list/types';
 export type ItemType = Override<ValidatorType, { validator: AvatarName }>;

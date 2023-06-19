@@ -6,7 +6,7 @@ import chainConfig from '@/chainConfig';
 import { useValidatorsQuery, ValidatorsQuery } from '@/graphql/types/general_types';
 import { SlashingParams } from '@/models';
 import type {
-  DelegationValidatorsType,
+  ValidatorsCoinsConditionType,
   ItemType,
   ValidatorsState,
   ValidatorType,
@@ -182,7 +182,7 @@ export const useValidators = () => {
     setSearch(value);
   }, []);
 
-  const [delegationValidators] = useState<DelegationValidatorsType[]>([]);
+  const [delegationValidators] = useState<ValidatorsCoinsConditionType[]>([]);
 
   return {
     state,

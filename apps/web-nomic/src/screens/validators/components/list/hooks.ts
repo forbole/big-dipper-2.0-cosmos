@@ -3,7 +3,7 @@ import numeral from 'numeral';
 import * as R from 'ramda';
 import { SyntheticEvent, useCallback, useState } from 'react';
 import type {
-  DelegationValidatorsType,
+  ValidatorsCoinsConditionType,
   ItemType,
   ValidatorsState,
   ValidatorType,
@@ -175,7 +175,7 @@ export const useValidators = () => {
     setSearch(value);
   };
 
-  const [delegationValidators] = useState<DelegationValidatorsType[]>([]);
+  const [delegationValidators] = useState<ValidatorsCoinsConditionType[]>([]);
 
   return {
     state,

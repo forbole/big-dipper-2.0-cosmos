@@ -58,7 +58,7 @@ const DelegateDialog: FC<DelegateDialogProps> = ({
     handleCloseSnackBar,
     txHash,
     resetDialogInfo,
-  } = useStakingHooks(validators);
+  } = useStakingHooks({ validators });
 
   // Add a useEffect to close the delegation dialog when the delegationSuccess state is true
   React.useEffect(() => {

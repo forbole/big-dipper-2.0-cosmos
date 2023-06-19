@@ -67,7 +67,7 @@ const RedelegateDialog: FC<RedelegateDialogProps> = ({
     stakedToken,
     validatorSourceAddress,
     valAddress,
-  } = useStakingHooks(validators, delegations);
+  } = useStakingHooks({ validators, delegations });
 
   // set sources address to validatorAddress input if validatorAddress prop is passed
   React.useEffect(() => {

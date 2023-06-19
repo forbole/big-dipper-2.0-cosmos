@@ -168,6 +168,13 @@ const useStyles = makeStyles()((theme) => ({
     '> h5': {
       fontWeight: 800,
     },
+    '&.Mui-disabled': {
+      opacity: '50%',
+      '&:hover': {
+        cursor: 'default',
+        background: theme.palette.primary.main,
+      },
+    },
     '&:hover': {
       cursor: 'pointer',
       background: theme.palette.primary.main,

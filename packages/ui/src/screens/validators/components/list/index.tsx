@@ -19,6 +19,7 @@ import Typography from '@mui/material/Typography';
 import { FC, ReactNode, useMemo } from 'react';
 import Link from 'next/link';
 import { ACCOUNT_DETAILS } from '@/utils/go_to_page';
+import chainConfig from '@/chainConfig';
 
 const List: FC<ComponentDefault> = ({ className }) => {
   const { classes, cx } = useStyles();
@@ -27,6 +28,7 @@ const List: FC<ComponentDefault> = ({ className }) => {
   const {
     state,
     delegationValidators,
+    rewardValidators,
     handleTabChange,
     handleSearch,
     handleSort,
@@ -34,6 +36,7 @@ const List: FC<ComponentDefault> = ({ className }) => {
     search,
   } = useValidators();
   const { handleStakingDistribution } = useStakingDistribution();
+  const { primaryTokenUnit } = chainConfig();
 
   const validatorsMemo = useShallowMemo(state.items.map((x) => x.validator));
   const { profiles: dataProfiles, loading } = useProfilesRecoil(validatorsMemo);
@@ -60,6 +63,18 @@ const List: FC<ComponentDefault> = ({ className }) => {
     [delegationValidators, delegationProfiles]
   );
 
+  // const rewards Memo
+  const rewardsMemo = useShallowMemo(rewardValidators?.map((z) => z.validator)) ?? [];
+  const { profiles: rewardProfiles } = useProfilesRecoil(rewardsMemo);
+  const rewardItems = useMemo(
+    () =>
+      rewardValidators?.map((d, j) => ({
+        coins: d.coins?.[0] ?? { amount: '0', denom: primaryTokenUnit },
+        validator: { ...rewardProfiles?.[j], status: d.status, condition: d.condition },
+      })) ?? [],
+    [rewardValidators, primaryTokenUnit, rewardProfiles]
+  );
+
   const loggedIn = useRecoilValue(readIsUserLoggedIn);
   const address = useRecoilValue(readUserAddress);
 
@@ -79,6 +94,7 @@ const List: FC<ComponentDefault> = ({ className }) => {
           className={display.hiddenUntilLg}
           validators={validatorItems}
           delegations={delegationItems}
+          rewards={rewardItems}
         />
         <Mobile
           items={items}
@@ -96,6 +112,7 @@ const List: FC<ComponentDefault> = ({ className }) => {
           <StakeButton
             validators={validatorItems}
             delegations={delegationItems}
+            rewards={rewardItems}
             address=""
             imageUrl=""
             name=""

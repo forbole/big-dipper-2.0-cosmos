@@ -87,6 +87,7 @@ type GridRowProps = {
   loggedIn: boolean;
   validators?: ItemType[];
   delegations?: ValidatorsAvatarNameType[];
+  rewards?: ValidatorsAvatarNameType[];
 };
 
 const GridRow: FC<GridRowProps> = ({
@@ -101,6 +102,7 @@ const GridRow: FC<GridRowProps> = ({
   loggedIn,
   validators,
   delegations,
+  rewards,
 }) => {
   const { classes, cx } = useStyles();
   const { name, address, imageUrl } = item.validator;
@@ -176,6 +178,7 @@ const GridRow: FC<GridRowProps> = ({
           commission={`${numeral(item.commission).format('0.[00]')}%`}
           validators={validators}
           delegations={delegations}
+          rewards={rewards}
           disabled={!loggedIn}
         />
       );
@@ -207,6 +210,7 @@ type DesktopProps = {
   search: string;
   validators?: ItemType[];
   delegations?: ValidatorsAvatarNameType[];
+  rewards?: ValidatorsAvatarNameType[];
 };
 
 const Desktop: FC<DesktopProps> = (props) => {
@@ -275,6 +279,7 @@ const Desktop: FC<DesktopProps> = (props) => {
                     loggedIn={loggedIn}
                     validators={props.validators}
                     delegations={props.delegations}
+                    rewards={props.rewards}
                   />
                 );
               }}

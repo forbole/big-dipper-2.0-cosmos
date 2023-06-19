@@ -14,6 +14,7 @@ import DelegateDialog from '@/screens/validators/components/list/components/stak
 import useStakingHooks from '@/screens/validators/components/list/components/staking/hooks';
 import RedelegateDialog from '@/screens/validators/components/list/components/staking/redelegate';
 import UndelegateDialog from '@/screens/validators/components/list/components/staking/undelegate';
+import WithdrawRewardDialog from '@/screens/validators/components/list/components/staking/withdraw';
 
 type StakeButtonProps = {
   address: string;
@@ -22,6 +23,7 @@ type StakeButtonProps = {
   commission: string;
   validators?: ItemType[];
   delegations?: ValidatorsAvatarNameType[];
+  rewards?: ValidatorsAvatarNameType[];
   disabled: boolean;
 };
 
@@ -34,14 +36,17 @@ const StakeButton = (props: StakeButtonProps) => {
     openDelegateDialog,
     openRedelegateDialog,
     openUndelegateDialog,
+    openWithdrawDialog,
     handleOpenStakingMenu,
     handleOpenDelegateDialog,
     handleOpenRedelegateDialog,
     handleOpenUndelegateDialog,
+    handleOpenWithdrawRewardsDialog,
     handleCloseStakingMenu,
     handleCloseDelegateDialog,
     handleCloseRedelegateDialog,
     handleCloseUndelegateDialog,
+    handleCloseWithdrawRewardsDialog,
   } = useStakingHooks();
 
   return (
@@ -100,7 +105,18 @@ const StakeButton = (props: StakeButtonProps) => {
           validators={props.validators ?? undefined}
           delegations={props.delegations ?? undefined}
         />
-        {/* <MenuItem onClick={handleCloseClaimRewardsDialog}> {t('validators:claimRewards')}</MenuItem> */}
+        <MenuItem onClick={handleOpenWithdrawRewardsDialog}>
+          {t('validators:claimRewards')}
+        </MenuItem>
+        <WithdrawRewardDialog
+          open={openWithdrawDialog}
+          onClose={handleCloseWithdrawRewardsDialog}
+          validatorAddress={props.address}
+          imageUrl={props.imageUrl ?? ''}
+          validatorName={props.name}
+          validatorCommission={props.commission}
+          rewards={props.rewards ?? undefined}
+        />
       </Menu>
     </div>
   );

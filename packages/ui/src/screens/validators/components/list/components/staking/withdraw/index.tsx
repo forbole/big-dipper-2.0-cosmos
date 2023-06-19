@@ -14,74 +14,71 @@ import CircularProgress from '@mui/material/CircularProgress';
 import * as React from 'react';
 import { FC } from 'react';
 import AvatarNameFilterInput from '@/screens/validators/components/list/components/staking/avatar_name_filter';
-import type {
-  ItemType,
-  ValidatorsAvatarNameType,
-} from '@/screens/validators/components/list/types';
+import type { ValidatorsAvatarNameType } from '@/screens/validators/components/list/types';
 import CustomSnackbar from '@/components/snackbar';
 import useStakingHooks from '@/screens/validators/components/list/components/staking/hooks';
 
-type UndelegateDialogProps = {
+type WithdrawRewardDialogProps = {
   open: boolean;
   onClose: () => void;
   validatorAddress: string;
   validatorName: string;
   imageUrl: string;
   validatorCommission: string;
-  delegations?: ValidatorsAvatarNameType[];
-  validators?: ItemType[];
+  rewards?: ValidatorsAvatarNameType[];
 };
 
-const UndelegateDialog: FC<UndelegateDialogProps> = ({
+const WithdrawRewardDialog: FC<WithdrawRewardDialogProps> = ({
   open,
   onClose,
   validatorAddress,
   validatorName,
   imageUrl,
   validatorCommission,
-  delegations,
-  validators,
+  rewards,
 }) => {
   const { classes } = useStyles();
   const { t } = useAppTranslation();
   const {
-    amount,
     memo,
     tokenFormatDenom,
-    stakedToken,
+    rewardToken,
     errorMsg,
-    delegationSuccess,
+    withdrawSuccess,
     txHash,
-    validatorSourceAddress,
+    validatorRewardAddress,
     loading,
-    resetDialogInfo,
+    resetWithdrawDialogInfo,
     handleStakingAction,
     setMemoValue,
-    setValidatorSourceAddress,
-    setTxAmount,
-    setDelegationSuccess,
+    setValidatorRewardAddress,
+    setWithdrawSuccess,
     setOpenSuccessSnackbar,
     openSuccessSnackbar,
     handleCloseSnackBar,
-  } = useStakingHooks({ validators, delegations });
+  } = useStakingHooks({ rewards });
 
-  // set sources delegated address to validatorAddress input if validatorAddress prop is passed
+  // set sources reward validator address to validatorAddress input if validatorAddress prop is passed
   React.useEffect(() => {
-    if (validatorAddress && delegations) {
-      setValidatorSourceAddress(validatorAddress);
-    }
-    return () => setValidatorSourceAddress('');
-  }, [delegations, setValidatorSourceAddress, validatorAddress]);
+    setValidatorRewardAddress(validatorAddress);
+    return () => setValidatorRewardAddress('');
+  }, [rewards, setValidatorRewardAddress, validatorAddress]);
 
   React.useEffect(() => {
-    if (delegationSuccess) {
+    if (withdrawSuccess) {
       onClose();
       setOpenSuccessSnackbar(true);
-      resetDialogInfo();
-      setDelegationSuccess(false);
+      resetWithdrawDialogInfo();
+      setWithdrawSuccess(false);
     }
-    return () => setDelegationSuccess(false);
-  }, [delegationSuccess, onClose, resetDialogInfo, setDelegationSuccess, setOpenSuccessSnackbar]);
+    return () => setWithdrawSuccess(false);
+  }, [
+    onClose,
+    resetWithdrawDialogInfo,
+    setOpenSuccessSnackbar,
+    setWithdrawSuccess,
+    withdrawSuccess,
+  ]);
 
   return (
     <div>
@@ -89,16 +86,16 @@ const UndelegateDialog: FC<UndelegateDialogProps> = ({
         <DialogTitle>
           <div className={classes.header}>
             <Typography className={classes.title} gutterBottom>
-              {t('validators:undelegation')}
+              {t('validators:claimRewards')}
             </Typography>
           </div>
 
-          <Typography className={classes.subtitle}>{t('validators:undelegateFrom')}</Typography>
-          {delegations && !validatorAddress ? (
+          <Typography className={classes.subtitle}>{t('validators:claimFrom')}</Typography>
+          {rewards && !validatorAddress ? (
             <AvatarNameFilterInput
-              options={delegations.map((item) => item.validator)}
-              setValidatorAvatarAddress={setValidatorSourceAddress}
-              validatorAvatarAddress={validatorSourceAddress}
+              options={rewards.map((item) => item.validator)}
+              setValidatorAvatarAddress={setValidatorRewardAddress}
+              validatorAvatarAddress={validatorRewardAddress}
             />
           ) : (
             <div className={classes.validatorCard}>
@@ -121,36 +118,12 @@ const UndelegateDialog: FC<UndelegateDialogProps> = ({
         <DialogContent>
           <div className={classes.ddd}>
             <Typography className={classes.subtitle} align="left">
-              {t('validators:howMuchToUndelegate')}
+              {t('validators:claimAmount')}
             </Typography>
             <Typography className={classes.subtitle} align="right">
-              {t('validators:stakedAmount')}
-              <div className={classes.amountLabel}>{stakedToken}</div>
+              <div className={classes.amountLabel}>{rewardToken}</div>
             </Typography>
           </div>
-          <TextField
-            value={amount}
-            required
-            hiddenLabel
-            fullWidth
-            // margin="normal"
-            placeholder={t('validators:amountPlaceholder')}
-            variant="filled"
-            id="undelegate-amount-input"
-            type="number"
-            InputProps={{
-              disableUnderline: true,
-              endAdornment: tokenFormatDenom?.displayDenom.toUpperCase(),
-              style: {
-                height: '44px',
-              },
-              inputProps: { min: 0, step: 0.000001 },
-            }}
-            className={classes.textField}
-            onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-              setTxAmount(parseFloat(event.target.value));
-            }}
-          />
           <Typography className={classes.subtitle} id="memo">
             {t('validators:memo')}
           </Typography>
@@ -183,17 +156,18 @@ const UndelegateDialog: FC<UndelegateDialogProps> = ({
             <Button
               onClick={() =>
                 handleStakingAction(
-                  validatorSourceAddress === '' ? validatorAddress : validatorSourceAddress,
-                  'undelegate'
+                  validatorRewardAddress === '' ? validatorAddress : validatorRewardAddress,
+                  'claim rewards'
                 )
               }
               color="primary"
               className={classes.delegateButton}
+              disabled={rewardToken === `0 ${tokenFormatDenom?.displayDenom.toUpperCase()}`}
             >
               {loading ? (
                 <CircularProgress size={20} color="inherit" />
               ) : (
-                <Typography variant="h5">{t('validators:undelegate')}</Typography>
+                <Typography variant="h5">{t('validators:claim')}</Typography>
               )}
             </Button>
           </div>
@@ -213,4 +187,4 @@ const UndelegateDialog: FC<UndelegateDialogProps> = ({
   );
 };
 
-export default UndelegateDialog;
+export default WithdrawRewardDialog;

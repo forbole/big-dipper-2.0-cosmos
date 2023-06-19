@@ -29,6 +29,7 @@ type BalanceProps = Parameters<typeof formatBalanceData>[0] & {
   total: TokenUnit;
   validators: ItemType[];
   delegations: ValidatorsAvatarNameType[];
+  rewards: ValidatorsAvatarNameType[];
   loggedIn: boolean;
 };
 
@@ -82,6 +83,7 @@ const Balance: FC<BalanceProps> = (props) => {
             commission=""
             validators={props.validators}
             delegations={props.delegations}
+            rewards={props.rewards}
             disabled={!props.loggedIn}
           />
         </span>

@@ -16,12 +16,13 @@ import type {
   ItemType,
   ValidatorsState,
   ValidatorType,
-  DelegationValidatorsType,
+  ValidatorsCoinsConditionType,
 } from '@/screens/validators/components/list/types';
+import { useRewards } from '@/screens/account_details/utils';
 import { formatToken } from '@/utils/format_token';
 import { getValidatorCondition } from '@/utils/get_validator_condition';
 
-const { extra, votingPowerTokenUnit } = chainConfig();
+const { extra, votingPowerTokenUnit, primaryTokenUnit } = chainConfig();
 
 // ==========================
 // Parse data
@@ -99,7 +100,10 @@ export const useValidators = () => {
     sortDirection: 'asc',
   });
   const [userAddress, setUserAddress] = useState<string>('');
-  const [delegationValidators, setDelegationValidators] = useState<DelegationValidatorsType[]>([]);
+  const [delegationValidators, setDelegationValidators] = useState<ValidatorsCoinsConditionType[]>(
+    []
+  );
+  const [rewardValidators, setRewardValidators] = useState<ValidatorsCoinsConditionType[]>([]);
   const loggedIn = useRecoilValue(readIsUserLoggedIn);
 
   const handleSetState = useCallback(
@@ -168,6 +172,27 @@ export const useValidators = () => {
       setDelegationValidators(delegatedValidators || []);
     }
   }, [delegationsData, delegationsLoading, delegationsError, state.items, loggedIn]);
+
+  // ==========================
+  // Fetch Rewards Data
+  // ==========================
+  const rewards = useRewards(userAddress);
+
+  useEffect(() => {
+    if (rewards && state.items && loggedIn) {
+      const { delegationRewards } = rewards;
+      const rewardsValidators = delegationRewards?.map((data) => {
+        const target = state.items.find((x) => x.validator === data?.validatorAddress);
+        return {
+          status: target?.status ?? 0,
+          condition: target?.condition ?? 0,
+          validator: data?.validatorAddress ?? '',
+          coins: data?.coins ? data?.coins : [{ denom: primaryTokenUnit, amount: '0' }],
+        };
+      });
+      setRewardValidators(rewardsValidators || []);
+    }
+  }, [state.items, loggedIn, rewards]);
 
   const handleTabChange = useCallback(
     (_event: SyntheticEvent<Element, globalThis.Event>, newValue: number) => {
@@ -262,6 +287,7 @@ export const useValidators = () => {
   return {
     state,
     delegationValidators,
+    rewardValidators,
     handleTabChange,
     handleSort,
     handleSearch,

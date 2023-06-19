@@ -16,7 +16,13 @@ import type {
   ValidatorsAvatarNameType,
 } from '@/screens/validators/components/list/types';
 
-const useStakingHooks = (validators?: ItemType[], delegations?: ValidatorsAvatarNameType[]) => {
+interface UseStakingHooksOptions {
+  rewards?: ValidatorsAvatarNameType[];
+  validators?: ItemType[];
+  delegations?: ValidatorsAvatarNameType[];
+}
+
+const useStakingHooks = ({ rewards, validators, delegations }: UseStakingHooksOptions = {}) => {
   const [amount, setAmount] = React.useState<string | number>('');
   const [userAddress, setUserAddress] = React.useState('');
   const [chainID, setChainID] = React.useState('');
@@ -35,6 +41,7 @@ const useStakingHooks = (validators?: ItemType[], delegations?: ValidatorsAvatar
   const [openSuccessSnackbar, setOpenSuccessSnackbar] = React.useState(false);
   const [openDelegateDialog, setOpenDelegateDialog] = React.useState(false);
   const [openValidatorRedelegateMenu, setOpenValidatorRedelegateMenu] = React.useState(false);
+  const [openWithdrawDialog, setOpenWithdrawDialog] = React.useState(false);
   const [txHash, setTxHash] = React.useState('');
 
   // Get mint denom
@@ -105,6 +112,14 @@ const useStakingHooks = (validators?: ItemType[], delegations?: ValidatorsAvatar
     setOpenUndelegateDialog(true);
   };
 
+  const handleOpenWithdrawRewardsDialog = () => {
+    setOpenWithdrawDialog(true);
+  };
+
+  const handleCloseWithdrawRewardsDialog = () => {
+    setOpenWithdrawDialog(false);
+  };
+
   const handleCloseSnackBar = (event: React.SyntheticEvent | Event, reason?: string) => {
     if (reason === 'clickaway') {
       return;
@@ -116,6 +131,11 @@ const useStakingHooks = (validators?: ItemType[], delegations?: ValidatorsAvatar
   const resetDialogInfo = () => {
     setValAddress('');
     setAmount('');
+    setMemo('');
+  };
+
+  const resetWithdrawDialogInfo = () => {
+    setValidatorRewardAddress('');
     setMemo('');
   };
 
@@ -145,6 +165,27 @@ const useStakingHooks = (validators?: ItemType[], delegations?: ValidatorsAvatar
       setStakedToken(token);
     }
   }, [validatorSourceAddress, valAddress, delegations, baseDenom, token]);
+
+  // Add a new state to control the success state of the withdraw rewards action
+  const [withdrawSuccess, setWithdrawSuccess] = React.useState(false);
+
+  const [rewardToken, setRewardToken] = React.useState<string>('');
+
+  const [validatorRewardAddress, setValidatorRewardAddress] = React.useState('');
+
+  useEffect(() => {
+    const coinsAmount =
+      rewards?.find((d) => d.validator.address === validatorRewardAddress)?.coins.amount ?? '0';
+    const denom =
+      rewards?.find((d) => d.validator.address === validatorRewardAddress)?.coins.denom ??
+      baseDenom;
+    const tokenDenomFormat = formatToken(coinsAmount, denom);
+    const rToken = `${formatNumber(
+      tokenDenomFormat.value,
+      tokenDenomFormat.exponent
+    )} ${tokenDenomFormat.displayDenom.toUpperCase()}`;
+    setRewardToken(rToken);
+  }, [validatorRewardAddress, baseDenom, rewardToken, rewards]);
 
   useEffect(() => {
     setUserAddress(localStorage.getItem(ADDRESS_KEY) ?? '');
@@ -249,9 +290,17 @@ const useStakingHooks = (validators?: ItemType[], delegations?: ValidatorsAvatar
         break;
       case 'claim rewards':
         try {
-          result = await client.withdrawRewards(userAddress, stakingAddress, 'auto', memo);
+          setLoading(true);
+          result = await client.withdrawRewards(userAddress, validatorRewardAddress, 'auto', memo);
+          setWithdrawSuccess(true);
+          setTxHash(result.transactionHash);
+          assertIsDeliverTxSuccess(result);
+          setLoading(false);
+          setValidatorRewardAddress('');
         } catch (e) {
           setErrorMsg((e as Error).message);
+          handleCloseWithdrawRewardsDialog();
+          setOpenSuccessSnackbar(false);
           return;
         }
         break;
@@ -267,6 +316,7 @@ const useStakingHooks = (validators?: ItemType[], delegations?: ValidatorsAvatar
     handleOpenDelegateDialog,
     handleOpenRedelegateDialog,
     handleOpenUndelegateDialog,
+    handleOpenWithdrawRewardsDialog,
     handleOpenValidatorRedelegateMenu,
     handleCloseRedelegateMenu,
     openValidatorRedelegateMenu,
@@ -280,17 +330,23 @@ const useStakingHooks = (validators?: ItemType[], delegations?: ValidatorsAvatar
     handleCloseDelegateDialog,
     handleCloseRedelegateDialog,
     handleCloseUndelegateDialog,
+    handleCloseWithdrawRewardsDialog,
     setOpenDelegateDialog,
     setValAddress,
     setDelegationSuccess,
+    setWithdrawSuccess,
     setTxHash,
     setOpenSuccessSnackbar,
     resetDialogInfo,
+    resetWithdrawDialogInfo,
     setLoading,
     setValidatorSourceAddress,
     validatorSourceAddress,
+    setValidatorRewardAddress,
+    validatorRewardAddress,
     stakedToken,
     delegationSuccess,
+    withdrawSuccess,
     valAddress,
     amount,
     errorMsg,
@@ -301,12 +357,14 @@ const useStakingHooks = (validators?: ItemType[], delegations?: ValidatorsAvatar
     openSuccessSnackbar,
     openRedelegateDialog,
     openUndelegateDialog,
+    openWithdrawDialog,
     openRedelegateMenu,
     available,
     baseDenom,
     availableForStaking,
     tokenFormatDenom,
     token,
+    rewardToken,
     txHash,
     loading,
   };
