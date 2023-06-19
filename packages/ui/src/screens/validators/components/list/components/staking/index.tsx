@@ -62,6 +62,11 @@ const StakeButton = (props: StakeButtonProps) => {
         anchorEl={anchorEl}
         open={openStakingMenu}
         onClose={handleCloseStakingMenu}
+        className={classes.stakingMenu}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'left',
+        }}
       >
         <MenuItem onClick={handleOpenDelegateDialog}> {t('validators:delegate')}</MenuItem>
         <DelegateDialog

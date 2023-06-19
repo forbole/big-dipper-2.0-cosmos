@@ -111,6 +111,15 @@ const useStyles = makeStyles()((theme) => ({
   stakingButton: {
     display: 'flex',
   },
+  stakingMenu: {
+    '& .MuiMenu-paper': {
+      backgroundColor: theme.palette.divider,
+    },
+    '& .MuiMenuItem-root': {
+      fontWeight: 900,
+      padding: theme.spacing(1, 2),
+    },
+  },
   label: {
     color: '#FFFFFF',
   },
