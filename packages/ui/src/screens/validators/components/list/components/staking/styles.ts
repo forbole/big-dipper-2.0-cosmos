@@ -103,6 +103,9 @@ const useStyles = makeStyles()((theme) => ({
     borderRadius: '4px',
     width: '86px',
     height: '32px',
+    '> p': {
+      fontWeight: 700,
+    },
     justifyContent: 'center',
     '&.Mui-disabled': {
       opacity: '50%',
@@ -162,6 +165,9 @@ const useStyles = makeStyles()((theme) => ({
     background: theme.palette.primary.main,
     borderRadius: '4px',
     color: theme.palette.custom.wallet.textSecondary,
+    '> h5': {
+      fontWeight: 800,
+    },
     '&:hover': {
       cursor: 'pointer',
       background: theme.palette.primary.main,
