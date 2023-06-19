@@ -1,11 +1,11 @@
 {
   "name": "web-persistence",
-  "version": "2.17.3",
+  "version": "2.18.1",
   "license": "Apache-2.0",
   "private": true,
   "scripts": {
     "dev": "RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED=false next dev",
-    "build": "next build",
+    "build": "next build && next-sitemap",
     "clean": "rm -rf .next .swc .turbo coverage node_modules",
     "start": "next start",
     "ts-check": "pnpify tsc --noemit",
@@ -46,6 +46,7 @@
     "next": "^13.4.1",
     "next-i18next": "^13.2.2",
     "next-seo": "^6.0.0",
+    "next-sitemap": "^4.1.3",
     "numeral": "^2.0.6",
     "pako": "^2.1.0",
     "qrcode.react": "^3.1.0",

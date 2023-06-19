@@ -1792,6 +1792,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@corex/deepmerge@npm:^4.0.43":
+  version: 4.0.43
+  resolution: "@corex/deepmerge@npm:4.0.43"
+  checksum: f0103bfcfb9938ba478868fad522b018b92615ba186b0322c92aa1f57e539b87d4379d88fee3a404264a83bd4b13c384cfb07834377997d6d71cd840a880b4c4
+  languageName: node
+  linkType: hard
+
 "@cosmjs/amino@npm:0.27.1":
   version: 0.27.1
   resolution: "@cosmjs/amino@npm:0.27.1"
@@ -3823,6 +3830,13 @@ __metadata:
   peerDependencies:
     react: ^17.0.0 || ^18.0.0
   checksum: bec2d8e173805e2a7446aa4fa7a3119d96a62787b685dbf59908f337daec922fa74a54bc60038cf1269621aebb7b61e7a52caa4ac4daa0140c5e290adce20160
+  languageName: node
+  linkType: hard
+
+"@next/env@npm:*":
+  version: 13.4.4
+  resolution: "@next/env@npm:13.4.4"
+  checksum: 9ab9b9ac4e5920cb9911273a776a5e2564844ac735a9c483bf584e090a7f534ce4a8fcda313132d338837e634513f680885c6b4ee811d5175db1b98b0bba4b35
   languageName: node
   linkType: hard
 
@@ -8777,7 +8791,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-glob@npm:^3.2.11, fast-glob@npm:^3.2.2, fast-glob@npm:^3.2.9":
+"fast-glob@npm:^3.2.11, fast-glob@npm:^3.2.12, fast-glob@npm:^3.2.2, fast-glob@npm:^3.2.9":
   version: 3.2.12
   resolution: "fast-glob@npm:3.2.12"
   dependencies:
@@ -11850,10 +11864,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minimist@npm:^1.2.0, minimist@npm:^1.2.6, minimist@npm:~1.2.5":
-  version: 1.2.7
-  resolution: "minimist@npm:1.2.7"
-  checksum: 7346574a1038ca23c32e02252f603801f09384dd1d78b69a943a4e8c2c28730b80e96193882d3d3b22a063445f460e48316b29b8a25addca2d7e5e8f75478bec
+"minimist@npm:^1.2.0, minimist@npm:^1.2.6, minimist@npm:^1.2.8, minimist@npm:~1.2.5":
+  version: 1.2.8
+  resolution: "minimist@npm:1.2.8"
+  checksum: 75a6d645fb122dad29c06a7597bddea977258957ed88d7a6df59b5cd3fe4a527e253e9bbf2e783e4b73657f9098b96a5fe96ab8a113655d4109108577ecf85b0
   languageName: node
   linkType: hard
 
@@ -12066,6 +12080,23 @@ __metadata:
     react: ">=16.0.0"
     react-dom: ">=16.0.0"
   checksum: aa986b3731386bc91408df6bca09a9edc0cdd8a7730bcdc331f283ab50803a6d60047b685eeec4b11bde1660dbb792e3737e81ef05a65682323d0d07fa9edd85
+  languageName: node
+  linkType: hard
+
+"next-sitemap@npm:^4.1.3":
+  version: 4.1.3
+  resolution: "next-sitemap@npm:4.1.3"
+  dependencies:
+    "@corex/deepmerge": ^4.0.43
+    fast-glob: ^3.2.12
+    minimist: ^1.2.8
+  peerDependencies:
+    "@next/env": "*"
+    next: "*"
+  bin:
+    next-sitemap: bin/next-sitemap.mjs
+    next-sitemap-cjs: bin/next-sitemap.cjs
+  checksum: de9b292dffdafcaf0a1cd661471f34892aaad37820b613d6776f04a30ab5b1ead21b79890dcfdfb2de72e0f12d052674ffe165692f5b106495759f3d9cf5141e
   languageName: node
   linkType: hard
 
@@ -15308,6 +15339,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -15723,6 +15755,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -15847,6 +15880,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -15971,6 +16005,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -16095,6 +16130,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -16219,6 +16255,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -16343,6 +16380,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -16467,6 +16505,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -16592,6 +16631,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     pako: ^2.1.0
     qrcode.react: ^3.1.0
@@ -16718,6 +16758,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -16842,6 +16883,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -16966,6 +17008,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -17090,6 +17133,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -17214,6 +17258,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -17338,6 +17383,131 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
+    numeral: ^2.0.6
+    qrcode.react: ^3.1.0
+    qs: ^6.11.1
+    ramda: ^0.29.0
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    react-i18next: ^12.2.2
+    react-share: ^4.4.1
+    react-test-renderer: ^18.2.0
+    react-toastify: ^9.1.2
+    react-virtualized-auto-sizer: ^1.0.15
+    react-window: ^1.8.9
+    react-window-infinite-loader: ^1.0.9
+    recharts: ^2.5.0
+    recoil: ^0.7.7
+    shared-utils: "workspace:*"
+    subscriptions-transport-ws: ^0.11.0
+    ts-jest: ^29.1.0
+    ts-node: ^10.9.1
+    tsconfig: "workspace:*"
+    tslib: ^2.5.0
+    tss-react: ^4.8.3
+    typanion: ^3.12.1
+    typescript: ^5.0.4
+    ui: "workspace:*"
+    usehooks-ts: ^2.9.1
+    ws: ^8.13.0
+    xss: ^1.0.14
+    zod: ^3.21.4
+  languageName: unknown
+  linkType: soft
+
+"web-gitopia@workspace:apps/web-gitopia":
+  version: 0.0.0-use.local
+  resolution: "web-gitopia@workspace:apps/web-gitopia"
+  dependencies:
+    "@apollo/client": ^3.7.14
+    "@cosmjs/encoding": ^0.30.1
+    "@cosmjs/launchpad": ^0.27.1
+    "@cosmjs/stargate": ^0.29.5
+    "@emotion/cache": ^11.11.0
+    "@emotion/jest": ^11.11.0
+    "@emotion/react": ^11.11.0
+    "@emotion/server": ^11.11.0
+    "@emotion/styled": ^11.11.0
+    "@graphql-codegen/cli": ^3.3.1
+    "@graphql-codegen/client-preset": ^3.0.1
+    "@graphql-codegen/fragment-matcher": ^4.0.1
+    "@graphql-codegen/typescript": ^3.0.4
+    "@graphql-codegen/typescript-operations": ^3.0.4
+    "@graphql-codegen/typescript-react-apollo": ^3.3.7
+    "@graphql-tools/mock": ^8.7.20
+    "@graphql-tools/schema": ^9.0.19
+    "@jest/globals": ^29.5.0
+    "@keplr-wallet/types": ^0.11.59
+    "@keplr-wallet/wc-client": ^0.11.59
+    "@mui/icons-material": ^5.11.16
+    "@mui/material": ^5.12.3
+    "@next/eslint-plugin-next": ^13.4.1
+    "@socialgouv/matomo-next": ^1.6.1
+    "@svgr/webpack": ^7.0.0
+    "@testing-library/jest-dom": ^5.16.5
+    "@testing-library/react": ^14.0.0
+    "@types/big.js": ^6.1.6
+    "@types/color": ^3.0.3
+    "@types/eslint": ^8.37.0
+    "@types/esprima": ^4.0.3
+    "@types/jest": ^29.5.1
+    "@types/js-yaml": ^4.0.5
+    "@types/node": ^18.16.5
+    "@types/numeral": ^2.0.2
+    "@types/qs": ^6.9.7
+    "@types/ramda": ^0.29.1
+    "@types/react": ^18.2.6
+    "@types/react-dom": ^18.2.4
+    "@types/react-test-renderer": ^18.0.0
+    "@types/react-virtualized-auto-sizer": ^1.0.1
+    "@types/react-window": ^1.8.5
+    "@types/react-window-infinite-loader": ^1.0.6
+    "@typescript-eslint/eslint-plugin": ^5.59.2
+    "@typescript-eslint/parser": ^5.59.2
+    "@walletconnect/client": ^1.8.0
+    "@walletconnect/encoding": ^1.0.2
+    "@yarnpkg/pnpify": ^4.0.0-rc.43
+    apollo-link-rest: ^0.9.0
+    bech32: ^2.0.0
+    big.js: ^6.2.1
+    color: ^4.2.3
+    copy-to-clipboard: ^3.3.3
+    csstype: ^3.1.2
+    dayjs: ^1.11.7
+    dotenv: ^16.0.3
+    eslint: ^8.40.0
+    eslint-config-airbnb: ^19.0.4
+    eslint-config-custom: "workspace:*"
+    eslint-config-next: ^13.4.1
+    eslint-config-prettier: ^8.8.0
+    eslint-config-turbo: ^1.9.3
+    eslint-import-resolver-typescript: ^3.5.5
+    eslint-plugin-import: ^2.27.5
+    eslint-plugin-jsx-a11y: ^6.7.1
+    eslint-plugin-react: ^7.32.2
+    eslint-plugin-react-hooks: ^4.6.0
+    eslint-plugin-turbo: ^1.9.3
+    esprima: ^4.0.1
+    framer-motion: ^10.12.8
+    graphql: ^16.6.0
+    graphql-tag: ^2.12.6
+    graphql-ws: ^5.12.1
+    i18next: ^22.4.15
+    jdenticon: ^3.2.0
+    jest: ^29.5.0
+    jest-cli: ^29.5.0
+    jest-environment-jsdom: ^29.5.0
+    jest-localstorage-mock: ^2.4.26
+    jest-presets: "workspace:*"
+    jest-transform-stub: ^2.0.0
+    jest-watch-typeahead: ^2.2.2
+    js-yaml: ^4.1.0
+    markdown-to-jsx: ^7.2.0
+    next: ^13.4.1
+    next-i18next: ^13.2.2
+    next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -17462,6 +17632,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -17586,6 +17757,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -17710,6 +17882,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -17828,6 +18001,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -17952,6 +18126,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -18076,6 +18251,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -18200,6 +18376,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -18325,6 +18502,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     pako: ^2.1.0
     qrcode.react: ^3.1.0
@@ -18451,6 +18629,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -18575,6 +18754,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -18699,6 +18879,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -18823,6 +19004,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -18947,6 +19129,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -19071,6 +19254,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -19209,6 +19393,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -19333,6 +19518,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
@@ -19457,6 +19643,7 @@ __metadata:
     next: ^13.4.1
     next-i18next: ^13.2.2
     next-seo: ^6.0.0
+    next-sitemap: ^4.1.3
     numeral: ^2.0.6
     qrcode.react: ^3.1.0
     qs: ^6.11.1
