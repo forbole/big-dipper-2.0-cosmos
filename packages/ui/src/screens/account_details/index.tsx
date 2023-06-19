@@ -55,7 +55,7 @@ const AccountDetails = () => {
         coins: d.coins?.[0] ?? { amount: '0', denom: primaryTokenUnit },
         validator: { ...rewardProfiles?.[j], status: d.status, condition: d.condition },
       })) ?? [],
-    [rewardValidators, rewardProfiles]
+    [rewardValidators, primaryTokenUnit, rewardProfiles]
   );
 
   const loggedIn = useRecoilValue(readIsUserLoggedIn);
