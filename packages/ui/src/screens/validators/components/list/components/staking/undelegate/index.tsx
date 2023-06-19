@@ -189,6 +189,7 @@ const UndelegateDialog: FC<UndelegateDialogProps> = ({
               }
               color="primary"
               className={classes.delegateButton}
+              disabled={stakedToken === `0 ${tokenFormatDenom?.displayDenom.toUpperCase()}`}
             >
               {loading ? (
                 <CircularProgress size={20} color="inherit" />

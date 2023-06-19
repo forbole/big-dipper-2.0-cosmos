@@ -82,7 +82,7 @@ const DelegateDialog: FC<DelegateDialogProps> = ({
           </div>
 
           <Typography className={classes.subtitle}>{t('validators:delegateTo')}</Typography>
-          {validators ? (
+          {validators && !validatorAddress ? (
             <ValidatorFilterInput
               options={validators}
               setValidatorAddress={setValAddress}
