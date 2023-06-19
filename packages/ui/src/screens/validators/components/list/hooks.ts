@@ -2,12 +2,14 @@ import Big from 'big.js';
 import numeral from 'numeral';
 import * as R from 'ramda';
 import { SyntheticEvent, useCallback, useState, useEffect } from 'react';
+import { useRecoilValue } from 'recoil';
 import chainConfig from '@/chainConfig';
 import {
   useValidatorsQuery,
   ValidatorsQuery,
   useAccountDelegationsQuery,
 } from '@/graphql/types/general_types';
+import { readIsUserLoggedIn } from '@/recoil/user';
 import { SlashingParams } from '@/models';
 import { ADDRESS_KEY } from '@/utils/localstorage';
 import type {
@@ -98,6 +100,7 @@ export const useValidators = () => {
   });
   const [userAddress, setUserAddress] = useState<string>('');
   const [delegationValidators, setDelegationValidators] = useState<DelegationValidatorsType[]>([]);
+  const loggedIn = useRecoilValue(readIsUserLoggedIn);
 
   const handleSetState = useCallback(
     (stateChange: (prevState: ValidatorsState) => ValidatorsState) => {
@@ -149,7 +152,7 @@ export const useValidators = () => {
   });
 
   useEffect(() => {
-    if (delegationsData && delegationsData.delegations && state.items) {
+    if (delegationsData && delegationsData.delegations && state.items && loggedIn) {
       const {
         delegations: { delegations },
       } = delegationsData;
@@ -164,7 +167,7 @@ export const useValidators = () => {
       });
       setDelegationValidators(delegatedValidators || []);
     }
-  }, [delegationsData, delegationsLoading, delegationsError, state.items]);
+  }, [delegationsData, delegationsLoading, delegationsError, state.items, loggedIn]);
 
   const handleTabChange = useCallback(
     (_event: SyntheticEvent<Element, globalThis.Event>, newValue: number) => {

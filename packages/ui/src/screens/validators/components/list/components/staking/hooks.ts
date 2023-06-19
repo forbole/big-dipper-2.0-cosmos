@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useRecoilValue } from 'recoil';
 import { useAvailableBalances } from '@/screens/account_details/utils';
 import { useParams } from '@/screens/params/hooks';
 import { getDenom } from '@/utils/get_denom';
@@ -9,6 +10,7 @@ import { assertIsDeliverTxSuccess, MsgBeginRedelegateEncodeObject } from '@cosmj
 import { useEffect } from 'react';
 import { coin } from '@cosmjs/proto-signing';
 import { ADDRESS_KEY, CHAIN_ID } from '@/utils/localstorage';
+import { readIsUserLoggedIn } from '@/recoil/user';
 import type {
   ItemType,
   ValidatorsAvatarNameType,
@@ -45,9 +47,12 @@ const useStakingHooks = (validators?: ItemType[], delegations?: ValidatorsAvatar
     baseDenom
   );
 
+  const loggedIn = useRecoilValue(readIsUserLoggedIn);
+
   const tokenFormatDenom = React.useMemo(
     () => formatToken(availableForStaking?.amount, availableForStaking.denom),
-    [availableForStaking]
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [availableForStaking, loggedIn]
   );
   // const tokenFormatDenom = formatToken(availableForStaking?.amount, availableForStaking.denom);
   const token = `${formatNumber(
