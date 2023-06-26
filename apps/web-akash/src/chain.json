@@ -163,26 +163,29 @@
       }
     },
     {
-      "network": "akashnet-1",
-      "chainType": "Retired",
+      "network": "testnet-02",
+      "chainType": "Testnet",
       "genesis": {
-        "time": "",
-        "height": 0
+        "time": "2023-06-19T09:22:15",
+        "height": 1
       },
       "prefix": {
-        "consensus": "",
-        "validator": "",
-        "account": ""
+        "consensus": "akashvalcons",
+        "validator": "akashvaloper",
+        "account": "akash"
       },
-      "primaryTokenUnit": "",
-      "votingPowerTokenUnit": "",
+      "primaryTokenUnit": "uakt",
+      "votingPowerTokenUnit": "uakt",
       "tokenUnits": {
-        "": {
-          "exponent": 0
+        "uakt": {
+          "display": "akt",
+          "exponent": 6
         }
       },
       "endpoints": {
-        "publicRpcWebsocket": "wss://akashnet-1.bigdipper.live/sockjs/148/5fvjwp4h/websocket"
+        "graphql": "https://gql-testnet.akash.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql-testnet.akash.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc-testnet.akash.forbole.com/websocket"
       },
       "keplrConfig": {
         "keplrRpc": "https://rpc.akash.forbole.com/",

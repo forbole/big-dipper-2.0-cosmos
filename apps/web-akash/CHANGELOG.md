@@ -1,5 +1,11 @@
 # Unreleased
 
+## 2.18.0
+
+### Minor Changes
+
+- [#1276](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1276) [`a0cba53c6`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/a0cba53c6dba3e602641cf13802eef8c94c5c783) Thanks [@rachelhox](https://github.com/rachelhox)! - add Akash testnet big dipper
+
 ## 2.17.1
 
 ### Patch Changes
