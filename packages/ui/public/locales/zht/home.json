@@ -30,5 +30,5 @@
     "lastVotingPowerChange": "最後投票權變更",
     "powerChange": "<0>{{change}}</0> 在區塊 ",
     "validators": "驗證者",
-    "priceHistory": "價格（~24 小時）"
+    "priceHistory": "價格（~48 小時）"
 }

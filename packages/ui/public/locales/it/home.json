@@ -30,5 +30,5 @@
   "lastVotingPowerChange": "Ultima modifica del potere di voto",
   "powerChange": "<0>{{change}}</0> a blocco ",
   "validators": "Validatori",
-  "priceHistory": "Prezzo (~24 ore)"
+  "priceHistory": "Prezzo (~48 ore)"
 }
