@@ -6,97 +6,145 @@ import type { TokenPriceType } from '@/screens/home/components/hero/types';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
 import Typography from '@mui/material/Typography';
 import useAppTranslation from '@/hooks/useAppTranslation';
+import { useRouter } from 'next/router';
 import numeral from 'numeral';
 import * as R from 'ramda';
-import { FC, useMemo } from 'react';
-import {
-  Area,
-  AreaChart,
-  CartesianGrid,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from 'recharts';
+import { FC, useMemo, useRef, useEffect } from 'react';
+import { createChart, LineStyle, PriceScaleMode, UTCTimestamp } from 'lightweight-charts';
 import { useRecoilValue } from 'recoil';
 
 const TokenPrice: FC<{ items: TokenPriceType[] }> = (props) => {
   const { classes, theme } = useStyles();
-  const { t } = useAppTranslation('home');
-  const { tickPriceFormatter, formatTime } = usePrice();
+  const { t, i18n } = useAppTranslation('home');
+  const router = useRouter();
+  const { tickPriceFormatter, formatTime, timeToTz } = usePrice();
   const dateFormat = useRecoilValue(readDate);
   const timeFormat = useRecoilValue(readTimeFormat);
+  console.log('lang', i18n.language === 'en' ? 'en-US' : 'zh-HK');
 
   const formatItems = useMemo(
     () =>
       props.items.map((x) => ({
-        time: formatTime(dayjs.utc(x.time), dateFormat),
+        time: formatTime(dayjs.utc(x.time), dateFormat) as UTCTimestamp,
         fullTime: formatDayJs(dayjs.utc(x.time), dateFormat, timeFormat),
         value: x.value,
       })),
     [props.items, formatTime, dateFormat, timeFormat]
   );
 
+  const chartRef = useRef<HTMLDivElement | null>(null);
+  useEffect(() => {
+    const container = chartRef.current;
+    if (!container) return;
+    const chart = createChart(container, {
+      width: container.clientWidth,
+      // width: container.clientWidth,
+      height: container.clientHeight,
+      localization: {
+        dateFormat: 'yyyy/MM/dd',
+        locale: i18n.language === 'en' ? 'en-US' : 'zh-HK',
+        priceFormatter: (p: number) => `${tickPriceFormatter(p)}`,
+        timeFormatter: (d) => timeToTz(d, dateFormat),
+      },
+      autoSize: true,
+    });
+    chart.timeScale().fitContent();
+
+    const lineSeries = chart.addLineSeries({
+      color: theme.palette.custom.primaryData.one,
+      lineWidth: 2,
+      priceScaleId: 'right',
+    });
+
+    lineSeries.setData(formatItems);
+    // lineSeries.setData(
+    //   formatItems.map((item) => ({
+    //     time: item.time,
+    //     value: item.value,
+    //   }))
+    // );
+
+    const handleResize = () => {
+      chart.applyOptions({ width: container.clientWidth });
+    };
+
+    chart.applyOptions({
+      layout: {
+        background: theme.palette.background.paper,
+        textColor: theme.palette.text.primary,
+      },
+      grid: {
+        vertLines: {
+          color: theme.palette.divider,
+          style: LineStyle.Dotted,
+        },
+        horzLines: {
+          color: theme.palette.divider,
+          style: LineStyle.Dotted,
+        },
+        // vertLines: {
+        //   color: 'rgba(197, 203, 206, 0.7)',
+        // },
+        // horzLines: {
+        //   color: 'rgba(197, 203, 206, 0.7)',
+        // },
+      },
+      priceScale: {
+        width: '100%',
+        height: '100%',
+        mode: PriceScaleMode.Normal,
+        borderColor: theme.palette.divider,
+        autoScale: true,
+        // shiftVisibleRangeOnNewBar: true,
+        ticksVisible: true,
+        textColor: theme.palette.text.primary,
+
+        // scaleMargins: {
+        //   top: 0.2,
+        //   bottom: 0.2,
+        // },
+        // scaleMargins: {
+        //   top: 0.3,
+        //   bottom: 0.25,
+        // },
+      },
+      timeScale: {
+        borderColor: theme.palette.divider,
+        timeVisible: true,
+        // shiftVisibleRangeOnNewBar: true,
+        rightOffset: 12,
+        // fixLeftEdge: true,
+        secondsVisible: true,
+        lockVisibleTimeRangeOnResize: true,
+      },
+    });
+
+    window.addEventListener('resize', handleResize);
+
+    // eslint-disable-next-line consistent-return
+    // return chart.timeScale().fitContent();
+
+    // eslint-disable-next-line consistent-return
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      chart.remove();
+    };
+  }, [
+    dateFormat,
+    formatItems,
+    i18n.language,
+    theme.palette.background.paper,
+    theme.palette.custom.primaryData.one,
+    theme.palette.divider,
+    theme.palette.text.primary,
+    tickPriceFormatter,
+    timeToTz,
+  ]);
+
   return (
     <div>
       <Typography variant="h2">{t('priceHistory')}</Typography>
-      <div className={classes.chart}>
-        <ResponsiveContainer width="99%">
-          <AreaChart
-            data={formatItems}
-            margin={{
-              top: 20,
-              right: 30,
-              left: 0,
-              bottom: 0,
-            }}
-          >
-            <defs>
-              <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-                <stop
-                  offset="5%"
-                  stopColor={theme.palette.custom.primaryData.one}
-                  stopOpacity={0.5}
-                />
-                <stop
-                  offset="95%"
-                  stopColor={theme.palette.custom.primaryData.one}
-                  stopOpacity={0.1}
-                />
-              </linearGradient>
-            </defs>
-            <CartesianGrid stroke={theme.palette.divider} />
-            <XAxis dataKey="time" tickLine={false} />
-            <YAxis
-              tickLine={false}
-              tickFormatter={tickPriceFormatter}
-              // tickCount={9}
-              // domain={[0, 'dataMax + 1']}
-              // domain={[0, 'dataMax']}
-            />
-            <Tooltip
-              cursor={false}
-              content={
-                <CustomToolTip>
-                  {(x) => (
-                    <>
-                      <Typography variant="caption">{R.pathOr('', ['fullTime'], x)}</Typography>
-                      <Typography variant="body1">${numeral(x.value).format('0,0.00')}</Typography>
-                    </>
-                  )}
-                </CustomToolTip>
-              }
-            />
-            <Area
-              type="monotone"
-              dataKey="value"
-              stroke={theme.palette.custom.primaryData.one}
-              fillOpacity={0.3}
-              fill={theme.palette.custom.primaryData.one}
-            />
-          </AreaChart>
-        </ResponsiveContainer>
-      </div>
+      <div ref={chartRef} className={classes.chart} />
     </div>
   );
 };

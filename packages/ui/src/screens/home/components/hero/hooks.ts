@@ -22,7 +22,7 @@ export const useHero = () => {
 
   useTokenPriceHistoryQuery({
     variables: {
-      limit: 10,
+      limit: 48,
       denom: tokenUnits?.[primaryTokenUnit]?.display,
     },
     onCompleted: (data) => {
@@ -31,7 +31,7 @@ export const useHero = () => {
           ...prevState,
           loading: false,
           tokenPriceHistory:
-            data.tokenPrice.length === 10
+            data.tokenPrice.length === 48
               ? [...data.tokenPrice].reverse().map((x) => ({
                   time: x.timestamp,
                   value: x.price,
