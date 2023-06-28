@@ -30,5 +30,5 @@
   "lastVotingPowerChange": "Ostatnia zmiana mocy głosu",
   "powerChange": "<0>{{change}}</0> na wysokości ",
   "validators": "Walidatorzy",
-  "priceHistory": "Cena (~24h)"
+  "priceHistory": "Cena (~48h)"
 }
