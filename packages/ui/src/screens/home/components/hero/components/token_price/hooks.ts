@@ -23,32 +23,50 @@ const formatTime = (time: dayjs.Dayjs, mode: 'locale' | 'utc' = 'locale') => {
   return time.local().unix();
 };
 
-const timeToTz = (
-  unix: number,
-  mode: 'locale' | 'utc' = 'locale',
-  format: '12-hour' | '24-hour' = '24-hour'
-) => {
-  const dateObj = dayjs.unix(unix);
-  if (mode === 'utc') {
-    if (format === '12-hour') return dateObj.format('MMM DD, YYYY hh:mm:ss A [(UTC)]');
-    return dateObj.utc().format('YYYY-MM-DD HH:mm:ss');
-  }
-  if (format === '24-hour') return dateObj.local().format('MMM DD, YYYY HH:mm:ss (z)');
-  return dateObj.local().format('YYYY-MM-DD hh:mm:ss A (z)');
-};
-
 const tickTimeFormatter = (
   unix: UTCTimestamp,
-  mode: 'locale' | 'utc' = 'locale',
-  format: '12-hour' | '24-hour' = '24-hour'
-) => {
-  const timeObj = dayjs.unix(unix);
-  if (mode === 'utc') {
-    if (format === '12-hour') return timeObj.format('hh:mm A');
-    return timeObj.utc().format('HH:mm');
+  mode: 'locale' | 'utc',
+  format: '12-hour' | '24-hour',
+  year: boolean
+  // eslint-disable-next-line consistent-return
+): string => {
+  const dateObj = dayjs.unix(unix);
+  const utc12FullFormat = 'YYYY-MM-DD hh:mm:ss A [(UTC)]';
+  const utc24FullFormat = 'YYYY-MM-DD HH:mm:ss';
+  const local12FullFormat = 'YYYY-MM-DD hh:mm:ss A (z)';
+  const local24FullFormat = 'YYYY-MM-DD HH:mm:ss (z)';
+
+  const t12Format = 'hh:mm A';
+  const t24Format = 'HH:mm';
+
+  if (year) {
+    if (format === '24-hour') {
+      if (mode === 'utc') {
+        return dateObj.utc().format(utc24FullFormat);
+      }
+      return dateObj.local().format(local24FullFormat);
+    }
+    if (format === '12-hour') {
+      if (mode === 'utc') {
+        return dateObj.utc().format(utc12FullFormat);
+      }
+      return dateObj.local().format(local12FullFormat);
+    }
+  } else {
+    if (format === '24-hour') {
+      if (mode === 'utc') {
+        return dateObj.utc().format(t24Format);
+      }
+      return dateObj.local().format(t24Format);
+    }
+    if (format === '12-hour') {
+      if (mode === 'utc') {
+        return dateObj.utc().format(t12Format);
+      }
+      return dateObj.local().format(t12Format);
+    }
   }
-  if (format === '24-hour') return timeObj.local().format('HH:mm');
-  return timeObj.local().format('hh:mm A');
+  throw new Error('Invalid parameters');
 };
 
 const tickPriceFormatter = (num: number) => Number(numeral(num).format('0,0.00000'));
@@ -81,7 +99,8 @@ export const usePrice = (items: TokenPriceType[], theme: Theme) => {
         dateFormat: 'yyyy/MM/dd',
         locale: i18n.language === 'en' ? 'en-US' : navigator.language,
         priceFormatter: (p: number) => `${tickPriceFormatter(p)}`,
-        timeFormatter: (d: number) => timeToTz(d, dateFormat, timeFormat),
+        timeFormatter: (t: UTCTimestamp) =>
+          tickTimeFormatter(t as UTCTimestamp, dateFormat, timeFormat, true),
       },
       autoSize: true,
     });
@@ -122,7 +141,7 @@ export const usePrice = (items: TokenPriceType[], theme: Theme) => {
       borderColor: theme.palette.divider,
       lockVisibleTimeRangeOnResize: true,
       tickMarkFormatter: (time: Time) =>
-        tickTimeFormatter(time as UTCTimestamp, dateFormat, timeFormat),
+        tickTimeFormatter(time as UTCTimestamp, dateFormat, timeFormat, false),
       barSpacing: 0,
       minBarSpacing: 0,
       rightBarStaysOnScroll: true,
@@ -168,8 +187,5 @@ export const usePrice = (items: TokenPriceType[], theme: Theme) => {
 
   return {
     chartRef,
-    tickPriceFormatter,
-    formatTime,
-    timeToTz,
   };
 };
