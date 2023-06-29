@@ -1,5 +1,16 @@
 # v1.0.4 - 2022-06-20
 
+## 2.16.0
+
+### Minor Changes
+
+- [#1279](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1279) [`f7365dfe0`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/f7365dfe0ca3b6f0cbefcb580d255a7977f44a4f) Thanks [@rachelhox](https://github.com/rachelhox)! - feat: price chart component
+
+### Patch Changes
+
+- Updated dependencies [[`f7365dfe0`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/f7365dfe0ca3b6f0cbefcb580d255a7977f44a4f)]:
+  - ui@2.33.0
+
 ## 2.15.1
 
 ### Patch Changes
