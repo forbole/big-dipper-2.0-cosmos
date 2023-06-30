@@ -2561,28 +2561,14 @@ export type Genesis_Variance_Fields = {
 /** columns and relationships of "gov_params" */
 export type Gov_Params = {
   __typename?: 'gov_params';
-  deposit_params: Scalars['jsonb'];
   height: Scalars['bigint'];
   one_row_id: Scalars['Boolean'];
-  tally_params: Scalars['jsonb'];
-  voting_params: Scalars['jsonb'];
+  params: Scalars['jsonb'];
 };
 
 
 /** columns and relationships of "gov_params" */
-export type Gov_ParamsDeposit_ParamsArgs = {
-  path?: InputMaybe<Scalars['String']>;
-};
-
-
-/** columns and relationships of "gov_params" */
-export type Gov_ParamsTally_ParamsArgs = {
-  path?: InputMaybe<Scalars['String']>;
-};
-
-
-/** columns and relationships of "gov_params" */
-export type Gov_ParamsVoting_ParamsArgs = {
+export type Gov_ParamsParamsArgs = {
   path?: InputMaybe<Scalars['String']>;
 };
 
@@ -2627,11 +2613,9 @@ export type Gov_Params_Bool_Exp = {
   _and?: InputMaybe<Array<Gov_Params_Bool_Exp>>;
   _not?: InputMaybe<Gov_Params_Bool_Exp>;
   _or?: InputMaybe<Array<Gov_Params_Bool_Exp>>;
-  deposit_params?: InputMaybe<Jsonb_Comparison_Exp>;
   height?: InputMaybe<Bigint_Comparison_Exp>;
   one_row_id?: InputMaybe<Boolean_Comparison_Exp>;
-  tally_params?: InputMaybe<Jsonb_Comparison_Exp>;
-  voting_params?: InputMaybe<Jsonb_Comparison_Exp>;
+  params?: InputMaybe<Jsonb_Comparison_Exp>;
 };
 
 /** aggregate max on columns */
@@ -2648,25 +2632,19 @@ export type Gov_Params_Min_Fields = {
 
 /** Ordering options when selecting data from "gov_params". */
 export type Gov_Params_Order_By = {
-  deposit_params?: InputMaybe<Order_By>;
   height?: InputMaybe<Order_By>;
   one_row_id?: InputMaybe<Order_By>;
-  tally_params?: InputMaybe<Order_By>;
-  voting_params?: InputMaybe<Order_By>;
+  params?: InputMaybe<Order_By>;
 };
 
 /** select columns of table "gov_params" */
 export enum Gov_Params_Select_Column {
   /** column name */
-  DepositParams = 'deposit_params',
-  /** column name */
   Height = 'height',
   /** column name */
   OneRowId = 'one_row_id',
   /** column name */
-  TallyParams = 'tally_params',
-  /** column name */
-  VotingParams = 'voting_params'
+  Params = 'params'
 }
 
 /** aggregate stddev on columns */
@@ -3752,18 +3730,17 @@ export type Proposal = {
   deposit_end_time?: Maybe<Scalars['timestamp']>;
   description: Scalars['String'];
   id: Scalars['Int'];
+  metadata: Scalars['String'];
   /** An array relationship */
   proposal_deposits: Array<Proposal_Deposit>;
   /** An aggregate relationship */
   proposal_deposits_aggregate: Proposal_Deposit_Aggregate;
-  proposal_route: Scalars['String'];
   /** An object relationship */
   proposal_tally_result?: Maybe<Proposal_Tally_Result>;
   /** An array relationship */
   proposal_tally_results: Array<Proposal_Tally_Result>;
   /** An aggregate relationship */
   proposal_tally_results_aggregate: Proposal_Tally_Result_Aggregate;
-  proposal_type: Scalars['String'];
   /** An array relationship */
   proposal_votes: Array<Proposal_Vote>;
   /** An aggregate relationship */
@@ -3935,11 +3912,10 @@ export type Proposal_Bool_Exp = {
   deposit_end_time?: InputMaybe<Timestamp_Comparison_Exp>;
   description?: InputMaybe<String_Comparison_Exp>;
   id?: InputMaybe<Int_Comparison_Exp>;
+  metadata?: InputMaybe<String_Comparison_Exp>;
   proposal_deposits?: InputMaybe<Proposal_Deposit_Bool_Exp>;
-  proposal_route?: InputMaybe<String_Comparison_Exp>;
   proposal_tally_result?: InputMaybe<Proposal_Tally_Result_Bool_Exp>;
   proposal_tally_results?: InputMaybe<Proposal_Tally_Result_Bool_Exp>;
-  proposal_type?: InputMaybe<String_Comparison_Exp>;
   proposal_votes?: InputMaybe<Proposal_Vote_Bool_Exp>;
   proposer?: InputMaybe<Account_Bool_Exp>;
   proposer_address?: InputMaybe<String_Comparison_Exp>;
@@ -4198,8 +4174,7 @@ export type Proposal_Max_Fields = {
   deposit_end_time?: Maybe<Scalars['timestamp']>;
   description?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['Int']>;
-  proposal_route?: Maybe<Scalars['String']>;
-  proposal_type?: Maybe<Scalars['String']>;
+  metadata?: Maybe<Scalars['String']>;
   proposer_address?: Maybe<Scalars['String']>;
   status?: Maybe<Scalars['String']>;
   submit_time?: Maybe<Scalars['timestamp']>;
@@ -4213,8 +4188,7 @@ export type Proposal_Max_Order_By = {
   deposit_end_time?: InputMaybe<Order_By>;
   description?: InputMaybe<Order_By>;
   id?: InputMaybe<Order_By>;
-  proposal_route?: InputMaybe<Order_By>;
-  proposal_type?: InputMaybe<Order_By>;
+  metadata?: InputMaybe<Order_By>;
   proposer_address?: InputMaybe<Order_By>;
   status?: InputMaybe<Order_By>;
   submit_time?: InputMaybe<Order_By>;
@@ -4229,8 +4203,7 @@ export type Proposal_Min_Fields = {
   deposit_end_time?: Maybe<Scalars['timestamp']>;
   description?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['Int']>;
-  proposal_route?: Maybe<Scalars['String']>;
-  proposal_type?: Maybe<Scalars['String']>;
+  metadata?: Maybe<Scalars['String']>;
   proposer_address?: Maybe<Scalars['String']>;
   status?: Maybe<Scalars['String']>;
   submit_time?: Maybe<Scalars['timestamp']>;
@@ -4244,8 +4217,7 @@ export type Proposal_Min_Order_By = {
   deposit_end_time?: InputMaybe<Order_By>;
   description?: InputMaybe<Order_By>;
   id?: InputMaybe<Order_By>;
-  proposal_route?: InputMaybe<Order_By>;
-  proposal_type?: InputMaybe<Order_By>;
+  metadata?: InputMaybe<Order_By>;
   proposer_address?: InputMaybe<Order_By>;
   status?: InputMaybe<Order_By>;
   submit_time?: InputMaybe<Order_By>;
@@ -4260,11 +4232,10 @@ export type Proposal_Order_By = {
   deposit_end_time?: InputMaybe<Order_By>;
   description?: InputMaybe<Order_By>;
   id?: InputMaybe<Order_By>;
+  metadata?: InputMaybe<Order_By>;
   proposal_deposits_aggregate?: InputMaybe<Proposal_Deposit_Aggregate_Order_By>;
-  proposal_route?: InputMaybe<Order_By>;
   proposal_tally_result?: InputMaybe<Proposal_Tally_Result_Order_By>;
   proposal_tally_results_aggregate?: InputMaybe<Proposal_Tally_Result_Aggregate_Order_By>;
-  proposal_type?: InputMaybe<Order_By>;
   proposal_votes_aggregate?: InputMaybe<Proposal_Vote_Aggregate_Order_By>;
   proposer?: InputMaybe<Account_Order_By>;
   proposer_address?: InputMaybe<Order_By>;
@@ -4288,9 +4259,7 @@ export enum Proposal_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  ProposalRoute = 'proposal_route',
-  /** column name */
-  ProposalType = 'proposal_type',
+  Metadata = 'metadata',
   /** column name */
   ProposerAddress = 'proposer_address',
   /** column name */
@@ -12016,14 +11985,14 @@ export type OnlineVotingPowerQuery = { activeTotal: { __typename?: 'validator_st
 export type ParamsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ParamsQuery = { stakingParams: Array<{ __typename?: 'staking_params', params: any }>, slashingParams: Array<{ __typename?: 'slashing_params', params: any }>, mintParams: Array<{ __typename?: 'mint_params', params: any }>, distributionParams: Array<{ __typename?: 'distribution_params', params: any }>, govParams: Array<{ __typename?: 'gov_params', depositParams: any, tallyParams: any, votingParams: any }> };
+export type ParamsQuery = { stakingParams: Array<{ __typename?: 'staking_params', params: any }>, slashingParams: Array<{ __typename?: 'slashing_params', params: any }>, mintParams: Array<{ __typename?: 'mint_params', params: any }>, distributionParams: Array<{ __typename?: 'distribution_params', params: any }>, govParams: Array<{ __typename?: 'gov_params', one_row_id: boolean, params: any, height: any }> };
 
 export type ProposalDetailsQueryVariables = Exact<{
   proposalId?: InputMaybe<Scalars['Int']>;
 }>;
 
 
-export type ProposalDetailsQuery = { proposal: Array<{ __typename?: 'proposal', title: string, description: string, status?: string | null, content: any, proposer: string, proposalId: number, submitTime: any, proposalType: string, depositEndTime?: any | null, votingStartTime?: any | null, votingEndTime?: any | null }> };
+export type ProposalDetailsQuery = { proposal: Array<{ __typename?: 'proposal', title: string, description: string, status?: string | null, content: any, proposer: string, proposalId: number, submitTime: any, depositEndTime?: any | null, votingStartTime?: any | null, votingEndTime?: any | null }> };
 
 export type ProposalDetailsTallyQueryVariables = Exact<{
   proposalId?: InputMaybe<Scalars['Int']>;
@@ -13015,9 +12984,9 @@ export const ParamsDocument = gql`
     params
   }
   govParams: gov_params(limit: 1, order_by: {height: desc}) {
-    depositParams: deposit_params
-    tallyParams: tally_params
-    votingParams: voting_params
+    one_row_id
+    params
+    height
   }
 }
     `;
@@ -13058,7 +13027,6 @@ export const ProposalDetailsDocument = gql`
     content
     proposalId: id
     submitTime: submit_time
-    proposalType: proposal_type
     depositEndTime: deposit_end_time
     votingStartTime: voting_start_time
     votingEndTime: voting_end_time
@@ -13109,7 +13077,7 @@ export const ProposalDetailsTallyDocument = gql`
     bondedTokens: bonded_tokens
   }
   quorum: gov_params(limit: 1, order_by: {height: desc}) {
-    tallyParams: tally_params
+    tallyParams: params
   }
 }
     `;
