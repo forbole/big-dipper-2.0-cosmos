@@ -1,5 +1,11 @@
 # Unreleased
 
+## 2.19.0
+
+### Minor Changes
+
+- [#1281](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1281) [`73424869b`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/73424869bb16834dc6e4490a65150acbd12d3bca) Thanks [@rachelhox](https://github.com/rachelhox)! - upgrade: kyve and desmos proposals params
+
 ## 2.18.0
 
 ### Minor Changes
