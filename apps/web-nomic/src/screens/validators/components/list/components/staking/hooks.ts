@@ -3,7 +3,7 @@ import { useAvailableBalances } from '@/screens/account_details/utils';
 // import { useParams } from '@/screens/params/hooks';
 // import { getDenom } from '@/utils/get_denom';
 // import * as R from 'ramda';
-// import { formatNumber, formatToken, baseToDisplayUnit } from '@/utils/format_token';
+// import { formatNumber, formatToken, displayToBaseUnit } from '@/utils/format_token';
 import { getClient } from '@/components/nav/components/connect_wallet/keplr_utils';
 // import { assertIsDeliverTxSuccess, MsgBeginRedelegateEncodeObject } from '@cosmjs/stargate';
 import { useEffect } from 'react';
@@ -170,7 +170,7 @@ const useStakingHooks = (_validators?: ItemType[], _delegations?: ValidatorsAvat
       case 'delegate':
         try {
           setLoading(true);
-          //   const base64Amount = baseToDisplayUnit(amount);
+          //   const base64Amount = displayToBaseUnit(amount);
           //   result = await client.delegateTokens(
           //     userAddress,
           //     stakingAddress,
@@ -192,7 +192,7 @@ const useStakingHooks = (_validators?: ItemType[], _delegations?: ValidatorsAvat
       case 'redelegate':
         try {
           setLoading(true);
-          //   const base64Amount = baseToDisplayUnit(amount);
+          //   const base64Amount = displayToBaseUnit(amount);
           //   const redelegateMsg: MsgBeginRedelegateEncodeObject = {
           //     typeUrl: '/cosmos.staking.v1beta1.MsgBeginRedelegate',
           //     value: {
@@ -218,7 +218,7 @@ const useStakingHooks = (_validators?: ItemType[], _delegations?: ValidatorsAvat
       case 'undelegate':
         try {
           setLoading(true);
-          //   const base64Amount = baseToDisplayUnit(amount);
+          //   const base64Amount = displayToBaseUnit(amount);
           //   result = await client.undelegateTokens(
           //     userAddress,
           //     validatorSourceAddress,

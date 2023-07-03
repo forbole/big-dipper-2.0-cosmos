@@ -6,7 +6,7 @@ import chainConfig from '@/chainConfig';
 
 // Get the keplr chain info from chainConfig
 const {
-  keplrConfig: { keplrRpc },
+  keplrConfig: { keplrRpc, keplr },
 } = chainConfig();
 
 export const isKeplrAvailable = () => !!window.keplr;
@@ -54,6 +54,12 @@ export const getCosmosClient = async (
   });
 
   return cosmJS;
+};
+
+export const getKeplrAPI = () => {
+  const config = keplr ? JSON.parse(keplr) : '';
+  const apiURL: string = config.rest;
+  return apiURL;
 };
 
 export const getOfflineSignerAddress = async (

@@ -4,9 +4,13 @@ import { useAvailableBalances } from '@/screens/account_details/utils';
 import { useParams } from '@/screens/params/hooks';
 import { getDenom } from '@/utils/get_denom';
 import * as R from 'ramda';
-import { formatNumber, formatToken, baseToDisplayUnit } from '@/utils/format_token';
-import { getClient } from '@/components/nav/components/connect_wallet/keplr_utils';
-import { assertIsDeliverTxSuccess, MsgBeginRedelegateEncodeObject } from '@cosmjs/stargate';
+import { formatNumber, formatToken, displayToBaseUnit } from '@/utils/format_token';
+import { getClient, getKeplrAPI } from '@/components/nav/components/connect_wallet/keplr_utils';
+import {
+  Account,
+  assertIsDeliverTxSuccess,
+  MsgBeginRedelegateEncodeObject,
+} from '@cosmjs/stargate';
 import { useEffect } from 'react';
 import { coin } from '@cosmjs/proto-signing';
 import { ADDRESS_KEY, CHAIN_ID } from '@/utils/localstorage';
@@ -62,10 +66,7 @@ const useStakingHooks = ({ rewards, validators, delegations }: UseStakingHooksOp
     [availableForStaking, loggedIn]
   );
   // const tokenFormatDenom = formatToken(availableForStaking?.amount, availableForStaking.denom);
-  const token = `${formatNumber(
-    tokenFormatDenom.value,
-    tokenFormatDenom.exponent
-  )} ${tokenFormatDenom.displayDenom.toUpperCase()}`;
+  const token = `${formatNumber(tokenFormatDenom.value, tokenFormatDenom.exponent)}`;
 
   const setDelegateAmount = (value: string) => {
     setAmount(value);
@@ -139,6 +140,13 @@ const useStakingHooks = ({ rewards, validators, delegations }: UseStakingHooksOp
     setMemo('');
   };
 
+  const getMaxFee = (maxToken: string, gasFee: string) => {
+    setTxAmount(0);
+    const maxFee =
+      typeof maxToken === 'number' ? maxToken - Number(gasFee) : Number(maxToken) - Number(gasFee);
+    setTxAmount(maxFee);
+  };
+
   // Add a new state to control the success state of the delegation action
   const [delegationSuccess, setDelegationSuccess] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
@@ -199,6 +207,103 @@ const useStakingHooks = ({ rewards, validators, delegations }: UseStakingHooksOp
     setOpenValidatorRedelegateMenu(false);
   };
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const emptyGas = { amount: [{ amount: '0', denom: '' }], gas: '' };
+  const [fee, setFee] = React.useState<any>(emptyGas);
+  const [txData, setTXData] = React.useState<TransactionMsg[]>([
+    {
+      typeUrl: '/cosmos.staking.v1beta1.MsgDelegate',
+      value: {
+        delegatorAddress: userAddress,
+        validatorAddress: '',
+        amount: coin(0, baseDenom ?? ''),
+      },
+    },
+  ]);
+
+  const handleMaxFee = async (maxToken: string, validator: string, action: string) => {
+    const stakingAddress = validators ? valAddress : validator;
+    type SigningStargateClient = ReturnType<typeof getClient> extends Promise<infer T>
+      ? T extends string
+        ? never
+        : T
+      : never;
+    let client: SigningStargateClient;
+    let accountInfo: Account | null;
+
+    try {
+      client = (await getClient(chainID)) as SigningStargateClient;
+      accountInfo = await client.getAccount(userAddress);
+    } catch (e) {
+      setErrorMsg((e as Error).message);
+      return;
+    }
+
+    switch (action) {
+      case 'delegate':
+        try {
+          const base64Amount = displayToBaseUnit(amount);
+          const delegateMsg: TransactionMsgDelegate = {
+            typeUrl: '/cosmos.staking.v1beta1.MsgDelegate',
+            value: {
+              delegatorAddress: userAddress,
+              validatorAddress: stakingAddress,
+              amount: coin(base64Amount, baseDenom ?? ''),
+            },
+          };
+          setTXData([delegateMsg]);
+          const body = {
+            tx: {
+              body: {
+                messages: txData.map((msg) => ({
+                  '@type': msg.typeUrl,
+                  ...msg.value,
+                })),
+                memo,
+              },
+              auth_info: {
+                signer_infos: [
+                  {
+                    public_key: {
+                      '@type': '/cosmos.crypto.secp256k1.PubKey',
+                      key: R.path(['pubkey', 'value'], accountInfo),
+                    },
+                    mode_info: {
+                      single: {
+                        mode: 'SIGN_MODE_UNSPECIFIED',
+                      },
+                    },
+                    sequence: String(R.path(['sequence'], accountInfo)),
+                  },
+                ],
+                fee: {
+                  amount: [
+                    {
+                      denom: baseDenom,
+                      amount: '0',
+                    },
+                  ],
+                  gas_limit: '0',
+                },
+              },
+              signatures: [''],
+            },
+          };
+          const api = getKeplrAPI();
+          const result = await fetch(`${api}/cosmos/tx/v1beta1/simulate`, {
+            method: 'POST',
+            body: JSON.stringify(body),
+          }).then((r) => r.json());
+          const gas = Math.round(Number(R.pathOr('0', ['gas_info', 'gas_used'], result)) * 1.5);
+        } catch (e) {
+          getMaxFee(maxToken, '0.01');
+        }
+        break;
+      default:
+    }
+    client.disconnect();
+  };
+
   const handleStakingAction = async (validator: string, action: string) => {
     const stakingAddress = validators ? valAddress : validator;
     type SigningStargateClient = ReturnType<typeof getClient> extends Promise<infer T>
@@ -220,7 +325,7 @@ const useStakingHooks = ({ rewards, validators, delegations }: UseStakingHooksOp
       case 'delegate':
         try {
           setLoading(true);
-          const base64Amount = baseToDisplayUnit(amount);
+          const base64Amount = displayToBaseUnit(amount);
           result = await client.delegateTokens(
             userAddress,
             stakingAddress,
@@ -242,7 +347,7 @@ const useStakingHooks = ({ rewards, validators, delegations }: UseStakingHooksOp
       case 'redelegate':
         try {
           setLoading(true);
-          const base64Amount = baseToDisplayUnit(amount);
+          const base64Amount = displayToBaseUnit(amount);
           const redelegateMsg: MsgBeginRedelegateEncodeObject = {
             typeUrl: '/cosmos.staking.v1beta1.MsgBeginRedelegate',
             value: {
@@ -268,7 +373,7 @@ const useStakingHooks = ({ rewards, validators, delegations }: UseStakingHooksOp
       case 'undelegate':
         try {
           setLoading(true);
-          const base64Amount = baseToDisplayUnit(amount);
+          const base64Amount = displayToBaseUnit(amount);
           result = await client.undelegateTokens(
             userAddress,
             validatorSourceAddress,
@@ -367,6 +472,7 @@ const useStakingHooks = ({ rewards, validators, delegations }: UseStakingHooksOp
     rewardToken,
     txHash,
     loading,
+    handleMaxFee,
   };
 };
 

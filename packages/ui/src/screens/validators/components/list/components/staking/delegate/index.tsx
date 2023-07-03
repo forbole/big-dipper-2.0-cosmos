@@ -58,6 +58,7 @@ const DelegateDialog: FC<DelegateDialogProps> = ({
     handleCloseSnackBar,
     txHash,
     resetDialogInfo,
+    handleMaxFee,
   } = useStakingHooks({ validators });
 
   // Add a useEffect to close the delegation dialog when the delegationSuccess state is true
@@ -113,7 +114,13 @@ const DelegateDialog: FC<DelegateDialogProps> = ({
             </Typography>
             <Typography className={classes.subtitle} align="right">
               {t('validators:amount')}
-              <div className={classes.amountLabel}>{token}</div>
+              <Button
+                variant="text"
+                className={classes.amountButton}
+                onClick={() => handleMaxFee(token, validatorAddress, 'delegate')}
+              >
+                <div>{token}</div>
+              </Button>
             </Typography>
           </div>
           <TextField

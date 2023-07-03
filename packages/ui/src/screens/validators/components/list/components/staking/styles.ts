@@ -181,6 +181,15 @@ const useStyles = makeStyles()((theme) => ({
     display: 'inline',
     paddingLeft: '10px',
   },
+  amountButton: {
+    margin: theme.spacing(0, 0, 0, 1),
+    color: theme.palette.custom.tags.one,
+    fontWeight: 900,
+    '&:hover': {
+      cursor: 'pointer',
+      background: theme.palette.custom.wallet?.surfaceFour,
+    },
+  },
   dialogActions: {
     display: 'flex',
     position: 'relative',

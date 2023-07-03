@@ -93,3 +93,23 @@ type MsgCoin = {
   denom: string;
   amount: string;
 };
+
+interface TransactionMsgDelegate {
+  typeUrl: '/cosmos.staking.v1beta1.MsgDelegate';
+  value: {
+    delegatorAddress: string;
+    validatorAddress: string;
+    amount: { amount: string; denom: string };
+  };
+}
+
+type TransactionMsg = TransactionMsgDelegate;
+
+interface Transaction {
+  msgs: TransactionMsg[];
+  memo: string;
+  fee?: {
+    amount: Array<{ amount: string; denom: string }>;
+    gas: string;
+  };
+}
