@@ -18,12 +18,11 @@ const useStyles = makeStyles()((theme) => ({
     justifyContent: 'right',
   },
   stakingDistribution: {
-    paddingLeft: '16px',
+    paddingRight: '16px',
   },
   stakingDistrButton: {
     padding: '6px 16px',
     alignItems: 'center',
-    border: '1px solid #007FFF',
     color: '#007FFF',
     '&:hover': {
       cursor: 'pointer',

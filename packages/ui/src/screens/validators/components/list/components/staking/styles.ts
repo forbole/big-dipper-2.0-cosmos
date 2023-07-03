@@ -123,6 +123,37 @@ const useStyles = makeStyles()((theme) => ({
       padding: theme.spacing(1, 2),
     },
   },
+  claimRewardsBox: {
+    paddingLeft: '16px',
+  },
+  claimRewardsButton: {
+    padding: '6px 16px',
+    alignItems: 'center',
+    border: '1px solid #007FFF',
+    color: '#007FFF',
+    '&:hover': {
+      cursor: 'pointer',
+      background: theme.palette.custom.wallet?.surfaceFour,
+    },
+    fontFamily: 'SF Pro',
+    '> h5': {
+      fontWeight: 700,
+    },
+    lineHeight: '17px',
+    display: 'flex',
+    letterSpacing: '-0.002em',
+    '&.Mui-disabled': {
+      color: '#007FFF',
+      opacity: '50%',
+      '> h5': {
+        fontWeight: 700,
+      },
+    },
+  },
+  flexRow: {
+    display: 'flex',
+    flexDirection: 'row',
+  },
   label: {
     color: '#FFFFFF',
   },

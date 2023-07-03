@@ -25,6 +25,7 @@ type StakeButtonProps = {
   delegations?: ValidatorsAvatarNameType[];
   rewards?: ValidatorsAvatarNameType[];
   disabled: boolean;
+  iconButton?: boolean;
 };
 
 const StakeButton = (props: StakeButtonProps) => {
@@ -51,17 +52,50 @@ const StakeButton = (props: StakeButtonProps) => {
 
   return (
     <div>
-      <Button
-        id="stake-button"
-        onClick={handleOpenStakingMenu}
-        className={classes.staking}
-        disabled={props.disabled}
-      >
-        <Typography variant="body2" className={classes.label}>
-          {t('validators:stake')}
-        </Typography>
-        <ExpandMoreIcon />
-      </Button>
+      {props.iconButton ? (
+        <>
+          <Button
+            id="stake-button"
+            onClick={handleOpenStakingMenu}
+            className={classes.staking}
+            disabled={props.disabled}
+          >
+            {/* svg component */}
+          </Button>
+          <Button
+            id="stake-button"
+            onClick={handleOpenStakingMenu}
+            className={classes.staking}
+            disabled={props.disabled}
+          >
+            {/* svg component */}
+          </Button>
+        </>
+      ) : (
+        <div className={classes.flexRow}>
+          <Button
+            id="stake-button"
+            onClick={handleOpenStakingMenu}
+            className={classes.staking}
+            disabled={props.disabled}
+          >
+            <Typography variant="body2" className={classes.label}>
+              {t('validators:stake')}
+            </Typography>
+            <ExpandMoreIcon />
+          </Button>
+          <div className={classes.claimRewardsBox}>
+            <Button
+              onClick={handleOpenWithdrawRewardsDialog}
+              color="primary"
+              className={classes.claimRewardsButton}
+              disabled={props.disabled}
+            >
+              <Typography variant="h5">{t('validators:claimRewards')}</Typography>
+            </Button>
+          </div>
+        </div>
+      )}
       <Menu
         id="stake-menu"
         anchorEl={anchorEl}
@@ -105,19 +139,16 @@ const StakeButton = (props: StakeButtonProps) => {
           validators={props.validators ?? undefined}
           delegations={props.delegations ?? undefined}
         />
-        <MenuItem onClick={handleOpenWithdrawRewardsDialog}>
-          {t('validators:claimRewards')}
-        </MenuItem>
-        <WithdrawRewardDialog
-          open={openWithdrawDialog}
-          onClose={handleCloseWithdrawRewardsDialog}
-          validatorAddress={props.address}
-          imageUrl={props.imageUrl ?? ''}
-          validatorName={props.name}
-          validatorCommission={props.commission}
-          rewards={props.rewards ?? undefined}
-        />
       </Menu>
+      <WithdrawRewardDialog
+        open={openWithdrawDialog}
+        onClose={handleCloseWithdrawRewardsDialog}
+        validatorAddress={props.address}
+        imageUrl={props.imageUrl ?? ''}
+        validatorName={props.name}
+        validatorCommission={props.commission}
+        rewards={props.rewards ?? undefined}
+      />
     </div>
   );
 };

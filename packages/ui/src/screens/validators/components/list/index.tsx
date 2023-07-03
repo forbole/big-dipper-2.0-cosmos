@@ -108,6 +108,19 @@ const List: FC<ComponentDefault> = ({ className }) => {
   return (
     <div>
       <div className={classes.stakingButtons}>
+        <div className={classes.stakingDistribution}>
+          <Link shallow prefetch={false} href={ACCOUNT_DETAILS(address)} className="value">
+            <Button
+              onClick={handleStakingDistribution}
+              color="primary"
+              className={classes.stakingDistrButton}
+              disabled={!loggedIn}
+              variant="text"
+            >
+              <Typography variant="h5">{t('validators:stakingDistribution')}</Typography>
+            </Button>
+          </Link>
+        </div>
         <div>
           <StakeButton
             validators={validatorItems}
@@ -119,18 +132,6 @@ const List: FC<ComponentDefault> = ({ className }) => {
             commission=""
             disabled={!loggedIn}
           />
-        </div>
-        <div className={classes.stakingDistribution}>
-          <Link shallow prefetch={false} href={ACCOUNT_DETAILS(address)} className="value">
-            <Button
-              onClick={handleStakingDistribution}
-              color="primary"
-              className={classes.stakingDistrButton}
-              disabled={!loggedIn}
-            >
-              <Typography variant="h5">{t('validators:stakingDistribution')}</Typography>
-            </Button>
-          </Link>
         </div>
       </div>
       <LoadAndExist loading={state.loading || !!loading} exists={state.exists}>
