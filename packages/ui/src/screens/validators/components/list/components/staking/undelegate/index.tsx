@@ -119,7 +119,7 @@ const UndelegateDialog: FC<UndelegateDialogProps> = ({
           )}
         </DialogTitle>
         <DialogContent>
-          <div className={classes.ddd}>
+          <div className={classes.redelegateContent}>
             <Typography className={classes.subtitle} align="left">
               {t('validators:howMuchToUndelegate')}
             </Typography>

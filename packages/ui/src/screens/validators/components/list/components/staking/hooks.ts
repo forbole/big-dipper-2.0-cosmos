@@ -4,13 +4,14 @@ import { useAvailableBalances } from '@/screens/account_details/utils';
 import { useParams } from '@/screens/params/hooks';
 import { getDenom } from '@/utils/get_denom';
 import * as R from 'ramda';
-import { formatNumber, formatToken, displayToBaseUnit } from '@/utils/format_token';
-import { getClient, getKeplrAPI } from '@/components/nav/components/connect_wallet/keplr_utils';
 import {
-  Account,
-  assertIsDeliverTxSuccess,
-  MsgBeginRedelegateEncodeObject,
-} from '@cosmjs/stargate';
+  formatNumber,
+  formatToken,
+  displayToBaseUnit,
+  baseToDisplayUnit,
+} from '@/utils/format_token';
+import { getClient } from '@/components/nav/components/connect_wallet/keplr_utils';
+import { assertIsDeliverTxSuccess, MsgBeginRedelegateEncodeObject, StdFee } from '@cosmjs/stargate';
 import { useEffect } from 'react';
 import { coin } from '@cosmjs/proto-signing';
 import { ADDRESS_KEY, CHAIN_ID } from '@/utils/localstorage';
@@ -19,6 +20,7 @@ import type {
   ItemType,
   ValidatorsAvatarNameType,
 } from '@/screens/validators/components/list/types';
+import { estimateFee } from '@/screens/validators/components/list/components/staking/utils/gas';
 
 interface UseStakingHooksOptions {
   rewards?: ValidatorsAvatarNameType[];
@@ -140,10 +142,17 @@ const useStakingHooks = ({ rewards, validators, delegations }: UseStakingHooksOp
     setMemo('');
   };
 
-  const getMaxFee = (maxToken: string, gasFee: string) => {
+  const getMaxFee = (maxToken: string, txFee: StdFee) => {
     setTxAmount(0);
+    let fee = 0;
+    txFee.amount.forEach((a) => {
+      fee += Number(a.amount);
+    });
+    const feeBaseFormat = baseToDisplayUnit(fee);
     const maxFee =
-      typeof maxToken === 'number' ? maxToken - Number(gasFee) : Number(maxToken) - Number(gasFee);
+      typeof maxToken === 'number'
+        ? maxToken - Number(feeBaseFormat)
+        : Number(maxToken) - Number(feeBaseFormat);
     setTxAmount(maxFee);
   };
 
@@ -208,18 +217,11 @@ const useStakingHooks = ({ rewards, validators, delegations }: UseStakingHooksOp
   };
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const emptyGas = { amount: [{ amount: '0', denom: '' }], gas: '' };
-  const [fee, setFee] = React.useState<any>(emptyGas);
-  const [txData, setTXData] = React.useState<TransactionMsg[]>([
-    {
-      typeUrl: '/cosmos.staking.v1beta1.MsgDelegate',
-      value: {
-        delegatorAddress: userAddress,
-        validatorAddress: '',
-        amount: coin(0, baseDenom ?? ''),
-      },
-    },
-  ]);
+  const emptyFee = {
+    amount: [{ amount: '0.01', denom: baseDenom ?? tokenFormatDenom.baseDenom }],
+    gas: '',
+  };
+  const [fee, setFee] = React.useState<StdFee>(emptyFee);
 
   const handleMaxFee = async (maxToken: string, validator: string, action: string) => {
     const stakingAddress = validators ? valAddress : validator;
@@ -229,11 +231,12 @@ const useStakingHooks = ({ rewards, validators, delegations }: UseStakingHooksOp
         : T
       : never;
     let client: SigningStargateClient;
-    let accountInfo: Account | null;
 
     try {
-      client = (await getClient(chainID, baseDenom)) as SigningStargateClient;
-      accountInfo = await client.getAccount(userAddress);
+      client = (await getClient(
+        chainID,
+        baseDenom ?? tokenFormatDenom.baseDenom
+      )) as SigningStargateClient;
     } catch (e) {
       setErrorMsg((e as Error).message);
       return;
@@ -242,7 +245,7 @@ const useStakingHooks = ({ rewards, validators, delegations }: UseStakingHooksOp
     switch (action) {
       case 'delegate':
         try {
-          const base64Amount = displayToBaseUnit(amount);
+          const base64Amount = displayToBaseUnit(maxToken);
           const delegateMsg: TransactionMsgDelegate = {
             typeUrl: '/cosmos.staking.v1beta1.MsgDelegate',
             value: {
@@ -251,52 +254,16 @@ const useStakingHooks = ({ rewards, validators, delegations }: UseStakingHooksOp
               amount: coin(base64Amount, baseDenom ?? ''),
             },
           };
-          setTXData([delegateMsg]);
-          const body = {
-            tx: {
-              body: {
-                messages: txData.map((msg) => ({
-                  '@type': msg.typeUrl,
-                  ...msg.value,
-                })),
-                memo,
-              },
-              auth_info: {
-                signer_infos: [
-                  {
-                    public_key: {
-                      '@type': '/cosmos.crypto.secp256k1.PubKey',
-                      key: R.path(['pubkey', 'value'], accountInfo),
-                    },
-                    mode_info: {
-                      single: {
-                        mode: 'SIGN_MODE_UNSPECIFIED',
-                      },
-                    },
-                    sequence: String(R.path(['sequence'], accountInfo)),
-                  },
-                ],
-                fee: {
-                  amount: [
-                    {
-                      denom: baseDenom,
-                      amount: '0',
-                    },
-                  ],
-                  gas_limit: '0',
-                },
-              },
-              signatures: [''],
-            },
-          };
-          const api = getKeplrAPI();
-          const result = await fetch(`${api}/cosmos/tx/v1beta1/simulate`, {
-            method: 'POST',
-            body: JSON.stringify(body),
-          }).then((r) => r.json());
-          const gas = Math.round(Number(R.pathOr('0', ['gas_info', 'gas_used'], result)) * 1.5);
+          const txFee = await estimateFee(
+            client,
+            userAddress,
+            [delegateMsg],
+            memo,
+            baseDenom ?? tokenFormatDenom.baseDenom
+          );
+          getMaxFee(maxToken, txFee);
         } catch (e) {
-          getMaxFee(maxToken, '0.01');
+          getMaxFee(maxToken, fee);
         }
         break;
       default:
@@ -315,7 +282,10 @@ const useStakingHooks = ({ rewards, validators, delegations }: UseStakingHooksOp
     let result;
 
     try {
-      client = (await getClient(chainID, baseDenom)) as SigningStargateClient;
+      client = (await getClient(
+        chainID,
+        baseDenom ?? tokenFormatDenom.baseDenom
+      )) as SigningStargateClient;
     } catch (e) {
       setErrorMsg((e as Error).message);
       return;

@@ -108,7 +108,7 @@ const DelegateDialog: FC<DelegateDialogProps> = ({
           )}
         </DialogTitle>
         <DialogContent>
-          <div className={classes.ddd}>
+          <div className={classes.redelegateContent}>
             <Typography className={classes.subtitle} align="left">
               {t('validators:howMuchToDelegate')}
             </Typography>
@@ -117,7 +117,8 @@ const DelegateDialog: FC<DelegateDialogProps> = ({
               <Button
                 variant="text"
                 className={classes.amountButton}
-                onClick={() => handleMaxFee(token, validatorAddress, 'delegate')}
+                disabled={validators && !validatorAddress ? !valAddress : !validatorAddress}
+                onClick={() => handleMaxFee(token, validatorAddress ?? valAddress, 'delegate')}
               >
                 <div>{token}</div>
               </Button>
