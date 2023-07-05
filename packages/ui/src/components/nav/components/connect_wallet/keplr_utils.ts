@@ -89,7 +89,7 @@ export const getOfflineSignerPubKey = async (
   }
 };
 
-export const getClient = async (chainID: string) => {
+export const getClient = async (chainID: string, baseDenom: string) => {
   let offlineSigner;
   let offlineSignerAddress;
   let client;
@@ -109,7 +109,7 @@ export const getClient = async (chainID: string) => {
   }
 
   try {
-    client = await getCosmosClient(offlineSignerAddress, 'udsm', offlineSigner); // TODO read denom from config
+    client = await getCosmosClient(offlineSignerAddress, baseDenom, offlineSigner);
   } catch (e) {
     return (e as Error).message;
   }

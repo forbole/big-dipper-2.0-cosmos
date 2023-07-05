@@ -232,7 +232,7 @@ const useStakingHooks = ({ rewards, validators, delegations }: UseStakingHooksOp
     let accountInfo: Account | null;
 
     try {
-      client = (await getClient(chainID)) as SigningStargateClient;
+      client = (await getClient(chainID, baseDenom)) as SigningStargateClient;
       accountInfo = await client.getAccount(userAddress);
     } catch (e) {
       setErrorMsg((e as Error).message);
@@ -315,7 +315,7 @@ const useStakingHooks = ({ rewards, validators, delegations }: UseStakingHooksOp
     let result;
 
     try {
-      client = (await getClient(chainID)) as SigningStargateClient;
+      client = (await getClient(chainID, baseDenom)) as SigningStargateClient;
     } catch (e) {
       setErrorMsg((e as Error).message);
       return;
