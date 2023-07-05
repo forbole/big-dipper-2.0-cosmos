@@ -14,7 +14,7 @@ export const isKeplrAvailable = () => !!window.keplr;
 export const getAccountKey = (keplrChainID: string) => window.keplr?.getKey(keplrChainID);
 
 export const getOfflineSigner = (keplrChainID: string) => {
-  const offlineSigner = window.keplr?.getOfflineSigner(keplrChainID);
+  const offlineSigner = window.keplr?.getOfflineSignerOnlyAmino(keplrChainID);
   return offlineSigner;
 };
 
@@ -109,7 +109,7 @@ export const getClient = async (chainID: string) => {
   }
 
   try {
-    client = await getCosmosClient(offlineSignerAddress, 'udsm', offlineSigner);
+    client = await getCosmosClient(offlineSignerAddress, 'udsm', offlineSigner); // TODO read denom from config
   } catch (e) {
     return (e as Error).message;
   }

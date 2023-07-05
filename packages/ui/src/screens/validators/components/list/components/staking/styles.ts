@@ -157,12 +157,6 @@ const useStyles = makeStyles()((theme) => ({
   label: {
     color: '#FFFFFF',
   },
-  root2: {
-    borderRadius: '4px',
-    [`& fieldset`]: {
-      borderRadius: 0,
-    },
-  },
   textField: {
     '& .MuiInputBase-root': {
       borderRadius: `4px`,
@@ -172,9 +166,10 @@ const useStyles = makeStyles()((theme) => ({
     display: 'inline-flex',
     float: 'right',
   },
-  ddd: {
+  redelegateContent: {
     display: 'flex',
     justifyContent: 'space-between',
+    padding: '0px',
   },
   amountLabel: {
     color: theme.palette.custom.tags.one,
