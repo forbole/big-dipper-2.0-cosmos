@@ -57,7 +57,7 @@ export const formatDelegations = (data: Delegations[]) =>
 export const formatRedelegations = (data: Redelegations[]) => {
   const results: RedelegationType[] = [];
   data.forEach((x) => {
-    R.pathOr<NonNullable<typeof x['entries']>>([], ['entries'], x).forEach((y) => {
+    R.pathOr<NonNullable<(typeof x)['entries']>>([], ['entries'], x).forEach((y) => {
       results.push({
         address: x?.delegator_address ?? '',
         to: x?.validator_dst_address ?? '',

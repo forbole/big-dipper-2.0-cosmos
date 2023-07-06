@@ -1,8 +1,9 @@
 import { jest } from '@jest/globals';
 
 function mockChainConfig() {
-  const { default: chainConfig } =
-    jest.requireActual<{ default(): { tokenUnits: object } }>('@/chainConfig');
+  const { default: chainConfig } = jest.requireActual<{ default(): { tokenUnits: object } }>(
+    '@/chainConfig'
+  );
   const config = chainConfig();
   config.tokenUnits = {
     udaric: { display: 'daric', exponent: 6 },
