@@ -46,6 +46,7 @@ const DelegateDialog: FC<DelegateDialogProps> = ({
     token,
     tokenFormatDenom,
     loading,
+    feeLoading,
     handleStakingAction,
     setTxAmount,
     setMemoValue,
@@ -71,6 +72,13 @@ const DelegateDialog: FC<DelegateDialogProps> = ({
     }
     return () => setDelegationSuccess(false);
   }, [delegationSuccess, onClose, resetDialogInfo, setDelegationSuccess, setOpenSuccessSnackbar]);
+
+  React.useEffect(() => {
+    if (errorMsg !== '') {
+      resetDialogInfo();
+      onClose();
+    }
+  }, [errorMsg, onClose, resetDialogInfo]);
 
   return (
     <div>
@@ -135,6 +143,7 @@ const DelegateDialog: FC<DelegateDialogProps> = ({
             type="number"
             InputProps={{
               disableUnderline: true,
+              startAdornment: feeLoading && <CircularProgress size={20} />,
               endAdornment: tokenFormatDenom?.displayDenom.toUpperCase(),
               style: {
                 height: '44px',

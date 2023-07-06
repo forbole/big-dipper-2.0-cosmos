@@ -180,6 +180,7 @@ const GridRow: FC<GridRowProps> = ({
           delegations={delegations}
           rewards={rewards}
           disabled={!loggedIn}
+          valRow
         />
       );
       break;

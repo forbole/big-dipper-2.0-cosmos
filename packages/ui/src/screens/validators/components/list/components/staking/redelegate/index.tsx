@@ -53,6 +53,7 @@ const RedelegateDialog: FC<RedelegateDialogProps> = ({
     setValAddress,
     handleStakingAction,
     loading,
+    feeLoading,
     delegationSuccess,
     txHash,
     setDelegationSuccess,
@@ -67,6 +68,7 @@ const RedelegateDialog: FC<RedelegateDialogProps> = ({
     stakedToken,
     validatorSourceAddress,
     valAddress,
+    handleMaxFee,
   } = useStakingHooks({ validators, delegations });
 
   // set sources address to validatorAddress input if validatorAddress prop is passed
@@ -86,6 +88,13 @@ const RedelegateDialog: FC<RedelegateDialogProps> = ({
     }
     return () => setDelegationSuccess(false);
   }, [delegationSuccess, onClose, resetDialogInfo, setDelegationSuccess, setOpenSuccessSnackbar]);
+
+  React.useEffect(() => {
+    if (errorMsg !== '') {
+      resetDialogInfo();
+      onClose();
+    }
+  }, [errorMsg, onClose, resetDialogInfo]);
 
   return (
     <div>
@@ -139,7 +148,20 @@ const RedelegateDialog: FC<RedelegateDialogProps> = ({
             </Typography>
             <Typography className={classes.subtitle} align="right">
               {t('validators:stakedAmount')}
-              <div className={classes.amountLabel}>{stakedToken}</div>
+              <Button
+                variant="text"
+                className={classes.amountButton}
+                disabled={
+                  validators && !validatorAddress
+                    ? !(valAddress && validatorSourceAddress)
+                    : !(validatorAddress && validatorSourceAddress)
+                }
+                onClick={() =>
+                  handleMaxFee(stakedToken, validatorAddress ?? valAddress, 'redelegate')
+                }
+              >
+                <div className={classes.amountLabel}>{stakedToken}</div>
+              </Button>
             </Typography>
           </div>
           <TextField
@@ -153,6 +175,7 @@ const RedelegateDialog: FC<RedelegateDialogProps> = ({
             type="number"
             InputProps={{
               disableUnderline: true,
+              startAdornment: feeLoading && <CircularProgress size={20} />,
               endAdornment: tokenFormatDenom?.displayDenom.toUpperCase(),
               style: {
                 height: '44px',
@@ -185,11 +208,11 @@ const RedelegateDialog: FC<RedelegateDialogProps> = ({
               setMemoValue(event.target.value);
             }}
           />
-          {errorMsg !== '' ? (
+          {errorMsg && (
             <Typography variant="h5" className={classes.errorMsg}>
               Error: {errorMsg}
             </Typography>
-          ) : null}
+          )}
         </DialogContent>
         <DialogActions>
           <div className={classes.dialogActions}>

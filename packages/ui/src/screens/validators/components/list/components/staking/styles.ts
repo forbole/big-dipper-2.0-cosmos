@@ -80,6 +80,29 @@ const useStyles = makeStyles()((theme) => ({
       fontSize: '24px',
     },
   },
+  iconContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '12px'
+  },
+  iconStaking: {
+    padding: 0,
+    minWidth: 'min-content',
+    backgroundColor: theme.palette.primary.main,
+    borderRadius: theme.spacing(1),
+    '> svg > path ': {
+      fill: '#FFFFFF',
+    },
+  },
+  iconRewards: {
+    padding: 0,
+    minWidth: 'min-content',
+    border: `1px solid ${theme.palette.custom.tags.one}`,
+    borderRadius: theme.spacing(1),
+    '> svg > path': {
+      fill: theme.palette.custom.tags.one,
+    },
+  },
   staking: {
     zIndex: 150,
     flex: 1,
@@ -172,9 +195,8 @@ const useStyles = makeStyles()((theme) => ({
     padding: '0px',
   },
   amountLabel: {
-    color: theme.palette.custom.tags.one,
     display: 'inline',
-    paddingLeft: '10px',
+    fontStyle: 'normal',
   },
   amountButton: {
     margin: theme.spacing(0, 0, 0, 1),
@@ -183,6 +205,10 @@ const useStyles = makeStyles()((theme) => ({
     '&:hover': {
       cursor: 'pointer',
       background: theme.palette.custom.wallet?.surfaceFour,
+    },
+    '&.Mui-disabled': {
+      color: theme.palette.custom.tags.one,
+      opacity: '80%',
     },
   },
   dialogActions: {
