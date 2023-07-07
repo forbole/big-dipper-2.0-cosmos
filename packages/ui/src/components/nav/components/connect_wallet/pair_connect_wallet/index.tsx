@@ -14,12 +14,14 @@ import LinearLoading from '@/components/linear_loading';
 type PairWalletConnectDialogProps = {
   open: boolean;
   walletConnectURI: string;
+  errorMsg?: string;
   onClose: () => void;
 };
 
 const PairConnectWalletDialog: FC<PairWalletConnectDialogProps> = ({
   open,
   walletConnectURI,
+  errorMsg,
   onClose,
 }) => {
   const { classes } = useStyles();
@@ -55,6 +57,13 @@ const PairConnectWalletDialog: FC<PairWalletConnectDialogProps> = ({
           ) : (
             <LinearLoading className={classes.loading} />
           )}
+          {errorMsg !== undefined ? (
+            <div className={classes.walletConnectError}>
+              <Typography variant="h5" className={classes.errorMsg}>
+                Error: {errorMsg}
+              </Typography>
+            </div>
+          ) : null}
         </DialogContent>
       </Dialog>
     </div>

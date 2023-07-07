@@ -89,6 +89,7 @@ const ConnectWallet: FC<ConnectWalletProps> = () => {
       />
       <PairConnectWalletDialog
         open={openPairConnectWalletDialog}
+        errorMsg={errorMsg}
         walletConnectURI={walletConnectURI}
         onClose={closeWalletConnectDialog}
       />
