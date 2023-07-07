@@ -46,6 +46,7 @@ const DelegateDialog: FC<DelegateDialogProps> = ({
     token,
     tokenFormatDenom,
     loading,
+    feeLoading,
     handleStakingAction,
     setTxAmount,
     setMemoValue,
@@ -71,6 +72,19 @@ const DelegateDialog: FC<DelegateDialogProps> = ({
     }
     return () => setDelegationSuccess(false);
   }, [delegationSuccess, onClose, resetDialogInfo, setDelegationSuccess, setOpenSuccessSnackbar]);
+
+  React.useEffect(() => {
+    if (validatorAddress) {
+      setValAddress(validatorAddress);
+    }
+  }, [setValAddress, validatorAddress, validators]);
+
+  React.useEffect(() => {
+    if (errorMsg !== '') {
+      resetDialogInfo();
+      onClose();
+    }
+  }, [errorMsg, onClose, resetDialogInfo]);
 
   return (
     <div>
@@ -118,7 +132,7 @@ const DelegateDialog: FC<DelegateDialogProps> = ({
                 variant="text"
                 className={classes.amountButton}
                 disabled={validators && !validatorAddress ? !valAddress : !validatorAddress}
-                onClick={() => handleMaxFee(token, validatorAddress ?? valAddress, 'delegate')}
+                onClick={() => handleMaxFee(token, valAddress, 'delegate')}
               >
                 <div>{token}</div>
               </Button>
@@ -135,6 +149,7 @@ const DelegateDialog: FC<DelegateDialogProps> = ({
             type="number"
             InputProps={{
               disableUnderline: true,
+              startAdornment: feeLoading && <CircularProgress size={20} />,
               endAdornment: tokenFormatDenom?.displayDenom.toUpperCase(),
               style: {
                 height: '44px',
@@ -167,16 +182,16 @@ const DelegateDialog: FC<DelegateDialogProps> = ({
               setMemoValue(event.target.value);
             }}
           />
-          {errorMsg !== '' ? (
+          {errorMsg && (
             <Typography variant="h5" className={classes.errorMsg}>
               Error: {errorMsg}
             </Typography>
-          ) : null}
+          )}
         </DialogContent>
         <DialogActions>
           <div className={classes.dialogActions}>
             <Button
-              onClick={() => handleStakingAction(validatorAddress, 'delegate')}
+              onClick={() => handleStakingAction('delegate')}
               color="primary"
               className={classes.delegateButton}
             >

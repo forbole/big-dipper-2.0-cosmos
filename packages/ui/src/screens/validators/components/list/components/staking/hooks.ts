@@ -11,7 +11,11 @@ import {
   baseToDisplayUnit,
 } from '@/utils/format_token';
 import { getClient } from '@/components/nav/components/connect_wallet/keplr_utils';
-import { assertIsDeliverTxSuccess, MsgBeginRedelegateEncodeObject, StdFee } from '@cosmjs/stargate';
+import {
+  assertIsDeliverTxSuccess,
+  MsgBeginRedelegateEncodeObject,
+  StdFee,
+} from '@cosmjs/stargate';
 import { useEffect } from 'react';
 import { coin } from '@cosmjs/proto-signing';
 import { ADDRESS_KEY, CHAIN_ID } from '@/utils/localstorage';
@@ -28,7 +32,12 @@ interface UseStakingHooksOptions {
   delegations?: ValidatorsAvatarNameType[];
 }
 
-const useStakingHooks = ({ rewards, validators, delegations }: UseStakingHooksOptions = {}) => {
+const useStakingHooks = ({
+  rewards,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  validators,
+  delegations,
+}: UseStakingHooksOptions = {}) => {
   const [amount, setAmount] = React.useState<string | number>('');
   const [userAddress, setUserAddress] = React.useState('');
   const [chainID, setChainID] = React.useState('');
@@ -37,7 +46,8 @@ const useStakingHooks = ({ rewards, validators, delegations }: UseStakingHooksOp
 
   const [memo, setMemo] = React.useState('');
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const [redelegateAnchorEl, setRedelegateAnchorEl] = React.useState<null | HTMLElement>(null);
+  const [redelegateAnchorEl, setRedelegateAnchorEl] =
+    React.useState<null | HTMLElement>(null);
 
   const openStakingMenu = Boolean(anchorEl);
   const openRedelegateMenu = Boolean(redelegateAnchorEl);
@@ -46,7 +56,8 @@ const useStakingHooks = ({ rewards, validators, delegations }: UseStakingHooksOp
   const [openUndelegateDialog, setOpenUndelegateDialog] = React.useState(false);
   const [openSuccessSnackbar, setOpenSuccessSnackbar] = React.useState(false);
   const [openDelegateDialog, setOpenDelegateDialog] = React.useState(false);
-  const [openValidatorRedelegateMenu, setOpenValidatorRedelegateMenu] = React.useState(false);
+  const [openValidatorRedelegateMenu, setOpenValidatorRedelegateMenu] =
+    React.useState(false);
   const [openWithdrawDialog, setOpenWithdrawDialog] = React.useState(false);
   const [txHash, setTxHash] = React.useState('');
 
@@ -68,7 +79,10 @@ const useStakingHooks = ({ rewards, validators, delegations }: UseStakingHooksOp
     [availableForStaking, loggedIn]
   );
   // const tokenFormatDenom = formatToken(availableForStaking?.amount, availableForStaking.denom);
-  const token = `${formatNumber(tokenFormatDenom.value, tokenFormatDenom.exponent)}`;
+  const token = `${formatNumber(
+    tokenFormatDenom.value,
+    tokenFormatDenom.exponent
+  )}`;
 
   const setDelegateAmount = (value: string) => {
     setAmount(value);
@@ -83,7 +97,9 @@ const useStakingHooks = ({ rewards, validators, delegations }: UseStakingHooksOp
   };
   const getAmount = () => amount;
 
-  const handleOpenStakingMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleOpenStakingMenu = (
+    event: React.MouseEvent<HTMLButtonElement>
+  ) => {
     setAnchorEl(event.currentTarget);
   };
 
@@ -123,7 +139,10 @@ const useStakingHooks = ({ rewards, validators, delegations }: UseStakingHooksOp
     setOpenWithdrawDialog(false);
   };
 
-  const handleCloseSnackBar = (event: React.SyntheticEvent | Event, reason?: string) => {
+  const handleCloseSnackBar = (
+    event: React.SyntheticEvent | Event,
+    reason?: string
+  ) => {
     if (reason === 'clickaway') {
       return;
     }
@@ -135,6 +154,9 @@ const useStakingHooks = ({ rewards, validators, delegations }: UseStakingHooksOp
     setValAddress('');
     setAmount('');
     setMemo('');
+    setErrorMsg('');
+    setLoading(false);
+    setFeeLoading(false);
   };
 
   const resetWithdrawDialogInfo = () => {
@@ -159,24 +181,26 @@ const useStakingHooks = ({ rewards, validators, delegations }: UseStakingHooksOp
   // Add a new state to control the success state of the delegation action
   const [delegationSuccess, setDelegationSuccess] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
+  const [feeLoading, setFeeLoading] = React.useState(false);
 
   const [stakedToken, setStakedToken] = React.useState<string>('');
 
-  const [validatorSourceAddress, setValidatorSourceAddress] = React.useState('');
+  const [validatorSourceAddress, setValidatorSourceAddress] =
+    React.useState('');
 
   useEffect(() => {
     if (validatorSourceAddress !== '') {
       const coinsAmount =
-        delegations?.find((d) => d.validator.address === validatorSourceAddress)?.coins.amount ??
-        '0';
+        delegations?.find((d) => d.validator.address === validatorSourceAddress)
+          ?.coins.amount ?? '0';
       const denom =
-        delegations?.find((d) => d.validator.address === validatorSourceAddress)?.coins.denom ??
-        baseDenom;
+        delegations?.find((d) => d.validator.address === validatorSourceAddress)
+          ?.coins.denom ?? baseDenom;
       const tokenDenomFormat = formatToken(coinsAmount, denom);
       const sToken = `${formatNumber(
         tokenDenomFormat.value,
         tokenDenomFormat.exponent
-      )} ${tokenDenomFormat.displayDenom.toUpperCase()}`;
+      )}`;
       setStakedToken(sToken);
     } else {
       setStakedToken(token);
@@ -188,14 +212,16 @@ const useStakingHooks = ({ rewards, validators, delegations }: UseStakingHooksOp
 
   const [rewardToken, setRewardToken] = React.useState<string>('');
 
-  const [validatorRewardAddress, setValidatorRewardAddress] = React.useState('');
+  const [validatorRewardAddress, setValidatorRewardAddress] =
+    React.useState('');
 
   useEffect(() => {
     const coinsAmount =
-      rewards?.find((d) => d.validator.address === validatorRewardAddress)?.coins.amount ?? '0';
+      rewards?.find((d) => d.validator.address === validatorRewardAddress)
+        ?.coins.amount ?? '0';
     const denom =
-      rewards?.find((d) => d.validator.address === validatorRewardAddress)?.coins.denom ??
-      baseDenom;
+      rewards?.find((d) => d.validator.address === validatorRewardAddress)
+        ?.coins.denom ?? baseDenom;
     const tokenDenomFormat = formatToken(coinsAmount, denom);
     const rToken = `${formatNumber(
       tokenDenomFormat.value,
@@ -209,23 +235,31 @@ const useStakingHooks = ({ rewards, validators, delegations }: UseStakingHooksOp
     setChainID(localStorage.getItem(CHAIN_ID) ?? '');
   }, [userAddress, setUserAddress]);
 
-  const handleOpenValidatorRedelegateMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleOpenValidatorRedelegateMenu = (
+    event: React.MouseEvent<HTMLButtonElement>
+  ) => {
     setRedelegateAnchorEl(event.currentTarget);
   };
   const handleCloseRedelegateMenu = () => {
     setOpenValidatorRedelegateMenu(false);
   };
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const emptyFee = {
-    amount: [{ amount: '0.01', denom: baseDenom ?? tokenFormatDenom.baseDenom }],
+  const defaultFee = {
+    amount: [
+      { amount: '0.01', denom: baseDenom ?? tokenFormatDenom.baseDenom },
+    ],
     gas: '',
   };
-  const [fee, setFee] = React.useState<StdFee>(emptyFee);
 
-  const handleMaxFee = async (maxToken: string, validator: string, action: string) => {
-    const stakingAddress = validators ? valAddress : validator;
-    type SigningStargateClient = ReturnType<typeof getClient> extends Promise<infer T>
+  const handleMaxFee = async (
+    maxToken: string,
+    validator: string,
+    action: string
+  ) => {
+    const stakingAddress = validator;
+    type SigningStargateClient = ReturnType<typeof getClient> extends Promise<
+      infer T
+    >
       ? T extends string
         ? never
         : T
@@ -245,6 +279,7 @@ const useStakingHooks = ({ rewards, validators, delegations }: UseStakingHooksOp
     switch (action) {
       case 'delegate':
         try {
+          setFeeLoading(true);
           const base64Amount = displayToBaseUnit(maxToken);
           const delegateMsg: TransactionMsgDelegate = {
             typeUrl: '/cosmos.staking.v1beta1.MsgDelegate',
@@ -262,8 +297,37 @@ const useStakingHooks = ({ rewards, validators, delegations }: UseStakingHooksOp
             baseDenom ?? tokenFormatDenom.baseDenom
           );
           getMaxFee(maxToken, txFee);
+          setFeeLoading(false);
         } catch (e) {
-          getMaxFee(maxToken, fee);
+          getMaxFee(maxToken, defaultFee);
+          setFeeLoading(false);
+        }
+        break;
+      case 'redelegate':
+        try {
+          setFeeLoading(true);
+          const base64Amount = displayToBaseUnit(maxToken);
+          const redelegateMsg: TransactionMsgRedelegate = {
+            typeUrl: '/cosmos.staking.v1beta1.MsgBeginRedelegate',
+            value: {
+              delegatorAddress: userAddress,
+              validatorSrcAddress: validatorSourceAddress,
+              validatorDstAddress: stakingAddress,
+              amount: coin(base64Amount, baseDenom ?? ''),
+            },
+          };
+          const txFee = await estimateFee(
+            client,
+            userAddress,
+            [redelegateMsg],
+            memo,
+            baseDenom ?? tokenFormatDenom.baseDenom
+          );
+          getMaxFee(maxToken, txFee);
+          setFeeLoading(false);
+        } catch (e) {
+          getMaxFee(maxToken, defaultFee);
+          setFeeLoading(false);
         }
         break;
       default:
@@ -271,9 +335,11 @@ const useStakingHooks = ({ rewards, validators, delegations }: UseStakingHooksOp
     client.disconnect();
   };
 
-  const handleStakingAction = async (validator: string, action: string) => {
-    const stakingAddress = validators ? valAddress : validator;
-    type SigningStargateClient = ReturnType<typeof getClient> extends Promise<infer T>
+  const handleStakingAction = async (action: string) => {
+    const stakingAddress = valAddress;
+    type SigningStargateClient = ReturnType<typeof getClient> extends Promise<
+      infer T
+    >
       ? T extends string
         ? never
         : T
@@ -323,19 +389,24 @@ const useStakingHooks = ({ rewards, validators, delegations }: UseStakingHooksOp
             value: {
               delegatorAddress: userAddress,
               validatorSrcAddress: validatorSourceAddress,
-              validatorDstAddress: stakingAddress, // to set
+              validatorDstAddress: stakingAddress,
               amount: coin(base64Amount, baseDenom ?? ''),
             },
           };
-          result = await client.signAndBroadcast(userAddress, [redelegateMsg], 'auto', memo);
+          result = await client.signAndBroadcast(
+            userAddress,
+            [redelegateMsg],
+            'auto',
+            memo
+          );
           setDelegationSuccess(true);
           setTxHash(result.transactionHash);
           assertIsDeliverTxSuccess(result);
           setLoading(false);
           setValidatorSourceAddress('');
         } catch (e) {
-          setErrorMsg((e as Error).message);
           handleCloseRedelegateDialog();
+          setErrorMsg((e as Error).message);
           setOpenSuccessSnackbar(false);
           return;
         }
@@ -366,7 +437,12 @@ const useStakingHooks = ({ rewards, validators, delegations }: UseStakingHooksOp
       case 'claim rewards':
         try {
           setLoading(true);
-          result = await client.withdrawRewards(userAddress, validatorRewardAddress, 'auto', memo);
+          result = await client.withdrawRewards(
+            userAddress,
+            validatorRewardAddress,
+            'auto',
+            memo
+          );
           setWithdrawSuccess(true);
           setTxHash(result.transactionHash);
           assertIsDeliverTxSuccess(result);
@@ -394,6 +470,8 @@ const useStakingHooks = ({ rewards, validators, delegations }: UseStakingHooksOp
     handleOpenWithdrawRewardsDialog,
     handleOpenValidatorRedelegateMenu,
     handleCloseRedelegateMenu,
+    setOpenDelegateDialog,
+    setOpenRedelegateDialog,
     openValidatorRedelegateMenu,
     redelegateAnchorEl,
     handleStakingAction,
@@ -406,7 +484,6 @@ const useStakingHooks = ({ rewards, validators, delegations }: UseStakingHooksOp
     handleCloseRedelegateDialog,
     handleCloseUndelegateDialog,
     handleCloseWithdrawRewardsDialog,
-    setOpenDelegateDialog,
     setValAddress,
     setDelegationSuccess,
     setWithdrawSuccess,
@@ -442,6 +519,7 @@ const useStakingHooks = ({ rewards, validators, delegations }: UseStakingHooksOp
     rewardToken,
     txHash,
     loading,
+    feeLoading,
     handleMaxFee,
   };
 };

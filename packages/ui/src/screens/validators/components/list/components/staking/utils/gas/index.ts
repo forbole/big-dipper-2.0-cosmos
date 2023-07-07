@@ -15,7 +15,8 @@ export const estimateFee = async (
   const averageGas = getAverageGasPriceStep(keplr ?? '0.01');
   const gasPrice = GasPrice.fromString(`${averageGas}${denom}`);
   const gasEstimation = await client.simulate(address, msgs, memo);
-  const fee: StdFee = calculateFee(Math.round(gasEstimation * 1.3), gasPrice);
+  const roundedGasEstimation = Math.ceil(gasEstimation);
+  const fee: StdFee = calculateFee(Math.round(roundedGasEstimation * 1.3), gasPrice);
   return fee;
 };
 

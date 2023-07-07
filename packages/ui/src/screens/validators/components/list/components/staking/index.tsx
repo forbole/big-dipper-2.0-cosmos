@@ -15,6 +15,8 @@ import useStakingHooks from '@/screens/validators/components/list/components/sta
 import RedelegateDialog from '@/screens/validators/components/list/components/staking/redelegate';
 import UndelegateDialog from '@/screens/validators/components/list/components/staking/undelegate';
 import WithdrawRewardDialog from '@/screens/validators/components/list/components/staking/withdraw';
+import StakeIcon from 'shared-utils/assets/icon-stake.svg';
+import RewardsIcon from 'shared-utils/assets/icon-withdraw-rewards.svg';
 
 type StakeButtonProps = {
   address: string;
@@ -25,7 +27,7 @@ type StakeButtonProps = {
   delegations?: ValidatorsAvatarNameType[];
   rewards?: ValidatorsAvatarNameType[];
   disabled: boolean;
-  iconButton?: boolean;
+  valRow?: boolean;
 };
 
 const StakeButton = (props: StakeButtonProps) => {
@@ -52,25 +54,25 @@ const StakeButton = (props: StakeButtonProps) => {
 
   return (
     <div>
-      {props.iconButton ? (
-        <>
+      {props.valRow ? (
+        <div className={classes.iconContainer}>
           <Button
             id="stake-button"
             onClick={handleOpenStakingMenu}
-            className={classes.staking}
+            className={classes.iconStaking}
             disabled={props.disabled}
           >
-            {/* svg component */}
+            <StakeIcon />
           </Button>
           <Button
             id="stake-button"
             onClick={handleOpenStakingMenu}
-            className={classes.staking}
+            className={classes.iconRewards}
             disabled={props.disabled}
           >
-            {/* svg component */}
+            <RewardsIcon />
           </Button>
-        </>
+        </div>
       ) : (
         <div className={classes.flexRow}>
           <Button
@@ -117,7 +119,7 @@ const StakeButton = (props: StakeButtonProps) => {
           validatorCommission={props.commission}
           validators={props.validators ?? undefined}
         />
-        <MenuItem onClick={handleOpenRedelegateDialog}> {t('validators:redelegate')}</MenuItem>
+        <MenuItem onClick={handleOpenRedelegateDialog}>{t('validators:redelegate')}</MenuItem>
         <RedelegateDialog
           open={openRedelegateDialog}
           onClose={handleCloseRedelegateDialog}
