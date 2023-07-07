@@ -123,9 +123,10 @@ const PriceChart: React.FC = () => {
     const handle = (e: any) => {
       const container: any = document.getElementById('price-chart');
       const dimensions = {
-        width: e.target.innerWidth * (e.target.innerWidth > 767 ? 0.5 : 0.83),
+        width: container.clientWidth * (container.clientWidth > 767 ? 0.5 : 0.85),
         height: container.clientHeight,
       };
+      console.log('CALLED', container.clientWidth, container.clientHeight);
       chartRef.current?.applyOptions(dimensions);
     };
     window.addEventListener('resize', handle);
