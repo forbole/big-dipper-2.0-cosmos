@@ -15,7 +15,7 @@ const PriceChart: React.FC = () => {
   const theme = useRecoilValue(readTheme);
   const [isLoading, setIsLoading] = useState<Boolean>(false);
   const [isError, setIsError] = useState<Boolean>(false);
-  const [data, setData] = useState<SingleValueData[]>();
+  const [gqlData, setGqlData] = useState<SingleValueData[]>();
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -23,19 +23,28 @@ const PriceChart: React.FC = () => {
         try {
           setIsLoading(true);
           setIsError(false);
-          const to = daysjs();
-          const from = daysjs().subtract(7, 'day');
-          const response = await axios.get('https://api.sologenic.org/api/v1/chartcombinator', {
-            params: {
-              period: '1h',
-              from: from.unix(),
-              to: to.unix(),
-              issuer: 'rcoreNywaoz2ZCQ8Lg2EbSLnGuRBmun6D',
-              currency: '434F524500000000000000000000000000000000',
+          const gqlResponse = await axios({
+            url: 'https://hasura.mainnet-1.coreum.dev/v1/graphql',
+            method: 'post',
+            data: {
+              query: `
+              query tokenPriceHistory {
+                token_price_history (order_by: {timestamp: asc}) {
+                  price
+                  timestamp
+                }
+              }`,
             },
           });
-          if (response.status === 200) {
-            setData(response.data);
+          if (gqlResponse.status === 200) {
+            const formattedData = gqlResponse.data.data.token_price_history.map((item: any) => {
+              let time = new Date(item.timestamp);
+              return {
+                value: item.price,
+                time: Math.floor(time.getTime() / 1000),
+              };
+            });
+            setGqlData(formattedData);
             setIsLoading(false);
           }
         } catch (e) {
@@ -48,7 +57,7 @@ const PriceChart: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    if (typeof window !== 'undefined' && !chartRef.current && data) {
+    if (typeof window !== 'undefined' && !chartRef.current && gqlData) {
       const chartOptions = {
         layout: {
           textColor: theme === 'dark' ? 'white' : 'black',
@@ -73,7 +82,7 @@ const PriceChart: React.FC = () => {
       const baselineSeries = chartRef.current.addBaselineSeries({
         baseValue: {
           type: 'price',
-          price: data[0].value,
+          price: gqlData[0].value,
         },
         topLineColor: 'rgba( 38, 166, 154, 1)',
         topFillColor1: 'rgba( 38, 166, 154, 0.28)',
@@ -83,11 +92,11 @@ const PriceChart: React.FC = () => {
         bottomFillColor2: 'rgba( 239, 83, 80, 0.28)',
       });
 
-      baselineSeries.setData(data);
+      baselineSeries.setData(gqlData);
 
       chartRef.current.timeScale().fitContent();
     }
-  }, [data]);
+  }, [gqlData]);
 
   useEffect(() => {
     if (chartRef.current) {
@@ -114,9 +123,10 @@ const PriceChart: React.FC = () => {
     const handle = (e: any) => {
       const container: any = document.getElementById('price-chart');
       const dimensions = {
-        width: e.target.innerWidth * (e.target.innerWidth > 767 ? 0.5 : 0.83),
+        width: container.clientWidth * (container.clientWidth > 767 ? 0.5 : 0.85),
         height: container.clientHeight,
       };
+      console.log('CALLED', container.clientWidth, container.clientHeight);
       chartRef.current?.applyOptions(dimensions);
     };
     window.addEventListener('resize', handle);
