@@ -156,7 +156,7 @@ const WithdrawRewardDialog: FC<WithdrawRewardDialogProps> = ({
             <Button
               onClick={() =>
                 handleStakingAction(
-                  validatorRewardAddress === '' ? validatorAddress : validatorRewardAddress,
+                  // validatorRewardAddress === '' ? validatorAddress : validatorRewardAddress,
                   'claim rewards'
                 )
               }

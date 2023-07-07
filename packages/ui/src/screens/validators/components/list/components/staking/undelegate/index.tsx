@@ -54,6 +54,7 @@ const UndelegateDialog: FC<UndelegateDialogProps> = ({
     txHash,
     validatorSourceAddress,
     loading,
+    feeLoading,
     resetDialogInfo,
     handleStakingAction,
     setMemoValue,
@@ -63,6 +64,7 @@ const UndelegateDialog: FC<UndelegateDialogProps> = ({
     setOpenSuccessSnackbar,
     openSuccessSnackbar,
     handleCloseSnackBar,
+    handleMaxFee,
   } = useStakingHooks({ validators, delegations });
 
   // set sources delegated address to validatorAddress input if validatorAddress prop is passed
@@ -74,6 +76,12 @@ const UndelegateDialog: FC<UndelegateDialogProps> = ({
   }, [delegations, setValidatorSourceAddress, validatorAddress]);
 
   React.useEffect(() => {
+    if (validatorAddress) {
+      setValidatorSourceAddress(validatorAddress);
+    }
+  }, [setValidatorSourceAddress, validatorAddress, validators]);
+
+  React.useEffect(() => {
     if (delegationSuccess) {
       onClose();
       setOpenSuccessSnackbar(true);
@@ -82,6 +90,13 @@ const UndelegateDialog: FC<UndelegateDialogProps> = ({
     }
     return () => setDelegationSuccess(false);
   }, [delegationSuccess, onClose, resetDialogInfo, setDelegationSuccess, setOpenSuccessSnackbar]);
+
+  React.useEffect(() => {
+    if (errorMsg !== '') {
+      resetDialogInfo();
+      onClose();
+    }
+  }, [errorMsg, onClose, resetDialogInfo]);
 
   return (
     <div>
@@ -125,7 +140,14 @@ const UndelegateDialog: FC<UndelegateDialogProps> = ({
             </Typography>
             <Typography className={classes.subtitle} align="right">
               {t('validators:stakedAmount')}
-              <div className={classes.amountLabel}>{stakedToken}</div>
+              <Button
+                variant="text"
+                className={classes.amountButton}
+                disabled={!validatorSourceAddress}
+                onClick={() => handleMaxFee(stakedToken, validatorSourceAddress, 'undelegate')}
+              >
+                <div className={classes.amountLabel}>{stakedToken}</div>
+              </Button>
             </Typography>
           </div>
           <TextField
@@ -140,6 +162,7 @@ const UndelegateDialog: FC<UndelegateDialogProps> = ({
             type="number"
             InputProps={{
               disableUnderline: true,
+              startAdornment: feeLoading && <CircularProgress size={20} />,
               endAdornment: tokenFormatDenom?.displayDenom.toUpperCase(),
               style: {
                 height: '44px',
@@ -172,21 +195,16 @@ const UndelegateDialog: FC<UndelegateDialogProps> = ({
               setMemoValue(event.target.value);
             }}
           />
-          {errorMsg !== '' ? (
+          {errorMsg && (
             <Typography variant="h5" className={classes.errorMsg}>
               Error: {errorMsg}
             </Typography>
-          ) : null}
+          )}
         </DialogContent>
         <DialogActions>
           <div className={classes.dialogActions}>
             <Button
-              onClick={() =>
-                handleStakingAction(
-                  validatorSourceAddress === '' ? validatorAddress : validatorSourceAddress,
-                  'undelegate'
-                )
-              }
+              onClick={() => handleStakingAction('undelegate')}
               color="primary"
               className={classes.delegateButton}
               disabled={stakedToken === `0 ${tokenFormatDenom?.displayDenom.toUpperCase()}`}

@@ -303,6 +303,32 @@ const useStakingHooks = ({
           setFeeLoading(false);
         }
         break;
+      case 'undelegate':
+        try {
+          setFeeLoading(true);
+          const base64Amount = displayToBaseUnit(maxToken);
+          const undelegateMsg: TransactionMsgUndelegate = {
+            typeUrl: '/cosmos.staking.v1beta1.MsgUndelegate',
+            value: {
+              delegatorAddress: userAddress,
+              validatorAddress: validatorSourceAddress,
+              amount: coin(base64Amount, baseDenom ?? ''),
+            },
+          };
+          const txFee = await estimateFee(
+            client,
+            userAddress,
+            [undelegateMsg],
+            memo,
+            baseDenom ?? tokenFormatDenom.baseDenom
+          );
+          getMaxFee(maxToken, txFee);
+          setFeeLoading(false);
+        } catch (e) {
+          getMaxFee(maxToken, defaultFee);
+          setFeeLoading(false);
+        }
+        break;
       case 'redelegate':
         try {
           setFeeLoading(true);

@@ -1,5 +1,5 @@
 import { SigningStargateClient, GasPrice } from '@cosmjs/stargate';
-import { OfflineAminoSigner, OfflineDirectSigner } from '@keplr-wallet/types';
+import { OfflineAminoSigner } from '@keplr-wallet/types';
 import { toBase64 } from '@cosmjs/encoding';
 import { PubKey } from '@/recoil/user/atom';
 import chainConfig from '@/chainConfig';
@@ -45,7 +45,7 @@ export const isEd25519PubKey = (pubKey: Uint8Array) => {
 export const getCosmosClient = async (
   address: string,
   mintDenom: string,
-  offlineSigner: OfflineAminoSigner & OfflineDirectSigner
+  offlineSigner: OfflineAminoSigner
 ) => {
   // Initialize the gaia api with the offline signer that is injected by Keplr extension.
   // using rpc endpoint instead of keplrURL
@@ -63,7 +63,7 @@ export const getKeplrAPI = () => {
 };
 
 export const getOfflineSignerAddress = async (
-  offlineSigner: OfflineAminoSigner & OfflineDirectSigner
+  offlineSigner: OfflineAminoSigner
 ) => {
   // You can get the address/public keys by `getAccounts` method.
   // It can return the array of address/public key.
@@ -74,7 +74,7 @@ export const getOfflineSignerAddress = async (
 };
 
 export const getOfflineSignerPubKey = async (
-  offlineSigner: OfflineAminoSigner & OfflineDirectSigner
+  offlineSigner: OfflineAminoSigner
   // eslint-disable-next-line consistent-return
 ) => {
   const accounts = await offlineSigner.getAccounts();
