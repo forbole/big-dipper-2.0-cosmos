@@ -175,7 +175,8 @@ const useStakingHooks = ({
       typeof maxToken === 'number'
         ? maxToken - Number(feeBaseFormat)
         : Number(maxToken) - Number(feeBaseFormat);
-    setTxAmount(maxFee);
+    // eslint-disable-next-line no-unused-expressions
+    maxToken === '0' ? setTxAmount(0) :setTxAmount(maxFee);
   };
 
   // Add a new state to control the success state of the delegation action

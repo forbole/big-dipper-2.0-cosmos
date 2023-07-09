@@ -220,7 +220,7 @@ const RedelegateDialog: FC<RedelegateDialogProps> = ({
               onClick={() => handleStakingAction('redelegate')}
               color="primary"
               className={classes.delegateButton}
-              disabled={stakedToken === `0 ${tokenFormatDenom?.displayDenom.toUpperCase()}`}
+              disabled={stakedToken === '0'}
             >
               {loading ? (
                 <CircularProgress size={20} color="inherit" />

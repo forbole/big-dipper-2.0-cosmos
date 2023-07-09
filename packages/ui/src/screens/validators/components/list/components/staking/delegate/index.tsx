@@ -194,6 +194,7 @@ const DelegateDialog: FC<DelegateDialogProps> = ({
               onClick={() => handleStakingAction('delegate')}
               color="primary"
               className={classes.delegateButton}
+              disabled={!valAddress || token === '0'}
             >
               {loading ? (
                 <CircularProgress size={20} color="inherit" />
