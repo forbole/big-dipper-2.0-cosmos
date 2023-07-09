@@ -13,12 +13,12 @@ import Typography from '@mui/material/Typography';
 import CircularProgress from '@mui/material/CircularProgress';
 import * as React from 'react';
 import { FC } from 'react';
-import AvatarNameFilterInput from '@/screens/validators/components/list/components/staking/avatar_name_filter';
 import type { ValidatorsAvatarNameType } from '@/screens/validators/components/list/types';
 import CustomSnackbar from '@/components/snackbar';
 import useStakingHooks from '@/screens/validators/components/list/components/staking/hooks';
+import AvatarCheckList from '@/screens/validators/components/list/components/staking/avatar_check_list';
 
-type WithdrawRewardDialogProps = {
+export type WithdrawRewardDialogProps = {
   open: boolean;
   onClose: () => void;
   validatorAddress: string;
@@ -42,6 +42,7 @@ const WithdrawRewardDialog: FC<WithdrawRewardDialogProps> = ({
   const {
     memo,
     tokenFormatDenom,
+    totalRewardToken,
     rewardToken,
     errorMsg,
     withdrawSuccess,
@@ -60,8 +61,8 @@ const WithdrawRewardDialog: FC<WithdrawRewardDialogProps> = ({
 
   // set sources reward validator address to validatorAddress input if validatorAddress prop is passed
   React.useEffect(() => {
-    setValidatorRewardAddress(validatorAddress);
-    return () => setValidatorRewardAddress('');
+    setValidatorRewardAddress([validatorAddress]);
+    return () => setValidatorRewardAddress([]);
   }, [rewards, setValidatorRewardAddress, validatorAddress]);
 
   React.useEffect(() => {
@@ -83,19 +84,21 @@ const WithdrawRewardDialog: FC<WithdrawRewardDialogProps> = ({
   return (
     <div>
       <Dialog maxWidth="md" onClose={onClose} open={open} className={classes.dialog}>
-        <DialogTitle>
+        <DialogTitle className={classes.rewardsTitle}>
           <div className={classes.header}>
             <Typography className={classes.title} gutterBottom>
               {t('validators:claimRewards')}
             </Typography>
           </div>
-
+        </DialogTitle>
+        <DialogContent>
           <Typography className={classes.subtitle}>{t('validators:claimFrom')}</Typography>
           {rewards && !validatorAddress ? (
-            <AvatarNameFilterInput
-              options={rewards.map((item) => item.validator)}
+            <AvatarCheckList
+              list={rewards}
               setValidatorAvatarAddress={setValidatorRewardAddress}
               validatorAvatarAddress={validatorRewardAddress}
+              totalRewards={totalRewardToken}
             />
           ) : (
             <div className={classes.validatorCard}>
@@ -114,8 +117,6 @@ const WithdrawRewardDialog: FC<WithdrawRewardDialogProps> = ({
               </IconButton>
             </div>
           )}
-        </DialogTitle>
-        <DialogContent>
           <div className={classes.redelegateContent}>
             <Typography className={classes.subtitle} align="left">
               {t('validators:claimAmount')}
@@ -145,24 +146,19 @@ const WithdrawRewardDialog: FC<WithdrawRewardDialogProps> = ({
               setMemoValue(event.target.value);
             }}
           />
-          {errorMsg !== '' ? (
+          {errorMsg && (
             <Typography variant="h5" className={classes.errorMsg}>
               Error: {errorMsg}
             </Typography>
-          ) : null}
+          )}
         </DialogContent>
         <DialogActions>
           <div className={classes.dialogActions}>
             <Button
-              onClick={() =>
-                handleStakingAction(
-                  // validatorRewardAddress === '' ? validatorAddress : validatorRewardAddress,
-                  'claim rewards'
-                )
-              }
+              onClick={() => handleStakingAction('claim rewards')}
               color="primary"
               className={classes.delegateButton}
-              disabled={rewardToken === `0 ${tokenFormatDenom?.displayDenom.toUpperCase()}`}
+              disabled={totalRewardToken === `0 ${tokenFormatDenom?.displayDenom.toUpperCase()}`}
             >
               {loading ? (
                 <CircularProgress size={20} color="inherit" />

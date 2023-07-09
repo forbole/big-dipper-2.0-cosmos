@@ -66,7 +66,7 @@ const StakeButton = (props: StakeButtonProps) => {
           </Button>
           <Button
             id="stake-button"
-            onClick={handleOpenStakingMenu}
+            onClick={handleOpenWithdrawRewardsDialog}
             className={classes.iconRewards}
             disabled={props.disabled}
           >

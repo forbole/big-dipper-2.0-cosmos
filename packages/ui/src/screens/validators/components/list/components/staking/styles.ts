@@ -43,6 +43,9 @@ const useStyles = makeStyles()((theme) => ({
       },
     },
   },
+  rewardsTitle: {
+    padding: '16px 24px 0 24px',
+  },
   dialogContent: {
     display: 'inline-flex',
     alignSelf: 'center',
@@ -293,6 +296,10 @@ const useStyles = makeStyles()((theme) => ({
     '&:hover': {
       cursor: 'pointer',
     },
+  },
+  checklistItem: {
+    display: 'flex',
+    flexDirection: 'row',
   },
 }));
 
