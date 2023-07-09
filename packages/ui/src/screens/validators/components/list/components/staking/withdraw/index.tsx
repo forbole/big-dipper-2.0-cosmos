@@ -57,6 +57,7 @@ const WithdrawRewardDialog: FC<WithdrawRewardDialogProps> = ({
     setOpenSuccessSnackbar,
     openSuccessSnackbar,
     handleCloseSnackBar,
+    resetDialogInfo,
   } = useStakingHooks({ rewards });
 
   // set sources reward validator address to validatorAddress input if validatorAddress prop is passed
@@ -81,6 +82,13 @@ const WithdrawRewardDialog: FC<WithdrawRewardDialogProps> = ({
     withdrawSuccess,
   ]);
 
+  React.useEffect(() => {
+    if (errorMsg !== '') {
+      resetDialogInfo();
+      onClose();
+    }
+  }, [errorMsg, onClose, resetDialogInfo]);
+
   return (
     <div>
       <Dialog maxWidth="md" onClose={onClose} open={open} className={classes.dialog}>
@@ -101,30 +109,32 @@ const WithdrawRewardDialog: FC<WithdrawRewardDialogProps> = ({
               totalRewards={totalRewardToken}
             />
           ) : (
-            <div className={classes.validatorCard}>
-              <AvatarName
-                address={validatorAddress}
-                imageUrl={imageUrl}
-                name={validatorName}
-                className={classes.validatorAvatar}
-              />
-              <Typography className={classes.commissionLabel}>
-                {t('validators:commission')}
-                <Typography className={classes.commissionValue}>{validatorCommission} </Typography>
-              </Typography>
-              <IconButton aria-label="close" onClick={onClose} className={classes.closeButton}>
-                <CloseIcon />
-              </IconButton>
-            </div>
+            <>
+              <div className={classes.validatorCard}>
+                <AvatarName
+                  address={validatorAddress}
+                  imageUrl={imageUrl}
+                  name={validatorName}
+                  className={classes.validatorAvatar}
+                />
+                <Typography className={classes.commissionLabel}>
+                  {t('validators:commission')}
+                  <Typography className={classes.commissionValue}>{validatorCommission}</Typography>
+                </Typography>
+                <IconButton aria-label="close" onClick={onClose} className={classes.closeButton}>
+                  <CloseIcon />
+                </IconButton>
+              </div>
+              <div className={classes.redelegateContent}>
+                <Typography className={classes.subtitle} align="left">
+                  {t('validators:claimAmount')}
+                </Typography>
+                <Typography className={classes.subtitle} align="right">
+                  <div className={classes.amountLabel}>{rewardToken}</div>
+                </Typography>
+              </div>
+            </>
           )}
-          <div className={classes.redelegateContent}>
-            <Typography className={classes.subtitle} align="left">
-              {t('validators:claimAmount')}
-            </Typography>
-            <Typography className={classes.subtitle} align="right">
-              <div className={classes.amountLabel}>{rewardToken}</div>
-            </Typography>
-          </div>
           <Typography className={classes.subtitle} id="memo">
             {t('validators:memo')}
           </Typography>
@@ -158,7 +168,10 @@ const WithdrawRewardDialog: FC<WithdrawRewardDialogProps> = ({
               onClick={() => handleStakingAction('claim rewards')}
               color="primary"
               className={classes.delegateButton}
-              disabled={totalRewardToken === `0 ${tokenFormatDenom?.displayDenom.toUpperCase()}`}
+              disabled={
+                totalRewardToken === `0 ${tokenFormatDenom?.displayDenom.toUpperCase()}` ||
+                rewardToken === `0 ${tokenFormatDenom?.displayDenom.toUpperCase()}`
+              }
             >
               {loading ? (
                 <CircularProgress size={20} color="inherit" />

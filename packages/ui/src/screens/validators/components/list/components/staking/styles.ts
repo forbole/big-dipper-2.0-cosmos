@@ -199,7 +199,7 @@ const useStyles = makeStyles()((theme) => ({
   },
   amountLabel: {
     display: 'inline',
-    fontStyle: 'normal',
+    fontFamily: 'Helvetica Neue',
   },
   amountButton: {
     margin: theme.spacing(0, 0, 0, 1),
@@ -298,8 +298,30 @@ const useStyles = makeStyles()((theme) => ({
     },
   },
   checklistItem: {
+    width: '100%',
     display: 'flex',
     flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    color: theme.palette.custom.fonts.highlight,
+    '> svg': {
+      fill: 'transparent',
+      marginRight: theme.spacing(1),
+    },
+  },
+  checkbox: {
+    '&.Mui-checked': {
+      '& svg' : {
+        color: theme.palette.primary.main,
+      }
+    },
+  },
+  amountSubLabel: {
+    padding: 0,
+    fontWeight: 600,
+    letterSpacing: '0.005rem',
+    color: theme.palette.text.secondary,
+    fontFamily: 'Helvetica Neue',
   },
 }));
 

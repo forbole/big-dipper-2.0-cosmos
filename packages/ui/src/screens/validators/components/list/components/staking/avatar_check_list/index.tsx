@@ -1,19 +1,19 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import Checkbox from '@mui/material/Checkbox';
-import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { FixedSizeList, ListChildComponentProps } from 'react-window';
+import useAppTranslation, { TFunction } from '@/hooks/useAppTranslation';
 import AvatarName from '@/components/avatar_name';
 import useShallowMemo from '@/hooks/useShallowMemo';
 import { formatNumber, formatToken } from '@/utils/format_token';
 import useStyles from '@/screens/validators/components/list/components/staking/styles';
 import useAvatarCheckListHook from '@/screens/validators/components/list/components/staking/avatar_check_list/hooks';
 import type { ValidatorsAvatarNameType } from '@/screens/validators/components/list/types';
+import AllValIcon from 'shared-utils/assets/icon-all-validator.svg';
 
 export interface AvatarCheckListProps {
   list: ValidatorsAvatarNameType[];
@@ -31,39 +31,38 @@ type ListItemProps = Pick<ListChildComponentProps, 'index' | 'style'> & {
 };
 
 type FirstListItemProps = Pick<ListChildComponentProps, 'index' | 'style'> & {
+  t: TFunction;
   classes: ReturnType<typeof useStyles>['classes'];
-  selectedItems: ValidatorsAvatarNameType[];
   handleSelectAllChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   selectAll: boolean;
-  items: ValidatorsAvatarNameType[];
   totalRewards: string;
 };
 
 const FirstRow: React.FC<FirstListItemProps> = ({
+  t,
   index,
   style,
   classes,
-  selectedItems,
   handleSelectAllChange,
   selectAll,
   totalRewards,
-  items,
-}) => {
-  console.log('totalRewards', totalRewards);
-  return (
-    <ListItem key={index} style={style}>
-      <ListItemIcon>
-        <Checkbox checked={selectAll} onChange={handleSelectAllChange} />
-      </ListItemIcon>
-      <ListItemText primary="Select All" />
-    </ListItem>
-  );
-};
+}) => (
+  <ListItem key={index} style={style}>
+    <ListItemIcon>
+      <Checkbox className={classes.checkbox} checked={selectAll} onChange={handleSelectAllChange} />
+    </ListItemIcon>
+    <div className={classes.checklistItem}>
+      <AllValIcon />
+      <ListItemText primary={t('allValidators')} />
+      <Typography align="right">
+        <div className={classes.amountSubLabel}>{totalRewards}</div>
+      </Typography>
+    </div>
+  </ListItem>
+);
 
 // eslint-disable-next-line arrow-body-style
 const Row: React.FC<ListItemProps> = ({
-  key,
-  index,
   style,
   classes,
   item,
@@ -71,11 +70,14 @@ const Row: React.FC<ListItemProps> = ({
   selectedItems,
 }) => {
   const tokenDenomFormat = formatToken(item.coins.amount, item.coins.denom);
-  const amountDisplay = `${formatNumber(tokenDenomFormat.value, tokenDenomFormat.exponent)}`;
+  const amountDisplay = `${formatNumber(
+    tokenDenomFormat.value,
+    tokenDenomFormat.exponent
+  )} ${tokenDenomFormat.displayDenom.toUpperCase()}`;
   return (
     <ListItem key={item.validator.address} style={style} onClick={() => handleItemSelect(item)}>
       <ListItemIcon>
-        <Checkbox checked={selectedItems.includes(item)} />
+        <Checkbox className={classes.checkbox} checked={selectedItems.includes(item)} />
       </ListItemIcon>
       <div className={classes.checklistItem}>
         <AvatarName
@@ -83,9 +85,10 @@ const Row: React.FC<ListItemProps> = ({
           name={item.validator.name}
           address={item.validator.address}
           imageUrl={item.validator.imageUrl || undefined}
+          omitEnd
         />
-        <Typography className={classes.subtitle} align="right">
-          <div className={classes.amountLabel}>{amountDisplay}</div>
+        <Typography align="right">
+          <div className={classes.amountSubLabel}>{amountDisplay}</div>
         </Typography>
       </div>
     </ListItem>
@@ -99,6 +102,7 @@ const AvatarCheckList: React.FC<AvatarCheckListProps> = ({
   validatorAvatarAddress,
   totalRewards,
 }) => {
+  const { t } = useAppTranslation('validators');
   const { classes } = useStyles();
   const listMemo = useShallowMemo(list);
   const { selectAll, selectedItems, handleSelectAllChange, handleItemSelect } =
@@ -106,10 +110,10 @@ const AvatarCheckList: React.FC<AvatarCheckListProps> = ({
   return (
     <Box
       className={className}
-      sx={{ width: '100%', height: 324, maxWidth: '100%', bgcolor: 'background.paper' }}
+      sx={{ width: '100%', height: 280, maxWidth: '100%', bgcolor: 'background.paper' }}
     >
       <FixedSizeList
-        height={324}
+        height={280}
         width="100%"
         itemSize={46}
         itemCount={listMemo.length + 1}
@@ -122,10 +126,9 @@ const AvatarCheckList: React.FC<AvatarCheckListProps> = ({
                 index={index}
                 style={style}
                 classes={classes}
-                selectedItems={selectedItems}
                 handleSelectAllChange={handleSelectAllChange}
                 selectAll={selectAll}
-                items={listMemo}
+                t={t}
                 totalRewards={totalRewards ?? '0'}
               />
             );
