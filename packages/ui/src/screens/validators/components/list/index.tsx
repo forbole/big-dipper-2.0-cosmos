@@ -33,6 +33,7 @@ const List: FC<ComponentDefault> = ({ className }) => {
     handleSearch,
     handleSort,
     sortItems,
+    sortForbole,
     search,
   } = useValidators();
   const { handleStakingDistribution } = useStakingDistribution();
@@ -47,8 +48,8 @@ const List: FC<ComponentDefault> = ({ className }) => {
 
   // full validator list
   const validatorItems = useMemo(
-    () => state.items.map((v, j) => ({ ...v, validator: dataProfiles?.[j] })),
-    [state.items, dataProfiles]
+    () => sortForbole(state.items.map((v, j) => ({ ...v, validator: dataProfiles?.[j] }))),
+    [sortForbole, state.items, dataProfiles]
   );
 
   // const redelegations Memo

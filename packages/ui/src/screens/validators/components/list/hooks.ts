@@ -248,6 +248,35 @@ export const useValidators = () => {
         });
       }
 
+      if (state.sortKey && state.sortDirection) {
+        sorted.sort((a, b) => {
+          let compareA = R.pathOr('', [...state.sortKey.split('.')], a);
+          let compareB = R.pathOr('', [...state.sortKey.split('.')], b);
+
+          if (typeof compareA === 'string' && typeof compareB === 'string') {
+            compareA = compareA.toLowerCase();
+            compareB = compareB.toLowerCase();
+          }
+
+          if (compareA < compareB) {
+            return state.sortDirection === 'asc' ? -1 : 1;
+          }
+          if (compareA > compareB) {
+            return state.sortDirection === 'asc' ? 1 : -1;
+          }
+          return 0;
+        });
+      }
+
+      return sorted;
+    },
+    [search, state.sortDirection, state.sortKey, state.tab]
+  );
+
+  const sortForbole = useCallback(
+    (items: ItemType[]) => {
+      const sorted: ItemType[] = R.clone(items);
+
       sorted.sort((a, b) => {
         const compareA = a.validator.name.toLowerCase();
         const compareB = b.validator.name.toLowerCase();
@@ -259,29 +288,12 @@ export const useValidators = () => {
           return 1;
         }
 
-        if (state.sortKey && state.sortDirection) {
-          let compareValueA = R.pathOr('', [...state.sortKey.split('.')], a);
-          let compareValueB = R.pathOr('', [...state.sortKey.split('.')], b);
-
-          if (typeof compareValueA === 'string' && typeof compareValueB === 'string') {
-            compareValueA = compareValueA.toLowerCase();
-            compareValueB = compareValueB.toLowerCase();
-          }
-
-          if (compareValueA < compareValueB) {
-            return state.sortDirection === 'asc' ? -1 : 1;
-          }
-          if (compareValueA > compareValueB) {
-            return state.sortDirection === 'asc' ? 1 : -1;
-          }
-        }
-
         return 0;
       });
 
       return sorted;
     },
-    [search, state.sortDirection, state.sortKey, state.tab]
+    []
   );
 
   return {
@@ -292,6 +304,7 @@ export const useValidators = () => {
     handleSort,
     handleSearch,
     sortItems,
+    sortForbole,
     search,
   };
 };
