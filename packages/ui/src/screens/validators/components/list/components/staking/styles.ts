@@ -282,6 +282,7 @@ const useStyles = makeStyles()((theme) => ({
     marginRight: theme.spacing(1),
   },
   text: {
+    maxWidth: 'fit-content',
     '&': {
       flex: `1 1 auto`,
       color: theme.palette.custom.fonts.highlight,
@@ -290,7 +291,7 @@ const useStyles = makeStyles()((theme) => ({
   validatorOptionSpan: {
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'flex-start',
+    justifyContent: 'space-between',
     gap: theme.spacing(1),
     flexFlow: 'row nowrap',
     '&:hover': {
@@ -322,6 +323,23 @@ const useStyles = makeStyles()((theme) => ({
     letterSpacing: '0.005rem',
     color: theme.palette.text.secondary,
     fontFamily: 'Helvetica Neue',
+  },
+  popper: {
+    marginTop: `-${theme.spacing(2)} !important`,
+  },
+  tooltip: {
+    maxWidth: 'none',
+  },
+  dropdownListItem: {
+    width: '95%',
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  tooltipIcon: {
+    '> svg': {
+      fill: 'transparent',
+    },
   },
 }));
 
