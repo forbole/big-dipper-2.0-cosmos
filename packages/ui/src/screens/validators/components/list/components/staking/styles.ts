@@ -288,6 +288,13 @@ const useStyles = makeStyles()((theme) => ({
       color: theme.palette.custom.fonts.highlight,
     },
   },
+  avatarText: {
+    maxWidth: '100%',
+    '&': {
+      flex: `1 1 auto`,
+      color: theme.palette.custom.fonts.highlight,
+    },
+  },
   validatorOptionSpan: {
     display: 'flex',
     alignItems: 'center',

@@ -39,7 +39,7 @@ const AvatarNameFilterInput: FC<AvatarNameFilterInputProps> = ({
               address={option.address}
               imageUrl={option.imageUrl || undefined}
             />
-            <MiddleEllipsis className={classes.text} content={option.name} />
+            <MiddleEllipsis className={classes.avatarText} content={option.name} />
             <Condition className={condition} />
           </span>
         );
