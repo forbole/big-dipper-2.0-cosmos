@@ -1,11 +1,13 @@
 import useAppTranslation from '@/hooks/useAppTranslation';
 import useStyles from '@/screens/validators/components/list/components/staking/styles';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Typography from '@mui/material/Typography';
 import * as React from 'react';
+import ButtonTooltip from '@/components/button_tooltip';
 import type {
   ItemType,
   ValidatorsAvatarNameType,
@@ -29,6 +31,26 @@ type StakeButtonProps = {
   disabled: boolean;
   valRow?: boolean;
 };
+
+interface StakingButtonRefProps {
+  classes: ReturnType<typeof useStyles>['classes'];
+  disabled: boolean;
+}
+
+const StakingButtonRef = React.forwardRef<HTMLDivElement, StakingButtonRefProps>((props, ref) => {
+  const { classes, disabled } = props;
+  const { t } = useAppTranslation();
+  return (
+    <Box {...props} ref={ref}>
+      <Button id="stake-button" className={classes.staking} disabled={disabled}>
+        <Typography variant="body2" className={classes.label}>
+          {t('validators:stake')}
+        </Typography>
+        <ExpandMoreIcon />
+      </Button>
+    </Box>
+  );
+});
 
 const StakeButton = (props: StakeButtonProps) => {
   const { classes } = useStyles();
@@ -75,17 +97,28 @@ const StakeButton = (props: StakeButtonProps) => {
         </div>
       ) : (
         <div className={classes.flexRow}>
-          <Button
-            id="stake-button"
-            onClick={handleOpenStakingMenu}
-            className={classes.staking}
-            disabled={props.disabled}
-          >
-            <Typography variant="body2" className={classes.label}>
-              {t('validators:stake')}
-            </Typography>
-            <ExpandMoreIcon />
-          </Button>
+          {props.disabled ? (
+            <ButtonTooltip
+              highlightText={t('stakeNow')}
+              text={t('buttonTooltipText')}
+              buttonText={t('buttonTooltipButtonText')}
+              button
+            >
+              <StakingButtonRef classes={classes} disabled={props.disabled} />
+            </ButtonTooltip>
+          ) : (
+            <Button
+              id="stake-button"
+              onClick={handleOpenStakingMenu}
+              className={classes.staking}
+              disabled={props.disabled}
+            >
+              <Typography variant="body2" className={classes.label}>
+                {t('validators:stake')}
+              </Typography>
+              <ExpandMoreIcon />
+            </Button>
+          )}
           <div className={classes.claimRewardsBox}>
             <Button
               onClick={handleOpenWithdrawRewardsDialog}
