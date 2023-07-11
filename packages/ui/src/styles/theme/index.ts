@@ -22,7 +22,6 @@ export const common = (theme: ThemeOptions) =>
       toolbar: {
         '@media (min-width: 1025px)': {
           height: 80,
-          overflow: 'hidden',
         },
       },
       layout: {
