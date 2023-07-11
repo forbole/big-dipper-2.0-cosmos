@@ -1,9 +1,9 @@
-import { FC, useState } from 'react';
+import { FC, forwardRef } from 'react';
 import Autocomplete from '@mui/material/Autocomplete';
 import Avatar from '@/components/avatar';
+import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Tooltip from '@mui/material/Tooltip';
-import Zoom from '@mui/material/Zoom';
 import MiddleEllipsis from '@/components/MiddleEllipsis';
 import useAppTranslation from '@/hooks/useAppTranslation';
 import useStyles from '@/screens/validators/components/list/components/staking/styles';
@@ -19,6 +19,12 @@ interface ValidatorFilterInputProps {
   validatorAddress: string;
 }
 
+const ContributionIconRef = forwardRef((props, ref) => (
+  <Box {...props} ref={ref}>
+    <ContributionIcon />
+  </Box>
+));
+
 const ValidatorFilterInput: FC<ValidatorFilterInputProps> = ({
   options,
   setValidatorAddress,
@@ -28,7 +34,6 @@ const ValidatorFilterInput: FC<ValidatorFilterInputProps> = ({
   const { t } = useAppTranslation('validators');
   const { filterOptions, handleOnChange, selectedOption } =
     useValidatorFilterHook(setValidatorAddress);
-  const [isTooltipOpen, setIsTooltipOpen] = useState(false);
 
   return (
     <Autocomplete
@@ -38,13 +43,7 @@ const ValidatorFilterInput: FC<ValidatorFilterInputProps> = ({
         const condition =
           option.status === 3 ? getValidatorConditionClass(option.condition) : undefined;
         return (
-          <span
-            className={classes.validatorOptionSpan}
-            key={option.validator.address}
-            {...props}
-            onMouseEnter={() => setIsTooltipOpen(true)}
-            onMouseLeave={() => setIsTooltipOpen(false)}
-          >
+          <span className={classes.validatorOptionSpan} key={option.validator.address} {...props}>
             <div className={classes.dropdownListItem}>
               <Avatar
                 className={classes.avatar}
@@ -57,16 +56,16 @@ const ValidatorFilterInput: FC<ValidatorFilterInputProps> = ({
               />
               {option.validator.name.toLowerCase() === 'forbole' && (
                 <Tooltip
-                  TransitionComponent={Zoom}
-                  title={<pre>Frobole is the main contributor of Big Dipper</pre>}
+                  title={<pre>Forbole is the main contributor of Big Dipper.</pre>}
                   placement="bottom"
                   arrow
+                  disableFocusListener
+                  disableTouchListener
                   PopperProps={{ className: classes.popper }}
                   slotProps={{ tooltip: { className: classes.tooltip } }}
-                  open={isTooltipOpen}
                   className={classes.tooltipIcon}
                 >
-                  <ContributionIcon />
+                  <ContributionIconRef />
                 </Tooltip>
               )}
             </div>

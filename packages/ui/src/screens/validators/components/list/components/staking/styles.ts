@@ -344,7 +344,7 @@ const useStyles = makeStyles()((theme) => ({
     alignItems: 'center'
   },
   tooltipIcon: {
-    '> svg': {
+    'svg': {
       fill: 'transparent',
     },
   },
