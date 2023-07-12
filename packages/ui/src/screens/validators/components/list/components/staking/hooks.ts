@@ -1,12 +1,9 @@
 import * as React from 'react';
 import { useRecoilValue } from 'recoil';
-import * as R from 'ramda';
-import { assertIsDeliverTxSuccess, MsgBeginRedelegateEncodeObject, StdFee } from '@cosmjs/stargate';
-import { useEffect } from 'react';
-import { coin } from '@cosmjs/proto-signing';
 import { useAvailableBalances } from '@/screens/account_details/utils';
 import { useParams } from '@/screens/params/hooks';
 import { getDenom } from '@/utils/get_denom';
+import * as R from 'ramda';
 import {
   formatNumber,
   formatToken,
@@ -14,6 +11,9 @@ import {
   baseToDisplayUnit,
 } from '@/utils/format_token';
 import { getClient } from '@/components/nav/components/connect_wallet/keplr_utils';
+import { assertIsDeliverTxSuccess, MsgBeginRedelegateEncodeObject, StdFee } from '@cosmjs/stargate';
+import { useEffect } from 'react';
+import { coin } from '@cosmjs/proto-signing';
 import { ADDRESS_KEY, CHAIN_ID } from '@/utils/localstorage';
 import { readIsUserLoggedIn } from '@/recoil/user';
 import type {
@@ -541,4 +541,5 @@ const useStakingHooks = ({
     handleMaxFee,
   };
 };
+
 export default useStakingHooks;
