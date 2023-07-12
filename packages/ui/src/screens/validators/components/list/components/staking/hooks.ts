@@ -1,9 +1,12 @@
 import * as React from 'react';
 import { useRecoilValue } from 'recoil';
+import * as R from 'ramda';
+import { assertIsDeliverTxSuccess, MsgBeginRedelegateEncodeObject, StdFee } from '@cosmjs/stargate';
+import { useEffect } from 'react';
+import { coin } from '@cosmjs/proto-signing';
 import { useAvailableBalances } from '@/screens/account_details/utils';
 import { useParams } from '@/screens/params/hooks';
 import { getDenom } from '@/utils/get_denom';
-import * as R from 'ramda';
 import {
   formatNumber,
   formatToken,
@@ -11,13 +14,6 @@ import {
   baseToDisplayUnit,
 } from '@/utils/format_token';
 import { getClient } from '@/components/nav/components/connect_wallet/keplr_utils';
-import {
-  assertIsDeliverTxSuccess,
-  MsgBeginRedelegateEncodeObject,
-  StdFee,
-} from '@cosmjs/stargate';
-import { useEffect } from 'react';
-import { coin } from '@cosmjs/proto-signing';
 import { ADDRESS_KEY, CHAIN_ID } from '@/utils/localstorage';
 import { readIsUserLoggedIn } from '@/recoil/user';
 import type {
@@ -46,8 +42,7 @@ const useStakingHooks = ({
 
   const [memo, setMemo] = React.useState('');
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const [redelegateAnchorEl, setRedelegateAnchorEl] =
-    React.useState<null | HTMLElement>(null);
+  const [redelegateAnchorEl, setRedelegateAnchorEl] = React.useState<null | HTMLElement>(null);
 
   const openStakingMenu = Boolean(anchorEl);
   const openRedelegateMenu = Boolean(redelegateAnchorEl);
@@ -56,8 +51,7 @@ const useStakingHooks = ({
   const [openUndelegateDialog, setOpenUndelegateDialog] = React.useState(false);
   const [openSuccessSnackbar, setOpenSuccessSnackbar] = React.useState(false);
   const [openDelegateDialog, setOpenDelegateDialog] = React.useState(false);
-  const [openValidatorRedelegateMenu, setOpenValidatorRedelegateMenu] =
-    React.useState(false);
+  const [openValidatorRedelegateMenu, setOpenValidatorRedelegateMenu] = React.useState(false);
   const [openWithdrawDialog, setOpenWithdrawDialog] = React.useState(false);
   const [txHash, setTxHash] = React.useState('');
 
@@ -79,10 +73,7 @@ const useStakingHooks = ({
     [availableForStaking, loggedIn]
   );
   // const tokenFormatDenom = formatToken(availableForStaking?.amount, availableForStaking.denom);
-  const token = `${formatNumber(
-    tokenFormatDenom.value,
-    tokenFormatDenom.exponent
-  )}`;
+  const token = `${formatNumber(tokenFormatDenom.value, tokenFormatDenom.exponent)}`;
 
   const setDelegateAmount = (value: string) => {
     setAmount(value);
@@ -97,9 +88,7 @@ const useStakingHooks = ({
   };
   const getAmount = () => amount;
 
-  const handleOpenStakingMenu = (
-    event: React.MouseEvent<HTMLButtonElement>
-  ) => {
+  const handleOpenStakingMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
 
@@ -139,10 +128,7 @@ const useStakingHooks = ({
     setOpenWithdrawDialog(false);
   };
 
-  const handleCloseSnackBar = (
-    event: React.SyntheticEvent | Event,
-    reason?: string
-  ) => {
+  const handleCloseSnackBar = (event: React.SyntheticEvent | Event, reason?: string) => {
     if (reason === 'clickaway') {
       return;
     }
@@ -160,7 +146,7 @@ const useStakingHooks = ({
   };
 
   const resetWithdrawDialogInfo = () => {
-    setValidatorRewardAddress([]);
+    setValidatorRewardAddress('');
     setMemo('');
   };
 
@@ -175,8 +161,7 @@ const useStakingHooks = ({
       typeof maxToken === 'number'
         ? maxToken - Number(feeBaseFormat)
         : Number(maxToken) - Number(feeBaseFormat);
-    // eslint-disable-next-line no-unused-expressions
-    maxToken === '0' ? setTxAmount(0) : setTxAmount(maxFee);
+    setTxAmount(maxFee);
   };
 
   // Add a new state to control the success state of the delegation action
@@ -186,22 +171,18 @@ const useStakingHooks = ({
 
   const [stakedToken, setStakedToken] = React.useState<string>('');
 
-  const [validatorSourceAddress, setValidatorSourceAddress] =
-    React.useState('');
+  const [validatorSourceAddress, setValidatorSourceAddress] = React.useState('');
 
   useEffect(() => {
     if (validatorSourceAddress !== '') {
       const coinsAmount =
-        delegations?.find((d) => d.validator.address === validatorSourceAddress)
-          ?.coins.amount ?? '0';
+        delegations?.find((d) => d.validator.address === validatorSourceAddress)?.coins.amount ??
+        '0';
       const denom =
-        delegations?.find((d) => d.validator.address === validatorSourceAddress)
-          ?.coins.denom ?? baseDenom;
+        delegations?.find((d) => d.validator.address === validatorSourceAddress)?.coins.denom ??
+        baseDenom;
       const tokenDenomFormat = formatToken(coinsAmount, denom);
-      const sToken = `${formatNumber(
-        tokenDenomFormat.value,
-        tokenDenomFormat.exponent
-      )}`;
+      const sToken = `${formatNumber(tokenDenomFormat.value, tokenDenomFormat.exponent)}`;
       setStakedToken(sToken);
     } else {
       setStakedToken(token);
@@ -211,52 +192,30 @@ const useStakingHooks = ({
   // Add a new state to control the success state of the withdraw rewards action
   const [withdrawSuccess, setWithdrawSuccess] = React.useState(false);
 
-  const [totalRewardToken, setTotalRewardToken] = React.useState<string>('');
   const [rewardToken, setRewardToken] = React.useState<string>('');
 
-  const [validatorRewardAddress, setValidatorRewardAddress] =
-    React.useState<string[]>([]);
-
-    useEffect(() => {
-      const coinsAmount =
-      rewards?.find((d) => d.validator.address === validatorRewardAddress[0])
-        ?.coins.amount ?? '0';
-        const denom =
-      rewards?.find((d) => d.validator.address === validatorRewardAddress[0])
-        ?.coins.denom ?? baseDenom;
-      const tokenDenomFormat = formatToken(coinsAmount, denom);
-      const rToken = `${formatNumber(
-        tokenDenomFormat.value,
-        tokenDenomFormat.exponent
-      )} ${tokenDenomFormat.displayDenom.toUpperCase()}`;
-      setRewardToken(rToken);
-    },[baseDenom, rewards, validatorRewardAddress]);  
+  const [validatorRewardAddress, setValidatorRewardAddress] = React.useState('');
 
   useEffect(() => {
-    const totalCoinsAmount = rewards?.reduce((total, reward) => {
-      const coins = reward?.coins?.amount || '0';
-      const coinsAmountNumeric = parseFloat(coins);
-      return total + coinsAmountNumeric;
-    }, 0).toString();
+    const coinsAmount =
+      rewards?.find((d) => d.validator.address === validatorRewardAddress)?.coins.amount ?? '0';
     const denom =
-      rewards?.find((d) => d.validator.address === validatorRewardAddress[0])
-        ?.coins.denom ?? baseDenom;
-    const tokenDenomFormat = formatToken(totalCoinsAmount, denom);
+      rewards?.find((d) => d.validator.address === validatorRewardAddress)?.coins.denom ??
+      baseDenom;
+    const tokenDenomFormat = formatToken(coinsAmount, denom);
     const rToken = `${formatNumber(
       tokenDenomFormat.value,
       tokenDenomFormat.exponent
     )} ${tokenDenomFormat.displayDenom.toUpperCase()}`;
-    setTotalRewardToken(rToken);
-  }, [validatorRewardAddress, baseDenom, totalRewardToken, rewards]);
+    setRewardToken(rToken);
+  }, [validatorRewardAddress, baseDenom, rewardToken, rewards]);
 
   useEffect(() => {
     setUserAddress(localStorage.getItem(ADDRESS_KEY) ?? '');
     setChainID(localStorage.getItem(CHAIN_ID) ?? '');
   }, [userAddress, setUserAddress]);
 
-  const handleOpenValidatorRedelegateMenu = (
-    event: React.MouseEvent<HTMLButtonElement>
-  ) => {
+  const handleOpenValidatorRedelegateMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
     setRedelegateAnchorEl(event.currentTarget);
   };
   const handleCloseRedelegateMenu = () => {
@@ -264,21 +223,13 @@ const useStakingHooks = ({
   };
 
   const defaultFee = {
-    amount: [
-      { amount: '0.01', denom: baseDenom ?? tokenFormatDenom.baseDenom },
-    ],
+    amount: [{ amount: '0.01', denom: baseDenom ?? tokenFormatDenom.baseDenom }],
     gas: '',
   };
 
-  const handleMaxFee = async (
-    maxToken: string,
-    validator: string,
-    action: string
-  ) => {
+  const handleMaxFee = async (maxToken: string, validator: string, action: string) => {
     const stakingAddress = validator;
-    type SigningStargateClient = ReturnType<typeof getClient> extends Promise<
-      infer T
-    >
+    type SigningStargateClient = ReturnType<typeof getClient> extends Promise<infer T>
       ? T extends string
         ? never
         : T
@@ -382,16 +333,13 @@ const useStakingHooks = ({
 
   const handleStakingAction = async (action: string) => {
     const stakingAddress = valAddress;
-    type SigningStargateClient = ReturnType<typeof getClient> extends Promise<
-      infer T
-    >
+    type SigningStargateClient = ReturnType<typeof getClient> extends Promise<infer T>
       ? T extends string
         ? never
         : T
       : never;
     let client: SigningStargateClient;
     let result;
-    const rewardsTxs: TransactionMsgWithdrawReward[] = [];
 
     try {
       client = (await getClient(
@@ -439,12 +387,7 @@ const useStakingHooks = ({
               amount: coin(base64Amount, baseDenom ?? ''),
             },
           };
-          result = await client.signAndBroadcast(
-            userAddress,
-            [redelegateMsg],
-            'auto',
-            memo
-          );
+          result = await client.signAndBroadcast(userAddress, [redelegateMsg], 'auto', memo);
           setDelegationSuccess(true);
           setTxHash(result.transactionHash);
           assertIsDeliverTxSuccess(result);
@@ -483,22 +426,12 @@ const useStakingHooks = ({
       case 'claim rewards':
         try {
           setLoading(true);
-          validatorRewardAddress.forEach((adx) => {
-            const rewardTx: TransactionMsgWithdrawReward = {
-              typeUrl: '/cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward',
-              value: {
-                delegatorAddress: userAddress,
-                validatorAddress: adx,
-              }
-            }
-            rewardsTxs.push(rewardTx); 
-          })
-          result = await client.signAndBroadcast(userAddress, rewardsTxs, 'auto', memo);
+          result = await client.withdrawRewards(userAddress, validatorRewardAddress, 'auto', memo);
           setWithdrawSuccess(true);
           setTxHash(result.transactionHash);
           assertIsDeliverTxSuccess(result);
           setLoading(false);
-          setValidatorRewardAddress([]);
+          setValidatorRewardAddress('');
         } catch (e) {
           setErrorMsg((e as Error).message);
           handleCloseWithdrawRewardsDialog();
@@ -568,7 +501,6 @@ const useStakingHooks = ({
     tokenFormatDenom,
     token,
     rewardToken,
-    totalRewardToken,
     txHash,
     loading,
     feeLoading,

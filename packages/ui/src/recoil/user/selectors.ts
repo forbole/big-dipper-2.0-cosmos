@@ -1,6 +1,6 @@
+import { DefaultValue, ReadOnlySelectorOptions, selector } from 'recoil';
 import { atomState, PubKey } from '@/recoil/user/atom';
 import { mergeStateChange } from '@/utils/merge_state_change';
-import { DefaultValue, ReadOnlySelectorOptions, selector } from 'recoil';
 
 const getUserAddress: ReadOnlySelectorOptions<string>['get'] = ({ get }) => {
   const state = get(atomState);

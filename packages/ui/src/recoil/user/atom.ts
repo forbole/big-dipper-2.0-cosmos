@@ -5,21 +5,21 @@ export interface PubKey {
   readonly value: string;
 }
 
-export interface AtomState {
+export interface UserState {
   address: string;
   pubKey: PubKey;
   walletName: string;
   loggedIn: boolean;
 }
 
-const initialState: AtomState = {
+const initialState: UserState = {
   address: '',
   pubKey: { type: '', value: '' },
   walletName: '',
   loggedIn: false,
 };
 
-export const atomState = atom<AtomState>({
+export const atomState = atom<UserState>({
   key: 'user',
   default: initialState,
 });

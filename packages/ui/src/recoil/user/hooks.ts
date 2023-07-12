@@ -1,5 +1,5 @@
 import { atomState } from '@/recoil/user/atom';
-import type { AtomState } from '@/recoil/user/types';
+import type { UserState } from '@/recoil/user/types';
 import { ADDRESS_KEY, PUBKEY_KEY, WALLET_NAME_KEY } from '@/utils/localstorage';
 import { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
@@ -21,7 +21,7 @@ export const useUserRecoil = () => {
       setUserWalletName(localStorage.getItem(WALLET_NAME_KEY) ?? '');
       setLoggedIn(!!localStorage.getItem(ADDRESS_KEY));
 
-      const initSettings: AtomState = {
+      const initSettings: UserState = {
         address: userAddress,
         pubKey: parsedPubKey,
         walletName: userWalletName,

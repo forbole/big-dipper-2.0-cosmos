@@ -86,7 +86,7 @@ const useStyles = makeStyles()((theme) => ({
   iconContainer: {
     display: 'flex',
     alignItems: 'center',
-    gap: '12px'
+    gap: '12px',
   },
   iconStaking: {
     padding: 0,
@@ -319,9 +319,9 @@ const useStyles = makeStyles()((theme) => ({
   },
   checkbox: {
     '&.Mui-checked': {
-      '& svg' : {
+      '& svg': {
         color: theme.palette.primary.main,
-      }
+      },
     },
   },
   amountSubLabel: {
@@ -341,10 +341,10 @@ const useStyles = makeStyles()((theme) => ({
     width: '95%',
     display: 'flex',
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   tooltipIcon: {
-    'svg': {
+    svg: {
       fill: 'transparent',
     },
   },
