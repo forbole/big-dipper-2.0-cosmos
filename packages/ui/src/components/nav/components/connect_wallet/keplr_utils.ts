@@ -62,9 +62,7 @@ export const getKeplrAPI = () => {
   return apiURL;
 };
 
-export const getOfflineSignerAddress = async (
-  offlineSigner: OfflineAminoSigner
-) => {
+export const getOfflineSignerAddress = async (offlineSigner: OfflineAminoSigner) => {
   // You can get the address/public keys by `getAccounts` method.
   // It can return the array of address/public key.
   // But, currently, Keplr extension manages only one address/public key pair.

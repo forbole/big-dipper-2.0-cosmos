@@ -5,11 +5,11 @@ import { tooltipClasses } from '@mui/material/Tooltip';
 const useStyles = makeStyles()((theme) => ({
   tooltip: {
     [`& .${tooltipClasses.arrow}`]: {
-        color: theme?.palette.custom?.general.surfaceTwo,
+      color: theme?.palette.custom?.general.surfaceTwo,
     },
     [`& .${tooltipClasses.tooltip}`]: {
-        background: theme?.palette.custom?.general.surfaceTwo,
-        maxWidth: '700px',
+      background: theme?.palette.custom?.general.surfaceTwo,
+      maxWidth: '700px',
     },
   },
   root: {
@@ -17,8 +17,8 @@ const useStyles = makeStyles()((theme) => ({
     background: Color(theme.palette.background.paper).alpha(0.9).string(),
   },
   popper: {
-    "& .MuiTooltip-tooltip": {
-      maxWidth: '700px', 
+    '& .MuiTooltip-tooltip': {
+      maxWidth: '700px',
     },
   },
   highlightText: {
