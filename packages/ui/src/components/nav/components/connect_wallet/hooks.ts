@@ -184,7 +184,7 @@ const useConnectWalletList = () => {
       }
     }
     // reset the values
-    resetUserInfo();
+    return resetUserInfo();
   };
 
   // ------ Connect wallet hooks ------
