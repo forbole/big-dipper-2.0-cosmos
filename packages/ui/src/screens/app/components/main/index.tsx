@@ -1,14 +1,3 @@
-import useBigDipperNetworks from '@/hooks/useBigDipperNetworks';
-import { useMarketRecoil } from '@/recoil/market';
-import { useSettingsRecoil } from '@/recoil/settings';
-import { useValidatorRecoil } from '@/recoil/validators/hooks';
-import { useUserRecoil } from '@/recoil/user';
-import { useWalletRecoil } from '@/recoil/wallet';
-import InnerApp from '@/screens/app/components/inner_app';
-import { useGenesis, useTheme } from '@/screens/app/components/main/hooks';
-import Countdown from '@/screens/countdown';
-import InitialLoad from '@/screens/initial_load';
-import createEmotionCache from '@/styles/createEmotionCache';
 import { CacheProvider, EmotionCache } from '@emotion/react';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
@@ -17,6 +6,18 @@ import { Hind_Madurai } from 'next/font/google';
 import Head from 'next/head';
 import { useEffect } from 'react';
 import { ToastContainer } from 'react-toastify';
+import useBigDipperNetworks from '@/hooks/useBigDipperNetworks';
+import { useMarketRecoil } from '@/recoil/market';
+import { useSettingsRecoil } from '@/recoil/settings';
+import { useValidatorRecoil } from '@/recoil/validators/hooks';
+import { useUserRecoil } from '@/recoil/user';
+import { useWalletRecoil } from '@/recoil/wallet';
+import { useWalletURIRecoil } from '@/recoil/wallet_connect_uri';
+import InnerApp from '@/screens/app/components/inner_app';
+import { useGenesis, useTheme } from '@/screens/app/components/main/hooks';
+import Countdown from '@/screens/countdown';
+import InitialLoad from '@/screens/initial_load';
+import createEmotionCache from '@/styles/createEmotionCache';
 
 const hindMadurai = Hind_Madurai({
   weight: '400',
@@ -44,6 +45,7 @@ const Main = (props: MainProps) => {
   useMarketRecoil();
   useUserRecoil();
   useWalletRecoil();
+  useWalletURIRecoil();
   const { loading } = useValidatorRecoil();
 
   // =====================================

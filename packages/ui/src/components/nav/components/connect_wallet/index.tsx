@@ -19,9 +19,9 @@ import {
   readOpenLoginSuccessDialog,
   readOpenPairConnectWalletDialog,
   readOpenPairKeplrExtensionDialog,
-  readWalletConnectURI,
 } from '@/recoil/wallet';
 import useAppTranslation from '@/hooks/useAppTranslation';
+import { readWalletConnectURI } from '@/recoil/wallet_connect_uri';
 
 type ConnectWalletProps = {
   className?: string;

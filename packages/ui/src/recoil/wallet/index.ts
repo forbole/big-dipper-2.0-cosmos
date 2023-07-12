@@ -8,7 +8,6 @@ export {
   readOpenPairConnectWalletDialog,
   readOpenPairKeplrExtensionDialog,
   readOpenSelectNetworkDialog,
-  readWalletConnectURI,
   readWalletSelection,
   writeOpenAuthorizeConnectionDialog,
   writeOpenInstallKeplrExtensionDialog,
@@ -17,7 +16,6 @@ export {
   writeOpenPairConnectWalletDialog,
   writeOpenPairKeplrExtensionDialog,
   writeOpenSelectNetworkDialog,
-  writeWalletConnectURI,
   writeWalletSelection,
 } from '@/recoil/wallet/selectors';
-export type { AtomState } from '@/recoil/wallet/types';
+export type { WalletState } from '@/recoil/wallet/types';

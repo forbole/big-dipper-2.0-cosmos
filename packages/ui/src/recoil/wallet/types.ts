@@ -1,4 +1,4 @@
-export interface AtomState {
+export interface WalletState {
   openAuthorizeConnectionDialog: boolean;
   openInstallKeplrExtensionDialog: boolean;
   openLoginDialog: boolean;
@@ -6,6 +6,5 @@ export interface AtomState {
   openPairConnectWalletDialog: boolean;
   openPairKeplrExtensionDialog: boolean;
   openSelectNetworkDialog: boolean;
-  walletConnectURI: string;
   walletSelection: string;
 }
