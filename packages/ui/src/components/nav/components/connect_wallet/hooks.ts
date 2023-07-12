@@ -158,7 +158,7 @@ const useConnectWalletList = () => {
     const connectionTypes = localStorage.getItem(CONNECTION_TYPE);
     if (connectionTypes === 'Wallet Connect') {
       if (walletConnectClient) {
-        const walletConnectSessionTopic = localStorage.getItem(WC_SESSION_TOPIC);
+        const walletConnectSessionTopic = localStorage.getItem(WC_SESSION_TOPIC) ?? '';
 
         await walletConnectClient.disconnect({
           topic: walletConnectSessionTopic,
@@ -171,7 +171,7 @@ const useConnectWalletList = () => {
         resetUserInfo();
       } else {
         const client = await InitWalletConnectClient();
-        const walletConnectSessionTopic = localStorage.getItem(WC_SESSION_TOPIC);
+        const walletConnectSessionTopic = localStorage.getItem(WC_SESSION_TOPIC) ?? '';
         await client.disconnect({
           topic: walletConnectSessionTopic,
           reason: {

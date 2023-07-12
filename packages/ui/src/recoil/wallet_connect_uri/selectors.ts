@@ -1,9 +1,8 @@
 import { DefaultValue, ReadOnlySelectorOptions, selector } from 'recoil';
 import { walletConnectURIAtomState } from '@/recoil/wallet_connect_uri/atom';
 import { mergeStateChange } from '@/utils/merge_state_change';
-import { WalletConnectURI } from '@/recoil/wallet_connect_uri/types';
 
-const getWalletConnectURI: ReadOnlySelectorOptions<WalletConnectURI>['get'] = ({ get }) => {
+const getWalletConnectURI: ReadOnlySelectorOptions<string>['get'] = ({ get }) => {
   const state = get(walletConnectURIAtomState);
   return state.walletConnectURI;
 };
