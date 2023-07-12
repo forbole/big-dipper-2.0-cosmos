@@ -57,7 +57,7 @@
     "yarn": ">=1.22"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx,mjs,cjs,css,md}": "yarn run format"
+    "*.{js,jsx,ts,tsx,mjs,cjs,css,md}": "prettier --write \"{**/src/{,**/}*.{js,ts,tsx,mjs,cjs,md},e2e/{,**/}*.{js,ts,tsx,mjs,cjs,md}}\""
   },
   "dependencies": {
     "@cosmjs/stargate": "^0.30.1"
