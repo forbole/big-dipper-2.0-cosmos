@@ -41,10 +41,14 @@ import {
   useSetWalletConnectSession,
 } from '@/recoil/wallet_connect_client';
 import { writeWalletConnectURI } from '@/recoil/wallet_connect_uri';
-import { ConnectClient, InitWalletConnectClient } from './wallet_connect_utils';
+import {
+  ConnectClient,
+  InitWalletConnectClient,
+} from '@/components/nav/components/connect_wallet/wallet_connect_utils';
 
 // Get the keplr chain info from chainConfig
 const {
+  network,
   keplrConfig: { keplr },
 } = chainConfig();
 
@@ -262,7 +266,7 @@ const useConnectWalletList = () => {
         account[0].pubkey as unknown as PubKey, // currently can't obtain pubkey for wallet connect
         'Wallet Connect',
         'Wallet Connect',
-        keplrCustomChainInfo.chainId
+        keplrCustomChainInfo?.chainId ?? network
       );
     }
 

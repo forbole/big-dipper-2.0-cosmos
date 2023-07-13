@@ -1,6 +1,6 @@
 import { ChainInfo } from '@keplr-wallet/types';
 import { SignClient } from '@walletconnect/sign-client';
-import { SessionTypes } from '@walletconnect/types';
+import { SessionTypes, ISignClient } from '@walletconnect/types';
 import chainConfig from '@/chainConfig';
 import { WC_URI } from '@/utils/localstorage';
 import {
@@ -11,6 +11,7 @@ import {
 } from './utils';
 
 const {
+  network,
   keplrConfig: { keplr },
 } = chainConfig();
 
@@ -33,8 +34,8 @@ export async function InitWalletConnectClient() {
   return signClient;
 }
 
-export async function ConnectClient(clientNew: SignClient) {
-  let session: SessionTypes.Struct | null;
+export async function ConnectClient(clientNew: ISignClient) {
+  let session: SessionTypes.Struct | null = null;
 
   try {
     const { uri, approval } = await clientNew.connect({
@@ -42,7 +43,9 @@ export async function ConnectClient(clientNew: SignClient) {
       requiredNamespaces: {
         cosmos: {
           methods: ['cosmos_getAccounts', 'cosmos_signAmino', 'cosmos_signDirect'],
-          chains: [`cosmos:${keplrCustomChainInfo.chainId}`],
+          chains: keplrCustomChainInfo
+            ? [`cosmos:${keplrCustomChainInfo.chainId}`]
+            : [`cosmos:${network}`],
           events: [],
         },
       },
