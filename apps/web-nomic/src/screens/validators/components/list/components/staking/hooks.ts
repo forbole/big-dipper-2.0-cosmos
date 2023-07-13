@@ -160,7 +160,7 @@ const useStakingHooks = (_validators?: ItemType[], _delegations?: ValidatorsAvat
     // let result;
 
     try {
-      client = (await getClient(chainID, 'unom')) as SigningStargateClient; //TODO pass mint denom from config
+      client = (await getClient(chainID, 'unom')) as SigningStargateClient; // TODO pass mint denom from config
     } catch (e) {
       setErrorMsg((e as Error).message);
       return;

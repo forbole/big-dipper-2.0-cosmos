@@ -1,8 +1,7 @@
 import { atom, useRecoilValue, useSetRecoilState } from 'recoil';
-import { SignClient } from '@walletconnect/sign-client';
-import { SessionTypes } from '@walletconnect/types';
+import { SessionTypes, ISignClient } from '@walletconnect/types';
 
-const walletConnectClientState = atom<SignClient | undefined>({
+const walletConnectClientState = atom<ISignClient | undefined>({
   key: 'walletConnectClientState',
   default: undefined,
   dangerouslyAllowMutability: true,
